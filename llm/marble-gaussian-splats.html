@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>三维高斯溅射作为高保真表示 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_marble-gaussian-splats.md.CMqBvzSs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="三维高斯溅射作为高保真表示" tabindex="-1">三维高斯溅射作为高保真表示 <a class="header-anchor" href="#三维高斯溅射作为高保真表示" aria-label="Permalink to &quot;三维高斯溅射作为高保真表示&quot;">​</a></h1><div class="epigraph"><p>高斯溅射是 Marble 世界保真度最高的表示：场景是大量半透明粒子，可在浏览器里渲染。</p><footer>—— World Labs，Marble: A Multimodal World Model</footer></div><p>Marble 把生成结果写成可带走的三维，而不是只留在服务端的一次会话。在可选表示里，三维高斯溅射（3D Gaussian Splatting, 3DGS）被指定为高保真外观通道：用大量各向异性的半透明高斯粒子描述场景，光栅化后接近训练或生成时看到的观感。网格更利于碰撞与工业软件，但要达到同样的视效通常更贵、更易在细结构和半透明上让步。本篇只写溅射作为高保真表示：它是什么、为何适合生成式世界、以及保真与可编辑性之间的账。浏览器里的具体渲染器是另一件事。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>神经辐射场把世界写成沿射线积分的连续场，画质可以很高，查询一次新视角却要很多次网络前向，不适合当「导出后随便转」的资产。三角网格反过来：到处都能进引擎，但高视效依赖密几何加复杂材质；生成模型直接吐出这种资产，拓扑和 UV 往往经不起看。需要一种表示，既是真正的三维（转相机不是再跑生成），又能以可接受的速度画出细小结构和视角相关外观。</p><p>Kerbl 等人 2023 年的工作把场景参数化成三维高斯集合，用投影与 \(\alpha\) 混合做实时辐射场渲染，证明这条路可以在显式原语上追上神经场的观感，同时保持光栅化的速度。生成式世界产品选它当最高保真导出，是因为它同时满足「是资产」和「看起来像生成时那样」。问题变成：这些粒子在几何上有多「真」，以及何时应降级到网格。</p><h3 id="粒子不是实体碰撞体" tabindex="-1">粒子不是实体碰撞体 <a class="header-anchor" href="#粒子不是实体碰撞体" aria-label="Permalink to &quot;粒子不是实体碰撞体&quot;">​</a></h3><p>每个高斯有位置、协方差（椭球形状）、不透明度与颜色（可带视角项）。密集叠在一起时，人眼看到的是表面；物理引擎看到的是一堆没有干净内外的概率云。高保真因此专指<strong>外观</strong>保真：新视角下的光度一致性、细结构、半透明。它不自动等于可仿真的实体。把溅射点数当成「几何分辨率」会误导：点数多主要是为了把外观残差打下去，不是为了给出流形表面。</p><p><span class="marginnote">Kerbl et al., <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em>，SIGGRAPH / ACM TOG 2023。不要给 Marble 的产品导出另编一篇不存在的 3DGS 论文号；产品用的是这一表示族。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="原语与图像形成" tabindex="-1">原语与图像形成 <a class="header-anchor" href="#原语与图像形成" aria-label="Permalink to &quot;原语与图像形成&quot;">​</a></h3><p>记第 \(i\) 个高斯均值为 \(\mu_i\)，协方差 \(\Sigma_i\)，不透明度 \(o_i\)。投影到相机后，在像素上按深度排序做 \(\alpha\) 混合。沿一条像素上的序 \(1\ldots N\)，</p> \[C=\sum_{i=1}^{N} c_i\,\alpha_i\prod_{j=1}^{i-1}(1-\alpha_j), \]<p>其中 \(\alpha_i\) 由 \(o_i\) 与二维投影高斯在该像素的值决定，\(c_i\) 是该高斯的颜色。这与体积渲染的前向混合同构，但求值是溅射而不是沿射线步进神经网络。实时来自：原语显式、可排序、可在 GPU 上光栅化。</p><p>Marble 世界导出为这样的集合。生成器直接优化或预测这些参数，使在训练相机或提示约束下 \(C\) 好看。用户带走的文件就是粒子云，而不是必须带着原生成网络才能重绘。配额上，产品界面会显示当前 splats 用量与上限——大世界、细表面会先碰到计数墙，而不是先碰到「网格面数」墙。</p><h3 id="为何生成式世界偏爱它" tabindex="-1">为何生成式世界偏爱它 <a class="header-anchor" href="#为何生成式世界偏爱它" aria-label="Permalink to &quot;为何生成式世界偏爱它&quot;">​</a></h3><p>生成过程本来就在多视角外观上受监督（提示图、视频帧、或自身渲染）。3DGS 的参数与这项损失同构：改一个高斯，立刻改附近像素。网格还要额外过重建、重拓扑、烘焙法线，每一步都丢生成器真正拟合过的外观。半透明、绒毛、远景的体积感，用高斯叠层比用切面更容易装。高保真在这里的意思是：少做一层「变成工业网格」的有损转码。</p><div class="mermaid"></div><p><span class="marginnote">同一世界仍可再导出网格。那是另一条合同：能进 DCC 与碰撞。本篇的命题只是：若问「看起来最像 Marble 里看到的那个世界」，答案是溅射，不是简化碰撞体。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>各向异性协方差让单个原语能贴薄表面：沿切向铺开、沿法向压扁，用很少点数近似一块墙。各向同性点云要密一个数量级才有类似的边。这是保真对参数效率的来源。优化或生成时，分裂与剪枝控制密度：需要细节的地方多高斯，平坦墙面少高斯。生成式管线若省略自适应密度，大平面会要么过拟合成斑，要么糊成一团。</p><p>视角相关颜色（球谐等）让高光随相机走，而不把高光烤死在表面。这对「看起来真」贡献很大，对「这是什么几何」贡献很小——换光照或进路径追踪时，烤进去的高光会错。高保真因此有范围：保的是在类似观察条件下的渲染，不是任意重打光的物理材质。产品用溅射预览世界，正是接受这一范围。</p><h3 id="与网格的信息差" tabindex="-1">与网格的信息差 <a class="header-anchor" href="#与网格的信息差" aria-label="Permalink to &quot;与网格的信息差&quot;">​</a></h3><p>网格要的是表面：流形、法线、可选 UV。从高斯抽表面是额外的几何推断，必然平滑掉薄结构和半透明层。信息差不是实现马虎，是表示轴不同。若先网格后贴图去追溅射观感，等于放弃 3DGS 的主优势。正确的分层是：外观主本在高斯；需要实体时另出视觉网格与碰撞网格。后文专写双网格；此处只需承认高保真通道不与碰撞通道共用一份原语。</p><p><span class="marginnote">点数上限会逼你在「更大」和「更清」之间选。Composer 拼大地图时尤其明显：重叠不删，计数先爆，保真在接缝处反而下降——重影不是更高保真。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>3DGS 不是度量重建的替代物。椭球中心可以漂在真实表面附近，尺度误差对视觉不敏感、对机械臂敏感。需要 CAD 精度时，溅射只能当参考外观。它也不是通用材质表示：换环境光、做全球光照，应在网格或其它着色器里重做，不要期望粒子云自动变成 BSDF。</p><p>编辑粒度是粒子级或区域级，不是「这张椅子的 CAD 零件」。局部删除用笔刷抹溅射，可能在边缘留下毛边；结构化编辑更适合回到生成器或网格侧。文件体积随点数涨，移动端与浏览器要靠量化、层次与视锥剔除——那是运行时，不改变「主保真表示是高斯」这一选择。</p><p>不要把 2023 年论文的实时演示规格直接写成 Marble 的规格。论文用已知多视图优化场景；Marble 用生成模型给出高斯。优化充分的捕获场景，与一次生成的世界，空洞分布不同。评测应对着生成相机与用户新相机分开看：训练视角漂亮只说明拟合，新视角才说明作为三维表示是否站得住。</p><p>本篇不写 Spark 如何在 THREE.js 里画这些粒子，也不写从高斯抽网格的算法细节。结论只有一条：在 Marble 的导出菜单里，要外观保真，选三维高斯溅射。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三维高斯溅射是 Marble 标明的高保真世界表示：半透明各向异性粒子加溅射合成。</li><li>图像形成是排序后的 \(\alpha\) 混合，与体积渲染同构，但走光栅化。</li><li>保真主指外观与新视角一致性，不指碰撞或可重打光的物理材质。</li><li>Kerbl 等人 2023 年给出这一表示族的实时渲染基础；产品导出属于该族，没有另造的论文号。</li><li>网格是另一合同；从溅射转网格通常有损于绒毛、半透明与细结构。</li><li>出处：Kerbl et al., <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em>, 2023；World Labs Marble 博文 Exporting Worlds 一节。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

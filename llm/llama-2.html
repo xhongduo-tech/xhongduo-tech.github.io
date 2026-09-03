@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Llama 2 GQA 与对话 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llama-2.md.CiLsuRoc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="llama-2-gqa-与对话" tabindex="-1">Llama 2 GQA 与对话 <a class="header-anchor" href="#llama-2-gqa-与对话" aria-label="Permalink to &quot;Llama 2 GQA 与对话&quot;">​</a></h1><div class="epigraph"><p>我们发布 Llama 2 基础模型与从中微调的对话模型；较大档用分组查询注意力压 KV，对话档用 SFT 与 RLHF 对齐到有用且更安全的助手。</p><footer>—— 综合 Touvron et al., Llama 2, 2023</footer></div><p>Llama 1 把密集块定下来，但服务 70B 级生成时，<a href="/llm/mha">MHA</a> 的 KV 缓存随头数膨胀，而基础模型也不会聊天。Touvron 等人 2023 年 7 月的 Llama 2 做了两件产品上必须同时交的事：把 34B 与 70B 的注意力改成 <a href="/llm/gqa">GQA</a>，并把同一套预训练权重送进监督微调与基于人类反馈的强化学习，得到 Llama 2-Chat。上下文从 2048 加到 4096，预训练约 2T token。本篇只写 GQA 与对话对齐这两条，不把下一代的词表与数据规模提前写进来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>70B 若仍 64 个 KV 头，decode 每步要搬的字节把并发和上下文长度一起卡死。MQA 把头压到 1，带宽最低，质量掉得明显，张量并行也不好切。需要一档中间共享：查询头保持容量，KV 头降到可服务的整数。Ainslie 等人 2023 年的 GQA 已经给出分组结构；Llama 2 要决定在哪些尺寸启用、组数取多少，以及预训练是否从零按 GQA 训（而不是只在推理时改图）。</p><p>第二问题是基础模型的接口。预训练最大化 \(p(x_{t+1}\mid x_{\le t})\)，不会拒绝有害请求，也不会按「助手」口吻结束回合。对话产品需要另一套目标：在提示格式下更有用、更安全，且多轮时不忘掉系统约束。这不能靠再堆 2T 网页解决，必须用人标数据改策略分布。</p><h3 id="两条线不要并成一句「llama-2-更强」" tabindex="-1">两条线不要并成一句「Llama 2 更强」 <a class="header-anchor" href="#两条线不要并成一句「llama-2-更强」" aria-label="Permalink to &quot;两条线不要并成一句「Llama 2 更强」&quot;">​</a></h3><p>GQA 几乎不改「会什么」，改的是 70B 能不能上线。SFT/RLHF 几乎不改「KV 多少字节」，改的是会不会当助手。评测应分开：预训练基准上看 GQA 档与 MHA 小档的知识；对话基准上看 Chat 相对基础模型的有用性与安全。用 Chat 的 MT-Bench 去证明 GQA 正确，或用 MMLU 去证明 RLHF 成功，都是张冠李戴。</p><p><span class="marginnote">公开权重是 7B、13B、70B；论文写了 34B 也用 GQA，但该档未作为同样的开放下载强调。7B/13B 仍是 MHA。不要写成「Llama 2 全部 GQA」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>GQA.</strong> 34B 与 70B 使用分组查询：查询头 \(h_q\) 分成 \(h_{\mathrm{kv}}\) 组，70B 取 \(h_{\mathrm{kv}}=8\)，组大小 \(g=h_q/h_{\mathrm{kv}}\)。组内</p> \[\mathrm{head}_i=\mathrm{softmax}\bigl(Q_i K_g^\top/\sqrt{d_k}\bigr)V_g. \]<p>预训练即按此结构训，不是把 Llama 1 的 65B MHA 临时改图。块的其余部分沿用 Llama 1：Pre-RMSNorm、RoPE、SwiGLU、无 bias。上下文 4096，RoPE 的可表示相对距离跟着加长。</p><p><strong>对话。</strong> 先收集高质量指令示范做 SFT。论文强调示范质量优于堆数量，SFT 标注大约 2.7 万量级的高质样本，而不是百万级嘈杂指令。然后训奖励模型，用人类对同一提示下两个回复的比较，分别针对有用性与安全性，再以 PPO 一类 RLHF 最大化奖励、并用 KL 项把策略留在 SFT 附近：</p> \[\max_\pi\;\mathbb{E}\bigl[r(x,y)\bigr]-\beta\,\mathrm{KL}\bigl(\pi(\cdot\mid x)\|\pi_{\mathrm{SFT}}(\cdot\mid x)\bigr). \]<p>多轮对话用 Ghost Attention 一类技巧，把系统消息在后续轮次里重新插入注意力，减轻「第一轮遵守、第三轮忘掉人设」的漂移。迭代：新策略出样本，再标、再训奖励、再 PPO。</p><div class="mermaid"></div><h3 id="为何大档才-gqa" tabindex="-1">为何大档才 GQA <a class="header-anchor" href="#为何大档才-gqa" aria-label="Permalink to &quot;为何大档才 GQA&quot;">​</a></h3><p>小模型 decode 的 KV 绝对值还没把显存打满，MHA 的质量边际更值钱。70B 的层数与头数把缓存变成服务约束，8 个 KV 头把体积打到 MHA 的一个分数，同时保留多套键子空间。这与 GQA 原文的「质量–带宽甜点在中等 \(h_{\mathrm{kv}}\)」一致。从零训 GQA 避免了均值池化转化的创伤，代价是不能把 Llama 1 65B 当初始化——尺寸与头结构都对不齐，Llama 2 是新预训练。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>GQA 组内像 MQA：多个查询抢同一份记忆；组间像 MHA：8 套记忆可分化。70B 的 8 KV 头成为后来开源稠密大模型的默认抄作业数字，不是因为 8 有理论最优，而是因为它在张量并行（例如 TP=8 时每卡一头 KV）与质量曲线上同时好用。上下文 4096 使 RoPE 在更长相对距离上要保持可用分数，这是位置几何问题，靠更长预训练窗口而不是靠 GQA。</p><p>RLHF 改的是 \(y\) 的分布，不是注意力头数。SFT 已经把格式、拒答、逐步推理的种子种上；奖励模型把人类比较变成可微标量；PPO 在 KL 球里推策略。安全与有用分开建奖励，是因为两者经常打架：过度安全的模型会拒答无害请求。Ghost Attention 针对多轮：系统约束若只出现在很早的 token，后续查询对它的注意力会稀释，显式重插等于把约束又放进近期 KV。</p><p><span class="marginnote">约 2.7 万 SFT 样本能工作，前提是标注极干净且覆盖产品意图。这不能推广成「指令微调都不需要大数据」。嘈杂公开指令集仍常被用来做 ablative 对照，论文的观点是：脏数据堆上去会污染风格，RLHF 也救不回。</span></p><h3 id="基础模型与-chat-不要混着量化" tabindex="-1">基础模型与 Chat 不要混着量化 <a class="header-anchor" href="#基础模型与-chat-不要混着量化" aria-label="Permalink to &quot;基础模型与 Chat 不要混着量化&quot;">​</a></h3><p>服务时 Chat 与基础模型检查点不同，词表相同、结构相同，KV 形状相同，所以 GQA 内核可共用。系统提示、停止符、安全分类器是 Chat 路径上的附加物。对基础模型做补全评测时加 Chat 模板，分数会失真；对 Chat 做纯续写评测时去掉模板，也会失真。GQA 的正确性应用 decode 显存与吞吐说话，对话质量应用人类或裁判模型说话。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>GQA 不减少随长度线性增长的那一维，只减小斜率。4096 仍短，长文档要切段。RLHF 不能当知识注入：事实仍主要来自 2T 预训练，对齐阶段数据小，胡编可以通过拒答与风格被压，但知识截止日期不会因此变成标注日。奖励模型过拟合、策略对奖励 hacking，是 RLHF 的常规失败，论文用迭代与分开的安全奖励缓解，不是根除。</p><p>34B 未同样开放，使「GQA 从哪一档开始划算」少了一个公开锚点。7B Chat 仍有用，但 KV 收益主要在 70B。许可证相对 Llama 1 更面向商业可接受使用，那是发布政策，不改变 GQA 公式。多轮 Ghost Attention 是训练/推理约定，迁移到其他对话模板时要复现插入规则，否则系统人设仍会漂。</p><p><span class="marginnote">不要把 Llama 2-Chat 的 RLHF 写成后来所有对话模型的同款配方。DPO 等直接偏好优化是后续路线。本篇停在 2023 年论文采用的 SFT + 奖励模型 + PPO。</span></p><p>比较 Llama 1 65B 与 Llama 2 70B 时，同时变了数据量、上下文、GQA 与对齐，无法做单因素消融。能单独说的只有：大档结构是 GQA；对话产品走 SFT/RLHF。其余增益要当捆绑包。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Llama 2 大档（34B/70B）用 GQA，70B 为 8 个 KV 头；7B/13B 仍为 MHA。</li><li>预训练约 2T token，上下文 4096，块配方继承 Llama 1。</li><li>对话模型经高质量小规模 SFT，再经有用性/安全性奖励与 PPO 式 RLHF。</li><li>GQA 解决 decode 缓存；SFT/RLHF 解决助手行为，评测必须拆开。</li><li>Ghost Attention 一类方法针对多轮系统约束被稀释。</li><li>RLHF 不延长知识截止日期，GQA 不解决长度平方级注意力。</li><li>出处：Touvron 等，<em>Llama 2: Open Foundation and Fine-Tuned Chat Models</em>，2023；GQA 结构见 Ainslie 等，2023。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

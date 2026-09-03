@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GPU / AI 加速 OPC（cuLitho 等） | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_computational-litho-gpu.md.D3Z4mOzk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="gpu-ai-加速-opc-culitho-等" tabindex="-1">GPU / AI 加速 OPC（cuLitho 等） <a class="header-anchor" href="#gpu-ai-加速-opc-culitho-等" aria-label="Permalink to &quot;GPU / AI 加速 OPC（cuLitho 等）&quot;">​</a></h1><div class="epigraph"><p>计算光刻是半导体里最重的高性能计算负载之一：一张掩模的光学邻近修正可以消耗数万 CPU 核时。把同样的物理模型搬到 GPU 上，日历才能跟上班次。</p><footer>—— 对照 NVIDIA cuLitho 与代工厂公开的计算光刻加速论述</footer></div><p><a href="/llm/opc">OPC</a>、<a href="/llm/smo">SMO</a>、<a href="/llm/ilt-curvilinear">ILT</a> 的前向核是反复求空中像与抗蚀剂轮廓。全芯片上这是 \(10^{12}\) 量级的像素—衍射运算，历史上靠 CPU 农场按周跑。节点越紧、EUV 掩模 3D 越贵、曲线变量越多，计算量比晶体管密度涨得更快。NVIDIA 与代工厂、EDA 合作的 cuLitho 一类栈，把成像与优化核映射到 GPU：目标不是换一套更糙的模型，而是让全芯片 ILT 和隔夜 OPC 变成可排产的工序。AI 另开一轨：用学习模型逼近胶轮廓或给逆问题暖启动，但量产仍要物理模型收口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>计算光刻的墙有三块。时间：TAPOUT 到回片的日历里，OPC 不能占掉一截不可预测的周。精度：加速若靠降采样或丢掉掩模 3D，EPE 会把工艺窗口吃掉，加速无意义。规模：单层全芯片加扰动（剂量、焦点、掩模误差）是参数扫描，CPU 线性加核很快碰到机房与电费。EUV 之后前向更贵（多层膜、斜入射），ILT 又要梯度，需求从「能跑」变成「能在班次内跑完」。</p><p>传统 CPU 实现把 clips 分包到核上，成像核的算术强度其实适合 GPU：TCC 卷积、厚掩模近场、轮廓提取，都是规则网格上的密集运算。问题是软件栈：EDA 与代工厂的校准模型、MRC、数据格式绑在 CPU 流水线上，不是把 CUDA 核写出来就结束。</p><h3 id="加速必须保持同一物理合同" tabindex="-1">加速必须保持同一物理合同 <a class="header-anchor" href="#加速必须保持同一物理合同" aria-label="Permalink to &quot;加速必须保持同一物理合同&quot;">​</a></h3><p>把网格加粗一倍可以立刻「快四倍」，那不是 cuLitho 要卖的东西。合同是：同一套光学与胶模型、同一套 PV-band 指标，墙钟下降一个数量级。任何 AI 替代若不能在计量点上对上物理模拟，就只能当提议器，不能当签核器。</p><p><span class="marginnote">不要把「GPU 光刻」理解成用生成模型直接画掩模。cuLitho 公开表述的重心是物理计算光刻的 GPU 化。学习模型可以加速或初始化，签核仍落在校准过的成像上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>GPU 路径把场切成与片上内存匹配的砖块，在砖内做光学传播与胶模型，砖间按光学直径交换晕区，避免邻近被切开。SMO/OPC 的迭代在 GPU 上更新边或像素，减少往 CPU 搬轮廓。ILT 的伴随成像与前向共用同一套传播核，梯度不再是CPU 上的二流实现。NVIDIA 公开的合作图景是：代工厂提供模型与产线约束，EDA 把流程接进 GPU，硬件提供吞吐。</p><p>AI 方法大致三类。端到端：图像到掩模，难保证 MRC 与窗口。算子替代：用网络近似抗蚀剂或蚀刻偏置，物理光学仍精确算，这是最容易签核的。暖启动：网络给出接近的曲线或 SRAF，物理 ILT 少迭代几轮。量产更可能是后两类。无论哪类，训练数据必须覆盖剂量焦点角与层别，否则网络会背下某一层的指纹。</p><h3 id="全芯片、热区与隔夜窗" tabindex="-1">全芯片、热区与隔夜窗 <a class="header-anchor" href="#全芯片、热区与隔夜窗" aria-label="Permalink to &quot;全芯片、热区与隔夜窗&quot;">​</a></h3><p>工程切分是：常规 OPC 全芯片走 GPU 以压缩日历；ILT 先热区，算力富余再扩层。隔夜窗（一次班次内出齐一层）是真正的产品指标，比峰值 TFLOPS 重要。数据准备、<a href="/llm/multibeam-mask-writer">多束位图</a> 与 GPU 成像若不同步，GPU 只会提前把队列堆到掩模厂门口。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>空中像计算在 discrete 上接近卷积或特征分解后的乘加，算术强度高，吃得满 Tensor Core 或等价矩阵单元。瓶颈常在：不规则多边形光栅化、MRC 投影、以及与 CPU 侧网表/分层的往返。成功的加速是把「可规则化的物理核」留在 GPU，把「稀疏离散约束」做成能融合的投影，而不是整条 EDA 流程无脑搬。</p><p>AI 替代胶模型之所以诱人，是因为胶与蚀刻的紧凑模型本就是拟合物，见 Mack 对抗蚀剂模型层次的划分：它们从来不是第一性原理。用网络拟合更多计量，只要在签核域内插值、在域外拒绝，就能降前向成本。危险是外推：新胶、新硬掩模、新随机配方，网络会给出看起来光滑的错轮廓，ILT 会把错当目标去反演。</p><p><span class="marginnote">计算光刻的「正确」以晶圆计量为准，不以 GPU 与 CPU 的比特一致为准。浮点顺序不同导致的亚纳米差，要用 EPE 分布衡量，而不是要求逐像素复现 CPU 参考。</span></p><h3 id="与工厂日历的耦合" tabindex="-1">与工厂日历的耦合 <a class="header-anchor" href="#与工厂日历的耦合" aria-label="Permalink to &quot;与工厂日历的耦合&quot;">​</a></h3><p>加速改变的是迭代次数预算：以前只能做两轮 OPC 的层，现在可以做鲁棒 ILT。收益应体现在窗口与热区数量，而不是只报「快 40 倍」。倍数依赖层别、是否 EUV 3D、是否曲线；把某一演示倍数写进所有层的计划，会在最重的层上再次超期。</p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>GPU 不降低模型校准的实验成本，也不消除随机效应：均值轮廓算得再快，缺失孔仍要剂量与 <a href="/llm/euv-resist">胶化学</a>。出口管制与机房功耗会限制谁能建这种农场；计算光刻能力会像 EUV 机台一样成为稀缺资本，而不只是软件许可证。</p><p>EDA 三家与代工厂各有自己的 GPU 或加速路线，cuLitho 是其中被公开最多的名词，不是物理上的唯一解。评估应对齐：同一层、同一模型、同一 EPE，比较墙钟与窗口，而不是比较新闻稿倍数。AI 若进入签核路径，要有域外检测，避免逆问题把幻觉刻进掩模。</p><p><span class="marginnote">引用 cuLitho 或同类加速时写清：加速的是 OPC、ILT 还是 SMO，是否含掩模 3D，对比基线是多少 CPU 核。只报「四十倍」而不报工作负载，无法规划产能。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>全芯片 OPC/ILT 是规则网格上的重计算，适合 GPU；日历约束比峰值算力更硬。</li><li>加速合同是同一物理模型下的墙钟下降，而不是加粗网格。</li><li>AI 宜做胶近似或暖启动，签核仍用校准成像；端到端生成难进量产。</li><li>分砖晕区、MRC 与 CPU 往返决定实际倍速，不只是 TFLOPS。</li><li>加速必须与多束写入、数据准备同一张产线表。</li><li>收益应落在工艺窗口与热区，而不是演示倍数。</li><li>出处：NVIDIA cuLitho 公开材料；Mack 光刻模型层次；代工厂计算光刻公开表述。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

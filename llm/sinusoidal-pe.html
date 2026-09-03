@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正弦位置编码 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sinusoidal-pe.md.B-HU2X8c.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="正弦位置编码" tabindex="-1">正弦位置编码 <a class="header-anchor" href="#正弦位置编码" aria-label="Permalink to &quot;正弦位置编码&quot;">​</a></h1><div class="epigraph"><p>用一组几何级数频率上的正弦和余弦，把下标写成没有参数的坐标。</p><footer>Vaswani 等，Attention Is All You Need，2017</footer></div><p>Vaswani 等人不用位置表，而用一组几何级数频率上的正弦与余弦，把下标写成没有参数的曲线。公式对任意 \(pos\) 有定义，并附带一个线性代数命题：相对位移对应编码空间里与起点无关的线性映射。后来的外推实验表明，「有定义」和「训练过的相位」不是一回事。本篇只展开这套 2017 年的公式，以及它作为绝对编码的限度。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Transformer 需要位置，又不希望位置表随 \(L_{\max}\) 引入大量参数，更希望任意长度在公式上「有定义」。Vaswani 等给出的方案是固定的正弦位置编码：每个下标 \(pos\) 映射到一组 \(\sin/\cos\)，频率按维度呈几何级数。没有嵌入表，没有随长度增长的参数，理论上 \(pos\) 可以取任意正整数。</p><p>问题于是从「位置怎么学」变成「这组函数是否把相对位移暴露给线性注意力」。论文给出一个线性代数上的希望：存在与 \(pos\) 无关的线性变换，能把 \(PE_{pos}\) 映到 \(PE_{pos+k}\)。若注意力能利用这个结构，模型就可以在绝对公式里读出相对距离。本篇只讨论这套公式本身：它如何构造、希望在哪里、以及它作为绝对编码为何仍然外推失败。</p><p><span class="marginnote">正弦 PE 是绝对的：向量仍由单个下标生成，不是由 \((i-j)\) 生成。相对性只是一个关于线性映射的命题。</span></p><h3 id="要一条对任意长度有定义的曲线" tabindex="-1">要一条对任意长度有定义的曲线 <a class="header-anchor" href="#要一条对任意长度有定义的曲线" aria-label="Permalink to &quot;要一条对任意长度有定义的曲线&quot;">​</a></h3><p>可学习表在 \(L_{\max}\) 处截断。若目标是机器翻译里偶发的更长句，表必须提前开得足够大，或测试时截断。正弦曲线没有截断点，这是它被选中的工程动机之一，独立于后来是否真的能外推。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对维度 \(d_{\mathrm{model}}\) 的偶数下标，定义</p> \[PE_{(pos,\,2i)} = \sin\bigl(pos / 10000^{2i/d}\bigr),\qquad PE_{(pos,\,2i+1)} = \cos\bigl(pos / 10000^{2i/d}\bigr), \]<p>其中 \(i = 0, \ldots, d/2-1\)，\(d = d_{\mathrm{model}}\)。基数 \(10000\) 把最低频的周期拉到大约 \(2\pi \times 10000\) 个位置，最高频接近每个位置一个弧度。相邻维度构成一对 \((\sin \theta, \cos \theta)\)，等价于平面上的一个点，角度 \(\theta = pos \cdot \omega_i\)，\(\omega_i = 10000^{-2i/d}\)。</p><p>编码与 token 嵌入相加后进入第一层。公式在训练中不更新——这是「编码」而不是「嵌入」的本意。整张模型对位置的利用，完全来自后续线性层与注意力如何读这组固定坐标。</p><h3 id="几何级数而不是线性频率" tabindex="-1">几何级数而不是线性频率 <a class="header-anchor" href="#几何级数而不是线性频率" aria-label="Permalink to &quot;几何级数而不是线性频率&quot;">​</a></h3><p>若频率均匀排布，相邻位置在所有维度上的相位差接近，表示会高度相关。几何级数让不同维度对应差几个数量级的周期：低维变化慢，编码粗粒度的位置；高维变化快，编码局部次序。这与傅里叶特征、与后来 RoPE 的频率谱是同一类构造，差别在用法：正弦 PE 把 \((\sin,\cos)\) <strong>加到内容上</strong>；RoPE 用同样的角度去<strong>旋转</strong> QK。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="相对位移的线性论证" tabindex="-1">相对位移的线性论证 <a class="header-anchor" href="#相对位移的线性论证" aria-label="Permalink to &quot;相对位移的线性论证&quot;">​</a></h3><p>固定 \(k\)，考虑平面 \(i\) 上从角度 \(pos\cdot\omega_i\) 转到 \((pos+k)\cdot\omega_i\)。二维旋转矩阵</p> \[R(k\omega_i) = \begin{pmatrix} \cos k\omega_i &amp; -\sin k\omega_i \\ \sin k\omega_i &amp; \cos k\omega_i \end{pmatrix} \]<p>满足 \(R(k\omega_i)\, PE^{i}_{pos} = PE^{i}_{pos+k}\)。块对角地拼起来，就存在与 \(pos\) 无关的线性映射 \(T_k\)，使得 \(T_k\, PE_{pos} = PE_{pos+k}\)。这是 Vaswani 等写下正弦（而不是随机绝对向量）的理论理由：相对位移对应位置编码空间里的同一线性变换。</p><p>注意力并不直接乘 \(T_k\)。它乘的是学出来的 \(W_Q, W_K\)。论证给出的是<strong>表示里存在相对几何</strong>，不是优化会把它当成相对位置来用。实践中模型可以把正弦当绝对名字用，忽略 \(T_k\)。</p><p><span class="marginnote">\(10000\) 与 \(d\) 一起决定频谱。改基数等于改「第几维对应多长的周期」，与 RoPE 改 base 是同一旋钮，作用点不同。</span></p><h3 id="外推承诺落在绝对契约上" tabindex="-1">外推承诺落在绝对契约上 <a class="header-anchor" href="#外推承诺落在绝对契约上" aria-label="Permalink to &quot;外推承诺落在绝对契约上&quot;">​</a></h3><p>公式对 \(pos &gt; L_{\mathrm{train}}\) 有定义，不等于模型见过对应的相位组合。高频维在训练长度内可能已经转过多圈，低频维在超长 \(pos\) 上才进入新的区间。Press 等的短训长测里，正弦绝对 PE 与可学习绝对表一样，在超出训练长度后崩溃。有定义的曲线没有带来可用的长度外推。失败应记在「绝对相加」上，而不是记在 \(\sin\) 函数上——后来 RoPE 用旋转而不是相加，同一类频率可以工作得完全不同。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>正弦 PE 的优点：零位置参数、实现极简、与深度解耦、对固定长度任务足够。缺点：作为绝对编码，长度一变就要面对未训练相位；与内容相加会污染语义通道，位置与词向量抢同一组维度；没有门控，无法按层或按头关闭位置。</p><p>工程上，2017 年的 \(10000\) 是启发式，不是最优周期。翻译任务的长度分布集中，频谱够用。把它原样搬到四千、三万上下文的 Decoder 上，低频维几乎不转、高频维转得过密，都可能发生。调基数会改善频谱覆盖，但调的仍是绝对曲线，不能把它变成相对注意力。要相对几何，需要改注入方式（偏置、旋转），而不是只改 \(10000\)。</p><p><span class="marginnote">不要把正弦 PE 与 RoPE 写成「都是 sin/cos」。一个加在嵌入上，一个乘在 QK 的二维平面上；外推行为因此分叉。</span></p><p>与可学习表相比，正弦少参数、多归纳偏置。在训练长度内，可学习表往往拟合得稍好，因为可以吸收数据里非傅里叶的位置统计。在需要任意 \(pos\) 有定义时，正弦是绝对方案里唯一不改表形状的选择——尽管「有定义」不等于「能外推」。机器翻译那种长度分布窄、偶发超长句需要公式兜底的场景，正弦的原始动机仍然成立；百万上下文的 Decoder 已不是那个场景。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><p>正弦位置编码（Vaswani 等，2017）用 \(\sin(pos\cdot\omega_i)\) 与 \(\cos(pos\cdot\omega_i)\)、\(\omega_i = 10000^{-2i/d}\) 把下标写成无参数的绝对坐标，并证明相对位移对应编码空间中的固定线性映射。它解决的是「位置公式化、不占表」，没有解决绝对坐标的长度外推。Press 等后来的实验把这一点测死。理解后续 RoPE 时，应把正弦当作同一频谱的<strong>相加版祖先</strong>，而不是已经相对化的位置方案。基数 \(10000\) 是这条曲线的默认尺子，不是外推开关。</p></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Triton 写注意力核 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_triton-attention-kernel.md.D5AKGW4i.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="triton-写注意力核" tabindex="-1">Triton 写注意力核 <a class="header-anchor" href="#triton-写注意力核" aria-label="Permalink to &quot;Triton 写注意力核&quot;">​</a></h1><div class="epigraph"><p>用 Python 写出分块循环，编译器负责把块映射到 GPU 的并行层次与共享存储；注意力核因此可以在几天内对齐 FlashAttention 的 IO 结构。</p><footer>—— Tillet, Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations, MAPL 2019</footer></div><p>手写 CUDA 注意力要同时管正确性（在线 softmax）与硬件细节（warp、bank、MMA 布局）。Tillet 的 Triton 把并行模型收成：每个程序实例处理一块数据，<code>tl.load</code> / <code>tl.store</code> 带掩码，编译器插入共享存储与向量化。OpenAI 随后用它把 FlashAttention 写成可阅读的 Python，成为教学与研究里最常见的「可改的注意力核」。本篇写这条路径：Triton 的编程模型如何承载分块 SDPA，以及它相对 CUTLASS / 手写 CUDA 的边界。公式仍是 <a href="/llm/sdpa">缩放点积</a>，算法仍是 <a href="/llm/flashattention">FlashAttention</a> 的 IO 感知分块。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>注意力的朴素 PyTorch 实现物化 \(S=QK^\top/\sqrt{d_k}\) 再 softmax，长度一长就炸显存。融合核必须在片上完成打分与加权，于是出现三重循环：batch/头、query 块、key 块。CUDA 里这三重循环要手工绑定到 grid、CTA、warp，还要处理半精度溢出、因果掩码、变长 padding。研究实验往往只想改一件事——窗口大小、额外偏置、不同的缩放——却被迫 fork 几千行生产核。</p><p>Triton 要降低的是「从伪代码到可跑核」的成本。它不声称自动推出最优注意力：块大小、循环顺序、是否把 \(K\) 转置成对 MMA 友好的布局，仍是作者的选择。它声称的是：这些选择可以用 Python 写出来，用 <code>autotune</code> 扫一组 <code>BLOCK_M, BLOCK_N, BLOCK_D</code>，编译器去管指针对齐与共享存储分配。问题从「会不会写 CUDA」变成「分块数学有没有写对」。</p><h3 id="程序实例与掩码加载" tabindex="-1">程序实例与掩码加载 <a class="header-anchor" href="#程序实例与掩码加载" aria-label="Permalink to &quot;程序实例与掩码加载&quot;">​</a></h3><p>一个 Triton 程序实例通常对应注意力里的一个 query 块（再加 batch、头的索引）。<code>tl.program_id</code> 给出这块在网格中的坐标。加载 \(Q\) 的一块是矩形；加载 \(K,V\) 的一块时，序列尾部可能越界，必须用掩码把越界元素变成 0 或 \(-\infty\)，否则既读脏数据，也会把 softmax 污染。因果掩码是第二张掩码：query 下标小于 key 下标的位置在 softmax 前设为很大的负数。两张掩码写错，核会「能跑、数值 silently 错」——这是 Triton 注意力最常见的调试税。</p><p><span class="marginnote">Tillet 的贡献是编译栈与语言，不是 2022 年那篇 FlashAttention 论文。把 Triton 写成「OpenAI 的注意力算法」会张冠李戴。算法来自 Dao 等人的分块与在线 softmax；Triton 提供把该算法写短、并能在 Ampere 上较快落地的载体。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>典型前向核的结构与 FlashAttention 伪代码对齐。对每个 query 块，在 SRAM（由编译器安排）或寄存器累加器里维护行最大值 \(m\)、指数和 \(\ell\) 与输出块 \(O\)。内循环每次加载一块 \(K,V\)：计算块分数 \(S_{ij}=Q_i K_j^\top \cdot s\)，按掩码改写，更新 \(m\)，把旧的 \(O\) 与 \(\ell\) 按 \(\mathrm{e}^{m_{\mathrm{old}}-m}\) 缩放，累加 \(\mathrm{softmax}\) 局部贡献。扫完 key 后归一化 \(O\)，写回 HBM。反向核要么保存中间，要么像 FlashAttention 那样重算块；教学实现常先写前向。</p><p>缩放 \(s=1/\sqrt{d_k}\) 乘在分数上。半精度路径里，块分数与 softmax 用 FP32 累加，避免 exp 溢出——这与 SDPA 的数值卫生相同，只是发生在 Triton 的 <code>tl.exp</code> 与 <code>float32</code> 累加器上。<code>autotune</code> 装饰器列出若干块大小与 <code>num_warps</code>；运行时按输入形状选一份最快的。变长序列用 <code>seqlen</code> 张量加掩码，而不是先 pad 再靠掩码浪费 MMA。</p><h3 id="能写到哪一步、写不到哪一步" tabindex="-1">能写到哪一步、写不到哪一步 <a class="header-anchor" href="#能写到哪一步、写不到哪一步" aria-label="Permalink to &quot;能写到哪一步、写不到哪一步&quot;">​</a></h3><p>Ampere 上，Triton 注意力可以接近当时的 FlashAttention 实现，因为瓶颈主要是 HBM 与较规整的 MMA，编译器足够好。Hopper 上，手写核开始用 TMA、WGMMA、warp specialization 把流水排满；Triton 的程序模型当时并不能把这些集体指令暴露成一等公民，于是出现「同一算法，CUDA 特化更快」的代差。这不是 Triton 写错了 softmax，而是并行层次的控制权仍有一部分留在编译器里。后来的语言扩展在补这条缝，但写核的人必须知道：Triton 注意力首先是可维护的 IO 感知实现，其次才是冲榜工具。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Triton 把每个程序实例看成 SPMD 的一块工人。编译器分析 <code>tl.load</code> 的范围，决定是否经过共享存储、如何向量化、如何插入同步。作者看到的是 NumPy 风格的块运算；GPU 看到的是 CTA 内的协同。注意力能融合，是因为内循环不把 \(S\) 写回全局内存：分数张量的生命周期被限制在这一实例里。这正是 FlashAttention 的 IO 命题，用语言约束而不是用手工 <code>shared</code> 声明来保证。</p><p>在线 softmax 的递推必须写在 Python 循环里，编译器不会从「我对整行做 softmax」推出分块算法。若有人在 Triton 里先对每个 key 块做局部 softmax 再相加，结果是错的。语言降低的是存储层次的样板，不降低对算法不变量的要求。<code>tl.dot</code> 映射到 Tensor Core（形状允许时），块大小选错会掉到较慢的路径，这就是 autotune 存在的理由。</p><p><span class="marginnote">调试 Triton 注意力，优先对齐数值而不是对齐 TFLOPS。用小尺寸、FP32、关掉因果，和 PyTorch 的 <code>softmax(QK^T)V</code> 逐元素比；再开因果、再降精度。占用率问题放在数值正确之后。静默的掩码错误会被「差不多快」掩盖。</span></p><h3 id="与服务核、教学核的关系" tabindex="-1">与服务核、教学核的关系 <a class="header-anchor" href="#与服务核、教学核的关系" aria-label="Permalink to &quot;与服务核、教学核的关系&quot;">​</a></h3><p>教学与研究：改缩放、加 ALiBi 偏置、改成滑动窗口，Triton 是最快的实验床。训练框架里的 SDPA 后端有时也会调用 Triton 或编译器生成的同类核。服务侧的分页、级联、ragged 调度，Triton 也能写，但页表间接引用与极端特化通常仍由 <a href="/llm/flashinfer">FlashInfer</a> 一类 CUDA 库承担。合理分工是：新注意力变体先在 Triton 里证明质量与大致速度，再决定是否下沉到 CUTLASS 或手写。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Triton 核的启动仍有 Python / 运行时开销；极小张量上不如融合好的 cuDNN。编译缓存冷启动会卡第一次调用。错误信息有时停在编译器中间层，不如 CUDA 的行号直观。多 CTA 协同、持久化核、精细的生产者-消费者流水，表达力弱于 C++。许可证与运行时版本要与 PyTorch 绑定对齐，否则「本机可以、集群不行」。</p><p>不要把 Triton 当成与硬件无关的规范。同一份核在不同 GPU 世代上的块大小必须重 tune；把 autotune 表写死在 A100 上，到 H100 可能变慢。文档与教程里的注意力核默认连续布局、固定头维，接到真实训练还要处理 GQA、dropout、变长、以及反向与梯度检查点的交互。</p><p><span class="marginnote">Triton 的成功容易让人以为「所有核都该用 Python 写」。GEMM 主路径、卷积、以及要对齐 NVIDIA 集体指令的生产注意力，CUTLASS 与汇编级特化仍然在。Tillet 降低的是tiled 算法的实现门槛，不是取消存储层次。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Triton 用 SPMD 块程序与带掩码的 load/store，让 FlashAttention 式分块注意力可以写成短 Python。</li><li>语言管共享存储与向量化；在线 softmax、因果掩码、缩放与精度仍由作者写对。</li><li><code>autotune</code> 扫块大小与 warp 数，不代替算法正确性检查。</li><li>Ampere 上常接近手写 IO 结构；Hopper 集体指令上曾落后于 CUDA 特化，这是控制力边界，不是 softmax 边界。</li><li>适合研究变体与教学；分页服务热路径往往再下沉到专用库。</li><li>数值对齐应先于冲榜；掩码错误是静默的。</li><li>出处：Tillet et al., <em>Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations</em>, MAPL 2019；分块算法见 Dao et al., FlashAttention。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

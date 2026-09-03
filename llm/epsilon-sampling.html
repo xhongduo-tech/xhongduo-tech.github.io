@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Epsilon sampling | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_epsilon-sampling.md.B8aBVXvb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="epsilon-sampling" tabindex="-1">Epsilon sampling <a class="header-anchor" href="#epsilon-sampling" aria-label="Permalink to &quot;Epsilon sampling&quot;">​</a></h1><div class="epigraph"><p>把低于固定地板 $\varepsilon$ 的原子概率视作训练时摊上去的平滑噪声，删掉后再归一化：截断是在推理期做去平滑，而不是另一种温度。</p><footer>—— Hewitt, Manning &amp; Liang, Truncation Sampling as Language Model Desmoothing, 2022</footer></div><p>词表上的语言模型几乎总把正概率分给每一个 token。这是 softmax 与训练平滑的直接后果，不等于模型「认为」每个续写都合理。Hewitt 等人把 truncation sampling 解释为去平滑：选定绝对地板 \(\varepsilon\)，丢掉 \(p(v)&lt;\varepsilon\) 的原子，在剩余支撑上恢复一个更尖的分布。\(\varepsilon\)-sampling 是该框架里最简单的一条规则；同文的 \(\eta\)-sampling 让地板随熵变，见 <a href="/llm/minp-typical">Min-p / \(\eta\)</a>。Holtzman 的 nucleus 切的是累计质量，没有绝对噪声地板。本篇只把 \(\varepsilon\) 这条水平线写清楚：它何时等价于几乎不截断，何时会切空，以及为什么不能用验证集最小概率去「估」\(\varepsilon\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>温度不改变支撑。\(T\to 0\) 在数值上接近贪心，但任何 \(T&gt;0\) 仍给长尾留着正质量，长序列里总会抽到一次。Nucleus 保证核上有质量 \(\tau\)，却不保证核内每个原子都大于某绝对量：为了凑满 \(\tau\)，可以纳入大量 \(10^{-5}\) 量级的碎片。开放生成的胡话往往来自这些碎片，而不是来自核外交界处的某个中等词。需要一条与排序无关的规则：概率已经小到可以当成数值噪声的，直接为零。</p><p>绝对地板的困难是尺度。不同模型、不同温度、不同前缀下，\(p_{\max}\) 可以差一个数量级，同一 \(\varepsilon\) 在尖峰步只切尾巴，在平坦步可能把全部 token 判为噪声。Hewitt 用去平滑来给 \(\varepsilon\) 一个故事：训练相当于在真实的稀疏后续上加了一层平滑，推理把小于平滑幅度的质量当作人为添加而删掉。故事给出数量级直觉（\(\varepsilon\) 应像平滑强度），并不给出可从验证 PPL 反解的公式。\(\varepsilon\) 仍是超参。</p><h3 id="去平滑而不是-map" tabindex="-1">去平滑而不是 MAP <a class="header-anchor" href="#去平滑而不是-map" aria-label="Permalink to &quot;去平滑而不是 MAP&quot;">​</a></h3><p>删小概率原子之后归一化，得到的仍是一个分布，采样仍是随机的。它不是束，也不是贪心。MAP 要的是最大联合概率串；\(\varepsilon\) 只是把逐步分布的支撑变薄。若真实后续本身就有很多近乎等概率的合法词，去平滑不应把它们删光——那要求 \(\varepsilon\) 小于这些合法词的典型质量。若 \(\varepsilon\) 大于合法次优项，算法会退化成近贪心，多样性指标变好看，任务覆盖变差。这是绝对阈值相对 nucleus 更「脆」的原因。</p><p><span class="marginnote">\(\varepsilon\) 作用在概率上，不是 logits 上。先温度再 softmax 再比 \(\varepsilon\)。对 logits 做 <code>max(logit, c)</code> 没有去平滑解释，也不与论文定义等价。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令 \(p=\mathrm{softmax}(z/T)\)。支撑</p> \[A=\{v:p(v)\ge\varepsilon\}, \]<p>若 \(A\) 为空（整个分布都低于 \(\varepsilon\)），回退到 \(\{ \arg\max p\}\) 或临时降低 \(\varepsilon\)。然后</p> \[\tilde p(v)=\frac{p(v)\mathbf{1}_{v\in A}}{\sum_{u\in A}p(u)}, \]<p>从 \(\tilde p\) 采样。\(\eta\)-sampling 把 \(\varepsilon\) 换成 \(\min(\varepsilon,\sqrt{\varepsilon}\,\mathrm{e}^{-H})\)，平坦时少切、尖峰时至少切 \(\varepsilon\)。Min-\(p\) 把绝对地板换成 \(p_{\mathrm{base}}p_{\max}\)。三者实现同为掩码加归一化，差别只在门槛是否依赖 \(H\) 或 \(p_{\max}\)。</p><p>与 nucleus 组合时，最终支撑是交集。常见安全做法是只开一种截断。若必须组合，应定义次序：先 \(\varepsilon\) 再按质量取核，或先核再 \(\varepsilon\)。先核再 \(\varepsilon\) 可能把核内碎片再删一遍，核质量不再是 \(\tau\)；先 \(\varepsilon\) 再核，质量预算是在已去平滑的分布上算的，更符合「先去噪再取核」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>softmax 把任意 logits 变成满支撑。标签平滑、大词表、多义续写，都会让真实上接近零的项变成 \(10^{-6}\)–\(10^{-8}\)。在长度为几百的序列上，每步哪怕只有 \(10^{-4}\) 的机会抽到噪声 token，累积后几乎必然出现一次明显跑题。\(\varepsilon\) 把单步噪声机会打到零（在门槛以上的支撑内）。它不处理「噪声其实概率为 \(0.02\)」这种情况——那已经不是平滑尾巴，而是模型真的不确定，应留给温度或 \(\eta\)。</p><p>去平滑解释的形式侧面是：存在一个稀疏的「未平滑」分布 \(p^*\)，观测到的 LM 分布是 \(p^*\) 与均匀或其它核的混合。当混合权重小时，小于某 \(\varepsilon\) 的原子更可能来自混合而不是 \(p^*\)。该模型是启发式的，真实 LM 并不是均匀混合。它的用处是禁止把 \(\varepsilon\) 调到 \(10^{-2}\) 还声称「只是去噪」——那已经在删合法质量。数量级上，\(10^{-4}\)–\(10^{-3}\) 更符合「尾巴」；再大就要当明确的截断强度来扫，并与 nucleus 的 \(\tau\) 对照着看重复率与胡话率。</p><h3 id="温度把-变成另一条曲线" tabindex="-1">温度把 \(\varepsilon\) 变成另一条曲线 <a class="header-anchor" href="#温度把-变成另一条曲线" aria-label="Permalink to &quot;温度把 $\varepsilon$ 变成另一条曲线&quot;">​</a></h3><p>\(T&gt;1\) 把质量从峰推向尾，\(p(v)\ge\varepsilon\) 的集合变大，截断变弱。\(T&lt;1\) 相反，同一 \(\varepsilon\) 更狠。因此 \(\varepsilon\) 与 \(T\) 强耦合，不能分开抄社区默认值。Nucleus 的 \(\tau\) 在温度变化时仍保证核质量，更稳；\(\varepsilon\) 保证的是原子下限，不保证核质量。这是 Hewitt 同时提出 \(\eta\) 的动机：用熵把地板拉回与当前尺度匹配的地方。若坚持纯 \(\varepsilon\)，温度扫描必须重扫 \(\varepsilon\)。</p><p><span class="marginnote">验证集上最小的 next-token 概率几乎总是远小于任何可用的 \(\varepsilon\)，因为它包含长尾标签。用验证最小概率定 \(\varepsilon\) 会得到 \(10^{-12}\) 一类废值，等于关闭截断。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="空支撑、子词尺度与协议对齐" tabindex="-1">空支撑、子词尺度与协议对齐 <a class="header-anchor" href="#空支撑、子词尺度与协议对齐" aria-label="Permalink to &quot;空支撑、子词尺度与协议对齐&quot;">​</a></h3><p>空支撑必须有定义。高 \(\varepsilon\) 加低温度加很大的重复惩罚，可以让所有未惩罚 token 仍低于 \(\varepsilon\)。回退贪心比抛异常更适合服务。词表含大量不可解码字节时，\(\varepsilon\) 比 top-\(k\) 干净：无需猜 \(k\)。中文单字与英文多子词混排时，绝对概率尺度本就不统一，同一 \(\varepsilon\) 对两种片段的相对狠度不同——这是子词模型用绝对地板的固有缺陷，\(\eta\) 与 min-\(p\) 相对好一些。</p><p>投机无损：草稿与目标必须用同一 \(\varepsilon\) 与同一温度产生 \(p,q\)。CFG 混合后再比 \(\varepsilon\)，因为用户以为的分布是引导后的。Stop 与 EOS 应尽量留在支撑内，否则 \(\varepsilon\) 会系统性延长序列直到 <code>max_tokens</code>。不要把检索停用词的频率阈值当成 \(\varepsilon\)；那是另一套统计。</p><p>评测开放生成时同时报：支撑平均大小、空核回退率、重复 \(n\) 元、以及人工胡话。只报困惑度没有意义——截断后的样本对 <em>截断后分布</em> 的交叉熵会下降，这是同义反复。Hewitt 的论点要用「像人写的程度 / 退化」来检验去平滑是否找对了那一层噪声。</p><p><span class="marginnote">出处是 Hewitt et al., 2022。Holtzman nucleus 是质量预算基线；Meister typical 按熵距离排序。\(\varepsilon\) 是水平线，不是典型集。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(\varepsilon\)-sampling 丢掉 \(p(v)&lt;\varepsilon\) 的原子再归一化，把截断解释为对 LM 过度平滑的反向操作。</li><li>它保证原子下限，不保证核质量；与 nucleus 的 \(\tau\) 不是同一旋钮。</li><li>温度强烈改变有效支撑，必须与 \(\varepsilon\) 联合扫描；空核要回退到 \(\arg\max\)。</li><li>\(\eta\) 与 min-\(p\) 是自适应地板，用来缓解绝对阈值在平坦步切空、在尖峰步切不够的问题。</li><li>不能用验证集最小 token 概率来标定 \(\varepsilon\)。</li><li>投机、CFG、重复惩罚都要在最终用来采样的那个 \(p\) 上施加同一 \(\varepsilon\)。</li><li>出处：Hewitt, Manning &amp; Liang, <em>Truncation Sampling as Language Model Desmoothing</em>, 2022。Nucleus 对照 Holtzman et al., ICLR 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

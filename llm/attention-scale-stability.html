@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Attention 中的缩放、温度与数值稳定 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_attention-scale-stability.md.DFAQryKz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="attention-中的缩放、温度与数值稳定" tabindex="-1">Attention 中的缩放、温度与数值稳定 <a class="header-anchor" href="#attention-中的缩放、温度与数值稳定" aria-label="Permalink to &quot;Attention 中的缩放、温度与数值稳定&quot;">​</a></h1><div class="epigraph"><p>当键的维度较大时，点积的量级会膨胀，把 softmax 推入梯度极小的区域；除以维度的平方根，是为了把打分拉回可训练的尺度。</p><footer>—— Vaswani et al., Attention Is All You Need, NeurIPS 2017</footer></div><p>缩放点积注意力的公式看起来只多了一个 \(\sqrt{d_k}\)，工程上却要同时对付三件常被混为一谈的事：训练时如何避免 softmax 饱和，推理时如何用温度改变分布锋利程度，以及半精度下指数与累加如何不溢出、不变成 NaN。Vaswani 等人只明确写了第一件。温度是同一数学对象上的自由参数，数值稳定则是 softmax 实现必须具备的平移不变处理。本篇把尺度问题从 SDPA 的「是什么」里抽出来，专讲「分数送到 softmax 之前发生了什么」。二次复杂度、多头结构在此只作为尺度问题的背景，不展开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>softmax 把实数向量变成概率，对输入的仿射尺度极敏感。令 \(z\) 为 logits，若把 \(z\) 乘以常数 \(c&gt;1\)，分布更接近 one-hot；乘以 \(c&lt;1\)，更接近均匀。点积 \(q^\top k\) 在分量方差约为 1 时，自身方差约为 \(d_k\)，等效于把 \(c\) 设成 \(\sqrt{d_k}\)。宽度一加，未缩放的注意力会在训练早期就变成几乎硬选择，梯度 \(p_i(1-p_i)\) 接近 0，深层更难把路由学开。</p><p>半精度把问题从「梯度太小」变成「中间值太大」。<code>exp</code> 在 FP16 大约在输入大于 11 附近溢出到无穷，softmax 的分母变成 NaN。即便有 \(\sqrt{d_k}\)，长序列上仍可能出现个别极大 logits。稳定实现依赖的不是再除一个常数，而是 softmax 的平移不变性：减去行最大值后再指数。三件事纠缠在同一条数据路径上，调试时必须分开看是饱和、是温度策略，还是浮点溢出。</p><h3 id="方差计算给出的尺度" tabindex="-1">方差计算给出的尺度 <a class="header-anchor" href="#方差计算给出的尺度" aria-label="Permalink to &quot;方差计算给出的尺度&quot;">​</a></h3><p>设 \(q,k\) 分量 i.i.d.、零均值、单位方差，则 \(\mathrm{Var}(q^\top k)=d_k\)。除以 \(\sqrt{d_k}\) 后方差回到 1，典型 logits 落在 softmax 曲线的中段。若投影矩阵的初始化方差不是 \(1/d\)，上述假设立刻失效：He/Xavier 的具体系数、是否对 \(Q,K\) 做归一化，都会平移这个「1」。因此 \(\sqrt{d_k}\) 是在一组初始化惯例下的校准，不是与参数无关的定理。</p><p><span class="marginnote">QK-Norm 在部分当代模型里出现，是对同一尺度问题的第二道保险：在点积前把 \(q,k\) 拉到固定范数，再点积、再缩放。它不取代 \(\sqrt{d_k}\)，而是削弱「投影把向量放飞」这条路径。本篇不把它当成主题，只指出：范数控制与除常数是两类杠杆，可以叠用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准训练前向为</p> \[s_{ij}=\frac{q_i^\top k_j}{\sqrt{d_k}},\qquad \alpha_{ij}=\frac{e^{s_{ij}}}{\sum_{\ell}e^{s_{i\ell}}}. \]<p>温度 \(\tau&gt;0\) 写在分母上：</p> \[\alpha_{ij}=\frac{e^{s_{ij}/\tau}}{\sum_{\ell}e^{s_{i\ell}/\tau}}. \]<p>\(\tau=1\) 时回到 SDPA 已缩放的分数；\(\tau&lt;1\) 更锋利，\(\tau&gt;1\) 更平。训练期 \(\tau\) 几乎总是 1，缩放已经由 \(\sqrt{d_k}\) 承担。推理期语言模型有时对最终词表 softmax 设温度，那是输出层的 \(\tau\)，与注意力内部的 \(\tau\) 不是同一处旋钮。若有人在注意力分数上再除温度，等于把有效缩放改成 \(\sqrt{d_k}\,\tau\)，需要与检查点训练时的设定一致，否则路由分布整体偏移。</p><h3 id="稳定-softmax-减最大值" tabindex="-1">稳定 softmax：减最大值 <a class="header-anchor" href="#稳定-softmax-减最大值" aria-label="Permalink to &quot;稳定 softmax：减最大值&quot;">​</a></h3><p>对每一行令 \(m_i=\max_j s_{ij}\)，计算</p> \[\alpha_{ij}=\frac{e^{s_{ij}-m_i}}{\sum_{\ell}e^{s_{i\ell}-m_i}}. \]<p>这不改变数学结果，但使指数的最大输入为 0，消除溢出。分母是 log-sum-exp 的指数形式。FlashAttention 在分块时维护各块的行最大值与归一化因子，按块更新，本质是在线算法版的同一恒等式。混合精度里常见做法是：矩阵乘用 FP16/BF16，softmax 提到 FP32 再写回。BF16 的指数范围更宽，溢出少，但精度粗，减最大值仍然值得做。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>缩放改变的是训练动态。梯度经过 softmax 的雅可比，饱和区几乎切断对 \(W^Q,W^K\) 的更新，值侧 \(W^V\) 仍可能通过「已经几乎 one-hot 的权重」学习被选中的内容。于是模型会先学会硬选择再难以改路由，表现为注意力图很「自信」但不会随数据调整。合适的尺度让早期权重偏软，路由与内容可以一起动。</p><p>温度在推理时移动的是同一雅可比的工作点。低温度放大已有的分数差距，错误的高分会被进一步锁死；高温度把质量分给更多键，生成更散，也更可能读到不相关上下文。注意力温度与词表温度叠加时，前者改内部读取，后者改外部采样，效果不可互换：把词表温度调低无法修复内部已经读错的记忆。</p><p><span class="marginnote">因果掩码使用的大负数必须落在当前精度的安全区。FP16 下若写成 \(-1\times 10^{30}\)，减最大值之前就可能已经是负无穷，某些核会把整行变成 NaN。实践中用大约 \(-10^4\) 到 \(-10^5\) 的有限值，再依赖减最大值。稳定性和掩码常数是一套问题。</span></p><h3 id="长度增长如何再次破坏尺度" tabindex="-1">长度增长如何再次破坏尺度 <a class="header-anchor" href="#长度增长如何再次破坏尺度" aria-label="Permalink to &quot;长度增长如何再次破坏尺度&quot;">​</a></h3><p>即使 \(d_k\) 固定，softmax 分母是 \(m\) 项之和。序列变长时，若分数的均值不随 \(m\) 下降，平均权重按 \(1/m\) 变稀，真正的高峰需要更大的 logit 间隙才能冒出来。这不是 \(\sqrt{d_k}\) 设计时针对的效应，却会在长上下文里表现为「注意力被稀释」。ALiBi、注意力汇点、窗口注意力，都是在结构上限制有效 \(m\) 或改写分数，从而间接管理尺度。把长上下文失败全部归咎于「没除平方根」是误诊。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>\(\sqrt{d_k}\) 与学习率、初始化、残差缩放耦合。Pre-LN 使深层输入尺度更稳，间接减轻 logits 爆炸；把学习率开得过大，仍会在几步内把 \(Q,K\) 打飞。工程上应监控注意力 logits 的均方或最大值，而不是只看损失。溢出表现为 NaN，饱和表现为 logits 极大但损失还在缓慢下降——后者更隐蔽。</p><p>不要把输出层温度、分类蒸馏温度、注意力温度用同一个配置项控制。三处 softmax 各有语义。训练中途改 \(d_k\)（例如改头宽）必须同步改缩放常数，否则等于给旧检查点换了一套温度。从 MHA 改到 GQA 时头宽通常不变，缩放不必动；若同时改 \(d_k\)，缩放要一起改。</p><p><span class="marginnote">「数值稳定」有时被拿来解释任何注意力改动。线性注意力换核函数、余弦注意力限制范数，确实也在管尺度，但它们改的是相容性定义，不再是 softmax 注意力。本篇的边界停在：仍用 softmax，只调节送进去的仿射尺度与实现精度。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(1/\sqrt{d_k}\) 用来对消点积方差随头宽增长，使训练期 softmax 不至于过早饱和。</li><li>温度 \(\tau\) 与缩放在数学上同类，但习惯上训练靠 \(\sqrt{d_k}\)、推理才另调 \(\tau\)；词表温度不是注意力温度。</li><li>减行最大值是 softmax 的平移不变实现，负责防溢出；它不替代缩放，也不改变理论分布。</li><li>混合精度下矩阵乘与 softmax 常拆开精度，掩码常数必须是当前格式下的有限大负数。</li><li>序列变长会通过分母项数再次稀释权重，这超出了 \(\sqrt{d_k}\) 的设计目标。</li><li>初始化、QK-Norm、学习率与缩放是不同杠杆，出问题时应分开做消融而不是只改一个常数。</li><li>出处：Vaswani et al., <em>Attention Is All You Need</em>, NeurIPS 2017；实现层面的分块稳定 softmax 见 Dao, <em>FlashAttention</em>, 2022/2023。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

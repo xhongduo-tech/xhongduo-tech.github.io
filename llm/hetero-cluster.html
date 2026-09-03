@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异构集群调度 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_hetero-cluster.md.CP2h5CzO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="异构集群调度" tabindex="-1">异构集群调度 <a class="header-anchor" href="#异构集群调度" aria-label="Permalink to &quot;异构集群调度&quot;">​</a></h1><div class="epigraph"><p>调度器看见的若只是「加速器张数」，就会把张量并行组拆到两种不会集合通信的芯片上；异构首先是拓扑与运行时，其次才是装箱。</p><footer>—— 对照华为云 CCE 对 GPU / NPU 分插件接入与 Volcano 拓扑感知调度的公开说明</footer></div><p>智算集群里同时出现 NVIDIA GPU、昇腾 NPU、鲲鹏 CPU 已经是常态：有的机房按供应混装，有的在 <a href="/llm/cloudmatrix-384">CloudMatrix 384</a> 超节点内部就把 NPU 与 CPU 池化。Kubernetes 默认只懂 CPU / 内存；加速器靠 Device Plugin 上报。华为云 CCE 把这件事拆成两套 AI 套件——NVIDIA GPU 一套、Ascend NPU 一套——再用 Volcano 做队列、优先级和拓扑感知。本篇写<strong>异构调度要守的边界</strong>，不发明未公开的装箱启发式，也不把某一云厂商控制台的默认策略写成标准。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同构 GPU 集群的口诀是：一个 TP 组绑在同一 NVLink 域，副本用数据并行散开。换成异构之后，口诀失效的方式有三种。<strong>设备指令集不同</strong>：CUDA 核不能在 NPU 上跑，CANN 图不能在 GPU 上跑，混进同一进程的「一半 worker」没有集合通信可做。<strong>互连不同</strong>：GPU 侧 NCCL 走 NVLink / IB，昇腾侧 HCCL 走 HCCS / UB / RoCE，跨厂商没有一种可把 All-Reduce 接到一起的公开库。<strong>资源语义不同</strong>：GPU 可 MIG 或按卡共享；NPU 有芯级独占、虚拟化 vNPU、以及超节点内按 UB 域切的逻辑加速器。调度器若只用 <code>nvidia.com/gpu: 8</code> 与 <code>huawei.com/ascend-*</code> 的整数相加来凑「16 卡」，会得到无法启动的 Pod。</p><p>第二层问题是代数混部。昇腾 910B 与 910C 的自定义算子按 <code>SOC_VERSION</code> 分支编译，<a href="/llm/vllm-ascend">vLLM-Ascend</a> 的核不是一份二进制打天下。把 910B 与 910C 塞进同一 TP 组，即使 HCCL 能建链，核形状与 UB / HCCS 带宽也不在同一档。异构包括「两代昇腾」，不只是「GPU 对 NPU」。</p><h3 id="上报与可调度资源必须分开命名" tabindex="-1">上报与可调度资源必须分开命名 <a class="header-anchor" href="#上报与可调度资源必须分开命名" aria-label="Permalink to &quot;上报与可调度资源必须分开命名&quot;">​</a></h3><p>CCE 文档把 GPU 与 NPU 写成不同插件、不同资源名。NPU 独占调度按张申请；拓扑感知调度还要看板内互连，减少碎片和拥塞；虚拟化则把一张物理 NPU 切成若干 vNPU，资源名带算力与内存规格。GPU 侧同样有整卡、共享、虚拟化三条。调度器的第一步不是打分，是<strong>拒绝跨资源名的凑数</strong>。用户清单里应写「本作业的加速器类型」，而不是「任意 8 张加速器」。</p><p><span class="marginnote">Volcano 在 CCE 里与 CloudMatrix 网络拓扑感知做过集成，这是产品文档中的能力描述。具体打分权重、超节点内是否允许跨柜 TP，以你集群里安装的调度器版本为准，不要把邻区 GPU 的 GPU-Affinity 插件配置抄到昇腾节点上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把异构集群画成若干<strong>同构池</strong>，池之间只做请求级路由，不做层内集合通信。池的键至少包括：厂商（NVIDIA / 昇腾）、代数（A100 / H100 / 910B / 910C）、互连域（NVLink 机柜 / UB 超节点 / 普通 PCIe 盒）、运行时（vLLM-CUDA / vLLM-Ascend / MindIE）。作业在提交时选定一个池；调度器在池内做拓扑感知装箱：TP 组落在同一互连域，副本可跨域。</p><p>节点标签与污点是落地手段。GPU 节点与 NPU 节点用 <code>device-vendor</code>、<code>npu-arch</code>、<code>nvlink-domain</code> / <code>ub-domain</code> 区分；Device Plugin 只在本类节点上报本类资源。Kube-scheduler 或 Volcano 的 predicate 必须检查：Pod 请求的资源名在节点上存在，且节点标签与作业的亲和一致。CloudMatrix 上还要把「本超节点 UB 域」当成可分配对象，避免把 8 路 TP 拆到两个超节点再走 RoCE——那是把 Scale-Up 作业降成 Scale-Out。</p><p>在线推理与离线训练混部时，用队列和优先级，而不是用「NPU 上再叠一个 GPU 作业」。CCE 的云原生混部谈的是 CPU 超卖与在离线；加速器混部若没有虚拟化切分，不要假设一张 910C 能安全地跑两个不同框架的 worker。</p><div class="mermaid"></div><h3 id="请求级异构与层内异构" tabindex="-1">请求级异构与层内异构 <a class="header-anchor" href="#请求级异构与层内异构" aria-label="Permalink to &quot;请求级异构与层内异构&quot;">​</a></h3><p>请求级异构是合法的：同一个 OpenAI 网关后面，A 模型在 GPU 副本，B 模型在昇腾副本，按 <code>model</code> 字段分流，见 <a href="/llm/kv-aware-routing">KV 感知路由</a> 的「先认模型再认缓存」。层内异构不合法：同一层的 TP All-Reduce 不能一半 NCCL、一半 HCCL。专家并行若跨出 UB 域，通信语义变成 RDMA 平面，延迟档位变了，那是 Scale-Out，要按跨超节点来规划，而不是当「调度器聪明地借了几张别的卡」。</p><p>CPU 与 NPU 的异构是另一条轴。CloudMatrix 把鲲鹏与 910C 都挂在 UB 上，论文里写明可按负载组合内存型缓存节点与计算型 NPU。调度的是<strong>池化后的角色</strong>（prefill 池、decode 池、KV 内存池），不是把 CPU 核当成一张假 GPU 写进 <code>nvidia.com/gpu</code>。擎天 DPU 上的 MatrixResource / MatrixLink 代理负责超节点内的实例与链路，这层在普通 CCE 节点上并不存在。</p><p><span class="marginnote">资源名 <code>huawei.com/ascend-310</code> 与 <code>huawei.com/ascend-1980</code> 出现在企业文档里，对应不同昇腾产品。抄错资源名时，事件是 <code>Insufficient huawei.com/...</code>，看起来像容量不足，其实是节点根本没有这种设备。先对插件与资源名，再扩容。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Device Plugin 通过 kubelet 注册扩展资源，scheduler 只看见整数配额。拓扑感知要额外的设备拓扑（哪几张卡在同一 HCCS / UB 平面）。没有这张图，Volcano 也只能做「节点上 NPU 数量够不够」，把同节点但跨平面的卡绑进一组，HCCL 性能会掉到你以为的域内带宽以下。超节点场景下，爆炸半径是整域：通信柜或 UB 平面故障应把该超节点从池里摘掉，而不是继续往半通域里塞 TP。</p><p>异构还改变故障与滚动。GPU 镜像含 CUDA 驱动用户态，NPU 镜像含 CANN；滚动升级不能用同一 DaemonSet 往两类节点推驱动。探针必须分运行时：vLLM 的 <code>/health</code> 与 MindIE 的探针不是同一个语义。取消与 KV 释放仍按各引擎自己的规则，见 <a href="/llm/sse-cancel">sse-cancel</a>，调度器不负责把 GPU 页表翻译成 NPU 块表。</p><h3 id="利用率不是把卡填满" tabindex="-1">利用率不是把卡填满 <a class="header-anchor" href="#利用率不是把卡填满" aria-label="Permalink to &quot;利用率不是把卡填满&quot;">​</a></h3><p>混部的诱惑是把空闲 NPU 借给 GPU 作业的溢出队列。若运行时不能在该卡上执行，填满只是制造 Pending。即便虚拟化切了 vNPU，共享的是同一 Cube 与 HBM，延迟 SLA 会互相踩。异构调度的一阶目标是<strong>正确性与通信域</strong>，二阶才是利用率。利用率用同构池内的连续批、分时队列、虚拟化来做，不要用跨厂商拼卡。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在没有共同集合通信库的前提下做跨厂商 TP / EP。不要把 CloudMatrix 超节点当 48 台互不往来的 8 卡机来调度——那是买了 UB 却只用以太网编程模型，与 <a href="/llm/rack-as-accelerator">机柜作为一块逻辑加速器</a> 的教训相同。不要假设 CCE 的 GPU 虚拟化参数能套到 vNPU。不要编造未公开的超节点内端口级调度算法。</p><p>成本账：异构池增加了镜像、驱动、监控和值班手册的份数；收益是供应可替代、以及超节点内 CPU 内存池给 KV 用。若集群很小、只有一种加速器，不要为「异构」上两套插件。</p><p><span class="marginnote">出处：华为云 CCE《调度概述》与 AI 套件（NVIDIA GPU / Ascend NPU）说明、Volcano 在 CCE 上的队列与拓扑感知描述，以及 CloudMatrix384 论文中 CPU/NPU 池化与三平面网络。不引用未公开的调度器源码阈值。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>异构调度先按厂商、代数、互连域、运行时分同构池，池内做 TP，池间只做请求级分流。</li><li>GPU 与 NPU 用不同 Device Plugin 和资源名；跨资源名凑卡会得到无法通信的进程组。</li><li>两代昇腾也是异构；插件核与带宽不共享同一假设。</li><li>CloudMatrix 上的异构还包括 UB 上的 CPU 内存池与 NPU 计算池，按角色调度而不是按「假 GPU」。</li><li>利用率在同构池内做；跨厂商填卡不是调度，是配置错误。</li><li>出处：华为云 CCE 调度与 AI 套件文档；CloudMatrix384 公开论文中的资源池化。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

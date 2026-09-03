@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MXFP4 / 低精度推理数值 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_jalapeno-mxfp4.md.CO4YonX9.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="mxfp4-低精度推理数值" tabindex="-1">MXFP4 / 低精度推理数值 <a class="header-anchor" href="#mxfp4-低精度推理数值" aria-label="Permalink to &quot;MXFP4 / 低精度推理数值&quot;">​</a></h1><div class="epigraph"><p>MX 合规格式由元素类型、块内共享的尺度、以及块大小三者定义；MXFP4 把 32 个 FP4（E2M1）元素绑到一个 E8M0 尺度上。</p><footer>—— OCP Microscaling Formats (MX) Specification v1.0</footer></div><p>Jalapeño 把矩阵算力写成 <strong>13.4 PFLOP/s 的 MXFP4×MXFP4</strong>。这不是厂商私有的 4-bit 别名，而是 Open Compute Project 已发布的微缩放浮点：块大小 32，元素为 FP4 E2M1（1 符号、2 指数、1 尾数），块尺度为 E8M0（8 bit 纯指数、2 的幂）。存储上每块 8 + 32×4 = 136 bit，合 4.25 bit/元素。推理要在 <a href="/llm/decode-memory-wall">HBM 带宽墙</a> 上多扫一些权重，4-bit 比 FP8 再省一倍量级的字节；没有块尺度，FP4 自身的动态范围只有大约 12 倍，装不下 Transformer 各层差几个数量级的张量。本篇写 OCP 数值与它对推理核的约束，不把 NVIDIA 的 NVFP4 或某家私有 INT4 方案写成「也叫 MXFP4」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>逐张量 FP8（E4M3 / E5M2）已经把训练与部分推理推进到 8-bit。再往 4-bit 走，单个元素几乎没有尾数：E2M1 的正规值只有 ±1、±1.5、±2、±3、±4、±6 等有限档，加上亚正常与零。一层 MLP 的权重若跨过两个数量级，单一全局尺度会把小系数打成零、把大系数打饱和。逐元素 8-bit 尺度又太贵，抵消 4-bit 的密度。MX 的折中是<strong>细粒度块尺度</strong>：k 个相邻元素共享一个尺度，k 在硬件友好的 32 上钉死。</p><p>OCP MX v1.0 由 AMD、Arm、Intel、Meta、Microsoft、NVIDIA、Qualcomm 等共同发布，目标是可互换的亚 8-bit 格式，而不是各家再发明一套不可导入的 4-bit。Jalapeño 作为推理芯片直接把峰值矩阵算力标在 MXFP4 上，等于把这一互换格式当成一等数据类型，而不是事后软件模拟。</p><h3 id="fp4-没有-inf-nan-槽" tabindex="-1">FP4 没有 Inf / NaN 槽 <a class="header-anchor" href="#fp4-没有-inf-nan-槽" aria-label="Permalink to &quot;FP4 没有 Inf / NaN 槽&quot;">​</a></h3><p>规范要求 FP4 实现支持亚正常，且<strong>不保留</strong> Inf 与 NaN 编码。所有 16 种 4-bit 码都是数。转换到 FP4 必须支持 roundTiesToEven。这意味着溢出不能靠 IEEE 的 Inf 传播来「显眼地炸」；实现必须在量化前用块尺度把幅度收进 E2M1 可表示区间，否则饱和被静默吃掉。对调试不友好，对面积友好——4-bit 乘法器不必处理特殊值通路。</p><p><span class="marginnote">E8M0 尺度是无符号指数，OCP 把它写成 2 的幂。硬件上尺度乘法常退化成对指数的加减，不必为尺度再做一套尾数乘法。这是 MX 相对「每块一个 FP16 尺度」的面积理由，不是精度理由。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>量化按块。对向量块 \(V\in\mathbb{R}^{32}\)，参考算法用块内最大绝对值确定共享指数，使最大元素映射到 FP4 最大正规值附近，再就近偶数舍入到 E2M1。尺度存成 E8M0；元素存成 32 个 nibble。反量化是 \(x_i \approx s\cdot \mathrm{decode}(e_i)\)。矩阵乘时，两块 MXFP4 的点积可以先在整数或较高精度里累加元素乘积，再补上两个块尺度的指数和——规范第 6 节定义了 MX 向量点积与一般点积，硬件按此实现，而不是先全部展开成 FP32 再 GEMM。</p><p>Jalapeño 的 13.4 PFLOP/s 计的是这种矩阵乘的峰值，不是「芯片里每一个 ALU 都以 MXFP4 跑」。softmax、层归一化、路由仍需要更高精度；与 <a href="/llm/kv-int8-fp8">KV 的 8-bit</a> 一样，低精度首先打在<strong>带宽敏感、校准相对稳定</strong>的权重与激活 GEMM 上。OpenAI 在 InferenceX 对比里用过 DeepSeek R1 与 Kimi K2.5 的 MXFP4 部署，说明格式已经进入跨模型的推理路径，而不是某一闭源权重的私有打包。</p><div class="mermaid"></div><h3 id="与-nvfp4、int4、mxfp6-8-的差集" tabindex="-1">与 NVFP4、INT4、MXFP6/8 的差集 <a class="header-anchor" href="#与-nvfp4、int4、mxfp6-8-的差集" aria-label="Permalink to &quot;与 NVFP4、INT4、MXFP6/8 的差集&quot;">​</a></h3><p>NVFP4 是 NVIDIA 在 Blackwell / Rubin 路径上的 4-bit 方案，块与尺度定义与 OCP MX 不必相同；不要在同一张精度表里把「MXFP4 的 32×E2M1+E8M0」和 NVFP4 当可互换存储。INT4 没有指数，动态范围全靠尺度，对异常值更脆。MXFP6 / MXFP8 是同一家族的 6-bit 与 8-bit 元素，块尺度同样是 E8M0、块大小 32；从 MXFP8 降到 MXFP4 是精度台阶，不是另一种量化哲学。Jalapeño 公开峰值只钉 MXFP4×MXFP4，未在同一页给出 MXFP8 峰值，本文不编造。</p><p>块大小 32 要求连续 32 个元素幅度相近。按输出通道分块通常比按随意展开的内存顺序更稳。若编译器把布局打乱，共享尺度会对着一堆不相干的数，误差陡增。这是数值格式对 <a href="/llm/jalapeno-sliced-hbm">切片化布局</a> 的约束：物理放置与量化块边界应对齐。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>MXFP4 能工作，是因为 Transformer 权重在局部通道上往往近似同量级，块尺度吸掉层与通道之间的数量级差，E2M1 只编码局部相对值。误差表现为块内的量化噪声，进入 GEMM 后被累加平均；残差连接与 RMSNorm 仍在较高精度时，噪声被限制在线性层内部。若把注意力分数也打成 MXFP4，softmax 对误差敏感，这通常不是默认路径。</p><p>带宽机制更硬。相对 FP16，4.25 bit 约是 3.8× 的元素密度；相对 FP8，约 1.9×。Decode 扫权重的时间按密度下降，前提是 PHY 与核真的按打包的 nibble 读，而不是在 HBM 里存 MXFP4、进核前解成 FP16。Jalapeño 把峰值标成 MXFP4 矩阵算力，意味着数据通路按此建设。利用率仍取决于 <a href="/llm/jalapeno-data-movement">减少搬运</a>：格式只减字节，切片化决定这些字节要走多远。</p><p><span class="marginnote">OCP 规范写的是互换与基本运算，不保证「任意模型、任意层 MXFP4 都无损」。上线应以该模型在目标任务上的校准与评测为准。Hot Chips 的 Pareto 曲线是系统级吞吐与延迟，不是逐层 SQNR 表。</span></p><h3 id="溢出、下溢与校准" tabindex="-1">溢出、下溢与校准 <a class="header-anchor" href="#溢出、下溢与校准" aria-label="Permalink to &quot;溢出、下溢与校准&quot;">​</a></h3><p>E2M1 最大幅度有限，块尺度若按 max-abs 设定，块内最大值可表示，其余元素向粗网格靠。全零块、几乎全零的稀疏专家，尺度下溢时元素全变零，等于关掉那一路——有时无害，有时会让偶发激活的专家「消失」。校准应覆盖长尾专家与长上下文，而不是只看短 prompt 的 perplexity。训练感知量化（QAT）可以把分布推进块尺度友好的形状；Jalapeño 作为推理芯片不规定训练配方，只规定推理时能吃 MXFP4 GEMM。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 MXFP4 写成「4-bit 即 4.00 bit」：尺度开销使有效比特是 4.25。不要与 GPTQ / AWQ 的分组 INT4 混报压缩比——后者分组大小、是否有零点、是否非对称都不同。不要假设 softmax、RoPE、RMSNorm 都在 MXFP4 里算。不要用芯片峰值 PFLOP/s 除以 13.4 去反推「核数 × 频率 × MAC」——那是未公开微架构。</p><p>词表投影、路由 logits、KV 是否 MXFP4，公开材料没有写成全芯片统一。KV 更常见的是 8-bit 档，见 INT8/FP8 实践。混合精度是默认，不是失败。</p><p><span class="marginnote">出处：OCP MX v1.0（MXFP4 = FP4 E2M1 + 块 32 + E8M0）；Jalapeño 峰值 13.4 PFLOP/s MXFP4×MXFP4 来自 Hot Chips 2026。不编造未公布的累加器位宽或逐层量化配置。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MXFP4 是 OCP 微缩放格式：32 个 E2M1 元素共享一个 E8M0 尺度，有效 4.25 bit/元素。</li><li>FP4 无 Inf/NaN，靠块尺度把幅度收进可表示区间；转换需 roundTiesToEven。</li><li>Jalapeño 把矩阵峰值标在 MXFP4×MXFP4，用于吃满 HBM 带宽下的推理 GEMM。</li><li>与 NVFP4、分组 INT4 不可互换；块边界应与内存布局对齐。</li><li>归一化与 softmax 默认留在较高精度；验收看任务指标，不看格式名字。</li><li>出处：OCP MX Specification v1.0；Hot Chips 2026 Jalapeño 规格。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

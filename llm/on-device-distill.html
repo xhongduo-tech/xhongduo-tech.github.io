@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>蒸馏到端侧的数据与温度 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_on-device-distill.md.C-Zi_D9-.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="蒸馏到端侧的数据与温度" tabindex="-1">蒸馏到端侧的数据与温度 <a class="header-anchor" href="#蒸馏到端侧的数据与温度" aria-label="Permalink to &quot;蒸馏到端侧的数据与温度&quot;">​</a></h1><div class="epigraph"><p>温度把教师的分布摊开，数据配比决定学生究竟模仿哪一块支持集；端侧学生装不下教师的全部记忆，只能选择要印下的那一层暗知识。</p><footer>—— Hinton, Vinyals, Dean, Distilling the Knowledge in a Neural Network, 2015；接到 SLM 部署</footer></div><p>把 70B 级教师压到 1B–3B 学生，常用知识蒸馏而不是只做硬标签监督学习。Hinton 等人把教师 softmax 除以温度 \(T\)，让错误类别上的相对概率变成可学的信号；再用学生去匹配。端侧场景多了两层约束：学生容量有悬崖（见 <a href="/llm/slm-capability">SLM 能力边界</a>），部署图还得是 <a href="/llm/npu-friendly-ops">NPU 友好</a> 的。于是真正可调、且经常调错的，是<strong>温度</strong>和<strong>数据配比</strong>，而不是再发明一种损失函数名字。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>硬标签交叉熵只在正确答案的位置给梯度。教师若对近义词、合理的下一步、格式变体分配了可观的质量，这些信息在 one-hot 里为零。小学生若只学硬标签，会过早变锋利，学不会教师的「哪种错更像对」。蒸馏要的是暗知识：在 \(T&gt;1\) 时被抬起来的那些非最大 logit。</p><p>端侧的问题是教师分布的支撑集极大，学生参数极少。若蒸馏数据全是教师的开放域长回答，学生会把容量耗在模仿文风，把设备上真正出现的短指令、本地语言、系统 schema 挤掉。若数据全是设备日志的硬标签，又用不上教师。配比是在「教师的一般能力」和「设备的任务测度」之间切容量，不是把两种数据简单加更多。</p><h3 id="温度不是采样温度" tabindex="-1">温度不是采样温度 <a class="header-anchor" href="#温度不是采样温度" aria-label="Permalink to &quot;温度不是采样温度&quot;">​</a></h3><p>推理时用户调的温度，是在已经训好的学生 logits 上改锋利程度。蒸馏温度是训练目标里教师（以及通常学生）softmax 的 \(T\)。二者不要共用一个配置项。蒸馏里常用</p> \[p_i^{(T)}=\frac{\exp(z_i/T)}{\sum_j\exp(z_j/T)}, \]<p>损失为 \(T^2\,\mathrm{KL}(p^{\mathrm{tea}}\|p^{\mathrm{stu}})\) 再与硬标签交叉熵加权。乘 \(T^2\) 是为了抵消高温导致的梯度变小，Hinton 原文已写明。推理采样温度与此无关。</p><p><span class="marginnote">教师若已经非常锋利（指令微调后的 LLM 常如此），\(T=1\) 的 KL 接近硬标签，暗知识很少。这时需要更大的 \(T\)，或改用教师生成的序列再对学生做普通 SFT——后者是序列级蒸馏，不再逐 token 对齐整段词表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>端侧蒸馏先定学生结构（稠密、GQA、RMSNorm、固定窗），再定数据混合物，最后才扫温度。混合物至少三桶，显式写比例。</p><p><strong>教师软标签桶</strong>：在通用语料或指令集上跑教师，存 logits 或 top-\(K\) logits。这是暗知识的来源，贵，且要与学生词表对齐；词表不同就要先做 tokenizer 映射，否则 KL 无意义。</p><p><strong>教师序列桶</strong>：让教师生成目标域上的回答（含思维链或短答案），学生做标准因果 LM。这是序列级模仿，对小模型往往比全词表 KL 更稳，因为不要求学生在 150K 词表上拟合教师的全部质量。</p><p><strong>设备域硬标签桶</strong>：真实或近似的端侧分布——输入法、系统助手短指令、本地语言、JSON schema。这一桶防止学生变成「云端教师的文风缩小版」，在设备测度上崩盘。</p><p>配比示例（只作起点，不是定理）：序列桶 40%–60%，设备域 20%–40%，软标签 KL 10%–30%。通用网页预训若还要继续，应单独占一桶，以免灾难遗忘通顺性。合成数据比例过高时，学生会复制教师的模式崩溃（重复、过度礼貌、虚假引用），要用设备域硬标签拉回来。</p><div class="mermaid"></div><h3 id="温度怎么扫" tabindex="-1">温度怎么扫 <a class="header-anchor" href="#温度怎么扫" aria-label="Permalink to &quot;温度怎么扫&quot;">​</a></h3><p>\(T\) 太低：软标签退化成 argmax，蒸馏≈硬蒸馏，小模型过拟合教师的最大项。\(T\) 太高：分布接近均匀，梯度变成「每个词都学一点」，有效信号被稀释，学生变糊。经验上分类网常用 2–5；对已经很尖的 LLM 教师，有人用 1.0–2.0 做 token 级 KL，同时加大序列桶。应在<strong>设备域验证集</strong>上看，而不是只看教师分布上的 KL——KL 降了只说明更像教师，不说明端侧任务更好。</p><p>若学生量化，蒸馏应在量化感知图上进行：温度再正确，训的是 FP16 学生、部署 INT4，缝会裂开。KV 与激活的量化噪声会改变注意力熵，等于在部署时又换了一个温度；训练期至少要把权重量化打开。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>高温的作用是压缩 logit 差距：若教师最大 logit 比第二名大很多，\(T=1\) 时 \(p\) 近 one-hot；\(T\) 增大后相对排序仍在，但次优类分到足够梯度。小模型宽度不够表达教师的多峰时，应允许学生学「次优集合」，而不是逼它复现精确的峰。这与 <a href="/llm/sdpa">SDPA</a> 里温度改变 softmax 锋利程度是同一数学对象，只是作用在词表而不是注意力轴上。</p><p>数据配比的机制是容量分配。学生的有效记忆格子有限，每个训练 token 都在争这些格子。教师开放域序列在争「文风与世界知识」；设备 JSON 在争「字段名与转义」；软标签 KL 在争「近邻词的几何」。没有显式比例时，梯度会被更长、更密的教师序列抢走——长思维链特别会占满 batch 的 token 预算，使短指令欠拟合。这就是为何端侧蒸馏必须按 <strong>token 比例</strong> 而不是按「文件条数」去配。</p><p><span class="marginnote">思维链蒸馏能把推理步骤写成文本，不增加学生层数。链太长时，学生变成链的语言模型，中间变量仍然对不齐。端侧应优先短链或工具，而不是把教师的 2K 推理轨迹原样灌进 1B。</span></p><h3 id="词表与掩码必须先对齐" tabindex="-1">词表与掩码必须先对齐 <a class="header-anchor" href="#词表与掩码必须先对齐" aria-label="Permalink to &quot;词表与掩码必须先对齐&quot;">​</a></h3><p>教师学生词表不同，不能直接 KL。常见做法：只在共享 token 上做 KL；或教师先 decode 成文本再由学生 tokenizer 编码做序列蒸馏（更干净）。因果掩码必须与学生部署一致：学生若是窗口注意力，蒸馏时用满上下文教师会教它依赖窗外键，部署时那些键不存在。教师可以更大、可以双向前缀，但学生看见的上下文集合应是部署时的集合，否则训练—推理不一致会吞掉温度调对的那点收益。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>蒸馏不能越过容量悬崖：教师会的长尾事实，学生可能只会在蒸馏数据里见过的那几十个实体上装会。评测要含教师没生成过的设备域题目。序列蒸馏便宜、稳，但会放大教师幻觉；软标签 KL 贵、吃存储（整段 logits），对端侧小词表更合适。二者应并存，而不是宗教式二选一。</p><p>不要把推理采样温度、注意力温度、蒸馏温度写成同一个超参。不要在动态图上蒸馏再导出静态 NPU 图。数据配比需要版本号：改了设备域比例，所有温度结论作废。公开文献里 Hinton 等（2015）给出的是分类网配方；LLM 端侧蒸馏是同一公式在不同配比下的工程，没有一份万能 \(T\)。</p><p><span class="marginnote">若只能存 top-\(K\) 教师概率，\(K\) 太小会丢掉长尾暗知识，\(K\) 太大会把存储打回「整表 logits」。端侧词表若已裁到 32K，\(K=50\)–\(200\) 往往够用；仍应以设备域指标为准。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>蒸馏温度摊开教师分布以传递暗知识，并与 \(T^2\) 加权的 KL 一起用；它不是生成时的采样温度。</li><li>端侧数据至少分三桶：软标签、教师序列、设备域硬标签；按 token 比例配，防止长链占满容量。</li><li>词表、因果窗、量化图必须与部署对齐，否则 KL 下降不等于产品变好。</li><li>温度过低≈硬标签，过高≈均匀噪声；在设备验证集上扫，而不是只看教师 KL。</li><li>蒸馏移动悬崖，不取消 <a href="/llm/slm-capability">SLM</a> 的容量上限。</li><li>出处：Hinton, Vinyals, Dean，<em>Distilling the Knowledge in a Neural Network</em>，2015。LLM 端侧的温度与配比是同一公式上的工程延伸。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

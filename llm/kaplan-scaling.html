@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kaplan 扩展律 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kaplan-scaling.md.6-fGAJvJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="kaplan-扩展律" tabindex="-1">Kaplan 扩展律 <a class="header-anchor" href="#kaplan-扩展律" aria-label="Permalink to &quot;Kaplan 扩展律&quot;">​</a></h1><div class="epigraph"><p>在足够宽的范围内，语言模型的交叉熵随参数量、数据量和计算量呈可预测的幂律下降——直到某一项成为瓶颈。</p><footer>—— Kaplan et al., Scaling Laws for Neural Language Models, 2020</footer></div><p>2020 年 Kaplan 等人把「更大的模型更好」收成一组可拟合的曲线。他们在 Transformer 语言模型上系统扫参数量 \(N\)、数据集大小 \(D\) 和训练计算 \(C\)，发现测试损失在很大范围内服从幂律，并且当另外两项足够充裕时，损失由最紧的那一项主导。这件事改变了预训练的规划方式：与其只报某一个最大模型的分数，不如先问，以现有的 FLOPs 预算，应该把参数和 token 分到什么比例。后续 Chinchilla 修正了他们给出的计算最优比例，但并没有推翻「损失可沿尺度外推」这一观察。本篇只讲 Kaplan 当时写下的形式、他们建议的计算分配，以及这条曲线后来被发现的适用边界。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预训练之前，模型大小往往凭经验或单次消融来选。深度、宽度、训练步数纠缠在一起，很难回答「若把计算加倍，应该加宽模型还是多看数据」。Kaplan 等人要的是可外推的标度：固定架构家族（Decoder-only Transformer），改变 \(N\)、\(D\)、\(C\)，看语言建模损失如何变。若标度稳定，就可以在小模型上拟合，再决定大模型该长多大。</p><p>计算与 \(N\)、\(D\) 不是独立的。Transformer 训练的 FLOPs 近似 \(C\approx 6ND\)（前向约 \(2ND\)，反向约两倍）。给定 \(C\)，选更大的 \(N\) 意味着更少的 token，反之亦然。扩展律必须同时描述三条轴，以及它们互相卡住时的形状。</p><h3 id="三项瓶颈" tabindex="-1">三项瓶颈 <a class="header-anchor" href="#三项瓶颈" aria-label="Permalink to &quot;三项瓶颈&quot;">​</a></h3><p>他们把损失写成接近</p> \[L(N,D)=\left[\left(\frac{N_c}{N}\right)^{\frac{\alpha_N}{\alpha_D}}+\frac{D_c}{D}\right]^{\alpha_D} \]<p>这类可分形式：当 \(D\) 极大，\(L\) 随 \(N\) 幂律下降；当 \(N\) 极大，\(L\) 随 \(D\) 幂律下降。单独对计算拟合时，又有 \(L(C)\propto C^{-\alpha_C}\)。早期小模型、短训练很容易落在「三项都不饱和」的中间区，曲线看起来很光滑；真正做大时，总会撞上其中一堵墙。<span class="marginnote">幂律说的是在对数坐标里近似直线，不是在任何尺度上都永不弯曲。数据重复、优化失败、上下文长度变化、tokenizer 改变，都会让直线折弯。Kaplan 的贡献是指出存在一段可规划的直线，不是宣称损失可以无限按同一指数降下去。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实验上，他们训练一系列不同大小的 Transformer，扫训练步数与数据量，用测试集交叉熵作为标度对象——不是下游准确率。下游任务当时已有随损失改善的迹象，但拟合仍落在语言建模损失上，因为后者噪声更小、跨模型更可比。参数量按非嵌入参数计，以避免词表大小扭曲小模型的 \(N\)。</p><p>在给定计算预算下，他们用拟合出的指数去推「最优」的 \(N\) 与 \(D\)。得到的图像是：计算变大时，模型应该涨得比数据更快，\(N\) 大约随 \(C\) 的 \(0.73\) 次幂涨，\(D\) 大约随 \(0.27\) 次幂涨。按这条建议，很大的模型只看相对较少的 token 就是「计算最优」。这一条后来被 Hoffmann 等人证明是过度偏向大模型了，原因包括学习率余弦日程与训练长度耦合、以及大模型往往没有训到充分的 token。但 Kaplan 的测量协议——用损失对 \(N,D,C\) 做幂律拟合——被保留下来。</p><div class="mermaid"></div><h3 id="样本效率随宽度上升" tabindex="-1">样本效率随宽度上升 <a class="header-anchor" href="#样本效率随宽度上升" aria-label="Permalink to &quot;样本效率随宽度上升&quot;">​</a></h3><p>曲线的另一个直接推论是：更大的模型达到同一损失所需的 token 更少。这与「大模型更数据饥渴」的直觉相反，却与训练动态一致——容量高的网络能从同一批数据里抽更多可泛化的结构。于是出现一种规划语言：若数据是瓶颈，把计算用于更大的 \(N\)；若计算是瓶颈且数据充裕，再权衡 \(N\) 与 \(D\)。Kaplan 当时认为计算最优落在偏大模型一侧；Chinchilla 把同一句话改成两者近似等比例涨。两种说法共享「先看损失标度、再分配预算」的方法。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>幂律从哪里来，论文本身没有给出从第一性原理推出的指数。经验上，过参数化网络在平滑损失面上的优化，常表现为对容量与样本量的幂次误差下降，视觉和语言里都见过类似形状。Kaplan 的指数应被当成对那一架构、那一数据分布、那一优化器的描述统计。换 tokenizer、换 MoE、换训练长度相对余弦周期的比例，指数会动。</p><p>\(C\approx 6ND\) 这一会计也很关键。它假设稠密 Transformer、几乎全部 FLOPs 花在线性层上，序列长度进入 \(D\) 的计数方式保持一致。激活重计算会改变墙上时间，但不改变这套 FLOPs 会计；混合精度改变的是吞吐，也不是 \(6ND\) 的系数来源。用 Kaplan 曲线做规划时，必须声明 \(N\) 是否含嵌入、\(D\) 是否计重复、 \(C\) 是理论 FLOPs 还是 GPU-hours。<span class="marginnote">把下游分数直接拿去拟合幂律，噪声通常大于损失。同一损失对应的下游提升还随任务饱和而变。Kaplan 把标度对象定在交叉熵上，是为了让外推稳定；从损失再到任务，需要另一次校准，不能把 2020 年的指数套到某一项榜单上。</span></p><h3 id="为什么计算最优会被写偏" tabindex="-1">为什么计算最优会被写偏 <a class="header-anchor" href="#为什么计算最优会被写偏" aria-label="Permalink to &quot;为什么计算最优会被写偏&quot;">​</a></h3><p>余弦学习率把「预定训练步数」编进日程：提早停，等于没走完退火；为了把大模型塞进预算，实验往往给大 \(N\) 更少的步数，日程也按更短的寿命来排。于是大模型看起来「用更少数据就很好」，一部分其实是小模型被训得更充分、大模型欠训。这不影响「损失随 \(N,D\) 下降」的定性结论，但影响给定 \(C\) 时 \(N\) 与 \(D\) 的最优分割。读 Kaplan 应用这条分割去定训练配方时，要把这一偏差记在旁边。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Kaplan 扫的是稠密自回归 Transformer 与当时的网络文本。稀疏 MoE、状态空间模型、多模态、以及重度重复的数据约束设定，都需要自己的拟合，不能直接套 2020 年的 \(\alpha\)。上下文长度变化会改变每个 token 的有效计算与激活显存，严格来说 \(C\) 的会计也要重写。</p><p>扩展律还假设优化成功。梯度爆炸、学习率过大、数据污染，会让点掉到曲线下方或上方，拟合会被少数失败 run 拽偏。小规模拟合再外推两个数量级，必须留误差带，而不是只给一个点估计。工业上后来用 Chinchilla 比例当计算最优的起点，再用过度训练把小模型推过计算最优点，以换推理成本——那是对 Kaplan 规划语言的续写，不是否定损失仍随尺度下降。<span class="marginnote">「符合 Kaplan」有时被用来形容任何随对数参数下降的曲线。更精确的用法是：三项可分的幂律、计算会计约 \(6ND\)、以及他们那次拟合给出的偏大模型分配。后两项尤其不可未经说明就沿用。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kaplan 等人 2020 年表明，语言模型损失随参数、数据、计算在很宽范围内呈幂律下降。</li><li>三项中最紧的一项主导损失；给定计算时 \(N\) 与 \(D\) 互相挤占。</li><li>他们建议的计算最优偏向前更大的模型、相对更少的 token，这一分割后来被 Chinchilla 修正。</li><li>标度对象是语言建模交叉熵，不是下游任务本身。</li><li>指数属于特定架构与数据，换 MoE、换重复数据或换日程都会动。</li><li>学习率日程与训练长度耦合，是大模型显得更「样本高效」的原因之一。</li><li>出处：Kaplan et al., <em>Scaling Laws for Neural Language Models</em>, 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

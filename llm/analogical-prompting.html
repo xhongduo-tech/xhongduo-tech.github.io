@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Analogical prompting | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_analogical-prompting.md.DCcvybL8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="analogical-prompting" tabindex="-1">Analogical prompting <a class="header-anchor" href="#analogical-prompting" aria-label="Permalink to &quot;Analogical prompting&quot;">​</a></h1><div class="epigraph"><p>先回忆与当前问题相关的例题或知识，再动手解题；示范不必由人写进提示，模型自己生成的类比往往更贴这道题。</p><footer>—— Yasunaga et al., Large Language Models as Analogical Reasoners, ICLR 2024</footer></div><p>少样本思维链的质量绑在示范上：例题要相关、步骤要对、分布要对齐测试集。Yasunaga、Chen、Bosselut、Liang 与 Manning 把认知科学里的类比推理收成一条提示：解题之前，先让模型<strong>自生成</strong>若干相关问题及其解法（或一段相关知识），再条件化到原题上。这就是 analogical prompting。它仍是一次或少数几次解码，不检索外部题库，也不微调。相对人工少样本，省掉了例题工程；相对纯零样本 CoT，多了一段「临时题库」当脚手架。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>少样本 CoT 假定提示里的例题与测试题同构。竞赛数学、编程竞赛、新任务上，同构例题很难事先备齐：要么太泛，变成格式说明书；要么太窄，把解法锁进示范里出现过的数字模式。人工选题还有污染与过拟合提示的风险。零样本 CoT 没有例题，又回到粒度失控、缺步、不会调用相关定理的老问题。</p><p>类比提示要回答的是：模型参数里已经存了大量题解，能否在测试时先把「相似题」从权重里采样出来，当作这次任务的专用少样本，而不经过外部分析器。若生成的例题真相关，后续解题等于在一次前向里做了「检索参数 + 推理」；若例题只是表面相似或解法错误，脚手架会把原题带歪。</p><h3 id="少样本示范的错配" tabindex="-1">少样本示范的错配 <a class="header-anchor" href="#少样本示范的错配" aria-label="Permalink to &quot;少样本示范的错配&quot;">​</a></h3><p>固定例题对所有测试题共用同一组条件前缀。对简单题，示范过长是浪费；对偏题，示范从未覆盖所需引理。提示工程于是变成维护题库。类比提示把题库生成推迟到看见测试题之后，相关性由模型自己估计。这不是证明模型会检索到最优邻域，只是把「选题」从人挪到同一套 \(\pi\) 上。</p><p><span class="marginnote">自生成例题会泄漏测试题的数字或变量名，变成变相抄题而不是类比。指令里应明确要求「相关但不同的问题」，并在分析时检查例题与原题的表面重叠。重叠极高时，增益可能来自复述而不是类比。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准模板分三块。第一块点明目标：为当前问题召回相关问题。第二块让模型写出 \(K\) 道相关题，每题带简要解法（论文常用 \(K=3\) 到 \(5\)）。第三块给出原题，要求参照刚写出的例题作答。知识型变体把「相关问题」换成「相关概念、定理或算法要点」，适合需要陈述性知识、例题不好编的任务。两条变体都是零样本：不提供任何人工题解。</p><p>解码可以一次完成（例题与解答连在同一条补全里），也可以先停在例题末尾再续写解答，便于单独检查例题质量。Yasunaga 等人在 GSM8K、MATH、Codeforces 风格编程、以及 BIG-Bench 的若干推理任务上评估，对照零样本 CoT、少样本 CoT 和检索真实相似题。主结论是：自生成例题在多个设置上匹配或超过固定少样本，且不需要标签。</p><div class="mermaid"></div><h3 id="先回忆再解题" tabindex="-1">先回忆再解题 <a class="header-anchor" href="#先回忆再解题" aria-label="Permalink to &quot;先回忆再解题&quot;">​</a></h3><p>「回忆」在这里是生成，不是查库。模型被要求输出完整的迷你题解，而不是关键词列表。题解需要足够具体，后续才能当示范：只有「这是一道方程题」没有步骤，类比段等于零样本。温度可略高于最终作答，以鼓励例题多样性；最终作答应更保守，以免在错误类比上发散。\(K\) 增大则上下文变长、延迟变长，例题之间还可能互相矛盾，需要在验证集上扫，而不是默认越大越好。</p><h3 id="自生成例题如何当条件" tabindex="-1">自生成例题如何当条件 <a class="header-anchor" href="#自生成例题如何当条件" aria-label="Permalink to &quot;自生成例题如何当条件&quot;">​</a></h3><p>机制上，相关题解进入上下文后，原题的逐步推导会模仿刚写出的格式与引理。这和少样本 CoT 相同，只是例题分布依赖于 \(x\)。依赖 \(x\) 是优点也是风险：优点是相关；风险是例题生成器用的是同一套会在原题上犯错的知识。若模型系统性不会某类积分，它生成的「相关积分题」也会错，原题跟着错。类比不能创造参数里没有的算法，只能重新组织已有的解题程序。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>认知科学里的类比是「源问题的关系结构映射到目标问题」。提示并不能保证模型做结构映射：它可能只是抄格式、抄语气。有效时，源问题提供的是中间引理和步骤模板；无效时，源问题提供的是错误的表面特征（都出现「火车」，于是用了行程公式，其实是组合计数）。因此类比提示的增益应在「需要相关引理」的任务上更大，在纯格式任务上接近普通 CoT。</p><p>与检索增强的差别是记忆位置。RAG 读文档；类比提示读权重。没有引用、没有更新、也没有权限边界。事实类任务上，自生成「相关知识」可以是一本过期的内部百科，听起来很像对。应用时应限制在数学、代码、谜题等可验证域，或把生成的知识当假设再检索核对。</p><p><span class="marginnote">把类比段交给较小的模型、把解题交给较大的模型，看起来像分层，其实例题质量会先塌。论文的设定是同一模型既出例题又解题。若要分层，必须单独测「小模型例题 + 大模型解题」是否仍优于大模型零样本。</span></p><h3 id="类比失败时会发生什么" tabindex="-1">类比失败时会发生什么 <a class="header-anchor" href="#类比失败时会发生什么" aria-label="Permalink to &quot;类比失败时会发生什么&quot;">​</a></h3><p>三种典型失败。例题不相关：后续相当于噪声少样本，通常略差于干净零样本。例题相关但解错：错误解法被当成权威示范，危害大于没有例题。例题太像原题：模型把原题数字填进例题答案，造成虚假高相关。缓解包括：要求例题使用不同数值、限制例题长度、对可编程任务先跑例题中的代码（若有）再继续。没有检查器时，宁可 \(K=1\) 条短而对的提纲，不要五条华丽的错解。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>延迟和费用按「例题 token + 解答 token」增长，相对零样本 CoT 往往贵一倍以上。产品上应只对高难度、可验证的请求开启，并设最大例题长度。竞赛数学与编程是原文主场；开放聊天、安全敏感咨询不适合让模型先编三道「相关案例」。与 <a href="/llm/plan-and-solve">Plan-and-Solve</a> 可以叠：先类比再计划再求解，但叠加后错误归因极难，应先单独开一类比。</p><p>它不能替代少样本里那些<strong>任务格式</strong>示范（输出 JSON 的字段顺序、单位、评分协议）。格式仍应写死在系统提示里；类比只负责内容侧的题解。也不要和「从题库检索真题」混名：后者有版权与污染问题，前者有幻觉问题，治理手段不同。</p><p><span class="marginnote">评测必须用原题答案的硬指标，不要用「例题看起来相关」的人工印象当成功。相关而错的例题会同时提高相关性和降低准确率，只看前者会得出相反的产品结论。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Analogical prompting 让模型先自生成相关例题或知识，再解当前题，把选题从人工少样本挪到测试时生成。</li><li>相关例题是同一 \(\pi\) 从权重里采样的脚手架，不能引入参数中不存在的算法。</li><li>知识型变体适合陈述性要点；题解型变体适合数学与代码。</li><li>失败模式是不相关、相关但解错、以及几乎复制原题；后两种比没有例题更糟。</li><li>费用随例题长度增长；应限制在可验证域，并与格式示范分开写。</li><li>与检索真题、与智能体规划都不是同一件事。</li><li>出处：Yasunaga et al., <em>Large Language Models as Analogical Reasoners</em>, ICLR 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

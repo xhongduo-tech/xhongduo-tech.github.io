@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Llama 3.1 长上下文 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llama-3-1.md.BAlHlW3O.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="llama-3-1-长上下文" tabindex="-1">Llama 3.1 长上下文 <a class="header-anchor" href="#llama-3-1-长上下文" aria-label="Permalink to &quot;Llama 3.1 长上下文&quot;">​</a></h1><div class="epigraph"><p>标准预训练在 8K 窗口上完成，随后用持续预训练把支持的上下文逐步拉到 128K。</p><footer>—— Grattafiori 等，The Llama 3 Herd of Models，arXiv:2407.21783</footer></div><p>Llama 3.1 把「能读多长」写成产品规格：公开权重覆盖 8B、70B 与 405B，窗口标称 <strong>128K token</strong>。论文把评测表里的结果都算在 Llama 3.1 上，并声明为行文方便仍称 Llama 3。长窗口不是把 <code>max_position_embeddings</code> 改成 131072 再直接推理——那会把 <a href="/llm/rope">RoPE</a> 的相位送出训练支撑。真正改的是两件事：预训练后期用更长序列做持续训练；位置通道用高基数与按维缩放，把外推与插值拆开处理。本篇只谈这条 8K→128K 的工程，不把 405B 的数据配比或后训练工具调用写成另一篇综述。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Llama 3 主体预训练在 <strong>8K</strong> 上做 next-token prediction（405B 约 15.6T token）。自注意力按长度二次涨，一开始就按 128K 训，同样 token 预算下步数会少一个数量级。短窗模型若在推理时把位置下标直接用到 \(L&#39;=128\mathrm{K}\)，高频旋转角走出训练弧长，点积不再编码相对距离，这是 <a href="/llm/position-extrapolation">朴素外推</a> 的典型失败。</p><p>另一方面，把所有频率按 \(8\mathrm{K}/128\mathrm{K}\) 线性压缩（位置插值）能把相位映回原窗口，但高频邻域被抹平，近距离复制与局部语法会伤。需要的是一条<strong>可验收的拉长课程</strong>：每加一档长度，短任务分数要回到原水平，长任务上「大海捞针」一类检索要过关，而不是只看能不能把 KV 塞进显存。</p><h3 id="_128k-是训练出来的窗口-不是配置项" tabindex="-1">128K 是训练出来的窗口，不是配置项 <a class="header-anchor" href="#_128k-是训练出来的窗口-不是配置项" aria-label="Permalink to &quot;128K 是训练出来的窗口，不是配置项&quot;">​</a></h3><p>标称上下文是模型在该长度上被训过、并且用检索与长文档基准验收过的上限。推理框架把缓存开到 128K，只说明数值与掩码允许前向。没有分阶段适应时，困惑度会在某一长度陡升；有适应但后训练全是短对话时，模型会把后半段当噪声。Llama 3.1 把长序列放到预训练<strong>最后阶段</strong>，再在后训练里单独配长上下文 SFT，就是在避免这两种假窗口。</p><p><span class="marginnote">论文写明：过早用长序列不划算，因为注意力计算随长度二次增长。长上下文是课程的最后几课，不是第零课。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="高基数-rope-先把外推余量留出来" tabindex="-1">高基数 RoPE 先把外推余量留出来 <a class="header-anchor" href="#高基数-rope-先把外推余量留出来" aria-label="Permalink to &quot;高基数 RoPE 先把外推余量留出来&quot;">​</a></h3><p>Llama 3 把 RoPE 基数从 Llama 2 常用的 \(10^4\) 提到 \(\theta=500{,}000\)。Xiong 等人（2023）表明，提高基数有利于把窗口做到数万 token 量级。高 \(\theta\) 让同一下标对应的高频转得更慢，8K 预训练里相位尚未把后续拉长用尽。这是<strong>外推友好的尺子</strong>，本身还不等于 128K 已经可用。</p><h3 id="分阶段持续预训练" tabindex="-1">分阶段持续预训练 <a class="header-anchor" href="#分阶段持续预训练" aria-label="Permalink to &quot;分阶段持续预训练&quot;">​</a></h3><p>405B 的长上下文阶段大约用 <strong>800B token</strong>，从 8K 起分 <strong>六档</strong> 加长，直到 128K。每一档的验收有两条：(1) 短上下文评测完全恢复；(2) 直到该长度的 needle-in-a-haystack 能完美取回。不满足就继续在该档上训，而不是一次跳到 16 倍。退火阶段仍保持 128K，并上采样高质量数据。上下文并行（context parallelism）按序列维切块，使 128K 训练在显存上可行。</p><p>后训练里，SFT 要显式混入 16K、32K、64K、128K 档的样本，以免对齐把长程注意力洗掉。论文观察到：只要 SFT 的长上下文已经够好，DPO 只用短样本也不至于把长能力打崩——DPO 步数更少。这是配方观察，不是「DPO 天然保护长窗口」的定理。</p><div class="mermaid"></div><h3 id="推理期的按维频率缩放" tabindex="-1">推理期的按维频率缩放 <a class="header-anchor" href="#推理期的按维频率缩放" aria-label="Permalink to &quot;推理期的按维频率缩放&quot;">​</a></h3><p>发布权重在推理实现里并不对所有旋转维做同一缩放。官方配套方案（transformers 中 <code>rope_type=llama3</code>）按波长分段：波长短于原窗口某一阈值的维<strong>保持原频率</strong>（保局部、接近外推）；波长长的维把频率除以缩放系数（低频插值）；中间段斜坡混合。这与 <a href="/llm/ntk-aware-interpolation">NTK-aware</a> / <a href="/llm/yarn">YaRN</a> 的「高频少压、低频多担外推」同族，但是 Llama 3.1 自己的一套系数，写进配置而不是另训一份位置网络。训练课程与推理缩放必须配对：用 8K 的 RoPE 核去跑 128K 的 3.1 权重，相位会错。</p><p><span class="marginnote">不要把 \(\theta=500{,}000\) 写成「已经等于 128K」。高基数是 8K 预训练时的外推余量；128K 来自分阶段持续预训练。推理缩放是第三块拼图，缺一角就会在某一频段上重复插值或重复外推的失败模式。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>记原窗口 \(L=8192\)，目标 \(L&#39;=131072\)。朴素外推使用真实下标 \(p\) 与原 \(\theta_i\)，失败在高频。全局插值使用 \(p\cdot L/L&#39;\)，失败在高频被压缩。Llama 3.1 的组合是：先用很大的基数降低「同一 \(p\) 上转得有多快」，再用持续训练让注意力权重看见过 \(L&#39;\) 量级的键集合，最后在推理把低频维按比例放慢、高频维尽量不动。低频负责「文档前部还是后部」，高频负责「差几个 token」。分段以后，softmax 才同时保得住远距检索与近距语法。</p><p>针检索完美，只说明存在一条高分路径能把插入句取回。多针、长文档 QA、需要综合多段的任务，才测「窗口里的内容有没有被用上」。论文在 InfiniteBench、ZeroSCROLLS 等长上下文基准上另外报表，并讨论 DocQA 与 many-shot 上的安全：上下文变长后，有害示范与文档内对抗问题会进入同一窗口，安全后训练必须覆盖长前缀，不能只做短对话拒绝。</p><h3 id="与「开源侧插值补丁」的差别" tabindex="-1">与「开源侧插值补丁」的差别 <a class="header-anchor" href="#与「开源侧插值补丁」的差别" aria-label="Permalink to &quot;与「开源侧插值补丁」的差别&quot;">​</a></h3><p>2023 年社区把 Llama 2 拉到 16K/32K，多用位置插值或改基数再少量微调。Llama 3.1 把同类几何放进<strong>官方预训练课程</strong>，用的 token 量是「微调几千步」的许多倍，并且用短任务回归当门禁。效果上 128K 是一等公民；代价是训练集群必须支持上下文并行与长序列通信。不能把 3.1 的 128K 理解成「在 3.0 8K 权重上套一层 YaRN」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>128K 的 KV 按层、按 <a href="/llm/gqa">GQA</a> 头数线性涨。405B 即使用分组 KV，服务 128K 仍是带宽与显存问题，多数业务到不了标称上限。针检索过关不等于代码仓库级推理过关：仓库补全还依赖数据里是否出现过跨文件模式。后训练若把长样本洗掉，窗口规格还在卡上，行为回到短对话模型。</p><p>分阶段门禁依赖针任务，会偏向「能定位一句」而不是「能维护万 token 的约束」。评自己的 3.1 部署时，应同时看短任务回归、针检索、以及需要综合的长文档，三张表缺一不可。</p><p><span class="marginnote">Llama 3.1 的多模态实验在论文里是组合式适配器，不是原生早融合；长上下文规格首先是语言模型窗口。不要把 128K 自动写成「128K 图像 token」。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Llama 3.1 把上下文从 8K 拉到 128K：主体仍在短窗预训练，长序列放在持续预训练与后训练。</li><li>RoPE 使用 \(\theta=500{,}000\)，为后续拉长留外推余量；真正的 128K 靠分阶段加长与约 800B token（405B）的长上下文阶段。</li><li>推理配套按波长分段缩放频率：低频插值、高频少动，避免单一的外推崩溃或插值糊掉。</li><li>验收要短任务恢复加针检索；安全评测必须覆盖长文档与 many-shot。</li><li>出处：Grattafiori 等，<em>The Llama 3 Herd of Models</em>，arXiv:2407.21783（文中评测对应 Llama 3.1）。RoPE 缩放实现见官方权重配置与推理代码；对照 Chen 等位置插值（2023）、Peng 等 YaRN（2023）、Xiong 等长上下文 RoPE（2023）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

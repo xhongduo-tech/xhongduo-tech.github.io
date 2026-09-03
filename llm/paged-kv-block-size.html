@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分页 KV 与块大小 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_paged-kv-block-size.md.CHZfO19r.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="分页-kv-与块大小" tabindex="-1">分页 KV 与块大小 <a class="header-anchor" href="#分页-kv-与块大小" aria-label="Permalink to &quot;分页 KV 与块大小&quot;">​</a></h1><div class="epigraph"><p>块太小，翻译次数把核拖瘦；块太大，每条请求末尾那截空槽把批次吃掉。块大小是碎片与间接寻址之间的显式交易。</p><footer>—— 对照 Kwon 等 PagedAttention 的块表，以及后续服务栈里的默认 16 / 32 token</footer></div><p>PagedAttention 把每条请求的 KV 切成固定长度的块，用块表把逻辑 token 下标映射到物理槽。这样不必按最大上下文预留，解码增长时再要一块即可。剩下一个看起来像常数的超参：一块装多少 token。它同时决定内部碎片、块表长度、注意力核的内层循环、以及前缀能共享到多细。本篇只讨论这个粒度；虚拟连续的替代见 <a href="/llm/vattention">vAttention</a>，前缀如何挂到块上见 <a href="/llm/prefix-caching">前缀缓存</a> 与 <a href="/llm/radix-attention">RadixAttention</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态预留的内部碎片来自「按上限分配、实际用到一小截」。分页之后，碎片缩到<strong>最后一块的空洞</strong>：长度为 \(n\) 的序列、块大小 \(B\)，浪费的 token 槽是 \(B-(n \bmod B)\)（整除时为零）。期望浪费大约 \(B/2\) 个 token 槽，再乘层数、头数、元素字节。\(B\) 越大，这条尾巴越长；并发请求一多，尾巴加总仍能挡住一个可观的批次。</p><p>另一端，\(B\) 越小，一块只覆盖很短的连续段，注意力核要按块跳转的次数变多，块表本身变长，CPU 侧维护与 GPU 侧间接加载都变重。Prabhu 等人在讨论分页核时观察到：块大小能让同一种分页注意力的时间差出近两倍——这不是边角，而是核实现与 \(B\) 耦合的证据。于是块大小不是「调一调再说」的魔法数，而是把碎片上界和间接寻址频率写进同一条式子。</p><p><span class="marginnote">外部碎片在分页里通常很小，因为物理槽大小相同、可任意拼接。真正要盯的是内部碎片（尾块空洞）和「逻辑连续、物理跳跃」带来的核开销。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="块表把逻辑下标译成物理槽" tabindex="-1">块表把逻辑下标译成物理槽 <a class="header-anchor" href="#块表把逻辑下标译成物理槽" aria-label="Permalink to &quot;块表把逻辑下标译成物理槽&quot;">​</a></h3><p>逻辑位置 \(t\) 落在第 \(\lfloor t/B\rfloor\) 块，块内偏移 \(t \bmod B\)。块表 <code>block_table[seq][i]</code> 给出第 \(i\) 个逻辑块的物理编号。注意力核按逻辑序遍历，每次换块就换基址。Kwon 等人在 PagedAttention 里用这张表同时支持：增长（追加新物理块）、抢占（把块换出到 CPU）、共享（两张表指向同一物理块）。\(B\) 是这张表的单位，也是共享的单位：两请求只能在块边界上分叉或汇合，不能在块中间把后半截借走。</p><h3 id="默认档位与直觉" tabindex="-1">默认档位与直觉 <a class="header-anchor" href="#默认档位与直觉" aria-label="Permalink to &quot;默认档位与直觉&quot;">​</a></h3><p>开源服务栈里常见 \(B=16\) 或 \(B=32\)。\(16\) 对碎片更友好：平均尾巴八个 token，短请求不至于为对齐浪费一整截长块；核仍能在块内做一点向量化。\(32\) 或 \(64\) 让块内序列更长，HND 布局下更像稠密核的一小段，间接跳转更少，但尾巴和前缀对齐都变粗。极小的 \(B=1\)（SGLang 早期 RadixAttention 叙述里一页一 token）让前缀可以在任意位置切开，树最灵活，核则几乎退化成纯间接访问，需要靠别的融合来补。</p><p>选择时用三条尺子一起量，而不是只看显存占用：</p> \[W_{\mathrm{frag}} \approx \frac{B}{2}\cdot L\cdot h_{\mathrm{kv}}\cdot d\cdot 2\cdot b, \qquad N_{\mathrm{lookup}} \approx \lceil n/B\rceil. \]<p>\(W_{\mathrm{frag}}\) 是每条请求期望浪费的字节（量级），\(N_{\mathrm{lookup}}\) 是一次注意力要换基址的次数。再叠加前缀命中：共享长度若必须向下对齐到 \(B\) 的倍数，有效命中是 \(\lfloor p/B\rfloor\cdot B\)，余数要重算。</p><h3 id="与布局、量化一起选" tabindex="-1">与布局、量化一起选 <a class="header-anchor" href="#与布局、量化一起选" aria-label="Permalink to &quot;与布局、量化一起选&quot;">​</a></h3><p>块内布局是 <a href="/llm/kv-layout">BSHD 还是 HND</a>，决定 \(B\) 个 token 在物理上怎么排。HND 下增大 \(B\) 直接加长每头的连续段，解码核更受益；BSHD 下增大 \(B\) 对解码合并帮助较小。KV 量化后每 token 变瘦，\(W_{\mathrm{frag}}\) 的字节变小，可以略微容忍更大的 \(B\)；但块表与跳转次数不随量化变，核时间仍可能被小 \(B\) 卡住。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分页注意力的正确性不依赖 \(B\)：softmax 仍沿逻辑时间。\(B\) 只改变访存图。块内连续时，warp 可以一次吃满一条 cache line；跨块时必须重新算基址，指令与延迟槽都会露出来。预填充 \(n\) 大，块数多，跳转占比相对计算可能还好；解码 \(n\) 逐步变大、每步计算很少，跳转和块表驻留在 L1/L2 的压力更明显。这就是为什么同一套分页核，预填充与解码对 \(B\) 的敏感度不同。</p><p>抢占与卸载也以块为原子。\(B\) 太大，一次换出带走过长的上下文，PCIe 突发变大、但灵活性变差；\(B\) 太小，传输次数变多，启动开销吃掉带宽。前缀共享则要求哈希或树节点与块对齐：vLLM 一类自动前缀缓存按块内容哈希，父块哈希串成链；\(B\) 越大，两段「只差几个 token」的提示越难在中途分叉。</p><p><span class="marginnote">把 \(B\) 当成「页大小」时，不要和操作系统 \(4\,\mathrm{KiB}\) 或 GPU \(2\,\mathrm{MiB}\) 混为一谈。这里的单位是 token，字节数还要乘 \(H,D\) 和层数。一层一块的字节 \(=\) \(B\cdot h_{\mathrm{kv}}\cdot d\cdot 2\cdot b\)。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有对所有模型都最优的 \(B\)。头数多、头维大时，一块的字节很快涨到几十 KB，再增大 \(B\) 会让尾块浪费在显存上很显眼；GQA 把头砍少之后，同样 \(B\) 的字节变小，可以略增 \(B\) 去喂核。长上下文、低并发，碎片不痛，核更痛，倾向大块；高并发短对话，碎片痛，倾向小块。</p><p>前缀很重的负载（系统提示数 KB、少样本）值得单独测：把 \(B\) 从 \(32\) 降到 \(16\)，有时吞吐上升不是因为核更快，而是共享变细、预填充少做了。反过来，几乎无共享的补全服务，小 \(B\) 只留下跳转税。换注意力核时必须重测：\(B\) 是核常量，不是与核无关的分配器细节。vAttention 把这个问题推回硬件页大小，用户态 \(B\) 消失，但硬件页过粗会把碎片换一种形式送回来。</p><p>不要在运行中频繁改 \(B\)。块表、哈希、已缓存的前缀全部作废。把它当作部署常量，和模型、并行度一起写进配置，而不是请求级参数。</p><p><span class="marginnote">调试碎片时，打印「已分配块数 × \(B\) − 实际 token 数」，不要只看 HBM 占用。后者还混进了权重和工作区，看不出尾巴。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分页 KV 用固定 token 块和块表做逻辑到物理的翻译；块大小 \(B\) 同时约束尾块碎片、核跳转次数和前缀对齐。</li><li>期望内部碎片约 \(B/2\) 个 token 槽；查找次数约 \(\lceil n/B\rceil\)。</li><li>服务栈常见 \(16\) 或 \(32\)；一 token 一页最利于树形共享，却最伤核。</li><li>\(B\) 与布局、量化、并发形态耦合，换核或换负载都要重测。</li><li>共享与卸载都以块为原子，不能在块内再切开。</li><li>运行期不要改 \(B\)；它是集群配置，不是采样参数。</li><li>出处：Kwon 等，<em>Efficient Memory Management for Large Language Model Serving with PagedAttention</em>，SOSP 2023；块大小对核时间的敏感性亦见 Prabhu 等 vAttention 文中对分页核的测量。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

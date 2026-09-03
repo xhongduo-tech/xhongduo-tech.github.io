@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LALM：先理解音频再生成转写 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-asr-lalm.md.K0W7edAX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="lalm-先理解音频再生成转写" tabindex="-1">LALM：先理解音频再生成转写 <a class="header-anchor" href="#lalm-先理解音频再生成转写" aria-label="Permalink to &quot;LALM：先理解音频再生成转写&quot;">​</a></h1><div class="epigraph"><p>模型先对音频信号形成高层次理解，再在该理解上生成转写，而不是只做自底向上的声学模式匹配。</p><footer>—— Qwen Team，Qwen3-ASR Technical Report，arXiv:2601.21337</footer></div><p>自动语音识别长期由判别式端到端模型主导：CTC 把帧映射到字母并允许折叠空白，Transducer 在对齐路径上做流式标签生成，AED（Listen–Attend–Spell 一类）用编码器加注意力解码器直接出词。它们都在「声学模式 → 词面」这条短路径上工作，语言模型容量有限，世界知识与专名要靠外部融合。Large Audio Language Model（LALM）把路径拉长：音频先被编码为可被 LLM 阅读的表示，LLM 形成对内容、语种、噪声和场景的理解，再自回归生成转写。Qwen3-ASR 技术报告把这一范式与传统 E2E 明确对立，并以此解释长音频、噪声、专名和方言为何更自然。本篇只澄清「先理解再转写」是什么、不是什么；不是纯 CTC，也不是把 Whisper 换个名字。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>CTC 假设条件独立（给定帧对齐后标签近似独立），用外挂 LM 补语言。噪声和口误时，声学分数平、LM 乱猜。AED 已经有解码器语言模型，但仍通常从零训或从语音数据训，词表与世界知识远小于当代文本 LLM。长音频上，编码器状态与注意力长度成为瓶颈；方言与语码转换需要的是语言侧覆盖，不是多加一层卷积。</p><p>LALM 把同一目标拆成两段。先得到音频理解状态 \(h=f_{\mathrm{enc}}(x)\)，再由 LLM 生成</p> \[p(y\mid h,\text{format}) =\prod_t p(y_t\mid y_{&lt;t},h,\text{format}), \]<p>其中 \(\text{format}\) 规定语种标签与 <code>&lt;asr_text&gt;</code> 一类槽位。语言先验进入第二段，声学证据留在 \(h\) 里。要解决的是：把文本 LLM 已经学到的句法、实体和语种先验，变成转写解码器的先验，同时保留足够的声学证据，避免「听成」常见句。Qwen3-ASR 指出，在公开测试集上各系统分数接近标注噪声上限时，真实场景的差异仍然很大——内部评测覆盖复杂声学、方言、老人小孩与多语。范式比较不能只看 LibriSpeech 小数点。</p><h3 id="理解先于词面" tabindex="-1">理解先于词面 <a class="header-anchor" href="#理解先于词面" aria-label="Permalink to &quot;理解先于词面&quot;">​</a></h3><p>「理解」在这里不是哲学词。它指编码器+LLM 的隐状态已经可以支撑多种音频任务（语种识别、有无语音、实体、甚至非语音场景），转写只是这些隐状态上的一种生成格式。Qwen3-ASR 的输出样式是 <code>language English&lt;asr_text&gt;...</code> 或无语音时 <code>language None&lt;asr_text&gt;</code>，说明解码器先（或同时）承诺语种与是否有人声，再写词面。纯 CTC 没有这种中间言语行为，它只有对齐路径。</p><p><span class="marginnote">LALM 仍可能在内部使用注意力编码器，甚至预训练阶段用过 AED。对立面是「部署时只靠 CTC 头从帧分类出字」，不是「网络里不许出现过交叉注意力」。Qwen3-ASR 的 AuT 本身就是 AED 风格的音频 Transformer，但它的编码器输出被投影进 Qwen3，由 LLM 生成转写。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Qwen3-ASR-1.7B 与 0.6B 从 Qwen3-Omni 基座做后训练，支持 52 个语种与方言的识别及语种识别。音频经 AuT 编码，经学习型 projector 进入 Qwen3 解码器，自回归产生带语种标签的转写。训练分阶段：AuT 预训练、Omni 多模态预训练、ASR 监督微调、GSPO 强化学习。SFT 把模型收成 ASR-only，减轻指令注入：它不再当通用聊天模型，输出格式固定。RL 用约 5 万句提升噪声稳健与难例。</p><p>这与 CTC 管线的差别在推理接口上就看得见：没有帧级字母后验要格子解码，没有外部 WFST。有的是 LLM 采样或贪心解码，以及可选的上下文偏置写在 system prompt 里，当背景知识。ForcedAligner 另走非自回归时间戳，因为 LALM 的转写本身不保证帧对齐——先理解再生成，时间是另一条任务。</p><div class="mermaid"></div><h3 id="与-aed、ctc-的关系" tabindex="-1">与 AED、CTC 的关系 <a class="header-anchor" href="#与-aed、ctc-的关系" aria-label="Permalink to &quot;与 AED、CTC 的关系&quot;">​</a></h3><p>AED 已经是「编码器理解、解码器生成」。LALM 把解码器换成通用 LLM，并把编码器的训练目标从单一 ASR 扩展到大规模音频理解（在 Omni / AuT 阶段）。信息流仍是交叉或前缀条件，不是 CTC 的帧分类。可以说 LALM 是 AED 的解码器被 LLM 替换、编码器被大规模音频预训练加厚之后的形态。Whisper 是强 AED，但解码器不是通用文本 LLM，世界知识更窄。Qwen3-ASR 报告把传统范式举例为 Transducer 与 AED（含 Whisper），把自身放在 LALM 一侧。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>先理解再生成，意味着错误模式改变。语言模型可以修复口误、补专名、在噪声里选合语法的句子——对的时候是稳健，错的时候是幻觉替换，WER 可能看起来还行但语义已换。CTC 更常删插字母，较少整词替换成近义。评测需要实体错误、专名、歌词（报告强调歌声与歌曲识别）而不只是总体 WER。</p><p>长上下文上，LLM 可以把分钟级转写维持在同一话题下，这是传统解码器状态难以做到的。代价是自回归延迟与计算。Qwen3-ASR-0.6B 给出约 92 ms 的平均首 token 时间，并在高并发下强调吞吐，说明 LALM 并不必然比 CTC 慢一个数量级——编码器下采样到 12.5 Hz 后，LLM 前缀并不长。慢的是生成长文本本身，这与所有自回归 ASR 相同。</p><p><span class="marginnote">SFT 把模型训练成不遵循自然语言指令，是安全与稳定性选择：避免提示词把转写改写成摘要或翻译。这与通用 Audio LM「听指令」相反。LALM 作为 ASR 产品时，理解能力被收口到转写格式，而不是被删掉。</span></p><h3 id="时间戳为何要另模型" tabindex="-1">时间戳为何要另模型 <a class="header-anchor" href="#时间戳为何要另模型" aria-label="Permalink to &quot;时间戳为何要另模型&quot;">​</a></h3><p>生成式转写的 token 边界不是 10 ms 帧。要从 LLM 字面回推发音时间，需要对齐假设。Qwen3-ForcedAligner-0.6B 用非自回归 LLM 做强制对齐，支持 11 语种与多种粒度。报告强调 LALM 路线也可以把时间戳做快做准，但那是独立头，不是 CTC 后处理的免费礼物。把 LALM 理解成「自带逐帧时间」会在字幕场景失败。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>无语音、音乐、重叠说话人：理解模块可能输出 <code>language None</code> 或把歌声当歌词（报告将歌曲列为优势场景之一，仍不是会议叠音的解）。指令被关掉后，用户不能靠 prompt 让模型「只转写第二个人」。要说话人过滤，需另接分离或提示音频。</p><p>公开基准饱和时，LALM 的宣传差异来自内部集与真实日志。复现应同时报公开集与自建噪声/方言集，否则无法验证「先理解」是否真的转化为专名和噪声收益。RL 阶段数据仅约 50k 句，说明理解先验大部分来自 Omni 与 AuT，ASR 后训练是格式与稳健性，不是从零学语言。</p><p><span class="marginnote">不要把 LALM 写成「不用声学模型」。AuT 就是声学前端。差别是词面由 LLM 生成，帧分类头不是主角。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LALM 先形成音频的高层次理解，再条件生成转写；与 CTC/Transducer 的帧级或路径级分类不同。</li><li>Qwen3-ASR 以 Qwen3-Omni 为基座、AuT 为音频编码器、Qwen3 为解码器，输出语种加转写。</li><li>AED/Whisper 已是编码器–解码器，LALM 进一步把解码器换成通用 LLM 并加厚音频预训练。</li><li>语言先验提升专名与长音频，也带来整词替换式幻觉；时间戳需独立对齐模型。</li><li>产品形态把指令跟随收口，避免转写器被提示词改任务。</li><li>出处：Shi 等，Qwen3-ASR Technical Report，arXiv:2601.21337（2026 年 1 月）。基座能力见 Qwen3-Omni 技术报告（arXiv:2509.17765）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

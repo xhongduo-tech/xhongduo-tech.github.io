@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用自家模型加速 ASIC 设计闭环 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_jalapeno-ai-assisted-design.md.yj0Q2rFx.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="用自家模型加速-asic-设计闭环" tabindex="-1">用自家模型加速 ASIC 设计闭环 <a class="header-anchor" href="#用自家模型加速-asic-设计闭环" aria-label="Permalink to &quot;用自家模型加速 ASIC 设计闭环&quot;">​</a></h1><div class="epigraph"><p>规格在设计闭环里收敛，而不是一开始就完全知道；测量、验证、学习、修改、再来一轮，把工作负载仿真、RTL、质量结果与物理设计之间的反馈缩短。</p><footer>—— OpenAI，Hot Chips 2026 关于 Jalapeño 执行方式的说明</footer></div><p>Jalapeño 从架构概念到 tapeout 被写成大约九个月量级的路径：2024 年末概念，2025 年 RTL 冻结，2025 年末 tapeout，随后工程硅在实验室按生产目标频率与功耗跑模型。OpenAI 把加速因素之一写成<strong>自家模型</strong>，并在演讲里点名用内部 AI 与 XLS 硬件描述语言推动流程。这不是「用聊天机器人写 Verilog」的段子，而是把设计闭环改成可搜索：人给出功能正确的内核与约束，模型在 PPA 与映射上做迭代。公开的量化结果包括：相对人工基线，BF16 乘法上约 56% 的 PPA 收益，矩阵单元面积约小 10%；从功能正确的内核出发，内部系统把注意力与 MoE 核做到比既有专家手写实现快 1.5×–1.8×，并在芯片上端到端验证。本篇只写这些已披露的闭环形状，不编造使用了哪一个对外产品名去综合哪一个未公开模块。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>先进工艺上的推理 ASIC 传统上要多年：微架构、RTL、验证、物理设计、DFT、封装协同，每一段都有长反馈。规格若一开始就锁死，工作负载却在九个月里从「通用矩阵乘」漂到「带草稿模型的投机 decode 与突发 MoE」，硅会刚下线就错代。OpenAI 的问题是双重的：既要把 <a href="/llm/jalapeno-inference-only">推理专用</a> 的空白设计做出来，又要让规格跟着模型路线图收敛。人工迭代的墙钟太慢，跟不上产品。</p><p>第二条问题是空间架构的映射。核切片、本地 HBM、集合网络一旦钉进硬件，内核放置就是组合爆炸。人擅长写功能正确的注意力，不擅长在物理核上搜流水与布局。若编程模型不为搜索器设计，AI 辅助只会生成无法闭合时序的 RTL。</p><h3 id="闭环的对象是-ppa-与内核-不是替代签核" tabindex="-1">闭环的对象是 PPA 与内核，不是替代签核 <a class="header-anchor" href="#闭环的对象是-ppa-与内核-不是替代签核" aria-label="Permalink to &quot;闭环的对象是 PPA 与内核，不是替代签核&quot;">​</a></h3><p>AI 可以提议微结构改动、重写数据通路、调整流水。签核仍要时序、功耗、DRC、形式验证与仿真。OpenAI 强调改动可以晚到 RTL 冻结当天，这提高了对回归验证的要求：模型给出的补丁必须进同一套 DV，而不是绕过。九个月能成立，前提是验证与物理设计也被拉进同一反馈，而不是前端加速、后端仍按年排期。</p><p><span class="marginnote">GPT-5.3-Codex-Spark 出现在公开材料里，是工程样品上跑的<strong>工作负载</strong>之一，不是「用 Spark 设计了 Jalapeño」的证据。设计侧只写了 internal AI model 与 XLS。不要把产品名在设计与运行之间串台。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>公开方法是连续收敛。工作负载仿真（prefill / 草稿 / 校验 decode、MoE 突发）产出瓶颈；RTL 与 XLS 描述被修改；QoR 与 DV、物理设计的结果回流。内部模型参与两段：一段在硅上——例如对 BF16 乘法与矩阵单元面积的 PPA 搜索；一段在内核上——从功能正确实现搜到 1.5×–1.8× 的注意力与 MoE。空间 ISA 被故意设计成「人好懂、前沿模型好编程」：暴露本地张量、快速本地路径、显式通信，让搜索去处理映射、放置、调度、流水。Gluon 把每个物理核当线程块，布局成为张量上的显式字段。</p><p>与 Broadcom 的硅实施、Celestica 的整机并行，而不是串成「先芯片再系统」。物理设计与封装约束必须尽早进仿真，否则九个月只优化了逻辑门，700 W 与 HBM4 中介层在后端爆炸。AI 辅助不能取消 <a href="/llm/jalapeno-openai-broadcom-tsmc">代工与实施伙伴</a>，它取消的是部分前端试错的墙钟。</p><div class="mermaid"></div><h3 id="编程模型为搜索器而简" tabindex="-1">编程模型为搜索器而简 <a class="header-anchor" href="#编程模型为搜索器而简" aria-label="Permalink to &quot;编程模型为搜索器而简&quot;">​</a></h3><p>若硬件暴露的是隐式缓存与统一内存，搜索器难以把「慢」归因到放置。Jalapeño 的 <a href="/llm/jalapeno-sliced-hbm">切片化本地视图</a> 把成本函数写清楚：本地命中、集合网、通用 NoC 三档。模型优化内核时，目标是少走后两档、喂饱矩阵单元。1.5×–1.8× 的公开加速来自这类搜索，而不是来自未披露的新算法注意力。人仍要提供功能正确的起点与测试；AI 把实现推到高性能。这一分工与「完全自动芯片」不同。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>反馈缩短的机制是：同一套度量（延迟、能耗、面积、时序余量）在仿真与硅前工具里反复打分，模型在离散的 RTL 改动空间里提议。XLS 一类 HDL 比随意的 Verilog 方言更适合做等价重写与流水变换，因为它把计算图提得更高。56% 的 BF16 乘法 PPA 与 10% 的矩阵面积，是这一搜索在<strong>已公开的两个模块</strong>上的得分，不是全芯片平均。把它外推成「整颗 Jalapeño 比人工设计小一半」没有依据。</p><p>内核侧的机制是：功能正确保证数值；搜索改 tiling、流水、与集合网的重叠。端到端上芯片验证，避免仿真器与硅的 ISA 偏差。OpenAI 还把同一套 AI 用于把规格收敛到测量——哪一段该加大矩阵、哪一段该加大 HBM 切片——而不是在项目启动时写死一份再也不改的 ISA。这解释了为何能对未共同设计的 GPT-OSS、DeepSeek R1、Kimi K2.5 在 A0 回硅后较快跑通：硬件保持了足够通用的空间原语，内核搜索补上模型差异。</p><p><span class="marginnote">九个月是 RTL 到 tapeout 的公开量级，不是「从零招人到量产机柜」。架构概念在 2024 年末，系统与 <a href="/llm/jalapeno-celestica">Celestica</a> 的机柜路径更长。不要把前端墙钟写成全栈交付周期。</span></p><h3 id="与传统-eda-自动布局布线的关系" tabindex="-1">与传统 EDA 自动布局布线的关系 <a class="header-anchor" href="#与传统-eda-自动布局布线的关系" aria-label="Permalink to &quot;与传统 EDA 自动布局布线的关系&quot;">​</a></h3><p>EDA 的 P&amp;R、综合、形式验证已经自动化数十年。Jalapeño 故事里的新意是：生成式模型进入<strong>微结构与内核</strong>，而不只是在给定网表上布线。传统工具仍做签核。宣称「AI 取代物理设计」与公开材料不符。Broadcom 的实施职责包含时序签核与 DFT，这一层没有被「九个月」取消。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 56% 与 1.5×–1.8× 写进与 GPU 的产品对比——那是相对人工基线或专家手写核的内部对照，InferenceX 才是系统级对照。不要点名未公开的内部模型版本。不要假设开源社区用同一套 XLS 流程能复现 Jalapeño：工具链、工艺 PDK、验证农场都未开放。</p><p>风险是过拟合：模型把 RTL 拟合到仿真器喜欢的形状，硅上出现相关失效。公开材料强调 DV 与物理设计在闭环内，正是为了这条风险。另一风险是规格漂得太晚：冻结日当天的大改需要验证覆盖，否则九个月换来的是一次 respin。多代路线图（Gen 2 能效、Gen 3 经济的低延迟服务）依赖把这一闭环变成可重复的组织能力，而不是一次奇迹。</p><p><span class="marginnote">出处：Hot Chips 2026 执行、AI 辅助与内核页；OpenAI 联合稿中「部分由自家模型加速」及工程样品工作负载。不编造未公开的模块级 PPA 全表与模型权重来源。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Jalapeño 的规格在测量—验证—学习闭环里收敛；自家模型参与 RTL/XLS 与内核搜索。</li><li>已披露对照：BF16 乘法约 56% PPA、矩阵单元面积约小 10%；注意力/MoE 核 1.5×–1.8× 并在硅上验证。</li><li>空间编程模型把本地张量与显式通信暴露给搜索器，使映射可优化。</li><li>九个月量级指 RTL 到 tapeout；签核、代工、整机仍由伙伴与传统 EDA 承担。</li><li>内部 PPA 数字不可直接当产品对 GPU 的倍数。</li><li>出处：Hot Chips 2026；OpenAI / Broadcom 公开说明。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

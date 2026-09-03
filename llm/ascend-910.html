@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>昇腾 910 架构要点 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ascend-910.md.Dbljeaxe.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="昇腾-910-架构要点" tabindex="-1">昇腾 910 架构要点 <a class="header-anchor" href="#昇腾-910-架构要点" aria-label="Permalink to &quot;昇腾 910 架构要点&quot;">​</a></h1><div class="epigraph"><p>半精度 256 TFLOPS、整数 512 TOPS；达芬奇架构，设计功耗 350 W，达到规格算力时实测约 310 W。</p><footer>—— 华为 2019 年 8 月 23 日昇腾 910 与 MindSpore 发布会公开规格</footer></div><p>昇腾 910（Ascend 910）是华为云端训练取向的 AI 处理器，2018 年全联接大会公布方向，2019 年正式发布。公开要点是：7 nm 级工艺（发布材料写作 7nm+EUV）、单 Die <strong>32 个达芬奇 AI Core</strong>、FP16 <strong>256 TFLOPS</strong>、INT8 <strong>512 TOPS</strong>、设计功耗 350 W、达到设计算力时功耗约 310 W。芯片不止矩阵核：还集成控制 CPU、数字视觉预处理（DVPP）与任务调度器（Task Scheduler），组成可自我管理的 SoC。互连方面，公开产品与架构材料提到 HCCS、PCIe、RoCE 等，用于卡间与主机。本篇钉这一代的公开骨架，迭代产品 910B / <a href="/llm/ascend-910c-dual-die">910C</a> 的双 Die 与 HBM 容量以各世代文档为准，不把 910C 的 128 GB 写回 2019 年的 910。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>2019 年的训练芯片要同时回答三件事：稠密矩阵乘的峰值、卷积/视觉预处理、以及如何把算力接到当时的 TensorFlow / 自研 MindSpore 上。通用 GPU 用 SIMT 覆盖这一切；华为选择领域架构 <strong>达芬奇</strong>，用 Cube / Vector / Scalar 三条流水对矩阵、向量与控制，见 <a href="/llm/davinci-cube-vector">下篇</a>。问题是：如何在单 Die 上铺 32 个这样的 AI Core，并配上足够的片上缓冲与片外高带宽内存，使训练任务的数据喂得动。</p><p>发布会强调算力达到规格且功耗低于设计值，针对的是「高峰功耗不可部署」的质疑。对今天的 LLM 读者，910 的意义是昇腾软件栈（CANN、MindSpore、后来的 MindIE）的第一代云端锚点：图编译、算子库、集合通信都从这一代的核模型长出来。把 2024 年 910C 的双 Die 故事读回 910，会错核数、错内存、错互连。</p><h3 id="soc-而不只是加速器阵列" tabindex="-1">SoC 而不只是加速器阵列 <a class="header-anchor" href="#soc-而不只是加速器阵列" aria-label="Permalink to &quot;SoC 而不只是加速器阵列&quot;">​</a></h3><p>910 把 Task Scheduler、AI CPU、DVPP 放进同一颗芯片，是为了减少主机往返：视觉流水可以在 DVPP 上做缩放与色彩转换，标量/控制类算子可以落 AI CPU，矩阵落 AI Core。训练任务若每步都把预处理打回主机 CPU，PCIe 会先于 Cube 成为屋顶线。这一分工在后来的 LLM 推理里部分被 tokenizer 与主机侧调度取代，但核模型没有变：异构引擎，而不是单一 SIMT 池。</p><p><span class="marginnote">256 TFLOPS FP16 与 512 TOPS INT8 是峰值规格。真实训练利用率取决于算子是否走 Cube、是否能与搬运重叠、以及 HCCS/RoCE 上的梯度同步。不要把发布会峰值写成「任意网络的稳态吞吐」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把 910 看成四块公开模块。<strong>AI Core 阵列</strong>：32 个达芬奇核，承担矩阵与向量密集计算。<strong>控制与调度</strong>：片上 CPU 与 Task Scheduler 把内核下发到 AI Core 或 AI CPU。<strong>DVPP</strong>：图像/视频预处理专用通路。<strong>存储与互连</strong>：AI Core 内侧是多级 Buffer（L0/L1/UB 等，细节见达芬奇篇），外侧是 HBM 类高带宽内存（2019 年 Hot Chips 相关介绍提到训练芯片用上 HBM2E 一类高带宽颗粒）；卡间走 HCCS，主机走 PCIe，多机可用 RoCE。软件上，2019 年同时发布 MindSpore；底层则是后来系统化的 <a href="/llm/cann-graph">CANN 图编译</a>。</p><p>系统产品把多颗 910 收进 Atlas 训练服务器与 Atlas 900 集群。华为全联接 2019 对 Atlas 900 给出过基于大量 910 互联的集群 FP16 算力量级（公开口径为数百到约一千 PFLOPS 量级的区间，随节点数变化）。集群数字用于理解「910 被设计成可堆叠」，不是本篇的单芯片规格。</p><div class="mermaid"></div><h3 id="与-gpu-编程模型的差" tabindex="-1">与 GPU 编程模型的差 <a class="header-anchor" href="#与-gpu-编程模型的差" aria-label="Permalink to &quot;与 GPU 编程模型的差&quot;">​</a></h3><p>CUDA 程序员看到的是统一 SM 与全局内存。910 程序员看到的是：矩阵是否在 Cube 上、向量是否在 Vector 上、搬运是否走 MTE、同步是否用事件标志。CANN / TBE / Ascend C 把这些暴露成图或核函数。直接把 CUDA 核「翻译」过来，往往会得到标量路径，峰值 256 TFLOPS 与你无关。正确方法是让图编译把 MatMul 送到 Cube，把逐元素融合进 Vector，见 <a href="/llm/npu-friendly-ops">NPU 友好算子</a> 的一般原则。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>达芬奇核用 Cube 一个节拍完成固定尺寸的矩阵乘加（公开教材写 16×16 与 16×16 的矩阵乘形态），用累加器把部分和留在片上。32 核并行给出芯片峰值。Vector 覆盖 FP16/FP32/INT8 等逐元素与归约，避免小算子打回主机。Scalar 负循环与地址，使另外两条流水可以异步前进。存储层次用片上 Buffer 减少对 HBM 的往返；HBM 提供训练激活与权重的容量与带宽。这一机制与后来 LLM decode 的带宽墙是同一屋顶线语言，只是 2019 年的主场景是训练的大 GEMM。</p><p>功耗机制：350 W 设计包络给供电与散热；310 W 达到规格说明峰值点不在包络墙上。对机房，仍应按 350 W 与服务器整机功耗规划，不能按「实测 310」去堆密度。</p><p><span class="marginnote">工艺节点的公开表述是 7nm 级 / 7nm+EUV，具体代工厂与后续 910B/C 因出口管制发生的流片变化，以华为当时官方口径为准，本文不推断未证实的代工厂细节。</span></p><h3 id="从训练卡到后来的推理栈" tabindex="-1">从训练卡到后来的推理栈 <a class="header-anchor" href="#从训练卡到后来的推理栈" aria-label="Permalink to &quot;从训练卡到后来的推理栈&quot;">​</a></h3><p>910 首先是训练规格。LLM 推理后来跑在 910B/910C 与 MindIE 上，见 <a href="/llm/mindie">MindIE</a>。架构连续性在于：仍然是达芬奇三维计算、仍然要图编译、仍然要集合通信。断裂在于：decode 小 batch、KV 缓存、连续批，这些不是 2019 年发布会的对象。读 910 是为了读懂核，不是为了抄 256 TFLOPS 去估 2026 年的 token/s。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把百科或媒体上未带华为文档的 910C 晶体管数、FP16 800 TFLOPS 等数字写进 910 这一篇。不要假设 32 核可以当 32 路独立 CUDA SM 做任意 SIMT。不要忽略 DVPP：视觉训练流水关掉它会把主机 CPU 打满。多机训练的梯度同步走 RoCE/HCCS 时，算法与 NCCL 同构，库与拓扑以 HCCL 文档为准。</p><p>910 的历史位置：它证明达芬奇可以上云端训练规模；软件栈从这一代开始必须处理图、算子缺口与多机。后续双 Die、UB 超节点是另一组产品，见 910C 与 CloudMatrix 公开论文，不要在本篇展开未属于 910 的规格。</p><p><span class="marginnote">出处：华为 2019-08-23 昇腾 910 / MindSpore 发布规格；Hot Chips 相关达芬奇/910 公开介绍中的 32 核与工艺表述；《Huawei Atlas AI Computing Solution》等公开教材中的 SoC 模块划分。不编造未公布的 HBM 容量与单核频率。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>昇腾 910：32 达芬奇核，FP16 256 TFLOPS，INT8 512 TOPS，设计 350 W / 达标约 310 W。</li><li>SoC 含控制 CPU、AI CPU、DVPP、Task Scheduler，不只是矩阵阵列。</li><li>存储为 HBM 类近存，互连含 HCCS、PCIe、RoCE 等公开接口族。</li><li>编程走 CANN 图与 Cube/Vector 映射，不是 CUDA SIMT。</li><li>本篇规格停在 2019 代；910C 双 Die 另文。</li><li>出处：华为 2019 发布会与公开架构教材。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

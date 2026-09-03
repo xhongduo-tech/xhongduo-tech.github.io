@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SigLIP-2 视觉骨干 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-vl-siglip2.md.HuG7xx1f.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="siglip-2-视觉骨干" tabindex="-1">SigLIP-2 视觉骨干 <a class="header-anchor" href="#siglip-2-视觉骨干" aria-label="Permalink to &quot;SigLIP-2 视觉骨干&quot;">​</a></h1><div class="epigraph"><p>视觉编码器先在对比学习里学会图文对齐；Qwen3-VL 选用 SigLIP-2，再在动态分辨率上继续训，而不是从零搭一个与语言无关的 ViT。</p><footer>—— Zhai 等，SigLIP，2023；Tschannen 等，SigLIP-2，2025；Qwen3-VL 技术报告</footer></div><p>多模态模型的视觉侧几乎总是继承一个已经在图文对上预训练过的编码器。CLIP 用 softmax 对比损失；SigLIP（Zhai 等，2023）改成 sigmoid 损失，配对分数独立过 \(\sigma\)，不必在整批上做 Softmax 归一化。SigLIP-2（Tschannen 等，2025）在同一家族上加强数据、目标与尺度。Qwen3-VL 技术报告写明：视觉编码器采用 SigLIP-2 架构，从官方预训练权重初始化，并在动态分辨率下继续训练；默认 SigLIP2-SO-400M，较小语言模型（2B 与 4B）用 SigLIP2-Large（约 300M）。这与 Qwen2-VL 用 DFN ViT、Qwen2.5-VL 从零训 ViT 的路径不同，不要写成「Qwen 系列一直是同一个骨干」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>随机初始化的 ViT 看图像，早期没有与语言共享的概念轴，对齐阶段要把视觉空间整个拧到 LLM 能读的方向，贵且不稳。对比学习骨干的补丁已经落在「能和文字匹配」的空间里，连接器只须做几何对准与分辨率适配。</p><p>选用哪一种对比骨干仍有约束。CLIP 式 InfoNCE 在大批次上用 Softmax，配对 \(i\) 的正样本要压过批内所有负样本，实现与批次形状绑得紧。文档、OCR、定位还要求编码器接受可变分辨率，而许多对比模型在固定边长（如 \(224\) 或 \(384\)）上预训练。问题是：找一个对比学习家族，既能提供强的图文先验，又能在 Qwen 的动态网格、2D-RoPE 与 <a href="/llm/qwen-vl-patch-merge">patch merge</a> 下继续训而不崩。</p><p><span class="marginnote">Qwen3-VL 对 SigLIP-2 做的是持续训练，不是冻结当特征提取器。动态分辨率、2D-RoPE 以及对绝对位置嵌入的插值（报告称循 CoMP 的做法）都写在继续训练里。</span></p><h3 id="与「从零训-vit」的分工" tabindex="-1">与「从零训 ViT」的分工 <a class="header-anchor" href="#与「从零训-vit」的分工" aria-label="Permalink to &quot;与「从零训 ViT」的分工&quot;">​</a></h3><p>Qwen2.5-VL 曾用 DataComp 等数据从零训视觉 Transformer，并配窗口注意力与 SwiGLU/RMSNorm，使视觉栈更像 LLM。Qwen3-VL 改回强对比初始化，把窗口化等细节交给该骨干在动态分辨率下的适配，而不是再讲一遍从零训的 32 层 \(1280\) 维配置。写骨干时要以版本为准：2.5 的层数表不能贴到 3 的 SigLIP-2 上。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="sigmoid-对比而不是批内-softmax" tabindex="-1">Sigmoid 对比而不是批内 Softmax <a class="header-anchor" href="#sigmoid-对比而不是批内-softmax" aria-label="Permalink to &quot;Sigmoid 对比而不是批内 Softmax&quot;">​</a></h3><p>SigLIP 对图文对 \((x_i,y_j)\) 打分 \(x_i^\top y_j/\tau + b\)，损失对每个二元对独立：</p> \[\mathcal{L}=-\frac{1}{|\mathcal{B}|}\sum_{i,j}\log\sigma\big(z_{ij}(x_i^{\top}y_j/\tau+b)\big), \]<p>其中匹配对 \(z_{ij}=+1\)，否则 \(-1\)。没有「对第 \(i\) 行在全部 \(j\) 上 Softmax」，负样本以逐对 logistic 的形式出现。这使训练对批次大小更不敏感，也便于在异构分辨率或分布式下组织视觉批次。SigLIP-2 保持这一损失家族，并在更强的数据与辅助目标上训练出 SO-400M 等变体。</p><p>Qwen3-VL 取官方检查点后，在可变 \(H\times W\) 上继续前向。为适配非固定网格：加上 2D-RoPE，并对原预训练里的绝对位置嵌入按输入尺寸插值。小模型用较小的 SigLIP2-Large，避免 400M 级编码器压过 2B/4B 语言模型。主路径仍是「编码器 → MLP merger → LLM」，<a href="/llm/qwen3-vl-deepstack">DeepStack</a> 的多层取出也发生在这同一个 SigLIP-2 深度栈上。继续训练必须把文档、场景文字与定位数据混进去，否则对比先验会停在自然照片的物体名词上，OCR 只能靠语言模型去「猜字」。</p><div class="mermaid"></div><p><span class="marginnote">对比预训练的图文匹配空间，不等于已经会 OCR。继续训练必须混入文字密集的文档与场景文字，否则骨干仍偏自然照片。Qwen3-VL 的数据章节把 OCR 与文档解析单独加厚，正是补这一缺口。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="匹配空间是起点-不是-ocr-终点" tabindex="-1">匹配空间是起点，不是 OCR 终点 <a class="header-anchor" href="#匹配空间是起点-不是-ocr-终点" aria-label="Permalink to &quot;匹配空间是起点，不是 OCR 终点&quot;">​</a></h3><p>对比学习给每个 patch 一个「能被文字查询到」的先验：物体、场景、颜色词在嵌入里已经可分。Sigmoid 损失不强迫批内互斥，同一图里多个可对齐概念不会被 Softmax 挤成单峰，这对后续要同时读「标题 + 表头 + 脚注」的文档任务更温和。继续训练把位置从固定格改成动态格，2D-RoPE 提供相对几何，插值绝对 PE 保留预训练学到的绝对格子偏好作为起点，两者叠加而不是二选一。</p><p>规模配对是机制的一部分。编码器过大、LLM 过小时，梯度会把语言侧当成弱解码器，文本能力被视觉继续训带偏；报告因此在 2B/4B 上换 300M 级骨干。这与「永远用最强视觉编码器」的直觉相反：多模态是两侧容量的匹配，不是视觉侧单方面加大。</p><p>Qwen2-VL 的 DFN ViT 同样来自对比/数据筛选传统，只是检查点与损失细节不同。家族迁移（DFN → 从零 ViT → SigLIP-2）说明骨干是可替换模块，真正跨版本稳定的是动态分辨率、merger 与语言模型侧的位置方案，而不是某一份 ViT 权重。<span class="marginnote">SO-400M 与 Large-300M 的差别是容量配对，不是「小模型用残缺骨干」。两套都从官方 SigLIP-2 初始化，只是宽度与 LLM 侧更匹配。换错检查点会在 merger 输入维上直接对不齐。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>SigLIP-2 的预训练分布仍偏网页图文对，化学结构式、乐谱、极端倾斜证件不在对比数据的中心。这些能力更多来自后续 OCR 合成与伪标注，不能假设换骨干就自动会解析 SMILES 或五线谱。冻结 SigLIP-2 只训 merger，对齐快但文档任务会顶在视觉表示的天花板上；Qwen3-VL 在对齐阶段之后解冻编码器，是承认天花板要被继续训抬高。</p><p>分辨率插值在极端长宽比上会扭曲预训练位置。动态分辨率与 <a href="/llm/qwen-vl-window-full-attn">窗口注意力</a> 若在新骨干上的窗口大小、层号与 2.5 不同，必须读该版本配置，不能默认 \(112\) 与 \(\{7,15,23,31\}\)。另一边界：对比损失里的温度 \(\tau\) 与偏置 \(b\) 属于预训练超参，继续训语言模型时通常不再走图文对比头；把 SigLIP 的 text tower 留在推理路径里是错误架构——Qwen3-VL 推理只用视觉塔 + LLM，文本塔已完成它作为预训练教师的任务。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SigLIP 用逐对 sigmoid 对比损失替代 CLIP 式批内 Softmax；SigLIP-2 是该家族的后续骨干。</li><li>Qwen3-VL 以 SigLIP-2 初始化视觉编码器，默认 SO-400M，2B/4B 用 Large 约 300M，并在动态分辨率上继续训。</li><li>适配手段是 2D-RoPE 与绝对位置插值；下游仍接 MLP merger 与 DeepStack，而不是把 text tower 留到推理。</li><li>骨干可换：Qwen2-VL 用 DFN ViT，Qwen2.5-VL 从零训 ViT，不能把某一版的层表当成全系列常数。</li><li>出处：Zhai 等，SigLIP，2023；Tschannen 等，SigLIP-2，2025；Qwen3-VL 技术报告；对照 Wang 等 Qwen2-VL（2024）与 Qwen2.5-VL 技术报告的视觉初始化。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

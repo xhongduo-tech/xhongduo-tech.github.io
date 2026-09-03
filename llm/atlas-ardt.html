@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多模态自回归扩散 Transformer | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_atlas-ardt.md.DPp-XfSJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="多模态自回归扩散-transformer" tabindex="-1">多模态自回归扩散 Transformer <a class="header-anchor" href="#多模态自回归扩散-transformer" aria-label="Permalink to &quot;多模态自回归扩散 Transformer&quot;">​</a></h1><div class="epigraph"><p>文本、图像、相机与深度进同一条序列；每个新元素按自回归条件于前文，连续像素则靠扩散（整流流）去噪，而不是词表上的 softmax。</p><footer>—— 归纳自 World Labs, Atlas: A World Model for Spatial Intelligence</footer></div><p>Atlas 被写成从零预训练的 omni 世界模型：同一套权重处理文本、图像、视频与三维。架构名称是 multimodal autoregressive diffusion transformer（ARDT）——多模态自回归扩散 Transformer。四个词各管一件约束：多种数据类型进共享上下文；元素一个接一个生成；连续高维输出用去噪而不是离散词；骨干是矩阵乘友好的 Transformer。本篇拆这四个词如何接到一起；图像如何钉在位姿上见 <a href="/llm/atlas-spatial-context">共享空间上下文</a>，整流流见 <a href="/llm/atlas-rectified-flow">Rectified flow 潜空间扩散</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>语言模型的自回归假定元素来自有限词表，一步一个 token、交叉熵即可。图像与深度是连续场，Ho 等人的 DDPM 用逐步加噪/去噪处理这种数据，但经典扩散一次生成整张图，不天然提供「先看这些视、再问下一个视」的接口。视频模型往往沿时间轴展开，相机是文本里的「缓缓左移」，三维重建又是另一族专用网络。世界模型若要在生成、重建、仿真之间共用权重，就需要一种序列，其元素可以是文本、一张图、一份位姿、一张深度，并且下一个元素可以是其中任何一种。</p><p>分开训四个专家再胶水拼接，会把空间对齐推到接口上，接口一变任务就断。ARDT 的赌注是：任务只是序列里输入与输出的排列不同，网络不必按产品功能切块。</p><h3 id="离散逐步与连续去噪必须共存" tabindex="-1">离散逐步与连续去噪必须共存 <a class="header-anchor" href="#离散逐步与连续去噪必须共存" aria-label="Permalink to &quot;离散逐步与连续去噪必须共存&quot;">​</a></h3><p>自回归提供可变长度与 KV cache；扩散提供像素。二者合在一起时，时间轴有两层：元素级的「下一个是图还是深度」，以及一张图内部的去噪步。若把每个像素当 token 自回归，长度不可接受；若把整段视频一次扩散、没有元素界，就无法在中途插入一张新的参考图或一条新的相机。ARDT 选择：序列的原子是模态元素，元素内部用扩散生成。</p><p><span class="marginnote">官方没有公开「一个元素对应多少潜 token、扩散多少步」。能写的是接口分层，不是一份可复现的超参表。不要把 RTFM 或某篇开源 AR 视频论文的配置填进 Atlas。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Atlas 把输入编码进上下文，再条件于上下文生成后续。与 LLM 的差别是：每张图（及深度图）落在三维位置上，上下文是空间的，不只是时间的。当前公开的模态包括文本、图像、相机位姿、三维深度；视频被表示为图像序列，每张图带显式相机。自回归规则是：每个输出元素条件于序列中更早的部分。换任务等于换序列模板：若干参考图加一条相机轨迹再出视频，或若干带位姿的图然后出逐像素三维点。</p><p>扩散一侧，Atlas 称自己是 rectified flow 模型，通过逐步去噪生成；并称它是潜扩散模型，可使用蒸馏、CFG、偏移噪声日程、VAE 进展。Transformer 提供注意力骨干，从而能沿用 LLM 服务里的 KV cache、感知缓存的路由、分离式 serving。这是架构兼容性声明，不是一份已公开的 Atlas 服务拓扑。</p><div class="mermaid"></div><h3 id="公式上的两层" tabindex="-1">公式上的两层 <a class="header-anchor" href="#公式上的两层" aria-label="Permalink to &quot;公式上的两层&quot;">​</a></h3><p>元素级：记序列 \(x_{&lt;k}\)，下一个元素的类型与条件为 \(c_k\)，则 \(x_k\) 来自条件生成器 \(p_\theta(x_k\mid x_{&lt;k},c_k)\)。若 \(x_k\) 是词，这一步可以是 softmax；若是图像潜变量，则 \(p_\theta\) 由整流流定义。潜空间里一条常用的直线路径（Lipman 一流匹配 / 整流流叙述）是</p> \[z_t=(1-t)z_0+t z_1,\qquad v^\star=z_1-z_0, \]<p>网络学 \(v_\theta(z_t,t,\mathrm{context})\approx v^\star\)，推理时沿速度场积分得到干净潜变量，再经 VAE 解码。Rombach 等人的 LDM 把扩散从像素挪到潜空间；Atlas 声明自己属于这一支，并用整流流而不是必须复述 DDPM 的离散时间马尔可夫链。</p><p><span class="marginnote">CFG 在条件生成里把无条件与有条件预测做外推，Ho &amp; Salimans 给出图像扩散上的形式。Atlas 说可以使用 CFG，没有给出引导尺度表。把它写成「Atlas 的 CFG 等于某常数」是伪造。</span></p><h3 id="任务即序列模板" tabindex="-1">任务即序列模板 <a class="header-anchor" href="#任务即序列模板" aria-label="Permalink to &quot;任务即序列模板&quot;">​</a></h3><p>同一权重上，稀疏重建是「带位姿的图 → 逐像素三维点」；相机可控视频是「参考图 + 路径 → 后续图像元素」；文生图是「文本 → 图像」。差别只在 \(x_{&lt;k}\) 里放什么、请求什么类型的 \(x_k\)。这比「四个专家加路由器」更接近 LLM 的 prompt 编程，也把空间位姿变成所有任务共享的字段，而不是某个专家私有的相机头。序列一旦写错（忘了给参考图钉 \(P\)），任务就退回普通图文模型。</p><p><span class="marginnote">omni 不表示每一个下游指标都超过专用模型。博客在相机跟随与稀疏重建上给了对照；其他任务（纯文本聊天、物理 rollout）没有作为本篇可引用的胜出声明。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>四词能成一项，是因为注意力不在乎 token 来自哪个模态，只要进同一套 \(Q,K,V\)。空间位姿必须被编码进这些 token，否则「共享序列」只是把图文拼在一起的 VLM，相机仍会退化成文本。自回归让参考图数量可变：两张也可以、一百张也可以，这与稀疏新视合成、长空间上下文是同一接口。扩散让输出停在连续外观上，避免把图像量化成 codec token 再承受码本误差——那是另一条离散图像语言模型的路，Atlas 没走那条作为主声明。</p><p>与 <a href="/llm/worldlabs-rtfm">RTFM</a> 的关系：二者都是自回归扩散 Transformer、都把帧与位姿放在一起。Atlas 明确多模态（含深度与文本）、明确整流流与潜扩散、并展示写出点云与 splat。World Labs 没有说 Atlas 是 RTFM 换权升级，也没有公开两套权重的继承关系。技术笔记里只应写「同一思想家族」，不要写成论文实验的 ablation。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>ARDT 没有公开层数、宽度、专家数、潜维。评测表在博客里针对相机跟随与稀疏重建，不能外推成「单一架构已经在所有世界模型任务上最优」。自回归元素越长，KV 越大，实时交互未必是 Atlas 首发形态——那是 RTFM 的产品点。扩散步与分辨率（博客展示到 1440p、约一分钟）是质量/延迟旋钮，步少靠蒸馏，步多靠等待。</p><p>不要给 Atlas 编造 arXiv。应引用的是 World Labs, <em>Atlas: A World Model for Spatial Intelligence</em>（2026 博客）。背景对照：Vaswani Transformer、Ho DDPM、Rombach LDM、Ho &amp; Salimans CFG、Lipman et al. 2023 流匹配。这些是家族文献，不是 Atlas 作者列表。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ARDT = 多模态 + 自回归 + 扩散 + Transformer：任务是序列模板，不是四套模型胶水。</li><li>元素可以是文本、图像、相机、深度；视频是带位姿的图像序列。</li><li>元素之间自回归，元素内部整流流去噪；连续外观走潜空间，不走词表 softmax。</li><li>因此能同时接 LLM 服务技巧（KV、分离式 serving）与扩散技巧（蒸馏、CFG、VAE）。</li><li>与 RTFM 同属帧+位姿+AR 扩散家族，但 Atlas 的模态与写出三维是公开增量。</li><li>出处：World Labs Atlas 博客（2026）。无 World Labs arXiv。背景为 Ho DDPM、Rombach LDM、Lipman 流匹配、CFG。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Moonshot 长上下文服务 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_moonshot-serving.md.Gr7IFg7l.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="moonshot-长上下文服务" tabindex="-1">Moonshot 长上下文服务 <a class="header-anchor" href="#moonshot-长上下文服务" aria-label="Permalink to &quot;Moonshot 长上下文服务&quot;">​</a></h1><div class="epigraph"><p>长提示的 TTFT 与多轮复用同时在线时，调度必须围着 KV 走：选哪对 P/D、切多大块做流水线、过载时该不该提前拒。</p><footer>—— Qin et al., Mooncake 中 Kimi 生产调度与 Chunked Pipeline Parallelism，FAST 2025</footer></div><p>Kimi 把上下文窗口推到数万至十余万 token 量级时，服务问题从「单步 decode 慢」变成「前填二次项、KV 体积、跨节点并行与 SLO 过载」叠在一起。月之暗面公开的 Mooncake 论文不仅写了 <a href="/llm/mooncake">KV 池</a>，也写了这份池子之上的<strong>长上下文服务路径</strong>：全局调度器 Conductor 按缓存命中与排队选一对 prefill / decode 实例；未命中的超长提示用 Chunked Pipeline Parallelism（CPP）切开跨节点流水；过载时用预测做提前拒绝，而不是假装所有请求都会被做完。生产声称：数千节点、日处理超 1000 亿 token；真实痕迹上相对基线有效容量约 59%–498%；A800 / H800 集群上相对前代系统约多接 115% 与 107% 的请求。本篇写这条服务路径，池子的存储接口见上一篇。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>长上下文把三件事同时放大。前填 FLOPs 随长度二次涨，TTFT 先爆。KV 体积线性涨，PD 交接与缓存加载变成带宽问题。跨节点并行若用序列并行硬切，通信频繁，既打 MFU 又和 KV 传输抢网。与此同时，聊天负载不是实验室里的泊松短请求：高峰会过载，系统必须决定谁被拒、谁被延迟，否则所有人的 SLO 一起坏。</p><p><a href="/llm/chunked-prefill">Chunked prefill</a> 在单机 colocate 里钉 TBT，但线上若还要拉满前填 MFU，切块与解码仍抢同一套 SM。Mooncake 文明确写：尽管切块减轻干扰，他们仍保留分离架构，因为在线 SLO 更严，且长上下文的前填需要与解码不同的跨节点并行。这是产品约束，不是再做一遍 DistServe 的 goodput 搜索。</p><h3 id="过载是一等公民" tabindex="-1">过载是一等公民 <a class="header-anchor" href="#过载是一等公民" aria-label="Permalink to &quot;过载是一等公民&quot;">​</a></h3><p>多数服务论文假设请求最终都会被处理。Kimi 作为面向消费者的 MaaS，高峰时队列可以无限涨。让请求进了再超时，浪费的是已经做了一半的前填与 KV 槽。Conductor 因此把「预测 TTFT/TBT 是否会破 SLO → 提前拒绝」写进调度，而不是只做负载均衡。有效容量定义为<strong>仍满足 SLO 的请求率</strong>，与 DistServe 的 goodput 同族，但决策发生在全局入口，并且显式包含缓存命中与传输时间。</p><p><span class="marginnote">115% / 107% 是生产集群相对前代系统多吃的请求，498% 是实验痕迹上有效容量相对基线的上限。三套数字对应三套对照，不要合成「Kimi 恒定五倍」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一次请求的路径是：分词后 Conductor 选一对 P 实例（或一组 CPP 节点）与一个 D 实例；尽可能把可复用 KV 拉到所选 P；前填按层或按块流式把新 KV 推给 D；D 并入连续批做生成。P 侧目标是在 TTFT SLO、MFU 下限、KV 放得进 DRAM 的约束下最大化缓存复用；D 侧目标是在 TBT SLO 与 VRAM 容量下最大化吞吐。选择不只看请求数，还看各 P 实例上的前缀命中长度、传输拥塞、排队。</p><p>未缓存 token 超过阈值（文中典型大于约 1000，以喂饱 GPU 为准）时，前填切成块，在一组节点上做流水线：不同块（或不同层段）在不同节点上重叠，节点间只在流水线边界通信。CPP 利用解码器的自回归前缀结构，避免序列并行那种逐步的频繁跨节点同步，从而少和 KV 传输抢网。短提示不必动态改节点划分，长提示也不必上全量序列并行。</p><h3 id="缓存感知放置与热点复制" tabindex="-1">缓存感知放置与热点复制 <a class="header-anchor" href="#缓存感知放置与热点复制" aria-label="Permalink to &quot;缓存感知放置与热点复制&quot;">​</a></h3><p>系统提示几乎打中所有请求，用户长文档可能只打中一个人。Conductor 偏向命中更长的 P 实例，但会为 TTFT 把请求改派到更空、甚至命中更短的节点。热点块用启发式复制，而不是先训一个精确的未来访问模型——负载随时间飘，预测模型自己会过时。提前拒绝用当前估计的 \(T_{\mathrm{transfer}}+T_{\mathrm{queue}}+T_{\mathrm{prefill}}\) 与 SLO 比较；估爆了就在入口丢掉，把槽留给仍能达标的请求。</p><div class="mermaid"></div><p><span class="marginnote">CPP 的块长阈值是为了饱和前填 GPU，不是为了保护 decode 的 TBT——decode 已经在另一池。不要把这个阈值抄成 Sarathi 的 \(\tau\)；两个预算钉的 SLO 不是同一个。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>长上下文服务的核心是把 KV 当作调度主键。请求的成本 ≈ 未命中前缀的前填 + 传输 + 解码槽占用。调度器若只看 GPU 空闲率，会把同一用户的下一轮打到冷实例上，把池子里已有的十万 token KV 当空气。缓存感知让「数据在哪」和「算力在哪」联立；复制让热点的「数据在哪」变成多处。CPP 则承认：单节点放不下或来不及的前填，必须切开，但切开方式要迁就互连——流水线边界通信可以与计算重叠，序列并行的细粒度同步不行。</p><p>提前拒绝把过载从「排队论里的无限等待」改成「准入控制」。这与好put 一致：破 SLO 的请求计为零贡献，还污染别人的延迟。消费者产品里，明确的失败往往优于无限转圈。代价是预测误差：估得过保守会拒掉本可完成的请求，估得过乐观会让队列再次堆爆。</p><h3 id="为何分离在长上下文上更硬" tabindex="-1">为何分离在长上下文上更硬 <a class="header-anchor" href="#为何分离在长上下文上更硬" aria-label="Permalink to &quot;为何分离在长上下文上更硬&quot;">​</a></h3><p>短提示上，切块混合批次可能已经够用。提示到 32k–128k，前填作业的时间与 KV 体积都变成主项：混在 decode 卡上，TBT 与 TTFT 的可行域更空；前填还需要多节点并行，decode 却希望稳定的连续批与 CUDA Graph。分离让两套并行策略共存。Mooncake 的实验用真实对话痕迹表明，在紧 TBT 约束下，分离加 KV 池的有效容量明显高于 colocate 切块基线——这是长上下文产品而不是微基准的结论。</p><p><span class="marginnote">日处理「超 1000 亿 token」是生产规模描述，不是加速比。规划容量要用有效请求率与 SLO 达标，不要用日 token 总数去除以卡数当成 MFU。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>CPP 引入流水线气泡与组大小选择：组太大，短请求也被拉进重流水；组太小，长请求的 TTFT 降不下来。节点故障时，在飞的长前填比短请求更难恢复——KV 半成品要作废或从检查点续。多租户下，长文档 KV 的驻留策略直接影响隐私与容量：驻太久占池，驻太短下一轮全额重算。</p><p>提前拒绝需要产品协议：用户看到的是限流还是降级到更慢的档。论文写的是调度机制，不是客户沟通。H800 上带宽门槛更高，长上下文更依赖 NIC 与副本，只扩 GPU 不够。开源 Mooncake 组件可以被其他引擎接入，但 Conductor 的生产策略、痕迹与 SLO 数字属于 Kimi 当时的部署，不能当成接入 Transfer Engine 之后的自动结果。</p><p>不要把本篇写成又一篇 PD 分离综述。拆分是前提，长上下文特有的是 CPP、缓存感知全局调度与过载准入。也不要把 128k 写成算法上限：那是当时产品窗口，机制对更长窗口仍然适用，只是传输与池容量线性变差。</p><p><span class="marginnote">出处仍是 Qin 等 FAST 2025 / arXiv:2407.00079 与 Kimi 生产描述。公开可引的调度与 CPP 细节以这篇为准，不要用未标注的博客倍数另造一篇论文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kimi 的长上下文路径：Conductor 按 KV 命中与 SLO 选 P/D，超长未命中前填走 CPP，过载提前拒。</li><li>分离被保留，因为切块无法同时拉满前填 MFU 与解码 TBT，且长前填需要不同的跨节点并行。</li><li>有效容量在真实痕迹上约 +59%–498%；生产集群相对前代约 +115%（A800）、+107%（H800）。</li><li>调度主键是 KV 位置与副本，不是请求计数。</li><li>开源的是传输与存储组件；全局策略与 SLO 数字钉在论文实验与生产陈述。</li><li>出处：Qin et al., <em>Mooncake</em>，FAST 2025，arXiv:2407.00079。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

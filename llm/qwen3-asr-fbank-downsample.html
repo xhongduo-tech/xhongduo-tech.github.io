@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>128 维 Fbank 与 Conv2D 8× 下采样 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-asr-fbank-downsample.md.ChhOOCy8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="_128-维-fbank-与-conv2d-8×-下采样" tabindex="-1">128 维 Fbank 与 Conv2D 8× 下采样 <a class="header-anchor" href="#_128-维-fbank-与-conv2d-8×-下采样" aria-label="Permalink to &quot;128 维 Fbank 与 Conv2D 8× 下采样&quot;">​</a></h1><div class="epigraph"><p>AuT 是一套注意力编码器–解码器（AED）式识别器：它对 128 维 Fbank 做 8 倍下采样，得到 12.5 Hz 的音频编码器。</p><footer>—— Qwen Team, Qwen3-ASR Technical Report, arXiv:2601.21337</footer></div><p>声学前端决定后面每一层看见的时间粒度。Qwen3-ASR 的 AuT 编码器不直接吃波形，而是先把 16 kHz 语音变成 128 维 Fbank，再经 Conv2D 在时间上做 <strong>8×</strong> 下采样。这一步把帧率从常见的 100 Hz 压到 12.5 Hz，才有后面动态窗口、分块卷积和语言模型侧的 token 预算。本篇只写这条前端：滤波器组维数为什么是 128，卷积为什么必须是时间上的 8 倍，而不把 Whisper 的 2× 茎、CTC 的帧分类器或后续 projector 一并展开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>原始波形在 16 kHz 下每秒 16000 个采样。若把采样点直接送进 Transformer，序列长度会把自注意力的二次代价打满，梯度也难以对准音素尺度的事件。经典做法是短时谱：窗内做傅里叶变换，沿频率轴用梅尔滤波器组积分，得到 Fbank。问题立刻变成两个整数超参：滤波器个数 \(F\)，以及时间轴还要再压多少倍。</p><p>Whisper（Radford 等，2022）用 80 维 log-mel，卷积茎只在时间上再做 2×，编码器大约工作在 50 Hz。这对纯 AED 识别够用，因为解码器自己有交叉注意力去对齐。Qwen3-ASR 走的是 LALM：AuT 的隐状态还要投影进 Qwen3，每一步音频 token 都占用语言模型的上下文槽。若仍停留在 50 Hz，一分钟语音就是 3000 个音频 token，长音频和流式批处理都会先被长度卡住。需要更狠的时间压缩，同时频率分辨率不能掉到把辅音、方言和歌声的频谱细节抹平。</p><h3 id="维数与下采样是同一笔预算" tabindex="-1">维数与下采样是同一笔预算 <a class="header-anchor" href="#维数与下采样是同一笔预算" aria-label="Permalink to &quot;维数与下采样是同一笔预算&quot;">​</a></h3><p>滤波器个数和下采样倍数不是独立旋钮。\(F\) 越大，Conv2D 在频率轴上可学的通道越宽，但卷积核的计算与显存按 \(F\) 涨；\(8\times\) 越大，时间步越少，注意力更便宜，但过冲会把相邻音素叠进同一个 token。Qwen3-ASR 把这笔预算钉死为：<strong>128 维 Fbank，时间 8× Conv2D</strong>。报告图中把前端标成 FBank 100 Hz、AuT 隐状态 12.5 Hz，两者之比恰好是 8。本篇的问题就是：为什么是这两个数，以及卷积如何在二维谱图上同时动时间和频率。</p><p><span class="marginnote">Fbank 不是学习型 tokenizer。它是固定的梅尔滤波器组，把线性频率压成近似听觉的非线性刻度。可学习的是后面的 Conv2D 与 AuT，不是滤波器中心频率本身。把它写成「语音 codec」会把离散码本和连续谱特征混为一谈。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="_128-维-fbank" tabindex="-1">128 维 Fbank <a class="header-anchor" href="#_128-维-fbank" aria-label="Permalink to &quot;128 维 Fbank&quot;">​</a></h3><p>对 16 kHz 波形做短时傅里叶变换，取功率谱，乘 128 个梅尔滤波器并取对数，得到</p> \[\mathbf{x}_t \in \mathbb{R}^{128},\qquad t=1,\ldots,T. \]<p>\(T\) 是帧数。与 12.5 Hz 对齐的常见设定是：窗长约 25 ms、帧移 10 ms（160 个采样），于是 \(T \approx 100\) 帧/秒，即图中的 100 Hz Fbank。若报告正文未逐项列出窗移，这一 10 ms 帧移应理解为与「100 Hz → 8× → 12.5 Hz」闭环一致的工程设定，而不是另造一套前端。128 比 Whisper 的 80 更宽：汉语方言、歌唱共振峰和噪声里的窄带干扰，多出来的滤波器提供更细的频带分割。代价是 Conv2D 第一层的输入通道（把谱图看成 1 通道、\(128\) 高、\(T\) 宽的特征图）更高。</p><h3 id="conv2d-时间-8×" tabindex="-1">Conv2D 时间 8× <a class="header-anchor" href="#conv2d-时间-8×" aria-label="Permalink to &quot;Conv2D 时间 8×&quot;">​</a></h3><p>下采样用二维卷积，而不是只在时间上做 1D 步长。把 \(\mathbf{x}_{1:T}\) 看成高 128、宽 \(T\) 的单通道图。时间 8× 最干净的实现是三层步长为 2 的卷积：\(2^3=8\)。第 \(\ell\) 层时间长度</p> \[T^{(\ell)}=\left\lfloor\frac{T^{(\ell-1)}-1}{2}\right\rfloor+1 \]<p>（对应核 \(3\times 3\)、padding 1、stride 2 这一与 8× 配套的常见设定）。三层之后 \(T^{(3)}\approx T/8\)。频率轴同样被步长切开，最后把剩余频带与通道维拼平，线性映到 AuT 的 \(d_{\mathrm{model}}\)。于是编码器看到的不是 100 Hz 的谱帧，而是 12.5 Hz 的连续向量。</p><div class="mermaid"></div><p>8× 必须发生在进入自注意力之前。若先做全长度注意力再池化，二次项仍按 100 Hz 计，前端压缩就没有省到算力。Conv2D 把局部频谱纹理收成短序列，AuT 的层才在 12.5 Hz 上做内容混合。这与 CTC 系统常用的 4× 帧下采样不同：CTC 还要为每个输出步保留较密的对齐格；AED / LALM 把对齐交给注意力与语言模型，更敢压时间。</p><p><span class="marginnote">时间 8× 和频率方向的步长是两件事。频率被切开是为了让后续线性层吃到可管理的宽，不改变「每秒多少个音频 token」。评测 token 率时只看时间轴；把频率维的通道数误当成帧率，会把 12.5 Hz 算错。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Fbank 把谐波结构摊到梅尔轴上：元音的共振峰是宽峰，擦音是高频能量。128 个滤波器让这些峰不必挤在 80 个桶里。Conv2D 的局部核在相邻帧、相邻频带上做同一套权，等价于可学习的二维滤波器组：它能强化共振峰轨迹，也能抑制平稳噪声底。步长 2 是下采样，也是感受野扩张——三层之后，一个输出向量大约看见 8 帧 Fbank，也就是与 12.5 Hz 对齐的常见设定下约 80 ms 的声学上下文。这 80 ms 正好是后文 ForcedAligner 把时间戳离散成索引的格子。</p><h3 id="为何不是-2×-或-16×" tabindex="-1">为何不是 2× 或 16× <a class="header-anchor" href="#为何不是-2×-或-16×" aria-label="Permalink to &quot;为何不是 2× 或 16×&quot;">​</a></h3><p>2×（Whisper 茎）把编码器留在 50 Hz，LALM 的上下文会翻四倍，动态窗口的 8 s 也会变成四倍 token，FlashAttention 的块更长。16× 则把格子推到 160 ms，辅音丛、短助词和中英混码的边界更容易糊进同一个向量，LID 和强制对齐都会变粗。8× 落在「语言模型能吞下的长度」和「对齐还分得清字」之间。它不是从 CTC 格子推出来的，而是从 LALM 的 token 预算反推回来的。</p><p>卷积的平移等变性还解释了为什么前端能和流式切块兼容：同一套核扫每一段 100 帧的谱图，不依赖全句长度。全序列一次性卷积会在块边界制造未来帧泄露；把 8× 做成局部运算，才给分块 Conv2D 留下因果化的口子。机制上，8× 既是压缩，也是把时间轴切成可流式的原子。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>128 维 Fbank 仍是手工听觉近似，不是数据里学出的滤波器。极低采样率、电话带宽或已经是编解码器 Mel 的输入，需要重算滤波器，不能假设 128 个桶的中心频率仍对齐。8× 卷积对窗移敏感：若把 10 ms 帧移改成 20 ms 却仍做 8×，token 率会掉到 6.25 Hz，与训练时的 12.5 Hz 错位，语言模型侧的位置几何会坏。</p><p><span class="marginnote">不要用「参数量」解释 128 与 8。1.7B 与 0.6B 共用同一套 Fbank 维数和下采样倍数，差的是 AuT 隐层宽度（1024 对 896）和 Qwen3 解码器大小。前端整数是家族常数，不是随模型尺度浮动的超参。</span></p><p>边界还在于：Conv2D 8× 之后，时间分辨率的上限已经钉死。后续注意力窗口再大，也恢复不出比 80 ms 更细的帧。要字级时间戳，不能指望解码器「再看一眼波形」，而要另建 ForcedAligner 在 12.5 Hz 格子上填槽。把 ASR 解码器的自回归步误当成时间轴，是把语言离散和声学离散混用。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Qwen3-ASR 的声学前端是 128 维 Fbank，再经 Conv2D 在时间上 8× 下采样。</li><li>与 12.5 Hz 对齐的常见设定：16 kHz、约 10 ms 帧移 → 100 Hz Fbank，除以 8 得到 12.5 Hz。</li><li>8× 通常由三层时间步长 2 的卷积实现，\(2^3=8\)，把编码器序列压到 LALM 可承受的长度。</li><li>比 Whisper 的 80 维 / 2× 更宽、更狠：频率多留细节，时间多让出上下文槽。</li><li>一个下采样后的向量大约对应 80 ms，这是后续 token 率与时间戳格子的共同原点。</li><li>改帧移或改倍数都会破坏 12.5 Hz 闭环，不能只改一端。</li><li>出处：Qwen Team, <em>Qwen3-ASR Technical Report</em>, arXiv:2601.21337；对照 Radford 等，Whisper，2022；AED 见 Chan 等，Listen, Attend and Spell；CTC 为帧级对齐的对照路径。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

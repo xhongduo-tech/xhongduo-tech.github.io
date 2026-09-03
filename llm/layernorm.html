@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LayerNorm | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_layernorm.md.TIV3nkkZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="layernorm" tabindex="-1">LayerNorm <a class="header-anchor" href="#layernorm" aria-label="Permalink to &quot;LayerNorm&quot;">​</a></h1><div class="epigraph"><p>沿特征维减均值、除标准差，让每个样本自己的表示落在可比的尺度上，而不依赖批次统计。</p><footer>—— Ba、Kiros、Hinton，Layer Normalization，2016</footer></div><p>BatchNorm 用一个小批量估计均值与方差，对变长序列、小批量与自回归解码都不友好。Ba、Kiros 与 Hinton 在 2016 年提出 LayerNorm：每个样本单独沿特征维归一化。原版 Transformer 把它放在残差之后，后来的解码器把它或它的 RMS 变体放在残差分支入口。理解 LayerNorm 本身——它约束什么、仿射参数做什么、统计沿哪一维——是读 Pre-LN、RMSNorm 与 DeepNet 的前提。本文只写这一算子，不把后续变体写成它的附录。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>深度网络里，一层的输出尺度会随参数与输入漂移，下一层的线性映射与非线性因此时而饱和、时而落在线性区。BatchNorm 用批次里同一通道的统计来钉住尺度，训练与推理还要维护运行均值。序列模型的批次里样本长度不同，时间步之间也不该共享同一套「通道均值」；解码一步时批量常常为 1，运行统计与训练统计错位。</p><p>需要一种归一化：不沿 batch，不沿时间，只沿「这个 token 的特征向量」。这样每个位置自给自足，掩码与变长自然成立，推理公式与训练相同。LayerNorm 回答的就是这个接口问题，同时保留可学习的逐维缩放与平移，以免归一化把有用的尺度全部洗掉。<span class="marginnote">LayerNorm 的统计单位是单个向量，不是序列，也不是批次。长度为 \(n\) 的句子有 \(n\) 组独立的 \(\mu,\sigma\)。位置信息不会进入归一化，也不会因为句子变长而改变某一 token 的 \(\sigma\) 定义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对 \(x\in\mathbb{R}^{d}\)，</p> \[\mu=\frac{1}{d}\sum_{j=1}^{d}x_j,\qquad \sigma=\sqrt{\frac{1}{d}\sum_{j=1}^{d}(x_j-\mu)^2+\varepsilon} \]\[\mathrm{LN}(x)=\gamma\odot\frac{x-\mu}{\sigma}+\beta \]<p>\(\gamma,\beta\in\mathbb{R}^{d}\) 与样本无关，随层学习。\(\varepsilon\) 防止零方差。Transformer 里 \(d\) 是模型宽度，\(x\) 是某一位置的隐状态。注意力分数矩阵不在这里归一化；LN 发生在块的边界，对 \(Q\)、\(K\)、\(V\) 的输入或对残差输出做。</p><p>原论文在循环网络上验证，强调与 BatchNorm 在小批量、序列任务上的差异。Vaswani 等人 2017 年把它写进 Transformer 的 Post-LN 块，成为后来一切变体的参照实现。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="特征维归一化" tabindex="-1">特征维归一化 <a class="header-anchor" href="#特征维归一化" aria-label="Permalink to &quot;特征维归一化&quot;">​</a></h3><p>减均值把 \(x\) 投到与全 1 向量正交的超平面，除 \(\sigma\) 再把它拉到近似单位球面与该超平面的交上（仿射前）。下一层看到的是方向，以及被 \(\gamma\) 重新加权的轴。这对加法残差的意义是：无论上一层把范数写得多大，Post-LN 都会在进入下一子层前把尺度收回来。Pre-LN 则只收回子层输入的尺度，残差主干可以继续涨。</p><p>因为统计不含其它 token，LayerNorm 不引入跨位置耦合。它不能替代位置编码，也不能替代注意力里的因果掩码。它只管理「这个向量有多野」。</p><h3 id="仿射参数" tabindex="-1">仿射参数 <a class="header-anchor" href="#仿射参数" aria-label="Permalink to &quot;仿射参数&quot;">​</a></h3><p>若没有 \(\gamma\) 与 \(\beta\)，LN 会强迫每一维在标准化后有相同的先验幅度，并禁止恢复均值。\(\gamma\) 允许某些通道保持更大的动态范围，\(\beta\) 允许输出带偏置，等价于在归一化流形上再做一个对角仿射。训练初期 \(\gamma=1,\beta=0\)，块接近纯标准化；训练后期 \(\gamma\) 常学到远离 1 的值，说明网络在「要归一化」与「要保留尺度」之间折中。</p><p>把 \(\gamma\)、\(\beta\) 融进相邻线性层在数学上不总可行：LN 是非线性（除以依赖于 \(x\) 的 \(\sigma\)），不能与矩阵乘交换。推理融合只能做有限的常数折叠，不能取消归一化本身。</p><p><span class="marginnote">\(\beta\) 与残差里的偏置、以及注意力输出投影的偏置会叠加。Post-LN 时 \(\beta\) 直接进入下一层输入；Pre-LN 时 \(\beta\) 进入子层，再经 \(F\) 写回主干。排查「某维恒正」时，应同时看 LN 的 \(\beta\) 与线性层偏置，而不是只怪嵌入。</span></p><h3 id="在残差块中的位置" tabindex="-1">在残差块中的位置 <a class="header-anchor" href="#在残差块中的位置" aria-label="Permalink to &quot;在残差块中的位置&quot;">​</a></h3><p>同一算子，放在 \(x+F(x)\) 之后或 \(F\) 之前，梯度完全不同——那是 Pre-LN 与 Post-LN 的主题。对 LayerNorm 自身只需记住：它总是沿最后一维归约。若错误地沿序列维做 LN，会把不同位置混成一套 \(\mu,\sigma\)，瞬间接通本该由注意力学习的耦合，并破坏因果。实现时的 <code>normalized_shape</code> 必须是宽度 \(d\)，不是 \(n\) 或 \(n\times d\)。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>LayerNorm 对全零或近常数向量敏感：\(\sigma\) 接近 \(\sqrt{\varepsilon}\)，输出被 \(\varepsilon\) 主导。宽度极大时，fp16 下求和与平方和需要提升精度。它比 RMSNorm 多一次中心化，内核更重；在带宽已是瓶颈的训练里，这是后来改 RMS 的直接动机。</p><p>LayerNorm 不保证跨层的残差增益合理。极深 Post-LN 仍会梯度衰减，需要 warmup 或 DeepNorm，不能靠把 \(\varepsilon\) 调大来修。它也不稳定 softmax 内部的 logits——那是注意力缩放的问题。把一切数值故障都归因于 LN 会误导。</p><p>从梯度看，\((x-\mu)/\sigma\) 对 \(x\) 的雅可比是投影加缩放，范数大约为 \(1/\sigma\)。某一位置的隐状态若暂时塌成近常数，\(\sigma\) 变小，梯度被放大，容易在那一 token 上出现尖峰。这与注意力汇点不同：汇点是跨位置的质量集中，LN 尖峰是单向量尺度崩溃。调试时应打印每层 \(\sigma\) 的分位数，而不是只看损失。变长批次里不同样本的 \(d\) 相同、\(\sigma\) 各异，这是正常现象；真正异常的是同一层里大量位置的 \(\sigma\) 同时贴住 \(\sqrt{\varepsilon}\)。</p><p><span class="marginnote">与 BatchNorm 对照时，LayerNorm 的优点是无运行统计、与批量无关；缺点是没有「跨样本的噪声」这种正则，也不能用批次里的其它例子来估计通道尺度。序列模型几乎总是接受这笔交换。</span></p><h3 id="和-rmsnorm-的分工" tabindex="-1">和 RMSNorm 的分工 <a class="header-anchor" href="#和-rmsnorm-的分工" aria-label="Permalink to &quot;和 RMSNorm 的分工&quot;">​</a></h3><p>需要中心化、需要 \(\beta\)、或必须与 2017 年以来的 Post-LN 检查点兼容时，用 LayerNorm。默认追吞吐与解码器质量时，RMSNorm 往往够用。二者都是「按 token、按特征维」的归一化，都不是位置编码。新写的块应先固定 Pre-LN 还是 Post-LN，再决定 LN 还是 RMS。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LayerNorm 对每个样本的特征向量减均值、除标准差，再做逐维仿射。</li><li>统计不沿 batch、不沿时间，故适合变长序列与自回归解码。</li><li>\(\gamma\) 与 \(\beta\) 恢复被标准化洗掉的尺度与偏置，但不能与相邻线性层完全融合。</li><li>归约维必须是模型宽度；沿序列做归一化会破坏位置独立性与因果。</li><li>它稳定的是向量尺度，不自动解决深层残差的梯度衰减。</li><li>RMSNorm 去掉中心化以换速度，函数类更窄，不是原定义的别名。</li><li>出处：Ba、Kiros、Hinton，<em>Layer Normalization</em>，2016；在 Transformer 中的位置见 Vaswani 等（2017）与 Xiong 等（2020）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

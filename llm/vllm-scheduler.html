@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vLLM 调度器 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_vllm-scheduler.md.BYP44jbG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="vllm-调度器" tabindex="-1">vLLM 调度器 <a class="header-anchor" href="#vllm-调度器" aria-label="Permalink to &quot;vLLM 调度器&quot;">​</a></h1><div class="epigraph"><p>调度的粒度是一次模型前向，不是整条请求：每步结束即可让完成者退出、让等待者带着刚分到的 KV 块加入。</p><footer>—— 对照 Kwon 等 vLLM（SOSP 2023）与 Yu 等 Orca 的 iteration-level 调度</footer></div><p>连续批处理能提高 GPU 利用率，前提是调度器按 <strong>迭代</strong> 而不是按请求生命周期组批。Orca 把这条路叫 iteration-level scheduling：一次前向混着不同请求的 prefill 或 decode，前向结束就改成员。vLLM 在同一粒度上补了内存会计——准入看空闲 KV 块，不够就抢占或换出，而不是假设每条请求已经按 \(n_{\max}\) 预留好连续缓冲。本篇写调度器看见的队列、每步决策和抢占，块如何映射见 <a href="/llm/vllm-paged">PagedAttention</a>，进程分工见 <a href="/llm/vllm-architecture">架构</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>请求到达时刻不同，提示长度与生成长度事先不知道。静态批要么让先到的等齐，要么让后到的等先到的整段结束，队列延迟按「最长那条」计。补齐（padding）把短序列的计算和显存垫到和长序列一样，浪费的是本可以用来多塞几条 decode 的块。</p><p>迭代级调度解决到达与不等长，但立刻碰到第二约束：运行中集合的 KV 总量不能超过块池。一条请求的输出多走 512 个 token，就要再领 \(\lceil 512/B\rceil\) 个块。若调度器只顾把等待队列倒进 GPU，池会在某一步突然耗尽，正在解码的序列写不下新键。此时必须有明确的抢占：谁让路、让路的 KV 去哪、何时回来。没有这块，分页只是换了一种碎片形状。</p><h3 id="等待、运行、抢占是三个集合" tabindex="-1">等待、运行、抢占是三个集合 <a class="header-anchor" href="#等待、运行、抢占是三个集合" aria-label="Permalink to &quot;等待、运行、抢占是三个集合&quot;">​</a></h3><p>调度器至少维护等待队列（已 tokenize、尚未分配够用的块或尚未首次前向）和运行中集合（本步会参与前向的序列）。第三类是被换出的序列：逻辑还活着，物理块已写到主机或丢弃待重算。每条序列还有阶段：prompt 尚未算完则是 prefill（或分块 prefill），之后是 decode。同一步可以混两类，这正是 in-flight / continuous batching 的含义；混的代价是 prefill 的大 GEMM 可能拉长 decode 的 <a href="/llm/tpot-itl">ITL</a>。</p><p><span class="marginnote">FCFS 对等待队列是公平的默认，对 KV 利用不必最优。SGLang 后来按最长共享前缀排序以提高 radix 命中；那是另一种目标函数。vLLM 论文的主线是「块够不够」，不是「前缀像不像」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每步的循环可以写成：先从运行中集合丢掉已经 EOS 或达到长度上限的序列，归还它们的块（共享块只减引用计数）。再看空闲块数，从等待队列头部尽量装入新序列——装入条件是「当前提示（或本块 prefill）所需块 \(\le\) 空闲」。然后为仍在 decode 的序列各分配至多一个新槽（通常在当前尾块未满时只写同一块）。若空闲块仍不够覆盖运行中集合本步的写入，就抢占：选一些序列，把它们的块换到 CPU 或直接丢弃。论文把换出与重算都列为应对未知输出长度的手段。</p><p>抢占策略要与分页共设计。换出保留 KV，下次调度回来不必重做提示，但 PCIe 搬运按块体积计，回来的第一步会慢。丢弃则释放最快，回来等于再 prefill，TTFT 式的成本打在一条已经开始流式的请求上，用户感知更差。实际系统往往对长前缀倾向换出、对短请求倾向重算；这是工程启发式，不是一条写进公式的定律。</p><div class="mermaid"></div><h3 id="一次前向里的成员是异构的" tabindex="-1">一次前向里的成员是异构的 <a class="header-anchor" href="#一次前向里的成员是异构的" aria-label="Permalink to &quot;一次前向里的成员是异构的&quot;">​</a></h3><p>调度器交给 worker 的 batch 描述里，有的序列本步消耗几百个提示 token，有的只消耗 1 个新 token。核与图捕获喜欢整齐形状；调度器喜欢把能装下的都装下。张力靠上限约束：<code>max_num_batched_tokens</code> 一类预算限制本步 token 总数，避免单次迭代被一条超长 prefill 独占。分块 prefill 把长提示切开，让 decode 序列在缝隙里继续往前走，是后来引擎普遍加上的稳定 ITL 手段。SOSP 论文的核心评测仍建立在「迭代级加入/退出 + 块准入」上；分块是同一调度器上的细化。</p><p>束搜索与并行采样让「一条用户请求」对应多条序列。调度器应以序列（带共享块表前缀的 fork）为装入单位，同时在请求级统计 SLO。只按请求数限并发，会在 <code>n&gt;1</code> 采样时把块池打满；只按序列数限，又可能饿死新用户。块数仍然是唯一硬约束。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>迭代级调度降低的是排队：新请求最多等一次前向的墙钟，而不是等整批结束。吞吐提高来自 GPU 上始终有足够的 decode 查询去摊权重读取。内存不够时，这个故事会反转——频繁抢占让 PCIe 或重算占据迭代，运行中集合的有效计算下降。调度器因此不是「越满越好」，而是把块池维持在高占用但少抖动的区间。</p><p>与 Orca 的差别主要在货币。Orca 证明了按迭代组批的可行性；vLLM 让每次加入都带着真实的、按块增长的显存账单，于是最大运行中集合可以显著大于「每条按 \(n_{\max}\) 预留」时的集合。调度器看到的「能不能再塞一条」从保守的最坏长度，变成当前长度再加本步增量。输出突然变长时，账单在后续迭代补交，必要时用抢占平账。</p><p><span class="marginnote">抢占公平与吞吐是另一对张力。总抢最长的序列能立刻腾出很多块，但长上下文用户的 TBT 会周期性坍塌。总抢最新的又可能让短请求永远插不进。生产调度要在 FCFS、优先级和 SLO 类之间加策略；论文实现的是能跑通的抢占，不是一张完备的公平性定理。</span></p><h3 id="中央调度器的一步必须与所有-worker-对齐" tabindex="-1">中央调度器的一步必须与所有 worker 对齐 <a class="header-anchor" href="#中央调度器的一步必须与所有-worker-对齐" aria-label="Permalink to &quot;中央调度器的一步必须与所有 worker 对齐&quot;">​</a></h3><p>张量并行下，同一步的成员集合在每张卡上必须相同，否则 All-Reduce 的形状对不上。调度器因此不能让某张卡私自多塞一条序列。数据并行的多引擎副本各自有调度器，副本之间的问题变成 <a href="/llm/decode-affinity">decode 亲和</a>，不再是单次迭代的成员表。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>论文对照系统同样做连续批，差别被归因于 KV 管理；不要把「vLLM 调度器」宣传成发明了迭代级调度。Orca（Yu et al., OSDI 2022）才是那条引用。vLLM 的贡献是让该调度器以块表为约束运行，并与抢占、共享解码共设计。</p><p>优先级、SLA、抢占公平在知识树上是后续叶子。本篇的默认模型是单模型、单优先级、FCFS 等待队列。多 LoRA、多模型共用一块 GPU 时，调度器还要在适配器热加载与 KV 池之间切预算，那不是 SOSP 原文的对象。PD 分离后，prefill 调度与 decode 调度可以是两个进程、两套 SLO（TTFT 对 TPOT）；同卡混合时，本步 token 预算是唯一能同时碰两条 SLO 的旋钮。</p><p><span class="marginnote">看板若只报 GPU 利用率，会在「调度器塞满了 prefill」时显示健康，而交互 decode 已经卡顿。应同时看运行中块占用、抢占次数、等待队列长度和 ITL 尾部。利用率不是调度目标，SLO 才是。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>vLLM 调度器按迭代组批：每步退出完成者、按空闲块准入等待者，必要时抢占。</li><li>硬约束是 KV 块池，不是请求个数；并行采样要把 fork 出的序列算进块账。</li><li>换出保 KV、丢弃换速度；两者都会打断 TBT，需要策略而不是临时抢。</li><li>迭代级调度来自 Orca；vLLM 补上按需分页后的准入与抢占。</li><li>本步 token 预算用来限制 prefill 对 decode ITL 的伤害。</li><li>出处：Kwon et al., PagedAttention / vLLM, SOSP 2023（arXiv:2309.06180）；Yu et al., <em>Orca: A Distributed Serving System for Transformer-Based Generative Models</em>, OSDI 2022。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

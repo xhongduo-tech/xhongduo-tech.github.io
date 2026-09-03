@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>服务 SLO 与尾延迟 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_serving-slo.md.BsgCk9t6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="服务-slo-与尾延迟" tabindex="-1">服务 SLO 与尾延迟 <a class="header-anchor" href="#服务-slo-与尾延迟" aria-label="Permalink to &quot;服务 SLO 与尾延迟&quot;">​</a></h1><div class="epigraph"><p>平均数达标只说明大部分请求还行；用户投诉和合同违约发生在分布的尾巴上——那一截由长提示、队头阻塞、偶发抢占和一次过长的前填共同写成。</p><footer>—— 把服务等级目标写成 TTFT / TBT 分位数，而不是写成平均延迟</footer></div><p>SLO（服务等级目标）是对内的可测量合同：在指定工作负载与模型下，某类请求的延迟分位数不得超过阈值，达成率不得低于某一比例。SLA 常指对外法律或商务条款，数字更松，留出余量。生成服务里，SLO 至少要落到 <a href="/llm/ttft">TTFT</a> 与逐步 <a href="/llm/tpot-itl">ITL / TBT</a> 的尾部，而不是端到端均值。<a href="/llm/priority-sla">优先级</a> 决定过载时先保谁；本篇写合同本身：为什么必须用尾延迟、尾巴从哪来、以及如何避免用空载均值去签字。有效容量见 <a href="/llm/goodput">goodput</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>延迟在生成服务上不是单峰对称的。短提示空载时 TTFT 可以是几十毫秒；同一系统里，一条 32k 文档、或排在超长前填后面的聊天，TTFT 可以是数秒。平均被大量短请求拉低，P99 被少数长作业与排队决定。交互产品的失败体验几乎总是尾巴：一次卡死的打字机、一次始终不出字的对话框。把均值写进 SLO，调度器会继续优化好服务的那一部分，违约集中在投诉用户上。</p><p>生成还把尾巴拆成两种形状。TTFT 的尾巴偏排队与前填长度，一次违约是「半天没开始」。ITL 的尾巴偏某一次迭代被长作业或通信打穿，用户感觉是说话突然停住。两种尾巴的治理不同，不能收成一个 E2E P99 了事——E2E 还把输出长度混进来：爱写长的模型天然 E2E 更大，那不是服务变慢。</p><h3 id="slo-要有范围-否则不可执行" tabindex="-1">SLO 要有范围，否则不可执行 <a class="header-anchor" href="#slo-要有范围-否则不可执行" aria-label="Permalink to &quot;SLO 要有范围，否则不可执行&quot;">​</a></h3><p>一条可调度的 SLO 至少声明：请求类别、模型与精度、提示与输出长度桶（或上限）、测点（网关收到完整提示到第一个可见 token / 逐步 token）、分位数与窗口（例如 5 分钟滚动 P99）、达成率（例如 99% 的时间窗口达标）。缺任何一项，数字都可以用换模型、换长度、换测点来「达成」。范围也是拒绝的依据：超长提示不在合同内，应改类或拒绝，而不是让它们去打所有人的尾巴。</p><p><span class="marginnote">SLO 不是压测峰值。把实验室里刚饱和前的 P99 写成合同，上线后流量相关、缓存失效、换出风暴都会集体违约。对内阈值应严于对外 SLA，中间留给抢占、重试和故障。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>尾延迟用顺序统计量。窗口内对该类请求的 \(\mathrm{TTFT}\) 样本取经验分位数 \(q_{0.99}\)。样本少则估计噪声大：P99 大约是百分之一的点，几百个样本远远不够。SLO 监控需要足够的完成量，或改用 P95 加更长窗口。对 ITL，有两种写法：按请求平均 TPOT 的 P99（弱，会吃掉逐步尖刺），或按逐步 TBT 违约率（强：任一步超过 \(t\) 即记该请求违约）。交互产品更接近后者；Sarathi 一类工作把 TBT 当作一等目标，正是这个原因。</p><p>控制环把分位数接回调度。观测到交互类 TTFT 的滚动 P95 逼近阈值，就减低优先级准入、限制同时前填条数、或缩小 decode 批。等到均值报警往往太晚。老化（已等待时长 / 截止时间）让接近违约的请求获得临时提升，专门打尾巴，而不是打平均。</p> \[\mathrm{breach}=\mathbf{1}\bigl[q_{p}(\mathrm{TTFT})\gt T_1\ \lor\ \mathrm{TBT\text{-}viol}&gt; \rho\bigr] \]<p>窗口级 <code>breach</code> 用于告警与自动降级（关投机、减 <code>max_tokens</code>、拒绝批处理类）。请求级违约用于 <a href="/llm/goodput">goodput</a> 计数。两级都要，只留告警没有请求级滤镜，容量规划仍会按吞吐来。</p><h3 id="尾巴的常见生成器" tabindex="-1">尾巴的常见生成器 <a class="header-anchor" href="#尾巴的常见生成器" aria-label="Permalink to &quot;尾巴的常见生成器&quot;">​</a></h3><p>原子长前填：一次 \(O(n^2)\) 作业把同卡所有 ITL 拉到前填时长，并让队列里所有 TTFT 加上这段。队头阻塞：FCFS 下超长作业之后的短请求继承等待。KV 满导致的换出/重算：受害者恢复时出现 TTFT 式尖刺。批过大：每步墙钟基线抬高，P50 和 P99 一起坏，这是工作点错了，不是偶发尾。冷启动、核编译、专家缺页：稀疏模型上会制造与负载无关的尖刺，应从稳态 SLO 中剔除并单独设发布检查。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>排队论里，利用率靠近 1 时等待时间的尾部比均值恶化得更快。连续批把 GPU 往高利用率推，正好踩在这一区：吞吐好看，P99 爆炸。分块前填给单次迭代加时间盖，等于把服务时间的方差砍掉一块，尾巴从「碰上 100k 提示」变成「块数 × 块时延」，可预测性上升，均值未必下降。优先级把不同类别放进不同有效利用率：交互类看到的负载被故意压在饱和点以下，批处理类去填剩余——交互 P99 改善，全局吞吐可能略降。</p><h3 id="相关突发与缓存双峰" tabindex="-1">相关突发与缓存双峰 <a class="header-anchor" href="#相关突发与缓存双峰" aria-label="Permalink to &quot;相关突发与缓存双峰&quot;">​</a></h3><p>尾部对相关性敏感。独立短请求的 P99 已经不好看时，若再叠加「所有人同时发长文档」（会议纪要场景），分位数模型会失效。SLO 压测必须含突发与相关性，而不是只有泊松到达的均值负载。缓存命中制造双峰：命中极快、未命中走二次前填，混合 P99 由未命中峰决定。报表分列后，合同可以写成「未命中桶的 P99」，避免被命中流量粉饰。</p><p><span class="marginnote">P99.9 在中小流量上几乎不可估，会变成「今天最倒霉的那一条」。没有足够样本就不要签三九。用最大延迟当 SLO 更糟：它随观测时间单调变坏，激励停止测量。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>守尾部通常要牺牲峰值吞吐：减批、拒长、为交互留空槽。这是显式的经营选择，应通过 goodput 与成本一起看，而不是假装能同时要满载和极紧 P99。多类 SLO 档位不宜过多，否则无法解释某条请求为何违约。数字必须钉模型和模板：换 70B、打开思维链、换 FP8，旧 SLO 作废。</p><p>SLO 管不了模型质量。TTFT 达标但胡言乱语，合同在性能上成立、在产品上失败。性能 SLO 与质量门禁（自动基准、抽检）并行，不要把 Arena 分数写进延迟合同。前端与网关超时若比 SLO 更短，用户先断开，服务端仍可能把请求算完成——测点要与用户可见超时对齐，否则出现「SLO 绿、投诉红」。</p><p>跨区域、抢占式云实例、降级到更慢卡，都应视为合同范围变化。自动降级时要改对外预期或切类别，而不是默默用更差硬件去追同一 P99。</p><p><span class="marginnote">日志里的 P99 受计时精度、时钟回拨、重试重复计数污染。同一请求重试三次，三条都进分位数，会把尾巴写得更肥或更瘦，取决于你怎么去重。合同统计必须按用户可见的一次尝试定义。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SLO 是带范围的分位数合同（TTFT、TBT/ITL），不是平均延迟；SLA 对外更松。</li><li>交互尾巴来自长前填、排队、换出和大批；E2E 均值会把输出长度与两类尾巴混在一起。</li><li>窗口级违约驱动降级，请求级违约驱动 goodput；两者都需要足够样本。</li><li>高利用率让尾部先于均值爆炸；分块、优先级、拒绝是在买可预测的尾巴。</li><li>缓存命中、突发相关、冷启动必须分列，避免粉饰或冤枉稳态调度。</li><li>数字钉模型、精度、长度桶和测点；质量与性能分开签。</li><li>出处：对照生成服务中 TBT/TTFT 分位数实践（如 Sarathi-Serve 对逐步时限的强调）以及排队系统中尾延迟随利用率恶化的一般事实；优先级落地见站内 SLA 专文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chain-of-Thought | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_chain-of-thought.md.BiF7RmD_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="chain-of-thought" tabindex="-1">Chain-of-Thought <a class="header-anchor" href="#chain-of-thought" aria-label="Permalink to &quot;Chain-of-Thought&quot;">​</a></h1><div class="epigraph"><p>让模型写出一串中间推理步骤，而不是直接吐最终答案，能显著提高大模型做复杂推理的能力。</p><footer>—— Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models, NeurIPS 2022</footer></div><p>标准少样本提示把题目和答案成对摆进上下文，模型学会的是「看见这种题面就填那个短答案」。多步算术、常识组合、符号操作却要求中间量被显式算出来：进位、单位换算、实体对齐，都不能只靠一次条件分布的捷径。Wei 等人把示范改成「题面 → 自然语言推理链 → 答案」，把计算摊到生成的 token 上。这就是思维链提示（Chain-of-Thought, CoT）。它不改权重、不引入工具，只改条件前缀里示范的形态。后续的<a href="/llm/zero-shot-cot">零样本 CoT</a>、<a href="/llm/self-consistency">自洽解码</a>、<a href="/llm/tree-of-thoughts">思维树</a>都建立在「中间步骤值得写出来」这一前提上。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归一次解码要在固定的前向预算里给出答案。若目标是一个短数字或选项，模型可以把题面直接映射到答案，中间运算被压进隐状态。对两位数加减这够用；对需要多跳组合的题，隐状态里的中间量没有被监督，也没有被读出核对。错误以「看起来像答案」的形式出现，无法定位是哪一跳算错。需要一种把中间计算从隐状态里请到文本里的办法，使每一步都占用显式 token，也使人类或后续算法能截获。</p><p>少样本本身不够。把八条「题：答案」示范放进 PaLM 一类模型，GSM8K 上的收益远小于把同一条示范改写成带推理过程。问题不是示范条数，而是示范有没有把 <em>推理轨迹</em> 当作要模仿的对象。CoT 要回答的，不是「要不要提示」，而是「提示里的目标序列该不该包含中间步骤」。</p><h3 id="直接映射压不住多步计算" tabindex="-1">直接映射压不住多步计算 <a class="header-anchor" href="#直接映射压不住多步计算" aria-label="Permalink to &quot;直接映射压不住多步计算&quot;">​</a></h3><p>设题目为 \(x\)，答案为 \(y\)。标准提示近似在拟合 \(p(y\mid x, \text{exemplars})\)。当 \(y\) 是短字符串，\(x\) 到 \(y\) 的映射可以走捷径：记住训练集里的题型，或抓住表面模式。中间量 \(z_1,\ldots,z_T\) 从未作为生成目标出现，模型没有义务把它们算对。CoT 把目标改成 \(p(z,y\mid x)\)，其中 \(z\) 是自然语言写出的步骤。解码长度从几个 token 变成几十到几百，计算被摊到逐步预测上。</p><p><span class="marginnote">思维链是提示形态，不是一种新的损失函数。Wei 等人的主结果来自少样本示范，没有为写步骤而单独做监督微调。后来的过程监督、蒸馏长链，是把同一想法送进训练，不要写回 2022 年这篇提示论文的贡献表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实现极轻：在每条少样本示范里，于答案前插入一段逐步推理，推理用自然语言，不必是形式证明。在线请求时，用户题面接在示范之后，模型被条件化去先写 \(z\) 再写 \(y\)。答案抽取靠约定格式（「因此答案是」）或规则解析，评测只看 \(y\)，不看 \(z\) 是否漂亮。示范领域要与测试任务同分布：算术示范带进位过程，常识示范带「因为…所以…」的依据，符号任务带改写规则的应用过程。混用领域会让模型学会「写一段像推理的话」，而不是学会该任务的中间量。</p><p>示范条数通常很少（Wei 等人常用 8-shot），因为每条带长 \(z\)，窗口很快被占满。挑选示范比堆条数更重要：一条覆盖进位、一条覆盖单位换算，比八条同构的两位数加法有用。推理链应写 <em>必要步骤</em>，不要写教学散文；过长的 \(z\) 会稀释后续题面，也会诱导模型在测试时空转。</p><div class="mermaid"></div><h3 id="少样本里示范的是轨迹不是答案" tabindex="-1">少样本里示范的是轨迹不是答案 <a class="header-anchor" href="#少样本里示范的是轨迹不是答案" aria-label="Permalink to &quot;少样本里示范的是轨迹不是答案&quot;">​</a></h3><p>标准提示的示范对是 \((x_i, y_i)\)；CoT 的示范三元组是 \((x_i, z_i, y_i)\)。模型在测试题 \(x\) 上续写，先模仿 \(z\) 的文体与粒度，再收束到 \(y\)。\(z\) 的粒度是超参：太粗等于没写中间量，太细则同一步被拆成许多句，错误面变大。对数学题，逐步列出算式并保留进位；对常识题，写出要用的事实再组合。不要在示范里写「我们来仔细想一想」却不出现可核对的中间结论——那是在示范套话。</p><p>抽取 \(y\) 必须稳健。模型常把最终数字埋在段落末尾，或写完 \(z\) 之后改口。评测脚本应约定唯一答案跨度；线上系统则应要求固定收束句，否则 CoT 的增益会被解析误差吃掉。这与<a href="/llm/self-consistency">自洽</a>里「先解析再投票」是同一接口。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>写 \(z\) 改变的是计算图的深度，不是参数量。每多一个中间 token，就多一次条件于已写步骤的前向，相当于把多跳运算展开成序列。这解释了为何小模型上 CoT 常常无效甚至有害：若模型写不出正确的中间量，更长的 \(z\) 只是更长的错误前提。Wei 等人观察到收益随模型规模出现，而不是随示范条数平滑上升，这被称作推理能力的涌现——更准确的说法是：只有当 \(p(z\mid x)\) 已经大致落在正确推理的流形上，把 \(z\) 解码出来才有用。</p><p>另一条机制是可检查性。\(z\) 暴露了模型用了哪些事实、哪一步做了算术。人类可以改示范来纠正系统性错误；后续算法可以对 \(z\) 做<a href="/llm/process-supervision">过程奖励</a>或逐步搜索。没有 \(z\)，这些接口不存在。代价是延迟与费用随输出长度涨，以及 \(z\) 本身会幻觉：写得自洽的错误链，比短答案更难被用户识破。</p><p><span class="marginnote">不要把「涌现」理解成小模型绝对不能逐步推理。指令微调与过程蒸馏之后，远小于 PaLM 540B 的模型也能写可用的 \(z\)。Wei 等人刻画的是 <em>当时那批预训练模型加少样本提示</em> 的尺度曲线，不是一条物理定律。</span></p><h3 id="错误沿链条传播" tabindex="-1">错误沿链条传播 <a class="header-anchor" href="#错误沿链条传播" aria-label="Permalink to &quot;错误沿链条传播&quot;">​</a></h3><p>\(z\) 是自回归写出来的。第 \(t\) 步若把实体链接错，第 \(t+1\) 步会把它当前提。CoT 没有回溯：贪婪解码一旦选了错的中间句，后续只是把错写圆。这是单链相对<a href="/llm/tree-of-thoughts">思维树</a>与<a href="/llm/self-consistency">自洽</a>的根本弱点。缓解可以在提示里示范「发现矛盾则改口」，但单次贪婪生成很少真的改口——改口要付出与已写前缀对抗的代价。工程上更有效的是对 \(y\) 多样本投票，或对 \(z\) 做搜索，而不是指望一条更长的链自己纠错。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>CoT 适合中间量可写、最终答案可核对的任务：竞赛数学、多跳事实、符号变换。不适合答案就是短检索、或中间步骤无法用自然语言可靠表达的任务。它也不提供外部真值通道：事实错误会写进 \(z\)，看起来更像证明。需要检索或工具时，应走 <a href="/llm/react-prompting">ReAct 提示</a> 或把计算卸给解释器，见 <a href="/llm/pal-pot">PAL / Program-of-Thoughts</a>。</p><p>示范会泄漏格式与难度。评测若与示范同构，增益含有「教会了这道题的写法」。真正的泛化要看示范未覆盖的组合。线上系统若把 CoT 展示给用户，还要处理 \(z\) 中的有害推理与隐私；许多产品只展示 \(y\)，把 \(z\) 留在日志里做审计。不要把思维链和「模型真的在思考」混为一谈：它是被条件化的续写，中间句的因果地位与隐状态里的计算不是同一回事。</p><p><span class="marginnote">温度接近 0 时，CoT 给出一条近贪婪路径，复现性好、多样性差。要靠多样路径纠错，应升高温度并改用自洽，而不是把同一条贪婪链重复跑。两者都叫思维链，解码算法不同。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Chain-of-Thought 把少样本示范从 \((x,y)\) 改成 \((x,z,y)\)，让中间推理占用显式 token。</li><li>它不改权重；收益依赖模型已经能写出大致正确的步骤，并随规模更明显。</li><li>单链贪婪解码无法回溯，中间一步错会污染后续。</li><li>答案抽取与示范粒度决定评测是否量到了推理，而不是量到了套话。</li><li>无外部真值；需要工具、检索或程序执行时应换形态。</li><li>后续方法（零样本触发、自洽、树/图搜索、最小到最大分解）都建立在「写出 \(z\)」之上。</li><li>出处：Wei et al., <em>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</em>, NeurIPS 2022。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

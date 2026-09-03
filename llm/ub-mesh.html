@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UB-Mesh：递归 nD 全互连、短距电直连优先 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ub-mesh.md.CqXEqhoV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="ub-mesh-递归-nd-全互连、短距电直连优先" tabindex="-1">UB-Mesh：递归 nD 全互连、短距电直连优先 <a class="header-anchor" href="#ub-mesh-递归-nd-全互连、短距电直连优先" aria-label="Permalink to &quot;UB-Mesh：递归 nD 全互连、短距电直连优先&quot;">​</a></h1><div class="epigraph"><p>从板上的一维全互连递归到机柜、柜列与 Pod：能用电直连的跳数就不要改走长距交换与光模块。</p><footer>—— Jiang et al., UB-Mesh: a Hierarchically Localized nD-FullMesh Datacenter Network Architecture, arXiv:2503.20377</footer></div><p>UB-Mesh 是华为公开的 AI 数据中心网络架构：用<strong>层次化、局部优先的 n 维全互连</strong>（nD-FullMesh）替代对称 Clos 作为 Scale-Up 主体，并用 <a href="/llm/ub-lingqu">统一总线 UB</a> 把 NPU、CPU、低/高基数交换和网卡连起来。CloudMatrix384 论文写明，384 超节点的 UB 设计是 UB-Mesh 的<strong>递归落地</strong>。本篇写拓扑原则与论文里的工程取舍：短距电直连优先、分层带宽、以及 UB-Mesh-Pod 作为 4 维实现。不把论文中 4D-Pod 的 1024 NPU 设计直接当成 <a href="/llm/cloudmatrix-384">CloudMatrix 384</a> 的 SKU，也不把相对 Clos 的成本倍数写成你机房的报价。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>LLM 训练与推理的通信有局部性：张量并行、序列并行往往发生在近邻设备上；数据并行、跨 Pod 同步可以更远、更稀。经典 Clos 对所有流量一视同仁，用大量高基数交换机和光模块提供非阻塞，成本与故障率（光模块数量）随规模恶化。论文把需求写成：高带宽给短距、可接受的带宽给长距、少光模块、高可用。对称 Clos 满足性能，不满足成本与可靠性约束。</p><p>直接全连接所有 NPU 又会让链路数按 \(O(N^2)\) 爆炸。需要一种拓扑：在每一层上看起来是全互连（低跳数），层与层之间递归展开，物理上优先用短铜缆，只有层间距离超出电信号范围才上光。这就是 nD-FullMesh 的动机。</p><h3 id="递归全互连在说什么" tabindex="-1">递归全互连在说什么 <a class="header-anchor" href="#递归全互连在说什么" aria-label="Permalink to &quot;递归全互连在说什么&quot;">​</a></h3><p>一维：一块板上相邻 NPU 彼此全连。二维：相邻的一维网再彼此全连，对应机柜内。三维、四维：柜列、楼层内的机柜组。论文把虚拟拓扑映射到物理组织，并在这一代把 <strong>UB-Mesh-Pod 定在 4 维</strong>，4 维以上仍用 Clos，以平衡成本与灵活性。递归的要点是：<strong>每一维都优先直连</strong>，而不是每一维都回到核心交换机。跳数与距离同时被压在「这一维的局部」里。</p><p><span class="marginnote">论文估计短距无源电缆约占全部线缆的 86.7%，相对非过订阅 Clos 可减少约 98% 的高基数交换机与约 93% 的光模块，系统成本效率约 2.04×，可用性叙述中有 7.2% 的相对提升。这些是论文相对其 Clos 基线的评估，用来理解「电直连优先」的方向，不是 CloudMatrix 384 交付清单上的器件计数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>构建顺序与并行对齐。把高频、大带宽的并行维（TP、部分 SP、域内 EP）放在低维全互连上，让多数传输走 0–2 跳。把 DP、跨 Pod 放在高维或 Clos。数据放置与集合通信要拓扑感知：论文为此提出 All-Path Routing（APR）、源路由压缩头、拓扑感知无死锁流控（TFC，公开描述为用很少的虚拟通道做全路径）、以及链故障时的直接通知而非逐跳扩散。</p><p>硬件积木包括专用 NPU / CPU、低基数交换 LRS、高基数交换 HRS、网卡，全部经 UB 互联。LRS 做柜内聚合与 CPU–NPU，降低对昂贵高基数交换的依赖。柜间在电信号可达范围内做直连全互连；论文把「一行四柜、再在列向全连」写成与有源电缆距离相匹配的工程点。超出 4 维的规模，用 Clos 接许多 Pod，而不是强行 5 维全连——那是这一代的显式取舍。</p><div class="mermaid"></div><h3 id="与-cloudmatrix-384-的关系" tabindex="-1">与 CloudMatrix 384 的关系 <a class="header-anchor" href="#与-cloudmatrix-384-的关系" aria-label="Permalink to &quot;与 CloudMatrix 384 的关系&quot;">​</a></h3><p>384 超节点是生产 SKU：12 计算柜 + 4 通信柜，L1 板载 + L2 子平面，见 <a href="/llm/ub-l1-l2-planes">七子平面</a>。它体现同一原则——局部全互连、UB 统一、能用电则用电——但物理图是两级交换的无阻塞结构，不是把论文插图里的 64+1 机柜 4D-Mesh 原样贴上。读拓扑时分清：<strong>架构论文的 Pod 设计</strong>与<strong>已交付的 384 卡超节点</strong>。递归二字在 CloudMatrix 文中指 UB 设计延续 UB-Mesh，不指定维数必须等于 4。</p><p>可靠性上，论文描述过 64+1：64 颗常规 NPU 加一颗经 LRS 接入的备份，故障时改走一跳而不把整组降成 7 卡。这是 UB-Mesh-Pod 文中的机制；384 SKU 的备援以产品文档为准，不要把 64+1 抄进 8 卡节点的运维手册。</p><p><span class="marginnote">APR 让流量借闲置的维间路径。集合通信若仍按单环默认映射，会浪费 Mesh 的多路径。HCCL / 通信库需要拓扑感知；把以太网 Clos 的 ring 参数搬过来，等于关掉论文里那套优化。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>短距电直连降低的是单跳距离、功耗和光模块故障率；递归全互连降低的是「本维」的交换跳数。两者合在一起，TP 类流量不必爬 Clos 的叶子–脊–叶子。分层带宽则承认：远维链比近维细，这与 LLM 通信矩阵匹配——近的密、远的稀。代价是拓扑不对称：编程必须知道自己在哪一维，故障绕路会改变跳数（64+1 就是直连改一跳）。Clos 的对称性换的是「任意一对都一样」；Mesh 换的是「大多数对都很近」。</p><p>相对 Clos 的训练性能，论文称多种 LLM 训练任务相对昂贵 Clos 基线的性能下降在约 7% 以内。这是其实验条件下的结果，用来说明「少光模块不一定把训练打穿」，不能当成你的模型与并行度的保证。</p><h3 id="路由与死锁" tabindex="-1">路由与死锁 <a class="header-anchor" href="#路由与死锁" aria-label="Permalink to &quot;路由与死锁&quot;">​</a></h3><p>Mesh 有环，APR 又允许多跳，流控必须防死锁。TFC 被描述为拓扑感知、用 2 条虚拟通道级的资源做无死锁全路径。源路由把转发指令压进短头，减轻逐跳查大表。这些属于网络系统，框架工程师不必实现，但必须知道：拥塞与故障后的路径集合会变，集合通信的性能不是一条水平线。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 nD-FullMesh 去替换数据中心南北向以太网。不要在只有 ToR Clos 的机房「用软件模拟 UB-Mesh」。不要把 1024 NPU 的 4D-Pod、384 NPU 的 CloudMatrix、以及未来更高维扩展开成同一个规格表。电直连的距离是物理极限；柜列拉太长就必须上光，原则变成「优先」而不是「禁止光」。</p><p>成本账：少高基数交换与少光模块是论文主张的系统优势；运维要补上拓扑感知的值班能力。可用性依赖备援与快速重路由，而不是假设铜缆永不坏。</p><p><span class="marginnote">出处：arXiv:2503.20377。CloudMatrix384（arXiv:2506.12708）声明其 UB 为 UB-Mesh 之递归。协议细节当时未完全公开，不在此补。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>UB-Mesh 用递归 nD 全互连做局部高带宽，短距电直连优先，远距才上交换与光。</li><li>这一代论文实现取 4D-Pod，再往上接 Clos；维数是工程折中。</li><li>多数 TP/SP 应对齐到 0–2 跳；集合通信要吃多路径。</li><li>CloudMatrix 384 是该原则的生产递归，物理图按 384 SKU 的 L1/L2，不按 1024-Pod 插图抄。</li><li>相对 Clos 的成本与性能数字属于论文基线，不作通用 SLA。</li><li>出处：UB-Mesh 与 CloudMatrix384 公开论文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

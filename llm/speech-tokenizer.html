@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>语音 tokenizer | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_speech-tokenizer.md.CF1qanUN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="语音-tokenizer" tabindex="-1">语音 tokenizer <a class="header-anchor" href="#语音-tokenizer" aria-label="Permalink to &quot;语音 tokenizer&quot;">​</a></h1><div class="epigraph"><p>先把波形变成离散符号，语言模型才能在语音上做它已经会的那件事：预测下一个 token。</p><footer>—— 归纳自神经网络音频编解码与语音单元文献</footer></div><p>文本 LLM 的输入是词表上的整数。语音是连续波形 \(x(t)\)。要让同一套 Transformer 吃音频，必须先把 \(x(t)\) 变成有限集合里的符号序列 \(z_{1:T}\)，这个映射叫语音 tokenizer。它不是「把 ASR 文本再 tokenize」：文本 token 丢掉了音色、韵律和信道；语音 token 要在压缩率、可重建性和语义对齐之间取点。当代路线大致分成两类：面向重建的神经编解码器离散码（SoundStream、EnCodec），和面向内容的自监督单元（HuBERT 一类语义 token）。Audio LM、零样本 TTS 和部分语音理解模型都建立在这种离散化之上。本篇对照这几条线，不把某一家 RVQ 的码本超参写成唯一标准。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>波形采样率 16 kHz 时，每秒 16000 个实数，远超文本的每秒 token 数。直接对采样点做语言模型，序列太长，注意力平方不可接受，且相邻采样点高度相关，信息密度极低。传统做法用帧级连续特征（Fbank、MFCC）交给 CTC 或 AED，那是识别器，不是 tokenizer：输出仍是实值向量，不能进入离散词表的交叉熵。</p><p>Tokenizer 要同时回答三个互相打架的问题。第一，码率：每秒多少个离散符号。第二，保真：从符号能否还原可懂、可听的波形。第三，语义：符号是否主要随词内容变，而不是随说话人变。重建型编解码器优先前两项，语义单元优先第三项。没有一种离散化在三项上同时最优，所以系统里常常两套码并行：语义码管「说了什么」，声学码管「听起来像谁」。</p><h3 id="连续特征为什么还不够" tabindex="-1">连续特征为什么还不够 <a class="header-anchor" href="#连续特征为什么还不够" aria-label="Permalink to &quot;连续特征为什么还不够&quot;">​</a></h3><p>AuT、Whisper 编码器输出的是连续隐向量，给 LLM 前要经 projector 对齐维度。那是另一条路：不离散化，把音频当软 token。离散化的动机是复用文本侧的采样、缓存和词表工程，以及把生成变成分类。TTS 神经编解码语言模型（VALL-E 一类）必须离散，因为要自回归预测码本下标。理解任务可以不离散。把「语音 tokenizer」和「音频编码器」当成同义词，会把 RVQ 码与 Fbank 隐状态混在一张图里。</p><p><span class="marginnote">离散不等于可懂。码本崩塌时，很多帧挤进少数码字，重建有嗡声，识别也差。RVQ 用残差多级码本缓解单级量化的容量不足，但不自动保证语义解耦。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>SoundStream 把波形编码为多层残差向量量化（RVQ）码流，并用对抗与重建损失训练神经网络编解码器，目标是低码率高保真。EnCodec 沿同一思路给出更强的流式压缩：编码器下采样、RVQ 量化、解码器上采样，码本可在约 1.5–24 kbps 量级工作（具体档位见原论文）。形式上一帧的量化是</p> \[\mathbf{e} = E(x),\qquad z^{(1)}=\mathrm{Q}_1(\mathbf{e}),\quad z^{(q)}=\mathrm{Q}_q\Bigl(\mathbf{e}-\sum_{i&lt;q}\mathrm{Decode}_i(z^{(i)})\Bigr). \]<p>每层 \(z^{(q)}\) 是码本下标，全部层拼起来描述该帧的声学。语言模型可以只预测第一层（粗结构）再并行或自回归补残差层。</p><p>HuBERT 走自监督聚类。它在连续 Transformer 表示上做 k-means，得到帧级单元 ID，训练目标是预测被掩码位置的单元。这些单元更贴近音素和词内容，对说话人与信道不那么敏感，但单独拿它们做高保真重建通常不够。于是有「语义 token + 声学 token」的双码流：前者来自 HuBERT 或类似单元，后者来自 EnCodec/SoundStream。</p><div class="mermaid"></div><h3 id="帧率与文本对齐" tabindex="-1">帧率与文本对齐 <a class="header-anchor" href="#帧率与文本对齐" aria-label="Permalink to &quot;帧率与文本对齐&quot;">​</a></h3><p>Fbank 常用 10 ms 一帧，即 100 Hz。编解码器按跳步把帧率降到 50 Hz、75 Hz 或更低；Qwen 音频侧常见 12.5 Hz 量级的编码器输出（约 80 ms 一帧），那是连续音频 token 率，不一定是 RVQ 码率。语义单元若仍停在 50 Hz，和 12.5 Hz 的 LLM 音频口不对齐，需要下采样或 CTC 压缩。Tokenizer 的「词表大小」是码本条目数，不是汉语字表；一层 1024 项的码本已经是相当粗的量化，多层相乘才恢复声学细节。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RVQ 的每一层量化的是上一层的残差，因此浅层码更像全局包络与音位轮廓，深层码更像纹理与噪声。语言模型若只在浅层做长程依赖、深层用局部预测，符合残差的信息分层。SoundStream/EnCodec 的训练有对抗项，为的是听感，不是音素分类；其 token 对 ASR 不一定最优。HuBERT 单元的训练目标是掩码预测聚类 ID，梯度来自内容一致性，所以更适合作理解侧的离散输入，不适合作唯一的 TTS 码。</p><p>把离散码送进 LLM 时，通常要扩展词表：为每个码本下标增加 embedding 行，或用一层嵌入把码 ID 映到 LLM 维。多码本时还要决定是沿时间拼接（帧率×层数）还是沿通道加和。拼接拉长时间，加和保留帧率但混叠层间信息。VALL-E 对 EnCodec 码的层次化建模，就是在这个设计空间里选点。</p><p><span class="marginnote">语义 token 的「语义」是经验说法：聚类在音素可辨的层上，并不保证词义。噪声、叠音、语码转换会让单元序列失去与文本的单调对齐。把它当成无损音素转录会高估离散化。</span></p><h3 id="与连续音频编码器的分工" tabindex="-1">与连续音频编码器的分工 <a class="header-anchor" href="#与连续音频编码器的分工" aria-label="Permalink to &quot;与连续音频编码器的分工&quot;">​</a></h3><p>Qwen3-Omni / Qwen3-ASR 的理解路径主要用 AuT 把 Fbank 编成连续表示再投影进 LLM，而不是先 RVQ 再当文本词。Tokenizer 路线在生成侧更关键：Talker 预测离散语音 codec。同一系统里，理解用连续软 token、生成用离散 codec，并不矛盾——约束不同。讨论「语音 tokenizer」时要先问任务是重建、合成还是识别。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>低码率编解码器在音乐和混响上仍有伪影；语音 tokenizer 在歌声 ASR、重叠说话人上的单元会碎。码本与说话人 ID 纠缠时，TTS 能克隆音色，但隐私与安全风险上升。语义单元跨语种不可直接移植：在英语 HuBERT 上聚的类，对汉语声调用处有限，需要分语种或联合聚类。</p><p>流式场景还要求 tokenizer 本身因果：编码器不能看未来波形。SoundStream/EnCodec 有流式配置；非因果 HuBERT 要加块状或蒸馏。LLM 的 KV 缓存按音频 token 帧增长，12.5 Hz 时一分钟约 750 个音频位置，比 50 Hz 的单元序列轻松得多。选 tokenizer 往往先选帧率，再选码本。</p><p><span class="marginnote">不要把「用了 EnCodec」写成「理解了语音」。编解码器保证的是可听重建，理解还要靠后续模型是否在这些码上见过对齐文本。反过来，HuBERT 单元对齐文本很好，却听不出原说话人。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>语音 tokenizer 把波形映到离散符号，使语言模型能对音频做下一 token 预测；它与连续 Fbank 编码器是两条接口。</li><li>SoundStream / EnCodec 用 RVQ 服务重建与低码率传输；HuBERT 式 k-means 单元服务内容向的语义 token。</li><li>声学码保真、语义码对齐文本，常需双码流；单码本很难同时最优。</li><li>帧率决定 LLM 序列长度；残差层决定信息分层与建模顺序。</li><li>理解模型可以不离散化（AuT 连续表示）；生成 codec LM 必须离散化。</li><li>出处：Zeghidour 等，SoundStream；Défossez 等，EnCodec（<em>High Fidelity Neural Audio Compression</em>）；Hsu 等，HuBERT。与 Qwen 生成侧 codec 的关系见 Qwen2.5-Omni / Qwen3-Omni 技术报告。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

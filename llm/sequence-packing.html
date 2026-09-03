@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Packing 与文档边界 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sequence-packing.md.CtTZUWv_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="packing-与文档边界" tabindex="-1">Packing 与文档边界 <a class="header-anchor" href="#packing-与文档边界" aria-label="Permalink to &quot;Packing 与文档边界&quot;">​</a></h1><div class="epigraph"><p>把短文档拼进固定上下文窗口，是为了少做 padding；若不在边界上切断注意力与位置，模型会把上一篇的结尾当成下一篇的前文。</p><footer>—— 综合 T5 / PaLM 等预训练 packing 实践</footer></div><p>预训练的上下文长度 \(L\) 是硬件与算法给定的槽位。网页、书籍章节、代码文件的长度分布却很偏：大量文档远短于 \(L\)，少数远长于 \(L\)。若一条样本一篇文档，短篇要用 pad token 填满，\(L\) 越大浪费越夸张。Packing 把多篇文档拼接成接近 \(L\) 的序列，提高有效 token 占比。Raffel 等人在 T5、后来的 PaLM 与多数 Megatron 式栈都这样做。代价是文档边界变成一等公民：位置编号、注意力掩码、损失掩码必须知道「哪一段属于哪一篇」，否则因果语言模型会在篇与篇之间合法地抄上文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设文档长度（token 计）为 \(\ell_i\)。独立成批时，一条样本的有效比例是 \(\ell_i/L\)（截断或填充之后）。\(\ell_i\ll L\) 时，注意力与 GEMM 仍按 \(L\) 付费，梯度却只来自 \(\ell_i\) 个位置。Packing 的目标是构造序列 \(x\)，使 \(|x|\approx L\) 且 \(x\) 由若干整篇（或截断后的篇）拼接而成，padding 只出现在拼不齐的残差。这是装箱问题：在线（贪心把下一批文档塞进当前槽）或离线（对长度排序后 best-fit）。</p><p>边界问题随拼接出现。标准因果注意力下，位置 \(t\) 可以看见 \(1\ldots t\)。若两篇首尾相接，第二篇的第一个 token 能看见第一篇全文。对语言建模似然，这相当于泄漏了一篇无关文档当条件，既改变训练任务，也可能让模型学到「语料里相邻的文章」这种打包伪影。位置编码若跨篇连续增长，RoPE 的相位会把「篇首」编码成「上下文很深的位置」，与单独训练该篇时不同。因此 packing 不是 <code>concat</code> 一行能结束的。</p><h3 id="截断、残留与浪费" tabindex="-1">截断、残留与浪费 <a class="header-anchor" href="#截断、残留与浪费" aria-label="Permalink to &quot;截断、残留与浪费&quot;">​</a></h3><p>长于 \(L\) 的文档必须切段。切段策略：按句子或按 \(L\) 硬切、是否保留重叠、是否丢弃短于阈值的尾段。尾段若单独成篇再 pack，会制造大量无开头的残缺文档；若丢弃，浪费尾部监督。装箱残留（最后填不满的几十字）用 padding。报告 packing 效率应同时给：padding 比例、跨篇注意力是否允许、切段丢弃比例。只说「做了 packing」无法复现有效算力。</p><p><span class="marginnote">有的实现故意允许跨文档注意力，把 packing 当成一种廉价的「多文档上下文」，声称有正则效果。这与「文档是独立样本」的假设不同。两种配方都可以，但不能混用同一套评测解释：允许跨篇时，模型在包内相邻域上的条件分布被改写了。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>常见做法是离线把文档打成长度列表，用 best-fit decreasing 或简单贪心填入容量为 \(L\) 的桶，桶内顺序保持原文档顺序或按长度排。每篇前后加 BOS/EOS（或文档分隔 token）。注意力掩码做成块对角因果：篇内下三角，篇间全屏蔽。实现上可用 FlashAttention 的变长接口：传入每篇的 <code>cu_seqlens</code>，把一个 packing 序列当成若干独立变长样本在同一核里算，物理上仍是一条 tensor，逻辑上无跨篇边。这比构造稠密 \(L\times L\) 掩码更省。</p><p>位置编码按篇重置：每篇从位置 0（或从 BOS）计，使 RoPE 相位与单独一篇时一致。损失只在「预测文档 token」的位置上计算：padding、以及有时 BOS 本身不计。有人把 EOS 计入，让模型学结束；有人不计。应固定。指令数据 packing 还要保证：同一条指令-回答不被切断到两个窗口，或切断时回答侧有完整上文。预训练网页相对宽松，但仍应避免在句子中间硬切过多，否则下一窗口没有句级上下文。</p><h3 id="在线-packing-与动态长度" tabindex="-1">在线 packing 与动态长度 <a class="header-anchor" href="#在线-packing-与动态长度" aria-label="Permalink to &quot;在线 packing 与动态长度&quot;">​</a></h3><p>离线装箱适合静态语料。流式或多源混合时，常用在线：维护一批未满桶，新文档放进第一个能装下的桶，否则开新桶。吞吐稳定，但填充率低于离线排序。动态 \(L\)（长上下文课程）下，旧的 packed 文件要重切。与 <a href="/llm/distributed-clean">分布式清洗</a> 的衔接是：packing 是 tokenization 之后的步骤，应使用最终 tokenizer，否则长度估计是错的。多语言混合时，不要把同一桶里的语言随机到失去课程结构——若配方要求语言分批，packing 只在桶内发生。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>效率机制是算术强度与有效 token 比。Attention 与 FFN 按序列长度计费；padding 位置若仍参与核（未走变长路径），纯属浪费。变长核按实际 token 计费，packing 的收益主要来自「减少 kernel 启动与小序列占用率问题」以及「把许多短篇合成能喂饱 GPU 的长度」。边界机制是条件独立：块对角掩码使 \(\log p(x^{(2)})\) 不依赖 \(x^{(1)}\)，恢复「文档 i.i.d.」的近似。位置重置使相对位置统计与未 packing 时对齐，避免模型把「pack 内偏移」当成语义。</p><p>分隔 token 的机制是给模型一个可学习的「话题切换」信号。即使掩码已经切断注意力，EOS 仍帮助生成侧学会结束。若既无掩码又无分隔，packing 就是把语料变成一篇超长乱序书。</p><p><span class="marginnote">FlashAttention 变长接口按真实长度计 FLOPs，但仍可能因桶内长度不一而负载不均。packing 时让同一 batch 内各序列都接近 \(L\)，比「有的 4k、有的 128」更利于占用率。这是 packing 与 microbatch 组成的联合问题。</span></p><h3 id="与损失、优化器的交叉" tabindex="-1">与损失、优化器的交叉 <a class="header-anchor" href="#与损失、优化器的交叉" aria-label="Permalink to &quot;与损失、优化器的交叉&quot;">​</a></h3><p>packing 提高每 step 的有效 token 后，应重标学习率与 token 预算：同样的 step 数不再对应同样的文档覆盖。按 token 计的 cosine 日程比按 step 计更稳。梯度累积时，一个 packed 序列里多篇文档的梯度已经平均在同一条反向里，和「每篇一个样本再平均」的权重不同——长篇在 packed 序列里占更多位置，自然获得更多损失质量。这通常是想要的（按 token 而不是按文档均匀）。若配方要按文档均匀，需在损失里按篇重加权，而不是只 packing。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>跨篇掩码增加实现复杂度，与某些编译好的 SDPA 后端不兼容，于是有团队在早期用「只 concat 不加掩码」换吞吐。那是明确的配方选择。文档分隔 token 若从未在词表中充分出现（只在 pack 边界），可能学不好；应用足够频率或复用已有 EOS。极端短文档（标题党一行）packing 后仍可能让模型在低信息跨度上浪费损失；应在清洗阶段设最小长度，而不是靠 packing 拯救。</p><p>评测与训练的 packing 政策应一致：下游微调若单文档不 pack，而预训练长期跨篇泄漏，领域迁移会怪。长上下文继续预训练时，要决定是否允许把多篇长文拼到 32k：允许则模型见到更多边界，不允许则单篇内部依赖更完整。两种都要在数据卡上写。</p><p><span class="marginnote">Packing 效率接近 100% 并不自动等于更好的模型。把不相关领域硬塞进同一窗口且切断掩码，只是提高了硬件利用率。若发现下游掉点，先查边界掩码是否坏了、位置是否未重置，再查是不是配比被装箱顺序打乱。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Packing 把短文档装进固定窗口，减少 padding，提高有效 token 占比。</li><li>文档边界需要分隔 token、按篇重置位置、以及篇间注意力屏蔽（除非配方明确允许跨篇）。</li><li>变长注意力接口用 <code>cu_seqlens</code> 实现块对角因果，比稠密掩码更适合融合核。</li><li>长文档切段与尾部丢弃要记账；装箱算法影响填充率。</li><li>按 token 计日程；长篇在 packed 损失里天然权重大。</li><li>效率数字必须与边界政策一起报告，否则不可复现。</li><li>出处：Raffel et al., T5 / C4 packing；PaLM 与 Megatron 式预训练栈中的样本拼接实践。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

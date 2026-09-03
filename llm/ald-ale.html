@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>原子层沉积 ALD 与原子层刻蚀 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ald-ale.md._PSOipCz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="原子层沉积-ald-与原子层刻蚀" tabindex="-1">原子层沉积 ALD 与原子层刻蚀 <a class="header-anchor" href="#原子层沉积-ald-与原子层刻蚀" aria-label="Permalink to &quot;原子层沉积 ALD 与原子层刻蚀&quot;">​</a></h1><div class="epigraph"><p>当空腔的宽高比让连续流沉积和溅射刻蚀都失去选择比时，只能把生长与去除收成自限制的半反应循环：每圈一层，或每圈一个原子级薄层。</p><footer>—— 对照薄膜与刻蚀的自限制化学，以及 GAA 空腔填充的公开工艺约束</footer></div><p>高介电栅氧、功函数金属、侧墙、阻挡层，在平面时代可以用 CVD 或 PVD 对付。 <a href="/llm/finfet-gaa">GAA 纳米片</a> 把这些膜塞进片间距只有数纳米的环绕空腔：先到的表面必须均匀长满，不能在入口封口留下空洞；去掉牺牲 SiGe 时又不能啃掉作为沟道的硅。原子层沉积（ALD）用交替的自限制半反应，生长量由表面位点而不是通量梯度决定。原子层刻蚀（ALE）把「改性 + 去除」收成循环，争取每个循环固定减薄，并给出相对连续等离子体更宽的选择比窗口。两者是同一哲学的正反面，在先进节点里成对出现。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>非自限制沉积在深孔里呈现入口厚、底部薄：前驱体在口部耗尽。PVD 更有方向性，侧壁覆盖差。纳米片的栅金属必须从四面等厚包住每一片，厚度差几个埃就会让阈值分裂。连续等离子体刻蚀靠离子能量与化学，能量一大就损伤沟道，能量一小就停在难以挥发的产物上，工艺窗口窄。</p><p>需要的是：厚度以循环计而不是以秒计；覆盖由化学吸附饱和保证；刻蚀深度与损伤解耦。问题是吞吐——循环天然慢——以及材料表：不是每一种金属或介质都有干净的 ALD/ALE 化学。产线要在「够保形」和「每小时晶圆」之间找能交货的循环。</p><h3 id="自限制不是无限保形" tabindex="-1">自限制不是无限保形 <a class="header-anchor" href="#自限制不是无限保形" aria-label="Permalink to &quot;自限制不是无限保形&quot;">​</a></h3><p>ALD 的饱和依赖于前驱体扩散进空腔、副产物扩散出来、以及表面位点真正饱和。高深宽比下，若半反应时间不够，底部仍欠饱和，保形性神话破产。ALE 的改性步若打进沟道，或去除步有物理溅射分量，循环就不再自限制。把 ALD/ALE 写成「原子精度开关」会忽略时间与损伤这两条轴。</p><p><span class="marginnote">生长/循环（GPC）是平均值。成核延迟、衬底依赖和岛状生长会让前几十圈的厚度不可外推。GAA 片上的功函数金属往往就在这个成核区里工作，校准必须用真实空腔计量，而不是平面监控片。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>ALD 经典图像是两个半反应：例如含金属前驱体饱和吸附，惰性吹扫，再与氧源或氮源反应，再吹扫。每循环生长通常是一埃量级的分数到一层。温度窗口要落在：够反应、又不够热解成 CVD。先进逻辑用它做高 K、TiN/TiAlC 一类功函数叠层、侧墙、衬垫；三维结构里还做选择性 ALD（只在介质或只在金属上长）以减少对准。</p><p>ALE 分等离子体辅助与热 ALE。前者常用卤化或氟化改性表面，再用低能离子或配体交换把改性层剥掉；后者完全靠热化学，损伤更低、速率更慢。与 ALD 对偶的材料对（如某些氧化物的氟化再配体去除）最干净。GAA 释放与内间隔，常是选择性蚀刻 + ALE 修整的组合：大块去掉用高选择化学，界面用循环修到目标内间隔厚度。</p><h3 id="选择比窗口与协同" tabindex="-1">选择比窗口与协同 <a class="header-anchor" href="#选择比窗口与协同" aria-label="Permalink to &quot;选择比窗口与协同&quot;">​</a></h3><p>ALE 文献里的「协同」指：只有改性加上去除都发生时才有可观速率，缺一步则几乎停。这给出对掩模或沟道的选择比。窗口随离子能量、剂量和温度移动。量产要把窗口做宽到能覆盖晶圆内与批次间漂移，否则原子级循环会变成原子级不稳定。ALD 同样有窗口：前驱体热解或刻蚀性氧源会把 ALD 拖成 CVD 或把已长的膜啃掉。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>自限制把厚度从「通量 × 时间」改成「位点密度 × 循环数」。深宽比进入的是循环时间（要饱和），而不是最终厚度剖面——只要真饱和。这解释了为什么 ALD 能填纳米腔：入口饱和后不再继续长（该半反应内），前驱体能继续往里走。若某一半反应有 CVD 分量，入口会封口，后面全是空洞，GAA 栅电阻和阈值一起坏。</p><p>ALE 把损伤限制在改性层厚度。离子用来协助脱附而不是用来砸体材料，沟道迁移率才保得住。代价是速率：每循环埃级，去掉十纳米要很多循环。与 <a href="/llm/euv-resist">光刻胶</a> 的薄胶高选择转移类似：纵向预算变薄之后，转移与修整必须改成循环工艺，否则一次过刻就把纳米片削断。</p><p><span class="marginnote">ALD 与 ALE 不是「更高级的 CVD/RIE」。有 CVD 分量的所谓 ALD、有溅射分量的所谓 ALE，只是借用了循环的名字。判断标准是饱和曲线：剂量加大一截，厚度或去除是否停住。</span></p><h3 id="与设备产能的耦合" tabindex="-1">与设备产能的耦合 <a class="header-anchor" href="#与设备产能的耦合" aria-label="Permalink to &quot;与设备产能的耦合&quot;">​</a></h3><p>循环慢，就要多腔、多片、集群。前驱体贵且有毒性或腐蚀性，尾气与腔体涂层成为运行成本。GAA 量产等于同时买通 ALD/ALE 化学、计量（光学与电学）和腔体颗粒控制。设备产能会像 EUV 一样成为节点节奏的隐藏约束：晶体管架构图纸画得出，薄膜循环排不出。</p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不是所有层都值得 ALD/ALE。厚的层间介质、大开口的金属，CVD/PVD 的吞吐更好。滥用循环工艺会把成本与颗粒风险抬到收益以上。选择性 ALD 的缺陷模式是漏选与过选，电学上表现为短路或开路，检测比厚度更难。前驱体供应链与出口管制会限制化学选择，工艺集成不能假设「文献里那个配体一定能买到」。</p><p>与光刻的关系：节距仍由 EUV 与 <a href="/llm/opc">OPC</a> 定，ALD/ALE 决定在这个节距里薄膜能不能均匀存在。两者一起失败时，问题会表现为「GAA 良率」，根因可能在空腔填充，也可能在孔的随机缺失。</p><p><span class="marginnote">报告 ALD 厚度时写清：平面还是结构内、是否过了成核区、用什么计量。把平面 XRR 的数字当成纳米片上的功函数厚度，是常见的乐观偏差。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ALD 用自限制半反应在高深宽比里做保形生长，厚度以循环计。</li><li>ALE 用改性—去除循环做低损伤减薄，并争取协同带来的选择比。</li><li>GAA 的释放、内间隔和环绕栅填充把二者从可选项变成必要步骤。</li><li>真自限制看饱和曲线；带 CVD/溅射分量的循环只是名义原子层。</li><li>吞吐、前驱体与颗粒控制决定能否量产，不只看截面 TEM 好看。</li><li>薄膜循环不替代光刻节距，但会决定该节距下器件变差。</li><li>出处：ALD/ALE 自限制化学；先进逻辑 GAA 集成公开论述。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

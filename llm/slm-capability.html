@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SLM 的能力边界 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_slm-capability.md.CnH9Lf7B.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="slm-的能力边界" tabindex="-1">SLM 的能力边界 <a class="header-anchor" href="#slm-的能力边界" aria-label="Permalink to &quot;SLM 的能力边界&quot;">​</a></h1><div class="epigraph"><p>缩小参数不是把大模型均匀压缩成万能袖珍版；能力随宽度与数据覆盖跌下去时，往往先掉的是长链推理和长尾知识，而不是下一个词的通顺。</p><footer>—— 对照 Kaplan / Hoffmann 的缩放观察与端侧小模型的产品现实</footer></div><p>小语言模型（Small Language Model, SLM）通常指定在约 0.5B–7B、能在消费级设备或单卡上交互的解码器。宣传容易把它说成「缩小的 GPT」：同样的对话、同样的工具、只是慢一点、记性差一点。实践里掉点不是平滑的。通顺的闲聊在 1B–3B 上已经像样；多步算术、可靠引用、超长依赖、严格格式的工具调用，会在某一档参数或某一档数据量上突然不可用。本篇把这条<strong>能力悬崖</strong>写成约束，而不是写成「再蒸馏一下就能齐」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>大模型的训练损失随参数 \(N\)、数据 \(D\)、算力 \(C\) 呈可拟合的幂律下降，这是 Kaplan 等人（2020）与 Hoffmann 等人（Chinchilla，2022）给出的经验图景。损失是平均负对数似然，对「会不会解这道需要六步的题」并不线性。下游能力是损失曲面在不同任务上的投影：有的任务随损失平滑变好，有的任务有阈值——低于某个有效容量，成功率接近随机，过了阈值才开始爬坡。</p><p>SLM 恰好经常停在阈值附近。产品经理看见 3B 模型能写邮件，就推断它能做代理、能做长文档问答、能做代码修复。这是把「语言流畅」误当成「通用智能的缩放副本」。流畅来自局部统计，便宜；通用来自覆盖长尾事实与稳定的多步计算图，贵。</p><h3 id="三座悬崖-知识、推理、上下文" tabindex="-1">三座悬崖：知识、推理、上下文 <a class="header-anchor" href="#三座悬崖-知识、推理、上下文" aria-label="Permalink to &quot;三座悬崖：知识、推理、上下文&quot;">​</a></h3><p>知识悬崖：参数少，可记忆的事实少。蒸馏能把教师的部分分布印到学生上，但印的是教师在蒸馏数据里反复出现的模式，不是教师权重里整部百科。罕见实体、具体数字、过时后的新事件，小模型先忘。</p><p>推理悬崖：思维链可以让小模型「说出步骤」，不保证步骤可执行。教师生成的长链对学生是另一种文体；学生宽度不够时，中间变量对不齐，错误在第三步放大。工具调用把推理外置，能绕过一部分悬崖，但格式服从与错误恢复本身也需要容量。</p><p>上下文悬崖：见 <a href="/llm/on-device-kv">端侧 KV 预算</a>。能加载 7B 权重，不代表能在设备上持有 32K 的 KV。许多「小模型不会用长文档」其实是预算把有效上下文砍到 2K–4K，再叠加小宽度对远距离依赖更差。</p><p><span class="marginnote">「同参数打过更大模型」的新闻多来自精选数据和精选基准。它说明数据质量移动了曲线，并不取消曲线。换到教师没教过的分布，悬崖还在。把 Phi 一类工作读成「1B 等于 GPT-4」是宣传，不是缩放定律的推论。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>描述 SLM 能力要用一张三维图，而不是一条「参数越大越好」。三轴是：<strong>参数（宽度与深度）</strong>、<strong>数据（量与配比）</strong>、<strong>推理预算（上下文、工具、采样步数）</strong>。固定两轴、动一轴，才能看见悬崖位置。</p><p>参数轴：同样数据下，从 1B 到 3B 到 7B，MMLU 类知识题通常单调涨；GSM8K 类需要多步的题在低档可能长期接近零，直到某一宽度才离开地板。深度太浅时，残差流写不了长计算；宽度太窄时，注意力头不够分工。只报总参数会掩盖「浅而宽」与「深而窄」的不同失败。</p><p>数据轴：合成教科书、指令轨迹、领域语料能把特定任务的悬崖左移，这是近年 SLM 看起来「意外聪明」的主因。代价是覆盖变窄：在合成分布上像 7B，在开放网页长尾上仍像 1B。Hoffmann 的计算最优比给出的是损失最优，不是「下游全线最优」；为端侧任务过采样，会牺牲另一些任务。</p><div class="mermaid"></div><h3 id="评测必须拆开地板与天花板" tabindex="-1">评测必须拆开地板与天花板 <a class="header-anchor" href="#评测必须拆开地板与天花板" aria-label="Permalink to &quot;评测必须拆开地板与天花板&quot;">​</a></h3><p>对 SLM 报一个总分会把「已经过阈值的任务」和「仍在地板上的任务」平均掉。更清楚的办法是分箱：短上下文指令遵循、闭卷知识、多步数学、代码补全、长文档定位、工具 JSON。每一箱单独看是否仍在随机附近。蒸馏学生若只在教师轨迹上打分，会系统性高估——那是在测模仿，不是在测迁移。</p><p><span class="marginnote">端侧延迟与功耗会迫使你关掉「靠采样预算硬抬」的技巧：不能靠 64 路自洽、不能靠超长思维链。实验室里用计算换来的分数，不能写进手机 SLM 的能力说明书。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为何存在悬崖而不是斜坡，机制上有几条彼此独立的原因。第一，事实以权重里的关联记忆存在，宽度决定可存储的键值对数量；低于覆盖任务所需的记忆容量，检索失败是离散的。第二，多步推理是一层层把中间结果写进残差；层数或宽度不足时，中间态被后续 token 覆盖，表现为「会开头、不会收尾」。第三，指令遵循依赖后训练把分布拧到特定格式；小模型拧得动短格式，拧不动嵌套 schema 与长约束。</p><p>蒸馏（见 <a href="/llm/on-device-distill">端侧蒸馏</a>）改变的是学生在教师支持集上的条件分布，不自动增加记忆容量。温度把教师的暗知识摊开，有助于学「哪种错误更像」，无助于凭空多出一层有效计算。量化再砍精度，等于在已经贴着悬崖的模型上再推一把：闲聊仍在，算术先裂。</p><h3 id="不要把产品形态写成能力证明" tabindex="-1">不要把产品形态写成能力证明 <a class="header-anchor" href="#不要把产品形态写成能力证明" aria-label="Permalink to &quot;不要把产品形态写成能力证明&quot;">​</a></h3><p>能在手机上跑，只证明内存与算子图匹配，不证明任务覆盖。检索增强、短工具、固定模板，是在悬崖外搭脚手架：模型负责局部生成，系统负责记忆与计算。这时应把能力边界画在「脚手架撤掉之后还剩什么」。撤掉检索后仍能答对的，才是权重里的知识；撤掉计算器后仍能答对的，才是权重里的算术。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>SLM 适合：短上下文助手、输入法与纠错、设备上的分类与抽取、对延迟极敏感的草稿。不适合假装成通用代理。若任务能改写成检索 + 短生成，应先改任务，再加参数。若任务本质是长尾知识或深推理，应上云或上工具，而不是再做一轮「1B 万能」微调。</p><p>缩放文献给出趋势，不给出你这道产品题的阈值。阈值要在目标分布上自己测，并且要测「无脚手架」和「有脚手架」两套。数据可以移动悬崖，不能把 1B 变成任意任务上的 70B。把 SLM 写成缩小版 GPT，会在评测和客户预期上同时破产。</p><p><span class="marginnote">参数档的营销数字（「3B 级」）常含 MoE 总参、激活参、再蒸馏后的稠密学生三种口径。比较能力时必须先统一口径，否则会把 7B 总参、1B 激活的 MoE 和 3B 稠密当成同一档。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SLM 的能力不随参数均匀缩放：流畅先具备，长链推理、长尾知识与长上下文更晚、更陡。</li><li>参数、数据配比、推理预算是三轴；只动一轴会误判「再小一点也行」。</li><li>精选数据与蒸馏能左移特定任务的悬崖，不能取消容量与覆盖的硬约束。</li><li>评测应分箱看地板，避免总分掩盖仍在随机附近的任务。</li><li>产品上用检索与工具搭脚手架，并明确撤掉脚手架后还剩什么。</li><li>出处：Kaplan et al.，缩放定律，2020；Hoffmann et al.，计算最优训练，2022。能力悬崖是把损失缩放接到下游阈值上的工程观察，不是另撰一篇伪论文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

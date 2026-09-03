@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Causal LM | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_causal-lm.md.D4rA6Wwy.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="causal-lm" tabindex="-1">Causal LM <a class="header-anchor" href="#causal-lm" aria-label="Permalink to &quot;Causal LM&quot;">​</a></h1><div class="epigraph"><p>联合分布沿从左到右的链分解；每一个因子只以已经出现的标记为条件——这既是训练目标，也是解码器里因果掩码必须遵守的契约。</p><footer>—— 对照 Vaswani et al., Attention Is All You Need, NeurIPS 2017；Radford et al., GPT</footer></div><p>因果语言模型（Causal LM）把一段文本 \(x=(x_1,\ldots,x_n)\) 写成自回归乘积，并用神经网络参数化每一个条件分布。Vaswani 等人在 Transformer 解码器自注意力上加入因果掩码，阻止位置 \(t\) 读取 \(t\) 右侧的键值；Radford 等人的 GPT 把这一解码器栈当成预训练目标本身：在大规模无标注文本上做下一个 token 预测。当代「解码器只」大模型默认就是 Causal LM。本篇只写这一目标与掩码如何互为表里，双向的 Masked LM、前缀可见的 Prefix LM 留给相邻文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>要学习 \(p(x)\)，必须选一种因式分解。从左到右是最贴合生成的一种：</p> \[p(x)=\prod_{t=1}^{n}p(x_t\mid x_{&lt;t}). \]<p>训练时若模型在预测 \(x_t\) 时已经看见 \(x_{t+1}\) 及以后，因子不再是「以过去为条件」，损失可以很低，那是在抄未来。推理时未来不存在，训练—推理不一致。因此问题不是「要不要预测下一个词」，而是<strong>条件集合必须与自回归生成一致</strong>。循环网络靠时间步天然满足；Transformer 靠一次并行打分，必须显式掩码，见 <a href="/llm/causal-self-attention">因果自注意力</a>。</p><p>另一个问题是：每个位置只贡献一个预测，样本效率低于「一次掩盖很多位置」的去噪目标。Causal LM 用规模和长度把效率补回来，并换取生成时无需改图。这是和 BERT 类目标的根本交易，不是实现细节。</p><h3 id="为何叫因果而不是单向" tabindex="-1">为何叫因果而不是单向 <a class="header-anchor" href="#为何叫因果而不是单向" aria-label="Permalink to &quot;为何叫因果而不是单向&quot;">​</a></h3><p>「单向」只描述注意力方向。「因果」强调介入：位置 \(t\) 的表示不能依赖于本应在 \(t\) 之后才发生的变量，否则像在因果图里看了后果再预测后果。padding 掩码不是因果：它屏蔽的是填充，双向模型也要。把两种掩码写成同一张加性矩阵时，上三角才是因果部分。</p><p><span class="marginnote">教师强制（teacher forcing）仍然是 Causal LM：训练时右侧的真 token 作为<strong>下一时刻的输入</strong>，不是作为当前时刻的键。当前时刻的注意力仍不得看那些未来输入。搞混「下一层的输入」和「当前层的键」会把泄漏重新放进来。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>架构上取解码器栈：每层是因果自注意力加前馈，位置编码（正弦、RoPE 等）加在表示上，输出端对词表做 softmax。目标即逐步交叉熵</p> \[\mathcal{L}=-\sum_{t=1}^{n}\log p_\theta(x_t\mid x_{&lt;t}). \]<p>实现里把整段一次喂入，用下三角掩码使每个位置的隐状态只混合 \(j\le t\) 的值向量，再在每个位置上预测<strong>下一个</strong> token（或预测当前位置，取决于把标签错开一位的惯例）。两种惯例等价，只要标签与可见上下文对齐。</p><p>GPT 把这一目标当作预训练：不需要编码器、不需要 [MASK] 符号、微调时继续用同一个从左到右的头。Vaswani 原论文的完整 Transformer 还有编码器与交叉注意力，用于条件生成；「解码器只 Causal LM」是把源端也改写成前缀 token，用同一条因果链去读——前缀内部仍然<strong>不能</strong>互相看见未来，这与 Prefix LM 不同。</p><div class="mermaid"></div><h3 id="推理与缓存" tabindex="-1">推理与缓存 <a class="header-anchor" href="#推理与缓存" aria-label="Permalink to &quot;推理与缓存&quot;">​</a></h3><p>生成时逐步把已采样 token 追加到序列，每步只算新位置的查询，历史键值写入缓存。这是 Causal LM 的工程形态：目标规定了「只依赖过去」，缓存才合法。若训练时掩码破了，缓存复现不了那种偷看，质量会在自由生成时塌。温度、top-\(p\) 作用在已经训好的 \(p_\theta(\cdot\mid x_{&lt;t})\) 上，不改变条件集合。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>因果掩码保证信息流是时间的函数：层数加深也不会从未来倒灌，因为每一层的键值集合都被同一张下三角裁过。残差与前馈是位置各自的，不引入新的跨位置边。因此深度只延长「过去内部」的计算，不延长可见范围。这与 Masked LM 相反：那里每个被预测位置都能看见双侧未遮盖的上下文，信息流是缺省全连接再挖洞。</p><p>样本效率：长度为 \(n\) 的序列提供 \(n\) 个监督位置，每个位置的条件不同。对比随机掩盖 15%，Causal LM 的监督更密，但每个预测可用的上下文更少（右侧永远缺席）。密集监督使它成为生成预训练的默认；双侧缺失使它在需要「读完整句再填一个槽」的判别任务上，往往要靠更大的模型或改成 Prefix/Encoder。</p><p><span class="marginnote">「每个位置预测下一个」看起来浪费了当前位置的嵌入，其实嵌入已经通过残差进入预测头之前的表示。真正不能用的是未来。把损失改成预测当前 token 且仍允许看见当前嵌入，需要把标签错开处理好，否则会变成恒等抄写。</span></p><h3 id="与编码器—解码器的关系" tabindex="-1">与编码器—解码器的关系 <a class="header-anchor" href="#与编码器—解码器的关系" aria-label="Permalink to &quot;与编码器—解码器的关系&quot;">​</a></h3><p>条件生成可以仍是 Causal LM：把源文放在左边，目标放在右边，整段一条因果链。源文位置只能看见源文里自己以左，不能看见源文右侧，更不能看见目标——除非改掩码。这就是为何翻译上纯 Causal LM 需要更多数据才能追上编码器双向读源的模型。Prefix LM 和 T5 的编码器正是为了把「源端应全可见」写回掩码。Causal LM 选择的是实现简单、生成自然、可堆到极大解码器，而不是源端最优编码。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Causal LM 不擅长需要双侧证据的填槽，除非把槽挪到句末再生成。长程依赖完全靠左侧上下文与位置编码外推；窗口注意力会永久丢掉窗外的键。它与 RLHF、指令微调兼容，因为这些仍是在条件分布上改参数，不改因式分解。换目标为 Masked LM 再想当聊天模型，必须另加解码方式，不能直接逐步采样。</p><p>评测生成质量应用自由生成，而不是只报教师强制的 token 损失：泄漏或过强的局部抄袭会让损失很好、采样很差。端侧部署时 Causal LM 与 KV 缓存是一对：没有因果目标就没有这份缓存语义。不要把双向检查点直接当 Causal LM 用。</p><p><span class="marginnote">GPT 系列的公开描述是解码器只、下一个 token、因果掩码。具体层数与数据以各代报告为准。不要把未公开的训练配方写进 Causal LM 的定义里。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Causal LM 用 \(p(x_t\mid x_{&lt;t})\) 的乘积建模文本，训练与自回归生成共享同一条件集合。</li><li>Vaswani 解码器的因果掩码提供实现；GPT 把它变成大规模预训练目标。</li><li>每个位置一个预测，监督密、右侧永远不可见；这是相对 Masked LM 的主交易。</li><li>源端若也走因果链，则源内不能双向，条件生成可能弱于编码器或 Prefix LM。</li><li>泄漏会让教师强制指标虚高；合法推理依赖完整的下三角与 KV 缓存。</li><li>出处：Vaswani et al.，<em>Attention Is All You Need</em>，NeurIPS 2017；Radford et al.，GPT（<em>Improving Language Understanding by Generative Pre-Training</em> 及后续）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

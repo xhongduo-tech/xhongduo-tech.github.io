@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SHARP 在交换内做集合规约 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_nvlink-sharp.md.P89CpYF2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="sharp-在交换内做集合规约" tabindex="-1">SHARP 在交换内做集合规约 <a class="header-anchor" href="#sharp-在交换内做集合规约" aria-label="Permalink to &quot;SHARP 在交换内做集合规约&quot;">​</a></h1><div class="epigraph"><p>All-Reduce 的加不必全部在 GPU 上做完再发出去；交换芯片若能在端口上归约，重复搬运就可以少一截。</p><footer>—— NVIDIA：NVLink 6 集成 SHARP in-network compute，部分 all-reduce / reduce-scatter / all-gather 在织物内执行</footer></div><p>集合通信的朴素实现是：每张 GPU 把向量发给别人，在端上做加，再把结果发回去。树上同一段数据会被搬多次。<strong>SHARP</strong>（Scalable Hierarchical Aggregation and Reduction Protocol）把归约推进网络。它先出现在 InfiniBand 交换机上，服务跨节点梯度；Vera Rubin 把同类能力做到 <a href="/llm/nvlink-6">NVLink 6</a> 交换里，服务机柜内的张量并行与集合通信。NVIDIA 公开写：NVLink 6 交换托盘提供 FP8 网内计算，部分 All-Reduce、Reduce-Scatter、All-Gather 在织物内执行，从而减少重复数据运动与 GPU 同步。本篇讲机制与边界，厂商给出的「流量最多减半、TP 时间最多改善两成」是<strong>有条件的产品表述</strong>，依赖模型、并行度、参与者和 NCCL 配置，不是本站测出的定律。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>宽 TP 的每一层都有激活或梯度的 All-Reduce。72 卡域上，若仍用纯环，字节在环上走多跳，延迟随参与者涨。若用树，根附近链路过热，且同一加数被搬运多次。GPU 本可以去做 GEMM，却在为集体通信跑归约核、占 HBM 带宽。SHARP 要回答的问题是：归约这种可结合运算，能否在交换端口上做掉，让 GPU 只看见「已经加好的结果」。</p><p>不是所有集体操作都能同样卸载。All-to-All 是置换，没有可加的中间结果，SHARP 帮不上 MoE 路由的主体——那要靠 NVLink 6 的全互连带宽。All-Reduce / Reduce-Scatter / All-Gather 这类带归约或复制结构的，才是网内计算的对象。把 SHARP 写成「所有 NCCL 调用都加速」会在 EP 规划上误判。</p><h3 id="端上归约与网上归约" tabindex="-1">端上归约与网上归约 <a class="header-anchor" href="#端上归约与网上归约" aria-label="Permalink to &quot;端上归约与网上归约&quot;">​</a></h3><p>端上：GPU 核读入多方缓冲，做 add，写回。流量是完整向量的若干份，再加一份结果。网上：交换机在端口收到多方片段，在交换内加，向下流只转发部分和。理想树形 All-Reduce 可把链路字节从「每边两份完整向量」降到接近「一份」。NVIDIA 对 NVLink 6 SHARP 的公开口径包括「可将 all-reduce 通信流量减少最多 50%」——这是上界式产品语言，对应的是减少重复搬运，不是把任意工作负载的 NCCL 时间砍半。</p><p><span class="marginnote">SHARP 与 GPUDirect 正交。GPUDirect 让字节别绕主机，见 <a href="/llm/infiniband-gpudirect">InfiniBand</a>。SHARP 让该做加的字节在交换里加完。没有直达，网上归约也先被主机拷贝卡住；没有归约，直达只是更快地搬重复数据。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>打开路径的是通信库，不是模型代码里的一行注解。NCCL 在探测到 NVLink 交换支持 SHARP 时，可为合格的集体操作选择网内算法。作业仍提交同样的 <code>ncclAllReduce</code>；差别在协议是否把部分 chunk 标成「请交换机加」。精度必须是交换能算的格式：公开材料点名 FP8 网内计算与每交换托盘的 TFLOPS 规格。训练若梯度仍是 BF16 / FP32，能否走 SHARP、是否先量化再归约，以当时 NCCL 与平台文档为准，不要假设「有 SHARP 就一定用训练精度在交换里加」。</p><p>拓扑上，SHARP 只覆盖它能看见的交换域。NVL72 域内的 TP 组是主场。跨柜 All-Reduce 若走 InfiniBand SHARP，那是另一代交换机上的另一段协议，数字不可与 NVLink 托盘的 14.4 TFLOPS FP8 混加。层次化集体通信仍然成立：域内可 SHARP，域间再走 IB。</p><div class="mermaid"></div><h3 id="与-counted-writes、融合核" tabindex="-1">与 counted writes、融合核 <a class="header-anchor" href="#与-counted-writes、融合核" aria-label="Permalink to &quot;与 counted writes、融合核&quot;">​</a></h3><p><a href="/llm/nvlink-counted-writes">Counted writes</a> 宣告「写到齐」；SHARP 宣告「加完了」。融合核可以在 tile 级把部分和交给织物，等完成计数后再继续 MMA。也可以仍用库级 NCCL，让 SHARP 在不可见处工作——这对大块梯度更简单。选择标准是消息大小：大块、可重叠的 DP 梯度，库级 + SHARP；小块、关键路径上的 TP decode，融合 + 完成计数，SHARP 能用则用，但不能指望交换里的 FP8 加法去救一个本该留在 NVLink 域却被拆到以太网上的进程组。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>网内归约要求运算可结合、可交换（浮点上只是近似），且交换机有足够的算术单元与缓冲。NVIDIA 为 NVLink 6 交换托盘给出 14.4 TFLOPS FP8 的网内计算规格——这是交换侧的峰值算术，用来理解「归约有专用算力」，不是 GPU 的 50 PFLOPS。归约流量相对 GEMM 通常小得多，这块 TFLOPS 够不够取决于同时有多少集体操作、chunk 多大。公开文本写结果随模型架构、并行策略、参与者数量和 NCCL 配置而变。</p><p>树的内部节点在交换芯片上，而不在某张「根 GPU」上。于是根 GPU 不再成为 HBM 热点，这也是网上归约除了减字节之外的第二个好处。失败模式是：交换算术与 GPU 算术的精度协议不一致，导致与纯 GPU All-Reduce 的 bit 不一致。确定性训练、需要逐 bit 复现的调试，应能关闭 SHARP 对照。</p><p><span class="marginnote">「最多 50% 流量、最多 20% TP 时间」出自 NVIDIA 对 NVLink 6 SHARP 的公开表述，并附带依赖条件。容量规划把它们当成上界提示，用 nccl-tests 与真实层形状自己测。不要把 20% 写进 SLA。</span></p><h3 id="infiniband-sharp-与-nvlink-sharp" tabindex="-1">InfiniBand SHARP 与 NVLink SHARP <a class="header-anchor" href="#infiniband-sharp-与-nvlink-sharp" aria-label="Permalink to &quot;InfiniBand SHARP 与 NVLink SHARP&quot;">​</a></h3><p>IB 交换机上的 SHARP 服务 Scale-Out：数据并行、跨柜树。NVLink SHARP 服务 Scale-Up：域内 TP。协议族同名，作用域不同。一个作业可以两层都开：域内先网上归约，每柜一份结果再上 IB SHARP。也可以只开一层。调参时应分别看域内 busbw 与跨柜 busbw，不要用一个 NCCL 环境变量解释两种墙。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要对 All-to-All 指望 SHARP。不要在没有 NVLink 6 交换的 8 卡 PCIe 箱上假设网内 FP8 归约。不要把交换托盘的 14.4 TFLOPS 加进模型 FLOPS 去报 MFU。数值上，FP8 归约有缩放与饱和问题，与 Transformer Engine 的 FP8 配方不是自动同一套。关闭 SHARP 必须作为运行时可选项，供数值对照与故障隔离。</p><p>昇腾等平台的网内集合若存在，以各自文档为准，不能抄 SHARP 这个缩写的百分比。检查点与存储流量不要进 SHARP 路径。</p><p><span class="marginnote">出处：NVIDIA <em>Inside the NVIDIA Vera Rubin Platform</em>「In-network compute for collective operations」；IB 侧 SHARP 见 NVIDIA 网络文档。流量与时间改善以官方有条件表述引用，不作独立基准。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SHARP 在交换内做集合规约，减少 All-Reduce 一类操作的重复搬运。</li><li>NVLink 6 把 SHARP 做到机柜脊上，服务域内 TP；IB SHARP 服务柜外，同名不同层。</li><li>All-to-All / MoE 路由主要吃带宽，不是吃网内加法。</li><li>厂商「最多 50% / 20%」是有条件上界，规划用微基准。</li><li>需要 bit 级复现时应能关闭 SHARP。</li><li>出处：NVIDIA Vera Rubin 公开技术博客；织物见 <a href="/llm/nvlink-6">NVLink 6</a>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

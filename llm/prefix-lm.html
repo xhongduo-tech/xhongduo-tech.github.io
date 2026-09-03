@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prefix LM | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_prefix-lm.md.BfbNtcVx.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="prefix-lm" tabindex="-1">Prefix LM <a class="header-anchor" href="#prefix-lm" aria-label="Permalink to &quot;Prefix LM&quot;">​</a></h1><div class="epigraph"><p>前缀已经完整可见，没有理由对它再施因果掩码；只有尚未写出的目标段，才需要从左到右的约束。</p><footer>—— 对照 Dong et al., UniLM, NeurIPS 2019；Raffel et al., T5 中的 prefix LM 讨论</footer></div><p>前缀语言模型（Prefix LM）把一条序列切成前缀与目标：前缀内任意两点可以互相看见，目标段仍是因果的，且可以看见整个前缀。它既不是纯 Causal LM（前缀内部也下三角），也不是纯 Masked LM（目标必须能自回归展开）。Dong 等人的 UniLM 用同一套 Transformer 权重，靠换注意力掩码在单向、双向与序列到序列之间切换，其中 seq2seq 就是前缀全可见、目标因果。Raffel 等人在 T5 里把 prefix LM 列为与编码器—解码器、纯语言模型并列的结构，并指出 text-to-text 里源端应全可见。本篇写这张掩码，而不是写 T5 的全部迁移实验。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>条件生成时，源端（指令、原文、已给定的表格）在预测第一个目标 token 之前就已经完整存在。Causal LM 仍对源端做下三角：源句后半不能进入前半的表示，等于用单向编码器去读源。这对翻译、摘要、填表都不自然。Masked LM 能双向读源，却没有自回归因式分解，不能直接逐 token 写出目标。Prefix LM 要的是第三种条件集合：</p><ul><li>前缀位置 \(i\) 可以读前缀内任意 \(j\)；</li><li>目标位置 \(t\) 可以读全部前缀，以及目标里 \(t\) 以左；</li><li>任何位置都不能读目标里尚未发生的符号。</li></ul><p>这样，训练时每个目标 token 的监督与推理时逐步展开一致，同时源端表示是双向的。</p><h3 id="掩码是结构-不是另一套权重" tabindex="-1">掩码是结构，不是另一套权重 <a class="header-anchor" href="#掩码是结构-不是另一套权重" aria-label="Permalink to &quot;掩码是结构，不是另一套权重&quot;">​</a></h3><p>UniLM 的要点是：<strong>参数共享，掩码切换</strong>。双向任务用全 1 掩码（再挖 MLM 的洞），单向任务用下三角，seq2seq 用分块掩码。不必为理解与生成各训一个模型。T5 最终主力是编码器—解码器，但论文把 prefix LM 画成「共享参数的编解码器、且交叉注意力改成对前缀加目标的满注意力」的近亲。Liu 等人更早在 text-to-text 设定下用过前缀全可见的掩码；T5 文中回顾了这条线。写 Prefix LM 应指向掩码图案，而不是指向某一个产品名。</p><p><span class="marginnote">前缀边界必须在训练和推理用同一规则切开。若训练把指令和回答混成一条因果链，推理却对指令做双向，表示会偏。反过来，训练是 Prefix、推理框架只实现了因果，前缀内部的右侧信息会在部署时丢失。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令序列为 \([\mathrm{prefix};\mathrm{target}]\)，长度为 \(n_p+n_t\)。注意力掩码 \(M\) 满足：前缀块 \(n_p\times n_p\) 全可见；目标对前缀的块全可见；目标对目标是下三角；前缀对目标全屏蔽（前缀表示不依赖尚未生成的目标，以免泄漏）。损失通常只在目标 token 上计算因果交叉熵；前缀位置可以不预测，或另加 MLM，取决于是纯 Prefix LM 还是 UniLM 的混合。</p><p>T5 风格的 text-to-text：前缀是「任务名 + 输入 + 哨兵」，目标是要生成的文本。编码器—解码器把前缀放进双向编码器、目标放进因果解码器，用交叉注意力读编码器输出——条件集合与 Prefix LM 同类，只是参数是否共享、注意力是否分成两次。Prefix LM 把两次合成一次自注意力加分块掩码，实现更简单，深度上前缀与目标共用层。</p><div class="mermaid"></div><h3 id="unilm-的三种掩码如何混训" tabindex="-1">UniLM 的三种掩码如何混训 <a class="header-anchor" href="#unilm-的三种掩码如何混训" aria-label="Permalink to &quot;UniLM 的三种掩码如何混训&quot;">​</a></h3><p>UniLM 在同一 batch 里为不同样本画不同 \(M\)：一部分做 BERT 式双向 MLM，一部分做 GPT 式单向 LM，一部分做 Prefix 式 seq2seq。共享参数被迫同时服务三种条件集合，微调时按下游任务选一张掩码。这解释了它能在 GLUE 一类理解任务和摘要一类生成任务上都微调：不是魔法数据，是预训练覆盖了三种可见性。纯 Prefix LM 若从不做双向 MLM，理解任务上可能弱于 BERT；从不做纯因果，开放续写可能弱于 GPT。混合是为了折中，代价是每种目标分到的步数变少。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>从信息流看，Prefix LM 的前缀位置经过多层之后，每个前缀 token 的表示都是整段前缀的函数，类似于编码器输出。目标位置则类似解码器：查询可以读这些「已编码的前缀」以及已经写出的目标。与标准编解码器的差别是：目标层与前缀层是同一组权重，目标 token 也会作为键被后续目标读取，且前缀层能看见的只有前缀（没有单独的编码器深度专用于源）。深度被前缀和目标分摊，长前缀加长目标时，计算是一次 \((n_p+n_t)^2\) 的自注意力，而不是 \(n_p^2+n_t n_p\)。</p><p>泄漏路径：若前缀对目标的块没有屏蔽，前缀表示会含有未来答案，MLM 式的理解头会作弊；生成时这些未来又不存在。因此「前缀双向」不等于「全序列双向」。分块上三角必须画对。</p><p><span class="marginnote">推理时前缀可以一次预填充：前缀内部双向，KV 写成全可见结果；之后每个新目标 token 只追加一行因果查询。实现上很像「先跑一遍非因果预填充，再跑因果 decode」，但权重仍是一份。与纯 Causal 预填充的差别仅在前缀块的掩码。</span></p><h3 id="和-causal-masked-的条件集合对照" tabindex="-1">和 Causal / Masked 的条件集合对照 <a class="header-anchor" href="#和-causal-masked-的条件集合对照" aria-label="Permalink to &quot;和 Causal / Masked 的条件集合对照&quot;">​</a></h3><p>Causal：\(t\) 见 \(\{1,\ldots,t\}\)。Masked：被预测位置见未挖洞的全体，无自回归链。Prefix：前缀见全体前缀；目标 \(t\) 见全体前缀加目标前缀。UL2 的 S-denoiser 把 Prefix 再当成去噪混合物中的一种，见 <a href="/llm/ul2">UL2</a>。选择 Prefix 的理由通常是：有明确的源、要生成、又想单栈部署。若源极长、目标极短，独立编码器可以更深地只处理源，编解码器可能更划算；若源目标同量级且要单栈，Prefix 更干净。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Prefix LM 的前缀长度受双向注意力二次代价约束：前缀 8K 时预填充按 \(n_p^2\)，端侧往往吃不消，需要窗口只加在前缀内部或改成编解码器。目标段一旦开始生成，前缀 KV 必须常驻，预算公式仍是 <a href="/llm/on-device-kv">端侧 KV</a> 那一条，只是预填充掩码不同。微调若把对话历史整段当因果，会丢掉 Prefix 预训练的源端双向偏置。</p><p>不要把「提示放在左边」自动叫做 Prefix LM。许多 Causal 聊天模型只是把提示当因果前缀，提示内部并不能互相看见右侧。只有掩码改了，才是 Prefix。T5 的主力实现是编解码器，引用 T5 时不要写成「T5 就是 Prefix LM」；应写成 T5 讨论并对照了 Prefix LM，UniLM 是单栈掩码切换的代表。</p><p><span class="marginnote">分块掩码在实现里常与 padding 掩码相加。batch 内前缀长度不同时，要对齐到最大前缀并挡住 pad，否则短前缀会读到邻居的 pad 或错位目标。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Prefix LM：前缀全可见，目标因果且可读全部前缀；参数可以仍是一份解码器栈。</li><li>UniLM 用掩码切换统一单向 / 双向 / seq2seq；T5 把 Prefix LM 列为 text-to-text 的一种结构并与编解码器对照。</li><li>条件集合介于 Causal 与 Masked 之间，专为「源已完整、目标要生成」。</li><li>前缀对目标必须屏蔽，以免答案倒灌进源表示。</li><li>推理可对前缀双向预填充，再对目标逐步 decode；二次代价在前缀长度上更刺。</li><li>出处：Dong et al.，<em>UniLM</em>，NeurIPS 2019；Raffel et al.，<em>T5</em>，JMLR 2020（文中的 prefix LM 讨论）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

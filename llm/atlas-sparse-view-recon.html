@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>稀疏视角新视角合成与三维重建 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_atlas-sparse-view-recon.md.DUkliVVV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="稀疏视角新视角合成与三维重建" tabindex="-1">稀疏视角新视角合成与三维重建 <a class="header-anchor" href="#稀疏视角新视角合成与三维重建" aria-label="Permalink to &quot;稀疏视角新视角合成与三维重建&quot;">​</a></h1><div class="epigraph"><p>从极少输入图像做新视角合成，是三维视觉里一个几十年的基本问题；Atlas 把它收进同一个 omni 世界模型，而不是再训一个专用重建网络。</p><footer>—— World Labs Team, Atlas: A World Model for Spatial Intelligence, 2026</footer></div><p>密集采集下，多视立体与神经辐射场已经能把场景「扫描」出来。真正难的是稀疏：一两张、三五张、最多几十张带位姿的图，中间有大块未见表面。专用重建模型在这条赛道上卷点图误差；生成模型则容易把未见区域编成好看但不忠于证据的内容。Atlas 的空间重建把两件事放进同一序列：根据已有视图写出新视角图像，同时写出<a href="/llm/atlas-3d-writeout">深度与点云</a>。观测越多，想象越少。本篇只讨论这条稀疏新视角合成与重建，不把相机可控长视频的导演轨迹写成重建评测。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>新视角合成（Novel View Synthesis, NVS）要的是：给定图像集合 \(\{I_i\}\) 与相机 \(\{P_i\}\)，对未见相机 \(P_*\) 预测 \(I_*\)。当视图稠密且基线小，问题接近插值；当视图极少，问题变成有约束的生成。三维重建还要求显式几何，例如每个输入像素对应的三维点。两者相关但不可互换：能出漂亮 \(I_*\) 的模型可以没有可用点图；点图误差低的模型可以不会沿着一条电影机位飞。</p><p>稀疏的根源是信息论上的：单张图无法决定遮挡面与画外结构。经典多视几何用极线与光度一致性约束可见重叠；重叠不够时，约束消失，必须引入先验。NeRF 一类方法用体积密度吸收多视，但仍要相当数量的图才稳。需要一种系统：先验来自大规模世界模型预训练，约束来自把每张图钉在三维位姿上的<a href="/llm/atlas-spatial-context">共享空间上下文</a>，并且允许用户用加图来连续地把「想象」换成「看见」。</p><h3 id="加图是在减小生成支路的权重" tabindex="-1">加图是在减小生成支路的权重 <a class="header-anchor" href="#加图是在减小生成支路的权重" aria-label="Permalink to &quot;加图是在减小生成支路的权重&quot;">​</a></h3><p>World Labs 用一组逐步加图的例子说明机制：一张地面花园照片可以长出合理的航拍，花园本身对齐，周围房屋却是编的；补上小屋、再补主屋，编造区域被真实观测替换。这不是广告话术，而是稀疏重建的操作定义：<strong>保真度是观测覆盖的函数</strong>。评测若只给一张图就报「完整三维世界」，必须把未见表面标成生成，而不是重建。</p><p><span class="marginnote">「两到三张图通常已能忠实重建」是官方对常见场景的经验陈述，不是定理。纹理重复、强反光、大基线、标定误差都会把「忠实」所需的视图数推高。反过来，上百张图可以进空间上下文，说明序列长度被设计成可变，而不是固定三视图网络。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>输入是可变数量的带位姿图像，少到一张，多到演示中的上百张。每张图与其相机 \(P_i\) 一起编码进空间上下文。任务序列的输出段可以是：新位姿 \(P_*\) 上的图像、对应深度、以及由多视深度融合得到的点图。Atlas 是自回归扩散，因此「重建」并不是一次前馈回归所有三维点，而是按元素写出：先（或同时）满足已见视图的几何，再在新 \(P_*\) 上去噪出帧。</p><p>点图任务与学术基准对齐时，可写成：对每个输入像素 \(u\)，预测世界点 \(X(u)\)。相对绝对误差一类指标比较 \(\|X(u)-X^\star(u)\|\) 与真值尺度。World Labs 在 DTU、ETH3D、KITTI 等常用集上报告点图误差，并称优于若干开源专用重建模型。这些数字是公司协议下的结果，复现需要同一对齐、掩码与尺度处理；本篇把它们当作「omni 模型可以参加重建赛道」的证据，而不是把排行榜抄进方法定义。</p><div class="mermaid"></div><h3 id="同一场景、多条轨迹" tabindex="-1">同一场景、多条轨迹 <a class="header-anchor" href="#同一场景、多条轨迹" aria-label="Permalink to &quot;同一场景、多条轨迹&quot;">​</a></h3><p>稀疏重建的产品用法往往不是「输出一个 ply 就结束」，而是对同一组输入反复查询不同相机路径。官方演示强调：改轨迹时场景保持一致。机制上，这要求上下文里的三维锚点在多次查询间复用，而不是每次把世界重新采样一遍。一致性来自共享上下文，而不是来自一个冻结的网格缓存；若服务端每次丢掉上下文重算，轨迹之间就会漂。这一点与<a href="/llm/atlas-camera-controlled-video">长视频的空间上下文管理</a>是同一旋钮在重建任务上的用法。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>稀疏 NVS 的条件分布可以写成</p> \[p(I_*\mid \{I_i,P_i\}, P_*) . \]<p>当 \(\{I_i\}\) 覆盖 \(P_*\) 附近的表面，\(p\) 接近被观测约束的窄峰；当 \(P_*\) 飞到屋顶或背面，\(p\) 变宽，采样依赖预训练先验。Atlas 同时建模深度，相当于再条件一层几何</p> \[p(I_*,D_*\mid \{I_i,P_i,D_i\}, P_*) , \]<p>使新视角不仅「像那张图」，还要能反投影回与已有点云相容的表面。专用重建模型通常只优化 \(X(u)\)，不负责沿任意电影路径出 1440p 视频；专用视频模型通常不接受原生 \(P_i\)，也不出点图。omni 的意思是同一套权重能切两种序列编排，而不是在重建基准上每一项都必然碾压专家。</p><p><span class="marginnote">官方相机跟随评测把位姿几何直接喂给 Atlas，把文本机位描述喂给对照视频模型，这测的是接口是否匹配，不是通用画质冠军。重建评测则是另一张表。写文章时不要把两张表的结论叠成一句「全面 SOTA」。</span></p><h3 id="先验与证据如何分工" tabindex="-1">先验与证据如何分工 <a class="header-anchor" href="#先验与证据如何分工" aria-label="Permalink to &quot;先验与证据如何分工&quot;">​</a></h3><p>生成式世界模型的危险是把先验写进本该留给测量的地方。Atlas 的公开叙述把分工说清楚了：看不见的部分用世界知识填；你若不要想象，就加图。工程含义是交互式覆盖：先少图出可导航预览，再针对漂的区域补拍。这与传统 SfM「必须先拍够再跑」的批处理不同，也与单图深度网络「永远在猜背面」不同。用户界面若不允许加约束，模型会一直猜。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>稀疏重建不提供自动的度量尺度、语义实例或材质。点图误差低不等于可以拿去做测绘或安全关键定位。动态物体、透明与镜面会破坏多视光度假设；公开演示偏建筑与相对静态的室外场景，不能外推到快运动的人物特写。位姿若来自不准确的 SLAM，空间上下文本身是歪的，后面的「像素级相机控制」只是在歪几何上精确。</p><p>学术对照应使用开源重建模型的公开权重与同一协议。World Labs 声明复现了基线，但未同时开源 Atlas 的评测脚本与检查点。把博客柱状图写进论文相关工作时，应标注为公司评测。训练数据、是否与基准集污染、参数量均未披露，因此「因为更大所以更好」无法被外部验证；可验证的是任务形式：可变视图数、位姿条件、图像与几何双输出。</p><p><span class="marginnote">单图「重建」在几何上不可辨识背面。诚实的产品文案是：可见表面被锚定，其余是补全。VFX 可以用补全；机器人若把补全墙当障碍，会在真空处刹车或在真墙处穿模。Real-to-Sim 路径必须另标哪些表面是观测、哪些是生成，见<a href="/llm/atlas-real-to-sim">重建后再渲传感器视图</a>。</span></p><p>上下文长度有上限。上百张图可以进空间上下文，不等于任意城市街区的所有帧都能一次塞入。超大场景仍要选择关键帧、分块或检索，那些系统问题在发布说明里没有展开。重建质量还会随相机路径与训练分布的差异下降：极端俯仰、滚转、鱼眼，若预训练少见，稀疏先验会失效。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>稀疏新视角合成在观测不足时必须靠先验；Atlas 用带位姿的空间上下文提供约束，用预训练提供补全。</li><li>加图连续降低想象比例，两到三张是官方给出的常见忠实重建起点，不是下限定理。</li><li>同一模型可出新视角图像与显式点图 / 深度，从而同时参加 NVS 与重建式工作流。</li><li>多轨迹查询依赖共享上下文，而不是每次重新生成一个互不相干的世界。</li><li>公司重建评测表明 omni 模型可以硬碰专用开源重建器，但协议与污染控制不可由外部审计。</li><li>单视与未见表面必须标成生成；动态、反射、度量尺度仍是边界。</li><li>出处：World Labs Team，<em>Atlas: A World Model for Spatial Intelligence</em>，World Labs Blog，2026。经典 NVS 背景见 Mildenhall 等，<em>NeRF</em>，ECCV 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

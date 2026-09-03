@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>位置插值与外推失败模式 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_position-extrapolation.md.DWIFm-BC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="位置插值与外推失败模式" tabindex="-1">位置插值与外推失败模式 <a class="header-anchor" href="#位置插值与外推失败模式" aria-label="Permalink to &quot;位置插值与外推失败模式&quot;">​</a></h1><div class="epigraph"><p>把更大的位置下标按比例映回原窗口，只需少量微调就能延长上下文；不插值而硬外推，旋转相位会先坏掉。</p><footer>—— Chen 等，Position Interpolation，2023</footer></div><p>RoPE 模型在训练长度 \(L\) 之外突然变笨，常常被说成「不会外推」。失败其实分几类：相位卷绕、高频被插值抹平、注意力熵塌缩、微调没覆盖长程任务。Chen 等人 2023 年的位置插值给出一条能用的路——把 \([0,L&#39;)\) 线性映到 \([0,L)\)，再短续训——同时也把「为什么朴素外推不行」写清楚了。本文只讨论这条失败谱与插值本身的代价，不把 YaRN 或 ALiBi 重写成综述；它们只作为对照出现。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RoPE 的相对位置进入 \(\cos(\theta_i\Delta)\)。训练时 \(\Delta\in\{0,\ldots,L-1\}\)，每条频率对应的弧长都在数据里反复出现。推理若直接使用 \(\Delta\) 直到 \(L&#39;-1\)，高频维的弧长超出训练范围，余弦从平滑相对信号变成近似正交的噪声，点积不再编码「隔了多少 token」，只剩幅度上的偶然相关。这是外推失败的第一型：几何出界。</p><p>第二型是绝对嵌入式的表出界：可学习位置向量没有第 \(L\) 行。RoPE 没有这张表，所以第一型更隐蔽——模型还能前向，只是分数无意义。第三型是分配失败：即使相位勉强可算，softmax 在更多键上变尖，质量集中在句首或最近邻，长程键分不到梯度曾经见过的那类质量。</p><p>工程上需要一张失败清单，否则会把所有「长了就笨」都当成同一只虫子，轮流试增大基数、插值、换温度，却不知道自己在修哪一型。<span class="marginnote">能前向不等于位置通道仍有效。RoPE 外推时损失爆炸或重复生成，优先怀疑相位出界；插值后邻域任务变差，优先怀疑高频被压死。先分型，再选补丁。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>位置插值（Position Interpolation，PI）定义新位置</p> \[p&#39; = p \cdot \frac{L}{L&#39;} = \frac{p}{s} \]<p>其中 \(s=L&#39;/L\)。最大位置 \(L&#39;-1\) 映到约 \(L\) 的原窗口内，所有 \(\theta_i\Delta\) 按同一比例缩小，训练见过的弧长重新覆盖推理范围。Chen 等人表明，在目标长度上用原预训练分布做数千步量级的微调，即可把困惑度从「外推崩溃」拉回到可用区间，远小于从头按 \(L&#39;\) 预训练的成本。</p><p>插值是对坐标的全局仿射，不改 \(b\)，也不按维区别对待。它的方法承诺很窄：让相位重新落回训练支撑集，再靠微调适应被压慢的频率。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="rope-外推为何崩" tabindex="-1">RoPE 外推为何崩 <a class="header-anchor" href="#rope-外推为何崩" aria-label="Permalink to &quot;RoPE 外推为何崩&quot;">​</a></h3><p>固定 \(\theta_i\)，令 \(\Delta\) 超过 \(L\)。高频维在 \([0,L)\) 内可能已经转过数圈或至少扫过训练所见的最大角；再增大 \(\Delta\)，相对位置与余弦值不再单调对应训练时的那张表。注意力分数的尺度被随机相位搅动，softmax 出现极端峰值或均匀噪声。生成端常见症状是立刻重复、突然离题、或对提示开头过度锚定。这些不是解码器采样温度单独能解释的，因为短于 \(L\) 的同模型同温度仍然正常。</p><p>绝对位置嵌入的外推更干脆：越界下标若被截断到 \(L-1\)，则所有超长位置共享同一向量，模型认为它们是同一个位置；若取模，则周期错位。失败模式与 RoPE 不同，但同样说明：位置通道一旦离开训练支撑，内容通道救不回来。</p><h3 id="位置插值的压缩代价" tabindex="-1">位置插值的压缩代价 <a class="header-anchor" href="#位置插值的压缩代价" aria-label="Permalink to &quot;位置插值的压缩代价&quot;">​</a></h3><p>PI 把所有频率的 \(\Delta\) 除以 \(s\)。低频维本就变化慢，除以 \(s\) 后仍然平滑，长程结构往往还能辨认。高频维的邻域差被压缩，\(s=4\) 或 \(8\) 时「差一个 token」接近「几乎没差」。微调可以让投影矩阵改用剩下的频率做局部区分，但不能凭空恢复已经被线性映掉的带宽。于是出现与外推相反的失败：长窗口困惑度尚可，精确复制、局部替换、近距离指代变差。这是插值特有的第二型失败，不是外推没修好的残留。</p><p><span class="marginnote">微调步数少，是因为几何已经被映回支撑集，优化只需适应压缩后的频谱，不必重新学习语言。若微调数据全是短序列，模型不会自动使用 \(L&#39;\) 的后半段，插值只保证「算得动」，不保证「用得着」。</span></p><h3 id="失败模式清单" tabindex="-1">失败模式清单 <a class="header-anchor" href="#失败模式清单" aria-label="Permalink to &quot;失败模式清单&quot;">​</a></h3><p>按现象对齐原因，避免混修：</p><ol><li>一超过 \(L\) 就崩溃、短于 \(L\) 正常：优先朴素外推导致的相位出界，PI 或改基数针对这一型。</li><li>长窗口能跑，但近邻混淆、小跨度复制差：优先 PI 或过大 \(s\) 造成的高频压缩；NTK-aware 或 YaRN 分段减少这一型。</li><li>相位已校正，仍只盯句首或最近 token：注意力熵与汇点，温度或窗口内的注意力设计，不是再加大插值。</li><li>评测任务需要精确相对偏移，而位置通道被改成单调压缩：任何全局仿射都会伤这类任务，架构级相对偏置或更细的频率方案也只能减轻，不能假装坐标变换可逆。</li></ol><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>PI 的 \(s\) 不能任意大。压缩比过高时，微调也无法从低频里挤出局部分辨率，表现为平台很短的「可用长度」后再次变差。多阶段拉长——先 \(2L\) 再 \(4L\)——往往比一次 \(s=16\) 更稳，因为每次微调都在不太离谱的压缩上对齐。</p><p>插值与 KV 缓存的位置下标必须用同一套 \(p&#39;\)。若缓存存的是真实 \(p\)，注意力却按 \(p/s\) 旋转，相对位置全错。实现上应在 RoPE 的输入位置统一乘 \(L/L&#39;\)，而不是在部分层做。</p><p><span class="marginnote">Chen 等的结果不能外推成「所有失败都可用 PI 修复」。ALiBi 没有可插值的旋转坐标；NoPE 没有显式位置。PI 是 RoPE 与绝对下标类方法的坐标补丁。换位置编码等于换失败模式，而不是把清单作废。</span></p><h3 id="评测时不要只看能跑多长" tabindex="-1">评测时不要只看能跑多长 <a class="header-anchor" href="#评测时不要只看能跑多长" aria-label="Permalink to &quot;评测时不要只看能跑多长&quot;">​</a></h3><p>最大可解码长度只说明数值与掩码没炸。需要在 \(L\) 内、\(L\) 边界、以及 \(L&#39;\) 上分别看困惑度曲线是否陡升；再用需要局部精度与需要长程检索的两类任务对照，才能看出是外推崩了还是插值把高频卖掉了。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>朴素 RoPE 外推的典型失败是相位超出训练弧长，分数失去相对位置含义。</li><li>位置插值把下标按 \(L/L&#39;\) 压缩回原窗口，使相位重新落在支撑集上。</li><li>插值的代价是高频局部分辨率下降，近邻任务可能变差。</li><li>少量目标长度微调是 PI 方法的一部分，不是可有可无的后处理。</li><li>失败要分型：几何出界、高频压缩、熵塌缩、任务没用上新窗口，补丁各不相同。</li><li>PI 不适用于 ALiBi 或 NoPE 这类没有同一套旋转坐标的模型。</li><li>出处：Chen 等，<em>Extending Context Window of Large Language Models via Position Interpolation</em>，2023；对照 Press 等 ALiBi（2021）、Peng 等 YaRN（2023）及 bloc97 的 NTK-aware 社区方案（2023）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

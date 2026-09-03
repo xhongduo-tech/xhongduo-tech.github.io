@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>A100 / H100 / Blackwell 差异 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_nvidia-gpu-gen.md.BK6j_hgq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="a100-h100-blackwell-差异" tabindex="-1">A100 / H100 / Blackwell 差异 <a class="header-anchor" href="#a100-h100-blackwell-差异" aria-label="Permalink to &quot;A100 / H100 / Blackwell 差异&quot;">​</a></h1><div class="epigraph"><p>三代数据中心 GPU 的差别，不只是 TFLOPS 变大：精度、互连域、HBM 与可分割性一起改，软件工作点必须跟着换档。</p><footer>—— 对照 NVIDIA Ampere A100、Hopper H100、Blackwell 产品页与架构白皮书中的已公布规格</footer></div><p>从 A100 到 H100 再到 Blackwell，是同一条产品线上三次「把训练和推理的屋顶线往右推」。每一代都加了新的 Tensor Core 精度、更宽的 NVLink、以及另一档 HBM。LLM 框架看到的却是：昨天还能算力打满的 prefill，今天在更低精度上变成带宽问题；昨天 TP 不超过 8，今天 NVL72 把域撑到 72。本篇按<strong>已公布</strong>规格对齐三代差异，只写对训练 / 推理切分有约束的那些轴。不把某一栏营销加速比当成普遍定律，不填写未出现在数据手册里的工艺节点细节或未公开的内部总线。</p><p>单代互连见 <a href="/llm/nvlink">NVLink</a>；算力与带宽的几何见 <a href="/llm/hbm-roofline">HBM 屋顶线</a>；MMA 细节见 <a href="/llm/tensor-core">Tensor Core</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>若只比较「FP16 TFLOPS」，会得出「每代大约若干倍」的单薄结论，然后在 decode 上失望：HBM 没有按同一倍数涨。若只比较显存容量，会忽略 FP8 / FP4 让同一容量能放下的参数变多、同时让拐点右移。若只比较 NVLink，会忽略 MIG、机密计算、Transformer Engine 这些改变部署形态的功能。需要一张按轴对齐的表：计算精度、HBM、互连、多实例、系统形态。</p><p>公开锚点如下（均为 NVIDIA 产品页 / 数据手册，SXM 类，除非注明）。A100 80GB：HBM2e 带宽约 2.039 TB/s；第三代 NVLink 600 GB/s；第三代 Tensor Core（含 TF32、BF16、稀疏）；MIG 最多 7 实例。H100 SXM：HBM3 80GB、3.35 TB/s；第四代 NVLink 900 GB/s；第四代 Tensor Core 与 Transformer Engine（FP8）；稀疏 FP16 1,979 TFLOPS、稀疏 FP8 3,958 TFLOPS；PCIe Gen5 128 GB/s；MIG 最多 7 个约 10GB 实例；TDP 可到 700W。Blackwell（B200 / GB200 叙事）：第五代 Tensor Core，引入 FP4 / FP6 与微缩放格式；第五代 NVLink 每 GPU 1.8 TB/s；HBM3e，公开材料约 8 TB/s 带宽、单卡容量到 192 GB 量级；GB200 NVL72 把 72 张卡收成 130 TB/s 域。H100 产品页另列 H100 NVL（PCIe 双槽）规格，与 SXM 不可混用。</p><h3 id="精度轴-tf32-→-fp8-→-fp4" tabindex="-1">精度轴：TF32 → FP8 → FP4 <a class="header-anchor" href="#精度轴-tf32-→-fp8-→-fp4" aria-label="Permalink to &quot;精度轴：TF32 → FP8 → FP4&quot;">​</a></h3><p>A100 把 TF32 做成 Tensor Core 可用的训练格式，降低「必须 FP16 才能吃 MMA」的门槛，并支持 2:4 稀疏。H100 的 Transformer Engine 把 FP8 推进主流混合精度：同样 HBM，流量减半相对 FP16，峰值 \(P\) 再翻一档，屋顶线拐点右移。Blackwell 第二代 Transformer Engine 引入 NVFP4 / FP6 一类微缩放格式，产品页把 FP4 写成推理与 test-time scaling 的主叙事。每一档精度都要求软件栈（cuDNN、Transformer Engine、框架）真的走出对应 MMA；只改存储 dtype、计算仍在 FP16，只得到容量收益，得不到 \(P\)。</p><p>稀疏规格在表上常是 dense 的两倍。A100 / H100 / Blackwell 都沿用 2:4 稀疏叙事。比较代际时必须同一疏密、同一精度，否则「3 倍」来自表头而不是内核。</p><p><span class="marginnote">H100 相对 A100 的「最多若干倍」在 NVIDIA 材料里按工作负载分开写，且常含稀疏。规划用本段列出的带宽与 NVLink 绝对数，加速比只当指定条件下的厂商声明。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>换代时按工作点选轴，而不是按最高 TFLOPS 选卡。</p><ul><li><strong>Decode / 小 batch</strong>：看 HBM \(B\) 与容量。H100 3.35 TB/s 相对 A100 约 2.0 TB/s 有帮助，但小于 FP8 峰值的倍数；Blackwell 约 8 TB/s 与更大 HBM3e 对长 KV 更对症。</li><li><strong>Prefill / 训练 GEMM</strong>：看 Tensor Core 精度与 \(P\)。能跑 FP8 的 H100 已经把平台抬高；Blackwell 的 FP4 对推理 prefill 与大吞吐更敏感。</li><li><strong>模型并行宽度</strong>：看 NVLink 域。A100 / H100 经典 HGX 是 8 卡全互连（600 / 900 GB/s 每 GPU）。Blackwell 在 HGX 上把每 GPU NVLink 提到 1.8 TB/s，在 NVL72 上把域提到 72。TP 口诀随域改，不随 TFLOPS 改。</li><li><strong>多租户</strong>：看 MIG。三代都提供硬件分区；实例粒度与显存切片以该代用户指南为准。A100 把 MIG 做成产品关键特性，H100 / Blackwell 延续。</li></ul><div class="mermaid"></div><p>系统形态也换代。A100 / H100 的主流是 8 卡 HGX + InfiniBand SuperPOD。Blackwell 增加 Grace Superchip 与机柜级 NVL72：CPU–GPU 经 C2C（官方 900 GB/s 双向），柜内铜脊，柜外 SuperNIC。换代不只是插更贵的卡，而是可能换机柜、液冷与调度单位，见 <a href="/llm/scale-up-vs-scale-out">Scale-Up vs Scale-Out</a>。</p><h3 id="功能轴-引擎、隔离、形态" tabindex="-1">功能轴：引擎、隔离、形态 <a class="header-anchor" href="#功能轴-引擎、隔离、形态" aria-label="Permalink to &quot;功能轴：引擎、隔离、形态&quot;">​</a></h3><p>Transformer Engine 从 H100 起成为一等公民：硬件与库共同处理 FP8 缩放。Blackwell 把它推到更低精度与注意力加速；GB300 产品页写相对 Blackwell GPU 2× attention。没有 TE 路径的自写 kernel，吃不到这一列。</p><p>Hopper 引入加速器侧机密计算（产品页强调 TEE）。这改变「能不能在多租户上跑受保护权重」，与算力无关，但与云上 H100 的卖点有关。A100 无对等叙事。MIG 则三代都有：硬件切 SM 与 HBM，见 <a href="/llm/mps-mig">MPS 与 MIG</a>。</p><p>封装上，A100 / H100 以单颗 GPU 芯片为主叙事；Blackwell 公开材料强调更大的加速器封装（双 reticle 一类描述出现在架构介绍中）。对软件，仍是一个 CUDA device，不必按两颗芯片编程；对供电与冷却，TDP 上到千瓦量级，风冷 8 卡机的假设失效。换代评审应同时看机房功率与液冷，而不是只看 TFLOPS 表头能否塞进现有机柜。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>每一代把 MMA 阵列加宽、把支持的数据类型变窄，于是 \(P\) 涨。HBM 代数从 HBM2e 到 HBM3 到 HBM3e，引脚速率与堆叠容量涨，\(B\) 与 GB 涨，但通常慢于 \(P\)。NVLink 代数加链路、加每条速率，A100 12 条链路级叙事给出 600 GB/s，H100 产品页 900 GB/s，Blackwell 1.8 TB/s。域的大小在 HGX 上维持 8，在 NVL72 上变成 72——这是系统级机制，不是 SM 内部机制。</p><p>软件兼容靠 CUDA 能力版本与库。旧的 FP16 GEMM 在新卡上仍能跑，只是停在旧精度的 \(P\) 上。要吃新精度，必须让框架调用对应的 cuBLAS / cuDNN / TE 路径，并接受数值协议（缩放因子、微缩放块）。换代失败的常见原因不是驱动装不上，而是工作点仍按上一代精度与 8 卡拓扑切。</p><p><span class="marginnote">H100 NVL 的 NVLink 产品页写 600 GB/s，与 SXM 的 900 GB/s 不同。对比三代时不要把 PCIe 形态的 NVLink 写进 SXM 列。</span></p><h3 id="不要跨代混用的规格" tabindex="-1">不要跨代混用的规格 <a class="header-anchor" href="#不要跨代混用的规格" aria-label="Permalink to &quot;不要跨代混用的规格&quot;">​</a></h3><p>同一进程组里混 A100 与 H100 做 TP，NCCL 会落到较慢的那一档互连与较差的拓扑假设。混 H100 与 Blackwell 同理。MIG 切片数、每片显存也不跨代拷贝：H100 SXM 产品页写最多 7 个约 10GB，A100 80GB 的切片表不同。Blackwell Ultra（GB300）相对 Blackwell（GB200）是同代内的容量与注意力步进，域规模不变，见 <a href="/llm/gb200-nvl72">NVL72</a>。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 A100 的 TF32 峰值去比 H100 的稀疏 FP8。不要在没有 NVLink 的 PCIe 机器上按 HGX 的 8 卡全互连切 TP。不要假设 Blackwell 的 FP4 可以无条件替代训练——产品叙事里 FP4 更偏推理；训练精度以你实际启用的 TE 配置为准。不要把 GTC 路线图上的下一代名称写进这一代的带宽表。</p><p>功耗与冷却是硬边界。H100 SXM 可到 700W；Blackwell 机柜是液冷超节点。电与热先于 TFLOPS 决定你能不能把规格用满。昇腾或其他厂商的代际表不能用本篇三列去填。</p><p><span class="marginnote">出处：NVIDIA A100 数据手册、H100 产品页、Blackwell / GB200 NVL72 产品页与架构介绍。带宽与 NVLink 只引用已公布数。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>A100：TF32 / 稀疏 MMA、NVLink 600 GB/s、HBM2e 约 2.0 TB/s、MIG 7 路，8 卡域是主流。</li><li>H100：FP8 Transformer Engine、NVLink 900 GB/s、HBM3 3.35 TB/s、机密计算；SXM 与 NVL 规格不可混。</li><li>Blackwell：FP4/FP6、NVLink 1.8 TB/s、HBM3e 更大 \(B\) 与容量；NVL72 把域扩到 72。</li><li>换代按工作点选轴：decode 看 \(B\)，prefill 看精度与 \(P\)，并行看域，多租户看 MIG。</li><li>比较必须同一精度、同一疏密、同一形态（SXM vs PCIe）。</li><li>出处：NVIDIA 公开产品规格；屋顶线见 <a href="/llm/hbm-roofline">HBM 与算力墙</a>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

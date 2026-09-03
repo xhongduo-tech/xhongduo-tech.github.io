@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>图像旋转矫正 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen-ocr-rotation.md.OQqsPGNF.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="图像旋转矫正" tabindex="-1">图像旋转矫正 <a class="header-anchor" href="#图像旋转矫正" aria-label="Permalink to &quot;图像旋转矫正&quot;">​</a></h1><div class="epigraph"><p>倾斜图像：在 DashScope SDK 中设置 enable_rotate: true 可显著提升识别效果。</p><footer>—— 阿里云百炼，Qwen-OCR 文档</footer></div><p>扫描件、手机随手拍、传真件和屏幕截图里，文字行很少正好水平。文档倾斜不是识别之后的美化问题，而是 OCR 的前置条件：视觉编码器看到的是像素网格上的笔画方向，解码器按阅读顺序生成字符串。若整页绕光轴转了几十度，行方向、列方向和阅读顺序同时错位，后续的转写、定位和关键信息抽取都会在错误的几何上工作。Qwen-VL-OCR 把「图像旋转矫正」做成输入侧开关 <code>enable_rotate</code>，而不是让用户先用 OpenCV 估角再送图。本篇只讲这件事在文档 OCR 管线里的位置、几何与失败模式，不把版式解析或 2D grounding 展开成另一篇文章。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一张文档图像可以看成平面上的像素函数 \(I(x,y)\)。理想阅读坐标里，文字行沿 \(x\) 轴延伸，行间沿 \(y\) 轴递增。实际拍摄引入刚体或近似刚体变换：平面内旋转、小幅透视、以及 90°/180°/270° 的整页翻转。平面内旋转写成</p> \[\begin{pmatrix} x&#39; \\ y&#39; \end{pmatrix} = \begin{pmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{pmatrix} \begin{pmatrix} x-c_x \\ y-c_y \end{pmatrix} + \begin{pmatrix} c_x \\ c_y \end{pmatrix}. \]<p>\(\theta\) 不大时，人还能按斜行阅读；模型的 patch 网格是轴对齐的。ViT 式视觉编码器把图像切成固定朝向的块，位置编码也按网格行列编号。行方向一旦偏离网格，同一个字符会被切进多个斜向相邻的 patch，二维位置不再对应「第几行第几列」。这不是解码器词汇表的问题，是编码器几何先验被破坏。</p><p>传统 OCR 把矫正做成独立模块：投影直方图找主方向、Hough 找直线、最小外接矩形估 \(\theta\)，再双线性重采样。模块级联的代价是误差累积——估角偏 2°，细笔画在重采样里发虚，后面的识别器再把虚影当成噪声。端到端文档 VLM 希望少一个外部模块，但并不等于「旋转可以不管」：不矫正就把斜图送进同一套阅读顺序先验，CER 会在发票、身份证、书架侧拍上明显变差。</p><h3 id="整页旋转与行内倾斜不是同一件事" tabindex="-1">整页旋转与行内倾斜不是同一件事 <a class="header-anchor" href="#整页旋转与行内倾斜不是同一件事" aria-label="Permalink to &quot;整页旋转与行内倾斜不是同一件事&quot;">​</a></h3><p>整页旋转指画布坐标系相对阅读坐标系转过一个全局角，常见于「手机横着拍竖版合同」或扫描仪进纸偏斜。行内倾斜指局部文字块相对页面还有自己的角，例如印章、侧栏竖排、贴纸。全局矫正只能消掉前者。Qwen-OCR 高精识别任务返回的 <code>rotate_rect = [c_x, c_y, w, h, \alpha]</code> 里，\(\alpha\in[-90,90]\) 描述的是文字框相对水平方向的局部角，和输入侧的整页转正是两层几何。把两者混成「开了旋转开关坐标就对了」，是定位任务里常见的坐标系错误。</p><p><span class="marginnote">90° 的倍数是离散分类问题，任意 \(\theta\) 是回归问题。前者可以用「把图转四次、选最像文档的朝向」近似；后者必须估连续角并重采样。产品开关往往先覆盖前者和中等斜角，并不声称任意透视都可逆。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Qwen-VL-OCR 在 DashScope 的图像内容字段上暴露 <code>enable_rotate</code>。默认关闭，斜图上文档建议打开。打开之后，服务端在送入视觉编码器之前估计朝向并重采样到近似水平的阅读坐标；后续内置任务（转写、定位、文档解析）都在矫正后的画布上运行。OpenAI 兼容接口不直接提供该参数，需要调用方自己转正，或改走 DashScope 以使用完整 OCR 选项。</p><p>矫正本身可以写成「检测—变换—再编码」三步。检测输出一个朝向假设 \(\hat\theta\)（有时再加翻转类别）；变换用反向映射把目标网格上的每个像素从原图采样，避免正向旋转产生的空洞；再编码把新图按 <code>min_pixels</code> / <code>max_pixels</code> 约束切块。反向映射是</p> \[I_{\mathrm{rect}}(u,v) = I\bigl(R(-\hat\theta)\,(u-c)+c\bigr), \]<p>插值通常是双线性。文档边缘在旋转后不再填满轴对齐矩形，需要填充或裁切；填充色若与纸色差太大，会在页边制造假边缘，干扰版式。</p><div class="mermaid"></div><h3 id="与定位坐标的耦合" tabindex="-1">与定位坐标的耦合 <a class="header-anchor" href="#与定位坐标的耦合" aria-label="Permalink to &quot;与定位坐标的耦合&quot;">​</a></h3><p>高精识别返回的顶点坐标以「原图左上角为原点」为约定时，必须明确是矫正前原图还是矫正后画布。若服务端先转正再识别，却把框画回未转正的原图，四个顶点会整体偏转。工程上应把 <code>enable_rotate</code> 与坐标参考系写成同一份契约：要么坐标在原图像素系并附带所用 \(\hat\theta\)，要么坐标在转正后的图像上、可视化时用同一张转正图。Qwen-OCR 文档把倾斜图的识别效果提升和定位框绘制分成两段说明，原因正在于此——识别可以在转正图画布上变好，框必须回到用户手里的那张图。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>旋转矫正改变的是编码器看到的二维位置统计，不是解码器的语言模型。水平文字行让同一行字符落在相近的高度位置编码上，行间间距变成稳定的垂直位移；MRoPE 一类把高、宽拆开的位置几何，也更接近训练时「横排文档」的分布。斜行则把「同行」拆到对角线相邻的 token 上，注意力必须同时补偿内容和几何，容量被浪费在逆变换上。</p><p>从采样角度看，旋转不是信息无损操作。离散网格上的旋转会引入插值低通，细笔画、小号字、点阵打印尤其明显。因此「先小图估角、再对原分辨率旋转」比「在已压缩的视觉 token 上估角」更合理：token 网格已经把高频细节丢掉了。这也解释了为何矫正是前置，而不是解码器用自然语言说「这页好像斜了」就能补回来——生成侧看不到被插值抹掉的像素。</p><p><span class="marginnote">透视（相机不垂直纸面）不能用单个 \(\theta\) 消掉。单应矩阵有八个自由度，旋转只是其中两个三角自由度里的一个。证件放在桌角、书本翻开的曲面，打开 <code>enable_rotate</code> 仍然会剩梯形和弯曲。那些要靠更高阶的文档展平，或直接让模型在畸变图像上认字，而不是幻想一个开关解决全部几何。</span></p><h3 id="训练分布与开关的关系" tabindex="-1">训练分布与开关的关系 <a class="header-anchor" href="#训练分布与开关的关系" aria-label="Permalink to &quot;训练分布与开关的关系&quot;">​</a></h3><p>若预训练和 OCR 后训练里已经大量加入随机旋转增强，模型对中等斜角会有一定鲁棒性，开关的增益变小。扫描件流水线里斜角集中在 \(\pm5^\circ\)，增强就能覆盖；用户相册里 90° 拍错、180° 倒置更常见，离散翻转必须显式处理。产品把矫正做成可选开关，等于承认两套分布并存：干净扫描希望少一次重采样以保锐度，野外照片希望先把阅读坐标扶正。默认关闭，是把锐度优先留给已经水平的图。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p><code>enable_rotate</code> 只在 DashScope 路径上作为一等参数存在。走 OpenAI 兼容 Chat Completions 时，不能靠同名字段「默默转正」；调用方要么自己做估角，要么接受斜图识别变差。这不是模型能力突然消失，是协议没有把前置几何暴露出来。批量流水线里应在接入层统一：斜扫描件走带旋转的接口，屏幕截图和已桌面化的 PDF 渲染图关闭旋转，避免无意义的二次插值。</p><p>矫正失败比不矫正更糟。估成 90° 的反例会把整页横竖对调，表格的行变成列，KIE 的字段名和值对调。因此开关不是「永远 true」。对已知朝向的证件模板、固定工位摄像头，应锁死几何，只在来源不可控时打开。多页 PDF 若逐页独立估角，某一页估错会造成跨页阅读顺序跳变；原生 PDF 路径里文字对象已有自己的变换矩阵，更不该对矢量页盲目做图像级旋转。</p><p><span class="marginnote">旋转矫正解决的是阅读坐标系，不解决分辨率。一张斜着的 200 万像素图转正后仍然受 <code>max_pixels</code> 约束，过小的字在切块后依旧不可读。先转正再按像素预算缩放，比先缩小再估角更稳，因为估角本身也需要足够的边缘能量。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>文档倾斜破坏轴对齐 patch 与阅读顺序先验，是 OCR 的几何前置，而不是识别完成后的后处理。</li><li>平面内旋转由 \(\theta\) 参数化；Qwen-VL-OCR 用 <code>enable_rotate</code> 在编码前估朝向并反向映射重采样。</li><li>整页转正与文字框局部角 <code>rotate_rect</code> 的 \(\alpha\) 是两层几何，定位坐标必须写明参考画布。</li><li>旋转重采样有插值损失；透视和曲面超出单角模型，开关不能替代文档展平。</li><li>OpenAI 兼容接口不直接暴露该参数；固定朝向的工位应关闭，以免估错 90° 造成整页错位。</li><li>出处：阿里云百炼 / Qwen Cloud《文字提取》文档中的图像旋转矫正与 <code>enable_rotate</code> 说明；定位几何见同系列的文字定位任务。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

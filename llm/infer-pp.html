@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流水线并行推理 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_infer-pp.md.DxUaMmCp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="流水线并行推理" tabindex="-1">流水线并行推理 <a class="header-anchor" href="#流水线并行推理" aria-label="Permalink to &quot;流水线并行推理&quot;">​</a></h1><div class="epigraph"><p>训练用微批填满管道；decode 一步一个 token、管道里没有微批可填时，气泡接近阶段数减一，流水线从吞吐工具变成尾延迟税。</p><footer>—— 对照 Huang 等 GPipe、Megatron 1F1B，以及 DistServe 对 inter-op 并行与速率扩容的讨论</footer></div><p><a href="/llm/pipeline-parallel">流水线并行</a> 按深度切层，阶段之间点对点传激活。训练侧用 \(M\) 个微批压气泡，1F1B 再压激活内存。推理没有反向，看似更简单，却少了「用微批填管道」这个前提。Prefill 一个请求内部有长序列，或多请求并发时，管道里可以同时有多个前向；decode 每个请求每步只推一个 token，若没有足够的连续批，阶段 \(2..P\) 都在等阶段 1，利用率 \(1/P\)。DistServe 把 inter-operator 并行写成：适度增加执行时间，但随 GPU 数近线性扩大速率容量。本篇写推理期 PP 何时有用、气泡从哪来、以及与 <a href="/llm/pd-disaggregation">PD 分离</a> 之后的阶段划分如何咬合。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>权重大到 TP 组已经占满节点内 NVLink，还是放不下，就得沿深度再切。PP 的通信是边界激活，体积 \(b\times s\times d\)，次数少，跨节点 InfiniBand 比层内 All-Reduce 更扛得住。这在训练里成立，在 prefill 里也往往成立。Decode 把 \(s\) 变成 1，\(b\) 若也小，通信延迟相对计算更大，更致命的是调度：阶段必须等上一阶段的该微批（此处即该 decode 步）完成。单请求、同步流水线的气泡比例约 \((P-1)/1\)，几乎不可用。</p><p>Colocate 服务还要把 prefill 与 decode 塞进同一条管道，长 prefill 占满阶段时，decode 步被堵住，TPOT 炸裂；chunked-prefill 只能缓和，不能取消依赖。问题是：PP 作为「扩容轴」与作为「单请求加速轴」在推理里必须拆开讲。</p><h3 id="气泡在推理里长什么样" tabindex="-1">气泡在推理里长什么样 <a class="header-anchor" href="#气泡在推理里长什么样" aria-label="Permalink to &quot;气泡在推理里长什么样&quot;">​</a></h3><p>训练气泡来自预热与冲刷，稳定段 \(M\gg P\) 时可忽略。推理 prefill：若同时有 \(R\) 个独立请求（或把一条长提示切成可流水的块），\(R\) 扮演 \(M\)。\(R\ge P\) 时管道可满，TTFT 的排队与执行要分开算——后进请求要等气泡填满。推理 decode：连续批处理把许多请求的一步拼成一个 iteration。Iteration 级调度下，一个 decode batch 流过 \(P\) 段，只要 batch 里请求数稳定，管道可以保持满；新请求加入、旧请求结束造成 batch 形状抖动，气泡再现。单请求流式对话、\(P=8\)，几乎是最坏情况。</p><p><span class="marginnote">微批在推理里常常不叫微批，而叫「连续批里的请求数」或「chunked prefill 的块」。会计相同：管道深度 \(P\) 需要足够多的独立前向填充。名称变了，公式没变。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Prefill 实例：层按 FLOPs 均分到 \(P\) 段（输出头往往更重，不要按层数均分）。多请求或 chunk 作为填充物。紧 TTFT 时 DistServe 更倾向 intra-op（<a href="/llm/infer-tp">推理 TP</a>）来砍执行时间；TTFT 宽松、要拉高每卡 goodput 时，inter-op 用更多卡换速率，单请求执行时间只温和上升。Decode 实例：优先用连续批把 \(b\) 做大，PP 用来在 batch 已大、还要加卡时扩吞吐；TPOT SLO 很紧时仍要 intra-op 降步延迟，而不是盲目加 \(P\)。</p><h3 id="distserve-的-inter-op-与同节点分段" tabindex="-1">DistServe 的 inter-op 与同节点分段 <a class="header-anchor" href="#distserve-的-inter-op-与同节点分段" aria-label="Permalink to &quot;DistServe 的 inter-op 与同节点分段&quot;">​</a></h3><p>DistServe 还有一层与 <a href="/llm/pd-kv-transfer">KV 传输</a> 有关的用法：按层分段后，把 prefill 与 decode <strong>同一逻辑阶段</strong>放进同一节点，迫使 KV 走 NVLink 而不是跨机。此时 \(P\) 不只是吞吐旋钮，还是放置约束：阶段数、每节点 GPU 数、P/D 实例的段要对齐。低跨节点带宽集群上，这个动机可能强过「用 PP 扩容」。高 InfiniBand 集群上，KV 传输不是墙，PP 回归普通的速率轴。</p><div class="mermaid"></div><h3 id="与-chunked-prefill、1f1b-的关系" tabindex="-1">与 chunked-prefill、1F1B 的关系 <a class="header-anchor" href="#与-chunked-prefill、1f1b-的关系" aria-label="Permalink to &quot;与 chunked-prefill、1F1B 的关系&quot;">​</a></h3><p>Chunked-prefill 是 colocate 下把长提示切开、与 decode 拼批，减轻干扰。它不消除干扰，还让 prefill 重复读 KV。PD 分离之后，prefill 实例内部仍可用切块来限制单次激活内存，但不再需要为了 decode 而 piggyback。训练的 1F1B 在推理里没有反向可交替；对应的是「一个 iteration 推完所有阶段再进入下一 iteration」，或异步把阶段重叠。异步重叠会引入乱序与更复杂的 KV 版本，在线延迟服务通常保持同步 iteration，用 batch 填气泡，而不是用异步乱序填。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>PP 减的是每卡权重 \(\Phi/P\)，通信是点对点激活而不是每层 All-Reduce。Prefill 执行时间随 \(P\) 温和增加（气泡与边界通信），吞吐随实例内 GPU 数近线性——DistServe 对 decode 在大 batch 下也给出类似图像：inter-op 扩吞吐，intra-op 降延迟、收益递减。单请求延迟的下界仍包含流水线深度：第一 token 必须流过 \(P\) 段。因此 PP 几乎从不单独用来优化「一个用户的 TTFT」，除非同时用 TP 砍每段时间。</p><p>负载不均在推理里同样无法 All-Reduce 掉：最慢阶段决定 iteration 时间。MoE 层、超宽 FFN、LM 头应摊开。Decode 步时间短，阶段不均比训练更刺眼。数值上 PP 不改变层内求和顺序，比改 TP 更接近可复现；但连续批的组成变化会改算子形状，延迟曲线仍会抖。</p><p><span class="marginnote">「线性扩吞吐」的前提是管道已满且没有 KV 传输墙。空管道时加 \(P\) 是线性加气泡。测 PP 收益必须报当时的 batch 与填充率，否则数字没有意义。</span></p><h3 id="pd-分离后两条管道" tabindex="-1">PD 分离后两条管道 <a class="header-anchor" href="#pd-分离后两条管道" aria-label="Permalink to &quot;PD 分离后两条管道&quot;">​</a></h3><p>分离后 prefill 管道与 decode 管道可以不同 \(P\)、不同段映射。KV 必须按层对齐传输：P 侧阶段 \(i\) 的缓存送到 D 侧阶段 \(i\)。若两边 \(P\) 不同，要有重切分或在传输层做层到设备的映射，否则缓存会对错卡。这是推理 PP 独有的约束，训练没有「另一条管道要接住 KV」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>单请求、低并发的交互式服务，PP 不是默认项；复制或小 \(T\) 更干净。离线批处理、长 prefill、大连续批的 decode 池，PP 才像训练时那样划算。\(P\) 受层数整除约束；余下层归属要写死。检查点与导出仍按阶段分片，扩缩 \(P\) 要重切。</p><p>不要把训练 \(P\) 搬到在线 decode。也不要把 pipeline bubble 和 PD 干扰当成一件事：前者是阶段依赖，后者是 prefill/decode 抢同一 GPU。对策分别是填管道与拆池子。引用 GPipe / Megatron 说明气泡公式；引用 DistServe（arXiv:2401.09670）说明推理 inter-op 的速率含义与放置。Splitwise 的异构池会进一步让 P 侧与 D 侧选不同的卡型，PP 深度也可以不同。</p><p><span class="marginnote">流式输出时用户按 token 感知延迟。PP 把「一步」定义成「所有阶段跑完」。若实现成阶段 1 先出部分结果，那是另一套异步语义，不再是标准同步流水线，延迟统计也要重做。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>推理 PP 仍按深度切层；prefill 可用多请求或切块填管道，decode 必须靠连续批，否则气泡约 \(P-1\)。</li><li>Inter-op 擅长扩吞吐，不擅长砍单请求执行时间；紧 SLO 时先考虑 TP。</li><li>PD 分离后两条管道的 \(P\) 可不同，但 KV 要按层映射；同阶段共节点可把传输限制在 NVLink。</li><li>Chunked-prefill 是 colocate 的干扰缓解，不是 PP 的替代品。</li><li>单请求交互式 decode 默认不该上大 \(P\)。</li><li>出处：Huang 等 GPipe；Megatron 流水线调度；Zhong et al., DistServe，arXiv:2401.09670。Splitwise（Patel et al., arXiv:2311.18677）给出异构池上阶段分离的对照。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DCLM 数据过滤 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dclm-filter.md.C_Zf9o4s.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="dclm-数据过滤" tabindex="-1">DCLM 数据过滤 <a class="header-anchor" href="#dclm-数据过滤" aria-label="Permalink to &quot;DCLM 数据过滤&quot;">​</a></h1><div class="epigraph"><p>把预训练数据做成竞赛：固定一个公共池，只改过滤函数，用固定模型与固定计算比较下游，才能知道哪一种「质量」真的值钱。</p><footer>—— Li et al., DataComp-LM: In search of the next generation of training sets for language models</footer></div><p>启发式与维基困惑度能丢掉乱码，却越来越分不清「通顺的知识」和「通顺的空文」。Li 等人的 DataComp-LM（DCLM）把 DataComp 的方法论搬到语言模型：给出一个从 Common Crawl 来的公共池，参赛者只提交过滤或重采样策略，训练协议锁死，用下游套件排名。他们给出的 DCLM-baseline 用一个便宜的 fastText 分类器——正例来自高质量论坛与指令风格文本，负例来自随机网页——在池子上打分截断，得到的子集在 7B、万亿 token 量级上具有竞争力。关键不是又一个数据集名字，而是：过滤本身可以被当成可复现的研究对象。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>网页配方的每一步都有人声称「更重要」：抽取、MinHash、Gopher 规则、维基分类器、教育价值头。若每个人换池子又换模型，结果不可比。DCLM 要冻结池子与训练，只让过滤函数 \(f\) 变化，观察 \(f(\mathcal{D})\) 上训出的模型。这样，「用 OH-2.5 当正例的 fastText」能不能打过「Gopher 启发式」就有了同一把尺子。</p><p>第二问题是质量定义的漂移。Wenzek 的 KenLM 相对维基；Llama 相对维基页面分类器；FineWeb-Edu 相对大模型标注的教育价值。DCLM-baseline 相对「像高质量问答 / 指令」的文本。这些定义会选出不同的尾部：维基头档偏百科，指令正例偏解释体。没有竞赛协议，社区会把所有定义都叫做「高质量网页」，然后在论文表格里各说各话。</p><h3 id="池子比分类器更先决定上限" tabindex="-1">池子比分类器更先决定上限 <a class="header-anchor" href="#池子比分类器更先决定上限" aria-label="Permalink to &quot;池子比分类器更先决定上限&quot;">​</a></h3><p>DCLM 的池子已经过抽取与基础清洗；参赛过滤不能把已经丢掉的公式节点变回来。这与 FineWeb 的教训一致：抽取是上限。竞赛的公平性依赖于池子本身足够大、足够脏，让过滤有事可做，又不能脏到变成「谁先做抽取谁赢」。<span class="marginnote">若有人在池子外偷偷加入书籍或合成教材，竞赛就坏了。DCLM 的规则把「只过滤公共池」写成一等约束，否则又退回不可审计的内部混合物。</span></p><p>过滤还有计算公平。用 70B 模型给 10T token 打分，学术参赛者无法跟随。baseline 选择 fastText，是刻意把「可规模化的弱分类器 + 好正例」当成强基线，逼后来者证明更重的模型打分值得那笔账单。这与 SemDeDup 一类嵌入去重的成本账是分开的：一个改质量权重，一个改重复结构。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>公共池来自大规模 Crawl 处理，接近 RefinedWeb / FineWeb 所代表的「已经能训」的网页。baseline 的过滤是监督学习：正例取 OpenHermes 一类指令数据以及 ELI5 一类长解释论坛帖，负例取池中随机文档，训练 fastText 预测 \(p(\text{正例}\mid d)\)，按分数保留头部。超参包括正负例配比、截断分位数、是否与启发式合取。Li 等人表明，这一刀在固定训练预算下优于许多纯启发式，说明「像有人认真解释过的文本」比「像维基」更贴近当前下游套件（阅读、知识、部分推理）。</p><p>竞赛还允许重采样与配比，不只是硬截断。可以把分数当采样权重，或把池子划成桶再调 \(w\)。训练锁死：同一架构、同一 token 数、同一上下文与优化器，避免用训练技巧冒充数据胜利。评测用公共套件；污染检测要另做，否则过滤若偏向「更像 MMLU 网页」会虚高——这正是评测污染篇要管的事。</p><div class="mermaid"></div><h3 id="正例即定义-且会过时" tabindex="-1">正例即定义，且会过时 <a class="header-anchor" href="#正例即定义-且会过时" aria-label="Permalink to &quot;正例即定义，且会过时&quot;">​</a></h3><p>baseline 的正例偏英语、偏论坛解释体与指令格式。代码、数学符号、低资源语言在这种头上会吃亏，必须分桶过滤或改用各域正例。生成式 SEO 一旦学会解释体，fastText 的词袋特征会被模仿，分数膨胀。DCLM 的协议价值在于：当负例分布变了，可以在同一池子上重训分类器、重交一份过滤，而不是改模型叙事。正例也应定期替换：2024 年的「高质量指令」到 2026 年可能已是模型生成腔的同义词。</p><p><span class="marginnote">不要把 DCLM-baseline 的快照当成永远的最佳网页。它是竞赛的强基线，证明了对照分类器这一类方法。新的 \(f\) 应在同一协议下报告，而不是只在内部数据上宣称打败 heuristic。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>过滤函数诱导条件分布 \(p(d\mid f(d)=1)\)。硬阈值改变支撑；软权重改变频率。DCLM 的比较对象是：在相同的优化轨迹长度下，哪种 \(p\) 让验证探针下降更快、泛化更好。这比看过滤后的平均困惑度更诚实——KenLM 低分子集对自己的参照过拟合，未必对 MMLU 有用。Li 等人用「锁训练、变数据」隔离因果：若分数上升，原因是 \(f\)，不是更大的模型或更长的训练。</p><p>分类器误差会沿采样放大。假阳性（空文得高分）在头部被上采样，比随机脏数据更伤；假阴性（难但有用的页被截掉）造成不可逆的覆盖空洞。因此竞赛应报告保留比例、语种与长度直方图，而不只报最终分数。把 10% 最「像指令」的网页拿来训通用模型，分布会变窄，类似合成数据的支撑收缩，只是生成器换成了过滤器。</p><h3 id="与-ccnet、fineweb-edu-的分工" tabindex="-1">与 CCNet、FineWeb-Edu 的分工 <a class="header-anchor" href="#与-ccnet、fineweb-edu-的分工" aria-label="Permalink to &quot;与 CCNet、FineWeb-Edu 的分工&quot;">​</a></h3><p>CCNet 的 KenLM 是无监督参照；FineWeb-Edu 是大模型教育分蒸馏；DCLM-baseline 是对照文本上的线性/词袋分类器。三者可以叠：先启发式去垃圾，再 Edu 或 DCLM 头做质量，再 SemDeDup 去语义重复。叠的顺序有后果：先分类器后去重，高分转载会被当成许多高质量文档。正确顺序仍是抽取 → 基础启发式 → 近重复去重 → 质量分类器。DCLM 竞赛若允许参赛者改变顺序，应要求报告，否则归因又糊。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>锁死的训练协议必然落后于生产：更长上下文、MoE、不同 tokenizer 会与数据交互。baseline 赢在 7B 稠密模型上，不自动等于赢在 70B 或代码增强混合物上。池子的英语中心会让多语言过滤看起来像「低分」，那是池子问题不是分类器问题。数学与代码应退出网页竞赛，另建池子——否则 DCLM 头会把 LaTeX 当异常。</p><p>法律与隐私不在过滤分数里。高分论坛帖可能含 PII；高分代码页可能无许可。DCLM 优化的是下游准确率，不是可发布性。Dolma 式治理仍要叠在竞赛冠军过滤器之外。另外，过滤竞赛对评测污染是盲的：若正例或池子已含基准文本，赢的 \(f\) 可能是「最会挑泄漏」的函数。提交应附带与评测集的 n-gram 重叠率。</p><p><span class="marginnote">fastText 赢在成本，不赢在语义。它抓的是词分布，不是论证质量。当空文开始堆叠正例词表（「逐步解释」「因此我们看到」），必须换负例或上嵌入分类器。DCLM 的遗产是协议，不是某一个冻结的 <code>.bin</code> 权重。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DCLM 把预训练过滤做成 DataComp 式竞赛：公共池、锁训练、只比 \(f\)。</li><li>baseline 用高质量问答 / 指令作正例训练 fastText，在网页池上截断，证明对照分类器强于许多启发式。</li><li>正例定义质量，且会过时；生成腔会污染词袋特征。</li><li>先去重再打分；抽取上限与池子英语中心仍在。</li><li>竞赛分数不管许可、PII 与评测泄漏，必须另叠治理与污染检测。</li><li>代码与数学不应交给网页质量头。</li><li>出处：Li et al.，<em>DataComp-LM</em>；池子与启发式对照 Penedo FineWeb / RefinedWeb；参照过滤对照 Wenzek CCNet 与 Soldaini Dolma。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>InfiniBand 与 GPUDirect | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_infiniband-gpudirect.md.Dkd3IfpJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="infiniband-与-gpudirect" tabindex="-1">InfiniBand 与 GPUDirect <a class="header-anchor" href="#infiniband-与-gpudirect" aria-label="Permalink to &quot;InfiniBand 与 GPUDirect&quot;">​</a></h1><div class="epigraph"><p>跨节点的张量交换若必须绕道主机内存，网卡标称带宽再高，有效路径也被多一次拷贝钉死。</p><footer>—— NVIDIA GPUDirect RDMA：第三方 PCIe 设备可直接读写 GPU 显存，避开主机 DRAM 弹跳缓冲</footer></div><p><a href="/llm/scale-up-vs-scale-out">Scale-Up 与 Scale-Out</a> 把机柜内 NVLink 域和机柜间数据中心网络拆成两层。本篇只谈 Scale-Out 这一层里、对大模型训练与推理最关键的两条技术：<strong>InfiniBand</strong>（以及同语义的 RoCE）作为跨节点传输平面，<strong>GPUDirect</strong> 作为让这块平面直达 HBM 的路径。没有 GPUDirect，NCCL 的跨节点 All-Reduce 会在 GPU 与网卡之间多走主机 DRAM；有了它，网卡 DMA 引擎对着 GPU 暴露的 PCIe 窗口读写，主机只在注册缓冲区时出现，不在数据路径上。Vera Rubin NVL72 一类机柜把 72 张 GPU 收成一块加速器之后，柜外仍然要靠这层网络把许多机柜收成集群，见 <a href="/llm/vera-rubin-nvl72">Vera Rubin NVL72</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单机多卡的集体通信可以走 NVLink，跨主机就必须经过网卡。传统路径是：GPU 把张量拷到主机内存，网卡再从主机内存 DMA 到线路，对端反过来再走两趟。一次逻辑传输变成四次拷贝，CPU 缓存、主机内存带宽和 PCIe 根复合物都被占用。消息越大，弹跳的代价越明显；消息很小时，多一次同步与驱动往返也会把延迟抬进张量并行难以重叠的区间。</p><p>InfiniBand 本身解决的是「有一条低延迟、可 RDMA 的链路」，并不自动保证「这条链路从 GPU 出发」。网卡若只能看见主机虚拟地址，GPU HBM 对它仍是另一台设备。GPUDirect 要补的，正是让网卡成为 GPU 的 PCIe 对等体：注册过的 GPU 缓冲区可以直接作为 RDMA 的本地或远端内存。关掉这条路径，拓扑再漂亮，跨节点有效带宽也会掉到「先拷到 CPU 再上网」的屋顶线下。</p><h3 id="弹跳缓冲如何把屋顶线砍断" tabindex="-1">弹跳缓冲如何把屋顶线砍断 <a class="header-anchor" href="#弹跳缓冲如何把屋顶线砍断" aria-label="Permalink to &quot;弹跳缓冲如何把屋顶线砍断&quot;">​</a></h3><p>设一次跨节点传输体积为 \(n\) 字节，主机内存拷贝带宽为 \(B_{\mathrm{host}}\)，网卡线路带宽为 \(B_{\mathrm{nic}}\)。无 GPUDirect 时，墙钟至少包含</p> \[T \gtrsim \frac{n}{B_{\mathrm{host}}} + \frac{n}{B_{\mathrm{nic}}} \]<p>再加上两端的对称拷贝。有 GPUDirect 时，主机项从关键路径消失，时间更接近 \(n/B_{\mathrm{nic}}\) 加上 PCIe 对等 DMA 的效率因子。预训练里数据并行的梯度、专家并行的 All-to-All、PD 分离的 KV 传输，都按这个公式付账。把厂商网卡标称 Gb/s 直接当成 NCCL <code>busbw</code>，等于假装弹跳不存在。</p><p><span class="marginnote">GPUDirect 是一组技术的总称。本篇的对象是 <strong>GPUDirect RDMA</strong>（网卡直达 GPU）以及它在存储侧的兄弟 <strong>GPUDirect Storage</strong>。GPU 之间经 NVLink 的点对点是另一条路径，见 <a href="/llm/nvlink-6">NVLink 6</a>，不要把卡间互连写成「RDMA 网卡」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实践上，跨节点集体通信几乎总经过 NCCL（或等价库）的网络插件。插件用 InfiniBand Verbs 或 RoCE 发出 RDMA Write / Send，本地地址是已注册的 GPU 缓冲区。内核侧曾经依赖 <code>nvidia-peermem</code>（更早叫 <code>nv_peer_mem</code>）把 GPU 页登记进 InfiniBand 栈；较新的开放 GPU 内核模块与 Linux DMA-BUF 把同一件事收成内核内的缓冲区共享，NVIDIA 公开文档推荐优先走 DMA-BUF，而不是继续绑一套随内核版本重编的对等内存模块。</p><p>拓扑必须让 GPU 与网卡成为「近邻」。同一 PCIe 交换机下的 PIX 路径，对等 DMA 最干净；跨根复合物或跨 NUMA，有的平台会降级甚至禁止 GPUDirect。NCCL 用 <code>NCCL_NET_GDR_LEVEL</code> 一类开关决定在哪一层拓扑仍尝试直达。运维上先看 <code>nvidia-smi topo -m</code> 里 GPU 与 mlx 设备的相对位置，再跑与真实消息大小相近的 <code>nccl-tests</code>，确认日志里走的是 GDR 而不是 Host 路径。</p><div class="mermaid"></div><h3 id="与机柜内-nvlink-的分工" tabindex="-1">与机柜内 NVLink 的分工 <a class="header-anchor" href="#与机柜内-nvlink-的分工" aria-label="Permalink to &quot;与机柜内 NVLink 的分工&quot;">​</a></h3><p>机柜内的张量并行、宽专家并行应落在 NVLink 域，不该仅仅因为「有 IB」就把 TP 组拆到柜外。InfiniBand 承担的是：数据并行梯度、跨柜流水线激活、检查点与存储、以及超节点装不下的那一段 All-to-All。Vera Rubin 公开材料把柜外扩展写在 Quantum-X800 InfiniBand 与 Spectrum-X 以太网上，和柜内 <a href="/llm/nvlink-6">NVLink 6</a> 不是同一张图。软件若把 NCCL 默认套接字路径当成跨节点主路，等于主动放弃 GPUDirect。</p><p>SHARP 最初作为 InfiniBand 交换机上的集合规约出现：交换机在端口上做归约，减少树形 All-Reduce 的重复流量。Rubin 把同类能力做到了 NVLink 交换里，见 <a href="/llm/nvlink-sharp">SHARP</a>。两层都可以叫「网内计算」，但一层吃的是柜外梯度同步，一层吃的是柜内 TP / 集合通信。不要把 IB SHARP 的加速比抄到 NVLink 域上当同一组数字。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>GPUDirect RDMA 的硬件故事是 PCIe 对等：GPU 把一块 BAR 窗口映射给对等设备，网卡的 DMA 引擎把 HBM 当成自己的本地缓冲。CUDA 用户态负责钉住、注册、同步；内核负责 IOMMU 与页表。数据平面上没有 CPU memcpy。失败模式也因此是「对等关系不成立」：IOMMU 策略过严、GPU 与 NIC 不在同一 PCIe 域、驱动与 OFED 版本错位、容器没有把 InfiniBand 设备与 GPU 一起注入，都会让 NCCL 静默退回主机路径。</p><p>InfiniBand 相对以太网的传统优势是原生 RDMA、基于信用的流控、以及长期以来与 NCCL / MPI 的绑定。RoCE 把同类语义放到以太网上，Spectrum-X 一类 AI 以太网再补拥塞控制与自适应路由。对大模型程序员，协议名不如路径名重要：这条消息是否 GPU 直达、是否与计算重叠、是否和检查点抢同一条轨。GPUDirect Storage 把同一直达原则用到 NVMe / NVMe-oF：训练数据与检查点不必先在主机 DRAM 里转一圈，但存储平面仍应与梯度平面隔离，否则 step 时间会出现周期性尖峰。</p><p><span class="marginnote">看 <code>nccl-tests</code> 的 busbw，不要只看 <code>ibstat</code> 的链路速率。集体算法、消息大小、GDR 是否启用、GPU–NIC 亲和，都会让有效带宽远低于标称。调跨节点通信，先用同一形状的微基准对齐路径，再改并行度。</span></p><h3 id="注册、同步与小消息" tabindex="-1">注册、同步与小消息 <a class="header-anchor" href="#注册、同步与小消息" aria-label="Permalink to &quot;注册、同步与小消息&quot;">​</a></h3><p>RDMA 要求内存被注册。频繁的小块注册会把驱动开销变成墙；训练框架因此预注册通信缓冲、用持久的 NCCL 通信子。小消息落在延迟区时，GPUDirect 减的是拷贝而不是启动延迟，加链路宽度帮助有限。这时应合并通信、加大 chunk，或把该进程组缩回 NVLink 域。decode 推理的逐步 All-Reduce 往往是这种小消息；跨柜 TP 比训练更不划算，原因正在这里，而不是 InfiniBand「不够快」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在只有 PCIe、没有 GPUDirect 的节点上假设「换一张更快的网卡就能线性加速跨节点 TP」。不要把 GPUDirect 写成可以取消层次化集体通信：节点内仍应先在 NVLink 上归约，再把每节点一份结果打到 IB 上，见 <a href="/llm/pretrain-comm">预训练通信</a>。不要把某一代 ConnectX 的端口速率写成所有集群的物理定律；Vera Rubin 托盘上的 SuperNIC 规格以当时 NVIDIA 产品页为准，本篇不把某一栏 Tb/s 当成自己测的数。</p><p>昇腾、AMD 和其他互连各有自己的 GPU–NIC 直达机制，语义可类比，驱动与拓扑工具不能照搬。Kubernetes 里要同时注入 GPU 与 RDMA 设备，并保证 Pod 的 NUMA / PCIe 亲和；只挂了 GPU、网卡落在另一 NUMA，是线上最常见的「标称有 GDR、实测没有」原因。</p><p><span class="marginnote">出处：NVIDIA GPUDirect RDMA 与 GPU Operator 文档中的 PCIe 对等与 DMA-BUF 路径；NCCL 跨节点走 InfiniBand / RoCE 的公开实现。SHARP 在 IB 交换机上的集合规约见 NVIDIA 网络文档。不把未钉版本的 tokens/s 或某一机房的电缆测试写进正文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>InfiniBand / RoCE 是 Scale-Out 平面；GPUDirect RDMA 让网卡直达 GPU HBM，去掉主机 DRAM 弹跳。</li><li>无直达时，跨节点传输至少多一次主机拷贝，有效带宽被 \(B_{\mathrm{host}}\) 卡住。</li><li>内核侧优先 DMA-BUF；GPU 与 NIC 必须在近邻 PCIe 拓扑上，否则 NCCL 会退回主机路径。</li><li>柜内高频通信仍走 NVLink；IB 承担 DP、跨柜 PP、存储与装不下的 EP。</li><li>IB 交换机上的 SHARP 与 NVLink 交换内的 SHARP 同族不同层，数字不可互抄。</li><li>出处：NVIDIA GPUDirect / NCCL 公开文档；机柜内外分工见 <a href="/llm/scale-up-vs-scale-out">Scale-Up vs Scale-Out</a>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>人写 vs 合成指令 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_human-vs-synthetic-instruct.md.DyIpIgvM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="人写-vs-合成指令" tabindex="-1">人写 vs 合成指令 <a class="header-anchor" href="#人写-vs-合成指令" aria-label="Permalink to &quot;人写 vs 合成指令&quot;">​</a></h1><div class="epigraph"><p>人写示范定义「什么叫答得好」；合成指令定义「还能问出什么」。二者交换角色时，模型会学到便宜的覆盖，或学到昂贵但窄的口吻。</p><footer>—— 对照 Zhou 等 LIMA 的精选人写、Wang 等 Self-Instruct 的自举、Ouyang 等 InstructGPT 的标注员示范，以及 OpenHermes 相对 ShareGPT 的公开混合物</footer></div><p>指令微调总要在两种监督之间做配比：一种是人写的回答（标注员、作者、社区里被挑出来的好答案），一种是模型写的题面或回答（Self-Instruct、教师模型蒸馏、OpenHermes 里大量 GPT-4 轨迹）。争论常被简化成「合成能不能替代人」。经验上两者解决的不是同一个缺口。LIMA 表明，大约一千条精心挑选的人写示范，就足以让强基座在开放生成上像个助手；Self-Instruct 表明，从少量种子出发可以生成数万条题面，把指令遵循从「只会种子任务」扩到更宽的动词与领域。InstructGPT 则坚持关键示范由人按指南写，而不是把生成器的输出直接当金标准。ShareGPT 夹在中间：题面是人写的，回答是当时闭源助手合成的。本篇把「谁写题面、谁写回答」拆开，看风格、覆盖、失败模式，而不把某一种写成唯一正确配方。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>人写的瓶颈是覆盖。标注员不可能穷尽用户会问的动词、领域与多轮追问；写得越像产品政策，越不像真实用户的病句与省略。合成的瓶颈是定义。生成器只能在自己已经会的分布附近采样，题面多样性看起来很大，有效任务族可能很少；回答会复制教师的套话、谄媚、以及事实错误。若用合成回答当唯一监督，学生的上限贴近教师，并且把教师的失败当成应当模仿的行为。</p><p>还有第三种错位：题面人写、回答合成（ShareGPT、多数蒸馏），或题面合成、回答人写（少见，成本更高）。产品评测往往是真人题面。用纯合成题面训练，等于在另一套题型上学遵循，真人评测时的「听不懂口语」不一定是能力问题，是题面域偏移。反过来，只用真人题面、回答却全是教师长思维链，学生会在「几点了」上也输出长推理。</p><h3 id="lima-的「少而精」与-self-instruct-的「自举」不是互斥答案" tabindex="-1">LIMA 的「少而精」与 Self-Instruct 的「自举」不是互斥答案 <a class="header-anchor" href="#lima-的「少而精」与-self-instruct-的「自举」不是互斥答案" aria-label="Permalink to &quot;LIMA 的「少而精」与 Self-Instruct 的「自举」不是互斥答案&quot;">​</a></h3><p>LIMA 的主张是对齐主要改风格，前提是基座已经具备能力、示范覆盖足够的风格轴（问答、教程、建议、少部分多轮），并且每条质量高。它没有主张「合成无用」，也没有主张「一万条脏数据更好」。Self-Instruct 的主张是：给定种子任务，语言模型可以生成新指令、再生成实例，经启发式过滤后用于微调，从而在没有大规模标注的情况下提升遵循。它没有主张生成的回答在事实与安全上可替代指南。把两篇论文打成「质量派 vs 数量派」会丢掉前提：LIMA 的一千条是人挑的；Self-Instruct 的数万条是机器扩的，质量靠过滤而不是靠作者逐条改。</p><p><span class="marginnote">OpenHermes 更接近 Self-Instruct 路线的工业放大：多源合成汇编，条数很大。ShareGPT 更接近「真人题面 + 教师回答」。用二者做消融时，变的不只是人写比例，还有多轮深度与教师身份。不要只报告「合成占比 80%」而不写教师是谁。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按字段决定谁生成。题面侧：真人来源（产品日志、标注员按场景写的提示、ShareGPT 的用户轮、LIMA 的社区题）负责口语、省略、多约束混杂；合成题面（Self-Instruct 及其后裔）负责动词与领域网格——把「翻译 / 改写 / 分类 / 抽取」乘到种子里没有的主题上。回答侧：政策敏感、安全拒答、品牌口吻、以及评测会逐句看的金标准，优先人写或人改；过程性、格式性、已有把握的代码与改写，可用强教师生成再过滤。InstructGPT 把示范阶段放在人，把大规模比较留给后面的奖励模型，等于承认「什么叫好」先由人定义，再在比较里放大。</p><p>过滤合成回答时，不要只用「像不像人话」。应查：是否只换了种子题面的槽位（Self-Instruct 原文就过滤过近重复）；是否句式模板化（同一开场白占比）；代码能否解析；是否在简单题上强制冗长推理；是否复读教师免责声明。人写回答的过滤相反：查指南符合度与事实，而不是用流畅度模型打高分就留下——流畅度会偏向职业标注腔，把社区里有用的短答案删掉，与 LIMA 的多样性目标相冲突。</p><div class="mermaid"></div><p>配比要分字段报告：人写题面比例、人写回答比例，而不是一个「人工数据%」。一个常见的可运行起点是：金标人写回答占小比例但每 epoch 都能见到（上采样），合成填满覆盖；ShareGPT 类「人题+教师答」单独一桶，以便发现谄媚时下调，而不误伤 LIMA 式精选。OpenHermes 当作合成汇编桶，内部再按子源降权，避免单一教师的思维链格式吞掉混合物。</p><h3 id="风格坍缩是合成监督的默认引力" tabindex="-1">风格坍缩是合成监督的默认引力 <a class="header-anchor" href="#风格坍缩是合成监督的默认引力" aria-label="Permalink to &quot;风格坍缩是合成监督的默认引力&quot;">​</a></h3><p>教师模型在温度较低、又经过自身对齐时，回答的词汇熵偏低：列表、加粗、先道歉再拒绝。学生在交叉熵下会把高频表面形式当成任务。人写示范若足够多样，可以拉开熵：短答、表格、代码-only、偶尔不完美但正确的句子。LIMA 刻意选风格轴，就是在对抗坍缩。Self-Instruct 若只用同一个生成器、同一套提示词产题又产答，坍缩会同时发生在题面和回答上，微调后的模型对「不像生成器的题面」变差。缓解是：多温度、多种子、多教师，或题面用一种模型、回答用另一种，再加近重复过滤。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>把题面随机变量记为 \(x\)，回答为 \(y\)。人写测度 \(p_h(x,y)\) 的 \(y\) 条件于人的标准，方差大、噪声类型是笔误与不一致。合成测度 \(p_s(x,y)\) 的 \(y\) 条件于教师 \(\pi_{\mathrm{T}}\)，方差小、噪声类型是系统偏差。SFT 优化的是混合 \(\lambda p_h+(1-\lambda)p_s\) 上的交叉熵。\(\lambda\) 大时，学生贴近人的条件，但 \(x\) 的支撑可能不够，泛化靠基座预训练。\(\lambda\) 小时，\(x\) 的支撑可以人为铺开，但 \(p_\theta(y\mid x)\) 被拉向 \(\pi_{\mathrm{T}}\)。ShareGPT 是 \(p_{\mathrm{user}}(x)\,p_{\mathrm{T}}(y\mid x)\)，对人题的覆盖好，对「人认为好的 \(y\)」覆盖差——这正是为何 InstructGPT 还要后面的比较数据与 RLHF，而不能停在模仿教师。</p><p>Self-Instruct 的题面生成是在种子邻域做扩张：有效覆盖取决于过滤后还剩多少任务族，不取决于条数。LIMA 的机制是高 \(\lambda\)、极小样本量、人为保证 \(x\) 的风格覆盖；它依赖基座已经在预训练里见过那些领域的知识。弱小基座上复制 LIMA，会表现为「口吻像助手、内容空」，那不是人写失败，是能力前提不成立。</p><p><span class="marginnote">蒸馏常被说成合成指令。若教师与学生同族、题面又来自教师自己爱答的分布，学生会快速模仿表面形式，指令遵循的指标上升，换一个真人口语集就掉。应用独立的人写题面做持有评测，不要用教师生成的测试指令宣布胜利。</span></p><h3 id="成本曲线不是质量曲线" tabindex="-1">成本曲线不是质量曲线 <a class="header-anchor" href="#成本曲线不是质量曲线" aria-label="Permalink to &quot;成本曲线不是质量曲线&quot;">​</a></h3><p>人写的边际成本随条数上升很快，合成相反。因此工程上总会有一个拐点：再花钱写人，不如花钱做比较数据或做过滤。InstructGPT 把大量人力放在比较而不是无限写示范，是因为比较更适合成对地定义「更好」。LIMA 把人力放在挑一千条，是因为他们的目标是证明风格监督可以很薄。Self-Instruct 把算力放在生成与过滤，是因为没有标注预算。三种花钱方式对应三种论文主张，不能把 OpenHermes 的条数拿来否定 LIMA，也不能把 LIMA 的条数拿来否定覆盖不足。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>合成回答不适合单独承担安全与高风险领域的金标准。教师可能拒绝过度、或在某些题上配合不当；人写指南至少能与产品政策对齐。反过来，要求所有代码与翻译都人写，成本会把覆盖压到不可用。边界应按风险分层：高风险人写或人审，低风险合成加自动检查。</p><p>许可把「能不能用教师」变成硬约束。ShareGPT 与闭源教师蒸馏可能不允许再训练；Self-Instruct 若用可许可的自模型生成，法律边界更清晰，但能力上限更低。这不是算法差异，却常被写成「合成数据效果差」——其实是换了教师。</p><p><span class="marginnote">不要用人写比例当论文卖点。20% 人写若全是同一标注员的邮件模板，有效多样性可能低于 5% 但来自 LIMA 式多来源精选。报告应含任务族数、题面熵、以及独立真人评测，而不是一个百分比。</span></p><p>多轮上人写更难规模化，合成多轮又容易假。实践中 ShareGPT 仍是真实多轮的主要公开来源；用 Self-Instruct 扩多轮时，应要求后轮改约束或纠错，否则只是单轮重复（见 <a href="/llm/multiturn-format">多轮格式</a>）。课程与难度分层（见 <a href="/llm/instruction-curriculum">指令课程</a>）对合成更关键，因为生成器默认往中等难度、中等长度挤。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>人写示范定义好回答；合成指令扩张题面与格式覆盖。字段要分开配比，不要一个「人工%」。</li><li>LIMA：少而精的人写足以改风格，前提是强基座与多样示范。Self-Instruct：种子自举扩任务族，质量靠过滤。</li><li>InstructGPT 坚持示范由人按指南写，大规模比较放在后面，而不是用教师模仿替代定义。</li><li>ShareGPT 是人题+教师答；OpenHermes 是合成汇编。二者作公开对照，须写明教师与多轮深度。</li><li>合成默认导致风格坍缩；人写默认导致覆盖不足。混合时金标上采样、合成填网格。</li><li>持有评测用真人题面；高风险回答需要人审。许可可能禁止某些教师蒸馏。</li><li>出处：Zhou 等，LIMA，2023；Wang 等，Self-Instruct，ACL 2023；Ouyang 等，InstructGPT，NeurIPS 2022；公开对照 ShareGPT、OpenHermes。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

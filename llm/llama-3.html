@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Llama 3 数据与 tokenizer | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llama-3.md.ClMrMRe_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="llama-3-数据与-tokenizer" tabindex="-1">Llama 3 数据与 tokenizer <a class="header-anchor" href="#llama-3-数据与-tokenizer" aria-label="Permalink to &quot;Llama 3 数据与 tokenizer&quot;">​</a></h1><div class="epigraph"><p>Llama 3 在公开来源上预训练超过 15 万亿 token，并把词表扩到 12.8 万；同样 8B 与 70B 两个稠密档，编码效率比 32k SentencePiece 高一截。</p><footer>—— Meta Llama 3 发布说明与 2024 年技术报告</footer></div><p>Llama 1/2 把块结构定成开源默认之后，下一档可公开核对的跳跃主要不在再发明注意力，而在<strong>数据规模</strong>与<strong>切词</strong>。2024 年 Meta 发布 Llama 3 的 8B 与 70B：预训练超过 15T token，序列长度 8192，词表约 128k（实现上 128256），分词器改为 tiktoken 风格的 BPE，两个尺寸都用 GQA。本篇只写数据与 tokenizer 这两项如何改变有效上下文与多语/代码密度，不把更长窗口或后续混合专家写进这一代。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>32k SentencePiece 对英语尚可，对代码、非拉丁脚本和混合文本会产生碎 token：同样 2048 或 4096 的「长度」里，装下的自然语言更少，梯度浪费在子词噪声上。词表太小还会把字节级回退变得频繁。与此同时，Llama 2 的约 2T token 在 70B 上已经显示「还没把密集模型喂饱」——同等参数继续加数据，基准仍涨。2024 年要回答的是：公开网络数据还能不能再挖一个数量级，以及词表扩到 12.8 万之后，嵌入矩阵变大是否被更短的序列长度赚回来。</p><p>第二个问题是污染与截止。15T 比 2T 更容易撞上评测集、版权区和私有用户数据。技术报告与模型卡必须写清来源类型、是否含 Meta 用户数据、知识截止月份，否则 15T 只是不可审计的大数。</p><h3 id="词表变大不是免费午餐" tabindex="-1">词表变大不是免费午餐 <a class="header-anchor" href="#词表变大不是免费午餐" aria-label="Permalink to &quot;词表变大不是免费午餐&quot;">​</a></h3><p>嵌入与输出头参数约为 \(2Vd\)。\(V\) 从 3.2 万到 12.8 万，这一项大约四倍，对 8B 不是小数，对 70B 相对更小。收益是压缩率：同样字节的文本变成更少 token，注意力的 \(n\) 下降，等于把 8k 窗口换成更多可读内容。若压缩率提不上来，只是白白养了一张大表。</p><p><span class="marginnote">习惯说 128k 词表，实现常数是 128256，含保留特殊符号。写配置时应对齐 <code>vocab_size</code>，不要按 \(2^{17}\) 心算完再差 256 导致嵌入加载失败。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>数据。</strong> 8B 与 70B 都在超过 15T 的公开在线数据混合上预训练。相对 Llama 2，代码占比大约四倍，并包含覆盖三十余种语言的高质量非英语数据（约占百分之五量级，以发布说明为准）。token 只计预训练，不含后期指令数据。知识截止：8B 约 2023 年 3 月，70B 约 2023 年 12 月。模型卡写明预训练与微调数据都不含 Meta 用户数据。打包时使用 8192 的序列长度；文档边界上的掩码避免把无关文档当成连续因果上下文——这是数据管线而不是新注意力。</p><p><strong>Tokenizer。</strong> 采用 128k 级词表的 BPE，实现对齐 tiktoken（字节级、GPT-4 一类词表的近亲），而不是 Llama 1/2 的 SentencePiece 32k。训练分词器时向代码、多语与数字倾斜，使那些域的平均 token/字节下降。特殊符号为对话模板、工具调用预留槽位，但本篇把它们当成词表容量，不展开对话格式。</p> \[n_{\mathrm{tok}} \approx C \cdot \mathrm{bytes}(x),\qquad C_{\mathrm{L3}} &lt; C_{\mathrm{L2}} \]<p>\(C\) 是压缩系数。英语大约可少约 15% 的 token；代码与部分非英语下降更明显——具体百分比随语料变，方向稳定：同样 8k 位置，Llama 3 装得下更多源代码和更多非英语句子。</p><div class="mermaid"></div><h3 id="_15t-与-128k-必须一起读" tabindex="-1">15T 与 128k 必须一起读 <a class="header-anchor" href="#_15t-与-128k-必须一起读" aria-label="Permalink to &quot;15T 与 128k 必须一起读&quot;">​</a></h3><p>若只扩数据、不改词表，多语和代码会被切碎，15T 里很大一部分梯度花在无意义子词上。若只扩词表、数据仍是 2T 英语网页，大词表的长尾 token 学不饱，嵌入噪声。Llama 3 把两项绑在同一代：数据覆盖为长尾 token 提供计数，词表为数据提供更短的序列。8B 在 15T 上训，是「小模型、过训练」路线的极端化，对标的是「同推理成本下尽量强」，而不是再堆一个中档尺寸。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>BPE 词表更大，高频词与常见代码片段变成单 token，注意力可以直接把它们当原子。碎片减少后，RoPE 的相对距离也更接近「语言学距离」而不是「字节距离」：一句德语少切几个子词，同一 8k 窗口里跨句依赖更短。这不是新位置编码，是 tokenizer 改了 \(n\) 的语义。GQA 在 8B 与 70B 全开，则是服务侧为 8k 解码准备的斜率；它与 15T 无直接因果关系，但与「产品要能跑 8k」同时出现。</p><p>数据规模改变的是拟合与记忆。15T、多数 token 过一遍或少数 epoch，70B 仍处在欠拟合曲线的右侧相对 Llama 2 的 2T。代码加倍以上，解释了为何同等尺寸上 HumanEval 一类跳得比常识问答更狠——那是配比，不是突然会推理。非英语 5% 看起来小，但相对旧代几乎纯英语已经是质变；它不够训成均衡多语系统，只是让分词器和表示不再把非英语当噪声。</p><p><span class="marginnote">指令微调另有公开指令集与逾千万人类标注量级（以 2024 年模型卡为准），那是对齐数据，不要加进 15T。把 SFT 算进预训练 token，会同时夸大预训练、低估对齐成本。</span></p><h3 id="截止与评测泄漏" tabindex="-1">截止与评测泄漏 <a class="header-anchor" href="#截止与评测泄漏" aria-label="Permalink to &quot;截止与评测泄漏&quot;">​</a></h3><p>8B 与 70B 截止不同，同一条新闻在两个尺寸上「知不知道」可以不一致，这是数据快照问题。15T 抓取必须做去污，技术报告描述了过滤管线，外部无法逐条审计。引用基准提升时，应优先看截止之后的集、或明确的污染分析；只看与网页重叠高的旧选择题，15T 的优势可能被背诵夸大。Tokenizer 也会改基准：同样字符预算下题面更短，等于变相加长上下文，和「模型更聪明」缠在一起。公平对比应对同一分词器重算长度，或报告字节数而不是只报告 token 数。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Llama 3 的 8k 不是长上下文产品工作点；本篇不把窗口再扩一个数量级写成这一代的故事。128k 词表使嵌入在小模型上更贵，量化与张量并行要单独切词表，旧的 32k 词表工具链不能热切换。tiktoken 与 SentencePiece 的预处理（NFKC、前导空格、字节回退）不同，用 Llama 2 模板硬套会切出未见过的特殊符号 ID。</p><p>15T 公开数据仍有版权与质量长尾。模型卡给出的是来源类别与用户数据否定句，不是可下载的 15T 副本。复现「数据规模」只能到订单：比 2T 大一个数量级，代码更密，词表 128k。精确配比、去重阈值、是否含某些基准，外部不应编造。8B 过训练会记住更多表面模式，不一定在每个推理任务上都单调优于「更大但吃得少」的旧模型；论文表格支持总体提升，个案仍要测。</p><p><span class="marginnote">不要把 405B、十万级上下文或 MoE 路线写进 Llama 3 这一代的数据故事。那些是后续发布的轴。这一篇的两个数字就是 15T+ 与 128k 词表，模型锚点就是 8B 与 70B。</span></p><p>嵌入表变大后，未充分训练的长尾 token 会在生成里变成乱码或异常概率。解码端要保证特殊符号不会从普通 BPE 路径打出。多语 5% 解决不了低资源语言的事实覆盖，只解决「切得动」。若产品主市场是某一低资源语，仍要另加数据，而不是假设 128k 词表等于多语能力完成。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Llama 3 的 8B 与 70B 在超过 15T 公开 token 上预训练，序列 8k，知识截止按尺寸分别为 2023 年 3 月与 12 月。</li><li>Tokenizer 为约 128k（128256）的 tiktoken 式 BPE，替换 Llama 1/2 的 32k SentencePiece，提高英语、代码与多语压缩率。</li><li>代码配比约四倍于前代，非英语高质量数据约占百分之五量级，二者都依赖更大词表才吃得进窗口。</li><li>词表扩大增加 \(Vd\) 参数，用更短 \(n\) 换回注意力与有效内容。</li><li>对齐数据不得计入 15T；评测需警惕泄漏与分词器改变的长度语义。</li><li>本篇不讨论更长上下文窗口与后续架构分叉。</li><li>出处：Meta，Llama 3 发布说明与 2024 年技术报告（8B/70B 模型卡：15T+ token、128k 词表、8k 上下文）。前代对照见 Touvron 等 2023 的 Llama 1/2 论文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

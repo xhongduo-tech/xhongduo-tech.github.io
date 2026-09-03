@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>语义去重 SemDeDup | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_semdedup.md.GvVZKsEH.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="语义去重-semdedup" tabindex="-1">语义去重 SemDeDup <a class="header-anchor" href="#语义去重-semdedup" aria-label="Permalink to &quot;语义去重 SemDeDup&quot;">​</a></h1><div class="epigraph"><p>字面近重复只是冰山一角；用嵌入把语义上几乎同一的样本收成簇，再在簇内按相似度删，可以用少得多的数据学到接近的表示。</p><footer>—— Abbas et al., SemDeDup: Data-efficient learning at web-scale through semantic deduplication</footer></div><p>MinHash 估计的是 shingle 集合的 Jaccard，抓转载与小改写，抓不住换了一种说法的同一内容。Abbas 等人的 SemDeDup 把文档（最初是图文对）映射到预训练编码器的嵌入空间，聚类后在簇内丢掉余弦相似度过高的点，留下语义上更分散的子集。他们在网页规模上表明：删掉很大一部分语义重复后，训练效率上升，下游不掉甚至更好。这与 Lee 等人的字面去重互补：一个砍复制粘贴，一个砍「同一语义的多次重说」。预训练第一刀仍应是便宜的精确 / MinHash；SemDeDup 是在字面唯一语料上再付嵌入账单的第二刀。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>网页在嵌入空间里高度冗余。同一产品说明被一万家店铺改几个形容词；同一条新闻被上百个门户改写导语；同一概念的教程互相改写段落顺序。Jaccard 可能只有 0.4，模型却反复看到同一事实与同一句式骨架。继续堆 token，优化器把预算花在重复梯度上，像未经声明的上采样。需要一种对释义敏感、对主题相近但事实不同的文档保持距离的重复定义。</p><p>嵌入去重的代价与失败模式都不同于 MinHash。编码器有领域偏见：英语新闻上训练的句向量，对代码、公式、低资源语言的「语义相同」不可信。聚类要在十亿级向量上做，k-means 的 \(k\)、相似度阈值 \(\epsilon\) 都是配方。阈值太紧，只删掉几乎复制的样本，退回 MinHash 的效果；太松，一个簇里的「猫科动物」文章互相残杀，多样性崩溃。Abbas 等人把问题收成：在簇内对质心最相似的点优先删，保留离群点——重复的是靠近簇中心的那一团，不是整个主题。</p><h3 id="语义重复不是主题重复" tabindex="-1">语义重复不是主题重复 <a class="header-anchor" href="#语义重复不是主题重复" aria-label="Permalink to &quot;语义重复不是主题重复&quot;">​</a></h3><p>两篇独立的巴黎旅游攻略主题相同，事实与写法可以都有新信息；一篇把另一篇同义词替换，语义重复而主题也相同。SemDeDup 用连续相似度，不可避免地会在两者之间切一刀。工程上要的是「释义 / 转载」而不是「同主题」。<span class="marginnote">这把尺子与质量分类器正交。两篇高教育价值的平行释义都会得高分；DCLM 头会把它们都留下。SemDeDup 要在高分集合内部再删。先质量后语义去重，否则低质量垃圾的巨大簇会浪费嵌入计算。</span></p><p>编码器选择即重复定义。用 CLIP 文向量、用 Contriever、用 GTE，簇的形状不同。Abbas 等人在图文数据上用 CLIP，文本预训练复用同一思想时必须换成文档编码器，并决定是编码整页还是首段——长文档平均池化会把「半篇重复半篇新」抹成中等相似，误删或漏删都可能。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准流程：对字面去重后的文档算嵌入 \(z_i\)，跑 k-means 得到簇 \(\{C_k\}\)，在每个 \(C_k\) 内计算样本与质心或两两余弦，将相似度高于 \(\epsilon\) 的点标为语义重复，按与质心的接近程度优先丢弃，每簇保留一个或按预算保留若干离群点。\(\epsilon\) 与保留比例是数据配方，应用小模型探针扫描，而不是看「删了多少百分比」。Abbas 等人的经验是：语义冗余远大于字面冗余，中等激进的阈值就能在不伤下游的前提下显著减数据。</p><p>规模化依赖近似。精确两两不可行；先聚类再只在簇内比，把复杂度从 \(O(N^2)\) 降到簇大小平方。簇必须够紧，否则「簇内」仍是一堆不相关文档。k-means 的 \(k\) 太小，簇过大、误伤上升；\(k\) 太大，真正的释义对被拆开，召回下降。嵌入索引（IVF、HNSW）可替代或补充 k-means，用于按 \(\epsilon\) 检索近邻边再连通分量聚类，与 MinHash+LSH 的图结构类似，只是边权来自余弦而不是 Jaccard。</p><div class="mermaid"></div><h3 id="保留策略会改写领域配比" tabindex="-1">保留策略会改写领域配比 <a class="header-anchor" href="#保留策略会改写领域配比" aria-label="Permalink to &quot;保留策略会改写领域配比&quot;">​</a></h3><p>每簇留最长文档，会偏向聚合页与列表；留最早抓取，会偏向旧快照；留质量分最高，会与 DCLM 头耦合，使「高质量模板」成为唯一幸存者。Abbas 等人强调的是效率：留下的子集在嵌入空间覆盖更均匀。覆盖均匀不等于领域均匀——若编码器把所有代码看成一小团，代码会先被删光。应按语言与模态分桶做 SemDeDup，全球一个 k-means 会让多数语种变成英语簇的噪声点。</p><p><span class="marginnote">SemDeDup 删的是训练频率，也可能删掉评测泄漏的释义版。这是好事，但不能替代针对基准的污染检测：基准句子的释义若从未进训练集，你检测不到；若进了但嵌入阈值没覆盖，仍会漏。两套阈值不要混用。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>从学习动态看，语义重复使经验分布 \(p\) 在某些语义点上堆积。梯度在这些点上反复推同一方向，损失下降快，但有效样本数小于 token 数。SemDeDup 近似地在嵌入流形上做非极大值抑制，使 \(p\) 更接近均匀覆盖。数据效率上升，是因为减少了无效的重复更新。它不增加新信息：删不出来的知识，原来也没有。</p><p>与 MinHash 的关系可用两层度量描述。Jaccard 高几乎一定嵌入相似（字面重复 ⊂ 语义重复的常见情形）；嵌入相似而 Jaccard 低，正是释义。先 MinHash 再 SemDeDup，是因为字面重复用哈希处理便宜两个数量级。反过来只做 SemDeDup，会让编码器对模板导航的共同前缀过敏，或在短文档上不稳定——短向量噪声大，阈值难定。短文档应继续走字面规则或直接丢弃。</p><h3 id="与记忆、合成腔的关系" tabindex="-1">与记忆、合成腔的关系 <a class="header-anchor" href="#与记忆、合成腔的关系" aria-label="Permalink to &quot;与记忆、合成腔的关系&quot;">​</a></h3><p>重复释义会强化记忆：同一事实多种措辞，模型更容易背下来。语义去重降低这种「释义增强记忆」，对减轻训练-评测泄漏有帮助，但也会减弱对同一概念的多角度暴露——有时那是学习所需要的。阈值应允许同一主题留下若干远距点。生成式垃圾特别擅长在嵌入空间里打团：同一提示模板的成千上万变体。SemDeDup 对它们往往比 MinHash 更有效，这是 2023 年之后网页管线愿意付嵌入成本的原因之一。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>编码器会过时。用旧句向量去重 2026 年的生成网页，可能把新文体都看成离群点而留下，或把一种模型腔看成巨大的重复簇而杀光——后者会误伤所有「像 ChatGPT」的高质量解释文。编码器应与待训模型解耦，并定期重嵌。多语言必须用多语言编码器，否则跨语言重复会漏掉，同语言少数脚本会被当成噪声删除。</p><p>计算上，嵌入与 k-means 的账单要写进配方。对 10T token 全部过一次 GTE，可能贵过再训一个小过滤分类器。实践是：只对通过 DCLM / Edu 头的头部做 SemDeDup，尾部直接丢或只做 MinHash。数学公式、代码的嵌入空间塌缩严重，应排除出通用 SemDeDup，改用规范化后的精确哈希或 AST。</p><p><span class="marginnote">不要报告「SemDeDup 删了 40%」而不报告 \(\epsilon\)、\(k\)、编码器名称与分桶。没有这些，百分比不可比，也无法判断你删的是释义还是整个主题。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SemDeDup 在嵌入空间聚类，簇内按余弦删语义近重复，提升数据效率。</li><li>它补的是 MinHash 看不见的释义；不能替代字面去重。</li><li>语义重复 ≠ 主题重复；阈值与保留策略都是配比决策。</li><li>先质量过滤再语义去重，并按语言 / 模态分桶。</li><li>编码器偏见会系统性伤害代码、公式与低资源语言。</li><li>生成式变体比字面转载更需要这一刀。</li><li>出处：Abbas et al.，<em>SemDeDup</em>；字面对照 Broder MinHash 与 Lee 等人去重；网页配方对照 Penedo FineWeb 与 Li DCLM。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

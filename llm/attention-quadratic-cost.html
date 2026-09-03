@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Softmax 注意力的二次复杂度 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_attention-quadratic-cost.md.CTKbMhqt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="softmax-注意力的二次复杂度" tabindex="-1">Softmax 注意力的二次复杂度 <a class="header-anchor" href="#softmax-注意力的二次复杂度" aria-label="Permalink to &quot;Softmax 注意力的二次复杂度&quot;">​</a></h1><div class="epigraph"><p>自注意力是架构里的瓶颈：它对序列长度是二次的时间与内存复杂度；精确计算仍然可以靠输入输出感知的分块来降低显存墙，但不能把渐近阶改成线性。</p><footer>—— Dao et al., FlashAttention, 2022</footer></div><p>缩放点积加 softmax 的定义里，每个查询都要对全部键打分。令长度为 \(n\)，分数矩阵是 \(n\times n\) 的稠密表，随后的加权也要对这张表求和。这就是二次复杂度的来源：不是因为多头，也不是因为残差，而是因为相容性被定义成「所有序对」。Vaswani 等人在 2017 年用全连接换来了恒定跳数的远程依赖；代价在当时的机器翻译长度上可以接受，在今日数千到百万 token 的上下文里则主导显存与前填延迟。本篇只分析这张稠密表的代价结构，以及精确算法能优化到哪一步。稀疏、线性、状态空间是另一组替换方案，这里只作为边界上的对照。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次 SDPA 的主导项有两处矩阵乘：\(QK^\top\) 花费 \(O(n^2 d_k)\)，\(AV\) 花费 \(O(n^2 d_v)\)。若物化分数与权重，还要 \(O(n^2)\) 的读写。当 \(n\gg d_k\) 时，二次项压过投影的 \(O(nd^2)\)。多层、多头并不改变阶：头数 \(h\) 与 \(d_k\) 的乘积通常等于模型宽，总代价仍是</p> \[O\bigl(L\, n^{2}\, d_{\mathrm{model}}\bigr) \]<p>量级。</p><p>更尖锐的是内存墙。现代 GPU 上算术吞吐远高于把 \(n\times n\) 张量搬进搬出高带宽存储器的能力。朴素实现先写出 \(S\)，再 softmax 成 \(A\)，再乘 \(V\)，三次大块访问。\(n=8\times 10^3\) 时一张 FP16 权重矩阵约 128MB，再乘层数与头数，激活显存会先于算力爆掉。二次复杂度因此首先表现为「存不下、搬不动」，其次才是「算不完」。</p><h3 id="前填与解码的代价形态不同" tabindex="-1">前填与解码的代价形态不同 <a class="header-anchor" href="#前填与解码的代价形态不同" aria-label="Permalink to &quot;前填与解码的代价形态不同&quot;">​</a></h3><p>训练和推理前填（prefill）对整段提示一次性做自注意力，必须为每个查询看见当前合法的全部键，二次项完整出现。自回归解码每步只有 \(1\) 条新查询，对已缓存的 \(t\) 个键打分，步代价是 \(O(t d)\)，生成 \(n\) 个词的总和仍是 \(O(n^2 d)\)。KV 缓存消灭的是重复投影，不是二次求和：第 \(n\) 步仍然要对 \(n\) 个键做点积。缓存还把二次问题转成容量问题——键值表按 \(n\) 线性增长，直到显存放不下。</p><p><span class="marginnote">有人说「解码是线性的」。单步相对当前长度是线性，完整生成相对最终长度仍是二次。长短前缀的服务差异主要来自前填的 \(n^2\) 与缓存占用，而不是解码循环突然变成 \(O(n)\) 总代价。讨论吞吐时要把「步」和「整段」分开。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>精确 softmax 注意力可以不物化 \(n\times n\) 矩阵。FlashAttention 的做法是把 \(Q\) 按行块、\(K,V\) 按列块装入片上存储，对每个查询块累加与各键块的点积，用在线 softmax 维护行最大值与归一化因子，块间只传递少量统计量。输出块写回时已经是加权后的值，HBM 上不再落下一张完整 \(A\)。数学结果与朴素算法相同，复杂度阶仍是 \(O(n^2 d)\)，但 HBM 访问降到与 \(n,d\) 更接近线性的项，受片上块大小约束。</p><p>因果掩码与 FlashAttention 兼容：下三角以外的块可以直接跳过，大约减半前填计算。这是常数因子，不是降阶。padding 同理，只能跳过明显空块。只要连通性仍是稠密前缀或稠密全连接，渐近二次不会消失。</p><h3 id="为何「精确」无法降阶" tabindex="-1">为何「精确」无法降阶 <a class="header-anchor" href="#为何「精确」无法降阶" aria-label="Permalink to &quot;为何「精确」无法降阶&quot;">​</a></h3><p>softmax 的分母依赖整行所有键。任意位置的键都可能成为该行最大值或贡献不可忽略的质量，于是一般情形下必须触及全部 \(n\) 个键。除非改变核函数（线性注意力把 \(\mathrm{softmax}(q^\top k)\) 换成 \(\phi(q)^\top\phi(k)\) 从而先聚合 \(\sum \phi(k)v\)），或改变连通性（窗口、块稀疏），否则信息论上就需要 \(\Theta(n^2)\) 次交互。FlashAttention 优化的是常数与内存层次，承认这一下界。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>二次项的结构来自行随机矩阵 \(A\)。\(A\) 的每一行是长度为 \(n\) 的分布，与 \(V\) 相乘是一次全表查询。多头复制了 \(h\) 张这样的表，但每张更「窄」，总交互次数仍按 \(n^2\) 计。交叉注意力把其中一维换成记忆长度 \(m\)，代价 \(O(nm)\)；当 \(m\sim n\) 时同样是二次。编码器-解码器架构在源很长、目标尚短时，\(nm\) 可能暂时低于目标自注意力的 \(n^2\)，这只是两个长度的不对称，不是降阶算法。</p><p>带宽视角下，解码第 \(t\) 步读取 KV 缓存的字节量为</p> \[\Theta\bigl(t \cdot h \cdot d_k\bigr). \]<p>\(t\) 增大后，这一读带宽成为单请求延迟的主项，算力反而空闲。二次代价于是在解码阶段改头换面：从「算 \(n^2\) 次乘加」变成「搬 \(n\) 段历史」。MQA、GQA、MLA 压缩的是每步要搬的历史宽度，滑动窗口压缩的是历史长度，两条线都在打二次代价的存储形态，而不是改 softmax 定义。</p><p><span class="marginnote">混合专家、更大的前馈层会增加 \(O(nd^2)\) 的线性项。当 \(n\) 中等、\(d\) 很大时，前馈可以重新成为瓶颈，注意力的二次项反而不显眼。二次是长度的函数：上下文从 4k 拉到 128k，注意力会迅速回到主导地位。比较架构开销必须同时报 \(n\) 和 \(d\)。</span></p><h3 id="激活重计算与训练显存" tabindex="-1">激活重计算与训练显存 <a class="header-anchor" href="#激活重计算与训练显存" aria-label="Permalink to &quot;激活重计算与训练显存&quot;">​</a></h3><p>训练还要存反向所需的中间量。朴素实现保存 \(A\) 会再付一张 \(n^2\) 的显存。FlashAttention 的反向重算各块的注意力，用更少的 HBM 换更多算术，符合「算术便宜、搬运贵」。重计算不降低前向 FLOPs 的阶，只改变训练能否在给定显存下跑到该 \(n\)。梯度检查点叠在层间，是另一层用时间换空间，对象是整层激活，不只是注意力矩阵。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>接受二次、把实现做到 IO 感知，是目前解码器只模型的默认路径：公式不变，内核换 FlashAttention 及其后续。要在渐近上离开二次，必须放弃稠密 softmax 或放弃全可见集合。窗口注意力把 \(n^2\) 换成 \(n\times w\)；线性注意力把核换成可分解形式；状态空间把交互变成递推。它们各自有逼近误差与训练稳定性代价，不能假装仍是同一条注意力。</p><p>服务系统里常把前填与解码拆开调度：前填吃计算、解码吃带宽。批处理多个短请求可以摊掉内核启动，但帮不上单个超长请求的 \(n^2\)。对超长上下文，先用检索或摘要把有效 \(n\) 降下来，往往比在稠密 softmax 内部再抠常数更有效。那是系统层减 \(n\)，公式层仍然二次。</p><p><span class="marginnote">宣称「线性复杂度注意力」时，应核对其是否仍对全部 token 做 softmax 归一化。若分母仍依赖全序列且核不可分，实现再快也只是常数优化。真正的线性方法会先对键值做与查询无关的聚合，再与查询相乘。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>稠密 softmax 注意力对长度为 \(n\) 的序列需要 \(\Theta(n^2)\) 次查询-键交互，来自全序对打分这一规定。</li><li>前填一次性付清二次项；解码逐步付，总和仍二次，KV 缓存只避免重复投影。</li><li>物化 \(n\times n\) 权重会撞上显存与 HBM 带宽；FlashAttention 用分块在线 softmax 保持精确结果并降低搬运。</li><li>IO 优化不改变渐近阶；降阶必须改核函数或改可见集合。</li><li>解码阶段二次代价常表现为读缓存的带宽，头压缩与缩短历史是两条工程出路。</li><li>比较是否瓶颈时要同时看序列长度与模型宽度，中等 \(n\) 下前馈可能更重。</li><li>出处：Vaswani et al., <em>Attention Is All You Need</em>, NeurIPS 2017；Dao et al., <em>FlashAttention</em>, 2022，以及 Dao, <em>FlashAttention-2</em>, 2023。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

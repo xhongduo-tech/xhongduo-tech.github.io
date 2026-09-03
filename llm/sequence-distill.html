@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>序列级蒸馏 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sequence-distill.md.D6r0K-sE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="序列级蒸馏" tabindex="-1">序列级蒸馏 <a class="header-anchor" href="#序列级蒸馏" aria-label="Permalink to &quot;序列级蒸馏&quot;">​</a></h1><div class="epigraph"><p>学生不必在整张词表上对齐教师的每一步条件分布；它只要学会把教师采样出来的那条完整序列，当成自己的训练目标。</p><footer>—— 接到 Kim &amp; Rush, Sequence-Level Knowledge Distillation, EMNLP 2016；对照 Hinton 等人的词表蒸馏</footer></div><p>词表级蒸馏把教师每一步的 softmax 当作软标签，学生用 KL 去贴。序列级蒸馏换了一个对象：先让教师把整段输出写完——束搜索、采样、或温度解码都可以——再让学生在这条完整序列上做普通的因果语言建模。Hinton、Vinyals、Dean 2015 年的配方回答的是「类别分布怎么传」；Kim 与 Rush 在机器翻译里指出，生成任务真正被评的是整句，逐步 KL 最小并不等于 BLEU 最高。今日把大模型压到小模型、把长解答写成可微调语料，用的多半是后一条路：学生跟教师采样序列，而不是跟教师的整表 logits。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归模型的训练损失是逐步的：每个位置只看见真前缀，预测下一个 token。推理时前缀却来自自己刚才的采样，训练—推理缝合不上，这就是曝光偏差。词表 KL 把缝合问题原样留给学生：它在教师前缀上模仿教师的条件分布，部署时却走自己的前缀。若学生容量远小于教师，它甚至无法在 10 万级词表上同时拟合教师的峰与长尾，KL 下降只说明「在教师前缀上更像」，不说明「自己生成时更对」。</p><p>序列级评测（翻译的 BLEU、数学的最终答案、代码的单测）只看完整 \(y\)，不看中间每一步的交叉熵。教师一条高分序列，逐步看可能并不是逐步最优；学生若被逐步 KL 拉去复现教师的全部质量，会把容量耗在次优 token 的相对排序上。生成式蒸馏要问的是：能否直接在序列空间里模仿教师，让损失与下游度量同构。</p><h3 id="逐步-kl-无法看见序列终点" tabindex="-1">逐步 KL 无法看见序列终点 <a class="header-anchor" href="#逐步-kl-无法看见序列终点" aria-label="Permalink to &quot;逐步 KL 无法看见序列终点&quot;">​</a></h3><p>对提示 \(x\)，教师分布是 \(p_T(y\mid x)=\prod_t p_T(y_t\mid y_{&lt;t},x)\)。词表蒸馏在每个 \(t\) 最小化 \(\mathrm{KL}\bigl(p_T(\cdot\mid y_{&lt;t},x)\,\|\,p_S(\cdot\mid y_{&lt;t},x)\bigr)\)，前缀 \(y_{&lt;t}\) 通常来自数据或教师。序列级目标近似最大化 \(p_S(y^{(T)}\mid x)\)，其中 \(y^{(T)}\) 是教师的一条完整样本（或束搜索假设）。两条目标在 \(p_S=p_T\) 时一致，学生欠容量时差得很远：逐步 KL 是局部的，序列似然才把「后面那些 token 是否还能接上」算进梯度。</p><p><span class="marginnote">词表蒸馏还要求师生词表可对齐，否则 KL 没有定义。序列蒸馏的接口是文本：教师 decode 成字符串，学生用自己的 tokenizer 再编码。词表不同、字节回退、特殊符号不一致时，序列路往往是唯一能落地的路。见 <a href="/llm/on-device-distill">端侧蒸馏</a>。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>固定教师，对每个 \(x\) 得到一条或多条 \(y^{(T)}\)，学生最小化</p> \[\mathcal{L}_{\mathrm{seq}} = -\sum_t \log p_S\bigl(y^{(T)}_t \mid y^{(T)}_{&lt;t}, x\bigr). \]<p>这就是标准 SFT，标签来自教师而不是人类。Kim 与 Rush 在翻译里用教师的束搜索假设作为序列目标，并讨论用序列级分数（如 BLEU）做进一步的序列级训练；LLM 实践里更常见的是采样多条再过滤，而不是把 BLEU 直接写成强化学习奖励。过滤可以按规则（答案可核对）、按奖励模型、或按格式，那是 <a href="/llm/rejection-sampling-rft">拒绝采样</a> 与蒸馏的交界，本篇只要求：进入学生损失的是完整序列，不是逐步软标签。</p><h3 id="教师序列怎么采" tabindex="-1">教师序列怎么采 <a class="header-anchor" href="#教师序列怎么采" aria-label="Permalink to &quot;教师序列怎么采&quot;">​</a></h3><p>解码协议决定学生会模仿哪一种教师行为。贪心或低温度束搜索给出锋利、重复模式少、多样性差的序列；核采样或较高温度给出覆盖更宽、也更吵的序列。若目标是把教师的「会写什么」压进学生，应用域上的采样比在通用网页上的贪心更有用。多条样本可以并存：同一 \(x\) 留若干条高分 \(y\)，学生按序列混合学习，相当于用数据近似教师的序列级分布，而不是只学一条 MAP。</p><p>存储与算力上，离线把 \(y^{(T)}\) 写成数据集，训练环里不再跑教师，这是 <a href="/llm/online-offline-distill">离线蒸馏</a> 的默认。教师很大时，这几乎是唯一能按学生吞吐训练的办法。在线则在每个 batch 现采，能跟着学生当前的错误提示再采，贵。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>序列损失把梯度沿学生自己的因果链回传。被模仿的 token 若落在推理链、公式、代码块里，学生学的是「这种长度的程序怎么往下写」，而不是「在教师的隐空间里次优词的相对质量」。这与 <a href="/llm/cot-distill">推理链蒸馏</a> 是同一机制的特例：链只是序列的一种写法。</p><p>对曝光偏差的修补是间接的。训练前缀来自教师序列，仍不是学生自己的前缀；但教师序列通常比人类标注更接近「模型能生成的语言」，学生的支持集被拉到生成流形上，部署时的前缀更可能曾在训练里出现过。这不是从数学上取消曝光偏差，而是用教师的生成分布当数据，缩小训练与解码的分布缝。</p><h3 id="容量被花在整段程序上" tabindex="-1">容量被花在整段程序上 <a class="header-anchor" href="#容量被花在整段程序上" aria-label="Permalink to &quot;容量被花在整段程序上&quot;">​</a></h3><p>小学生装不下教师的全部世界知识，序列蒸馏等于用数据选择要印下的程序：解题步骤、工具调用格式、拒绝话术。没出现在 \(y^{(T)}\) 里的事实，学生不会从逐步 KL 的长尾里「渗」出来。因此序列桶的覆盖比损失公式更重要。DeepSeek-R1 把长链轨迹蒸馏到稠密小模型时，走的是这条路：只 SFT 轨迹，不再对学生做 RL，报告把「再 RL」留给社区。</p><p><span class="marginnote">不要把序列蒸馏写成「没有温度的蒸馏」。教师采样温度仍在，它决定 \(y^{(T)}\) 的锋利程度；学生训练目标里通常不再有 \(T^2\mathrm{KL}\)。两套温度不要共用一个配置项。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="教师的幻觉会被当成监督" tabindex="-1">教师的幻觉会被当成监督 <a class="header-anchor" href="#教师的幻觉会被当成监督" aria-label="Permalink to &quot;教师的幻觉会被当成监督&quot;">​</a></h3><p>序列蒸馏会放大教师的失败模式：虚假引用、格式漂移、中英混写，只要它们出现在被选中的 \(y^{(T)}\) 里，学生就会当正确答案学。可验证域应用规则过滤；开放域只能靠奖励模型或人工抽检，过滤本身又引入奖励黑客的缝。词表 KL 至少还保留「教师也不确定」的软质量；序列路把不确定性压成一条硬轨迹。</p><p>教师过强、学生过弱时，长序列会变成容量陷阱：学生学会教师的套话与链的语言模型，中间变量对不齐，最终答案仍错。应截断链、拆成短步骤，或把监督改回「只学答案、链仅作提示」。评测必须含教师没生成过的提示，否则只是在测记忆教师语料。</p><p><span class="marginnote">束搜索假设在翻译里接近「教师的高分句」；在开放生成里束搜索会压多样性、抬重复。LLM 序列蒸馏更常采样而非束搜索。不要把 Kim &amp; Rush 的翻译设定原样抄到对话模型上还声称同构。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>序列级蒸馏让学生在教师给出的完整序列上做因果 LM，而不是逐步对齐整表 softmax。</li><li>它与下游的序列度量更同构，也避开词表不对齐；代价是丢掉教师的逐步暗知识，并复制教师幻觉。</li><li>解码协议（贪心、束搜索、采样）决定学生模仿哪一种教师行为；多条过滤后的序列近似教师的序列分布。</li><li>小模型的容量花在被写出的程序上，覆盖比损失名字更要紧。</li><li>出处：Kim &amp; Rush, <em>Sequence-Level Knowledge Distillation</em>, EMNLP 2016；词表侧对照 Hinton, Vinyals, Dean, 2015。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

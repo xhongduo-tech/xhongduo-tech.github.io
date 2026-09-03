@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>S-LoRA 分页适配器 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_slora.md.CrpxMnuM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="s-lora-分页适配器" tabindex="-1">S-LoRA 分页适配器 <a class="header-anchor" href="#s-lora-分页适配器" aria-label="Permalink to &quot;S-LoRA 分页适配器&quot;">​</a></h1><div class="epigraph"><p>KV 页与 LoRA 权重页从同一池子分配：适配器按需从主机换入，不同秩的请求仍能进同一批，基座只留一份。</p><footer>—— Sheng et al., S-LoRA: Serving Thousands of Concurrent LoRA Adapters, MLSys 2024</footer></div><p><a href="/llm/lora">LoRA</a> 的增量是 \(BA\)，体积远小于基座，但「每个适配器一份合并后的 \(W_0+BA\)」仍会按租户复制整网。<a href="/llm/multi-lora-serving">多 LoRA 服务</a> 把问题收成：一份 \(W_0\)、按请求 gather 低秩乘、连续批混租户。Sheng 等人的 S-LoRA 在这条路上补的是<strong>内存与异构批</strong>：Unified Paging 把 KV 块和适配器矩阵块放进同一分页分配器，避免两套 <code>cudaMalloc</code> 互相碎片化；定制核在同一 batch 里处理不同秩、非连续页上的 \(A,B\)；张量并行时 LoRA 通信按增量而不是按满秩权重付费。本篇写分页对象、换入换出与核接口，不把 Punica 的调度论文或训练期 QLoRA 展开成全文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多适配器服务的显存里同时住着三类活对象：基座权重（常驻）、每请求的 KV（随长度涨缩）、每租户的 \(A,B\)（随活跃租户集变化）。只分页 KV（<a href="/llm/paged-attention">PagedAttention</a>）时，适配器仍用大块连续分配：冷租户从 CPU 换入需要一整段空洞，KV 页池再碎一层，表现为「总空闲够、分配失败」。只优化 gather 核、不管分配，会在几千个冷适配器时先被碎片打死，核再快也吃不到请求。</p><p>异构是第二刀。租户秩 \(r\) 不同、序列长度不同、有的在 prefill 有的在 decode。<a href="/llm/continuous-batching">连续批</a> 要求它们在同一拍计算。形状整齐的 grouped GEMM 往往假定每块内部连续、同批同秩。S-LoRA 的命题是：页可以不连续、秩可以混，核必须按页表 gather。</p><h3 id="适配器不能按最大秩预留连续槽" tabindex="-1">适配器不能按最大秩预留连续槽 <a class="header-anchor" href="#适配器不能按最大秩预留连续槽" aria-label="Permalink to &quot;适配器不能按最大秩预留连续槽&quot;">​</a></h3><p>为每个槽预留 \(\max r\) 的连续 \(A,B\)，内部碎片随租户数线性涨，且浪费的是 HBM 上本可用于 KV 的字节。分页按块切 \(A,B\)，未用的块还回统一池给 KV。代价是核的间接引用与对齐：块大小要同时迁就 KV token 页和矩阵维的对齐。这与 OS 页大小权衡同构，只是两种对象的生命周期不同——KV 按 token 追加，适配器按租户加载。</p><p><span class="marginnote">「数千并发适配器」依赖多数冷备在 CPU、活跃集远小于目录。把它写成 SLA 必须重测活跃集、秩、最大长度，不能抄摘要数字。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Unified Paging：物理页固定字节（或固定 token 槽 × KV 宽），页表分两类记录。请求的 KV 页表随解码追加；租户的适配器页表在首次命中时从主机 DMA 进来，引用计数大于零则钉在 HBM。请求结束还 KV 页；租户一段时间内无请求则适配器页可换出。换出不得打断进行中的 decode：该请求钉住当时的 \(A,B\) 版本，热更新见多 LoRA 文的版本钉住规则。</p><p>计算：基座 \(y_0=W_0x\) 仍按普通批 GEMM。LoRA 分支</p> \[y = y_0 + \frac{\alpha}{r_i} B_i A_i x \]<p>在定制核里按请求 gather。S-LoRA 写的是 prefill 侧 MBGMM（多尺寸批 gather 矩阵乘）与 decode 侧 MBGMV（gather 矩阵–向量）。实现上他们用 Triton 分块版，并改过早期 Punica 核以支持非连续内存与同批多秩；论文设定下改核更快。同批不同 \(r\) 用分段：每段内秩相同则更友好，调度仍应尽量把同适配器请求挨在一起。</p><div class="mermaid"></div><p>张量并行：基座按列/行切 \(W_0\) 并 All-Reduce。LoRA 的 \(A,B\) 按同样切分挂在各卡页池上，通信体积随 \(r\) 而不是随 \(d\)，避免为每个租户付一次满秩 All-Reduce。S-LoRA 强调把 LoRA 通信当成基座 TP 上的小增量来调度。路由指纹必须含适配器 id，KV 不得跨 LoRA 复用。</p><h3 id="缺页、钉住与碎片指标" tabindex="-1">缺页、钉住与碎片指标 <a class="header-anchor" href="#缺页、钉住与碎片指标" aria-label="Permalink to &quot;缺页、钉住与碎片指标&quot;">​</a></h3><p>服务要暴露：适配器命中率、缺页延迟、页池占用拆成 KV vs AB、分配失败次数。失败应在统一池一层发生，而不是 KV 还有空、LoRA malloc 失败。页大小扫描：过小则页表与内核间接引用涨；过大则内部碎片涨、冷适配器换入粒度变笨。与 PagedAttention 共用 \(B\) 时，适配器矩阵可能需要 padding 到页倍数，内部碎片计入 AB 预算。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>屋顶线仍是 decode 读 \(W_0\)：所有租户摊这一次带宽。LoRA 核的额外时间来自不规则 gather 与小 \(r\) GEMV。分页值钱的是把「能否放进 HBM」从连续空洞改成页计数；核值钱的是把不规则留给一次 launch。两者缺一：只有核，碎片先顶死；只有页，Python 循环小 GEMV 把 decode 打回单请求。</p><p>引用计数把前缀 KV 共享与适配器共享分开：系统提示 KV 可跨请求共享，但必须同一适配器，因为键值已经过该 \(BA\)。跨适配器共享 KV 是正确性 bug。适配器页跨请求共享则是预期：同一租户多并发应指向同一 \(A,B\) 页。</p><p><span class="marginnote">Punica（SGMV）与 S-LoRA 同期。S-LoRA 写明部分 decode 核改自 Punica 早期实现，贡献侧重统一分页、多秩非连续与 TP。吞吐数字不要跨设定对比。</span></p><h3 id="与合并路径的边界" tabindex="-1">与合并路径的边界 <a class="header-anchor" href="#与合并路径的边界" aria-label="Permalink to &quot;与合并路径的边界&quot;">​</a></h3><p>热且稳定、延迟极端敏感的租户仍可把 \(BA\) 合并进专用 \(W\)，退出统一池。S-LoRA 路径服务的是长尾与多租户混批。合并后的副本不能再和未合并请求在同一基座 GEMM 里混——形状仍同，但权重已不是共享 \(W_0\)。调度要把已合并租户当成另一模型副本，否则会加错增量。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>目标模块集合不同（有的只插注意力，有的插 FFN）时，页表结构与核都要按模块掩码分支，或把缺失块当零页。\(\alpha/r\) 不同必须进核，不能假定全局同一缩放。基座 4-bit 时，\(W_0x\) 与 \(BAx\) 的数值域要对齐，见 QLoRA 服务路径，S-LoRA 原文以常规精度讨论为多，量化要重测。多模态只训视觉投影的适配器，不要假设文本 MBGMV 可套。</p><p>隔离：统一池不提供租户间 HBM 清零语义。下线适配器要还页并避免页复用泄漏权重。论文中的集群规模是实验设置。vLLM / TGI / LMDeploy 后来的多 LoRA 实现细节以各项目文档为准，API 不是 S-LoRA 仓库的稳定契约。</p><p><span class="marginnote">适配器文件是租户机密，体积小更容易被误放进不加密的热缓存。分页系统要当权重存储，不当临时 buffer。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>S-LoRA 用统一页池同时管 KV 与 LoRA 权重，解决多适配器下的碎片与换入。</li><li>MBGMM / MBGMV 在非连续页与多秩混批上做 gather 低秩乘；基座 GEMM 仍共享。</li><li>TP 下 LoRA 通信按 \(r\) 增量付费；KV 与适配器 id 绑定。</li><li>「数千适配器」以冷备在 CPU、活跃集有限为前提，SLA 必须重测。</li><li>与 Punica 分工：核的 gather 与分页/异构/TP 叠在一起才构成可服务形态。</li><li>出处：Sheng et al., <em>S-LoRA: Serving Thousands of Concurrent LoRA Adapters</em>, MLSys 2024，arXiv:2311.03285；相关 serving 形态见 Punica 与 PagedAttention。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

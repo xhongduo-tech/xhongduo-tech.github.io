@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DistServe PD 分离论文 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_distserve.md.wVZ-nrzQ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="distserve-pd-分离论文" tabindex="-1">DistServe PD 分离论文 <a class="header-anchor" href="#distserve-pd-分离论文" aria-label="Permalink to &quot;DistServe PD 分离论文&quot;">​</a></h1><div class="epigraph"><p>Prefill 偏计算、decode 偏带宽，绑在同一张 GPU 上会互相抢时间和并行策略；拆到不同实例，才能各自满足 TTFT 与 TPOT，并按阶段搜资源。</p><footer>—— Zhong et al., DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving, OSDI 2024</footer></div><p>Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 的 DistServe 把「前填与解码该不该拆开」写成一篇 goodput 论文，而不是一篇异构硬件论文。一次生成先算完整提示、写出 KV、得到首 token（TTFT），再逐步吐后续 token（TPOT / TBT）。Colocate 系统把两阶段编进同一连续批：长前填插入时解码步被拉长，解码占着 HBM 时前填又凑不齐算力。并行策略也被耦合：为 TTFT 加的张量并行可能伤害解码的 All-Reduce 账，为吞吐加的流水线可能伤害单请求延迟。DistServe 拆到不同 GPU 实例，按 TTFT 与 TPOT <strong>同时</strong>达标来搜每阶段的卡数与并行，优化的是满足双 SLO 的最大请求率。概念综述见 <a href="/llm/pd-disaggregation">PD 分离</a>，KV 怎么搬见 <a href="/llm/pd-kv-transfer">KV 传输</a>。本篇钉 OSDI 论文的指标、搜索与数字。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>两阶段的屋顶线不同。前填在提示不算极短时接近 compute-bound：序列长，GEMM 能喂饱 Tensor Core。解码每步一个新 token，却要读全部权重与日益增长的 KV，接近 memory-bound。两者的最优 batch、最优并行、甚至最优复制因子都不同。绑在一起时，调度只能优先其中一个 SLO，或靠超配同时满足两个。</p><p><a href="/llm/chunked-prefill">Chunked prefill</a> 加 piggyback 能减轻解码被单次长前填堵住，但 DistServe 指出干扰并未消除。块太小则前填自己不饱和且与解码争用；块大到饱和则几乎拼不进解码；前填还会重复扫 KV，多付内存访问。并行耦合是第二层：intra-op 降执行时间、要 NVLink；inter-op 扩速率、少降延迟。Colocate 实例只能选一套。拆开之后，前填实例可以按紧 TTFT 走更大 TP，解码实例按 TPOT 与 KV 容量走复制或不同的 PP。</p><h3 id="goodput-不是吞吐" tabindex="-1">Goodput 不是吞吐 <a class="header-anchor" href="#goodput-不是吞吐" aria-label="Permalink to &quot;Goodput 不是吞吐&quot;">​</a></h3><p>吞吐可以靠牺牲延迟堆上去。DistServe 优化的是在 TTFT 与 TPOT <strong>同时</strong>满足（评测里对 \(&gt;90\%\) 请求达标）时，每 GPU 能吃的请求率。这个指标让「拆开之后多复制了一份权重」的代价可见：权重多占卡，但若干扰消失、并行更贴合，达标速率仍可升。只报吞吐，分离看起来永远赢，因为可以把延迟藏在队列里。</p><p><span class="marginnote">实例（instance）在 DistServe 里是「一份完整模型权重对应的资源」，内部可以有多卡模型并行。拆分后有 prefill 实例与 decoding 实例，权重至少两份。不要把「一张卡既做 P 又做 D」还叫做这篇论文里的分离。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>请求进入 prefill 实例，只算提示、产首 token 与 KV，再把中间状态交给 decode 实例继续生成。Decode 计算利用率低时，可以多个 prefill 实例对应一个 decode 实例，让 decode 侧堆起更大的连续批，把带宽墙推向计算墙。资源搜索分两层：先在单副本上为两阶段分别选 GPU 数与并行策略，使每卡 goodput 最大；再用复制把该配比扩到目标流量。</p><p>放置还要看集群带宽。OPT-66B、512 token 的 KV 约 1.13GB；若平均 10 请求/秒，需要约 11.3GB/s（约 90Gbps）才能让传输在流水线里「看不见」。跨节点 InfiniBand 足够时 P/D 可任意节点对；节点内 NVLink 强、跨节点弱时，要把对应层段放进同一节点，让 KV 走 NVLink。传输采用 pull：decode 按需来取，P 侧 GPU 内存当队列缓冲，两边各按自己的节奏跑。突发时压力表现为 P 侧缓冲涨，而不是 D 侧立刻 OOM。</p><h3 id="和同期分离工作的分工" tabindex="-1">和同期分离工作的分工 <a class="header-anchor" href="#和同期分离工作的分工" aria-label="Permalink to &quot;和同期分离工作的分工&quot;">​</a></h3><p>正文把 Splitwise、TetriInfer、DéjàVu 列为同期。DistServe 的差异是：指标用双 SLO 下的 goodput，方法用带宽感知的实例放置与并行搜索，而不是先讲异构卡代数或功耗帽。Splitwise 可以读成「表征 + 异构池」；DistServe 读成「同构集群上如何把拆分搜到最优」。两者互补，不要合成一篇虚构的「PD 分离原论文」。</p><div class="mermaid"></div><p>论文报告在多种模型与聊天、编程助手、摘要负载上，相对当时 colocate SOTA 可达约 7.4 倍请求率，或在同等速率下约 12.6 倍更紧的 SLO。数字钉在他们的引擎与负载上。模拟器先搜配置，再上真实运行时验证，避免把笛卡尔积全跑在 GPU 上。</p><p><span class="marginnote">TTFT 在分离后包含排队、prefill 执行与 KV 传输。若把传输算到 TPOT 里，SLO 归属会错，搜索机会往错误的池加卡。评测定义要在论文实验节里对拍，不能沿用 colocate 的计时切法。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是消除时间轴上的互抢，以及解开并行搜索的笛卡尔积。Colocate 的每一步 iteration 里，prefill token 与 decode token 争 SM、争 HBM 带宽、争调度槽。拆开后，P 实例的迭代全是高算术强度，D 实例的迭代全是逐步 decode，CUDA Graph、并行度都可以按阶段固定。代价是 KV 必须在阶段边界移动，且权重复制。当传输时间小于从前干扰造成的等待，goodput 上升；当传输是墙，分离失败——所以放置算法是方法的一部分，不是运维附属。</p><p>Pull 队列是突发阀。大量 KV 同时涌向 decode 会打满 D 侧显存；让 D 按需来取，P 侧做缓冲，两边节奏解耦。没有这类阀门，分离系统会在峰值上比 colocate 更脆——colocate 至少「慢在同一张卡上」，分离会「D 侧 OOM、P 侧还在狂写」。</p><h3 id="切块为什么不能替代拆分" tabindex="-1">切块为什么不能替代拆分 <a class="header-anchor" href="#切块为什么不能替代拆分" aria-label="Permalink to &quot;切块为什么不能替代拆分&quot;">​</a></h3><p>Sarathi 一类切块把 stall 的上界钉在 \(\tau\) 上，但每一拍仍是混合作业：前填要为 TBT 让路，解码要为前填的算力作业付等待。要同时拉满前填 MFU 与解码 TBT，colocate 的可行域可能是空的。DistServe 的实验对比包含这类基线：在他们的 SLO 下，拆开之后的达标速率仍然更高。这不是否定切块——分离后的前填池内部仍可用切块平滑作业尺寸——而是否定「切块已经把阶段干扰解决完」。</p><p><span class="marginnote">90Gbps 是 OPT-66B、512 token、10 rps 的例子，不是分离门槛。换 GQA、FP8 KV、更长提示，公式线性变。规划用实测拷贝带宽，不用宣传页上的 NVLink 峰值。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>分离增加运维维度：两套扩缩、两套并行、一套传输、一套失败恢复。小流量、短提示、松 SLO 的服务，colocate 更简单，未必值得拆。KV 极大（超长上下文、未压缩 MHA）且互连弱时，传输税会吃掉干扰收益，应先压缩 KV 或同节点放置，再谈拆。权重复制让小模型的卡数翻倍更疼；大模型反正已经多卡，增量相对小。</p><p>连续批、PagedAttention、GQA 在分离之后仍然需要：分离解决的是阶段干扰与并行耦合，不解决 KV 碎片或头数。投机解码打在 decode 池上；prefill 池一般不跑草稿树。MoE 上 P/D 可取不同专家并行度，这是分离送给稀疏模型的额外自由度，原文没有把这条写成主贡献。</p><p>不要伪造第三篇「PD 分离原论文」的 arXiv。可引用的就是 DistServe（arXiv:2401.09670）与 Splitwise（arXiv:2311.18677）。后续生产框架的实现以各自文档为准，性能数字随版本变。</p><p><span class="marginnote">出处钉 Zhong 等 <em>DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving</em>，OSDI 2024，arXiv:2401.09670。7.4× / 12.6× 必须带着「\(&gt;90\%\) 双 SLO 达标」一起抄，去掉约束就不是这篇的指标。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DistServe 把前填与解码拆到不同实例，按双 SLO 下的 goodput 分阶段搜并行与复制。</li><li>权重复制与 KV 传输是代价；带宽感知放置与 pull 队列是方法。</li><li>相对当时 colocate，报告约 7.4× 达标请求率或约 12.6× 更紧 SLO。</li><li>chunked prefill 减轻 stall，但不能解开并行耦合，也不能同时拉满两阶段的屋顶线。</li><li>小流量或弱互连上分离可能不划算；评测必须同时报达标率、TTFT、TPOT、每 GPU 请求率。</li><li>出处：Zhong et al., <em>DistServe</em>，OSDI 2024，arXiv:2401.09670。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

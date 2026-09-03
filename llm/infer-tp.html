@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>推理张量并行 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_infer-tp.md.BXmOkhUk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="推理张量并行" tabindex="-1">推理张量并行 <a class="header-anchor" href="#推理张量并行" aria-label="Permalink to &quot;推理张量并行&quot;">​</a></h1><div class="epigraph"><p>训练期大微批让层内 All-Reduce 算得过；decode 一步一个 token 时，同一条 All-Reduce 变成延迟税，张量并行度不能从预训练配置原样抄来。</p><footer>—— 对照 Shoeybi 等 Megatron-LM 的切法，以及 DistServe 对 intra-op 并行与 TTFT/TPOT 的讨论</footer></div><p><a href="/llm/tensor-parallel">张量并行</a> 的数学在推理里没有变：列并行接行并行，注意力按头切，用 All-Reduce 还原完整乘。变的是 roofline。Prefill 一次吃完提示，序列长、算力密，接近训练前向；decode 每步 batch 里每个请求只多一个 query token，算术强度掉到带宽墙，层内集合通信的<strong>启动延迟</strong>从可重叠的背景噪声变成步时间的主角。Zhong 等人的 DistServe 把 intra-operator 并行（即这里的 TP）写成：能缩短执行时间，尤其对 prefill 的 TTFT 有用，但要求 NVLink 一类高带宽，并且和 decode 的 batch、SLO 绑在一起。本篇只谈推理期怎么选 \(T\)，不重写 Megatron 的行列配对公式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单卡放不下权重时，推理也必须切模型。候选有三条：复制（数据并行实例）、<a href="/llm/infer-pp">流水线</a>、张量并行。复制要求每卡一份完整权重；PP 在 decode 上气泡大；TP 能把一层矩阵切开、用通信换更短的单层计算。训练集群上 \(T=8\) 很常见，因为微批大、计算盖得住 All-Reduce。服务上若把同一 \(T\) 打到 decode 实例，每步两次（注意力输出、MLP 输出）跨卡同步，payload 只有 \(b\times 1\times d\)，带宽用不满，延迟按同步次数线性加。</p><p>GQA / <a href="/llm/mla">MLA</a> 还改了「按头切」的账。KV 头少于 \(T\) 时，要么无法整除，要么复制 KV 分片，TP 省下的 KV 内存被复制吃回。MLA 的潜向量若在 TP 组内每卡各持一份完整吸收投影，DeepSeek 服务侧会明确建议窄 TP、宽专家并行。问题是：prefill 与 decode 是否必须同一 \(T\)。</p><h3 id="prefill-与-decode-的-intra-op-动机不同" tabindex="-1">Prefill 与 decode 的 intra-op 动机不同 <a class="header-anchor" href="#prefill-与-decode-的-intra-op-动机不同" aria-label="Permalink to &quot;Prefill 与 decode 的 intra-op 动机不同&quot;">​</a></h3><p>DistServe 指出：提示不算太短时，prefill 接近 compute-bound，intra-op 能把 TTFT 的执行段切短，SLO 越紧越值得加 \(T\)。Decode 在小 batch 时是带宽墙，加 \(T\) 减少的是每卡要读的权重，这有利于步延迟，但 All-Reduce 次数不变（每层仍要同步）。\(T\) 增大，每卡 GEMM 更窄，更难喂饱 Tensor Core，通信占比上升。于是同一模型在 PD 分离之后，prefill 池可以用较大 \(T\) 换 TTFT，decode 池用较小 \(T\) 甚至 \(T=1\) 加复制，换 TPOT 与更简单的通信域。</p><p><span class="marginnote">「执行时间」不是端到端延迟。DistServe 强调延迟还包括排队。TP 缩短单次 prefill 执行，若因此能用更少卡达到 TTFT SLO，排队也会变；若盲目加 \(T\) 导致实例数变少，排队可能反而变长。选 \(T\) 要和复制数一起搜，不能单独调。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>推理 TP 仍落在 NVLink 域：节点内 2/4/8 卡一组。嵌入与 LM 头可按词表切。Decode 开启 CUDA Graph 时，All-Reduce 必须能进图，或整段 TP 通信用可捕获的内核；否则图捕获失败，步延迟回退。连续批处理把多个请求的单 token 拼成 \(b&gt;1\) 的 decode batch，All-Reduce 的 payload 变成 \(b\times d\)，延迟占比下降——这是「decode 也能用较大 \(T\)」的主要条件。Batch 上不去时（显存被 KV 占满、或流量低），应降 \(T\)、换复制。</p><h3 id="与-gqa、mla、投机解码叠在一起" tabindex="-1">与 GQA、MLA、投机解码叠在一起 <a class="header-anchor" href="#与-gqa、mla、投机解码叠在一起" aria-label="Permalink to &quot;与 GQA、MLA、投机解码叠在一起&quot;">​</a></h3><p>GQA：KV 头数须能被 \(T\) 整除，否则 padding 或复制。MLA：潜在 KV 的切分不能假设「一头一卡」；开源栈常见注意力复制、专家走 EP，\(T=1\)。投机解码的验证步一次吃进树节点，序列宽度 \(&gt;1\)，瞬时更像一小段 prefill，TP 的计算通信比暂时变好；不能据此把 decode 稳态的 \(T\) 调到验证步的最优。验证步与普通 decode 步若共用同一并行度，应按稳态 TPOT 选，让验证步偶尔偏贵。</p><div class="mermaid"></div><h3 id="distserve-里与-inter-op-的分工" tabindex="-1">DistServe 里与 inter-op 的分工 <a class="header-anchor" href="#distserve-里与-inter-op-的分工" aria-label="Permalink to &quot;DistServe 里与 inter-op 的分工&quot;">​</a></h3><p>Intra-op 减执行时间、要高带宽；inter-op（流水线）几乎线性加吞吐、少减单请求执行时间。Prefill 在紧 TTFT 下偏向 intra-op；decode 在要拉大 batch、SLO 不太杀 TPOT 时偏向复制或流水线扩吞吐。PD 分离之后两阶段可以选不同组合：这是 colocated 服务做不到的——colocate 时同一组卡必须同时伺候两种 roofline。带宽不够跨节点时，TP 组绝不能跨机；那是训练里已经成立、推理里更成立的约束，因为 decode 更怕延迟。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一次 decode 步的时间粗分为：读权重、本地 GEMM、All-Reduce、写 KV。\(T\) 把前两项摊到多卡，第三项加上 \((T-1)\) 相关的同步。当 GEMM 时间 \(\gg\) 同步时间，\(T\) 有益；当 GEMM 已经只剩几十微秒，同步一次可能同量级甚至更大。Prefill 的 GEMM 按 \(s\) 放大，同步按激活体积 \(b s d\) 放大，但算术强度高，重叠更好。这就是「同一 \(T\)、两段寿命」的机制。</p><p>数值上 All-Reduce 求和顺序使不同 \(T\) 的 logits 非比特一致。服务一般不要求跨并行度比特复现，但 A/B 评测应固定 \(T\)。投机解码的拒绝采样对 logits 差敏感，TP 度改变若伴随非确定性通信，接受率会漂一截，调试时要先锁并行度再谈 <a href="/llm/spec-acceptance-rate">接受率</a>。</p><p><span class="marginnote">推理 TP 不减小每个请求看见的序列长度。它减小每卡隐藏宽与每卡权重。有人说「TP 之后上下文可以更长」——那是省下的权重显存让给了 KV；序列维没有被 TP 切开。切序列是上下文并行，另一条轴。</span></p><h3 id="显存与-kv" tabindex="-1">显存与 KV <a class="header-anchor" href="#显存与-kv" aria-label="Permalink to &quot;显存与 KV&quot;">​</a></h3><p>权重显存约 \(\Phi/T\)。KV 在按头切的实现里也可除以 \(T\)，这是长上下文 decode 用 TP 的第二个理由。MLA 吸收后 KV 已经小，再 TP 切注意力收益变薄，还可能复制潜投影。规划时应写清：这次 TP 是为了放权重、为了切 KV，还是为了切 TTFT。三个目标对应三个最优 \(T\)，很少重合。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>小模型 \(T=8\) 几乎总是通信亏。70B 级在 2×80GB 上 \(T=2\) 常是放得下与同步可接受的折中。PD 分离后不要强制 P 实例与 D 实例同构：DistServe 的搜索空间就是让它们的 GPU 数与并行策略分开。Chunked-prefill 与 piggyback 是 colocate 下缓和干扰的办法，不是 TP 的替代；分离之后 chunked-prefill 的动机变弱，但 TP 仍在。</p><p>不要把训练的 sequence parallel 打开当推理默认：推理 decode 序列维是 1，切序列没有对象。也不要把专家并行的 All-to-All 算进 TP 的 All-Reduce 预算。NCCL 组必须分开。引用 Megatron 证明切法正确；引用 DistServe（arXiv:2401.09670）证明 prefill/decode 对 intra-op 的偏好不同。不要给「推理专用 TP 算法」伪造一篇不存在的 arXiv。</p><p><span class="marginnote">测 TP 加速比时用单步 decode 时间，不要用含 prefill 的端到端。TTFT 改善、TPOT 恶化是典型错配：说明 \(T\) 是按 prefill 选的，却打在了 decode 实例上。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>推理 TP 切法与训练相同，但 decode 小 batch 时 All-Reduce 延迟主导，不能照抄预训练 \(T\)。</li><li>Prefill 偏计算墙，紧 TTFT 可加大 intra-op；decode 要看连续批大小，batch 不够就降 \(T\) 或复制。</li><li>PD 分离允许两阶段使用不同 \(T\)；colocate 则被迫共用。</li><li>GQA/MLA 改变按头切与 KV 收益；投机验证步不能单独决定稳态 \(T\)。</li><li>权重、KV、TTFT 三个目标对应不同最优并行度。</li><li>出处：Shoeybi 等 Megatron-LM；Zhong et al., <em>DistServe</em>，OSDI 2024，arXiv:2401.09670。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

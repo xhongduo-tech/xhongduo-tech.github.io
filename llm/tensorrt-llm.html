@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TensorRT-LLM | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_tensorrt-llm.md.B_n6Ovsj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="tensorrt-llm" tabindex="-1">TensorRT-LLM <a class="header-anchor" href="#tensorrt-llm" aria-label="Permalink to &quot;TensorRT-LLM&quot;">​</a></h1><div class="epigraph"><p>在 NVIDIA GPU 上把注意力、分页 KV 与量化核和运行时批处理绑在一起；早期靠编好的 TensorRT 引擎，后来也提供 PyTorch 原生的可扩展路径。</p><footer>—— NVIDIA TensorRT-LLM 文档与 2023 年 10 月开源说明</footer></div><p>TensorRT-LLM 是 NVIDIA 的开源 LLM 推理库，目标不是再发明一套注意力公式，而是把 Hopper/Blackwell 上的 Tensor Core、Transformer Engine、FP8/FP4 以及融合核，收成可部署的运行时。2023 年 10 月仓库公开时，主打 in-flight batching、paged KV、流式输出，并强调相对手写 FasterTransformer 的可维护性。随后文档补上 Python LLM API、与 Triton / Dynamo 的衔接，以及 PyTorch 侧可改的模块化架构。本篇按官方文档与开发者博客写能力边界，不编造会议论文编号——它是产品仓库，不是 SOSP 那一类单篇系统论文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>NVIDIA GPU 上跑 Transformer，性能差往往差在核够不够融合、KV 是否分页、批能不能在飞行中改成员、量化是否走到硬件原生 FP8。通用 PyTorch eager 一步步 <code>forward</code>，启动开销和未融合的 LayerNorm / RoPE / 采样会在 decode 的小步上放大，<a href="/llm/tpot-itl">ITL</a> 被 CPU 绑住。FasterTransformer 把核写死，模型结构一变就要跟一版 C++。服务商要的是：新结构能较快接入，同时 decode 仍吃到手写级注意力核与 in-flight 批。</p><p>第二条是精度栈。H100 起提供 FP8 Tensor Core；权重量化与注意力量化不是一回事，KV 再量化又是第三旋钮。没有一条与硬件对齐的流水线，用户只能在「BF16 又大又慢」和「INT4 质量掉了不知道掉在哪一层」之间跳。TensorRT-LLM 把量化配方（FP8、INT8 SmoothQuant、INT4 AWQ、后续 NVFP4 等）做成构建选项，而不是让每个应用自己写 kernel。</p><h3 id="编引擎与-eager-是两种交付" tabindex="-1">编引擎与 eager 是两种交付 <a class="header-anchor" href="#编引擎与-eager-是两种交付" aria-label="Permalink to &quot;编引擎与 eager 是两种交付&quot;">​</a></h3><p>经典路径：模型定义 → 构建 TensorRT 引擎（图优化、核选择、可能的 shape 特化）→ C++ runtime 跑 in-flight batch。构建慢、换最大长度或批大小可能要重建，换来的是稳定的执行计划。PyTorch 原生路径降低改模型的成本，性能依赖运行时仍调用同一类融合核。选哪条路是迭代速度对峰值吞吐的取舍，文档两套都在，不要把过时教程里的 <code>trtllm-build</code> 当成唯一架构。</p><p><span class="marginnote">官方吞吐数字永远带着 GPU 代数、精度、批大小和是否开启 IFB / paged KV。把某一篇 NVIDIA 博客的 H100 曲线抄到 A10 上，是在比较两块不同的屋顶线。本篇不引用未钉版本的 tokens/s。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>In-flight batching（IFB）与 Orca / vLLM 的迭代级调度同类：上下文阶段（prefill）与生成阶段可以出现在同一次执行里，完成的序列立刻腾出槽，新序列插进来。文档写明 IFB 要求输入张量 packed、不要靠 padding 填齐。Paged KV 把每层缓存切成块，由 cache manager 分配与回收，对应 Python 里简化过的 <code>KVCacheManager</code> 与 C++ batch manager 里更完整的实现；也提供连续 KV 作为对照。调度器与分块 prefill 绑在一起：把长上下文切开，避免单次迭代被超长 prefill 占满，从而稳定 TTFT 与 decode 间隙。</p><p>量化：Hopper 上 FP8 可同时降显存与提吞吐，文档称相对 16-bit 有数量级上的带宽收益，质量影响要按模型校准。注意力可走 FP8 context FMHA 或 FP8 paged context FMHA。权重侧另有 INT4 AWQ、SmoothQuant 等。推测解码、EAGLE 类、MTP 等出现在后续特性列表里，属于加速采样，不是 TensorRT 图编译的必然产物。并行：张量并行、流水线、专家并行（宽 EP）写在产品能力里，用来服 MoE 与大稠密模型；具体拓扑随版本与 NVIDIA Dynamo 分离式服务文档更新。</p><div class="mermaid"></div><h3 id="与-vllm-sglang-的分工" tabindex="-1">与 vLLM / SGLang 的分工 <a class="header-anchor" href="#与-vllm-sglang-的分工" aria-label="Permalink to &quot;与 vLLM / SGLang 的分工&quot;">​</a></h3><p>三者都做连续批与分页 KV。TensorRT-LLM 的差异在 <strong>NVIDIA 平台深度</strong>：Transformer Engine、FP8/FP4 核、与 Triton 的生产包装、以及厂商对每代 GPU 的第一天支持。vLLM / SGLang 的差异在社区模型覆盖、Radix 前缀树、研究向调度。同一模型可以在三个引擎里都跑；选的是运维栈与核，不是不同的注意力数学。约束解码、投机、LoRA 多适配器在三者都有实现，完成度跟版本走，要对着当时 release note，不要记成架构永恒差异。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Decode 步小、重复、形状相对稳定，最吃：融合（少访存）、图/引擎特化（少 CPU launch）、分页（大 batch）、量化（少字节）。IFB 保证 GPU 上始终有足够的生成查询摊权重。Paged attention 保证并发被 KV 碎片卡住之前先被块池卡住——与 Kwon 等人同一逻辑，NVIDIA 文档直接使用 paged KV 这一名称。FP8 把权重与激活的搬移减半（相对 FP16），在带宽墙的 decode 上往往比在算力墙的巨大 prefill 上更可见；prefill 大 GEMM 已经能喂饱 Tensor Core 时，精度收益更多来自显存里能塞更大的批。</p><p>引擎构建把动态维收成优化过的 profile。动态过强（任意长度、任意 LoRA）会迫使更保守的核或回退。这与 <a href="/llm/npu-friendly-ops">NPU 友好算子</a> 是同一类「编译期形状」压力，只是 GPU 回退的是通用 CUDA 而不是手机 CPU。PyTorch 路径用运行时去填这块灵活性，可能让出峰值。</p><p><span class="marginnote">In-flight batching 在 NVIDIA 文本里常与 continuous batching、iteration-level batching 互换。它不是一种新的注意力，而是调度策略。关掉 IFB 的静态批，延迟特征回到「等最长序列」，核再快也救不了队列。</span></p><h3 id="分离式服务仍要传-kv" tabindex="-1">分离式服务仍要传 KV <a class="header-anchor" href="#分离式服务仍要传-kv" aria-label="Permalink to &quot;分离式服务仍要传 KV&quot;">​</a></h3><p>产品后期列出 disaggregated serving：prefill 与 decode 可以拆池。机制与 DistServe 相同，实现落在 NVIDIA 的编排（文档中的 Dynamo 等）上。拆开后 <a href="/llm/decode-affinity">decode 亲和</a> 照样成立，TensorRT-LLM 不会自动把 KV 变成全局共享内存。宽 EP 服 DeepSeek 类模型时，还要处理专家通信，那是并行拓扑，不是 IFB 开关能代替的。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>非 NVIDIA 后端不是目标；AMD、Apple、CPU 应看 <a href="/llm/sglang">SGLang</a>、<a href="/llm/llamacpp">llama.cpp</a>、<a href="/llm/mlc-tvm">MLC</a>。许可证与企业支持走 NVIDIA AI Enterprise / NGC 容器时，和 GitHub 上的 Apache 式使用不是同一合同，部署前读当时仓库的 LICENSE。模型要有对应实现或可表达的层；新结构的第一天往往仍是 vLLM 社区快，厂商核后到。</p><p>不要用未标明 commit 的「TRT-LLM 比 vLLM 快 × 倍」做架构结论。快慢取决于量化是否对等、是否同一分页与 IFB、是否同一投机设置。能公平对比的是：同一权重精度、同一最大并发、同一 SLA 定义下的 goodput。自定义核意味着调试符号与剖析都要进 NVIDIA 工具链（Nsight），这是团队技能约束。</p><p><span class="marginnote">出处停留在 <a href="https://github.com/NVIDIA/TensorRT-LLM%E3%80%81https://nvidia.github.io/TensorRT-LLM/" target="_blank" rel="noreferrer">https://github.com/NVIDIA/TensorRT-LLM、https://nvidia.github.io/TensorRT-LLM/</a> 与 NVIDIA 技术博客（2023-10 开源及后续特性文）。不给 TensorRT-LLM 编造 arXiv。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>TensorRT-LLM 是 NVIDIA GPU 上的 LLM 推理库：IFB、paged KV、平台量化核与可选的引擎构建。</li><li>IFB 即迭代级连续批；paged KV 的内存逻辑与 vLLM 同类，核是厂商实现。</li><li>FP8/FP4 等精度是硬件对齐的产品能力，质量与加速必须按模型校准，不能当无损耗开关。</li><li>编引擎换峰值与稳定计划，PyTorch 路径换迭代速度；两套都出现在官方架构说明里。</li><li>跨厂商或研究向前缀树、LM 程序前端不是它的主场。</li><li>出处：NVIDIA TensorRT-LLM 文档、GitHub 与开发者博客，而非一篇独立会议论文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

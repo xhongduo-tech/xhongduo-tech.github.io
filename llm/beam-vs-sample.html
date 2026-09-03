@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Beam Search vs Sampling | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_beam-vs-sample.md.Cn52W0mo.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="beam-search-vs-sampling" tabindex="-1">Beam Search vs Sampling <a class="header-anchor" href="#beam-search-vs-sampling" aria-label="Permalink to &quot;Beam Search vs Sampling&quot;">​</a></h1><div class="epigraph"><p>极大似然解码——包括束搜索——会把文本推向重复、泛化与不自然；从截断的核里采样，才能回到人写的分布附近。</p><footer>—— Holtzman et al., The Curious Case of Neural Text Degeneration, ICLR 2020</footer></div><p>解码有两条经常被混为一谈的路。束搜索（beam search）维护 \(B\) 条最高 <em>对数概率和</em> 的前缀，逐步扩展，近似寻找 \(\arg\max_y \log\pi(y\mid x)\)。采样从 \(\pi\) 或其截断（温度、top-\(k\)、nucleus）里随机抽下一个 token。机器翻译时代束几乎是默认；对话与开放生成里，Holtzman 等人指出束会退化。推理模型与强化学习又把采样抬成一等公民：没有多样性就没有<a href="/llm/best-of-n">Best-of-N</a>，也没有组相对训练。本篇对照两种搜索在 <em>目标函数</em> 上的差别，而不是罗列解码器 API。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归把 \(p(y\mid x)\) 拆成逐步条件。精确 MAP 是指数级搜索。贪心 \(B=1\) 的束每步取最大，局部最优且对早期错误无法回头。加大 \(B\) 更接近 MAP，但 MAP 本身未必是人想要的对象：语言模型在「安全的高频续写」上概率质量很高，重复短语、万能套话的联合对数概率可以高过一条具体而正确的推理。</p><p>采样的问题相反：一次抽取方差大，短指令上胡话概率不可忽略；温度过高则破坏已经学好的语法。需要分清任务：要 <em>一个高概率的合法字符串</em>（格式化代码、受约束模板），束或约束解码更合适；要 <em>覆盖多种推理路径</em> 再交给核对器，必须采样。把束的 \(B\) 加大当成「也是一种 Best-of-N」，比较的是不同的集合——束里的条高度相关，BoN 里的条在独立采样假设下才近似无关。</p><h3 id="目标函数先于实现" tabindex="-1">目标函数先于实现 <a class="header-anchor" href="#目标函数先于实现" aria-label="Permalink to &quot;目标函数先于实现&quot;">​</a></h3><p>束优化的是 \(\sum_t \log\pi(y_t\mid \mathrm{prefix})\)，长度偏置明显：更长的序列对数和更负，实现常除以长度或加长度惩罚，否则束爱提前结束。采样优化的不是一个确定的 \(y^\star\)，而是从分布取矩。强化学习的期望回报 \(\mathbb{E}_{y\sim\pi}[R]\) 与采样同构，与 MAP 不同构。用束生成的轨迹去估 REINFORCE 梯度，等于对错误的分布求期望。</p><p><span class="marginnote">nucleus（top-\(p\)）不是另一种束。它在每一步把概率质量累计到 \(p\) 的最小 token 集上再归一化，然后 <em>随机</em> 抽。束在每一步是确定性的保留 Top-\(B\) 前缀。一个改支撑集，一个改搜索宽度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>束：\(t=0\) 从 BOS/提示结束处扩展；每步对每条存活前缀展开词表，按累计对数概率留 \(B\) 条。结束条件是全部存活条遇到 EOS 或达到最大长度。最终可取最高分的一条，或把 \(B\) 条再交给外部 \(s\) 做一次重排——后者已接近「束 + 验证器」，仍不是独立 BoN。</p><p>采样：每步从 \(\mathrm{softmax}(z/T)\) 抽，可选地先把 logits 截成 top-\(k\) 或 nucleus。\(T\to 0\) 退化为贪心，与 \(B=1\) 的束重合。\(T=1\) 且无截断时，抽取的是模型的原始条件分布，这是策略梯度假设的那一个。训练 rollout 应记录当时的 \(T\) 与截断，推理若改贪心，行为会偏。</p><div class="mermaid"></div><h3 id="与树搜索的位置" tabindex="-1">与树搜索的位置 <a class="header-anchor" href="#与树搜索的位置" aria-label="Permalink to &quot;与树搜索的位置&quot;">​</a></h3><p>束是宽度固定、不回溯的树搜索，打分是模型自身的对数概率。PRM 引导的束把逐步分数换成过程奖励，目标函数已经不是 \(\log\pi\)，见<a href="/llm/prm-guided-search">过程奖励引导的搜索</a>。<a href="/llm/mcts-llm">MCTS</a> 再引入访问次数与探索项，宽度随模拟预算变。三者不要画成一条「B 越大越强」的轴：改的是评分、探索与是否允许降低即时 \(\log\pi\) 去换更高的外部 \(s\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>退化来自概率质量集中在短循环与泛化连接词上。束每步都强化当前最高质量，一旦进入重复圈，圈内续写的条件概率极高，很难被挤出。采样即使支撑集里有重复 token，随机性仍有机会跳出；nucleus 把长尾噪声切掉，避免抽到完全不相关的词，同时保留头部的多模式。开放生成里这通常比加大 \(B\) 更有效，Holtzman 等人的人工与自动指标都指向这一点。</p><p>在可核对任务上，机制反转：错误推理的 \(\log\pi\) 可能低于正确推理（模型「知道」正确格式），束有机会直接找到对的；也可能正确推理更长、对数和更低，束反而选短的错解。长度归一化、覆盖惩罚、外部验证器，都是在承认 <strong>\(\log\pi\) 不是任务损失</strong>。RL 训练过的推理模型进一步把质量从「短而常见」推到「长而可验证」，此时再用纯 \(\log\pi\) 束，等于用旧目标去搜新策略。</p><p><span class="marginnote">同一条束里的 \(B\) 条共享大量前缀，KV 可以一次算完再分叉，prefill 友好；独立采样的 \(N\) 条只共享用户提示前缀。服务实现上束未必更贵，但 <em>有效假设覆盖</em> 通常远小于独立 \(N=B\)。比公平应用「外部 \(s\) 下的准确率 / 总生成 token」。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="产品默认不要两套解码混用而不声明" tabindex="-1">产品默认不要两套解码混用而不声明 <a class="header-anchor" href="#产品默认不要两套解码混用而不声明" aria-label="Permalink to &quot;产品默认不要两套解码混用而不声明&quot;">​</a></h3><p>聊天助手用 nucleus 采样保持自然；代码补全用贪心或小束保持确定性；竞赛题用采样 + BoN 或思维链。若评测脚本是贪心，用户产品是 \(T=0.8\)，数字对不上。约束解码（正则、JSON schema）可以叠在束或采样上：约束改的是逐步合法集，不自动消除退化，也不自动给出多样性。</p><p>不要用「束宽 32」的准确率去对比「sample 32 + 多数票」而不报相关性。前者是近重复的高似然簇，后者才接近 pass@\(N\) 的覆盖。安全过滤应作用在最终字符串上：束可能稳定生成高似然的违规套话，采样可能偶发违规但也可偶发拒绝——两种失败要分开测。训练与推理温度不一致时，先修这个再调 \(B\)。</p><p><span class="marginnote">出处以 Holtzman et al., ICLR 2020 为主；束搜索本身是经典序列解码，不必给它编造 2024 年的新 arXiv。OpenAI o1 的解码器未公开到束宽这一层，不要写进对照表。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>束近似 MAP（对数概率和），采样实现 \(\pi\) 或其截断；目标函数不同，不能只比「宽度」。</li><li>开放生成里 MAP 导致重复与套话；nucleus 等截断采样是针对退化，不是针对数学准确率。</li><li>可核对任务上 \(\log\pi\) 仍可能与真值冲突，需要长度处理或外部 \(s\)。</li><li>RL / BoN / 组相对都假设独立采样；用束轨迹去估策略梯度是分布错误。</li><li>束内条高度相关，独立样本的 \(N\) 才对应覆盖 \(1-(1-p)^N\)。</li><li>评测解码必须与产品解码一致，温度和截断属于协议的一部分。</li><li>出处：Holtzman et al., <em>The Curious Case of Neural Text Degeneration</em>, ICLR 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

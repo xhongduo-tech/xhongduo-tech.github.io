@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kaplan 2020 扩展律原文 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kaplan-2020.md.COzoQyhk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="kaplan-2020-扩展律原文" tabindex="-1">Kaplan 2020 扩展律原文 <a class="header-anchor" href="#kaplan-2020-扩展律原文" aria-label="Permalink to &quot;Kaplan 2020 扩展律原文&quot;">​</a></h1><div class="epigraph"><p>语言模型的测试损失随非嵌入参数量、数据集大小与训练计算呈平滑的幂律；当其中一项成为瓶颈，损失由该项主导。</p><footer>—— Kaplan et al., Scaling Laws for Neural Language Models, 2020</footer></div><p>2020 年 OpenAI 的 Kaplan、McCandlish、Henighan 等人把「更大往往更好」收成可拟合的曲线族。他们在 Decoder-only Transformer 上系统变化参数量 \(N\)、数据 \(D\) 与计算 \(C\)，对象是测试集交叉熵，而不是某一张下游榜。规划语言——先拟合再决定下一个模型长多大——由此进入预训练。给定 \(C\) 时他们建议 \(N\) 涨得比 \(D\) 快，这一条后来被 <a href="/llm/hoffmann-chinchilla">Hoffmann</a> 修正；**幂律形状、三项瓶颈、\(C\approx 6ND\) 会计、以及「大模型更样本高效」**仍是原文的贡献。概念综述见 <a href="/llm/kaplan-scaling">Kaplan 扩展律</a>；本篇写 2020 年论文实际测了什么、指数钉在哪、以及早期停止与临界 batch 这些常被口诀省略的章节。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>当时选模型大小主要靠单次消融或经验规则，深度、宽度、步数缠在一起，无法回答「计算加倍时应该加宽还是加数据」。Kaplan 等人要可外推的标度：固定架构家族，扫 \(N,D,C\)，看语言建模损失是否在对数坐标上接近直线。若是，就可以在小模型上拟合，再规划大模型。</p><p>计算与 \(N\)、\(D\) 不独立。他们采用稠密 Transformer 的近似 \(C \approx 6ND\)（前向约 \(2ND\)，反向约两倍）。给定 \(C\)，更大的 \(N\) 意味着更少 token。扩展律必须同时描述三条轴，以及另外两条充裕时「最紧的一项主导」的饱和形状。标度对象选交叉熵，是因为噪声小于准确率、跨模型可比；下游只作为转移现象另报。</p><h3 id="非嵌入参数作为" tabindex="-1">非嵌入参数作为 \(N\) <a class="header-anchor" href="#非嵌入参数作为" aria-label="Permalink to &quot;非嵌入参数作为 $N$&quot;">​</a></h3><p>词表与上下文把嵌入表撑得很大，小模型的参数量会被词表主导，宽度扫描失真。原文用<strong>非嵌入参数</strong>计 \(N\)，使不同词表设定下的容量更可比。复现或引用指数时必须声明这一口径；把嵌入算进去，小模型端的斜率会弯。这一选择后来被多数稠密扩展论文沿用。<span class="marginnote">幂律说的是在他们扫到的尺度窗口里、对数坐标下近似直线。原文没有声称损失可以按同一指数无限下降。数据重复、优化失败、上下文或 tokenizer 改变，都会让直线折弯。贡献是指出存在一段可规划的直线。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实验是一系列不同大小的 Transformer 语言模型，变化训练步数与数据量，在 WebText2 一类网络文本上记测试损失。当 \(D\) 极大时，损失随 \(N\) 近似</p> \[L(N) \propto N^{-\alpha_N},\qquad \alpha_N \approx 0.076; \]<p>当 \(N\) 极大时随 \(D\) 近似 \(L(D)\propto D^{-\alpha_D}\)（\(\alpha_D\) 约 \(0.095\) 量级）；对计算则 \(L(C)\propto C^{-\alpha_C}\)（\(\alpha_C\) 约 \(0.050\)）。更完整的可分形式把两项瓶颈写在一起，使 \(N\) 或 \(D\) 不足时由对应项主导。这些数字是那一次架构与数据上的拟合，不是通用物理常数。</p><p>在固定 \(C\) 的计算最优分配上，他们从拟合推出 \(N\) 大约随 \(C^{0.73}\)、\(D\) 大约随 \(C^{0.27}\)。按这条建议，很大的模型只看相对较少的 token 即「计算最优」。论文同时讨论：<strong>更大的模型达到同一损失所需 token 更少</strong>（样本效率随宽度上升），于是若数据是瓶颈，把计算用于更大的 \(N\) 是合理的。Hoffmann 后来表明，学习率余弦与训练长度耦合会让大模型显得更样本高效、从而把分割推偏；但「先用损失标度做分配」的方法被保留。</p><p>其他原文章节常被忽略。<strong>过拟合</strong>：当 \(D\) 相对 \(N\) 过小，测试损失在某步后回升，扩展律进入数据瓶颈区。<strong>临界 batch size</strong>：最优或临界 batch 随损失水平变化，与梯度噪声标度有关，影响「同样 \(C\) 应走多大 batch、多少步」。<strong>深度对宽度</strong>：给定非嵌入 \(N\)，深度与宽度的多种拆分在损失上接近，架构细节弱于尺度。<strong>迁移</strong>：语言建模损失改善时，部分下游（如 Winograd 一类）跟着改善，但拟合仍应以交叉熵为准。</p><div class="mermaid"></div><h3 id="早期停止与「充分训练」不是同一张图" tabindex="-1">早期停止与「充分训练」不是同一张图 <a class="header-anchor" href="#早期停止与「充分训练」不是同一张图" aria-label="Permalink to &quot;早期停止与「充分训练」不是同一张图&quot;">​</a></h3><p>部分曲线来自未训到数据耗尽或未走到余弦终点的运行。把这些点与充分收敛的点混在一张损失面上，会改变最优分割。2020 年论文已经区分不同训练时长下的形状，但计算最优那条流行引用，后来被证明对日程敏感。读原文时应把「损失随 \(N\) 下降」的图与「给定 \(C\) 如何切 \(N\) 与 \(D\)」的图分开：前者更稳，后者是派生政策。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>论文没有从第一性原理推出 \(\alpha_N\)。经验上，过参数化网络在平滑损失面上常表现为对容量与样本量的幂次误差下降。指数应视为对 Decoder-only、Adam 类优化器、当时网络文本的描述统计。换 MoE、换重复数据、换 μP 或换日程相对寿命，指数会动。</p><p>\(6ND\) 会计假设几乎全部 FLOPs 在线性层上，序列长度计入 \(D\) 的方式一致。激活重计算改墙钟不改这套 FLOPs；混合精度改吞吐也不改系数来源。规划时必须声明：\(N\) 是否含嵌入、\(D\) 是否含重复、\(C\) 是理论 FLOPs 还是 GPU-hours。</p><p><span class="marginnote">把下游准确率直接拿去拟合幂律，噪声通常大于损失。同一损失对应的下游提升还随任务饱和而变。Kaplan 把标度对象定在交叉熵上，是为了让外推稳定；从损失到任务需要另一次校准，不能把 2020 年的 \(\alpha\) 套到某一张 2026 年的榜上。</span></p><h3 id="为何分配指数后来被改写" tabindex="-1">为何分配指数后来被改写 <a class="header-anchor" href="#为何分配指数后来被改写" aria-label="Permalink to &quot;为何分配指数后来被改写&quot;">​</a></h3><p>余弦学习率把预定步数编进日程。为把大 \(N\) 塞进预算，大模型往往步数更少、日程按更短寿命排，最后损失不能代表充分训练。于是拟合读出「用更少 \(D\) 也很好」。这不影响「三项瓶颈 + 幂律」的定性图像，但影响 \(C\) 固定时的最优分割。Hoffmann 的 IsoFLOP 与对齐余弦，是对这一协议漏洞的修补，不是对 Kaplan 测量哲学的否定。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>原文扫的是稠密自回归 Transformer 与当时的网络文本。稀疏专家、状态空间、多模态、数据约束下的重复，都要自己的拟合。上下文长度改变每个 token 的计算与激活显存，严格说 \(C\) 的会计也要重写。优化失败点会拽偏拟合，小规模外推两个数量级必须留误差带。</p><p>工业界后来用 Chinchilla 比例当计算最优起点，再用过训把小模型推过该点以换推理成本。这是对 Kaplan 规划语言的续写：仍然用损失对尺度作图，只是政策从「偏大 \(N\)」改成「等比例」再改成「部署导向的过训」。引用 2020 年论文时，应把「存在可规划幂律」与「请按 0.73 去切预算」分成两句。</p><p><span class="marginnote">「符合 Kaplan」有时被用来形容任何随对数参数下降的曲线。更精确的用法是：非嵌入 \(N\)、交叉熵、三项可分幂律、\(C\approx 6ND\)，以及那次拟合给出的偏大模型分配。后一项尤其不可未经说明就沿用。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kaplan 等 2020 年表明，语言模型测试交叉熵随 \(N\)、\(D\)、\(C\) 在很宽范围内呈幂律下降，最紧的一项主导。</li><li>\(N\) 计非嵌入参数；\(C\approx 6ND\)；\(\alpha_N,\alpha_D,\alpha_C\) 是该设定下的拟合。</li><li>原文建议的计算最优偏向前更大的模型（约 \(N\propto C^{0.73}\)），这一分割被 Chinchilla 修正，测量框架被保留。</li><li>更大模型更样本高效、临界 batch、深度–宽度弱依赖、过拟合区，都是原文章节，不只是一条分配口诀。</li><li>标度对象是损失不是下游；指数随架构与数据而动。</li><li>出处：Kaplan et al., <em>Scaling Laws for Neural Language Models</em>，2020（arXiv:2001.08361）。规划层面的转述见 <a href="/llm/kaplan-scaling">Kaplan 扩展律</a>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

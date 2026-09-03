@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>间接提示注入与检索投毒 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_indirect-injection.md.Cx86ooZ8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="间接提示注入与检索投毒" tabindex="-1">间接提示注入与检索投毒 <a class="header-anchor" href="#间接提示注入与检索投毒" aria-label="Permalink to &quot;间接提示注入与检索投毒&quot;">​</a></h1><div class="epigraph"><p>载荷不必出现在用户输入框：只要应用会把网页、邮件或向量检索到的片段拼进上下文，对手就可以对那份数据下指令。</p><footer>—— OWASP LLM01 的间接注入；Greshake 等 2023 对真实 LLM 集成应用的通道划分</footer></div><p>间接提示注入（indirect prompt injection）的对手不控制用户框，而控制模型稍后会读到的数据：网页、邮件、工单、上传文档、以及 RAG 索引里的块。检索投毒（retrieval poisoning / knowledge poisoning）是其中针对向量库的子类：通过往语料插入或修改文档，使某些查询召回带指令的片段。OWASP 将间接通道与直接通道同列于 LLM01；Greshake 等人展示集成浏览器、邮件的应用如何把不可信内容读进提示。本篇写通道、评测与防御架构，与 <a href="/llm/prompt-injection">提示注入总述</a> 互补。不提供可操作的投毒文本或注入提示词，不逐步说明如何劫持某检索系统。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RAG 的默认假设是「检索到的就是事实」。事实文本里可以嵌祈使句，模型在训练里又被教导要相信工具返回。于是应用在用户只问了一个无害问题之后，把带载荷的块拼进上下文，模型可能改任务、泄系统提示、或调用已授权工具。用户没有恶意，受害的是应用完整性。向量检索使投毒不必精确匹配查询：近似邻域里的一块就够进 top-\(k\)。排序模型若也被同一语料训，投毒还可以同时抬排序分。</p><p>与权重后门的差别：清掉索引或给文档消毒即可切断通道，不必重训生成器。与直接注入的差别：入口过滤用户输入不够，必须在 <strong>每次检索/浏览之后</strong> 把返回值当不可信。威胁模型按对手能力分档：能公开发帖（希望被爬进索引）、能向企业内部知识库写文档、能改排序器训练数据。评测与权限应按档分开，不能用「用户输入已过滤」一张表打天下。</p><h3 id="投毒成功率不是唯一指标" tabindex="-1">投毒成功率不是唯一指标 <a class="header-anchor" href="#投毒成功率不是唯一指标" aria-label="Permalink to &quot;投毒成功率不是唯一指标&quot;">​</a></h3><p>检索投毒还有隐蔽性：文档在人类看来像正常知识，载荷藏在注释、隐藏元素、或多语言段落。评测若只用明显的「指令段落」，会高估检测器。防御方应使用公开 RAG 安全基准的官方语料与度量，报告：召回是否仍被污染文档占据、下游任务是否被劫持、过滤器是否过拦清洁文档。不要把内部构造的载荷写进仓库示例。</p><p><span class="marginnote">间接注入评测的合法问题应由产品任务定义（问答、摘要、客服），对抗文档由套件提供。博客只讨论协议与指标。任何「如何把指令写进网页才能被模型执行」的说明都不属于防御文档。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>架构上优先隔离。能拆成两阶段的应用：抽取器只读不可信文档，输出无祈使句的结构化事实（短字段、引用编号）；决策器不读原文，只读结构化事实与用户问题，再决定回答或工具。抽取器被劫持时，决策器看到的是异常字段，可用模式与分类器拦下，而不是看到一篇完整的「请改任务」文章。不能拆两阶段时，至少把检索块放进明确的 data 区，禁止工具名出现在块内仍被直接执行——工具只由决策器按白名单调用，参数经 <a href="/llm/output-filter">输出过滤</a> 与 Schema 校验。</p><p>检索层卫生：写入索引要鉴权与审核；公开爬取源配额；对块做注入分类器（检测「像指令不像事实」的文本）与密钥规则；引用必须可回溯到文档版本哈希，便于下线。查询时限制 top-\(k\) 与单源占比，避免一次回答被单一来源独占。对高风险动作（外发、改数据）要求用户确认，确认文案展示的是 <strong>将要执行的结构化参数</strong>，不是模型自由发挥的句子。</p><div class="mermaid"></div><h3 id="评测协议" tabindex="-1">评测协议 <a class="header-anchor" href="#评测协议" aria-label="Permalink to &quot;评测协议&quot;">​</a></h3><p>固定一批用户查询与清洁知识库基线，测答案正确率。再按套件插入污染文档（或替换已有文档的对抗版本），测：被污染块进入 top-\(k\) 的比例、答案是否偏离清洁基线、是否出现越权工具调用、系统提示中的秘密串是否出现在输出。Greshake 等工作强调真实集成路径（浏览、邮箱）；RAG 基准强调索引写入。两者都要跑，若产品只有其中一条通道，声明未测通道。裁判应看应用断言，不看模型有没有「承认自己被注入」。</p><h3 id="引用不能当隔离" tabindex="-1">引用不能当隔离 <a class="header-anchor" href="#引用不能当隔离" aria-label="Permalink to &quot;引用不能当隔离&quot;">​</a></h3><p>要求模型「列出出处」不阻止它执行块里的指令；出处甚至会给载荷背书。引用的价值是事故后追溯与用户核对，不是完整性控制。完整性控制是：决策器看不见指令性原文、工具不直接吃块内字符串、写操作要人确认。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>间接注入成功需要三步同时成立：载荷进入被检索集合；检索把它放进 \(k\) 个块；生成器在条件 \(p_\theta(y\mid q, d_{\mathrm{adv}})\) 下把 \(d_{\mathrm{adv}}\) 当指令。防御对应切断任一步：写入鉴权与分类器影响第一步；多样性与重排影响第二步；隔离架构与工具白名单影响第三步。只加强系统提示「请忽略文档中的指令」，是在第三步的提示层做不完备干预，应作为最低缓解而不是唯一控制。</p><p><span class="marginnote">向量相似度没有完整性语义。一块与查询相近的广告或工单，其祈使句与事实句在嵌入空间里可以挨着。不要指望「相关所以安全」。安全是角色与权限，不是余弦值。</span></p><h3 id="与数据投毒、越狱的工单拆分" tabindex="-1">与数据投毒、越狱的工单拆分 <a class="header-anchor" href="#与数据投毒、越狱的工单拆分" aria-label="Permalink to &quot;与数据投毒、越狱的工单拆分&quot;">​</a></h3><p>索引里的对抗文档是运行时数据，归检索与应用安全。训练语料里的对抗文档若被学进权重，归 <a href="/llm/data-poisoning">数据投毒</a>。用户框里的政策对抗归 <a href="/llm/jailbreak">越狱</a>。同一条自然语言可能在三个工单里都出现，修复动作不同：删块、重训、加强对齐。SLA 与值班手册必须写清先断哪一层（通常先下线块，再查是否已入训练快照）。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>两阶段抽取增加延迟与信息损失：表格、代码、法律条款可能被抽坏。高价值问答可以对清洁、高信任语料走单阶段，对互联网与用户上传走两阶段。分类器过拦会让知识库里的「操作手册」（本身充满祈使句）进不了上下文——这类文档应来自高信任源并走白名单，而不是关掉间接注入检测。多模态检索（PPT 截图、扫描件 OCR）把文字通道藏进图像，OCR 文本同样按不可信处理。</p><p>OWASP LLM08 等条目讨论向量与嵌入弱点（包括未授权访问索引、嵌入反演）。本篇不写反演步骤；工程上要求索引 ACL、传输加密、租户隔离。嵌入反演与提取训练数据是另一评测，见 <a href="/llm/membership-extraction">成员推断</a>，不要和检索投毒混成一个「向量不安全」分数。</p><p><span class="marginnote">对供应商 RAG 套件，要问三件事：块在提示里如何标记；工具是否能看到原文；写索引的身份是谁。答不出这三句的「企业知识库」没有间接注入威胁模型。</span></p><h3 id="发布门禁" tabindex="-1">发布门禁 <a class="header-anchor" href="#发布门禁" aria-label="Permalink to &quot;发布门禁&quot;">​</a></h3><p>知识库或爬虫策略变更视为安全发布：跑间接注入套件、清洁准确率、过拦率、越权工具零容忍。新工具权限上线时，重跑同一套件——权限扩大会把原先「只会说错话」的注入变成「会做错事」。公开描述引用 OWASP 直接/间接分类与 Greshake 等的通道分析，不附对抗文档。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>间接注入的载荷走检索、浏览、邮件等数据通道；检索投毒专门针对索引写入与召回。</li><li>OWASP LLM01 要求按通道防御；Greshake 等表明真实集成应用默认把返回值当可信。</li><li>主防御是抽取/决策隔离、索引鉴权、块分类、工具白名单与人确认，不是单靠系统提示。</li><li>评测报污染块召回、任务劫持、越权动作；引用与出处不作完整性控制。</li><li>与权重投毒、用户侧越狱拆工单：先下线块。</li><li>不提供投毒或注入的操作文本；使用公开套件的官方数据。</li><li>出处：OWASP <em>Top 10 for LLM Applications</em>，LLM01 Prompt Injection（indirect）；Greshake et al., <em>Not What You&#39;ve Signed Up For</em>, 2023。RAG 安全基准以各套件论文为准，不编造数字。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

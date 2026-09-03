@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Needle-in-haystack 变体 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_niah-variants.md.DBqWFO86.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="needle-in-haystack-变体" tabindex="-1">Needle-in-haystack 变体 <a class="header-anchor" href="#needle-in-haystack-变体" aria-label="Permalink to &quot;Needle-in-haystack 变体&quot;">​</a></h1><div class="epigraph"><p>一根与草堆分布刻意不同的针、一句复述针的问，测到的是检索冒烟；把针变成多键、干扰项、要计算的事实或与正文同分布的句子，热力图才会开始接近产品失败。</p><footer>—— 单针协议见 Liu 等人与后续热力图实践；多键与聚合变体被 RULER 收成可配置任务</footer></div><p>标准 <a href="/llm/niah">NIAH</a> 的实验极干净：草堆是一篇或一袋无关文本，针是一句独特陈述，问句几乎指向该句，答案是找回。全绿可以否定「该长度上检索通道坏死」，不能肯定「长上下文已可用」。变体要做的，就是系统地把标准协议删掉的那些难度加回去：针的数量、键的相似度、问的是检索还是运算、草堆与针是否同分布、提问是否泄漏句式。Hsieh 等人在 RULER 里把其中几支写成生成器；工程界还有 UUID 针、魔法数字针、多针计数、以及「读到针之后还要推理」的设定。本篇只写变体族怎么改命题，不重写单针热力图的基本读法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单针失败很响：中间全红，人人看得见。单针成功很静：它可能只说明模型会抓与问句 n-gram 重叠的那一行。产品里的「针」很少这么友善——政策文档里有多条相近条款，用户问的是聚合或例外，草堆是同一领域的行话而不是保罗·格雷厄姆散文。若评测停在友善针，优化会朝「让那一句的嵌入更尖」走，而不是朝「在相似键上做内容寻址」走。</p><p>变体评测的问题因此是设计空间，不是再画一张同样的图。每一个改动都在改任务的充分统计量：多针把「有没有一个峰值」改成「能不能列出集合」；近义干扰把点积竞争变窄；推理针把答案从复制改成计算。不声明改了哪一维，就说「我们的 NIAH 更难」，无法复现。</p><h3 id="针的独特性是超参数-不是装饰" tabindex="-1">针的独特性是超参数，不是装饰 <a class="header-anchor" href="#针的独特性是超参数-不是装饰" aria-label="Permalink to &quot;针的独特性是超参数，不是装饰&quot;">​</a></h3><p>把针写成 <code>The magic number is 42</code> 插进随笔，问「magic number 是多少」，检索几乎是关键词匹配。把针写成与草堆同风格的普通事实，或把键改成 UUID、把值改成随机串，问句不再能靠主题词定位，才更接近「内容寻址是否还在」。评测规范必须冻结：针模板、键空间、草堆语料、是否允许问句复述针的用词。改模板造成的「更绿」不是能力。</p><p><span class="marginnote">Greg Kamradt 式公开演示用固定针句和可复述提问，适合做实现冒烟。把它写进模型卡当唯一长上下文证据，规格偏了。至少要加多针与干扰针。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>常见变体可以按改动的坐标分类。</p><p><strong>数量。</strong> 多针：插入 \(k\) 条事实，问其中一条、问全部、或问计数。漏一条在单针准确率里看不见，在集合召回里可见。<strong>键结构。</strong> 多键多值：草堆是许多 <code>key → value</code> 行，查询指定键；RULER 的 retrieval 任务把 \(k\) 和干扰键数当成旋钮。<strong>干扰。</strong> 近义针、同主题假针、问句改写但不改指称。<strong>运算。</strong> 找回后还要做算术、比较、或「满足条件的针有哪些」。<strong>草堆。</strong> 重复噪声 token、网页、论文、代码、对话日志——重复结构会制造假汇点。<strong>提问位置。</strong> 问句在末尾是默认；问句在开头或中间会改变「查询是否还在最近的位置」。</p> \[A(n,d,k,\rho)=\Pr\bigl[\mathrm{recover}(q;\mathrm{hay}(n)\oplus \mathrm{needles}_{k,\rho,d})\bigr] \]<p>\(k\) 是针数，\(\rho\) 是干扰或相似度参数。标准 NIAH 是 \(k=1\) 且 \(\rho\) 极低的切片。报告变体时应画出 \(A\) 对 \(k\) 或 \(\rho\) 的曲线，而不是只给一张 \(k=1\) 热力图。</p><p>解码与判定同样要锁。UUID 值适合精确匹配；自然语言针需要允许同义改写，否则惩罚文风。计数题不要用「大致列出」的 LLM 法官当主指标，法官会把漏针评成「大体正确」。</p><h3 id="从检索冒烟到绑定与聚合" tabindex="-1">从检索冒烟到绑定与聚合 <a class="header-anchor" href="#从检索冒烟到绑定与聚合" aria-label="Permalink to &quot;从检索冒烟到绑定与聚合&quot;">​</a></h3><p>一条有诊断价值的阶梯是：单针复制 → 多针全召回 → 多键取值（干扰键）→ 变量追踪（同一实体改名后仍绑定）→ 聚合（计数 / 最值）→ 推理针（针是条件，答案不是针句本身）。前两级仍是 NIAH 家族；后几级已经跨进 <a href="/llm/longbench-ruler">RULER</a> 的任务定义。实验室可以在同一草堆生成器上实现整条阶梯，避免「NIAH 用小说、RULER 用另一套噪声」造成的不可比。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>单针成功主要依赖查询与针在注意力里的峰值。多针要求多个峰值都被读到，且输出阶段不要被第一个峰值截断——有的模型能「看见」却只报一条，失败在解码策略与「只答一个」的助手先验。多键干扰把峰值竞争从「针 vs 无关散文」变成「正确键 vs 相似键」，这才是内容寻址的压力测试：位置偏置之外，还有特征碰撞。</p><p>推理针改的是损失函数意义上的目标。训练时，模型习惯把问句附近的陈述抄回；若正确答案是针中两个数的差，抄回整句会在表面重叠上得高分、在任务上得零分。这类变体区分「检索通道在」和「检索之后仍会算」。它仍然不是完整的长文档推理——草堆依旧是填充——但已经不允许只靠复制。</p><h3 id="草堆分布会改变汇点" tabindex="-1">草堆分布会改变汇点 <a class="header-anchor" href="#草堆分布会改变汇点" aria-label="Permalink to &quot;草堆分布会改变汇点&quot;">​</a></h3><p>用随机 token 当草堆，模型可能靠「非随机的那一句就是针」作弊，根本不需要理解问句。用高度重复的样板合同，注意力可能塌进页眉页脚。用代码时，标识符密度高，UUID 针反而更显眼。因此「换草堆」不是美化图表，是在换作弊通道。严肃的变体协议应至少固定一种与产品相近的草堆，并另报一种故意易作弊的对照（随机 token）：若对照远高于产品草堆，说明模型在用异常检测而不是检索。</p><p><span class="marginnote">问句复述针的用词，等于把针的键复制到序列末尾，lost-in-the-middle 会被掩盖——末尾查询已经带了针的词。变体里应保留「问句不泄漏针面」的一列。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>变体可以无限加难，直到变成另一项基准。加难的停止条件是诊断：每一维应对应一种你准备修的失败（分配、碰撞、解码截断、不会聚合）。把所有维同时随机化，分数降了也无法归因。网格费用随 \(n\times d\times k\times\rho\) 涨，CI 里应只跑单针冒烟加一两个产品相关变体；完整网格留给发布。</p><p>判定自动化会偏待复制类、亏待改写类。若产品接受同义回答，就要公开判定脚本；若只接受精确值，就不要用散文针。多针列出的顺序、分隔符、是否允许嵌在解释里，都会改分，必须写进 verifier，而不是靠人工「看看说到了没」。</p><p>变体全绿仍不是 LongBench。真实文档有未标注的针、有冲突条款、有表和图。NIAH 家族再复杂，也是插入式探针。它的角色是把窗口实现和检索通道从真实任务里拆出来，见 <a href="/llm/longbench-ruler">LongBench / RULER / ∞Bench</a>。</p><p><span class="marginnote">不要把多针计数的失败自动诊断成「上下文不够长」。有的模型在短窗口上就不会计数。应先在短草堆上跑同一 \(k\)，把「不会做这题」和「长了做不了」分开。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>标准单针 NIAH 是检索冒烟；独特性、针数、干扰、运算和草堆都是会改命题的超参数。</li><li>有诊断价值的阶梯从复制、多针、多键干扰走到绑定、聚合与推理针。</li><li>问句泄漏针面、随机 token 草堆、只报单针热力图，都会让结论偏乐观。</li><li>判定必须与答案类型匹配：UUID 精确匹配，散文要公开抽取规则。</li><li>变体网格用于归因，不能替代真实长任务评测。</li><li>出处：Liu et al., <em>Lost in the Middle</em>；Hsieh et al., <em>RULER</em> 中的多键与聚合检索设定；单针热力图实践。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

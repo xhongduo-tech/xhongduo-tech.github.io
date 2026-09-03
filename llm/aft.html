@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Attention-Free Transformer | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_aft.md.CPDFfz8n.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="attention-free-transformer" tabindex="-1">Attention-Free Transformer <a class="header-anchor" href="#attention-free-transformer" aria-label="Permalink to &quot;Attention-Free Transformer&quot;">​</a></h1><div class="epigraph"><p>不必物化注意力矩阵：用键与成对位置偏置给值加权，再与查询做逐元乘，全局交互仍在，二次表可以丢掉。</p><footer>—— Zhai et al., An Attention Free Transformer, 2021</footer></div><p>点积注意力的开销在那张 \(T\times T\) 的分数矩阵上：先算 \(QK^\top\)，再 softmax，再乘 \(V\)。Apple 的 Zhai 等人 2021 年提出 Attention-Free Transformer（AFT）：保留 \(Q,K,V\) 投影，但把「查询去检索键」改成「键加位置偏置之后对值做加权平均，结果再与查询逐元相乘」。没有 \(n\times n\) 的注意力矩阵，空间是 \(O(Td)\)；AFT-full 的时间仍可以是 \(O(T^2 d)\)（因为偏置 \(w_{t,t&#39;}\) 是成对的），但 AFT-simple / AFT-local / AFT-conv 把偏置结构化之后，复杂度降到近线性。它是后来 <a href="/llm/rwkv">RWKV</a> 的 WKV 算子的直接前身：RWKV 把 AFT 里那张成对 \(W\) 收成按通道的衰减向量。本篇写 AFT 原文的替换层，不把 RWKV 的规模化算进来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多头注意力（MHA）是 Transformer 里最贵的插件。当时的高效变体两条路：稀疏或低秩地逼近 softmax 矩阵，以及换成卷积、线性核。稀疏会弄丢某些边；核近似会弄钝尖峰。AFT 问的是更彻底的问题：作为 MHA 的即插替换，能否不做注意力矩阵，仍然保持查询对全局值的调制？</p><p>需要满足的约束是：不改 Transformer 的残差、LayerNorm、前馈；输入仍投影成 \(Q,K,V\)；因果语言模型与编码器都可以用；显存不要随 \(T^2\) 涨。若只是把 softmax 换成固定窗卷积，全局感受野没了；若保留全局平均却去掉位置，模型分不清远近。AFT 必须同时给出「全局池化」和「位置可辨」两条，并且实现上不能物化 \(T\times T\) 的权重张量到激活里。<span class="marginnote">「Attention-free」指的是没有那张注意力矩阵，不是没有 \(Q,K,V\)。查询仍在，只是从「对键做 softmax」改成「对池化后的值做门控」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="aft-full-键加偏置的加权平均" tabindex="-1">AFT-full：键加偏置的加权平均 <a class="header-anchor" href="#aft-full-键加偏置的加权平均" aria-label="Permalink to &quot;AFT-full：键加偏置的加权平均&quot;">​</a></h3><p>给定 \(Q=XW_Q\)、\(K=XW_K\)、\(V=XW_V\)，位置 \(t\) 的输出是</p> \[Y_t=\sigma_q(Q_t)\odot\frac{\sum_{t&#39;=1}^{T}\exp(K_{t&#39;}+w_{t,t&#39;})\odot V_{t&#39;}}{\sum_{t&#39;=1}^{T}\exp(K_{t&#39;}+w_{t,t&#39;})}. \]<p>\(\sigma_q\) 默认是 sigmoid，\(w\in\mathbb{R}^{T\times T}\) 是学到的成对位置偏置，\(\odot\) 是逐元乘。对每个 \(t\)，先用 \(\exp(K_{t&#39;}+w_{t,t&#39;})\) 沿序列给值做加权平均（分母按特征维或按配置广播），再用查询门去乘。加权只依赖键和位置，不依赖 \(Q_{t}^\top K_{t&#39;}\) 这种双线性分数。因此实现时不必存注意力矩阵：分子分母都可以按 \(t\) 重算或预聚合。AFT-full 时间仍随成对 \(w\) 二次，但峰值激活是 \(O(Td)\)，这是相对 MHA 的第一条收益。</p><p>可以把 AFT 看成「头数等于特征维」的隐式注意力：每个通道自己做一套由 \(K\) 与 \(w\) 因子化出来的权重，查询只做门控。表达力来自逐通道的不同加权，而不是来自若干个头共享一张 \(T\times T\) 图。</p><h3 id="aft-local-与-aft-simple" tabindex="-1">AFT-local 与 AFT-simple <a class="header-anchor" href="#aft-local-与-aft-simple" aria-label="Permalink to &quot;AFT-local 与 AFT-simple&quot;">​</a></h3><p>成对 \(w\) 太贵。AFT-local 只在 \(|t-t&#39;|&lt;s\) 的窗口内使用学到的偏置，窗外令 \(w_{t,t&#39;}=0\)。关键设计是：窗外的项仍然以 \(\exp(K_{t&#39;})\) 进入求和，全局连通性在。窗口只调制近处的相对位置，远处仍被键的幅度门控，而不是被切掉。这与稀疏注意力「窗外权重精确为零」不同。</p><p>AFT-simple 取 \(s=0\)，干脆不学位置偏置：</p> \[Y_t=\sigma_q(Q_t)\odot\frac{\sum_{t&#39;}\exp(K_{t&#39;})\odot V_{t&#39;}}{\sum_{t&#39;}\exp(K_{t&#39;})}. \]<p>除查询门外，加权平均对所有 \(t\) 相同，可以一次算完再广播。因果情形改成前缀和：位置 \(t\) 只用 \(t&#39;\le t\) 的 \(\exp(K)\odot V\) 与 \(\exp(K)\)。这已经是线性时间、常数或线性状态，视实现是双向还是因果而定。</p><h3 id="aft-conv-空间权共享" tabindex="-1">AFT-conv：空间权共享 <a class="header-anchor" href="#aft-conv-空间权共享" aria-label="Permalink to &quot;AFT-conv：空间权共享&quot;">​</a></h3><p>面向图像与可变尺寸，AFT-conv 把 \(w\) 做成相对位置、跨空间共享，形式上接近深度可分卷积加上全局 \(\exp(K)\) 池化。配置写成 AFT-conv-\(h\)-\(s\)：\(h\) 个头（这里头主要用来给 \(K\) 降维并学习多组 \(w\)），\(s\) 为局部核宽。\(K\) 可以比 \(Q,V\) 更窄，进一步降参数。因为权共享，输入分辨率改变时不必重学一张 \(T\times T\) 的 \(w\)。论文在自回归建模与图像识别上都给出了与 Transformer 可比较、显存更小的结果，并对照了 Linformer、Performer。<span class="marginnote">AFT-local 的「窗外仍贡献」容易被实现成真正的局部窗。若错误地把求和限制在窗口内，层就退化成卷积，论文声称的全局交互就没了。写核对齐的是公式里那个完整的 \(\sum_{t&#39;}\)。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>标准注意力里，查询通过点积选择键，选择是跨通道耦合的：一个头里所有通道共享同一套权重。AFT 把选择拆开：通道 \(c\) 的权重由 \(K_{\cdot,c}\) 与 \(w\) 决定，查询 \(Q_{t,c}\) 只决定这一维读多少。这更像一组并行的加权池化，而不是一次内容寻址。好处是无需 \(T\times T\) 矩阵；代价是不能用「查询与某个键特别像」来把几乎全部质量分给单一位置——除非该位置的 \(K\) 在对应通道上已经极大，而这与查询无关。</p><p>位置偏置 \(w_{t,t&#39;}\) 承担了注意力里相对位置编码的一部分工作。没有 \(w\)，AFT-simple 的池化对所有查询相同，区分不同 \(t\) 的只剩 sigmoid 门，长程结构变弱。有了局部 \(w\)，近处可以学到类似卷积的相对模式，远处仍靠 \(K\) 的全局门。训练时 \(\exp(K+w)\) 容易溢出，需要对 \(K\)、\(w\) 做稳定化（减最大值，或限制 \(w\) 的范围），这与 softmax 的 log-sum-exp 是同一类数值问题，只是归约维从「一行注意力」变成了「沿序列的逐通道加权」。</p><p>因果前缀和把 AFT-simple 变成 RNN 式扫描：状态是 \(\sum\exp(K)\odot V\) 与 \(\sum\exp(K)\)，大小与 \(d\) 同阶。这正是 RWKV 后来把 \(w\) 改成通道衰减、再加当前 token 奖励 \(u\) 的起点。AFT 原文停在「替换 MHA」，没有做十亿参数的语言建模缩放。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>需要精确检索时，AFT 弱于 softmax：查询不能按内容去挑某一行键，只能按通道去开闭已经混合好的池。针测、拷贝、复杂指代应保留至少若干真正的注意力层，或改用后续的线性注意力 / 状态空间。AFT-full 的 \(w\) 随 \(T^2\) 涨，不能当真用于长上下文；生产上有意义的是 simple / local / conv。</p><p>与 Performer、线性注意力相比，AFT 不是在逼近 softmax 核，而是换了一种交互代数。评测不能只用语言建模损失：还要看位置敏感任务（相对位置、局部句法）在拿掉 \(w\) 之后掉多少。视觉上 AFT-conv 的权共享是优点；语言上同一套相对偏置跨层共享则可能不够，往往要每层每头一份局部 \(w\)。</p><p>实现时优先写因果扫描与减最大值，而不是先物化 \(\exp(K+w)\) 的稠密表——否则「省掉注意力矩阵」名存实亡。短序列上 Flash softmax 极快，AFT 的优势在显存与长程扫描，不在 512 token 的训练步速。<span class="marginnote">把 AFT 当成「免费的全局注意力」会高估检索、低估位置偏置的作用。真正能线性化的是 simple 与结构化 \(w\)；full 只是概念完整形式。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>AFT 用 \(\exp(K+w)\) 对值加权平均，再与 \(\sigma(Q)\) 逐元相乘，替换 MHA 而不物化注意力矩阵。</li><li>AFT-full 有成对偏置；local 只在窗口内学 \(w\) 但仍全局求和；simple 去掉 \(w\)；conv 做空间权共享。</li><li>查询是门控不是检索，尖峰弱于 softmax，精确拷贝是短板。</li><li>因果 simple 形式是前缀和，状态与 \(d\) 同阶，通往 RWKV 的 WKV。</li><li>显存 \(O(Td)\) 是主收益；full 的时间仍可二次，长序列要用结构化 \(w\)。</li><li>数值上 \(\exp\) 需要稳定化，写错窗口求和会丢掉论文的全局连通。</li><li>出处：Zhai et al., <em>An Attention Free Transformer</em>, 2021。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

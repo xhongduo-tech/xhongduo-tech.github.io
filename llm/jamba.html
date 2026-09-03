@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jamba 注意力-SSM 混合 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_jamba.md.CV9qW-QZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="jamba-注意力-ssm-混合" tabindex="-1">Jamba 注意力-SSM 混合 <a class="header-anchor" href="#jamba-注意力-ssm-混合" aria-label="Permalink to &quot;Jamba 注意力-SSM 混合&quot;">​</a></h1><div class="epigraph"><p>少数 Transformer 层提供精确检索，多数 Mamba 层提供线性扫描；再在前馈里插 MoE。</p><footer>Lieber 等，Jamba，AI21，2024</footer></div><p>纯 Mamba 堆叠在长上下文上便宜，在精确检索和 in-context 格式上发虚；纯 Transformer 相反。Jamba 不发明第三种序列算子，只在深度上把已有的两种层按周期排好，再把部分前馈换成 MoE。它是可部署的交错图：注意力层数决定 KV 预算，Mamba 层数决定扫描占比，专家层数决定激活参数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Mamba 把序列层做成线性时间和常数状态，但纯 SSM 堆叠在 in-context 学习、精确拷贝和某些推理格式上，往往落后于同规模 Transformer。注意力的 KV 表太贵，却是目前最可靠的随机访问记忆。两边的短板对称：全注意力付不起长上下文的缓存；全 Mamba 付不起「从任意位置取回一个 token」的精度。</p><p>Jamba 的问题不是再发明一种序列算子，而是<strong>在现有算子之间做层间交错</strong>：哪些层必须是注意力，哪些层可以是 Mamba，前馈要不要做成 MoE。目标是一张能在长上下文下部署的稠密–稀疏混合图，而不是理论上更纯的模型。</p><p><span class="marginnote">AI21 的 Jamba 是工程混合，层比、MoE 周期、注意力间隔都是超参，不是从第一性原理推出来的唯一解。</span></p><h3 id="单层替换解决不了检索" tabindex="-1">单层替换解决不了检索 <a class="header-anchor" href="#单层替换解决不了检索" aria-label="Permalink to &quot;单层替换解决不了检索&quot;">​</a></h3><p>把 Transformer 的每一层注意力换成 Mamba，得到的是纯 SSM 语言模型。长程压缩在，精确检索弱。把每一层都留成注意力，KV 随长度线性涨，百万 token 上下文在推理侧先被缓存打死。需要的是在深度方向上<strong>稀疏散布</strong>注意力，让大多数深度走 SSM。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Jamba 的骨架是重复的「混合块」。块内按固定周期排列：</p><ul><li>多数层：Mamba 序列混合 + 稠密或稀疏 MLP；</li><li>每隔 \(l\) 层：插入一层标准的因果 Transformer 注意力（带 KV），再接 MLP；</li><li>每隔 \(e\) 层：把 MLP 换成 MoE，路由到专家子集。</li></ul><p>注意力层是<strong>全序列</strong>的，不是 Griffin 那种滑动窗口。SSM 层用 Mamba 的选择性扫描。两者在残差流上交替，而不是在同一层里并联。MoE 不参与序列混合的选择，只放大前馈容量、压低每 token 激活参数。</p><h3 id="交错的周期" tabindex="-1">交错的周期 <a class="header-anchor" href="#交错的周期" aria-label="Permalink to &quot;交错的周期&quot;">​</a></h3><p>设总层数为 \(L\)。若每 \(l\) 层出现一次注意力，则注意力层数约为 \(L/l\)，KV 缓存按这个比例缩小。\(l=1\) 退回 Transformer；\(l \to L\) 退回几乎纯 Mamba。Jamba 的实验落在中间：足够密的注意力以维持 in-context 与检索，足够稀以让长上下文的缓存可部署。</p><p>MoE 周期 \(e\) 独立于 \(l\)。序列层的线性时间与专家层的稀疏激活正交：前者管长度，后者管参数。把两者绑在同一层也可以，但论文把它们拆开，便于分别消融。</p><h3 id="仍是因果语言模型" tabindex="-1">仍是因果语言模型 <a class="header-anchor" href="#仍是因果语言模型" aria-label="Permalink to &quot;仍是因果语言模型&quot;">​</a></h3><p>位置、词嵌入、输出头与常规 Decoder-only Transformer 同类。变的是中间的序列混合器。注意力层使用和普通 Transformer 相同的 QKV 与因果掩码；Mamba 层使用选择性 SSM。没有新的位置编码理论，也没有新的路由理论——Jamba 是<strong>组装</strong>，组装的对象已经在各自论文里成立。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="注意力层在混合里实际做什么" tabindex="-1">注意力层在混合里实际做什么 <a class="header-anchor" href="#注意力层在混合里实际做什么" aria-label="Permalink to &quot;注意力层在混合里实际做什么&quot;">​</a></h3><p>稀疏的全序列注意力提供全局的、可寻址的记忆。In-context 的示范、远处的约束、需要精确对齐的格式，由这些层完成匹配。因为层数少，KV 总量约为纯 Transformer 的 \(1/l\)。对长上下文推理，这是 Jamba 可落地的直接原因。</p><p>Mamba 层则在两次注意力之间做线性扫描，把局部模式和可压缩的长程统计写进 SSM 状态。下一层注意力看到的残差，已经过 SSM 的混合，不完全是原始 token 流。于是注意力不必在每一层重复同一份全局匹配。</p><p><span class="marginnote">KV 只在注意力层物化。Mamba 层的状态宽度与上下文长度无关，不进入 KV 预算。</span></p><h3 id="moe-叠在混合骨架上" tabindex="-1">MoE 叠在混合骨架上 <a class="header-anchor" href="#moe-叠在混合骨架上" aria-label="Permalink to &quot;MoE 叠在混合骨架上&quot;">​</a></h3><p>Jamba 的总参数可以很大（专家数 × 专家宽），激活参数保持在较小的一档。这与 Switch Transformer 一类的稀疏前馈相同，只是底座从纯 Transformer 换成了 Mamba–注意力交错。负载均衡、专家并行、路由抖动，全部是 MoE 自己的工程，不因下面是 SSM 而消失。混合架构若在路由上失败，表现会先像一个坏 MoE，而不是像一个坏 SSM。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>交错比是超参，对任务敏感。检索型、needle-in-haystack、严格的 in-context 拷贝，需要更密的注意力；纯长文档的流畅续写，可以更稀。没有一条对所有下游都最优的 \(l\)。把 Jamba 理解成「Mamba 已经足够、注意力只是遗留」会读反论文：注意力被留下，正是因为 SSM 单独不够。层比一旦在预训练里钉死，推理期很难再加密注意力而不重新训练，所以 \(l\) 是产品决策，不是运行时开关。</p><p>实现上，两种层的 kernel 不同，编译、量化、投机解码都要走两套。训练时的流水线切分也更烦：注意力层通信 KV，Mamba 层通信状态。MoE 再引入专家并行，三套并行维度（数据、专家、序列核）必须一起排。这是部署成本，不是论文图表里的曲线。</p><p><span class="marginnote">Jamba 1.5 等后续版本改宽度、改对齐数据，不改变「注意力–Mamba–MoE」这张图。本篇只讨论这张图。</span></p><p>与 Griffin 的差别要写清：Griffin 的注意力是局部窗口、全局通道是线性 RNN，且可以没有 MoE；Jamba 的注意力是全局的、全局通道由注意力与 Mamba 共同承担，并用 MoE 堆参数。两者都是混合，混合的轴不一样。部署时若只报告总参数或只报告激活参数，会把 MoE 的稀疏与 SSM 的线性时间混成一个「效率」数字；正确的报表是三栏——注意力层 KV、\(l\) 与 \(e\)、激活 FLOP。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><p>Jamba（Lieber 等，AI21，2024）把 Transformer 注意力层与 Mamba 层按周期交错，并在部分前馈上使用 MoE：用少数全序列注意力保住检索与 in-context，用多数选择性 SSM 压低长上下文的时间与 KV，用专家稀疏放大容量。它是层间混合的工程解，不是新的序列算子。读它时应盯住两个周期——注意力间隔 \(l\) 与 MoE 间隔 \(e\)——以及由此而来的 KV 预算，而不是把它简化成「带 MoE 的 Mamba」。交错比在预训练里钉死之后，几乎不能当推理开关用。</p></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

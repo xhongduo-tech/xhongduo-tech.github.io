@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>H2O KV 淘汰 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_h2o-kv.md.CHRKApMd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="h2o-kv-淘汰" tabindex="-1">H2O KV 淘汰 <a class="header-anchor" href="#h2o-kv-淘汰" aria-label="Permalink to &quot;H2O KV 淘汰&quot;">​</a></h1><div class="epigraph"><p>注意力质量集中在一小撮重击中 token 上；缓存里同时留下它们和最近窗口，就可以在固定槽位上继续生成，而不把中间历史整段保留。</p><footer>—— Zhang, Sheng, Zhou, Chen 等，H2O: Heavy-Hitter Oracle，NeurIPS 2023</footer></div><p>解码时 KV 随长度线性涨，最终会先于权重把显存打满。<a href="/llm/kv-eviction">窗口淘汰</a> 只留最近 \(w\) 个位置，实现简单，却会切掉文首汇点、也会丢掉远处仍被反复点名的实体。Zhang、Sheng、Beidi Chen 等人的 H2O（Heavy-Hitter Oracle）观察：少数 token 贡献了大部分累积注意力分数，称为 heavy hitters（H2）；去掉它们质量明显掉，只留最近窗口也不够。策略是在固定预算 \(k\) 下动态保留 <strong>H2 ∪ 最近 token</strong>。本篇写累积分数、驱逐规则与和汇点方法的差别，不把量化 KV 或分页 LRU 写成淘汰。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>完整缓存的可见集是 \(\{1,\ldots,t\}\)。预算 \(k&lt;t\) 时必须选一个子集 \(S_t\)，后续 softmax 只在 \(S_t\) 上归一化。选错的代价不可逆：驱逐等于让模型失忆，将来即使该 token 会变成关键，也找不回来。H2O 把这写成在线驱逐：每步最多丢掉一个旧槽，腾给新 token。</p><p>局部窗口假设「只有近邻有用」，在对话指代、文档问答里不成立。纯累积注意力的全局 top-\(k\) 又会丢掉「刚刚出现、还没累积起分数、但马上要用」的词。论文用 OPT、LLaMA、GPT-NeoX 上的可视化说明：累积分数高度稀疏，且与词的共现相关；屏蔽 H2 会显著伤生成。于是预算要同时满足两种角色：长期重击中，以及短期局部上下文。</p><h3 id="重击中不是汇点" tabindex="-1">重击中不是汇点 <a class="header-anchor" href="#重击中不是汇点" aria-label="Permalink to &quot;重击中不是汇点&quot;">​</a></h3><p><a href="/llm/attention-sink">Attention Sink</a> 说的是文首几个位置吸走归一化质量，即使语义空洞。<a href="/llm/streaming-llm">StreamingLLM</a> 因此钉住前 \(k\) 个下标再滑窗。H2 是<strong>内容上</strong>被许多查询反复打高分的 token，可能在序列中部（实体名、问题里的关键词）。汇点几乎总在开头；H2 随文本变。两者常重叠（BOS 既是汇点也可能累积高分），但策略目标不同：汇点修的是滑窗破坏配分函数，H2O 修的是「中间重要证据被滑掉」。</p><p><span class="marginnote">H2O 是淘汰：被丢掉的键以后不再参与点积。QUEST 一类方法保留全部 KV、按当前查询挑选加载，失败模式是近似注意力而不是失忆。不要用同一套「压缩率」去比这两种对象。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每个已缓存位置 \(j\) 维护累积注意力</p> \[a_j \leftarrow a_j + \sum_{h}\mathrm{softmax}(q_t^\top k_j/\sqrt{d})_h \]<p>（实现上对头求和或取平均，论文用累积和。）新 token 到来、缓存满时，在「非最近窗口」的槽里驱逐 \(a_j\) 最小的那个，写入新 KV，并把新位置纳入最近窗口。预算切成两块：一部分给 H2，一部分给 recent。论文常用约 20% 的 KV 预算（相对完整长度）在多种零样本任务上接近全缓存质量。</p><h3 id="贪心-h2-与子模视角" tabindex="-1">贪心 H2 与子模视角 <a class="header-anchor" href="#贪心-h2-与子模视角" aria-label="Permalink to &quot;贪心 H2 与子模视角&quot;">​</a></h3><p>理想的 H2 需要事后才知道哪些 token 全局重要，生成时不可得。在线算法用截至当前的累积分数当 oracle 的贪心替代。论文把驱逐写成动态子模最大化的变体，并论证在温和假设下贪心 H2 与「真正的」H2 驱逐行为接近。工程上不必实现那套证明，但要记住：分数必须在<strong>未被驱逐的集合上</strong>累积。已经丢掉的位置没有机会再加分，早期误杀无法纠正。</p><p>最近窗口的长度是超参。太短，局部句法崩；太长，H2 配额被挤掉，远处证据丢失。H2 配额太小则退化成滑窗；太大则新 token 还没被当成「最近」就被低分清掉。调参应在真实任务的长生成上做，而不是只看短补全的困惑度。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是「用历史注意力当重要性的充分统计，并强制给新 token 一段保护期」。累积和偏向<strong>已经活得足够久、且多次被看重</strong>的位置，这与「持久重要性」同类，也是 <a href="/llm/scissorhands">Scissorhands</a> 的邻居。H2O 的特色是把 recent 与 H2 显式拆成两段预算，并给出子模分析。共现强的词更容易成为 H2：它们在数据里常一起出现，注意力头学会把它们当锚点。</p><p>吞吐收益主要来自更小的 KV：同样显存可以加大 batch，或在卸载系统里少换页。论文基于 FlexGen 一类实现，相对 DeepSpeed ZeRO-Inference、HuggingFace Accelerate、FlexGen 基线给出最高约 29× / 29× / 3× 的吞吐，同 batch 延迟可降约 1.9×。这些数字含系统效应（更少 offload），不是纯注意力核的加速。现代分页引擎上应重测：淘汰减少的是逻辑可见长度，还要看核是否按稀疏集合高效读取。</p><p><span class="marginnote">FlashAttention 不物化完整注意力矩阵。若实现「先算完整 softmax 再累加 \(a_j\)」，会把 IO 感知核的好处打掉。生产实现需要在核内维护每键的标量分数，或退回到可观测注意力的较慢路径。分数统计的开销必须算进端到端。</span></p><h3 id="和仅最近缓存、仅-h2-的对比" tabindex="-1">和仅最近缓存、仅 H2 的对比 <a class="header-anchor" href="#和仅最近缓存、仅-h2-的对比" aria-label="Permalink to &quot;和仅最近缓存、仅 H2 的对比&quot;">​</a></h3><p>论文消融：同样 20% 预算，只留最近窗口质量差；用局部统计冒充 H2 也不如累积全局分数。H2 提供长程锚点，recent 提供正在展开的句子。缺任何一侧都会在某一类任务上露馅：总结需要远处主题词，对话需要刚刚说的槽值。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>淘汰不可逆，不适合「先闲聊、最后才问文档第 3 节」这种查询与重要性时间错位的负载——那是 <a href="/llm/quest-kv">QUEST</a> 强调 query-aware 的动机。累积分数对早期 token 有偏：活得久的更容易变成 H2，新出现的专名要靠 recent 保护。多头之间重要性不一致，按头独立维护 \(S\) 更准也更费内存；按层共享一套驱逐则更粗。</p><p>GQA 下分数应聚合到 KV 头，否则同一键被多个查询头重复加分，尺度乱掉。与 sink 同时用时，文首几个位置应禁止驱逐，以免配分函数塌掉。不要把 20% 当成常数：更长上下文、更难的针检索，预算要加。HELM 与 lm-eval-harness 上的短任务会高估淘汰的安全性。</p><p><span class="marginnote">H2O 改变的是模型看见的上下文，不是无损加速。评测必须看任务质量，不能只报吞吐。宣传「压缩 KV」时写明：这是近似生成，与投机解码的分布保持不是一类保证。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>H2O 在固定预算下保留累积注意力高的 heavy hitters 与最近窗口，在线驱逐其余 KV。</li><li>重击中是内容锚点，与文首汇点不同；两者常同时需要。</li><li>在线分数是对理想 H2 的贪心近似；误杀不可恢复。</li><li>论文约 20% 预算在多种任务上接近全缓存；吞吐数字含卸载系统效应。</li><li>与 FlashAttention、GQA、sink 集成时要改分数维护，而不是物化稠密注意力。</li><li>出处：Zhang et al., <em>H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models</em>，NeurIPS 2023；arXiv:2306.14048。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

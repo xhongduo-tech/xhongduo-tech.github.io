@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>优势估计不依赖 Critic | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_critic-free-advantage.md.DtZTIPdG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="优势估计不依赖-critic" tabindex="-1">优势估计不依赖 Critic <a class="header-anchor" href="#优势估计不依赖-critic" aria-label="Permalink to &quot;优势估计不依赖 Critic&quot;">​</a></h1><div class="epigraph"><p>基线可以是任何不依赖于当前动作的函数；减去它不改变策略梯度的期望，只改变方差。</p><footer>—— 对照 Williams 1992 关于 REINFORCE 基线的论述，以及后续把基线取成同提示上其他样本的做法</footer></div><p>PPO 把优势写成 \(A_t=\delta_t+\gamma\lambda\delta_{t+1}+\cdots\)，其中 TD 残差 \(\delta_t\) 需要一个价值网络 \(V_\phi(s_t)\)。语言模型里这个 \(V_\phi\) 往往与策略同骨架、同宽度，等于再训一份「预测还剩多少分」的模型。可验证奖励流行之后，一条轨迹只有一个终端标量，\(V_\phi\) 要拟合的目标在时间轴上几乎是常数，Critic 变成昂贵的平滑器。<a href="/llm/reinforce-llm">REINFORCE</a> 指出：优势可以是 \(R-b\)，而 \(b\) 不必是学出来的。本篇只写 <strong>Critic-free 优势</strong>——用统计量代替 \(V_\phi\)——不把 PPO 的裁剪目标再展开一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>InstructGPT 一类 RLHF 要同时装下策略、参考模型、奖励模型和 Critic。后三者里，奖励模型可以离线、参考模型可以冻结，Critic 却必须跟着策略走，否则 GAE 的自举是错的。长上下文、大 MoE、思维链把这份成本从「多一张卡」变成「同一套并行拓扑再复制一份」。更糟的是识别问题：前缀 \(s_t\) 的真实状态价值依赖于尚未写出的后缀，而训练信号只有终局对错。Critic 容易学会长度、格式、标点这些浅相关，把优势变成另一种奖励黑客。</p><p>于是问题从「如何训好价值函数」转成「能否用同一提示上的多个终局样本，在当前批次里估出 \(b(x)\)」。这要求每个提示采样 \(k\ge 2\) 条回复，用掉更多 decode，但省掉价值头的前向、反向与优化器状态。取舍发生在 <em>采样倍数</em> 与 <em>第二套模型</em> 之间，不是发生在「要不要强化学习」上。</p><h3 id="终端奖励使逐步价值难以识别" tabindex="-1">终端奖励使逐步价值难以识别 <a class="header-anchor" href="#终端奖励使逐步价值难以识别" aria-label="Permalink to &quot;终端奖励使逐步价值难以识别&quot;">​</a></h3><p>若 \(r_t=0\,(t&lt;T)\) 且 \(r_T=R\in\{0,1\}\)，则 \(V^\pi(s_t)=\mathbb{E}[R\mid s_t]\)。对尚未分叉的前缀，这个条件期望接近该题的平均正确率，不随 \(t\) 剧烈变化；真正的分叉点稀疏，Critic 没有逐步标签去对齐那些点。GAE 的偏差—方差旋钮在这里缺少可观测的逐步回报，λ 调的是平滑强度，不是逐步对错。Critic-free 方法承认这一点：只估 \(V^\pi(x)\)（提示级），不估 \(V^\pi(s_t)\)（前缀级）。</p><p><span class="marginnote">「不依赖 Critic」不是「没有基线」。\(b=0\) 的纯蒙特卡洛仍是无偏的，只是吵。移动平均、贪心回复、留一法、组均值都是基线。把它们写成「我们发明了无价值函数的 PPO」会误导：少的是 \(V_\phi\)，不是优势这个概念。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>给定提示 \(x\) 与 \(k\) 条独立样本 \(y^{(1)},\ldots,y^{(k)}\)，回报 \(r_i=R(x,y^{(i)})\)。Critic-free 优势的通式是</p> \[\hat{A}_i = g\bigl(r_i;\, \{r_j\}_{j=1}^{k}\bigr), \]<p>其中 \(g\) 对 \(r_i\) 可以依赖，但对生成 \(y^{(i)}\) 的中间状态不另引入网络。常见特化：</p><ul><li><strong>常数 / 滑动基线</strong>：\(k=1\)，\(\hat{A}=r-\bar{r}\)，\(\bar{r}\) 来自历史。便宜，跨提示尺度混在一起。</li><li><strong>贪心基线（ReMax 一类）</strong>：\(b(x)\) 取温度 0 解码的回报，当前样本减它。不额外训网络，但贪心条与采样条的计算图要分开，且贪心本身可能不是低方差的对照。</li><li><strong>留一法（RLOO）</strong>：\(b_i=\frac{1}{k-1}\sum_{j\neq i}r_j\)，对当前样本无偏于组内其他成员。</li><li><strong>组标准化（GRPO）</strong>：减组均值再除组标准差，见<a href="/llm/group-relative-baseline">群体相对基线</a>。</li></ul><p>梯度仍是 \(\hat{A}_i\nabla\log\pi(y^{(i)}\mid x)\)，可再乘 PPO 式的重要性比率与裁剪。有无 Critic 与「像不像 PPO 的 surrogate」是正交的两件事：可以 Critic-free 却保留裁剪，也可以有 Critic 却用原始 REINFORCE。</p><div class="mermaid"></div><h3 id="无偏与有偏要分开说" tabindex="-1">无偏与有偏要分开说 <a class="header-anchor" href="#无偏与有偏要分开说" aria-label="Permalink to &quot;无偏与有偏要分开说&quot;">​</a></h3><p>留一均值作为基线，在 \(k\) 固定、\(r_j\) 可视为对同一 \(V(x)\) 的样本时，接近 Williams 意义上的合法基线。除以 <strong>同一个小样本集估出来的标准差</strong> 则把分子分母绑在一起，有限 \(k\) 上一般是有偏的尺度变换——它可能仍然好用，但不能再声称「与 REINFORCE 同样无偏」。全局批次上的标准化（把许多提示的优势放在一起除标准差）把尺度锚在更大的样本，偏置随批增大而减弱。写实验日志时要记下：\(k\)、减的是均值还是留一均值、除的是组内标准差还是全局标准差。少记一项，别人无法复现你的优势定义。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Critic-free 优势估计的是「这条回复相对 <em>这道题当前策略的典型水平</em> 好多少」，不是「这个前缀相对最优后缀好多少」。因此它天然匹配<a href="/llm/best-of-n">Best-of-N</a> 的比较语义：同题多条、打分、相对排序。策略被推向 <em>组内更好</em> 的那一侧。若一组全对或全错，相对量塌成 0，该提示本步没有梯度——这是特征不是 bug：没有可区分的样本时，Monte Carlo 不该假装知道方向。PPO 的 Critic 在这种情况下仍可能输出非零 \(A_t\)，那是值函数的外推，可能有用也可能是幻觉。</p><p>计算图上，优势在反传中应 <code>stop_gradient</code>。否则模型会通过改采样分布去改 \(b\)，基线不再是「常数」。实现漏这一步，组均值会被当成可学习目标，更新怪异且难查。KL 正则仍建议留在损失里：没有 Critic 并不自动提供信任域，只是少了一种滞后的价值估计。</p><p><span class="marginnote">\(k=1\) 且没有历史基线时，Critic-free 退化为原始 REINFORCE。这时「相对」消失，优势等于原始回报，提示难度的尺度直接进入步长：简单题 \(r\) 常为 1，难题常为 0，梯度被简单题主导。这是后来要用组内或全局标准化的原因。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="省显存-不省采样墙钟" tabindex="-1">省显存，不省采样墙钟 <a class="header-anchor" href="#省显存-不省采样墙钟" aria-label="Permalink to &quot;省显存，不省采样墙钟&quot;">​</a></h3><p>去掉 Critic 后，HBM 可以留给更大的策略、更长的上下文或更大的 microbatch。但 \(k&gt;1\) 的 decode 会打在<a href="/llm/decode-memory-wall">显存墙</a>上：KV 按并发条数涨，带宽按条数涨。许多「GRPO 比 PPO 快」的数字，比的是 <em>不跑价值头</em>，不是 <em>总 token 生成量更少</em>。若把 \(k\) 取到 16 而策略很大，墙钟可能反超带小 Critic 的 PPO。</p><p>过程密集、需要逐步纠错的任务，提示级 \(b(x)\) 不够。应换过程奖励或逐步验证，而不是把 Critic 请回来装成逐步标签——两套方案的监督来源不同。奖励模型非平稳时，组内相对可以短时间稳住尺度，但不能修正 RM 的系统性偏置；全体样本一起被 RM 高估时，相对排名仍可能全错。安全与拒答：组内「拒答分」若低于胡编，策略会被推向胡编，这与有没有 Critic 无关，是 \(R\) 的定义问题。</p><p><span class="marginnote">引用 Williams 的基线定理、Shao 等 DeepSeekMath 中的组相对优势、Ahmadian 等 2024 年对 REINFORCE 风格 RLHF 的讨论。不要给未核对的「无 Critic PPO」变体编造 arXiv。OpenAI o1 的训练细节未公开到价值头这一层，不要写成「o1 一定没有 Critic」。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>优势是 \(R\) 减去一个不依赖当前动作的基线；基线可以是统计量，不必是 \(V_\phi\)。</li><li>终端 0/1 奖励下，前缀价值难以识别，同规模 Critic 成本高、浅相关风险大。</li><li>通式是对同提示 \(k\) 条回报做 \(g(\cdot)\)：滑动均值、贪心、留一、组标准化是不同的 \(g\)。</li><li>除组内标准差会引入有限样本偏置；与减均值要分开记录。</li><li>全对/全错时相对优势为零，是没有对比信号，不是优化器坏了。</li><li>优势必须 stop-gradient；省掉 Critic 仍要 KL 或裁剪来约束步长。</li><li>出处：Williams, 1992；Shao et al., <em>DeepSeekMath</em>, 2024；Ahmadian et al., <em>Back to Basics: Revisiting REINFORCE-Style Optimization for Learning from Human Feedback in LLMs</em>, 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

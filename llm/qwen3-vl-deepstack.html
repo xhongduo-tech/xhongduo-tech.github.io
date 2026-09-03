@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DeepStack：多层 ViT 特征注入 LLM | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-vl-deepstack.md.BRRbP1PK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="deepstack-多层-vit-特征注入-llm" tabindex="-1">DeepStack：多层 ViT 特征注入 LLM <a class="header-anchor" href="#deepstack-多层-vit-特征注入-llm" aria-label="Permalink to &quot;DeepStack：多层 ViT 特征注入 LLM&quot;">​</a></h1><div class="epigraph"><p>视觉信息不必只从编码器最后一层灌进语言模型；把若干中间层特征残差写进 Decoder 浅层，细粒度与语义可以同时在场。</p><footer>—— Meng 等，DeepStack，2024；Qwen3-VL 技术报告</footer></div><p>连接器的默认契约是：ViT 末层 → 投影 → 当作视觉前缀拼进 LLM。这一路只交出最抽象的视觉词，笔画、边框、小字等浅层纹理已经在编码器深处被压掉。Qwen3-VL 引入 DeepStack：从视觉编码器<strong>三个不同深度</strong>取出特征，各自经过专用 merger，<strong>加到语言模型前三层的隐状态上</strong>。它不把多层特征在序列维上再拼一截前缀，因此上下文长度不增加。原始 DeepStack（Meng 等，2024）堆的是多尺度输入的 token；Qwen3-VL 把同一思想改成「多层 ViT 特征」，不要写成多裁剪拼接。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单层接口有两种损失。浅层 ViT 特征空间分辨率高、语义弱，直接当 LLM token 会对不齐语言空间；深层特征语义强，但 OCR、定位、图表刻度需要的边缘在前向里已经被平均。LLaVA 式投影器只看见末层。若把多层特征在序列上拼接，视觉 token 数成倍增加，与 <a href="/llm/qwen-vl-patch-merge">2×2 merge</a> 节省下来的长度互相抵消。</p><p>需要一种注入：多层视觉证据进入 Decoder 的<strong>计算</strong>，而不是进入 Decoder 的<strong>上下文长度</strong>。残差加法满足这一约束：在选定 LLM 层上，把已经映到隐维的视觉向量加到对应位置的隐状态，序列长度仍是「文本 + 一层视觉前缀」。问题变成取哪几层 ViT、注入 LLM 的哪几层、用几个 merger。</p><p><span class="marginnote">Qwen3-VL 写明：三个视觉层级、三个专用 vision–language merger，加到 LLM <strong>前三层</strong>隐状态。不是加到每一层，也不是只加到最后一层。</span></p><h3 id="与原始-deepstack-的差别要写在定义里" tabindex="-1">与原始 DeepStack 的差别要写在定义里 <a class="header-anchor" href="#与原始-deepstack-的差别要写在定义里" aria-label="Permalink to &quot;与原始 DeepStack 的差别要写在定义里&quot;">​</a></h3><p>Meng 等的 DeepStack 把不同分辨率视觉输入编成的 token 在深度方向堆叠进语言模型。Qwen3-VL 技术报告明确说：他们不走多尺度输入堆叠，而从<strong>同一个</strong>动态分辨率 ViT 的中间层取特征。输入仍是一幅（或一段）原生分辨率图，分层发生在编码器深度上。复现时若改成多裁剪再堆 token，长度与计算图都变了，不能再标注为 Qwen3-VL 的 DeepStack。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="三层取出、三路投影、残差写入" tabindex="-1">三层取出、三路投影、残差写入 <a class="header-anchor" href="#三层取出、三路投影、残差写入" aria-label="Permalink to &quot;三层取出、三路投影、残差写入&quot;">​</a></h3><p>记视觉编码器第 \(k\) 层的 patch 特征为 \(v^{(k)}\)（在 \(2\times 2\) 合并与维数对齐之后，与主视觉前缀同形）。Qwen3-VL 选取三个不同的 \(k\)，各接一个 merger \(\mathrm{Merger}_\ell\)，得到与 LLM 隐维相同的 \(\tilde{v}^{(\ell)}\)。主路径仍把末层特征作为序列前缀送入第 \(0\) 层；DeepStack 路径则对前三层隐状态做</p> \[h^{(\ell)} \leftarrow h^{(\ell)} + \tilde{v}^{(\ell)}, \qquad \ell \in \{0,1,2\} \]<p>（层号按实现从零计；报告称 first three LLM layers）。加法发生在视觉 token 对应的位置上，文本位置不加视觉残差，避免把图像特征写进纯文本槽。</p><p>主 merger 与 DeepStack merger 参数不共享：浅层 ViT 与深层 ViT 的统计不同，需要各自的 LN-MLP。训练配方里先有只训 merger 的对齐阶段，再解冻全模型；DeepStack 的额外 merger 属于同一连接器家族，应与主 merger 一起进入该阶段，否则浅层注入会长期噪声。</p><div class="mermaid"></div><p>上图只表达「多层 → 多层」的残差拓扑；具体哪一个 ViT 层号对应哪一个 LLM 层，以实现与配置为准，不要把层号编成论文没有公开的常数。</p><p><span class="marginnote">「不增加上下文长度」指序列维不变。参数与算力仍增加：多两到三个 merger，以及前几层多一次与视觉长度成正比的加法。这不是免费的多层特征。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="深度多尺度-而不是输入金字塔" tabindex="-1">深度多尺度，而不是输入金字塔 <a class="header-anchor" href="#深度多尺度-而不是输入金字塔" aria-label="Permalink to &quot;深度多尺度，而不是输入金字塔&quot;">​</a></h3><p>Decoder 浅层仍在形成跨模态对齐。把高分辨率纹理加在浅层，后续自注意力可以在语言查询与细视觉残差之间建立边，而不要求末层前缀单独重建这些细节。深层语义则继续走标准前缀，提供物体与场景级的可寻址键。多层注入因此是<strong>深度方向的多尺度</strong>，与输入金字塔多尺度不同：后者复制空间网格，前者复制同一网格上的不同抽象级。</p><p>残差而不是拼接，保持 softmax 的键集合大小。拼接会让同一空间位置出现多个 token，位置编码与 <a href="/llm/qwen3-vl-interleaved-mrope">MRoPE</a> 都要为「同一格的多层拷贝」另编 ID；加法把多层折进同一位置的向量和，位置 ID 仍与主前缀一致。这是它能与现有交错位置方案共存的原因。</p><p>Qwen3-VL 技术报告用内部 15B-A2B 量级实验对照：加上 DeepStack 后一组视觉基准均值上升，OCRBench、InfoVQA、ChartQA、DocVQA 等细粒度任务受益更明显。机制解释与此一致——需要读字、读刻度、读框的任务更依赖浅层。不要把这一消融外推成「任意层数、任意注入深度都单调变好」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>注入只在前三层，深层 Decoder 不再直接看见浅层 ViT。若任务需要在很深的推理链里反复查阅笔画，只能靠隐状态里残留的细特征，或靠前缀里的末层 token。把 DeepStack 理解成「全程高分辨率视觉缓存」会高估它。</p><p>实现必须在视觉 token 与文本 token 之间做掩码式加法。整段隐状态广播相加会污染文本，出现图文串扰。生成阶段逐步解码时，DeepStack 项只作用于已编码的视觉前缀位置，新生成的文本位置不应再加 \(v\)。KV 缓存存的是加过残差之后的层输出，训练与推理必须同一顺序：先加再算该层注意力，或先算再加——须与训练图锁定，不能一种训练、另一种推理。</p><p>原始论文的多尺度堆叠与 Qwen 的多层取出不要混名。评测对比 LLaVA 投影器时，应写清：LLaVA 是末层线性（或 MLP）对齐；Qwen3-VL 是末层前缀加浅层残差。差的是注入拓扑，不只是 merger 宽一点。<span class="marginnote">消融里细粒度基准更受益，并不等于可以无上限地加注入层。注入过深会干扰已经稳定的语言残差，过浅则细特征进不了跨模态对齐。前三层是报告给出的配额，不是 sweeper 结果的公开表。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DeepStack 在 Qwen3-VL 里把三个 ViT 深度的特征经专用 merger 残差加到 LLM 前三层，细粒度与语义同时进入计算图。</li><li>序列长度不因多层而倍增；代价是额外 merger 与浅层加法。</li><li>与 Meng 等 2024 的原版不同：不是多尺度输入堆 token，而是单流 ViT 的中间层。</li><li>主场是 OCR、文档与定位一类需要浅层边缘的任务；它不是无限视觉记忆。</li><li>出处：Meng 等，DeepStack，2024；Qwen3-VL 技术报告；对照 LLaVA 投影器仅用末层特征。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

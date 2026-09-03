@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>权重衰减与 μP | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_weight-decay-mup.md.C6jYDW8a.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="权重衰减与-μp" tabindex="-1">权重衰减与 μP <a class="header-anchor" href="#权重衰减与-μp" aria-label="Permalink to &quot;权重衰减与 μP&quot;">​</a></h1><div class="epigraph"><p>把衰减从自适应分母里拆出来，再按宽度给初始化与学习率定标，窄模型上调好的超参才有机会直接搬到宽模型。</p><footer>—— Loshchilov &amp; Hutter，AdamW；Yang 等，Tensor Programs / μP</footer></div><p>权重衰减控制参数范数，学习率控制一步走多远。Adam 若把 \(\ell_2\) 正则写进损失，梯度会先被 \(\sqrt{v}\) 除，有效衰减跟着二阶矩走，不再是你写下的 \(\lambda\)。AdamW 把衰减解耦成独立的一次乘：每次更新后 \(W\leftarrow W-\eta\lambda W\)（实现细节略有出入）。μP（Maximal Update Parameterization）要解决另一件事：宽度 \(d\) 变大时，初始化方差、学习率、有时包括衰减，必须按层类型用确定的幂次重标，使「每层的特征更新」在无穷宽极限里仍是 \(O(1)\)，从而窄模型上扫到的超参可以零样本迁到宽模型。Yang 等人的 Tensor Programs 系列给出这套定标；本篇只谈它与衰减、AdamW 的交界，不展开无限宽图的全部引理。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预训练配方里 \(\lambda\) 常取 \(0.1\) 或 \(0.01\) 量级，看起来像一个无量纲小数。它其实有单位：在 AdamW 下，每步权重乘 \(1-\eta\lambda\)，衰减率是 \(\eta\lambda\) 而不是 \(\lambda\) 本身。改学习率日程、改峰值、改 token 数，而不改 \(\lambda\)，等于改了权重被拉向原点的速度。余弦末期 \(\eta\) 变小，衰减也变弱；WSD 稳定段 \(\eta\) 恒定，衰减率全程不变——同一 \(\lambda\) 在两种日程下不是同一正则。</p><p>宽度带来第二重错位。隐藏层矩阵的梯度与初始化方差随 \(d\) 变；若学习率不按 μP 重标，宽模型要么一步太大（特征更新爆炸），要么一步相对宽度太小（退回核体制，只学最后一层）。此时即使 \(\lambda\) 数字不变，有效正则相对「这一层实际走了多远」已经变了。问题是：衰减应跟 \(\eta\) 走，还是跟宽度走，还是跟二者的乘积走。</p><h3 id="解耦权重衰减在改谁" tabindex="-1">解耦权重衰减在改谁 <a class="header-anchor" href="#解耦权重衰减在改谁" aria-label="Permalink to &quot;解耦权重衰减在改谁&quot;">​</a></h3><p>Adam 的耦合 \(\ell_2\) 把 \(\lambda W\) 加进梯度，再除 \(\sqrt{v}+\epsilon\)。\(v\) 大的坐标衰减变弱，\(v\) 小的坐标衰减变强，正则被自适应项扭曲。AdamW 的解耦形式把参数更新写成</p> \[W\leftarrow W-\eta\,\hat{m}/(\sqrt{\hat{v}}+\epsilon)-\eta\lambda W. \]<p>第二项与 \(v\) 无关，所有坐标按同一比例收缩（在这一 step 的 \(\eta\) 下）。嵌入表是否衰减、偏置与 RMSNorm 的 \(\gamma\) 是否衰减，是分组问题：常见做法是二维权重衰减、一维增益与偏置不衰减。这不是 μP 的要求，是经验分组；μP 会再问这些组的 \(\eta\) 与 \(\lambda\) 如何随 \(d\) 变。</p><p><span class="marginnote">「权重衰减等于 \(\ell_2\) 正则」只在 SGD、且学习率恒定时近似成立。AdamW 的解耦衰减是优化器里的额外收缩，和把 \(\frac{\lambda}{2}\|W\|^2\) 写进损失再走 Adam 不是同一条离散轨迹。复现论文时要看代码进的是哪一条。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>μP 把参数分成几类，每类有自己的初始化方差乘数与学习率乘数（相对一个基准宽度 \(d_0\)）：</p><ul><li><strong>输入嵌入 / 输入投影</strong>：初始化与学习率随宽度的规则与隐藏层不同，避免输入范数随 \(d\) 涨。</li><li><strong>隐藏层权重</strong>（注意力投影、FFN）：SGD 下学习率常按 \(1/d\) 缩放；Adam 下隐藏层学习率往往对宽度不敏感或按另一套表——<strong>以 Tensor Programs 给出的 Adam 规则为准，不要用 SGD 的表去套 Adam</strong>。</li><li><strong>输出头</strong>：学习率通常随 \(1/d\) 变，使 logits 尺度不随宽度爆炸。</li></ul><p>实现上，微软 mup 一类库用 <code>InfDim</code> 与乘数在模块上标注「哪一维是宽度」，优化器按组乘上对应因子。从窄模型把 \(\eta\)、\(\lambda\)、初始化一次扫好，加宽时只改 \(d\)，不改这些「μP 空间里的」超参。</p><p>衰减在 μP 里有两种常见挂法，公开讨论并不完全收敛，必须标成选择而不是定理：</p><ol><li><strong>独立 \(\lambda\)</strong>：配置里的 \(\lambda\) 不随宽度改，也不随 \(\eta\) 改。则有效收缩率 \(\eta\lambda\) 随学习率定标一起变。</li><li><strong>固定收缩率</strong>：保持 \(\eta\lambda\) 不变，即 \(\lambda\propto 1/\eta\)。宽度或日程改 \(\eta\) 时反推 \(\lambda\)。</li></ol><p>哪一种能零样本转移，取决于你认为正则应当惩罚「参数范数」还是「每步相对步长的收缩」。Yang 等人的主文本更完整地处理初始化与学习率；衰减的宽度规则在后续实践与第三方复现里有分歧。迁模型时应对 \(\lambda\) 做一次小网格，不要默认「μP 了就可以不扫衰减」。</p><div class="mermaid"></div><h3 id="μp-要把哪些超参跟宽度绑在一起" tabindex="-1">μP 要把哪些超参跟宽度绑在一起 <a class="header-anchor" href="#μp-要把哪些超参跟宽度绑在一起" aria-label="Permalink to &quot;μP 要把哪些超参跟宽度绑在一起&quot;">​</a></h3><p>必须跟宽度走的是：隐藏层与输入、输出的<strong>初始化方差</strong>，以及<strong>各层类型的学习率乘数</strong>。注意力的 \(1/\sqrt{d_k}\) 已经是宽度相关的前向缩放，μP 还有一套对残差分支乘数的建议，避免宽度变大时残差盖过主干。不必跟宽度走的是：层数（那是深度，μP 不管深度推广）、词表大小、序列长度——它们各有自己的扩展律。把层数和宽度用同一套乘数去「μP」，是用错了定理的对象。</p><p>Adam 的 \(\epsilon\)、\(\beta_2\) 有时也随宽度显出敏感。μP 原文不把它们当作一等公民；宽模型上 \(\epsilon\) 相对 \(v\) 的尺度会变，表现为某些层更新被 \(\epsilon\) 主导。这是实践中的第三变量，应在迁宽度失败时检查，而不是一上来就改 \(\lambda\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无穷宽极限里有两套体制。核体制下，隐藏层的预激活随训练几乎不动，学习发生在最后一层线性；特征学习体制下，隐藏表示随训练明显移动。μP 选择后者：通过把每层更新的幅度钉在对宽度不变的量级，让宽网络仍然在学特征。Adam 的坐标自适应改变了「幅度」的定义，因此 SGD 与 Adam 的缩放表不同。抄错表，宽模型会悄悄滑回核体制：训练损失仍在降（最后一层在学），但加宽带来的收益远小于预期。</p><p>衰减进入这个图像的方式是：它给每层一个指向原点的向量，幅度 \(\eta\lambda\|W\|\)。若 \(W\) 的范数本身随宽度涨（初始化未按 μP），衰减项也涨，宽模型被额外拉回。若 \(\eta\) 已按 μP 缩小而 \(\lambda\) 不变，收缩率变弱，宽模型相当于更小的正则。两种偏差都会破坏「窄模型上的 \(\lambda\) 最优仍最优」。这就是为什么衰减不能在 μP 叙述里缺席，即使它不是 Tensor Programs 最核心的那条引理。</p><p><span class="marginnote">μP 不是「把学习率除以宽度」的口诀。输入、隐藏、输出三组乘数不同；Adam 与 SGD 不同。口头简化抄到输出头上，logits 会随宽度消失或爆炸，表现为立刻 NaN 或永远学不动。</span></p><h3 id="从窄模型迁到宽模型时衰减怎么走" tabindex="-1">从窄模型迁到宽模型时衰减怎么走 <a class="header-anchor" href="#从窄模型迁到宽模型时衰减怎么走" aria-label="Permalink to &quot;从窄模型迁到宽模型时衰减怎么走&quot;">​</a></h3><p>操作建议：窄模型上用 AdamW，扫 \(\eta\) 与 \(\lambda\)（以及是否对嵌入衰减）。记录的是 μP 乘数，不是绝对 \(\eta\)。加宽后，先按官方 Adam-μP 表改各层 \(\eta\)，<strong>\(\lambda\) 先保持独立不变跑一次</strong>；若宽模型范数相对窄模型系统性偏大或偏小、下游与训练损失的关系走样，再试固定 \(\eta\lambda\)。不要同时改日程形状、数据配比和 \(\lambda\)，否则分不清是 μP 失败还是衰减失败。</p><p>Muon 等矩阵优化器与 μP 的合写目前没有像 Adam 那样的标准表。正交化已经改变了更新的谱范数，再按 Adam 的 μP 表去乘 \(1/d\) 可能过小。这是未决问题：迁宽度时把 Muon 的 \(\eta\) 与 \(\lambda\) 当作需要重新网格的对象。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>μP 不管深度、不管序列长度、不管 MoE 专家数。深层的残差缩放（DeepNorm 一类）是另一套 \(N\) 相关的常数；超长上下文改变的是注意力的噪声与激活内存。把 μP 当成「所有尺度的万能转移」，会在深度或数据轴上失望。</p><p>词嵌入是否纳入宽度维，实现必须一致。共享输入输出嵌入时，μP 对输入与输出的相反缩放会打架，需要特殊处理（只按其中一侧，或解绑）。这是落地时的已知坑，不是 μP 失效。</p><p><span class="marginnote">检查转移是否成功，不要只看最终损失。应看隐藏层激活的 RMS、注意力 logits 的幅度、输出 logits 的方差是否在宽度变化时保持同量级。这些统计比「loss 也在降」更能揭示是否仍在特征学习体制。</span></p><p>权重衰减也不能替代 dropout 或数据正则。它惩罚的是参数欧氏范数（解耦后是坐标收缩），对「用大权重记住某一批脏数据」有用，对注意力的尖锐模式、对 MoE 路由塌缩没有直接抓手。\(\lambda\) 扫到最优之后还尖峰，应去看数据与梯度裁剪，而不是继续加大衰减。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>AdamW 把权重衰减从自适应分母里拆出，有效收缩率是 \(\eta\lambda\)，会随学习率日程一起变。</li><li>μP（Yang 等 Tensor Programs）按层类型重标初始化与学习率，使宽度变化时仍做特征学习，并支持超参零样本转移。</li><li>衰减随宽度如何走，实践中有「独立 \(\lambda\)」与「固定 \(\eta\lambda\)」两种挂法，应小网格验证，不宜当成已闭合的定理。</li><li>Adam 与 SGD 的 μP 表不同；输入、隐藏、输出乘数不同。口头口诀不够。</li><li>深度、词表、序列、矩阵优化器，都不在标准 μP 表的担保范围内。</li><li>出处：Loshchilov &amp; Hutter，AdamW；Yang 等 Tensor Programs 系列与 μP / 零样本超参转移；mup 等实现库中的层类型乘数。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

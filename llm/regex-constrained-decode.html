@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则约束解码 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_regex-constrained-decode.md.BD95bJKM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="正则约束解码" tabindex="-1">正则约束解码 <a class="header-anchor" href="#正则约束解码" aria-label="Permalink to &quot;正则约束解码&quot;">​</a></h1><div class="epigraph"><p>把合法续写写成自动机上的转移，再对词表建索引：每一步掩码可以是查表，而不必扫描整个词表去跑一遍正则。</p><footer>—— Willard 与 Louf，Efficient Guided Generation for Large Language Models（Outlines）</footer></div><p>日期、订单号、选项列表、「三个标签逗号分隔」这类输出，用正则描述往往比写一整份 CFG 更直接。正则约束解码把表达式编译成有限状态机，对每个状态预先算好词表里哪些 token 能推进，生成时只查表掩码。Willard 与 Louf 把这件事从「每步对整个词表跑部分匹配」改成编译期索引，使引导生成的逐步开销接近常数；实现落在 Outlines。它是 <a href="/llm/constrained-decoding">约束解码总述</a> 里最干净的一档：没有栈，状态可全离线，也因此 <strong>表达不了无限嵌套</strong>。本篇谈正则与词表的对齐、状态爆炸、以及何时该升级到 <a href="/llm/json-constrained-decode">JSON Schema</a> 或 <a href="/llm/grammar-decode">CFG</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>正则定义的是正则语言，识别器是 NFA/DFA。自回归模型的字母表却是子词。逐步合法性不能写成「把已生成字符串丢进 <code>re.match</code> 再扫一遍 \(\mathcal{V}\)」：词表 3 万–10 万时，每步线性扫描不可接受，Guidance 早期路径被 Outlines 论文当作这一对照。正确的问题是：对每个 DFA 状态 \(s\)，哪些 \(v \in \mathcal{V}\) 对应的字节串能从 \(s\) 走出一条路径（不必到达接受态），以及走完后落到哪个 \(s&#39;\)。</p><p>正则还有经典的状态爆炸：粗心的 <code>.*</code>、重叠的选择、unicode 字符类，会让 DFA 在编译期先爆内存。表达式在字符面上「看起来不长」，编译后的状态数可以是指数级。约束解码把这场爆炸从「解析失败后重试」提前到了「服务启动或首次请求时编译失败」。工程上必须把编译预算当成 Schema 审查的一部分，而不是假定任意正则都能上线。</p><h3 id="锚点、部分匹配与尚未写完的串" tabindex="-1">锚点、部分匹配与尚未写完的串 <a class="header-anchor" href="#锚点、部分匹配与尚未写完的串" aria-label="Permalink to &quot;锚点、部分匹配与尚未写完的串&quot;">​</a></h3><p>生成中途的前缀不是完整句子。<code>^</code> 只在串首有意义；<code>$</code> 只在结束时检查。逐步掩码需要的是 <strong>活前缀</strong>：当前字节是否仍可能是某条匹配的前缀，而不是已经是完整匹配。过早要求到达接受态，会逼模型立刻结束，写出最短合法串。过晚关闭接受，会在已经匹配之后仍允许垃圾续写。引擎要区分「还能继续」与「可以结束」：后者通常映射为允许 EOS 或允许停用序列，见停止符的一般讨论。</p><p><span class="marginnote">掩码改支持集，不改权重。正则约束得到的是截断分布，不是「更懂格式」的新模型。若 \(p_\theta\) 在合法集合上质量差，正则只会逼它在合法的低概率 token 里爬，表现为重复分隔符或固定宽度字段被填满占位符。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Outlines 的编译管线可以概括成：正则 → NFA →（可选）DFA → 对每个状态扫描词表，记录合法 token 与转移 → 生成时维护当前状态，查表得 \(\mathcal{M}(s)\)，采样后转移。索引把 \(O(|\mathcal{V}|)\) 的逐步扫描挪到 \(O(|Q|\cdot|\mathcal{V}|)\) 的预处理，\(Q\) 为状态集。SGLang 的压缩 FSM 再把出度为 1 的链收成超边，固定前缀（如 <code>ID-</code>）不必逐步问模型。XGrammar 等后续引擎在 CFG 上扩展同一钩子；对纯正则任务，FSM 路径仍然更轻。</p><p>词表扫描必须按字节或按分词器的归一化规则消费，而不是按「token 字符串的 Python 字符」。BPE 的 <code>Ġ</code> 前缀、SentencePiece 的空格标记、byte fallback，都会让「正则里的一个空格」对应多个 token 变体。实现若只索引可见字符，空格与标点上的掩码会错。unicode 正则要声明引擎是哪一套字符类（Unicode 属性还是字节），否则 <code>\w</code> 在多语言标签上的行为与作者意图不一致。</p><div class="mermaid"></div><h3 id="与-json、cfg-的降级关系" tabindex="-1">与 JSON、CFG 的降级关系 <a class="header-anchor" href="#与-json、cfg-的降级关系" aria-label="Permalink to &quot;与 JSON、CFG 的降级关系&quot;">​</a></h3><p>JSON Schema 的 <code>pattern</code>、扁平枚举、固定分隔的记录格式，常被降成正则再走本管线。一旦出现任意深度的嵌套数组或互递归对象，正则写不出，应换 Schema/CFG 引擎，而不是用「假装有限深度」的 <code>(\[.*\]){0,8}</code> 去赌。有限展开会既漏掉更深合法实例，又因 <code>.*</code> 把状态数打爆。降级是表达力换编译确定性，不是免费的通用解析器。</p><h3 id="多模式并与优先级" tabindex="-1">多模式并与优先级 <a class="header-anchor" href="#多模式并与优先级" aria-label="Permalink to &quot;多模式并与优先级&quot;">​</a></h3><p>业务上常要「几种 ID 格式之一」。正则并运算对应自动机并，状态数为乘积级风险。更稳的做法是先让模型在一个短枚举里选出类型字段（可用 <a href="/llm/json-constrained-decode">JSON 约束</a> 的 <code>enum</code>），再进入对应的专用正则。把所有格式揉进一条巨正则，调试时无法知道是哪一分支在吃 token。优先级（先匹配 A 再匹配 B）不是 DFA 的原生概念；若产品依赖「第一条规则赢」，应在文法层显式分支，而不是依赖某种正则引擎的搜索顺序。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>设 DFA 当前状态为 \(s\)，token \(v\) 的字节为 \(b(v)\)。若存在从 \(s\) 出发消费 \(b(v)\) 的路径且不进入陷阱，则 \(v \in \mathcal{M}(s)\)。陷阱态表示已经不可能再匹配；一旦进入，掩码应为空并失败，而不是靠 EOS 强行结束——强行结束会输出不匹配的串，破坏保证。</p><p>完备性同样受分词器限制。正则允许的字符序列若必须经过某个「从当前 \(s\) 看来非法」的中间 token，就出现可表示性空洞。典型场景：正则要求单个 ASCII 数字，分词器却把 <code>12</code> 当作一个 token，模型无法先写 <code>1</code> 再写 <code>2</code>；或反过来，正则要两位数，词表只有单数字 token，路径存在但更长。评测要在 <strong>目标正则 × 具体分词器</strong> 上做，而不是只在字符面上用 <code>re.fullmatch</code> 看最终串——最终串可能根本走不到。</p><p><span class="marginnote"><code>.*</code> 在约束解码里几乎总是错误默认。它让几乎任意 token 在多数状态下合法，等于关掉约束，还可能把 DFA 编译得巨大。需要「任意文本直到分隔符」时，应写成明确的字符类加否定，或把自由文本挪到无约束字段，外面用 JSON 结构包住。</span></p><h3 id="温度、贪心与最短匹配" tabindex="-1">温度、贪心与最短匹配 <a class="header-anchor" href="#温度、贪心与最短匹配" aria-label="Permalink to &quot;温度、贪心与最短匹配&quot;">​</a></h3><p>截断分布在合法 token 上归一化。贪心解码会偏向逐步局部最高分，经常对应正则的短匹配（先结束字段、少写可选组）。这与经典正则「贪心量词」不是同一算法，但产品观感类似：可选组被跳过、重复次数取下限。需要覆盖可选字段时，应把可选变成 Schema 里的显式键，或提高对「继续留在非接受态」的模型先验（靠示范，而不是靠把正则写得更宽）。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用正则约束表达括号匹配或递归 JSON。那是 CFG 的工作。也不要在热路径上逐步执行通用正则引擎的反向引用、环视——这些已经超出严格正则，索引结构不再成立。Outlines 论文的复杂度结论针对可编译为 FSM 的语言；把 PCRE 当 FSM 用，是类别错误。</p><p>编译缓存以「正则字符串 + 分词器版本」为键。换词表而不重编译，掩码全错。多租户服务里用户提交的正则是拒绝服务面：恶意指数级状态应在编译沙箱里限时限内存，失败则回退到「不约束 + 生成后校验」，而不是把服务进程打满。生成后仍应用原正则做 <code>fullmatch</code> 断言，防止实现 bug。</p><p><span class="marginnote">出处钉在 Willard &amp; Louf, arXiv:2307.09702。不要把某一版本 Outlines 的微秒数写成定律；SGLang 压缩 FSM（arXiv:2312.07104）与 XGrammar（arXiv:2411.15100）是后续工程，分别强化无分支压缩与 CFG，而不是取代「正则先编译再索引」这条基本路径。</span></p><h3 id="评测应报的三件事" tabindex="-1">评测应报的三件事 <a class="header-anchor" href="#评测应报的三件事" aria-label="Permalink to &quot;评测应报的三件事&quot;">​</a></h3><p>一是完整匹配率（结束时是否 <code>fullmatch</code>）。二是空洞率（生成中途空掩码、被迫失败）。三是相对无约束的质量变化（字段级准确、异常重复）。只报匹配率会选出过紧正则：匹配 100%，内容全是最短合法骨架。与 JSON 约束对比时，同一份扁平对象两种后端都应测，选编译更稳、空洞更少的那条，而不是按「正则更底层所以更快」的印象下结论。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>正则约束解码用 FSM 逐步掩码，保证输出属于该正则语言；Outlines 用词表索引避免逐步扫词表。</li><li>逐步要的是活前缀，不是完整匹配；过早接受会写出最短串。</li><li>状态爆炸与 <code>.*</code> 是编译期风险；用户提供的正则要限时限内存。</li><li>Token 化会造成可表示性空洞，评测必须绑定分词器。</li><li>无限嵌套交给 CFG；带类型的对象交给 JSON Schema；正则适合行级模式与有限枚举。</li><li>生成后仍做 <code>fullmatch</code> 断言。</li><li>出处：Willard &amp; Louf, <em>Efficient Guided Generation for Large Language Models</em>, arXiv:2307.09702；压缩与 CFG 延伸见 SGLang、XGrammar。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

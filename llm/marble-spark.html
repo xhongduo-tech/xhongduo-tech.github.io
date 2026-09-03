@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Spark：浏览器高斯溅射渲染 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_marble-spark.md.DyieyvUb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="spark-浏览器高斯溅射渲染" tabindex="-1">Spark：浏览器高斯溅射渲染 <a class="header-anchor" href="#spark-浏览器高斯溅射渲染" aria-label="Permalink to &quot;Spark：浏览器高斯溅射渲染&quot;">​</a></h1><div class="epigraph"><p>高斯溅射把场景写成半透明椭球的集合；要在浏览器里交互，就必须在 WebGL 上完成投影、全局排序与混合，而不是先把世界烘焙成网格再导出。</p><footer>—— 归纳自 Kerbl et al., 3D Gaussian Splatting, SIGGRAPH 2023；World Labs Spark / Marble 产品叙述</footer></div><p>Marble 生成的高保真世界默认不是三角网格，而是三维高斯溅射（3D Gaussian Splatting, 3DGS）。要让用户在网页里走进这个世界，必须有一个能在浏览器里跑的溅射渲染器。World Labs 把这件事做成开源库 Spark：它挂在 THREE.js 上，目标后端是 WebGL2，把溅射当作一等图元，而不是把 splats 先转成网格再走传统光栅。本篇只讲这条渲染通路；溅射作为世界表示见 <a href="/llm/marble-gaussian-splats">三维高斯溅射作为高保真表示</a>，网格导出见 <a href="/llm/marble-dual-mesh">碰撞网格与视觉网格双导出</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>网格渲染假定表面是分片线性的：顶点、法线、纹理。3DGS 把外观写成数百万个各向异性高斯，每个高斯有中心、尺度、旋转、不透明度和颜色。Kerbl 等人证明，这种表示既能拟合复杂外观，又能用可微光栅做实时绘制。问题立刻变成工程问题：扫描或生成得到的 splats 往往有数百万到上千万个，消费级浏览器的 GPU 显存与填充率都远小于训练时用的桌面卡；WebGPU 在 2025–2026 仍不是「几乎所有设备都有」；已有网页溅射库常常只能正确画一个 splat 物体，或把排序放在主线程，相机一快就出现半透明排序伪影。</p><p>Marble 的产品约束更硬：世界要在浏览器里生成、浏览、再分享链接。若渲染器只能离线出图，生成式世界就退化成预渲染视频。Spark 要回答的是：如何在 WebGL2 上对动态、可变换、可多物体共存的 splats 做正确的画家算法，并且把下载与显存做成可流式的，而不是一次载入整个场景。</p><h3 id="半透明混合依赖全局顺序" tabindex="-1">半透明混合依赖全局顺序 <a class="header-anchor" href="#半透明混合依赖全局顺序" aria-label="Permalink to &quot;半透明混合依赖全局顺序&quot;">​</a></h3><p>单个高斯投影到像平面后是近似椭圆。颜色沿视线用 over 算子叠：</p> \[C=\sum_{i\in\mathcal{N}} c_i\alpha_i\prod_{j=1}^{i-1}(1-\alpha_j), \]<p>其中 \(\alpha_i\) 由二维高斯密度与不透明度相乘得到，\(\mathcal{N}\) 必须按距相机由远到近（或等价的深度序）排列。若每个 splat 物体只在自己内部排序，两个交叠的物体看起来会像贴纸叠在一起，而不是共处同一三维空间。浏览器里还没有桌面 OpenGL 那样随手可用的 GPU 基数排序原语，WebGL2 的计算着色器能力也有限，排序策略本身就是设计点。</p><p><span class="marginnote">公式里的 \(\alpha\) 混合与网格的 alpha blend 同形，但图元完全不同：网格按三角形覆盖，溅射按椭圆覆盖。排序错了，网格通常只是 Z-fight；溅射会整片「糊」到错误的深度层上，观感比网格更糟。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Spark 把一帧拆成三步：先把场景里所有 splat 物体变换到同一坐标系并生成一张全局列表，再按当前视点排序，最后用一次实例化绘制把椭圆光栅化。物体可以各自有位姿；列表生成时在 GPU 上跑一条可编程管线，于是重着色、裁剪、位移、骨架动画不必改核心循环。排序在 WebGL2 上不走计算着色器全排序：GPU 算距离，读回 CPU，在 Web Worker 里做两遍基数排序，避免堵住主线程。绘制时每个 splat 是覆盖投影椭圆的定向四边形（两个三角形），顶点着色器算四角，片元着色器按高斯轮廓写 \(\alpha\)，硬件混合写入帧缓冲。</p><h3 id="与-kerbl-光栅的关系" tabindex="-1">与 Kerbl 光栅的关系 <a class="header-anchor" href="#与-kerbl-光栅的关系" aria-label="Permalink to &quot;与 Kerbl 光栅的关系&quot;">​</a></h3><p>Kerbl 等人的可微光栅在训练或桌面实时里把三维协方差 \(\Sigma\) 经观察变换 \(W\) 与雅可比 \(J\) 投成二维：</p> \[\Sigma&#39;=JW\Sigma W^\top J^\top. \]<p>Spark 不重新发明这条投影几何，它把已经优化好的 splat 参数当输入，在浏览器里重复「投影—排序—混合」。训练期的球面谐波视相关颜色、不透明度激活，到了运行时就是纹理或属性缓冲里的数。Marble 导出的 <code>.ply</code> / <code>.spz</code> 等格式，就是这条参数表的容器；Spark 宣称支持 PLY、SPZ、SPLAT、KSPLAT、SOG，以及面向流式的 <code>.rad</code>。</p><div class="mermaid"></div><h3 id="流式与细节层次" tabindex="-1">流式与细节层次 <a class="header-anchor" href="#流式与细节层次" aria-label="Permalink to &quot;流式与细节层次&quot;">​</a></h3><p>消费设备通常只能交互地画大约 \(10^6\) 量级的 splat，而合成或扫描场景可以到千万级、文件到百兆甚至上 GB。Spark 2.0 用三件系统手段把「能画」变成「能在网上逛大世界」：细节层次（LoD）按距离换粗 splats；渐进流式按视线优先下载能分辨细节的数据；虚拟分页在固定 GPU 预算里换入换出 splat 页。这不是改 3DGS 的数学对象，而是给表示加了一层与视点相关的驻留策略。</p><p><span class="marginnote">LoD 降低的是当前帧参与排序与混合的 splat 数，不是把世界永久简化成低模网格。用户走近时，细层应能补回来；补不回来的，是流式预算或生成侧本身没有那些高斯。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>溅射能在浏览器里成立，是因为每个高斯的屏幕贡献是局部的：远离投影中心的片元 \(\alpha\) 迅速掉到可忽略，填充率虽高，但不需要全局光线步进。排序把三维遮挡近似成一维顺序，避免了体渲染的逐步积分。THREE.js 集成的意义是：相机、控制、后处理、网格碰撞体可以复用现有场景图；Spark 只负责「这一类图元如何正确画进去」。World Labs 写明 Spark 与 Marble 一起长出来：生成侧产出 splats，浏览侧必须在同一套 WebGL 约束下交互，否则生成格式会迁就某个桌面查看器，分享链接会断。</p><p>可编程 GPU 管线把「静态扫描」和「可编辑世界」接到同一渲染器上。splat 的中心、颜色、不透明度都可以按帧改写，于是所谓 4DGS、实时重打光、SDF 裁剪都能落在列表生成那一步，而不强迫把动态重烘焙成新的 PLY。这与网格蒙皮类似：蒙皮改的是顶点位置，溅射管线改的是高斯参数。</p><p><span class="marginnote">WebGL2 读回距离再 CPU 排序，是在可移植性上买正确性。相机极快时，若排序滞后一帧，半透明仍会闪。这是实现边界，不是 3DGS 公式失效。桌面或 WebGPU 上的 GPU 排序可以缩小这条缝，但不能假装所有目标浏览器已经具备。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Spark 是渲染器，不是物理引擎。碰撞、脚步声、刚体，要另接 <a href="/llm/marble-dual-mesh">碰撞网格</a> 或宿主场景的物理库；splat 参数里没有「这是木头」的材质语义。视相关外观依赖球谐或生成时烘焙的颜色，浏览器里重打光只能近似。LoD 与分页假设世界可以按空间切开：若生成结果把细节均匀洒在所有高斯上、没有可合并的粗层，流式收益会变小。</p><p>不要把「能在浏览器里逛」理解成「已经有一份与训练时相同的可微光栅」。Spark 的目标是前向绘制与流式，不暴露 Kerbl 那套对 splat 参数的梯度。也不要把 Spark 写成 Marble 世界模型的权重：模型在服务端或生成管线里产出 splats，浏览器只消费。出处上，3DGS 的表示与混合公式来自 Kerbl et al., SIGGRAPH 2023；Spark 的 WebGL2、THREE.js、全局排序与 2.0 流式，来自 World Labs 的工程博客与开源仓库，没有一份需要你去填的 World Labs arXiv 号。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Spark 是 World Labs 开源的浏览器 3DGS 渲染器，挂在 THREE.js 与 WebGL2 上，用来交互绘制 Marble 一类 splat 世界。</li><li>正确性的核心是全局由远到近排序再 \(\alpha\) 混合；只在物体内部排序会把交叠画成贴纸。</li><li>一帧三步：生成全局 splat 列表（含可编程 GPU 管线）、排序、实例化椭圆光栅。</li><li>大场景靠 LoD、渐进下载与虚拟分页，在固定显存里流式驻留，而不是一次装入全部高斯。</li><li>溅射负责外观；碰撞与物理仍要网格或其他代理。</li><li>表示与混合公式对照 Kerbl et al., <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em>, SIGGRAPH 2023；浏览器实现以 World Labs Spark 叙述为准，勿伪造 arXiv。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

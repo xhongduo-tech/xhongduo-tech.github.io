@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>通信：NCCL、NVLink、跨节点 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pretrain-comm.md.1RZ7XZDU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="通信-nccl、nvlink、跨节点" tabindex="-1">通信：NCCL、NVLink、跨节点 <a class="header-anchor" href="#通信-nccl、nvlink、跨节点" aria-label="Permalink to &quot;通信：NCCL、NVLink、跨节点&quot;">​</a></h1><div class="epigraph"><p>并行算法写在进程组上，真正跑起来的是节点内的 NVLink 和节点间的网络。同一条 All-Reduce，走哪条链路，决定这一步是算力墙还是通信墙。</p><footer>—— NVIDIA NCCL 文档与 GPU 集群上的 Megatron 类预训练实践</footer></div><p>预训练的并行维最终都要落到集体通信。数据并行要同步梯度，张量并行要在层内归约或聚集激活，流水线要在阶段之间递交激活，专家并行要 All-to-All，上下文并行要沿序列传键值。GPU 集群上这些调用大多经过 NCCL。NCCL 再往下，节点内尽量走 NVLink，跨节点走 InfiniBand 或 RoCE。算法论文里一个「All-Reduce」符号，在机柜里可能是 NVLink 上的环，再拼一条跨节点的树；带宽可以差出一个数量级。本篇把这三层——库、节点内互连、跨节点网络——放到同一张图里，说明预训练为什么对拓扑如此敏感。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单卡算力逐年涨，单卡显存与单卡对外带宽不按同样比例涨。模型一旦跨卡，每一步都有一部分时间在等别人的张量。等的时间由两件事决定：集体算法要搬多少字节，以及这些字节走的物理链路能提供多少有效带宽。只优化前者（少通信）或只升级后者（更快的网）都不完整：张量并行把大量短消息放在层内，必须吃最胖的链路；数据并行消息大、可重叠，更能容忍跨节点。</p><p>若把所有进程当成全连接的抽象机器，NCCL 会在错误的链路上跑正确的算法。节点内本来可以走 NVLink 的 All-Reduce，被拆到 PCIe 或网卡上，利用率立刻掉一截。跨节点的 All-to-All 若没有层次化，会把节点内的高带宽闲置，所有流量挤到几张网卡。预训练通信的问题因此是：在给定拓扑上，为每一种集体操作选择进程组与算法，使有效带宽接近链路的物理上限。</p><h3 id="三种延迟与带宽尺度" tabindex="-1">三种延迟与带宽尺度 <a class="header-anchor" href="#三种延迟与带宽尺度" aria-label="Permalink to &quot;三种延迟与带宽尺度&quot;">​</a></h3><p>同一节点内，NVLink 提供 GPU 之间的高带宽、相对低延迟通道，不经过主机内存。PCIe 慢一截，且常与 CPU、网卡争用。跨节点则经过 NIC、交换机，单向带宽以百 Gb/s 计，延迟明显高于 NVLink。一次几 MB 的层内 All-Reduce 在 NVLink 上可能是几十微秒量级的可重叠操作，换到跨节点就变成这一层的主墙。<span class="marginnote">看 <code>nccl-tests</code> 的 busbw 比看标称 Gb/s 更接近训练。集体算法有环、树、倍增等实现，算法效率、消息大小、GPU 直连是否启用，都会让有效带宽远低于网卡标称。调预训练通信，先用同样消息大小的微基准对齐拓扑，再改模型并行度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>NCCL 对训练暴露的常用原语包括 All-Reduce、Reduce-Scatter、All-Gather、All-to-All、Broadcast，以及流水线用的 Send/Recv。数据并行的梯度同步走 All-Reduce，或 ZeRO 的 Reduce-Scatter 加 All-Gather；张量并行按实现走 All-Reduce 或 All-Gather / Reduce-Scatter 对；专家并行走 All-to-All；流水线走点对点。库负责选算法、切 chunk、用 GPU 内核做归约，并在可能时走 GPU Direct RDMA，避免绕道主机。</p><p>拓扑感知是配置的一部分。同一节点的 GPU 应划进需要高带宽的进程组（张量并行，必要时包括上下文并行）。跨节点的组承担数据并行与流水线。NCCL 通过查询 NVLink、NVSwitch、NIC 的连接来建图；用户则通过并行网格保证「通信最密的组」落在图里最密的子图上。关闭 GPU Direct、误绑 NUMA、或让网卡与 GPU 不在同一 PCIe 交换机下，都会让这条图退化。</p><div class="mermaid"></div><h3 id="层次化集体通信" tabindex="-1">层次化集体通信 <a class="header-anchor" href="#层次化集体通信" aria-label="Permalink to &quot;层次化集体通信&quot;">​</a></h3><p>跨节点 All-Reduce 的常见实现是层次化的：先在节点内用 NVLink 做 Reduce，再把每节点一份结果打到 InfiniBand 上做跨节点 Reduce，最后再在节点内 Broadcast 或 All-Gather。这样跨节点只走「每节点一份」的体积，而不是每 GPU 一份。All-to-All 更难层次化，因为置换没有可加的中间结果，流量往往必须真正跨到对端 GPU。MoE 预训练因此特别怕 EP 组跨满整个集群：NVLink 帮不上置换的跨节点段。</p><p>流水线的点对点可以跨节点，是因为激活递交的频率按层段而不是按每一个 GEMM，消息更大、次数更少。把张量并行组跨到节点外，等于把最频繁的集体通信放到最慢的链路上，通常是最后才考虑的办法。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有效带宽可以粗写成 $\min(B_{\mathrm{nvlink}}, B_{\mathrm{nic}}\cdot \eta) $ 再乘算法效率。\(\eta\) 包含 RDMA 是否直达、交换机争用、以及多租户干扰。消息很小时，延迟项主导，公式变成 \(T \approx \alpha + n\beta\)，其中 \(\alpha\) 是启动延迟。张量并行的短 All-Reduce、专家并行在小 microbatch 下的 All-to-All，都可能掉进延迟区：再增加链路标称带宽也救不了启动开销。这时应减通信次数（融合通信、更大的层切分）、或把该进程组缩回 NVLink 域。</p><p>与计算重叠是另一条轴。数据并行的梯度 All-Reduce 可以在反向的前几层还在算时发出去；流水线可以在计算当前 microbatch 时递交上一个。层内张量并行很难重叠，因为它卡在正向或反向的关键路径上。通信库提供的 <code>group</code> 与流（stream）让重叠成为可能，但前提是内核调度没有把计算流堵住，以及缓冲区已经预注册。<span class="marginnote">BF16 / FP8 训练会改变通信体积。梯度用 BF16 通信能减半字节，但需要和缩放、损失精度策略一致。有的系统对梯度做 FP8 通信，进一步减跨节点压力，代价是数值协议必须在所有 DP 副本上对齐。通信 dtype 是训练配方的一部分，不是网卡开关。</span></p><h3 id="故障与噪声" tabindex="-1">故障与噪声 <a class="header-anchor" href="#故障与噪声" aria-label="Permalink to &quot;故障与噪声&quot;">​</a></h3><p>大规模预训练的通信墙不一定来自算法。单条 InfiniBand 链路抖动、一台交换机丢包、一张网卡降速，都会让一次 All-Reduce 的尾延迟变成整步的 step time。NCCL 超时、挂起，常常是拓扑或网卡问题而不是模型代码。监控上应同时看每组集体通信的耗时分布，而不是只看平均吞吐。专家并行的 All-to-All 对负载不均更敏感：热专家所在节点既是计算热点也是网络热点。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>NCCL 不是唯一后端。TPU 有自己的 mesh 通信，AMD GPU 有 RCCL 一类实现，CPU 集群走另一套。语义可以类比，带宽数字不能搬。单机多卡若只有 PCIe、没有 NVLink，张量并行的收益会大幅下降，这时应更多依赖数据并行加参数分片，而不是强行 8 路 TP。</p><p>也不是所有通信都该走 NCCL。主机侧的数据加载、检查点写入、以及某些参数服务器式的稀疏更新，走别的路径更合适。把检查点挤在同一条 InfiniBand 上与梯度 All-Reduce 抢带宽，会造成周期性的 step 尖峰。调度上应错开，或给存储网单独的平面。<span class="marginnote">「带宽够」是相对消息模式说的。NVLink 够张量并行，不一定够把检查点瞬时打到本地 SSD 再转发。跨节点网够数据并行，不一定够把 MoE 的 All-to-All 铺到上百个节点。并行网格写完之后，要用与真实消息大小相近的微基准验证，而不是只看硬件规格表。</span></p><p>最后，通信优化不能替代正确的并行切分。链路再快，把该切的专家或序列硬塞进单卡，显存仍会爆；切错进程组，再快的 NVLink 也在闲置。NCCL 与 NVLink 是把已经设计好的网格跑满的工具。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>预训练集体通信在 GPU 上多经 NCCL；节点内走 NVLink，跨节点走 InfiniBand 或 RoCE。</li><li>张量并行等层内高频通信必须落在 NVLink 域；数据并行与流水线更能容忍跨节点。</li><li>层次化 All-Reduce 先在节点内归约，再走网卡，以减少跨节点体积。</li><li>All-to-All 难以同样层次化，跨节点 EP 容易成为墙。</li><li>小消息落在延迟区，加标称带宽不如减次数或缩进程组。</li><li>尾延迟、拓扑绑核与 GPU Direct 往往比平均带宽更能解释 step 抖动。</li><li>出处：NCCL 作为 NVIDIA 集体通信库的公开文档与实现；NVLink 为节点内 GPU 互连。并行侧的实践与 Megatron-LM 等 GPU 预训练系统一致。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

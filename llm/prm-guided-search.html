@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>过程奖励引导的搜索 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_prm-guided-search.md.BpgZH984.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="过程奖励引导的搜索" tabindex="-1">过程奖励引导的搜索 <a class="header-anchor" href="#过程奖励引导的搜索" aria-label="Permalink to &quot;过程奖励引导的搜索&quot;">​</a></h1><div class="epigraph"><p>对推理链的每一步给反馈，比只看最终答案更能教会模型找到并修正中间错误；测试时也可以用逐步分数来引导搜索。</p><footer>—— Lightman et al., Let&#39;s Verify Step by Step, 2023</footer></div><p>结果监督（ORM）只给完整解答一个标量；过程监督（PRM）给每个步骤一个「这一步是否正确」的分数。Lightman 等人在数学题上表明，过程标签能训练出更好的验证器，用同一验证器做最佳候选选择时，过程路线更数据高效。Snell 等人 2024 年进一步把 <strong>对过程验证器做搜索</strong> 写成测试时计算的一条主路径。本篇写 PRM 如何进入束、lookahead 与 <a href="/llm/mcts-llm">MCTS</a>，以及聚合函数如何把逐步分变成一条轨迹的 \(s\)。训练 PRM 的数据工序留在过程监督专文的位置，这里只取对 <em>搜索</em> 必要的接口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>终局 0/1 让<a href="/llm/best-of-n">Best-of-N</a> 在长链上方差很大：一百步里一步算错，整条 \(R=0\)，搜索不知道错在哪，只能整条扔掉。逐步分数把树的边变成可比较的 \(Q\)，使束能在分叉处剪掉已经错的前缀，把预算留给仍可能对的分支。问题立刻变成两个估计误差：PRM 假阴性会剪掉正确前缀；假阳性会保护一条写得很像证明、中间已经错的链——「假推理」被搜索放大，而不是被消灭。</p><p>没有逐步模型时，人们用模型自身的 \(\log\pi\) 当逐步分，那是在做<a href="/llm/beam-vs-sample">束搜索</a>，目标仍是似然不是正确性。PRM 引导意味着评分函数与生成器可以来自不同训练信号。二者分布一偏，搜索就在最大化一个错误的势。</p><h3 id="步骤边界是接口的一部分" tabindex="-1">步骤边界是接口的一部分 <a class="header-anchor" href="#步骤边界是接口的一部分" aria-label="Permalink to &quot;步骤边界是接口的一部分&quot;">​</a></h3><p>PRM 假设文本已被切成步骤（换行、编号、「Step k」）。切错则分数对齐到错误的跨度：把两步粘成一步，局部错误被稀释；切得过碎，标点也会收到独立分数。搜索实现必须与 PRM 训练时的切分器一致，否则报告中的优势不会出现。不要在推理时用另一种分句器去跑同一检查点。</p><p><span class="marginnote">过程奖励引导的是 <em>搜索</em>，不是自动等于过程强化学习。可以用 ORM 训练策略、只用 PRM 在测试时打分；也可以反过来。写实验要声明 PRM 是否进入梯度，还是只在解码器里。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对前缀 \(z\)（题目加已写步骤），生成器提出 \(k\) 个下一步 \(a\)，PRM 输出 \(v(z,a)\in[0,1]\) 或 logits。搜索用 \(v\) 代替或混合 \(\log\pi\)：</p><ul><li><strong>PRM 束</strong>：每步保留 \(B\) 个逐步分最高的前缀（或 \(\log\pi+\lambda v\) 的混合）。</li><li><strong>Lookahead</strong>：对候选步骤先用贪心或短采样续写若干步，再让 PRM 看更长的上下文后打分，减少「一步看起来对、下一步立刻崩」的近视。Snell 等把 lookahead 写成去掉随机探索的 MCTS 特例。</li><li><strong>树 / MCTS</strong>：把 \(v\) 当作边的回报或叶的价值，回传后选访问最多或累计 \(v\) 最好的路径。</li></ul><p>轨迹级分数还需 <strong>聚合</strong>：对逐步序列 \(v_1,\ldots,v_T\)，常用末步 \(v_T\)、最小值 \(\min_t v_t\)、乘积 \(\prod v_t\)、或对数和。最小值对「一步错则整条不可信」最严；末步分假设 PRM 在最后能看见全局。聚合选错，束宽再大也在优化错误的标量。</p><div class="mermaid"></div><h3 id="与规则终局核对并用" tabindex="-1">与规则终局核对并用 <a class="header-anchor" href="#与规则终局核对并用" aria-label="Permalink to &quot;与规则终局核对并用&quot;">​</a></h3><p>数学题上，搜索过程中用 PRM 剪枝，结束时仍应用规则解析最终答案。PRM 高、答案错，应丢弃，这条轨迹是验证器失败样本，可进入 PRM 的再训练，而不应交给用户。只有 PRM、没有独立终局核对的任务（开放证明、写作），失败会静默，必须另设人工或更强模型抽检。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>逐步 \(v\) 改变束的存活集：softmax 或 Top-\(B\) 作用在 \(v\) 上，低分前缀的后续 token 不再被生成，decode 预算从「生成完再扔」变成「早停」。这在系统上同时减少生成量与 KV 增长，比同等准确率的大 \(N\) BoN 更省<a href="/llm/decode-memory-wall">显存墙</a>一侧的字节——前提是 PRM 前向本身不比省下的 decode 更贵。PRM 通常是同类模型的一个头或一个小验证器，每步对 \(B\times k\) 个候选跑一遍，成本要写进测试时 FLOPs，不能只报生成器的 token 数。</p><p>假推理机制：PRM 若在表面形式上过拟合（「因此」「易得」后面接正确格式），高 \(v\) 与真值脱钩。搜索专门寻找高 \(v\) 文本，过优化比 \(N=1\) 更严重。缓解是过程标签的质量、对抗性错误步骤、以及终局规则的硬约束。Wang 等人 2023 年的 Math-Shepherd 一类工作用自动构造的逐步标签降低人工成本，但自动标签的噪声会进入 \(v\)，搜索同样会放大。</p><p><span class="marginnote">混合 \(\log\pi+\lambda v\) 里的 \(\lambda\) 是目标函数的一部分。\(\lambda=0\) 退回似然束；\(\lambda\to\infty\) 忽略生成器的流畅性，可能得到高分但不合法的步骤文本。应在验证集上扫 \(\lambda\)，不要假设 PRM 分数已与 logits 同量纲。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="prm-校准差时-少搜比多搜更安全" tabindex="-1">PRM 校准差时，少搜比多搜更安全 <a class="header-anchor" href="#prm-校准差时-少搜比多搜更安全" aria-label="Permalink to &quot;PRM 校准差时，少搜比多搜更安全&quot;">​</a></h3><p>验证器 ROC 平庸时，加大束宽等于加大过优化。应先报 PRM 在逐步标签上的 AUC / 错误步骤召回，再报搜索准确率。不要用「带 PRM 的束超过 BoN」作为 PRM 质量的唯一证据——也可能是 BoN 的 \(N\) 没给够，或温度不同。</p><p>开放域、多答案、无法逐步对齐的任务，过程切分没有自然真值，PRM 引导不适用，应退回 ORM、多数票或工具执行。把聊天助手的每一句都当「步骤」打分，会把文风当成正确性。蒸馏：用 PRM 搜索得到的轨迹去 SFT，学生会模仿教师的逐步表面，也会模仿 PRM 的偏见；学生推理时若不再跑 PRM，测试时缩放的收益不会自动保留。</p><p><span class="marginnote">Lightman et al., 2023（Let&#39;s Verify Step by Step）与 Snell et al., 2024 是搜索侧的主要公开出处。不要给 o1 的内部验证器编造论文名或 arXiv。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PRM 给步骤打分，使搜索能在前缀上剪枝，而不是等终局 0/1。</li><li>束、lookahead、MCTS 都只是把 \(v\) 接到不同的选择规则上；聚合函数（min/积/末步）改变轨迹级目标。</li><li>切分器必须与训练一致；假阳性会被搜索放大成假推理。</li><li>PRM 前向成本计入测试时 FLOPs；早停省 decode 的前提是验证器足够便宜且足够准。</li><li>能规则核对的任务，终局应再跑独立解析，PRM 不能当唯一真值。</li><li>校准差时加大搜索有害；先报逐步检测指标再报端到端准确率。</li><li>出处：Lightman et al., <em>Let&#39;s Verify Step by Step</em>, 2023；Snell et al., 2024；过程自动标注如 Math-Shepherd（Wang et al., 2023）仅作数据侧对照。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

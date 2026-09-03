@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linear Attention | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_linear-attention.md.DiHfr3N4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="linear-attention" tabindex="-1">Linear Attention <a class="header-anchor" href="#linear-attention" aria-label="Permalink to &quot;Linear Attention&quot;">​</a></h1><div class="epigraph"><p>若把核特征写进查询与键，注意力可以先把键值收成状态，再与查询相乘；自回归于是退回一种循环。</p><footer>—— Angelos Katharopoulos 等, Transformers are RNNs, 2020</footer></div><p>Softmax 注意力要对每个查询扫全部键，才得到归一化权重，代价 \(\Theta(n^2 d)\)。Katharopoulos 等人 2020 年指出：若用核特征 \(\phi\) 代替 softmax，使 \(\mathrm{sim}(q,k)=\phi(q)^\top\phi(k)\)，则可以先结合 \(\phi(k)\) 与 \(v\)，把对 \(n\) 的依赖变成对特征维的线性。因果情形下，累积状态逐步更新，Transformer 层看起来像 RNN，却仍由注意力公式派生。这与 <a href="/llm/performer-favor">Performer</a> 的随机特征逼近 softmax 是同一条「核化」河的上游：本篇用确定特征把二次降为线性，下一篇再讨论如何逼近真正的 softmax 核。稀疏图路线见 <a href="/llm/sparse-attention-patterns">BigBird / Longformer</a>，那是选边而不是换核。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>标准注意力</p> \[\mathrm{Att}(Q,K,V)=\mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d}}\right)V \]<p>先物化 \(n\times n\) 的相似度，再对行归一化。归一化让权重成为单纯形上的尖峰，这是检索与复制的来源，也锁死了二次。若任务可以接受更平滑的相似度，就不必经过这张大矩阵。目标是：保持「用查询去读一组键值」的接口，但把复杂度写成 \(\Theta(n d^2)\) 或 \(\Theta(n d)\)，并在因果生成时只维护常数量的状态，而不是长度为 \(n\) 的 KV 列表。</p><p>挑战在于特征 \(\phi\) 选不好会塌。\(\phi\) 太弱，模型分不清近邻与无关位置；\(\phi\) 维太高，线性项 \(d_\phi^2\) 把收益吃掉。另外，去掉 softmax 后没有「竞争」，多键可以同时以大正值贡献，输出容易被范数大的键主导，训练要重新调尺度。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="核特征与结合律" tabindex="-1">核特征与结合律 <a class="header-anchor" href="#核特征与结合律" aria-label="Permalink to &quot;核特征与结合律&quot;">​</a></h3><p>令 \(q&#39;=\phi(q),k&#39;=\phi(k)\)。未归一化的注意力变成 \(\sum_j q&#39;^\top k&#39;_j\, v_j\)。把标量 \(q&#39;^\top k&#39;_j\) 挪开：</p> \[\sum_j (q&#39;^\top k&#39;_j)\,v_j=\Big(q&#39;^\top\Big)\Big(\sum_j k&#39;_j v_j^\top\Big) \]<p>右侧先算 \(S=\sum_j k&#39;_j v_j^\top\)，尺寸 \(d_\phi\times d_v\)，与 \(n\) 无关，再左乘 \(q&#39;\)。若还要模拟 softmax 的分母，另累加 \(z=\sum_j k&#39;_j\)，输出 \(q&#39;^\top S / (q&#39;^\top z)\)。整段序列扫描一次即可。Katharopoulos 采用 \(\phi(x)=\mathrm{elu}(x)+1\)，保证非负，分母不易翻号。</p><p><span class="marginnote">结合律是唯一的代数来源。只要相似度能写成 \(\phi(q)^\top\phi(k)\)，求和就能换序。softmax 的 \(\exp(q^\top k)\) 一般不能写成有限维确定特征的内积，所以朴素线性注意力不是 softmax 的精确改写，而是换了一种核。</span></p><h3 id="因果情形下的-rnn-形式" tabindex="-1">因果情形下的 RNN 形式 <a class="header-anchor" href="#因果情形下的-rnn-形式" aria-label="Permalink to &quot;因果情形下的 RNN 形式&quot;">​</a></h3><p>因果要求位置 \(t\) 只用 \(j\le t\)。把前缀和写成状态：</p> \[S_t=S_{t-1}+\phi(k_t)v_t^\top,\quad z_t=z_{t-1}+\phi(k_t) \]\[y_t=\frac{\phi(q_t)^\top S_t}{\phi(q_t)^\top z_t} \]<p>这与 RNN 相同：每步 \(O(d_\phi d_v)\) 更新，状态大小与 \(t\) 无关。训练仍可并行：用前缀和或扫描算全部 \(S_t\)，不必逐步循环。这是线性注意力相对传统 RNN 的训练优势——并行扫描代替 BPTT 的长链。生成时则真正逐步，KV 缓存被常数量矩阵取代。</p><div class="mermaid"></div><h3 id="与-softmax-的表达差距" tabindex="-1">与 softmax 的表达差距 <a class="header-anchor" href="#与-softmax-的表达差距" aria-label="Permalink to &quot;与 softmax 的表达差距&quot;">​</a></h3><p>Softmax 可以把几乎全部质量分给单一键，完成精确拷贝。线性核的权重 \(\phi(q)^\top\phi(k)\) 是平滑内积，尖峰取决于 \(\phi\) 是否能把无关键推到近零。ELU+1 特征偏软，长程检索、针测通常明显弱于 softmax。加深加宽可以补一部分，但经验上「抄一段原文」仍是短板。这也是为何后续出现 Performer：不是放弃线性，而是把 \(\phi\) 改成对 softmax 核的无偏（或低偏）随机特征。</p><p>归一化项 \(q&#39;^\top z\) 在长序列上会涨，输出尺度漂移。常见补丁是再对 \(y\) 做 LayerNorm、对 \(\phi\) 做 \(\ell_2\) 归一，或引入门控（后来的线性 RNN / RetNet 一系把门控当成一等公民）。本篇停留在 2020 年的核注意力本身，不把后续混合架构算进「Linear Attention」定义里。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>计算图从「\(n\times n\) 矩阵 × \(n\times d\)」变成「\(n\) 次外积累加 + \(n\) 次矩阵–向量」。算术强度更高，也更适合把状态放在寄存器里。数值上，外积累加是低秩更新，\(S_t\) 的条件数随 \(t\) 变坏，长序列要用更高精度累加，或分块重正交。因果并行扫描的梯度经过所有前缀，对学习率与裁剪敏感，但比二次注意力的显存小一个数量级。</p><p>注意力头仍可多头：每头一套 \(S^{(h)}\)。与 <a href="/llm/mqa">MQA</a> 不同，这里省的不是 KV 头数，而是序列维。两者正交：线性注意力照样可以共享 KV 投影，但收益要从新屋顶线评估，因为瓶颈可能已从带宽变成 \(d_\phi\times d_v\) 的状态更新。<span class="marginnote">状态矩阵 \(S\) 的秩被外积累加一步步抬高，却没有 softmax 那种竞争性的稀疏化。长上下文后期，\(S\) 更像一团糊在一起的充分统计量。这就是拷贝失败的机制：查询读到的是混合物，不是某一行键值。</span></p><p>训练并行扫描时，前缀和可以分块：块内串行更新 \(S\)，块间再拼接。这与 FlashAttention 的分块归约形似，但中间量是 \(d_\phi\times d_v\) 的矩阵而不是一组 m 统计量。块边界必须把 \(S,z\) 以高精度写出，否则下一块的读出会漂。因果掩码在这里不是下三角矩阵，而是「只累加到 \(t\)」的扫描语义，写错成双向前缀和会泄漏未来。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在必须精确检索的产品路径上单独使用 ELU 线性注意力顶替 softmax。它更适合作为混合层里的便宜长程通道，或对局部已由卷积/滑窗覆盖的信号做平滑汇总。特征维 \(d_\phi\) 是新的旋钮：\(d_\phi\ll d\) 才有加速，\(d_\phi\) 接近 \(n\) 时线性优势消失。内核生态弱于 FlashAttention，朴素 PyTorch 实现容易比分块 softmax 还慢——复杂度优势必须落到融合核上才算数。</p><p>与 SSM / Mamba 的分工见相邻组：线性注意力的状态来自核特征外积，SSM 的状态来自结构化递归；二者都是常量化记忆，但数值与硬件栈不同。取舍时先写清失败任务（拷贝、针测），再决定是换 \(\phi\)（走向 Performer），还是放弃核化、改回稀疏 softmax。<span class="marginnote">「线性」描述的是对 \(n\) 的渐近，不是保证更快。短序列上 \(n^2 d\) 已经被 Flash 压得很低，再上一个未融合的 \(n d^2\) 核只会更慢。长度与内核成熟度是启用条件。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>核特征把相似度写成内积后，可先收键值再读查询，复杂度对 \(n\) 线性。</li><li>因果形式是对状态 \(S_t,z_t\) 的扫描，生成时常数状态，训练可并行前缀和。</li><li>ELU+1 等确定特征不逼近 softmax，尖峰弱，精确拷贝是短板。</li><li>分母累积与 \(S_t\) 条件数是长序列数值问题，需要归一与高精度累加。</li><li>实际加速取决于融合核与足够大的 \(n\)，短上下文常常不值得换。</li><li>要逼近 softmax 核，下一步是 FAVOR+，而不是把 \(d_\phi\) 盲目加大。</li><li>出处：Katharopoulos et al., <em>Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention</em>, ICML 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

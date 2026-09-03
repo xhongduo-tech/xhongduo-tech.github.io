@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>视觉 token 压缩 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_vision-token-compression.md.BCNrEB_X.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="视觉-token-压缩" tabindex="-1">视觉 token 压缩 <a class="header-anchor" href="#视觉-token-压缩" aria-label="Permalink to &quot;视觉 token 压缩&quot;">​</a></h1><div class="epigraph"><p>高分辨率把字看清了，也把语言模型的窗口塞满了；压缩要删的是空间冗余，不是把文档理解所需的格子一并抹掉。</p><footer>—— 对照 LLaVA 直连、Qwen-VL 查询与 InternVL 像素 shuffle</footer></div><p><a href="/llm/anyres">AnyRes</a> 与更高清的 ViT 输入让视觉前缀从数百涨到数千 token。LLM 的注意力仍是序列长度二次，decode 的 KV 也按视觉前缀长度线性涨。视觉 token 压缩的目标是：在进语言模型之前（或刚进去时）把 \(N_{\mathrm{vis}}\) 降下来，同时尽量保住布局与细字。它和文本侧的 <a href="/llm/kv-as-long-context">KV 压缩</a> 同属预算问题，但删的是二维格子上的冗余，不是生成过程中的过去词。本篇对照查询瓶颈、规则下采样与池化，Qwen2-VL 的 \(2\times 2\) merge 训练细节留给下一篇。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一张 336 边长、\(P=14\) 的图约 576 个视觉 token；2×2 AnyRes 加上全局视图可以到两千以上；多页文档再乘页数。对话模型还要留系统提示、多轮文本。若不压缩，高分辨率与长对话互斥。若压缩太狠，<a href="/llm/ocr-vlm">OCR</a> 与小物体检测先崩：被合并的格子里塞进了多个字符，语言模型再强也解不开混叠。</p><p>问题于是有约束：压缩比可调；尽量保持二维拓扑（读序、表结构）；最好不引入与 LLM 核不一致的不规则 gather。内容自适应压缩上限更高，也更难训、更难复现。规则 \(2\times 2\) 最稳，压缩比钉死。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="查询瓶颈" tabindex="-1">查询瓶颈 <a class="header-anchor" href="#查询瓶颈" aria-label="Permalink to &quot;查询瓶颈&quot;">​</a></h3><p>Q-Former 与 <a href="/llm/vl-connector">Qwen-VL 适配器</a> 用 \(M\) 个可学习查询交叉注意全部 patch，输出长度恒为 \(M\)。压缩比 \(N_{\mathrm{vis}}/M\) 随分辨率自动变大：图越大，每个查询要覆盖的面积越大。这适合「视觉前缀必须钉死」的服务配额。信息选择是内容相关的，查询可以学会盯标题；也可以学会偷懒只看中心物体，把边缘小字丢掉。</p><h3 id="规则空间合并" tabindex="-1">规则空间合并 <a class="header-anchor" href="#规则空间合并" aria-label="Permalink to &quot;规则空间合并&quot;">​</a></h3><p>像素 shuffle / \(2\times 2\) 合并把邻接四块拼成一个更宽向量，再投影。长度降为约 \(1/4\)，格子仍是图。没有离散选择，训练稳定，和卷积里的空间–通道重排同构。可以叠两次得到 16×，但混叠按幂加重。平均池化或步盘卷积是更糊的同类：同样降网格，通道不增，信息更易丢。LLaVA 式 MLP 直连则相当于压缩比为 1，长度问题原样交给 LLM。</p> \[N_{\mathrm{out}}\approx\frac{H}{P\cdot r}\cdot\frac{W}{P\cdot r} \]<p>\(r=2\) 即一次 \(2\times 2\)。\(r\) 与输入分辨率联合决定 OCR 粒度：先升分辨率再 \(r=2\)，往往优于低分辨率直连。</p><div class="mermaid"></div><h3 id="和文本-kv-压缩不是同一刀" tabindex="-1">和文本 KV 压缩不是同一刀 <a class="header-anchor" href="#和文本-kv-压缩不是同一刀" aria-label="Permalink to &quot;和文本 KV 压缩不是同一刀&quot;">​</a></h3><p>H2O、SnapKV 删的是时间上的过去 token；视觉压缩删的是空间上的邻域。视觉前缀通常一次性进 prefill，之后作为静态键被所有生成步读取，所以更像「prompt 侧的 SnapKV」，但栅格结构允许用确定性 merge，而不必依赖观察窗注意力。对视觉前缀再做文本式驱逐（按注意力分数扔 patch）是可行的实验，却容易把唯一的那个字扔掉；文档任务上优先规则合并或查询，而不是生成中途再丢格子。</p><p><span class="marginnote">压缩发生在连接器，还是发生在 LLM 的 KV 里，服务形态不同。前者缩短 prefill 序列，KV 从一开始就短；后者先算满视觉注意力再量化/驱逐。文档 VLM 应尽量在进 LLM 前压完，避免为已经混叠的 token 再付二次注意力。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>规则合并假设局部四块统计上冗余：自然图像的纹理、大色块背景确实如此。文字图像相反：相邻 patch 往往是不同字符，合并等于人为制造「两字合一」的视觉词，语言模型只能靠上下文猜。因此同一 \(r=2\)，在照片字幕上几乎无感，在扫描件上掉字。查询瓶颈的机制是软选择：容量 \(M\) 的槽位，梯度会把它们推向训练集里最能降损失的区域——若数据以自然图为主，槽位不会自动去盯页脚页码。</p><p><span class="marginnote">评测压缩必须按任务拆开。只报综合 VQA 平均值，会被自然图稀释。应单独报：小字 OCR、表格格点、多物体计数。这三项对 \(N_{\mathrm{vis}}\) 最敏感。</span></p><p>长度降下来之后，LLM 的 softmax 分母更短，每个视觉键的权重更大，这有时反而改善「图被长问题淹没」。压缩不是单向损质量，它也在重新校准跨模态注意力。前提是留下的键仍对应任务所需的空间尺度。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有对所有任务最优的压缩比。端侧聊天可以 \(M=64\) 或两次 shuffle；文档解析应提高输入分辨率，只做一次 \(2\times 2\)，甚至直连再配合窗口注意力。多图、视频会把 \(N_{\mathrm{vis}}\) 再乘时间或张数，必须有总预算，否则单张图的精心切格会在第二张图上被截断。</p><p>不要把视觉压缩写成「免费的 AnyRes」。升分辨率再压回原来的 token 数，中间仍有混叠，只是混叠发生在更细的原图像素上——这对中等字号有效，对更小的字仍要继续加格。也不要把 Qwen2-VL 的 merge 与 InternVL 的 shuffle 当成算法论文里的不同发明来夸大：工程上都是 \(2\times 2\) 空间重排加线性，差别在是否与原生可变分辨率、窗口注意力一起训。</p><p><span class="marginnote">服务日志里若视觉 token 数随用户上传的像素线性涨、没有上限，压缩策略等于没落地。应在预处理就设定最小/最大像素或最大 \(N_{\mathrm{vis}}\)，过大则先缩小，过小则上采样，避免极端长度打爆 KV。</span></p><p>取舍顺序：先定任务最小可读字号，反推 \(P\) 与输入边长；再选 \(r\) 或 \(M\) 把 \(N_{\mathrm{out}}\) 落入 LLM 窗口；最后才考虑对视觉 KV 做量化。倒过来先压长度，再抱怨 OCR 差，是预算写错了轴。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>视觉 token 压缩把高分辨率带来的 \(N_{\mathrm{vis}}\) 降到 LLM 窗口可承受的范围。</li><li>查询瓶颈钉死长度、内容选择不可逆；规则 \(2\times 2\) 保拓扑、压缩比固定；直连不压缩。</li><li>自然图纹理冗余高，文档文字冗余低，同一压缩比不可混用验收。</li><li>压缩应尽量发生在进 LLM 之前，使 prefill 与 KV 一起变短。</li><li>升分辨率再合并，对中等字号优于低分辨率直连，但不能替代真正的细格子。</li><li>必须设 \(N_{\mathrm{vis}}\) 上限；与文本 KV 驱逐是不同轴。</li><li>出处：对照 Liu et al., LLaVA, 2023；Bai et al., Qwen-VL, 2023；Chen et al., InternVL, 2023/2024；Wang et al., Qwen2-VL, 2024（merge 细节见后续专文）。AnyRes 见 LLaVA-NeXT。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CLIP 对齐 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_clip.md.DN_lDNOC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="clip-对齐" tabindex="-1">CLIP 对齐 <a class="header-anchor" href="#clip-对齐" aria-label="Permalink to &quot;CLIP 对齐&quot;">​</a></h1><div class="epigraph"><p>不必为每一个视觉概念手工标类；让图像与自然语言在同一空间里对比学习，零样本就能把任意文本当成分类器。</p><footer>—— Alec Radford 等, CLIP, 2021</footer></div><p>在视觉语言模型里，图和文要先能互相指认，后面的投影器、连接器、指令微调才有对齐的起点。Radford 等人 2021 年的 CLIP（Contrastive Language–Image Pre-training）把这件事写成大规模图文对比学习：图像编码器与文本编码器各出一条向量，批次内正确配对拉近、错误配对推远，得到一个共享的嵌入空间。LLaVA、Qwen-VL、InternVL 所用的视觉骨干，大量是 CLIP 或同类对比预训练的 ViT，而不是单纯的 ImageNet 分类器。本篇只讲这条对齐，<a href="/llm/vit-as-encoder">ViT 作为视觉编码器</a> 讲骨干结构，接到 LLM 的方式见 <a href="/llm/llava-projector">LLaVA 投影器</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>ImageNet 分类把视觉语义钉死在一千个名词上，换到「红底白字的路牌」或「表三第三行的合计」就失效。检测与分割需要更重的框级标注，覆盖不了开放词汇。自然语言本身已经在描述图像，而且规模可以到数亿图文对。问题是：如何用弱对齐的标题监督，学到可迁移的视觉表示，并且让下游不必为每个新概念重新训练分类头。</p><p>CLIP 的答案不是生成式造句，而是判别式检索：给定一张图和 \(N\) 句候选，认出哪一句是它的标题。这比自回归生成图像描述更稳、更好并行，也直接得到「图向量可与任意文本向量比余弦」的接口。失败模式也清楚：标题若只是关键词堆砌，空间会偏物体名词，弱于空间关系与细字。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="双塔与批次对比" tabindex="-1">双塔与批次对比 <a class="header-anchor" href="#双塔与批次对比" aria-label="Permalink to &quot;双塔与批次对比&quot;">​</a></h3><p>图像编码器 \(f\)（ResNet 或 <a href="/llm/vit-as-encoder">ViT</a>）输出 \(z_i\)，文本编码器 \(g\)（Transformer）输出 \(w_j\)，二者映射到同一维并做 L2 归一化。批次内 \(N\) 对正样本，相似度矩阵是温度缩放的余弦：</p> \[s_{ij}=\frac{z_i^\top w_j}{\tau},\qquad \mathcal{L}=\tfrac12\Bigl(\mathrm{CE}(s)+\mathrm{CE}(s^\top)\Bigr) \]<p>行方向是「图检索文」，列方向是「文检索图」，对称交叉熵迫使两边都可检索。\(\tau\) 可学习。没有跨模态交叉注意力：图塔与文塔在对比损失出现之前互不看见对方的 token，这是双塔能把图文分别预计算、做大规模检索的原因。</p><p><span class="marginnote">双塔对齐的是全局向量，不是词与区域的细粒度对应。CLIP 空间里「图靠近这句话」成立，不蕴含「这句话里的某个词对准了图上某个框」。要框级对应，需要另加定位头或把 patch token 交给后续 VLM，而不是指望 CLIP 余弦本身。</span></p><h3 id="用文本当零样本分类器" tabindex="-1">用文本当零样本分类器 <a class="header-anchor" href="#用文本当零样本分类器" aria-label="Permalink to &quot;用文本当零样本分类器&quot;">​</a></h3><p>推理时把类名填进提示模板（如 a photo of a {label}），用 \(g\) 编成权重矩阵，与 \(z\) 做一次点积即分类。新类等于新句子，不必改 \(f\) 的权重。这就是开放词汇的机制来源：类空间与语言空间重合。图像检索、图文检索是同一套余弦。Radford 等人用约四亿级图文对训练，表明规模可以把噪声标题里的监督信号堆到可迁移的程度；本篇不复述具体准确率表。</p><div class="mermaid"></div><h3 id="作为-vlm-的视觉前端" tabindex="-1">作为 VLM 的视觉前端 <a class="header-anchor" href="#作为-vlm-的视觉前端" aria-label="Permalink to &quot;作为 VLM 的视觉前端&quot;">​</a></h3><p>接到 LLM 时，通常丢掉 CLIP 的文本塔与分类用法，只保留图像编码器的 patch 特征（有时含 CLS）。这些特征已经活在一个与语言相近的空间里，于是一层 <a href="/llm/llava-projector">MLP 投影</a> 就可能把视觉 token 映射进词嵌入空间。若视觉骨干只在 ImageNet 上训过，同一投影往往更难：空间里没有被句子拉过。后续连接器是在 CLIP 对齐之上再对齐一次，不是替代对比预训练。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>对比损失在批次内制造硬负例：同一 batch 里所有非配对文本都是负样本。\(N\) 越大，分类越难，表示越要抓住能区分标题的特征。温度 \(\tau\) 控制分布尖峰：过小，模型过度自信于易分样本；过大，正负差被抹平。归一化把比较限制在球面上，尺度不会被某一塔的范数偷走。</p><p>迁移之所以发生，是因为标题里出现的词覆盖了远超 ImageNet 的概念长尾，而双塔必须用视觉特征去预测这些词是否匹配。于是编码器学会的不是一千路 logit，而是「被语言点名过的视觉属性」。零样本分类只是把属性重新组合成类名句子。VLM 再往前走一步：不再把整图收成一个 \(z\)，而是把 patch 序列交给语言模型去做生成与定位。</p><p><span class="marginnote">CLIP 的监督是配对，不是像素级。图上很小的字、复杂表格、需要数数的物体，标题里经常没写，对比学习就不会为它们付损失。这直接解释了为何文档与 OCR 不能只靠 CLIP 全局向量，而要高分辨率 patch 和生成式解码。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>双塔没有交互，组图、空间关系、否定句（「没有狗的房间」）是弱项。批次负例若过于容易（图文来自截然不同的域），损失会饱和。英文为主的网页标题会把空间拉向英语视觉文化，零样本换到其他语言要另做对齐或多语言文本塔。</p><p>工程上，CLIP 视觉塔的输入分辨率是另一条边界：224 或 336 对自然照片够用，对文档细字不够，这把压力交给 <a href="/llm/anyres">AnyRes</a> 与 <a href="/llm/qwen-vl-naive-dynamic-res">原生分辨率切块</a>。不要把 CLIP 准确率当成 VLM 幻觉的下界：对比检索对了，生成式回答仍可能编造图中不存在的物体；那是语言模型侧的问题，不是余弦空间没对齐。</p><p><span class="marginnote">冻结 CLIP 再接 LLM 时，视觉塔看见的仍是对比任务的特征，不一定是「对语言模型最有用的特征」。LLaVA 一类选择冻骨干、只训投影，是在省算力；若文档 OCR 掉字，应考虑解冻 ViT 或换更高分辨率骨干，而不是只加宽 MLP。</span></p><p>取舍：需要开放词汇识别与检索，CLIP 空间几乎是默认起点；需要密集描述、OCR、多图推理，必须在对齐之上加生成目标与高分辨率，不能只堆更大的对比批次。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CLIP 用双塔图文对比学习共享嵌入空间，批次内对称交叉熵拉近配对、推开非配对。</li><li>零样本分类把类名写成句子，用同一套余弦；开放词汇来自语言与视觉重合。</li><li>对齐的是全局向量，不是词–区域细对应；VLM 还要用 patch token 做生成。</li><li>后续 LLaVA / Qwen-VL 的视觉前端大量建立在 CLIP 类骨干上。</li><li>文档细字、空间关系、否定与组合，是对比全局向量的弱项。</li><li>分辨率与是否解冻视觉塔，决定这条对齐能支撑多远的 VLM 任务。</li><li>出处：Radford et al., <em>Learning Transferable Visual Models From Natural Language Supervision</em>（CLIP）, 2021。后续用法见 Liu et al., LLaVA, 2023；Dosovitskiy et al., ViT, 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

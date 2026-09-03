@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CloudMatrix-Infer：算子融合与 AIC/AIV/SDMA 重叠 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_cloudmatrix-infer.md.GYU2mwGl.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="cloudmatrix-infer-算子融合与-aic-aiv-sdma-重叠" tabindex="-1">CloudMatrix-Infer：算子融合与 AIC/AIV/SDMA 重叠 <a class="header-anchor" href="#cloudmatrix-infer-算子融合与-aic-aiv-sdma-重叠" aria-label="Permalink to &quot;CloudMatrix-Infer：算子融合与 AIC/AIV/SDMA 重叠&quot;">​</a></h1><div class="epigraph"><p>Cube 算矩阵，Vector 做逐元素与直接远端写，SDMA 做大宗搬运；融合算子的目标是让这三类引擎同时转，而不是排成一条同步流水线。</p><footer>—— 对照 Zuo et al. 对 CloudMatrix-Infer 中 FusedDispatch/FusedCombine、AIV-Direct 与 AIC/AIV 非对称流水的描述</footer></div><p><a href="/llm/cloudmatrix-resource-pool">资源池</a> 与 <a href="/llm/cloudmatrix-moe-kv">宽 EP</a> 给出拓扑；真正吃满 910C，要在核里把异构引擎叠起来。每颗 910C Die 有 24 个 AIC（Cube，矩阵/卷积）和 48 个 AIV（Vector，逐元素），另有系统 DMA（SDMA）承担常规集合通信搬运。CloudMatrix-Infer 的硬件相关优化是：把 MoE 的通信与计算融进 FusedDispatch / FusedCombine；用 AIV-Direct 让 Vector 核经 UB 直写远端 NPU 内存，躲开 SDMA 的启动延迟；再把注意力路径与 MoE 路径拆成两条微批流水，按负载给不同数量的 AIC/AIV。本篇写这套重叠，不把论文里某一档 tokens/s 写成机房 KPI。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Decode 一步的工作集很小：几个 token 的 dispatch、一次 grouped GEMM、一次 combine、一次 MLA。若每段都是独立算子，启动开销、格式转换、动态 shape 会压过有效 FLOPs。常规 All-to-All 走 SDMA 时，论文指出启动延迟约 10–20 µs 量级，在超低延迟 decode 里会变成主项。AIC 还偏好 NZ 布局的 L1，KV 却常以 ND 存在 HBM，算前转格式再吃一截带宽。</p><p>只融合成一个大核也不够。910C 是异构的：Cube 吃不满逐元素，Vector 吃不满大矩阵，SDMA 不会做 SwiGLU。必须让它们<strong>时间上重叠</strong>，否则融合只是少了几次 launch，引擎仍在互相等。</p><h3 id="sdma-路径与-aiv-direct-路径" tabindex="-1">SDMA 路径与 AIV-Direct 路径 <a class="header-anchor" href="#sdma-路径与-aiv-direct-路径" aria-label="Permalink to &quot;SDMA 路径与 AIV-Direct 路径&quot;">​</a></h3><p>SDMA 适合大块、可预告的搬运，固件通道稳定，但每次提交有启动税。AIV-Direct 让 AIV 经 UB 把数据写进对端预分配缓冲，绕开这条固件通道，换来更短的发起延迟。Decode 的 token 向量短，启动税占比高，所以 fusion 里的发送走 AIV-Direct；预填阶段或跨超节点大宗 KV 仍可让 SDMA/RoCE 去做。不是「SDMA 过时了」，是延迟区与带宽区用不同引擎。</p><p><span class="marginnote">AIV-Direct 依赖对端缓冲预先分配、静态图、以及 UB 的对等写。动态 shape 会迫使回到同步分配，融合收益立刻消失。这与 <a href="/llm/npu-friendly-ops">NPU 友好算子</a> 的静态形状约束是同一类契约，只是对象从端侧换成了超节点 decode。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>融合分两路。MoE 路：FusedDispatch 在发送前做量化以缩小消息，用 send/receive 语义替换通用 All-to-All，内部把「拷入本地 UBuffer → 算远端偏移并量化 → AIV-Direct 写出」收成按 token 微批的三级流水，使下一批的拷贝与上一批的远端写重叠。FusedCombine 对称地收专家输出。注意力路：MLAProlog 把 RMSNorm、QKV 投影、RoPE 收成一个复合算子，内部再切成 AIC/AIV 可流水的子任务；FusedAttention 把 Flash 式注意力与前后的拼接/切片收在一起，减少 ND/NZ 往返。</p><p>流水则在层间把 batch 切成两个微批。论文给出的 decode 非对称切分示例：注意力流（MLAProlog、FusedAttention、O_PROJ）分到更多 AIC/AIV，因为更吃矩阵与带宽；MoE 流（Gate、Dispatch、MLP、Combine）分到较少 Cube、相对更多通信，使两流墙钟接近，从而一批做注意力时另一批做专家。这是 DeepSeek 双微批思路在 910C 异构核上的改写，不是把 H800 的时间表贴过来。</p><div class="mermaid"></div><h3 id="量化与采样也要留在设备上" tabindex="-1">量化与采样也要留在设备上 <a class="header-anchor" href="#量化与采样也要留在设备上" aria-label="Permalink to &quot;量化与采样也要留在设备上&quot;">​</a></h3><p>INT8 在 dispatch 前做，既减 UB 载荷，也让 Cube 走 INT8 吞吐。采样若回到 CPU，MTP 校验图会在每步与主机同步，前面的融合全被打断。CloudMatrix-Infer 把排序、累积、过滤做成 NPU 算子并融进图，使 MTP 与校验图可以背靠背。融合的边界是：任何「看起来很小」的主机往返，在 decode 频率下都不是小的。</p><p><span class="marginnote">论文把 prefill 的 6688 tokens/s/NPU 与 decode 的 1943 tokens/s/NPU（4K、TPOT&lt;50 ms）以及更紧 15 ms 下的 538 tokens/s/NPU 作为该系统在 DeepSeek-R1 上的工作点。本篇只用来说明融合与重叠改变的是效率，不把数字当跨硬件对照表。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>重叠能成立，因为三类引擎不共享同一条流水线停顿点。AIC 在 Cube 阵列上做 GMM 时，AIV 可以算下一 token 的偏移并发起远端写；SDMA 若同时拉下一层 KV，只要不与 AIV-Direct 抢同一块缓冲与同一条 UB 虚拟通道。软件用跨核 flag 与硬件事件（如搬运与 Vector 之间的同步点）做握手，而不是全局 <code>device synchronize</code>。预分配双缓冲让静态图成立：一边写远端，一边本地填下一槽。</p><p>MLA 路径上，融合减少的是 launch 与格式转换；AIC-AIV 微并行减少的是 Prolog 内部的串行空洞。NZ 布局是 Cube 的约束，不是数学约束：能在写入 KV 时就按后续 AIC 的偏好摆，就不必在 FA 前再扫一遍。MTP 下 batch 与序列维都在变，论文改用 BSND 与沿 \(B,S\) 的动态切块，让各 AIC 的任务更均匀，避免尾核决定一步时间。</p><h3 id="非对称切分是负载匹配-不是固定比例" tabindex="-1">非对称切分是负载匹配，不是固定比例 <a class="header-anchor" href="#非对称切分是负载匹配-不是固定比例" aria-label="Permalink to &quot;非对称切分是负载匹配，不是固定比例&quot;">​</a></h3><p>16 AIC vs 8 AIC 的例子钉在「4K、batch 96、开 MTP」这一档，两流都约 600 µs。换模型、换长度、关 MTP，比例要重搜。切错了，长的那条流暴露出来，重叠退化成串行。机制上应把两流时延当成可观测指标，而不是编译期常数。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>融合算子绑定硬件与图形状，移植到另一代 Die 或动态 EP 度时要重写，而不是调一个开关。AIV-Direct 解决的是域内小消息；跨超节点仍走 <a href="/llm/cloudmatrix-roce-scaleout">RoCE</a>，不要把 Direct 写套到柜间。SDMA 仍应保留给大块、对齐、可预取的路径，强行全程 Direct 可能把 AIV 算力从逐元素抢走。</p><p>评测必须写清：是否融合、是否 INT8、微批数、EP 度、序列长度。只报相对「未融合基线」的加速，而不报基线是否已经用了 HCCL All-to-All，无法复现。精度方面，INT8 需在论文给出的基准集上对照官方 API，不能默认「融合不改数值」——量化改数值，融合原则上不改。MLA 的 NZ/ND 往返若仍留在融合外，profile 上会看到「注意力很慢」其实是转格式在吃带宽，应先把它收进 FA，再谈再加一张卡。</p><p><span class="marginnote">910C 无原生 FP8 时，用 INT8 逼近 8bit 吞吐是论文的选择。不要把「INT8 等于 FP8」写进公式；那是效率对照，不是算术等价。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CloudMatrix-Infer 用融合算子减少 decode 的 launch、动态 shape 与多余 All-to-All。</li><li>AIV-Direct 让 Vector 核直写远端内存，避开 SDMA 启动税；SDMA 留给大宗搬运。</li><li>AIC 与 AIV 在 Prolog、GMM 与发送流水里时间重叠；双微批再按负载非对称切核。</li><li>静态预分配与设备内采样是融合得以保持的契约。</li><li>工作点随长度、batch、MTP 变；跨超节点与跨代芯片不能直接复用同一张流水表。</li><li>出处：Zuo et al., <em>Serving Large Language Models on Huawei CloudMatrix384</em>, arXiv:2506.12708。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

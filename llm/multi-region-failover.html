@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多区域故障转移 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_multi-region-failover.md.DlkzuxPX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="多区域故障转移" tabindex="-1">多区域故障转移 <a class="header-anchor" href="#多区域故障转移" aria-label="Permalink to &quot;多区域故障转移&quot;">​</a></h1><div class="epigraph"><p>DNS 把流量拨到另一座机房，KV、适配器页和限流桶并不会跟着过去；转移的是新请求的路由，不是正在生成的那条序列的内存。</p><footer>—— 对照多活与主备在有状态生成服务上的差异：缓存亲和与版本一致先于拨流量</footer></div><p>无状态 HTTP 的故障转移是切负载均衡。自回归服务的状态在 GPU 的 KV 里、在 <a href="/llm/prefix-caching">前缀缓存</a> 里、在 <a href="/llm/adapter-hot-swap">适配器页</a> 里、在 <a href="/llm/token-ratelimit">TPM 桶</a> 里。一区断电，另一区可以立刻接住新 TCP，却接不住旧序列：用户看到的是断流、重连、冷前填、可能换一个模型版本。本篇写多区域转移要搬哪些控制面、哪些只能降级，以及如何避免「转移成功、TTFT 分位爆炸、账单翻倍」。不编造未公开的跨洋 NVLink，也不把某一云厂商的全球加速器名词当成标准。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>生成请求一旦进入 decode，就绑定了具体副本上的 KV 布局。区域失败时，这些页通常无法在截止时间内搬完：体积随层数、KV 头、长度线性涨，跨区域带宽与尾延迟都不适合当热路径。因此故障转移的默认语义是：<strong>在途请求失败或取消，新请求在健康区冷启动</strong>。产品若承诺「对话不中断」，必须预先把状态复制到对端，成本接近双写 KV，极少值得。</p><p>第二层是一致性。两区的基座量化、chat template、适配器哈希、审核模型版本若不一致，转移等于换了一个人设。用户会报告「故障后变傻 / 变啰嗦 / 安全策略变了」。第三层是控制面：限流桶若分区独立，转移后配额翻倍或清零；若强一致跨区，限流本身会在分区时不可用。</p><h3 id="主备与多活管的故障集不同" tabindex="-1">主备与多活管的故障集不同 <a class="header-anchor" href="#主备与多活管的故障集不同" aria-label="Permalink to &quot;主备与多活管的故障集不同&quot;">​</a></h3><p>主动-被动：只有主区接流量，备区跑同步的权重与配置，定期暖机。转移清晰，浪费一组 GPU。主动-主动：用户按就近接入，故障时把 DNS 或任播权重拨到另一区。平时容量有弹性，但缓存命中、会话粘滞、版本滚动都要按区理解。混合常见：交互走就近多活，批作业钉在便宜区；故障时批作业可丢，交互要有明确的降级 SLO。</p><p><span class="marginnote">健康检查不要只 ping HTTP 200。引擎可以端口还在、KV 池已死、审核依赖已熔断。探针应含一次短补全的 TTFT 上限，以及依赖（词表、适配器盘、审核）的就绪。假健康会把流量打进黑洞，分位比不转移更差。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把对象分成三类。</p><p><strong>必须跨区复制、转移前对齐：</strong> 模型与 tokenizer 工件、chat template 版本、适配器发布（内容哈希）、审核分类法与阈值、路由别名。用同一套发布流水线打到各区，禁止一区手工热更新。滚动时接受短暂的版本窗，或先停一区流量再发版。</p><p><strong>最好不跨区搬、转移时放弃：</strong> 进行中的 KV、本区前缀缓存热页。文档写明：重连后第一次请求 TTFT 按未命中计。客户端应把已生成文本当作本地草稿，重试带续写或「从上次用户句重新开始」，服务端不要假装能接上 token 流。</p><p><strong>明确选择共享还是分片：</strong> 限流桶、配额账本、幂等键。共享需要跨区一致存储，分区时要有本地紧急桶以免无法拒流；分片则转移后额度可能重置，需在条款里写「按区限额」或「故障时合并」。</p><p>DNS / 任播 TTL 必须短于你承诺的转移时间，但又不能短到正常抖动。网关持有主动健康权重，比等 TTL 过期更快。正在流式的连接：发送 finish reason 为 <code>cancelled</code> 或切断；不要在半截 SSE 后面接另一个区的 token，客户端无法拼接。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>用户体感的尖刺来自三件事同时发生：连接重置、冷前填、可能的排队（一区容量突然要吃两区流量）。<a href="/llm/ttft-percentiles">TTFT 分位</a> 会立刻出现未命中峰；若备区平时未暖机，还有模型加载与 CUDA 捕获。备区应保持基座常驻、跑微量合成流量，把冷启动排除在转移窗口之外。容量上，多活每区都不能按「只有本地峰值」规划到 100%：转移需要余量，否则健康区跟着饱和，<a href="/llm/goodput">goodput</a> 一起掉。</p><h3 id="暖机与余量决定转移后的分位" tabindex="-1">暖机与余量决定转移后的分位 <a class="header-anchor" href="#暖机与余量决定转移后的分位" aria-label="Permalink to &quot;暖机与余量决定转移后的分位&quot;">​</a></h3><p>适配器与 LoRA 服务：冷区若没有热页，第一次请求会走 <a href="/llm/lorax-serving">LoRAX</a> 式加载，TTFT 再加一截。关键租户的适配器应在各区预加载。KV 感知路由表是区内的，转移后必须作废旧区指纹，否则网关把请求打向已死副本。</p><p><span class="marginnote">跨区「同步 KV」听起来能保住会话，实际要付带宽、一致性与隐私三笔账。PD 分离已经在区内搬 KV；再跨区搬，延迟通常大于重做前填。优先重前填，除非有同城双活、光纤相当于机柜内的特殊拓扑。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>异构硬件见 <a href="/llm/hetero-cluster">异构集群</a>：一区 GPU、一区 NPU 不能在故障时把同一 TP 作业搬过去，只能请求级路由到能跑该运行时的池。模型级联在转移后可能从「小模型路由」退化成「只剩大模型」或反过来，要当降级档位写进 SLO，而不是静默换质量。</p><h3 id="驻留与演练都是合同" tabindex="-1">驻留与演练都是合同 <a class="header-anchor" href="#驻留与演练都是合同" aria-label="Permalink to &quot;驻留与演练都是合同&quot;">​</a></h3><p>合规与数据驻留：有的租户禁止出区。故障转移若把数据打到境外，是合同违约，不是高可用。应用标签钉住区域，宁可 503 也不越境。时钟与账单：两区时间不同步会让限流与缓存 TTL 错乱；以一个权威时间源为准。</p><p>测试故障转移要真切流量，而不是只切 DNS。看：在途连接是否干净结束、新请求 P99 TTFT、错误率、审核是否仍在关键路径、适配器版本是否仍对齐。演练窗口应标进分位报表，避免把演练当成事故回溯。</p><p><span class="marginnote">自动转移的抖动比不转移更危险：探针抖动导致来回拨，缓存反复冷热，限流桶来回清零。权重要有迟滞与最小保持时间，与 dLoRA 合并的迟滞是同一类稳定性需求。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>故障转移默认放弃在途 KV，接新请求冷启动；「对话不中断」需要预先双写，通常不划算。</li><li>权重、模板、适配器哈希、审核政策必须跨区对齐；限流账本共享与否写进条款。</li><li>备区要暖机与余量，否则转移把 TTFT 分位与排队一起打爆。</li><li>探针含真实短补全；流式连接取消而不是跨区续 token。</li><li>数据驻留、异构运行时、级联降级都是合同范围，不是 DNS 细节。</li><li>出处：对照有状态服务的主备/多活惯例与 LLM KV 不可廉价跨区搬迁的事实；无单独经典论文名。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

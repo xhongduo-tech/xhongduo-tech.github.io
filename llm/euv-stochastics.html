@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>随机效应与光子散粒噪声 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_euv-stochastics.md.GFeKX_NK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="随机效应与光子散粒噪声" tabindex="-1">随机效应与光子散粒噪声 <a class="header-anchor" href="#随机效应与光子散粒噪声" aria-label="Permalink to &quot;随机效应与光子散粒噪声&quot;">​</a></h1><div class="epigraph"><p>每个约 92 eV 的光子都算数；剂量不足时，散粒噪声会变成断线、缺孔与局部 CD 波动。</p><footer>—— 改写自 Bakshi, EUV Lithography 与业界随机效应公开综述</footer></div><p>瑞利式给出的是平均场分辨率。<a href="/llm/asml-nxe">NXE</a> 的 0.33 和 <a href="/llm/asml-high-na">EXE</a> 的 0.55 都假定光刻胶按连续强度分布显影。EUV 光子能量 \(hc/\lambda\approx 92\,\mathrm{eV}\)，是 ArF 6.4 eV 的十几倍；同样 mJ/cm² 剂量下光子数少一个数量级以上。落到一个 10 nm 级接触孔里的光子可以只有几十到几百，泊松涨落 \(\sqrt{N}/N\) 变成局部尺寸抖动（LCDU）、线边缘粗糙、桥接和缺失孔。随机效应（stochastics）还叠上光酸发生剂、分子尺寸和二次电子模糊，不只是光子计数。本篇写噪声从哪来、如何进良率，以及剂量、胶与设计规则怎样换。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>定义剂量 \(D\) 为能量面密度。光子面密度约为 \(D/E_{\mathrm{ph}}\)。\(E_{\mathrm{ph}}\approx 1.47\times 10^{-17}\,\mathrm{J}\)，于是</p> \[1\,\mathrm{mJ/cm^2}\approx 6.8\times 10^{2}\ \text{光子}/\mu\mathrm{m}^{2}. \]<p>20 mJ/cm² 大约 \(1.4\times 10^{4}/\mu\mathrm{m}^{2}\)。面积 10 nm × 10 nm \(=0.01\,\mu\mathrm{m}^{2}\) 时，只有约 140 个光子量级；再扣光学对比小于 1、胶量子产率小于 1，有效计数更少。泊松标准差 \(\sqrt{N}\)，相对涨落 \(1/\sqrt{N}\) 在 \(N\sim 100\) 时已是 10%。接触孔阵列上，这表现为有的孔显开、有的孔关死，缺陷率对剂量极度敏感。</p><p>DUV 多重图形用更多光子、更大特征，把这个问题藏在平均里。EUV 单次把特征缩小的同时把光子变贵、变少，随机从「计量噪声」变成「良率墙」。只加 NA 而不加剂量或胶效率，墙会前移。</p><h3 id="光子噪声不是唯一随机源" tabindex="-1">光子噪声不是唯一随机源 <a class="header-anchor" href="#光子噪声不是唯一随机源" aria-label="Permalink to &quot;光子噪声不是唯一随机源&quot;">​</a></h3><p>化学放大胶里，光酸分子数、捕获位点、聚合物尺寸同样离散。二次电子在胶里走几纳米，把「吸收事件」涂开，既贡献分辨率损失，也贡献额外方差。金属氧化物胶吸收截面更高，可用更少的入射光子达到相同酸当量，但簇聚和显影噪声换成另一种化学。掩模吸收体的边缘粗糙、多层膜缺陷，会以固定图案的形式混进「看起来像随机」的 LCDU。分析时要把光子泊松、化学离散、掩模贡献拆开，否则会把 OPC 能修的东西当成要加剂量才能修的东西。</p><p><span class="marginnote">随机效应不是「EUV 胶没做好」的骂人话。即使理想阈值胶，只要 \(N\) 小，泊松仍在。胶可以改变从光子到可溶基团的增益与模糊，从而改写有效 \(N\)，不能让统计消失。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程上盯一组可测指标：LCDU（局部 CD 均匀性）、LER/LWR、缺失/桥接缺陷密度随剂量的曲线。剂量升，光子 \(N\) 升，缺陷通常指数下降，直到化学噪声或工艺其他项封顶。于是出现剂量—产能折中：加剂量要降扫描速度或加源功率，直接打 <a href="/llm/euv-lpp-tin">LPP</a> 和 <a href="/llm/euv-maglev-stage">磁浮台</a> 的 wph。</p><p>缓解分四层。光学：提高对比（SMO、更优光瞳、High-NA 的 MTF）让阈值附近的强度更陡，同样 \(\Delta I\) 对应更小 \(\Delta CD\)。工艺：换高吸收胶、优化 PEB 与显影，减小化学模糊同时保持灵敏度。设计：接触孔放宽、冗余通孔、避免最小孔走最差衬度。计算：随机感知 OPC、热斑检测、以缺陷而不是平均 CD 为目标函数。掩模侧降低吸收体 LER。没有单点魔法。</p><h3 id="剂量、对比与缺陷指数" tabindex="-1">剂量、对比与缺陷指数 <a class="header-anchor" href="#剂量、对比与缺陷指数" aria-label="Permalink to &quot;剂量、对比与缺陷指数&quot;">​</a></h3><p>缺陷率往往对剂量呈极陡的曲线，像良率对电压。公开图常见「再加几 mJ，缺孔掉一个数量级」。这解释了为何工厂宁愿买更亮的源、忍受更贵的胶，也不在随机悬崖边省剂量。对比度差的图形（弱衬度孔、线端）等效于更少的有效光子，会先掉下悬崖。<a href="/llm/euv-pellicle">pellicle</a> 的 \(T^2\) 损失若不用源功率补回，等于系统性减剂量，随机变差。污染导致的光瞳变形同样伤对比，<a href="/llm/euv-hydrogen-dgl">氢清洗</a>因此也是随机预算的一部分。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>泊松：吸收事件数 \(n\sim\mathrm{Poisson}(\bar n)\)，\(\mathrm{Var}(n)=\bar n\)。显影把 \(n\) 映射成线宽或孔径；映射的斜率是「对比 × 胶响应」。斜率大，同样 \(\Delta n\) 造成的 \(\Delta CD\) 小，这是高对比光学能抑制 LCDU 的原因。斜率过大且模糊过小，又会把离散分子结构印成粗糙——模糊是低通，既加偏置也减方差。随机优化是在分辨率、灵敏度和噪声之间找模糊的最佳标长。</p><p>92 eV 光子打进胶，产生光电子与二次电子，电离事件成簇。簇的空间尺度是 EUV 特有的模糊源，ArF 的单光子能量不够做成同样的簇。金属氧化物纳米颗粒把吸收中心变成离散粒子，粒子统计成为新的泊松源。因此「换胶」是换一套噪声生成器，要重新量 LCDU，而不是假定灵敏度提高噪声一定下降。</p><p><span class="marginnote">不要用像素相机的「ISO 噪声」类比完事。光刻随机发生在潜影化学里，显影是非线性阈值，缺陷是极端尾部事件，不是高斯 LWR 的 \(3\sigma\) 那么简单。良率关心的是百万分之一的缺孔，要用极值统计，而不是只报平均 CD。</span></p><h3 id="high-na-会不会自动更好" tabindex="-1">High-NA 会不会自动更好 <a class="header-anchor" href="#high-na-会不会自动更好" aria-label="Permalink to &quot;High-NA 会不会自动更好&quot;">​</a></h3><p>0.55 提高光学衬度、缩小可印节距，对同一尺寸的孔，MTF 更高可能降低 LCDU。但目标孔往往跟着 NA 一起缩小，面积 \(\propto CD^{2}\)，\(N\) 再降。结果不确定，取决于节点把孔缩到多小、剂量加到多少。High-NA 的正确说法是：它提供更高对比的光学工具，随机账要重新算，而不是「NA 高了光子问题消失」。双重 0.33 则把随机与套刻捆在另一张账上。</p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>随机效应不否定 EUV 量产：5/3 nm 已经在 NXE 上跑，说明在足够剂量、胶和设计规则下尾部可控。它否定的是「波长除以 NA 就是能印的最小孔」。计量本身也有噪声，要把设备方差从晶圆方差里分开，否则会加错剂量。模拟必须用随机抗蚀剂模型，连续 aerial image 不够。</p><p>权威文献是 Bakshi 书中的胶与光子噪声章节，以及 imec、ASML、SPIE 上大量 LCDU/缺陷公开报告。不要把某一胶在某一剂量下的「无随机」宣传写成物理定律。写工艺决策时把源功率、pellicle 透过率、扫描速度和缺陷规格放在同一张表里。</p><p><span class="marginnote">随机与套刻是不同良率通道：前者是单层局部打印失败，后者是层间对不准。EUV 双重会让两者一起出现。单次 High-NA 减轻套刻层数，可能加重单层随机——取舍要按层写，不要全球一句。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>EUV 光子约 92 eV，同样剂量下计数远少于 ArF，小面积图形落入泊松稀事件区。</li><li>随机效应包括光子散粒、化学离散与二次电子模糊，表现为 LCDU、LER 和缺孔/桥接。</li><li>加剂量、加对比、改胶、放宽设计是四条杠杆，都与产能和成本对打。</li><li>缺陷率对剂量极度敏感，量产会停在随机悬崖上方而不是瑞利极限上。</li><li>pellicle 吸收、镜面污染和弱衬度图形都会减小有效 \(N\)。</li><li>High-NA 提高 MTF 但缩小目标面积，随机账必须重算。</li><li>出处：Bakshi, <em>EUV Lithography</em>；ASML / 业界关于 EUV stochastics 与 LCDU 的公开报告。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Qwen 1.5 / 2 / 2.5 演进 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen-evolution.md.fDaaYwUP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="qwen-1-5-2-2-5-演进" tabindex="-1">Qwen 1.5 / 2 / 2.5 演进 <a class="header-anchor" href="#qwen-1-5-2-2-5-演进" aria-label="Permalink to &quot;Qwen 1.5 / 2 / 2.5 演进&quot;">​</a></h1><div class="epigraph"><p>Qwen2.5 把高质量预训练数据从上一版的 7 万亿 token 扩到 18 万亿，并在后训练里使用百万级 SFT 与多阶段强化学习。</p><footer>—— Qwen Team，Qwen2.5 Technical Report，arXiv:2412.15115</footer></div><p>通义千问从 2023 年的 Qwen 技术报告走到 2024 年的 1.5、2、2.5，主线不是换一种注意力，而是<strong>同一套解码器骨架上把数据、窗口、稀疏化与对齐做厚</strong>。1.5 把全系列窗口统一到 32K，并首次开源 MoE；2 换上 GQA、把 RoPE 基数与 Dual Chunk Attention / YaRN 接到 128K；2.5 把预训练从 7T 拉到 18T，并分出数学、代码、视觉等专线。本篇按官方博客与技术报告写这三版的差分，不把 Qwen3 的思考模式提前写进来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>开源模型族要同时服务：边侧 0.5B、单卡 7B、服务器 72B，以及 API 里的稀疏大模型。若每一版都改词表与层规范，生态无法积累。Qwen 的约束是：字节级 BPE 词表大体稳定（2.5 仍约 15 万词加控制符），解码器保持 Pre-LN + RMSNorm + SwiGLU + RoPE，把差异放在<strong>注意力KV、位置外推、数据配比、MoE 是否共享专家</strong>上。</p><p>另一条轴是上下文。1.5 用 32K 覆盖当时的长文档需求；2 与 2.5 要把推理窗口做到 128K，且短任务不能塌。只加长预训练序列太贵，于是采用「先 4K 再 32K 预训练 + 推理期 YaRN/DCA 外推」的两段式。问题是如何让这套补丁成为系列惯例，而不是某个尺寸的特例。</p><h3 id="从「能聊天的千问」到「可对标的稠密旗舰」" tabindex="-1">从「能聊天的千问」到「可对标的稠密旗舰」 <a class="header-anchor" href="#从「能聊天的千问」到「可对标的稠密旗舰」" aria-label="Permalink to &quot;从「能聊天的千问」到「可对标的稠密旗舰」&quot;">​</a></h3><p>2023 年 Qwen（Bai 等，arXiv:2309.16609）证明中英双语稠密模型可开源。1.5 要解决的是开发者体验：合进 <code>transformers</code> 主分支、全尺寸 32K、量化齐全。2 要解决推理 KV 与长窗。2.5 要解决的是：同样 72B 量级，知识与代码数学是否够厚，才能在开源榜上接近大得多的稠密模型。数据从 7T 到 18T，是 2.5 相对 2 的主叙事。</p><p><span class="marginnote">Qwen2.5-Turbo / Plus 是云上 MoE，不是与 72B 稠密一一对应的开源检查点。写演进时要把「开源稠密档位」和「API 稀疏档位」分开，否则会把 Turbo 的 1M 窗口误安到 7B-Instruct 上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="qwen1-5-32k-与第一代-moe" tabindex="-1">Qwen1.5：32K 与第一代 MoE <a class="header-anchor" href="#qwen1-5-32k-与第一代-moe" aria-label="Permalink to &quot;Qwen1.5：32K 与第一代 MoE&quot;">​</a></h3><p>2024 年 2 月博客发布 Base/Chat：<strong>0.5B、1.8B、4B、7B、14B、32B、72B、110B</strong> 八档，全部支持 32K，并提供 GPTQ/AWQ/GGUF。同期 Qwen1.5-MoE-A2.7B：约 27 亿激活、Non-embedding 约 20 亿，对标 7B 稠密；细粒度专家加共享专家，训练成本相对 7B 降约 75%，推理约 1.74 倍。1.5 把 ChatML 与工具相关控制符开始标准化，为后续统一词表铺路。</p><h3 id="qwen2-gqa、abf、dca-与-yarn" tabindex="-1">Qwen2：GQA、ABF、DCA 与 YaRN <a class="header-anchor" href="#qwen2-gqa、abf、dca-与-yarn" aria-label="Permalink to &quot;Qwen2：GQA、ABF、DCA 与 YaRN&quot;">​</a></h3><p>Qwen2 技术报告（arXiv:2407.10671）开源稠密 <strong>0.5B、1.5B、7B、72B</strong> 与 MoE <strong>57B-A14B</strong>。注意力改为 <a href="/llm/gqa">GQA</a>，KV 头数按尺寸配置。预训练末期上下文从 4096 提到 32768，RoPE 基数从 \(10^4\) 提到 \(10^6\)（ABF，Xiong 等）。推理用 <a href="/llm/yarn">YaRN</a> 与 <a href="/llm/dual-chunk-attention">Dual Chunk Attention</a>，把可用长度做到约 131072（7B/72B Instruct；57B-A14B 报告为 64K 量级，小模型更短，以报告表格为准）。Qwen2 仍使用 QKV bias。预训练数据约 7T。</p><h3 id="qwen2-5-同一骨架-数据与后训练加厚" tabindex="-1">Qwen2.5：同一骨架，数据与后训练加厚 <a class="header-anchor" href="#qwen2-5-同一骨架-数据与后训练加厚" aria-label="Permalink to &quot;Qwen2.5：同一骨架，数据与后训练加厚&quot;">​</a></h3><p>2.5 报告明确：<strong>稠密结构与 Qwen2 相同</strong>——GQA、SwiGLU、RoPE、QKV bias、RMSNorm。开源档位变为 0.5B、1.5B、3B、7B、14B、32B、72B。预训练 18T，并用 Qwen2-Instruct 做质量过滤与领域配平；数学、代码数据来自 Qwen2.5-Math / Coder 管线。后训练：百万级 SFT，再 DPO 与 GRPO。长窗策略同 2：4K→32K 预训练 + YaRN/DCA，常规 Instruct 到 128K；Turbo 与后来的 2.5-1M 开源检查点走百万上下文，那是专线，不是每张 2.5 卡的默认。</p><div class="mermaid"></div><p>词表在 2.5 把控制符从 3 个扩到 22 个（含工具），常规 token 仍约 151643，全系列共享，减少「换尺寸就换 tokenizer」的事故。2.5 还用缩放律在 44M–14B 稠密与小 MoE 上扫学习率与 batch，再把最优超参外推到 72B，而不是只抄 2 的训练表。开源同时给 bf16 与多种量化，使 0.5B 到 72B 能走同一套应用代码。</p><p><span class="marginnote">Qwen2 去掉了 1.5 的若干档（如 4B/14B/32B/110B），2.5 又把 3B/14B/32B 接回来。档位是产品矩阵，不是架构定理。对比分数必须对同年同尺寸，不能拿 1.5-32B 直接当 2 的缺失层。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三版共用「解码器 LM + 字节 BPE」。GQA 把 KV 从「头数=查询头」降到分组共享，128K 才有可服务的缓存斜率。ABF 提高 \(\theta\)，使 32K 预训练相位仍在可插值/外推的区间；DCA 在推理把超长序列切成训练长度块，块内几何与短窗同构，块间另写位置，于是不必为 128K 重训一遍注意力。YaRN 再管频率分段与注意力温度。2 与 2.5 的长窗是<strong>同一套机制</strong>，2.5 赢在数据与对齐，不是新发明一种位置编码。</p><p>MoE 从 1.5-A2.7B 的「7B 质量、1/3 激活」示范，到 Qwen2-57B-A14B，再到 2.5 云上 Turbo/Plus：细粒度切专家 + 共享专家，是 Qwen 在 3 之前的稀疏惯例。稠密开源线负责可复现；稀疏线负责 API 性价比。2.5 把 Coder/Math 数据灌回基座，使通用 72B 不必在 HumanEval 上明显弱于专线——专线仍更尖，但基座不再是「不会数学的聊天模型」。</p><p>后训练从 1.5 的 SFT/RLHF 叙事，到 2.5 写明离线 DPO + 在线 GRPO，长回复做到约 8K 生成长度。机制上，预训练把世界知识放进先验，后训练把格式、工具、拒绝与长回答的稳定性补上。数据从 7T 到 18T 不能线性外推成「知识翻倍」，但报告把它当作 2.5 相对 2 的主因果。领域配平则把电商与社交里的模板页下调、把科技与学术上调，否则 18T 只是把网页噪声再读一遍。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>1.5 的 32K 评测在 L-Eval 上好看，并不自动等于 2 的 128K 针检索。DCA/YaRN 是推理补丁，应用侧必须使用匹配的实现，否则 128K 只是配置谎言。2.5-7B 默认不是 1M；要百万上下文应使用 2.5-1M 报告里的检查点与推理框架。</p><p>MoE 开源档在 2 只有 57B-A14B，2.5 开源主线回到稠密，稀疏放进云。不要假设「2.5 一定有可下载的 Turbo 同构权重」。QKV bias 在 2/2.5 仍在，到 Qwen3 才去掉并加 QK-Norm——那是下一篇的差分，不能回溯改写 2.5 实现。</p><p><span class="marginnote">中文能力是系列卖点，但报告里的多语与英文基准同样被用来对标。演进叙事若只写「更会中文」，会丢掉 GQA 与 18T 这两件真正改服务成本与知识密度的事。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Qwen1.5：八档稠密全 32K，并开源 A2.7B MoE，把开发者栈标准化。</li><li>Qwen2：GQA、7T 数据、32K 预训练 + YaRN/DCA 到约 128K，MoE 为 57B-A14B。</li><li>Qwen2.5：架构对齐 Qwen2，预训练 18T，后训练 SFT+DPO+GRPO；长窗机制继承 2。</li><li>开源稠密与云上 MoE、常规 128K 与 1M 专线，必须按检查点区分。</li><li>出处：Qwen Team，Introducing Qwen1.5 与 Qwen1.5-MoE 博客（2024-02）；Yang 等 Qwen2 Technical Report，arXiv:2407.10671；Yang 等 Qwen2.5 Technical Report，arXiv:2412.15115。前史见 Bai 等 Qwen Technical Report，arXiv:2309.16609。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

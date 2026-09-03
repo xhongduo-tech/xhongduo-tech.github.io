@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>splitfuse / 混合批次 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_splitfuse.md.Dt_o8Pvl.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="splitfuse-混合批次" tabindex="-1">splitfuse / 混合批次 <a class="header-anchor" href="#splitfuse-混合批次" aria-label="Permalink to &quot;splitfuse / 混合批次&quot;">​</a></h1><div class="epigraph"><p>把尚未做完的提示切片，与正在生成的 token 放进同一次前向，前向尺寸变得可规划，解码也不再为整段前填停机。</p><footer>—— Holmes et al., DeepSpeed-FastGen 中的 Dynamic SplitFuse；对照 Agrawal 等 Sarathi-Serve</footer></div><p><a href="/llm/chunked-prefill">Chunked prefill</a> 解决「前填能不能分期」。接下来的问题是：每一拍的前向里放谁。纯解码批吃不满算力；纯前填批又会让已在生成的请求停住。混合批次（hybrid / mixed batch）把两类 token 放进同一次前向：若干条请求的一个解码 token，加上一块或多块尚未完成的前填。DeepSpeed-FastGen 把动态地拆提示、再与生成拼到目标 token 预算的策略叫做 Dynamic SplitFuse；Sarathi-Serve 用 stall-free 调度与 decode-maximal 的装填顺序描述同一类思想。本篇写融合规则与它和分离式服务的边界，不把两个系统的实验数字互相套用。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>连续批处理按迭代插入请求，但若每一拍仍然是「整段前填」或「纯解码」二选一，粒度还是太粗。前填优先：吞吐高、<a href="/llm/tpot-itl">ITL</a> 出现 stall。<a href="/llm/tpot-itl">解码</a> 优先：正在打字的用户流畅，新请求的 <a href="/llm/ttft">TTFT</a> 在队长里堆积。GPU 的尴尬是：纯解码算术强度低，纯长前填强度高但时间无界。需要一种装填，使每一拍的 token 数落在窄带里——既喂饱张量核，又不超过 TBT 允许的墙钟。</p><p>SplitFuse 的「拆」是提示可以跨拍；「融」是同一拍里前填切片与生成 token 共存。没有拆，融只能把整段前填塞进去，预算立刻被一条长提示打爆。没有融，拆只是把前填自己分期，解码批仍然吃不饱，权重每拍白扫一遍。两者合在一起，才是混合批次。</p><h3 id="预算约束而不是请求数约束" tabindex="-1">预算约束而不是请求数约束 <a class="header-anchor" href="#预算约束而不是请求数约束" aria-label="Permalink to &quot;预算约束而不是请求数约束&quot;">​</a></h3><p>Orca 一类迭代级批处理常以请求条数为上限。条数相同，token 数可以差两个数量级：32 条解码是 32 个 token，32 条长前填可以是数十万 token。混合批次改用 token 预算 \(\tau\)：</p> \[B_{\mathrm{decode}} + B_{\mathrm{prefill}} \le \tau. \]<p>\(B_{\mathrm{decode}}\) 通常等于本拍仍在生成的请求数（每条一个新 token，推测解码除外）。\(B_{\mathrm{prefill}}\) 是本拍允许的前填 token 数，来自一条或多条尚未完成的提示切片。\(\tau\) 由「这一拍必须在 TBT SLO 内结束」反推，再按硬件饱和点取下限，避免 \(\tau\) 小到掉出算力区。</p><p><span class="marginnote">预算是调度单位，不是注意力窗口。同一拍里不同请求的 KV 长度可以完全不同；核函数按变长序列或页表计算，softmax 不会跨请求。融合的是计算作业，不是上下文。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Dynamic SplitFuse 有两条装填行为。长提示被拆成远小于全长的块，跨多个前向执行，<strong>只有前填全部完成后</strong>该请求才进入生成。短提示会被拼起来填满目标前向尺寸；必要时连短提示也切一刀，以免超支预算，使各拍的 token 数对齐。Sarathi-Serve 的 stall-free 顺序更强调优先级：先装入所有正在进行的解码（它们必须每拍都走，否则 ITL 直接违约），再装入已部分完成的前填切片，最后才接纳新请求的前填。新前填永远不能把正在生成的请求挤出这一拍。</p><p>这样定义之后，正在解码的请求不会遇到「下一拍被一条 20k 原子前填独占」的停机。它们仍要等待这一拍的混合计算，但等待时间由 \(\tau\) 封顶。新请求的 TTFT 变成「还要多少块才能凑齐自己的提示」，而不是「队头那条提示的全长二次项」。</p><h3 id="均匀迭代与流水线" tabindex="-1">均匀迭代与流水线 <a class="header-anchor" href="#均匀迭代与流水线" aria-label="Permalink to &quot;均匀迭代与流水线&quot;">​</a></h3><p>混合批次的副作用是各拍工作量接近，这对流水线并行很重要：气泡来自相邻 microbatch 耗时差。FastGen 与 Sarathi 都指出，切块加融合之后前向尺寸稳定，分布式推理的空转下降。这不是混合批次的产品卖点（用户看不见气泡），而是多卡部署时相对「前填/解码时长差两个数量级」的系统收益。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>同一前向里，解码 token 与前填 token 共享一次权重读出。设权重体积为 \(W\)，纯解码 \(B_d\) 个 token 的算术强度大致随 \(B_d\) 线性升；再拼上 \(B_p\) 个前填 token，分母变成 \(B_d+B_p\)，扫权重的成本被摊薄。这是混合批次常常<strong>提高吞吐</strong>的原因：解码搭了前填的算力便车。注意力则按各请求自己的 KV 长度分别计算，前填切片还要读本请求已有前缀，解码要读更长的生成中缓存。总线账是「权重更划算、KV 更忙」。</p><p>对用户可见延迟：解码的 ITL 从「一次轻量带宽步」变成「一次带 \(B_p\) 算力的步」，基线上升，尾部因不再出现无界前填而下降——均值和 P99 可能反向变化。TTFT 因提示分期而变长，但排队等待原子长作业的极端值下降。SLA 必须分开写，不能用「平均延迟降低」掩盖「首字变慢、打字节奏略钝、但不再卡死」。</p><p><span class="marginnote">FastGen 报告相对当时 vLLM 的吞吐与尾延迟改善，Sarathi-Serve 报告在 TBT 约束下的服务容量提升。数字绑定各自模型、硬件与负载（如 ShareGPT、长文档摘要），不能当成另一条模型的容量公式。本篇只取机制：拆、融、预算、解码优先。</span></p><h3 id="与分离式服务如何分工" tabindex="-1">与分离式服务如何分工 <a class="header-anchor" href="#与分离式服务如何分工" aria-label="Permalink to &quot;与分离式服务如何分工&quot;">​</a></h3><p>前填/解码分离把两段放到不同副本，从根上取消同卡干扰，代价是 KV 传输与双池容量规划。混合批次留在单池，用预算模拟「轻度干扰、高度占用」。当 KV 很大、互连足够、TTFT 与 ITL 都要严守时，分离更干净；当单机或小集群、负载以中长提示为主、更能忍受 ITL 基线换吞吐时，SplitFuse 一类更省。两者也可以分层：池内仍用切块平滑作业，池间再分离。不要把 SplitFuse 说成分离的替代证明，也不要把分离说成混合批次已经过时——取决于 SLO 组合。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>混合前向要求内核支持变长、分页 KV、以及「一批里既有 seqlen_q=1 又有 seqlen_q=C」。图捕获更难：形状每拍变。推测解码使 \(B_d\) 不再等于请求数，预算要按草稿长度重算。MoE 上前填切片与解码的路由集合不同，同拍可能加载更多专家，内存流量上升。这些是实现税，论文里的理想混合批在生产中会被核与路由打折。</p><p>优先级若实现错（新前填抢在解码前把预算吃光），stall 会以新面目回来。预算若按请求数估算而不按 token，长短提示一混就失效。短提示被强制切开时，TTFT 增加一次额外迭代，对本来就能一拍做完的闲聊是净伤害，需要「短于阈值则不分」的例外。</p><p><span class="marginnote">名称不要绑死产品。vLLM、SGLang、TensorRT-LLM 后来都有各自的 chunked prefill / mixed batch 实现，语义接近但预算、优先级和默认值不同。写运维文档应写本引擎的调度器行为，而不是写「我们用了论文里的 SplitFuse」就结束。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SplitFuse / 混合批次 = 提示可拆 + 与解码 token 同拍融合，用 token 预算而不是请求条数限制前向尺寸。</li><li>Stall-free 装填先保证在飞解码每拍都在，再填前填切片，最后接纳新提示。</li><li>权重读出被更多 token 摊薄，吞吐常升；解码 ITL 基线上升，无界 stall 的尾部下降。</li><li>TTFT 因分期通常变长，但不再取决于队头提示的全长二次项。</li><li>与流水线并行相容处在于迭代均匀；与分离式服务是不同层级的干扰管理。</li><li>内核变长、图捕获、MoE 路由、推测解码都会使理想预算走样，需要按引擎实测。</li><li>出处：Holmes 等，DeepSpeed-FastGen（Dynamic SplitFuse）；Agrawal 等，Sarathi 与 Sarathi-Serve（OSDI 2024）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

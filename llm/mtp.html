@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MTP 多 Token 预测 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mtp.md.C5Mx0zqt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="mtp-多-token-预测" tabindex="-1">MTP 多 Token 预测 <a class="header-anchor" href="#mtp-多-token-预测" aria-label="Permalink to &quot;MTP 多 Token 预测&quot;">​</a></h1><div class="epigraph"><p>每个位置不但预测下一个 token，还顺序地预测更后面的 token，并保持完整因果链：这首先是训练目标，其次才是可复用的投机草稿。</p><footer>—— DeepSeek-AI, DeepSeek-V3 Technical Report, 2024</footer></div><p>标准因果语言模型每个位置只对 \(t+1\) 算交叉熵，位置 \(t\) 的表示只要对「下一词」可分。Gloeckle 等人 2024 年把目标扩成同时预测多个未来 token，用互不依赖的独立头并行打分。DeepSeek-V3 采纳多 token 预测（MTP），但改成<strong>顺序模块</strong>：第 \(k\) 个模块看见上一深度的表示，以及已经进入因果链的后续 token 嵌入，而不是几个头共享同一个 \(h_t\)。报告写明两项目的：稠密化训练信号、让表示预先规划未来 token；推理时模块可以丢掉，主模型独立工作，也可以改去当投机解码的草稿。本篇写 V3 的顺序 MTP，对照独立头与 <a href="/llm/eagle">EAGLE</a>，不把 671B/37B 的 MoE 故事再写一遍，那是 <a href="/llm/deepseek-v3">DeepSeek-V3</a> 专文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>下一词损失在长序列上已经很密，但每个表示只被一条标签拉动。若表示还能解释 \(t+2\)，梯度更稠，数据效率可能更高；表示也可能被迫记住「还要说什么」，而不是当步能敷衍过去就行。独立多头（Gloeckle 等，以及推理侧的 <a href="/llm/medusa">Medusa</a>）实现简单：同一 \(h_t\) 分出 \(D\) 个词表分类器。结构性代价是第 \(k\) 个头条件独立于中间那些离散选择——这正是 EAGLE 称为特征不确定性的那类缺口。</p><p>V3 要的是预训练期就成立的目标，不是推理插件。它必须与共享词嵌入、共享输出头、流水线里浅层与深层放在同一 PP 秩上等工程约束兼容，还不能让主模型推理依赖这些模块。问题因此是：如何做多 token 监督，既保持因果链，又让推理可把模块整段卸掉。</p><h3 id="独立头与顺序深度" tabindex="-1">独立头与顺序深度 <a class="header-anchor" href="#独立头与顺序深度" aria-label="Permalink to &quot;独立头与顺序深度&quot;">​</a></h3><p>独立头：\(\mathrm{P}(t_{i+k}\mid h_i)\)，中间 token 不出现在条件里。顺序深度：第 \(k\) 步的条件里包含 \(t_{i+k}\) 的嵌入以及 \(h_i^{k-1}\)，再过一个 Transformer 块得到 \(h_i^k\)。后者每增加一深度就多一块可学习层，参数不再是「几个线性头」，但条件与真正自回归一致。V3 明确说保持因果链的原则类似 EAGLE，主目的却是训练而非投机。读论文时不要把「像 EAGLE」理解成「推理默认走 EAGLE 树」。</p><p><span class="marginnote">Hugging Face 上 V3 权重约 685B，其中主模型 671B、MTP 模块约 14B。磁盘体积不是「每 token 激活 37B」。不用投机时，服务进程应卸载这 14B，避免常驻 HBM。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>设深度为 \(D\)，即每个位置额外预测 \(D\) 个未来 token。第 \(k\) 个 MTP 模块含：与主模型共享的 \(\mathrm{Emb}\)、共享的 \(\mathrm{OutHead}\)、本深度的 Transformer 块 \(\mathrm{TRM}_k\)，以及把拼接向量投回隐空间的 \(M_k\in\mathbb{R}^{d\times 2d}\)。对输入 token \(t_i\)，深度 \(k\) 先把 \(h_i^{k-1}\) 与 \(\mathrm{Emb}(t_{i+k})\) 拼接，经 \(M_k\) 得到 \(\mathbf{h}_i^{\prime k}\)，再</p> \[\mathbf{h}_i^k=\mathrm{TRM}_k(\mathbf{h}_i^{\prime k}). \]<p>\(k=1\) 时 \(h_i^{0}\) 即主模型该位置表示。\(\mathrm{OutHead}\) 把 \(\mathbf{h}_i^k\) 映射为第 \(k\) 个额外 token 的分布。主模型自己的下一词损失不变；MTP 损失对每个深度做交叉熵再平均：</p> \[\mathcal{L}_{\mathrm{MTP}}=\frac{\lambda}{D}\sum_{k=1}^{D}\mathcal{L}_{\mathrm{MTP}}^{k}. \]<p>预训练配置里 \(D=1\)：除精确下一词外，每个位置再预测一个额外 token。\(\lambda\) 是权重系数，以报告为准。DualPipe 把最浅层（含嵌入）与最深层（含输出头）放在同一流水线秩，使 MTP 与主模型的共享嵌入/输出头能在物理上共用一份参数与梯度。</p><div class="mermaid"></div><h3 id="推理-可丢-也可当草稿" tabindex="-1">推理：可丢，也可当草稿 <a class="header-anchor" href="#推理-可丢-也可当草稿" aria-label="Permalink to &quot;推理：可丢，也可当草稿&quot;">​</a></h3><p>报告写：MTP 主要为提高主模型质量，推理可直接丢弃模块，主模型单独工作。消融在两档基线上进行（约 15.7B 总参训 1.33T，以及约 228.7B 总参训 540B），加上 1 深度 MTP 后多数评测上升；比较时推理都不加载 MTP，故增量来自主模型表示，不是来自多算一个头。另外也可以把模块改去投机：主模型给出 \(t+1\)，MTP 给出候选 \(t+2\)，目标模型一次验证。V3 报告在不同生成主题上，第二 token 接受率约 85%–90%，结合投机解码框架可把 TPS 提到约 1.8 倍。后续硬件综述里也引用过同类 80%–90% 与约 1.8× 的实践数字；写系统对比时仍应钉技术报告正文，并写清 \(D=1\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>顺序 MTP 让 \(h_i\) 不仅要对 \(t_{i+1}\) 可分，还要为下一深度提供可拼接的条件。梯度从额外交叉熵流回主模型块，表示被要求「预留未来」。共享输出头迫使 MTP 深度与主模型活在同一词表几何里，避免再学一套 \(W_2\)。这与 Medusa 为每个头单独学 \(W_2^{(k)}\) 不同，也与 EAGLE 冻结原 LM 头、另训浅外推层的分工不同：V3 的 MTP 块是预训练图的一部分，不是事后插件。</p><p>\(D=1\) 时投机草稿只有一个额外 token，树很浅，验证便宜，接受率高，1.8× 量级与「每次验证前进约两步、草稿几乎免费」相符。不要用它外推 \(D=4\) 的加速：深度增加则因果链更长、模块更重、接受率通常下降，报告并未把旗舰配置设成大 \(D\)。</p><p><span class="marginnote">消融里「推理丢 MTP」是为了证明主模型变强，不是为了否定投机用途。产品若要 1.8× TPS，必须加载模块并实现验证闭环；只加载主模型就只有质量收益、没有那一档吞吐。</span></p><h3 id="和-medusa、eagle-的对照" tabindex="-1">和 Medusa、EAGLE 的对照 <a class="header-anchor" href="#和-medusa、eagle-的对照" aria-label="Permalink to &quot;和 Medusa、EAGLE 的对照&quot;">​</a></h3><table tabindex="0"><thead><tr><th>维度</th><th>Medusa</th><th>EAGLE</th><th>V3 MTP</th></tr></thead><tbody><tr><td>主场景</td><td>推理加速插件</td><td>推理加速插件</td><td>预训练目标（可兼加速）</td></tr><tr><td>条件</td><td>独立头共享 \(h_t\)</td><td>特征+已选 token</td><td>顺序块+已选 token 嵌入</td></tr><tr><td>推理</td><td>头必须在</td><td>草稿必须在</td><td>可丢</td></tr></tbody></table><p>三行不能合并成「都是多 token」。MTP 若做成独立头，就回到 Gloeckle / Medusa 的条件独立；报告明确拒绝了那条实现。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>MTP 不是免费的。训练要多一块（\(D=1\) 时一块）Transformer、多一份激活；PP 布局要让共享嵌入与输出头能物理共享，否则内存账对不上 DualPipe 叙述。推理加载 14B 级模块会占显存，与 <a href="/llm/mla">MLA</a> 省下的 KV 抢 HBM。投机路径的 1.8× 是第二 token 高接受率下的 TPS，不是 TTFT，也不是长思维链里每步都能维持同一接受率。</p><p>不要给 MTP 伪造独立 arXiv 号，它写在 DeepSeek-V3 技术报告（arXiv:2412.19437）里。Gloeckle 等 2024 是独立工作，引用时写作者与年份，不要把 V3 的顺序模块安到他们的独立头上。服务框架是否默认开 MTP 以仓库说明为准；开源栈的 MTP 支持曾长期处于开发中，测延迟必须写清开还是关。</p><p><span class="marginnote">接受率 85%–90% 是报告对「额外预测的那个 token」的评估，不是整段回复的 token 准确率，也不是 <a href="/llm/spec-acceptance-rate">spec-acceptance-rate</a> 文里草稿长度 \(\gamma=5\) 的链接受率。用错统计量会把 1.8× 说成 5×。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DeepSeek-V3 的 MTP 用 \(D\) 个顺序模块预测 \(D\) 个额外 token，保持因果链；旗舰预训练 \(D=1\)。</li><li>嵌入与输出头与主模型共享；损失是各深度交叉熵的平均再乘 \(\lambda\)。</li><li>主目的是训练信号与表示质量；推理可丢模块。消融显示丢模块后主模型仍然更强。</li><li>模块也可作投机草稿：第二 token 接受率约 85%–90%，报告称约 1.8× TPS。</li><li>与 Gloeckle / Medusa 的独立头、与 EAGLE 的推理外推，条件结构与部署语义都不同。</li><li>出处：DeepSeek-AI, <em>DeepSeek-V3 Technical Report</em>，arXiv:2412.19437，2024；独立多头对照见 Gloeckle et al., 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

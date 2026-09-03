@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>token 计量与限流 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_token-ratelimit.md.Dwbpzq9g.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="token-计量与限流" tabindex="-1">token 计量与限流 <a class="header-anchor" href="#token-计量与限流" aria-label="Permalink to &quot;token 计量与限流&quot;">​</a></h1><div class="epigraph"><p>配额若按请求个数，短补全与万 token 写作会被当成同一件事；计量单位必须是 tokenizer 之后的 token，限流才能贴近算力与账单。</p><footer>—— 对照云厂商 API 的 RPM / TPM 配额与服务端在 encode 之后、prefill 之前的闸门</footer></div><p>HTTP 429 在普通 JSON API 里按请求计数就够。自回归服务里，一次「请求」的代价可以从几百 FLOPs 到一次数万长度的前填再加数千步 decode，差两个数量级。云厂商因此同时报 RPM（每分钟请求）与 TPM（每分钟 token），有的再拆输入 TPM 与输出 TPM。本篇把计量钉在与引擎相同的 tokenizer 上，说明预扣、结算、突发与拒绝；分词开销见 <a href="/llm/serving-tokenizer-cost">tokenizer 服务成本</a>，账单里缓存折扣见 <a href="/llm/prompt-cache-billing">提示缓存计费</a>。不编造一篇 token rate limit 的会议论文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>按请求限流会系统性偏向重请求：同一 RPM 下，有人拿 128k 上下文做 RAG，有人做三字补全，GPU 与 KV 被前者吃光，后者在队列里看 429。按字符或字节限流对中文、代码、emoji 的误差很大，且与模型内部长度对不上——闸门必须发生在 <a href="/llm/serving-tokenizer-cost">encode</a> 之后。按「估算 token」用 <code>len/4</code> 一类规则，会在中文上低估、在重复标点上高估，配额变成随机数。</p><p>输出侧更麻烦。到达时只知道 <code>max_tokens</code> 上限，不知道真实结束步。若只在结束后扣配额，用户可以先把 KV 池打满再 429，保护来不及。若按 <code>max_tokens</code> 预扣，短回复会长期占着额度，看起来像限流过严。需要预扣-结算，而不是只选一端。</p><h3 id="rpm-与-tpm-管的不是同一类事故" tabindex="-1">RPM 与 TPM 管的不是同一类事故 <a class="header-anchor" href="#rpm-与-tpm-管的不是同一类事故" aria-label="Permalink to &quot;RPM 与 TPM 管的不是同一类事故&quot;">​</a></h3><p>RPM 挡住的是连接与调度器唤醒：极短请求也能把前端、鉴权、连续批的成员更新打满。TPM 挡住的是前填 FLOPs、decode 带宽与 KV 字节。只有 RPM 时，一条超长提示合法地打穿全卡；只有 TPM 时，每秒成千上万条空消息仍能把控制面打死。两者要同时存在，拒绝原因要分开计数，否则会把「提示太长」与「QPS 太高」混成同一个告警。</p><p><span class="marginnote"><code>usage.prompt_tokens</code> / <code>completion_tokens</code> 必须与闸门同源。网关用 tiktoken、引擎用 SentencePiece，账单与 429 会对不上，客诉无法仲裁。兼容层应在同一进程、同一词表上计数，见 <a href="/llm/openai-compat-api">OpenAI 兼容协议</a>。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令请求 \(r\) 的提示 token 数为 \(n\)，声明的最大输出为 \(m_{\max}\)，实际输出为 \(m\)。输入侧在 encode 之后立刻计量 \(n\)；输出侧先预扣 \(m_{\max}\)（或按产品设的默认上限），结束时按 \(m\) 结算，释放差额。窗口 \(T\)（通常 60 s）内租户 \(u\) 的消耗为</p> \[C_{\mathrm{in}}(u)=\sum n,\qquad C_{\mathrm{out}}(u)=\sum m,\qquad C_{\mathrm{req}}(u)=\#\{r\}. \]<p>超限当且仅当任一分项超过配额。实现上常用令牌桶：桶容量等于突发额度，每秒按持续速率加水。突发允许短时超过平均值，但桶空即 429，并带 <code>Retry-After</code> 或等价头。不要用「每分钟清零计数器」当唯一算法：边界上会出现第 59 秒打满、第 0 秒再打满的双倍尖刺。</p><p>优先级与配额成对。付费档 TPM 高、突发大；免费档 TPM 低、可抢占。过载时先拒低档，而不是大家一起排队到 <a href="/llm/serving-slo">SLO</a> 集体违约，见 <a href="/llm/priority-sla">优先级</a>。预填与 decode 可以分开记账：输入 TPM 打满时拒新的长提示，但允许已在生成的请求把输出桶用完——否则会在句子中间 429，流式协议更难处理。产品若必须中途停下，应发明确的 finish reason，而不是切断 TCP。</p><h3 id="预扣要防占坑" tabindex="-1">预扣要防占坑 <a class="header-anchor" href="#预扣要防占坑" aria-label="Permalink to &quot;预扣要防占坑&quot;">​</a></h3><p>恶意或粗心的客户端把 <code>max_tokens</code> 开到上下文上限，预扣会把整分钟的输出 TPM 锁死，别人进不来。对策：对 \(m_{\max}\) 设产品上限；预扣按 \(\min(m_{\max}, m_{\mathrm{budget}})\)；对长时间占坑的连接做空闲超时。工具调用多轮时，每一轮都是新的 \(n\) 与 \(m\)，配额按轮累加，不要只在会话开始扣一次。</p><p>流式计量：每吐出 \(k\) 个 token 向桶扣一次，避免结束才发现已经超了两个数量级。扣的粒度太细会打爆计数器；太粗又失去保护。常见折中是每步或每 8/16 token 批扣，与引擎迭代对齐。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>token 近似于工作量，但不是恒等。前填成本随 \(n\) 近似二次（注意力）加线性（FFN）；decode 每步扫权重，与 \(m\) 近似线性，但步墙钟还被批大小与 KV 长度调制。因此 TPM 是<strong>计费与公平</strong>的单位，不是精确的 GPU 秒。同一 TPM 下，全是长前填与全是长 decode 对硬件的伤害不同；精细运营应再按长度桶拆配额，或对超长提示走单独队列。</p><h3 id="闸门必须在分配-kv-之前" tabindex="-1">闸门必须在分配 KV 之前 <a class="header-anchor" href="#闸门必须在分配-kv-之前" aria-label="Permalink to &quot;闸门必须在分配 KV 之前&quot;">​</a></h3><p>限流点要放在 KV 分配之前。先准入再 429，空洞已经占上了，保护失败。正确顺序：鉴权 → encode → 查桶 → 拒或预扣 → 进调度器。分布式网关要用同一后端计数（Redis 一类）或按租户一致性哈希到固定限流分片，否则每个副本各有一个桶，配额被乘以副本数。</p><p><span class="marginnote">缓存命中的提示 token 还算不算 TPM，是产品条款。许多云 API 仍把缓存 token 计入速率上限，只在<strong>账单</strong>上打折。限流与计费拆开写，避免「缓存省钱却仍然 429」的意外，细节见提示缓存计费专文。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>多模态：图像/音频被编成许多 token，必须用模型卡上的计数规则，不能按文件字节。思维链若对用户隐藏，对外计量要声明是否含内部 token——隐藏却计费会引发客诉；隐藏且不计费会变成一条绕过 TPM 的通道。投机解码拒绝的草稿不应计入用户输出，但算力已经花了；goodput 与 TPM 不是同一张表。</p><p>不要在客户端「自行估算」代替服务端闸门。SDK 可以提示剩余配额，权威在服务端。时钟回拨、重试未去重会把同一请求扣两次或零次：重试必须带幂等键，限流统计按用户可见的一次尝试。跨区域的桶是否共享，决定用户能不能靠换区翻倍配额，见 <a href="/llm/multi-region-failover">多区域故障转移</a>。</p><p><span class="marginnote">429 的响应体应可机器读：哪个维度超了、当前窗口剩余、建议等待。只返回字符串 “rate limit” 会迫使客户端盲退避，把尾延迟写得更肥。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>计量单位是与引擎同一词表的 token；RPM 与 TPM 同时要，分别挡住控制面与算力。</li><li>输出按 <code>max_tokens</code> 预扣、按实际 \(m\) 结算；流式批扣，防止占坑与事后超支。</li><li>令牌桶比整分钟清零更能打突发；分布式必须共享桶或按租户分片。</li><li>闸门在 encode 之后、KV 分配之前；<code>usage</code> 与 429 同源。</li><li>缓存折扣、思维链可见性、多模态计数都是条款，不是算法细节。</li><li>出处：对照 OpenAI / Anthropic 等公开 API 的 RPM·TPM 模型与令牌桶限流实践；无单独经典论文名。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

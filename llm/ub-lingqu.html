@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>统一总线 UB 灵衢：内存语义 + 消息语义 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ub-lingqu.md.CGdNtiI7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="统一总线-ub-灵衢-内存语义-消息语义" tabindex="-1">统一总线 UB 灵衢：内存语义 + 消息语义 <a class="header-anchor" href="#统一总线-ub-灵衢-内存语义-消息语义" aria-label="Permalink to &quot;统一总线 UB 灵衢：内存语义 + 消息语义&quot;">​</a></h1><div class="epigraph"><p>UB 同时支持同步的 Load/Store/Atomic 与异步的 Read/Write/Message，于是 CPU、NPU 与交换可以用同一套 IO 控制器，而不再把 PCIe、NVLink、RDMA 三种协议叠在一条数据路径上。</p><footer>—— UB-Mesh 论文对 Unified Bus 的公开界定；协议细节当时声明将另行发布</footer></div><p>灵衢是华为对统一总线（Unified Bus, UB）的产品名。在 <a href="/llm/cloudmatrix-384">CloudMatrix 384</a> 里，UB 平面把 384 颗 910C 与 192 颗鲲鹏收进同一张高带宽网，承担 Scale-Up。它要解决的不是「再做一种更快的以太网」，而是把传统 AI 集群里<strong>分裂的三种互连</strong>合成一种：主机到设备的 PCIe、设备之间的专用链、节点之间的 RDMA。UB-Mesh 论文写明：UB 同时提供内存语义与消息语义；基于 UB，CPU、NPU 乃至低基数交换（LRS）可以复用同一套 IO 控制器。本篇只写这一对语义对软件意味着什么。论文脚注写过协议规格将另行发布——未发布的包头、链路编码、重传状态机，本文不编。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>GPU 集群的数据路径是拼出来的：CPU 与 GPU 之间 PCIe，节点内 GPU 之间 NVLink，跨节点 InfiniBand 或 RoCE。每跨一次协议，就要转换、排队、换地址空间。LLM 的 TP All-Reduce、MoE All-to-All、以及把 KV 放到主机 DRAM 再取回，会反复穿过这些边界。编程模型也分裂：CUDA 统一内存、NVLink SHARP、NCCL、ibverbs 各管一段。昇腾若只在节点内保留 HCCS、节点间再挂 RoCE，则超节点仍然是「很多台服务器」，CPU 内存不能作为 NPU 的一等公民。</p><p>UB 要回答：同一套链路能否既像总线一样被处理器发出 Load/Store，又像网络一样发消息、做 RDMA 式的 Read/Write？若只能消息，池化内存就要走显式拷贝；若只能一致性 Load/Store，跨柜规模和故障隔离会变得像一台巨大 SMP，难以工程化。公开设计选择了<strong>两者都要</strong>。</p><h3 id="两种语义不是两个网" tabindex="-1">两种语义不是两个网 <a class="header-anchor" href="#两种语义不是两个网" aria-label="Permalink to &quot;两种语义不是两个网&quot;">​</a></h3><p>内存语义：同步 Load/Store/Atomic，适合小粒度、需要顺序与原子的访问，例如锁、计数、控制块。消息语义：异步 Read/Write/Message，适合大块张量、集合通信、KV 页搬运。它们共享物理链路与 IO 控制器，靠操作类型分流，而不是柜顶两套线。把 UB 理解成「就是 RDMA 改个名」，会丢掉 Load/Store；理解成「就是把 HCCS 拉长」，会丢掉消息与多跳交换。正确的心理模型是：域内一种控制器，两种访问动词。</p><p><span class="marginnote">UB-Mesh 论文把协议详细规格标为将发布。因此不要在容量规划里填写未出现在 CloudMatrix384 / UB-Mesh 论文中的单通道比特率编码方案，或发明一种「灵衢 opcode 表」。已公开的是语义类别与系统级带宽，不是芯片手册级的包格式。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>软件分层应对齐语义，而不是对齐旧网卡驱动名。</p><p>集合通信（HCCL 的 All-Reduce、All-to-All）应走消息语义：大块、异步、可与计算重叠。这是 TP / EP 的主路径。池化 DRAM 与远端 HBM 上的 KV、权重暂驻，可用异步 Read/Write，把「内存池」做成服务，而不是每个 worker 自己 mmap 一张跨 16 柜的共享虚拟地址——后者是否对程序员暴露，要以当时编程指南为准，本文不发明机柜级 <code>malloc</code>。控制面的轻量同步（队列头、完成标记）才考虑 Atomic / Store。昇腾 AI Core 上，公开材料还描述过用 MTE（memory transfer engine）做远程大块搬移：那是面向 AI 的异步类 Load/Store，不是 GPU 上那种同步标量 Load。把它当成 CUDA <code>ld</code> 会在延迟隐藏上判断失误。</p><p>三平面分工见 CloudMatrix384：UB 平面给超节点内 Scale-Up；RDMA 平面给超节点间；VPC 给管控与存储。UB 的内存+消息只承诺在超节点域内。跨超节点仍用 RoCE，不要把灵衢动词套到对象存储路径上。</p><div class="mermaid"></div><h3 id="控制器复用带来的资源池化" tabindex="-1">控制器复用带来的资源池化 <a class="header-anchor" href="#控制器复用带来的资源池化" aria-label="Permalink to &quot;控制器复用带来的资源池化&quot;">​</a></h3><p>因为 CPU、NPU、交换都讲 UB，带宽分配可以从「PCIe 固定几条、NVLink 固定几条」变成在同一组链路上按负载切：论文把这写成灵活 IO 分配与硬件资源池化。CloudMatrix 愿景里的四件事——跨节点 TP/EP、按负载组合 CPU/NPU/内存、AI 与数据密集融合、CPU DRAM 聚成内存级存储——都依赖「NPU 不必经过 CPU 才能碰到另一颗 NPU 或远端 DRAM」。当前 384 仍是每节点 8+4 的物理配比，池化是逻辑的；物理上拆成纯 CPU 柜与纯 NPU 柜是论文中的未来方向。</p><p><span class="marginnote">「点对点、无需 CPU 中介」指数据面。固件、驱动、MatrixLink 代理仍跑在节点上，擎天卡仍做南北向。不要写成超节点里没有 CPU 也可以启动 OS。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>传统混合互连的税在协议转换：GPU 上的张量要变成 RDMA 工作请求，再在对端变回设备内存。UB 域内同一控制器，减少转换与多次排队。消息语义的大块搬运可以对齐 Cube 的砖块大小；内存语义的原子保证控制面不靠以太网往返。L1/L2 交换转发的是 UB 包，对上仍是这两种动词，所以跨柜之后软件接口可以不变，变的是跳数与是否走光模块。</p><p>延迟隐藏因此要按动词选。同步 Load 跨柜会把核卡住，不适合热路径上的逐元素访问；decode 的 KV 应按块异步 Read 进近端 HBM。这与 GPU 上「不要在 kernel 里远程硬读整段 KV」是同一条纪律，只是远程从 NVLink 换成了 UB。</p><h3 id="与-hccs、rdma-的接缝" tabindex="-1">与 HCCS、RDMA 的接缝 <a class="header-anchor" href="#与-hccs、rdma-的接缝" aria-label="Permalink to &quot;与 HCCS、RDMA 的接缝&quot;">​</a></h3><p>节点内历史上的 <a href="/llm/hccs-to-ub">HCCS</a> 提供缓存一致性，面向 8 卡盒。UB 把域撑到多柜，一致性边界与消息边界如何划，以公开文档为准：不要假设 384 颗 NPU 共享一个单一 cache-coherent 地址空间。RDMA 平面在 384 上仍然独立，保证与标准 RDMA 栈互操作；UB 不是把 RoCE 废掉，而是把最密的那一档通信收进超节点。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 UB 替代数据中心网络：检查点、跨 AZ、对象存储仍走 VPC/RDMA。不要在未提供统一编址 API 的软件栈里手写跨柜指针。不要把 UB-Mesh 论文里相对 Clos 的成本倍数（例如光模块减少比例）当成 CloudMatrix 384 机房的采购清单——那是架构论文相对基线的估计。协议未公开部分，驱动与 HCCL 版本必须与超节点固件绑定，自行解析包等于在未授权层上工作。</p><p>对框架，HCCL 仍是集合通信入口；下面走 UB 还是 RoCE，由进程组是否落在同一超节点决定。选错平面，语义还在，屋顶线差一档。</p><p><span class="marginnote">出处：arXiv:2503.20377 UB-Mesh 文中 Unified Bus 的同步/异步操作分类与控制器复用；arXiv:2506.12708 CloudMatrix384 对 UB 平面能力的描述。不引用未发布的 UB 协议规范正文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>灵衢 UB 在超节点内同时提供内存语义（Load/Store/Atomic）与消息语义（Read/Write/Message）。</li><li>一种 IO 控制器覆盖 CPU、NPU 与交换，才能做资源池化、少协议转换。</li><li>TP/EP 与大块 KV 走异步消息；控制块才用同步原子。AI Core 上的远程搬移是异步大块，不是标量 Load。</li><li>域外仍是 RDMA 与 VPC；UB 不消灭以太网。</li><li>协议细节未公开则不编；软件以 HCCL 与厂商编程指南为准。</li><li>出处：UB-Mesh 与 CloudMatrix384 公开论文。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

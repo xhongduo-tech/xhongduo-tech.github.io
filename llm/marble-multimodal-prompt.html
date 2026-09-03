@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多模态提示到三维世界（文/图/视频/布局） | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_marble-multimodal-prompt.md.DyunGxRQ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="多模态提示到三维世界-文-图-视频-布局" tabindex="-1">多模态提示到三维世界（文/图/视频/布局） <a class="header-anchor" href="#多模态提示到三维世界-文-图-视频-布局" aria-label="Permalink to &quot;多模态提示到三维世界（文/图/视频/布局）&quot;">​</a></h1><div class="epigraph"><p>Marble 能从文本、图像、视频或粗三维布局创建三维世界，并允许交互编辑、扩展与组合。</p><footer>—— World Labs，Marble: A Multimodal World Model</footer></div><p>人用多种感官与语言建立对外界的心理模型。World Labs 把同一原则写进 Marble：能拿到什么信号，就把什么信号抬成完整三维世界，而不是只提供一种「文生视频再截帧」的入口。当前产品把提示分成文本、图像、视频、粗布局（以及全景、多图等变体），输出则是可漫游、可导出的世界。本篇只写提示侧：四种输入各自约束了什么、模型必须发明什么，以及为何「多模态」在这里不是把图片贴进提示词那么简单。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单一模态会把创作自由度与可重复性绑死。纯文本最省事，也最不可控：模型必须发明布局、尺度、家具件数和没写出来的风格细节，两次生成可以是两个房间。单图把一个视锥钉死，背面与侧向仍全是发明。视频与多图提供了时间或角度上的额外测量，但若系统仍当它们是「更长的文本描述」，空间关系会被扁平化。粗布局相反：结构清楚、外观空虚，没有风格通道就会得到正确的方盒子和错误的材质。</p><p>多模态世界模型要解决的是：把不同缺口的输入登记到同一三维对象上。文本缺几何、图缺未见侧面、视频缺显式网格、布局缺外观。登记失败的典型症状是「按图的那一面很像、转过九十度像另一个地方」，或「按布局的墙对了、但提示里的木头地板变成了大理石」。提示工程在二维扩散里已经难；在三维里，未写明的自由度会变成真实的墙和门，代价更高。</p><h3 id="输入决定合同" tabindex="-1">输入决定合同 <a class="header-anchor" href="#输入决定合同" aria-label="Permalink to &quot;输入决定合同&quot;">​</a></h3><p>每种提示对应一份合同。文本合同：符合描述，允许发明。图像合同：所见视锥应像该图，其余允许补全。视频合同：序列中出现的内容应能在一个空间里对上，而不是做成幻灯片拼贴。布局合同：粗形状的尺度与邻接应保住，风格由附加文本或参考外观来填。混用合同时必须写清谁优先：布局与文本冲突时，Chisel 类工作流选择结构听几何、风格听文字——那是后文的编辑器，本篇只把布局列为一种提示模态。</p><p><span class="marginnote">全景是图像的一种强约束特例：水平一周的观测已经很多，系统更接近重建而非纯生成。产品上全景通常不能与其它图或视频随便混在同一条提示里，属于输入互斥，不是「再多贴几张更准」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记提示为多源集合 \(\mathcal{P}=\{p_{\mathrm{txt}}, p_{\mathrm{img}}, p_{\mathrm{vid}}, p_{\mathrm{lay}}\}\)，其中若干项可空。生成器输出世界 \(W\)，使得每类非空提示都有对应的符合度：</p> \[W^\ast=\arg\min_W \sum_{m} \lambda_m \, d_m(W, p_m). \]<p>\(d_{\mathrm{txt}}\) 是语义与风格距离，\(d_{\mathrm{img}}\) 是已见图的重投影误差，\(d_{\mathrm{vid}}\) 是多帧之间的时空一致，\(d_{\mathrm{lay}}\) 是粗几何的占据对齐。\(\lambda_m\) 由产品在不同模式里写死：纯文本时只有第一项；单图时图像项权重大、文本可作可选说明；布局模式把几何项抬到最高。</p><h3 id="文本与单图-最快的入口" tabindex="-1">文本与单图：最快的入口 <a class="header-anchor" href="#文本与单图-最快的入口" aria-label="Permalink to &quot;文本与单图：最快的入口&quot;">​</a></h3><p>文本适合概念和风格探索。短句会迫使模型用训练先验填满房间，这是「魔法」也是不可复现的来源。单图适合与其它二维工具衔接：先用图像模型迭代构图，再抬到三维。二者共同的缺口是未见区域。World Labs 写明：文本或单图里没有的细节必须由 Marble 发明。用户若把发明当成测量，后续会在数字孪生里踩坑。</p><h3 id="视频与布局-分别钉时间与结构" tabindex="-1">视频与布局：分别钉时间与结构 <a class="header-anchor" href="#视频与布局-分别钉时间与结构" aria-label="Permalink to &quot;视频与布局：分别钉时间与结构&quot;">​</a></h3><p>视频把同一场所的多时刻、多角度送进去，提示从「一张明信片」变成「一段观察」。它仍可能是生成：镜头没扫到的储藏室会被补上。粗布局（盒子、平面、导入的简单资产）钉的是结构：墙在哪、房间多大，外观交给文本。四种模态不是精度阶梯上的四级，而是正交的约束轴：语义、外观快照、时空观测、尺度邻接。</p><div class="mermaid"></div><p><span class="marginnote">API 与文档把类型写成 text、image、video、multi-image、布局类输入等。本篇用「文/图/视频/布局」概括产品叙事；多图拼接是图模态的多视图加强，专论见下一篇，这里只把它视为图像合同的延伸。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>多模态成立，依赖于不同信号被抬到同一空间上下文，而不是先各自生成二维再手工对齐。图像与视频应带着「这是某个视点的投影」进入模型；布局应带着「这是世界坐标里的占据」进入模型；文本应约束外观与物体类别，而不是偷偷改墙的位置（在布局模式下）。若所有模态都先被写成一段英文提示再送进文生图，三维一致性就退化成运气。</p><p>权重 \(\lambda_m\) 的实践含义是冲突裁决。用户给一张现代客厅照片，又写「巴洛克宫殿」，图像合同与文本合同打架。产品若允许 recaption，文本可能被改写成更贴图的句子；若关闭 recaption，则按字面文本拉风格，图的语义可能让步。布局加文本是刻意解耦：几何通道不读形容词，形容词通道不搬墙。理解机制时要问：这次生成，哪一条通道有权改结构。</p><h3 id="迭代更新而不是一次提示" tabindex="-1">迭代更新而不是一次提示 <a class="header-anchor" href="#迭代更新而不是一次提示" aria-label="Permalink to &quot;迭代更新而不是一次提示&quot;">​</a></h3><p>世界模型还应在新信息到达时更新理解。产品侧体现为：先文生一个世界，再换成图去编辑；或先布局再改文本重生风格。这与聊天里追加一句不同——追加的是对同一 \(W\) 的新约束，应尽量少破坏已满足的旧约束。做不到时，用户会感到「越改越不是刚才那个房间」。多模态不是输入格式清单，而是约束的可追加性。</p><p><span class="marginnote">可选文本在视频或图像模式下常常自动生成说明。自动说明是另一条文本通道，可能把用户没说的物体写进去。关闭 recaption 是为了让 \(d_{\mathrm{txt}}\) 只对用户原句负责。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>多模态不表示任意组合都合法。全景与多图、视频的互斥，流式大小与格式限制，都是工程边界。布局作为提示，粒度止于粗几何：它不是 BIM，也不是可施工图纸。视频不是免费的完美重建：运动模糊、曝光变化、纯旋转镜头都会让时空项 \(d_{\mathrm{vid}}\) 变吵。文本越短，生成项越主导，越不适合当测量。</p><p>也不要把「能输入视频」理解成产品已是视频扩散。Marble 的输出主对象是三维世界，视频只是输入之一，以及事后从世界再渲出的分享介质。用视频模型的镜头语言去写 Marble 提示，会低估空间约束、高估剪辑。反过来，用摄影测量软件的控制点精度去要求单图文生世界，会低估生成合同里的合法发明。</p><p>模态增多会提高失败的诊断成本。坏结果时要先问：是文本在挪墙，是图在锁死错误透视，是视频各帧不在同一空间，还是布局尺度以米为单位却被当成了道具尺寸。没有分通道的错误归属，用户只会反复改那句形容词。本篇停在提示合同；具体的多图方位、Chisel 操作、扩展与拼接，各自是独立的一件事。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Marble 的提示可以是文本、图像、视频或粗布局，目标是同一份三维世界，不是四套生成器。</li><li>各模态钉不同缺口：语义风格、视锥外观、时空观测、结构尺度。</li><li>未见区域由生成补全；不要把补全写成扫描。</li><li>冲突由模式权重与是否 recaption 裁决；布局加文本是结构与风格解耦的特例。</li><li>并非任意模态都可在一条提示里堆叠，产品有互斥与格式边界。</li><li>出处：World Labs，<em>Marble: A Multimodal World Model</em>；Marble 产品文档与 API 中的提示类型说明。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

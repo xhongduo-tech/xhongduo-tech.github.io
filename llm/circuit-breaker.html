@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Circuit Breaker 消融有害方向 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_circuit-breaker.md.ChbBf-56.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="circuit-breaker-消融有害方向" tabindex="-1">Circuit Breaker 消融有害方向 <a class="header-anchor" href="#circuit-breaker-消融有害方向" aria-label="Permalink to &quot;Circuit Breaker 消融有害方向&quot;">​</a></h1><div class="epigraph"><p>与其只教模型说出拒答话术，不如在内部表示一旦进入有害区域时把该表示打断或改道，使后续层失去继续生成危害内容的激活前提。</p><footer>—— Zou et al., Improving Alignment and Robustness with Circuit Breakers, 2024</footer></div><p>Zou 等人提出 Circuit Breaker（电路断开 / Representation Rerouting）：对齐失败常常是因为有害行为在残差流里仍有完整、可继续解码的表示，拒答只是表层 logits 上的一个模式，可被<a href="/llm/gcg-suffix">GCG</a>、角色扮演与短<a href="/llm/prefill-jailbreak">预填充</a>掀翻。电路断开在训练里加入一项表示级目标：当激活接近「有害电路」时，把它推离该区域、改道到拒答或无害方向，使有害续写在内部就断路。本篇写与拒答 SFT 的差别、改道目标、以及评测；不给出用于提取有害方向的提示对，不给出可复现的攻击对照表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>常规安全 SFT 与偏好优化改变 \(p_\theta(y \mid x)\) 的开场，不保证中间层表示与「未对齐模型在配合时」的表示正交。红队一再显示：表层拒答很脆，一旦条件变化，同一套权重仍能走出有害轨迹。需要一种干预，作用点在激活，而不是只在输出词上打补丁。这与直接反学习（unlearning）也不同：反学习想抹掉知识，电路断开假定知识仍在，但<strong>通往有害使用的内部路径被掐断</strong>。产品上往往更想要后者：模型仍能讨论新闻与安全机理，但不能把表示组织成可执行危害步骤。</p><p>问题化为：能否定义「有害表示」的集合 \(\mathcal{H}\)，在训练时对进入 \(\mathcal{H}\) 的激活施力，使其落到补集，同时尽量不扰动无害任务的表示。</p><h3 id="表层拒答为何不够" tabindex="-1">表层拒答为何不够 <a class="header-anchor" href="#表层拒答为何不够" aria-label="Permalink to &quot;表层拒答为何不够&quot;">​</a></h3><p>拒答话术是短、高似然、易被梯度对准的序列。对抗后缀优化的正是与这段话术竞争的开场。Many-shot 用上下文任务向量盖过它。只要 \(\mathcal{H}\) 在中间层完好，解码器随时能从 \(\mathcal{H}\) 读出教程。Circuit Breaker 的主张是：把 \(\mathcal{H}\) 变成高损失区，使优化攻击与上下文攻击都更难找到仍能解码的路径。</p><p><span class="marginnote">「断开」不是把某几条注意力头物理删掉。它是训练出来的动态改道：特定激活模式触发，表示被重写。名字来自电路被短路或跳闸的类比，不是可解释性里定位到的一条固定边。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先用对比数据构造有害与无害（或有害与拒答）条件下的激活。在选定层上读残差，得到方向或区域的估计。训练时，对有害条件下的激活加损失，使其远离该区域（例如推向正交、推向拒答条件的激活、或推向随机噪声中的安全区——具体形式以原文 Representation Rerouting 为准），同时用保留损失（蒸馏或普通语言建模）钉住无害输入上的表示。实现上常用低秩适配器，以免全量破坏通用能力。推理时不需要额外提示：前向经过适配器，有害方向被动态改道。</p><p>这与推理时给激活加向量（见<a href="/llm/repeng-refusal">表示工程抑制</a>）互补：RepE 常是推理期加性控制；Circuit Breaker 把控制写进权重（或适配器），对所有输入默认生效，攻击者不能靠「不加向量」绕过。评测应在不加任何推理期补丁的默认前向下进行。</p><h3 id="选层与保留能力" tabindex="-1">选层与保留能力 <a class="header-anchor" href="#选层与保留能力" aria-label="Permalink to &quot;选层与保留能力&quot;">​</a></h3><p>过浅的层：语义未成形，\(\mathcal{H}\) 与无害主题纠缠，改道会过拒绝。过深的层：有害内容已经写进即将输出的 logits，打断太晚，且可能只影响话术不影响计划。原文在中后层选点，工程上应对层做扫描，用无害基准（常识、代码、数学）与安全基准一起看。保留损失的系数是主旋钮：太大则电路不断，太小则万能模型变哑巴。应报成对数字，而不是只报越狱率下降。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>把残差流想成一条总线。有害生成需要总线上出现一组可被后续 MLP 与注意力读懂的特征（步骤结构、对象、手段）。电路断开在总线上加了一个对 \(\mathcal{H}\) 敏感的非线性：进入则改写。GCG 一类输入优化若仍能成功，必须找到<strong>不经过 \(\mathcal{H}\) 却仍能解码出危害</strong>的另一条电路，或把 \(\mathcal{H}\) 的定义拟合坏。这提高了优化难度，不是使成功概率数学上为零。故评测仍要用标准化攻击器，见 <a href="/llm/wildguard-harmbench">HarmBench</a>。</p><p>与分类器门的差别：分类器在序列两端看字符串；电路断开在每层 token 上看激活，对<a href="/llm/prefill-jailbreak">预填充</a> 造成的内部状态同样生效——只要前缀把表示推进 \(\mathcal{H}\)。若有害内容以模型未见过的编码进入，可能不进 \(\mathcal{H}\)，此时仍需<a href="/llm/llama-guard">输出分类器</a>。多层防御的意义正在于此。</p><p><span class="marginnote">若构造 \(\mathcal{H}\) 时只用了狭窄的危害类别，断开的是那几类的方向，其它类仍通。类别覆盖是数据问题，不是损失公式问题。</span></p><h3 id="防御评测" tabindex="-1">防御评测 <a class="header-anchor" href="#防御评测" aria-label="Permalink to &quot;防御评测&quot;">​</a></h3><p>至少：HarmBench 或同等协议上的攻击成功率；无害能力基准；过拒绝集；针对表示攻击的对照（推理期反向加向量，看是否仍能恢复有害行为）。若反向加向量轻易恢复，说明断开只是平移了均值，方向仍在，需要更强的改道或噪声化。消融：只 SFT 拒答、只 Circuit Breaker、两者叠加、再叠加宪法分类器。报告适配器秩、作用层、保留损失系数。不要用「我们内部的越狱列表成功率零」代替公开协议。</p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Circuit Breaker 不提供形式化保证，对白盒攻击者仍可能被重新优化。它也可能把合法的安全讨论、小说、历史战争叙述推进 \(\mathcal{H}\)，表现为过拒绝或内容空洞。医疗与化学教学尤其敏感：表示上与滥用接近，条款必须在构造 \(\mathcal{H}\) 时纳入允许集。多语言模型上，\(\mathcal{H}\) 可能是英文主、其它语言漏；评测要分语言。</p><p>与 Llama Guard、<a href="/llm/constitutional-classifiers">宪法分类器</a> 相比，电路断开更新政策更慢（要重训适配器），但对「已经绕过字符串门」的内部轨迹更直接。生产宜：分类器热更新政策，电路断开抗优化攻击。本篇不描述如何采集有害激活所用的原文提示。开源发布适配器等于公开 \(\mathcal{H}\) 的对偶，攻击者可研究如何绕过；这是开源安全的固有权衡，评测应假设适配器权重已知。</p><p><span class="marginnote">名字容易让人以为可以像保险丝一样给出认证切断。实际是统计学习出的改道，温度、采样、新越狱族都会移动有效性。把它当保险丝，会漏检。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Circuit Breaker 在中间表示上打断或改道有害区域，而不是只优化拒答开场。</li><li>它针对表层对齐的脆弱性，提高 GCG 等优化攻击的难度，但不给出零泄漏证明。</li><li>与推理期表示加向量相比，改道写进权重/适配器，默认对所有请求生效。</li><li>评测必须同时报攻击成功率、无害能力与过拒绝，并扫描作用层与保留损失。</li><li>类别与语言覆盖取决于构造 \(\mathcal{H}\) 的数据；未覆盖即未断开。</li><li>宜与异构输出分类器叠用；开源适配器应假设白盒。</li><li>出处：Zou et al., <em>Improving Alignment and Robustness with Circuit Breakers</em>, 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

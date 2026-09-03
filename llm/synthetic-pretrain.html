@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>合成数据在预训练中的位置 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-pretrain.md.DPyC3S_u.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="合成数据在预训练中的位置" tabindex="-1">合成数据在预训练中的位置 <a class="header-anchor" href="#合成数据在预训练中的位置" aria-label="Permalink to &quot;合成数据在预训练中的位置&quot;">​</a></h1><div class="epigraph"><p>用模型写出来的文本可以填缺口、把网页改写成更适于学习的形式，但若用合成分布替换真实数据，下一代模型会在更窄的支撑上训练，直至崩塌。</p><footer>—— 合成预训练的工作假设；崩塌风险见模型自食其输出的研究传统</footer></div><p>网页、代码与书籍是观测到的人类分布；合成数据是另一个模型（或规则系统）画出的近似。预训练里它有合法位置：把噪声网页改写成干净段落、把题干展开成题解、为低资源语种做回译、用教科书风格覆盖稀疏概念。Phi 一类工作展示过「小模型 + 高信息密度合成文本」的吸引力。它不能合法地变成唯一数据源。反复在生成分布上训练，多样性下降、尾部事实消失、错误被当成高置信模式，即模型崩塌与分布变窄。本篇把合成数据放回管线：补丁，不是地基。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>真实网页经过 Raffel、Penedo 式清洗之后，仍有信息密度低、格式脏、难领域稀疏的问题。人工写教科书规模不够。合成的许诺是：用已有模型把低密度文本变成高密度文本，或从大纲生成「看起来像教材」的章节，使同样 token 预算换到更多可学模式。问题立刻变成循环：教师模型的错误、刻板与安全对齐痕迹会写进学生的先验；学生若再当教师，循环收缩。</p><p>第二问题是评测幻觉。合成数据若由同一家族模型生成，预训练与基准在风格上耦合，分数上涨可能只是「更像教师」，不是世界知识增加。必须保留一块从未进合成器的真实文本做参照，并审计合成语料与测试集的 n-gram 重叠——Lee 等人对重复的警告在这里更急，因为生成器会主动复述评测题。</p><h3 id="改写与凭空生成不是一类" tabindex="-1">改写与凭空生成不是一类 <a class="header-anchor" href="#改写与凭空生成不是一类" aria-label="Permalink to &quot;改写与凭空生成不是一类&quot;">​</a></h3><p>对真实网页做改写、翻译、摘要，合成序列仍锚定在一篇观测文档上，事实来源可追溯，分布收缩较慢。凭空按主题生成「关于量子力学的教科书」，事实由教师参数决定，幻觉率由教师能力决定。后者对数学推导模板、代码样例这类可自洽领域更有用，对新闻与传记更危险。管线应标记每一条合成记录的祖先是「有源改写」还是「无源生成」，配比时分开设上限。<span class="marginnote">有源改写仍会变窄：多样的脏网页被改成同一教师的句式。信息量上升、文体熵下降。这是用多样性换可学性。可接受的前提是混合物里仍保留足够多未改写的原始文本，以免生成句式成为唯一合法语言。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把合成看成若干专用桶，而不是替换网页桶。常见协议包括：教材风格生成、网页改写、题解展开、多语言回译、代码注释补全、从结构化知识库模板化成文。教师可以是更大的语言模型、检索增强的生成器，或非神经规则（模板、符号引擎）。符号引擎对数学与代码特别有价值：分布窄但是对的，崩塌模式不同于 LM 教师。</p><p>配比上应先固定真实数据的下限（例如不少于总 token 的某一大部分），再把合成当作剩余预算。质量过滤对合成必须更严：教师的常见幻觉模式应进负例。去重要把生成器的高频模板剪掉，否则同一开场白出现百万次。Xie 式配比可以把「合成教材 / 合成题解 / 真实网页」当成领域，DRO 会告诉你合成是否已经在吃亏或在霸占损失——若合成很容易、损失很低，权重应下降，而不是因为「看起来干净」就上采样。</p><div class="mermaid"></div><h3 id="何时值得付教师账单" tabindex="-1">何时值得付教师账单 <a class="header-anchor" href="#何时值得付教师账单" aria-label="Permalink to &quot;何时值得付教师账单&quot;">​</a></h3><p>教师生成的每 token 成本通常高于读磁盘。只有当真实数据在该区域稀疏或过脏，合成才划算：低资源语种、竞赛数学的中间步骤、特定 API 的正例。通用英语网页上，Penedo 式过滤过的真实文本，信息量往往够，再生成一套「更像教材」的平行语料，边际收益可能只是文体，却付出崩塌风险。Gopher、Llama 的主结果建立在过滤后的真实混合物上；合成是后续加速器，不是他们那一代的地基。</p><p><span class="marginnote">用学生自己给自己造数据（自蒸馏式预训练）最危险：错误与捷径被放大，看起来损失下降很快。至少要用独立教师，并混入真实文本。若必须自蒸馏，应限制轮数与合成占比，并把真实验证损失当成停机条件——合成验证集会撒谎。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>从分布角度看，真实数据 \(p_{\mathrm{human}}\)，教师给出 \(p_{\mathrm{syn}}\)。若学生只在 \(p_{\mathrm{syn}}\) 上做 NTP，学习的是教师的推送分布。教师通常比人类更平滑、更拒绝尾部、更少笔误也更少罕见正确说法。迭代之后，支撑收缩到教师高概率集的一个更小子集，熵下降，这就是分布变窄；若收缩到错误模式上，就是崩塌。有源改写相当于 \(p_{\mathrm{syn}}(\cdot\mid x)\)，\(x\sim p_{\mathrm{human}}\)，条件在真文档上，边缘分布的支撑更接近人类，但仍沿教师句式切片。</p><p>优化上，合成文本往往更「好学」：句式整齐、重复结构多，损失下降快，容易在日志里看起来像更好的配比。这正是需要真实探针与独立验证集的原因。DoReMi 若把合成与真实放在同一 DRO 里，应看超额损失而不是绝对损失，否则合成桶永远显得「已解决」，权重被错误降到零或——更糟——因训练顺手而被上采样。</p><h3 id="错误的固定化" tabindex="-1">错误的固定化 <a class="header-anchor" href="#错误的固定化" aria-label="Permalink to &quot;错误的固定化&quot;">​</a></h3><p>教师在事实与推理上的系统偏差，会变成学生的先验，再通过下一轮合成变成「语料真相」。与网页农场文不同，合成错误通常语法完美，质量分类器若用通顺度当质量，会给高分。必须用事实一致性、检索对照或符号校验当过滤，而不是再用一个「像不像好文章」的头。数学与代码应优先符号验证；开放域事实应优先有源改写加检索。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>合成不能用来绕开许可与隐私：把受版权文本「改写」进模型，法律与伦理问题不会自动消失。也不能用来绕开评测去污：让教师在已知基准上解题再写入预训练，是直接泄漏。Lee 式重叠检测应对教师解码结果跑一遍。</p><p>规模越大，合成的诱惑越大，因为真实高质量 token 见顶。越是这个时候越要提高真实数据下限。Grok、Llama 类持续迭代的系统若把上一代输出灌进下一代预训练，等于把对齐风格与幻觉一起做成世界先验。公开论文里一次性快照（C4、FineWeb）的价值，是提供未被本家族模型污染的参照分布。</p><p><span class="marginnote">崩塌不是只有「完全崩溃成胡言」这一种形态。更常见的是：流畅、自信、多样性下降，长尾实体消失，意见与句式趋同。下游聊天也许更好看，知识覆盖在变差。要用实体覆盖、n-gram 多样性与独立真实集损失来监控，不能只用对话评分。</span></p><p>符号合成（程序生成的题目、形式化证明、单位换算）崩塌模式不同：支撑窄但是对。它可以占数学桶的较大比例，仍建议混入人类题面与证明散文，以免模型只会某一种模板。神经合成则应设硬上限，并随教师换代重新生成，避免旧幻觉沉淀。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>合成数据在预训练中是补丁：改写、题解、回译、教材风填充，用来补真实数据的稀疏与脏。</li><li>主要风险是模型崩塌与分布变窄，在闭环自食输出时最剧烈。</li><li>有源改写比无源生成更可追溯；二者都要与真实文本按 token 下限混合。</li><li>合成往往更好学，日志会骗人；用独立真实探针与去重去污约束占比。</li><li>质量分类器不能只用通顺度，否则完美语法的错误会得到高分。</li><li>真实过滤网页（C4、RefinedWeb / FineWeb、Gopher / Llama 混合物）仍是地基。</li><li>出处：Raffel C4；Penedo RefinedWeb / FineWeb；Gopher / Llama 的真实数据配比；Xie DoReMi 可把合成当单独领域；崩塌与自食输出的分布收缩是合成占比的硬约束。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

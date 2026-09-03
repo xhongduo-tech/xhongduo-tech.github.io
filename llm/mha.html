@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Multi-Head Attention | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mha.md.Xxmr0_al.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="multi-head-attention" tabindex="-1">Multi-Head Attention <a class="header-anchor" href="#multi-head-attention" aria-label="Permalink to &quot;Multi-Head Attention&quot;">​</a></h1><div class="epigraph"><p>多头注意力让模型同时关注来自不同表示子空间、不同位置上的信息，而不是把全部容量压进一次平均后的打分。</p><footer>—— Vaswani et al., Attention Is All You Need, NeurIPS 2017</footer></div><p>单头缩放点积注意力已经能对全序列做内容寻址，但它只有一套查询、键、值投影。一套投影意味着一次加权平均：不同关系——句法对齐、指代、位置邻近——必须挤进同一组分数里互相干扰。Vaswani 等人给出的对策不是把单头做得更宽，而是把表示切成若干头，每头在更低维的子空间里独立做 SDPA，再拼回去。多头注意力（Multi-Head Attention, MHA）因此是 Transformer 层的默认注意力形态；因果掩码、交叉注意力、后来的分组查询，都是在这套「分头—独立打分—拼接」骨架上改连接方式或 KV 共享策略。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单头注意力的输出是</p> \[\mathrm{softmax}\left(\frac{(XW^Q)(XW^K)^\top}{\sqrt{d_k}}\right)(XW^V). \]<p>无论 \(d_k\) 有多大，softmax 沿键维只产生一组权重。若某头需要同时「看主语」和「看标点」，两个模式的键方向并不正交时，分数会被拉成折中。加宽单头只能增加值向量的容量，不能增加「有几套独立的路由」。这和混合专家里「多门」的动机类似：路由本身需要并行的几条通道，而不是一条更粗的通道。</p><p>另一个实际约束是计算预算。若保持总维度 \(d_{\mathrm{model}}\) 不变，把全部宽度交给一个头，矩阵乘的形状是 \(n \times d\) 对 \(d \times n\)；切成 \(h\) 个头、每头 \(d_k=d_{\mathrm{model}}/h\)，各头的乘可以看成一次更大的批量矩阵乘，总浮点量和单头满宽几乎同阶。多头因此不是「用更多算力换质量」，而是「用同样量级的算力换多套路由」。</p><h3 id="平均路由会抹掉子空间" tabindex="-1">平均路由会抹掉子空间 <a class="header-anchor" href="#平均路由会抹掉子空间" aria-label="Permalink to &quot;平均路由会抹掉子空间&quot;">​</a></h3><p>可以把单头理解成：先把所有位置投到同一个打分几何里，再做一次凸组合。凸组合是压缩。压缩之前如果没有分岔，模型只能学习一种「什么算相似」。多头把分岔提前到投影矩阵 \(W_i^Q, W_i^K, W_i^V\) 上，让不同头可以学到不可通约的相似关系。经验上常见一头偏局部、一头偏稀疏散布，这不是设计时写死的，而是多套投影提供了分化的自由度。</p><p><span class="marginnote">头与头之间没有正交约束。训练完全可以让两头学到几乎一样的模式，尤其在过参数或数据不足时。多头给出的是容量，不是分工的保证。后文的 MQA 和 GQA 之所以敢合并 KV 头，部分原因就是观测到许多 KV 头高度相关，独立存储它们的收益递减。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>设模型宽 \(d_{\mathrm{model}}\)，头数 \(h\)，每头键值维 \(d_k=d_v=d_{\mathrm{model}}/h\)。对输入 \(X \in \mathbb{R}^{n \times d_{\mathrm{model}}}\)，</p> \[\mathrm{head}_i = \mathrm{Attention}(XW_i^Q, XW_i^K, XW_i^V), \]<p>其中 \(W_i^Q, W_i^K \in \mathbb{R}^{d_{\mathrm{model}} \times d_k}\)，\(W_i^V \in \mathbb{R}^{d_{\mathrm{model}} \times d_v}\)，\(\mathrm{Attention}\) 即缩放点积注意力。输出为</p> \[\mathrm{MultiHead}(X) = \mathrm{Concat}(\mathrm{head}_1,\ldots,\mathrm{head}_h) W^O, \]<p>\(W^O \in \mathbb{R}^{h d_v \times d_{\mathrm{model}}}\) 把拼接结果投回残差流的宽度。原论文取 \(h=8\)、\(d_{\mathrm{model}}=512\)，故 \(d_k=d_v=64\)。缩放因子仍是 \(1/\sqrt{d_k}\)，按头内维度而不是按 \(d_{\mathrm{model}}\) 来除。</p><h3 id="投影、拼头与输出矩阵" tabindex="-1">投影、拼头与输出矩阵 <a class="header-anchor" href="#投影、拼头与输出矩阵" aria-label="Permalink to &quot;投影、拼头与输出矩阵&quot;">​</a></h3><p>实现上很少真的循环 \(h\) 次。通常把 \(h\) 组投影融合成三张大矩阵，一次算出 \(Q,K,V \in \mathbb{R}^{n \times h \times d_k}\)，在头维上做批量化的 \(QK^\top\)，softmax 之后再与 \(V\) 乘。拼头只是把头维与通道维合并，再乘 \(W^O\)。\(W^O\) 不是装饰：它允许各头的子空间在写回残差之前互相线性混合，也是残差流里唯一「看见所有头」的地方。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>多头的表达力来自分拆后的几何，而不是来自更多次 softmax。每头的分数矩阵形状仍是 \(n \times n\)，但键空间只有 \(d_k\) 维。低维空间里点积更尖锐，也更容易被 \(1/\sqrt{d_k}\) 校准。若有人把 \(d_k\) 取得很大却只保留一头，分数会重新变钝，多头的「多套路由」也一并消失。</p><p>梯度路径是分开的。第 \(i\) 头的 \(W_i^Q\) 只通过该头的分数影响输出，再经 \(W^O\) 的对应列块写回。这使某些头可以在特定层变得几乎恒等或几乎死掉，而不拖垮其余头——这也是后来剪头、合并 KV 头的经验基础。训练初期各头尚无分工，输出投影会把它们当成随机特征混合；随着损失下降，分工才在数据里被选择出来。</p><p><span class="marginnote">\(d_k=d_{\mathrm{model}}/h\) 是原论文为了保持总计算量提出的约定，不是定理。可以把头数与头宽解耦：头很多但 \(d_k\) 很小，路由细、值表达弱；头少但 \(d_k\) 很大，路由粗、值表达强。现代大模型常把 \(d_k\) 固定在 64 或 128，再用头数去对齐 \(d_{\mathrm{model}}\)。</span></p><h3 id="与单头满宽的计算对照" tabindex="-1">与单头满宽的计算对照 <a class="header-anchor" href="#与单头满宽的计算对照" aria-label="Permalink to &quot;与单头满宽的计算对照&quot;">​</a></h3><p>单头使用 \(d_k=d_{\mathrm{model}}\) 时，一次 \(QK^\top\) 的代价是 \(O(n^2 d_{\mathrm{model}})\)；MHA 是 \(h\) 次 \(O(n^2 d_k)\)，而 \(h d_k=d_{\mathrm{model}}\)，渐近相同。真正多出来的是投影矩阵的参数：每层有 \(4\) 张 \(d_{\mathrm{model}}\times d_{\mathrm{model}}\) 量级的矩阵（\(Q,K,V,O\)）。参数增加换来的是 \(h\) 套独立权重，不是更长的上下文窗口。上下文窗口仍由序列长度和掩码决定。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>MHA 的 KV 缓存随头数线性增长。解码时每生成一个 token，都要写出 \(h\) 组键值并在下一步读回全部历史。头数从 8 涨到 64 或 128 时，质量往往还在提升，但显存带宽先撑不住。这正是 MQA、GQA、MLA 要动的地方：它们保留多套查询路由，压缩或共享键值存储。讨论那些方法时，对照物始终是「完整 MHA」——每头独立的 \(K,V\)。</p><p>头数也不是越大越好。头过多而数据不够时，会出现大量冗余头，训练噪声上升。有的工作在推理前做头重要性剪枝，说明分工并不均匀。位置编码（正弦、RoPE）通常加在拼头之前的 \(Q,K\) 上，每头共享同一套位置几何；位置与内容的纠缠是另一篇文章的主题，这里只需记住：多头并不自动提供位置归纳偏置。</p><p><span class="marginnote">把注意力图画成「第 3 头在看括号」是事后解释。头的编号没有语义，跨层、跨随机种子都不可对齐。工程上更可靠的信号是 KV 头之间的余弦相似度、剪头后的困惑度变化，而不是单张可视化。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多头注意力把表示投影到 \(h\) 个低维子空间，各头独立做缩放点积注意力，拼接后再经 \(W^O\) 写回。</li><li>动机是增加并行路由的套数，而不是增加单次加权平均的宽度；总浮点量与单头满宽同阶。</li><li>每头维度取 \(d_{\mathrm{model}}/h\) 是计算预算约定；缩放因子按 \(d_k\) 而不是按模型宽来除。</li><li>\(W^O\) 负责把头间信息混回残差流，是各头唯一的交汇点。</li><li>KV 缓存随头数线性膨胀，这是后续共享或压缩 KV 头的直接压力来源。</li><li>头之间无正交保证，冗余头、可合并的 KV 头在大模型里是常见现象。</li><li>出处：Vaswani et al., <em>Attention Is All You Need</em>, NeurIPS 2017。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

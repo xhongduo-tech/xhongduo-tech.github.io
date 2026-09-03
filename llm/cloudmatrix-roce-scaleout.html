@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RoCE/RDMA 做超节点之间 Scale-Out | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_cloudmatrix-roce-scaleout.md.D_SE2iis.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="roce-rdma-做超节点之间-scale-out" tabindex="-1">RoCE/RDMA 做超节点之间 Scale-Out <a class="header-anchor" href="#roce-rdma-做超节点之间-scale-out" aria-label="Permalink to &quot;RoCE/RDMA 做超节点之间 Scale-Out&quot;">​</a></h1><div class="epigraph"><p>统一总线把一柜收成一块加速器；柜与柜之间仍然要一张能远程内存访问的数据中心网。当前生产选择往往是 RoCE，而不是把 UB 直接拉到机房对端。</p><footer>—— 对照 CloudMatrix384 把 RDMA 平面与 UB 平面分开：跨超节点走 RoCE，域内走 UB</footer></div><p><a href="/llm/scale-up-vs-scale-out">Scale-Up</a> 解决的是超节点内部：TP、宽 EP、池化 KV 都假设一个低延迟全互连域。模型与流量再大，也会走出 384 张 910C 的边界——多副本、跨超节点的 PD、训练梯度、检查点、把 KV 热页送到另一柜的 decode 池。CloudMatrix384 为此单独做了 RDMA 平面：每张 NPU 贡献最多 400 Gbps 量级的单向 RoCE，只有 NPU 参加，与控制面、存储面隔离。本篇写为什么跨超节点用 RoCE/RDMA、什么流量配得上这条平面、以及它和 UB 内存语义差在哪。不编造未写入论文的交换机芯片型号。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>若把超节点之间也当成 UB 域，软件可以少一套协议，但数据中心现有的 RDMA 库、拥塞控制、运维工具和多厂商交换机都接不上。论文明确说：长期愿景可以把 RDMA 与 VPC 收成一张网，甚至做 RDMA over UB；<strong>当前实现选 RoCE</strong>，是为了立刻兼容已有 RDMA 栈。反向的错误同样常见：把 EP 的逐步 All-to-All 放到超节点间 RoCE 上，用以太网延迟去跑本该留在 UB 里的专家置换，decode TPOT 会回到普通集群的老问题上。</p><p>Scale-Out 要回答的问题因此是分流：哪些通信允许跨柜，哪些必须假设「同超节点」。答错了，不是网卡闲着，就是超节点买了却当 8 卡箱用。</p><h3 id="roce-不是更慢的-ub" tabindex="-1">RoCE 不是更慢的 UB <a class="header-anchor" href="#roce-不是更慢的-ub" aria-label="Permalink to &quot;RoCE 不是更慢的 UB&quot;">​</a></h3><p>UB 提供接近节点内的带宽与微秒级时延，并带内存语义的统一编址。RoCE 是以太网承载的 RDMA：有队列对、有工作请求、有完成本地，语义是远程读写与原子，不是超节点里那套全局虚址。库名可以都叫「RDMA」，路径、MTU、PFC/ECN、重传与拥塞算法都不同。把 NCCL/HCCL 的默认网从 UB 拨到 RoCE 而不改并行度，等于主动降一档屋顶线。</p><p><span class="marginnote">论文脚注写过替代设计 RDMA over UB：用 UB 原生远程内存访问打通柜间，少一次协议翻译。当前不上这条路，是兼容，不是物理上做不到。规划时不要把脚注当成已交付的平面。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把超节点当 Scale-Up 域，把多超节点当 Scale-Out 集群。域内：TP、宽 EP、池化 KV、同柜 PDC。域间 RoCE 承担三类活。(1) 活跃 KV 在 prefill 超节点与 decode 超节点之间搬移：当缓存池的均匀访问只保证在柜内，跨柜就必须显式传输，见 <a href="/llm/pd-kv-transfer">PD 的 KV 传输</a>。(2) 数据并行与多副本：同一模型的第二份 decode 副本、训练的梯度同步、推理网关后面的复制集。(3) 与外部 RDMA 系统对接：存储目标、异构集群里的 GPU 分区、已有 InfiniBand/RoCE 训练池。</p><p>流量工程上，NPU 独占 RDMA 平面，避免对象存储与 VPC 管理包来抢 PFC 头端。轨对齐（rail-aligned）仍然适用：同一 EP 组的 rank 若被迫跨超节点，应对齐到同一条 rail，减少交换机跳数。能不跨就不跨：专家并行组的成员名单应是调度约束，而不是运行时发现「对端在另一柜」再降级。</p><div class="mermaid"></div><h3 id="并行维如何对号入座" tabindex="-1">并行维如何对号入座 <a class="header-anchor" href="#并行维如何对号入座" aria-label="Permalink to &quot;并行维如何对号入座&quot;">​</a></h3><p>与 NVL72 那一套对照：NVLink 域内放延迟敏感的 TP/EP，IB/以太网放 DP。昇腾超节点把 UB 换成 Scale-Up，把 RoCE 换成 Scale-Out，对号规则同类。DeepSeek 级宽 EP 应整组落在同一 CloudMatrix384；跨两柜做 EP320 会把逐步 token 置换扔到 400 Gbps 以太网量级的链路上，和设计意图相反。多副本高可用则必须跨超节点，否则故障域就是整块逻辑加速器。</p><p><span class="marginnote">每 NPU 400 Gbps 单向是论文给出的 RDMA 平面规格，用来理解「柜间比 UB 稀一档」。不要把它乘 384 当成任意一对端都能吃满的双向测量，也不要和 UB 的 392 GB/s 量级单向混在一张表里而不写单位。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RDMA 平面能干活，靠的是网卡把载荷从 NPU 内存直接推到对端 NPU 内存，CPU 不拷数据面。RoCEv2 跑在 UDP/IP 上，可路由，适合已经按 Clos 建好的以太网。代价是：无损或准无损以太需要 PFC/ECN 调好，否则丢包重传会把尾延迟打到毫秒；这与 UB 域内「接近本地」的假设不同。KV 跨柜传输应成块、可重叠，避免每 token 一次小消息；小消息会把 RoCE 推进延迟区，和 decode 的 All-to-All 是同一类病。</p><p>与 VPC 平面的隔离是机制的一部分。VPC 走青田卡，以太网/IP，负责控制与存储；RDMA 走 NPU 口。混用会导致存储大流与推理 KV 抢同一套无损队列。长期若收敛成一张网，也需要在同一物理网上用切片保住推理的尾延迟，而不是「都是以太网所以都能挤」。</p><h3 id="拥塞与重传会回到软件" tabindex="-1">拥塞与重传会回到软件 <a class="header-anchor" href="#拥塞与重传会回到软件" aria-label="Permalink to &quot;拥塞与重传会回到软件&quot;">​</a></h3><p>UB 域内集合通信可以按短距高带宽选算法。RoCE 域必须假设偶发拥塞。HCCL 跨超节点应显式选通信子，不要让一次错误的 <code>all_to_all</code> 默认走到柜间。应用层要能降级：跨柜 PD 失败则拒绝或改到同柜；不要在超时后再用 VPC 口重传 KV，那会把控制面带宽也打穿。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>RoCE Scale-Out 不让超节点变无限大。柜数增加，故障域、供电、光模块与交换机层都会回到普通 HPC 集群的问题。不要用 Scale-Out 补 Scale-Up 的不足：专家放不下就先加 UB 域内 Die，而不是先加一跳以太网。也不要在评测里只报同柜 tokens/s，却把生产流量的跨柜 KV 搬移藏起来。</p><p>兼容性选择意味着协议翻译开销会长期存在。RDMA over UB 若未来交付，编程模型可以收拢，但拥塞控制与多租户隔离仍在。当前写作业与调度器，应以「两平面」为准：域内 UB，域间 RoCE。</p><p><span class="marginnote">NVIDIA 侧的对照是 NVL72 + InfiniBand SuperPOD。本篇不把两家的聚合带宽表对齐成「谁更快」：单位、含不含双向、是否柜级求和，都对不上。只锁定形态——Scale-Out 用数据中心 RDMA，Scale-Up 用专用域。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CloudMatrix384 用独立 RDMA 平面做超节点之间的 Scale-Out，当前协议是 RoCE。</li><li>域内 UB 放 TP/宽 EP/池化 KV；域间 RoCE 放跨柜 KV、副本、训练与外部 RDMA 对接。</li><li>RoCE 是队列对上的远程内存访问，不是 UB 那套全局虚址；拥塞与重传必须按以太网来写。</li><li>宽 EP 组不要跨超节点；高可用副本必须跨。</li><li>长期的平面收敛是愿景，生产调度按两平面分流。</li><li>出处：Zuo et al., <em>Serving Large Language Models on Huawei CloudMatrix384</em>, arXiv:2506.12708。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

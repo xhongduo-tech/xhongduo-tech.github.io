@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实时世界模型的形变与不一致性 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rtfm-morphing.md.CeyGkKi8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="实时世界模型的形变与不一致性" tabindex="-1">实时世界模型的形变与不一致性 <a class="header-anchor" href="#实时世界模型的形变与不一致性" aria-label="Permalink to &quot;实时世界模型的形变与不一致性&quot;">​</a></h1><div class="epigraph"><p>没有钉在三维里的表面时，像素只对当前上下文负责；回头再看，物体可以换拓扑，墙可以软掉，这不是渲染噪声，而是隐式世界的失败模式。</p><footer>—— 由 RTFM 的无显式几何设定推得的失败模式，而非一份公开消融表</footer></div><p><a href="/llm/worldlabs-rtfm">RTFM</a> 把世界存在带位姿的帧和 Transformer 激活里，探索时再出帧。好处是反射、高光可以跟着视频数据学，也不必为整座迷宫实例化 splat。代价同样结构性地出现：没有一份与视点无关的表面，模型没有「这块几何必须还在」的硬约束。形变（morphing）与不一致性因此不是调坏了超参的偶然花絮，而是实时帧模型在约束不足时的默认行为。本篇把失败模式写清楚，避免把 demo 运镜当成几何保证。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>显式三维（网格、3DGS）里，同一高斯或同一三角形在所有视点共享参数。你走开再回来，只要渲染器还在，投影可以变、物体不该换拓扑。帧模型的世界是条件分布 \(p(I\mid \mathrm{context}, P)\)。context 若换了——近邻帧检索不同、旧帧被挤出、噪声种子不同——同一位姿 \(P\) 可以画出不相容的 \(I\)。用户看到的是：桌子腿数量变了、海报字重写了、建筑轮廓在两段探索之间对不上。</p><p>这与视频生成里的「身份漂移」同类，但交互放大了它。视频模型沿一条固定时间轴生成，漂移表现为人物脸在第 10 秒换人；世界模型允许用户自己选 \(P_t\)，等价于在空间里任意点查询，未约束的自由度变成空间上的形变。实时又限制了扩散步数与上下文长度，使本可靠多步去噪钉住的结构，在交互预算里钉不住。</p><h3 id="两种不一致" tabindex="-1">两种不一致 <a class="header-anchor" href="#两种不一致" aria-label="Permalink to &quot;两种不一致&quot;">​</a></h3><p>时间不一致：相邻帧之间表面流动，本应随相机运动的光流里掺了非刚体残差。空间不一致：两条不同路径到达邻近位姿，画出的场景对不上，无法拼成一张地图。形变常是二者的可见症状：物体在插值视之间「融化」成另一种形状，以维持局部帧间光滑，牺牲的是全局三维恒等。</p><p><span class="marginnote">World Labs 强调 persistence 与空间记忆，意思是系统设计在追求「走回去还在」，不是证明已经消除形变。把博客里的 persistence 写成「已解决不一致」，是产品语言误读。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分析这类系统时，应把失败写成条件缺失，而不是只写「生成质量不够」。一份最小检查单：</p><ol><li>查询位姿 \(P\) 是否以数值形式进入网络，还是被说成「向左转」。后者会把同一几何运动映射到含糊文本，形变更频。RTFM 用显式位姿，比纯视频续写好一截，但仍可能量化过粗。</li><li>上下文是否包含能看到同一表面的旧帧。Context juggling 只取近邻：若「近」按相机中心距离，掠过同一面墙的擦线视可能被丢掉，回来时墙被重新想象。</li><li>输入视的数量。视少时官方也承认任务偏向生成；生成区没有像素级锚定，形变是允许的想象，直到用户以为那是重建。</li><li>随机性。扩散采样的噪声使同一 \(( \mathrm{context}, P)\) 仍可多样。交互若每帧独立采样，墙会抖；若把噪声锁成场景种子，多样性下降，稳定性上升。</li></ol> \[I=G_\theta(\varepsilon;\mathrm{context},P),\qquad \varepsilon\sim\mathcal{N}(0,I). \]<p>\(\varepsilon\) 每帧重抽，就是闪与微形变的来源之一。这与 Ho 等人 DDPM 里「同一条件不同噪声出不同样本」是一件事，只是交互把样本序列误当成同一物理世界的观测。</p><div class="mermaid"></div><h3 id="重建—生成交界" tabindex="-1">重建—生成交界 <a class="header-anchor" href="#重建—生成交界" aria-label="Permalink to &quot;重建—生成交界&quot;">​</a></h3><p>RTFM 故意模糊插值与外推。交界处最容易骗过眼睛：模型把两个锚点之间的物体「平均」成第三种形状，帧间还光滑。这不是渲染器抗锯齿，而是分布在多峰外观之间抄近路。显式 3DGS 拟合会把冲突表现为糊或鬼影；帧模型则表现为拓扑可变的中间态，因为没有共享的 splat 索引去投票。</p><h3 id="像素损失为何鼓励融化" tabindex="-1">像素损失为何鼓励融化 <a class="header-anchor" href="#像素损失为何鼓励融化" aria-label="Permalink to &quot;像素损失为何鼓励融化&quot;">​</a></h3><p>训练若主要最小化 \(\mathbb{E}\|I-\hat I\|\) 或潜空间上的同类项，两个锚点外观冲突时，中间视的最优像素往往是二者的混合，而不是「选一个刚体、让另一侧变遮挡」。融化在二维损失里更便宜。要抑制它，需要与视点无关的对应（深度、光流、或显式 3D 元素）进损失，或在推理时把锚点帧强制留在上下文且降低 \(\varepsilon\) 的自由度。实时预算下这两条都贵，所以形变会先出现在交互产品里，而不是出现在离线长视频的精修档里。</p><p><span class="marginnote">机器人或测绘不能把形变区当深度真值。若下游要几何，应把帧模型的输出视为外观假说，再交由多视立体或 Atlas 一类能写点云/splat 的模型固化，而不是在形变视频上跑单目深度装成真值。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>形变发生，是因为损失几乎总在像素（或潜空间）上，而不是在与视点无关的三维元素上。自回归扩散优化的是「这一帧像不像」，至多加相邻帧的时间损失。没有项去惩罚「同一 3D 点在两次查询中投影颜色冲突」，模型就可以用形变去消化冲突：改形状比同时满足所有旧帧更省损失。Context juggling 降低了计算，也降低了「所有旧约束同时在场」的概率，冲突被推迟到检索集切换的那一帧，于是出现突然换壁纸、门洞移位。</p><p>CFG（Ho &amp; Salimans）提高条件服从时，会让画面更跟文本或更跟参考图，但不创造三维元素。引导越强，越可能把当前参考的局部外观糊到不该变的结构上。实时蒸馏减少去噪步数，轨迹更直、更便宜，也更少机会在中间步用多视一致性把表面拉回去。这些都是机制上的压力，不是调皮的 bug 列表。</p><p><span class="marginnote">Marble 的 splat 世界也会有生成伪影，但那是一份冻结资产上的误差；逛的时候误差不该再演化。RTFM 的误差可以随探索继续写。两种「不真」不要写成同一种 bug。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>缓解而不假装消失的做法包括：把关键视冻结为不可覆盖的锚点；位姿附近强制检索覆盖同一表面的旧帧；对刚体区域加深度或光流一致性；需要持久资产时改走 3DGS 导出。Atlas 后来把图像钉在三维位姿上做成共享空间上下文，并允许写出点云与 splat，可以看成对「只有帧、没有钉」的补课，但 RTFM 博客没有把 Atlas 的模块声明为 RTFM 的补丁。不要用未公开的内部指标宣称形变已消除。</p><p>评测上，单段第一人称视频的 FID/FVD 几乎看不见空间不一致：一条路径内部可以自洽，地图却拼不上。应测闭环：随机游走后再回到起点，比外观，比能提取的稀疏三维点是否还在。没有公开的 World Labs 形变基准；本篇不编造百分比。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>实时帧模型没有与视点共享的表面参数，形变与多视不一致是缺约束时的默认行为。</li><li>时间流动、空间对不上、锚点间「融化」，是同一问题在不同查询模式上的表现。</li><li>噪声每帧重抽、上下文检索切换、视少外推、蒸馏少步，都会加重形变。</li><li>Persistence 是设计目标；是否达到要用「走回去」来测，不能用单段运镜代替。</li><li>需要可碰撞、可测绘的世界时，应落到 splat/网格，而不是在形变帧上当几何。</li><li>出处：由 World Labs RTFM 的无显式三维设定推得；对照 Kerbl 3DGS 的共享高斯。无 RTFM 形变 arXiv。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

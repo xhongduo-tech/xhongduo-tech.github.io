@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>残差连接与 DeepNet | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_residual-scaling.md.PuQliKwd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="残差连接与-deepnet" tabindex="-1">残差连接与 DeepNet <a class="header-anchor" href="#残差连接与-deepnet" aria-label="Permalink to &quot;残差连接与 DeepNet&quot;">​</a></h1><div class="epigraph"><p>把残差主干放大、把子层初始化缩小，Transformer 可以叠到上千层而不在训练初期散掉。</p><footer>—— Wang 等，DeepNet，2022</footer></div><p>残差连接 \(x+F(x)\) 让梯度有一条近道，但近道的增益若随深度失控，深层不是学不动，就是一更新就炸。Xiong 等人已经说明 Post-LN 会切断这条近道。Wang 等人 2022 年的 DeepNet 走另一条路：保留 Post-LN 的「每层输出都归一」这一表示习惯，用随深度变化的常数 \(\alpha\) 缩放残差，并用 \(\beta\) 缩小子层初始，使一千层的 Transformer 可以训起来。它针对的是深度，不是宽度，也不是位置编码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>堆 \(N\) 层时，若每层 \(F_l\) 在初始化附近输出与 \(x\) 同量级的噪声，残差和的方差会随 \(N\) 上涨；若 Post-LN 再把上涨压回去，雅可比又把底层梯度压小。Pre-LN 用单位主干避开切断，但主干范数可以随层累积，极深时仍可能数值溢出或把有效更新相对主干变得微不足道。</p><p>需要一种可分析的增益控制：让每一层对主干的改写是 \(O(1/N)\) 量级的小步，同时底层仍能收到足够梯度。He 等人的残差网络已经用「恒等映射为主」的直觉走过一遍；Transformer 的 \(F\) 含 softmax 与 FFN，初始化方差与深度的关系必须重写。DeepNet 的问题是给出一套与 \(N\) 挂钩的缩放，使 Post-LN Transformer 可以到千层，而不是劝所有人改用 Pre-LN。<span class="marginnote">深度病态有两种相反的脸：更新太大则散，更新相对主干太小则底层学不到。DeepNorm 同时做两件事——主干乘 \(\alpha&gt;1\) 以保住信号，子层初始乘小系数以限制每步改写。只做其中一件会偏到另一张脸上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>DeepNorm 把 Post-LN 块写成</p> \[x_{l+1}=\mathrm{LN}\bigl(\alpha\,x_l + G_l(x_l)\bigr) \]<p>其中 \(G_l\) 是注意力或 FFN 子层，\(\alpha\) 随总层数 \(N\) 增大。子层参数在初始化时再按 \(\beta(N)\) 缩小，使 \(G_l\) 起步时小于被放大的主干。编码器与解码器、自注意力与交叉注意力的 \(\alpha\)、\(\beta\) 公式在论文中分别给出，依赖于该侧的层数；工程上应使用原文的分组，而不是自造一个与 \(N\) 无关的全局常数。</p><p>训练不改变优化器种类，但深度上升后应配合适当的学习率，而不是沿用浅 Post-LN 的 warmup 却期望千层自己稳。Wang 等人在机器翻译与语言模型设定下把层数推到极深，展示损失可降、而不是只展示「能跑」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="残差分支的方差爆炸" tabindex="-1">残差分支的方差爆炸 <a class="header-anchor" href="#残差分支的方差爆炸" aria-label="Permalink to &quot;残差分支的方差爆炸&quot;">​</a></h3><p>初始化时把 \(G_l\) 看作近似线性的随机算子，输出方差与输入方差、参数方差成正比。无缩放的 \(x+G(x)\) 若每层都给主干加上不可忽略的噪声，经过 \(N\) 层后表示被随机游走过一次，LN 再强行拉回单位尺度，等于每层都在洗牌。深层的有用梯度必须穿过一连串「加法 + 标准化」的病态雅可比。放大主干、缩小 \(G\)，是让加法项里 \(x\) 占主导，LN 几乎在归一一个已经很大的恒等项，雅可比接近「对主干友好」的极限。</p><p>这与 Pre-LN 的单位通路不同：Pre-LN 的恒等不经过 LN；DeepNorm 的恒等经过 LN，但被 \(\alpha\) 抬成主导项，LN 的局部线性接近缩放后的恒等，而不是接近「噪声与信号各一半」。</p><h3 id="deepnorm-的缩放与初始化" tabindex="-1">DeepNorm 的缩放与初始化 <a class="header-anchor" href="#deepnorm-的缩放与初始化" aria-label="Permalink to &quot;DeepNorm 的缩放与初始化&quot;">​</a></h3><p>\(\alpha(N)\) 增大，残差流在进入 LN 前更像 \(\alpha x\)，梯度回传到 \(x\) 时带有 \(\alpha\) 再被 LN 的 \(\sigma\) 除。\(\beta(N)\) 缩小 \(G\) 的初始权重，使前向里 \(G(x)\) 相对 \(\alpha x\) 是摄动。二者必须配对：只放大 \(\alpha\) 而 \(G\) 仍按常规初始化，摄动仍可能与主干同阶；只缩小 \(G\) 而不放大主干，Post-LN 仍可能在深层把残差通路压扁。论文从更新范数的上界推导配对关系，而不是从网格搜索里偶然得到两个魔术数。</p><p><span class="marginnote">实现时最常见的错误是只在残差加法写了 \(\alpha\)，却忘了按 \(\beta\) 改初始化，或用预训练浅模型的权重直接塞进千层骨架。DeepNorm 是训练方案，不是把已有 48 层模型的残差乘一个常数就能变成 1000 层。</span></p><h3 id="千层-transformer-的工程含义" tabindex="-1">千层 Transformer 的工程含义 <a class="header-anchor" href="#千层-transformer-的工程含义" aria-label="Permalink to &quot;千层 Transformer 的工程含义&quot;">​</a></h3><p>能叠千层，不等于应当叠千层。参数与深度可以互换：同样参数，极深而窄的网络在并行上更难受，流水线切分、激活检查点、以及每层很小的有效更新都会让吞吐变差。DeepNet 的价值是证明 Post-LN 的深度上限可以被缩放规则抬高，从而在「深度换宽度」的研究里有一条稳定基线。生产大模型仍多选中等深度加宽度、Pre-LN 与 RMSNorm，因为那条路的工具链更熟。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>DeepNorm 与 Pre-LN 不是互斥到不能讨论，但公式是为 Post-LN 写的。把 \(\alpha\) 接到 Pre-LN 的 \(x+F(\mathrm{LN}(x))\) 上会改变已有的单位通路，需要重新推导，不能抄编码器的 \(\alpha(N)\)。它也不替代混合精度、梯度裁剪与合适的 \(\varepsilon\)。</p><p>与并行 Attention-FFN 组合时，一层里两条 \(G\) 同时加到主干，摄动方差加倍，\(\beta\) 可能需要再调。与 RoPE、ALiBi 无关：位置通道不进入 \(\alpha\)。</p><p><span class="marginnote">原文的实验深度远大于当时主流翻译模型，但与后来的解码器千亿参数不是同一坐标系。引用 DeepNet 应强调「残差缩放使极深 Post-LN 可训」，而不是宣称千层已经是语言模型的最优深度。</span></p><h3 id="何时动残差增益" tabindex="-1">何时动残差增益 <a class="header-anchor" href="#何时动残差增益" aria-label="Permalink to &quot;何时动残差增益&quot;">​</a></h3><p>默认 Pre-LN 中等深度不必上 DeepNorm。当层数明显增加、Post-LN 梯度消失或初始化即 NaN、又希望保留每层 LN 输出时，再引入 \(\alpha\) 与 \(\beta\)。先加梯度裁剪与更小学习率，确认不是别的数值问题，再改残差定义，否则会把优化器问题写成架构问题。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>残差连接提供梯度近道，但深层需要对主干与子层的增益配对控制。</li><li>DeepNorm 在 Post-LN 中把主干乘 \(\alpha(N)\)，并把子层初始化按 \(\beta(N)\) 缩小。</li><li>目的是让每层对表示的改写保持小摄动，同时 LN 不切断主导的恒等项。</li><li>它使 Transformer 训练深度可以到千层量级，不自动成为参数分配的最优解。</li><li>公式依赖编码器/解码器层数，不能当与 \(N\) 无关的全局常数抄。</li><li>与 Pre-LN 默认栈正交：生产模型仍可不用 DeepNorm，只要深度与顺序匹配能力。</li><li>出处：Wang 等，<em>DeepNet: Scaling Transformers to 1,000 Layers</em>，2022；残差病态与 LN 位置见 Xiong 等（2020）；LayerNorm 见 Ba 等（2016）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

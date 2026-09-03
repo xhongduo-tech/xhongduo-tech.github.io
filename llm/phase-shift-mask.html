@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>相移掩模 PSM | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_phase-shift-mask.md.DzjzGG3W.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="相移掩模-psm" tabindex="-1">相移掩模 PSM <a class="header-anchor" href="#相移掩模-psm" aria-label="Permalink to &quot;相移掩模 PSM&quot;">​</a></h1><div class="epigraph"><p>在相邻透光区之间引入 $180^\circ$ 相位差，暗区靠相消干涉形成，而不是只靠铬的阴影。</p><footer>—— 归纳自 Levenson, Viswanathan, Simpson 的相移掩模思想，以及 Mack 书中对 PSM 作为 RET 的表述</footer></div><p>二进制铬掩模用「透或不透」调制振幅。密图形时零级衍射很强，空中像调制不足。相移掩模（PSM）在透光区之间加上约 \(180^\circ\) 的相位台阶，让相邻开口的光在本该是暗的地方相消，等效于削弱零级、抬高可印对比度，从而在同一 \(\lambda\) 与 \(\mathrm{NA}\) 下降低 \(k_1\)。两条量产主干是交替型（alt-PSM、Levenson）与衰减型（att-PSM、嵌入式 MoSi 等）。本篇讲相位如何进入衍射，以及相位冲突、缺陷与 trim 掩模为什么让强相移没有统治所有层。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>低 \(k_1\) 下二进制掩模的空中像暗区不够黑，胶阈值一漂，CD 就垮。光学上需要在目标暗线处强制电场过零。相移提供这种过零：两侧开口相位相反，中线干涉相消，与铬宽度弱相关，对焦深也往往更宽。问题是相位是全局约束。给每一条密线的两侧都分配相反相位，在二维连通图形上会遇到无法 2-染色的区域——相位冲突。强相移因此需要第二张 trim 掩模去掉多余的相位边，或把布局限制成可染色的一维栅。</p><p>衰减相移不试图把相邻开口全做成 180° 交替，而是让「不透」区仍漏过百分之几的光并带 180° 相移，压低零级、改善台阶覆盖。它与二进制兼容性更好，成为接触孔与许多 DUV 层的默认掩模类型之一。</p><h3 id="交替与衰减不是同一强度的药" tabindex="-1">交替与衰减不是同一强度的药 <a class="header-anchor" href="#交替与衰减不是同一强度的药" aria-label="Permalink to &quot;交替与衰减不是同一强度的药&quot;">​</a></h3><p>Alt-PSM：相邻开孔相位差 \(180^\circ\)，铬可以很窄甚至在极限想法里做成无铬相移；暗线由干涉保证。Att-PSM：背景透过率典型为百分之几量级（常讨论 6% 一类的嵌入式衰减），相位约 \(180^\circ\)，图形仍由透光开口定义。前者分辨率潜力更大，掩模制造、缺陷（相位缺陷几乎不可修）与设计限制也更重。后者可以走标准 OPC 流程，缺陷行为更接近二进制加一层衰减膜。</p><p><span class="marginnote">「6% 衰减」是常见工艺讨论值，不是物理学常数。具体透过率由掩模膜系与层类型决定。不要把某一个百分比写进所有节点的设计手册而不看掩模规格。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>掩模厂在石英上刻出台阶或沉积相移膜，使光程差 \(\Delta n\cdot t \approx \lambda/2\)。扫描机侧仍是同一套投影光学；PSM 不改 <a href="/llm/litho-wavelengths">波长</a>，只改物体平面的复透过率。照明通常与 <a href="/llm/off-axis-illumination">OAI</a> 联立：衰减相移配环带或四极是接触孔经典组合；交替相移对部分相干与对准更挑剔。OPC 必须用能算相位的模型，二进制 OPC 直接套用会在相位边产生假图形。</p><p>Alt-PSM 的典型流程是：相移掩模印出密线，再用二进制 trim 曝光去掉相位边界在不该有暗线的地方留下的残影。这已经是两次<a href="/llm/litho-process-flow">光刻</a>，要计入套刻与产能。衰减相移通常一次曝光，代价是对比度增益小于交替型。</p><h3 id="相位缺陷与检测" tabindex="-1">相位缺陷与检测 <a class="header-anchor" href="#相位缺陷与检测" aria-label="Permalink to &quot;相位缺陷与检测&quot;">​</a></h3><p>石英坑或膜厚误差造成的相位缺陷，在空中像上可以是亮或暗的致命点，且不易像铬缺陷那样用补镀修复。掩模检测必须对相位通道敏感。这是强 PSM 成本的一部分：不是多一层膜那么简单，而是良品掩模更难。本篇不把掩模厂良率写成晶圆厂节点良率。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>物体透过率写成复数 \(t(x)=A(x)e^{i\phi(x)}\)。交替相位让相邻周期的傅里叶零级互相抵消，能量进入更高衍射级，空中像在暗区过零。离焦时两束（或选定级）的相位关系仍能维持过零，故 DOF 改善。衰减型保留一部分背景光，与开口光干涉，在边沿产生更陡的强度斜率，改善对隔离线与孔的打印，但对最密线的极限不如交替型。</p><p>相位边本身是一种图形：两个同振幅反相位区的交界必然有暗线。这在想要的栅极处是特性，在逻辑拐角处是缺陷。设计规则要么禁止冲突拓扑，要么用 trim。这与<a href="/llm/off-axis-illumination">离轴照明</a>不同：OAI 不在掩模上制造额外暗线，只选择哪些级进光瞳。</p><p><span class="marginnote">无铬相移（CPL 等）把透过区几乎铺满、靠相位岛定义图形，是 PSM 家族的变体。制造与 OPC 更难，量产渗透不如衰减 MoSi 普遍。不要把会议论文里的 CPL 演示当成所有厂的默认掩模。</span></p><h3 id="与多重图形的关系" tabindex="-1">与多重图形的关系 <a class="header-anchor" href="#与多重图形的关系" aria-label="Permalink to &quot;与多重图形的关系&quot;">​</a></h3><p>PSM 是单次曝光内的 RET，目标是把 \(k_1\) 降下来。多重图形是把一层拆成多次曝光或 spacer，目标是突破单次 \(k_1=0.25\) 的节距。两者可叠加：LELE 的每一张掩模仍可以是衰减相移。不要说「有了 SADP 就不需要 PSM」——掩模类型与图形分解是不同层级。EUV 掩模是反射型多层膜加吸收体，相移机制与透射 DUV 的石英台阶不同，不在本篇展开。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>强交替 PSM 的设计规则、二次 trim、相位缺陷，使它在逻辑上往往输给「二进制或衰减 + OAI + OPC」，或输给后来的多重图形。存储器与某些规则栅极层更适合交替相移。衰减 PSM 几乎成为 DUV 标配膜系之一，但透过率、膜应力与光学邻近仍要按层标定。</p><p>PSM 不修复套刻，也不抬高 \(\mathrm{NA}\)。它不能单独把浸没单次曝光推过约 36–40 nm 半节距的物理区；那是两束极限与 \(\mathrm{NA}=1.35\) 的事。引用时写 Levenson 等人 1982 年的相移掩模工作与 Mack 教科书，不要给 PSM 编造一篇不存在的「7 nm 良率论文」。</p><p><span class="marginnote">相位差对波长敏感：\(180^\circ\) 为某一 \(\lambda\) 与膜厚而设计。ArF 掩模不能拿到 KrF 机上当同一 PSM 用。换波长台阶必须换掩模膜系。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PSM 用约 \(180^\circ\) 相位在暗区制造相消干涉，降低单次曝光 \(k_1\)。</li><li>交替型潜力大，常遇相位冲突并需要 trim；衰减型一次曝光、增益较小、更通用。</li><li>相位缺陷难修复，掩模成本与检测高于二进制铬。</li><li>PSM 与 OAI、OPC 叠加，与 LELE/SADP 属于不同层级。</li><li>不改变波长与 \(\mathrm{NA}\)，也不能单独突破两束成像的节距极限。</li><li>EUV 反射掩模的相位问题另论。</li><li>出处：Levenson et al., IEEE 1982 相移掩模；Mack, <em>Fundamental Principles of Optical Lithography</em>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prompt Cache | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_prompt-cache.md.DOQb8tDE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="prompt-cache" tabindex="-1">Prompt Cache <a class="header-anchor" href="#prompt-cache" aria-label="Permalink to &quot;Prompt Cache&quot;">​</a></h1><div class="epigraph"><p>把提示里反复出现的模块写成 schema，预先算好它们的注意力状态；只要位置编号按模块分配，这些键值可以在不同提示之间拼接复用。</p><footer>—— Gim, Chen, Lee, Sarda, Khandelwal, Zhong，Prompt Cache，MLSys 2024</footer></div><p>系统提示、少样本示例、待问答的文档，在流量里反复出现。服务引擎后来用自动<a href="/llm/prefix-caching">前缀缓存</a>识别从位置 0 起逐 token 相同的那一截。Gim 等人更早的 Prompt Cache 问的是另一件事：重叠片段<strong>不一定在前缀上</strong>，也不一定每次都出现在同一下标。他们用 Prompt Markup Language（PML）把可复用段标成模块，按 schema 预计算注意力状态（KV），再在请求到来时按用户勾选的模块拼接。本篇写模块、不连续位置编号与和自动前缀的差别，不把云厂商按字符计费的「prompt caching」当成同一篇论文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Transformer 的 KV 依赖两件事：token 身份，以及写入时的位置编码。RoPE 一类方案把下标旋进键里，同一段话出现在位置 \(0\) 与位置 \(500\) 不是同一份 KV。因此朴素「把这段文本的 KV 存下来、下次在中间插入」会把相位用错。第二条困难是识别：没有标记时，引擎很难知道哪些跨请求的子串是「同一个模块」，而哪些只是碰巧相似。</p><p>自动前缀共享把问题缩小为「从左端起的最长公共前缀」，实现简单、语义正确，但浪费了一种常见结构：schema 里有一组互斥模块（选城市、选任务、选文档），用户每次只激活其中几个，未选中的不应占用前缀位置，选中的也不总是出现在固定偏移。Prompt Cache 要在不改模型权重的前提下，让这些模块的注意力状态可预计算、可按需拼接。</p><h3 id="位置编号必须进入契约" tabindex="-1">位置编号必须进入契约 <a class="header-anchor" href="#位置编号必须进入契约" aria-label="Permalink to &quot;位置编号必须进入契约&quot;">​</a></h3><p>复用的不是「这段词的内容向量」，而是「这段词在 schema 指定的位置编号下算出来的 KV」。schema 预先给每个模块留好一段位置 ID，哪怕某次请求没选这个模块，其他模块仍使用自己那套编号。于是选中模块的 KV 可以直接拼接，不必因为邻居缺席而重算。作者的经验观察是：模型对<strong>不连续</strong>的位置 ID 有一定容忍——中间空出一段编号，softmax 仍能工作，输出质量在他们的评测里可接受。这不是理论保证，是该工作成立的经验前提。</p><p><span class="marginnote">不要把不连续位置 ID 推广成「任意打乱 RoPE 都没事」。Prompt Cache 的空隙来自 schema 里未选中的模块，编号仍是训练时见过的单调递增关系的变体。随机置换下标会失败。换模型、换 RoPE 基数，都要重测质量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>用户（或应用模板）用 PML 写两样东西。一份 <strong>schema</strong> 声明有哪些 prompt module、它们的互斥关系（union）、可选参数槽位和对话角色标签。一份 <strong>prompt</strong> 从该 schema 派生，用标签勾选本次要用的模块，例如选「迈阿密」文档而不是「纽约」。服务端第一次见到 schema 时，为每个模块在其预定位置上做预填充，把 KV 存进模块缓存。之后同一 schema 下的请求只计算未缓存的用户槽，把选中模块的 KV 按编号拼起来，再继续生成。</p><h3 id="模块预计算与运行时拼接" tabindex="-1">模块预计算与运行时拼接 <a class="header-anchor" href="#模块预计算与运行时拼接" aria-label="Permalink to &quot;模块预计算与运行时拼接&quot;">​</a></h3><p>设模块 \(m\) 被赋予位置集合 \(\mathcal{P}_m\)。预计算得到 \(\{k_j,v_j\}_{j\in\mathcal{P}_m}\)。一次请求选中集合 \(M\)，可见键值是</p> \[\mathcal{C}(M)=\bigcup_{m\in M}\{k_j,v_j\}_{j\in\mathcal{P}_m} \]<p>再拼上本次独有的、未缓存的后缀（真正的用户问题）。注意力仍是 <a href="/llm/sdpa">SDPA</a>，只是 \(K,V\) 来自拼接而不是当场整段预填充。union 保证互斥模块共享同一段位置区间，避免两份文档抢同一下标。parameter 槽为短可变字段留空位，长度要在 schema 里写死，才能保持后续模块的位置稳定。</p><div class="mermaid"></div><h3 id="延迟数字该怎么读" tabindex="-1">延迟数字该怎么读 <a class="header-anchor" href="#延迟数字该怎么读" aria-label="Permalink to &quot;延迟数字该怎么读&quot;">​</a></h3><p>论文原型基于 HuggingFace Transformers，在 Llama 2、Falcon、MPT 上测。长提示（文档问答、推荐）的 TTFT 在 GPU 上可到约 8×，CPU 上可到约 60×——CPU 预填充更痛，省掉文档模块的收益更大。数字是相对「每次重算整段提示」，不是相对已经做了自动前缀缓存的现代引擎。质量上作者报告与未缓存基线接近，前提是 prompt 确实按 schema 填写。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是「用显式结构换位置可预测性，再用位置可预测性换 KV 复用」。PML 让复用边界成为语法问题，而不是运行时猜哈希。不连续位置 ID 让未选中模块不必在序列里占真实 token，却仍保留它们在编号轴上的「坑位」，使选中模块的 RoPE 相位与预计算时一致。这与自动前缀恰好相反：前缀缓存要求物理 token 从 0 连续相同；Prompt Cache 允许中间缺模块，但要求编号服从 schema。</p><p>和 <a href="/llm/radix-attention">RadixAttention</a> 比，后者对任意共享前缀做内容寻址，调用方不用写 XML；前者能复用<strong>非前缀</strong>模块，调用方必须把提示结构化。两者可以同时存在：schema 的公共外壳走自动前缀，互斥文档模块走 Prompt Cache 的预留位置。混用时缓存键必须包含 schema 版本，否则改一个模块的正文会让旧 KV 继续被拼进去。</p><p><span class="marginnote">参数槽长度写死是为了后面模块的位置不变。用户输入一旦超过声明长度，后续模块的相位全部错位，缓存必须作废并回退到整段预填充。实现上应拒绝超长槽，而不是截断后假装命中。</span></p><h3 id="为何后来工业界更多做前缀而不是-pml" tabindex="-1">为何后来工业界更多做前缀而不是 PML <a class="header-anchor" href="#为何后来工业界更多做前缀而不是-pml" aria-label="Permalink to &quot;为何后来工业界更多做前缀而不是 PML&quot;">​</a></h3><p>PML 要改提示工程与客户端。多数应用其实是「系统提示 + 用户问题」的左对齐结构，自动前缀已经吃掉最大那块 TTFT。文档问答若文档每次不同且不在固定模块集合里，schema 也帮不上。Prompt Cache 更适合<strong>封闭模块集合</strong>的产品：技能列表、城市百科、工具说明书版本化。工业界的「prompt cache」计费接口，语义上更接近前缀 KV 的命中时长，与这篇 MLSys 论文的模块拼接不是同一个对象。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>必须改提示写法；没有 schema 就没有这篇论文里的复用。不连续位置对部分模型、部分任务可能伤质量，上线前要用该模型的真实提示回归，不要只看论文的文档 QA。模块缓存占显存：模块多、文档长时，预计算本身就是一份很大的 KV 池，需要 LRU 与按 schema 分命名空间。LoRA、量化档、权重版本都要进缓存键。</p><p>不要把 Prompt Cache 理解成可以复用「提示中间任意一段相同子串」。没有 schema 给定的位置，那段子串的 RoPE 对不上。也不要在训练时没用过的超长空隙上假设模型仍然稳定。换到 YaRN、长上下文插值或与训练窗口差很多的编号，经验观察需要重做。</p><p><span class="marginnote">论文的 8× / 60× 是 TTFT，主要省预填充。解码阶段的逐步注意力仍随已拼接模块的总长度增长，模块选得越多，decode 越慢。产品指标应同时报首 token 与每个输出 token 的间隔。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Prompt Cache 用 PML schema 把可复用提示标成模块，预计算 KV，按勾选拼接，以降低 TTFT。</li><li>关键经验是模型可在不连续位置 ID 下工作，从而使未选中模块不必出现在 token 序列里。</li><li>与自动前缀缓存互补：前缀要求左对齐相同；模块缓存覆盖互斥、非前缀片段。</li><li>论文报告 GPU 约 8×、CPU 约 60× 的首 token 加速，质量接近基线，不改权重。</li><li>槽位超长、schema 变更、与计费向「prompt caching」同名不同义，都是工程陷阱。</li><li>出处：Gim et al., <em>Prompt Cache: Modular Attention Reuse for Low-Latency Inference</em>，MLSys 2024；arXiv:2311.04934。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

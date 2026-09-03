@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SGLang 与 RadixAttention | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sglang.md.DiMhCmjA.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="sglang-与-radixattention" tabindex="-1">SGLang 与 RadixAttention <a class="header-anchor" href="#sglang-与-radixattention" aria-label="Permalink to &quot;SGLang 与 RadixAttention&quot;">​</a></h1><div class="epigraph"><p>语言模型程序里充满共享前缀与多次生成调用；运行时若用前缀树把 KV 留下来，复用就不必靠人手工配置缓存键。</p><footer>—— Zheng 等，SGLang: Efficient Execution of Structured Language Model Programs，NeurIPS 2024</footer></div><p>聊天补全把一次提示、一次生成当成全部。代理、多轮、few-shot、思维树、JSON 抽取则是 <strong>语言模型程序</strong>：多次 <code>gen</code>、控制流、结构化输入输出。Zheng 等人认为，当时的引擎（含 vLLM、TGI、TensorRT-LLM）把每次生成当独立请求，调用结束就丢 KV，程序里明明共享的系统提示与 few-shot 被反复 prefill。SGLang 把前端语言和运行时一起设计：前端用 <code>extend</code> / <code>gen</code> / <code>select</code> / <code>fork</code> / <code>join</code> 写出多调用结构，运行时用 RadixAttention 自动复用 KV，并用压缩有限状态机加速约束解码。本篇写这套共设计；树的插入与淘汰见 <a href="/llm/sglang-radix-tree">前缀树</a>，文法掩码见 <a href="/llm/constrained-decoding">约束解码</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>LM 程序有两条性质。第一，多次生成调用夹杂控制流，质量靠多步而不是单次采样。第二，输入输出要结构化，才能嵌进原有软件。用字符串拼接调 OpenAI 式 API，既难写并行（<code>fork</code> 出多路评判再 <code>join</code>），又把每次 HTTP 当冷启动。开源引擎侧的问题对称：连续批和 <a href="/llm/vllm-paged">分页</a> 解决了单次服务的碎片，却默认「请求结束 → KV 可回收」。多调用之间的公共前缀因此变成重复计算。</p><p>约束输出是第二条低效。JSON schema、正则、选择题把下一步合法词表收成很小的集合，甚至连续多个 token 已经被文法唯一确定。若仍逐步前向、每步只掩一个 token，既浪费步数，又把掩码开销打在热路径上。SGLang 要同时打这两点：跨调用的 KV 复用，以及约束下的多 token 推进。</p><h3 id="高阶框架不替代运行时" tabindex="-1">高阶框架不替代运行时 <a class="header-anchor" href="#高阶框架不替代运行时" aria-label="Permalink to &quot;高阶框架不替代运行时&quot;">​</a></h3><p>LangChain、DSPy 一类高阶层管提示模板与优化器；LMQL、Guidance、SGLang 属于低阶层，直接操作提示状态与生成原语。SGLang 的差异是自带 Runtime（SRT），原语可以变成运行时提示——例如 <code>fork</code> 先把前缀插入 radix 再发剩余 token。没有共设计，前端只能把完整字符串丢给通用引擎，复用模式又隐掉了。</p><p><span class="marginnote">论文把 SGLang 写成 Python 内嵌 DSL，兼容控制流与库。它不负责自动改写提示词。把 DSPy 的提示优化和 SGLang 的 KV 复用当成同一层，会在排障时不知道慢在「提示更长」还是「前缀没命中」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>前端把提示状态当成可追加的流。<code>+=</code> / <code>extend</code> 追加字符串，<code>gen</code> 采样并写入命名槽，<code>select</code> 在候选里按分数挑，<code>regex</code> 把生成约束到文法，<code>image</code> / <code>video</code> 接入多模态。解释器把原语异步提交给流执行器，类似异步启动 CUDA 核：Python 继续跑，取结果时再同步。<code>fork</code> 复制提示状态做并行多路，<code>join</code> 合并。同一程序也可 trace 成图再编译，论文默认评测走解释器。</p><p>运行时第一项是 RadixAttention。请求结束后，提示与生成的 KV <strong>不立即丢</strong>，而是按 token 序列插入一棵 radix 树：边可以标一段 token，节点指向分页存放的 KV。新请求做最长前缀匹配，命中部分跳过 prefill，只对后缀前向。淘汰用 LRU，且先逐叶子，以便公共祖先尽量留到变成叶子。正在被当前 batch 引用的节点引用计数非零，不能逐。缓存与运行中请求共用同一块 KV 池：等待队列很长时，系统会把缓存页让给更大的运行中集合，而不是预留一块专用 cache。</p><p>第二项是压缩 FSM：把约束编成状态机后，把单出口的路径压成一步，从而一次前向吐多个已被文法决定的 token。第三项针对仅 API 的模型（如当时的 GPT-4）：推测执行后续 <code>gen</code> 以减少往返与输入 token 计费。开源权重走 SRT；API 模型走另一条后端。两者共享前端原语。</p><div class="mermaid"></div><h3 id="与-vllm-的关系是叠而不是替" tabindex="-1">与 vLLM 的关系是叠而不是替 <a class="header-anchor" href="#与-vllm-的关系是叠而不是替" aria-label="Permalink to &quot;与 vLLM 的关系是叠而不是替&quot;">​</a></h3><p>RadixAttention 明确写成与 continuous batching、PagedAttention、张量并行相容。差别在生命周期：vLLM 论文的主路径是请求结束归还块；SGLang 把归还延迟到 LRU 需要腾空间时。没有共享前缀的负载上，论文称额外内存与时间开销可忽略——树在 CPU 上，空树就是每次插入再很快淘汰。有共享时，吞吐来自少做的 prefill，不是来自更快的 decode 核。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>KV 只依赖前缀 token。因此相同前缀的两次调用，键值张量可以字节级相同，复用是精确的，不改变采样分布。命中率定义为缓存住的提示 token 数比上提示 token 总数。等待队列里的执行顺序会影响命中：在无关请求之间来回切会导致颠簸。SGLang 用缓存感知调度，按已匹配前缀长度排序，优先最长共享前缀；离线情形下这与在请求的 radix 树上做 DFS 等价，论文给了最优命中的定理（在缓存容量不小于最长请求、且忽略输出长度不确定性等假设下）。在线时 DFS 会被打乱，算法仍在「当前树的加厚部分」上近似 DFS。</p><p>多调用程序的加速往往集中在 prefill。代理每一步都带同一段工具说明、few-shot 每条样本共享同一示例块、多轮聊天共享系统提示加历史。Decode 步仍要逐步读不断变长的 KV，Radix 不改变 decode 的带宽屋顶线。把「6.4× 吞吐」听成「每步 GEMM 快 6.4 倍」，是把程序级复用说成核级加速。该数字来自论文在代理、推理、few-shot、JSON、RAG、多轮及多模态等负载上相对 Guidance、vLLM、LMQL 的峰值，硬件与模型（Llama 7B/70B、Mixtral-8x7B、LLaVA 等）写在实验节，不能当常数抄到另一张集群。</p><p><span class="marginnote">前端提示（fork 先发前缀）是共设计的例子：运行时若只收到完整字符串，仍能匹配，但插入与调度更难保证「先有可共享节点」。语言把结构说出来，运行时才能把结构变成树操作。</span></p><h3 id="约束路径上的压缩与掩码" tabindex="-1">约束路径上的压缩与掩码 <a class="header-anchor" href="#约束路径上的压缩与掩码" aria-label="Permalink to &quot;约束路径上的压缩与掩码&quot;">​</a></h3><p>合法下一步往往远小于词表。逐步掩码保证结构正确，但逐步前向的开销还在。压缩 FSM 找到「中间没有分支」的 token 链，一次写入多个 token 并推进状态。这与采样随机性不冲突：有分支的地方仍要跑模型。JSON 的固定键名、引号、逗号特别吃这一招。更一般的 CFG 与运行时掩码缓存是 Outlines / XGrammar 的故事，SGLang 运行时后来也接这些引擎；论文原文的贡献点是压缩 FSM 这条加速。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Radix 对「完全无共享」的单轮短补全帮助很小，论文也写了无复用机会时的对比。此时应看连续批与核，而不是强行调大缓存。贪心的最长前缀优先可能饿死短前缀请求，公平性要另接；原文把与公平调度的结合列为未来工作。</p><p>API 推测执行只对闭源、按 token 计费、多调用的程序有意义，不能搬到自托管 SRT 上当吞吐开关。多模态节点在树里按「图像 token 序列」对齐，编码器是否缓存、像素是否参与键，取决于实现；不要假设文本 radix 自动覆盖视频。分布式数据并行下，每张卡一份分片 KV、树操作相同；跨机前缀命中还要 <a href="/llm/decode-affinity">decode 亲和</a>，单机 radix 不够。</p><p><span class="marginnote">出处钉 Zheng 等 NeurIPS 2024 / arXiv:2312.07104 与 <a href="https://github.com/sgl-project/sglang%E3%80%82%E4%B8%8D%E8%A6%81%E7%BB%99%E3%80%8C%E6%9F%90%E6%AC%A1%E5%8D%9A%E5%AE%A2%E9%87%8C%E7%9A%84" target="_blank" rel="noreferrer">https://github.com/sgl-project/sglang。不要给「某次博客里的</a> 5×」另编一篇 arXiv。LMSYS 博客与论文是同一条工作的不同文本，数字以论文实验节为准。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SGLang 是 LM 程序的前端原语加共设计运行时，不是又一个仅 HTTP 的生成服务。</li><li>RadixAttention 用前缀树 + LRU 自动留下 KV，跨调用、跨请求共享前缀而不改数值。</li><li>缓存感知调度按最长命中前缀排序；与 PagedAttention、连续批相容。</li><li>压缩 FSM 让约束解码在无分支路段一次吐多 token。</li><li>加速主要来自少做的 prefill；无共享负载不要期待同等倍率。</li><li>出处：Zheng et al., <em>SGLang: Efficient Execution of Structured Language Model Programs</em>, NeurIPS 2024（arXiv:2312.07104）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

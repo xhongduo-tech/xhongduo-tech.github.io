@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>混合检索 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_hybrid-retrieval.md.MifZB191.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="混合检索" tabindex="-1">混合检索 <a class="header-anchor" href="#混合检索" aria-label="Permalink to &quot;混合检索&quot;">​</a></h1><div class="epigraph"><p>词法模型精确匹配稀有标识符，稠密向量捕捉改写与同义；把两条排序列表融合成一条，比指望单一空间打天下更稳。</p><footer>—— 词法侧以 Robertson 的 BM25 为默认；融合常用 Cormack 等人的 Reciprocal Rank Fusion；稠密侧接 Lewis 的 RAG 检索器传统</footer></div><p>只做向量近邻时，查询里的订单号、报错码、函数名、药品商品名经常输给「语义更流畅」但不含该字符串的段落。只做 BM25 时，用户换一种说法（「怎么把请求拆成多段预填」对上「chunked prefill」）会零召回。混合检索让稀疏词法通道与稠密向量通道并行取候选，再融合成分数列表，送给生成器或<a href="/llm/rerank">重排序</a>。它不是新的嵌入模型，而是承认两种失败模式正交。本篇写 BM25 通道、双编码器通道、以及 RRF 与分数校准为什么不能互相替换。切分仍是共同前提，见 <a href="/llm/rag-chunking">向量检索与切分</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>稀疏检索把文档看成词袋：词频、逆文档频率、长度归一。BM25 对 <em>恰好出现的词</em> 极强，对同义与拼写变体弱（除非加词干、同义词表或拼写校正）。稠密检索把意思压进固定维向量，对改写强，但对高 IDF 的短标识弱——这些词在嵌入训练里出现少，向量被周围虚词带走。真实查询混合了两种需求：一句自然语言里夹着一个 <code>ECONNRESET</code>。单通道系统会在 A/B 里各赢一半查询，线上却表现为「有时神准有时瞎」。</p><p>融合也有问题。BM25 分数与余弦相似度不可比：前者随查询词数和文档长度变，后者大约在 \([-1,1]\) 或归一后的内积范围。线性加权若不做校准，权重会随语料漂移而失效。需要一种对分数尺度不敏感的融合，或一种在验证集上估权重的校准。还要决定：融合前每路取多少候选，融合后截到多少再进生成器。</p><h3 id="词法通道-bm25" tabindex="-1">词法通道：BM25 <a class="header-anchor" href="#词法通道-bm25" aria-label="Permalink to &quot;词法通道：BM25&quot;">​</a></h3><p>BM25 的核心是饱和的词频与 IDF。实现上要注意分词与查询分词一致：中文要有明确的分析器，代码与错误码应走 keyword 字段而不是被切成单字。字段加权（标题 &gt; 正文）往往比调 \(k_1,b\) 更有效。过滤（租户、语言、版本）应在倒排里做，与向量侧同一套元数据，否则两路候选的权限集合不一致，融合会把无权限文档抬上来。</p><p><span class="marginnote">BM25 不是「过时的基线」点缀。对标识符、专名、编号，它经常是主通道，向量是辅通道。反过来在纯开放问答、短问长答且没有专名时，向量可以主、BM25 辅。主辅应由查询类型决定，而不是由架构时尚决定。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>两路索引共享文档 ID 与切分版本：同一块既有倒排条目又有向量，否则融合后的 ID 对不上原文。查询时并行：一路分析器走 BM25 Top-\(n_s\)，一路嵌入走 ANN Top-\(n_d\)。\(n_s\) 与 \(n_d\) 通常大于最终 \(k\)，以便融合后仍有足够独特块。缺一路结果时（新文档只写了倒排、向量还在排队），融合应退化为单通道，而不是整次检索失败。</p><p>融合最常用 Reciprocal Rank Fusion：对每个文档累计 \(1/(c+r)\)，\(r\) 是它在该路的名次，\(c\) 是常数（常用 60）。RRF 不看原始分，只看名次，因此不怕 BM25 与余弦量纲不同。若要坚持线性加权，先把两路分数在验证查询上做 min-max 或 z-score，再扫 \(\alpha\)。有的系统按查询特征路由：含数字、含代码 token、引号内短语则提高词法权重。路由错误会比固定 RRF 更伤，要有回退。</p><div class="mermaid"></div><h3 id="向量通道-双编码器" tabindex="-1">向量通道：双编码器 <a class="header-anchor" href="#向量通道-双编码器" aria-label="Permalink to &quot;向量通道：双编码器&quot;">​</a></h3><p>向量通道沿用 RAG 的双编码器：文档块离线嵌入，查询在线嵌入。它负责改写、多语言近似、以及「用户没说出术语但描述了现象」。切分对两路的影响不同：过短的块对 BM25 仍可能靠一个关键词命中，对向量则上下文不足；过长的块对 BM25 会稀释 TF，对向量会平均化。混合不能当切分失败的补丁，但可以降低「只靠一路时切分必须完美」的压力。嵌入版本与分析器版本要一起记录，否则线下评测的融合权重不能搬到线上。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RRF 的直觉是：两路都排得很靠前的块应优先；只在一路排第一、另一路没有的块仍保留，但分数低于双命中。这天然抑制「向量近邻里的主题相似但关键词全无」独占 Top-1，也让「BM25 精确命中但语义段落不完整」有机会被向量侧的姐妹块补上——前提是切分让姐妹块有独立 ID。常数 \(c\) 降低极端第一名的垄断；\(c\) 过小则第一名过强，\(c\) 过大则名次差被抹平。</p><p>校准加权能表达「本语料上向量整体更准」，但当查询分布切换（从客服 FAQ 转到工单号查询）权重会错。生产上更稳的是 RRF 加轻量路由，而不是一套全局 \(\alpha\) 吃所有流量。融合之后若仍接重排，混合的任务是 <em>召回</em>：宁可多给交叉编码器 50–100 条，也不要在融合阶段用过小的 \(k\) 把真值切掉。重排再负责精度。</p><p><span class="marginnote">不要把 SPLADE、ColBERT 与「BM25+向量」混称为同一种混合。SPLADE 学稀疏向量，ColBERT 做 token 级延迟交互，它们是第三种索引形态。本篇的混合特指词法倒排与句级双编码器两条现成通道的融合。</span></p><h3 id="融合-rrf-与分数校准" tabindex="-1">融合：RRF 与分数校准 <a class="header-anchor" href="#融合-rrf-与分数校准" aria-label="Permalink to &quot;融合：RRF 与分数校准&quot;">​</a></h3><p>RRF 忽略绝对分，因而也忽略「BM25 分很高是因为查询词全是停用词」这类信号——分析器应先去掉无意义查询。校准加权能用上绝对分，需要稳定的分数分布，ANN 的近似、分片、副本之间应避免分数不可复现。评测要按查询类型切片：有标识符的、纯改写的、混合的，分开报召回@k。只报一个 macro 平均，会让主通道选错。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>混合翻倍的是 <em>检索</em> 基础设施：两套索引、两套延迟、两套更新。文档删除必须两路都删，否则权限泄漏。延迟上可并行，尾延迟取 max 再加融合，通常仍远小于交叉编码器重排。极短查询（一个词）BM25 足够，向量可能把同主题长文推上来；极长查询（整段日志）应先抽关键 token 再走词法，把整段塞进嵌入也可能超模型长度。</p><p>不要为混合而混合：验证集上单通道已饱和时，第二路只增加近重复。近重复抑制（MinHash / 标题去重）在融合后比融合前更重要，因为两路会把同一节的不同切块都送上来。出处以 BM25 综述、RRF 的 SIGIR 短文、以及稠密检索 / RAG 论文为准，不要伪造「Hybrid RAG 2024 标准公式」的 arXiv。</p><p><span class="marginnote">查询里的引号短语应走词法强制匹配（phrase query），不要指望融合权重「学会尊重引号」。用户已经用标点表达了精确意图，丢掉是产品 bug。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>词法通道保标识符与专名，向量通道保改写；失败模式正交，故值得融合。</li><li>两路必须共享块 ID、切分版本与权限过滤。</li><li>RRF 按名次融合，避免 BM25 与余弦量纲不同；线性加权需要校准且怕分布漂移。</li><li>混合主攻召回，精度交给可选重排；融合前的 \(n\) 应大于最终 \(k\)。</li><li>切分失败不能单靠混合修复；近重复会在双通道下放大。</li><li>按查询类型切片评测，避免一个平均分掩盖主通道选错。</li><li>出处：Robertson &amp; Zaragoza, BM25 综述；Cormack et al., Reciprocal Rank Fusion, SIGIR 2009；Lewis et al., RAG, NeurIPS 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

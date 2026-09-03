@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MCTS 用于语言模型 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mcts-llm.md.6hK2hnES.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="mcts-用于语言模型" tabindex="-1">MCTS 用于语言模型 <a class="header-anchor" href="#mcts-用于语言模型" aria-label="Permalink to &quot;MCTS 用于语言模型&quot;">​</a></h1><div class="epigraph"><p>用蒙特卡洛树搜索把策略先验与搜索结合起来：选择、扩展、模拟、回传，用访问次数而不是单次贪心来决定走哪一步。</p><footer>—— 对照 Silver 等 AlphaZero（2017）的搜索循环，以及把它套到冻结语言模型上的公开做法</footer></div><p>蒙特卡洛树搜索（MCTS）在 AlphaGo / AlphaZero 里与可学习的策略、价值网络绑在一起，从自我对弈中改进网络。语言模型上的 MCTS 通常 <em>不</em> 重新训练一棵从零开始的棋力：策略先验来自已经训好的 \(\pi\)，逐步或终局打分来自规则、结果模型或<a href="/llm/prm-guided-search">过程奖励</a>，树只存在于一次题目的推理过程中。本篇写清 AlphaZero 对照下，哪些部件被换成了 LLM，哪些没有被换成——尤其不要把一次带搜索的解码写成「语言模型版 AlphaZero 已经完成自我对弈训练」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>逐步生成是一棵巨大的树：每步分支约等于词表大小。束搜索固定宽度且不回头；独立<a href="/llm/best-of-n">Best-of-N</a> 不共享中间计算，错的前缀会在 \(N\) 条里重复付费。需要一种允许 <em>在高价值前缀上加模拟、在低价值前缀上少访问</em> 的预算分配。MCTS 用 UCB 一类指数把探索与利用写进选择规则，使同一笔测试时 FLOPs 不必均匀洒在 \(N\) 条完整链上。</p><p>障碍同样具体。棋类动作集小、规则确定、终局可判定；语言动作集是词表，多数 token 不是「一步推理」，模拟（rollout）本身还要再跑模型直到 EOS，代价远高于走子。价值估计若只用终端对错，树深时方差极大；若用 PRM，则搜索质量封顶在过程模型的校准上。公开工作如 Hao 等人 2023 年的 RAP（把语言模型当世界模型做推理规划）、Yao 等人的 Tree of Thoughts，都是在 <em>缩小动作空间</em>（句子级/步骤级分支，而不是每个 token）之后，搜索才跑得动。</p><h3 id="动作粒度必须先切粗" tabindex="-1">动作粒度必须先切粗 <a class="header-anchor" href="#动作粒度必须先切粗" aria-label="Permalink to &quot;动作粒度必须先切粗&quot;">​</a></h3><p>token 级 MCTS 对 32K 词表几乎不可用：扩展一步就要对大量子节点做先验或采样。实践把「动作」定义成一个推理步骤、一行方程、或一个思维句，由模型一次解码出整个动作，再作为树边。这已经不是 AlphaZero 的合法棋步集合，而是用 \(\pi\) 当提议分布的分层搜索。评测应写明分支是步骤还是 token，否则模拟次数不可比。</p><p><span class="marginnote">AlphaZero 的价值网络与策略网络在搜索与自我对弈中 <em>共同训练</em>。LLM+MCTS 的默认形态是网络冻结、只在测试时搜。Snell 等 2024 把带 PRM 的 lookahead 视为去掉随机探索之后的 MCTS 特例，强调测试时更想利用而不是为了学 \(V\) 去探索。两套目标不要混写。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一次查询上的经典四步：</p><ol><li><strong>选择</strong>：从根沿树走到叶，每步取 \(\arg\max_a Q(s,a)+U(s,a)\)。\(U\) 含先验 \(P(a\mid s)\)（来自 \(\pi\) 的步骤对数概率或采样频率）与访问次数 \(N\)。</li><li><strong>扩展</strong>：在叶上向 \(\pi\) 要 \(k\) 个新步骤（采样，不是整词表展开）。</li><li><strong>模拟</strong>：从新节点继续生成到可打分的终点，或用 PRM/价值头直接估，免去完整 rollout。</li><li><strong>回传</strong>：把终局或逐步分数加回路径上的 \(Q\)。</li></ol><p>预算用模拟次数或生成 token 数衡量。最终答案可以取根上访问最多的子节点，或所有完成轨迹里 \(s\) 最高的一条。后者更像在树的叶子上做 BoN。</p><div class="mermaid"></div><h3 id="与-alphazero-的部件对照" tabindex="-1">与 AlphaZero 的部件对照 <a class="header-anchor" href="#与-alphazero-的部件对照" aria-label="Permalink to &quot;与 AlphaZero 的部件对照&quot;">​</a></h3><p>| 部件 | AlphaZero | 典型 LLM 用法 | | 根状态 | 棋盘 | 提示 + 已写步骤 | | 先验 \(P\) | 训练中的策略网 | 冻结 LM 的步骤分布 | | 价值 \(V\) | 训练中的价值网 | 规则 / ORM / PRM / 再 decode | | 环境转移 | 确定的规则 | 文本拼接；没有外部棋规 | | 学习 | 自我对弈更新网 | 通常不更新；至多离线存轨迹再 SFT/RL |</p><p>转移函数是「把步骤文本接上去」，世界模型就是语言模型自己——RAP 把这一点写进方法名。没有独立的合法步检查时，树会扩展出语法正确但数学非法的边，只能靠 \(s\) 事后打折扣。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>UCB 把预算压向 \(Q\) 高且访问少的边。若 \(Q\) 来自可靠的逐步分，搜索会在分叉点加模拟，类似人在草稿纸上对可疑步骤多试几次。若 \(Q\) 来自嘈杂的终端 0/1，早期深度的节点共享太少终局样本，\(U\) 项会把预算浪费在尚未区分的噪声分支上。这就是为什么 PRM 或短 lookahead 往往比纯终局 MCTS 更划算：不是 MCTS 魔法，是方差。</p><p>计算上，每次扩展/模拟都是一次或多次 decode，KV 可以按节点缓存前缀，但节点一多，缓存寿命与显存策略立刻变成系统问题，见<a href="/llm/decode-memory-wall">Decode 的显存墙</a>。共享前缀的树比独立 BoN 更省 prefill，这是 MCTS 在相同 token 预算下有时更优的系统原因，而不只是算法原因。</p><p><span class="marginnote">探索常数 \(c\) 与先验温度决定树是瘦而深还是宽而浅。把 \(c\) 抄自棋类默认值通常过大：语言模型先验已经很锋利，\(c\) 大会变成随机宽度搜索，退化为更贵的采样。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="测试时搜索不是自我对弈训练" tabindex="-1">测试时搜索不是自我对弈训练 <a class="header-anchor" href="#测试时搜索不是自我对弈训练" aria-label="Permalink to &quot;测试时搜索不是自我对弈训练&quot;">​</a></h3><p>不要把「用了 MCTS」写成模型通过搜索学会了推理。冻结 \(\pi\) 上的搜索只改变该次查询的计算图，下次查询树清空。要把搜索轨迹蒸馏回权重，需要额外的 SFT 或 RL 工序，那是训练，应单独报成本。OpenAI 关于 o1 的公开说明强调强化学习与思维链，没有给出可引用的 MCTS 超参；对照应停在博客表述，不要补一篇不存在的树搜索论文。</p><p>步骤切分失败时（模型不分步、一步里塞完整答案），树退化成 BoN。PRM 与 \(\pi\) 来自不同训练分布时，\(Q\) 会系统性偏爱某种书写风格。安全：搜索会最大化 \(s\)，若 \(s\) 不包含拒答，MCTS 比单次采样更会找到越狱完成路径。预算封顶必须同时限制深度、分支和总 token，否则一次难题可以打满服务队列。</p><p><span class="marginnote">可引用：Silver et al., AlphaZero, 2017；Hao et al., <em>Reasoning with Language Model is Planning with World Model</em> (RAP), 2023；Yao et al., Tree of Thoughts, 2023；Snell et al., 2024 中与 lookahead / MCTS 的讨论。不要虚构「LLM-AlphaZero 2024」的 arXiv 编号。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LLM 上的 MCTS 多半是冻结策略 + 外部 \(s\) 的测试时搜索，不是 AlphaZero 式的自我对弈训练循环。</li><li>动作应切成步骤级，否则词表分支使扩展不可行。</li><li>四步循环仍在；价值来源决定方差，PRM/lookahead 往往比纯终局模拟更划算。</li><li>共享前缀让树搜索在系统上可能优于独立 BoN，但 KV 与节点数会重新碰到显存墙。</li><li>探索常数不能直接抄棋类；\(c\) 过大即昂贵随机采样。</li><li>搜索轨迹要进权重必须另做蒸馏或 RL；o1 的内部搜索未公开到可复现的树超参。</li><li>出处：Silver et al., <em>Mastering Chess and Shogi by Self-Play…</em>, 2017；Hao et al., RAP, 2023；Yao et al., <em>Tree of Thoughts</em>, 2023；Snell et al., 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

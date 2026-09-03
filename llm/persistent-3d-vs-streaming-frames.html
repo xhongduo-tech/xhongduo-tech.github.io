@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>持久三维世界 vs 边走边生成帧 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_persistent-3d-vs-streaming-frames.md.qRTZdzoh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="持久三维世界-vs-边走边生成帧" tabindex="-1">持久三维世界 vs 边走边生成帧 <a class="header-anchor" href="#持久三维世界-vs-边走边生成帧" aria-label="Permalink to &quot;持久三维世界 vs 边走边生成帧&quot;">​</a></h1><div class="epigraph"><p>Marble 做出可下载的持久三维环境，而不是在你探索时当场生成世界；后者正是实时帧模型那条路。</p><footer>—— 对照 World Labs 对 Marble 与 RTFM 的产品分工（公开报道与博文）</footer></div><p>同一家实验室两条出世界的路。Marble 把结果写成可导出的三维资产：高斯溅射、网格、可控相机视频，世界在你关掉标签页之后仍在磁盘上。RTFM（Real-Time Frame Model）在你移动时当场出下一帧，表示主要留在带位姿的帧记忆与网络激活里，不先建成一份可下载的场景再光栅化。本篇只做对比：持久三维与边走边出帧各承诺什么、各在哪一类任务上更省事，不展开任一侧的完整架构或编辑工具。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>用户说「我要一个能走进去的世界」时，其实在要两种可能不相容的东西。一种是资产：交给引擎、交给 DCC、交给下一个人，几何与外观应相对固定，回头看昨天走过的角落应还在。另一种是体验：现在就绕着这张照片转，延迟要到交互帧率，不必先等重建结束，也不必把场景塞进显存里当网格。传统图形管线默认第一种：先有表示，再渲染。生成视频默认既不是第一种也不是第二种：它出的是一条不能回头改相机的像素带。</p><p>World Labs 把第一种交给 Marble，把第二种交给 RTFM。对比的核心不是谁更「智能」，而是世界的存储位置。持久三维把世界存在显式几何（或等价的三维原语）里；边走边出帧把世界存在「已经生成的带位姿帧 + 还能继续问模型要帧」里。选错存储位置，后面的工具链会整段作废：游戏要碰撞与导出，却只拿到一段实时视频；概念预览要立刻转圈，却被网格烘焙卡在分钟级。</p><h3 id="形变与不一致性从哪来" tabindex="-1">形变与不一致性从哪来 <a class="header-anchor" href="#形变与不一致性从哪来" aria-label="Permalink to &quot;形变与不一致性从哪来&quot;">​</a></h3><p>当场出帧的系统每次都在采样，历史约束若不够硬，同一面墙会在第二次经过时换纹理、换几何，这就是形变。持久资产把采样提前做完，漫游时只做确定的渲染，形变被压到生成那一次；之后的不一致主要来自表示本身的缺陷（空洞、浮点、简化网格），而不是每帧重新发明。公开对比里强调 Marble 因持久可下载而更少「边走边长」的形态漂移，针对的正是这种差异。</p><p><span class="marginnote">RTFM 博文仍把「转过身世界还在」写成目标，并用带位姿的空间记忆去逼近持久。那是隐式持久：世界没有忘记你，但你未必拿得到一份独立于模型权重的文件。Marble 的持久是资产持久。两个「持久」不要读成同一个词。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="持久三维-先提交-再渲染" tabindex="-1">持久三维：先提交，再渲染 <a class="header-anchor" href="#持久三维-先提交-再渲染" aria-label="Permalink to &quot;持久三维：先提交，再渲染&quot;">​</a></h3><p>Marble 的合同是：输入提示或观测，输出一份可离开生成服务而存在的 \(W\)。\(W\) 可以是三维高斯集合、视觉网格或碰撞网格。此后任意相机 \(T\) 的图像由经典或近经典的渲染器 \(R(W,T)\) 给出，不必再问生成模型。提交（commit）发生在导出时刻：你接受这份资产，后续管线当它是真的场景。编辑、扩展、拼世界都是在改 \(W\)，而不是改某一帧。</p><h3 id="边走边出帧-查询即渲染" tabindex="-1">边走边出帧：查询即渲染 <a class="header-anchor" href="#边走边出帧-查询即渲染" aria-label="Permalink to &quot;边走边出帧：查询即渲染&quot;">​</a></h3><p>RTFM 的合同是：给定已有帧与要去的新位姿，模型直接给出新图像。世界的工作表示是激活与 KV，外加按空间取回的近邻帧（公开叙述里的 context juggling）。没有单独的「先写盘再打开」步骤。效率目标写得很具体：单卡 H100 上交互帧率。它把自己当成从数据端到端学成的渲染器，而不是先预测网格再走光栅化。</p> \[I_{\mathrm{Marble}}(T)=R_{\mathrm{gfx}}(W_{\mathrm{exp}}, T), \qquad I_{\mathrm{RTFM}}(T)=f_\theta(\mathcal{M}(T), T). \]<p>左边 \(W_{\mathrm{exp}}\) 已导出；右边 \(\mathcal{M}(T)\) 是按查询位姿取出的帧记忆，随探索更新。</p><div class="mermaid"></div><p><span class="marginnote">两条路可以接力：公开叙述提到用 Marble 生成世界再用 RTFM 渲染复杂光影。那是管线组合，不是把对比取消。对比仍然成立：最终交付物是资产还是帧流。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>持久资产把计算预算花在生成那一次。生成可以慢、可以离线、可以用更大的模型，因为漫游不再付生成费，只付渲染费。高斯溅射或网格的渲染成本随原语数量增长，但与「再跑一遍扩散变换器」不是同一量级。代价是：未生成到的区域不会在你走过去时凭空变清晰，除非再走一趟生成（扩展、重烘焙）。世界的边界是资产的边界。</p><p>边走边出帧把计算预算花在每一帧。模型必须小而快，或高度蒸馏，才能在单卡上跟手。它换来的是：你朝没见过的方向走，系统仍能出画，不必先有那一区的网格。代价是每帧都有采样误差，长期一致性要靠空间记忆而不是靠磁盘上的真值。记忆按位置取回，避免上下文随探索线性胀到不可算——这是实时帧路线能「一直走下去」的机制，但也说明世界没有一份与路径无关的完整拷贝。</p><h3 id="评测应分开" tabindex="-1">评测应分开 <a class="header-anchor" href="#评测应分开" aria-label="Permalink to &quot;评测应分开&quot;">​</a></h3><p>资产路线应测：导出后换实现是否仍像同一世界、多视角是否锁死、能否进引擎。帧路线应测：帧率、长时探索后是否遗忘、转身回来是否还能对上。用资产的网格误差去打分实时帧模型，或用第一人称观感去打分导出网格，都会得出无意义的胜负。形变这项尤其如此：它是帧路线的典型病，不是网格简化的典型病。</p><p><span class="marginnote">「实时」在两边意思不同。资产侧的实时是渲染实时；帧侧的实时是生成实时。把 Marble 预览窗口的帧率拿来和 RTFM 的生成帧率比，是把光栅化吞吐和网络前向比成一个数。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>本对比不包含谁更接近空间智能的终局。显式三维更利于碰撞、编辑、工业工具链；隐式帧更利于复杂外观、反射、以及在没有网格的情况下先探索。终局系统很可能两者都要：探索用帧，提交用资产。现在把其中一条说成已经过时，会误导选型。</p><p>不要把 RTFM 的「不建显式三维」读成「没有三维」。它把位姿当查询键，先验仍是欧氏三维，只是不把物体几何写成独立文件。也不要把 Marble 的可下载读成「已经仿真」。下载的是静态或准静态世界，动力学仍要引擎或后续模型。对比轴只有一条：世界是否作为独立于本次会话的三维资产存在。</p><p>工程配额也不同。资产要存溅射点数、网格面数、贴图；有上限（产品文档里对溅射计数有配额一类约束）。帧流要存近期位姿帧与 KV，配额是显存与上下文策略。搬家、协作、版本管理：资产可以进 Git 或网盘；帧记忆很难离开原模型原权重谈复现。需要交付给他人时，持久三维几乎是强制选项。需要此刻在浏览器里证明「这张图后面还有空间」时，边走边出帧更便宜。</p><p>另一条边界是本篇不讨论的后续题目：实时帧的形变细节、Marble 的编辑器与溅射格式。对比只需记住决策问题：你要带走的是文件，还是一次还在线的生成会话。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Marble 提交持久三维资产再渲染；RTFM 按相机查询当场出帧，不先导出场景。</li><li>两个「持久」不同：资产持久是文件还在；帧记忆持久是模型还记得你走过的地方。</li><li>形变主要来自每帧重采样；导出后再光栅化会把这类漂移挡在生成阶段之外。</li><li>计算付费点不同：资产付一次生成，帧路线付每一帧。</li><li>评测与工具链应按交付物选择，不要用同一张观感表决胜。</li><li>出处：World Labs，<em>Marble: A Multimodal World Model</em>；<em>RTFM: A Real-Time Frame Model</em>；公开报道中对可下载环境与当场生成的对照。本篇只比较存储与交付，不代替任一侧的专论。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adapter 层 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_adapters.md.r5Sn-_r6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="adapter-层" tabindex="-1">Adapter 层 <a class="header-anchor" href="#adapter-层" aria-label="Permalink to &quot;Adapter 层&quot;">​</a></h1><div class="epigraph"><p>在冻结的 Transformer 块里插入瓶颈：先压到很小的维，再扩回原宽，用残差把这点增量加回去。任务换一份小模块即可，不必复制整网。</p><footer>—— Houlsby 等，Parameter-Efficient Transfer Learning for NLP，ICML 2019</footer></div><p>LoRA 出现之前，NLP 里已经有一条成熟的参数高效路线：Houlsby 等人在 BERT 类模型的注意力与前馈之后各插一个瓶颈适配器，基座冻结，只训适配器与层归一化。下游每个任务一份适配器，体积远小于全参副本，切换任务就是切换这几层小矩阵。今日它不再是大模型微调的默认——LoRA 把增量融进现有线性层，推理可以合并得更干净——但瓶颈残差这一结构仍是后续 PEFT 的原型：先降维、再非线性、再升维、加回原流。理解 Adapter，是为了看清 LoRA、IA3 各自省略了什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>逐任务全参微调在 BERT 时代已经贵：任务数量乘以模型副本，部署与存储先爆。特征提取（全冻只训分类头）又往往不够，因为分类头看不见需要改写的内部表示。需要一种插入式模块：参数少、能改中间表示、任务之间隔离。插入位置必须与 Transformer 的残差对齐，否则冻结主干的梯度高速公路会被打断，适配器自己也难训。</p><p>瓶颈是容量与成本的折中。适配器宽度若等于隐层宽度，参数量回到与一层 FFN 同阶，失去「高效」。若过窄，非线性再强也表达不了任务所需的方向。Houlsby 等人把这个问题写成可扫的瓶颈维 \(d_a\ll d\)，并用实验表明百分之几的额外参数即可在 GLUE 上接近全参微调。问题的另一半是放几处：只放 FFN 后，还是注意力后也放；以及适配器内部要不要自己的残差与归一化。</p><h3 id="与分类头微调的差别" tabindex="-1">与分类头微调的差别 <a class="header-anchor" href="#与分类头微调的差别" aria-label="Permalink to &quot;与分类头微调的差别&quot;">​</a></h3><p>只训头，等于假设预训练表示已经是任务的充分统计。适配器允许在每一块之后对表示做一次任务相关的非线性修正，再送入下一块。修正是局部的、可叠加的：深层适配器看到的是已经被浅层适配器改过的表示。这比「最后线性探针」强，又比「所有 \(W\) 都动」隔离——任务 A 的适配器不会改写任务 B 要加载的那些矩阵。</p><p><span class="marginnote">Houlsby 适配器是串在子层输出上的模块，不是低秩分解原权重。LoRA 后来把「增量」塞回 \(W\) 的加性低秩项，推理可合并；经典 Adapter 在推理期仍是额外的两层小 MLP，除非另行蒸馏或折叠。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记子层输出为 \(h\in\mathbb{R}^{d}\)（注意力或 FFN 之后）。Houlsby 适配器为</p> \[h \leftarrow h + W_{\mathrm{up}}\,f(W_{\mathrm{down}} h), \]<p>其中 \(W_{\mathrm{down}}\in\mathbb{R}^{d_a\times d}\)，\(W_{\mathrm{up}}\in\mathbb{R}^{d\times d_a}\)，\(f\) 为非线性（原文用 GELU）。内部残差保证初始化若令 \(W_{\mathrm{up}}\) 近零，适配器起步接近恒等，不破坏预训练前向。每个 Transformer 块插两处：多头注意力之后、前馈之后，都在块级残差与 LayerNorm 的既有结构里。可训练参数还包括 LayerNorm 的仿射，以便尺度能跟着任务走。</p><p>瓶颈比 \(d_a/d\) 给出额外参数相对基座的比例：两处适配器、每处 \(2dd_a\)，再乘层数。\(d_a=64\)、\(d=768\) 的 BERT-Base 上，额外参数大约几个百分点。训练时基座权重 <code>requires_grad=False</code>。多任务即多套 \((W_{\mathrm{down}},W_{\mathrm{up}})\)，推理加载对应套件。</p><div class="mermaid"></div><p>后续工程把插法收窄：例如只在 FFN 后插一个适配器（常称 Pfeiffer 风格），参数再减一截，很多任务上足够。这不否定 Houlsby 的双插入，只是说明「注意力后再改一次」并非所有下游都必要。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="瓶颈非线性比线性低秩多了什么" tabindex="-1">瓶颈非线性比线性低秩多了什么 <a class="header-anchor" href="#瓶颈非线性比线性低秩多了什么" aria-label="Permalink to &quot;瓶颈非线性比线性低秩多了什么&quot;">​</a></h3><p>LoRA 的 \(BA\) 是线性的（再乘常数 \(\alpha/r\)）。适配器在瓶颈里放了 \(f\)，可以在 \(d_a\) 维里做按坐标的弯曲，再映回 \(d\) 维。对需要「门控某些特征、折叠另一些特征」的任务，这一点非线性有用。代价是无法把适配器合并进相邻的冻结线性层：GELU 挡在中间，\(W_{\mathrm{up}}f(W_{\mathrm{down}}W_0x)\) 不等于某张新的线性权重乘 \(x\)。因此 Adapter 的部署默认永远多两次小矩阵乘，LoRA 合并后可以是零额外层。这是结构表达力与推理开销的交换。</p><p>残差加近零初始化，使早期梯度主要流过主干，适配器慢慢承担任务差。若 \(W_{\mathrm{up}}\) 随机且尺度大，插入本身就会把预训练表示打偏，冻结主干无法纠正——因为主干不更新。这一初始化纪律与 LoRA 的 \(B=0\) 同类。</p><p><span class="marginnote">适配器的降维是任务相关的随机（可学习）投影，不是 PCA。它不必保留预训练的主方差方向；它可以丢掉对当前任务无用的方差，这正是迁移所要的。</span></p><h3 id="任务隔离与组合" tabindex="-1">任务隔离与组合 <a class="header-anchor" href="#任务隔离与组合" aria-label="Permalink to &quot;任务隔离与组合&quot;">​</a></h3><p>每套适配器是独立参数。切任务不改 \(W_0\)，没有权重算术冲突。若要同时服务两个任务，可以把两套适配器的输出相加，或在瓶颈维拼接再学一个混合，但那已超出原文设定。原文的使用方式是：一份基座，任务之间硬切换。与 LoRA 融合（任务向量相加）相比，Adapter 的非线性使「相加再训练」没有同样干净的代数。多适配器并行服务是工程层的路由问题，不是瓶颈公式自带的性质。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>在今日解码器大模型上，Houlsby 双插入加每层两次额外 MLP，训练吞吐与推理延迟都不如可合并的 LoRA。它仍适用于：必须保留非线性瓶颈、需要与 2019 年以来的适配器库兼容、或研究「插入式模块」本身。瓶颈维 \(d_a\) 与 LoRA 的 \(r\) 不是同一单位：一个是非线性隐层宽，一个是线性低秩。把 \(d_a=r\) 当公平对照会低估或高估某一方，对照应比可训练参数量与推理 FLOPs。</p><p>LayerNorm 是否解冻影响很大。只训适配器、冻住 LN，尺度不能跟任务走，有时表现为怎么加 \(d_a\) 都不涨点。解冻 LN 则每任务要存 \(\gamma\)、\(\beta\)，切换时漏加载 LN 会出现「适配器在、模型仍像基座」的假失败。</p><p><span class="marginnote">Adapter 不是 IA3。IA3 用向量去乘激活，没有瓶颈 MLP。也不是 Prefix-Tuning：前缀改注意力记忆，适配器改子层输出的特征。三个名字常被堆在 PEFT 综述里，插入点与函数类都不同。</span></p><h3 id="何时仍优先-adapter" tabindex="-1">何时仍优先 Adapter <a class="header-anchor" href="#何时仍优先-adapter" aria-label="Permalink to &quot;何时仍优先 Adapter&quot;">​</a></h3><p>需要在冻结主干上表达明显非线性的任务偏移，且推理可以承受额外 MLP；或监管、合规要求「基座权重字节级不变、增量可审计地隔离」——瓶颈模块作为独立文件比合并后的 \(\Delta W\) 更好拆送。若目标是单卡训 65B 再合并部署，LoRA / QLoRA 更顺。把 Houlsby 结构当作默认插入 PEFT，在 2019 年正确，在今日需要显式理由。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Houlsby 适配器是插在注意力与 FFN 之后的瓶颈残差：降维、非线性、升维。</li><li>近零升维初始化使起步接近恒等，基座冻结仍可稳定训练。</li><li>非线性挡在中间，默认不能合并进相邻线性层，推理保留额外矩阵乘。</li><li>瓶颈维决定容量；后来的单插入变体用更少参数换接近的效果。</li><li>任务之间靠整模块切换隔离；非线性使简单的权重加法融合不像 LoRA 那样干净。</li><li>与 LoRA、前缀、IA3 的差别在插入点与函数类，不只在参数量。</li><li>出处：Houlsby 等，<em>Parameter-Efficient Transfer Learning for NLP</em>，ICML 2019。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>瑞利判据：CD = k₁ λ / NA | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rayleigh-litho.md.DJIRq47J.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="瑞利判据-cd-k1-λ-na" tabindex="-1">瑞利判据：CD = k₁ λ / NA <a class="header-anchor" href="#瑞利判据-cd-k1-λ-na" aria-label="Permalink to &quot;瑞利判据：CD = k₁ λ / NA&quot;">​</a></h1><div class="epigraph"><p>光刻能印出的最小线宽，由波长除以数值孔径，再乘一个工艺因子：CD = k₁ λ / NA。少写 k₁ 或改成 0.61，公式就不再是这条产线用的判据。</p><footer>—— Rayleigh / Abbe 分辨极限在投影光刻中的工程形式；k₁ 由照明、掩模与光刻胶共同决定</footer></div><p>从本篇起进入光刻。芯片上的栅极、金属线、通孔，先作为掩模上的图形，再被投影光学系统印到硅片的光刻胶里。光学系统能分开多细的线，受衍射限制。显微镜教材里的瑞利两针孔分辨距常写成 \(0.61\,\lambda/\mathrm{NA}\)；那是非相干成像下「刚能分开两个艾里斑」的判据，<strong>不是</strong>产线用来报分辨率的那条式子。投影光刻把同一物理改写成临界尺寸</p> \[\mathrm{CD} = k_1 \frac{\lambda}{\mathrm{NA}}. \]<p>\(\lambda\) 是曝光波长，\(\mathrm{NA}\) 是物镜数值孔径，\(k_1\) 是无量纲工艺因子。少了 \(k_1\)，无法解释为什么同一台 193 nm 浸没机台既能做较松的层、又必须靠多重曝光才能走进更小节点。本篇只钉这条式子与三个量的含义，波长台阶与浸没、EUV 放在后续各篇。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>衍射让有限口径的透镜无法把掩模上的理想锐边一对一地搬到晶圆。点扩散是艾里斑一类的衍射核，两个近邻图形的像会叠在一起，对比度下降，胶无法在显影后留下可靠的线宽。工程上要的不是「理论上刚能看见两个点」，而是「在给定套刻、焦深、胶与照明条件下，能稳定印出的最小半节距或线宽」。这个稳定值叫临界尺寸（critical dimension, CD），必须写成可代入产线参数的公式。</p><p>若直接套用显微镜的 \(0.61\lambda/\mathrm{NA}\)，会得到一个与工艺无关的硬下限。真实产线却能靠离轴照明、相移掩模、光学邻近修正把有效分辨率往下推，也能因为胶对比不足、照明相干性不合适而远差于该数。缺少 \(k_1\)，这两种方向都写不进公式。</p><h3 id="不要把-0-61-叫成光刻的-k1" tabindex="-1">不要把 0.61 叫成光刻的 k₁ <a class="header-anchor" href="#不要把-0-61-叫成光刻的-k1" aria-label="Permalink to &quot;不要把 0.61 叫成光刻的 k₁&quot;">​</a></h3><p>显微镜瑞利判据来自第一类贝塞尔函数的第一零点，系数约 0.61（有时用阿贝的 \(0.5\lambda/\mathrm{NA}\)）。光刻的 \(k_1\) 不是这个物理常数。它是经验与工艺的打包：照明空间相干性、掩模类型（二进制还是相移）、图形是密集线还是孤立线、胶的对比度与显影、以及计算光刻把能量打进哪些空间频率。同一 \(\lambda\) 与 \(\mathrm{NA}\) 下，\(k_1\) 可以从大约 0.8 的宽松工艺走到接近 0.25 的激进工艺；低于约 0.25 时，即使理论光学还在，单次曝光的工艺窗口通常关死，必须多重图形化或换更短波长。</p><p><span class="marginnote">公式必须是 \(\mathrm{CD}=k_1\lambda/\mathrm{NA}\)。写成 \(\mathrm{CD}=\lambda/\mathrm{NA}\) 等于暗中令 \(k_1=1\)，过于乐观；写成 \(0.61\lambda/\mathrm{NA}\) 是把显微镜两针孔判据误贴到晶圆上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>用三个旋钮谈分辨率。缩短 \(\lambda\)：g 线 436 nm、i 线 365 nm、KrF 248 nm、ArF 193 nm、EUV 13.5 nm，每跳一档，同样 \(k_1\) 与 \(\mathrm{NA}\) 下 CD 按比例缩小。增大 \(\mathrm{NA}\)：干式 ArF 的 \(\mathrm{NA}\) 受空气折射率限制；浸没把水填进物镜与晶圆之间，折射率大于 1，有效 \(\mathrm{NA}\) 可到 1.35 量级；High-NA EUV 再把反射光学的孔径做大。减小 \(k_1\)：离轴照明抬高特定节距的对比，相移掩模改相位，OPC/ILT 预补偿衍射，多重曝光把一层拆成几次套刻。三条可以同时用，成本与焦深惩罚不同。</p><p>焦深是伴随量，常写成</p> \[\mathrm{DOF} = k_2 \frac{\lambda}{\mathrm{NA}^2}. \]<p>\(\mathrm{NA}\) 越大 CD 越小，焦深按平方变差，晶圆必须更平、焦距必须更稳。这是为什么不能把 \(\mathrm{NA}\) 当作免费的分辨率旋钮。\(k_2\) 同样是工艺因子，不要与 \(k_1\) 混用同一个数值。</p><div class="mermaid"></div><h3 id="半节距与「节点名」不是同一个-cd" tabindex="-1">半节距与「节点名」不是同一个 CD <a class="header-anchor" href="#半节距与「节点名」不是同一个-cd" aria-label="Permalink to &quot;半节距与「节点名」不是同一个 CD&quot;">​</a></h3><p>公式里的 CD 应指向具体图形：密集金属的半节距、孤立栅极的线宽，数值不同，\(k_1\) 也不同。商业节点名（「7 nm」「5 nm」）早已不等于某一层的最小 CD。讨论瑞利式时，代入的必须是该层曝光用的 \(\lambda\)、该机台的 \(\mathrm{NA}\)、以及该层工艺的 \(k_1\)，而不是把节点名当 \(\mathrm{CD}\) 再反推 \(k_1\)。</p><p><span class="marginnote">例：ArF 浸没 \(\lambda=193\,\mathrm{nm}\)，\(\mathrm{NA}=1.35\)，若 \(k_1=0.30\)，则 \(\mathrm{CD}\approx 43\,\mathrm{nm}\)。要到更小的半节距，不是改瑞利式的写法，而是再降 \(k_1\)（多重曝光）或换 EUV 的 \(\lambda\)。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>推导的物理图像与显微镜同源：入瞳有限，掩模衍射的高频分量进不了镜头，晶圆上的像是低频近似。瑞利/阿贝给出分辨距与 \(\lambda/\mathrm{NA}\) 成正比。光刻把比例系数改称 \(k_1\)，因为它还包含「胶把连续强度分布切成二值图形」这一非线性步：对比度够，线宽可以比光学瑞利距更瘦；对比度不够，即使光学可分，胶也并线。因此 \(k_1\) 既有光学部分，也有化学与图形密度部分。</p><p>相干性改变传递函数。部分相干照明让某些节距的调制传递更好，于是密集线的有效 \(k_1\) 可以低于孤立线。这不是公式失效，而是 \(k_1\) 对图形类别敏感。计算光刻在掩模上预畸变，等于用物体侧的自由度去换更小的有效 \(k_1\)，受的约束仍是镜头能收集的最大空间频率——也就是 \(\mathrm{NA}/\lambda\)。</p><h3 id="单次曝光的-k1-地板" tabindex="-1">单次曝光的 k₁ 地板 <a class="header-anchor" href="#单次曝光的-k1-地板" aria-label="Permalink to &quot;单次曝光的 k₁ 地板&quot;">​</a></h3><p>光学上，二维逻辑图形的单次曝光 \(k_1\) 很难无限制逼近 0。业界把大约 0.25 当作单次曝光的经验地板：再往下，工艺窗口（剂量与焦距的合格区）缩成无法量产。SADP/SAQP、LELE 把「一次成像」拆成多次，等效于用工艺复杂度换 \(k_1\)，瑞利式对每一次曝光仍然成立，对最终节距则要另写自对准节距分割。EUV 缩短 \(\lambda\)，使在可接受的 \(k_1\) 下直接得到更小 CD，而不是把 \(k_1\) 改名。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>瑞利式不包含套刻、缺陷、吞吐量、光源功率。High-NA 改善 CD，同时恶化焦深并改变机台成本；EUV 改善 \(\lambda\)，同时引入反射光学、真空与抗蚀剂随机性。不能只用 \(\mathrm{CD}=k_1\lambda/\mathrm{NA}\) 做节点路线图的全部依据。也不要把训练日志里的「分辨率」或模型里的「Nyquist」和这条式子混为一谈：那是采样理论，不是投影光学。</p><p>后续篇会分别写波长台阶、浸没、多重曝光与 EUV。本篇的约束是：凡是谈光刻分辨率，先写出 \(k_1\)、\(\lambda\)、\(\mathrm{NA}\) 三个符号，且临界尺寸取乘积 \(k_1\lambda/\mathrm{NA}\)。</p><p><span class="marginnote">出处：瑞利 1879 年对光学分辨的讨论；阿贝成像原理；现代投影光刻教科书把工程形式固定为 \(\mathrm{CD}=k_1\lambda/\mathrm{NA}\)。本篇不引用未公开的某代 EUV 机台 \(k_1\) 内部表。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>光刻临界尺寸写成 \(\mathrm{CD}=k_1\lambda/\mathrm{NA}\)，必须带工艺因子 \(k_1\)。</li><li>\(0.61\lambda/\mathrm{NA}\) 是显微镜两针孔瑞利距，不是产线 CD 公式。</li><li>缩小 CD 的三条路：更短 \(\lambda\)、更大 \(\mathrm{NA}\)、更小 \(k_1\)；焦深按 \(\lambda/\mathrm{NA}^2\) 变差。</li><li>\(k_1\) 随照明、掩模、胶与图形密度变，单次曝光有大约 0.25 的经验地板。</li><li>节点名不等于某层 CD；代入公式要用该层真实的三个量。</li><li>出处：Rayleigh 分辨判据的工程化；投影光刻中的 \(k_1\) 因子惯例。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

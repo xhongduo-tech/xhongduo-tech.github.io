@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>chunked prefill | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_chunked-prefill.md.a3lDFmYu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="chunked-prefill" tabindex="-1">chunked prefill <a class="header-anchor" href="#chunked-prefill" aria-label="Permalink to &quot;chunked prefill&quot;">​</a></h1><div class="epigraph"><p>把一次过长的前填切成若干仍能喂饱计算单元的块，迭代时间才有上界，正在生成的请求才不必为新来的长提示让路到停顿。</p><footer>—— Agrawal et al., Sarathi / Sarathi-Serve</footer></div><p>标准解码器只服务把请求分成前填与解码：前填一次性吃完整提示、写下 KV，解码再逐步追加。提示只有几百 token 时，一次前填既短又算力密集，是好事。提示到数千乃至更长时，这次前填变成一次无界的计算作业：同卡上所有解码步都要等它结束，<a href="/llm/tpot-itl">ITL</a> 出现 stall，新请求的 <a href="/llm/ttft">TTFT</a> 也取决于队头那条提示有多长。Chunked prefill 的回答很具体：前填不再是原子的，按块跨多个迭代做完。它是混合批次与 stall-free 调度的前置机制，本身并不规定如何与解码拼批。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>原子前填的调度语义是：要么整段提示进入这一次前向，要么等下一次。连续批处理只能在迭代边界插入请求，插进来的若是长前填，下一次前向的耗时随 \(n\) 二次上涨。Sarathi 把这种现象叫做 generation stall——不是解码公式坏了，是前填的粒度太大。</p><p>与此同时，GPU 并不需要整段提示才能饱和。前填是算力密集的：序列到数百 token 量级，张量核往往已经吃满。再继续加长，单次作业更重，但对「这一拍是否算满」帮助有限，对「这一拍要多久」伤害很大。于是存在一个窗口：块足够大以保持高算术强度，又足够小以使迭代时间落在 TBT 预算内。Chunked prefill 就是在这个窗口里切提示。</p><h3 id="切块之后注意力还正确吗" tabindex="-1">切块之后注意力还正确吗 <a class="header-anchor" href="#切块之后注意力还正确吗" aria-label="Permalink to &quot;切块之后注意力还正确吗&quot;">​</a></h3><p>第 \(i\) 块处理提示的一段连续 token，长度为 \(C\)（最后一块可能更短）。这些新 token 的查询必须看见<strong>已经写下的前缀 KV</strong>（本请求更早的块）以及块内因果位置，而不能只看见块内。否则分块就改变了 <a href="/llm/sdpa">SDPA</a> 的可见集合，表示会错。因此实现上第 \(i\) 块是一次「短查询、长键」的前向：查询长度约 \(C\)，键长度约 \(iC\)。前馈、投影按 \(C\) 计；注意力按累积前缀计。总 FLOPs 与一次整段前填同阶，只是被拆到多拍，并且每拍都要重新把已有 KV 读进核。</p><p><span class="marginnote">切块不是近似注意力，也不是滑窗。每一块仍对当前合法前缀做精确 softmax。改变的是时间轴上的粒度，不是连通性。若某实现为了省带宽只让块看见块内，那是另一种算法，不能再叫 chunked prefill。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令提示长度 \(L_p\)、块长 \(C\)，则块数为 \(\lceil L_p/C\rceil\)。调度器每次迭代至多提交一块（或在 token 预算下提交若干块的总和不超过预算）。该请求的 KV 页随块追加；尚未做完前填之前，不采样输出 token——用户侧 TTFT 要等最后一块结束并采出首词。最后一块可以与解码 token 出现在同一前向里，那是 <a href="/llm/splitfuse">SplitFuse / 混合批次</a> 的拼法；chunked prefill 只保证「允许部分前填」。</p><p>块长的选取有两端约束。太小：算术强度掉下去，前填从算力问题变成反复读权重的带宽问题，总时延上升，还可能比原子前填更慢。太大：单次迭代再次无界，stall 回来。Sarathi-Serve 的经验图像是：在其测量的设置下，前填吞吐大约在数百 token 长度就开始饱和，因此用几百 token 的块仍能喂饱 GPU，同时把单次迭代钉在 TBT SLO 附近。具体饱和点随模型宽、硬件和核实现而变，不能把某一个 \(C=512\) 写成物理常数。</p><h3 id="重复读-kv-的额外流量" tabindex="-1">重复读 KV 的额外流量 <a class="header-anchor" href="#重复读-kv-的额外流量" aria-label="Permalink to &quot;重复读 KV 的额外流量&quot;">​</a></h3><p>整段前填时，每个键在注意力里被查询集合读过一轮，HBM 上 KV 写出一次。切成 \(N\) 块后，第 \(j\) 块的查询要读前 \(j\) 块的 KV。粗算读次数随块下标累加，约 \(O(N^2 C)\) 量级的 KV 流量，相对整段前填多出「后面的块反复扫前面的页」。\(N\) 不大时这是常数级开销；把超长提示切成极多小块时，带宽税会变得可见。这是 DistServe 一类工作批评「切得过碎」的原因之一：为了保护 ITL 而过度切片，前填自己变慢，TTFT 与能耗一起坏。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>因果掩码在块之间自然延续：位置下标全局递增，块 \(i\) 的 token 不得看见未来块。实现可以用块表或连续缓冲，只要逻辑下标正确。<a href="/llm/paged-attention">PagedAttention</a> 与切块正交：每块追加若干 KV 页，不必预留整段连续显存。变长提示的最后一块不足 \(C\)，应用真实长度而不是 padding 到 \(C\) 再打满注意力，否则既浪费又可能让 padding 位置漏进 softmax。</p><p>从屋顶线看，一块前填把一次前向从「\(B\) 条解码、每条 1 个 token」拉到「再加 \(C\) 个 token」。\(C\) 足够时，这一拍从带宽区进入算力区，同批解码等于搭顺风车：它们本要为读权重付一次全价，现在与 \(C\) 个前填 token 分摊。这是「切块不仅为了降 stall，有时还提高解码效率」的机制。代价是解码必须等这一拍的算力作业结束，ITL 基线高于纯解码批。</p><p><span class="marginnote">块边界与 tokenizer 无关，不必对齐句子。但和推测解码、工具调用的「必须整段可见才可决策」的边界要分开：chunked prefill 只切计算，不切用户可见的部分答案——答案仍在前填全部完成之后才开始吐。</span></p><h3 id="与流水线并行的关系" tabindex="-1">与流水线并行的关系 <a class="header-anchor" href="#与流水线并行的关系" aria-label="Permalink to &quot;与流水线并行的关系&quot;">​</a></h3><p>流水线并行下，各 microbatch 的迭代时间若随提示长度剧烈波动，气泡会放大。块长固定后，每拍的 token 数更均匀，气泡缩小。这是 Sarathi 相对纯吞吐引擎多出来的系统动机：切块不仅为了单卡 TBT，也为了多卡流水线的可预测性。它不消除流水线本身的气泡，只消除「某一拍突然是 20k 前填、下一拍是 32 条解码」这种振幅。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Chunked prefill 增加实现复杂度：部分完成的前填要作为请求状态保存，调度器要区分「还在前填」和「已在解码」，注意力核要接受「查询短、KV 长、页表不连续」。预算过小伤害 TTFT 与总吞吐；预算过大回到 stall。MoE 上每块可能再次触发专家加载，切得越碎，冷专家搬运越频繁。分离式服务把前填放到另一池，切块的动机变弱，但仍可能在前填池内部用来平滑作业尺寸。</p><p>不要宣称切块降低了注意力复杂度。总计算仍是对长度 \(L_p\) 的二次前填，只是时间上分期。也不要把「vLLM 默认开启 chunked prefill」写成论文结果：那是引擎版本选择，随发布而变。评测对比必须写 \(C\) 或 token 预算，否则分块与不分块不在同一 SLA 下。</p><p><span class="marginnote">超长上下文再叠加切块，KV 反复加载会接近二次流量。若产品同时要极低 TTFT 和极低 ITL，切块可能两边都不够好，需要前填/解码分离或检索把有效 \(n\) 降下来。切块是调度工具，不是长上下文算法。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Chunked prefill 把原子前填改成分期写入 KV，使单次迭代的计算量有上界。</li><li>每一块的查询必须看见本请求已完成的前缀 KV，公式仍是精确因果注意力。</li><li>块长需同时满足：足够大以饱和算力，足够小以落入 TBT 预算。</li><li>切块会重复读取已有 KV，块数很多时带宽税上升；总 FLOPs 不降阶。</li><li>它是混合批次与 stall-free 调度的前提，但本身不等于已经与解码融合。</li><li>与分页 KV、连续批处理正交，常一起出现在现代引擎里。</li><li>出处：Agrawal 等，Sarathi 与 Sarathi-Serve（OSDI 2024）；机制上亦被 DeepSpeed-FastGen 的 SplitFuse 采用。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

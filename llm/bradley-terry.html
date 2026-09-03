@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bradley-Terry 与成对比较 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_bradley-terry.md.BLxfrZcy.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="bradley-terry-与成对比较" tabindex="-1">Bradley-Terry 与成对比较 <a class="header-anchor" href="#bradley-terry-与成对比较" aria-label="Permalink to &quot;Bradley-Terry 与成对比较&quot;">​</a></h1><div class="epigraph"><p>成对比较不直接给出绝对质量；Bradley-Terry 假定每条回答有一个潜在分数，胜率是分数差的 logistic。</p><footer>—— Bradley &amp; Terry, Rank Analysis of Incomplete Block Designs, 1952；InstructGPT 与 DPO 把同一比较模型接到语言模型的奖励或对数概率上</footer></div><p>人类反馈几乎总是成对的：同一提示下看两条回答，标谁更好。要把这种离散选择变成可优化的目标，需要一个从「潜在质量」到「谁赢」的噪声模型。Bradley 与 Terry 1952 年的模型给出最常用的那一版：选手 \(i\) 胜过 \(j\) 的概率是 \(\mathrm{e}^{s_i}/(\mathrm{e}^{s_i}+\mathrm{e}^{s_j})\)，即分数差的 sigmoid。Ouyang 等人的 InstructGPT 用它训练 <a href="/llm/reward-model">奖励模型</a>：潜在分数就是 \(r(x,y)\)。Rafailov 等人的 DPO 在 KL 约束的最优奖励形式下，把同一 BT 似然直接写成策略对数概率的差。Azar 等人讨论 IPO 时，出发点也是偏好概率，只是后面换了从偏好到策略的映射。本篇把 BT 当作统计层讲清楚：它假设了什么、和 Plackett-Luce 排序模型什么关系、平局与不可传递会怎样弄坏下游的 RM 与 DPO。不把 BT 写成一种新的对齐算法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>绝对打分的标注方差大：十分制上的 7 分在不同人、不同天含义不同。成对选择的方差小，但信息也更少——只知道顺序，不知道好多少。要从顺序恢复「好多少」，必须假设一个生成比较的随机过程，否则同一组输赢可对应无穷多组分数（任意单调变换）。BT 选的是 logistic 噪声：潜在分数之差越大，赢面越确定，但永不为 1，从而极端自信的比较也不会要求无限分数——在有限样本下仍可能把分数推得很大，那是优化问题，不是概率写成 1。</p><p>语言模型的比较还有上下文 \(x\)。分数必须是 \(s(x,y)\) 而不是全局选手分。不同提示之间的分数不可比，除非模型共享参数并在多种 \(x\) 上训练。这与棋手 BT 评分不同：棋手是固定实体，回答 \(y\) 是一次性的长文本，几乎不会再以同一身份出现。RM 与 DPO 依赖的是<strong>参数化的</strong> \(s_\theta(x,y)\) 在相近的 \(x,y\) 上泛化，而不是为每条回答存一个 Elo。</p><h3 id="从成对胜率到潜在分数" tabindex="-1">从成对胜率到潜在分数 <a class="header-anchor" href="#从成对胜率到潜在分数" aria-label="Permalink to &quot;从成对胜率到潜在分数&quot;">​</a></h3><p>记 \(P(y_w \succ y_l \mid x)=\sigma\bigl(s(x,y_w)-s(x,y_l)\bigr)\)，其中 \(\sigma(z)=(1+\mathrm{e}^{-z})^{-1}\)。\(s\) 对每个 \(x\) 可以加一个任意常数而不改变任何成对概率，因此绝对尺度不可识别。RM 训练只关心差；PPO 里若把 \(r\) 当绝对优势用，必须在 batch 或提示内中心化，否则不可识别的偏移会进价值基线。DPO 的推导利用最优策略下 \(s\) 与 \(\log\pi/\pi_{\mathrm{ref}}\) 同差，常数项消掉，正适合 BT 这种只识别差的模型。</p><p><span class="marginnote">BT 不是「人类真按 logistic 做决定」的心理学断言。它是可计算的噪声模型。人类可能用词典序（先看安全再看有用）、可能疲劳、可能被排版欺骗。模型错配时，残差会被 \(s\) 当成真实质量差。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>估计：把比较当作独立伯努利，最大化 BT 似然，即 RM 损失。若原始标注是 \(K\) 条的全排序，Plackett-Luce（PL）把排序写成依次从剩余集合中按 \(\mathrm{e}^{s_i}\) 抽样；BT 是 \(K=2\) 的 PL。InstructGPT 把排序拆成对再按 BT 训，等于用两两边际去近似完整 PL。拆对会让同一条回答出现在多对里，对之间并不独立，似然被过度计数；实践上仍常用，因为实现简单。加权（相邻名次对权重大、跨度大的对权重小）是可选工程，不是 BT 原文。</p><p>平局：BT 原型没有平局。扩展包括：丢掉平局；Davidson 等带平局参数的模型；把平局拆成两个半次相反比较。语言模型标注里平局很多（两条都够用或都差）。丢掉会让「难以区分」的区域缺少数据，RM 仍可能对它们打出很大分差。保留平局则必须改似然，不能假装 BT 已经处理。</p><div class="mermaid"></div><p>不可传递：真实数据里可以出现 \(A\succ B\)、\(B\succ C\)、\(C\succ A\)。BT 的 \(s\) 无法完美拟合循环，最小二乘或最大似然会找到一个折中分数，把循环当成噪声。若循环来自标注员群体的多峰偏好（一部分人重安全、一部分人重有用），折中 \(s\) 会对谁都不准。这是 Llama 2 分头 RM 的统计动机之一：在不同比较集上各拟合一个 BT，而不是一个 \(s\) 吃进所有循环。</p><h3 id="与-plackett-luce-的关系" tabindex="-1">与 Plackett-Luce 的关系 <a class="header-anchor" href="#与-plackett-luce-的关系" aria-label="Permalink to &quot;与 Plackett-Luce 的关系&quot;">​</a></h3><p>PL 对完整排序 \(y_1,\ldots,y_K\) 给出</p> \[P(\text{序}\mid x)=\prod_{k=1}^{K}\frac{\mathrm{e}^{s(x,y_k)}}{\sum_{j=k}^{K}\mathrm{e}^{s(x,y_j)}}. \]<p>第一项是 \(y_1\) 在全体里被选中的概率，第二项是 \(y_2\) 在剩余里被选中，依此类推。只标冠军时，用第一项即可（softmax 选择）。只标成对时，退回 BT。数据是排序还是成对，应决定用 PL 还是 BT，而不是一律拆对。拆对损失了「第三名远差于第二」这种间隔信息的一部分——BT 对每对独立建模，间隔只通过 \(\sigma\) 的饱和间接体现。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>logistic 的斜率在差为 0 时最大：难以区分的对提供最多关于排序方向的信息，但噪声也最大。非常一边倒的对提供的梯度小（\(\sigma\) 饱和），却对 \(s\) 的尺度施加「至少要这么分开」的软约束。标注员若只在明显差距时才标、把难对标成平局丢掉，训练集会偏向极端对，学到的 \(s\) 间隙偏大。PPO 会看到夸张的奖励差；DPO 会看到夸张的对数概率差目标。数据收集协议因此是 BT 机制的一部分：哪些对进入似然，决定 \(s\) 的尺度。</p><p>参数化之后，泛化依赖 \(s_\theta\) 的归纳偏置。Transformer 读长文本 \(y\)，容易把长度、列表、礼貌当成分数特征，BT 本身不惩罚这一点——它只要求成对胜率被拟合。要抑制捷径，必须在<strong>进入 BT 的对</strong>里放入反捷径的比较（短而正确赢长而空），而不是改 sigmoid 公式。</p><p><span class="marginnote">Elo、TrueSkill 与 BT 同属一对比较的分数系统。棋类里选手反复出现，分数可在线更新。对齐里几乎每条 \(y\) 只出现一次，必须靠参数共享。把「模型 Elo」写进报告时，应说明那是某个固定评测器下的 BT/Elo 拟合，不是 RM 内部的 \(s\) 有绝对单位。</span></p><h3 id="噪声标注与样本权重" tabindex="-1">噪声标注与样本权重 <a class="header-anchor" href="#噪声标注与样本权重" aria-label="Permalink to &quot;噪声标注与样本权重&quot;">​</a></h3><p>标注员错误在 BT 里被当成真实随机性，会把 \(s\) 往错误方向拉。重复标注同一对、用多数票，是在估计 \(P\) 而不是估计单次点击。InstructGPT 规模的数据仍有分歧；报告比较准确率时应包含人与人一致率，否则 RM 超过一致率只是在拟合某位标注员的噪声。对明显乱点的对降权，属于鲁棒估计，超出经典 BT，但工程上常见。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>BT 假设比较独立、存在全局（在每个 \(x\) 上）与传递的潜在分。多目标、多标注员、上下文依赖的「更好」（先看了哪一条、屏幕宽度）都会破坏它。模型仍可用，解释分数时不要说成效用单位。DPO 把 \(s\) 接到 \(\log\pi\)，于是策略被要求用概率差去拟合胜率；若真实 \(P\) 不是 logistic 于最优奖励差，DPO 是错指定，这正是 Azar 等人转向更一般 \(\Psi\) 与 IPO 的原因之一。BT 错指定不是 DPO 独有，RM+PPO 同样错指定，只是错在 \(r\) 空间而不是 \(\log\pi\) 空间。</p><p>不要为了「符合 BT」而强迫标注员不得打平局、不得说「取决于用途」。那会把真实的不可比性藏进虚假的传递分数。应允许平局并在似然里显式处理，或把比较拆成有用、安全两个 BT（仍可能各有平局）。</p><p><span class="marginnote">从成对数据恢复的 \(s\) 不能在不同提示之间比大小，除非做了明确的锚定（例如每个 \(x\) 都与同一条参考回答比较）。PPO 对跨提示比较奖励时，默认没有这种锚定，所以按提示减均值几乎是必需，而不是可选技巧。</span></p><p>数学上还可选 probit（高斯噪声）代替 logistic，尾部不同，对极端对的处理不同。对齐文献默认 logistic，是因为与 softmax、与 DPO 的闭式更亲，不是因为对人的噪声做过检验。换链接函数属于敏感度分析，很少改变「成对比较需要一个潜在分」这一层。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Bradley-Terry 用 \(P(i\succ j)=\sigma(s_i-s_j)\) 连接潜在分数与成对胜率；分数的绝对偏移在每个提示上不可识别。</li><li>InstructGPT 的 RM 与 DPO 的似然都建立在这一比较模型上；IPO 从同一偏好概率出发但改映射。</li><li>完整排序对应 Plackett-Luce；BT 是其对 \(K=2\) 的特例。拆对训练忽略对间依赖。</li><li>平局、循环、多目标会破坏传递潜在分；分头 RM 或显式平局模型是工程补丁。</li><li>捷径来自进入似然的对，不来自 sigmoid 公式；反捷径比较必须被人标出来。</li><li>跨提示比较 \(s\) 需要锚定；PPO 用奖励前应中心化。</li><li>出处：Bradley &amp; Terry，1952；对齐中的用法见 Ouyang 等 InstructGPT、Rafailov 等 DPO、Azar 等 IPO。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

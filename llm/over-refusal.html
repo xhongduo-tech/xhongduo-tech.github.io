@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>过度拒绝 over-refusal | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_over-refusal.md.fci9mp4l.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="过度拒绝-over-refusal" tabindex="-1">过度拒绝 over-refusal <a class="header-anchor" href="#过度拒绝-over-refusal" aria-label="Permalink to &quot;过度拒绝 over-refusal&quot;">​</a></h1><div class="epigraph"><p>把拒绝率拉满会在安全表上好看：表面敏感但应当回答的请求被挡掉，无害轴的代理成功，有用与诚实一起掉下去。</p><footer>—— 对照 Askell 等 HHH 轴冲突、Bai 等 HH-RLHF 有用/无害分头，以及公开过拒绝探针（如 XSTest 一类）把「应回答」写成评测列</footer></div><p>过度拒绝（over-refusal）指模型对<strong>政策允许且应当完成</strong>的请求给出拒答、空洞警告或无关的安全说教。它与越狱失败方向相反：越狱评测看的是应当挡的是否被配合；过拒绝评测看的是应当答的是否被挡。Askell 的 HHH 已经把有用与无害写成可能相反的轴；Bai 的 HH-RLHF 用分头偏好，正是因为单一标量会把「更像拒绝」当成更安全。Llama 2 类助手在早期产品反馈里常被指过拒，不是因为分头错了，而是无害头、安全 SFT 与分类器阈值叠在一起，工作点滑到有用不可用。本篇只写机制、工作点与评测协议，不提供如何把模型从拒绝推到配合的操作步骤，也不列举可滥用的请求类型细节。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>安全训练的可观测代理常常是：危害题面上的配合率下降。下降的方式有两种。一种是条件变好：模型读懂题面，对允许的答、对禁止的拒。一种是捷径：题面带某些词、某些领域外壳、某种提问腔，一律拒。捷径在清洁危害集上同样加分，于是优化器喜欢它。过拒绝是捷径在允许集上的镜像。没有允许集，你看不见镜像。</p><p>HH-RLHF 的无害比较若缺少「表面敏感、政策允许」的赢方示范，无害 RM 会给任何拒答加分。SFT 拒答模板若单一，条件分布会把模板当默认开场，见 <a href="/llm/sft-safety-mix">安全数据比例</a>。输入/输出分类器阈值若只扫泄漏、不扫误拦，门会与生成模型同方向叠严。三层各自「再严一点」，产品进入过拒绝，却没有任何一层单独显得离谱。</p><h3 id="应拒绝与应回答必须成对定义" tabindex="-1">应拒绝与应回答必须成对定义 <a class="header-anchor" href="#应拒绝与应回答必须成对定义" aria-label="Permalink to &quot;应拒绝与应回答必须成对定义&quot;">​</a></h3><p>政策先写两类清单：必须拒绝的意图类别；必须遵守的类别（新闻、教育、虚构约定、合法安全研究的高层次讨论等——具体边界以产品书面政策为准，本文不展开类别教战）。评测集是这两类的样本，而不是关键词表。同一词在不同意图下标签相反，正是过拒绝探针存在的理由。套件标签必须映射到你的政策版本；套件认为 harmless 而你的政策禁止的，不能计入过拒绝。</p><p><span class="marginnote">只报 ASR（攻击成功率）下降、不报过拒绝，等于允许用「全部拒」赢安全榜。越狱评测文已强调成对看；本篇把过拒绝当成独立失败模式写清楚。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数据：无害比较与安全 SFT 必须含对照题——题面像敏感、标签是应当完整回答。赢方是有用且符合政策的 \(y\)，不是更长的道歉。CAI 的原则里要写允许反例，否则 <a href="/llm/aif-as-preference">AI 反馈</a> 会批量生产过拒绝对，见 Bai 的宪法路线。专家标注员偏漏报时，要用对照集约束，见 <a href="/llm/expert-vs-crowd">专家 vs 众包</a>。</p><p>阈值：生成模型、输入门、输出门分开扫。横轴过拒绝率，纵轴泄漏或配合率，画帕累托，选产品可接受的一段，而不是单点最优泄漏。系统提示加严与数据加严会耦合，改提示后必须重测对照集。解码：低温有时更爱走高频拒答模板，温度扫描应列入过拒绝表，避免只在默认温度下报一个数。</p><div class="mermaid"></div><p>评测协议：固定政策版本、固定套件版本、固定裁判。过拒绝裁判要区分「拒答」「答了但空洞说教」「真正完成请求」。把说教算成完成会低估过拒绝。多语言分层：英语拒答模板灌进多语言 SFT 时，其他语言可能乱拒或只拒英语。多轮：首轮允许、后续仍允许的追问被突然拒，也计入过拒绝，因为用户体验与单轮拒相同。</p><h3 id="分头奖励的工作点" tabindex="-1">分头奖励的工作点 <a class="header-anchor" href="#分头奖励的工作点" aria-label="Permalink to &quot;分头奖励的工作点&quot;">​</a></h3><p>记无害权重 \(\lambda_{\mathrm{HH}}\)。增大 \(\lambda\) 通常降低配合、提高过拒绝。扫描时同时看有用持有集。HH-RLHF 的教训是两条曲线一起报。加权和之外，阈值门往往更干净：无害分低于 \(\tau\) 才切换拒答策略，高于 \(\tau\) 只优化有用，对照题不易被无害头的道歉腔带偏。\(\tau\) 仍要在对照集上校准。DPO 把无害对与有用对混进同一 \(\beta\) 时，过拒绝会以「更爱说不能帮」的对数概率形式出现，监视拒答句式频率。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>捷径的统计来源是特征重叠。允许题与禁止题共享词、共享领域外壳、共享「如何」句式。无害监督若几乎全是禁止题上的短拒，分类边界会切在共享特征上，而不是切在意图上。对照题把共享特征上的相反标签补回去，逼模型用更多上下文。若对照题太少或太模板化，边界只是从关键词挪到对照模板，换一种允许问法仍拒。</p><p>叠层相乘：设每层在允许题上独立误拦概率为 \(p_i\)，全开时过拒绝约为 \(1-\prod(1-p_i)\)（若一层拒就算拒）。各层都「略严」时积起来很严。消融必须逐层关，否则你不知道劳动该花在数据还是门限。</p><p><span class="marginnote">拒答模板熵低时，过拒绝表现为同一开场白。多样化 \(y\)（澄清、给合法替代、解释边界）降低模板先验，但不自动提高意图识别。两者都要做。</span></p><h3 id="与越狱稳健性的帕累托" tabindex="-1">与越狱稳健性的帕累托 <a class="header-anchor" href="#与越狱稳健性的帕累托" aria-label="Permalink to &quot;与越狱稳健性的帕累托&quot;">​</a></h3><p>同一工作点上，泄漏与过拒绝通常反相关。声称「两者同时大幅改善」需要写清：是数据覆盖变了、是裁判变了，还是只改了系统提示。评测不描述攻击算法，只用公开套件接口产出泄漏列；过拒绝列用对照套件。表格固定生成预算与安全叠层开关。本篇不讨论如何沿帕累托往泄漏方向移动的操作手段。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>政策收紧（新禁一类意图）会把原对照题变成真拒绝，过拒绝率应重标，而不是假装模型退步。用户界面把所有拒答显示成同一句，会让你在日志里分不清过拒绝与真拒绝，回流标注会脏。拒答应带内部原因码（仅服务端），便于把过拒绝送回对照桶。</p><p>诚实轴：过拒绝有时伪装成诚实（「我不确定故不能说」）。对照集里应包含模型应当知道或应当检索的允许题，避免把无知模板当无害。见 <a href="/llm/honesty-citations">诚实性</a>。不要用隐式「用户没再问」当过拒绝下降的证据，用户可能只是走了。</p><p><span class="marginnote">过拒绝在安全研究、新闻、医疗科普、虚构写作上投诉最集中。评测子集要覆盖这些产品真实流量，而不是只覆盖关键词替换游戏。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>过拒绝是允许请求被拒或被说教化，是无害代理的捷径镜像。</li><li>HHH 冲突与 HH-RLHF 分头说明：必须同时测配合/泄漏与对照集过拒绝。</li><li>对照题、原则反例、分阈值帕累托，是数据与工作点，不是多写一句「请有用」。</li><li>叠层误拦会相乘；要逐层消融。</li><li>政策版本与套件映射先于数字；本篇不提供削弱拒绝的操作步骤。</li><li>出处：Askell et al., 2021；Bai et al., HH-RLHF, 2022；Bai et al., Constitutional AI, 2022；过拒绝探针见 XSTest 等公开套件的官方说明。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

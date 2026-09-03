@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文字定位与 2D grounding | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen-ocr-text-grounding.md.CSPrc9BV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="文字定位与-2d-grounding" tabindex="-1">文字定位与 2D grounding <a class="header-anchor" href="#文字定位与-2d-grounding" aria-label="Permalink to &quot;文字定位与 2D grounding&quot;">​</a></h1><div class="epigraph"><p>认出字还不够；把字所在的框或点用坐标说出来，阅读顺序、点击与核对才有几何落点。</p><footer>—— Qwen2.5-VL 技术报告；Qwen3-VL 技术报告</footer></div><p>OCR 常被理解成「图到字符串」。文档与界面场景还要求<strong>文字在哪</strong>：划出题干、把表头与列对齐、给 GUI 元素一个可点的框。Qwen2.5-VL 把检测、指向与计数做成通用 grounding，框与点用<strong>输入图的实际像素</strong>表示，并支持 JSON、XML 等多种格式。Qwen3-VL 把坐标改成归一化到 \([0,1000]\)，仍保留框与点两种模态，并加强计数。文字定位是 grounding 在字符、词、行、栏上的特例：目标是文本实例，不是「猫」或「按钮」这一类物体名词。本篇把 2D 坐标如何进语言、如何与 HTML 框对齐写清，不另发明检测头。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>纯转录丢失几何。双栏页面上两处都出现「合计」，没有框就无法知道哪一处属于哪一张表。Agent 要点击屏幕上的某个词，必须把语言里的指称映射到像素。传统 OCR 检测器输出框与识别结果，但与 VLM 的问答、抽取是两套系统，坐标空间还要自己对齐分辨率缩放。</p><p>VLM 若只用相对坐标（\(0\)–\(1\) 或百分比）而训练时又做动态分辨率，模型难以把「框的大小」和「物体真实尺度」联系起来。Qwen2.5-VL 因此在原生分辨率上直接用原图像素当监督。代价是：换分辨率或 letterbox 后，数字串的含义随 \(H,W\) 变。Qwen3-VL 改为千分位归一化，换分辨率更稳，但失去像素尺度本身。问题是任务要的是「可回投的 2D 指称」，坐标系必须在训练与推理之间写成契约。</p><p><span class="marginnote">Qwen2.5-VL：框与点用输入图实际宽高下的数值。Qwen3-VL：坐标缩放到 \([0,1000]\)。写应用时先看版本，不要把一套数字当另一套用。</span></p><h3 id="文字实例与物体实例共用同一套输出通道" tabindex="-1">文字实例与物体实例共用同一套输出通道 <a class="header-anchor" href="#文字实例与物体实例共用同一套输出通道" aria-label="Permalink to &quot;文字实例与物体实例共用同一套输出通道&quot;">​</a></h3><p>没有单独的「OCR 检测头」。框是语言模型生成的数字与分隔符，与物体 grounding、GUI grounding 同一条生成路径。好处是指称可以是任意短语：「右上角红色标题」「第三行金额」。坏处是框的数值精度受解码约束，不是 NMS 后的连续回归。文字定位要在提示里写清粒度（行框还是词框），否则模型会在两种粒度间摇摆。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="框、点、计数" tabindex="-1">框、点、计数 <a class="header-anchor" href="#框、点、计数" aria-label="Permalink to &quot;框、点、计数&quot;">​</a></h3><p>框用 \((x_1,y_1,x_2,y_2)\)（或报告中的等价序列）标出轴对齐矩形；点用于「指这里」与计数时的一一对应。Qwen2.5-VL 用公开与自建数据，格式合成到 XML、JSON 与自定义模板，并借助 Grounding DINO、SAM 等现成模型做拷贝粘贴增强与伪框。开放词汇检测扩展到上万类，并构造「查询里出现图中不存在的类」以抑制幻觉框。指向数据含 PixMo 等公开集与针对细节的合成点。</p><p>Qwen3-VL 的框数据从 COCO、Objects365、OpenImages、RefCOCO 等汇集，再用 Qwen2.5-VL 提候选、检测器与教师联合标框、过滤低置信。点数据同样混合 PixMo、检测/分割派生与细节合成。计数分成直接报数、依框数、依点数三种题型。文字定位共享这套几何；文档上的行框往往来自 <a href="/llm/qwen-html-document-parse">HTML 解析</a> 的 <code>data-bbox</code> 与 OCR 伪标，而不是另训一套字符检测器。</p> \[x&#39;=\mathrm{round}\Big(\frac{x}{W}\cdot 1000\Big),\quad y&#39;=\mathrm{round}\Big(\frac{y}{H}\cdot 1000\Big) \]<p>上式概括 Qwen3-VL 的归一化（实现以报告为准）。反变换时必须用<strong>模型实际看到的</strong> \(H,W\)（含动态分辨率缩放后的尺寸），不能用磁盘上原图尺寸而不记录预处理。</p><div class="mermaid"></div><p><span class="marginnote">绝对像素让模型看见尺度：同样内容的大图与小图，框的数值差一截，这是 2.5 的设计意图。3 的千分位则让「左上角」在不同分辨率上数字相近，便于后处理，但尺度要另从图像 token 数或边长推断。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="坐标是读出来的数字串" tabindex="-1">坐标是读出来的数字串 <a class="header-anchor" href="#坐标是读出来的数字串" aria-label="Permalink to &quot;坐标是读出来的数字串&quot;">​</a></h3><p>Grounding 是条件生成：视觉 token 带着 <a href="/llm/qwen3-vl-interleaved-mrope">MRoPE</a> 的高宽几何，语言模型把查询对齐到某些视觉键，再把对齐结果读成数字串。动态分辨率下，token 网格与像素网格有固定比例（merge 后约 \(28\) 像素一格），坐标回归本质上是「说出所依据的那些视觉 token 在网格上的范围」。文字比自然物体更细，往往只占一两个合并 token，所以定位误差对分辨率上限更敏感：<code>max_pixels</code> 太低时，小字的框会漂到邻行。</p><p>与独立 OCR 检测器相比，VLM 框与识别是联合解码，可以出现「字对框错」或「框对字错」。联合的好处是查询可以消歧：「标题里的 Qwen」而不是页脚里的。JSON 模板把字段顺序钉死，降低数字与标签错位。训练时多种格式混用，是为了测试期提示稍变仍能吐坐标，而不是模型内部真有多个检测头。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>生成式框没有经典检测的置信度校准，NMS 也不自然。密集文字（合同小字、密集字幕）容易漏框或合并相邻行。旋转、透视下的轴对齐框会变松，本系列另有旋转矫正节点，本篇不假装 2D 框能替代四边形。手写与印章的「字」边界主观，IoU 评测会低估可用的粗定位。</p><p>坐标系契约一旦在服务端写错——用 2.5 的像素数去解 3 的千分位，或忘记动态 resize——所有框整体缩放错误，比单字识别错误更难发现。后处理应把框画回<strong>预处理后</strong>的图做可视化验收。Agent 点击还要把框中心映射到屏幕坐标，中间若有窗口缩放，又是一层几何。不要在评测里只用识别准确率代替 grounding；文字定位应报 IoU 或点是否落在字形上。</p><p>Qwen3-VL 另有 3D 框与空间关系数据，那是物体与场景，不是 OCR 行框。本篇的 2D grounding 停在图像平面。把 9 自由度空间框拿来当文档定位，是范畴错误。<span class="marginnote">与 HTML 的 <code>data-bbox</code> 应是同一几何契约：解析输出的框要能画回预处理后的页。两套数字各用各的原点，下游高亮会整体错位，看起来像模型不会定位，其实是后处理没对齐。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>文字定位是 2D grounding 的文本实例：模型生成框或点以及对应字符串，没有单独 OCR 检测头。</li><li>Qwen2.5-VL 用原图像素坐标以保留尺度；Qwen3-VL 用 \([0,1000]\) 归一化以稳分辨率，反变换必须记录预处理尺寸。</li><li>框与物体、GUI grounding 共用生成通道；粒度（词/行/块）要靠提示与数据钉死。</li><li>密集小字、旋转与错误坐标系是主要失败模式；评测要分开识别与几何。</li><li>出处：Qwen2.5-VL 技术报告（绝对坐标与多格式 grounding）；Qwen3-VL 技术报告（归一化坐标、框/点/计数）；对照独立 OCR 检测器与 LayoutLM 所用的外部框。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多轮对话数据格式 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_multiturn-format.md.CLAX5zDD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="多轮对话数据格式" tabindex="-1">多轮对话数据格式 <a class="header-anchor" href="#多轮对话数据格式" aria-label="Permalink to &quot;多轮对话数据格式&quot;">​</a></h1><div class="epigraph"><p>多轮不是把若干单轮拼在同一条字符串里；它规定了谁在说话、损失算在哪一段、截断时丢掉的是历史还是当前回答。</p><footer>—— 对照 InstructGPT 的对话示范、ShareGPT 社区日志与后来 messages 式角色列表；渲染契约见 chat template，本篇只谈数据对象</footer></div><p>单轮指令可以写成「题面—答卷」两个字段。多轮一旦出现，样本就变成一条有序的角色序列：系统约束、用户、助手、工具结果，可能再来一轮用户。Ouyang 等人的 InstructGPT 已经在示范数据里使用多轮对话，而不是只收集孤立问答；社区侧，ShareGPT 把用户从 ChatGPT 界面导出的整段会话存成交替发言，Vicuna 一类模型直接在这批日志上做监督。格式看起来是簿记问题，实际上决定三件训练时改不回去的事：条件前缀是什么、哪些 token 进损失、上下文满了先砍谁。词表上的分隔符怎么渲染，是 <a href="/llm/chat-template">chat template</a> 的契约；本篇停在那一层之下的数据对象——字段、轮次、掩码与截断。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预训练语料没有说话人。SFT 必须把「上一句是用户还是自己」写成可学习的事件，否则模型会在第二轮把用户问题续写成助手口吻，或把助手的上轮回答当成新的题面再答一遍。单轮格式（<code>instruction</code> / <code>input</code> / <code>output</code>）把历史压进一个字符串，历史内部的角色边界常常只靠冒号或 Markdown 标题，分词后既不是特殊 token，也不稳定。多轮一长，这种「伪多轮」会把角色泄漏进正文，损失又往往只打在最后一段，等于告诉模型：中间各轮只是背景小说，不必学会接话。</p><p>第二个问题是监督信号的位置。完整对话渲染后是一条长 token 序列，若对整句做因果语言建模，模型会学习预测用户会问什么，这既不是产品目标，也会记住标注员或真实用户的提问风格。正确的对象是条件分布 \(p(y_{\mathrm{asst}}^{(t)}\mid \text{此前所有已渲染轮})\)。实现上这要求每条样本带逐 token 的损失掩码，而掩码只能从结构化轮次来，不能从「最后一行是回答」这种启发式可靠地反推。</p><h3 id="轮次是监督的原子-不是展示用的换行" tabindex="-1">轮次是监督的原子，不是展示用的换行 <a class="header-anchor" href="#轮次是监督的原子-不是展示用的换行" aria-label="Permalink to &quot;轮次是监督的原子，不是展示用的换行&quot;">​</a></h3><p>一条多轮样本应看成 \([(r_i, c_i)]_{i=1}^{T}\)，其中 \(r_i\) 取有限角色集，\(c_i\) 是该轮文本。角色集至少要能区分 <code>user</code> 与 <code>assistant</code>；产品对话再加 <code>system</code>，工具场景再加 <code>tool</code>。轮次一旦拆开，就可以规定：只对 \(r_i=\mathrm{assistant}\) 的 token 计损失；<code>system</code> 永远是条件、永不进损失；中间的用户轮是条件、也不进损失。ShareGPT 早期字段用 <code>from</code>/<code>value</code>（<code>human</code> / <code>gpt</code>），OpenAI 风格用 <code>role</code>/<code>content</code>。二者信息等价，但混用而不做归一化，会在同一训练集里出现两套角色名，渲染成不同前缀，等于把一种任务标成两种。</p><p><span class="marginnote">「看起来像多轮」不够。把三轮对话扁平化成一段 Markdown，再只对最后一个助手段落计损失，模型学到的是单轮答题，中间轮次从未作为「自己说过的话」被强化。评测若用多轮，分数会掉，根因常是数据对象根本不是多轮。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>存储层应坚持消息列表，而不是自由文本。一份最小可用的记录是：<code>id</code>、<code>messages</code>（有序列表）、可选的 <code>source</code> 与 <code>language</code>。每条 message 含 <code>role</code> 与 <code>content</code>。从 ShareGPT 转入时，把 <code>human</code> 映射为 <code>user</code>、<code>gpt</code> 映射为 <code>assistant</code>，丢掉空轮、合并相邻的同一角色（导出日志里常见用户连发两条）。系统提示若存在，放在第零轮 <code>system</code>，不要复制进每一轮用户前缀——复制会在打包时浪费上下文，也会让「系统约束出现的位置」随截断而消失。</p><p>训练时的处理顺序应当固定：先按与推理相同的模板把 <code>messages</code> 渲染成 token，再根据角色跨度生成 0/1 掩码，最后做长度处理。掩码与模板绑定：ChatML、Llama 2 的 <code>[INST]</code>、Llama 3 的 header，角色跨度的起止不同，不能先按「第偶数段」切再渲染。工具调用把 JSON 参数当作助手轮的一部分计损失，把工具返回当作 <code>tool</code> 轮、只作条件。</p><div class="mermaid"></div><p>长度策略要写进数据卡片。按样本右截断时，超长对话丢掉的是<strong>末尾</strong>，往往正是当前要学的回答，损失变成残缺句。按样本左截断时，丢掉最早的系统与第一轮，人设消失，后面的回答失去约束。更稳的做法是：保证最后一轮助手完整，从最早的用户轮开始丢历史；系统提示尽量保留。多条短对话打包进同一上下文时，样本之间必须有明确的结束符，且掩码不得跨样本：否则模型会把上一条的答案当成下一条的题面来抄。</p><h3 id="sharegpt-外壳与-messages-外壳" tabindex="-1">ShareGPT 外壳与 messages 外壳 <a class="header-anchor" href="#sharegpt-外壳与-messages-外壳" aria-label="Permalink to &quot;ShareGPT 外壳与 messages 外壳&quot;">​</a></h3><p>ShareGPT 是社区会话的事实来源之一：真实用户、真实多轮、风格接近上线流量，但字段乱、夹杂 HTML、代码未闭合、中间插入「Continue」这类续写请求。它适合作为<strong>来源</strong>，不适合作为训练时的规范模式。OpenHermes 一类混合物则往往已经收成 <code>conversations</code> 或 <code>messages</code>，轮次较短、合成痕迹重，多轮深度不如 ShareGPT。对照应在数据卡上写清：来源是社区多轮还是合成单轮冒充多轮。清洗管道（见 <a href="/llm/sft-data-sources">指令数据来源</a>）处理的是内容；本层处理的是结构——没有结构，清洗规则无法对准「哪一段是助手」。</p><p>InstructGPT 的示范由标注员按指南书写，多轮是任务设计的一部分（纠正、追问、改写），不是日志附带品。这类数据轮次少、角色干净、系统约束明确，适合当格式的金标准：用它来定义角色集与掩码，再用 ShareGPT 填覆盖面。不要反过来用未清洗的 ShareGPT 定义格式，再用金标准去迁就日志里的坏 HTML。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>因果目标在渲染后的序列 \(x_{1:n}\) 上，损失为</p> \[\mathcal{L}=-\sum_{t=1}^{n} m_t\log p_\theta(x_t\mid x_{&lt;t}), \]<p>其中 \(m_t=1\) 当且仅当 \(x_t\) 落在某个助手轮的内容跨度内（通常含该轮结束符，以使模型学会停）。\(m_t\) 把多轮监督收成「在正确的历史条件下学接话」。第一轮助手与第三轮助手共享参数，但条件不同：后者的前缀包含自己的第一轮回答。这是多轮格式相对单轮的真正信息增量——模型必须学会延续自己已经承诺的事实与风格，而不是每次都重新人设。</p><p>截断改变的是条件，不是损失公式。丢掉系统轮，等于在另一种前缀下仍要求同样的回答，梯度会把「无约束时的默认口吻」推向有约束时的回答，推理时不写系统提示反而更像训练。丢掉中间用户轮，则助手的指代（「上面那份」「改成更短」）失去先行词，模型会学到在语义破碎的前缀下仍输出完整段落，这在评测上看起来像胡编。因此多轮格式的机制问题，常常以「幻觉」或「不听系统」的产品语言出现，根因是训练时的条件被截断策略改写了。</p><h3 id="结束符、续写与轮次对齐" tabindex="-1">结束符、续写与轮次对齐 <a class="header-anchor" href="#结束符、续写与轮次对齐" aria-label="Permalink to &quot;结束符、续写与轮次对齐&quot;">​</a></h3><p>助手轮是否包含 EOS / 轮次结束标记，决定模型会不会在该停的地方停。多轮训练若从不写结束符、只靠下一段用户角色标记当隐式停止，推理单轮时没有「下一位用户」，模型会继续编用户问题。ShareGPT 里大量「Continue」「请继续」会教模型把未写完当成正常状态。清洗时应把真截断与真多轮分开：前者是残缺样本，应补结束或丢弃；后者是新的用户轮。角色标记本身必须进条件、通常不进损失（它们不是自然语言），否则模型会在内容里复读 <code>&lt;|im_start|&gt;assistant</code>。</p><p><span class="marginnote">打包时两条对话首尾相接，若中间没有 BOS/结束边界，注意力会把上一条的助手回答当成本条的 few-shot。掩码即便只打在本条助手上，键值里仍然住着上一条。多轮格式规范应规定样本分隔，而不是假设因果掩码能代替分隔。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>多轮格式不解决内容质量。结构正确的有害对话、谄媚对话、教师模型套话，仍会按掩码被学进去。格式层能做的上限是：角色可解析、掩码可复现、截断策略可描述。把 ShareGPT 的覆盖面吹成「真实用户分布」也不准确：能导出并公开的会话偏向愿意分享的用户、偏向当时 ChatGPT 的拒绝与口吻，语言与领域都偏。OpenHermes 等合成集则轮次浅，拿它当多轮评测的训练集，会高估单轮、低估追问。</p><p>工具轮与多模态轮会撑破最小角色集。不需要工具的模型不应在数据里留半截 function call，否则普通对话会被教成乱输出 JSON。需要工具时，参数 schema 必须与推理时的工具协议一致，这又回到模板层。本篇不把工具协议展开；只强调它们必须是一等角色，不能塞进 assistant 正文用 Markdown 假装。</p><p><span class="marginnote">评测协议要与格式一致。用单轮题面测一个只在多轮掩码下训练的模型，或反过来，都是在测分布外前缀。报告多轮分数时，应写清历史轮是否来自模型自己的先前输出（on-policy 历史）还是来自数据里的金历史（teacher-forced 历史）。后者更干净，也更乐观。</span></p><p>不要为了「看起来有多轮」而用模型把单轮扩写成假对话。假中间轮往往没有信息增量，只会让损失在重复套话上下降。真多轮应至少改写题面、纠正错误、或追加约束。LIMA 对高质量示范的强调，在多轮上同样适用：轮次深度不如轮次是否必要。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多轮样本是角色化的消息列表，不是把若干问答用换行拼起来；监督原子是助手轮，不是整段对话。</li><li>损失只打在助手（及需要学习的工具参数）跨度上；系统与用户轮只作条件。</li><li>ShareGPT 提供真实多轮来源，训练前应归一成 <code>messages</code>；OpenHermes 等合成集多轮更浅，不能互相代替。</li><li>渲染必须与推理模板一致，但模板属于 chat template；本层负责字段、掩码与截断。</li><li>截断应优先保住最后一轮助手与系统约束；打包必须有样本分隔，以免上下文串台。</li><li>假多轮没有信息增量；InstructGPT 式有目的的追问与纠正，才是多轮格式值得存在的原因。</li><li>出处：Ouyang 等，InstructGPT，NeurIPS 2022；社区多轮对照 ShareGPT；合成混合物对照 OpenHermes；渲染契约另见 chat template。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

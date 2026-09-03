@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NVLink counted writes 与核内融合通信 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_nvlink-counted-writes.md.Cu8bmnzR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="nvlink-counted-writes-与核内融合通信" tabindex="-1">NVLink counted writes 与核内融合通信 <a class="header-anchor" href="#nvlink-counted-writes-与核内融合通信" aria-label="Permalink to &quot;NVLink counted writes 与核内融合通信&quot;">​</a></h1><div class="epigraph"><p>通信若必须出核、交给主机再确认「对端收齐」，逐步 decode 的每一步都会多一截同步气泡。</p><footer>—— NVIDIA：counted writes streamline synchronization for device-initiated NVLink transfers</footer></div><p><a href="/llm/nvlink-6">NVLink 6</a> 提供 3.6 TB/s 量级的卡间屋顶线。屋顶线只回答「能搬多快」；逐步推理与融合核还要回答「对端何时可以安全地读」。传统 GPU–GPU 路径除了搬负载，还要额外的协调与同步：写完数据，再写旗标，对端轮询或再走一遍应答。<strong>Counted writes</strong> 是 Rubin 公开的、面向设备发起的 NVLink 传输的同步简化：接收侧用计数跟踪到达量，把「传完」和「可以读」收成更便宜的检查。它服务的编程模型是<strong>核内融合通信</strong>——计算核不把控制交回 CPU，边算边经 NVLink 写到另一张 GPU。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>张量并行的 decode 每步都要 All-Reduce 一小块激活；MoE decode 每步都要路由一小批 token。若每次都是「计算核结束 → 独立的 NCCL 核 → 再启动计算核」，启动与同步开销会压过负载本身。Blackwell 已有把通信融进核、以及 programmatic dependent launch 一类重叠。Rubin 要补的是互连侧的完成语义：设备发起的写，接收者如何知道「这 8 块都到了」而不走重旗标握手。</p><p>没有 cheap 的完成通知，融合核只能保守地等更粗的 barrier，气泡回到时间线上。有了计数写，生产者可以对同一计数器累加，消费者看到计数达标再消费。公开博客配图把这条路径称为 counted writes；本篇按该语义写，不编造计数器位宽、是否在交换芯片上实现、或未公布的指令助记符。</p><h3 id="旗标握手为什么贵" tabindex="-1">旗标握手为什么贵 <a class="header-anchor" href="#旗标握手为什么贵" aria-label="Permalink to &quot;旗标握手为什么贵&quot;">​</a></h3><p>旗标路径至少两次往返语义：数据写、旗标写、对端可见性、可能的应答。小消息上，旗标与数据争用同一条 NVLink，同步流量占比高。核内融合时，发端 CTA 还在算下一 tile，收端 CTA 空等旗标，SM 利用率掉下去。Counted writes 把「N 次写完成」收成一个单调计数，消费者只盯一个位置。这与 CPU 上的 completion count、RDMA 上的即时完成队列是同一类想法，只是落在 NVLink 的设备发起路径上。</p><p><span class="marginnote">Counted writes 不是 SHARP。SHARP 在交换里做归约运算，见 <a href="/llm/nvlink-sharp">SHARP</a>。Counted writes 解决的是点对点或核内发出的写如何宣告完成。二者可以出现在同一次融合 All-Reduce 里：交换做加，计数做「这一轮到齐」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>框架与通信库把融合通信写成计算核的一段：MMA 产出一块，TMA 或直接 store 把块写到对端，counted write 更新接收计数；对端 CTA 在计数达标后读这块做下一层。CPU 只在 launch 与全局错误路径上出现。这对 decode 的意义是：TP 的 All-Reduce 不再是核与核之间的硬屏障，而是 tile 级的生产者–消费者。Rubin 博客把核间协调从「大批量触发」细化到 tile 级，与 counted writes 同一方向：更早让消费者开工。</p><p>使用条件是拓扑仍在 NVLink 域内。跨柜 RDMA 有自己的完成队列，不要假设 counted writes 自动作用在 InfiniBand 上。NCCL / NVSHMEM / TensorRT-LLM 一类库需要版本跟上；应用代码直接写底层互连的，应等公开 CUDA / PTX 文档，而不是从技术博客的示意图反推指令。</p><div class="mermaid"></div><h3 id="与-tma、dependent-launch-的分工" tabindex="-1">与 TMA、dependent launch 的分工 <a class="header-anchor" href="#与-tma、dependent-launch-的分工" aria-label="Permalink to &quot;与 TMA、dependent launch 的分工&quot;">​</a></h3><p><a href="/llm/rubin-tma">TMA</a> 负责低开销搬砖；dependent launch / tile 级触发负责「下一个核何时启动」；counted writes 负责「远端那块内存何时有效」。缺任意一层，融合都会退化为保守同步。工程上应测量的是：融合核的 SM 空闲间隙、NVLink 事务中同步流量占比、以及 decode 一步里通信等待时间。不要只看是否开启了某个环境变量。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>设备发起意味着地址翻译、路由与完成都不经过主机门控。发送 GPU 的 store 直接进入 NVLink；接收 GPU 的内存控制器写入 HBM，并按 counted write 语义递增完成计数。消费者在本地看见计数——这是近端读，不是再发一条「你做完了吗」的消息。可见性顺序以 NVIDIA 编程模型为准；本篇不发明跨 GPU 的 C++ memory_order 映射。</p><p>融合通信把集体算法从「库核」拆进「用户核」。All-Reduce 可以变成：本地 tile 归约 → 写邻居 → 等计数 → 再算。环与树仍然存在，只是推进单位从整核变成 tile。消息很小时，计数本身仍有开销；优势出现在「本来就要写数据、顺便更新计数」而不是「数据很小、同步很大」。因此它首先服务高频、中小块、必须在关键路径上的 decode / MoE 路由，而不是一次几百 MB 的检查点。</p><p><span class="marginnote">公开材料没有给出 counted writes 相对旗标握手的微秒表。收益应写成「降低同步流量、缩短融合核气泡」，并用自己的核级 profiler 验证。把博客示意图上的「8」当成硬件限额没有依据。</span></p><h3 id="失败与调试" tabindex="-1">失败与调试 <a class="header-anchor" href="#失败与调试" aria-label="Permalink to &quot;失败与调试&quot;">​</a></h3><p>计数若与实际写次数不一致，消费者会永久等或提前读到半成品。融合核的正确性比分离式 NCCL 更脆：少一次 write、重复一次 write、或 CTA 崩溃未更新计数，都会表现为静默错数或挂起。调试应能关闭融合、退回库级集体通信做对照。多租户下，一块 GPU 上的融合通信不应踩到另一作业的 NVLink 完成资源——隔离以 MIG / 进程级通信子为准，本篇不假设有未公开的硬件 QoS 计数器。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在没有 Rubin NVLink 6 的机器上假设同一完成语义。不要把 CPU 发起的 <code>cudaMemcpy</code> 叫做 counted writes。不要为未公开的 PTX 写「示例 exploit 式」的手写同步。训练的大块梯度 All-Reduce 仍可能以库级 NCCL + <a href="/llm/nvlink-sharp">SHARP</a> 更合适：消息大，启动开销被摊掉，融合的复杂度不值得。</p><p>decode 服务若 TP 度很高、每步只有很小的激活，counted writes 才是一阶；TP=1 的单卡副本根本走不到这条路径。规划时应先问并行网格，再问是否值得等通信库的融合实现。</p><p><span class="marginnote">出处：NVIDIA <em>Inside NVIDIA Rubin GPU Architecture</em>「Accelerated scale-up communications」节。完成语义以日后 CUDA 编程指南为准；博客示意图不作指令规范。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Counted writes 简化设备发起的 NVLink 写的完成通知，服务核内融合通信。</li><li>它解决同步气泡，不替代 3.6 TB/s 的带宽规格，也不是 SHARP 归约。</li><li>对逐步 TP / MoE decode 最有价值；大块梯度同步仍可走库级集体通信。</li><li>正确性比分离式 NCCL 更脆，需要能关闭融合做对照。</li><li>跨柜 RDMA 不自动享受同一语义。</li><li>出处：NVIDIA Rubin GPU 公开技术博客；织物见 <a href="/llm/nvlink-6">NVLink 6</a>。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

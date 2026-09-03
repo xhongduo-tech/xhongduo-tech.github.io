@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Qwen-VL-OCR 内置任务模板 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen-vl-ocr-tasks.md.CDnWnKGL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="qwen-vl-ocr-内置任务模板" tabindex="-1">Qwen-VL-OCR 内置任务模板 <a class="header-anchor" href="#qwen-vl-ocr-内置任务模板" aria-label="Permalink to &quot;Qwen-VL-OCR 内置任务模板&quot;">​</a></h1><div class="epigraph"><p>同一张图，转写要的是字符串，定位要的是几何，KIE 要的是字段；换任务就是换提示词，而不是换一个新的视觉骨干。</p><footer>—— 归纳自 Qwen-OCR 内置任务文档</footer></div><p>通用视觉语言模型可以把「图上有什么字」当成普通 VQA。文档 OCR 不行：下游要的输出类型不同——纯文本、带框的行、HTML 表、LaTeX 公式、JSON 字段。若每次都靠用户现场写一段提示词，格式漂移、漏字段、把说明文字混进转写，会变成系统故障而不是文风问题。Qwen-VL-OCR 因此内置一组任务模板：调用方设 <code>ocr_options.task</code>，服务端注入对应 Prompt，模型按该任务的输出契约生成。转写、定位、关键信息抽取走不同的提示词，共享同一套视觉编码，不共享同一套解码约束。本篇把模板当成接口设计来讲，不把某一类证件的字段表展开成产品手册。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>OCR 不是单一损失函数。同一图像 \(I\) 上，三个内置任务对应三个条件：</p> \[p(y\mid I),\qquad p(y,b\mid I),\qquad p(\{k_i{:}v_i\}\mid I,S). \]<p>\(y\) 是阅读顺序字符串，\(b\) 是行框几何，\(S\) 是 KIE schema。表格要的是单元格拓扑，公式要的是符号树。把这些任务压进同一句「请识别图中文字」，模型只能猜调用方想要哪一种张量。猜错的代价在业务上不可接受：发票要 JSON 键，却返回一段散文；定位要框，却返回没有坐标的纯文本。</p><p>提示词是这些任务之间最便宜的路由信号。它不改视觉 token，只改解码器的条件前缀。内置模板的价值是把路由从「每个应用自己维护一页 Prompt」收拢到「一小段稳定的任务标识」。标识稳定，才能对输出做结构化校验，才能把 <code>ocr_result</code> 从自由文本里拆出来。</p><h3 id="自由生成与契约生成" tabindex="-1">自由生成与契约生成 <a class="header-anchor" href="#自由生成与契约生成" aria-label="Permalink to &quot;自由生成与契约生成&quot;">​</a></h3><p>没有模板时，解码器在自然语言空间里游走，格式是软约束。有模板时，Prompt 把合法输出限制在一种句法：纯文本、HTML <code>&lt;table&gt;</code>、LaTeX、或可解析 JSON。契约越硬，后处理越简单，对幻觉字段的检测也越容易。代价是任务必须事先枚举。枚举之外的需求——「把这一段翻译成英文再抽取」——要么叠自定义 Prompt，要么拆成多步。早期 Qwen-VL-OCR 用内部固定 Prompt 覆盖用户文本；从 <code>qwen3.5-ocr</code> 起，内置任务与用户 Prompt 并存，结构化结果走 <code>ocr_result</code>，自然语言说明走普通文本通道。</p><p><span class="marginnote">模板不是新模型。<code>task=table_parsing</code> 不会加载另一份权重，它只是把解码条件换成「用 HTML 忠实反映格子」。若视觉编码器根本没看清线，再强的模板也变不出正确的 <code>rowspan</code>。模板约束的是输出形态，不是感知上限。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>DashScope 路径上，内置任务通过 <code>ocr_options={&quot;task&quot;: ...}</code> 选择。OpenAI 兼容路径没有同名参数，必须把文档里公布的任务 Prompt 手动放进用户消息。Qwen-VL-OCR（基于 Qwen3-VL 架构的 OCR 专用线）覆盖的主要任务包括：通用转写 <code>text_recognition</code>、多语言转写 <code>multi_lan</code>、高精识别与定位 <code>advanced_recognition</code>、文档解析 <code>document_parsing</code>、表格解析 <code>table_parsing</code>、公式识别 <code>formula_recognition</code>、关键信息抽取 <code>key_information_extraction</code>。文档解析把版式转成 LaTeX；表格转成 HTML；公式只要 LaTeX 片段；KIE 按 schema 填 JSON。</p><p>高精识别的提示词明确要求定位所有文字行，并返回旋转矩形 \([c_x,c_y,w,h,\alpha]\)。这是转写加几何，不是「再写一遍字」。KIE 的提示词则假设调用方给出 JSON schema，要求只输出合法 JSON，模糊字用 <code>?</code>，缺值用 <code>null</code>。同一张身份证，转写任务应吐出阅读顺序文本，KIE 应吐出姓名、号码等键；用错任务，不是识别率下降，是接口语义错了。</p><div class="mermaid"></div><h3 id="prompt-即输出头" tabindex="-1">Prompt 即输出头 <a class="header-anchor" href="#prompt-即输出头" aria-label="Permalink to &quot;Prompt 即输出头&quot;">​</a></h3><p>可以把任务模板看成没有额外参数的「软输出头」。真正的多头会为框回归另接 MLP，为 JSON 另接受限解码。模板路线把限制放进语言：用示范句法让自回归头模仿。优点是一套权重服务多任务，迭代 Prompt 不必重训。缺点是格式服从是概率性的，长表、深 schema 时仍可能截断或夹杂解释性句子。因此文档强调从 <code>ocr_result</code> 取结构化字段，而不是只信 <code>text</code> 里的 markdown 围栏。</p><p>KIE 还分两种条件。给出 <code>result_schema</code> 时，模型做槽位填充，未知键不应发明；不给 schema 时，做开放字段发现，键名由模型从版面上读。前者可校验，后者召回高但键不稳定。三层嵌套是 schema 深度上限——不是语言模型写不出更深的 JSON，是产品把契约停在可测的深度。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>任务条件进入解码器后，改变的是 token 转移的合法集合。转写任务的高概率延续是字、标点和换行；定位任务还要生成数字坐标和括号；KIE 要生成引号、冒号和 <code>null</code>。视觉特征相同，语言模型的约束不同，注意力会把预算花在不同的视觉证据上：转写更盯笔画，定位还要盯框的角点，KIE 还要盯印刷标签与填写值的空间配对。</p><p>这解释了为何「用转写结果再规则抽取」和「直接 KIE」不是等价管线。规则抽取看不到「姓名」二字与手写值的二维对齐，只能在一维字符串上猜。内置 KIE 把二维对齐留在视觉 token 里，用 schema 当查询。公式任务则把二维结构编译成 LaTeX 线性化，依赖的是符号邻接而不是自然语言词序。</p><p><span class="marginnote"><code>text_recognition</code> 与 <code>multi_lan</code> 在文档里共用「只输出文字、不要说明」这类 Prompt，差别主要在评测与路由语义：后者显式面向多文种混排。不要假设换一个 task 名就会换识别脚本系统；脚本能力来自训练数据，task 只声明输出要干净。</span></p><h3 id="覆盖与并存" tabindex="-1">覆盖与并存 <a class="header-anchor" href="#覆盖与并存" aria-label="Permalink to &quot;覆盖与并存&quot;">​</a></h3><p>早期快照用内部固定 Prompt，用户自定义指令会被覆盖，行为可预测但不可组合。<code>qwen3.5-ocr</code> 改为任务结果与用户 Prompt 结合：<code>ocr_result</code> 承担契约通道，对话文本承担追问。这使「先按模板抽字段，再问这个金额含不含税」成为同一会话里的两件事，而不是两次互不记忆的单轮 OCR。组合的代价是两套输出都要解析，且用户 Prompt 可能把解码从严格 JSON 拉开；校验仍应以 <code>ocr_result</code> 为准。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>模板枚举不可能覆盖全部文档 AI。版式极其不规则的海报、被截断的表、需要计算或跨页核对的字段，超出「看见什么填什么」。What You See Is What You Get 写进 KIE Prompt，既是能力声明也是责任边界：模型不应补全省库里的标准地址。模糊与强光明确要求用 <code>?</code>，这是把拒绝识别编码进契约，避免一本正经的幻觉字。</p><p>OpenAI 兼容调用必须手工粘贴任务 Prompt。Prompt 一旦与官方文本漂移，输出格式就不在回归测试集里。生产系统应把官方模板当成版本化资源，跟随模型快照升级，而不是由业务方「优化措辞」。定位任务的坐标与旋转矫正开关耦合，见图像旋转矫正一文；文档解析对扫描 PDF 仍可能要先渲染成图，直到原生 PDF 路径出现。</p><p><span class="marginnote">内置任务降低的是集成熵，不是错误率上限。选错 task 比模型弱更常见：对卡证用纯转写再正则，会把版式信息丢掉；对纯段落用 KIE，会得到空洞 JSON。先定输出契约，再选模板。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Qwen-VL-OCR 用 <code>ocr_options.task</code> 在共享视觉编码上切换解码契约：转写、定位、KIE、表格、公式、文档解析走不同 Prompt。</li><li>转写要字符串，高精识别要行文本加几何，KIE 要 schema 约束的 JSON；三者不是同一任务的详略。</li><li>模板是软输出头，格式服从是概率性的；结构化字段应读 <code>ocr_result</code>。</li><li>早期版本内部覆盖用户 Prompt；<code>qwen3.5-ocr</code> 起任务通道与对话 Prompt 并存。</li><li>OpenAI 兼容接口需手工注入官方 Prompt，并随快照做版本管理。</li><li>出处：阿里云百炼 / Qwen Cloud Qwen-OCR 文档「调用内置任务」一节及各 task 的 Prompt 与输出格式表。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>张量并行 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_tensor-parallel.md.BR1KolPs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="张量并行" tabindex="-1">张量并行 <a class="header-anchor" href="#张量并行" aria-label="Permalink to &quot;张量并行&quot;">​</a></h1><div class="epigraph"><p>把一层里的大矩阵沿隐藏维切开，用一次 All-Reduce 把分片结果加回去；卡与卡之间共享同一批 token。</p><footer>—— Shoeybi 等，Megatron-LM</footer></div><p>当单卡放不下<strong>一层</strong>的权重与其激活时，数据并行加 ZeRO 也不够：ZeRO-3 仍要在某瞬间聚集完整层。张量并行（TP，Megatron-LM 里的模型并行）把单个线性层的矩阵沿行或列切开，每张卡只存一块，对同一批 token 做局部 GEMM，再用集合通信还原数学上的完整乘。Shoeybi 等人给出 Transformer 里一套能配对的切法：列并行接行并行，中间的非线性可以不通信。注意力则按头切开。TP 的通信发生在层内、每层多次，必须走 NVLink 一类高带宽域，通常不跨机架。本篇只谈这套切片与通信，不把流水线、专家并行写进来当主角。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>线性层 \(Y=XA\)，\(X\in\mathbb{R}^{b\times s\times d}\)，\(A\in\mathbb{R}^{d\times d_{\mathrm{out}}}\)。\(d\) 与 \(d_{\mathrm{out}}\) 到上万时，一份 \(A\) 加一份 \(X\) 的激活就可能超过单卡。数据并行复制 \(A\)，解决不了单层体积；流水线把不同层放到不同卡，单层仍然完整。必须在矩阵内部切。切法不唯一：切输入维或切输出维，非线性、残差、Dropout 的位置会决定要不要在非线性之前把分片加起来。切错一次，就得在 GeLU 前做一次昂贵的 All-Gather，把 TP 的意义吃掉。</p><p>通信模式也不同。数据并行是逐步梯度 All-Reduce；张量并行是前向、反向都在层内 All-Reduce 或 All-Gather。序列越长、微批越大，激活通信的体积越大——与 DP 的「体积跟 \(\Phi\) 走」相反。问题是：如何切，才能让非线性局部完成，并把通信次数压到每层常数次。</p><h3 id="列切与行切的一对" tabindex="-1">列切与行切的一对 <a class="header-anchor" href="#列切与行切的一对" aria-label="Permalink to &quot;列切与行切的一对&quot;">​</a></h3><p>Megatron 对 MLP 的标准配对：第一层 \(A\) <strong>列并行</strong>（按输出维切成 \(A=[A_1\,A_2]\)），各卡算 \(X A_i\)，再在分片上做 GeLU / SwiGLU 的局部非线性；第二层 \(B\) <strong>行并行</strong>（按输入维切），各卡算 \(\mathrm{GeLU}(XA_i)\,B_i\)，对 \(i\) <strong>All-Reduce 求和</strong>得到 \(Y\)。数学上 \(Y=XAB\) 在求和后恢复。前向一次 All-Reduce；反向对 \(X\) 的梯度再一次 All-Reduce（落在第一层的输入侧）。非线性从未需要完整向量，这是配对的全部意义。</p><p>SwiGLU 有两块上投影。它们一起按列切，门控逐元素乘仍在分片上合法，因为切的是输出通道而不是序列。下投影仍行切。把门控按错误的维切开，逐元素乘会缺少另一半通道，结果无定义。</p><p><span class="marginnote">列并行的每张卡看到完整的 \(X\)，产出分片的 \(Y_i\)；行并行的每张卡看到分片的 \(X_i\)，产出完整形状、但只含部分和的 \(Y\)，必须 All-Reduce。记住谁持有完整激活，比记住「行 / 列」这两个词更不容易画错。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>注意力：把 \(h\) 个头均分到 \(T\) 张卡，\(h\) 必须能被 \(T\) 整除。QKV 投影列并行，每卡算自己的头，局部 softmax（头与头之间无需通信），输出投影行并行，再 All-Reduce。GQA 时 KV 头更少，KV 头数也要能被 \(T\) 整除，或复制 KV 到 TP 组内——复制会吃掉部分内存收益。MLA 一类压缩 KV 的结构要单独设计切分，不能假定「按头切」仍然干净。</p><p>嵌入与输出头可以沿词表维切（vocab parallel）：各卡持有词表的一段，logits 的交叉熵用一次并行归约。这能切掉很大的嵌入表，通信是词表维上的 All-Reduce 或 Reduce-Scatter，和隐藏维上的 TP 是同一家族、不同轴。</p><div class="mermaid"></div><h3 id="多头注意力怎么切" tabindex="-1">多头注意力怎么切 <a class="header-anchor" href="#多头注意力怎么切" aria-label="Permalink to &quot;多头注意力怎么切&quot;">​</a></h3><p>按头切的好处是 softmax 局部。按隐藏维切单个头会把 \(q^\top k\) 拆开，必须在分数上通信，几乎没人这么做。头数 \(h&lt;T\) 时 TP 度大于头数，按头切失败，只能降 TP 或改 GQA 头数。这是结构约束，不是性能调参。RoPE 加在每卡自己的 \(Q,K\) 上，位置编号仍是全局序列位置，不因 TP 改变。</p><p>序列并行（Megatron 后续工作）把 LayerNorm、Dropout 的激活沿序列维再切开，与 TP 配对：TP 组内 All-Reduce 改成 Reduce-Scatter，Norm 只持有 \(s/T\) 的序列。那是为了激活内存，通信对象仍是同一组卡。超长上下文把序列切到组外，是上下文并行，另一篇文章。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一次 TP All-Reduce 的体积是激活张量：\(b\times s\times d\) 的元素，每层 MLP 与注意力输出各一次前向，反向再对称地来。总通信 \(\propto\) 层数 \(\times b\times s\times d\)。对比 DP 的 \(\propto\Phi\)。因此：<strong>TP 怕长序列和大微批，DP 怕大参数。</strong> 长上下文训练里盲目加 TP 度，通信墙会先于内存墙出现。这是节点内 TP 度常取 2、4、8 而不是跨节点 64 的原因：NVLink 带宽才能盖住 \(b s d\) 量级的频繁 All-Reduce。</p><p>反向的配对：前向列并行对应反向的 Reduce（对输入梯度），前向行并行对应反向的切分。实现必须让正向的求和与反向的切分用同一组通信域，否则梯度会对错卡。数值上 All-Reduce 的求和顺序导致浮点非结合，TP 度改变时，即使种子相同，logits 也不是比特一致。比较不同 TP 度的损失曲线，应允许末位噪声，不要当数值 bug。</p><p><span class="marginnote">TP 不减小全局 batch，也不减小每卡看到的序列长度（在未开序列并行时）。它减小的是每卡的<strong>隐藏宽度</strong>。有人口头说「TP 把模型切开所以 batch 可以更大」——那是省下的权重内存让给了激活；序列维并未变短。</span></p><h3 id="与数据并行、流水线的嵌套" tabindex="-1">与数据并行、流水线的嵌套 <a class="header-anchor" href="#与数据并行、流水线的嵌套" aria-label="Permalink to &quot;与数据并行、流水线的嵌套&quot;">​</a></h3><p>常见 3D：节点内 TP，跨节点 PP，最外层 DP。TP 组是通信域最小、带宽最高的一组。同一 TP 组内的卡必须同步执行同一层的 All-Reduce，因此不能再把这组卡拆进不同的流水线阶段。DP 组平均的是「同一 TP 分片、同一 PP 阶段」上的梯度。ZeRO 若还要切优化器，切的是该分片上的状态，不是把 TP 分片再按另一种下标切开——除非实现明确做了更复杂的映射。</p><p>权重更新在分片上本地完成，无需先聚集完整 \(A\)。这与 ZeRO-3 相反：TP 的权重本来就不完整，Adam 直接打在分片上。检查点按 TP 分片存；导出完整层要沿列或行拼接，方向必须与当时的列/行并行一致。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>TP 度 \(T\) 必须整除头数与 FFN 的可切维。SwiGLU 的中间维 \(d_{\mathrm{ff}}\) 也要能被 \(T\) 整除。不整除时静默 padding 会浪费算力并改语义。小模型 \(T=8\) 往往算不过通信，应降到 2 或不用。经验上先填满节点内 NVLink，再考虑 PP，最后才用跨节点 DP 扩全局 batch。</p><p>不要把 TP 和专家并行混淆。TP 切的是同一专家内部的矩阵宽；EP 切的是不同专家到不同卡，通信是 All-to-All token。二者可以叠：先 TP 切隐藏维，再 EP 切专家。通信域不同，NCCL group 必须分开建。</p><p>Dropout 与 RNG：行并行之后 All-Reduce，Dropout 应在完整张量上有一致掩码，或改用序列并行那套「在分片上 Dropout 再对齐」。RNG 种子按 rank 错开却在 All-Reduce 后求和，等于把不同掩码加在一起，是经典静默 bug。Megatron 的实现对此有专门处理；自己写 TP 时这是第一批要测的项。</p><p><span class="marginnote">张量并行是训练与推理共用的切法。推理 decode 的 batch 往往为 1，All-Reduce 延迟更刺眼，有时反而不如复制模型。训练期大微批让 TP 划算，不自动推出服务期也要用同一 \(T\)。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>张量并行沿隐藏维切单层矩阵；Megatron 用列并行接行并行，让非线性与注意力 softmax 留在本地，用 All-Reduce 还原完整乘。</li><li>注意力按头切；头数必须能被 TP 度整除。</li><li>通信量 \(\propto b s d \times\) 层数，怕长序列，应放在 NVLink 域内。</li><li>与 DP/PP/ZeRO 嵌套时，TP 组是最小同步域；优化器直接更新分片。</li><li>Dropout / RNG、GQA 头数、SwiGLU 中间维整除，是落地约束。</li><li>出处：Shoeybi 等，Megatron-LM。序列并行是后续激活内存优化，上下文并行是序列维的另一轴。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

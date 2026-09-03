@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LoRA 秩、α 与学习率 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_lora-rank-alpha.md.B9yEBwLj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="lora-秩、α-与学习率" tabindex="-1">LoRA 秩、α 与学习率 <a class="header-anchor" href="#lora-秩、α-与学习率" aria-label="Permalink to &quot;LoRA 秩、α 与学习率&quot;">​</a></h1><div class="epigraph"><p>秩决定增量能占用多少方向，α 把这些方向的幅度钉在与秩解耦的尺度上；学习率则是在已经缩放过的增量上迈步。三者不是三个旋钮，而是同一有效步长的三个因子。</p><footer>—— Hu 等，LoRA: Low-Rank Adaptation of Large Language Models，ICLR 2022</footer></div><p>LoRA 把权重更新写成低秩乘积，前向是 \(h = W_0 x + \frac{\alpha}{r} B A x\)。工程配置里最常被改的三个数，正是公式里露出来的：\(r\)、\(\alpha\)、以及优化器学习率。很多人把它们当成互不相关的超参分别网格搜索，结果是「改了秩却等价于改了学习率」，或者「把 \(\alpha\) 加倍后损失骤降，误以为容量变大」。本篇只讨论这三个量如何耦合、默认缩放从何而来、以及换秩时该动哪一个、不该动哪一个。基座冻结、只训 \(A\) 与 \(B\)，是上一层方法已经选定的前提。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>全参微调里，有效步长大致就是学习率乘梯度。LoRA 多了一层显式缩放：增量先被 \(\alpha/r\) 乘过，再进入残差。于是「优化器看到的参数」与「前向里真正加上去的 \(\Delta W\)」不是同一尺度。只盯学习率，会漏掉适配器内部的增益；只盯秩，会漏掉增益随 \(r\) 自动变弱这一项。</p><p>设 \(W_0\in\mathbb{R}^{d\times k}\)，\(B\in\mathbb{R}^{d\times r}\)，\(A\in\mathbb{R}^{r\times k}\)。可训练参数量是 \(r(d+k)\)，随 \(r\) 线性涨。容量直觉是：\(r\) 越大，增量能张成的子空间越宽，越接近全参更新。数值直觉却相反：固定 \(\alpha\) 时，每个秩一分量的系数是 \(\alpha/r\)，秩加倍则每条方向减半。Hu 等人把 \(\alpha\) 设成第一次尝试的 \(r\)，之后改秩不再重调 \(\alpha\)，正是为了让「换秩」尽量只换方向数，不换整体幅度。问题于是成为：在 Adam 这类对尺度不敏感的优化器上，这个解耦是否成立；以及学习率还要不要单独再乘一截。</p><h3 id="有效步长里的三个因子" tabindex="-1">有效步长里的三个因子 <a class="header-anchor" href="#有效步长里的三个因子" aria-label="Permalink to &quot;有效步长里的三个因子&quot;">​</a></h3><p>把一次更新写成示意</p> \[\Delta W \;\propto\; \eta\cdot\frac{\alpha}{r}\cdot \nabla_{B,A}. \]<p>\(\eta\) 是学习率，\(\alpha/r\) 是 LoRA 的前向增益，梯度本身还依赖 \(A\)、\(B\) 的初始化与当前范数。三者相乘才是权重空间里真正走的一步。任意两个固定、只扫第三个，网格里会出现大量等价配置：例如把 \(\alpha\) 加倍再把 \(\eta\) 减半，前向增量可以几乎不变。不先承认这种简并，搜索预算会浪费在同一条等值线上。</p><p><span class="marginnote">Hu 等人原文的说法是：用 Adam 时，调 \(\alpha\) 与调学习率大致同类；因此他们把 \(\alpha\) 钉死在首次选用的 \(r\) 上，不再当超参扫。这不是「\(\alpha\) 不重要」，而是「不要把同一自由度数两遍」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准实现遵循原文的缩放与初始化。\(A\) 用高斯或 Kaiming 初始化，\(B\) 全零，于是训练第一步 \(\Delta W=0\)，基座行为不被随机增量打断。缩放放在乘完 \(BA\) 之后，系数是 \(\alpha/r\)。Hugging Face PEFT 的默认是 \(r=8\)、\(\alpha=16\)，即增益为 \(2\)；这与「\(\alpha\) 等于某次试用的 \(r\)」不必相同，但同属「用一个常数把增益从 \(r\) 里拆出来」的家族。</p><p>改秩的推荐操作是：先选定增益 \(s=\alpha/r\)（或选定 \(\alpha\) 与一个基准 \(r\)），再只改 \(r\)。若希望换秩时前向幅度不变，应保持 \(s\) 不变，即 \(\alpha\) 与 \(r\) 同比例缩放。若保持 \(\alpha\) 不变只加 \(r\)，等于在加方向的同时把每条方向拧小，常被误读成「更大的秩更稳」，其实是有效学习率在下降。</p><h3 id="学习率相对全参微调为何更大" tabindex="-1">学习率相对全参微调为何更大 <a class="header-anchor" href="#学习率相对全参微调为何更大" aria-label="Permalink to &quot;学习率相对全参微调为何更大&quot;">​</a></h3><p>LoRA 的可训练张量比 \(W_0\) 小两到三个数量级，且从零增量起步。用全参微调那种 \(10^{-5}\) 量级的学习率，适配器往往欠更新，损失降得很慢。常见做法是把 LoRA 学习率放到 \(10^{-4}\) 量级，比同一模型的全参 SFT 高约一个数量级。这不是因为低秩更「不怕大步」，而是因为 \(\alpha/r\) 已经先把增量缩小，且 \(B\) 的零初始化让早期梯度不会把基座推离预训练流形太远。把全参的小学习率与 LoRA 的大 \(\alpha\) 叠在一起，或反过来，都会让有效步长偏离经验区。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="为何用-而不是裸的" tabindex="-1">为何用 \(\alpha/r\) 而不是裸的 \(BA\) <a class="header-anchor" href="#为何用-而不是裸的" aria-label="Permalink to &quot;为何用 $\alpha/r$ 而不是裸的 $BA$&quot;">​</a></h3><p>若不缩放，增大 \(r\) 会同时增加方向与典型范数：\(BA\) 的每条通路都是一次随机投影，项数变多则输出方差变大，优化器必须重调 \(\eta\)。除以 \(r\) 把「多几个秩一矩阵相加」的方差增长压回去，使 \(r\) 更接近纯容量旋钮。\(\alpha\) 则把「压回去之后还剩多大幅度」暴露成常数，便于在不同宽度、不同层之间共用一套直觉。</p><p>后来有观察指出：当 \(r\) 跨一个数量级变化时，\(\alpha/r\) 可能把更新压得过小，特征学习变慢。一种修正是改用 \(\alpha/\sqrt{r}\)，使增益随秩的衰减更接近随机矩阵乘的标准差，而不是按项数线性衰减。这并不推翻原文的解耦意图，只是说「与 \(r\) 解耦」的正确幂次不一定是 \(1\)。在未改实现的代码里，默认仍是 \(\alpha/r\)；换幂次等于换定义，必须同时重调 \(\eta\)。</p><p><span class="marginnote">PEFT 里把 <code>lora_alpha</code> 与 <code>r</code> 写成两个字段，容易让人以为它们是独立容量。把日志改成打印 <code>alpha/r</code> 这一项，比分别记录两个整数更不容易自欺。</span></p><h3 id="秩本身何时真的不够" tabindex="-1">秩本身何时真的不够 <a class="header-anchor" href="#秩本身何时真的不够" aria-label="Permalink to &quot;秩本身何时真的不够&quot;">​</a></h3><p>注意力投影上，\(r=4\) 或 \(8\) 在许多指令任务上已经能贴近全参；继续加到 \(64\) 往往收益变薄，却把优化器状态与通信体积线性抬高。真正缺秩的信号通常不是损失降不下去，而是任务需要的更新明显不低秩：例如要改写大量 FFN 知识、或目标域与预训练差得很远。这时应先问「该不该把 LoRA 打到 FFN、打到更多投影」，而不是只加 \(r\)。目标模块选错时，把单一矩阵的秩加到与全参同阶，既失去低秩的省参意义，也不如直接全参更新来得干净。</p><p>Adam 对每个可训练标量存一阶、二阶动量。\(r\) 加倍，优化器状态加倍，这是显存上比「多几个矩阵乘」更硬的约束。QLoRA 一类方法再叠 4-bit 基座时，适配器与优化器往往已经是训练显存的主项，\(r\) 的选择同时是容量选择与显存选择。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>\(\alpha\) 不是学习率，也不能替代对目标模块的选择。推理时若把适配器合并进 \(W_0\)，必须用与训练相同的 \(\alpha/r\)；漏掉缩放会表现为「训得很好、合并后变蠢」，那是实现 bug，不是秩选错。多适配器叠加时，每个适配器有自己的 \(r\) 与 \(\alpha\)，相加前要先各自缩放到权重空间，不能把两个 \(B A\) 直接加再统一除一次。</p><p>学习率预热、余弦衰减仍然有用，但日程应作用在已经包含 \(\alpha/r\) 的有效步长上。换卡、换框架时先核对：有的实现把缩放融进 \(B\) 的初始化，有的每步乘 \(\alpha/r\)，有的提供「不除 \(r\)」的开关。配置文件里两个整数看起来一样，前向可以差一倍。</p><p><span class="marginnote">不要用「验证集再涨 0.5 个点」单独证明更大的 \(r\) 更好。先做一个对照：保持 \(\alpha/r\) 与 \(\eta\) 不变，只加 \(r\)。若对照无增益，原先的增益多半来自有效学习率变了，而不是子空间变宽了。</span></p><h3 id="一套可执行的默认" tabindex="-1">一套可执行的默认 <a class="header-anchor" href="#一套可执行的默认" aria-label="Permalink to &quot;一套可执行的默认&quot;">​</a></h3><p>对 7B 级解码器、指令数据：从 \(r=8\)、\(\alpha=16\)（增益 \(2\)）、学习率 \(1\times 10^{-4}\) 起步，先只打注意力的 \(q\)、\(v\) 投影。要加容量时优先加目标模块，其次保持增益不变地加 \(r\)。只有在确认欠拟合且显存仍有余量时，才把 \(r\) 推到 \(32\) 以上，并准备把学习率略降，以免有效步长随实现细节漂移。全参微调的学习率不要直接复用；反过来，LoRA 的大学习率也不要套到全参上。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LoRA 前向增量是 \(\frac{\alpha}{r}BA\)；有效步长是学习率、\(\alpha/r\) 与适配器梯度的乘积。</li><li>\(r\) 控制子空间维数与参数量；固定 \(\alpha\) 时加大 \(r\) 会同时减小每条方向的系数。</li><li>\(\alpha\) 的设计目的是让改秩不必重调学习率；用 Adam 时它与 \(\eta\) 高度简并，不应两个一起无约束地扫。</li><li>换秩若想保持幅度，应保持 \(\alpha/r\) 不变，而不是只改其中一个整数。</li><li>LoRA 常用比全参 SFT 更高的学习率，因为增量从零开始且已被 \(\alpha/r\) 缩小。</li><li>缺容量时先检查目标模块，再加 \(r\)；把秩加到接近满秩会失去方法本身的意义。</li><li>出处：Hu 等，<em>LoRA: Low-Rank Adaptation of Large Language Models</em>，ICLR 2022。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

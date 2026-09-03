@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BigBird / Longformer 稀疏模式 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sparse-attention-patterns.md.xwjixtB0.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="bigbird-longformer-稀疏模式" tabindex="-1">BigBird / Longformer 稀疏模式 <a class="header-anchor" href="#bigbird-longformer-稀疏模式" aria-label="Permalink to &quot;BigBird / Longformer 稀疏模式&quot;">​</a></h1><div class="epigraph"><p>随机边、局部窗和少量全局点合在一起，就足以在理论上逼近全注意力，并把序列长度从二次代价里松开。</p><footer>—— Manzil Zaheer 等, BigBird, 2020</footer></div><p><a href="/llm/local-global-attention">局部–全局混合</a> 可以只在层或槽上开口。Longformer 与 BigBird 把开口画进每一层的 token 图：绝大多数边仍是局部的，再按规定补上膨胀、随机或全局，使图在一层之内就近似连通。Beltagy、Peters 与 Cohan 2020 年给出 Longformer 的窗 + 膨胀 + 全局；Zaheer 等人同年的 BigBird 再加随机块，并证明该模式是万能逼近器、具备图灵完备性。Child 等人 2019 年的 Sparse Transformer 是更早的因子分解稀疏。本篇只讲这几张家谱图，不把线性核或滑窗推理技巧算进来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>全注意力的图是完全图（因果时是下三角完全图），连通性最好，边数 \(\Theta(n^2)\)。任意稀疏若只删边、不保证连通，就会出现「两个本应互相指认的位置，最短路径太长甚至断开」。设计稀疏模式的约束因此有三条：边数近线性或 \(O(n\log n)\)；图的直径要小；模式要能写成规则索引，便于训练与内核。随机乱删满足不了第三条，纯滑窗满足不了第二条。Longformer 与 BigBird 的贡献是给出少数几种可复现的并集，在编码器长文档上把 512 的墙推到数千乃至更长。</p><p>这些工作主要针对双向上下文的 Transformer 编码器，以及可以看见前缀的编码器–解码器。因果解码器可以直接把图限制在下三角，但随机边与双向全局的理论证明不能原样搬过来。写实现前必须先固定掩码方向。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="longformer-的窗、膨胀与全局" tabindex="-1">Longformer 的窗、膨胀与全局 <a class="header-anchor" href="#longformer-的窗、膨胀与全局" aria-label="Permalink to &quot;Longformer 的窗、膨胀与全局&quot;">​</a></h3><p>Longformer 的底盘是宽度 \(w\) 的滑窗，复杂度 \(\Theta(nw)\)。部分头再对窗做膨胀，用同样 \(w\) 条边覆盖更大半径，见 <a href="/llm/dilated-attention">Dilated Attention</a>。第三种边挂在任务指定的全局 token 上：它们与全部位置互连，形成星形。分类用 CLS，问答把问题标记设为全局，使问题中的每个词都能直接对准文档任意处。</p><p>三种边的并集是确定的，便于固化掩码。没有随机边意味着同一输入上的图不变，有利于稳定训练，也可能在某些位置对上留下固定盲区——膨胀头负责补。Longformer 用不同头承担不同 \(r\)，避免所有头同步跳孔。</p><h3 id="bigbird-的随机块" tabindex="-1">BigBird 的随机块 <a class="header-anchor" href="#bigbird-的随机块" aria-label="Permalink to &quot;BigBird 的随机块&quot;">​</a></h3><p>BigBird 的局部窗与全局点与 Longformer 同类，再加一组随机边：每个 token 额外连接 \(r\) 个随机位置（实现上常按块随机，减少碎片）。随机边把图变成小世界：直径下降，任意两点高概率短路径可达。Zaheer 等人证明，在适当的头数与边数下，这种「窗 + 随机 + 全局」可以逼近全注意力的表达能力，并且能模拟图灵机，说明稀疏本身不必然砍掉通用计算。</p><p><span class="marginnote">理论保证的是存在性：边够多、全局点够用时，稀疏 Transformer 能逼近稠密者。它不保证你用 \(w=32\)、\(r=2\) 的默认超参就逼近。证明里的随机边在推理期通常要固定下来，否则同一句子两次前向图不同，生成会抖。</span></p><div class="mermaid"></div><p>训练时随机边若每步重采样，相当于注意力图上的 dropout，正则有余、收敛可能变慢。实务多在一个批次或整个训练里固定随机种子生成图，或改成块内确定性散列，使同一位置对稳定可见。</p><h3 id="理论保证停在哪里" tabindex="-1">理论保证停在哪里 <a class="header-anchor" href="#理论保证停在哪里" aria-label="Permalink to &quot;理论保证停在哪里&quot;">​</a></h3><p>万能逼近与图灵完备回答「稀疏会不会从原则上废掉 Transformer」，并不回答「长上下文语言模型的针测能否接近稠密」。证明假设的是编码器式的双向计算与足够的宽度。因果 LM、有限层数、RoPE 外推失败，都不在定理里。经验上，Longformer / BigBird 在长文档分类、问答上建立了 2020 年前后的标准，但后来的解码器大规模预训练并未普遍采用随机稀疏，而是走向滑窗、混合层、线性核或可学习选择。原因主要在硬件：随机 gather 打散 KV，Tensor Core 吃不满；以及生成任务对图稳定性更敏感。</p><p>Child 的 Sparse Transformer 用两套因子分解模式交替，不依赖随机边，更接近膨胀与跨步。它证明了「固定规则稀疏也能生成很长的序列」，为后续图设计提供了编码器之外的生成证据。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>稀疏注意力仍是</p> \[\mathrm{Att}(q_t,K,V)=\mathrm{softmax}(q_t K_{\mathcal{S}(t)}^\top/\sqrt{d})\,V_{\mathcal{S}(t)} \]<p>\(\mathcal{S}(t)\) 是模式规定的可见集。softmax 只在 \(\mathcal{S}(t)\) 上归一化，因此局部键的权重会比稠密时更大，除非全局或随机边引入了更强的竞争者。信息从 \(i\) 到 \(j\) 的传播步数等于图上的最短路径。窗保证相邻连通；全局点把路径压到至多两跳（\(i\to g\to j\)）；随机边进一步缩短长尾路径。这就是直径论证的机制内容。</p><p>块随机比逐点随机更接近硬件：一次载入连续 KV 块，再在块内做密注意力。BigBird 的实现选择与后来 NSA 的「按块选择」在工程直觉上相通，差别是 BigBird 的块是随机或固定模式，NSA 的块由模型打分选出。<span class="marginnote">图论直径只保证「走得通」，不保证「走得准」。两跳经过全局点时，信息已经过一次压缩。长文档问答里若答案依赖稀有字面量，仍应检查全局点是否真的接到了那一段，而不是满足于图连通。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>第一，方向。双向图的全局互连不能直接用于因果解码；下三角化之后，定理中的直径上界要重证，全局点也只能影响未来。第二，内核。2020 年的实现多在普通注意力上乘稀疏掩码，短序列可接受，长序列会把二次空间请回来。没有带状/块稀疏内核，模式只是纸面线性。第三，随机边与 KV 缓存：生成时每个新 token 的随机邻接要不要包含很早的历史？若包含，缓存无法滑窗；若不包含，与训练图不一致。</p><p>不要把 Longformer 当现代 LLM 的默认长上下文方案。它的主场是编码器文档任务。当代解码器若只借「窗 + 全局」而丢掉随机边，其实已经滑向混合注意力，应在那一篇里讨论，以免把 2020 年的图与 2024 年的层交替混为一谈。<span class="marginnote">复现 BigBird 时最常见的坑是随机边每步重采、全局点数量随文档变长而变、以及用稠密核加掩码却声称线性。三件事都会让论文表格对不上。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Longformer：确定图 = 滑窗 + 膨胀 + 任务全局点，适合长文档编码器。</li><li>BigBird：再加随机/块随机边，用小世界直径支撑逼近与图灵完备证明。</li><li>Sparse Transformer（2019）提供无随机的因子分解稀疏，覆盖生成场景。</li><li>理论保证的是足够宽、足够边时的表达力，不是默认超参下的针测。</li><li>随机 gather 与生成期图稳定性，是这类模式未成为解码器主流的主因。</li><li>因果化、块内核、固定随机种子，是落地时必须改的三处。</li><li>出处：Beltagy et al., <em>Longformer</em>, 2020；Zaheer et al., <em>Big Bird: Transformers for Longer Sequences</em>, NeurIPS 2020；Child et al., <em>Sparse Transformer</em>, 2019。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

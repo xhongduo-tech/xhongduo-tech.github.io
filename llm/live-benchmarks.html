@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>动态基准与题库轮换 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_live-benchmarks.md.D14lLDWR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="动态基准与题库轮换" tabindex="-1">动态基准与题库轮换 <a class="header-anchor" href="#动态基准与题库轮换" aria-label="Permalink to &quot;动态基准与题库轮换&quot;">​</a></h1><div class="epigraph"><p>一张冻住的题库一旦进入预训练爬虫与指令微调仓库，排行榜上的涨分就不再等价于能力涨分；要把考场从模型的记忆里抽走，题必须能过期。</p><footer>—— 动态基准把「截止日期」写成评测协议的一部分</footer></div><p>静态基准的好处是可复现：同一份题目、同一套评分脚本，两年后仍能对上表。坏处也在同一处——题目一旦公开，就会以网页、题解、合成对话的形式渗进下一代语料。<a href="/llm/contamination-ngram">n-gram 重叠</a> 只能事后追查已经泄漏的片段，拦不住「换一种措辞仍被记住」的题。<a href="/llm/canary-strings">Canary</a> 能证明某次训练见过某份文件，却不能让旧榜重新变难。动态基准的核心不是换一个更炫的名字，而是把题库当成有寿命的对象：按时间窗收题、按轮次作废、按截止日期切分训练与评测。本篇讲为什么要轮换、轮换改了哪一层协议，以及可复现性会付出什么代价。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>语言模型评测长期依赖固定集合：选择题、完形、代码题、阅读理解，发布时清洗一次，之后只改提示模板。模型变大、数据变脏之后，出现三类失真。第一是饱和：多数题已被做对，剩余误差被提示措辞和随机种子吞掉，排行榜分差失去区分力。第二是污染：训练语料覆盖题面、选项甚至官方题解，准确率里掺进了检索记忆。第三是过拟合到「这张表」：实验室针对公开开发集调提示、调投票、调工具调用，测到的是该协议上的技巧，不是任务本身。</p><p>这三类在分数上看起来一样——都是「又涨了两个点」。若不把时间写进协议，后来者永远可以声称自己更强，而考官无法区分「学会了推理」和「见过这道题」。动态基准要回答的问题因此很窄：如何构造一个随日历前进的考场，使训练截止日期之前的模型，原则上见不到评测窗口里的题，同时仍允许社区在同一窗口内互相比较。</p><h3 id="静态榜的寿命比模型短" tabindex="-1">静态榜的寿命比模型短 <a class="header-anchor" href="#静态榜的寿命比模型短" aria-label="Permalink to &quot;静态榜的寿命比模型短&quot;">​</a></h3><p>一份 2020 年发布的选择题，到 2024 年已经经过无数博客、GitHub gist、教科书附录和合成指令。截止日期设在 2023 年的模型，仍可能在 2024 年的「新」评测里拿到被污染的分——因为题是旧的。反过来，若只靠换模型、不换题，能力曲线会在饱和区变平，看起来像缩放失效。题库轮换是把评测的时间常数重新对齐到数据收集的时间常数上：语料有 crawl 日期，题也该有 harvest 日期。<span class="marginnote">「我们用了公开基准」不再自动等于「评测干净」。必须同时报：题的收割窗口、模型的训练截止、以及窗口内是否允许用工具上网。缺任何一项，分数都不能拿去比另一家实验室。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>动态基准通常叠三条操作，强度递增。</p><p>第一条是<strong>时间切分</strong>。只收模型训练截止日期之后才出现的题：编程竞赛的新场次、新闻事件后的事实题、新提交的 GitHub issue。这条路的代表是 <a href="/llm/livecodebench">LiveCodeBench</a> 按竞赛日期切片，以及 <a href="/llm/simpleqa-freshqa">FreshQA</a> 按月份刷新需要现时知识的问题。模型卡上必须有一个可审计的 cutoff；没有 cutoff 的闭源系统，时间切分只能当成声明，不能当成证明。</p><p>第二条是<strong>题库轮换</strong>。即使题不是「世界上新发生的」，也可以定期作废旧题、换入同分布新题，避免实验室把提示工程过拟合到固定编号。轮换可以是全量替换，也可以是滑动窗口：保留最近 \(k\) 个批次，丢掉更早的。社区比较时要钉死「评测的是哪一个窗口」，否则两篇论文的 65 分可能来自两套完全不同的题。</p><p>第三条是<strong>隐藏测试</strong>。公开少量样例用于调试接口，真正计分的集合不发布题面，或只对提交服务器可见。这接近传统机器学习竞赛，能挡住题面泄漏，但挡住不了「用同一个闭源模型当标注员去蒸馏公开样例」。隐藏集还伤害可复现：第三方无法本地复跑，只能相信主办方。</p> \[\mathrm{Acc}(M, W)=\frac{1}{|Q_W|}\sum_{q\in Q_W}\mathbf{1}\bigl[M(q)=y_q\bigr],\quad Q_W=\{q:\mathrm{time}(q)\in W\} \]<p>分数必须带着窗口 \(W\)。写 \(\mathrm{Acc}(M)\) 而不写 \(W\)，等于把动态基准又冻成静态数。</p><h3 id="收题、验收、作废是三条流水线" tabindex="-1">收题、验收、作废是三条流水线 <a class="header-anchor" href="#收题、验收、作废是三条流水线" aria-label="Permalink to &quot;收题、验收、作废是三条流水线&quot;">​</a></h3><p>轮换不是往文件夹里丢新 json。收题要定义来源（竞赛站、百科修订、issue 追踪器）和许可证；验收要检查是否可自动评分、是否有唯一答案、是否被现有题解页覆盖；作废要公布退役名单，以免有人继续引用过期窗口刷分。自动评分是动态基准能活下去的前提：人工阅卷跟不上每月一轮。代码题靠单元测试，事实题靠短答案匹配或等价判定，智能体任务靠仓库内测试套件。评分函数一含糊，轮换只会放大噪声。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>动态基准起作用，是因为它切断了「题面 ⊆ 训练分布」这条捷径，而不是因为它在心理测量上更纯。时间切分的假设是：截止日期之后才公开的文本，没有进入该模型的预训练与微调。这个假设在开源权重、公开数据配方上近似可检查；在闭源、持续预训练、日更检索增强上会变软——模型可能没把题写进权重，却能在评测时用工具把题搜回来。协议必须声明是否允许检索、是否允许执行器、是否允许把题发给另一个更大的模型。</p><p>轮换的假设更弱，也更工程：即使旧题已经泄漏，新题与旧题同分布、同难度，过拟合到旧编号的提示工程会失效。它不保证新题没被别的爬虫收走，只保证「针对这一份公开 json 的调参」不能无限沿用。对污染更硬的检测仍要回到 <a href="/llm/contamination-ngram">n-gram 与近邻</a>，以及在训练里埋 <a href="/llm/canary-strings">Canary</a>。动态基准是评测端的卫生，不是训练端的去污替代品。</p><h3 id="窗口越短-方差越大" tabindex="-1">窗口越短，方差越大 <a class="header-anchor" href="#窗口越短-方差越大" aria-label="Permalink to &quot;窗口越短，方差越大&quot;">​</a></h3><p>设每窗 \(|Q_W|=n\)。能力没有变，只是换了一批同分布题，准确率的二项式标准误会按 \(1/\sqrt{n}\) 走。窗口太短，排行榜上的名次跳动会被噪声支配，看起来像「这个月退步了」。窗口太长，又接近静态集，污染重新累积。实务上往往用滚动平均：报最近三窗的均值和每一窗的原始分，既保留趋势，又不把单次抽样当成能力跳变。<span class="marginnote">动态基准最容易被误读成「分数不能比较」。能比较，但比较的对象是同一窗口、同一评分器、同一工具约束。跨窗口只比较趋势，不比较小数点后两位；跨实验室不比较未声明 cutoff 的闭源分数。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>可复现性是第一代价。科学论文需要固定锚点：审稿人要能复跑。动态基准的折中是：发布窗口快照（题目、测试、评分脚本、随机种子）并归档，同时声明「当前排行只用最新窗」。历史窗口用于论文表格，最新窗口用于产品监控。不要只留一个不断改写的排行榜，否则引用无法指向同一对象。</p><p>第二代价是领域覆盖。竞赛编程、时事问答、新 issue 都有稳定的「新题水龙头」；常识选择题、职业考试、安全红队则没有自然增量。后者若强行轮换，只能靠人工命题，成本高、风格漂移大，最后会变成另一份缓慢更新的静态集。动态协议应按任务选择，而不是当成所有评测的升级广告。</p><p>第三代价是对抗。一旦某窗的题被贴到论坛，该窗对后续模型立即贬值。主办方可以缩短窗口、隐藏测试、加水印，但水印本身又可能被训练成捷径。更稳的是承认「公开动态集只能提供一个延迟数周的干净上界」，真正的内部门禁用未发布题。</p><p>与 <a href="/llm/helm">HELM</a> 的多维度也不该混为一谈。HELM 问的是同一张静态场景上要报哪些指标；动态基准问的是场景里的题如何随时间替换。可以同时做：每个窗口都报准确率、校准、毒性，而不是只轮换一个总分。<span class="marginnote">产品评测常把「我们每月换题」写成清洁声明，却用同一套 few-shot 样例跑了一年。样例泄漏与题面泄漏同类。轮换必须包括演示、系统提示和评分细则，否则捷径只是从题面挪到了提示前缀。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>静态题库会饱和、被污染、被提示工程过拟合；动态基准把收题时间窗写进分数 \(\mathrm{Acc}(M,W)\)。</li><li>三条操作是时间切分、题库轮换、隐藏测试，强度与可复现性反向。</li><li>时间切分依赖可审计的训练截止；闭源日更系统只能把切分当成声明。</li><li>窗口过短放大抽样噪声，过长重新累积污染；应同时归档快照与滚动趋势。</li><li>动态协议不能替代训练端去污与 Canary，只切断「公开 json 已被背熟」这一条。</li><li>没有自然增量的任务不该硬轮换；竞赛代码、时事事实、新 issue 才有水龙头。</li><li>出处：LiveCodeBench、FreshQA、LiveBench 一类按日期收题的协议，以及污染文献对静态榜失效的诊断。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

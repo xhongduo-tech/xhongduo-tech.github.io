@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RoPE 的频率、基数与长上下文 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rope-frequency.md.CcypbcrU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="rope-的频率、基数与长上下文" tabindex="-1">RoPE 的频率、基数与长上下文 <a class="header-anchor" href="#rope-的频率、基数与长上下文" aria-label="Permalink to &quot;RoPE 的频率、基数与长上下文&quot;">​</a></h1><div class="epigraph"><p>$\theta_i = \mathrm{base}^{-2i/d}$ 决定每一维转多快；改基数是在改长程维度何时开始错位。</p><footer>RoPE 频谱；NTK / YaRN 仅作为改频率的动机，不作专述</footer></div><p>RoPE 的相对恒等式对任意距离成立，训练却只覆盖一段距离。加长上下文是在要更大的 \(|n-m|\)，也就是要每个平面转到未见过的相位。\(\theta_i\) 与基数决定「哪一维在多长的跨度上仍可分辨」。改 base、做 NTK 式非均匀缩放、上 YaRN，都是在动这条谱，不是在换一套位置编码。本篇停在频谱与基数，不把 YaRN 写成步骤清单。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RoPE 的相对恒等式对任意距离成立，但训练只在 \(0 \le |n-m| &lt; L_{\mathrm{train}}\) 的距离上见到过匹配分数。推到更长上下文，新的是<strong>更大的相对距离</strong>，不是新的绝对下标。更大距离意味着每个平面上的转角 $ |n-m|\theta_i $ 进入训练时没见过的区间，尤其是中高频平面会转过训练时从未对齐过的相位。</p><p>于是长上下文问题在 RoPE 里具体化为频谱问题：\(\theta_i\) 太大，远距离上几乎所有平面都转乱，位置信息死掉，注意力退化为与距离无关的内容匹配（或噪声）；\(\theta_i\) 太小，近距离上各平面几乎不转，模型分不清相邻与隔开几十步。默认 \(\mathrm{base}=10000\) 是为原始训练长度选的折中。改上下文窗口而不改频谱，等于拿旧尺子量新距离。</p><p>本篇只讨论频率与基数：它们如何定义、如何对应「哪一维负责多长的跨度」，以及为什么人们用改 base、NTK 缩放、YaRN 去碰这根轴。YaRN 与 NTK 的完整算法、损失和注意力温度，留给它们自己的条目。</p><p><span class="marginnote">恒等式 \(q^\top R_{n-m} k\) 在外推时并不破。破的是 \(R_{n-m}\) 所在的相位是否落在训练支持里。</span></p><h3 id="需要一张「距离–维度」对照表" tabindex="-1">需要一张「距离–维度」对照表 <a class="header-anchor" href="#需要一张「距离–维度」对照表" aria-label="Permalink to &quot;需要一张「距离–维度」对照表&quot;">​</a></h3><p>\(d/2\) 个平面不是重复的同一个旋转。它们构成从快到慢的频率谱。理解长上下文，就是理解谱的哪一段在目标距离上仍提供可分辨的相位差。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>RoPE 的频率取几何级数</p> \[\theta_i = \mathrm{base}^{-2i/d},\qquad i = 0,1,\ldots,d/2-1. \]<p>\(i=0\) 时 \(\theta_0 = 1\)（弧度/位置，若 base 的幂次按上式且 \(i\) 从 0 起，实际实现里常写成 \(\theta_i = \mathrm{base}^{-2i/d}\)，最高频接近 \(1\)）。\(i\) 增大，\(\theta_i\) 指数下降，最低频约为 \(\mathrm{base}^{-1}\) 量级。位置差 \(\Delta = n-m\) 在第 \(i\) 平面上的转角是 \(\Delta \theta_i\)。</p><p>两个可调对象：</p><ul><li><strong>\(\mathrm{base}\)</strong>：同时缩放整条谱。增大 base，所有 \(\theta_i\) 变小，同样的 \(\Delta\) 对应更小的转角，低频维能覆盖更长的距离才转满一圈。</li><li><strong>对 \(i\) 非均匀的缩放</strong>：NTK-aware 一类方法让高频几乎不动（保住短程分辨），低频按长度比拉伸（给长程留相位余量）。YaRN 再把这种非均匀插值与注意力缩放组合。本篇只要知道：它们都是在改 \(\theta_i\)，不是在换一套位置编码。</li></ul><p>训练长度 \(L\) 与谱的匹配规则是启发式的：希望在 \(\Delta \approx L\) 时，仍有若干低频平面的转角显著小于 \(\pi\)，从而远距离不是所有维都正交掉。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="一圈对应多长" tabindex="-1">一圈对应多长 <a class="header-anchor" href="#一圈对应多长" aria-label="Permalink to &quot;一圈对应多长&quot;">​</a></h3><p>第 \(i\) 平面转满 \(2\pi\) 需要 \(\Delta = 2\pi / \theta_i\) 个位置。\(\theta_i\) 大（高频），几个 token 就转一圈，适合相邻位置的精细差别；\(\theta_i\) 小（低频），需要成千上万步才转一圈，适合篇章级距离。默认 base \(=10000\)、\(d=128\) 的头里，最低频的「一圈」已经很长，但仍是为当初的 \(L\) 设计的。把 \(L\) 乘四而不改 \(\theta\)，等于要求低频维提供它在训练时从未提供过的相位差，同时中频维过早转乱。</p><p><span class="marginnote">「转乱」指 \(\Delta\theta_i \bmod 2\pi\) 在训练分布外均匀化，该维对距离不再单调、不再可预测，不是数值溢出。</span></p><h3 id="改-base-是全局慢放" tabindex="-1">改 base 是全局慢放 <a class="header-anchor" href="#改-base-是全局慢放" aria-label="Permalink to &quot;改 base 是全局慢放&quot;">​</a></h3><p>把 base 从 \(10000\) 升到 \(10^6\) 量级，整条谱左移（更慢）。短程依赖依赖的高频也变慢，相邻位置的分辨可能变差，需要微调来把短程从别的维或从内容里找回来。这是全局改 base 的代价：一根旋钮同时动短程与长程。NTK 风格的非均匀映射就是为了打破这根绑绳——高频 \(\theta\) 接近原值，低频 \(\theta\) 按目标长度压小。YaRN 还处理插值区间与注意力尺度，避免只拉频率、不调 softmax 温度时出现的平均熵漂移。这些名字在长上下文文献里成套出现，是因为它们碰的是同一条 \(\theta_i\) 轴的不同切法。</p><p>训练时直接用更大 base、更大 \(L\)，比测试期事后改 \(\theta\) 干净：相位从头到尾在目标距离上见过。事后改谱属于抢救已经训死的 \(10000\)，不是频谱设计的第一原则。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>只改 base、不微调，短程任务可能立刻掉点。只拉长数据、不改 base，模型在远距离上没有可用的慢维，长上下文继续写，匹配已经与位置无关。两条都要动：数据提供目标距离上的梯度，频谱提供这些距离上仍然可分辨的相位。</p><p>频谱也不是越慢越好。所有 \(\theta_i\) 都接近 0 时，RoPE 退化成几乎无位置，近处的序要靠因果掩码去学，回到 NoPE 的处境。base 的上界是「短程仍有足够快的维」，下界是「目标 \(L\) 上仍有足够慢的维」。中间没有与模型无关的最优值，与头宽 \(d\) 绑在一起：\(d\) 更大，几何级数的档位更多，同一 base 下更能同时覆盖短与长。</p><p><span class="marginnote">实现里 base 常是 RoPE 的构造参数，和 \(\theta\) 缓存、cos/sin 表绑在一起。测试期改 base 必须重算旋转，已按旧角旋转并写入的 KV 不能直接复用。</span></p><p>本篇不把 YaRN 的分段、注意力温度、NTK 的精确公式展开成步骤清单。需要那些步骤时，应去对应专文。这里只固定三件事：\(\theta_i\) 的定义、base 的全局作用、非均匀改 \(\theta\) 是为了外推时保住短程。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><p>RoPE 的频率 \(\theta_i = \mathrm{base}^{-2i/d}\) 把维度分成快慢平面：快的分辨短距离，慢的在长距离上仍有相位。加长上下文是在要更大的 \(|n-m|\)，必须让足够多的慢维在新距离上尚未转乱。增大 base 是全局慢放；NTK / YaRN 一类方法是对 \(\theta_i\) 做非均匀改动并辅以注意力缩放，目的都是外推，而不是新的位置哲学。出处：Su 等的 RoPE 定义（2021/2024）；外推时改谱的动机见后续长上下文工作对 base 与 NTK、YaRN 的使用，那些算法本身不在本篇展开。</p></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

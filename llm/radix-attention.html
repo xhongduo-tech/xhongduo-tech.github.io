@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RadixAttention | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_radix-attention.md.7AsEZStm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="radixattention" tabindex="-1">RadixAttention <a class="header-anchor" href="#radixattention" aria-label="Permalink to &quot;RadixAttention&quot;">​</a></h1><div class="epigraph"><p>请求结束后不要把键值丢掉；把它们挂进一棵按 token 前缀压缩的基数树，下一次共享前缀的调用就能少算一整段预填充。</p><footer>—— Zheng 等，SGLang，2023–2024</footer></div><p>自回归服务里，KV 缓存通常被当成「这一次请求的私有便签」：生成结束就释放，下一轮哪怕只多了一句用户话，也要把系统提示、历史轮次重新预填充一遍。Zheng 等人在 SGLang 里把这件事反过来：缓存是跨请求可检索的前缀索引，数据结构是基数树（radix tree）。他们把这套机制叫 RadixAttention。它不改注意力公式，改的是键值的生命周期、共享粒度和调度顺序。本篇写这棵树如何工作，以及它和分页、哈希前缀缓存的差别；块大小与布局见 <a href="/llm/paged-kv-block-size">分页 KV</a>、<a href="/llm/prefix-caching">前缀缓存</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>语言模型程序很少是一次 <code>generate</code> 就结束。少样本里几十条示例反复出现；智能体把同一段工具说明贴到每一步；多轮对话的系统提示几乎不变；自洽性采样对同一题干抽许多条回答。这些调用在 token 序列上共享长前缀，数学上对应同一段 \(K,V\)。若每次都从头算预填充，浪费的是计算；若每次都独占一份缓存，浪费的是显存。更糟的是两者同时发生：引擎既重算，又无法把热前缀钉在卡上。</p><p>朴素的「系统提示缓存」只覆盖一层：所有请求共用同一段固定前缀。真实负载是一棵树。两条对话共享系统提示，在第一轮用户话处分叉；少样本的题干共享示例池，在题目处分叉。要索引这棵树，扁平哈希表不够自然——它能回答「这一整块是否见过」，却不容易回答「最长公共前缀停在哪、从哪一段开始必须新算」。RadixAttention 要解决的，正是<strong>多级前缀共享</strong>加上<strong>自动插入与淘汰</strong>，而不是让用户手工声明 cache id。</p><p><span class="marginnote">共享的对象是已经算好的 KV，不是原始文本。分词器或聊天模板稍有不同，token 序列就对不上，树走不下去。产品侧若把「语义相似」当成命中，会得到静默的错缓存。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="基数树而不是朴素前缀树" tabindex="-1">基数树而不是朴素前缀树 <a class="header-anchor" href="#基数树而不是朴素前缀树" aria-label="Permalink to &quot;基数树而不是朴素前缀树&quot;">​</a></h3><p>基数树是压缩过的 trie：边上可以挂一整段 token，而不必每个 token 一个节点。SGLang 用它保存「token 序列 → KV 张量（分页存放）」的映射。新请求从根向下匹配，走到第一个分叉或失配处，匹配上的节点所挂的 KV 直接复用，只对后缀做预填充，再把新节点插进去。生成出的回答也可以挂到叶子上，好让下一轮多轮对话把「系统 + 用户 + 助手」整段当成新的前缀。</p><p>树的节点与分页块对齐：论文实现里一页对应一个 token，便于任意长度的前缀切开；工程上也可以按更大的块切，代价是共享粒度变粗，见 <a href="/llm/paged-kv-block-size">分页 KV 与块大小</a>。插入、查找、分裂都是树操作，和注意力核无关。注意力核仍然按块表去读非连续的 KV，因此 RadixAttention 与 PagedAttention、连续批处理、张量并行兼容；未命中时只多一次树行走，开销可忽略。</p><h3 id="先淘汰叶子的-lru" tabindex="-1">先淘汰叶子的 LRU <a class="header-anchor" href="#先淘汰叶子的-lru" aria-label="Permalink to &quot;先淘汰叶子的 LRU&quot;">​</a></h3><p>GPU 显存装不下整棵历史。淘汰不能按「最老的块」随便扔：若先丢掉靠近根的系统提示，所有分支一起失效。SGLang 的策略是 LRU，并且<strong>先驱逐最久未用的叶子</strong>。叶子对应某条请求独有的后缀；丢掉它只伤害那一支，公共前缀仍在。节点被访问时沿路径刷新时间戳，热分支会一直沉在根附近。</p><p>这与操作系统的页面 LRU 不同：这里的「页」有树形依赖，父节点的引用计数为零才能真正释放。实现上每个节点记引用次数（正在解码的请求、子节点、外部 pinning），引用归零才进入可驱逐集。</p><h3 id="按最长共享前缀调度" tabindex="-1">按最长共享前缀调度 <a class="header-anchor" href="#按最长共享前缀调度" aria-label="Permalink to &quot;按最长共享前缀调度&quot;">​</a></h3><p>缓存命中率不只取决于树，还取决于请求到来的顺序。先来先服务会把两条共享长前缀的请求拆开，中间插入无关流量，把热节点挤出显存。SGLang 的缓存感知调度按<strong>已匹配前缀长度</strong>排序，优先跑更长命中的请求。离线情形下，Zheng 等人证明：当缓存容量不小于最长请求时，按基数树的深度优先遍历能达到最优命中率，而「最长共享前缀优先」与 DFS 等价。在线时 DFS 会被新请求打断，这一启发式仍然近似地先把当前热子树走完。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>命中的本质是：因果注意力里，位置 \(1,\ldots,p\) 的键值只依赖于这些位置自己的输入。两条请求若 token 前缀相同，且位置编码从同一起点计，则前 \(p\) 步的 \(K,V\) 逐元素相等，可以指针级共享，不必拷贝。RoPE 若在写入缓存前就旋进键里，这条等式只在<strong>相同绝对下标</strong>下成立——所以能共享的是真正的前缀，不是「出现在别处的同一句话」。把一段话插到文档中间再想复用 KV，相位已经变了，树也不会（也不该）命中。</p><p>预填充代价从 \(O(n^2)\) 的注意力（外加线性的 FFN）变成只对后缀 \(n-p\) 计。当 \(p\) 接近 \(n\)，首 token 延迟接近「几乎只有解码」。吞吐增益在前缀很重的负载上最大：论文报告相对当时的先进推理系统，在智能体、少样本、JSON、检索增强与多轮对话等任务上，吞吐最高约 \(6.4\) 倍。这个数字不是注意力核变快，而是少做了重复预填充、并靠调度把命中率抬上去。</p><p><span class="marginnote">基数树的边压缩降低节点数，不降低 KV 字节。省显存靠的是多请求指向同一块物理页。一条从未共享的长提示，树帮不上忙，只是多了一层索引。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>RadixAttention 吃的是<strong>精确 token 前缀</strong>。模板空格、工具 schema 的字段顺序、系统提示里一个标点，都会让匹配在根附近就断开。多租户下还要隔离：不能让用户 B 命中用户 A 的对话节点。实现上通常在根下先按模型、采样参数、lora 适配器分叉，再进 token 树；采样温度不同未必阻止 KV 复用（KV 与采样无关），但 LoRA 权重不同则必须分树。</p><p>淘汰策略在「树形 LRU」和「按字节的全局 LRU」之间会打架。只按叶子 LRU，可能留下很多半热的中层节点，碎片看起来像「树很大、命中却一般」。需要周期性合并或对长期无子、无引用的内部节点回收。调度的最长前缀优先会牺牲公平：一条短请求可能一直排在长前缀批后面。延迟敏感的入口要限制重排窗口，而不是无界 DFS。</p><p>与哈希块前缀缓存相比，树的优势是多级共享与自然的分裂；哈希的优势是每块 \(O(1)\) 查找、实现更贴近分页块表。两者可以合流：用哈希给块打指纹，用树（或父块哈希链）表达前缀关系。不要把 RadixAttention 理解成一种新的 softmax。它是缓存索引。注意力核仍然可以是 FlashAttention 或分页核；换核只影响「如何读这些页」，不影响「哪些页被哪些请求共享」。</p><p><span class="marginnote">自洽性采样是树的典型赢家：同一题干挂出许多叶子。若采样时把题干 KV 复制成 \(k\) 份，显存立刻按 \(k\) 倍涨；挂到同一父节点则只为每条回答增长后缀。</span></p><p>另一条边界是生成长度未知。定理里的最优命中假定缓存装得下最长请求；真实解码会把叶子不断拉长，可能反过来挤掉父前缀。这时要给正在运行的请求 pin 住路径，只从空闲叶子里驱逐，否则会出现「自己把脚下的前缀回收掉、被迫重算」的抖动。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RadixAttention 用基数树索引 token 前缀到分页 KV，使跨请求、跨调用的键值可以自动复用。</li><li>请求结束后缓存保留；新请求走最长前缀，只预填充后缀。</li><li>淘汰采用先丢叶子的 LRU，避免先拆公共根；调度按最长共享前缀，离线时等价于 DFS 最优命中。</li><li>共享要求 token 与位置都一致；RoPE 已写入的键不能挪到别的下标上再用。</li><li>未命中时开销很小；增益来自少算预填充和高命中率，不是新的注意力公式。</li><li>多租户、LoRA、模板漂移会切断匹配，需要在树的上层先按运行时上下文分叉。</li><li>出处：Zheng 等，SGLang 系统中的 RadixAttention（论文题为高效执行结构化语言模型程序，预印本 2023 起，后续修订把系统名定为 SGLang）。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>llama.cpp / ggml | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llamacpp.md.xyX1c7g2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="llama-cpp-ggml" tabindex="-1">llama.cpp / ggml <a class="header-anchor" href="#llama-cpp-ggml" aria-label="Permalink to &quot;llama.cpp / ggml&quot;">​</a></h1><div class="epigraph"><p>用一份轻量张量库把量化后的权重放进普通进程；CPU、Metal、CUDA、Vulkan 都是后端，模型文件是 GGUF，而不是 Python 虚拟环境。</p><footer>—— Georgi Gerganov，ggml 与 llama.cpp 仓库</footer></div><p>llama.cpp 把 LLaMA 一类因果 LM 的推理收成 C/C++ 程序：依赖少、能在笔记本、手机、树莓派和带桌面 GPU 的机器上跑。底层张量库是 ggml（以及后续 ggml-org 生态），提供量化数据类型、计算图和各硬件后端。模型以 GGUF 容器分发，里面是分块的量化权重与元数据。它不是集群里的 vLLM 替代品，而是 <strong>本地优先</strong> 的运行时：进程内加载、单用户或轻度并发、用量化换内存。本篇按仓库与社区格式写 ggml 张量、GGUF、量化与后端，不编造会议论文——Gerganov 的工作以开源实现为出处。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>2023 年初，能跑 7B 级模型的主流路径是 PyTorch + 数 GB 的 FP16 权重 + CUDA。消费级机器的痛点是：没有那张卡，或有卡但不想装一套深度学习栈，或想在 Apple 的统一内存上用 Metal 而不是经过 CUDA 翻译层。服务引擎假设 HBM 池、连续批、分页 KV 的调度器；本地聊天假设「一个模型文件 + 一条命令」。两者的优化目标不同：前者摊权重到多条请求，后者让 <strong>单条请求</strong> 在内存预算内尽快出字。</p><p>量化是本地路径的第一刀。4-bit 权重大约把 7B 从十余 GB 压到四 GB 量级，才能进 8–16 GB 的消费内存。量化必须是一等数据类型，而不是先加载 FP16 再临时 scale——启动要能 mmap 量化块，decode 核直接吃 <code>Q4_K</code> 一类布局。ggml 把这些 dtype 做进张量，llama.cpp 在图上选对应的 matmul。</p><h3 id="格式要从-ggml-二进制走到-gguf" tabindex="-1">格式要从 GGML 二进制走到 GGUF <a class="header-anchor" href="#格式要从-ggml-二进制走到-gguf" aria-label="Permalink to &quot;格式要从 GGML 二进制走到 GGUF&quot;">​</a></h3><p>早期 <code>.bin</code> / GGML 格式迭代快、兼容性差。GGUF 把张量、分词器、超参、量化方案收进带版本与键值元数据的容器，便于 mmap 与跨版本。讨论「用 llama.cpp 跑某个模型」时，指的是 <strong>有没有对应 GGUF 以及 arch 是否已实现</strong>，不是 Hugging Face 上的 <code>safetensors</code> 能不能直接 <code>dlopen</code>。转换脚本是生态的一部分，转换过程会固定量化类型，质量评估应在 GGUF 上做，不要用 BF16 仓库的分数代替。</p><p><span class="marginnote">ggml 不只服务 Llama。同一套张量库还长出 whisper.cpp、其他模态绑定。本篇只谈 LLM 推理侧：因果 Transformer、KV 缓存、采样与文法。不要把「ggml 能跑语音」写成 llama.cpp 的架构特性。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>计算图画在 CPU 上：Embedding、逐层注意力与 FFN、RoPE、RMSNorm、词表投影。Decode 一步追加 KV。KV 可以是 FP16 或量化缓存，这是与权重量化独立的旋钮，直接决定 <a href="/llm/on-device-kv">上下文预算</a>。后端把图节点映射到：CPU（AVX / NEON 等）、Metal（Apple GPU）、CUDA、Vulkan、SYCL 等。没有后端时退回 CPU。统一内存设备（Apple Silicon）上，权重量化块与 KV 可以少一次显式拷贝，这是 Metal 路径相对「CUDA + 独立显存」的结构优势。</p><p>量化方案按块（block）存 scale 与零点，常见家族包括较老的 <code>Q4_0</code> / <code>Q5_0</code> 与后来的 k-quant（<code>Q4_K_M</code>、<code>Q5_K_M</code> 等）、以及更高比特的 <code>Q8_0</code>。块内共享 scale 会在异常通道上引入误差；k-quant 用更细的超级块结构减轻这一点。选择是内存、速度、困惑度之间的曲面，没有全局最优。推理时 GEMM 是「量化权重 × 激活」，激活通常较高精度，反量化发生在寄存器或短缓冲里，而不是先把全模型还原成 FP16。</p><div class="mermaid"></div><h3 id="服务能力是附加的-不是设计中心" tabindex="-1">服务能力是附加的，不是设计中心 <a class="header-anchor" href="#服务能力是附加的-不是设计中心" aria-label="Permalink to &quot;服务能力是附加的，不是设计中心&quot;">​</a></h3><p>llama.cpp 提供 HTTP server、简易连续批、文法约束（GBNF）、投机与多模态绑定等，社区在往「也能当小服务」走。调度与分页的完成度仍不能按 Kwon 或 Zheng 的论文来衡量：默认故事仍是单机、有限并发、KV 连续或简单分块。把它放到多租户 GPU 集群当主引擎，会缺 Radix、缺与 DistServe 同类的 PD 拆分、缺生产级抢占会计。反向把 vLLM 塞进手机，则会缺 ggml 这种可 mmap 的量化 dtype 与零 Python 运行时。</p><p>GBNF 约束解码与 Outlines 的目标相同、实现不同：在本地逐步掩码，词表扫描开销曾被 XGrammar 论文当作对照之一。复杂 JSON schema 在服务端更该接 XGrammar；在本地小词表、短 schema 上 GBNF 已经够用。见 <a href="/llm/constrained-decoding">约束解码</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>本地 decode 的屋顶线经常是内存带宽：每步读量化权重（体积已缩小）和 KV。量化的加速来自 <strong>更少字节</strong>，不是更少 FLOPs——反量化还加了整数到浮点的转换。CPU 上 SIMD 若对某种 quant 类型有特化核，墙钟可以下降；若某种类型只能标量反量化，会比稍高比特但有好核的类型更慢。因此「Q4 一定快于 Q5」不成立，要看后端是否为该格式写了核。</p><p>Apple 统一内存让 30B 级量化模型在内存够的 Mac 上变得可行：没有 24 GB 独立显卡也能驻留。这与数据中心 HBM 池是不同的容量故事，并发仍然受限——统一内存还要分给系统与 UI。移动端再叠加 NPU 时，ggml 图是否能切到神经引擎取决于后端，更多便携编译见 <a href="/llm/mlc-tvm">MLC / TVM</a>；llama.cpp 的强项仍是「同一份 GGUF，多后端可执行」。</p><p><span class="marginnote">质量对比必须锁定量化类型与校准。公开 GGUF 常是对通用校准集的 round；领域任务上 4-bit 可能把长尾实体打糊。不要用「Q4_K_M 在聊天里够好」代替你的评测集。</span></p><h3 id="与-python-生态的边界在转换" tabindex="-1">与 Python 生态的边界在转换 <a class="header-anchor" href="#与-python-生态的边界在转换" aria-label="Permalink to &quot;与 Python 生态的边界在转换&quot;">​</a></h3><p>训练、微调、PEFT 仍在 PyTorch。导出 GGUF 是单向交付：merge LoRA、选 quant、写出。运行时改权重（在线 LoRA）能力弱于 vLLM 的多适配器服务。Tokenizer 在 GGUF 元数据里，需与训练时一致，否则 <a href="/llm/chat-template">chat template</a> 对不上。这是本地助手踩坑最多的一层：量化对了、模板错了，模型像变笨。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 llama.cpp 的单请求延迟去对比 vLLM 的高并发吞吐。分子分母都不是同一 SLA。许可证以仓库为准（ggml / llama.cpp 的 MIT 等），模型权重另有各家协议。新架构（MLA、极端 MoE）的第一实现往往先出现在 Python 引擎，ggml 要补算子与量化 kernel，会有窗口期。</p><p>GPU 后端存在不代表达到 TensorRT-LLM 的融合度。CUDA 上 llama.cpp 能跑，但 Hopper FP8 全家桶仍是厂商库的主场。选 llama.cpp 的理由应是：便携、量化格式统一、部署面从 CPU 到桌面 GPU、运维是一个二进制。选它当训练集群的推理网关，是用错了工具。</p><p><span class="marginnote">出处：<a href="https://github.com/ggerganov/llama.cpp" target="_blank" rel="noreferrer">https://github.com/ggerganov/llama.cpp</a> 与 ggml 组织仓库、GGUF 规范说明。不给 llama.cpp 编造 arXiv。XGrammar 论文里把它的文法引擎当作基线之一，那是引用关系，不是 llama.cpp 自己发了结构化生成论文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>llama.cpp 用 ggml 计算图在本地跑量化 LLM，GGUF 是权重容器，多硬件后端可选。</li><li>量化 dtype 是一等公民，为的是 mmap 与逐步 matmul，不是启动后再反量化整模。</li><li>优化目标是单机内存与单请求延迟；连续批与分页不是它的论文级主线。</li><li>同一 GGUF 的速度取决于后端是否为该 quant 写了核，比特更低不必更快。</li><li>与集群引擎互补：转换自 PyTorch，服务并发交给 vLLM / SGLang / TRT-LLM。</li><li>出处：Georgi Gerganov 及贡献者的 llama.cpp / ggml 开源仓库与 GGUF 格式说明。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

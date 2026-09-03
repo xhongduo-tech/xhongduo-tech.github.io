@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Grammar-constrained decoding | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_grammar-decode.md.BChkigi5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="grammar-constrained-decoding" tabindex="-1">Grammar-constrained decoding <a class="header-anchor" href="#grammar-constrained-decoding" aria-label="Permalink to &quot;Grammar-constrained decoding&quot;">​</a></h1><div class="epigraph"><p>把合法续写写成自动机上的转移，再对词表建索引：每一步掩码可以是查表，而不必扫描整个词表去跑一遍文法。</p><footer>—— Willard 与 Louf，Efficient Guided Generation for Large Language Models；Dong 等 XGrammar 把同一思路推到 CFG</footer></div><p>产品要的往往不是自由散文，而是能进解析器的程序片段、能匹配括号的表达式、或一份带递归结构的配置。事后用提示「请按某某文法输出」再靠重试抢救，失败率随嵌套变深而上升。文法约束解码（grammar-constrained decoding）把上下文无关文法（CFG）嵌进采样：每一步只允许下推自动机认为合法的 token。相对 <a href="/llm/constrained-decoding">结构化输出总述</a>，本篇只谈 <strong>CFG 这一档</strong>：它比正则多了无限嵌套与互递归，也比「JSON Schema 的某一子集」更通用。llama.cpp 的 GBNF、Guidance 的文法、XGrammar 的 PDA 与自适应掩码缓存，都是这条线上的工程落点。结构保证不等于语义正确，词表与终结符不对齐还会造出可表示性空洞。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归每步给出 \(p_\theta(x_t \mid x_{&lt;t})\)，支撑是整个词表 \(\mathcal{V}\)。CFG 在某一步可能只允许若干终结符的若干子词切分。无约束采样会在括号、关键字、分隔符上随时出轨，下游解析失败。把「先生成再 parse、失败就重试」当成产品策略，延迟与失败率会随文法复杂度一起涨，且重试并不能把分布限制在语言 \(L(G)\) 里——它只是拒绝了已经写完的非法串。</p><p>正则对应的有限状态机（FSM）记不住无限嵌套深度：它无法用有限状态表达「当前未闭合的左括号有多少」。JSON 值、Lisp 列表、带块结构的 DSL、简单算术表达式，都属于需要栈的语言。CFG 用产生式 \(A \to \alpha\) 描述递归；识别器是下推自动机（PDA）。于是「下一步合法 token」依赖的不只是一个整数状态，还有栈顶乃至栈上的一段符号。掩码不能全部离线预计算成一张对所有输入都够用的表，必须在编译期与运行时之间切一刀。这是文法约束相对 <a href="/llm/regex-constrained-decode">正则约束</a> 的问题设定。</p><h3 id="子词字母表不是文法字母表" tabindex="-1">子词字母表不是文法字母表 <a class="header-anchor" href="#子词字母表不是文法字母表" aria-label="Permalink to &quot;子词字母表不是文法字母表&quot;">​</a></h3><p>LLM 的 token 不是 CFG 教科书里的终结符。一个关键字 <code>return</code> 可能被切成多片，一个 token 也可能跨越多个终结符（例如 <code>),</code> 同时结束参数列表并带上逗号）。只在字符面上谈「这条产生式还没写完」会误判。约束的正确性必须相对于 <strong>token 字母表</strong> 定义：每个 \(v \in \mathcal{V}\) 对应一段字节，这段字节在当前 PDA 格局下要么能完整消费，要么非法。Outlines 早期路径以正则 FSM 为主，并指出跨 lexer token 的处理是后续引擎要补的；XGrammar 把 CFG 与 token 跨越一起放进服务热路径。不要假装模型按字符生成。</p><p><span class="marginnote">掩码改的是下一步的支持集，不改模型权重。被禁 token 的 logit 置 \(-\infty\) 再 softmax。得到的是条件于「前缀已是 \(L(G)\) 的活前缀」的截断分布，不是另训了一个结构化模型。长约束下质量好不好，仍取决于 \(p_\theta\) 在合法集合上的质量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先写文法 \(G\)，再编译，再接到采样钩子。GBNF（llama.cpp）把扩展 BNF 写成一份可读文本：终结符是字符串或字符类，非终结符可递归。JSON Schema、Pydantic 模型、SQL 方言也可以先降到 CFG 再走同一编译器，但降的过程会丢掉 Schema 里「值的取值范围」这类语义，只留下结构。编译产物是 PDA 或等价的解析器状态机：每个格局 \(c=(\,q, \gamma\,)\)（控制态加栈）对应合法 token 集合 \(\mathcal{M}(c)\subseteq\mathcal{V}\)。</p><p>Willard 与 Louf 的 Outlines 把「对每个状态扫描词表」从热路径挪到编译期，使正则情形的逐步开销接近查表；CFG 被他们当作同一框架的延伸，但运行时成本显著更高。XGrammar 的切分是：与栈无关、可预计算掩码的 token 走离线索引；依赖栈的 token 在运行时处理，并用自适应掩码缓存记住见过的格局。掩码计算与 GPU 前向重叠，使结构化生成的额外延迟在服务场景里可被掩盖。SGLang 的压缩 FSM 在无分支路段上直接写出确定字符串，文法里的关键字与固定标点尤其受益。</p><div class="mermaid"></div><h3 id="与引擎的接合点是-logits-处理器" tabindex="-1">与引擎的接合点是 logits 处理器 <a class="header-anchor" href="#与引擎的接合点是-logits-处理器" aria-label="Permalink to &quot;与引擎的接合点是 logits 处理器&quot;">​</a></h3><p>vLLM、SGLang、TensorRT-LLM、llama.cpp 都在采样前提供钩子：给定已生成的 <code>input_ids</code>，返回布尔掩码或 logit 偏置。文法引擎是钩子的实现，不是另一套 Transformer。连续批下每条序列处于不同格局，掩码必须 <strong>按序列</strong> 而不是按整个 batch 一份。页表与 radix 树不替你做文法；它们只保证 KV 对。系统提示前缀仍能命中缓存，正文一旦进入递归非终结符通常很快分叉。</p><h3 id="活前缀、归约与错误恢复" tabindex="-1">活前缀、归约与错误恢复 <a class="header-anchor" href="#活前缀、归约与错误恢复" aria-label="Permalink to &quot;活前缀、归约与错误恢复&quot;">​</a></h3><p>PDA 每消费一个 token 可能触发多次归约。实现上要决定：token 的字节是一次吃完，还是允许「吃了一半、停在终结符内部」。后者更接近真实 BPE，也更难缓存。若当前格局的 \(\mathcal{M}(c)\) 为空，说明要么文法与词表联合起来不可行，要么已经走进死路——约束解码没有「语法错误恢复」这一说，它从一开始就不让非法前缀出现。调试时把空掩码当成断言失败，而不是用某个兜底 token 糊过去；糊过去会破坏「输出属于 \(L(G)\)」的保证。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>正确性：若编译忠实于 \(G\)，且每个 token 的消费规则与分词器一致，则生成串的字节属于 \(L(G)\)（或属于其 token 化像）。这比「高温度再 parse」可靠。完备性：合法字符串只要能被该分词器切成某条 token 路径，且路径上每步都在 \(\mathcal{M}(c)\) 里，就仍能被采到。若分词器把文法需要的字符序列切成「必须先走一个非法中间 token」的死路，会出现 <strong>可表示性空洞</strong>——\(G\) 允许、词表路径不允许。这是分词器与文法联合设计的问题，不是 softmax 的问题。</p><p>效率：预处理与状态（格局）数量、词表大小成正比的那部分，换的是逐步近似 \(O(1)\) 或 \(O(|\mathcal{M}|)\) 的查表。CFG 用栈换状态数，把正则那种状态爆炸转到运行时栈深与缓存命中。左递归、过宽的 <code>*</code> 与「任意标识符」会让格局集合在编译期或缓存里膨胀。压缩无分支路径减少「模型必须说话」的步数，直接降 decode 迭代；有多个合法后继时，仍要一次前向加掩码。</p><p><span class="marginnote">文法不能修复幻觉内容。输出是合法的 AST，节点上的标识符与字面量仍然可能是瞎编。结构层保证的是括号与产生式，不是类型检查器或数据库里的真值。要把事实钉住，需要检索、工具或校验器在文法之外再跑一遍。</span></p><h3 id="掩码过紧时的分布扭曲" tabindex="-1">掩码过紧时的分布扭曲 <a class="header-anchor" href="#掩码过紧时的分布扭曲" aria-label="Permalink to &quot;掩码过紧时的分布扭曲&quot;">​</a></h3><p>截断把 \(p_\theta(\cdot\mid x_{&lt;t})\) 限制在 \(\mathcal{M}(c)\) 上再归一化。若模型在合法集合上的质量本来就高，掩码几乎不 intervening，序列与无约束时相近。若模型很差，质量会堆在少数「勉强合法」的 token 上，表现为重复标点、最短合法骨架、或在递归非终结符里迅速收束。把温度调高只能在合法子集里搅动，不能把质量从非法区「借」回来。过紧的文法（只剩一条路）等于忽略模型分数、贪心走最短合法路径。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 CFG 约束代替微调后的格式习惯。两者可叠加：模型在 \(L(G)\) 上概率质量更集中时，掩码几乎不干活，质量与速度都好。流式输出时，未完成的递归结构对客户端不可解析，需要按格局展示草稿，或等接受态再发。GBNF、Outlines、XGrammar、引擎内置 JSON mode 的表达力与 token 跨越处理不同；移植文法时要测嵌套深度、unicode、数字的多种切分，以及左递归是否被改写。</p><p>CFG 不是万能语义层。类型系统、取值范围、跨字段约束（「<code>end</code> 不早于 <code>start</code>」）往往写不成上下文无关规则，或写成后体积巨大。这些应放在生成后的校验器，或拆成「结构用文法、值用工具调用」。禁止伪造「某库对应某篇不存在的 arXiv」；索引式引导的出处是 Willard &amp; Louf（arXiv:2307.09702），CFG 服务引擎见 Dong 等 XGrammar（arXiv:2411.15100），压缩 FSM 见 Zheng 等 SGLang（arXiv:2312.07104）。</p><p><span class="marginnote">调试「约束后变笨」时，先看掩码是否过紧（只剩一条路），再看分词器是否把关键字切碎导致合法路径极窄，最后看温度是否还在合法子集上。不要一上来就怪模型「不理解文法」——它从未被要求理解，只被要求在掩码里采样。</span></p><h3 id="与-json、正则约束的分工" tabindex="-1">与 JSON、正则约束的分工 <a class="header-anchor" href="#与-json、正则约束的分工" aria-label="Permalink to &quot;与 JSON、正则约束的分工&quot;">​</a></h3><p>只需固定字段的扁平对象，用 <a href="/llm/json-constrained-decode">JSON Schema 约束</a> 更省事，Schema 工具链比手写 GBNF 好维护。只需行级模式、枚举或简单分隔格式，用 <a href="/llm/regex-constrained-decode">正则约束</a> 编译更快、状态可全离线。需要互递归、括号匹配、或多种语句形态的 DSL，才值得上 CFG。三者可以套：外层 CFG 管块结构，内层正则管标识符与数字。套得越深，空洞与缓存失效越要单独测。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>文法约束解码在每步把 logit 截到 CFG 允许的 token，保证输出属于编译后的语言。</li><li>正则 FSM 记不住无限嵌套；CFG 需要 PDA，掩码必须在预计算与运行时之间切分。</li><li>Token 化与终结符不对齐会造成错误掩码或可表示性空洞。</li><li>Outlines 用索引避免逐步扫词表；XGrammar 用 PDA 与自适应缓存服务 CFG；SGLang 压缩无分支路径。</li><li>结构合法不等于内容为真；过紧文法会把多样本压成同一骨架。</li><li>热路径掩码必须按序列，可与连续批共存。</li><li>出处：Willard &amp; Louf, <em>Efficient Guided Generation for Large Language Models</em>, arXiv:2307.09702；Dong et al., <em>XGrammar</em>, arXiv:2411.15100；Zheng et al., SGLang, NeurIPS 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

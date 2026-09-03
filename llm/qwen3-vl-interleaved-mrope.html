@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MRoPE / Interleaved MRoPE 时空位置 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-vl-interleaved-mrope.md.Ck246wL9.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="mrope-interleaved-mrope-时空位置" tabindex="-1">MRoPE / Interleaved MRoPE 时空位置 <a class="header-anchor" href="#mrope-interleaved-mrope-时空位置" aria-label="Permalink to &quot;MRoPE / Interleaved MRoPE 时空位置&quot;">​</a></h1><div class="epigraph"><p>把旋转频率按时间、高、宽三条轴来编；再把三条轴交错进高低频，视频与图像就可以共用同一套位置几何。</p><footer>—— Wang 等，Qwen2-VL，2024；Qwen3-VL 技术报告</footer></div><p>语言模型默认的 <a href="/llm/rope">RoPE</a> 只有一条位置轴：token 下标。图像有高与宽，视频再加时间。Qwen2-VL 把旋转嵌入拆成时间、高度、宽度三个分量，称为 Multimodal RoPE（MRoPE / M-RoPE）：文本上三轴共用同一套 ID，退化为普通 1D-RoPE；图像上时间 ID 固定、高宽随网格变；视频上时间 ID 随帧递增。Qwen2.5-VL 曾把时间轴对齐到绝对时刻。Qwen3-VL 进一步指出：若把隐维切成三段分别专给 \(t,h,w\)，频谱会失衡、长视频变差，于是改为 <strong>Interleaved MRoPE</strong>——三条轴的频率交错分布在整个维度上。图与视频共用这一套交错几何，本篇写清从分块到交错改了什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>标准 RoPE 对位置 \(m\) 施加 \(R_m\)，内积只含 \(n-m\)。多模态前缀里，一个视觉 token 不能只用「它是第几个标记」：同一行相邻两格应当比「上一行行末与下一行行首」更近；相邻两帧同位置应当在时间轴上近、在空间轴上重合。一维下标会把光栅顺序误当成空间邻近。</p><p>Qwen2-VL 的回答是给每个视觉 token 三个位置 ID \((t,h,w)\)，并把旋转维度划成三组。问题随即变成频谱分配：RoPE 的低频维度负责长程、高频维度负责精细位移。若整段低频都给了高度、时间只分到高频（或反过来），长视频的时间距离会落在不擅长外推的频段上。Qwen3-VL 技术报告写明：分块式 MRoPE 在长视频理解上观察到频谱偏置。需要一种分配，使 \(t\)、\(h\)、\(w\) 都能同时用到低频与高频，而图像（时间轴退化）与视频（三轴全开）仍是同一套公式。</p><p><span class="marginnote">文本 token 的 \((t,h,w)\) 取相同值，MRoPE 与 1D-RoPE 等价。不要给纯文本另训一套位置，也不要在图文交错时把文本改成二维 ID。</span></p><h3 id="时间轴曾经绑在「第几帧」上" tabindex="-1">时间轴曾经绑在「第几帧」上 <a class="header-anchor" href="#时间轴曾经绑在「第几帧」上" aria-label="Permalink to &quot;时间轴曾经绑在「第几帧」上&quot;">​</a></h3><p>Qwen2-VL 的时间 ID 随输入帧序号增加，同一段视频抽 \(8\) 帧还是 \(32\) 帧，相邻 ID 的间隔含义不同，模型难以学会绝对节奏。Qwen2.5-VL 把时间分量对齐到绝对时间，用 ID 间隔表达秒级间隔。Qwen3-VL 认为这一做法在长视频上会让时间 ID 又大又稀疏，改为在帧组前插入文本时间戳；<strong>位置几何</strong>则交给 Interleaved MRoPE 的 \(t\) 轴，不再靠绝对时间把 ID 拉得很开。本篇不展开时间戳字符串，只强调：交错的是 RoPE 频率布局，不是把时钟写进文本的那条旁路。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="分块-mrope-三轴切分维度" tabindex="-1">分块 MRoPE：三轴切分维度 <a class="header-anchor" href="#分块-mrope-三轴切分维度" aria-label="Permalink to &quot;分块 MRoPE：三轴切分维度&quot;">​</a></h3><p>把注意力头的旋转维 \(d_R\) 分成三段，分别用 \(t\)、\(h\)、\(w\) 作为 <a href="/llm/rope">RoPE</a> 的位置自变量。图像：\(t\) 对所有视觉 token 取同一常数（常与该图像在序列中的起点对齐），\(h,w\) 取合并后网格上的行、列。视频：每帧（或每个时间 patch）增大 \(t\)，帧内 \(h,w\) 与单图相同。多图或多段模态拼接时，后一段的位置编号从先前列的最大值继续累加，避免两幅图的 \((h,w)\) 撞车。</p><p>对查询、键，形式上仍是分平面旋转，只是第 \(i\) 个平面的角度是 \(m^{(a_i)}\theta_i\)，其中 \(a_i\in\{t,h,w\}\) 由该平面所属轴决定。分块布局下，\(a_i\) 在维度上成三段连续区间。</p><h3 id="interleaved-mrope-轴在频率上轮转" tabindex="-1">Interleaved MRoPE：轴在频率上轮转 <a class="header-anchor" href="#interleaved-mrope-轴在频率上轮转" aria-label="Permalink to &quot;Interleaved MRoPE：轴在频率上轮转&quot;">​</a></h3><p>Qwen3-VL 把 \(t,h,w\) <strong>交错</strong>进各旋转平面，使每个轴都均匀出现在低频带与高频带（报告引用 Huang 等 2025 的交错设计）。直观排列从「ttt…hhh…www…」变成「thwthw…」或等价的均匀交织。于是时间距离既能被低频平面慢慢旋转（利于长程），也能被高频平面精细分辨（利于近邻帧）；高、宽同理。图像把 \(t\) 设为常数时，属于 \(t\) 的那些平面不随空间位置转，空间几何仍由 \(h,w\) 平面承担——与视频共用权重，只是时间通道关掉变化。</p> \[(R_{t,h,w}q)^{\top}(R_{t&#39;,h&#39;,w&#39;}k) \]<p>仍由各平面相对位移决定；交错改变的是「哪一个 \(\theta_i\) 乘在哪一条轴上」，不改变 RoPE 的相对性。</p><div class="mermaid"></div><p><span class="marginnote">交错是频率分配，不是把一个 token 的位置改成三个下标的函数值再相加。实现上仍是按平面选一个标量位置去乘 \(\theta_i\)，只是平面到轴的映射从分段改成交织。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RoPE 的相对内积对「未见过的大位移」敏感的是频谱：高频平面在大位移上已经转乱，只剩低频还在编码距离。长视频的帧间 \(t\) 差可以很大；若 \(t\) 只分到高频段，时间轴等于几乎没有可用的长程几何。交错强制每个轴都有慢旋转平面，长程时间与长程空间不再互相抢低频配额。</p><p>图像与视频共用，靠的是退化规则而不是两套权重：单图把时间差置零，交错布局里属于 \(t\) 的平面对所有该图 token 施加同一旋转，相当于公共相位，不破坏 \(h,w\) 的相对结构。训练时图、视频、文本可以混在同一批次，位置模块不必切换。这比「图像用 2D-RoPE、视频另接时间编码头」更省一套接口，也避免模态交界处位置定义不一致。</p><p>Qwen2.5-VL 的绝对时间对齐，是在分块 MRoPE 上改变 \(t\) 的<strong>取值</strong>（与秒挂钩）；Interleaved MRoPE 改变的是 \(t\) 乘在哪些<strong>频率</strong>上。二者层不同。Qwen3-VL 用文本时间戳承接「现在是第几秒」，用交错 MRoPE 承接「token 在三维网格上的相对几何」。</p><p><span class="marginnote">ViT 内部另有 2D-RoPE，编码的是尚未合并的 patch 网格。LLM 侧 MRoPE 编码的是合并后的视觉 token 以及文本。两套旋转不要共用同一套 \((h,w)\) 计数，除非实现明确对齐了 merge 前后的坐标。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>交错不能取消长度外推问题：频率底座、YaRN 一类插值仍可能需要。Qwen3-VL 公开材料提到超长上下文时 MRoPE 的 section 划分与较小的 YaRN factor，因为交错后位置 ID 增长方式与纯 1D 不同。复现时不要把纯文本 YaRN 的默认因子直接套到视觉长视频上。</p><p>分块 MRoPE 并非「错了所以必须立刻作废」：Qwen2-VL 已用它提升视频基准相对 1D-RoPE 的表现。交错是针对分块频谱偏置的修正，主场是长时序。短图、单帧任务上两者差距会小得多，不要用 OCRBench 一类静态任务去证明交错「全面替代」分块。</p><p>实现边界：必须按头维的配对平面交织，量化与 KV 缓存要缓存旋转前还是旋转后的键，与普通 RoPE 相同；多轴只是多了一张「平面 → 轴」查找表。若错误地把 \(t,h,w\) 加成一个标量再送进 1D-RoPE，三维相对性全部丢失。另一边界是多图：第二张图的 \(t\) 或全局偏移必须与第一张断开空间网格，否则两张图的左上角会共享 \((h,w)\)，模型会以为它们在空间上重合。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MRoPE 把 RoPE 拆成时间、高、宽三个位置 ID：文本三轴相同，图像 \(t\) 固定、视频 \(t\) 随帧，图与视频共用空间轴。</li><li>分块布局把维度连续切给三轴，低频配额不均，长视频易伤；Interleaved MRoPE 让三轴轮流占用高低频。</li><li>交错改频率分配，不改相对旋转的代数；Qwen3-VL 另用文本时间戳表达绝对时刻，与 MRoPE 分工。</li><li>图像是时间轴退化后的同一套几何，不必为静图再训 2D 专用位置模块。</li><li>出处：Wang 等，<em>Qwen2-VL</em>，2024（MRoPE 定义）；Qwen2.5-VL 技术报告（绝对时间对齐的 \(t\)）；Qwen3-VL 技术报告（Interleaved MRoPE）；RoPE 见 Su 等。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

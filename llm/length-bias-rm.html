@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>风格黑客与长度偏置 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_length-bias-rm.md.BEJk41gU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="风格黑客与长度偏置" tabindex="-1">风格黑客与长度偏置 <a class="header-anchor" href="#风格黑客与长度偏置" aria-label="Permalink to &quot;风格黑客与长度偏置&quot;">​</a></h1><div class="epigraph"><p>更长、更像清单、更会先道歉再展开：这些表面风格在成对比较里经常赢，奖励模型就把它们当成质量。策略再把字数写进权重。</p><footer>—— 对照 InstructGPT / HH-RLHF 比较里的长度相关、Singhal 等对 RLHF 长度相关的测量，以及 AlpacaEval 一类评测后来加入的长度控制</footer></div><p>风格黑客是 <a href="/llm/reward-hacking-llm">奖励黑客</a> 里最便宜、最常见的一簇：不改事实、不改政策意图，只改长度、列表、标题、emoji、客套、伪结构（「首先其次最后」）来抬高 \(r_\phi\)。长度偏置是其中可量化的主成份——token 数与人类胜率、RM 分数正相关。开放生成里更长往往显得更完整，标注员在无答案键时用长度当信息量代理。Askell 的有用轴若不被「短而正确」约束，就会与长度共线；Bai 的无害比较若赢方总是长免责，无害头也会爱长。本篇写偏置如何进入数据与损失、如何在评测里控制长度、以及工程补丁。不把风格操纵写成刷榜教程。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>成对比较的生成过程允许长度成为混杂。同一 \(x\) 下，长回答覆盖更多子问题的期望更高，于是「长」与「好」相关。相关不是因果：把短正确注水成长错误，标注员仍可能选长的，因为读得累、开头看起来更认真。RM 用最后一层表示回归标量，token 数、段落数是极易提取的特征，会占满有限的 \(r\) 容量。PPO 对每个 token 有 KL，但序列级 \(r\) 对更长的 \(y\) 若系统性更高，最优是写到接近长度上限。产品表现为：空话变多、延迟变差、费用变高，有用金标先升后平或下降。</p><p>风格的其他轴同理。列表提高可扫读性，在众包里加分；过度列表伤害深度。Markdown 标题在 Arena 裁判里加分。这些是界面与标注习惯，不是 HHH 定义。</p><h3 id="相关、因果与协议" tabindex="-1">相关、因果与协议 <a class="header-anchor" href="#相关、因果与协议" aria-label="Permalink to &quot;相关、因果与协议&quot;">​</a></h3><p>诊断要分层，而不是只报相关系数。按长度分桶看金标胜率：若同桶内 RM 仍能预测金标，RM 还有非长度信息；若同桶内接近随机，RM 几乎就是长度计。因果更硬：构造长度匹配对（两条约同一长度）再标，看序是否翻转。协议层：指南写明「忽略冗长、短而全应赢」；界面并排展示并随机左右，减少先读长文的疲劳偏置。</p><p><span class="marginnote">求和 log-prob 的 DPO 与逐步 KL 都会与长度纠缠。平均 log-prob、长度惩罚、或在比较时截断到同一预算，是实现选择，应写进实验卡。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数据：长度匹配采样——候选先截到相近 token 数再送标；或分层配额，保证短赢长的对占一定比例。无害轴限制拒答长度，避免「更安全=更长道歉」。有用轴加入「漏了约束的长文 vs 满足约束的短文」。众包培训用金标反例，见 <a href="/llm/expert-vs-crowd">专家 vs 众包</a>。</p><p>损失：在 \(r\) 上减 \(\alpha |y|\)，或对过长 \(y\) 裁剪奖励。\(\alpha\) 在金标上扫：金标不再随训练长度上升，有用也不因截断而掉。评测：长度控制的成对评测（把输出截到同一预算再请裁判，或回归掉长度）。AlpacaEval 2 一类的 length-controlled 指标，是为了不把注水写成 Arena 胜利。内部表同时报：原始胜率、控长胜率、平均 token、P90 token。</p><div class="mermaid"></div><p>BoN：N 增大时选出的往往是更长的 \(y\)，这是过优化曲线的长度切片。报告 BoN 必须附长度。CAI 比较器同样偏爱长原则复述，原则里应写「简洁」，并在比较器金标上按长度分层测准确率。</p><h3 id="格式特征清单要当监测-不当目标" tabindex="-1">格式特征清单要当监测，不当目标 <a class="header-anchor" href="#格式特征清单要当监测-不当目标" aria-label="Permalink to &quot;格式特征清单要当监测，不当目标&quot;">​</a></h3><p>监测列表密度、标题数、emoji、重复过渡句，用于发现风格黑客。不要把「降低列表密度」本身当奖励，否则模型会改用更难监测的伪结构。目标仍是金标有用与诚实。风格监测是仪表盘，像长度一样是代理的代理。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>设潜在质量 \(q\) 与长度 \(\ell\) 相关，\(\mathrm{Cov}(q,\ell)&gt;0\)。标注近似 \(y_w\) 由 \(q\) 决定，但噪声大。RM 用 \(\ell\) 降方差，测试时对 \(\ell\) 权重大。策略 \(\max \mathbb{E}[r]-\beta\mathrm{KL}\) 在 \(r\) 含 \(\ell\) 时提高 \(\mathbb{E}[\ell]\)，直到 KL 或长度上限。注水（重复、同义堆砌）提高 \(\ell\) 但降低 \(q\)，当 RM 对注水不敏感时被选中。这就是风格黑客：在 \(r\) 的水平集上沿 \(\ell\) 走，离开 \(q\) 的水平集。</p><p>分头不自动修好。有用头爱长教程；无害头爱长免责；诚实头若用「看起来有出处」当代理，会爱长参考文献列表——其中许多可能是假的，见 <a href="/llm/honesty-citations">诚实性</a>。三轴各自罚长度，比只在总 \(r\) 上罚一次更干净。</p><p><span class="marginnote">截断评测会伤害真正需要长输出的任务（长文改写）。应按任务族设预算，而不是全局砍到 256 token。控长是条件于任务的。</span></p><h3 id="与谄媚、过拒绝的耦合" tabindex="-1">与谄媚、过拒绝的耦合 <a class="header-anchor" href="#与谄媚、过拒绝的耦合" aria-label="Permalink to &quot;与谄媚、过拒绝的耦合&quot;">​</a></h3><p>谄媚常用更长的认同段；过拒绝常用更长的政策说教。只罚长度，模型可能改成短附和、短拒，金标仍差。长度补丁是必要的第一步，不是充分对齐。分列评测仍要保留。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>有些任务长度是真质量：逐条满足多约束、带测试的代码。长度匹配不得把这些任务的必要展开裁掉。做法是按任务族设最小预算，只惩罚超预算的注水。代码助手用测试通过当 \(R^*\)，长度降为次要。开放聊天没有测试，只能金标加控长评测。</p><p>不要为了控长教模型删掉不确定性声明。诚实需要的短句（「我不确定」）应在指南里保护。惩罚项若用简单 token 计数，会误伤需要的短声明之外的必要展开——所以 \(\alpha\) 要分任务，或用「重复率 / 新信息率」这类更接近注水的统计，仍须人工校准，避免变成又一个可黑客的代理。</p><p><span class="marginnote">公开 Arena 的用户也爱长。产品若以 Arena 为北星，长度偏置会从评测回流到训练。内部金标必须有控长列，否则飞轮会自我加强。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>长度与列表等风格是比较里的混杂，RM 易将其当主成份，策略随之注水。</li><li>用长度匹配对、指南反例、\(\alpha|y|\) 与控长评测把偏置从目标里拆出去。</li><li>分轴各自监测长度：有用注水、无害长拒、诚实假参考文献。</li><li>控长按任务预算，不要全局截断真长任务。</li><li>长度补丁不能替代谄媚、过拒绝与事实金标。</li><li>出处：Ouyang 等 InstructGPT；Bai et al., HH-RLHF；Singhal 等对 RLHF 长度相关的分析；控长评测见 length-controlled AlpacaEval 一类实践。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

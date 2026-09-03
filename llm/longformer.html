@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Longformer | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_longformer.md.Cg3wDgpc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="longformer" tabindex="-1">Longformer <a class="header-anchor" href="#longformer" aria-label="Permalink to &quot;Longformer&quot;">​</a></h1><div class="epigraph"><p>把滑窗当成每一层的底盘，再只给任务指定的少数标记开全局通道，编码器就能在线性代价上读几千 token 的文档。</p><footer>—— Beltagy, Peters &amp; Cohan, Longformer, 2020</footer></div><p>BERT/RoBERTa 把长度钉在 512，不是因为文档只有 512 词，而是因为满注意力的显存。Beltagy、Peters 与 Cohan 的 Longformer 要做的是一篇<strong>长文档编码器</strong>（以及后来的编码器–解码器 LED）：从已经训好的短上下文检查点出发，改注意力图、继续 MLM，再接到分类、问答、核心与摘要。窗、膨胀、全局点如何拼成图，已经写在 <a href="/llm/sparse-attention-patterns">稀疏模式</a>、<a href="/llm/sliding-window-attention">滑窗</a>、<a href="/llm/dilated-attention">膨胀</a>、<a href="/llm/local-global-attention">局部–全局</a> 里，本篇不把那张图再讲一遍。这里写原文的问题设定、任务驱动的全局点、续训协议，以及它为何停在编码器主场。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>2018–2019 年的预训练编码器在句子和段落上很强，一到 WikiHop、TriviaQA 长文、整篇新闻或论文，就只能截断或滑窗再集成。截断丢答案；滑窗集成没有层内的全局通道，跨窗指代要靠启发式。需要一种与 RoBERTa 权重兼容的注意力替换：短句行为别塌，长文档算力按长度近似线性，并且<strong>任务知道哪些 token 必须看见全文</strong>（CLS、问句）。</p><p>这与「训练一个从零开始的超长解码器 LM」不是同一命题。Longformer 的成功标准是：在文档级基准上超过截断的 RoBERTa 与当时的层次化基线，并把可处理长度推到 4K 量级（LED 摘要更长），而不是在语言建模困惑度上打 Transformer-XL。</p><h3 id="从-512-词的编码器出发" tabindex="-1">从 512 词的编码器出发 <a class="header-anchor" href="#从-512-词的编码器出发" aria-label="Permalink to &quot;从 512 词的编码器出发&quot;">​</a></h3><p>继续预训练的好处是：局部窗可以继承已经学好的短程句法，不必在长图上从随机初始化爬起。坏处是：位置嵌入只有 512 行，必须外插或复制才能到 4K；注意力图从满矩阵变成稀疏，训练动态会变。原文用继续 MLM 来适应新图和新位置，而不是声称「只改掩码就能零成本换长度」。任何复现若跳过续训、直接在 4K 上微调，比较的就不是论文方法。</p><p><span class="marginnote">全局点是任务输入的一部分，不是模型自己发现的记忆槽。换任务就要改哪些位置标成全局。这和后来可学习压缩槽、地标块不同：那些槽的位置由架构或内容决定，不由「这是问句 token」的标注决定。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>注意力图取稀疏模式专文中的 Longformer 配置：宽度为 \(w\) 的滑窗提供局部边；部分头膨胀以同样边数覆盖更大半径；分类符或问句 token 设为全局，与所有位置互连。复杂度相对 \(n\) 近线性，常数含 \(w\) 与全局点数 \(g\)。实现上，当时用自定义 CUDA 以避免物化 \(n\times n\) 掩码；用稠密核加掩码声称线性，只是把零算得很快，显存仍可能按 \(n^2\) 走。</p><p>继续预训练：从 RoBERTa 初始化，在长文档上做 MLM，位置嵌入扩展到目标长度。下游：QA 把问题侧标全局，分类把 CLS 标全局，核心任务按标注习惯选择。LED 把同样的稀疏编码器接到解码器上做生成式摘要（arXiv 等长文），解码器侧仍需处理交叉注意力的源长度——编码器稀疏不等于解码交叉免费，但源长可以先被编码器吃下。</p><div class="mermaid"></div><h3 id="任务指定的全局点" tabindex="-1">任务指定的全局点 <a class="header-anchor" href="#任务指定的全局点" aria-label="Permalink to &quot;任务指定的全局点&quot;">​</a></h3><p>全局点是这篇论文相对「只有滑窗」的编码器增量。没有它们，远距离只能靠层叠隐状态，文档级 QA 的问句无法在一层内对准任意证据。把问句设为全局，等于在图里加星形枢纽，枢纽的身份来自任务格式，训练稳定、实现确定。代价是：\(g\) 随问句变长而变，过长的问句会把线性常数抬起来；而且枢纽是双向的，不能原样贴到因果解码器里——解码器里的「全局」通常只读过去，见局部–全局专文。</p><h3 id="续训与-led" tabindex="-1">续训与 LED <a class="header-anchor" href="#续训与-led" aria-label="Permalink to &quot;续训与 LED&quot;">​</a></h3><p>LED 表明稀疏编码器可以进入 seq2seq，而不必先有一个从零训的长编码器。摘要任务的证据分散在全文，截断 512 会系统性丢章节。原文用这条线把「长文档」从理解任务扩到生成任务，但仍是文档输入、较短输出，不是聊天式无限生成。位置外插是否优雅，不是论文的理论贡献；它是续训能开始的工程前提，质量靠 MLM 与微调来补。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制上，Longformer 赌的是：文档任务的重要长程路径可以预先标出来。这个赌在 QA、分类、带明显任务前缀的输入上成立；在「不知道哪一句会成为枢纽」的纯语言建模上不成立——除非人为把某些位置标成全局，而 LM 没有 CLS。所以它没有试图替换 Transformer-XL 的记忆故事。膨胀头用来减少固定窗的盲区，属于模式设计，细节见膨胀专文；论文层面的主张是「确定图 + 任务枢纽 + 续训」这一配方。</p><p>与层次化 Transformer（先编码句子再编码文档）相比，Longformer 保持 token 级全局通路，不必先做句向量瓶颈。与满注意力长 Transformer 相比，它在 2020 年的 GPU 上能先跑起来。这两条对照构成原文的经验贡献。</p><p><span class="marginnote">线性是对 <em>编码器自注意力边数</em> 而言。下游若还有解码器对全体源位置的交叉注意力，端到端仍可能出现 \(n_{\mathrm{tgt}}\times n_{\mathrm{src}}\)。LED 的卖点是源可以很长且编码器先压住自注意力；交叉项要单独记账。</span></p><h3 id="编码器主场的限度" tabindex="-1">编码器主场的限度 <a class="header-anchor" href="#编码器主场的限度" aria-label="Permalink to &quot;编码器主场的限度&quot;">​</a></h3><p>双向全局与 BERT 式 MLM 绑定。因果 LLM 预训练很少采用「任务指定全局 token」，因为没有任务格式，也因为随机或指定的全局点与 Flash 内核、KV 缓存不和。今天解码器里出现的滑窗，多半更接近 Mistral 式每层局部，而不是 Longformer 的窗 + 膨胀 + CLS 星形。引用 Longformer 作为「现代长上下文 LLM 的来源」时，应缩小到「局部底盘」这一祖先，而不是整张图。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>主基准是文档 QA、分类、核心、长摘要，长度以千到数万 token 为工作区，不是百万级检索。自定义核增加了复现门槛；现在若用 Flash 加块稀疏掩码，常数与论文表格不必相同。全局点依赖正确的任务预处理：忘了把问句标全局，模型就退化成滑窗编码器，分数会掉，却看起来像「Longformer 不行」。</p><p>它不提供万能逼近证明——那是同年 BigBird 的理论部分。经验上两者常被并列，但 Longformer 的叙事是 <em>从 RoBERTa 出发的长文档应用</em>，BigBird 的叙事多一层 <em>稀疏仍通用</em>。不要用这篇去论证随机边或图灵完备。</p><p><span class="marginnote">位置嵌入从 512 拉到 4K 的方式（复制、插值、可学习外推）会显著影响续训是否稳。报告长度时写清位置如何扩展，否则别人无法复现你的 MLM loss 曲线。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Longformer 原文贡献是：用确定稀疏图加任务全局点，把预训练编码器接到长文档任务，并用继续 MLM 适应新长度。</li><li>图的零件见稀疏/滑窗/膨胀/混合专文；本文强调配方与任务枢纽，而不是再画一遍边。</li><li>LED 把稀疏编码器送进 seq2seq 长摘要，交叉注意力仍要按源长记账。</li><li>全局点由预处理指定，换任务即换图；不是可学习记忆。</li><li>主场是双向文档模型，不是因果 LLM 服务栈。</li><li>实现须避免用稠密核假装线性。</li><li>出处：Beltagy, Peters &amp; Cohan, <em>Longformer: The Long-Document Transformer</em>, 2020。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

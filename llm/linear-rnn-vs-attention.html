@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>线性 RNN 与注意力的分工 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_linear-rnn-vs-attention.md.BMgQ7aLB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="线性-rnn-与注意力的分工" tabindex="-1">线性 RNN 与注意力的分工 <a class="header-anchor" href="#线性-rnn-与注意力的分工" aria-label="Permalink to &quot;线性 RNN 与注意力的分工&quot;">​</a></h1><div class="epigraph"><p>注意力保存可寻址的过去；线性循环保存可压缩的过去。混合架构是在这两种记忆之间分配深度和宽度。</p><footer>对照 Mamba、Griffin、Jamba 的共同结构</footer></div><p>混合架构看起来像口味问题，其实是两种记忆接口不能互相吞掉对方的失败：注意力付得起地址、付不起长度；线性循环付得起长度、付不起任意精确拷贝。Griffin、Jamba、Mamba-2 只是在这条界上选了不同的切割方式。本篇把切割本身写清楚，细节公式留给各自专文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>序列层只做一件事：让位置 \(t\) 看见 \(1\ldots t\) 的信息。看见的方式有两种极限。一种是<strong>表</strong>：把每一步的键值留下，查询时做匹配——softmax 注意力。一种是<strong>状态</strong>：把每一步折叠进固定向量，下一步只读这个向量——线性 RNN、选择性 SSM、RG-LRU。</p><p>两种极限对应两种失败。表的失败是资源：时间 \(O(L^2)\) 或缓存 \(O(L)\)。状态的失败是信息：宽度固定，任意精确检索无法保证。2023–2024 年的混合模型并不是折中美学，而是承认这两类失败不能互相消化，只能<strong>分工</strong>。</p><p>本篇不展开 Mamba 的离散化、Griffin 的门公式或 Jamba 的层周期，只讨论分工本身：什么计算必须留给注意力，什么计算应当交给线性循环，以及这条边界在工程上如何被量出来。</p><p><span class="marginnote">「线性 RNN」在这里统称可扫描的对角或低秩递推，包括选择性 SSM 与 RG-LRU，排除不可扫描的非线性 GRU/LSTM。</span></p><h3 id="评测把分工暴露出来" tabindex="-1">评测把分工暴露出来 <a class="header-anchor" href="#评测把分工暴露出来" aria-label="Permalink to &quot;评测把分工暴露出来&quot;">​</a></h3><p>语言建模的负对数损失对两种层都友好：局部统计足够降 perplexity。一旦任务变成「在长上下文里找回唯一的键」或「按示范格式逐 token 拷贝」，纯状态模型掉点，纯注意力模型不掉但缓存先爆。分工的判据不在损失曲线的前半段，在检索与缓存同时被测量的时候。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分工的方法是把记忆写成两种接口，再在深度上分配。</p><p>注意力接口：查询 \(q_t\) 对 \(\{k_j, v_j\}_{j \le t}\) 做</p> \[y_t = \sum_{j \le t} \mathrm{softmax}(q_t^\top k_j)\, v_j. \]<p>每个过去位置保持独立地址。代价是保存全部 \(k,v\)，或对它们做窗口、稀疏、核近似——近似一旦破坏地址的可分辨性，就滑向状态。</p><p>线性循环接口：</p> \[h_t = a_t \odot h_{t-1} + b_t \odot x_t,\qquad y_t = c_t \odot h_t. \]<p>\(h_t\) 是对过去的充分统计（在线性假设下）。\(a_t\) 小于一的时候，旧信息按指数遗忘；选择门可以保护某些方向，但不能把宽度 \(N\) 变成 \(L\) 个可独立寻址的槽。</p><p>混合的方法因此只有几条轴：</p><ul><li><strong>深度交错</strong>：若干层注意力、若干层循环（Jamba）。</li><li><strong>范围切割</strong>：注意力只看窗口，循环看全局（Griffin）。</li><li><strong>算子对偶</strong>：同一层既能当扫描也能当结构化注意力（Mamba-2 的 SSD），仍不提供任意地址。</li></ul><h3 id="把「该用哪一种」写成任务性质" tabindex="-1">把「该用哪一种」写成任务性质 <a class="header-anchor" href="#把「该用哪一种」写成任务性质" aria-label="Permalink to &quot;把「该用哪一种」写成任务性质&quot;">​</a></h3><p>需要<strong>内容寻址、抗压缩</strong>的计算：精确拷贝、符号绑定、示范对齐、任意位置的键值查找。留给注意力，或留给窗口足够覆盖该依赖的局部注意力。</p><p>需要<strong>积分、平滑、长程主题</strong>的计算：语气、篇章约束、可损失的背景。交给线性循环。选择门（\(\Delta\) 或 RG-LRU 的 \(r_t\)）决定写入，不决定随机访问。</p><p>一条依赖若既要长又要精确，单一接口不够：要么加宽状态直到接近 KV 的信息量（通常不划算），要么在路径上放一层真注意力。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="复杂度与状态的对照" tabindex="-1">复杂度与状态的对照 <a class="header-anchor" href="#复杂度与状态的对照" aria-label="Permalink to &quot;复杂度与状态的对照&quot;">​</a></h3><table tabindex="0"><thead><tr><th>接口</th><th>训练对 \(L\)</th><th>推理状态</th><th>精确检索</th></tr></thead><tbody><tr><td>Softmax 注意力</td><td>二次（或窗口线性）</td><td>\(O(L)\) KV</td><td>强</td></tr><tr><td>线性 RNN / SSM</td><td>线性扫描</td><td>\(O(1)\) 宽</td><td>弱，受宽度限制</td></tr><tr><td>局部注意力 + 循环</td><td>窗口二次 + 扫描线性</td><td>\(O(w)+O(1)\)</td><td>窗口内强，窗外弱</td></tr><tr><td>稀疏全注意力 + SSM</td><td>按注意力层比例</td><td>\(O(L/l)\) KV</td><td>取决于注意力密度</td></tr></tbody></table><p>表不是实现细节，是接口契约。改 kernel 不能把 \(O(1)\) 状态变成任意检索；加一层注意力才能改契约。</p><div class="mermaid"></div><h3 id="选择不等于注意力" tabindex="-1">选择不等于注意力 <a class="header-anchor" href="#选择不等于注意力" aria-label="Permalink to &quot;选择不等于注意力&quot;">​</a></h3><p>Mamba 的 \(\Delta_t\)、Griffin 的 \(r_t\) 都是内容门控。门控改变的是<strong>写入与遗忘的时间尺度</strong>，不是在 \(L\) 个键里做一次归一化匹配。把「选择性 SSM」说成「线性注意力」可以在 SSD 的矩阵形式上成立，但在检索语义上不成立：半可分矩阵的秩由状态宽约束，softmax 注意力的有效秩可以随匹配模式升到 \(L\)。</p><p><span class="marginnote">SSD 证明扫描与结构化矩阵乘对偶，并不证明结构化矩阵能逼近任意注意力矩阵。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>分工是启发式，会被数据打脸。若预训练语料几乎不要求长程精确拷贝，纯循环的损失可以很好看，部署后在用户的检索型提示上翻车。若评测全是针堆，混合模型会被逼着把注意力加密，循环层变成昂贵的残差装饰。正确的工程顺序是：先列出产品真正的依赖类型，再分配层，而不是先选一个时髦骨架再找任务。</p><p>宽度可以买回一部分检索：状态宽到与 \(d_{\text{model}} \times L\) 同量级时，循环在信息上接近 KV，成本也接近，分工失去意义。实用的循环层状态远小于 KV，这是它便宜的原因，也是它的上限。</p><p>另一条边界是实现复杂度。两套 kernel、两套量化、两套并行，只有在缓存或长度确实构成墙时才值得。短上下文聊天机器人里，纯 GQA Transformer 往往更简单，分工是过度设计。</p><p><span class="marginnote">MQA/GQA 压缩的是头数，不是序列维上的地址；它们仍是注意力，只是 KV 更窄，与线性 RNN 不是同类取舍。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><p>线性 RNN（含选择性 SSM、RG-LRU）与注意力的分工是记忆接口的分工：前者付固定状态、做有损压缩，后者付 KV、做可寻址匹配。Griffin 按范围切（窗口对全局循环），Jamba 按深度切（稀疏散布全注意力），Mamba-2 按算法切（扫描对结构化矩阵），都没有取消这条界。设计混合模型时，应先问依赖要不要精确地址，再决定那一层能不能写成扫描。出处见 Gu &amp; Dao（Mamba，2023）、Dao &amp; Gu（Mamba-2，2024）、De 等（Griffin，2024）、Lieber 等（Jamba，2024）。</p></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

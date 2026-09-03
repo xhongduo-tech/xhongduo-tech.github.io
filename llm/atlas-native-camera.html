@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>相机位姿作为原生输入而非文本描述 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_atlas-native-camera.md.Cgpnkq4T.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="相机位姿作为原生输入而非文本描述" tabindex="-1">相机位姿作为原生输入而非文本描述 <a class="header-anchor" href="#相机位姿作为原生输入而非文本描述" aria-label="Permalink to &quot;相机位姿作为原生输入而非文本描述&quot;">​</a></h1><div class="epigraph"><p>运镜不应写成「向左转」或「crane up」再碰运气；把外参当成与图像同级的输入，生成才能按指定射线看世界。</p><footer>—— 归纳自 World Labs Atlas「pixel-perfect camera control」与评测设定</footer></div><p>视频生成器控制相机的主流接口仍是自然语言或一组松散的运动标签：pan、truck、dolly。这些词没有度量，同一句「缓缓左移」可以对应无数条 \(SE(3)\) 轨迹。Atlas 把精确相机几何列为原生输入类型，超出粗文本运镜。评测里它用原生格式编码目标路径，对照模型则把同一路径写成电影术语文本——官方也承认更好的提示工程也许能改善对照模型，但文本仍是那些模型最常见的运镜接口。本篇讲为什么原生位姿与文本不是程度差，而是类型差。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>相机是从三维世界到像素的投影，不是形容词。外参 \((R,t)\) 决定光心与朝向，内参 \(K\) 决定焦距与主点。文本描述丢掉了这些度数，模型只能从训练视频里学「说到左转时像素通常怎么流」。复杂轨迹（连续几段不同的 cinematic 运动）下，文本条件与真实 \(P_{1:T}\) 的互信息更低，跟随误差变大。Atlas 博客的人类评测正是：轨迹越复杂，原生相机相对文本运镜的优势越大。</p><p>世界模型还要把同一场景在多条路径下保持一致。若每条路径都用不同的散文去说，模型没有共享的几何变量去对齐「这是同一间房的另一次穿越」。原生 \(P\) 让路径成为可替换的查询，场景条件可以保持不动。</p><h3 id="文本运镜无法构成度量" tabindex="-1">文本运镜无法构成度量 <a class="header-anchor" href="#文本运镜无法构成度量" aria-label="Permalink to &quot;文本运镜无法构成度量&quot;">​</a></h3><p>设目标轨迹为 \(P_{1:T}\)，文本为 \(s\)。条件分布 \(p(I_{1:T}\mid I_0,s)\) 即使得分高，也不保证存在可逆映射 \(s\mapsto P_{1:T}\)。度量跟随应用</p> \[e_t=\mathrm{dist}(\hat P_t,P_t) \]<p>需要从生成视频里再估 \(\hat P_t\)（例如用视觉里程计），误差里混有生成误差与估姿误差。原生输入把 \(P_t\) 直接喂给网络，至少生成器没有「听错指令」这一层。估姿仍可用于评测是否真按 \(P\) 投影，但训练接口已经是几何。</p><p><span class="marginnote">「向左转」在不同焦距、不同场景尺度下对应完全不同的像素位移。原生位姿把尺度放进 \(t\) 的单位（米）与 \(R\) 的弧度，不再让语言去承担度量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Atlas 的模态列表把 camera poses 与 text、images、depth 并列。每张图、每张深度图条件于显式相机。生成相机可控视频时，用户设计 \(P_{1:T}\)（博客中的一分钟 1440p 示例是手绘路径加少量参考图），模型沿路径出帧。像素级控制的含义是：指定位置与角度，而不是选一个运动形容词。从单张图生成场景的任意角度，包括物体背面与画面外的合理延续，也是同一接口：换 \(P\)，不换一套提示词。</p><p>对照设定值得单独记住，因为它界定了声明的范围：对照视频模型「不接受相机作为原生输入格式」，于是用标准电影术语在文本里描述路径。这不是说那些模型物理上无法吃位姿——只是公开接口与评测协议如此。Atlas 的增量是把 \(P\) 放进预训练的多模态序列，而不是推理时用一个外挂位姿 ControlNet 去猜。</p><div class="mermaid"></div><h3 id="与空间上下文的衔接" tabindex="-1">与空间上下文的衔接 <a class="header-anchor" href="#与空间上下文的衔接" aria-label="Permalink to &quot;与空间上下文的衔接&quot;">​</a></h3><p>原生相机若只在生成端出现、参考图却没有 \(P\)，模型仍可能把参考当风格板而不是空间观测。Atlas 要求图像与深度都钉在位姿上，见 <a href="/llm/atlas-spatial-context">共享空间上下文</a>。于是参考与查询使用同一类几何对象，相对位姿 \(P_\star P_j^{-1}\) 可计算。这比「图 + 一段话描述怎么转」少一次语言接地。</p><p><span class="marginnote">内参是否与外参一起作为原生输入，博客没有逐字段展开。没有 \(K\) 时，焦距变化只能靠裁切或生成去猜，像素级跟随在变焦镜头上会弱一截。写作不要断言 Atlas 已把任意镜头畸变当成一等模态。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Transformer 要「看见」\(P\)，必须把 \(SE(3)\) 编成 token 或与视觉 token 相加的特征：旋转可用四元数或 6D 连续表示，平移要处理尺度。一旦编码存在，注意力就能把「查询位姿」与「已观测位姿」配对，这是几何，不是句法。扩散/整流流在去噪 \(I_\star\) 时每步读取这些配对，等于在连续外观上执行条件新视合成。</p><p>文本运镜走的是另一套接地：词嵌入 → 交叉注意力 → 外观。语言先映射到训练时见过的运镜簇，再变成像素流。簇外的轨迹（不规则的手绘路径、精确停在某像素上的构图）没有词可对。原生 \(P\) 把这条语言瓶颈拆掉。CFG 仍可用于文本风格，但相机不应靠 CFG 从「left」这个词里挤出来。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>原生位姿把负担转给用户或上游：路径从哪来？手绘、从 SLAM 来、从导演软件来，质量上限不同。位姿与内容不匹配时（参考图其实不是从声称的 \(P\) 拍的），模型会在服从相机与服从像素之间撕裂，表现为扭曲。对照实验用文本描述路径，对文本模型不公平或公平取决于产品真实接口；Atlas 自己写了这条免责。不要把人类偏好百分比抄成物理误差毫米。</p><h3 id="相对位姿比世界原点更要紧" tabindex="-1">相对位姿比世界原点更要紧 <a class="header-anchor" href="#相对位姿比世界原点更要紧" aria-label="Permalink to &quot;相对位姿比世界原点更要紧&quot;">​</a></h3><p>生成关心的是 \(P_\star P_j^{-1}\)：查询相对已见观测怎么转、怎么移。把所有相机放进某个任意世界坐标系，只要相对量对，渲染应不变。文本运镜连相对量都没有：它没有「相对参考图的光心平移了 0.4 米」。原生 \(P\) 的最小完备集其实是相对位姿加内参；绝对原点只是记账。实现若把绝对坐标喂进网络却不做归一化，尺度会漂。公开材料没写 Atlas 如何归一化平移，只写几何是原生输入——工程上仍要处理米与无量纲化。</p><p><span class="marginnote">也不要把「原生相机」写成已有 arXiv 上的 Atlas 位姿编码器图。出处仍是 World Labs Atlas 博客。图形学里相机从来是原生的；新意在于生成模型把 \(P\) 当成与 RGB 同级的预训练模态，而不是后期用 ControlNet 补。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>文本运镜没有 \(SE(3)\) 度量；原生位姿把位置与朝向直接送进模型。</li><li>Atlas 将 camera poses 列为与图像、深度并列的输入；每张图条件于自己的 \(P\)。</li><li>评测中对照模型吃电影术语文本，Atlas 吃原生路径；复杂轨迹上差距被用来支持这一接口选择。</li><li>参考图同样要钉位姿，否则相机只是生成端的方向盘、不是空间上下文。</li><li>路径质量、内外参是否齐全、位姿与像素是否同源，决定跟随能有多「像素级」。</li><li>出处：World Labs Atlas 博客。对照 Ho 系视频扩散的文本条件；无 Atlas arXiv。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

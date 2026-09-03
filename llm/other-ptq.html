@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AutoRound 与其他 PTQ | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_other-ptq.md.DpbgaOsK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="autoround-与其他-ptq" tabindex="-1">AutoRound 与其他 PTQ <a class="header-anchor" href="#autoround-与其他-ptq" aria-label="Permalink to &quot;AutoRound 与其他 PTQ&quot;">​</a></h1><div class="epigraph"><p>取整不必服从最近邻：把每个权重向上还是向下写成可优化的变量，用带符号的梯度去减小层输出误差，量化网格本身可以保持均匀。</p><footer>—— 对照 Nagel et al., AdaRound, ICML 2020；Intel AutoRound 把同一思路做到大语言模型权重量化</footer></div><p>训练后再量化（Post-Training Quantization, PTQ）要在<strong>不回传全网</strong>的前提下，把已经训好的浮点权重映到低比特格子。前面几篇把三条主路写清楚了：<a href="/llm/gptq">GPTQ</a> 用 Hessian 做层输出最小二乘补偿，<a href="/llm/awq">AWQ</a> 用激活幅度保护显著通道，<a href="/llm/smoothquant">SmoothQuant</a> 把激活异常值迁到权重上以便 W8A8。还剩一条经常被折叠进「某种 GPTQ 变体」的路：不改网格形状、只改<strong>每个权重该落到哪一个相邻整数</strong>。Nagel 等人 2020 年的 AdaRound 把「向上或向下」做成可学习的松弛；Intel 的 AutoRound 用带符号的梯度下降把这套取整优化做到千亿以下常见的 LLM 权重上，并作为 Neural Compressor 一类工具链里的默认 PTQ 之一。本篇写取整优化与「其他 PTQ」的位置，不把 GPTQ 的二阶补偿或 AWQ 的通道缩放再讲一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>均匀量化把浮点 \(w\) 写成 \(s\cdot\mathrm{clip}(\mathrm{round}(w/s-z)+z)\) 一类仿射。尺度 \(s\) 与零点 \(z\) 可以按张量、按通道或按组统计一次；真正把连续值钉死的，是 \(\mathrm{round}\)。最近邻取整（round-to-nearest, RTN）对 8-bit 往往够用，到 4-bit 或 3-bit，层输出 \(\|WX-\hat{W}X\|_F\) 会先坏在那些「离两个格子几乎一样远、但乘上激活之后差很多」的权重上。误差是 \((w-\hat{w})x\)，不是 \(|w-\hat{w}|\) 本身。RTN 优化的是权重空间的欧氏距离，推理关心的是输出空间。</p><p>二阶重建（GPTQ）承认这一点，但它的自由度花在「量化完一列之后改尚未量化的列」。取整优化走另一条：格子已经定了，每个权重只在 \(\lfloor w/s\rfloor\) 与 \(\lceil w/s\rceil\) 之间选，组合数是 \(2^{d}\)，直接搜不行。要把这个离散选择变成能用校准激活打几轮前向就能下降的目标，才能叫 PTQ，而不是退回 <a href="/llm/qat">QAT</a>。</p><h3 id="三条-ptq-轴不要叠成一种方法" tabindex="-1">三条 PTQ 轴不要叠成一种方法 <a class="header-anchor" href="#三条-ptq-轴不要叠成一种方法" aria-label="Permalink to &quot;三条 PTQ 轴不要叠成一种方法&quot;">​</a></h3><p>权重量化至少有三根独立的轴。第一根是<strong>格子</strong>：均匀 INT、分位数码本、还是按组共享尺度。第二根是<strong>误差改谁</strong>：RTN 不改邻居；GPTQ 改未量化列；AWQ 改通道缩放。第三根是<strong>取整本身</strong>：在格子已定、缩放已定之后，每个元素向上还是向下。AutoRound 主要动第三根。把「Intel 出了个量化工具」理解成「又一种 4-bit 格式」，会在服务栈里找错核：它产出的往往仍是分组均匀整数，和 GPTQ 检查点在数据类型上可以很像，差的是取哪些格子点。</p><p><span class="marginnote">PTQ 的「训练」若存在，也只发生在校准前向与一小撮辅助变量上，不是对原权重做反向。AdaRound / AutoRound 的可学习对象是取整松弛或裁剪范围，不是再训一层 Transformer。把它写成「量化感知微调」会低估校准成本、高估可恢复的精度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>AdaRound 的核心观察是：对已经选定的尺度，量化误差来自分数部分被推到 0 或 1。把第 \(i\) 个权重写成</p> \[\hat{w}_i = s\cdot\big(\lfloor w_i/s\rfloor + h(\alpha_i)\big), \]<p>其中 \(h(\alpha)\in(0,1)\) 是对学习参数 \(\alpha\) 的光滑门，训练结束再收成 0/1。目标仍是层输出重建，常用</p> \[\min_{\alpha}\ \|WX - \hat{W}(\alpha)X\|_F^2 \]<p>外加把 \(h\) 推向两端的正则，以免停在 0.5。校准激活 \(X\) 来自一小批文本，与 GPTQ 同类；不需要标签，也不回传进 Transformer 的原参数。Nagel 等人原先面向卷积与较小网络，证明「只学取整」在 4-bit 上可以接近更贵的量化感知训练。</p><h3 id="autoround-带符号的梯度与-llm-尺度" tabindex="-1">AutoRound：带符号的梯度与 LLM 尺度 <a class="header-anchor" href="#autoround-带符号的梯度与-llm-尺度" aria-label="Permalink to &quot;AutoRound：带符号的梯度与 LLM 尺度&quot;">​</a></h3><p>离散取整的真实梯度几乎处处为零。直通估计把 \(\mathrm{round}\) 的导数当成 1，噪声大。AutoRound 一类实现改用<strong>带符号的梯度</strong>：看重建损失对取整松弛的方向，只保留符号去更新「该上还是该下」，并可选地同时搜裁剪范围，免得个别通道的 max 把整组尺度撑爆。这样做的工程含义是：迭代次数可以比完整 QAT 少几个数量级，显存只缓存当前层的校准激活，不必为 Adam 状态再备一份全网副本。Intel 把它接到 Neural Compressor / AutoRound 工具里，面向的是「给已有 LLM 打一版可部署的低比特权重」，分组、对称与否、是否把 <code>lm_head</code> 留在更高比特，都是导出格式的选项，不是新的网络结构。</p><div class="mermaid"></div><p>跑完一层，用已经取整的 \(\hat{W}\) 把校准激活送进下一层，误差沿真实推理路径走——这一点与 GPTQ 相同，与「每层都用高精度老师激活去拟合」不同。后者会系统性低估级联误差。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>取整优化能工作，是因为相邻两个格子对输出的贡献差可以被其他尚未钉死的取整决策补偿。这和 GPTQ 的「把误差 squirt 到未量化列」同属<strong>在离散约束下做局部补偿</strong>，但自由度的几何不同：GPTQ 改的是连续权重在量化前的值（补偿后仍要再量化），AutoRound 改的是已经落在格子缝上的那一比特决策。校准 Hessian 若病态，GPTQ 要加阻尼；取整优化则表现为 \(\alpha\) 学不动、正则把门推回最近邻，方法静默退化成 RTN。这不是实现 bug，是校准激活没能在那些方向上提供曲率。</p><h3 id="与-gptq、awq-的误差预算怎么分" tabindex="-1">与 GPTQ、AWQ 的误差预算怎么分 <a class="header-anchor" href="#与-gptq、awq-的误差预算怎么分" aria-label="Permalink to &quot;与 GPTQ、AWQ 的误差预算怎么分&quot;">​</a></h3><p>同一组 4-bit 均匀格子，三种方法花预算的地方不同。GPTQ 假设列与列之间还能连续补偿，适合「激活协方差估计得稳」的校准。AWQ 假设显著通道必须先被尺度保护，适合校准集与下游分布可能错位的指令模型。取整优化假设尺度已经合理、只差最近邻选错边。实践上它们经常<strong>级联</strong>：先做 SmoothQuant 或 AWQ 那种对角缩放，再在缩放后的权重上跑 AutoRound 或 GPTQ。级联不是论文里的单一算法，而是工具链默认；签字必须写清顺序，否则「AutoRound 的数字」其实是「AWQ+AutoRound」的数字。</p><p><span class="marginnote">不要用某次 Hugging Face 默认配置去对照另一篇论文的 perplexity。分组大小、是否排除前几层与嵌入、校准条数、是否逐层重建，都会把 4-bit 的百分位误差挪到不同位置。PTQ 方法名只标识优化对象，不标识检查点契约。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>AutoRound 仍是权重量化 PTQ。激活精度、KV 量化、是否走 INT8 Tensor Core，要另开旋钮，见 <a href="/llm/w8a8">W8A8</a> 与 <a href="/llm/w4a16">W4A16</a>。它不回答「该不该做量化感知训练」：若必须在训练分布上直接打梯度，Jacob 等人的假量化路径更诚实，代价是全网反向。校准域过窄时，学到的取整会过拟合那一批 token 的激活方向，生成任务上的实体与代码比选择题先坏——与 GPTQ 同一类签字问题。</p><p>工具链层面，Intel AutoRound 与 AutoGPTQ、llama.cpp 的量化脚本产出的文件布局不同。服务引擎认的是打包方式与尺度放置，不是算法论文的名字。换引擎要重量化或做格式转换。把「其他 PTQ」当成可以随便替换 GPTQ 的别名，会在 vLLM / TensorRT-LLM 里加载成功但数值噪声化。</p><h3 id="何时该停在-rtn" tabindex="-1">何时该停在 RTN <a class="header-anchor" href="#何时该停在-rtn" aria-label="Permalink to &quot;何时该停在 RTN&quot;">​</a></h3><p>8-bit 权重、激活仍用较高精度时，RTN 加逐通道尺度常常已经落在误差地板附近，再跑取整优化只买到校准时间。3-bit、2-bit 或小组数量化时，最近邻的错误边开始主导，AdaRound / AutoRound 才从「可选」变成「默认值得跑」。中间的 4-bit 是产品选择：要校准速度就 RTN 或 AWQ 搜尺度；要在固定格子上再挤一点重建，再上取整优化或 GPTQ。没有一种 PTQ 同时在所有屋顶线上最优。</p><p><span class="marginnote">Data-free 量化（Nagel 等人更早的均衡与偏置校正）和取整优化不是互斥。没有校准激活时，只能动权重均衡；有校准时，取整才有可下降的重建目标。LLM 上几乎总能拿到一小批文本，缺的是代表下游分布的文本，不是完全没有数据。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>除重建补偿与通道缩放外，PTQ 还可以只优化每个权重向上还是向下；AdaRound 把该选择做成光滑门。</li><li>Intel AutoRound 用带符号梯度在 LLM 权重上做取整（及可选裁剪）优化，仍产出分组均匀整数，不是新的码本。</li><li>目标是层输出重建，校准前向不回传原参数；跑完一层要用量化权重继续送激活。</li><li>与 GPTQ、AWQ、SmoothQuant 花的误差预算不同，工具链里常级联，数字必须写清顺序。</li><li>8-bit 上 RTN 往往够用；低比特或细分组时取整优化才明显偏离最近邻。</li><li>检查点契约是分组与尺度布局，不是方法名；换服务引擎要重量化。</li><li>出处：Nagel et al., <em>Up or Down? Adaptive Rounding for Post-Training Quantization</em>, ICML 2020；LLM 上的取整优化见 Intel AutoRound（<em>Optimize Weight Rounding via Signed Gradient Descent for the Quantization of LLMs</em>）。对照 Frantar et al., GPTQ, ICLR 2023；Lin et al., AWQ, MLSys 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

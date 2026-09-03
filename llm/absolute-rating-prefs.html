@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Likert 与绝对评分 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_absolute-rating-prefs.md.o8nEI05f.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="likert-与绝对评分" tabindex="-1">Likert 与绝对评分 <a class="header-anchor" href="#likert-与绝对评分" aria-label="Permalink to &quot;Likert 与绝对评分&quot;">​</a></h1><div class="epigraph"><p>给一条回答打三星或七分，问的是绝对质量；标注员的锚点、量表压缩和时间漂移会把同一条回答打成不同的数。成对比的是顺序，绝对分比的是校准——两件事常常被写成同一种「偏好」。</p><footer>—— Likert 量表是态度测量的老仪器；助手评测里绝对分仍用于门槛、校准与 MT-Bench 十分制</footer></div><p>李克特式量表（同意—不同意的有序档，或 1–5、1–7 质量分）让人在没有对照的情况下给 \(y\) 一个绝对位置。产品评审、内容审核、<a href="/llm/mt-bench">MT-Bench</a> 的 1–10、客服质检都在用它。强化学习文献却大量改成成对：Ouyang 等人观察到绝对分在标注员之间校准很差，比较更稳，于是奖励模型吃成对数据。这不意味着绝对分没有用。发布门禁需要「低于 3 分不许上线」，校准需要「自信是否与正确率对齐」，安全需要严重等级而不是「比另一条更有害」。本篇写绝对评分作为仪器：量表、锚、漂移、与成对如何分工，而不是劝所有人改回打星。成对采集见 <a href="/llm/pairwise-label-protocol">成对比较协议</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>绝对分要回答「这条有多好」，隐含一个全体回答上的公制。人没有这个公制。同一标注员在周一和周五的 4 分会漂；看见一条极好的之后，下一条中等会被压低（对比效应）；量表两端会被避开（趋中）。结果是：数字像间隔数据，实际常常只是有序、且有序还不稳定。拿它当回归目标训 RM，模型会学标注员的锚，而不是学质量。</p><p>即便如此，决策里仍有绝对问题。两个模型成对胜率 55%，并不告诉你两者是都可用还是都不可用——成对在两条都差时仍产出胜者。需要一个带门槛的量表，哪怕噪声大，也要能说「绝对不行」。安全严重度、有害类型，更不能只靠相对：必须标「这一条是否超过拒答线」。</p><h3 id="量表档数是分辨率与噪声的折中" tabindex="-1">量表档数是分辨率与噪声的折中 <a class="header-anchor" href="#量表档数是分辨率与噪声的折中" aria-label="Permalink to &quot;量表档数是分辨率与噪声的折中&quot;">​</a></h3><p>两档（好 / 差）接近成对里的强制决胜，丢失中间。五档 Likert 常用，七档更细、更难校准。十分制（MT-Bench）看起来连续，法官实际会堆在 6–9，有效档数远小于十。连续滑条同样会被用成离散习惯位置。协议应预先定义每档的行为锚（「5 = 完全满足指令且无明显事实错误」），并在培训里用金标条标定，而不是假设数字自解释。</p><p><span class="marginnote">把 Likert 平均成 4.32 再拿去减另一个实验室的 4.11，通常没有意义。没有共同锚和共同标注总体，小数点是假精度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一次绝对标注包含：提示、单条回答（或一条会话）、量表、锚定义、标注员、可选评语。同一条应抽重复标注，报组内相关或 κ（对有序档用加权 κ）。均值的置信区间要考虑标注员随机效应：把所有星级当 i.i.d. 会低估方差。</p><p>减轻漂移的工程：定期插入金标校准题、把量表做成带文字的锚而不是光秃数字、限制班次长度、对标注员做固定效应减除（同一员的分减掉其均值）再进入模型。减除之后，绝对门槛不能再用原始 3 分，要回到未减除的尺，或重新定义门槛。</p><p>与成对的混合协议常见几种。GSB（Good / Same / Bad）相对一条参考回答，是绝对与成对的中间物：有参照，降低锚问题，仍保留「是否够好」。先绝对后成对：用绝对筛掉双差，再在可接受集合里成对排。先成对后绝对：用 BT 得分层，再对层抽样打绝对分以定门槛。混合时必须写清哪一步的输出进入训练、哪一步进入门禁，避免 RM 吃了门槛标签、产品却用成对胜率当同一数字。</p> \[s_{\mathrm{abs}}(x,y)\in\{1,\ldots,K\},\qquad \mathbb{E}[s_{\mathrm{abs}}]\ \text{依赖标注员与近期所见样本。} \]<p>识别的是带噪的有序测量，不是 \(y\) 的真值质量。</p><h3 id="mt-bench-十分制是绝对仪器-arena-是成对仪器" tabindex="-1">MT-Bench 十分制是绝对仪器，Arena 是成对仪器 <a class="header-anchor" href="#mt-bench-十分制是绝对仪器-arena-是成对仪器" aria-label="Permalink to &quot;MT-Bench 十分制是绝对仪器，Arena 是成对仪器&quot;">​</a></h3><p>Zheng 等人同时用两种：MT-Bench 绝对、Arena 成对。绝对方便按题平均、画类别雷达；成对方便跨模型排序、少谈校准。LLM 法官在绝对上趋中、在成对上位置偏差，误差形态不同。用 GPT-4 打 MT-Bench 再把分数差解释成 Arena Elo 差，是在转换未校准的仪器。相关可以高，单位不可互换。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>趋中：不确定时选中间档，方差被压扁，模型之间的绝对差看起来都在 0.2 分里。两端回避：极好极差用得少，量表实际动态范围更窄。对比效应：会话式标注里，上一条的残像就是下一条的零点。时间漂移：指南疲劳后，尺度整体平移，看起来像模型周更变好或变差。</p><p>成对规避的是锚，不规避启发式。冗长在绝对上变成「更长更接近满分」，在成对上变成「更长更常赢」。所以改仪器不等于改特征。要打长度，绝对与成对都要控长或事后分层。绝对独有的好处是能看见天花板：两条都得 9，成对仍会强迫一个赢，绝对至少承认都已经顶格——尽管顶格也可能是量表饱和而不是真的完美。</p><h3 id="安全轴更需要绝对等级" tabindex="-1">安全轴更需要绝对等级 <a class="header-anchor" href="#安全轴更需要绝对等级" aria-label="Permalink to &quot;安全轴更需要绝对等级&quot;">​</a></h3><p>有害性经常要「是否超过政策线」而不是「哪条更毒一点」。Likert 或等级表（无 / 轻微 / 严重）直接对线。成对可以把明显有害标成双差，但训练如果丢掉双差、只吃决胜对，安全信号会稀。协议应规定：安全是绝对（或绝对+分类），有用性才成对。Llama 2 分两个 RM，是模型层承认这一点；仪器层更应先分开采集。</p><p><span class="marginnote">审核员的绝对分常被当成地上真值。审核指南一改，历史分数不可与新分混成一条趋势。绝对评分的时间序列必须带指南版本号。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>绝对分不适合作为高容量 RL 的唯一样本：贵、噪、不可比。它适合：校准金标、发布门槛、安全等级、小样本专家评审、以及需要按题输出雷达图的评测（MT-Bench）。大规模偏好训练仍应以成对为主，用绝对做监测。</p><p>跨文化、跨语言的 Likert 更糟：同一「有礼貌」在不同总体落在不同档。中文产品用英文锚翻译过来，档位会错。要在目标语言重做锚示例。专家与众包的尺也不同：专家趋严，众包趋中，混合平均没有解释。</p><p>不要把星级平均当成用户满意度的充分统计。用户给 App 打的星还含启动失败、价格、品牌，与「这一条回答的 Likert」不是同一测量。助手质量的绝对分只在该界面、该指南下有效。</p><p><span class="marginnote">连续化（把 1–5 当实数回归）会暗示档距相等。若锚写的是名义类别，更老实的是有序回归或只看达标率 \(\Pr(s\ge t)\)。达标率还更接近门槛决策。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Likert / 十分制测绝对位置，受锚、趋中、对比效应和漂移支配；成对测顺序，看不见「是否可用」。</li><li>档位必须配文字锚和金标校准题；跨实验室减平均分通常无意义。</li><li>发布门槛与安全等级需要绝对仪器；大规模 RM / Arena 需要成对仪器。</li><li>GSB 与分层混合可以分工，但训练目标与门禁用的标签要写清。</li><li>MT-Bench 的十分制与 Arena 的胜负单位不可互换。</li><li>达标率 \(\Pr(s\ge t)\) 往往比均值更接近决策。</li><li>出处：Likert 的有序量表传统；Ouyang et al. 对绝对分校准差而改成对的观察；Zheng et al. 的 MT-Bench 绝对分与 Arena 成对分工。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

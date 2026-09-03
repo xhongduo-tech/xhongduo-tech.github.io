@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KV 卸载到 CPU / 远端 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-offload.md.DjeQsDIa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="kv-卸载到-cpu-远端" tabindex="-1">KV 卸载到 CPU / 远端 <a class="header-anchor" href="#kv-卸载到-cpu-远端" aria-label="Permalink to &quot;KV 卸载到 CPU / 远端&quot;">​</a></h1><div class="epigraph"><p>HBM 装不下的不是权重就是过去的键值；把冷的那截搬到主机或更远的地方，换的是带宽，不是公式里的项消失。</p><footer>—— 对照 Sheng 等 FlexGen 把权重、激活与 KV 放进 CPU/磁盘层级，以及服务栈里按块换出的实践</footer></div><p>KV 随序列与批次线性涨，先于权重把 GPU 显存顶满。减头、量化、滑窗都是在缩小「必须常驻 HBM 的那一份」。还有一条不改模型的路：把暂时用不到的 KV 搬到 CPU 内存、NVMe，甚至远端节点，等解码重新碰到再搬回来。Sheng 等人 2023 年的 FlexGen 把权重、激活和 KV 一起放进多层存储，为目标是单卡高吞吐离线生成；在线服务则更多按分页块做细粒度换出。本篇写卸载的带宽账、重叠与失败模式，不把某云厂商的专有交换格式当成论文。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次解码要读当前层全部驻留 KV。若它们都在 HBM，瓶颈是显存带宽；若一部分在 CPU，瓶颈变成 PCIe（或 CXL）。后者比前者慢一个数量级以上：HBM 以 TB/s 计，PCIe 4.0 ×16 大约数十 GB/s。把整层 KV 每步从 CPU 拉上来，生成一个 token 的时间会被传输钉死，算力闲着。所以卸载能成立，必须满足至少一条：不是每步都用到被卸的那部分（例如已抢占的请求、还未轮到的层、滑窗外本就不会读的块）；或者传输能与别的计算重叠，且传输量小于重叠窗口的算力。</p><p>在线与离线的目标不同。FlexGen 一类系统接受高延迟，用精心安排的调度把 GPU 算满，换单卡吞吐；聊天服务不能让用户等一次磁盘往返才出下一个字。于是同样叫「offload」，产品形态是两种：吞吐导向的多层流水，与延迟导向的「只换出被抢占或空闲会话的块」。</p><p><span class="marginnote">卸载不增加模型记得的内容。它只是把已有 KV 的住所改了。窗口外已经丢掉的键，卸到 CPU 也找不回来——那是淘汰，不是卸载。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="按层、按请求、按块" tabindex="-1">按层、按请求、按块 <a class="header-anchor" href="#按层、按请求、按块" aria-label="Permalink to &quot;按层、按请求、按块&quot;">​</a></h3><p>三种切法。按层：算第 \(\ell\) 层时，只保证该层 KV 在 HBM，前后层放主机，算完换下一批。这与训练时的激活检查点类似，预填充长序列时有用，解码每步都要过所有层，层间换入换出会变成每步全模型走一遍 PCIe。按请求：把暂停、低优先级或长尾会话的整份 KV 赶出 GPU，恢复时再拉回。这是连续批处理里抢占的自然延伸。按块：与 <a href="/llm/paged-kv-block-size">分页 KV</a> 同一套块表，物理槽的后端可以是 HBM 或 CPU 页，注意力核或调度器在缺页时触发拷贝。粒度最细，也最能与 <a href="/llm/prefix-caching">前缀缓存</a> 共用同一块 ID。</p><p>FlexGen 的贡献是把权重、激活、KV 的存放一起规划，并用交错调度让 PCIe 与计算重叠，而不是「显存不够就整模型 offload」的朴素实现。它证明：在单卡、大模型、追求吞吐时，CPU 甚至磁盘上的 KV 可以被喂饱 GPU。它不证明：同一套调度能满足多租户低延迟。</p><h3 id="带宽不等式" tabindex="-1">带宽不等式 <a class="header-anchor" href="#带宽不等式" aria-label="Permalink to &quot;带宽不等式&quot;">​</a></h3><p>令一步解码要读的 KV 字节为 \(M\)，链路带宽为 \(B_{\mathrm{io}}\)，重叠窗口里 GPU 还能做的其他计算时间为 \(t_{\mathrm{comp}}\)。若 \(M / B_{\mathrm{io}} &gt; t_{\mathrm{comp}}\) 且这些字节都在远端，则 TPOT 的下界就是传输时间。减 \(M\) 的手段：GQA、量化、只拉本步可见窗口、层间流水只拉下一层。增 \(t_{\mathrm{comp}}\) 的手段：更大的批次（别的请求还在 HBM 上算）、把卸载请求从交互池里拿开。远端若是另一台机器，还要加序列化、RDMA 与尾延迟，不等式更紧。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="只读换出与预取" tabindex="-1">只读换出与预取 <a class="header-anchor" href="#只读换出与预取" aria-label="Permalink to &quot;只读换出与预取&quot;">​</a></h3><p>换出的正确性依赖块内容不变。KV 一旦写完（该 token 的键值已追加），直到被淘汰前都是只读的，所以搬到 CPU 不必写回脏页——这一点比训练激活卸载更简单。写路径只发生在追加新 token 时，新块应在 HBM 分配；冷的是旧块。前缀共享时，热请求与冷请求可能指向同一物理块：引用计数必须跨存储层，不能把仍被 GPU 请求指着的块卸走。</p><p>预取是唯一能把延迟藏起来的机制。调度器若知道下一层、下一个时间步、下一个即将 resume 的请求，就可以在当前 GEMM 时把下一包 KV DMA 进来。预取错误（猜错下一请求）会挤占 HBM，比不预取更糟。因此交互式服务往往只对「即将 resume 的那一条」做预取，而不是盲目把 CPU 上所有块往卡上灌。</p><p><span class="marginnote">量化后再卸载，传输的字节变少，PCIe 税下降。先 INT8 再卸，通常比先卸 FP16 更划算。精度故事见 <a href="/llm/kv-int8-fp8">KV INT8 / FP8</a>，不要在卸的路上再随手改变量化轴。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把「支持 CPU offload」写进低延迟 SLA。它适合：单卡跑过大模型的离线批处理；在线服务里被抢占的会话；端侧把长对话的远历史放到 DRAM。不适合：每条交互请求的默认路径。测量必须看 TPOT 的分位数，平均值会被仍在 HBM 上的请求粉饰。</p><p>远端节点上的 KV 还有一致性与安全问题。多副本不要各卸各的再各算各的，除非接受前缀缓存失效。租户隔离在主机内存同样适用，不能因为「已经离开 GPU」就放松。NVMe 上的 KV 会把尾延迟打到十毫秒以上，只适合完全离线。</p><p>与窗口淘汰的分工：淘汰改变模型可见集，卸载不改变。先决定模型还能否读这些键，再决定它们住在哪一层存储。把本应淘汰的块卸到 CPU「以备将来」，是在用主机内存假装长记忆，注意力核若已经看不见它们，这份拷贝只是垃圾。</p><p><span class="marginnote">FlexGen 的数字不能直接抄到在线网关。它的目标函数是吞吐，调度可以重排整个离线批次。网关的目标函数是排队与 TPOT，重排空间小得多。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>KV 卸载把冷键值放到 CPU / 磁盘 / 远端，不改变注意力可见集，只改变住所。</li><li>每步都要从远端拉全量 KV 时，PCIe 会成为 TPOT 下界；必须靠抢占粒度、层流水或与计算重叠。</li><li>FlexGen 展示了单卡、吞吐导向的多层规划；在线服务更常见的是按分页块换出被抢占会话。</li><li>已写完的 KV 只读，换出无需写回；新 token 仍在 HBM 追加。</li><li>共享块的引用计数要跨存储层；量化可以降低传输字节。</li><li>低延迟交互不要把 offload 当默认路径；与淘汰分开记账。</li><li>出处：Sheng 等，<em>FlexGen: High-Throughput Generative Inference of Large Language Models with a Single GPU</em>，ICML 2023；块级换出建立在 Kwon 等 PagedAttention 的块表之上。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

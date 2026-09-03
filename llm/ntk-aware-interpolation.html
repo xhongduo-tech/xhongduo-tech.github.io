@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NTK-aware 插值 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ntk-aware-interpolation.md.F7iKZgUB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="ntk-aware-插值" tabindex="-1">NTK-aware 插值 <a class="header-anchor" href="#ntk-aware-插值" aria-label="Permalink to &quot;NTK-aware 插值&quot;">​</a></h1><div class="epigraph"><p>不要把所有旋转频率按同一比例压慢；按神经正切核的尺度关系改基数，才能在拉长窗口时少牺牲高频。</p><footer>—— bloc97，NTK-aware interpolation 社区方案，2023</footer></div><p>2023 年开源侧把 LLaMA 一类 RoPE 模型往长上下文拉时，最先广泛使用的是 Meta 的位置插值：把位置下标除以尺度 \(s\)，使新窗口的最大角位移不超过训练窗口。随后 bloc97 在 Reddit 等社区提出 NTK-aware interpolation：不压缩下标，而缩放 RoPE 的基数 \(\theta\)，使高频维度少被伤害。它不是会议长文里的正式方法名，而是被 YaRN 等后续工作吸收并写进论文相关工作的社区方案。单独理解它，是为了看清「改位置」与「改频率」两条路差在哪，以及它本身停在哪一步。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RoPE 第 \(i\) 个频率 \(\theta_i=b^{-2i/d}\)，其中 \(b\) 为基数（常见为 \(10^4\)），\(d\) 为旋转维度。位置 \(p\) 的旋转角是 \(p\theta_i\)。线性位置插值令 \(p\leftarrow p/s\)，等价于所有 \(\theta_i\) 同时乘 \(1/s\)。对小 \(\theta_i\)（低频），这只是把本来就慢的波变得更慢，长程相位仍平滑；对大 \(\theta_i\)（高频），\(p\theta_i\) 在训练里本用来分辨邻域，除以 \(s\) 之后邻域差落进几乎平坦的余弦区间，局部相对位置被抹掉。</p><p>从核的角度看，位置编码诱导的函数空间对高频更敏感：小位移应仍能在表示里产生可学习的差异。把所有频率一刀切地压慢，等于降低核的有效带宽。社区讨论借用神经正切核（NTK）的尺度直觉：宽度与频率的分配应随「输入被拉伸」而调整，而不是把整条频谱平移。问题于是变成：如何只改 \(b\)，使拉伸长度 \(s\) 之后，高频端的局部分辨率尽量接近原模型。<span class="marginnote">线性插值改的是坐标，NTK-aware 改的是尺子的刻度。坐标压缩让每一个频率都变慢；改基数则让不同频率变慢的程度不同，这正是它相对位置插值的全部差别。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>NTK-aware 方案保持位置下标为真实下标 \(0,1,\ldots,L&#39;-1\)，把基数换成 \(b&#39;\)，使得旋转角的尺度关系符合「输入拉伸 \(s\) 倍时核的临界缩放」。社区与后续论文中常用的闭式是</p> \[b&#39; = b \cdot s^{d/(d-2)} \]<p>其中 \(d\) 为 RoPE 作用的维度。\(d/(d-2)&gt;1\)，因此 \(b&#39;\) 比 \(b\) 增长得比 \(s\) 更快。基数变大则同一下标 \(i\) 对应的 \(\theta_i\) 整体变小，但高频与低频的相对压缩并不等于统一乘 \(1/s\)：高频 \(\theta\) 下降得相对较少，局部相位差被保住一块；低频承担更多「把窗口拉长」的外推。</p><p>动态版本在推理时按当前序列长度估计 \(s=\max(1, n/L)\)，每一步或每个请求更新 \(b&#39;\)，无需续训。静态版本把 \(s\) 固定为目标窗口比，可配合少量微调。二者都不引入新参数，只改 RoPE 的 \(\theta\) 表或等价的 \(\cos/\sin\) 缓存。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="为什么线性插值伤高频" tabindex="-1">为什么线性插值伤高频 <a class="header-anchor" href="#为什么线性插值伤高频" aria-label="Permalink to &quot;为什么线性插值伤高频&quot;">​</a></h3><p>考虑相邻 token 的相位差 \(\theta_i\)。训练时 \(\theta_{\text{high}}\) 足够大，使得 \(\Delta p=1\) 就能在高频维上看到 \(\cos\) 的明显变化。插值后相位差变成 \(\theta_i/s\)。若 \(s=8\)，高频维上「差一个位置」只剩原来的八分之一转角，几乎贴在泰勒展开的常数项上。模型若曾用这些维做局部点积调制，现在局部调制消失，只剩下低频维还能动——而低频维的分辨率本就粗。于是出现典型失败：短距离重复、邻近混淆、复制任务在近邻上出错，同时长程困惑度看起来还不算太糟。</p><h3 id="基数缩放公式在做什么" tabindex="-1">基数缩放公式在做什么 <a class="header-anchor" href="#基数缩放公式在做什么" aria-label="Permalink to &quot;基数缩放公式在做什么&quot;">​</a></h3><p>\(\theta_i=b^{-2i/d}\) 对 \(b\) 取对数后与维度下标成线性关系。把 \(b\) 换成 \(b s^{d/(d-2)}\)，相当于给这条对数频率直线改斜率与截距，使得在连续近似下，拉伸输入时核的高频能量不过快衰减。不必把 NTK 理论推到严格成立：对工程而言，公式提供的是「高频少压、低频多压」的单调方案，并且只有一个超参数 \(s\)（外加已知的 \(d\) 与 \(b\)）。</p><p>与「只增大 \(b\) 到 \(10^6\)」这类启发式相比，NTK-aware 把增大幅度写成 \(s\) 的函数，避免在 \(s\approx 1\) 时无故改频率，也避免在 \(s\) 很大时仍沿用原 \(b\)。<span class="marginnote">\(d/(d-2)\) 来自对频率连续谱的近似，不是从语言模型损失推出来的定理。\(d\) 很大时指数接近 \(1\)，缩放几乎像乘 \(s\)；旋转维较少时指数更大，基数跳得更狠。换头维或只旋转部分维时，要把公式里的 \(d\) 取成实际参与旋转的宽度。</span></p><h3 id="社区方案如何进入后续方法" tabindex="-1">社区方案如何进入后续方法 <a class="header-anchor" href="#社区方案如何进入后续方法" aria-label="Permalink to &quot;社区方案如何进入后续方法&quot;">​</a></h3><p>bloc97 的帖子与代码证明：仅改推理期 RoPE 缓存，就能把若干 2k/4k 模型的可用长度往上推一截，且对高频伤害小于纯插值。YaRN 把这种「改基数」收进低频与部分中间维，并补上温度与斜坡，等于承认 NTK-aware 是有用但不完整的一步。单独部署时，它往往作为无续训的第一刀；若目标长度很大，再叠 YaRN 分段或短续训。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>NTK-aware 不修正注意力熵。窗口变长后 softmax 仍可能变尖或变平，表现为过度关注句首或最近 token。它也不重新训练任何投影，超出原窗口太多时，低频维的相位仍会离开训练分布，只是比朴素外推和纯插值更晚崩。社区评测以困惑度与简单检索为主，对需要精确相对偏移的任务并不保证。</p><p>动态 NTK 在长度跨越 \(L\) 时 \(b&#39;\) 会跳，KV 缓存里已经旋转过的键与新 \(\theta\) 不一致，原则上应在尺度变化时重算缓存或分段使用固定 \(s\)。生产里更常见的是按请求锁定目标窗口，避免一步一改基数。</p><p><span class="marginnote">没有正式论文编号并不妨碍它成为事实标准：开源推理栈里「NTK」几乎总是指改 RoPE 基数。引用时应标明社区方案与年份，避免写成某篇不存在的会议论文。YaRN 论文的相关工作章节是把它写进学术叙述的主要入口。</span></p><h3 id="与位置插值的选用" tabindex="-1">与位置插值的选用 <a class="header-anchor" href="#与位置插值的选用" aria-label="Permalink to &quot;与位置插值的选用&quot;">​</a></h3><p>若几乎不续训、且更在意邻域任务，NTK-aware 通常优于纯线性插值。若愿意在目标长度上微调若干步，位置插值的全局压缩加上微调，有时比只改 \(b\) 更整齐，因为微调能补偿被压慢的高频。二者都不是 ALiBi：它们修补 RoPE，不替换位置通道。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>NTK-aware 插值是 2023 年的社区方案：拉长 RoPE 窗口时缩放基数，而不是压缩位置下标。</li><li>常用形式 \(b&#39;=b\,s^{d/(d-2)}\)，使高频少受统一压缩的伤害。</li><li>动态版本按当前长度估计 \(s\)，可无续训启用；尺度变化时要注意与 KV 旋转缓存一致。</li><li>它不处理注意力温度，也不保证极大 \(s\) 下低频相位仍在分布内。</li><li>YaRN 将其作为分段策略的组成部分，而不是终点。</li><li>引用时应写社区方案，不要伪造成会议论文。</li><li>出处：bloc97，NTK-aware interpolation（Reddit / 开源社区，2023）；后续形式化讨论见 Peng 等 YaRN（2023），并与 Chen 等位置插值（2023）对照。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

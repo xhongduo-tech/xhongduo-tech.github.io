@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KV 头数、质量与吞吐的权衡 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-head-tradeoff.md.DWFmDOyb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="kv-头数、质量与吞吐的权衡" tabindex="-1">KV 头数、质量与吞吐的权衡 <a class="header-anchor" href="#kv-头数、质量与吞吐的权衡" aria-label="Permalink to &quot;KV 头数、质量与吞吐的权衡&quot;">​</a></h1><div class="epigraph"><p>解码时真正卡住的往往不是算力，而是反复读写那份随序列变长的键值缓存；少写几个头，吞吐就会明显松绑。</p><footer>—— Noam Shazeer, Fast Transformer Decoding, 2019</footer></div><p>自回归解码的每一步都要带着历史键值一起读。头数一旦与查询头对齐成完整多头，缓存体积就按头数线性膨胀，带宽先于 FLOPs 成为上限。Shazeer 在 2019 年把键值压到单头，Ainslie 等人 2023 年的 GQA 再把档位拉开，DeepSeek-V2 的 MLA 则换成潜向量压缩。本篇不展开投影公式，只沿「KV 头数」这一根轴，把质量、显存与吞吐放在同一张权衡图上；实现细节分别见相邻叶子 <a href="/llm/mqa">MQA</a>、<a href="/llm/gqa">GQA</a>、<a href="/llm/mla">MLA</a>，训练侧的梯度耦合见 <a href="/llm/shared-kv-training">共享 KV 下的训练稳定性</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>解码阶段，注意力的矩阵乘看起来像计算，实际是一次带宽极高的查表。对长度 \(n\)、层数 \(L\)、KV 头数 \(h_{\mathrm{kv}}\)、头维 \(d_h\) 的缓存，体积近似</p> \[\mathrm{KV} \approx 2\, L\, h_{\mathrm{kv}}\, d_h\, n \cdot b \]<p>其中 \(b\) 是每个元素的字节数。查询头数 \(h_q\) 只出现在当步的 \(Q\) 投影里，不进入缓存；真正随 \(n\) 涨的是 \(K\) 和 \(V\)。<span class="marginnote">Decode 几乎总是显存带宽墙：每生成一个 token，都要把截至当前的 KV 全部扫一遍。头数减半，扫过的字节就减半，算术强度上升，吞吐往往跟着上来。</span>完整多头令 \(h_{\mathrm{kv}}=h_q\)，质量最好，缓存也最肥。服务场景里批次一大、上下文一长，这份额外的头就会把卡填满，被迫降并发。</p><p>质量一侧的故事对称。每个 KV 头提供一套独立的键值子空间，查询头可以在不同子空间里对齐不同模式。把头并到一起，等于强迫许多查询共享同一套键值，表达能力下降。经验上这不是断崖：GQA 表明，从完整多头降到每组若干共享头，下游往往只掉一点点；再降到单头 MQA，掉点才变得肉眼可见。权衡因此是连续的，不是「要么全要、要么全不要」。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="头数如何进入-kv-体积" tabindex="-1">头数如何进入 KV 体积 <a class="header-anchor" href="#头数如何进入-kv-体积" aria-label="Permalink to &quot;头数如何进入 KV 体积&quot;">​</a></h3><p>把查询头按组划分，每组共用一套 \(K,V\)，就得到头数轴上的三档。MHA 是 \(h_{\mathrm{kv}}=h_q\)；MQA 是 \(h_{\mathrm{kv}}=1\)；GQA 取中间整数 \(h_{\mathrm{kv}}=h_q/g\)。缓存公式只认 \(h_{\mathrm{kv}}\)，所以从 32 头降到 8 头，KV 体积直接变成四分之一，与 \(h_q\) 是否仍为 32 无关。推理内核仍按查询头并行算 softmax，只是若干查询读同一块 \(K,V\)。</p><div class="mermaid"></div><p>MLA 不在这根轴上滑动。它把键值打进低秩潜向量，推理时把投影吸收进 \(W_{KV}\)，缓存的是压缩后的 \(c_{KV}\)，不是「更少的头」。头数权衡回答的是「同样的头维，留几套独立 KV」；潜向量回答的是「一套 KV 要不要先降维」。两件事可以叠加，但比较时必须分开，否则会把 MLA 的缓存收益误记成「头更少」。</p><h3 id="质量曲线不是线性的" tabindex="-1">质量曲线不是线性的 <a class="header-anchor" href="#质量曲线不是线性的" aria-label="Permalink to &quot;质量曲线不是线性的&quot;">​</a></h3><p>Ainslie 等人把 T5 一类编码器–解码器从多头检查点升训到 GQA，观察到一个重复出现的形状：从 \(h_{\mathrm{kv}}=h_q\) 降到 \(8\) 附近，翻译与问答的损失很平；再往 \(4\)、\(2\)、\(1\) 走，曲线才变陡。直觉是：查询头已经很多，键值子空间有冗余；先并掉冗余的头，信息损失小于并掉最后几套真正不同的键值。Llama 2 把 32 个查询头配 8 个 KV 头，等于每 4 个查询共享一套键值，成为后来开源稠密模型的默认档。</p><p>这条曲线依赖任务。复制、检索、精确指代更吃独立键值；语言建模的平均交叉熵往往更宽容。评测若只看困惑度，会低估「头太少」在长上下文针测上的伤害。吞吐一侧同样非线性：当 KV 已小到不再是带宽瓶颈，再减头只能省一点显存，延迟几乎不动，质量却继续掉。最优档因此是「刚好让 decode 仍卡在算力或调度、而不是卡在扫 KV」的那一格，而不是理论上最小的 \(h_{\mathrm{kv}}=1\)。</p><h3 id="和-mla-不是同一根轴" tabindex="-1">和 MLA 不是同一根轴 <a class="header-anchor" href="#和-mla-不是同一根轴" aria-label="Permalink to &quot;和 MLA 不是同一根轴&quot;">​</a></h3><p>把 GQA 的 \(h_{\mathrm{kv}}\) 再减，最终会碰到 MQA。再往下没有头可减，只能改表示。MLA 让每个查询头仍有自己的查询，但键值来自共享的低秩代码；缓存按潜维计，不按头计。于是出现一种看起来矛盾的配置：查询头可以很多，KV 缓存却很小。这不是否定头数权衡，而是提醒：头数是第一根旋钮，秩与量化是另外两根。工程上应先选定 \(h_{\mathrm{kv}}\) 使质量可接受，再决定要不要上 MLA 或 KV 量化；三根旋钮一起拧，归因会乱。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>注意力输出仍是</p> \[o=\sum_{i=1}^{h_q}\mathrm{softmax}\!\left(\frac{q_i k_{\pi(i)}^\top}{\sqrt{d_h}}\right)v_{\pi(i)} \]<p>其中 \(\pi(i)\) 把查询头映射到它所在组的 KV 头。\(h_{\mathrm{kv}}\) 变小，\(\pi\) 的原像变大，更多 \(q_i\) 读同一对 \((k,v)\)。softmax 的竞争发生在序列维，不发生在头维：共享并不自动让不同查询头算出相同的权重，只是它们必须在同一套键上去竞争。若这套键区分不了两种模式，两个查询头再怎么转 \(W_Q\) 也拆不开。</p><p>吞吐机制更硬。FlashDecoding 一类内核按 KV 分块流式归约，时间大致正比于 \(h_{\mathrm{kv}}\cdot n\)。批次 \(B\) 上来以后，总带宽是 \(B\cdot h_{\mathrm{kv}}\cdot n\)。减 \(h_{\mathrm{kv}}\) 与减 \(B\) 在带宽账本上等价，但减头不减并发，这正是服务端愿意付一点质量的原因。<span class="marginnote">同一显存预算下，KV 头减半往往可以接近翻倍并发。用户侧延迟未必按比例下降，因为单请求仍要扫自己的那条缓存；受益更明显的是吞吐和排队。</span>量化把 \(b\) 从 2 字节打到 1 字节，效果与减头同类，可叠加，也各自有误差源。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>头数不是免费的旋钮。训练若从头用 MQA，容量不足会在中后期表现为验证损失掉队，再在推理侧减头补不回来。从 MHA 检查点升训可以走捷径，但升训步数不够时，共享头尚未学会「一套键值伺候多套查询」，质量会停在半山腰。长上下文把 \(n\) 放大，KV 体积的系数变大，原先「8 头够用」的结论可能被针测推翻，需要在目标上下文长度上重新画曲线，而不是沿用短上下文的 GQA 档位。</p><p>另一条边界是内核与并行。张量并行按头切， \(h_{\mathrm{kv}}\) 太小会让每卡分到的 KV 头不足，通信次数不变、计算变少，效率反而差。MLA 把缓存换成潜向量后，并行切分对象变了，不能套用 GQA 的切头经验。端侧与云侧的最优点也不同：端侧在乎绝对显存，MQA 或激进量化更常见；云侧在乎批次效率，GQA-8 这类中间档更稳。</p><p>取舍可以写成三条可执行的规则。第一，先在目标硬件上量 decode 的屋顶线，确认瓶颈是 KV 带宽再动头数。第二，质量用针测与长依赖任务守门，不要只看平均损失。第三，头数、潜向量、量化分开做消融，避免把 MLA 的收益记到 GQA 头上。<span class="marginnote">「少头一定更快」只在带宽墙内成立。一旦 KV 已装进片上或序列很短，减头省下的字节换不来延迟，只会丢掉子空间。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Decode 的 KV 体积正比于 \(h_{\mathrm{kv}}\)，与查询头数无关；减头是减带宽，不是减注意力头的计算图宽度。</li><li>MHA → GQA → MQA 是同一根轴上的离散档，质量曲线前段平、后段陡，8 头附近常是甜点。</li><li>MLA 压缩的是秩，不是头数，不能画进同一条「头越少越快」的曲线。</li><li>最优档由目标上下文、批次和屋顶线共同决定，短上下文上的 GQA 结论不可直接外推到针测。</li><li>张量并行、端云差异会把「理论上最小头数」推离可部署点。</li><li>训练能否跟上共享 KV，决定推理侧减头是否可逆，详见共享 KV 训练稳定性。</li><li>出处：Shazeer, <em>Fast Transformer Decoding: One Write-Head is All You Need</em>, 2019；Ainslie et al., <em>GQA</em>, 2023；DeepSeek-V2（MLA）, 2024。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

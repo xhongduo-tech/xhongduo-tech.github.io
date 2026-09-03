@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重排序 | LLM &amp; Quant</title>
+    <meta name="description" content="徐鸿铎 · 大模型与量化">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.C8POkGFZ.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.69c7c574.js"></script>
+    <script type="module" src="/assets/app.Tu_JJO3-.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.Dvtg8yj2.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.RZK-pFPJ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.Ce3MTQQU.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.0hJJ-wu5.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.eiaqWvbm.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BGoj51Qp.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.B_twUbWZ.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.C9qp8196.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.dSOW8he9.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.Dq-HnAhl.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.DcatiK8q.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BU-uMq2W.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.DGv9Gvja.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B1c7T1IV.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.C7E_mqEM.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.kTV3ZxHY.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.9QW3DF2G.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CMYQ-kAX.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cu_YSvRE.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.B6wtbnHM.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.CPb_JPMs.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BiSptl7f.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.AhUfLsP9.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.BQ_zaSig.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.hKwTMpZ-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.XHATo79T.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Bj-u85bP.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.BmqD9y-T.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.Cjyk0KN4.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.ChVd0kpq.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.DLGWRoxw.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.BgZVAtK_.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.74fbn9et.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.uyPITHAD.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.BiVoFR4H.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.CJymB1YY.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.DJXacXPB.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.uT6ZFkmu.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.myQP-wOt.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.vK9K25k0.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.Cbw7LnPe.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rerank.md.DD74z8cP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">LLM &amp; Quant</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-03</p><div style="position:relative;"><div><h1 id="重排序" tabindex="-1">重排序 <a class="header-anchor" href="#重排序" aria-label="Permalink to &quot;重排序&quot;">​</a></h1><div class="epigraph"><p>先用便宜的双塔从海量块里召回，再用查询与文档交叉编码的模型把前几十条排准；精度在第二段买，召回在第一段买。</p><footer>—— 对照经典两段式 IR；交叉编码器重排见 Nogueira 与 Cho 将 BERT 用于段落重排的路线</footer></div><p>向量近邻和 BM25 都是 <em>独立编码</em>：查询编码一次，文档编码一次，分数是两个向量的比较。这才能对百万级块做 ANN 或倒排。独立编码看不到「查询词在文档里如何对齐、否定词是否把意思翻过来」，Top-k 里会混进主题相近、答案不对的块。重排序在第一段检索之后，用更贵的模型对少量候选（查询，文档）联合打分，输出新的排列，再截给生成器。Nogueira 与 Cho 把 BERT 当点式重排器，后续有对式、列表式以及专用 reranker 检查点。本篇写两段式为什么必要、打分形式、以及延迟预算如何决定 \(k\)。它接在 <a href="/llm/hybrid-retrieval">混合检索</a> 之后，不替代切分。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>双编码器的上界是「块向量是否靠近查询向量」。否定（「不含乳糖」）、比较（「A 与 B 的差异」）、约束（「2023 年之后的条款」）常常要求词级交互。把这类交互做进召回意味着文档不能离线编码，百万级库不可行。于是 IR 长期用两段：召回保命中，重排保前排精度。RAG 把前排块喂给 LLM，生成器对第一位特别敏感——错误块放在提示开头，会主导抄写。只加大召回 \(k\) 而不重排，等于让生成器自己当重排器，又贵又不稳。</p><p>重排器也会失败：候选里根本没有真值，再排也是乱序；或对风格相似的官方口吻打分过高，把不含答案的「概述」排到前面。所以重排不能弥补召回缺口，只改变 <em>已召回集合</em> 的排列。评测必须同时看召回@k（重排前）与 nDCG / 答案命中在重排后的 Top-\(n\)。</p><h3 id="双塔召回与交叉编码器" tabindex="-1">双塔召回与交叉编码器 <a class="header-anchor" href="#双塔召回与交叉编码器" aria-label="Permalink to &quot;双塔召回与交叉编码器&quot;">​</a></h3><p>双塔（双编码器）把查询和文档分开过 Transformer，cls 或池化向量做点积。交叉编码器把 <code>[CLS] query [SEP] doc</code> 拼起来，用整段自注意力做交互，输出一个标量相关分。代价是每个（查询，候选）一次前向，无法离线。典型配置：召回 50–200 块，重排后取 3–10 块进 LLM。ColBERT 一类延迟交互介于两者之间：离线存 token 向量，在线做细粒度匹配，比全交叉便宜、比双塔准，工程复杂度更高。</p><p><span class="marginnote">生成器用的 LLM 不是免费的交叉编码器。它能读块，但提示位置偏差、<a href="/llm/long-context-vs-rag">中间丢失</a> 和抄写惯性会让它「重排」得很差。专门训在相关分上的小交叉编码器，往往比把 50 块塞进大模型更稳、更便宜。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>点式：每个候选独立打分，按分排序。实现简单，适合校准成概率后做阈值（低于阈值的块不送进生成器）。对式：模型看（查询，正例，负例）或比较两个文档，训练目标更贴近排序，推理若要完整排列则次数变多。列表式：一次看查询与一组文档，能建模文档间相对位置，推理批形状更别扭。生产 RAG 里点式交叉编码器最常见：延迟可预期，每条候选一次前向，可批量化。</p><p>训练数据应来自标注相关或强蒸馏（大模型当教师打分），而不是只用「BM25 第一名当正例」——那会让重排器学会模仿第一段的偏见。难负例（双塔排得高但不含答案）比随机负例更有用。领域切换要微调：通用网页 reranker 在内部工单、代码库上会把「像文档的散文」打高、把「像补丁的片段」打低。</p><div class="mermaid"></div><h3 id="点式、对式、列表式" tabindex="-1">点式、对式、列表式 <a class="header-anchor" href="#点式、对式、列表式" aria-label="Permalink to &quot;点式、对式、列表式&quot;">​</a></h3><p>点式分数便于设「没有足够证据则拒答」的阈值，这对 RAG 比单纯排序更重要——乱序里的第一名仍可能全错。对式更擅长区分两个都还行的块，但要把 \(m\) 个候选排好，朴素比较是二次次前向。列表式吃显存，候选数一大就要再截断，等于重排前还有一次重排。工程上常点式打分 + 稳定排序，用验证集选 \(n\) 与阈值。不要把 LLM 生成的「请按相关性排序」当列表式重排的替代评测，除非你把它当成单独系统并报延迟。</p><p>与生成器拼接顺序：按重排分降序。有人把最相关块放在两端以缓解中间丢失，这是对长上下文位置偏差的补丁，应在验证集上测，不要当默认物理定律。引用片段应使用重排后的 ID，避免日志里写召回第一、模型实际读的是重排第三。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>交叉注意力让查询 token 直接看见文档 token，否定词、数字约束、是否包含答案跨度可以被同一层利用。这就是为什么 Top-10 精度通常明显升、而召回@200 几乎不变。延迟近似为 \(m\) 次编码器前向（可批），\(m\) 是重排窗口。\(m\) 从 20 加到 200，精度先升后饱和，费用线性涨。饱和点取决于召回质量：第一段已经很准时，重排增益小；第一段靠混合检索堆出的杂列表，重排增益大。</p><p>分数校准影响阈值。不同查询的绝对分不可比时，不要用全局阈值砍块，改用「至少留 1 块、最多留 \(n\) 块、分差小于 \(\delta\) 则多留」之类相对规则。重排器与嵌入模型应版本绑定：换切分或换双塔后，难负例分布变了，旧 reranker 可能把新召回的真值打低。</p><p><span class="marginnote">重排不是生成。相关分高的块仍可能过时或与另一块矛盾。生成器提示里应允许「多篇冲突时说明冲突」，不要假设排序第一即真值。时间过滤属于召回元数据，不要指望 reranker 从散文里读出「已废止」。</span></p><h3 id="延迟预算与截断-k" tabindex="-1">延迟预算与截断 k <a class="header-anchor" href="#延迟预算与截断-k" aria-label="Permalink to &quot;延迟预算与截断 k&quot;">​</a></h3><p>预算应倒推：用户可接受的检索阶段毫秒数，减去 BM25 与 ANN，剩余给交叉编码器，再除以单条前向时间，得到 \(m\) 的上限。超出则减小 \(m\) 或换更小 reranker，而不是默默把重排做成同步阻塞的大模型调用。异步预取、对 Top 召回先返粗结果再回流重排，会改变产品语义（答案可能跳动），要显式设计。批内不同查询的 \(m\) 相同更利于 GPU；可变 \(m\) 更省，但调度复杂。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有真值的候选集上，重排可能把错误块排得更「自信」，生成器更爱抄错。此时阈值拒答比硬送三条更安全。多跳 RAG 每跳都重排会叠加延迟，可只在最后一跳重排，或只对即将送进生成器的集合重排。不要对同一块的重叠切分分别重排却不去重，否则前三名是同一节的三次重复。</p><p>引用 Nogueira &amp; Cho 的 BERT 重排路线、后续 monoBERT / 商用 rerank API 的文档；不要把某一家云 API 的分数当作论文指标。ColBERT、SPLADE 可作为召回升级，与「双塔 + 交叉」两段式是不同点，评测时分开。</p><p><span class="marginnote">把 LLM 当 reranker（listwise 提示）与用小交叉编码器，是两种系统。前者延迟和费用接近又一次生成，适合离线标注或小流量；线上热路径默认小模型点式重排。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>两段式：独立编码召回保覆盖，交叉编码重排保前排精度。</li><li>重排不能创造召回里不存在的真值，评测要同时报重排前后。</li><li>点式便于阈值拒答；对式、列表式更贴近排序但推理成本更高。</li><li>\(m\) 由延迟预算倒推，增益会饱和。</li><li>分数与切分、双塔版本绑定；冲突块和高分过时块仍要在生成侧处理。</li><li>不要让大模型默默承担重排，除非延迟与评测已按该系统算。</li><li>出处：Nogueira &amp; Cho, Passage Re-ranking with BERT；两段式 IR 的经典分工；候选来自双塔 / BM25 / 混合检索。</li></ul></div></div></section></article><footer class="site-footer">LLM &amp; Quant · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>
