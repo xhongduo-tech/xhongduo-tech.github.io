@@ -3,16 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "progress": "node scripts/gen-progress.mjs && node scripts/gen-entertainment.mjs && node scripts/gen-recent-posts.mjs",
-    "entertainment": "node scripts/gen-entertainment.mjs",
-    "docs:dev": "npm run progress && NODE_OPTIONS=--max-old-space-size=8192 vitepress dev docs",
-    "docs:build": "npm run progress && NODE_OPTIONS=--max-old-space-size=65536 vitepress build docs && node scripts/externalize-hashmap.mjs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "markdown-it-task-lists": "^2.1.1",
-    "tufte-css": "^1.9.0",
     "vitepress": "^1.6.3"
   }
 }
