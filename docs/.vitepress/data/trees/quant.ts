@@ -1,5 +1,7 @@
 import { fromOutline, type Outline } from './schema'
 import { quantExtra } from './quant-extra'
+import { quantAudit } from './quant-audit'
+import { quantFrontier } from './quant-frontier'
 
 const outline: Outline[] = [
   [
@@ -479,4 +481,4 @@ const outline: Outline[] = [
   ],
 ]
 
-export const quantTree = [...fromOutline(outline), ...quantExtra]
+export const quantTree = [...fromOutline(outline), ...quantExtra, ...quantAudit, ...quantFrontier]

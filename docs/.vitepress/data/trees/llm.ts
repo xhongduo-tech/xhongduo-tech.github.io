@@ -1,6 +1,8 @@
 import { fromOutline, type Outline } from './schema'
 import { llmExtra } from './llm-extra'
 import { llmPapers } from './llm-papers'
+import { llmAudit } from './llm-audit'
+import { llmFrontier } from './llm-frontier'
 
 const outline: Outline[] = [
   [
@@ -1054,5 +1056,5 @@ const outline: Outline[] = [
   ],
 ]
 
-export const llmTree = [...fromOutline(outline), ...llmExtra, ...llmPapers]
+export const llmTree = [...fromOutline(outline), ...llmExtra, ...llmPapers, ...llmAudit, ...llmFrontier]
 

@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 
 const repo = process.env.GITHUB_REPOSITORY?.split('/')[1]
 const base = repo && !repo.endsWith('.github.io') ? `/${repo}/` : '/'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   base,
   lang: 'zh-CN',
   title: 'LLM & Quant',
@@ -42,4 +43,4 @@ export default defineConfig({
       md.renderer.rules.math_block = (tokens, idx) => '\\[' + esc(tokens[idx].content) + '\\]'
     },
   },
-})
+}))

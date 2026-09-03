@@ -317,6 +317,24 @@ pre:hover .copy-button {
   color: inherit !important;
 }
 
+.tuf-article .mermaid,
+.tuf-article .vp-mermaid {
+  width: 55%;
+  margin: 0 0 1.5em;
+  overflow-x: auto;
+}
+.tuf-article .mermaid svg,
+.tuf-article .vp-mermaid svg,
+.tuf-article section .mermaid svg {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  left: 0;
+  transform: none;
+  position: static;
+  display: block;
+}
+
 .tuf-article mjx-container[display='true'] {
   display: block !important;
   width: 55%;
@@ -704,6 +722,8 @@ header.site-header {
   .tuf-article div[class*='language-'],
   .tuf-article mjx-container[display='true'],
   .tuf-article blockquote,
+  .tuf-article .mermaid,
+  .tuf-article .vp-mermaid,
   pre,
   .article-byline,
   .post-list,

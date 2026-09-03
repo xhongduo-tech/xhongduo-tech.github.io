@@ -1,0 +1,80 @@
+---
+title: Expert Parallelism
+date: 2026-09-03
+section: llm
+---
+
+# Expert Parallelism
+
+<div class="epigraph">
+<p>专家是参数，不是序列。把不同专家放到不同卡上，token 用 All-to-All 找专家，算完再 All-to-All 回家。</p>
+<footer>—— Lepikhin et al., GShard, 2020；Fedus et al., Switch Transformers, 2021</footer>
+</div>
+
+MoE 的参数量随专家数线性涨，单卡放不下全部专家，数据并行又会在每张卡复制整份专家库，内存立刻爆炸。Expert Parallelism（EP，专家并行）的做法是：专家沿设备维切分，第 $i$ 个专家住在第 $i \bmod E$ 张卡上；每个 token 根据路由结果被发送到拥有该专家的设备，本地算完 FFN，再按原 batch 次序发回。GShard 在 TPU 上用的跨设备分发、Switch 的容量桶，以及 Megatron-LM 一类 GPU 框架里的 MoE 层，核心都是这两次 All-to-All。本篇讲并行策略，不重写路由公式。
+
+## 问题
+
+稠密 Transformer 的三维并行已经有固定语言：数据并行（DP）切 batch，张量并行（TP）切矩阵宽，流水线并行（PP）切层。MoE 多出来一维——专家。若把所有专家复制到每张卡，和 DP 一样，内存按专家数涨，稀疏的意义只剩下计算，存不住。若把专家和隐藏维一起交给 TP 切，通信模式与专家选择纠缠，几乎无法实现容量约束。必须有一种并行：设备的划分单位是专家，通信的单位是 token。
+
+### 通信是 MoE 的税
+
+稠密 FFN 是本地 GEMM。MoE 在 GEMM 之前之后各加一次集体通信。税的大小等于被发送的 token 数乘隐藏维乘字节数，再乘 $k$（每个 token 可能去 $k$ 个专家）。EP 度越高，每卡专家越少、本地 GEMM 越轻，但 All-to-All 的对端越多、越容易被网络堵住。问题因此是：EP 大到刚好让专家放下、计算仍能盖住通信，而不是越大越好。<span class="marginnote">All-to-All 与 All-Reduce 不同。TP 里的 All-Reduce 对同一份梯度或激活做求和；EP 里的 All-to-All 是置换：每张卡把不同 token 发给不同的卡，没有求和语义。实现错成 All-Reduce 会把专家输入搅成垃圾。</span>
+
+## 方法
+
+记 $E$ 为参与 EP 的设备数，$N$ 为专家总数，通常 $N$ 可被 $E$ 整除，每卡放 $n=N/E$ 个专家。前向步骤固定为四段：
+
+1. 本地算路由，得到每个 token 的专家 id。
+2. **Dispatch All-to-All**：按专家所在设备重排 token，凑成各卡的专家 batch。
+3. 本地对每个专家跑 FFN（往往再配一张容量掩码，空槽不参与有效 FLOPs 统计）。
+4. **Combine All-to-All**：把专家输出按原 token 顺序发回，加权求和（$k>1$ 时）。
+
+```mermaid
+flowchart LR
+  R["本地路由"] --> A1["All-to-All 分发"]
+  A1 --> L["各卡计算本卡专家"]
+  L --> A2["All-to-All 合并"]
+  A2 --> O["按 token 写回残差"]
+```
+
+### 与 DP、TP、PP 叠在一起
+
+常见拓扑是 DP × EP × TP。同一层里，隐藏维仍可 TP 切（专家内部的 SwiGLU 两半矩阵切开），专家维走 EP，batch 走 DP。DeepSeek-V3 技术报告里的训练并行还把专家放到专用的 EP 组，并限制每个 token 路由到的节点数，以免 All-to-All 跨太广。GShard 在 TPU mesh 上把「专家维」映射到 mesh 的一条轴，语义相同：token 沿专家轴 permute。
+
+容量因子在 EP 下变成每卡每专家的槽位数。实现必须在 All-to-All 之前做一次历史统计或预测，否则接收端缓冲区无法预分配。掉牌发生在分发前：超容量的 token 不进入通信，这比发过去再丢更省带宽。
+
+## 机制
+
+一次双向 All-to-All 的通信量，对每张卡近似为
+
+$$
+\mathrm{bytes}\approx 2\cdot k\cdot \frac{T}{E}\cdot d\cdot s,
+$$
+
+其中 $T$ 是全局 token 数，$s$ 是每元素字节（BF16 为 2）。因子 2 来自 dispatch 与 combine。$T/E$ 是「若均匀」每卡发出的 token；不均时热专家所在卡收到远多于 $T/E$，这就是负载不均同时伤害计算和网络。
+
+### 计算通信比
+
+本地专家 FLOPs 约 $4\cdot (T k / N)\cdot d\cdot d_{\mathrm{ff}}$ 量级（再按每卡专家数分配）。$d_{\mathrm{ff}}$ 大、专家较肥时，GEMM 能盖住 All-to-All；$d_{\mathrm{ff}}$ 小、专家很碎（细粒度 MoE）时，通信占比上升，必须靠更大的 microbatch 或把多个小专家绑在同一卡上做 batched GEMM。这是 DeepSeek 细粒度专家必须认真做内核融合的原因：EP 仍然成立，但 roofline 从计算墙走向通信墙。
+
+反向再来两次 All-to-All（梯度对激活的置换），路由线性的梯度则留在本地，因为 $W_r$ 通常复制或走 DP。专家参数的梯度只在拥有该专家的设备上累积，再按 DP 组 All-Reduce——注意 Reduce 的是**同一专家副本**之间的梯度，不是不同专家之间。<span class="marginnote">EP 与 DP 的组合容易把「谁在同步谁」搞混。不同专家之间没有 All-Reduce。只有当同一个专家因 DP 复制了多份时，才对那一份权重同步梯度。Switch 式纯 EP、每专家一份时，专家权重甚至可以不做数据并行同步。</span>
+
+## 边界
+
+EP 不是推理的唯一方案。服务期若专家数不大，可以把热专家复制到每张卡，避免 decode 阶段为单个 token 付 All-to-All 延迟。Mixtral 8 专家经常整模型张量并行或专家全复制，因为 $N=8$ 放得下。百专家以上的 DeepSeek-V2/V3、Qwen2-MoE 才必须认真做 EP 或专家卸载。
+
+小 batch 的自回归 decode 是 EP 的痛点：All-to-All 启动开销大于 payload。于是有专家缓存、prefetch、以及把 decode 做成连续 batch。这些是推理系统问题，但根子仍是 EP 的通信语义。训练期则相反，大 batch 让 EP 很划算。
+
+不要把 EP 和「把 FFN 做成模型并行切行」当成一件事。后者是 TP，通信是 All-Reduce；前者是按专家 ID 的置换。写配置时要分开写 `tp_size` 与 `ep_size`。GShard / Switch 给出的是并行语义；具体 NCCL 还是 TPU 运行时，随硬件换。
+
+拓扑上还有一层容易忽略：同一节点内的 NVLink 与跨节点的 InfiniBand 时延差一个数量级。若 EP 组跨了太多节点，All-to-All 会被跨节点跳数拖死。DeepSeek 一类系统因此限制每个 token 访问的节点数，把 EP 组切成更小的通信域。负载不均会让这个限制更痛：热专家所在节点既是计算热点也是网络热点，step time 由它决定。调试时应同时看每卡的 token 接收直方图和 NCCL 耗时，而不是只看平均 FLOPs。空槽（capacity padding）会进入通信缓冲区，容量因子过大时，你在为空气付带宽。<span class="marginnote">专家并行度不必等于专家总数。每卡可以放多个小专家，用 batched GEMM 一次算完，这正是细粒度 MoE 保计算密度的办法。EP 度只决定「专家被切到几张卡」，不决定「每卡几个专家」。</span>检查点时要按专家切分保存，恢复时设备数若变了，必须做专家重映射，否则权重会对错卡。这些是 EP 作为系统策略的边界，不是路由公式能覆盖的。
+
+## 小结
+
+- Expert Parallelism 把不同专家放到不同设备，用两次 All-to-All 分发并收回 token。
+- 它解决 MoE 参数放不下的问题，通信税与 $k$、隐藏维、负载均匀度成正比。
+- 可与 DP / TP / PP 组合；不同专家之间不同步梯度，同一专家的 DP 副本才 All-Reduce。
+- 细粒度小专家更容易通信受限；肥专家更容易算力覆盖通信。
+- 推理小 batch 时 All-to-All 延迟突出，可能改为复制专家或缓存。
+- 出处：Lepikhin et al., *GShard*, 2020；Fedus et al., *Switch Transformers*, 2021；DeepSeek-V2/V3 技术报告中的专家并行与设备限制路由，2024–2025。
