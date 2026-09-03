@@ -39,27 +39,6 @@ export function leafCount(nodes: Node[]): number {
   return n
 }
 
-/** 每个技术点拆成 4 篇可独立成文的叶子 */
-const ANGLES: [string, string][] = [
-  ['问题与动机', 'why'],
-  ['方法', 'method'],
-  ['实现', 'impl'],
-  ['边界与后续', 'limits'],
-]
-
-export function explodeLeaves(nodes: Node[]): Node[] {
-  return nodes.map((node) => {
-    if (node.kind === 'leaf' && node.slug) {
-      return {
-        kind: 'group',
-        name: node.name,
-        children: ANGLES.map(([label, suf]) => leaf(`${node.name}：${label}|${node.slug}-${suf}`)),
-      }
-    }
-    return { ...node, children: node.children ? explodeLeaves(node.children) : undefined }
-  })
-}
-
 const KIND_BY_DEPTH: Kind[] = ['branch', 'mainline', 'group']
 
 /** 嵌套数组大纲：字符串为叶子，[名称, 子节点] 为分组 */

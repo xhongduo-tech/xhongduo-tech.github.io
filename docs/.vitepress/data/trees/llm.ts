@@ -144,12 +144,106 @@ const outline: Outline[] = [
             ],
           ],
           [
+            'Qwen OCR 与文档解析',
+            [
+              'Naive Dynamic Resolution 原生分辨率切块|qwen-vl-naive-dynamic-res',
+              '2×2 patch merge 控制视觉 token 数|qwen-vl-patch-merge',
+              '窗口注意力与周期性全局注意力交替|qwen-vl-window-full-attn',
+              'MRoPE / Interleaved MRoPE 时空位置|qwen3-vl-interleaved-mrope',
+              'DeepStack：多层 ViT 特征注入 LLM|qwen3-vl-deepstack',
+              'SigLIP-2 视觉骨干|qwen3-vl-siglip2',
+              'Qwen HTML 版式感知文档解析|qwen-html-document-parse',
+              '文字定位与 2D grounding|qwen-ocr-text-grounding',
+              '表格、公式与卡证关键信息抽取|qwen-ocr-kie',
+              '粗到细伪标注 OCR 数据管线|qwen-ocr-coarse-to-fine',
+              '多页 PDF 合成与跨页文档 VQA|qwen-ocr-long-pdf',
+              '图像旋转矫正|qwen-ocr-rotation',
+              'Qwen-VL-OCR 内置任务模板|qwen-vl-ocr-tasks',
+              'Qwen3.5-OCR：原生 PDF 与多轮抽取|qwen35-ocr',
+            ],
+          ],
+          [
             '语音与视频',
             [
               '语音 tokenizer|speech-tokenizer',
               '音频语言模型|audio-lm',
               '视频 token 与时间采样|video-tokens',
               '多模态交错训练|interleaved-multimodal',
+            ],
+          ],
+          [
+            'Qwen ASR',
+            [
+              'LALM：先理解音频再生成转写|qwen3-asr-lalm',
+              'Qwen3-Omni 作为语音理解基座|qwen3-omni-speech-base',
+              'AuT：AED 音频 Transformer 编码器|qwen3-asr-aut',
+              '128 维 Fbank 与 Conv2D 8× 下采样|qwen3-asr-fbank-downsample',
+              '12.5 Hz 音频 token 率|qwen3-asr-token-rate',
+              '动态 FlashAttention 窗口 1s–8s|qwen3-asr-dynamic-window',
+              '分块 Conv2D（约 100 帧 → 13 token）|qwen3-asr-chunked-conv',
+              '学习型 projector 对齐 AuT 与 Qwen3|qwen3-asr-projector',
+              'Qwen3 解码器：GQA、RoPE、QK-Norm|qwen3-asr-decoder',
+              '流式与离线统一推理|qwen3-asr-streaming-offline',
+              '语言识别与 52 语种/方言|qwen3-asr-lid',
+              'Qwen3-ForcedAligner 非自回归时间戳|qwen3-forced-aligner',
+              '伪标注大规模语音预训练|qwen3-asr-pseudo-label',
+              'vLLM 批推理与流式 ASR 服务|qwen3-asr-vllm',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ],
+  [
+    '世界模型与空间智能',
+    [
+      [
+        '李飞飞 / World Labs',
+        [
+          [
+            '空间智能纲领',
+            [
+              '空间智能：感知、推理、在三维中行动|spatial-intelligence',
+              '世界模型四件事：重建、生成、仿真、交互|world-model-four-roles',
+              '持久三维世界 vs 边走边生成帧|persistent-3d-vs-streaming-frames',
+            ],
+          ],
+          [
+            'Marble 生成式世界',
+            [
+              '多模态提示到三维世界（文/图/视频/布局）|marble-multimodal-prompt',
+              '多图与视频的视角拼接成一致场景|marble-multi-view-stitch',
+              'Chisel：粗几何定结构、文本定风格|marble-chisel',
+              '区域扩展与 Composer 拼世界大图|marble-expand-compose',
+              '三维高斯溅射作为高保真表示|marble-gaussian-splats',
+              '碰撞网格与视觉网格双导出|marble-dual-mesh',
+              'Spark：浏览器高斯溅射渲染|marble-spark',
+              '结构保持的视频增强与动态元素|marble-video-enhance',
+              'AI 原生局部编辑与风格改写|marble-world-edit',
+            ],
+          ],
+          [
+            'RTFM 实时帧模型',
+            [
+              'RTFM：探索时实时出帧而非导出场景|worldlabs-rtfm',
+              '实时世界模型的形变与不一致性|rtfm-morphing',
+            ],
+          ],
+          [
+            'Atlas Omni 世界模型',
+            [
+              '多模态自回归扩散 Transformer|atlas-ardt',
+              '共享空间上下文：图像锚定在三维位姿|atlas-spatial-context',
+              '相机位姿作为原生输入而非文本描述|atlas-native-camera',
+              '视频作为带位姿的图像序列|atlas-video-as-frames',
+              'Rectified flow 潜空间扩散|atlas-rectified-flow',
+              '深度图、点云与高斯溅射写出|atlas-3d-writeout',
+              '稀疏视角新视角合成与三维重建|atlas-sparse-view-recon',
+              '相机可控长视频（至 1440p / 1 分钟）|atlas-camera-controlled-video',
+              '多机位 reframing 与子弹时间|atlas-video-reframe',
+              'Real-to-Sim：重建场景并生成机器人传感器视图|atlas-real-to-sim',
+              '沿用 LLM 的 KV cache 与分离式服务|atlas-llm-serving-tricks',
+              '扩散蒸馏、CFG 与 VAE 潜空间|atlas-diffusion-stack',
             ],
           ],
         ],
@@ -178,6 +272,10 @@ const outline: Outline[] = [
             [
               'Qwen 1.5 / 2 / 2.5 演进|qwen-evolution',
               'Qwen3|qwen3',
+              'Qwen2-Audio / Qwen2.5-Omni 语音|qwen-audio-omni',
+              'Qwen3-ASR-1.7B / 0.6B|qwen3-asr',
+              'Qwen3-VL 与文档 OCR|qwen3-vl',
+              'Qwen3.5-OCR|qwen35-ocr-model',
               'GLM 与 ChatGLM|glm',
               'GLM-4|glm-4',
               'Gemma / Gemma 2|gemma',
@@ -612,6 +710,22 @@ const outline: Outline[] = [
     '硬件与集群',
     [
       [
+        '超节点',
+        [
+          [
+            '形态',
+            [
+              'Scale-Up 超节点 vs Scale-Out 集群|scale-up-vs-scale-out',
+              '机柜作为一块逻辑加速器|rack-as-accelerator',
+              'GB200 / GB300 NVL72 超节点|gb200-nvl72',
+              '铜缆 spine 短距 vs 光模块长距|copper-spine-vs-optics',
+              '机内全互连 vs 分层 Clos|all-to-all-vs-clos',
+              '超节点内内存语义与集合通信|supernode-memory-collectives',
+            ],
+          ],
+        ],
+      ],
+      [
         'GPU 与 NVIDIA',
         [
           [
@@ -626,6 +740,46 @@ const outline: Outline[] = [
               'InfiniBand 与 GPUDirect|infiniband-gpudirect',
             ],
           ],
+          [
+            'Vera Rubin 超节点',
+            [
+              'Vera Rubin NVL72：72 GPU 一块机柜加速器|vera-rubin-nvl72',
+              '六芯片共设计：GPU/CPU/交换/网卡/DPU/以太|rubin-six-chips',
+              'Rubin GPU：HBM4、Transformer Engine、NVFP4|rubin-gpu-hbm4',
+              'Tensor Memory Accelerator 与本地化访存|rubin-tma',
+              'NVLink 6：3.6 TB/s 卡间、机柜全互连|nvlink-6',
+              'NVLink counted writes 与核内融合通信|nvlink-counted-writes',
+              'SHARP 在交换内做集合规约|nvlink-sharp',
+              'Vera CPU：Olympus 核与 Spatial Multithreading|vera-cpu-olympus',
+              'NVLink-C2C：CPU–GPU 内存一致性超芯|nvlink-c2c-superchip',
+              'ConnectX-9 SuperNIC 与 Spectrum-X 向外扩展|connectx-9-spectrum-x',
+              'BlueField-4：Grace + 网卡卸载基础设施|bluefield-4',
+              'Spectrum-6 共封装光学以太网|spectrum-6-cpo',
+              '第三代 MGX：无缆托盘与可热插拔交换|mgx-nvl72-tray',
+              '45°C 温水液冷与 Intelligent Power Smoothing|rubin-liquid-power-smoothing',
+              'Groq 3 LPX 低延迟推理加速卡|groq-3-lpx',
+            ],
+          ],
+        ],
+      ],
+      [
+        'OpenAI 自研芯片',
+        [
+          [
+            'Jalapeño 推理加速器',
+            [
+              '专为 LLM 推理的空白设计（非通用 GPU）|jalapeno-inference-only',
+              'OpenAI 架构 + Broadcom 实现 + TSMC 3nm|jalapeno-openai-broadcom-tsmc',
+              '减少数据搬运、让利用率贴近峰值|jalapeno-data-movement',
+              '脉动阵列 / 权重驻留矩阵核|jalapeno-systolic',
+              '切片化：每核本地 HBM 视图 + 集合网络|jalapeno-sliced-hbm',
+              'HBM4 与 2.5D 中介层近存封装|jalapeno-hbm4-2p5d',
+              'MXFP4 / 低精度推理数值|jalapeno-mxfp4',
+              'Tomahawk 以太：scale-up 与 MoE scale-out|jalapeno-tomahawk',
+              'Celestica 板卡与机柜系统化|jalapeno-celestica',
+              '用自家模型加速 ASIC 设计闭环|jalapeno-ai-assisted-design',
+            ],
+          ],
         ],
       ],
       [
@@ -635,10 +789,29 @@ const outline: Outline[] = [
             'CANN',
             [
               '昇腾 910 架构要点|ascend-910',
+              '达芬奇 Cube / Vector / Scalar|davinci-cube-vector',
+              '910C 双 Die 共封装与片上互连|ascend-910c-dual-die',
               'CANN 图编译|cann-graph',
               '昇腾算子与落差|cann-op-gap',
               'vLLM-Ascend|vllm-ascend',
               '异构集群调度|hetero-cluster',
+            ],
+          ],
+          [
+            'CloudMatrix 超节点',
+            [
+              'CloudMatrix 384：384×910C + 192 鲲鹏一块超节点|cloudmatrix-384',
+              '统一总线 UB 灵衢：内存语义 + 消息语义|ub-lingqu',
+              'HCCS 节点内一致性到 UB 多柜 Scale-Up|hccs-to-ub',
+              'UB-Mesh：递归 nD 全互连、短距电直连优先|ub-mesh',
+              'L1 板载交换 + L2 通信柜、七子平面|ub-l1-l2-planes',
+              '跨柜光模块把多柜收成一个逻辑节点|ub-optical-cabinets',
+              '节点间带宽衰减与微秒级时延|ub-near-local-perf',
+              '计算/内存/网络池化与统一编址|cloudmatrix-resource-pool',
+              '超节点内 MoE 专家并行与分布式 KV|cloudmatrix-moe-kv',
+              'RoCE/RDMA 做超节点之间 Scale-Out|cloudmatrix-roce-scaleout',
+              '青田 DPU 与 VPC 控制面|qingtian-dpu',
+              'CloudMatrix-Infer：算子融合与 AIC/AIV/SDMA 重叠|cloudmatrix-infer',
             ],
           ],
         ],
@@ -653,6 +826,108 @@ const outline: Outline[] = [
               '弹性与缩容时的 KV|scale-down-kv',
               '显存碎片与装箱|gpu-packing',
               '多租户隔离|multi-tenant-gpu',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ],
+  [
+    '半导体与光刻',
+    [
+      [
+        '光刻物理',
+        [
+          [
+            '分辨率',
+            [
+              '瑞利判据：CD = k₁ λ / NA|rayleigh-litho',
+              '波长台阶：g/i 线、KrF 248、ArF 193、EUV 13.5|litho-wavelengths',
+              '掩模、光刻胶、曝光、显影、刻蚀转印|litho-process-flow',
+              '套刻 Overlay 与对准|litho-overlay',
+              '双工件台 Twinscan 提高产能|twinscan-dual-stage',
+            ],
+          ],
+        ],
+      ],
+      [
+        'DUV 与多重曝光',
+        [
+          [
+            '浸没与分解',
+            [
+              'ArF 浸没：水作介质抬高 NA|arf-immersion',
+              '离轴照明与偶极/四极光瞳|off-axis-illumination',
+              '相移掩模 PSM|phase-shift-mask',
+              'LELE 多次曝光套刻|lele-multipattern',
+              'SADP / SAQP 自对准双重/四重图形|sadp-saqp',
+              '浸没 DUV + 多重曝光走到 7/5 nm 的代价|duv-multipattern-cost',
+            ],
+          ],
+        ],
+      ],
+      [
+        'EUV 与 ASML',
+        [
+          [
+            '光源与光学',
+            [
+              '13.5 nm 真空全反射：Mo/Si 多层膜镜|euv-multilayer-mirror',
+              'LPP：CO₂ 激光打锡滴产生等离子体|euv-lpp-tin',
+              '预脉冲 + 主脉冲提高转换效率|euv-prepulse',
+              '蔡司投影物镜与收集镜|zeiss-euv-optics',
+              '氢气流 Dynamic Gas Lock 防污染|euv-hydrogen-dgl',
+              'EUV 薄膜 Pellicle|euv-pellicle',
+              'NXE：NA 0.33 量产 5/3 nm|asml-nxe',
+              'High-NA 0.55 EXE：变形光学与半场|asml-high-na',
+              '真空磁浮工件台|euv-maglev-stage',
+              '随机效应与光子散粒噪声|euv-stochastics',
+              '金属氧化物胶 vs 化学放大胶|euv-resist',
+            ],
+          ],
+        ],
+      ],
+      [
+        '计算光刻',
+        [
+          [
+            '图形修正',
+            [
+              '光学邻近修正 OPC|opc',
+              '光源掩模协同优化 SMO|smo',
+              '逆光刻 ILT 与曲线掩模|ilt-curvilinear',
+              '多束电子束写掩模|multibeam-mask-writer',
+              'GPU / AI 加速 OPC（cuLitho 等）|computational-litho-gpu',
+            ],
+          ],
+        ],
+      ],
+      [
+        '制程与封装',
+        [
+          [
+            '前后道',
+            [
+              'FinFET 到 GAA / nanosheet|finfet-gaa',
+              '原子层沉积 ALD 与原子层刻蚀|ald-ale',
+              'HBM 堆叠与混合键合|hbm-hybrid-bonding',
+              'CoWoS / 2.5D 中介层|cowos-2p5d',
+              'Chiplet 与先进封装补光刻极限|chiplet-packaging',
+            ],
+          ],
+        ],
+      ],
+      [
+        '国产与管制',
+        [
+          [
+            '设备与供应链',
+            [
+              'EUV 出口管制卡住先进逻辑|euv-export-control',
+              '国产浸没 DUV 与 28 nm 单次曝光|china-immersion-duv',
+              '多重曝光把国产 DUV 往更先进节点推|china-duv-multipattern',
+              '国产 EUV 仍处原型、光学与光源是瓶颈|china-euv-prototype',
+              '光刻胶、光源、镜头的国产替代|china-litho-supply-chain',
             ],
           ],
         ],

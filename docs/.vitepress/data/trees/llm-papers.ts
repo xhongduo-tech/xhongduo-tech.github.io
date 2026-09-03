@@ -1,6 +1,6 @@
 import { fromOutline, type Outline } from './schema'
 
-/** 以论文、系统、型号为技术点，再经 explode 拆成博文 */
+/** 以论文、系统、型号为技术点，每项一篇博文 */
 const extra: Outline[] = [
   [
     '文献与系统',
@@ -148,6 +148,13 @@ const extra: Outline[] = [
               'TPU 训练栈|tpu-training',
               'H100 Transformer Engine|hopper-te',
               'Blackwell 对推理的含义|blackwell-infer',
+              'Vera Rubin NVL72 平台|vera-rubin-platform',
+              'OpenAI Jalapeño 推理芯片|openai-jalapeno',
+              'Huawei CloudMatrix384 超节点|cloudmatrix384-paper',
+              'UB-Mesh 统一总线|ub-mesh-paper',
+              '瑞利判据与光刻分辨率|rayleigh-litho-note',
+              'ASML EUV / High-NA|asml-euv-high-na',
+              '计算光刻与 ILT|computational-litho-paper',
               'Megatron-Core|megatron-core',
               'DeepSpeed-Chat|deepspeed-chat',
               'Colossal-AI|colossal-ai',
@@ -317,6 +324,13 @@ const extra: Outline[] = [
               'LLaVA-1.5 / 1.6|llava-15',
               'LLaVA-OneVision|llava-onevision',
               'Qwen-VL / Qwen2-VL|qwen-vl-paper',
+              'Qwen2.5-VL 报告|qwen25-vl-paper',
+              'Qwen3-VL 技术报告|qwen3-vl-paper',
+              'Qwen3-ASR 技术报告|qwen3-asr-paper',
+              'Qwen3-Omni 技术报告|qwen3-omni-paper',
+              '3D Gaussian Splatting|kerbl-gaussian-splatting',
+              'World Labs Marble 世界模型|worldlabs-marble',
+              'World Labs Atlas Omni 世界模型|worldlabs-atlas',
               'InternVL / InternVL2|internvl-paper',
               'PaliGemma|paligemma',
               'Molmo|molmo',
