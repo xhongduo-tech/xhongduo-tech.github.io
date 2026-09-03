@@ -1,0 +1,79 @@
+---
+title: OpenHermes 与 SlimOrca
+date: 2026-09-03
+section: llm
+---
+
+# OpenHermes 与 SlimOrca
+
+<div class="epigraph">
+<p>Orca 要的是解释痕迹，不是又一份短回答；SlimOrca 用教师再过滤一遍 FLAN 上的对错，OpenHermes 再把这类痕迹与别的合成对话汇编成可训练的百万级混合物。</p>
+<footer>—— Mukherjee 等，Orca；Lian / Teknium 等，OpenOrca / SlimOrca；Teknium，OpenHermes 2.5</footer>
+</div>
+
+2023 年开放指令微调的燃料，很大一块不是新的标注指南，而是**教师模型写出的长解释**。微软的 Orca 论文主张：只模仿 ChatGPT 的短回复，学生学会的是口吻而不是推理程序；要把 GPT-4 的逐步痕迹、系统消息约束和大规模 FLAN 题面配在一起，小模型才能在 BBH、AGIEval 一类推理集上靠近教师。社区随即放出 OpenOrca（约一百万 GPT-4 完成加约三百二十万 GPT-3.5 完成），再用 GPT-4 对照 FLAN 人工标注筛掉明显错答，得到约五十万条的 SlimOrca。Teknium 的 OpenHermes 2.5 把 SlimOrca 与 Airoboros、Camel、Glaive、ShareGPT（GPT-4 子集）等拼成约一百万条、以 GPT-4 为主的对话混合物，并配上 ChatML，成为当年 Mistral-7B 强聊天微调的数据背书。本篇写这条**数据链**的论文与发布贡献；人写对合成的配比见 [另一篇](/llm/human-vs-synthetic-instruct)，来源清洗见 [指令数据来源](/llm/sft-data-sources)。注意：这里的 Orca 是微软蒸馏论文，与 Yu 等人的 [服务系统 Orca](/llm/orca-iteration) 同名不同物。
+
+## 问题
+
+Alpaca、Vicuna 把学生钉在浅层模仿上：题面多样，回答短、风格统一、很少暴露中间计算。评测若用「像不像 ChatGPT」的裁判，分数很好看；换到需要多步的 [BBH](/llm/bigbench-bbh) 或专业考试式 AGIEval，差距立刻回来。Mukherjee 等人把失败写成三件事：模仿浅输出、数据同质且规模不够、评测过宽导致高估。他们要的监督是**复杂解释痕迹**——逐步思维、系统消息里对长度与格式的约束、以及从 FLAN-v2 这种宽任务集合里抽的题面——让学生模仿过程，而不只是最终句式。
+
+开放复现还多一个问题：Orca 原文的 GPT-4 痕迹并不随论文全量公开。没有对齐到原文分布的开放集，就无法把「解释蒸馏有效」从「微软内部数据有效」里拆出来。OpenOrca / SlimOrca / OpenHermes 的贡献首先是把这条监督做成可下载、可混配的文件，其次才是某一个 7B 聊天分数。
+
+### 系统消息是任务定义的一部分
+
+Orca 不只收集 $(x,y)$。系统消息用来改变回答长度、列出可接受与不可接受的行为、规定智能体结构；用户查询才是 FLAN 里的具体任务。同一条数学题，系统消息要求逐步推导与要求「只给答案」，监督完全不同。丢掉系统字段、只留人类轮与助手轮，等于把教师的推理协议扔掉。OpenHermes 后来坚持 ChatML 角色标记，部分就是为了把系统约束留在序列里，而不是训练后再靠提示词抢救。<span class="marginnote">SlimOrca 的「瘦」不是随机下采样。它用 GPT-4 对照 FLAN 的人工标注，删掉看起来与金标冲突的教师完成。体积从百万降到约 50 万，算力大约只需原先的三分之二就能接近完整切片的质量——这是过滤，不是 LIMA 式的一千条精选。</span>
+
+## 方法
+
+**Orca 原文（微软，13B）**。从 FLAN-v2 抽约五百万用户查询，先收集 ChatGPT 回答，再从中抽约一百万条收集 GPT-4 回答；训练上主张渐进：教师助手（ChatGPT）在前、更强教师（GPT-4）的复杂痕迹在后。评测强调复杂零样本推理：相对 Vicuna-13B，BBH 大幅领先（论文写超过百分之一百这一量级的相对提升），AGIEval 约 42% 相对提升，并在 BBH 上与 ChatGPT 持平量级。索赔钉在「学过程，而不只学风格」。
+
+**OpenOrca**。社区按原文分布尽量对齐 FLAN 增强数据，表格化发布：约 1M GPT-4 完成、约 3.2M GPT-3.5 完成，并声明相对原文仍少约 150 万点、生成仍在补。它是复现用的**分布近似**，不是微软内部集的逐条拷贝。许可与教师条款随生成时间而变，下游必须自行判断能否商用。
+
+**SlimOrca**。在 OpenOrca 的 GPT-4 切片上再过一轮：用 GPT-4 检查相对 FLAN 人类标注是否像答错，留下约 50 万条。设计目标是用更少算力逼近更大切片的下游，而不是提高「像 GPT」的裁判分。Mistral-7B-SlimOrca 一类检查点用 packing 做全参或高效微调，用来证明瘦集足够当主监督桶。
+
+**OpenHermes 2.5**。Teknium 把 SlimOrca（发布页常写约 55 万）与大量其他开放合成/对话集合并，总量约 100 万，以 GPT-4 生成的指令与聊天为主。来源包括 Airoboros、Camel 学科专家对话、Chatbot Arena 的 GPT-4 子集、Collective Cognition、Glaive 代码助手、GPTeacher、MetaMath 一类、以及仅 GPT-4 的 ShareGPT 等；代码相关约占 7–14%，发布者认为这对通用能力也有正迁移。格式统一到 ShareGPT `conversations`，训练时由 Axolotl 转到 ChatML。OpenHermes-2.5-Mistral-7B 是这一混合物的产品锚点，不是另一篇方法论文。
+
+```mermaid
+flowchart TD
+  F["FLAN-v2 题面"] --> O["Orca 协议：系统消息 + 解释痕迹"]
+  O --> OO["OpenOrca：开放 GPT-3.5 / GPT-4 完成"]
+  OO --> SO["SlimOrca：对照 FLAN 金标过滤"]
+  SO --> OH["OpenHermes 2.5：多源汇编"]
+  X["Airoboros / Camel / ShareGPT-GPT4 等"] --> OH
+  OH --> SFT["ChatML 上的 SFT"]
+```
+
+### 汇编不是新算法
+
+OpenHermes 没有提出新的损失。它的工作是来源选择、过滤、格式归一和公开模型卡。与 Tulu 混合物的差别在于：Tulu 论文把来源当消融因子、按技能报分；OpenHermes 是社区通用助手燃料，默认假设「GPT-4 痕迹的多样性 + 代码切片」能训出通才。两者可以互相当桶：Tulu 2 的 V2 混合物就吸收了 OpenOrca 一类解释数据；Hermes 系列则不一定跑 Tulu 的技能向评测协议。引用时不要把 OpenHermes 写成 arXiv 方法，也不要把 SlimOrca 写成微软官方发布。
+
+## 机制
+
+解释痕迹起作用的方式，接近 [推理链蒸馏](/llm/cot-distill)：学生的交叉熵打在教师的逐步文本上，部署时即使短提示也可能长出中间步。Orca 额外强调系统消息带来的**条件化**——同一题面多种协议——避免学生把「总是很长的 CoT」当成唯一助手行为。SlimOrca 的过滤假设是：FLAN 人类标注相对可信，教师完成与之冲突时更可能是胡编；这会丢掉「教师对、金标过时」的样本，也会丢掉「金标对、教师写了有用但不同的推理」的样本。过滤偏向保守的正确性，不是最大化过程多样性。
+
+OpenHermes 把多源拼进同一 ChatML 后，梯度被条数加权。SlimOrca 占比高，FLAN 式任务和逐步解答会主导；ShareGPT 多轮与代码助手另开模式。若不去重、不按源降权，某一个教师的开场白会变成默认人格。这与「合成汇编桶要内部再加权」的清洗建议是同一件事，只是 Hermes 发布物本身往往已经是训练就绪文件，加权要在采样层做。
+
+<span class="marginnote">用 OpenHermes 训出的模型在 GPT-4 裁判的开放生成上好看，部分是因为训练分布就是 GPT-4。这不是污染的同义词，但是评测相关。要看推理是否真的学到，应保留 BBH、GSM8K、代码单测这类非裁判轴，并声明教师身份。</span>
+
+### 瘦集与全量的算力交换
+
+SlimOrca 的经验声明是：删错答之后，约 50 万 GPT-4 条可以接近更大切片的质量，训练 token 更少。这只在「质量瓶颈是错标签而不是覆盖」时成立。若目标域不在 FLAN 任务族里（真实多轮客服、工具调用、最新 API），瘦集没有魔法。OpenHermes 用多源补覆盖，又把体积拉回百万，等于把 SlimOrca 的算力节省花在别的桶上。配比应作为超参扫，而不是把 2.5 的默认混合当成定理。
+
+## 边界与工程取舍
+
+教师错误、安全拒答模板、谄媚和过时事实都会进混合物。GPT-4 过滤 SlimOrca 不能检查所有领域；Camel 学科对话可能看起来专业却无实验依据。许可上，生成数据的使用权取决于当时 API 条款与各子集许可证，商用前必须逐源看，不能因为 Hugging Face 可下载就视为可任意再分发。
+
+与 LIMA 对照：LIMA 用人挑的约一千条定义风格；OpenHermes 用约一百万条合成定义覆盖。前者不是 Hermès 的失败，后者也不是 LIMA 的反例。与 Tulu 对照：Tulu 要可引用的阶段因果；Hermes 要可下载的通才燃料。评测协议不同，不能把 Mistral-Hermes 的 Arena 分写成 Orca 论文的复现成功。
+
+<span class="marginnote">数据卡上应分开写：Orca 协议（系统消息 + 解释 + FLAN 题面）、SlimOrca 过滤规则、OpenHermes 的源列表与大约条数。只写「用了 OpenHermes」无法解释一次失败是错答过滤过猛、还是 ShareGPT 多轮太少、还是 ChatML 与推理模板不一致。</span>
+
+多轮深度通常浅于真实 ShareGPT 长会话；用 Hermes 当多轮产品的唯一监督，会高估单轮、低估追问。格式层见 [chat template](/llm/chat-template) 与 [多轮字段](/llm/multiturn-format)。
+
+## 小结
+
+- 微软 Orca 的论文贡献是：用大规模解释痕迹与系统消息，让小模型学教师的推理程序，而不只学短回复风格。
+- OpenOrca 按该分布提供开放的 GPT-3.5 / GPT-4 完成，是复现用近似集。
+- SlimOrca 对照 FLAN 金标过滤错答，用约 50 万 GPT-4 条换更低训练算力。
+- OpenHermes 2.5 把 SlimOrca 与多源合成对话汇编到约 100 万条 ChatML 数据，是社区通才 SFT 燃料，不是新损失。
+- 评测须把裁判分与 BBH / 代码等非裁判轴分开；教师是 GPT-4 时，像 GPT 的分数会偏高。
+- 出处：Mukherjee et al., *Orca: Progressive Learning from Complex Explanation Traces of GPT-4*，arXiv:2306.02707；OpenOrca / SlimOrca 数据集卡（Lian、Teknium 等，2023）；Teknium，OpenHermes 2.5（Hugging Face `teknium/OpenHermes-2.5`）。

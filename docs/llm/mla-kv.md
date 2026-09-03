@@ -1,0 +1,90 @@
+---
+title: MLA 对 KV 的压缩
+date: 2026-09-03
+section: llm
+---
+
+# MLA 对 KV 的压缩
+
+<div class="epigraph">
+<p>对键值做低秩联合压缩；推理时把上投影吸收进权重，解码只需缓存压缩后的潜向量。</p>
+<footer>—— DeepSeek-AI, DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model, 2024</footer>
+</div>
+
+GQA 靠少头缩小 KV，MLA 靠**每个 token 一条窄潜向量**缩小 KV。DeepSeek-V2 的 Multi-head Latent Attention 把键值联合压进 $c^{KV}\in\mathbb{R}^{d_c}$，多头所需的满宽 $K,V$ 由上投影临时展开；部署时上投影可以吸收，decode 逐步只追加 $c^{KV}$ 和很小的解耦 RoPE 键。头数可以保持甚至超过常规 MHA，缓存却跟 $d_c$ 走，不跟 $h d_k$ 走。架构与吸收公式见 [MLA](/llm/mla)；本篇只把「压缩了 KV 的哪一维、服务时省下什么」写清楚。
+
+## 问题
+
+推理显存里，注意力的 KV 往往压过激活，长生成、高并发时压过一部分权重。MHA 每层每 token 存 $2 h d_k$ 个数；GQA 把它变成 $2 h_{\mathrm{kv}} d_k$。继续减 $h_{\mathrm{kv}}$ 是在砍记忆通道，质量会掉。另一条没被 GQA 用掉的自由度是：生成 $K,V$ 的映射可能是低秩的，真正需要**随序列增长而驻留**的自由度数远小于 $h d_k$。若训练时就用瓶颈去写 KV，推理就可以只缓存瓶颈。
+
+目标有三条同时成立。第一，训练仍按多头算分数、混值，质量对标 MHA。第二，decode 不得把满宽 $K,V$ 物化进缓存。第三，RoPE 作用在头内坐标上，不能被共享潜变量直接旋转掉。压缩 KV 的设计必须回答：缓存张量的形状变成什么、每 token 多少字节、并发因此能抬多少。
+
+### 压缩轴是宽度，不是条数
+
+StreamingLLM、H2O 减 $n_{\mathrm{keep}}$；MLA 的 $n_{\mathrm{keep}}$ 仍等于序列长 $n$，包括提示和已生成。不等式里被动的是每条的宽度：
+
+$$
+n\cdot (d_c + h\,d_R)\cdot b_{\mathrm{bit}}\;\lesssim\; B_{\mathrm{MLA}}
+\quad\text{对}\quad
+n\cdot 2 h d_k\cdot b_{\mathrm{bit}}\;=\; B_{\mathrm{MHA}}.
+$$
+
+取 V2 报告所用的量级：$d_c=512$、$h=128$、$d_k=128$、$d_R=64$。满宽 MHA 每 token 每层约 $2\times 128\times 128$ 个数；MLA 的 $c^{KV}$ 只有 $512$，外加 RoPE 键 $128\times 64$。下降来自 $d_c\ll h d_k$，外加 RoPE 旁路远窄于内容键。联合压缩还让 $K$ 与 $V$ 共享同一份 $c^{KV}$，不是各压各的。
+
+<span class="marginnote">不要把 MLA 理解成对已经生成的 MHA 缓存做 PCA。低秩是训练写路径上的瓶颈，权重按这个瓶颈补偿过。事后对 GQA 缓存做低秩近似，误差来自逼近已有激活，和 MLA 不是一类方法。</span>
+
+## 方法
+
+对隐状态 $h_t$ 先下投影 $c_t^{KV}=W^{DKV}h_t$。内容键、值由 $W^{UK},W^{UV}$ 展开到多头。查询侧也可先压再展开，查询不进 decode 缓存。RoPE 走旁路：$q^R,k^R$ 带旋转位置，不经过会破坏旋转结构的内容低秩路径。
+
+### 吸收之后缓存里到底有什么
+
+内容分数 $(q^C)^\top k^C$ 可改写成对 $c^{KV}$ 的线性型，输出侧 $W^O v^C$ 同样吸收 $W^{UV}$。于是 decode 的追加物是：
+
+- 每层每 token 一份 $c^{KV}\in\mathbb{R}^{d_c}$；
+- 每层每 token 一份未吸收的 $k^R$，形状随头数与 $d_R$。
+
+满宽 $k^C,v^C$ 是计算图里的临时量，不落 HBM 上的 KV 池。实现若「能出对的数」却每步物化满头 $K,V$ 再缓存，压缩幅度会退回 MHA，V2 作为服务卖点的那一截 KV 降幅不会出现。融合发生在启动时或离线一次，不是逐步生成时现乘。
+
+```mermaid
+flowchart LR
+  H["隐状态"] --> C["cKV 下投影"]
+  H --> R["解耦 RoPE 键"]
+  C --> ABS["吸收上投影"]
+  ABS --> POOL["KV 池: cKV"]
+  R --> POOL2["KV 池: 小 kR"]
+  POOL --> D["decode 逐步追加"]
+  POOL2 --> D
+```
+
+### 并发与带宽账单
+
+decode 几乎总是带宽墙：每步扫完全部已驻留 KV。每 token 字节下降，同样的 HBM 可以多放几倍并发，或同一并发下拉更长的生成。MoE 模型参数已很大、激活稀疏，KV 更容易成为墙，这也是 MLA 出现在 DeepSeek-V2 里的上下文——专家权重和 KV 抢同一块显存，压缩 KV 是在给专家和 batch 腾地方。
+
+张量并行要小心。若 TP 在每张卡上复制完整的潜投影与 $c^{KV}$，省下的缓存会被复制吃回去。开源栈常见的配法是注意力（含 MLA）走数据并行复制、专家走专家并行，避免把 MLA 的参数优势让掉。具体开关随框架版本变，规划时应把「吸收后的每 token 字节 × 层数 × 并发 × 长度」写成显式账，而不是沿用 GQA 的 $2 h_{\mathrm{kv}} d_k$。
+
+## 机制
+
+MLA 能「头多、缓存小」，是因为头间差异放在**权重** $W^{UK},W^{UV}$ 的不同行块里，不放在随 $n$ 增长的激活里。每 token 只有一份内容缓存，查询头读的是同一 $c^{KV}$ 的不同线性读出。这与 GQA「不同组读不同缓存向量」相反：GQA 的压缩轴是头，组与组之间仍是独立激活；MLA 的压缩轴是 token 表示的秩。
+
+低秩假设是 $\mathrm{rank}([K;V])$ 受 $d_c$ 限制。联合瓶颈比分别压缩 $K$ 与 $V$ 更强，参数和缓存都更省；若键方向与值内容几乎无关，这个瓶颈会先成为质量上限——那时应加宽 $d_c$，而不是再增加 KV 头数。加宽 $d_c$ 线性增加缓存，是最直接的质量旋钮，对应 GQA 里加 $h_{\mathrm{kv}}$。
+
+<span class="marginnote">吸收成立的前提是内容路径纯线性。中间插入非线性，或把 RoPE 打在展开后的满宽内容键上，就不能把 $W^{UK}$ 从缓存路径里消掉。复现时若旋转打错位置，推理融合会悄悄算错相位，缓存形状却看起来仍是「压缩过的」。</span>
+
+## 边界与工程取舍
+
+$d_c$ 过窄时，先伤的是需要高精度复制的记忆：长数字、少见符号、精确实体，表现为检索式能力下降，而不是语言模型损失立刻崩盘。短生成、极大前填的工作负载上，MLA 的优势缩小——前填要付上投影或吸收后的大矩阵乘，decode 才收回内存流量。融合核写得差，墙钟甚至慢于调好的 GQA。
+
+MLA 之上再做条数淘汰（SnapKV、H2O、StreamingLLM）是双重压缩：宽度已经窄了，再切条。收益必须单独量，汇点或 heavy hitter 在潜空间里的分数尺度与满宽 MHA 不同。KV 量化同样：对 $c^{KV}$ 打 INT8 和对满宽 $K,V$ 打 INT8，校准对象不是同一张量。不要把 V2 报告相对 MHA 的降幅，和量化论文相对 FP16 的降幅乘在一起当容量规划。
+
+<span class="marginnote">「开源权重能跑 MLA」不等于「服务图已经吸收」。用未融合的 Hugging Face 逐步生成去测延迟，测到的是 MHA 量级缓存加额外投影，不是报告里的推理效率。清单上应有：融合权重、RoPE 旁路、$c^{KV}$ 布局、以及不按 GQA 核硬套。</span>
+
+## 小结
+
+- MLA 压缩的是每 token KV 的宽度：decode 缓存 $c^{KV}$ 与小 RoPE 键，条数仍等于序列长。
+- 上投影吸收是部署变换；不吸收就得不到作为服务卖点的缓存降幅。
+- 压缩轴与 GQA 正交：后者少头，前者多头加窄潜变量。
+- 并发与长生成吃的是带宽账单，每 token 字节下降才会变成更高的有效 batch。
+- $d_c$ 是质量–缓存旋钮；过窄先伤精确记忆。
+- 与条数淘汰、量化组合时要重新测量，不能把论文压缩比相乘。
+- 出处：DeepSeek-AI, *DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model*, 2024。对照 MHA / GQA 见 Vaswani et al., 2017；Shazeer, 2019；Ainslie et al., 2023。

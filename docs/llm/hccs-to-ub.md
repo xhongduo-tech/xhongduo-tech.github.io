@@ -1,0 +1,79 @@
+---
+title: HCCS 节点内一致性到 UB 多柜 Scale-Up
+date: 2026-09-03
+section: llm
+---
+
+# HCCS 节点内一致性到 UB 多柜 Scale-Up
+
+<div class="epigraph">
+    <p>HCCS 把一盒里的昇腾收成可协同的一致性域；UB 灵衢把协同的范围从节点拉到多柜超节点，Scale-Up 的单位从八卡变成数百 NPU。</p>
+<footer>—— 对照 Atlas 服务器节点内 HCCS 与 CloudMatrix384 超节点 UB 平面的公开演进</footer>
+</div>
+
+昇腾的 Scale-Up 不是一步跳到 384 卡的。公开产品线上，Atlas 800 一类训练服务器用 **HCCS**（Huawei Cache Coherent System / 华为缓存一致性系统）做节点内高速互连，规模是单机 8 卡量级；910B 世代的 Atlas 800T A2 仍把这一档留在盒内。CloudMatrix 384 把 Scale-Up 的主平面换成 [UB 灵衢](/llm/ub-lingqu)，16 柜、[384×910C + 192 鲲鹏](/llm/cloudmatrix-384)。本篇写这一跳在**通信语义与编程习惯**上改了什么：一致性域如何变，哪些集合通信可以离开「本机 8 卡」，哪些仍然必须假设盒内。不编造未公开的 HCCS 单通道带宽，也不把 UB 说成 HCCS 的改名。
+
+## 问题
+
+只靠 HCCS 的集群，模型并行有一条硬边界：节点内快、节点间慢。TP 度习惯不超过盒内卡数，宽专家并行的 All-to-All 一跨机就落到 RoCE，decode 小 batch 时延迟税高于 GEMM。这与 GPU 上「节点内 NVLink、跨节点 IB」是同一张图，只是名字换成 HCCS 与 HCCL。LLM 把 TP、EP、分布式 KV 同时做大之后，8 卡盒装不下「必须高带宽」的那几维，又不能把它们都丢到数据中心网络。
+
+若把 UB 仅仅当成「很长的 HCCS」，会误以为 384 颗 NPU 共享一个单一 cache-coherent 的 SMP。超节点若真按处理器一致性来做 16 柜，目录协议、故障和供电都难落地。公开设计是：盒内历史上的一致性互连，与超节点级的总线（内存语义 + 消息语义）分层，Scale-Up 的**编程单位**从节点变成超节点，但一致性的**硬件保证范围**并不自动等于全部 384 卡的缓存一致。
+
+### HCCS 解决的是哪一层
+
+HCCS 的公开角色是节点内、板级的高速缓存一致性互连：同一台 Atlas 里的多颗昇腾可以按一致性域协同，适合 8 卡 TP、盒内 All-Reduce。它不承担把 12 个计算柜收成一块逻辑节点。软件上，HCCL 在这一层把集合通信映射到 HCCS 链。跨节点时，同一套 HCCL API 会改走 RDMA。库名不变，屋顶线变档——与 NCCL 在 NVLink 与以太网之间切换是同一个陷阱。
+
+<span class="marginnote">HCCS 的具体代数（公开叙述里出现过面向 910A / 910B 的代际）以当时 Atlas 硬件说明为准。本文不填写未在华为公开规格出现的 HCCS GB/s。规划盒内 TP 时，用节点级微基准，而不是用超节点 UB 的 392 GB/s 去反推老盒子。</span>
+
+## 方法
+
+把通信分成三档，写进并行计划，而不是写进一句「都走 HCCL」。
+
+**档 0，封装内**：910C 双 Die 之间的共封装互连，论文给出封装内总带宽约 540 GB/s、单向 270 GB/s 量级。这是芯片封装，不是 HCCS，也不是 UB。**档 1，节点内**：8 卡协同。历史上走 HCCS 一致性；在 CloudMatrix 计算节点上，8 颗 910C 与 4 颗鲲鹏还通过板载 L1 UB 构成单层 UB 平面，节点内已经是 UB 的第一跳。**档 2，超节点内跨节点**：经 L2 通信柜的 UB，把 48 个节点收成一块 Scale-Up 域。**档 3，超节点外**：RoCE / VPC。
+
+并行对号：盒内 TP 可以留在档 1；一旦 TP 或 EP 需要超过 8 卡，必须确认进程组全部在档 2 的 UB 域，而不是「HCCS 不够就借用邻居机箱的 RDMA」。KV 若要放到邻节点的鲲鹏 DRAM，也是档 2 的 UB 内存/消息语义，不是档 3 的对象存储。
+
+```mermaid
+flowchart TD
+  D0["封装内 Die-to-Die"] --> D1["节点内：HCCS 世代 / CM 节点 L1 UB"]
+  D1 --> D2["超节点内跨柜：UB L2"]
+  D2 --> D3["超节点间：RDMA / VPC"]
+  TP8["TP ≤ 8"] --> D1
+  TPW["宽 TP / 宽 EP"] --> D2
+  DP["DP / 跨超节点 PP"] --> D3
+```
+
+### 软件不要用节点当唯一亲和
+
+调度与 HCCL 拓扑应暴露「UB 超节点」标签，见 [异构集群调度](/llm/hetero-cluster)。仍按 hostname 把 8 卡当成最大亲和，等于回到 Atlas 八卡时代，CloudMatrix 的 L2 只给存储流量用。反过来，把档 3 的 RoCE 当成档 2 用，宽 EP 的延迟会回到「跨以太网做 dispatch」。MindIE 与 [vLLM-Ascend](/llm/vllm-ascend) 都不自动把错误的进程组纠正到 UB；绑错是编排问题。
+
+从 HCCS 迁到 UB，集合通信算法（ring / tree / all-to-all）可能要按大域重选，但不能假设 NCCL 的 NVLink Switch 调参能直接粘贴。HCCL 与 UB 的路径选择以厂商文档与本超节点的微基准为准。
+
+<span class="marginnote">「缓存一致」与「内存语义」易混。HCCS 强调盒内缓存一致；UB 公开的是 Load/Store/Atomic 加消息，域是超节点。不要写成 384 卡自动 MESI。统一编址若存在，以当时 CANN / 驱动指南为准。</span>
+
+## 机制
+
+Scale-Up 变大，靠的不是把 HCCS 电缆加长到 200 米，而是换成可交换、可跨柜的 UB，并用光模块处理柜间距，见 [跨柜光模块](/llm/ub-optical-cabinets)。HCCS 面向短距、固定 8 卡全连接或盒内交换；UB-Mesh 面向递归全互连与分层带宽。语义上，HCCS 更接近「处理器一致性互连」，UB 更接近「总线 + 网络动词合一」。因此跨柜访问 KV 应走异步大块，而不是假设远程 cache line 填充仍像盒内那样便宜。
+
+节点间带宽与时延在 CloudMatrix384 论文里被写成接近节点内（衰减与附加时延见 [近本地性能](/llm/ub-near-local-perf)）。这是档 2 相对档 1 的工程目标，用来论证「宽 TP 可以离开盒子」。它并不把档 2 变成档 0：封装内 Die 互连仍然更近。切专家到 Die 级时，先算封装内，再算 UB。
+
+### 故障与一致性边界
+
+HCCS 域故障通常是一台服务器。UB 域故障是超节点。从运维手册的「换八卡机」改成「摘 16 柜」，是这一跳真正的成本。一致性边界收缩到盒内或封装内，有利于故障隔离；消息语义跨柜，有利于规模。两者同时存在，才既不是 8 卡孤岛，也不是 384 路巨型 SMP。
+
+## 边界与工程取舍
+
+不要在只有 HCCS 的 8 卡集群上用 64 路 TP 模拟 CloudMatrix。不要假设 UB 提供与 HCCS 相同的缓存一致保证。不要把未公开的 HCCS 速率写进与 NVLink 的对比表。老 Atlas 节点可以通过 RDMA 接到超节点外的 Scale-Out 面，但不要把它们编进同一 UB 平面——插件与拓扑都没有把 HCCS 盒声明为 L2 的对等端。
+
+迁移策略：先让 TP≤8 的作业在 CloudMatrix 节点上跑通（档 1），再扩大进程组吃档 2。EP 与 PD 分离的 KV 传输只有在确认走 UB 而不是误走 VPC 之后，才谈「超节点红利」。
+
+<span class="marginnote">出处：Atlas 服务器对节点内 HCCS 的公开产品叙述；CloudMatrix384 论文将 UB 作为超节点 Scale-Up 平面；UB-Mesh 论文将 UB 与传统 PCIe/NVLink/IB 混合互连对照。HCCS 带宽以硬件手册为准，本文不补未公开数。</span>
+
+## 小结
+
+- HCCS 覆盖节点内一致性协同（公开形态以 8 卡 Atlas 为主）；UB 覆盖多柜超节点 Scale-Up。
+- 二者不是改名：一致性范围、交换层次、故障域都变了。
+- 宽 TP / 宽 EP 必须落在 UB 域；跨超节点仍是 RDMA，库名 HCCL 不能当互连证明。
+- 封装内 Die 互连、节点 L1、超节点 L2、域外 RoCE 是四档，规划时分开写。
+- 运维从换盒子变成摘超节点。
+- 出处：Atlas HCCS 公开说明与 CloudMatrix384 / UB-Mesh 论文。

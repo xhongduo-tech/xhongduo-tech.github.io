@@ -1,0 +1,82 @@
+---
+title: cuBLAS / cuDNN 边界
+date: 2026-09-03
+section: llm
+---
+
+# cuBLAS / cuDNN 边界
+
+<div class="epigraph">
+    <p>cuBLAS 回答的是「这块矩阵乘用哪条 GEMM 路径」；cuDNN 回答的是「这段网络原语——卷积、归一化、融合注意力——用哪条 DNN 路径」。二者都吃 Tensor Core，但合同与融合边界不同。</p>
+    <footer>—— NVIDIA cuBLAS / cuBLASLt 与 cuDNN 开发者指南，对照 CUDA 与架构白皮书</footer>
+</div>
+
+框架把 Transformer 降成算子之后，真正打在 GPU 上的往往不是用户写的 `matmul`，而是两套厂商库。线性层、MLP 的宽矩阵乘走 cuBLAS / cuBLASLt；卷积时代留下的归一化、softmax、以及后来的融合 SDPA / FMHA 走 cuDNN。混用是常态：同一层里 QKV 投影可能是 Ltmatmul，注意力是 cuDNN 或 FlashAttention，输出投影又回到 Lt。分清边界，是为了知道问题该去哪张 release note 里找，以及何时该放弃库、换成 [CUTLASS](/llm/cutlass) 或手写核。
+
+本篇写 API 合同、启发式、融合能做什么不能做什么。不引用未公开的内部选核表。
+
+## 问题
+
+BLAS 的对象是向量与矩阵：`GEMM`、$C \leftarrow \alpha AB+\beta C$，加上 batched、strided batched。cuBLASLt 把布局、数据类型、可选 epilogue（bias、ReLU、GELU、DReLU 等）收进一次 matmul 描述符，让启发式在「同一数学对象」下选不同 kernel。DNN 库的对象是层：卷积算法空间、归一化的训练/推理模式、注意力的掩码与尺度、RNN 的序列包。把注意力当成两次 GEMM 去调 cuBLAS，softmax 仍是第三方核，中间分数要落 HBM——这正是 [融合](/llm/kernel-fusion-tiling) 要避免的。cuDNN 的融合注意力把「两次乘 + softmax + 掩码」收成一个算法条目，合同是层，不是 BLAS。
+
+边界模糊的区域存在。LayerNorm / RMSNorm 两边都可能出现；softmax 作为 BLAS 扩展和作为 DNN 原语都有；Transformer Engine 又在二者之上做 FP8 缩放。问题不是「选一个库用到底」，而是「这个张量变换的数学对象是 GEMM 还是层，融合是否必须跨过 softmax 或归一化归约」。
+
+### 启发式不是算法保证
+
+`cublasLtMatmul` 与 `cudnnFind*` / 运行时选计划，都按形状、对齐、步幅、GPU 型号在一组预编译核里挑。同一 $(M,N,K)$ 在对齐 16 与对齐 1 时可能完全不同；decode 的 $M=1$ 可能选到通用核而不是 Tensor Core 大 tile。换驱动或换 cuDNN 小版本，计划可能变，墙钟与数值尾差都可能变。把它当成确定性算法会在回归测试里踩坑：要钉版本，或钉计划缓存。
+
+<span class="marginnote">Lt 的 epilogue 能融 bias 和一部分激活，融不了 RMSNorm 那种跨最后一维的完整归约，也融不了带在线统计的注意力。看到「fused matmul」不要推断已经做了 FlashAttention 级的 IO 优化。</span>
+
+## 方法
+
+对 LLM 前向，一条可操作的分工是：
+
+- **密集线性、MLP 门控、嵌入后的投影**：cuBLASLt。保证 K 维对齐、dtype 落在该代 Tensor Core 支持集，让启发式能选 MMA 核。需要 bias+激活且 Lt 支持该组合时，走 epilogue，避免再写一个点核。
+- **卷积 / 早期视觉塔、部分归一化、厂商融合注意力**：cuDNN。PyTorch 的 `scaled_dot_product_attention` 在若干版本上可以后端到 cuDNN FMHA；是否真走，要看形状、头维、掩码类型和开关。与 FlashAttention 的对照应在目标形状上测，见 [FA3](/llm/flashattention-3) 对厂商核的说明。
+- **库覆盖不住的**：分页 KV、投机树、自定义掩码、分组 GEMM 与 MoE 的不规则专家——CUTLASS、Triton 或自写。不要指望 cuBLAS 的 batched GEMM 在专家大小差一个数量级时仍接近峰值。
+
+```mermaid
+flowchart TD
+  OP["框架算子"] --> Q{"数学对象"}
+  Q -->|"GEMM / 有限 epilogue"| LT["cuBLASLt"]
+  Q -->|"层：注意力 / conv / 部分 norm"| DN["cuDNN"]
+  Q -->|"不规则 / 分页 / 新融合"| HW["CUTLASS / 手写"]
+  LT --> TC["Tensor Core"]
+  DN --> TC
+  HW --> TC
+```
+
+### FP8 与 Transformer Engine
+
+Hopper 起的 FP8 训练/推理不是「cuBLAS 换个 dtype」那么简单。缩放因子、amax 延迟更新、饱和策略由 Transformer Engine 一类层来管，底层仍可能调 Lt 或 cuDNN 的 FP8 计划。边界变成：数值协议在 TE，选核在 BLAS/DNN 库。只改存储类型为 FP8、计算仍 FP16，得到的是容量而不是 [白皮书](/llm/nvidia-gpu-gen) 上的 FP8 峰值。cuDNN 的 FP8 注意力与 FA3 的 FP8 路径是不同实现，误差与形状甜点不同，不能共用一张表。
+
+多 GPU 时，库边界停在单卡。All-Reduce 是 NCCL 的合同；把 TP 切开的小 GEMM 仍走 cuBLAS，但形状可能掉出启发式的舒适区。切分策略要同时看通信与 GEMM 效率，见 [张量并行](/llm/tensor-parallel)。
+
+## 机制
+
+两套库能共享 Tensor Core，是因为最终都发射 MMA（或等价的卷积 MMA 变形）。差别在搜索空间与元数据。cuBLAS 假设规则步幅的二维/三维乘，描述符小，启发式快。cuDNN 要描述卷积的 pad/stride/dilation、注意力的因果掩码与序列长度、workspace 大小，计划空间大，第一次 `find` 可能很贵，因此推理引擎会缓存 cudnn 计划。CUDA Graph 捕获推理时，计划必须在捕获前固定，否则重放会打到错误的 workspace，见 [CUDA Graph 捕获推理](/llm/cuda-graph-infer)。
+
+Workspace 是另一条隐蔽边界。Lt 与 cuDNN 都可能要额外缓冲做 split-K 或算法 workspace。这部分算在「库的隐式显存」里，不出现在模型权重表上。服务进程按峰值 batch 预分配，避免捕获图之后再 `cudaMalloc`。
+
+<span class="marginnote">同一 GEMM，cuBLAS 传统 API 与 Lt API 可能选出不同核。新代码应走 Lt；旧 `cublasGemmEx` 路径在部分形状上仍被框架保留。对照性能时写清调用的是哪套 API，以及是否允许 TF32。</span>
+
+### 版本、TF32 与确定性
+
+TF32 在 Ampere 上默认可能启用，训练与推理的尾差会变。确定性算法（`CUBLAS_WORKSPACE_CONFIG`、cuDNN deterministic 开关）通常放弃最快计划。生产若要对齐数值，应显式关 TF32 或钉算法；若要峰值，应接受启发式与版本漂移。这不是库的缺陷，是「最快」与「可复现」在同一 API 上的两个点。
+
+## 边界与工程取舍
+
+不要用 cuDNN 卷积去实现本可以是 GEMM 的线性层——描述符更重，计划空间更噪。不要用 cuBLAS 拼注意力还宣称已经解决 HBM 上的 $n\times n$。不要把某次 `find` 在 A100 上选出的 ID 写进 H100 的启动参数。许可证上两套库随 CUDA toolkit / 驱动分发，版本要与驱动匹配；容器里「只升级框架不升级 libcudnn」是常见的静默回退来源。
+
+CPU 回退、空形状、零 stride 的边角，库的错误码比手写核更规范，但也更不透明。服务侧应把 `CUBLAS_STATUS_*` / `CUDNN_STATUS_*` 打到日志，并保留当时的形状与对齐，否则无法复现启发式。
+
+<span class="marginnote">出处：cuBLAS / cuBLASLt 开发者指南（matmul 描述符、epilogue 限制、heuristic）；cuDNN 开发者指南（fusion engine、attention、workspace）；CUDA 编程指南与架构白皮书提供 MMA 精度与 TF32 语义。不引用未公开的选核代价模型。</span>
+
+## 小结
+
+- cuBLAS/Lt 的合同是 GEMM 与有限 epilogue；cuDNN 的合同是 DNN 层与更重的融合计划。
+- LLM 里线性走 Lt、融合注意力可能走 cuDNN 或 Flash 家族；不规则形状离开两套库。
+- 启发式随版本、对齐、TF32 而变；要复现就必须钉版本或钉计划。
+- FP8 的数值协议常在 Transformer Engine，选核仍在这些库里。
+- Workspace 与计划缓存是推理捕获图之前必须冻结的状态。
+- 出处：NVIDIA cuBLASLt 与 cuDNN 开发者指南。

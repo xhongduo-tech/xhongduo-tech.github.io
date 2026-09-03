@@ -1,0 +1,80 @@
+---
+title: Splitwise
+date: 2026-09-03
+section: llm
+---
+
+# Splitwise
+
+<div class="epigraph">
+    <p>Prompt 阶段吃算力，generation 阶段吃带宽且往往喂不饱最新 GPU；按阶段拆池，才能把新卡留给前填、把功耗与成本留给生成。</p>
+    <footer>—— Patel et al., Splitwise: Efficient Generative LLM Inference Using Phase Splitting, ISCA 2024</footer>
+</div>
+
+Patel、Choukse、Zhang、Shah、Goiri、Maleki、Bianchini 来自微软 Azure 一线，把生成式 LLM 推理写成一篇**阶段表征 + 集群功耗**的论文，venue 是 ISCA 2024（arXiv:2311.18677）。观察与 DistServe 同源：一次请求的 prompt 计算密集，generation 内存密集。差别在问题提法。DistServe 问的是同构集群上如何让 TTFT 与 TPOT 同时达标；Splitwise 问的是云上如何按阶段选机器代数、如何在功耗帽与美元预算里提高吞吐。它可以做同构拆分，也可以做异构：P 池用高算力卡，D 池用更便宜或更低功耗的卡。另设 mixed 池在突发时两阶段都能接，避免硬隔离导致一侧空、一侧炸。概念对照见 [PD 分离](/llm/pd-disaggregation)；本篇钉 Splitwise 自己的池子、调度与数字。
+
+## 问题
+
+云厂商同时面对三张账单：GPU 资本、机柜功耗、用户 SLO。最新一代卡的峰值 FLOPs 对 prompt 有用，对 generation 常常浪费——逐步解码吃的是 HBM 带宽与 KV 容量，算术强度随 batch 涨得慢。若整条请求都钉在同一代旗舰卡上，生成阶段相当于用最贵的 SM 去等内存。反过来，若整条请求都放在上一代或更低功耗的卡上，长提示的 TTFT 会先爆。
+
+Colocate 还有一条隐成本：为了同时伺候两阶段，机器必须按「更苛刻的那一侧」超配。prompt 突发时 generation 被拖慢，generation 占满显存时 prompt 排不上。功耗帽是硬约束：同一机柜里两阶段抢电，调度器没有「把电从生成挪给前填」的旋钮，因为它们绑在同一块板上。
+
+### 阶段表征先于调度
+
+Splitwise 先把一次前向量成可测量的特征：算术强度、KV 增量、PCIe / NVLink 流量、功耗曲线。prompt 随序列长度二次涨计算、一次写出 KV；generation 每步计算几乎常数，读的 KV 线性涨。这个表征说明：最优硬件可以按阶段选，而不必按模型选。同一 70B，prompt 想要 Tensor Core 与高功耗帽，generation 想要容量与带宽、可以接受更低的 FLOPs。没有这条表征，异构拆分就是拍脑袋换卡。
+
+<span class="marginnote">异构在这篇里是 GPU 代数与功耗档，不是「P 用 CPU、D 用 GPU」。生成阶段仍然要跑完整模型，只是用更贴合内存墙的机器。把 Splitwise 写成任意降级设备，会在不能放下权重的机器上失败。</span>
+
+## 方法
+
+请求在 prompt 机器上算完提示、写出 KV 与首 token，再把状态经集群高速背板发给 generation 机器，继续连续批解码。调度分两层。集群级决定请求进哪类机器、是否走 mixed 池；机器级做批处理与本地排队。状态移动走 GPU 互连与优化过的网络库，而不是绕道主机内存再上普通以太网——除非实现有意降级。
+
+同构拆分已经能消除阶段干扰。异构拆分再加一条：新卡集中在 P 池，D 池用上一代或同代但功耗帽更低的机器。Mixed 池是突发阀：暂时允许某台机器两阶段都做，避免「P 池空转、D 池炸队列」或反过来。传输量为零的请求（两阶段留在 mixed 同一台）给出「分离税」的下界，也是对照实验里必须保留的一档。
+
+### 功耗与成本是一等约束
+
+论文把集群功耗和美元成本写进主结果，而不只报 token/s。相对当时 colocate 设计，报告可达约 1.4 倍吞吐并降约 20% 成本，或在同样功耗与成本预算下约 2.35 倍吞吐。读这些数字时要带着「预算相同」：分离会多复制一份权重，若不把卡数与电费算进去，1.4× 没有意义。Azure 生产痕迹在问题设定里：机器异构、机柜电、突发流量，都不是实验室里的单机批处理。
+
+```mermaid
+flowchart TD
+  IN["请求到达"] --> CL["集群调度：P / D / mixed"]
+  CL --> P["Prompt 池：高算力卡"]
+  CL --> M["Mixed 池：突发时两阶段都能接"]
+  P --> TX["机间传输 KV"]
+  TX --> D["Generation 池：容量与功耗档"]
+  M --> OUT["流式输出"]
+  D --> OUT
+```
+
+<span class="marginnote">2.35× 是「同样功耗与成本预算」下的吞吐，1.4× 是「降成本约 20%」时的吞吐。两套数字对应两种运营目标，不要合成「Splitwise 恒定两倍」。</span>
+
+## 机制
+
+机制是让硬件屋顶线与阶段屋顶线对齐。Prompt 要的是 FLOPs，generation 要的是带宽与 KV 槽；拆开之后，各自的 batch、功耗帽、甚至机器代数都可以固定。Mixed 池承认真实到达过程不是稳态：硬隔离在峰值上会制造新的 hol 阻塞——某一池打满、另一池空。允许临时 colocate，是用短暂的阶段干扰换集群级的可调度性。
+
+状态传输与 DistServe 同类，但动机更偏「机器已经不是同一种」。异构池上 P 卡与 D 卡可能不同代，传输库必须处理设备差异与拓扑。TTFT 统计应包含排队、prompt 执行与跨机拷贝；把拷贝藏进 generation 延迟，异构搜索会往错误的池加卡。
+
+### 和 DistServe、Sarathi 怎么并排读
+
+三篇都承认两阶段不同，处方不同。Sarathi 留在同一张卡上，用切块与混合批次钉 TBT。DistServe 同构拆实例，用 goodput 搜并行。Splitwise 把拆分延伸到异构与功耗，并用 mixed 池处理突发。生产系统常常三样都要：池间分离、池内切块、突发时 mixed。不要把 ISCA 论文读成「否定切块」，也不要把 OSDI DistServe 读成「否定异构」——它们的实验基线与优化目标本来就不是同一张表。
+
+<span class="marginnote">标题里的 phase splitting 指推理请求的 prompt / generation 两段，不是训练里的流水线阶段，也不是模型并行的 layer split。层间切分可以用来放 KV，但那是放置细节，不是这篇的主声称。</span>
+
+## 边界与工程取舍
+
+没有足够快的机间互连，异构拆分会先死在传输上：便宜的 D 卡若只能走慢 PCIe 域，KV 搬家把 TTFT 吃回去。小模型权重复制的相对成本更高；大模型反正多卡，增量小。Mixed 池若长期变成主路径，系统退化成 colocate，异构收益消失，还多付一层调度。功耗帽是机柜级约束，单卡实验看不出 Splitwise 的主贡献。
+
+不要把「generation 用更旧的卡」推广成「generation 用任意闲置设备」。权重、精度、核实现必须仍能跑同一模型；不同代卡的数值差还可能改变采样，服务承诺要重新验证。论文数字钉在 Azure 评测时的机器价格与功耗模型上，换一年的目录价，1.4× / 2.35× 都要重算。
+
+连续批与分页 KV 在拆开之后仍然需要。Splitwise 解决的是阶段与硬件的匹配，不解决单机碎片或前缀复用。长上下文上 KV 体积按提示线性涨，传输税更重，需要与压缩、同节点放置或后续 Mooncake 一类 KV 池一起看。
+
+<span class="marginnote">出处钉 Patel 等 *Splitwise: Efficient Generative LLM Inference Using Phase Splitting*，ISCA 2024，arXiv:2311.18677。不要给它另编一篇「微软内部 PD 分离」的第二 arXiv；公开可引的就是这一篇。</span>
+
+## 小结
+
+- Splitwise 按 prompt / generation 拆池，并允许异构硬件与 mixed 突发池。
+- 优化目标显式包含功耗与美元，而不只是 token/s。
+- 报告约 1.4× 吞吐并降约 20% 成本，或同预算约 2.35× 吞吐。
+- 表征结论与 DistServe 一致，侧重点是云上的机器代数与电费，而不是 goodput 搜索器。
+- 互连不够或 mixed 池沦为主路径时，异构拆分失败。
+- 出处：Patel et al., *Splitwise*，ISCA 2024，arXiv:2311.18677。

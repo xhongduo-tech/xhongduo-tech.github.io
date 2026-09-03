@@ -1,0 +1,77 @@
+---
+title: 昇腾算子与落差
+date: 2026-09-03
+section: llm
+---
+
+# 昇腾算子与落差
+
+<div class="epigraph">
+    <p>框架图能编出来，不等于加速器上有对应的融合核；落差出在算子库、布局与图模式约束，而不是出在「NPU 不会做矩阵乘」。</p>
+<footer>—— 对照 CANN 算子包 / aclnn / Ascend C 与 CUDA–Triton 生态的公开分工</footer>
+</div>
+
+把 Transformer 搬到昇腾，第一道墙很少是峰值 TOPS，而是**算子落差**：CUDA 侧已经融进一条核的东西，在 CANN 上可能拆成若干 aclnn 调用，或根本没有登记项。CANN（Compute Architecture for Neural Networks）把驱动、Runtime、算子库和[图编译](/llm/npu-friendly-ops)叠在一起，对上通过 `torch_npu`、MindSpore、ONNX Runtime 的执行提供器接框架。本篇只写落差的形状与补法，不编造未公开的核吞吐，也不把某一版 OPP 的算子表抄成永远覆盖。
+
+## 问题
+
+GPU 上的 LLM 运行时默认假设：矩阵乘走 cuBLAS / CUTLASS，注意力走 FlashAttention 一类手写核，分页 KV 走 Triton 或 CUDA，集合通信走 NCCL。昇腾上对应物分别是 aclnn GEMM、昇腾注意力类算子、自定义分页核、HCCL。名字可以一一映射，**实现集合不是一一映射**。新模型一来——MLA、细粒度 MoE、投机树、非标准归一化——CUDA 社区往往先有一篇核，CANN 要等算子包、图引擎融合规则或 Ascend C 工程合入。这段窗口里，模型「能跑」只说明图被降成了更小的原语，墙钟可能差一档。
+
+落差还有第二条轴：数据布局与精度。达芬奇 Cube 吃的是对齐后的矩阵砖；KV 的头维、块表、ND / NZ 格式若与核假设不一致，就要转置或 pad，带宽先被吃掉。图模式（GE / ACL Graph）比 eager 更挑形状与控制流，动态轴、数据依赖的专家下标会把融合打断。于是同一份 Hugging Face 权重，在 GPU 上走融合注意力，在 NPU 上可能走「MatMul + softmax + MatMul」三条，数学等价，屋顶线不同。
+
+### 落差不是「缺矩阵乘」
+
+昇腾并不缺稠密 GEMM 和标准 RMSNorm。高频缺口集中在：**融合注意力**（变长、分页、MLA 吸收后的形状）、**分组 GEMM / MoE dispatch**、**与调度耦合的 KV 读写**、以及采样与约束解码里带控制流的小核。这些在 CUDA 上往往是仓库里的自定义 op，并不在 PyTorch 的 ATen 白名单里；`torch_npu` 能覆盖的是 ATen 交集，覆盖不了「vLLM 自己注册的 flash 变体」。把落差理解成「昇腾没有 Linear」，会去错地方——该查的是融合核与布局，不是再写一遍 $Y=XW$。
+
+<span class="marginnote">官方算子包按 CANN 版本发。某一版文档里有 `FlashAttentionScore`，不代表分页块表、MLA 头比、INT8 融合都已齐。缺口要以当前 CANN + `torch_npu` + 推理插件的发行说明为准，不要用邻座 GPU 的 kernel 名去对 NPU 的 API 名。</span>
+
+## 方法
+
+补落差只有三条路，而且要按这个顺序想，不要一上来手写核。
+
+第一，**落到已有 aclnn / OPP**。能用官方融合注意力、Paged 注意力、RMSNorm、SwiGLU 融合，就不要拆。图引擎若能把 Linear–SiLU–Linear 收成一条，优先开图模式并钉死形状，见端侧同样成立的[友好算子](/llm/npu-friendly-ops)约束。第二，**插件里的自定义 aclnn**。[vLLM-Ascend](/llm/vllm-ascend) 把 host / kernel 放进 `csrc`，绑定到 `torch.ops._C_ascend`，再在 OOT `CustomOp` 里替换层实现——这是把 CUDA 插件核翻译成昇腾核，而不是改 vLLM 调度器。第三，**Ascend C 新写**。只留给既不在 OPP、也不在插件仓库的形状：新注意力变体、古怪量化、实验性稀疏。手写核要进图捕获，还得补 meta 实现，否则 ACL Graph 抓不住。
+
+选型上，原生[MindIE](/llm/mindie) 走自己的加速库，算子集合与 vLLM-Ascend 不对齐。团队必须声明走哪条栈，否则「缺算子」的工单会在两个仓库之间踢皮球。精度以厂商允许阈值为准：INT8 / 融合可能改变中间动态范围，验收应对齐参考 logits，而不是只看能不能出字。
+
+```mermaid
+flowchart TD
+  M["框架层：SDPA / MLP / MoE / 采样"] --> HIT{"CANN OPP / aclnn 是否已有融合核"}
+  HIT -->|"有，形状合法"| FAST["图融合 + 官方核"]
+  HIT -->|"无"| PLG{"推理插件是否已注册自定义 op"}
+  PLG -->|"有"| CUST["vLLM-Ascend / MindIE 核"]
+  PLG -->|"无"| FB["拆成 ATen 原语或 Ascend C"]
+  FB --> SLOW["多次读写 HBM，墙钟回退"]
+```
+
+### 把落差写成可回归的清单
+
+工程上不要用「算子覆盖率 xx%」这种无法复现的句子。清单应按**模型 × 形状 × 模式**钉：例如「Llama-3 70B，GQA，decode，block_size=128，eager / 图模式」。每一项标：走哪条核、是否转布局、是否回退 CPU。MLA 在部分昇腾核上对 `num_heads / num_kv_heads` 有离散约束（公开 FAQ 写过仅支持若干比值），这不是框架 bug，是核的 tiling 假设；张量并行切完头数后若不在集合里，图模式会直接报错。把这类约束写进并行度搜索，而不是临上线才发现。
+
+<span class="marginnote">Triton 生成的 CUDA 核没有「编译到昇腾」的按钮。落差不能靠把 `.ptx` 喂给 CANN 消失。能迁的是算法（在线 softmax、分块 KV），不是指令流。</span>
+
+## 机制
+
+达芬奇把矩阵放进 Cube、逐元素放进 Vector、控制放进 Scalar。融合核的价值是让 $QK^\top$、softmax、加权在片上缓冲里完成，少进 HBM——这与 [FlashAttention](/llm/flashattention) 的 IO 命题相同，但缓冲层次和指令不是 GPU 那套。缺融合核时，每次 softmax 都要把分数写回，decode 的小 batch 会变成带宽税。MoE 的 grouped GEMM 若退化成一串小 GEMM，Cube 利用率按专家数碎掉；这是「有 MatMul 仍很慢」的机制，不是调度器的锅。
+
+图模式把整段 decode 收成可复放的图，条件是核可捕获、形状在编译期已知。动态专家下标、动态序列若不做成静态槽加掩码，图就建不起来，每步回到 eager 启动开销。落差因此会在「功能」和「图」两层同时出现：eager 能出数，图模式拒绝；或图表能建，但里面是碎核。
+
+### 与 CUDA 生态的时间差
+
+CUDA 侧新核的发布节奏由论文作者和推理框架仓库决定；CANN 侧要进 OPP 或插件 CI，还要过各 SoC 的 `SOC_VERSION` 分支。vLLM-Ascend 的构建脚本按芯片代数选择自定义算子集，910B 与 310P 不是同一份核。所以落差是**版本函数**，不是昇腾的永恒属性。规划容量时，应锁定 CANN、`torch_npu`、插件三位版本，用那一版的算子表做设计，而不是用「昇腾已经支持 FlashAttention」这种跨版本口号。
+
+## 边界与工程取舍
+
+不要把 GPU 上的 kernel 名写进昇腾的 SLA。不要假设图模式默认开启就等于融合注意力已启用。不要用桌面 GPU 的 profile 去推断 NPU 上「拆开的 SDPA」有多慢——测的是那条真路径。自定义核的维护成本归团队：CANN 升级可能改 tiling API，插件要跟着升。若业务要最新开源模型、能接受核未融时的速度，走 vLLM-Ascend 跟社区；若要厂商认证过的融合路径，走 MindIE，并接受模型列表更短。
+
+未在当前版本发行说明里出现的算子，一律当缺口，直到有可复现的核。不要引用内部基准的 tokens/s 来「证明落差已经补上」。安全与采样控制流可以留在 CPU，只要不是每层往返。
+
+<span class="marginnote">出处：华为 CANN 文档中的算子库 / 图引擎 / Ascend C 说明，`torch_npu` 适配层，以及 vLLM-Ascend 对自定义 aclnn 的公开设计。不给「算子落差」编造 arXiv，也不把未公开的核微架构写成规格。</span>
+
+## 小结
+
+- 昇腾算子落差主要在融合注意力、分页 KV、MoE 分组乘和与调度耦合的小核，而不是缺 GEMM。
+- 补法顺序：官方 aclnn / OPP → 推理插件自定义 op → Ascend C；两条服务栈（MindIE 与 vLLM-Ascend）的核集合不对齐。
+- 布局、头比、图模式形状是核的合法输入，不满足就回退或报错，不是框架随机失败。
+- 落差随 CANN 与插件版本变，清单必须钉模型、形状和 eager/图模式。
+- Triton / CUDA 核不能直接搬；能搬的是分块与在线 softmax 这类算法。
+- 出处：CANN 公开文档、`torch_npu`、vLLM-Ascend 自定义算子说明。

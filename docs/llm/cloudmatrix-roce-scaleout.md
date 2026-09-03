@@ -1,0 +1,79 @@
+---
+title: RoCE/RDMA 做超节点之间 Scale-Out
+date: 2026-09-03
+section: llm
+---
+
+# RoCE/RDMA 做超节点之间 Scale-Out
+
+<div class="epigraph">
+    <p>统一总线把一柜收成一块加速器；柜与柜之间仍然要一张能远程内存访问的数据中心网。当前生产选择往往是 RoCE，而不是把 UB 直接拉到机房对端。</p>
+    <footer>—— 对照 CloudMatrix384 把 RDMA 平面与 UB 平面分开：跨超节点走 RoCE，域内走 UB</footer>
+</div>
+
+[Scale-Up](/llm/scale-up-vs-scale-out) 解决的是超节点内部：TP、宽 EP、池化 KV 都假设一个低延迟全互连域。模型与流量再大，也会走出 384 张 910C 的边界——多副本、跨超节点的 PD、训练梯度、检查点、把 KV 热页送到另一柜的 decode 池。CloudMatrix384 为此单独做了 RDMA 平面：每张 NPU 贡献最多 400 Gbps 量级的单向 RoCE，只有 NPU 参加，与控制面、存储面隔离。本篇写为什么跨超节点用 RoCE/RDMA、什么流量配得上这条平面、以及它和 UB 内存语义差在哪。不编造未写入论文的交换机芯片型号。
+
+## 问题
+
+若把超节点之间也当成 UB 域，软件可以少一套协议，但数据中心现有的 RDMA 库、拥塞控制、运维工具和多厂商交换机都接不上。论文明确说：长期愿景可以把 RDMA 与 VPC 收成一张网，甚至做 RDMA over UB；**当前实现选 RoCE**，是为了立刻兼容已有 RDMA 栈。反向的错误同样常见：把 EP 的逐步 All-to-All 放到超节点间 RoCE 上，用以太网延迟去跑本该留在 UB 里的专家置换，decode TPOT 会回到普通集群的老问题上。
+
+Scale-Out 要回答的问题因此是分流：哪些通信允许跨柜，哪些必须假设「同超节点」。答错了，不是网卡闲着，就是超节点买了却当 8 卡箱用。
+
+### RoCE 不是更慢的 UB
+
+UB 提供接近节点内的带宽与微秒级时延，并带内存语义的统一编址。RoCE 是以太网承载的 RDMA：有队列对、有工作请求、有完成本地，语义是远程读写与原子，不是超节点里那套全局虚址。库名可以都叫「RDMA」，路径、MTU、PFC/ECN、重传与拥塞算法都不同。把 NCCL/HCCL 的默认网从 UB 拨到 RoCE 而不改并行度，等于主动降一档屋顶线。
+
+<span class="marginnote">论文脚注写过替代设计 RDMA over UB：用 UB 原生远程内存访问打通柜间，少一次协议翻译。当前不上这条路，是兼容，不是物理上做不到。规划时不要把脚注当成已交付的平面。</span>
+
+## 方法
+
+把超节点当 Scale-Up 域，把多超节点当 Scale-Out 集群。域内：TP、宽 EP、池化 KV、同柜 PDC。域间 RoCE 承担三类活。(1) 活跃 KV 在 prefill 超节点与 decode 超节点之间搬移：当缓存池的均匀访问只保证在柜内，跨柜就必须显式传输，见 [PD 的 KV 传输](/llm/pd-kv-transfer)。(2) 数据并行与多副本：同一模型的第二份 decode 副本、训练的梯度同步、推理网关后面的复制集。(3) 与外部 RDMA 系统对接：存储目标、异构集群里的 GPU 分区、已有 InfiniBand/RoCE 训练池。
+
+流量工程上，NPU 独占 RDMA 平面，避免对象存储与 VPC 管理包来抢 PFC 头端。轨对齐（rail-aligned）仍然适用：同一 EP 组的 rank 若被迫跨超节点，应对齐到同一条 rail，减少交换机跳数。能不跨就不跨：专家并行组的成员名单应是调度约束，而不是运行时发现「对端在另一柜」再降级。
+
+```mermaid
+flowchart TB
+  subgraph SN1["超节点 A · UB 域"]
+    P["Prefill / EP"]
+    C["KV 池"]
+  end
+  subgraph SN2["超节点 B · UB 域"]
+    D["Decode / EP"]
+  end
+  P -->|"RoCE 搬活跃 KV / 副本"| D
+  SN1 -->|"梯度 · 检查点 · 复制"| FAB["数据中心 RoCE"]
+  SN2 --> FAB
+```
+
+### 并行维如何对号入座
+
+与 NVL72 那一套对照：NVLink 域内放延迟敏感的 TP/EP，IB/以太网放 DP。昇腾超节点把 UB 换成 Scale-Up，把 RoCE 换成 Scale-Out，对号规则同类。DeepSeek 级宽 EP 应整组落在同一 CloudMatrix384；跨两柜做 EP320 会把逐步 token 置换扔到 400 Gbps 以太网量级的链路上，和设计意图相反。多副本高可用则必须跨超节点，否则故障域就是整块逻辑加速器。
+
+<span class="marginnote">每 NPU 400 Gbps 单向是论文给出的 RDMA 平面规格，用来理解「柜间比 UB 稀一档」。不要把它乘 384 当成任意一对端都能吃满的双向测量，也不要和 UB 的 392 GB/s 量级单向混在一张表里而不写单位。</span>
+
+## 机制
+
+RDMA 平面能干活，靠的是网卡把载荷从 NPU 内存直接推到对端 NPU 内存，CPU 不拷数据面。RoCEv2 跑在 UDP/IP 上，可路由，适合已经按 Clos 建好的以太网。代价是：无损或准无损以太需要 PFC/ECN 调好，否则丢包重传会把尾延迟打到毫秒；这与 UB 域内「接近本地」的假设不同。KV 跨柜传输应成块、可重叠，避免每 token 一次小消息；小消息会把 RoCE 推进延迟区，和 decode 的 All-to-All 是同一类病。
+
+与 VPC 平面的隔离是机制的一部分。VPC 走青田卡，以太网/IP，负责控制与存储；RDMA 走 NPU 口。混用会导致存储大流与推理 KV 抢同一套无损队列。长期若收敛成一张网，也需要在同一物理网上用切片保住推理的尾延迟，而不是「都是以太网所以都能挤」。
+
+### 拥塞与重传会回到软件
+
+UB 域内集合通信可以按短距高带宽选算法。RoCE 域必须假设偶发拥塞。HCCL 跨超节点应显式选通信子，不要让一次错误的 `all_to_all` 默认走到柜间。应用层要能降级：跨柜 PD 失败则拒绝或改到同柜；不要在超时后再用 VPC 口重传 KV，那会把控制面带宽也打穿。
+
+## 边界与工程取舍
+
+RoCE Scale-Out 不让超节点变无限大。柜数增加，故障域、供电、光模块与交换机层都会回到普通 HPC 集群的问题。不要用 Scale-Out 补 Scale-Up 的不足：专家放不下就先加 UB 域内 Die，而不是先加一跳以太网。也不要在评测里只报同柜 tokens/s，却把生产流量的跨柜 KV 搬移藏起来。
+
+兼容性选择意味着协议翻译开销会长期存在。RDMA over UB 若未来交付，编程模型可以收拢，但拥塞控制与多租户隔离仍在。当前写作业与调度器，应以「两平面」为准：域内 UB，域间 RoCE。
+
+<span class="marginnote">NVIDIA 侧的对照是 NVL72 + InfiniBand SuperPOD。本篇不把两家的聚合带宽表对齐成「谁更快」：单位、含不含双向、是否柜级求和，都对不上。只锁定形态——Scale-Out 用数据中心 RDMA，Scale-Up 用专用域。</span>
+
+## 小结
+
+- CloudMatrix384 用独立 RDMA 平面做超节点之间的 Scale-Out，当前协议是 RoCE。
+- 域内 UB 放 TP/宽 EP/池化 KV；域间 RoCE 放跨柜 KV、副本、训练与外部 RDMA 对接。
+- RoCE 是队列对上的远程内存访问，不是 UB 那套全局虚址；拥塞与重传必须按以太网来写。
+- 宽 EP 组不要跨超节点；高可用副本必须跨。
+- 长期的平面收敛是愿景，生产调度按两平面分流。
+- 出处：Zuo et al., *Serving Large Language Models on Huawei CloudMatrix384*, arXiv:2506.12708。
