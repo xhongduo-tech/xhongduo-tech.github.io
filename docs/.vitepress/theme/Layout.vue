@@ -10,14 +10,14 @@ const theme = ref('light')
 
 const nav = [
   { href: '/', label: '首页', match: (path) => path === '/' },
-  { href: '/deploy/', label: '部署', match: (path) => path.startsWith('/deploy/') },
+  { href: '/llm/', label: '大模型', match: (path) => path.startsWith('/llm/') },
   { href: '/quant/', label: '量化', match: (path) => path.startsWith('/quant/') },
 ]
 
 const byline = computed(() => {
   const fm = page.value.frontmatter || {}
   if (!fm.date) return ''
-  const section = fm.section === 'quant' ? '量化' : fm.section === 'deploy' ? '部署' : ''
+  const section = fm.section === 'quant' ? '量化' : fm.section === 'llm' ? '大模型' : ''
   const date = String(fm.date).slice(0, 10)
   return [section, date].filter(Boolean).join(' · ')
 })
@@ -60,7 +60,7 @@ watch(
 <template>
   <div>
     <header class="site-header">
-      <p class="site-title">从极限到大模型</p>
+      <p class="site-title">LLM & Quant</p>
       <nav class="site-nav">
         <span class="nav-links">
           <a
@@ -123,6 +123,6 @@ watch(
       </section>
     </article>
 
-    <footer class="site-footer">从极限到大模型 · 徐鸿铎 · 2026</footer>
+    <footer class="site-footer">LLM & Quant · 徐鸿铎 · 2026</footer>
   </div>
 </template>

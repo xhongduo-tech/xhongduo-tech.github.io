@@ -4,7 +4,7 @@ export interface Post {
   title: string
   url: string
   date: string
-  section: 'deploy' | 'quant'
+  section: 'llm' | 'quant'
 }
 
 function formatDate(raw: unknown): string {
@@ -14,7 +14,7 @@ function formatDate(raw: unknown): string {
   return d.toISOString().slice(0, 10)
 }
 
-export default createContentLoader(['deploy/*.md', 'quant/*.md'], {
+export default createContentLoader(['llm/*.md', 'quant/*.md'], {
   transform(raw): Post[] {
     return raw
       .filter((page) => {
@@ -23,7 +23,7 @@ export default createContentLoader(['deploy/*.md', 'quant/*.md'], {
       })
       .map((page) => {
         const segs = page.url.replace(/\/$/, '').split('/').filter(Boolean)
-        const section = segs[0] === 'quant' ? 'quant' : 'deploy'
+        const section = segs[0] === 'quant' ? 'quant' : 'llm'
         return {
           title: String(page.frontmatter.title || segs[segs.length - 1]),
           url: page.url,

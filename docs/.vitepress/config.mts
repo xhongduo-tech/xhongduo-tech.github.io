@@ -6,8 +6,8 @@ const base = repo && !repo.endsWith('.github.io') ? `/${repo}/` : '/'
 export default defineConfig({
   base,
   lang: 'zh-CN',
-  title: '从极限到大模型',
-  description: '徐鸿铎 · 大模型架构',
+  title: 'LLM & Quant',
+  description: '徐鸿铎 · 大模型与量化',
   cleanUrls: true,
   lastUpdated: true,
   appearance: false,
