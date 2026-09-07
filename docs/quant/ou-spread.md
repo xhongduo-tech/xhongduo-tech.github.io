@@ -1,0 +1,95 @@
+---
+title: 残差的 Ornstein-Uhlenbeck
+date: 2026-09-07
+section: quant
+---
+
+# 残差的 Ornstein-Uhlenbeck
+
+<div class="epigraph">
+<p>协整留下一条平稳残差；若把它当成连续时间里被拉回长期均值的高斯扩散，半衰期、平稳方差与交易阈值就都由回复速度与扩散系数写出来。</p>
+<footer>—— 均值回复扩散见 Vasicek, Journal of Financial Economics 1977；配对上的状态空间与 OU 见 Elliott, Van Der Hoek and Malcolm, Quantitative Finance 2005</footer>
+</div>
+
+[Engle–Granger](/quant/engle-granger) 或 [Johansen](/quant/johansen) 给出价差 $z_t=\hat\beta'X_t$（含或不含截距）。检验只说 $z$ 像 $I(0)$，没有说它多快回来、回来的噪声有多大。Ornstein–Uhlenbeck（OU）过程把这条残差写成线性均值回复扩散，参数少、与离散 AR(1) 一一对应，是相对价值里最常用的连续时间脚手架。Avellaneda–Lee 在主成分残差上用类似的标准化分数；Elliott 等人把 OU 嵌进状态空间，与 [Kalman 对冲比](/quant/kalman-hedge) 同一套滤波语言。本篇写残差何时能被当成 OU、离散抽样怎么估 $\kappa$，以及 OU 不是协整的一部分——它是协整之后的动力学假设。
+
+## 问题
+
+OU 满足
+
+$$
+dz_t=\kappa(\mu-z_t)\,dt+\sigma\,dW_t,\qquad \kappa>0.
+$$
+
+$\mu$ 是长期均值，$\kappa$ 是回复速度，$\sigma$ 是瞬时扩散。平稳分布为正态，$\mathrm{Var}(z)=\sigma^2/(2\kappa)$。半衰期 $t_{1/2}=\ln 2/\kappa$：偏离减半所需的日历时间。交易要的正是这两个数：偏离多大才算极端（用平稳标准差），以及预期要抱多久（用半衰期）。没有 OU，残差平稳只告诉你「会回来」，不告诉你「在成本覆盖之前回不来」。
+
+残差来自估计的 $\beta$，不是观测到的真实均衡误差。$\beta$ 的误差、缓慢漂移、跳跃，都会让 $z$ 不像高斯 OU。问题是：在承认 $z$ 是生成出来的前提下，OU 是否仍是可用的局部近似，以及哪些诊断能否定它。
+
+### 与 AR(1) 的翻译
+
+间隔 $\Delta$ 的观测满足精确离散化
+
+$$
+z_{t+\Delta}=\mu(1-e^{-\kappa\Delta})+e^{-\kappa\Delta}z_t+\eta_{t+\Delta},
+$$
+
+$\eta$ 高斯，方差 $\sigma^2(1-e^{-2\kappa\Delta})/(2\kappa)$。于是 $\phi=e^{-\kappa\Delta}$ 即 AR(1) 系数，$\kappa=-\ln(\phi)/\Delta$。日频配对 $\Delta=1/252$ 或 $\Delta=1$，只要全程一致。$\phi\ge 1$ 时 $\kappa$ 没有正的实数解，对应单位根，与协整假设冲突——应先回到协整检验，而不是强行报一个半衰期。
+
+<span class="marginnote">Vasicek 把 OU 写在短期利率上，金融里它首先是利率模型，不是套利模型。把同一 SDE 套到股票价差，是借用线性回复，不是借用无套利的期限结构。价差可以交易、利率 OU 的 $\mu$ 在风险中性下会被改写，两者的测度不要混。</span>
+
+## 方法
+
+**估计。** 对 $\{z_t\}$ 做 AR(1) 的 OLS 或精确似然（把 $\eta$ 的方差写成 $\kappa,\sigma$ 的函数）。OLS 的 $\hat\phi$ 在 $\phi$ 近 1 时下偏，半衰期会被估短，策略显得比真实更勤快——这是均值回复估计里最贵的有限样本偏误。可用中位数无偏、加权对称，或直接在连续时间似然上约束 $\kappa>0$。
+
+$\mu$ 可以限制为 0（对数价格回归已含截距，残差样本均值为 0），也可以放开（滚动窗口里均值漂移）。Avellaneda–Lee 的 $s$-score 大致是把 $z$ 减滚动均值再除以滚动标准差，等价于时变 $\mu$ 的标准化，而不是全样本 OU 的平稳分布。
+
+Elliott、Van Der Hoek 与 Malcolm 把可观测价差与潜在 OU 状态分开，用 Kalman 滤波估 $\kappa$ 与对冲比，允许观测噪声。这在微观结构噪声或执行价不等于信号价时更贴切。纯残差 OU 假定 $z_t$ 就是状态。
+
+### 诊断：OU 不该有的东西
+
+高斯 OU 的增量在给定 $z_t$ 后是对称、无跳、无 ARCH 的。价差若在偏离大时回复更快，是非线性均值回复，线性 $\kappa$ 会在中心估一个、在尾巴错一个。若残差有波动聚类，平稳方差不是常数，用全样本 $\sigma/\sqrt{2\kappa}$ 做阈值会在平静期过密交易、在混乱期不够。残差若还有单位根成分（协整破裂），样本路径会画出一段假的缓慢 OU，$\kappa$ 接近 0。
+
+应看：残差的 ACF 是否近似几何衰减；QQ 图是否高斯；大偏离之后的平均回撤是否与 $\kappa(\mu-z)$ 同阶。拒绝 OU 不等于不能交易，但半衰期公式与正态阈值失效，应换门限模型或非参分位数。
+
+## 机制
+
+线性漂移 $-\kappa(z-\mu)$ 是 OU 唯一的均值回复机制：离得越远，瞬时拉力越大，且与距离成正比。这给出指数衰减的条件期望 $\mathbb{E}[z_{t+h}\mid z_t]=\mu+e^{-\kappa h}(z_t-\mu)$，从而半衰期与任意分位的预期通过时间。扩散项保证即使到了 $\mu$ 也会被打走，于是存在平稳分布，阈值才有「几倍标准差」的含义。
+
+协整保证（理想情况下）$z$ 不会带随机趋势；OU 进一步保证趋势的缺席采取这种线性高斯形式。可以平稳但不是 OU：例如带跳的均值回复、CIR 式平方根扩散、或长记忆。用 OU 的人是在用三参数换取可计算的开平规则，而不是声称残差已被证明为 OU。
+
+<span class="marginnote">半衰期短并不自动更好。$\kappa$ 大通常伴随交易更频、成本占比更高；$\kappa$ 小则占用时间与风险资本更长。OU 把这组权衡写成参数，真正的约束在下一篇的阈值与成本，不在 SDE 本身。</span>
+
+### 参数与仓位的接口
+
+平稳标准差 $s=\sigma/\sqrt{2\kappa}$。偏离 $z-\mu=ks$ 时，条件期望回到 $\mu$ 的路径已知，但到达时间的分布是随机的——不能把半衰期当成「持仓日历天数」的上限。时间止损要用首达时间的分位数，或直接用固定持有期，那是规则，不是 OU 的推论。仓位若按 OU 的 Sharpe（漂移除以扩散）缩放，需假设你可以连续交易且无成本，与限价单执行不一致。
+
+## 边界与工程取舍
+
+$\beta$ 时变时，$z$ 的生成过程在变，常参数 OU 是局部近似，窗口要短于 $\beta$ 的变化、长于半衰期，窗口常常不存在。这时应让 $\beta$ 走 Kalman，OU 只描述滤波后的创新，而不是描述原始回归残差。跳跃会让 $\sigma$ 估大、$\kappa$ 估乱，可对残差先做稳健预处理，或改跳扩散均值回复。
+
+不要在 $\hat\phi>0.99$ 时仍报一个以年计的半衰期并开仓。不要把分钟级残差的 $\kappa$ 年化后与日频文献比——微观结构会让高频价差看起来回复极快。不要用风险中性下的 OU（利率、商品便利收益）参数去校准物理测度的交易价差。
+
+篮子的 Johansen 残差有 $r$ 条，每条都可以套 OU；它们在样本内正交或斜交取决于规范化，联合交易要考虑残差之间的相关，否则总风险不是各腿 OU 方差之和。
+
+<span class="marginnote">Uhlenbeck 与 Ornstein 的原文是物理布朗运动的速度过程。金融引用链通常是 Vasicek 与后续的配对文献。写出处时，交易篇应点名 Elliott et al. 或 Avellaneda–Lee，而不是只写 1930 年的 Physical Review。</span>
+
+```mermaid
+flowchart TD
+  C["协整残差 z"] --> AR["离散 AR(1)"]
+  AR --> KAP["κ = −ln(φ)/Δ"]
+  KAP --> HL["半衰期 ln2/κ"]
+  KAP --> SD["平稳标准差 σ/√(2κ)"]
+  SD --> TH["开平阈值"]
+  HL --> TH
+  C --> DIAG["ACF / QQ / 非线性回复"]
+  DIAG --> OU["接受或拒绝 OU"]
+```
+
+## 小结
+
+- 协整残差若再用 OU 描述，则半衰期为 $\ln 2/\kappa$，阈值以平稳标准差为单位。
+- 离散观测是 AR(1)，$\phi=e^{-\kappa\Delta}$；$\phi$ 近 1 时 OLS 下偏，半衰期看起来过短。
+- OU 是动力学假设，不是协整检验的一部分；跳跃、ARCH、非线性回复都会否定它。
+- 半衰期不是持仓天数的确定上限；成本与时间止损在阈值一篇处理。
+- $\beta$ 漂移时应把 OU 接到滤波创新上，而不是接到过时的静态残差上。
+- 出处：Vasicek, *Journal of Financial Economics*, 1977；Elliott, Van Der Hoek, Malcolm, *Quantitative Finance*, 2005；主成分残差上的 $s$-score 见 Avellaneda and Lee, *Quantitative Finance*, 2010。
