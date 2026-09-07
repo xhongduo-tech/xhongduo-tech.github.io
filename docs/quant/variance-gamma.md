@@ -1,0 +1,93 @@
+---
+title: Variance Gamma
+date: 2026-09-07
+section: quant
+---
+
+# Variance Gamma
+
+<div class="epigraph">
+    <p>用伽马过程给布朗运动换时，得到的是有限变差、无穷活动的纯跳过程：峰度由时间变换的方差控制，偏斜由漂移在随机时钟上的积累控制，且特征函数仍是初等的。</p>
+    <footer>—— Madan, Carr and Chang, The Variance Gamma Process and Option Pricing, European Finance Review, 1998</footer>
+</div>
+
+Merton 的跳是稀疏的：任意一天都可能完全不跳。市场短端的微笑却常常光滑地翘起，像是许多小缺口在堆积，而不是偶尔一次崩盘。Dilip Madan 与 Eugene Seneta 1990 年先把方差伽马（Variance Gamma, VG）写成对称的方差混合；Madan、Carr 与 Chang 1998 年把它做成带偏斜的 Lévy 过程，并给出期权的特征函数定价。机制是时间变换：日历时间 $t$ 里的经济时间是一个伽马过程 $G_t$，布朗运动在 $G_t$ 上走，方差在随机时钟里被混合。本篇写这一纯跳规格，无穷活动的更广参数化见 [CGMY](/quant/cgmy)，有限活动对照见 [Merton 跳扩散](/quant/merton-jump)。它与 [Heston](/quant/heston) 的差别是：VG 没有随机波动作为状态变量，增量独立，波动不会聚类。
+
+## 问题
+
+要把肥尾和偏斜写进独立增量过程，同时保住欧式可算。复合泊松的参数少、短端形状死板；随机波动破坏独立增量，换来聚类与期限结构。VG 走第三条路：保持 Lévy、不要扩散项，用伽马时钟混合正态。伽马过程从 0 开始、单调、纯跳，增量服从伽马分布。布朗运动被它一换时，任意区间内几乎必然发生无穷多次小跳（无穷活动），但路径有限变差——没有布朗那种无穷二次变差的连续部分。问题是：这一过程的特征函数是否简单到能校准微笑，以及独立增量对波动期限结构意味着什么。
+
+Madan–Carr–Chang 强调的是期权，而不是高频检验。VG 可以生成微笑，但不能生成 Heston 那种「今日冲击抬高明日瞬时方差」的聚类；长到期由独立增量的中心极限定理趋向正态，ATM 隐含波动大致按期限摊平，除非让参数随 $T$ 变。
+
+### 换时而不是再加一个泊松
+
+设
+
+$$
+X_t=\theta G_t+\sigma W_{G_t},
+$$
+
+$G_t$ 是均值速率 1、方差速率 $\nu$ 的伽马过程，$W$ 独立布朗运动。$\theta=0$ 时对称，$\nu$ 管峰度：$\nu$ 大则时钟更吵，混合更肥。$\theta\neq 0$ 时正负跳不对称。另一种写法是两个独立伽马过程的差（ Madan–Seneta 的方差伽马作为伽马差），与换时在适当参数下等价。没有 $W$ 的日历时间扩散项：$\sigma$ 乘在随机时钟上，不是 Merton 那个常系数 $\sigma\mathrm{d}W_t$。把 VG 理解成「GBM 再加 VG 跳」会双计连续部分；标准 VG 是纯跳。
+
+<span class="marginnote">「Variance Gamma」里的 variance 指布朗运动的方差被伽马时间混合，不是 Heston 的瞬时方差过程。$\nu$ 是时钟的方差速率，单位是时间，不要当成 vol-of-vol 去和 $\sigma_{\mathrm{Heston}}$ 横比。</span>
+
+## 方法
+
+对数价格 $Y_t=\ln S_t=(r-q+\omega)t+X_t$，其中 $\omega$ 是使 $\mathrm{e}^{-rt}S_t$ 为鞅的补偿：
+
+$$
+\omega=\frac1\nu\ln\bigl(1-\theta\nu-\tfrac12\sigma^2\nu\bigr),
+$$
+
+要求 $1-\theta\nu-\sigma^2\nu/2>0$。特征函数
+
+$$
+\phi(u)=\mathbb{E}[\mathrm{e}^{iu X_t}]=\bigl(1-iu\theta\nu+\tfrac12\sigma^2\nu u^2\bigr)^{-t/\nu}.
+$$
+
+欧式价格用 Carr–Madan FFT 或 COS，与 Heston 同一套反演外壳，但没有 Riccati、没有分支切割——$\phi$ 是有理式的幂，主值仍要小心负实轴，通常远比 Heston 省心。三参数 $(\sigma,\nu,\theta)$ 加水平补偿，拟合单到期微笑往往够；多到期则常让 $\sigma(T)$ 或 $\nu(T)$ 随期限变，等于放弃单一 Lévy。
+
+### 从特征函数读活动性
+
+Lévy 密度可由 $\phi$ 的 Lévy–Khintchine 表示读出：VG 对应 $Y=0$ 的 CGMY 型，密度在零附近像 $1/|x|$，无穷多小跳，积分 $\int_{|x|<1}|x|\Pi(\mathrm{d}x)<\infty$（有限变差），$\int_{|x|<1}\Pi(\mathrm{d}x)=\infty$（无穷活动）。模拟可用伽马增量直接抽 $G_{t+\Delta}-G_t$，再抽条件正态；或把正负跳当成两个伽马过程。没有 Feller 条件，也没有负方差。短步长下路径看起来「毛」，那是无穷小跳，不是离散化把扩散走成跳。
+
+校准目标通常是隐含波动切片。$\sigma$ 近似 ATM 水平，$\nu$ 抬翼部，$\theta$ 决定偏斜方向。三个参数对单切片识别尚可，对日历价差几乎没有额外自由：独立增量把 $T$ 与 $2T$ 的分布锁成同一无穷可分律的幂，期限结构形状是模型输出，不是输入。这与 Dupire、Heston、Bergomi 都相反。
+
+## 机制
+
+经济时间跑得快时，日历时间里的收益更吵——伽马时钟的厚尾混合出峰度。偏斜来自 $\theta$：负 $\theta$ 让向下的换时漂移占优，左尾更肥。因为没有连续鞅部分，对冲不能靠瞬时 Delta 把风险消到无穷小；小跳无穷多，复制误差来自跳的补偿与大跳。这与 Merton「偶尔一次大跳、其余时间完美复制」不同：VG 几乎每个瞬间都在跳，只是多数跳看不出报价跳动。
+
+相对局部波动，单过程 VG 拟合不了一整张任意曲面，但单切片可以很像。相对 Heston，VG 的短端可以更陡（无穷活动），中长端却缺少均值回复的方差状态，远期微笑的动态是独立增量式的平行翻新，而不是 $v_t$ 的持久。用 VG 给障碍定价，会得到与 Heston、Dupire 不同的触达统计：有限变差路径可以有时间间隔里的平坦段（伽马时钟的常数段对应日历时间里价格不动），这在连续扩散里不会出现。
+
+```mermaid
+flowchart TD
+  G["伽马时钟 G_t"] --> X["X_t = θ G_t + σ W_G"]
+  W["布朗运动"] --> X
+  X --> Levy["纯跳 Lévy: 无穷活动、有限变差"]
+  Levy --> Phi["初等特征函数"]
+  Phi --> Eur["FFT / COS 欧式价"]
+  Levy --> CLT["长到期趋向正态"]
+```
+
+### 与 Merton、Heston 的产品差异
+
+欧式短到期：VG 往往比 Merton 更贴翼部的光滑弯曲，因为小跳填满了近端密度。欧式长到期：三者都可以靠参数拟合 ATM，但 VG/Merton 的独立增量让偏斜衰减方式与数据中「长端仍斜」的现象冲突，Heston 靠 $\rho$ 与持久 $v$ 更容易留住长端偏斜。路径产品：VG 无波动聚类，cliquet 与远期起动对「未来的微笑还在不在」敏感，独立增量会系统性错。方差互换：二次变差全是跳，复制的跳误差项与扩散情形不同，见 [方差互换](/quant/variance-swap-vix) 的跳跃修正。
+
+<span class="marginnote">鞅补偿 $\omega$ 与参数的可行域绑在一起。校准若把 $\theta\nu+\sigma^2\nu/2$ 推过 1，特征函数在定价需要的点上炸掉。应把约束写进优化，而不是在复数对数里静默得到 NaN 再丢弃路径。</span>
+
+## 边界
+
+Lévy 过程不能同时做到：精确拟合任意期限结构的香草、再给出与市场一致的波动动态。VG 选择了前者里的「单切片 + 闭合 $\phi$」。要动态，必须让时钟再随机，或换成 [局部随机波动](/quant/local-stoch-vol)、Heston、Bergomi。时间齐次假设在事件日、周末、到期日附近的日内模式上显然错；那不是 VG 特有，但纯 Lévy 没有状态变量可吸收日历效应。
+
+1998 年论文给出过程、特征函数与期权公式；对称 VG 的更早统计版本是 Madan–Seneta（1990）。实现不要混用两套参数化（$(C,G,M)$ 与 $(\sigma,\nu,\theta)$）而不换算。无穷活动使「有没有跳」的日度检验与 Merton 不同：几乎每天都有跳成分，BN–S 一类有限活动设定会被拒绝或被小跳污染。
+
+<span class="marginnote">把 VG 当「有偏斜的 Black–Scholes」来做 Delta，忽略的是瞬时连续对冲不存在。交易上仍用 Black Delta 当坐标，但模型 Delta 与对冲误差统计应来自模拟，而不是闭式 $N(d_1)$。</span>
+
+## 小结
+
+- Madan–Carr–Chang（1998）用伽马过程对布朗换时，得到方差伽马：纯跳、无穷活动、有限变差，特征函数为有理幂。
+- $(\sigma,\nu,\theta)$ 分别近似水平、峰度、偏斜；鞅补偿 $\omega$ 必须显式加入。
+- 独立增量使长端趋向正态、无波动聚类；多到期常需时变参数，即离开单过程。
+- 相对 Merton 是无穷小跳而非稀疏大跳；相对 Heston 没有方差状态。
+- 欧式走 FFT/COS 即可；障碍与方差产品要对有限变差路径单独模拟。
+- 出处：Madan, Carr and Chang, *European Finance Review*, 1998；对称情形见 Madan and Seneta, 1990；推广见 Carr, Geman, Madan and Yor, CGMY。

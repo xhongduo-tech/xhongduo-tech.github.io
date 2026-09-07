@@ -1,0 +1,79 @@
+---
+title: FDR / Romano-Wolf
+date: 2026-09-07
+section: quant
+---
+
+# FDR / Romano-Wolf
+
+<div class="epigraph">
+<p>控制「至少一次假发现」与控制「假发现占报告清单的比例」，是两套错误；逐步自举在相关的检验统计量上仍能管住前者，BH 在独立或正依赖下管住后者。</p>
+<footer>—— Benjamini and Hochberg, Controlling the False Discovery Rate, JRSS-B, 1995；Romano and Wolf, Exact and Approximate Stepdown Methods, Econometrica, 2005</footer>
+</div>
+
+[Harvey–Liu–Zhu](/quant/harvey-liu-zhu) 把因子动物园的尝试次数写成更高的 $t$ 门槛，精神上靠近 Bonferroni 一类族错误率（FWER）。[Hansen SPA](/quant/hansen-spa) 问是否存在至少一条优于基准的规则，是存在性检验。本篇写接下来的清单问题：在 $M$ 个相关的假设上，哪些可以进入「发现」集合。Benjamini–Hochberg（BH）控制错误发现率（FDR）：清单里假阳性的期望比例。Romano–Wolf（RW）逐步法控制 FWER：至少一次假阳性的概率，用自举捕捉统计量之间的相关，比 Bonferroni 有更高功效。White Reality Check 是「最大值是否显著」；RW 是「从最显著开始逐步拒绝，仍控制 FWER」。对象可以是因子 $t$、规则相对基准的绩效，或日度[跳跃检验](/quant/bn-jump-test)的 250 个 p 值。
+
+## 问题
+
+$M$ 次检验，单次水平 $\alpha$ 会使期望假阳性个数为 $\alpha M$。FWER $=\mathrm{P}(\text{至少一次假发现})$ 在独立性下用 Bonferroni $\alpha/M$ 控制，相关时过严。FDR $=\mathbb{E}[\mathrm{FP}/\max(R,1)]$，$R$ 为拒绝个数：允许清单变长时混进少量假发现，换功效。Harvey–Liu–Zhu 的 $t>3$ 近似某种 FWER 校准；策略网格往往 $M$ 更大、相关更高，需要显式程序，而不是把 3.0 再抄一遍。
+
+相关结构是核心。十个近亲动量窗口不是十次独立试验：Bonferroni 过罚，朴素 BH 在任意依赖下也不保证（需 Benjamini–Yekutieli 的对数惩罚或正回归依赖假设）。Romano–Wolf 用自举直接估最大值的零分布，相关被数据带着走。问题是：这份报告要的是「几乎没有一个假的」（FWER）还是「清单里假的不超过一成」（FDR），以及统计量是否可自举。
+
+### 错误率不是研究品味，是决策损失
+
+资本与风控清单（哪些日子当跳日、哪些对手方进系统重要性名单）一次假阳性成本高，应用 FWER。因子探索、特征筛列的第一轮，漏掉真信号的成本高，FDR 更合适，再在外层用嵌套协议评估。把 FDR 清单直接当交易组合，等于允许一成的噪声腿进实盘；须声明后续闸门（DSR、PBO、扣费）。反过来，对已经 SPA 未能拒绝「存在性」的集合再跑 RW，名单应为空——先存在性，后名单。
+
+<span class="marginnote">Git 里删掉的网格仍计入 $M$。只把最后十个「合理」p 值送进 BH，FDR 假低。这与 PBO 必须使用真实搜索集合是同一纪律。</span>
+
+## 方法
+
+**BH。** 将 p 值升序 $p_{(1)}\le\cdots\le p_{(M)}$，找最大 $k$ 使 $p_{(k)}\le (k/M)q$，拒绝前 $k$ 个。$q$ 常取 0.05 或 0.10。独立或正回归依赖下控制 FDR。任意依赖用 BY：分母换成 $M\sum_{i=1}^M 1/i$，更保守。p 值必须校准：HAR 残差、重叠标签、GARCH 过滤后的 Copula 参数，名义 p 往往偏小，BH 会把校准错误放大成一张长清单。金融里应优先学生化统计量与 HAC，而不是把 OLS 的 p 直接排序。
+
+**Romano–Wolf 逐步。** 对学生化相对绩效 $T_k=\sqrt{n}\,\bar d_k/\hat\omega_k$（或因子 t），从最大 $|T|$ 开始：用自举（平稳块）估在原假设边界上最大值的分位，决定是否拒绝最显著的那一个；拒绝则把它移出，对剩余集合重算最大值临界值，直到不能拒绝。相关被自举保留，故不必假设独立。逐步比单步「只看最大值」多给出一张名单，且 FWER 在逐步过程中仍被控制。Hansen 的学生化与对差模型再中心化，可以嵌进同一自举，避免差规则撑宽临界值。
+
+**与 Reality Check、SPA 的顺序。** White：一个 p 值，是否存在优于基准。SPA：学生化与再中心化，功效更好。RW：哪些优于。不要跳过前两步直接 RW 出十个名字。也不要把 BH 的 q 当成 SPA 的 p：一个是清单比例，一个是存在性。
+
+### 实施清单
+
+输入是 $n\times M$ 绩效差或 $M$ 个 t，已扣费、同一基准、候选冻结。块自举长度做敏感性。高度相关簇应先聚类，报告有效独立个数，并与 DSR 的有效 $N$ 交叉核对。跳检验的一年 250 个日度 $Z$，BH 比 Bonferroni 更合理：允许少量假跳日，避免把真公告日罚掉；若跳日触发交易或 CPPI 再平衡暂停，则改 FWER。CoVaR 网络的两两 $\Delta\mathrm{CoVaR}$ 显著性，RW 或聚类后的 BH，禁止未调整的「贡献前十」。
+
+<span class="marginnote">BH 在 p 值都刚过 0.05 时可能一个都不拒，也可能在 $M$ 很大时拒绝一大片刚刚好的 p。看 $k$ 与 $p_{(k)}$ 的位置，不要只报「FDR 显著个数」。RW 应报逐步临界值路径，避免只贴最终名单。</span>
+
+## 机制
+
+Bonferroni 用并集界，对相关浪费功效。BH 的机制是：拒绝越多，单个 p 的门槛越松，从而在「真假设稀疏」时自适应；真假设很多时清单变长，FDR 仍被期望控制，但绝对假发现个数可以不小。RW 的机制是逐步收紧检验集合：已经拒绝的不再撑最大值，剩余集合的临界值下降，功效高于单步 FWER，但仍保证「从未在真假设上先犯错」这一路径性质。
+
+选择偏差与多重检验是同一枚硬币的两面。PBO 用相对排名频率描述选择过程；FDR/RW 用假设检验描述同一搜索的点零假设。可以 PBO 低（冠军相对中位仍好）但 RW 不拒绝相对现金基准（全体没有绝对边缘）；也可以 RW 拒绝一簇近亲，PBO 因簇内相关而假低。两者都要报。
+
+### 暗数与发表筛选
+
+HLZ 强调已发表 t 是截断样本。BH/RW 若只在文献清单上跑，暗数会让 FDR 失控。内部研究应以实验室日志为 $M$。对旧文献，与其事后 BH，不如发式折扣加样本外。新研究不应把「BH 过关」写成已经过了嵌套 CPCV：多重检验管的是这一张截面上的假发现，不管时间序列上的选择与泄漏。
+
+## 边界与工程取舍
+
+p 值校准失败时，任何多重检验都只是把错误排序。重叠标签、同期相关、异方差，须先在单次检验上修对。RW 的自举在 $M$ 极大、序列很短时不稳定，块长度变成又一个超参数，不能看完名单再挑。FDR 不提供因果：清单里的真发现仍可能是共同因子的多个面具。
+
+不要用 BH 替代 DSR：FDR 不管夏普的非正态与选美期望。不要用 RW 替代 CPCV：FWER 名单可以在一条切分上成立，换切分消失。不要把逐步过程中途的临界值当部署阈值去调仓。不要对同一批假设先 BH 再 RW 再 SPA 直到出现星号。
+
+<span class="marginnote">多重检验程序本身也是 $\lambda$。预注册：FWER 还是 FDR、$q$ 或 $\alpha$、是否学生化、自举块长。事后换程序让名单好看，是第二层 p-hacking。</span>
+
+```mermaid
+flowchart TD
+  M["冻结的 M 个假设 / 规则"] --> CAL["校准的学生化统计量或 p"]
+  CAL --> EX["SPA / Reality Check: 是否存在"]
+  EX -->|不拒绝| STOP["不进入名单"]
+  EX -->|拒绝| SPLIT{"决策损失"}
+  SPLIT -->|清单容许少量假阳性| BH["BH / BY: 控制 FDR"]
+  SPLIT -->|几乎不容许一次假阳性| RW["Romano-Wolf 逐步: 控制 FWER"]
+  BH --> LIST["发现清单"]
+  RW --> LIST
+  LIST --> NEXT["再经 DSR、Nested CPCV、成本"]
+```
+
+## 小结
+
+- FDR（BH/BY）控制清单中假发现的期望比例；Romano–Wolf 逐步自举控制 FWER，并利用相关提高功效。
+- 先 SPA/Reality Check 做存在性，再在预先选择的错误率下出名单；暗数必须计入 $M$。
+- 与 HLZ 的 t 门槛、PBO、DSR 分工：门槛是粗校准，PBO 是相对排名，DSR 是放气后的概率，本篇是清单的错误率。
+- p 值未校准或程序未预注册时，星号没有含义。
+- 出处：Benjamini and Hochberg, *JRSS-B*, 1995；Benjamini and Yekutieli, *Annals of Statistics*, 2001；Romano and Wolf, *Econometrica*, 2005；White, *Econometrica*, 2000；Hansen, *JBES*, 2005。
