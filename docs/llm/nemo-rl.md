@@ -1,0 +1,76 @@
+---
+title: NeMo-RL
+date: 2026-09-07
+section: llm
+---
+
+# NeMo-RL
+
+<div class="epigraph">
+    <p>算法代码对着标准的训练与生成接口写；后端各自待在隔离环境里，从单卡原型换到千卡时不必改目标函数。</p>
+    <footer>—— NVIDIA Technical Blog，Reinforcement Learning with NVIDIA NeMo-RL: Reproducing a DeepScaleR Recipe Using GRPO</footer>
+</div>
+
+NVIDIA 在 Megatron / NeMo 栈上的对齐工具经历了两代命名。2024 年 Shen、Wang、Delalleau、Kuchaiev 等的 **NeMo-Aligner**（arXiv:2405.01481）把 SFT、PPO、[DPO](/llm/rafailov-dpo)、SteerLM、SPIN 做到千卡：Llama 3.1 405B 的 PPO 跑在约 1008 张 H100 上，生成走 PyTriton / TensorRT-LLM，训练走 Megatron 3D 并行。其后开源的 **NeMo-RL**（`NVIDIA-NeMo/RL`）把后训练收成更模块化的库：HuggingFace 模型原生接入，[Ray](/llm/openrlhf) 编排多组件，生成默认 [vLLM](/llm/vllm-paper)，训练走 PyTorch DTensor / [FSDP](/llm/fsdp)，并预留 Megatron-Core 与 TensorRT-LLM、[SGLang](/llm/sglang)。本篇钉「算法与后端解耦」这条设计，以及官方用 DeepScaleR 配方在 1.5B 上复现 [GRPO](/llm/grpo) 的读法。不把 Aligner 的 405B 数字写成 NeMo-RL v0.2.1 的保证——该发行说明明确当时规模到约 32B。
+
+## 问题
+
+工业对齐栈的失败模式是：**换推理引擎就要改 PPO 循环**。生成想用 vLLM 的 PagedAttention，训练想用 Megatron 的专家并行，两边的并行网格、权重布局、tokenizer 封装都不一样。若 GRPO 的组采样写死在某一后端的 `generate()` 里，研究算法的人无法在单卡 HF 模型上调试同一份损失。NeMo-RL 把问题收成：高层算法只依赖「训练接口」和「生成接口」；每个后端在隔离的 Python 环境里实现这两套接口，避免 vLLM 与 Megatron 的依赖互殴。
+
+历史位置也要对齐。NeMo-Aligner 证明分置式 PPO 能拉到 405B，但代码与 NeMo 核心、Hydra 脚本绑得紧，学术复现成本高。社区同时在用 TRL 扫损失、用 OpenRLHF 扫 HF 70B。NVIDIA 需要一条从单卡原型到大规模的**同一套算法代码**，而不是再维护一份只能在 DGX SuperPOD 上启动的脚本。DeepScaleR 把长 CoT 数学 RL 写成公开配方（8K→16K→24K 课程），正好当这份库的验收题。
+
+### 隔离后端针对的是依赖，不是算法
+
+`uv` 为每个后端建虚拟环境，Ray 把不同环境里的 actor 拉进同一作业。这解决的是 CUDA / 推理引擎版本冲突，不解决 off-policy。生成后端换 TensorRT-LLM 之后，token 级 logprob 是否与训练前向比特一致，仍是实现对齐问题。接口标准化降低的是「换引擎要重写 GRPO」的工程量，不消除「训练 tokenizer 与推理 tokenizer 不一致」的数值事故。
+
+<span class="marginnote">v0.2.1 博客写支持到 32B、Megatron-Core「即将到来」。读文档要以当时 README 为准。Aligner 论文的 340B / 405B 是另一条代码线，引用时写 NeMo-Aligner，不要写进 NeMo-RL 的特性表。</span>
+
+## 方法
+
+编排：Ray 管理策略、生成服务器、奖励与参考的生命周期。算法层提供 DPO 与 GRPO 等；PPO 家族仍可在此栈上实现，但公开食谱主推无 critic 的组相对方法，贴推理模型。生成：vLLM 为默认，配置里可扩 SGLang、TensorRT-LLM。训练：HF 权重 + PyTorch 原生并行（DTensor），FSDP offload 与激活检查点是显存开关，不是算法开关。
+
+官方 DeepScaleR 复现分三步，对应课程式上下文：先 8K 最大长度，再 16K，再 24K。模型在博客叙述里接 DeepSeek-R1-Distill-Qwen-1.5B 与 Qwen2.5-1.5B 配置；tied embedding 在 DTensor 上对 TP>1 有已知限制（仓库 issue）。全局训练 batch 512、micro-batch 4 一类超参写在 YAML，与 Luo 等人 DeepScaleR 原配方对齐是复现的前提。博客报训练奖励约 **0.65 / 400 step**，AIME 2024 曲线升到超过文中对照的 OpenAI o1 分数——这是该配方 + 该实现的结果，不是「NeMo-RL 算法优于 o1」。
+
+```mermaid
+flowchart TB
+  ALG["GRPO / DPO 算法层"] --> TR["训练接口"]
+  ALG --> GEN["生成接口"]
+  TR --> FSDP["FSDP / DTensor"]
+  TR --> MEG["Megatron-Core"]
+  GEN --> VLLM["vLLM"]
+  GEN --> TRT["TensorRT-LLM"]
+  GEN --> SGL["SGLang"]
+  RAY["Ray 编排"] --> TR
+  RAY --> GEN
+```
+
+### 课程长度是在管长尾，不是在改 GRPO
+
+DeepScaleR 先短后长，是因为长 CoT 的生成时间方差会拖垮同步 rollout：8K 阶段先把策略推到会解题，再放开 16K / 24K，避免一开始就在超长失败轨迹上烧预算。这与 [异步 rollout](/llm/async-rollout-arch) 是两条缓解长尾的路：一条缩短允许长度，一条让短样本不等长样本。NeMo-RL 可以跑同步 GRPO 课程；它并不因此自动变成 AReaL。把 400 step 的奖励曲线和 Fu 等 2.77× 加速写进同一句「NVIDIA 更快」，对象已经错了。
+
+<span class="marginnote">Tied weights 只在 `tp size 1` 的 DTensor 策略下被该期仓库支持。换模型先查是否共享输入输出嵌入，再抄 YAML。</span>
+
+## 机制
+
+算法–后端分离能成立，是因为 GRPO 需要的只是：按组采样、对完成序列算对数概率、用验证器或 RM 打标量、做裁剪代理。这些都不提「KV 页表怎么管」。后端只要保证：同一套 token id 上，推理 logprob 与训练前向一致（或提供可纠正的差）；权重同步之后生成用的是新策略。破坏一致性的典型点包括：不同 chat template、推理端 extra EOS、FP8 权重量化与 BF16 训练混用。库把接口标准化，实验室仍要自己锁精度。
+
+与 OpenRLHF 相比，NeMo-RL 更强调**可替换后端**和 NVIDIA 推理栈；与 TRL 相比，它从第一天就按多组件 Ray 作业来想，而不是单进程 Trainer。与 verl 相比，控制面同样是单控制器思路，但 NeMo-RL 不绑定 HybridFlow 论文里的 3D-HybridEngine 叙事，而是把 Megatron 当可选训练后端。选谁取决于检查点格式：NeMo / Megatron 预训练权重要么走 Aligner/NeMo-RL，要么付转换税。
+
+### 千卡故事属于 Aligner，32B 故事属于早期 NeMo-RL
+
+Aligner 的贡献是：分置生成服务器 + Megatron 训练 + TensorRT-LLM refit，把 PPO 四模型拉到 405B。那篇论文的系统数字（千卡、Nemotron 4 340B）不应无说明地贴到 NeMo-RL 的 GRPO 1.5B 教程上。反过来，DeepScaleR 教程证明新库能复现公开推理配方，不证明它已经继承 Aligner 的全部并行度。写架构演进时分成两代，比写成「改了个名」准确。
+
+## 边界与工程取舍
+
+不要把 AIME 超过 o1 写成框架基准——评测协议、解码预算、数据污染都在配方里，不在 Ray 里。不要假设所有 HF 模型都能 TP。隔离环境增加了调试成本：报错可能在子环境的 vLLM 里，驱动进程只看到 Ray actor 挂了。奖励函数与工具沙箱仍要自己接；[VERLTool](/llm/verltool) 那类工具服务器不是 NeMo-RL 的默认形态。
+
+PEFT 在 Aligner 里是一等公民（LoRA 对齐）；NeMo-RL 的全参 GRPO 食谱更贴推理 RL。显存不够时先看 FSDP offload 与缩短 `max_total_sequence_length`，不要先怪算法。与 OpenRLHF 一样，生成 logprob 与训练前向不一致时，裁剪区间会系统性偏移；换后端后的第一件事是在同一批 token 上对一下两边的 $\log\pi$，而不是先看 AIME。
+
+<span class="marginnote">Aligner：Shen 等 *NeMo-Aligner: Scalable Toolkit for Efficient Model Alignment*，arXiv:2405.01481，代码 `NVIDIA/NeMo-Aligner`。NeMo-RL：`NVIDIA-NeMo/RL` 与 NVIDIA Developer Blog 的 DeepScaleR 复现文。DeepScaleR 配方应回引其原作者，而不是算成 NVIDIA 的算法论文。</span>
+
+## 小结
+
+- NeMo-RL 用隔离后端 + 标准训练/生成接口，让 GRPO/DPO 代码不绑死单一推理引擎。
+- 早期发行以 HF + FSDP/DTensor + vLLM + Ray 为主，规模说明约到 32B；405B PPO 属于前代 NeMo-Aligner。
+- DeepScaleR 三阶段上下文是长尾管理，复现必须对齐 YAML 与 tied embedding 限制。
+- 出处：arXiv:2405.01481；https://github.com/NVIDIA-NeMo/RL。

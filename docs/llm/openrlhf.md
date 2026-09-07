@@ -1,0 +1,72 @@
+---
+title: OpenRLHF
+date: 2026-09-07
+section: llm
+---
+
+# OpenRLHF
+
+<div class="epigraph">
+    <p>与把四套模型钉在同一批 GPU 上不同，OpenRLHF 用 Ray 把调度从计算里拆出来，用 vLLM 承担长链生成，用 DeepSpeed 承担分片训练。</p>
+    <footer>—— Hu 等，OpenRLHF: An Easy-to-use, Scalable and High-performance RLHF Framework，arXiv:2405.11143</footer>
+</div>
+
+[InstructGPT](/llm/instructgpt) 式 PPO 在工程上不是「再训一个语言模型」，而是一次迭代里同时挂策略、参考、奖励与可选 critic，并且把生成和反向切成两种完全不同的内核。2023 年的 [DeepSpeed-Chat](/llm/deepspeed-chat) 已经把 Hybrid Engine 写进开源；Hugging Face [TRL](/llm/trl-framework) 把算法接到 Transformers。两者都仍倾向把多模型共置，70B 以上时显存与调度会一起炸。Hu、Wu 等人的 **OpenRLHF**（arXiv:2405.11143）把这条栈收成 Ray 调度 + [vLLM](/llm/vllm-paper) 生成 + DeepSpeed [ZeRO](/llm/zero-stages) 训练，代码在 `OpenRLHF/OpenRLHF`。本篇钉它相对共置框架改了哪一层调度、长 CoT 实验表怎么读，以及它声称的「更少行数」不能当成算法贡献。
+
+## 问题
+
+PPO / [GRPO](/llm/grpo) / [RLVR](/llm/rlvr) 的墙钟里，生成常常占九成以上：每步要对上千条提示各吐数千 token，算术强度低，吃 KV 与连续批处理。训练阶段反过来要 ZeRO、梯度与优化器。把生成塞进训练图，会丢掉 PagedAttention；把反向塞进推理引擎，又没有分片优化器。TRL 与 DeepSpeed-Chat 能在中等规模跑通，但对「四套模型如何占 GPU」往往写死成共置：actor、ref、reward、critic 抢同一份显存，70B 必须靠 Offload 或砍并行度。工业栈如 NeMo-Aligner、verl 的 [HybridFlow](/llm/async-rollout-arch) 把并行与重切分做深，学习曲线也陡。
+
+第二问是长思维链。蒸馏后的 DeepSeek 系模型会把单条轨迹拉到 8K token 量级；同步批必须等最长序列结束，vLLM 的吞吐优势才会变成墙钟。OpenRLHF 的论文把「推理瓶颈」和「新手进不去工业框架」写成同一件产品问题，而不是再发明一种策略梯度。
+
+### 共置四模型为什么在 70B 失效
+
+共置的好处是权重切换可以走本地重切分，不必跨机广播。坏处是峰值显存按四套模型相加，生成期的 KV 还要叠在训练布局上。Hu 等人的观察是：已有开源框架在 70B 以上仍把四模型绑在同一组 GPU，资源利用率被最肥的那一相决定。Ray 的 placement group 允许按角色切 GPU：一部分专跑 rollout engine，一部分跑 ZeRO engine 算对数概率与反向。这不是新算法，是把「谁占卡」从硬编码改成可调度。
+
+<span class="marginnote">论文后期修订把 RLVR 与长 CoT 写进摘要。初版（2024 年 5 月）更强调 70B 级 RLHF 调度；读数字时要对版本。v0.8.5 对 verl v0.4.0 的长 CoT 表，不能拿去打 2026 年的 verl 主分支。</span>
+
+## 方法
+
+系统把 GPU 分成两类角色。**Rollout engine** 用 vLLM 做响应生成：PagedAttention、continuous batching、前缀缓存，显存浪费可以压到个位数百分比量级（Kwon 等 SOSP 2023 报 KV 浪费低于 4%）。**Actor / ZeRO engine** 用 HuggingFace Transformers 实例化模型，DeepSpeed ZeRO 做数据并行，AutoTP 自动注入张量并行，环注意力做序列并行，合称论文里的「3D」。权重在两边之间切分传递：训练侧的 ZeRO 切片经 AutoTP / AutoPP 再切给 vLLM。Ray 负责工作流与数据面，而不是让用户手写 NCCL 拓扑。
+
+算法层它实现 RLHF PPO、[DPO](/llm/rafailov-dpo)、拒绝采样、奖励模型与过程奖励，后续仓库还接了 GRPO 与 [DAPO](/llm/dapo)。论文实验主表用 DAPO、损失取 $k_2$，基座是 DeepSeek 蒸馏的 Qwen 系列，8×H200 140GB，最大输入 1024，生成长度扫 1K–8K，local batch 1 以免 OOM。相对 verl 的逐步墙钟几何平均加速：1.5B 约 **1.22×**，7B 约 **1.42×**，14B 约 **1.68×**；14B-8K 为 328.6s 对 511.1s。GSM8K 上同一套 GRPO 超参，OpenRLHF 一个 epoch 1657s，优化后的 TRL 5189s，约 **3.1×**。PPO 微调 1024 条提示一个 epoch：236.8s 对 DeepSpeed-Chat 的 855s，约 **3.6×**。这些倍数钉在文中硬件、版本与配方，不是跨年定律。
+
+```mermaid
+flowchart LR
+  Ray["Ray 调度"] --> RO["vLLM Rollout"]
+  Ray --> ZE["DeepSpeed ZeRO"]
+  RO -->|"轨迹 / logprob"| BUF["经验缓冲"]
+  ZE -->|"更新后的切片"| RO
+  BUF --> ZE
+```
+
+### 异步数据流不是免费的 on-policy
+
+仓库支持异步 dataflow：rollout、actor、远程引擎用消息传递，数据一到就处理。长 CoT 长度方差大时，同步批会被最长样本钉死；异步能让短样本先进入训练。代价是行为策略与当前策略的版本差，必须用重要性采样或staleness 上限来管，细节见 [异步 rollout](/llm/async-rollout-arch) 与 [AReaL](/llm/areal-async-rl)。OpenRLHF 把这条写成可扩展到 agent RL 的远程引擎，本身并不自动给出 AReaL 那种解耦 PPO 目标。
+
+<span class="marginnote">可用性对比里 OpenRLHF 报约 8523 行核心代码，TRL 19071，verl 32325。行数依赖统计口径与版本，只能说明模块边界，不能证明「更正确」。</span>
+
+## 机制
+
+Ray 降低的是**控制面**复杂度：每个角色是 actor，placement group 声明卡数，工作流在驱动进程里读起来像单机脚本。真正吃吞吐的是 vLLM 的解码核与 ZeRO-3 的 All-Gather。论文强调 DeepSpeed 新版 AutoTP：不再为每个 HuggingFace 结构手写 injection policy，运行时自动找线性层与注意力输出。环注意力把长序列的注意力算力沿环切开，对 8K 生成比「只加 TP」更贴长 CoT。
+
+生成与训练的并行策略通常不一致。训练要大 micro-batch 与激活检查点；生成要大 decode batch 与 KV。OpenRLHF 用切片管道在两种布局间搬权重，而不是像 HybridFlow 的 3D-HybridEngine 那样追求零冗余原地重切分。换来的是实现短、对接 HF 模型快；换不来的是跨机广播的带宽税。集群若把 rollout 与训练分到不同节点，权重同步会成为新的临界区——异步设计能把这段从「等整批生成结束」里挪开，但不能消灭通信本身。
+
+### 对照表必须连着任务读
+
+长 CoT 表比的是逐步训练时间，不是 GSM8K 准确率。GSM8K / PPO 两条是另一套短上下文配方，用来打 TRL 与 DeepSpeed-Chat。把 3.1× 写进「14B 长链也快三倍」是口径错误。同样，论文承认自己作为社区项目可能追不上有专职团队的工业框架峰值，也不支持视觉-语言模型；依赖 Ray / vLLM / DeepSpeed 的版本耦合是维护税。
+
+## 边界与工程取舍
+
+不要把 OpenRLHF 写成「替代 verl」。两者后来互相吸收：verl 走 HybridFlow 控制面与 3D-HybridEngine；OpenRLHF 走 HF 原生与更短的编排层。选框架看模型是否必须 Megatron 检查点、是否要多后端推理、以及团队能不能接受 Ray 集群运维。算法上 PPO 对超参仍然敏感；Shen 等人写在 Notion 上的 PPO tricks（论文参考文献 [23]）比框架开关更决定是否塌。Agent 多轮要把工具观察从损失里掩掉，见 [多轮 loss mask](/llm/multiturn-loss-mask)，OpenRLHF 的远程引擎只提供调度钩子，不自动保证掩码正确。
+
+检查点是 actor 与可选 critic / RM 多份；只存 vLLM 权重不够下次续训。混合精度、ZeRO 档、vLLM TP 都会改数值，复现应对齐这三项再比墙钟。
+
+<span class="marginnote">真实编号：Hu、Wu、Zhu、Xianyu 等 *OpenRLHF*，arXiv:2405.11143。对照：Yao 等 DeepSpeed-Chat arXiv:2308.01320；von Werra 等 TRL；Sheng 等 HybridFlow arXiv:2409.19256；Kwon 等 PagedAttention。禁止把后续仓库里的 GRPO 脚本算进 2024 年 5 月那一版论文贡献。</span>
+
+## 小结
+
+- OpenRLHF 用 Ray 分角色调度，vLLM 做生成，DeepSpeed ZeRO / AutoTP / 环注意力做训练，对接 HuggingFace 模型。
+- 长 CoT 上相对当时 verl 约 1.22×–1.68×；短任务上相对 TRL GRPO 约 3.1×、相对 DeepSpeed-Chat PPO 约 3.6×，均钉文中硬件与版本。
+- 异步 dataflow 提高利用率，同时引入策略版本差，需要额外的 off-policy 处理。
+- 出处：arXiv:2405.11143；实现 https://github.com/OpenRLHF/OpenRLHF。

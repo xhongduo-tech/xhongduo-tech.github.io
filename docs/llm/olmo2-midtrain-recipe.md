@@ -1,0 +1,84 @@
+---
+title: OLMo 2 midtrain 配方
+date: 2026-09-07
+section: llm
+---
+
+# OLMo 2 midtrain 配方
+
+<div class="epigraph">
+<p>Dolmino Mix 1124 在退火阶段引入后，下游基准全面抬升；我们用 micro-annealing 低成本评估数据源，再对多数据序检查点做平均。</p>
+<footer>—— OLMo Team，*2 OLMo 2 Furious*，arXiv:2501.00656</footer>
+</div>
+
+[OLMo 2](/llm/olmo2) 专文写架构与开放交付。本篇对着报告 §4，把 **mid-training 配方**摊成可核对表：从哪份检查点出发、Dolmino 里有什么、50B / 100B / 300B 怎么采样、micro-anneal 如何筛数学源、souping 平均哪几路。中训占训练 FLOPs 的约 5%–10%，却把 7B 的开发集平均分拉高约 10.6 分——这是课程的杠杆，不是新注意力。
+
+## 问题
+
+数 T 的 olmo-mix-1124 以网页为主。训完再看 OLMES，知识型多选尚可，**GSM8K 一类解题弱**。若把数学源提前混进 5T，你无法在发现「弱」之前就知道该混哪一锅；若为每一锅重跑 5T，开放实验室的预算不够。需要一种干预：从已有检查点分叉，用百亿级 token 试数据，有效的再放大到正式退火。
+
+第二个问题是终点方差。同一混合、不同 shuffle，末点基准能差出噪声以上。单次退火把随机数据序写成命运；报告选择同一预算跑多路再平均权重。
+
+### 先定流程再定配比
+
+报告把配方写成三步：（1）找能抬**整份开发基准**的高质量通用来源；（2）针对数学做域内源，用 micro-anneal 独立打分，确认混进去仍然有效；（3）按 50B / 100B / 300B 三种预算组混合，小模型走短预算，大模型走长预算并对齐步数，最后 souping。顺序不能倒：没有通用来源垫底，数学源会把 MMLU 换掉；没有 micro-anneal，合成题会把代码格式的错误标签送进正训。
+
+<span class="marginnote">GSM8K 的 1319 条里，200 条叫 GSM\*，只用于中训开发决策；其余 1119 条 held-out。训练集本身进入 Dolmino。引用 7B 的 $24.1\rightarrow 67.5$ 必须并写污染，否则配方看起来像无监督奇迹。</span>
+
+## 方法
+
+**起点**：7B / 1B 预训练约 4T；13B 约 5T；表 9 把 32B 预训练检查点写成 7T（与 32B 博客「最多约 6T」口径不同，引用钉表注）。**日程**：从该点线性 [退火](/llm/annealing-phase) 到零，不再余弦。**数据**：Dolmino Mix 1124 总库约 843B token，从中抽样三档。表 13 的结构是：过滤 DCLM 约占混合的一半；其余为去污 FLAN、StackExchange Q&A、peS2o、Wikipedia/Wikibooks、Dolmino Math。短档少重复、长档对稀缺源做 2×–4× 上采样，以保持各源相对比例大致稳定。
+
+### Micro-anneal：不到 10B 就看见源好不好
+
+对某一数学子集：取出与之等量的通用网页（如 DCLM），做成约 50/50 混合，按退火日程、以该短集合的长度把学习率降到零。19 次 micro-anneal 合计约 130B token，算力低于 7B 正式三路 50B souping。三条公开结论：（1）数学不必占满，35/65 与 10/90 都能把 GSM\* 从 28.5 拉到 60+；（2）把同一数学源重复 2× 优于 1×，4× 不再涨；（3）TinyGSM 若保持代码答案，GSM\* 下降；MIND 改写成自然语言解题后大幅上升——底座代码只有约 2% 时，标签语言必须对齐评测。
+
+```mermaid
+flowchart TD
+  PT["olmo-mix 预训练检查点"] --> HQ["高质量网页 / Wiki / FLAN 筛选"]
+  PT --> MA["micro-anneal 筛数学源"]
+  MA --> MATH["Dolmino Math + TinyGSM-MIND 等"]
+  HQ --> MIX["50B / 100B / 300B 抽样"]
+  MATH --> MIX
+  MIX --> A1["数据序 1 退火到 0"]
+  MIX --> A2["数据序 2"]
+  MIX --> A3["数据序 3"]
+  MIX --> A4["可选 300B 第四路"]
+  A1 --> SOUP["权重平均"]
+  A2 --> SOUP
+  A3 --> SOUP
+  A4 --> SOUP
+  SOUP --> BASE["OLMo 2 Base"]
+```
+
+7B：三路 50B，不同数据序，平均得到成品。13B 与 32B：三路 100B（与 7B **更新步数相同**，因 batch 更大）再加一路 300B，四路平均。1B 对照只跑一路 50B、不 soup，用来证明干预在小规模上同样改变曲线。表 14 在 7B、50B、多种混合上比较「最好单检查点」与「三路汤」：汤在 OLMES、生成、MMLU、GSM\* 上一致地等于或超过最好单点。
+
+## 机制
+
+高质量通用来源的机制是提高「像评测的网页」密度：FineWeb 质量分、DCLM 过滤、百科与学术（peS2o）让学业多选和阅读理解的 n-gram 更常出现，所以 PT Mix 单独退火也能抬 MMLU；它不提供解题图。数学源提供显式计算与应用题模板；合成里把数字替换、保留计算图，是为了让模型抽结构而不是背原题数字。FLAN / 指令源把「问—答」的表面格式提前注入 Base，降低后训练要从零学模板的负担，但仍是 LM 损失。
+
+souping 的机制是：不同 shuffle 对应损失曲面上邻近的极小值，参数平均常落在更宽的盆地（Wortsman 等 2022）。中训短、从同一点出发，平均合法；把预训练 2T 与 5T 两个相距很远的点拿来汤，不在本配方里。micro-anneal 能迁移到全混合，报告写的是经验：单源在 50/50 短跑上的增益，加回大混合后仍然在。这不是定理，只是他们 19 次实验后的操作假设。
+
+<span class="marginnote">Dolmino SynthMath 含基础算式（如 $77\times 14=1078$）配多种题面，用来压推理逐步里的算术错误；另有把 GSM8K 训练题换数字的合成，以及 Qwen2.5-7B-Instruct 做 MIND 改写。教师模型进入合成链，开放配方仍须声明这一依赖。</span>
+
+### 表 9：中训前后差在哪
+
+7B 平均 $53.0\rightarrow 62.9$；13B $58.9\rightarrow 68.3$；32B $66.3\rightarrow 73.3$；1B $31.9\rightarrow 43.7$。跳得最狠的是 GSM8K 与 DROP：7B 的 GSM8K $24.1\rightarrow 67.5$、DROP $40.7\rightarrow 60.8$。MMLU 的增益温和（7B $59.8\rightarrow 63.7$），说明配方不是「只刷多选」。7B 中训后的平均分超过**未经中训的 13B**，这是报告用来论证「课程比再堆参数更便宜」的句子，不要外推成 7B Instruct 超过 13B Instruct。
+
+## 边界与工程取舍
+
+开发集与 held-out 必须分开读。AGIEval、MMLU-Pro、TriviaQA 等 held-out 也随中训上升，但 GSM8K 的绝对数字含训练题。合成与 FLAN 的许可、NC 条款、论坛来源，商用要按成分审。Qwen2.5 作为改写教师，使「完全开放」在数据生成链上打了折扣——权重与主语料可复现，教师不可替换为同一开放模型时，合成子集只能近似。
+
+不要把 Dolmino 写成独立 arXiv 数据集论文；它是 1124 配方名。不要把 300B 档理解成「更多总是更好」：长档提高稀缺源重复，过长可能背题。32B 的 GQA 与 7B 的 MHA 不改变中训损失形式，但 batch / 步数对齐是为了让线性退火的**更新次数**可比。上下文 4K 不变；想靠中训买 128K 窗口，这份配方没有做。
+
+后训练不在本配方内。Base 中训抬了 GSM8K，并不自动给出安全拒答。把 Instruct 分数的增量算到 Dolmino 头上，会把 Tulu 3 与 RLVR 的贡献抹掉。
+
+<span class="marginnote">出处：*2 OLMo 2 Furious*，arXiv:2501.00656，§4 与表 5、9、12–14。架构与开放清单见 [OLMo 2](/llm/olmo2)；日程见 [退火阶段](/llm/annealing-phase)；方法归属见 [Continued Pretraining](/llm/continued-pretraining)。</span>
+
+## 小结
+
+- 中训 = 预训练检查点 + Dolmino Mix + 线性学习率到零 + 多数据序 souping。
+- 通用来源抬学业与阅读；数学源经 micro-anneal 筛选，需与评测同为自然语言。
+- 7B 三路 50B；13B/32B 三路 100B 加一路 300B。过滤网页约占一半。
+- 表 9 显示平均分约 +10；GSM8K 跳变须并写训练集进入混合。
+- 出处：arXiv:2501.00656 §4。

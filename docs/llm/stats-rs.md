@@ -1,0 +1,88 @@
+---
+title: 统计拒绝采样
+date: 2026-09-07
+section: llm
+---
+
+# 统计拒绝采样
+
+<div class="epigraph">
+    <p>LLM 文献里的拒绝采样常常只是 N 条里取前 k；统计学里的拒绝采样是用提案分布配合接受概率，去得到目标密度的样本。后者在 β→0 时才退化成前者。</p>
+    <footer>—— Liu 等，Statistical Rejection Sampling Improves Preference Optimization，ICLR 2024；算法源头 Neal，2003</footer>
+</div>
+
+Bai、Stiennon、Llama 2、ReST 把「拒绝采样」写成：从策略采 $N$ 条，用奖励模型打分，保留最高的一条或 $k$ 条。这是顺序统计量过滤，不是从 $\pi_r\propto\pi_{\mathrm{sft}}e^{r/\beta}$ 里做无偏抽样。Liu 等人在同一篇 RSO 论文里把 Neal 的统计拒绝采样接回来：以 $\pi_{\mathrm{sft}}$ 为提案，按目标密度与提案密度之比决定接受，使留下的集合在候选数趋于无穷时逼近 $\pi_r$。Best-of-N 是 $\beta\to 0$ 只接受当前最高奖励的极限。本篇只写这条采样算法、接受率与 $\beta$ 的含义；造对之后如何用 sigmoid-norm / hinge-norm 拟合策略，见 [RSO](/llm/rso)。
+
+## 问题
+
+目标策略由 KL 正则最优给出：$\pi_r(y\mid x)=\pi_{\mathrm{sft}}(y\mid x)\exp(r(x,y)/\beta)/Z(x)$。直接从 $\pi_r$ 自回归采样需要每步知道 $Z$ 或逐步奖励，通常没有。从 $\pi_{\mathrm{sft}}$ 采样成本低，但分布是提案不是目标。重要性采样可以事后加权，权重 $\exp(r/\beta)/Z$ 方差大，且 $Z$ 未知。拒绝采样提供另一条路：提案抽出 $y$，掷 $u\sim U[0,1]$，若 $u<\pi_r(y)/(M\pi_{\mathrm{sft}}(y))$ 则接受。$M$ 满足对一切尚未接受的 $y$，$M\pi_{\mathrm{sft}}\ge\pi_r$。接受的样本（在理想条件下）来自 $\pi_r$，不是「分数最高的几个」。
+
+LLM 社区的 top-$k$-over-$N$ 永远返回分数排序的上尾，与 $\beta$ 无关。若 RM 有噪，上尾是 hack 集中区；若需要的是「按 $\pi_r$ 的概率质量」而不是「点估计最大值」，上尾会系统性地过信 RM。统计拒绝采样用 $\beta$ 在「信 RM」与「信 SFT」之间插值，并给出期望接受率与 $r_{\mathrm{max}}$ 的关系。
+
+### 提案必须盖住目标的支撑
+
+拒绝采样要求目标支撑包含于 $M$ 倍提案。$\pi_r$ 相对 $\pi_{\mathrm{sft}}$ 只乘了 $\exp(r/\beta)$，支撑相同，条件成立。若提案改成另一个几乎不重叠的模型，大量目标质量永远抽不到，$M$ 会爆，接受率趋于零。因此算法绑定 SFT 为提案，而不是任意更强模型。更强模型可以当 RM，不应当提案，除非重新定义目标密度。
+
+<span class="marginnote">实践中 $M$ 无法对整个离散序列空间取精确上界。作者不计算 $M$，而用同一次 64 条 SFT 样本估计 $\pi_r/(M\pi_{\mathrm{sft}})$。这是有限候选上的近似拒绝，不是教科书上对全空间的精确算法。定理里的无穷候选极限是理想化。</span>
+
+## 方法
+
+对固定提示，维护已接受集合 $\mathcal{Y}$。重复：从 $\pi_{\mathrm{sft}}$ 抽一条尚未在 $\mathcal{Y}$ 中的 $y$，抽 $u\sim U[0,1]$，估计接受概率 $p_{\mathrm{acc}}(y)=\pi_{r_\psi}(y\mid x)/(M\pi_{\mathrm{sft}}(y\mid x))$；若 $u<p_{\mathrm{acc}}$ 则纳入 $\mathcal{Y}$。直到条数够用。因 $\pi_r/\pi_{\mathrm{sft}}\propto\exp(r/\beta)$，$p_{\mathrm{acc}}$ 单调于奖励。论文 Theorem 1：令 $r_{\mathrm{max}}$ 为尚未接受候选里的最大奖励，候选数趋于无穷时，期望接受率为
+
+$$
+\mathbb{E}_{y\sim\pi_{\mathrm{sft}}}\Bigl[\exp\bigl((r_\psi(x,y)-r_{\mathrm{max}})/\beta\bigr)\Bigr].
+$$
+
+$\beta\to\infty$ 时指数趋于 1，SFT 样本几乎全接受，目标退回提案。$\beta\to 0$ 时只有达到 $r_{\mathrm{max}}$ 的样本接受概率不消失，即 top-$k$-over-$N$。$\beta$ 是对 RM 的信任：RM 准且稳，用小 $\beta$ 靠近 Best-of-N；RM 噪，用大 $\beta$ 避免把 hack 写成训练集。作者把它当超参，按验证指标选；主实验常用 $\beta=0.5$。候选生成：温度 $0.7$、top-$k=40$ 采 64 条再往下子采样。
+
+```mermaid
+flowchart TD
+  SFT["y ~ πsft"] --> U["u ~ Uniform(0,1)"]
+  RM["rψ(x,y)"] --> ACC["p_acc ∝ exp((r − r_max)/β)"]
+  SFT --> ACC
+  U --> CMP{"u < p_acc?"}
+  ACC --> CMP
+  CMP -->|是| Y["纳入近似 πr 集合"]
+  CMP -->|否| SFT
+  Y --> PAIR["再交给成对 RM 打标"]
+```
+
+### 与 Best-of-N、阈值过滤的关系
+
+Best-of-N 返回 $\arg\max r$，等价于上述算法在 $\beta\to 0$ 且 $k=1$ 时的极限行为。Llama 2 把 Best-of-N 样本再送进 PPO，是用上尾当额外示范或滚动数据，不是从 $\pi_r$ 无偏抽样。ReST 把奖励归一化到 $[0,1]$ 再按阈值（如 $0.7$）截断，接受集是超平面以上的全体，密度仍是被截断的 SFT，而不是 $\exp(r/\beta)$ 重加权。RAFT 只留每组冠军。统计拒绝采样的接受集可以包含中等奖励样本，只要相对 $r_{\mathrm{max}}$ 的指数权重掷中了 $u$；这正是后续成对损失还需要输家的原因——若只留冠军，分类损失没有负例。
+
+## 机制
+
+### 接受率为什么随 $r_{\mathrm{max}}$ 变
+
+每接受一条高分样本，$r_{\mathrm{max}}$ 可能上升，其余样本的 $\exp((r-r_{\mathrm{max}})/\beta)$ 下降，后面更难接受。这会自动限制集合被低分样本填满。有限 64 候选上，$r_{\mathrm{max}}$ 是这 64 条里的最大，不是全局最大：全局更高的字符串若没被 SFT 抽到，永远进不了集合。故算法是「在 SFT 的 64 点经验测度上按 $\exp(r/\beta)$ 重加权再无放回抽取」，与连续密度上的经典拒绝采样同构，支撑被 64 点截断。候选越少，越像在短名单里做加权抽签，越不像 $\pi_r$。
+
+$\beta$ 出现在最优策略定义与接受率两处，必须一致。若造对时用很小的 $\beta$ 逼近 Best-of-N，拟合阶段又用很大的 $\gamma$ 去信这些对，等于双重过信 RM。RSO 把造对的 $\beta$ 与损失温度 $\gamma$ 拆开，正是为了不要锁死。
+
+<span class="marginnote">无放回（「不在 $\mathcal{Y}$ 中」）是为了得到互异样本去做对。经典拒绝采样允许重复。对语言模型，重复字符串对分类损失无信息。互异约束在支撑极尖时会强制纳入较低分样本，轻微偏离 $\pi_r$，这是实现代价。</span>
+
+### 计算：不必每步求 $Z$
+
+$\pi_r$ 含未知 $Z(x)$，$M$ 也含 $Z$。比值 $\pi_r/(M\pi_{\mathrm{sft}})$ 里 $Z$ 约掉，剩下由 $r$ 与经验上界决定的指数。附录用 64 条上的奖励差值直接估接受概率，因此每条候选只需一次 RM 前向（成对 RM 则需诱导点分或与锚比较），不必对词表求和。这与逐步前向 KL、与 token 级 TDPO 的开销不是同一量级。墙钟主要在 64 次自回归生成。
+
+## 边界与工程取舍
+
+近似质量由候选数、$T$、top-$k$ 截断共同决定。top-$k=40$ 已经砍掉提案支撑，目标 $\pi_r$ 若想要稀有高奖励 token，可能根本不在提案里。温度过低，64 条近乎重复，拒绝采样无物可拒。RM 对长度敏感时，$\exp(r/\beta)$ 会变成长度过滤器，接受集系统性变长。这些都不是 Neal 算法的理论缺陷，而是语言模型提案与 RM 的缺陷。
+
+不要把统计拒绝采样当成训练算法。它只改数据集的样本测度。后续仍要 [RSO](/llm/rso) 的分类损失，或接到 SFT / PPO。也不要和在线 [GRPO](/llm/grpo) 的组采样混淆：后者每步从当前 $\pi_{\theta_{\mathrm{old}}}$ 采组、当场算优势；这里提案冻结为 SFT，目标冻结为 $\pi_{r_\psi}$。
+
+<span class="marginnote">「拒绝」一词在强化学习里还表示拒绝采样微调（RFT）：用奖励筛正例再 SFT。RFT 没有 $\pi_r$ 的接受概率，只有阈值或冠军。写文档时必须写明是 Neal 式还是 Best-of-N 式，否则超参无法迁移。</span>
+
+### 何时不必上统计拒绝采样
+
+RM 极准且只想要上尾示范，Best-of-N / RAFT 更简单。没有 RM、只有人类原对，无法定义 $\pi_r$ 的接受比。已经在当前策略上在线采样打分，提案就是 $\pi_\theta$，应直接用组相对梯度，而不是用过期 SFT 做拒绝。候选预算小到 $N=2$，经验 $r_{\mathrm{max}}$ 噪声极大，插值失去意义。
+
+## 小结
+
+- 统计拒绝采样用 $\pi_{\mathrm{sft}}$ 为提案，按 $\exp((r-r_{\mathrm{max}})/\beta)$ 接受，使样本逼近 KL 正则最优 $\pi_r$。
+- LLM 文献的 top-$k$-over-$N$ 是 $\beta\to 0$ 的特例；$\beta\to\infty$ 则退回 SFT 采样。
+- $\beta$ 编码对奖励模型的信任，须按 RM 质量与验证指标选。
+- 实践用有限候选估计接受比，不显式计算 $M$ 与 $Z$；支撑受提案与 $N$ 截断。
+- 它是造数据的抽样步骤，不是偏好损失；与 RFT / ReST 的阈值过滤不是同一测度。
+- 接受集可含中等奖励样本，以便后续成对损失仍有输家。
+- 出处：Liu 等，*Statistical Rejection Sampling Improves Preference Optimization*，ICLR 2024；统计方法见 Neal，*Slice Sampling* 一文所综述的拒绝采样，2003。

@@ -1,0 +1,77 @@
+---
+title: DeepSpeed-Chat
+date: 2026-09-07
+section: llm
+---
+
+# DeepSpeed-Chat
+
+<div class="epigraph">
+    <p>InstructGPT 的三步——SFT、奖励模型、PPO——在工程上把同一次迭代切成「生成一段」和「更新一段」。Hybrid Engine 要在这两种模式之间切换，而不是用训练图去跑生成、或用推理图去跑反向。</p>
+    <footer>—— Yao et al., DeepSpeed-Chat, arXiv:2308.01320</footer>
+</div>
+
+2023 年开源社区已经能复制对话风格的 SFT，但完整 [InstructGPT](/llm/instructgpt) 式 RLHF 仍贵：PPO 一步里要挂 actor、参考模型、奖励模型，生成阶段要 KV 缓存与大 batch 解码，训练阶段要 ZeRO 与梯度。**DeepSpeed-Chat**（Yao、Aminabadi、Ruwase、Rajbhandari、He 等）把易用脚本、对齐 InstructGPT 的三步流水线、以及 **DeepSpeed Hybrid Engine（HE）** 收成一套系统。代码在 `DeepSpeedExamples/applications/DeepSpeed-Chat`。本篇钉三步语义、HE 如何在推理优化与 [ZeRO](/llm/zero-stages) 之间切换，以及论文表格必须连着 **135M token / Step 3** 那条脚注来读。不把「9 小时训完 13B ChatGPT」写成任意语料、任意 epoch 的成本定律；也不讨论未在该文出现的后续 GRPO/DPO 集成细节——[DPO](/llm/rafailov-dpo) 是另一条对齐路。
+
+## 问题
+
+PPO 对齐与预训练的系统形状不同。预训练几乎全是训练模式：前向、反向、优化器。RLHF 的 Step 3 每个 batch 先要 **generation**：actor 按 prompt 采样，长度可变，算术强度低，吃的是推理栈（KV、张量并行、融合 transformer 核）。紧接着 **training**：对采样序列算策略损失、KL、价值头，吃的是训练栈（ZeRO 分片、LoRA、激活检查点）。用一份静态训练图跑生成，会丢掉 KV 与推理核；用推理引擎跑反向，又没有分片优化器。当时开源方案在中等规模（文中举 6.7B）上往往只要多卡，且效率可以低到机器能力的百分之几。
+
+第二问是可达性：没有多机的人能否在单卡上跑「不是玩具」的 13B 级 RLHF；有 64 卡的人能否把 175B 级 Step 3 跑进一天量级。论文用三张表回答，但口径必须先锁死。
+
+### 三步对齐 InstructGPT
+
+DeepSpeed-RLHF pipeline 按 InstructGPT 一对一：
+
+1. **SFT**：在人类示范上监督微调 actor。
+2. **Reward model**：在偏好对上训奖励模型（文中示例常用较小的 OPT，如 350M 配 13B actor）。
+3. **RLHF / PPO**：actor 生成，奖励模型打分，相对参考策略加 KL，更新 actor（及可选 critic）。
+
+数据抽象允许混合多个开源偏好源。一键脚本可以从 Hugging Face 预训练出发跑完三步，并附对话推理 API。这是产品形状，不是新的 RL 算法：目标函数仍是 PPO 家族，见 InstructGPT。
+
+<span class="marginnote">论文与 README 都用「ChatGPT-like」指三步 RLHF 产物，不是声称复现了 OpenAI 的数据或模型。质量取决于你的示范与偏好集；系统论文主要报吞吐与可达规模。</span>
+
+## 方法
+
+Hybrid Engine 把 DeepSpeed 的推理引擎与训练引擎接在同一次 PPO 步里。生成期：切到推理模式，启用 KV 缓存、张量并行与高性能 transformer 核，按生成 batch 出 completion。训练期：切到训练模式，用 ZeRO（及可选 [LoRA](/llm/lora)）更新分片参数，参考模型可以冻结或低精度。HE 知道整条 RLHF 流水线，从而在两相之间做显存与数据搬运的调度：生成刚用完的 KV 不必按训练图常驻；训练需要的完整权重在 ZeRO-3 下按层 All-Gather。
+
+单节点 8×A100 上，论文 Table 1 给出 Step 3 墙钟与当时 Azure 约价：例如 8×A100-80GB 上 OPT-13B 约 **9 小时 / $290**，OPT-30B 约 **18 小时 / $580**。64×A100-80GB 上 OPT-13B 约 **1.25 小时**，OPT-175B 约 **20 小时**。单卡可达：A100 80GB 上 HE 支持到 OPT-13B。端到端三步例子：8×A100-40G 上 actor 13B + reward 350M，Step 1/2/3 约 2.5 / 0.25 / 10.8 小时，合计约 13.6 小时。作者还称 HE 相对当时 Colossal-AI / HuggingFace 路径可到约 15× 吞吐——那是文中对照，钉其基线实现与是否含生成核。
+
+```mermaid
+flowchart LR
+  SFT["Step 1 SFT"] --> RM["Step 2 奖励模型"]
+  RM --> GEN["Step 3 生成 · 推理模式 KV"]
+  GEN --> PPO["Step 3 训练 · ZeRO / LoRA"]
+  PPO --> GEN
+```
+
+### 表格数字钉在 Step 3 与 135M token
+
+脚注（论文称为 Very Important Details）：Table 1/2 的时间是 **Step 3**，在 DeepSpeed-RLHF 整理的数据与配方上测得：**一个 epoch、合计约 135M token**（约 131.9k 条 query 与同样条数的 answer，序列长度 256），每步最大全局 batch 约 **0.5M token**（1024 个 query–answer 对）。`ppo_epochs=generation_batches=1`，且 `per_device_generation_batch_size` 与训练 batch 对齐，因为多次用同一批生成数据更新 actor 不稳定。把「13B 九小时」拿去和「万亿 token 预训练」或「多 epoch 全量对话数据」比成本，口径已经错了。
+
+<span class="marginnote">序列 256、一个 epoch、Step 3 only：这三项任一改变，墙钟与美元都要重测。Azure 价格是当时约价，不是 2026 年报价单。</span>
+
+## 机制
+
+生成与训练的显存峰值形状不同。生成要为长 KV 付费，但权重可以按推理布局（复制或 TP）；训练要为激活与优化器付费，权重按 ZeRO 分片。HE 的贡献是避免「按二者峰值之和」常驻：在模式切换时改包装，而不是维护两份完整模型副本（参考模型仍可能另占一份，这是 RLHF 的算法税）。张量并行在生成期尤其有用，因为 decode 更吃延迟；ZeRO-3 在训练期尤其有用，因为 actor+ref+reward 三套参数叠在一起。
+
+15× 一类倍数来自「生成不再走慢训练路径」与「训练不再按整模复制」。若对照系统后来也接了 vLLM 式生成，倍数会收敛——那是系统演进，不是 2308.01320 作废，而是对照基线变了。
+
+### 单卡 13B 与 64 卡 175B 不是同一条效率曲线
+
+单卡靠的是 ZeRO-Offload / HE 的显存收缩，墙钟可以很慢，意义是可达。64 卡 175B 靠的是多机扩展，Step 3 仍只有 135M token，所以「一天以内」描述的是这条配方的吞吐，不是训到收敛的对齐质量。奖励模型 350M 配 175B actor 是计算设定，不是「小 RM 一定够用」。
+
+## 边界与工程取舍
+
+不要把 DeepSpeed-Chat 写成 ChatGPT 开源复现。不要忽略 Step 3 脚注去做云成本对比。PPO 对超参敏感；论文自己强调生成数据不宜多次重复更新。后续业界大量改用 DPO / 拒绝采样，系统栈仍可复用 SFT 与 RM，但 HE 的「生成+PPO」主路径不再是唯一标准。仓库与论文功能集随 DeepSpeed 版本变，应以当时 README 为准。
+
+检查点是三步各一份；只加载 Step 3 actor 不等于带了 RM。混合精度、LoRA 秩、ZeRO 档位都会改数值，多实验室复现应对齐这三项。参考模型与 actor 同结构时，KL 项的显存税几乎再付一套前向；HE 再省，也抹不掉这条算法常数。奖励模型若改成与 actor 同规模，Step 2 与 Step 3 的打分都会从「小头」变成新的墙，论文表格不再适用。
+
+<span class="marginnote">真实编号：Yao 等 *DeepSpeed-Chat: Easy, Fast and Affordable RLHF Training of ChatGPT-like Models at All Scales*，arXiv:2308.01320。InstructGPT 是 Ouyang 等。ZeRO 是 Rajbhandari 等 arXiv:1910.02054。禁止把后续未写入该文的对齐算法算进 2023 系统贡献。</span>
+
+## 小结
+
+- DeepSpeed-Chat 提供 InstructGPT 三步脚本 + Hybrid Engine：生成走推理优化，PPO 更新走 ZeRO/LoRA。
+- 公开墙钟钉 Step 3、约 135M token、序列 256；13B@8×A100-80G 约 9 小时，175B@64 卡约 20 小时。
+- 单卡可达 13B 级是显存故事，不是效率故事。
+- 出处：arXiv:2308.01320；实现 DeepSpeedExamples/DeepSpeed-Chat。

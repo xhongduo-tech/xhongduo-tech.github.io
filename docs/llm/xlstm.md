@@ -1,0 +1,87 @@
+---
+title: xLSTM 复兴
+date: 2026-09-07
+section: llm
+---
+
+# xLSTM 复兴
+
+<div class="epigraph">
+    <p>指数门控加上可修订的存储，以及可并行的矩阵记忆，LSTM 能否在十亿参数语言建模上重新接近 Transformer 与 SSM。</p>
+    <footer>—— Beck, Pöppel, Hochreiter 等，xLSTM: Extended Long Short-Term Memory，NeurIPS 2024，arXiv:2405.04517</footer>
+</div>
+
+1990 年代的恒定误差转盘与门控让 LSTM 避开 RNN 梯度消失，并一度统治序列任务，直到 2017 年注意力把它在规模上甩开。Beck、Pöppel、Spanring、Hochreiter 等人问：若用现代 LLM 的残差、归一化与堆叠技巧，只改 LSTM 已知的三处缺陷，能走多远？缺陷是：存储决策难以修订、标量细胞容量不够、以及记忆混合导致无法沿时间并行。答案是 **xLSTM**：指数门控的 **sLSTM**（标量记忆 + 新的头内混合）与带协方差更新的 **mLSTM**（矩阵记忆、可完全并行），再装进两种残差块里堆叠。代码：github.com/NX-AI/xlstm。本篇写细胞与块，不把 2025 年缩放律续作的 7B 曲线写成 2024 原文主表。
+
+## 问题
+
+原始细胞
+
+$$
+c_t=f_t\,c_{t-1}+i_t z_t,\qquad h_t=o_t\,\psi(c_t)
+$$
+
+用 sigmoid 门。最近邻检索实验里，一旦写入一个「还行」的匹配，后来更好的匹配很难把旧值挤走——sigmoid 饱和后修订弱。Wikitext-103 按词频切片，LSTM 在稀有词上困惑度更差，像容量被标量 $c$ 卡住。记忆混合（隐状态到门与细胞输入的循环边）让逐步依赖无法写成块内 GEMM，Flash 类核用不上。
+
+Transformer 用全量 KV 换修订与容量，代价是二次。SSM / [Mamba-2](/llm/mamba-2) / [RWKV](/llm/rwkv) 走线性，但 sLSTM 一侧仍想保留**状态跟踪**：Merrill 等指出无记忆混合的对角 RNN 与 Transformer 同属 $\mathsf{TC}^0$，奇偶与括号需要混合。xLSTM 因此不能把所有块都做成可并行的 mLSTM；架构记号 `xLSTM[a:b]` 表示 mLSTM 块与 sLSTM 块之比。
+
+### 指数门控必须配归一化
+
+把 $i_t$、$f_t$ 改成 $\exp(\cdot)$ 能产生大于 1 的写入，从而覆盖旧内容，但数值会爆。sLSTM 引入归一化状态 $n_t=f_t n_{t-1}+i_t$，输出用 $c_t/n_t$；再用稳定器 $m_t=\max(\log f_t+m_{t-1},\log i_t)$ 平移对数域，证明替换 $i',f'$ 不改变网络输出与参数梯度。这是「可修订」的数值条件，不是装饰。
+
+<span class="marginnote">Cover 定理被用来解释块设计：先把历史非线性映到高维再线性可分。sLSTM 用后置上投影（类 Transformer FFN）；mLSTM 用前置上投影（类 SSM），因为矩阵记忆的容量随宽度涨。</span>
+
+## 方法
+
+**sLSTM**：标量（或每头一组标量）细胞，指数输入门，遗忘门可选 sigmoid 或指数，输出门仍 sigmoid。多细胞时在头内做记忆混合，头间不混合——指数门控下这是新的混合方式。它不可完全并行，作者提供寄存器级 CUDA，墙钟通常慢于 mLSTM 不到两倍。
+
+**mLSTM**：细胞升为 $C_t\in\mathbb{R}^{d\times d}$，协方差规则 $C_t=f_t C_{t-1}+i_t v_t k_t^\top$，归一化状态累加门控键，检索
+
+$$
+\tilde h_t=C_t q_t\big/\max\{n_t^\top q_t,1\}.
+$$
+
+无隐到门的循环边，故可改写成并行形式，核思路接近 FlashAttention / GLA。多头与多细胞在此等价。指数门同样用 sLSTM 那套稳定化。
+
+块：sLSTM 块是「细胞 → 门控 MLP」后置上投影，可选短卷积；mLSTM 块把细胞包在两个 MLP 之间，带卷积、可学习跳连与逐分量输出门。整网 Pre-LN 残差堆叠。实验记号如 `xLSTM[7:1]`：48 块里 42 个 mLSTM、6 个 sLSTM。
+
+合成任务：形式语言上带混合的 sLSTM 能解 Transformer / Mamba 解不开的奇偶等；多查询联想检索上矩阵记忆补容量。SlimPajama 15B token 上比当时一批线性方法看验证困惑度；300B token 后再比长上下文外推、下游与 PALOMA 571 域。原文结论是：指数门控与改记忆结构让 xLSTM 在性能与缩放上可与 SOTA Transformer、SSM 有利对照。后续 *xLSTM Scaling Laws*（arXiv:2510.02228）在 80M–7B、2B–2T token 上报计算最优前沿相对 Transformer 更优、且优势随训练 / 推理上下文变长而扩大——那是续作，引用时分开。
+
+```mermaid
+flowchart TD
+  X["输入"] --> S["sLSTM 块：标量细胞 + 头内混合"]
+  X --> M["mLSTM 块：矩阵 C + 协方差更新"]
+  S --> R["Pre-LN 残差堆叠"]
+  M --> R
+  R --> Y["语言模型输出"]
+```
+
+### 并行与混合不能互相替代
+
+把全部 sLSTM 换成 mLSTM，状态跟踪任务会退回对角 RNN 的上限；把全部换成 sLSTM，训练吞吐回不到 Flash 级。7:1 是容量优先的配比，不是唯一正确比例。矩阵记忆每步 $d\times d$ 更新贵，但可在 GPU 上并行，墙钟不一定差；边缘侧则看压缩状态是否装得下，而不是看 FLOPs 表。
+
+## 机制
+
+最近邻失败来自「写入后门关闭」。指数输入门允许新匹配以大于旧归一化质量的权重进 $c$，除 $n_t$ 之后旧值份额下降，这是修订。稀有词失败来自标量瓶颈：矩阵 $C$ 把键值对外积存成可查询的联想表，检索是 $Cq$，更接近线性注意力 / 快速权重，而不是一个 tanh 细胞。mLSTM 的 $\max\{\cdot,1\}$ 防止归一化点积过小。
+
+sLSTM 的混合让门看到其它细胞的 $h$，从而把「奇偶位」这类非对角状态传下去。这与 [RWKV-7](/llm/rwkv-7-goose) 用非对角 DPLR 超 $\mathsf{TC}^0$ 是同一类表达力讨论，实现完全不同：一个是 LSTM 家族加指数门，一个是广义 delta RNN。
+
+<span class="marginnote">mLSTM 的协方差更新与线性注意力加法规则同类，但带门控学习率与衰减；不要写成「xLSTM = 注意力」。sLSTM 才是 LSTM 原教旨的门控细胞。</span>
+
+## 边界与工程取舍
+
+### 2024 原文不是 2026 年的服务栈
+
+主实验在 SlimPajama 量级，不是从零训 70B 聊天模型。推理常数内存成立，但 mLSTM 的 $d\times d$ 状态随头数与宽线性涨，仍可能大于高度压缩的 SSM。与 Transformer 比墙钟，取决于核：无 TFLA / 官方 CUDA 时，论文数字不可复现。PALOMA 域多，平均优势不能掩盖个别域回退。
+
+出处钉 NeurIPS 2024 / arXiv:2405.04517。作者单位 JKU Linz ELLIS、NXAI。不要把 NXAI 后续商用模型卡上的参数量写回这篇缩放图。需要线性注意力对照时读 [DeltaNet](/llm/delta-net) 与 Gated DeltaNet；需要纯 RNN 服务读 RWKV-7。形式语言与 MQAR 是用来拆开「指数门控修订」与「矩阵容量」两件贡献的探针，不能单独拿来宣传通用聊天。300B SlimPajama 之后的外推图若不用官方块配比，sLSTM 的逐步核会拖垮对照。边缘部署看的是压缩状态能否常驻，不是验证集困惑度小数点后三位。
+
+<span class="marginnote">出处：Beck, Pöppel, Spanring, Auer, Prudnikova, Kopp, Klambauer, Brandstetter, Hochreiter，*xLSTM: Extended Long Short-Term Memory*，NeurIPS 2024，arXiv:2405.04517。LSTM 原文：Hochreiter & Schmidhuber, 1997。</span>
+
+## 小结
+
+- xLSTM 用指数门控修订存储，用 mLSTM 矩阵记忆扩容量，用 sLSTM 头内混合保状态跟踪。
+- mLSTM 可并行；sLSTM 逐步，但有优化核。
+- 块按 Cover 思路升维；`[a:b]` 配比在容量与跟踪之间折中。
+- 2024 原文在合成任务与 SlimPajama 上与 Transformer / SSM 有利对照；更大缩放见续作。
+- 出处：Beck et al.，arXiv:2405.04517。

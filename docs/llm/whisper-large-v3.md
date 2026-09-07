@@ -1,0 +1,75 @@
+---
+title: Whisper large-v3
+date: 2026-09-07
+section: llm
+---
+
+# Whisper large-v3
+
+<div class="epigraph">
+    <p>在 68 万小时多语多任务监督上训练后，模型在标准基准上零样本即可与先前全监督系统竞争；我们把模型与推理代码公开，作为稳健语音处理的基座。</p>
+    <footer>—— Radford et al., Robust Speech Recognition via Large-Scale Weak Supervision, arXiv:2212.04356</footer>
+</div>
+
+OpenAI Whisper 的方法论文是 2022 年的弱监督语音识别：编码器—解码器 Transformer，68 万小时网络字幕级数据，零样本转录、翻译、语言识别。**large-v3** 不是新骨架，而是 2023 年 11 月在 GitHub Discussion #1762 与模型卡里发布的大号检查点。Hugging Face `openai/whisper-large-v3` 写明：结构与 large / large-v2 相同，唯一小改是 Mel 频带从 80 增到 **128**；数据改为 100 万小时弱标注加 400 万小时由 large-v2 伪标注的音频，混合上训 2.0 个 epoch。多语错误率相对 large-v2 降约 10%–20%（Common Voice 15 与 Fleurs，按语言用 WER 或 CER）。本篇把论文里的多任务格式与 v3 的增量叠在一起写，不把后来的 large-v3-turbo 当成 v3 本身。
+
+## 问题
+
+学术 ASR 在 LibriSpeech 一类干净读语音上已经很强，一出领域——口音、噪声、术语、少资源语——就碎。Whisper 的赌注是：与其在小而干净的数据上堆架构，不如在超大规模、嘈杂但有字幕的数据上训一个普通 seq2seq，看零样本能走多远。论文刻意用「现成 Transformer」，避免把架构改进与数据缩放混为一谈。
+
+部署问题是长音频。训练切成 30 秒。真实会议是小时级。缓冲式滑窗会在边界丢词或重复。解码器还有语言模型式幻觉：在弱监督噪声标签下，模型会「补」出没说过的词。v3 要回答的增量问题更窄：同样 15.5 亿参数的 large 骨架，换更宽的 Mel、换五倍量级的数据与自蒸馏，错误率还能掉多少。
+
+### 弱监督不是无监督
+
+68 万小时里约 11.7 万小时是非英语（论文数字）。标签来自网络，错字、错语种、机翻都有。模型同时学：把声音写成源语言、把声音译成英语、预测语言、预测是否在说话。这是多任务序列格式，不是 CTC 单任务。v3 的 400 万小时伪标签是 large-v2 跑出来的，错误会传导；官方仍观察到跨语言 10%–20% 的相对下降，说明教师已经够用，而不是伪标签完美。
+
+<span class="marginnote">large 档：32 层编码器与解码器、宽 1280、20 头、约 1550M。tiny/base/small/medium 是同一配方的宽度深度缩放。v3 只改 Mel 与数据，不改层数。turbo 是后来的加速蒸馏，另文。</span>
+
+## 方法
+
+音频重采样到 16 kHz。论文中的特征是 80 通道 log-Mel，25 ms 窗、10 ms 跳；v3 改为 128 通道，其余前端（两次卷积 stem，第二次 stride 2，GELU，正弦位置）保持。30 秒对应 3000 帧，stem 后约 1500 步，这是编码器长度上限。解码器学位置编码，输入输出 embedding 绑定。块是 pre-activation 残差。训练在 30 秒片段上，短则补零，长则切。
+
+多任务解码格式：以特殊 token 开头指定语言与任务（转录 / 翻译），再生成文本 token。推理时同一套权重零样本切换。长音频用 30 秒缓冲衔接。v3 训练：1M 弱标签 + 4M 伪标签，2 epoch。官方评测在 CV15 与 Fleurs 上按语言报告；中文统一成简体再比，韩语因空格不一致改用 CER，塞尔维亚语把预测与标签都转西里尔再算 WER——这些规则写在 Discussion #1762，换规则数字会动。
+
+### 幻觉与重复是解码器的结构病
+
+模型卡与论文都写：弱监督加序列模型，会把「下一个词该是什么」与「音频里有什么」混在一起，于是出现未说内容。重复可用束搜索与温度缓解，不能根除。低资源、低可发现性语言上更重。这不是 v3 引入的新缺陷，数据变干净也不会自动消失，因为目标仍是自回归文本。
+
+## 机制
+
+编码器把 Mel 当成「图像」做双向自注意力，解码器用交叉注意力读音频、用因果自注意力写字。多任务特殊 token 相当于在同一 softmax 里切换模式，省掉分模型。数据缩放在论文中用 medium 档做消融：从 54k 小时到 680k 小时，英语与多语 ASR、X→en 翻译都明显涨——这是 Whisper 的核心机制：规模代替领域自适应。
+
+v3 的 128 Mel 提高高频分辨率，对辅音与非英语音素可能有帮助，官方没有单独消融「只改 Mel、数据不变」。伪标签是自蒸馏：教师 large-v2 已经比第一代 large 稳，学生在更多小时上拟合教师，等于把计算花在教师认为对的转录上。10%–20% 是跨语言平均叙事，个别语言仍可能持平或回退，读图时按语言看。
+
+<span class="marginnote">Whisper 不做说话人日志、不做情绪。那些要外接。SenseVoice 把情绪与事件打进同一前向，任务集合不同，延迟也不同，见 [SenseVoice](/llm/sensevoice-small)。</span>
+
+### 零样本翻译不是专用 NMT
+
+X→en 翻译与转录共享解码器。优点是一套权重；缺点是翻译风格跟随网络字幕，专有名词与代码切换不稳。语言 ID 错误会把整段任务带偏——先错判语种，再按错误语种解码。生产上常先 VAD 再送 Whisper，并允许用户锁语言 token，相当于关掉自动 LID。
+
+```mermaid
+flowchart TD
+  WAV["16 kHz 波形"] --> MEL["log-Mel 128 bin v3"]
+  MEL --> STEM["卷积 stem stride 2"]
+  STEM --> ENC["Transformer 编码器 32 层"]
+  SOT["特殊 token 语言 / 任务"] --> DEC["Transformer 解码器 32 层"]
+  ENC --> DEC
+  DEC --> TXT["转录或英译文本"]
+```
+
+## 边界与工程取舍
+
+30 秒窗口不适合精确词级时间戳（官方时间戳是粗的，社区有后处理）。幻觉在会议、歌曲、噪声里加重。许可证与权重开放，但训练数据不可得，无法复现 v3。中文繁简、数字 ITN、标点取决于解码侧；Whisper 原模型 ITN 弱于专为中文设计的 SenseVoice。不要把 Hugging Face `pipeline` 的默认温度、无语音阈值当成论文超参。
+
+v3 相对 v2 的增益来自数据与 Mel，不是新对齐算法。若业务只要英语且要吞吐，medium.en 或后来的 turbo 可能更合适——那是另一张延迟—质量曲线。与 CosyVoice 等 TTS 不要画成一对编解码器：Whisper 出的是字，不是声码器可逆码。
+
+<span class="marginnote">出处：Alec Radford et al.，*Robust Speech Recognition via Large-Scale Weak Supervision*，arXiv:2212.04356；OpenAI 博客 *Whisper*。v3：GitHub openai/whisper Discussion #1762（2023-11）与 Hugging Face / 官方 model-card。参数表见论文 Large 行与 HF 模型卡 1550M。</span>
+
+## 小结
+
+- Whisper 是 16 kHz log-Mel 上的编码器—解码器 Transformer，多任务零样本 ASR 与 X→en 翻译。
+- large-v3 仍为约 15.5 亿参数；Mel 改为 128 带；数据为 1M 弱标注 + 4M 伪标注、2 epoch。
+- 相对 large-v2，官方称多语错误率降约 10%–20%；评测细则见 Discussion #1762。
+- 幻觉与重复是弱监督 seq2seq 的已知边界，不是 v3 独有。
+- 原论文数据 68 万小时；v3 把规模再抬一档，骨架不变。
+- 出处：arXiv:2212.04356 与 OpenAI large-v3 模型卡。

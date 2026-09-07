@@ -1,0 +1,74 @@
+---
+title: IDEFICS / IDEFICS2
+date: 2026-09-07
+section: llm
+---
+
+# IDEFICS / IDEFICS2
+
+<div class="epigraph">
+<p>开源复现 Flamingo 证明交错网页喂得饱 80B 交叉注意力；真正改写默认结构的是随后那组受控消融——解冻骨干之后，全自回归加感知器池化，在 8B 上比交叉注意力更划算。</p>
+<footer>—— Laurençon 等，OBELICS / IDEFICS，arXiv:2306.16527；*What matters when building vision-language models?*，arXiv:2405.02246</footer>
+</div>
+
+Hugging Face M4 的 **IDEFICS** 是两条时间线。2023 年的 **IDEFICS-9B / 80B** 公开复现 Flamingo：冻 LLaMA、OpenCLIP、门控交叉注意力、Perceiver，数据主力是 **OBELICS** 交错网页（约 1.41 亿文档、3.53 亿图、1150 亿文本 token）。2024 年 5 月的 **IDEFICS2-8B** 不再做 80B 仿制，论文标题直接问 *What matters*：在固定数据与更新次数下比较交叉注意力与全自回归、冻与解冻、池化与切图，然后用结论训一个 Apache 2.0 的 8B（**Mistral-7B-v0.1** + **SigLIP-SO400M**）。本篇把一代当开源 Flamingo 基线，把二代当方法学；不把 Idefics3 的变更倒填进 8B。
+
+## 问题
+
+Flamingo 证明交错数据加门控交叉注意可以少样本看图，但结构封闭、数据封闭。开源要先回答「能否用 LLaMA 与公开网页把这条路跑通」，这是 IDEFICS1 与 OBELICS 的位置。跑通之后，社区默认仍复制交叉层，却很少在同一算力下问：全自回归把视觉 token 拼进 LLM，是不是已经更好？冻骨干是为了稳，还是在浪费表达力？每张图要多少视觉 token？高分辨率该切图还是只把 ViT 拉大？
+
+IDEFICS2 认为这些选择经常没有消融，导致「新模型涨点」无法归因。问题是方法学上的：哪些决策真的动针。
+
+### 一代是复现，二代是受控比较
+
+IDEFICS1：图像经视觉塔与 Perceiver 进入每隔若干层插入的门控交叉注意力，LLM 自注意力仍主要处理文本；门控保护语言能力。OBELICS 用开放网页构造长交错文档，论文强调长文档有助于保语言、任意张图，以及 VQA 少样本。许可随 LLaMA 走，不是后来的 Apache。IDEFICS2 把对照钉死：换 LLaMA-1-7B 为 Mistral-7B，视觉从 CLIP-ViT-H 换 SigLIP-SO400M，仅骨干升级就在他们的验证和上明显涨——结论先写：**单模态骨干的进步解释了很大一部分 VLM 进步**。
+
+<span class="marginnote">OBELICS 在 2024 年 1 月又按 Spawning 剔除新 opt-out，并丢掉 Falcon-1B 困惑度最高的 5% 文档。写复现日期时要声明数据快照，不能默认 2023 年 6 月的预印本体积。</span>
+
+## 方法
+
+IDEFICS2 主结构选**全自回归**：视觉隐状态经投影（可加 Perceiver）与文本嵌入拼接，送进 Mistral。消融发现：冻骨干时交叉注意力更好（可训参数也更多，约多 1.3B），解冻后全自回归大幅反超（他们报告约 +12.9 对 +0.6）。解冻全自回归易发散，对预训练骨干用 **LoRA**、新模块全量更新，训完把 LoRA 合回，推理不加参。Perceiver 把每图从数百视觉 token 收到 **64**，他们观测 64 与 128 几乎持平，再加 token 在该数据预算下不涨。切图（image splitting）对 OCR / DocVQA 很关键；只把子图分辨率加到极大，收益小于「先切」。
+
+### 两段式分辨率与 The Cauldron
+
+预训练阶段一：SigLIP 原生 $384^2$。阶段二：接近原生长宽比，边长约在 378–980，并加入 PDFA、Rendered-Text、IDL 等 OCR 数据。指令阶段放出 **The Cauldron**：约 50 个整理成多轮对话的公开视觉任务集，再拼文本指令。权重分 base / instructed / chat，Apache 2.0。博客写 8B 在部分 VQA 上可碰更大的 LLaVA-NeXT-34B、MM1-30B，那是该协议下的对照，不是全面超越 30B。
+
+```mermaid
+flowchart TD
+  OB["OBELICS 交错网页"] --> I1["IDEFICS1: 冻 LLaMA + 门控 XAttn"]
+  I1 --> F["开源 Flamingo 行为"]
+  SIG["SigLIP"] --> POOL["Perceiver → 64 token"]
+  MIS["Mistral-7B + LoRA"] --> AR["IDEFICS2 全自回归 8B"]
+  POOL --> AR
+  SPLIT["阶段二：切图 + OCR"] --> AR
+  CAU["The Cauldron"] --> SFT["指令 / Chat"]
+  AR --> SFT
+```
+
+## 机制
+
+交叉注意力把一张图压缩成「每层可读的记忆」，文本长度几乎不涨，适合冻 LLM 保 MMLU；表达力卡在交叉层宽度与插入频率。全自回归让视觉与文本共享同一套自注意力，解冻后语言表示可以为新视觉统计让路，所以涨点发生在「允许骨干动」之后。Perceiver 是计算旋钮：64 个 query 把 SigLIP 网格读成短前缀，文档任务再靠切图把多份 64 拼起来（博客与模型卡写 64 或 320，差在是否 split）。切图提高的是「原生窗口块数」，不是单格的光学极限。
+
+### 和 NVLM、和 Flamingo 门控
+
+[NVLM](/llm/nvlm) 在 72B 上保留 X 与 D 两条产品线，并去掉 Perceiver 以保文档空间；IDEFICS2 在 8B 上用受控实验选择 D 加 Perceiver。结论依赖尺度与是否解冻，不能把 8B 的「全自回归赢了」写成 80B 定律。IDEFICS1 的门控在推理时可关交叉层跑纯文本；IDEFICS2 解冻后没有这种免费开关，文本能力靠数据混合，与 NVLM 的文本 SFT 回放是同一类工程，不是同一篇消融表。
+
+<span class="marginnote">冻骨干时交叉注意力多 10% 量级 FLOPs、多一批可训参数，却仍可能赢——因为可训比例太低时全自回归「没东西可学」。读 IDEFICS2 必须带上冻/解冻条件，否则会引成互相矛盾的两句话。</span>
+
+## 边界与工程取舍
+
+IDEFICS1-80B 的显存与 LLaMA 许可使其更像研究基线。IDEFICS2-8B 可进 Apache 栈，但 Mistral 词表与聊天模板不能和一代混用。切图使预填充随张数与 split 线性涨，服务要设最大视觉 token，而不能默认 320×多图。论文验证和是内部任务混合，对外引用应落在公开的 MMMU / TextVQA / DocVQA 表，并写明 64 还是 split。不要把「与 Gemini 1.5 Pro 在某张难基准上接近」扩展成全面持平。
+
+The Cauldron 降低了指令数据收集门槛，不包含各原始集的二次许可自动转让；商用前仍要按子集清。OBELICS 含网页噪声与 opt-out 时间线，继续预训练应跟官方过滤脚本。LoRA 合回后与全量微调的数值差应在回归里测一次，不要假设零。
+
+多图故事生成是产品能力，训练见过交错，但 8B 窗口会被 64×N 吃光。OCR 依赖阶段二数据，自然图 VQA 强不等于发票强。评测零样本与 8-shot 基座表不要混用。聊天版与 base 的提示词不同，用 base 的 in-context 填空去测 chat 会把「不会格式」写成「不会看图」。
+
+<span class="marginnote">出处：Laurençon 等，*OBELICS*，arXiv:2306.16527（一代数据与 IDEFICS 复现）；Laurençon、Tronchon、Cord、Sanh，*What matters when building vision-language models?*，arXiv:2405.02246。博客 *Introducing Idefics2* 与 HuggingFaceM4/idefics2-8b 模型卡补许可与 384/980 分辨率。不要给 IDEFICS1 编造独立的「架构长文 arXiv」替代 OBELICS。</span>
+
+## 小结
+
+- IDEFICS1 用 OBELICS 开源复现 Flamingo 式门控交叉注意力，9B/80B。
+- IDEFICS2-8B 用消融选择全自回归、LoRA 解冻、Perceiver 64 token 与切图，Apache 2.0。
+- 骨干质量、冻与否、是否切图，比「再发明一种融合层」更能解释涨点。
+- 一代与二代的许可、模板、视觉 token 账单不可互换。
+- 出处：arXiv:2306.16527 与 arXiv:2405.02246。

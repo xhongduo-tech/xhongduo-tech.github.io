@@ -1,0 +1,106 @@
+---
+title: TDPO
+date: 2026-09-07
+section: llm
+---
+
+# TDPO
+
+<div class="epigraph">
+    <p>生成是逐步吐 token 的，句子级 DPO 却只在整段回答上约束反向 KL；把 Bradley–Terry 写到 token 上，并显式加入逐步前向 KL，才能同时管对齐与多样性。</p>
+    <footer>—— Zeng 等，Token-level Direct Preference Optimization，ICML 2024</footer>
+</div>
+
+DPO 把 KL 正则的奖励最大化回代成策略对数比，损失落在整条 $y_w$ 与 $y_l$ 上。语言模型真正采样的却是条件分布 $\pi(\cdot\mid [x,y^{<t}])$。Zeng 等人指出：句子级目标对逐步散度的控制是间接的，训练中不受欢迎回答上的序列 KL 往往涨得比受欢迎回答更快，策略在「对齐」的同时把质量摊薄。他们把生成写成 token MDP，用 Bellman 把句子奖励接到逐步优势，再把 Bradley–Terry 改写成 token 级遗憾偏好，得到 Token-level Direct Preference Optimization（TDPO）。它仍是离线成对损失，不训显式奖励模型、训练环里也不采样；改的是散度写在哪一层、梯度如何压两侧 KL 的差。
+
+## 问题
+
+句子级 DPO 的隐含奖励是整段对数比之和。反向 KL 约束 $\mathrm{KL}(\pi_\theta\|\pi_{\mathrm{ref}})$ 出现在推导里，实践中只通过 $\log(\pi_\theta/\pi_{\mathrm{ref}})$ 的差间接体现。f-DPO 后来比较过不同 $f$-散度对多样性的影响，前向 KL 有 bulk-covering 倾向，但约束仍是句子级的。生成时每一步都在改条件分布，两侧回答的逐步前向 KL 可以以不同速率增长：不受欢迎侧更容易被推到参考之外，受欢迎侧却未必获得相称的覆盖。结果是奖励–KL 前沿变差，解码熵掉、套话变多。
+
+需要一张把句子比较接到逐步生成的地图。Knox 等人的遗憾偏好模型把「更喜欢 $y_1$ 还是 $y_2$」写成优势差，而不是状态价值本身。TDPO 证明：在 token 奖励的 MDP 里，Bradley–Terry 与这种遗憾偏好同构。于是成对标签仍可用，监督却落到每个前缀上的 $Q$ 与逐步 KL。
+
+### 句子级反向 KL 管不住逐步前向 KL
+
+反向 KL 惩罚的是 $\pi_\theta$ 把质量放到 $\pi_{\mathrm{ref}}$ 几乎为零的地方；前向 KL 惩罚的是 $\pi_{\mathrm{ref}}$ 有质量而 $\pi_\theta$ 漏掉的地方。只约束前者，模型可以在不受欢迎轨迹上把逐步条件分布拧得很尖，序列前向 KL 飙升，多样性先从被拒绝的那一类回答塌掉，再蔓延到生成。问题不是「要不要参考模型」，而是「散度应该按 token 结算」。
+
+<span class="marginnote">TDPO 并不把成对数据拆成逐步人类标签。人仍然只标整段谁更好。token 级指的是目标与 KL 的分解，不是过程监督。逐步对错应看 [过程监督](/llm/process-supervision)，不要和 TDPO 的遗憾回代混为一谈。</span>
+
+## 方法
+
+把状态写成 $s_t=[x,y^{<t}]$，动作为下一个 token，折扣 $\gamma=1$。token 级目标在每个前缀上最大化相对参考策略的优势，并减去逐步反向 KL：
+
+$$
+\max_{\pi_\theta}\;\mathbb{E}\bigl[A_{\pi_{\mathrm{ref}}}(s_t,z)-\beta\,D_{\mathrm{KL}}\bigl(\pi_\theta(\cdot\mid s_t)\,\|\,\pi_{\mathrm{ref}}(\cdot\mid s_t)\bigr)\bigr].
+$$
+
+闭式最优把 $Q_{\pi_{\mathrm{ref}}}$ 映回策略。定义序列前向 KL 为各步前向 KL 之和
+
+$$
+D_{\mathrm{SeqKL}}(x,y;\pi_{\mathrm{ref}}\|\pi_\theta)=\sum_{t} D_{\mathrm{KL}}\bigl(\pi_{\mathrm{ref}}(\cdot\mid [x,y^{<t}])\,\|\,\pi_\theta(\cdot\mid [x,y^{<t}])\bigr).
+$$
+
+令 $u$ 为与 DPO 相同的隐含奖励差，$\delta$ 为两侧序列前向 KL 之差（乘 $\beta$）。token 级 Bradley–Terry 给出第一版损失
+
+$$
+\mathcal{L}_{\mathrm{TDPO}_1}=-\mathbb{E}\log\sigma\bigl(u(x,y_w,y_l)-\delta(x,y_w,y_l)\bigr).
+$$
+
+相对 DPO，logistic 的自变量多了一项 $\delta$：它惩罚「$y_l$ 的序列前向 KL 远大于 $y_w$」。梯度分析表明，$\delta$ 里 $y_w$ 一侧的前向 KL 会通过价值基线把受欢迎轨迹的逐步 KL 再抬高，不利于稳定。TDPO$_2$ 对 $D_{\mathrm{SeqKL}}(x,y_w;\cdot)$ 停梯度，只让 $y_l$ 侧的前向 KL 反传，并用 $\alpha$ 缩放：
+
+$$
+\mathcal{L}_{\mathrm{TDPO}_2}=-\mathbb{E}\log\sigma\bigl(u(x,y_w,y_l)-\alpha\,\delta_2(x,y_w,y_l)\bigr),
+$$
+
+其中 $\delta_2=\beta D_{\mathrm{SeqKL}}(x,y_l;\cdot)-\mathrm{sg}\bigl(\beta D_{\mathrm{SeqKL}}(x,y_w;\cdot)\bigr)$。作者在受控情感生成上建议 $\alpha$ 取中等值（文中常用 $0.5$ 量级作折中）；$\alpha$ 过大时奖励优化会变钝。数据仍是 $(x,y_w,y_l)$，参考策略冻结，与 [DPO](/llm/dpo) 同一套接口。
+
+```mermaid
+flowchart TD
+  Pair["成对 y_w / y_l"] --> U["u：隐含奖励差"]
+  Pair --> SKL["逐步前向 KL 之和"]
+  REF["πref"] --> U
+  REF --> SKL
+  SKL --> D["δ 或停梯度后的 δ2"]
+  U --> L["log σ(u − α δ)"]
+  D --> L
+  L --> PI["更新 πθ"]
+```
+
+### TDPO$_1$ 与 TDPO$_2$ 的梯度分工
+
+$\nabla u$ 仍是 DPO 方向：提高 $y_w$、压低 $y_l$ 的相对对数比。$-\nabla\delta$ 试图拉近两侧序列前向 KL。TDPO$_1$ 两边都走梯度，受欢迎侧会被「拉大指定 token 与参考期望的差」间接抬高前向 KL。TDPO$_2$ 把这一侧当成基线停住，只压制不受欢迎侧的逐步散度膨胀。$\sigma(-u+\delta)$ 仍是权重：偏好预测错、或两侧 KL 差已经很大时，更新更狠。这是自动调节，不是另加一条自适应学习率。
+
+## 机制
+
+### 遗憾偏好如何接到 token
+
+在 token MDP 里，整段奖励可由 Bellman 展开成逐步优势之和。比较两条完整回答，等价于比较两条轨迹的累积遗憾。Bradley–Terry 写在 $Q$ 差上，与 Knox 的遗憾偏好一致：人比较的是「走这条动作序列相对策略基线好多少」，不是两个绝对状态价值。因此 TDPO 不必逐步标注，也能把句子标签翻译成对每个条件分布的约束。这与把 DPO 损失按 token 平均不是同一件事——后者只是把序列对数和除以长度，并不引入逐步前向 KL。
+
+前向 KL 在每一步都对整张词表的参考分布求期望，实现上要在参考与当前策略的 logits 上算 $D_{\mathrm{KL}}(\pi_{\mathrm{ref}}\|\pi_\theta)$，再沿 $y$ 的前缀求和。比 DPO 多一次按词表的归约，显存与计算都更重，换来的是对「漏掉参考质量」的显式惩罚。
+
+<span class="marginnote">逐步前向 KL 与 DPO 里已经出现的反向 KL 对数比不是互相替代。TDPO 两者都要：反向 KL 仍藏在 $u$ 的 $\log(\pi_\theta/\pi_{\mathrm{ref}})$ 里，前向 KL 另写在 $\delta$ 里。只抄 $\alpha$、却把 $\delta$ 丢掉，就退化成 DPO。</span>
+
+### 奖励–KL 前沿上多出来的自由度
+
+在 IMDb 情感控制上，作者用 GPT-2 Large 的 SFT 检查点比较 DPO 与两种 TDPO，用情感分类器当代理奖励。同一序列 KL 预算下，TDPO$_1$ 与 TDPO$_2$ 能走到更高的期望奖励；TDPO$_2$ 的两侧序列 KL 差更可控。Anthropic HH 上 Pythia-2.8B 的实验报告：TDPO$_2$ 的偏好准确率与 nucleus 采样熵同时高于 DPO 与前向 KL 的 f-DPO。这些数字是该设定下的前沿，不是「任意任务 TDPO 第一」。MT-Bench 上相对 PPO（trlx + 代理 RM）与 DPO 的胜率，同样只说明在他们的训练预算里散度调节换成了可感知的生成质量，不能外推成替代 [PPO 在语言模型中的实现](/llm/ppo-llm)。
+
+## 边界与工程取舍
+
+TDPO 仍要成对数据与参考模型，省不掉 DPO 的两份前向；还要逐步前向 KL，词表一大，每步 KL 是 $O(|V|)$ 的额外开销。$\alpha$ 与 $\beta$ 耦合：$\beta$ 管相对参考的尺度，$\alpha$ 管两侧前向 KL 差进 logistic 的权重。只扫 $\beta$、把 $\alpha$ 固定成 1，等于没用上 TDPO$_2$ 的设计。停梯度必须打在 $y_w$ 的序列 KL 上，打反会把受欢迎轨迹的多样性也压死。
+
+它不解决标签噪声、长度偏置、离策略数据与当前 $\pi_\theta$ 失配。那些分别是 [IPO](/llm/ipo)、[SimPO](/llm/simpo)、[WPO](/llm/wpo) 的问题。也不提供 Nash 均衡或显式奖励数据集接口。需要逐步人类反馈时，应上过程奖励，而不是指望 SeqKL 项学会推理。
+
+<span class="marginnote">论文里的「多样性」主要用预测熵、序列 KL 与情感控制前沿衡量，不是人类侧写的风格多样性。产品上的「更有趣」不能从熵直接读出。解码温度一改，训练时盯的熵就不再可比。</span>
+
+### 何时不必上 TDPO
+
+成对数据干净、生成已经够多样、参考前向是瓶颈时，DPO 足够。必须在线采样、奖励是可验证标量时，应看 [GRPO](/llm/grpo) 或 PPO，而不是给离线 logistic 加逐步 KL。只关心长度归一化、不要参考，走 SimPO / [ORPO](/llm/orpo)。TDPO 的理由是句子级散度效率差，不是名字里有 token 就更细。
+
+## 小结
+
+- TDPO 把偏好优化写成 token MDP 上的优势最大化，Bradley–Terry 与遗憾偏好同构，损失仍是离线成对 logistic。
+- 相对 DPO，自变量多了两侧序列前向 KL 之差；TDPO$_2$ 对受欢迎侧 SeqKL 停梯度，并用 $\alpha$ 调节对齐与多样性。
+- $u$ 里仍是反向 KL 意义下的对数比；$\delta$ 才是逐步前向 KL，两者一起才构成该方法。
+- 实现比 DPO 多按词表归约的逐步 KL，成对数据与参考检查点需求不变。
+- 论文在情感控制与 HH 对话上展示更好的奖励–KL 前沿与熵，数字绑定具体基座与预算。
+- 它不是过程监督，也不替代在线 RL。
+- 出处：Zeng, Liu, Ma, Yang, Zhang, Wang，*Token-level Direct Preference Optimization*，ICML 2024，arXiv:2404.11999。

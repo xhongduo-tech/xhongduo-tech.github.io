@@ -1,0 +1,77 @@
+---
+title: Proof-Pile / OpenWebMath
+date: 2026-09-07
+section: llm
+---
+
+# Proof-Pile / OpenWebMath
+
+<div class="epigraph">
+<p>通用网页管道会把公式抽成乱码；没有保住 LaTeX 的数学网页，开源模型就无法复现 Minerva 那种用技术文档换定量推理的路径。</p>
+<footer>—— Paster et al., OpenWebMath, 2023；数学混合物见 Azerbayev et al. 的 Proof-Pile 与 Llemma</footer>
+</div>
+
+Lewkowycz 等人的 Minerva 用 arXiv 与数学网页给 PaLM 做持续预训练，MATH 一类基准大幅上升，但数据与模型都不开放。通用公开集——C4、RefinedWeb、Dolma 网页桶——在 HTML 阶段就把 MathJax、图片公式和 AsciiMath 弄丢，只留下「如图所示」的残句。Paster、Dos Santos、Azerbayev 与 Ba 的 OpenWebMath 针对这一缺口：从 Common Crawl 的海量 HTML 里保住公式，再过滤成 14.7B token、约 630 万篇英语数学网页。更早的 Proof-Pile（Azerbayev 等人）把 arXiv、Stack Exchange、ProofWiki、维基、开源书籍与 MATH 收成十余 GB 非正式数学文本；Llemma 所用的 Proof-Pile-2 再把 RedPajama 的 arXiv（29B）、OpenWebMath（约 15B）与新的 AlgebraicStack 数学代码（11B）合成 55B。三者合起来，才是开源侧「数学作为预训练桶」的完整故事：领域网页、正式/非正式文本、以及可执行的代数栈。
+
+## 问题
+
+定量推理对 token 的结构极敏感。$x^2$ 若变成 “x2” 或断裂的图片 alt，语言模型看见的是噪声，不是符号关系。Minerva 的 WebMath 内部混合物（GitHub、arXiv、Math StackExchange 等，约 35B）证明领域文档有效；公开社区缺的是可下载、且预处理不破坏记号的网页。Proof-Pile 覆盖了论文与论坛，对「网上教材、讲义、博客推导」仍然稀疏。反过来，若把未过滤的 Crawl 直接混进数学训练，导航条与电商页会稀释本就稀缺的公式密度。
+
+过滤的监督从哪来同样麻烦。维基 KenLM 会把口语讲解打到尾部；通用质量分类器不理解「这页有没有数学」。需要一种能识别数学内容、又能丢掉高困惑度垃圾的管道，并且在抽文本时把 LaTeX 还原出来。OpenWebMath 把问题写成：在 237B HTML 页上做极苛刻的漏斗，最后只留 6.3M 篇、14.7B token，使每 token 的数学信息密度高到：1.4B 模型只训这 14.7B，就能超过在二十倍通用数据上训练的对照。
+
+### 先保记号，再谈质量
+
+管道若先跑 trafilatura 再后悔，公式已经没了。数学抽取必须识别 MathJax 脚本、`<math>`、图片中的 LaTeX alt、AsciiMath，并统一成可训练的文本形式。这比 RefinedWeb 的「去菜单」更窄、也更脆：一种未覆盖的渲染器就会让整站公式消失。<span class="marginnote">OpenWebMath 与 FineWeb 不应抢同一抽取器。通用网页要去样板；数学网页要留样板里的公式节点。用 FineWeb 的 trafilatura 结果当数学桶，是最常见的静默失败。</span>
+
+## 方法
+
+OpenWebMath 的漏斗在论文图 1 里写得很陡：237B HTML → 预过滤到约 1B → 语言识别 336M → MathScore 66M → 困惑度 59M → 去重 7.8M → 人工规则后 6.3M 篇 / 14.7B token。预过滤用廉价规则丢掉明显无数学的页；fastText 只留英语。MathScore 是他们自训的内容分类器，用来区分「碰巧含数字的网页」与「在讲数学」。困惑度用在 Proof-Pile 上训练的 KenLM，丢掉不像已有数学文本的文档——参照是领域语料，不是通用维基，这一点与 CCNet 不同。去重后仍做手工规则，切掉漏网的目录页与低质量站。代码与数据集公开在 Hugging Face `open-web-math/open-web-math`。
+
+Proof-Pile 的构造更像精选混合物：arXiv 数学相关源、Math Stack Exchange、ProofWiki、维基数学条目、开许可书籍、MATH 训练集等，强调非正式证明与解说，而不是 Lean 形式库。它与 OpenWebMath 体量相近（约 14B 级 token），重叠却很小，因此 Llemma 把二者并进 Proof-Pile-2 是在加覆盖而不是加重复。AlgebraicStack 再补数值计算、计算机代数与形式证明代码，使模型看见符号的「可执行形态」。Azerbayev、Schoelkopf 等人从 Code Llama 出发，在 Proof-Pile-2 上持续预训练得到 Llemma 7B/34B，MATH 上超过同期开源基座，并在无额外微调时展现工具使用与形式定理证明的苗头。
+
+```mermaid
+flowchart TD
+  HTML["Common Crawl HTML"] --> EXT["保 LaTeX 的正文抽取"]
+  EXT --> EN["fastText 英语"]
+  EN --> MS["MathScore 数学分类"]
+  MS --> PPL["Proof-Pile KenLM 困惑度"]
+  PPL --> DD["去重 + 规则"]
+  DD --> OWM["OpenWebMath 14.7B"]
+  PP["Proof-Pile 非正式数学"] --> PP2["Proof-Pile-2 55B"]
+  OWM --> PP2
+  AX["RedPajama arXiv"] --> PP2
+  AS["AlgebraicStack"] --> PP2
+  PP2 --> LL["Llemma 持续预训练"]
+```
+
+### 每 token 效率对领域数据成立
+
+Paster 等人用 1.4B 模型做小规模对照：只训 OpenWebMath 一个 epoch（14.7B），数学相关探针超过同等 token 的 The Pile，也超过只训 Proof-Pile；二者 50/50 混合往往更好，说明网页讲解与论文/论坛互补。这与 Minerva 的经验同构：领域密度比通用 token 的毛数量更值钱，但单一来源会偏科——纯网页缺少定理陈述的正式腔，纯 arXiv 缺少中小学式逐步说明。OpenWebMath 不能当唯一预训练数据；它是通用网页混合物里应单独加权的专科桶。
+
+<span class="marginnote">14.7B 用 LLaMA 词表计数。数学符号的 token 化很碎，换成 cl100k 或 Llama-3 词表，同一页的 token 数会变。混入通用语料时，不要用「B」直接与 FineWeb 的 15T 做比例，先统一 tokenizer，再设采样权重。</span>
+
+## 机制
+
+保公式改变的是词表里的符号邻域：模型能看见 `$`、`\frac`、对齐环境，梯度才能把「左右同乘」与记号绑定。MathScore 改变支撑，把非数学页置零。Proof-Pile KenLM 是领域条件化的 CCNet：参照换成数学文本，「像数学」而不是「像维基」。去重在数学域同样关键——同一道习题在教材站与博客间复制，不去重就会背题。与通用网页不同，数学重复有时是定义的标准表述，删太狠会伤「人人都这么写」的定理记忆；OpenWebMath 选择偏严，因为目标是推理数据密度，不是覆盖所有题面。
+
+Proof-Pile-2 的三路混合对应三种符号实践。arXiv 给长证明与概念；OpenWebMath 给教学与讨论；AlgebraicStack 给代码与形式系统。Llemma 从 Code Llama 起步，是因为代码预训练已经让模型习惯括号与长依赖，数学续训是在相近句法上换语义。这解释了为何从通用 Llama 冷起步、只灌 15B 数学网页，往往不如「代码模型 + 数学混合物」。
+
+### 与通用网页配方的接口
+
+Dolma 1.7、DCLM 放大实验、StarCoder2 的自然语言侧，都把 OpenWebMath 列为显式来源。正确接口是：通用桶用 FineWeb/DCLM 滤「像人写的网页」，数学桶用 OpenWebMath 滤「像数学且公式还在」，不要用同一个教育分类器同时打两种页——FineWeb-Edu 的提示甚至故意压低 arXiv 式技术页。配比上，数学桶通常是几个百分点，但应在冷却阶段上采样，DCLM 的 30% 数学冷却是这一逻辑的极端版。
+
+## 边界与工程取舍
+
+英语与 HTML 渲染覆盖是硬边界。中文数学博客、PDF 扫描教材、手写图片题不在集内。MathScore 会漏掉文学里的偶然公式页，也会放过带公式的SEO 题库。KenLM 参照若过旧，会把新符号系统（某些证明助手语法）打成高困惑度。14.7B 对 70B 模型只是薄薄一层，必须与更大通用集混合，否则通用语言能力会忘。Proof-Pile 含 MATH 训练集时，必须在评测协议里披露，否则基准上涨可能是污染。Llemma 的形式证明能力是续训涌现的苗头，不是对 Lean 竞赛的保证。
+
+<span class="marginnote">复现 Minerva 仍不可能比特级对齐：WebMath 与 MathMix 未公开。OpenWebMath 是「开放的近似网页腿」，Proof-Pile-2 才是开放的混合物。只引其中一个、却声称复现 Minerva 数据，是不准确的。</span>
+
+## 小结
+
+- OpenWebMath 从 Crawl HTML 抽出 14.7B 带 LaTeX 的英语数学网页，漏斗从 237B 页收到 6.3M 篇。
+- 关键是保公式抽取 + MathScore + 以 Proof-Pile 为参照的 KenLM，而不是套用通用网页启发式。
+- Proof-Pile 提供论文、论坛与书籍中的非正式数学；与 OpenWebMath 重叠小、可互补。
+- Proof-Pile-2 合成 arXiv、OpenWebMath 与 AlgebraicStack 共 55B，用于 Llemma 从 Code Llama 续训。
+- 每 token 效率高于通用语料，但必须与通用桶混合，并警惕基准污染。
+- 不要用 FineWeb 抽取器替代数学抽取；教育分类器与数学分类器的参照不同。
+- 出处：Paster et al.，*OpenWebMath*，arXiv:2310.06786；Azerbayev 等 Proof-Pile 与 *Llemma*，arXiv:2310.10631；对照 Lewkowycz et al. Minerva。

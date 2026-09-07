@@ -1,0 +1,71 @@
+---
+title: Function calling 训练
+date: 2026-09-07
+section: llm
+---
+
+# Function calling 训练
+
+<div class="epigraph">
+    <p>工具使用不是推理时才长出来的：要在监督轨迹里学会何时调用、调用谁、参数如何填，以及观察失败后怎样改口。</p>
+    <footer>—— 对照 Schick 等 Toolformer；Patil 等 Gorilla；OpenAI 2023 function calling 数据格式</footer>
+</div>
+
+[Function calling](/llm/function-calling) 写的是推理信封：schema 进请求，模型出 `tool_calls`，宿主执行后再生成。本篇写**如何把这种行为训进权重**。Schick 等人的 Toolformer（arXiv:2302.04761）用自监督决定在哪些位置插入 API 调用：只保留能降低后续 token 损失的调用。Patil 等人的 Gorilla（arXiv:2305.15334）在 APIBench 上做检索感知微调，降低胡编 API。产业界的 function calling 则把对话角色（assistant 出调用、tool 回观察）写成 SFT 轨迹。三者对象不同：Toolformer 插在语言模型续写里；Gorilla 对文档接地；对话 SFT 对齐聊天模板。共同约束是：损失打在该模型负责的 token 上，而不是假装工具结果是模型自己「想出来的」。
+
+## 问题
+
+只做普通指令微调，模型会用散文假装查过库，或把参数嵌进自然语言让正则去抢救。工具一多，还要选对名字、遵守 JSON Schema、在不该调用时闭嘴。这些都不是推理期加一句「请输出 JSON」能稳定得到的：格式、时机、接地要进训练分布。负例同样必要——用户只是闲聊时仍调用搜索，产品不可用。并行调用、多轮依赖（先搜 id 再取详情）、工具报错后的重试，若训练里从未出现，推理就会在第一次 400 上直接道歉结束。
+
+另一问题是观察泄漏。若把工具返回也当 assistant 监督，模型会学着抄观察里的句子，而不是学「根据观察组织答复」。标准做法是：用户与 tool 角色不计入损失（或只当条件），assistant 的调用 JSON 与最终自然语言计入损失。Chat 模板必须与推理一致，否则训练看见的分隔符和线上 [chat template](/llm/chat-template) 不一致，调用率会塌。
+
+### 时机、选择、填写是三层标签
+
+「要不要调用」是二元决策，受 `tool_choice` 与描述影响，训练里应覆盖 auto 场景的正负例。「调用哪个」是在当前可见工具集上的分类，工具集必须作为前缀条件出现，不能假设全集固定。「填什么参数」是结构化生成，键名与类型要与 schema 一致。把三层混成一条「会用工具」的准确率，会掩盖：名字对了但日期格式错、或该调用却直接回答。评测应分报。
+
+<span class="marginnote">Toolformer 的监督来自「这次调用是否降低未来词的 NLL」，不是人工写 JSON。Gorilla 的监督来自真实 API 文档检索。对话 SFT 的监督来自标注或合成的 tool_calls 轨迹。三种数据不可互换引用。</span>
+
+## 方法
+
+轨迹最小单元：系统（工具 schema）→ 用户 → assistant（`tool_calls` 或纯文本）→ tool 观察 → assistant 最终答复；多轮则重复。合成路线常用强模型 + 执行器生成，再过滤：JSON 可解析、名字在清单内、执行非空或错误形状合法。Toolformer 路线不同：在语料上候选插入调用，真正执行 API，只留下对未来 token 有信息增益的位置，从而少依赖对话标注。Gorilla 把检索到的文档放进上下文，训练模型在文档约束下写 API 调用，降低幻觉端点。
+
+损失：因果 LM，mask 掉 user/tool（及 schema）token。调用参数可用普通 next-token，或对 JSON 部分加权。约束解码是推理技术，不能替代 SFT——文法保证可解析，不保证城市名存在。错误恢复要显式采样：观察为 4xx/超时，assistant 改参数或改工具或向用户澄清。并行调用在一条 assistant 消息里放多个 id，随后同样数量的 tool 消息；训练里若只有串行，推理并行会错位。
+
+```mermaid
+flowchart TD
+  S["schema + 用户"] --> A1["assistant: tool_calls"]
+  A1 --> X["宿主执行"]
+  X --> T["role: tool 观察"]
+  T --> A2["assistant: 答复或再调用"]
+  A2 --> L["SFT 损失仅 assistant"]
+```
+
+### 工具集必须当作条件，而不是写进权重的世界知识
+
+训练若永远用同一 20 个函数，模型会把名字背进权重，换清单就张冠李戴。正确做法是每条样本的 schema 子集化、打乱顺序、改写 description，迫使模型读前缀。Gorilla 用检索器提供候选文档，是同一思想在「文档接地」上的版本。产业数据还应包含「清单为空 / tool_choice=none」的纯文本答复，避免模型在无工具时仍输出调用帧。
+
+## 机制
+
+SFT 改变的是：在「该用工具」的前缀上，把质量从散文移到特殊格式 token（或 JSON 键）。它不赋予副作用；副作用仍由宿主白名单执行。Toolformer 的机制更接近「调用是为了帮助预测接下来的词」，因此调用密度由信息增益阈值控制，适合搜索、计算器一类可执行 API，不自动等于对话产品里的权限模型。Gorilla 的机制是降低 API 幻觉：见过文档形态的调用，比只见过名字的调用更少编造端点。两者都可以再接对话 SFT，把格式迁到 `tool_calls` 字段。
+
+过拟合症状：永远调用某一个搜索工具；忽略 schema 的 `enum`；把上一轮的 tool_call_id 复用。缓解是多样化清单与强制新 id。与 RL（工具成功当奖励）相比，SFT 只克隆轨迹，不会探索；轨迹错了就克隆错误策略。因此合成数据的执行过滤（至少能跑通或错误可解释）比盲目扩大条数更重要。
+
+<span class="marginnote">OpenAI 兼容协议里的 `tools` / `tool_choice` 是推理旋钮。评测「训练是否成功」时必须声明这些字段，否则 auto 下合理的不调用会被标成失败。对照 [constrained-decoding](/llm/constrained-decoding)：解码约束补格式，SFT 补时机与接地。</span>
+
+## 边界与工程取舍
+
+### 合成轨迹的上限是执行器与教师模型
+
+教师胡编的调用会被学生学走。必须真实执行（或至少 schema 校验 + 模拟器）。权限：训练数据里不应出现「任意 URL / 任意 SQL」作为正例；正例应是白名单 API。评测集要含未见工具（名称与 schema 都新）以测读说明书的能力，而不是背题。多语言参数、时区、货币单位是长期错误源，要在数据里显式出现。
+
+不要把 ToolLLM 的 16k API 规模直接当成对话 SFT 配方——那是另一条「检索 + 搜索树」线，见 [toolllm](/llm/toolllm)。也不要把 MCP 服务器热更新当成训练问题：清单变化是推理条件，训练只需覆盖「清单会变」这一事实。
+
+<span class="marginnote">出处：Schick et al.，*Toolformer: Language Models Can Teach Themselves to Use Tools*，arXiv:2302.04761；Patil et al.，*Gorilla: Large Language Model Connected with Massive APIs*，arXiv:2305.15334；产业格式对照 OpenAI 2023 function calling / tools 字段。</span>
+
+## 小结
+
+- Function calling 的 SFT 监督时机、工具选择与参数填写，损失打在 assistant token。
+- Toolformer 用信息增益筛选自监督调用；Gorilla 用文档检索降 API 幻觉；对话轨迹对齐聊天模板。
+- 工具清单必须作为前缀条件变化；负例与错误恢复要显式出现。
+- 约束解码不替代训练；RL 是另一条目标。
+- 出处：Toolformer；Gorilla；OpenAI function calling 格式。

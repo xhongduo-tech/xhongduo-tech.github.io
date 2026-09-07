@@ -1,0 +1,79 @@
+---
+title: Letta 记忆代理框架
+date: 2026-09-07
+section: llm
+---
+
+# Letta 记忆代理框架
+
+<div class="epigraph">
+    <p>MemGPT 指论文里那套自编辑记忆的设计模式；Letta 指把该模式做成可部署、有状态的代理框架。</p>
+    <footer>—— Packer 与 Wooders，Letta 官方说明；模式出处见 Packer 等，arXiv:2310.08560</footer>
+</div>
+
+2023 年 Berkeley Sky 的 [MemGPT](/llm/memgpt) 把 LLM 窗口当物理内存、外部存储当磁盘，用函数调用换页。论文走红之后，同名仓库迅速长出自定义工具、数据源、记忆类，以及把代理当长期服务来持久化。名称于是同时指：论文技术、一类自编辑聊天机器人、以及开源框架。2024 年 9 月，Charles Packer 与 Sarah Wooders 把模式名钉死为 **MemGPT**，把框架与公司命名为 **Letta**：继续做模型层之上的编排层（他们称为 LLM OS）。本篇写框架如何把论文里的分层落地成块、消息库与工具循环，不把产品默认工具表写回 2310.08560 的实验。
+
+## 问题
+
+论文设定里，主上下文 = 只读指令 + 可写工作记忆 + FIFO；外部 = recall 日志 + archival 档案。一次用户回合可以心跳多次，直到模型 yield。这在脚本里能跑，在产品里不够：代理要有稳定 ID、状态要进数据库、多用户要隔离会话、开发者要看见「此刻窗口里钉着哪些块」。递归摘要仍然有损；把全文塞进 128k 窗口只推迟换页，不提供跨月无损日志。Letta 问的是：如何让**每个代理都是有状态的服务**，而不是每次从空 prompt 启动。
+
+控制面必须同时服务两类调用者。人对代理：REST 创建、发消息、检查运行。代理对记忆：用工具改自己的块、检索档案、搜历史。若记忆只能由开发者写入，就退化成配置文件；若记忆只能由模型写入而无审计，就变成持久注入面。框架要把块做成可附加、可共享、可从窗口钉入或卸出的对象。
+
+### 块是钉在系统提示里的可编辑字符串
+
+Letta 文档把 Memory 组织成 **blocks**：一段可被代理（经记忆工具）和开发者（经 API）编辑的上下文字符串。附加到代理上的块进入上下文（钉在系统提示里）；一块可挂到多个代理上，成为共享记忆。会话消息——用户、助手、工具——全部入库；即使 compaction 把旧消息从窗口赶走，开发者仍可通过 API 取回，代理可通过检索工具取回。这把论文里的 working context / recall 拆成了可编程对象，而不是一段隐藏 FIFO。
+
+<span class="marginnote">2024 年的更名声明写得很硬：pypi 包迁到 `letta`，Docker 镜像迁到 `letta/letta-server`。复现论文数字仍应对 arXiv:2310.08560 与 memgpt.ai 的评测仓，不要用后来 ADE 的默认 persona 块去对 MSC 表。</span>
+
+## 方法
+
+一个 Letta 代理由系统提示、记忆块、消息（窗内与窗外）和工具组成。工具带 JSON schema；服务端工具在沙箱执行，MCP / 客户端工具只提供 schema。一次用户输入对应一次 **run**，run 里可以有多步 LLM 推理（读文件、改块、再搜档案），对应论文的心跳链。**Conversations** 让同一代理对多个用户保持独立消息线程。状态默认落在 PostgreSQL 或 SQLite，代理以 ID 为键，重启不丢人设。
+
+记忆层级仍是三层，只是接口产品化。核心块常驻窗口：人设、用户事实、任务便签。Archival 是可语义检索的大规模库，需显式挂上 `archival_memory_insert` / `archival_memory_search`。对话历史可经 `conversation_search` 做全文或混合检索。文档把后续 MemFS 描述为：把记忆投影成 git 仓库里的 Markdown 路径（如 `system/persona.md`），用普通文件工具读写，提交后才成为跨机一致的记忆。那是框架演化，不是 2023 年论文的实验设定；引用时分开。
+
+骨干不限一家：只要能 function calling，OpenAI、Anthropic、本地 vLLM 都可以当处理器。记忆管理发生在框架层，不要求模型原生「长记忆」。ADE（Agent Development Environment）提供调试：看当前块内容、工具轨迹、哪次心跳改了哪一块。这是把 OS 类比里的可观测性补上，论文原文没有这一层 UI。
+
+```mermaid
+flowchart TD
+  API["REST：创建代理 / 发消息"] --> AG["有状态代理：块 + 工具 + 消息库"]
+  AG --> LLM["任意 function-calling LLM"]
+  LLM --> T{"工具"}
+  T -->|改块| BLK["核心记忆块（窗内）"]
+  T -->|档案读写| ARC["Archival 检索"]
+  T -->|搜历史| MSG["持久消息 / 会话"]
+  BLK --> LLM
+  ARC --> LLM
+  MSG --> LLM
+  LLM -->|yield| U["交还用户"]
+```
+
+### 从论文函数到框架原语
+
+论文里的 `working_context_append` / `replace`、recall 与 archival 检索，在框架里变成块工具与检索工具。心跳变成 run / step。容量警告变成 compaction：旧消息驱逐出窗口但留在库里。共享块让多代理读同一份组织级人设，而不必复制 prompt。这些改动让「LLM OS」从一篇实验变成可运维对象，也引入了论文没有评测过的失败模式：块写满、共享块竞态、工具 schema 与模型不匹配。
+
+## 机制
+
+自编辑之所以有效，是因为核心块每次推理都在窗口里，等价于把「用户不吃香菜」从日志提升为常驻前缀。Archival 提供可扩展知识；消息库提供无损回放。与单跳 RAG 的差别仍是控制权：模型决定何时搜、搜什么、搜完是否再改块。Letta 不训练新注意力，只把这一循环做成服务。
+
+[A-MEM](/llm/amem-agent-memory) 批评预设存储结构与读写点；Letta 确实仍是**已定义函数**上的策略，不是笔记网络自己长边。需要动态链接时用 A-MEM 当档案组织层，Letta 仍管窗口放置。[MemOS](/llm/memos-os) 再把 KV 与参数纳入调度；Letta 主线仍是明文块与检索。三条线互补，不要互相吞并引用。
+
+<span class="marginnote">写入通道是持久注入面：块里若写进「忽略系统提示」，会跨会话生效。宿主必须校验参数、限制单次 archival 读回量，并按租户隔离索引。这是框架责任，不是模型能力。</span>
+
+## 边界与工程取舍
+
+### 无限上下文仍是假象
+
+外部库可无限，每步能读的仍是窗口。检索漏召回时，带着过期人设的代理比短窗口模型更自信地错。长上下文模型出现后，换页频率下降，但不取消「常驻人设 + 可查询档案 + 完整日志」三层。生产上常把块做成追加 + 作废，而不是无审计的原地 replace。
+
+不要用 Letta Cloud 的默认工具集去复现 MSC / 嵌套 KV 数字。论文骨干是当时的函数调用模型；框架今天接的是另一批 API。Apache 2.0 的开源仓与商业托管要分开引用。MemGPT 论文地址仍是 arXiv:2310.08560；框架文档以 docs.letta.com 为准。
+
+<span class="marginnote">出处：Packer, Wooders, Lin, Fang, Patil, Stoica, Gonzalez，*MemGPT: Towards LLMs as Operating Systems*，arXiv:2310.08560。更名说明见 letta.com/blog/memgpt-and-letta。架构概念见 Letta 文档「Memory / Agents / Runs」。</span>
+
+## 小结
+
+- Letta 是 MemGPT 设计模式的框架化：有状态代理、块、消息库、工具循环。
+- MemGPT 一词保留给论文模式；Letta 指编排层与可部署服务。
+- 核心块钉在窗口；archival 与对话检索在库里；compaction 驱逐但不删除。
+- 一次 run 可多步心跳，对应论文的函数链。
+- 评测数字仍以 arXiv:2310.08560 为准，不要把产品默认块写回实验表。
+- 出处：Packer et al.，arXiv:2310.08560；Letta 官方更名与文档。
