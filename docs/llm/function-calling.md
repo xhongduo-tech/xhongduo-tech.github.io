@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 OpenAI 2023 年 function calling / 后续 tools 字段；Toolformer 则表明模型可以学会何时插入工具调用</footer>
 </div>
 
-对话模型默认只会续写文本。产品要的却是查库存、跑 SQL、调日历——这些动作发生在模型权重之外。Function calling 把「可调用的副作用」收成一份工具清单：每条有名字、自然语言说明、以及参数的 JSON Schema。模型若决定调用，就不再只写 `content`，而是产出带 `tool_calls` 的助手消息；运行时执行真正的函数，把结果以 `role: tool` 写回，再让模型生成最终答复。它是协议加解码约定，不是新的注意力层。Schick 等人的 Toolformer 证明语言模型能在自监督里学会插入工具调用；OpenAI 兼容的 `tools` 字段则把这件事变成 HTTP 信封上的一等公民，见 [OpenAI 兼容协议](/llm/openai-compat-api)。本篇写三次角色切换、参数如何落地、以及它与自由格式 [ReAct](/llm/react) 的差别。
+[上一课](/llm/repeng-refusal)把安全课序收在表示工程抑制有害行为。本课打开智能体与工具。对话模型默认只会续写文本。产品要的却是查库存、跑 SQL、调日历——这些动作发生在模型权重之外。Function calling 把「可调用的副作用」收成一份工具清单：每条有名字、自然语言说明、以及参数的 JSON Schema。模型若决定调用，就不再只写 `content`，而是产出带 `tool_calls` 的助手消息；运行时执行真正的函数，把结果以 `role: tool` 写回，再让模型生成最终答复。它是协议加解码约定，不是新的注意力层。Schick 等人的 Toolformer 证明语言模型能在自监督里学会插入工具调用；OpenAI 兼容的 `tools` 字段则把这件事变成 HTTP 信封上的一等公民，见 [OpenAI 兼容协议](/llm/openai-compat-api)。本篇写三次角色切换、参数如何落地、以及它与自由格式 [ReAct](/llm/react) 的差别。
 
 ## 问题
 

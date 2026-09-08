@@ -11,11 +11,11 @@ section: llm
 <footer>—— Noam Shazeer, Fast Transformer Decoding, 2019</footer>
 </div>
 
-自回归解码的每一步都要带着历史键值一起读。头数一旦与查询头对齐成完整多头，缓存体积就按头数线性膨胀，带宽先于 FLOPs 成为上限。Shazeer 在 2019 年把键值压到单头，Ainslie 等人 2023 年的 GQA 再把档位拉开，DeepSeek-V2 的 MLA 则换成潜向量压缩。本篇不展开投影公式，只沿「KV 头数」这一根轴，把质量、显存与吞吐放在同一张权衡图上；实现细节分别见相邻叶子 [MQA](/llm/mqa)、[GQA](/llm/gqa)、[MLA](/llm/mla)，训练侧的梯度耦合见 [共享 KV 下的训练稳定性](/llm/shared-kv-training)。
+[MQA](/llm/mqa)、[GQA](/llm/gqa)、[MLA](/llm/mla) 已经分别给出三种缩小 KV 的结构。本课不重写投影，也不再推导为什么解码是搬历史。缺口是把它们放在同一张权衡图上：沿「KV 头数 / 潜变量宽度」看质量、显存与吞吐怎么换。训练侧的梯度耦合留给 [下一课](/llm/shared-kv-training)。
 
 ## 问题
 
-解码阶段，注意力的矩阵乘看起来像计算，实际是一次带宽极高的查表。对长度 $n$、层数 $L$、KV 头数 $h_{\mathrm{kv}}$、头维 $d_h$ 的缓存，体积近似
+前三课给出的是机制，不是选型。服务要回答的是：在给定显存与延迟预算下，该停在 $h_{\mathrm{kv}}=h_q$、某一档 GQA、MQA，还是改走 MLA。解码阶段注意力看起来像计算，实际是查表。对长度 $n$、层数 $L$、KV 头数 $h_{\mathrm{kv}}$、头维 $d_h$ 的缓存，体积近似
 
 $$
 \mathrm{KV} \approx 2\, L\, h_{\mathrm{kv}}\, d_h\, n \cdot b

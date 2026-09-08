@@ -11,7 +11,7 @@ section: llm
 <footer>—— Ouyang 等 InstructGPT 用人类比较训练奖励模型，再以 PPO 优化策略；成对噪声的统计模型见 Bradley-Terry</footer>
 </div>
 
-监督微调模仿示范，示范覆盖不到的题面仍按基座习惯说。要把行为推到「更有用、更安全」，需要一种能给未示范过的完整回答打分的函数。Ouyang 等人的 InstructGPT 把这个函数做成奖励模型（reward model, RM）：同一提示下若干候选回答由人排序或成对比较，RM 学成标量 $r(x,y)$，然后策略在 KL 约束下最大化期望奖励。Llama 2 沿用比较→RM→RL 的骨架，并把有用性与安全性拆成两个 RM，因为单一标量无法同时表达经常相反的偏好。本篇只谈 RM 作为数据到标量的那一层：输入、损失、分头、以及它如何过拟合。成对比较的概率模型见 [Bradley-Terry](/llm/bradley-terry)；绕过显式 RM 的路径见 [DPO](/llm/dpo)。
+[上一课](/llm/sft-safety-mix)把微调课序收在安全数据占 SFT 的比例。本课打开后训练与对齐。监督微调模仿示范，示范覆盖不到的题面仍按基座习惯说。要把行为推到「更有用、更安全」，需要一种能给未示范过的完整回答打分的函数。Ouyang 等人的 InstructGPT 把这个函数做成奖励模型（reward model, RM）：同一提示下若干候选回答由人排序或成对比较，RM 学成标量 $r(x,y)$，然后策略在 KL 约束下最大化期望奖励。Llama 2 沿用比较→RM→RL 的骨架，并把有用性与安全性拆成两个 RM，因为单一标量无法同时表达经常相反的偏好。本篇只谈 RM 作为数据到标量的那一层：输入、损失、分头、以及它如何过拟合。成对比较的概率模型见 [Bradley-Terry](/llm/bradley-terry)；绕过显式 RM 的路径见 [DPO](/llm/dpo)。
 
 ## 问题
 

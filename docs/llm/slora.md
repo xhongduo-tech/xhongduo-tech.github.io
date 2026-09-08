@@ -11,7 +11,7 @@ section: llm
 <footer>—— Sheng et al., S-LoRA: Serving Thousands of Concurrent LoRA Adapters, MLSys 2024</footer>
 </div>
 
-[LoRA](/llm/lora) 的增量是 $BA$，体积远小于基座，但「每个适配器一份合并后的 $W_0+BA$」仍会按租户复制整网。[多 LoRA 服务](/llm/multi-lora-serving) 把问题收成：一份 $W_0$、按请求 gather 低秩乘、连续批混租户。Sheng 等人的 S-LoRA 在这条路上补的是**内存与异构批**：Unified Paging 把 KV 块和适配器矩阵块放进同一分页分配器，避免两套 `cudaMalloc` 互相碎片化；定制核在同一 batch 里处理不同秩、非连续页上的 $A,B$；张量并行时 LoRA 通信按增量而不是按满秩权重付费。本篇写分页对象、换入换出与核接口，不把 Punica 的调度论文或训练期 QLoRA 展开成全文。
+[上一课](/llm/cutlass3-cute)把 CUDA 课序收在 CUTLASS 3 / cuTe。本课打开服务工程。[LoRA](/llm/lora) 的增量是 $BA$，体积远小于基座，但「每个适配器一份合并后的 $W_0+BA$」仍会按租户复制整网。[多 LoRA 服务](/llm/multi-lora-serving) 把问题收成：一份 $W_0$、按请求 gather 低秩乘、连续批混租户。Sheng 等人的 S-LoRA 在这条路上补的是**内存与异构批**：Unified Paging 把 KV 块和适配器矩阵块放进同一分页分配器，避免两套 `cudaMalloc` 互相碎片化；定制核在同一 batch 里处理不同秩、非连续页上的 $A,B$；张量并行时 LoRA 通信按增量而不是按满秩权重付费。本篇写分页对象、换入换出与核接口，不把 Punica 的调度论文或训练期 QLoRA 展开成全文。
 
 ## 问题
 

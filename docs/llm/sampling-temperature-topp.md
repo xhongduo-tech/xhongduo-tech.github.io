@@ -11,7 +11,7 @@ section: llm
     <footer>—— Holtzman et al., The Curious Case of Neural Text Degeneration, ICLR 2020（nucleus / top-$p$）；top-$k$ 见 Fan 等故事生成中的截断采样</footer>
 </div>
 
-自回归每步有一份词表上的 softmax。温度、top-$k$、top-$p$ 都不改权重，只改 *这一步* 用来抽样的分布。温度 $T$ 把 logits 除以 $T$ 再归一化，控制锋利。top-$k$ 只保留分数最高的 $k$ 个 token。top-$p$（nucleus）取最小的集合，使其概率质量和达到 $p$，再在该集合上归一化后随机抽。Holtzman 等人指出，纯贪心或束搜索会退化，无截断的采样又会抽到荒谬长尾；核采样是针对开放生成的折中。本篇写三个旋钮各自改了支撑集或温度、它们叠用时谁先谁后、以及何时不该用高随机。与束搜索的目标函数对照见 [Beam vs Sampling](/llm/beam-vs-sample)；注意力里的温度是另一条轴，见 [SDPA](/llm/sdpa)。
+[上一课](/llm/prm-in-rl-loop)把过程奖励写进训练环，更新的是 $\pi_\theta$。上线之后权重冻结，每一步仍要从词表上的 softmax 抽出一个 token。本课打开「采样与解码策略」：温度、top-$k$、top-$p$ 都不改权重，只改 *这一步* 用来抽样的分布。温度 $T$ 把 logits 除以 $T$ 再归一化，控制锋利。top-$k$ 只保留分数最高的 $k$ 个 token。top-$p$（nucleus）取最小的集合，使其概率质量和达到 $p$，再在该集合上归一化后随机抽。Holtzman 等人指出，纯贪心或束搜索会退化，无截断的采样又会抽到荒谬长尾；核采样是针对开放生成的折中。后课默认你会这三个旋钮，不再从「自回归有一份分类头」讲起。与束搜索的目标函数对照见 [Beam vs Sampling](/llm/beam-vs-sample)；注意力里的温度是另一条轴，见 [SDPA](/llm/sdpa)。
 
 ## 问题
 

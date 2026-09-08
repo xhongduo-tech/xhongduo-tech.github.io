@@ -382,6 +382,43 @@ table tbody tr:nth-child(even) {
   line-height: 1.5;
 }
 
+.lesson-nav {
+  width: 55%;
+  color: var(--theme-muted);
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.lesson-nav--header {
+  margin: -1rem 0 1.8rem;
+}
+
+.lesson-nav--footer {
+  margin: 2.4rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--theme-table-border);
+}
+
+.lesson-nav p {
+  width: 100%;
+  max-width: none;
+  margin: 0.12rem 0;
+}
+
+.lesson-path {
+  font-style: italic;
+}
+
+.kt-num {
+  color: var(--theme-muted);
+  font-variant-numeric: oldstyle-nums;
+  margin-right: 0.4em;
+}
+
+.kt-appendix > .kt-head .kt-kind {
+  letter-spacing: 0.04em;
+}
+
 .marginnote::before {
   content: counter(sidenote-counter) '. ';
   font-family: et-book-roman-old-style, et-book, serif;
@@ -412,8 +449,9 @@ header.site-header {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1em;
+  gap: 0.4em 0.8em;
 }
 
 .site-nav a:any-link {
@@ -421,8 +459,8 @@ header.site-header {
   position: relative;
   text-decoration: none;
   border-bottom: 0;
-  font-size: 1.5rem;
-  padding: 0.2em 0.4em;
+  font-size: 1.25rem;
+  padding: 0.2em 0.35em;
   border-radius: var(--radius-sm);
 }
 
@@ -726,6 +764,7 @@ header.site-header {
   .tuf-article .vp-mermaid,
   pre,
   .article-byline,
+  .lesson-nav,
   .post-list,
   .blog-entry,
   .kt {

@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA CUDA C++ Programming Guide：Occupancy、Launch Configuration 与 Occupancy Calculator 相关章节</footer>
 </div>
 
-GPU 把线程分层：warp 是 32 路 SIMT 的调度单位，CTA（Cooperative Thread Array，即 thread block）是能用共享内存与 `__syncthreads` 的协作组，grid 是一次 kernel 启动的全部 CTA。占用率（occupancy）描述每个 SM 上能同时驻留多少 warp（或 CTA），从而在一次长延迟（共享内存 bank 冲突、全局内存访问、指令依赖）时切到别的 warp 继续发指令。LLM 的 GEMM、[FlashAttention](/llm/flashattention)、归一化核都在这条规则下选 block 尺寸与每线程资源。本篇写三级层次、占用率公式与限制因素、以及为什么盲目拉满占用率会伤 [Tensor Core](/llm/tensor-core) 核。
+[上一课](/llm/serving-tokenizer-cost)把推理系统课序收在 tokenizer / detokenize 的服务开销。本课打开 CUDA 与内核实现。GPU 把线程分层：warp 是 32 路 SIMT 的调度单位，CTA（Cooperative Thread Array，即 thread block）是能用共享内存与 `__syncthreads` 的协作组，grid 是一次 kernel 启动的全部 CTA。占用率（occupancy）描述每个 SM 上能同时驻留多少 warp（或 CTA），从而在一次长延迟（共享内存 bank 冲突、全局内存访问、指令依赖）时切到别的 warp 继续发指令。LLM 的 GEMM、[FlashAttention](/llm/flashattention)、归一化核都在这条规则下选 block 尺寸与每线程资源。本篇写三级层次、占用率公式与限制因素、以及为什么盲目拉满占用率会伤 [Tensor Core](/llm/tensor-core) 核。
 
 ## 问题
 

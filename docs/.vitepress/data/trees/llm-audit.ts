@@ -27,7 +27,6 @@ const extra: Outline[] = [
             [
               'QK-Norm|qk-norm-pretrain',
               'xIELU 激活|xielu-activation',
-              'Cut Cross-Entropy|cut-cross-entropy',
               'MoE z-loss|z-loss-moe',
               'Multi-Token Prediction 训练目标|multi-token-prediction-training',
               '跨文档 packing 掩码|packing-cross-doc-mask',

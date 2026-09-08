@@ -11,7 +11,7 @@ section: llm
 <footer>—— Kwon 等，Efficient Memory Management for Large Language Model Serving with PagedAttention，SOSP 2023</footer>
 </div>
 
-vLLM 要同时做两件事：把尽可能多的请求叠进一次前向，以及让每条请求的 KV 按真实长度增长、结束即还。Kwon 等人把系统收成一条控制面加一条数据面——调度器与 KV 块管理器在中央，worker 在 GPU 上跑模型与 [PagedAttention](/llm/vllm-paged)。控制面决定「这一迭代算谁、用哪些物理块」；数据面不分配策略，只按块表做注意力。本篇按 SOSP 2023 论文里的架构图写这套分工，工程仓库后来的进程模型、V1 引擎会变，但「中央调度 + 分页 KV + worker」这条脊梁没有换成另一套数学。
+[上一课](/llm/decode-affinity)把推理算法课序收在 decode 实例的亲和与缓存。本课打开推理系统。vLLM 要同时做两件事：把尽可能多的请求叠进一次前向，以及让每条请求的 KV 按真实长度增长、结束即还。Kwon 等人把系统收成一条控制面加一条数据面——调度器与 KV 块管理器在中央，worker 在 GPU 上跑模型与 [PagedAttention](/llm/vllm-paged)。控制面决定「这一迭代算谁、用哪些物理块」；数据面不分配策略，只按块表做注意力。本篇按 SOSP 2023 论文里的架构图写这套分工，工程仓库后来的进程模型、V1 引擎会变，但「中央调度 + 分页 KV + worker」这条脊梁没有换成另一套数学。
 
 ## 问题
 

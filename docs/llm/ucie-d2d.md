@@ -48,7 +48,7 @@ flowchart TD
 
 ### 与 CoWoS、EMIB 的分工
 
-UCIe 是接口规范，不是代工厂封装商标。TSMC [CoWoS-L](/llm/cowos-l-r) 的 LSI 桥提供亚微米铜线，用来实现 UCIe-A 或专有 D2D；Intel EMIB 是另一条硅桥。规范写节距与电气，代工厂写 RDL、TSV、翘曲。一张「UCIe 兼容」的 chiplet 仍要选一个封装 PDK：凸点工艺、保持区、电源垫密度必须进同一份基板设计。2.0 的 3D 路径与 [混合键合 HBM](/llm/hbm-hybrid-bonding) 用的是同类键合物理，但协议与凸点图仍以 UCIe-3D 为准，不能把 HBM 底座的混合键合直接叫 UCIe。
+UCIe 是接口规范，不是代工厂封装商标。TSMC [CoWoS-L](/llm/cowos-l-r) 的 LSI 桥提供亚微米铜线，用来实现 UCIe-A 或专有 D2D；Intel EMIB 是另一条硅桥。规范写节距与电气，代工厂写 RDL、TSV、翘曲。一张「UCIe 兼容」的 chiplet 仍要选一个封装 PDK：凸点工艺、保持区、电源垫密度必须进同一份基板设计。2.0 的 3D 路径与 [混合键合 HBM](/litho/hbm-hybrid-bonding) 用的是同类键合物理，但协议与凸点图仍以 UCIe-3D 为准，不能把 HBM 底座的混合键合直接叫 UCIe。
 
 ## 机制
 

@@ -1,4 +1,4 @@
-import { fromOutline, type Outline } from './schema'
+import { fromOutline, markAppendix, type Outline } from './schema'
 import { quantExtra } from './quant-extra'
 import { quantAudit } from './quant-audit'
 import { quantFrontier } from './quant-frontier'
@@ -23,6 +23,20 @@ const outline: Outline[] = [
             ],
           ],
           [
+            '市场设计',
+            [
+              '连续竞价 vs 集合竞价|continuous-vs-auction',
+              '开盘与收盘集合竞价|opening-closing-call',
+              '波动性中断与再开盘|volatility-auction',
+              'Maker-taker 费用|maker-taker',
+              '最小变动价位 tick|tick-size-regime',
+              '手数与零股|lot-size-odd-lot',
+              '价格栅格|price-grid-tick',
+              '暗池、ATS 与中点单|dark-pool-midpoint',
+              '市场分割与 NBBO|market-fragmentation',
+            ],
+          ],
+          [
             '价格形成',
             [
               'Roll 模型|roll-model',
@@ -31,6 +45,28 @@ const outline: Outline[] = [
               '信息交易概率 PIN|pin',
               'VPIN|vpin',
               '有效价差与实现价差|effective-realized-spread',
+              'Lee-Ready 算法|lee-ready',
+              'Tick / Quote 规则|tick-quote-rule',
+              'Huang-Stoll 价差分解估计|huang-stoll-spread',
+              'Madhavan-Richardson-Roomans|mrr-decomposition',
+              'Corwin-Schultz 价差估计|corwin-schultz',
+              'Amihud 非流动性|amihud-illiquidity',
+              'Kyle lambda 校准|kyle-lambda',
+              '实现价差期限|realized-spread-horizon',
+            ],
+          ],
+        ],
+      ],
+      [
+        '持有期与容量',
+        [
+          [
+            '频率体制',
+            [
+              '持有期与换手|holding-horizon',
+              '策略容量与拥挤|strategy-capacity',
+              '延迟预算|latency-budget',
+              '高频、中频与低频|freq-hft-mid-slow',
             ],
           ],
         ],
@@ -258,6 +294,8 @@ const outline: Outline[] = [
               'HJM|hjm',
               'LMM|lmm',
               '可转债与信用混合|convertible-credit',
+              '债券流动性与 TRACE|bond-liquidity-trace',
+              '公司债 OTC 询价|corporate-bond-otc',
             ],
           ],
         ],
@@ -315,6 +353,9 @@ const outline: Outline[] = [
               '瞬时 vs 永久冲击|temp-perm-impact',
               'TWAP / VWAP / POV|twap-vwap-pov',
               '实施缺口 Implementation Shortfall|implementation-shortfall',
+              'Obizhaeva-Wang|obizhaeva-wang',
+              '成交后分析 TCA|tca',
+              '智能订单路由 SOR|smart-order-routing',
             ],
           ],
         ],
@@ -329,6 +370,7 @@ const outline: Outline[] = [
               '库存风险与偏度报价|inventory-skew',
               '排队与成交概率|fill-probability',
               '毒性流与停报价|toxic-flow',
+              'Guéant-Lehalle-Fernandez-Tapia|glft-market-making',
             ],
           ],
         ],
@@ -363,6 +405,9 @@ const outline: Outline[] = [
               '过拟合作为风险|overfit-as-risk',
               '体制切换失效|regime-break-risk',
               '相关性崩溃|correlation-breakdown',
+              '流动性螺旋|liquidity-spiral-risk',
+              '模型风险清单|model-risk-inventory',
+              '压力情景与反向压力|stress-reverse-stress',
             ],
           ],
         ],
@@ -420,6 +465,9 @@ const outline: Outline[] = [
               '订单状态机|order-state-machine',
               '风控闸门与熔断|trading-kill-switch',
               '监控：PnL、敞口、拒单|trading-telemetry',
+              '交易所 vs 经纪商时钟|exchange-vs-broker-ts',
+              '序号缺口与丢包|sequence-gap',
+              '公司行动引擎|corporate-action-engine',
             ],
           ],
         ],
@@ -440,6 +488,10 @@ const outline: Outline[] = [
               '供应链与货运|supply-chain-alt',
               '舆情与文本|news-nlp-alpha',
               '期权链作为现货信号|options-as-spot-signal',
+              '回填偏差|alt-data-backfill-bias',
+              '面板构造|alt-panel-construction',
+              '卫星到特征|satellite-to-feature',
+              '网络数据合规|web-data-compliance',
             ],
           ],
         ],
@@ -473,6 +525,9 @@ const outline: Outline[] = [
               '交易作为 MDP 的陷阱|trading-mdp-pitfalls',
               '模拟器偏差|sim-to-real-trading',
               '执行 RL 与冲击|rl-execution',
+              '延迟奖励与信用分配|delayed-reward-trading',
+              '部分可观测与延迟成交|pomdp-fills',
+              '模拟器冲击模型|simulator-impact-bias',
             ],
           ],
         ],
@@ -481,4 +536,9 @@ const outline: Outline[] = [
   ],
 ]
 
-export const quantTree = [...fromOutline(outline), ...quantExtra, ...quantAudit, ...quantFrontier]
+export const quantTree = [
+  ...fromOutline(outline),
+  ...quantExtra,
+  ...markAppendix(quantAudit),
+  ...markAppendix(quantFrontier),
+]

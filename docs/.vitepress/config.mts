@@ -7,8 +7,8 @@ const base = repo && !repo.endsWith('.github.io') ? `/${repo}/` : '/'
 export default withMermaid(defineConfig({
   base,
   lang: 'zh-CN',
-  title: 'LLM & Quant',
-  description: '徐鸿铎 · 大模型与量化',
+  title: '徐鸿铎',
+  description: '大模型、量化、金融与光刻',
   cleanUrls: true,
   lastUpdated: true,
   appearance: false,

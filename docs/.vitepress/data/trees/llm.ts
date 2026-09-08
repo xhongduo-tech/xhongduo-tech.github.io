@@ -1,10 +1,68 @@
-import { fromOutline, type Outline } from './schema'
-import { llmExtra } from './llm-extra'
+import { fromOutline, markAppendix, type Outline } from './schema'
+import {
+  extraSampling,
+  extraSafety,
+  extraCuda,
+  extraDataEng,
+  extraEvalMethod,
+  extraAlignData,
+  extraServing,
+  extraPrompting,
+} from './llm-extra'
 import { llmPapers } from './llm-papers'
 import { llmAudit } from './llm-audit'
 import { llmFrontier } from './llm-frontier'
+import { llmSideline } from './llm-sideline'
 
-const outline: Outline[] = [
+const representation: Outline = [
+  '表示与 Transformer 块',
+  [
+    [
+      '分词',
+      [
+        [
+          '从字符到子词',
+          [
+            '离散符号与词表|token-as-discrete-unit',
+            'BPE 合并规则|bpe-merge-rule',
+            'Unigram 切分|unigram-segmentation',
+            '词表大小与 UNK|vocab-size-unk',
+            'Detokenize 与往返|detokenize-roundtrip',
+          ],
+        ],
+      ],
+    ],
+    [
+      '嵌入',
+      [
+        [
+          '查找表',
+          [
+            'Token 嵌入查找|embedding-lookup',
+            'Tied vs untied 嵌入|tied-untied-embedding',
+            '词表宽度与 d_model|embedding-dmodel',
+          ],
+        ],
+      ],
+    ],
+    [
+      '残差块',
+      [
+        [
+          '一块的组成',
+          [
+            '残差流|residual-stream',
+            'Transformer 块：注意力加前馈|transformer-block-compose',
+            'FFN 扩展比|ffn-expansion-ratio',
+            '块内信息路径|block-information-path',
+          ],
+        ],
+      ],
+    ],
+  ],
+]
+
+const trunk: Outline[] = [
   [
     '模型架构',
     [
@@ -100,6 +158,11 @@ const outline: Outline[] = [
               '共享专家与细粒度专家|shared-expert-moe',
               'DeepSeek MoE|deepseek-moe',
               'MoE 推理时的专家缓存|moe-inference-cache',
+              'Capacity factor|moe-capacity-factor',
+              'Dropless MoE|moe-dropless',
+              'Expert-choice 路由|moe-expert-choice',
+              '路由器梯度|moe-router-gradient',
+              '共享专家与路由专家的配比|moe-shared-routed-size',
             ],
           ],
         ],
@@ -143,25 +206,7 @@ const outline: Outline[] = [
               '动态分辨率与 AnyRes|anyres',
               '视觉 token 压缩|vision-token-compression',
               'OCR 与文档 VLM|ocr-vlm',
-            ],
-          ],
-          [
-            'Qwen OCR 与文档解析',
-            [
-              'Naive Dynamic Resolution 原生分辨率切块|qwen-vl-naive-dynamic-res',
-              '2×2 patch merge 控制视觉 token 数|qwen-vl-patch-merge',
-              '窗口注意力与周期性全局注意力交替|qwen-vl-window-full-attn',
-              'MRoPE / Interleaved MRoPE 时空位置|qwen3-vl-interleaved-mrope',
-              'DeepStack：多层 ViT 特征注入 LLM|qwen3-vl-deepstack',
-              'SigLIP-2 视觉骨干|qwen3-vl-siglip2',
-              'Qwen HTML 版式感知文档解析|qwen-html-document-parse',
-              '文字定位与 2D grounding|qwen-ocr-text-grounding',
-              '表格、公式与卡证关键信息抽取|qwen-ocr-kie',
-              '粗到细伪标注 OCR 数据管线|qwen-ocr-coarse-to-fine',
-              '多页 PDF 合成与跨页文档 VQA|qwen-ocr-long-pdf',
-              '图像旋转矫正|qwen-ocr-rotation',
-              'Qwen-VL-OCR 内置任务模板|qwen-vl-ocr-tasks',
-              'Qwen3.5-OCR：原生 PDF 与多轮抽取|qwen35-ocr',
+              'Early vs late fusion|early-late-fusion',
             ],
           ],
           [
@@ -169,157 +214,11 @@ const outline: Outline[] = [
             [
               '语音 tokenizer|speech-tokenizer',
               '音频语言模型|audio-lm',
+              '音频 codec 与离散 token|audio-codec-lm',
               '视频 token 与时间采样|video-tokens',
+              '视频时序融合|video-temporal-pool',
               '多模态交错训练|interleaved-multimodal',
-            ],
-          ],
-          [
-            'Qwen ASR',
-            [
-              'LALM：先理解音频再生成转写|qwen3-asr-lalm',
-              'Qwen3-Omni 作为语音理解基座|qwen3-omni-speech-base',
-              'AuT：AED 音频 Transformer 编码器|qwen3-asr-aut',
-              '128 维 Fbank 与 Conv2D 8× 下采样|qwen3-asr-fbank-downsample',
-              '12.5 Hz 音频 token 率|qwen3-asr-token-rate',
-              '动态 FlashAttention 窗口 1s–8s|qwen3-asr-dynamic-window',
-              '分块 Conv2D（约 100 帧 → 13 token）|qwen3-asr-chunked-conv',
-              '学习型 projector 对齐 AuT 与 Qwen3|qwen3-asr-projector',
-              'Qwen3 解码器：GQA、RoPE、QK-Norm|qwen3-asr-decoder',
-              '流式与离线统一推理|qwen3-asr-streaming-offline',
-              '语言识别与 52 语种/方言|qwen3-asr-lid',
-              'Qwen3-ForcedAligner 非自回归时间戳|qwen3-forced-aligner',
-              '伪标注大规模语音预训练|qwen3-asr-pseudo-label',
-              'vLLM 批推理与流式 ASR 服务|qwen3-asr-vllm',
-            ],
-          ],
-        ],
-      ],
-    ],
-  ],
-  [
-    '世界模型与空间智能',
-    [
-      [
-        '李飞飞 / World Labs',
-        [
-          [
-            '空间智能纲领',
-            [
-              '空间智能：感知、推理、在三维中行动|spatial-intelligence',
-              '世界模型四件事：重建、生成、仿真、交互|world-model-four-roles',
-              '持久三维世界 vs 边走边生成帧|persistent-3d-vs-streaming-frames',
-            ],
-          ],
-          [
-            'Marble 生成式世界',
-            [
-              '多模态提示到三维世界（文/图/视频/布局）|marble-multimodal-prompt',
-              '多图与视频的视角拼接成一致场景|marble-multi-view-stitch',
-              'Chisel：粗几何定结构、文本定风格|marble-chisel',
-              '区域扩展与 Composer 拼世界大图|marble-expand-compose',
-              '三维高斯溅射作为高保真表示|marble-gaussian-splats',
-              '碰撞网格与视觉网格双导出|marble-dual-mesh',
-              'Spark：浏览器高斯溅射渲染|marble-spark',
-              '结构保持的视频增强与动态元素|marble-video-enhance',
-              'AI 原生局部编辑与风格改写|marble-world-edit',
-            ],
-          ],
-          [
-            'RTFM 实时帧模型',
-            [
-              'RTFM：探索时实时出帧而非导出场景|worldlabs-rtfm',
-              '实时世界模型的形变与不一致性|rtfm-morphing',
-            ],
-          ],
-          [
-            'Atlas Omni 世界模型',
-            [
-              '多模态自回归扩散 Transformer|atlas-ardt',
-              '共享空间上下文：图像锚定在三维位姿|atlas-spatial-context',
-              '相机位姿作为原生输入而非文本描述|atlas-native-camera',
-              '视频作为带位姿的图像序列|atlas-video-as-frames',
-              'Rectified flow 潜空间扩散|atlas-rectified-flow',
-              '深度图、点云与高斯溅射写出|atlas-3d-writeout',
-              '稀疏视角新视角合成与三维重建|atlas-sparse-view-recon',
-              '相机可控长视频（至 1440p / 1 分钟）|atlas-camera-controlled-video',
-              '多机位 reframing 与子弹时间|atlas-video-reframe',
-              'Real-to-Sim：重建场景并生成机器人传感器视图|atlas-real-to-sim',
-              '沿用 LLM 的 KV cache 与分离式服务|atlas-llm-serving-tricks',
-              '扩散蒸馏、CFG 与 VAE 潜空间|atlas-diffusion-stack',
-            ],
-          ],
-        ],
-      ],
-    ],
-  ],
-  [
-    '模型族',
-    [
-      [
-        'Dense 开源',
-        [
-          [
-            'Llama 系',
-            [
-              'Llama 1 架构选择|llama-1',
-              'Llama 2 GQA 与对话|llama-2',
-              'Llama 3 数据与 tokenizer|llama-3',
-              'Llama 3.1 长上下文|llama-3-1',
-              'Llama 4 与 MoE 方向|llama-4',
-              'Code Llama|code-llama',
-            ],
-          ],
-          [
-            'Qwen / GLM / Gemma / Mistral',
-            [
-              'Qwen 1.5 / 2 / 2.5 演进|qwen-evolution',
-              'Qwen3|qwen3',
-              'Qwen2-Audio / Qwen2.5-Omni 语音|qwen-audio-omni',
-              'Qwen3-ASR-1.7B / 0.6B|qwen3-asr',
-              'Qwen3-VL 与文档 OCR|qwen3-vl',
-              'Qwen3.5-OCR|qwen35-ocr-model',
-              'GLM 与 ChatGLM|glm',
-              'GLM-4|glm-4',
-              'Gemma / Gemma 2|gemma',
-              'Mistral 与 Mixtral|mistral-mixtral',
-              'Phi 小模型路线|phi',
-            ],
-          ],
-        ],
-      ],
-      [
-        'MoE 与推理导向',
-        [
-          [
-            'DeepSeek 系',
-            [
-              'DeepSeek-V2 MLA 与 MoE|deepseek-v2',
-              'DeepSeek-V3|deepseek-v3',
-              'DeepSeek-R1 与推理时行为|deepseek-r1',
-              'DeepSeek 开源栈与部署约束|deepseek-serving',
-            ],
-          ],
-          [
-            '其他 MoE',
-            [
-              'Mixtral 8x7B / 8x22B|mixtral',
-              'DBRX|dbrx',
-              'Grok MoE 公开信息|grok-moe',
-              'OLMoE|olmoe',
-            ],
-          ],
-        ],
-      ],
-      [
-        '小模型与端侧',
-        [
-          [
-            '结构与蒸馏',
-            [
-              'SLM 的能力边界|slm-capability',
-              '端侧上下文与 KV 预算|on-device-kv',
-              'NPU 友好算子|npu-friendly-ops',
-              '蒸馏到端侧的数据与温度|on-device-distill',
+              '离散扩散语言模型|discrete-diffusion-lm',
             ],
           ],
         ],
@@ -369,6 +268,10 @@ const outline: Outline[] = [
               '梯度裁剪与损失尖峰|grad-clip-loss-spike',
               '混合精度 BF16 / FP8 训练|pretrain-mixed-precision',
               '权重衰减与 μP|weight-decay-mup',
+              'z-loss 与 logit 稳定|z-loss',
+              'Cut cross-entropy|cut-cross-entropy',
+              'NaN skip batch|nan-skip-batch',
+              '批次与学习率|batch-vs-lr',
             ],
           ],
           [
@@ -542,6 +445,21 @@ const outline: Outline[] = [
               'MCTS 用于语言模型|mcts-llm',
               'Test-time compute scaling|test-time-scaling',
               '过程奖励引导的搜索|prm-guided-search',
+            ],
+          ],
+        ],
+      ],
+      [
+        '推理模型训练',
+        [
+          [
+            '长推理与可验证奖励',
+            [
+              'Long CoT SFT|long-cot-sft',
+              '可验证奖励|verifiable-reward',
+              '长度预算与截断|length-budget-rl',
+              '推理 RL 闭环|reasoning-rl-loop',
+              '过程奖励进训练环|prm-in-rl-loop',
             ],
           ],
         ],
@@ -835,108 +753,6 @@ const outline: Outline[] = [
     ],
   ],
   [
-    '半导体与光刻',
-    [
-      [
-        '光刻物理',
-        [
-          [
-            '分辨率',
-            [
-              '瑞利判据：CD = k₁ λ / NA|rayleigh-litho',
-              '波长台阶：g/i 线、KrF 248、ArF 193、EUV 13.5|litho-wavelengths',
-              '掩模、光刻胶、曝光、显影、刻蚀转印|litho-process-flow',
-              '套刻 Overlay 与对准|litho-overlay',
-              '双工件台 Twinscan 提高产能|twinscan-dual-stage',
-            ],
-          ],
-        ],
-      ],
-      [
-        'DUV 与多重曝光',
-        [
-          [
-            '浸没与分解',
-            [
-              'ArF 浸没：水作介质抬高 NA|arf-immersion',
-              '离轴照明与偶极/四极光瞳|off-axis-illumination',
-              '相移掩模 PSM|phase-shift-mask',
-              'LELE 多次曝光套刻|lele-multipattern',
-              'SADP / SAQP 自对准双重/四重图形|sadp-saqp',
-              '浸没 DUV + 多重曝光走到 7/5 nm 的代价|duv-multipattern-cost',
-            ],
-          ],
-        ],
-      ],
-      [
-        'EUV 与 ASML',
-        [
-          [
-            '光源与光学',
-            [
-              '13.5 nm 真空全反射：Mo/Si 多层膜镜|euv-multilayer-mirror',
-              'LPP：CO₂ 激光打锡滴产生等离子体|euv-lpp-tin',
-              '预脉冲 + 主脉冲提高转换效率|euv-prepulse',
-              '蔡司投影物镜与收集镜|zeiss-euv-optics',
-              '氢气流 Dynamic Gas Lock 防污染|euv-hydrogen-dgl',
-              'EUV 薄膜 Pellicle|euv-pellicle',
-              'NXE：NA 0.33 量产 5/3 nm|asml-nxe',
-              'High-NA 0.55 EXE：变形光学与半场|asml-high-na',
-              '真空磁浮工件台|euv-maglev-stage',
-              '随机效应与光子散粒噪声|euv-stochastics',
-              '金属氧化物胶 vs 化学放大胶|euv-resist',
-            ],
-          ],
-        ],
-      ],
-      [
-        '计算光刻',
-        [
-          [
-            '图形修正',
-            [
-              '光学邻近修正 OPC|opc',
-              '光源掩模协同优化 SMO|smo',
-              '逆光刻 ILT 与曲线掩模|ilt-curvilinear',
-              '多束电子束写掩模|multibeam-mask-writer',
-              'GPU / AI 加速 OPC（cuLitho 等）|computational-litho-gpu',
-            ],
-          ],
-        ],
-      ],
-      [
-        '制程与封装',
-        [
-          [
-            '前后道',
-            [
-              'FinFET 到 GAA / nanosheet|finfet-gaa',
-              '原子层沉积 ALD 与原子层刻蚀|ald-ale',
-              'HBM 堆叠与混合键合|hbm-hybrid-bonding',
-              'CoWoS / 2.5D 中介层|cowos-2p5d',
-              'Chiplet 与先进封装补光刻极限|chiplet-packaging',
-            ],
-          ],
-        ],
-      ],
-      [
-        '国产与管制',
-        [
-          [
-            '设备与供应链',
-            [
-              'EUV 出口管制卡住先进逻辑|euv-export-control',
-              '国产浸没 DUV 与 28 nm 单次曝光|china-immersion-duv',
-              '多重曝光把国产 DUV 往更先进节点推|china-duv-multipattern',
-              '国产 EUV 仍处原型、光学与光源是瓶颈|china-euv-prototype',
-              '光刻胶、光源、镜头的国产替代|china-litho-supply-chain',
-            ],
-          ],
-        ],
-      ],
-    ],
-  ],
-  [
     '压缩与数值',
     [
       [
@@ -979,6 +795,8 @@ const outline: Outline[] = [
               '非结构化稀疏|unstructured-sparsity',
               '层剪与深度压缩|layer-prune',
               '投机草稿作为压缩|draft-as-compression',
+              '激活离群值为何出现|why-activation-outliers',
+              '量化误差与剪枝的分工|quantization-vs-prune',
             ],
           ],
         ],
@@ -1000,6 +818,9 @@ const outline: Outline[] = [
               '长上下文针测|niah',
               'IFEval 指令遵循|ifeval',
               'Arena / 人工偏好|lmsys-arena',
+              '人工评测 vs 自动评测|human-vs-auto-eval',
+              '智能体与工具评测协议|agent-eval-protocol',
+              '评测方差与随机种子|eval-variance-seed',
             ],
           ],
         ],
@@ -1036,6 +857,16 @@ const outline: Outline[] = [
               '规划 vs 反应式循环|plan-vs-react',
             ],
           ],
+          [
+            '学习与环境',
+            [
+              '工具 schema 训练|tool-schema-sft',
+              '多步信用分配|multi-step-credit-assign',
+              '工具沙箱|tool-sandbox',
+              '记忆写入与检索|agent-memory-write',
+              'Computer-use 循环|computer-use-loop',
+            ],
+          ],
         ],
       ],
       [
@@ -1056,5 +887,32 @@ const outline: Outline[] = [
   ],
 ]
 
-export const llmTree = [...fromOutline(outline), ...llmExtra, ...llmPapers, ...llmAudit, ...llmFrontier]
+export const llmTree = [
+  ...fromOutline([
+    representation,
+    trunk[0],
+    trunk[1],
+    extraDataEng,
+    trunk[2],
+    trunk[3],
+    extraAlignData,
+    trunk[4],
+    extraSampling,
+    trunk[5],
+    trunk[6],
+    extraCuda,
+    extraServing,
+    trunk[7],
+    trunk[8],
+    trunk[9],
+    extraEvalMethod,
+    extraSafety,
+    trunk[10],
+    extraPrompting,
+  ]),
+  ...markAppendix(llmSideline),
+  ...markAppendix(llmPapers),
+  ...markAppendix(llmAudit),
+  ...markAppendix(llmFrontier),
+]
 

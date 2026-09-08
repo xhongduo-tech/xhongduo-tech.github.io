@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Pope 等对 Transformer 推理阶段的分析，以及服务系统把 prefill 与 decode 分调度的公开做法</footer>
 </div>
 
-自回归服务把一次请求切成两段。Prefill（预填充）吃完整用户提示，一次性算出所有提示位置的隐状态，并把 KV 写入缓存。Decode 每次只追加一个新 token。两段的算术强度差一个数量级：prefill 的序列长度 $s$ 大，GEMM 与 $QK^\top$ 都能喂饱 Tensor Core；decode 的查询长度是 1，算力闲、HBM 忙。本篇只写 prefill 的计算特征；decode 的容量与带宽限制见[显存墙](/llm/decode-memory-wall)。不要用「推理 FLOPs」一个数同时描述 TTFT 和 TPOT。
+[上一课](/llm/fim-decode)把采样课序收在填中解码：词表上怎么抽、中间位置怎么填。本课打开推理算法，对象换成服务时间线上的计算画像。自回归服务把一次请求切成两段。Prefill（预填充）吃完整用户提示，一次性算出所有提示位置的隐状态，并把 KV 写入缓存。Decode 每次只追加一个新 token。两段的算术强度差一个数量级：prefill 的序列长度 $s$ 大，GEMM 与 $QK^\top$ 都能喂饱 Tensor Core；decode 的查询长度是 1，算力闲、HBM 忙。本篇只写 prefill 的计算特征；decode 的容量与带宽限制见[显存墙](/llm/decode-memory-wall)。不要用「推理 FLOPs」一个数同时描述 TTFT 和 TPOT。
 
 ## 问题
 

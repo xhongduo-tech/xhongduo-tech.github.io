@@ -2,8 +2,9 @@
 import { defineComponent, reactive } from 'vue'
 import { withBase } from 'vitepress'
 import { leafCount } from '../data/trees/schema'
+import { getLesson } from '../data/curriculum'
 
-const KIND = { branch: '分支', mainline: '主线', group: '技术点' }
+const KIND = { branch: '课程', mainline: '单元', group: '课序' }
 
 export default defineComponent({
   name: 'TreeList',
@@ -36,7 +37,17 @@ export default defineComponent({
       return withBase(`/${props.section}/${slug}/`)
     }
 
-    return { KIND, leafCount, isOpen, toggle, href }
+    function kindLabel(node) {
+      if (node.appendix && node.kind === 'branch') return '附录'
+      return KIND[node.kind]
+    }
+
+    function lessonNum(slug) {
+      const lesson = getLesson(props.section, slug)
+      return lesson ? lesson.indexInSequence : 0
+    }
+
+    return { KIND, leafCount, isOpen, toggle, href, kindLabel, lessonNum }
   },
 })
 </script>
@@ -46,17 +57,24 @@ export default defineComponent({
     <div
       v-for="(node, i) in nodes"
       :key="(node.slug || node.name) + '-' + i"
-      :class="['kt-item', 'kt-' + node.kind]"
+      :class="['kt-item', 'kt-' + node.kind, { 'kt-appendix': node.appendix }]"
     >
       <template v-if="node.kind === 'leaf'">
-        <a v-if="href(node.slug)" class="kt-leaf" :href="href(node.slug)">{{ node.name }}</a>
-        <span v-else class="kt-pending">{{ node.name }}</span>
+        <a v-if="href(node.slug)" class="kt-leaf" :href="href(node.slug)"
+          ><span v-if="lessonNum(node.slug)" class="kt-num">{{ lessonNum(node.slug) }}.</span
+          >{{ node.name }}</a
+        >
+        <span v-else class="kt-pending"
+          ><span v-if="lessonNum(node.slug)" class="kt-num">{{ lessonNum(node.slug) }}.</span
+          >{{ node.name }}</span
+        >
         <span v-if="node.alsoIn?.length" class="kt-also">亦见 {{ node.alsoIn.join('、') }}</span>
       </template>
       <template v-else>
         <button class="kt-head" type="button" @click="toggle(node, i)">
           <span class="kt-caret" aria-hidden="true">{{ isOpen(node, i) ? '▾' : '▸' }}</span>
-          <span class="kt-kind">{{ KIND[node.kind] }}</span>{{ ' ' }}<span class="kt-name">{{ node.name }}</span>{{ ' ' }}<span class="kt-n">{{ leafCount(node.children || []) }}</span>
+          <span class="kt-kind">{{ kindLabel(node) }}</span>{{ ' ' }}<span class="kt-name">{{ node.name }}</span
+          >{{ ' ' }}<span class="kt-n">{{ leafCount(node.children || []) }}</span>
         </button>
         <TreeList
           v-if="isOpen(node, i)"

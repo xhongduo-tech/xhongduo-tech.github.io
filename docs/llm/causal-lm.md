@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Vaswani et al., Attention Is All You Need, NeurIPS 2017；Radford et al., GPT</footer>
 </div>
 
-因果语言模型（Causal LM）把一段文本 $x=(x_1,\ldots,x_n)$ 写成自回归乘积，并用神经网络参数化每一个条件分布。Vaswani 等人在 Transformer 解码器自注意力上加入因果掩码，阻止位置 $t$ 读取 $t$ 右侧的键值；Radford 等人的 GPT 把这一解码器栈当成预训练目标本身：在大规模无标注文本上做下一个 token 预测。当代「解码器只」大模型默认就是 Causal LM。本篇只写这一目标与掩码如何互为表里，双向的 Masked LM、前缀可见的 Prefix LM 留给相邻文。
+[上一课](/llm/discrete-diffusion-lm)把生成写成离散状态上的并行去噪，作为「模型架构」的收束。本课打开预训练课程。主干默认的目标仍是因果语言模型（Causal LM）：把一段文本 $x=(x_1,\ldots,x_n)$ 写成自回归乘积，并用神经网络参数化每一个条件分布。扩散是对照，不是后课的默认预训练损失。Vaswani 等人在 Transformer 解码器自注意力上加入因果掩码，阻止位置 $t$ 读取 $t$ 右侧的键值；Radford 等人的 GPT 把这一解码器栈当成预训练目标本身：在大规模无标注文本上做下一个 token 预测。当代「解码器只」大模型默认就是 Causal LM。本篇只写这一目标与掩码如何互为表里，双向的 Masked LM、前缀可见的 Prefix LM 留给相邻文。
 
 ## 问题
 

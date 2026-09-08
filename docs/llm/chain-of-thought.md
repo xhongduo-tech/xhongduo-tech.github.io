@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models, NeurIPS 2022</footer>
 </div>
 
-标准少样本提示把题目和答案成对摆进上下文，模型学会的是「看见这种题面就填那个短答案」。多步算术、常识组合、符号操作却要求中间量被显式算出来：进位、单位换算、实体对齐，都不能只靠一次条件分布的捷径。Wei 等人把示范改成「题面 → 自然语言推理链 → 答案」，把计算摊到生成的 token 上。这就是思维链提示（Chain-of-Thought, CoT）。它不改权重、不引入工具，只改条件前缀里示范的形态。后续的[零样本 CoT](/llm/zero-shot-cot)、[自洽解码](/llm/self-consistency)、[思维树](/llm/tree-of-thoughts)都建立在「中间步骤值得写出来」这一前提上。
+[上一课](/llm/long-context-vs-rag)把智能体课序收在长上下文是否取代 RAG。本课打开推理链与提示。标准少样本提示把题目和答案成对摆进上下文，模型学会的是「看见这种题面就填那个短答案」。多步算术、常识组合、符号操作却要求中间量被显式算出来：进位、单位换算、实体对齐，都不能只靠一次条件分布的捷径。Wei 等人把示范改成「题面 → 自然语言推理链 → 答案」，把计算摊到生成的 token 上。这就是思维链提示（Chain-of-Thought, CoT）。它不改权重、不引入工具，只改条件前缀里示范的形态。后续的[零样本 CoT](/llm/zero-shot-cot)、[自洽解码](/llm/self-consistency)、[思维树](/llm/tree-of-thoughts)都建立在「中间步骤值得写出来」这一前提上。
 
 ## 问题
 

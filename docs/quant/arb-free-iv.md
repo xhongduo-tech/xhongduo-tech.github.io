@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006；无套利参数化见 Gatheral and Jacquier, Quantitative Finance, 2014</footer>
 </div>
 
-市场给出的是有限的看涨看跌报价，不是连续函数 $\sigma_{\mathrm{imp}}(K,T)$。[隐含波动率曲面](/quant/vol-surface) 把这些点定义成 Black 坐标；做市与风险管理还要把缺档补上，并对外推翼部。插值若在波动率坐标里随便拉线性或三次样条，对应的看涨价格 $C(K,T)$ 很容易对 $K$ 失去凸性，或对 $T$ 出现日历倒挂。Jim Gatheral 把无套利写成对总方差切片的约束，并与 SVI 一类参数化配套；后续的 SSVI 给出跨期限的充分条件。本篇写插值层：如何从离散报价生成一张可送进 [Dupire](/quant/dupire) 与希腊字母引擎的曲面。动力学模型 [Heston](/quant/heston)、[SABR](/quant/sabr) 是另一层，不能代替无套利插值。
+[上一课](/quant/ag-weather-premium)把外汇与商品课序收在农产品天气升水。本课打开期权做市细节。市场给出的是有限的看涨看跌报价，不是连续函数 $\sigma_{\mathrm{imp}}(K,T)$。[隐含波动率曲面](/quant/vol-surface) 把这些点定义成 Black 坐标；做市与风险管理还要把缺档补上，并对外推翼部。插值若在波动率坐标里随便拉线性或三次样条，对应的看涨价格 $C(K,T)$ 很容易对 $K$ 失去凸性，或对 $T$ 出现日历倒挂。Jim Gatheral 把无套利写成对总方差切片的约束，并与 SVI 一类参数化配套；后续的 SSVI 给出跨期限的充分条件。本篇写插值层：如何从离散报价生成一张可送进 [Dupire](/quant/dupire) 与希腊字母引擎的曲面。动力学模型 [Heston](/quant/heston)、[SABR](/quant/sabr) 是另一层，不能代替无套利插值。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Cont, Kukanov and Stoikov, The Price Impact of Order Book Events, Journal of Financial Econometrics, 2014</footer>
 </div>
 
-做市商怕的不是「有人在买」，而是在不知情时持续把流动性提供给事后证明更知情的对手：存货被打歪，中间价朝对方有利的方向留下一截，这就是订单流毒性（flow toxicity）。[PIN](/quant/pin) 用日度买卖计数估信息不对称；[VPIN](/quant/vpin) 把不平衡搬到成交量时钟上做高频代理。Cont、Kukanov 与 Stoikov（2014）则指出：对中间价的线性预测，更干净的自变量常常不是成交量本身，而是订单流不平衡（order flow imbalance, OFI）——把限价增、限价撤与成交按方向加总后的净流量。本篇把 OFI 写成可计算的簿事件流，把毒性写成流动性提供者的事后损失，并说明冰山与隐藏量如何污染可见 OFI。检测这些污染是研究口径问题；不提供如何伪装流量或诱导他人排队的做法。[Kyle 模型](/quant/kyle-model) 给出冲击的理论斜率，经验上的 OFI 回归是它在限价簿事件上的近亲，不是同一均衡对象。
+[上一课](/quant/barrier-monitoring)把期权做市细节收在障碍监控频率。本课打开高频因子。做市商怕的不是「有人在买」，而是在不知情时持续把流动性提供给事后证明更知情的对手：存货被打歪，中间价朝对方有利的方向留下一截，这就是订单流毒性（flow toxicity）。[PIN](/quant/pin) 用日度买卖计数估信息不对称；[VPIN](/quant/vpin) 把不平衡搬到成交量时钟上做高频代理。Cont、Kukanov 与 Stoikov（2014）则指出：对中间价的线性预测，更干净的自变量常常不是成交量本身，而是订单流不平衡（order flow imbalance, OFI）——把限价增、限价撤与成交按方向加总后的净流量。本篇把 OFI 写成可计算的簿事件流，把毒性写成流动性提供者的事后损失，并说明冰山与隐藏量如何污染可见 OFI。检测这些污染是研究口径问题；不提供如何伪装流量或诱导他人排队的做法。[Kyle 模型](/quant/kyle-model) 给出冲击的理论斜率，经验上的 OFI 回归是它在限价簿事件上的近亲，不是同一均衡对象。
 
 ## 问题
 

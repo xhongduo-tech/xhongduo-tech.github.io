@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 NVIDIA GB200 NVL72 公开规格中的机柜级 NVLink 域，以及集群侧的 Scale-Out 网络</footer>
 </div>
 
-训练与推理的并行维最终要落到链路上。[张量并行](/llm/tensor-parallel) 的 All-Reduce 体积跟激活走，怕延迟，习惯待在节点内 NVLink；数据并行的梯度同步可以叠计算，更常跨机；专家并行的 All-to-All 则两种都见。硬件把这种差别产品化成两种形态：**Scale-Up**——用专用互连把多张 GPU 做成一个统一域（超节点 / 机柜级 NVLink）；**Scale-Out**——用数据中心网络把许多域连成集群。NVIDIA 公开的 GB200 NVL72 是前者的对照物：36 个 Grace CPU、72 个 Blackwell GPU、液冷机柜、一个 72 GPU 的 NVLink 域，官方称该域「像一块巨大的 GPU」，并给出域内聚合带宽等**已公布**规格。本篇讲系统形态与并行如何对号入座，不编造未出现在厂商文档里的链路带宽，也不把营销加速比当成自己测的数。
+[上一课](/llm/model-cascade-routing)把服务工程收在模型路由与级联。本课打开硬件与集群。训练与推理的并行维最终要落到链路上。[张量并行](/llm/tensor-parallel) 的 All-Reduce 体积跟激活走，怕延迟，习惯待在节点内 NVLink；数据并行的梯度同步可以叠计算，更常跨机；专家并行的 All-to-All 则两种都见。硬件把这种差别产品化成两种形态：**Scale-Up**——用专用互连把多张 GPU 做成一个统一域（超节点 / 机柜级 NVLink）；**Scale-Out**——用数据中心网络把许多域连成集群。NVIDIA 公开的 GB200 NVL72 是前者的对照物：36 个 Grace CPU、72 个 Blackwell GPU、液冷机柜、一个 72 GPU 的 NVLink 域，官方称该域「像一块巨大的 GPU」，并给出域内聚合带宽等**已公布**规格。本篇讲系统形态与并行如何对号入座，不编造未出现在厂商文档里的链路带宽，也不把营销加速比当成自己测的数。
 
 ## 问题
 

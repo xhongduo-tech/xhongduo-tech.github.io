@@ -11,7 +11,7 @@ section: quant
 <footer>—— Working, The Theory of the Price of Storage, American Economic Review, 1949；对照 Keynes 的正常贴水与 Erb–Harvey 对商品期货收益分解</footer>
 </div>
 
-商品与许多可交割期货的期限结构有两个常用词：正向市场（contango）指远月贵于近月或期货贵于现货；反向市场（backwardation）指近月贵于远月或期货贴水于现货。Keynes 在《货币论》里把正常贴水写成套期保值者付给投机者的保险费；Working 把同一条曲线改写成仓储供给。Kaldor、Brennan、Telser 补上便利收益：存货低时，持有现货有生产与销售上的选择权，现货可以持续贵于远期。Erb 与 Harvey、Gorton 与 Rouwenhorst 把这些形状重新接到可投资商品期货的收益分解上。把 contango 当成「空头一定赚钱」、把 backwardation 当成「多头一定赚钱」，是把曲线几何与风险溢价、把持有成本与可执行基差混成一句话。
+[上一课](/quant/cn-night-session)把中国市场课序收在商品期货夜盘。本课打开期货与基差。商品与许多可交割期货的期限结构有两个常用词：正向市场（contango）指远月贵于近月或期货贵于现货；反向市场（backwardation）指近月贵于远月或期货贴水于现货。Keynes 在《货币论》里把正常贴水写成套期保值者付给投机者的保险费；Working 把同一条曲线改写成仓储供给。Kaldor、Brennan、Telser 补上便利收益：存货低时，持有现货有生产与销售上的选择权，现货可以持续贵于远期。Erb 与 Harvey、Gorton 与 Rouwenhorst 把这些形状重新接到可投资商品期货的收益分解上。把 contango 当成「空头一定赚钱」、把 backwardation 当成「多头一定赚钱」，是把曲线几何与风险溢价、把持有成本与可执行基差混成一句话。
 
 ## 问题
 

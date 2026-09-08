@@ -7,6 +7,8 @@ export interface Node {
   children?: Node[]
   /** 同时挂在其他主线/分支上的显示名 */
   alsoIn?: string[]
+  /** 附录不插入主干课序，供对照而非起手 */
+  appendix?: boolean
 }
 
 /** '标题|slug'；纯英文则自动生成 slug */
@@ -51,4 +53,12 @@ export function fromOutline(items: readonly Outline[], depth = 0): Node[] {
     const kind = KIND_BY_DEPTH[Math.min(depth, KIND_BY_DEPTH.length - 1)]
     return { kind, name, children: fromOutline(kids, depth + 1) }
   })
+}
+
+export function markAppendix(nodes: Node[]): Node[] {
+  return nodes.map((node) => ({
+    ...node,
+    appendix: true,
+    children: node.children ? markAppendix(node.children) : undefined,
+  }))
 }

@@ -2,6 +2,8 @@
 import { withBase, useRoute, useData } from 'vitepress'
 import { computed, onMounted, watch, nextTick, ref } from 'vue'
 import { enhancePage } from './enhance'
+import LessonNav from './LessonNav.vue'
+import { sectionMeta, isSectionId } from '../data/sections'
 
 const THEME_KEY = 'theme-preference'
 const route = useRoute()
@@ -12,12 +14,14 @@ const nav = [
   { href: '/', label: '首页', match: (path) => path === '/' },
   { href: '/llm/', label: '大模型', match: (path) => path.startsWith('/llm/') },
   { href: '/quant/', label: '量化', match: (path) => path.startsWith('/quant/') },
+  { href: '/econ/', label: '金融', match: (path) => path.startsWith('/econ/') },
+  { href: '/litho/', label: '光刻', match: (path) => path.startsWith('/litho/') },
 ]
 
 const byline = computed(() => {
   const fm = page.value.frontmatter || {}
   if (!fm.date) return ''
-  const section = fm.section === 'quant' ? '量化' : fm.section === 'llm' ? '大模型' : ''
+  const section = isSectionId(fm.section) ? sectionMeta[fm.section].name : ''
   const date = String(fm.date).slice(0, 10)
   return [section, date].filter(Boolean).join(' · ')
 })
@@ -60,7 +64,7 @@ watch(
 <template>
   <div>
     <header class="site-header">
-      <p class="site-title">LLM & Quant</p>
+      <p class="site-title">徐鸿铎</p>
       <nav class="site-nav">
         <span class="nav-links">
           <a
@@ -119,10 +123,12 @@ watch(
     <article class="tuf-article">
       <section>
         <p v-if="byline" class="article-byline">{{ byline }}</p>
+        <LessonNav />
         <Content />
+        <LessonNav variant="footer" />
       </section>
     </article>
 
-    <footer class="site-footer">LLM & Quant · 徐鸿铎 · 2026</footer>
+    <footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer>
   </div>
 </template>

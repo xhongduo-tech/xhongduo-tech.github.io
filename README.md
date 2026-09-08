@@ -1,8 +1,10 @@
-# LLM & Quant
+# 徐鸿铎
 
-徐鸿铎的个人站点。VitePress + Tufte，部署于 GitHub Pages。
+个人站点。VitePress + Tufte，部署于 GitHub Pages。
 
-两栏：**大模型** 与 **量化**（金融量化，不是模型权重量化）。栏目页是该领域的知识树：分支 → 主线 → 技术 → 叶子；每片叶子对应一篇博文。模型压缩、GPTQ、KV 量化等属于大模型分支「压缩与数值」。
+四栏：**大模型**、**量化**（金融微观结构与定价，不是模型权重量化）、**金融**（微观、宏观、货币银行与公司金融）、**光刻**（成像、DUV/EUV、计算光刻）。按课程读：课程 → 单元 → 课序 → 课。后课默认已经读完先修，只补上一课留下的缺口。论文与型号对照放在附录。
+
+金融栏接到量化栏的限价簿为止，不重讲订单簿。光刻原为大模型附录，现为独立课程。模型压缩、GPTQ、KV 量化等属于大模型「压缩与数值」。
 
 ## 本地开发
 
@@ -14,17 +16,17 @@ npm run docs:build    # 输出到 docs/.vitepress/dist
 
 ## 写文章
 
-在 `docs/llm/` 或 `docs/quant/` 新建 `.md`，frontmatter：
+在 `docs/llm/`、`docs/quant/`、`docs/econ/` 或 `docs/litho/` 新建 `.md`，frontmatter：
 
 ```yaml
 ---
 title: 标题
 date: 2026-09-03
-section: llm   # 或 quant
+section: llm   # 或 quant / econ / litho
 ---
 ```
 
-文件名用知识树叶子的 `slug`。不要把文章写进栏目的 `index.md`。
+文件名用知识树叶子的 `slug`。不要把文章写进栏目的 `index.md`。后课不要把先修的公式再推导一遍；「问题」写上一课留下的缺口。
 
 ## 部署
 

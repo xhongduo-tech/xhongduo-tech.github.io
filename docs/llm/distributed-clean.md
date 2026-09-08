@@ -11,7 +11,7 @@ section: llm
 <footer>—— 综合 CCNet、C4、Dolma 与 FineWeb 的规模化实践</footer>
 </div>
 
-单机脚本足以讲清「去标签、丢脏行、算哈希」。预训练语料却来自 Common Crawl 量级的 WARC 与衍生文本，单机既装不下，也无法做全局近重复。分布式清洗把同一条启发式与去重管道铺到 MapReduce / Spark / Ray 一类引擎上：局部能做的过滤尽量不做 shuffle，必须全局可见的指纹再集中。本篇写这条工程约束，以及它如何决定 [网页清洗](/llm/web-clean-dedup) 与 [MinHash 去重](/llm/minhash-dedup) 在集群上的切分方式。规则内容仍归那些篇章；这里管的是数据如何动。
+[上一课](/llm/data-constrained-scaling)把预训练课序收在「数据不够时定律怎么弯」。本课打开数据工程：单机脚本足以讲清「去标签、丢脏行、算哈希」，预训练语料却来自 Common Crawl 量级的 WARC 与衍生文本，单机既装不下，也无法做全局近重复。分布式清洗把同一条启发式与去重管道铺到 MapReduce / Spark / Ray 一类引擎上：局部能做的过滤尽量不做 shuffle，必须全局可见的指纹再集中。本篇写这条工程约束，以及它如何决定 [网页清洗](/llm/web-clean-dedup) 与 [MinHash 去重](/llm/minhash-dedup) 在集群上的切分方式。规则内容仍归那些篇章；这里管的是数据如何动。
 
 ## 问题
 

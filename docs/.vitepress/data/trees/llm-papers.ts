@@ -1,6 +1,6 @@
 import { fromOutline, type Outline } from './schema'
 
-/** 以论文、系统、型号为技术点，每项一篇博文 */
+/** 附录：论文、系统、型号对照，不插入主干课序 */
 const extra: Outline[] = [
   [
     '文献与系统',
@@ -152,9 +152,6 @@ const extra: Outline[] = [
               'OpenAI Jalapeño 推理芯片|openai-jalapeno',
               'Huawei CloudMatrix384 超节点|cloudmatrix384-paper',
               'UB-Mesh 统一总线|ub-mesh-paper',
-              '瑞利判据与光刻分辨率|rayleigh-litho-note',
-              'ASML EUV / High-NA|asml-euv-high-na',
-              '计算光刻与 ILT|computational-litho-paper',
               'Megatron-Core|megatron-core',
               'DeepSpeed-Chat|deepspeed-chat',
               'Colossal-AI|colossal-ai',
@@ -432,6 +429,24 @@ const extra: Outline[] = [
               'ByT5 / 字节级模型|byt5',
               'SuperBPE|superbpe',
               'GloVe 之后的子词|subword-history',
+            ],
+          ],
+        ],
+      ],
+      [
+        '机制课序对照',
+        [
+          [
+            '表示、MoE 与扩散',
+            [
+              'Sennrich BPE 论文|sennrich-bpe',
+              'Kudo Unigram 论文|kudo-unigram',
+              'Switch Transformer 论文|fedus-switch',
+              'Expert Choice 论文|expert-choice-paper',
+              'z-loss 稳定训练|z-loss-paper',
+              'Diffusion LM 论文|diffusion-lm-paper',
+              'ReAct 论文|react-paper',
+              'Toolformer 论文|toolformer-paper',
             ],
           ],
         ],

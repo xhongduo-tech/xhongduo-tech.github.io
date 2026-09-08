@@ -38,7 +38,7 @@ const have = computed(() => {
   <div v-if="tree" class="kt">
     <p class="kt-desc">
       {{ tree.desc }}
-      <span class="kt-count">{{ have }} / {{ total }} 篇</span>
+      <span class="kt-count">{{ have }} / {{ total }} 课</span>
     </p>
     <TreeList :nodes="tree.children" :section="section" :written="written" />
   </div>

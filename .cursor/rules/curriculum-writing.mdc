@@ -1,0 +1,26 @@
+---
+description: Posts are a curriculum, not an encyclopedia. Later lessons assume earlier ones.
+globs: docs/{llm,quant,econ,litho}/*.md
+alwaysApply: true
+---
+
+# 课程序列，不是词条
+
+文章按知识树深度优先顺序读：课程（原分支）→ 单元（原主线）→ 课序（原技术点）→ 叶子。同一课序内严格递进；课序的第一课接上一课序的最后一课；课程的第一课接上一课程的最后一课。论文、型号、审计、前沿是附录，不插入主干。补层仍是课程，接在大纲主干之后。
+
+四栏互不吞并：大模型是 Transformer 与训练/推理；量化是金融微观结构与定价，不是权重量化；金融是微观、宏观、货币银行与公司金融，接到限价簿为止，不重写 LOB/CAPM 实证；光刻是成像与产线，不再挂在大模型附录。
+
+## 写每一课
+
+- 「问题」写的是**上一课留下的缺口**，不是从该领域的第一性原理重讲。用链接点名先修（`[SDPA](/llm/sdpa)`），不要把先修的公式再推导一遍。
+- 第一课（如 `sdpa`、`lob-structure`、`preference-choice`、`em-wave-index`）才允许从零铺垫；并写明后课默认已经读完本课。
+- 后课需要用到的定义，在先修课一次讲清。后课只引用、只补差。
+- 结构仍是：题记 → 定位（上一课 / 本课缺口）→ 问题 → 方法 → 机制 → 边界 → 小结。Tufte：epigraph、`marginnote`、mermaid（节点标签加引号）、中文、真实文献。
+- 不要写成「一个技术点一篇独立综述」。
+
+## 不要做的
+
+- 不要把叶子写成百科词条，每篇都从 Vaswani / Harris / Varian / Rayleigh 的总问题起笔。
+- 不要在 `index.md` 里写正文。
+- 不要发明 arXiv 编号。
+- 路径必须是树叶子的 slug：`docs/llm/<slug>.md`、`docs/quant/<slug>.md`、`docs/econ/<slug>.md`、`docs/litho/<slug>.md`。

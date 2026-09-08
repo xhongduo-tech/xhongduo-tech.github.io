@@ -11,11 +11,11 @@ section: llm
 <footer>—— Ainslie et al., GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints, 2023</footer>
 </div>
 
-MQA 把 KV 头压到 1，解码带宽最低，质量也掉得最明显。MHA 每头独立 KV，质量上限高，缓存随头数膨胀。Ainslie 等人 2023 年的 Grouped-Query Attention（GQA）在两端之间插一档：查询头仍是 $h_q$ 个，键值头是 $h_{kv}$ 个，$h_q$ 能被 $h_{kv}$ 整除，每 $g=h_q/h_{kv}$ 个查询头共用一组 KV。Llama 2 70B 一类模型采用 8 个 KV 头，使大模型在可服务的缓存体积下保持接近 MHA 的质量。本篇只讨论这一分组结构及其从 MHA 转化的工序，不把 MQA 或潜空间压缩再展开成并列综述。
+[上一课](/llm/mqa)把 KV 头压到 1：解码带宽最低，质量也掉得最明显。本课不重讲「为什么解码是搬历史」，也不把 MHA 的投影再写一遍。缺口是两端之间的那一档。Ainslie 等人 2023 年的 Grouped-Query Attention（GQA）：查询头仍是 $h_q$ 个，键值头是 $h_{kv}$ 个，$h_q$ 能被 $h_{kv}$ 整除，每 $g=h_q/h_{kv}$ 个查询头共用一组 KV。Llama 2 70B 一类模型用 8 个 KV 头。下一课的 MLA 不再砍头数，而改压每个 token 的表示。
 
 ## 问题
 
-服务约束给出的是 KV 字节预算：并发 $\times$ 层数 $\times$ 长度 $\times$ $h_{kv}$ $\times$ $d_k$ $\times$ 2 $\times$ 元素宽度。$h_{kv}=h_q$ 时预算先被头数吃完；$h_{kv}=1$ 时预算最省，但共享记忆过狠。需要一个整数旋钮，在质量和字节之间连续可调，且最好能从已经花巨资训好的 MHA 检查点出发，而不是从零再训。
+[MQA](/llm/mqa) 已经给出 $h_{kv}=1$ 这一极值，以及 KV 字节预算里 $h_{kv}$ 这一因子。[多头](/llm/mha)对应另一极值 $h_{kv}=h_q$。需要一个整数旋钮，在质量和字节之间可调，且最好能从已经训好的 MHA 检查点转化，而不是从零再训。
 
 Ainslie 等人同时面对转化稳定性：若把 MHA 的 KV 头硬平均成 MQA 的一头，瞬时分布偏移大，需要较长上训练才回到可用区。若平均发生在较小的组内——只把相邻 $g$ 个头合成一组——偏移局部化，上训练可以很短。GQA 因此既是推理结构，也是一条检查点迁移路径。
 

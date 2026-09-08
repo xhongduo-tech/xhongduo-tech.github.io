@@ -11,8 +11,6 @@ const extra: Outline[] = [
           [
             '方向分类',
             [
-              'Lee-Ready 算法|lee-ready',
-              'Tick Rule / Quote Rule|tick-quote-rule',
               "Ellis-Michaely-O'Hara 改进|emo-trade-sign",
               'Bulk Volume Classification|bulk-volume-classification',
               '逆向选择成本度量|adverse-selection-cost',
@@ -45,7 +43,6 @@ const extra: Outline[] = [
               'LOBSTER / ITCH 行情|lobster-itch-feed',
               'Bouchaud 传播核|bouchaud-propagator',
               '平方根冲击律|square-root-impact-law',
-              'Madhavan-Richardson-Roomans|mrr-decomposition',
               '延迟套利|latency-arbitrage',
             ],
           ],
@@ -59,6 +56,26 @@ const extra: Outline[] = [
       [
         '经典扩展与异象',
         [
+          [
+            '经典论文因子',
+            [
+              'Hou-Xue-Zhang q-因子|q-factor-hxz',
+              'Stambaugh-Yuan 错误定价|sy-mispricing',
+              'Fama-French 六因子|ff6',
+              'Quality Minus Junk|qmj',
+              'Betting Against Beta 原文|frazzini-bab',
+              'HML Devil|hml-devil',
+              '时间序列动量|tsmom',
+              '跨资产价值与动量|value-momentum-everywhere',
+              'Carry 跨资产|carry-everywhere',
+              '盈利意外 PEAD / SUE|pead-sue',
+              '应计 anomalous accruals|accruals-anomaly',
+              '净股票发行|net-issuance',
+              '资产增长异常|asset-growth',
+              '毛利率 Novy-Marx|gross-profitability',
+              '投资因子 CMA|cma-investment',
+            ],
+          ],
           [
             '定价因子',
             [
@@ -141,8 +158,6 @@ const extra: Outline[] = [
           [
             '微观费用与最优执行',
             [
-              'Maker-taker 费用|maker-taker',
-              'Guéant-Lehalle-Fernandez-Tapia|glft-market-making',
               'Cartea-Jaimungal 执行|cartea-jaimungal',
               'Bertsimas-Lo 动态执行|bertsimas-lo',
               'Huberman-Stanzl 无套利冲击|huberman-stanzl',
@@ -166,15 +181,6 @@ const extra: Outline[] = [
           [
             '永续、AMM 与 MEV',
             [
-              '永续合约资金费率|crypto-perp-funding',
-              'Funding rate 套利|funding-rate-arb',
-              '加密期现基差交易|crypto-basis-trade',
-              '清算连锁|liquidation-cascade',
-              'Uniswap 恒定乘积 AMM|uniswap-cpmm',
-              'Uniswap v3 集中流动性|uniswap-v3-clmm',
-              'MEV sandwich|mev-sandwich',
-              'CEX-DEX 套利|cex-dex-arb',
-              '稳定币脱锚风险|stablecoin-depeg',
               '电话会语气 NLP|earnings-call-tone',
             ],
           ],
@@ -267,6 +273,26 @@ const extra: Outline[] = [
               '反向压力测试|reverse-stress-test',
               '相关性崩溃情景|corr-break-scenario',
               '拥挤度与容量指标|crowding-capacity-metric',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ],
+  [
+    '交易所与数据源对照',
+    [
+      [
+        '行情契约',
+        [
+          [
+            '馈送与时钟',
+            [
+              'SIP vs 直连行情|sip-vs-direct',
+              '交易所时间戳与经纪商时间戳|exchange-broker-clocks',
+              'PTP / GPS 对时|ptp-gps-sync',
+              'NBBO 构造|nbbo-construction',
+              'TRACE 公司债成交报告|trace-corporate-bond',
             ],
           ],
         ],

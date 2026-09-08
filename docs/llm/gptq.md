@@ -11,7 +11,7 @@ section: llm
 <footer>—— Frantar et al., GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers, ICLR 2023</footer>
 </div>
 
-大模型推理的第一道墙经常是权重体积。175B 级 FP16 要三百多 GB，连单节点 HBM 也不够；decode 每步还要把这些字节扫一遍，见 [Decode 的显存墙](/llm/decode-memory-wall)。训练后再量化（PTQ）比量化感知训练便宜：不回传全网，只用一小校准集。朴素逐元素 round-to-nearest 在 8-bit 往往还能用，到 4-bit 或 3-bit，层输出的重建误差会沿残差流累积，困惑度塌掉。Frantar 等人 2022 年提出的 GPTQ 把 Optimal Brain Quantization 的二阶补偿做成能在千亿参数上跑完的算法：一层一层地解 $\min\|\hat{W}X-WX\|_F^2$，按列量化，并用 Hessian 逆把误差 squirt 到剩余权重上。结果是 OPT-175B / BLOOM-176B 一类模型可以在大约数个 GPU 小时内压到每参数 3–4 bit，生成质量接近原精度，从而把 175B 塞进单卡做生成。它是权重量化，激活仍用较高精度，和同时打激活的 [SmoothQuant](/llm/smoothquant) 不是同一档。
+[上一课](/llm/multi-tenant-gpu)把硬件课序收在多租户 GPU 隔离。本课打开压缩与数值。大模型推理的第一道墙经常是权重体积。175B 级 FP16 要三百多 GB，连单节点 HBM 也不够；decode 每步还要把这些字节扫一遍，见 [Decode 的显存墙](/llm/decode-memory-wall)。训练后再量化（PTQ）比量化感知训练便宜：不回传全网，只用一小校准集。朴素逐元素 round-to-nearest 在 8-bit 往往还能用，到 4-bit 或 3-bit，层输出的重建误差会沿残差流累积，困惑度塌掉。Frantar 等人 2022 年提出的 GPTQ 把 Optimal Brain Quantization 的二阶补偿做成能在千亿参数上跑完的算法：一层一层地解 $\min\|\hat{W}X-WX\|_F^2$，按列量化，并用 Hessian 逆把误差 squirt 到剩余权重上。结果是 OPT-175B / BLOOM-176B 一类模型可以在大约数个 GPU 小时内压到每参数 3–4 bit，生成质量接近原精度，从而把 175B 塞进单卡做生成。它是权重量化，激活仍用较高精度，和同时打激活的 [SmoothQuant](/llm/smoothquant) 不是同一档。
 
 ## 问题
 

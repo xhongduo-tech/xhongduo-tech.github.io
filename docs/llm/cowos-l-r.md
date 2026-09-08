@@ -11,7 +11,7 @@ section: llm
 <footer>—— TSMC 3DFabric CoWoS 产品页：CoWoS-S 中介层至约 3.3× 光刻场（约 2700 mm²）；更大尺寸推荐 L 或 R</footer>
 </div>
 
-[CoWoS / 2.5D](/llm/cowos-2p5d) 已经把 Chip on Wafer on Substrate 的通用结构写过：逻辑与 HBM 并排，中介层提供细线与 TSV。本篇只钉族谱里后出现、却在生成式 AI 之后决定能放几栈 HBM 的两支：**CoWoS-R** 与 **CoWoS-L**。S 支用整块硅中介层把布线做到最密，面积被光刻场拼接与缺陷密度卡住。TSMC 公开写：S 的中介层做到约 3.3 倍光刻场、约 $2700\,\mathrm{mm}^2$；再大，推荐 L 或 R。R 用聚合物与铜的再布线层当中介结构，2023 年起量产。L 在 RDL 基座里嵌入 Local Silicon Interconnect（LSI）硅桥，2024 年起先以约 3.5 倍光刻场量产，并继续扩尺寸。不把某代 GPU 用了哪一支写成未公开的供应链八卦，只引用代工厂产品页与已发表的工艺论述。
+[CoWoS / 2.5D](/litho/cowos-2p5d) 已经把 Chip on Wafer on Substrate 的通用结构写过：逻辑与 HBM 并排，中介层提供细线与 TSV。本篇只钉族谱里后出现、却在生成式 AI 之后决定能放几栈 HBM 的两支：**CoWoS-R** 与 **CoWoS-L**。S 支用整块硅中介层把布线做到最密，面积被光刻场拼接与缺陷密度卡住。TSMC 公开写：S 的中介层做到约 3.3 倍光刻场、约 $2700\,\mathrm{mm}^2$；再大，推荐 L 或 R。R 用聚合物与铜的再布线层当中介结构，2023 年起量产。L 在 RDL 基座里嵌入 Local Silicon Interconnect（LSI）硅桥，2024 年起先以约 3.5 倍光刻场量产，并继续扩尺寸。不把某代 GPU 用了哪一支写成未公开的供应链八卦，只引用代工厂产品页与已发表的工艺论述。
 
 ## 问题
 
