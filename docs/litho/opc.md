@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Chris A. Mack 对光学邻近效应与分辨率增强的论述</footer>
 </div>
 
-投影光刻是低通系统。瑞利尺度 $k_1\lambda/\mathrm{NA}$ 附近，孤立线与密线的空中像对比、线端缩短、拐角圆化会按邻域几何而变。光学邻近修正（Optical Proximity Correction, OPC）在掩模上预畸变多边形，使显影或蚀刻后的轮廓贴近设计目标。它不是美化版图，而是把成像与工艺的前向模型求一个可制造的逆。规则表能覆盖早期节点；模型基 OPC 成为 65 nm 之后的默认，并在 EUV 上与[光源掩模协同优化](/litho/smo)、[逆光刻](/litho/ilt-curvilinear)连成一条计算链。
+[上一课](/litho/hyper-na)（Hyper-NA）。投影光刻是低通系统。瑞利尺度 $k_1\lambda/\mathrm{NA}$ 附近，孤立线与密线的空中像对比、线端缩短、拐角圆化会按邻域几何而变。光学邻近修正（Optical Proximity Correction, OPC）在掩模上预畸变多边形，使显影或蚀刻后的轮廓贴近设计目标。它不是美化版图，而是把成像与工艺的前向模型求一个可制造的逆。规则表能覆盖早期节点；模型基 OPC 成为 65 nm 之后的默认，并在 EUV 上与[光源掩模协同优化](/litho/smo)、[逆光刻](/litho/ilt-curvilinear)连成一条计算链。
 
 ## 问题
 

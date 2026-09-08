@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack, Fundamental Principles of Optical Lithography 对 aerial image 与 image contrast 的定义整理</footer>
 </div>
 
-[上一课](/litho/partial-coherence)给出部分相干与 TCC，强度原则上可以算。缺口是：还没有把「算出来的 $I(x,y)$」命名为空中像，也没有规定产线用哪一个标量来读它好不好印。本课钉空中像与对比度（以及 NILS），焦深如何把这张图沿轴毁掉，留给[下一课](/litho/depth-of-focus)。胶如何把强度变成溶速，是抗蚀剂课的缺口。
+[上一课](/litho/hopkins-tcc)（Hopkins TCC）。给出部分相干与 TCC，强度原则上可以算。缺口是：还没有把「算出来的 $I(x,y)$」命名为空中像，也没有规定产线用哪一个标量来读它好不好印。本课钉空中像与对比度（以及 NILS），焦深如何把这张图沿轴毁掉，留给[下一课](/litho/depth-of-focus)。胶如何把强度变成溶速，是抗蚀剂课的缺口。
 
 ## 问题
 

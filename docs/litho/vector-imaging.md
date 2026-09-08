@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Born &amp; Wolf 对电磁边值与偏振的讨论，以及 Mack、Levinson 对高 NA 矢量成像的产线表述整理</footer>
 </div>
 
-[上一课](/litho/depth-of-focus)把离焦写成标量光瞳上的二次相位，$C(z)$ 与 NILS$(z)$ 都还在标量空中像里读。缺口是：$\mathrm{NA}\gtrsim 0.7$（浸没到 1.35）时，边缘光线的电场有不可忽略的纵向分量，TM 两束几乎不相干相加，标量对比度过于乐观。本课把强度升级成胶内能量沉积。产线 CD 公式仍留给[下一课](/litho/rayleigh-litho)，不要在这里提前写 $k_1$。
+[上一课](/litho/bossung-curve)（Bossung 曲线）。在此之上，离焦写成标量光瞳上的二次相位，$C(z)$ 与 NILS$(z)$ 都还在标量空中像里读。缺口是：$\mathrm{NA}\gtrsim 0.7$（浸没到 1.35）时，边缘光线的电场有不可忽略的纵向分量，TM 两束几乎不相干相加，标量对比度过于乐观。本课把强度升级成胶内能量沉积。产线 CD 公式仍留给[下一课](/litho/rayleigh-litho)，不要在这里提前写 $k_1$。
 
 ## 问题
 

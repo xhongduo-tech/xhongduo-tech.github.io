@@ -11,7 +11,7 @@ section: econ
 <footer>—— Debreu, Theory of Value: An Axiomatic Analysis of Economic Equilibrium, Cowles Monograph 17, 1959</footer>
 </div>
 
-附录对照。[上一篇](/econ/arrow-debreu-paper)钉的是 Arrow 证券对或有商品的降维。本篇对照 **Debreu 1959 原书**：把商品空间、偏好、生产、均衡与福利收成一套可引用的公理，而不是课堂版的盒与超平面口诀。主干[福利两定理](/econ/welfare-theorems)与[存在性](/econ/ge-existence)已经取用结论；这里看原书怎样把日期、地点、状态写进同一商品向量。
+[上一课](/econ/arrow-debreu-paper)（Arrow–Debreu 或有商品）。附录对照。[上一篇](/econ/arrow-debreu-paper)钉的是 Arrow 证券对或有商品的降维。本篇对照 **Debreu 1959 原书**：把商品空间、偏好、生产、均衡与福利收成一套可引用的公理，而不是课堂版的盒与超平面口诀。主干[福利两定理](/econ/welfare-theorems)与[存在性](/econ/ge-existence)已经取用结论；这里看原书怎样把日期、地点、状态写进同一商品向量。
 
 ## 问题
 

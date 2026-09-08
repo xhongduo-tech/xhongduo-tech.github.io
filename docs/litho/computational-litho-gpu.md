@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 NVIDIA cuLitho 与代工厂公开的计算光刻加速论述</footer>
 </div>
 
-[OPC](/litho/opc)、[SMO](/litho/smo)、[ILT](/litho/ilt-curvilinear) 的前向核是反复求空中像与抗蚀剂轮廓。全芯片上这是 $10^{12}$ 量级的像素—衍射运算，历史上靠 CPU 农场按周跑。节点越紧、EUV 掩模 3D 越贵、曲线变量越多，计算量比晶体管密度涨得更快。NVIDIA 与代工厂、EDA 合作的 cuLitho 一类栈，把成像与优化核映射到 GPU：目标不是换一套更糙的模型，而是让全芯片 ILT 和隔夜 OPC 变成可排产的工序。AI 另开一轨：用学习模型逼近胶轮廓或给逆问题暖启动，但量产仍要物理模型收口。
+[上一课](/litho/vsb-vs-multibeam)（VSB 对多束）。[OPC](/litho/opc)、[SMO](/litho/smo)、[ILT](/litho/ilt-curvilinear) 的前向核是反复求空中像与抗蚀剂轮廓。全芯片上这是 $10^{12}$ 量级的像素—衍射运算，历史上靠 CPU 农场按周跑。节点越紧、EUV 掩模 3D 越贵、曲线变量越多，计算量比晶体管密度涨得更快。NVIDIA 与代工厂、EDA 合作的 cuLitho 一类栈，把成像与优化核映射到 GPU：目标不是换一套更糙的模型，而是让全芯片 ILT 和隔夜 OPC 变成可排产的工序。AI 另开一轨：用学习模型逼近胶轮廓或给逆问题暖启动，但量产仍要物理模型收口。
 
 ## 问题
 

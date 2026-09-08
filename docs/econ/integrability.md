@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Hurwicz and Uzawa, On the Integrability of Demand Functions, 1971；Mas-Colell, Whinston and Green 第 3 章整理</footer>
 </div>
 
-上一课[显示偏好 WARP](/econ/revealed-preference)给出了有限观测上的成对一致性。本课不重讲 WARP 的几何，也不再定义 $R^D$。缺口是：若手里是整个需求函数 $x(p,w)$，而不是几条数据，怎样还原出 $u$？WARP 不够，因为它不对称；斯勒茨基课已经预告对称性是微分形式的可积条件。本课把这条路走完，并收束「确定下的选择」这一课序。
+[上一课](/econ/sarp-garp)（SARP 与 GARP）。给出了有限观测上的成对一致性。本课不重讲 WARP 的几何，也不再定义 $R^D$。缺口是：若手里是整个需求函数 $x(p,w)$，而不是几条数据，怎样还原出 $u$？WARP 不够，因为它不对称；斯勒茨基课已经预告对称性是微分形式的可积条件。本课把这条路走完，并收束「确定下的选择」这一课序。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Miller and Modigliani, Dividend Policy, Growth, and the Valuation of Shares, Journal of Business 1961</footer>
 </div>
 
-定位：[优序融资](/econ/pecking-order)。内部资金排在发行之前，解释了「缺钱时怎么筹」；本课缺口是对称的另一面：钱已经多于可置信的好项目时，为什么要派息或回购，而不是永远囤在账上。不重做发股的柠檬折价。
+[上一课](/econ/agency-free-cash-flow)（自由现金流代理成本）。[优序融资](/econ/pecking-order)。内部资金排在发行之前，解释了「缺钱时怎么筹」；本课缺口是对称的另一面：钱已经多于可置信的好项目时，为什么要派息或回购，而不是永远囤在账上。不重做发股的柠檬折价。
 
 ## 问题
 

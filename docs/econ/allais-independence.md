@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Allais, Le comportement de l'homme rationnel devant le risque, Econometrica, 1953 整理</footer>
 </div>
 
-上一课[冯·诺依曼–Morgenstern 期望效用](/econ/expected-utility)用独立性推出 $U(F)=\mathbb{E}_F u$。本课不重讲表示定理，也不另起一套彩票符号。缺口是：独立性在复合彩票上意味着共同混合项可以消掉，但 Allais 的问卷让相当一部分人留下共同项、改变排序。主干仍用期望效用，必须先标明这条公理哪里脆，后课 Arrow–Pratt 才知道自己站在哪一块石头上。
+[上一课](/econ/vnm-axioms)（vNM 公理怎么用）。用独立性推出 $U(F)=\mathbb{E}_F u$。本课不重讲表示定理，也不另起一套彩票符号。缺口是：独立性在复合彩票上意味着共同混合项可以消掉，但 Allais 的问卷让相当一部分人留下共同项、改变排序。主干仍用期望效用，必须先标明这条公理哪里脆，后课 Arrow–Pratt 才知道自己站在哪一块石头上。
 
 ## 问题
 

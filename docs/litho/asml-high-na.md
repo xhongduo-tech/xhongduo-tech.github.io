@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 ASML / Zeiss High-NA 公开材料</footer>
 </div>
 
-[NXE](/litho/asml-nxe) 的 0.33 把单次 EUV 送到 5/3 nm 关键层之后，下一截金属节距要么 EUV 双重，要么再抬 NA。ASML 的 TWINSCAN EXE（EXE:5000 开发、EXE:5200 量产取向）把 NA 提到 0.55，分辨率按比例约改善 $0.55/0.33\approx 1.67$ 倍。若仍用各向同性 4×，掩模侧 NA 和主光线角会大到[多层膜](/litho/euv-multilayer-mirror)与吸收体阴影不可接受，6 英寸版也放不下光瞳。解法是变形光学（anamorphic optics）：扫描向约 4×、狭缝向约 8×，硅片场从 26 × 33 mm 变成约 26 × 16.5 mm 的半场。本篇写为什么必须变形、半场如何拼大芯片，以及与 0.33 机队的并存关系。
+[上一课](/litho/asml-nxe)（NXE：NA 0.33 量产 5/3 nm）。[NXE](/litho/asml-nxe) 的 0.33 把单次 EUV 送到 5/3 nm 关键层之后，下一截金属节距要么 EUV 双重，要么再抬 NA。ASML 的 TWINSCAN EXE（EXE:5000 开发、EXE:5200 量产取向）把 NA 提到 0.55，分辨率按比例约改善 $0.55/0.33\approx 1.67$ 倍。若仍用各向同性 4×，掩模侧 NA 和主光线角会大到[多层膜](/litho/euv-multilayer-mirror)与吸收体阴影不可接受，6 英寸版也放不下光瞳。解法是变形光学（anamorphic optics）：扫描向约 4×、狭缝向约 8×，硅片场从 26 × 33 mm 变成约 26 × 16.5 mm 的半场。本篇写为什么必须变形、半场如何拼大芯片，以及与 0.33 机队的并存关系。
 
 ## 问题
 

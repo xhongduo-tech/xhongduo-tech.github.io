@@ -11,7 +11,7 @@ section: econ
 <footer>—— Kydland and Prescott, Time to Build and Aggregate Fluctuations, Econometrica 1982；对照 Lucas 的均衡周期</footer>
 </div>
 
-[上一课](/econ/new-keynesian)让名义刚性把利率政策接到缺口。本课的对照是：把刚性拿掉，周期还剩什么。Kydland 与 Prescott（1982）把索洛的 $A$ 写成随机过程，用可计算的 Ramsey 均衡去匹配产出、消费、投资、工时的二阶矩。卢卡斯批判的下一课会问：这些矩对政策是否结构；本课先把 RBC 的主张钉住。
+[上一课](/econ/financial-accelerator)（金融加速器）。让名义刚性把利率政策接到缺口。本课的对照是：把刚性拿掉，周期还剩什么。Kydland 与 Prescott（1982）把索洛的 $A$ 写成随机过程，用可计算的 Ramsey 均衡去匹配产出、消费、投资、工时的二阶矩。卢卡斯批判的下一课会问：这些矩对政策是否结构；本课先把 RBC 的主张钉住。
 
 ## 问题
 

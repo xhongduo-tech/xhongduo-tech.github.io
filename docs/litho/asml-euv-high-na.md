@@ -11,7 +11,7 @@ section: litho
     <footer>—— ASML TWINSCAN NXE / EXE 公开产品说明与 High-NA 科普</footer>
 </div>
 
-[NXE](/litho/asml-nxe) 写过 0.33 全场量产线如何吃 7/5/3 nm 关键层；[High-NA EXE](/litho/asml-high-na) 写过变形光学与半场为什么必须出现。本篇把 **ASML 的 EUV 产品线**当成一条工业叙事来读：两条平台如何并存、厂商分辨率标称（13 nm / 8 nm）和瑞利式怎么对上、以及导入节奏里哪些是已公开里程碑。不重复六镜物镜逐镜、锡滴预脉冲或磁浮工件台的细节；那些见 [蔡司光学](/litho/zeiss-euv-optics)、[LPP](/litho/euv-lpp-tin)。不填写未公布的镜面张数或未证实的机台报价。
+[上一课](/litho/rayleigh-litho-note)（瑞利判据笔记（Mack））。[NXE](/litho/asml-nxe) 写过 0.33 全场量产线如何吃 7/5/3 nm 关键层；[High-NA EXE](/litho/asml-high-na) 写过变形光学与半场为什么必须出现。本篇把 **ASML 的 EUV 产品线**当成一条工业叙事来读：两条平台如何并存、厂商分辨率标称（13 nm / 8 nm）和瑞利式怎么对上、以及导入节奏里哪些是已公开里程碑。不重复六镜物镜逐镜、锡滴预脉冲或磁浮工件台的细节；那些见 [蔡司光学](/litho/zeiss-euv-optics)、[LPP](/litho/euv-lpp-tin)。不填写未公布的镜面张数或未证实的机台报价。
 
 ## 问题
 

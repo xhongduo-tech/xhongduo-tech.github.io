@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Coase, The Problem of Social Cost, Journal of Law and Economics, 1960 整理</footer>
 </div>
 
-[上一课](/econ/externality-pigou)用庇古税把漏列的边际塞回私人一阶条件，但计划者必须知道 $\mathrm{MD}(q^*)$。缺口是：当事双方若能自己谈，还要不要这个税？科斯把问题从「算准税率」换成「界定权利、看谈判成本」。本课钉零成本基准与摩擦打开后的含义，不把科斯写成「政府永远多余」。
+[上一课](/econ/missing-markets)（缺失市场）。用庇古税把漏列的边际塞回私人一阶条件，但计划者必须知道 $\mathrm{MD}(q^*)$。缺口是：当事双方若能自己谈，还要不要这个税？科斯把问题从「算准税率」换成「界定权利、看谈判成本」。本课钉零成本基准与摩擦打开后的含义，不把科斯写成「政府永远多余」。
 
 ## 问题
 

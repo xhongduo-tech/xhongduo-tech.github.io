@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照逆成像思路与 Mack 对掩模频谱、透镜通带的讨论</footer>
 </div>
 
-模型基 [OPC](/litho/opc) 在多边形边上做局部移动，搜索空间仍是「设计图形的形变」。逆光刻（Inverse Lithography Technology, ILT）把掩模当成像素或水平集，直接对前向模型求逆：给定目标轮廓与工艺窗口，反解透过率图，再把它收成可写的几何。曲线掩模是这条逆的自然输出——透镜通带里有效的形状本来就不是直角。长期卡住的不是算法存在性，而是 [VSB 写掩模](/litho/multibeam-mask-writer) 的炮数与全芯片算力；多束机台与 GPU 把这两道闸松开之后，曲线 ILT 才从热区补丁变成可讨论的量产选项。
+[上一课](/litho/smo-plus-wavefront)（波前与 SMO+）。模型基 [OPC](/litho/opc) 在多边形边上做局部移动，搜索空间仍是「设计图形的形变」。逆光刻（Inverse Lithography Technology, ILT）把掩模当成像素或水平集，直接对前向模型求逆：给定目标轮廓与工艺窗口，反解透过率图，再把它收成可写的几何。曲线掩模是这条逆的自然输出——透镜通带里有效的形状本来就不是直角。长期卡住的不是算法存在性，而是 [VSB 写掩模](/litho/multibeam-mask-writer) 的炮数与全芯片算力；多束机台与 GPU 把这两道闸松开之后，曲线 ILT 才从热区补丁变成可讨论的量产选项。
 
 ## 问题
 

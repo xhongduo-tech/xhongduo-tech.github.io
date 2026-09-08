@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Viner, Cost Curves and Supply Curves, Zeitschrift für Nationalökonomie, 1931 整理</footer>
 </div>
 
-上一课[利润最大化与供给](/econ/profit-supply)在一切投入可按 $w$ 重选时写出 $p=\mathrm{MC}$ 与 Hotelling。本课不重讲利润函数的凸性。缺口是：真实决策有时间分层——厂房、执照、已经付出的研发，并不能在本期按租金退回。若仍用全部 $c(w,q)$ 当相关成本，歇业规则和供给弹性都会写错。
+[上一课](/econ/profit-supply)（利润最大化与供给）。在一切投入可按 $w$ 重选时写出 $p=\mathrm{MC}$ 与 Hotelling。本课不重讲利润函数的凸性。缺口是：真实决策有时间分层——厂房、执照、已经付出的研发，并不能在本期按租金退回。若仍用全部 $c(w,q)$ 当相关成本，歇业规则和供给弹性都会写错。
 
 ## 问题
 

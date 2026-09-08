@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack 对抗蚀剂模糊与 LER 的讨论，以及 CAR 产线对扩散长度与淬灭剂的表述整理</footer>
 </div>
 
-[上一课](/litho/car-resist)钉死了 PAG 产酸与 PEB 催化循环。缺口是：酸不是钉在出生点上的——它在聚合物里扩散，催化半径变成几纳米的模糊；随机的出生与淬灭把边缘走成一条毛边。本课把扩散长度和线宽粗糙度（LWR / LER）写进潜像。显影速率如何再切一刀，留给[下一课](/litho/resist-contrast-curve)。
+[上一课](/litho/peb-bake)（PEB 温度）。钉死了 PAG 产酸与 PEB 催化循环。缺口是：酸不是钉在出生点上的——它在聚合物里扩散，催化半径变成几纳米的模糊；随机的出生与淬灭把边缘走成一条毛边。本课把扩散长度和线宽粗糙度（LWR / LER）写进潜像。显影速率如何再切一刀，留给[下一课](/litho/resist-contrast-curve)。
 
 ## 问题
 

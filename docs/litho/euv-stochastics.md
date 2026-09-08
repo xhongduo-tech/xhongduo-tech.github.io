@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 Bakshi, EUV Lithography 与业界随机效应公开综述</footer>
 </div>
 
-瑞利式给出的是平均场分辨率。[NXE](/litho/asml-nxe) 的 0.33 和 [EXE](/litho/asml-high-na) 的 0.55 都假定光刻胶按连续强度分布显影。EUV 光子能量 $hc/\lambda\approx 92\,\mathrm{eV}$，是 ArF 6.4 eV 的十几倍；同样 mJ/cm² 剂量下光子数少一个数量级以上。落到一个 10 nm 级接触孔里的光子可以只有几十到几百，泊松涨落 $\sqrt{N}/N$ 变成局部尺寸抖动（LCDU）、线边缘粗糙、桥接和缺失孔。随机效应（stochastics）还叠上光酸发生剂、分子尺寸和二次电子模糊，不只是光子计数。本篇写噪声从哪来、如何进良率，以及剂量、胶与设计规则怎样换。
+[上一课](/litho/reticle-clamp)（掩模夹持）。瑞利式给出的是平均场分辨率。[NXE](/litho/asml-nxe) 的 0.33 和 [EXE](/litho/asml-high-na) 的 0.55 都假定光刻胶按连续强度分布显影。EUV 光子能量 $hc/\lambda\approx 92\,\mathrm{eV}$，是 ArF 6.4 eV 的十几倍；同样 mJ/cm² 剂量下光子数少一个数量级以上。落到一个 10 nm 级接触孔里的光子可以只有几十到几百，泊松涨落 $\sqrt{N}/N$ 变成局部尺寸抖动（LCDU）、线边缘粗糙、桥接和缺失孔。随机效应（stochastics）还叠上光酸发生剂、分子尺寸和二次电子模糊，不只是光子计数。本篇写噪声从哪来、如何进良率，以及剂量、胶与设计规则怎样换。
 
 ## 问题
 

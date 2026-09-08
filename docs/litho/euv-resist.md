@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Chris A. Mack, Fundamental Principles of Optical Lithography</footer>
 </div>
 
-[上一课](/litho/resist-contrast-curve)把显影收成衬度曲线，$\gamma$ 与清场剂量已经是可用的接口。本课不重讲显影阈值，也不从 PAG 再起笔：CAR 的产酸、扩散与 $\gamma$ 默认已经读完。缺口是 EUV 光子约 $92\,\mathrm{eV}$（ArF 约 $6.4\,\mathrm{eV}$）、同样吸收剂量下到达薄膜的光子数变少之后，同一套曲线下面要不要换记录介质——继续优化 CAR，还是改走金属氧化物骨架。[随机效应](/litho/euv-stochastics)从边缘噪声变成缺失孔、桥连；换化学是在 RLS 三角上换工作点，不是从「胶是什么」重讲。
+[上一课](/litho/pattern-collapse)（图形倒塌）。在此之上，显影收成衬度曲线，$\gamma$ 与清场剂量已经是可用的接口。本课不重讲显影阈值，也不从 PAG 再起笔：CAR 的产酸、扩散与 $\gamma$ 默认已经读完。缺口是 EUV 光子约 $92\,\mathrm{eV}$（ArF 约 $6.4\,\mathrm{eV}$）、同样吸收剂量下到达薄膜的光子数变少之后，同一套曲线下面要不要换记录介质——继续优化 CAR，还是改走金属氧化物骨架。[随机效应](/litho/euv-stochastics)从边缘噪声变成缺失孔、桥连；换化学是在 RLS 三角上换工作点，不是从「胶是什么」重讲。
 
 ## 问题
 

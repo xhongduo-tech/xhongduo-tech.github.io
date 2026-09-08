@@ -11,7 +11,7 @@ section: econ
 <footer>—— Myerson, Incentive Compatibility and the Bargaining Problem, Econometrica, 1979；Gibbard, Econometrica, 1973；Dasgupta, Hammond and Maskin, RES, 1979</footer>
 </div>
 
-[上一课](/econ/principal-agent)在给定的合同形式里写 IC。缺口是：合同可以任意弯——先报价、再抽签、再谈判、再发信号。是否必须在这个大空间里搜？显示原理说不必。把「均衡里人们实际在做的」收成「把类型报给计划者，由计划者执行原均衡结果」，说真话本身是均衡。本课钉这一归约，信息课序结束；下一课程从 GDP 核算另起。
+[上一课](/econ/incomplete-contracts)（不完全合同）。在给定的合同形式里写 IC。缺口是：合同可以任意弯——先报价、再抽签、再谈判、再发信号。是否必须在这个大空间里搜？显示原理说不必。把「均衡里人们实际在做的」收成「把类型报给计划者，由计划者执行原均衡结果」，说真话本身是均衡。本课钉这一归约，信息课序结束；下一课程从 GDP 核算另起。
 
 ## 问题
 

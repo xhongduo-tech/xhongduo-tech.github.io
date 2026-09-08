@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Bertrand, Théorie mathématique de la richesse sociale, Journal des Savants, 1883 整理</footer>
 </div>
 
-上一课[古诺数量竞争](/econ/cournot-oligopoly)在同时选产量时给出带份额的勒纳。本课不重讲反应函数的交点。缺口是：市场上贴出去的往往是价格，不是吨数。策略变量换成价格之后，同一套同质产品、常数 MC，均衡可以从「中间加价」跳到「$P=\mathrm{MC}$」。必须先标明这道伯川德悖论，再用产能把两种模型接回去。
+[上一课](/econ/cournot-oligopoly)（古诺数量竞争）。在同时选产量时给出带份额的勒纳。本课不重讲反应函数的交点。缺口是：市场上贴出去的往往是价格，不是吨数。策略变量换成价格之后，同一套同质产品、常数 MC，均衡可以从「中间加价」跳到「$P=\mathrm{MC}$」。必须先标明这道伯川德悖论，再用产能把两种模型接回去。
 
 ## 问题
 

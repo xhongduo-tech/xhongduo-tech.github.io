@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 SNA 国外账户；对照 Mundell 把外部平衡写成宏观约束之前的会计身份</footer>
 </div>
 
-[上一课](/econ/fiscal-multiplier)在封闭或未写国境的装置里谈乘数。支出恒等里一直有 $NX$，[储蓄–投资](/econ/saving-investment-id)用它当代理。本课的缺口是把对外账户写全：经常账户 $CA$、资本与金融账户、储备，以及 GDP 与 GNI 的差。购买力平价从下一课起给相对价格；本课先保证符号是账，不是蒙代尔图上的斜率。
+[上一课](/econ/automatic-stabilizers)（自动稳定器）。在封闭或未写国境的装置里谈乘数。支出恒等里一直有 $NX$，[储蓄–投资](/econ/saving-investment-id)用它当代理。本课的缺口是把对外账户写全：经常账户 $CA$、资本与金融账户、储备，以及 GDP 与 GNI 的差。购买力平价从下一课起给相对价格；本课先保证符号是账，不是蒙代尔图上的斜率。
 
 ## 问题
 

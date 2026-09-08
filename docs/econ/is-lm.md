@@ -11,7 +11,7 @@ section: econ
 <footer>—— Hicks, Mr. Keynes and the Classics, Econometrica 1937</footer>
 </div>
 
-[上一课](/econ/phillips-expectations)把供给写成附加预期的菲利普斯：缺口动意外通胀。需求从哪来？[储蓄–投资恒等](/econ/saving-investment-id)只保证事后 $S=I$（封闭）。本课的缺口是 Hicks 的那一步：把**计划**的 $I(i)$ 与计划的 $S(Y)$ 相等，再配上货币需求与给定的 $M$，得到短期 $Y$ 与 $i$。后课欧拉会替换掉静态消费函数；本课禁止把 IS 当成跨期最优。
+[上一课](/econ/natural-rate-u-star)（自然率假说）。在此之上，供给写成附加预期的菲利普斯：缺口动意外通胀。需求从哪来？[储蓄–投资恒等](/econ/saving-investment-id)只保证事后 $S=I$（封闭）。本课的缺口是 Hicks 的那一步：把**计划**的 $I(i)$ 与计划的 $S(Y)$ 相等，再配上货币需求与给定的 $M$，得到短期 $Y$ 与 $i$。后课欧拉会替换掉静态消费函数；本课禁止把 IS 当成跨期最优。
 
 ## 问题
 

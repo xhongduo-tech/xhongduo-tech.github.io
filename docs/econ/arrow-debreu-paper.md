@@ -11,7 +11,7 @@ section: econ
 <footer>—— Arrow, The Role of Securities in the Optimal Allocation of Risk-Bearing, Review of Economic Studies 1964（1953 年法语稿）</footer>
 </div>
 
-附录对照。本篇不插入主干课序。主干已在[状态依存](/econ/state-contingent)、[瓦尔拉斯均衡](/econ/walrasian-equilibrium)、[存在性](/econ/ge-existence)里用过或有商品与不动点；这里对照 **Arrow 1953/1964 原文的问题**：完整的或有商品市场太重，能否改成一套证券，仍实施最优风险分担。不重做角谷不动点。
+[上一课](/econ/to-limit-order-book)（到限价簿：理论在此停）。附录对照。本篇不插入主干课序。主干已在[状态依存](/econ/state-contingent)、[瓦尔拉斯均衡](/econ/walrasian-equilibrium)、[存在性](/econ/ge-existence)里用过或有商品与不动点；这里对照 **Arrow 1953/1964 原文的问题**：完整的或有商品市场太重，能否改成一套证券，仍实施最优风险分担。不重做角谷不动点。
 
 ## 问题
 

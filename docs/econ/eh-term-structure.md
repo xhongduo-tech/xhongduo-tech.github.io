@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Fisher；Hicks, Value and Capital, 1939；对照 Cox, Ingersoll and Ross, Journal of Finance 1981 整理</footer>
 </div>
 
-定位：[CAPM 作为均衡陈述](/econ/capm-theory)。单期截面已经把风险收成对市场的 beta；本课缺口是**到期结构**：同一无违约发行人、不同期限的债券，其收益率如何被短期利率路径约束。不估计市场 beta，不把期限溢价做成第二个股票因子。金融栏主干在下一课接到限价簿之前，定价理论停在这条假说上。
+[上一课](/econ/apt-as-equilibrium)（APT 作为均衡）。[CAPM 作为均衡陈述](/econ/capm-theory)。单期截面已经把风险收成对市场的 beta；本课缺口是**到期结构**：同一无违约发行人、不同期限的债券，其收益率如何被短期利率路径约束。不估计市场 beta，不把期限溢价做成第二个股票因子。金融栏主干在下一课接到限价簿之前，定价理论停在这条假说上。
 
 ## 问题
 

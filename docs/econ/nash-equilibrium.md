@@ -11,7 +11,7 @@ section: econ
 <footer>—— Nash, Non-cooperative Games, Annals of Mathematics, 1951；Nash, PNAS, 1950</footer>
 </div>
 
-[上一课](/econ/theory-of-second-best)仍假定有一个计划者，在锁死的约束下改其余边际。缺口是：许多互动里没有这个计划者。厂商、谈判双方、公共品的自愿贡献者，每人选自己的行动，把别人当环境，但环境又由别人的选择构成。[古诺](/econ/cournot-oligopoly)已经用过「给定对方产量、选自己的产量」，本课把它写成一般的策略式与纳什均衡，不重写次优的拉格朗日。
+[上一课](/econ/rationalizability)（可理性化）。仍假定有一个计划者，在锁死的约束下改其余边际。缺口是：许多互动里没有这个计划者。厂商、谈判双方、公共品的自愿贡献者，每人选自己的行动，把别人当环境，但环境又由别人的选择构成。[古诺](/econ/cournot-oligopoly)已经用过「给定对方产量、选自己的产量」，本课把它写成一般的策略式与纳什均衡，不重写次优的拉格朗日。
 
 ## 问题
 

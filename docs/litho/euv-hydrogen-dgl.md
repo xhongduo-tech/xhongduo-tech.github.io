@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 ASML 公开材料；污染化学见 Bakshi, EUV Lithography</footer>
 </div>
 
-13.5 nm 光路里没有可以随便换的空气窗。[LPP](/litho/euv-lpp-tin) 每秒喷出数万次锡等离子体，离子、中性锡和碳氢残余只要淀积在[多层膜](/litho/euv-multilayer-mirror)上，反射率就掉、光瞳就变形。量产机把氢（H₂）既当缓冲气体，又当清洗剂：EUV 光子把 H₂ 解离成自由基，H 与 Sn 生成挥发性 SnH₄，与碳生成 CH₄，再被抽走。动态气锁（Dynamic Gas Lock, DGL）用差压气流在光源舱与扫描舱、以及若干真空分区之间形成单向帘，让光子过、让碎屑不过。本篇写氢化学与气锁几何，不重写收集镜抛光。
+[上一课](/litho/anamorphic-projection)（变形光学）。13.5 nm 光路里没有可以随便换的空气窗。[LPP](/litho/euv-lpp-tin) 每秒喷出数万次锡等离子体，离子、中性锡和碳氢残余只要淀积在[多层膜](/litho/euv-multilayer-mirror)上，反射率就掉、光瞳就变形。量产机把氢（H₂）既当缓冲气体，又当清洗剂：EUV 光子把 H₂ 解离成自由基，H 与 Sn 生成挥发性 SnH₄，与碳生成 CH₄，再被抽走。动态气锁（Dynamic Gas Lock, DGL）用差压气流在光源舱与扫描舱、以及若干真空分区之间形成单向帘，让光子过、让碎屑不过。本篇写氢化学与气锁几何，不重写收集镜抛光。
 
 ## 问题
 

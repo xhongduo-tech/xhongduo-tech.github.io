@@ -11,7 +11,7 @@ section: litho
     <footer>—— Rayleigh 1879 的两源分辨讨论；Chris A. Mack, Fundamental Principles of Optical Lithography, Wiley, 2007</footer>
 </div>
 
-[瑞利判据：CD = k₁ λ / NA](/litho/rayleigh-litho) 已经钉过产线公式与三个旋钮。本篇作 **Mack 讲义式的笔记**：瑞利原来在比什么、为什么光刻不能直接写 0.61、以及为什么同一套 $\lambda$ 与 $\mathrm{NA}$ 下，对比度、归一化图像对数斜率（NILS）往往比单个 $k_1$ 更能预告窗口。波长台阶、浸没与 EUV 机台放在后续各篇；这里不把某代未公开的 $k_1$ 内部表填进来。
+[上一课](/litho/patterning-inspection-tools)（图形化检测设备）。[瑞利判据：CD = k₁ λ / NA](/litho/rayleigh-litho) 已经钉过产线公式与三个旋钮。本篇作 **Mack 讲义式的笔记**：瑞利原来在比什么、为什么光刻不能直接写 0.61、以及为什么同一套 $\lambda$ 与 $\mathrm{NA}$ 下，对比度、归一化图像对数斜率（NILS）往往比单个 $k_1$ 更能预告窗口。波长台阶、浸没与 EUV 机台放在后续各篇；这里不把某代未公开的 $k_1$ 内部表填进来。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 von Neumann and Morgenstern, Theory of Games and Economic Behavior, 1944 整理</footer>
 </div>
 
-上一课[可积性与恢复偏好](/econ/integrability)在确定消费束上把偏好与需求闭环。本课不重讲 Afriat 或斯勒茨基，也不把确定的 $u(x)$ 直接拿来对随机结果取期望。缺口是：备选集从 $X$ 换成了 $X$ 上的彩票 $\Delta(X)$。理性偏好仍必要，但不够——没有对复合彩票的结构，期望算子没有公理地位。本课打开「不确定下的选择」课序。
+[上一课](/econ/two-period-micro)（两期消费）。在确定消费束上把偏好与需求闭环。本课不重讲 Afriat 或斯勒茨基，也不把确定的 $u(x)$ 直接拿来对随机结果取期望。缺口是：备选集从 $X$ 换成了 $X$ 上的彩票 $\Delta(X)$。理性偏好仍必要，但不够——没有对复合彩票的结构，期望算子没有公理地位。本课打开「不确定下的选择」课序。
 
 ## 问题
 

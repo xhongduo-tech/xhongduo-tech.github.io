@@ -11,7 +11,7 @@ section: econ
 <footer>—— Sharpe, Capital Asset Prices, Journal of Finance 1964；Lintner, Review of Economics and Statistics 1965；Mossin, Econometrica 1966</footer>
 </div>
 
-定位：[随机折现因子](/econ/stochastic-discount-factor)。一般定价核只约束 $0=\mathrm{E}[m R^e]$，没有说出 $m$ 是哪一个随机变量。本课缺口是均衡：在均值–方差与同质预期下，$m$ 与市场回报线性，CAPM 作为**均衡陈述**出现。横截面检验、异象、因子工程不在本栏，见量化栏 [CAPM 与市场因子](/quant/capm)。
+[上一课](/econ/icapm-merton)（Merton ICAPM）。[随机折现因子](/econ/stochastic-discount-factor)。一般定价核只约束 $0=\mathrm{E}[m R^e]$，没有说出 $m$ 是哪一个随机变量。本课缺口是均衡：在均值–方差与同质预期下，$m$ 与市场回报线性，CAPM 作为**均衡陈述**出现。横截面检验、异象、因子工程不在本栏，见量化栏 [CAPM 与市场因子](/quant/capm)。
 
 ## 问题
 

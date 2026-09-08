@@ -11,7 +11,7 @@ section: econ
 <footer>—— Mundell, Capital Mobility and Stabilization Policy under Fixed and Flexible Exchange Rates, Canadian Journal of Economics 1963；Fleming 1962</footer>
 </div>
 
-[上一课](/econ/ppp-loop)给出长期相对 PPP。短期价格粘住，$E$ 与 $i$ 由资产与商品市场出清。本课把[Hicks 的 IS–LM](/econ/is-lm)加上净出口与资本流动：Mundell（1963）与 Fleming（1962）的装置。$CA=S-I$ 仍是恒等；BP 曲线是事前的外部均衡轨迹。不可能三角是下一课把三种制度目标收成三选二。
+[上一课](/econ/j-curve)（J 曲线）。给出长期相对 PPP。短期价格粘住，$E$ 与 $i$ 由资产与商品市场出清。本课把[Hicks 的 IS–LM](/econ/is-lm)加上净出口与资本流动：Mundell（1963）与 Fleming（1962）的装置。$CA=S-I$ 仍是恒等；BP 曲线是事前的外部均衡轨迹。不可能三角是下一课把三种制度目标收成三选二。
 
 ## 问题
 

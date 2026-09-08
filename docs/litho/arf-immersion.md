@@ -11,7 +11,7 @@ section: litho
 <footer>—— ASML, TWINSCAN: 20 years of lithography innovation（公开故事）</footer>
 </div>
 
-数值孔径 $\mathrm{NA}=n\sin\theta$。空气中 $n\approx 1$，镜头半孔径角再大，$\mathrm{NA}$ 也过不了 1。193 nm 的超纯水折射率大约 1.44，浸没把最后一片镜头元件与晶圆之间的空气换成水，使 $n\sin\theta$ 可以大于 1。ASML 公开写明：干式约 0.93，浸没做到 1.35。Mack 还强调一句容易说反的话：往旧镜头缝里灌水，并不会自动抬高已经做死的 $\mathrm{NA}$；要的是按更高 $n\sin\theta$ 重新设计的浸没物镜。本篇只讲这一介质替换如何进入瑞利公式，以及它没有改掉的东西。
+[上一课](/litho/adi-defect-inspect)（显影后缺陷检验）。数值孔径 $\mathrm{NA}=n\sin\theta$。空气中 $n\approx 1$，镜头半孔径角再大，$\mathrm{NA}$ 也过不了 1。193 nm 的超纯水折射率大约 1.44，浸没把最后一片镜头元件与晶圆之间的空气换成水，使 $n\sin\theta$ 可以大于 1。ASML 公开写明：干式约 0.93，浸没做到 1.35。Mack 还强调一句容易说反的话：往旧镜头缝里灌水，并不会自动抬高已经做死的 $\mathrm{NA}$；要的是按更高 $n\sin\theta$ 重新设计的浸没物镜。本篇只讲这一介质替换如何进入瑞利公式，以及它没有改掉的东西。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Woodford, Interest and Prices: Foundations of a Theory of Monetary Policy, Princeton University Press, 2003</footer>
 </div>
 
-附录对照。主干[新凯恩斯粘性价格](/econ/new-keynesian)与[泰勒规则](/econ/taylor-rule)已用三方程课本。本篇对照 **Woodford 2003 原书的问题设定**：Wicksell 式的利率主义如何在跨期一般均衡里被写严，以及为何可以几乎不提货币数量。不重做 [Kydland–Prescott](/econ/kydland-prescott) 的时间不一致例子——书把承诺与时间一致政策当成工具，而不是再证明一遍规则优于权变。
+[上一课](/econ/kydland-prescott)（Kydland–Prescott 规则优于权变）。附录对照。主干[新凯恩斯粘性价格](/econ/new-keynesian)与[泰勒规则](/econ/taylor-rule)已用三方程课本。本篇对照 **Woodford 2003 原书的问题设定**：Wicksell 式的利率主义如何在跨期一般均衡里被写严，以及为何可以几乎不提货币数量。不重做 [Kydland–Prescott](/econ/kydland-prescott) 的时间不一致例子——书把承诺与时间一致政策当成工具，而不是再证明一遍规则优于权变。
 
 ## 问题
 

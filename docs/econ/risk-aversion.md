@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Pratt, Risk Aversion in the Small and in the Large, Econometrica, 1964；Arrow, Essays in the Theory of Risk-Bearing, 1971 整理</footer>
 </div>
 
-上一课[阿莱悖论与独立性](/econ/allais-independence)标明独立性在问卷上脆，但主干仍用 $\mathbb{E}u$。本课不重讲阿莱四张彩票，也不再证明 vNM 表示。缺口是：有了伯努利 $u$，怎样比较「更厌恶风险」？仿射变换会改 $u''$，不能直接看二阶导数的数字。必须找出在 $au+b$ 下不变、又能对应风险溢价的局部测度。
+[上一课](/econ/allais-independence)（阿莱悖论与独立性）。标明独立性在问卷上脆，但主干仍用 $\mathbb{E}u$。本课不重讲阿莱四张彩票，也不再证明 vNM 表示。缺口是：有了伯努利 $u$，怎样比较「更厌恶风险」？仿射变换会改 $u''$，不能直接看二阶导数的数字。必须找出在 $au+b$ 下不变、又能对应风险溢价的局部测度。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— Chris A. Mack, Fundamental Principles of Optical Lithography, Wiley, 2007；讲义中的 Rayleigh 形式</footer>
 </div>
 
-光学光刻的分辨率由 [瑞利判据](/litho/rayleigh-litho) 给出：半节距 $R=k_1\lambda/\mathrm{NA}$。三项里，$\mathrm{NA}$ 可以在同一光源上缓慢抬高，$k_1$ 可以靠照明、掩模与胶工艺往下压，唯独 $\lambda$ 不能微调。历史上每一次真正换波长，都是一次光源、投影光学与抗蚀剂的整栈替换。台阶依次是汞灯 g 线 436 nm、i 线 365 nm、KrF 准分子 248 nm、ArF 准分子 193 nm，再跳到 EUV 13.5 nm。本篇只讲这条波长轴：为什么是台阶、每一级换了什么、以及节点商品名为什么不能当成波长。
+[上一课](/litho/line-end-shortening)（线端缩短）。光学光刻的分辨率由 [瑞利判据](/litho/rayleigh-litho) 给出：半节距 $R=k_1\lambda/\mathrm{NA}$。三项里，$\mathrm{NA}$ 可以在同一光源上缓慢抬高，$k_1$ 可以靠照明、掩模与胶工艺往下压，唯独 $\lambda$ 不能微调。历史上每一次真正换波长，都是一次光源、投影光学与抗蚀剂的整栈替换。台阶依次是汞灯 g 线 436 nm、i 线 365 nm、KrF 准分子 248 nm、ArF 准分子 193 nm，再跳到 EUV 13.5 nm。本篇只讲这条波长轴：为什么是台阶、每一级换了什么、以及节点商品名为什么不能当成波长。
 
 ## 问题
 

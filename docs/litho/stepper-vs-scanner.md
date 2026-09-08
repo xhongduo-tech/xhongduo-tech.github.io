@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Levinson 对 step-and-repeat 与 step-and-scan 的区分，以及 ASML 对扫描机架构的公开说明整理</footer>
 </div>
 
-[上一课](/litho/twinscan-dual-stage)把测量与曝光拆到两张晶圆台上并行，默认光学已经是扫描投影。缺口是：还没有把「为什么是扫、而不是整场一次闪」写成合同。本课钉步进器（step-and-repeat）与扫描机（step-and-scan）的差别。成像栏到此结束；记录介质从[下一课](/litho/car-resist)的化学放大胶开始，不再回头解释工件台。
+[上一课](/litho/twinscan-dual-stage)（双工件台 Twinscan 提高产能）。在此之上，测量与曝光拆到两张晶圆台上并行，默认光学已经是扫描投影。缺口是：还没有把「为什么是扫、而不是整场一次闪」写成合同。本课钉步进器（step-and-repeat）与扫描机（step-and-scan）的差别。成像栏到此结束；记录介质从[下一课](/litho/car-resist)的化学放大胶开始，不再回头解释工件台。
 
 ## 问题
 

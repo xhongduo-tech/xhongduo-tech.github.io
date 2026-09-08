@@ -11,7 +11,7 @@ section: litho
 <footer>—— 归纳自 spacer-defined double patterning 的标准工艺逻辑；分辨率极限仍受 Mack 单次曝光 $k_1$ 约束于 mandrel</footer>
 </div>
 
-LELE 把相邻线分给两张掩模，靠套刻把它们拼回目标节距。自对准双重图形（SADP）走另一条路：一次光刻只做出较疏的 mandrel（芯轴），在侧壁沉积 spacer，去掉 mandrel 后，留下的 spacer 环（再切开）成为节距减半的线条。线宽由原子层沉积一类薄膜的厚度决定，均匀性可以优于空中像阈值切割。再做一轮 spacer，就是 SAQP（自对准四重），节距再近乎减半。本篇讲自对准的含义、一维偏好，以及切线层如何把套刻请回来。
+[上一课](/litho/lelele-triple)（LELELE）。LELE 把相邻线分给两张掩模，靠套刻把它们拼回目标节距。自对准双重图形（SADP）走另一条路：一次光刻只做出较疏的 mandrel（芯轴），在侧壁沉积 spacer，去掉 mandrel 后，留下的 spacer 环（再切开）成为节距减半的线条。线宽由原子层沉积一类薄膜的厚度决定，均匀性可以优于空中像阈值切割。再做一轮 spacer，就是 SAQP（自对准四重），节距再近乎减半。本篇讲自对准的含义、一维偏好，以及切线层如何把套刻请回来。
 
 ## 问题
 

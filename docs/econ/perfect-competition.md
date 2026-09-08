@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Marshall, Principles of Economics；Viner, Cost Curves and Supply Curves, 1931 整理</footer>
 </div>
 
-上一课[短长期与沉没成本](/econ/sunk-cost)给了单家厂商的停产规则与长短期成本包络。本课不重讲 AVC 与沉没的定义。缺口是：价格仍是参数。市场结构课序从这里打开——把许多价格接受者叠成行业供给，再让需求来定 $p$，并问进入之后 $p$ 停在哪。
+[上一课](/econ/returns-vs-economies)（规模报酬对规模经济）。给了单家厂商的停产规则与长短期成本包络。本课不重讲 AVC 与沉没的定义。缺口是：价格仍是参数。市场结构课序从这里打开——把许多价格接受者叠成行业供给，再让需求来定 $p$，并问进入之后 $p$ 停在哪。
 
 ## 问题
 

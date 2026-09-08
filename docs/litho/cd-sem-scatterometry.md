@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Levinson 对 CD 计量的讨论，以及产线 CD-SEM / OCD 分工的公开表述整理</footer>
 </div>
 
-[上一课](/litho/ed-process-window)把合格区画在曝光–散焦平面上，纵轴默认是「真 CD」。缺口是：真值没有直接读数——CD-SEM 有充电、收缩与边缘算法，光学散射测量（OCD）有模型误差。本课钉两种计量各回答什么。位置误差怎么量，留给[下一课](/litho/overlay-marks)，不要在这里把套刻标记当 CD 垫。
+[上一课](/litho/cdu-uniformity)（CD 均匀性 CDU）。在此之上，合格区画在曝光–散焦平面上，纵轴默认是「真 CD」。缺口是：真值没有直接读数——CD-SEM 有充电、收缩与边缘算法，光学散射测量（OCD）有模型误差。本课钉两种计量各回答什么。位置误差怎么量，留给[下一课](/litho/overlay-marks)，不要在这里把套刻标记当 CD 垫。
 
 ## 问题
 

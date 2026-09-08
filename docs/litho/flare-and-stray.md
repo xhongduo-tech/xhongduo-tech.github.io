@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack、Levinson 对 flare 的定义；EUV 多层膜粗糙散射见 Bakshi 的公开论述</footer>
 </div>
 
-[上一课](/litho/overlay-marks)把位置计量钉在标记上。缺口是剂量底座：镜头、腔体与掩模的散射并不进「理想 TCC」，却给 $I(x,y)$ 加上长程背景，使上一课程定义的对比度 $C$ 在全场尺度上下降。本课钉 flare。计量课程到此结束；水作介质抬 $\mathrm{NA}$ 从[下一课](/litho/arf-immersion)开始。
+[上一课](/litho/yieldstar-dbo)（YieldStar 与扫描仪内计量）。在此之上，位置计量钉在标记上。缺口是剂量底座：镜头、腔体与掩模的散射并不进「理想 TCC」，却给 $I(x,y)$ 加上长程背景，使上一课程定义的对比度 $C$ 在全场尺度上下降。本课钉 flare。计量课程到此结束；水作介质抬 $\mathrm{NA}$ 从[下一课](/litho/arf-immersion)开始。
 
 ## 问题
 

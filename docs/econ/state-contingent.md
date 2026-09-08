@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Arrow, The Role of Securities in the Optimal Allocation of Risk-Bearing, Review of Economic Studies, 1964（1953 年法文稿）整理</footer>
 </div>
 
-上一课[随机占优](/econ/stochastic-dominance)在无名财富的分布上给偏序。本课不重讲 FSD/SSD，也不再估 $r_A$。缺口是：轮盘彩票把结果当成可交换的数字，市场里的风险却绑在有名字的状态上——下雨、违约、衰退。没有状态，就没有可交易的或有要求权，后课一般均衡也无法把不确定性写进商品空间。
+[上一课](/econ/third-order-sd)（三阶占优）。在无名财富的分布上给偏序。本课不重讲 FSD/SSD，也不再估 $r_A$。缺口是：轮盘彩票把结果当成可交换的数字，市场里的风险却绑在有名字的状态上——下雨、违约、衰退。没有状态，就没有可交易的或有要求权，后课一般均衡也无法把不确定性写进商品空间。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Rothschild and Stiglitz, Increasing Risk: I. A Definition, Journal of Economic Theory, 1970 整理</footer>
 </div>
 
-上一课[风险厌恶与阿罗–普拉特](/econ/risk-aversion)在给定伯努利函数上用 $r_A$ 比较「更厌恶」。本课不重讲 Pratt 的局部溢价，也不把某一个 $u$ 再估计一遍。缺口是：后课保险与或有要求权经常只知道决策者凹、递增，不知道他是哪一条 $u$。必须问分布之间有没有不依赖具体 $u$ 的排序。
+[上一课](/econ/two-fund-separation)（两基金分离）。在给定伯努利函数上用 $r_A$ 比较「更厌恶」。本课不重讲 Pratt 的局部溢价，也不把某一个 $u$ 再估计一遍。缺口是：后课保险与或有要求权经常只知道决策者凹、递增，不知道他是哪一条 $u$。必须问分布之间有没有不依赖具体 $u$ 的排序。
 
 ## 问题
 

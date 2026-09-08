@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Bagehot, Lombard Street, 1873 整理</footer>
 </div>
 
-定位：[准备金、乘数与内生货币](/econ/reserve-endogenous-money)。平时准备金迁就结算，存款由贷款创造；本课缺口是恐慌：人人要把 inside money 换成 outside money 时，谁按什么规则提供那笔高能货币。不重推 [Diamond–Dybvig](/econ/diamond-dybvig) 的双均衡，只把它当作需要被停掉的坏均衡。
+[上一课](/econ/rtgs-payments)（支付系统与 RTGS）。[准备金、乘数与内生货币](/econ/reserve-endogenous-money)。平时准备金迁就结算，存款由贷款创造；本课缺口是恐慌：人人要把 inside money 换成 outside money 时，谁按什么规则提供那笔高能货币。不重推 [Diamond–Dybvig](/econ/diamond-dybvig) 的双均衡，只把它当作需要被停掉的坏均衡。
 
 ## 问题
 

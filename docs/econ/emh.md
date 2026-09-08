@@ -11,7 +11,7 @@ section: econ
 <footer>—— Fama, Efficient Capital Markets: A Review of Theory and Empirical Work, Journal of Finance 1970</footer>
 </div>
 
-定位：[股利与自由现金流](/econ/dividend-fcf)。公司金融已经把收益流切成债、股、股利；本课缺口换成这些要求权的**价格**：信息进来之后，价格是否已经把它写进去，以至按该信息交易不再有超额利润。资产定价理论单元从这里起，不再写资本结构目标。后课默认：有效是相对某个信息集的陈述，不是「价格永远正确」。
+[上一课](/econ/real-options-theory)（实物期权）。[股利与自由现金流](/econ/dividend-fcf)。公司金融已经把收益流切成债、股、股利；本课缺口换成这些要求权的**价格**：信息进来之后，价格是否已经把它写进去，以至按该信息交易不再有超额利润。资产定价理论单元从这里起，不再写资本结构目标。后课默认：有效是相对某个信息集的陈述，不是「价格永远正确」。
 
 ## 问题
 

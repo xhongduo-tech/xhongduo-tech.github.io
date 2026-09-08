@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 TSMC CoWoS 公开技术论述与 2.5D 封装通用结构</footer>
 </div>
 
-单片 SoC 把 GPU 与片上缓存做在同一块硅上，面积、良率和存储器容量先撞墙。2.5D 的做法是：逻辑裸片与 [HBM 栈](/litho/hbm-hybrid-bonding) 并排放在中介层上，中介层提供细节距走线与硅通孔，再把整块中介层装到有机基板上。TSMC 的 CoWoS（Chip on Wafer on Substrate）是这一结构的量产名字：先在晶圆上把芯片接到中介层（CoW），再把中介层接到基板（oS）。公开族里还有偏硅中介层的 CoWoS-S、偏 RDL 的 CoWoS-R、以及用本地硅互连桥加 RDL 扩面积的 CoWoS-L。它们服务的是同一类 AI 加速器：大逻辑 + 多栈 HBM，而不是手机那种扇出。
+[上一课](/litho/hbm-hybrid-bonding)（HBM 堆叠与混合键合）。单片 SoC 把 GPU 与片上缓存做在同一块硅上，面积、良率和存储器容量先撞墙。2.5D 的做法是：逻辑裸片与 [HBM 栈](/litho/hbm-hybrid-bonding) 并排放在中介层上，中介层提供细节距走线与硅通孔，再把整块中介层装到有机基板上。TSMC 的 CoWoS（Chip on Wafer on Substrate）是这一结构的量产名字：先在晶圆上把芯片接到中介层（CoW），再把中介层接到基板（oS）。公开族里还有偏硅中介层的 CoWoS-S、偏 RDL 的 CoWoS-R、以及用本地硅互连桥加 RDL 扩面积的 CoWoS-L。它们服务的是同一类 AI 加速器：大逻辑 + 多栈 HBM，而不是手机那种扇出。
 
 ## 问题
 

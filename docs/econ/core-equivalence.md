@@ -11,7 +11,7 @@ section: econ
 <footer>—— Debreu and Scarf, A Limit Theorem on the Core of an Economy, International Economic Review, 1963；Edgeworth, Mathematical Psychics, 1881</footer>
 </div>
 
-[上一课](/econ/ge-existence)保证了竞争均衡在凸连续下非空，[福利第一定理](/econ/welfare-theorems)保证它有效。[埃奇沃思盒](/econ/edgeworth-pareto)里，有效点仍是一条曲线。缺口是：若不允许拍卖人，只允许联盟自己重新分配，哪些配置能站住？核比帕累托集更小；复制之后，核还会再缩到瓦尔拉斯配置。本课钉这句极限，不重写存在性证明。
+[上一课](/econ/uniqueness-tatonnement)（唯一性与试错）。保证了竞争均衡在凸连续下非空，[福利第一定理](/econ/welfare-theorems)保证它有效。[埃奇沃思盒](/econ/edgeworth-pareto)里，有效点仍是一条曲线。缺口是：若不允许拍卖人，只允许联盟自己重新分配，哪些配置能站住？核比帕累托集更小；复制之后，核还会再缩到瓦尔拉斯配置。本课钉这句极限，不重写存在性证明。
 
 ## 问题
 

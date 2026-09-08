@@ -11,7 +11,7 @@ section: econ
 <footer>—— Spence, Job Market Signaling, Quarterly Journal of Economics 1973</footer>
 </div>
 
-附录对照。主干[信号发送](/econ/spence-signaling)已取分离均衡与单交叉。本篇对照 **Spence 1973 原文**：劳动力市场里的教育作为信号，信息均衡（informational equilibrium）的定义，以及过度教育作为均衡现象。不把[柠檬](/econ/akerlof-1970)的供需螺旋再写一遍——Akerlof 是质量不可验证且无行动；Spence 给了类型一个有成本的可观察行动。
+[上一课](/econ/akerlof-1970)（Akerlof 柠檬市场原文）。附录对照。主干[信号发送](/econ/spence-signaling)已取分离均衡与单交叉。本篇对照 **Spence 1973 原文**：劳动力市场里的教育作为信号，信息均衡（informational equilibrium）的定义，以及过度教育作为均衡现象。不把[柠檬](/econ/akerlof-1970)的供需螺旋再写一遍——Akerlof 是质量不可验证且无行动；Spence 给了类型一个有成本的可观察行动。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— 本栏收束；簿的几何见 Harris, Trading and Exchanges</footer>
 </div>
 
-定位：[期限结构预期假说](/econ/eh-term-structure)。从偏好走到 SDF、CAPM 与 EH，本栏已经有一套关于**哪一个数字可以叫价格**的理论。本课是主干最后一课：缺口不是再写一个均衡模型，而是承认这些数字还没有交易程序。程序在量化栏的[限价簿结构](/quant/lob-structure)。后课不在本栏。
+[上一课](/econ/affine-yield-curve)（仿射期限结构）。仿射因子已经补在栖息地之后。从偏好走到 SDF、CAPM 与期限结构，本栏已经有一套关于**哪一个数字可以叫价格**的理论。本课是主干最后一课：缺口不是再写一个均衡模型，而是承认这些数字还没有交易程序。程序在量化栏的[限价簿结构](/quant/lob-structure)。后课不在本栏。
 
 ## 问题
 

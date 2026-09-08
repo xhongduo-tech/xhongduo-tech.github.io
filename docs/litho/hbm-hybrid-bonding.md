@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 JEDEC HBM 标准族与堆叠互连的公开演进</footer>
 </div>
 
-HBM（High Bandwidth Memory）是 JEDEC 标准化的堆叠 DRAM：多片核心裸片通过硅通孔（TSV）连到逻辑底座，再以极宽的接口接到邻近的 GPU 或加速器，通常坐在 [2.5D 中介层](/litho/cowos-2p5d) 上。HBM2/2E/3/3E 一代代加高堆叠层数、加宽有效带宽，微凸点与 TSV 的节距、电流和热成为墙。混合键合（hybrid bonding）把铜对铜与介质对介质在同一平面键合，互连节距从数十微米级走向个位数微米，I/O 数目和电源完整性一起改写。它不是另一种封装商标，是堆叠互连从焊接凸点换成晶圆级键合界面。
+[上一课](/litho/nanoimprint-alt)（纳米压印对照）。HBM（High Bandwidth Memory）是 JEDEC 标准化的堆叠 DRAM：多片核心裸片通过硅通孔（TSV）连到逻辑底座，再以极宽的接口接到邻近的 GPU 或加速器，通常坐在 [2.5D 中介层](/litho/cowos-2p5d) 上。HBM2/2E/3/3E 一代代加高堆叠层数、加宽有效带宽，微凸点与 TSV 的节距、电流和热成为墙。混合键合（hybrid bonding）把铜对铜与介质对介质在同一平面键合，互连节距从数十微米级走向个位数微米，I/O 数目和电源完整性一起改写。它不是另一种封装商标，是堆叠互连从焊接凸点换成晶圆级键合界面。
 
 ## 问题
 

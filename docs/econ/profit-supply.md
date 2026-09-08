@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Hotelling, Edgeworth's Taxation Paradox and the Nature of Demand and Supply Functions, Journal of Political Economy, 1932 整理</footer>
 </div>
 
-上一课[成本最小化](/econ/cost-minimization)在锁定 $q$ 时给出 $c(w,q)$ 与 Shephard。本课不重讲条件需求，也不把 $c$ 的齐次凹性再证一遍。缺口是：$q$ 仍是参数，厂商还没有对着产品价格说话。没有这一步，后课完全竞争没有厂商供给曲线，垄断没有「先有 MC 再对需求」的接口。
+[上一课](/econ/conditional-factor-demand)（条件要素需求）。在锁定 $q$ 时给出 $c(w,q)$ 与 Shephard。本课不重讲条件需求，也不把 $c$ 的齐次凹性再证一遍。缺口是：$q$ 仍是参数，厂商还没有对着产品价格说话。没有这一步，后课完全竞争没有厂商供给曲线，垄断没有「先有 MC 再对需求」的接口。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 归纳自 Abbe 正弦条件与 Mack, Fundamental Principles of Optical Lithography 对 NA 的定义</footer>
 </div>
 
-[上一课](/litho/diffraction-spatial-freq)把掩模收成空间频率，并指出均匀介质里可传播的上限是 $n/\lambda$。缺口是：投影物镜并不是整块均匀介质，它只收集进入入瞳的那一段频谱。本课引入数值孔径 $\mathrm{NA}=n\sin\theta$，把「进得去的最高空间频率」写成 $\mathrm{NA}/\lambda$。照明如何填充这个光瞳，留给[部分相干](/litho/partial-coherence)。
+[上一课](/litho/pupil-apodization)（光瞳滤波与切趾）。在此之上，掩模收成空间频率，并指出均匀介质里可传播的上限是 $n/\lambda$。缺口是：投影物镜并不是整块均匀介质，它只收集进入入瞳的那一段频谱。本课引入数值孔径 $\mathrm{NA}=n\sin\theta$，把「进得去的最高空间频率」写成 $\mathrm{NA}/\lambda$。照明如何填充这个光瞳，留给[部分相干](/litho/partial-coherence)。
 
 ## 问题
 

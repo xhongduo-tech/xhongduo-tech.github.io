@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Varian, Microeconomic Analysis；Mas-Colell, Whinston and Green, Microeconomic Theory 第 2–3 章整理</footer>
 </div>
 
-上一课[效用函数何时存在](/econ/utility-representation)给出了连续效用表示 $u$，菜单上的选择可以写成 $\arg\max u$。本课不重讲 Debreu 表示，也不把 $u$ 再定义一遍。缺口是：后课要谈的菜单不是任意闭集，而是由价格向量 $p\gg 0$ 与财富 $w>0$ 切出来的预算集。没有预算，就没有需求作为 $(p,w)$ 的对应，也没有齐次性、瓦尔拉斯定律这些后课对偶要用的恒等式。
+[上一课](/econ/ces-cobb-douglas)（CES 与 Cobb–Douglas）。给出了连续效用表示 $u$，菜单上的选择可以写成 $\arg\max u$。本课不重讲 Debreu 表示，也不把 $u$ 再定义一遍。缺口是：后课要谈的菜单不是任意闭集，而是由价格向量 $p\gg 0$ 与财富 $w>0$ 切出来的预算集。没有预算，就没有需求作为 $(p,w)$ 的对应，也没有齐次性、瓦尔拉斯定律这些后课对偶要用的恒等式。
 
 ## 问题
 

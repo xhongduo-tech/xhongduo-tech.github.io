@@ -11,7 +11,7 @@ section: econ
 <footer>—— Spence, Job Market Signaling, QJE, 1973</footer>
 </div>
 
-[上一课](/econ/akerlof-lemons)里买方只看见价格，好车无法把自己摘出来。缺口是知情者先动：选一个有成本的可观察行动，让接收者的[信念](/econ/perfect-bayesian)在路径上退化到真类型。Spence 把行动读成教育年限，类型读成生产率。本课钉分离的单交叉与混同的脆弱，不把菜单设计写成筛选。
+[上一课](/econ/unraveling-lemons)（逐级退出）。里买方只看见价格，好车无法把自己摘出来。缺口是知情者先动：选一个有成本的可观察行动，让接收者的[信念](/econ/perfect-bayesian)在路径上退化到真类型。Spence 把行动读成教育年限，类型读成生产率。本课钉分离的单交叉与混同的脆弱，不把菜单设计写成筛选。
 
 ## 问题
 

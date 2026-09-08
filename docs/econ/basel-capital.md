@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Basel Committee on Banking Supervision, International Convergence of Capital Measurement and Capital Standards, 1988 及后续框架整理</footer>
 </div>
 
-定位：[最后贷款人](/econ/lender-of-last-resort)。Bagehot 已经把流动性窗口限制在好抵押上；本课缺口是偿付能力本身：若股本可以薄到接近零，再好的抵押规则也会在亏损一来时失效。不重讲挤兑博弈，不问准备金乘数。
+[上一课](/econ/too-big-to-fail)（太大而不能倒）。[最后贷款人](/econ/lender-of-last-resort)。Bagehot 已经把流动性窗口限制在好抵押上；本课缺口是偿付能力本身：若股本可以薄到接近零，再好的抵押规则也会在亏损一来时失效。不重讲挤兑博弈，不问准备金乘数。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Lucas, Econometric Policy Evaluation: A Critique, Carnegie–Rochester 1976</footer>
 </div>
 
-[上一课](/econ/rbc-contrast)把周期对照成：缺口可以是粘性，也可以是自然产出在动。两边都已经用到预期。本课的缺口不是再选 NK 或 RBC，而是：任何把 $C=cY$、把 Phillips 当固定菜单的计量政策评估，在规则改变时都会失效。Taylor 规则是下一课用显式利率规则去换「相机微调」；本课先把批判钉死。
+[上一课](/econ/rbc-contrast)（真实经济周期对照）。在此之上，周期对照成：缺口可以是粘性，也可以是自然产出在动。两边都已经用到预期。本课的缺口不是再选 NK 或 RBC，而是：任何把 $C=cY$、把 Phillips 当固定菜单的计量政策评估，在规则改变时都会失效。Taylor 规则是下一课用显式利率规则去换「相机微调」；本课先把批判钉死。
 
 ## 问题
 

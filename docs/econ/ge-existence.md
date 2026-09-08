@@ -11,7 +11,7 @@ section: econ
 <footer>—— Arrow and Debreu, Existence of an Equilibrium for a Competitive Economy, Econometrica, 1954</footer>
 </div>
 
-[上一课](/econ/welfare-theorems)把均衡与帕累托集接好了，但句子都以「若均衡存在」为前提。超额需求 $z(p)=0$ 是 $L-1$ 个方程，连续函数不必有零点——除非定义域紧、映射指向自己。缺口是存在性：给哪些假设，拍卖人一定能找到 $p^*$。本课用不动点，不重写需求理论。
+[上一课](/econ/production-economy-ge)（带生产的一般均衡）。在此之上，均衡与帕累托集接好了，但句子都以「若均衡存在」为前提。超额需求 $z(p)=0$ 是 $L-1$ 个方程，连续函数不必有零点——除非定义域紧、映射指向自己。缺口是存在性：给哪些假设，拍卖人一定能找到 $p^*$。本课用不动点，不重写需求理论。
 
 ## 问题
 

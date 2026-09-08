@@ -11,7 +11,7 @@ section: econ
 <footer>—— Arrow, An Extension of the Basic Theorems of Classical Welfare Economics, 1951；Debreu, Theory of Value, 1959</footer>
 </div>
 
-[上一课](/econ/walrasian-equilibrium)定义了瓦尔拉斯均衡，但没有把它和[帕累托集](/econ/edgeworth-pareto)接起来。缺口是规范：均衡配置算不算「没有浪费」？若社会想要合同曲线上的另一个点，能否只改禀赋、仍用竞争去实现？两定理回答这两问。它们不是增长理论，也不给人际效用加法。
+[上一课](/econ/walras-law-numeraire)（瓦尔拉斯定律与计价物）。定义了瓦尔拉斯均衡，但没有把它和[帕累托集](/econ/edgeworth-pareto)接起来。缺口是规范：均衡配置算不算「没有浪费」？若社会想要合同曲线上的另一个点，能否只改禀赋、仍用竞争去实现？两定理回答这两问。它们不是增长理论，也不给人际效用加法。
 
 ## 问题
 

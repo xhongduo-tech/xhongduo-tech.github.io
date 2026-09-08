@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Hotelling, Stability in Competition, The Economic Journal, 1929 整理</footer>
 </div>
 
-上一课[斯塔克尔伯格与领导者](/econ/stackelberg)仍在同质产品上比较先动与同时。本课不重讲反应曲线的切点。缺口是：[伯川德](/econ/bertrand-capacity)的赢者通吃来自完全替代。只要产品在空间或特征上略有不同，低价不能抢走全部需求，加价可以在价格竞争里存活。市场结构课序的主干在此收束：差异本身是策略，然后把局部市场交给一般均衡课的盒子。
+[上一课](/econ/predatory-pricing)（掠夺性定价）。仍在同质产品上比较先动与同时。本课不重讲反应曲线的切点。缺口是：[伯川德](/econ/bertrand-capacity)的赢者通吃来自完全替代。只要产品在空间或特征上略有不同，低价不能抢走全部需求，加价可以在价格竞争里存活。市场结构课序的主干在此收束：差异本身是策略，然后把局部市场交给一般均衡课的盒子。
 
 ## 问题
 

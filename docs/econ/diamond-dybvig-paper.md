@@ -11,7 +11,7 @@ section: econ
 <footer>—— Diamond and Dybvig, Bank Runs, Deposit Insurance, and Liquidity, Journal of Political Economy 1983</footer>
 </div>
 
-附录对照。主干[Diamond–Dybvig 挤兑](/econ/diamond-dybvig)已取三期技术、双均衡与保险。本篇对照 **1983 原文**多出来的问题设定：为什么政府保险或暂停兑付被写成与银行合同配套的政策，而不是另起一套货币理论；以及原文对「挤兑由什么触发」说了什么、没说什么。不重推 $r_1$ 的最优保险公式。
+[上一课](/econ/woodford-interest)（Woodford 利息与价格）。附录对照。主干[Diamond–Dybvig 挤兑](/econ/diamond-dybvig)已取三期技术、双均衡与保险。本篇对照 **1983 原文**多出来的问题设定：为什么政府保险或暂停兑付被写成与银行合同配套的政策，而不是另起一套货币理论；以及原文对「挤兑由什么触发」说了什么、没说什么。不重推 $r_1$ 的最优保险公式。
 
 ## 问题
 

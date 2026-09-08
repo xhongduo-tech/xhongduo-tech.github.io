@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Harrison and Kreps, Journal of Economic Theory 1979；Hansen and Richard, Econometrica 1987；Cochrane, Asset Pricing 整理</footer>
 </div>
 
-定位：[有效市场假说](/econ/emh)。有效已经要求「经风险调整后无经济利润」，但没有写出调整本身。本课缺口是把调整收成一个随机变量 $m$：价格是 $p=\mathrm{E}[m\,x]$。不重做信息分层，不估计横截面 beta。后课默认已经读完：有无套利即有（严格为正的）定价核。
+[上一课](/econ/emh-three-forms)（EMH 三档）。[有效市场假说](/econ/emh)。有效已经要求「经风险调整后无经济利润」，但没有写出调整本身。本课缺口是把调整收成一个随机变量 $m$：价格是 $p=\mathrm{E}[m\,x]$。不重做信息分层，不估计横截面 beta。后课默认已经读完：有无套利即有（严格为正的）定价核。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Grossman and Hart, An Analysis of the Principal–Agent Problem, Econometrica, 1983</footer>
 </div>
 
-[上一课](/econ/moral-hazard)说明合同只能写在结果上，激励与保险冲突。缺口是把这句话收成一个规划：委托人选 $w(\cdot)$，代理人的行动是约束里的最优反应，代理人还要愿意签字。本课钉激励相容（IC）与参与（IR），以及一阶方法何时合法。显示原理是下一课：任意间接机制都能收成「直接报类型或直接选合同」。
+[上一课](/econ/limited-liability-mh)（有限责任下的激励）。说明合同只能写在结果上，激励与保险冲突。缺口是把这句话收成一个规划：委托人选 $w(\cdot)$，代理人的行动是约束里的最优反应，代理人还要愿意签字。本课钉激励相容（IC）与参与（IR），以及一阶方法何时合法。显示原理是下一课：任意间接机制都能收成「直接报类型或直接选合同」。
 
 ## 问题
 

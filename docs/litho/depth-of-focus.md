@@ -11,7 +11,7 @@ section: litho
 <footer>—— 瑞利关于四分之一波长容差的讨论；产线形式见 Mack 的 $\mathrm{DOF}=k_2\lambda/\mathrm{NA}^2$</footer>
 </div>
 
-[上一课](/litho/aerial-image-contrast)在最佳焦距上定义了空中像对比度与 NILS。缺口是：晶圆并不落在一个数学平面上——翘曲、薄膜台阶、扫描同步误差都把局部移出最佳焦面。本课把离焦写成光瞳里的二次相位，并给出瑞利焦深 $\mathrm{DOF}\propto\lambda/\mathrm{NA}^2$。偏振与高 NA 下标量离焦不够用，留给[矢量成像](/litho/vector-imaging)。产线 CD 公式仍不在本课。
+[上一课](/litho/mtf-optics)（MTF）。在最佳焦距上定义了空中像对比度与 NILS。缺口是：晶圆并不落在一个数学平面上——翘曲、薄膜台阶、扫描同步误差都把局部移出最佳焦面。本课把离焦写成光瞳里的二次相位，并给出瑞利焦深 $\mathrm{DOF}\propto\lambda/\mathrm{NA}^2$。偏振与高 NA 下标量离焦不够用，留给[矢量成像](/litho/vector-imaging)。产线 CD 公式仍不在本课。
 
 ## 问题
 
@@ -33,7 +33,7 @@ $k_2$ 是工艺因子，依赖照明、图形密度和「多重可印」的判�
 
 ## 方法
 
-光瞳坐标 $\rho$（已按 $\mathrm{NA}$ 归一到 1）上，离焦对应相位 $\exp\bigl(i\pi z\rho^2/\mathrm{DOF}_0\bigr)$ 一类的二次项（具体归一随软件约定）。把它乘进光瞳函数，重新算空中像，$C(z)$ 与 $\mathrm{NILS}(z)$ 成峰形。工艺窗口的轴向宽度，就是 $C$ 或 NILS 仍高于阈值的 $z$ 区间；那才是「这一层」的可用焦深，可能比教科书 $k_2\lambda/\mathrm{NA}^2$ 更窄。
+光瞳坐标 $\rho$（已按 $\mathrm{NA}$ 归一到 1）上，离焦对应相位 $\exp\bigl(i\pi z\rho^2/\mathrm{DOF}_0\bigr)$ 一类的二次项（具体归一随软件约定）。在此之上，它乘进光瞳函数，重新算空中像，$C(z)$ 与 $\mathrm{NILS}(z)$ 成峰形。工艺窗口的轴向宽度，就是 $C$ 或 NILS 仍高于阈值的 $z$ 区间；那才是「这一层」的可用焦深，可能比教科书 $k_2\lambda/\mathrm{NA}^2$ 更窄。
 
 Bossung 曲线（CD vs 离焦，按剂量分族）把光学焦深和胶阈值绑在一起，是[曝光–散焦窗口](/litho/ed-process-window)的题目。本课停在光学：$z$ 如何进光瞳，尺度为何是 $\lambda/\mathrm{NA}^2$。
 

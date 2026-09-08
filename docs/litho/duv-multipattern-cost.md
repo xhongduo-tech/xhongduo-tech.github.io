@@ -11,7 +11,7 @@ section: litho
 <footer>—— 综合 Mack 的单次曝光极限与 ASML 对浸没 NXT、多重图形及 EUV 混跑的公开产品论述</footer>
 </div>
 
-商品名 7 nm、5 nm 不是曝光波长，也不是单次浸没的半节距。Mack 给出的浸没单次实用半节距约 38–40 nm；ASML 偶极公开分辨率同一量级。走进更密的鳍、金属与孔，193 nm 靠的是 [LELE](/litho/lele-multipattern)、[SADP/SAQP](/litho/sadp-saqp) 以及一层上多张切线掩模。EUV 量产之前，这条路是先进逻辑与存储的主路径；EUV 插入之后，它仍覆盖大量次临界层。本篇只谈代价结构：掩模与过机次数、套刻语义、周期时间、设计规则——不编造任何节点良率百分比。
+[上一课](/litho/saqp-plus-cut)（SAQP 加切断）。商品名 7 nm、5 nm 不是曝光波长，也不是单次浸没的半节距。Mack 给出的浸没单次实用半节距约 38–40 nm；ASML 偶极公开分辨率同一量级。走进更密的鳍、金属与孔，193 nm 靠的是 [LELE](/litho/lele-multipattern)、[SADP/SAQP](/litho/sadp-saqp) 以及一层上多张切线掩模。EUV 量产之前，这条路是先进逻辑与存储的主路径；EUV 插入之后，它仍覆盖大量次临界层。本篇只谈代价结构：掩模与过机次数、套刻语义、周期时间、设计规则——不编造任何节点良率百分比。
 
 ## 问题
 

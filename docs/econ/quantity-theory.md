@@ -11,7 +11,7 @@ section: econ
 <footer>—— Fisher, The Purchasing Power of Money；Friedman, The Quantity Theory of Money: A Restatement, 1956</footer>
 </div>
 
-[上一课](/econ/money-as-medium)把 $M$ 钉成支付层次，而不是财富清单。本课的缺口是：$M$ 与已经缩减过的 $y$、价格指数 $P$ 如何写成一句话，以及这句话在什么条件下变成**长期中性**。Friedman 的重述把数量方程从恒等推进到货币需求；自然率课已经说过 $u^*$ 不受名义水平支配，本课把同一逻辑写到 $P$ 上。铸币税是下一课对「谁从 $M$ 增长里抽税」的缺口。
+[上一课](/econ/lagos-wright)（Lagos–Wright 新货币主义）。在此之上， $M$ 钉成支付层次，而不是财富清单。本课的缺口是：$M$ 与已经缩减过的 $y$、价格指数 $P$ 如何写成一句话，以及这句话在什么条件下变成**长期中性**。Friedman 的重述把数量方程从恒等推进到货币需求；自然率课已经说过 $u^*$ 不受名义水平支配，本课把同一逻辑写到 $P$ 上。铸币税是下一课对「谁从 $M$ 增长里抽税」的缺口。
 
 ## 问题
 

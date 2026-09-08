@@ -28,13 +28,13 @@ export const trees: Record<
   econ: {
     id: 'econ',
     name: sectionMeta.econ.name,
-    desc: '金融理论按课程读：微观选择与均衡、博弈与信息、宏观核算与政策、货币银行与公司金融。最后一课接到量化栏的限价簿。附录是经典论文对照。',
+    desc: '金融理论按课程读。课序按大模型栏同样的粒度递进：从偏好正则到拍卖匹配、搜寻、NK 政策与 SDF 特化。最后一课接到量化栏的限价簿。附录是经典论文对照。',
     children: econTree,
   },
   litho: {
     id: 'litho',
     name: sectionMeta.litho.name,
-    desc: '光刻按课程读：先波动光学与空中像，再产线判据、抗蚀剂、DUV、EUV、计算光刻与管制。后课不重写瑞利公式。附录是讲义与机台对照。',
+    desc: '光刻按课程读。从单色波、衍射核、像差到胶、掩模、EUV 与计算光刻，一课只补上一课缺口；后课不重写瑞利公式。附录是讲义与机台对照。',
     children: lithoTree,
   },
 }

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Selten, Reexamination of the Perfectness Concept for Equilibrium Points in Extensive Games, International Journal of Game Theory, 1975</footer>
 </div>
 
-[上一课](/econ/mixed-strategy)保证有限策略式有纳什。把同一博弈写成树之后，纳什仍可能靠「若对方偏离、我就采取对自己更糟的惩罚」来撑住。进入遏制里，在位者威胁降价到亏损，只要进入者不信、威胁不必执行，支付在路径上说得通，但它不是到达那个节点后还会选的招。缺口是精炼：策略必须在每个子博弈里都是纳什。本课钉子博弈完美（SPE），不谈重复博弈的无名氏。
+[上一课](/econ/correlated-equilibrium)（相关均衡）。保证有限策略式有纳什。把同一博弈写成树之后，纳什仍可能靠「若对方偏离、我就采取对自己更糟的惩罚」来撑住。进入遏制里，在位者威胁降价到亏损，只要进入者不信、威胁不必执行，支付在路径上说得通，但它不是到达那个节点后还会选的招。缺口是精炼：策略必须在每个子博弈里都是纳什。本课钉子博弈完美（SPE），不谈重复博弈的无名氏。
 
 ## 问题
 

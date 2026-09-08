@@ -11,7 +11,7 @@ section: econ
 <footer>—— Akerlof, The Market for "Lemons": Quality Uncertainty and the Market Mechanism, Quarterly Journal of Economics 1970</footer>
 </div>
 
-附录对照。主干[逆向选择与柠檬市场](/econ/akerlof-lemons)已用这篇当机制默认。本篇对照 **1970 原文的问题设定**：不是贝叶斯博弈的精炼，而是「信息不对称如何让瓦尔拉斯市场失灵」。上一篇附录停在 Debreu 的完全信息竞争；这里从同一竞争语言里把质量改成私有信息。
+[上一课](/econ/debreu-theory-of-value)（Debreu 价值理论）。附录对照。主干[逆向选择与柠檬市场](/econ/akerlof-lemons)已用这篇当机制默认。本篇对照 **1970 原文的问题设定**：不是贝叶斯博弈的精炼，而是「信息不对称如何让瓦尔拉斯市场失灵」。上一篇附录停在 Debreu 的完全信息竞争；这里从同一竞争语言里把质量改成私有信息。
 
 ## 问题
 

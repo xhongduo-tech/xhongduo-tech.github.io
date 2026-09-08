@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Cournot, Recherches sur les principes mathématiques de la théorie des richesses, 1838 整理</footer>
 </div>
 
-上一课[价格歧视三级](/econ/price-discrimination)仍是一家卖方，最多把需求拆成组别。本课不重讲按弹性加价。缺口是：$n=1$ 拿掉之后，若剩下几家同质产品的厂商，谁也不是面对整条 $P(Q)$ 的垄断者，谁也不是上一课序完全竞争里的价格接受者。必须给一个同时选择的策略变量：Cournot 选的是数量。
+[上一课](/econ/peak-load-pricing)（高峰负荷定价）。仍是一家卖方，最多把需求拆成组别。本课不重讲按弹性加价。缺口是：$n=1$ 拿掉之后，若剩下几家同质产品的厂商，谁也不是面对整条 $P(Q)$ 的垄断者，谁也不是上一课序完全竞争里的价格接受者。必须给一个同时选择的策略变量：Cournot 选的是数量。
 
 ## 问题
 

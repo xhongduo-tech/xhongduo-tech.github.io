@@ -11,7 +11,7 @@ section: econ
 <footer>—— Lipsey and Lancaster, The General Theory of Second Best, Review of Economic Studies, 1956</footer>
 </div>
 
-[上一课](/econ/tax-incidence)留下楔子：商品税、要素税改净价，负担按弹性落。 [第二福利定理](/econ/welfare-theorems)要用总额转移才能分权实现任意有效点，总额税在激励与信息上往往不可用。缺口是：已经有一块扭曲钉死，计划者还应不应该把其余市场都拉回「MRS = MRT」？Lipsey–Lancaster 说：不必。本课钉次优，然后市场失灵课序结束，博弈课序接手。
+[上一课](/econ/deadweight-loss)（无谓损失）。留下楔子：商品税、要素税改净价，负担按弹性落。 [第二福利定理](/econ/welfare-theorems)要用总额转移才能分权实现任意有效点，总额税在激励与信息上往往不可用。缺口是：已经有一块扭曲钉死，计划者还应不应该把其余市场都拉回「MRS = MRT」？Lipsey–Lancaster 说：不必。本课钉次优，然后市场失灵课序结束，博弈课序接手。
 
 ## 问题
 

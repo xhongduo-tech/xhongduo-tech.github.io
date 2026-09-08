@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack、Levinson 对 $k_1$ 工艺因子与 RET 的产线定义整理</footer>
 </div>
 
-[上一课](/litho/rayleigh-litho)把临界尺寸钉成 $\mathrm{CD}=k_1\lambda/\mathrm{NA}$，并指出 $k_1$ 不是显微镜的 0.61。缺口是：产线并不是选定一个 $k_1$ 再开印——它有一块随节距、图形维度和工艺容差变化的可印窗口；分辨率增强（RET）的工作就是让目标层落在窗口里面。波长不能连续拧，留给[下一课](/litho/litho-wavelengths)。离轴图案、相移膜系、OPC 算法各自成课，本课不提前做目录。
+[上一课](/litho/halfpitch-vs-cd)（半节距对线宽）。在此之上，临界尺寸钉成 $\mathrm{CD}=k_1\lambda/\mathrm{NA}$，并指出 $k_1$ 不是显微镜的 0.61。缺口是：产线并不是选定一个 $k_1$ 再开印——它有一块随节距、图形维度和工艺容差变化的可印窗口；分辨率增强（RET）的工作就是让目标层落在窗口里面。波长不能连续拧，留给[下一课](/litho/litho-wavelengths)。离轴图案、相移膜系、OPC 算法各自成课，本课不提前做目录。
 
 ## 问题
 

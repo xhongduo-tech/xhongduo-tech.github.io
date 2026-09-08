@@ -11,7 +11,7 @@ section: econ
 <footer>—— Phillips, The Relation between Unemployment and the Rate of Change of Money Wage Rates, Economica 1958；Friedman, AER 1968；Lucas 的理性预期推进</footer>
 </div>
 
-[上一课](/econ/seigniorage)把通胀写成对实际余额的税。税可以改变持币，不能永久改变[自然率](/econ/natural-unemployment)。本课的缺口是：观测上 $\pi$ 与 $u$ 为何短相关、长脱钩。Phillips 给出工资–失业的统计替换；Friedman 与 Phelps 把预期加进去；Lucas 再把预期写成对政策规则的推断。IS–LM 用这条曲线当供给侧的缺口，但先把预期钉住。
+[上一课](/econ/seigniorage)（通胀税与铸币税）。在此之上，通胀写成对实际余额的税。税可以改变持币，不能永久改变[自然率](/econ/natural-unemployment)。本课的缺口是：观测上 $\pi$ 与 $u$ 为何短相关、长脱钩。Phillips 给出工资–失业的统计替换；Friedman 与 Phelps 把预期加进去；Lucas 再把预期写成对政策规则的推断。IS–LM 用这条曲线当供给侧的缺口，但先把预期钉住。
 
 ## 问题
 

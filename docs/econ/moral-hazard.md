@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Arrow, Uncertainty and the Welfare Economics of Medical Care, AER, 1963；Pauly, AER, 1968；Holmström, Bell Journal, 1979 整理</footer>
 </div>
 
-[上一课](/econ/screening-rent)的类型在签约前已经存在，菜单筛的是隐藏信息。缺口是时序：签约时双方对称，之后一方选不可观察、不可验证的行动，结果是行动加噪声。买方看不见努力，只能看见产出或损失，合同必须写在结果上。这会扭曲努力，即使没有逆向选择。本课钉隐藏行动，下一课把委托–代理的 IC–IR 写全。
+[上一课](/econ/rs-unraveling)（Rothschild–Stiglitz 崩溃）。的类型在签约前已经存在，菜单筛的是隐藏信息。缺口是时序：签约时双方对称，之后一方选不可观察、不可验证的行动，结果是行动加噪声。买方看不见努力，只能看见产出或损失，合同必须写在结果上。这会扭曲努力，即使没有逆向选择。本课钉隐藏行动，下一课把委托–代理的 IC–IR 写全。
 
 ## 问题
 

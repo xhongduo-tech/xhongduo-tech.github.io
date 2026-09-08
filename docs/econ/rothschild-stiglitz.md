@@ -11,7 +11,7 @@ section: econ
 <footer>—— Rothschild and Stiglitz, Equilibrium in Competitive Insurance Markets, Quarterly Journal of Economics 1976</footer>
 </div>
 
-附录对照。主干[筛选与信息租金](/econ/screening-rent)已用合同菜单与激励相容。本篇对照 **Rothschild–Stiglitz 1976 原文** 在保险市场上的尖锐结论：与 [Spence](/econ/spence-1973) 的发送者信号不同，这里是保险公司（不知情方）先推出保单，知情的投保人自选；竞争加上逆向选择，均衡可能根本没有。不重写柠檬螺旋。
+[上一课](/econ/spence-1973)（Spence 市场信号原文）。附录对照。主干[筛选与信息租金](/econ/screening-rent)已用合同菜单与激励相容。本篇对照 **Rothschild–Stiglitz 1976 原文** 在保险市场上的尖锐结论：与 [Spence](/econ/spence-1973) 的发送者信号不同，这里是保险公司（不知情方）先推出保单，知情的投保人自选；竞争加上逆向选择，均衡可能根本没有。不重写柠檬螺旋。
 
 ## 问题
 

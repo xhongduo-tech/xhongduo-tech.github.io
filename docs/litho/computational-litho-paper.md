@@ -11,7 +11,7 @@ section: litho
     <footer>—— 对照 Mack 对光学邻近、RET 与掩模频谱的论述；逆光刻把掩模当成可优化的透过率图</footer>
 </div>
 
-[OPC](/litho/opc) 写过多边形边上的模型基修正；[ILT](/litho/ilt-curvilinear) 写过像素/水平集逆与曲线掩模；[SMO](/litho/smo) 写过光瞳与掩模联合。[GPU 加速](/litho/computational-litho-gpu) 写过 cuLitho 一类算力。本篇把这些收成 **Mack 框架下的计算光刻专文**：前向是 Hopkins 成像加抗蚀剂，逆问题病态，表示从规则表走到 OPC 碎片再走到 ILT；算力与掩模写入是同一条闸。不重复碎片循环的逐步伪代码，也不编造未公开的全芯片 ILT 小时数或某厂内部热点清单。
+[上一课](/litho/asml-euv-high-na)（ASML EUV / High-NA 产品线）。[OPC](/litho/opc) 写过多边形边上的模型基修正；[ILT](/litho/ilt-curvilinear) 写过像素/水平集逆与曲线掩模；[SMO](/litho/smo) 写过光瞳与掩模联合。[GPU 加速](/litho/computational-litho-gpu) 写过 cuLitho 一类算力。本篇把这些收成 **Mack 框架下的计算光刻专文**：前向是 Hopkins 成像加抗蚀剂，逆问题病态，表示从规则表走到 OPC 碎片再走到 ILT；算力与掩模写入是同一条闸。不重复碎片循环的逐步伪代码，也不编造未公开的全芯片 ILT 小时数或某厂内部热点清单。
 
 ## 问题
 

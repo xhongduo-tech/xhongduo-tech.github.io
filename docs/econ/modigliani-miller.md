@@ -11,7 +11,7 @@ section: econ
 <footer>—— Modigliani and Miller, The Cost of Capital, Corporation Finance and the Theory of Investment, American Economic Review 1958</footer>
 </div>
 
-定位：[资本监管与巴塞尔](/econ/basel-capital)。监管把银行股本写成稀缺约束，好像股权「贵」、存款「便宜」。本课缺口是先给出无摩擦基准：若市场完全，资本结构不改变总价值，贵的不是股，是资产风险。后课的税、破产、信息不对称都是对这一基准的偏离。公司金融从这里开始，不再写准备金。
+[上一课](/econ/shadow-banking)（影子银行）。[资本监管与巴塞尔](/econ/basel-capital)。监管把银行股本写成稀缺约束，好像股权「贵」、存款「便宜」。本课缺口是先给出无摩擦基准：若市场完全，资本结构不改变总价值，贵的不是股，是资产风险。后课的税、破产、信息不对称都是对这一基准的偏离。公司金融从这里开始，不再写准备金。
 
 ## 问题
 

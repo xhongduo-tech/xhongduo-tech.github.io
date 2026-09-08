@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 SNA 物量与价格核算；Laspeyres / Paasche / Fisher 指数传统</footer>
 </div>
 
-[上一课](/econ/saving-investment-id)把名义 $Y$ 拆成 $S$ 与 $I$ 的恒等。那些符号仍是当期货币单位。本课的缺口是：同一本账如何分成价格与物量，使「增长」和「通胀」不再是同一个名义增量。后课的自然率与索洛谈的都是实际量；本课只钉缩减。
+[上一课](/econ/feldstein-horioka)（Feldstein–Horioka）。在此之上，名义 $Y$ 拆成 $S$ 与 $I$ 的恒等。那些符号仍是当期货币单位。本课的缺口是：同一本账如何分成价格与物量，使「增长」和「通胀」不再是同一个名义增量。后课的自然率与索洛谈的都是实际量；本课只钉缩减。
 
 ## 问题
 

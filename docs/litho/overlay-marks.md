@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 ASML 对套刻计量的公开论述，以及 Levinson 对 overlay mark 的产线说明整理</footer>
 </div>
 
-[上一课](/litho/cd-sem-scatterometry)把线宽从 SEM 与散射测量里读出来。缺口是位置：工艺窗口合格的线条，若相对下层偏了几十纳米，器件仍然死。[套刻 Overlay](/litho/litho-overlay) 在分辨率课序里已经定义过 overlay 与对准的差别；本课补的是标记长什么样、成像式（IBO）与衍射式（DBO）各量什么。长程杂散光如何抬空中像底座，留给[下一课](/litho/flare-and-stray)。
+[上一课](/litho/afm-cd)（AFM 线宽）。在此之上，线宽从 SEM 与散射测量里读出来。缺口是位置：工艺窗口合格的线条，若相对下层偏了几十纳米，器件仍然死。[套刻 Overlay](/litho/litho-overlay) 在分辨率课序里已经定义过 overlay 与对准的差别；本课补的是标记长什么样、成像式（IBO）与衍射式（DBO）各量什么。长程杂散光如何抬空中像底座，留给[下一课](/litho/flare-and-stray)。
 
 ## 问题
 

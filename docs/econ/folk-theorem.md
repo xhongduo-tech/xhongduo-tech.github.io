@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Friedman, Review of Economic Studies, 1971；Fudenberg and Maskin, Econometrica, 1986 整理</footer>
 </div>
 
-[上一课](/econ/subgame-perfect)用 SPE 删掉一次性树上的空威胁。把同一阶段博弈重复下去，惩罚变成「以后改玩另一条路径」，而路径本身可以是均衡。缺口是：SPE 在重复结构里不再瘦，反而极肥。无名氏定理给出肥到什么程度。本课钉可支撑支付的集合，不引入类型与贝叶斯。
+[上一课](/econ/backward-induction-limits)（逆向归纳的限度）。用 SPE 删掉一次性树上的空威胁。把同一阶段博弈重复下去，惩罚变成「以后改玩另一条路径」，而路径本身可以是均衡。缺口是：SPE 在重复结构里不再瘦，反而极肥。无名氏定理给出肥到什么程度。本课钉可支撑支付的集合，不引入类型与贝叶斯。
 
 ## 问题
 

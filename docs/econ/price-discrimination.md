@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Pigou, The Economics of Welfare, 1920 整理</footer>
 </div>
 
-上一课[垄断与勒纳指数](/econ/monopoly-lerner)在统一标价下写出 $\mathrm{MR}=\mathrm{MC}$ 与 $L=1/|\varepsilon|$。本课不重讲单一价格的无谓损失三角形。缺口是：若垄断者能把需求拆成不能套利的若干段，每一段有自己的弹性，最优不再是一个 $P$。Pigou 的三级正是按可观察组别定价；一、二级在本课只当对照，不展开机制设计。
+[上一课](/econ/natural-monopoly-ramsey)（自然垄断与拉姆齐定价）。在统一标价下写出 $\mathrm{MR}=\mathrm{MC}$ 与 $L=1/|\varepsilon|$。本课不重讲单一价格的无谓损失三角形。缺口是：若垄断者能把需求拆成不能套利的若干段，每一段有自己的弹性，最优不再是一个 $P$。Pigou 的三级正是按可观察组别定价；一、二级在本课只当对照，不展开机制设计。
 
 ## 问题
 

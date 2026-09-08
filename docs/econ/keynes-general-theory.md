@@ -11,7 +11,7 @@ section: econ
 <footer>—— Keynes, The General Theory of Employment, Interest and Money, 1936</footer>
 </div>
 
-附录对照。本篇不插入主干课序，也不把 Hicks（1937）的 IS–LM 写成凯恩斯本人。[IS–LM 作为会计](/econ/is-lm)、[失业与自然率](/econ/natural-unemployment)已从后起的宏观语言取用。这里对照 **1936 年原书的问题**：劳动市场为何可以停在非充分就业，利率又为何不能单独把储蓄与投资拧平。
+[上一课](/econ/ms-1983-paper)（Myerson–Satterthwaite 原文）。附录对照。本篇不插入主干课序，也不把 Hicks（1937）的 IS–LM 写成凯恩斯本人。[IS–LM 作为会计](/econ/is-lm)、[失业与自然率](/econ/natural-unemployment)已从后起的宏观语言取用。这里对照 **1936 年原书的问题**：劳动市场为何可以停在非充分就业，利率又为何不能单独把储蓄与投资拧平。
 
 ## 问题
 

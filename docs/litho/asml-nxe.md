@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 ASML TWINSCAN NXE 公开产品说明</footer>
 </div>
 
-NXE 是 ASML 把 [LPP 锡滴光源](/litho/euv-lpp-tin)、[蔡司六镜物镜](/litho/zeiss-euv-optics)和真空扫描机集成后的量产平台，硅片侧数值孔径 0.33，缩微 4×，曝光场约 26 mm × 33 mm。波长 13.5 nm 代入瑞利式，$CD=k_1\lambda/\mathrm{NA}$，在可用 $k_1$ 下给出十几纳米的单次曝光分辨率，从而把 DUV 多重图形从关键层上撤下来。机台世代从研发型 NXE:3300 走到 3400/3600/3800 量产线，公开里程碑包括 IF 250 W 级功率与每小时百片以上的产能。本篇写 0.33 这一代能做什么、不能做什么，以及它如何接到 [High-NA EXE](/litho/asml-high-na)。
+[上一课](/litho/euv-absorption-blur)（EUV 吸收与模糊）。NXE 是 ASML 把 [LPP 锡滴光源](/litho/euv-lpp-tin)、[蔡司六镜物镜](/litho/zeiss-euv-optics)和真空扫描机集成后的量产平台，硅片侧数值孔径 0.33，缩微 4×，曝光场约 26 mm × 33 mm。波长 13.5 nm 代入瑞利式，$CD=k_1\lambda/\mathrm{NA}$，在可用 $k_1$ 下给出十几纳米的单次曝光分辨率，从而把 DUV 多重图形从关键层上撤下来。机台世代从研发型 NXE:3300 走到 3400/3600/3800 量产线，公开里程碑包括 IF 250 W 级功率与每小时百片以上的产能。本篇写 0.33 这一代能做什么、不能做什么，以及它如何接到 [High-NA EXE](/litho/asml-high-na)。
 
 ## 问题
 

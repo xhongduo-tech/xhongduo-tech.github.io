@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack、Levinson 对 thick-mask / EMF 效应的讨论；EUV 阴影亦见 ASML 与 Bakshi 的公开表述</footer>
 </div>
 
-[上一课](/litho/binary-attpsm)把二元与衰减掩模写成平面复透过率。缺口是：MoSi 或铬的厚度与波长同量级，光在开口里走的是电磁边值，不是乘一个 $t$。本课钉掩模三维（M3D）效应。把一层拆成两次曝光去换节距，留给[下一课](/litho/lele-multipattern)，不要在这里开始染色。
+[上一课](/litho/sraf-assist)（亚分辨辅助图形 SRAF）。在此之上，二元与衰减掩模写成平面复透过率。缺口是：MoSi 或铬的厚度与波长同量级，光在开口里走的是电磁边值，不是乘一个 $t$。本课钉掩模三维（M3D）效应。把一层拆成两次曝光去换节距，留给[下一课](/litho/lele-multipattern)，不要在这里开始染色。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Kydland and Prescott, Rules Rather than Discretion: The Inconsistency of Optimal Plans, Journal of Political Economy 1977</footer>
 </div>
 
-附录对照。主干[时间不一致与承诺](/econ/time-inconsistency)已取通胀偏误与承诺价值。本篇对照 **1977 年原文**：问题不是央行无知或偏好通胀，而是动态规划在私人前瞻时不能按「每期重新最优」来用。不把 1982 年 *Time to Build* 的 RBC 校准写进来——那是另一篇，见主干[真实经济周期对照](/econ/rbc-contrast)。
+[上一课](/econ/friedman-quantity)（Friedman 货币数量重述）。附录对照。主干[时间不一致与承诺](/econ/time-inconsistency)已取通胀偏误与承诺价值。本篇对照 **1977 年原文**：问题不是央行无知或偏好通胀，而是动态规划在私人前瞻时不能按「每期重新最优」来用。不把 1982 年 *Time to Build* 的 RBC 校准写进来——那是另一篇，见主干[真实经济周期对照](/econ/rbc-contrast)。
 
 ## 问题
 

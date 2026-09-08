@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 Carl Zeiss SMT 与 ASML 公开说明</footer>
 </div>
 
-EUV 没有玻璃透镜组。成像链上每一面都是[Mo/Si 多层膜](/litho/euv-multilayer-mirror)非球面，由 Carl Zeiss SMT 制造并装进 ASML 的扫描机。靠近等离子体的那一面是收集镜（collector）：大立体角、椭球共轭，把锡等离子体成像到中间焦点。扫描机里的投影物镜（projection optics box, POB）在 [NXE](/litho/asml-nxe) 上以 NA 0.33、六面反射完成 4× 缩微；照明镜组把 IF 整形为狭缝与光瞳。本篇写蔡司这两类镜子的分工、面形与波前合同，以及为什么物镜是 EUV 供应链里最难复制的一段。[High-NA](/litho/asml-high-na) 的变形光学在专文展开。
+[上一课](/litho/euv-multilayer-mirror)（真空全反射：Mo/Si 多层膜镜）。EUV 没有玻璃透镜组。成像链上每一面都是[Mo/Si 多层膜](/litho/euv-multilayer-mirror)非球面，由 Carl Zeiss SMT 制造并装进 ASML 的扫描机。靠近等离子体的那一面是收集镜（collector）：大立体角、椭球共轭，把锡等离子体成像到中间焦点。扫描机里的投影物镜（projection optics box, POB）在 [NXE](/litho/asml-nxe) 上以 NA 0.33、六面反射完成 4× 缩微；照明镜组把 IF 整形为狭缝与光瞳。本篇写蔡司这两类镜子的分工、面形与波前合同，以及为什么物镜是 EUV 供应链里最难复制的一段。[High-NA](/litho/asml-high-na) 的变形光学在专文展开。
 
 ## 问题
 

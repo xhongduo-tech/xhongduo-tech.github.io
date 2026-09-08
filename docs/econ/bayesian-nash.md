@@ -11,7 +11,7 @@ section: econ
 <footer>—— Harsanyi, Games with Incomplete Information Played by “Bayesian” Players, Management Science, 1967–68</footer>
 </div>
 
-[上一课](/econ/folk-theorem)在完全信息下把 SPE 支付集撑得很肥。缺口是：许多人连对手的支付都不知道——成本、估值、风险厌恶都是私型。此时「给定 $s_{-i}$ 的最优反应」没有定义，因为 $u_{-i}$ 未知。Harsanyi 的办法是把未知写成自然的行动，用共同先验把博弈变回完全但不完美信息。本课钉贝叶斯纳什（BNE），不管信号发出后信念如何精炼。
+[上一课](/econ/war-of-attrition)（消耗战）。在完全信息下把 SPE 支付集撑得很肥。缺口是：许多人连对手的支付都不知道——成本、估值、风险厌恶都是私型。此时「给定 $s_{-i}$ 的最优反应」没有定义，因为 $u_{-i}$ 未知。Harsanyi 的办法是把未知写成自然的行动，用共同先验把博弈变回完全但不完美信息。本课钉贝叶斯纳什（BNE），不管信号发出后信念如何精炼。
 
 ## 问题
 

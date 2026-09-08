@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 ASML pellicle 公开材料；膜物理见 Bakshi, EUV Lithography</footer>
 </div>
 
-DUV 掩模上的有机 pellicle 是成熟标准：颗粒落在离焦的薄膜上，印不进硅片。EUV 掩模是反射式 [Mo/Si](/litho/euv-multilayer-mirror)，光要进膜一次、出膜一次，任何吸收都按 $T^2$ 打到剂量上。早期量产甚至有过「无 pellicle 跑关键层、靠检测与有限寿命」的阶段。量产要的薄膜必须：带内单程透过率足够高（公开目标从约 80% 走向 90% 以上）、在真空里承受 IF 数百瓦对应的掩模热流、机械上罩住 6 英寸版、并且不引入不可控的波前与 CD 指纹。本篇写这张膜的光学与热合同，以及它和颗粒、剂量、[随机效应](/litho/euv-stochastics)的关系。
+[上一课](/litho/tin-on-mirrors)（镜面锡沉积）。DUV 掩模上的有机 pellicle 是成熟标准：颗粒落在离焦的薄膜上，印不进硅片。EUV 掩模是反射式 [Mo/Si](/litho/euv-multilayer-mirror)，光要进膜一次、出膜一次，任何吸收都按 $T^2$ 打到剂量上。早期量产甚至有过「无 pellicle 跑关键层、靠检测与有限寿命」的阶段。量产要的薄膜必须：带内单程透过率足够高（公开目标从约 80% 走向 90% 以上）、在真空里承受 IF 数百瓦对应的掩模热流、机械上罩住 6 英寸版、并且不引入不可控的波前与 CD 指纹。本篇写这张膜的光学与热合同，以及它和颗粒、剂量、[随机效应](/litho/euv-stochastics)的关系。
 
 ## 问题
 

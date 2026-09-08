@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Modigliani and Miller, AER 1963 更正；Kraus and Litzenberger, Journal of Finance 1973；Myers, The Capital Structure Puzzle, Journal of Finance 1984 整理</footer>
 </div>
 
-定位：[莫迪利亚尼–米勒](/econ/modigliani-miller)。1958 年的套利已经证明无摩擦时切片无溢价。本课缺口是把最先被放松的两块摩擦放回去：公司所得税让利息可抵扣，破产与财务困境让杠杆有真实成本。目标负债率从这里出现。不重做家庭自制杠杆的套利。
+[上一课](/econ/mm-corporate-tax)（MM 与公司税盾）。[莫迪利亚尼–米勒](/econ/modigliani-miller)。1958 年的套利已经证明无摩擦时切片无溢价。本课缺口是把最先被放松的两块摩擦放回去：公司所得税让利息可抵扣，破产与财务困境让杠杆有真实成本。目标负债率从这里出现。不重做家庭自制杠杆的套利。
 
 ## 问题
 

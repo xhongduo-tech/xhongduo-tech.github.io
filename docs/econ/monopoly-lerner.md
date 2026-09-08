@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Lerner, The Concept of Monopoly and the Measurement of Monopoly Power, Review of Economic Studies, 1934 整理</footer>
 </div>
 
-上一课[完全竞争的短期与长期](/econ/perfect-competition)在价格接受与自由进入下把 $p$ 钉在 $\min\mathrm{AC}$。本课不重讲行业供给加总。缺口是：若只有一家卖者、进入被挡住，厂商面对的是整条市场需求 $P(Q)$，不再是参数 $p$。$p=\mathrm{MC}$ 必须改写成带边际收入的一阶条件，并给出可观测的势力测度。
+[上一课](/econ/contestable-markets)（可竞争市场）。在价格接受与自由进入下把 $p$ 钉在 $\min\mathrm{AC}$。本课不重讲行业供给加总。缺口是：若只有一家卖者、进入被挡住，厂商面对的是整条市场需求 $P(Q)$，不再是参数 $p$。$p=\mathrm{MC}$ 必须改写成带边际收入的一阶条件，并给出可观测的势力测度。
 
 ## 问题
 

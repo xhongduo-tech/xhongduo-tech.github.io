@@ -11,7 +11,7 @@ section: econ
 <footer>—— Diamond and Dybvig, Bank Runs, Deposit Insurance, and Liquidity, Journal of Political Economy 1983</footer>
 </div>
 
-定位：[金融中介的功能](/econ/why-intermediaries)。Gurley–Shaw 已经把银行钉成流动性转换器；本课缺口是把「转换」收成一个可算的存款合同，并证明它同时允许好均衡与挤兑。不从货币史或恐慌故事起笔。附录原文对照见 [Diamond–Dybvig 原文](/econ/diamond-dybvig-paper)，主干只取机制。
+[上一课](/econ/stiglitz-weiss)（信贷配给 Stiglitz–Weiss）。[金融中介的功能](/econ/why-intermediaries)。Gurley–Shaw 已经把银行钉成流动性转换器；本课缺口是把「转换」收成一个可算的存款合同，并证明它同时允许好均衡与挤兑。不从货币史或恐慌故事起笔。附录原文对照见 [Diamond–Dybvig 原文](/econ/diamond-dybvig-paper)，主干只取机制。
 
 ## 问题
 

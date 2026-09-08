@@ -11,7 +11,7 @@ section: econ
 <footer>—— Hicks, A Suggestion for Simplifying the Theory of Money, Economica 1935；对照 Friedman 对货币作为暂时购买力栖所的整理</footer>
 </div>
 
-[上一课](/econ/convergence-accounting)把长期人均产出拆成 $K$、$h$ 与剩余 $A$。那些是实物账户。本课换对象：交易如何清算。增长核算不告诉我们哪一种债权算「钱」。后课的 $MV=Py$、铸币税和银行负债，都默认本课已经把**支付手段**与邻近资产分开，不再从物物交换的寓言重讲。
+[上一课](/econ/adjustment-cost-invest)（投资调整成本）。在此之上，长期人均产出拆成 $K$、$h$ 与剩余 $A$。那些是实物账户。本课换对象：交易如何清算。增长核算不告诉我们哪一种债权算「钱」。后课的 $MV=Py$、铸币税和银行负债，都默认本课已经把**支付手段**与邻近资产分开，不再从物物交换的寓言重讲。
 
 ## 问题
 

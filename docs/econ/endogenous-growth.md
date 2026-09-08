@@ -11,7 +11,7 @@ section: econ
 <footer>—— Romer, Increasing Returns and Long-Run Growth, JPE 1986；Endogenous Technological Change, JPE 1990；对照 Lucas, JME 1988</footer>
 </div>
 
-[上一课](/econ/golden-rule)在外生 $g$ 下选资本密度。黄金律与修正黄金律都把人均增长当成技术的礼物。本课的缺口是：$A$ 若也是生产出来的，递减报酬还能否关掉增长引擎。Romer 与 Lucas 给出两条主干：知识溢出与人力资本积累；Romer 1990 再把研发写成故意的垄断竞争。收敛核算是下一课对跨国含义的缺口。
+[上一课](/econ/olg-diamond)（OLG 与动态无效率再访）。在外生 $g$ 下选资本密度。黄金律与修正黄金律都把人均增长当成技术的礼物。本课的缺口是：$A$ 若也是生产出来的，递减报酬还能否关掉增长引擎。Romer 与 Lucas 给出两条主干：知识溢出与人力资本积累；Romer 1990 再把研发写成故意的垄断竞争。收敛核算是下一课对跨国含义的缺口。
 
 ## 问题
 

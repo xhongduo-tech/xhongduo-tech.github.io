@@ -11,7 +11,7 @@ section: econ
 <footer>—— Myers and Majluf, Corporate Financing and Investment Decisions When Firms Have Information That Investors Do Not Have, Journal of Financial Economics 1984</footer>
 </div>
 
-定位：[权衡理论与破产成本](/econ/tradeoff-capital)。税盾对困境成本已经给出一个内部目标 $D^\ast$。本课缺口是 Myers（1984）立刻指出的残差：盈利企业往往杠杆更低，融资更像「有钱先用内部的」，而不像随时把杠杆调回目标。不重算税盾现值。
+[上一课](/econ/risk-shifting)（风险转移）。[权衡理论与破产成本](/econ/tradeoff-capital)。税盾对困境成本已经给出一个内部目标 $D^\ast$。本课缺口是 Myers（1984）立刻指出的残差：盈利企业往往杠杆更低，融资更像「有钱先用内部的」，而不像随时把杠杆调回目标。不重算税盾现值。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Ramsey 1928 的最优储蓄；Hall, Stochastic Implications of the Life Cycle–Permanent Income Hypothesis, JPE 1978；对照 Friedman 持久收入</footer>
 </div>
 
-[上一课](/econ/is-lm)的 IS 用 $C=C(Y)$ 关闭商品市场。那是会计式的短期装置，不是家庭最优。本课的缺口是：一旦家庭能在债券或资本上跨期转移，消费服从欧拉方程，$Y$ 的当期增量不必一对一变成 $C$。新凯恩斯把这条欧拉改写成前瞻 IS；本课先在实物与完全市场里写清。
+[上一课](/econ/is-lm)（IS–LM 作为会计）。的 IS 用 $C=C(Y)$ 关闭商品市场。那是会计式的短期装置，不是家庭最优。本课的缺口是：一旦家庭能在债券或资本上跨期转移，消费服从欧拉方程，$Y$ 的当期增量不必一对一变成 $C$。新凯恩斯把这条欧拉改写成前瞻 IS；本课先在实物与完全市场里写清。
 
 ## 问题
 

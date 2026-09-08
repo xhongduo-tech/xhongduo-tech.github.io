@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Tobin, Commercial Banks as Creators of Money, 1963；McLeay, Radia and Thomas, Bank of England Quarterly Bulletin 2014 整理</footer>
 </div>
 
-定位：[Diamond–Dybvig 挤兑](/econ/diamond-dybvig)。挤兑模型是真实技术上的存款合同，没有法定准备金账户。本课缺口是把银行放回货币体系：存款作为[支付](/econ/money-as-medium)手段，如何被创造、准备金在其中约束什么。不重讲数量方程的 $MV=PY$——那是[数量理论](/econ/quantity-theory)的课；本课只补银行账。
+[上一课](/econ/deposit-insurance)（存款保险）。[Diamond–Dybvig 挤兑](/econ/diamond-dybvig)。挤兑模型是真实技术上的存款合同，没有法定准备金账户。本课缺口是把银行放回货币体系：存款作为[支付](/econ/money-as-medium)手段，如何被创造、准备金在其中约束什么。不重讲数量方程的 $MV=PY$——那是[数量理论](/econ/quantity-theory)的课；本课只补银行账。
 
 ## 问题
 

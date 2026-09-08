@@ -11,7 +11,7 @@ section: econ
 <footer>—— Kydland and Prescott, Rules Rather than Discretion, JPE 1977；对照 Barro and Gordon 的通胀偏差</footer>
 </div>
 
-[上一课](/econ/taylor-rule)把政策写成 $\phi_\pi>1$ 的反应函数。卢卡斯批判要求规则进入预期。本课的缺口是：将来的政策制定者仍会重新优化。Kydland 与 Prescott（1977）证明，缺乏承诺时，事先最优的规则一般不是事后最优。零下限是下一课的工具约束；本课先把激励约束写完。
+[上一课](/econ/taylor-principle)（泰勒原理）。在此之上，政策写成 $\phi_\pi>1$ 的反应函数。卢卡斯批判要求规则进入预期。本课的缺口是：将来的政策制定者仍会重新优化。Kydland 与 Prescott（1977）证明，缺乏承诺时，事先最优的规则一般不是事后最优。零下限是下一课的工具约束；本课先把激励约束写完。
 
 ## 问题
 

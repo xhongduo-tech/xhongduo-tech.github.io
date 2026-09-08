@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Hopkins 部分相干成像与 Mack 对 $\sigma$ 的产线定义整理</footer>
 </div>
 
-[上一课](/litho/lens-na)把投影物镜收成截止 $\mathrm{NA}/\lambda$ 的光瞳。缺口是：光瞳可以被照明填满、填一圈、或只点亮轴上一点，成像传递完全不同。本课引入部分相干——照明孔径与投影孔径之比 $\sigma$——以及 Hopkins 的传递交叉系数。空中像强度如何写成对比度，留给[下一课](/litho/aerial-image-contrast)。偶极与四极的图形选择，是更后面的离轴照明课，本课不提前做 RET 目录。
+[上一课](/litho/telecentric-error)（远心误差）。在此之上，投影物镜收成截止 $\mathrm{NA}/\lambda$ 的光瞳。缺口是：光瞳可以被照明填满、填一圈、或只点亮轴上一点，成像传递完全不同。本课引入部分相干——照明孔径与投影孔径之比 $\sigma$——以及 Hopkins 的传递交叉系数。空中像强度如何写成对比度，留给[下一课](/litho/aerial-image-contrast)。偶极与四极的图形选择，是更后面的离轴照明课，本课不提前做 RET 目录。
 
 ## 问题
 

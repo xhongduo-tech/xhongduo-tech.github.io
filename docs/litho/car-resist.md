@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Ito / Willson 化学放大思路，以及 Mack 对 CAR 产线链路的表述整理</footer>
 </div>
 
-[上一课](/litho/stepper-vs-scanner)把工具写成能把空中像扫到晶圆上。缺口是记录介质：扫描狭缝留下的是剂量，还不是线条。本课引入化学放大胶（CAR）——DUV 的默认正胶家族。酸在膜里走多远、如何变成线宽粗糙度，留给[下一课](/litho/acid-diffusion-lwr)。显影衬度曲线再下一课。不要在这里重讲扫描同步。
+[上一课](/litho/dnq-novolac)（DNQ–Novolac 胶）。在此之上，工具写成能把空中像扫到晶圆上。缺口是记录介质：扫描狭缝留下的是剂量，还不是线条。本课引入化学放大胶（CAR）——DUV 的默认正胶家族。酸在膜里走多远、如何变成线宽粗糙度，留给[下一课](/litho/acid-diffusion-lwr)。显影衬度曲线再下一课。不要在这里重讲扫描同步。
 
 ## 问题
 

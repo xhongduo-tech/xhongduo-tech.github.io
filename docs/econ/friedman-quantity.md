@@ -11,7 +11,7 @@ section: econ
 <footer>—— Friedman, The Quantity Theory of Money: A Restatement, in Studies in the Quantity Theory of Money, 1956</footer>
 </div>
 
-附录对照。主干[数量方程与货币中性](/econ/quantity-theory)已用 $MV=PY$ 当会计，并讨论长期中性。本篇对照 **1956 年原文**：把数量理论从机械的速度常数，重写成资产组合里的货币需求，以对抗当时把数量论当成过时身份的说法。不重讲[凯恩斯](/econ/keynes-general-theory)的有效需求章。
+[上一课](/econ/keynes-general-theory)（Keynes《通论》问题设定）。附录对照。主干[数量方程与货币中性](/econ/quantity-theory)已用 $MV=PY$ 当会计，并讨论长期中性。本篇对照 **1956 年原文**：把数量理论从机械的速度常数，重写成资产组合里的货币需求，以对抗当时把数量论当成过时身份的说法。不重讲[凯恩斯](/econ/keynes-general-theory)的有效需求章。
 
 ## 问题
 

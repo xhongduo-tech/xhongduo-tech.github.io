@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Levenson 之后的量产膜系惯例，以及 Mack、Levinson 对 binary 与 att-PSM 的表述整理</footer>
 </div>
 
-[上一课](/litho/phase-shift-mask)说明了 $180^\circ$ 如何在暗区制造相消，并区分了交替型与衰减型。缺口是：晶圆厂下单时面对的是两类标准透射掩模——二元铬（COG）与嵌入式衰减相移（att-PSM，典型 MoSi）——以及还在用的 Kirchhoff 薄掩模假设。吸收体真正的厚度怎样捣乱，留给[下一课](/litho/mask-3d-effect)。不要把交替型 trim 流程再讲一遍。
+[上一课](/litho/phase-shift-mask)（相移掩模 PSM）。说明了 $180^\circ$ 如何在暗区制造相消，并区分了交替型与衰减型。缺口是：晶圆厂下单时面对的是两类标准透射掩模——二元铬（COG）与嵌入式衰减相移（att-PSM，典型 MoSi）——以及还在用的 Kirchhoff 薄掩模假设。吸收体真正的厚度怎样捣乱，留给[下一课](/litho/mask-3d-effect)。不要把交替型 trim 流程再讲一遍。
 
 ## 问题
 

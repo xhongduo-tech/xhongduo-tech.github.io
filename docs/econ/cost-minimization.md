@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Shephard, Cost and Production Functions, 1953 整理</footer>
 </div>
 
-上一课[技术、规模报酬与替代](/econ/production-technology)钉了生产集 $Y$ 与等产量，价格还在场外。本课不重讲 $Y$ 的凸与锥，也不把 TRS 再定义一遍。缺口是：后课利润、供给、短长期都要把「生产 $q$ 要花多少钱」写成要素价格的函数。没有这层对偶，边际成本没有来源。
+[上一课](/econ/leontief-technology)（列昂惕夫技术）。钉了生产集 $Y$ 与等产量，价格还在场外。本课不重讲 $Y$ 的凸与锥，也不把 TRS 再定义一遍。缺口是：后课利润、供给、短长期都要把「生产 $q$ 要花多少钱」写成要素价格的函数。没有这层对偶，边际成本没有来源。
 
 ## 问题
 

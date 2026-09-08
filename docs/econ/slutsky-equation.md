@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Slutsky, Sulla teoria del bilancio del consumatore, 1915；Mas-Colell, Whinston and Green, Microeconomic Theory 第 3 章整理</footer>
 </div>
 
-上一课[间接效用与支出函数](/econ/indirect-utility)钉死了 $v$、$e$ 以及 $x(p,w)=h\bigl(p,v(p,w)\bigr)$。本课不重讲对偶定义，也不再写罗伊与谢泼德。缺口是：马歇尔需求对价格的导数符号不定，后课却经常需要「替代矩阵负半定、对称」这种结构。必须把 $\partial x/\partial p$ 拆开，让受过补偿的那一块单独站出来。
+[上一课](/econ/hicksian-demand)（希克斯需求）。钉死了 $v$、$e$ 以及 $x(p,w)=h\bigl(p,v(p,w)\bigr)$。本课不重讲对偶定义，也不再写罗伊与谢泼德。缺口是：马歇尔需求对价格的导数符号不定，后课却经常需要「替代矩阵负半定、对称」这种结构。必须把 $\partial x/\partial p$ 拆开，让受过补偿的那一块单独站出来。
 
 ## 问题
 

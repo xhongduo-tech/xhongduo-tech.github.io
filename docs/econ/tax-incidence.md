@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Musgrave, The Theory of Public Finance, 1959；Harberger, The Incidence of the Corporation Income Tax, JPE, 1962 整理</footer>
 </div>
 
-[上一课](/econ/public-goods)要用税去融资公共品，[庇古税](/econ/externality-pigou)也已经把税当成纠正工具。缺口是会计：法令写「向买方征收」还是「向卖方征收」，并不决定谁的净价格动了多少。本课钉法定归宿与经济归宿的分离，以及弹性如何分摊 $t$，不重写萨缪尔森条件，也不把扭曲的福利成本展开成次优。
+[上一课](/econ/lindahl-samuelson)（林达尔与萨缪尔森条件）。要用税去融资公共品，[庇古税](/econ/externality-pigou)也已经把税当成纠正工具。缺口是会计：法令写「向买方征收」还是「向卖方征收」，并不决定谁的净价格动了多少。本课钉法定归宿与经济归宿的分离，以及弹性如何分摊 $t$，不重写萨缪尔森条件，也不把扭曲的福利成本展开成次优。
 
 ## 问题
 
