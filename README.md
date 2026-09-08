@@ -2,7 +2,7 @@
 
 个人站点。VitePress + Tufte，部署于 GitHub Pages。
 
-四栏：**大模型**、**量化**（金融微观结构与定价，不是模型权重量化）、**金融**（微观、宏观、货币银行与公司金融）、**光刻**（成像、DUV/EUV、计算光刻）。按课程读：课程 → 单元 → 课序 → 课。后课默认已经读完先修，只补上一课留下的缺口。论文与型号对照放在附录。
+五栏：**大模型**、**量化**（金融微观结构与定价，不是模型权重量化）、**金融**（微观、宏观、货币银行与公司金融）、**光刻**（成像、DUV/EUV、计算光刻）、**计算机**（比特到系统栈；操作系统单独是百级课序）。按课程读：课程 → 单元 → 课序 → 课。后课默认已经读完先修，只补上一课留下的缺口。论文与型号对照放在附录。
 
 金融栏接到量化栏的限价簿为止，不重讲订单簿。光刻原为大模型附录，现为独立课程。模型压缩、GPTQ、KV 量化等属于大模型「压缩与数值」。
 
@@ -16,13 +16,13 @@ npm run docs:build    # 输出到 docs/.vitepress/dist
 
 ## 写文章
 
-在 `docs/llm/`、`docs/quant/`、`docs/econ/` 或 `docs/litho/` 新建 `.md`，frontmatter：
+在 `docs/llm/`、`docs/quant/`、`docs/econ/`、`docs/litho/` 或 `docs/cs/` 新建 `.md`，frontmatter：
 
 ```yaml
 ---
 title: 标题
 date: 2026-09-03
-section: llm   # 或 quant / econ / litho
+section: llm   # 或 quant / econ / litho / cs
 ---
 ```
 

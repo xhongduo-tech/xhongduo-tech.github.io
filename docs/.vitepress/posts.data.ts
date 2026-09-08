@@ -15,7 +15,7 @@ function formatDate(raw: unknown): string {
   return d.toISOString().slice(0, 10)
 }
 
-export default createContentLoader(['llm/*.md', 'quant/*.md', 'econ/*.md', 'litho/*.md'], {
+export default createContentLoader(['llm/*.md', 'quant/*.md', 'econ/*.md', 'litho/*.md', 'cs/*.md'], {
   transform(raw): Post[] {
     return raw
       .filter((page) => {

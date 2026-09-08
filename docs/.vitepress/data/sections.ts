@@ -1,4 +1,4 @@
-export const SECTION_IDS = ['llm', 'quant', 'econ', 'litho'] as const
+export const SECTION_IDS = ['llm', 'quant', 'econ', 'litho', 'cs'] as const
 
 export type SectionId = (typeof SECTION_IDS)[number]
 
@@ -10,6 +10,7 @@ export const sectionMeta: Record<
   quant: { id: 'quant', name: '量化', path: '/quant/' },
   econ: { id: 'econ', name: '金融', path: '/econ/' },
   litho: { id: 'litho', name: '光刻', path: '/litho/' },
+  cs: { id: 'cs', name: '计算机', path: '/cs/' },
 }
 
 export function isSectionId(value: unknown): value is SectionId {

@@ -16,6 +16,7 @@ const nav = [
   { href: '/quant/', label: '量化', match: (path) => path.startsWith('/quant/') },
   { href: '/econ/', label: '金融', match: (path) => path.startsWith('/econ/') },
   { href: '/litho/', label: '光刻', match: (path) => path.startsWith('/litho/') },
+  { href: '/cs/', label: '计算机', match: (path) => path.startsWith('/cs/') },
 ]
 
 const byline = computed(() => {

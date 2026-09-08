@@ -8,7 +8,7 @@ export default withMermaid(defineConfig({
   base,
   lang: 'zh-CN',
   title: '徐鸿铎',
-  description: '大模型、量化、金融与光刻',
+  description: '大模型、量化、金融、光刻与计算机',
   cleanUrls: true,
   lastUpdated: true,
   appearance: false,

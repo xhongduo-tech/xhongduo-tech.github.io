@@ -55,7 +55,7 @@ flowchart TD
 
 本课不是微观结构综述。Glosten–Milgrom、Kyle、Roll 价差分解全部在量化栏，按课程序列出现。本栏也不回头改写 CAPM：均衡陈述仍在[前一课序](/econ/capm-theory)，实证仍在[/quant/capm](/quant/capm)。附录论文课（Arrow–Debreu、Akerlof、Keynes、Woodford、Diamond–Dybvig 原文等）是对照，不插入主干，不接在本课之后当成第十五课。
 
-四栏互不吞并在此落地：金融接到限价簿为止；量化从限价簿起笔。打开 [/quant/lob-structure](/quant/lob-structure) 时，默认已经读完本栏主干到这一句。
+栏与栏互不吞并在此落地：金融接到限价簿为止；量化从限价簿起笔。打开 [/quant/lob-structure](/quant/lob-structure) 时，默认已经读完本栏主干到这一句。
 
 附录十篇（Arrow–Debreu、Debreu 书、Akerlof、Spence、Rothschild–Stiglitz、Keynes、Friedman、Kydland–Prescott、Woodford、Diamond–Dybvig 原文）是对照，阅读顺序在附录课程内，不充当主干第十五课。读完本课若继续，应打开量化栏，而不是打开第一篇附录当作「下一课」。
 

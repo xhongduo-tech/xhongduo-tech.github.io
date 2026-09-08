@@ -3,6 +3,7 @@ import { llmTree } from './trees/llm'
 import { quantTree } from './trees/quant'
 import { econTree } from './trees/econ'
 import { lithoTree } from './trees/litho'
+import { csTree } from './trees/cs'
 import { type SectionId, sectionMeta } from './sections'
 
 export type { Node } from './trees/schema'
@@ -36,5 +37,11 @@ export const trees: Record<
     name: sectionMeta.litho.name,
     desc: '光刻按课程读。从单色波、衍射核、像差到胶、掩模、EUV 与计算光刻，一课只补上一课缺口；后课不重写瑞利公式。附录是讲义与机台对照。',
     children: lithoTree,
+  },
+  cs: {
+    id: 'cs',
+    name: sectionMeta.cs.name,
+    desc: '计算机按课程读。知识点先铺开再归并成课序：组成与体系结构、数据与算法、编译，再操作系统（百级课序）、网络、数据库与安全。一课只补上一课缺口；本栏不重写 Transformer，也不进入限价簿。附录是经典论文对照。',
+    children: csTree,
   },
 }
