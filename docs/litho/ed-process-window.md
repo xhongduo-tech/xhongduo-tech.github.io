@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack 对 E–D 窗口与 Bossung 曲线的定义；产线形式亦见 Levinson</footer>
 </div>
 
-[上一课](/litho/euv-resist)把记录介质的分叉写完：CAR 还是金属氧化物，平均行为都已经能接到显影曲线上。缺口是：产线合格与否不是「最佳焦距上 CD 对了」，而是剂量与焦距同时漂的时候 CD（以及侧壁、残胶）是否仍在规格内。本课钉曝光–散焦（E–D）窗口。CD 从哪台仪器读来，留给[下一课](/litho/cd-sem-scatterometry）。
+[上一课](/litho/euv-resist)把记录介质的分叉写完：CAR 还是金属氧化物，平均行为都已经能接到显影曲线上。缺口是：产线合格与否不是「最佳焦距上 CD 对了」，而是剂量与焦距同时漂的时候 CD（以及侧壁、残胶）是否仍在规格内。本课钉曝光–散焦（E–D）窗口。CD 从哪台仪器读来，留给[下一课](/litho/cd-sem-scatterometry)。
 
 ## 问题
 

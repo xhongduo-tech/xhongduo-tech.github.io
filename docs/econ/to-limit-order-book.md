@@ -45,11 +45,25 @@ flowchart TD
 
 因此机制课在此是负面的：不再增加一条均衡定理。正向的机制从量化栏开始——价格优先如何把「更优的价」变成可验证的排序。本栏读者若跳过交接直接读因子实证，会把测量误差当成定价核的失败；先读簿，才知道收益是什么事件的记录。
 
+### 理论停；簿是协议
+
+这句话要按字面执行。本栏不再写做市商存货、知情交易或买卖价差分解——那些会与银行中介抢「中介」一词，也会把量化栏第一课掏空。Harris 的连续双向拍卖、价格优先加时间优先、tick 网格，全部从 [/quant/lob-structure](/quant/lob-structure) 起笔，并声明后课已经默认读过本栏主干。CAPM 的 $R_m$ 不是盘口中点的平均；EH 的 $y^{(n)}$ 不是某一档挂单价。映射需要约定与微观结构，是换栏之后的工作。
+
+<span class="marginnote">O'Hara：价格形成是交易过程的产物。过程的状态机是簿；均衡等式是对过程结果的限制，不是过程本身。</span>
+
 ## 边界
 
 本课不是微观结构综述。Glosten–Milgrom、Kyle、Roll 价差分解全部在量化栏，按课程序列出现。本栏也不回头改写 CAPM：均衡陈述仍在[前一课序](/econ/capm-theory)，实证仍在[/quant/capm](/quant/capm)。附录论文课（Arrow–Debreu、Akerlof、Keynes、Woodford、Diamond–Dybvig 原文等）是对照，不插入主干，不接在本课之后当成第十五课。
 
 四栏互不吞并在此落地：金融接到限价簿为止；量化从限价簿起笔。打开 [/quant/lob-structure](/quant/lob-structure) 时，默认已经读完本栏主干到这一句。
+
+附录十篇（Arrow–Debreu、Debreu 书、Akerlof、Spence、Rothschild–Stiglitz、Keynes、Friedman、Kydland–Prescott、Woodford、Diamond–Dybvig 原文）是对照，阅读顺序在附录课程内，不充当主干第十五课。读完本课若继续，应打开量化栏，而不是打开第一篇附录当作「下一课」。
+
+理论停。簿是协议。Walrasian $p$ 不是盘口中点。
+
+Glosten–Milgrom、Kyle、Roll 分解按量化栏课序出现，本课不预支。
+
+打开 [/quant/lob-structure](/quant/lob-structure) 时，只携带「应当有一个均衡价格」，不携带队列几何。
 
 ## 小结
 
