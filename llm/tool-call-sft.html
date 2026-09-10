@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Function calling 训练 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_tool-call-sft.md.c4Rj8dz6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 智能体与工具论文<!--]--><!--[--> · 课序 工具使用<!--]--></p><p class="lesson-progress">第 272 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/mcp-design/">MCP 协议设计</a></p><p class="lesson-next"> 下一课：<a href="/llm/toolllm/">AnyTool / ToolLLM</a></p></nav><div style="position:relative;"><div><h1 id="function-calling-训练" tabindex="-1">Function calling 训练 <a class="header-anchor" href="#function-calling-训练" aria-label="Permalink to &quot;Function calling 训练&quot;">​</a></h1><div class="epigraph"><p>工具使用不是推理时才长出来的：要在监督轨迹里学会何时调用、调用谁、参数如何填，以及观察失败后怎样改口。</p><footer>—— 对照 Schick 等 Toolformer；Patil 等 Gorilla；OpenAI 2023 function calling 数据格式</footer></div><p><a href="/llm/function-calling">Function calling</a> 写的是推理信封：schema 进请求，模型出 <code>tool_calls</code>，宿主执行后再生成。本篇写<strong>如何把这种行为训进权重</strong>。Schick 等人的 Toolformer（arXiv:2302.04761）用自监督决定在哪些位置插入 API 调用：只保留能降低后续 token 损失的调用。Patil 等人的 Gorilla（arXiv:2305.15334）在 APIBench 上做检索感知微调，降低胡编 API。产业界的 function calling 则把对话角色（assistant 出调用、tool 回观察）写成 SFT 轨迹。三者对象不同：Toolformer 插在语言模型续写里；Gorilla 对文档接地；对话 SFT 对齐聊天模板。共同约束是：损失打在该模型负责的 token 上，而不是假装工具结果是模型自己「想出来的」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>只做普通指令微调，模型会用散文假装查过库，或把参数嵌进自然语言让正则去抢救。工具一多，还要选对名字、遵守 JSON Schema、在不该调用时闭嘴。这些都不是推理期加一句「请输出 JSON」能稳定得到的：格式、时机、接地要进训练分布。负例同样必要——用户只是闲聊时仍调用搜索，产品不可用。并行调用、多轮依赖（先搜 id 再取详情）、工具报错后的重试，若训练里从未出现，推理就会在第一次 400 上直接道歉结束。</p><p>另一问题是观察泄漏。若把工具返回也当 assistant 监督，模型会学着抄观察里的句子，而不是学「根据观察组织答复」。标准做法是：用户与 tool 角色不计入损失（或只当条件），assistant 的调用 JSON 与最终自然语言计入损失。Chat 模板必须与推理一致，否则训练看见的分隔符和线上 <a href="/llm/chat-template">chat template</a> 不一致，调用率会塌。</p><h3 id="时机、选择、填写是三层标签" tabindex="-1">时机、选择、填写是三层标签 <a class="header-anchor" href="#时机、选择、填写是三层标签" aria-label="Permalink to &quot;时机、选择、填写是三层标签&quot;">​</a></h3><p>「要不要调用」是二元决策，受 <code>tool_choice</code> 与描述影响，训练里应覆盖 auto 场景的正负例。「调用哪个」是在当前可见工具集上的分类，工具集必须作为前缀条件出现，不能假设全集固定。「填什么参数」是结构化生成，键名与类型要与 schema 一致。把三层混成一条「会用工具」的准确率，会掩盖：名字对了但日期格式错、或该调用却直接回答。评测应分报。</p><p><span class="marginnote">Toolformer 的监督来自「这次调用是否降低未来词的 NLL」，不是人工写 JSON。Gorilla 的监督来自真实 API 文档检索。对话 SFT 的监督来自标注或合成的 tool_calls 轨迹。三种数据不可互换引用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>轨迹最小单元：系统（工具 schema）→ 用户 → assistant（<code>tool_calls</code> 或纯文本）→ tool 观察 → assistant 最终答复；多轮则重复。合成路线常用强模型 + 执行器生成，再过滤：JSON 可解析、名字在清单内、执行非空或错误形状合法。Toolformer 路线不同：在语料上候选插入调用，真正执行 API，只留下对未来 token 有信息增益的位置，从而少依赖对话标注。Gorilla 把检索到的文档放进上下文，训练模型在文档约束下写 API 调用，降低幻觉端点。</p><p>损失：因果 LM，mask 掉 user/tool（及 schema）token。调用参数可用普通 next-token，或对 JSON 部分加权。约束解码是推理技术，不能替代 SFT——文法保证可解析，不保证城市名存在。错误恢复要显式采样：观察为 4xx/超时，assistant 改参数或改工具或向用户澄清。并行调用在一条 assistant 消息里放多个 id，随后同样数量的 tool 消息；训练里若只有串行，推理并行会错位。</p><div class="mermaid"></div><h3 id="工具集必须当作条件-而不是写进权重的世界知识" tabindex="-1">工具集必须当作条件，而不是写进权重的世界知识 <a class="header-anchor" href="#工具集必须当作条件-而不是写进权重的世界知识" aria-label="Permalink to &quot;工具集必须当作条件，而不是写进权重的世界知识&quot;">​</a></h3><p>训练若永远用同一 20 个函数，模型会把名字背进权重，换清单就张冠李戴。正确做法是每条样本的 schema 子集化、打乱顺序、改写 description，迫使模型读前缀。Gorilla 用检索器提供候选文档，是同一思想在「文档接地」上的版本。产业数据还应包含「清单为空 / tool_choice=none」的纯文本答复，避免模型在无工具时仍输出调用帧。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>SFT 改变的是：在「该用工具」的前缀上，把质量从散文移到特殊格式 token（或 JSON 键）。它不赋予副作用；副作用仍由宿主白名单执行。Toolformer 的机制更接近「调用是为了帮助预测接下来的词」，因此调用密度由信息增益阈值控制，适合搜索、计算器一类可执行 API，不自动等于对话产品里的权限模型。Gorilla 的机制是降低 API 幻觉：见过文档形态的调用，比只见过名字的调用更少编造端点。两者都可以再接对话 SFT，把格式迁到 <code>tool_calls</code> 字段。</p><p>过拟合症状：永远调用某一个搜索工具；忽略 schema 的 <code>enum</code>；把上一轮的 tool_call_id 复用。缓解是多样化清单与强制新 id。与 RL（工具成功当奖励）相比，SFT 只克隆轨迹，不会探索；轨迹错了就克隆错误策略。因此合成数据的执行过滤（至少能跑通或错误可解释）比盲目扩大条数更重要。</p><p><span class="marginnote">OpenAI 兼容协议里的 <code>tools</code> / <code>tool_choice</code> 是推理旋钮。评测「训练是否成功」时必须声明这些字段，否则 auto 下合理的不调用会被标成失败。对照 <a href="/llm/constrained-decoding">constrained-decoding</a>：解码约束补格式，SFT 补时机与接地。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="合成轨迹的上限是执行器与教师模型" tabindex="-1">合成轨迹的上限是执行器与教师模型 <a class="header-anchor" href="#合成轨迹的上限是执行器与教师模型" aria-label="Permalink to &quot;合成轨迹的上限是执行器与教师模型&quot;">​</a></h3><p>教师胡编的调用会被学生学走。必须真实执行（或至少 schema 校验 + 模拟器）。权限：训练数据里不应出现「任意 URL / 任意 SQL」作为正例；正例应是白名单 API。评测集要含未见工具（名称与 schema 都新）以测读说明书的能力，而不是背题。多语言参数、时区、货币单位是长期错误源，要在数据里显式出现。</p><p>不要把 ToolLLM 的 16k API 规模直接当成对话 SFT 配方——那是另一条「检索 + 搜索树」线，见 <a href="/llm/toolllm">toolllm</a>。也不要把 MCP 服务器热更新当成训练问题：清单变化是推理条件，训练只需覆盖「清单会变」这一事实。</p><p><span class="marginnote">出处：Schick et al.，<em>Toolformer: Language Models Can Teach Themselves to Use Tools</em>，arXiv:2302.04761；Patil et al.，<em>Gorilla: Large Language Model Connected with Massive APIs</em>，arXiv:2305.15334；产业格式对照 OpenAI 2023 function calling / tools 字段。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Function calling 的 SFT 监督时机、工具选择与参数填写，损失打在 assistant token。</li><li>Toolformer 用信息增益筛选自监督调用；Gorilla 用文档检索降 API 幻觉；对话轨迹对齐聊天模板。</li><li>工具清单必须作为前缀条件变化；负例与错误恢复要显式出现。</li><li>约束解码不替代训练；RL 是另一条目标。</li><li>出处：Toolformer；Gorilla；OpenAI function calling 格式。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 智能体与工具论文<!--]--><!--[--> · 课序 工具使用<!--]--></p><p class="lesson-progress">第 272 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/toolllm/">AnyTool / ToolLLM</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

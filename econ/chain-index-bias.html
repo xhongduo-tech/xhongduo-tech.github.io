@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>链式指数与替代偏差 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_chain-index-bias.md.sEWHPE8Q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 核算<!--]--><!--[--> · 课序 国民账户<!--]--></p><p class="lesson-progress">第 3 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/gdp-gni-nnp/">GDP、GNI 与 NNP</a></p><p class="lesson-next"> 下一课：<a href="/econ/saving-investment-id/">储蓄–投资恒等式</a></p></nav><div style="position:relative;"><div><h1 id="链式指数与替代偏差" tabindex="-1">链式指数与替代偏差 <a class="header-anchor" href="#链式指数与替代偏差" aria-label="Permalink to &quot;链式指数与替代偏差&quot;">​</a></h1><div class="epigraph"><p>固定某年篮子去加总物量，等于假定相对价格永远停在那一年；相对价格一变，数量会逃向变便宜的品种，旧篮子就把增长说高或说低。</p><footer>—— 据 SNA 物量核算；Landefeld 对 BEA 链式指数的说明</footer></div><p><a href="/econ/gdp-gni-nnp">上一课</a>把 GDP、GNI、NNP 分成国境、国民与净额，账户仍是当期价格。本课的缺口不是再改名字，而是：相邻两年的名义比如何拆成价格与物量，以及<strong>固定基期篮子</strong>为何会把替代锁进偏差。Boskin 委员会讨论的是生活成本 CPI，留给<a href="/econ/cpi-vs-pce">CPI 与 PCE</a>；本课只钉产出物量。储蓄恒等下一课仍可在名义或已缩减的流量上写，但必须先承认指数选择。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>名义 GDP 的时间比混着 \(p\) 与 \(q\)。若用某一固定年的价格去给所有年份的 \(q\) 计价，相对价格变化时，数量会从相对变贵的品种转向相对变便宜的品种。固定旧价格（或旧数量权重）的指数把已经不再被选择的篮子当成「真实产出」的尺度，于是出现<strong>替代偏差</strong>。缺口是：SNA 为何改用逐年换权的链式物量，而不是再讲一遍三条算法。</p><p>固定篮子还有不可加性的孪生问题：长期用同一基年，远期权重严重过时；频繁换基年，历史增长率又会改写。链式把相邻两年的指数连乘，使增长率可更新权重，却失去「用某一固定年价格表示的水平」那种简单加总。</p><p><span class="marginnote">替代偏差在此指产出物量：相对价格下降的品种数量上升，旧权过重或过轻。Boskin 的「CPI 高估通胀」是消费者生活成本，篮子与福利基准都不同，本课不借走。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>相邻两年，用当年与上一年的价格（或数量）构造一对指数，再把环比连乘，得到链式物量指数。BEA 的实践是链式 Fisher 一类：Laspeyres 与 Paasche 的几何平均逐年链接。Landefeld 说明：这样长期增长率少受某一基年选择摆布，也减轻固定权的替代偏误。SNA 推荐物量用链式。</p><p>记环比物量因子为 \(Q_{t,t-1}\)，链式水平是 \(Q_{t,0}=\prod_{s=1}^{t} Q_{s,s-1}\)。这不是把所有年份的发票用 \(p_0\) 重开一次。政策讨论里把链式实际 GDP 的分量加回去，会发现加总不等于总量——公式性质，不是统计事故。</p><div class="mermaid"></div><p>本课不把 Laspeyres / Paasche 的理想检验整章搬进<a href="/econ/price-index-real">价格指数</a>；那里会系统写 \(P\) 与 \(y\) 的分工。这里只要一句：国民账户的「实际 GDP 增长」在 SNA/BEA 里已经是链式物量，不是某一固定年价格的总产值。</p><h3 id="固定权何时仍有用" tabindex="-1">固定权何时仍有用 <a class="header-anchor" href="#固定权何时仍有用" aria-label="Permalink to &quot;固定权何时仍有用&quot;">​</a></h3><p>短期、相对价格几乎不动时，固定篮子与链式接近。长期、IT 与能源相对价格大动时，固定 1990 年价格会把后期计算机的物量夸大到荒谬。换基年能救急，但每次换基改写历史；链式把换权变成常规。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>替代来自相对价格：价格下降的品种，数量份额上升。用旧期数量权价格（或旧期价格权数量），等于拒绝承认这份逃逸。链式每年用最近的两期构造因子，偏差被限制在「这一年的替代」而不是「三十年累计的过时篮子」。代价是：链式水平没有单一篮子解释，分量之和不等于总量，贡献度分解必须用专门的加性公式。</p><p>GNI、NNP 的物量不是自动等于 GDP 物量：跨境初次收入与折旧另有平减。本课不把三个名义口径各自的链式细节写完，只禁止把「实际 GNI」未经声明地当成实际 GDP。开放账户里的实际经常账户同样要声明平减，不能把名义 \(NPI\) 的变动直接叫实际国民收入增长。</p><p>质量变化与新产品使 \(q\) 的口径漂移：计算机「实际产出」很大一块是 hedonic，不是台数。SNA 允许这类调整，但那是测量约定。链式减轻的是<strong>权重过时</strong>，不自动解决质量。把 IT 繁荣的链式增长率全部读成已经识别了技术，会与<a href="/econ/solow-residual">索洛残差</a>抢同一块剩余。</p><p><span class="marginnote">Landefeld 强调链式改善的是长期增长度量，不是把实际 GDP 变成福利。质量调整与 hedonic 仍是另一层约定，本课不把它写成已经估计了效用。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要在这里写 CIP 或汇率套利率；物量篮子不是外汇远期。Boskin、业主等值租金、核心通胀是 CPI 课的对象。本课也不把链式当成「唯一正确的增长」：不同指数回答不同问题，固定篮子在合同与短样本里仍可声明使用。量化栏的报价是微观价格，这里只借加总物量。</p><p>贡献度分解必须用专门的加性公式（如份额加权的环比），不能把链式分量当固定年价格产值去加减。GNI 与 NNP 的物量平减另声明，不默认等于 GDP 链式。储蓄恒等下一课仍可先用名义流量写；一旦谈「实际投资贡献了多少增长」，就要回到本课的指数。</p><p>固定基期在合同、税基与短窗比较里仍可声明使用，只要不把三十年的固定 1990 年价格产值当成 SNA 的增长。换基年会改写历史增长率；链式把换权变成常规，代价是水平不可加。这是本课与后课价格指数课的分工：这里钉国民账户物量实践，那里系统写 Laspeyres / Paasche / Fisher。</p><p>后课默认：谈到实际 GDP 增长率，默认是链式物量，并知道水平不可加。下一课回到账户：支出里的 \(I\) 与未消费收入如何写成 \(S\) 与 \(I\) 的恒等。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>国境/国民口径仍是名义；比较年份必须声明物量指数。</li><li>固定篮子把过时权重锁进替代偏差；链式逐年换权并连乘。</li><li>链式增长率更稳，水平分量不可加是公式性质。</li><li>Boskin 生活成本偏差留给 CPI，不在本课冒充产出指数。</li><li>质量调整是另一层约定，链式只处理权重过时。</li><li>出处：SNA 物量核算；Landefeld 对 BEA 链式指数的说明。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 核算<!--]--><!--[--> · 课序 国民账户<!--]--></p><p class="lesson-progress">第 3 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/saving-investment-id/">储蓄–投资恒等式</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

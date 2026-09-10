@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>等价关系与划分 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_equivalence-partition.md.CPqLRLGd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息与离散<!--[--> · 单元 离散结构<!--]--><!--[--> · 课序 后课要用的数学<!--]--></p><p class="lesson-progress">第 25 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/cs/sets-relations/">集合与关系</a></p><p class="lesson-next"> 下一课：<a href="/cs/poset-lattice/">偏序与格直觉</a></p></nav><div style="position:relative;"><div><h1 id="等价关系与划分" tabindex="-1">等价关系与划分 <a class="header-anchor" href="#等价关系与划分" aria-label="Permalink to &quot;等价关系与划分&quot;">​</a></h1><div class="epigraph"><p>自反、对称、传递的关系，正好把集合切成互不重叠的块；块里的元素彼此可替换，块与块之间不可。</p><footer>—— 据 Rosen, Discrete Mathematics and Its Applications 整理</footer></div><p>上一课<a href="/cs/sets-relations">集合与关系</a>钉死了关系是有序对的集合，并点名「等价 \(\Leftrightarrow\) 划分」，当时不证、不展开类。本课不重讲笛卡尔积，也不从「抽象代数」另起。缺口是：后课同余、连通分量、类型等价，都要把「当成同一个」写成类。点名不够，必须把对应钉成双向构造。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>关系可以只对称不传递（「相邻」），或只传递不对称。缺口因此不是新的 \(\subseteq\)，而是三条一起：<strong>等价关系</strong> \(\sim\)。对 \(a\in A\)，类 \([a]=\{x:x\sim a\}\)。全体类构成 \(A\) 的划分：非空、互不相交、并集为 \(A\)。反过来，给定划分，定义「在同一块里」即得等价关系。两构造互逆。</p><p>模 \(n\) 同余是本栏已经用过的例子：位权课的模 \(2^n\) 加法，现在有了关系语言。连通分量要等<a href="/cs/graph-definition">图</a>有了边再写；本课只准备「类」。</p><h3 id="类不是「随便分组」" tabindex="-1">类不是「随便分组」 <a class="header-anchor" href="#类不是「随便分组」" aria-label="Permalink to &quot;类不是「随便分组」&quot;">​</a></h3><p>每一对相关的元素必须进同一块，无关的不能进同一块。把学生「随便分成若干组」当成等价类，后课商集没有运算。也不把偏序的可比当成对称：下一课序关系故意丢掉对称、改用反对称。</p><p><span class="marginnote">Rosen 用同余与「相同余数」当主例，并证明等价与划分一一对应。商集 \(A/{\sim}\) 是类的集合；后课函数要对类良定义，须与代表元无关。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>验证 \(\sim\) 三性质；写出几个类，检查相交为空。从划分回到关系：\((a,b)\in R\) 当且仅当存在一块同时含 \(a,b\)。细化：更细的划分对应更小的等价关系（作为有序对集合）。本课不引入格——那是<a href="/cs/poset-lattice">下一课</a>用包含关系做的。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有了类，才能说「模 \(2^n\) 下相等」是关系，而不是散文。后课哈希碰撞是「不同键映到同一槽」，那是函数不是等价——除非再定义核。布尔函数相等是真值表相同，是函数集合上的等价；化简课已经在用，现在有名字。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讨论选择公理下的怪划分，不把群的正规子群提前。偏序、格、函数单射满射都还没钉。有限与无限只影响类的个数是否可数，可数是再后一课。</p><p>后课默认：谈到「同一类 / 同余 / 商」，先给出等价关系或划分二者之一，另一份跟着来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>等价关系的类构成划分；划分诱导等价关系。</li><li>同余是已用过的模算术的关系写法。</li><li>下一课改谈反对称的序，不再对称。</li><li>出处：Rosen, <em>Discrete Mathematics and Its Applications</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息与离散<!--[--> · 单元 离散结构<!--]--><!--[--> · 课序 后课要用的数学<!--]--></p><p class="lesson-progress">第 25 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/poset-lattice/">偏序与格直觉</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

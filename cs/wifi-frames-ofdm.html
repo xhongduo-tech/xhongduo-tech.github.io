@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>802.11 帧与 OFDM | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_wifi-frames-ofdm.md.DcjjNrRK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 物理与链路<!--]--><!--[--> · 课序 无线与广域<!--]--></p><p class="lesson-progress">第 17 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/output-queue-hol/">输出排队与 HOL</a></p><p class="lesson-next"> 下一课：<a href="/cs/mimo-rate-adaptation/">MIMO 与速率自适应</a></p></nav><div style="position:relative;"><div><h1 id="_802-11-帧与-ofdm" tabindex="-1">802.11 帧与 OFDM <a class="header-anchor" href="#_802-11-帧与-ofdm" aria-label="Permalink to &quot;802.11 帧与 OFDM&quot;">​</a></h1><div class="epigraph"><p>无线没有可靠的载波碰撞检测，帧要带时长预约；OFDM 把宽带切成许多正交子载波，对抗频率选择性衰落。</p><footer>—— 据 IEEE 802.11；Weinstein and Ebert, OFDM, IEEE Trans. Commun. 1971；Kurose and Ross 无线章整理</footer></div><p>上一课序在<a href="/cs/output-queue-hol">输出排队与 HOL</a> 收束有线交换。主干<a href="/cs/csma-ca">CSMA/CA</a> 已给过退避。缺口是<strong>帧怎么占空中、物理层怎么占频谱</strong>：802.11 MAC 头、NAV、ACK；PHY 从 DSSS 走到 OFDM。本课不把 MIMO 矩阵写完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>以太网全双工点到点几乎不冲突；无线是半双工共享介质，隐终端让 CD 不可靠，故 CA + RTS/CTS 预约。帧：帧控制、地址（可到四个，因为有 DS）、序号、FCS。数据帧后 SIFS 跟 ACK，失败才重传——这是链路努力，不是 TCP 的替代。OFDM：高 \(R_s\) 在多径下 ISI 严重，改用慢符号率的多子载波，循环前缀吃掉时延扩展。容量仍是 \(B\) 与 SNR，只是 \(B\) 被切成子信道。</p><p><span class="marginnote">802.11a/g/n/ac 的 PHY 都以 OFDM 为骨干。地址字段服务基础设施 BSS：AP 与 DS。本课不把每个 subtype 背完。</span></p><h3 id="无线-ack-不取消-tcp" tabindex="-1">无线 ACK 不取消 TCP <a class="header-anchor" href="#无线-ack-不取消-tcp" aria-label="Permalink to &quot;无线 ACK 不取消 TCP&quot;">​</a></h3><p>CA 补不能可靠 CD。OFDM 用多子载波抗多径。MCS 阶梯是离散工作点，瞬时 \(C\) 随衰落变。AP 桥到有线，不是全国洪泛。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>画：DCF 听信道 → 发 → ACK；并行画：比特 → 编码交织 → 映到子载波 → IFFT → 加 CP。对照有线 PAM：无线必须估计每子载波信道。速率集（6–54 Mb/s 等）是调制编码方案，下一课自适应。</p><div class="mermaid"></div><p>方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有线链路预算是电缆长度；这里是距离、遮挡、干扰。交换机学有线 MAC；无线客户端经 AP 桥到有线侧，AP 是翻译，不是 WDM 模块。巨帧在无线上更易错，重传代价高，故常保持较小 MSDU。</p><p>容量课的 \(C\) 对时变信道是瞬间量，802.11 用 MCS 阶梯逼近。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 802.11ax 的 OFDMA 调度。MIMO 与速率自适应是下一课。后课默认：Wi‑Fi 数据面是 MAC 重传 + OFDM 比特加载。</p><p>不要把 Wi‑Fi 当蜂窝核心网：没有 RAN 切片，本课序后部才到 5G。</p><p>上一课留下的缺口在本课收口；「802.11 帧与 OFDM」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课<a href="/cs/mimo-rate-adaptation">MIMO 与速率自适应</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CA + ACK 补上无线不能可靠 CD 的缺口。</li><li>OFDM 用多子载波对抗多径 ISI。</li><li>链路 ACK 不取消 TCP。</li><li>后课只引用本课钉死的对象，不从该领域总问题重开。</li><li>出处：IEEE 802.11；Weinstein–Ebert；Kurose and Ross。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 物理与链路<!--]--><!--[--> · 课序 无线与广域<!--]--></p><p class="lesson-progress">第 17 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/mimo-rate-adaptation/">MIMO 与速率自适应</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KKT 条件 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_kkt-conditions.md.BP29Dzdr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 8 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/lagrange-multiplier/">拉格朗日乘子</a></p><p class="lesson-next"> 下一课：<a href="/econ/envelope-theorem/">包络定理</a></p></nav><div style="position:relative;"><div><h1 id="kkt-条件" tabindex="-1">KKT 条件 <a class="header-anchor" href="#kkt-条件" aria-label="Permalink to &quot;KKT 条件&quot;">​</a></h1><div class="epigraph"><p>不等式把可行方向收成锥；互补松弛说：没顶上的约束，乘子必须为零。</p><footer>—— 据 Boyd and Vandenberghe, Convex Optimization, 第 5 章；Mas-Colell, Whinston and Green 数学附录整理</footer></div><p>上一课<a href="/econ/lagrange-multiplier">拉格朗日乘子</a>处理 \(h(x)=0\)。消费非负、产能上限、激励相容里的参与约束，都是不等式。缺口是：有的约束在最优处松弛（乘子应为零），有的绷紧（回到等式乘子）。KKT 把两者写在同一组条件里。本课只补这一块，不重写无约束 FONC，也不把数值求解器讲一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(\max f(x)\) s.t. \(g_i(x)\le 0\)、\(h_j(x)=0\)。在约束品性（如 Slater：凸问题存在严格可行点；或 LICQ）下，最优 \(x^*\) 存在乘子 \(\mu\ge 0\)、\(\lambda\) 使</p><ol><li>平稳：\(\nabla f(x^*)=\sum_i\mu_i\nabla g_i(x^*)+\sum_j\lambda_j\nabla h_j(x^*)\)（按最大化、约束 \(\le 0\) 的符号书写；最小化则目标梯度变号约定需一致）；</li><li>原可行：\(g(x^*)\le 0\)、\(h(x^*)=0\)；</li><li>对偶可行：\(\mu\ge 0\)；</li><li>互补松弛：\(\mu_i g_i(x^*)=0\)。</li></ol><p>互补松弛是新信息：要么 \(g_i(x^*)=0\)（约束生效），要么 \(\mu_i=0\)（影子价格为零）。角点消费 \(x_k=0\) 时，该商品的「买更多」方向被挡住，\(\partial u/\partial x_k\le\lambda p_k\)，差用 \(\mu_k\) 补上。后课<a href="/econ/interior-corner">内点与角点</a>直接用这组互补。</p><h3 id="互补不是「两个约束各满足一半」" tabindex="-1">互补不是「两个约束各满足一半」 <a class="header-anchor" href="#互补不是「两个约束各满足一半」" aria-label="Permalink to &quot;互补不是「两个约束各满足一半」&quot;">​</a></h3><p>\(\mu_i g_i=0\) 不是把约束满足到一半。它是逐坐标的择一：松约束的乘子精确为零，紧约束的乘子自由（只非负）。不要读成「平均意义上互补」。Slackness 失败（\(\mu_i\gt 0\) 且 \(g_i\lt 0\)）在正则问题里不会出现；若数据里看到，多半是约束写反或乘子符号约定乱了。</p><p><span class="marginnote">Slater 对凸问题足够；非凸问题 KKT 可以既不必要也不充分。主干的消费者、成本最小化走凸，一阶当充分用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把有效约束（最优处取等号的那些 \(g_i\)）收成等式，上一课的 Lagrange 作用在这个有效集合上；无效约束的乘子置零。KKT 是对「哪一批约束有效」的事先未知版本：乘子与松紧一起解。</p><p>凸问题（凹目标、凸 \(g\)、仿射 \(h\)）在 Slater 下：KKT 必要且充分，强对偶成立，最优值等于对偶问题最优值。这是后课成本函数、利润函数可用对偶变量刻画的许可。非凸激励约束（道德风险里的 IC）常常破坏 Slater 与凸，KKT 变成「先写、再验证」，不是自动充分。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可行方向锥是：不进入 \(g_i\gt 0\)、不离开 \(h=0\) 的方向。最优要求目标在这个锥上不能再升，故 \(\nabla f\) 落在约束梯度的锥组合里——这仍是<a href="/econ/separating-hyperplane">分离超平面</a>的法锥版。\(\mu_i\ge 0\) 来自不等式的方向性：只能「推向可行一侧」，不能把乘子写成任意实数。</p><p>内点解全体 \(g_i\lt 0\)，于是全体 \(\mu_i=0\)，KKT 退回无约束或纯等式 Lagrange。所以内点不是另一种理论，是 KKT 的退化。角点是另一退化：若干坐标约束生效。后课画两商品图的切点与轴上端点，就是这两种退化。</p><p><span class="marginnote">互补松弛让包络只对绷紧的约束计数。松掉的资源影子价格为零：再给一单位也绑不到最优值上。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲二次规划算法、有效集法、内点法。也不把 KKT 推广到抽象 Banach 空间的 Lagrange 乘子。互补松弛在离散选择、整数约束上要换成分支，不在主干。下一课问：参数动时，最优<strong>值</strong>怎么变——乘子正是那条导数。</p><p>后课默认：带不等式的光滑凸规划，最优写成 KKT；角点用互补松弛读，不把 \(\nabla u=\lambda p\) 强加在零消费上。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>KKT = 平稳 + 可行 + \(\mu\ge 0\) + 互补松弛。</li><li>松约束乘子为零；紧约束回到 Lagrange。</li><li>凸加 Slater：必要且充分，并对偶间隙为零。</li><li>内点与角点都是 KKT 的特例，不是另一套理论。</li><li>下一课：<a href="/econ/envelope-theorem">包络定理</a>。</li><li>出处：Boyd and Vandenberghe 第 5 章；MWG 数学附录。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 8 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/envelope-theorem/">包络定理</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

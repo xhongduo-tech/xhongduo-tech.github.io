@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MOSFET 与栅长 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_mosfet-gate-length.md.Bdzql_bq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 器件与图形化的由来<!--[--> · 单元 为什么要做图形<!--]--><!--[--> · 课序 从 MOSFET 到节距<!--]--></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/litho/scalar-diffraction-bound/">标量衍射的适用边界</a></p><p class="lesson-next"> 下一课：<a href="/litho/cmos-inverter-pair/">CMOS 反相器为什么成对</a></p></nav><div style="position:relative;"><div><h1 id="mosfet-与栅长" tabindex="-1">MOSFET 与栅长 <a class="header-anchor" href="#mosfet-与栅长" aria-label="Permalink to &quot;MOSFET 与栅长&quot;">​</a></h1><div class="epigraph"><p>MOSFET 用栅电极控制沟道是否导通；栅长曾是节点尺度的首要标尺，也是必须用图形化单独画出来的关键尺寸。</p><footer>—— 据 Sze &amp; Ng, Physics of Semiconductor Devices 对 MOSFET 结构与短沟道效应的整理</footer></div><p><a href="/litho/scalar-diffraction-bound">上一课</a>收束了电磁与几何光学的建模层次。新课程「器件与图形化的由来」从这里开始：为什么晶圆上要做图形？因为晶体管不是整块硅，而是按设计图案掺杂、沉积与蚀刻出来的。本课钉 MOSFET 与栅长 \(L\)。不重写投影物镜，也不把抗蚀剂与照明提前讲完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>光学课建立了波、透镜与标量近似的边界。晶圆上最终要的是开关：栅压控制源漏电流。若没有「栅长 = 沟道长度的尺度」这一条，后面所有「必须印准某一层」都没有器件对象。缺口是器件侧：MOSFET 是什么，\(L\) 为何曾是节点名里的数字，以及为何这一层图形不能省。</p><p>没有空间上的选择——哪里是栅、哪里是源漏、哪里是隔离——整片硅无法变成彼此独立的晶体管。图形化的第一动机就是把这一根栅画在指定位置、指定长度。</p><h3 id="栅长不是光刻胶里的线宽口诀" tabindex="-1">栅长不是光刻胶里的线宽口诀 <a class="header-anchor" href="#栅长不是光刻胶里的线宽口诀" aria-label="Permalink to &quot;栅长不是光刻胶里的线宽口诀&quot;">​</a></h3><p>\(L\) 是栅电极下沟道的有效长度，由栅图形、侧壁、扩散与蚀刻偏差共同决定。光刻画出的是栅层临界尺寸，它与 \(L\) 强相关，但不在本课等同。后课工艺偏差会把这条缝拉开；本课只要「必须有一根被图形化的栅」。</p><p><span class="marginnote">默认 n 沟道增强型 MOSFET。栅长 \(L\)：源漏之间被栅覆盖的沟道长度。阈值 \(V_{\mathrm{th}}\) 由氧化层、掺杂与短沟道效应共同定，本课不把阈值公式推完。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>结构：重掺杂源/漏、栅氧化层加栅电极、电极下的沟道。\(V_{\mathrm{GS}}\gt V_{\mathrm{th}}\) 时反型层连通源漏。驱动电流随 \(L\) 缩短而增大，延迟下降；但 \(L\) 太短则短沟道效应：阈值滚降、漏致势垒降低、亚阈值斜率变差，关态漏电上升。于是 \(L\) 是速度与漏电的共同标尺。</p><p>短沟道并不是「再短一点就坏了」的模糊警告：当 \(L\) 落到与耗尽区尺度可比，栅对沟道中部的控制被漏端抢走。图形化若把 \(L\) 印偏，漏电与阈值一起漂，电路时序和功耗一起坏。这就是栅层被当成关键层的器件理由。本课不把二维泊松方程解出来，只把对象钉在 \(L\)。</p><p>节点名曾直接指栅长的名义值。光刻要印的，正是定义栅极图案的那一层。后课 <a href="/litho/node-vs-gate-length">节点名不再等于栅长</a> 再说明命名与物理量如何脱钩。本课先承认：曾经，印准 \(L\) 就是在印准节点。</p><p><span class="marginnote">阈值电压还依赖氧化层厚度与沟道掺杂，那些主要不是横向图形。本课横向对象是 \(L\) 与 \(W\)；纵向薄膜是另一套工艺，不在「为何要图形」的第一动机里。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>图形化把「导电的沟道该有多长」写成空间上的一条边。没有这一层，源漏会连成一片，或沟道长度由偶然扩散决定，无法做亿级重复的逻辑。栅层因此是前道最敏感层之一：\(L\) 的偏差直接改开关比与功耗。下一课 <a href="/litho/cmos-inverter-pair">CMOS 反相器为什么成对</a> 说明还需要第二种沟道、第二套分区图形，而不是只印一根栅。</p><p>本课不进入如何用衍射把这根线印出来。光学前置已经声明标量与矢量的边界；成像主线在器件课之后才从光程重开。这里只回答：对象是栅。</p><p>栅宽（垂直于沟道方向的宽度 \(W\)）同样由图形化定义，它进入驱动电流的另一因子。本课强调 \(L\)，因为短沟道效应与节点史都钉在长度上；\(W\) 是并联多少沟道的问题，版图上同样是多边形，只是通常不是那条「最细、最怕」的尺。隔离到栅的距离、源漏着陆区，都是同一层或相邻层必须画出来的配套图形。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不展开 FinFET 或环栅的三维沟道：平面 MOSFET 足够建立「栅长 ↔ 必须图形化」。也不写离子注入、退火与高介电金属栅的工艺清单。分辨公式、胶对比度、离轴照明都不在本课。</p><p>三维沟道把「\(L\)」改成鳍厚、纳米线直径等新尺子，图形化动机不变：导电通道的长度与宽度仍要被图案定义。后课默认：逻辑开关是 MOSFET；栅长 \(L\) 是关键横向尺寸；栅层必须被图形化。下一课只补互补对。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MOSFET 用栅控沟道；栅长 \(L\) 权衡驱动与短沟道漏电。</li><li>光刻栅极层的图形与 \(L\) 强相关；节点名曾指 \(L\)。</li><li>图形化的第一动机：在空间上单独画出这根栅。</li><li>成像、胶与照明不在本课；下一课解释为何还要成对的 p 管。</li><li>出处：Sze &amp; Ng, <em>Physics of Semiconductor Devices</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 器件与图形化的由来<!--[--> · 单元 为什么要做图形<!--]--><!--[--> · 课序 从 MOSFET 到节距<!--]--></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/cmos-inverter-pair/">CMOS 反相器为什么成对</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>离策略校正 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_off-policy-correction.md.VGa8Te-n.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 PPO / GRPO 细节<!--]--><!--[--> · 课序 超参与偏差<!--]--></p><p class="lesson-progress">第 21 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/llm/truncated-importance-sampling/">截断重要性采样</a></p><p class="lesson-next"> 下一课：<a href="/llm/rollout-weight-sync/">rollout 引擎与权重同步</a></p></nav><div style="position:relative;"><div><h1 id="离策略校正" tabindex="-1">离策略校正 <a class="header-anchor" href="#离策略校正" aria-label="Permalink to &quot;离策略校正&quot;">​</a></h1><div class="epigraph"><p>异步生成让一个 batch 混着多个权重版本；校正的是期望算子，不是把 off-policy 假装成 on-policy。</p><footer>—— 对照 IMPALA / V-trace；AReaL、OpenRLHF、verl 对 staleness 与版本号的工程约束</footer></div><p><a href="/llm/truncated-importance-sampling">上一课</a>给出截断比率。缺口是：<strong>系统已经在混合版本时，公式要定义「校正到哪一个 \(\pi\)」，以及不能校正时就丢弃。</strong> 已有异步架构课写时序；本课写算法侧：staleness 上限、重算 logprob、partial rollout。接到 <a href="/llm/ppo-llm">PPO</a> / <a href="/llm/grpo">GRPO</a> 的仍是同一套优势，只是期望的采样分布变了。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同步栅栏：\(\pi_{\mathrm{beh}}=\pi_{\mathrm{old}}\)，IS 近似 1，PPO epoch 造成轻度 off-policy。一步重叠：差一个版本。完全异步：batch 内 \(\pi_{\mathrm{beh}}\) 不同，甚至一条序列中途换权重。未校正就把梯度当 on-policy，优势的期望不对，长链上表现为莫名崩溃。校正要：每条轨迹带 <code>weight_version</code>，用当前 learner 的 \(\pi_\theta\) 重前向得 \(\log\pi_\theta\)，与存储的 \(\log\pi_{\mathrm{beh}}\) 比。</p><p>不能无限校正。版本差过大时 \(\rho\) 几乎全被截断，有效样本为零，应丢弃或限制 \(\eta\)（AReaL 的 staleness）。Partial rollout 接新权重续写，KV 与 logprob 必须重算前缀，否则前半段是旧策略、后半段是新策略，一条轨迹两个行为分布。</p><h3 id="校正不等于可以无限复用" tabindex="-1">校正不等于可以无限复用 <a class="header-anchor" href="#校正不等于可以无限复用" aria-label="Permalink to &quot;校正不等于可以无限复用&quot;">​</a></h3><p>截断 IS 降低方差，不把旧数据变成新 on-policy 数据。复用次数仍应限制。PPO 的 epoch 上限与异步 staleness 是同一类旋钮：用过期轨迹的预算。</p><p><span class="marginnote">RM / 校验器通常只依赖 \(y\) 文本，不依赖生成它的版本。要校正的是策略梯度项，不是奖励本身。奖励过期是另一回事（RM 未迭代）。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>协议字段：<code>prompt_id</code>、<code>y</code>、<code>logp_beh</code>、<code>version_beh</code>、<code>truncated</code>。Learner step \(i\) 只接受 \(i-v\le\eta\) 的样本。更新前重算 \(\log\pi_\theta\)，得逐步 \(\rho_t\)，截断后进目标。GRPO 的组：同一 prompt 的 \(G\) 条最好同版本，否则组内 \(r\) 可比、\(\rho\) 不可比，相对优势与 IS 拧在一起。做不到则拆组或降级为 RLOO 单条基线。</p><div class="mermaid"></div><p>价值函数若用，应对当前 \(\pi_\theta\) 重算 \(V\)，不要用生成时的 \(V\)。GAE 的 \(\delta\) 对过期 \(V\) 极敏感。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>V-trace 一类方法把截断后的 \(\rho\) 沿轨迹回传，修正 \(V\) 的 off-policy 偏差。LLM 上常简化为：重算 logprob + PPO clip + 丢过期样本。简化成立的前提是 \(\eta\) 小。\(\eta\) 大时，简化不够，应减小异步程度，而不是加大 \(c\) 假装校正。</p><p><span class="marginnote">生成引擎量化 / 编译图与训练精度不一致，会造成「假 off-policy」：版本相同，logprob 仍系统偏。见后课训练-推理精度不匹配。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>小规模同步训练不必上本课全套，避免过度设计。推理模型长链才被迫异步。组相对方法对「同组同版本」更苛刻。下一课 rollout 引擎与权重同步，把 version 这条边落到 NCCL / 广播实现，公式在本课已经定完。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>混合版本 batch 必须带行为 logprob 与版本号，重算 \(\pi_\theta\) 再截断 IS。</li><li>staleness 上限 \(\eta\)：校正不动就丢弃。</li><li>GRPO 组内应同版本；partial rollout 要重算前缀。</li><li>奖励通常不校正；过期的是策略项。</li><li>出处：Espeholt 等 IMPALA / V-trace；Fu 等 AReaL；Sheng 等 HybridFlow；OpenRLHF / verl 的版本化实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 PPO / GRPO 细节<!--]--><!--[--> · 课序 超参与偏差<!--]--></p><p class="lesson-progress">第 21 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rollout-weight-sync/">rollout 引擎与权重同步</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

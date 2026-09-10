@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波动率是输入不是输出 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_vol-as-input.md.UENQP9Gx.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 期限、跳与模拟<!--]--></p><p class="lesson-progress">第 21 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/stochastic-rate-preview/">利率不是常数</a></p><p class="lesson-next"> 下一课：<a href="/quant/jump-process-intuition/">跳过程直觉</a></p></nav><div style="position:relative;"><div><h1 id="波动率是输入不是输出" tabindex="-1">波动率是输入不是输出 <a class="header-anchor" href="#波动率是输入不是输出" aria-label="Permalink to &quot;波动率是输入不是输出&quot;">​</a></h1><div class="epigraph"><p>BSM 把 $\sigma$ 当作方程的系数。市场把价格当输入、反解 $\sigma_{\mathrm{imp}}$。历史方差是另一套统计量，不是定价引擎的输出。</p><footer>—— 据 Black and Scholes, 1973；Dupire, Pricing with a Smile, Risk, 1994；Gatheral, The Volatility Surface 整理</footer></div><p>上一课<a href="/quant/stochastic-rate-preview">利率不是常数</a>拆开了 \(r\) 的三重身份。缺口是 \(\sigma\) 同样被误用：有人从历史收益估计一个数，塞进 Black 当「模型输出的公平价」；有人从期权反解 \(\sigma_{\mathrm{imp}}\)，又把它当成预测未来已实现波动。本课钉死：在定价数学里 \(\sigma\) 是输入；市场报价把它变成隐含量；已实现二次变差是路径泛函。三者同名，不是同一个对象。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>GBM 课里 \(\sigma\) 进入 SDE 与 PDE，价格 \(C(\sigma)\) 对 \(\sigma\) 严格递增，故给定 \(C\) 可反解唯一的 \(\sigma_{\mathrm{imp}}\)。缺口是解释这个反解：它是<strong>报价的语言</strong>，使不同 \(K,T\) 的价格能画在一张波动率曲面上，不是从时间序列估计出来的参数，更不是本课序列要「算出来」的公平波动。历史波动 \(\hat\sigma\) 是 \(P\) 下的统计；定价用 \(Q\) 下的输入。把 \(\hat\sigma\) 填进 Black 得到的数，一般不是市场价。</p><p>微笑：\(\sigma_{\mathrm{imp}}\) 随 \(K\) 变，说明单一 GBM 被市场拒绝。模型可以换成局部波动、随机波动或跳，但每种仍先<strong>输入</strong>一组波动相关量，再输出价格。没有一种把「正确 \(\sigma\)」当作理论推导的终点。</p><h3 id="隐含波动率不是对已实现波动的无偏预测" tabindex="-1">隐含波动率不是对已实现波动的无偏预测 <a class="header-anchor" href="#隐含波动率不是对已实现波动的无偏预测" aria-label="Permalink to &quot;隐含波动率不是对已实现波动的无偏预测&quot;">​</a></h3><p>即使市场有效，\(\sigma_{\mathrm{imp}}^2\) 对应的是 \(Q\) 下的期望二次变差（在确定利率等条件下），与 \(P\) 下已实现方差可以有方差风险溢价。用 \(\sigma_{\mathrm{imp}}\) 去减后面的已实现，得到的是溢价，不是「市场预测误差」的定义。本课程不把溢价做成实证课，只禁止把三个 \(\sigma\) 画等号。</p><p><span class="marginnote">Dupire 局部波动从整个微笑曲面反解 \(\sigma_{\mathrm{loc}}(K,T)\)，仍然是把价格当输入。曲面不够密或有套利时，反解不合法。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>接口三条。(1) 定价：指定 \(\sigma\)（或函数、或过程），输出 \(V\)。(2) 报价：指定 \(V\)，输出 \(\sigma_{\mathrm{imp}}(K,T)\)，用 Black 反解，以便插值与比较。(3) 风险：已实现 \([ \ln S]_T\) 沿路径累加，来自二次变差课，是 \(P\) 的对象。对冲用的 Vega 是 \(\partial V/\partial\sigma\)，对的是输入参数，不是对 \(\hat\sigma\) 的回归系数。</p><p>无套利约束：蝶式为正 \(\Rightarrow\) 风险中性密度为正；日历价差约束期限方向。这些约束的是价格，翻译成 \(\sigma_{\mathrm{imp}}\) 曲面的形状。校准必须先满足它们，再谈拟合误差。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Black 公式对 \(\sigma\) 的单调性让反函数存在，这是语言能成立的数学原因。市场用这门语言说话：交易员报的是 \(\sigma_{\mathrm{imp}}\) 不是货币价格，但合约结算仍按价格。引擎若输出与市场 \(\sigma_{\mathrm{imp}}\) 不一致的价格，差额是可交易的。历史估计没有这个直接对应，除非再加一层「如何把 \(P\) 的 \(\sigma\) 映射到 \(Q\)」——那是不全市场里选 \(Q\) 的额外假设。</p><p>局部波动把微笑解释成 \(\sigma(S,t)\)，随机波动把微笑解释成相关的方差过程。它们改变输入的维度，不改变「先输入、后定价」的方向。本课程主干仍用常数 \(\sigma\) 把公式写完；曲面是对照。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不校准 Heston，不写 SVI 参数化细节。不进入限价簿上期权做市的微观结构。后课默认：写 BSM 时 \(\sigma\) 是给定输入；比较市场用 \(\sigma_{\mathrm{imp}}\)；路径统计用二次变差。下一课<a href="/quant/jump-process-intuition">跳过程直觉</a>说明连续路径假设本身也可以被市场拒绝。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>定价：\(\sigma\) 是输入；市场：\(\sigma_{\mathrm{imp}}\) 是反解的报价语言。</li><li>历史波动是 \(P\) 的统计，默认不等于 \(Q\) 的输入。</li><li>微笑否定单一 GBM，但不把「先输入」改成「先输出」。</li><li>Vega 对的是模型输入，不是回归系数。</li><li>出处：Black–Scholes 1973；Dupire 1994。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 期限、跳与模拟<!--]--></p><p class="lesson-progress">第 21 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/jump-process-intuition/">跳过程直觉</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

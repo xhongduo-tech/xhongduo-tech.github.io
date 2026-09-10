@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>激活离群值为何出现 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_why-activation-outliers.md.CUNJ5e6J.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 压缩与数值<!--[--> · 单元 结构压缩<!--]--><!--[--> · 课序 剪枝与蒸馏<!--]--></p><p class="lesson-progress">第 15 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/draft-as-compression/">投机草稿作为压缩</a></p><p class="lesson-next"> 下一课：<a href="/llm/quantization-vs-prune/">量化误差与剪枝的分工</a></p></nav><div style="position:relative;"><div><h1 id="激活离群值为何出现" tabindex="-1">激活离群值为何出现 <a class="header-anchor" href="#激活离群值为何出现" aria-label="Permalink to &quot;激活离群值为何出现&quot;">​</a></h1><div class="epigraph"><p>少数通道的激活幅度比其余大上两个数量级时，按张量统计的量化器会为这几根钉子付出全部的格子，其余通道挤在零附近。</p><footer>—— 对照 SmoothQuant、LLM.int8() 对激活离群通道的观察；不是权重量化课的重复</footer></div><p><a href="/llm/draft-as-compression">上一课</a> 把投机草稿写成对下一步分布的有损压缩。本课转到<strong>同一张网内部</strong>为何难压：激活（以及部分权重行）出现离群通道，使按张量或按 token 的均匀量化失效。结构剪枝课已经能删宽、删层；它们不解释「为什么 8bit 激活在某几维炸」。后课量化与剪枝的分工默认你会：离群是统计现象，有结构来源，不是随机坏点。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>LLM 的 FFN 与注意力输出里，常有极少数 hidden 维在很多 token 上同时取极大值。LLM.int8() 把它们当「新兴维度」单独留精度；SmoothQuant 把量化难度从激活挪到权重。现象先于方法：若激活近似高斯，INT8 格子够用；若第 \(99.9\) 百分位是均值的 \(50\) 倍，格子全被这根钉占用，其余维量化成零，质量崩在看似「只有 0.1% 异常」上。</p><p>缺口是 <strong>为什么训练会长出钉子</strong>，而不是又一篇 INT8 配方。来源候选包括：RMSNorm / LayerNorm 的尺度、残差累积、词嵌入与 lm_head 的未归一化方向、RoPE 与长上下文、以及 MoE 共享通路上每个 token 都打到的通道。搞清来源，才能决定是平滑、旋转、剪掉该通道，还是承认它在承载功能不能动。</p><h3 id="离群不是噪声-常常是功能" tabindex="-1">离群不是噪声，常常是功能 <a class="header-anchor" href="#离群不是噪声-常常是功能" aria-label="Permalink to &quot;离群不是噪声，常常是功能&quot;">​</a></h3><p>若某通道在「句首 / 标点 / 特殊 token」上系统激活，它可能在当位置或分隔符探测器。剪掉或钳制会伤格式。若只在某几层、某几个专家上出现，可能是路由或残差的尺度事故，钳制更安全。诊断要看 <strong>哪些 token、哪些层、是否跨数据域稳定</strong>，不能只看一张激活直方图。<span class="marginnote">权重离群与激活离群相关但不等同。某权重行很大，会把对应激活推大；激活离群也可以来自输入方向碰巧对准一个并不算大的权重。SmoothQuant 的迁移假设「迁移后权重仍可量化」；若权重已经处于离群，迁移只是把钉子换边。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="测量、阈值与钳制消融" tabindex="-1">测量、阈值与钳制消融 <a class="header-anchor" href="#测量、阈值与钳制消融" aria-label="Permalink to &quot;测量、阈值与钳制消融&quot;">​</a></h3><p>测量：对校准集记录每层每通道的 \(\max |h|\)、RMS、以及跨 token 的出现频率。离群通道定义为相对中位 RMS 超过阈值（如 \(10\times\)）且在高比例 token 上复现。再做消融：将该通道在前向钳制到中位，看 CE 与下游。CE 几乎不变则更像尺度冗余；显著变差则像功能维。</p><p>与归一化：Pre-LN 残差流的尺度由各子层输出累加。若某子层不遵守「输出 \(O(1)\)」，钉子会沿深度放大。μP 与残差缩放课管训练期；已经训完的模型，钉子是既成事实。QAT 可以从小重建尺度，但贵。推理期平滑（逐通道缩放 \(h\leftarrow h/\sigma,\ W\leftarrow W\sigma\)）不改变数学函数（在无限精度下），只改变哪一侧更好量化。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一个有用的图像：残差流里少数方向承担「通配符计数器」或「注意力汇」——很多 query 都要读的全局位。训练没有稀疏惩罚时，把这种全局位塞进单通道比散到多通道更省参数，优化器会找到这个解。于是离群是 <strong>压缩功能到低维</strong> 的副作用，与模型「太大」无关，小模型也会有，只是大模型上更刺眼因为你开始量化。</p><p>长上下文与 RoPE：某些通道可能编码幅度极大的相位，外推失败时激活爆炸，离群变成长度相关。这与短校准集上看到的钉子集合不同。校准必须覆盖目标长度，否则 SmoothQuant 的 \(\sigma\) 估错，线上长请求才炸。</p><p><span class="marginnote">MoE <a href="/llm/moe-shared-routed-size">共享专家</a> 的离群会被每个 token 打到，量化误差变成全局的；路由专家的离群只打中被选 token，误差呈稀疏。共享通路更应保留精度或做逐通道平滑。配比 \(\rho\) 大，问题更像稠密模型。</span></p><h3 id="与-layerdrop、剪枝的交叉" tabindex="-1">与 LayerDrop、剪枝的交叉 <a class="header-anchor" href="#与-layerdrop、剪枝的交叉" aria-label="Permalink to &quot;与 LayerDrop、剪枝的交叉&quot;">​</a></h3><p>若离群集中在即将被<a href="/llm/layer-prune">层剪</a>删掉的块里，先剪层再量化，钉子可能消失。若钉子在底层嵌入几何，剪中间层无济于事。顺序应是：测钉子位置 → 再决定剪深度还是平滑激活。随机先量化再抱怨 INT8 不行，是把诊断顺序走反。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>钳制训练（activation clipping）可减少钉子，但改变函数，需要续训。只在推理钳制而不续训，等于给网络加了一个校准集上拟合的非线性，域外 token 会把别的通道顶成新钉子。旋转 / 正交变换（如某些量化前处理把离群打散到多维）对「少数通道极大」有效，对「所有通道都有中等厚尾」无效。先看谱再选工具。</p><p>不要把视觉 token、音频码的动态范围和文本隐藏态混成一张表。多模态早融合里视觉前缀的离群统计可以完全不同，共用一组 SmoothQuant 系数会牺牲其中一模态。分模态、分层校准。</p><p><span class="marginnote">本课不给出「离群的第一条数学定理」。经验机制足够指导压缩顺序：测量、消融、再平滑或剪。把钉子神秘化成模型觉醒，对工程无帮助。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>激活离群是少数高频、高幅度通道，破坏按张量量化的格子分配。</li><li>先测 token / 层 / 域上的复现，再消融判断功能维还是尺度事故。</li><li>来源常与残差尺度、全局位压缩、长上下文、共享专家有关。</li><li>平滑迁移钉子到权重侧；功能维应留精度而不是剪掉。</li><li>校准覆盖目标长度与模态；顺序是诊断再压缩。</li><li>出处：LLM.int8()、SmoothQuant 等对离群通道的实证；结合残差与 MoE 配比。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 压缩与数值<!--[--> · 单元 结构压缩<!--]--><!--[--> · 课序 剪枝与蒸馏<!--]--></p><p class="lesson-progress">第 15 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/quantization-vs-prune/">量化误差与剪枝的分工</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

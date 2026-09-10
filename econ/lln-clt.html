@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>大数定律与中心极限 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_lln-clt.md.Jav9mcjH.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 概率够用的一层<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 20 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/conditional-expectation-econ/">条件期望</a></p><p class="lesson-next"> 下一课：<a href="/econ/stochastic-order-prep/">随机占优预备</a></p></nav><div style="position:relative;"><div><h1 id="大数定律与中心极限" tabindex="-1">大数定律与中心极限 <a class="header-anchor" href="#大数定律与中心极限" aria-label="Permalink to &quot;大数定律与中心极限&quot;">​</a></h1><div class="epigraph"><p>独立个体的平均几乎必然钉在期望上；波动的尺度是 $1/\sqrt{n}$，标准化之后走向正态。</p><footer>—— 据 Durrett, Probability: Theory and Examples, 选章；Wooldridge, Econometric Analysis of Cross Section and Panel Data, 开篇整理</footer></div><p>上一课<a href="/econ/conditional-expectation-econ">条件期望</a>处理「给定信息之后的均值」。宏观加总、大市场、抽样推断问的是另一件事：许多类似的随机项加在一起，还剩多少随机性。缺口是大数定律（LLN）与中心极限定理（CLT）。本课只留后课用的陈述：个体风险可否被加总冲掉、估计量为何不退化成常数。不写成概率论章节汇编，也不做计量识别。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(X_i\) 独立同分布、\(\mathbb{E}|X_1|\lt \infty\)，则 \(\bar X_n\to\mathbb{E}X_1\) 几乎必然（Kolmogorov 强 LLN）。有限二阶矩时，弱 LLN 用 Chebyshev 即可：\(\mathrm{Var}(\bar X_n)=\sigma^2/n\to 0\)。宏观含意：连续统或大量独立家庭的人均消费收敛到期望，个体冲击不进入总量。相关不能任意：完全相关时平均仍是一个冲击；弱相关、混合条件下 LLN 仍可成立，完全保险或共同因子则留下系统部分。后课风险分担、不完全市场会用这条对照，本课先把独立情形钉死。</p><p>CLT：\(\mathbb{E}X_1^2\lt \infty\) 时 \(\sqrt{n}(\bar X_n-\mu)\Rightarrow N(0,\sigma^2)\)。加总后的剩余不确定性按 \(1/\sqrt{n}\) 缩小，形状变正态。计量里估计量的标准误来自这里。宏观若只关心确定性等价总量，LLN 够用；若关心有限 \(N\) 经济的波动尺度，CLT 给阶。</p><h3 id="lln-不是「样本大了就等于期望」的口号" tabindex="-1">LLN 不是「样本大了就等于期望」的口号 <a class="header-anchor" href="#lln-不是「样本大了就等于期望」的口号" aria-label="Permalink to &quot;LLN 不是「样本大了就等于期望」的口号&quot;">​</a></h3><p>几乎必然收敛允许一个零测的坏 \(\omega\)，有限 \(n\) 仍有偏差。没有矩，LLN 可失败（Cauchy 没有均值）。同分布可放松到独立不同分布的三角阵，但方差要均匀可积一类条件。把任意时间序列的样本均值直接当期望，忽略单位根与强依赖，是后课宏观计量的陷阱，不是本课批准的用法。</p><p><span class="marginnote">连续统经济把下标换成 \([0,1]\) 上的积分。严谨做法要用本质定律或 Fubini，把 idiosyncratic 冲掉。口头「积分掉个体冲击」默认的就是 LLN。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>独立是最强假设。条件独立、鞅差序列有对应的 LLN/CLT，后课理性预期残差正交时常走鞅差 CLT。本课只要求会认：需要哪条矩、是否独立、收敛是 a.s. 还是依分布。依分布（CLT）不给出路径最终贴住均值，只给出 \(n\) 大时的近似律；强 LLN 才说路径贴住。</p><p>与条件期望的衔接：\(\mathbb{E}[X_i\mid Z]\) 仍随机。对 \(i\) 加总时，若给定 \(Z\) 条件独立，条件 LLN 把平均钉在 \(\mathbb{E}[X\mid Z]\) 上，总量仍随 \(Z\) 动。共同冲击 = 条件均值那一层，不被 \(n\) 冲掉。这是「加总只能消灭特有风险」的概率写法。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>独立让方差相加、交叉项期望为零，平均的方差以 \(1/n\) 下降。Chebyshev 把方差变成概率界，这是弱 LLN。强 LLN 要用截尾与 Borel–Cantelli，本课不证。CLT 来自特征函数展开：标准化和的对数特征函数走到 \(-t^2\sigma^2/2\)。经济学用结论：特有风险可分、推断要 \(\sqrt{n}\) 率。</p><p>均衡里若价格已经依赖于经验分布，个体不再真正独立（通过价格耦合）。大市场极限用 LLN 把经验分布换成期望分布，得到确定性价格；有限 \(N\) 的随机价格是另一层。本课只提供极限工具，不写核等价或均值场博弈。</p><p><span class="marginnote">正态近似在厚尾、小 \(n\)、强偏斜时差。有限四阶矩给出 Berry–Esseen 型误差阶，主干不必记常数。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不证特征函数，不把 GARCH、单位根、聚类标准误写进来。不要用 CLT 给 CAPM 横截面回归当实证课。下一课离开「许多拷贝的平均」，改比较<strong>两条分布</strong>：随机占优。那是偏好与风险课的数学入口，不是推断。</p><p>后课默认：独立特有冲击在加总中消失；共同冲击留下；\(\sqrt{n}\) 给出抽样波动的阶。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>强 LLN：i.i.d. 可积则样本均值 a.s. 到期望。</li><li>CLT：有限方差则 \(\sqrt{n}\) 偏差依分布到正态。</li><li>加总消灭特有风险，消灭不了共同因子。</li><li>通过价格耦合的个体只在大市场极限里近似独立。</li><li>下一课：<a href="/econ/stochastic-order-prep">随机占优预备</a>。</li><li>出处：Durrett, <em>Probability</em>；Wooldridge 开篇。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 概率够用的一层<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 20 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/stochastic-order-prep/">随机占优预备</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

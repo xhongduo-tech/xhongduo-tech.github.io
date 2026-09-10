@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>In-context Learning 的诱导回路 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_icl-induction-circuit.md.ONJGGFEp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 9 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/induction-heads/">Induction Heads 归纳头</a></p><p class="lesson-next"> 下一课：<a href="/llm/attribution-graphs/">Attribution Graphs 归因图</a></p></nav><div style="position:relative;"><div><h1 id="in-context-learning-的诱导回路" tabindex="-1">In-context Learning 的诱导回路 <a class="header-anchor" href="#in-context-learning-的诱导回路" aria-label="Permalink to &quot;In-context Learning 的诱导回路&quot;">​</a></h1><div class="epigraph"><p>诱导头是一类注意力头，实现一种简单算法：把形如 [A][B] … [A] 的序列补成 [B]。</p><footer>—— Olsson et al., In-context Learning and Induction Heads, Transformer Circuits Thread / arXiv:2209.11895, 2022</footer></div><p>上下文学习（in-context learning, ICL）指模型在前向里根据当前提示里的示例调整预测，而不改权重。GPT-3 把这一现象做成了公开事实：同一组参数，提示里多几个示范，下游任务就能换。机制解释长期缺位。Olsson、Elhage、Nanda 等人在 Anthropic 的 Transformer Circuits 线索里提出：两层注意力即可组成一条「诱导回路」（induction circuit），其核心构件是诱导头（induction head）。小模型上有因果证据，大模型上有时间对齐与消融的间接证据。本篇只写这条回路是什么、如何在残差流里接力、以及它解释 ICL 的边界。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归损失随序列位置下降，是 ICL 的操作定义之一：越往后，模型越能利用已经出现过的模式。这和「在权重里记住某条事实」不同。后者是参数记忆；前者是把当前上下文当临时程序。Brown 等人展示了 few-shot 提示有效，却没有指出是哪一类子计算在复制模式。若没有可检验的内部对象，ICL 只能停留在行为描述。</p><p>诱导回路要回答的是更窄的问题：给定前文出现过 <code>[A][B]</code>，当再次遇到 <code>A</code> 时，模型如何把 <code>B</code> 的 logits 抬起来。这是模式补全，不是语义推理。Olsson 等人的主张是：大量所谓「上下文学习」在机制上就是这种补全的模糊版本——<code>[A*][B*] … [A] → [B]</code>，其中 <code>A*</code> 与 <code>A</code> 在某个空间相近。</p><h3 id="一层注意力做不到前缀匹配" tabindex="-1">一层注意力做不到前缀匹配 <a class="header-anchor" href="#一层注意力做不到前缀匹配" aria-label="Permalink to &quot;一层注意力做不到前缀匹配&quot;">​</a></h3><p>单层注意力头可以做「把上一位置的值抄过来」，也可以做「按内容寻址当前 token」。要把「当前 token 等于历史上某个 token」与「那个 token 的后继是什么」拼起来，至少需要两次注意力的组合：第一次把前一 token 的身份写进当前位置，第二次用这个身份去匹配更早的前缀。Elhage 等人在 <em>A Mathematical Framework for Transformer Circuits</em>（2021）里已经在两层纯注意力模型中拆出这条组合；一层模型里找不到真正的诱导头。</p><p><span class="marginnote">把 ICL 等同于「提示里有示例所以会做任务」会漏掉机制。示例可以当示范，也可以当可复制的 n-gram。诱导回路解释的是后者如何在注意力里落地；任务抽象、指令遵循还需要别的电路，不能把 few-shot 的全部增益记在诱导头上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准诱导回路由两个注意力头接力。设当前 token 为 \(A\)，历史上曾出现 \(A\,B\)。</p><p>第一头是「前一 token 头」（previous-token head）：在位置 \(t\) 主要关注 \(t-1\)，把 \(t-1\) 的表示写进 \(t\) 的残差。于是位置 \(B\) 上带着「我前面是 \(A\)」的信息。第二头是诱导头本身：在新的 \(A\) 上，查询去匹配那些「前面是 \(A\)」的位置，也就是历史上的 \(B\)；再把 \(B\) 的值抄到当前输出，抬高再次预测 \(B\) 的概率。算法写出来就是 \([A][B]\ldots[A]\to[B]\)。</p><h3 id="分数上的位移注意力" tabindex="-1">分数上的位移注意力 <a class="header-anchor" href="#分数上的位移注意力" aria-label="Permalink to &quot;分数上的位移注意力&quot;">​</a></h3><p>诱导头的查询-键几何常表现为一种「位移」：当前位置的查询与「前一位置的键」对齐，而不是与同一位置对齐。这和普通的相同 token 复制头不同。复制头把 \(A\) 抄到 \(A\)；诱导头在第二次遇到 \(A\) 时去抄 \(B\)。训练早期先出现复制与前一 token 行为，随后两者组合成诱导。Olsson 等人用注意力分数对「前一位置是否等于当前 token」的相关性来打分，把高分头标成诱导头候选。</p><p>在更大、带 MLP 的模型里，同一算法可以模糊化：匹配的是近邻而不是精确 token，值通路也可以经过 MLP 改写。此时不再要求注意力图看起来像严格的对角线位移，但因果角色仍是「根据前缀去取后继」。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>从残差流看，诱导是 QK 电路与 OV 电路的分工。QK 决定看谁：诱导头的 QK 实现前缀匹配。OV 决定抄什么：把被匹配位置上的后继 token 信息写进当前 logits。两层之间的组成发生在残差相加里——第一头的输出成为第二头的键或查询的一部分。这正是 Elhage 框架里「头与头组成」的典型例子。</p><h3 id="与损失突跳的时间对齐" tabindex="-1">与损失突跳的时间对齐 <a class="header-anchor" href="#与损失突跳的时间对齐" aria-label="Permalink to &quot;与损失突跳的时间对齐&quot;">​</a></h3><p>Olsson 等人给出六条互补证据，其中最醒目的是训练动力学：诱导头在训练中突然成形的时刻，与「损失随 token 下标下降」这一 ICL 指标的突跳重合。小的纯注意力模型上，敲掉诱导头会摧毁上下文学习；大模型上消融仍显著伤害模式续写，但对自然语言的伤害是相关而非完全充分。也就是说，诱导回路是 ICL 的一个主要机械来源，不是唯一来源。</p><p><span class="marginnote">「头」是实现单元，不是任务名称。同一个注意力头可以既诱导又做别的事；同一条 ICL 行为也可以由多头并行承担。把某个 head index 永久贴上「诱导」标签，只在特定检查点、特定度量下成立。</span></p><p>模糊诱导把精确复制推广到语义近邻：提示里是 <code>positive → 好评</code>，测试是 <code>negative → ?</code>，头可以按「标签槽」而不是按表面字符串去取。这已经接近 few-shot 分类。但要从「复制后继」走到「执行未在权重里出现过的算法」，中间仍有一层任务抽象，目前没有被诱导回路单独证完。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>因果证据的强度随模型变弱。两层注意力模型可以近乎完全归因；GPT 规模模型只能做相关、消融与注意力可视化。MLP、多层叠加、以及多头同时匹配，都会让「这一头就是 ICL」的叙事过满。实践上更稳妥的说法是：诱导回路解释了 ICL 里那部分「看前文找同类前缀、抄后继」的计算，并解释了为什么 ICL 能力会在训练中突然抬头。</p><p>评测时不要只用自然语言准确率。应同时看：重复 n-gram 的续写、随机字符串的 few-shot 复制、以及把诱导头零化后这两类任务的掉点。自然语言掉点小、复制任务掉点大，说明回路在，但日常能力已被别的电路稀释。</p><p><span class="marginnote">诱导头依赖因果掩码下的过去上下文。把同一套分析套到双向编码器上，前一 token 头的定义会变。解码器-only 语言模型是这条回路被写清楚的原产环境。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>诱导回路用「前一 token 头 + 诱导头」实现 \([A][B]\ldots[A]\to[B]\) 的模式补全，是 ICL 的一条可检验内部机制。</li><li>一层注意力无法完成前缀匹配与后继复制的组合；两层组成是最小实现。</li><li>QK 负责找谁，OV 负责抄什么；模糊匹配把精确 n-gram 推广到近邻槽位。</li><li>训练中诱导头出现的时刻与 ICL 指标突跳对齐；小模型上有因果消融，大模型上是强相关。</li><li>不要把全部 few-shot 任务抽象都算进诱导头；它解释复制与模式续写，不自动解释任意算法执行。</li><li>出处：Olsson et al., <em>In-context Learning and Induction Heads</em>, Transformer Circuits Thread, 2022（arXiv:2209.11895）；回路分解见 Elhage et al., <em>A Mathematical Framework for Transformer Circuits</em>, 2021。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 9 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/attribution-graphs/">Attribution Graphs 归因图</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

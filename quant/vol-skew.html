@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Skew 与 Smile | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_vol-skew.md.B1FJ2-f-.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 9 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/vol-surface/">隐含波动率曲面</a></p><p class="lesson-next"> 下一课：<a href="/quant/dupire/">Dupire 局部波动</a></p></nav><div style="position:relative;"><div><h1 id="skew-与-smile" tabindex="-1">Skew 与 Smile <a class="header-anchor" href="#skew-与-smile" aria-label="Permalink to &quot;Skew 与 Smile&quot;">​</a></h1><div class="epigraph"><p>1987 年之后，同一到期日的隐含波动率不再是一条水平线：股票指数上虚值看跌贵、虚值看涨相对便宜，切片呈现偏斜；外汇上则更常看到两端翘起的微笑。</p><footer>—— Rubinstein, Implied Binomial Trees, Journal of Finance, 1994</footer></div><p>Black-Scholes 假定单一 \(\sigma\)，隐含波动应对所有执行价相同。经验不是这样。1987 年股灾之后，S&amp;P 等指数期权的虚值看跌隐含波动显著高于平值，形成负偏斜（skew）；外汇与部分个股短到期更接近对称微笑（smile）。Rubinstein（1994）用隐含二项树从切片抽出风险中性密度，发现崩盘后左尾变肥。Merton（1976）的跳跃、Heston（1993）的随机波动、Bates 的跳加随机波动，都是为这一形状服务的动力学。偏斜不是「市场算错了 Black-Scholes」，而是 \(\mathbb{Q}\) 下 \(S_T\) 不是对数正态。本篇写形状的度量与经济来源，曲面的插值与无套利见 <a href="/quant/vol-surface">隐含波动率曲面</a>，把切片变成 \(\sigma(S,t)\) 见 <a href="/quant/dupire">Dupire</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定 \(T\)，把 \(\sigma_{\mathrm{imp}}\) 对 \(K\) 或对 \(k=\ln(K/F)\) 作图。若函数不是常数，Black-Scholes 的单一对数正态被拒绝。要回答三件事：形状如何度量（斜度、凸度、翼）；它随 \(T\) 怎样变（短端陡、长端平是典型期限结构）；何种机制能在无套利下生成它。机制候选包括：杠杆与负相关（股价跌则波动升）、崩盘恐惧与跳风险溢价、需求压力（组合保险买虚值看跌）、以及局部波动把密度扭曲成与切片一致。这些机制对香草可以给出相近切片，对障碍、远期起动与方差互换的价格与对冲却分歧，所以「拟合了微笑」不等于「模型对」。</p><p>风险中性密度相对对数正态的左尾更肥，表现为低执行价 \(\sigma_{\mathrm{imp}}\) 更高。右尾在指数上通常不那么肥，故不是对称微笑。外汇因为两边都能暴动，更对称。个股还叠加借券费与破产跳跃，偏斜可以更陡。</p><h3 id="度量-斜度、风险反转与蝶式" tabindex="-1">度量：斜度、风险反转与蝶式 <a class="header-anchor" href="#度量-斜度、风险反转与蝶式" aria-label="Permalink to &quot;度量：斜度、风险反转与蝶式&quot;">​</a></h3><p>经验上常用 25-delta 风险反转 \(\sigma_{25P}-\sigma_{25C}\) 表示斜度，蝶式 \((\sigma_{25P}+\sigma_{25C})/2-\sigma_{\mathrm{ATM}}\) 表示凸度。股票上斜度为负且大。对 \(k\) 的导数 \(\partial\sigma_{\mathrm{imp}}/\partial k\) 在 ATM 附近与风险中性偏度相联系（Bergomi-Guyon 一类展开），但只在短期限、近 ATM 的渐近里干净。远翼要用 Lee 的矩公式，不能把 ATM 斜度直线拉到 \(k=\pm 2\)。Rubinstein 的隐含树给出整段密度，比单看两个 delta 点完整，但对插值假设敏感。</p><p><span class="marginnote">把「skew」说成历史收益率的偏度，是另一组统计量。隐含偏斜是 \(\mathbb{Q}\) 的对象，含风险溢价。1987 年后实现偏度也变了，但隐含左尾通常比历史左尾更肥，差的部分是崩盘溢价。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>跳跃：Merton（1976）让 \(S\) 乘上泊松到达的随机因子，风险中性密度立刻有肥尾；短到期微笑最陡，因为扩散来不及，跳贡献占主导。Bates（1996）在货币期权上把跳与随机波动合在一起，短端靠跳、长端靠波动均值回复。随机波动：Heston 的 CIR 方差、\(\rho\lt 0\) 的杠杆相关，生成负偏斜；均值回复使长到期切片变平。局部波动：\(\sigma(S,t)\) 随 \(S\) 下降也能生成负偏斜，且可精确拟合当日所有欧式，但当 \(S\) 下跌时局部波动的未来切片会朝错误方向移动（著名的 sticky-delta / sticky-strike 与局部波动动态的冲突）。</p><p>混合是实践：短端跳或粗糙波动，长端随机波动，再用局部乘子贴残差。校准目标是切片上的 \(\sigma_{\mathrm{imp}}\)，不是历史 \(\mathrm{d}S\) 的矩；历史矩属于 \(\mathbb{P}\)。也可以先用 Breeden-Litzenberger 抽出密度，再讨论密度的偏度峰度，而不立刻选模型。</p><h3 id="期限结构与粘性规则" tabindex="-1">期限结构与粘性规则 <a class="header-anchor" href="#期限结构与粘性规则" aria-label="Permalink to &quot;期限结构与粘性规则&quot;">​</a></h3><p>短 \(T\) 的偏斜通常更陡：要在两周内产生大的左尾，需要跳或极高的瞬时波动。长 \(T\) 被均值回复稀释。交易员用 sticky strike（\(K\) 固定时 \(\sigma_{\mathrm{imp}}\) 暂不变）或 sticky delta（按 \(k\) 固定）作为对冲经验规则；这些规则与无套利动态一般不相容，只是局部启发式。Hagan 指出 SABR 的动态接近 sticky delta，而 Dupire 局部波动接近另一种错误的 sticky 行为，这是路径产品对模型敏感的来源。检验模型不能只看今日拟合，还要看 \(S\) 移动后切片如何搬。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>对数正态下，\(K\) 变只改变支付，不改变用来折现的波动参数。市场改变参数，等于说不同执行价「看见」不同的风险中性分布切片——其实是同一分布的不同积分，却被 Black-Scholes 错误坐标系读成不同 \(\sigma\)。负偏斜的经济内容是：下跌状态的状态价格更贵，要么因为那些状态概率更高（跳、杠杆），要么因为那些状态边际效用更高（风险溢价）。二者在欧式上无法分离，这是 \(\mathbb{Q}\) 与 \(\mathbb{P}\) 的老问题。指数看跌的需求（基金买保护）可以把溢价推得更高，形状里有「保险溢价」而不只是动力学。</p><p>凸性（smile 的 U 形）来自峰度：两边尾都比对数正态肥。纯跳对称、纯杠杆偏斜、二者叠加得既斜又弯。Rubinstein 发现崩盘后密度在低行权价出现额外质量，与「一次大跳」叙事一致，也与「波动在跌市中上升」一致。单凭切片不能判决。障碍期权、方差互换与远期波动协议才把动态暴露出来：局部波动通常低估 down-and-out 一类对路径的敏感，随机波动对 vanna、volga 的记账不同。</p><p><span class="marginnote">「市场在用错误的 Black-Scholes」这种说法容易误导。市场用 Black-Scholes 当计算器报 \(\sigma_{\mathrm{imp}}\)，定价内核早已不是常数 \(\sigma\)。偏斜是坐标系里的形状，不是有人不会积分。</span></p><div class="mermaid"></div><h3 id="杠杆、需求与风险溢价无法用切片拆开" tabindex="-1">杠杆、需求与风险溢价无法用切片拆开 <a class="header-anchor" href="#杠杆、需求与风险溢价无法用切片拆开" aria-label="Permalink to &quot;杠杆、需求与风险溢价无法用切片拆开&quot;">​</a></h3><p>\(\rho\lt 0\) 的杠杆、虚值看跌的配置需求、崩盘状态的高边际效用，在欧式价格上可以给出相近的负偏斜。要分开它们需要 \(\mathbb{P}\) 上的实现偏度、期权持仓或方差互换的风险溢价估计，单凭 \(\sigma_{\mathrm{imp}}(K)\) 不够。指数与个股也不同：指数偏斜部分来自成分股跳跃的相关，个股还叠加破产与借券。把某一交易日的风险反转直接叫做「杠杆系数 \(\rho\)」，是把校准参数当成了因果分解。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>切片是边际。美式个股期权的隐含波动混了提前行权，偏斜会被股利与利率扭曲。借券费使合成远期偏离，虚值看跌与看涨的反解不一致，看起来像偏斜其实是持有成本。买卖价差在远翼可以「创造」假微笑。短到期的隔夜期权对跳极度敏感，模型若无跳就只能把瞬时波动推到不合理的水平。</p><p>历史偏度、隐含偏斜、实现偏度三者不要互相代替。用历史收益率去「验证」Heston 的 \(\rho\)，是 \(\mathbb{P}\) 估计；用期权校准的 \(\rho\) 是 \(\mathbb{Q}\)。符号通常同为负，数值不必相等。Rubinstein 1994 年的隐含树依赖当日无套利插值，不是唯一的密度估计器。Bates 的论文对象是马克外汇期权，把系数直接贴到今日的 S&amp;P 不成立。</p><p><span class="marginnote">Heston（1993）给出随机波动的闭式特征函数，是微笑模型的工作马，但它的短端偏斜往往不够陡，这才需要跳或粗糙波动。拟合失败时不要只加参数，先看是短端还是长端在拒绝。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>隐含波动随执行价变化，常数 \(\sigma\) 被拒绝；指数多为负偏斜，外汇多为微笑。</li><li>1987 年后左尾状态价格上升；Rubinstein 的隐含树显示肥左尾。</li><li>跳解释短端陡峭，随机波动加负相关解释期限结构，局部波动精确拟合当日欧式但动态差。</li><li>风险反转与蝶式是切片的交易度量；翼部受矩约束，不能直线外推。</li><li>欧式切片不决定过程；障碍与波动产品才能区分模型。</li><li>\(\mathbb{Q}\) 偏斜含风险溢价，不可等同于历史收益率偏度。</li><li>出处：Rubinstein, <em>Journal of Finance</em>, 1994；Merton, <em>JFE</em>, 1976；Heston, <em>RFS</em>, 1993；Bates, <em>RFS</em>, 1996。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 9 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/dupire/">Dupire 局部波动</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

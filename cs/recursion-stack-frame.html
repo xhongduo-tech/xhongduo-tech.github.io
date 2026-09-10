@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>递归与栈帧 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_recursion-stack-frame.md.Bs-fFgD2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 8 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/calling-convention-preview/">调用约定直觉</a></p><p class="lesson-next"> 下一课：<a href="/cs/undefined-behavior/">未定义行为</a></p></nav><div style="position:relative;"><div><h1 id="递归与栈帧" tabindex="-1">递归与栈帧 <a class="header-anchor" href="#递归与栈帧" aria-label="Permalink to &quot;递归与栈帧&quot;">​</a></h1><div class="epigraph"><p>每一次尚未返回的调用都占一帧；递归把同一函数的许多帧叠在栈上，深度就是还没付清的调用次数。</p><footer>—— 据 Bryant and O&#39;Hallaron, Computer Systems: A Programmer&#39;s Perspective；Kernighan &amp; Ritchie, The C Programming Language, 2nd ed. 整理</footer></div><p>上一课<a href="/cs/calling-convention-preview">调用约定直觉</a>钉死了：一次调用靠 ABI 交接参数与返回地址。本课不重讲寄存器表，也不从数学归纳法另起。缺口是：同一函数被再次进入时，<strong>旧的局部变量到哪去了</strong>？为何递归能「同时」拥有许多份 <code>n</code>，以及这份能力的上限在哪。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>调用约定已经保证：进入 callee 时有新的参数槽与返回地址。递归只是 callee 碰巧等于 caller 的函数。每一层仍按同一协议建帧：局部自动变量、保存的寄存器、返回地址。缺口因此不是「递归语法」，而是<strong>帧与调用一一对应</strong>：尚未返回的调用次数等于活着的帧数；返回时只弹出最上面一帧，外层的局部完好。</p><p>把递归理解成「函数改自己的全局状态」会立刻写错：那是在静态存储上叠状态，层与层互相踩。栈帧给出的是按深度隔离的自动存储。树遍历、分治、表达式求值都靠这一隔离；它们的共同点是等待子调用返回后再用本层的局部。</p><h3 id="递归不是「比较慢的循环」" tabindex="-1">递归不是「比较慢的循环」 <a class="header-anchor" href="#递归不是「比较慢的循环」" aria-label="Permalink to &quot;递归不是「比较慢的循环」&quot;">​</a></h3><p>循环在同一帧里改局部；递归每层一帧，额外付出调用与返回。尾递归在某些语言里可以复用帧，C 并不保证这种消除。把递归等价于循环，会看不见栈上限：循环计数器溢出是整数问题，递归过深是栈溢出，两者的失败模式不同，后课未定义行为与信号会分开处理。</p><p><span class="marginnote">CSAPP 用栈帧图解释递归阶乘与深调用。K&amp;R 指出自动变量在每次进入时新生。本课不把 Y 组合子或闭包转换请进来，那是另一套编译课。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一帧通常含：返回地址、callee-saved 寄存器、局部与临时、对齐填充、可能的溢出参数区。递归深度 \(d\) 则栈上约有 \(d\) 帧。帧大小由局部数组与编译器决定，不由「递归」这个词决定：局部若有大数组，几层就会碰上限。</p><div class="mermaid"></div><p>基准情形必须在有限步内到达，否则帧一直增长直到栈耗尽。互相递归只是若干函数交替建帧，机制相同。通过指针把本层局部交给子调用是合法的，只要子调用返回前不用这些指针——寿命规则下一课才总括，本课先看见：子帧活着时，父帧也还活着。</p><p>互递归、间接递归（经函数指针）不改变「一调用一帧」。函数指针让 callee 在运行时才确定，帧的大小按真正进入的那个函数来。可变长度局部数组让帧大小成为运行时量，栈预算更难在编译期看见。这些都是深度资源的变体。后课把越出帧寿命、越出对象边界的事收成未定义行为；栈映射本身耗尽则通常先变成操作系统终止，程序员不能把它当成返回码来检查。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>栈向固定方向增长（常见向低地址）。操作系统给的栈资源有上限，越过则典型地收到信号或直接终止。这与堆的 <code>malloc</code> 失败不同：栈扩展往往不可在用户代码里「检查返回值」。因此递归算法必须有深度预算，或改成显式堆上的栈/队列。</p><p>同一函数的不同帧可以别名吗？可以，若你把内层指针传到外层并在返回后使用——那时内层已死。活着的嵌套期间，内层指向外层局部是常见模式（输出参数）。帧提供隔离，指针可以主动打破隔离；打破之后寿命由程序员负责。</p><p>调试器里看到的回溯，正是这些尚未返回的帧串成的链：每一行对应一个返回地址槽。优化后的尾调用可能复用帧，回溯变短，源码里的「递归」在机器上变成跳转——C 不保证发生。相反，未优化时过大的局部数组会让两三次调用就耗尽映射。本课把深度当资源：算法选递归，等于选了栈预算。后课未定义行为会把「用完已经返回的帧」收成悬挂；溢出栈本身通常先变成操作系统信号，再表现为崩溃，而不是一个有定义的错误码。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲协程如何把帧搬到堆上，不讲内联如何消去调用。下一课<a href="/cs/undefined-behavior">未定义行为</a>把「越出抽象机器」总括成语言契约。后课默认：每次调用一帧；递归深度受栈限制；返回后该帧上的自动对象结束寿命。</p><p>基准情形必须在源码里可见且可达，不能靠「栈总会用完」当终止条件。深度由输入决定时，要在进入递归前检查预算，或改成堆上的显式栈。帧图与调用约定一致：返回只弹出当前层，外层局部仍在。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>尚未返回的调用各占一帧；递归是同一函数的多层帧。</li><li>层与层的局部互不覆盖，除非用指针主动共享。</li><li>深度受栈上限约束，失败模式不同于循环。</li><li>下一课把越界、溢出、非法指针收成未定义行为。</li><li>出处：CSAPP 栈帧；K&amp;R 自动变量的寿命。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 8 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/undefined-behavior/">未定义行为</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

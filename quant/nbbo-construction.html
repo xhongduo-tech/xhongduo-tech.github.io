@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NBBO 构造 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_nbbo-construction.md.D8bnXvfd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 交易所与数据源对照<!--[--> · 单元 行情契约<!--]--><!--[--> · 课序 馈送与时钟<!--]--></p><p class="lesson-progress">第 4 / 5 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ptp-gps-sync/">PTP / GPS 对时</a></p><p class="lesson-next"> 下一课：<a href="/quant/trace-corporate-bond/">TRACE 公司债成交报告</a></p></nav><div style="position:relative;"><div><h1 id="nbbo-构造" tabindex="-1">NBBO 构造 <a class="header-anchor" href="#nbbo-构造" aria-label="Permalink to &quot;NBBO 构造&quot;">​</a></h1><div class="epigraph"><p>全国最优买卖是保护报价在共同时钟上的逐事件包络。构造细节——哪些尺寸、是否含锁定、用哪一条馈送——会改变中点，从而改变每一笔有效价差。</p><footer>—— 据 Reg NMS 对保护报价与 NBBO 的定义；对照 Hasbrouck 对综合报价的经验处理</footer></div><p><a href="/quant/ptp-gps-sync">PTP / GPS 对时</a>给出了跨所时间能否相减。<a href="/quant/market-fragmentation">市场分割</a>给出了 NBBO 的设计含义。本课的缺口是算法：输入各所保护报价事件，输出 \((B_{\mathrm{N}}(t),A_{\mathrm{N}}(t))\)。Holders 与研究人员各自实现时，常在零股、锁定交叉、过时报价、SIP 与直连之间分叉。本课写可复述的构造步骤，使有效价差与 EMO 的「外侧」有定义。不重复碎片化的质量辩论。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>朴素算法：每个事件时刻，在所有场所的当前买价里取最大，卖价里取最小。立刻遇到：场所报价是否仍有效（未过期、未停牌）、尺寸是否达到 round lot、是否允许锁交叉进入包络、直连缺失的场所用什么填充。SIP 的官方 NBBO 已经做完这些选择；自己用直连拼，必须把选择写成代码注释。缺口是：论文里「我们用 NBBO 中点」若不可复述，ES 不可比。</p><p>过时报价：某所短暂停更新，朴素包络会把一个旧的最优买价一直留下，造成虚假交叉。需要心跳与过期规则。这与序号缺口相关：增量丢了却没过期，包络是错的。</p><h3 id="保护报价-全部可见报价" tabindex="-1">保护报价 ≠ 全部可见报价 <a class="header-anchor" href="#保护报价-全部可见报价" aria-label="Permalink to &quot;保护报价 ≠ 全部可见报价&quot;">​</a></h3><p>零股、某些非保护指令、未达到规则尺寸的报价，不进保护 NBBO，但仍可成交。构造保护 NBBO 时排除它们；构造「可交易合成最优」时可以纳入。两套都应能产出，并在表头写名字。用可交易最优去评估 trade-through，会把合法的非保护成交当成违规。用保护 NBBO 去评价零售改善，会把零股改善当成了不起的价格改善。</p><p><span class="marginnote">锁定（\(B=A\) 跨所）与交叉（\(B\gt A\)）在未校准时钟上更容易出现。构造前应对时；仍出现的锁交叉应保留为状态，而不是在代码里强制 \(B\lt A\) 把真实制度现象洗掉。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>事件驱动：每个场所维护当前保护买/卖及尺寸、序号、时间。事件到达（已对时）则更新该所，再重算包络。输出：NBBO、贡献场所、是否 lock/cross、保护深度（各所在最优价上的尺寸之和）。与 SIP 官方 NBBO 对照：分叉占比、分叉时差一个 tick 的占比。分叉来自延迟、来自尺寸规则、还是来自你漏买的场所，应能诊断。</p><p>中点 \(M=(B_{\mathrm{N}}+A_{\mathrm{N}})/2\) 在 lock 时仍有定义，在 cross 时几何崩溃。交叉期间有效价差应标缺失，或改用本所中点，不要输出负的报价价差当数据。开收盘拍卖期许多场所没有连续保护报价，NBBO 应标拍卖状态，而不是沿用前一连续报价。</p><h3 id="与方向分类、实现价差的接口" tabindex="-1">与方向分类、实现价差的接口 <a class="header-anchor" href="#与方向分类、实现价差的接口" aria-label="Permalink to &quot;与方向分类、实现价差的接口&quot;">​</a></h3><p>EMO 的 at-ask 是相对哪一个 \(A\)？保护 \(A_{\mathrm{N}}\) 还是本所 \(A\)？必须声明。实现价差的 \(M_{t+\tau}\) 必须与 \(M_t\) 同一构造，否则曲线形状来自中点定义漂移。多 \(\tau\) 曲线在拍卖处断开，构造算法要能输出「此刻无连续 NBBO」。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>NBBO 是规则输出，不是自然价格。它成为暗池中点锚、订单保护参照、有效价差分母。构造偏误会系统性改写市场质量：漏掉一个经常报价的场所，价差被估宽；未过期旧报价，价差被估窄甚至交叉。这与价差分解三项无关——你改的是会计的分母。先修设计课已经警告对照 SIP 还是直连；本课把警告变成可执行的事件循环。</p><p><span class="marginnote">不要在交叉的 NBBO 上估 <a href="/quant/roll-model">Roll</a>。Roll 需要买卖回跳的成交价；交叉的综合报价说明参照已经坏了，应回到本所成交价或等交叉解除。</span></p><div class="mermaid"></div><h3 id="拍卖时段应输出无连续-nbbo" tabindex="-1">拍卖时段应输出无连续 NBBO <a class="header-anchor" href="#拍卖时段应输出无连续-nbbo" aria-label="Permalink to &quot;拍卖时段应输出无连续 NBBO&quot;">​</a></h3><p>开收盘与波动再开盘，保护报价可能不存在或不应沿用前一连续口。构造器要打拍卖状态，有效价差改用集合会计。沿用旧包络会在开盘制造虚假交叉。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>没有 SIP 的市场，构造的是「你覆盖范围内的最优」，不要叫 NBBO。欧洲最佳执行不是单一法定 NBBO。下一课 TRACE 是债券打印，没有股票式包络可拼。加密聚合最优是网站行为，不是保护报价。</p><p><span class="marginnote">自己拼的直连包络与 SIP 官方 NBBO 分叉时，应诊断缺所、尺寸规则还是延迟，而不是挑选更漂亮的一条写进论文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>NBBO 构造是事件驱动的保护报价包络，规则必须可复述。</li><li>保护最优与可交易最优分开输出。</li><li>过期、停牌、拍卖状态要切断包络，禁止旧报价永驻。</li><li>交叉时中点缺失，不要硬算有效价差。</li><li>与 SIP 官方序列对照，用来诊断馈送与规则，而不是偷偷选更漂亮的一条。</li><li>出处：Reg NMS 对保护报价的定义；Hasbrouck 对综合报价的使用；零股与尺寸见 O&#39;Hara, Saar and Zhong。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 交易所与数据源对照<!--[--> · 单元 行情契约<!--]--><!--[--> · 课序 馈送与时钟<!--]--></p><p class="lesson-progress">第 4 / 5 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/trace-corporate-bond/">TRACE 公司债成交报告</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

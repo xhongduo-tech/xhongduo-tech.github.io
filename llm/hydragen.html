@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hydragen 共享前缀投机 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_hydragen.md.yQN6a0Mi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 推理系统续<!--[--> · 单元 投机与多 Token 服务<!--]--><!--[--> · 课序 解码加速<!--]--></p><p class="lesson-progress">第 13 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/llm/prefix-aware-autoscaling/">前缀感知扩缩容</a></p><p class="lesson-next"> 下一课：<a href="/llm/mtp-verify-loop/">MTP 验证闭环</a></p></nav><div style="position:relative;"><div><h1 id="hydragen-共享前缀投机" tabindex="-1">Hydragen 共享前缀投机 <a class="header-anchor" href="#hydragen-共享前缀投机" aria-label="Permalink to &quot;Hydragen 共享前缀投机&quot;">​</a></h1><div class="epigraph"><p>共享前缀上的注意力不要对每条序列各做一次矩阵-向量乘；把查询在序列间拼起来，前缀 KV 只读一遍，softmax 分块再按对数配分函数拼回。</p><footer>—— Juravsky, Brown, Ehrlich, Fu, Ré, Mirhoseini，Hydragen: High-Throughput LLM Inference with Shared Prefixes，arXiv:2402.05099</footer></div><p>分页缓存消掉的是<strong>存储</strong>上的重复前缀；FlashAttention 与 PagedAttention 在解码时仍对每条序列独立读那一段 \(K,V\)，带宽账按 batch 再乘一遍。Juravsky 等人的 Hydragen 消掉的是<strong>读取</strong>：把完整注意力拆成「共享前缀」与「各自分支后缀」两次计算，前缀侧把各序列当前查询拼成矩阵，一次矩阵-矩阵乘喂给 Tensor Core。数学上仍是精确的缩放点积注意力。树状共享——少样本根、题干、再分出许多候选——同一套分解沿树节点递归，这正是投机解码、自洽采样、竞赛编程里「一条前缀、许多草稿」的访存形态。本篇写这条核，不把它写成 Hydra 草稿头（那是 Medusa 系的另一篇论文）。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>解码一步 \(N_q=1\)、\(N_{kv}\gg 1\)，注意力是访存墙。批处理能把 MLP 变成矩阵乘，却不能提高注意力的算术强度：每条序列的 KV 不同，仍是许多独立的矩阵-向量乘。共享系统提示、少样本、或投机树的公共祖先，使各序列的 \(K,V\) 在前缀上逐 token 相同。Kwon 等人的 PagedAttention 让它们指向同一物理页，显存省了；核若仍按序列循环读页，HBM 流量并不省。Hydragen 要解决的是：在精确 softmax 的约束下，如何让前缀 KV 的每次加载被整个 batch 的查询摊销，并走上 Tensor Core。</p><p>投机验证把问题推得更尖。草稿树里，从根到各叶子的路径高度重叠；一次目标模型前向要对许多查询位置做注意力，它们共享祖先 KV。SpecInfer、Medusa 的树注意力已经在掩码上表达这种共享；若核不按树分解，验证阶段会把同一段前缀 KV 按候选条数重复读。Hydragen 的层次分解就是为这种树准备的，而不只是「聊天机器人共用系统提示」。</p><h3 id="分块-softmax-才能拆开再合并" tabindex="-1">分块 softmax 才能拆开再合并 <a class="header-anchor" href="#分块-softmax-才能拆开再合并" aria-label="Permalink to &quot;分块 softmax 才能拆开再合并&quot;">​</a></h3><p>softmax 的分母跨整段序列。把 \(K,V\) 切成前缀与后缀后，不能把两次注意力输出直接相加。Hydragen 借用 FlashAttention 的分块技巧：每次子计算额外留下对数配分 \(\mathrm{LSE}(Q,K)=\log\sum\exp(QK^\top/\sqrt{d})\)，再按</p> \[\mathrm{SDP}(Q,K,V)=\frac{O_1 e^{\mathrm{LSE}_1}+O_2 e^{\mathrm{LSE}_2}}{e^{\mathrm{LSE}_1}+e^{\mathrm{LSE}_2}} \]<p>拼回。这是恒等式，不是近似。树有更多节点时，沿节点做同样的加权合并即可。</p><p><span class="marginnote">Hydragen 与「前缀缓存」常被写成同一功能。缓存决定块在不在显存；Hydragen 决定注意力核怎么读这些块。只有缓存、没有分解，大 batch 长前缀时注意力仍会先于 MLP 成为墙。论文用 CodeLlama-13B 对 vLLM：前缀 16K 时端到端吞吐可到约 32× 量级，前缀从 1K 增到 16K 时 Hydragen 吞吐掉不到 15%，基线掉超过 90%——数字绑在大 batch 与 MHA 模型上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="前缀一次、后缀仍按序列" tabindex="-1">前缀一次、后缀仍按序列 <a class="header-anchor" href="#前缀一次、后缀仍按序列" aria-label="Permalink to &quot;前缀一次、后缀仍按序列&quot;">​</a></h3><p>对 batch 内共同前缀，把各序列当前 query（投机树里则是该节点上的所有查询）拼成 \(Q_{\mathrm{pref}}\in\mathbb{R}^{B\times d}\)，对单一份 \(K_{\mathrm{pref}},V_{\mathrm{pref}}\) 做注意力，得到 \(O_{\mathrm{pref}}\) 与 \(\mathrm{LSE}_{\mathrm{pref}}\)。后缀 KV 互不相同，仍走普通解码核（论文实现用 xformers 的 Triton 核以支持变长）。最后按上式合并。层次情形：每个树节点对其全体子孙的查询做一次批处理注意力，节点 KV 只读一遍。</p><p>实现可以很薄。作者强调非层次输入甚至不必写自定义 CUDA：前缀走 <code>flash-attn</code>，后缀走变长核，再写一个合并 LSE 的 Triton 核。这与 PagedAttention 必须改读块表的核不同。代价是：前缀必须真正逐 token 相同（含位置）；树的划分要与调度器一致，否则「共享」只存在于故事里。</p><h3 id="何时端到端会动" tabindex="-1">何时端到端会动 <a class="header-anchor" href="#何时端到端会动" aria-label="Permalink to &quot;何时端到端会动&quot;">​</a></h3><p>注意力必须已经是墙。小 batch、短前缀、模型读权重才是瓶颈时，Hydragen 几乎无感。GQA/MQA 缩小 KV 后，同样长度下注意力更轻，加速比下降，但更小的 KV 允许更大 batch，而加速比随 batch 与前缀长度涨——论文把这条权衡写清楚了。后缀很长时，未优化的那一半重新主导，树应在共享深层切，而不是只切一个全局系统提示。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="算术强度从哪来" tabindex="-1">算术强度从哪来 <a class="header-anchor" href="#算术强度从哪来" aria-label="Permalink to &quot;算术强度从哪来&quot;">​</a></h3><p>前缀注意力的 \(N_q\) 从 1 变成 batch（或该节点的子孙查询数）。同一 \(K_{\mathrm{pref}}\) 的元素被多次乘加，算术强度上升，Tensor Core 可参与。HBM 上前缀 KV 的读次数从 \(O(B)\) 降到 \(O(1)\)（对该核而言）。后缀不变，所以总加速被「前缀长度 / 全长」限制。投机树浅而宽（许多候选、公共前缀长）时，Hydragen 的杠杆最大；深而分叉早的树，共享段短，接近基线。</p><p>与 Medusa/EAGLE 的关系是互补：那些方法决定<strong>猜哪些 token</strong>；Hydragen 决定<strong>验证这些 token 时注意力怎么算</strong>。DeepSeek-V3 的 MTP 草稿很浅（\(D=1\)），共享前缀几乎是整段已接受上下文，验证时 batch 内多请求若还共享系统提示，可以两级叠加：请求间 Hydragen，请求内 MTP 链。不要把 Hydragen 的 32× 吞吐写成投机算法的接受率。</p><p><span class="marginnote">CodeLlama-13B 用多头注意力，KV 比 GQA 的 Llama-3 更「重」，论文数字偏乐观于现代 GQA 服务栈。引用时应写模型与是否 GQA，以及 batch、前缀、后缀长度。APPS 竞赛编程上层次共享相对单级再减约 55% 评测时间，说明树分解不是玩具。</span></p><h3 id="精确性边界" tabindex="-1">精确性边界 <a class="header-anchor" href="#精确性边界" aria-label="Permalink to &quot;精确性边界&quot;">​</a></h3><p>合并公式在 fp16/bf16 下与普通注意力一样要防 LSE 溢出，通常做相对最大值。因果掩码：前缀内部已是因果算完的 KV，解码步的查询对前缀全可见，对后缀因果。树注意力还要屏蔽「不能看见兄弟草稿」的位置——那是掩码问题，Hydragen 的分解必须在掩码切分后的块上做，否则会泄漏未接受的草稿 token。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Hydragen 不替代分页与基数树：没有共享存储，批处理前缀注意力还要把前缀 KV 在逻辑上当成一份。它也不近似：不要写成「牺牲质量换速度」。产品若 batch 常年是个位数，优先 GQA、量化、投机草稿质量，而不是先上 Hydragen。自定义注意力（MLA、稀疏）需要把分解接到对应核上，不能假设 <code>flash-attn</code> 的 MHA 接口直接等于 MLA 的 576 维。</p><p>与 Hydra（Ankner 等，顺序相关的 Medusa 头）只是名字接近。写文献相关工作时点明：一篇优化共享前缀的<strong>精确注意力实现</strong>，一篇优化草稿头的<strong>投机质量</strong>。</p><p><span class="marginnote">出处：Juravsky 等，<em>Hydragen</em>，arXiv:2402.05099，代码 jordan-benjamin/hydragen。对照 Kwon 等 PagedAttention；Dao 等 FlashAttention；投机树见 SpecInfer / Medusa。ICLR/NeurIPS 投稿条目以 OpenReview 为准，引用 arXiv 即可。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Hydragen 把共享前缀与独有后缀的注意力拆开，用 LSE 精确合并，前缀侧跨序列批处理查询。</li><li>省的是前缀 KV 的重复读取与矩阵-向量，不是另一套注意力公式。</li><li>层次分解对准投机树、少样本加多候选等树状共享。</li><li>加速随 batch 与前缀长度涨；短前缀、GQA、小 batch 时杠杆变小。</li><li>与草稿算法正交：Hydragen 加速验证时的注意力核。</li><li>出处：Juravsky 等，arXiv:2402.05099。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 推理系统续<!--[--> · 单元 投机与多 Token 服务<!--]--><!--[--> · 课序 解码加速<!--]--></p><p class="lesson-progress">第 13 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/mtp-verify-loop/">MTP 验证闭环</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

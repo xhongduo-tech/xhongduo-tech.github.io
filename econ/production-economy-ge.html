@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>带生产的一般均衡 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_production-economy-ge.md.YLcF8RIs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 交换与生产<!--]--><!--[--> · 课序 配置<!--]--></p><p class="lesson-progress">第 6 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/econ/welfare-theorems/">福利经济学两定理</a></p><p class="lesson-next"> 下一课：<a href="/econ/ge-existence/">存在性与不动点</a></p></nav><div style="position:relative;"><div><h1 id="带生产的一般均衡" tabindex="-1">带生产的一般均衡 <a class="header-anchor" href="#带生产的一般均衡" aria-label="Permalink to &quot;带生产的一般均衡&quot;">​</a></h1><div class="epigraph"><p>厂商在既定价格下选生产计划，利润按股权流回消费者；出清必须同时包括产品与要素，而不只是纯交换的禀赋搬家。</p><footer>—— 据 Debreu, Theory of Value, 1959；Mas-Colell, Whinston and Green 第 16–17 章整理</footer></div><p>定位：<a href="/econ/welfare-theorems">上一课</a>。两定理在纯交换里把均衡与帕累托接好，并声明生产并行：利润最大化时「更好的计划更贵」，第二定理要生产集凸。本课不重证第一定理的会计。缺口是把厂商写进定义：生产集 \(Y^j\)、利润分配 \(\theta^{ij}\)、财富不再只是 \(p\cdot\omega^i\)，市场出清变成 \(\sum x^i=\sum\omega^i+\sum y^j\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>纯交换里总供给是禀赋。有生产之后，净产出 \(y^j\in Y^j\) 可以创造（或消耗）商品，盒的边长不再外生。消费者 \(i\) 持有厂商 \(j\) 的份额 \(\theta^{ij}\ge 0\)，\(\sum_i\theta^{ij}=1\)。给定 \(p\)，厂商</p> \[y^j(p)\in\arg\max_{y\in Y^j}p\cdot y,\qquad \pi^j(p)=p\cdot y^j(p), \]<p>消费者财富 \(m^i(p)=p\cdot\omega^i+\sum_j\theta^{ij}\pi^j(p)\)，需求 \(x^i(p)\) 在预算 \(p\cdot x\le m^i(p)\) 上最优。均衡还要求 \(\sum_i x^i(p)=\sum_i\omega^i+\sum_j y^j(p)\)（免费处置则不等式）。缺口不是再写一次 \(z(p)\) 的符号，而是：<strong>利润从哪来、回到谁身上，要素市场怎样被同一组 \(p\) 出清。</strong></p><p><a href="/econ/cost-minimization">成本最小化</a>与<a href="/econ/profit-supply">利润供给</a>已在局部均衡写过单家。这里 \(w\) 与 \(p\) 是同一价格向量的不同分量，要素不再当参数。</p><h3 id="股权是预算流量-不是控制权" tabindex="-1">股权是预算流量，不是控制权 <a class="header-anchor" href="#股权是预算流量-不是控制权" aria-label="Permalink to &quot;股权是预算流量，不是控制权&quot;">​</a></h3><p>\(\theta^{ij}\) 只分配利润，不影响「把 \(p\) 当参数」这一竞争假设。厂商不内部化股东的偏好，只最大化 \(p\cdot y\)——这是第一定理对生产侧成立的关键。若厂商最大化加权股东效用，问题变成另一套目标，本课不走。IRS、非凸 \(Y^j\) 让竞争供给对应爆炸或为空，均衡可能不存在；第二定理的分离也失败。那是存在性课的墙，本课先在凸、可歇业的 \(Y\) 上把会计钉住。</p><p><span class="marginnote">瓦尔拉斯定律仍成立：把利润加进预算再加总，产出的价值 \(p\cdot\sum y\) 与利润项对消，剩下 \(p\cdot(\sum x-\sum\omega-\sum y)=0\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>经济 \(\bigl((\succsim^i,\omega^i,\theta^i),(Y^j)\bigr)\)。均衡是 \((p^*,x^*,y^*)\)，使 \(y^{*j}\) 利润最大、\(x^{*i}\) 在 \(m^i(p^*)\) 上需求最大、市场出清。私人所有制定义如上；也可以把 \(Y\) 写成总量生产集 \(Y=\sum Y^j\)，对偶上常等价（凸时）。</p><p>有效性：配置 \((x,y)\) 可行若 \(\sum x\le\sum\omega+\sum y\)、\(y^j\in Y^j\)。帕累托对消费者偏好而言，生产只作为可行性。第一定理的证明几乎照搬：更好的消费更贵，更好的生产计划不会更亏，加总戳破出清。第二定理要 \(Y^j\) 凸，否则支撑价格下厂商想冲向无穷或拒绝生产有效点。</p><div class="mermaid"></div><p>不要把 \(y\) 写成限价簿上的存货；生产计划是净产出向量，没有时间优先。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>价格同时给产品与要素标价：厂商比较 MR（在竞争下就是 \(p\)）与要素成本，消费者比较 MRS 与同一 \(p\)。内点时 \(\mathrm{MRS}=\mathrm{MRT}=p\) 的比率，交换有效与生产有效被同一组相对价格焊住——这是两定理在生产经济里的几何。利润分配改变的是谁有购买力，从而在帕累托集上挑哪一点，不改变「均衡有效」本身；这与第二定理的转移是同一类工具，\(\theta\) 的再分配相当于改禀赋。</p><p>歇业：\(0\in Y^j\) 保证 \(\pi^j\ge 0\)。若短期有沉没，局部均衡的停产规则仍看可变利润；一般均衡把已沉没的资本当成禀赋中的商品，会计要声明时期。本课用 Debreu 的静态生产集，不把短长期再推一遍。</p><p>要素与产品是同一价格向量的不同坐标：劳动带负号进入 \(y\)，工资是 \(p\) 的对应分量。局部均衡把 \(w\) 冻住再画产品市场；这里劳动市场必须同时出清，否则「产品市场的竞争均衡」只是投影。CRS 加自由进入时纯利润为零，财富退回 \(p\cdot\omega\)，看起来像纯交换，但商品清单里已经包含被生产出来的那一部分——配置仍不是禀赋搬家。</p><p><span class="marginnote">Debreu 的商品可以带日期与地点，生产计划是跨期向量。本课有限维、单一静态时期已经够把利润分配说清；无限维 properness 不在主干。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>劳动供给进入效用时，「要素」与「消费」同一商品的不同符号，定义不改。外部性使 \(Y^j\) 依赖他人计划，利润最大化用错了可行集。不完全市场让证券利润与现货生产脱节，GEI 后课再写。也不要用本课重写产业组织的厂商：那里的厂商面对向下需求，不是价格接受的 \(p\cdot y\)。</p><p>后课<a href="/econ/ge-existence">存在性</a>把生产对应与需求对应一起送进角谷。后课默认：竞争生产经济含 \((Y^j,\theta^{ij})\)，财富含利润，出清含净产出。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>厂商利润最大，利润按股权进入消费者预算。</li><li>出清是禀赋加净产出；瓦尔拉斯定律对消利润项后仍成立。</li><li>两定理对凸生产集并行；非凸会拆掉供给对应与第二定理。</li><li>下一课用不动点证明这套对应非空。</li><li>出处：Debreu, <em>Theory of Value</em>；Mas-Colell, Whinston and Green 第 16–17 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 交换与生产<!--]--><!--[--> · 课序 配置<!--]--></p><p class="lesson-progress">第 6 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/ge-existence/">存在性与不动点</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

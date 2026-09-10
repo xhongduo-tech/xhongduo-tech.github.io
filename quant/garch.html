@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GARCH | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_garch.md.BZQUG0Es.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 5 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/realized-kernel/">已实现核估计</a></p><p class="lesson-next"> 下一课：<a href="/quant/egarch-gjr/">EGARCH / GJR</a></p></nav><div style="position:relative;"><div><h1 id="garch" tabindex="-1">GARCH <a class="header-anchor" href="#garch" aria-label="Permalink to &quot;GARCH&quot;">​</a></h1><div class="epigraph"><p>用过去残差平方的分布滞后生成条件方差，就能在均值方程仍然很瘦的同时，产生波动聚集与肥尾；把滞后写成一个自回归项，阶数不必开到无穷。</p><footer>—— Engle, Autoregressive Conditional Heteroscedasticity, Econometrica 1982；Bollerslev, Generalized Autoregressive Conditional Heteroskedasticity, Journal of Econometrics 1986</footer></div><p><a href="/quant/realized-kernel">上一课</a>把噪声下的 IV 估计写成收益自协方差的核加权和，带宽随噪声–信号比变化。缺口是没有高频时：日收益线性自相关弱，平方自相关强。Engle 的 ARCH 让条件方差成为过去平方冲击的函数；Bollerslev 的 GARCH 把条件方差自身也放进方程。本课写日频默认的条件方差过程。有 RV 时 HAR 与已实现 GARCH 会改写信息集；无 RV 时 GARCH 仍能从一条收益序列抽出 \(\sigma_t\)。不重写核函数与带宽。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记 \(r_t=\mu_t+\varepsilon_t\)，\(\varepsilon_t=\sigma_t z_t\)，\(z_t\) 为 i.i.d.、均值 0 方差 1。Engle 的 ARCH\((q)\) 为 \(\sigma_t^2=\omega+\sum_{i=1}^q\alpha_i\varepsilon_{t-i}^2\)。要拟合缓慢衰减的平方 ACF，\(q\) 必须很大。Bollerslev 写成 GARCH\((p,q)\)，标准 GARCH(1,1) 是</p> \[\sigma_t^2=\omega+\alpha\varepsilon_{t-1}^2+\beta\sigma_{t-1}^2. \]<p>\(\alpha+\beta\) 接近 1 时冲击持续很久，但仍是短记忆（指数衰减）。问题是：在正性、平稳性约束下估计 \((\omega,\alpha,\beta)\)，使标准化残差 \(z_t\) 接近白噪声，并给出一步条件方差。均值 \(\mu_t\) 通常极瘦（常数或略加 AR(1)）；把可预测性塞进均值，会与方差抢同一块平方结构。</p><h3 id="无条件方差与持续性必须分开看" tabindex="-1">无条件方差与持续性必须分开看 <a class="header-anchor" href="#无条件方差与持续性必须分开看" aria-label="Permalink to &quot;无条件方差与持续性必须分开看&quot;">​</a></h3><p>平稳时 \(E[\sigma_t^2]=\omega/(1-\alpha-\beta)\)。\(\alpha+\beta\) 靠近 1，无条件方差对 \(\omega\) 敏感，有限样本里 \(\omega\) 估不稳，长期预测会漂。RiskMetrics 的 IGARCH 令 \(\alpha+\beta=1\)、无 \(\omega\)，条件方差是平方收益的指数加权，没有无条件均值，长期预测不收敛——这是工程简化，不是 Engle–Bollerslev 的平稳 GARCH。报告应写清：你要的是有均值回复的 \(\sigma_t\)，还是永不回复的 EWMA。</p><p><span class="marginnote">GARCH 滤出的是关于 \(t-1\) 可测的条件方差。某一天已经实现的「今日波动」不是 \(\sigma_t\)，而是 \(|\varepsilon_t|\) 或 RV。用 \(\sigma_t\) 去和当日 RV 比，GARCH 少了当日日内信息；这正是已实现 GARCH 要补的测量方程。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>估计。</strong> 条件高斯极大似然（实际上是准似然）：即使 \(z_t\) 不是高斯，在正则条件下 QMLE 仍一致，标准误用 Bollerslev–Wooldridge 三明治。收益肥尾时，直接设 \(z_t\) 为 t 分布往往更稳，但自由度会与 \(\alpha,\beta\) 纠缠。约束 \(\omega\gt 0\)，\(\alpha,\beta\ge 0\)，\(\alpha+\beta\lt 1\)（协方差平稳）。估计前应把收益按交易日对齐，分红与拆股已调整；均值用常数即可，除非有明确的日历均值。</p><p><strong>诊断。</strong> 标准化残差的 ACF 应接近零，其平方的 ACF 也应被抽干。若平方仍相关，升阶或检查是否缺非对称（交给 <a href="/quant/egarch-gjr">EGARCH / GJR</a>）。若标准化残差仍极肥尾，GARCH 只解释了部分峰度——条件高斯 GARCH 能产生无条件肥尾，但往往不够，需要 t 创新或跳出 GARCH。</p><p><strong>预测。</strong> 一步 \(\sigma_{t+1}^2\) 由滤波给出；多步向无条件方差均值回复，速率由 \(\alpha+\beta\) 决定。VaR 还要创新分布的分位，不能只把 \(\sigma\) 乘 1.65。期权与多期密度需要模拟或解析矩，GARCH(1,1) 对长地平线会显得记忆不够，那不是调 \(\beta\) 能完全补的，而是模型类的边界。</p><h3 id="信息集是日收益平方-不是-rv" tabindex="-1">信息集是日收益平方，不是 RV <a class="header-anchor" href="#信息集是日收益平方-不是-rv" aria-label="Permalink to &quot;信息集是日收益平方，不是 RV&quot;">​</a></h3><p>ARCH 项 \(\varepsilon_{t-1}^2\) 是对昨日积分波动的噪声极大的代理。一日只有一个平方，噪声–信号比差，所以 \(\alpha\) 通常远小于 HAR 的日系数。这解释了为何有高频 RV 时，用 RV 替换 \(\varepsilon^2\) 会立刻改善——但那就不再是经典 GARCH，而是已实现测量模型。没有高频时，GARCH 仍合理：对象变成「从日收益能提取的条件方差」，不要假装它等于 IV。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是方差的反馈。大冲击抬高 \(\sigma_t\)，使下一期更容易再出现大冲击，从而平方相关、波动聚集。无条件分布是混合：随机的 \(\sigma_t\) 混合出肥尾，即使 \(z_t\) 是高斯。持续性 \(\alpha+\beta\) 高，是因为波动冲击衰减慢，不是因为收益均值有单位根。把 GARCH 残差再去做 <a href="/quant/unit-root">单位根</a> 检验没有对象——\(r_t\) 已是 I(0) 附近，\(\sigma_t^2\) 是正的条件二阶矩过程。</p><p>与 <a href="/quant/arma">ARMA</a> 的对应：对 \(\varepsilon_t^2\) 而言，GARCH(1,1) 像 IARCH 的 ARMA(1,1) 表示（Engle 的 ARCH 是分布滞后，\(\sigma^2\) 的 AR 项压缩滞后）。识别上仍应简约：GARCH(1,1) 对多数日收益够用；GARCH(2,2) 常常是在拟合一两次危机，样本外并不更好。</p><p><span class="marginnote">\(\alpha\) 是「昨日惊吓有多快进入方差」，\(\beta\) 是「旧方差有多黏」。\(\alpha\) 过小、\(\beta\) 过大，滤波几乎是慢 EWMA，对跳反应迟钝；\(\alpha\) 过大则 \(\sigma_t\) 跟着每日平方乱跳，失去「条件」的平滑。两者的权衡是对象，不是越大越好。</span></p><h3 id="与随机波动的差别先写在信息集上" tabindex="-1">与随机波动的差别先写在信息集上 <a class="header-anchor" href="#与随机波动的差别先写在信息集上" aria-label="Permalink to &quot;与随机波动的差别先写在信息集上&quot;">​</a></h3><p>GARCH 的 \(\sigma_t\) 关于过去收益可测，一步预测没有额外冲击。随机波动让方差有自己的新息，滤波是潜变量推断。对日收益拟合，两者都能做聚集与肥尾；对期权，Heston 一类 SV 更常给出闭式或半闭式。先把 GARCH 当作可观测条件方差的工作马，SV 当作多一层冲击的潜波动，已实现测量当作对 IV 的直接观测。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>GARCH(1,1) 对称，不能产生「跌时波动升得更快」的杠杆效应，这是下一篇 EGARCH/GJR 的入口。结构突变会使全样本 \(\alpha+\beta\) 被高估（Lamoureux–Lastrapes）：危机像永久提高了方差水平，持续性被污染。滚动或允许水平切换会降低 \(\alpha+\beta\)。日内季节性、隔夜跳不应塞进单方程日 GARCH；隔夜可单独一项。</p><p>工程上：组合风险不要对每只股票估一套不稳定的 GARCH 再加总相关，宁可对因子组合或指数估，个股用 beta 映射。数值上，对 \(\omega,\alpha,\beta\) 做对数再参数化以免踩边界；初值用无条件方差与 \(\alpha+\beta=0.95\) 一类默认。不要用日 GARCH 去描述 tick 波动——对象错了，应回到 RV 与核。不要把 GARCH \(\sigma_t\) 年化后直接当隐含波动卖出信号，中间隔着风险溢价与模型误设。</p><p><span class="marginnote">准似然在厚尾下仍可一致，但小样本里一次暴跌能把 \(\beta\) 推到边界。估计应报告是否顶在 \(\alpha+\beta=1\)，顶住时长期预测已经坏了，应改 IGARCH、t 创新，或把该日当跳跃单独处理。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Engle 的 ARCH 用过去平方冲击驱动条件方差；Bollerslev 的 GARCH 加入方差自回归，GARCH(1,1) 是日频默认。</li><li>平稳性要求 \(\alpha+\beta\lt 1\)；该和接近 1 时长期预测对 \(\omega\) 敏感，有限样本易漂。</li><li>信息集是日收益平方，噪声大；有 RV 时应换测量，而不是把 GARCH 阶数开大。</li><li>条件高斯即可产生无条件肥尾，但往往不够，需 t 创新或非对称扩展。</li><li>结构突变会抬高表面持续性；对称 GARCH 不解释杠杆效应。</li><li>出处：Engle, <em>Autoregressive Conditional Heteroscedasticity…</em>, Econometrica, 1982；Bollerslev, <em>Generalized Autoregressive Conditional Heteroskedasticity</em>, Journal of Econometrics, 1986。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 5 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/egarch-gjr/">EGARCH / GJR</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

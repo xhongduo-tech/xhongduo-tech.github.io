@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NCCL 算法选择 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_nccl-algorithms.md.DZYxraNP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 4 / 24 课</p><p class="lesson-prereq"> 先修：<a href="/llm/all-to-all-impl/">all-to-all 实现</a></p><p class="lesson-next"> 下一课：<a href="/llm/collective-bandwidth-model/">集合通信带宽模型</a></p></nav><div style="position:relative;"><div><h1 id="nccl-算法选择" tabindex="-1">NCCL 算法选择 <a class="header-anchor" href="#nccl-算法选择" aria-label="Permalink to &quot;NCCL 算法选择&quot;">​</a></h1><div class="epigraph"><p>NCCL 不是「一种 All-Reduce」，而是一张按消息大小、拓扑和协议探出来的决策表。同一调用，8 卡 NVLink 走环，跨节点可能走树，再大的消息又切回环。</p><footer>—— NVIDIA NCCL 文档中的算法与协议（Simple / LL / LL128）说明</footer></div><p>前三课分别写了环/树、<a href="/llm/reduce-scatter-allgather">reduce-scatter 与 all-gather</a>、<a href="/llm/all-to-all-impl">all-to-all</a>。本课把选择权交回库：训练代码几乎只写一条 <code>all_reduce</code>，真正跑哪张图由 NCCL 在初始化时探拓扑、在每次调用按 size 挑算法与协议。缺口是 <strong>决策表里有哪些旋钮、何时不该让它自动</strong>。<a href="/llm/pretrain-comm">预训练通信</a> 讲过必须让密通信落在 <a href="/llm/nvlink">NVLink</a> 域；本课讲域内之后，库还要在 Ring、Tree、Collnet、NVLS 之间再选一层。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自动选择的输入是：进程组大小、NVLink / PCIe / 网卡可达性、NIC 是否支持 GPU Direct、消息字节数、以及若干环境变量覆盖。输出是一对「算法 × 协议」。算法决定调度图（环、树、网内、NVLink SHARP）；协议决定如何切 chunk、是否走低延迟路径（LL / LL128）还是吞吐路径（Simple）。选错的典型症状不是挂死，而是 busbw 只有规格的零头：大梯度走了 LL，或小同步走了 Simple 环。</p><p>用户看不见决策时，会把并行网格的锅甩给网卡。真正的问题是：默认表为「通用训练」调，服务侧短 All-Reduce、或不对称拓扑、或多进程组叠在同一套 NIC 上，默认经常是错的。缺口是读懂表，而不是再实现一个环。</p><p><span class="marginnote"><code>NCCL_ALGO</code>、<code>NCCL_PROTO</code>、<code>NCCL_MIN_NCHANNELS</code> 一类变量能锁死选择。锁之前先用 <code>NCCL_DEBUG=INFO</code> 看它选了什么，再用 <code>nccl-tests</code> 扫一条 size 曲线。没有曲线的环境变量调优是猜测。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按公开文档能写进课的几条经验（数字以你集群上的微基准为准，不把某一版 NCCL 的阈值抄成定律）：</p><ol><li>节点内、中大消息、NVLink 对称：Ring + Simple，吃带宽。</li><li>小消息、延迟敏感（层内 TP、短控制同步）：Tree 或 LL/LL128，少 \(\alpha\)。</li><li>跨节点大 All-Reduce：层次化 Tree 或 Collnet（有 SHARP 时），减少跨节点体积。</li><li>有 NVLink SHARP / NVLS 的域：中等消息的 All-Reduce 可能走网内归约，GPU 少做本地加。</li><li>All-to-All 与 All-Gather 的表与 All-Reduce 不同，不要共用一套 <code>NCCL_ALGO</code>。</li></ol><p>拓扑探测失败时，决策表会退到 PCIe 或网卡。P2P 被关、NUMA 绑错、MIG 切片之间强行组集体，都会让「本应 NVLink 的环」降级。先修 <a href="/llm/nvlink">NVLink</a> 拓扑，再谈算法名。</p><div class="mermaid"></div><p>通道数（channels / CTAs）把一条集体切成多条并行流水。加通道能提高大消息吞吐，也增加 SM 占用，可能和计算核抢资源。重叠通信时，通道过多会把计算流饿死——这是调优课的对象，本课只要求：算法选择与通道数是两套旋钮，不要只拧一个。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>协议的差别主要在延迟与带宽的折中。LL 路径用更紧的同步与更小的粒度换 \(\alpha\)，天花板低于 Simple；Simple 用大 chunk 打满链路，启动更贵。同一算法换协议，busbw–size 曲线的拐点会移动。这就是为何「锁死 Ring」仍可能很慢——你锁的是图，不是协议。</p><p>网内归约改变的是计算位置：加法在交换机或 NVSwitch 侧完成，减少 GPU 之间的来回。语义仍是 All-Reduce；数值归约顺序变了，BF16 和可能与纯环不同。没有该硬件时强行 Collnet，库会回退或报错，不要在规划里把 SHARP 加速写成一定存在。</p><p><span class="marginnote">多进程组（TP 一组、DP 一组、EP 一组）会并发集体。NCCL 的默认表按单组微基准来，并发时网卡与 NVLink 被多组切开，有效算法可能不再是单组最优。生产要以真实网格的 step 剖析为准。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在每次迭代改 <code>NCCL_ALGO</code>。不要把某一代 DGX 上扫出来的表抄到以太网集群。RCCL 与 NCCL 名字像，决策表不是同一份——AMD 课再写。TPU 的 mesh 通信不走这张表。</p><p>覆盖变量是排障工具，不是默认配方。升级 NCCL 版本后表会变，要把微基准纳入发布检查。自定义 allreduce 只适合服务侧固定短消息；训练梯度同步继续交给库，除非你测过自己的环在该拓扑上稳定赢。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>NCCL 按拓扑与消息大小选择算法和协议；All-Reduce / All-Gather / All-to-All 各有表。</li><li>大消息环+吞吐协议，小消息树+低延迟协议；有网内归约再考虑 Collnet / NVLS。</li><li>先保证 NVLink 域与 P2P，再读算法名；降级路径会让任何算法都慢。</li><li>环境变量覆盖必须配 size 曲线；多进程组要以真实网格重测。</li><li>出处：NCCL 公开文档中的算法与协议；微基准用 nccl-tests。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 4 / 24 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/collective-bandwidth-model/">集合通信带宽模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

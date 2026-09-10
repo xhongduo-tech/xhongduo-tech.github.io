@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波动率因子模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_vol-factor-model.md.DM8RcCeN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 时间序列续<!--]--><!--[--> · 课序 多元与长记忆<!--]--></p><p class="lesson-progress">第 23 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bekk-mgarch/">BEKK 多元 GARCH</a></p><p class="lesson-next"> 下一课：<a href="/quant/intraday-seasonality/">日内季节性</a></p></nav><div style="position:relative;"><div><h1 id="波动率因子模型" tabindex="-1">波动率因子模型 <a class="header-anchor" href="#波动率因子模型" aria-label="Permalink to &quot;波动率因子模型&quot;">​</a></h1><div class="epigraph"><p>许多资产的条件方差一起涨落；用少数共同因子承担这部分，特异波动再各自一方程，维数从 BEKK 的矩阵落到因子载荷。</p><footer>—— Diebold and Nerlove, The Dynamics of Exchange Rate Volatility: A Multivariate Latent Factor ARCH Model, Journal of Applied Econometrics, 1989；因子 ARCH 见 Engle, Ng and Rothschild</footer></div><p><a href="/quant/bekk-mgarch">BEKK</a> 在小 \(k\) 上给出满 \(H_t\)，大 \(k\) 不可行。收益的因子模型 \(r_t=\beta f_t+u_t\) 已经把均值–协方差的大部分写成 \(\beta\,\mathrm{Var}(f_t)\,\beta^\top+\mathrm{Var}(u_t)\)。波动因子模型让 \(\mathrm{Var}(f_t)\) 与可能的共同特异波动再随时间变。Diebold–Nerlove 对汇率用潜因子 ARCH；Engle–Ng–Rothschild 把因子 ARCH 写成可估形式。本课缺口：用<strong>共同波动</strong>代替满矩阵 GARCH。下一课日内季节性把「共同」进一步拆成钟内模式——对象从日 \(H_t\) 转到一天之内的确定性形状。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>股票在危机里相关升高，主要是共同因子方差升高，不是 3000 只股票的 BEKK 溢出。问题是估计：因子可观测（指数、FF 因子）还是潜的（滤波、PCA on squares）。可观测因子：对因子估 <a href="/quant/garch">GARCH</a>/HAR，个股 \(\sigma_{i,t}^2=\beta_i^2\sigma_{f,t}^2+\sigma_{e,i,t}^2\)，特异再一元。潜因子：平方或 RV 的截面 PCA，取前几个成分当波动因子（类似 Connor–Korajczyk，但对象是二阶）。</p><p>对象是条件协方差的低秩部分加对角特异，不是已实现协方差的高频估计。与 <a href="/quant/cov-shrinkage">协方差收缩</a> 分工：收缩是静态 \(\Sigma\) 的正则；本课是动态 \(H_t\) 的因子结构。</p><h3 id="载荷时变" tabindex="-1">载荷时变 <a class="header-anchor" href="#载荷时变" aria-label="Permalink to &quot;载荷时变&quot;">​</a></h3><p>\(\beta\) 若时变（Kalman、滚动），共同波动对个股 \(H_t\) 的映射跟着变。危机里 \(\beta\) 升与 \(\sigma_f\) 升会纠缠。应声明：固定 \(\beta\) + 时变因子方差，还是两者都变。两者都变则识别弱，需要状态空间约束，见 <a href="/quant/state-space-kalman-smoother">Kalman</a>。</p><p><span class="marginnote">用指数已实现方差当 \(\sigma_f^2\)，再用日 \(\beta\) 映射到个股，是工程上最稳的一档。个股 RV 对噪声更敏感，见 rv-noise。先共同、后特异。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>可观测因子。</strong> 市场 + 若干行业。因子方差：GARCH 或 HAR-RV。特异：对角 GARCH 或异质 HAR。相关升来自 \(\sigma_f\) 升。评估：组合方差的 QLIKE，不是个股对角。</p><p><strong>潜因子。</strong> 对 RV 面板或对 \(|r|\) 做动态因子（Barigozzi–Hallin 一类）。滞后阶、因子个数用信息准则或边缘似然（接贝叶斯比较的精神）。平方的 PCA 会被离群日主导，应稳健或用 log RV。</p><p><strong>与 DCC。</strong> DCC 让相关慢变、方差各走各的。因子模型让相关变化主要由因子方差驱动，更省、更符合「危机时相关升」。DCC 能描述因子结构解释不了的相关漂移。可以：因子 \(H_t\) + 残差 DCC。参数仍要克制。</p><h3 id="定价与风险" tabindex="-1">定价与风险 <a class="header-anchor" href="#定价与风险" aria-label="Permalink to &quot;定价与风险&quot;">​</a></h3><p>条件 CAPM 说 \(\lambda\) 或 \(\beta\) 时变。波动因子给出 \(\beta_i^2\sigma_{f,t}^2\) 作为时变风险。是否定价是 <a href="/quant/conditional-capm">条件 CAPM</a> 与 FM 的对象，本课只提供 \(H_t\) 的构造。不要把波动因子载荷直接叫风险价格。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>共同冲击抬高 \(f\) 的方差，所有暴露 \(\beta_i\) 的资产方差与协方差同比例升（固定 \(\beta\) 时）。这自动产生相关的逆周期：\(\mathrm{Corr}_{ij}=\beta_i\beta_j\sigma_f^2/\sqrt{h_i h_j}\) 在 \(\sigma_f\) 大时升高（若特异不太一起升）。机制是低秩，不是两两溢出。BEKK 的 \(A_{ij}\) 试图描述的许多「溢出」，其实是共同因子。</p><p>测量：日平方当因子方差，噪声大，共同成分仍相对可估（截面平均）。个股特异噪声大，特异 GARCH 的 \(\alpha\) 往往不稳——应对特异再收缩，接经验贝叶斯课。</p><p><span class="marginnote">行业因子既是收益因子也是波动因子。能源冲击日，能源股共同方差升，市场因子不够。因子名单应与均值模型对齐，否则 \(H_t\) 的低秩部分指错空间。</span></p><h3 id="到日内季节性的交接" tabindex="-1">到日内季节性的交接 <a class="header-anchor" href="#到日内季节性的交接" aria-label="Permalink to &quot;到日内季节性的交接&quot;">​</a></h3><p>日 \(H_t\) 假定一天一个协方差。开盘 \(\sigma\) 是收盘的数倍，把季节性塞进日 GARCH 会污染 \(\alpha,\beta\)。下一课把钟内确定性模式除掉，再谈随机波动与 RV。因子结构在日内同样存在（开盘共同忙），但先估季节，再估随机。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>潜因子个数随样本变，滚动重估会导致 \(H_t\) 跳。IPO、退市让 \(\beta\) 面板非平衡。外汇、商品的「市场因子」不如股票清晰，Diebold–Nerlove 的潜因子更对口。</p><p>工程：股票用可观测指数 RV + \(\beta\) + 对角特异；汇率用低维潜因子 ARCH。评估组合 QLIKE。不要对个股满 BEKK。不要用 PCA on raw returns 的第一主成分当波动因子而不看平方——那是均值因子，对象不同。下一课：把一天之内的确定性波动形状从随机部分拆开。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>条件协方差的共同部分用少数波动因子承担，特异走对角，避免满 BEKK。</li><li>可观测因子加指数 RV 是稳妥工程；潜因子对汇率等无单一指数时需要。</li><li>危机相关升高可以是 \(\sigma_f\) 升高的代数结果，不必两两溢出。</li><li>\(\beta\) 与 \(\sigma_f\) 同时时变会弱识别；载荷空间应与均值因子对齐。</li><li>出处：Diebold and Nerlove, <em>Journal of Applied Econometrics</em>, 1989；Engle, Ng and Rothschild, <em>Journal of Econometrics</em>, 1990；动态因子后续见 Barigozzi and Hallin 等。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 时间序列续<!--]--><!--[--> · 课序 多元与长记忆<!--]--></p><p class="lesson-progress">第 23 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/intraday-seasonality/">日内季节性</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

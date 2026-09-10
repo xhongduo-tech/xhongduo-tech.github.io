@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流动性约束与过度敏感 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_liquidity-constraints-excess-sensitivity.md.CUe20pzI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 跨期、行为与家庭金融<!--[--> · 单元 跨期选择<!--]--><!--[--> · 课序 时间上的偏好<!--]--></p><p class="lesson-progress">第 7 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/econ/precautionary-buffer-stock/">预防性储蓄与缓冲存量</a></p><p class="lesson-next"> 下一课：<a href="/econ/bequest-motive/">遗赠动机</a></p></nav><div style="position:relative;"><div><h1 id="流动性约束与过度敏感" tabindex="-1">流动性约束与过度敏感 <a class="header-anchor" href="#流动性约束与过度敏感" aria-label="Permalink to &quot;流动性约束与过度敏感&quot;">​</a></h1><div class="epigraph"><p>欧拉在能借的人那里是等式；在借不到的人那里是不等式——可预测的收入又开始预测消费。</p><footer>—— Zeldes, Consumption and Liquidity Constraints: An Empirical Investigation, JPE 1989；对照 Hall and Mishkin, 1982；Campbell and Mankiw, 1989–90</footer></div><p><a href="/econ/precautionary-buffer-stock">上一课</a>已经让约束附近的 MPC 升高。本课缺口是把这句话写成可检验的<strong>过度敏感</strong>：消费变化被可预测收入预测，幅度大于完全市场 PIH。不重导谨慎系数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Hall 的随机游走说：已有信息不应预测 \(\Delta c\)。Flavin（1981）以及 Hall 与 Mishkin（1982）发现消费对收入创新的反应过大或对可预测部分仍有加载。Campbell 与 Mankiw（1989, 1990）用 \(\lambda\) 混合：一部分人按永久收入，一部分人按当期收入规则 \(c=y\)。结构解释不必是「非理性」，可以是借贷下限：年轻人、低收入、无抵押者欧拉不成等式，\(c_t\) 被 \(y_t\) 钉住。</p><p>Zeldes（1989）按资产分组：低资产家庭拒绝欧拉，高资产家庭更接近。缺口是识别约束，而不是把 \(C=cY\) 请回当代表主体。</p><p><span class="marginnote">过度平滑是孪生现象：对永久冲击反应不足。缓冲存量与习惯都能造出平滑；本课主攻敏感，平滑只作为对照。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把家庭分成可能受约束与不受约束。检验：工具变量预测的收入增长，是否进入 \(\Delta c\)；或欧拉残差是否与滞后收入相关。自然实验（退税支票、信贷放松）看 MPC。Jappelli（1990）用调查中的被拒贷记录当约束代理。</p><div class="mermaid"></div><p>量化栏的价差与保证金不是本课的约束。本课的约束是家庭信贷市场：不能以国债利率对人力财富抵押贷款。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是角点。想把高 \(y^P\) 提前消费却借不到时，当期资源就是当期 \(c\) 的上界。可预测的加薪一旦实现，消费跳一次，看起来像规则消费者。这与现时偏差可观测等价：准双曲也会提高短期 MPC。区分靠承诺需求、信贷评分、资产分组，本课只标明两种理论都能产生敏感，不做赛马。</p><p>宏观：受约束家庭比例上升时，财政一次性转移的乘数变大。李嘉图等价在这些人身上失败。主干宏观已经用过这条摩擦；补层把它接回家庭金融。</p><p>操作上，「可预测收入」要用滞后信息或工具，不能把当期 \(y\) 的相关直接叫敏感——那会把永久冲击的水平调整误判成规则消费。Zeldes 的分组是对欧拉残差做，不是对 \(C=cY\) 做。量化栏的保证金约束是交易者融资，本课是家庭对人力财富贷不到款；词都叫约束，市场不是同一个。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>过度敏感也可以来自短视、习惯或测量误差（耐用品、家庭内部保险）。约束不是唯一解释。本课不估计 \(\lambda\)。也不把「信用卡利率高」写成限价簿微观结构。</p><p>后课默认：LCH/PIH 的完全市场版本是基准；经验偏离先按约束与谨慎读，再决定要不要上行为。遗赠是下一缺口：为何终点仍有正财富。</p><p>可预测收入进入 \(\Delta c\)，欧拉在低资产组被拒绝，这是角点而不是把 \(C=cY\) 请回代表主体。</p><p>与现时偏差可观测相似，要用信贷记录或承诺需求另做识别。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>借贷下限使欧拉不等式化，可预测收入重新进入 \(c\)。</li><li>Zeldes 的资产分组、Campbell–Mankiw 的 \(\lambda\)，是同一缺口的两种写法。</li><li>与现时偏差可观测等价，识别要另找承诺或信贷证据。</li><li>Campbell–Mankiw 的 \(\lambda\) 是简约写法，结构故事是借贷下限。</li><li>财政一次性转移的乘数在受约束家庭上变大。</li><li>出处：Hall and Mishkin 1982；Zeldes, <em>JPE</em> 1989；Campbell and Mankiw, 1989–90。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 跨期、行为与家庭金融<!--[--> · 单元 跨期选择<!--]--><!--[--> · 课序 时间上的偏好<!--]--></p><p class="lesson-progress">第 7 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/bequest-motive/">遗赠动机</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>成分 ES 与 Euler 分配 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_component-es.md.q8O4xSfn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 6 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/liquidity-adjusted-var/">流动性调整 VaR</a></p><p class="lesson-next"> 下一课：<a href="/quant/span-simm/">保证金模型 SPAN / SIMM</a></p></nav><div style="position:relative;"><div><h1 id="成分-es-与-euler-分配" tabindex="-1">成分 ES 与 Euler 分配 <a class="header-anchor" href="#成分-es-与-euler-分配" aria-label="Permalink to &quot;成分 ES 与 Euler 分配&quot;">​</a></h1><div class="epigraph"><p>正齐次的风险度量沿欧拉公式分解为各项的边际贡献之和；Expected Shortfall 的边际是「组合已坏过 VaR 的那些情景里，该头寸的条件期望」，因而可以把连贯的尾部资本分到台、因子或名字上。</p><footer>—— Tasche, Capital Allocation to Business Units and Sub-Portfolios: the Euler Principle；ES 的连贯性见 Acerbi and Tasche, 2002</footer></div><p><a href="/quant/liquidity-adjusted-var">上一课</a>把外生价差成本加到中间价 VaR 上，更一致的做法是在每条情景用可成交价定义 \(L\)；大仓位的主导项是冲击与变现时间。缺口是切开。<a href="/quant/expected-shortfall">ES</a> 给出整个组合一个尾部数字，限额与资本还要问这个数字里有多少来自交易台 A 或单名 \(i\)。本课写正齐次风险度量上的 Euler 分配，以及边际 / 成分 / 增量三个量如何分叉。不重讲半价差加法。后课保证金模型默认已经读完：资本切开优先 ES。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>正齐次 \(\rho(\lambda X)=\lambda\rho(X)\)（\(\lambda\gt 0\)）给出 Euler 切开</p> \[\rho(X)=\sum_i w_i\frac{\partial\rho}{\partial w_i}, \]<p>各项 \(w_i\partial_i\rho\) 称为成分风险。波动上这就是 <a href="/quant/risk-budgeting">风险预算</a> 里的 \(w_i(\Sigma w)_i/\sigma\)；尾巴上，ES 的偏导数是条件期望 \(E[X_i\mid X\ge q_\alpha]\)（连续分布、定义恰当的版本）。组合 ES 不能按名义权重切开：相关、尾依赖、期权凸性都会让「占净值 10%」与「占 ES 10%」脱钩。朴素用单独计算的 \(\mathrm{ES}(X_i)\) 再按比例缩放，和不连贯的 VaR 一样会惩罚分散化或重复计算。需要一种分配，使得：(1) 各项之和精确等于组合 \(\rho\)；(2) 对边际增加仓位的方向正确（多承担组合尾巴的名字，分到更多资本）；(3) 与连贯性相容——分散化降低组合 ES 时，分配不会出现「合并后各项之和上升」。</p><p>Tasche 论证：在正齐次风险度量上，Euler 分配是满足「与边际风险定价一致」的标准选择。Denault 从博弈论的 Aumann–Shapley 值到达同一点。问题是把 \(\partial\mathrm{ES}/\partial w_i\) 写成可估计的条件期望，并处理原子、非线性、以及「去掉整个台」与「微增一个基点」不是同一问题。</p><h3 id="三个容易混的量" tabindex="-1">三个容易混的量 <a class="header-anchor" href="#三个容易混的量" aria-label="Permalink to &quot;三个容易混的量&quot;">​</a></h3><p><strong>边际 ES：</strong> \(\partial\mathrm{ES}/\partial w_i\)，仓位微增对组合 ES 的导数。<strong>成分 ES：</strong> \(w_i\) 乘边际，欧拉项，求和还原。<strong>增量 ES：</strong> \(\mathrm{ES}(X)-\mathrm{ES}(X^{-i})\)，整块去掉 \(i\) 之后组合 ES 的下降。线性、椭圆、小仓位时三者方向一致；大额头寸、门槛效应（违约、障碍）时增量与边际可差很远。限额若按增量，会把「去掉我」的谈判写进数字；按成分，则把当前权重下的一阶贡献写进数字。两者都要报，不要互相改名。</p><p><span class="marginnote">VaR 作为分位数，Euler 贡献是 \(w_i E[X_i\mid X=q_\alpha]\) 一类，只依赖恰好在分位数上的切片，估计极噪，且 VaR 不连贯，分配缺少「分散化兼容」的公理支撑。资本切开应优先 ES，沟通可以用 VaR，但不要用 VaR 成分去做奖金。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>连续分布上，Acerbi–Tasche 的 ES 满足</p> \[\frac{\partial\mathrm{ES}_\alpha(X)}{\partial w_i}=E[X_i\mid X\ge\mathrm{VaR}_\alpha(X)], \]<p>成分 \(\mathrm{ES}_i=w_i E[X_i\mid X\ge q_\alpha]\)。历史法或 MC：取出损失超过样本 VaR 的那些路径（或日子），在这些路径上对第 \(i\) 项损失取平均，再乘权重口径（若 \(X_i\) 已是该腿的损失，则不必再乘）。路径很少时，这个平均被一两个极值主导，成分会在名字之间剧烈跳动。稳定化：用核平滑代替硬阈值、用 EVT 对联合超出建模、或对分配做收缩（向名义或向波动贡献拉）。</p><p><strong>因子与希腊字母。</strong> 把 \(X=\sum_k \beta_k F_k+\varepsilon\) 时，可对因子损失 \(F_k\) 做成分 ES，残差另成一项。期权账簿按风险因子（现货、波动、利率）切开，比按合约切开更稳。注意：因子成分之和应等于系统 ES，残差成分对应特异尾；若映射不全，残差会被当成「分散化红利」。</p><p><strong>与风险预算的衔接。</strong> 波动 Euler 给出日常风险预算；ES Euler 给出尾部预算。两者的 \(b\) 可以不同：日常要平，尾巴允许集中在对冲工具上。优化若最小化组合 ES 并约束成分 ES，Rockafellar–Uryasev 的凸形式仍可用，但成分约束是对条件期望的约束，估计误差会变成权重抖动，需要强先验。</p><h3 id="估计-同一套路径-切两刀" tabindex="-1">估计：同一套路径，切两刀 <a class="header-anchor" href="#估计-同一套路径-切两刀" aria-label="Permalink to &quot;估计：同一套路径，切两刀&quot;">​</a></h3><p>VaR、ES、成分 ES 必须来自同一套情景与同一损失定义，否则切开对不上加总。FHS、Copula MC、压力年路径都可以：先在该测度下算 \(q_\alpha\) 与 ES，再在 \(\{L\ge q_\alpha\}\) 上对各项取条件均值。压力 ES 的成分回答「压力年里谁在喂尾巴」，日常 FHS 的成分回答「今日 \(\sigma_t\) 下谁在喂尾巴」。资本配置若混用两套成分，台与台之间会套利监管口径。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Euler 的机制是一次齐次函数的锥性质：沿当前权重射线，\(\rho\) 的值等于梯度点乘权重。ES 的梯度恰好是尾部条件期望，因为 ES 是分位数以上的平均；把某腿在那些坏情景里的实现加大，平均就加大，边际为正。尾依赖高时，两个名字在同一批坏情景里同时为正，成分接近各自「单独的尾」之和，分散化奖励变小——与 ES 本身的次可加行为一致。高斯相关在 VaR 上能制造假分散化；在 ES 成分上，若联合模型仍是高斯 Copula，假分散化会进入切开的数字。要用能产生 \(\lambda_L\gt 0\) 的联合模型，成分才会把崩溃同现记到相关的名字上。</p><p>次可加保证 \(\mathrm{ES}(X+Y)\le\mathrm{ES}(X)+\mathrm{ES}(Y)\)，但不保证成分 \(\mathrm{ES}_i\le\mathrm{ES}(X_i)\)。成分可以超过独立 ES（该腿在组合坏情景里特别差），也可以为负（对冲腿在组合坏情景里赚钱）。负成分是合法的：那是保险。禁止负成分、把对冲腿的贡献设为零，会破坏求和还原，也会让对冲看起来「不占资本」从而过度使用。</p><p><span class="marginnote">负的成分 ES 不是利润中心的免费午餐。它依赖联合模型：相关符号一变，对冲腿可以翻成最大正贡献。对冲的资本减免应有相关性压力，而不是锁死当前成分。</span></p><h3 id="原子、违约与障碍" tabindex="-1">原子、违约与障碍 <a class="header-anchor" href="#原子、违约与障碍" aria-label="Permalink to &quot;原子、违约与障碍&quot;">​</a></h3><p>损失有原子时（违约指示、离散跳跃），朴素 \(E[X_i\mid X\gt \mathrm{VaR}]\) 与积分定义可能分叉，应使用 Acerbi–Tasche 的分位数积分版本再对参数求导。障碍、可转债、缺口产品在部分情景里 \(g\) 不光滑，有限差分 \(\Delta\mathrm{ES}/\Delta w_i\) 比解析条件期望更安全。增量 ES 对「整个发行盘子」往往比边际更有管理含义：微增 1 元与关掉整本书不是同一决策。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Euler 分配不是唯一可能：成本分配、Shapley 对离散合作博弈、监管给定的权重，都在用。选 Euler 是因为它与正齐次、与边际定价一致，不是因为它「公平」。正齐次本身排除非线性流动性；大额头寸应先把冲击写进 \(L\)，再 Euler，否则切开的是中间价 ES，不是可实现 ES。</p><p>成分对极端值敏感，一个错误脉冲可以让某名字占满当月 ES。清洗与 Winsorize 必须预指定。不要用成分去做事后奖金而又允许台长在月末调对冲：那是在优化分配规则而不是优化风险。与 <a href="/quant/backtest-overfitting">过拟合</a> 类似，分配规则若被选择过，切开不再是度量的推论。</p><p><span class="marginnote">报告成分时同时报「占 ES 的百分比」与「占净值的百分比」。只有前者，会把小而极毒的尾巴当成整个故事；只有后者，会回到名义权重。两列并排才能看见杠杆与毒性。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>正齐次风险度量可按 Euler 公式切成成分之和；ES 的成分是尾巴情景里各腿的条件期望。</li><li>边际、成分、增量三个量在非线性与大额头寸上会分叉，限额与「关掉整本书」要用不同数字。</li><li>VaR 的 Euler 切片噪声大且度量不连贯；资本切开优先 ES。</li><li>负成分对应对冲，禁止负项会破坏加总；对冲减免须做相关压力。</li><li>同一套情景上同时算 ES 与成分，日常测度与压力测度不要混切。</li><li>出处：Tasche 关于 Euler 分配的综述与论文；Denault, <em>Journal of Risk</em>, 2001；Acerbi and Tasche, 2002；Rockafellar–Uryasev 优化；对照 Roncalli 风险预算教材中的欧拉贡献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 6 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/span-simm/">保证金模型 SPAN / SIMM</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

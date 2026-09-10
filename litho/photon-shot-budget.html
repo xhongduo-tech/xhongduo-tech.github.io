@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>光子散粒噪声预算 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_photon-shot-budget.md.CXDQcq9J.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 EUV 与 ASML<!--[--> · 单元 机台<!--]--><!--[--> · 课序 NXE 到 High-NA<!--]--></p><p class="lesson-progress">第 35 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/litho/euv-stochastics/">随机效应与光子散粒噪声</a></p><p class="lesson-next"> 下一课：<a href="/litho/euv-double-pattern/">EUV 双重曝光</a></p></nav><div style="position:relative;"><div><h1 id="光子散粒噪声预算" tabindex="-1">光子散粒噪声预算 <a class="header-anchor" href="#光子散粒噪声预算" aria-label="Permalink to &quot;光子散粒噪声预算&quot;">​</a></h1><div class="epigraph"><p>平均 CD 合格并不等于这一层能出货；剂量、线宽粗糙与随机缺陷是同一张三角上的三个顶点，加一角通常要付另外两角。</p><footer>—— 对照 De Bisschop 对 EUV 随机效应、LCDU 与印刷失效（NOK）的论述</footer></div><p><a href="/litho/euv-stochastics">上一课</a>已经说明噪声从哪来：92 eV 光子计数少、化学离散、二次电子模糊，缺失孔与桥接是泊松尾而不是高斯 \(3\sigma\)。缺口是产线怎么把这件事收成一张<strong>预算</strong>：剂量加多少、LWR/LCDU 允许多少、缺陷率停在哪条悬崖上方。本课钉剂量–LWR–缺陷三角。单次 EUV 仍不够时要不要拆成双重，留给<a href="/litho/euv-double-pattern">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>随机课给出 \(N\) 与 \(1/\sqrt{N}\)。工厂要的是可签核的数：某一层在目标 CD、目标节距上，缺孔或微桥的 NOK 概率低到计量能看见的 ppm–ppb，同时 LWR/LCDU 不吃掉电学余量，扫描速度还要活在光源功率里。三件事互相咬。加剂量，\(N\) 升，一侧悬崖（常是断线或缺孔）后退，产能掉；对比或模糊改了，LWR 与另一侧悬崖（微桥、并孔）可能反向移动。</p><p>De Bisschop 把失效概率写成 NOK(CD)：某一尺寸变「太小」时概率陡升，称为随机悬崖。线栅有桥与断两条悬崖，中间夹着一条可走的通道；孔阵列有缺与并。通道宽度随节距、剂量、胶和照明变。缺口因此是给这条通道做预算，而不是再推导一次泊松。</p><h3 id="均值-opc-修不掉尾部" tabindex="-1">均值 OPC 修不掉尾部 <a class="header-anchor" href="#均值-opc-修不掉尾部" aria-label="Permalink to &quot;均值 OPC 修不掉尾部&quot;">​</a></h3><p><a href="/litho/opc">OPC</a> 拟合的是平均轮廓。悬崖是极值事件：局部光子或酸不够，一条线在百万条里断一次。把衬线加厚可以移动平均 CD，从而把工作点在 NOK(CD) 上挪一截，但若工作点仍贴着悬崖，加剂量或改胶才是预算手段。把「再跑一夜 OPC」当成随机问题的解，会漏记源功率与产率。</p><p><span class="marginnote">NOK 不是 LWR 的另一个名字。公开测量表明，失效概率与局部 CD 的关系，并不总是能从 LWR 或 LCDU 直接换算。预算表上要同时列粗糙度与缺陷，不要用一个 \(3\sigma\) 代替悬崖。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>预算从计量开始：用 CD-SEM 或电子束检测把 NOK(CD) 画出来，再叠加 LCDU/LWR 与剂量。比较胶、照明、蚀刻前后，看哪一座悬崖在动。工程旋钮仍是随机课的四层——光学对比、胶、设计规则、计算——但本课把它们写成可加总的项：</p><ul><li>剂量项：mJ/cm² 与扫描速度、pellicle 透过率、源功率在同一行。</li><li>对比项：NILS / 图像对数斜率，决定同样 \(\Delta n\) 造成的 \(\Delta\mathrm{CD}\)。</li><li>设计项：目标 CD 相对悬崖的距离，冗余通孔、放宽最小孔。</li><li>产能项：wph 上限决定剂量上限，超过就换层策略（含下一课的双重）。</li></ul><p>缺陷率对剂量极陡，量产停在悬崖上方而不是瑞利极限上。公开图常见「再加几 mJ，缺孔掉一个数量级」；那是预算语言，不是实验室一次漂亮 SEM。</p><h3 id="把-lcdu-和-nok-分列" tabindex="-1">把 LCDU 和 NOK 分列 <a class="header-anchor" href="#把-lcdu-和-nok-分列" aria-label="Permalink to &quot;把 LCDU 和 NOK 分列&quot;">​</a></h3><p>LCDU 描述局部尺寸的散布，影响匹配与电学。NOK 描述印刷失败。NILS 往往更能预示 LCDU，却不必定能预示 NOK。因此计算光刻若只最小化 EPE，可能把层停在一条好看的均值轮廓、一座很近的悬崖上。随机感知的目标函数要把缺陷或至少把 NILS/剂量余量写进去。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>泊松给出局部剂量的相对涨落。显影是非线性阈值：涨落被切成 CD 散布，极端时切成开/关。NILS 大，同样相对涨落对应更小的 \(\Delta\mathrm{CD}\)，悬崖在 CD 轴上更远。剂量提高 \(\bar N\)，相对涨落下降，悬崖形状可以变，但不保证两条悬崖同时后退——De Bisschop 指出，提高剂量有时主要推开微桥一侧，对断线一侧帮助有限。三角的意思就是：没有单一旋钮能把三个顶点同时按到最小。</p><p>化学噪声与二次电子在 \(N\) 已经很大时封顶，出现随机地板（floor）：再加剂量，缺陷不再指数下降。预算必须承认地板，否则会空烧光源去追一个物理上到不了的零缺陷。</p><p><span class="marginnote">「剂量–LWR–缺陷」不要理解成可以代数消去的等式。它是一张权衡图：选定胶与照明之后，你在曲线上选工作点。换胶是换一张图，不是在同一张图上自由滑动。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重算 92 eV，不选具体胶配方。悬崖位置随层别、蚀刻和检测灵敏度变，把某一 imec 演示的 ppm 写成工厂 D0 规格会越权。计量噪声要把设备方差从晶圆方差里分开，否则会加错剂量。High-NA 提高 MTF 但缩小目标面积，预算必须重做，不能继承 0.33 的 mJ 表。</p><p>后课默认：单次 EUV 的随机账已经按三角分配过；若工作点仍不可制造，才讨论双重曝光。</p><p><span class="marginnote">引用 De Bisschop 时写清：NOK 是印刷失效概率，不是平均 CD。只展示一张无缺陷 SEM，不能当作悬崖已经被取消。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>光子散粒预算是剂量、LWR/LCDU 与缺陷率的三角，不是单次泊松公式。</li><li>量产停在 NOK(CD) 悬崖上方；均值 OPC 只移动工作点，不取消悬崖。</li><li>加剂量、加对比、放宽 CD 是不同边，对两条悬崖的作用可以不对称。</li><li>随机地板限制「再加剂量」的回报；产能决定剂量上限。</li><li>出处：De Bisschop，EUV 随机效应与印刷失效（JMM / SPIE）公开论述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 EUV 与 ASML<!--[--> · 单元 机台<!--]--><!--[--> · 课序 NXE 到 High-NA<!--]--></p><p class="lesson-progress">第 35 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/euv-double-pattern/">EUV 双重曝光</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

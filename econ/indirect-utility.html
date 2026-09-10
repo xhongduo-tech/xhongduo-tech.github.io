@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>间接效用与支出函数 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_indirect-utility.md.Cm2V1LJi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 偏好<!--]--><!--[--> · 课序 需求与对偶<!--]--></p><p class="lesson-progress">第 10 / 41 课</p><p class="lesson-prereq"> 先修：<a href="/econ/interior-corner/">内点与角点</a></p><p class="lesson-next"> 下一课：<a href="/econ/roy-identity/">Roy 恒等式</a></p></nav><div style="position:relative;"><div><h1 id="间接效用与支出函数" tabindex="-1">间接效用与支出函数 <a class="header-anchor" href="#间接效用与支出函数" aria-label="Permalink to &quot;间接效用与支出函数&quot;">​</a></h1><div class="epigraph"><p>支出函数是达到给定效用的最小开销；间接效用是给定价格与财富时能达到的最大效用。二者互为逆。</p><footer>—— 据 Varian, Microeconomic Analysis；Mas-Colell, Whinston and Green, Microeconomic Theory 第 3 章整理</footer></div><p><a href="/econ/interior-corner">上一课</a>（内点与角点）。给出了 \(x(p,w)\) 以及齐次性、瓦尔拉斯定律。本课不重讲预算几何，也不再推导一阶条件。缺口是：后课要把价格效应拆成「沿无差异面滑动」和「换到另一条无差异面」，必须先有一条以效用为约束的对偶问题，以及一个把 \((p,w)\) 映成已达效用的值函数。马歇尔需求本身不携带这两套函数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(x(p,w)\) 回答「在这笔预算上选什么」。政策与福利常问另一句：价格变了，要多少钱才能回到原来的满足？或者：名义财富变了，满足变多少？这两个问题不能靠把 \(x\) 再写一遍来回答，因为 \(x\) 的坐标是商品，不是效用，也不是钱。缺口是引进两个值函数。</p><p>间接效用 \(v(p,w)=u\bigl(x(p,w)\bigr)\)，即最优值。支出函数</p> \[e(p,u)=\min_x\bigl\{p\cdot x:u(x)\ge u\bigr\}, \]<p>即达到效用 \(u\) 的最便宜账单。希克斯需求 \(h(p,u)\) 是这个最小问题的解。本课的任务是钉死 \(v\) 与 \(e\) 互逆、以及它们对价格的导数如何回到需求——罗伊恒等式与谢泼德引理。斯勒茨基分解下一课才写。</p><h3 id="对偶不是另一套偏好" tabindex="-1">对偶不是另一套偏好 <a class="header-anchor" href="#对偶不是另一套偏好" aria-label="Permalink to &quot;对偶不是另一套偏好&quot;">​</a></h3><p>支出最小化用的仍是同一 \(u\)，同一 \(\succsim\)。改的是约束：从「钱给定、效用最大」换成「效用给定、钱最小」。局部非餍足下，最优处 \(u\bigl(h(p,u)\bigr)=u\)，且 \(e\bigl(p,v(p,w)\bigr)=w\)。对偶缺口一旦补上，马歇尔与希克斯只是同一偏好的两种参数化。</p><p><span class="marginnote">\(v\) 随 \(u\) 的单调变换而变，\(e\) 的「效用刻度」也随之改。希克斯需求本身仍是序数对象：它只依赖于无差异集，不依赖于刻度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>\(v\) 对 \(p\) 拟凸、对 \(w\) 递增，且 \((p,w)\) 零次齐次——因为 \(x\) 零次齐次，\(u(x)\) 只依赖比值。\(e\) 对 \(p\) 凹、一次齐次、对 \(u\) 递增。凹性来自：两个价格的平均去买，不会比分别买更贵。这些形状后课用来证明斯勒茨基矩阵负半定。</p><p>包络定理给出导数，不必把最优束对价格再全微分。谢泼德引理：\(\nabla_p e(p,u)=h(p,u)\)。罗伊恒等式：</p> \[x_i(p,w)=-\frac{\partial v/\partial p_i}{\partial v/\partial w}. \]<p>直观是：涨价的效用损失，除以财富的边际效用，等于必须减掉的消费。本课把这两条当对偶的可操作接口，不把包络证明重写一遍。</p><div class="mermaid"></div><p>恒等式 \(x(p,w)=h\bigl(p,v(p,w)\bigr)\) 与 \(h(p,u)=x\bigl(p,e(p,u)\bigr)\) 把两条需求焊在一起。下一课对 \(p\) 求导，交叉项就是收入效应。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>值函数比原始需求更光滑、更好认。\(e\) 对 \(p\) 凹，立刻推出希克斯需求向下倾斜：自价格替代效应非正。马歇尔需求没有这层保护，因为收入效应可以翻号。这就是为什么补偿变化、等价变化用 \(e\) 来写，而不用 \(x\) 的积分乱加。</p><p>福利比较在本课只开一个口：价格从 \(p^0\) 变到 \(p^1\)，补偿变化是 \(e(p^1,u^0)-e(p^0,u^0)\)。这是钱，可以加总到一个人的两次预算上，仍然不是人际效用。后课税收归宿会再借这个口，本课不展开公共财政。</p><p><span class="marginnote">拟线性效用使 \(e\) 在计价物与效用之间仿射，收入效应集中在计价物上。这是后课局部均衡常用的刀，不是一般形状。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>\(v\) 与 \(e\) 要求最优存在。价格为零或偏好在边界上不满足局部非餍足时，最小值可以是 \(0\) 或达不到。角点上谢泼德引理改成超梯度：支出函数仍凹，导数是对应。可微公式只在内点正则处使用。</p><p>也不要把间接效用当成「可观测的幸福指数」。观测到的是 \((p,w,x)\)；\(v\) 是模型里的值。显示偏好课会问：这些观测是否与某一 \(u\) 一致。本课仍走「偏好 → 对偶函数」方向。</p><p>补偿变化与等价变化用 \(e\) 定义，路径无关靠的是下一课才写清的 \(S\) 对称。本课只把值函数准备好，不把福利积分提前做完。价格指数后课会再借 \(e\)，对象是宏观核算，不是这里的消费者对偶。</p><p>后课默认：可以自由使用 \(v\)、\(e\)、\(h\)，以及罗伊、谢泼德两条导数。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>间接效用是马歇尔问题的值；支出函数是效用约束下的最小账单。</li><li>二者互逆；\(x\) 与 \(h\) 只是同一偏好的两种参数化。</li><li>谢泼德引理与罗伊恒等式用包络把需求从值函数读出。</li><li>希克斯自价格效应非正；马歇尔效应的符号留给斯勒茨基。</li><li>出处：Varian, <em>Microeconomic Analysis</em>；Mas-Colell, Whinston and Green 第 3 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 偏好<!--]--><!--[--> · 课序 需求与对偶<!--]--></p><p class="lesson-progress">第 10 / 41 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/roy-identity/">Roy 恒等式</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

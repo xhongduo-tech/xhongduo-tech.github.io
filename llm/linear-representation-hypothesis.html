@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>线性表示假设 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_linear-representation-hypothesis.md.B34RWR0h.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 16 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/steering-vectors/">Steering Vectors 表示操纵向量</a></p><p class="lesson-next"> 下一课：<a href="/llm/grokking/">Grokking 与突然泛化</a></p></nav><div style="position:relative;"><div><h1 id="线性表示假设" tabindex="-1">线性表示假设 <a class="header-anchor" href="#线性表示假设" aria-label="Permalink to &quot;线性表示假设&quot;">​</a></h1><div class="epigraph"><p>非正式地说，线性表示假设认为高层概念在表示空间里沿某些方向线性编码。</p><footer>—— Park, Choe &amp; Veitch, The Linear Representation Hypothesis and the Geometry of Large Language Models, ICML 2024</footer></div><p>词向量算术（king − man + woman ≈ queen）早就暗示：语义关系可以是方向。语言模型的残差流把这一直觉从静态词表扩到上下文表示。线性表示假设（linear representation hypothesis, LRH）主张，许多高层概念——性别、时态、真实性、拒答——表现为空间中的方向，因而能被线性探针读出，也能被加法干预改写。Park、Choe 与 Veitch 在 ICML 2024 把这句口号写成反事实语言下的定义，并指出：没有选对的内积，余弦相似度和投影都可能没有语义。本篇写两种形式化、与探针/转向的对应、以及叠加对该假设的限制。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「线性」在文献里至少混用三种意思。一是探针可分：存在超平面切开正负例。二是干预可加：沿 \(v\) 移动会单调改变概念。三是类比算术：概念差向量可迁移。这三者在任意内积下并不自动等价。欧氏点积把高方差维度当成「更近」，而这些维度可能只是词频。于是出现一种尴尬：探针很准，转向却带动无关概念；或词表空间里的差向量，加到上下文残差上并不工作。</p><p>Park 等人要回答两个问题：线性表示究竟指什么；表示空间里该用哪种几何。他们用反事实：若只有概念 \(W\) 从 \(w^-\) 变到 \(w^+\)，表示应沿固定方向移动。对输出（词）空间与输入（上下文）空间分别定义，再证明它们对应探针与转向。</p><h3 id="可分不等于可干预" tabindex="-1">可分不等于可干预 <a class="header-anchor" href="#可分不等于可干预" aria-label="Permalink to &quot;可分不等于可干预&quot;">​</a></h3><p>分类边界的法向量是读出方向；干预需要的是写入方向。在不正交的基下，读出与写入不是同一个向量。这解释了为何随便拿探针权重去加残差，效果不稳定。LRH 的有内容版本必须同时指定测量与干预，以及二者之间的对应。</p><p><span class="marginnote">Mikolov 的词类比是 LRH 的史前史，对象是静态嵌入。上下文残差里同一概念会随层变化，末层还要过解嵌。把 word2vec 的差向量直接当 LLM 转向向量，等于假设嵌入空间与残差空间共享几何——通常不成立。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>输出空间的线性表示：概念 \(W\) 对应词表表示上的方向 \(\bar{\gamma}_W\)，使得反事实词对的差与 \(\bar{\gamma}_W\) 对齐。这与线性探针相连——探针在读这个方向上的投影。输入空间的线性表示：概念对应上下文残差上的方向 \(\bar{\lambda}_W\)，加法干预沿 \(\bar{\lambda}_W\) 滑动概念，而不改变因果上可分的其他概念。这与转向相连。</p><p>关键构造是因果内积：在这套内积下，因果可分的概念被表示为正交向量。Park 等人证明，用这套内积可以通过 Riesz 对应把输出方向映成输入方向，于是词对差可以生成转向向量。估计上，他们用解嵌矩阵的协方差来近似该内积，并在 LLaMA-2 上验证：按因果内积构造的向量，比裸欧氏差更少泄漏到无关概念。</p><h3 id="反事实对的操作定义" tabindex="-1">反事实对的操作定义 <a class="header-anchor" href="#反事实对的操作定义" aria-label="Permalink to &quot;反事实对的操作定义&quot;">​</a></h3><p>实践中很少有完美反事实。近似是成对词或成对句子，尽量只在目标属性上不同。对质量决定估计出的方向。性别、时态这类有最小对的概念最适合检验 LRH；「有害性」几乎必然与话题纠缠，正交性只会近似成立。实验部分应报告：目标概念的可控制性，以及声称可分的对照概念是否保持不动。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>若下一层计算近似线性，方向编码可以在残差里传播：注意力与 MLP 的一阶效应是矩阵乘，投影可以保存。非线性（ReLU、注意力 softmax）会扭曲，但在工作点附近仍常有可用的一阶方向。这与叠加理论相容：Elhage 等人的玩具模型显示，稀疏概念可以以几乎正交的超完备方式塞进低维，线性读出仍然可能，干预却会碰到干扰。</p><h3 id="统一探针与转向" tabindex="-1">统一探针与转向 <a class="header-anchor" href="#统一探针与转向" aria-label="Permalink to &quot;统一探针与转向&quot;">​</a></h3><p>在因果内积下，测量表示与干预表示是对偶的。探针准确率高，意味着存在读出方向；用对偶映到干预方向，加法应改变该概念。这给工程一个处方：不要把 \(W_{\mathrm{probe}}\) 直接当 \(v_{\mathrm{steer}}\)，先按估计的内积做一次转换。LLaMA-2 实验表明这一转换是值得的——欧氏几何下「正交」的概念，在因果内积下才真正分开。</p><p><span class="marginnote">内积选错时，余弦相似在解释性论文里没有字面意义。报告特征之间「相似」，应说明用的是欧氏、因果、还是白化后的点积。否则读者无法判断那条边是语义还是方差伪影。</span></p><p>LRH 不要求所有概念都线性。它要求：当我们声称某个概念可解释、可控制时，应能指出方向，并在选定几何下做测量与干预。失败案例（高度非线性的绑定、必须用多方向子空间才能表达的关系）应被当成假设的边界，而不是忽略。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>叠加、多义层、以及「概念」本身切得太随便，都会让单方向模型破产。有的属性更像子空间或凸锥，而不是一条线；强制压成 \(v\) 会在 \(\alpha\) 大时崩。层选择仍然经验：中层常比嵌入层更符合 LRH，因为计算已经发生、解嵌尚未把几何拧到词表频率上。</p><p>把 LRH 当本体论（「模型真的用方向思考」）过强；当方法论（「先试线性读写，失败再上非线性工具」）则很有效。SAE 特征、归因图、转向向量，都在赌某种线性结构。赌赢时解释便宜；赌输时不要硬编故事。</p><p><span class="marginnote">因果可分是相对于干预集而言的。若你从未干预「语体」，就不能声称情感方向与语体正交。正交性声明必须带干预清单，否则只是训练集上的不相关。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>线性表示假设认为高层概念沿方向编码；正式化需要反事实，而不是一句「能被线性分类」。</li><li>测量方向与干预方向在一般内积下不是同一个向量；因果内积把二者统一。</li><li>探针对应输出空间的线性可读，转向对应输入空间的线性可写。</li><li>欧氏余弦可能被词频主导；几何选择是实质问题，不是绘图口味。</li><li>叠加与非线性规定了假设的边界：先试方向，失败则承认需要子空间或电路。</li><li>出处：Park, Choe &amp; Veitch, ICML 2024（arXiv:2311.03658）；词类比见 Mikolov et al.；叠加见 Elhage et al., <em>Toy Models of Superposition</em>, 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 16 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/grokking/">Grokking 与突然泛化</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

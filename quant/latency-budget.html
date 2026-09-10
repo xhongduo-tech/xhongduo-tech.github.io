@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>延迟预算 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_latency-budget.md.DIBegCIt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 持有期与容量<!--]--><!--[--> · 课序 频率体制<!--]--></p><p class="lesson-progress">第 33 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/strategy-capacity/">策略容量与拥挤</a></p><p class="lesson-next"> 下一课：<a href="/quant/freq-hft-mid-slow/">高频、中频与低频</a></p></nav><div style="position:relative;"><div><h1 id="延迟预算" tabindex="-1">延迟预算 <a class="header-anchor" href="#延迟预算" aria-label="Permalink to &quot;延迟预算&quot;">​</a></h1><div class="epigraph"><p>延迟是从事件发生到你的订单到达匹配引擎的时间分配问题。把所有策略都接到同一根低延迟管道上，是在用容量买一个持有期并不需要的时钟。</p><footer>—— 据 Hasbrouck and Saar 对低延迟交易与市场质量的讨论；对照 O&#39;Hara 对高频环境下「何时算一笔交易」的论述</footer></div><p><a href="/quant/strategy-capacity">策略容量</a>把规模写成曲线。本课的缺口是时间：在已经选定的持有期 \(H\) 上，哪些环节的毫秒（或秒、或分钟）会改变期望，哪些只是工程舒适。Hasbrouck 与 Saar 研究低延迟交易如何改变簿的动态；Budish、Cramton 与 Shim 把连续限价簿上的速度竞赛写成市场设计问题。本课写<strong>预算</strong>：把端到端延迟拆成行情、计算、风控、路由、场所，按 \(H\) 分配，而不是默认越快越好。不写如何建设或利用抢跑管道。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>端到端延迟 \(L=L_{\mathrm{md}}+L_{\mathrm{cpu}}+L_{\mathrm{risk}}+L_{\mathrm{net}}\)。对做市和延迟套利，\(L\) 的一毫秒可以改变队列与中点锚；对月频再平衡，\(L\) 的一分钟通常小于价差。容量课已经说明大规模会自己制造冲击；延迟课说明小规模但时钟错了，会去吃已经过时的 NBBO，见<a href="/quant/market-fragmentation">市场分割</a>。问题是给每个策略一个延迟预算：超过预算的加速，边际 alpha 小于边际成本（包括变薄的深度和更吵的撤单）。</p><p>预算必须按路径而不是按平均值。均值 200 微秒、尾部 20 毫秒，对必须在拍卖不可撤窗口前到达的订单，尾部才是约束。开收盘集合、波动中断再开盘，约束是日历时刻而不是微秒竞赛。把所有订单的 SLA 写成同一条，会在集合上过度工程、在连续抢 tick 上预算不够。</p><h3 id="信息延迟与决策延迟" tabindex="-1">信息延迟与决策延迟 <a class="header-anchor" href="#信息延迟与决策延迟" aria-label="Permalink to &quot;信息延迟与决策延迟&quot;">​</a></h3><p>行情到达晚，是信息集的错：你在用过时中点算有效价差、用过时深度估冲击。计算与风控晚，是决策的错：信息已经在内存里，订单没出去。路由与场所晚，是执行的错。三类对期望的导数不同。信息延迟会让信号符号在短 \(H\) 上变号；决策延迟在长 \(H\) 上只影响实施缺口的延迟腿；执行延迟在碎片化市场上造成 trade-through 或错过中点。监控课已经要求两套时间戳；本课把两套戳的差当成预算消耗。</p><p><span class="marginnote">A 股集合竞价的不可撤窗口是硬截止。预算应写成「9:19:59 前必须到达」这类时钟约束，而不是「平均延迟 3 毫秒」。错过窗口，开盘单的 \(H\) 直接变成「下一场连续」，成本跳到另一条曲线。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>测量每段延迟的分布：行情源（SIP vs 直连只在这里作为预算输入，细节见附录）、信号完成、风控放行、网关确认、交易所确认。把实施缺口按 Perold 拆出延迟腿，对 \(L\) 做分层：同一信号在 \(L\) 的不同分位上净收益差多少。差不显著的环节，预算可以放松。差显著的环节，才值得投资工程——这是研究结论，不是建设指南。</p><p>按 \(H\) 分桶。\(H\) 以秒计：预算落在行情与网关。\(H\) 以日计：预算落在数据准时（基本面、公司行为）和拍卖截止。\(H\) 以月计：预算落在再平衡日历与指数生效日。把月频价值策略接到盘中微秒监控上，会把拒单噪声当成 alpha 衰减。</p><h3 id="延迟与容量的替换" tabindex="-1">延迟与容量的替换 <a class="header-anchor" href="#延迟与容量的替换" aria-label="Permalink to &quot;延迟与容量的替换&quot;">​</a></h3><p>同一 alpha，可以用更快的速度去抢薄深度，也可以用更慢的速度、更大的 \(H\)、更低的参与率去吃厚的拍卖流动性。Budish 等人指出连续时间优先制造速度竞赛；集合竞价削弱这种竞赛。策略选择场所与协议，就是在买不同的延迟制度。容量曲线应在「当前延迟」和「放松延迟、改参与拍卖」两个点上各画一次，避免把工程速度当成唯一扩容手段。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>延迟进入损益的机制是过时决策：你以为自己在 \(m_t\) 上提供或吃进，实际匹配发生在 \(m_{t+L}\)。对 maker，过时报价等于被捡走的过期期权；对 taker，过时吃单可能已经穿越。\(H\) 越短，过时越致命。拥挤时，所有人的 \(L\) 分布决定谁排在队头；你的绝对延迟不如相对延迟。这与容量的共同流量是对偶：那边是量，这边是到达时刻。</p><p>风控闸门也消耗预算。把复杂模型塞进预交易，会把 \(L_{\mathrm{risk}}\) 拉长。正确做法是把必须同步的检查留在路径上，把慢检查放到异步，监控课已经区分拒单来源。延迟预算因此也是风控架构预算。</p><p><span class="marginnote">不要用 <a href="/quant/kyle-model">Kyle</a> 的批量拍卖来为连续速度竞赛辩护。Kyle 没有时间优先。连续 LOB 的延迟价值来自 Harris 意义上的队列，不是来自 \(\lambda\) 公式。</span></p><div class="mermaid"></div><h3 id="尾部截止比均值-sla-更常成为紧约束" tabindex="-1">尾部截止比均值 SLA 更常成为紧约束 <a class="header-anchor" href="#尾部截止比均值-sla-更常成为紧约束" aria-label="Permalink to &quot;尾部截止比均值 SLA 更常成为紧约束&quot;">​</a></h3><p>集合不可撤窗口、再开盘延长、监管文件截止，约束的是分位而不是平均延迟。只优化均值，会在必须到达的时刻失败，把 \(H\) 推到下一场协议。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讨论共址、微波或如何缩短某一跳的物理路径。合规与公平接入是交易所规则问题。加密链上的延迟是区块时间与 mempool，对象不同。下一课把 \(H\)、容量、延迟打包成高频 / 中频 / 低频的体制标签，避免口头禅。</p><p><span class="marginnote">把月频价值策略接到微秒监控，会把拒单噪声当成 alpha 衰减。预算应按体制卡分配，不能全公司一根管道。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>延迟是按持有期分配的预算，不是全局越小越好。</li><li>信息、决策、执行三段延迟对期望的导数不同。</li><li>约束常常是截止时刻与尾部，不是均值。</li><li>速度与更长 \(H\)、更厚的拍卖流动性可以替换，应比较两条容量曲线。</li><li>相对延迟在拥挤时比绝对延迟更重要。</li><li>出处：Hasbrouck and Saar, <em>Journal of Financial Markets</em>, 2013；Budish, Cramton and Shim, <em>QJE</em>, 2015；O&#39;Hara, <em>Journal of Finance</em>, 2015；实施缺口见 Perold, 1988。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 持有期与容量<!--]--><!--[--> · 课序 频率体制<!--]--></p><p class="lesson-progress">第 33 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/freq-hft-mid-slow/">高频、中频与低频</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

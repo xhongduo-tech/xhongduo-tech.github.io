@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RM 集成与不确定性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rm-ensembles.md.BCCkc_vJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 奖励模型进阶<!--]--><!--[--> · 课序 奖励从哪来<!--]--></p><p class="lesson-progress">第 1 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/llm/prm-in-rl-loop/">过程奖励进训练环</a></p><p class="lesson-next"> 下一课：<a href="/llm/rm-calibration/">RM 校准</a></p></nav><div style="position:relative;"><div><h1 id="rm-集成与不确定性" tabindex="-1">RM 集成与不确定性 <a class="header-anchor" href="#rm-集成与不确定性" aria-label="Permalink to &quot;RM 集成与不确定性&quot;">​</a></h1><div class="epigraph"><p>单个奖励模型给出的是点估计；几份独立拟合的差异，才把「这道完成有多不可信」写进标量。</p><footer>—— Coste 等，Reward Model Ensembles Help Mitigate Overoptimization；对照 Eisenstein 等 Helping or Herding</footer></div><p><a href="/llm/negative-task-vector">上一课</a>把行为改写收在权重空间里的负任务向量：沿一条微调方向反走，抹掉不想要的能力。本课打开「强化学习进阶」。策略不再被一条向量推，而是被一个标量奖励拉。<a href="/llm/reward-model">奖励模型</a> 在 <a href="/llm/rlhf-pipeline">RLHF 流程</a>里被当成真值；它其实是比较数据上的回归器，对分布外完成的方差从未进入 PPO。缺口是：<strong>同一条 \(y\)，不同初始化的 RM 会打出差很远的分，策略却只看见均值。</strong> 后课校准、过优化都默认已经读完本课的不确定性。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>InstructGPT 用一份 RM 给 PPO 打分。训练数据是标注员对旧策略样本的排序，测试时策略已经离开那片邻域。Gao、Schulman、Hilton 后来量过：代理奖励继续涨，金标奖励先升后降——过优化。单模型没有内部信号说「我在瞎打」。集成的问题不是再训一个更准的头，而是把 \(r_\phi\) 从点改成分布：\(\hat r(x,y)\) 与 \(\hat\sigma(x,y)\)，让策略在不确定的区域少走。</p><p>几份 RM 的分歧来自三处：随机种子与数据顺序、比较对的不可传递残差、以及表征对长度/格式捷径的不同敏感度。分歧大，不证明金标低；但分歧小，也不证明金标高——只说明这族模型看法一致。</p><h3 id="集成不是投票选最好的那份" tabindex="-1">集成不是投票选最好的那份 <a class="header-anchor" href="#集成不是投票选最好的那份" aria-label="Permalink to &quot;集成不是投票选最好的那份&quot;">​</a></h3><p>把 \(K\) 份 RM 的分数取 \(\max\)，等于把最乐观的黑客面交给策略。取 \(\min\) 过保守，探索停住。主流是均值作奖励、方差作惩罚或门控。Coste 等人表明集成能推迟过优化，不能取消它；Eisenstein 等人进一步问：集成是在帮助，还是只是把策略赶到「所有成员都喜欢」的更窄捷径上（herding）。</p><p><span class="marginnote">成员必须独立训练，或至少独立数据折。对同一 checkpoint 做 dropout 采样，相关太强，\(\hat\sigma\) 系统性偏小。不要把 LoRA 的几个 rank 当成集成。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数据与损失仍是成对比较，不重写 Bradley-Terry。做 \(K\) 份 RM（\(K\) 常取 3–8）：不同种子，或把比较对折成 bagging。推理时</p> \[\bar r=\frac1K\sum_{k} r_{\phi_k}(x,y),\qquad \hat\sigma^2=\frac1K\sum_k\bigl(r_{\phi_k}-\bar r\bigr)^2. \]<p>接到 <a href="/llm/ppo-llm">PPO</a> 的标量可以是 \(\bar r-\lambda\hat\sigma\)（pessimism），或仅当 \(\hat\sigma\) 低于阈值才用 \(\bar r\) 更新。Best-of-N 也可以按 \(\bar r-\lambda\hat\sigma\) 排序。WARM（Rame 等）把成员权重平均，得到一条平滑奖励，显存比 \(K\) 次前向便宜，但失去运行时的 \(\hat\sigma\)。</p><div class="mermaid"></div><p>成员初始化自同一 SFT，只改种子，实现便宜，相关偏高；从不同 SFT 或不同比较子集训，相关低、成本高。报告必须写清 \(K\)、聚合与 \(\lambda\)，否则「用了集成」不可复现。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>悲观聚合改变的是策略面对的地形：在成员一致的区域，梯度与单 RM 接近；在成员打架的区域，有效奖励被压低，PPO 的正优势变少。于是策略更愿意停留在训练分布附近——这正是推迟 Gao 式过优化的来源。Herding 风险是：捷径（更长、更像清单）若被所有成员学到，方差反而小，悲观项不罚，集成一起被骗。</p><p><span class="marginnote">不确定性是认知的（模型不知），不是随机的（标注噪声）。标注员分歧要另建模，不能指望多训几份 RM 自动吸收。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>\(K\) 次 RM 前向在在线 RL 里很贵。可把成员量化、放到推理卡，或只对高分候选算满 \(K\) 份。开放域偏好上集成有文献支持；<a href="/llm/verifiable-reward">可验证奖励</a> 的 0/1 没有模型不确定性，本课的 \(\hat\sigma\) 用不上，应换校验器。集成推迟过优化，下一课问分数的绝对含义是否校准。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>单 RM 是点估计；集成用成员分歧估计对分布外完成的不可信程度。</li><li>聚合用均值减方差惩罚，不要用 max；一致的捷径仍会 herding。</li><li>接到 PPO 或 Best-of-N 时，\(\lambda\) 与 \(K\) 必须写入实验卡。</li><li>可验证 0/1 不需要 RM 集成。</li><li>出处：Coste 等 ICLR 2024；Eisenstein 等 COLM 2024；过优化曲线见 Gao, Schulman, Hilton。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 奖励模型进阶<!--]--><!--[--> · 课序 奖励从哪来<!--]--></p><p class="lesson-progress">第 1 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rm-calibration/">RM 校准</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

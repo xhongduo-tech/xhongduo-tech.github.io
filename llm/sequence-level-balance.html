@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>序列级均衡 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sequence-level-balance.md.BBQJb__Z.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 MoE 进阶<!--]--><!--[--> · 课序 路由与专家<!--]--></p><p class="lesson-progress">第 37 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/node-limited-routing/">节点受限路由</a></p><p class="lesson-next"> 下一课：<a href="/llm/expert-specialization/">专家专精化分析</a></p></nav><div style="position:relative;"><div><h1 id="序列级均衡" tabindex="-1">序列级均衡 <a class="header-anchor" href="#序列级均衡" aria-label="Permalink to &quot;序列级均衡&quot;">​</a></h1><div class="epigraph"><p>全局 batch 均匀不等于每条序列均匀；一条句子若只进两三个专家，长上下文上的特化与缓存都会歪。</p><footer>—— Dai et al., DeepSeekMoE, 2024 中的 sequence-level 均衡；ST-MoE 对稳定性的讨论见 Zoph et al., 2022</footer></div><p><a href="/llm/node-limited-routing">上一课</a>约束了 token 能看见哪些设备。<a href="/llm/aux-loss-free-balancing">无辅助损失均衡</a> 看的是全局水位。一条长度为 \(n\) 的序列，其 \(n\) 个 token 仍可能扎堆少数专家：全局统计被其它序列填平，这条序列自己的路由却极度稀疏。本课补<strong>序列级</strong>均衡：在单条样本的 token 集合上惩罚或约束专家占用。后课特化分析要先知道「均匀」是哪一级。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预训练 MoE 的负载表按 micro-batch 计。语言数据里，代码文件、对话、重复模板会让同一专家在一条序列上被反复选中——对特化也许是对的，对容量与推理缓存是错的：该专家成为热点，其它专家在这条序列上闲置，<a href="/llm/moe-inference-cache">MoE 推理缓存</a> 若按序列常驻会偏斜。缺口是把均衡指标从 batch 降到 sequence，而不强制每条序列用遍所有专家（那会毁特化）。</p><p>DeepSeekMoE 引入序列级辅助损失，鼓励一条序列覆盖更多专家。Zoph 等人的 ST-MoE 从稳定性角度也强调路由不要把局部批量打成极端。本课取「按序列统计占用」这一方法。</p><p><span class="marginnote">序列级与 token 级 drop 不同。Drop 是容量满了丢 token；序列级均衡是希望一条序列的路由直方图别太尖。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对序列 \(s\)，记专家 \(i\) 被选中的次数 \(c_{s,i}\)。目标可以是 \(c_{s,\cdot}\) 与均匀的 KL，或惩罚 \(\max_i c_{s,i}/n\)。损失加在路由 logits 上，权重通常小于语言损失，且可与全局偏置并存：全局管水位，序列管尖峰。无辅助损失体系里，也可以按序列调节临时偏置，但实现少见，课序以可微序列项为主。</p><p>\(k\gt 1\) 时，覆盖更容易，序列级项更松。\(k=1\) 的 Switch 式更需要它，否则一条长句等于一条专家轨迹，轨迹一偏就全程偏。</p><h3 id="与节点受限叠加" tabindex="-1">与节点受限叠加 <a class="header-anchor" href="#与节点受限叠加" aria-label="Permalink to &quot;与节点受限叠加&quot;">​</a></h3><p>可见专家已经是子集时，序列级均匀应在<strong>可见子集</strong>上定义，否则损失会要求用到不可达专家，与上一课打架。写实现时先 mask 再算直方图。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>序列级项迫使门在同一上下文里切换专家，增加组合数：主语、动词、数字可能落到不同专家，专家必须在同一篇章的不同片段上协作。这对特化是温和的正则——不允许「这篇文档包给一个专家」。过强则退回哈希式切片，每个 token 换专家，专家看不到连续短语。</p><p>推理热点：若服务端按专家做批处理，序列级更均匀能降低单专家队列的长尾延迟。这是系统收益，不一定显示在困惑度上。与全局偏置分工：偏置纠正「这个专家这几天太热」，序列项纠正「这一篇太专一」。只开一个，另一种尖峰仍在。</p><p><span class="marginnote">短序列上直方图噪声大，\(n=32\) 时谈「覆盖 64 个专家」无意义。应用序列级项要设最小 \(n\) 或按 \(n\) 缩放目标覆盖数。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把序列级均匀当成公平性伦理，它是负载与组合正则。指令微调时一条指令可能确实该主要由代码专家处理，强行覆盖会伤任务。后课 MoE 微调会允许更尖的路由。评测应同时报全局 Gini 与序列内熵，只报一个会误导。下一课用分析工具看专家到底专精了什么，均衡指标只是占用，不是语义。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>全局均匀掩盖单序列扎堆；序列级均衡约束一条样本内的占用尖峰。</li><li>与节点受限同时用时，均匀定义在可见专家子集上。</li><li>过强会破坏短语级特化；短序列要缩放目标覆盖。</li><li>系统上可减热点长尾，困惑度不一定动。</li><li>出处：Dai et al., DeepSeekMoE, 2024；Zoph et al., ST-MoE, 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 MoE 进阶<!--]--><!--[--> · 课序 路由与专家<!--]--></p><p class="lesson-progress">第 37 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/expert-specialization/">专家专精化分析</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

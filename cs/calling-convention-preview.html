@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>调用约定直觉 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_calling-convention-preview.md.oPLSRWV6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 7 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/alignment-padding/">对齐与填充</a></p><p class="lesson-next"> 下一课：<a href="/cs/recursion-stack-frame/">递归与栈帧</a></p></nav><div style="position:relative;"><div><h1 id="调用约定直觉" tabindex="-1">调用约定直觉 <a class="header-anchor" href="#调用约定直觉" aria-label="Permalink to &quot;调用约定直觉&quot;">​</a></h1><div class="epigraph"><p>函数调用能成立，是因为双方事先约定：参数放哪、返回值从哪取、谁来清理栈上的槽。</p><footer>—— 据 Bryant and O&#39;Hallaron, Computer Systems: A Programmer&#39;s Perspective；ISO/IEC 9899 整理</footer></div><p>上一课<a href="/cs/alignment-padding">对齐与填充</a>把对象放进合法地址。本课不重讲填充，也不从某一种 ISA 的寄存器表另起。缺口是：结构体和整数已经能在一个函数内部寻址，<strong>跨函数时它们怎么交接</strong>？没有约定，caller 把参数放在栈上，callee 却去寄存器里找，程序只是碰巧能跑。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次调用要传递控制与数据。控制：保存返回地址，跳到 callee，返回时跳回。数据：参数与返回值放在寄存器或栈槽， excess 参数溢出到栈；大结构体可能改传隐藏指针，由 caller 提供返回槽。缺口因此不是「函数怎么写」，而是<strong>边界上的 ABI</strong>：同一平台、同一语言的所有翻译单元必须遵守同一套，链接才有意义。上一课的对齐在这里变成栈槽与参数区域的对齐。</p><p>本课只建立直觉。具体哪几个寄存器传整数、浮点是否走另一组、红区有多大，随 System V AMD64、AAPCS 而变，后课机器级编程再钉死一张表。这里要带走的是：调用不是源码里的括号，是一份双方都执行的协议。</p><h3 id="调用约定不是「c-语法」" tabindex="-1">调用约定不是「C 语法」 <a class="header-anchor" href="#调用约定不是「c-语法」" aria-label="Permalink to &quot;调用约定不是「C 语法」&quot;">​</a></h3><p><code>f(a,b)</code> 的求值顺序在 C 里未指定；那是表达式规则。调用约定是链接后的机器协议，与源码里从左到右的错觉无关。C 与汇编、C 与操作系统系统调用包装，都可以共享或故意不共享同一套。把两者混成「语言规定怎么传参」，后课动态链接与系统调用会对不齐。</p><p><span class="marginnote">CSAPP 用机器级程序展示：调用前 caller 把参数放入约定位置，callee 在栈上建帧。ISO C 只要求抽象机器上参数已初始化；放进哪些物理槽是实现的 ABI，不在标准正文里逐条列出。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最小图景：caller 求值参数，按约定写入寄存器/栈，执行 call（把返回地址压栈或写入链路寄存器），callee 建立栈帧保存它要弄脏的寄存器，用完后恢复，把返回值写入约定位置，再 ret。整数与指针通常走通用寄存器；浮点常走另一组；过大的聚合走内存。谁弹出参数槽（caller clean / callee clean）也必须一致。</p><div class="mermaid"></div><p>可变参数函数还约定：固定参数之后的实参如何在栈上排列，以便 <code>va_list</code> 能走访。这是约定的延伸，不是另一套语言。</p><p>可变参数与固定参数混用时，未提升的类型会按默认提升规则变宽，调用方与声明必须一致，否则是 UB 而不是「约定宽松」。这把 ABI 与语言规则焊在一起。结构体按值传递是否拆进寄存器，由 ABI 按大小与类别决定，程序员看见的仍是拷贝整块语义。后课递归假设每一次进入都完整执行这份协议，所以深度与帧大小成正比，而不是与源码里函数名字的个数成正比。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有了约定，分别编译的 <code>.o</code> 才能互调：每个函数只看见自己的帧与约定位置，不必知道对方用了哪些局部名。这也解释了为何改一个结构体的字段布局会同时破坏调用双方——传值时拷贝的是带填充的整块。递归能工作，是因为每次调用另建一帧、返回地址叠在栈上；下一课专讲帧如何随深度增长。</p><p>调用约定还划分 callee-saved 与 caller-saved：哪些寄存器跨调用必须保持，哪些可以随便用。这不是性能花絮，是「谁负责保存」的所有权。搞错会表现为间歇性寄存器被踩，而源码看起来没有别名。</p><p>系统调用用另一套放置规则：调用号与参数常在固定寄存器里，返回错误也用寄存器约定，不必与用户函数的 caller-clean 相同。动态链接的 PLT 仍走用户调用约定，只是目标地址来自表。可见「约定」是按边界分类的：函数对函数一份，用户对内核一份。后课递归只使用函数这份——每一层帧都按同一 ABI 建，所以同一函数可以叠许多层而不混用寄存器所有权。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不列 x86-64 寄存器名表，不讲内联与尾调用消除如何省略帧。下一课<a href="/cs/recursion-stack-frame">递归与栈帧</a>把「每次调用一帧」写成深度与溢出。后课默认：跨函数的数据走 ABI 约定位置；结构体按值传递拷贝布局；返回地址在栈或链路寄存器上。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>调用是 ABI 协议：参数、返回值、栈清理、寄存器保存都事先约定。</li><li>对齐好的对象按约定进寄存器或栈槽；过大聚合走内存。</li><li>分别编译能链接，依赖所有单元遵守同一套约定。</li><li>下一课看递归如何把这些帧叠起来。</li><li>出处：CSAPP 机器级调用；ISO C 抽象机器上的函数调用。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 7 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/recursion-stack-frame/">递归与栈帧</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>谢泼德引理与霍特林引理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_shephard-hotelling.md.C5BOjdzq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 微观：厂商与市场<!--[--> · 单元 生产<!--]--><!--[--> · 课序 技术与成本<!--]--></p><p class="lesson-progress">第 8 / 33 课</p><p class="lesson-prereq"> 先修：<a href="/econ/cost-fn-properties/">成本函数性质</a></p><p class="lesson-next"> 下一课：<a href="/econ/conditional-factor-demand/">条件要素需求</a></p></nav><div style="position:relative;"><div><h1 id="谢泼德引理与霍特林引理" tabindex="-1">谢泼德引理与霍特林引理 <a class="header-anchor" href="#谢泼德引理与霍特林引理" aria-label="Permalink to &quot;谢泼德引理与霍特林引理&quot;">​</a></h1><div class="epigraph"><p>值函数对价格的导数就是选择：成本对要素价格求导得条件需求，利润对产品价格求导得供给。</p><footer>—— 据 Shephard, Cost and Production Functions, 1953；Hotelling, Journal of Political Economy, 1932 整理</footer></div><p><a href="/econ/cost-fn-properties">上一课</a>（成本函数性质）。已经解出 \(c(w,q)=\min_z w\cdot z\) s.t. \(f(z)\ge q\)，并把切条件写成 TRS 等于要素价格比。本课不重解这道规划，也不把 \(c\) 的凹、齐次再证一遍。缺口是把两条包络收成可调用的引理：\(\nabla_w c\) 即条件要素需求；利润函数对产品价格的导数即供给——后课不必每次回到 \(f\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>成本最小化给出值函数 \(c(w,q)\)。条件需求 \(z(w,q)\) 是解。若每次要用 \(z\) 都回去解约束规划，对偶没有节省任何东西。缺口是 Shephard 引理：在可微点</p> \[\frac{\partial c}{\partial w_j}(w,q)=z_j(w,q). \]<p>对称地，把产出价格 \(p\) 放进利润值函数 \(\pi(p,w)=\max_q\,pq-c(w,q)\)（或直接 \(\max_{y\in Y}p\cdot y\)），Hotelling 引理说</p> \[\frac{\partial\pi}{\partial p}=q(p,w),\qquad \frac{\partial\pi}{\partial w_j}=-z_j(p,w). \]<p>第一式是供给，第二式是无条件要素需求。产量此时已经对 \(p\) 优化过。本课只钉包络，不把接受者均衡、进入、市场结构提前写完——那是利润与供给课的对象。</p><h3 id="两条引理不是同一层" tabindex="-1">两条引理不是同一层 \(z\) <a class="header-anchor" href="#两条引理不是同一层" aria-label="Permalink to &quot;两条引理不是同一层 $z$&quot;">​</a></h3><p>Shephard 的 \(z(w,q)\) 锁住 \(q\)。Hotelling 对 \(w\) 的导数锁住的是已经调过的 \(q(p,w)\)。下一课专门比较这两条要素需求；本课先承认二者都由包络读出，不要把 \(\partial c/\partial w\) 与 \(-\partial\pi/\partial w\) 画成一条曲线。</p><p><span class="marginnote">消费者一侧：支出函数的 Shephard 读希克斯需求，Roy 从间接效用读马歇尔需求。本课是厂商平行物。不要把 Roy 写进 \(c(w,q)\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>包络定理：最优值对参数的一阶变化只走目标里的直接项，约束里的调整被一阶条件消掉。\(c\) 对 \(w\) 的直接项就是 \(z\)；\(\pi\) 对 \(p\) 的直接项就是 \(q\)。可微、内点、严格二阶条件保证单值。折拐时改超微分，引理变成含入。</p><p>一次齐次与凹（\(c\) 对 \(w\)，\(\pi\) 对价格）已由上一课与对偶给出。引理把这些形状翻译成：条件需求对自身要素价格的斜率半负定（替代矩阵），供给对 \(p\) 不降。本课不估计这些弹性。</p><div class="mermaid"></div><p>本课不引入沉没。一切投入仍按当期 \(w\) 付。也不把 \(\pi\) 写成会计利润或限价簿价差。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么导数就是选择：参数涨一丁点，已经选好的计划按直接的价格项吃亏或占便宜；再优化只能是二阶小量。于是观测 \(c\) 或 \(\pi\) 的梯度，等于观测需求与供给。后课实证与理论都走这条路：估值函数，不估 \(f\)。</p><p>与<a href="/econ/homothetic-production">齐次生产</a>的接口：一次齐次则 \(c(w,q)=q\,c(w,1)\)，Shephard 给出 \(z(w,q)=q\,z(w,1)\)，条件需求对 \(q\) 线性。Hotelling 在 CRS 无固定成本时碰到刀刃：\(\pi\) 为 \(0\) 或 \(+\infty\)，供给对应可以是射线，导数要读成支撑。</p><p><span class="marginnote">Hotelling 1932 讨论税收与供需可积，引理是副产品。不要与 1929 年线性城市那篇霍特林混成一篇；市场结构课才用后者。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>\(q\) 仍可以当参数只做 Shephard，不必进入 \(\pi\)。本课引入 \(\pi\) 只为配对第二条包络；完整的 \(p=\mathrm{MC}\)、歇业规则、短长期在后课。要素买方垄断会让 \(w\) 不再是参数，两条引理整段暂停。</p><p>不可微、配额、不可逆投入，超微分或角点使「导数」变成对应。联合生产时 \(q\) 是向量，Hotelling 对 \(p\) 的梯度是供给向量。也不把引理写成账本上的历史成本对价格的差商。</p><p>后课默认：条件需求由 Shephard 从 \(c\) 读出；供给与无条件要素需求由 Hotelling 从 \(\pi\) 读出。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Shephard：\(\nabla_w c(w,q)=z(w,q)\)；Hotelling：\(\partial\pi/\partial p=q\)，\(-\nabla_w\pi\) 为无条件要素需求。</li><li>包络消掉最优调整的一阶项，故值函数携带选择。</li><li>两条 \(z\) 不是同一对象；下一课比较它们。</li><li>本课不写市场结构；\(\pi\) 只是对偶值函数。</li><li>出处：Shephard, <em>Cost and Production Functions</em>, 1953；Hotelling, <em>JPE</em>, 1932。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 微观：厂商与市场<!--[--> · 单元 生产<!--]--><!--[--> · 课序 技术与成本<!--]--></p><p class="lesson-progress">第 8 / 33 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/conditional-factor-demand/">条件要素需求</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

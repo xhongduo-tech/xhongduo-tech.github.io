@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>拟合缩放律的方法 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_scaling-law-fitting.md.sjyTWiH5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 32 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/multi-epoch-repetition/">多 epoch 与重复数据</a></p><p class="lesson-next"> 下一课：<a href="/llm/emergence-debate/">涌现能力争论</a></p></nav><div style="position:relative;"><div><h1 id="拟合缩放律的方法" tabindex="-1">拟合缩放律的方法 <a class="header-anchor" href="#拟合缩放律的方法" aria-label="Permalink to &quot;拟合缩放律的方法&quot;">​</a></h1><div class="epigraph"><p>幂律的指数对拟合窗口和脏点极其敏感；三种独立方法指向同一谷底，才配叫计算最优，而不是一条回归的自信区间。</p><footer>—— Kaplan et al., 2020；Hoffmann et al., Training Compute-Optimal Large Language Models, 2022 附录中的多种拟合法</footer></div><p><a href="/llm/multi-epoch-repetition">上一课</a>要求进入定律的是 \(D_{\mathrm{eff}}\) 不是 \(RU\)。缺口是怎么把 \(\{N,D,L\}\) 收成可外推的曲线。主干 <a href="/llm/kaplan-scaling">Kaplan</a> 与 <a href="/llm/chinchilla">Chinchilla</a> 已经给出函数形式与「约 20 token / 参数」的读数，本课不重写那条政策建议，只写<strong>拟合卫生</strong>：窗口、三种独立法、不要把 warmup 与尖峰与 SDC 回滚吃进指数。后课的涌现争论依赖「你画的是哪一种横轴」；推理算力最优依赖「谷底是训练损失还是部署损失」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Kaplan 用 \(L(N)=E+(N_c/N)^{\alpha_N}\) 一类形式（另有 \(D\)、\(C\) 切片）。Hoffmann 指出：拟合假设、学习率日程、是否训满，会把等计算谷底从「偏大模型」推到「参数与数据近等比例」。同一家族的点，窗口若含压熵段，早期 \(L\) 高、斜率陡，外推会高估大模型收益。若含未收敛的短跑，会低估 \(D\) 的指数。Chinchilla 论文用三种方法交叉：参数化损失面再约束最优、固定 \(C\) 的直接比较、最后损失插值。一种方法给出的漂亮 \(\alpha\) 不够。</p><p>对数空间的线性回归对横轴两端的点权重大。一个 SDC 回滚后少训 2% 却被当成完整 \(D\) 的点，会拧弯 \(\alpha\)。阶段课要求先标注再拟合，本课把它收成硬步骤。</p><p><span class="marginnote">\(C\approx 6ND\) 对 MoE、对序列长度变化、对词表softmax 占比高的小模型都是近似。拟合前声明 FLOPs 计数器：只算 GEMM、还是含注意力二次项、是否含嵌入。计数器变了，\(\alpha\) 不能与文献比。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>步骤：</p><ol><li><strong>清洗。</strong> 去掉未结束 warmup 的点、明确失败的 NaN 跑、SDC 回滚且 token 缺口未补的点。尖峰后已恢复的跑可用终点，但不要用尖峰处的 \(L\)。</li><li><strong>单位。</strong> \(D\) 用 \(D_{\mathrm{eff}}\)；\(L\) 用硬目标 CE 或 BPB，不混。</li><li><strong>切片。</strong> 先画 \(L\) vs \(N\)（\(D\) 充足）、\(L\) vs \(D\)（\(N\) 固定）、再画等 \(C\) 曲线。只看一条切片会重演 Kaplan vs Chinchilla 的误会。</li><li><strong>交叉。</strong> 至少两种：回归求约束最优，以及在相近 \(C\) 上直接比较若干 \((N,D)\)。两者谷底应同侧。</li><li><strong>留出。</strong> 最大模型不参与拟合，用来检验外推。没有留出的 \(\alpha\) 只是描述统计。</li></ol><p>不要用下游准确率去拟合幂律再外推「涌现点」——那是下一课的陷阱。损失面拟合只用压缩指标。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>幂律是经验描述，在中间尺度成立，两端有不可约误差 \(E\) 与数据饱和。把 \(E\) 固定错，会把曲率赶进 \(\alpha\)。Hoffmann 的参数化把 \(E\) 与两轴指数一起估，比先拍 \(E\) 更诚实，也更易过拟合——所以需要留出。等计算比较不依赖参数化形式，点少时更稳，但需要真的把各跑训到该 \(C\)，不能把「还在降」的点与「已平台」的点放在同一 \(C\) 上比。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不产出新的 20 token / 参数。换稳定件、换 MoE、换重复数据，\(f(R)\) 与 FLOPs 计数一变，谷底就动。下一课：即使损失光滑，下游指标仍可能看起来「突然」变好——先问是指标还是模型。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>拟合前清洗 warmup、尖峰、SDC 缺口；用 \(D_{\mathrm{eff}}\) 与声明过的 FLOPs 计数器。</li><li>三种切片交叉，谷底同侧才谈计算最优；留出最大点。</li><li>对数回归吃两端脏点；不要用下游准确率拟合 \(\alpha\)。</li><li>形式是经验，稳定件与数据制度会移动谷底。</li><li>出处：Kaplan et al., 2020；Hoffmann et al., 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 32 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/emergence-debate/">涌现能力争论</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

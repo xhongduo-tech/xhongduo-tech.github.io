@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kakutani 不动点 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_kakutani-fixed-point.md.BLxm377R.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 不动点与动态<!--]--><!--[--> · 课序 存在性<!--]--></p><p class="lesson-progress">第 14 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/brouwer-fixed-point/">Brouwer 不动点</a></p><p class="lesson-next"> 下一课：<a href="/econ/uhc-correspondence/">上半连续对应</a></p></nav><div style="position:relative;"><div><h1 id="kakutani-不动点" tabindex="-1">Kakutani 不动点 <a class="header-anchor" href="#kakutani-不动点" aria-label="Permalink to &quot;Kakutani 不动点&quot;">​</a></h1><div class="epigraph"><p>对应把一点送到一个集合；在紧凸上，上半连续、非空紧凸值的自对应必有 $x\in\Phi(x)$。</p><footer>—— 据 Kakutani, Duke Mathematical Journal, 1941；Debreu, Theory of Value, 1959；Mas-Colell, Whinston and Green 第 17 章整理</footer></div><p>上一课<a href="/econ/brouwer-fixed-point">Brouwer 不动点</a>管连续函数。马歇尔需求在完全替代时是一段线段，最优反应在无差异时是一个面：对象是对应 \(\Phi:C\rightrightarrows C\)，不是函数。缺口是把不动点改写成 \(x\in\Phi(x)\)。上半连续的精确定义下一课才展开；本课先把 Kakutani 的假设当黑箱用起来，并标明后课均衡、混合策略纳什缺的就是这四条。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(C\subset\mathbb{R}^n\) 非空紧凸。\(\Phi:C\rightrightarrows C\) 满足：(i) 每点 \(\Phi(x)\) 非空紧凸；(ii) \(\Phi\) 上半连续（闭图在紧值时与之等价）。则存在 \(x^*\in C\) 使 \(x^*\in\Phi(x^*)\)。Brouwer 是 \(\Phi(x)=\{f(x)\}\) 的特例：单点集凸且紧，连续函数的图闭。</p><p>超额需求若集值，构造 \(\Phi(p)\) 为「被 \(z(p)\) 改善的价格方向」或直接对需求对应加总，不动点仍是出清。有限正规形式博弈：混合策略单纯形上，对手混合给定时最佳反应是线性规划的最优面，凸紧；期望收益连续给出上半连续。于是<a href="/econ/mixed-strategy">混合策略与存在性</a>是 Kakutani 的实例。本课不把 Nash 1950 重写一遍。</p><h3 id="凸值不能省" tabindex="-1">凸值不能省 <a class="header-anchor" href="#凸值不能省" aria-label="Permalink to &quot;凸值不能省&quot;">​</a></h3><p>上半连续且紧值已经能保证图闭，没有凸值仍可没有不动点：想一想把圆分成上下两弧的对应，或两点集 \(\{0,1\}\) 上 \(\Phi(0)=\{1\}\)、\(\Phi(1)=\{0\}\)。经济学对应：非凸偏好让需求是两端、不含中点，超额需求失去凸值，标准存在性停机。这是<a href="/econ/convex-preference">凸偏好</a>必须在均衡之前就钉死的原因。Kakutani 不发明凸，它消费凸。</p><p><span class="marginnote">Kakutani 仍是存在性。多重纳什、多重均衡是常态。选择均衡要精炼或稳定性，不在本课。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>用 Kakutani 前核对定义域紧凸、像落在定义域里、值凸紧非空、上半连续。连续目标在紧凸可行集上的最优对应，在偏好连续凸、预算连续且紧时，满足这些——Berge 极大值定理给非空紧与 UHC，凸偏好给凸值。后课<a href="/econ/uhc-correspondence">上半连续对应</a>把 UHC 与 Berge 写清楚；本课只要求：没有 UHC，Kakutani 的假设不齐。</p><p>近似办法：用连续函数 \(f_\varepsilon\) 在 \(\varepsilon\)-邻域里挑 \(\Phi\) 的点（Michael 选择在凸值时可用），对 \(f_\varepsilon\) 用 Brouwer，令 \(\varepsilon\to 0\) 用闭图收极限。这解释了为何 Kakutani 看起来像「集值 Brouwer」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(x\) 不在 \(\Phi(x)\) 里时，凸值让你能用<a href="/econ/separating-hyperplane">分离超平面</a>把 \(x\) 与 \(\Phi(x)\) 分开，造出一个连续的「朝像走」的方向。UHC 保证这个方向不会在极限处突然跳开。于是可以造辅助的连续自映射，Brouwer 给出近似不动点，闭图把近似收成真正的 \(x\in\Phi(x)\)。分离再一次成为存在性的引擎：没有凸，分离失败，辅助映射造不出来。</p><p>与压缩的对比依旧：Kakutani 不给唯一、不给 Picard。值函数迭代走压缩；均衡存在走 Kakutani。两者都叫不动点，假设与产物不同，不要混用迭代去「算」一般均衡的 Kakutani 点还指望全局唯一。</p><p><span class="marginnote">无限维要 Glicksberg 一类推广。连续时间或函数价格空间上的均衡有时走那条；有限商品主干停在 Kakutani。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不给 UHC 的 \(\varepsilon\)-\(\delta\) 定义，不证 Berge，不写 Nash 的全部公理。不要把 Kakutani 用到非凸生产（固定成本）上还声称标准存在性成立——那需要企业数原子、混合或递增成本的修补。下一课把「上半连续」从黑箱变成可检查的定义，并接到需求对应与极大值定理。</p><p>后课默认：集值需求、集值最佳反应，存在性靠 Kakutani；缺凸值就回到非凸对照，不硬套本定理。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kakutani：紧凸上 UHC、非空紧凸值自对应有不动点。</li><li>Brouwer 是单值特例；混合纳什与集值超额需求是正例。</li><li>凸值来自凸偏好/线性化混合；没有凸，分离辅助失败。</li><li>存在不是唯一，也不是计算程序。</li><li>下一课：<a href="/econ/uhc-correspondence">上半连续对应</a>。</li><li>出处：Kakutani, <em>Duke Math. J.</em> 1941；Debreu, <em>Theory of Value</em>；MWG 第 17 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 不动点与动态<!--]--><!--[--> · 课序 存在性<!--]--></p><p class="lesson-progress">第 14 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/uhc-correspondence/">上半连续对应</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

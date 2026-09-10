@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MVA 初始保证金调整 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_mva-initial-margin.md.D8IbBB3W.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 利率信用与 XVA<!--[--> · 单元 利率与对手方<!--]--><!--[--> · 课序 信用与 XVA<!--]--></p><p class="lesson-progress">第 11 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/fva-funding/">FVA 融资估值调整</a></p><p class="lesson-next"> 下一课：<a href="/quant/sa-ccr-ead/">SA-CCR EAD</a></p></nav><div style="position:relative;"><div><h1 id="mva-初始保证金调整" tabindex="-1">MVA 初始保证金调整 <a class="header-anchor" href="#mva-初始保证金调整" aria-label="Permalink to &quot;MVA 初始保证金调整&quot;">​</a></h1><div class="epigraph"><p>初始保证金是对未来几天潜在损失的预留现金，本身随市场敏感度变动；为持有这笔现金所付的资金，变成又一项随暴露凸性而涨的调整。</p><footer>—— Gregory, The xVA Challenge 中对 MVA 的处理；保证金模型背景对照 ISDA SIMM 与 CCP SPAN 类方法</footer></div><p>变异保证金跟着当前市值走，充分现金 CSA 下接近把 <a href="/quant/fva-funding">FVA</a> 关掉。初始保证金（IM）覆盖的是平仓地平线上的潜在损失，即使今日 \(V=0\) 也要缴。非清算衍生品在 UMR 下用 <a href="/quant/span-simm">ISDA SIMM</a> 一类敏感性法；CCP 用 SPAN 或类似扫描。IM 余额是随机过程：delta、vega、曲率随市场变，IM 随之变，融资成本的期望就是 MVA（Margin Valuation Adjustment）。Gregory 把它列为 xVA 中最吃计算的一项，因为 IM 已是风险的非线性函数，再取期望等于嵌套。本篇写 MVA 的积分对象、与 CVA/FVA 的差别、以及如何避免在 SIMM 上再套一层不可对冲的黑箱；不重复 SPAN/SIMM 的网格公式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记 \(I_t\) 为 \(t\) 时刻须持有的初始保证金（对净额集或对 CCP 账户，取我方须缴的现金或合格券的融资口径）。资金利差 \(s_f\) 作用在这笔预留上，</p> \[\mathrm{MVA}\approx\mathbb{E}\Bigl[\int_0^T e^{-\int_0^t r} s_f(t)\,I_t\,\mathrm{d}t\Bigr]. \]<p>\(I_t\) 不是 \(V_t^+\)：零市值的对冲组合仍可能有大 IM（方向性风险被对冲、曲率与基差还在）。因此 MVA 不能用 CVA 的 EE 剖面乘一个「保证金因子」。问题是 \(I_t\) 的计算：SIMM 要完整敏感性，敏感性要重估；未来每个时点每条路径做一次 SIMM，是暴露引擎之上再套风险引擎。</p><p>第二问题是双边 IM 的分段与门槛。UMR 有名义门槛，低于门槛无 IM，刚过门槛突然出现一大块 \(I\)，MVA 对名义集中度极端敏感。CCP 的 IM 连续一些，但有附加保证金与违约基金，MVA 只覆盖 IM 融资还是也覆盖基金，政策要写清。合格券的 haircut 使「缴国债」仍有资金与流动性成本，不能假设 \(s_f=0\)。</p><h3 id="为何变异保证金不进-mva" tabindex="-1">为何变异保证金不进 MVA <a class="header-anchor" href="#为何变异保证金不进-mva" aria-label="Permalink to &quot;为何变异保证金不进 MVA&quot;">​</a></h3><p>变异保证金（VM）是当日 \(V\) 的现金交换，对应的融资已在 FVA 的残余暴露里（有门槛时）或在 OIS 贴现里（无门槛现金 CSA）。IM 是额外的一层，地平线是 MPOR（非清算常 10 日，CCP 更短），统计量是高分位损失而不是 \(\mathbb{E}[V^+]\)。同一市场因子，EE 进 CVA，IM 进 MVA，敏感度不同：增加一笔对冲可能降低 EE 却因 SIMM 的风险类相关而增加 IM，CVA 下降、MVA 上升。xVA 优化必须联合，不能先按 CVA 压缩再惊讶 IM。</p><p><span class="marginnote">SIMM 的风险权重是行业标定，不是你的风险中性波动。MVA 因此含「监管/行业模型」与「前台模型」两套动态。用前台 Monte Carlo 驱动市场，再用 SIMM 映射成 \(I_t\)，两套不一致是模型风险，不是实现 bug。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>定义 \(I_t\)。</strong> 对 UMR：在路径的 \(t\)，计算净额集对 SIMM 风险因子的敏感性（IR delta 按币种与期限桶、FX、信用、股权、商品、vega 与曲率），按公开参数加总得到 IM。对 CCP：调用与清算所一致的扫描或历史 VaR 代理。双边 IM 常是每方计算后取约定规则（各自 SIMM、或第三方）。MVA 用我须融资的那一侧；对方缴来的 IM 是否可再抵押，决定能否冲减 \(I_t\)。再抵押受限时，收到的 IM 不能抵 FCA，MVA 更大。</p><p><strong>期望。</strong> 朴素嵌套：外层市场路径，内层每个 \(t\) 做全量 SIMM。不可行。标准近似：（1）回归：在暴露模拟的截面上把 \(I\) 对状态变量回归，类似美式；状态至少含主要利率因子与 FX。（2）敏感性的动态：只模拟驱动 SIMM 的那些 delta/vega，用伴随或公式希腊值，避免全量重估。（3）网格：对平行曲线、FX 即期等低维状态预计算 IM 表。长到期、多币种、含信用敏感的净额集，近似误差必须抽样复检。</p><p><strong>资金与期限。</strong> \(s_f\) 常用批发无抵押或专门的 IM 融资曲线（有时低于一般 FTP，因为 IM 可隔离）。把一般 FVA 的 \(s_f\) 直接用在 IM 上会偏贵或偏便宜，取决于隔离与再抵押。积分到交易到期；可取消结构的 \(I_t\) 在取消后消失，须与暴露引擎同一行权逻辑。</p><h3 id="与-cva、fva-的联合优化" tabindex="-1">与 CVA、FVA 的联合优化 <a class="header-anchor" href="#与-cva、fva-的联合优化" aria-label="Permalink to &quot;与 CVA、FVA 的联合优化&quot;">​</a></h3><p>压缩交易、尽早清算、把非线性拆到 CCP，通常同时降 CVA/FVA/MVA，但不是单调。例如把 IRS 留在双边以净额掉存量，可能因未清算而继续缴 UMR IM；改清算则双边 IM 换成 CCP IM，MVA 换记账本。增量 MVA 必须在目标净额集上算：一笔对冲若降低 SIMM 的 delta 却增加 vega 桶，IM 可能上升。报告应给 ΔCVA、ΔFVA、ΔMVA 三列增量，避免只按 CVA 做压缩。</p><p>对冲 MVA：IM 对市场因子的导数（保证金 delta）可通过扰动今日敏感性再跑 SIMM 得到。用利率互换对冲 IM 的期限桶，会改变前台 DV01，须与交易台限额协调。MVA 的资金曲线对冲与 FVA 类似，残差大。信用敏感 SIMM（非清算 CDS 等）让 MVA 含对手方以外的一般信用权重，与 CVA 的单名 CDS 不是同一风险。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是「为未知的几天损失预留资本金式的现金」。CVA 买的是违约或有损失；MVA 买的是即使双方都存活也必须锁住的流动性。IM 随波动与头寸集中度上升，危机里 \(I_t\) 与 \(s_f\) 同跳，MVA 有自身的错向——与 Brunnermeier 描述的催缴螺旋同类，只是发生在初始保证金而不是仅变异保证金。CCP 在压力中加收附加 IM，路径上的 \(I_t\) 有跳，平滑回归会低估 MVA 尾部。</p><p>相对 SPAN/SIMM 本文只取它们的输出当 \(I_t\) 的定义。MVA 不重新发明保证金，它问融资。把 SIMM 参数当成可校准的市场价格是错的：参数由 ISDA 定期更新，更新日 MVA 跳，这是运营日历风险。Gregory 强调 MVA 随 UMR 分阶段实施从「理论字母」变成真实 PnL，计算投资才有理由。</p><p><span class="marginnote">中央清算降低双边 CVA，同时把 MVA 与违约基金流动性推到前台。xVA 总和经济上可以上升。用「已经清算所以 xVA 为零」做投标，会漏掉 IM 融资。</span></p><h3 id="计算失败模式" tabindex="-1">计算失败模式 <a class="header-anchor" href="#计算失败模式" aria-label="Permalink to &quot;计算失败模式&quot;">​</a></h3><p>回归若只用利率水平，会漏波动状态：swaption 账簿的 SIMM vega 随立方运动，MVA 在 vol 冲击下会爆。必须把关键 vega 桶或一个 ATM 波动因子纳入状态。SIMM 的信用类对信用敏感净额集可以主导 IM，而利率暴露引擎可能根本没模拟信用利差——路径上 \(I_t\) 被冻在今日信用 delta 上，MVA 对利差运动失明。混合净额集要把信用因子送进外层模拟，见 <a href="/quant/rates-credit-hybrid">利率-信用混合</a>。门槛非线性使回归在零 IM 与正 IM 之间抖动，分段或分类回归优于全局线性。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用 EE×k 天×分位数权重当 IM 再乘 \(s_f\)：那是用 CVA 工具冒充 SIMM。不要忽略双方 IM 与再抵押规则。不要对隔离账户仍用无抵押一般 FTP 而不评估隔离是否降低 \(s_f\)。不要在 SIMM 参数更新时没有重估存量 MVA。国内非清算与合格抵押清单与 ISDA 默认不同，\(I_t\) 的定义先要法律确认。</p><p>MVA 通常大于充分 CSA 下的残余 FVA，小于无抵押长到期 CVA，但对市场化程度高、大量清算或 UMR 覆盖的账簿可以成为主项。优先级：先把 IM 定义与再抵押搞对，再投资嵌套算法。字母顺序仍服从 cva-lite 的纪律——单边 CVA 与抵押后 EE 可靠之后，再让 MVA 进投标，否则无法分辨是暴露错了还是 SIMM 近似错了。</p><p><span class="marginnote">出处：Gregory, <em>The xVA Challenge</em>。IM 模型见 ISDA SIMM 与 CCP SPAN 公开方法，本博客的对照见 <a href="/quant/span-simm">SPAN 与 SIMM</a>。嵌套与回归是数值文献，不要写成 SIMM 规范的一部分。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MVA 是初始保证金余额上资金成本的期望；IM 由 SIMM 或 CCP 模型定义，不是 EE。</li><li>计算需要在路径上得到未来 IM，通常用回归或敏感性动态，而不是真嵌套全量 SIMM。</li><li>变异保证金走 FVA/OIS；IM 是额外流动性锁定，危机里与 \(s_f\) 同跳形成保证金错向。</li><li>压缩与清算须同时看 ΔCVA、ΔFVA、ΔMVA；对冲可能降暴露却升 IM。</li><li>再抵押、隔离、门槛与参数更新日历决定 MVA 是否可解释。</li><li>出处：Gregory 的 xVA 论述；ISDA SIMM 与 CCP 保证金方法论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 利率信用与 XVA<!--[--> · 单元 利率与对手方<!--]--><!--[--> · 课序 信用与 XVA<!--]--></p><p class="lesson-progress">第 11 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/sa-ccr-ead/">SA-CCR EAD</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MDA 特征重要性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_mda-importance.md.DvpRtpNm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 回测验证补全<!--]--><!--[--> · 课序 过拟合与重要性<!--]--></p><p class="lesson-progress">第 15 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/quant/nested-cv/">嵌套交叉验证</a></p><p class="lesson-next"> 下一课：<a href="/quant/white-reality-check/">White Reality Check</a></p></nav><div style="position:relative;"><div><h1 id="mda-特征重要性" tabindex="-1">MDA 特征重要性 <a class="header-anchor" href="#mda-特征重要性" aria-label="Permalink to &quot;MDA 特征重要性&quot;">​</a></h1><div class="epigraph"><p>打乱某一列之后预测精度下降多少，才是该列对模型的贡献；分裂增益会把重要性记在共线族里最先被问到的那一列上。</p><footer>—— 据 Breiman, Random Forests, Machine Learning, 2001；López de Prado, Advances in Financial Machine Learning, Chapter 8, 2018</footer></div><p>树模型训练完之后，总会有一张「哪一列有用」的表。默认的均值下降不纯度（MDI / gain）按分裂时损失减少来记账，计算便宜，却在共线特征上不稳定：价值的十个近亲会把增益拆散，或集中到随机先被分裂的那一列。Breiman 给出另一种定义：均值下降精度（Mean Decrease Accuracy, MDA），也叫置换重要性——在验证样本上打乱某一列，看误差上升多少。López de Prado 在 <em>AFML</em> 第 8 章把 MDA 放到金融截面上，并强调必须对<strong>相关特征簇</strong>一起置换，否则共线会让单列 MDA 接近零。本篇写 MDA 的对象、与 MDI / SHAP 的差别，以及它不能当作因果识别或因子发现的 \(t\) 统计量。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设模型 \(f\) 在点-in-time 特征 \(X\) 上预测标签 \(y\)（未来收益、残差或涨跌）。训练误差低并不告诉你哪一列在起作用，更不告诉你去掉它之后样本外是否变差。MDI 是训练过程的会计：它看见的是样本内不纯度，偏向高基数列，且对共线分配任意。单列相关（把 \(X_j\) 与 \(y\) 做 IC）忽略交互与其余列的条件。需要一种条件于已训练模型、且在<strong>未见样本</strong>上定义的重要性。</p><p>MDA 的操作是：在测试折（或袋外样本）上计算基准损失 \(L\)；将第 \(j\) 列的值在样本间置换，破坏 \(X_j\) 与 \(y\) 及与其他特征的联合，得到 \(L^{(j)}\)；重要性 \(\mathrm{MDA}_j=L^{(j)}-L\)。上升越大，模型越依赖该列的真实配对。置换保留了 \(X_j\) 的边际分布，只打断依赖，这比把该列设为零更公平——零可能在训练里从未出现。</p><h3 id="为什么金融里必须在样本外做" tabindex="-1">为什么金融里必须在样本外做 <a class="header-anchor" href="#为什么金融里必须在样本外做" aria-label="Permalink to &quot;为什么金融里必须在样本外做&quot;">​</a></h3><p>样本内 MDA 会把过拟合进来的噪声列评得很高：模型记住了某段特异路径，打乱它训练误差就升。正确做法是在 <a href="/quant/nested-cv">嵌套</a> 的外层测试折上算 MDA，或在每条 <a href="/quant/cpcv">CPCV</a> 路径的检验块上算，再报告跨路径的分布。Breiman 的随机森林可用袋外样本，GBDT 没有自然 OOB 时不要用训练行做置换。时间序列上置换应在时间块内或只打乱截面（同一 \(t\) 上打乱股票），以大致保留波动聚类；把十年收益全局打乱会混进体制破坏，重要性难解释。</p><p><span class="marginnote">MDA 高不是「该特征是风险溢价」。它只说明当前这个 \(f\) 在这段评估样本上用了该列的配对信息。换模型、换宇宙、换标签地平，表会变。把它写成经济学发现，是把算法的偏导数当成结构参数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>单列置换。</strong> 对每个测试折、每个 \(j\)，重复若干次置换以降低随机性，报告均值与分位。损失应与交易目标对齐：截面 rank IC、扣费后组合收益，而不是逐点 MSE——MSE 会被高波动年份主导，使 MDA 变成隐性的波动重要性。分类准确率在金融里几乎无意义，见 <a href="/quant/gbdt-alpha">GBDT</a> 对损失的讨论。</p><p><strong>簇置换（clustered MDA）。</strong> López de Prado 建议先按特征收益或特征取值的相关做聚类，对一整簇同时置换。单列 MDA 在共线下会全部接近零（模型可改用近亲），簇 MDA 才能显示「这一族作为整体有用」。报告应同时给出簇名（例如价值族、微观结构族）与族内代表列，避免把十个近亲当成十个独立发现。这与 <a href="/quant/multiple-testing-factors">多重检验</a> 计有效试验次数是同一精神。</p><p><strong>与 MDI、SHAP 对照。</strong> MDI 快，适合训练监控，不适合发表。SHAP 给出逐样本贡献，可加总，但对树的路径依赖与计算成本敏感，且同样不是因果。MDA 不需要可加性假设，代价是每次置换都要重推一遍预测。三者不一致时，应信样本外 MDA 与经济约束，而不是信训练 gain 最高的那一列。</p><h3 id="置换设计里的泄漏" tabindex="-1">置换设计里的泄漏 <a class="header-anchor" href="#置换设计里的泄漏" aria-label="Permalink to &quot;置换设计里的泄漏&quot;">​</a></h3><p>若特征在全样本上做过标准化或 PCA，测试折的列已经含有训练外信息，MDA 会量到泄漏而不是预测力。管道必须折内 <code>fit</code>。若标签与特征因 <a href="/quant/label-horizon-overlap">重叠持有期</a> 共享路径，打乱 \(X_j\) 仍可能留下经由 \(y\) 的相关，MDA 被压低或扭曲；先 purge 再评估。截面 rank 特征在每一日重新排序，置换「列」时要定义清楚是打乱原始量还是打乱 rank；通常应打乱进入模型的那一列，并在同一日截面内打乱，以免破坏 rank 的定义。</p><p><span class="marginnote">把 MDA 当特征选择的内层目标、再用同一折报外层绩效，等于非嵌套。筛列属于内层；外层只评估已选定的子集。AFML 把重要性当作研究工具，不是又一个可优化的夏普。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>置换打断的是 \(X_j\) 与 \((y,X_{-j})\) 的联合。若 \(f\) 的预测强依赖该联合，损失上升。若 \(f\) 从未分裂该列，或总可以通过 \(X_{-j}\) 重建同样的信息，损失几乎不动。因此 MDA 是<strong>模型依赖</strong>的：线性模型的 MDA 近似于该列被删去后的 \(R^2\) 下降；深度树的 MDA 含交互——只有在特定区域才用到的列，平均 MDA 可能被稀释，需要分组或条件 MDA。</p><p>噪声列在样本外的期望 MDA 接近零或略负（置换有时碰巧更好）。显著为正需要跨折的稳定性：某一年 MDA 很高、其余年为零，更像体制或过拟合。应报告时间上的 MDA 路径，而不是全样本一个点。这与因子研究要求发表后样本是同一纪律。</p><h3 id="不要把重要性当成交易信号" tabindex="-1">不要把重要性当成交易信号 <a class="header-anchor" href="#不要把重要性当成交易信号" aria-label="Permalink to &quot;不要把重要性当成交易信号&quot;">​</a></h3><p>按 MDA 排序再做多空，是把评估工具当成 alpha，尝试次数等于特征个数，必须进入 <a href="/quant/pbo">PBO</a> 与 DSR。更干净的用法是：用簇 MDA 决定哪些族值得保留在下一代模型里，用经济故事约束族的构造，用外层滚动决定是否交易。Israel、Kelly 与 Moskowitz 问机器能否学会金融，Avramov 等人加上可交易性后增益下降——MDA 高的微观结构列往往换手昂贵，重要性表不会自动扣成本。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>MDA 对置换次数、测试折长度和损失定义敏感。短测试折上打乱截面，估计方差很大，应用重复置换与跨折合并。极端共线（相关系数 \(\gt 0.99\)）时，即使簇置换也可能不稳定，应先在内层训练折上做代表列选择或岭化，再谈重要性。缺失值的置换要保持缺失模式，否则重要性会混进「缺失机制」。</p><p>不要用 MDA 替代点-in-time 审计。一列若含未来函数，MDA 会很高且稳定，那是泄漏的症状。也不要在全市场、全历史一次置换后宣称「成交额最重要」——那往往是规模与流动性的代理，需先做 <a href="/quant/cs-rank-features">截面 rank</a> 与中性化，再看残差列的 MDA。计算上，特征很多时应对簇而不是对每一列做完整置换，单列只对簇内代表抽查。</p><p><span class="marginnote">随机森林教材里的 MDA 常在分类准确率上定义。收益预测应改写为「打乱后 rank IC 或组合效用下降多少」。准确率从 52% 降到 51% 看起来很小，对夏普可能已经致命，也可能毫无经济意义——所以损失必须是钱，不是分类表。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MDA 用样本外置换后的损失上升定义特征重要性，条件于已训练模型，而不是训练分裂的会计。</li><li>共线时单列 MDA 会消失，应对相关簇同时置换；MDI/gain 不适合发表。</li><li>置换必须发生在嵌套外层或袋外样本上，管道的标准化与筛列不得看见测试折。</li><li>MDA 不是因果、不是风险溢价证明、也不是可直接交易的排序信号。</li><li>损失应对齐扣费后效用或截面 IC，并报告时间稳定性。</li><li>出处：Breiman, <em>Machine Learning</em>, 2001；López de Prado, <em>Advances in Financial Machine Learning</em>, Wiley, 2018，第 8 章；Strobl et al. 对置换重要性偏误的讨论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 回测验证补全<!--]--><!--[--> · 课序 过拟合与重要性<!--]--></p><p class="lesson-progress">第 15 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/white-reality-check/">White Reality Check</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

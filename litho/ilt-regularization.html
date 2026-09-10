@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ILT 正则化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_ilt-regularization.md.DYOnhUGZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 ILT、MRC 与写入<!--]--></p><p class="lesson-progress">第 11 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/litho/ilt-curvilinear/">逆光刻 ILT 与曲线掩模</a></p><p class="lesson-next"> 下一课：<a href="/litho/mask-rule-check/">掩模规则检查 MRC</a></p></nav><div style="position:relative;"><div><h1 id="ilt-正则化" tabindex="-1">ILT 正则化 <a class="header-anchor" href="#ilt-正则化" aria-label="Permalink to &quot;ILT 正则化&quot;">​</a></h1><div class="epigraph"><p>逆问题的精确解有无穷多个掩模，都几乎给出同一张低通空中像；不正则，优化器就在像素噪声里打转，写出不可制造的纹理。</p><footer>—— 对照逆光刻文献对病态逆问题与可制造约束的通称</footer></div><p><a href="/litho/ilt-curvilinear">上一课</a>已经把 ILT 收成：对前向成像求逆，表示从多边形边换成像素或水平集，曲线是通带内梯度下降的自然几何。缺口是病态。许多掩模对应几乎相同的晶圆轮廓，噪声和模型误差会被放大成高频碎形。必须正则化——平滑、MRC、剂量/焦点鲁棒——解才稳定到能写、能检、能蚀。本课钉正则。掩模厂用哪些几何规则把正则落地，留给<a href="/litho/mask-rule-check">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>正向 \(I=\mathcal{I}(M)\) 是低通的。逆「给定 \(I\) 求 \(M\)」的解空间巨大：在截止频率以外加减任意纹理，空中像几乎不变，损失几乎不动。无约束梯度下降会把模型误差和数值噪声拟合进这些零空间，看起来 loss 很低，硅上却是新热区，掩模数据体积爆炸。</p><p>OPC 的曼哈顿碎片本身就是一种硬正则：边只能法向挪、拓扑锁定。ILT 丢掉这层约束之后，必须显式把可制造性写进目标或投影，否则「光学上更优」会变成「掩模厂拒收」。缺口因此是选哪些惩罚、何时投影，而不是再证明逆问题存在。</p><h3 id="正则不是把曲线变回直角" tabindex="-1">正则不是把曲线变回直角 <a class="header-anchor" href="#正则不是把曲线变回直角" aria-label="Permalink to &quot;正则不是把曲线变回直角&quot;">​</a></h3><p>常见误解是：正则化 = 强制曼哈顿。那只是正则族里的一种，而且通常抬高损失、缩小窗口——上一课正是靠去掉它才换光学收益。曲线 ILT 的正则是曲率、最小宽度/间距、面积、以及 PV 扰动下的损失，让解停在光滑可写的流形上，而不是停在像素棋盘上。</p><p><span class="marginnote">「通称」的意思是：平滑、Tikhonov、总变差、水平集周长、MRC 投影、鲁棒项，文献里名字不同，目的相同——压零空间、换稳定性。本课不绑某一家 EDA 的产品名。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三项几乎总是同时在。平滑：对 \(M\) 的梯度或曲率惩罚，或在更新后做低通，禁止单像素抖动。可制造：每步或每若干步投影到 MRC（最小 CD、间距、面积；曲线还要曲率半径）。鲁棒：在剂量、焦点、掩模误差的若干扰动上求和损失，避免只在名义点漂亮。三者权重是超参数：平滑太重，窗口吐回去，ILT 退化成模糊的 OPC；太轻，解不可写。</p><p>输出仍要提取等值线、对齐电子束网格。正则若只存在于优化器、不存在于提取后的多边形，后处理会把正则偷偷拆掉。工程上把「优化内投影」和「提取后简化」当成同一条链。</p><h3 id="鲁棒项是对随机的弱代用品" tabindex="-1">鲁棒项是对随机的弱代用品 <a class="header-anchor" href="#鲁棒项是对随机的弱代用品" aria-label="Permalink to &quot;鲁棒项是对随机的弱代用品&quot;">​</a></h3><p>扰动损失买的是均值工艺窗，不是泊松尾。缺孔仍要剂量与胶，见<a href="/litho/photon-shot-budget">光子预算</a>。把鲁棒 ILT 写成「已经解决随机」，越权。它解决的是名义点过拟合。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>伴随梯度本身是光滑的，因为成像低通。无约束时，下降方向已经倾向曲线。真正长出像素噪声的，是损失对零空间不敏感：数值误差在零空间里累积。正则给零空间一个斜率，让优化器宁愿走光滑解。MRC 投影把解再拉到可写集合；若投影与梯度冲突，表现为边角被反复拉出又拍回，收敛变慢——那是约束太紧或模型在要求不可写的对比。</p><p>模型误差会被逆放大：校准漏洞变成纹理。独立硅数据验证因此是正则的一部分，不是优化结束后的礼貌检查。</p><p><span class="marginnote">损失下降不等于可制造。必须同时看 PV-band、MRC 违例数、掩模数据量。只报 clips 上的 EPE，等于只报未正则的训练集 loss。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>正则不增加 NA，不提高前向模型的物理正确性。它只在错误模型上也给出「看起来干净」的掩模——这时干净是假象。权重没有普适最优，随层别、写入器（VSB 对多束）和检测算法变。全芯片 ILT 的正则预算还受 GPU 日历限制：扰动点太多，班次内跑不完。热区 ILT 与全芯片 ILT 可以用不同权重，但不能用两套互相矛盾的 MRC，否则拼接处会裂开。</p><p>后课默认：ILT 的解已经是正则化之后的；下一课把投影所落的集合写成掩模厂的规则语言。</p><p>无扰动、无 MRC 的像素解可以留在实验室 clips 里当光学上限，不能当作 TAPOUT 输入。</p><p><span class="marginnote">比较 ILT 与 OPC 时写清正则项。无 MRC、无 PV 扰动的「裸逆」窗口，不能当作量产曲线掩模的收益。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>成像低通使 ILT 逆问题病态，必须正则才能落到可制造掩模。</li><li>平滑、MRC 投影、剂量/焦点鲁棒是通称的三项，缺一则过拟合或不可写。</li><li>正则不是强制曼哈顿；曲线解仍要曲率与宽度约束。</li><li>模型误差会被放大，独立硅验证属于正则闭环。</li><li>出处：逆光刻文献对病态逆问题与可制造正则的通称。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 ILT、MRC 与写入<!--]--></p><p class="lesson-progress">第 11 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/mask-rule-check/">掩模规则检查 MRC</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

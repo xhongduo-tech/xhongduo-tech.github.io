@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>词向量与分布假设 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_distributional-hypothesis.md.ccc4M-YG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 分布表示<!--]--></p><p class="lesson-progress">第 24 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dropout-intuition/">Dropout 直觉</a></p><p class="lesson-next"> 下一课：<a href="/llm/word2vec-skipgram/">Word2Vec skip-gram</a></p></nav><div style="position:relative;"><div><h1 id="词向量与分布假设" tabindex="-1">词向量与分布假设 <a class="header-anchor" href="#词向量与分布假设" aria-label="Permalink to &quot;词向量与分布假设&quot;">​</a></h1><div class="epigraph"><p>词的意义不能从字母形状读出，而要从它出现在何种邻域读出；把邻域统计收成向量，相似的分布就变成相近的点。</p><footer>—— 据 Harris, Distributional Structure, Word, 1954；Firth, A Synopsis of Linguistic Theory, 1957 整理</footer></div><p><a href="/llm/dropout-intuition">Dropout 直觉</a>收束了前馈单元。本课起进入「序列与注意力之前」，不重写 MLP。缺口是：符号本身没有欧氏几何，而矩阵乘与余弦都需要向量。方法是分布假设——邻域相似则意义相似——把离散词收成 \(\mathbb{R}^d\) 里的点。skip-gram 的具体损失是下一课；词表怎么切是更后面。本课只把「为何向量化」钉住。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一单元的对象是 \(\mathbb{R}^d\) 里已经存在的 \(x\)。自然语言给出的是符号 \(w\in V\)。one-hot 有几何，但是正交的：任意两词内积为 \(0\)，范数全 \(1\)，上一课的余弦没有东西可学。缺口不是再加一层 ReLU，而是承认意义来自用法：若两个词能出现在相近的上下文里，它们在表示里应当靠近。Harris 与 Firth 把这写成语言学命题；本课把它收成后课词向量的公理。</p><p>分布假设不指定窗口大小，不指定是预测上下文还是预测中心词，不指定向量是稠密还是稀疏计数。那些是估计方法。本课禁止的是另一条路：用字母编辑距离或用本体图谱的边来当默认度量——可以当辅助，不能替代「看邻域」。</p><h3 id="分布相近不是「同义词」" tabindex="-1">分布相近不是「同义词」 <a class="header-anchor" href="#分布相近不是「同义词」" aria-label="Permalink to &quot;分布相近不是「同义词」&quot;">​</a></h3><p>「银行」的金融义与河岸义邻域不同，一个符号会对应多个分布，因而一个向量会混合。反义词常出现在同一模板里（「好」与「坏」），分布可以很近。假设保证的是<strong>用法</strong>相近，不是辞典里的同义。后课评价词向量若只用同义词表，会把这项错位当成模型失败。本课把评价对象说清：邻域预测，不是词典对齐。</p><p><span class="marginnote">计数矩阵（词—上下文共现）已经是一种分布表示，行向量可以做 SVD。神经网络词向量是同一假设的参数化估计，便于接到非线性与反向传播里。本课两者都算「分布表示」，下一课才专讲预测式目标。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>为每个 \(w\in V\) 分配 \(e_w\in\mathbb{R}^d\)。相似性用余弦（见<a href="/llm/norm-cosine-projection">范数、余弦与投影</a>）。训练信号来自语料里的邻域：窗口内共现为正例。本课不写 softmax 公式。只需规定：几何由数据里的共现塑造，不由编号次序塑造——id 相邻不提供归纳偏置。这与嵌入查找课将要强调的「编号无度量」是同一句话，放在基础课的两端。窗口是否跨过句号或段落边界，会改变「邻域」的定义，必须在数据流程里声明，不在向量公式里偷偷改。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一旦词是向量，上一单元的全部算子都能作用：矩阵乘混合坐标，余弦检索近邻，softmax 把「哪个词该出现在窗口里」变成分类。语言模型稍后会把「窗口」拉成「整个左侧上下文」，但公理不变：符号的内容来自它参与过的条件分布。没有这条，后课 Word2Vec 只是又一次分类，看不出为何输入是词而不是像素。</p><p>维数 \(d\) 是容量：太小则许多用法挤在同一方向上，余弦分辨不开；太大则稀有词的坐标几乎由噪声决定。本课不选 \(d\)，只要求承认几何的轴来自估计，不来自字母表顺序。停用词几乎出现在所有邻域，会把许多向量拉向同一「语法背景」方向，实践中往往下采样——这是数据侧对假设的修正，不是推翻假设。</p><p>多义词、反义词、稀有词，都是这条公理的边界现象，不是推翻。稀有词邻域少，向量靠近初始化——与长尾梯度稀疏是同一统计。跨语言的「同一指称」不必靠近，除非平行语料把它们放进可对齐的邻域；单语分布假设不自动给出翻译几何。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 skip-gram 的 \(U,V\) 两张表，不写负采样。下一课<a href="/llm/word2vec-skipgram">Word2Vec skip-gram</a>才把「用中心词预测窗口」写成可训目标。后课默认：词的可学习向量来自分布假设；比较两词先看余弦，且不把同义词表当成唯一金标准。也不从像素或语音波形另起一套「分布」，本课的邻域是符号串上的窗口。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>符号 one-hot 正交，没有可用的余弦几何。</li><li>分布假设：邻域相似则向量应靠近；几何来自共现，不来自 id。</li><li>用法相近不等于辞典同义；多义与反义是预期现象。</li><li>计数分解与预测式词向量是同一假设的两种估计。</li><li>几何的轴来自共现估计，不来自字母表或 id 次序。</li><li>出处：Harris, 1954；Firth, 1957。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 分布表示<!--]--></p><p class="lesson-progress">第 24 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/word2vec-skipgram/">Word2Vec skip-gram</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gemini 1.5 长上下文 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_gemini-15.md.Tgyyi2jT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 报告与系统卡<!--]--></p><p class="lesson-progress">第 175 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/claude-37/">Claude 3.7 / extended thinking</a></p><p class="lesson-next"> 下一课：<a href="/llm/gemini-2/">Gemini 2.0 / 2.5</a></p></nav><div style="position:relative;"><div><h1 id="gemini-1-5-长上下文" tabindex="-1">Gemini 1.5 长上下文 <a class="header-anchor" href="#gemini-1-5-长上下文" aria-label="Permalink to &quot;Gemini 1.5 长上下文&quot;">​</a></h1><div class="epigraph"><p>在至少一千万 token 的上下文里，下一 token 预测仍在改善，跨模态检索召回仍接近完美；生产上把百万级窗口变成可服务的多模态模型。</p><footer>—— Gemini Team，Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context，arXiv:2403.05530</footer></div><p>Gemini 1.5 技术报告（2024 年 3 月初版，后有修订）把<strong>超长上下文</strong>写成这一代的主命题，而不是把 1.0 Ultra 再堆密参数。家族含 <strong>1.5 Pro</strong>（相对同年 2 月 Pro 的更新）与更轻的 <strong>1.5 Flash</strong>。Pro 是稀疏 <strong>MoE Transformer</strong>，用路由把输入送到参数子集，从而在总参数变大时保持每 token 计算可控；Flash 是面向 TPU 服务的解码器，注意力与前馈可并行，并对 Pro <strong>在线蒸馏</strong>，用更高阶预条件优化。二者原生多模态，文本、图像、音视频可交错。研究侧把上下文推到 <strong>10M</strong> token：文本针测约 7M 词、音频约 107 小时、视频约 10.5 小时（1 fps）。生产常见是 1M 量级窗口。报告<strong>没有给出专家数、总参数或激活参数</strong>，本篇也不补。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>2024 年初公开窗口大致是 GPT-4 Turbo 128K、Claude 3 生产 200K。超长文档、整仓代码、数小时录像若切块 + RAG，会丢掉需要跨段绑定的推理，且检索器本身会错。报告要证明两件事：诊断任务上「针」在百万到千万长度仍能取回；现实任务上长文档 QA、长视频 QA、长音频 ASR 超过「短窗口模型 + 外挂检索」。另一件事是效率：1.5 Pro 在多数核心基准上达到或超过 <strong>Gemini 1.0 Ultra</strong>，训练与推理计算却显著更少——长窗口若只能用 Ultra 级稠密模型，服务不可行。</p><p>Flash 的问题是延迟：同样 2M+ 级窗口与多模态，必须给高 QPS 路径一条更小、更快的模型。报告用蒸馏而不是另训一个无关小模型，来减少质量回归。</p><h3 id="针测满分不是长上下文推理" tabindex="-1">针测满分不是长上下文推理 <a class="header-anchor" href="#针测满分不是长上下文推理" aria-label="Permalink to &quot;针测满分不是长上下文推理&quot;">​</a></h3><p>NIAH 只要求找回插入的秘密。1.5 Pro 在文本/视频/音频上到 1M 近乎完美（&gt;99.7% 量级），10M 文本仍约 99.2%；相对 Claude 2.1 在 200K 的 98%，Pro 在 200K 报 100%，并维持到 530K。Flash 到 2M 三模态几乎完美。这些是诊断上限。报告同时做多跳、长文档问答，并承认最难的「把相距很远、又彼此相似的多条事实合起来」在 10M 上仍未完全解决。读 1.5 必须把图 1 的绿格子和真实 QA 分开。</p><p><span class="marginnote">Kalamang（使用人数少于 200）的 MTOB 设定：把约 500 页参考语法、词典和约 400 条平行句全部放进上下文，让模型学英→Kal 翻译，质量接近用同一材料学习的人。这是长上下文内学习，不是预训练里见过该语言。几乎无网页存在，用来降低污染借口。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>架构公开到这一层为止：Pro 为稀疏 MoE，条件计算来自 Google 一长串 MoE 文献；1.5 还包含「使 10M 理解不掉点」的结构改动，但<strong>没有</strong>把层公式、窗口注意力图案或专家表写进可复现附录。Flash：解码器、注意力与 FFN 并行（报告引用 PaLM 类做法）、从 Pro 蒸馏。服务表：1 万字符输入时 Flash 在英/日/中/法上输出最快；英语超过 650 字符/秒，比当时测过的 Claude 3 Haiku 还快约 30% 以上。</p><p>评测分诊断与现实。诊断：长序列负对数似然——Pro 在长文档上到 1M、代码上到 10M 仍改善，1.0 Pro 约在 32K 饱和；Flash 文档到 1M、代码到 2M。对 NLL 拟合幂律，10M 处出现偏离。现实：长文档/视频 QA，即便给对照模型外挂检索，1.5 Pro 仍全面更好（报告口径）。核心非长上下文能力（数学、科学、代码、多语言、图像/视频/图表）上，Pro 相对 1.0 Pro 在 50 项里 44 项更好，Flash 41 项；并给出分域平均提升百分比。负责任部署与模型卡在附录。</p><div class="mermaid"></div><h3 id="模态是交错的-不是三个窗口" tabindex="-1">模态是交错的，不是三个窗口 <a class="header-anchor" href="#模态是交错的-不是三个窗口" aria-label="Permalink to &quot;模态是交错的，不是三个窗口&quot;">​</a></h3><p>10M 可以几乎五天音频、或《战争与和平》十倍以上、或 Flax 仓库量级代码、或 10.5 小时 1 fps 视频。因为原生多模态，这些可以混在同一前缀。针测按模态分别插针；真实任务则要求在录像里对齐口播与画面再回答。ASR 长音频是另一张表，不要用文本 NIAH 代替。生产 1M 与研究 10M 的服务成本差几个数量级，API 档位以 Google 当时文档为准。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>MoE 的机制是总参数与每 token FLOPs 解耦：路由只激活子集。报告用这一点解释「比 1.0 Ultra 省很多计算却对上质量」。长上下文的机制在公开文本里是「一系列架构改动 + 训练/服务基础设施」，<strong>不足以</strong>复现注意力核。能确定的经验规律是：NLL 随位置在很长一段上仍降，说明模型在用远距离统计，而不只是局部窗口；10M 幂律偏离说明外推有墙。蒸馏让 Flash 继承 Pro 的长窗行为，但代码 NLL 只画到 2M，不要把 Pro 的 10M 曲线抄给 Flash。</p><p>相对 RAG：外挂检索把「找对段落」从模型内部分出。1.5 的主张是部分任务上内生长窗已超过检索增强的短窗模型。这不废除 RAG——延迟、价格、隐私仍可能要求切块——只是把「窗口太短所以必须 RAG」从技术必然变成成本选择。</p><p><span class="marginnote">不要给 1.5 Pro 填专家数或「激活 22B」之类来路不明的数字。报告只说稀疏 MoE 与条件计算。Flash 是否稠密，文中写 transformer decoder 与蒸馏，未给出与 Pro 对等的 MoE 句子；不要断言 Flash 的专家布局。</span></p><h3 id="与-claude-3-gpt-4-turbo-的窗口对比" tabindex="-1">与 Claude 3 / GPT-4 Turbo 的窗口对比 <a class="header-anchor" href="#与-claude-3-gpt-4-turbo-的窗口对比" aria-label="Permalink to &quot;与 Claude 3 / GPT-4 Turbo 的窗口对比&quot;">​</a></h3><p>报告把 10M 写成相对 Claude 3.0 200K 与 GPT-4 Turbo 128K 的代际跳跃。针测对照 Claude 2.1 的 200K。这些是 1.5 报告写作时的公开窗口，随后 Claude 与 GPT 都拉长过；历史对比应钉死 2403.05530 用的对手版本，不要用 2025 年的 1M Claude 去改写 1.5 的「代际」修辞。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>无参数、无训练 token、无具体稀疏度。10M 是研究评测长度，不是所有 API 用户的默认配额。针测用秘密数字/短语，对抗性相似事实的多跳仍难。Kalamang 展示的是语法书内翻译，不是任意低资源语言的零成本习得。视频 1 fps 会丢掉帧间事件；小时级理解不等于动作定位到百分之一秒。服务上 KV 随长度涨，MoE 省的是层内 FLOPs，不是自动省缓存；长请求的墙钟与计费是产品约束。</p><p>把 1.5 写成「只有长上下文、核心能力弱」与报告的 44/50 项相反；写成「10M 已解决长推理」又与报告自己的难任务保留段相反。Flash 的卖点是速度与价格，质量以报告相对 1.0 Pro/Ultra 的表为准，不要用 Pro 的 10M 视频数字代替 Flash。</p><p><span class="marginnote">出处：Gemini Team，<em>Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context</em>，arXiv:2403.05530。参数量与专家表未公开。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Gemini 1.5 Pro：稀疏 MoE 多模态，研究上下文至 10M，针测近乎完美；核心基准对标或超过 1.0 Ultra 且更省计算。</li><li>Flash：从 Pro 蒸馏的低延迟档，2M+ 窗口，输出吞吐公开表上领先。</li><li>针测、NLL 幂律、长 QA、MTOB 语法书翻译是四类不同证据，不可互相替代。</li><li>不公开参数与专家数；生产窗口以当时 API 为准，常为 1M 而非 10M。</li><li>出处：arXiv:2403.05530。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 报告与系统卡<!--]--></p><p class="lesson-progress">第 175 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gemini-2/">Gemini 2.0 / 2.5</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

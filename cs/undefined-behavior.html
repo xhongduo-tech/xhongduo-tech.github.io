@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>未定义行为 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_undefined-behavior.md.DhKjxvTh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 9 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/recursion-stack-frame/">递归与栈帧</a></p><p class="lesson-next"> 下一课：<a href="/cs/integer-overflow/">整数溢出</a></p></nav><div style="position:relative;"><div><h1 id="未定义行为" tabindex="-1">未定义行为 <a class="header-anchor" href="#未定义行为" aria-label="Permalink to &quot;未定义行为&quot;">​</a></h1><div class="epigraph"><p>标准不规定后果的运算，编译器可以假定它从不发生；于是带未定义行为的程序在优化之后可以变成另一份程序。</p><footer>—— 据 ISO/IEC 9899:2018；Kernighan &amp; Ritchie, The C Programming Language, 2nd ed. 整理</footer></div><p>上一课<a href="/cs/recursion-stack-frame">递归与栈帧</a>把「一调用一帧、返回即失效」钉死。本课不重讲深度，也不从形式语义教科书另起。缺口是：栈溢出、越界下标、空指针解引用，在语言里是什么地位？<strong>哪些写法根本没有语义，因而「在我机器上能跑」不能当规格</strong>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>ISO C 的抽象机器给合法程序逐步语义。一旦执行到未定义行为（UB），标准不再约束任何后果：崩溃、看似成功、删掉整段代码、跨翻译单元传播，都允许。缺口因此不是 bug 清单，而是<strong>语言契约的方向</strong>：程序员保证 UB 不发生，编译器才有权按「这事不会发生」做优化。违反之后，调试版本与发行版本分叉是常态，不是工具链坏了。</p><p>前面几课已经埋了火种：返回后的栈地址、未对齐强转、越出数组对象的指针。本课给它们一个总名，并分清旁边两个更容易混的词：未指定与实现定义。后两课再把整数溢出与悬挂指针从总名里拆开细讲。</p><h3 id="ub-不是「可能得错误结果」" tabindex="-1">UB 不是「可能得错误结果」 <a class="header-anchor" href="#ub-不是「可能得错误结果」" aria-label="Permalink to &quot;UB 不是「可能得错误结果」&quot;">​</a></h3><p>未指定（unspecified）：必须在若干合法结果里选一个，例如参数求值顺序。实现定义（implementation-defined）：必须合法且写进文档，例如 <code>char</code> 是否有符号。UB 没有这种仁慈——有符号溢出后 <code>i+1 &lt; i</code> 可以为真，编译器可以删掉你以为在「防溢出」的分支。把三类都叫做「平台相关」，后课的 sanitizer 与代码审查会对不准靶。</p><p><span class="marginnote">ISO C 附录 J 汇总未定义行为。K&amp;R 年代许多习惯写法今天仍是 UB。地址与未定义行为 sanitizer 是工程上的探测器，它们不改语言规则，只让违规更早可见。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>判断顺序：先问是否离开对象寿命或对象边界，再问类型是否允许这样别名，再问算术是否在类型范围内。常见源：空指针或悬空指针解引用、越界、有符号溢出、违反有效类型的别名、数据竞争（C11 起对数据竞争也是 UB）。本课只建立分类；整数与寿命各用后面一课钉死。</p><div class="mermaid"></div><p>「我看了汇编，这条 load 还在」不能证明程序合法：换优化等级、换链接时优化、换内联决定，同一源可能被改写成另一条路径。合法程序的可观察行为才是规格；UB 程序没有可观察行为可谈。</p><p>实现定义与未指定仍要求程序继续有语义，只是你不能把某一次观察写成可移植规格。例如移位负值、<code>char</code> 的符号性。写可移植代码就把这些当成不可用，除非接口明确依赖某份 ABI。UB 更狠：连「继续跑」都不必。后课两例——有符号溢出与悬挂——覆盖了算术与对象两条最常见的河。其余（严格别名、并发数据竞争）在出现相应对象模型时再点名，不在本课造清单。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>优化器利用「无 UB」做常量传播、消除所谓不可能的分支、重排访存。链接时优化把假设跨过翻译单元。于是一段在 <code>-O0</code> 下「能用」的越界循环，在 <code>-O2</code> 下可能被认定上界永远成立而删掉检查。这不是编译器恶意，是契约被打破后的合法改写。</p><p>安全编码规范（CERT C、MISRA）的核心策略就是禁止进入 UB 构造，用可移植的子集换回可预测性。那是工程边界，不是本课要另起的语言。</p><p>与错误码课将要出现的「合法失败」对照：返回 <code>-1</code> 仍在抽象机器里。UB 是连失败语义都没有。因此「检查 <code>i+1</code> 是否溢出」若写成有符号加法后再比较，检查本身可能已被优化掉。必须用更宽类型、无符号模运算或标准库的检查原语，在溢出发生前分支。sanitizer 在动态执行路径上插桩，覆盖不到的路径仍可藏 UB。后课整数与寿命只是把本课的总名拆成两条最常踩的河。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不罗列附录 J 的每一条，也不讲 C++ 的更长清单。下一课<a href="/cs/integer-overflow">整数溢出</a>专讲有符号与无符号的分岔。后课默认：UB 一旦发生即无保证；不能靠一次实测定义语义；sanitizer 辅助发现，不替代规范。</p><p>同一份源在不同优化等级下的分叉，应首先当 UB 线索，而不是去关优化。合法程序的可观察行为在抽象机器上不依赖「碰巧没删掉那次检查」。把 <code>-O0</code> 能跑当成规格，等于把实现残留写成标准。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>未定义行为让标准停止给出语义；优化器按「不会发生」改写程序。</li><li>它不同于未指定与实现定义；后两者仍在合法结果集合内。</li><li>越界、非法指针、有符号溢出是主干上最常见的源。</li><li>下一课把溢出从这条总规则里拆开。</li><li>出处：ISO/IEC 9899；K&amp;R 对不可移植写法的警告。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 9 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/integer-overflow/">整数溢出</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

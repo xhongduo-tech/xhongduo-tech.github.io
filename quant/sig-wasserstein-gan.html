@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sig-Wasserstein GAN | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_sig-wasserstein-gan.md.DkFyBhOw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 深度学习微观结构与市场仿真<!--[--> · 单元 生成式市场仿真<!--]--><!--[--> · 课序 系统与方法<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/market-generator-vae/">Market Generator（VAE）</a></p><p class="lesson-next"> 下一课：<a href="/quant/llm-multiagent-market-sim/">LLM 多智能体市场仿真</a></p></nav><div style="position:relative;"><div><h1 id="sig-wasserstein-gan" tabindex="-1">Sig-Wasserstein GAN <a class="header-anchor" href="#sig-wasserstein-gan" aria-label="Permalink to &quot;Sig-Wasserstein GAN&quot;">​</a></h1><div class="epigraph"><p>路径空间上的概率测度，在适当正则下被期望签名唯一确定；于是把 Wasserstein 距离搬到截断签名上，对抗训练比较的是过程的特征，而不是逐点对齐的轨迹。</p><footer>—— Chevyrev and Lyons, Characteristic functions of measures on geometric rough paths, 2016；生成实现见 Ni, Szpruch, Wiese et al., Sig-Wasserstein GANs, 2021</footer></div><p>普通 GAN 把时间序列当成欧氏向量：判别器看的是逐坐标或卷积局部图案。金融市场的「像」，首先是路径泛函的分布——二次变差、杠杆、领先滞后——而不是某一天的点值对齐。<a href="/quant/path-signature-features">Path Signature</a> 把一条（加时间、做 lead-lag 的）路径压成迭代积分坐标；Chevyrev 与 Lyons 证明期望签名在相当一般的条件下扮演特征函数。Sig-Wasserstein GAN 把生成器的输出路径与真实路径的期望签名对齐，用签名空间里的 Wasserstein 型损失替代像素级对抗。本篇写这一距离为何比逐点 GAN 更贴过程，截断与增强如何改变可识别的动态；评估协议见 <a href="/quant/generative-backtest-eval">生成式回测的评估</a>，线性读签名做交易见 <a href="/quant/signature-trading">Signature Trading</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设 \(X\) 为 \([0,T]\) 上的路径（或离散采样后的折线）。生成器 \(G_\theta\) 把噪声 \(Z\) 映成路径 \(\widehat{X}=G_\theta(Z)\)。要 \(\mathrm{Law}(\widehat{X})\) 接近 \(\mathrm{Law}(X)\)。逐点 \(L^2\) 或逐点判别会惩罚时间微移：同一条波动聚集路径错开半个窗口，损失可以很大，而交易相关的泛函几乎不变。反过来，两条边际相似、依赖结构全错的路径，逐点损失可以很小。</p><p>签名 \(S(X)\) 的坐标是迭代积分。截断到阶 \(N\) 后，\(S_N(X)\) 是有限维向量。期望 \(\mathbb{E}[S_N(X)]\) 捕获到 \(N\) 阶的路径矩。Chevyrev–Lyons 的特征函数定理说：在紧集、适当衰减的矩条件下，期望签名决定路径测度。于是「分布近」可以改写成「期望签名近」，而不要求路径在同一时钟上点对点重合。</p><p>Wasserstein 距离在欧氏签名空间上可算、可反传（对截断签名几乎处处）。GAN 的判别器不必再学「这是不是真序列」，而可以退化成对签名坐标的线性或浅层函数——理论上甚至只需匹配期望签名。实践中仍常保留一个弱判别器，或用签名 MMD，以避免只匹配均值而忽略签名的随机波动。</p><h3 id="为何不是对原序列做-wgan-gp" tabindex="-1">为何不是对原序列做 WGAN-GP <a class="header-anchor" href="#为何不是对原序列做-wgan-gp" aria-label="Permalink to &quot;为何不是对原序列做 WGAN-GP&quot;">​</a></h3><p>WGAN 要求 Lipschitz 判别器。对变长、不规则采样的金融路径，卷积判别器的 Lipschitz 约束与填充约定纠缠，模式崩塌时仍能骗过局部纹理检查。签名先把路径映到固定维的张量代数，时钟差异被时间增强部分吸收，lead-lag 把离散采样的二次变差写进交叉积分。判别发生在这个特征空间，生成器梯度指向的是「改路径使签名矩对齐」，而不是「改某一个 tick 的价格去骗卷积核」。</p><p><span class="marginnote">期望签名唯一决定测度，是截断趋于无穷、路径足够正则时的定理。有限 \(N\) 只匹配有限阶矩。\(N\) 太小，生成器可以在高阶振荡上作弊；\(N\) 太大，签名维数爆炸，经验期望在小样本上极度嘈杂。阶数是偏差-方差，不是「越大越真」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>路径预备。</strong> 原始价格不可直接签：平移、尺度会污染低阶项。常见流水线是：对数收益或对数价格、拼接时间坐标 \(t\)、再做 lead-lag 变换（把路径变成 \((X_{t^-},X_{t^+})\) 以捕捉离散二次变差）。没有时间增强，时间重参数化会混进树状等价类；没有 lead-lag，折线近似的二次变差信息弱。这些变换必须对真假路径一视同仁，写进数据管道而不是网络内部的私有预处理。</p><p><strong>生成器。</strong> 可以用 Neural SDE、LSTM、或卷积解码从噪声生成离散路径，再计算截断签名。损失是</p> \[W\bigl(\mathbb{E}[S_N(X)],\mathbb{E}[S_N(G_\theta(Z))]\bigr) \]<p>的经验版，或带协方差的二次形式（Sig-MMD）。纯匹配期望签名相当于匹配特征均值；若下游关心尾部路径泛函，应加签名的二阶矩或在原空间加分位数惩罚。条件生成把宏观或波动状态拼进 \(G_\theta\)，条件也必须进入签名比较的分组里，否则条件被平均掉。</p><p><strong>截断与基。</strong> 维数 \(d\) 的路径，阶 \(N\) 的签名维数是 \((d^{N+1}-1)/(d-1)\)。lead-lag 后 \(d\) 至少是 2 或 3，阶 4–5 已经很重。对数签名降低冗余，但不改变「阶数选择」这一建模决策。对多资产，\(d\) 再升，通常先降维到因子路径再签名，或用签名核随机傅里叶特征，而不是把全市场逐券签到高阶。</p><h3 id="对抗项何时还需要" tabindex="-1">对抗项何时还需要 <a class="header-anchor" href="#对抗项何时还需要" aria-label="Permalink to &quot;对抗项何时还需要&quot;">​</a></h3><p>若只最小化 \(\|\bar S_{\mathrm{real}}-\bar S_{\mathrm{fake}}\|_2\)，生成器可以产出签名均值正确、样本路径病态的「平均市场」。加一个在签名空间或浅层路径特征上的 Wasserstein 判别器，能匹配更多的签名分布形状。Chevyrev–Lyons 给的是识别性，不是有限样本最优检验。工程上 Sig-WGAN 往往是「签名特征 + WGAN 损失」，而不是定理的字面算法。把判别器做得很深，又会退回普通 GAN 的不稳，签名的归纳偏置被浪费。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>签名坐标按阶数分层：一阶是增量，二阶含面积（Levy 面积）与二次变差的交叉项，更高阶编码更细的振荡与先后顺序。匹配低阶，生成器先学会漂移与波动水平；匹配到二、三阶，才开始被迫产生杠杆（价跌与波动升的先后）和粗糙的短时依赖。这与手工做「先匹配均值方差、再匹配 ACF、再匹配杠杆相关」的 stylized facts 清单是同一件事的代数化，但梯度是端到端的。</p><p>Wasserstein 相对 Jensen–Shannon 的好处在此仍然成立：支撑不重叠时仍有梯度。签名空间里假样本一开始就可能与真样本的凸包不相交（尤其高阶坐标尺度巨大），必须对签名做标准化或用对数签名。尺度若不统一，损失会被最高阶坐标主导，生成器只顾着压高阶噪声，低阶的波动聚集反而没学到。</p><h3 id="与-vae-market-generator-的接口" tabindex="-1">与 VAE Market Generator 的接口 <a class="header-anchor" href="#与-vae-market-generator-的接口" aria-label="Permalink to &quot;与 VAE Market Generator 的接口&quot;">​</a></h3><p><a href="/quant/market-generator-vae">VAE</a> 在数据空间重建，潜变量可编码、可插值。<a href="/quant/neural-sde">Neural SDE</a> 把 \(G\) 限制为扩散，签名损失可以作它的训练目标——Kidger 等人把 Neural SDE 写成无穷维 GAN，签名是一种具体的判别特征。Sig-WGAN 不强制潜空间可逆，也不强制半鞅。三者可以叠：SDE 生成器 + 签名 W 损失，或 VAE 解码后再用签名 MMD 微调。不要并列三套生成器却用三套不同的窗口与归一化，却声称在比较算法。</p><p><span class="marginnote">Chevyrev–Lyons 论文写的是粗糙路径上测度的特征函数，不是 GAN。Ni–Szpruch–Wiese 一线把该距离接到生成对抗训练。出处应分开写：识别性归特征函数一文，训练配方归 Sig-WGAN 一文。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>截断签名对时间网格敏感。同一条潜在连续路径，5 分钟采样与日采样的 \(S_N\) 不是同一对象。生成器输出频率必须与训练签名的频率一致，下游回测也必须用同一频率。把日频生成器的样本插值到分钟再做执行仿真，签名匹配不能为微观结构背书。</p><p>高阶签名对异常值极度敏感：一个错价 tick 会污染整段迭代积分。输入必须先清洗，否则生成器学会复制脏数据的签名。无套利、正价格、利率下界等硬约束仍要在生成器结构或投影里施加，签名损失不管这些。</p><p>计算上，每次反传都要扫一遍截断签名。路径长、阶数高时，应截断在仍能区分真假的最低阶，并用 mini-batch 的经验期望；batch 太小，高阶经验均值的方差会吞掉信号。条件、多资产、订单簿，签名维数很快不可行，应回到因子路径或核方法。</p><p><span class="marginnote">签名 MMD 为零（在给定阶）只说明该阶矩对齐，不说明策略回测可迁移。生成器可以匹配到阶 4 仍缺少真实市场的一个跳跃日；对冲网络会在这一日子上暴露。评估必须含下游任务，见评估篇。</span></p><p><span class="marginnote">Lead-lag 不是可选项装饰。对分段线性路径，普通签名的二次变差项退化；lead-lag 把「先买后卖」的离散面积写进二阶坐标。比较 Sig-WGAN 与普通 WGAN 时，若只有一方做了 lead-lag，比较的是预处理，不是损失。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Chevyrev–Lyons：期望签名在正则条件下决定路径测度；有限截断则只对齐有限阶路径矩。</li><li>Sig-WGAN 在截断签名上做 Wasserstein/MMD，让生成器对齐过程特征，而不是逐点轨迹。</li><li>时间增强与 lead-lag 是识别动态的一部分，须对真假路径共用。</li><li>阶数与标准化决定偏差-方差；只匹配期望签名可能忽略尾部路径形状。</li><li>生成频率、清洗与硬约束不能由签名损失代劳；下游评估仍独立于训练损失。</li><li>出处：Chevyrev and Lyons, <em>Characteristic functions of measures on geometric rough paths</em>, 2016；Ni, Szpruch, Wiese, Liao and Xiao, <em>Sig-Wasserstein GANs for Time Series Generation</em>, 2021。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 深度学习微观结构与市场仿真<!--[--> · 单元 生成式市场仿真<!--]--><!--[--> · 课序 系统与方法<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/llm-multiagent-market-sim/">LLM 多智能体市场仿真</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Black–Scholes 作为 PDE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bsm-as-pde.md.DSF_87US.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 15 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/feynman-kac/">Feynman–Kac</a></p><p class="lesson-next"> 下一课：<a href="/quant/replicating-delta/">复制与 delta</a></p></nav><div style="position:relative;"><div><h1 id="black–scholes-作为-pde" tabindex="-1">Black–Scholes 作为 PDE <a class="header-anchor" href="#black–scholes-作为-pde" aria-label="Permalink to &quot;Black–Scholes 作为 PDE&quot;">​</a></h1><div class="epigraph"><p>在 GBM 与常数利率下，欧式价格 $V(t,S)$ 满足 $V_t+\tfrac12\sigma^2 S^2 V_{SS}+r S V_S-r V=0$，终值是支付函数。</p><footer>—— 据 Black and Scholes, J. Political Economy, 1973；Merton, Bell Journal of Economics, 1973；Shreve, Stochastic Calculus for Finance II, 第 6 章整理</footer></div><p>上一课<a href="/quant/feynman-kac">Feynman–Kac</a>给出期望与 PDE 的桥。缺口是特化：标的为<a href="/quant/geometric-brownian-motion">几何布朗运动</a>，测度已是<a href="/quant/risk-neutral-measure">风险中性测度</a>下的 \(Q\)。把 \(\mu=rS\)、\(\sigma_{\text{diff}}=\sigma S\) 推进生成元，就得到 Black–Scholes 方程。本课只写这个 PDE 与终边值，不把闭式 \(\Phi(d_1)\) 展开——那是对数正态课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(Q\) 下 \(\mathrm d S=r S\,\mathrm d t+\sigma S\,\mathrm d W^Q\)。欧式支付 \(H=g(S_T)\)，价格 \(V(t,S_t)=\mathrm e^{-r(T-t)}\mathbb E_Q[g(S_T)\mid\mathcal F_t]\)。缺口是把 Feynman–Kac 的 \(\mathcal A\) 写成具体系数，使后课 delta 对冲能对 \(V_S\) 说话。不重推 Girsanov，不重推 RN 存在性。</p><p>终值 \(V(T,s)=g(s)\)。看涨还要边界：\(s\to 0\) 时 \(V\to 0\)，\(s\to\infty\) 时 \(V\sim s-Ke^{-r(T-t)}\)（在无股息时）。这些是 PDE 的数据，不是新的经济假设。</p><h3 id="pde-不是从投资组合瞬时无风险「另推一遍」再当定义" tabindex="-1">PDE 不是从投资组合瞬时无风险「另推一遍」再当定义 <a class="header-anchor" href="#pde-不是从投资组合瞬时无风险「另推一遍」再当定义" aria-label="Permalink to &quot;PDE 不是从投资组合瞬时无风险「另推一遍」再当定义&quot;">​</a></h3><p>Black–Scholes 原文用 \(\Delta\) 对冲消去 \(\mathrm d W\)，令收益率等于 \(r\)。那与「\(Q\) 下贴现鞅」是同一件事的两种语言。本课走 Feynman–Kac，是因为前面已经有 \(Q\)；不必把 1973 的推导再当第一性原理重做。复制课会回到 \(\Delta=V_S\)。</p><p><span class="marginnote">无股息时漂移系数是 \(rS\)。连续股息 \(q\) 把 \(rS\) 换成 \((r-q)S\)，PDE 多一项 \(-qSV_S\)。本课先钉 \(q=0\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2> \[V_t+\tfrac12\sigma^2 S^2 V_{SS}+r S V_S-r V=0,\qquad t\lt T,\ S\gt 0, \]<p>\(V(T,S)=g(S)\)。这是变系数抛物方程。对数坐标 \(x=\ln S\) 把它变成常系数热方程，这是闭式与有限差分数值的共同入口。\(\sigma=0\) 时退成贴现的运输方程，解为 \(e^{-r(T-t)}g(Se^{r(T-t)})\)，即远期兑现——与无风险情形一致。</p><p>有股息、外汇、期货，只改生成元的一阶项（漂移），二阶项仍是 \(\tfrac12\sigma^2 S^2 V_{SS}\)。这与 Girsanov「不改波动率」一致。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>贴现过程 \(\mathrm e^{-rt}V(t,S_t)\) 的 Itô 漂移由 PDE 恰好抵消，剩下 \(\mathrm e^{-rt}\sigma S V_S\,\mathrm d W^Q\)。因此贴现价格是 \(Q\)-局部鞅；在线性增长下是鞅，初值等于终端贴现支付的期望。PDE 的二阶项来自 \([S]\)，一阶项来自 \(Q\) 下的漂移 \(rS\)，零阶项来自贴现。缺任何一项都会让贴现价格带漂移，出现套利。</p><p>抛物性要求 \(\sigma\neq 0\)。\(\sigma=0\) 是退化，解沿特征线，不再有平滑。数值上 \(\sigma\) 过小要换格式，那是实现问题；理论上完备市场仍要求 \(\sigma\neq 0\) 以便 \(\theta\) 有定义。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不解热方程，不引入隐含波动率曲面。美式把 PDE 换成变分不等式，跳把 PDE 换成 PIDE。后课默认：欧式扩散价格指这个柯西问题的多项式增长解。下一课<a href="/quant/replicating-delta">复制与 delta</a>把 \(V_S\) 读成股票持仓。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>BSM PDE 是 \(Q\) 下 GBM 的 Feynman–Kac。</li><li>二阶项来自二次变差，一阶项来自风险中性漂移。</li><li>终值是支付；边界由无套利渐近给出。</li><li>与 1973 的瞬时无风险组合是同一条件。</li><li>出处：Black–Scholes 1973；Merton 1973；Shreve SDE II 第 6 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 15 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/replicating-delta/">复制与 delta</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

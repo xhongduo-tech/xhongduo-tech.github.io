@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多代理编排 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_multi-agent-orchestration.md.D4KcqAZ2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 智能体系统续<!--[--> · 单元 协议与计算机使用<!--]--><!--[--> · 课序 编排<!--]--></p><p class="lesson-progress">第 6 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/browser-use-agent/">Browser-use Agent</a></p><p class="lesson-next"> 下一课：<a href="/llm/memgpt/">MemGPT</a></p></nav><div style="position:relative;"><div><h1 id="多代理编排" tabindex="-1">多代理编排 <a class="header-anchor" href="#多代理编排" aria-label="Permalink to &quot;多代理编排&quot;">​</a></h1><div class="epigraph"><p>把复杂任务拆成可对话的角色：每个代理有工具与人设，编排器决定谁在何时说话、消息如何写入共享状态，直到停机条件成立。</p><footer>—— 对照 Wu 等 AutoGen（arXiv:2308.08155）；Hong 等 MetaGPT（arXiv:2308.00352）；Li 等 CAMEL（arXiv:2303.17760）</footer></div><p>单代理工具循环（ReAct / function calling）把「选下一个动作」交给同一个上下文。任务一旦同时需要写代码、查文档、批评补丁、向人提问，单一提示会膨胀，角色污染，失败不可定位。<strong>多代理编排</strong>把这些职责拆成多个 LLM（或同一模型的多份提示），用对话、消息总线或工作流图来调度。它不是新的基座模型，而是控制面：谁持有哪些工具、共享什么记忆、如何终止。本篇写编排原语与评测该看什么。不把「多个代理」当成自动获得正确性的理由。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>CAMEL（Li 等，arXiv:2303.17760）演示角色扮演：用户代理与助手代理靠 inception prompting 维持任务对齐的对话，用于生成合作轨迹、观察交际行为。固定两人、弱工具，适合研究对话动力学，不适合当通用运行时。MetaGPT（Hong 等，arXiv:2308.00352）把软件工程 SOP 写进提示：产品经理、架构师、工程师、评审按流水线交工件，口号是「代码 = SOP(团队)」。结构强、跑题少，换到非软件任务要重写 SOP。AutoGen（Wu 等，arXiv:2308.08155）把代理做成可对话、可定制的行动者：可用 LLM、人、工具的任意组合回复，用代码或自然语言定义对话模式（二人、群聊、嵌套），作为通用基础设施而不是单一 SOP。</p><p>编排要解决的具体失败是：无终止的互相吹捧、两个代理改同一文件、工具权限漏到不该持有的角色、以及把群聊全文每轮塞给所有人导致费用平方涨。评测若只报「最终答案对不对」，会藏过这些过程失败。需要把<strong>对话轮数、工具调用次数、人工介入次数、是否违反角色权限</strong>写成一等指标，再谈任务分数。</p><h3 id="三种常见拓扑" tabindex="-1">三种常见拓扑 <a class="header-anchor" href="#三种常见拓扑" aria-label="Permalink to &quot;三种常见拓扑&quot;">​</a></h3><p><strong>流水线</strong>：A 的输出是 B 的唯一输入，如 MetaGPT 的 SOP 链。易审计，不能回头，除非显式加评审环。<strong>对话图</strong>：谁回复谁由下一说话人策略决定，AutoGen 的群聊属于此类；动态但难保证公平与终止。<strong>层次</strong>：规划者拆子任务，执行者只看见子目标，结果汇总后再计划。层次清晰，规划者成为单点幻觉源。真实系统常混合：外层图、内层二人对话。不要把 CrewAI、LangGraph、ChatDev 的产品名当成新的数学对象——它们是这些拓扑上的工程封装。</p><p><span class="marginnote">Guo 等人的综述（arXiv:2402.01680）把 AutoGen、MetaGPT、CAMEL 并列为早期开源框架。写相关工作时引用原论文，不要用综述的转述数字替代原表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最小编排状态包括：代理注册表（人设、工具子集、模型名）、消息日志、共享工件（文件、票、数据库行）、终止谓词（最大轮数、任务完成标记、人 Stop）。每步：调度器选下一个说话者 → 该代理消费允许看见的切片 → 产出消息或工具调用 → 宿主执行工具 → 观察写回日志。人可以是一种特殊代理（AutoGen 强调 LLM / 人 / 工具混合模式），这比「全自动」更接近可上线系统。</p><p>评测协议应按任务家族分开。软件工程：同一仓库、同一隐藏测试、限制是否共享测试日志，对照单代理 SWE-agent / OpenHands，看多代理是否真的提高 resolved，还是只提高 token。数学与编码竞赛：AutoGen 论文用示例应用说明框架能力，那是案例，不是 SWE-bench。角色扮演数据生成：CAMEL 看对话是否维持角色与任务，而不是下游准确率。全局问答：多代理检索—写作—批评，要报是否比单次 RAG 在事实性上更好，而不是只报更长。任何「多代理赢」必须有单代理、同模型、同工具的对照，否则多出来的只是更多采样。</p><div class="mermaid"></div><h3 id="对话编程相对静态图" tabindex="-1">对话编程相对静态图 <a class="header-anchor" href="#对话编程相对静态图" aria-label="Permalink to &quot;对话编程相对静态图&quot;">​</a></h3><p>AutoGen 把「对话模式」当成可组合原语：二人聊天、群聊、嵌套聊天可以拼进更大应用。静态图（后来的 LangGraph 一类）把边写死，可复现性强，改流程要改图。SOP（MetaGPT）是领域特化的静态图，节点是角色。选型等于选失败：动态对话会循环恭维；静态图会在未建模的异常处卡死。工程上常动态对话外包一层最大轮数与「批评者必须引用工件 diff」，把 SOP 的硬约束嵌进图。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>多代理并不增加模型的参数，它改变的是<strong>条件化上下文的分区</strong>。每个角色只看见与职责相关的工具说明和近期消息，降低指令冲突。批评者角色把「找错」写成目标，比同一模型在同一提示里既生成又自检更不容易自我开脱——这是角色提示的归纳偏置，不是定理。共享黑板（文件、票据）让通信走工件而非口头转述，减少电话游戏。心跳与超时防止死锁。</p><p>机制失败：角色漂移（工程师开始改需求）；权限泄漏（检索代理拿到写生产库的工具）；上下文爆炸（群聊每轮全量广播）；共谋式幻觉（两人互相确认错误事实）。缓解是工具 ACL、消息路由（只广播摘要）、以及把关键状态放进结构化票而不是散文。记忆若跨代理共享，要有写入者身份，否则 A 的错误笔记会变成 B 的前提；这与 <a href="/llm/memgpt">MemGPT</a> 的分层记忆、<a href="/llm/amem-agent-memory">A-MEM</a> 的笔记链接是不同层——编排解决谁说话，记忆解决说完后什么被保存。</p><p><span class="marginnote">费用模型近似为 \(\sum_i\) 轮次\(_i\) \(\times\) 上下文\(_i\)。群聊若不做摘要，上下文随轮数线性涨、总费用超线性。报多代理收益时必须报 token 倍数，否则不可与单代理 Best-of-N 比较。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="编排不能替代工具正确性" tabindex="-1">编排不能替代工具正确性 <a class="header-anchor" href="#编排不能替代工具正确性" aria-label="Permalink to &quot;编排不能替代工具正确性&quot;">​</a></h3><p>浏览器、shell、数据库工具的安全边界仍在宿主，见 <a href="/llm/openhands">OpenHands</a> 与 GUI 代理文。多代理只会让越权路径更难审计：一次「内部消息」可能触发另一个角色的危险工具。默认最小权限：每个代理一张白名单。不要为了「更像团队」给所有人同一把钥匙。</p><p>评测污染：用同一教师模型既当生成者又当自动评委，多代理的冗长答案容易赢「全面性」而输事实。应用 LLM-as-judge 时要固定评委模型、盲序、以及与任务相关的标准（正确性优先于文采）。MetaGPT 的 SOP 对软件演示强，不自动迁移到客服。CAMEL 的 inception prompting 是研究装置，生产里要用显式终止与人审替代「希望他们一直合作」。需要单代理工具循环时读 <a href="/llm/react">ReAct</a>；需要 IDE 里的人在环时读 <a href="/llm/agentic-coding">代理编码</a>。</p><p><span class="marginnote">出处：Wu et al.，<em>AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</em>，arXiv:2308.08155；Hong et al.，<em>MetaGPT</em>，arXiv:2308.00352；Li et al.，<em>CAMEL</em>，arXiv:2303.17760。综述：Guo et al.，arXiv:2402.01680。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多代理编排是控制面：角色、工具 ACL、调度、共享工件与终止条件。</li><li>CAMEL 研究角色对话；MetaGPT 把 SOP 流水线化；AutoGen 提供可组合对话运行时。</li><li>评测必须有同模型单代理对照，并报告轮数、token 与权限违规。</li><li>拓扑选流水线、对话图或层次，等于选卡死方式与费用形状。</li><li>出处：Wu et al. arXiv:2308.08155；Hong et al. arXiv:2308.00352；Li et al. arXiv:2303.17760。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 智能体系统续<!--[--> · 单元 协议与计算机使用<!--]--><!--[--> · 课序 编排<!--]--></p><p class="lesson-progress">第 6 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/memgpt/">MemGPT</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

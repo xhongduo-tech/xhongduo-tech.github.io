@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>可比与乘数 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_multiples-valuation.md.D0TTzE7x.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本预算与估值<!--]--><!--[--> · 课序 把项目折成今天的钱<!--]--></p><p class="lesson-progress">第 7 / 42 课</p><p class="lesson-prereq"> 先修：<a href="/econ/dcf-terminal-value/">DCF 与终值</a></p><p class="lesson-next"> 下一课：<a href="/econ/eva-residual-income/">EVA 与剩余收益</a></p></nav><div style="position:relative;"><div><h1 id="可比与乘数" tabindex="-1">可比与乘数 <a class="header-anchor" href="#可比与乘数" aria-label="Permalink to &quot;可比与乘数&quot;">​</a></h1><div class="epigraph"><p>乘数是把市场对一组相似资产的定价，压缩成价格对盈利、账面或收入的比率；它不是独立于折现的第二种经济学，而是同一价值的简写，误差来自「相似」失败。</p><footer>—— 据 Kaplan and Ruback, The Valuation of Cash Flow Forecasts: An Empirical Analysis, Journal of Finance 1995；Brealey, Myers and Allen 整理</footer></div><p><a href="/econ/dcf-terminal-value">上一课</a>把 DCF 终值写成 \(g\) 与 ROIC 的假设，并点名退出倍数是终值的另一写法。本课缺口是把倍数当成完整估值方法：何时 EV/EBIT、P/E、收入倍数可替代显式 DCF，何时只是对照。不重推 Gordon 公式，不把限价簿上的相对价值交易当成公司估值。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>DCF 的分子与 \(r\) 都要预测；市场已经对上市可比给了价格。若可比与目标在增长、ROIC、风险、杠杆上接近，价格/基本面的中位数是目标价值的估计。Kaplan 与 Ruback（1995）对高杠杆交易的现金流预测做折现，发现 DCF 与交易倍数都能接近事后市值，不是「倍数更科学」或「DCF 更科学」。缺口是：倍数把终值假设压缩进一个比率，省掉 \(g\) 与 \(r\) 的争吵，同时把不可比藏进同一个中位数。</p><p>接受规则仍是 NPV：倍数给出的是相对定价，不自动等于项目对股东的增量价值——尤其当项目改变公司风险或当控制权溢价存在时。</p><p><span class="marginnote">企业价值倍数（EV/EBIT、EV/EBITDA）对应全资本，与 WACC/APV 对齐。股权倍数（P/E）掺进杠杆与税，跨公司比较先要杠杆相近，否则是把融资切片写进经营比较。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先选可比：同行、纯业务、相近增长与周期。再选口径：前瞻对历史、剔除一次性、EBITDA 是否加回真实的现金成本。用中位数或回归（把倍数对增长、利润率回归）比用最高的一个「对标」。目标杠杆与可比不同，用 EV 倍数再减净债，不要直接套一个高杠杆公司的 P/E。</p><p>收入倍数出现在亏损或早期：它假设未来利润率收敛到可比。这是终值假设的另一种藏法，往往比 DCF 更乐观，因为利润率尚未被显式期约束。</p><div class="mermaid"></div><p>控制权：交易倍数含控制溢价，交易价格对少数股权市值倍数会偏高。并购课再写协同与支付；本课只标：资本预算用交易倍数去估一个少数股权项目，口径错了。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是一价定律的粗糙版本：相似资产应有相似的价格/基本面。MM 说切片不改变总 EV（无摩擦时），所以经营相似的企业 EV/NOPAT 应接近，P/E 可以因杠杆不同而不同。倍数失败，是因为「相似」在增长期权、会计、周期位置上失败——同一行业的会计折旧与租赁资本化可以让 EBITDA 不可比。</p><p>与 DCF 的对偶：Gordon 下 \(P_0=\mathrm{FCFF}_1/(r-g)\)，所以 EV/FCFF \(=1/(r-g)\)。倍数高，要么 \(r\) 低，要么 \(g\) 高，要么市场错了。资本预算若只用行业高倍数来给内部项目定价，等于导入了市场对同行增长的假设，却不检查本项目是否有同样的再投资与壁垒。</p><h3 id="不要用倍数绕过增量" tabindex="-1">不要用倍数绕过增量 <a class="header-anchor" href="#不要用倍数绕过增量" aria-label="Permalink to &quot;不要用倍数绕过增量&quot;">​</a></h3><p>项目 NPV 是增量。公司交易倍数给出的是整家企业。把「行业 10 倍 EBITDA」乘在项目 EBITDA 上，忽略项目衰减、协同为负、以及期末资本支出。倍数是对照与终值输入，不能单独替代上一课的增量 FCFF。</p><p><span class="marginnote">会计：EBITDA 加回折旧，但折旧对应的维护性 capex 仍要发生。高 capex 行业的 EV/EBITDA 偏贵看起来便宜。Penman：倍数要与剩余收益、净经营资产放在同一套干净盈余里读。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把本课写成投行 pitch 的倍数清单。对象是与 DCF 的信息等价与失败条件。也不要把量化栏的相对价值统计套利搬进来：那是交易协议与因子，不是项目接受。后课 EVA 给出会计上与 DCF 等价的第三条路，仍不是倍数。</p><p>后课默认：倍数是相对定价简写，EV 口径优先；与 DCF 对照，不替代增量 NPV。相似失败时中位数没有经济学。下一课：剩余收益把账面与剩余价值连回同一 \(V\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>倍数压缩了 \(r\) 与 \(g\)；可比失败则中位数无意义。</li><li>EV 倍数对齐全资本；P/E 掺进杠杆。交易倍数含控制权。</li><li>Kaplan–Ruback：DCF 与倍数可同样接近市值；资本预算仍以增量 NPV 为准。</li><li>出处：Kaplan and Ruback, <em>JF</em> 1995；Brealey, Myers and Allen。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本预算与估值<!--]--><!--[--> · 课序 把项目折成今天的钱<!--]--></p><p class="lesson-progress">第 7 / 42 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/eva-residual-income/">EVA 与剩余收益</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

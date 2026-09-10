@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>残差动量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_residual-momentum.md.C_ti8KQs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 多资产<!--]--></p><p class="lesson-progress">第 9 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pca-stat-arb/">PCA / SVD 统计套利</a></p><p class="lesson-next"> 下一课：<a href="/quant/index-arb/">指数套利</a></p></nav><div style="position:relative;"><div><h1 id="残差动量" tabindex="-1">残差动量 <a class="header-anchor" href="#残差动量" aria-label="Permalink to &quot;残差动量&quot;">​</a></h1><div class="epigraph"><p>对 Fama–French 残差而不是原始收益排序，得到的动量组合对市场与风格的时变暴露更弱，从而减轻动量崩溃时那种系统性的β踩踏。</p><footer>—— Blitz, Huij &amp; Martens, Residual Momentum, Journal of Empirical Finance, 2011</footer></div><p><a href="/quant/pca-stat-arb">上一课</a>用 PCA/SVD 或 ETF 抽共同因子，交易残差的均值回归；对象是正交补，半衰期会时变甚至变号。那是短 horizon 残差回归，符号可能与中期相对强度相反。普通 <a href="/quant/momentum-wml">WML</a> 按 12−1 总收益排序，混着 \(\beta\)、价值、行业与特异部分；崩溃往往发生在市场反转时，旧暴露变成错误方向。缺口是把排序变量换成因子回归残差的累计，试图保住特异动量、削掉时变的因子赌注。本课写这条残差动量，必须与上一课的短 horizon 残差策略分账，不重推 SVD。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Jegadeesh–Titman 的 WML 在长期样本里有显著溢价，也在 2009 年一类反转里出现左尾。Daniel 与 Moskowitz 把崩溃写成：市场急跌后反弹时，输家（高 \(\beta\)、困境）的反弹远大于赢家。若你交易的是总收益动量，你在形成期末持有的就是那段市场的方向性暴露。问题是如何把「相对强度」从「谁刚好吃到了因子」里拆出来。</p><p>残差动量的假设是：投资者对特异信息反应不足，对共同因子的反应已经较快地进入价格（或因子本身不该进动量组合）。于是对</p> \[r_{it}=\alpha_i+\beta_i^\top F_t+e_{it} \]<p>在形成期上估 \(\hat e\)，再对 \(\hat e\) 的累计排序。这样赢家输家在 \(F\) 上的事后暴露应更接近中性。若溢价主要来自因子时机，残差动量会变弱；若溢价来自特异反应不足，残差动量应保留 alpha、降低崩溃。Blitz 等人的样本支持后者在美股上成立，但幅度对因子模型选择敏感。</p><h3 id="残差不是新的资产" tabindex="-1">残差不是新的资产 <a class="header-anchor" href="#残差不是新的资产" aria-label="Permalink to &quot;残差不是新的资产&quot;">​</a></h3><p>\(e_{it}\) 是回归残差，不能直接买。组合仍是买卖股票，只是排序键变了。若 \(F\) 估得差（行业漏了、滚动窗口太短），残差里仍有因子，中性是假的。若 \(F\) 估得过满（把弱因子和噪声都放进去），特异动量被洗掉，策略接近无信号。选择 \(F\) 与选择 PCA 统计套利的 \(K\) 是同一类偏差-方差问题，目标却相反：残差动量要保留可预测的 \(e\)，PCA 统计套利要交易 \(e\) 的短端回归。</p><p><span class="marginnote">残差动量的形成期仍应跳过最近一个月，以免把<a href="/quant/short-term-reversal">短期反转</a>与微观结构噪声吃进排序。Blitz 等人沿用 12−1 结构，不是把残差再拿去跑一周反转。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>常见实现。每月，用过去 36 个月（或形成期本身）对市场、SMB、HML 做回归，取 \(t-12\) 到 \(t-1\) 的残差之和（或残差的 \(t\) 统计量之和）排序。独立 \(2\times 3\) 或十分位，价值加权，持有 1 个月。行业调整版本先在行业内做回归或先减去行业收益，再排序，以去掉行业动量。Blitz、Hanauer 与 Vidojevic 等后续工作把残差动量做到其他市场与因子模型（四因子、五因子），结论大体是：相对总收益动量，残差版的市场 \(\beta\) 更稳、最大回撤往往更小，长期溢价是否更高则不一定。</p><p>与 PCA 残差交易的差别要写进规格。残差动量是中等 horizon（月频、持有月），信号是累计残差的延续；Avellaneda–Lee 是短 horizon 的残差回归。两者可以在同一组股票上符号相反。同时跑必须拆开风险预算，否则「动量腿」与「反转腿」在残差空间里对敲，只留下成本。</p><h3 id="估计窗口与前视偏差" tabindex="-1">估计窗口与前视偏差 <a class="header-anchor" href="#估计窗口与前视偏差" aria-label="Permalink to &quot;估计窗口与前视偏差&quot;">​</a></h3><p>回归窗口若包含持有期，就是前视。必须严格用 \(t\) 月末可获得的信息估 \(\beta\)，再形成 \(t+1\) 月组合。日频残差再累计，会引入非同步交易：小盘的 \(\beta\) 低估使残差吸收了滞后市场，残差动量里会混进 Dimson 式的薄交易溢价。应用滞后市值加权或把滞后市场放进 \(F\)。成本上，残差排序仍会偏向小盘、低价，价值加权是最低限度的可交易性过滤。</p><p><span class="marginnote">「残差」若来自包括动量因子本身的回归，等于把 WML 从排序键里抠掉，策略会接近零。残差动量的 \(F\) 应是你认为不该出现在相对强度里的风险，而不是把一切已知溢价都中性化到没有信号。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>行为叙事：对盈利公告、分析师修正等特异信息反应不足，形成残差延续；对市场与宏观消息反应更快。风险叙事：残差累计仍可能代理未建模的弱因子或拥挤，溢价是对那一维风险的补偿。崩溃减轻的机制更机械：总收益动量在熊市形成低 \(\beta\) 赢家、高 \(\beta\) 输家，反弹时空腿爆炸；残差排序削弱了这一条件 \(\beta\) 的极化，故左尾改善。这并不消除拥挤：残差赢家若被同一批量化账户持有，平仓时特异相关一样会升。</p><p>与行业动量的关系。Moskowitz 与 Grinblatt 的行业动量解释了总收益动量的一部分。行业中性或行业残差后，个股动量变弱但仍常显著。残差动量若未做行业调整，行业轮动会进入 \(\hat e\)。报告应同时给行业中性表，避免把行业时机写成特异 alpha。</p><h3 id="换手、借券与容量" tabindex="-1">换手、借券与容量 <a class="header-anchor" href="#换手、借券与容量" aria-label="Permalink to &quot;换手、借券与容量&quot;">​</a></h3><p>残差排序的换手通常不低于 WML，因为 \(\beta\) 每月重估，排名比总收益更抖。换手上升直接吃<a href="/quant/net-edge">交易成本后的可交易性</a>。空腿仍是过去残差差的股票，往往难借、有新闻。容量估测要把「价值加权、排除最低流动性组」当作基准，而不是等权十分位。新兴市场与 A 股上，因子模型本身不稳定（政策市、涨跌停），残差里会留下大量共同政策冲击，残差动量退化成隐性的杠杆市。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把残差动量宣传成「没有崩溃的动量」。Daniel–Moskowitz 的崩溃有一部分来自输家期权式反弹，残差不能把困境期权从价格里拿掉。因子模型更换（FF3 到 FF5、加上盈利与投资）会改排序，样本内挑模型是多重检验。国际复制要注意会计与规模断点不可直接用 NYSE。</p><p>与 PCA 统计套利、距离配对的边界：残差动量是月频因子溢价，持有期以月计，成本模型用月度换手；统计套利是日频或更短的残差回归，成本模型必须用有效价差。混在一张「统计套利」报表里会让夏普不可解释。若残差动量的 alpha 在扣费后只存在于小盘，它就不是机构可扩展的因子，尽管论文里的三因子 \(\alpha\) 仍然显著。</p><p><span class="marginnote">Blitz–Huij–Martens 2011 年用的是当时的三因子残差。你若在 2020 年代用五因子再加动量去「纯化」，需要自己的样本外，不能把 2011 年的表当作新模型的证据。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>残差动量用因子回归残差的 12−1 累计排序，试图保留特异相对强度、削弱总收益动量里时变的 \(\beta\) 与风格赌注。</li><li>Blitz–Huij–Martens（2011）显示美股上崩溃往往减轻；这不等于溢价更高，也不等于左尾消失。</li><li>残差不可直接买卖；窗口、因子选择与行业处理决定中性是真是假。</li><li>换手通常不低，可交易性仍取决于加权、流动性过滤与借券；小盘等权纸面结果不能当容量。</li><li>与短horizon残差回归策略符号可能相反，必须分账。</li><li>出处：Blitz, Huij and Martens, <em>Journal of Empirical Finance</em>, 2011；总收益动量见 Jegadeesh and Titman, 1993；暴露时变见 Grundy and Martin, 2001；崩溃见 Daniel and Moskowitz, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 多资产<!--]--></p><p class="lesson-progress">第 9 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/index-arb/">指数套利</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

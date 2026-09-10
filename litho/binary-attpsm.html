@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二元掩模与衰减相移 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_binary-attpsm.md.D1FpcHjh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 DUV 与多重曝光<!--[--> · 单元 掩模<!--]--><!--[--> · 课序 透过与三维<!--]--></p><p class="lesson-progress">第 12 / 32 课</p><p class="lesson-prereq"> 先修：<a href="/litho/phase-shift-mask/">相移掩模 PSM</a></p><p class="lesson-next"> 下一课：<a href="/litho/alt-psm/">交替相移</a></p></nav><div style="position:relative;"><div><h1 id="二元掩模与衰减相移" tabindex="-1">二元掩模与衰减相移 <a class="header-anchor" href="#二元掩模与衰减相移" aria-label="Permalink to &quot;二元掩模与衰减相移&quot;">​</a></h1><div class="epigraph"><p>产线订的 DUV 版，多数是铬二元或 MoSi 衰减相移两类产品；相位机制上一课已经讲过，本课钉的是薄掩模透过率合同。</p><footer>—— 据 Levenson 之后的量产膜系惯例，以及 Mack、Levinson 对 binary 与 att-PSM 的表述整理</footer></div><p><a href="/litho/phase-shift-mask">上一课</a>（相移掩模 PSM）。说明了 \(180^\circ\) 如何在暗区制造相消，并区分了交替型与衰减型。缺口是：晶圆厂下单时面对的是两类标准透射掩模——二元铬（COG）与嵌入式衰减相移（att-PSM，典型 MoSi）——以及还在用的 Kirchhoff 薄掩模假设。吸收体真正的厚度怎样捣乱，留给<a href="/litho/mask-3d-effect">下一课</a>。不要把交替型 trim 流程再讲一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一课的机制图里，二进制是振幅型、衰减型是弱相移背景。产线语言还要补规格：二元掩模的暗区透过率近似 0、亮区为石英；att-PSM 的「暗」区仍漏过百分之几的光并带约 \(180^\circ\)，亮区仍是石英开口。接触孔与许多 193 nm 层默认衰减型，因为它一次曝光、可走标准 OPC，增益虽小于交替型，但没有相位冲突。更老或更松的层仍用二元铬，写和修都便宜。</p><p>缺口因此是产品选择与薄掩模成像接口，不是再推导相消干涉。没有这层，下一课的「三维效应」没有对照物——对照物就是：透过率只是 \((x,y)\) 上的复数薄屏。</p><h3 id="kirchhoff-薄屏" tabindex="-1">Kirchhoff 薄屏 <a class="header-anchor" href="#kirchhoff-薄屏" aria-label="Permalink to &quot;Kirchhoff 薄屏&quot;">​</a></h3><p>Kirchhoff 近似把掩模写成平面复透过率 \(t(x,y)\)，衍射用标量角谱，不进膜厚、不进侧壁、不进波导。OPC 的第一代模型就是它。只要吸收体厚度远小于横向特征、入射接近正入射，误差可接受。193 nm 的 MoSi 厚度已经到波长量级，这个「远小于」开始坏——那是下一课。本课先允许薄屏，否则 3D 修正没有零阶。</p><p><span class="marginnote">「6% 衰减」仍是常见讨论值，不是物理常数。透过率、相位由膜系与波长锁定；ArF 版不能当 KrF 的同一 att-PSM 用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>选二元：图形松、\(k_1\) 高、要修缺陷简单、成本优先。选 att-PSM：需要压零级、抬边缘斜率，尤其是孔与半密图形，且不愿上交替型的 trim。照明仍与 <a href="/litho/off-axis-illumination">OAI</a> 搭配；掩模类型不替代光瞳选择。</p><p>掩模误差因子（MEF）在低 \(k_1\) 时大于 1。二元与衰减的 MEF 不同，因为背景光改变了空中像对开口宽度的导数。写 OPC 必须用对应的 \(t(x,y)\)，把衰减膜当成「深铬」会系统偏置。</p><h3 id="缺陷与修复" tabindex="-1">缺陷与修复 <a class="header-anchor" href="#缺陷与修复" aria-label="Permalink to &quot;缺陷与修复&quot;">​</a></h3><p>铬缺陷可补镀或挖；衰减膜的相位/透过率缺陷更接近上一课的相位缺陷行为，但比石英台阶交替型容易纳入标准检测。本课不把掩模厂良率写成节点良率。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>二元：物体频谱由开口决定，零级强，密图形调制靠开口占空比和照明。衰减：背景复振幅与开口干涉，等效削弱零级、在边沿加相消，孤立图形与孔的 NILS 往往更好。两者都还在透射几何里；EUV 反射掩模不是本课的产品。</p><p>薄屏假设忽略开口里的波导相移，于是左右边缘对称、HV 无偏置。真实膜一厚，这些对称性破裂——下一课专门收这笔。本课的后课接口是：凡说「二元 / att-PSM 成像」，先给出 \(t(x,y)\)，再声明是否加 3D。</p><p>检测：二元铬缺陷可补镀或挖铬；衰减膜的相位/透过率缺陷更难修。这是成本差的一部分。LELE 的每一张分解掩模仍要从二元或 att 里选：分解后节距变疏，有时二元就够，不必每张都上 att。</p><p><span class="marginnote">「6% 衰减」是常见工艺讨论值，不是物理学常数。具体透过率由掩模膜系与层类型决定。换透过率等于换零级与一级的振幅比，TCC 与 OPC 要重校。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>交替型 PSM、无铬相移仍是上一课的家族成员，不是本课的下单默认。本课也不讲多电子束如何把版写出来。浸没流体与掩模无关。禁止把 att-PSM 写成「已经包含掩模 3D」：衰减是薄膜光学设计，3D 是厚度与入射角的电磁修正。</p><p>SRAF（亚分辨率辅助图形）画在同一张二元或衰减版上，仍用薄屏 \(t(x,y)\) 当零阶；辅助条本身更窄，会更早感到 3D。本课不展开 SRAF 规则，只承认它们属于物体透过率，不是另一种膜系。</p><p><span class="marginnote">铬二元在深紫外仍有反射，需要抗反射层以免鬼像。那是掩模膜系工程，与 att-PSM 的 180° 背景不是同一项规格。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DUV 量产透射版主要是二元铬与衰减相移两类。</li><li>衰减型一次曝光、压零级；二元型简单、松层仍用。</li><li>零阶成像是 Kirchhoff 薄屏 \(t(x,y)\)。</li><li>MEF 与 OPC 必须用对膜系，不能把 MoSi 当深铬。</li><li>吸收体厚度的电磁效应下一课。</li><li>出处：Mack / Levinson；相移量产膜系惯例（Levenson 之后）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 DUV 与多重曝光<!--[--> · 单元 掩模<!--]--><!--[--> · 课序 透过与三维<!--]--></p><p class="lesson-progress">第 12 / 32 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/alt-psm/">交替相移</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

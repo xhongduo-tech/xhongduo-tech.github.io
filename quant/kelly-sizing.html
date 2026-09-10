@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>仓位与 Kelly / 分数 Kelly | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_kelly-sizing.md.HLqJi9rB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 均值回复交易<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 13 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/zscore-entry/">Z-score 开仓</a></p><p class="lesson-next"> 下一课：<a href="/quant/statarb-stops/">止损与时间止损</a></p></nav><div style="position:relative;"><div><h1 id="仓位与-kelly-分数-kelly" tabindex="-1">仓位与 Kelly / 分数 Kelly <a class="header-anchor" href="#仓位与-kelly-分数-kelly" aria-label="Permalink to &quot;仓位与 Kelly / 分数 Kelly&quot;">​</a></h1><div class="epigraph"><p>若重复独立的赌局有正的期望对数财富增长，存在一个最大化该增长率的投注比例；把估计当真理并下满这个比例，在参数不确定时会把增长变成破产风险。</p><footer>—— Kelly, A New Interpretation of Information Rate, Bell System Technical Journal, 1956；Thorp 与 Samuelson 之后的分数化实践</footer></div><p><a href="/quant/zscore-entry">上一课</a>把偏离标准化成阈值规则；窗口、均值/波动与 \(c\) 共同决定换手，名义阈值在非平稳与拥挤下会失效。开仓规则仍没有回答每对、每个信号下多少名义。缺口是 Kelly：重复赌局中按后验优势投注财富的一个固定比例，使对数期望最大；连续近似下 \(f\approx\mu/\sigma^2\)。边缘必须是扣费后的，满 Kelly 对 \(\mu\) 高估极度敏感。实务几乎总是分数 Kelly，并加杠杆上限。本课写这条仓位语言——它不保证正复利，也不重扫 \(c\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设每期超额收益（已扣融资）为 \(R\)，财富 \(W_{t+1}=W_t(1+f R_{t+1})\)。Kelly 选 \(f\) 最大化 \(\mathbb{E}[\log(1+f R)]\)。两点分布（以概率 \(p\) 赢 \(b\) 倍、否则输光投注）下有闭式 \(f^\ast=p-(1-p)/b\)。证券上 \(R\) 连续且可亏过投注（若有杠杆），\(f\) 的定义域被 \(1+fR\gt 0\) 限制。问题变成：统计套利的 \(R\) 既不是独立同分布，也不是已知分布——残差回归、基差收敛都有破裂与拥挤，样本均值不是 \(\mu\)。</p><p>若把回测夏普 \(\widehat{\mathrm{SR}}\) 代入 \(f\approx\mathrm{SR}/\sigma\)，高估夏普会线性抬高杠杆。高估若来自未计入的<a href="/quant/net-edge">交易成本</a>或多重检验，满 Kelly 会在真实 \(\mu\) 接近零甚至为负时仍加杠杆。Kelly 原论文假设概率已知或可从信息精确更新；市场边缘没有那样的信道。</p><h3 id="对数增长最大不是人人要的目标" tabindex="-1">对数增长最大不是人人要的目标 <a class="header-anchor" href="#对数增长最大不是人人要的目标" aria-label="Permalink to &quot;对数增长最大不是人人要的目标&quot;">​</a></h3><p>Samuelson 指出，最大化渐近增长率并不最大化有限视野的期望效用，除非效用恰好是对数。对更厌恶风险的人，最优 \(f\) 更小。即使接受对数效用，参数不确定等价于更厌恶：应对 \(\mu\) 积分而不是插一个点估计。MacLean、Thorp 与 Ziemba 汇编的文献反复出现同一处方：用全 Kelly 的 \(1/2\) 或 \(1/4\)，以降低估计误差导致的过度投注。分数不是随意打折，是对模型误差的承认。</p><p><span class="marginnote">连续近似 \(f=\mu/\sigma^2\) 在 \(\mu\) 为年化 5%、\(\sigma\) 为 10% 时给出 \(f=5\)，即五倍杠杆。统计套利残差策略的样本 \(\mu\) 常常是未扣真实冲击的。把纸面 \(\mu\) 代入该公式，是最常见的爆仓路径之一。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>可落地的分层。第一层：单策略扣费后的 \(\hat\mu,\hat\sigma\)，用保守区间（例如均值的下置信界）代入 \(f_{\mathrm{full}}=\hat\mu/\hat\sigma^2\)，再取 \(f=\lambda f_{\mathrm{full}}\)，\(\lambda\in\{1/2,1/4\}\)。第二层：多策略、多配对时，Kelly 变成增长最优组合，权重与协方差逆有关；估计 \(\Sigma\) 在高维同样不稳，必须收缩，并约束单名与单对上限。第三层：波动目标（例如组合年化波动 10%）往往比直接 Kelly 更可审计，它相当于假设夏普稳定、只缩放 \(\sigma\)；夏普若不稳定，波动目标仍会在边缘消失时保持风险，只是比满 Kelly 温和。</p><p>与 Z-score 的接口。不要把 \(|z|\) 线性映射成 Kelly 分数： \(|z|\) 大可能是破裂而不是更大的 \(\mu\)。更一致的做法是：信号只决定方向与是否开仓，仓位由组合级风险预算决定；或对 \(\mu(|z|)\) 用样本外校准，并在 \(|z|\) 进入极端分位时改为减仓而非加仓。后者需要预先写进规则，不能在亏损后才发明。</p><h3 id="再平衡、离散与路径依赖" tabindex="-1">再平衡、离散与路径依赖 <a class="header-anchor" href="#再平衡、离散与路径依赖" aria-label="Permalink to &quot;再平衡、离散与路径依赖&quot;">​</a></h3><p>Kelly 理论常假设每期按新财富再平衡。统计套利有最低手数、涨跌停、借券可获得量，再平衡本身产生换手成本，侵蚀 \(\mu\)。降低再平衡频率是在用跟踪误差换成本，最优频率与冲击函数绑定，不是信息率公式的一部分。路径依赖：同样的平均增长，先大亏后大赢与先大赢后大亏对杠杆约束、保证金、心理止损的命中不同。分数 Kelly 降低杠杆，主要价值往往是减少「触及融资或风控强平」的概率，而不是提高渐近增长率。</p><p><span class="marginnote">Kelly 对独立重复赌局最优，对序列相关、有状态（拥挤、波动集群）的残差并不最优。状态依赖的 \(f\) 需要条件期望；用无条件 \(\mu\) 在高压期保持仓位，等于否认<a href="/quant/cointegration-break">协整破裂</a>与拥挤。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>对数效用下，边际上要把财富增长的几何均值推高，避免零财富。全 Kelly 在已知优势的掷币里是「不破产且渐近最快」。优势一旦是估计的，过度投注的损失是非对称的：低估 \(f\) 只是增长慢一点，高估 \(f\) 使财富波动的对数期望下降甚至为负。这就是为何分数化几乎总是占优满仓 Kelly——不是因为市场「更有效」，而是因为 \(\hat\mu\) 的误差分布向高估一侧被回测选择所污染。</p><p>统计套利的「优势」来自回归速度 \(\kappa\) 与偏离幅度，但单次交易的 \(R\) 有天花板（价差回到均值）和地板（破裂、停牌）。收益分布左尾比掷币更肥。Kelly 公式用 \(\sigma^2\) 代表全部风险，对跳跃不够。实务用仓位上限、单对损失上限、组合回撤熔断来补这一块，这些都不是 Kelly 原式的项，却决定能不能活过样本外的第一次结构变化。</p><h3 id="容量-kelly-不管市场深度" tabindex="-1">容量：Kelly 不管市场深度 <a class="header-anchor" href="#容量-kelly-不管市场深度" aria-label="Permalink to &quot;容量：Kelly 不管市场深度&quot;">​</a></h3><p>\(f^\ast\) 按自己的财富比例出清，不读 ADV。财富变大后，同一 \(f\) 对应的名义超过成份股深度，\(\mu\) 随冲击下降，真正的增长最优 \(f\) 应内生化价格影响。大账户必须把 Almgren–Chriss 一类冲击放进有效 \(\mu(f)\)，再对 \(f\) 求解；解通常远小于无摩擦 Kelly。忽略这一点会把小样本账户的分数 Kelly 直接乘到基金规模上。指数与 ETF 套利同样：基差边缘以基点计，Kelly 会建议很大的名义，直到你发现一揽子无法在该名义下成交。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用未扣费、含未来函数的回测夏普去算 \(f\)。不要在杠杆上再叠满 Kelly，把两层乐观相乘。监管与经纪商的保证金、A 股 T+1 与涨跌停，会把连续公式的 \(f\) 变成不可执行。对数财富目标与客户的季度相对基准也冲突：Kelly 允许深回撤换长期增长，多数委托合同不允许。</p><p>分数 \(\lambda\) 的选择应在压力情景下校准：例如残差相关升至 0.3、有效价差翻倍、\(\mu\) 减半时，组合是否仍满足最大回撤约束。若只有在历史最好的子样本里满 Kelly 才「看起来好」，则应拒绝该杠杆。Kelly 1956 解决的是已知信道的重复赌局；把它写成证券的最优杠杆定理，必须附上估计误差、冲击与效用设定三条免责。</p><p><span class="marginnote">Thorp 自己强调分数 Kelly 与安全边际。引用 1956 年论文却下满 \(\hat\mu/\hat\sigma^2\)，是只借了公式、没借实践里对不确定性的处理。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kelly（1956）最大化重复赌局的对数财富增长；连续近似下 \(f\approx\mu/\sigma^2\)，与对数效用的 Merton 权重同形。</li><li>边缘必须是扣费后的，且对估计误差高度敏感；满 Kelly 在高估 \(\mu\) 时非对称地伤害增长。</li><li>分数 Kelly、波动目标、单对上限与冲击内生化，是可审计的实践；它们降低的是破产与强平风险，不创造保证复利。</li><li>容量不在原公式里：名义大时 \(\mu(f)\) 下降，最优 \(f\) 远小于无摩擦解。</li><li>出处：Kelly, <em>Bell System Technical Journal</em>, 1956；Thorp 在 MacLean–Thorp–Ziemba 文集中的综述；Samuelson 对几何均值准则的批评；连续时间对照 Merton, <em>Review of Economics and Statistics</em>, 1969。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 均值回复交易<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 13 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/statarb-stops/">止损与时间止损</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

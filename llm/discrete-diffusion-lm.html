@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>离散扩散语言模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_discrete-diffusion-lm.md.C3gD1eXp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 模型架构<!--[--> · 单元 多模态<!--]--><!--[--> · 课序 语音与视频<!--]--></p><p class="lesson-progress">第 82 / 82 课</p><p class="lesson-prereq"> 先修：<a href="/llm/interleaved-multimodal/">多模态交错训练</a></p><p class="lesson-next"> 下一课：<a href="/llm/bert-encoder/">BERT 编码器结构</a></p></nav><div style="position:relative;"><div><h1 id="离散扩散语言模型" tabindex="-1">离散扩散语言模型 <a class="header-anchor" href="#离散扩散语言模型" aria-label="Permalink to &quot;离散扩散语言模型&quot;">​</a></h1><div class="epigraph"><p>把生成写成逐步去噪而不是从左到右：掩码或随机替换把离散符号打乱，模型学习在任意位置同时改写。</p><footer>—— Li et al., Diffusion-LM；以及离散扩散在掩码语言模型与当代并行解码上的延伸</footer></div><p><a href="/llm/interleaved-multimodal">交错训练</a> 把图、文、音频码排成一条因果序列。因果 LM 的缺口是：双向约束（「这句话要包含这三个词、这段唇形要对上这句台词」）很难在已经写下的前缀上插入，只能靠重写整段。Li、Thickstun、Gulrajani、Liang、Hashimoto 的 Diffusion-LM 把连续扩散接到词嵌入上做可控生成；后续工作把前向过程直接定义在离散词表或 codec 码上。本课写 <strong>离散状态上的扩散</strong> 与自回归的差别，作为多模态单元的收束：音频码、视频 token 都可以被「并行改写」，而不只是续写。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归 \(p(z_t\mid z_{\lt t})\) 把任意全局约束变成「先写对前面，后面才有机会满足」。控制生成、填空、长度固定的编辑、以及非因果的音画对齐，都要与这个顺序作战。掩码 LM 能填空，但一次填多少、如何迭代，不是生成模型的完整前向。扩散提供一套带时间步 \(t\) 的迭代：从近乎噪声的离散序列 \(x_T\) 走到数据 \(x_0\)，每步可以改所有位置。</p><p>离散化带来技术缺口：高斯扩散的重参数在单纯型或 one-hot 上不成立。必须定义离散前向核 \(q(x_t\mid x_{t-1})\)——均匀随机替换、向掩码符号吸收、或在 codec 码本内打乱——以及对应的去噪网络 \(p_\theta(x_{t-1}\mid x_t)\)。Li 等人的 Diffusion-LM 选择先在嵌入空间做连续扩散再投影回词表；吸收态掩码扩散则更接近 BERT 式目标，但带显式时间表。本课关心的是：<strong>符号是离散的（词或码），迭代是并行的</strong>。</p><h3 id="与-codec-视频符号的接口" tabindex="-1">与 codec / 视频符号的接口 <a class="header-anchor" href="#与-codec-视频符号的接口" aria-label="Permalink to &quot;与 codec / 视频符号的接口&quot;">​</a></h3><p><a href="/llm/audio-codec-lm">音频 codec</a> 的 RVQ 层有残差顺序；<a href="/llm/video-temporal-pool">视频时序</a> 的 token 有时间局部性。离散扩散若对各层码、各帧独立加噪，会拆掉这些结构。前向过程应能按层、按时间块相关地腐蚀，去噪网络才能利用结构。把交错序列当成普通文本扩散，多模态对齐会先于语义崩溃。<span class="marginnote">「离散扩散」不是「非自回归机器翻译里的一次迭代解码」的新名字。它有明确的时间步与噪声日程；迭代解码可以是它的推理加速，但训练目标按扩散边际来写，而不是按一次平行预测所有 token 的 NAT 损失来写。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="吸收、均匀替换与嵌入扩散" tabindex="-1">吸收、均匀替换与嵌入扩散 <a class="header-anchor" href="#吸收、均匀替换与嵌入扩散" aria-label="Permalink to &quot;吸收、均匀替换与嵌入扩散&quot;">​</a></h3><p>吸收态（masking）扩散的一个常用前向是：每个位置以随 \(t\) 增加的概率变成 <code>[MASK]</code>，一旦吸收就停在掩码。去噪模型看 \(x_t\) 预测 \(x_0\) 或预测 \(x_{t-1}\)。推理从全掩码或纯噪声出发，按日程逐步降低掩码率。均匀替换扩散则把符号以一定概率改成词表内随机项，没有吸收，允许「改错了再改回来」。</p><p>连续嵌入扩散（Diffusion-LM）：对 one-hot 或可学习嵌入 \(e(x)\) 加高斯噪声，网络预测干净嵌入，再用 rounding 回词表。优点是能借连续扩散的工具；缺点是 rounding 误差与可控性梯度要穿过这个不光滑台阶，Li 等人用梯度更新嵌入再投影来做控制。</p><p>训练损失通常是某个 \(t\) 上的交叉熵或分数匹配，而不是完整似然。因此 <strong>不能直接拿 AR 的 perplexity 比扩散</strong>；应在同一套下游（条件生成、控制满足率、音画同步）上比。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>每步并行改写，使「句子中部的约束」不必等待左侧生成完毕。控制项可以加在每步的能量上（把不满足约束的位置的 logits 压低），这是 Diffusion-LM 相对提示工程的理论优势。代价是步数：质量通常随去噪步增加，测试时计算从「一条长链」变成「若干次全序列前向」。与 <a href="/llm/test-time-scaling">test-time scaling</a> 的 AR 搜索不是同一条曲线，不要把步数直接换算成 token 数。</p><p>因果 LM 天然适合无限续写与 KV 缓存；离散扩散每次看见（几乎）全序列，缓存策略不同，decode 的流式首 token 更差。对话系统里更常见的是 AR 主模型 + 扩散做局部编辑（改一句、修一段码、对一下唇形），而不是全程扩散对话。</p><p><span class="marginnote">掩码扩散在 \(t\) 接近 0 时很像 BERT；在 \(t\) 接近 \(T\) 时很像从空白写全文。日程把两种体制连成一条。只在中间 \(t\) 训练会得到既不会填空也不会从零生成的模型。重要性采样 \(t\) 与 AR 的 token 位置采样一样，是训练配方的一部分。</span></p><h3 id="多模态交错上的噪声日程" tabindex="-1">多模态交错上的噪声日程 <a class="header-anchor" href="#多模态交错上的噪声日程" aria-label="Permalink to &quot;多模态交错上的噪声日程&quot;">​</a></h3><p>交错序列里文本与视觉码的熵不同，同一掩码率对文本可能过噪、对视觉可能欠噪。分模态日程、或按 codec 层设不同吸收速度，是结构先验。否则去噪网络会先学会「把图全猜成平均色、把字填成高频词」，再在后期来不及修补对齐。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>似然、似然比、教师强制的工具链都为 AR 而建。扩散 LM 的选点、早停、与 RL（后面对齐课）接口都更绕：奖励模型如何对中间噪声态打分，没有标准答案。若任务主要是聊天续写，AR 仍是默认；本课的位置是可控生成、并行填充、以及把离散 codec 当成可双向改写的画布。</p><p>不要与连续潜空间扩散（图像 / 视频生成主路）混淆：那些模型的状态是 \(z\in\mathbb{R}^d\)，本课状态是词表下标。把 VAE 潜变量扩散完再解码，是另一门课。离散扩散的词表若来自 codec，还受码本崩溃约束——codec 课的死符号在扩散里同样不可被有意义地去噪。</p><p><span class="marginnote">Li 等 Diffusion-LM 是嵌入空间连续扩散；后续 LLaDA、Dream 一类工作把掩码离散扩散做到语言建模尺度。引用时分清前向核，不要用一篇的数字证明另一篇的日程。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>离散扩散在词或码序列上迭代去噪，并行改写，便于全局约束与编辑。</li><li>前向核是掩码吸收、均匀替换或嵌入高斯再投影；不可与 AR perplexity 直接比。</li><li>多模态码的结构（RVQ 层、时间块）应写进加噪，而不是当独立比特打乱。</li><li>流式与 KV 缓存弱于 AR；产品上常作局部编辑器而非主对话环。</li><li>训练必须覆盖噪声日程两端，否则既不会填空也不会从零写。</li><li>出处：Li 等，Diffusion-LM；离散掩码扩散的后续语言建模工作。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 模型架构<!--[--> · 单元 多模态<!--]--><!--[--> · 课序 语音与视频<!--]--></p><p class="lesson-progress">第 82 / 82 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/bert-encoder/">BERT 编码器结构</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

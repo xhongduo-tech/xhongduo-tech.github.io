@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CUSUM / MOSUM | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cusum-mosum.md.fA69mCwJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 协整、体制与事件<!--]--><!--[--> · 课序 多元与断裂<!--]--></p><p class="lesson-progress">第 4 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bai-perron/">Bai-Perron 结构断点</a></p><p class="lesson-next"> 下一课：<a href="/quant/hmm-regime/">HMM 隐马尔可夫体制</a></p></nav><div style="position:relative;"><div><h1 id="cusum-mosum" tabindex="-1">CUSUM / MOSUM <a class="header-anchor" href="#cusum-mosum" aria-label="Permalink to &quot;CUSUM / MOSUM&quot;">​</a></h1><div class="epigraph"><p>把递归残差或 OLS 残差依次累加，若回归关系在样本中途换了，累加路径会像带漂移的随机游走一样穿出常数参数下的边界；移动窗口的残差和则对近期断裂更敏感。</p><footer>—— Brown, Durbin and Evans, Techniques for Testing the Constancy of Regression Relationships over Time, JRSS-B, 1975；OLS-CUSUM 见 Ploberger and Krämer, Econometrica, 1992</footer></div><p><a href="/quant/gregory-hansen">Gregory–Hansen</a> 在全样本上搜一个 \(\tau\) 再做残差单位根；<a href="/quant/bai-perron">Bai–Perron</a> 全局切多段。二者都是<strong>事后</strong>、整段样本的检验。CUSUM（累积和）与 MOSUM（移动和）回答另一类问题：沿着时间往前走，参数是否已经不再是历史那一组。Brown、Durbin 与 Evans（1975）用递归残差的累加；Ploberger 与 Krämer（1992）给出 OLS 残差 CUSUM 的渐近；Chu、Hornik 与 Kuan 的 MOSUM 用固定宽度窗口。本篇写递归残差与 OLS 残差的差别、边界怎么来、以及如何把它当成配对与因子模型的<strong>顺序监听</strong>，而不是替代协整检验。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设形成期估好 \(y=\hat\alpha+\hat\beta x\)，交易期继续观测。你想在不知道断裂日期、也不想每个新时点都重跑一遍 inf 型检验的前提下，问：到目前为止的残差，是否还像同一套系数生成的。CUSUM 把标准化残差累加，得到一条路径 \(W_n(r)\)；原假设参数恒定、误差条件同方差时，它弱收敛到布朗桥或相关高斯过程，从而有随时间变化的临界带。路径穿带，拒绝恒定。</p><p>与 GH 的差别：CUSUM 的原假设是「回归参数稳定」（常常还默认关系本身存在），不是「无协整」。价差若本来就是 \(I(1)\)，残差累加会穿任何带，你得到的是「关系不稳」或「根本没有平稳关系」，分不清。因此 CUSUM 应加在已经通过形成期协整筛选的对上，作为交易期监听；形成期是否存在带断裂的协整，仍用 GH。</p><h3 id="递归残差与-ols-残差" tabindex="-1">递归残差与 OLS 残差 <a class="header-anchor" href="#递归残差与-ols-残差" aria-label="Permalink to &quot;递归残差与 OLS 残差&quot;">​</a></h3><p>BDE 的递归残差：用 \(t-1\) 及之前的样本估系数，预测 \(y_t\)，标准化预测误差。在原假设与正态下，递归残差近似独立 \(N(0,\sigma^2)\)，累加接近随机游走，边界是直线（或斜线）组成的隧道。它对样本<strong>末端</strong>的断裂有势，对样本很早的断裂势弱——早期系数还在学，后期才「看起来稳」。</p><p>OLS-CUSUM 用全样本系数的残差累加，渐近是布朗桥（两端钉在 0）。它对样本中段的水平漂移有势，对只发生在系数斜率上、且回归元均值接近零的变化可能迟钝。MOSUM 把累加换成宽度 \(h\) 的移动和，相当于对近期残差重新加权：断裂刚发生时比全历史 CUSUM 更快抬升，但窗口内噪声也更大，虚假穿越更频繁。</p><p><span class="marginnote">「穿线就平仓」把渐近边界当成了滤波器。日频上边界是为检验水平设计的，不是为成本后期望设计的。更干净的做法是：穿越触发降杠杆或冻结开仓，真正的平仓仍用预先写的残差止损与时间止损。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>形成期校准，交易期监听。</strong> 形成期估 \(\beta\) 与残差方差，交易期用递归残差做 CUSUM，边界按预先规定的显著性（常见 5%）画。不要在交易期用含未来的全样本 OLS-CUSUM 来决定「当时该不该停」——那是事后布朗桥，含 \(\mathcal{F}_T\)。可复现的回测只允许用到 \(t\) 的递归量。</p><p><strong>MOSUM 的带宽。</strong> \(h\) 太短，路径像残差本身，天天穿；太长，退化成缓慢 CUSUM，失去「对近期敏感」的意义。可把 \(h\) 设为若干个 <a href="/quant/ou-spread">OU 半衰期</a>，使窗口覆盖一次典型回归，却短于你愿意忍受的破裂时长。同时报告 CUSUM 与 MOSUM：前者稳、后者快，意见不一致时以规则书的优先级为准，而不是看哪条线先动。</p><p><strong>异方差与肥尾。</strong> 经典边界假定同方差。GARCH 与跳跃会让路径过早穿带。可用残差先除以滚动波动，或用稳健 CUSUM（基于符号或分位数）。金融收益上，未调整的 5% 边界往往过拒；这不意味着「天天都在断裂」，而意味着尺寸被波动聚集破坏。诊断应看：穿越是否伴随滚动 \(\beta\) 的移动，还是只伴随 \(|u_t|\) 的一次脉冲。</p><h3 id="顺序监测与样本内检验" tabindex="-1">顺序监测与样本内检验 <a class="header-anchor" href="#顺序监测与样本内检验" aria-label="Permalink to &quot;顺序监测与样本内检验&quot;">​</a></h3><p>Chu、Stinchcombe 与 White 一类顺序监测：从训练样本得到边界，然后在后续流数据上持续检验，控制的是整个监测期的错误警报率，而不是某一个 \(t\) 上的点检验。这与「每天重新做一次 Bai–Perron」不同：后者既没有顺序水平，又极贵。工程上，CUSUM/MOSUM 适合日更；BP 适合月末或季末重估 \(m\)；GH 适合形成期结束时跑一次。</p><p>对多条腿或因子模型，可对每个系数的递归估计做 CUSUM，或对向量残差做多元 CUSUM。多元版本对相关残差的联合漂移更敏感，但也更容易被一条腿的停牌带动。A 股应在停牌日把该观测标成缺失，递归更新只做预测步，不把零收益当信息。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>参数恒定时，标准化新息均值接近 0，累加是鞅；参数在 \(\tau\) 处跳，之后新息带均值，累加出现线性漂移，终将穿出原假设下的扩散边界。MOSUM 把漂移的检测限制在宽度 \(h\) 内，因此对「最近才断」的势高，对「很久以前断、之后新参数已稳定」的势低——很久以前的漂移已经滑出窗口。这解释了分工：MOSUM 抓正在发生的破裂；CUSUM 保留更长记忆；BP 在事后把所有台阶的位置估出来。</p><p>与协整的关系：若 \(\beta\) 已错，误差修正项在错误原点上工作，残差均值非零，CUSUM 会漂。若只是 \(\sigma\) 变大而 \(\beta\) 未变，未缩放的 CUSUM 也会更早穿带，你可能把波动体制当成结构断裂。先对残差做波动标准化，再累加，有助于把「方差切换」交给 <a href="/quant/hmm-regime">HMM</a>，把「均值/斜率切换」留给 CUSUM。</p><p><span class="marginnote">递归残差在 \(t\) 用的是 \(\hat\beta_{t-1}\)，与 <a href="/quant/kalman-hedge">Kalman 对冲</a> 的预测残差同一时点逻辑。回测若误用 \(\hat\beta_t\)（含当期 \(y_t\)）去做 CUSUM，穿越会被推迟或扭曲，看起来更「稳」。</span></p><h3 id="穿越之后做什么" tabindex="-1">穿越之后做什么 <a class="header-anchor" href="#穿越之后做什么" aria-label="Permalink to &quot;穿越之后做什么&quot;">​</a></h3><p>统计拒绝不是最优停时。穿越说明「恒定参数」这条原假设已不可维持，仓位规则应切换到：停止按旧阈值加仓、减杠杆、缩短时间止损、并在足够新样本后重估。重估窗口若从 \(\hat\tau_{\mathrm{CUSUM}}\) 才开始，样本短、\(\beta\) 噪；可用衰减加权把旧样本降权而不是清零。若穿越由单一公司行为引起，应先调整价格序列再决定是否重启监听，而不是把除权当成体制。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>CUSUM 对早段断裂势弱，对晚段强；若你关心形成期内部是否已经被污染，应在形成期结束时跑 GH 或 BP，而不是只看交易期 CUSUM 还没穿。MOSUM 的多重穿越在异方差下会刷屏，必须有冷却期：一次警报之后 \(h\) 个观测内不再重复计数，否则操作变成噪声交易。</p><p>不要把 CUSUM 路径当 PnL 图读。不要在未标准化波动时比较不同品种的「谁先穿」。不要用全样本 OLS-CUSUM 的历史穿越点当盘中规则的验证——那是同一条布朗桥的事后 realization。tick 上微观结构会使递归残差高度负相关，经典独立假设失败，应先降频或用核/预平均收益。</p><p><span class="marginnote">边界常数来自布朗运动的穿越概率，和 OU 的开仓倍数没有换算公式。把 5% CUSUM 带当成 2σ 交易阈值，是把检验水平误当成经济阈值。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CUSUM / MOSUM 用递归或 OLS 残差的累积和、移动和监听回归参数是否仍恒定，原假设不是「无协整」。</li><li>Brown–Durbin–Evans 递归 CUSUM 对末端断裂更敏感；OLS-CUSUM 渐近为布朗桥；MOSUM 对近期断裂更快但更噪。</li><li>顺序监测控制的是整段监测期的错误警报率；适合做交易期过滤器，形成期协整仍用 Gregory–Hansen。</li><li>异方差会使未缩放边界过拒；穿越后应降杠杆并重估，而不是把穿线当开平信号。</li><li>与 Bai–Perron、HMM 分工：监听、事后切段、反复体制，三者不要用同一条临界值。</li><li>出处：Brown, Durbin and Evans, <em>JRSS-B</em>, 1975；Ploberger and Krämer, <em>Econometrica</em>, 1992；Chu, Hornik and Kuan 的 MOSUM；顺序监测见 Chu, Stinchcombe and White。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 协整、体制与事件<!--]--><!--[--> · 课序 多元与断裂<!--]--></p><p class="lesson-progress">第 4 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hmm-regime/">HMM 隐马尔可夫体制</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

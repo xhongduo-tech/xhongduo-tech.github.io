@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>费雪方程 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_fisher-equation.md.DWusdIhN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：货币、周期与政策<!--[--> · 单元 货币<!--]--><!--[--> · 课序 需求与通胀<!--]--></p><p class="lesson-progress">第 5 / 53 课</p><p class="lesson-prereq"> 先修：<a href="/econ/quantity-theory/">数量方程与货币中性</a></p><p class="lesson-next"> 下一课：<a href="/econ/seigniorage/">通胀税与铸币税</a></p></nav><div style="position:relative;"><div><h1 id="费雪方程" tabindex="-1">费雪方程 <a class="header-anchor" href="#费雪方程" aria-label="Permalink to &quot;费雪方程&quot;">​</a></h1><div class="epigraph"><p>名义利率是实际利率与预期通胀之和；把事后实现的通胀代进去，得到的是定义，不是事前的套利条件。</p><footer>—— Fisher, The Theory of Interest, 1930；对照《货币的购买力》中的利率与物价</footer></div><p><a href="/econ/quantity-theory">上一课</a>在 \(MV=Py\) 上钉了长期中性，并预告费雪成分 \(i\approx r+\pi^e\) 里 \(r\) 由实物决定。本课的缺口就是把这句写成独立的利率分解：<strong>事前</strong>与<strong>事后</strong>、定义与均衡。铸币税下一课问谁从 \(M\) 增长里抽税；本课不把通胀税写完。开放经济的抛补平价实证不在本栏，见<a href="/quant/irp">利率平价</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>数量论给出 \(P\) 的长期水平（或通胀趋势与 \(M\) 增长），没有单独写出债券的名义报价如何含通胀补偿。若合同以货币计价，贷出者关心的是能买到的货物。缺口不是再论证中性，而是：</p> \[i_t = r_t + \pi_t^e, \]<p>其中 \(r\) 是实际利率（或事先约定的实际回报），\(\pi^e\) 是预期通胀。事前等式才是行为关系；事后 \(i=r^{\mathrm{ex\ post}}+\pi\) 只是把实现通胀从名义里拆开的会计。把 1970 年代高 \(i\) 当成「实际资金很贵」，可能只是 \(\pi^e\) 很高。</p><p><span class="marginnote">线性近似忽略 \(i r\) 交叉项；精确的是 \(1+i=(1+r)(1+\pi^e)\)。宏观主干常用加总形式。实际利率还依赖用哪一个 \(P\)：CPI 与 PCE 不同，\(\pi^e\) 跟着不同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>事前：债务合同谈判时，\(\pi^e\) 进入名义利率。实际利率 \(r\) 在灵活价格、充分就业下由时间偏好、资本边际产出与净出口等实物因素决定——RCK 的 \(r\) 与索洛的 \(f&#39;(k)-\delta\)。货币长期中性意味着 \(M\) 的水平不改这个 \(r\)；通胀趋势进入 \(i\)，一对一（费雪效应）。事后：\(\pi\) 实现后，\(i-\pi\) 是实现的实际回报，可以因意外通胀而与 \(r\) 不同——正是债务再分配。</p><div class="mermaid"></div><p>CIA/MIU 已经给出 \(i\) 是持币机会成本。费雪方程把这个 \(i\) 再拆成 \(r\) 与 \(\pi^e\)。数量方程管 \(P\) 的趋势；费雪管名义利率如何吸收趋势。短期粘性使 \(i\) 动而 \(\pi^e\) 未一对一跟上，实际利率变动——新凯恩斯的入口，本课只划界。</p><h3 id="费雪效应不是-cip" tabindex="-1">费雪效应不是 CIP <a class="header-anchor" href="#费雪效应不是-cip" aria-label="Permalink to &quot;费雪效应不是 CIP&quot;">​</a></h3><p>国内费雪：\(i\) 与 \(\pi^e\) 同向。两国费雪加无套利会通向未抛补利率平价，那是开放宏观。<strong>抛补</strong>利率平价用远期覆盖汇率风险，是外汇市场报价关系，实证与基差在量化栏的 IRP，本课不写回归、不写基差交易。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>若 \(\pi^e\) 上升而 \(r\) 不变，\(i\) 上升，名义债务的票息补偿购买力损失。意外通胀使事后实际回报低于事前 \(r\)，财富从债权人转到债务人——包括政府实际债务。这与中性不冲突：中性谈的是未预期到的一次性 \(M\) 在长期不改 \(y^*\)；费雪谈的是预期到的通胀进入 \(i\)。超中性失败时（通胀税扭曲 \(k\)），\(r\) 本身随 \(\pi\) 而动，费雪一对一不再干净——下一课铸币税。</p><p>适应性与理性预期改变 \(\pi^e\) 的形成，从而改变 \(i\) 的路径。费雪方程本身不指定预期；菲利普斯课把 \(\pi^e\) 接进工资。本课只要求：写 \(i\) 时声明事前还是事后。</p><p>指数选择进入 \(r\) 的测量：用 CPI 还是 PCE，\(i-\pi\) 可以差一截，实际利率的故事跟着变——回到<a href="/econ/cpi-vs-pce">CPI 与 PCE</a>。短期名义利率由政策或货币需求决定时，费雪方程是对 \(r\) 与 \(\pi^e\) 的分解，不是对 \(i\) 的独立决定。粘性价格下 \(i\) 动而 \(\pi^e\) 未跟上，\(r\) 成为需求通道；灵活价格下 \(r\) 由实物钉住，\(i\) 跟着 \(\pi^e\) 走。两种因果方向不要写进同一句「费雪决定利率」。</p><p>税收楔子（名义利息课税）使税后费雪更乱：\(i\) 需要补偿的不只是 \(\pi^e\)，还有对名义利息的税。本课主干用税前分解，以免把公司金融的税盾提前搬进来。</p><p><span class="marginnote">实际利率为负，在事前需要 \(i\lt \pi^e\)，在零下限附近更常见的是事后 \(i\lt \pi\)。不要把两种负利率混成「费雪失效」。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>费雪方程不是期限结构：长债还含期限溢价，<a href="/econ/eh-term-structure">预期假说</a>另写。也不要把股票预期回报写成 \(r+\pi^e\)。公司金融的名义合同与通胀指数债，是同一分解在证券上的应用，本课不展开税盾。量化栏的微观报价不是宏观 \(i\)。</p><p>开放经济里，两国费雪加资本流动会通向利率平价。抛补平价是远期报价的微观关系，实证与基差一律放到 <code>/quant/irp</code>，本课只钉国内事前分解。铸币税下一课会让超中性失败时 \(r\) 随 \(\pi\) 而动，费雪一对一不再干净——那是对「\(r\) 永远由实物钉死」的修正，不是否定事前等式的定义。</p><p>后课默认：名义利率先拆成事前 \(r+\pi^e\)；意外通胀再分配。下一课问政府能否靠印钞对实际余额征税。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>事前 \(i=r+\pi^e\) 是均衡分解；事后 \(i-\pi\) 是实现回报的会计。</li><li>费雪效应：预期通胀进入名义利率；长期 \(r\) 由实物决定。</li><li>意外通胀再分配名义债权。</li><li>CIP 实证不在本课，见 <code>/quant/irp</code>。</li><li>指数选 CPI 或 PCE，\(i-\pi\) 跟着变。</li><li>出处：Fisher, <em>The Theory of Interest</em>；对照数量方程课的中性。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：货币、周期与政策<!--[--> · 单元 货币<!--]--><!--[--> · 课序 需求与通胀<!--]--></p><p class="lesson-progress">第 5 / 53 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/seigniorage/">通胀税与铸币税</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

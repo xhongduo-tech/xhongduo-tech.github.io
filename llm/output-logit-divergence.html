@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>输出 logit 发散 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_output-logit-divergence.md.BbIrS74M.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 14 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/logit-soft-capping/">logit soft-capping</a></p><p class="lesson-next"> 下一课：<a href="/llm/grad-norm-monitoring/">梯度范数监控</a></p></nav><div style="position:relative;"><div><h1 id="输出-logit-发散" tabindex="-1">输出 logit 发散 <a class="header-anchor" href="#输出-logit-发散" aria-label="Permalink to &quot;输出 logit 发散&quot;">​</a></h1><div class="epigraph"><p>概率对 logits 的公共平移不变，优化可以把整张词表的分数抬到半精度指数溢出，而交叉熵看起来仍在下降。</p><footer>—— Chowdhery et al., PaLM, 2022；Rae et al., Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher, 2021</footer></div><p><a href="/llm/logit-soft-capping">上一课</a>给注意力与可选的词表 logits 加上界。缺口是：许多配方没有 cap，交叉熵仍然允许 \(\|\ell\|_\infty\) 与 LSE 一起漂。<a href="/llm/output-init-logit-scale">输出初始化</a> 只钉第 0 step；幂律段里 CE 靠拉大间隔下降，间隔常常靠抬高正确类而不是压低错误类实现。PaLM 用 z-loss 钉 \(z^2\)，Gopher 同样报告大模型训练里的 logit 增长。本课把「输出发散」从注意力增长里拆出来，作为独立传感器。主干 <a href="/llm/z-loss">z-loss</a> 的公式不重推，只补它在稳定性叙事里的位置。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(\ell_i=-\ell_{y}+ \mathrm{LSE}(\ell)\) 对 \(\ell\leftarrow\ell+c\) 不变。Adam 可以给 \(W_{\mathrm{out}}\) 与最后一层增益一个共同的放大模式：所有 logits 变大，概率几乎不变，CE 微降或持平，但 \(\max\ell\) 进到 \(10^3\)–\(10^4\)。BF16 的 <code>exp</code> 大约在 88 以上溢出；稳定 LSE 先减 max，max 本身若已 Inf，整步 NaN。Cut CE 在片上归约同样怕这个尺度。</p><p>与注意力 logit 增长的差别：注意力塌缩的是<strong>相对</strong>路由（熵→0），输出发散常常是<strong>绝对</strong>尺度（熵可以仍高，只是 LSE 很大）。两者可同时发生。只看 CE 与 PPL 都看不见；必须打 \(\|\ell\|_\infty\)、LSE 均值与分位数。</p><p><span class="marginnote">\(\|W_{\mathrm{out}}\|\) 不是合格代理。RMSNorm 之后 \(h\) 的尺度被 \(\gamma\) 改写，\(W\) 变大不必等于 \(\ell\) 变大，反过来 \(\gamma\) 变大也可以让 \(\ell\) 飞而 \(W\) 看起来还好。直接记录 LSE。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>训练日志：每 \(k\) 步在一个微批上算 \(\mathrm{median}(\mathrm{LSE})\)、\(\mathrm{p99}(|\ell|)\)、以及 CE。LSE 相对第 0 step 涨一个数量级就报警，不必等 NaN。对策分层：</p><ol><li><strong>z-loss</strong>：\(\alpha z^2\) 加进目标，α 在 \(10^{-4}\) 量级（PaLM 一类）。词表变大时 α 要重扫，主干已警告。</li><li><strong>输出 soft-cap</strong>：上一课的 \(c_o\)。与 z-loss 可叠，但 α 与 \(c_o\) 不要同时从零拧到头。</li><li><strong>学习率 / 衰减分组</strong>：输出头单独更小的 \(\eta\)，或恢复对 \(W_{\mathrm{out}}\) 的权重衰减。嵌入豁免课会谈到两边打架。</li></ol><p>跳过坏 batch（主干 <a href="/llm/nan-skip-batch">NaN skip</a>）是急救，不是尺度控制：LSE 已经系统性涨时，跳过只减少触发，不把水平拉回来。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>CE 的梯度 \(p-y\) 在正确类与错误类之间拉间隔。间隔 \(\Delta\) 变大时，若错误类 logits 不下降，正确类必须上升，LSE 跟上升。z-loss 的梯度给全体 logits 一个向下的公共力，迫使间隔更多靠压错误类实现。副作用是校准改变：解码温度若按未加 z-loss 的模型抄，会偏。soft-cap 则在到达 \(c_o\) 后拒绝继续拉间隔，CE 可能因此平台更高——用 CE 换数值存活。</p><p>μP 输出列防止<strong>宽度</strong>带来的第一步爆炸；z-loss / cap 防止<strong>时间</strong>上的漂移。coord check 过了仍会在 10k step 后发散，说明两件事都要。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>推理不加 z-loss，但训练钉住的尺度留在权重里，对量化友好。关掉 z-loss 长训再量化，lm_head 更容易爆。MoE 路由器另有 router z-loss，不要和词表项共用 α。本课不处理注意力内部——那是前两课。</p><p>标签平滑也会略微限制间隔，但强度远弱于 z-loss，不能当本课的默认对策。下一课把传感器从 logits 转到<strong>梯度范数</strong>：尺度爆炸的另一次表现是 \(\|g\|\) 贴 clip。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>输出发散是绝对尺度问题，注意力塌缩是相对熵问题，传感器分开记。</li><li>第 0 step 健康不能保证幂律段 LSE 不飞；z-loss 与输出 cap 管时间轴。</li><li>用 LSE / \(\|\ell\|_\infty\)，不要用 \(\|W_{\mathrm{out}}\|\) 代理。</li><li>skip batch 不回拉水平；μP 不替代训练期钉尺度。</li><li>出处：Chowdhery et al., PaLM, 2022；Rae et al., Gopher, 2021。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 14 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/grad-norm-monitoring/">梯度范数监控</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

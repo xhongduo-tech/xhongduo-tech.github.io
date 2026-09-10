@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分数阶差分 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fracdiff.md.C9_hJwpG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 标签、验证与过拟合<!--[--> · 单元 金融机器学习<!--]--><!--[--> · 课序 标签与验证<!--]--></p><p class="lesson-progress">第 3 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/meta-labeling/">Meta-labeling</a></p><p class="lesson-next"> 下一课：<a href="/quant/imbalance-bars/">信息驱动 bar：tick/volume/dollar</a></p></nav><div style="position:relative;"><div><h1 id="分数阶差分" tabindex="-1">分数阶差分 <a class="header-anchor" href="#分数阶差分" aria-label="Permalink to &quot;分数阶差分&quot;">​</a></h1><div class="epigraph"><p>整数差分把价格里的记忆一起删掉；分数阶差分的目标是找到使序列通过平稳性检验的最小 $d$，以便在平稳与记忆之间做一个可检查的折衷。</p><footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 5, 2018；分数差分的经典表述见 Granger and Joyeux, Journal of Time Series Analysis, 1980</footer></div><p><a href="/quant/meta-labeling">上一课</a>让初级管方向、次级管是否交易与多大，次级标签必须来自有方向的三重障碍。缺口转到特征侧：对数价格像 I(1)，一阶差分后的收益像 I(0)，但收益几乎白噪声，长期记忆被抽空。机器学习若用原始价格，单位根让样本均值没有锚；若用收益，又丢掉缓慢结构。分数阶差分在单位根与白噪声之间取折衷；AFML 取其能通过平稳性检验的最小 \(d\)。本课写这个折衷怎么算、权重怎么截断。不重写 meta-labeling 的接受率。单位根检验本身见<a href="/quant/unit-root">单位根与协整预备</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>滞后算子 \(L\)，\(d\) 阶差分是 \((1-L)^d X_t\)。\(d=0\) 为原序列，\(d=1\) 为 \(\Delta X_t\)。二项式展开给出权重</p> \[\omega_k = -\omega_{k-1}\frac{d-k+1}{k},\qquad \omega_0=1, \]<p>于是 \(\tilde X_t=\sum_{k=0}^\infty \omega_k X_{t-k}\)。\(d=1\) 时 \(\omega=(1,-1,0,0,\ldots)\)，记忆被截断在一阶；\(0\lt d\lt 1\) 时权重缓慢衰减，历史价格仍进入今天的特征，但单位根被部分抽掉。问题是选 \(d\)：太小，ADF 仍不拒绝，特征非平稳；太大，接近普通收益，预测力若来自水平结构就会消失。</p><p>金融价格未必是真正的分数积分过程。\(d\) 在这里是<strong>特征变换的超参</strong>，不是对数据生成过程的承诺。把 AFML 的 fracdiff 当成「证明了价格是 I(\(d\))」，超出了方法的范围。它只声称：在给定的平稳性门槛下，这是丢失记忆最少的线性滤波之一。</p><h3 id="无穷权重必须截断" tabindex="-1">无穷权重必须截断 <a class="header-anchor" href="#无穷权重必须截断" aria-label="Permalink to &quot;无穷权重必须截断&quot;">​</a></h3><p>真实样本有限，\(\omega_k\) 要在某 \(K\) 处截断，或改用 López de Prado 的固定窗口分数差分（FFD）：窗口宽度固定，丢弃窗口外的权重，使每个 \(\tilde X_t\) 使用同样多个历史点，避免样本头部的有效 \(d\) 与尾部不同。截断引入近似误差：实际平稳性可能比理论 \(d\) 更差。因此 ADF 必须做在截断后的序列上，而不是做在理论 ARFIMA 上。窗口太短，分数差分接近一个短 FIR 高通；窗口太长，头部样本无法计算，有效训练集缩短。</p><p><span class="marginnote">对已经是收益的序列再做 \(d\gt 0\) 的分数差分，往往是过差分：引入接近单位根的 MA，伤害后续的线性模型。先判断水平还是差分，再谈 \(d\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对一条对数价格，扫描 \(d\in\{0,0.1,\ldots,1\}\)（或更细），每个 \(d\) 计算 FFD 序列，跑 ADF（设定必须预先写死：常数项、滞后选择规则），记录最小的 \(d^\star\) 使检验在预定显著性上拒绝单位根，同时报告该 \(d^\star\) 下序列与原对数价格的相关——这是「还剩多少记忆」的描述统计。López de Prado 用这条相关对 \(d\) 作图：随 \(d\) 增加，相关下降、ADF 统计量变负。选用相关仍高且刚过临界值的 \(d\)，而不是选用 ADF 最负的 \(d\)。</p><p>\(d^\star\) 只能在训练折内估计。用全样本 ADF 选 \(d\) 再做预测，平稳性门槛看见了未来波动与未来水平，属于泄漏。不同资产的 \(d^\star\) 可以不同；强迫所有股票同一个 \(d\)，是在用同一高通滤波器打所有记忆结构。截面模型里，更干净的是在每个训练窗对每列单独估 \(d\)，或预先冻结一类资产一个 \(d\)，并做敏感性。</p><h3 id="与整数差分、协整残差的分工" tabindex="-1">与整数差分、协整残差的分工 <a class="header-anchor" href="#与整数差分、协整残差的分工" aria-label="Permalink to &quot;与整数差分、协整残差的分工&quot;">​</a></h3><p>配对交易的价差若已经协整，对象是 \(y-\hat\beta x\)，本身应近 I(0)，再 fracdiff 通常无益。指数、单价格、利率这类水平特征，才是 fracdiff 的主场。宏观比率可能是持久平稳（\(d\approx 0\)）或近单位根；ADF 势低时，\(d^\star\) 会估得偏大。应把 \(d\) 的选择当成管道超参，用 <a href="/quant/purge-embargo">purged CV</a> 评估，而不是当成已发现的分整阶数去写论文标题。</p><p>实现上注意：权重 \(\omega_k\) 对 \(d\) 可解析计算，避免每期对历史做一次缓慢卷积之外的重复劳动；FFD 可以用固定核做相关。对数价格应先处理公司行为，否则拆股跳会被分数核拖成一长串虚假记忆。</p><p><span class="marginnote">ADF 的显著性水平是又一个超参。把门槛从 5% 改到 1%，\(d^\star\) 通常上升，记忆被删得更多。应报告 \(d\) 对门槛的敏感性，并冻结门槛，禁止看完预测结果再改。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>整数差分消除 \(\lambda=1\) 的谱极点，也把低频增益打到零。分数差分把 \((1-e^{-i\lambda})^d\) 的增益在低频处压低但不按 \(d=1\) 那样挖空，因此缓慢成分部分保留。对预测而言，被保留的是「相对自身历史的水平位置」的一部分，而不是一个会把价格拉回五年前均值的锚——若过程真是近随机游走，这部分「记忆」只是尚未衰减的冲击，没有交易含义。Fracdiff 不能把噪声记忆变成 alpha。</p><p>与波动、趋势特征的关系：许多技术指标是价格的非线性函数，本身已在做另一种滤波。对价格 fracdiff 后再送入这些指标，等于双重高通。更一致的做法是：需要平稳输入的模型（线性、某些核方法）用 fracdiff；树模型对单调变换不敏感，收益、价格、fracdiff 三列可能高度冗余，应在训练折内做共线性检查，而不是默认「AFML 第五章必须进特征表」。</p><h3 id="结构突变会伪装成分数阶" tabindex="-1">结构突变会伪装成分数阶 <a class="header-anchor" href="#结构突变会伪装成分数阶" aria-label="Permalink to &quot;结构突变会伪装成分数阶&quot;">​</a></h3><p>一次水平断裂会让 ADF 偏向不拒绝，于是 \(d^\star\) 被抬高，过滤更狠。危机、指数编制、拆股处理错误都是断裂。Fracdiff 不会修复断裂；它会把断裂的影响按缓慢权重涂到后续样本上，FFD 窗口有多长，污染就有多长。管道里应先做公司行为与已知事件对齐，再差分。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要声称找到了真实的 \(d\)。不要用全样本选 \(d\)。不要对已经平稳、或已经是协整残差的序列机械套用。高频价格有微观结构噪声，分数核会把噪声的持久相关写进特征，可能需要先抽样到信息驱动 bar，见<a href="/quant/imbalance-bars">信息驱动 Bar</a>。\(d\) 进入搜索空间后，\(N\) 增加，评估要走 DSR/CPCV，而不能因为「只是预处理」就把它从尝试次数里拿掉。</p><p>Fracdiff 与预测期也要匹配。\(d\) 很小的特征变化慢，对下一分钟的标签几乎常数，对月频标签才有变差。把慢特征拿去预测三重障碍的短 \(h\)，模型会用它当体制哑变量；这可以合法，但应显式承认，而不是当成短线方向信息。</p><p><span class="marginnote">固定窗口 FFD 在样本最左端没有足够历史，那些行应删掉，而不是用更短窗口「凑」出值——否则左端的有效 \(d\) 与右端不同，平稳性检验被混合样本污染。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分数阶差分用 \((1-L)^d\) 在单位根与白噪声之间取折衷；AFML 取其能通过平稳性检验的最小 \(d\)，以保留记忆。</li><li>实操用固定窗口截断权重，ADF 与 \(d^\star\) 只在训练折内估计，相关图用来避免过差分。</li><li>\(d\) 是特征超参，不是已识别的分整阶；协整残差与已是收益的序列通常不应再差分。</li><li>断裂、公司行为与微观噪声会污染缓慢权重；窗口左端不足的样本应删除。</li><li>出处：López de Prado, <em>AFML</em>, 第 5 章；Granger and Joyeux, <em>Journal of Time Series Analysis</em>, 1980；Hosking, <em>Biometrika</em>, 1981；ADF 见 Dickey and Fuller, <em>JASA</em>, 1979。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 标签、验证与过拟合<!--[--> · 单元 金融机器学习<!--]--><!--[--> · 课序 标签与验证<!--]--></p><p class="lesson-progress">第 3 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/imbalance-bars/">信息驱动 bar：tick/volume/dollar</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

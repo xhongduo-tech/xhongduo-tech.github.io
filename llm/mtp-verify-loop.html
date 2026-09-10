@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MTP 验证闭环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mtp-verify-loop.md.DhAF3Wz3.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 推理系统续<!--[--> · 单元 投机与多 Token 服务<!--]--><!--[--> · 课序 解码加速<!--]--></p><p class="lesson-progress">第 14 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/llm/hydragen/">Hydragen 共享前缀投机</a></p><p class="lesson-next"> 下一课：<a href="/llm/acceptance-length-sched/">接受长度调度</a></p></nav><div style="position:relative;"><div><h1 id="mtp-验证闭环" tabindex="-1">MTP 验证闭环 <a class="header-anchor" href="#mtp-验证闭环" aria-label="Permalink to &quot;MTP 验证闭环&quot;">​</a></h1><div class="epigraph"><p>主模型写出下一个 token，MTP 模块接着提议再往后的 token；目标模型一次并行校验，拒绝则从残差重采样——闭环保证写出的序列仍来自目标分布。</p><footer>—— DeepSeek-AI，DeepSeek-V3 技术报告中的 MTP 投机用途；接受规则同 Leviathan 等投机解码与 Chen 等投机采样</footer></div><p>DeepSeek-V3 的多 token 预测首先是训练目标：每个位置除下一词外再顺序预测更后面的词，模块可在推理时整段卸掉。报告同时写明第二条路：把 MTP 当草稿，结合投机解码框架，第二 token 接受率约 85%–90%，吞吐大约 1.8×。闭环指的不是训练图，而是推理循环：<strong>提议 → 目标一次前向校验 → 按似然比接受或残差重采样 → 把已接受前缀写回 KV，再开下一轮</strong>。缺任何一环，要么分布漂，要么加速数字对不上。训练侧公式见 <a href="/llm/mtp">MTP</a>，一致性证明见 <a href="/llm/speculative-sampling">投机采样</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>朴素「MTP 头argmax 当输出」会把分布拧到草稿爱写的模式上。Leviathan、Kalman、Matias（ICML 2023，arXiv:2211.17192）与 Chen 等（arXiv:2302.01318）给出的修正拒绝采样，要求对每个草稿 token \(x\) 以 \(\min(1,p(x)/q(x))\) 接受；拒绝后从 \(\propto\max(0,p-q)\) 再抽，而不是从 \(p\) 再抽。V3 的顺序 MTP 给出的 \(q\) 来自深度模块的输出头，目标 \(p\) 来自主模型在同一前缀上的前向。闭环必须用<strong>同一套</strong>温度与截断（nucleus 等）后的 \(p,q\) 比，否则一致性对的是用户从未声明的分布。</p><p>\(D=1\) 时草稿只有一个额外 token：主模型已经合法写出 \(t_{i+1}\)，MTP 猜 \(t_{i+2}\)，校验一次最多前进两步，外加拒绝时的修正 token。这与 Medusa 多头、EAGLE 深树不同，验证便宜、接受率高，1.8× 与「每轮大约走两步、草稿几乎免费」同量级。工程上容易漏的是：MTP 前向要用已采样的 \(t_{i+1}\) 嵌入拼进模块（顺序因果链），却用主模型尚未更新的特征；或者校验时没把 MTP 提议放进同一因果掩码。</p><h3 id="训练可丢、服务不可混" tabindex="-1">训练可丢、服务不可混 <a class="header-anchor" href="#训练可丢、服务不可混" aria-label="Permalink to &quot;训练可丢、服务不可混&quot;">​</a></h3><p>报告消融在推理不加载 MTP 时仍看到主模型变强，证明训练收益不依赖服务走投机。产品若要 1.8× TPS，必须加载约 14B 量级模块并实现校验循环；只加载主模型就只有质量、没有那档吞吐。反过来，校验循环若在拒绝后把错误草稿写入 KV，后续步全部污染——闭环的「写回」只允许已接受（含修正）token。</p><p><span class="marginnote">Hugging Face 上 V3 权重大于 671B，因为含 MTP。服务进程应把「主模型图」和「MTP 草稿图」分成可关的子图。不用投机时卸载模块，避免与 MLA 省下的 KV 抢 HBM。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="一轮闭环的四步" tabindex="-1">一轮闭环的四步 <a class="header-anchor" href="#一轮闭环的四步" aria-label="Permalink to &quot;一轮闭环的四步&quot;">​</a></h3><p>设当前前缀为已接受序列。第一步：主模型对前缀做标准解码步，得到 \(p(\cdot\mid\mathrm{prefix})\)，采样（或贪心）得到 \(x_{t+1}\)，追加到 KV。第二步：MTP 模块取主模型该位置表示与 \(\mathrm{Emb}(x_{t+1})\)，经 \(\mathrm{TRM}_1\) 得到 \(q(\cdot\mid\mathrm{prefix},x_{t+1})\)，采样草稿 \(\tilde x_{t+2}\)。第三步：目标（仍是主模型）以 \([x_{t+1},\tilde x_{t+2}]\) 为延伸做一次并行前向，读出 \(p(\tilde x_{t+2}\mid\mathrm{prefix},x_{t+1})\)。第四步：按投机采样规则接受或拒绝；接受则把 \(\tilde x_{t+2}\) 写入 KV，拒绝则从残差抽 \(x_{t+2}\) 写入。然后回到第一步。\(D\gt 1\) 时在第二步展开更深，第三步一次校验整段草稿，在第一个拒绝处截断。</p><p>并行校验利用因果 Transformer 一次吃整段草稿：位置 \(t+1\) 的表示不依赖尚未接受的 \(t+2\)，但 \(t+2\) 的表示依赖草稿假设。拒绝点之后的 KV 必须丢弃或根本不提交。这与树状草稿相同，只是 V3 默认深度为 1，树退化成一条短链。</p><h3 id="与独立头草稿的差别" tabindex="-1">与独立头草稿的差别 <a class="header-anchor" href="#与独立头草稿的差别" aria-label="Permalink to &quot;与独立头草稿的差别&quot;">​</a></h3><p>Gloeckle 等的独立多 token 头、Medusa 头，条件里看不见中间离散选择，校验时 \(q\) 与真自回归 \(q\) 不一致，接受率通常更差。V3 明确保持因果链，接近 EAGLE「特征加已选 token」的精神，但模块是预训练图的一部分，共享词嵌入与输出头。闭环里 \(q\) 必须来自这个顺序模块，不能改成「主模型同一 \(h_t\) 上另挂一个线性头」还宣称在跑 V3 MTP。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="接受率如何变成墙钟" tabindex="-1">接受率如何变成墙钟 <a class="header-anchor" href="#接受率如何变成墙钟" aria-label="Permalink to &quot;接受率如何变成墙钟&quot;">​</a></h3><p>Leviathan 等在独立同分布接受率 \(\alpha\)、草稿长度 \(\gamma\) 下给出期望前进长度</p> \[\tau=\frac{1-\alpha^{\gamma+1}}{1-\alpha} \]<p>（\(\alpha=1\) 时 \(\tau=\gamma+1\)）。每轮成本约一次目标前向加一次草稿前向。\(D=1\) 则 \(\gamma=1\)，\(\alpha\approx 0.85\text{–}0.90\) 时 \(\tau\approx 1.85\text{–}1.90\)，与报告约 1.8× TPS 相符——前提是 MTP 前向相对主模型足够便宜（一块 Transformer 对 671B MoE 骨干）。\(\alpha\) 随主题变：代码、模板高，开放聊天低；闭环应监控逐步接受率，而不是锁死 1.8。</p><p>残差采样保证逐步分布是 \(p\)，因此序列分布是 \(p\)。实现若在温度为 0 时退化成「一致则接受、否则写目标 argmax」，与贪心目标一致，仍无损。温度为正却忘记残差，是静默的分布漂移。</p><p><span class="marginnote">MTP 校验不要和「训练时的 MTP 损失」共用一个开关。训练 \(\lambda\) 加权的是额外交叉熵；推理接受率是 \(p\) 与 \(q\) 的点态关系。\(\lambda\) 大不保证 \(\alpha\) 高，只保证训练更用力对齐未来 token。</span></p><h3 id="批处理与-kv-提交点" tabindex="-1">批处理与 KV 提交点 <a class="header-anchor" href="#批处理与-kv-提交点" aria-label="Permalink to &quot;批处理与 KV 提交点&quot;">​</a></h3><p>连续批里，不同请求的接受长度不同，下一轮对齐会变成「有的请求已经多写了一个 token」。调度要么按最短接受切齐，要么允许变长提交（更难的块表）。这把闭环接到 <a href="/llm/acceptance-length-sched">接受长度调度</a>：\(\tau\) 不仅是加速比，也是批内参差。共享系统提示时，校验前向的前缀注意力可走 <a href="/llm/hydragen">Hydragen</a>，但提交规则不变。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>\(D=1\) 的 1.8× 不能外推到 \(D=4\)：更深则模块更重、\(\alpha\) 通常下降、校验序列变长。长思维链上逐步 \(\alpha\) 会掉，TPS 增益不是常数。MTP 与 EP/MLA 核争 SM、争 HBM；低延迟解码若已经把 SM 分给 DeepEP，再加一块 MTP 前向要重新量。不要在未实现残差采样时宣传「无损投机」。</p><p>出处必须分开写：架构与 85%–90% / 1.8× 来自 DeepSeek-V3 技术报告（arXiv:2412.19437）；接受规则来自 Leviathan 等与 Chen 等。不要把 Gloeckle 等 2024 的独立头 MTP 论文当成 V3 的推理闭环。</p><p><span class="marginnote">贪心解码下闭环退化成串比对，实现更简单，评测也更稳；采样产品必须走完整拒绝采样。A/B 时用同一随机种子比较「关 MTP 投机」与「开闭环」，不要用不同温度。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MTP 验证闭环 = 顺序模块提议 + 主模型并行校验 + 投机拒绝采样 + 只提交已接受 token。</li><li>\(D=1\) 时报告接受率约 85%–90%、约 1.8× TPS，与 \(\tau\approx 1+\alpha\) 同量级。</li><li>训练可丢模块；服务要吞吐就必须加载并实现残差重采样。</li><li>批内接受长度参差是调度问题，不是核问题。</li><li>出处：DeepSeek-V3 报告；Leviathan 等 ICML 2023；Chen 等投机采样。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 推理系统续<!--[--> · 单元 投机与多 Token 服务<!--]--><!--[--> · 课序 解码加速<!--]--></p><p class="lesson-progress">第 14 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/acceptance-length-sched/">接受长度调度</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

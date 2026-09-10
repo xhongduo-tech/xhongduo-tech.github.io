@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Put–call 平价作为无套利 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_put-call-parity-arb.md.BI5tSiXz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 17 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/replicating-delta/">复制与 delta</a></p><p class="lesson-next"> 下一课：<a href="/quant/lognormal-black-formula/">对数正态与 Black 公式</a></p></nav><div style="position:relative;"><div><h1 id="put–call-平价作为无套利" tabindex="-1">Put–call 平价作为无套利 <a class="header-anchor" href="#put–call-平价作为无套利" aria-label="Permalink to &quot;Put–call 平价作为无套利&quot;">​</a></h1><div class="epigraph"><p>欧式看涨与看跌的差等于远期合约：同一 $K,T$ 上 $C-P=S\mathrm e^{-qT}-K\mathrm e^{-rT}$（连续股息）。这是静态无套利，不依赖布朗或 PDE。</p><footer>—— 据 Stoll, Journal of Finance, 1969；Merton, Bell Journal of Economics, 1973；Hull, Options, Futures, and Other Derivatives 整理</footer></div><p>上一课<a href="/quant/replicating-delta">复制与 delta</a>用动态策略复制单个期权。缺口是更粗、也更硬的约束：看涨和看跌不能各自随便定价，它们的差必须等于可静态复制的远期。这条在有跳、有随机波动、甚至没有扩散时仍成立，只要欧式、同一标的、同一交割、允许持有现货与债券。本课只钉平价，为下一课 Black 公式提供「先定远期再定期权」的分解。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>支付恒等式 \((S_T-K)^+-(K-S_T)^+=S_T-K\)。两边贴现、取 \(Q\) 期望（或直接静态持仓），得到价格恒等式。缺口不是再解一次 PDE，而是承认：任何让 \(C-P\) 偏离远期价值的报价表，都可以在到期前锁定无风险利润。动态模型可以错，\(\sigma\) 可以随意，平价仍要满足。把它当成 BSM 的推论，会在微笑市场上误以为平价也失效。</p><p>美式因提前行权，平价变成不等式。本课先钉欧式等号。</p><h3 id="平价不是「看涨看跌隐含波动率必须相等」的定义" tabindex="-1">平价不是「看涨看跌隐含波动率必须相等」的定义 <a class="header-anchor" href="#平价不是「看涨看跌隐含波动率必须相等」的定义" aria-label="Permalink to &quot;平价不是「看涨看跌隐含波动率必须相等」的定义&quot;">​</a></h3><p>同一 \(K,T\) 的欧式看涨与看跌，在无套利下共享同一个隐含波动率——那是平价的推论，因为两者价格被远期锁在一起，反解 \(\sigma\) 只能给出一个数。先校准两个不同的 \(\sigma\) 再谈平价，顺序反了：先平价，再谈微笑沿 \(K\) 怎么变。</p><p><span class="marginnote">外汇、期货上把 \(S\mathrm e^{-qT}\) 换成相应的远期本金。形式永远是 \(C-P=\) 贴现远期合约。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>无股息：\(C_t-P_t=S_t-K\mathrm e^{-r(T-t)}\)。连续股息 \(q\)：\(C-P=S\mathrm e^{-q\tau}-K\mathrm e^{-r\tau}\)，\(\tau=T-t\)。静态策略：多看涨、空看跌、空（或借）现货、持债券 \(K\mathrm e^{-r\tau}\)，终值恒为零，故初值必须为零，否则套利。这不需要 Itô，不需要完备到能复制非线性支付——线性支付 \(S_T-K\) 用现货加债券即可。有股息时，静态空头现货要补上股息再投资，否则终值不再是 \(S_T\)；平价里的 \(S\mathrm e^{-q\tau}\) 正是这笔持有成本，不是新的随机项。</p><p>合成远期：多看涨空看跌就是远期多头。市场若同时报期权与期货，平价提供跨市场核对。下一课把 \(C\) 写成关于远期 \(F\) 的 Black 公式，正是把平价里的线性部分抽走，只对凸性定价。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>线性支付不产生 Itô 凸性，价格由贴现与持有成本完全决定。期权的价值超出线性的部分，看涨与看跌必须相同（同一 \(K\)），因为它们的非线性正好抵消成直线。因此微笑、跳、随机波动可以改变 \(C\) 的水平，但必须同等改变 \(P\)，以保持差等于远期。这是模型无关的对称。报价系统若对看涨、看跌各做一次插值，应先把两者压到平价流形上再插 \(\sigma_{\mathrm{imp}}(K)\)，否则同一行权价会出现两个远期。</p><p>交易成本与卖空限制会把等号撑成带宽度的无套利带。主干仍写等号，把带宽留给制度课。现金结算与实物交割若不一致，还要核对交割条款是否真是同一个 \(S_T\)。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不推导美式提前行权溢价的上界细节，只声明欧式等号、美式不等式。不把平价推广到奇异路径依赖（亚式、障碍一般没有如此干净的配对）。后课默认：欧式 \(C\) 与 \(P\) 只报一个；给了 \(C\) 和远期就有了 \(P\)。动态模型可以全错，这条静态约束仍先核对。下一课<a href="/quant/lognormal-black-formula">对数正态与 Black 公式</a>在平价抽出线性之后，对凸性给出闭式。线性部分不再进 \(\sigma\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>欧式平价：\(C-P=\) 贴现远期，模型无关。</li><li>来自支付恒等式，静态即可复制线性部分。</li><li>同一 \(K,T\) 的看涨看跌共享隐含波动率。</li><li>美式是不等式；路径依赖一般没有同样平价。</li><li>核对交割条款是否对应同一个 \(S_T\)。</li><li>出处：Stoll 1969；Merton 1973。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 17 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/lognormal-black-formula/">对数正态与 Black 公式</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

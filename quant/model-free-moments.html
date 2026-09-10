@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模型无关隐含矩 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_model-free-moments.md.DzKiyoAG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 波动率与期权续<!--[--> · 单元 局部与随机波动<!--]--><!--[--> · 课序 曲面、产品与对冲<!--]--></p><p class="lesson-progress">第 13 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/risk-reversal-skew/">Risk reversal 偏度交易</a></p><!----></nav><div style="position:relative;"><div><h1 id="模型无关隐含矩" tabindex="-1">模型无关隐含矩 <a class="header-anchor" href="#模型无关隐含矩" aria-label="Permalink to &quot;模型无关隐含矩&quot;">​</a></h1><div class="epigraph"><p>欧式香草的连续条带不仅复制对数合约从而给出隐含方差，也复制幂函数从而给出风险中性的三阶、四阶矩；这些矩是密度的积分，不依赖 Heston 或局部波动的参数。</p><footer>—— Britten-Jones and Neuberger, Option Prices, Implied Price Processes, and Stochastic Volatility, Journal of Finance, 2000；Bakshi, Kapadia and Madan, Review of Financial Studies, 2003</footer></div><p><a href="/quant/var-swap-replication">方差互换复制</a> 把二次变差的期望写成 \(1/K^2\) 加权的虚值香草。<a href="/quant/var-vs-vol-swap">波动互换</a> 说明开方不再模型无关。本篇把 Carr–Madan 的一般 \(f\) 用到幂函数上：Mark Britten-Jones 与 Anthony Neuberger 给出扩散下与欧式面相容的模型无关隐含波动；Gurdip Bakshi、Nikunj Kapadia 与 Dilip Madan 把风险中性偏度、峰度写成看涨看跌对执行价的积分。不重复对数条带的逐步权重，不把 <a href="/quant/heston-cf">Heston 特征函数</a> 的矩爆炸当成这里的公式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Breeden–Litzenberger 说 \(\partial_{KK}C\) 是风险中性密度。密度的矩 \(\mathbb{E}^{\mathbb{Q}}[(S_T-F)^n]\) 因而也是香草的积分，只要 \(f(x)=x^n\) 的二阶导作为权重。方差对应 \(n=2\) 附近的对数（Itô 修正后是二次变差，不是简单的 \(\mathrm{Var}(S_T)\)）；偏度、峰度对应三、四阶。问题是写出稳定的积分公式、处理翼截断、以及分清三类「波动」：ATM Black、Britten-Jones–Neuberger 的无模型隐含波动（方差条带的平方根）、Bakshi–Kapadia 的 Delta 对冲收益所隐含的溢价。三者不是同一个数。</p><p>Britten-Jones–Neuberger（BJN）在扩散、无跳下证明：欧式面决定一条与之相容的瞬时方差过程的积分期望，因而「隐含波动」可以离开 Black 公式、离开特定随机波动参数。有跳时该等价放松，与方差互换的跳余项同源。BKM 不声称复制二次变差，他们复制的是到期收益的中心矩，用于比较指数与个股的风险中性分布形状。</p><h3 id="方差、简单二阶矩、二次变差" tabindex="-1">方差、简单二阶矩、二次变差 <a class="header-anchor" href="#方差、简单二阶矩、二次变差" aria-label="Permalink to &quot;方差、简单二阶矩、二次变差&quot;">​</a></h3><p>\(\mathbb{E}[(S_T-F)^2]\) 是简单方差，权重来自 \(f&#39;&#39;(x)=2\)，即未贴现看涨看跌的积分，<strong>不是</strong> \(1/K^2\)。二次变差的期望来自 \(f=\ln\)，权重 \(1/K^2\)。BJN / 方差互换用后者；讨论「风险中性方差」时必须声明是哪一个。高波动下二者可差出翼部与 Jensen。峰度同样有「价格的四阶矩」与「对数收益的四阶矩」两条线，BKM 用对数收益的标准化偏度、峰度，以便跨期限、跨标的比较。</p><p><span class="marginnote">把 Heston 的 \(\theta\) 或 \(v_0\) 叫做「隐含方差」会与无模型矩打架。模型参数吸收动态；无模型矩只吸收今日欧式面。校准应对齐无模型方差，而不是对齐 ATM。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>BJN 隐含波动。</strong> 在扩散假设下，模型无关隐含方差等于方差互换公平执行价 \(K_{\mathrm{var}}\)（适当年化），隐含波动为 \(\sqrt{K_{\mathrm{var}}}\)。实施即 Demeterfi 离散条带：OTM 看跌、看涨，\(\Delta K/K^2\)，平值修正。报告截断的最低、最高 \(K/F\)。这是水平矩。</p><p><strong>BKM 偏度与峰度。</strong> 令 \(\mu_n=\mathbb{E}^{\mathbb{Q}}[R^n]\)，\(R\) 为适当定义的对数或简单收益。Bakshi–Kapadia–Madan 给出</p> \[\mu_n=\mathrm{e}^{rT}\int_0^\infty w_n(K)\,O(K)\,\mathrm{d}K \]<p>一类公式，其中 \(O(K)\) 为虚值看涨或看跌，\(w_n\) 对 \(n=2,3,4\) 分别含 \(1/K^2\)、\(1/K^3\) 与对数项（具体核以原文为准）。标准化偏度 \(\mu_3/\mu_2^{3/2}\)、峰度 \(\mu_4/\mu_2^2\)。左翼对偏度权重比对方差更重：缺更低的执行价会让隐含偏度不够负。须外推或声明截断偏差。</p><p><strong>时间序列。</strong> 每日用当日欧式面算一套矩，得到 VIX 风格的偏度指数。与已实现矩之差才是溢价，见 KNS；本篇只负责 \(\mathbb{Q}\) 侧。个股对指数的 BKM 矩差，进入 <a href="/quant/dispersion-corr-prem">相关溢价</a> 的诊断：指数偏度更负、峰度更高，共跳在指数密度里更肥。</p><h3 id="离散执行价、美式与利率" tabindex="-1">离散执行价、美式与利率 <a class="header-anchor" href="#离散执行价、美式与利率" aria-label="Permalink to &quot;离散执行价、美式与利率&quot;">​</a></h3><p>上市 \(K\) 稀疏时，三阶核把噪声放大。应用光滑无套利插值（凸价格）再积分，而不是在三个点上用差分冒充 \(\partial_{KK}\)。美式个股的早行权溢价进入 \(O(K)\)，BKM 矩被污染，指数欧式更干净。利率与分红改变锚点 \(F\) 与折现，公式要与方差条带同一套曲线。日历套利或蝶式违例会使密度为负，矩无意义——先跑静态套利扫描。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Carr–Madan：任意 \(C^2\) 的 \(f(S_T)\) 等于债券、远期，加上 \(f&#39;&#39;(K)\) 加权的虚值香草。选 \(f\) 就选矩。无模型的含义是：在欧式完备、扩散（对二次变差）或仅需到期分布（对 \(S_T\) 的幂矩）的前提下，不需要指定 \(\sigma_t\) 的动态。Heston、Bergomi、Dupire 只要拟合同一张面，给出的 BJN 方差与 BKM 到期矩相同；它们的差别在路径矩、条件矩与跳缺口上。这正是「先用无模型矩钉水平与斜度、再用模型钉动态」的校准顺序。</p><p>Bakshi–Kapadia 的 Delta 对冲收益是动态对象：它混合了二次变差与波动风险价格，不是 BKM 的静态矩。静态矩贵（隐含偏度更负）与动态收益为负（买左尾亏钱）同向，但一个来自今日积分，一个来自持有期 PnL。研究与交易都应声明测的是哪一个。</p><h3 id="翼部、lee-矩公式与外推" tabindex="-1">翼部、Lee 矩公式与外推 <a class="header-anchor" href="#翼部、lee-矩公式与外推" aria-label="Permalink to &quot;翼部、Lee 矩公式与外推&quot;">​</a></h3><p>Lee 的矩公式把微笑翼斜率与风险中性矩的存在阶连起来：翼太陡则高阶矩爆炸，BKM 积分可能发散。外推应用饱和翼或 SVI 约束，而不是线性把 IV 拉到零执行价。截断而不外推，是把缺失的左尾当成不存在，隐含偏度偏小。报告应同时给截断积分与约束外推积分。方差条带（\(1/K^2\)）对左翼已敏感，三阶核更敏感，四阶往往只能当定性。</p><p><span class="marginnote">「模型无关」不是「与动态无关的一切」。到期分布的矩无关动态；二次变差的期望在有跳时有关。BJN 的假设比 BKM 的幂矩更严。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>短到期深度虚值流动性差，短端隐含偏度噪声极大，不宜当高频信号。长到期折现与分红假设主导四阶。不要把 BKM 偏度与 25d RR 画成同一序列而不加说明：后者是两点 IV 差，前者是积分。不要用 Heston 特征函数在 \(u=0\) 的导数去「验证」无模型矩还声称独立——若模型已拟合该面，当然接近；那是拟合质量，不是新信息。</p><p>有跳时，BJN 与方差互换公平值分道，BKM 到期矩仍然合法（仍是 \(S_T\) 的分布）。此时应同时报条带方差与简单二阶矩，差距是跳的诊断。粗糙波动改变路径正则性，不改变今日欧式决定的 BKM 矩；用矩去「拒绝」rBergomi 或 Heston，只能拒绝它们的边际，不能拒绝核。</p><p><span class="marginnote">Britten-Jones–Neuberger（2000）解决的是「隐含波动作为过程」在扩散下的模型无关定义；Bakshi–Kapadia–Madan（2003）解决的是用期权读偏度峰度并比较个股与指数。引用时不要合成一篇不存在的「BJN-BKM 公式」。</span></p><p><span class="marginnote">VIX 是 BJN 方差的公开、三十天、开方版本。没有同样官方的「偏度 VIX」时，BKM 积分就是研究用的偏度指数；交易仍常用 RR。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>欧式条带按 \(f&#39;&#39;\) 复制任意光滑支付；对数给出无模型方差（BJN / 方差互换），幂给出 BKM 偏度与峰度。</li><li>无模型隐含波动是 \(\sqrt{K_{\mathrm{var}}}\)，不是 ATM Black，也不是 \(\mathbb{E}[\sqrt{\mathrm{QV}}]\)。</li><li>简单 \(\mathrm{Var}(S_T)\) 与二次变差期望权重不同；跳使二者分道。</li><li>左翼截断严重偏向隐含偏度；先无套利插值，再积分，并报告 \(K\) 范围。</li><li>静态矩与 Bakshi–Kapadia 的 Delta 对冲收益同向但不是同一对象。</li><li>出处：Britten-Jones and Neuberger, <em>Journal of Finance</em>, 2000；Bakshi, Kapadia and Madan, <em>Review of Financial Studies</em>, 2003；条带理论见 Carr and Madan；翼部见 Lee。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 波动率与期权续<!--[--> · 单元 局部与随机波动<!--]--><!--[--> · 课序 曲面、产品与对冲<!--]--></p><p class="lesson-progress">第 13 / 13 课</p><!----><p class="lesson-next">本附录到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

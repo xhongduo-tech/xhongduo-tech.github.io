@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MCP 协议设计 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mcp-design.md.rrUwSMh3.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 智能体与工具论文<!--]--><!--[--> · 课序 工具使用<!--]--></p><p class="lesson-progress">第 271 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/swebench-paper/">SWE-bench 原文</a></p><p class="lesson-next"> 下一课：<a href="/llm/tool-call-sft/">Function calling 训练</a></p></nav><div style="position:relative;"><div><h1 id="mcp-协议设计" tabindex="-1">MCP 协议设计 <a class="header-anchor" href="#mcp-协议设计" aria-label="Permalink to &quot;MCP 协议设计&quot;">​</a></h1><div class="epigraph"><p>用 JSON-RPC 做能力协商与运行时发现：宿主管模型与授权，服务器管数据源；工具、资源、提示是三种不同的原语，不是三种函数别名。</p><footer>—— Anthropic，Model Context Protocol 规范与 2024 年 11 月公告；对照 JSON-RPC 2.0</footer></div><p><a href="/llm/mcp">MCP 与工具生态</a> 一文写网络效应与「USB-C」类比。本篇把镜头对准<strong>协议本身</strong>：生命周期、能力位、方法名、传输与内容块。Anthropic 于 2024 年 11 月公布 Model Context Protocol：客户端（嵌在 IDE、桌面宿主里）与服务器（独立进程或远程服务）用 JSON-RPC 2.0 交换消息。它不规定 <a href="/llm/react">ReAct</a> 怎么规划，也不规定模型厂商；它规定如何列出工具、如何调用、如何读资源、如何取提示模板，以及可选的反向采样。没有一篇叫 MCP 的经典 NeurIPS 论文，出处就是公开规范与公告。本篇不把连接器博客的延迟数字写进协议定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Function calling 的 <code>tools</code> 数组是<strong>这一次</strong> HTTP 请求里的静态清单。进程模型缺失：密钥、崩溃、热更新、多数据源隔离都挤在宿主进程里。插件若绑死某一家聊天产品，同一份数据库要写 N 套适配。协议要解决的是进程间契约：如何握手版本、如何声明「我有工具 / 我能订阅资源 / 我禁止你调用模型」、如何把一次调用的 id 与结果对齐、传输在本地管道与远程 HTTP 之间如何换而不改方法名。</p><p>三种信息不能都叫 tool。查询与副作用是工具；大段只读上下文（文件、schema）是资源，应有 URI 与可选订阅；可复用的消息草稿是提示模板，参数化后变成对话前缀。若全做成函数，缓存、权限与日志语义都会错：读第 3 页变成一次「调用」，无法做资源级 ETag 或变更通知。设计问题是原语划分，而不只是再包一层 JSON。</p><h3 id="先协商能力-再调用方法" tabindex="-1">先协商能力，再调用方法 <a class="header-anchor" href="#先协商能力-再调用方法" aria-label="Permalink to &quot;先协商能力，再调用方法&quot;">​</a></h3><p>未在握手中声明的能力，对端不应调用对应方法。服务器说没有 <code>resources</code>，客户端就不要发 <code>resources/read</code>。客户端若未开放 <code>sampling</code>，服务器不能把补全任务踢回宿主。这一位图比「文档里写了个方法」更硬：版本演进时，旧客户端遇到新方法应得到标准 JSON-RPC 错误，而不是静默忽略导致状态分歧。</p><p><span class="marginnote">规范会改传输（早期 HTTP+SSE 到后续 Streamable HTTP）并加字段。实现必须声明 <code>protocolVersion</code>。不要把某一周的草稿方法当成永远稳定的 ABI。本篇描述公开设计，不跟踪未发布的私有扩展。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>握手：客户端发 <code>initialize</code>，带协议版本、客户端信息与能力；服务器回自身能力与服务器信息；客户端再发 <code>notifications/initialized</code>。之后才是业务方法。工具：<code>tools/list</code> 返回名称、描述、<code>inputSchema</code>（JSON Schema）；<code>tools/call</code> 带名字与参数对象，结果是内容块列表（文本、图像等）加可选错误标志。列表可变更时走 <code>notifications/tools/list_changed</code>，客户端应再 list。资源：<code>resources/list</code> / <code>resources/read</code>，URI 标识；可订阅则有 <code>resources/subscribe</code> 与更新通知。提示：<code>prompts/list</code> / <code>prompts/get</code>，返回消息数组草稿。</p><p>传输：本地开发以 <strong>stdio</strong> 为主，一帧一条 JSON-RPC 消息，便于任意语言写小服务器。远程需要带会话的 HTTP 流，以便多宿主连接同一数据源；具体路径以当时规范为准。日志、进度、取消是控制面：长调用应能被 <code>notifications/cancelled</code> 打断，进度通知不要和最终结果抢同一个 id 语义。错误沿用 JSON-RPC 码（解析 -32700、方法不存在 -32601、非法参数 -32602、内部 -32603）并允许应用层附加 MCP 数据。</p><div class="mermaid"></div><h3 id="内容块与模型信封的翻译点" tabindex="-1">内容块与模型信封的翻译点 <a class="header-anchor" href="#内容块与模型信封的翻译点" aria-label="Permalink to &quot;内容块与模型信封的翻译点&quot;">​</a></h3><p>服务器返回的是协议内容块，不是 Chat Completions 的 <code>role: tool</code>。翻译发生在<strong>客户端</strong>：文本块变成 tool 观察字符串，图像块变成多模态消息部分，错误标志变成模型能读的失败说明。<code>inputSchema</code> 与 function calling 的 <code>parameters</code> 同构，所以列表可以一对一登记进当轮 <code>tools</code>。资源则通常注入为上下文，而不是一次函数调用——除非宿主故意把 <code>read</code> 包成工具。这一翻译层是设计的一部分：协议稳定，模型厂商可以换。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>对模型，MCP 往往透明：它仍在 function calling 分布上采样名字与 JSON。协议改变的是<strong>条件前缀从哪来、副作用在哪执行</strong>。发现使工具集随连接的服务器变化；隔离使密钥留在服务器进程；JSON-RPC <code>id</code> 使并行 call 可以对齐。<code>sampling/createMessage</code> 把方向反过来：服务器请宿主代调模型。这在不可信服务器上等于出借补全能力，默认应关。Roots 向服务器声明工作区根路径，缩小文件类服务器的可见范围，是权限设计而不是检索算法。</p><p>通知（notification）无响应、无 id 匹配义务，适合 list_changed、进度、日志。若把通知误当成请求去等结果，客户端会死锁。批量 RPC 在现代 MCP 传输里并不作为一等依赖；实现应以单消息帧为准。schema 稳定性决定生态：同一工具在不同宿主描述不同，模型调用分布就会漂移——这是协议无法单独修复的，需要服务器作者把描述当 API 的一部分来版本化。</p><p><span class="marginnote">MCP 不替代鉴权网关、不替代结构化解码、不替代多步规划。它只保证有一份可发现的进程契约。内部单个 Agent 运行时若永不复用连接器，直接函数分发更短；为「生态」把高权限 shell 暴露成通用服务器，是设计误用。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="传输换了-威胁模型也要换" tabindex="-1">传输换了，威胁模型也要换 <a class="header-anchor" href="#传输换了-威胁模型也要换" aria-label="Permalink to &quot;传输换了，威胁模型也要换&quot;">​</a></h3><p>远程传输的威胁模型与 stdio 不同：数据面进网络，要 TLS、鉴权、审计，不能因为「官方连接器」就共用本地信任假设。资源读取能打满上下文，必须有体积与超时。工具副作用的确认 UI 属于宿主，协议只把 call 送到服务器。评测应拆开：互操作（能否 initialize/list/call）、模型用工具成功率、服务器业务正确性。stdio 上「用户已登录本机」的隐含信任，搬到公网会立刻失效。</p><p>与纯 function calling：无 MCP 也能做工具，只是清单写死在宿主。与 <a href="/llm/tool-call-sft">tool-call-sft</a>：训练的是模型如何填 schema，不是进程如何握手。规范演进期间，客户端应对未知能力降级，而不是声称实现「全部 MCP」。</p><p><span class="marginnote">出处：Anthropic Model Context Protocol 公开规范与 2024-11 公告；JSON-RPC 2.0（RFC 风格的 <code>jsonrpc: &quot;2.0&quot;</code> 消息模型）。无会议长文作为协议定义。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MCP 用 JSON-RPC 握手能力，再发现并调用 tools / resources / prompts。</li><li>宿主译成模型信封；服务器持有数据源密钥；sampling 默认关闭。</li><li>传输（stdio 与远程 HTTP 流）可换，方法名与内容块语义应保持。</li><li>协议不管规划算法与检索，只管进程间契约与隔离。</li><li>出处：Anthropic MCP 规范；JSON-RPC 2.0。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 智能体与工具论文<!--]--><!--[--> · 课序 工具使用<!--]--></p><p class="lesson-progress">第 271 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/tool-call-sft/">Function calling 训练</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

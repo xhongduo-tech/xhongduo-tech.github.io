@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EUV 掩模修复 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_euv-mask-repair.md.CHWn2FF3.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 EUV 光源、掩模与胶<!--[--> · 单元 掩模与胶<!--]--><!--[--> · 课序 EUV 特有的部件<!--]--></p><p class="lesson-progress">第 23 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/mask-roughness/">掩模粗糙度</a></p><p class="lesson-next"> 下一课：<a href="/litho/pellicle-lifetime/">薄膜寿命与更换</a></p></nav><div style="position:relative;"><div><h1 id="euv-掩模修复" tabindex="-1">EUV 掩模修复 <a class="header-anchor" href="#euv-掩模修复" aria-label="Permalink to &quot;EUV 掩模修复&quot;">​</a></h1><div class="epigraph"><p>修的是反射多层上的吸收体或相位坑，不是铬上的缺口。电子束或气助沉积必须停在钌帽上，多挖一层周期就是新的相位缺陷。</p><footer>—— 对照 EUV 掩模修复公开工艺（电子束、气助）；不要当成 DUV 铬修补的换波长版</footer></div><p><a href="/litho/mask-roughness">上一课</a>把边沿 PSD 写成 LER 底噪。缺口是缺陷怎么办：多一块吸收体、少一块、或空白相位坑。DUV 的<a href="/litho/mask-repair-ebeam">电子束修复</a>课属于掩模厂主干，本课只补 EUV 特有的约束——多层、帽、氢和光化验证。薄膜寿命与更换，留给[下一课](/litho/pellicle-lifetime）。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>粗糙课假设边沿统计均匀。真实版上还有可打印的离散缺陷。EUV 空白的相位坑（多层少周期或颗粒）在硅片上像透镜，吸收体缺陷则像硬挡光。修复工具若按铬版去镀、去挖，会把 Ru 帽和 Mo/Si 挖穿，修完的「平」在 13.5 nm 是深相位物。High-NA 打印阈值更低，修复残渣和局部粗糙更容易过线。</p><p>缺口是 EUV 修复的终点检测与材料兼容，不是重写掩模厂修复机台型号。pellicle 装上之后再修更难，寿命课会碰到更换顺序。</p><p><span class="marginnote">本课不把 DUV 掩模厂的 e-beam 修补流程再写一遍。只强调：终点是帽层与光化，不是「SEM 上看起来齐」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>清除多余吸收体：电子束诱导蚀刻或机械，停在 Ru。补缺：电子束诱导沉积，材料的 n、k 尽量接近原吸收体，否则局部相移和 BF 偏移。相位坑：有时用吸收体「盖」把坑变成不打印的暗区，或尝试再镀周期——窗口窄。每步前后用光化显微镜（AIMS 类）看 13.5 nm 空中像，DUV 检验会漏相位。</p><p>与粗糙：修补边沿的 PSD 往往差于原刻蚀，局部 LER 峰要进缺陷规格。与氢：修复材料必须在扫描机氢环境中不崩、不放气。</p><h3 id="先揭-pellicle-还是带膜修" tabindex="-1">先揭 pellicle 还是带膜修 <a class="header-anchor" href="#先揭-pellicle-还是带膜修" aria-label="Permalink to &quot;先揭 pellicle 还是带膜修&quot;">​</a></h3><p>多数修复要接近图形面。揭膜产尘、再贴新膜又消耗寿命课的更换配额。带膜修窗口极窄，工具工作距和碎片风险都不友好。量产顺序通常是：检测 → 决定修/报废 → 揭膜 → 光化修复 → 再贴膜再检。无膜运行把这串缩短，却把颗粒风险交给下一课。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>13.5 nm 对深度极度敏感。挖掉一对 Mo/Si，相位和反射率跳一档，相当于新缺陷。沉积过厚则局部阴影和 BF 变。电子束本身也会在多层里注入电荷和碳，需控剂量。光化验证看的是与扫描机相近的 NA 和照明，否则「AIMS 通过、硅片失败」。</p><p><span class="marginnote">黑边和吸收体缺陷的修复策略不同：黑边本就不该反光，图形区必须保多层。工具配方不能共用到底。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 pellicle 膜本身的寿命曲线，下一课才写。不展开掩模厂清洗槽配方。DUV 铬修补的「SEM 齐了就过」在 EUV 上不够，必须以光化为终点。出处：EUV mask repair 公开工艺；AIMS 光化鉴定；帽层课；DUV 修复课仅作对比引用。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>EUV 修复的终点是钌帽与光化空中像，多层周期不可当余量挖。</li><li>修补材料的光学常数进入局部 M3D 和 LER。</li><li>下一课：装上薄膜之后，膜比版先老怎么办。</li><li>出处：EUV repair / AIMS 公开材料；Bajt 帽层约束。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 EUV 光源、掩模与胶<!--[--> · 单元 掩模与胶<!--]--><!--[--> · 课序 EUV 特有的部件<!--]--></p><p class="lesson-progress">第 23 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/pellicle-lifetime/">薄膜寿命与更换</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

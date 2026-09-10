@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>停时与可选抽样 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_stopping-optional-sampling.md.SX0fyfGP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 8 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/martingale-local/">鞅与局部鞅</a></p><p class="lesson-next"> 下一课：<a href="/quant/radon-nikodym/">Radon–Nikodym 导数</a></p></nav><div style="position:relative;"><div><h1 id="停时与可选抽样" tabindex="-1">停时与可选抽样 <a class="header-anchor" href="#停时与可选抽样" aria-label="Permalink to &quot;停时与可选抽样&quot;">​</a></h1><div class="epigraph"><p>停时是不偷看未来的随机时刻。可选抽样说：在可积条件下，鞅在停时处仍然公平，$\mathbb E[M_{\tau\wedge t}]=M_0$。</p><footer>—— 据 Karatzas and Shreve, 1991, 第 1 章；Shreve, Stochastic Calculus for Finance I, 2004, 第 4 章整理</footer></div><p>上一课<a href="/quant/martingale-local">鞅与局部鞅</a>给出走平的过程。缺口是：行权、触碰障碍、局部化，用的都不是固定时刻 \(t\)，而是随机时钟 \(\tau\)。若 \(\tau\) 能根据尚未发生的增量来选，公平游戏可以被赌徒策略破坏。本课只定义停时，并给出可选抽样的可用形式；美式最优停的全部理论只留接口，不在这里展开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>确定性时刻当然适应。随机时刻要满足 \(\{\tau\le t\}\in\mathcal F_t\)：到 \(t\) 为止已经知道「停了没有」。这就是停时。缺口不是再定义一次鞅，而是证明——在有界停时、或一致可积、或非负上鞅的条件下——\(\mathbb E[M_\tau]=\mathbb E[M_0]\)（上鞅则 \(\le\)）。没有这条，障碍期权的触碰时刻、美式的行权时刻都不能放进期望。</p><p>无界停时可以让正鞅在无穷远处漏质量。可选抽样不是无条件的口号，是一组可核验的条件。</p><h3 id="停时不是「看到最大值再停」" tabindex="-1">停时不是「看到最大值再停」 <a class="header-anchor" href="#停时不是「看到最大值再停」" aria-label="Permalink to &quot;停时不是「看到最大值再停」&quot;">​</a></h3><p>「等布朗达到未来的最大值再卖」用了整条路径，不是停时。合法的是：触及已设定的障碍、或根据到现在为止的信息解出的行权规则。后课美式期权的最优停，搜索的是停时类上的上确界，不是任意随机时刻类。</p><p><span class="marginnote">首次击中 \(a\) 的时刻 \(\tau_a=\inf\{t:W_t=a\}\) 是停时。反射原理与其分布后课若用到障碍，会直接调用，本课只确认它合法。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>\(\tau:\Omega\to[0,\infty]\) 为停时，若对每个 \(t\)，\(\{\tau\le t\}\in\mathcal F_t\)。\(\tau\wedge t\)、\(\tau\wedge\sigma\) 仍是停时。停时 \(\sigma\le\tau\) 时，在 UI 鞅上 \(\mathbb E[M_\tau\mid\mathcal F_\sigma]=M_\sigma\)。有界停时对全体鞅成立；非负上鞅有 \(\mathbb E[M_\tau]\le\mathbb E[M_0]\)。局部化序列本身就是停时，用来把局部鞅变成真鞅。</p><p>定价接口：欧式支付在固定 \(T\) 取期望；障碍与美式把 \(T\) 换成 \(\tau\wedge T\)。本课把 \(\tau\) 放进记号，最优选择交给<a href="/quant/american-optimal-stop">美式提前行权与最优停</a>。局部化序列 \(\tau_n\) 本身也是停时：伊藤积分先在 \(\tau_n\) 上变成真鞅，再让 \(n\to\infty\)，这是<a href="/quant/martingale-local">鞅与局部鞅</a>里「升级」的操作型含义。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>「不看未来」挡住了根据 \(\mathrm d W\) 的符号再决定是否停。鞅增量与已停/未停的示性独立，期望才能继续走平。有界性或 UI 防止质量逃到无穷：双倍下注直到翻本在无界时间上可以制造严格优势，对应的停时不可积，可选抽样的前提坏掉——这不是反例，是条件被违反。定价里把到期截断成 \(\tau\wedge T\)，有界条件自动满足，欧式、障碍、美式都落在这条安全区内。</p><p>连续路径上，开集的首中时是停时（对右连左极过程需对过滤的通常条件）。后课写障碍，默认首中时可用。离散时间更简单：\(\tau\) 由到 \(n\) 的信息决定即可。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 Doob 可选抽样的全部形式，不引入预示过程与随机积分的可料性细节。美式的 Snell 包络、自由边界不在这里。后课默认：合法的随机时刻都是停时；有界或 UI 时鞅在停时处仍公平。到期截断 \(\tau\wedge T\) 始终可用。下一课离开时间，进入测度：<a href="/quant/radon-nikodym">Radon–Nikodym 导数</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>停时：\(\{\tau\le t\}\) 在 \(\mathcal F_t\) 里，不偷看未来。</li><li>可选抽样：有界或 UI 时，鞅在停时仍公平。</li><li>「看到未来再停」不是停时；美式只在停时类上优化。</li><li>局部化、障碍、行权共用这一接口。</li><li>出处：Karatzas–Shreve 第 1 章；Shreve SDE I 第 4 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 8 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/radon-nikodym/">Radon–Nikodym 导数</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

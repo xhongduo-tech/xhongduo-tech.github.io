@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数字切分 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_digit-splitting.md.DggNuFVu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 3 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/byte-fallback/">字节回退</a></p><p class="lesson-next"> 下一课：<a href="/llm/special-tokens/">特殊 token 与聊天 token</a></p></nav><div style="position:relative;"><div><h1 id="数字切分" tabindex="-1">数字切分 <a class="header-anchor" href="#数字切分" aria-label="Permalink to &quot;数字切分&quot;">​</a></h1><div class="epigraph"><p>把每个数位收成单独的 token，算术任务才不必在「2024」有时是一块、有时是三块之间猜测对齐。</p><footer>—— 据 Nogueira, Jiang, Lin 对 Transformer 算术限制的讨论；对照 Llama 3 报告中的数位切分整理</footer></div><p><a href="/llm/byte-fallback">上一课</a>保证未见字符能拆成字节，数字本身却几乎总在词表里。<code>0</code>–<code>9</code> 作为字符或字节都覆盖得到，BPE 仍会按频率把 <code>19</code>、<code>202</code>、<code>000</code> 焊成不规则块。本课不重讲回退，也不重讲 <a href="/llm/bpe-merge-rule">BPE 合并</a> 的计数规则。缺口是：频率目标与「这是一个十进制整数」的任务目标不一致时，切分必须被显式约束。后课的特殊 token 默认数字已经按位切开或按固定粒度切开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/pretokenization-regex">预分词正则</a>若用 <code>\p{N}+</code> 把连续数字收成一块，块内 BPE 会把高频年号、百分数、代码里的 <code>1024</code> 焊成若干碎片，且碎片边界随词表而变。<code>2024</code> 与 <code>2025</code> 可能共享 <code>202</code> 再各跟一个尾数，也可能完全不同。模型要做进位、比大小、抄写长数字时，对齐关系每次都在变。Nogueira 等人指出，即便是小学算术，切分方式也会让 Transformer 显得「不会算」——先修不是注意力公式，而是离散序列有没有把数位对齐。</p><p>纯字节回退帮不上忙：数字字符都在表内，根本不会落到 <code>&lt;0x3x&gt;</code>。需要一条独立规则：在合并之前或合并表里，禁止把数位焊成多位原子，或只允许固定宽度（如三位一组）的焊法。</p><h3 id="频率焊数是压缩-不是计数" tabindex="-1">频率焊数是压缩，不是计数 <a class="header-anchor" href="#频率焊数是压缩-不是计数" aria-label="Permalink to &quot;频率焊数是压缩，不是计数&quot;">​</a></h3><p>电话号、年份、金额、IP、超参里的 <code>3e-4</code>，在网页里极高频。BPE 把它们当成普通字母串压缩，是算法正确、任务错误。压缩率会略降，因为 <code>2024</code> 从 1 个 token 变成 4 个；上下文窗口里数字变贵。这是用长度换可组合的计数原语。</p><p><span class="marginnote">科学计数法、小数点、千分位逗号、全角数字，都不是「一个整数」。切分规则必须声明：只约束 ASCII 十进制数位，还是连 <code>\p{N}</code> 的其他码点一起切。含糊的规则会在评测集上制造不可复现的分数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实践里常见三种约束。第一，预分词把每个 ASCII 数位切成单字符块，合并表根本看不见相邻数位对——Llama 3 一类 128k tiktoken 词表公开采用单数字切分。第二，允许固定块（每三位），迁就千分位阅读习惯，但对齐仍比纯频率焊好。第三，在已有 BPE 表上后处理：匹配到最长数字跨度后再强制按位切开，代价是与训练时切分必须一致，否则是另一种换词表。</p><p>训练新词表时，第一种最干净：正则里把 <code>\p{N}+</code> 改成逐位，或在合并时把数位对的频次置零。不要指望「多喂数学语料」让频率自己焊出正确的数位原子——频率会焊出 <code>100</code>、<code>999</code> 这种块，而不是通用的进位结构。</p><h3 id="与-unigram-的关系" tabindex="-1">与 Unigram 的关系 <a class="header-anchor" href="#与-unigram-的关系" aria-label="Permalink to &quot;与 Unigram 的关系&quot;">​</a></h3><p><a href="/llm/unigram-segmentation">Unigram 切分</a>按似然挑分割，数字串上往往仍偏好整块，因为整块在词表里概率不低。要稳定的数位对齐，不能靠采样正则化，必须在候选词表里删掉多位数字符号，或给它们 −∞ 的 logit。子词正则化可以继续作用在字母上，数字路径保持确定。</p><p><span class="marginnote">代码里的十六进制 <code>0xff</code>、版本号 <code>1.2.3</code>、张量形状 <code>1024</code> 会同时变长。词表训练语料若含大量代码，应在 fertility 报表里单独列数字 token 占比，否则会误判「代码配比过高」。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>逐位切分让加法、比较在 token 网格上对齐到十进制位：个位总与个位相邻（中间或有分隔符）。嵌入只需要学 10 个数位符号的算术角色，而不是学一份「哪些多位块曾经一起出现」的查找表。Wallace 等人对 NLP 模型是否「理解数字」的探测，也依赖数字被表示成可组合的单元；焊死的多位块把探测变成记忆。</p><p>代价落在序列长度与位置编码上。同一上下文窗口能放下的数字变少；长表、账本、竞赛题更容易截断。这与长文档上采样是同一条账，只是本课先把切分固定下来。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>逐位切分不自动教会进位；它只提供对齐。小数、分数、不同进制仍要靠后续层。也不要在聊天模板里把用户 ID、时间戳按位切开却在工具调用的 JSON 里用另一套规则——特殊 token 课会要求控制符与正文切分隔离，数字规则必须两边一致。</p><p>若产品几乎不做算术、却大量抄写长 ID，逐位会浪费窗口。此时可对「看起来像标识符的数字」保留整块，但必须有可测试的判定，不能靠另一张小 BPE 表偷偷合并。默认预训练词表应在算术可组合与压缩之间取明确的一点，并写进词表卡片。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲字节回退；数字已在表内，缺的是禁止频率乱焊。</li><li>逐位切分让数位在序列上对齐，是算术任务的前置约束，不是额外数据能替代的。</li><li>Unigram 不会自动切对数字，候选里要删掉多位数字符号。</li><li>长度变贵；代码与表格的 fertility 会上升。</li><li>控制符与 JSON 必须共用同一数字规则。</li><li>出处：Nogueira, Jiang, Lin, 2021；Wallace et al., EMNLP 2019；Llama 3 技术报告中的 128k 词表与数位切分；Radford et al., GPT-2, 2019。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 3 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/special-tokens/">特殊 token 与聊天 token</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

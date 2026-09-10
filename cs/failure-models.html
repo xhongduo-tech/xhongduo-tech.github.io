@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>故障模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_failure-models.md.HcO-62xC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式系统<!--[--> · 单元 时间与失败<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 1 / 58 课</p><p class="lesson-prereq"> 先修：<a href="/cs/db-audit/">数据库审计</a></p><p class="lesson-next"> 下一课：<a href="/cs/sync-async-model/">同步与异步系统</a></p></nav><div style="position:relative;"><div><h1 id="故障模型" tabindex="-1">故障模型 <a class="header-anchor" href="#故障模型" aria-label="Permalink to &quot;故障模型&quot;">​</a></h1><div class="epigraph"><p>分布式算法的正确性只相对声明的故障类成立：崩溃停、崩溃恢复、漏发、拜占庭。模型弱一分，可证明的保证就少一分。</p><footer>—— 据 Lynch, Distributed Algorithms, 1996；Cristian, Understanding Fault-Tolerant Distributed Systems, CACM 1991 整理</footer></div><p><a href="/cs/db-audit">上一课</a>把数据库进阶收到审计与责任。<a href="/cs/proof-assistants">证明助手</a>已把「正确」收成可检查的项，本课不重开类型论，也不重写事务 ACID。缺口是<strong>进程与信道会坏</strong>：没有故障类，后面的时钟、检测器、共识都没有前提。后课默认已经读完本课：谈到容错，先问崩溃还是拜占庭、停机还是恢复。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单机课把崩溃当成进程结束；分布式里「对方没回」可能是慢、丢包、或已经死。缺口不是再列 errno，而是把行为收成<strong>可组合的对手</strong>：</p><ul><li><strong>崩溃停（crash-stop）</strong>：故障进程从此不再发消息，也不执行步骤。</li><li><strong>崩溃恢复（crash-recovery）</strong>：可以带着稳定存储回来，易失状态丢失。</li><li><strong>漏发（omission）</strong>：该发的没发或该收的没收，进程本身还在跑。</li><li><strong>拜占庭（Byzantine）</strong>：任意偏离协议，包括撒谎与合谋。后课才展开。</li></ul><p>信道可以可靠、公平丢失、或完全由对手调度。Lynch 的 I/O 自动机把进程与信道都写成带故障动作的自动机；本课只要这张分类表。</p><p><span class="marginnote">Cristian 1991 把故障按「能做什么」分层，而不是按硬件零件。崩溃是拜占庭的真子集：能证的拜占庭协议在崩溃下仍对，反过来不成立。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写规格时先钉故障类，再钉时间模型（下一课）。算法的「容忍 \(f\) 个故障」是相对于该类：\(n=2f+1\) 的崩溃共识与 \(n=3f+1\) 的拜占庭共识不是同一不等式。稳定存储把崩溃停改成崩溃恢复：恢复后必须用日志或纪元拒绝过期消息。</p><div class="mermaid"></div><p>不要把「网络分区」写成第五种进程故障：分区是信道连通性的对手，进程可能都还活着。后课 CAP 会用到这一点。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>崩溃停最利于证明：故障进程退出全局状态。实现上超时把「可能死了」当成崩溃，于是<strong>错误怀疑</strong>会把活进程当死——那是<a href="/cs/failure-detectors">故障检测器</a>的缺口，本课只声明：检测不是模型的一部分，模型是真实行为。漏发可以模拟长时间不回，与异步调度叠在一起时，外部观察与崩溃停不可分。拜占庭包含漏发与崩溃，还包含伪造：认证信道（数字签名）可以把「任意」收成「对称」或「能验身份」。</p><p>恢复：进程带着磁盘回来，但内存里的 ballot、term 丢了。协议必须把决策写进稳定存储，否则恢复节点可以改口，把崩溃停证明作废。</p><p>本课不把数据库的介质故障、操作系统的内核 panic 再讲一遍：那些在单机栈已经是崩溃。分布式课要的是<strong>对其他节点可见的行为类</strong>。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 FLP，不引入部分同步，不写拜占庭将军的口头/书面协议。不把云厂商的 SLA 当成故障模型。后课默认：进程故障先按崩溃停思考，需要磁盘回来再升级到崩溃恢复；任意恶意放到拜占庭课。时间假设下一课才加。</p><p>故障类是对手的语言，不是监控仪表盘上的红点。没有这类声明，后面每一条「多数派」都没有分母。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>崩溃停、崩溃恢复、漏发、拜占庭是递增强的对手。</li><li>「容忍 \(f\)」相对故障类与 \(n\)；信道分区另计。</li><li>检测与超时是实现，不是模型本身。</li><li>出处：Lynch, <em>Distributed Algorithms</em>；Cristian, 1991。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式系统<!--[--> · 单元 时间与失败<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 1 / 58 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/sync-async-model/">同步与异步系统</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

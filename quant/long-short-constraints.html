@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多空与多头约束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_long-short-constraints.md.B0dfjXLK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 协方差、约束与配置<!--[--> · 单元 估计与约束<!--]--><!--[--> · 课序 配置方法<!--]--></p><p class="lesson-progress">第 11 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/turnover-penalty/">换手惩罚</a></p><p class="lesson-next"> 下一课：<a href="/quant/industry-country-neutral/">行业/国家中性组合</a></p></nav><div style="position:relative;"><div><h1 id="多空与多头约束" tabindex="-1">多空与多头约束 <a class="header-anchor" href="#多空与多头约束" aria-label="Permalink to &quot;多空与多头约束&quot;">​</a></h1><div class="epigraph"><p>禁止卖空会改变有效前沿的活跃集合；有时「错误」的非负约束反而通过等价收缩改善样本外风险——约束在这里既是制度，也是正则。</p><footer>—— Jagannathan and Ma, Risk Reduction in Large Portfolios: Why Imposing the Wrong Constraints Helps, Journal of Finance, 2003</footer></div><p><a href="/quant/markowitz">Markowitz</a> 的无约束解允许 \(w_i\) 任意为负。章程、借券、融资与产品说明书把它切成几类可行集：多头（\(w\ge 0,\mathbf{1}^\top w=1\)）、多空美元中性（\(\mathbf{1}^\top w=0\)）、净暴露钉基准、总暴露（毛杠杆）上限、130/30 这类不对称多空。约束改的不是 \(\mu\) 的叙事，是二次规划的 Kuhn–Tucker 活跃集：哪些名字被顶在零、哪些腿被顶在毛杠杆。Jagannathan 与 Ma（2003）进一步指出，非负约束在总体层面等价于对 \(\Sigma\) 做一种收缩，样本外方差可以下降。本篇写这些可行集、130/30 与市场中性的会计、约束作为正则，以及与 <a href="/quant/industry-country-neutral">行业/国家中性</a> 同时打开时如何互抢自由度。杠杆与换手的制度条目亦见 <a href="/quant/portfolio-constraints">组合约束</a>；这里聚焦<strong>符号与净/毛暴露</strong>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同一套 \((\mu,\Sigma)\) 在不同可行集上是不同的策略。无约束切点常常是大多头加大空头，夏普样本内很高，借券与冲击下不可交易。多头基金不能实现负权重，有效前沿从双曲线变成有拐点的曲线，两基金定理失败：不同风险厌恶对应不同的活跃资产集合。多空基金若只钉 \(\mathbf{1}^\top w=0\) 而不钉 \(\mathbf{1}^\top|w|\le G\)，优化器会用巨大的多空抵消来「对冲」噪声，毛杠杆爆炸。问题是把产品的法律形状写成线性约束，并理解每条约束切掉的是哪一类伪 alpha：不可借的空头、不可加的杠杆、还是不可偏离的净暴露。</p><p>「市场中性」一词在销售材料里至少有三种：美元中性、beta 中性、相对基准的残差中性。三者可行集不同。只做美元中性的组合可以有巨大的市场 beta（多高 beta 空低 beta）；只做 beta 中性可以有巨大的净市值暴露。写约束前必须选定中性的对象，否则风险报告与优化器不在同一空间。</p><h3 id="卖空不是负的多头" tabindex="-1">卖空不是负的多头 <a class="header-anchor" href="#卖空不是负的多头" aria-label="Permalink to &quot;卖空不是负的多头&quot;">​</a></h3><p>空头的成本是借券、召回、上涨缺口；多头的成本是价差与资金。把 \(w_i\lt 0\) 当成与 \(w_i\gt 0\) 对称的连续变量，只在无摩擦二次型里成立。实现上应对空头腿用更高的线性成本、单票空头上限、以及可借券名单（硬零）。A 股融券标的与 T+1 使「多空」往往是指数期货对冲加多头选股，可行集更接近 \(w_{\mathrm{cash}}+w_{\mathrm{fut}}+w_{\mathrm{stock}}\) 的混合，而不是美股式个股多空。约束语言要跟市场走，不能把 130/30 文献直接贴到不可卖空的股票池上。</p><p><span class="marginnote">130/30：多头和 130%、空头和 30%，净暴露 100%，毛暴露 160%。它不是「稍微允许卖空的多头基金」这么温和——30% 的空头可以集中在少数名字，单票与行业风险完全可以比净 100% 的多头更尖。约束必须同时写净、毛、单票、行业。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>常用线性约束（\(w^+\)、\(w^-\) 为多头与空头拆分，\(w=w^+-w^-\)）：</p><ul><li>多头：\(\mathbf{1}^\top w=1,\ w\ge 0\)。</li><li>美元中性：\(\mathbf{1}^\top w=0\)，常再加 \(\mathbf{1}^\top(w^++w^-)=G\)（毛杠杆）。</li><li>130/30：\(\mathbf{1}^\top w^+=1.3,\ \mathbf{1}^\top w^-=0.3\)（或净 \(=1\) 且空头和 \(\le 0.3\)）。</li><li>beta / 因子中性：\(B^\top w=0\) 或等于基准暴露。</li><li>单票：\(|w_i|\le \bar w_i\)，空头 \(\bar w_i\) 更紧。</li></ul><p>求解仍是 QP（或 CVaR 的 LP）。活跃集随 \(\mu_p\) 或风险厌恶变化：收紧风险时，多头问题先把高波动名字打到零；多空问题先把对冲腿打满毛杠杆。报告应列出绑紧的约束及影子价格：影子价格高说明产品形状在主导，alpha 几乎没进入一阶条件。</p><p>Jagannathan–Ma：在估计 \(\Sigma\) 很吵时，加上 \(w\ge 0\)（即使总体允许卖空「本该」更优）可以降低样本外方差，因为非负约束等价于把某些协方差项向使最优解落在边界的方向调整——一种数据依赖的收缩。含义是：多头约束不必只当成制度成本，也可以当成对病态切点的正则。对照实验应包括「无约束 + Ledoit–Wolf」与「非负 + 样本 \(\Sigma\)」，不要只比较无约束样本切点与多头组合。</p><h3 id="净暴露、毛暴露与-beta-是三个旋钮" tabindex="-1">净暴露、毛暴露与 beta 是三个旋钮 <a class="header-anchor" href="#净暴露、毛暴露与-beta-是三个旋钮" aria-label="Permalink to &quot;净暴露、毛暴露与 beta 是三个旋钮&quot;">​</a></h3><p>净暴露 \(\mathbf{1}^\top w\) 管资金与产品是否「像股票」。毛暴露 \(\mathbf{1}^\top|w|\) 管冲击、借券与尾部同向。Beta \(b^\top w\) 管相对市场的一阶。三个可以独立：净 0、毛 4、beta 0.2 是杠杆市场中性；净 1、毛 1、beta 1 是多头。优化器若只看到 \(\mu\) 与 \(\Sigma\)，会用毛杠杆去放大任何正夏普方向，直到毛约束绑紧——于是你优化的其实是「在杠杆上限上选方向」。应先定 \(G\)，再在该截面上选 \(w\)，并把 \(G\) 当成风险预算参数做样本外，而不是让求解器决定基金杠杆。</p><p>多空的 <a href="/quant/erc">ERC</a> 不能直接用正权重公式。常见改法：对 \(w^+\) 与 \(w^-\) 分别做风险预算，或对因子暴露做平价、个股权重由回归残差约束。多头 ERC 在单纯形上定义清晰，是 Maillard 等人的原设定。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>卖空约束改变分散化的几何：不能做空高估资产时，只能把权重放到零，残余的不良暴露靠其余多头的相关来稀释，通常稀释不干净，跟踪误差里留下行业或风格。多空允许用空头去对冲，同一 \(\alpha\) 的实现更接近特征组合，转移系数上升，同时换手、借券与拥挤上升。130/30 是两者之间的折中：空头预算是稀缺资源，优化器会把它花在最负的残差 alpha 上，若 alpha 估计噪声大，这 30% 会变成误差最大化最严重的腿——实务上应对空头腿用更高的 \(\gamma\) 换手惩罚或更强的 \(\alpha\) 收缩。</p><p>Jagannathan–Ma 机制：样本 \(\Sigma\) 把某些资产标成「对冲工具」（与其余负相关或低相关），无约束解给它们大空头或大多头；这些相关往往是噪声。非负约束禁止用它们当对冲工具，等于忽略那些不可靠的负相关，样本外方差下降。这与显式收缩同向，但不能替代收缩：高维多头问题里 \(\Sigma\) 仍可病态，只是逆的使用被边界挡住了一部分。</p><p><span class="marginnote">「允许卖空提高了信息比率」的回测，经常没有扣借券、没有召回、没有上涨缺口。空头腿的容量远小于多头。约束写进优化器之后，回测引擎必须用同一套可借名单，否则可行集在研究与实盘之间又裂了一次。</span></p><h3 id="约束冲突与空可行集" tabindex="-1">约束冲突与空可行集 <a class="header-anchor" href="#约束冲突与空可行集" aria-label="Permalink to &quot;约束冲突与空可行集&quot;">​</a></h3><p>净暴露、毛杠杆、beta 中性、行业中性、单票上限可以一起把可行集掏空，或只留下「几乎等于上期」的点。这时求解器仍返回一个点，目标值没有意义。应在优化前做约束诊断：放松一条看影子价格，或分层满足（先制度硬约束，再中性，再 alpha）。<a href="/quant/turnover-penalty">换手惩罚</a> 相对 \(w_0\) 过强时，等于又加了一组「接近上期」的软约束，冲突更频繁。新产品建仓期应允许更大毛杠杆路径或分步放松中性，否则第一天就不可行。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把美元中性叫做市场中性。不要在不可卖空市场用对称多空文献的夏普当容量。不要只钉毛杠杆不钉单票：毛 2 可以是 200 只各 1%，也可以是两只各 100%。不要用无约束样本切点的崩溃来论证「必须多头」——应先收缩 \(\Sigma\) 与锚 \(\mu\)，再决定符号约束；Jagannathan–Ma 是额外的正则，不是对均值方差理论的否定。期权、期货的符号与名义乘数要使 \(w\) 的定义与现货一致，否则净暴露会计是错的。</p><p>多空组合的尾部不对称：空头损失无界。方差或 ERC 对这一点收费不足，应叠加 <a href="/quant/cvar-opt">CVaR 优化</a> 或空头单票硬上限。压力情景里相关跳到 1，多空的「对冲」消失，毛杠杆变成单向风险——约束在平静期校准的 \(G\)，危机里应能被风控杀开关覆盖，而不是仍当作最优。</p><p><span class="marginnote">Jagannathan–Ma 的「错误约束有帮助」针对的是估计误差，不是说制度约束越多越好。把二十条彼此冲突的盒子堆上去，得到的是合规仓，不是正则化的切点。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多头、美元中性、beta 中性、毛杠杆、130/30 是不同可行集，同一 \((\mu,\Sigma)\) 对应不同策略；「市场中性」必须定义对象。</li><li>卖空约束改变前沿活跃集；Jagannathan–Ma（2003）表明非负约束可等价于对 \(\Sigma\) 收缩，改善样本外方差。</li><li>毛杠杆往往先于 alpha 绑紧，应外生定 \(G\)；空头腿成本不对称，约束与成本都应分腿。</li><li>多条中性同时开时要诊断可行集，避免求解器在空集附近返回合规点。</li><li>空头尾部与危机相关上升使「对冲」失效，方差目标不够，需 CVaR 或硬上限与杀开关。</li><li>出处：Jagannathan &amp; Ma, <em>Journal of Finance</em>, 2003；卖空约束下的前沿为 Markowitz 1952/1959 的标准 Kuhn–Tucker 情形；130/30 见 Lo 与 Jacobs–Levy 一类主动扩展文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 协方差、约束与配置<!--[--> · 单元 估计与约束<!--]--><!--[--> · 课序 配置方法<!--]--></p><p class="lesson-progress">第 11 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/industry-country-neutral/">行业/国家中性组合</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

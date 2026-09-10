@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>限价单对市价单的选择 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_limit-vs-market-choice.md.Cu4z-38d.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 17 / 50 课</p><p class="lesson-prereq"> 先修：<a href="/quant/glosten-electronic-lob/">Glosten 电子限价簿</a></p><p class="lesson-next"> 下一课：<a href="/quant/adverse-selection-vs-nonexecution/">逆向选择对非执行风险</a></p></nav><div style="position:relative;"><div><h1 id="限价单对市价单的选择" tabindex="-1">限价单对市价单的选择 <a class="header-anchor" href="#限价单对市价单的选择" aria-label="Permalink to &quot;限价单对市价单的选择&quot;">​</a></h1><div class="epigraph"><p>市价买即时性，限价卖等待、买价差。选择不是性格，是状态：估值偏离、队列、波动与截止时间把同一个人在两极之间切换。</p><footer>—— 据 Cohen, Maier, Schwartz and Whitcomb, Transaction Costs, Order Placement Strategy, and Existence of a Bid-Ask Spread, Journal of Political Economy, 1981；对照 Harris 对 maker / taker 的论述</footer></div><p><a href="/quant/glosten-electronic-lob">Glosten 电子簿</a>给出竞争性曲线 \(p(Q)\)。缺口是需求侧：面对这条曲线（以及己方排队），交易者何时沿曲线吃、何时把自己写成曲线上的一点。Cohen 等人（1981）已在交易成本下讨论下单策略与价差存在；Parlour / Foucault / Roşu 把选择写成均衡。本课把选择规则收成可执行的权衡，不重推那些均衡的存在性。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>若永远市价，你付有效价差与冲击，从不赚价差，也很少被捡。若永远限价，你在有利时省钱，在截止时间前可能零成交，或在信息来时被捡。真实约束是截止时间（对冲、指数公布、资金到账）与私有估值相对中点的偏离。问题是给出状态依赖的阈值：偏离大、时间短、对方簿薄、己方队长、波动高时，更应市价；相反则限价。</p><p><a href="/quant/order-types">订单类型</a>已经区分 marketable limit 与纯市价。本课的「市价」包括一切到场即吃的指令；「限价」指未交叉、进入己方队列的指令。冰山是限价的可见性变体，不改变这层二元选择的一阶条件。</p><h3 id="价差存在性" tabindex="-1">价差存在性 <a class="header-anchor" href="#价差存在性" aria-label="Permalink to &quot;价差存在性&quot;">​</a></h3><p>Cohen–Maier–Schwartz–Whitcomb 指出：若所有人都能无成本地挂在同一价位并立刻成交，价差会塌掉。离散到达加上不能同时双边成交的约束，使买卖报价分开——有人必须先挂、有人后到选择吃或挂。电子簿继承这个逻辑：价差是选择的均衡结果，不是外生费用。tick 只是把最小分开单位钉在栅格上。</p><p><span class="marginnote">Handa 与 Schwartz（1996）强调限价单作为「把波动变成收入」的策略。那是低信息、高波动时的限价动机，与被捡风险反方向，必须与 Foucault 合看。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记私有估值 \(v\)，中点 \(m\)，对方最优价 \(a\)（买方向），己方队深 \(n\)，截止剩余 \(T\)，波动 \(\sigma\)。市价的期望成本约 \(a-m\) 加冲击。限价挂在 \(b&#39;\) 的期望收益是：以概率 \(\pi_{\mathrm{fill}}(n,T,\ldots)\) 在 \(b&#39;\) 成交，否则在截止时被迫市价或放弃。最优是比较</p> \[v-a \quad\text{对}\quad \pi_{\mathrm{fill}}\,(v-b&#39;)+(1-\pi_{\mathrm{fill}})\,U_{\mathrm{fail}}. \]<p>\(\pi_{\mathrm{fill}}\) 来自 Parlour 队列与到达强度，\(\ U_{\mathrm{fail}}\) 含被迫市价的更差价格与被捡。经验上用订单簿状态预测随后的限价/市价选择（Hollifield–Miller–Sandås 等），而不是估一条结构曲线。</p><h3 id="可立即成交限价是阈值上的细栅格" tabindex="-1">可立即成交限价是阈值上的细栅格 <a class="header-anchor" href="#可立即成交限价是阈值上的细栅格" aria-label="Permalink to &quot;可立即成交限价是阈值上的细栅格&quot;">​</a></h3><p>估值刚过 \(a\) 时，用 \(a\) 的限价吃、余量转挂，与纯市价扫到底不同。选择其实是三维：价格、是否允许余量存活、展示量。本课保持二维叙事，把第三维留给隐藏流动性。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>每个人的阈值不同，市场看到的是混合。价差宽时，限价阈值更容易达到，供给增加，价差有回复压力；价差窄、队长时，更多人改吃，供给减少。这是 Foucault 组成的操作版。策略噪声会把截止时间同步（指数收盘），阈值集体移向市价，造成收盘前吃单高峰——与 Admati–Pfleiderer 的量峰相接，但微观动作是 maker 变 taker。</p><p>信息：知情者的 \(|v-m|\) 大，阈值常倒向市价或深扫，这正是 Glosten 曲线开口的需求来源。非知情大单若被误当成知情，会在本应限价的区域被自己的冲击吓到，改为暗池，选择离开这张公开簿。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>截止时间与估值在数据里不可见，经验模型用代理（订单大小、账户类型、距收盘分钟）。算法拆单把一笔「母单」变成一串状态依赖的子选择，观测到的市价/限价比不是偏好参数。费用与 maker-taker 返佣平移阈值，比较不同交易所的「限价比例」要先净费用。</p><p><span class="marginnote">把散户的市价比例高读成「不理性」，可能只是 \(T\) 短或不会管理队列。Boehmer 等人识别零售流之后，仍要问他们的截止约束，再谈选择质量。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>限价对市价是状态依赖阈值：估值偏离、截止时间、队深与被捡风险。</li><li>价差与深度由这些阈值的加总内生，Cohen 等人已给出价差存在的交易成本逻辑。</li><li>知情者更常越过阈值成为 taker，供给曲线因此开口。</li><li>出处：Cohen, Maier, Schwartz and Whitcomb, <em>Journal of Political Economy</em>, 1981；Handa and Schwartz, <em>Journal of Finance</em>, 1996；Harris, <em>Trading and Exchanges</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 17 / 50 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/adverse-selection-vs-nonexecution/">逆向选择对非执行风险</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

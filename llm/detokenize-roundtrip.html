@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Detokenize 与往返 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_detokenize-roundtrip.md.DmsIJwA7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 表示与 Transformer 块<!--[--> · 单元 分词<!--]--><!--[--> · 课序 从字符到子词<!--]--></p><p class="lesson-progress">第 5 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/vocab-size-unk/">词表大小与 UNK</a></p><p class="lesson-next"> 下一课：<a href="/llm/embedding-lookup/">Token 嵌入查找</a></p></nav><div style="position:relative;"><div><h1 id="detokenize-与往返" tabindex="-1">Detokenize 与往返 <a class="header-anchor" href="#detokenize-与往返" aria-label="Permalink to &quot;Detokenize 与往返&quot;">​</a></h1><div class="epigraph"><p>若把输入当作原始 unicode 字节流、用元符号标记空白，则切分可以做成可逆的：id 序列应能映回同一段字符串，而不是一段「看起来差不多」的文本。</p><footer>—— 据 Kudo &amp; Richardson, SentencePiece: A simple and language independent subword tokenizer and detokenizer, EMNLP 2018 整理</footer></div><p><a href="/llm/vocab-size-unk">上一课</a>把 \(|V|\)、压缩率和 UNK 率放到同一张权衡里。本课不重讲词表该多大。缺口是：即使 UNK 率为零，tokenize 再 detokenize 也常常不是恒等。前导空格、unicode 规范化、字节兜底、训练时额外插入的特殊符号，都会让往返变损。生成出来的 id 序列能不能拼回用户认得的原文，是分词课序的最后一块，也是嵌入课开始之前必须钉死的接口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/vocab-size-unk">词表大小与 UNK</a>保证的是「每个编号在 \(V\) 里有定义」，不保证「编号序列对应唯一且可逆的字符串」。许多分词器先做 NFKC、统一空白、剥控制符，再切分。这些前置步骤不是 \(V\) 上的映射，无法从 id 里解出来。于是出现一类静默损失：输入里的两个空格变成一个，全角数字变成半角，零宽字符消失。评测若只看 UNK 率，会以为覆盖完美，往返已经坏了。</p><p>另一类损失发生在词界的编码上。空格若在切分前被丢掉，detokenize 只能靠启发式往回插空格，中文、代码、Markdown 会插错。空格若被焊进相邻符号（字节级 BPE 的前导空格、SentencePiece 的 <code>▁</code>），词界就成了符号本身的一部分，往返才有机会精确。本课要分清：哪些方案把空白当成可逆的元信息，哪些方案把空白当成可丢的噪声。</p><h3 id="恒等失败的三个常见位置" tabindex="-1">恒等失败的三个常见位置 <a class="header-anchor" href="#恒等失败的三个常见位置" aria-label="Permalink to &quot;恒等失败的三个常见位置&quot;">​</a></h3><p>第一，规范化。NFKC 把兼容字符折叠，大小写折叠更激进。训练与推理必须同一套；即使同一套，也无法从 id 恢复折叠掉的原字形。第二，特殊符号。BOS、EOS、PAD、会话角色标记在 detokenize 时要剥掉还是留着，属于协议，不是分词器内部能猜的。第三，非法或截断的字节序列。字节兜底能表示任意字节，但 utf-8 解码在截断处会失败，往返在「字节层可逆、字符层不可打印」上裂开。</p><p><span class="marginnote">「看起来一样」不是往返成功。代码里差一个前导空格，缩进就错；URL 里差一个全角点，链接就断。应用层必须用字节级或 unicode 级的恒等测试，而不是人工扫一眼。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>可逆切分的标准做法是：不在进入 \(V\) 之前丢掉空白，而把空白编码进符号。SentencePiece 把空格替换成 <code>▁</code>，再对整段做 BPE 或 Unigram，detokenize 时把 <code>▁</code> 换回空格。GPT-2 的字节级 BPE 用一个单独的前导空格标记焊在词首符号上。两种做法都让「词从空格后开始」成为 id 序列里的显式信息。</p><p>字节兜底补的是另一头：当某个 unicode 字符不在叶子表里，就改写为若干字节符号。只要字节符号在 \(V\) 里闭合，任意字节串都有切分，UNK 率为零。往返在字节层是可逆的，前提是 detokenize 按同一套规则把字节符号拼回，并且不要先做一次有损规范化。实现上必须固定：是否 NFC/NFKC、是否剥离控制符、是否把连续空白压成一个。这些开关与合并表同等重要，要写进词表文件的头信息里。</p><h3 id="前导空格为什么总被单独拿出来说" tabindex="-1">前导空格为什么总被单独拿出来说 <a class="header-anchor" href="#前导空格为什么总被单独拿出来说" aria-label="Permalink to &quot;前导空格为什么总被单独拿出来说&quot;">​</a></h3><p>许多英文词表里，<code>hello</code> 与 <code> hello</code>（前导空格）是两个不同的 id。语言模型对「句首」和「空格后」学到的是两套嵌入。生成时若错误地在句首也带上前导空格符号，或在中缀漏掉它，detokenize 会多出或少掉空格。这不是模型「不会写英语」，而是往返协议与训练分布不一致。中文无空格语言里，同类问题表现为 <code>▁</code> 出现的位置与造表时是否把空格当作分隔符有关；错一套，词界全乱。</p><p><span class="marginnote">聊天模板插入的角色标记、换行和空格，全部要走同一套 tokenize。模板若在字符串层手搓空格，再交给分词器，很容易制造训练时从未见过的「空格+角色」组合。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>往返可以看成两个函数 \(T\) 与 \(T^{-1}\)。理想情况 \(T^{-1}(T(s))=s\) 对训练域里的 \(s\) 恒等。有损规范化使 \(T\) 先经过一个不可逆的 \(N\)，最多只能 \(T^{-1}(T(N(s)))=N(s)\)。应用必须声明自己保证的是哪一层恒等：原始字节、规范化后的 unicode，还是「用于显示的可读文本」。三者混用是静默 bug 的来源。</p><p>字节兜底把 \(T\) 的定义域扩到全部字节串，却把一部分字符串的切分长度拉得很长。往返成功与压缩良好不是一回事：上一课的长度尾部在这里表现为「能还原，但很碎」。截断上下文时，若从 token 边界截而不是从字符边界截，通常仍可逆；若在多字节字符中间按字节硬切，utf-8 解码失败，需要替换符，恒等破坏。</p><h3 id="生成端的-detokenize-时机" tabindex="-1">生成端的 detokenize 时机 <a class="header-anchor" href="#生成端的-detokenize-时机" aria-label="Permalink to &quot;生成端的 detokenize 时机&quot;">​</a></h3><p>自回归生成是逐 id 放出的。有的符号是不完整的字节序列前缀，必须等后续 id 到齐才能变成合法字符。流式输出若每个 id 都急着 decode，会在多字节汉字或 emoji 上闪现替换符。正确做法是按分词器的流式 decode API 缓冲未完成的字节，而不是对每个 id 单独 <code>convert_ids_to_tokens</code> 再拼接。这是往返在时间维上的版本：部分序列还不是一个合法字符串。</p><p><span class="marginnote">不要用空格 <code>join(tokens)</code> 当 detokenize。那是演示代码，不是协议。<code>▁</code> 或前导空格符号必须按词表规则展开，否则每个子词之间都会多出空格。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>没有一种分词器对所有应用都无损。搜索与检索有时故意规范化；代码生成必须字节级可逆；自然语言显示可以容忍空白折叠。协议要写进系统边界，而不是假设「用了 SentencePiece 就自动可逆」——默认开关里的 NFKC 经常把可逆变有损。多语言混合、双向文本标记、组合字符，都是恒等测试应单独列的用例。</p><p>本课结束分词课序。后面进入嵌入：离散 id 如何变成 \(d\) 维向量。嵌入课默认你会 \(T\) 与 \(T^{-1}\) 的协议，不再讨论空格元符号或 UNK 桶。若往返在应用里是坏的，应回到本课修协议，而不是去调嵌入维。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>UNK 率为零也不蕴含 tokenize∘detokenize 是恒等；规范化、空白、特殊符号都会造成有损往返。</li><li>把空白编码进符号（<code>▁</code> 或前导空格）是可逆词界的常规做法。</li><li>字节兜底给字节层可逆，不自动给 utf-8 字符层可打印；截断要落在 token 边界。</li><li>流式 detokenize 必须缓冲不完整的多字节序列。</li><li>恒等要声明层级：原始字节、规范化后文本，还是显示文本。</li><li>出处：Kudo &amp; Richardson, EMNLP 2018；字节级 BPE 与前导空格见 GPT-2 分词实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 表示与 Transformer 块<!--[--> · 单元 分词<!--]--><!--[--> · 课序 从字符到子词<!--]--></p><p class="lesson-progress">第 5 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/embedding-lookup/">Token 嵌入查找</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

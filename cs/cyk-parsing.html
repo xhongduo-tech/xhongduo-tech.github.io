@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CYK 与 CFL 判定 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_cyk-parsing.md.Bw2Zfh_V.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 8 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/pumping-lemma-cfl/">CFL 泵引理</a></p><p class="lesson-next"> 下一课：<a href="/cs/turing-machine/">图灵机</a></p></nav><div style="position:relative;"><div><h1 id="cyk-与-cfl-判定" tabindex="-1">CYK 与 CFL 判定 <a class="header-anchor" href="#cyk-与-cfl-判定" aria-label="Permalink to &quot;CYK 与 CFL 判定&quot;">​</a></h1><div class="epigraph"><p>Chomsky 范式下，子串是否由某非终结符推出，可用动态规划在立方时间填表；一般 CFL 的成员问题因此可判定。</p><footer>—— 据 Cocke；Kasami, 1965；Younger, 1967；Hopcroft and Ullman 整理</footer></div><p>上一课<a href="/cs/pumping-lemma-cfl">CFL 泵引理</a>只会排除，不会接收。主干<a href="/cs/cfg-grammar">CFG</a>把分析算法留给「受限族」，并点名 CYK。缺口是：对<strong>任意</strong> CFG（先化成 CNF），成员问题 \(w\in L(G)\) 可判定，复杂度 \(O(n^3|G|)\)，不是词法那条线性 DFA。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PDA 非确定，直接模拟可能指数分叉。CNF：产生式仅 \(A\to BC\) 或 \(A\to a\)。令 \(V_{i,\ell}\) 为能推出子串 \(w_i\cdots w_{i+\ell-1}\) 的非终结符集合。长度 1 查终结产生式；长度 \(\ell\) 枚举切点，\(A\to BC\) 当 \(B\) 认左段、\(C\) 认右段。\(S\in V_{1,n}\) 当且仅当接受。</p><p>这是判定，顺便可得一棵（或所有）推导树。编程语言不用 CYK 当主分析器：立方太慢，且要 CNF；LL/LR 线性。本课要的是<strong>一般 CFL 可判定</strong>，对照后课图灵机的停机。</p><h3 id="cnf-不是「唯一树」" tabindex="-1">CNF 不是「唯一树」 <a class="header-anchor" href="#cnf-不是「唯一树」" aria-label="Permalink to &quot;CNF 不是「唯一树」&quot;">​</a></h3><p>化 CNF 改写树的形状，语言不变。\(\varepsilon\) 与单位产生式要先消去（空串单独处理）。二义文法会在表里留下多条组合，CYK 不负责消二义。</p><p><span class="marginnote">独立发现：Cocke、Kasami 1965、Younger 1967。龙书把它当一般 CFG 的 DP。Earley 算法覆盖更广的文法形状，本课不展开。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>给定 \(G\) 与 \(w\)，先化 CNF，再填三角表。构造性：从 \(S\) 回溯切点可建树。复杂度：每个格子 \(O(\ell\cdot |P|)\)，总 \(O(n^3|G|)\)。空语言、有限性对 CFL 也可判定；等价性不可判定——点名，不证。</p><div class="mermaid"></div><p>主干<a href="/cs/interval-dp">区间 DP</a> 已见按长度填区间；CYK 是同一张表，格子里是非终结符集合而非数值。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可判定不等于高效，更不等于确定栈。CFL 的补不可判定是否 CFL，但给定固定 \(G\)，对每个 \(w\) 仍可回答成员——\(G\) 是算法的一部分。换一台机器认「任意 CFG 的任意 \(w\)」是另一问题（通用性），后课图灵机才需要。</p><p>DPDA / LR 把非确定压掉，换来线性；不是所有 CFG 都能这样。</p><p>表 \(V_{i,\ell}\) 与区间 DP 同形，格子里是非终结符集合而非最优值。回溯切点可得一棵树；二义时多棵。CFL 空性：化 CNF 后看 \(S\) 能否推出任何终结串，也可判定。等价、固有二义不可判定，本课点名，避免把「可判定」理解成「文法的一切性质」。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 CFL 等价不可判定，不写 Earley。不把 CYK 当自然语言语法的充分模型。后课默认：CFL 成员可判定、多项式；下一层机器将越过可判定边界。图灵机是下一课。</p><p>固定文法的成员可判定，不等于文法等价可判定。编译前端仍走 LL/LR，是因为立方与 CNF 改写都不适合源级分析。图灵机将越过这层「总有算法」。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CNF + 区间 DP：一般 CFL 成员 \(O(n^3)\) 可判定。</li><li>编译前端仍用 LL/LR；CYK 给理论闭合。</li><li>判定固定文法的成员，不是判定两文法是否等价。</li><li>出处：Kasami, 1965；Younger, 1967；Hopcroft and Ullman。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 8 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/turing-machine/">图灵机</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

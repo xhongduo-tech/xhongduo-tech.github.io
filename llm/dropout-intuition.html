@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dropout 直觉 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dropout-intuition.md.BSSU9Y23.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 23 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/why-layernorm/">LayerNorm 的动机</a></p><p class="lesson-next"> 下一课：<a href="/llm/distributional-hypothesis/">词向量与分布假设</a></p></nav><div style="position:relative;"><div><h1 id="dropout-直觉" tabindex="-1">Dropout 直觉 <a class="header-anchor" href="#dropout-直觉" aria-label="Permalink to &quot;Dropout 直觉&quot;">​</a></h1><div class="epigraph"><p>训练时随机关掉一部分单元，迫使表示不要把预测押在少数共适应的坐标上；推理时用全体，并按保留率缩放。</p><footer>—— 据 Srivastava, Hinton, Krizhevsky, Sutskever &amp; Salakhutdinov, Dropout, JMLR 2014 整理</footer></div><p><a href="/llm/why-layernorm">LayerNorm 的动机</a>管尺度。本课不重写 \(\mu,\sigma\)。缺口是：尺度稳定之后，网络仍可把全部容量用来记训练样本。权重衰减拉范数，早停切时间；Dropout 在前向上注入噪声，让单元不能互相绑定成死记硬背的电路。本课只讲直觉与训练 / 推理协议。注意力里的 dropout 是同一算子换位置，不在这里提前写成 SDPA。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>过拟合课给出 \(\lambda\) 与早停。深度网里还有一种共适应：某些单元只有在另一些单元同时开时才有意义，像在记训练集里的特定搭配。验证集上搭配一变，电路失效。缺口是训练期的扰动：以概率 \(p\) 把单元置零（保留率 \(q=1-p\)），其余放大 \(1/q\)，使期望与推理时全体开启一致。这不是数据增强的同义词——扰动发生在表示上，不发生在输入句子的改写上。</p><p>推理必须关掉随机性，否则同一句每次损失不同，也无法部署。inverted dropout 把缩放放在训练侧，推理直接全开。把缩放放在推理侧也可以，但容易忘。本课默认训练缩放。</p><h3 id="dropout-不是注意力掩码" tabindex="-1">Dropout 不是注意力掩码 <a class="header-anchor" href="#dropout-不是注意力掩码" aria-label="Permalink to &quot;Dropout 不是注意力掩码&quot;">​</a></h3><p>注意力掩码按位置把非法键的分数打成 \(-\infty\)，是确定性的结构约束。Dropout 按单元或按注意力权重随机置零，是正则。两者都可以表现为「乘零」，语义完全不同。不要在实现里用同一张 mask 张量既当因果掩码又当 dropout，除非明确是两项相乘。本课的对象是前馈单元与一般激活；序列位置上的 dropout 同理，仍不是因果性。</p><p><span class="marginnote">期望：若训练时 \(\tilde h=m\odot h/q\)，\(\mathbb{E}[m_i]=q\)，则 \(\mathbb{E}[\tilde h]=h\)。推理用 \(h\)。这是线性期望，对后续非线性只是近似；实践上够用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对激活 \(h\)，采样 Bernoulli 掩码 \(m\)，正向 \(\tilde h=m\odot h/q\)。反向梯度同样乘 \(m/q\)。嵌入、残差流、MLP 中间层都可以丢；过大的 \(p\) 等于减少有效宽度。验证与测试：\(p=0\)。与 LayerNorm 共存时，通常在 LN 之后、子层内部丢，避免把噪声写进统计量之前——具体顺序随实现，写结构时要固定。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Srivastava 等人把 Dropout 解释成指数多种子网络的近似集成：每次随机掩码定义一个瘦网络，参数共享。推理的全开近似几何平均。另一种读法是：噪声让特征必须冗余，单个坐标不能成为唯一线索。两种读法都不需要在本课写成定理。效果上，Dropout 往往抬高训练损失、降低验证缺口，与「更强的优化」方向相反——若训练损失降得很痛快而验证变差，加大 \(p\) 是合法杠杆。</p><p>与权重衰减不同，Dropout 不直接拉 \(\|\theta\|_2\)，它改的是前向的有效电路。两者可叠加：衰减约束可达集合，Dropout 约束单次前向能用哪些单元。与小批量噪声也不同：批量噪声在样本维上抖梯度，Dropout 在表示维上抖激活。调 \(p\) 时不要把它当成另一种 \(\eta\)。</p><p>小数据、大模型时 \(p\) 更大；海量预训练时许多现代网络把 Dropout 降到很小甚至关掉，改用数据本身当正则。本课不把某一 \(p\) 奉为常数。残差流上过大的 Dropout 会破坏恒等支路的尺度，实践中常只在 \(f\) 内部丢。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不进入词向量；下一课起是「序列与注意力之前」的第一课<a href="/llm/distributional-hypothesis">词向量与分布假设</a>。后课默认：训练与推理的 Dropout 开关必须分开；它是正则，不是掩码语义。不要与量化金融或权重量化混淆——本课的「丢」是单元，不是权重比特。DropConnect 改丢权重边，本课不切换。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Dropout 训练时随机置零并缩放，打破共适应；推理全开。</li><li>它是表示噪声正则，不是注意力的因果掩码。</li><li>期望在线性上对齐训练与推理；非线性下只是近似。</li><li>预训练数据极大时可以减弱，小数据过拟合时再加大。</li><li>它改前向电路，不是另一种学习率，也不是权重衰减。</li><li>出处：Srivastava et al., JMLR 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 23 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/distributional-hypothesis/">词向量与分布假设</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

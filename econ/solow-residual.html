@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>索洛残差 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_solow-residual.md.BN_KAO-L.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 增长<!--]--><!--[--> · 课序 资本与技术<!--]--></p><p class="lesson-progress">第 13 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/solow-growth/">索洛模型</a></p><p class="lesson-next"> 下一课：<a href="/econ/golden-rule/">黄金律与动态无效率</a></p></nav><div style="position:relative;"><div><h1 id="索洛残差" tabindex="-1">索洛残差 <a class="header-anchor" href="#索洛残差" aria-label="Permalink to &quot;索洛残差&quot;">​</a></h1><div class="epigraph"><p>把产出增长里不能由可测要素解释的部分叫技术变化，是会计；把它直接读成发明与研发，已经多走了一步。</p><footer>—— Solow, Technical Change and the Aggregate Production Function, REStat 1957</footer></div><p><a href="/econ/solow-growth">上一课</a>把 \(Y=F(K,AL)\) 的 \(g=\dot{A}/A\) 当成外生参数，并声明索洛残差是核算、不是已经识别了研发部门。本课的缺口就是把那句核算写开：残差如何从账户里算出来，以及它为什么<strong>不是</strong>技术本身。黄金律下一课仍在外生 \(g\) 下选 \(k\)；内生增长再把 \(A\) 的来源打开。本课只钉残差的身份。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>索洛模型需要一条 \(A\) 的路径，数据里没有直接观测的「技术」。可观测的是实际产出、资本存量与劳动投入。若假定规模报酬不变、要素按边际产出付酬，则增长中被 \(K\) 与 \(L\) 解释掉的部分可以扣掉，剩下的叫全要素生产率（TFP）或索洛残差。缺口不是再写 \(\dot{k}=sf(k)-(n+g+\delta)k\)，而是：这个剩余包含什么，不能当成研发政策的充分统计量。</p><p><span class="marginnote">1957 的残差是时间序列上的 \(\Delta \ln A\)。截面上把穷国的落后写成同一个 \(A\)，是发展核算，公式同源、问题不同，更后的课再拆。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对数线性后，增长核算写</p> \[\Delta\ln Y = \alpha\Delta\ln K + (1-\alpha)\Delta\ln L + \Delta\ln A, \]<p>\(\alpha\) 用收入法中的资本份额代理弹性。\(\Delta\ln A\) 是残差。劳动要先按质量或工时调整，否则教育与努力进入 \(A\)。资本要用实际存量，价格平减与利用率一错，\(A\) 跟着错——回到<a href="/econ/price-index-real">价格指数</a>与链式物量。</p><div class="mermaid"></div><p>索洛模型里的 \(g\) 是这条残差的模型对应物。把残差当参数，模型才能关闭；把残差当「发明」，需要独立的研发、专利或品种数据。本课停在会计。</p><h3 id="份额与利用率" tabindex="-1">份额与利用率 <a class="header-anchor" href="#份额与利用率" aria-label="Permalink to &quot;份额与利用率&quot;">​</a></h3><p>\(\alpha\) 不是常数：不完全竞争、测量误差、自我雇用的混合收入都会让份额漂。产能利用率顺周期时，衰退里 \(K\) 的贡献被高估、\(A\) 被低估（或反向，取决于是否调整利用率）。劳动窖藏同样把周期塞进残差。这些是对「\(A\)=技术」的直接警告。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>残差吸收一切模型没写进去的东西：技术、制度、误配置、质量调整、加总误差。Hicks 中性、劳动增进型只是把同一剩余塞进不同位置的 \(F\)。即便每家工厂技术不变，资源从高生产率企业转到低生产率企业，加总 \(A\) 也会掉——那是错配课的入口，本课先承认加总残差无法区分「不会做」与「配错了」。</p><p>周期中残差亲周期，并不证明技术冲击驱动了周期：利用率与窖藏足够编出同样的剩余。RBC 把残差当冲击，是理论选择；本课的会计不替那一课做决定。增长核算还可以把劳动质量（教育、经验）从 \(L\) 里提出来，残差会变小——那不是「技术变少了」，是把一块剩余改名为 \(h\)。链式物量与 hedonic 已经把一部分质量写进 \(Y\)，再从残差里读「发明」，会重复计算。</p><p>要素投入若用小时而非人数，\(A\) 的周期更干净一些，仍不是技术。开放经济里，贸易条件变动可以让实际收入与实际产出分叉，残差不要混用 GNI 与 GDP 物量。</p><p><span class="marginnote">规模报酬不变加欧拉定理，才用收入份额当产出弹性。有递增报酬或经济利润时，残差的「技术」解释更弱。内生增长正是要离开这个封闭。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把残差写成专利数，也不要把某一两年的 TFP 跳跃写成「改革成功」而不核对 \(K\)、\(L\) 与平减。本课不估计研发弹性。外汇 CIP 与资产价格不进生产函数；PPP 篮子进入截面比较，那是发展核算，不是本课的时间差分。量化栏的成交不是 \(A\)。</p><p>GDP 与 GNI 的物量不同，残差要声明用哪一个 \(Y\)。链式水平不可加时，产业 TFP 加总也不等于宏观残差，那是指数性质。黄金律下一课仍把 \(g\) 当外生参数；本课只禁止把参数 \(g\) 与核算残差偷偷画等号。</p><p>后课默认：谈到索洛的 \(g\) 或 TFP，先把它当残差，再决定要不要赋予技术含义。下一课问：外生 \(s\) 会不会把 \(k\) 推过黄金律。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>索洛模型把 \(g\) 当参数；1957 的残差是从 \(Y\)、\(K\)、\(L\) 里扣出来的会计。</li><li>\(\Delta\ln A\) 含技术，也含利用率、质量、错配与加总误差。</li><li>收入份额当弹性，依赖竞争与报酬不变。</li><li>残差不是研发部门，也不是周期技术冲击的证明。</li><li>把教育从 \(L\) 中提出来，只是给剩余改名，不是识别发明。</li><li>出处：Solow, REStat 1957；对照 1956 的模型。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 增长<!--]--><!--[--> · 课序 资本与技术<!--]--></p><p class="lesson-progress">第 13 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/golden-rule/">黄金律与动态无效率</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

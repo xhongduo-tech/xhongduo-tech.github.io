@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>拥挤 alpha 衰减 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_crowded-alpha-decay.md.CHFI2KiM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 回测与研究设计续<!--[--> · 单元 多重检验与稳健性<!--]--><!--[--> · 课序 检验族与纪律<!--]--></p><p class="lesson-progress">第 5 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/strategy-capacity-decay/">策略容量与冲击衰减</a></p><p class="lesson-next"> 下一课：<a href="/quant/cost-mc-sensitivity/">费用滑点蒙特卡洛</a></p></nav><div style="position:relative;"><div><h1 id="拥挤-alpha-衰减" tabindex="-1">拥挤 alpha 衰减 <a class="header-anchor" href="#拥挤-alpha-衰减" aria-label="Permalink to &quot;拥挤 alpha 衰减&quot;">​</a></h1><div class="epigraph"><p>样本外多空收益低 26%，发表后再低到 58%；把前者当作统计偏差的上界，剩下约 32 个百分点来自读过论文的交易。</p><footer>—— McLean and Pontiff, Does Academic Research Destroy Stock Return Predictability?, Journal of Finance, 2016</footer></div><p><a href="/quant/factor-crowding">因子拥挤</a> 问谁还在买；<a href="/quant/crowding-spiral">清盘螺旋</a> 问减仓会不会自我强化。本篇问第三句：拥挤如何把 alpha 的期望本身削薄。McLean 与 Pontiff 跟踪 97 个已发表截面预测变量，发现可预测性在样本外下降、在发表后下降更多，且预测变量组合之间的相关在发表后上升——资金在学同一组多空。Hou、Xue、Zhang 用统一手续复制 452 个异常，交易摩擦类几乎复制失败，活下来的经济幅度也更小。衰减因此不是「IC 的半衰期」这一条曲线，而是统计偏差、套利交易与拥挤相关三条机制叠在一起。它与<a href="/quant/strategy-capacity-decay">策略容量与冲击衰减</a>共用冲击，但强调的是横截面上许多人同时交易，而不是你自己的 \(A\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>无拥挤时，一个预测变量的样本外衰减主要是选择偏差：原文挑了那段历史最好的设定，下一段自然变差。McLean–Pontiff 把发表前、样本外、但尚未正式发表的窗口当作统计偏差的上界（平均 −26%），因为工作论文阶段已有人交易，26% 高估了纯数据挖掘。发表后相对样本内再掉到 −58%，差额约 32% 被解释为发表知情交易。需要回答的不是「异常会不会消失」——他们拒绝了完全消失，也拒绝了完全不变——而是：<strong>剩余可预测性还够不够覆盖成本，以及拥挤有没有把剩余部分变成同步风险。</strong></p><p>第二个问题是测量。持仓不可见，拥挤只能代理。代理选错，会把「大家都赚钱」当成拥挤、把「最近没人做」当成 alpha 还在。真正对应衰减的是：高相关持仓、低深度、高换手、规则同步。Lou 与 Polk 的共动量一类指标，刻画的是同一篮子被同步交易的程度，而不是因子过去的夏普。</p><h3 id="发表后相关上升是拥挤的指纹" tabindex="-1">发表后相关上升是拥挤的指纹 <a class="header-anchor" href="#发表后相关上升是拥挤的指纹" aria-label="Permalink to &quot;发表后相关上升是拥挤的指纹&quot;">​</a></h3><p>McLean–Pontiff 报告：预测变量组合在发表后与其他已发表预测变量的相关升高。机制很窄。论文提供了标准化的排序与再平衡规则，后来者复制的是相近的多空，而不是相近的经济故事。相关上升有两重后果：一是分散失效，组合波动里出现共同因子；二是冲击叠加，有效 \(q\) 变成行业加总。Stein（2009）指出精明投资者同质化之后，套利本身制造不稳定。Khandani–Lo 对 2007 年 8 月量化震荡的叙述是同一结构的极端实现：统计套利拥挤，价格在数日内自我实现，随后部分反转。慢性的拥挤 alpha 衰减是同一机制的低频版——IC 往下走，相关往上走，夏普掉得比 IC 更快。</p><p><span class="marginnote">不要用因子过去三年的夏普当拥挤指标。高夏普吸引资金，是拥挤的原因，不是安全证明。更有用的是预测变量之间的相关、借贷费率、残差第一主成分，以及发表后窗口的单独 IC。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把样本切成三段：原文样本内、发表前样本外、发表后。分别报告多空收益、换手、成本后净收益、以及与其他预测变量的相关。McLean–Pontiff 的分解应原样保留：样本外下降是偏差上界，发表后超额下降是交易效应下界。不要用全样本 IC 去「证明因子还在」。</p><p>复制手续要与 Hou–Xue–Zhang 对齐，否则拥挤被微盘掩盖。NYSE 断点、市值加权、金融与负账面权益剔除之后，许多高换手异常的 t 过不了 1.96；多重检验门槛 2.78 时失败率到 82%。交易摩擦类失败率约 96%。这些不是「拥挤把 alpha 做没了」，而是「本来就不可交易的统计幻象」；但二者在实盘上的处方相同：不要把等权微盘上的样本内 t 当成可部署边缘。对仍然显著的异常，比较发表前后的经济幅度，而不是只比较 t——下一篇<a href="/quant/econ-vs-stat-sig">经济显著性</a>把这件事单独展开。</p><p>拥挤代理分层：位置（13F、ETF 份额、空头利息）、策略（同类基金相关、共动量）、融资（借券费、保证金）。代理进入衰减回归：\(\Delta\mathrm{IC}\) 对拥挤滞后项，控制波动与宏观。若拥挤升高之后 IC 下降、相关上升，才叫拥挤衰减；若只是 IC 下降而相关不变，更像是体制切换或单纯过拟合。</p><h3 id="衰减预算-把-26-与-32-写进期望" tabindex="-1">衰减预算：把 26% 与 32% 写进期望 <a class="header-anchor" href="#衰减预算-把-26-与-32-写进期望" aria-label="Permalink to &quot;衰减预算：把 26% 与 32% 写进期望&quot;">​</a></h3><p>新策略上线前，先给期望打折。保守做法：把回测毛收益乘 \((1-0.26)\) 作为「尚未发表的同类想法」的折扣，再乘一层与拥挤代理挂钩的交易折扣；若信号已在文献或产品里出现，直接用发表后那一档。折扣后过不了<a href="/quant/cost-sensitivity">保本成本</a>的，风险预算为零。Bailey 的紧缩夏普处理的是你自己的尝试次数；McLean–Pontiff 处理的是全行业已经做过的尝试。两层都要扣，只扣一层会把别人的数据挖掘当成自己的技能。</p><p><span class="marginnote">LLM 挖因子会把「尝试次数」从实验室扩到模型预训练语料。Alpha-GPT 一类系统若从 Kakushadze 101 与公开文献起步，先验已经偏向拥挤模板。负例检索与家族惩罚，见 <a href="/quant/hubble-alpha-agent">Hubble</a>，是对拥挤衰减的工程对策，不是对论文的复述。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>统计机制：原文 t 是截断样本，期望不可外推。经济机制：错误定价被交易进去，价格更有效，剩余 alpha 向成本靠近。拥挤机制：交易不是均匀渗入，而是在规则同步的窗口里集中发生，冲击永久成分变厚，预测变量相关上升。三条可以同时成立。McLean–Pontiff 强调高样本内收益的预测变量发表后掉得更多，符合「越明显越先被套利」；同时，高特质波动、低流动性名字上剩余收益更高，符合「成本保护了错误定价」。Hou–Xue–Zhang 则表明：把微盘与等权拿掉之后，许多「剩余」根本没有经济幅度。拥挤衰减只解释那些在可交易加权下仍然存在、却随资金进入而变薄的部分。</p><p>CTA、风险平价、统计套利的拥挤衰减形态不同。慢因子（价值、盈利）衰减以年为单位，更像风险溢价被重新定价；快因子（反转、微观结构）衰减以日为单位，更像冲击核被加厚。把不同半衰期的东西放进同一个「拥挤指数」，会把慢溢价的稳健性借给快信号。</p><h3 id="测到拥挤之后不能立刻做空-alpha" tabindex="-1">测到拥挤之后不能立刻做空 alpha <a class="header-anchor" href="#测到拥挤之后不能立刻做空-alpha" aria-label="Permalink to &quot;测到拥挤之后不能立刻做空 alpha&quot;">​</a></h3><p>做空拥挤交易需要能熬过拥挤继续加码的阶段。许多拥挤指标在趋势加速时同步升高，这时做空等于与动量对撞。正确用法是：拥挤高则降低自己的杠杆与参与率，拉长减仓窗口，避免与指数再平衡、期权到期同一天抢出口。把拥挤当择时空头，必须另有独立的负相关腿。对研究流水线，更干净的闸门是：与已部署因子相关过高、或落在负例模板里的新信号，直接不进模拟，而不是进了模拟再靠样本外一段碰巧好来开脱。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>发表日不是资金进入日。工作论文、研讨会、数据供应商的因子库会把「发表效应」提前。McLean–Pontiff 已警告 26% 高估纯偏差。13F 滞后一个季度，管不了期货与互换里的拥挤。A 股的北向、融券、涨跌停改变拥挤释放的速度：不是不会衰减，而是以贴水、封板、基差跳开的形式出现。</p><p>不要把复制失败写成「市场已经完全有效」。Hou–Xue–Zhang 的结论是市场比原文承认的更有效，仍留下一部分在更严门槛下显著的异常；McLean–Pontiff 拒绝可预测性完全消失。工程含义是：剩余 alpha 必须按可交易加权、成本后、拥挤态分别报告，而不是用一句「异常已死」或「异常还在」结束讨论。</p><p><span class="marginnote">出处：McLean and Pontiff, <em>JF</em>, 2016；Hou, Xue and Zhang, <em>RFS</em>, 2020；Stein, <em>Presidential Address</em>, <em>JF</em>, 2009；Khandani and Lo, 2007/2011。共动量见 Lou and Polk 及相关从业研究。Harvey, Liu and Zhu, <em>RFS</em>, 2016 给出多重检验门槛，与拥挤衰减分工：前者管发现的假阳性，后者管发现之后被交易掉的真阳性。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>拥挤 alpha 衰减是统计偏差、套利交易与持仓相关上升的乘积，不是单一的 IC 半衰期。</li><li>McLean–Pontiff：样本外 −26% 为偏差上界，发表后 −58%，约 32% 归因于发表知情交易；预测变量相关在发表后升高。</li><li>Hou–Xue–Zhang：可交易加权下多数异常复制失败，摩擦类尤甚；拥挤只解释那些加权后仍在、却随资金变薄的部分。</li><li>期望应预扣偏差与拥挤两层；高相关新信号不应进入模拟。</li><li>测到拥挤应先降杠杆，而不是无条件做空该因子。</li><li>出处：McLean–Pontiff, <em>JF</em>, 2016；Hou–Xue–Zhang, <em>RFS</em>, 2020；Stein, <em>JF</em>, 2009；Harvey–Liu–Zhu, <em>RFS</em>, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 回测与研究设计续<!--[--> · 单元 多重检验与稳健性<!--]--><!--[--> · 课序 检验族与纪律<!--]--></p><p class="lesson-progress">第 5 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cost-mc-sensitivity/">费用滑点蒙特卡洛</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

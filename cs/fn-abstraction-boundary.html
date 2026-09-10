@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>函数作为抽象边界 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_fn-abstraction-boundary.md.Dk7Wm2lS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 抽象与构造<!--]--><!--[--> · 课序 接口<!--]--></p><p class="lesson-progress">第 12 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/lifetime-dangling/">生命周期与悬挂</a></p><p class="lesson-next"> 下一课：<a href="/cs/module-header/">模块与头文件</a></p></nav><div style="position:relative;"><div><h1 id="函数作为抽象边界" tabindex="-1">函数作为抽象边界 <a class="header-anchor" href="#函数作为抽象边界" aria-label="Permalink to &quot;函数作为抽象边界&quot;">​</a></h1><div class="epigraph"><p>函数把一段可调用的实现藏在名字后面；调用方只依赖参数、返回值与写下来的副作用约定，而不是依赖函数体如何建帧。</p><footer>—— 据 Kernighan &amp; Ritchie, The C Programming Language, 2nd ed.；ISO/IEC 9899 整理</footer></div><p>上一课<a href="/cs/lifetime-dangling">生命周期与悬挂</a>钉死了：指针必须指向活对象，所有权不能靠运气。本课不重讲 <code>free</code>，也不从面向对象教材另起。缺口是：寿命与别名已经在机器上成立，<strong>怎样把它们收成调用双方都能遵守的一句话</strong>。函数是本栏里第一块有意设计的抽象，不是「把语句包起来少写重复」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>调用约定已经说明参数怎么传；那是 ABI。抽象边界问的是语义：哪些对象由 callee 只读、哪些会被改、返回的指针活多久、失败时哪些事没有发生。缺口因此不是再画一张栈帧，而是<strong>把机器事实写成契约</strong>。没有契约，悬挂课里的「谁释放」只能靠读完整个函数体才能知道——那不是抽象。</p><p>C 没有私有字段关键字当默认工具。边界靠函数签名加注释加惯例：输出参数用指针，所有权转移在名字或文档里声明，纯查询函数不改静态状态。后课头文件会把契约复制到每个翻译单元；本课先承认契约附着在函数上。</p><h3 id="函数不是「一段标签跳转」" tabindex="-1">函数不是「一段标签跳转」 <a class="header-anchor" href="#函数不是「一段标签跳转」" aria-label="Permalink to &quot;函数不是「一段标签跳转」&quot;">​</a></h3><p>机器上 call/ret 确实是跳转。抽象上，调用是进入另一个不变量成立的区域：进入时前置条件真，返回时后置条件真。把函数当成 goto 加注释，会允许从中途跳进跳出、共享所有局部，边界立刻消失。本课要的是可替换的实现：换掉函数体，只要契约不变，调用方源码不必改。</p><p><span class="marginnote">K&amp;R 从第 1 章就把程序拆成函数，强调参数是接口。ISO C 的函数类型包含返回类型与参数类型，但不包含「谁释放」——那一层要由本课的纪律补上。后课测试会把契约变成可执行的例子。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写函数时同时写清：输入对象的寿命必须覆盖整个调用；输出指针的寿命归谁；是否别名允许参数重叠；失败时返回什么、是否回滚已做的半步。返回码与详细错误留给<a href="/cs/error-code-failure">错误码与失败</a>。这里只要求：边界上能回答「指针活多久」。</p><div class="mermaid"></div><p>小函数可以内联，边界在优化后消失于指令序列，但源码级契约仍在：换一个编译器、关掉内联，程序语义应不变。这与 UB 课一致——契约对抽象机器成立，不依赖某一次内联决定。</p><p>纯函数（无副作用、不读可变静态）最容易测，也最容易替换。一旦函数读写文件或全局表，契约必须写清：改了哪些对象、失败时改了多少。这与错误码课衔接。调用约定保证参数能传过去；抽象保证传过去之后的意义稳定。内联与链接时优化可以跨过编译单元把函数体嵌进调用方，但若因此依赖某次内联才「碰巧正确」，那是把 UB 或未指定顺序当成实现细节——边界仍然按抽象机器来写。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>边界降低推理成本：调用方不必知道 callee 用了多少栈、是否递归、是否调用 <code>malloc</code>，除非契约声明会分配。实现方可以在体内改算法，只要不破坏寿命与别名承诺。这为后课模块化做准备：多个函数共享一份内部静态表时，边界必须扩大成「这组函数共同维护的不变量」，那是封装课的缺口。</p><p>函数指针把边界变成值：同一契约的不同实现可以在运行时切换。本课只承认这件事；虚表是更晚的布局课。不要把函数指针理解成「对象系统」，它仍是地址加上必须由程序员保证的契约。</p><p>C 标准库本身就是这套边界的样板：<code>fopen</code> 返回的指针指向的对象布局调用方看不见，寿命由 <code>fclose</code> 结束。调用方若保存内部缓冲指针越过下一次读写，契约被破坏。自己写的模块应当同样思考：哪些指针是借出（本次调用内有效），哪些是移交（调用方此后拥有）。函数指针让边界可替换，但不自动复制文档——类型只保证签名，所有权仍是人写的后置条件。后课头文件把这些签名发给其他 <code>.c</code>，边界才从「一个函数」变成模块。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲异常展开，不把 C++ 引用当默认模型。下一课<a href="/cs/module-header">模块与头文件</a>把边界从单个函数扩到翻译单元。后课默认：函数是契约边界；指针参数的寿命与所有权必须在边界上说清；实现可替换。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>函数隐藏帧与算法，向外只暴露契约：参数、返回、副作用、所有权。</li><li>ABI 管怎么传；抽象管能承诺什么。两者都要，但不能互相替代。</li><li>可替换性要求调用方不依赖函数体。</li><li>下一课用头文件把契约发给其他编译单元。</li><li>出处：K&amp;R 函数与程序结构；ISO C 函数类型。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 抽象与构造<!--]--><!--[--> · 课序 接口<!--]--></p><p class="lesson-progress">第 12 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/module-header/">模块与头文件</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

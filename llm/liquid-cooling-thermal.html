@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>液冷与热设计 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_liquid-cooling-thermal.md.CWSeuGgh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 集群运行<!--]--></p><p class="lesson-progress">第 14 / 24 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rack-power-density/">机架功率密度</a></p><p class="lesson-next"> 下一课：<a href="/llm/gpu-failure-modes/">GPU 故障模式</a></p></nav><div style="position:relative;"><div><h1 id="液冷与热设计" tabindex="-1">液冷与热设计 <a class="header-anchor" href="#液冷与热设计" aria-label="Permalink to &quot;液冷与热设计&quot;">​</a></h1><div class="epigraph"><p>风冷的极限是机柜能带走的热；液冷换的是传热介质，不是把热力学取消。水侧一停，加速器域比风扇停得更彻底。</p><footer>—— 对照高密度 GPU 机柜的冷板 / CDU 公开形态；功率密度见上一课</footer></div><p><a href="/llm/rack-power-density">上一课</a> 把卡数上限写成电。本课写热：同样的千瓦必须离开芯片。缺口是液冷如何改变故障模式与维护，而不是科普「水比空气热容大」。超节点产品形态公开为液冷托盘；<a href="/llm/nvlink">NVLink</a> 域、供电域、冷却域往往重叠成<strong>同一个爆炸半径</strong>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>风冷在 15 kW 以上机柜开始吃力：风量、噪声、热通道温度、以及 GPU 因进风不均而降频。冷板液冷把热从封装接到二次水，机柜可以堆到公开超节点那种密度。代价是：泄漏、水质、冷凝、CDU（分配单元）成为单点；维护要从「热插拔风扇」变成「关水、排液、换冷板」。问题是把冷却当成与 NCCL 同级的可用性输入：一次 CDU 故障可以让整柜 GPU 过热关机，step 丢失，等价于一次超大规模集体超时。</p><p>冷热不均同样有害：同一域里一张卡降频，All-Reduce 等最慢 rank，整步变慢。热设计失败表现为通信墙一样的症状，根因在进水温度与流量，不在算法。</p><p><span class="marginnote">一次水 / 二次水、CDU、歧管、冷板是常见分层。本课不画未公开的管路直径与流量公式。规划用厂商允许的进水温度范围与机房能否提供该水为准。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把冷却域画进拓扑图：哪些 GPU 共享 CDU、哪些共享歧管。故障演练按域下电，而不是按单卡。监控进水温度、回水温度、流量、泄漏传感器，与 GPU 热点、时钟、Xid 对齐时间轴——热事件往往先于 CUDA 错误。</p><p>作业调度避免在冷却余量不足时打满 Tensor Core 训练；降功率模式是保护，应告警为设施事件。液冷不能当「无限密度」：机房排热（冷却塔、外水）仍是屋顶线。PUE 变好只说明风扇电少了，厂级排热仍在。</p><div class="mermaid"></div><p>风冷机柜与液冷机柜混部时，不要按同一套进风假设做容量。也不要把液冷 GPU 插进只有风冷的机架——这不是软件开关。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>芯片功耗变成热流，冷板靠接触与流量带走。流量不足或气泡导致局部热阻上升，热点降频。同步训练让整柜同时进入高功耗，水侧看到的是方波；CDU 控制环若按缓慢的数据中心负荷设计，会在方波前沿过冲。这与网络拥塞控制环慢于集体脉冲是同一类「控制环跟不上训练时钟」的问题。</p><p>泄漏检测必须比电气保护更快：水进电是安全事件。因此液冷域的维护窗口更长，调度要预留，不能按风冷的热插拔 SLA 写训练作业的恢复时间。</p><p><span class="marginnote">浸没式冷却是另一条产品线，故障与维护模型又不同。没有部署就不要把浸没的营销 PUE 写进当前风冷/冷板机房的规划。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用液冷当节能的唯一理由——主因是密度。不要忽略凝露：进水过冷、机房露点高，冷板会结露。不要把未公开的「某代 120 kW 机柜」数字写进课；用你合同里的规格。下一课 GPU 故障模式包含热相关的 Xid 与静默错误，冷却是诱因之一。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>液冷支撑功率密度，把故障域收成 CDU / 机柜级。</li><li>单卡降频通过集体同步变成整步变慢。</li><li>监控水侧与 GPU 时钟对齐；控制环必须扛住训练方波。</li><li>维护与 SLA 不能按风冷热插拔来写。</li><li>出处：公开超节点液冷形态；设施进水温度与泄漏保护实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 集群运行<!--]--></p><p class="lesson-progress">第 14 / 24 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gpu-failure-modes/">GPU 故障模式</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

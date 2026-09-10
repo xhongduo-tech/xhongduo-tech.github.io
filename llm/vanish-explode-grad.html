@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>梯度消失与爆炸 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_vanish-explode-grad.md.DLaI84K2.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 反向传播<!--]--><!--[--> · 课序 链式法则<!--]--></p><p class="lesson-progress">第 16 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/autograd-two-modes/">自动微分的正向与反向模式</a></p><p class="lesson-next"> 下一课：<a href="/llm/linear-layer-bias/">线性层与偏置</a></p></nav><div style="position:relative;"><div><h1 id="梯度消失与爆炸" tabindex="-1">梯度消失与爆炸 <a class="header-anchor" href="#梯度消失与爆炸" aria-label="Permalink to &quot;梯度消失与爆炸&quot;">​</a></h1><div class="epigraph"><p>反向路径是一串局部增益的乘积；每层略小于 $1$ 则深层梯度消失，每层略大于 $1$ 则爆炸。</p><footer>—— 据 Hochreiter, Untersuchungen zu dynamischen neuronalen Netzen, 1991；Bengio, Simard &amp; Frasconi, IEEE Trans. Neural Networks, 1994；Pascanu, Mikolov &amp; Bengio, ICML 2013 整理</footer></div><p><a href="/llm/autograd-two-modes">自动微分的正向与反向模式</a>说明训练走反向。本课不比较 AD 模式。缺口是：反向即使实现正确，深层参数仍可能收到接近 \(0\) 或 Inf 的梯度。原因是局部 Jacobian 的奇异值沿深度连乘。本课把这一乘法结构钉住；残差、合适的初始化、非饱和激活、门控，是后面若干课分别补的洞，这里不提前讲完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一层的反向把 \(\mathrm{d}h^{(\ell+1)}\) 乘上 \(W^\top\odot\sigma&#39;\) 一类增益，得到 \(\mathrm{d}h^{(\ell)}\)。\(L\) 层之后，最浅层看到的是 \(L\) 个矩阵的乘积作用在 \(\mathrm{d}h^{(L)}\) 上。若这些矩阵的典型增益 \(\rho\lt 1\)，则 \(\rho^L\to 0\)；若 \(\rho\gt 1\)，则 \(\rho^L\to\infty\)。缺口不是链式法则写错，而是深度把「每层一点点」放大成指数。浅层参数几乎收不到有效更新，或一步就被打飞——两者都会让深层网络训不动。</p><p>循环网络沿时间展开后，深度等于序列长度，问题更尖锐：那是<a href="/llm/rnn-long-range">RNN 与长程依赖</a>的缺口。本课先在前馈深度上把同一乘法说清，避免后课把 LSTM 当成全新魔法。</p><h3 id="梯度裁剪不是「消失的对称解」" tabindex="-1">梯度裁剪不是「消失的对称解」 <a class="header-anchor" href="#梯度裁剪不是「消失的对称解」" aria-label="Permalink to &quot;梯度裁剪不是「消失的对称解」&quot;">​</a></h3><p>爆炸时，\(\|\nabla L\|\) 超过阈值就缩放，能让一步更新有限。消失时，梯度已经是 \(0\)，裁剪不改变 \(0\)。两者不是同一旋钮的两端。裁剪是爆炸的工程闸门，对消失无效。消失要改增益结构：激活不要把导数长期压在 \(0\) 附近、初始化不要让 \(\|W\|\) 过小、深度路径上要有增益接近 \(1\) 的旁路。后课残差专门提供这条旁路。</p><p><span class="marginnote">诊断应分层看梯度范数，不要只看全局 \(\|\nabla L\|\)。全局范数可能被某一层的爆炸主导，而另一层已经消失。日志里按层打印 \(\mathrm{d}W\) 的 RMS，比只打印损失更早暴露。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>粗诊断：记录各层 \(\mathrm{d}h\) 与 \(\mathrm{d}W\) 的 RMS 随深度的变化。单调掉到数值噪声：消失；随深度指数上升或频繁 Inf：爆炸。饱和激活（sigmoid、tanh 在幅值大时 \(\sigma&#39;\approx 0\)）提供 \(\lt 1\) 的逐元素增益；随机初始化若 \(\|W\|_2\) 期望偏离 \(1\)，提供矩阵增益。两者相乘。梯度裁剪：若 \(\|g\|\gt c\)，令 \(g\leftarrow g\cdot c/\|g\|\)，再交给优化器。它改变步长，不改变方向（在欧氏范数下）。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>反向是线性化。每层在当前点的一阶近似是一个矩阵；深度复合的一阶近似是矩阵乘积。乘积的谱半径偏离 \(1\) 时，只有指数可以描述深度效应。这与前向信号的消失 / 爆炸是对偶现象：前向 \(\|h\|\) 崩掉时，反向往往一并崩掉，因为 \(\sigma&#39;\) 与 \(W\) 是同一组量。初始化课将管前向方差；残差课将管「至少有一条增益为 \(1\) 的路径」；LSTM 将管时间轴上的增益。本课只提供共同语言：看连乘，不要只看某一层。</p><p>softmax 饱和也是一种局部增益接近 \(0\)（见交叉熵课的 \(p-y\) 在 \(p\) 极尖时）。它发生在最后一层，会让整个反向变弱，但不随深度指数恶化。深度连乘与末层饱和要分开诊断。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 BatchNorm / LayerNorm 的公式，不写残差 \(h+f(h)\)。下一课起进入前馈网络，从<a href="/llm/linear-layer-bias">线性层与偏置</a>把仿射补全。后课默认：深层训不动时，先分层看梯度范数，再决定是裁剪、改激活、改初始化还是加旁路。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>反向是局部增益连乘；\(\rho^L\) 在深度上指数地消失或爆炸。</li><li>裁剪只对付爆炸，不对付消失。</li><li>饱和激活与 \(\|W\|\) 偏离 \(1\) 是两类增益来源，诊断要按层。</li><li>循环展开把深度换成时间，同一乘法稍后会再出现。</li><li>出处：Hochreiter, 1991；Bengio et al., 1994；Pascanu et al., ICML 2013。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 反向传播<!--]--><!--[--> · 课序 链式法则<!--]--></p><p class="lesson-progress">第 16 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/linear-layer-bias/">线性层与偏置</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>债券流动性与 TRACE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bond-liquidity-trace.md.BOZJ8-xt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 模型<!--]--><!--[--> · 课序 期限结构<!--]--></p><p class="lesson-progress">第 11 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/convertible-credit/">可转债与信用混合</a></p><p class="lesson-next"> 下一课：<a href="/quant/corporate-bond-otc/">公司债 OTC 询价</a></p></nav><div style="position:relative;"><div><h1 id="债券流动性与-trace" tabindex="-1">债券流动性与 TRACE <a class="header-anchor" href="#债券流动性与-trace" aria-label="Permalink to &quot;债券流动性与 TRACE&quot;">​</a></h1><div class="epigraph"><p>公司债的「价差」很少挂成连续的买卖报价。公开可观测的往往是事后报告的成交，流动性度量必须从打印里重建，而不是从一张股票式的限价簿里读取。</p><footer>—— Bessembinder, Maxwell and Venkataraman；Edwards, Harris and Piwowar, Corporate Bond Market Transaction Costs and Transparency, Journal of Finance, 2007</footer></div><p><a href="/quant/convertible-credit">可转债与信用混合</a>把转债写成股票加信用的定价核，默认你能看到一个可用的债底价格。本课的缺口是：普通公司债没有股票那样的连续 <a href="/quant/lob-structure">LOB</a>，流动性写在 OTC 成交里。TRACE（Trade Reporting and Compliance Engine）把美国公司债成交强制报告，使交易成本第一次可以按打印来估。Edwards、Harris 与 Piwowar 以及 Bessembinder 等人表明，透明度提高后交易成本下降，但债券仍远比股票「不连续」。后课 OTC 询价写交易如何发生；本课写 TRACE 作为流动性度量的数据契约。附录 <a href="/quant/trace-corporate-bond">TRACE 成交报告</a>会把字段与延迟写细，本课不重复报文手册。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>股票价差分解依赖 BBO。公司债多数时间没有可比较的公开双向报价，或者报价是经销商对特定客户的指示性价格，不是可对全市场执行的承诺。能观测的是：哪只债、何时、什么价格、多大面值、买方是否对经销商，以及报告是否被上限截断。流动性问题于是改写为：从不规则、带截断、带延迟的成交打印中，估计往返成本、价格冲击与变现时间。把股票的有效价差公式原样套上，会缺中点；硬用相邻成交价差当价差，会把信用评级迁移的跳价当成摩擦。</p><p>TRACE 的引入本身是制度实验：事前仍暗、事后更亮。研究要区分「报告规则改变了行为」与「报告让我们第一次看见旧行为」。Edwards–Harris–Piwowar 处理的是透明度与成本，不是把债券变成股票微观结构的副本。</p><h3 id="没有中点时有效价差怎么定义" tabindex="-1">没有中点时有效价差怎么定义 <a class="header-anchor" href="#没有中点时有效价差怎么定义" aria-label="Permalink to &quot;没有中点时有效价差怎么定义&quot;">​</a></h3><p>常用代理：对同一只债、同一天、接近的买卖打印做配对，估经销商的买卖加价；或用基准曲线（国债或 CDS）的理论价当参照，成交相对理论价的偏离当「有效价差」。前者需要方向或经销商标识，后者把模型和流动性混在一起——曲线本身含流动性溢价。本课允许两套，但必须声明。不要发明一个全日中点再跑 Lee–Ready：债券日内成交可能只有几笔，中点是虚构的。</p><p><span class="marginnote">TRACE 对大额成交曾有金额上限与延迟披露。用截断后的面值去加权成本，会系统性低估机构大单的冲击。应使用未截断研究数据集（若许可）或对上限成交单独分层。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按债券、按日构建：成交笔数、成交面值、价格极差、相对基准的偏离、以及滚动若干日的Amihud 式 \(|r|/\mathrm{volume}\)。债券的「量」是面值不是股数。持有期匹配：投资级活跃券可能日频有打印，高收益冷门券可以几天没有成交，变现时间见<a href="/quant/liquidity-horizon">流动性地平线</a>，不要用零成交日的 ILLIQ 当无穷。事件研究用评级调整、发行、指数纳入，看打印频率与成本的变化。</p><p>与股票度量对照时，只对照<strong>同地平线</strong>的对象：日度债券 ILLIQ 对日度股票 ILLIQ，而不是对五分钟实现价差。Huang–Stoll 式三路分解在债券上通常不可估，因为没有连续方向结构。两笔成交的价差更接近处理加存货加搜索成本。</p><h3 id="透明度、存货与匹配质量" tabindex="-1">透明度、存货与匹配质量 <a class="header-anchor" href="#透明度、存货与匹配质量" aria-label="Permalink to &quot;透明度、存货与匹配质量&quot;">​</a></h3><p>事后报告提高了客户对「别人成交在哪」的可见性，削弱经销商的信息租金，这是 Edwards–Harris–Piwowar 的机制方向。经销商仍提供存货与搜索：客户不是对着一张簿吃单，而是打电话或发 RFQ。TRACE 打印是匹配的结果，不是簿的状态。因此债券「深度」不能从打印反推成股票 L2。能做的是：给定面值 \(Q\)，估计额外成本如何随 \(Q\) 上升，用分层成交规模来代理冲击——这是粗糙的，但诚实。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>公司债流动性差的结构原因是：异质契约（条款、期权、担保）、持有人分散、违约跳跃使逆向选择昂贵、以及缺少统一的连续匹配。TRACE 改变的是事后透明，不自动产生事前 BBO。价格发现大量发生在 CDS 与股票里，债券打印是滞后确认。把债券收益的短时自相关当 Roll 价差，可能把稀少成交之间的新闻当成摩擦。应先用基准调整残差，再谈债券自身的流动性成分。</p><p><span class="marginnote">不要把 <a href="/quant/kyle-model">Kyle</a> 的连续时间做市直接校准到一天两笔的债券上。经验 lambda 需要流量；没有流量时，lambda 的分母不稳定。冷门券应改报变现时间，而不是报一个爆炸的 \(\hat\lambda\)。</span></p><div class="mermaid"></div><h3 id="冷门券的对象是变现时间不是-lambda" tabindex="-1">冷门券的对象是变现时间不是 lambda <a class="header-anchor" href="#冷门券的对象是变现时间不是-lambda" aria-label="Permalink to &quot;冷门券的对象是变现时间不是 lambda&quot;">​</a></h3><p>一天两笔的债券，分母流量不稳定，经验 lambda 会爆炸或接近零。应报「在给定冲击上限下需要多少个交易日」，与流动性地平线课对齐，而不是硬输出一个 \(\hat\lambda\)。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>美国公司债 TRACE 不能代表中国银行间、欧洲公司债或贷款。市政债、ABS 有自己的报告系统。可转债同时在股票与债券通道交易，流动性是混合的，不要只用 TRACE 打印去估转债冲击。下一课进入 OTC 询价协议本身：RFQ、经销商网络、以及为什么同一打印价格对另一客户不可执行。</p><p><span class="marginnote">可转债同时走股票通道与债券打印。只用 TRACE 估冲击，会漏掉转股与正股对冲腿上的流动性。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>公司债流动性主要从 TRACE 一类事后打印重建，不是从 LOB 读取。</li><li>有效价差需要配对成交或相对基准偏离；不要虚构连续中点。</li><li>大额截断与延迟披露会偏倚规模加权成本。</li><li>透明度降低信息租金，不自动创造连续深度。</li><li>冷门券应报变现时间，而不是硬估 lambda。</li><li>出处：Edwards, Harris and Piwowar, <em>Journal of Finance</em>, 2007；Bessembinder, Maxwell and Venkataraman 对 TRACE 与交易成本的研究；Harris 对债券市场结构的讨论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 模型<!--]--><!--[--> · 课序 期限结构<!--]--></p><p class="lesson-progress">第 11 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/corporate-bond-otc/">公司债 OTC 询价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

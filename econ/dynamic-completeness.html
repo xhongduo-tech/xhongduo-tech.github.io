@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>动态完备与复制 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_dynamic-completeness.md.BSm564Es.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息、流动性与无套利<!--[--> · 单元 无套利与鞅<!--]--><!--[--> · 课序 定价的数学骨架<!--]--></p><p class="lesson-progress">第 16 / 41 课</p><p class="lesson-prereq"> 先修：<a href="/econ/equivalent-martingale-measure/">等价鞅测度</a></p><p class="lesson-next"> 下一课：<a href="/econ/harrison-kreps-martingale/">Harrison–Kreps 鞅定价</a></p></nav><div style="position:relative;"><div><h1 id="动态完备与复制" tabindex="-1">动态完备与复制 <a class="header-anchor" href="#动态完备与复制" aria-label="Permalink to &quot;动态完备与复制&quot;">​</a></h1><div class="epigraph"><p>状态可以很多，证券可以很少：只要能沿信息到达再交易，动态策略可以张成静态菜单张不成的支付。</p><footer>—— Kreps, Multiperiod Securities and the Efficient Allocation of Risk, 1982；对照 Harrison–Pliska 的布朗完全性</footer></div><p><a href="/econ/equivalent-martingale-measure">上一课</a>写明：完全当且仅当 EMM 唯一。本课缺口是<strong>完全从何而来</strong>——不是一开始就列出 \(S\) 张 Arrow 证券，而是动态再交易。不重写 \(\mathbb{Q}\) 的定义，不把复制写成限价簿上的对冲执行。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态一期，\(J\lt S\) 则不完全，见 <a href="/econ/incomplete-markets-gei">GEI</a>。多期：信息是树（或域流 \(\mathcal{F}_t\)）。每期可按当时价格调整持仓，终端支付是策略的积分。Kreps（1982）强调：动态完备指策略空间张成所有（平方可积、适应的）或有支付，不是指某期现货市场列全。Black–Scholes 的世界只有股票与债券两种证券，连续交易加布朗信息，却能复制欧式期权——因为信息由一个布朗生成，两种连续交易的资产恰好对准那个不确定性来源。</p><p>缺口是把「张成」从矩阵的列换成策略的随机积分。FTAP 第二定理现在有了内容：EMM 唯一 ⇔ 动态张成足够。</p><p><span class="marginnote">离散树：每个节点的分叉数不得超过当时可交易的独立风险资产数（加债券），否则局部不满秩。连续时间把这句话换成「风险源的个数 = 连续交易的风险资产个数」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>复制：找可积策略 \(\phi\)，使终端 \(x=x_0+\int\phi\,\mathrm{d}S\) 且贴现财富为 \(\mathbb{Q}\)–鞅（无注入）。完全则每个 \(x\) 有复制，价格是复制的初始成本，也等于 \(\mathrm{E}^{\mathbb{Q}}[x/B]\)。不完全则只有 \(\mathrm{span}\) 里的 \(x\) 有唯一价格；其余只有超复制的上界与次复制的下界——连续时间课序的定价界再写。</p><p>与状态价格课对照：静态完全是 \(S\) 张 Arrow；动态完全是「信息有多宽、能交易多少次、有多少独立价格过程」。Radner 式逐期开市场，可以把不完全的静态菜单做完备——前提是每期分叉被当时证券覆盖。</p><div class="mermaid"></div><p>不要把「连续交易」写成「没有买卖价差所以能复制」。连续是域流与路径的理想化；价差会破坏精确复制，那是 Constantinides 后课，不是本课把 FTAP 收回去。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是信息到达时重新配置。今天分不清的两个状态，明天若被分开，只要那时还有能区分它们的相对价格，就可以把财富挪到正确的枝上。静态菜单必须预先为每一枝准备一张证券；动态菜单用时间换证券数目。布朗之所以「一个噪声源」，是因为无穷小增量只有一个方向；再多一个独立布朗，就要再多一个连续交易的资产，否则不完全。</p><p>Kyle 的连续拍卖是信息泄漏过程，不是复制过程。不要把知情者的战略强度当成动态完备——完备是菜单与域流的关系，与是否有人知情无关。有私人信息时，对谁而言的域流可以不同，复制对做市端与对知情者不是同一策略。那是接口，本课用公共域流。</p><p><span class="marginnote">跳跃过程每个跳的幅度若是新方向，可能需要无穷多证券才能完全。 Merton 跳扩散的期权一般不能用股票债券精确复制——不完全，价格落在区间或靠均衡定 \(m\)。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证明随机积分的表示定理。后文 Merton 组合会在完全市场里当策略存在；CIR、Black–Scholes 作为均衡会给出具体的完全经济。也不要把动态完备写成「现实能连续对冲」——执行是量化栏。</p><p>下一课回到 Harrison–Kreps：他们如何把鞅定价从套利推到跨期信念，并允许异质预期下的投机。本课只钉张成。</p><p>后课默认：动态再交易可以完备静态上看起来缺列的市场；EMM 唯一与可复制是同一件事。价差与跳跃会破坏精确复制。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>动态完备是策略张成适应支付，不是静态 Arrow 证券列全。</li><li>风险源个数对齐连续交易的风险资产个数时，少量证券即可完全。</li><li>复制价格 = EMM 期望；不完全则区间。</li><li>出处：Kreps, 1982；Harrison and Pliska, 1981；对照 Black–Scholes。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息、流动性与无套利<!--[--> · 单元 无套利与鞅<!--]--><!--[--> · 课序 定价的数学骨架<!--]--></p><p class="lesson-progress">第 16 / 41 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/harrison-kreps-martingale/">Harrison–Kreps 鞅定价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

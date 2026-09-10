@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>菲利普斯曲线与预期 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_phillips-expectations.md.D-xRRXf_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：货币、周期与政策<!--[--> · 单元 货币<!--]--><!--[--> · 课序 需求与通胀<!--]--></p><p class="lesson-progress">第 7 / 53 课</p><p class="lesson-prereq"> 先修：<a href="/econ/seigniorage/">通胀税与铸币税</a></p><p class="lesson-next"> 下一课：<a href="/econ/natural-rate-u-star/">自然率假说</a></p></nav><div style="position:relative;"><div><h1 id="菲利普斯曲线与预期" tabindex="-1">菲利普斯曲线与预期 <a class="header-anchor" href="#菲利普斯曲线与预期" aria-label="Permalink to &quot;菲利普斯曲线与预期&quot;">​</a></h1><div class="epigraph"><p>失业与工资膨胀的替换，一旦写进预期，就变成一条随政策移动的曲线，而不是可以钉住的菜单。</p><footer>—— Phillips, The Relation between Unemployment and the Rate of Change of Money Wage Rates, Economica 1958；Friedman, AER 1968；Lucas 的理性预期推进</footer></div><p><a href="/econ/seigniorage">上一课</a>（通胀税与铸币税）。在此之上，通胀写成对实际余额的税。税可以改变持币，不能永久改变<a href="/econ/natural-unemployment">自然率</a>。本课的缺口是：观测上 \(\pi\) 与 \(u\) 为何短相关、长脱钩。Phillips 给出工资–失业的统计替换；Friedman 与 Phelps 把预期加进去；Lucas 再把预期写成对政策规则的推断。IS–LM 用这条曲线当供给侧的缺口，但先把预期钉住。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Phillips（1958）在英国数据里看到货币工资变化率与失业的负向关系。若直接把这条曲线当政策菜单，「多一点通胀、少一点失业」就像在需求曲线上选点。自然率课已经拒绝永久菜单。缺口是写出</p> \[\pi_t = \pi_t^e + \kappa(u_t-u^*)+\varepsilon_t, \]<p>使 \(u=u^*\) 且 \(\pi^e=\pi\) 时没有加速，也没有永久替换。\(\kappa\) 的微观来自工资或价格调整，本课不先上 Calvo。</p><p>Friedman（1968）：扩张先造成意外通胀，实际工资或相对价格被误读，\(u\) 暂时低于 \(u^*\)；预期追上后替换消失，\(\pi\) 停在更高水平。Phelps 从工资设定走到同类结论。Lucas（1972/1973）让预期成为对总价格与相对价格的最优滤波：只有未被预见的货币才动 \(y\)。</p><p><span class="marginnote">加速主义：要把 \(u\) 维持在 \(u^*\) 之下，必须让 \(\pi\) 持续高于 \(\pi^e\)，于是 \(\pi\) 本身加速。NAIRU 是操作上「不加速」的 \(u\)，估计依赖这条式子的设定。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>附加预期的菲利普斯把供给写成意外通胀对缺口的反应。需求侧是后课 IS–LM 或欧拉–NK。本课只关闭供给：给定 \(\pi^e\)，需求拉动可以沿短曲线移动；\(\pi^e\) 一变，整条短曲线移动。</p><p>适应性预期把 \(\pi^e\) 写成滞后 \(\pi\) 的加权；理性预期让 \(\pi^e\) 等于模型给出的条件期望。政策含义立刻分叉：适应性下，渐进消通胀有失业代价；理性下，可信的规则可以改变 \(\pi^e\) 而不必走完同一条牺牲比——这已经碰到卢卡斯批判，本课点到为止。</p><div class="mermaid"></div><p>工资 Phillips 与价格 Phillips 差一个单位劳动成本与加成。本课用 \(\pi\) 对 \(u-u^*\)，声明指数来自价格课。供给冲击 \(\varepsilon\) 使 \(\pi\) 与 \(u\) 同向恶化，不能再用需求菜单解释。</p><h3 id="预期不是装饰" tabindex="-1">预期不是装饰 <a class="header-anchor" href="#预期不是装饰" aria-label="Permalink to &quot;预期不是装饰&quot;">​</a></h3><p>若把 \(\pi^e\) 固定，短曲线看起来稳定，用它做最优控制会得到「微调失业」。一旦公众把规则学进去，\(\pi^e\) 成为规则的函数，估计出来的替换消失。后课卢卡斯批判把这句话变成对所有简化式的警告。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>意外的名义扩张改变了被感知的相对价格：厂商以为自己的产品更值钱，或工人以为实际工资更高，就业暂时上升。当一般物价被正确感知，配置回到 \(y^*\)，\(u\) 回到 \(u^*\)，多出来的只是 \(\pi\)。铸币税仍在：更高的稳态 \(\pi\) 继续抽实际余额的税，但抽不到永久的低失业。</p><p>长期垂直不是经验上每个样本的回归斜率，而是理论要求：预期正确时实际变量由实物与自然率决定。1970 年代的滞胀是对「稳定负斜率菜单」的拒绝，不是对短替换的否认。</p><p>供给冲击 \(\nu\) 使 \(\pi\) 与 \(u\) 同升，原始负斜率破裂。要把 \(\nu\) 写进方程。加速主义：保持 \(u\lt u^*\) 必须让 \(\pi\) 持续高于 \(\pi^e\)。可信的低 \(\pi\) 目标降低 \(\pi^e\)，同样缺口对应更低的 \(\pi\)。</p><p><span class="marginnote">原始 Phillips 用工资变化；政策讨论常用价格通胀。传递取决于加成与生产率。斜率不是深结构——卢卡斯批判后课宣判简化式。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不估计牺牲比，不把新凯恩斯的前瞻 Phillips 整条搬进来——那里要有欧拉与 Calvo，是后课。也不把劳动市场匹配写成量化栏的订单簿。自然率可以慢变；把一切 \(u\) 上升写成预期错误，会放过 \(u^*\) 的结构移动。开放程度与锚定会改 \(\kappa\)，不能把 1960 年代美国的斜率抄到另一国。</p><p>后课默认：谈短期通胀–缺口时，必写 \(\pi^e\)；谈长期时曲线在 \(u^*\) 垂直。下一课用 Hicks 的 IS–LM 把需求侧写成会计式的商品与货币均衡。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Phillips 的统计替换加上 \(\pi^e\) 后，长期没有失业–通胀菜单。</li><li>自然率：\(u=u^*\) 且预期正确时，\(\pi\) 由货币趋势等名义锚决定。</li><li>只有意外的名义冲击暂时移动 \(y\)、\(u\)。</li><li>供给冲击会让相关变号；加速主义拒绝永久菜单。</li><li>简化式替换随政策规则而动，是卢卡斯批判的入口。</li><li>出处：Phillips, Economica 1958；Friedman, AER 1968；Lucas 理性预期与中性。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：货币、周期与政策<!--[--> · 单元 货币<!--]--><!--[--> · 课序 需求与通胀<!--]--></p><p class="lesson-progress">第 7 / 53 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/natural-rate-u-star/">自然率假说</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

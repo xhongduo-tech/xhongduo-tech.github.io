@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>复制与 delta | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_replicating-delta.md.DmC2qunm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 16 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bsm-as-pde/">Black–Scholes 作为 PDE</a></p><p class="lesson-next"> 下一课：<a href="/quant/put-call-parity-arb/">Put–call 平价作为无套利</a></p></nav><div style="position:relative;"><div><h1 id="复制与-delta" tabindex="-1">复制与 delta <a class="header-anchor" href="#复制与-delta" aria-label="Permalink to &quot;复制与 delta&quot;">​</a></h1><div class="epigraph"><p>完备市场里，期权是动态持仓：$\Delta_t=V_S(t,S_t)$ 股标的，余下资金放货币市场。连续再平衡使终值几乎必然等于支付。</p><footer>—— 据 Black and Scholes, 1973；Harrison and Pliska, 1981；Shreve, Stochastic Calculus for Finance II, 第 6 章整理</footer></div><p>上一课<a href="/quant/bsm-as-pde">Black–Scholes 作为 PDE</a>给出 \(V(t,S)\)。缺口是把 PDE 解翻译成交易：持有多少 \(S\)、多少债券，才能复制 \(g(S_T)\)。价格等于复制成本，不是另找一个期望再解释一遍。本课只钉 delta 与自融资，不把离散再平衡的误差写成市场微观结构。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>鞅表示已经保证存在某个 \(\phi\)，使贴现 \(V\) 等于初值加 \(\int\phi\,\mathrm d(\mathrm e^{-rt}S)\)。缺口是认出 \(\phi\) 就是 \(V_S\)。用 Itô 展开 \(V(t,S_t)\)，扩散系数是 \(\sigma S V_S\)；标的的扩散系数是 \(\sigma S\)。自融资组合 \((\Delta,\Gamma)\)（\(\Delta\) 份股票，\(\Gamma\) 份债券）要匹配这两个扩散，故 \(\Delta=V_S\)。剩下的价值放债券，PDE 保证漂移也匹配。没有这一步，「风险中性期望」和「对冲组合」仍是两套语言。</p><p>自融资：没有外加现金，\(\mathrm d\Pi=\Delta\,\mathrm d S+\Gamma\,\mathrm d B\)。消耗或注入现金会破坏复制恒等式。</p><h3 id="delta-不是「方向性观点」" tabindex="-1">Delta 不是「方向性观点」 <a class="header-anchor" href="#delta-不是「方向性观点」" aria-label="Permalink to &quot;Delta 不是「方向性观点」&quot;">​</a></h3><p>\(\Delta\) 是复制比率，由 \(V\) 的偏导决定，不是对后市涨跌的押注。把 \(\Delta=0.6\) 读成「六成把握看多」，对象从对冲变成预测。\(P\) 下你可以有观点；复制在 \(Q\) 的动力学上匹配扩散，不表达观点。</p><p><span class="marginnote">离散再平衡留下 Gamma 误差，量级是 \(\tfrac12 V_{SS}(\Delta S)^2\) 与 \(\sigma^2 S^2\Delta t\) 的差。连续极限里二次变差对齐，误差消失。这是理想化接口，不是交易系统。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>自融资组合价值 \(\Pi_t=\Delta_t S_t+\Gamma_t B_t\)。令 \(\Delta_t=V_S(t,S_t)\)，\(\Pi_0=V(0,S_0)\)，则在 BSM 假设下 \(\Pi_T=g(S_T)\) a.s.。看涨的 \(\Delta=\Phi(d_1)\in(0,1)\)，看跌 \(\Delta=\Phi(d_1)-1\in(-1,0)\)——闭式下一课才写，本课只需 \(\Delta=V_S\)。Gamma \(V_{SS}\) 描述 delta 对 \(S\) 的敏感度，决定再平衡频率的尺度，不是本课的独立定价量。</p><p>多维时 delta 是梯度 \(\nabla_S V\)，每个可交易标的一行。不完备时不存在精确 \(\Delta\)，只存在投影对冲；那是不全市场留下的接口。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>匹配扩散项消去 \(\mathrm d W\)，组合瞬时方差为零，收益率被 PDE 钉在 \(r\)。这是 1973 的论证，与「贴现 \(V\) 为 \(Q\)-鞅」互译。\(V_S\) 随 \(S\) 与 \(t\) 变，所以必须连续调整：静态持仓只能复制线性支付。凸性（Gamma）使期权不能被静态的股票加债券代替——这正是期权有时间价值的交易侧。\(V_S\) 对看涨落在 \((0,1)\) 是边界行为的推论：复制不能超买现货，也不能变成净空头超过一张看跌所能提供的范围。</p><p>融资：\(\Delta\) 增大时从货币市场抽现金买股，减小则反向。自融资记账把这些内部划转算清。交易成本会破坏理想复制，本课程不把它们写进 PDE。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讨论离散对冲最优频率、不引入买卖价差、不写限价簿吃单。美式的 delta 在行权边界上有折，最优停课再提。后课默认：BSM 价格是复制成本，\(\Delta=V_S\) 是股票持仓。下一课<a href="/quant/put-call-parity-arb">Put–call 平价作为无套利</a>给出不依赖动态模型的静态关系。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>复制：\(\Delta=V_S\)，余下资金放货币市场，自融资。</li><li>匹配扩散消去 \(\mathrm d W\)；PDE 匹配漂移。</li><li>Delta 是对冲比率，不是涨跌观点。</li><li>精确复制依赖完备与连续再平衡。</li><li>出处：Black–Scholes 1973；Harrison–Pliska 1981；Shreve SDE II 第 6 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 定价的数学<!--]--><!--[--> · 课序 风险中性<!--]--></p><p class="lesson-progress">第 16 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/put-call-parity-arb/">Put–call 平价作为无套利</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

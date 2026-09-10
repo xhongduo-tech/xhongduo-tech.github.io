@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>极值理论 EVT | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_evt.md.CCWidhTy.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 依赖与极值<!--]--><!--[--> · 课序 尾部<!--]--></p><p class="lesson-progress">第 10 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/iv-vs-rv/">隐含 vs 已实现波动</a></p><p class="lesson-next"> 下一课：<a href="/quant/copula/">Copula 相关结构</a></p></nav><div style="position:relative;"><div><h1 id="极值理论-evt" tabindex="-1">极值理论 EVT <a class="header-anchor" href="#极值理论-evt" aria-label="Permalink to &quot;极值理论 EVT&quot;">​</a></h1><div class="epigraph"><p>保险与金融里真正贵的是尾巴，不是中心；用正态或历史分位数外推「还没见过的损失」，需要极值理论给出的极限律，而不是把样本最大值当答案。</p><footer>—— Embrechts, Klüppelberg and Mikosch, Modelling Extremal Events for Insurance and Finance, Springer 1997</footer></div><p><a href="/quant/iv-vs-rv">上一课</a>把无模型隐含方差与已实现积分方差对齐，差额含预测误差与方差风险溢价；VIX 不是对未来波动的无偏点预测。缺口转到尾部：平均亏损与隐含–已实现差都不管「超过高阈值之后还长什么样」。Fisher–Tippett–Gnedenko 给块极大值广义极值极限；Pickands–Balkema–de Haan 给超阈值超出量广义帕累托极限。本课写 EVT 作为尾部的渐近模型：估什么、阈值怎么选、以及为何相关为零仍可能同爆。不重推方差互换复制。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>隐含与已实现对齐之后，差额是预测误差加方差风险溢价；两边都不管超过高阈值之后损失还长什么样。设日损失 \(X\) 有分布 \(F\)。VaR 是 \(F\) 的高分位数，Expected Shortfall 是超过 VaR 的条件期望。样本里超过 99.5% 的点很少，经验分位数方差极大；用全样本拟合的正态或 \(t\) 又把中心的拟合误差带进尾巴。问题是找一种只使用尾巴形状的极限，而不是把整个 \(F\) 估对。</p><p>两个操作定义。<strong>块极大值</strong>：把样本切成 \(m\) 块，每块取最大，\(M_n\) 经中心化、尺度化后，若有非退化极限，则必为广义极值（GEV）——Gumbel、Fréchet 或 Weibull 三型。<strong>超阈值（POT）</strong>：给定高阈值 \(u\)，超出量 \(X-u\mid X\gt u\) 在 \(u\to\) 端点时逼近广义帕累托（GPD），形状参数 \(\xi\) 与 GEV 是同一个尾指数。金融日损失通常属 Fréchet 域：\(\xi\gt 0\)，尾像幂律，矩是否存在取决于 \(\xi\)。</p><h3 id="正则变化与「均值可能不存在」" tabindex="-1">正则变化与「均值可能不存在」 <a class="header-anchor" href="#正则变化与「均值可能不存在」" aria-label="Permalink to &quot;正则变化与「均值可能不存在」&quot;">​</a></h3><p>若 \(\bar F(x)=1-F(x)\) 正则变化指数 \(-\alpha\)，则 \(\xi=1/\alpha\)。\(\alpha\le 2\) 时方差无穷，\(\alpha\le 1\) 时均值无穷。保险里的大赔付、某些资产的日损失，经验 Hill 图会把 \(\alpha\) 画到 2 附近，是否小于 2 对组合分散化是否成立是一等结论：方差有限才能谈 Markowitz；方差无限时，线性相关与方差贡献都没有定义。EVT 要先回答「几阶矩存在」，再谈 VaR 数字。</p><p><span class="marginnote">把「极端」理解成「样本里最大的那几天」是循环的。EVT 的极端是渐近：阈值升高时超出量的形状稳定到 GPD。阈值太低，中心污染；太高，点太少。诊断靠平均超出函数是否近似线性，而不是靠业务上「我觉得 3σ 以外都算极端」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>GEV 拟合块极大。</strong> 年极大或月极大样本小，适合再保险的「一年最大赔付」，对交易账簿的日 VaR 浪费数据。形状、位置、尺度可用极大似然或概率加权矩；分位数由 GEV 反函数给出。块长是带宽：太短则块内极值不像极大值，太长则样本更少。</p><p><strong>GPD 拟合 POT。</strong> 这是市场风险更常用的一条。选 \(u\)，对 \(\{X_i-u:X_i\gt u\}\) 拟合</p> \[G_{\xi,\beta}(x)=1-\left(1+\xi x/\beta\right)^{-1/\xi},\qquad x\ge 0,\ \ 1+\xi x/\beta\gt 0. \]<p>\(\xi=0\) 时退回指数。超过 \(u\) 的 VaR、ES 有闭式。阈值选择用平均超出图、Hill 图、参数对 \(u\) 的稳定性。McNeil 与 Frey 建议先用 GARCH 去条件异方差，再对标准化残差做 EVT，避免把波动聚类当成厚尾。</p><p>Hill 估计对正尾、\(\xi\gt 0\) 常用：\(\hat\xi=k^{-1}\sum_{j=1}^k \ln X_{(j)}-\ln X_{(k+1)}\)，其中 \(X_{(j)}\) 为降序统计量。\(k\) 同样是带宽。Hill 图应在某段 \(k\) 上大致平台；没有平台就不要报一个 \(\alpha\)。</p><h3 id="从单尾到多元极值" tabindex="-1">从单尾到多元极值 <a class="header-anchor" href="#从单尾到多元极值" aria-label="Permalink to &quot;从单尾到多元极值&quot;">​</a></h3><p>组合损失不是单资产损失之和那么简单：尾部依赖决定是否「一起爆」。多元 EVT 用极值 Copula、Pickands 依赖函数、或经验上的尾依赖系数</p> \[\lambda=\lim_{u\to 1}\Pr(F_2(X_2)\gt u\mid F_1(X_1)\gt u). \]<p>高斯 Copula 的 \(\lambda=0\)（除非完全相关）；\(t\) Copula 与 Clayton 可以有正的下尾依赖。Embrechts、McNeil 与 Straumann 强调：线性相关低，不等于极端同向概率低。EVT 与 <a href="/quant/copula">Copula</a> 在这里交接：边缘用 GPD，依赖用能产生尾依赖的 Copula。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>块极大值的极限来自独立同分布的极值吸引域：只有三种非退化极限，形状参数决定尾巴是指数级还是幂律。POT 的机制是：高阈值之上，超出量的条件分布被「记忆消去」到只剩 \(\xi\) 与一个尺度。这解释了为何可以用短样本谈「未见过的分位数」——你外推的是极限族，不是经验分布的最后一个点。</p><p>次指数族给出另一句机制性的话：大损失往往由<strong>单笔</strong>主导，而不是许多中等损失相加。这对操作风险、信用组合的大额违约、以及厚尾资产的「分散化幻觉」都成立：把独立次指数变量相加，和的尾由最大项的尾决定。正态世界里平方根 \(n\) 的分散化，在 \(\xi\) 较大时会失效。</p><p><span class="marginnote">波动聚类会让「独立同分布」的块极大值假设作假。连续多日大损失是条件方差升高，不一定是无条件尾巴变厚。先过滤 GARCH 或已实现波动，再对残差做 EVT，是为了把两种现象拆开；把生收益直接套 GPD，会把聚类算进 \(\xi\)。</span></p><h3 id="诊断先于数字" tabindex="-1">诊断先于数字 <a class="header-anchor" href="#诊断先于数字" aria-label="Permalink to &quot;诊断先于数字&quot;">​</a></h3><p>平均超出函数 \(e(u)=\mathbb{E}[X-u\mid X\gt u]\)：GPD 下它对 \(u\) 线性，斜率 \(\xi/(1-\xi)\)。图上弯、折，说明单一 GPD 不够，或阈值区内有体制切换。Hill 图若单调下降而无平台，\(\alpha\) 不可识别。这些图比报一个 99.9% VaR 更重要。回测高分位数需要很长的样本，Kupiec 在极端水平上几乎没有功效——EVT 的外推不能用常规 VaR 回测「证实」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>EVT 是渐近论，不是保证小样本分位数无偏。十年日数据，99.9% 仍是外推。结构突变（交易所规则、涨跌停、货币危机）会让吸引域在样本中途改变。有限上界（Weibull 域）在有涨跌停的市场可能更贴切，却常被默认成 Fréchet。</p><p>阈值与 \(k\) 是主观带宽，应报告敏感区间而不是一个点估计。序列依赖未过滤时，有效样本小于 \(n\)，标准误会假窄。多元时，成分不同步、缺失与<a href="/quant/microstructure-noise">微观结构</a>会污染极高分位的「联合超阈」。</p><p>不要用 EVT 去拟合收益的中心；不要把 GEV 的位置参数解释成「平均极端损失」。不要在组合层面套一元 GPD 却用高斯相关去加总——尾依赖才是加总误差的主项。监管乘数与内部模型若宣称「EVT 已覆盖未知未知」，只是把外推风险换了个名字。</p><p><span class="marginnote">Embrechts 等人反复写的不是「请用 GPD」，而是「厚尾下均值、相关、分散化这些中心极限直觉会坏」。先检查矩是否存在、尾依赖是否为零，再决定 VaR 加总与风险预算有没有定义。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>块极大值极限是 GEV，超阈值超出量极限是 GPD，形状参数同一，决定尾是幂律还是更薄。</li><li>金融损失常落在 Fréchet 域；\(\xi\) 足够大时方差甚至均值不存在，相关与方差分散化没有定义。</li><li>POT 加平均超出图、Hill 图是实务主路径；波动聚类应先过滤再估尾。</li><li>线性不相关可以有尾依赖；组合极端要用多元 EVT 或带尾依赖的 Copula。</li><li>阈值是带宽，高分位是外推，常规回测几乎验不出对错。</li><li>出处：Embrechts, Klüppelberg, Mikosch, <em>Modelling Extremal Events</em>, 1997；吸引域与 GPD 见 Pickands、Balkema–de Haan；风险管线见 McNeil, Frey, Embrechts, <em>Quantitative Risk Management</em>；GARCH 残差上的 EVT 见 McNeil and Frey, 2000。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 依赖与极值<!--]--><!--[--> · 课序 尾部<!--]--></p><p class="lesson-progress">第 10 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/copula/">Copula 相关结构</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

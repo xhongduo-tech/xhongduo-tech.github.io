@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模型合并：SLERP / TIES / DARE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_model-merging.md.dw053hTF.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 38 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dense-to-moe-upcycling/">稠密升级到 MoE</a></p><p class="lesson-next"> 下一课：<a href="/llm/task-arithmetic/">任务向量算术</a></p></nav><div style="position:relative;"><div><h1 id="模型合并-slerp-ties-dare" tabindex="-1">模型合并：SLERP / TIES / DARE <a class="header-anchor" href="#模型合并-slerp-ties-dare" aria-label="Permalink to &quot;模型合并：SLERP / TIES / DARE&quot;">​</a></h1><div class="epigraph"><p>两个微调增量逐元素相加会在符号冲突处互相抵消；先对齐几何、再处理冲突与稀疏，合并才不像在参数空间里掷硬币。</p><footer>—— Shoemake, Animating Rotation with Quaternion Curves, SIGGRAPH 1985（SLERP）；Yadav et al., TIES-Merging, NeurIPS 2023；Yu et al., Language Models are Super Mario (DARE), ICLR 2024</footer></div><p><a href="/llm/dense-to-moe-upcycling">上一课</a>是单检查点变稀疏形状。<a href="/llm/model-soups-averaging">模型汤</a> 是同一盆地里稠密均匀平均。缺口是：<strong>任务不同、增量可能冲突</strong> 的多个微调，如何合成一个权重。SLERP 在球面插值；TIES 处理符号冲突与量级修剪；DARE 随机丢掉增量再缩放。本课写三者的对象都是 \(\delta=\theta_{\mathrm{ft}}-\theta_{\mathrm{base}}\)，下一课把 \(\delta\) 当成可加减的任务向量。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>均匀汤假设 \(\theta^{(i)}\) 已在低损失连通集。指令微调 vs 代码微调，路径更长，\(\delta\) 在同一坐标上符号可相反：直接 \((\theta_1+\theta_2)/2\) 把该坐标抹回基座，两个任务都丢。Yadav 等人的 TIES：修剪小增量、对齐符号（冲突则丢或投票）、再合并。Yu 等人的 DARE：以高概率把 \(\delta\) 的坐标置零，剩余放大 \(1/(1-p)\)，发现微调增量极冗余，稀疏后仍能保任务，再与其他 \(\delta\) 相加冲突更少。</p><p>SLERP：对两个权重（或增量）按球面线性插值，而不是欧氏直线。Shoemake 原本为旋转；在高维权重上这是启发式，当 \(\|\theta\|\) 接近时与线性插值相近，范数差大时避免欧氏平均缩范数。它不管符号冲突，常作两模型之间的几何，不是多任务冲突的主工具。</p><p><span class="marginnote">合并在 FP32 的 \(\delta\) 上做。基座必须逐比特同一检查点。词表或层数不同，没有逐元素 \(\delta\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>统一流程：</p><ol><li>固定基座 \(\theta_0\)，算 \(\delta_i=\theta_i-\theta_0\)。</li><li><strong>可选 DARE：</strong> 独立 Bernoulli 保留，再 rescale。</li><li><strong>可选 TIES：</strong> 按幅值修剪；符号冲突决议（多数或丢弃）。</li><li>求和或加权求和 \(\delta\)，加回 \(\theta_0\)。</li><li>两模型、无冲突需求时，可用 SLERP\((\theta_a,\theta_b;\lambda)\) 代替欧氏。</li></ol><p>与汤的选择：同一任务多样超参 → 汤或 EMA；多任务增量 → TIES/DARE。不要对已经汤过的权重再当 \(\delta\) 用不同基座减——基座要对齐。</p><p>验收：各源任务的验证集；合并后若一任务崩、另一任务满血，是冲突决议吃掉了前者的符号。调修剪率而不是再加学习率去「修」合并模型。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>微调增量冗余（DARE 的经验）：很多坐标的 \(\delta\) 对损失不敏感，丢掉它们减少与其他任务冲突的表面积。TIES 的符号对齐承认：冲突坐标没有线性好解，与其平均成 0，不如选一侧或置零。SLERP 保范数，避免欧氏平均把两个同方向大向量收成更短的向量从而改变有效学习后的尺度——这与激活尺度课同类，只是发生在权重范数上。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>合并不是训练，没有 \(m,v\)。合并后若再微调，优化器状态应从 0 起。许可与安全：合并会混合各源的行为，包括拒绝策略，本课只写数值。下一课把 \(\delta\) 显式命名为任务向量，做加减算术。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多任务增量用 \(\delta\) 空间；汤用同一盆地的稠密平均。</li><li>DARE 利用增量冗余降冲突表面积；TIES 处理符号；SLERP 是两模型球面插值。</li><li>基座与精度必须对齐；崩了调修剪/决议，不要当新模型去猛训掩盖。</li><li>合并后无 Adam 状态，再训从 0 计。</li><li>出处：Shoemake, SIGGRAPH 1985；Yadav et al., NeurIPS 2023；Yu et al., ICLR 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 38 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/task-arithmetic/">任务向量算术</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

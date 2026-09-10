@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ledoit-Wolf 收缩 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ledoit-wolf.md.Bu8RuS3O.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 协方差、约束与配置<!--[--> · 单元 估计与约束<!--]--><!--[--> · 课序 协方差<!--]--></p><p class="lesson-progress">第 1 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/drawdown-calmar/">最大回撤与 Calmar</a></p><p class="lesson-next"> 下一课：<a href="/quant/glasso/">图形 Lasso 精度矩阵</a></p></nav><div style="position:relative;"><div><h1 id="ledoit-wolf-收缩" tabindex="-1">Ledoit-Wolf 收缩 <a class="header-anchor" href="#ledoit-wolf-收缩" aria-label="Permalink to &quot;Ledoit-Wolf 收缩&quot;">​</a></h1><div class="epigraph"><p>我们把样本协方差向一个结构良好的目标做凸组合，收缩强度由数据估计，使期望 Frobenius 损失最小；这比把样本矩阵直接求逆更适合高维组合。</p><footer>—— Ledoit and Wolf, Honey, I Shrunk the Sample Covariance Matrix, Journal of Portfolio Management, 2004；公式见 2003 年 JEF 与 2004 年 JMA</footer></div><p><a href="/quant/sovereign-cds">上一课</a>停在信用曲线。缺口是组合优化里协方差怎么估。<a href="/quant/cov-shrinkage">估计误差与收缩</a> 写的是病态协方差如何毁掉 Markowitz 权重，以及收缩、因子、随机矩阵清理的分工。本篇把 Ledoit–Wolf（LW）估计器本身写具体：目标 \(F\) 怎么选、最优强度 \(\delta\) 从哪一组矩来、2003–2004 年三篇论文各自收缩向哪里，以及它与后来的非线性收缩、<a href="/quant/factor-vs-sample-cov">因子协方差</a> 如何衔接。公式是</p> \[\hat\Sigma=(1-\delta)S+\delta F, \]<p>\(S\) 为样本协方差。\(\delta\in[0,1]\) 不是风险预算，是估计参数：维数相对样本越大，越信 \(F\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(N\) 个资产、\(T\) 个收益。\(S\) 有 \(\min(N,T-1)\) 个非零特征值；\(N/T\to c\gt 0\) 时样本特征值按 Marčenko–Pastur 律散开，最大的偏大、最小的偏小。组合权重用 \(\Sigma^{-1}\)，小特征值的倒数把噪声方向变成重仓。Jobson–Korkie 与 Michaud 已经指出这是误差最大化。需要一个对 \(\Sigma\) 的估计，使 \(\mathbb{E}\|\hat\Sigma-\Sigma\|_F^2\) 变小，并让 \(\hat\Sigma\) 可逆、条件数可控。</p><p>朴素做法是交叉验证 \(\delta\)，或把对角以外全部关掉。LW 的贡献是：在一组弱假设下，\(\delta\) 的最优值可以用 \(S\) 的条目一致估计出来，不必再留一块验证集去扫网格。目标 \(F\) 仍要选——选错目标就是系统性偏差，只是通常比未收缩的方差更划算。</p><h3 id="损失是矩阵的-不是夏普的" tabindex="-1">损失是矩阵的，不是夏普的 <a class="header-anchor" href="#损失是矩阵的-不是夏普的" aria-label="Permalink to &quot;损失是矩阵的，不是夏普的&quot;">​</a></h3><p>LW 最小化的是 Frobenius 意义下对 \(\Sigma\) 的距离，不是样本外夏普。最小方差组合的已实现方差与这个损失相关，但切点组合还依赖 \(\mu\)，见收缩总论。若你的真正损失是 \(w^\top\Sigma w\) 在约束下的值，最优 \(\delta\) 会与 Frobenius 最优略有偏差。实务上仍先用 LW 的 \(\delta\)，再在组合层用权重约束补正则；不要因为夏普没有「被公式最大化」就否定估计器。</p><p><span class="marginnote">实现时先决定缩的是协方差还是相关。JPM「honey」文把方差留下、把相关向常数相关拉，往往比把整块 \(S\) 向单位阵拉更适合股票——股票的平均相关明显为正。先标准化成相关、收缩、再还原方差，是更干净的顺序。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>恒等目标（JEF 2003）。</strong> \(F=\hat\mu_S I\)，或更常见地向单位阵（按平均方差缩放）收缩。适用于对相关结构几乎无先验、只求可逆与稳定特征值。偏差大：所有相关被拉向零，最小方差组合接近逆波动加权。</p><p><strong>单因子目标（JMA 2004）。</strong> \(F\) 来自市场模型 \(\Sigma=\sigma_m^2\beta\beta^\top+\Delta\)。适合股票对市场有共同因子时。\(S\) 里超出单因子的相关被部分保留（权重 \(1-\delta\)），单因子解释不了的块在 \(\delta\) 大时被抹平。</p><p><strong>常数相关目标（JPM 2004 honey）。</strong> \(F\) 的对角与 \(S\) 相同，非对角为 \(\bar\rho\sqrt{S_{ii}S_{jj}}\)，\(\bar\rho\) 为样本相关的平均。这是股票上最常用的 LW。它保留异方差，只收缩「谁与谁特别相关」的离差——正是样本里最吵的那一块。</p><p>最优强度的形状是 \(\delta^\ast=\kappa/T\)，其中 \(\kappa\) 由 \(S\) 与 \(F\) 的条目矩构成：本质上是估计误差的方差除以 \(S-F\) 的偏差平方。\(T\) 大则 \(\delta\) 小；\(S\) 与 \(F\) 很近则分母小、\(\delta\) 也变大（没有结构可保留时不如多信目标）。估计 \(\delta\) 时要用无偏修正的平方和，并对 \(\delta\) 截断到 \([0,1]\)。收益应先去均值（或对因子回归后对残差做），否则均值误差会漏进 \(S\)。</p><h3 id="非线性收缩与谱" tabindex="-1">非线性收缩与谱 <a class="header-anchor" href="#非线性收缩与谱" aria-label="Permalink to &quot;非线性收缩与谱&quot;">​</a></h3><p>线性 LW 对所有特征值用同一个 \(\delta\) 拉向 \(F\) 的谱。Ledoit–Wolf 后来的非线性收缩对每个样本特征值施加不同的收缩，目标是渐近最优的谱（相对 Marčenko–Pastur）。当 \(N/T\) 很大且真实特征值差异大时，非线性通常更好；当 \(N\) 中等、常数相关已是好先验时，honey 线性式更简单、更稳。不要把非线性收缩再和大幅度常数相关线性收缩叠两次，以免双重把谱压扁。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Stein 效应：在高维，无偏的 \(S\) 作为矩阵估计方差太大，引入偏差可降低二次损失。LW 把偏差放到 \(F\) 的低维结构上，于是 \(\hat\Sigma\) 的逆不再放大 bulk 里的噪声特征向量。条件数下降，最小方差权重的换手下降，样本外方差通常下降。若真实存在一个强行业块而 \(F\) 是常数相关，这个块会被部分抹平——直到 \(1-\delta\) 把 \(S\) 里的块带回来。\(\delta\) 的公式在平均意义上平衡「抹平」与「噪声」；结构破裂的那一个月，你会暂时低估该方向风险。</p><p>与 <a href="/quant/fundamental-risk-model">基本面因子模型</a> 的差别：因子模型用经济载荷把秩直接降到 \(K\)，特异方差对角；LW 不命名因子，只把 \(S\) 向一个简单目标拉。两者可叠加：对因子残差再做 LW，避免残差协方差在 \(N\) 大时奇异。与 <a href="/quant/glasso">图形 Lasso</a> 的差别：Glasso 稀疏的是精度矩阵的边，LW 不造条件独立图。</p><p><span class="marginnote">\(\delta\) 接近 1 不是「数据不足所以放弃量化」，而是估计器在说：这一窗里 \(S\) 的离差几乎全是噪声。若你确信存在一个未被 \(F\) 包含的真实块，应换目标（行业常数相关、多因子），而不是把 \(\delta\) 手工拧小来「保留 alpha」。那是在拒绝正则。</span></p><h3 id="评价必须离开估计窗" tabindex="-1">评价必须离开估计窗 <a class="header-anchor" href="#评价必须离开估计窗" aria-label="Permalink to &quot;评价必须离开估计窗&quot;">​</a></h3><p>滚动：在 \(t\) 用过去 \(T\) 日估 \(\hat\Sigma_t\)，做最小方差或风险平价，看 \(t+1\) 的已实现方差、换手与约束违反。同一窗口里看 \(w^\top S w\) 必然偏小。比较对象应包括：样本 \(S\)（可逆时）、对角、常数相关不收缩、单因子、供应商因子模型。LW 赢在「未加经济结构、只要可逆」的赛道；有可靠的 \(X\) 载荷时，因子协方差常赢在可解释与压力叙事，见 <a href="/quant/factor-vs-sample-cov">因子协方差 vs 样本</a>。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要对已经因子化且条件数良好的 \(\Sigma\) 再做一次无结构大 \(\delta\) 收缩。不要用全样本估 \(\delta\) 再在同一样本上报告组合。不要把日度 \(T\) 拉到分钟级还以为 \(c=N/T\) 变小了——微观结构噪声会另造一层有偏的 \(S\)。厚尾与波动聚类下，\(S\) 本身不是有效协方差，应先用稳健协方差或已实现核，再 LW。</p><p>国际资产非同步会压低相关，LW 不能修复同步偏差，只能让矩阵可逆。均值侧：LW 不管 \(\mu\)；切点组合必须另处理期望，否则只修 \(\Sigma\) 不够。实现细节：是否用指数加权的 \(S\)、是否对缺失收益做成对删除，都会改变 \(\delta\)。成对删除可能得到非正定的「样本」矩阵，应先补全再收缩。</p><p><span class="marginnote">论文里的 \(S\) 往往是等权日收益。交易台的风险模型常用 EWMA 或半衰期。把 LW 的 \(\delta\) 公式套在已经指数加权的 \(S\) 上，渐近式不再精确，但仍可作为强度的合理起点，再用样本外方差微调。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Ledoit–Wolf 用数据驱动的 \(\delta\) 把 \(S\) 缩向目标 \(F\)，最小化期望 Frobenius 损失，是高维协方差的线性收缩标准件。</li><li>股票上常数相关目标通常优于单位阵；单因子目标适合有市场共同运动时。</li><li>\(\delta\) 随 \(N/T\) 增大而增大，应截断在 \([0,1]\)；它不是配置权重。</li><li>可与因子模型叠加（缩残差），不要与非线性收缩或已良好的因子 \(\Sigma\) 重复抹平。</li><li>评价必须样本外；切点还要处理 \(\mu\)。</li><li>出处：Ledoit and Wolf, <em>Journal of Empirical Finance</em>, 2003；<em>Journal of Multivariate Analysis</em>, 2004；<em>Journal of Portfolio Management</em>, 2004。总论见 <a href="/quant/cov-shrinkage">估计误差与收缩</a>；非线性收缩见二人后续谱方法。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 协方差、约束与配置<!--[--> · 单元 估计与约束<!--]--><!--[--> · 课序 协方差<!--]--></p><p class="lesson-progress">第 1 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/glasso/">图形 Lasso 精度矩阵</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

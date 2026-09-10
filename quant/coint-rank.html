@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>协整秩选择 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_coint-rank.md.C9siTXHx.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 配对交易方法<!--[--> · 单元 配对交易<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/kalman-spread/">Kalman 价差滤波</a></p><p class="lesson-next"> 下一课：<a href="/quant/hedge-ratio-break/">时变对冲比断裂</a></p></nav><div style="position:relative;"><div><h1 id="协整秩选择" tabindex="-1">协整秩选择 <a class="header-anchor" href="#协整秩选择" aria-label="Permalink to &quot;协整秩选择&quot;">​</a></h1><div class="epigraph"><p>迹检验给出的是「至少还有几条长期关系」的顺序决策；交易要的是一条波动能覆盖成本、样本外仍回调的价差。秩选对了只说明空间的维数，不说明你该交易空间里的哪一个方向。</p><footer>—— Johansen, Journal of Economic Dynamics and Control 1988 与 Econometrica 1991；信息准则选秩见 Aznar and Salvador, Journal of Time Series Analysis, 2002 一类讨论</footer></div><p><a href="/quant/kalman-spread">上一课</a>把状态写成价差的均衡水平或潜在 OU，可交易信号用预测步偏离；新息若仍像单位根，问题在 \(\beta\) 或协整破裂，不是把均值再平滑一次。缺口是篮子的秩。两资产配对默认 \(r=1\) 或 \(0\)，三只以上 \(r\) 必须显式选择：\(r=0\) 不该做水平组合，\(r\) 过大则把近单位根方向当成可交易价差。本课写秩作为交易规格如何选。不重写 Kalman 的 \(Q,R\)。后课对冲比断裂默认已经读完：顺序检验不是后验概率。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(p\) 维 \(I(1)\) 系统的协整秩 \(r\) 是 \(\Pi=\alpha\beta&#39;\) 的列空间维数。\(r\) 选小了，真实平稳组合被留在差分里，你可能把一条可交易价差扔掉，或更糟：在 \(r=0\) 时仍用水平回归硬造价差。\(r\) 选大了，空间里混进弱根，对应的「价差」半衰期极长、接近随机游走，<a href="/quant/ou-spread">OU</a> 的 \(\kappa\) 估出来接近 0 却仍被拿去开仓。Johansen 迹检验从 \(r_0=0\) 往上，第一次不拒绝当作 \(\hat r\)。有限样本里滞后阶、确定性项、厚尾都会改尺寸，两个检验还经常给出不同的 \(\hat r\)。</p><p>交易问题比检验问题更窄。你通常只想要 <strong>一条</strong> 组合，不是 \(r\) 条同时开仓。即便 \(\hat r=2\)，也要在平面里再选方向：最小方差、最快误差修正、或与成本、流动性对齐。秩选择回答的是「空间有几维」，组合选择回答的是「这一维怎么张成」。把软件打印的「协整方程 1」当头号信号，是把特征根排序误读成夏普排序。</p><h3 id="顺序检验不是后验概率" tabindex="-1">顺序检验不是后验概率 <a class="header-anchor" href="#顺序检验不是后验概率" aria-label="Permalink to &quot;顺序检验不是后验概率&quot;">​</a></h3><p>迹的 \(H_0:r\le r_0\) 是嵌套的。渐近水平是这条链上的，不是 \(P(r=\hat r\mid\mathrm{data})\)。第一次不拒绝之后停下来，并不意味着更大的 \(r\) 被证伪得很强；功效不足时会系统性偏小。最大特征值一次只加一根，对「恰好多一条」更敏感，对「还剩好几条弱根」更钝。预先规定：主规则用迹、最大特征值作稳健性；两者差 1 时取较小的 \(r\)——交易上少一条假价差，比多一条近单位根更安全。不要看哪个 \(p\) 值更漂亮就取哪个。</p><p><span class="marginnote">确定性项的 case 必须先于秩选定死。价差若应在某水平摆动，把常数限制在协整内；让每条腿独立漂移，迹会更容易报出更高的 \(r\)，因为趋势被水平项吸收，看起来像多了一条「关系」。那条关系往往不可交易。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>检验路径。</strong> 先用信息准则选 VAR 滞后 \(k\)，再在预选的 Johansen case 下跑迹与最大特征值，报告 \(r_0=0,\ldots,p-1\) 的统计量与临界值，而不是只报「软件选了 \(r=2\)」。邻近 \(k\) 上 \(\hat r\) 若跳，说明识别不稳，应缩短篮子或先降维。小样本用 Bartlett 修正或 bootstrap 临界值，日频金融的名义 5% 不可当真。</p><p><strong>信息准则。</strong> Aznar–Salvador 等把秩选写成惩罚似然：更大的 \(r\) 改善拟合，但惩罚参数个数。准则相对顺序检验更少「第一次不拒绝」的路径依赖，但对惩罚系数敏感，同样会在 \(N/T\) 大时乱选。实务上把它当交叉验证：检验给出 \(\hat r_{\mathrm{LR}}\)，准则给出 \(\hat r_{\mathrm{IC}}\)，不一致则取小者，并降低杠杆。不要把准则最小的 \(r\) 直接映射成开仓条数。</p><p><strong>从秩到一条价差。</strong> 给定 \(\hat r\)，施加经济约束（美元中性、对基准回归、排除某条不可空的腿）后得到 \(\hat\beta\)。若 \(\hat r\gt 1\)，在约束空间里解一个二次型：例如最小化 \(\beta&#39;\hat\Omega\beta\) 且 \(\beta\) 在 \(\hat\beta\) 的列空间中，得到最低方差平稳组合；或最大化 \(\alpha\) 方向上的调整速度。这是识别，不是再做一次迹检验。约束被似然比拒绝时，说明「你想交易的中性篮子不在协整空间」——仍可能有短持有回归，但不应引用 Johansen 的 \(p\) 值当许可。</p> \[\hat r=\min\bigl(\hat r_{\mathrm{trace}},\hat r_{\mathrm{maxeig}},\hat r_{\mathrm{IC}}\bigr) \quad\text{再在 } \mathrm{span}(\hat\beta)\text{ 里选一条可执行方向。} \]<p>取小不是定理，是交易上的保守约定，应在文档里写死。</p><h3 id="滚动秩与形成期冻结" tabindex="-1">滚动秩与形成期冻结 <a class="header-anchor" href="#滚动秩与形成期冻结" aria-label="Permalink to &quot;滚动秩与形成期冻结&quot;">​</a></h3><p>全样本 \(\hat r\) 含未来。可复制的做法与 GGR 类似：形成期估秩与 \(\beta\)，交易期冻结。滚动重估秩会使篮子维数跳，组合换手无经济含义——昨天 \(r=1\) 做一对，今天 \(r=2\) 突然多一条正交腿。若必须跟踪结构变化，应把「秩变化」当成 <a href="/quant/hedge-ratio-break">对冲比断裂</a> 一类的事件：先平仓，再在新形成期重估，而不是让仓位在维数跳变时连续变形。</p><p>高维时先降维再 Johansen：行业指数、前几个主成分、或流动性最好的 \(p\le 5\) 只。\(p=10\)、\(T=250\) 的迹几乎不可用。这与 <a href="/quant/pca-residual-basket">篮子 PCA 残差</a> 的分工是：PCA 不声称 \(I(0)\)，Johansen 声称但维数必须小。</p><p><span class="marginnote">\(\alpha\) 接近 0 的关系在样本内可以像协整（残差像平稳），预测上几乎不回调。选秩之后必须看载荷：没有误差修正的「平稳组合」是统计假象或极慢的根，不该占用名义。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>高斯 VAR 的似然只通过残差协方差与 \(\Pi\) 的秩依赖数据。把 \(r\) 提高，是允许更多水平通道进入差分的条件均值，拟合必然变好。惩罚或临界值是在拦「把噪声根当成通道」。金融日频里噪声根很多：短期相关、异方差、跳跃都会抬高小特征根，使迹偏爱更大的 \(r\)。因此交易用的秩应系统性小于检验在名义 5% 上给出的秩——你要的是强通道，不是全部不能拒绝的通道。</p><p>机制上，秩还决定对冲比的自由度。\(r=1\) 时 \(\beta\) 只识别到一条线（再加规范化）；\(r=2\) 时有一个平面的等价类，未约束的两条特征向量会在样本间旋转，换手巨大。这就是为什么 \(\hat r\gt 1\) 时必须加经济约束或二次型选择：不是为了好看，是为了让 \(\beta\) 可复制。没有这一步，篮子 PCA 往往比未约束 Johansen 更稳，因为主成分有正交和方差排序，尽管它们不是协整向量。</p><h3 id="过拟合-如何表现为假-alpha" tabindex="-1">过拟合 \(r\) 如何表现为假 alpha <a class="header-anchor" href="#过拟合-如何表现为假-alpha" aria-label="Permalink to &quot;过拟合 $r$ 如何表现为假 alpha&quot;">​</a></h3><p>样本内 \(r\) 偏大，会多出一条「价差」在形成期来回摆，Z-score 频繁触发，夏普虚高。样本外该方向继续像单位根，开仓后单边走扩，时间止损在最宽处成交。这与协整破裂不同：破裂是真关系断了；过拟合秩是关系从来不够强。诊断是形成期 \(\hat\kappa\) 已经很小、或残差 ADF 只在估计的 \(\beta\) 上勉强拒绝。对这种方向，正确动作是丢掉，而不是加宽阈值硬做。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在未固定 \(k\) 与确定性项之前比较不同篮子的 \(\hat r\)。不要把 \(p\) 只股票的 \(\hat r=3\) 当成三个独立策略同时加杠杆——估计误差相关。不要用全样本迹给交易期背书。厚尾与结构断裂使检验过拒或乱跳，应分割样本；前半 \(r=1\)、后半 \(r=0\) 时，合并的 \(\hat r\) 没有交易含义。</p><p>与 Engle–Granger 的分工：两资产、要报告一个对冲比，用两步，\(r\) 不是选择变量。多腿、要约束、要问有几条长期关系，用 Johansen，然后用本篇的保守规则落到一条可执行价差。指数套利还要处理成分股更换，秩在调仓日应视为未知，先平再估。A 股停牌会使某条腿的水平冻结，特征根扭曲，形成期必须剔除或插值规则事先写死。</p><p><span class="marginnote">Johansen（1991）的渐近是 \(T\to\infty\)、阶数正确、新息高斯 iid。把 \(\hat r\) 写成「市场承认有 \(r\) 条套利关系」是把检验当成了定价理论。秩是统计维数，套利还要成本、借券与同步成交。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>协整秩是空间维数，不是开仓条数；\(\hat r\gt 1\) 时必须在空间里再选一条可执行方向。</li><li>迹与最大特征值、信息准则不一致时，交易上取较小的 \(r\)，少做近单位根。</li><li>形成期估秩、交易期冻结；滚动让 \(r\) 跳变应视为事件，先平仓再重估。</li><li>过拟合 \(r\) 会在样本内制造假回归、样本外单边走扩，与协整破裂不是同一诊断。</li><li>出处：Johansen, 1988/1991；秩的信息准则见 Aznar and Salvador, 2002；检验细节见 <a href="/quant/johansen">Johansen</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 配对交易方法<!--[--> · 单元 配对交易<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hedge-ratio-break/">时变对冲比断裂</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

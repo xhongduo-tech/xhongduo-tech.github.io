@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>值函数迭代与策略迭代 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_vfi-pi.md.BtUbITUm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 动态宏观与异质性<!--[--> · 单元 动态方法<!--]--><!--[--> · 课序 求解与识别<!--]--></p><p class="lesson-progress">第 2 / 53 课</p><p class="lesson-prereq"> 先修：<a href="/econ/bellman-dp/">贝尔曼方程</a></p><p class="lesson-next"> 下一课：<a href="/econ/euler-transversality/">欧拉方程与横截条件</a></p></nav><div style="position:relative;"><div><h1 id="值函数迭代与策略迭代" tabindex="-1">值函数迭代与策略迭代 <a class="header-anchor" href="#值函数迭代与策略迭代" aria-label="Permalink to &quot;值函数迭代与策略迭代&quot;">​</a></h1><div class="epigraph"><p>压缩给出唯一不动点，不等于手上已经有 $V$；迭代是把算子变成可算的序列。</p><footer>—— Howard, Dynamic Programming and Markov Processes, 1960；对照 Puterman 的策略改进；Judd, Numerical Methods in Economics, 1998</footer></div><p><a href="/econ/bellman-dp">上一课</a>立住 \(V=T(V)\)，并声明算法另写。本课缺口是：<strong>怎么算</strong>。值函数迭代（VFI）反复施加 \(T\)；策略迭代（PI）在给定政策上解线性方程再改进政策。不重写压缩定理，不把网格误差写成理论。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>贝尔曼保证不动点存在时，仍要一张表或一组基函数才能在机器上碰到 \(V\)。离散状态、有限行动时，\(T\) 是有限维 max-plus 运算：从任意有界 \(V_0\) 令 \(V_{n+1}=T(V_n)\)，压缩比 \(\beta\) 给出线性收敛。Howard：先猜政策 \(g\)，解 \(V=r_g+\beta P_g V\)（策略求值），再对每个 \(s\) 做贪心改进 \(g&#39;(s)\in\arg\max_a\{r+\beta\mathrm{E}V\}\)，直到政策不再变。缺口是把「有方程」变成「有算法」，而不是再选一次状态。</p><p><span class="marginnote">连续状态要插值或投影。本课只钉 VFI 与 PI 的逻辑；全局逼近的投影法在本课序后部。Rust 的条件选择概率是另一条估计线，不在这里。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>VFI：选网格 \(\{s_i\}\)，每个点上对 \(a\) 做最大化，用插值读 \(V(s&#39;)\)，更新直到 \(\lVert V_{n+1}-V_n\rVert\) 小于容忍。加速可用 McQueen–Porteus 界或修改政策迭代（每 \(k\) 次改进做一次求值）。PI：政策空间有限时有限步精确收敛，每步要解线性系统，状态多时比一次 \(T\) 贵。随机冲击用积分或求积节点。借贷约束把 \(\arg\max\) 变成带不等式的一维搜索，政策在约束处出现 kinks——后课异质主体会反复碰到。</p><div class="mermaid"></div><p>与欧拉方程方法对照：有时直接在欧拉上做时间迭代，不显式存 \(V\)。那要求内部解与可微；约束绑定时值函数迭代更老实。本课不把两种对立成教派。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是算子单调加折扣。\(V_n\) 从下方（或上方）逼近时，政策也会进入最优政策的邻域——但有限次迭代的 \(g_n\) 不必已经最优，只是对当前 \(V_n\) 贪心。PI 的求值步把「这条政策的真值」算准，改进步利用贝尔曼的贪心充分性。误差来源是网格、插值、积分与提前停止，不是贝尔曼本身写错。</p><p>代表性个体的光滑凹问题上，VFI 往往够用。一旦分布成为状态，每次 \(T\) 都要在测度上操作，直接网格爆炸——那是 Krusell–Smith 用有界感知代替全分布的理由，不是本课提前解掉的。</p><p><span class="marginnote">Judd 强调：算法收敛不等于经济收敛到正确均衡。错误的状态或错误的期望算子会让漂亮的 \(V\) 对应错误的模型。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不校准、不估计。连续时间的策略改进有微分方程版本，不在此写。也不把深度学习当新原理：函数逼近可以换基，算子还是 \(T\)。局部扰动法下一课之后才出现，那是另一条「不求全局 \(V\)」的路。</p><p>后课默认：说到「解贝尔曼」，指 VFI/PI 或等价的欧拉迭代，已经知道网格与 kinks。下一课补上：即使不求 \(V\)，欧拉加横截也能刻画内部路径。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>VFI 迭代 \(T\)；PI 在政策上求值再贪心改进。</li><li>约束与 kinks 时显式值函数更稳；光滑内部解可用欧拉迭代。</li><li>算法误差与模型误差要分开。</li><li>出处：Howard 1960；Judd, <em>Numerical Methods in Economics</em>, 1998。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 动态宏观与异质性<!--[--> · 单元 动态方法<!--]--><!--[--> · 课序 求解与识别<!--]--></p><p class="lesson-progress">第 2 / 53 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/euler-transversality/">欧拉方程与横截条件</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

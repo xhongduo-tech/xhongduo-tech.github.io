@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Just-in-Time Context Retrieval | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_jit-context-retrieval.md.BiGF6R49.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 6 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/retrieval-based-compaction/">检索式上下文压缩</a></p><p class="lesson-next"> 下一课：<a href="/llm/progressive-disclosure/">渐进式披露</a></p></nav><div style="position:relative;"><div><h1 id="just-in-time-context-retrieval" tabindex="-1">Just-in-Time Context Retrieval <a class="header-anchor" href="#just-in-time-context-retrieval" aria-label="Permalink to &quot;Just-in-Time Context Retrieval&quot;">​</a></h1><div class="epigraph"><p>不要在推理前把所有可能有关的数据预处理进窗口；代理只持有轻量标识符，在运行时用工具把数据动态载入。</p><footer>—— Anthropic Applied AI，Effective context engineering for AI agents，2025-09-29</footer></div><p>许多 AI 应用仍在用嵌入检索：推理开始前把「可能有关」的块塞进提示。代理出现之后，Anthropic 观察到另一条策略：<strong>just in time</strong>（即时）上下文——窗口里主要是指针（路径、已存查询、链接），载荷通过工具在需要的那一步才进入。Claude Code 分析大型数据库时可以写针对性查询，再用 <code>head</code> / <code>tail</code> 看结果，而不把整表读进上下文。这与人类用文件系统、收件箱、书签工作的方式同构：工作记忆里是索引，不是整库。本篇写 JIT 作为运行时纪律，它与预检索的分界，以及和 <a href="/llm/progressive-disclosure">渐进式披露</a>、<a href="/llm/compaction-summarize">摘要压缩</a> 如何叠用。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预检索假设「这一问要用的证据可以在第 0 步一次找齐」。对分类或单跳问答，这大致成立。对编码代理、多跳研究、数据探索，第 0 步不知道第 7 步会打开哪个文件。提前塞得越多，越早触发 <a href="/llm/context-rot">腐烂</a> 与 <a href="/llm/lost-in-middle">中间丢失</a>，索引过时的问题也越大：嵌入库与仓库不同步是常客。JIT 把「选什么」推迟到模型已经看见前几步的观察之后，用当前目标当查询。</p><p>代价是延迟与迷路。运行时探索比读预计算块慢；工具设计不好时，代理会浪费窗口去试错。Anthropic 写明：没有合适的工具与启发式，代理会误用工具、追死胡同、或认不出关键文件。JIT 不是「把检索器扔掉」，而是把检索器的调用权交给循环中的模型，并让 <strong>标识符的元数据</strong> 本身成为信号：<code>tests/test_utils.py</code> 与 <code>src/core_logic/test_utils.py</code> 同名不同义。</p><h3 id="指针必须比载荷便宜" tabindex="-1">指针必须比载荷便宜 <a class="header-anchor" href="#指针必须比载荷便宜" aria-label="Permalink to &quot;指针必须比载荷便宜&quot;">​</a></h3><p>JIT 成立的会计条件是：标识符 + 工具 schema 的 token ≪ 载荷 token，且一次错误载入可以丢弃。文件路径、git blob、SQL 查询字符串满足；把「指针」做成整段摘要就不满足——那已是预取。工具返回值也应可截断：<code>head</code>、行范围、分页。Claude Code 对大对象的用法是查询与切片，不是 <code>SELECT *</code> 进窗口。返回整份 DOM 或整份 PDF 的工具，会把 JIT 打回预检索的费用曲线。</p><p><span class="marginnote">JIT 检索的「检索」是模型注意力意义上的载入，不一定是向量检索。grep / glob / SQL / 浏览器 都算。向量库可以当一种工具，而不是生成前必跑的隐式阶段。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最小实现：系统提示描述工作区与工具；窗口常驻的是任务、短章程、工具列表；历史里只留指针与短观察。需要内容时调用 <code>read</code> / <code>grep</code> / <code>query</code>。读完用完即可 <a href="/llm/compaction-summarize">清理工具结果</a>，指针仍在，必要时再读。这与 RAG 的差别是 <strong>次数与时机</strong>：RAG 通常一次 \(k\) 块；JIT 是 0 到多次，查询随状态变。</p><p>混合策略被明确推荐。Claude Code：<code>CLAUDE.md</code> 之类章程 <strong>预先</strong> 丢进窗口（内容相对稳、每步都要用），仓库其余部分用 glob/grep <strong>即时</strong> 取。法律、金融等变化慢、结构清的语料，可以预取目录与关键条款，细节仍 JIT。决策边界随模型变强而右移：更强的模型可以更少预取、更多自主导航。Anthropic 的元建议仍是：做能用的最简单方案。</p><p>标识符的元数据是免费启发式。目录层级、命名、时间戳、文件大小，让代理在打开前估计复杂度与相关性。这是渐进式披露的输入，但 JIT 强调的是 <strong>运行时才付载荷成本</strong>。没有元数据的 blob 存储（只有向量近邻、没有路径）会逼代理把块内容当唯一信号，第一次检索就得拉正文，JIT 退化。</p><div class="mermaid"></div><h3 id="与嵌入预检索如何并存" tabindex="-1">与嵌入预检索如何并存 <a class="header-anchor" href="#与嵌入预检索如何并存" aria-label="Permalink to &quot;与嵌入预检索如何并存&quot;">​</a></h3><p>预检索擅长：语料大、问题单跳、延迟预算紧、不允许模型乱翻。JIT 擅长：状态依赖的下一步、索引易过期、载荷极大。并存的一种做法是 <strong>粗召回指针、细读即时</strong>：向量检索返回路径或块 ID（轻），模型再决定读哪些 ID 的全文（重）。这与 <a href="/llm/retrieval-based-compaction">检索式压缩</a> 兼容：若决定读，可以只把压缩视图放进窗口。不要两条管道各塞一份全文，费用会叠加，位置曲线更差。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>JIT 把上下文工程从「一次组装提示」变成「每步组装」。每一步的最优 token 集合不同，所以不能在会话开始时求一次最优。指针使状态机可逆：清理载荷不等于丢失地址。人类工作记忆容量有限、靠外部索引，Anthropic 用这个类比解释为何即时载入仍能完成超窗任务——任务知识在盘上，不在激活里。</p><p>失败机制也清楚。工具过载：功能重叠的工具让模型不会选，Anthropic 在工具设计文里要求最小重叠。观察过长：一次 JIT 调用返回 20k token，等于预取。没有丢弃策略：载入的文件一直留到窗口满，JIT 的「即时」只发生在第一次。正确闭环是载入 → 使用 → 结构化笔记或摘要 → 删除原文。</p><p><span class="marginnote">前缀缓存与 JIT 有摩擦。预检索的块若每问不同，前缀分叉，<a href="/llm/prefix-caching">前缀缓存</a> 帮不上。JIT 若保持稳定章程在前、变化载荷在后，章程段仍可缓存。把随机检索块塞进系统提示前面，是在主动破坏缓存。</span></p><h3 id="延迟与正确性的交换" tabindex="-1">延迟与正确性的交换 <a class="header-anchor" href="#延迟与正确性的交换" aria-label="Permalink to &quot;延迟与正确性的交换&quot;">​</a></h3><p>预计算嵌入使首 token 快、但可能错块。JIT 使首几步快（窗口空），总墙钟可能更长（多轮工具）。评测应报任务成功与总 token，而不是单次 TTFT。编码代理上，搜错文件的成本往往高于多一次 grep。数据分析上，错误地载入全表可能直接顶满窗口。给工具加硬顶（最大行数、最大字节）是 JIT 的安全网，不是可选优化。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Anthropic 博文是 2025-09-29 的工程立场，不是对照实验。He 等后来在长文档代理上测渐进式披露（见专篇），对「原始文件导航 vs 技能包」给出受控数字；JIT 作为原则仍以博文为准。无工具的纯聊天模型无法 JIT。权限必须在工具层执行：模型拿着路径不等于有权读；预检索至少还能在索引阶段做 ACL。JIT 把授权检查挪到每一次读。</p><p>过稳的章程会过时：<code>CLAUDE.md</code> 写死的构建命令与仓库不一致时，预取段会持续误导，危害比「没预取、让模型去看 README」更大。章程要短、要可验证。动态内容（工单、股价）不应预取进系统提示。</p><p><span class="marginnote">「Just-in-time」来自编译与制造，不是新的注意力算法。它不改变 softmax。它改变的是哪些 token 有资格进入 softmax 的输入。实现可以很土：grep 就行。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>JIT 上下文让代理持有轻量标识符，在循环中按需用工具载入载荷，而不是在推理前堆块。</li><li>标识符的位置、命名、时间戳是导航信号；工具返回必须可截断。</li><li>混合常见：稳定章程预取，大而易变的仓库即时取；Claude Code 用 CLAUDE.md + glob/grep。</li><li>用完清理载荷、保留指针，否则 JIT 会退化成长窗口堆栈。</li><li>与向量预检索可衔接：检索返回 ID，全文即时读；注意前缀缓存与 ACL。</li><li>出处：Anthropic，<em>Effective context engineering for AI agents</em>，2025-09-29。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 6 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/progressive-disclosure/">渐进式披露</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

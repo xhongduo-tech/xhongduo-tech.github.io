@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>退火阶段的配比 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_anneal-mixture.md.DsNVYAkW.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 数据配比与选择<!--]--><!--[--> · 课序 选什么、按什么比<!--]--></p><p class="lesson-progress">第 20 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/data-ordering-curriculum/">数据排序与课程</a></p><p class="lesson-next"> 下一课：<a href="/llm/1f1b-interleaved/">1F1B 与交错流水</a></p></nav><div style="position:relative;"><div><h1 id="退火阶段的配比" tabindex="-1">退火阶段的配比 <a class="header-anchor" href="#退火阶段的配比" aria-label="Permalink to &quot;退火阶段的配比&quot;">​</a></h1><div class="epigraph"><p>主训练用广覆盖的脏一点的混合物把世界撑开，最后一小段 token 改喂更高质量、更长、更指令化的数据，让损失在目标分布上收口。</p><footer>—— 据 Llama 3 报告、MiniCPM 与 OLMo 2 等配方中的退火 / 后期配比整理</footer></div><p><a href="/llm/data-ordering-curriculum">上一课</a>把「同样 \(w\) 下谁先出现」收成弱于配比的顺序问题。工业界更常动的是另一条时间轴：主训练的 \(w_{\mathrm{main}}\) 与最后 \(T_{\mathrm{anneal}}\) token 的 \(w_{\mathrm{anneal}}\) 不同。本课不重讲由易到难。缺口是退火混合物怎么设计、如何与学习率衰减对齐、以及它如何吃进本单元已经准备好的长文档、指令、合成与去污染约束。下一单元并行调度默认数据侧已经有一张可执行的时间表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>全程使用最干净、最指令化的数据，覆盖不够，费用也高。全程使用网页，上线风格差，协议 token 弱。Llama 3 一类报告把后期切换到高质量数据写成标准动作；MiniCPM、OLMo 2 也讨论在衰减阶段改变数据。工程缺口是：\(T_{\mathrm{anneal}}\) 占预算多少、哪些桶允许跃迁（代码↑、网页↓、合成是否只在退火出现）、以及切换是硬切还是若干步线性插值，以免损失尖峰被误当成优化事故。</p><p>退火不是新的 DoReMi。时间太短，DRO 来不及重估；通常用人工 \(w_{\mathrm{anneal}}\) 加少量小模型扫描。RegMix 的面若只在主训练分布上拟合，不能直接当退火解。</p><h3 id="学习率与数据同时衰减" tabindex="-1">学习率与数据同时衰减 <a class="header-anchor" href="#学习率与数据同时衰减" aria-label="Permalink to &quot;学习率与数据同时衰减&quot;">​</a></h3><p>学习率已进入尾部时再突然换分布，参数移动能力有限，退火变成「用小步去拟合新分布」，可能只改风格不改知识。因此要么退火段仍给足够大的 LR（与主训练衔接的 cosine 重启要谨慎），要么把 \(T_{\mathrm{anneal}}\) 留得够长。两者必须写在同一张表，课程课已经警告过这种耦合。</p><p><span class="marginnote">退火数据更要去污染。后期记忆更强，评测泄漏会集中发生在这一段。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>主训练：\(w\) 偏覆盖（网页、多语言 α、仓库代码），长文档中等上采样，指令与合成低上限。退火：提高过滤后的高质量网页/书、长切片、指令桶，合成仍设硬上限或只在此段打开；代码保持仓库级排布以免后期只会刷题。切换用线性插值若干亿 token，而不是一个 step 换加载器。保留一小份主训练分布作「锚」，降低灾难性遗忘。</p><p>检查点策略：退火开始与结束都留可回滚点。产品若发现退火伤害某探针，应能回到主训练终点再配一条更窄的 \(w_{\mathrm{anneal}}\)，而不是整场重跑。这与后课异步检查点衔接。</p><h3 id="与词表、fim-的兼容" tabindex="-1">与词表、FIM 的兼容 <a class="header-anchor" href="#与词表、fim-的兼容" aria-label="Permalink to &quot;与词表、FIM 的兼容&quot;">​</a></h3><p>退火不换词表。FIM 比例可以略升以服务编辑产品，但续写探针要守门。特殊 token 模板必须与上线一致，否则退火专门拟合一套即将废弃的标记。</p><p><span class="marginnote">按 token 计的 \(w_{\mathrm{anneal}}\) 仍受 fertility 扭曲。多语言产品应在退火里显式保住尾部语种的字符预算，而不是只加英语高质量书。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>优化后期，模型对训练分布的瞬时拟合变强、探索变弱。把分布挪到更接近产品与评测的区域（在去污染约束内），等于用剩余梯度预算做一次受控的领域适应。它不是 SFT：仍是下一 token，掩码规则可与指令进预训练相同。知识来源仍是主训练；退火改变的是格式、风格、长依赖与干净程度上的边际。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>退火救不了主训练缺数据或缺词表覆盖。它也不能替代对齐阶段的偏好优化。把全部合成预算塞进退火，风格会像教材。数据单元到此结束：选什么、按什么比、何时换比，已经接得上加载器。下一单元从 1F1B 开始，问这些 token 在万卡上如何按调度跑完，而不把数据配方再写一遍。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲样本排序；只补后期更换配比这一工业旋钮。</li><li>\(w_{\mathrm{anneal}}\) 提高质量与长上下文、守住去污染与语种字符预算，用插值衔接。</li><li>必须与学习率、检查点同表；短退火只改风格。</li><li>不换词表，不替代 SFT。</li><li>出处：Grattafiori et al., <em>The Llama 3 Herd of Models</em>；Hu et al., MiniCPM；OLMo 2 配方中的后期数据；对照 Xie et al. DoReMi 的静态 \(w\)。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 数据配比与选择<!--]--><!--[--> · 课序 选什么、按什么比<!--]--></p><p class="lesson-progress">第 20 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/1f1b-interleaved/">1F1B 与交错流水</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

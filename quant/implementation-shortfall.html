@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实施缺口 Implementation Shortfall | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_implementation-shortfall.md.BJvmdm24.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 冲击<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 6 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/quant/twap-vwap-pov/">TWAP / VWAP / POV</a></p><p class="lesson-next"> 下一课：<a href="/quant/obizhaeva-wang/">Obizhaeva-Wang</a></p></nav><div style="position:relative;"><div><h1 id="实施缺口-implementation-shortfall" tabindex="-1">实施缺口 Implementation Shortfall <a class="header-anchor" href="#实施缺口-implementation-shortfall" aria-label="Permalink to &quot;实施缺口 Implementation Shortfall&quot;">​</a></h1><div class="epigraph"><p>纸面组合假定决策瞬间按当时价格全部成交；真实组合要穿过价差、冲击、延误与未完成。两者的价值差就是实施缺口，它度量的是投资过程输掉的那一截，而不是行情本身。</p><footer>—— Perold, The Implementation Shortfall: Paper versus Reality, Journal of Portfolio Management, 1988</footer></div><p>André Perold 1988 年把交易成本从「佣金加价差」推进到一个组合层面的会计恒等式。经理做出决策时，纸面上已经持有目标组合；市场只在此后逐渐把纸面变成真实持仓。其间价格在走，部分数量可能永远完不成。实施缺口（implementation shortfall, IS）等于纸面组合的收益减去实际组合的收益，把延误、冲击、费用与机会成本收进同一个数字。它与事后才知道的 <a href="/quant/twap-vwap-pov">VWAP</a> 基准不同：VWAP 问你是否贴近市场均价，IS 问你是否贴近<strong>决策时</strong>那张可标记却不可交易的纸面。Almgren–Chriss 的最优执行把缺口的冲击与时机风险写成目标函数；Kissell 等人把缺口拆成可操作的若干项，便于交易台归因。本篇写定义、分解与误用，不把某一种拆单算法说成缺口的最小化定理。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>组合决策产生一份目标持仓 \(h^\star\) 与决策时刻 \(t_d\) 的价格向量 \(P(t_d)\)。若市场是无限深的、没有价差、指令瞬间完成，实现持仓立刻等于 \(h^\star\)，其后损益完全来自价格。真实市场里，执行是一个过程：从 \(t_d\) 到最后一笔（或放弃）的 \(t_e\)，成交均价 \(\bar P\) 偏离 \(P(t_d)\)，且最终持仓 \(h\) 可能小于目标。投资人看到的账户收益，混合了「决策是否正确」与「决策有没有被执行」。Perold 要分开这两件事：把决策质量留给纸面组合，把实施质量留给缺口。</p><p>若不做这种分开，交易台会用对自己有利的尺子。用全日 VWAP，慢执行在单边市里可能「跑赢基准」却相对决策价亏损巨大；用收盘价，会激励把冲击堆到尾盘。缺口的参照点锁在 \(t_d\) 的可观察价格（通常是当时中间价或上一次成交），从而使延误与未完成都有代价。问题是写出一个可加总的分解，使佣金、价差、冲击、时机与放弃各占一块，并且在多日、部分成交、公司行动下仍可计算。</p><h3 id="纸面组合与真实组合" tabindex="-1">纸面组合与真实组合 <a class="header-anchor" href="#纸面组合与真实组合" aria-label="Permalink to &quot;纸面组合与真实组合&quot;">​</a></h3><p>纸面组合从 \(t_d\) 起按 \(h^\star\) 持有，盯市用市场中间价或指数规则指定的标记价，不计费用。真实组合从 \(t_d\) 的原持仓出发，只在成交发生时改变持仓，并扣除显式费用。两者在 \(t_e\) 的价值差（对买入为正的成本、对卖出符号相反）即 IS。Perold 强调：纸面不是「假如用 TWAP 会怎样」，而是「假如没有市场摩擦会怎样」。任何把参照价改成本窗口 VWAP 或收盘价的做法，都已经不是原文的实施缺口。</p><p><span class="marginnote">决策价必须事先规定：是信号触发时的中间价、还是指令送达交易所的到达价（arrival price）。两者之差是内部延误，应单独归因，不要吞进「市场冲击」。到达价基准是 IS 在交易台最常见的操作化，参照点从投资经理的 \(t_d\) 改到了执行台的 \(t_0\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对单一买入、目标量 \(Q\)、决策价 \(P_d\)，设实际成交量 \(q\le Q\)，成交均价 \(\bar P\)，窗口结束时价格 \(P_e\)，显式费用 \(F\)。一个标准分解是</p> \[\mathrm{IS}= q(\bar P-P_d) + (Q-q)(P_e-P_d) + F. \]<p>第一项是已执行部分相对决策价的滑点（含价差、临时与永久冲击、片内时机）；第二项是未执行部分的机会成本：价格已经走到 \(P_e\)，纸面以为买到了，真实没有；第三项是佣金、税费、结算。卖出时价格差取反号。多资产时按决策价值加权或按份额加总，注意汇率与公司行动要对齐两条组合的调整规则。</p><p>Kissell 的扩展实施缺口把第一项再拆：决策到下单的延误、下单到首次成交、成交过程中的市场运动（可以用同期不交易的对照价格或到达后的公平价值代理）、以及相对当时报价的即时成本。即时成本靠近有效价差，见 <a href="/quant/spread-decomposition">价差分解</a>；过程中的运动靠近冲击与 alpha 衰减。拆得越细，越依赖「假如我没交易价格会怎样」这一反事实，识别也越弱。</p><h3 id="与-twap-vwap-基准的代数关系" tabindex="-1">与 TWAP / VWAP 基准的代数关系 <a class="header-anchor" href="#与-twap-vwap-基准的代数关系" aria-label="Permalink to &quot;与 TWAP / VWAP 基准的代数关系&quot;">​</a></h3><p>设窗口市场 VWAP 为 \(P_{\mathrm{VWAP}}\)。相对 VWAP 的表现是 \(q(\bar P-P_{\mathrm{VWAP}})\)，它不包含未执行项，也不包含 \(P_{\mathrm{VWAP}}-P_d\) 这一段市场运动。于是</p> \[q(\bar P-P_d)= q(\bar P-P_{\mathrm{VWAP}}) + q(P_{\mathrm{VWAP}}-P_d). \]<p>IS 的已执行项等于「相对 VWAP」加上「VWAP 相对决策价」。单边市里第二块可以主导。TWAP 基准同理，只是均价定义不同。因此跑赢 VWAP 既不充分也不必要于缩小 IS：你可以在价格已经大涨之后贴着 VWAP 买完，缺口仍然很大。Almgren–Chriss 最小化的是期望成本加风险，成本正是 IS 中与交易速率有关的那部分，风险是未完成或未卖出库存对价格扩散的暴露；启发式 <a href="/quant/twap-vwap-pov">TWAP / VWAP / POV</a> 只是该问题的特殊路径。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>缺口能成为交易质量的度量，是因为它把摩擦写成对纸面财富的扣减。价差与佣金是即时、相对确定的扣减；冲击是自身流量的函数，部分永久、部分回弹；时机是价格在执行窗口内的扩散与漂移，对缓慢日程方差更大；机会成本是约束（时间、价格上限、流动性枯竭）导致的数量缺口。Perold 的贡献不是给出冲击函数，而是坚持：<strong>没有一张事后才公布的均价可以替代决策时刻的纸面</strong>。</p><p>机制上的第二句话是激励相容。若评价用 IS，交易台的动机是尽快、尽可能完成、并控制冲击，这与投资经理「想要的头寸」对齐，却可能与「让均价好看」冲突。若同时用 VWAP 与 IS，两个 KPI 在单边市里打架。治理应指定主尺子，并把未完成率单独披露，以免交易台用放弃来避免实现滑点——放弃只是把成本从第一项搬到第二项，IS 总额仍在。</p><p><span class="marginnote">机会成本项用 \(P_e\) 标记未成交量，隐含「结束时仍想要这些量」。若信号已失效、目标已撤，应用撤销时刻的价格关闭第二项，否则会把事后 alpha 算进执行质量。</span></p><h3 id="永久冲击会进入决策质量还是实施质量" tabindex="-1">永久冲击会进入决策质量还是实施质量 <a class="header-anchor" href="#永久冲击会进入决策质量还是实施质量" aria-label="Permalink to &quot;永久冲击会进入决策质量还是实施质量&quot;">​</a></h3><p>自身交易若造成永久价格移动，纸面组合在 \(t_d\) 之后也会享受（或遭受）这一移动——但纸面假定的是无摩擦成交，通常仍用未受自身冲击污染的标记价路径，或用到达价加一个外生市场因子。实践中很难把「市场自己走的」与「自己造成的永久冲击」分开，这正是执行文献与微观结构文献的接缝：Kyle 的 \(\lambda\) 是流对价格的永久写入；Almgren–Chriss 把永久冲击放进成本，不放进「决策 alpha」。归因时若把永久冲击算给经理的 alpha，执行看起来过好；若全部算给执行，选股看起来过差。需要事先约定：标记价是否剔除自身成交、窗口多长。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>IS 要求有一个清晰的 \(t_d\) 与 \(h^\star\)。系统生成的连续再平衡、条件单、算法母单在盘中改量，会使决策点模糊。多日执行要把隔夜跳空算进哪一项：通常算时机或单独的隔夜项，而不是冲击。开盘拍卖前的决策价可能根本不可成交，用上一日收盘当 \(P_d\) 会把隔夜信息写进缺口。外汇、期货的点差与展期、股票的涨跌停，都会让 \(P_e\) 不是可执行价。</p><p>统计上，单笔缺口噪声极大，必须在大量母单上比较算法。条件化很重要：按紧急程度、参与率、波动体制分层，否则「哪条算法 IS 更低」只是在比较它接了什么单。Jorion 讨论市场风险时指出纸面 VaR 忽略变现；IS 正是变现已经发生后的实现成本。它不是事前风险度量，也不能替代 <a href="/quant/var-methods">VaR</a> 或 <a href="/quant/expected-shortfall">Expected Shortfall</a>。反过来，风险系统若用未扣 IS 的纸面持仓，会高估可实现净值。</p><p><span class="marginnote">不要用「平均 IS 为负」证明交易台创造了流动性利润。样本若含大量被动成交与价格改善，负的即时滑点很常见，但未计入的 alpha 衰减与逆向选择会在更长窗口里出现在机会成本或后续损益里。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Perold（1988）定义实施缺口为纸面组合与真实组合的价值差，参照点是决策时的价格，不是事后市场均价。</li><li>标准分解：已成交相对决策价的滑点、未成交的机会成本、显式费用。</li><li>跑赢 VWAP 既不充分也不必要于缩小 IS；两者差一项「均价相对决策价」的市场运动。</li><li>未完成不是零成本：放弃把滑点换成机会成本，总额仍进入缺口。</li><li>决策价与到达价之差应单列内部延误；永久冲击的归属要事先约定。</li><li>IS 是事后交易成本会计，不是事前市场风险；纸面风险系统应意识到变现缺口。</li><li>出处：Perold, <em>Journal of Portfolio Management</em>, 1988；Almgren and Chriss, <em>Journal of Risk</em>, 2000/2001；Kissell 对扩展实施缺口的分解；执行日程见 TWAP / VWAP / POV；冲击的微观结构语言见 Kyle（1985）与 Harris, <em>Trading and Exchanges</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 冲击<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 6 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/obizhaeva-wang/">Obizhaeva-Wang</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SOCS 分解 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_socs-decomposition.md.5M6XU5GR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 傅里叶光学与薄膜<!--[--> · 单元 变换与传递函数<!--]--><!--[--> · 课序 成像的数学骨架<!--]--></p><p class="lesson-progress">第 7 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/litho/abbe-vs-hopkins/">Abbe 法对 Hopkins 法</a></p><p class="lesson-next"> 下一课：<a href="/litho/temporal-spatial-coherence/">时间相干与空间相干</a></p></nav><div style="position:relative;"><div><h1 id="socs-分解" tabindex="-1">SOCS 分解 <a class="header-anchor" href="#socs-分解" aria-label="Permalink to &quot;SOCS 分解&quot;">​</a></h1><div class="epigraph"><p>四维 TCC 是厄米核；本征展开把它写成少数相干系统的强度和。截断的是数值秩，不是另一套成像原理。</p><footer>—— Hopkins 核的本征分解；光刻上的和差相干（SOCS）见 Cobb 的模型基 OPC 表述，以及 Pati &amp; Kailath 对双线性核 SVD 的光学讨论</footer></div><p><a href="/litho/abbe-vs-hopkins">上一课</a>对照了扫源与预计算 TCC。缺口是：四维核直接往全芯片上套太重，主干 Hopkins 课只点到「可以本征展开」，还没有把**和差相干系统（SOCS）**写成可调用的接口。本课钉分解与截断。时间 / 空间相干的物理差别留给<a href="/litho/temporal-spatial-coherence">下一课</a>。不重推 \(k_1\)，不引用未公开的引擎缺省秩。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>空中像 \(I=\iint T(\mathbf{f}_1)T^*(\mathbf{f}_2)\,\mathrm{TCC}(\mathbf{f}_1,\mathbf{f}_2)\,e^{2\pi i(\mathbf{f}_1-\mathbf{f}_2)\cdot\mathbf{x}}\,d^2\mathbf{f}_1 d^2\mathbf{f}_2\)。把 TCC 看成对 \((\mathbf{f}_1,\mathbf{f}_2)\) 的厄米核，存在本征系统 \(\{\phi_k,\lambda_k\}\)，使得</p> \[I(\mathbf{x})=\sum_k\lambda_k\bigl|(t*\phi_k)(\mathbf{x})\bigr|^2 \]<p>（空域写法：每只 \(\phi_k\) 是一个相干核，\(\lambda_k\ge 0\) 为权重）。这就是 SOCS：Sum of Coherent Systems。缺口因此是把上一课的核变成<strong>可截断的相干通道和</strong>，而不是再扫一遍源点。</p><p>完全相干：秩 1，回到单只 PSF。完全非相干：秩高，通道多。部分相干通常只要数十个主通道就能让空中像误差落到 OPC 可接受的范围——这是计算事实，不是新的衍射理论。</p><h3 id="截断是误差预算" tabindex="-1">截断是误差预算 <a class="header-anchor" href="#截断是误差预算" aria-label="Permalink to &quot;截断是误差预算&quot;">​</a></h3><p>丢掉小 \(\lambda_k\) 等于丢掉弱相干通道。误差在开阔区、大位移交叉项上往往更可见。报「用了 SOCS」必须声明保留几阶、误差范数怎么验，不能把秩写成物理 \(\sigma\)。换照明或换镜头指纹，本征系统全换；旧核的前几阶不能继承。</p><p><span class="marginnote">Pati &amp; Kailath (JOSA A, 1994) 从双线性成像写 SVD；Cobb 把它接到全芯片碎片求值。本课要的是接口：强度是加权相干像之和。GPU 与稀疏网格是工程，不是定义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数值上把离散 TCC 做成矩阵（或用源点积分构造等价算子），求前 \(K\) 个本征对。每个 \(\phi_k\) 与物体做一次卷积（或 FFT 乘），模方加权相加。这比 Abbe 扫成百上千源点通常更省，因为 \(K\ll N_s\) 在平滑照明下成立；环形、多极照明的有效秩会升高。</p><p>等晕假设：一场点一副核。扫描狭缝上镜头指纹随场变，则 \(K\) 套核随场插值，不是「全场一张 SOCS」。矢量 TCC：每个偏振块分别分解，或拼成更大的核再分解——通道数再乘，定义不变。</p><div class="mermaid"></div><h3 id="与傅里叶骨架的关系" tabindex="-1">与傅里叶骨架的关系 <a class="header-anchor" href="#与傅里叶骨架的关系" aria-label="Permalink to &quot;与傅里叶骨架的关系&quot;">​</a></h3><p>每一通道仍是<a href="/litho/fourier-pairs-convolution">第一课</a>的卷积。SOCS 没有引入新的变换对，只是把部分相干的切片基底从「源点」换成「TCC 的本征函数」。源点基底不正交；本征基底按能量排序，所以能截。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>TCC 的平滑来自光瞳与源都是有限支撑的积分核，故奇异值衰减。衰减快，低秩好用；源上细节多（极细偶极、像素化 SMO），衰减慢，Abbe 或更高 \(K\) 更合适。这就是上一课「何时扫源、何时预计算」在秩语言里的答案。</p><p>OPC 每动一条边，只需用同一组 \(\phi_k\) 更新局部卷积，不必重分解——前提是照明与 \(P\) 没变。这是模型基 OPC 能全芯片迭代的光学理由之一，规则表做不到这一点。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>SOCS 是薄物体、等晕、Hopkins 框架内的算法。掩模 3D 让 \(T\) 依赖入射角，严格分解对物体不独立；实践用域分解或 Abbe。胶模糊是额外卷积，可乘在通道上，不是 TCC 的本征值。禁止把某代计算光刻软件的默认 \(K\) 写成物理常数。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SOCS：TCC 本征展开，强度为加权相干像之和。</li><li>截断 \(K\) 是数值误差，换照明必须重分解。</li><li>每通道仍是傅里叶卷积骨架。</li><li>矢量与场相关只增加核的套数。</li><li>下一课：通道背后的时间相干与空间相干。</li><li>出处：Hopkins (1953)；Pati &amp; Kailath, <em>JOSA A</em> (1994)；Cobb 对 SOCS / 模型 OPC 的表述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 傅里叶光学与薄膜<!--[--> · 单元 变换与传递函数<!--]--><!--[--> · 课序 成像的数学骨架<!--]--></p><p class="lesson-progress">第 7 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/temporal-spatial-coherence/">时间相干与空间相干</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

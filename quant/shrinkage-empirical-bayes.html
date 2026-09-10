@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>收缩与实证贝叶斯 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_shrinkage-empirical-bayes.md.DEgFz_BT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 基础推断<!--]--><!--[--> · 课序 在金融数据上做回归<!--]--></p><p class="lesson-progress">第 13 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bayesian-factor-comparison/">因子模型的贝叶斯比较</a></p><p class="lesson-next"> 下一课：<a href="/quant/robust-regression-outliers/">稳健回归与离群</a></p></nav><div style="position:relative;"><div><h1 id="收缩与实证贝叶斯" tabindex="-1">收缩与实证贝叶斯 <a class="header-anchor" href="#收缩与实证贝叶斯" aria-label="Permalink to &quot;收缩与实证贝叶斯&quot;">​</a></h1><div class="epigraph"><p>把许多平行的均值各自用样本均值去估，总风险可以高于把它们一起拉向共同中心；经验贝叶斯用数据估这个中心与拉近的强度。</p><footer>—— Stein, Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution, 1956；金融里 beta 收缩见 Vasicek, Journal of Finance, 1973</footer></div><p><a href="/quant/bayesian-factor-comparison">上一课</a>用边缘似然比较整套因子模型，惩罚只拟合样本 \(\alpha\) 的额外因子。实践里更常面对的是两千个 \(\beta_i\)、两千个 \(\alpha_i\)，每个都噪声很大。Stein 证明 \(N\ge 3\) 时各维样本均值作为联合估计不可容许；Vasicek 把同一思想用在 \(\beta\)。本课缺口：从模型胜负落到单个参数的收缩。<a href="/quant/cov-shrinkage">协方差收缩</a> 已处理 \(\Sigma\)；这里对象是回归系数、alpha、均值。不重写边缘似然与因子夏普约化。下一课处理收缩仍吃不消的离群点。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>观测 \(y_i=\theta_i+\varepsilon_i\)，\(\theta_i\) 来自超总体。样本 \(\hat\theta_i\) 对单个 \(i\) 无偏，但对损失 \(\sum(\hat\theta_i-\theta_i)^2\) 过大：极端 \(\hat\theta\) 多半是噪声。收缩</p> \[\tilde\theta_i=(1-w)\hat\theta_i+w\bar\theta \]<p>引入偏差、降低方差。经验贝叶斯用截面估 \(w\)（噪声方差 vs 真离散）。问题是选收缩目标（总均值、行业均值、CAPM \(\beta=1\)）以及承认异质噪声（薄股票 \(w\) 更大）。</p><p>资产定价里：Vasicek \(\beta\) 是默认；\(\alpha\) 收缩决定「有没有特异收益可做」；均值收缩是 Black–Litterman 与组合的入口。对象不是再比较模型后验，而是给出可用于下游的点。</p><h3 id="与惩罚回归的关系" tabindex="-1">与惩罚回归的关系 <a class="header-anchor" href="#与惩罚回归的关系" aria-label="Permalink to &quot;与惩罚回归的关系&quot;">​</a></h3><p>岭回归、<a href="/quant/regularized-linear-alpha">正则化线性 alpha</a> 是同一偏差–方差的计算形式。经验贝叶斯给 \(w\) 一个分层概率解释，并允许从数据估超参。LASSO 做选择（点质量在零），James–Stein 做均匀拉近。因子载荷多、且你相信多数真 \(\alpha\) 接近零时，选择式先验（spike-and-slab）更接近上一课的包含概率。</p><p><span class="marginnote">收缩不是「把 t 不显著的变成零」的事后手续。先看 t 再收缩，用了两次数据，覆盖概率坏。应预先声明目标与公式，或用分层模型一次算出后验。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>Vasicek \(\beta\)。</strong> 先验 \(\beta\sim N(\beta_0,v_0)\)，似然方差来自时间序列。后验均值是精度加权。\(\beta_0\) 常用 1 或行业均值；\(v_0\) 用截面残差减平均估计方差（经验贝叶斯）。薄股票、短窗，权重大幅向 \(\beta_0\)。</p><p><strong>alpha / 均值。</strong> 把 \(\hat\alpha_i\) 向 0 或向截面均值拉。若目标是组合，向零收缩 \(\alpha\) 等于缩小主动权重。Efron–Morris 给出经验贝叶斯的经典实现。注意：\(\hat\alpha\) 相关（共同因子残差），独立正态公式会收缩不够或过度；应先滤因子，或对残差用多元分层。</p><p><strong>协方差。</strong> Ledoit–Wolf 向单位阵或常相关目标拉，见已有课。本课不重复特征值公式，只强调：均值与 \(\beta\) 的收缩不能代替 \(\Sigma\) 收缩，优化器两头都噪。</p><h3 id="超参不要样本内调到最大夏普" tabindex="-1">超参不要样本内调到最大夏普 <a class="header-anchor" href="#超参不要样本内调到最大夏普" aria-label="Permalink to &quot;超参不要样本内调到最大夏普&quot;">​</a></h3><p>用同一段收益既估 \(w\) 又评组合，会挑出过小的 \(w\)（看起来主动很强）。应时间序列交叉验证估超参，或用封闭的经验贝叶斯矩（不直接瞄夏普）。这与预测回归的样本外纪律相同。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>平方损失下，后验均值是最优点估计。经验贝叶斯用边际分布估先验方差：截面看到的离散 = 真异质 + 估计噪声，减去噪声得到 \(v_0\)，再得 \(w\)。机制是<strong>借强度</strong>：每个 \(i\) 用其他 \(j\) 的信息。Stein 的不可容许是联合损失下的定理；对单个预先指定的 \(i\)，无偏 \(\hat\theta_i\) 仍可更可取——所以对「这一只股票的 \(\beta\) 要不要收缩」取决于你的损失是组合级还是个案级。</p><p>与 Fama–MacBeth 生成回归量：收缩 \(\beta\) 再进截面，能减轻衰减（attenuation 的反向是噪声 \(\beta\) 把 \(\lambda\) 拉向零）。Vasicek 之后再 FM，是工程上常见的两步；贝叶斯层次可一次完成，但报告更难。</p><p><span class="marginnote">向 1 收缩 \(\beta\)，会让高 \(\beta\) 股票的 \(\beta\) 下来、低的上去，市场中性组合的残差风险下降，但也削弱了「赌 \(\beta\)」的暴露。目标必须与策略一致：做 BAB 不应把 \(\beta\) 全拉到 1。</span></p><h3 id="何时不收缩" tabindex="-1">何时不收缩 <a class="header-anchor" href="#何时不收缩" aria-label="Permalink to &quot;何时不收缩&quot;">​</a></h3><p>\(N=3\) 的货币对、明确的结构参数（久期、合约乘数）、以及你要对单一事件做无偏描述（事件 CAR）——收缩会把案例拉向总体，掩盖正是你想看的异常。事件研究的平均 CAR 已经是一种借强度；再把每个 CAR 向零拉，是另一个问题。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>肥尾下正态分层会把危机当成「真 \(\theta\) 极大」，收缩不够；应 t 分层或先 winsor。生存偏差让存活公司的 \(\alpha\) 截面右偏，经验贝叶斯目标被污染。国际样本的超总体是否共同，值得按市场分层。</p><p>工程：个股 \(\beta\) 默认 Vasicek 或行业分层；协方差走 Ledoit–Wolf；\(\alpha\) 收缩超参用样本外。不要对已经 <a href="/quant/ipca">IPCA</a> 结构化的载荷再随便 James–Stein 一层而不声明。不要把收缩后的 \(t\)（用未收缩标准误）当推断——标准误须与估计器匹配，或改报后验区间。下一课：离群让均值与 \(\beta\) 的高斯分层一起坏掉。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多参数联合损失下，把估计拉向超总体中心，往往优于各估各的样本矩。</li><li>Vasicek 的 \(\beta\) 收缩是金融默认的经验贝叶斯；权重由估计噪声对真截面离散决定。</li><li>超参须样本外或用边际矩，不能对同一夏普调 \(w\)。</li><li>收缩改点估计，推断要用匹配的后验或适当标准误；与协方差收缩分工。</li><li>出处：Stein, 1956；James and Stein, 1961；Vasicek, <em>Journal of Finance</em>, 1973；Efron and Morris 的经验贝叶斯；协方差一侧见 Ledoit and Wolf。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 基础推断<!--]--><!--[--> · 课序 在金融数据上做回归<!--]--></p><p class="lesson-progress">第 13 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/robust-regression-outliers/">稳健回归与离群</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sennrich BPE 论文 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sennrich-bpe.md.21VQ5njd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 机制课序对照<!--]--><!--[--> · 课序 表示、MoE 与扩散<!--]--></p><p class="lesson-progress">第 289 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/subword-history/">GloVe 之后的子词</a></p><p class="lesson-next"> 下一课：<a href="/llm/kudo-unigram/">Kudo Unigram 论文</a></p></nav><div style="position:relative;"><div><h1 id="sennrich-bpe-论文" tabindex="-1">Sennrich BPE 论文 <a class="header-anchor" href="#sennrich-bpe-论文" aria-label="Permalink to &quot;Sennrich BPE 论文&quot;">​</a></h1><div class="epigraph"><p>把稀有词切成训练中反复出现的子词单位，神经翻译就不必为开放词表里每一个未见词准备一套对策。</p><footer>—— Sennrich, Haddow, Birch, Neural Machine Translation of Rare Words with Subword Units, ACL 2016</footer></div><p><a href="/llm/subword-history">上一篇附录</a> 把 GloVe 之后的子词写成词表史。本篇对照 <strong>Sennrich、Haddow、Birch 的 ACL 2016 原文</strong>：在神经机器翻译上用字节对编码（BPE）学子词。主干课 <a href="/llm/tokenizer-design">Tokenizer 设计</a> 用当代实现；这里只钉论文问了什么、实验怎么写、边界在哪。不发明编号，出处就是 ACL 2016 这篇。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>词级 NMT 把未登录词交给拷贝、字符回退或截短词表。德语复合词、形态变化把大量质量送到 UNK。作者要一种<strong>固定大小、对任意词可分解、高频词仍可保留为原子</strong>的符号。BPE 原是数据压缩的合并算法（Gage），他们把它改成词表学习：在词频表上反复合并最常见相邻对，直到达到目标操作数。</p><p>相对纯字符模型，子词更短、更易对齐；相对整词，开放词表被覆盖。问题设定是翻译质量与 UNK 率，不是后来 LLM 的压缩率–下游曲线。</p><h3 id="在词频上合并-不是在整句字节上" tabindex="-1">在词频上合并，不是在整句字节上 <a class="header-anchor" href="#在词频上合并-不是在整句字节上" aria-label="Permalink to &quot;在词频上合并，不是在整句字节上&quot;">​</a></h3><p>他们先按空格与标点得到词，再在词内做 BPE。这保留了词边界先验。SentencePiece 后来可以在无空格生语料上直接学；那是后文，不是 2016 设定。<span class="marginnote">BPE 的学习目标不是似然，是贪心压缩启发式。没有「最优词表」定理。合并次数是超参：太少剩大量 UNK 式稀有词，太多接近字符级。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="合并程序与联合词表" tabindex="-1">合并程序与联合词表 <a class="header-anchor" href="#合并程序与联合词表" aria-label="Permalink to &quot;合并程序与联合词表&quot;">​</a></h3><p>从字符词表出发，统计相邻符号对频率，每次合并全局最高频对，加入词表。编码时对每个词贪心应用同一套合并。源、目标可分开学或联合学；他们讨论了联合 BPE 以共享子词、利于拷贝专名。</p><p>系统是当时的注意力 encoder–decoder，不是 Transformer LLM。评测用 BLEU 与 UNK 统计。对照是词级基线与其他切分。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>高频词很少被切开，梯度集中在稳定原子上；稀有词共享子词参数，形态与词干可以迁移。联合 BPE 让源侧未见专名在目标侧仍有相同碎片，拷贝更容易。这是翻译对齐，不是语言建模的压缩率论证。</p><p>解码端任意字符串都可切，理论上消灭 UNK。实际仍受合并规则与预处理（是否把大小写、BPE dropout 当时还没有）约束。Kudo 下一篇会批评「单一切分」的过拟合，本篇默认训练与推理同一套贪心切分。</p><p><span class="marginnote">不要把 2016 BPE 与 GPT-2 / tiktoken 的字节级 BPE 混成一篇。后者在 UTF-8 字节上合并，处理无空格与噪声不同。机制课对照的是算法祖先，不是同一套预处理脚本。</span></p><h3 id="与当代词表课的差" tabindex="-1">与当代词表课的差 <a class="header-anchor" href="#与当代词表课的差" aria-label="Permalink to &quot;与当代词表课的差&quot;">​</a></h3><p>当代 LLM 关心 \(|V|\) 与压缩率、多语言公平。Sennrich 等人关心 WMT 上的 BLEU 与稀有词翻译。数字不可横向搬到 Llama 词表。对照价值是：开放词表问题被明确写成子词学习问题，并给出可复现的合并程序。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>贪心合并对语料敏感：多语言拼在一起，高频语言吃掉合并额度。他们主要在双语翻译设定下工作。没有 dropout 式多切分，分词噪声会进模型。字符级语言与无空格语言的空格先验不成立，需要后继工作。</p><p>论文不讨论百万级词表的 softmax 费用，也不讨论字节回退。那些是 ByT5、大词表 LM 的问题。引用本篇请钉 NMT 与稀有词，不要写成「LLM tokenizer 的原论文」——它是子词进入神经翻译的关键实验，谱系上的祖先，不是现代训练栈的说明书。</p><p><span class="marginnote">完整题名 <em>Neural Machine Translation of Rare Words with Subword Units</em>。作者 Rico Sennrich、Barry Haddow、Alexandra Birch。会议 ACL 2016。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>论文用 BPE 合并在 NMT 上学固定子词词表，覆盖稀有词、降低 UNK。</li><li>在词频表上贪心合并；可源–目标联合以利专名。</li><li>切分训练–推理一致；尚未引入子词正则。</li><li>评测是翻译 BLEU，不是 LLM 压缩率。</li><li>出处：Sennrich, Haddow, Birch, ACL 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 机制课序对照<!--]--><!--[--> · 课序 表示、MoE 与扩散<!--]--></p><p class="lesson-progress">第 289 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kudo-unigram/">Kudo Unigram 论文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

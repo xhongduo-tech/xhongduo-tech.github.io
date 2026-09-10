@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amihud–Mendelson 价差与预期收益 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_amihud-mendelson.md.Bz0kVOwK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 信息与库存模型<!--]--><!--[--> · 课序 Kyle 之后<!--]--></p><p class="lesson-progress">第 6 / 50 课</p><p class="lesson-prereq"> 先修：<a href="/quant/grossman-miller/">Grossman–Miller 流动性提供</a></p><p class="lesson-next"> 下一课：<a href="/quant/stoll-three-components/">Stoll 价差三成分</a></p></nav><div style="position:relative;"><div><h1 id="amihud–mendelson-价差与预期收益" tabindex="-1">Amihud–Mendelson 价差与预期收益 <a class="header-anchor" href="#amihud–mendelson-价差与预期收益" aria-label="Permalink to &quot;Amihud–Mendelson 价差与预期收益&quot;">​</a></h1><div class="epigraph"><p>买卖价差是反复交易的成本。持有期短的客户不愿碰价差宽的资产，于是宽价差资产必须提供更高的期望毛收益，才能在均衡里被持有。</p><footer>—— Amihud and Mendelson, Asset Pricing and the Bid-Ask Spread, Journal of Financial Economics, 1986</footer></div><p><a href="/quant/grossman-miller">Grossman–Miller</a>解释即时价格相对充分分担价格的暂时折让，对象是冲击路径，还不是截面预期收益。缺口是：若价差是持有资产时每次换手都要付的成本，它应进入<strong>要求回报</strong>。Amihud 与 Mendelson（1986）给出客户分层（clientele）：短持有期投资者专攻窄价差资产，长持有期投资者才愿意持有宽价差资产，且要求的超额毛收益随价差上升、但凹。本课不是 <a href="/quant/amihud-illiquidity">Amihud 2002 非流动性比率</a> 的日度 \(|R|/DVOL\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>资产定价若只认贝塔，价差只是微观摩擦，不应出现在期望收益里。可是投资者买入付 ask、卖出收 bid，往返成本约一个价差。持有期 \(T\) 越短，价差摊到每年的成本 \(s/T\) 越大。不同人 \(T\) 不同，谁持有高 \(s\) 的资产就变成均衡问题。要解决的是：在给定价差（本课把它当外生市场特征）下，预期收益如何随 \(s\) 调整，以及哪些人构成边际持有者。</p><p>这与库存、信息决定<strong>价差从哪来</strong>是反方向的问题。Ho–Stoll / Kyle 生成 \(s\)；本课把 \(s\) 当作已存在的成本，问它如何被定价。后文 Stoll 再把 \(s\) 拆开，避免把信息成分与处理成本一锅烩进溢价。</p><h3 id="客户分层而不是单一折现率" tabindex="-1">客户分层而不是单一折现率 <a class="header-anchor" href="#客户分层而不是单一折现率" aria-label="Permalink to &quot;客户分层而不是单一折现率&quot;">​</a></h3><p>若所有人持有期相同，高 \(s\) 资产的期望收益只需抬高 \(s/T\)，关系接近线性。若 \(T\) 异质，短线投资者退出高 \(s\) 资产，其价格由更长 \(T\) 的人决定，每年摊到的成本更小，于是期望收益对 \(s\) 的反应是凹的：价差从很小到中等时溢价上升快，再往上被长线客户接住，边际溢价变缓。</p><p><span class="marginnote">Amihud（2002）的 ILLIQ 是冲击代理，进入另一条「非流动性定价」实证。1986 年对象是报价价差本身。两篇作者重叠，问题不是同一个度量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>投资者 \(i\) 有外生持有期（或外生到达的流动性需求），最大化净价差之后的收益。资产 \(j\) 有相对价差 \(s_j\)。均衡时，资产按 \(s\) 排序，投资者按 \(T\) 排序，出现匹配：最短 \(T\) 持有最窄 \(s\)，最长 \(T\) 持有最宽 \(s\)。期望毛收益 \(E[r_j]\) 是 \(s_j\) 的增凹函数。实证含义：在截面上控制风险后，报价价差应预测收益，且不必线性。</p><p>检验上，Amihud–Mendelson 用 NYSE 报价价差对收益回归。后续文献用换手率、持有期代理来测客户分层：高换手股票的价差敏感度应更大。这与流动性风险因子（Pástor–Stambaugh）不同：这里是特征成本，不是协方差风险。</p><h3 id="毛收益与净收益" tabindex="-1">毛收益与净收益 <a class="header-anchor" href="#毛收益与净收益" aria-label="Permalink to &quot;毛收益与净收益&quot;">​</a></h3><p>投资者关心的是净价差收益。均衡比较的是毛收益，因为价差已经写在交易价格里。观察到的平均收益若用中点计算，会把价差成本的一部分藏进买卖弹跳；应用实际可实现的买卖价更接近模型。Roll 价差与报价价差在这里是输入的两种测法，不是本课要分解的三成分。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>价差把市场切开。短线资金集中在大盘、窄价差名字上，把那里的价格抬高、期望收益压低；宽价差名字留给长线资金，价格更低、期望毛收益更高。这是一种内生分割，不必有投资禁令。公司若能缩小价差（上市、做市、披露），可以改变自己的客户群与资本成本——这是微观结构接到公司金融的接口，本课只点到为止。</p><p>与 Grossman–Miller 对照：GM 的暂时折让是风险分担不足的即时价格；AM 的溢价是反复支付交易成本的长期要求回报。一个资产可以同时有大的冲击回复（GM）与高的平均收益（AM），但回归里两个对象的频率不同：一个是日内到数日，一个是月到年。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>价差外生是最大边界。若价差由逆向选择决定，高 \(s\) 同时标志信息环境差，溢价可能是信息风险而不是交易成本。Stoll 三成分与 PIN 就是为了不让这一混淆滑过。持有期若对收益内生（赚得多就持有更久），分层的外生 \(T\) 被破坏。1986 年样本的报价价差与今日电子盘的有效价差不可直接换单位。</p><p><span class="marginnote">不要把「小盘溢价」自动写成 Amihud–Mendelson。小盘同时有高价差、高 ILLIQ、高特质波动。识别需要在同等风险下看价差，而不是看市值。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Amihud–Mendelson（1986）把买卖价差写成反复交易成本，期望毛收益随价差上升且因客户分层而凹。</li><li>短持有期投资者专攻窄价差资产；宽价差资产的边际持有者是长线客户。</li><li>对象是报价价差的资产定价，不是 2002 年 ILLIQ 度量。</li><li>价差若内生于信息，溢价的解释要留给成分分解。</li><li>出处：Amihud and Mendelson, <em>Journal of Financial Economics</em>, 1986；对照 Amihud, <em>Journal of Financial Markets</em>, 2002。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 信息与库存模型<!--]--><!--[--> · 课序 Kyle 之后<!--]--></p><p class="lesson-progress">第 6 / 50 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/stoll-three-components/">Stoll 价差三成分</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

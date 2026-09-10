@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Z-score 开仓 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_zscore-entry.md.DswPOBM7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 均值回复交易<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 12 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/etf-arb/">ETF 与成分股</a></p><p class="lesson-next"> 下一课：<a href="/quant/kelly-sizing/">仓位与 Kelly / 分数 Kelly</a></p></nav><div style="position:relative;"><div><h1 id="z-score-开仓" tabindex="-1">Z-score 开仓 <a class="header-anchor" href="#z-score-开仓" aria-label="Permalink to &quot;Z-score 开仓&quot;">​</a></h1><div class="epigraph"><p>形成期价差偏离两个历史标准差则开仓：这是一条可复制的阈值规则，不是对均衡存在的检验，也不是扣除成本后的最优进入边界。</p><footer>—— Gatev, Goetzmann &amp; Rouwenhorst, Pairs Trading, Review of Financial Studies, 2006</footer></div><p><a href="/quant/etf-arb">上一课</a>把 ETF 套利写成 AP 申赎把二级价格拉向可复制篮子；偏离含信息领先与口径陈旧，只有可执行带外的部分才值得评估。申赎是制度收敛，统计套利的开仓则几乎总是某种标准化偏离。缺口是 Z-score 这一滤波器：窗口、均值/波动定义与阈值 \(c\) 共同决定换手和净期望，不是单一的「两倍标准差魔法」。GGR 用形成期固定 \(\sigma\)；OU/Kalman 用均衡波动与时变均值。本课写这些选择如何改写期望。不重讲 AP 约束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设价差或残差为 \(e_t\)。定义</p> \[z_t=\frac{e_t-\hat\mu_t}{\hat\sigma_t}. \]<p>规则：\(z_t\gt c\) 做空价差，\(z_t\lt -c\) 做多， \(|z_t|\lt c_{\mathrm{exit}}\) 平仓。问题有三层。第一，\(\hat\mu,\hat\sigma\) 用哪一段历史：形成期固定（GGR）还是滚动（常见 20–60 日）。滚动会让阈值追踪新波动，危机里 \(\hat\sigma\) 膨胀，\(|z|\) 回落，策略在最该停手或最该反向供给流动性时关掉信号——这不一定错，但必须当成机制而不是 bug。第二，\(e_t\) 若不是平稳的，见<a href="/quant/cointegration-break">协整破裂</a>，\(z_t\) 仍会反复穿越 \(c\)，那是单位根路径的局部波动，不是回归。第三，截面上同时监控 \(N\) 对，\(P(\max |z|\gt c)\) 远大于单对的名义水平，开仓次数被极值驱动。</p><p>Elliott 等人把配对写成可观测价差加隐状态的均衡水平，过滤后的偏离才标准化。这比朴素 \(z\) 更接近「对时变均值开仓」，但也把模型误设变成开仓理由：卡尔曼增益错了，Z-score 会系统性偏斜。</p><h3 id="阈值-不是风险中性的最优停时" tabindex="-1">阈值 \(c\) 不是风险中性的最优停时 <a class="header-anchor" href="#阈值-不是风险中性的最优停时" aria-label="Permalink to &quot;阈值 $c$ 不是风险中性的最优停时&quot;">​</a></h3><p>在 OU 假设下，可以写出最优进入边界与持有期的权衡：更宽的 \(c\) 提高每次平均利润、降低成交次数。真实目标函数必须减掉每次往返的有效价差与冲击，于是最优 \(c\) 随成本上升而变宽。样本内用夏普去挑 \(c\in\{1,1.5,2,2.5\}\)，等价于对同一噪声做多次检验。Gatev 原文固定 \(c=2\) 且用形成期 \(\sigma\)，部分就是为了少给自己挑选空间。把 \(c\) 写成「两倍标准差因为 95%」是把正态分位数误当成经济最优。</p><p><span class="marginnote">\(z\) 对 \(\hat\sigma\) 的估计误差极敏感。几十个日频点的样本标准差本身波动很大，阈值时而极松时而极紧。用同一窗口估均值与标准差，还会让 \(e_t\) 进入 \(\hat\mu\)，削弱当期信号——有人改用滞后窗口，又引入额外滞后超参。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把规则拆成可审计的零件。价差定义：对数比、回归残差、还是标准化价格差，三者的 \(z\) 不可互换。位置与尺度：均值用样本均值还是 EWMA；波动用标准差、分位数极差还是 OU 的 \(\sigma_{\mathrm{eq}}=\sigma/\sqrt{2\kappa}\)。Avellaneda–Lee 用均衡波动，使 \(z\) 在不同半衰期的名字之间可比；用原始 \(\mathrm{sd}(e)\) 则会让慢回归的对看起来「更少开仓」。开仓与平仓不对称：\(c_{\mathrm{exit}}\lt c\) 造成滞后，减少抖动，但拉长持有、增加借券与破裂暴露。</p><p>执行时钟。用收盘 \(z\) 在次日开盘成交，避免用同一根 bar 的收盘价既当信号又当成交。盘中 \(z\) 需要同步的中点，并处理跳空：隔夜 \(e\) 的跳跃会让 \(z\) 一开盘就过阈值，此时流动性最差。多对组合要对 \(z\) 做截面标准化或排名，否则高波动对永远占满名额。更干净的是限制同时持有对数，并按 \(|z|\) 与 ADV 分配权重，而不是过线就等权满仓。</p><h3 id="分布、跳跃与伪平稳" tabindex="-1">分布、跳跃与伪平稳 <a class="header-anchor" href="#分布、跳跃与伪平稳" aria-label="Permalink to &quot;分布、跳跃与伪平稳&quot;">​</a></h3><p>残差有肥尾与跳跃。正态 \(c=2\) 对应的尾部概率在真实数据里更大，开仓比名义更频繁，或一旦开仓偏离更大。用稳健 \(\hat\sigma\)（如 MAD）会改变 \(c\) 的含义，必须重校成本。跳跃若来自公司事件，Z-score 开仓会把事件驱动当成均值回归。过滤应在信号之前：停牌、涨跌停、分红、指数调整日不产生新开仓。伪平稳——短期样本里单位根看起来像高 \(\kappa\) 的 OU——会让 \(z\) 频繁回归，样本内夏普虚高，样本外第一次破裂就回吐。</p><p><span class="marginnote">截面上对所有对的 \(z\) 做多重检验修正（Bonferroni 或错误发现率）会减少开仓、提高平均质量，也会把策略变成「只做极端尾部」，容量更差、冲击更大。修正不是免费的 alpha 纯化。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>在真实均值回归且成本为零时，\(z\) 过阈值是库存偏离过大、期望有负漂移的时刻。有成本时，只有 \(|z|\) 隐含的期望回归超过往返摩擦才有正的净期望，见<a href="/quant/net-edge">交易成本后的可交易性</a>。拥挤时，许多账户用相近窗口算 \(z\)，阈值变成协调装置：大家在同一分钟开仓，价差瞬时被推回，\(z\) 刚过 \(c\) 就没了边缘，实现的是冲击而不是回归。反过来，平仓阈值 \(c_{\mathrm{exit}}\) 也会拥挤，回归的最后一段被抢光，你的出场落在流动性更差的一侧。</p><p>滚动 \(\hat\sigma\) 有顺周期。波动上升时策略降杠杆（\(|z|\) 变小），波动下降时加杠杆。这与<a href="/quant/kelly-sizing">仓位与 Kelly</a> 的波动缩放同方向，但此处缩放来自信号定义本身，不是显式风险预算。若残差在高压期正自相关（平仓螺旋），\(z\) 会在亏损方向上维持开仓状态更久，因为均值也被拉过去——EWMA 均值追价格，是把破裂当成新均衡，有时对、有时把止损推迟到更大亏损。</p><h3 id="与距离法、pca-残差的接口" tabindex="-1">与距离法、PCA 残差的接口 <a class="header-anchor" href="#与距离法、pca-残差的接口" aria-label="Permalink to &quot;与距离法、PCA 残差的接口&quot;">​</a></h3><p>GGR 的 \(c=2\) 绑在形成期 \(\sigma\) 上，交易期 \(\sigma\) 变了也不改阈值，这是一种反周期性：危机里更容易开仓。滚动 Z-score 相反。PCA 残差的 \(z\) 在因子模型重估日会跳，开仓可能来自载荷旋转而不是经济偏离。规格必须冻结：因子更新频率、对齐方法、以及更新日是否禁止新开仓。否则回测里的「Z-score 信号」混进了模型维护日历。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 \(c\) 的样本内网格搜索结果写成理论最优。不要在 \(z\) 上叠加 MACD、布林带宽度再声称仍是 GGR 或 Avellaneda–Lee。A 股涨跌停使 \(e_t\) 截断，\(\hat\sigma\) 低估，开盘后 \(z\) 爆炸式触发。卖空约束下，\(z\gt c\) 的空头腿经常缺一腿，策略变成单边，Z-score 的「中性」只存在于信号文件里。</p><p>报告至少包括：不同 \(c\) 下的换手、命中率、平均持有期、最大不利偏移、以及扣有效价差后的期望。若只有高 \(c\) 才有正净期望，容量就是那几次极端偏离时的 ADV，不是全样本平均对数。时间止损与 \(z\) 规则同时存在时，要声明谁优先，见<a href="/quant/statarb-stops">止损与时间止损</a>。</p><p><span class="marginnote">OU 的 \(z\) 用 \(\sigma/\sqrt{2\kappa}\) 标准化，估计 \(\kappa\) 接近零时均衡波动爆炸，信号消失——这其实是一件好事：它拒绝在近单位根上开仓。若你改用短窗口标准差「救回」信号，等于关掉这道保险。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Z-score 开仓把偏离标准化成阈值规则；窗口、均值/波动定义与 \(c\) 共同决定换手和净期望，不是单一的「两倍标准差魔法」。</li><li>GGR 用形成期固定 \(\sigma\) 与 \(c=2\)；OU/Kalman 用均衡波动与时变均值。两者样本内表现不可互换引用。</li><li>非平稳、肥尾、多重配对与拥挤使名义阈值失效；成本上升时应加宽 \(c\)，而不是用夏普网格去收窄。</li><li>滚动 \(\sigma\) 具有顺周期；形成期固定 \(\sigma\) 更反周期。必须显式选择并做压力测试。</li><li>出处：Gatev, Goetzmann and Rouwenhorst, <em>RFS</em>, 2006；Elliott, Van Der Hoek and Malcolm, <em>Quantitative Finance</em>, 2005；Avellaneda and Lee, <em>Quantitative Finance</em>, 2010。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 均值回复交易<!--]--><!--[--> · 课序 信号<!--]--></p><p class="lesson-progress">第 12 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/kelly-sizing/">仓位与 Kelly / 分数 Kelly</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

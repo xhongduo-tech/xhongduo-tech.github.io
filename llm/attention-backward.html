@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>注意力的反向传播 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_attention-backward.md.DQHzkKiC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 反传与初始化<!--]--><!--[--> · 课序 训练一个 Transformer 之前<!--]--></p><p class="lesson-progress">第 1 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/audio-visual-sync/">音画同步</a></p><p class="lesson-next"> 下一课：<a href="/llm/autograd-graph/">自动微分与计算图</a></p></nav><div style="position:relative;"><div><h1 id="注意力的反向传播" tabindex="-1">注意力的反向传播 <a class="header-anchor" href="#注意力的反向传播" aria-label="Permalink to &quot;注意力的反向传播&quot;">​</a></h1><div class="epigraph"><p>缩放点积注意力把打分、归一化与加权收成三次矩阵运算；梯度必须沿同一条路返回，softmax 的 Jacobian 不能当成常数。</p><footer>—— 对照 Vaswani et al., Attention Is All You Need, NeurIPS 2017；反向重算见 Dao et al., FlashAttention, NeurIPS 2022</footer></div><p><a href="/llm/audio-visual-sync">上一课</a>把音画同步收在多模态生成课末。架构前向已经写完。本课是「训练基础与稳定性」第一课：训练要把标量损失送回查询、键、值与投影，注意力的 Jacobian 必须显式。<a href="/llm/sdpa">SDPA</a> 的前向、<a href="/llm/flashattention">FlashAttention</a> 的分块、<a href="/llm/causal-lm">因果语言模型</a> 的交叉熵，后课都不再从内容寻址讲起。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>主干把注意力写成</p> \[S=\frac{QK^\top}{\sqrt{d_k}},\qquad A=\mathrm{softmax}(S),\qquad O=AV. \]<p>推理只需要 \(O\)。训练还要 \(\partial\mathcal{L}/\partial Q\)、\(\partial\mathcal{L}/\partial K\)、\(\partial\mathcal{L}/\partial V\)，再乘进 \(W_Q,W_K,W_V\)。缺口不是再推一遍点积方差，而是 <strong>softmax 把 \(S\) 变成行随机矩阵之后，上游的 \(dO\) 如何分配回每一对位置</strong>。若把 \(A\) 当常数，等于假装路由不随参数动，残差流上的注意力层几乎学不动。</p><p><a href="/llm/flashattention">FlashAttention</a> 故意不把 \(A\) 落在 HBM 上。反向若仍按朴素图去取 \(A\)，分块的意义就没了。于是出现第二条约束：数值上必须与物化算法同类，存储上却要能重算 \(A\)。本课先写物化形式的链式法则；重算只是同一 Jacobian 的实现。</p><h3 id="softmax-行不是独立的坐标" tabindex="-1">softmax 行不是独立的坐标 <a class="header-anchor" href="#softmax-行不是独立的坐标" aria-label="Permalink to &quot;softmax 行不是独立的坐标&quot;">​</a></h3><p>对一行 \(s\)，令 \(p=\mathrm{softmax}(s)\)，\(g=\partial\mathcal{L}/\partial p\)。Jacobian 是 \(\mathrm{diag}(p)-pp^\top\)，于是</p> \[\frac{\partial\mathcal{L}}{\partial s_i}=p_i\Bigl(g_i-\sum_j p_j g_j\Bigr). \]<p>贡献被行内均值减过。高权重位置若 \(g\) 接近行均值，落到 \(s\) 上的梯度接近 0——这就是饱和：分数已经 one-hot，<a href="/llm/attention-scale-stability">缩放</a> 当初要防的正是这一区。因果掩码在前向把无效位写成大负数，反向这些位的 \(p\) 已是 0，梯度也被掐掉。</p><p><span class="marginnote">不要把「注意力权重可视化」当成梯度解释。\(A\) 大只说明前向多读了这个值；\(dS\) 还取决于 \(dO\) 与 \(V\) 的相容性。值向量近零的高权重位置，对损失可以几乎无贡献。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记 \(dO=\partial\mathcal{L}/\partial O\)。物化反向三步：</p> \[dV=A^\top dO,\qquad dA=dO\,V^\top, \]<p>再按上行公式把 \(dA\) 收成 \(dS\)，最后</p> \[dQ=\frac{dS\,K}{\sqrt{d_k}},\qquad dK=\frac{dS^\top Q}{\sqrt{d_k}}. \]<p>缩放常数与前向同一条；漏掉它，等于把学习率沿头维悄悄乘了 \(\sqrt{d_k}\)。多头是把头维拆开后各自做上述运算，再拼回 \(d_{\mathrm{model}}\)。交叉注意力里 \(Q\) 与 \(K,V\) 来自不同序列，形状不同，链式法则不变。</p><p>FlashAttention 的反向保存的是 \(Q,K,V\)、\(O\) 和行统计 \((m,\ell)\)，不保存 \(A\)。需要 \(A\) 时按块重算 softmax，再在片上完成与 \(dO\) 的乘加。算术多了一次前向量级，HBM 少了一张 \(n\times n\) 表。与层间梯度检查点不是同一粒度：这里重算的是核内部的权重，不是整层激活。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(dV=A^\top dO\) 是「按权重把输出梯度还原到值」。\(dA=dO V^\top\) 是「输出梯度与值的点积，决定权重该增该减」。二者不对称：改 \(V\) 不经过 softmax Jacobian，改 \(Q,K\) 必须经过。所以值投影的梯度通常比查询、键更「直」，查询键则对饱和极其敏感。</p><p>残差把 \(O\) 加回流上，故 \(dO\) 含有后层直接回传的一项。Pre-LN 下这条公路不经过注意力内部，底层仍能收到梯度；但注意力<strong>内部</strong>的 \(Q,K\) 仍只通过 \(dS\) 学习。初始化若把点积放进饱和区，公路救的是主干，救不了注意力参数。这就是下一课要把自动微分图和初始化尺度接起来的原因：图保证链式法则不错，尺度保证 Jacobian 不先死。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 <a href="/llm/adamw">AdamW</a> 如何用这些梯度，也不写混合精度里 \(QK^\top\) 的溢出——那是主干已有的数值课与后课稳定性。手写 Jacobian 只为钉住对象：\(dQ,dK,dV\) 与 \(A\) 的关系。实现几乎总是框架反传或融合核，但融合核必须与上述公式同类，否则「精确注意力」的声称不成立。</p><p>线性注意力、核函数注意力改的是前向定义，Jacobian 另写，不能复用 softmax 这一行。GQA / MQA 只是键值在头维共享，链式法则多一次对共享维的求和，不改 softmax 本身。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>注意力反向沿 \(O\leftarrow A\leftarrow S\leftarrow Q,K\) 与 \(O\leftarrow V\) 两条路走；后者不经过 softmax Jacobian。</li><li>行内 \(dS_i=p_i(g_i-\sum p_j g_j)\)：饱和时查询键几乎收不到梯度。</li><li>FlashAttention 用重算代替存 \(A\)，数学对象仍是同一 Jacobian。</li><li>残差公路不替代注意力内部的尺度；初始化把点积送进饱和区，公路也救不了 \(W_Q,W_K\)。</li><li>后课默认会这条链式法则，不再从 SDPA 前向重推。</li><li>出处：Vaswani et al., <em>Attention Is All You Need</em>, NeurIPS 2017；Dao et al., <em>FlashAttention</em>, NeurIPS 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 反传与初始化<!--]--><!--[--> · 课序 训练一个 Transformer 之前<!--]--></p><p class="lesson-progress">第 1 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/autograd-graph/">自动微分与计算图</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

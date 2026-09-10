@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>排队与成交概率 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fill-probability.md.egKgislZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 做市<!--]--><!--[--> · 课序 库存<!--]--></p><p class="lesson-progress">第 12 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/quant/inventory-skew/">库存风险与偏度报价</a></p><p class="lesson-next"> 下一课：<a href="/quant/toxic-flow/">毒性流与停报价</a></p></nav><div style="position:relative;"><div><h1 id="排队与成交概率" tabindex="-1">排队与成交概率 <a class="header-anchor" href="#排队与成交概率" aria-label="Permalink to &quot;排队与成交概率&quot;">​</a></h1><div class="epigraph"><p>限价单不是报价上的确定成交，而是队列里的一张期权：前面的量要先被市价单吃掉，价格还不能走掉。成交概率是队列状态、市价流与取消流的函数，不是挂单价距离中间价的确定性函数。</p><footer>—— 据 Cont, Stoikov and Talreja, A stochastic model for order book dynamics, Operations Research, 2010；Lo, MacKinlay and Zhang, Econometric models of limit-order executions, Journal of Financial Economics, 2002</footer></div><p><a href="/quant/inventory-skew">上一课</a>用报价中点平移改变下一笔成交方向的概率：宽度与偏度是两个控制量，只加宽不改变库存漂移。偏度假定成交强度已知。缺口是把未成交限价单当成随机时刻才会变成成交的合约：真正决定何时开始成交的是前面剩余量，而不是这一档的总量。成交概率由队列位置、市价消耗、取消与价格离去共同决定，不能还原成「距离中间价几个 tick」。本课把 \(\lambda(\delta)\) 写成必须通过位置来实现的对象。不讨论如何插入队列。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一张买限价单挂在价格 \(p\)，数量 \(q_i\)，前面剩余量 \(x\)（队列位置），该档总深度 \(Q\)。它最终完全成交、部分成交还是取消，取决于三条随机流在「价格仍等于 \(p\) 且该档仍是可成交档」这一窗口内的竞争：对手方市价（或可立即成交限价）从队头消耗；前面的单取消使 \(x\) 下降；价格向不利方向移动使整档失效。只报一个与距离 \(\delta=m-p\) 有关的成交概率，相当于把这三条流平均掉，对做市控制不够用：同样的 \(\delta\)，队头与队尾的成交概率可以差一个数量级。</p><p>Lo 等人把执行时间当生存对象，协变量包括距离、大小、波动。这是无条件或半条件的约化模型，适合估计「这种单平均多久成交」。结构问题是：在给定当前 \((x,Q)\) 与可观测的流强度时，下一段时间的填成概率是多少，以便决定是等待、改价还是取消。后者必须把 <a href="/quant/cancel-queue-position">撤单与队列位置</a> 当作状态，而不是当作噪声。</p><h3 id="队头消耗与价格离去是两种死亡" tabindex="-1">队头消耗与价格离去是两种死亡 <a class="header-anchor" href="#队头消耗与价格离去是两种死亡" aria-label="Permalink to &quot;队头消耗与价格离去是两种死亡&quot;">​</a></h3><p>把「未成交」当作存活，死亡有两种：成交，以及价格离去（或自己取消）。竞争风险框架里，成交概率是在价格离去之前被消耗越过 \(x\) 的概率。价格离去的强度与中间价波动、该档是否仍是 BBO、对面是否出现更优报价有关。队头消耗的强度与市价单到达、以及隐藏量有关。取消是第三种跳：它改变 \(x\) 但不一定结束自己的生命。把三种强度混成一个「距离越近越好成交」的单调函数，会在波动升高时误判——近的档也可能很快被价格跳过。</p><p><span class="marginnote">L2 只给 \(Q\) 不给 \(x\)。自己刚挂上时，若假定加在可见队尾，则 \(x\) 约等于挂单前的 \(Q\)。挂出之后，\(x\) 的演化在没有 L3 编号时不可点名，只能用对该档的成交与净撤单做滤波。方法必须声明识别集。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Cont–Stoikov–Talreja 一类模型把每一档的量看成计数过程：限价到达使 \(Q\) 增加，取消使 \(Q\) 减少，市价使 \(Q\) 从队头减少。对位于 \(x\) 的自己，相关的是队头一侧的净消耗过程 \(C_t\)。若在价格离去时间 \(\tau_{\mathrm{px}}\) 之前 \(C\) 超过 \(x+q_i\)，则完全成交；超过 \(x\) 但不到 \(x+q_i\) 则部分成交。强度可以是常数（校准到短期）、随队列长度变化（短队列更容易被打穿或被取消），或随 <a href="/quant/order-imbalance">盘口不平衡</a> 变化。</p><p>约化式上，常用 logistic 或风险模型：</p> \[\mathbb{P}(\text{fill}\mid x,\delta,\sigma,\mathrm{imb}) = F\bigl(\beta_0+\beta_x x+\beta_\delta\delta+\beta_\sigma\sigma+\beta_{\mathrm{imb}}\mathrm{imb}\bigr). \]<p>\(\beta_x\lt 0\)：前面量越大越难成交。\(\delta\) 的符号取决于 \(p\) 在簿的哪一侧：更优的价格缩短等待，但更优也更接近被逆向选择。Lo–MacKinlay–Zhang 估计的是执行时间分布，可转换成给定地平线的成交概率。做市 HJB 里的 \(\lambda(\delta)\) 应理解为：在典型队列状态下，距离 \(\delta\) 的<strong>条件</strong>成交强度；把队尾的经验成交率塞进 Avellaneda–Stoikov，会系统性高估被动收入。</p><h3 id="队列反应-深度自己改变强度" tabindex="-1">队列反应：深度自己改变强度 <a class="header-anchor" href="#队列反应-深度自己改变强度" aria-label="Permalink to &quot;队列反应：深度自己改变强度&quot;">​</a></h3><p>Huang–Lehalle–Rosenbaum 指出，到达与取消的强度依赖于当前队列大小：队列很长时，新限价更少、取消更多或相反，取决于该档是否「看起来便宜」。这意味着 \(x\) 的下降速度不是外生常数。短 BBO 队列被市价打穿的概率高，但也更容易被新限价补上。成交概率因此是队列状态的非线性函数：从队尾晋级到队中，概率上升快；已经在队头时，再增加的深度主要保护的是后面的人。对做市而言，挂在已经很长的档上，边际成交概率低，库存却同样暴露于该价被选中时的逆向选择。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>时间优先把位置变成一种资本：你用等待换取更高的条件成交概率。它也把取消变成对别人位置的外部性：前面的人撤单，你的 \(x\) 下降，你免费晋级。市场整体取消远多于成交，与这一外部性相容——大量限价是在探询、在管理存货、在撤销过时的期权，而不是在队尾真诚等待。Harris 把取消视为与提交对称的市场行为。成交概率模型若忽略取消，会把历史填成率当成未来填成率，而取消率一变（波动或毒性上升时通常上升），填成率立刻变。</p><p>限价单作为期权：你把自由选择权交给市价单，对方在对自己有利时行使。成交更可能发生在价格朝你的限价走来的时候，也就是对你不利的时候。这是被动策略相对主动策略的结构性折价，与 Glosten–Milgrom 的「被选中」是同一机制的队列版本。因此高成交概率不是免费午餐：队头的高填成伴随着更高的有毒成交份额。把填成最大化当目标，会把做市商推到逆向选择最重的位置。</p><p><span class="marginnote">部分成交改变的是自己的剩余量，不是 \(x\)。统计生命周期时要把一次挂单拆成若干成交与一次最终取消或完全成交，否则会把大单的部分填成当成多张独立小单的成功。</span></p><h3 id="强度-与队列状态如何对接" tabindex="-1">强度 \(\lambda(\delta)\) 与队列状态如何对接 <a class="header-anchor" href="#强度-与队列状态如何对接" aria-label="Permalink to &quot;强度 $\lambda(\delta)$ 与队列状态如何对接&quot;">​</a></h3><p>Avellaneda–Stoikov 的 \(\lambda(\delta)=A e^{-\kappa\delta}\) 是对「距离」的平均。把距离理解成价格档位数可以，但 \(A\) 必须条件于 \(x\)：例如 \(\lambda=A(x)e^{-\kappa\delta}\)，\(A(x)\) 随 \(x\) 下降。偏度报价改变 \(\delta\) 的两侧，也改变你愿意站在哪一档、因而改变 \(x\) 的分布。库存管理与队列管理不是两件独立的事：为了减库存去贴到 BBO 队尾，成交概率未必立刻上升，因为 \(x\) 可能很大；贴到 BBO 却排在队头，成交快，库存风险下降快，但被知情市价单选中的窗口也最大。架构上应把 \((q,x,\delta)\) 当作联合状态，而不是先决定价格再把队列当执行细节。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>生灭模型通常假设强度在短窗口平稳、无隐藏量、单一场所、价格网格固定。隐藏单与冰山让 \(x\) 的可见值不是真正前面量。多交易所并行时，你的档在一处排队，价格可能在别处先走。比例分配规则下没有严格 \(x\)，成交概率改由相对量决定，本篇的 FIFO 叙述不适用。涨跌停、拍卖、开收盘集合竞价的成交是批量规则，不是连续生灭。</p><p>估计上，生存分析的删失必须处理：自己取消是一种删失还是一种竞争风险，取决于问题。若问「若我不撤，会成交吗」，自己取消是删失；若问「这张单的命运」，取消是结局。用含高频改单的数据却按第一种解释，会高估成交概率。微观结构噪声与数据档位见 <a href="/quant/l2-l3-data">L2 / L3</a>。模型服务于库存与执行的期望填成，不服务于对撮合引擎时序的利用。</p><p><span class="marginnote">提高成交概率的正当手段是：更优的价格、更靠前的合法到达、接受更大的逆向选择。把延迟、插队、伪造深度当作「队列策略」已经离开本篇的理论对象，也离开可公开讨论的做市架构。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>限价成交概率由队列位置、市价消耗、取消与价格离去共同决定，不能还原成「距离中间价几个 tick」。</li><li>Cont–Stoikov–Talreja 用各档生灭过程描述深度；Lo–MacKinlay–Zhang 用生存分析估计执行时间。</li><li>成交与价格离去是竞争风险；取消改变位置，不一定结束生命周期。</li><li>高填成与高逆向选择在队头绑定；把填成当唯一目标会恶化做市的事后收入。</li><li>Avellaneda–Stoikov 的 \(\lambda(\delta)\) 应条件于位置；队尾的经验强度不能直接代入 HJB。</li><li>L2 无法点名 \(x\)；识别取决于是否有订单编号以及如何处理自身取消。</li><li>出处：Cont, Stoikov and Talreja, <em>Operations Research</em>, 2010；Lo, MacKinlay and Zhang, <em>Journal of Financial Economics</em>, 2002；Huang, Lehalle and Rosenbaum 队列反应模型；优先规则与取消见 Harris, <em>Trading and Exchanges</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 做市<!--]--><!--[--> · 课序 库存<!--]--></p><p class="lesson-progress">第 12 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/toxic-flow/">毒性流与停报价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

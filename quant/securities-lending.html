@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>证券借贷与做空成本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_securities-lending.md.BQjygaf6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 12 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/quant/settlement-fails/">结算周期与失败</a></p><p class="lesson-next"> 下一课：<a href="/quant/repo-funding/">回购市场与融资</a></p></nav><div style="position:relative;"><div><h1 id="证券借贷与做空成本" tabindex="-1">证券借贷与做空成本 <a class="header-anchor" href="#证券借贷与做空成本" aria-label="Permalink to &quot;证券借贷与做空成本&quot;">​</a></h1><div class="epigraph"><p>空头不是符号取负：必须先有可借的券。借券费、召回与特殊券把「纸面空头溢价」收成一条时变的供给曲线。</p><footer>—— Duffie, Gârleanu and Pedersen, Securities Lending, Shorting, and Pricing, JFE, 2002；D&#39;Avolio, The Market for Borrowing Stock, JFE, 2002</footer></div><p><a href="/quant/settlement-fails">上一课</a>把缺券写成 fail 的来源。本课的缺口是<strong>借券市场本身</strong>：出借人、中介、费率、召回与抵押。Duffie、Gârleanu 与 Pedersen（2002）把可借供给与搜寻写进定价；D&#39;Avolio（2002）描述股票借贷市场的制度与特殊券。A 股实现见<a href="/quant/cn-short-constraint">融券约束</a>，本课不重写前端检查与转融券暂停，只给一般机制，后课中国进阶会把转融通当制度续篇。回购是相邻的融资市场，下一课单独写。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>学术多空用收盘价建立对称空头。可交易空头要求：定位（locate）或已借、抵押、费率 \(b_t\)，以及召回使持有期随机结束。一般抵押品（GC）费率接近无风险减一个小利差；特殊券（special）费率可以高到吃掉全部纸面 alpha。问题是把 \(b_t\) 与召回强度当作点-in-time 输入：同一股票在财报前、指数调入前、或流通紧缩时，供给曲线上移。用全样本平均借券费去扣，会在真正贵的名字上系统性高估空头利润——而这些名字往往贡献了多空的空头腿。</p><p>出借供给来自指数基金、托管行客户、做市库存。被动基金增长增加了部分供给，同时指数调仓使特定券更特殊。召回：出借人可以收回券，空头必须买回或再借。持有期因此不是策略参数，而是随机停时。把空头当成无限期负仓，期限结构错了。</p><h3 id="定位成功-交收成功" tabindex="-1">定位成功 ≠ 交收成功 <a class="header-anchor" href="#定位成功-交收成功" aria-label="Permalink to &quot;定位成功 ≠ 交收成功&quot;">​</a></h3><p>美股 Reg SHO 的定位要求降低裸卖空，不保证交收日有券。A 股前端检查更硬：无券不得报。无论哪套规则，研究都要分「信号日可空」与「持有期维持可空」。名单调出、暂停转融通、出借人召回，都会把已有空头变成强制覆盖。覆盖冲击是负的 alpha，不是噪声。</p><p><span class="marginnote">借券费数据有供应商与场外询价两套，覆盖与延迟不同。回测必须用当时可知的费率，不能用事后成交的最低费。点-in-time 原则与基本面课相同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>空头腿的净边缘：\(\mu_{\mathrm{short}}-b_t-\) 召回导致的冲击 \(-\) 失败交收罚金。可行集 \(\mathcal{F}_t\) 为当日可定位且费率低于阈值的名字。报告两个组合：无约束学术多空，与 \(\mathcal{F}_t\) 约束后的多空，差额是制度缺口。容量按可借库存与集中度限额估，不按 ADV：ADV 大但可借为零，容量仍为零。</p><p>抵押与折算：借券通常要现金或高质量券抵押，折算率随波动调整。现金抵押有再投资；证券抵押有错配。杠杆空头同时吃借券费与保证金，见 CCP 课。公司行为（分红、配股）期间借券合约的补偿条款必须进入收益：空头要支付等价补偿，否则「分红因子」会把空头写成白捡。</p><h3 id="特殊券是截面变量" tabindex="-1">特殊券是截面变量 <a class="header-anchor" href="#特殊券是截面变量" aria-label="Permalink to &quot;特殊券是截面变量&quot;">​</a></h3><p>把借券费当截面特征：高特殊性预测什么，是微观结构问题，不是自动的做空信号。高费往往伴随高意见分歧与低供给，价格可以更持续高估（Miller），也可以已经因拥挤空头而过度低估。策略必须把费率当成本，把拥挤当风险，而不是当同一个 alpha。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>搜寻与匹配使借券市场不是瓦尔拉斯拍板：同一时刻不同中介报价不同。供给紧张时，费率上升、召回上升、fail 上升，三者同源。定价上，持有成本把预期收益改写为要求更高的正股下跌，才能让空头打平。指数套利、可转债对冲、期权做市同时需求同一只券时，特殊性是结构性的，不是短噪。</p><p>与<a href="/quant/lob-structure">限价簿</a>的关系：提价规则、卖空标记、可卖量检查在进入簿之前就把一部分意图滤掉。重建簿看不见被拒的空头意图；毒性与不平衡会因此偏。模拟器应记录被定位失败拒绝的单，否则执行质量被高估。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不提供寻找灰色券源、规避定位或裸卖空的方法。各国规则不同，以现行公开规则为准。合成空头（总收益互换等）把借券转到经销商簿，成本仍在，只是换了科目；不要当成无约束空头。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>空头成本是费率、召回与交收的联合过程，不是符号。</li><li>报告无约束与可借约束两套组合；容量看库存不看 ADV。</li><li>特殊券截面既是成本也是拥挤，不能直接当 alpha。</li><li>出处：Duffie, Gârleanu and Pedersen, <em>JFE</em>, 2002；D&#39;Avolio, <em>JFE</em>, 2002。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 12 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/repo-funding/">回购市场与融资</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

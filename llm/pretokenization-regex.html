@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>预分词正则 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pretokenization-regex.md.CEvBGEZV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 1 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/data-constrained-scaling/">数据约束下的扩展</a></p><p class="lesson-next"> 下一课：<a href="/llm/byte-fallback/">字节回退</a></p></nav><div style="position:relative;"><div><h1 id="预分词正则" tabindex="-1">预分词正则 <a class="header-anchor" href="#预分词正则" aria-label="Permalink to &quot;预分词正则&quot;">​</a></h1><div class="epigraph"><p>我们先按字符类别把文本切成块，再在块内做字节对合并，以免 BPE 把空格、字母与标点焊成无法解释的跨界符号。</p><footer>—— 据 Radford 等，GPT-2，2019；对照 Kudo &amp; Richardson，SentencePiece，EMNLP 2018 整理</footer></div><p><a href="/llm/expert-granularity-law">上一课</a>把 MoE 的容量收成专家粒度与数量的折中。预训练真正吃进去的，却仍是一条已经切好的离散序列。本课不重讲专家，也不重讲 <a href="/llm/bpe-merge-rule">BPE 合并规则</a>里那张有序焊对表。缺口是焊对之前那一层：预分词正则决定哪些边界永远不会被合并。后课的字节回退、数字切分、特殊 token，都默认你会本课的「先切块、再合并」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/bpe-merge-rule">BPE</a> 与 <a href="/llm/unigram-segmentation">Unigram</a> 都假定输入已经是一条符号序列。若把整页 HTML 或一整句中英混排直接丢进合并，频率会把 <code>the(</code>、<code>.\n</code>、甚至跨词的碎片焊成原子，推理时无法再拆。Sennrich 原实现用空格分词，英语干净，中文、代码、无空格脚本会把整句当成一个超长「词」。需要一种不依赖语言词表、却能禁止跨类合并的前置切分。</p><p>正则预分词要回答的不是「词是什么」，而是：字母、数字、空白、标点各成一类，类与类之间的边界在合并表里不可见。GPT-2 把这件事写成一条 Unicode 属性正则；SentencePiece 选择几乎不做预分词，把空格当普通字符。两条路对后续词表的形状完全不同。</p><h3 id="空格预分词盖不住的脚本" tabindex="-1">空格预分词盖不住的脚本 <a class="header-anchor" href="#空格预分词盖不住的脚本" aria-label="Permalink to &quot;空格预分词盖不住的脚本&quot;">​</a></h3><p>空格切分默认「词」已经在空白处断开。中日文、泰语、代码缩进、Markdown 表格都不满足。若仍强行按空白切，一整段汉字会作为单块进入 BPE，合并名额被超长块吃掉，短词反而焊不出来。<a href="/llm/tokenizer-design">分词器设计</a>已经指出预分词是冻结的承诺；本课只补这条承诺在工程里长什么样。</p><p><span class="marginnote">正则切出的块不是语言学词。<code>&#39;s</code>、<code>&#39;ll</code> 出现在 GPT-2 的模式里，只因为英语缩写频率高，不是因为词法分析器懂助动词。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>GPT-2 一类字节级 BPE 的前置步骤是：用正则把原文打成互不重叠的片段，再把每个片段编成 UTF-8 字节，最后只在片段内部跑合并表。典型模式会匹配：英语缩写、可选空格加字母串、可选空格加数字串、可选空格加非字母数字串、以及尾部空白。字母块与数字块之间没有可合并的相邻对，于是 <code>GPT2</code> 与 <code>2024</code> 不会焊在一起。</p><p>SentencePiece 的默认路径相反：不做语言特定正则，把空格映射成特殊标记 <code>▁</code>，整句在同一条序列上训练 BPE 或 Unigram。压缩率往往更高，因为「空格+词首」可以焊成一个符号；代价是词界变得只能靠 detokenize 还原，跨语言的公平性也更依赖训练语料的字符分布。</p><h3 id="正则是词表的一部分" tabindex="-1">正则是词表的一部分 <a class="header-anchor" href="#正则是词表的一部分" aria-label="Permalink to &quot;正则是词表的一部分&quot;">​</a></h3><p>推理必须使用与训练完全相同的正则。改一条 <code>\p{L}+</code> 为 <code>\p{L}*</code>，同一段原文会变成另一条 token 序列，嵌入全部错位。部署时把正则、字节映射、合并表、特殊符号绑成一个快照，与模型版本一一对应。tiktoken 一类实现把这条正则编译进词表文件，而不是留在业务代码里随手改。</p><p><span class="marginnote">代码对正则极敏感。按「可选空格加字母」切，会把 <code>foo_bar</code> 拆开或整块留下，取决于 <code>_</code> 算不算字母。词表必须在含代码的混合物上训练，否则配置里的代码配比不等于模型看见的代码 token 数。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>预分词把合并的搜索空间从「任意相邻字节」收成「块内相邻字节」。块边界是硬约束：即使某跨块对在语料里出现百万次，合并表也看不见它。这保证 detokenize 时空白与标点仍按类别还原，也让英语词干大多落在同一块内，形态后缀有机会被单独焊住。</p><p>代价是压缩率的上限被正则锁死。数字若被 <code>\p{N}+</code> 收成整块，后续 BPE 仍可能把 <code>2024</code> 焊成奇怪碎片——那是下一课数字切分要补的缺口。字符类别定义依赖 Unicode 属性：全角数字、上标、罗马数字是否算 <code>\p{N}</code>，会改变科学文本与 CJK 混排的切法。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>正则预分词不是句法分析。它不会识别 URL、邮箱或公式；复杂模式会把训练变慢，且几乎无法与 GPU 分词内核融合。过度定制的语言特定规则（例如单独列出所有英语缩写）会在其他语言上制造空洞。多语言词表更常见的做法是：一条相对粗的 Unicode 类别正则，加上字节回退兜底。</p><p>若任务需要跨空格的短语原子（命名实体、多词函数名），应在特殊 token 或后处理里解决，而不是把正则写成一部词典。预分词只负责「哪些边界永不合并」；「哪些片段值得占一个编号」仍由 <a href="/llm/bpe-merge-rule">BPE</a> 或 <a href="/llm/unigram-segmentation">Unigram</a> 在块内完成。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲合并表；只补合并之前的硬边界。</li><li>预分词正则按字符类别切块，禁止跨类焊对，是 GPT-2 一类字节 BPE 的前置承诺。</li><li>SentencePiece 可几乎不做预分词，空格参与合并，压缩更高、词界更糊。</li><li>正则与合并表必须同快照冻结；改正则等于换词表。</li><li>数字块、未见字节、特殊符号仍未处理，留给随后几课。</li><li>出处：Radford et al., <em>Language Models are Unsupervised Multitask Learners</em>, 2019；Kudo &amp; Richardson, <em>SentencePiece</em>, EMNLP 2018；Sennrich, Haddow, Birch, ACL 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 1 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/byte-fallback/">字节回退</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

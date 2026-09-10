@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Marlin INT4 内核 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_marlin.md.mJSwv44-.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 数值与量化续<!--[--> · 单元 内核与低精度<!--]--><!--[--> · 课序 FP4 / FP8 / INT4<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/fp8-training/">FP8 训练（Transformer Engine）</a></p><p class="lesson-next"> 下一课：<a href="/llm/exllamav2/">ExLlamaV2 内核</a></p></nav><div style="position:relative;"><div><h1 id="marlin-int4-内核" tabindex="-1">Marlin INT4 内核 <a class="header-anchor" href="#marlin-int4-内核" aria-label="Permalink to &quot;Marlin INT4 内核&quot;">​</a></h1><div class="epigraph"><p>4-bit 权重的加速比在 batch 1 几乎免费；真正要设计的核，是在 batch 16–32 仍接近满速的那颗，否则服务端量化只省显存。</p><footer>—— Frantar, Castro, Chen, Hoefler, Alistarh, MARLIN: Mixed-Precision Auto-Regressive Parallel Inference, 2024/2025</footer></div><p><a href="/llm/gptq">GPTQ</a> 与 <a href="/llm/awq">AWQ</a> 决定网格怎么来；推理墙钟取决于核是否在加载 4-bit 的同时把反量化藏进 Tensor Core 的流水。许多开源核在单请求 decode 上能接近 4× 于 FP16，一旦连续批把 \(M\) 抬到十几、几十，算术强度上升，反量化与调度填不满，加速比塌掉。Elias Frantar、Roberto L. Castro、Jiale Chen、Torsten Hoefler、Dan Alistarh 的 MARLIN（Mixed-precision Auto-Regressive LINear）针对这件事：在 Ampere 一类 GPU 上，把 FP16×INT4 GEMM 做到 batch 16–32 仍接近理想 4×，并在 vLLM 里量到端到端最高约 2.8×。它不是新的量化算法。代码在 IST-DASLab/marlin；vLLM 以 GPTQ-Marlin / AWQ-Marlin 后端接入。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>生成式 decode 在 GPU 上通常是显存墙：读权重的字节远大于算术。权重量化到 4-bit，理想加速比是 4，前提是计算仍能藏在减少后的搬运后面。Ampere 的 FP16 FLOP/byte 大约 100–200。若每个 4-bit 权重仍能摊上大约 25–50 次乘加，问题在理论上仍是带宽墙，batch 不必停在 1。现有核做不到这一点：反量化在 CUDA 核心上与 MMA 争资源，异步拷贝没用好，或 layout 迫使反复走 L1。于是服务场景——多客户端、连续批、\(M\) 到十几——量化变得「能装下、快不了」。</p><p>论文要交的合同是：<strong>给定已经量化好的 INT4 权重</strong>（分组如 128），核在单层大矩阵上对 batch 16–32 接近理想加速，到 64–128 仍显著快于 FP16，并在 vLLM 端到端可测。自变量是 kernel，不是新的 Hessian。把 Marlin 写成「一种量化方法」，或把 ICLR 2023 GPTQ 的 PPL 表当成 Marlin 的速度表，都是时间线错误。</p><h3 id="为什么对标-ampere" tabindex="-1">为什么对标 Ampere <a class="header-anchor" href="#为什么对标-ampere" aria-label="Permalink to &quot;为什么对标 Ampere&quot;">​</a></h3><p>开源说明写明计算能力 ≥ 8.0（Ampere / Ada），当时<strong>尚未为 Hopper 做同等优化</strong>。Ampere 的异步拷贝可以绕过 L1 直达 shared memory，Tensor Core 吃 FP16 MMA。INT4 权重在寄存器里解成 FP16 再 MMA，流水必须把 GMEM→SMEM、反量化、MMA 叠起来。Hopper 的 WGMMA / TMA 是另一套发射模型；后来的 Machete 等核走 Hopper 路径，不要把 Marlin 的 A10 数字抄到 H100 上当同一核。</p><p><span class="marginnote">论文 Figure 1 在 A10、约 72k×18k 的层上对比 torch/CUTLASS FP16、ExLlamaV2、AWQ 核、bitsandbytes。Marlin 在 batch≤32 贴近 4× 理想线，其它核更早掉下来。这是单层微基准，不是 Llama-70B 的 SLA。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>权重以打包 INT4 加分组尺度（及对称量化下的零点约定）驻留 HBM。核按 tile 异步加载，在寄存器/共享内存反量化到 FP16，用 Tensor Core 与 FP16 激活做 MMA，累加后写回。关键技术组合：异步拷贝与绕过 L1、复杂任务调度与流水、为量化定制的权重 layout（与原始 GPTQ 打包不完全相同）。作者因此在量化流程里对 GPTQ 做了小改：分组裁剪阈值搜索（近 AWQ 的 clip）、变长校准序列，并注明格式与原版 GPTQ 实现略有差别，精度仍高。vLLM 后来把零点、AWQ、以及部分形状约束收进 <code>marlin_utils</code>；能跑 Marlin 不等于任意 GPTQ 文件可直接 <code>mmap</code>。</p><p>Sparse-MARLIN 在稠密 INT4 之外叠加 NVIDIA 2:4 稀疏 Tensor Core：权重需满足 2:4 模式，通常来自 SparseGPT 再加蒸馏。论文表中 INT4+2:4 的任务分有时高于稠密原模型，那是蒸馏后的数，不是「稀疏免费涨点」。相对稠密 Marlin，稀疏变体额外加速约到 65% 量级（论文表述），端到端相对 FP16 可到约 3.2×（特定设置）。</p><div class="mermaid"></div><h3 id="服务集成里的形状约束" tabindex="-1">服务集成里的形状约束 <a class="header-anchor" href="#服务集成里的形状约束" aria-label="Permalink to &quot;服务集成里的形状约束&quot;">​</a></h3><p>vLLM 的 Marlin 后端要求计算能力 80+、受支持的 group size、以及 \(K\)、\(N\) 对齐（thread 维度最小值一类常量，如 \(K\) 方向 128、\(N\) 方向 64 量级）。张量并行把列或行切碎后，要对齐这些 tile，否则回退到更慢的核。<code>desc_act</code> / <code>g_idx</code>（GPTQ 的 act-order）会打乱 \(K\) 维连续性，Marlin 用重排或 <code>is_k_full</code> 一类逻辑消化；消化不了就不要强行选 Marlin 后端。这些是引擎契约，论文微基准用的是规整大矩阵。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>带宽墙成立时，加速比上限约是 FP16 字节除以 INT4 字节，再扣尺度元数据。Marlin 的贡献是把「反量化 + MMA + 访存」的依赖拉成深度流水，使 \(M\) 增大后仍能用异步拷贝的延迟隐藏计算。\(M\) 继续增大，问题变成计算墙，4-bit 不再有 4×，加速比滑向「反量化开销 + 与 FP16 MMA 同阶的算力」——论文里 batch 128 仍高于 1×，但远离 4×，这是屋顶线，不是实现失败。</p><p>与 <a href="/llm/exllamav2">ExLlamaV2</a> 的对比在论文图里是直接的：ExLlamaV2 为单用户、混合比特宽优化，小 \(M\) 很强；Marlin 为中等 batch 的稠密 INT4 服务优化。选核看工作点：交互式单卡聊天与连续批 API 不是同一颗核的主场。bitsandbytes 的 NF4 路径还掺了训练期存储语义，更不是同一合同。</p><p><span class="marginnote">「接近理想 4×」绑定对称 INT4、分组 128、大矩阵、A10 一类推理卡。W4A8、FP8 激活、Hopper 的 FP8 MMA，都要另一颗核。Marlin 后来在 vLLM 里被扩展到更多 dtype，那是仓库演进，引用论文数字时应对齐 2024 年的 INT4×FP16 设定。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="核不修复网格-也不跨架构自动变快" tabindex="-1">核不修复网格，也不跨架构自动变快 <a class="header-anchor" href="#核不修复网格-也不跨架构自动变快" aria-label="Permalink to &quot;核不修复网格，也不跨架构自动变快&quot;">​</a></h3><p>Marlin 不量化激活；prefill 大 \(M\) 仍可能是计算墙，INT4 权重只减小读字节，算力仍按 FP16 MMA 计。没有 4-bit 核的引擎，GPTQ 检查点只省显存。校准域与 GPTQ/AWQ 算法决定精度，核决定速度——换核不会修复坏的网格。Ada / Ampere 是论文主场；H100 上应实测是否走了 Hopper 优化核，而不是假定 3.9× 可移植。Hopper 的 TMA / WGMMA 改变了拷贝与 MMA 的发射模型，把 Ampere 上调好的 shared-memory 流水原样搬过去，占用率与异步拷贝收益都会变。</p><p>分组大小、对称与否、是否带零点，都是打包契约。vLLM 的 <code>query_marlin_supported_quant_types</code> 把这些写成白名单；白名单外的 AWQ 变体或 GPTQ 描述文件会回退。回退往往仍能出 token，只是墙钟回到「能装下」而不是「4×」。端到端 2.8× 绑定论文里的 vLLM 集成、Llama/Falcon 一类已能量化的模型与特定 batch，换 MoE 路由或小矩阵层会把加速比稀释。</p><p>何时用 Marlin：vLLM / 同类服务、GPTQ 或 AWQ 的 4-bit 权重、batch 从个位数到几十、需要相对 FP16 的稳定加速。何时不用：要混合 2/3/5/6-bit 的平均码率（那是 EXL2）、要原生 FP4 MMA（Blackwell NVFP4 / MXFP4）、或设备是 TPU / Trainium。Sparse-MARLIN 额外要求 2:4 结构与配套稀疏化流程。</p><p><span class="marginnote">出处：Frantar et al., <em>MARLIN: Mixed-Precision Auto-Regressive Parallel Inference on Large Language Models</em>（PPoPP 2025 / 作者 2024 预印本）；代码 IST-DASLab/marlin 与 Sparse-Marlin；服务集成见 vLLM Marlin 后端。量化算法对照 GPTQ（ICLR 2023）与 AWQ；核对照不替代论文 PPL 表。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Marlin 是 FP16×INT4 的服务端 GEMM 核，目标是中等 batch 仍接近量化带来的带宽加速。</li><li>论文在 Ampere 上对 batch 16–32 给出近 4× 单层加速，vLLM 端到端最高约 2.8×。</li><li>它不产生网格；GPTQ/AWQ 产生网格，layout 还可能被核要求改打包。</li><li>Sparse-MARLIN 叠加 2:4，加速与精度数字绑定稀疏化流程，不是免费乘数。</li><li>小 \(M\) 的消费级路径仍可能是 ExLlamaV2；Hopper/Blackwell 原生窄格式是另一条路。</li><li>出处：Frantar et al. MARLIN 论文与 IST-DASLab 代码；集成对照 vLLM。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 数值与量化续<!--[--> · 单元 内核与低精度<!--]--><!--[--> · 课序 FP4 / FP8 / INT4<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/exllamav2/">ExLlamaV2 内核</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

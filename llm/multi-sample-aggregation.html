@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多样本聚合与投票 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_multi-sample-aggregation.md.Cg6n3DfC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 14 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/structured-output-overhead/">结构化输出的开销</a></p><p class="lesson-next"> 下一课：<a href="/llm/prefill-compute/">Prefill 计算特征</a></p></nav><div style="position:relative;"><div><h1 id="多样本聚合与投票" tabindex="-1">多样本聚合与投票 <a class="header-anchor" href="#多样本聚合与投票" aria-label="Permalink to &quot;多样本聚合与投票&quot;">​</a></h1><div class="epigraph"><p>把同一问题的许多条思维链投进答案空间：错的分散，对的汇聚；聚合函数选得不对，N 只是把系统性偏差选稳。</p><footer>—— Wang et al., Self-Consistency, ICLR 2023；核对器上的多样本见 Cobbe et al., 2021 与 Best-of-N</footer></div><p><a href="/llm/structured-output-overhead">上一课</a>用掩码保证 <em>一条</em> 输出合法。本课关闭「解码进阶」：质量也可以买宽度——独立采样 \(N\) 条，在答案空间或打分器上聚合。主干已有 <a href="/llm/self-consistency">Self-Consistency</a> 与 <a href="/llm/best-of-n">Best-of-N</a>；这里不重推多数票公式，只补本课序留下的缺口：何时投票、何时 MBR、何时 BoN，以及 \(N\) 如何打在 KV 与延迟上。下一课程「推理系统进阶」从<a href="/llm/kv-cache-size-math">把 KV 字节算清楚</a>开始，因为投票把 \(N\) 放大之前必须先会算一份缓存。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>结构化输出解决解析，不解决算错。单次贪心把早期错误写圆，<a href="/llm/temperature-reasoning">温度</a>给了覆盖，但单条高温链方差大。需要把 \(N\) 条独立样本收成一条交付。缺口是聚合函数的选择，而不是再介绍一次采样：</p><ul><li><strong>多数票</strong>：解析 \(y\)，取众数。无外部模型，假设错误分散。</li><li><strong>BoN</strong>：用 \(s(x,y)\) 取最大。上限是 \(s\) 的校准。</li><li><strong>MBR</strong>：用任务损失找集合中心，贵在两两度量。</li></ul><p>三者都要求样本 <em>有效多样</em>。\(T\to 0\) 或共享同一束前缀，\(N\) 是假的。连续批与前缀缓存能让 \(N\) 条共享提示 KV，但 decode KV 仍近似线性于 \(N\)。产品把「思考」做成 \(N=1\) 的长链还是 \(N=8\) 的短链，是显存与延迟的不同曲线——后课要算的就是这条曲线。</p><p><span class="marginnote">投票在答案空间；MBR 在字符串空间。不要对未解析的思维链做多数票，也不要对 boxed 数字做 BLEU-MBR。解析规则是聚合的一部分，必须写进评测。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先能解析再聚合。数学、选项、代码（测例 0/1）优先多数票或直到成功的拒绝采样。开放写作没有 \(y\) 的等价类，多数票无定义，应 BoN 或根本不聚合。\(N\) 从 4–8 扫起看边际，不要默认 64。并行采样时提示 prefill 一次，decode 分叉；串行则延迟乘 \(N\)，只适合离线。</p><p>与自投机 / 投机的关系：每条样本内部可以加速，但不能把 \(N\) 条的草稿 KV 无界堆上。结构化掩码可以每条都开，聚合前每条都合法，并不减少 \(N\) 的 FLOPs。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>覆盖近似 \(1-(1-p)^N\)，但系统性错误使众数是错的。\(s\) 的假阳性让 BoN 收敛到奖励黑客。<a href="/llm/diverse-beam-search">多样束</a>不能替代独立采样：相关样本让有效 \(N\) 下降。温度必须落在推理那一档，使 \(y\) 不同而不是标点不同。能量与成本随 \(N\) 近线性，这是下一课程用屋顶线与美元模型要接的账：投票是测试时计算，不是免费准确率。</p><p><span class="marginnote">Self-consistency 原文的 \(N\) 与温度是实验设置，不是产品 SLA。线上 \(N\) 应受 KV 池与尾延迟约束，而不是受论文表格约束。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 \(N=16\) 的自洽准确率当单次模型能力。不要在开放聊天用多数票。不要在 KV 将满时对每个用户开大 \(N\)——应降 \(N\) 或拒请求。许可证与测试集：用测试规则当 \(s\) 是泄漏。下一课起不再讨论选哪条字符串，而讨论一条字符串的缓存有多大。</p><p>出处：Wang et al., ICLR 2023；Cobbe et al., 2021；BoN 见 Ouyang et al. InstructGPT 与 Snell et al. 2024。MBR 见本课序 <a href="/llm/mbr-decoding">MBR 解码</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>聚合在答案空间（投票）或打分器 / 度量上；先解析。</li><li>有效多样依赖 \(T\gt 0\) 与独立 RNG；束的 \(B\) 条不是 \(N\)。</li><li>Prefill 可共享，decode KV 与延迟近线性于 \(N\)。</li><li>系统性偏差下多数票更稳地错；BoN 上限是 \(s\)。</li><li>结构化合法与投票正交，都要付钱。</li><li>解码进阶到此结束；下一课算 KV 字节。</li><li>出处：Wang et al., ICLR 2023；Cobbe et al., 2021。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 14 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/prefill-compute/">Prefill 计算特征</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

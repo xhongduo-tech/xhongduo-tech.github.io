@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>门控线性注意力 GLA | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_gated-linear-attention.md.Dr3YQx3q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 SSM 与线性续<!--]--><!--[--> · 课序 状态、扫描与召回<!--]--></p><p class="lesson-progress">第 25 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/state-space-duality/">状态空间对偶 SSD</a></p><p class="lesson-next"> 下一课：<a href="/llm/hgrn/">HGRN</a></p></nav><div style="position:relative;"><div><h1 id="门控线性注意力-gla" tabindex="-1">门控线性注意力 GLA <a class="header-anchor" href="#门控线性注意力-gla" aria-label="Permalink to &quot;门控线性注意力 GLA&quot;">​</a></h1><div class="epigraph"><p>在线性注意力的状态更新上乘一个数据依赖的遗忘门，得到可并行训练的门控线性 RNN。</p><footer>—— Yang et al., Gated Linear Attention Transformers with Hardware-Efficient Training, ICML 2024</footer></div><p><a href="/llm/state-space-duality">上一课</a>把对角 SSM 与线性注意力对上。<a href="/llm/linear-attention">线性注意力</a> 的状态 \(S_t=S_{t-1}+\phi(k_t)v_t^\top\) 只有加法，没有遗忘。<a href="/llm/selective-scan">选择性扫描</a> 的 \(\overline{A}_t\) 是遗忘。本课在注意力记号里把门写回来：GLA。它是线性核族里与 Mamba 选择最接近的一支，后课 HGRN、delta rule 再换门的形状与更新规则。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>纯加性线性注意力状态单调累积，噪声 token 写进去就出不来，长上下文被灌满。SSM 用 \(\overline{A}_t\) 衰减。缺口是：在 \(S_t\) 这种矩阵状态上，用向量或标量门做<strong>逐维遗忘</strong>，并保持分块并行（门必须落在结合结构里）。Yang 等人把这层接到 Transformer 块的注意力槽位，FFN 仍在，故名 GLA Transformer。</p><p><a href="/llm/gated-attention">门控注意力</a> 乘在 softmax 输出上，二次复杂度仍在。GLA 的门在线性状态内部，复杂度仍线性。对象不同。</p><p><span class="marginnote"><a href="/llm/retnet">RetNet</a> 用固定衰减 \(\gamma\)，不是数据依赖门。GLA 的门随 \(x_t\) 变，更接近 Mamba 的 \(\Delta_t\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>矩阵状态</p> \[S_t=G_t\odot S_{t-1}+k_t v_t^\top, \]<p>\(G_t=\sigma(W_g x_t)\) 广播到 \(S\) 的形状（按行、按列或标量，实现各异）。查询读出 \(o_t=S_t^\top q_t\)（或带核特征 \(\phi\)）。\(G_t\) 若只依赖 \(t\) 而非过去的 \(S\)，更新对 \(S\) 仍是仿射加逐点缩放，分块扫描仍可用：块内把缩放吸收进转移。</p><p>训练用分块并行形式；推理逐步更新 \(S\)，状态大小 \(\Theta(d_k d_v)\) 或按头计。这比 KV 表的 \(\Theta(n d)\) 在长 \(n\) 时小，比对角 SSM 的 \(\Theta(N)\) 大——GLA 用矩阵状态换表达力。</p><h3 id="与-ssd-对角通道" tabindex="-1">与 SSD 对角通道 <a class="header-anchor" href="#与-ssd-对角通道" aria-label="Permalink to &quot;与 SSD 对角通道&quot;">​</a></h3><p>对角 SSM 每通道一个标量状态；GLA 每头一份矩阵。对偶仍可写，但生成元更宽，召回上通常强于很窄的对角 SSM，弱于满 softmax。硬件上矩阵状态的扫描对 SRAM 更饿，块宽要更小心。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>遗忘门把「选择」从 SSM 的 \(\Delta\) 翻译成注意力读者熟悉的 \(G_t\)。\(G_t\approx 0\) 重置记忆，\(G_t\approx 1\) 长期保持。因为读出是 \(q^\top S\)，保持的是键值外积的加权和，仍是线性检索：不能在状态里做二次匹配。门控改善的是信噪比与有效记忆长度，不是突然获得 softmax 那种竞争。</p><p>多头让不同头学不同遗忘时间尺度，类似 S4 多时间常数，但由数据决定而非只由初始化。</p><p><span class="marginnote">输出侧再加 GLU 式门是另一条通路，常与状态门一起出现。消融时要分开：一个改记忆，一个改写入残差的幅度。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>状态是 \(d\times d\) 级时，头数一多，推理状态可以接近中等上下文的 KV。GLA 的胜负手是「\(n\) 很大且 \(d_k\) 受控」。核特征 \(\phi\) 仍要选，选不好门再强也是一团糊。下一课 HGRN 把状态收回到更 RNN 的分层门，而不是外积矩阵，容量形状又不同。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>GLA 在线性注意力的矩阵状态上加数据依赖遗忘门，可分块训练、逐步推理。</li><li>它对应 SSM 选择在注意力记号下的版本，不是 softmax 输出门。</li><li>状态体积 \(\Theta(d_k d_v)\) 介于对角 SSM 与 KV 表之间。</li><li>线性读出仍无二次匹配；门控改善信噪，不消除召回上限。</li><li>出处：Yang et al., ICML 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 SSM 与线性续<!--]--><!--[--> · 课序 状态、扫描与召回<!--]--></p><p class="lesson-progress">第 25 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/hgrn/">HGRN</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

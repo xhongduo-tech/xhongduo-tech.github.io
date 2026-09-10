@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SIMM 的 Delta 与 Vega | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_simm-delta-vega.md.B5UKVUzv.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 利率信用与 XVA<!--[--> · 单元 利率与对手方<!--]--><!--[--> · 课序 信用与 XVA<!--]--></p><p class="lesson-progress">第 15 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/wrong-way-risk/">Wrong-way risk</a></p><!----></nav><div style="position:relative;"><div><h1 id="simm-的-delta-与-vega" tabindex="-1">SIMM 的 Delta 与 Vega <a class="header-anchor" href="#simm-的-delta-与-vega" aria-label="Permalink to &quot;SIMM 的 Delta 与 Vega&quot;">​</a></h1><div class="epigraph"><p>非清算初始保证金用敏感性乘公开风险权重，在桶内与桶间用规定相关加总；delta、vega 与曲率是三张不同的加权表，不是把内部 VaR 改个名字。</p><footer>—— ISDA, Standard Initial Margin Model (SIMM) Methodology，公开版本</footer></div><p><a href="/quant/span-simm">SPAN 与 SIMM</a> 一文对照清算网格与非清算敏感性法的分工。本篇只把 SIMM 的<strong>敏感度聚合</strong>写开：风险类别、桶、集中度、delta 保证金、vega 保证金、曲率项，以及为什么同一套希腊字母在 SIMM 与 <a href="/quant/sa-ccr-ead">SA-CCR</a> / FRTB SA 里会得到三个不可互换的数。UMR 下双边要对账的是这套公开参数，不是你的 \(\Sigma\)。它补的是公式结构，不是再讲一遍 SPAN 扫描点。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>非清算 OTC 的初始保证金要在对手方违约后的保证金期内覆盖潜在损失，且双方必须算得几乎同一个数。内部模型各家不同，无法对账。ISDA SIMM 的解是：各方用自己的定价器出规定定义下的敏感性，然后乘同一张行业校准的权重与相关表，按同一套平方根聚合得到 IM。问题立刻变成敏感性定义必须唯一：利率是哪条曲线的哪一个顶点、vega 是对数正态还是正态、信用是 CS01 还是跳跃、商品是哪一个期货合约。定义差一个桶，对账差一截保证金，争议按最低转移额放大成运营事件。</p><p>第二问题是非线性。纯 delta 对期权不够；SIMM 用 vega 覆盖波动，用曲率项（由 vega 与规定缩放构造）覆盖价格的二阶，而不是对每笔期权做全定价网格。深度障碍、数字、缺口产品若不能被这三项抓住，会漏，这与 FRTB 用剩余风险附加是同一逻辑。SIMM 不另收 DRC 式跳跃违约资本，信用类靠信用 delta / vega 与合格/非合格分表，跳违约的残差仍可能在。</p><h3 id="产品类之间不净额" tabindex="-1">产品类之间不净额 <a class="header-anchor" href="#产品类之间不净额" aria-label="Permalink to &quot;产品类之间不净额&quot;">​</a></h3><p>公开方法论把组合先切成产品类（利率外汇、信用、股权、商品等，版本号以当时 ISDA 文本为准），各类 IM 相加，类间相关为零。一笔股票期权用利率对冲，经济上降风险，SIMM 上利率产品类与股权产品类的保证金仍分开付。这是对账可行性对分散化的税：跨资产对冲在非清算 IM 上可以是现金占用增加。同一产品类内，再按风险类（利率、信用合格、信用非合格、股权、商品、外汇）收集敏感性并聚合；版本演进里风险类与产品类的切法以公开文件为准，实施必须钉版本号。</p><p><span class="marginnote">SIMM 权重校准的目标分位与地平线是行业与监管约定的 IM，不是银行账簿 97.5% ES。用内部 ES 去证明 SIMM「太贵」或「太便宜」，测度不同。可验证的是敏感性是否完整、分桶是否与对手一致。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对每个风险因子 \(k\) 收集敏感性 \(s_k\)（delta）或 vega 名义。加权敏感度 \(WS_k=RW_k\cdot s_k\cdot CR_k\)，其中 \(RW\) 是该桶该因子的风险权重，\(CR\ge 1\) 是集中度上调：单名或单桶暴露超过阈值则放大，防止相关矩阵把集中头寸当成可分散。桶内保证金</p> \[K_b=\sqrt{\sum_{k\in b}WS_k^2+\sum_{k\neq l}\rho_{kl}WS_k WS_l}, \]<p>\(\rho\) 为桶内规定相关（可按同名 / 不同名、同期限再分）。桶间再用 \(\gamma_{bc}\) 做一层平方根：</p> \[\mathrm{IM}^{\Delta}=\sqrt{\sum_b K_b^2+\sum_{b\neq c}\gamma_{bc}S_b S_c}, \]<p>\(S_b\) 为桶内加权敏感度之和的符号处理（有的版本对 \(S_b\) 取与 \(K_b\) 相容的截断，避免相关项把保证金收到负）。这是 FRTB 敏感性法的近亲：先桶内、再桶间，相关是表不是估计。</p><p><strong>Vega。</strong> 对带期权性的风险类，另集波动敏感度 \(\nu_k\)，乘 vega 风险权重（往往与隐含波动水平、剩余期限的监管表有关），再走与 delta 同构的桶内 / 桶间聚合，得到 \(\mathrm{IM}^{V}\)。vega 的单位必须与权重的单位一致：按波动点还是按百分比、按对数正态还是正态，公开定义写死。利率与外汇的 vega 分桶方式与 delta 的顶点网格不必相同，映射表是对账的第二战场。</p><p><strong>曲率。</strong> 用 vega 与一个规定的曲率缩放（含 \(\lambda\) 一类对并行上移的系数）构造曲率风险暴露，再按正负部分与相关聚合。直觉：delta+vega 线性化之后，剩下的凸性用「与 vega 成比例的并行冲击」来收费，避免对每个微笑做有限差分网格。对无期权的线性组合曲率近零。对香草期权这通常够用；对障碍与路径依赖，曲率项仍可能远小于真缺口，须另设限额，见 <a href="/quant/gap-risk">缺口风险</a>。</p><h3 id="集中度、合格信用与基差" tabindex="-1">集中度、合格信用与基差 <a class="header-anchor" href="#集中度、合格信用与基差" aria-label="Permalink to &quot;集中度、合格信用与基差&quot;">​</a></h3><p>集中度阈值按风险类与桶定义，超过则 \(CR\) 升。这让「相关矩阵承认分散、实际是同一发行人」的结构变贵，是对名字集中的标准化补丁。信用区分为合格（指数与满足条件的单名）与非合格，相关与权重不同；把高收益单名塞进合格桶是对账与合规双重失败。信用基差、曲线陡峭若没有对应顶点，会漏。利率基差（OIS/LIBOR 残余、跨曲线）在 SIMM 里有单独因子或被吸收进顶点定义，取决于版本——升级 SIMM 时基差敏感性会从「漏」变成「有」，IM 跳跃与市场无关。</p><p>外汇 delta 对货币对、股权对发行人 / 地区桶、商品对商品类型，切法与 <a href="/quant/sa-ccr-ead">SA-CCR 对冲集</a> 相似但参数不同。不要共用一张内部桶映射去喂三套监管公式而不做差异测试。校准周期：ISDA 定期重估 \(RW\) 与 \(\rho\)，版本切换是双边项目，不能单方面用新权重。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是<strong>线性（加曲率修正）的监管协方差</strong>：把希腊字母当成因子暴露，用行业 \(\Sigma_{\mathrm{SIMM}}\) 算一次马氏距离式的保证金。快、可加、可对账；代价是（1）产品类零相关税，（2）参数不是你的组合条件相关，（3）未被希腊字母张成的风险为零。危机里真相关升到 1 时，SIMM 的 \(\rho\) 仍是表上的数，可能不够；集中度与权重的定期校准是滞后补丁，不是条件模型。这与 SPAN 网格在清算所政策下即时加档不同：SIMM 更稳、更慢。</p><p>Delta 与 vega 分开聚合再相加（另加曲率、以及信用基相关等附加模块，以公开文本为准），意味着价格冲击与波动冲击在 SIMM 里不当成同一情景的联合——不像蒙特卡洛一次抽 \((\Delta S,\Delta\sigma)\)。对「跌价且波动暴涨」的缺口产品，分开加总可能低于联合尾部。这是敏感性法的结构边界，不是权重没校准好。对账失败的首因几乎总是敏感性：漏顶点、错币种、把 vega 算成前台日历惯例而非 SIMM 惯例。</p><p><span class="marginnote">曲率由 vega 派生，不是独立的全定价二阶差分。前台若对障碍用非平滑 δ/vega，SIMM 输入会跳，保证金跟着跳。对账应比较敏感性快照，而不是先比较最终 IM 再倒推。</span></p><h3 id="与内部模型、frtb、资本-ead-的关系" tabindex="-1">与内部模型、FRTB、资本 EAD 的关系 <a class="header-anchor" href="#与内部模型、frtb、资本-ead-的关系" aria-label="Permalink to &quot;与内部模型、FRTB、资本 EAD 的关系&quot;">​</a></h3><p>内部 IM 模型（若监管允许替代）可以对冲产品类并吃条件相关，但双边 UMR 的默认语言仍是 SIMM。FRTB SA 同样是敏感性 × 权重 × 相关，但流动性期限、DRC、RRAO 与校准目标都不同，不能把 FRTB 资本当 IM。SA-CCR 的 EAD 用名义与监管 δ，不读 vega 表；同一期权可以在 SIMM 里很贵（vega+曲率）、在 SA-CCR 里只按 δ 与名义附加。三套数字并排监控：融资看 SIMM，信用资本看 SA-CCR 或 <a href="/quant/imm-eepe">IMM</a>，市场风险资本看 FRTB。优化其中一套去压占用，往往会在另一套上冒出来。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用内部 \(\Sigma\) 替换 SIMM 相关「更风险敏感」——那就不再是标准模型，对手无法对账。不要为降 IM 而把结构拆到产品类的缝里（假拆分、关联方簿记），这是规避而不是配置。不要假设集中度阈值以下相关矩阵已经「承认对冲」：同桶高相关仍可能让 \(K_b\) 接近加权绝对值之和。奇异风险必须另有名义或缺口限额。版本号、敏感性定义文档、曲线分桶表应与 CSA / IM 协议引用的 SIMM 版本锁死。</p><p>计算上 SIMM 是解析平方根，延迟来自敏感性生成。全组合重估出 CS01、PV01、vega 的成本与 CVA 引擎同量级时，应对顶点做增量与缓存，但对账日必须用约定时点的全量快照。舍入与过滤阈值须双边一致，否则每日争议。</p><p><span class="marginnote">SIMM 是现金与合格抵押的占用，进融资成本，不进市场风险 VaR。策略若大量依赖非清算期权，只报夏普不报 IM，会把保证金当免费杠杆。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ISDA SIMM 用公开权重与相关把 delta、vega、曲率聚合成非清算 IM，目标是双边可复现，不是内部尾部测度。</li><li>桶内 / 桶间平方根加集中度上调；产品类之间保证金相加，跨资产经济对冲可以增加占用。</li><li>Vega 与曲率补非线性，但仍覆盖不了无法用希腊字母张成的缺口与障碍。</li><li>对账失败首因是敏感性定义与版本，不是权重「不公平」。</li><li>与 SPAN、SA-CCR、FRTB SA 参数和对象都不同，不可互换验证。</li><li>出处：ISDA <em>SIMM Methodology</em> 公开版本与校准文件；非清算保证金框架见 BCBS–IOSCO；资本侧对照 FRTB 敏感性法与本站 <a href="/quant/span-simm">SPAN 与 SIMM</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 利率信用与 XVA<!--[--> · 单元 利率与对手方<!--]--><!--[--> · 课序 信用与 XVA<!--]--></p><p class="lesson-progress">第 15 / 15 课</p><!----><p class="lesson-next">本附录到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

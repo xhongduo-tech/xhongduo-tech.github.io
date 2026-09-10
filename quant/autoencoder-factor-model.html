@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Autoencoder 条件因子模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_autoencoder-factor-model.md.jZRe2vX9.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/gkx-nn3/">Gu-Kelly-Xiu 与 NN3</a></p><p class="lesson-next"> 下一课：<a href="/quant/gnn-asset-pricing/">GNN 资产定价</a></p></nav><div style="position:relative;"><div><h1 id="autoencoder-条件因子模型" tabindex="-1">Autoencoder 条件因子模型 <a class="header-anchor" href="#autoencoder-条件因子模型" aria-label="Permalink to &quot;Autoencoder 条件因子模型&quot;">​</a></h1><div class="epigraph"><p>把因子载荷写成公司特征的非线性函数，再用自动编码器从收益里抽取潜因子，条件资产定价模型就不必在线性工具化和无约束 PCA 之间二选一。</p><footer>—— Gu, Kelly and Xiu, Autoencoder Asset Pricing Models, Review of Finance, 2021</footer></div><p><a href="/quant/ipca">IPCA</a> 把载荷写成特征的线性函数，因子仍从收益抽取：\(\beta_{it}=\Gamma^\top z_{i,t-1}\)。无约束 PCA 完全不用特征，载荷在样本里自由。<a href="/quant/giglio-xiu">Giglio–Xiu</a> 用 PCA 恢复潜空间再给可观测因子定价，也不把 \(\beta\) 钉在特征上。Gu、Kelly 与 Xiu（2021）的条件自动编码器（conditional autoencoder）走中间路：编码器把 \(z_{i,t-1}\) 经多层网络映成 \(\beta_{it}\)，解码端用这些载荷与潜因子去重构收益。非线性允许交互与阈值，同时保留「特征是协方差」的可检验结构。它与 <a href="/quant/gkx-nn3">GKX 的 NN3</a> 不是同一篇文章：2020 年要的是收益预测 \(R^2\)，2021 年要的是条件定价模型。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态因子模型假定 \(\beta\) 不变。公司变大、变贵、加杠杆之后，对共同冲击的敏感度会变；线性 IPCA 用 \(z\) 抓住一部分时变，但效应被假定为特征的线性组合。若小盘与高投资的交互才对应某一种风险，线性 \(\Gamma\) 会把交互推进残差，定价误差与协方差拟合一起变差。纯预测网络（NN3）可以拟合 \(E[r\mid z]\)，却不保证这块可预测性来自 \(\beta^\top\lambda\)：它可能是误定价，模型在协方差里无法被证伪。</p><p>自动编码器要同时做两件事：用特征生成时变载荷，用收益生成因子，使重构 $ \beta_{it}^\top f_t $ 接近 \(r_{it}\)。问题是识别与正则。没有对 \(\beta\) 与 \(f\) 的尺度约束，网络可以把范数在两端之间挪动；没有时间切分，隐藏层会记住样本内的共同冲击。条件模型的目标函数是定价与协方差，不是交易夏普；把重构误差最小的模型直接拿去排多空，是换了论文的问题。</p><h3 id="条件期望来自载荷-而不是来自另一个预测头" tabindex="-1">条件期望来自载荷，而不是来自另一个预测头 <a class="header-anchor" href="#条件期望来自载荷-而不是来自另一个预测头" aria-label="Permalink to &quot;条件期望来自载荷，而不是来自另一个预测头&quot;">​</a></h3><p>写</p> \[r_{it}=\beta(z_{i,t-1};\theta)^\top f_t+\varepsilon_{it}, \]<p>其中 \(\beta(\cdot;\theta)\) 是以特征为输入的网络。条件期望 \(E[r_{it}\mid z_{i,t-1}]=\beta(z_{i,t-1};\theta)^\top\lambda_t\)（若 \(E[f_t\mid z]=\lambda_t\) 或进一步参数化）。这把「特征预测收益」限制为「特征预测 \(\beta\)」。若某一特征在预测网络里显著、在载荷网络里对应的行接近零，则该特征的可预测性不能被这 \(K\) 个因子吸收——那是误定价候选，或是 \(K\) 不够。线性 IPCA 做的是同一检验的线性版；自动编码器只是把 \(\beta(\cdot)\) 换成非线性。</p><p><span class="marginnote">名称里的 autoencoder 容易让人想起对价格序列做无监督压缩。这里压缩的是截面：用低维 \(f_t\) 重构高维 \(r_t\)，载荷由 \(z\) 工具化。不要把它做成个股收益的序列自编码器后再宣称条件因子模型。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>估计可用交替或端到端：给定 \(\theta\)（从而给定 \(\beta_{it}\)），\(f_t\) 是截面上的加权最小二乘因子；给定 \(f\)，\(\theta\) 由重构损失对网络反传。因子个数 \(K\) 用样本外定价误差、信息准则或边际解释力选择，与 IPCA 相同。允许一个与特征无关的附加因子，用来捕捉「特征没覆盖的共同冲击」；比较有无该因子的残差，就是在检验工具化是否足够。</p><p>特征 \(z_{i,t-1}\) 必须对 \(t\) 可测，不能用当期市值去解释当期收益，见<a href="/quant/no-future-function">防止未来函数</a>。规模、账面市值等应使用<a href="/quant/point-in-time">时点</a>口径。训练按时间前向，验证做早停与 \(K\)、层宽。评价应同时报告：截面定价误差、协方差拟合、以及把 \(\beta^\top\hat\lambda\) 当作预测分数时相对纯 NN3 的增量。若自动编码器在定价上赢、在纯预测 \(R^2\) 上输，说明约束起了作用，不是程序写错。</p> \[\min_{\theta,\{f_t\}}\ \sum_{i,t}\bigl(r_{it}-\beta(z_{i,t-1};\theta)^\top f_t\bigr)^2+\mathrm{pen}(\theta). \]<p>惩罚包括权重衰减与对 \(\beta\) 的平滑；对 \(f\) 做正交或方差归一，以免与 \(\beta\) 对偶旋转。旋转不唯一，但 \(z\mapsto E[r\mid z]\) 在约束下是确定的，与 Giglio–Xiu 强调空间而非旋转的精神一致。</p><h3 id="和-pca、ipca、纯预测网络的对照实验" tabindex="-1">和 PCA、IPCA、纯预测网络的对照实验 <a class="header-anchor" href="#和-pca、ipca、纯预测网络的对照实验" aria-label="Permalink to &quot;和 PCA、IPCA、纯预测网络的对照实验&quot;">​</a></h3><p>对照应预先锁住：无约束 PCA（不用 \(z\)）、线性 IPCA、条件自动编码器、GKX 式 NN3。PCA 解释方差可以很好，定价不必好。IPCA 是自动编码器在一层线性、无隐藏单元时的极限。NN3 没有 \(f_t\) 这一公共时间因子，个股预测可以各走各的非线性，容易把共同噪声记成特异 alpha。报告一张表：样本内重构、样本外定价、样本外预测 \(R^2\)、换手。缺任何一列，都会让「非线性因子模型赢了」无法被读成哪一种赢。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>自动编码器的正则来自瓶颈 \(K\)：共同时间变化只允许 \(K\) 维，迫使网络把特征用到「能解释共同收益」的方向上。非线性的价值是交互：例如高投资只在小盘上对应更高的某因子载荷。若真实世界近似线性，隐藏层会被早停掐掉，模型退回 IPCA——这是优点。若非线性只存在于样本内的几次危机，测试年会露出定价误差，模型应被判为过拟合而不是「深度因子」。</p><p>与纯 PCA 的差别在于特征对 \(\beta\) 的约束降低了个股载荷的噪声：个股时间序列回归的 \(\beta\) 极吵，IPCA / 自动编码器借用截面上相似 \(z\) 的公司来稳 \(\beta\)。这与收缩是同一几何。代价是：与所有可观测特征都无关的共同风险被推进残差；若检验资产恰好被这块风险定价，模型会显示系统性误定价。无约束因子的对照就是为这一代价准备的。</p><p><span class="marginnote">条件模型的 \(\lambda\) 仍可以时变。β 与 λ 的协方差会进入无条件均值，与条件 CAPM 相同。只报无条件 α 而不报条件定价误差，会把时变风险错写成 alpha。</span></p><h3 id="不要把重构当交易引擎" tabindex="-1">不要把重构当交易引擎 <a class="header-anchor" href="#不要把重构当交易引擎" aria-label="Permalink to &quot;不要把重构当交易引擎&quot;">​</a></h3><p>训练损失是重构平方误差，对极端收益敏感，也未必对齐排序交易。若最终要交易，应在验证集上用截面 IC 或扣费 IR 做早停，并承认这时你已经离开了 2021 年论文的目标函数，更接近 2020 年的预测论文。两者可以共享特征表，不能共享「赢」的定义。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用五因子自己的构造组合去训练自动编码器再给五因子定价——空间被自己张成。不要把隐藏单元解释成宏观因子名字；旋转仍不唯一。A 股特征质量与涨跌停使 \(\beta(z)\) 的输入分布有跳，滚动重估比全样本一次编码更重要。计算上，每月截面 \(N\) 大时可用特征加权的因子提取，但加权方案必须在验证前锁定。</p><p><span class="marginnote">出处：Gu, Kelly and Xiu, <em>Review of Finance</em>, 2021；Kelly, Pruitt and Su, <em>JFE</em>, 2019（IPCA）；Gu, Kelly and Xiu, <em>RFS</em>, 2020（预测对照）；Giglio and Xiu, <em>JPE</em>, 2021（漏因子与潜空间）。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>条件自动编码器把 IPCA 的线性 \(\beta(z)\) 换成网络，潜因子仍从收益抽取，目标是条件定价而非纯预测。</li><li>识别靠瓶颈 \(K\) 与特征时点；旋转不唯一，条件期望在约束下确定。</li><li>对照必须包括 PCA、线性 IPCA 与 NN3，分别看方差、定价与预测。</li><li>重构损失不等于可交易 IR；换目标函数要显式声明。</li><li>出处：Gu–Kelly–Xiu, <em>Review of Finance</em>, 2021；Kelly–Pruitt–Su, <em>JFE</em>, 2019；Gu–Kelly–Xiu, <em>RFS</em>, 2020。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/gnn-asset-pricing/">GNN 资产定价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

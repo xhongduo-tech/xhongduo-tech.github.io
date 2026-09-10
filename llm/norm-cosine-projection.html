@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>范数、余弦与投影 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_norm-cosine-projection.md.DI8Nmbgj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 从向量到损失<!--]--></p><p class="lesson-progress">第 3 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/matmul-as-layer/">矩阵乘作为一层</a></p><p class="lesson-next"> 下一课：<a href="/llm/softmax-numerics/">Softmax 与数值稳定</a></p></nav><div style="position:relative;"><div><h1 id="范数、余弦与投影" tabindex="-1">范数、余弦与投影 <a class="header-anchor" href="#范数、余弦与投影" aria-label="Permalink to &quot;范数、余弦与投影&quot;">​</a></h1><div class="epigraph"><p>两个向量是否「像」，要先说清用哪种长度；夹角与投影是同一套内积里的不同读数。</p><footer>—— 据 Goodfellow, Bengio &amp; Courville, Deep Learning, 2016；Strang, Linear Algebra and Its Applications 整理</footer></div><p><a href="/llm/matmul-as-layer">矩阵乘作为一层</a>给出 \(y=xW^\top\)，把向量从一个坐标送到另一个坐标。本课不重推这次乘法。缺口是：送到新空间之后，如何度量长度、夹角、以及「落在某一方向上的分量」。后面的 softmax 打分、注意力里的点积、层归一化里的除标准差，都要先有范数与内积，否则分数只是一堆无单位的数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>线性层输出一组坐标，但训练目标很少直接比较原始坐标。分类要的是「谁更像某一类的方向」，检索要的是「两段表示夹角小不大」，归一化要的是「把长度拉到固定尺度」。若只用逐维相减的平方和，尺度大的向量永远「更远」，即使方向一致。缺口因此不是再做一次矩阵乘，而是在已经对齐的 \(\mathbb{R}^d\) 上引入长度与角度。</p><p>内积 \(\langle u,v\rangle=u^\top v\) 同时给出三件事：自身内积是欧氏范数的平方；除以两范数得到余弦；固定一个方向 \(u\) 时，\(\langle u,v\rangle\) 是 \(v\) 在该方向上的（未归一）投影系数。后课把「打分」写成内积，把「相似」写成余弦，把「去掉长度」写成除范数——本课把这三种读数一次分清。</p><h3 id="余弦不是另一种距离公式" tabindex="-1">余弦不是另一种距离公式 <a class="header-anchor" href="#余弦不是另一种距离公式" aria-label="Permalink to &quot;余弦不是另一种距离公式&quot;">​</a></h3><p>欧氏距离 \(\|u-v\|_2\) 对平移和尺度都敏感。余弦 \(\langle u,v\rangle/(\|u\|_2\|v\|_2)\) 只看方向，把长度除掉。两者不是同一度量换写法。把词向量里「相近」理解成欧氏最近邻，会把高频词（往往更长）和低频词系统性地分开；理解成余弦，才是在比方向。后课嵌入几何默认比的是角，除非明确说用欧氏。</p><p><span class="marginnote">\(\ell_2\) 范数 \(\|x\|_2=\sqrt{\sum_i x_i^2}\) 是本课默认长度。\(\ell_1\)、\(\ell_\infty\) 在稀疏与对抗里会出现，本课不切换。投影是 \(\mathrm{proj}_u v=\frac{\langle u,v\rangle}{\langle u,u\rangle}u\)，系数是标量，结果仍是向量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对 \(x\in\mathbb{R}^d\)，欧氏范数 \(\|x\|_2\)。单位向量 \(\hat x=x/\|x\|_2\)（零向量除外）。两向量余弦 \(\cos\theta=\langle u,v\rangle/(\|u\|_2\|v\|_2)\in[-1,1]\)。未归一的点积 \(\langle u,v\rangle=\|u\|_2\|v\|_2\cos\theta\)，因此点积同时含长度与夹角：两向量都变长，点积变大，即使角不变。</p><p>一批向量 \(X\in\mathbb{R}^{B\times d}\) 的两两余弦，是先按行除范数，再做 \(XX^\top\)。这与上一课的矩阵乘是同一算子，收缩的是特征维 \(d\)。本课不把这一步叫成注意力：没有查询键的线性投影，也没有按行的 softmax。只是「同一套 GEMM 可以读成相似度矩阵」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>训练里经常先去掉长度再比方向，因为长度容易被层的尺度、初始化、学习率带跑，方向才编码「像哪一类」。层归一化稍后会在特征维上减均值、除标准差，那是把每个位置的向量拉到相近的范数量级；本课的除范数是更粗的版本，只处理长度，不处理各维的偏移。</p><p>点积作为打分函数的隐患也在这里：若不确定 \(\|q\|\) 与 \(\|k\|\) 的尺度，同一夹角会给出差几个数量级的分数，后面的 softmax 会饱和。本课只指出这个乘法结构；如何在指数之前减最大值、如何除 \(\sqrt{d}\)，分别是后课 softmax 与（更后面的）缩放点积的缺口，这里不提前讲完。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入马氏距离、核技巧，也不把 PCA 投影当成一层网络。下一课<a href="/llm/softmax-numerics">Softmax 与数值稳定</a>把一组无约束的打分变成单纯形上的概率；那些打分可以是点积，但本课不把 softmax 写出来。后课默认：说到两个向量「像」，先声明是余弦还是点积；说到「长度」，默认 \(\ell_2\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>内积同时给出长度、余弦与沿一方向的投影系数。</li><li>余弦去掉尺度，只比方向；点积保留长度，尺度会污染分数。</li><li>按行归一再做 \(XX^\top\) 是相似度矩阵，还不是注意力。</li><li>后课 softmax 吃的是这组分数；分数尺度过大将在指数上饱和。</li><li>出处：Goodfellow et al., Deep Learning, 2016；Strang 对内积与投影的处理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 从向量到损失<!--]--></p><p class="lesson-progress">第 3 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/softmax-numerics/">Softmax 与数值稳定</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

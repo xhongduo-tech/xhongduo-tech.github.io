@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>统计风险模型 PCA | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_stat-risk-pca.md.Cwa4KS21.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 16 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/fundamental-risk-model/">Barra / 基本面风险模型</a></p><p class="lesson-next"> 下一课：<a href="/quant/factor-crowding/">因子拥挤与拥挤崩</a></p></nav><div style="position:relative;"><div><h1 id="统计风险模型-pca" tabindex="-1">统计风险模型 PCA <a class="header-anchor" href="#统计风险模型-pca" aria-label="Permalink to &quot;统计风险模型 PCA&quot;">​</a></h1><div class="epigraph"><p>不给因子起名字，只让收益自己说出共同方向：主成分能更快跟上相关结构的破裂，也更容易在每个窗口里换一套无法解释的坐标。</p><footer>—— Connor–Korajczyk 与 Bai–Ng 之后的统计因子风险模型</footer></div><p><a href="/quant/fundamental-risk-model">上一课</a>用可观测载荷加低维因子协方差与特异方差逼近 \(\Sigma\)，载荷须期初可观测，因子收益由截面回归拆出。缺口是真实共同冲击不必长得像账面市值比：拥挤、流动性枯竭、监管事件可以在几天内制造新的高方差方向，而这条方向在财报描述子里还不存在。统计风险模型用 PCA（常在基本面残差上）捕捉未命名的共同运动。本课写 Connor–Korajczyk、Bai–Ng 与实务里把 \(K\) 当风险预算参数。不重写 Barra 的 \(X\) 定义。后课拥挤默认已经知道残差 PCA 抓的是哪一层。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>真实的共同冲击不必长得像「账面市值比」。量化拥挤、流动性枯竭、监管事件、指数再平衡，都可以在几天内制造一条新的高方差方向，而这条方向在财报描述子里还不存在。基本面 \(X\) 若漏掉它，预测 \(\Sigma\) 会系统性低估组合在该方向上的风险。统计 PCA 的承诺是：只要这条方向已经出现在近期收益里，最大特征值对应的特征向量就会把它吸收进来。</p><p>代价是识别性。特征向量在符号、顺序、混合上都不稳定：本周的「第二主成分」可能是上周的第三与第四的旋转。Chamberlain 与 Rothschild 的近似因子结构允许特异协方差有界非对角，但并不给因子经济名字。用于归因时，你只能说「统计因子 3 贡献了 40 个基点」，无法对投委会解释。</p><h3 id="高维下的主成分" tabindex="-1">高维下的主成分 <a class="header-anchor" href="#高维下的主成分" aria-label="Permalink to &quot;高维下的主成分&quot;">​</a></h3><p>设 \(T\) 期、\(N\) 只股票的收益矩阵为 \(R\)。当 \(N\) 与 \(T\) 同阶，样本协方差的特征值被高维噪声撑开，Ledoit–Wolf 等收缩、随机矩阵理论的去噪，都是在修这件事。Connor–Korajczyk 的渐近 PCA 在 \(N\to\infty\) 时用 \(RR^\top\) 的特征向量估因子（时间维），Bai–Ng（2002）给出 \(IC_{p1}\) 一类准则在 \(N,T\to\infty\) 时一致地选 \(K\)。实务上 \(K\) 往往不是「真理」，而是风险预算能消化的维数：太少则漏风险，太多则把特异噪声抬成可交易因子。</p><p><span class="marginnote">对原始收益做 PCA，第一主成分几乎总是市场。更常见的做法是先减去市场或基本面因子，再对残差做 PCA，专抓「模型没命名的共同残差」。2007 年量化震荡里，崩的正是这一层。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>残差统计模型。先用基本面或市场模型得到 \(u_t\)，对 \(u\) 的协方差做 PCA，取前 \(K\) 个。组合风险是基本面部分加统计残差部分。这是混合模型的标准形态：名字留给 Barra，补丁留给 PCA。</p><p>纯统计模型。直接对收益做 PCA 或因子极大似然。载荷每个再估窗口更新，因子收益是 \(r\) 在载荷上的投影。为了让短期波动跟上，可对主成分做 EWMA，或用风险度量里的指数加权 PCA。</p><p>因子个数。特征值比、平行分析、Bai–Ng IC、以及「解释方差达到某阈值」都被用过。阈值法最不稳定：波动升高时前几主成分自动变强，\(K\) 的经济含义在变。更稳的是固定 \(K\)，让方差在 \(F\) 的对角上起伏，而不是让因子集合每天增减。</p><h3 id="旋转与符号" tabindex="-1">旋转与符号 <a class="header-anchor" href="#旋转与符号" aria-label="Permalink to &quot;旋转与符号&quot;">​</a></h3><p>即使 \(K\) 固定，特征向量仍可乘正交阵。若不加限制，相邻窗口的载荷会对不齐，暴露时间序列会跳。实务用 Procrustes 旋转、符号约定（让市场载荷为正）、或对上一窗口载荷做回归来对齐。这些都是工程，不是识别定理。统计模型适合做风险数字，不适合做跨越多年的风格历史。</p><p><span class="marginnote">把 PCA 因子拿去当 alpha 来交易，等于在交易样本内最大方差方向的反转或动量。那是另一种策略，与「用 PCA 估风险」不是同一许可。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>近似因子模型假定少数共同因子驱动大部分协方差，特异部分的最大特征值相对 \(N\) 不爆炸。PCA 一致性依赖这一稀疏性：若共同结构本身有很多弱因子，前 \(K\) 个只是截断，剩余相关会在组合高度分散后仍显现。Bai–Ng 的理论告诉我们能估几个强因子，没有承诺弱因子不重要——对高度中性的量化组合，弱因子恰恰是跟踪误差的来源。</p><p>与基本面模型的互补是信息集不同。基本面用公司特性，即使某段时间该特性还没表现为收益共变，载荷也在；PCA 只用已实现共变，对尚未发生的结构性断裂没有前瞻。宏观状态切换时，PCA 反应快，但总是慢一拍——要等足够多的日子把新方向写进协方差。</p><h3 id="优化器怎么滥用-pca" tabindex="-1">优化器怎么滥用 PCA <a class="header-anchor" href="#优化器怎么滥用-pca" aria-label="Permalink to &quot;优化器怎么滥用 PCA&quot;">​</a></h3><p>统计因子没有经济约束，优化器可以在第 8 个主成分上把暴露加到很大，以换取样本内方差下降。那一维往往是过拟合的行业内部噪声。必须对统计因子暴露做岭惩罚或硬上限，并对特异风险保底。纯最小化 \(w^\top \hat\Sigma_{\mathrm{PCA}} w\) 而不约束 \(X^\top w\)，会得到无法解释、不可交易的组合。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>样本期。太短则特征向量噪，太长则包含过期相关。EWMA 半衰期是超参，应在预测 TE 校准上选，而不是在样本内似然上选。覆盖。停牌、新股、退市使面板不平衡，PCA 需要插补或配对删除；插补本身会制造假相关。A 股涨跌停让日收益截断，尾部共同运动被压扁，统计因子在板期会低估崩盘相关。</p><p>解释性。监管与客户归因几乎总是要求行业与风格。因此统计模型很少单独上场，而是作为基本面残差的补充。若两者给出的 TE 差很远，应检查是否有未建模的拥挤或主题——那往往是该加一个显式因子，而不是盲目增加 \(K\)。</p><p><span class="marginnote">随机矩阵的 Marchenko–Pastur 边界能告诉你哪些特征值像噪声。它不能告诉你「刚好压在边界上的那一维」明天会不会变成拥挤崩。校准与情景分析仍不可省。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>统计风险模型用 PCA（常在基本面残差上）捕捉未命名的共同运动，补基本面 \(X\) 的漏项。</li><li>Connor–Korajczyk 渐近 PCA 与 Bai–Ng 因子个数准则是高维估计的理论骨干；实务中 \(K\) 更常被当成风险预算参数。</li><li>特征向量的符号与旋转不稳定，适合估风险，不适合做长期风格归因。</li><li>优化器必须限制统计因子暴露，否则会在噪声特征上过拟合。</li><li>与 Barra 类模型混合使用最常见：慢含义留给基本面，快相关留给 PCA。</li><li>出处：Connor and Korajczyk, <em>Performance Measurement with the Arbitrage Pricing Theory</em>, Journal of Financial Economics, 1986；Bai and Ng, <em>Determining the Number of Factors in Approximate Factor Models</em>, Econometrica, 2002；Chamberlain and Rothschild, <em>Arbitrage, Factor Structure, and Mean-Variance Analysis</em>, Econometrica, 1983。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 16 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/factor-crowding/">因子拥挤与拥挤崩</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fama-French 五因子 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ff5.md.CWcjfMVZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 3 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ff3/">Fama-French 三因子</a></p><p class="lesson-next"> 下一课：<a href="/quant/momentum-wml/">动量 WML</a></p></nav><div style="position:relative;"><div><h1 id="fama-french-五因子" tabindex="-1">Fama-French 五因子 <a class="header-anchor" href="#fama-french-五因子" aria-label="Permalink to &quot;Fama-French 五因子&quot;">​</a></h1><div class="epigraph"><p>在股利贴现模型里，给定账面市值比，更高的预期盈利意味着更高的预期收益，更高的预期投资意味着更低的预期收益；把这两条写成因子，就是盈利与投资。</p><footer>—— Fama &amp; French, A five-factor asset pricing model, Journal of Financial Economics, 2015</footer></div><p><a href="/quant/ff3">三因子</a>留下两块长期显著的 α：高盈利公司的收益偏高，激进加资产的公司收益偏低。<a href="/quant/quality-profitability">Novy-Marx 的毛利率</a>与资产增长文献已经把这两条写成特征。Fama 与 French 2015 年把它们收成 <strong>RMW</strong>（Robust Minus Weak）与 <strong>CMA</strong>（Conservative Minus Aggressive），与市场、SMB、HML 组成五因子。本篇写股利贴现动机、2×3 与 2×2×2×2 两套构造，以及「HML 变得多余」这件事在什么样本上成立。投资侧的会计细节见<a href="/quant/investment-factor">投资与资产增长</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>股利贴现把当前市值写成未来超额盈利（相对再投资）的折现。两边同除以账面股权 \(B_t\)，得到大致关系：B/M 高、预期盈利高、或预期投资低，都对应更高的内部收益率。三因子只用了 B/M（以及规模），等于把盈利与投资的信息压缩进价格。若市场对盈利与投资的定价不完整，或者两者有独立于 B/M 的共同变动，三因子就会在按盈利、按投资排序的组合上留下 α。</p><p>经验上这正是 1990 年代之后美股的情况：毛利率、营业利润率能预测收益，且不能被 HML 吸收；总资产增长、资本开支增长预测负收益，同样独立于价值。问题不是再找两个「能分开组的特征」，而是如何做成与 SMB/HML 同一套语言的多空因子，并检查五因子是否让 HML 的斜率变得不必要。</p><h3 id="盈利与投资为何不能只留在残差里" tabindex="-1">盈利与投资为何不能只留在残差里 <a class="header-anchor" href="#盈利与投资为何不能只留在残差里" aria-label="Permalink to &quot;盈利与投资为何不能只留在残差里&quot;">​</a></h3><p>若只在三因子回归里加两个虚拟变量式的特征组合，模型仍然对其他资产给出被 SMB/HML 污染的 β。把 RMW、CMA 放进右侧，等于承认这两类共同收益是定价核的一部分：任意组合的预期超额收益应等于五个 β 乘以五个因子溢价。这和「在 α 上再回归一次盈利」不是同一句话。后者是诊断，前者是模型。</p><p><span class="marginnote">2015 年的盈利不是毛利率。Fama-French 的营业利润率（operating profitability）是营业收入减销售成本、销售管理费用与利息，再除以账面股权。Novy-Marx 用（营收−销货成本）/总资产。两者相关但不是同一个因子；混用再抱怨「复制不了 French 数据库」是口径问题。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>规模断点仍是 NYSE 中位。盈利与投资各用 NYSE 的 30% 与 70% 分位。营业利润率用上一年财报；投资用总资产相对再上一年的增长率（\(\Delta A_t/A_{t-1}\)）。主方案是三套 2×3：规模×B/M、规模×盈利、规模×投资，分别定义 HML、RMW、CMA，SMB 则对三套小盘减大盘再平均，以免 SMB 只在某一特征上中性。</p> \[\begin{aligned} R_{it}-R_{ft}&amp;=\alpha_i+\beta_{iM}(R_{Mt}-R_{ft})+\beta_{iS}\mathrm{SMB}_t\\ &amp;\quad+\beta_{iH}\mathrm{HML}_t+\beta_{iR}\mathrm{RMW}_t+\beta_{iC}\mathrm{CMA}_t+\varepsilon_{it}. \end{aligned} \]<p>备选是 2×2×2×2：规模、B/M、盈利、投资各切两档，得到 16 个价值加权组合，再按目标维度平均多空。2×2×2×2 控制更干净，格子更稀、微型组合更噪；2×3 更接近 1993 年的惯例，也是 French 数据库的默认。</p><h3 id="hml-的冗余" tabindex="-1">HML 的冗余 <a class="header-anchor" href="#hml-的冗余" aria-label="Permalink to &quot;HML 的冗余&quot;">​</a></h3><p>在他们的美股样本里，把 RMW 与 CMA 加进去之后，HML 的因子溢价在对其他四个因子的回归中 α 接近零：价值的平均收益大体能被「弱盈利、高投资」的对立面说明——成长公司往往高投入、账面利润率路径不同。于是有人讨论四因子（去掉 HML）。这不是说价值特征不再预测收益，而是说<strong>作为右侧因子</strong>，HML 的独立定价贡献变弱。国际样本与更早样本里冗余并不总成立；A 股上价值、盈利、投资的共线性结构也不同，不能把「美股 HML 多余」写成定律。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>盈利因子捕获的是「同样的资产、更多的当期经济利润」。会计利润会被应计项操纵，所以后续有现金营业利润等修正，但 2015 年的机制仍是应计制营业利润。投资因子捕获的是扩张：q 理论说，当贴现率低时公司会多投资，于是高投资是低预期收益的代理；过度投资与帝国建造给出行为解释。五因子把两种解释都收成同一对多空腿，并不检验哪一种对。</p><p>SMB 在五因子里被重定义，因为它必须在盈利与投资上也尽量中性。直接沿用 1993 年的 SMB、再外挂 RMW/CMA，小盘盈利与小盘投资的暴露会漏进规模因子。读数据库时要看 SMB 的脚注是三因子口径还是五因子口径。</p><h3 id="与-q-因子、六因子的邻接" tabindex="-1">与 q 因子、六因子的邻接 <a class="header-anchor" href="#与-q-因子、六因子的邻接" aria-label="Permalink to &quot;与 q 因子、六因子的邻接&quot;">​</a></h3><p>Hou、Xue、Zhang 的 q 因子用市场、规模、投资、盈利（ROE），不用 HML，时间上与五因子并行。Fama-French 后来又讨论加动量的六因子。五因子正文的主张更窄：在他们的检验组合（含规模、B/M、盈利、投资交叉）上，五因子比三因子显著减 α；对动量组合仍然不够——WML 不是 2015 年模型的一部分。</p><p><span class="marginnote">CMA 的「保守」是低资产增长，不是低资本开支一项。总资产增长包含并购、存货、现金堆积。只用 capex 会得到另一条<a href="/quant/investment-factor">投资因子</a>，与 CMA 相关但换手与行业暴露不同。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>财务数据至少滞后六个月，6 月重构是为了避免前视。盈利为负的公司进入「弱」组，会让 RMW 带上困境与杠杆；有人把亏损单独分组。金融行业的账面与投资含义不同，French 的股票因子通常剔除金融，债券不在五因子里。</p><p>五因子对时间序列 \(R^2\) 的提升往往小于对 α 的改善：市场因子已经解释了大部分共同波动。评价应看 GRS、α 的均方，而不是五个 β 都显著。过拟合风险是真实的：每加一个按财务排序的因子，都能在同一套财务检验组合上变好。动量、低波动、流动性仍在五因子之外，需要单独的<a href="/quant/long-short-sort">多空排序</a>诊断，而不是宣称「截面已经闭合」。</p><p>不要把 RMW 叫做质量因子的全体。<a href="/quant/quality-profitability">质量与盈利</a>还包含杠杆、盈利稳定、应计质量；QMJ 比 RMW 宽。也不要把五因子的 SMB 与三因子 SMB 画在同一张图上当连续序列，除非已对齐定义。</p><p><span class="marginnote">真实出处：Fama &amp; French, <em>A five-factor asset pricing model</em>, Journal of Financial Economics, 2015。股利贴现动机在文中是启发式，不是推导出的随机贴现因子。Hou–Xue–Zhang q 因子是 Review of Financial Studies, 2015，不要写成 FF 五因子的附录。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>五因子在三因子上加入 RMW 与 CMA，对应股利贴现里盈利与投资两条比较静态。</li><li>默认构造是三套 2×3；2×2×2×2 控制更严、格子更噪。SMB 必须按五因子口径重做。</li><li>美股样本里 HML 对其他四因子往往冗余，国际与 A 股不能照抄这条结论。</li><li>动量、低波动、流动性仍在模型外；α 诊断不能用时间序列 \(R^2\) 代替。</li><li>出处：Fama &amp; French, Journal of Financial Economics, 2015。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 3 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/momentum-wml/">动量 WML</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

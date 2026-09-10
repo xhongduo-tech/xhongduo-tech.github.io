@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>孔多塞循环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_condorcet-cycles.md.Xk7i1VAz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 市场失灵<!--]--><!--[--> · 课序 外部性与公共<!--]--></p><p class="lesson-progress">第 31 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/econ/median-voter/">中位选民</a></p><p class="lesson-next"> 下一课：<a href="/econ/dominance-iesds/">优势与反复剔除</a></p></nav><div style="position:relative;"><div><h1 id="孔多塞循环" tabindex="-1">孔多塞循环 <a class="header-anchor" href="#孔多塞循环" aria-label="Permalink to &quot;孔多塞循环&quot;">​</a></h1><div class="epigraph"><p>两两多数可以转圈：甲胜乙、乙胜丙、丙胜甲；没有 Condorcet 胜者，议程决定结局。</p><footer>—— 据 Condorcet, Essai sur l&#39;application de l&#39;analyse à la probabilité des décisions, 1785 整理</footer></div><p><a href="/econ/median-voter">上一课</a>（中位选民）。一维单峰时多数停在 \(x_m\)。本课不重写 Black 的切割，也不把两党收敛再推一遍。缺口是单峰失败：三方案石头剪刀布剖面，两两多数循环，Condorcet 胜者不存在。Arrow 用过这个教具说明「多数不是排序」；本课把它从边注升级：循环何时出现、议程怎样挑选圈上的点，以及多维政策为何几乎总会转。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三人三方案。偏好 \(a\succ_1 b\succ_1 c\)，\(b\succ_2 c\succ_2 a\)，\(c\succ_3 a\succ_3 b\)。多数：\(a\) 胜 \(b\)，\(b\) 胜 \(c\)，\(c\) 胜 \(a\)。每一对都有多数，但没有一个方案能击败其余所有。缺口不是再列 Arrow 四条，而是：<strong>中位定理的前提一撤，多数规则剩下的是成对比较的竞赛图，不必有最大元。</strong></p><p>议程：先比 \(a\) 与 \(b\)，胜者对 \(c\)。不同顺序选出不同点——谁设议程，谁在圈上拾取。这不是选民改了偏好，是程序在循环上选切片。</p><h3 id="循环不是计算错误" tabindex="-1">循环不是计算错误 <a class="header-anchor" href="#循环不是计算错误" aria-label="Permalink to &quot;循环不是计算错误&quot;">​</a></h3><p>每人的排序都传递。不传递的是多数关系。把循环当成「选民非理性」是读错层次。单峰排除的正是这种剖面：在一维上无法把三个峰排成石头剪刀布。多峰、多维理想点，循环剖面是正常的。</p><p><span class="marginnote">Condorcet 1785 已经看见多数可以转圈，并讨论过其他聚合规则。Arrow 把循环放进不可能的定义域；Black 用单峰把它挡在门外。本课停在多数关系本身，不把 Borda 再展开。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>竞赛图：方案为点，多数方向为箭。有源点（击败所有人）当且仅当 Condorcet 胜者存在。一维单峰保证有源点。两维欧氏偏好、理想点不共线时，任意点几乎都可以被某方向的多数打败——McKelvey：议程可以在空间里漫游到任意地方。本课要的是一维循环教具加「多维更糟」这一句，不把混沌定理从头证。</p><p>打破循环必须另加程序：修正案顺序、淘汰、议程委员会。这些程序一般不满足 IIA：第三方案的插入改变前两名的对决顺序。这正是 Arrow 警告过的。没有程序，多数只给出竞赛图，给不出「社会要的那一个 \(G\)」。</p><div class="mermaid"></div><p>市场失灵课序在此结束：公共品与税若交给多数，先问是否单峰；否则「人民要的 \(G\)」依赖程序。下一课程从个人策略起，不再假定桌上有被多数唯一决定的 \(W\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>圈的机制是多数的「非传递」：每一对的多数来自不同的两人联盟，三个联盟转圈，没有一个联盟是决定性到能钉住全局排序——这与 Arrow 证明里决定性收缩方向相反：这里没有任何单人独裁，但加总也不闭合。议程的机制是路径：圈上每一步都有多数，顺序决定停在哪一站。</p><p>与中位的对照：单峰让所有成对比较与同一个人（中位）的排序一致，竞赛图是从 \(x_m\) 指向外的星，有源点。循环图没有源。政策空间多一维，就多一个转圈的方向。</p><p>议程委员会若能指定顺序，等于在顶圈里选点。这与独裁不同：结局仍须是某次多数的胜者，不能是圈外被全体击败的方案。但「人民的意愿」不再是唯一 \(G\)，公共品课的萨缪尔森条件没有被多数自动执行。</p><p><span class="marginnote">循环存在，不等于任何方案都一样好。圈外的点仍可被全部圈内点击败。议程权力是在 Condorcet 集（顶圈）里挑选，不是对任意差方案授权。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>顶圈是议程还能挑的范围，不是任意差方案。</p><p>概率投票、议题捆绑、政党结构，可以给出预测但不恢复 Condorcet 胜者。实验与立法议程是实证，不是本课的逃逸。McKelvey 的「几乎任意点可被议程达到」依赖连续多维与欧氏偏好；离散方案上顶圈可以很小。Gibbard–Satterthwaite 说：就算程序给出唯一结果，广泛域上也会有策略投票——那是博弈课。本课只钉多数关系可以不传递。</p><p>后课默认：非单峰时两两多数可以循环；没有 Condorcet 胜者则结局随议程；中位定理不能无声明地用于多维公共决策。</p><p>本课不把循环写成选民非理性。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>个人传递推不出多数传递；石头剪刀布是合法剖面。</li><li>无 Condorcet 胜者时，议程在圈上决定结果。</li><li>单峰排除循环；多维几乎把排除拿掉。</li><li>市场失灵课序止于此；下一课程从策略与均衡起。</li><li>出处：Condorcet, 1785；对照 Black 1948 的单峰逃逸。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 市场失灵<!--]--><!--[--> · 课序 外部性与公共<!--]--></p><p class="lesson-progress">第 31 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/dominance-iesds/">优势与反复剔除</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

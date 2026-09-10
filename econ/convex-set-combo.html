@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>凸集与凸组合 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_convex-set-combo.md.D1MX8zGz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 集合与凸<!--]--><!--[--> · 课序 空间<!--]--></p><p class="lesson-progress">第 2 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/euclidean-open-set/">欧氏空间与开集</a></p><p class="lesson-next"> 下一课：<a href="/econ/convex-concave-fn/">凸函数与凹函数</a></p></nav><div style="position:relative;"><div><h1 id="凸集与凸组合" tabindex="-1">凸集与凸组合 <a class="header-anchor" href="#凸集与凸组合" aria-label="Permalink to &quot;凸集与凸组合&quot;">​</a></h1><div class="epigraph"><p>凸集把「两种可行计划的加权平均仍可行」写成几何；平均一旦穿出集合，分离与均衡的标准工具就失效。</p><footer>—— 据 Rockafellar, Convex Analysis, 1970；Mas-Colell, Whinston and Green, Microeconomic Theory 数学附录整理</footer></div><p>上一课<a href="/econ/euclidean-open-set">欧氏空间与开集</a>给了邻域、闭包与紧。可行域仍可以是任意形状：两个可行点的线段可能穿出集合，固定成本、整数约束都会造出这样的洞。缺口不是再定义开球，而是：哪些集合允许凸组合仍留在里面。后课的凸偏好、凸技术、分离超平面都先要这条。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>集合 \(C\subset\mathbb{R}^n\) 为<strong>凸集</strong>，若对任意 \(x,y\in C\) 与 \(t\in[0,1]\)，有 \(tx+(1-t)y\in C\)。等价地说，\(C\) 含任意两点之间的线段。有限凸组合 \(\sum_{i=1}^k\lambda_i x_i\)（\(\lambda_i\ge 0\)，\(\sum\lambda_i=1\)）仍在凸集内。经济学翻译：若两种消费或两种工艺都可行，按比例混合仍可行。</p><p>预算 \(\{x\in\mathbb{R}_+^n:p\cdot x\le w\}\) 是闭半空间与闭象限的交。半空间凸，凸集对交封闭，故标准预算凸。生产可能集若允许工艺的凸组合，也是凸集。后课<a href="/econ/convex-preference">凸偏好</a>会把同一几何放在上优集上：平均不被讨厌。本课只钉集合，不谈偏好。</p><h3 id="凸包不是「多买一点」" tabindex="-1">凸包不是「多买一点」 <a class="header-anchor" href="#凸包不是「多买一点」" aria-label="Permalink to &quot;凸包不是「多买一点」&quot;">​</a></h3><p>凸包 \(\operatorname{conv}(A)\) 是含 \(A\) 的最小凸集，由 \(A\) 的所有凸组合构成。它不是单调性，也不是「集合变大一点」：非凸的两点集，凸包是中间整段线段。极值点不能写成其他两点的严格凸组合；线性规划的最优可以取在极值点，那是后课优化的事。Carathéodory：\(\mathbb{R}^n\) 里凸包至多用 \(n+1\) 个点。</p><p><span class="marginnote">空集与单点按定义凸。\(\mathbb{R}^n\) 本身凸。凸不必开也不必闭：开球凸，闭球凸，半开线段也凸。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>凸集对交封闭，对凸组合封闭，对平移与正齐次缩放封闭。不对并封闭：两个凸集的并可以是两块不相交的团。这是后课「非凸技术让最优跳端点」的几何来源——可行域是两块的并时，平均可能不可行。</p><p>Minkowski 和 \(A+B=\{a+b:a\in A,b\in B\}\) 在 \(A,B\) 凸时仍凸。交换经济里总供给是个体供给的 Minkowski 和；个体凸则加总凸。这是<a href="/econ/ge-existence">存在性与不动点</a>能对总超额需求要凸值的前半段材料；后半段是偏好凸。本课不把均衡写出来。</p><p>相对内部与仿射包：有时预算落在超平面 \(p\cdot x=w\) 上，集合在 \(\mathbb{R}^n\) 里没有内点，但在仿射包里有相对内点。分离定理的严格版本要用相对内部，<a href="/econ/separating-hyperplane">分离超平面</a>再补。本课只要求会认：降维的凸集仍然是凸集。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>线性约束的解集是超平面或半空间，它们凸；有限个线性不等式的交仍凸。所以「线性预算 + 非负」自动给出凸可行域，无需额外经济学假设。非线性约束则不然：\(x_1 x_2\ge 1\) 的上侧在正象限凸，圆盘的补集不凸。后课 KKT 的正则条件会假设约束集合局部像凸的线性化；非凸约束让一阶条件既非必要也非充分。</p><p>凸可行域加上后课的凸目标，最优集本身是凸的：两个最优的平均仍可行、仍最优。对应因此凸值，Kakutani 才接得上。非凸时最优可以是两端、不含中点——那不是计算误差，是几何不允许混合。</p><p><span class="marginnote">整数商品把可行域收成格子。格子的凸包是连续松弛；松弛最优不必整数可行。主干先走凸，整数规划当对照。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>固定成本、规模门槛、0-1 进入，都会造出非凸。产业组织里这是常态，不是本课要消灭的现象。主干仍取凸，因为分离、KKT、均衡存在的标准证明都靠它。也不要把凸集读成凸偏好：集合凸是可行，偏好凸是「平均更好」，对象不同。下一课把形状从集合推到函数。</p><p>后课默认：预算与标准生产集凸；说最优集凸时，先检查可行域是否凸。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>凸集含线段；凸组合封闭；凸集对交封闭、对并不封闭。</li><li>线性预算自动凸；非凸来自整数、门槛、固定成本。</li><li>个体凸经 Minkowski 和传到加总，给后课超额需求凸值半边。</li><li>凸包是最小凸扩张，不是单调性。</li><li>下一课：<a href="/econ/convex-concave-fn">凸函数与凹函数</a>。</li><li>出处：Rockafellar, <em>Convex Analysis</em>；MWG 数学附录。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 集合与凸<!--]--><!--[--> · 课序 空间<!--]--></p><p class="lesson-progress">第 2 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/convex-concave-fn/">凸函数与凹函数</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

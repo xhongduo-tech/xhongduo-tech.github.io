@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>因子模型的贝叶斯比较 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bayesian-factor-comparison.md.B6Jp7-UO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 基础推断<!--]--><!--[--> · 课序 在金融数据上做回归<!--]--></p><p class="lesson-progress">第 12 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hj-distance-test/">HJ 距离检验</a></p><p class="lesson-next"> 下一课：<a href="/quant/shrinkage-empirical-bayes/">收缩与实证贝叶斯</a></p></nav><div style="position:relative;"><div><h1 id="因子模型的贝叶斯比较" tabindex="-1">因子模型的贝叶斯比较 <a class="header-anchor" href="#因子模型的贝叶斯比较" aria-label="Permalink to &quot;因子模型的贝叶斯比较&quot;">​</a></h1><div class="epigraph"><p>比较的不是谁在一张表上把 $J$ 的 p 值抬过 5%，而是：在给定先验下，数据更愿意把概率质量分给哪一套因子。</p><footer>—— Barillas and Shanken, Comparing Asset Pricing Models, Journal of Finance, 2018</footer></div><p><a href="/quant/hj-distance-test">HJ 距离</a> 给出误设的样本范数，仍是经典点上的一次比较：不自动惩罚「多一个因子总能降 \(\delta\)」。Barillas 与 Shanken 把因子模型比较写成贝叶斯：对嵌套与非嵌套的线性因子模型，用边际似然（或等价的 Sharpe 改进）算后验概率。本课缺口：在 GMM/HJ/GRS 都报过之后，<strong>用边缘似然处理多重模型与过拟合</strong>。下一课收缩把同一思想用到单个系数，而不是整套模型的胜负。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>候选模型 \(\mathcal{M}_k\)：可交易因子 \(f^{(k)}\)，检验资产 \(R\)。经典做法逐个 GRS 或两两 \(J\)。模型数随因子动物园指数涨，5% 拒绝失去家庭wise 含义；嵌套时大模型总有更小的样本 \(\alpha\)。问题是计算 \(p(\mathcal{M}_k\mid R)\)，先验 \(p(\mathcal{M}_k)\) 与参数先验必须写明。</p><p>Barillas–Shanken 的关键简化：比较可交易因子模型，不必先指定检验资产——在一定先验下，模型比较约化成<strong>因子之间谁解释谁的夏普</strong>。这与「检验资产选得越好看越通过」的经典病相对。仍须声明：先验对 \(\alpha\) 的尺度（Barillas–Shanken 用相对因子夏普的先验）会推动后验。</p><h3 id="不是把-p-值换成「贝叶斯」标签" tabindex="-1">不是把 p 值换成「贝叶斯」标签 <a class="header-anchor" href="#不是把-p-值换成「贝叶斯」标签" aria-label="Permalink to &quot;不是把 p 值换成「贝叶斯」标签&quot;">​</a></h3><p>BIC 近似边缘似然，惩罚参数个数，但是对先验与样本量的粗近似。资产定价 \(T\) 不算大、\(N\) 与 \(K\) 的相对大小敏感，应尽量用他们给出的精确或准精确边际似然，而不是随手 BIC。Harvey、Liu 与 Zhu 对因子动物园的多重检验是频率派 FDR；本课是模型空间上的后验。两者都在管「太多候选」，对象一个是单因子 t，一个是整模型。</p><p><span class="marginnote">后验概率 0.7 不表示「有 70% 把握在真实世界赚钱」。它是：在模型集封闭、先验与似然都接受的前提下，概率质量的分配。模型集没把真实包含进去，后验仍会在错误集里归一化。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>似然。</strong> 通常假设因子与资产联合正态，或对超额收益的时间序列回归正态。边缘化 \(\beta,\Sigma,\lambda\)。共轭先验给出解析或易算的边际似然。Barillas–Shanken 比较「谁该出现在定价因子里」，把非定价的检验资产与因子一并处理。</p><p><strong>先验。</strong> 对 \(\alpha\) 的先验尺度是关键超参：太紧则任何 \(\alpha\) 都被视为噪声，小模型胜；太松则数据无法反对大模型。应报告超参敏感性。均匀模型先验把概率平分给所有子集，因子多时大模型空间占优，可用稀释先验。</p><p><strong>输出。</strong> 每个模型的后验、因子的包含概率、以及相对基准（市场）的证据比。不要只报「最佳模型」点名。</p><h3 id="与-grs-对照" tabindex="-1">与 GRS 对照 <a class="header-anchor" href="#与-grs-对照" aria-label="Permalink to &quot;与 GRS 对照&quot;">​</a></h3><p>GRS 拒绝「这些 \(\alpha\) 联合为零」。贝叶斯问「加入这些因子后边际似然是否上升」。可以 GRS 拒绝（经典显著 \(\alpha\)）但贝叶斯仍支持小模型（\(\alpha\) 幅度相对先验与 \(\Sigma\) 不够）。这不是矛盾：一个控 I 类错误，一个做模型选择。报告应并列，而不是用后验抹掉拒绝。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>边缘似然 \(\int p(R\mid\theta,\mathcal{M})p(\theta\mid\mathcal{M})d\theta\) 自动把只会拟合噪声的参数积掉——Ockham 因子。夏普改进大、且稳定，才会胜过额外维度的惩罚。机制与 Hjort–Claeskens 模型平均、与经验贝叶斯收缩同源：都把「额外自由」写成先验下的积分，而不是只看样本内平方误差。</p><p>可交易因子比较能约化，是因为线性定价下，模型的优劣由因子张成的前沿决定。宏观因子不可交易时，约化失败，必须回到检验资产与 SDF，经典 HJ/GMM 更直。</p><p><span class="marginnote">正态似然对危机日敏感。用 t 似然或混合会改后验。若结论只在正态下成立，应写明。这与稳健回归课将处理的离群是同一尾巴，只是这里作用在模型概率上。</span></p><h3 id="计算" tabindex="-1">计算 <a class="header-anchor" href="#计算" aria-label="Permalink to &quot;计算&quot;">​</a></h3><p>子集 \(2^K\) 在 \(K\gt 20\) 时不可枚举，用 MCMC、鸟击、或只比较预登记的嵌套链（市场 / FF3 / FF5 / Q）。探索性的全子集搜索要把多重比较写进发现研究，不能当验证。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>样本分裂：用一半算后验、一半验证，先验仍会泄漏若你用全历史选因子名单。因子是被同一文献矿出来的，后验过乐观——这是 Harvey–Liu–Zhu 的频率派警告在贝叶斯里的对应：先验应对「已发表」打折，很少有人真这么做，故后验应当上界。</p><p>工程：预登记模型集与 \(\alpha\) 先验尺度；报包含概率与敏感性；并列 GRS/HJ。不要用后验概率当组合权重除非明确模型平均并扣成本。不要把宏观 SDF 塞进 Barillas–Shanken 的可交易约化。下一课把收缩从「整模型」降到「单个 \(\beta\) 与均值」。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>贝叶斯模型比较用边缘似然分配后验，惩罚只拟合样本 \(\alpha\) 的额外因子。</li><li>Barillas–Shanken 在可交易因子、合适先验下把比较约化到因子夏普，减轻检验资产挑选。</li><li>先验尺度与模型集封闭性决定后验；应做敏感性，并与 GRS/HJ 并列。</li><li>不可交易宏观因子不能套同一约化；因子动物园的选择偏差会让后验偏乐观。</li><li>出处：Barillas and Shanken, <em>Journal of Finance</em>, 2018；相关贝叶斯资产定价见 Avramov 等；多重检验的频率派对照见 Harvey, Liu and Zhu。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 基础推断<!--]--><!--[--> · 课序 在金融数据上做回归<!--]--></p><p class="lesson-progress">第 12 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/shrinkage-empirical-bayes/">收缩与实证贝叶斯</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

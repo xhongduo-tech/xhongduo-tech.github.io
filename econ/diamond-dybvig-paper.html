@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Diamond–Dybvig 原文 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_diamond-dybvig-paper.md.BYvQhMm1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 经典论文对照<!--[--> · 单元 宏观与货币<!--]--><!--[--> · 课序 文献<!--]--></p><p class="lesson-progress">第 16 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/woodford-interest/">Woodford 利息与价格</a></p><p class="lesson-next"> 下一课：<a href="/econ/solow-1956-paper/">Solow 1956 增长原文</a></p></nav><div style="position:relative;"><div><h1 id="diamond–dybvig-原文" tabindex="-1">Diamond–Dybvig 原文 <a class="header-anchor" href="#diamond–dybvig-原文" aria-label="Permalink to &quot;Diamond–Dybvig 原文&quot;">​</a></h1><div class="epigraph"><p>活期存款提供流动性保险；同一合同在序贯服务下容许挤兑。存款保险可以去掉坏均衡。</p><footer>—— Diamond and Dybvig, Bank Runs, Deposit Insurance, and Liquidity, Journal of Political Economy 1983</footer></div><p><a href="/econ/woodford-interest">上一课</a>（Woodford 利息与价格）。附录对照。主干<a href="/econ/diamond-dybvig">Diamond–Dybvig 挤兑</a>已取三期技术、双均衡与保险。本篇对照 <strong>1983 原文</strong>多出来的问题设定：为什么政府保险或暂停兑付被写成与银行合同配套的政策，而不是另起一套货币理论；以及原文对「挤兑由什么触发」说了什么、没说什么。不重推 \(r_1\) 的最优保险公式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Gurley–Shaw 式的中介故事不能区分「好的流动性转换」与「脆弱」。Diamond 与 Dybvig 要一张可计算的活期合同：在不可验证的个人流动性冲击下实施风险分担，并证明同一张合同是挤兑博弈。原文标题把三件事并列——挤兑、存款保险、流动性——因为政策不是外挂：保险或暂停兑付的作用是删掉坏均衡，使保险合同能够被使用。</p><p>与 <a href="/econ/woodford-interest">Woodford</a> 的对照：利息与价格假定银行部门已在，讨论的是利率规则；本文假定没有法定货币操作，讨论的是存款合同本身。两篇附录不要互相翻译成对方的模型。</p><p><span class="marginnote">原文第三节用太阳黑子选择均衡；挤兑不必有资产质量消息。暂停兑付（suspension of convertibility）与存款保险是并列的去坏均衡工具。模型没有央行资产负债表，没有准备金账户。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三期、一种长期技术、\(t=1\) 清算有成本。代理人类型在 \(t=1\) 私有。银行是互惠的活期安排，不是追求特许权价值的股权企业。序贯服务约束被明确写成：兑付按到达次序，不能把 \(t=1\) 的总需求当作可观察的总量再按比例分配。均衡是纳什：耐心者是否提款取决于对他人提款的信念。</p><p>政策实验在同一博弈上做。保险保证耐心者在 \(t=2\) 仍按合同受偿，于是坏均衡不再是最优反应。暂停兑付在达到急躁者份额后停止支付，同样保护剩余资产。原文讨论税收融资的保险，不讨论资本充足——资本是主干<a href="/econ/basel-capital">巴塞尔</a>的后起语言。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>原文机制与主干相同，附录只强调两处常被课堂删掉的限定。第一，银行可以是被动的资产池，脆弱性来自负债合同，不来自经理的隐藏行动——与<a href="/econ/moral-hazard">道德风险</a>分流。第二，均衡选择可以与基本面无关；后来文献把坏消息写成触发器，是对原文的补充，不是原文的唯一故事。保险的代价（税收扭曲、被原文点到的激励）未展开成完整的道德风险模型。</p><h3 id="与主干挤兑课的分工" tabindex="-1">与主干挤兑课的分工 <a class="header-anchor" href="#与主干挤兑课的分工" aria-label="Permalink to &quot;与主干挤兑课的分工&quot;">​</a></h3><p>主干<a href="/econ/diamond-dybvig">Diamond–Dybvig 挤兑</a>已取双均衡与序贯服务。本篇对照 <em>JPE</em> 91(3) 1983：激励相容、加总确定性、标题里的保险与流动性是同一件家具。真实三期，无准备金、无 Woodford 利率规则、无巴塞尔。批发融资与 LCR 是类比，不是这篇的定理。读完可回主干挤兑与中介课；不要把附录十篇当成连续主干的第十单元，也不接在<a href="/econ/to-limit-order-book">到限价簿</a>之后。</p><p><span class="marginnote">Diamond and Dybvig, <em>Journal of Political Economy</em> 91(3), 1983, 401–419。不要发明 arXiv 编号。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把 1983 写成货币乘数或最后贷款人操作手册。Bagehot 的窗口在主干<a href="/econ/lender-of-last-resort">最后贷款人</a>；原文几乎没有央行。也不要把「太阳黑子挤兑」说成作者否认基本面挤兑——他们选择最干净的环境来证明合同本身足够。全球博弈（Morris–Shin、Rochet–Vives）是后二十年的精炼，不在这篇 <em>JPE</em> 里。</p><p>宏观与货币附录到此结束。主干若只读挤兑课，已经够用机制；读原文是为了对保险与暂停在博弈里的对称位置，以及模型刻意不含的货币。</p><p>激励相容要求耐心者不假装急躁。加总确定性使好均衡的资源约束是确定的。比例随机、基本面触发，是后继文献。</p><p>序贯服务是制度选择。同步按比例结算可以设计掉坏均衡；原文选择不设计掉，正因为活期接近序贯。</p><p>不要把 2008 年批发融资写成 1983 年的定理。转换功能可以换负债合同，文献不是同一篇。</p><p>本篇结束附录链。量化栏从 <a href="/quant/lob-structure">LOB</a> 起，不从本篇起。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>附录对照 Diamond–Dybvig 1983：保险与暂停是删掉坏均衡的工具，与合同配套。</li><li>银行可以是被动资产池；挤兑不必有坏资产消息。</li><li>无准备金、无利率规则；不要译成 Woodford 或巴塞尔。</li><li>出处：Diamond and Dybvig, <em>JPE</em> 1983。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 经典论文对照<!--[--> · 单元 宏观与货币<!--]--><!--[--> · 课序 文献<!--]--></p><p class="lesson-progress">第 16 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/solow-1956-paper/">Solow 1956 增长原文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

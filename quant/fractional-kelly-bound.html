@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分数 Kelly 的边界 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fractional-kelly-bound.md.Dj1N4Oim.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 组合与风险续<!--[--> · 单元 配置、尾部与压力<!--]--><!--[--> · 课序 仓位与尾部<!--]--></p><p class="lesson-progress">第 4 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hrp-linkage/">HRP 联结与准对角化</a></p><p class="lesson-next"> 下一课：<a href="/quant/cvar-ru-opt/">CVaR Rockafellar-Uryasev</a></p></nav><div style="position:relative;"><div><h1 id="分数-kelly-的边界" tabindex="-1">分数 Kelly 的边界 <a class="header-anchor" href="#分数-kelly-的边界" aria-label="Permalink to &quot;分数 Kelly 的边界&quot;">​</a></h1><div class="epigraph"><p>全 Kelly 在已知优势下最大化对数增长；优势一旦是估计的，超过真 $f^\ast$ 的损失非对称地大于同等幅度的不足，于是可审计的上界是分数 Kelly，而不是把点估计塞进公式。</p><footer>—— Thorp 对分数 Kelly 的实践；MacLean, Thorp and Ziemba 对增长与安全的权衡；Kelly, 1956</footer></div><p><a href="/quant/kelly-sizing">仓位与 Kelly</a> 一文写连续近似 \(f\approx\mu/\sigma^2\)、扣费边缘、冲击与容量。本篇只写<strong>为什么以及如何把 \(f\) 卡在全 Kelly 之下</strong>：Thorp 的分数 \(\lambda\in\{1/2,1/4\}\)、高估与低估的不对称、参数不确定时的增长下界、以及与回撤约束的接口。Samuelson 批评几何均值准则不等于期望效用；分数化既是对效用更厌恶的近似，也是对 \(\hat\mu\) 污染的安全边际。它补的是边界，不是再推导一遍信息率。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>真值 \(f^\ast=\arg\max_f\mathbb{E}[\log(1+f R)]\) 在 \(R\) 的分布已知时存在。证券上 \(R\) 未知，\(\hat f\) 用 \(\hat\mu/\hat\sigma^2\) 插入。函数 \(g(f)=\mathbb{E}[\log(1+f R)]\) 在 \(f^\ast\) 左侧缓慢下降，右侧在触及破产或 \(1+fR\le 0\) 的定义域前可以掉到负增长。于是 \(\hat f=1.5 f^\ast\) 往往比 \(\hat f=0.5 f^\ast\) 致命得多。回测选择、未计入的冲击、多重检验都把 \(\hat\mu\) 向右推，满 Kelly 系统性地落在真值的右侧。分数 \(\lambda\) 把仓位放到左侧，用增长换「不要掉到右崖」。</p><p>第二问题是把 \(\lambda\) 从口味变成可检验的边界。MacLean–Ziemba 一脉用增长–安全有效前沿：横轴是达不到某财富目标的概率或回撤概率，纵轴是渐近增长率。全 Kelly 在增长端点，分数沿前沿下移。委托若有最大回撤或破产概率上限，可行 \(\lambda\) 有上界，这个上界才是本篇的对象，而不是「我们习惯半 Kelly」。</p><h3 id="过赌的损失对-不对称" tabindex="-1">过赌的损失对 \(g(f)\) 不对称 <a class="header-anchor" href="#过赌的损失对-不对称" aria-label="Permalink to &quot;过赌的损失对 $g(f)$ 不对称&quot;">​</a></h3><p>两点赌局或正态近似下，\(g(f)\) 在 \(f^\ast\) 处最大，二阶近似 \(g(f)\approx g^\ast-\frac12\kappa(f-f^\ast)^2\)，但定义域在 \(f\) 大时被 \(P(1+fR\le 0)\gt 0\) 切断，\(g\to-\infty\)。泰勒对称只在邻域有效。估计误差若均值为正（回测乐观），落在切断一侧的概率更大。贝叶斯做法是对 \(\mu\) 积分 \(g(f\mid\mu)\) 再对 \(f\) 最大化，等价于更厌恶，最优 \(f\) 小于插件全 Kelly。分数 Kelly 是这一积分的粗实现：不显式写先验，直接 \(\lambda\hat f_{\mathrm{plugin}}\)。\(\lambda\) 对应先验有多宽、以及你愿意用多少增长换安全。</p><p><span class="marginnote">连续公式 \(f=\mu/\sigma^2\) 在 \(\mu\) 年化 5%、\(\sigma\) 10% 时给出五倍杠杆。半 Kelly 仍是 2.5 倍。分数不是「小数点后的谨慎」，杠杆仍可能被融资与保证金否决。边界要同时满足 Kelly 分数与机构杠杆上限，取更紧的一个。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分层边界。第一层：插件全 Kelly 用保守 \(\mu\)（下置信界或扣掉容量后的 \(\mu(f)\)），得 \(f_{\mathrm{full}}\)。第二层：\(f=\lambda f_{\mathrm{full}}\)，\(\lambda\) 的默认网格 \(\{1/2,1/3,1/4\}\)，Thorp 多次公开推荐一半附近作为起点。第三层：在压力情景上检查路径约束——\(\mu\) 减半、\(\sigma\) 升 50%、残差相关升、冲击翻倍——财富过程的最大回撤、保证金强平概率是否超限，超则再降 \(\lambda\)。第四层：单名 / 单对上限与组合波动目标，作为与 Kelly 平行的硬约束，见主文。分数不是替代这些约束，是在它们之前先把插件杠杆砍一刀。</p><p>增长–安全前沿的计算：对固定策略，扫描 \(\lambda\)，在自助或蒙特卡洛财富路径上同时报：终期对数财富均值、MDD 分位、触及止损的频率。投委会选的是前沿上的点，不是单独一个增长率。与 <a href="/quant/drawdown-constrained-opt">回撤约束优化</a> 的关系：那里把回撤写进组合权重的 LP；这里把回撤写成对杠杆标量 \(\lambda\) 的约束。策略已固定时先做 \(\lambda\) 边界；资产权重还在选时，回撤约束与分数 Kelly 会抢同一风险预算，应只让一个当主约束，另一个当检验。</p><h3 id="参数不确定的显式上界" tabindex="-1">参数不确定的显式上界 <a class="header-anchor" href="#参数不确定的显式上界" aria-label="Permalink to &quot;参数不确定的显式上界&quot;">​</a></h3><p>设 \(\mu\in[\mu_{\min},\mu_{\max}]\)，\(\sigma\) 有区间。最不利增长对应较小的 \(\mu\) 与（在杠杆已定时代入）较大的有效风险。要求 \(\inf_{\theta} g(f;\theta)\ge 0\) 给出一个最大可允许 \(f\)，往往远小于 \(\hat\mu/\hat\sigma^2\)。这是稳健控制式的 Kelly 上界，比固定 \(\lambda\) 更可审计，但对集合 \([\mu_{\min},\mu_{\max}]\) 极度敏感：集合若来自同一污染回测，上界仍假。集合应来自扣费、容量、样本外或压力，而不是样本内置信区间的下端点装饰。</p><p>多策略时全 Kelly 变成 \(\Sigma^{-1}\mu\)，分数化可以对整体杠杆 \(\lambda\)，或对每个特征值方向不同 \(\lambda\)（对估计最差的方向更保守）。后者接近对 \(\mu\) 做 <a href="/quant/bl-prior-shrink">BL 式收缩</a> 再取对数效用权重：收缩与分数是同一安全边际在均值空间与杠杆标量上的两个旋钮，不要叠满再叠满。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>对数增长对破产是 \(-\infty\) 的，所以最优内点必须远离定义域边界。估计把你推向边界时，分数把名义杠杆按比例拉回。半 Kelly 在某些两点模型里保留大部分增长率（常见引用是八成左右的增长、波动显著下降），这不是普遍常数，依赖于 \(R\) 的分布；厚左尾时半 Kelly 仍可能过赌，因为 \(f^\ast\) 本身已被 \(\sigma^2\) 低估跳跃。此时真正的边界是仓位上限与止损，分数只是第一道。Thorp 强调安全边际，正是承认公式外的跳跃与估计误差。</p><p>路径依赖：同样的 \(\lambda\)，先亏后赢与先赢后亏在有止损、有申赎时终值不同。分数降低触及止损的概率，这往往比提高渐近 \(g\) 更接近委托合同。客户的季度相对基准与 Kelly 的深回撤换增长冲突，可行 \(\lambda\) 的上界由相对回撤给出，可以低到让「Kelly」只剩下修辞。应把相对回撤约束写进第三层检验，而不是事后用 Calmar 解释。</p><p><span class="marginnote">\(\lambda=1\) 只在课堂赌局里当端点。把回测夏普代入满 Kelly 再写「理论最优」，忽略了 Kelly 1956 的已知信道假设与 Thorp 之后的全部实践。</span></p><h3 id="容量使真-随财富下降" tabindex="-1">容量使真 \(f^\ast\) 随财富下降 <a class="header-anchor" href="#容量使真-随财富下降" aria-label="Permalink to &quot;容量使真 $f^\ast$ 随财富下降&quot;">​</a></h3><p>无摩擦 \(f^\ast\) 与财富无关。有冲击时有效 \(\mu(f)\) 下降，真最优随名义下降，大账户的分数应更小。把小账户校准的 \(\lambda=1/2\) 乘到基金规模上，等于在更低的真 \(f^\ast\) 上仍用旧的 \(f_{\mathrm{full}}\)，相对过赌。边界必须随 AUM 重估：同一 \(\lambda\) 对大账户不是同一安全边际。这与主文容量段一致，这里强调它改变的是<strong>上界</strong>，不是只改变点估计。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用样本内网格搜 \(\lambda\) 最大化 Calmar——那是在拟合历史 MDD。不要在已有波动目标上再叠接近 1 的 \(\lambda\)，双重乐观。不要对非重复、不可加的一次性主题押注用 Kelly 分数：没有重复赌局，信息率公式没有对象。监管杠杆、A 股 T+1、期货保证金会把连续 \(f\) 变成阶梯，分数应在可执行网格上取整后再做压力，而不是在实数 \(f\) 上报告精确 \(\lambda\)。</p><p>效用若不是对数，最优本来就小于全 Kelly；再分数是双重保守，可以，但要承认增长目标已被放弃。相反，口头对数效用却用 \(\lambda=1\) 加未扣费 \(\mu\)，是双重激进。文档应写清：效用、估计集合、\(\lambda\) 上界的压力情景，三者缺一则「分数 Kelly」不可审计。</p><p><span class="marginnote">半 Kelly 不是贝叶斯最优的通用解，是一个被广泛使用的、对不对称损失敏感的上界规则。更紧的上界来自压力下 \(\inf g\) 与回撤概率，而不是把 \(\lambda\) 写成 0.5 就结束校准。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>全 Kelly 最大化已知分布下的对数增长；估计误差使过赌的伤害大于同等的不足，实务用分数 \(\lambda\) 作为上界。</li><li>Thorp 与 MacLean–Ziemba 把问题写成增长–安全前沿；委托的回撤与破产概率给出 \(\lambda\) 的硬上界。</li><li>保守 \(\mu\)、压力情景、\(\inf g\ge 0\) 比单独写 \(\lambda=1/2\) 更可审计；厚尾时分数仍可能不够。</li><li>分数与均值收缩不要叠满；容量使真 \(f^\ast\) 随 AUM 下降，上界必须重估。</li><li>出处：Kelly, <em>BSTJ</em>, 1956；Thorp 在 MacLean–Thorp–Ziemba 文集中的分数 Kelly 论述；Samuelson 对几何均值准则的批评；连续时间对照 Merton（1969）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 组合与风险续<!--[--> · 单元 配置、尾部与压力<!--]--><!--[--> · 课序 仓位与尾部<!--]--></p><p class="lesson-progress">第 4 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cvar-ru-opt/">CVaR Rockafellar-Uryasev</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

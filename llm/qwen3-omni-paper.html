@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Qwen3-Omni 技术报告 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-omni-paper.md.C6GY91QN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 219 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/qwen3-asr-paper/">Qwen3-ASR 技术报告</a></p><p class="lesson-next"> 下一课：<a href="/llm/kerbl-gaussian-splatting/">3D Gaussian Splatting</a></p></nav><div style="position:relative;"><div><h1 id="qwen3-omni-技术报告" tabindex="-1">Qwen3-Omni 技术报告 <a class="header-anchor" href="#qwen3-omni-技术报告" aria-label="Permalink to &quot;Qwen3-Omni 技术报告&quot;">​</a></h1><div class="epigraph"><p>Thinker 写字、Talker 出声：两边都换成 MoE，音频前端从 Whisper 换成自训 AuT，冷启动首包理论延迟 234 ms。</p><footer>—— Xu 等，Qwen3-Omni Technical Report，arXiv:2509.17765</footer></div><p>Qwen3-Omni 是通义把文本、图像、音频、视频收进<strong>同一套权重</strong>的全模态报告。核心主张不是「又能看又能听」，而是：相对同尺寸 Qwen <strong>单模态</strong>模型，文本与视觉不退化，同时在 36 项音频 / 音画基准上开源 SOTA 32 项、总体 SOTA 22 项。架构沿用 Qwen2.5-Omni 的 Thinker–Talker，两边都升级为 MoE：Thinker <strong>30B-A3B</strong>，Talker <strong>3B-A0.3B</strong>。开源三份 Apache 2.0 检查点：Instruct、Thinking、以及从 Instruct 微调来的 Captioner。ASR 家族把它当语音理解基座，见 <a href="/llm/qwen3-asr-paper">Qwen3-ASR</a>；本篇写 Omni 原文的五条升级、流式合成与模态互不伤害，不把 0.6B 转写 SKU 写进这一代。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>早期 omni 常见两种失败。一是「会听就不会写代码」：音频续训把语言挤掉。二是「会写就不会说」：语音生成用块扩散，首包要等一整块，对话不像对话。Qwen2.5-Omni 已经把 Thinker–Talker 与 TM-RoPE 摆上台面，但音频前端仍是 Whisper、Talker 仍吃 Thinker 的文本高维表示、合成侧单码本加块扩散。要同时服务 119 种文本交互、19 种语音理解、10 种语音生成，并把单实例音频理解拉到约 <strong>40 分钟</strong>，必须换编码器、换 MoE、把文本条件从 Talker 上解耦，才能让安全过滤、RAG、函数调用插在 Thinker 出字之后、Talker 出声之前。</p><p>社区还缺一个通用音频描述模型：ASR 只出字，音景、音乐、事件要另接专家。报告因此从 30B-A3B 微调出 Captioner，专门产低幻觉的任意音频描述。</p><h3 id="五条相对-2-5-omni-的升级" tabindex="-1">五条相对 2.5-Omni 的升级 <a class="header-anchor" href="#五条相对-2-5-omni-的升级" aria-label="Permalink to &quot;五条相对 2.5-Omni 的升级&quot;">​</a></h3><p>原文把差分收成五条：(1) Thinker 与 Talker 都改 MoE；(2) 音频编码器换成约 <strong>650M</strong> 的 AuT，约 <strong>2000 万小时</strong>监督音频从零训，token 率 12.5 Hz，动态窗注意力服务流式 prefill；(3) 多码本语音表示，容量够装音色、副语言与声学事件；(4) Talker 从单轨改为多轨：骨干每步出一个码本帧，MTP 模块补残差码本；(5) 块扩散换成轻量因果 ConvNet（Code2Wav），从第一帧就能流。冷启动无上文时，端到端首包理论延迟 <strong>234 ms</strong>（表里另列 547 ms 一档，读实验时不要只报较小的那个）。</p><p><span class="marginnote">Talker 不再消费 Thinker 的文本高维表示，只条件于音视频多模态特征。文本内容由离散 token 传递，与嵌入信息等价；音画协同的韵律 / 音色（例如口译）仍走多模态条件。解耦之后，Thinker 与 Talker 可以各用各的系统提示：一个管答什么，一个管怎么说。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Thinker 把文本、音频、图像、无声视频编成表示并生成文本。文本用 Qwen 词表（报告写 151,643 个常规 token）。音频重采样到 16 kHz，25 ms 窗、10 ms hop 的 128 通道梅尔谱，经 AuT。AuT 是 AED：Conv2D 八倍下采样到 12.5 Hz；数据约 80% 中英伪标 ASR、10% 其他语种 ASR、10% 音频理解；动态窗 1–8 s，在实时缓存与离线长音频之间折中。视觉路径与 Qwen 的 VL 系列同源接口，本篇不展开切块。</p><h3 id="talker-多码本与分块-prefill" tabindex="-1">Talker 多码本与分块 prefill <a class="header-anchor" href="#talker-多码本与分块-prefill" aria-label="Permalink to &quot;Talker 多码本与分块 prefill&quot;">​</a></h3><p>Talker 在 Thinker 的高层多模态表示与对话史上自回归预测多码本。每步：骨干吃当前帧聚合特征，线性头预测第 0 层码本，MTP 出其余残差；Code2Wav 因果卷积把该帧立刻变成波形。分块 prefill：时间上切块，Thinker 完成当前块 prefill 后，表示立刻异步去 prefill Talker 的当前块，Thinker 继续下一块。MoE 提高并发；左上文-only 的多码本机制让第一枚 token 出现后就能合成第一包。</p><div class="mermaid"></div><p>后训练分 Instruct 与 Thinking。Thinking 对任意模态显式推理。Captioner 在 Instruct 上针对详细、低幻觉音频描述微调。语音理解 19 语、语音生成 10 语、文本 119 语——三张表不要合成「119 语全能语音」。</p><p><span class="marginnote">ASR 产品线的 52 语种/方言是后训练扩出来的，不是 Omni 基座的 19 语听力表。用 Omni 当 <a href="/llm/qwen3-omni-speech-base">ASR 基座</a> 时，覆盖以 ASR 报告为准。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>「不退化」依赖两件事：Thinker 仍是 Qwen3 级语言 MoE，音频与视觉以 token 形式进入同一残差流；训练配比不允许音频梯度长期压过文本。AuT 从零训而不是冻结 Whisper，是为了让 12.5 Hz 表示同时服务 ASR 与音频理解，而不是只有转写。动态窗与分块 prefill 把「40 分钟理解」和「234 ms 首包」拆开：理解可以看长窗，对话必须看短块。</p><p>Talker 解耦文本表示之后，外部模块可以改 Thinker 的字再送给合成——这是产品上的安全阀，也是延迟源：插入过滤会加在 234 ms 之外。多码本加 MTP 把一帧内的残差并行掉，避免逐层码本都走完整自回归。因果 ConvNet 替换块扩散，去掉「等一整块噪声解完才有波形」的等待。Captioner 存在，是因为通用 Thinker 的音频描述会偏短、偏幻觉；专用头把「详细且少编」写成单独目标。</p><h3 id="thinker-出字与-talker-出声的时间轴" tabindex="-1">Thinker 出字与 Talker 出声的时间轴 <a class="header-anchor" href="#thinker-出字与-talker-出声的时间轴" aria-label="Permalink to &quot;Thinker 出字与 Talker 出声的时间轴&quot;">​</a></h3><p>端到端首包 = 音频块 prefill + Thinker 第一段文本 + Talker 第一帧码本 + Code2Wav。理论 234 ms 是冷启动、无额外安全栈的下界。多轮对话可以缓存 Thinker 历史，首包会好于冷启动，但报告用来打广告的是冷启动数字。Thinking 模式在出声前先写推理，延迟上是另一条产品线，不要和 234 ms 写在同一句。</p><p><span class="marginnote">表里 Audio Encoder 约 650M、Thinker 30B-A3B、Talker 3B-A0.3B。服务要把三套 MoE 专家并行配好；只量化 Thinker、漏掉 Talker，表现为「字对、声怪」，不是听力坏了。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>40 分钟是单实例理解上限，不是无限会议；更长要切段。语音生成只有 10 语，用户用第 11 种语言听写再要求「用同一种语言回答」会 silently 落到英语或中文音色。Talker 不读 Thinker 文本嵌入，口译场景的术语一致性要靠离散 token 与系统提示，不能假设声学条件自动抄词。Captioner 与 Instruct 是不同检查点。</p><p>234 ms 不是实测手机延迟，也不是含网络 RTT 的 API 延迟。块大小、窗长、MTP 深度都会改这个数字。音频理解 SOTA 表含闭源 Gemini-2.5-Pro、Seed-ASR、GPT-4o-Transcribe，引用必须带基准名。Omni 不宜直接当高并发 ASR：指令跟随与转写稳定性冲突，那是 ASR 报告做 SFT 收口的原因。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Qwen3-Omni 用 Thinker–Talker MoE 统一文本、图像、音频、视频；主张相对同尺寸单模态不退化，音频侧数字最强。</li><li>五条升级：双边 MoE、AuT 替换 Whisper、多码本、MTP 多轨、因果 ConvNet 流式合成；冷启动首包理论 234 ms。</li><li>开源 30B-A3B 的 Instruct / Thinking / Captioner，Apache 2.0。</li><li>ASR 后训练在此基座上收口，推理图不是 30B 原盘。</li><li>出处：Xu 等，<em>Qwen3-Omni Technical Report</em>，arXiv:2509.17765。对照 Qwen2.5-Omni 与 Qwen3-ASR（arXiv:2601.21337）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 219 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kerbl-gaussian-splatting/">3D Gaussian Splatting</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SentencePiece | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sentencepiece.md.BJm-9iGM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 预训练数据与 tokenizer 论文<!--]--><!--[--> · 课序 语料与词表<!--]--></p><p class="lesson-progress">第 284 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/the-stack-v2/">Stack v2</a></p><p class="lesson-next"> 下一课：<a href="/llm/tiktoken/">tiktoken / BPE 实现</a></p></nav><div style="position:relative;"><div><h1 id="sentencepiece" tabindex="-1">SentencePiece <a class="header-anchor" href="#sentencepiece" aria-label="Permalink to &quot;SentencePiece&quot;">​</a></h1><div class="epigraph"><p>现有子词工具假定输入已经按词切开；直接从原始句子训练，才能把分词做成与语言无关、且编码可逆的端到端前处理。</p><footer>—— Kudo and Richardson, SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing, EMNLP 2018</footer></div><p>Kudo 与 Richardson 在 Google 把 SentencePiece 做成一套自包含的子词工具：C++/Python、Apache-2.0，同时实现 Sennrich 等人的 BPE 与 Kudo 同年提出的 Unigram 语言模型，并且<strong>不要求</strong> Moses、KyTea 式的预分词。空格被当成普通字符，先转义成 meta 符号 <code>▁</code>（U+2581），再与字母一起参与合并或概率切分。解码是编码的逆：<code>Decode(Encode(Normalize(text))) = Normalize(text)</code>。这一设计让同一套词表服务中日韩与有空格语言，也让 T5、ALBERT、mT5、Llama 1/2 可以把 tokenizer 文件连同权重一起分发，而不去依赖「当时那版 Moses 的命令行」。今日的大模型词表有的已经换成字节级 BPE 与 tiktoken，但「无损、自包含、从生文本训练」这三条，仍然是 SentencePiece 写进工具史的约束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>2018 年的 NMT 口头上是端到端，管道上仍绑着语言相关规则。欧洲语言靠空白切词再跑 subword-nmt；中文要先外挂分词器；多语言系统（Johnson 等人的 Google MNMT）每加一种语言就多一套预/后处理配置，而网络内部其实与语种无关。预分词还有信息损失：<code>Hello world.</code> 切成 <code>[Hello] [world] [.]</code> 之后，无法知道句点前有没有空格，detokenize 只能靠语言相关启发式。subword-nmt 用 <code>@@</code> 标词内边界，连续空格仍表示不了，切分不可逆。</p><p>子词算法本身也绑死了工具。BPE 的超参是合并次数；Unigram 的超参是最终词表大小。两套训练程序、两种输入约定，使「换算法」变成「换前处理生态」。Kudo 的子词正则化还要求训练时对同一句采样多种切分，离线预处理无法提供这种随机性。需要一个把规范化、训练、编码、解码收进同一模型文件的库，并且对生语料足够快——朴素 BPE 每轮扫相邻对是 \(O(N^2)\)，在未切词的长句上不可接受。</p><h3 id="无损分词是可逆性-不是「不切词」" tabindex="-1">无损分词是可逆性，不是「不切词」 <a class="header-anchor" href="#无损分词是可逆性-不是「不切词」" aria-label="Permalink to &quot;无损分词是可逆性，不是「不切词」&quot;">​</a></h3><p>无损指规范化后的 Unicode 串能从 token 序列唯一还原。它仍切子词，仍丢弃未进入 NFKC（或自定义规则）的等价差异。空白被保留为符号，所以中文「不插空格」与英文「词间空格」用同一套 decode：拼接后再把 <code>▁</code> 换回空格。<span class="marginnote">若训练语料里把中文人工插了空格，<code>▁</code> 会学成「词边界」而不是「原空白」，中文生成会出现碎空格。语言无关依赖的是「空白即字符」，不是「所有语言都该有空白」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四个模块。Normalizer 默认 Unicode NFKC，用最长匹配与编译好的 FST（Aho–Corasick）做串到串映射；用户可用 TSV 加规则，例如把组合音符收成预组合字符。Trainer 在规范化语料上训 BPE 或 Unigram，命令行给 <code>--vocab_size</code> 而不是合并次数，以便两种算法共用同一套「最终词表大小」语义。Encoder 先规范化再切分，可直接输出 id。Decoder 是逆操作。特殊符号 UNK/BOS/EOS/PAD 占住保留 id，也可自定义 <code>&lt;2ja&gt;</code> 这类语种符。模型文件是 Protocol Buffer，内含词表、算法参数以及预编译的规范化 FST——行为只依赖这一个文件，与 Unicode 版本、Moses 开关解耦。库 API 支持在线切分，从而在训练步内做子词正则化或 BPE-Dropout，而不必先把语料写成死 token。</p><p>BPE 侧用堆维护相邻对频率，把切分降到 \(O(N\log N)\)。Unigram 侧训练与切分对语料规模线性，并给出每个子词的 \(-\log p(x)\)，便于采样替代切分（Kudo 2018 的正则化）。默认 NFKC 并不实现完整的 Canonical Combining Class 重排，只覆盖可用 FST 表达的子集；需要完整 Unicode 语义时要自己知道这条边界。</p><div class="mermaid"></div><h3 id="bpe-与-unigram-不是两种前端-是两种词表哲学" tabindex="-1">BPE 与 Unigram 不是两种前端，是两种词表哲学 <a class="header-anchor" href="#bpe-与-unigram-不是两种前端-是两种词表哲学" aria-label="Permalink to &quot;BPE 与 Unigram 不是两种前端，是两种词表哲学&quot;">​</a></h3><p>BPE 自底向上：从字符表出发，反复合并全局最频相邻对，直到词表满。推理确定、实现简单，Llama 一类解码器常用 SentencePiece-BPE。Unigram 自顶向下：先准备一个过大的候选词表，用 EM 估概率，再删掉对似然伤害最小的符号，反复修剪。同一句有多个合法切分，训练时可采样，T5 / mT5 / ALBERT 走这条。SentencePiece 的贡献是让二者共享空白处理、规范化与 id 编解码；它不是第三种切分算法。词表里字符与子词混排，未登录拼写靠更短片段或 UNK——早期配置若不含字节回退，噪声字符会变成 UNK 黑洞，这是后来 GPT-2 字节级 BPE 要补的洞。</p><p><span class="marginnote">比较「32k SentencePiece」与「100k tiktoken」时，先看算法与预分词。T5 的 32k Unigram 与 Llama 的 32k BPE 对中文的碎词程度不同；再叠 NFKC 是否折叠全角，数字会被切成完全不同的 id 序列。只报 vocab_size 没有意义。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>把空白纳入符号表，等于把「词」从语言学单位降成统计块。有空格语言里，高频词仍会作为带 <code>▁</code> 的整词出现；无空格语言里，块边界由共现决定，不必先有一部词典。无损性保证 detokenize 不再是单独一门手艺，这对生成式模型的服务路径至关重要：id 流可以在 CPU 上还原字节，而不调用语言相关规则。自包含模型文件把前处理的可复现性提升到与权重同级——Post 2018 曾指出预处理的微小差异会大幅改 BLEU；把 FST 焊进 <code>.model</code> 是对那篇警告的工程回答。</p><p>Unigram 的似然是 \(\sum_{x\in D}\log \sum_{s\in \mathrm{Seg}(x)} p(s)\)，内部切分求和使词表能表达「多种分法」。正则化在训练 NMT 时相当于对分词噪声做数据增强，对后来 LLM 的用处变小，因为因果语言模型多用确定切分以免训练/推理不一致。尽管如此，Unigram 词表本身往往对罕见词更省长度。BPE 则把「语料里常见的粘连」焊死成原子，对代码里的 <code>for(</code> 与英文 <code>&#39;s</code> 友好，也对词表污染（网页乱码、重复标点）来者不拒——训练数据有多脏，合并就有多脏。</p><h3 id="与字节级-bpe、tiktoken-的分工" tabindex="-1">与字节级 BPE、tiktoken 的分工 <a class="header-anchor" href="#与字节级-bpe、tiktoken-的分工" aria-label="Permalink to &quot;与字节级 BPE、tiktoken 的分工&quot;">​</a></h3><p>SentencePiece 默认在 Unicode 字符上操作，辅以 NFKC。GPT-2 起的字节级 BPE 先把文本打成 UTF-8 字节，256 个基符号保证永不 UNK。tiktoken 是后者的高速推理实现，几乎不训练词表。Llama 1/2 仍用 SentencePiece-BPE；Llama 3、GPT-4 一类改 tiktoken 式编码。迁移时不能用 SentencePiece 去「近似」cl100k：空白标记、预分词正则、字节回退全不同，同一句的 token 数可差出一截，上下文预算与计费会对不上。正确做法是权重与 tokenizer 绑定，而不是用「都是 BPE」当互换许可证。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>NFKC 会折叠兼容字符，对想保留全角风格或某些数学字母形状的任务是伤害。FST 子集不等于完整 Unicode 规范化。Unigram 训练要调极大候选表与剪枝节奏，比 BPE 重。在线正则化与推理时的贪心切分若不一致，会在评测上制造幽灵增益。词表若按英语网页训，日文汉字会被切得很碎，这是数据问题不是算法问题——SentencePiece 语言无关，不自动语言公平。服务路径上，纯 Python 绑定不如 tiktoken 的 Rust 核快，这是实现而不是论文范围；但 <code>.model</code> 的加载与规范化 FST 仍有一次性成本，应在进程启动时完成。</p><p><span class="marginnote">不要把 spm_train 用在已经 BPE 过的 id 文本上「再训一次」。输入必须是规范化前的生文本。也不要把 <code>▁</code> 显示成普通下划线混进训练语料，那会污染空白符号。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SentencePiece 从生文本训练 BPE 或 Unigram，不依赖语言相关预分词。</li><li>空白视为字符并以 <code>▁</code> 转义，编码可逆，detokenize 无语言规则。</li><li>词表大小、规范化 FST 与算法参数打进同一个 Protocol Buffer 模型文件。</li><li>BPE 确定合并；Unigram 提供概率切分与子词正则化，T5 与 Llama 分属两路。</li><li>默认 NFKC 是可复现的折中，不是完整 Unicode 语义。</li><li>与 tiktoken 字节级编码不互换；必须与权重版本绑定。</li><li>出处：Kudo and Richardson，<em>SentencePiece</em>，EMNLP 2018 Demo；算法对照 Sennrich et al. 2016 BPE、Kudo 2018 Unigram；服务实现对照 OpenAI tiktoken。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 预训练数据与 tokenizer 论文<!--]--><!--[--> · 课序 语料与词表<!--]--></p><p class="lesson-progress">第 284 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/tiktoken/">tiktoken / BPE 实现</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

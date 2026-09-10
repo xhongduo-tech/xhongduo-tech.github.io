@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GDP 三种算法 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_gdp-accounts.md.CgZF39m7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 核算<!--]--><!--[--> · 课序 国民账户<!--]--></p><p class="lesson-progress">第 1 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/ml-causal-econ/">机器学习与因果</a></p><p class="lesson-next"> 下一课：<a href="/econ/gdp-gni-nnp/">GDP、GNI 与 NNP</a></p></nav><div style="position:relative;"><div><h1 id="gdp-三种算法" tabindex="-1">GDP 三种算法 <a class="header-anchor" href="#gdp-三种算法" aria-label="Permalink to &quot;GDP 三种算法&quot;">​</a></h1><div class="epigraph"><p>国民账户不是把「幸福」加总，而是把同一年的生产、支出与收入写成三条必须对得上的账。</p><footer>—— 据联合国《国民账户体系》（SNA）；Kuznets 对国民收入的早期测算整理</footer></div><p><a href="/econ/ml-causal-econ">上一课</a>把计量收到双 debias 的 ATE。本课换尺度。宏观要的不是某一次配置的信息约束，而是已经发生的交易如何加总成「这一年的产出」。显示原理不给出总量；<a href="https://unstats.un.org/unsd/nationalaccount/" target="_blank" rel="noreferrer">SNA</a> 给出三条必须相等的算法。后课的储蓄恒等式、价格指数和增长，都默认你会这三条账，不再从「GDP 是不是福利」讲起。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>微观均衡给出的是配置与价格，不是统计局发布的那个数。若直接把所有厂商的销售收入相加，中间品会被重复计算：铁矿、钢、汽车会把同一块价值加三遍。若只加最终销售，政府服务、自有住房、存货变化又对不上企业账。缺口因此不是「要不要衡量国力」，而是：用哪一套边界，使<strong>生产、支出、收入</strong>三条路走到同一个国内生产净值概念。</p><p>SNA 把生产边界钉在市场产出，并有限度地计入政府非市场服务与部分自产。家庭内部劳动大多仍在边界外。本课只钉国内生产：常住单位在经济领土上的生产。国民总收入还要加要素的跨境净收入，那是后课经常账户才会用到的差，这里不提前展开。</p><p><span class="marginnote">GDP 是增加值之和，不是销售额之和。增加值 = 产出 − 中间消耗。存货与固定资本形成是最终支出的一部分，不是「没卖掉所以不算」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三条算法对应三本账，定义上相等，统计上用残差对平。</p><p>生产法：按产业把增加值加总，再加产品税净额。支出法：最终消费 \(C\)、资本形成 \(I\)（含存货）、政府消费 \(G\)、净出口 \(NX\)。收入法：雇员报酬、营业盈余与混合收入、生产税净额。记</p> \[Y \equiv C+I+G+NX, \]<p>这里的等号是恒等，不是均衡条件。存货使「生产出来但未售出」仍计入 \(I\)，从而生产法与支出法在概念上对齐。收入法把同一增加值按要素份额切开；资本消耗（折旧）决定总额与净额之差。本课用总额 GDP，净额（NDP）留给资本账户。</p><div class="mermaid"></div><p>名义值按当期价格；实际值要用后课的指数去缩减。本课禁止把名义 GDP 的上升直接叫「增长」。</p><h3 id="常住与领土" tabindex="-1">常住与领土 <a class="header-anchor" href="#常住与领土" aria-label="Permalink to &quot;常住与领土&quot;">​</a></h3><p>国内与国民的差，是要素收入的跨境净额。一家外资企业在境内的增加值计入 GDP；利润汇出进入 GNI 的扣减。后课开放经济会计会用到这一条；封闭核算课序里先把 \(Y\) 当成国内生产。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三条路相等，是因为每一笔增加值同时是某人的收入、并对应最终需求或存货。中间品在产业间抵消：钢厂的产出是车厂的中间消耗，加总时只留下车的最终值。政府按成本计入，不是因为公共服务有市场价格，而是 SNA 选择用投入近似非市场产出——这是约定，不是福利定理。</p><p>地下经济、质量变化、免费数字服务会让边界抖动。那是测量误差，不否定恒等结构。本栏也不把 GDP 读成帕累托改进：福利定理谈的是配置，SNA 谈的是加总口径。显示原理处理的是私人信息；SNA 处理的是已经实现的市场交易。两套语言不要混：激励相容的机制可以改变未来的 \(Y\)，但不能让三条算法在定义上分叉。</p><p><span class="marginnote">存货投资使「没卖掉」仍进入支出法。若把存货从 \(I\) 里拿掉，生产法与支出法立刻对不上。后课把非自愿存货当成数量调整，前提是本课已经把它算进 \(Y\)。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>GDP 不含闲暇、环境耗损、分配。Kuznets 本人就警告过把国民收入当成福利。本课仍用 GDP，因为后课的索洛、IS–LM、经常账户都建立在这本账上；福利度量是对照，不是把第一课宏观改成幸福指数综述。量化栏的成交与报价是微观结构，不在 SNA 里；本栏加总到限价簿之前停住，见最后的接到<a href="/quant/lob-structure">限价簿</a>。</p><p>也不要把资本市场的市值涨跌计入生产：持有利得是重估价，不是增加值。公司金融课的股利与自由现金流从企业账出发，加总后进入收入法的盈余，但本课不把单家报表当成 GDP。</p><p>政府消费按成本计入，是 SNA 的非市场约定，不是把公共服务写成已经通过福利定理。家庭内部劳动大多在生产边界外。这些口径选择会被后课增长与开放账户继承，本课一次说清。</p><p>后课默认：写下 \(Y\) 时，它同时是增加值、最终支出和要素收入。下一课的缺口是：支出里的 \(I\) 与收入里没被消费的部分，如何写成恒等式。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>宏观的原始对象是 SNA 口径的国内生产，不是福利数字。</li><li>生产、支出、收入三条算法概念上相等；重复计算靠增加值消除。</li><li>\(Y=C+I+G+NX\) 是会计恒等，不是需求决定论。</li><li>存货属于资本形成；持有利得不属于生产。</li><li>名义与实际、储蓄与投资、跨境要素收入，都是后课缺口。</li><li>出处：联合国 SNA；Kuznets 的国民收入核算传统。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 核算<!--]--><!--[--> · 课序 国民账户<!--]--></p><p class="lesson-progress">第 1 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/gdp-gni-nnp/">GDP、GNI 与 NNP</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

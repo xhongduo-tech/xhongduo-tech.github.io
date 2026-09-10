@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenAI Jalapeño 推理芯片 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_openai-jalapeno.md.CpuWfXrP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 硬件与互连论文<!--]--><!--[--> · 课序 系统<!--]--></p><p class="lesson-progress">第 99 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/vera-rubin-platform/">Vera Rubin NVL72 平台</a></p><p class="lesson-next"> 下一课：<a href="/llm/cloudmatrix384-paper/">Huawei CloudMatrix384 超节点</a></p></nav><div style="position:relative;"><div><h1 id="openai-jalapeno-推理芯片" tabindex="-1">OpenAI Jalapeño 推理芯片 <a class="header-anchor" href="#openai-jalapeno-推理芯片" aria-label="Permalink to &quot;OpenAI Jalapeño 推理芯片&quot;">​</a></h1><div class="epigraph"><p>把它读成一块推理平台，而不是一张缩小的 GPU：公开指标是 last token 时间与每焦耳 token，公开规格钉在 Hot Chips 2026 的封装与域上。</p><footer>—— OpenAI，Hot Chips 2026 Jalapeño 环节的公开框架</footer></div><p>OpenAI 在 <strong>Hot Chips 2026</strong> 公开了自研推理 ASIC <strong>Jalapeño</strong>（报道里 Jalapeno / Jalapeño 两种拼写并存）。它不是训练卡，也不是通用 CUDA 设备：硅、主机与机柜按逐步生成来共设计，目标是多芯片工作负载上、低延迟下的性能每瓦。本篇是这块芯片的<strong>公开总表</strong>：时间线、封装数字、评测口径，以及 jalapeno 专题树怎么分读。空白设计动机见 <a href="/llm/jalapeno-inference-only">推理专用</a>，数据放置见 <a href="/llm/jalapeno-data-movement">减少搬运</a> 与 <a href="/llm/jalapeno-sliced-hbm">切片 HBM</a>，矩阵核见 <a href="/llm/jalapeno-systolic">脉动阵列</a>，数值见 <a href="/llm/jalapeno-mxfp4">MXFP4</a>，分工见 <a href="/llm/jalapeno-openai-broadcom-tsmc">Broadcom / TSMC</a>，网络见 <a href="/llm/jalapeno-tomahawk">Tomahawk</a>。未在演讲与可靠报道中出现的阵列边长、指令集、未发布 Gen 2/3 数字，一律不写。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>前沿 LLM 服务把一次请求拆成计算偏重的 prefill、可选草稿，以及带宽与 MoE 突发主导的 decode。用户看见的是端到端 last token 时间，电费看见的是每焦耳多少 token。通用 GPU 必须同时付训练、图形与十年 CUDA 生态的税；异构机群（一张卡专门 prefill、一张专门 decode）又会在配比漂移时留下闲置加速器。OpenAI 的公开论点是：从空白做一颗<strong>均衡推理芯片</strong>，阶段用不到的单元门控，KV 留在本地，而不是在阶段边界把 KV 搬到另一类机器上。这与把 <a href="/llm/pd-disaggregation">PD 分离</a> 做成产品线，是不同的系统答案。</p><p>读者容易把「自研芯片」理解成数据手册已经齐了。Hot Chips 给出的是<strong>实验室评测设定下的封装与 Pareto 点</strong>，不是可售 SKU 的全套电气表。问题因此是：如何只引用已经公开的数，并标明口径。</p><h3 id="公开规格只钉幻灯上的数" tabindex="-1">公开规格只钉幻灯上的数 <a class="header-anchor" href="#公开规格只钉幻灯上的数" aria-label="Permalink to &quot;公开规格只钉幻灯上的数&quot;">​</a></h3><p>现场稿与随后核验报道反复出现的封装级数字是：约 <strong>13.4 PFLOP/s</strong> 的 MXFP4×MXFP4 矩阵算力；<strong>15.4 TB/s</strong> HBM4、<strong>216 GiB</strong>；封装功耗 <strong>700 W</strong>。2048 芯片系统被写成约 27 EFLOP/s、432 TiB。片间：本地 <strong>128</strong> 颗 ASIC 的低延迟域（报道写约 600 GB/s 档），再经 Broadcom Tomahawk 6 的半扁平两级 Clos 扩到 <strong>2048</strong> 颗全局域（约 200 GB/s 档）；张量并行走更高带宽、专家并行走较低带宽。对照封装功耗：Jalapeño 700 W，GB200 1.2 kW，GB300 与 MI355X 1.4 kW——这是评测设定，不是本博客测的。</p><p>时间线公开叙述大致是：2024 年底架构概念、2025 年 RTL 冻结、2025 年底 tapeout，之后实验室跑通 Codex，再跑 ChatGPT。九个月量级的 RTL 到 tapeout，被讲者当作全栈协同的证据。Gen 2「已在开发、数月内瞄准 tapeout」、Gen 3 瞄准经济低延迟服务，都没有给出节点或算力数字。</p><p><span class="marginnote">600 GB/s 与 200 GB/s 是域级注入带宽量级，不要理解成任意一对核的点对点速率，也不要理解成 Tomahawk 6 芯片的 102.4 Tb/s 吞吐。六堆 HBM、I/O 小芯片节点等二次报道，在本篇不当作幻灯原文。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>读这块芯片，按三张表，而不是按「相当于几张 B200」。</p><p>第一张是<strong>工作负载表</strong>：只服务 LLM 前向。没有公开把反向、优化器状态、训练集合通信写成一等公民。Gluon 把每个物理核当 thread block，核上有张量、SIMD、标量引擎与本地内存视图。公开说内部模型把功能正确的核优化到高性能，注意力与 MoE 核相对已有专家手写约 1.5×–1.8×，并在芯片上端到端验证——这是设计方法，不是用户 API 保证。</p><p>第二张是<strong>评测表</strong>：SemiAnalysis InferenceX，跨开源模型、覆盖 prefill 到 decode、按封装 TDP 做功率归一化。Pareto 幻灯在 GPT-OSS 120B、DeepSeek R1 670B、Kimi K2.5（约万亿参数，名称以幻灯为准）上把 Jalapeño 画在前沿。匹配工作点上约 1.5×–1.9× 每千瓦吞吐、若干倍端到端延迟，都钉<strong>指定模型、指定对照配置</strong>。OpenAI 还指出对照路径上 GPU 侧常用多 token 预测 / 投机，而 Jalapeño 演示多用单 token 预测。亚毫秒 token 间隔、若加 MTP 还有约 3×–5× 延迟改进空间，是公开宣称或预告，需与已测点分开。</p><div class="mermaid"></div><h3 id="评测口径不是数据手册" tabindex="-1">评测口径不是数据手册 <a class="header-anchor" href="#评测口径不是数据手册" aria-label="Permalink to &quot;评测口径不是数据手册&quot;">​</a></h3><p>第三张是<strong>工业表</strong>：架构与工作负载在 OpenAI；实现管道、接口 IP 与以太交换点名 Broadcom；板卡机柜点名 Celestica；工艺节点在二次报道里常写成 TSMC 3 nm 级。计算裸片被描述为大部分新写 RTL。网络走量产 Tomahawk 6，而不是再流一片专用 scale-up 交换。Bring-up 用 GPT-OSS、DeepSeek R1、Kimi K2.5 证明并非只能跑共设计的闭源模型；甚至有报道称实验室用 Codex 提示把 Doom 一类程序迁到芯片上——那是逸事，不是产品特性。</p><p><span class="marginnote">Hot Chips 数字来自 OpenAI 自己的测量与公开幻灯。本篇转述时保持「厂商在指定模型上的 Pareto 点」，不把每千瓦倍数写成对任意 Rubin 机柜的普遍定律。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>空白设计省下的税，公开叙述花在三处：封装功耗预算低于千瓦级训练 GPU；阶段门控让闲置单元不付底噪；空间化执行加本地张量，让人和搜索都能写核。切片 HBM 与集合网络要解决的是「峰值带宽已经很高、利用率却贴不近峰值」——128 芯片聚合带宽被讲者用来估算天花板，并立刻承认真实系统远低于该天花板。权重驻留脉动阵列是随后分析对矩阵热路径的报道口径；阵列几何未公开。MXFP4 把峰值矩阵算力标在 OCP 微缩放格式上，softmax 与归一化仍要更高精度。</p><p>与 GPU 的位置：少训练与图形，多针对逐步生成与能量。与 Groq 类 SRAM LPU 的位置：Jalapeño 公开规格走 HBM4 大容量带宽，不是整模常驻 SRAM。不要把三张芯片画成同一条屋顶线。</p><h3 id="与-gpu、lpu-对照时钉同一套解码" tabindex="-1">与 GPU、LPU 对照时钉同一套解码 <a class="header-anchor" href="#与-gpu、lpu-对照时钉同一套解码" aria-label="Permalink to &quot;与 GPU、LPU 对照时钉同一套解码&quot;">​</a></h3><p>比较若一边开投机、一边单 token，Pareto 点会换位置。比较若停在 Blackwell、而 Rubin 已在出货，基准会过时。实验室工程样品与云上可售容量不是同一阶段。单芯片均衡赌的是<strong>同一次请求内阶段比例会变</strong>；负载若长期极端偏斜，这个赌可能输。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 InferenceX 的每千瓦倍数直接换成「替代 N 柜 Rubin」。不要假设训练会在这颗芯片上发生。不要编造未公开的算子白名单、未发布的 Gen 2/3 规格、未在幻灯出现的阵列行列数。生态税转给软件：没有 CUDA 十年的算子库；三个开源模型证明可行性，不是 Hugging Face 上每一个检查点都能当天出生产 SLA。</p><p><span class="marginnote">出处：Hot Chips 2026 OpenAI Jalapeño 环节的现场报道与公开幻灯叙述；InferenceX 为 SemiAnalysis 的公开基准框架。付费通讯里未公开的内部规格不当作官方数据手册。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Jalapeño 是 OpenAI 从空白做起的 LLM 推理平台，公开于 Hot Chips 2026。</li><li>封装级公开数：MXFP4 约 13.4 PFLOP/s、HBM4 15.4 TB/s / 216 GiB、700 W；域是 128 / 2048。</li><li>指标是 last token 时间与每焦耳 token，对照钉模型与是否投机解码。</li><li>专题树分写动机、搬运、阵列、数值、代工与以太；本篇只钉总表。</li><li>出处：Hot Chips 2026 公开报道。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 硬件与互连论文<!--]--><!--[--> · 课序 系统<!--]--></p><p class="lesson-progress">第 99 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/cloudmatrix384-paper/">Huawei CloudMatrix384 超节点</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

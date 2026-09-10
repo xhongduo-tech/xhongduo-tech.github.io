@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>知识注入的限度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_knowledge-injection-limits.md.DYwRQnD5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 编辑与遗忘<!--]--><!--[--> · 课序 改一处而不动其他<!--]--></p><p class="lesson-progress">第 21 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rome-memit/">ROME / MEMIT</a></p><p class="lesson-next"> 下一课：<a href="/llm/machine-unlearning/">机器遗忘</a></p></nav><div style="position:relative;"><div><h1 id="知识注入的限度" tabindex="-1">知识注入的限度 <a class="header-anchor" href="#知识注入的限度" aria-label="Permalink to &quot;知识注入的限度&quot;">​</a></h1><div class="epigraph"><p>微调会让模型更愿意陈述训练里见过的新事实，也会让它在没见过的新事实上更敢幻觉；注入不是把条目写入可靠词典。</p><footer>—— Gekhman 等，Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?（ACL 2024）；对照 Berglund 等反向诅咒、ROME 的键不对称</footer></div><p><a href="/llm/rome-memit">ROME / MEMIT</a>能改已有槽里的客体。产品常想做的另一件事是<strong>灌入原本没有的知识</strong>：新法规、新 API、内部人名。做法往往是把条目写成指令对再 SFT。Gekhman 等人 2024 年的实验表明：模型对「预训练里已有的事实」微调很听话；对「预训练没有的新事实」，SFT 既难真正学会，又会抬高在其它未知问题上的幻觉率。本课写这条限度。下一课转向对偶操作：遗忘。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/lima">LIMA</a> 与<a href="/llm/lora-intrinsic-rank">内在秩</a>都暗示：后训练擅长改接口，不擅长长新世界模型。知识注入却假设 SFT 能把 \((s,r,o)\) 写成可检索的权重。若 \(s\) 在预训练里没有稳定键（ROME 意义下），<a href="/llm/response-only-loss">仅回复损失</a>只会让模型在训练提示的措辞下背 \(o\)；换一种问法就回到先验，或编一个同样自信的 \(o&#39;\)。</p><p>Gekhman 等人把例子分成模型已知与未知，再微调未知事实，测量：未知事实的掌握、以及无关未知问题上的幻觉。结果支持「新知识微调鼓励幻觉」：模型学会了「对没把握的题也要像示范那样给出具体答案」。</p><h3 id="反向诅咒是键不对称的生成版" tabindex="-1">反向诅咒是键不对称的生成版 <a class="header-anchor" href="#反向诅咒是键不对称的生成版" aria-label="Permalink to &quot;反向诅咒是键不对称的生成版&quot;">​</a></h3><p>Berglund 等人的反向诅咒：用「A 是 B」训练，模型不会自动回答「B 是谁」。这与 ROME 里反向提示不共享键一致。注入一条正向句，不等于注入一张无向知识图。关系抽取式产品若假设对称，会在反向查询上静默失败。</p><p><span class="marginnote">Ovadia 等人比较微调与检索：时效知识更适合索引。本课不展开 RAG 实现，只把「不要用 SFT 当知识库」当作限度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先探针：这条知识是否已在基座补全里以某种措辞出现。已有则用 ROME/MEMIT 或小学习率校正，而不是大 SFT。没有则优先检索；若必须内化，用多样释义、正反向、多跳模板同时监督，并保留大量已知事实回放，抑制「未知→随便编」的接口漂移。学习率按<a href="/llm/lora-vs-full-lr">全参要小</a>；<a href="/llm/lora">LoRA</a> 更难写入新键，表现为只在训练句式上对。</p><p><a href="/llm/chat-template">chat template</a> 下，把知识写进系统提示不是注入权重，是上下文条件；上下文消失则知识消失。不要把长系统提示的成功当成注入成功。</p><div class="mermaid"></div><p>评测必须含：训练措辞、释义、反向、无关未知、已知事实保持。只报训练句准确率，会选出背诵器。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>SFT 强化的是「在此类提示后给出具体完成」的策略。示范都是有答案的，模型把「具体完成」泛化到无槽可取的提示上，幻觉上升。已知事实上，键已存在，SFT 主要校准措辞，幻觉不必升。这与 NEFTune 减少背诵不同：注入任务偏偏要精确记忆，噪声与多样性的权衡更紧。</p><p>编辑改指定 \(Wk=v\)，不训练「要答得具体」这一接口策略，因此对无关未知的伤害通常小于灌表 SFT。但编辑不创造新键：主体从未出现过，没有槽可写。限度是结构的，不是超参没扫好。</p><p><span class="marginnote">领域 DAPT 用全文 LM 把术语推进先验，比对话表注入更接近「长出键」。仍不保证事实图对称，只是降低完全 OOV。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>内部知识有权限与过期问题：写入权重难以按文档撤回，这直接接到<a href="/llm/machine-unlearning">机器遗忘</a>。能检索就检索。必须内化的流程性知识（如何填内部工单）属于技能，不是三元组，SFT 更合适。评测幻觉要用封闭题 +「我不知道」许可，否则模型被训练成永远具体。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>预训练已有键的事实可编辑或轻 SFT；没有键的新事实难以内化。</li><li>对新事实做 SFT 会强化「未知也具体作答」，抬高无关幻觉。</li><li>反向与释义不自动成立，需单独监督或接受不对称。</li><li>系统提示是上下文，不是注入。</li><li>时效与可撤回知识用检索；SFT 留给技能与接口。</li><li>出处：Gekhman 等，ACL 2024；Berglund 等，反向诅咒；Meng 等，ROME/MEMIT。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 编辑与遗忘<!--]--><!--[--> · 课序 改一处而不动其他<!--]--></p><p class="lesson-progress">第 21 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/machine-unlearning/">机器遗忘</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

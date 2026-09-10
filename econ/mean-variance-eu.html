@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>均值方差何时等于 EU | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_mean-variance-eu.md.BVmr3JGz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 风险<!--]--><!--[--> · 课序 期望效用<!--]--></p><p class="lesson-progress">第 31 / 41 课</p><p class="lesson-prereq"> 先修：<a href="/econ/background-risk/">背景风险</a></p><p class="lesson-next"> 下一课：<a href="/econ/two-fund-separation/">两基金分离</a></p></nav><div style="position:relative;"><div><h1 id="均值方差何时等于-eu" tabindex="-1">均值方差何时等于 EU <a class="header-anchor" href="#均值方差何时等于-eu" aria-label="Permalink to &quot;均值方差何时等于 EU&quot;">​</a></h1><div class="epigraph"><p>用均值与方差排序，只在效用是二次、或分布被这两个数字完全钉住时，才与期望效用是同一问题。</p><footer>—— 据 Markowitz, Portfolio Selection, Journal of Finance, 1952；对照 von Neumann–Morgenstern 表示</footer></div><p><a href="/econ/background-risk">上一课</a>（背景风险）。钉了 CARA / CRRA / DARA 的形状。本课不重写这些微分方程，也不把 \(r_A\) 再定义一遍。缺口是：资产配置文献常把目标直接写成 \(V(\mu,\sigma)\)。这在一般 \(u\) 与一般分布下并不等于 \(\mathbb{E}u\)。必须标明两条——也几乎只有两条——使均值方差成为期望效用的充分统计，而不是另起一套偏好。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>vNM 的对象是整条分布。均值与方差是两个数字。若没有额外结构，两个分布可以 \(\mu\)、\(\sigma\) 相同而 \(\mathbb{E}u\) 不同，也可以 \(\sigma\) 更大但被所有凹 \(u\) 喜欢（偏度、支撑作怪）。缺口因此不是「要不要分散」，而是问：何时存在 \(V\)，使</p> \[\mathbb{E}\,u(\tilde w)=V\bigl(\mathbb{E}\tilde w,\mathrm{Var}(\tilde w)\bigr) \]<p>对所考虑的菜单成立。答案是刀刃：要么 \(u\) 是二次，要么分布族被 \((\mu,\sigma)\) 参数化——正态是最常用的一员。Markowitz 的均值方差分析是这条刀刃上的算法，不是对 EU 的一般改写。本课不写组合实证，不把有效前沿拿去拟合收益。</p><p>二次效用 \(u(w)=w-bw^2\) 只依赖一、二阶矩，但 \(r_A\) 递增且存在餍足，与上一课的 DARA 工作假设冲突。故它是数学特例，不是主干偏好。</p><h3 id="正态加-cara-是另一条刀刃-不是二次" tabindex="-1">正态加 CARA 是另一条刀刃，不是二次 <a class="header-anchor" href="#正态加-cara-是另一条刀刃-不是二次" aria-label="Permalink to &quot;正态加 CARA 是另一条刀刃，不是二次&quot;">​</a></h3><p>若 \(\tilde w\) 正态且 \(u\) 是 CARA，则 \(\mathbb{E}u\) 是 \(\mu-\tfrac12\alpha\sigma^2\) 的单调变换。此时均值方差来自分布加形状，不是来自二次。CRRA 加对数正态在乘法冲击上有类似封闭解，但一般加法组合不是椭圆，EU 不能收成 \((\mu,\sigma)\)。不要把「正态」写成「任意钟形」。</p><p><span class="marginnote">椭圆分布族（正态是其中一员）使任意凹增的 \(u\) 在该族内的排序都是均值方差。族一离开，同一 \(u\) 会在偏度上分裂。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>检验两条路。路一：看 \(u\) 是否二次——只对没有餍足区的财富水平、且接受 IARA 时可用。路二：把菜单限制在正态（或椭圆）线性组合上，再选 CARA 或任意只通过 \((\mu,\sigma)\) 进入的 \(V\)。两条路都是对<strong>对象</strong>加约束，不是对独立性加约束。</p><p>若两条都不成立，均值方差可以与 EU 反向。后课<a href="/econ/stochastic-dominance">随机占优</a>会给出不指定 \(u\) 的偏序；方差更小既非 SOSD 的定义，也不是 MPS。本课先把「MV = EU」的许可证钉死，以免后课把 Markowitz 图当成一般风险厌恶。</p><div class="mermaid"></div><p>本课不引入 \(\beta\)、市场组合或样本协方差。那些是定价课与量化栏的对象。这里只问表示何时塌成两个数字。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>二次的机制是泰勒在二阶截断且余项恒为零。正态的机制是分布被两个参数穷尽，任意积分 \(\mathbb{E}u\) 都是 \((\mu,\sigma)\) 的函数。二者看起来像同一张图，来源不同：一个砍效用，一个砍世界。</p><p>与 CARA/CRRA 的接口：CARA+正态给出线性的均值方差权衡，绝对风险需求与财富无关，和上一课一致。CRRA+正态一般没有闭式 \(V(\mu,\sigma)\) 作为欧氏均值方差。把幂效用塞进 Markowitz 程序，是偷换了目标。</p><p><span class="marginnote">Markowitz 1952 自己把效用当背景动机，计算走的是 \((\mu,\sigma)\)。引用时不要把它写成拒绝 vNM，也不要写成 CAPM 实证。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>近似：小风险下 Pratt 的局部溢价只用到方差，那是无穷小，不是有限菜单上的表示等式。大风险、偏度、跳跃，MV 排序可以误导。本课把「局部 ≈」与「全局 =」分开。</p><p>不完全市场、约束、非交易的劳动收入，会让可交易财富的边际分布不再正态，即使冲击原本是正态。刀刃更窄。也不要把有效前沿画成限价簿上的可成交组合：这里没有报价，只有给定分布族上的选择。</p><p>后课随机占优不依赖二次或正态。那是把本课的「两个数字不够」接下去：用整条分布的积分条件说话。</p><p>后课默认：均值方差等于 EU，仅当二次效用或（椭圆）分布被 \((\mu,\sigma)\) 参数化；Markowitz 是该特例的算法，不是一般风险偏好。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>一般 \(\mathbb{E}u\) 不能收成 \(V(\mu,\sigma)\)；二次 \(u\) 或正态/椭圆族是许可证。</li><li>二次带来 IARA 与餍足，与 DARA 主干不合。</li><li>CARA+正态是另一条合法刀刃，不等于二次。</li><li>本课不写组合实证；下一课用不指定 \(u\) 的占优处理一般分布。</li><li>出处：Markowitz, <em>Journal of Finance</em>, 1952；von Neumann and Morgenstern, 1944。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 风险<!--]--><!--[--> · 课序 期望效用<!--]--></p><p class="lesson-progress">第 31 / 41 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/two-fund-separation/">两基金分离</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

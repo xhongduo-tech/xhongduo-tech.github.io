@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>日历效应与隔夜 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_calendar-overnight.md.B61grDCr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 40 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/irregular-sampling/">不等间隔采样</a></p><p class="lesson-next"> 下一课：<a href="/quant/cn-tplus1/">T+1 与回转交易约束</a></p></nav><div style="position:relative;"><div><h1 id="日历效应与隔夜" tabindex="-1">日历效应与隔夜 <a class="header-anchor" href="#日历效应与隔夜" aria-label="Permalink to &quot;日历效应与隔夜&quot;">​</a></h1><div class="epigraph"><p>周末的日历长度是三天，交易时段却只有周五收盘到周一开盘这一段不可交易的间隔；把这段收益当成普通的日内增量，会把制度写成波动。</p><footer>—— French, Stock Returns and the Weekend Effect, Journal of Financial Economics 1980；隔夜与日内分解见后续开盘–收盘文献</footer></div><p>资产定价和平稳的日内计量都默认「一天像一天」。真实日历不是这样：周末、假日、提前收盘、夏令时、指数到期、宏观发布时间，都会改变间隔长度与信息释放。French 记录的周末效应是早期证据：周一收益的均值与方差并不等于把三日闲置按交易日折算。更细的一层是把收盘到收盘拆成<strong>隔夜</strong>（close-to-open）与<strong>日内</strong>（open-to-close）。美股近年来不少样本里，风险溢价集中在隔夜，日内均值接近零甚至为负——这与连续半鞅、把隔夜当又一个五分钟格子的做法直接冲突。本篇写日历作为实验设计，以及隔夜项如何进入收益、波动与执行。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>日收益 \(R_d=P_{\mathrm{close},d}/P_{\mathrm{close},d-1}-1\) 跨越一段不可交易时间。这段时间的长度在周内从约 17.5 小时到周末 65 小时不等，A 股还有午休与 T+1。信息在不可交易时段照样到达：财报常在盘后，海外市场在你闭市时交易。把 \(R_d\) 当成 i.i.d.，等于假设闭市不影响生成过程。</p><p>日内高频 RV 通常只在开盘到收盘的连续竞价上加总，不含隔夜跳。用它去对账期权隐含波动或日度 CAPM 残差，会系统性地缺一块。反过来，把隔夜一个跳直接拼进五分钟网格当「第一格」，<a href="/quant/rv-noise">已实现核</a> 会把这个跳的滞后项当成噪声结构。问题是显式分解：</p> \[R_d^{\mathrm{c2c}}=R_d^{\mathrm{c2o}}+R_d^{\mathrm{o2c}}, \]<p>并对均值、方差、因子暴露分别报告，而不是只在脚注写「含隔夜」。</p><h3 id="周末效应不只是均值异号" tabindex="-1">周末效应不只是均值异号 <a class="header-anchor" href="#周末效应不只是均值异号" aria-label="Permalink to &quot;周末效应不只是均值异号&quot;">​</a></h3><p>French（1980）关注周一均值偏低。后续发现更稳的往往是<strong>方差</strong>与<strong>成交量</strong>的日历：周一开盘波动高、周五下午行为不同、假日前一日成交萎缩。均值异号在样本外常减弱或翻转，方差的日历模式更持久，因为它绑定交易时段与信息发布制度。把「日历效应」理解成可交易的周一空头，是把最不稳的一阶矩当成了对象。</p><p><span class="marginnote">隔夜收益的分母、分子用哪一个价格，必须钉死：官方收盘、收盘拍卖成交、最后一笔连续竞价、开盘拍卖还是开盘后第一笔中点。拍卖机制会把隔夜信息的很大一块写进开盘价，于是「隔夜」其实含了开盘发现。口径一变，隔夜溢价的文献结论可以换符号。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>收益分解。</strong> 对每个交易日计算 c2o、o2c，周末、假日单独标记间隔小时数。均值检验应用异方差稳健标准误，因为隔夜方差通常大于按小时线性外推。方差可报 \(\mathrm{Var}(\mathrm{c2o})/\mathrm{Var}(\mathrm{c2c})\)，看日波动有多少来自闭市。</p><p><strong>波动拼接。</strong> 日总二次变差的一个工作定义是 \(\mathrm{RV}^{\mathrm{intraday}}+(r^{\mathrm{c2o}})^2\)。隔夜只有一个增量，无法在隔夜内部做噪声修正。不要对隔夜做 TSRV。可选：用 GARCH 或已实现 GARCH 把隔夜方差建成滞后 RV 与日历哑变量的函数，而不是假装隔夜是又一次高频采样。</p><p><strong>因子与日历哑变量。</strong> 在 <a href="/quant/capm">CAPM</a> 或后续多因子回归里加入星期、假日、到期日、宏观发布日，或对隔夜与日内分别估 beta。市场因子本身也含隔夜：用开盘到收盘的市场收益估日内 beta，用隔夜市场收益估隔夜 beta，两者可以差很多。指数期货夜盘存在时，现货隔夜与期货隔夜还不是同一信息集。</p><h3 id="季节性与日内时钟" tabindex="-1">季节性与日内时钟 <a class="header-anchor" href="#季节性与日内时钟" aria-label="Permalink to &quot;季节性与日内时钟&quot;">​</a></h3><p>除了日界，还有日内季节性：开盘、收盘波动高，午间低。这是日历效应在小时上的对应物。估计噪声与最优采样应对开盘第一段单独处理；有效价差在开盘更宽，不是同一只股票「流动性突然变差」那么简单，而是交易机制与隔夜信息释放。ACD 的久期也有强日内形状，通常先除季节性再建模。日历与 <a href="/quant/irregular-sampling">不等间隔</a> 在这里交汇：强度的确定项是钟面时间的函数。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>隔夜均值若显著为正，机制候选包括：隔夜无法交易的风险补偿、卖空与融资约束把风险转移到开盘发现、零售与机构的时段分割（美股零售更偏隔夜持仓的叙事）、以及开盘拍卖的价格发现把正溢价记在 c2o。机制检验要看：溢价是否集中在周末、是否在财报夜更大、是否在可夜盘交易的品种上变弱。没有夜盘的现货，隔夜不可对冲，补偿应更高——与期货、ETF 对照是标准设计。</p><p>周末效应的机制候选包括结算延迟（早期文献的「支票清算」）、信息发布偏好在周五收盘后、以及空头在周末的风险。许多机制随制度消失，这解释了均值效应的不稳定。方差效应更硬：闭市时长与累积信息是物理事实。</p><p><span class="marginnote">A 股 T+1、涨跌停、集合竞价把「隔夜」改写得更重：当日买入不能用来对冲隔夜，开盘集合竞价承担价格发现。把美股 close-to-open 的溢价数字套到沪深，会忽略不能T+0 的约束。日历效应是制度函数，不是资产的普适常数。</span></p><h3 id="对高频估计的具体破坏" tabindex="-1">对高频估计的具体破坏 <a class="header-anchor" href="#对高频估计的具体破坏" aria-label="Permalink to &quot;对高频估计的具体破坏&quot;">​</a></h3><p>把周五收盘到周一开盘当成三倍的普通隔夜，RV 年化会错。核估计若跨过周末做滞后，会把一个大跳和周五下午的微观结构搅在同一组 \(\gamma_h\) 里。PIN 的「交易日独立」在长周末后的第一个交易日也不成立：信息事件在闭市期间堆积，\(\alpha\) 的日度含义变了。VPIN 的成交量时钟在开盘脉冲里快速走桶，毒性指标会机械跳高。所有这些都要求：日界、周末、假日在管道里是一等公民，而不是日期列的附属。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>日历哑变量极易过拟合。星期效应在交易成本后往往不可交易；仍应在风险模型里保留方差的季节性。宏观日历（FOMC、CPI）是事件，不是星期，应用事件窗而不是只靠星期哑变量去吸收。夏令时切换会让「隔夜小时数」跳一小时，对欧美盘重要。</p><p>不要用包含隔夜的日 beta 去对冲纯日内策略，也不要用开盘到收盘 RV 去给隔夜卖空定价。不要把节前半日当成完整交易日去除以同一 \(n\)。不要在回测里对周末持仓免收融资，却在收益里计入周五到周一的全部跳变。执行上，隔夜缺口无法用连续限价簿的有效价差去表达，应单独报告开盘拍卖滑点。</p><p><span class="marginnote">「隔夜溢价」文献依赖开收盘口径与样本期。换一段 1990s 与换一段 2010s，或把开盘价从拍卖换成 9:35 中点，结论可以变。复现应锁定价格字段与是否剔除隔夜跳超过 \(x\%\) 的停牌日。剔除极端隔夜会切掉你要研究的对象。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>收盘到收盘应拆成隔夜与日内；二者的均值、方差、beta 可以完全不同，隔夜不可做高频噪声修正。</li><li>French 的周末效应提示日历长度与交易时段不一致；均值不稳定，方差与成交量的日历更持久。</li><li>日总波动常用日内 RV 加隔夜跳平方；核与 PIN/VPIN 必须在日界处切断，避免把长闭市当普通滞后。</li><li>开收盘字段、拍卖与 T+1 决定「隔夜」含义；制度不同，溢价不可横搬。</li><li>风险与对冲应按持有时段匹配因子收益，禁止用 c2c beta 对冲 o2c 策略。</li><li>出处：French, <em>Stock Returns and the Weekend Effect</em>, Journal of Financial Economics 1980；隔夜与日内溢价的后续分解见开盘–收盘收益文献。波动拼接与会话定义见已实现波动实务。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 40 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cn-tplus1/">T+1 与回转交易约束</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

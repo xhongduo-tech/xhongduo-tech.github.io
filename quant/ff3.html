@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fama-French 三因子 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ff3.md.Ddj80qm4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 2 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/capm/">CAPM 与市场因子</a></p><p class="lesson-next"> 下一课：<a href="/quant/ff5/">Fama-French 五因子</a></p></nav><div style="position:relative;"><div><h1 id="fama-french-三因子" tabindex="-1">Fama-French 三因子 <a class="header-anchor" href="#fama-french-三因子" aria-label="Permalink to &quot;Fama-French 三因子&quot;">​</a></h1><div class="epigraph"><p>股票收益的截面差异，并不能被市场 β 单独吸收；规模与账面市值比所代表的共同变动，必须作为额外的风险因子进入时间序列回归。</p><footer>—— Fama &amp; French, Common risk factors in the returns on stocks and bonds, Journal of Financial Economics, 1993</footer></div><p><a href="/quant/capm">CAPM</a> 把超额收益写成对市场组合的暴露。Fama 与 French 在 1992 年的截面回归里已经看到：β 几乎解释不了平均收益的差异，市值与账面市值比（B/M）却能。1993 年的三因子模型把这两条特征翻译成可交易的多空收益序列——<strong>SMB</strong>（Small Minus Big）与 <strong>HML</strong>（High Minus Low）——再与市场超额收益一起，对组合或个股做时间序列回归。本篇只写股票侧的三个因子及其 2×3 构造；债券侧的期限与违约因子是同一篇文章的另一半，不在这里展开。后续的盈利与投资，见 <a href="/quant/ff5">五因子</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>CAPM 的预测是：截面上只有市场 β 被定价。实证上，小市值股票、高 B/M（价值）股票的平均收益高于 CAPM 所允许的水平，低 B/M（成长）则偏低。若把这些异常当成「错误定价」，模型就没有共同因子可对冲；若把它们当成补偿某种未写入市场组合的风险，就需要把规模与价值的共同变动抽成因子。Fama-French 选后一条路：先按特征排序做成多空组合，再问这些组合的收益能否吸收其他异常。</p><p>规模与价值并不是正交的。小盘里价值溢价通常更强，大盘成长与大盘价值的行为也不同。若只按市值切一刀、再按 B/M 切一刀且不做交叉，SMB 会混进价值，HML 会混进规模。因此构造必须在二维格子上同时控制两者。</p><h3 id="为何是账面市值比而不是盈余收益率" tabindex="-1">为何是账面市值比而不是盈余收益率 <a class="header-anchor" href="#为何是账面市值比而不是盈余收益率" aria-label="Permalink to &quot;为何是账面市值比而不是盈余收益率&quot;">​</a></h3><p>1992 年的截面工作比较过 E/P、杠杆、B/M 等。B/M 在当时样本里对平均收益的单调性最干净，也最接近股利贴现模型的直觉：给定账面股权，价格低意味着贴现率高。E/P 会把亏损公司单独处理，B/M 则把亏损与高杠杆一并推进高账面组。三因子把 B/M 做成 HML，并不否定 <a href="/quant/value-factors">EP、CF 等价值度量</a> 在别的样本里更稳；它只是选定一个能覆盖 1963 年之后美股截面的代理。</p><p><span class="marginnote">三因子是时间序列模型，左边是组合超额收益，右边是因子收益。它不是「在截面上把市值与 B/M 当特征回归」的 1992 年设定。两个 Fama-French 年份常被写成一篇；1992 证明特征有效，1993 把特征做成因子并检验 α。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每年 6 月底（与财报滞后对齐）用纽交所（NYSE）中位数把股票分成小盘 S 与大盘 B；再用 NYSE 的 B/M 30% 与 70% 分位切成低（L）、中（M）、高（H）。独立双重排序得到六个价值加权组合：S/L、S/M、S/H、B/L、B/M、B/H。B/M 用上一年财报的账面股权除以 12 月底市值，规模用 6 月底市值。因子收益按月计算：</p> \[\begin{aligned} \mathrm{SMB} &amp;= \tfrac13(R_{S/L}+R_{S/M}+R_{S/H}) - \tfrac13(R_{B/L}+R_{B/M}+R_{B/H}), \\ \mathrm{HML} &amp;= \tfrac12(R_{S/H}+R_{B/H}) - \tfrac12(R_{S/L}+R_{B/L}). \end{aligned} \]<p>市场因子 \(R_M-R_f\) 是全部上市股票的价值加权超额收益。对任意资产 \(i\)，</p> \[R_{it}-R_{ft}=\alpha_i+\beta_{iM}(R_{Mt}-R_{ft})+\beta_{iS}\mathrm{SMB}_t+\beta_{iH}\mathrm{HML}_t+\varepsilon_{it}. \]<p>检验的原假设是 \(\alpha_i=0\)。若一组按其他特征排序的组合在三因子回归里 α 联合不显著，就称这些特征被三因子「吸收」。</p><h3 id="_2×3-格子如何把规模与价值拆开" tabindex="-1">2×3 格子如何把规模与价值拆开 <a class="header-anchor" href="#_2×3-格子如何把规模与价值拆开" aria-label="Permalink to &quot;2×3 格子如何把规模与价值拆开&quot;">​</a></h3><p>SMB 对三个 B/M 组等权平均，再减小盘减大盘，于是 HML 方向上的暴露被对冲掉一块。HML 对大小盘等权，再高减低，规模暴露被对冲。中间组 M 进入 SMB 但不进入 HML，避免把中等 B/M 的噪声喂进价值因子。全部用价值加权，是为了让因子代表「按市值加权的经济」，而不是微型股的等权噪声；等权版本会放大微观结构与<a href="/quant/short-term-reversal">反转</a>。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>模型的经济学叙事是：小盘与价值股对「相对困境」更敏感——盈利能力弱、杠杆高、在紧缩时更难再融资——因此要求更高的风险补偿。HML 的正暴露被解释为对财务困境风险的补偿，SMB 则对小型企业的信贷与流动性更敏感。这套叙事从未被现金流数据钉死：价值溢价也可以来自投资者对成长股的过度外推（行为）。三因子并不在「风险补偿 vs 错误定价」之间做识别；它只保证：若你的组合在规模与 B/M 上有净暴露，你的平均收益里就有一块可以被 SMB 与 HML 的历史溢价说明。</p><p>时间序列里，因子的 β 是协方差，不是排序用的特征本身。一只当前 B/M 并不高的股票，仍可能因为与价值股同涨同跌而带上正的 HML β。特征组合与因子载荷是两条相邻但不同的对象；把「高 B/M」直接写成「高 HML β」会在行业轮动期出错。</p><h3 id="对债券与对股票异常的不对称" tabindex="-1">对债券与对股票异常的不对称 <a class="header-anchor" href="#对债券与对股票异常的不对称" aria-label="Permalink to &quot;对债券与对股票异常的不对称&quot;">​</a></h3><p>1993 年同时为股票与公司债定价。股票侧三个因子对债的解释力有限，债的期限与违约因子对股票的 α 也帮不上忙。这意味着三因子首先是<strong>股票截面</strong>的工具。对股票内部，规模与价值能吸收不少 CAPM α，但<a href="/quant/momentum-wml">动量</a>组合的 α 仍然显著——这是后来 Carhart 四因子补 WML 的直接动机，而不是三因子已经「完成」。</p><p><span class="marginnote">Ken French 数据库提供的 SMB/HML 用的是美股 CRSP/Compustat 口径与 NYSE 断点。把同一套公式套到 A 股或新兴市场时，必须重做当地交易所的断点，并处理 ST、壳与停牌。直接下载美股因子去回归 A 股组合，β 没有定价含义。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>三因子假设线性、β 恒定、残差与因子正交。条件 β、宏观状态变量会破坏第一项，见后续的条件定价条目。HML 用年度财务、12 月底价格，信息滞后最长接近一年半；Asness 与 Frazzini 后来的「HML Devil」用当期价格更新 B/M，溢价更大、换手也更高，那不是 1993 年的因子。</p><p>样本起点通常是 1963 年 7 月（Compustat 覆盖）。更早的美股价值溢价存在，但财务数据质量不同。微型股、IPOs、低价股会扭曲等权；价值加权又会让因子被少数大盘主导。实务上常在 NYSE-Amex-NASDAQ 上再加一层可投资过滤（价格、美元成交额），这会改变 SMB 的幅度。</p><p>不要把三因子的 \(R^2\) 当成定价成功。时间序列 \(R^2\) 高只说明共同波动被抓住；定价成功看的是 α 以及 GRS 一类联合检验。也不要把 SMB 理解成「做多小盘指数」：它是小盘减大盘，且在 B/M 上中性化过。</p><p><span class="marginnote">真实出处：Fama &amp; French, <em>The Cross-Section of Expected Stock Returns</em>, Journal of Finance, 1992；<em>Common risk factors in the returns on stocks and bonds</em>, Journal of Financial Economics, 1993。不要把 1993 写成已经包含动量或盈利。Carhart 1997 才把 WML 加进来。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三因子在市场超额之外加入 SMB 与 HML，用 2×3 独立排序把规模与价值的共同收益做成可回归的因子。</li><li>构造用 NYSE 断点与价值加权，HML 对冲规模、SMB 对冲 B/M，避免两个特征互相污染。</li><li>定价语句是时间序列 α 为零，不是截面 \(R^2\)，也不是「高 B/M 等于高 HML β」。</li><li>动量、盈利、投资在三因子下仍有 α，这是四因子与<a href="/quant/ff5">五因子</a>的入口。</li><li>出处：Fama &amp; French, Journal of Financial Economics, 1993；截面预备见 Journal of Finance, 1992。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 2 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ff5/">Fama-French 五因子</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

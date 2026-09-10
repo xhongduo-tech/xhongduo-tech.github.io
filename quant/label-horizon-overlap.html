@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>标签、预测期与重叠 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_label-horizon-overlap.md.DFp7FBWg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 机器学习方法<!--[--> · 单元 监督<!--]--><!--[--> · 课序 表格与序列<!--]--></p><p class="lesson-progress">第 1 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/web-data-compliance/">网络数据合规</a></p><p class="lesson-next"> 下一课：<a href="/quant/cs-rank-features/">特征：滞后、截面 rank</a></p></nav><div style="position:relative;"><div><h1 id="标签、预测期与重叠" tabindex="-1">标签、预测期与重叠 <a class="header-anchor" href="#标签、预测期与重叠" aria-label="Permalink to &quot;标签、预测期与重叠&quot;">​</a></h1><div class="epigraph"><p>用重叠的多期收益做回归时，残差不再是独立的；标准误差必须按重叠结构修正，否则显著性只是同一段价格被重复计算。</p><footer>—— Hansen and Hodrick, Forward Exchange Rates as Optimal Predictors of Future Spot Rates, Journal of Political Economy, 1980</footer></div><p><a href="/quant/web-data-compliance">上一课</a>收束另类数据能不能用。缺口是监督学习的标签契约：预测期重叠让样本不再独立。监督学习把收益当成标签。标签一旦是未来 \(h\) 日的累计收益，相邻样本的标签共享 \(h-1\) 日的收益，观测不再独立。Hansen 与 Hodrick（1980）在远期溢价回归里把这个问题写清楚；Newey 与 West（1987）给出 HAC 标准误的常用实现。Jegadeesh–Titman 的动量重叠持有、Fama–French 的月度组合，都是在组合层处理重叠，而不是假装每日都是新实验。Gu、Kelly 与 Xiu（2020）把机器学习引进截面定价时，明确用下一期收益作目标并强调样本外；López de Prado 在金融机器学习中强调三重障碍标签、以及交叉验证中的 purge 与 embargo。本篇写三件必须预先写死的事：标签定义、预测期 \(h\) 与信号衰减是否匹配、重叠如何进入标准误与交叉验证。它决定<a href="/quant/gbdt-alpha">树模型</a>的「重要性」有多少是统计幻觉。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记 \(t\) 日可交易特征为 \(x_t\)，标签为 \(y_{t,h}=\sum_{k=1}^{h} r_{t+k}\)（或对数收益、或超额、或相对行业）。若样本按日滑动，\(y_{t,h}\) 与 \(y_{t+1,h}\) 共享 \(h-1\) 项。回归 \(y_{t,h}=\alpha+\beta x_t+e_{t,h}\) 的 OLS 点估计在平稳性下仍可一致，但 \(t\) 统计量若当 i.i.d. 会膨胀大约与 \(h\) 成正比的量级。把日频样本的 \(R^2\) 拿去和月频非重叠回归比，是在比较两种不同的因变量。问题不是「能不能用重叠提高样本」，而是<strong>重叠增加的是相关观测，不是独立信息</strong>。</p><p>预测期还要与交易日历一致。信号在 \(t\) 日收盘可得，最早交易 \(t+1\) 开盘或 \(t+1\) 收盘，标签不能含 \(t\) 日盘中。A 股涨跌停使 \(t+1\) 可能不可买，有效 \(h\) 被拉长。财报与宏观公告日把 \(h\) 日内的收益集中在几个跳上，连续时间的重叠公式低估了簇状相关。</p><h3 id="三重障碍与方向标签改变的是损失-不是独立性" tabindex="-1">三重障碍与方向标签改变的是损失，不是独立性 <a class="header-anchor" href="#三重障碍与方向标签改变的是损失-不是独立性" aria-label="Permalink to &quot;三重障碍与方向标签改变的是损失，不是独立性&quot;">​</a></h3><p>López de Prado 的三重障碍（止盈、止损、垂直时间壁垒）把路径变成分类标签，对执行更诚实，见<a href="/quant/statarb-stops">止损</a>。它不消除重叠：相邻时点的障碍仍共享路径前缀，分类误差同样序列相关。把问题改成涨跌分类，再用准确率当选模标准，会在趋势样本里得到虚假高精度（类别不平衡）。标签的经济含义必须仍是可交易 P&amp;L，而不是 Kaggle 分数。</p><p><span class="marginnote">用未来 \(h\) 日的夏普或最大回撤当标签，是把整段路径的非线性泛函当作因变量，重叠与前视更严重。这类标签几乎只能用于描述，不能用于逐日监督。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>非重叠对照。</strong> 主结果应用步长为 \(h\) 的非重叠回归或组合（每月一个标签），重叠样本只作为效率对照，并报告 Hansen–Hodrick / Newey–West 标准误，滞后阶数至少 \(h\) 且对异方差稳健。月度资产定价里这是默认；日频 ML 论文常省略，这是不可接受的。</p><p><strong>信息系数的期限结构。</strong> 与其只训 \(h=5\)，不如报告 \(x_t\) 对 \(r_{t+1},\ldots,r_{t+h}\) 逐日的截面 IC，见<a href="/quant/factor-decay-turnover">衰减</a>。若 IC 在第 1–2 日已消失，却用 \(h=20\) 的累计标签训练 <a href="/quant/gbdt-alpha">GBDT</a>，模型会去拟合噪声累计，换手与持有期将无法对齐。Gu–Kelly–Xiu 的月频设定与特征的会计滞后是匹配的；把他们的月频结论搬到日频文本或微观结构特征上，预测期错配。</p><p><strong>交叉验证。</strong> 标准 K 折打乱时间会泄漏重叠标签。应使用向前验证（walk-forward），并在训练与验证之间 <strong>purge</strong> 掉标签重叠的样本，在验证段前 <strong>embargo</strong> 一段（López de Prado）。时间块交叉验证若块长小于 \(h\)，仍然泄漏。组合层更干净：用日期切分，特征在切分日必须可获得，标签完全落在切分日之后。</p><h3 id="标签的经济变换" tabindex="-1">标签的经济变换 <a class="header-anchor" href="#标签的经济变换" aria-label="Permalink to &quot;标签的经济变换&quot;">​</a></h3><p>超额收益相对什么：现金、市场、行业、风险模型残差，决定模型在学 alpha 还是在学 beta。Gu–Kelly–Xiu 同时报告对特征的预测与对定价误差的含义；若标签是原始收益，树会先学市场与规模，这不是缺陷，但必须在解释时承认，并在组合层做中性，见<a href="/quant/industry-neutral">行业中性</a>。波动标准化（\(r/\sigma\)）改变的是损失权重，使高波动日不主导平方损失；标签与特征若同时除以同一 \(\sigma\)，部分预测力来自波动持续性（HAR 类），应单独设波动基线。</p><p>Welch 与 Goyal（2008）、Rapach、Strauss 与 Zhou（2010）在股权溢价预测里强调样本外 \(R^2\) 与历史均值基线。截面 ML 应同样报告：相对横截面均值、相对线性模型的增量，而不是只报训练 \(R^2\)。重叠会让样本内 \(R^2\) 看起来可观，样本外一次体制切换就塌。</p><p><span class="marginnote">分类标签的阈值若按全样本分位来选（例如涨幅最大的 30%），分位本身含未来分布，属于前视。阈值应在每个训练窗内单独计算，或使用预先写死的绝对障碍。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>重叠的数学是 \(e_{t,h}\) 的 MA(\(h-1\)) 结构（在收益弱相关的近似下）。Hansen–Hodrick 对矩条件做相应的协方差。机制上，一次大的宏观日会被写进前后各 \(h\) 条标签，树模型会把该日前的任何巧合特征当成「重要」——这是伪重要性的主要来源之一。Purge 的机制是删掉那些标签跨过切分点的训练样本，使验证段的 \(y\) 不出现在训练损失里。Embargo 额外丢掉切分点附近可能仍有序列相关的特征（波动集群、新闻余波）。</p><p>预测期 \(h\) 还决定交易成本能否被标签里的均值覆盖。\(h\) 短，年化换手高，Novy-Marx–Velikov 成本更致命；\(h\) 长，标签更噪、重叠更重，有效样本量下降。不存在免费的 \(h\)：它必须由 IC 期限结构与容量共同标定，而不是由验证集上的最大夏普标定——后者把 \(h\) 变成又一个被<a href="/quant/multiple-testing-factors">多重检验</a>的超参。</p><p>Fama–MacBeth 对每个 \(t\) 做截面回归再对斜率时间序列求均值，时间序列维的重叠仍存在于斜率里，同样需要 HAC。ML 的日频「截面损失」若把所有 \((i,t)\) 当 i.i.d.，连 Fama–MacBeth 都不如。</p><h3 id="事件标签与连续标签" tabindex="-1">事件标签与连续标签 <a class="header-anchor" href="#事件标签与连续标签" aria-label="Permalink to &quot;事件标签与连续标签&quot;">​</a></h3><p>盈余公告后漂移、并购完成，标签应在事件时间定义，样本是事件而不是日历日，重叠变成同一公司相邻事件或共同交易日的横截面相关，聚类标准误应在公司与日期两维。把事件收益摊回日历面板再做日频 GBDT，会把非事件日的零标签当成海量负例，模型学到的是「大多数日子什么都不发生」。日历监督与事件监督应分开，不要混在同一个混淆矩阵里报准确率。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用含当天收益的标签。不要在验证集上挑选 \(h\) 再只报告那个 \(h\)。不要把三重障碍的止盈止损参数在全样本上网格搜索后声称分类准确率可交易。A 股 T+1、涨跌停使有效预测期随机延长，标签应定义为「下一可交易区间的收益」，否则回测假设了不存在的成交。微观结构特征的 \(h\) 往往是分钟到日，会计特征的 \(h\) 是月；拼在同一张设计矩阵里时，应对不同列使用不同标签或不同模型，而不是强迫一个 \(h\)。</p><p><span class="marginnote">样本外 \(R^2\) 为负在股权溢价预测里很常见（Welch–Goyal）。截面 ML 若只在再加权后的小盘上为正，应报告价值加权与流动性过滤后的结果，否则标签的可预测性来自不可交易的尾巴。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>重叠多期标签使残差相关；Hansen–Hodrick（1980）与 Newey–West（1987）要求修正标准误，独立观测数不随日频滑动线性增长。</li><li>预测期 \(h\) 必须由 IC 衰减与可交易日历标定，并与 Gu–Kelly–Xiu 一类月频设计区分；错配会让模型拟合累计噪声。</li><li>交叉验证必须尊重时间与重叠（purge/embargo）；打乱 K 折对金融标签无效。</li><li>标签是原始收益还是残差、是否波动标准化、是日历还是事件，决定模型在学什么；准确率不是 P&amp;L。</li><li>出处：Hansen and Hodrick, <em>JPE</em>, 1980；Newey and West, <em>Econometrica</em>, 1987；Gu, Kelly and Xiu, <em>RFS</em>, 2020；Welch and Goyal, <em>RFS</em>, 2008；Rapach, Strauss and Zhou, <em>RFS</em>, 2010；Jegadeesh and Titman, <em>JF</em>, 1993；López de Prado, <em>Advances in Financial Machine Learning</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 机器学习方法<!--[--> · 单元 监督<!--]--><!--[--> · 课序 表格与序列<!--]--></p><p class="lesson-progress">第 1 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cs-rank-features/">特征：滞后、截面 rank</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AGENTS.md 项目规范 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_agents-md-spec.md.DqdXmC6D.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 8 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/progressive-disclosure/">渐进式披露</a></p><p class="lesson-next"> 下一课：<a href="/llm/multi-agent-context-isolation/">多智能体上下文隔离</a></p></nav><div style="position:relative;"><div><h1 id="agents-md-项目规范" tabindex="-1">AGENTS.md 项目规范 <a class="header-anchor" href="#agents-md-项目规范" aria-label="Permalink to &quot;AGENTS.md 项目规范&quot;">​</a></h1><div class="epigraph"><p>把它当成写给代理的 README：一个可预测的位置，放下构建步骤、测试命令与仓库约定，而不去污染给人类看的 README。</p><footer>—— agents.md，AGENTS.md 开放格式说明；由 Agentic AI Foundation（Linux Foundation）托管</footer></div><p><strong>AGENTS.md</strong> 不是模型卡，也不是另一套 YAML schema。它是仓库根上（以及按需嵌套在子目录里）的一份标准 Markdown：给编码代理写操作上下文。官方站点 <a href="https://agents.md" target="_blank" rel="noreferrer">agents.md</a> 把它说成「README for agents」。协作方包括 OpenAI Codex、Cursor、Google Jules、Amp、Factory 等；Cursor 文档把它列为四类规则之一，与 Project Rules、User Rules、Team Rules 并列。本篇写文件合同、解析优先级与它<strong>不是</strong>什么，不把「放一份 md」写成已经解决了记忆问题。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>人类 README 要短：快速开始、贡献指南、项目是干什么的。代理还需要另一层：<code>pnpm turbo run test --filter</code> 怎么跑、PR 标题格式、哪些目录禁止改、安全坑在哪。若把这些塞进 README，人类读者被淹没；若每个工具各自发明 <code>CLAUDE.md</code>、<code>.cursorrules</code>、<code>.aider.conf.yml</code>，同一仓库会出现互相矛盾的「系统提示」。AGENTS.md 的赌注是：<strong>文件名即协议</strong>。代理按约定去读，不必先学厂商私有 frontmatter。</p><p>没有强制字段。FAQ 写明：标准 Markdown，用任何标题都行，代理只解析你提供的文本。这既是优点也是税：没有 schema 就不能机检「Never」条款是否被遵守，也不能按 glob 只在改 API 时加载。Cursor 因此保留 <code>.cursor/rules/*.mdc</code>：需要 <code>description</code> / <code>globs</code> / <code>alwaysApply</code> 时走 Project Rules；需要跨工具共享、永远为真的仓库事实时走 AGENTS.md。</p><h3 id="它解决的是提示放置-不是长期记忆" tabindex="-1">它解决的是提示放置，不是长期记忆 <a class="header-anchor" href="#它解决的是提示放置-不是长期记忆" aria-label="Permalink to &quot;它解决的是提示放置，不是长期记忆&quot;">​</a></h3><p>规则在每次补全时被拼进模型上下文的前部。Cursor 文档原话是：大模型在补全之间不保留记忆，规则提供提示级的可复用上下文。会话结束、换模型、子代理开一个新鲜窗口，AGENTS.md 仍要被重新加载。它不是 <a href="/llm/memgpt">MemGPT</a> 的档案库，也不是 <a href="/llm/mem0-layer">Mem0</a> 的抽取层。写进 AGENTS.md 的每一行都占用窗口；300 行的「永远加载」文件就是一条 Always Apply 规则，换了文件名而已。</p><p><span class="marginnote">官方没有字节上限，但 Codex CLI 一类实现会截断（社区记录约 32 KiB）。工程上应按注意力预算写：命令、禁区、测什么，而不是把架构图散文化。长流程应链到脚本或技能包，见 <a href="/llm/progressive-disclosure">渐进式披露</a>。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>站点给出的落地步骤很短：在仓库根创建 <code>AGENTS.md</code> → 写对代理有用的节（概览、构建与测试、代码风格、安全）→ 需要时再加提交信息、数据集、部署。大型单体在每个包再放一份。解析规则：<strong>距被编辑文件最近的 AGENTS.md 获胜</strong>；显式用户对话覆盖一切。OpenAI 主仓在写作时有 88 份嵌套文件——这是规模证据，不是要求你复制 88 份。</p><p>Cursor 的嵌套语义略宽：子目录文件在处理该树内文件时自动应用，与父级<strong>合并</strong>，更具体者优先。根上写「用 pnpm」，<code>frontend/AGENTS.md</code> 写「组件用函数式」，两边都进上下文；冲突时前端文件赢。Cursor 不读 <code>~/.cursor/AGENTS.md</code>；跨项目偏好走 User Rules 或 Team Rules。CLI 还会在根上读 <code>AGENTS.md</code> 与 <code>CLAUDE.md</code>，与 <code>.cursor/rules</code> 一起生效。<code>.cursor/rules</code> 里的纯 <code>.md</code>（无 <code>.mdc</code> frontmatter）会被规则系统忽略——要纯 Markdown 就用根上的 AGENTS.md，不要丢进那个目录碰运气。</p><div class="mermaid"></div><h3 id="该写什么、不该写什么" tabindex="-1">该写什么、不该写什么 <a class="header-anchor" href="#该写什么、不该写什么" aria-label="Permalink to &quot;该写什么、不该写什么&quot;">​</a></h3><p>写可执行、可证伪的约定：测试入口、包管理器、生成代码目录、禁止改的契约文件。站点示例用 pnpm filter、Vitest <code>-t</code>、PR 标题 <code>[project] Title</code>。安全节应写密钥位置、禁止提交的路径、必须先跑的检查；不要写「请注意安全」这类空话。Cursor 建议规则保持可执行、避免整本风格指南——代理已会常识风格，重复说明只烧 token。</p><p>迁移：把旧 <code>AGENT.md</code> / <code>.cursorrules</code> 改名为 AGENTS.md，必要时留符号链接。Aider 在 <code>.aider.conf.yml</code> 里 <code>read: AGENTS.md</code>；Gemini CLI 在 <code>.gemini/settings.json</code> 设 <code>context.fileName</code>。Claude Code 原生读 <code>CLAUDE.md</code>：常见做法是在 <code>CLAUDE.md</code> 首行 <code>@AGENTS.md</code> 导入，避免维护两份真相。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>加载顺序决定冲突结局。agents.md：最近文件赢。Cursor：Team Rules → Project Rules → User Rules，冲突时更早来源优先；AGENTS.md 作为项目级纯文本与 <code>.mdc</code> 并存。用户消息始终最高。这意味着你不能靠 AGENTS.md 禁止用户要求的危险操作——那是产品层的工具 ACL 与沙箱，不是 Markdown 能强制的。</p><p>嵌套的机制是<strong>作用域叠加</strong>。子代理若只收到任务字符串、不继承父会话，仍可能按工作目录重新发现最近的 AGENTS.md；这与 <a href="/llm/multi-agent-context-isolation">多智能体上下文隔离</a> 正交：隔离切断的是对话史，不是仓库内的约定文件。若子代理的工作目录在 <code>frontend/</code>，它应看到前端约定，而不应看到后端「必须用 SQLAlchemy」除非父级也适用。</p><p><span class="marginnote">「一份文件走遍所有代理」是生态目标，不是保证。Claude Code 仍以 <code>CLAUDE.md</code> 为入口；部分工具只读根、不读嵌套。提交前用你实际使用的代理跑一次「按 AGENTS.md 测这个包」，比相信兼容列表有用。</span></p><h3 id="与技能、mcp、私有规则的分工" tabindex="-1">与技能、MCP、私有规则的分工 <a class="header-anchor" href="#与技能、mcp、私有规则的分工" aria-label="Permalink to &quot;与技能、MCP、私有规则的分工&quot;">​</a></h3><p>AGENTS.md 放永远为真的项目事实。按文件类型才生效的约定放 <code>.mdc</code> glob。逐步展开的操作手册放技能包（描述常驻、正文按需）。工具接线上放 <a href="/llm/mcp-design">MCP</a>。四层一起堆满窗口，等于没分层。官方强调与 README 分离，正是为了让人类文档保持短，让代理文档可以具体到命令行。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有 schema 意味着无法在 CI 里静态证明「Never」被遵守。若需要机检，把禁令写成 linter 或预提交钩子，AGENTS.md 只指向那条命令。Team Rules 可在 Cursor 仪表盘强制，那是厂商能力，不是 AGENTS.md 规范的一部分；引用时分开。全球 <code>~/.cursor/AGENTS.md</code> 不是文档承诺的位置。</p><p>把密钥、内部主机名、未公开漏洞写进 AGENTS.md 等于把它们提交进 git。安全节应指向密钥管理位置与「不要打印 <code>.env</code>」，而不是粘贴值。多租户或开源镜像要检查是否泄漏内部约定。</p><p><span class="marginnote">出处：<a href="https://agents.md" target="_blank" rel="noreferrer">https://agents.md</a>；Cursor，<em>Rules</em> 文档中的 AGENTS.md 与嵌套说明。协作生态见站点 About：Codex、Amp、Jules、Cursor、Factory。托管：Agentic AI Foundation / Linux Foundation。不要把第三方「Complete Guide」里的未文档化上限写成规范条文。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>AGENTS.md 是跨工具的纯 Markdown 项目说明书，补的是 README 不该承担的代理操作上下文。</li><li>无必填字段；最近文件优先，用户对话覆盖；Cursor 另与 <code>.mdc</code> 规则合并。</li><li>它占用窗口、不跨会话记忆；写短、写命令、写禁区。</li><li>嵌套服务单体仓库；技能与 MCP 承接按需正文与工具，不要全部常驻。</li><li>出处：agents.md；Cursor Rules 文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 8 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/multi-agent-context-isolation/">多智能体上下文隔离</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

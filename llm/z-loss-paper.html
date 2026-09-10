@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>z-loss 稳定训练 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_z-loss-paper.md.BSCFC4gD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 机制课序对照<!--]--><!--[--> · 课序 表示、MoE 与扩散<!--]--></p><p class="lesson-progress">第 293 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/expert-choice-paper/">Expert Choice 论文</a></p><p class="lesson-next"> 下一课：<a href="/llm/diffusion-lm-paper/">Diffusion LM 论文</a></p></nav><div style="position:relative;"><div><h1 id="z-loss-稳定训练" tabindex="-1">z-loss 稳定训练 <a class="header-anchor" href="#z-loss-稳定训练" aria-label="Permalink to &quot;z-loss 稳定训练&quot;">​</a></h1><div class="epigraph"><p>交叉熵不约束 logits 的公共偏移；大规模训练里要把 log-sum-exp 的尺度单独钉住，半精度与门控才有余量。</p><footer>—— PaLM、Gopher 等大规模语言模型报告中的 logit / 训练稳定性叙述；MoE 上见 Switch / ST-MoE 的 router z-loss</footer></div><p><a href="/llm/expert-choice-paper">Expert Choice 原文</a> 改路由几何。数值上，无论 token-choice 还是 EC，softmax 的输入都可以漂到溢出区。主干 <a href="/llm/z-loss">z-loss</a> 已写公式。本附录对照 <strong>文献里这项护栏出现的方式</strong>：PaLM（Chowdhery 等）、Gopher（Rae 等）把 logit 尺度当作稳定训练问题；Switch / ST-MoE 把同类项用在路由器上。不编造单独一篇「z-loss 专论」的编号，也不把某次博客当第一文献。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>CE 对 logits 平移不变，\(z=\mathrm{LSE}(\ell)\) 可以在损失仍下降时增长，直到 BF16 指数与路由置信锁死。万亿稀疏或密集大模型的长训把这件事从「偶尔 NaN」变成必须写进配方的项。作者们报告的是现象 + 小系数二次惩罚，不是新的语言建模目标。</p><p>Gopher 讨论大模型训练不稳定性与 logits；PaLM 明确使用 z-loss 控制输出尺度。MoE 文献中 router z-loss 惩罚路由 LSE，服务对象是门控而非词表。</p><h3 id="两项不要混系数" tabindex="-1">两项不要混系数 <a class="header-anchor" href="#两项不要混系数" aria-label="Permalink to &quot;两项不要混系数&quot;">​</a></h3><p>词表 \(z\) 与路由 \(z\) 维数差几个数量级。Switch 配方里的小系数不能无说明地贴到 256K 词表头上。<span class="marginnote">没有要求你引用一个虚构的 arXiv。写「PaLM / Gopher 式 z-loss」或「ST-MoE 的 router z-loss」即可。系数以你复现的代码与报告表格为准。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="稳定-lse-上的二次项" tabindex="-1">稳定 LSE 上的二次项 <a class="header-anchor" href="#稳定-lse-上的二次项" aria-label="Permalink to &quot;稳定 LSE 上的二次项&quot;">​</a></h3><p>\(L_z=\alpha \mathbb{E}[z^2]\) 加在 CE 上，\(z\) 用稳定 LSE 计算。\(\alpha\) 很小。Router 变体把 \(\ell\) 换成 \(N\) 个专家 logits。与梯度裁剪、损失跳过、混合精度一起构成稳定清单，而不是互相替代——主干 NaN skip 课已接这条清单。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>二次项把绝对尺度往下拉，间隔更多靠压低错误类实现，可能改校准。报告里若只写「更稳、更少 spike」，不一定测了温度解码。工程对照应补 LSE 分位数日志，否则你不知道 \(\alpha\) 有没有真在干活。</p><p>与 μP、AdamW 衰减的分工见主干：z-loss 不是宽度定标。大模型报告往往同时改很多旋钮，归因到「就是 z-loss」会过满。附录能钉的是：他们把 <strong>logit 尺度列为独立故障模式</strong>，并给出可抄的惩罚形式。</p><p><span class="marginnote">ST-MoE（Zoph 等）把稀疏专家的稳定设计写成更长的清单，router z-loss 是其中一项。引用 MoE 稳定时优先点名清单，而不是只说 Switch 标题。</span></p><h3 id="在对照链中" tabindex="-1">在对照链中 <a class="header-anchor" href="#在对照链中" aria-label="Permalink to &quot;在对照链中&quot;">​</a></h3><p>下一篇离散扩散与 MoE 无关；本篇结束「表示 / MoE 数值」对照，扩散是另一生成范式。读者应从这里带走：稀疏与稠密大模型共享 logit 尺度问题。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>推理不加 \(L_z\)，但训练钉住的尺度留在 lm_head，影响量化。报告若未谈量化，不要替他们引申太多。\(\alpha\) 过大伤害 CE 的论述来自实践，原文未必给完整消融。</p><p>不要把 z-loss 写成 PaLM 的主贡献。PaLM 的主叙事是 Pathways 上的尺度；z-loss 是配方脚注级、但对复现关键的那种。Gopher 同理：主叙事是规模与评估，稳定性是能训完的前提。</p><p><span class="marginnote">文献：Chowdhery 等 <em>PaLM: Scaling Language Modeling with Pathways</em>；Rae 等 <em>Scaling Language Models: Methods, Analysis &amp; Insights from Training Gopher</em>；Fedus 等 Switch；Zoph 等 ST-MoE。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>大模型报告把 LSE 尺度增长列为独立故障，用 \(\alpha z^2\) 钉住。</li><li>词表 z-loss 与 router z-loss 同形异对象。</li><li>与 clip、skip、精度组成清单；不是新任务损失。</li><li>引用 PaLM / Gopher / ST-MoE 的稳定性叙述，不编造专论编号。</li><li>出处：上述报告与 Switch / ST-MoE 配方。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 机制课序对照<!--]--><!--[--> · 课序 表示、MoE 与扩散<!--]--></p><p class="lesson-progress">第 293 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/diffusion-lm-paper/">Diffusion LM 论文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

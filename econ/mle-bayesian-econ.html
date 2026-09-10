@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>极大似然与贝叶斯 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_mle-bayesian-econ.md.BMDCZeo5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计量经济学<!--[--> · 单元 结构与预测<!--]--><!--[--> · 课序 模型驱动的估计<!--]--></p><p class="lesson-progress">第 21 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/forecast-evaluation-dm/">预测评估 Diebold–Mariano</a></p><p class="lesson-next"> 下一课：<a href="/econ/fe-re/">固定效应与随机效应</a></p></nav><div style="position:relative;"><div><h1 id="极大似然与贝叶斯" tabindex="-1">极大似然与贝叶斯 <a class="header-anchor" href="#极大似然与贝叶斯" aria-label="Permalink to &quot;极大似然与贝叶斯&quot;">​</a></h1><div class="epigraph"><p>似然把模型写成观测的密度；极大似然找使密度最大的参数，贝叶斯把参数当随机、用先验更新。两者都比 GMM 更吃分布假设，也都能把上一课的预报密度变成决策。</p><footer>—— Fisher 似然传统；Wald 与 Cramér–Rao；Sims 宏观贝叶斯；Geweke 后验模拟</footer></div><p><a href="/econ/forecast-evaluation-dm">上一课</a>用损失比较预报。本课收束「结构与预测」：极大似然（MLE）与贝叶斯作为估计原则，而不是又一种识别设计。下一课<a href="/econ/fe-re">固定效应</a>才把时不变异质吸进组内；计量课程尚未结束。后课默认已经读完：设计给支撑内因果，结构给反事实，似然 / 贝叶斯给在模型内的估计与密度预报。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>GMM 用有限矩，分布可以错很多仍一致（矩对的话）。MLE 要整条密度 \(f(Y\mid\theta)\)。对了：有效（达到信息界）、不变性、嵌套检验（LR / Wald / LM 三位一体）。错了：准极大似然在某些族（正态、泊松）对均值参数仍一致，否则可以既偏且「很显著」。缺口是：离散选择、DSGE、状态空间，似然自然；因果设计课的 LATE 不必有密度。贝叶斯：先验 \(\pi(\theta)\)，后验 \(\propto L(\theta)\pi(\theta)\)。有限样本陈述是概率的，不是「\(N\to\infty\) 覆盖」。先验在宏观小样本里不是装饰——Sims 强调这一点。</p><p><span class="marginnote">识别：似然平坦则 MLE 乱跳、后验跟着先验走。上一单元 BLP、拍卖的识别问题不会因为改用 MCMC 消失。贝叶斯把识别弱写成先验敏感，这是优点若你报告，是缺点若你藏。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>MLE：写出 \(L\)，数值最大化，信息矩阵给标准误；QMLE 用三明治（又接到<a href="/econ/inference-robust-cluster">稳健推断</a>）。LR 检验嵌套约束。贝叶斯：共轭时手算；否则 MCMC（Metropolis–Hastings、Gibbs）、SMC。报告先验、后验区间、边际似然（模型比较）。预报：后验预测分布直接给密度预报，log score 与上一课衔接。</p><div class="mermaid"></div><p>与 GMM：矩是似然得分的子集。过度识别 \(J\) 对应先验之外的检验。宏观 DSGE 常用贝叶斯，因为似然难、先验把弱识别按住——必须把先验当研究设计的一部分公开。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是概率模型。MLE 把样本当成密度的重复；依赖（时间序列）要写成条件似然，不能假装 i.i.d.。贝叶斯把未知 \(\theta\) 送进联合分布，学习规则是 Bayes 定理。渐近上，正则情况下后验收缩到 MLE 附近（Bernstein–von Mises），于是大样本两者说话接近；识别弱或先验强时不接近。</p><p>与卢卡斯：似然若是简化式 VAR，政策分析仍犯批判。结构似然（均衡已经解过）才把规则放进 \(f\)。贝叶斯 DSGE 不是自动结构正确，只是结构加上先验。</p><p><span class="marginnote">Lancaster、Rossi 的微观贝叶斯：分层模型把异质 \(\beta_i\) 写成分布，这是随机系数，与因果森林的 \(\tau(x)\) 目标不同，但都承认异质。声明目标。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不教软件平台。不把 MCMC 诊断写成课的主体。计量课程到此结束：下一课李嘉图比较优势换对象——交换为何发生，不是 \(\theta\) 如何估。不要用本课去重写大模型的训练损失，那是另一栏的下一 token。</p><p>后课默认：写出密度就要接受错分布的代价；贝叶斯必须报告先验敏感。识别不来自计算。预报密度用后验预测 + 上一课的 log score。因果 LATE 仍用设计，不必强迫似然。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MLE：密度对则有效；错则可能偏。QMLE 三明治管部分错误。</li><li>贝叶斯：后验 = 似然 × 先验；弱识别时先验支配。</li><li>大样本正则时两者靠近；小样本与平坦似然时分道。</li><li>结构似然才服务政策；VAR 似然仍是约化形式。</li><li>出处：Fisher；Wald；Sims 贝叶斯宏观；Geweke；Bernstein–von Mises 传统。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计量经济学<!--[--> · 单元 结构与预测<!--]--><!--[--> · 课序 模型驱动的估计<!--]--></p><p class="lesson-progress">第 21 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/fe-re/">固定效应与随机效应</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

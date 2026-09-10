@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>融券与做空约束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cn-short-constraint.md.DaDywmis.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 中国市场微观结构<!--[--> · 单元 交易制度<!--]--><!--[--> · 课序 融券与互联互通<!--]--></p><p class="lesson-progress">第 6 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cn-halt-resume/">停牌复牌与信息窗口</a></p><p class="lesson-next"> 下一课：<a href="/quant/stock-connect/">北向资金与沪深港通</a></p></nav><div style="position:relative;"><div><h1 id="融券与做空约束" tabindex="-1">融券与做空约束 <a class="header-anchor" href="#融券与做空约束" aria-label="Permalink to &quot;融券与做空约束&quot;">​</a></h1><div class="epigraph"><p>投资者必须向证券公司融入相应证券才能卖空；严格禁止裸卖空。证券交易所对融券卖出指令进行前端检查。</p><footer>—— 据《证券公司融资融券业务管理办法》及中国证监会公开说明；交易所《融资融券交易实施细则》禁止无券卖空并对申报价格作出限制</footer></div><p><a href="/quant/cn-limit-auction">上一课</a>把开收盘集合竞价与涨跌幅走廊写成会话状态：锁定板的收盘价不是双边可成交价，开盘执行对齐 9:25。缺口是多空因子的空头腿仍被当成「收盘价取负」：A 股卖空只能走融券，受标的名单、券源、保证金与提价规则约束。2024 年 7 月起转融券暂停、融券保证金上调，是公开的供给与杠杆状态变化。本课写空头可行集 \(\mathcal{F}_t\)，不重写涨跌停与集合竞价。后课北向与行业中性默认已经读完这条约束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>集合竞价回答的是开收盘如何出清。留下的是空头腿从哪来。无约束时，多空组合 \(r_L-r_S\) 的空头与多头对称。有融券约束时，\(S\) 只能来自当时可融、且保证金与集中度允许的名字。不可融的股票在空头腿上的权重必须为零，于是「高减低」变成「高减可融的低」，或变成多头相对基准的低配。Miller 的经典论点是：卖空限制下悲观意见无法进入价格，高估更易持续。A 股把这一论点写成可检查的制度：标的名单、券源供给、保证金、提价、信息披露与逆周期调节。问题不是「能不能做空」的口号，而是在决策日 \(t\)，空头可行集 \(\mathcal{F}_t\) 是什么，以及 \(t\) 到 \(t+1\) 券源被召回或名单调出时持仓如何强制了结。</p><p>转融通曾是券源从持有人经中证金融转到券商再融给客户的公开管道。暂停转融券之后，券源更依赖券商自有与客户出借等仍被规则允许的渠道，供给更窄、更不稳定。策略若在回测里对所有股票无成本做空，是在用一个已经不存在（或从未存在）的市场。</p><h3 id="标的、保证金与提价是三道门" tabindex="-1">标的、保证金与提价是三道门 <a class="header-anchor" href="#标的、保证金与提价是三道门" aria-label="Permalink to &quot;标的、保证金与提价是三道门&quot;">​</a></h3><p>交易所实施细则规定股票成为融券标的的条件（上市时间、流通股本或市值、股东人数、流动性与波动相对基准指数、非风险警示等），并可根据市场调整名单。风险警示、终止上市程序会调出标的，未了结合约按细则了结，不是继续按旧名单做空。保证金方面，细则给出比例公式；证监会 2024 年 7 月批准将融券保证金比例上调至不低于 100%，私募证券投资基金不低于 120%（自 7 月 22 日起）。可用保证金不足则不能开新空。提价规则使融券卖出无法在最近成交价之下主动砸价，执行路径与普通卖出旧仓不同：空头开仓更难在弱报价上立即成交。三道门任意一道关闭，纸面空头就不存在。</p><p><span class="marginnote">融资买入与融券卖出同属融资融券，但本篇的约束对象是空头腿。融资加杠杆做多不创造卖空能力；把两融余额当成「市场做空意愿」还要拆开融资余额与融券余量，前者通常大得多。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>点-in-time 空头可行集：每个决策日加载交易所公布的标的名单、券商可融库存（若不可得则至少用全市场融券余量与标的过滤）、保证金比例与折算率。不可融则该票空头权重记为零，不要记为以收盘价成交的空头。借券费用与强制平仓应进入<a href="/quant/net-edge">净边缘</a>：费率是右偏的随机过程，召回使持有期随机缩短。提价规则在模拟器里限制融券卖出的申报价，不得用跌停价或任意低于最近成交的价格假设成交。</p><p>组合构造要报告两个版本：无约束学术多空，与可行集约束后的多空。差额就是制度造成的实现缺口，往往集中在小盘、低流动、刚进入风险警示或刚被调出标的的名字——而空头腿的异常收益经常来自这些名字。行业中性、市场中性在空头不可得时，应改称为「多头相对行业或市场的偏离」，并单独报告净暴露。集中度方面，管理办法要求券商与交易所对单一证券融券量占流通量的比例等实施控制，容量不能按无约束 ADV 外推。</p><h3 id="逆周期调节是状态变量" tabindex="-1">逆周期调节是状态变量 <a class="header-anchor" href="#逆周期调节是状态变量" aria-label="Permalink to &quot;逆周期调节是状态变量&quot;">​</a></h3><p>管理办法授权交易所对保证金比例、标的范围、融券卖出价格限制等动态调整。2023–2024 年监管公开采取限制战略配售股份出借、上调保证金、降低转融券效率、直至暂停转融券等措施。这些不是回测噪声，而是 \(P\) 的制度转移。方法是按公告日切换参数：暂停转融券之后，假设「转融券库存可开新空」的路径应结束。评价因子在 2015、2023–2024 等监管收紧期的表现时，必须用当时规则，否则是在评价一个当时非法或不可执行的组合。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>卖空约束从两条渠道进入收益。识别渠道：空头腿建不出，因子的空头溢价无法实现，只留下多头超额相对基准的部分，风格暴露与论文表格不再对应。价格渠道：可空头集合变窄，负面信息写入价格更慢，高估与动量在不可空的一端更持久，这与 Hong、Scheinkman 与 Xiong 一类意见分歧加卖空限制的理论同方向。提价规则额外改变执行：下跌行情里融券开仓不能贴在更低的价位上抢先成交，冲击与等待与普通卖出不同。</p><p>保证金把空头变成带强平期权的杠杆负债。维持担保比例跌破阈值，券商按合同平仓，平仓时点往往是波动最高、流动性最差的时候。学术多空假设可以持有到月末再平衡；融券账户可能在月中被强制减仓。回测若不嵌入担保比例路径，会把本应实现的强平缺口当成未实现的继续持有。暂停转融券后，即使标的仍在名单上，券源价格与可得性使「名单内」不等于「可开仓」。</p><p><span class="marginnote">裸卖空在管理办法与交易所前端检查下被禁止。任何回测若允许账户证券余额为负且无融券合约，都与公开规则冲突，结果不可解释为 A 股可交易策略。</span></p><h3 id="与多空因子文献的对接" tabindex="-1">与多空因子文献的对接 <a class="header-anchor" href="#与多空因子文献的对接" aria-label="Permalink to &quot;与多空因子文献的对接&quot;">​</a></h3><p>Fama–French 式空头腿在美股依赖证券借贷市场；A 股必须把 \(\mathcal{F}_t\) 写进定义。Asness 等人讨论的「做空成本后的价值与动量」在这里变成制度开关而不仅是费率。报告 A 股因子时应同时给出：全样本无约束、仅标的内、标的内且扣融券费、以及 2024 年 7 月之后券源收缩样本。不要只贴无约束的 t 统计量再在脚注写「忽略卖空限制」。可交易性论文（Novy-Marx–Velikov）的精神是成本改变哪些异常还活着；融券约束是 A 股上比价差更硬的一刀。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>细则中的保证金比例与证监会逆周期调整可能不一致，以当时有效的监管规定与交易所通知为准。不同会员的可融库存、费率、强平阈值不同，全市场余量只是上界。ETF、债券作为标的有单独条件。科创板证券出借与融券另有信息披露指南，内部人与限售股出借受减持与短线交易规则约束，不能把出借当成普通券源。</p><p>不要用融券余额的变化当实时 alpha 而不核对公布时滞。不要把融资盘平仓写成「空头攻击」。不要设计规避提价、虚假出借或规避保证金的交易结构。公开规则下的研究止于：可行集、费率、提价、保证金与公告过的供给变化如何改变可实现的多空。</p><p><span class="marginnote">融券卖出所得资金的用途、担保划转与权益处理以管理办法及合同为准。策略上应把融券头寸当成受合同约束的负债，而不是与现券空头在国际市场上等价的工具。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>A 股卖空通过融券实现，禁止裸卖空，受标的名单、券源、保证金与提价规则约束。</li><li>学术多空的空头腿在可行集之外必须记为零，行业中性常退化为低配。</li><li>2024 年 7 月起转融券暂停、融券保证金上调，是公开的供给与杠杆状态变化。</li><li>提价规则使融券开仓的执行不同于卖出旧仓；强平使持有期随机。</li><li>因子报告应并列无约束与约束后的版本。</li><li>出处：《证券公司融资融券业务管理办法》；上交所、深交所《融资融券交易实施细则》；中国证监会 2024 年 7 月 10 日关于暂停转融券与上调保证金的公告；中证金融同期通知。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 中国市场微观结构<!--[--> · 单元 交易制度<!--]--><!--[--> · 课序 融券与互联互通<!--]--></p><p class="lesson-progress">第 6 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/stock-connect/">北向资金与沪深港通</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

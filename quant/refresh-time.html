@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>刷新时间与异步 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_refresh-time.md.DnRAYrkD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 高频计量<!--]--><!--[--> · 课序 噪声下的估计<!--]--></p><p class="lesson-progress">第 30 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/quant/realized-beta/">已实现 beta</a></p><p class="lesson-next"> 下一课：<a href="/quant/noise-variance-estimate/">噪声方差估计</a></p></nav><div style="position:relative;"><div><h1 id="刷新时间与异步" tabindex="-1">刷新时间与异步 <a class="header-anchor" href="#刷新时间与异步" aria-label="Permalink to &quot;刷新时间与异步&quot;">​</a></h1><div class="epigraph"><p>所有资产都至少成交一次之后才记一个公共时刻，向量收益才没有陈旧坐标；代价是被最慢的那只腿决定时钟，快的腿在等待里走过的路被扔掉。</p><footer>—— Barndorff-Nielsen, Hansen, Lunde and Shephard, Multivariate Realised Kernels: Consistent Positive Semi-definite Estimators of the Covariation of Equity Prices with Noise and Non-synchronous Trading, Journal of Econometrics, 2011</footer></div><p><a href="/quant/realized-beta">已实现 beta</a> 要求分子分母同一时钟。Previous-tick 公共日历格会制造 Epps；<a href="/quant/hayashi-yoshida">Hayashi–Yoshida</a> 不强制公共格，但噪声与正定性不友好。Barndorff-Nielsen 等人在多元已实现核里用<strong>刷新时间</strong>：从 \(t_{j-1}\) 起等所有成分都更新，记 \(t_j\)，取向量收益再做核。本课缺口：把同步规则写成估计量的一部分，量化「丢信息」。下一课用密网格专门估噪声方差，刷新时间会改变有效 \(n\)，噪声识别跟着变。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>资产 \(i\) 的成交停时 \(\tau^{(i)}\)。刷新时间 \(t_j=\max_i \inf\{\tau^{(i)}\gt t_{j-1}:\text{该资产已更新}\}\) 的精确定义是：最小的 \(t\) 使得每只资产在 \((t_{j-1},t]\) 都有至少一笔新观测。向量 \(\Delta Y_{t_j}\) 的每一维都是新的（该段内最后一笔）。问题是 \(t_j\) 的间隔由最慢资产决定：一只冷门股可以把一篮子的刷新降到几分钟一格，指数成分里的快股信息被丢掉。</p><p><a href="/quant/irregular-sampling">不等间隔采样</a> 已引入 refresh time；本课放在噪声修正的多元流程里：刷新之后才能套向量核，否则核的滞后对陈旧坐标无意义。</p><h3 id="与-hy、previous-tick" tabindex="-1">与 HY、previous-tick <a class="header-anchor" href="#与-hy、previous-tick" aria-label="Permalink to &quot;与 HY、previous-tick&quot;">​</a></h3><table tabindex="0"><thead><tr><th>规则</th><th>优点</th><th>代价</th></tr></thead><tbody><tr><td>刷新</td><td>向量同步、核可半正定</td><td>丢快腿、被慢腿拖累</td></tr><tr><td>HY</td><td>不丢重叠、二元干净</td><td>\(d\gt 2\) 拼矩阵、噪声</td></tr><tr><td>日历 previous-tick</td><td>简单、正定外积</td><td>Epps、零收益</td></tr></tbody></table><p>没有占优。流动性接近的期货腿用刷新+核；一对一股票–期货用 HY；全市场截面用五分钟日历。</p><p><span class="marginnote">刷新时间不是「成交量时钟」。成交量时钟按累计 \(V\) 走，刷新按「大家都出现过」。后者保证同步，前者保证风险量齐次。后课 business time 再写成交量时间。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>算法。</strong> 多指针扫各序列，维护每只最后成交时刻，当全部推进后输出一格。开盘：等到所有都开出来再开始，避免有的还在隔夜价。收盘：最后一组不完整刷新应丢弃或单独标记。</p><p><strong>之后。</strong> 在 \(\{t_j\}\) 上算多元已实现核（带宽按刷新后的 \(n^*\) 与噪声）。\(n^*\) 远小于原始 tick 数，噪声项 \(2n\sigma^2\) 的 \(n\) 要用 \(n^*\)。把原始 \(n\) 套进 TSRV 公式会错。</p><p><strong>分组。</strong> 大 \(d\) 应按流动性分层刷新，或对因子用指数（单一快时钟）对个股 HY。不要对 500 只股票一个刷新时钟。</p><h3 id="领先滞后" tabindex="-1">领先滞后 <a class="header-anchor" href="#领先滞后" aria-label="Permalink to &quot;领先滞后&quot;">​</a></h3><p>若真领先 3 秒，刷新的「同期」格仍可能把领先写进同一 \(\Delta Y\)（因为等慢的时候快的又走了）。刷新不消除经济领先，只消除陈旧报价。要测领先，应用指定滞后的 HY 或在刷新格上做滞后回归。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Previous-tick 的零填充：未更新维收益为零，外积为零。刷新保证没有零填充的「假零」，每一维在该段都动过（至少一笔）。丢掉的是段内快维的多次波动——那些增量被压缩进段末价格差，中间路径的来回被净掉，类似稀疏采样的偏差，对 \(IV\) 有平滑。慢维的长间隔若跨过宏观公告，一格里揉进异质 \(\sigma\)，该格噪声大。</p><p>核在刷新格上把短滞后协方差（噪声）扣掉。刷新后格点更疏，噪声相对 \(IV\) 的比下降，核带宽可以更短。这是「先同步、再降噪」的顺序。</p><p><span class="marginnote">最慢 5% 的股票决定时钟时，刷新格数会崩。应设最大等待或把慢股移出向量，否则矩阵是「慢市场的协方差」，不是你以为的组合。</span></p><h3 id="到噪声方差的交接" tabindex="-1">到噪声方差的交接 <a class="header-anchor" href="#到噪声方差的交接" aria-label="Permalink to &quot;到噪声方差的交接&quot;">​</a></h3><p>刷新改变有效采样频率，签名图的横轴应是刷新间隔而非原始 tick 间隔。下一课估 \(\sigma_\varepsilon^2\) 时必须声明采样方案，否则把异步零收益当成噪声结构。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>期权、债券等极异步市场，刷新可能一天只有数格，核没有对象，应降 \(d\) 或改 HY。夏令时、午休要重置刷新，不要跨会话等待。</p><p>工程：中等 \(d\)、要半正定核时用刷新；配对用 HY；截面用五分钟。报告 \(n^*\)、最慢腿、是否分层。不要声称「我们用了高频协方差」却在刷新后只剩 20 格还不做噪声修正。不要把刷新网格当交易时钟去回测——那是估计时钟。下一课：噪声方差估计。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>刷新时间构造无陈旧坐标的向量收益，是多元已实现核的标准前置。</li><li>时钟由最慢资产决定，快腿路径被压缩；大篮子必须分层。</li><li>它消除 Epps 式零填充，不消除经济领先滞后。</li><li>有效 \(n^*\) 进入噪声公式；与 HY、日历格三分法按对象选。</li><li>出处：Barndorff-Nielsen, Hansen, Lunde and Shephard, <em>Journal of Econometrics</em>, 2011；异步对照 Hayashi and Yoshida, <em>Bernoulli</em>, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 高频计量<!--]--><!--[--> · 课序 噪声下的估计<!--]--></p><p class="lesson-progress">第 30 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/noise-variance-estimate/">噪声方差估计</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

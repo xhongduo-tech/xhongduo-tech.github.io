@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>成交后分析 TCA | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_tca.md.EJQeNya1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 冲击<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 8 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/quant/obizhaeva-wang/">Obizhaeva-Wang</a></p><p class="lesson-next"> 下一课：<a href="/quant/smart-order-routing/">智能订单路由 SOR</a></p></nav><div style="position:relative;"><div><h1 id="成交后分析-tca" tabindex="-1">成交后分析 TCA <a class="header-anchor" href="#成交后分析-tca" aria-label="Permalink to &quot;成交后分析 TCA&quot;">​</a></h1><div class="epigraph"><p>成交之后才知道均价、未完成量与当时市场走了多远；把这些数对照事先选定的基准拆开，执行过程才从轶事变成可改的参数。</p><footer>—— 据 Perold 实施缺口会计；Berkowitz, Logue and Noser, The Overall Costs of Transaction Execution, Journal of Finance, 1988；Kissell 对执行质量分解的实务框架整理</footer></div><p><a href="/quant/obizhaeva-wang">上一课</a>用线性供给与指数弹性描述限价簿的消耗–恢复，最优常呈期初块、中间连续、期末块；参数是深度密度与弹性，不能把 AC 的 \(\eta\) 改名套用。那是事前控制。缺口是成交后分析：对已完成的母单选定基准，把实现均价、费用、延误与未成交对照过去，按场所、算法、紧急度分层，再喂回路由与日程。TCA 不是盘中决策规则，也不替代事前最优控制。本课写基准如何选、如何拆。若基准可以事后挑选，任何算法都能在某一把尺子上赢。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>交易台每天留下大量子单：时间戳、场所、方向、量、价、费用、取消。没有基准，这些数只是成交记录。有了基准，每笔可以写成相对某个参照价的滑点。问题是参照价有很多个，且彼此不互相蕴含。决策价（经理信号）上的 <a href="/quant/implementation-shortfall">实施缺口</a> 问你有没有买到纸面组合；到达价问执行台接手之后亏了多少；VWAP / TWAP 问你是否贴住窗口均价；收盘价问你相对日终标记。同一笔单可以相对 VWAP 为负、相对到达价为正：市场单边走了，你贴着量加权均价买完，相对决策时刻仍然亏。</p><p>TCA 要解决的不是「选出一个永远正确的基准」，而是：事先声明主尺子与若干副尺子，使算法之间的比较在同一信息集上进行，并把未完成、公司行动、跨日窗口处理成明确规则。若基准可以在事后挑选，任何算法都能在某一把尺子上赢。Kissell 把缺口拆成延误、即时成本、过程中市场运动与机会成本，正是为了让「赢在哪一项」可争论，而不是只报一个净滑点。</p><h3 id="事先基准与条件化" tabindex="-1">事先基准与条件化 <a class="header-anchor" href="#事先基准与条件化" aria-label="Permalink to &quot;事先基准与条件化&quot;">​</a></h3><p>主基准必须在母单下达时就锁定：到达中间价、决策中间价、或预先指定的 TWAP 窗口。副基准可以并行计算，用于诊断，不能用于给算法发奖金后再选。条件化是第二层约束：按市值、波动、参与率、买卖方向、是否含拍卖、是否多日执行分层。无条件平均会把「接了更难的单」的算法判成更差。Keim 与 Madhavan 的机构交易成本研究反复表明，成本随急迫性与公司规模变；TCA 若不分这些轴，比较的是订单流的难度，不是路由的技能。</p><p><span class="marginnote">把「平均滑点为负」写成交易台创造了 alpha，通常是样本里含大量被动成交与价格改善。逆向选择会在随后的实现价差里出现，见 <a href="/quant/effective-realized-spread">有效价差与实现价差</a>。TCA 的窗口若在成交后立即结束，会把做市式的负即时滑点误读成执行优势。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对母单 \(i\)，记目标量 \(Q_i\)、成交量 \(q_i\)、成交均价 \(\bar P_i\)、基准 \(B_i\)、结束标记 \(P_{e,i}\)、显式费用 \(F_i\)。买入的符号约定下，一个最小报告集是</p> \[\mathrm{slip}_i = q_i(\bar P_i-B_i)+ (Q_i-q_i)(P_{e,i}-B_i)+F_i. \]<p>\(B_i\) 取到达中间价时，这就是到达价实施缺口；\(B_i\) 取窗口 VWAP 时，未成交项的含义变了——VWAP 本身含你的成交，高参与率下基准被自己污染。报告应同时给出已执行项与未执行项，避免用放弃来「做低」已执行滑点。多日母单要把隔夜跳空单列，否则第一日收盘到第二日开盘的运动会被算进冲击。</p><p>分层统计。对 \(\mathrm{slip}_i/Q_i\) 按场所、订单类型（maker / taker / 暗池）、算法名称、参与率桶做均值与分位数，并报告单数。均值被少数大单主导时，应同时给金额加权与等权。金额加权回答「钱亏在哪」；等权回答「这类单是否系统性地贵」。两者方向相反时，问题往往在尾部大单的保护价或收盘扫档。</p><h3 id="从会计到参数-闭环" tabindex="-1">从会计到参数：闭环 <a class="header-anchor" href="#从会计到参数-闭环" aria-label="Permalink to &quot;从会计到参数：闭环&quot;">​</a></h3><p>TCA 只有连回参数才有工程价值。例子：某场所的 taker 缺口持续高于费用调整后的可见深度所暗示的水平，则 <a href="/quant/smart-order-routing">SOR</a> 应下调该所的立即成交分配；某暗池成交率低于阈值且事后中点向成交方向漂移，则降低暗处比例，把量送回明簿被动。日程层：POV 在高波动桶的未完成率上升，应放宽时间或降低参与率，而不是在窗口末端市价清扫——清扫会在 TCA 的尾部分位数上留下尖刺。</p><p>对照实验比前后比较更干净。同一类母单轮换两条路由规则（A/B），比「本月换了参数、缺口下降」更少被行情污染。无法做随机化时，至少用到达后市场方向做回归：把滑点对同期不交易的对照收益回归，残差才更像执行成本。不做这一步，单边市里的所有主动算法都会一起变差或一起变好。</p><p><span class="marginnote">VWAP 基准在自己参与率高时部分是「跟自己比」。Perold 的纸面组合不依赖事后市场均价；机构若只用 VWAP KPI，SOR 会被训练去贴成交量曲线，而不是缩小决策缺口。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>TCA 能改进执行，是因为它把不可见的摩擦写成可加总、可分层的数字，使参数调整有梯度。价差与费用是相对稳定的一层；冲击随参与率上升；时机风险随窗口拉长；机会成本随未完成与价格漂移上升。分层之后，可以区分「费用表改了」与「路由把量送到了更毒的流里」。后者会同时表现为：即时有效价差尚可、实现价差恶化——成交后中点顺着你的方向走。</p><p>激励是机制的另一半。若交易员的考核只看相对 VWAP，他们会在基准截止前对齐，甚至把难做的剩余量推到「不算进窗口」的区域。若只看实施缺口而不看未完成率，又会激励用放弃来避免实现滑点——放弃只是把成本搬到机会成本项。治理应指定主尺子（通常是到达价或决策价缺口），强制披露未完成率与参与率，并把暗池、拍卖、连续竞价分开，以免一种场所的优势掩盖另一种场所的恶化。</p><p>Berkowitz 等人用 VWAP 度量的是「相对当时市场，你的成交贵不贵」，适合回答经纪商通道质量；Perold 度量的是「相对决策，投资过程丢掉了什么」。TCA 平台常常两种都算。写报告时必须标明：你在评价经纪商、评价算法、还是评价投资经理与交易台的交接。三种对象混在一张表里，数字无法行动。</p><h3 id="配对与篮子的组合缺口" tabindex="-1">配对与篮子的组合缺口 <a class="header-anchor" href="#配对与篮子的组合缺口" aria-label="Permalink to &quot;配对与篮子的组合缺口&quot;">​</a></h3><p>统计套利母单是多腿的。分腿 TCA 可以显示「多头腿跑赢 VWAP、空头腿也还行」，组合却在开仓窗口内把价差打穿——两腿不同步。组合缺口应以信号触发时的价差（或篮子净值）为基准，把随后的腿间滑点算进执行，而不是算进 alpha。这与 <a href="/quant/distance-pairs">距离法配对</a> 或 <a href="/quant/pca-stat-arb">PCA 统计套利</a> 的回测假设直接冲突：纸面假定次日可同时成交；TCA 要报告两腿时间差与单边暴露的分钟数。没有这项，研究里的净边缘含有不可执行的同步性。</p><p><span class="marginnote">公司行动、停牌、涨跌停会使基准价格不可成交。TCA 应把这些母单标成单独一层，而不是让它们的巨大滑点污染普通连续竞价的均值。A 股涨跌停上的「未完成」是制度，不是算法偷懒。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>TCA 是事后，不能在盘中当最优控制用。用上一阶段的平均滑点当下一笔的冲击预测，是粗糙但可用的先验；用它替代状态依赖的深度与毒性，会在体制切换时滞后。数据质量决定一切：时钟同步、成交方向、中间价是否含自身成交、暗池打印延迟，都会改滑点几个基点，而这几个基点往往就是算法之间的全部差别。</p><p>不要用全样本一个数字比较两种 SOR。不要在基准集合里事后挑选「对我们有利的那把尺子」。不要把研究账户的纸面再平衡缺口与交易台的到达价缺口加总成「总 TCA」却不声明决策点。外汇与期货还有点差惯例、展期与结算价规则，股票上的到达中间价不能原样搬过去。</p><p>与事前模型的分工：Almgren–Chriss 一类给出窗口内的目标速率；TCA 检验实现成本是否与校准的冲击函数一致。若事后成本系统性高于模型，应重估冲击，而不是把模型夏普留在研究端、把超支留在交易端。容量结论必须来自按参与率分层的 TCA，而不是来自零冲击回测，见 <a href="/quant/capacity-participation">容量与参与率</a>。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>TCA 是成交后把实现均价与未完成对照事先基准的会计，用来改路由与日程参数，不是盘中公式。</li><li>主基准须在下达时锁定；实施缺口与 VWAP 回答不同问题，事后挑选基准会使任何算法看起来都赢。</li><li>报告要拆已执行 / 未执行，并按难度轴分层；无条件均值比较的是订单流，不是技能。</li><li>多腿策略必须用组合缺口，分腿跑赢 VWAP 不能证明同步开仓可执行。</li><li>出处：Perold, <em>JPM</em>, 1988；Berkowitz, Logue and Noser, <em>Journal of Finance</em>, 1988；分解框架见 Kissell 的执行质量论述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 执行与交易成本<!--[--> · 单元 冲击<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 8 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/smart-order-routing/">智能订单路由 SOR</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

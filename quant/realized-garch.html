@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>已实现 GARCH | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_realized-garch.md.D-123vEP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 8 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/stochastic-volatility/">随机波动 SV</a></p><p class="lesson-next"> 下一课：<a href="/quant/iv-vs-rv/">隐含 vs 已实现波动</a></p></nav><div style="position:relative;"><div><h1 id="已实现-garch" tabindex="-1">已实现 GARCH <a class="header-anchor" href="#已实现-garch" aria-label="Permalink to &quot;已实现 GARCH&quot;">​</a></h1><div class="epigraph"><p>把已实现波动当成潜在条件方差的带噪声测量，与收益方程联立，日收益平方就不再是方差过程的唯一观察值。</p><footer>—— Hansen, Huang and Shek, Realized GARCH: A Joint Model for Returns and Realized Measures of Volatility, Journal of Applied Econometrics 2012</footer></div><p><a href="/quant/stochastic-volatility">上一课</a>让对数方差走带新息的自回归；有 RV 时潜波动被钉住，SV 与已实现测量模型合流。缺口是把合流写成可估的联合动态：GARCH 只用 \(\varepsilon_{t-1}^2\) 更新；HAR 只用 RV 预测 RV，不保证与收益的条件方差是同一个过程。Hansen–Huang–Shek 的已实现 GARCH 让潜方差 \(h_t\) 由已实现测量驱动，再写测量方程把当日 RV 连到 \(h_t\) 与当日收益新息。本课写这条联合模型。不重推 Heston 特征函数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>经典 GARCH 的信息集在 \(t-1\) 日收盘：今日开盘到现在的波动要等到今晚的 \(\varepsilon_t^2\) 才进入明天的 \(\sigma\)。但今日的 RV 在收盘时已知，且比 \(\varepsilon_t^2\) 干净得多。直接把 RV 塞进 GARCH 替换 \(\varepsilon^2\)，会忽略 RV 与 \(h_t\) 的尺度差、偏差，以及 RV 与当日 \(z_t\) 的相关（杠杆）。问题是写一个联合模型：</p> \[r_t=\sqrt{h_t}\,z_t,\qquad h_t=\omega+\beta h_{t-1}+\alpha x_{t-1},\qquad x_t=\xi+\varphi h_t+\tau(z_t)+u_t, \]<p>其中 \(x_t\) 是已实现测量（RV、核、RK），\(u_t\) 是测量噪声，\(\tau(z)\) 是杠杆函数。要估的是潜方差动态、测量的校准（\(\xi,\varphi\)）以及 \(\tau\)。没有测量方程，RV 与 \(h\) 的单位可以对不齐；没有 \(\tau\)，下跌日 RV 偏高会被当成 \(h\) 的水平跳。</p><h3 id="测量方程是模型的核心-不是附属诊断" tabindex="-1">测量方程是模型的核心，不是附属诊断 <a class="header-anchor" href="#测量方程是模型的核心-不是附属诊断" aria-label="Permalink to &quot;测量方程是模型的核心，不是附属诊断&quot;">​</a></h3><p>\(\varphi\) 接近 1、\(\xi\) 接近 0 时，\(x_t\) 近似无偏观察 \(h_t\)（再加 \(\tau\) 与 \(u\)）。实践中五分钟 RV 往往高估（噪声）或因隔夜缺失而与收盘到收盘 \(h_t\) 不对齐，\(\xi,\varphi\) 就是来吸收这些。换用 <a href="/quant/realized-kernel">已实现核</a> 或预平均，\(u_t\) 的方差应变小，\(\varphi\) 更接近 1。把任意一个「波动代理」丢进右边而不估计测量，等于假设代理已经是 \(h_t\)，这正是朴素「GARCH-X」常有的误设。</p><p><span class="marginnote">GARCH-X 通常指在方差方程里外生放入 RV，但不写 \(x_t\) 如何由 \(h_t\) 生成，因而不能完整似然、也不能把今日 \(x_t\) 正确反馈进今日对 \(h\) 的理解。Realized GARCH 的测量方程使 \(x\) 内生，滤波与预测是联合的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>设定。</strong> Hansen–Huang–Shek 常用对数线性：\(\log h_t\) 对 \(\log x_{t-1}\) 回归，保证正性，类似 EGARCH 的方便。杠杆 \(\tau(z)\) 取 Hermite 型多项式，例如 \(\tau(z)=\tau_1 z+\tau_2(z^2-1)\)，以同时吸收符号与大小。\(z_t\) 与 \(u_t\) 可设为联合高斯或更肥的尾。一步预测 \(h_{t+1}\) 在收盘后立刻用今日 \(x_t\) 更新，这是相对经典 GARCH 的信息优势。</p><p><strong>估计。</strong> 联合准极大似然。残差有两个：标准化收益 \(z_t\) 与测量残差 \(u_t\)。诊断应两者都看：若 \(u_t\) 仍有强持续，测量没吸干 RV 的动态，可能要给 \(u\) 自己加 AR，或换更干净的 \(x\)。若 \(z_t\) 仍有非对称，加重 \(\tau\) 或把 EGARCH 式符号放进 \(h\) 方程。</p><p><strong>与 HAR、HEAVY 的关系。</strong> HAR 预测 RV，不联立收益。Shephard 与 Sheppard 的 HEAVY 用已实现测度驱动收益的条件方差，结构不同但共享「RV 进信息集」。Realized GARCH 的特点是显式测量方程与杠杆 \(\tau(z)\)，从而 \(x_t\) 与 \(r_t\) 同期相容。样本外比较应固定损失：对收益密度用对数分，对波动用 QLIKE，不要只用 RV 的 \(R^2\) 宣布胜利——那会让纯 HAR 占便宜，因为它不承担收益方程。</p><h3 id="的构造先于似然" tabindex="-1">\(x_t\) 的构造先于似然 <a class="header-anchor" href="#的构造先于似然" aria-label="Permalink to &quot;$x_t$ 的构造先于似然&quot;">​</a></h3><p>输入是五分钟 RV、核还是双幂次，决定 \(u_t\) 里有多少噪声与跳跃。含跳的 RV 会让 \(\tau\) 与 \(u\) 在崩盘日极端；连续变差更接近 \(h_t\) 的连续部分，但与总二次变差（对冲对象）不一致。隔夜：若 \(r_t\) 是收盘到收盘，而 \(x_t\) 只是开盘到收盘，测量方程必须允许 \(\varphi\neq 1\) 或把隔夜平方加进 \(x\)，否则系统性地把隔夜方差推进 \(u_t\)。管道与 <a href="/quant/har-rv">HAR</a> 相同：先对象，后方程。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是状态空间： \(h_t\) 为状态，\(r_t\) 与 \(x_t\) 为观测。GARCH 只有一个噪声极大的观测 \(\varepsilon_t^2\)；现在每日多了一个高质量观测 \(x_t\)，状态被钉得更紧，类似于 SV 滤波在看见 RV 之后的收缩。杠杆 \(\tau(z)\) 让当日负 \(z\) 提高当日 \(x\) 的条件期望，而不必把这笔同期相关误写入 \(h\) 的持久成分——否则每一次下跌都会被当成方差水平的永久上移，持续性被高估。</p><p>预测机制：收盘后，\(x_t\) 进入 \(h_{t+1}\) 的方差方程，信息集比 GARCH 多了完整一日的日内变差。开盘前对「今日」的 \(h_t\) 仍只能用昨日信息；盘中若要更新，需要日内 Realized GARCH 或直接用截至当前的核，那是另一套高频模型。日频 Realized GARCH 的本分是<strong>隔夜到下一开盘之间的条件方差</strong>，不是 tick 级。</p><p><span class="marginnote">测量噪声 \(u_t\) 不是微观结构噪声的同义词，但会被后者撑大。换核估计后若似然大增、\(u\) 的方差下降，说明你之前在让模型吸收估计量误差。改进 \(x\) 往往比把 \(h\) 的阶数从 (1,1) 升到 (2,2) 更有效。</span></p><h3 id="潜波动-garch、sv-与已实现测量的合流点" tabindex="-1">潜波动：GARCH、SV 与已实现测量的合流点 <a class="header-anchor" href="#潜波动-garch、sv-与已实现测量的合流点" aria-label="Permalink to &quot;潜波动：GARCH、SV 与已实现测量的合流点&quot;">​</a></h3><p>GARCH：无额外波动冲击，状态可测。SV：有 \(\eta_t\)，无直接测量。Realized GARCH：状态仍可写成可测递推（给定过去 \(x\)），但测量方程承认 \(x\neq h\)，并允许当日 \(z\) 进入 \(x\)。它比 SV 轻（不必粒子滤波），比 GARCH 富（用了 RV）。若还要给 \(h_t\) 额外冲击，就滑向 Realized SV，估计又变重。工程上先 Realized GARCH，诊断 \(u_t\) 是否白；若 \(u\) 里仍有一块像波动自身的新息，再考虑 SV。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>联合模型对 \(x_t\) 缺失敏感：半日停牌、指数成分调整、数据源切换会让测量断裂。缺失日不要用 \(\varepsilon_t^2\) 偷偷替换 \(x_t\) 而不改测量方差，否则滤波会把噪声当 IV。多元 Realized GARCH 需要已实现协方差，异步与维数立刻变难，实务常对指数与因子组合估一元，个股用 beta。</p><p>不要用 Realized GARCH 的 \(h_t\) 直接当隐含波动：仍缺风险溢价。不要在样本内用未来全日 RV 去驱动「开盘时」的 \(h_t\)。计算比 HAR 重、比 SV 轻，适合作为有高频数据时的日频默认联合模型。若只有指数有可靠 RV、个股没有，对个股保留 GJR，对指数用 Realized GARCH，比强行给每只股票一个劣质五分钟 RV 更诚实。</p><p><span class="marginnote">对数线性设定下，对 \(h\) 的预测变回方差要小心 Jensen。报告波动预测时应写是 \(E[h_{t+1}]\) 还是 \(\exp(E[\log h_{t+1}])\)。比较 HAR 与 Realized GARCH 时两边用同一变换、同一损失。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Hansen–Huang–Shek（2012）把 RV 类测量与收益联立：方差方程由已实现测量驱动，测量方程把 \(x_t\) 校准到潜方差 \(h_t\) 并吸收杠杆。</li><li>相对经典 GARCH，收盘后的信息集包含当日 IV 代理，一步预测通常明显改进；相对纯 HAR，它同时承担收益密度。</li><li>测量方程不可省：\(\xi,\varphi,\tau,u\) 处理偏差、尺度、同期杠杆与估计噪声。</li><li>\(x_t\) 的构造（核、隔夜、跳跃）先于似然；改进测量往往比升阶更有效。</li><li>仍是物理测度的条件方差，不是隐含波动；多元与缺失日是主要工程边界。</li><li>出处：Hansen, Huang and Shek, <em>Realized GARCH: A Joint Model for Returns and Realized Measures of Volatility</em>, Journal of Applied Econometrics, 2012。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 8 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/iv-vs-rv/">隐含 vs 已实现波动</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

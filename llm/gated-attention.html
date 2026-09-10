@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>门控注意力 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_gated-attention.md.BBdlTG6C.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 7 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/embedding-pooling/">嵌入模型的池化</a></p><p class="lesson-next"> 下一课：<a href="/llm/sigmoid-attention/">sigmoid 注意力</a></p></nav><div style="position:relative;"><div><h1 id="门控注意力" tabindex="-1">门控注意力 <a class="header-anchor" href="#门控注意力" aria-label="Permalink to &quot;门控注意力&quot;">​</a></h1><div class="epigraph"><p>在注意力输出上再乘一个由当前表示决定的门，等于给 softmax 权重之外补一条内容相关的幅度；汇到首位置的质量可以被压下去。</p><footer>—— Qiu et al., Gated Attention for Large Language Models, 2025；门控单元的前身见 Hua et al., Transformer Quality in Linear Time, ICML 2022</footer></div><p><a href="/llm/embedding-pooling">上一课</a>把编码器的位置序列收成句向量，单元转到注意力内部。主干里的 <a href="/llm/sdpa">SDPA</a> 与 <a href="/llm/mha">多头</a> 输出直接残差加回，幅度完全由 softmax 行和与值向量决定。本课补门：输出侧或值侧乘 \(\sigma(W_g x)\)，让「看谁」和「写多强」分开。后课的 sigmoid 注意力会动归一化本身；本课先不动 softmax。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Softmax 强制一行权重和为 1。即使所有键都与查询无关，仍有一单位质量要写进残差流，常常灌进首 token 或低信息位置，形成注意力汇。训练基础课里的 logit 增长、sink，优化侧可以压，架构侧缺一条<strong>按查询把整次读取关掉</strong>的通路。FFN 里的 GLU 已经证明门有用，但那是对通道，不是对这次注意力的输出幅度。</p><p>Hua 等人的 GAU 把门控与单头注意力揉成一个单元，替换部分 MHA+FFN。Qiu 等人在标准多头上只加输出门，更像补丁。本课以输出门为默认对象，GAU 当作把门前移到单元设计的变体。</p><p><span class="marginnote">不要把门控注意力写成「又一种 SDPA」。缩放点积与 softmax 仍在；门是逐位置的标量或向量，乘在加权求和之后。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记 SDPA 输出 \(u=\mathrm{softmax}(QK^\top/\sqrt{d_k})V\)，再经输出投影。门控写成</p> \[y = u \odot \sigma(x W_g), \]<p>\(x\) 是进入该子层的表示（Pre-LN 下常是归一化后的残差流），\(W_g\) 把 \(d\) 映到头拼接维度或 \(d\)，元素为 sigmoid。有的实现按头共享一个标量门，有的按通道。残差仍是 \(x+y\)；门接近 0 时该子层近似恒等。</p><p>GAU 把特征拆成门支路与值支路，注意力在较低维上算，再用门调制，线性项更少。课序上只需记住：门的输入是当前查询侧内容，不是键侧统计。</p><h3 id="与注意力-dropout-的差别" tabindex="-1">与注意力 dropout 的差别 <a class="header-anchor" href="#与注意力-dropout-的差别" aria-label="Permalink to &quot;与注意力 dropout 的差别&quot;">​</a></h3><p>Dropout 在训练时随机把权重或残差置零，推理关掉。门是确定的、推理仍在，学的是「这一位置需不需要读上下文」。它可以抑制 sink，但不能替代正则。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Softmax 决定方向（单纯形上的点），门决定步长。无关上下文时步长应近 0，残差流不被强制写入噪声。汇到首位置的权重即便仍大，乘上门之后写入幅度可变小，后续层更少依赖「把质量堆给 BOS」。Qiu 等人观察到加门后 sink 减轻、部分长上下文指标上升，稳定性来自幅度可学习，而不是改了缩放公式。</p><p>梯度上，\(\sigma\) 饱和会把 \(W_g\) 的更新掐掉，初始化不宜把门推到 0 或 1。与 GLU 相同，门支路需要足够的激活方差，否则子层一出生就关死。</p><p><span class="marginnote">按头设门，等于允许某些头常开、某些头按 token 关闭，和后课「头的功能分化」衔接，但本课不解释头在做什么，只给关闭权。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>门不降低 \(n^2\) 的分数矩阵，也不改 KV 缓存布局；它不是效率技术。若门学成恒近 1，等于白加一组参数。sigmoid 注意力会取消行和为 1，与门控同时用时，「关断」有两条通路，难以归因。GAU 改的是层的模块划分，不能和「MHA 后加一行门」的检查点直接合并。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>门控注意力在 softmax 加权之后用内容门调制幅度，把「看谁」与「写多强」分开。</li><li>它针对的是行和为 1 导致的强制写入与注意力汇，不改 SDPA 公式。</li><li>输出门是补丁；GAU 把门收进单元，替换的是模块边界。</li><li>不省 KV、不降二次复杂度；门饱和会关死子层。</li><li>出处：Qiu et al., 2025；Hua et al., ICML 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 7 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/sigmoid-attention/">sigmoid 注意力</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

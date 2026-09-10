@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>离散对冲误差 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_discrete-hedge-error.md.CirRikAe.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 15 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/greeks-hedge/">Delta / Gamma / Vega 对冲</a></p><p class="lesson-next"> 下一课：<a href="/quant/arb-free-iv/">隐波插值 arbitrage-free</a></p></nav><div style="position:relative;"><div><h1 id="离散对冲误差" tabindex="-1">离散对冲误差 <a class="header-anchor" href="#离散对冲误差" aria-label="Permalink to &quot;离散对冲误差&quot;">​</a></h1><div class="epigraph"><p>连续复制在两次再平衡之间并不成立；误差的领先项由 Gamma 与已实现方差相对隐含方差的差额决定。</p><footer>—— 连续极限见 Black and Scholes, 1973；离散再平衡见 Boyle and Emanuel, Journal of Financial Economics, 1980；Bertsimas, Kogan and Lo, Journal of Financial Economics, 2000</footer></div><p>Black–Scholes 的复制在连续交易下把期权变成标的与债券的动态组合。真实市场只能在离散时点调仓：按日、按报价更新、或按 Delta 偏离限额再平衡。Phelim Boyle 与 David Emanuel 1980 年分析了离散调整的期权对冲，指出误差并不随步长简单消失成白噪声，而与 Gamma 及平方收益的分布有关。Dimitris Bertsimas、Leonid Kogan 与 Andrew Lo 2000 年问「时间何时可视为连续」，把离散对冲误差的渐近写成可计算的对象。Hull 的希腊字母章节把同一现象说成：Delta 中性之后，P&amp;L 仍随 Gamma 与已实现波动变动。它是 <a href="/quant/greeks-hedge">Delta / Gamma / Vega 对冲</a> 的误差理论，不是另一套希腊字母。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设在 \(t_i\) 把组合 Delta 对冲到零，持有到 \(t_{i+1}\) 再调。区间内标的走了 \(\Delta S\)，期权价值走的是曲线，对冲组合走的是切线。差的主项是 \(\frac12\Gamma(\Delta S)^2\)，再减去为持有 Gamma 所支付的 Theta（在模型里对应 \(\frac12\Gamma S^2\sigma^2\Delta t\)）。若已实现 \((\Delta S/S)^2\) 大于隐含方差所「预收」的量，空头 Gamma 亏损；反之盈利。连续极限把这些局部误差平均掉；有限步数留下随机累积，可能还有偏差。</p><p>问题是定量的：误差如何依赖再平衡频率 \(n\)、路径的方差与跳跃、以及是否按离散再平衡的最优规则（固定时刻还是触及阈值）。若只把步长减半就期望误差减半，可能猜错阶数：均方误差往往按 \(1/n\) 下降，但厚尾与跳跃会留下不随 \(n\) 消失的项。</p><h3 id="局部-p-l-分解" tabindex="-1">局部 P&amp;L 分解 <a class="header-anchor" href="#局部-p-l-分解" aria-label="Permalink to &quot;局部 P&amp;L 分解&quot;">​</a></h3><p>在两次再平衡之间，忽略高阶与利率，卖出一份已 Delta 对冲的期权的 P&amp;L 近似</p> \[\Delta\Pi \approx -\frac12\Gamma S^2\left(\left(\frac{\Delta S}{S}\right)^2-\sigma^2\Delta t\right)+\nu\Delta\sigma+\cdots. \]<p>第一项是离散 Gamma 误差：已实现二次变差对上隐含方差。第二项是波动率移动，连续 Delta 对冲本来就不覆盖 Vega。若波动率不变且 \(\Delta S\) 来自与定价相同的扩散，期望上第一项接近零，但仍有方差。Boyle–Emanuel 在正态框架下计算了这种残差的分布特征；路径依赖与离散采样使分布偏斜——大动日对空头 Gamma 特别痛，因为平方项只在一侧猛烈。</p><p><span class="marginnote">「每天对冲一次」的误差方差，不能用连续公式的 Theta 去代表。Theta 是期望补偿；离散误差是围绕该补偿的随机项，频率与 Gamma 轮廓决定其尺度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把 \([0,T]\) 分成 \(n\) 步，每步用当时模型 Delta。累积对冲误差 \(E_n\) 在扩散、无跳跃、波动率常数且按正确 \(\sigma\) 定价时，通常满足 \(\sqrt{n}\,E_n\) 弱收敛到某个随机积分，均方 \(\mathbb{E}[E_n^2]=\mathcal{O}(1/n)\)。Bertsimas–Kogan–Lo 把「时间连续」理解成：何种条件下离散策略的结果逼近连续复制。结论对标的过程的路径性质敏感：布朗运动下加密再平衡有效；若价格有跳跃，两次报价之间的跳无法用中间的 Delta 捕捉，\(E_n\) 不趋于零。</p><p>实务算法包括：日历再平衡、Delta 偏离超过 \(\delta\) 再平衡、在 Gamma 大的区域加密。后者承认误差尺度是 \(\Gamma S^2\) 乘以平方收益的波动，在到期附近的平值，Gamma 峰值使同样的 \(\Delta t\) 更危险。成本方面，每次再平衡付价差与费用，最优频率在误差方差与冲击之间权衡，而不是 \(n\to\infty\)。</p><h3 id="已实现方差与隐含方差" tabindex="-1">已实现方差与隐含方差 <a class="header-anchor" href="#已实现方差与隐含方差" aria-label="Permalink to &quot;已实现方差与隐含方差&quot;">​</a></h3><p>把离散 Gamma 误差对时间求和，形状像方差互换的结算：对 \(-\Gamma S^2/2\) 加权的已实现方差，减去定价用的 \(\sigma^2\)。若 \(\Gamma\) 近似常数，卖出期权加 Delta 对冲就接近做空已实现方差。这正是 <a href="/quant/variance-swap-vix">方差互换</a> 与香草卖出之间的直观桥梁，也说明为何对冲误差在波动率飙升日与空头方差仓同步爆掉。\(\Gamma\) 随 \(S,t\) 变，权重不是 \(1/K^2\) 的完美条带，故香草离散对冲 \(\neq\) 纯方差互换。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>连续复制依赖「在每一瞬时都位于切线上」。离散时你在弦上。弦与弧的差距由曲率 Gamma 决定。加密再平衡缩短弦，误差降；但报价噪声会让 Delta 本身抖动，过频对冲会把微观结构噪声当成信号，来回成交，见微观结构与买卖价差的讨论。正确频率是信号（真实 Delta 漂移）对噪声（弹跳）的权衡，不是越快越好。</p><p>模型错误与离散是两层。即使用连续对冲，错的 \(\sigma\) 或错的微笑动态仍留 Vega/Vanna。离散在正确模型上仍留 Gamma 项。压力测试应分开：提高再平衡频率，看误差是否按预期下降；若几乎不降，主导的是跳跃或隔夜缺口。隔夜是强制的离散步，<a href="/quant/calendar-overnight">隔夜与日历</a> 效应会进入对冲误差，不能用日内 5 分钟频率假装消除。</p><h3 id="与希腊字母限额的关系" tabindex="-1">与希腊字母限额的关系 <a class="header-anchor" href="#与希腊字母限额的关系" aria-label="Permalink to &quot;与希腊字母限额的关系&quot;">​</a></h3><p>台子常规定「Delta 不超过某数再平衡」。这是把 \(E_n\) 的增量控制在 \(\frac12\Gamma(\Delta S)^2\) 的预算内。Gamma 限额则限制即使立刻再平衡之前，一次跳空能造成的损失。二者一起，才近似 Boyle–Emanuel 所分析的对象。只限 Delta 而不限 Gamma，等于允许在到期日平值堆积无限曲率，一次跳空摧毁复制。Hull 把 Gamma 与 Theta 并列，正是提醒：收 Theta 的人在卖出这种离散风险。</p><p><span class="marginnote">蒙特卡洛若用粗时间步给期权定价，再在更粗的步上对冲，会把数值偏差写成「对冲误差」。定价步长、对冲步长、市场真实再平衡，三者必须分开声明。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>渐近结果依赖半鞅结构。停牌、涨跌停、拍卖机制使 \(\Delta S\) 不是自由扩散增量。美式提前行权、障碍触及在离散监控下另有误差。多资产用交叉 Gamma，再平衡要在相关矩阵估计误差下进行。随机波动率下，即使连续 Delta 对冲也不完整，还需对方差状态对冲；离散则两者都有采样误差。</p><p>Boyle–Emanuel（1980）与 Bertsimas–Kogan–Lo（2000）给出离散相对连续的理论尺度；Black–Scholes（1973）给出被逼近的理想对象。它们不规定你的台子应该五分钟还是按 Delta 阈值交易。那是成本、流动性和限额的工程，必须用自己的成交数据估计，而不是引用渐近阶数交差。</p><p><span class="marginnote">把对冲误差的样本方差直接当「模型质量」，会与离散频率混杂。比较模型应固定同一再平衡规则，或把频率推到成本允许的极限再比残差。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>连续 Delta 复制在离散再平衡下留下以 Gamma 为核心的误差，领先项是已实现方差减隐含方差。</li><li>扩散情形均方误差通常随再平衡次数 \(n\) 以 \(1/n\) 下降；跳跃与隔夜缺口不随 \(n\) 消失。</li><li>过频对冲会放大价差与微观结构噪声；最优频率权衡误差与冲击。</li><li>空头 Gamma 加 Delta 对冲在路径上接近做空已实现方差，但权重随 \(\Gamma(S,t)\) 变化。</li><li>Delta 限额与 Gamma 限额控制的是同一误差的不同侧面。</li><li>出处：Black and Scholes, 1973；Boyle and Emanuel, <em>JFE</em>, 1980；Bertsimas, Kogan and Lo, <em>JFE</em>, 2000；操作语言见 Hull。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 15 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/arb-free-iv/">隐波插值 arbitrage-free</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

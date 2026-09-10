@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>暗池、ATS 与中点单 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_dark-pool-midpoint.md.BkCPN7VM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 市场设计<!--]--></p><p class="lesson-progress">第 15 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/price-grid-tick/">价格栅格</a></p><p class="lesson-next"> 下一课：<a href="/quant/market-fragmentation/">市场分割与 NBBO</a></p></nav><div style="position:relative;"><div><h1 id="暗池、ats-与中点单" tabindex="-1">暗池、ATS 与中点单 <a class="header-anchor" href="#暗池、ats-与中点单" aria-label="Permalink to &quot;暗池、ATS 与中点单&quot;">​</a></h1><div class="epigraph"><p>不展示买卖报价的场所把匹配移到公开栅格内部，最常见的锚是公开中点。事前透明被牺牲，换的是更少的展示冲击，以及更难检验的对手方。</p><footer>—— 据 Ready, The Tale of Two Exchanges, 以及 Zhu 对暗池与知情交易选择的理论；对照 SEC 对 ATS 的公开披露框架</footer></div><p><a href="/quant/price-grid-tick">价格栅格</a>说明公开限价不能挂在半 tick 中点上。<a href="/quant/order-types">订单类型</a>已经把暗池当成一种场所，没有写匹配锚与分段后的会计。本课的缺口是市场设计：ATS / 暗池用什么价格成交（中点、参考价改善、定期交叉）、谁被允许进来、成交如何打印回公开磁带。Ready 比较不同结构的执行成本；Zhu 问知情者会不会更爱暗处。后课的市场分割把暗池放进多场所系统；本课只把中点协议写清楚。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>公开连续簿的状态是 BBO 与深度。暗池的状态常常只有：你的单是否还在、有时有指示性量，没有公开的对方报价。中点单（midpoint peg / midpoint cross）把成交价钉在当时公开中点 \(m\)，买卖双方各让一半展示价差。对 taker 这是价格改善；对 maker 这是放弃报价价差、只赚（可能的）回扣或减少信息泄露。问题是 \(m\) 来自哪一张公开簿、延迟多少、以及暗池里的对手是不是知情者。</p><p>若中点来自已经过时的 SIP，\(m\) 可能已经被直连报价越过，中点成交其实是在过时的「中间」成交，经济上偏向一方。这与后课 SIP 对照衔接，本课先记下：中点协议寄生在公开报价上，公开报价的时钟质量就是暗池的定价质量。Zhu 的机制是：知情者在暗处隐藏规模，非知情者提供中点流动性时承担逆向选择。暗池不是免费的中点。</p><h3 id="中点、参考价改善与定期交叉不是同一种-ats" tabindex="-1">中点、参考价改善与定期交叉不是同一种 ATS <a class="header-anchor" href="#中点、参考价改善与定期交叉不是同一种-ats" aria-label="Permalink to &quot;中点、参考价改善与定期交叉不是同一种 ATS&quot;">​</a></h3><p>中点撮合：买卖单在 \(m\) 上配对，常要求最小数量、或禁止会锁定公开市场的价格。参考价改善：允许在 \(m\) 与 BBO 之间的价格成交。定期交叉：像迷你集合竞价，每隔一段时间用中点或出清价批量配对。三者的价差会计不同。中点成交的有效价差相对当时 \(m\) 接近零，但不能说成本为零——你承担了等待、不成交、以及对手知情时的事后冲击。定期交叉更接近<a href="/quant/continuous-vs-auction">集合竞价</a>，只是锚通常仍是公开中点。</p><p><span class="marginnote">「暗」指事前不展示报价，不是事后永不打印。美股成交仍须向磁带报告；延迟与场所代码决定研究能否把它从公开成交里认出来。A 股没有对等的股票暗池生态，本课的制度对象以 ATS 文献为主，对照写在边界。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>执行会计把暗池成交单独成列：到达中点、等待时长、成交价相对到达时公开中点、成交价相对成交时公开中点（两者因延迟可能不同）、以及随后 \(\tau\) 的实现价差。相对到达中点的偏差度量时钟；随后中点移动度量逆向选择。Comerton-Forde 与 Putniņš 等对暗池份额与价格发现的经验工作，问的是暗成交增加时公开市场质量变好还是变差，而不是「暗池里省了半个价差」。</p><p>样本要按场所类型分：竞价交易所、做市商内化、中点 ATS、零售批发。全部混成「场外」会把零售改善与机构暗池挤在一个均值里。没有场所代码时，只能用「成交在公开 BBO 内部」当粗糙代理，该代理也包含零股与本所隐藏单，见<a href="/quant/lot-size-odd-lot">手数</a>。</p><h3 id="准入、分段与规模筛选" tabindex="-1">准入、分段与规模筛选 <a class="header-anchor" href="#准入、分段与规模筛选" aria-label="Permalink to &quot;准入、分段与规模筛选&quot;">​</a></h3><p>许多 ATS 对参与者做分段：零售、机构、高频。分段是为了降低毒性，等于在暗处做对手方选择。研究若把所有中点成交当同质，会低估分段场所的实现价差、高估开放场所的。规模筛选（minimum quantity）把小的探测单挡在外面，大单才匹配，这改变了冰山式的信息泄露，也改变了填成率。方法是把场所规则当成执行算法的状态，而不是当成一个滑点常数。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>中点协议把公开价差的一半做成匹配锚。公开做市商仍在格子上报价，为全市场生产 \(m\)；暗池免费（或几乎免费）使用这个锚。于是出现搭便车：展示流动性的激励下降，中点成交的份额上升，公开深度可能变薄。这是市场设计的反馈，不是道德批评。若公开 BBO 变宽，\(m\) 的质量下降，中点成交的「改善」以更差的锚为参照，改善是幻觉。</p><p>信息写入：暗成交若延迟打印，公开簿短时间内不知道发生过交易。知情买入可以先在暗处吸量，再出现在公开跳价里。价格发现的领先滞后会偏向公开报价场所，即使成交量已经大量离开。Hasbrouck 式份额用报价新息，暗池没有报价，份额自然不算它——这是度量的盲区，不是暗池没有信息。</p><p><span class="marginnote">不要用 <a href="/quant/roll-model">Roll</a> 去估暗池价差：暗池经常没有买卖回跳，成交钉在中点，协方差结构被设计成接近零。有效价差相对 \(m\) 也接近零。有信息的是实现价差和填成率。</span></p><div class="mermaid"></div><h3 id="中点锚的延迟就是暗池的定价误差" tabindex="-1">中点锚的延迟就是暗池的定价误差 <a class="header-anchor" href="#中点锚的延迟就是暗池的定价误差" aria-label="Permalink to &quot;中点锚的延迟就是暗池的定价误差&quot;">​</a></h3><p>锚若来自过时 SIP，\(m\) 已不是可成交中间。实现价差会把管道延迟写成逆向选择。对照应同时报到达中点与成交中点，分叉归时钟，漂移归信息。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>欧洲的暗交易限制、美股对 ATS 的透明度规则、中国股票市场几乎不存在对等暗池，不能互相外推结论。债券、CDS 的「暗」是 OTC 询价，见<a href="/quant/corporate-bond-otc">公司债 OTC</a>，匹配锚不是股票 SIP 中点。加密的非展示订单在中心化交易所内部，法律地位与 ATS 不同。</p><p><span class="marginnote">A 股没有对等 ATS 中点生态。把美股暗池改善率搬到沪深连续竞价，制度对象不存在。</span></p><p>本课不讨论如何识别或规避暗池里的有毒对手，只要求：中点不是免费午餐，锚的时钟和对手方分段决定实现成本。下一课把暗池放进多场所与 NBBO 的系统里。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>中点单寄生在公开 BBO 上；公开报价的时钟就是暗池的定价质量。</li><li>有效价差接近零不表示成本为零，要实现价差、等待与不成交。</li><li>中点撮合、改善撮合、定期交叉是三种 ATS，会计不同。</li><li>分段与最小数量改变毒性，不能把所有暗成交当同质。</li><li>暗成交挤出展示深度时，中点锚本身会变差。</li><li>出处：Zhu, <em>RFS</em>, 2014；Ready 对执行场所的比较；Comerton-Forde and Putniņš 等对暗池与价格发现的经验工作；SEC ATS 披露文件。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 市场设计<!--]--></p><p class="lesson-progress">第 15 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/market-fragmentation/">市场分割与 NBBO</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

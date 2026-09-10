@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>鞅与局部鞅 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_martingale-local.md.BTc2BoCu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 7 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/conditional-expectation-proj/">条件期望作为投影</a></p><p class="lesson-next"> 下一课：<a href="/quant/stopping-optional-sampling/">停时与可选抽样</a></p></nav><div style="position:relative;"><div><h1 id="鞅与局部鞅" tabindex="-1">鞅与局部鞅 <a class="header-anchor" href="#鞅与局部鞅" aria-label="Permalink to &quot;鞅与局部鞅&quot;">​</a></h1><div class="epigraph"><p>鞅是条件期望沿时间走平的过程：$\mathbb E[M_t\mid\mathcal F_s]=M_s$。伊藤积分在可积条件下是鞅；局部化之后是局部鞅。</p><footer>—— 据 Karatzas and Shreve, 1991, 第 1、3 章；Shreve, Stochastic Calculus for Finance II, 2004, 第 4 章整理</footer></div><p>上一课<a href="/quant/conditional-expectation-proj">条件期望作为投影</a>给出了 \(\mathbb E[\,\cdot\mid\mathcal G]\)。缺口是把它沿信息流 \(\{\mathcal F_t\}\) 排成过程，得到「公平游戏」的精确定义。没有鞅，风险中性定价只是一句口号：贴现资产为何该走平，还没有对象。本课只定义鞅与局部鞅，并声明伊藤积分落在哪一类。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>投影已经会做。缺口是时间一致性：对 \(s\lt t\)，今天对 \(M_t\) 的预测应等于今天已经看到的 \(M_s\)，否则中间可以插入一个有偏的增量。适应、可积、加上这条投影关系，就是鞅。定价里还要处理 \(\int\sigma S\,\mathrm d W\) 这类未必可积的积分——它往往只是局部鞅。把两者混成「都是公平游戏」，Girsanov 的指数过程何时真是鞅会说不清。</p><h3 id="局部鞅不是「差一点的鞅」" tabindex="-1">局部鞅不是「差一点的鞅」 <a class="header-anchor" href="#局部鞅不是「差一点的鞅」" aria-label="Permalink to &quot;局部鞅不是「差一点的鞅」&quot;">​</a></h3><p>局部鞅是：存在停时 \(\tau_n\uparrow\infty\)，使 \(M^{\tau_n}\) 为鞅。它可以有漂移假象：正局部鞅若不是一致可积，期望可以严格下降（严格局部鞅）。金融里「贴现股票在 \(Q\) 下是鞅」必须核验可积，不能只看到 SDE 没有 \(\mathrm d t\) 项就下结论。本课先把定义分开，核验留给换测度课。</p><p><span class="marginnote">连续局部鞅加上 \([M]_t=t\)，Levy 刻画说它是布朗运动。二次变差课留下的接口，在这里收口。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>过程 \(M\) 适应、可积，若对 \(s\le t\) 有 \(\mathbb E[M_t\mid\mathcal F_s]=M_s\)，则称鞅。上鞅把等号换成 \(\le\)（期望下降），下鞅相反。布朗运动是鞅；\(\mathrm e^{\sigma W_t-\frac12\sigma^2 t}\) 在 Novikov 条件下是鞅。有限变差的补偿子把下鞅拆成鞅加增过程（Doob–Meyer），本课只需要：定价时把有补偿的部分叫漂移，无补偿的叫鞅部分。</p><p>伊藤积分 \(\int_0^t H\,\mathrm d W\)：若 \(\mathbb E\int H^2\lt \infty\)，则是平方可积鞅，且 \([\int H\,\mathrm d W]=\int H^2\,\mathrm d t\)。若只有 \(\int H^2\lt \infty\) a.s.，则是连续局部鞅。GBM 的随机项 \(\int\sigma S\,\mathrm d W\) 先作为局部鞅出现；在真实测度下 \(S\) 本身一般不是鞅，因为还有 \(\mu S\,\mathrm d t\)。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>塔性自动给出多期一致性：从 \(t\) 投影到 \(s\) 再投影到 \(u\)，等于一次投影到 \(u\)。这就是「没有可预见的漂移」。二次变差描述的是鞅部分的「能量」：连续鞅被 \([M]\) 唯一确定到一个布朗时变（Dambis–Dubins–Schwarz），本课不证，只用来读 \([M]\)：没有二次变差就没有连续鞅噪声。</p><p>严格局部鞅在气泡模型里出现：价格可以是正局部鞅而期望下降。主干定价假设 Novikov 或 Kaza­maki，把指数局部鞅升级为鞅，从而 Girsanov 合法。后课换测度时默认已经做过这次升级。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证可选抽样（下一课），不引入半鞅分解的全部技术。离散时间鞅收敛、连续时间的 UI 条件只作为接口：需要 \(\mathbb E[M_\infty\mid\mathcal F_t]=M_t\) 时，必须一致可积。后课默认：无漂移的伊藤积分先当局部鞅；写定价方程时默认已升级为鞅。下一课<a href="/quant/stopping-optional-sampling">停时与可选抽样</a>处理「何时停下来仍然公平」。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>鞅：适应、可积、条件期望走平。</li><li>可积伊藤积分是鞅；一般只保证局部鞅。</li><li>局部鞅需核验，不能从「SDE 无漂移」直接当鞅。</li><li>连续局部鞅的能量由二次变差给出。</li><li>出处：Karatzas–Shreve 第 1、3 章；Shreve SDE II 第 4 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 测度与期望<!--]--></p><p class="lesson-progress">第 7 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/stopping-optional-sampling/">停时与可选抽样</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波动率套利 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_vol-arb.md.CyzVLZ8k.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 随机波动与跳跃<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 24 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/var-swap-replication/">方差互换复制</a></p><p class="lesson-next"> 下一课：<a href="/quant/dispersion-trade/">Dispersion 交易</a></p></nav><div style="position:relative;"><div><h1 id="波动率套利" tabindex="-1">波动率套利 <a class="header-anchor" href="#波动率套利" aria-label="Permalink to &quot;波动率套利&quot;">​</a></h1><div class="epigraph"><p>Delta 对冲后的香草损益，领头项是 Gamma 对已实现方差与隐含方差之差的积分；它看起来像套利，实际上是卖出（或买入）一条在崩盘时赔钱的风险因子。</p><footer>—— 复制骨架见 Carr and Madan, 1998；Delta 对冲收益与负的波动率风险溢价见 Bakshi and Kapadia, Review of Financial Studies, 2003</footer></div><p>交易台把「隐含对已实现」叫做波动率套利：买低估的期权、卖高估的期权，Delta 对冲标的，让 PnL 跟方差缺口走。Carr–Madan 的对数复制说明，若你真能持有 \(1/K^2\) 条带，标的接近方差互换，模型依赖被压到跳与离散误差上。实务里的「vol arb」却几乎总是有限的执行价、离散对冲、买卖价差，以及指数与个股混在一个账本里。Gurdip Bakshi 与 Nikunj Kapadia（2003）证明：买入期权并 Delta 对冲，平均收益为负——与 <a href="/quant/variance-risk-premium">波动率风险溢价</a> 同号。本篇写 Gamma–Theta 核算、它与方差互换的距离、以及为何这不是蝶式那种静态套利。对象对齐见 <a href="/quant/iv-vs-rv">隐含 vs 已实现</a>；条带权重见 <a href="/quant/var-swap-replication">方差互换复制</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Black–Scholes 下，连续对冲、无跳、以 \(\sigma_{\mathrm{imp}}\) 定价并以同一 \(\sigma\) 对冲时，期权价值沿 PDE 滑动，Theta 与 Gamma 互相抵消。真实路径的瞬时方差是 \(\sigma_t^2\)，离散时刻的损益近似</p> \[\mathrm{d}\Pi \approx \frac12\Gamma S^2\bigl(\sigma_t^2-\sigma_{\mathrm{imp}}^2\bigr)\,\mathrm{d}t \]<p>再加上高阶与跳跃。多头期权在 \(\sigma_t\gt \sigma_{\mathrm{imp}}\) 的时段赚钱，这就是 Gamma scalping 的来源。问题有三层。第一，单一执行价的 \(\Gamma(S)\) 随现货移动，权重不是方差互换的 \(1/K^2\)，现货一旦远离执行价，你不再交易「纯方差」。第二，\(\sigma_{\mathrm{imp}}\) 本身会变：Vega 与 Vanna、Volga 让曲面运动进入 PnL，对冲若只用 Black Delta，等于把微笑风险当 alpha。第三，平均而言 \(\mathbb{E}^{\mathbb{Q}}[\sigma^2]\gt \mathbb{E}^{\mathbb{P}}[\sigma^2]\)，买波动的期望是付保险费，不是领免费午餐。</p><p>因此「套利」二字在这里是行话。静态蝶式违例才是模型无关、持有到期的锁定价；vol arb 是带风险价格的相对价值，胜率来自溢价是否过高、对冲是否足够干净，而不是来自 \(g(k)\lt 0\)。</p><h3 id="从单期权到条带-何时才像方差互换" tabindex="-1">从单期权到条带：何时才像方差互换 <a class="header-anchor" href="#从单期权到条带-何时才像方差互换" aria-label="Permalink to &quot;从单期权到条带：何时才像方差互换&quot;">​</a></h3><p>\(\Gamma\) 在 ATM 附近最大、在两翼衰减。卖出平值跨式加 Delta，近似做空对 ATM 加权的已实现方差，对左翼跳的暴露小于方差互换（方差互换刻意重权重低 \(K\)）。买虚值看跌加 Delta，则在崩盘时 Gamma 爆炸，PnL 与保险更像。要把账做成接近 \(K_{\mathrm{var}}-\mathrm{RV}\)，应对一列执行价按 \(1/K^2\) 配权，并随 \(F\) 滚动——那已经是方差互换做市，不再是「挑一个 IV 看起来高的执行价」。Coval–Shumway（2001）对零 Delta 跨式收益的研究说明：即使 Delta 中性，期权组合仍有负的平均超额收益，来自波动与跳风险，不是来自 Delta 残余。</p><p><span class="marginnote">用 ATM 隐含减二十日历史波动当信号，测的不是公平 \(K_{\mathrm{var}}\) 与合同 RV 的差。翼部、期限、年化约定都会造出假的「便宜」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>核算。</strong> 每日把账拆成：Delta 残余、Gamma×（已实现方差）、Theta（隐含方差的时间衰减）、Vega×（隐含曲面移动）、跳。vol arb 的 alpha 应落在 Gamma 项相对入场时锁定的隐含方差；Vega 项是曲面观点，应单独限额。对冲频率提高能减小离散误差，但成本按买卖价差线性涨，最优频率随 \(\Gamma\)、波动与价差变化，见离散对冲误差一类文献，而不是固定五分钟。</p><p><strong>对象选择。</strong> 指数上溢价通常更稳、翼更密，卖方差的容量大、回撤也更系统性。个股「IV 高」常常是借券、事件与做市摩擦，卖出后跳空一次可以吃掉数月 Theta。 dispersion 把指数与成分股的相对方差做成另一笔交易，见 <a href="/quant/dispersion-trade">Dispersion</a>，不要和单名 vol arb 混成同一个信号。期限：短端跳风险占比高，长端更多是方差风险溢价与相关；把所有到期压成一个 IV−RV 排序会混两种风险。</p><p><strong>入场比较。</strong> 公平对象是条带 \(K_{\mathrm{var}}\)（或 VIX 对三十天）对随后合同口径的 RV，而不是 ATM IV 对收盘标准差。Bakshi–Kapadia 的检验用 Delta 对冲的看涨组合，发现平均损失，且损失在高波动时期更大——与「保险在需要时赔钱」一致。策略若只用历史胜率、不看当时 VRP 水平与杠杆，会在溢价最薄的时候加仓。</p><h3 id="对冲比-black-delta-还是模型-delta" tabindex="-1">对冲比：Black Delta 还是模型 Delta <a class="header-anchor" href="#对冲比-black-delta-还是模型-delta" aria-label="Permalink to &quot;对冲比：Black Delta 还是模型 Delta&quot;">​</a></h3><p>用 \(\sigma_{\mathrm{imp}}(K,T)\) 插入 Black 公式得到的 Delta，是 sticky strike 的一阶。市场偏斜更接近 sticky delta 或随现货上跳的杠杆，局部波动与随机波动给出不同的 \(\Delta\)。对冲误差的残差会表现为假的 vol arb PnL。实践是：Delta 用与记账模型一致的曲面（无套利插值上的 Black，或 Heston/SLV），并把剩余的 Vanna/Volga 用香草或方差产品收进桶里。不要用 Dupire 的 \(\Delta\) 去对冲一个按 SVI 中间价成交的仓，却把残差叫「实现波动 alpha」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>PDE 把期权的时间衰减钉在隐含方差上：市场按 \(\sigma_{\mathrm{imp}}\) 收费。路径按 \(\sigma_t\) 走，Gamma 是把二者差换成现金的杠杆。风险中性下这个差的期望被定价进权利金；物理测度下你赚不赚，取决于是否承担了方差因子。崩盘时 \(\sigma_t\) 与跳同时出现，空头 Gamma 的损失与股票空头、信用空头同源——边际效用高的状态。这就是溢价的来源，也是「高夏普卖波动」在样本内好看、在 2008 与 2020 同时爆掉的原因。</p><p>曲面运动：即使已实现方差等于入场隐含，若偏斜变陡、ATM 上升，短 Gamma 仍可亏在 Vega 上。vol arb 账必须把「方差观点」和「微笑观点」拆开。后者是 <a href="/quant/vol-skew">Skew</a> 与风险逆转，不是 IV−RV。相关崩溃时指数 IV 相对个股 IV 跳起，看起来像指数 vol 变贵，其实是相关溢价，应归 dispersion 而不是把指数当单名卖。</p><h3 id="容量、保证金与杀开关" tabindex="-1">容量、保证金与杀开关 <a class="header-anchor" href="#容量、保证金与杀开关" aria-label="Permalink to &quot;容量、保证金与杀开关&quot;">​</a></h3><p>Gamma 在现货靠近执行价、临近到期时放大，保证金与交易所涨跌停使对冲无法执行，离散误差变成跳。容量受翼部深度限制：条带要加低 \(K\) 时，那里买卖价差最宽。把 vol arb 做成「无方向」而堆杠杆，等于用保证金换尾部。风控应看压力情景下的 Gamma 再评估（现货跳 5%、IV 跳 10 个点），而不是看过去一年的日度夏普。</p><p><span class="marginnote">卖方平均赚钱不证明期权「标错价」。Bakshi–Kapadia 把平均负的 Delta 对冲收益解释为波动率风险的价格。策略评价应相对这笔溢价，而不是相对零。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>无跳、连续对冲、常数隐含波动的领头公式，在事件日失效。涨跌停与停牌截断 RV，合同与账簿口径必须事先一致。美式个股的隐含波动含早行权，IV−RV 比较会把早行权溢价当成「贵」。交易成本使高频 scalping 的理论 Gamma 利润消失；低频对冲则留下路径依赖。</p><p>Carr–Madan（1998）解释如何把波动变成可交易的欧式对象；Bakshi–Kapadia（2003）给出指数期权上风险溢价的证据。Sinclair 一类交易手册提供操作语言，不是定价定理。不要把 vol arb 写成 Dupire 校准误差，也不要写成蝶式扫描：前者是过程，后者是静态违例。A 股 50ETF 期权的涨跌停与 T+1 改变对冲可行性，把 VIX 策略参数直接搬到本地会低估跳空。</p><p><span class="marginnote">同一笔记若既扫静态负蝶式、又跑 IV−RV 排序，应分成两张单：前者能锁则先锁，后者永远带着方差因子。混在一个「套利」账户里，归因会把保险费当成 alpha。</span></p><p><span class="marginnote">波动率互换与方差互换的 PnL 差一项 Jensen。用波动率点做 vol arb 排序，会把凸性偏好写成错误定价。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Delta 对冲香草的领头 PnL 是 \(\tfrac12\Gamma S^2(\mathrm{RV}-\mathrm{IV}^2)\)，权重随现货漂，一般不是纯方差互换。</li><li>指数上买入并 Delta 对冲平均亏损，对应负的波动率风险溢价，不是免费套利。</li><li>核算须拆开 Gamma（方差）、Vega（曲面）、跳与离散对冲；信号应对齐条带 \(K_{\mathrm{var}}\) 与合同 RV。</li><li>静态蝶式违例才是模型无关套利；vol arb 是带尾部的相对价值。</li><li>出处：Carr and Madan, 1998；Bakshi and Kapadia, <em>RFS</em>, 2003；对照 Coval and Shumway, <em>JF</em>, 2001；溢价见 Bollerslev, Tauchen and Zhou, 2009。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 随机波动与跳跃<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 24 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/dispersion-trade/">Dispersion 交易</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分词器训练语料 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_tokenizer-training-corpus.md.CeR2TzNc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 6 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/vocab-extension-multilingual/">词表扩展与多语言</a></p><p class="lesson-next"> 下一课：<a href="/llm/tokenizer-fertility/">分词 fertility 与公平</a></p></nav><div style="position:relative;"><div><h1 id="分词器训练语料" tabindex="-1">分词器训练语料 <a class="header-anchor" href="#分词器训练语料" aria-label="Permalink to &quot;分词器训练语料&quot;">​</a></h1><div class="epigraph"><p>词表是在哪份文本上数出来的，推理就会把哪类统计当成「一个符号」；用新闻训的 BPE 去切代码，只会得到又长又碎的序列。</p><footer>—— 据 Sennrich 等从平行语料学子词；对照 Raffel 等 C4 与后续预训练报告中「词表与数据绑定」的实践整理</footer></div><p><a href="/llm/vocab-extension-multilingual">上一课</a>假定你已经有一份「目标语言语料」来长新子词。那份语料若是随手抓的网页，扩展会把模板、导航、乱码焊进 \(V\)。本课不重讲 append 的编号契约。缺口是：词表训练分布与模型预训练分布不是自动同一件事，必须单独规定、单独清洗。后课的 fertility 与 glitch，都从这份分布的偏置长出来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/bpe-merge-rule">BPE 合并</a>数的是相邻对频率，<a href="/llm/unigram-segmentation">Unigram</a> 极大似然也是对同一语料。语料换了，表就换了。模型预训练会经过 <a href="/llm/web-clean-dedup">网页清洗与去重</a>、配比、打包；词表若在清洗前的原始抓取上训练，会把 cookie 横幅和重复新闻稿当成最高频对。反过来，若只在维基上训词表、却在 C4 上训模型，网页噪声会大量走碎片或回退，配置里的 token 预算全部失真。</p><p>第二层错位是领域。代码、数学、对话、多语言各有自己的高频碎片。词表语料的配比不必等于模型配比，但必须覆盖模型将会看到的字符类与局部模式，否则 <a href="/llm/pretokenization-regex">预分词正则</a> 再合理，块内也没有可焊的有用对。</p><h3 id="容量远小于预训练" tabindex="-1">容量远小于预训练 <a class="header-anchor" href="#容量远小于预训练" aria-label="Permalink to &quot;容量远小于预训练&quot;">​</a></h3><p>词表训练通常只用十亿级字符而非万亿 token：合并计数在更小样本上就会稳定。这是优点也是陷阱。小样本里的站点偏差、语言偏差会被放大写进 \(V\)，之后亿级 GPU 小时都无法改切分，只能改嵌入。词表语料要刻意分层抽样，而不能「从预训练混合物里随便切一刀」。</p><p><span class="marginnote">去重对词表比对模型更敏感。未去重的镜像页会把同一导航焊成超高频符号，占掉本该给内容词干的名额。词表管线应复用清洗规则，阈值可以更严。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先冻结与模型相同的清洗：语言识别、启发式质量、文档与段落去重。再按计划中的预训练桶做分层：网页、书籍、代码、对话各抽固定份额，份额向「字符集覆盖」倾斜——目标语言与代码的字符要够，不必按最终 token 配比复制一遍。对代码应用仓库级去重后的子集，避免把某个流行仓库的许可证页焊进词表。</p><p>在这份干净混合物上跑 BPE 或 Unigram，加上 <a href="/llm/digit-splitting">数字切分</a> 与特殊符号。产出快照后，在每个桶的持出样本上量长度、UNK/回退率、数字 token 占比，不通过就改抽样再训表，而不是直接开预训练。词表迭代比模型迭代便宜几个数量级，应在这里烧预算。</p><h3 id="与模型语料解耦的合法理由" tabindex="-1">与模型语料解耦的合法理由 <a class="header-anchor" href="#与模型语料解耦的合法理由" aria-label="Permalink to &quot;与模型语料解耦的合法理由&quot;">​</a></h3><p>有时故意让词表语料更「干净」或更「多语言均匀」，以免垃圾模板进表；模型仍用更脏、更偏网页的混合物学语义。这合法，但必须记录两份清单。事后无法回答「这个怪符号从哪来」，glitch 课会很难做。绑定规则是：切分函数对模型语料的覆盖要达标，不要求两份字节级相同。</p><p><span class="marginnote">时间切割也要写清。用 2022 年抓取训词表、用 2024 年抓取训模型，新梗与新 API 会变碎。词表应在时间上覆盖模型数据的主要区间，或接受定期 append。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>词表语料通过频率（或 Unigram 似然）选择 \(V\) 的基底。模型语料通过梯度选择参数。两者对最终损失的耦合是：切得过碎，同样文档变成更长序列，有效上下文变短，注意力与位置编码的负担上升；切得过整，罕见块欠训。清洗与分层决定的是前半段。后半段的领域配比改变梯度，不改变已经焊死的合并表——所以词表必须先于大规模预训练冻结。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>词表语料再讲究，也覆盖不了上线后的新字符与新协议；那是扩展课与特殊 token 课的补丁。也不要把评测集写进词表语料：合并表会为基准里的专有名词提供整词，造成一种隐蔽的污染。下一课 fertility 会把「覆盖」从平均长度拆成按语言、按领域的不公平；本课只把语料这个自变量钉住。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲如何 append；只补词表应从哪份文本上长出来。</li><li>词表语料要清洗、去重、分层，覆盖模型将见的字符类，容量可以远小于预训练。</li><li>与模型混合物允许不完全相同，但必须双清单、可审计。</li><li>词表先于预训练冻结；领域配比改不了已经焊死的切分。</li><li>评测集不得进入词表训练。</li><li>出处：Sennrich, Haddow, Birch, ACL 2016；Raffel et al., C4 / T5, JMLR 2020；Kudo &amp; Richardson, SentencePiece, 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 分词器工程<!--]--><!--[--> · 课序 词表的细节<!--]--></p><p class="lesson-progress">第 6 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/tokenizer-fertility/">分词 fertility 与公平</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

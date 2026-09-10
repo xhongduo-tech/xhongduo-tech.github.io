@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>3D Gaussian Splatting | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kerbl-gaussian-splatting.md.B64wlqww.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 220 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/qwen3-omni-paper/">Qwen3-Omni 技术报告</a></p><p class="lesson-next"> 下一课：<a href="/llm/worldlabs-marble/">World Labs Marble 世界模型</a></p></nav><div style="position:relative;"><div><h1 id="_3d-gaussian-splatting" tabindex="-1">3D Gaussian Splatting <a class="header-anchor" href="#_3d-gaussian-splatting" aria-label="Permalink to &quot;3D Gaussian Splatting&quot;">​</a></h1><div class="epigraph"><p>从 SfM 稀疏点出发，用各向异性三维高斯表示场景；优化与密度控制交错进行，再靠分块光栅化在 1080p 上跑到实时。</p><footer>—— Kerbl, Kopanas, Leimkühler, Drettakis，ACM TOG / SIGGRAPH 2023</footer></div><p>Bernhard Kerbl、Georgios Kopanas、Thomas Leimkühler 与 George Drettakis 的 <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em>（arXiv:2308.04079，ACM TOG 42(4)）把新视角合成从「沿射线查神经网络」拉回显式原语。目标很具体：无界完整场景、1080p、视觉质量追上当时最好的辐射场，同时训练时间可竞争、渲染 \(\geq 30\) fps。World Labs 的 Marble / Atlas 后来把高斯溅射当成高保真导出，那是产品选用这一表示族；本篇只写 2023 年论文的三条构件——三维高斯、自适应密度控制、分块可微光栅化——不把生成式世界的一次前向写成这篇的训练循环。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>网格与点云显式、适合 GPU 光栅化，但从多视照片恢复干净拓扑很难。NeRF 一类连续辐射场用体积积分拟合外观，画质高，却要沿射线步进 MLP 或查网格，随机采样又慢又噪。加速版（体素、哈希、点）往往在完整室内外场景和 1080p 上仍达不到实时。点基方法多半要 MVS 几何；只有 SfM 稀疏点时，估法线、当平面圆盘都不稳。</p><p>需要一种表示：连续、可微、空处不算；又能投影成二维、用标准 \(\alpha\) 混合画出来。输入与当时 NeRF 管线相同：SfM 标定的相机加顺便得到的稀疏点（NeRF-synthetic 甚至可随机初始化）。问题变成：原语用什么参数化、如何在优化中生灭高斯、如何在整幅图上一次排好可见性而不对每个像素做昂贵排序。</p><h3 id="三维高斯而不是带法线的圆盘" tabindex="-1">三维高斯而不是带法线的圆盘 <a class="header-anchor" href="#三维高斯而不是带法线的圆盘" aria-label="Permalink to &quot;三维高斯而不是带法线的圆盘&quot;">​</a></h3><p>每个高斯由均值 \(\mu\)、世界系协方差 \(\Sigma\)、不透明度 \(\alpha\)、球谐颜色构成。三维密度是</p> \[G(\mathbf{x})=\exp\bigl(-\tfrac12(\mathbf{x}-\mu)^\top\Sigma^{-1}(\mathbf{x}-\mu)\bigr). \]<p>投影到相机后得到二维协方差，再按深度做 \(\alpha\) 混合，图像形成与 NeRF 的前向体积混合同构，求值却是溅射。协方差必须半正定，直接梯度下降会走出非法矩阵，故优化 \(S\)（尺度，指数激活）与 \(R\)（旋转），再令 \(\Sigma=RSS^\top R^\top\)。初始化用到最近三个点的平均距离，先当各向同性小球。</p><p><span class="marginnote">Marble 产品里的溅射是生成器写出的粒子云，见 <a href="/llm/marble-gaussian-splats">高保真表示</a>；Atlas 是深度→点云→溅射写出链，见 <a href="/llm/atlas-3d-writeout">三维写出</a>。二者都引用这篇的表示与光栅化，都不替代「多视照片 + 数万步优化」的经典循环。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>优化与渲染交错。损失是 \(\mathcal{L}_1\) 加 D-SSIM。位置用类似 Plenoxels 的指数衰减；\(\alpha\) 走 sigmoid。每隔若干步做密度控制：位置梯度大、覆盖不足的小高斯<strong>克隆</strong>一份并沿梯度挪开；用一个过大高斯去贴精细结构则<strong>分裂</strong>成两个、尺度除以约 1.6，位置从原高斯当 PDF 采样。过透明或过大的高斯剔除。这样平坦墙面留下少数扁椭球，细结构和遮挡边界变密。</p><h3 id="_16×16-分块与一次-radix-排序" tabindex="-1">16×16 分块与一次 Radix 排序 <a class="header-anchor" href="#_16×16-分块与一次-radix-排序" aria-label="Permalink to &quot;16×16 分块与一次 Radix 排序&quot;">​</a></h3><p>光栅化把屏幕切成 \(16\times 16\) 瓦片。视锥与 99% 置信椭圆求交做剔除；近平面外极端位置加保护带，避免投影协方差数值炸掉。每个与若干瓦片重叠的高斯被实例化，键 = 视空间深度 + 瓦片 ID，整幅图一次 GPU Radix 排序。每瓦片得到有序列表，线程块协作把高斯装进共享内存，像素前向混合，累积 \(\alpha\) 饱和则该像素停；整瓦片像素都饱和则瓦片停。反向对参与混合的高斯回传，每像素额外存储是常数级。可见性顺序是<strong>近似</strong>的：没有每像素再排序，高斯很扁、深度交叉时可能排错；论文认为随着优化收敛、椭球贴上表面，误差可忽略。</p><div class="mermaid"></div><p><span class="marginnote">这套光栅化受 Pulsar 等软件光栅启发，但坚持按深度近似的 \(\alpha\) 混合、各向异性溅射、对所有贡献高斯回传。顺序无关的混合或 CNN 后处理会引入时间闪烁；论文把稳定实时预览当成一等目标。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>各向异性协方差是参数效率的来源：沿切向铺开、沿法向压扁，一块墙几颗高斯就够。各向同性点云要密一个数量级才有类似的边。球谐让高光随相机走，而不把高光烤死在表面——这对「看起来真」贡献大，对「这是什么几何」贡献小。密度控制解决 SfM 点太稀：欠重建区域靠克隆长出新几何，过重建区域靠分裂把大斑打碎。没有这一步，优化只会把现有球拉成错误的形状。</p><p>实时来自「空处没有原语」加「排序一次、按瓦片共享」。NeRF 每条射线独立步进，空空间也要采样；高斯只存在于表面附近。训练也受益：前向够快，才能在可接受时间内交错做密度控制。论文强调完整室内外与大深度复杂度，而不是人体捕获里那种浅深度的单物体高斯。</p><h3 id="与后续生成式世界的信息差" tabindex="-1">与后续生成式世界的信息差 <a class="header-anchor" href="#与后续生成式世界的信息差" aria-label="Permalink to &quot;与后续生成式世界的信息差&quot;">​</a></h3><p>Kerbl 等假设<strong>静态</strong>多视、已知相机、可对训练视求光度。生成模型一次写出高斯，没有这篇的克隆/分裂循环，空洞分布不同。评测应对着训练相机与用户新相机分开看：训练视角漂亮只说明拟合。从高斯抽网格、做碰撞，是另一份几何推断，论文没有承诺流形表面。度量重建、换光照路径追踪，超出「新视角合成」合同。</p><p><span class="marginnote">开源实现里的 CUDA 核（tile、排序、混合）是这篇算法的落地点。后续 gsplat 等库改了存储与核融合，数学对象仍是三维高斯加 \(\alpha\) 混合。不要把某个库的默认 SH 阶数写成 2023 年论文的唯一规格。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>动态物体、曝光变化、镜面与半透明超出设定。近似排序在毛发、栅栏、玻璃上可能闪。高斯数量随场景涨，显存是点数 × 每点参数；移动端要量化与层次，那是工程，不是原文贡献。无界场景仍要处理远景与背景，论文用数据集验证，不是任意公里级城市。SfM 失败则初始化失败。许可与实现以官方代码为准。</p><p>World Labs 若把溅射当导出，保的是在类似观察条件下的外观，不是 CAD。需要物理引擎时另出碰撞网格。把 2023 年演示的 30 fps / 1080p 直接写成 2026 年产品规格，忽略了生成资产与捕获资产的密度差。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>3DGS 用各向异性三维高斯作显式辐射场，从 SfM 稀疏点初始化，交错优化与密度控制。</li><li>分块光栅化 + 整图 Radix 排序使 1080p 新视角达到实时，训练也因此快得起来。</li><li>图像形成与体积 \(\alpha\) 混合同构，求值是溅射不是射线 MLP。</li><li>静态多视捕获是原文设定；生成式世界只复用表示，不复用训练环。</li><li>出处：Kerbl、Kopanas、Leimkühler、Drettakis，<em>3D Gaussian Splatting for Real-Time Radiance Field Rendering</em>，ACM TOG 2023，arXiv:2308.04079。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 220 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/worldlabs-marble/">World Labs Marble 世界模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

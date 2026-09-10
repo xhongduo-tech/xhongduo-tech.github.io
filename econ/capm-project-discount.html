@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CAPM 用于项目贴现 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_capm-project-discount.md.DQOYGYIa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本预算与估值<!--]--><!--[--> · 课序 把项目折成今天的钱<!--]--></p><p class="lesson-progress">第 3 / 42 课</p><p class="lesson-prereq"> 先修：<a href="/econ/wacc-cost-of-capital/">资本成本与 WACC</a></p><p class="lesson-next"> 下一课：<a href="/econ/apv/">APV</a></p></nav><div style="position:relative;"><div><h1 id="capm-用于项目贴现" tabindex="-1">CAPM 用于项目贴现 <a class="header-anchor" href="#capm-用于项目贴现" aria-label="Permalink to &quot;CAPM 用于项目贴现&quot;">​</a></h1><div class="epigraph"><p>项目的资本成本取决于项目的风险，不是取决于公司碰巧怎样融资、也不是取决于公司股票过去的 beta。</p><footer>—— 据 Sharpe, Journal of Finance 1964；Brealey, Myers and Allen, Principles of Corporate Finance；Tirole, The Theory of Corporate Finance, 第 3 章 整理</footer></div><p><a href="/econ/wacc-cost-of-capital">上一课</a>把 WACC 的代数写清，但 \(r_E\) 与 \(r_U\) 仍是输入。本课缺口是用 <a href="/econ/capm-theory">CAPM 作为均衡陈述</a> 去填<strong>项目</strong>的要求回报：可比纯业务的资产 beta，而不是本公司股权 beta 一刀切。不重推切点组合，不把横截面异象与限价簿因子工程写进本栏。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>CAPM 说 \(\mathrm{E}[R_i]-r_f=\beta_i(\mathrm{E}[R_m]-r_f)\)。公司金融进阶要的不是再证明市场组合有效，而是：贴现项目时，\(i\) 是项目，不是本公司股票。多元化的股东按不可分散风险要补偿；项目对市场的 beta 决定 \(r_U\)，再按目标杠杆lever 成 \(r_E\) 或直接进 WACC。用本公司历史股权 beta，等于假设新项目与现有资产同一风险、且杠杆恰好等于过去回归窗口里的杠杆。</p><p>缺口因此是拆两层：经营风险（资产 beta）对财务风险（杠杆把 \(\beta_E\) 放大）。Tirole 把投资决策写成「NPV 在股东目标下用机会成本」；机会成本由项目风险定。Brealey–Myers 的纯业务可比（pure play）是操作：找业务相近、交易的企业，去杠杆得到 \(\beta_A\)，再按项目目标杠杆杠杆回去。</p><p><span class="marginnote">Hamada 公式（在债务 beta 为零的近似下）：\(\beta_E=\beta_A\bigl(1+(1-\tau_c)D/E\bigr)\)。债务有风险时 \(\beta_D\gt 0\)，去杠杆要同时拆 \(\beta_E\) 与 \(\beta_D\)。不要把权益 beta 直接当项目成本。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>步骤：（1）选可比公司或分部，估计股权 beta；（2）用市值 \(D\)、\(E\) 与债务 beta（投资级可近似为零）得到资产 beta \(\beta_A=(E/V)\beta_E+(D/V)\beta_D\)；（3）项目若风险与可比同类，用 \(\beta_A\) 得 \(r_U=r_f+\beta_A\times\) 溢价；（4）若用 WACC，按<strong>项目</strong>目标 \(D/V\) 杠杆，不要按母公司。项目比公司更险（绿野、新兴市场需求），\(\beta_A\) 应更高，即使母公司是公用事业。</p><p>公司 WACC 一刀切的后果：安全项目被过高的门槛拒绝，危险项目被过低的门槛接受——内部资本市场把风险项目当「便宜增长」。这与总部配额一样，是代理，不是 CAPM。</p><div class="mermaid"></div><p>市场溢价用历史还是隐含，是输入争议，本课不裁判；对象是<strong>相对</strong>风险 \(\beta_A\)。国家风险、项目特有的政治风险，若不能被股东分散，下一课之后的国家风险溢价再加；能分散的特有风险不进 CAPM 门槛。Tirole：可分散风险可以通过保险或股东组合处理，不应靠提高折现率假装已经处理——现金流里扣期望损失更干净。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是股东的边际定价，不是经理的感受波动。项目特有风险进入折现率，只当它进入 \(\mathrm{Cov}(\cdot,R_m)\) 或破坏税盾、诱发财务困境（那些走 APV 副作用或进 FCF，不走 beta）。经理厌恶自己的职业风险，会把特有波动写成「高门槛」；那是<a href="/econ/agency-free-cash-flow">代理</a>与风险厌恶经理，不是 CAPM。</p><p>与 MM 的衔接：贴现用 \(r_U\) 或 WACC，对应无杠杆或杠杆后的要求回报；不要用 \(r_E\) 去折未杠杆 FCF。项目融资若改变公司杠杆，WACC 的权重是项目的，APV 更干净。本课只钉：风险来自项目对市场的暴露。</p><h3 id="公司-beta-不是项目-beta" tabindex="-1">公司 beta 不是项目 beta <a class="header-anchor" href="#公司-beta-不是项目-beta" aria-label="Permalink to &quot;公司 beta 不是项目 beta&quot;">​</a></h3><p>并购一个低 beta 部门、再用母公司高 WACC 去折，会人为制造 NPV。反向：高 beta 项目挂在低 WACC 公司下，会通过。资本预算的代理成本常常藏在错误的折现率里，而不是 IRR 表上。</p><p><span class="marginnote">底线：CAPM 在本栏是项目机会成本的一张线性表。实证拒绝 CAPM 横截面，不取消「用可比资产风险、而不是用本公司历史股票」这一句操作纪律。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要在本课重做 Sharpe–Lintner 的均衡推导，也不要把 Fama–French 因子当成已经进了公司 WACC——多因子是量化栏与资产定价续，本课停在单因子机会成本。项目与市场相关性低，不是「折现率用无风险」：若仍有不可分散的风险暴露，beta 可以小但不是自动为零；真正的特有灾难应进现金流情景。</p><p>后课默认：项目 \(r_U\) 来自纯业务 \(\beta_A\)；杠杆按项目目标。公司 WACC 一刀切会选错风险项目。下一课：杠杆路径随时间变时，WACC 不够，改 APV。</p><p>不要把限价簿上的高频 beta、微观结构噪声写成项目成本。日频估计的公司 beta 不是资本预算对象。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>项目资本成本由项目 \(\beta_A\) 决定，不是由本公司股票的历史 beta 决定。</li><li>纯业务去杠杆，再按项目目标杠杆；特有风险优先进现金流，不进门槛。</li><li>公司 WACC 一刀切会拒绝安全项目、放行危险项目。</li><li>出处：Sharpe 1964；Hamada；Brealey, Myers and Allen；Tirole, <em>Theory of Corporate Finance</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本预算与估值<!--]--><!--[--> · 课序 把项目折成今天的钱<!--]--></p><p class="lesson-progress">第 3 / 42 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/apv/">APV</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

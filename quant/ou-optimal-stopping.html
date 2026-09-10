@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OU 最优停时 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ou-optimal-stopping.md.4jCK-NkP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 协整、体制与事件<!--]--><!--[--> · 课序 多元与断裂<!--]--></p><p class="lesson-progress">第 7 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/quant/threshold-cointegration/">门限协整</a></p><p class="lesson-next"> 下一课：<a href="/quant/hayashi-yoshida/">Hayashi-Yoshida 相关</a></p></nav><div style="position:relative;"><div><h1 id="ou-最优停时" tabindex="-1">OU 最优停时 <a class="header-anchor" href="#ou-最优停时" aria-label="Permalink to &quot;OU 最优停时&quot;">​</a></h1><div class="epigraph"><p>在带折现与往返成本的 Ornstein–Uhlenbeck 价差上，开平仓是一对自由边界：偏离必须大到使期望折现收益覆盖摩擦与等待，启发式的两倍标准差只是这条边界的粗糙代理。</p><footer>—— 均值回复最优交易见 Bertram, Analytic Solutions for Optimal Statistical Arbitrage Trading, Physica A, 2010；系统处理见 Leung and Li, Optimal Mean Reversion Trading, 2015</footer></div><p><a href="/quant/ou-spread">OU 残差</a> 给出 \(\kappa,\mu,\sigma\) 与半衰期；<a href="/quant/half-life-bands">半衰期与开平阈值</a> 说明 Gatev 等人的 2σ 是可复现启发式，不是从动力学推出来的最优障碍。本篇把进出写成最优停时（或随机控制）：无仓时选进入水平 \(a\)，有仓时选退出水平 \(b\)，目标可以是单位时间期望利润、折现利润或成本后夏普。Bertram（2010）在 OU 加比例成本下给出解析结构；Leung 与 Li 把多组目标与约束写成同一套变分不等式。它补的不是又一个魔术数字，而是：<strong>阈值必须随 \(c,\kappa,\sigma\) 与折现率一起动</strong>；样本内搜 \(k\) 而不对这组参数负责，等于把停时也推进过拟合。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>无成本、可连续交易、线性效用或风险中性时，OU 的瞬时漂移 \(\kappa(\mu-z)\) 在偏离处最大，最优往往是「立刻满仓、在均值平」——这与任何有摩擦的市场冲突。引入往返成本 \(c\)（价差单位）与折现率 \(r\gt 0\)（资金占用与模型风险），进入必须等到 \(\lvert z-\mu\rvert\) 足够大，退出往往<strong>不到</strong>均值就走：再等交叉要付时间风险与再一次可能的扩散走扩。问题是解出函数 \(a(c,\kappa,\sigma,r)\)、\(b(c,\kappa,\sigma,r)\)，而不是再网格搜索 \(k=1.5,2,2.5\)。</p><p>目标函数不同，边界不同。最大化单位时间净利润（Bertram 一类）不显式惩罚路径方差；最大化折现期望会让 \(r\) 升高时障碍更远或区域缩小；夏普目标把波动放进分母，通常给出更保守的进入。必须先写目标，再谈「最优」。回测里用夏普选 \(k\)、用论文公式写进文档，是两套问题混为一谈。</p><h3 id="进入、退出、止损是三个停时" tabindex="-1">进入、退出、止损是三个停时 <a class="header-anchor" href="#进入、退出、止损是三个停时" aria-label="Permalink to &quot;进入、退出、止损是三个停时&quot;">​</a></h3><p>完整规则至少三个障碍：进入 \(a\)、获利退出 \(b\)、止损 \(d\)（或时间止损 \(T_{\max}\)）。经典双障碍常省略 \(d\)，假定模型永远正确。真实 DGP 含 <a href="/quant/cointegration-break">协整破裂</a> 与跳跃，\(d\) 买的是误设保险，保费是纯 OU 下被切掉的期望。最优停时文献多数在<strong>给定 SDE 正确</strong>的条件下解 \(a,b\)；止损应来自对误设的显式建模（体制切换、断裂强度），而不是把 \(d\) 也放进同一无摩擦变分式里一起「优化夏普」。</p><p><span class="marginnote">半衰期 \(\ln 2/\kappa\) 不是持仓天数的上限，也不是 \(b\) 的位置。它只是条件期望衰减的时间尺度。首达时间的分布有长尾；最优 \(b\) 来自值函数的平滑粘贴，不来自「等一个半衰期」。时间止损是对长尾与破裂的截断，见<a href="/quant/statarb-stops">止损与时间止损</a>。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>SDE 与成本。</strong> \(dz=\kappa(\mu-z)\,dt+\sigma dW\)。每次进出支付 \(c\)（可非对称：\(c_{\mathrm{in}}\neq c_{\mathrm{out}}\)，反映做空与冲击）。仓位取 \(\{-1,0,+1\}\) 或连续仓位；后者变成奇异随机控制，实现更难，常先解二值仓位。值函数 \(V_{\mathrm{flat}}(z)\)、\(V_{\mathrm{long}}(z)\) 满足 OU 生成元加上折现，在自由边界上值匹配与平滑粘贴。</p><p><strong>Bertram 的单位时间目标。</strong> 在循环「进入–退出–再进入」下，期望循环利润除以期望循环时间，对障碍求导得到解析或半解析的最优 \(a,b\)。直觉：成本升则 \(\lvert a-\mu\rvert\) 升；\(r\) 或模型风险升则循环必须更快或单次利润更高，往往同时推远进入、提前退出。\(\kappa\) 降则等待变长，同样的 \(c\) 可能使最优选择是<strong>不交易</strong>（区域空集）。这与半衰期过滤是同一约束的连续版。</p><p><strong>Leung–Li 框架。</strong> 把进入与退出分成两个最优停时问题，允许折现、允许有限时域、允许仓位约束。数值上用 ODE 打靶或 PDE 变分不等式。实务不必每次解 PDE：可把 \((c/\sigma_{\mathrm{stat}},\,r/\kappa)\) 做成两张无量纲表，形成期估 \(\kappa,\sigma\) 后查表得 \(k\)，再加执行安全边际。关键是 \(c\) 要用可成交的有效价差与冲击，不是报价价差的一半。</p><h3 id="参数误差下的「最优」会反噬" tabindex="-1">参数误差下的「最优」会反噬 <a class="header-anchor" href="#参数误差下的「最优」会反噬" aria-label="Permalink to &quot;参数误差下的「最优」会反噬&quot;">​</a></h3><p>\(\hat\phi\) 近 1 时 OLS 下偏，\(\hat\kappa\) 偏大，查表会给出过近的 \(a\)，策略显得更勤快——这是均值回复估计里最贵的有限样本偏误，最优停时把它放大成更高换手。应对 \(\kappa\) 用中位数无偏或向较小 \(\kappa\) 收缩，再解边界；或对边界本身加保守垫。\(\beta\) 时变时，\(z\) 不是同一 OU，最优边界跟踪的是一条正在漂移的原点，看起来像「阈值自适应」，实则在用错误状态交易。应先稳定 \(z\)（形成期切片、Kalman 预测残差、GH 未拒绝），再解停时。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>生成元 \(\mathcal{L}=\kappa(\mu-z)\partial_z+\frac12\sigma^2\partial_{zz}\) 刻画瞬时权衡：靠近均值，漂移小、再等的期权价值可能超过立刻平仓；远离均值，漂移大但到达时间的不确定性与止损风险上升。平滑粘贴要求在最优边界上导数连续，否则可以微移障碍提高值函数。成本 \(c\) 在进入时从值函数扣一块，使「刚刚值得进」的点外移。这就是 2σ 启发式有时能用的原因：对某一组典型的 \(c/\sigma_{\mathrm{stat}}\)，最优 \(k\) 碰巧在 1.5–2.5；成本结构一变，\(k\) 应变，固定 2 不会跟着走。</p><p>有<a href="/quant/threshold-cointegration">门限协整</a> 时，DGP 自己在带内不拉，最优进入必须在经济门限之外；把线性 OU 的 \(a\) 解在门限以内，理论利润在真实过程里是零减成本。有 HMM 体制时，值函数应依赖滤波概率，高 \(\sigma\) 体制的 \(a\) 更远。常参数障碍是对「体制概率钉在平静」的特解。</p><p><span class="marginnote">连续仓位的最优控制往往给出「偏离越大仓位越大」，与杠杆限额、借券与冲击凸性冲突。二值或分段线性仓位不是因为理论不够，而是因为执行与风险预算是一等约束。</span></p><h3 id="与-gatev-规则的对照" tabindex="-1">与 Gatev 规则的对照 <a class="header-anchor" href="#与-gatev-规则的对照" aria-label="Permalink to &quot;与 Gatev 规则的对照&quot;">​</a></h3><p>GGR：形成期距离选对，交易期 2σ 开、交叉平、期末强平。优点是零停时参数、可复现、多重检验负担小。缺点是不随品种成本与 \(\kappa\) 变。最优停时：参数多，必须把估 \(\kappa,\sigma,c\) 的样本与交易样本切开，否则边界在样本内完美、样本外崩溃。工程折中：用无量纲表把 \(k\) 写成 \(c\) 与 \(\kappa\) 的函数，函数形式预先指定，只在形成期插入点估计，不在交易期重新优化障碍。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>解析解依赖高斯 OU、常数 \(c\)、无限时域。跳跃、隔夜缺口、离散交易时段会让实际首达早于或晚于扩散公式。应把「触及则下一可交易时刻按中点离场」写进规则，并把跳过障碍的额外损失算进 \(c\)。不要在 \(\hat\phi\gt 0.99\) 时仍输出一组很近的 \(a,b\)。不要用风险中性测度下的 OU（利率、商品）参数去解物理测度的交易障碍。</p><p>篮子残差相关时，各腿单独最优停时的叠加不是组合最优：同时触碰会放大冲击。应在组合层加风险预算，或只交易正交化后的主残差。容量使 \(c\) 随规模上升，最优 \(a\) 外移直到区域消失——这是策略容量的停时表述。</p><p><span class="marginnote">出处链应写 Bertram 与 Leung–Li，而不是只写 OU 的物理原文。交易篇的贡献是摩擦与目标函数，不是重新发现均值回复扩散。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>有成本与折现时，OU 的最优开平是自由边界问题；2σ 只是特定摩擦下的启发式代理。</li><li>Bertram（2010）给出循环利润/时间目标下的解析结构；Leung–Li 把折现、有限时域与约束放进统一停时框架。</li><li>边界随 \(c,\kappa,\sigma,r\) 移动；\(\hat\kappa\) 上偏会把最优停时变成过度交易。</li><li>止损对应模型误设，通常不能与纯 OU 的 \(a,b\) 放在同一无摩擦目标里一起优化。</li><li>先确认残差仍是可交易的 OU（无 GH 破裂、门限之外），再解障碍；体制切换时障碍应依赖滤波概率。</li><li>出处：Bertram, <em>Physica A</em>, 2010；Leung and Li, <em>Optimal Mean Reversion Trading</em>, 2015；启发式对照 Gatev, Goetzmann and Rouwenhorst, <em>RFS</em>, 2006。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 协整、体制与事件<!--]--><!--[--> · 课序 多元与断裂<!--]--></p><p class="lesson-progress">第 7 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hayashi-yoshida/">Hayashi-Yoshida 相关</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

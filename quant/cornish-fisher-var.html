@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cornish-Fisher VaR | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cornish-fisher-var.md.BsQMuGEp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/stress-reverse-stress/">压力情景与反向压力</a></p><p class="lesson-next"> 下一课：<a href="/quant/fhs-var/">Filtered Historical Simulation</a></p></nav><div style="position:relative;"><div><h1 id="cornish-fisher-var" tabindex="-1">Cornish-Fisher VaR <a class="header-anchor" href="#cornish-fisher-var" aria-label="Permalink to &quot;Cornish-Fisher VaR&quot;">​</a></h1><div class="epigraph"><p>正态分位数只使用均值与方差；若损失还有偏度与超额峰度，可用 Cornish–Fisher 把标准正态分位数校正到更接近真实分位数的位置，从而在仍走参数法的前提下给尾巴一阶修正。</p><footer>—— Cornish and Fisher, Moments and Cumulants in the Specification of Distributions, Review of the International Statistical Institute, 1937；风险应用见 Zangari, RiskMetrics Monitor, 1996</footer></div><p><a href="/quant/pit-alignment">上一课</a>收束回测信息集。缺口是损失分位数在非正态下的闭式修正。<a href="/quant/var-methods">参数 VaR</a> 在椭圆且线性的账簿上把分位数写成 \(\mu+\sigma\Phi^{-1}(\alpha)\)。真实损失常左偏、峰度高于 3：下跌日比对称正态更肥。完全放弃参数法、改历史模拟或蒙特卡洛，要付窗口噪声或模型风险；仍想闭式、只多两个矩时，Cornish–Fisher 展开把正态分位数 \(z_\alpha\) 换成按偏度、峰度校正后的 \(\omega_\alpha\)。Zangari（1996）把它写进 RiskMetrics 的修正 VaR；Favre 与 Galeano（2002）用修正分位数做对冲基金组合。本篇写展开式、适用区间，以及它相对 <a href="/quant/expected-shortfall">ES</a> 与 <a href="/quant/evt">EVT</a> 只是中间一层近似——不是厚尾的极限定理。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设损失 \(L\) 的均值 \(\mu\)、标准差 \(\sigma\)、偏度 \(\gamma_1\)、超额峰度 \(\gamma_2\)。若 \(L\) 正态，\(\gamma_1=\gamma_2=0\)，VaR 完全由 \(\sigma\) 决定。若 \(\gamma_1\gt 0\)（损失右偏，坏的一侧更长）或 \(\gamma_2\gt 0\)（尾比正态厚），同一 \(\sigma\) 下 \(\alpha=0.99\) 的真实分位数大于 \(\Phi^{-1}(0.99)\sigma\)。历史法能读到这些矩的经验后果，但 99% 分位数只用到窗口里最差的两三个点，方差很大。问题是：能否用全样本估四个矩，再把分位数写成矩的光滑函数，既保留参数法的速度，又承认非正态。</p><p>Cornish–Fisher 提供的是分位数的 Edgeworth / Cornish–Fisher 渐近：在分布接近正态、累积量不太大时，把 \(F^{-1}(\alpha)\) 展开成 \(z_\alpha\) 与累积量的多项式。它回答的是「对正态公式的局部修正」，不是「任意厚尾的精确分位数」。\(\gamma_2\) 很大或 \(\alpha\) 极高时，展开可以失去单调、甚至给出荒谬的 \(\omega_\alpha\)。</p><h3 id="符号-损失为正还是收益为负" tabindex="-1">符号：损失为正还是收益为负 <a class="header-anchor" href="#符号-损失为正还是收益为负" aria-label="Permalink to &quot;符号：损失为正还是收益为负&quot;">​</a></h3><p>文献里 Cornish–Fisher VaR 有两套符号。以损失 \(L\) 为正、\(\alpha\) 为右尾概率时，\(\omega_\alpha\) 用 \(z_\alpha=\Phi^{-1}(\alpha)\)，偏度是 \(L\) 的偏度。以收益 \(R\) 为对象、VaR 为左尾时，要用 \(z_{1-\alpha}\) 并对偏度变号。混用会把「左偏收益」校正到错误的一侧。工程上固定一种约定：全程用损失，矩从损失序列估，公式不再改号。</p><p><span class="marginnote">四个矩必须在与 VaR 同一地平线、同一标记口径上估。用日收益的峰度去校正十日 VaR，再乘 \(\sqrt{10}\)，把平方根法则与展开的误差叠在一起。应在目标地平线的损失上直接估矩，或先把十日损失合成再展开。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>到四阶累积量，常用的 Cornish–Fisher 分位数为</p> \[\omega_\alpha=z+\frac{1}{6}(z^2-1)\gamma_1+\frac{1}{24}(z^3-3z)\gamma_2-\frac{1}{36}(2z^3-5z)\gamma_1^2, \]<p>其中 \(z=\Phi^{-1}(\alpha)\)。参数 VaR 的修正是</p> \[\mathrm{VaR}_\alpha^{\mathrm{CF}}\approx\mu+\sigma\,\omega_\alpha. \]<p>\(\gamma_1=\gamma_2=0\) 时退回正态。\(\gamma_1\gt 0\) 且 \(z\gt 1\) 时第一项为正，右尾分位数外移；\(\gamma_2\gt 0\) 时 \(z^3-3z\) 在 99% 附近为正，同样外移。平方偏度项是展开的二阶修正，避免只加线性偏度时的不完整。Zangari 的修正 VaR 即这一套；有人再加五阶项，实务上四阶已经噪声很大。</p><p>矩的估计要用足够长的窗口或稳健估计。样本峰度对个别脉冲极度敏感：一个错误印记可以把 \(\gamma_2\) 抬到几十，\(\omega_\alpha\) 失控。应设 \(\gamma_2\) 上限（例如 5–10），或对损失做 Winsorize 后再估矩；清洗规则必须预指定，否则又变成 <a href="/quant/backtest-overfitting">试错次数</a>。</p><h3 id="与-es-的配套修正" tabindex="-1">与 ES 的配套修正 <a class="header-anchor" href="#与-es-的配套修正" aria-label="Permalink to &quot;与 ES 的配套修正&quot;">​</a></h3><p>若仍假设展开后的分布，可用同一 \(\omega_u\) 对 \(u\in[\alpha,1)\) 积分来近似 ES，或对「修正正态」用解析尾期望。这比「CF-VaR 乘一个常数」干净，但仍然不是连贯度量的模型无关定义。更诚实的做法是：CF 只用于日常参数限额的偏度修正；资本与优化仍用 <a href="/quant/expected-shortfall">ES</a> 的历史、MC 或 EVT 估计。Favre–Galeano 把修正分位数送进均值–VaR 优化，好处是闭式，代价是目标函数继承了展开的非单调区间。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>展开的机制是用累积量生成函数在正态附近做多项式逼近，再反演成分位数。它把「尾巴形状」压缩成两个数字 \(\gamma_1,\gamma_2\)，因此只能表达单峰、近椭圆的偏离，不能表达双峰、跳、或极值理论里的幂律尾。\(\xi\gt 0\) 的 Fréchet 尾上，高分位数由尾指数主导，四阶矩甚至可能不存在；此时估 \(\gamma_2\) 本身不合法，Cornish–Fisher 没有定义。这是它与 EVT 的分界：EVT 用阈值以上的超出量，不用中心矩。</p><p>波动聚类下，无条件偏度、峰度与条件偏度、峰度不同。用五年无条件矩去校正今日的条件 \(\sigma_t\)，会在平静期过罚、在危机里仍可能不够——因为危机里条件峰度也会升。条件 Cornish–Fisher 应在标准化残差上估 \(\gamma_1,\gamma_2\)，再乘今日 \(\sigma_t\)，精神与 <a href="/quant/fhs-var">FHS</a> 相同：尺度用条件方差，形状用残差的矩。残差若仍很厚尾，应放弃 CF，改 FHS 或 \(t\) 参数法。</p><p><span class="marginnote">\(\omega_\alpha\) 对 \(\alpha\) 不必单调。峰度大时，可能出现 99.5% 的 \(\omega\) 反而小于 99% 的 \(\omega\)。实现上必须检查单调性：一旦破坏，弃用 CF，回退正态或历史分位数，并报警。不要把非单调当成「更高分位更安全」的反直觉发现。</span></p><h3 id="组合层面-矩如何加总" tabindex="-1">组合层面：矩如何加总 <a class="header-anchor" href="#组合层面-矩如何加总" aria-label="Permalink to &quot;组合层面：矩如何加总&quot;">​</a></h3><p>单工具的四矩不能线性加总。组合的 \(\gamma_1,\gamma_2\) 依赖联合分布的三阶、四阶交叉矩，维数爆炸。实务两条路：直接在组合损失序列上估四个矩（放弃归因）；或假设联合正态、只在组合 P&amp;L 上做 CF（交叉矩由正态决定，偏度来自非线性定价而非因子偏度）。期权账簿的偏度主要来自 Gamma，用线性映射的因子矩再 CF，会漏掉凸性；应对组合重定价后的损失做矩估计，或改 MC。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Cornish–Fisher 是带宽很少的参数补丁：快、可解释、对中等非正态有用。它不是监管意义上的内部模型证明，也不是对 99.9% 的外推。Jorion 把修正 VaR 放在参数法章节的延伸，而不是与历史法、MC 并列的第三种定义。回测仍用 Kupiec / Christoffersen：CF 若在危机连续违反，说明矩窗口过旧或展开不够，不要再加五阶项去「修通过率」。</p><p>不要用 CF 替代流动性调整或压力情景。偏度修正的是标记-to-market 损失分布的形状，不包含变现价差，也不包含监管压力期。与正态参数 VaR 并行报告：若二者接近，非正态不重要；若 CF 大出一截，再决定是接受修正、改 FHS，还是上 EVT。对冲基金与 CTA 的月频样本很短，四矩噪声极大，CF 可能比朴素正态更不稳。</p><p><span class="marginnote">把样本峰度当成「已知的真实 \(\gamma_2\)」是范畴错误。峰度估计的标准误在厚尾下可以与点估计同量级。对 \(\gamma_2\) 做敏感性：0、3、6 三档 CF-VaR，比报一个精确到小数点后两位的 \(\omega_\alpha\) 更有信息。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Cornish–Fisher 用偏度与超额峰度校正正态分位数，得到闭式的修正参数 VaR。</li><li>展开在近正态、中等分位上有用；峰度过大或 \(\alpha\) 极高时会非单调，必须设闸。</li><li>四阶矩在幂律尾上可能不存在；那种尾巴属于 EVT，不属于 CF。</li><li>条件使用时应在标准化残差上估形状、用今日 \(\sigma_t\) 做尺度，与 FHS 同一分工。</li><li>组合四矩不能从边际线性加总；应对组合损失估矩，或放弃闭式。</li><li>出处：Cornish and Fisher, 1937；Zangari, <em>RiskMetrics Monitor</em>, 1996；Favre and Galeano, <em>Journal of Alternative Investments</em>, 2002；教科书对照见 Jorion, <em>Value at Risk</em> 与 McNeil, Frey, Embrechts。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/fhs-var/">Filtered Historical Simulation</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

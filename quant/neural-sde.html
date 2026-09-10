@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Neural SDE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_neural-sde.md.DEH5n-1J.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 深度对冲与学习定价<!--[--> · 单元 深度方法<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 3 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/quant/deep-bsde/">Deep BSDE 求解器</a></p><p class="lesson-next"> 下一课：<a href="/quant/pinn-option-pricing/">PINN 期权定价</a></p></nav><div style="position:relative;"><div><h1 id="neural-sde" tabindex="-1">Neural SDE <a class="header-anchor" href="#neural-sde" aria-label="Permalink to &quot;Neural SDE&quot;">​</a></h1><div class="epigraph"><p>把漂移与扩散写成神经网络，连续时间的残差网络就变成 SDE；作为生成模型，它是无穷维的，判别或评分发生在路径空间，而不是固定长度的向量上。</p><footer>—— Kidger, Morrill, Foster and Lyons, Neural SDEs as Infinite-Dimensional GANs, ICML 2021</footer></div><p>离散残差网络 \(h_{k+1}=h_k+f_\theta(h_k)\) 的连续极限是 Neural ODE。金融市场的对象是带噪声的路径，极限应对应 SDE：</p> \[\mathrm{d}X_t=\mu_\theta(t,X_t)\,\mathrm{d}t+\sigma_\theta(t,X_t)\,\mathrm{d}W_t. \]<p>Patrick Kidger、James Morrill、Cristopher Foster 与 Terry Lyons 把这一对象写成路径空间上的生成器：噪声是布朗，生成器是系数网络加数值解器，对抗或评分在路径泛函上比较真假测度。本篇写 Neural SDE 作为市场生成器与作为潜变量模型的两用、数值解与反传如何耦合，以及它与 <a href="/quant/market-generator-vae">VAE</a>、<a href="/quant/sig-wasserstein-gan">Sig-WGAN</a>、<a href="/quant/deep-bsde">Deep BSDE</a> 的分工；不把 Neural ODE 的伴随方法从头推导，也不把签名特征的代数再写一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>时间序列生成器常用 RNN 或离散 GAN：输出长度固定，不规则采样要填充，在线续写要处理隐状态的离散漂移。SDE 生成器在连续时间上定义，观测可以是任意时刻的采样，缺失不是架构例外。约束也可以写进系数：扩散正定性、线性增长以保证解存在、对价格用几何形式 \(\sigma(t,X)X\) 以免变负。问题是双重的：如何让 \((\mu_\theta,\sigma_\theta)\) 表达力足够产生肥尾与杠杆；如何在离散求解之后仍能对 \(\theta\) 求梯度，而不让步长把模型定义偷偷改掉。</p><p>Kidger 等人强调 GAN 视角：生成器 \(G_\theta(W)\) 把布朗路径映成 \(X\)，这是路径空间到路径空间的映射，判别器应对路径泛函打分。有限维 GAN 把路径压成固定向量再判别，等于先选定采样网格。Neural SDE 把网格降为数值误差，模型本身仍是连续的。训练目标可以是路径空间 Wasserstein、签名 MMD、或得分匹配，但模型类是 SDE。</p><h3 id="潜变量-sde-与观测方程" tabindex="-1">潜变量 SDE 与观测方程 <a class="header-anchor" href="#潜变量-sde-与观测方程" aria-label="Permalink to &quot;潜变量 SDE 与观测方程&quot;">​</a></h3><p>除了直接生成观测路径，还可以设潜过程 \(H_t\) 为 Neural SDE，观测 \(Y_{t_i}=g_\phi(H_{t_i})+\varepsilon\)。这对应不规则时间的状态空间模型，似然一般不可析，要用滤波或变分推断。与 VAE 的差别是先验是路径上的扩散，而不是独立高斯 \(z\)。波动聚集、均值回复可以编码进 \(\mu,\sigma\) 的结构，而不是指望向量 \(z\) 一次说清整段动态。代价是训练更像随机控制：每条样本一条（或几条）潜路径，梯度噪声大。</p><p><span class="marginnote">Neural SDE 不是「带神经网络的 Heston」。Heston 有仿射结构与矩生成函数；Neural SDE 一般没有特征函数。能做的是模拟、滤波与生成，不是 Carr–Madan 式的 FFT 定价，除非再套一层 Deep BSDE 或 PDE 求解器。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>系数参数化。</strong> \(\mu_\theta\) 与 \(\sigma_\theta\) 用 Lipschitz 网络（谱归一、LipSwish 一类）以满足强解条件。多维扩散注意 \(\sigma\sigma^\top\) 的正定：输出 Cholesky 因子。几何资产对 \(\log X\) 建模更稳。杠杆效应需要 \(\mu\) 或 \(\sigma\) 依赖价格水平，或引入相关的第二布朗运动作为随机波动因子——那已是二维 Neural SDE，不是把一维扩散「加宽隐层」能代替的。</p><p><strong>数值格式与反传。</strong> 欧拉–丸山简单，弱一阶；Milstein 在交换噪声下需要 Levy 面积，实现重。训练时步长是模型的一部分：改变评估步长等于改变生成器。反传有两条路：把求解器展开成计算图（内存随步数线性增长），或随机伴随。Kidger 的 torchsde 一类实现把虚拟步与布朗树（Brownian interval）管起来，使同一条 \(W\) 在不同步长下一致，这是可重复实验的关键。不要在训练用粗欧拉、报告用精细解器却声称同一模型。</p><p><strong>训练目标。</strong> 作 GAN：判别器可以是路径卷积、或截断签名上的线性函数——后者与 Sig-WGAN 合流，生成器换成 SDE。作得分或最大似然：一般不可用。作矩匹配：手工 stylized facts，梯度稀疏。作插值：给定两端点，桥接 SDE，用于不规则观测的填补。金融里生成式回测应把目标写进 <a href="/quant/generative-backtest-eval">评估协议</a>，而不是默认对抗损失最小即市场。</p><h3 id="无穷维-gan-的含义" tabindex="-1">无穷维 GAN 的含义 <a class="header-anchor" href="#无穷维-gan-的含义" aria-label="Permalink to &quot;无穷维 GAN 的含义&quot;">​</a></h3><p>有限维生成器 \(G:\mathbb{R}^d\to\mathbb{R}^n\) 的 \(n\) 是输出维。路径生成器的输出「维数」是函数空间。判别器若只看 \(n\) 个采样点，生成器只需在这 \(n\) 个点上骗过，点间可以乱抖。Neural SDE 的样本路径被系数的正则性管住（扩散解的 Hölder），点间行为不是自由的。这是相对离散 GAN 的归纳偏置：不会任意高频振荡，除非 \(\sigma\) 学得很大。粗糙波动要 \(H\lt 1/2\) 的正则，普通 Itô SDE 做不到，需换驱动（分数噪声）或承认模型类不够。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>弱解的存在使 \(\mathrm{Law}(X)\) 由系数与初值决定。训练改变系数，等于在扩散族里找与数据最近的成员。相对 VAE，没有独立于时间的瓶颈 \(z\)（除非另加潜变量）；所有随机性来自 \(W\) 与可选的初值分布。因此续写自然：从当前 \(X_t\) 接着积分同一系数。相对离散 RNN，长期稳定性由 SDE 的回归结构（若 \(\mu\) 有均值回复）约束，而不是由隐状态范数碰运气。</p><p>梯度方面，欧拉展开对 \(\sigma_\theta\) 的导数经过 \(\Delta W/\sqrt{\Delta t}\) 量级的项，步长细时方差大，这是随机反传的老问题。实践上中等步长加系数 Lipschitz，往往比追求很小离散误差更先要。签名判别把路径映到有限矩，给 SDE 生成器一个平滑的损失，避免卷积判别器在网格上挑刺。</p><h3 id="定价与对冲接口" tabindex="-1">定价与对冲接口 <a class="header-anchor" href="#定价与对冲接口" aria-label="Permalink to &quot;定价与对冲接口&quot;">​</a></h3><p>风险中性定价需要的是 \(\mathbb{Q}\) 下的 SDE，漂移被无套利钉住，神经网络应主要参数化扩散与相关。用 \(\mathbb{P}\) 上训出的 Neural SDE 直接平均支付，得到的是真实测度期望，不是价格。Deep BSDE 可在给定的 Neural SDE 上解倒向方程，但必须先改漂移或接受有价格的风险溢价模型。<a href="/quant/deep-hedging-buehler">Deep Hedging</a> 则可直接把 Neural SDE 当模拟器，在 \(\mathbb{P}\) 上做风险最小化，逻辑自洽。混用三种接口而不写测度，是最常见的实现错误。</p><p><span class="marginnote">Kidger et al. 的 ICML 标题写 Infinite-Dimensional GANs，指生成器作用在路径空间。实现仍在有限步上走数值解。论文贡献是模型类与训练视角，不是「不必再选步长」。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>跳跃要用 SDE 加泊松随机测度，或单独的跳跃网络；隔夜缺口同理。系数若全局 Lipschitz 过强，可能限制危机时的扩散爆发；过弱则解爆炸、训练 NaN。校准香草微笑通常仍用参数随机波动或局部波动，Neural SDE 更适合生成与滤波，而不是替换整张曲面的生产定价器。<a href="/quant/pinn-option-pricing">PINN</a> 解的是给定系数的 PDE；Neural SDE 学系数。先学系数再解 PDE，两套网络的误差会叠，中间必须冻结与验证。</p><p>计算上，每条路径每步都要跑系数网络，比一次解码整窗的 VAE 重。批量路径应共享时间网格或使用同一棵布朗树。不要把 Neural SDE 与「深度因子模型每日截面」混称：一个是路径测度，一个是截面条件均值。</p><p><span class="marginnote">存在唯一强解的条件（Lipschitz、线性增长）在 ReLU 无界网络上并不自动满足。训练开始前应对系数做谱约束或增长裁剪，否则「生成了爆炸路径」不是市场肥尾，是数值吹掉。</span></p><p><span class="marginnote">与分数驱动、粗糙波动相比，标准 Neural SDE 的瞬时正则是半鞅的。若评估清单含 Hurst \(H\approx 0.1\)，应换驱动或换模型类，而不是加深 \(\sigma\) 的网络。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Neural SDE 用网络参数化漂移与扩散，作为连续时间生成器，随机性来自布朗路径。</li><li>Kidger 等人把它解释为路径空间上的无穷维 GAN；判别可用签名等路径泛函。</li><li>数值步长与布朗树是模型定义的一部分；训练与评估格式应一致。</li><li>定价必须交代 \(\mathbb{P}\) 与 \(\mathbb{Q}\)；对冲模拟器可以在 \(\mathbb{P}\) 上直接用。</li><li>普通 Itô 类覆盖不了跳跃与粗糙正则；系数必须有存在唯一性约束。</li><li>出处：Kidger, Morrill, Foster and Lyons, <em>Neural SDEs as Infinite-Dimensional GANs</em>, ICML 2021；对照 Neural ODE 与潜变量 SDE 文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 深度对冲与学习定价<!--[--> · 单元 深度方法<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 3 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/pinn-option-pricing/">PINN 期权定价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>进入、退出与沉没成本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_entry-exit-sunk.md.D5HWtS18.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 产业组织<!--[--> · 单元 结构与策略<!--]--><!--[--> · 课序 从市场结构往下<!--]--></p><p class="lesson-progress">第 3 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/differentiated-pricing/">差异化产品定价</a></p><p class="lesson-next"> 下一课：<a href="/econ/vertical-restraints/">纵向约束</a></p></nav><div style="position:relative;"><div><h1 id="进入、退出与沉没成本" tabindex="-1">进入、退出与沉没成本 <a class="header-anchor" href="#进入、退出与沉没成本" aria-label="Permalink to &quot;进入、退出与沉没成本&quot;">​</a></h1><div class="epigraph"><p>沉没成本把进入变成不可逆投资：事后即使利润薄，也不必退出；事前则要求足够的预期利润来覆盖那笔沉没。可竞争市场的「打了就跑」在这里失效。</p><footer>—— Dixit 不可逆投资；Sutton, Sunk Costs and Market Structure, 1991；Bresnahan and Reiss, Entry and Competition in Concentrated Markets, JPE 1991；对照 Tirole 进入壁垒章</footer></div><p><a href="/econ/differentiated-pricing">上一课</a>在给定品种集 \(J\) 上写出 Bertrand 加价。本课缺口是 \(J\) 从哪来：谁愿意付沉没成本进来，谁在需求下降时仍不走。微观<a href="/econ/contestable-markets">可竞争市场</a>用自由进入把 \(p\) 压向平均成本；那里的进入是可逆的。本课把沉没加上，进入变成期权，市场结构由「覆盖沉没的预期利润」内生决定。后课纵向约束会改变进入之后的合同；本课先钉水平方向的进出。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定成本若在退出时能全额收回，在位与潜在进入者面对同一长期成本，打了就跑可以约束在位。沉没则不可收回：厂房、广告存量、研发、渠道。进入决策看的是进入前的期望贴现利润是否盖过沉没；退出看的是可避免成本，沉没已与决策无关。于是出现滞后：需求变差，在位仍生产，潜在者仍不进——两道门槛不对称。缺口不是再画 AC 曲线，而是：<strong>静态定价课把 \(J\) 当数据，政策（合并、管制、补贴）会改变进入博弈，反事实必须重解谁在场。</strong></p><p>Bresnahan–Reiss 用「第 \(n\) 家进入时市场多大」反推竞争如何侵蚀利润。Sutton 把内生沉没（广告、R&amp;D）与外生沉没分开：市场规模变大时，内生沉没可以阻止集中度下降。</p><h3 id="沉没不是会计折旧" tabindex="-1">沉没不是会计折旧 <a class="header-anchor" href="#沉没不是会计折旧" aria-label="Permalink to &quot;沉没不是会计折旧&quot;">​</a></h3><p>折旧是分摊已发生支出的记账。沉没是决策的不可逆：钱出去了，下一期不能当成机会成本。广告的会计寿命可以很短，若品牌资本带不走，对进入仍是沉没。反过来，可转售的通用设备会计上是固定成本，经济上近乎可回收。用折旧年限当进入壁垒，会把 IO 做成会计。</p><p><span class="marginnote">Dixit–Pindyck 把进入写成实物期权：等待会获得关于需求的信息，沉没越大、不确定性越大，进入门槛越高。本课用离散进入博弈的语言，不把连续时间期权公式重推一遍。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>两阶段：先同时或序贯选择进入（付 \(F\) 沉没），再在在位集合上玩上一课的定价博弈，利润反推到进入。自由进入均衡：进入者期望利润 \(\approx F\)，潜在的下一家 \(\lt F\)。Bresnahan–Reiss：把市场大小 \(S\) 与均衡企业数 \(N\) 的阶梯关系估出来，识别「竞争对加价的压缩」。Sutton 下界：外生沉没下集中度随 \(S\) 下降；内生沉没下可以不下降。</p><div class="mermaid"></div><p>动态：在位可以容量、合同、产品扩散来影响 \(F\) 或进入后利润。本课只要求反事实合并若改变利润，就可能改变未来的 \(N\)，静态模拟会漏这一项。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>不可逆使「在场」本身有选择价值。需求高涨时，进入一拥而上；需求回落时，产能留着——集中度与加价的时间序列会滞后于需求。内生沉没把竞争从价格赶到广告与研发：市场越大，竞赛越烧钱，剩下的企业不必更多。这解释为什么有些行业规模扩张后仍是寡头，SCP 的「大市场更竞争」在此失效。</p><p>与可竞争对照：可竞争靠可逆进入惩罚偏离；沉没让惩罚变慢，在位的加价可以在一段时间内不引来进入。限制进入定价、掠夺，都要在沉没背景里才有策略空间——后课掠夺会用到。</p><p><span class="marginnote">Bresnahan and Reiss, <em>JPE</em> 1991 用职业服务的地方市场：第二家进入对加价的压缩往往大于第五家。边际进入的竞争效应递减，是结构估计的典型矩。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不估完整动态寡头（Ericson–Pakes）的计算细节。不写公司法上的破产程序。量化栏的进入退出交易策略不是这里的产业进出。纵向一体化与排他合同会内生地改变 \(F\) 与进入后利润，交给下一课，不在水平进入里提前写完。</p><p>后课默认：\(J\) 可以动；静态加价是进入博弈的第二阶段。合并模拟若假设 \(N\) 不变，要声明这是短期。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>沉没使进入门槛与退出门槛不对称，\(J\) 对需求滞后。</li><li>可竞争的打了就跑依赖可逆进入，此处失效。</li><li>内生沉没可以阻止「市场变大则集中度下降」。</li><li>政策反事实往往要重解谁在场，不只重解价格。</li><li>出处：Sutton 1991；Bresnahan and Reiss, <em>JPE</em> 1991；Dixit；Tirole。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 产业组织<!--[--> · 单元 结构与策略<!--]--><!--[--> · 课序 从市场结构往下<!--]--></p><p class="lesson-progress">第 3 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/vertical-restraints/">纵向约束</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

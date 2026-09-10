@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bahdanau 加性注意力 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_bahdanau-additive-attention.md.s3YyChxL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 循环与对齐<!--]--></p><p class="lesson-progress">第 34 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/teacher-forcing/">Teacher forcing</a></p><p class="lesson-next"> 下一课：<a href="/llm/attention-content-address/">注意力作为内容寻址</a></p></nav><div style="position:relative;"><div><h1 id="bahdanau-加性注意力" tabindex="-1">Bahdanau 加性注意力 <a class="header-anchor" href="#bahdanau-加性注意力" aria-label="Permalink to &quot;Bahdanau 加性注意力&quot;">​</a></h1><div class="epigraph"><p>解码器不必把整句源塞进一个向量；每一步用当前状态去给编码器各步打分，再加权求和当成上下文。</p><footer>—— 据 Bahdanau, Cho &amp; Bengio, Neural Machine Translation by Jointly Learning to Align and Translate, ICLR 2015 整理</footer></div><p><a href="/llm/teacher-forcing">Teacher forcing</a>处理了训练输入协议。本课不重写暴露偏差。缺口仍是上一课留下的定长 \(s\)：长源句早期信息在 \(h_n\) 里被覆盖。方法是加性注意力：保留编码器全部 \(h_j^{\mathrm{enc}}\)，解码器在 \(t\) 步用 \(h_t^{\mathrm{dec}}\) 与每个 \(h_j\) 算一个分数 \(e_{tj}\)，softmax 成 \(\alpha_{tj}\)，上下文 \(c_t=\sum_j\alpha_{tj}h_j\)。本课写清加性打分；内容寻址与点积是后两课。不要写成 scaled dot-product，也不引入多头。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Seq2Seq 的交接是一次。翻译却需要<strong>随目标位置而变</strong>的源侧对齐：生成目标第 \(t\) 个词时，应侧重源的某一段。人工对齐是另一套标注；这里要对齐与翻译联合学习。缺口不是更大的 LSTM，而是解码器每步对源隐状态做一次读取。读取必须可微：硬选 \(\mathrm{argmax}_j\) 无法反传，故用 softmax 权重。</p><p>Bahdanau 的打分是加性网络：</p> \[e_{tj}=v^\top\tanh(W_d h_t^{\mathrm{dec}}+W_e h_j^{\mathrm{enc}}), \]<p>分数不是点积，而是先把两边映到同一空间再相加、过 tanh、再与 \(v\) 点积。这为下一课「注意力是内容寻址」提供具体实例，也为再下一课「为何可以改成点积」留下对照。</p><h3 id="注意力权重不是对齐标注的硬拷贝" tabindex="-1">注意力权重不是对齐标注的硬拷贝 <a class="header-anchor" href="#注意力权重不是对齐标注的硬拷贝" aria-label="Permalink to &quot;注意力权重不是对齐标注的硬拷贝&quot;">​</a></h3><p>\(\alpha_{tj}\) 可以解释成软对齐，但训练目标只有翻译交叉熵，没有强制 \(\alpha\) 与人工对齐一致。多词对一词、空对齐、注意力分散，都是合法现象。把 \(\alpha\) 当成必须与语言学家对齐表重合，会把可视化当金标准。本课的 \(\alpha\) 是加权系数，对齐是事后阅读。</p><p><span class="marginnote">掩码：源的 PAD 位置在 softmax 前把 \(e_{tj}\) 打成极负，与<a href="/llm/softmax-numerics">Softmax 与数值稳定</a>同一规则。否则 PAD 隐状态会分走质量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>编码器仍是（双向）RNN，输出序列 \(H\in\mathbb{R}^{n\times d}\)，不再丢弃中间步。解码器每步：算 \(e_{t,:}\)，稳定 softmax 得 \(\alpha_{t,:}\)，\(c_t=H^\top\alpha_t\)（形状按批广播）。将 \(c_t\) 与 \(h_t^{\mathrm{dec}}\) 拼接或相加，再送分类头。参数 \(W_d,W_e,v\) 与循环参数一起训练。计算量每步 \(O(n)\)，源长线性——比定长 \(s\) 贵，这是换瓶颈的代价。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(c_t\) 随 \(t\) 变，解码器每步看到的源摘要不同。反向把目标词的误差通过 \(\alpha\) 分到被看重的 \(h_j\)，编码器因而学到「可被对齐的」表示。长程：源位置 \(j\) 不必活过 RNN 的 \(\rho^{n-j}\) 才能影响目标末尾——只要在被查询时仍存在于 \(H\) 的第 \(j\) 行。RNN 仍要在编码阶段把局部上下文写进 \(h_j\)，但不必把全句写进 \(h_n\)。</p><p>加性网络比点积多几次仿射，表达力更宽，也更贵。后课会问：若只关心「方向相近」，点积是否够用。本课不提前换公式。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不定义查询—键—值三套投影，不除 \(\sqrt{d}\)。下一课<a href="/llm/attention-content-address">注意力作为内容寻址</a>把「按内容取」从翻译对齐里抽象出来。后课默认：有注意力的 seq2seq 每步读全体编码器状态；打分暂时是加性的。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>定长 \(s\) 是瓶颈；加性注意力用 softmax 权重读取全体 \(h_j\)。</li><li>打分是 \(\tanh\) 里相加再与 \(v\) 点积，不是 \(QK^\top\)。</li><li>\(\alpha\) 可当软对齐读，但不是对齐监督本身。</li><li>每步对源长线性；PAD 在 softmax 前掩掉。</li><li>出处：Bahdanau, Cho &amp; Bengio, ICLR 2015。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 循环与对齐<!--]--></p><p class="lesson-progress">第 34 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/attention-content-address/">注意力作为内容寻址</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

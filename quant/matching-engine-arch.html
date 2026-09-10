@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>撮合引擎架构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_matching-engine-arch.md.B4wu7V-P.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 1 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/quant/corporate-action-engine/">公司行动引擎</a></p><p class="lesson-next"> 下一课：<a href="/quant/orderbook-reconstruction/">订单簿重建</a></p></nav><div style="position:relative;"><div><h1 id="撮合引擎架构" tabindex="-1">撮合引擎架构 <a class="header-anchor" href="#撮合引擎架构" aria-label="Permalink to &quot;撮合引擎架构&quot;">​</a></h1><div class="epigraph"><p>连续市场上的成交不是「双方谈妥」的结果，而是一台按价格–时间（或比例）优先规则运行的确定性状态机：输入是报文，输出是成交、剩余与行情。</p><footer>—— 据 Harris, Trading and Exchanges 对电子撮合与优先规则的论述；对照 Budish, Cramton and Shim, The High-Frequency Trading Arms Race, QJE, 2015</footer></div><p><a href="/quant/ratio-sampling-error">上一课</a>把组合课序收在业绩比率的抽样误差：策略评价假设有一笔可执行的成交。本课打开课程「交易所、数据与工程」。缺口不是再讲<a href="/quant/lob-structure">限价簿几何</a>，而是<strong>那张簿在主机里如何被一台引擎推进</strong>：单线程还是分片、确定性重放、故障切换、与清算的边界。后课从引擎的输出重建簿、再接到报文协议。后课默认已经读完本课对架构的约定。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>策略层看见的是 BBO 与成交打印。引擎层看见的是：报文到达网关、校验、进入撮合核、按优先规则改写订单容器、向外发成交回报与行情。Harris 把优先规则写成市场设计对象；实现上它必须是<strong>可重放的函数</strong>——同一输入序列必须得到同一成交序列，否则监管审计、灾备切换与客户争议无法裁决。问题是：如何把「一台逻辑引擎」映射到物理进程，而不破坏价格–时间优先。</p><p>分片是第一道工程选择。按标的分片（symbol partitioning）让每只证券有独立的撮合线程，跨标的没有全局时间优先，这与连续 LOB 的定义一致：优先权本来就是本簿的。按价格档分片则危险：同一标的的买卖必须看见彼此，否则交叉无法原子消除。Budish、Cramton 与 Shim（2015）指出连续簿把时间竞争压到微秒；架构若再引入跨核锁与不确定调度，优先规则会从「先到先得」退化成「调度器先得」。</p><h3 id="确定性比峰值吞吐更优先" tabindex="-1">确定性比峰值吞吐更优先 <a class="header-anchor" href="#确定性比峰值吞吐更优先" aria-label="Permalink to &quot;确定性比峰值吞吐更优先&quot;">​</a></h3><p>撮合核通常是单线程、无锁、忙轮询：所有改簿操作排成一条全序。网关可以多进程收包，但进入核之前必须序列化。多核「并行撮合同一标的」只有在能证明不破坏全序时才合法，实务上几乎不做。峰值吞吐靠的是：核内数据结构（价位图 + 每档 FIFO）、报文预解析、以及把行情发布移出核的关键路径。把撮合写成普通数据库事务，延迟与抖动都会毁掉时间优先的经济含义。</p><p><span class="marginnote">上交所、深交所、纳斯达克、CME 的产品名不同，逻辑同构：一个标的一条全序事件流。A 股还有集合竞价与涨跌停状态机，核必须切换规则，而不是另起一套簿。连续时段的优先仍见限价簿课，本课不重写阶梯图。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把引擎拆成四段管道，界限必须可观测。<strong>网关</strong>：会话、鉴权、流控、会话层序号。<strong>风险前置</strong>：资金、持仓、涨跌幅、自成交（self-match prevention）。<strong>撮合核</strong>：对单个标的应用 add / execute / cancel / replace，输出成交与簿状态差分。<strong>发布</strong>：成交回报走私有通道，行情走公共馈送，两者的字段必须能对上同一引擎序号。研究用的「交易所时间戳」应取核内事件时间，而不是网关收包时间——后课时钟课会把这三套戳拆开。</p><p>灾备：热备机用同一输入日志重放，切主时以日志序号为权威。若主备用锁步（lock-step）双写，必须定义「以谁的成交为准」；若用主写备追，切换窗口内的未确认订单要按规则撤销或重放。架构文档里「RPO=0」只在输入日志先落盘再撮合时成立，而这会把磁盘写进关键路径——多数现货引擎选择内存撮合 + 异步持久化，于是故障时允许丢失极短窗口并以「未确认视为未成交」收场。这是产品选择，不是实现失误。</p><h3 id="集合竞价与连续核是同一状态机的两种模式" tabindex="-1">集合竞价与连续核是同一状态机的两种模式 <a class="header-anchor" href="#集合竞价与连续核是同一状态机的两种模式" aria-label="Permalink to &quot;集合竞价与连续核是同一状态机的两种模式&quot;">​</a></h3><p>开收盘拍卖把一段时间的申报收成一次出清，连续时段把每笔申报立即匹配。两者共享订单容器，切换的是匹配函数。把拍卖做成独立系统、收盘后再灌进连续核，容易在拍卖成交与连续簿之间丢掉序号。正确的接口是：模式标志进入同一全序，匹配函数按标志跳转。A 股 9:20 后不可撤、涨跌停锁定，都是核的模式，不是行情层的装饰。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>时间优先的经济内容，依赖于「到达」被定义在撮合核入口而不是光纤入口。主机托管把光纤差压到纳秒后，真正的排序权在核的入队锁与网卡中断。于是出现两条市场：客户以为的 FIFO，以及网卡–内核–用户态之间的调度 FIFO。后课低延迟工程处理第二条；本课只需承认：架构若把撮合核暴露在操作系统调度下，优先规则就不是合同里写的那一条。</p><p>成交与行情必须同源。核每改一次簿，应分配单调的引擎序号；成交回报与行情增量都携带该序号。客户用行情重建的簿，若与自己的成交回报冲突，问题在发布管道而不是「行情商算错」。后课重建簿默认：没有引擎序号的馈送，只能得到近似状态。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写如何插队、如何利用网卡暂停对手、如何构造自成交。自成交预防与异常申报是交易所规则对象，研究只能把它们当约束。加密资产链上撮合、RFQ 询价、楼层人工撮合不是本课的状态机。跨所智能订单路由发生在引擎之外，见市场分割课，不要把 SOR 画进本所核内。</p><p>清算不在撮合核里。引擎输出「成交发生」，中央对手方与存管接收的是已经成交的契约；后课 CCP 与结算失败从这里接走。把保证金计算塞进撮合核，会把风险系统的延迟写进价格形成。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>撮合引擎是单标的全序状态机；优先规则必须可重放，不能交给多核调度。</li><li>网关、前置风控、核、发布四段要可观测；研究用的时间戳取核内事件时间。</li><li>集合竞价与连续撮合是同一核的两种模式，不是两套簿。</li><li>出处：Harris, <em>Trading and Exchanges</em>；Budish, Cramton and Shim, <em>QJE</em>, 2015。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 1 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/orderbook-reconstruction/">订单簿重建</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

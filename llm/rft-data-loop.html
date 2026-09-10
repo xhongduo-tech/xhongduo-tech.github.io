@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>拒绝采样数据循环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rft-data-loop.md.CDJREqka.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 SFT 工程<!--]--><!--[--> · 课序 数据、损失与预算<!--]--></p><p class="lesson-progress">第 9 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sft-vs-rl-efficiency/">SFT 对 RL 的数据效率</a></p><p class="lesson-next"> 下一课：<a href="/llm/rslora/">rsLoRA</a></p></nav><div style="position:relative;"><div><h1 id="拒绝采样数据循环" tabindex="-1">拒绝采样数据循环 <a class="header-anchor" href="#拒绝采样数据循环" aria-label="Permalink to &quot;拒绝采样数据循环&quot;">​</a></h1><div class="epigraph"><p>用当前策略生成许多完成，留下奖励或验证器通过的那些，再当示范做 SFT；探索发生在采样里，学习仍然是监督学习。</p><footer>—— Yuan 等数学上的 Rejection Sampling Fine-Tuning（2023）；Dong 等 RAFT（TMLR 2023）；Llama 2-Chat 亦用拒绝采样</footer></div><p><a href="/llm/sft-vs-rl-efficiency">上一课</a>把缺口分成格式、排序与搜索。拒绝采样微调（RFT / RAFT）是搜索缺口上的中间道路：不训练在线 PPO，也不满足于静态示范。循环是：采样 → 打分 → 过滤 → SFT → 更新策略再采样。Yuan 等人在数学推理上展示「生成–筛选–再训」随采样数扩展；Dong 等人的 RAFT 用奖励模型给完成打分再微调；Touvron 等人在 Llama 2-Chat 里同样使用拒绝采样阶段。本课写这个数据闭环，并结束「SFT 工程」单元。下一单元从 <a href="/llm/rslora">rsLoRA</a> 回到参数高效。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态 SFT 的 \(y\) 来自人或教师，与学生当前 \(p_\theta(\cdot\mid x)\) 可能离得很远：学生学的是模仿离线轨迹，推理时却从自己的分布采样，训练–解码错位。在线 RL 对齐分布，但要维护奖励模型、KL、价值头。拒绝采样只保留学生<strong>已经能生成</strong>且分数高的 \(y\)，再对这些 \(y\) 做<a href="/llm/response-only-loss">仅回复 SFT</a>，分布天然 on-policy 或近 on-policy。</p><p>问题变成工程循环：每轮采多少、阈值怎么定、失败样本是否当负例、循环几次后奖励黑客出现。没有循环就退化成一次性 Best-of-N 蒸馏；循环过多又在刷奖励模型癖好。</p><h3 id="过滤器就是奖励" tabindex="-1">过滤器就是奖励 <a class="header-anchor" href="#过滤器就是奖励" aria-label="Permalink to &quot;过滤器就是奖励&quot;">​</a></h3><p>数学可用最终答案核对；代码可用测试；开放对话只能用 RM 或 LLM 裁判。过滤器错，SFT 会强化错法。这与<a href="/llm/instruction-data-lineage">谱系</a>里教师错误同源，只是教师换成了「当前模型 + 过滤器」。</p><p><span class="marginnote">Yuan 等人文标题为 Scaling Relationship on Learning Mathematical Reasoning with Large Language Models：RFT 用模型自己的正确样本扩充 SFT。RAFT 把「正确」推广为奖励排序后取 top。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>固定提示集 \(\mathcal{X}\)（可含难例）。对每个 \(x\)，从当前 \(\theta\) 采 \(N\) 个完成，温度略高于部署以增加多样性。过滤器留下 \(k\) 个（或通过/失败二值）。用通过的 \((x,y)\) 组成新训练集，<a href="/llm/chat-template">chat template</a> 与掩码与普通 SFT 相同，<a href="/llm/lora-vs-full-lr">学习率</a>按参数化选，epoch 少，避免背这一轮的幸运样本。更新 \(\theta\)，进入下一轮；提示集可逐渐加难。</p><p>负例：仅做正例 SFT 是标准 RFT。若把失败完成当「不要这样写」，需要对比损失或 DPO，那就离开纯拒绝采样、进入偏好。本课默认正例循环。</p><div class="mermaid"></div><p>\(N\) 与计算预算线性；过大则同一提示下完成高度相关，边际信息下降。去重（n-gram / 嵌入）与多样性温度是实用旋钮。Llama 2 把拒绝采样与 RLHF 并列：前者产示范，后者直接优化偏好，可以接力而不是二选一。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>每轮 SFT 把质量堆到过滤器通过的区域内。若过滤器是精确验证器，循环近似在扩大「会做这道题」的测度，类似自举。若过滤器是 RM，循环近似强化 RM 的高水平集，包括 RM 的虚假相关（更长、更客气）。KL 相对第一轮 SFT 基线会悄悄增大，即使没有显式 KL 项——因为每轮都在自己的高分尾巴上再训。</p><p>与纯 SFT 比：数据随策略进化，覆盖学生真实会犯的错附近的正确修补。与 PPO 比：没有逐步信用分配，整个 \(y\) 被接受或拒绝，长链中间错误只能靠「整段被拒」间接压。这是样本效率换优化复杂度。</p><p><span class="marginnote"><a href="/llm/lora">LoRA</a> 上做 RFT：每轮适配器迅速拟合本轮 top 完成，下一轮采样多样性下降，循环早停。全参或较高秩更利于多轮自举。NEFTune 可减轻背诵本轮样本。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>无可靠过滤器时不要做 RFT，回去精选 SFT。过滤器比学生强很多时（编译器、标准答案），RFT 极划算；过滤器与学生同弱时，循环放大共同偏见。安全领域用 RM 做拒绝采样，可能系统性地留下「看起来安全」的完成。计算上，RFT 的主成本在采样，不在 SFT 步，账应记在推理吞吐。</p><p>本单元收束：数据谱系、仅回复、打包、NEFTune、学习率分叉、长上下文、领域两阶段、SFT/RL 分界、RFT 循环。后课默认这些工程契约已成立，转向低秩之外的 PEFT。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RFT/RAFT：当前策略采样 → 过滤 → 当示范 SFT，再循环。</li><li>训练–解码对齐优于静态离线示范；代价是过滤器质量与采样算力。</li><li>精确验证器上自举干净；RM 过滤会强化奖励癖好。</li><li>正例 SFT 不自动提供负例；要排序就换偏好损失。</li><li>LoRA 上多轮 RFT 容易多样性塌缩，需早停或提高容量。</li><li>出处：Yuan 等，数学 RFT，2023；Dong 等，RAFT，TMLR 2023；Touvron 等，Llama 2，2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 SFT 工程<!--]--><!--[--> · 课序 数据、损失与预算<!--]--></p><p class="lesson-progress">第 9 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rslora/">rsLoRA</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

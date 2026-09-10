@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SUPO 上下文优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_supo-context.md.DftJi8ZT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 压缩与记忆系统<!--]--><!--[--> · 课序 论文与产品<!--]--></p><p class="lesson-progress">第 15 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/acon-context/">ACON 上下文导航</a></p><p class="lesson-next"> 下一课：<a href="/llm/mem0-layer/">Mem0 记忆层</a></p></nav><div style="position:relative;"><div><h1 id="supo-上下文优化" tabindex="-1">SUPO 上下文优化 <a class="header-anchor" href="#supo-上下文优化" aria-label="Permalink to &quot;SUPO 上下文优化&quot;">​</a></h1><div class="epigraph"><p>把摘要写进 MDP 的转移：上下文越过阈值就重置为「初始提示 + 模型自己写的摘要」，并用一条可分解的策略梯度让现成 RL 基础设施同时优化工具使用与摘要策略。</p><footer>—— Lu、Sun、Du、Ling 等，Scaling LLM Multi-turn RL with End-to-end Summarization-based Context Management，arXiv:2510.06727</footer></div><p>ByteDance Seed / Stanford / CMU 的 Miao Lu、Weiwei Sun、Weihua Du、Zhan Ling、Xuesong Yao、Kang Liu、Jiecao Chen 提出 <strong>SUPO</strong>（SUmmarization augmented Policy Optimization）。多轮工具 RL 会被工作上下文顶死：指令遵循变差、滚动变慢、任务所需工具次数超过窗口。SUPO 不靠外挂冻结摘要器，而让<strong>同一策略</strong>在超阈值时生成任务相关摘要并端到端吃奖励。定理把长滚动的策略梯度写成若干摘要段之和，从而接上 GRPO 风格训练器。CodeGym 与 BrowseComp-Plus 上成功率提高且工作上下文持平或更短（文中绝对点约 +3.2% 与 +14.0%）；测试时可把最大摘要轮数加到超过训练时，搜索任务再涨最多约 7.0%。日期 2025-09-30。本篇写摘要增强 MDP 与过长掩码，对照 <a href="/llm/resum-context">ReSum</a> 的切段广播。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>数学、代码、深搜的 RL 都把推理与工具调用建成 MDP，但滚动一旦含几十上百次工具，提示、模型输出、观察线性堆叠。三条后果：（i）长上下文上遵循与推理变差；（ii）滚动时间成为训练墙钟瓶颈；（iii）窗口硬顶规定了可训任务的难度上限。外挂启发式摘要不与任务奖励对齐；MEM1 覆盖内部状态但不走「分段摘要 + 标准 RL 基础设施」这条形式化路。</p><p>需要把摘要当成转移的一部分，而不是日志后处理。摘要必须由策略生成，以便「留什么」可学习。同时，工程上不能为新 MDP 重写整套 verl/slime 梯度路径——这就是可分解策略梯度的负载。</p><h3 id="摘要增强转移" tabindex="-1">摘要增强转移 <a class="header-anchor" href="#摘要增强转移" aria-label="Permalink to &quot;摘要增强转移&quot;">​</a></h3><p>工作上下文长度越过 \(L\) 时，下一状态不是追加后的历史，而是初始提示加上模型摘要。段与段之间任务继续，但 KV 从短前缀重生。摘要轮数有上限 \(S\)，步数有上限 \(H\)。复杂搜索在评估时可把 \(S\) 加到大于训练值，等于测试时算力换更长程，而不需要更大窗口。</p><p><span class="marginnote">SUPO 的摘要器就是 \(\pi_\theta\) 自己，不是 ReSumTool。因此摘要质量随 RL 进步，也会随奖励黑客退化（把摘要写成「我已经做对了」）。需要可验证终局奖励，不能只靠自说自话。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>算法是 GRPO 变体：一组 \(G\) 条滚动，组内相对优势。长滚动按摘要点切段，每段形状像普通单轨样本。<strong>过长轨迹掩码</strong>：撞上长度上限的失败滚动不把噪声梯度灌进摘要策略，避免训练崩。动态阈值 \(L\) 控制何时压。消融称去掉过长掩码或改优势计算会掉点。</p><p>环境：（i）CodeGym，合成交互式函数调用，要多轮调函数才能解；（ii）BrowseComp-Plus，难搜。相对无摘要或固定上下文 RL，成功率升、工作上下文持平或更短。定性：学到保留迭代下标、关键事实等跨摘要边界仍需要的槽，而不是通顺空话。ACL 2026 长文版本标题为 <em>Beyond the Context Window: Scaling Agentic RL via End-to-end Optimized Context Compression</em>，算法名仍是 SUPO。</p><div class="mermaid"></div><h3 id="定理-3-2-对基础设施的意义" tabindex="-1">定理 3.2 对基础设施的意义 <a class="header-anchor" href="#定理-3-2-对基础设施的意义" aria-label="Permalink to &quot;定理 3.2 对基础设施的意义&quot;">​</a></h3><p>梯度按段相加、每段是标准轨迹项，意味着：现有 trainer 只需改如何切样本、如何把优势赋到段上，不必新反向路径。ReSum-GRPO 也切段，但摘要模型可冻结、优势来自整轨迹广播；SUPO 的摘要 token 本身是 \(\pi_\theta\) 输出，梯度流过摘要文本。这是「上下文优化」一词在本篇的含义：优化的是压缩策略，不是离线指南（那是 <a href="/llm/acon-context">ACON</a>）。</p><p>与 CompactionRL、AutoCompact 等后续工作的对照见工程综述：触发条件、谁写摘要、优势来源不同。引用 SUPO 时用 arXiv:2510.06727，不要把后作数字写回这篇。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>联合优化消除「摘要器与策略分布不一致」：策略不会面对训练时从未见过的摘要风格，因为摘要就是它自己的语言。测试时加大 \(S\)，等于允许更多次重置，搜索类任务还能涨——说明学到的是可重复使用的压缩技能，而不是背训练轮数。过长掩码防止「撑满窗口的失败」被当成摘要失败来惩罚或奖励，稳定早期训练。</p><p>风险：摘要段成为奖励黑客的信道；组相对优势在全组都撞顶时信号弱。CodeGym 是合成环境，迁移到真实 IDE 工具集要重训。BrowseComp-Plus 的 +14.0 绝对点是该设定下相对所列基线，不是任意搜索代理。</p><p><span class="marginnote">工作上下文更短不等于总生成 token 更少：多次摘要本身要生成。报成功时同时报摘要次数与总输出长度，以免把费用藏进「峰值上下文」指标。</span></p><h3 id="与-mem1、resum、agentfold" tabindex="-1">与 MEM1、ReSum、AgentFold <a class="header-anchor" href="#与-mem1、resum、agentfold" aria-label="Permalink to &quot;与 MEM1、ReSum、AgentFold&quot;">​</a></h3><p>MEM1 每步覆盖单槽，训练用 PPO+2D 掩码，不强调可接标准 GRPO 切段。ReSum 即插 + 冻结/特化摘要器 + 广播。AgentFold 用 SFT 学可变 \(k\) 折叠，不在本文 RL 公式里。需要「开源可训模型 + 接现有 GRPO 栈 + 突破窗口训长程」时用 SUPO。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>论文明确未来方向：更细的优势估计、外接记忆、更多域。摘要增强 MDP 不保存原文，合规与调试要另记日志。<a href="/llm/acm-context">ACM</a> 把 SUPO 标为可压缩、可训练、有损、非代理发起（触发是阈值 \(L\) 而非工具调用）。若产品要模型主动说「我现在要压」，需改触发器，不能直接声称论文已做代理发起。</p><p><span class="marginnote">出处：Lu, Sun, Du, Ling, Yao, Liu, Chen，<em>Scaling LLM Multi-turn RL with End-to-end Summarization-based Context Management</em>，arXiv:2510.06727。通讯 <a href="mailto:miaolu@stanford.edu" target="_blank" rel="noreferrer">miaolu@stanford.edu</a>，jiecao.chen@bytedance.com。GRPO：Shao 等。BrowseComp-Plus：Chen 等。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SUPO 将策略生成的摘要写入 MDP 转移，端到端 RL 同时训工具与压缩。</li><li>策略梯度按摘要段分解，可接标准 LLM RL 栈；过长掩码稳定训练。</li><li>CodeGym / BrowseComp-Plus 上更高成功率、更短或持平工作上下文；测试时可加摘要轮数。</li><li>有损、阈值触发；摘要来自同一 \(\pi_\theta\)，与冻结 ReSumTool 不同。</li><li>出处：arXiv:2510.06727。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 压缩与记忆系统<!--]--><!--[--> · 课序 论文与产品<!--]--></p><p class="lesson-progress">第 15 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/mem0-layer/">Mem0 记忆层</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

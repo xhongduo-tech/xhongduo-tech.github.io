@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>到达价格算法 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_arrival-price.md.BpJIn1SP.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 最优执行模型<!--[--> · 单元 最优执行<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 3 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/quant/almgren-temp-calib/">Almgren 临时冲击校准</a></p><p class="lesson-next"> 下一课：<a href="/quant/dark-pool-routing/">暗池路由</a></p></nav><div style="position:relative;"><div><h1 id="到达价格算法" tabindex="-1">到达价格算法 <a class="header-anchor" href="#到达价格算法" aria-label="Permalink to &quot;到达价格算法&quot;">​</a></h1><div class="epigraph"><p>参照到达时刻的中间价来规划速率，实施缺口的冲击与时机风险被写进同一条可调的紧迫度；它优化的是相对决策（或到达）的成本分布，不是相对全日 VWAP 的追踪误差。</p><footer>—— 据 Perold 的实施缺口会计；Almgren and Chriss 的均值–方差执行；Kissell 对到达价算法的实务表述</footer></div><p>经纪商名单里的 Arrival Price / Implementation Shortfall 算法，名义上做一件事：在期限 \(T\) 内完成母单，使成交相对到达中点 \(M_0\) 的缺口在期望与风险之间可调。这与 <a href="/quant/twap-vwap-pov">TWAP / VWAP / POV</a> 不同——那些日程对齐时钟或成交量；到达价对齐的是 <a href="/quant/implementation-shortfall">实施缺口</a> 的参照点。Almgren–Chriss 提供均值–方差前沿；Kissell 等人把紧迫度（urgency）当成客户可理解的旋钮，把前沿上的一点翻译成「更在乎冲击」或「更在乎完成」。本篇写参照点、紧迫度、自适应与评价。无漂移时基准轨迹应是确定性的，见 <a href="/quant/gatheral-schied">Gatheral–Schied</a>；价格触发是额外假设，必须单独检验。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>母单在 \(t_0\) 到达执行台，数量 \(Q\)，方向给定，截止 \(T\)（日终、信号半衰期或客户指定）。若立刻市价，缺口几乎全是冲击，时机风险接近零。若按 VWAP 拖满 \(T\)，冲击较低，但 \(M_t-M_0\) 可能先走，未完成部分在 \(T\) 变成机会成本。到达价算法要选 \(v_t\)，使</p> \[C=\int_0^T v_t\bigl(P_t-M_0\bigr)\,\mathrm{d}t + \bigl(Q-q_T\bigr)(M_T-M_0)+\text{费用} \]<p>的期望与某风险度量可接受。\(P_t\) 含你自己的冲击。问题的第一句是锁 \(M_0\)：是第一笔可交易报价、还是指令进入智能路由的时刻。内部延误（经理决策到 \(t_0\)）不应由到达价算法负责，也不应让算法用更早的价格当参照来「看起来更好」。</p><p>第二句是紧迫度如何进入 \(v_t\)。客户说「中等」没有单位。必须映射到 AC 的 \(\lambda\)、\(T\)、或参与率上限。映射不写死，同一名称在不同经纪商下是不同策略，TCA 不可比。</p><h3 id="基准是到达价-不是-vwap" tabindex="-1">基准是到达价，不是 VWAP <a class="header-anchor" href="#基准是到达价-不是-vwap" aria-label="Permalink to &quot;基准是到达价，不是 VWAP&quot;">​</a></h3><p>用全日 VWAP 评价到达价算法，会惩罚在成交稀疏时仍按风险前倾的路径，奖励尾盘去贴市场均价的行为。到达价算法的设计目标与 VWAP 基准冲突。评价应报：\(C\) 相对 \(M_0\)、完成率、参与率路径、以及相对同期市场（不含自己）的时机项。可以<strong>额外</strong>报 VWAP 短fall 作为描述统计，但不能当主优化目标。自己的成交计入市场 VWAP 时，高参与率下「跑赢 VWAP」部分是自比。</p><p><span class="marginnote">\(T\) 由信号衰减给定时，到达价算法没有权利为了降低 \(\eta v\) 而私自延长。延长等于改写投资决策。算法只能在给定 \(T\) 内沿前沿移动。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>静态日程：用 AC 线性临时冲击得到 \(x_t=Q\sinh(\kappa(T-t))/\sinh(\kappa T)\)，再映射到分桶目标量。\(\kappa\) 由 \(\eta,\sigma,\lambda\) 决定；\(\eta\) 来自<a href="/quant/almgren-temp-calib">临时冲击校准</a>，\(\sigma\) 来自到达时的预测波动，\(\lambda\) 来自紧迫度。U 形成交量下，应在体积时钟或分段 \(\sigma_t\) 上写同一问题，而不是在墙上时钟匀速再贴一个「到达价」标签。</p><p>自适应：让 \(\kappa\) 或剩余量目标随 \(M_t-M_0\) 变化。常见启发式：价格有利（买入时下跌）则加快，把好价格锁进已实现缺口；价格不利则减慢（赌回复）或加快（控制美元风险）。这两支符号相反，必须在产品说明里写死。无漂移基准下，期望意义的最优不看 \(M_t\)；自适应若存在，应来自条件波动、条件弹性、成交量突发、或明确的短期 \(\mu\)，而不是来自随机漫步的已实现增量。</p><p>约束：每桶参与率封顶、价格笼子、不得交易的竞价时段、完成率下限（接近 \(T\) 时允许提高 \(\kappa\)）。完成率下限与冲击目标冲突：强制完成会在末端制造块交易，类似 OW 的终端块，但往往发生在流动性最差的收盘附近。应把「允许未完成」当成政策，未完成进机会成本，而不是口头到达价、实际必须 100% 完成。</p><h3 id="紧迫度、λ-与参与率如何互译" tabindex="-1">紧迫度、λ 与参与率如何互译 <a class="header-anchor" href="#紧迫度、λ-与参与率如何互译" aria-label="Permalink to &quot;紧迫度、λ 与参与率如何互译&quot;">​</a></h3><p>一张表比一个形容词有用。例如：低紧迫 \(\leftrightarrow\) 低 \(\lambda\)、长 \(T\)、低参与率上限，轨迹近匀速；高紧迫 \(\leftrightarrow\) 高 \(\lambda\) 或短 \(T\)，轨迹前倾。参与率封顶会截断前倾：\(\kappa\) 再大，单桶也打不出超过 \(p_{\max}\) 的量，剩余被推后，实际路径比理论双曲正弦更平，风险比客户以为的更大。因此到达价产品必须同时报理论 \(\kappa\) 与约束下的可行路径。多资产到达价还含对冲腿：卖 A 时买指数期货降余量 beta，对冲腿的到达价与股票腿分开记账，否则期货滑点会被藏进「股票执行很好」。</p> \[\kappa=\kappa(\eta,\sigma,\lambda,T),\qquad v_t=\min\bigl(v_t^{\mathrm{AC}},\,p_{\max}u_t,\,v^{\mathrm{limit}}_t\bigr). \]<p>\(u_t\) 为市场成交速率。截断之后要重新分配剩余量，否则 \(T\) 时刻会出现非预期的清扫。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>到达价算法把投资决策的纸面组合与市场摩擦接起来：参照点锁在 \(t_0\)，之后每一单位速率同时产生冲击（通过簿与永久项）和风险削减（余量下降）。紧迫度是把交易台风险预算翻译成货币的旋钮。自适应机制若基于价格，等于把已实现 \(M_t\) 当作信息；在有效市场、无漂移下它不提供期望，只提供路径依赖的风险转移——有利路径上短fall 更好看，不利路径上更差，平均值未必改善。</p><p>与 VWAP 机制的差别是激励。VWAP 日程在市场放量时加量，可能与知情流挤在一起；到达价前倾常发生在到达后前一段，与开盘后的价格发现重叠。指数再平衡日所有到达价母单若都在上午前倾，会制造内生冲击，模型里当作外生布朗的 \(\sigma\) 被低估。</p><h3 id="完成、放弃与机会成本" tabindex="-1">完成、放弃与机会成本 <a class="header-anchor" href="#完成、放弃与机会成本" aria-label="Permalink to &quot;完成、放弃与机会成本&quot;">​</a></h3><p>\(T\) 到达仍未完成，缺口的第二项 \((Q-q_T)(M_T-M_0)\) 归算法还是归「客户不许延长」？必须事先归属。允许放弃时，算法有动机在不利路径上停止，这会改善已执行部分的均价、恶化总 IS。不允许放弃时，末端清扫主导最差分位数。两种产品不应混名。A 股涨跌停使完成不可行，应自动转入下一可交易日并重设到达价或保留原 \(M_0\)——这也必须事先规定，否则 TCA 会把制度约束当成算法失败。</p><p><span class="marginnote">「到达价」三字在营销里常被贴到任何非 VWAP 的算法上。审计要看参照价字段、紧迫度到 \(\lambda\) 的表、以及是否允许未完成。缺任何一项，名称没有内容。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>平方根临时冲击下闭式 AC 不可用，应用数值最优或启发式前倾再校准。暗池与明簿混合路由改变瞬时冲击，单一 \(\eta\) 不够，见<a href="/quant/dark-pool-routing">暗池路由</a>。开收盘竞价的成交不应按连续 \(v\) 建模。T+1 使当日买入不能用于对冲性的反向到达价，多空组合要拆腿。</p><p>不要事后挑选紧迫度使样本短fall 最低再报告——那是对 \(\lambda\) 的过拟合。不要用包含自身冲击的 VWAP 证明到达价更优。核对：分紧迫度的短fall 均值与分位数、完成率、参与率路径、以及与静态 TWAP 对照；按 ADV 与波动分层，避免只在大盘上好看。拥挤日单独报告。</p><p><span class="marginnote">\(\lambda\) 的单位仍是「多承担一单位执行方差，愿意多付多少期望短fall」。把紧迫度写成 1–5 的整数而不给对照表，交易台无法把产品与 AC 前沿对齐。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>到达价算法以 \(M_0\) 为参照优化实施缺口，与 VWAP 追踪是不同目标，评价不应主用全日 VWAP。</li><li>紧迫度必须映射到 \(\lambda\)、\(T\) 或参与率上限；约束截断后的可行路径才是真实产品。</li><li>无漂移下基准为确定性轨迹；价格触发自适应要有条件波动、弹性或可检验的 \(\mu\)，并看短fall 分布。</li><li>完成率政策决定末端块与机会成本归属，须事先写死。</li><li>\(\eta\) 与紧迫度应同源校准，拥挤日与竞价时段单独处理。</li><li>出处：Perold, <em>The Implementation Shortfall</em>, Journal of Portfolio Management, 1988；Almgren and Chriss, <em>Optimal Execution of Portfolio Transactions</em>, Journal of Risk, 2000/2001；Kissell, <em>The Science of Algorithmic Trading and Portfolio Management</em> 对到达价与紧迫度的实务框架。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 最优执行模型<!--[--> · 单元 最优执行<!--]--><!--[--> · 课序 模型<!--]--></p><p class="lesson-progress">第 3 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/dark-pool-routing/">暗池路由</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

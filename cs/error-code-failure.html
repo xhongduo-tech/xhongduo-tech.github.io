@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>错误码与失败 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_error-code-failure.md.CjrWTdns.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 抽象与构造<!--]--><!--[--> · 课序 接口<!--]--></p><p class="lesson-progress">第 14 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/module-header/">模块与头文件</a></p><p class="lesson-next"> 下一课：<a href="/cs/test-as-spec/">测试作为规格</a></p></nav><div style="position:relative;"><div><h1 id="错误码与失败" tabindex="-1">错误码与失败 <a class="header-anchor" href="#错误码与失败" aria-label="Permalink to &quot;错误码与失败&quot;">​</a></h1><div class="epigraph"><p>C 的函数用返回值或输出参数报告失败；忽略它，调用方会把半完成的状态当成成功继续走。</p><footer>—— 据 Kernighan &amp; Ritchie, The C Programming Language, 2nd ed.；ISO/IEC 9899 整理</footer></div><p>上一课<a href="/cs/module-header">模块与头文件</a>把契约写成可包含的声明。本课不重讲 <code>extern</code>，也不从异常模型另起。缺口是：函数边界已经能说「成功时指针活多久」，<strong>失败时哪些事没有发生、调用方怎样被迫看见</strong>。系统接口几乎处处会失败；语言却没有强制性的展开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><code>malloc</code> 可以返回空，<code>fopen</code> 可以失败，写文件可以只写出一部分。契约若只描述快乐路径，悬挂与泄漏会在失败分支上爆发：已经申请的块没有释放，已经打开的描述符没有关闭，输出结构体处于半初始化。缺口因此不是「记得检查返回值」的口号，而是<strong>失败也是接口的一部分</strong>，必须与所有权一起设计。</p><p>C 常见报告方式：返回错误码（0 成功或负值失败）、返回空指针、设置 <code>errno</code>、通过输出参数给出部分结果。几种可以组合，但不能互相假设。本课钉一条纪律：每个可能失败的边界都要规定成功与失败两套后置条件。后课测试会把失败路径变成必须覆盖的规格。</p><h3 id="errno-不是返回值的替代" tabindex="-1"><code>errno</code> 不是返回值的替代 <a class="header-anchor" href="#errno-不是返回值的替代" aria-label="Permalink to &quot;`errno` 不是返回值的替代&quot;">​</a></h3><p><code>errno</code> 是线程里一块可被许多库函数改写的状态。成功路径上它的值不必清零；失败路径上才有意义，而且必须在下一次可能改它的调用之前读走。把 <code>errno</code> 当成第二个返回值随便用，会读到别人留下的旧错误。返回值才是「这次调用是否失败」的主通道；<code>errno</code> 是补充分类。</p><p><span class="marginnote">K&amp;R 与标准库把空指针、EOF、非零返回当作失败信号。ISO C 定义 <code>errno</code> 与若干标准错误名。本课不把 Windows HRESULT 或 C++ 异常当默认模型——系统课会再碰到系统调用的负返回。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>设计函数时同时写：失败时返回什么；哪些输出参数未被写入；已经获取的资源由谁在失败路径释放。内部若有多步，用单一出口或显式回滚，避免「中间一步失败但前面的 <code>malloc</code> 还挂着」。调用方把检查写在调用点旁边，而不是假设「这台机器内存无限」。</p><div class="mermaid"></div><p>部分成功（写了 \(k\) 字节）要在契约里写成合法结果，而不是偷偷当成全成功。把部分成功与失败混成同一个 <code>-1</code>，调用方无法重试。</p><p>把错误码挤进返回值与「真正结果」共用时，必须留出不可能的值（空指针、负长度）。若所有返回值都合法，就要用输出参数报告状态，不能让调用方用结果当布尔。线程里 <code>errno</code> 是线程局部的，这是 C11 之后的模型；在此之前多线程会互相覆盖。本课不把信号与取消当错误通道。测试必须覆盖失败：否则错误路径上的泄漏与双释放要到生产才出现。后课把这些例子收成可执行规格。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>没有强制检查时，失败会沿栈向上变成错误的数据，而不是立刻停机。这与 UB 不同：忽略错误码常常仍是「合法程序」，只是逻辑错——直到某次空指针解引用才落入 UB。因此错误处理是抽象边界的延续：把「可能失败」从实现细节提升为调用方必须分支的状态。后课系统调用会把同一模式放到用户与内核之间。</p><p>系统调用包装把内核的负错误变成 <code>-1</code> 与 <code>errno</code>，于是同一套检查纪律从库函数延伸到陷入。忽略 <code>write</code> 的短写，等于把部分成功当成契约里没有的第三种状态。RAII 课会要求失败出口与成功出口走同一销毁；本课先把「失败也是后置」写进签名注释，测试才能为它造例子。不要用断言代替错误返回：断言在发行版可被编译掉，那是规格探测，不是调用方能依赖的通道。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲事务内存，不引入异常语法。下一课<a href="/cs/test-as-spec">测试作为规格</a>把成功与失败都变成可执行断言。后课默认：可能失败的函数在边界上同时规定两套后置；资源在失败路径上有主人；<code>errno</code> 只在失败后、立即读取才有意义。</p><p>把成功定义为「没崩溃」等于没有契约。调用方必须能区分：失败且无副作用、失败但已部分提交、成功。三种后置写不清，测试也无法造例子。系统调用的短写属于第二种，不能当成第一种处理。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>失败是契约的一半：返回方式、未写入的输出、要回滚的资源。</li><li>忽略错误码会把半完成状态当成成功，随后才变成悬挂或 UB。</li><li><code>errno</code> 补充分类，不替代这次调用的返回值。</li><li>下一课用测试把这些分支钉死。</li><li>出处：K&amp;R 标准库惯例；ISO C 库函数与 <code>errno</code>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 抽象与构造<!--]--><!--[--> · 课序 接口<!--]--></p><p class="lesson-progress">第 14 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/test-as-spec/">测试作为规格</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

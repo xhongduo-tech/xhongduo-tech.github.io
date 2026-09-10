@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EUV 掩模多层与缺陷 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_euv-mask-defects.md.DeUaktGm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 EUV 与 ASML<!--[--> · 单元 光学与掩模<!--]--><!--[--> · 课序 多层与缺陷<!--]--></p><p class="lesson-progress">第 21 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/litho/pellicle-transmission/">薄膜透过率与热</a></p><p class="lesson-next"> 下一课：<a href="/litho/euv-absorber-materials/">吸收体材料</a></p></nav><div style="position:relative;"><div><h1 id="euv-掩模多层与缺陷" tabindex="-1">EUV 掩模多层与缺陷 <a class="header-anchor" href="#euv-掩模多层与缺陷" aria-label="Permalink to &quot;EUV 掩模多层与缺陷&quot;">​</a></h1><div class="epigraph"><p>EUV 版是 Mo/Si 多层膜上的反射镜再加吸收体；埋在膜堆里的坑和包，pellicle 挡不住，印出来是相位缺陷。</p><footer>—— 据 Bakshi, EUV Lithography 对空白版与缺陷的讨论；防护膜与量产接口见 ASML 公开材料</footer></div><p><a href="/litho/pellicle-transmission">上一课</a>（薄膜透过率与热）。在此之上，颗粒放到离焦薄膜上，降低掩模面落尘的打印概率。缺口是：空白版在镀多层膜时就已经可能埋进坑、包和颗粒——它们改变布拉格相位，吸收体画得再对也会在晶圆上留下暗点或亮点。本课钉 EUV 反射掩模的缺陷分类。<a href="/litho/asml-nxe">NXE</a> 如何把这张版用到 0.33 NA 的量产场，是下一课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>DUV 透射版的缺陷主要在铬/MoSi 图形层，修镀、挖修有一套。EUV 先要一块 Mo/Si 周期多层的空白版当反射镜，再在上面做吸收体图形。<a href="/litho/euv-multilayer-mirror">多层膜镜</a>课写过布拉格反射；本课的缺口是这块镜不完美时会发生什么。衬底或膜堆中的高度误差 \(\Delta h\) 变成相位 \(4\pi n\Delta h/\lambda\) 量级（反射双程），13.5 nm 下几个纳米的坑就够致命。</p><p>Pellicle 只挡后来落在膜上的颗粒，不挡已经埋进空白版的缺陷，也不挡吸收体图形缺陷。无膜阶段更是把两类风险叠在一起。量产要的是空白版缺陷密度、吸收体缺陷检测、以及哪些缺陷可以用吸收体补偿图案盖住。</p><h3 id="相位缺陷与振幅缺陷" tabindex="-1">相位缺陷与振幅缺陷 <a class="header-anchor" href="#相位缺陷与振幅缺陷" aria-label="Permalink to &quot;相位缺陷与振幅缺陷&quot;">​</a></h3><p>埋藏坑/包主要是相位型：反射波前局部扭曲，空中像出现不可用的暗或亮。吸收体多一块或少一块主要是振幅型（也带一点相位），行为更接近 DUV 的铬缺陷，但仍在反射几何与阴影下。两类的检测：深紫外看表面往往看不见埋藏相位，需要光化波段（actinic）或高灵敏表面形貌加多层仿真。</p><p><span class="marginnote">补偿打印：有时在缺陷上方挪动或改吸收体，让局部剂量回到规格。这是掩模厂与 OPC 的联合动作，不是扫描机「对缺陷自动对焦」。能补的是弱缺陷，不是任意大坑。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>空白版：超光滑衬底、缺陷检查、再镀 Mo/Si，镀后再检。吸收体：沉积、电子束或多束写入、刻蚀、再检。光化缺陷检测与光化成像显微镜（AIMS EUV 一类）在 13.5 nm 上看打印后果，避免「可见光看见、EUV 看不见」或反过来。</p><p>晶圆厂侧：重复场缺陷指向掩模；随机缺陷指向胶与颗粒。Pellicle 把后者部分转成可换膜。掩模寿命还受氢环境、碳污染和吸收体溅射限制，清洁与 DGL 课已经给了气体环境，本课只要求缺陷账与那套环境分开记。</p><h3 id="与-m3d-的边界" tabindex="-1">与 M3D 的边界 <a class="header-anchor" href="#与-m3d-的边界" aria-label="Permalink to &quot;与 M3D 的边界&quot;">​</a></h3><p><a href="/litho/mask-3d-effect">掩模 3D</a> 是吸收体厚度的系统电磁效应，OPC 默认要吃。本课的缺陷是局部偏离设计的相位/振幅点。系统阴影不是缺陷；缺陷不是用加厚吸收体就能定义掉的。SMO 优化光瞳也不消灭空白版坑。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>布拉格条件对膜周期和界面锐度敏感。局部周期被坑扰乱，反射率掉或相位跳，投影物镜把它成像为晶圆上的剂量洞或旁瓣。因为是反射，小高度误差比透射版更毒。扫描场里每次经过同一掩模坐标都印同一缺陷，所以重复性是诊断指纹。</p><p>吸收体边缘的随机缺口表现为 CD 或桥连，叠上 EUV 随机胶效应时，要靠重复性区分掩模与光子统计。下一课的 NXE 产能叙事包含掩模可用性：没有够低的空白版缺陷密度，0.33 NA 的光学分辨率兑现不成良率。</p><p>供应链分段：基板 → 多层镀膜 → blank 检验 → 吸收体图形化 → 图形检验 → 可选 pellicle。相位缺陷往往不可修，只能报废 blank 或用图案移位把缺陷藏进不打印区——版图与缺陷图的匹配是 EUV 特有的数据步骤。6 英寸版、\(4\times\) 缩比下，掩模上的几何尺寸到晶圆除以 4，但相位缺陷的打印阈值不是简单的几何缩小。</p><p><span class="marginnote">投影物镜镜子也是 Mo/Si，缺陷同样致命，但镜子不图形化。<a href="/litho/euv-multilayer-mirror">多层膜镜</a>讲反射率；本课讲带吸收体图案的 reticule。不要把镜头疵点统计和掩模 blank 良率混成一张表。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不编造某代空白版缺陷密度的内部规格。也不把 CNT pellicle 写成已经取消掩模检测。High-NA 掩模侧角度更大，阴影与缺陷打印阈值都要重写，那是 EXE 课的附件。后课默认：说到 EUV 掩模，先分空白版相位缺陷、吸收体缺陷、pellicle 上颗粒三类。</p><p>多层膜界面粗糙同时贡献 flare（上一计量课）和局部缺陷衬度。中频粗糙偏散射底座，孤立大坑偏可打印点；规格要分空间频率，不能用一个 RMS 数打天下。空白版供应商与掩模厂的检测地图必须能对到扫描场坐标，否则重复缺陷无法闭环。</p><p><span class="marginnote">AIMS 一类光化工具看的是等效空中像，不是 SEM 上的吸收体形貌。形貌干净仍可能相位致命，这是 EUV 相对 DUV 铬版最容易漏检的一层。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>EUV 版 = 多层反射空白版 + 吸收体；缺陷分埋藏相位与图形振幅。</li><li>Pellicle 不保护镀膜时埋进去的坑包。</li><li>光化检测才能看见 13.5 nm 的打印后果。</li><li>弱缺陷或可用吸收体补偿；重复场缺陷是掩模指纹。</li><li>下一课把这张版放进 NXE 0.33 NA 的量产场。</li><li>出处：Bakshi, <em>EUV Lithography</em>；ASML pellicle / 掩模公开材料。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 EUV 与 ASML<!--[--> · 单元 光学与掩模<!--]--><!--[--> · 课序 多层与缺陷<!--]--></p><p class="lesson-progress">第 21 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/euv-absorber-materials/">吸收体材料</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>路由抖动 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_routing-flapping.md.C7bT0I8w.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 MoE 进阶<!--]--><!--[--> · 课序 路由与专家<!--]--></p><p class="lesson-progress">第 44 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/moe-comm-compute-ratio/">MoE 的通信-计算比</a></p><p class="lesson-next"> 下一课：<a href="/llm/attention-moe/">注意力 MoE</a></p></nav><div style="position:relative;"><div><h1 id="路由抖动" tabindex="-1">路由抖动 <a class="header-anchor" href="#路由抖动" aria-label="Permalink to &quot;路由抖动&quot;">​</a></h1><div class="epigraph"><p>相邻训练步把同一 token 打到不同专家，负载直方图仍可均匀；All-to-All 的体积却在抖，专精也立不住。</p><footer>—— Dai et al., StableMoE, ACL 2022；router z-loss 见 Zoph et al., ST-MoE, 2022</footer></div><p><a href="/llm/moe-comm-compute-ratio">上一课</a>把通信-计算比写成一条设计约束，并留下缺口：\(\rho\) 的<strong>方差</strong>。本课补路由抖动：离散 <a href="/llm/moe-routing">top-\(k\) 路由</a> 若在训练步之间来回翻，专家并行的字节随步变，缓冲与重叠都失效。<a href="/llm/aux-loss-free-balancing">无辅助损失均衡</a> 的偏置步长过大，会把水位在专家之间倒来倒去，是抖动的控制器来源。<a href="/llm/soft-moe">Soft MoE</a> 没有离散身份，抖不起来。后课注意力 MoE 会把抖动带进 KV 路径；本课先在 FFN 专家上定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>负载均衡只看占用均值。均值均匀可以来自「每个专家轮流过热」：token \(x\) 在步 \(t\) 走专家 3，步 \(t{+}1\) 走专家 17，长期计数仍平。专精化要的条件占用在抖动下变成噪声；剪枝看到的「死专家」可能只是这一周还没轮到。系统侧，All-to-All 按峰值而不是按均值备缓冲，\(\rho\) 的尾部决定能不能叠通信。</p><p>抖动与塌缩是同一根轴的两端。Chi 等人讨论的表示塌缩是太粘、塌成少数专家；抖动是太滑、边界上振荡。缺口是把两端分着测，并指向缓解（慢闭环、z-loss、sticky），而不是再加一个均衡损失名。</p><p><span class="marginnote">层间换专家不一定是病：不同层功能可以不同。病的是同一层、相似输入在训练步之间的身份翻面。Expert-choice 还有训推不一致的另一种抖，本课默认 token-choice。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先测再治。固定探针序列，记录每层 top-\(k\) 专家 ID 随步的 Jaccard / Hamming，以及占用 Gini。Gini 低且 Jaccard 低是抖；Gini 高是塌。把「步间抖」与「层间换」分开，后者可以是<a href="/llm/hierarchical-moe">层次 MoE</a> 的设计。</p><p>治理由轻到重。减小偏置 \(\gamma\)、对负载做滑动平均；ST-MoE 的 router z-loss 把 logits 往零推，减小 softmax 对尺度的敏感；训练后期降门学习率或冻 \(W_r\)，StableMoE 把稳定路由蒸馏成几乎不更新的门。容量因子不要贴着 1：drop 会改下一批的路由目标，形成正反馈。哈希钉死一部分专家位，可降低可学习门的自由度。</p><p>推理冻 \(b\)、关 dropout 后抖动应下降。若仍高，说明门平坦、多名专家分数相近，需要更大的 logit 间隔，或接受随机性并做种子控制。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>top-\(k\) 不连续。logits 在边界附近时，无穷小的 \(b\) 更新就能换人。无辅助损失闭环把负载误差积分进 \(b\)，增益大会在目标均匀附近振荡。辅助损失过强则把门拉平，分数更近、更容易抖。两端都能制造抖动：一个来自控制器，一个来自过平的门。</p><p>softmax 在相近 logits 上导数大，小梯度就能交换第 \(k\) 与第 \(k{+}1\) 名。结果是看起来均衡很好（偏置在补偿），单条轨迹的专家身份却没有因果意义。干预跌点随检查点跳，剪枝不可复现。通信上峰值对均值的比决定是否按最坏 \(k\cdot d\) 预分配；按均值设计重叠会偶发卡住。</p><p><span class="marginnote">混合精度与非确定归约会在边界 token 上换专家。需要确定性时，路由应在较高精度计算。门上的适配会直接买翻盘；专家 MLP 上的适配相对安全。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>早期训练需要探索，过早冻门等于哈希。完全 sticky 等于关掉适应，分布一移就过载。目标是把边界层变厚，不是禁止换专家。不要为了曲线好看把 z-loss 加到压过主损失。下一课若把注意力也做成 MoE，抖动会改变谁的 KV 被计算，FFN 上可容忍的抖在注意力上不可忍。粒度律把专家切得更窄，决策边界更密，抖动风险上升。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>抖动是步间离散 top-\(k\) 翻盘，与塌缩同轴反向；须用 Jaccard 与 Gini 一起诊断。</li><li>慢闭环、z-loss、后期冻门、避免贴边 drop，比再堆辅助损失名更对症。</li><li>\(\rho\) 的尾部由抖动决定，重叠按均值设计会偶发失败。</li><li>推理应确定性；注意力 MoE 对抖更敏感。</li><li>出处：Dai et al., StableMoE, ACL 2022；Zoph et al., ST-MoE, 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 MoE 进阶<!--]--><!--[--> · 课序 路由与专家<!--]--></p><p class="lesson-progress">第 44 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/attention-moe/">注意力 MoE</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

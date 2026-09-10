@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>无约束一阶与二阶条件 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_unconstrained-fonc.md.BZSw-tCU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 6 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/separating-hyperplane/">分离超平面</a></p><p class="lesson-next"> 下一课：<a href="/econ/lagrange-multiplier/">拉格朗日乘子</a></p></nav><div style="position:relative;"><div><h1 id="无约束一阶与二阶条件" tabindex="-1">无约束一阶与二阶条件 <a class="header-anchor" href="#无约束一阶与二阶条件" aria-label="Permalink to &quot;无约束一阶与二阶条件&quot;">​</a></h1><div class="epigraph"><p>内点最优处梯度必须为零；凹目标让这句话从必要变成充分。</p><footer>—— 据 Mas-Colell, Whinston and Green 数学附录；Boyd and Vandenberghe, Convex Optimization, 第 4 章整理</footer></div><p>上一课<a href="/econ/separating-hyperplane">分离超平面</a>用平面把凸集切开。无约束光滑问题更短：可行域是开集，没有边界可支撑，唯一能站住的一阶陈述是「没有方向还能改善」。缺口是把这句写成梯度与 Hessian。约束、乘子、KKT 是后两课；本课先把无约束钉死，以免后课把 \(\nabla\mathcal{L}=0\) 里的 \(\nabla u=0\) 与乘子项混在一起。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(f\) 在开集 \(U\subset\mathbb{R}^n\) 上可微，\(x^*\in U\) 为局部极大（或极小）。沿任何方向 \(v\) 的方向导数必须为零，否则朝 \(v\) 或 \(-v\) 可改善。故<strong>一阶必要条件</strong>（FONC）：\(\nabla f(x^*)=0\)。二阶：Hessian \(H=\nabla^2 f(x^*)\) 在极大处半负定，在极小处半正定。严格负定给出严格局部极大的充分条件（加上梯度为零）。</p><p>经济学里无约束不是「没有预算」，而是「约束暂时不发言」：内部解、或已把约束代入消元之后。厂商在 \(\mathbb{R}^n\) 上选投入、利润已写成无约束函数时，FONC 就是要素的边际产值等于价格那一组方程。角点、不等式留给 KKT。</p><h3 id="驻点不是最优" tabindex="-1">驻点不是最优 <a class="header-anchor" href="#驻点不是最优" aria-label="Permalink to &quot;驻点不是最优&quot;">​</a></h3><p>梯度为零只说一阶没有方向。鞍点、极小、极大都是驻点。\(f(x,y)=x^2-y^2\) 在原点梯度为零，沿 \(x\) 极小沿 \(y\) 极大。二阶不定时，一阶条件帮倒忙。凹目标（极大化）或凸目标（极小化）把全体驻点变成全局最优：上一课的弦不等式让一阶下估变成全局比较。没有凹/凸，FONC 连局部充分都谈不上，更不要说全局。</p><p><span class="marginnote">\(C^1\) 足够写 FONC；\(C^2\) 才写 Hessian。比较静态后课常直接假设 \(C^2\)，为的是对隐函数求导，不是因为最优存在需要二阶。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>必要与充分要分开记。必要：局部内点最优 \(\Rightarrow\) 梯度零、Hessian 半定（若 \(C^2\)）。充分：梯度零 + Hessian 负定 \(\Rightarrow\) 严格局部极大。全局充分：在凸开集上 \(f\) 凹且 \(\nabla f(x^*)=0\) \(\Rightarrow\) \(x^*\) 为全局极大。后课多数消费者、规划者问题走最后这条，不靠逐点检查特征值。</p><p>边界点不服从无约束 FONC。若 \(x^*\) 在 \(U\) 的闭包但不在 \(U\) 内，方向导数只对可行方向为零。那是约束问题。把非负约束忽略、直接令 \(\nabla f=0\)，可能解出负消费——这是后课<a href="/econ/interior-corner">内点与角点</a>要拦的错误，本课先标明适用范围：内点。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>泰勒展开 \(f(x^*+tv)=f(x^*)+t\nabla f^\top v+\frac{t^2}{2}v^\top H v+o(t^2)\)。\(t\) 任意小时，线性项必须消失，否则选 \(t\) 的符号就能升。线性项消失后，二次项决定弯曲：负定则附近都更低。凹函数的一阶下估 \(f(y)\le f(x)+\nabla f(x)^\top(y-x)\) 在 \(\nabla f(x)=0\) 时直接给出 \(f(y)\le f(x)\)，不需要 \(t\) 小——这是全局化的一步。</p><p>多变量时交叉偏导进入 Hessian。Young 定理（\(C^2\)）让混合偏导对称，后课斯勒茨基对称与此同源，但斯勒茨基还有支出最小化的结构，不要在本课提前写需求。</p><p><span class="marginnote">一阶条件是 \(n\) 个方程对 \(n\) 个未知数。解的局部唯一靠 Hessian 非奇异，那是<a href="/econ/implicit-function">隐函数定理</a>的输入，本课只准备矩阵。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不在本课写约束、不引入乘子、不把包络当导数捷径。无穷维变分（欧拉方程）是宏观连续时间的附录，主干的 Ramsey 会在离散时间用贝尔曼，不在这里上变分法。也不把 FONC 读成「市场出清」：梯度零是单人优化，出清是后课均衡。下一课只加等式约束。</p><p>后课默认：内部无约束最优满足 \(\nabla f=0\)；凹最大化时这组方程充分且给出全局最优。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>内点局部最优 \(\Rightarrow\) 梯度为零；二阶半定是必要，定号是局部充分。</li><li>驻点可以是鞍点；凹/凸把驻点升级成全局最优。</li><li>边界点不适用无约束 FONC，交给乘子与 KKT。</li><li>Hessian 非奇异为后课隐函数与比较静态准备矩阵。</li><li>下一课：<a href="/econ/lagrange-multiplier">拉格朗日乘子</a>。</li><li>出处：MWG 数学附录；Boyd and Vandenberghe, <em>Convex Optimization</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 6 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/lagrange-multiplier/">拉格朗日乘子</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

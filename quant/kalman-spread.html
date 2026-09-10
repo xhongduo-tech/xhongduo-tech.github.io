@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kalman 价差滤波 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_kalman-spread.md.Bswq0KP6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 配对交易方法<!--[--> · 单元 配对交易<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 4 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/copula-pairs/">Copula 配对</a></p><p class="lesson-next"> 下一课：<a href="/quant/coint-rank/">协整秩选择</a></p></nav><div style="position:relative;"><div><h1 id="kalman-价差滤波" tabindex="-1">Kalman 价差滤波 <a class="header-anchor" href="#kalman-价差滤波" aria-label="Permalink to &quot;Kalman 价差滤波&quot;">​</a></h1><div class="epigraph"><p>把可观测价差写成隐均衡水平加噪声，或写成带均值回复的状态加量测误差；Kalman 给出的是过滤后的偏离，用来开仓，而不是把对冲比当成每天要重估的主状态。</p><footer>—— 线性滤波见 Kalman, 1960；状态空间计量见 Harvey, 1989；配对上把价差建成均值回复状态见 Elliott, Van Der Hoek and Malcolm, Quantitative Finance, 2005</footer></div><p><a href="/quant/copula-pairs">上一课</a>把边缘与依赖分开，用条件分位开仓，补的是非线性、不对称尾部；强依赖可以与 \(I(1)\) 价差共存，必须单独声明交易对象。缺口是价差的隐状态。原始 \(e_t\) 含微观结构噪声与缓慢漂移，直接算 Z-score 会把每一次跳动都当成均衡偏离；滤波平滑又含未来。本课把状态换成价差的均衡水平或潜在 OU，信号用预测步偏离。不重选 Copula 族。它与<a href="/quant/kalman-hedge">时变对冲比</a>正交，必须分开设 \(Q\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>原始价差含微观结构噪声、隔夜跳空与短暂的流动性冲击。直接对 \(e_t\) 算 <a href="/quant/zscore-entry">Z-score</a>，等于把每一次跳动都当成均衡偏离。若真实均衡水平 \(\mu_t\) 慢变（利率台阶、季节性、缓慢的相对基本面），固定均值会把制度漂移读成可交易 alpha。把 \(\mu_t\) 写成随机游走或弱回复状态，</p> \[\mu_t=\mu_{t-1}+\eta_t,\qquad e_t=\mu_t+x_t,\qquad x_t=\phi x_{t-1}+\varepsilon_t, \]<p>或更紧地写成单状态 OU：量测是带噪声的价差，状态是潜在 OU。Kalman 输出 \(\hat\mu_{t|t-1}\) 与 \(\hat x_{t|t-1}\)，开仓用过滤后的 \(x\) 而不是原始 \(e\)。问题是识别：观测到的一次跳，究竟是噪声（应忽略）、是可交易的 \(x\)（应开仓），还是 \(\mu\) 变了（应改原点、不应开仓）。</p><p>这与时变 \(\beta\) 的识别同构，但对象不同。调 \(\beta\) 会改变价差的定义本身；调 \(\mu\) 只改变价差的原点。前者在 <a href="/quant/hedge-ratio-break">对冲比断裂</a> 时更致命，后者在水平漂移时更致命。两者同时开、两个 \(Q\) 都大，价差被解释光，没有信号。</p><h3 id="可交易的是预测偏离" tabindex="-1">可交易的是预测偏离 <a class="header-anchor" href="#可交易的是预测偏离" aria-label="Permalink to &quot;可交易的是预测偏离&quot;">​</a></h3><p>滤波 \(\hat x_{t|t}\) 用了当期 \(e_t\)。回测若在 \(t\) 用 \(\hat x_{t|t}\) 开仓，含同期信息。可交易信号是 \(\hat x_{t|t-1}\)，或用 \(t-1\) 的滤波状态加 \(t\) 的新价格之前先做预测步。平滑 \(\hat x_{t|T}\) 会把未来的回归提前画出来，样本内几乎总是漂亮。Elliott 等人的贡献是把均值回复放进状态方程，使「过滤」与「交易的那条过程」是同一个似然；贡献不是允许使用平滑状态下单。</p><p><span class="marginnote">量测噪声 \(R\) 过小，滤波认为价差精确，几乎不平滑，退化成原始 \(e\) 的 Z-score。\(R\) 过大，状态紧跟，过滤后的 \(x\) 接近 0，永远不开仓。\(Q_\mu\) 过大则原点跟着价差走，开仓信号被吃掉——这是「时变均值」最常见的过拟合。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>规格 A：固定 \(\beta\)，滤 \(\mu\) 与 \(x\)。</strong> 形成期 OLS 或 Engle–Granger 得 \(\hat\beta\)，交易期冻结。状态 \((\mu_t,x_t)\)，量测 \(e_t=\mu_t+x_t\)。\(x\) 的转移系数 \(\phi=e^{-\kappa\Delta}\) 可固定（用形成期 OU）或与 \(Q,R\) 一起用预测误差似然估计。冻结 \(\beta\) 使本篇与 kalman-hedge 正交：这里不把缺口解释成对冲比变了。</p><p><strong>规格 B：单状态 OU 加量测噪声。</strong> 状态即潜在价差 \(z_t\)，</p> \[z_t=\mu(1-\phi)+\phi z_{t-1}+\eta_t,\qquad e_t=z_t+\varepsilon_t. \]<p>开仓用 \((z_{t|t-1}-\mu)/\sigma_z\)。当 \(R=0\)，退化为对原始价差做 AR(1)。\(R\gt 0\) 相当于先低通再标准化，减少因单日跳空触发的假开仓。</p><p>超参数仍用 Harvey 的预测误差分解。不要用交易期 PnL 网格搜 \(Q,R\)。诊断：新息应近白；若新息仍有单位根，不是噪声太大，而是 \(\beta\) 错了或协整已经破裂，应停止滤价差、回到 <a href="/quant/cointegration-break">协整破裂</a> 的检验，而不是把 \(Q_\mu\) 开大把单位根吸进均值。</p><h3 id="与滚动均值、ewma-的等价" tabindex="-1">与滚动均值、EWMA 的等价 <a class="header-anchor" href="#与滚动均值、ewma-的等价" aria-label="Permalink to &quot;与滚动均值、EWMA 的等价&quot;">​</a></h3><p>对 \(\mu_t\) 随机游走、无 \(x\) 分解的 Kalman，稳态下是 EWMA：增益由 \(Q_\mu/R\) 决定。许多「自适应 Z-score」其实是这一退化。写出状态空间的好处是：可以把 \(x\) 的回复与 \(\mu\) 的漂移分开，并给出状态方差——不确定度大时降低杠杆。滚动窗口均值对应一种硬切断的记忆；Kalman 是指数记忆。两者都在偏误–方差前线上，都不是协整定理。</p><p>执行时钟与 kalman-hedge 相同：用预测状态在次日或下一可交易中点开仓。盘中滤价差需要同步中点，跳空时量测缺失或方差放大，应只做预测步。A 股涨跌停使 \(e_t\) 截断，量测模型应承认截断，否则状态会为了拟合板上的钉住值而扭曲。</p><p><span class="marginnote">把 Kalman 滤过的价差再套一层布林带或 MACD，是把同一低通重复两次，并多了一组不可比的超参。信号应直接来自标准化的 \(\hat x_{t|t-1}\)。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Kalman 增益把新息按「状态不确定 vs 量测噪声」写入 \(\mu\) 或 \(x\)。设计矩阵决定写入哪一个：若模型里 \(x\) 回复快、\(\mu\) 几乎常数，短暂缺口进 \(x\)，成为可交易偏离；若 \(Q_\mu\) 被估得很大，同一缺口进 \(\mu\)，原点搬家，不交易。样本内似然往往偏好较大的 \(Q_\mu\)，因为这样拟合更好——而这正会榨干交易信号。所以价差滤波的超参数应在形成期估、交易期冻结，与 GGR 把 \(\sigma\) 钉在形成期是同一纪律。</p><p>机制上的第二句话是噪声的来源。买卖弹跳、非同步、指数套利流量，使 \(e_t\) 的高频成分不像 OU。<a href="/quant/effective-realized-spread">有效价差</a> 量级的跳动不应触发开仓；\(R\) 的数量级至少应覆盖半价差，而不是用收盘价的样本方差去估一个过小的 \(R\)。过滤因此首先是执行友好：少在噪声上换手，而不是提高信息比率的魔法。</p><h3 id="何时不该滤价差、该调" tabindex="-1">何时不该滤价差、该调 \(\beta\) <a class="header-anchor" href="#何时不该滤价差、该调" aria-label="Permalink to &quot;何时不该滤价差、该调 $\beta$&quot;">​</a></h3><p>滤波价差假定线性组合的系数对。成分股权重变、一只腿换了业务、期现乘数或 ETF 份额变，缺口来自 \(\beta\)，不是来自 \(\mu\)。此时加大 \(Q_\mu\) 会把错误对冲比吸收成「新均衡」，看起来残差很稳，经济上你已经在用错误的腿数做空。诊断是：\(\hat\beta\) 与滚动 OLS 分道、或 Gregory–Hansen 拒绝稳定协整。应切换到 kalman-hedge 或停止交易，而不是把价差原点再平滑一次。反过来，分红、拆股应在观测方程里显式调整，不要让 \(\mu\) 去吸收公司行为。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要同时让 \(\beta_t\)、\(\mu_t\)、\(x_t\) 都成为高噪声状态：不可识别。典型分工：经济上 \(\beta\) 该稳（转换比率、固定篮子权重）则滤价差；\(\beta\) 该变（统计篮子、行业权重）则滤对冲比，价差阈值建在预测残差上。两者都变时，需要更多量测（多对价格）或更强的先验。不要用平滑路径画「当时该不该开仓」。不要把状态方差当成组合 VaR。</p><p>与 <a href="/quant/ou-spread">OU 价差</a> 的关系：OU 是 DGP 假设；Kalman 是在该假设（或带噪声的该假设）下的递归估计。半衰期应在预测残差上估，否则描述的是另一条序列。成本后比较的是：滤过的信号是否减少了假开仓、是否补偿了滞后。过滤引入滞后，在真回归很快时会吃掉边缘；这是 \(R\) 的代价，不是 bug。</p><p><span class="marginnote">Elliott, Van Der Hoek and Malcolm（2005）把对冲比与均值回复放进同一状态空间。复制时若只实现了滤 \(\beta\)、却用原始价差开仓，或只滤了价差却让 \(\beta\) 每日 OLS，都不是原文系统，也不能用他们的示意路径当绩效。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Kalman 价差滤波的状态是价差的均衡水平或潜在 OU，不是对冲比；与 <a href="/quant/kalman-hedge">时变对冲比</a> 正交，必须分开设 \(Q\)。</li><li>可交易信号用预测步偏离；滤波平滑含未来，不能进撮合。</li><li>\(Q_\mu\) 过大则无信号，\(R\) 过小则不过滤噪声；超参数应在形成期估、交易期冻结。</li><li>新息若仍像单位根，问题在 \(\beta\) 或协整破裂，不是把均值再平滑一次。</li><li>出处：Kalman, 1960；Harvey, 1989；Elliott, Van Der Hoek and Malcolm, <em>Quantitative Finance</em>, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 配对交易方法<!--[--> · 单元 配对交易<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 4 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/coint-rank/">协整秩选择</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

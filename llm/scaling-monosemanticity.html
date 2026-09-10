@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Scaling Monosemanticity 与特征转向 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_scaling-monosemanticity.md.Cr1kEowL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 特征与字典学习<!--]--><!--[--> · 课序 SAE 路线<!--]--></p><p class="lesson-progress">第 6 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/towards-monosemanticity/">Towards Monosemanticity</a></p><p class="lesson-next"> 下一课：<a href="/llm/gemma-scope/">Gemma Scope 开放 SAE 生态</a></p></nav><div style="position:relative;"><div><h1 id="scaling-monosemanticity-与特征转向" tabindex="-1">Scaling Monosemanticity 与特征转向 <a class="header-anchor" href="#scaling-monosemanticity-与特征转向" aria-label="Permalink to &quot;Scaling Monosemanticity 与特征转向&quot;">​</a></h1><div class="epigraph"><p>稀疏自编码器能否从生产级模型里抽出可解释特征，此前并不清楚；我们在 Claude 3 Sonnet 的中层残差上训到数千万特征，并显示夹住这些特征会按释义方向改变行为。</p><footer>—— Templeton et al., Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet, 2024</footer></div><p><em>Scaling Monosemanticity</em> 把 <a href="/llm/towards-monosemanticity">Towards Monosemanticity</a> 从一层小模型推到 Anthropic 当时的生产模型 Claude 3 Sonnet（2024 年 3 月的 3.0 对话权重，不是基座）。Templeton、Conerly、Marcus、Lindsey、Bricken 与 Henighan 等人在中层残差流上训练宽度约一百万、四百万、三千四百万的 <a href="/llm/sae-sparse-autoencoder">SAE</a>，用缩放律选超参。结果不只是「大模型也有可读特征」，还包括：特征跨语言、跨模态（文本训练却能响应图像中的同一概念）、以及<strong>特征转向</strong>（feature steering）——把某个特征的激活夹到极值，输出会朝释义一致的方向偏。公开演示里把「金门大桥」特征夹死，模型会在无关问题上执着地谈到金门大桥。本篇写缩放带来了什么、转向证明了什么、以及作者自己划下的不完备性。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>小模型上的成功可能是玩具残留：宽度小、电路浅、特征种类少。生产模型若叠加更密、抽象更高，SAE 可能只学到词面与句法，学不到欺骗、奉承、权力寻求这类安全相关方向。需要直接在正在服务的模型上做分解，并回答三个工程问题：多宽的字典才够；如何在不可穷举的特征里抽样验收；干预能否把「看起来像」升级成「模型在用」。</p><p>残差中层是选点。太浅则多为词法；太深则靠近解嵌、特征可能已经混成任务相关的打包。中层被当作抽象概念还在线性可加、又尚未完全写成下一 token 的折中。这不是唯一合法位点，只是这篇的主实验面。</p><h3 id="缩放律先于一次-3400-万的训练" tabindex="-1">缩放律先于一次 3400 万的训练 <a class="header-anchor" href="#缩放律先于一次-3400-万的训练" aria-label="Permalink to &quot;缩放律先于一次 3400 万的训练&quot;">​</a></h3><p>训一个数千万特征的 SAE 极贵，不能靠网格暴力扫 \(\lambda\) 与学习率。作者用较小字典上的损失与 \(L_0\) 拟合缩放，再外推到目标宽度。这与语言模型的 Kaplan / Hoffmann 逻辑同构：先在便宜的面上走，再付大账单。没有这条，3400 万只是一个无法解释的单点。<span class="marginnote">缩放律优化的是 SAE 损失（重构加稀疏），不是「人类可解释性」。损失低的字典往往更好读，但不是定理。安全相关特征是否出现，取决于数据里是否有对应激活，不取决于损失公式里有一项「请找出欺骗」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>SAE 仍是过完备编码–解码，训练在 Sonnet 中层残差的激活上。三档宽度用来看特征分裂与新抽象是否随 \(F\) 出现。验收分几条平行线：人工与自动释义；跨语种同一概念是否共用方向；多模态探针（图像里的金门大桥能否点亮文本训出的桥特征）；几何（特征方向如何排布）；以及转向。</p><p>转向的操作是：前向到该层时，把选定特征的系数 \(f_i\) 写成常数 \(c\)（或加一个大的偏移），再解码回残差，让后续层在被篡改的流上继续。若 \(c\) 大且释义正确，生成应稳定地体现该概念；若只在训练样例附近才像，特征可能是记忆碎片。安全部分专门找欺骗、权力寻求、奉承、偏见等方向，并报告夹住它们会改变相关输出。这是因果证据，不是伦理结论。</p> \[x&#39; = x + (c-f_i)\,d_i \]<p>（实现上通过 SAE 编解码或直接沿解码列加减，细节随是否重编码而变。）金门大桥实验是同一公式的公众可读版本：概念被放大到压过正常上下文。</p><h3 id="转向不是微调-也不是提示" tabindex="-1">转向不是微调，也不是提示 <a class="header-anchor" href="#转向不是微调-也不是提示" aria-label="Permalink to &quot;转向不是微调，也不是提示&quot;">​</a></h3><p>微调改权重，提示改输入，转向改一次前向里的内部坐标。它可逆、可针对单个特征、不必重训。正因为如此，它既是分析工具，也是一种粗暴的控制面：能演示因果，也能制造滑稽或危险的模式崩溃。论文把它当证据，不当产品开关。更细的向量算术传统（激活差、对比对）是转向的亲戚，但 SAE 提供的是可命名的轴，而不是一对提示的差向量。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="更宽的字典同时做分裂与长出抽象" tabindex="-1">更宽的字典同时做分裂与长出抽象 <a class="header-anchor" href="#更宽的字典同时做分裂与长出抽象" aria-label="Permalink to &quot;更宽的字典同时做分裂与长出抽象&quot;">​</a></h3><p>宽度增加时，字典做两件事：为已有概念长出更细的触发条件（分裂），以及长出先前宽度装不下的抽象（新方向）。安全相关特征往往更抽象，需要足够的 \(F\) 才稳定出现。跨模态泛化支持「方向编码的是概念而非表面 n-gram」：图像编码器把视觉送进同一残差几何时，文本训出的检测器仍然响——前提是多模态 Sonnet 确实把二者写进共享空间。</p><p>转向能工作，说明至少有一部分计算对残差是近线性可加的：沿 \(d_i\) 走相当于把该特征的贡献拧大。不能工作的特征则可能是 Downstream 用了非线性组合，或释义抓错了共现。作者强调缺少「这套特征是否穷尽模型计算」的严格检验——转向成功是局部因果，不是全局完备。</p><p><span class="marginnote">金门大桥演示很容易被理解成「模型的灵魂住在一个特征里」。更准确的说法是：在中层残差的某个过完备基下，存在一个方向，把它拧到极值足以压过许多正常回路。极值转向会破坏能力，说明该方向并不是以这种幅度参与日常计算。分析应用的是中等幅度；娱乐应用的是饱和。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>字典不完备：没有覆盖的方向上，电路分析是盲的。忠实性未解决：特征可能是相关统计，而真正的算法在残差的其他子空间。闭源模型上的 SAE 权重若不能随模型发布，社区无法复现转向。计算上，三千四百万特征的存储与编码已经是专门基础设施；每次新模型都要重训。开放对照见 <a href="/llm/gemma-scope">Gemma Scope</a>。</p><p>把转向当对齐手段有副作用。夹住「诚实」或夹住「拒绝」可能同时损伤有用能力，或被另一种措辞绕过。它证明内部存在可操纵的线性方向，不证明已经有了稳健的安全层。评测转向时必须看无关任务是否崩，否则只是在展示过驱动的一个模式。</p><p><span class="marginnote">论文分析的是对话微调后的 Sonnet，不是基座。对齐会把某些安全相关特征变得更可见或更可转向。把这些方向当成预训练就有的「阴谋电路」，是把后训练写进了基座。作者注明方法对基座也可用，但正文证据来自生产对话模型。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Templeton 等人把 SAE 缩放到 Claude 3 Sonnet 中层残差，宽度达约 3400 万特征。</li><li>特征可跨语言、跨模态，并包含抽象与安全相关方向。</li><li>特征转向通过夹住系数沿解码列改残差，提供与释义一致的因果证据。</li><li>缩放律用于选超参；损失代理的是重构–稀疏，不是安全覆盖。</li><li>明确限度：不完备、缺忠实性检验、转向是分析工具而非对齐产品。</li><li>出处：Templeton et al., <em>Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet</em>, Anthropic, 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 特征与字典学习<!--]--><!--[--> · 课序 SAE 路线<!--]--></p><p class="lesson-progress">第 6 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gemma-scope/">Gemma Scope 开放 SAE 生态</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

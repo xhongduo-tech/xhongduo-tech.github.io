@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>插值与龙格现象 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_interpolation-runge.md.R248x0DR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 线性与根<!--]--></p><p class="lesson-progress">第 10 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/newton-nonlinear/">非线性方程与牛顿</a></p><p class="lesson-next"> 下一课：<a href="/cs/cmos-inverter/">CMOS 反相器</a></p></nav><div style="position:relative;"><div><h1 id="插值与龙格现象" tabindex="-1">插值与龙格现象 <a class="header-anchor" href="#插值与龙格现象" aria-label="Permalink to &quot;插值与龙格现象&quot;">​</a></h1><div class="epigraph"><p>在等距节点上提高多项式次数，并不保证在区间上更接近被插函数；龙格给出了振荡随次数变本加厉的例子。</p><footer>—— 据 Trefethen and Bau, Numerical Linear Algebra；Higham, Accuracy and Stability of Numerical Algorithms 整理</footer></div><p>上一课<a href="/cs/newton-nonlinear">非线性方程与牛顿</a>把求根收成一系列线性系。本课不重讲 Jacobian，也不从逼近论的 Weierstrass 总定理另起。缺口是：多项式能穿过给定点，<strong>穿过节点不等于区间上一致逼近；节点怎么排，本身就是这个映射的条件问题</strong>。本课是数值计算最后一课；下一课改做硅上的<a href="/cs/cmos-inverter">CMOS 反相器</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>数据 \((x_i,y_i)\)，\(i=0,\ldots,n\)，唯一次数 \(\le n\) 的多项式 \(p\) 满足 \(p(x_i)=y_i\)（节点互异）。这是线性问题：Vandermonde 系统，条件数随等距节点与 \(n\) 迅速变坏——上一课的 \(\kappa\) 在此现身。缺口因此不是「插值公式」，而是<strong>插值算子作为 \(f\)：节点值映到区间上的函数，可以极病态</strong>。龙格的 \(1/(1+25x^2)\) 在 \([-1,1]\) 等距节点上，\(n\) 增大时两端剧烈振荡。</p><p>Weierstrass 保证连续函数可被某列多项式一致逼近，但那一列不必是等距插值。把「次数更高更准」从泰勒或最小二乘误搬到等距插值，会与龙格直接冲突。换 Chebyshev 节点、换分段、换不经过点的最小二乘，是在换 \(f\)，不是把同一 Vandermonde 再多消一次元。</p><h3 id="龙格不是「舍入造成的振荡」" tabindex="-1">龙格不是「舍入造成的振荡」 <a class="header-anchor" href="#龙格不是「舍入造成的振荡」" aria-label="Permalink to &quot;龙格不是「舍入造成的振荡」&quot;">​</a></h3><p>即使精确算术，等距高次插值也可以在节点之间炸掉；这是问题病态，不是 \(\gamma_n\) 没写好。舍入会再叠加——Vandermonde 求解本身就不稳定——但把龙格当成浮点 bug，会去调主元而继续加密等距点。正确动作是换节点族或放弃全局高次多项式。</p><p><span class="marginnote">Trefethen and Bau 用多项式插值连接线性代数与逼近。Higham 讨论 Vandermonde 的恶劣条件。本课不把复分析里的等势线证明写完，只取现象与对策。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>节点决定基的条件。Chebyshev 节点把极大范数下的 Lebesgue 常数压到对数增长，等距则可以指数坏。分段低次（样条）把问题拆成许多良态小插值。Newton 基比单项式基求值更稳，但不自动消灭龙格——节点仍在。求值用 Horner 时注意求和顺序与抵消。</p><div class="mermaid"></div><p>最小二乘用更低次数去拟合更多点，映射的 \(\kappa\) 通常好得多；它不再保证过点。牛顿求根若用插值模型代替 \(f\)，节点选择同样会把模型弄病态。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>等距点上的高次振荡，来自基函数为了过点必须在两端用很大的系数对消——又一次近量相消，发生在函数空间而不是两个标量之间。条件数大：节点值的微小扰动（含舍入）在端点附近被放大成巨幅摆动。换节点是在换 \(f\) 的采样，使该映射的 \(\kappa\) 下降。数值课到此收束：舍入、条件、稳定、消去、线性与根、插值，都不再碰 IEEE 位型本身。下一课用 CMOS 把比特的物理判决做出来，组成课程开始。</p><p>Lebesgue 常数是插值算子的 \(\kappa\) 在极大范数下的面孔：它给出节点值扰动被放大到区间上的倍数。等距节点上它随 \(n\) 指数变坏，Chebyshev 上只对数变坏——同一套「条件数属于问题」的语言。分段样条把 \(n\) 换成许多个小的局部 \(n\)，每段 \(\kappa\) 可控，代价是整体光滑性要靠连接条件。数值课到此可以交给组成：舍入与条件已经够用来读后课电路里的噪声容限——那是另一类「扰动放大」，对象从矩阵换成电压，但「先问问题敏不敏感」的习惯应当带走。下一课不再做多项式，而做 CMOS 反相器。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲有理插值与径向基的全部理论。大模型栏的插值与连续嵌入是另一套对象，本栏不写 Transformer。金融栏的样条定价不进来。后课默认：等距高次插值可以病态；龙格是问题而非纯舍入；组成课从<a href="/cs/cmos-inverter">CMOS 反相器</a>起，不再继续数值分析。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>过节点的多项式唯一，但不保证区间上逼近改善。</li><li>龙格：等距高次在精确算术下即可振荡；Vandermonde 还叠加恶劣 \(\kappa\)。</li><li>换 Chebyshev 节点或分段低次，是在换更良态的 \(f\)。</li><li>数值计算课结束；下一课是 CMOS 反相器。</li><li>出处：Trefethen and Bau；Higham。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 线性与根<!--]--></p><p class="lesson-progress">第 10 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/cmos-inverter/">CMOS 反相器</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

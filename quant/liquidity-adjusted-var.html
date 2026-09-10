@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流动性调整 VaR | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_liquidity-adjusted-var.md.B18oaVWz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/stressed-var-frtb/">压力 VaR 与 FRTB</a></p><p class="lesson-next"> 下一课：<a href="/quant/component-es/">成分 ES / Euler 分配</a></p></nav><div style="position:relative;"><div><h1 id="流动性调整-var" tabindex="-1">流动性调整 VaR <a class="header-anchor" href="#流动性调整-var" aria-label="Permalink to &quot;流动性调整 VaR&quot;">​</a></h1><div class="epigraph"><p>中间价上的市场风险分位数假定你能按模型价格退出；把买卖价差及其波动加进损失定义，得到的是外生流动性调整后的分位数，仍然不是大额头寸沿供给曲线移动时的内生冲击。</p><footer>—— Bangia, Diebold, Schuermann and Stroughair, Modeling Liquidity Risk, Federal Reserve Bank of New York, 1998/1999</footer></div><p>标准 <a href="/quant/var-methods">VaR</a> 的损失 \(L\) 用中间价（或理论标记）变化定义。买卖价差即使对小仓位也要付；价差在压力里还会变宽、变吵。Bangia、Diebold、Schuermann 与 Stroughair 把外生流动性写成对 VaR 的附加：在市场风险分位数之上，加上价差成本的一个保守分位数。Hisata 与 Yamai、Almgren–Chriss 一类工作则处理内生流动性：你的数量改变价格，变现时间成为决策变量。本篇写 <strong>LVaR</strong> 作为损失定义的修正，与 <a href="/quant/liquidity-horizon">变现时间</a> 文分工：那边问 \(H\) 怎么选，这边问选定退出假设之后，分位数公式如何改。它仍不替代 <a href="/quant/expected-shortfall">ES</a> 对尾巴形状的积分。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记中间价为 \(P\)，相对买卖价差为 \(s\)（全价差相对中价）。即时买入（或卖出）相对中价至少付出 \(s/2\)。若 \(s\) 固定，流动性成本是确定性的半价差，资本里加一项即可。若 \(s\) 随机、且在市场下跌时变宽，则最坏的市场移动与最坏的价差可能同时出现，分位数必须在联合损失上取，而不能市场 VaR 与平均价差相加。Bangia 等人的问题是：在外生流动性（你的交易不移动报价）下，如何把 \(s\) 的不确定性写进与市场 VaR 同一置信水平的数字。</p><p>内生问题更重。仓位 \(q\) 相对日均成交很大时，退出路径上的冲击主导，半价差变成次要项。把 LVaR 做成「市场 VaR + 半价差」会让集中持仓看起来只多付了点费用，却漏掉冲击与更长暴露。Brunnermeier–Pedersen 的流动性螺旋里，价差与冲击都是内生的。LVaR 若停留在外生，只能当小仓位账簿的补丁；大仓位要进入执行模型或 FRTB 式的流动性期限。</p><h3 id="外生与内生不要加进同一项而不声明" tabindex="-1">外生与内生不要加进同一项而不声明 <a class="header-anchor" href="#外生与内生不要加进同一项而不声明" aria-label="Permalink to &quot;外生与内生不要加进同一项而不声明&quot;">​</a></h3><p>外生成本近似与 \(|q|\) 成正比（付半价差），临时冲击常与速率、与 \(q^2\) 一类量有关。小仓位被价差主导，大仓位被冲击主导。报告应拆开：外生 LVaR 附加、按 ADV 规则的 \(H\)、执行模型分位数。合成一个「流动性 VaR」却不说含不含冲击，限额无法审计。</p><p><span class="marginnote">用平静期平均价差去加在危机 VaR 上，是用错误测度估 \(s\)。价差的压力分位数应来自与市场压力同期的样本，或至少对 \(\sigma_s\) 做压力，而不是用五年中位数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>Bangia–Diebold–Schuermann–Stroughair。</strong> 相对半价差的随机部分用价差的波动 \(\sigma_s\) 描述。在正态或经验规则下，外生流动性成本的保守值可写成</p> \[\mathrm{COL}=\frac12 P\bigl(\bar s + k\,\sigma_s\bigr), \]<p>其中 \(\bar s\) 为价差中枢，\(k\) 与市场 VaR 的置信水平对齐（例如对应 \(\Phi^{-1}(\alpha)\)）。流动性调整 VaR 为</p> \[\mathrm{LVaR}=\mathrm{VaR}_{\mathrm{mid}}+\mathrm{COL}. \]<p>更完整的做法是在每个历史或模拟情景里用该情景的买卖价成交，直接对可实现 \(L\) 取分位数，而不是把 COL 当成与市场独立的加法项。独立相加忽略市场下跌与价差走阔的正依赖，通常不保守。</p><p><strong>随机价差与联合情景。</strong> 在 FHS 或 MC 的每条路径上，除因子收益外再抽价差（或把价差当作额外风险因子）。损失 $= $ 中价变化 $+ $ 成交相对中价的滑点。滑点可以是半价差，也可以是半价差加临时冲击。这样 LVaR 只是「另一种损失定义下的 VaR」，三种标准算法都可以用。</p><p><strong>内生：把 \(H\) 写进 \(L\)。</strong> 若 \(H\) 日内均匀清仓，市场风险来自剩余仓位的路径积分，冲击来自每日成交量。Hisata–Yamai 讨论过最优变现下的流动性 VaR；Almgren–Chriss 给出成本–方差前沿。此时数字不再是「1 日中间价 VaR 加半价差」，而是执行策略的损益分位数。平方根法则在渐进清仓下不成立，见变现时间文。</p><h3 id="与监管地平线的衔接" tabindex="-1">与监管地平线的衔接 <a class="header-anchor" href="#与监管地平线的衔接" aria-label="Permalink to &quot;与监管地平线的衔接&quot;">​</a></h3><p>FRTB 用分档流动性期限拉长部分因子的 ES 地平线，是制度上的内生流动性近似：不估你的 \(q\)，但按因子类别假定退出更慢。内部 LVaR 若只加价差、地平线仍全是 1 日，会与资本数字说两种语言。对交易限额，外生 COL 对做市与小仓位有用；对集中持仓，限额应受 \(q/\mathrm{ADV}\) 约束，而不是把冲击塞进一个更大的 \(k\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>中间价 VaR 的机制是因子映射下的标记变化。LVaR 改的是结算假设：你不能在中价成交，必须越过报价，且报价宽度随机。加法 COL 的机制是把价差边缘的分位数当作与市场独立的现金流出——计算便宜，依赖结构错误。联合情景的机制是让 \(s\) 与因子共享历史同日或共享 Copula，于是「跌的那天价差也宽」进入同一条 \(L\)。内生冲击的机制是供给曲线：你的卖盘成为价格的自变量，\(P\) 不再外生，VaR 作为外生测度上的分位数这一数学对象开始动摇。</p><p>正齐次在这里紧张。Artzner 的正齐次假定仓位放大则风险线性放大；冲击使大额头寸的变现损失超线性。外生 LVaR 大致保留正齐次（价差成本随 \(|q|\) 线性），内生 LVaR 一般破坏正齐次。因此「连贯的 ES」不能自动当流动性资本：要把冲击放进 \(L\) 的定义，或改用凸风险度量。Bangia 等人明确停留在外生，以免一步跨进执行最优。</p><p><span class="marginnote">ETF 与其成分、期货与现货，中价可以很紧，退出仍受一级市场申赎或交割约束。COL 用二级价差会低估。流动性调整必须对你真正能走的通道取价，而不是对最亮的那个报价。</span></p><h3 id="估计价差波动的陷阱" tabindex="-1">估计价差波动的陷阱 <a class="header-anchor" href="#估计价差波动的陷阱" aria-label="Permalink to &quot;估计价差波动的陷阱&quot;">​</a></h3><p>逐笔价差含微观结构噪声，日频高低价差（Corwin–Schultz 等）是另一套代理。LVaR 的 \(\sigma_s\) 应与 VaR 地平线匹配：用 1 秒价差波动去加 1 日市场 VaR，量纲错误。停牌、涨跌停使报价缺失，价差不是无穷，而是不可交易，应转入 <a href="/quant/trading-halts">停牌</a> 与缺口，而不是把 \(s\) 设成一个大数继续加。OTC 的「价差」常是询价离散点，样本选择偏差大：能观察到的 \(s\) 来自仍有人报价的日子。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>外生 LVaR 透明、适合做市账簿与小仓位限额；对集中头寸几乎无关痛痒。内生数字依赖冲击函数，模型风险大，但方向正确。并行报告优于合成：中间价 VaR、外生 LVaR、含冲击的执行分位数。回测必须用可实现成交价构造 \(L\)，若仍用中间价回测 LVaR，附加项永远不会被违反序列惩罚。</p><p>不要把 LVaR 与融资流动性混为一谈。价差是市场流动性；haircut 与保证金是融资流动性，见 <a href="/quant/funding-liquidity">融资流动性</a> 与强平。两者在螺旋里耦合，但公式上应分开加，否则无法解释资本跳升来自报价还是来自杠杆约束。也不要用 LVaR 替代压力期校准：压力年里价差与相关一起坏，那是 <a href="/quant/stressed-var-frtb">压力 VaR</a> 的测度更换，不是 \(k\) 取 3 还是 4。</p><p><span class="marginnote">把 COL 设成「足够大以至于回测从不违反」是在用流动性附加掩盖市场模型失败。应分别回测中价违反与可实现违反；若只有后者增加，附加才在做事。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Bangia 等人把外生价差成本加到中间价 VaR 上，得到流动性调整 VaR；加法项忽略价差与市场的正依赖。</li><li>更一致的做法是在每条情景用可成交价定义 \(L\)，三种 VaR 算法都适用。</li><li>大仓位的主导项是冲击与变现时间，不是半价差；内生 LVaR 一般破坏正齐次。</li><li>监管 LH 与内部 LVaR 应能对上同一套退出假设，避免限额与资本各说各话。</li><li>出处：Bangia, Diebold, Schuermann and Stroughair, FRBNY, 1998/1999；Hisata and Yamai 对流动性 VaR 的讨论；执行侧对照 Almgren and Chriss, 2000；教科书见 Jorion 对流动性风险的章节。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/component-es/">成分 ES / Euler 分配</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>底层与粘附 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_underlayer-adhesion.md.BA_Vl4Hg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 曝光与反应<!--]--><!--[--> · 课序 从光子到轮廓<!--]--></p><p class="lesson-progress">第 16 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/pab-solvent/">PAB 与溶剂残留</a></p><p class="lesson-next"> 下一课：<a href="/litho/resist-polymer-mw/">聚合物分子量与分布</a></p></nav><div style="position:relative;"><div><h1 id="底层与粘附" tabindex="-1">底层与粘附 <a class="header-anchor" href="#底层与粘附" aria-label="Permalink to &quot;底层与粘附&quot;">​</a></h1><div class="epigraph"><p>浮雕再直，底部剪应力一过黏附强度就剥。底层首先是界面能与机械锚，其次才是光学减反或二次电子源。</p><footer>—— 据 BARC / underlayer 与抗蚀剂黏附的产线叙述；EUV 底层功能栈见主干 underlayer 课</footer></div><p><a href="/litho/pab-solvent">上一课</a>把膜内溶剂赶到可重复。缺口是膜下界面：胶（或成像层）与 BARC / SOC / 无机硬掩模之间的黏附。主干 <a href="/litho/euv-underlayer">EUV 底层</a> 已从二次电子与隔离写过 EUV 栈。本课补的差是一般层的黏附力学与表面处理，不把那一课的电子产额再推导一遍。聚合物分子量如何改膜的内聚与溶解，留给<a href="/litho/resist-polymer-mw">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>显影液毛细力、冲洗、随后干法的剪应力，都作用在界面上。黏附不足：漂胶、剥落、局部「缺图形」，看起来像随机缺孔或扫描失焦。黏附过强且互溶：界面混合，footing、去胶残渣、BARC 开口困难。<a href="/litho/pattern-collapse">图形倒塌</a> 是高深宽比下的毛细力矩，黏附是它的边界条件——倒是体，剥是界面。</p><p>缺口不是再列 BARC 减反，而是：表面能、底涂（HMDS 一类）、底层交联密度，如何把「还贴着」写成可签核项。光学 BARC 选厚在反射极小，并不自动给出黏附极大。</p><h3 id="不要把-euv-电子灌入当成黏附" tabindex="-1">不要把 EUV 电子灌入当成黏附 <a class="header-anchor" href="#不要把-euv-电子灌入当成黏附" aria-label="Permalink to &quot;不要把 EUV 电子灌入当成黏附&quot;">​</a></h3><p>高 Z 底层抬灵敏度，是电子产额，不是黏附变好。黏附失败的片也可以很敏。分析要拆：重复性差的剥落跟涂胶头、底涂、等待湿度走；泊松缺孔跟剂量走。</p><p><span class="marginnote">HMDS 把氧化硅表面从亲水改成更匹配有机胶的润湿。过量或过烘反而生成弱界面层。底涂是资格项，不是「有或没有」开关。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实验：划格、磁带、显影后高压冲洗、聚焦离子束看界面、刻蚀后剥落检查。表面：接触角、底涂温度时间、底层 PAB / 固化。光学与黏附联合：换 BARC 材料族时同时看反射与剥落，不要只盯 swing。</p><p>EUV 层沿用主干底层课的功能清单（黏附、隔离、电子、硬掩模），本课只强调：黏附规格在 DUV 与 EUV 上都是一等项，不因为「有 BARC」就自动满足。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>润湿不良则涂布空洞，显影从空洞撕开。润湿好但扩散互溶，形成混合层，\(R(m)\) 在底部失定义，出现 footing。底层过固化变玻璃，机械锚变差；欠固化则被显影液攻击。PAB 过狠让胶底部溶剂过低、收缩应力集中在界面，剥落在曝光前就已经埋下。</p><p>倒塌时，黏附力矩对抗毛细力矩。同样深宽比，黏附好可以多活一截；黏附课救不了深宽比预算本身——<a href="/litho/high-na-resist-budget">胶厚</a> 仍要薄。</p><p><span class="marginnote">金属衬底与低 k 介质表面能差很大，同一胶换层必须重做底涂，不能把前层资格复印。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不写 HMDS 的分子式考据，不把某 BARC 牌号当标准。不重写驻波光学。下一课分子量改的是膜的内聚强度与溶解行为，从而改「撕在体内还是撕在界面」。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>黏附是界面能与固化窗口，不是减反厚度的副产品。</li><li>剥落会伪装成缺孔；用重复性与剂量敏感拆开。</li><li>底涂与底层固化是资格项；过/欠都失败。</li><li>EUV 电子产额与黏附是不同账。</li><li>出处：BARC/underlayer 黏附通称；主干 <a href="/litho/euv-underlayer">EUV 底层</a>；Mack / Levinson 工艺叙述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 曝光与反应<!--]--><!--[--> · 课序 从光子到轮廓<!--]--></p><p class="lesson-progress">第 16 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/resist-polymer-mw/">聚合物分子量与分布</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

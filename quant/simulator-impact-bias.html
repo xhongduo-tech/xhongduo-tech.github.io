@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模拟器冲击模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_simulator-impact-bias.md.DrzC5hBw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 机器学习方法<!--[--> · 单元 强化学习交易<!--]--><!--[--> · 课序 设定<!--]--></p><p class="lesson-progress">第 11 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pomdp-fills/">部分可观测与延迟成交</a></p><!----></nav><div style="position:relative;"><div><h1 id="模拟器冲击模型" tabindex="-1">模拟器冲击模型 <a class="header-anchor" href="#模拟器冲击模型" aria-label="Permalink to &quot;模拟器冲击模型&quot;">​</a></h1><div class="epigraph"><p>强化学习会去采集模拟器里被写错的那一项。若冲击太弱，智能体学会瞬时吃完；若冲击可被来回交易套利，智能体学会做自己的做市商。</p><footer>—— 据 Gatheral 对冲击模型无动态套利的要求；对照 Almgren–Chriss 把临时与永久冲击分开的设定</footer></div><p><a href="/quant/pomdp-fills">部分可观测与延迟成交</a>处理了观测与回报。<a href="/quant/sim-to-real-trading">模拟器偏差</a>已经列出成交假设从松到紧的阶梯。本课的缺口是专门针对 <strong>RL 训练用的冲击模块</strong>：它如何把偏差写进政策，以及哪些函数形式会制造虚假最优。强化学习课序在本课收束。不重写 Almgren–Chriss 的最优轨迹推导，只要求模拟器里的冲击满足：对自己的量有弹性、临时项衰减、永久项不提供免费午餐。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RL 的环境就是模拟器。冲击函数 \(I(q,\mathrm{state})\) 若恒为零，最优是立刻成交，延迟预算与容量课的全部权衡消失。若只有与量无关的常数滑点，智能体不会学会避开浅簿，只会学会少交易——或在奖励塑造下学会把交易藏进标记噪声。若永久冲击非线性且允许来回交易抽取，Gatheral 意义上的动态套利出现，政策会在模拟器里印钞。缺口是把冲击模块当成必须验证的生产模型，写入<a href="/quant/model-risk-inventory">模型风险清单</a>，而不是当成训练超参。</p><p>自己的历史 TCA 校准是局部弹性，拥挤课时已警告。RL 若用该局部弹性去优化比历史更大的 \(q\)，是在外推。必须对参与率凸化，或硬限制动作使 \(q\) 不超过校准支撑。</p><h3 id="临时、永久、以及「别人的反应」" tabindex="-1">临时、永久、以及「别人的反应」 <a class="header-anchor" href="#临时、永久、以及「别人的反应」" aria-label="Permalink to &quot;临时、永久、以及「别人的反应」&quot;">​</a></h3><p>临时冲击：吃完后簿恢复一部分，衰减时间应短于回合。永久冲击：中点留下一截，进入随后观测，这才能让 POMDP 的 \(o\) 含有自己的痕迹。缺第三项「别人的反应」（撤单、跟风）时，限价的填成概率仍偏乐观。本课不要求建一个完整代理人市场，但要求：至少临时+永久；并报告在没有反应项时填成上界。乐观界不能单独部署。</p><p><span class="marginnote">集合竞价的冲击不是连续速率的积分。模拟器必须在拍卖段换成批量出清，否则 RL 会学到在开盘用连续吃单去「优化」一个不存在的轨迹。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>冲击模块接口：输入本步成交量、方向、当时深度或 ADV、协议类型；输出临时成本、永久中点位移、以及可选的深度消耗。校验：无交易时价格路径与历史一致（或一致的统计）；小量时成本接近有效价差；来回交易不能产生正期望；参与率升高时成本凸。把 RL 关掉，用固定 POV 走一遍，成本应与 TCA 同量级。</p><p>训练时对冲击参数做敏感性：\(\Lambda\) 放大 50%，政策应变得更慢。若政策不变，说明奖励没接到冲击，或动作根本走不到约束。这是单元测试。sim-to-real：小规模真单的实现缺口应落在模拟器压力参数下的区间内，而不是落在最乐观参数上。</p><h3 id="冲击偏差如何表现为「假-alpha」" tabindex="-1">冲击偏差如何表现为「假 alpha」 <a class="header-anchor" href="#冲击偏差如何表现为「假-alpha」" aria-label="Permalink to &quot;冲击偏差如何表现为「假 alpha」&quot;">​</a></h3><p>冲击过弱 → 政策过激进 → 实盘缺口爆炸。冲击过强且不可套利 → 政策过保守，看起来像失败的 RL，其实是校准。可套利冲击 → 政策在模拟器里高夏普，实盘接近零或为负。第三种最危险，因为研究会过关。检查来回交易期望是上线门槛。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RL 优化的是模拟器测度下的值函数。冲击函数定义了动作如何改写随后状态与奖励。偏置的 \(I\) 等于偏置的 \(P\) 与 \(R\)。POMDP 滤波再好，滤的也是错的生成过程。这与另类数据回填同构：环境被事后改写成更好交易的世界。纠正办法同样是 vintage：冲击参数用更早的样本校准，在更晚的样本上做策略评估，且评估环境不得弱于训练环境。</p><p><span class="marginnote">不要把经验 <a href="/quant/kyle-lambda">Kyle lambda</a> 直接当永久冲击塞进模拟器。lambda 含信息，执行冲击应尽量是机械的。混用会让智能体学会「不要与知情者成交」——它没有这个观测。</span></p><div class="mermaid"></div><h3 id="评估环境不得弱于训练环境" tabindex="-1">评估环境不得弱于训练环境 <a class="header-anchor" href="#评估环境不得弱于训练环境" aria-label="Permalink to &quot;评估环境不得弱于训练环境&quot;">​</a></h3><p>训练用凸冲击、评估用零冲击，政策会看起来稳健，其实没有经过更严的世界。应反过来：评估用压力参数，训练用基准参数，过关再收紧训练。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>真实市场的冲击有非线性、有公告状态、有拍卖。任何参数化都是错的，目标是偏差方向已知、对部署保守。多智能体模拟超出本课。加密链上冲击是 AMM 曲线或订单簿，函数形式不同，但无套利检查同样适用。</p><p><span class="marginnote">经验 Kyle lambda 含信息，不宜直接当永久冲击。执行冲击应尽量机械；否则智能体被要求躲开它看不见的知情者。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RL 会采集冲击函数的错误；冲击是生产模型，要进清单。</li><li>至少临时+永久；来回交易期望必须非正。</li><li>校准支撑外的量必须凸化或截断动作。</li><li>拍卖段不得用连续冲击。</li><li>评估环境不得弱于训练环境；真单缺口对照压力参数。</li><li>出处：Almgren and Chriss；Gatheral 对冲击与无动态套利；sim-to-real 见 Lopez de Prado 对回测路径依赖的讨论；经验冲击见 Cont, Kukanov and Stoikov。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 机器学习方法<!--[--> · 单元 强化学习交易<!--]--><!--[--> · 课序 设定<!--]--></p><p class="lesson-progress">第 11 / 11 课</p><!----><p class="lesson-next">主干课序到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LLM embedding 因子 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_llm-embedding-alpha.md.eA5Uf8Qo.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 LLM × 量化<!--[--> · 单元 交易智能体<!--]--><!--[--> · 课序 系统<!--]--></p><p class="lesson-progress">第 17 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/quant/llm-sentiment-alpha/">LLM 情绪 alpha（Lopez-Lira-Tang）</a></p><!----></nav><div style="position:relative;"><div><h1 id="llm-embedding-因子" tabindex="-1">LLM embedding 因子 <a class="header-anchor" href="#llm-embedding-因子" aria-label="Permalink to &quot;LLM embedding 因子&quot;">​</a></h1><div class="epigraph"><p>把新闻、公告或分析师文本映到固定维稠密向量，再在向量空间里做降维或监督投影，得到的不是一个极性分数，而是一组可正交的语义暴露。</p><footer>—— 文本即数据的计量框架见 Gentzkow, Kelly and Taddy, Journal of Economic Literature, 2019；金融文本嵌入的应用见 FinBERT 与后续收益预测工作</footer></div><p><a href="/quant/llm-sentiment-alpha">LLM 情绪 alpha</a> 把大模型收成 \(+1/-1\) 的方向。<a href="/quant/news-nlp-alpha">舆情与文本</a> 把文档收成词频与主题。embedding 因子走第三条路：用编码器（BERT、FinBERT、句向量模型、或 LLM 的隐藏状态）把变长文本变成 \(d\) 维向量 \(e_{i,t}\in\mathbb{R}^d\)，再把 \(e\) 当特征进入横截面。Huang、Wang 与 Yu 的 FinBERT，以及把句向量、OpenAI 嵌入用于 10-K 与新闻的后续研究，证明稠密表示能抓住词典漏掉的同义与结构，但也把「维度灾难、训练窗泄漏、不可解释」一并带进因子流水线。本篇写如何把嵌入做成<strong>可复制的截面因子</strong>，而不是把 1536 维原样丢进 <a href="/quant/gbdt-alpha">GBDT</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>词袋的坐标是词，主题模型的坐标是主题，嵌入的坐标没有预先命名。同一家公司「指引上调但毛利率承压」与「毛利率改善但指引谨慎」在极性上可能接近，在嵌入空间里应能分开。问题是：\(d\) 通常为 768 到 1536，远大于日频横截面的有效样本量；若不降维或正则，样本内拟合只是记住了语料里的稀有短语。Gu、Kelly 与 Xiu 在表格特征上已经说明高维机器学习必须走样本外；嵌入只是把同一问题从财务比率搬到语义坐标。</p><p>第二问题是编码器本身的时间。用事后在全市场新闻上继续预训练的 BERT 去编码历史文档，IDF 与领域适应都含未来分布。用闭源 embedding API 则模型会静默更换。嵌入因子的「模型」包括：分词、截断长度、是否对多条新闻平均、以及编码器权重哈希。缺任何一项都无法复现 \(e_{i,t}\)。</p><h3 id="极性、主题与嵌入不是互相替代" tabindex="-1">极性、主题与嵌入不是互相替代 <a class="header-anchor" href="#极性、主题与嵌入不是互相替代" aria-label="Permalink to &quot;极性、主题与嵌入不是互相替代&quot;">​</a></h3><p>Lopez-Lira–Tang 的标量情绪回答「好不好」；嵌入回答「像什么」。可以在嵌入空间里定义原型向量（「回购」「降级」「供应链中断」），用余弦相似度做成可命名因子，这接近主题。也可以对 \(e_{i,t}\) 做 PCA，把前若干主成分当统计因子，这接近 <a href="/quant/ipca">IPCA</a> 的文本版。还可以让 \(e\) 预测收益，用 <a href="/quant/regularized-linear-alpha">正则线性</a> 或 PLS 得到监督投影。三条产出的经济含义不同：原型可审计，PCA 捕获共同叙事，监督投影混进风险溢价。报告里应分开，而不是只报一个「embedding 综合分」。</p><p><span class="marginnote">对多条新闻取向量平均，等价于假设语义可加。一条「并购终止」会被十条常规经营稿稀释。应按事件强度加权，或先选当日最相关的一条，再编码。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>编码。</strong> 文档 \(d_{i,t}\)（标题、摘要或分段后的 10-K 句子）过冻结编码器得 \(e_{i,t}\)。日频新闻：当日可交易窗口内的向量等权或按源加权。长文档：分块编码再注意加权或平均，避免只读前 512 token。中文必须用中文或多语言编码器，不能把英文 BERT 的子词硬套上去。</p><p><strong>降维。</strong> 在每个再训练日，用<strong>仅过去</strong>窗口的嵌入矩阵做 PCA 或自动编码器，把 \(d\) 降到 \(k\)（例如 10–50），再对 \(k\) 维做截面 rank 与行业市值中性。主成分的载荷应存档：某年 PC1 可能是「宏观不确定」，次年可能是「生成式 AI」——名称会变，这是特征，不是 bug。禁止用全样本 PCA，那是 <a href="/quant/look-ahead-bias">前视</a>。</p><p><strong>监督投影。</strong> 以随后收益为标签，在滚动窗上对 \(e\) 做弹性网或 PLS，得到权重 \(w_t\)，分数 \(s_{i,t}=w_t^\top e_{i,t}\)。标签与文档的时间对齐见 <a href="/quant/label-horizon-overlap">重叠</a> 与 <a href="/quant/point-in-time">时点</a>。必须相对 Lopez-Lira–Tang 极性与 LM 词典报告增量，否则无法知道稠密维是带来新信息还是把极性重新编码了一遍。</p><h3 id="原型因子与稳定性" tabindex="-1">原型因子与稳定性 <a class="header-anchor" href="#原型因子与稳定性" aria-label="Permalink to &quot;原型因子与稳定性&quot;">​</a></h3><p>选定一组短语（「share repurchase」「FDA rejection」等），编码为原型 \(p_j\)，因子 \(f_{i,j,t}=\cos(e_{i,t},p_j)\)。短语表必须预指定并版本化，不能在看到收益后再加「chatbot」。稳定性检查：同一事件用不同措辞改写，余弦应接近；若对同义改写极度敏感，编码器不适合做因子。跨语言原型要用平行短语，而不是翻译分数。</p><p>生产上编码器升级等于新因子：应并行跑旧权重直到衰减可接受，而不是热切换。存储上只存 \(k\) 维因子与哈希，不必把 1536 维原向量永久留在研究库，但要能从原文重算。</p><p><span class="marginnote">OpenAI 一类 API 嵌入的余弦尺度会随模型代数变化，不能把 2024 年的向量与 2026 年的向量拼成同一 PCA。分代各做各的降维，再在因子层面比较 IC，不要在向量层面拼接。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>嵌入捕获的是叙事邻近性：同一天谈同一供应链冲击的公司，向量靠近，即使没有共用负面词。若市场尚未按叙事聚类定价，主成分或多空会赚到「主题扩散」的滞后。这与 Bybee 等把商业新闻主题对齐宏观周期是同一想法，只是基从主题比例换成了神经网络坐标。若市场已经用行业 ETF 把叙事交易完，嵌入因子在行业中性后应接近零——这是应该报告的诊断，不是失败。</p><p>监督投影会把任何与收益相关的语义吸入，包括风险：「破产」「稀释」类方向可能是困境溢价而不是 alpha。应用 <a href="/quant/fama-macbeth">Fama–MacBeth</a> 或对已知因子残差，看嵌入分数是否还有定价误差。换手方面，新闻嵌入日更，10-K 嵌入季更，二者不要做成同一个持有期。</p><h3 id="与-llm-极性打分的信息重叠" tabindex="-1">与 LLM 极性打分的信息重叠 <a class="header-anchor" href="#与-llm-极性打分的信息重叠" aria-label="Permalink to &quot;与 LLM 极性打分的信息重叠&quot;">​</a></h3><p>极性是嵌入空间里一条极粗的线性方向。若先用嵌入 PCA，再把第一主成分与 Lopez-Lira–Tang 分数回归，残差才是「非极性语义」。实践中常发现：短标题的有效信息大部分就是极性与一两个事件类型；长文档（10-K 风险因素、电话会问答）嵌入的增量更大。因此 embedding 因子的容量叙事应写在长文本、低换手一侧，而把标题级短持有留给情绪 alpha。</p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用未来语料继续预训练后再编码过去。不要把检索增强（RAG）进回测：检索库的构成是另一种前视。不要对个人社交媒体账号做身份识别。版权上只存向量与分数。高维监督必须预指定 \(k\) 与正则，并把搜索次数计入 <a href="/quant/harvey-liu-zhu">Harvey–Liu–Zhu</a> 一类多重检验。A 股分词、繁简与转载站使同一公告出现多个近重复向量，去重应在编码前做。</p><p>嵌入不是「比 ChatGPT 情绪更先进的一代」，而是不同的充分统计量。情绪回答方向，嵌入回答位置。二者可以同时存在于同一研究平台，但必须分开做中性化与衰减诊断，否则 GBDT 会在共线上任意切换。</p><p><span class="marginnote">把分析师全文嵌入再预测评级修订，很容易变成对「已写在标题里的结论」的复读。增量检验应相对标题级极性，而不是相对零。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Embedding 因子把文本映到稠密向量，再经滚动降维、原型余弦或监督投影进入横截面，产出的是语义暴露而非单一极性。</li><li>编码器权重、截断、多文档聚合与 PCA 窗口都必须冻结在 \(t\) 之前，否则是前视。</li><li>短标题上与 LLM 情绪高度重叠；增量更可能来自长文档与叙事聚类。</li><li>高维须正则，并相对词典与 Lopez-Lira–Tang 极性报告增量。</li><li>出处：Gentzkow, Kelly and Taddy, <em>JEL</em>, 2019；Huang, Wang and Yu, FinBERT；Ke, Kelly and Xiu, 2019；Lopez-Lira and Tang, 2023；降维与正则见 Gu, Kelly and Xiu 的机器学习资产定价框架。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 LLM × 量化<!--[--> · 单元 交易智能体<!--]--><!--[--> · 课序 系统<!--]--></p><p class="lesson-progress">第 17 / 17 课</p><!----><p class="lesson-next">本附录到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>隐函数定理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_implicit-function.md.CpynUaCH.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 10 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/envelope-theorem/">包络定理</a></p><p class="lesson-next"> 下一课：<a href="/econ/comparative-statics/">比较静态</a></p></nav><div style="position:relative;"><div><h1 id="隐函数定理" tabindex="-1">隐函数定理 <a class="header-anchor" href="#隐函数定理" aria-label="Permalink to &quot;隐函数定理&quot;">​</a></h1><div class="epigraph"><p>一阶条件是 $n$ 个方程；$x$ 对参数可解，当且仅当那组方程对 $x$ 的 Jacobian 可逆。</p><footer>—— 据 Rudin, Principles of Mathematical Analysis, 第 9 章；Mas-Colell, Whinston and Green 数学附录整理</footer></div><p>上一课<a href="/econ/envelope-theorem">包络定理</a>把 \(V&#39;(\theta)\) 写成直接偏导，故意丢掉 \(Dx^*\)。比较静态若问「价格涨，买多还是买少」，丢掉的那一项必须回来。缺口是：由 \(F(x,\theta)=0\)（通常是 FONC 或 KKT 的平稳方程）局部解出 \(x(\theta)\)，并给出 \(Dx\)。本课只提供这条微积分许可，不把经济学符号推完——那是下一课比较静态。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(F:\mathbb{R}^n\times\mathbb{R}^k\to\mathbb{R}^n\) 为 \(C^1\)，\(F(x_0,\theta_0)=0\)，且 \(D_x F(x_0,\theta_0)\) 可逆。则存在 \((x_0,\theta_0)\) 的邻域，使 \(x=x(\theta)\) 为 \(C^1\)，且 \(D_\theta x=-(D_x F)^{-1}D_\theta F\)。 经济学里 \(F=\nabla_x\mathcal{L}\) 或无约束的 \(\nabla f\)。\(D_x F\) 就是 Hessian（或加了约束后的加边 Hessian）。可逆 = 非退化驻点 = 局部唯一的 \(x(\theta)\)。</p><p>加边 Hessian 非奇异，是支出最小化、效用最大化内部解比较静态的标准假设。它失败时：完全替代的整段需求、有效约束集合跳变、多重最优。那些情形没有单值可微的 \(x(\theta)\)，包络仍可能用次梯度说话，但本课的公式不适用。</p><h3 id="隐函数不是「把-解出来」" tabindex="-1">隐函数不是「把 \(x\) 解出来」 <a class="header-anchor" href="#隐函数不是「把-解出来」" aria-label="Permalink to &quot;隐函数不是「把 $x$ 解出来」&quot;">​</a></h3><p>定理不保证闭式。\(u\) 的 FONC 很少能把 \(x\) 写成初等函数；定理只说局部存在一张 \(C^1\) 的图，并且告诉你斜率。比较静态要的是斜率的符号，不是公式。把隐函数理解成「先解出 \(x=g(\theta)\) 再代入」会在 CES 以外的问题里走死。</p><p><span class="marginnote">方程个数必须等于内生变量个数。多出来的乘子要么被约束消掉，要么进入扩大的 \(F\)。KKT 在角点附近有效集不变时，对有效变量用隐函数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把参数分成你关心的 \(\theta\) 与其余。计算 \(D_x F\) 与 \(D_\theta F\)，解线性方程 \(D_x F\cdot x_\theta=-D_\theta F\)。符号由 \((D_x F)^{-1}\) 的负定性或加边矩阵的符号模式给出——下一课把这些模式翻译成替代、收入效应。本课停在线性代数：可逆就有局部函数。</p><p>高维时不要对每个分量分别「当一元隐函数」除非交叉偏导为零。同时动的 \(x_i\) 必须一起求。这也是为什么两商品可以画图消元、多商品必须上矩阵。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(F=0\) 定义一张曲面。若曲面在 \(x\) 方向的切空间投影满秩，就能把曲面写成 \(x\) 对 \(\theta\) 的图。满秩失败是折叠：同一 \(\theta\) 对应多个 \(x\)，或突然消失——多重均衡、弯折的最优对应。Brouwer/Kakutani 仍可保证存在，但不给可微分支；那是后课不动点的语言，与本课互补：隐函数管局部光滑枝，不动点管全局存在。</p><p>\(C^1\) 的 \(F\) 给出 \(C^1\) 的 \(x(\theta)\)；\(C^2\) 给出 \(C^2\)。后课斯勒茨基要用 \(x\) 对 \((p,w)\) 可微，默认加边 Hessian 在最优点可逆。二阶充分条件（切空间负定）往往蕴含这块可逆，但要把约束的加边写对。</p><p><span class="marginnote">离散选择没有内部 Jacobian。包络仍在（Milgrom–Segal），隐函数不在。不要对 0-1 决策套本课公式。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不在本课证明隐函数（Rudin 用压缩或平均微分）。不把反函数定理单独铺成一课：反函数是 \(k=n\) 且 \(F(x,\theta)=x-\theta\) 一类的特例。也不进入流形上的横截性讲义。下一课把 \(Dx\) 的符号读成替代与收入。</p><p>后课默认：非退化内部解存在局部 \(C^1\) 的 \(x(\theta)\)，导数由 \(-(D_x F)^{-1}D_\theta F\) 给出。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(F(x,\theta)=0\) 且 \(D_x F\) 可逆 \(\Rightarrow\) 局部 \(x(\theta)\) 为 \(C^1\)。</li><li>斜率公式是线性方程，不必有闭式解。</li><li>加边 Hessian 奇异时需求可以集值或跳跃，本课公式停用。</li><li>隐函数管光滑枝；存在性另由不动点管。</li><li>下一课：<a href="/econ/comparative-statics">比较静态</a>。</li><li>出处：Rudin, <em>Principles of Mathematical Analysis</em>；MWG 数学附录。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 优化<!--]--><!--[--> · 课序 约束<!--]--></p><p class="lesson-progress">第 10 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/comparative-statics/">比较静态</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

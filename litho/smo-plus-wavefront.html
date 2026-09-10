@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波前与 SMO+ | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_smo-plus-wavefront.md.C3aL9Btd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 OPC 与 SMO<!--]--></p><p class="lesson-progress">第 8 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/litho/pupil-source-map/">光瞳图优化</a></p><p class="lesson-next"> 下一课：<a href="/litho/compact-vs-rigorous/">紧凑模型对严格电磁</a></p></nav><div style="position:relative;"><div><h1 id="波前与-smo" tabindex="-1">波前与 SMO+ <a class="header-anchor" href="#波前与-smo" aria-label="Permalink to &quot;波前与 SMO+&quot;">​</a></h1><div class="epigraph"><p>光源和掩模决定通带里有哪些级；投影光学的波前决定这些级以什么相位相加。把像差排除在优化之外，等于假定镜头已经是理想瞳。</p><footer>—— 对照 ASML 对光源–掩模–投影光学协同（SMO+ / SMLO 一类）的公开论述</footer></div><p><a href="/litho/pupil-source-map">上一课</a>把照明瞳面收成可实现的像素图，并冻结给全芯片 OPC。缺口是投影侧。EUV 掩模三维带来焦点漂移与对比衰退，仅靠改光源像素往往把能量挤进无效率的角落，或把套刻侧瓣抬起来。ASML 公开把波前（透镜可调的 Zernike / 相位）放进与光源、掩模同一套协同，产品叙事里称为 SMO+ 一类能力。本课钉像差进协同。像素级逆问题如何正则，留给 <a href="/litho/ilt-curvilinear">ILT</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>理想 SMO 假定投影瞳只是一个硬截止。真实物镜有残余像差，EUV 还有掩模厚膜引入的等效相位，随节距和取向变。最佳焦点因此不是一个数，对比在离焦时掉得比薄掩模模型更快。只优化光瞳像素，等于用照明去硬补一层本该用波前对消的相位。</p><p>扫描仪并不是任意波前发生器。可调的是一组低阶 Zernike 或等效操纵器行程，有范围、有场相关、有与套刻的耦合。缺口是：在照明器可行集、掩模 MRC、以及透镜波前行程的乘积上，把窗口交做大，同时不把 overlay 和光瞳效率赔光。</p><h3 id="smo-不是「再跑一次-smo」" tabindex="-1">SMO+ 不是「再跑一次 SMO」 <a class="header-anchor" href="#smo-不是「再跑一次-smo」" aria-label="Permalink to &quot;SMO+ 不是「再跑一次 SMO」&quot;">​</a></h3><p>名字里的加号指的是优化变量族变了：光源 + 掩模 + 投影光学（公开文献里亦称 SMLO、SMPO、PMWO）。在此之上，它理解成同一套像素光瞳多迭代几次，会漏掉相位自由度。波前改的是级间相位，光源改的是哪些级被点亮，两者不可互换。</p><p><span class="marginnote">不要把 SMO+ 输出的 Zernike 当成镜头出厂像差的「故障单」。那是为特定层注入的相位，用来对消掩模 3D 一类系统项。出厂像差仍有自己的规格，两套数不要加在同一张表里装糊涂。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>流程在 clips 上联合或交替更新：光瞳像素、掩模碎片、以及允许的波前系数。成本仍是 PV-band、MEEF、ILS，外加波前 RMS 惩罚、照明效率、以及套刻/像移项。公开 EUV 例子把瞳、掩模、波前一起用来压掩模 3D 引起的对比衰退，从而在亚 40 nm 节距孔上换单次窗口，而不是立刻双重。</p><p>全芯片仍不能让每个单元拥有自己的波前：波前与光源一样是场级（或扫描狭缝级）全局量。实践是：协同在代表性图形上定一套照明 + 波前，冻结后做 OPC/ILT。场内残余用扫描仪原有的校正环去跟，而不是让 ILT 去拟合每一场的镜头指纹。</p><h3 id="相位注入与套刻" tabindex="-1">相位注入与套刻 <a class="header-anchor" href="#相位注入与套刻" aria-label="Permalink to &quot;相位注入与套刻&quot;">​</a></h3><p>为压 M3D 而加的非对称光瞳或像散项，可能带来像移与 overlay 侧瓣。公开工作明确把「波前/光瞳协同是否伤套刻」列为要验证的项，而不是默认免费。因此 SMO+ 的验收必须同时看成像窗与套刻，不能只报 NILS。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>空中像是各照明点、各衍射级的相干叠加再对光源积分。波前在投影瞳上乘相位 \(e^{i\Phi(\rho)}\)，改变级间干涉的焦深与最佳焦点。掩模 3D 的等效相位随节距变，\(\Phi\) 选得好可以对消一族图形的漂移，对其它图形则是新的像差。所以目标必须是窗口交，并限制 \(\Phi\) 的 RMS，以免未抽样图形被牺牲。</p><p>与上一课的分工：光瞳像素改强度分布（哪些方向被照明）；波前改相位（被照明的级如何对齐）。只动强度，相位失配仍在；只动波前，通带形状仍可能错。加号的意义是这两类自由度一起走。</p><p><span class="marginnote">Zernike 编号与软件约定随工具而变。写规格时用「哪一阶、多少 mλ」并声明场位置，不要只说「加了像散」。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>SMO+ 不增加 NA，不缩短波长，也不取消随机悬崖。它用相位行程去换对比与焦点对齐，行程有限，场相关像差不能被一组全局 Zernike 抹平。未进入 clips 的图形可能在注入相位后更差，必须全芯片监护。计算比 SMO 更重，但仍属定规则阶段；日历墙在 OPC/ILT。</p><p>后课默认：冻结的不仅是光瞳图，还可以包含一层为该层注入的波前；ILT 在这个已经非理想的瞳里求逆。</p><p><span class="marginnote">引用 SMO+ 收益时写清：相对的是仅 SMO 还是固定环形光源，是否含掩模 3D，套刻有没有一起报。只展示孔阵列对比，是选题偏差。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SMO+ 把投影光学波前与光源、掩模放进同一目标函数。</li><li>波前改级间相位，用来对消掩模 3D 一类系统项，不是把镜头「修到零像差」。</li><li>波前是场级全局量，只能在 clips 上定再冻结。</li><li>非对称解必须验证套刻，不能只报成像窗。</li><li>出处：ASML 公开的 SMO+ / 光源–掩模–透镜（波前）协同论述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 OPC 与 SMO<!--]--></p><p class="lesson-progress">第 8 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/compact-vs-rigorous/">紧凑模型对严格电磁</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

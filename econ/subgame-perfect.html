@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>扩展式与子博弈完美 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_subgame-perfect.md.utLcE_qs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 博弈<!--]--><!--[--> · 课序 均衡<!--]--></p><p class="lesson-progress">第 6 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/econ/correlated-equilibrium/">相关均衡</a></p><p class="lesson-next"> 下一课：<a href="/econ/trembling-hand/">颤抖手完美</a></p></nav><div style="position:relative;"><div><h1 id="扩展式与子博弈完美" tabindex="-1">扩展式与子博弈完美 <a class="header-anchor" href="#扩展式与子博弈完美" aria-label="Permalink to &quot;扩展式与子博弈完美&quot;">​</a></h1><div class="epigraph"><p>完美性要求均衡策略在每一个子博弈上仍构成均衡，从而删掉不可信的威胁。</p><footer>—— Selten, Reexamination of the Perfectness Concept for Equilibrium Points in Extensive Games, International Journal of Game Theory, 1975</footer></div><p><a href="/econ/correlated-equilibrium">上一课</a>（相关均衡）。保证有限策略式有纳什。把同一博弈写成树之后，纳什仍可能靠「若对方偏离、我就采取对自己更糟的惩罚」来撑住。进入遏制里，在位者威胁降价到亏损，只要进入者不信、威胁不必执行，支付在路径上说得通，但它不是到达那个节点后还会选的招。缺口是精炼：策略必须在每个子博弈里都是纳什。本课钉子博弈完美（SPE），不谈重复博弈的无名氏。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>扩展式给出节点、信息集、行动与终点支付。策略规定在每一信息集做什么。把策略式摊平后，纳什只约束整条策略的事前支付，不约束「若轮到这个未达信息集，还会不会按原计划做」。</p><p>子博弈是从单点信息集出发、包含其所有后续的小树，且不劈开原博弈的信息集。SPE 要求 \(\sigma\) 限制在每一个子博弈上仍是该子博弈的纳什。完美信息有限博弈可用逆向归纳：从终点前回一步，每点选最优，往前叠。有限完美信息、无平局时，纯策略 SPE 存在。</p><h3 id="子博弈不是任意一截树枝" tabindex="-1">子博弈不是任意一截树枝 <a class="header-anchor" href="#子博弈不是任意一截树枝" aria-label="Permalink to &quot;子博弈不是任意一截树枝&quot;">​</a></h3><p>信息集若跨两条枝，从其中一条「切开」会让玩家不知道自己在哪，那不是子博弈。不完美信息下，SPE 管不到许多信息集上的信念，那是后课完美贝叶斯的缺口。本课先把「单点、切得干净」的树钉住。</p><p><span class="marginnote">进入博弈：在位者「斗争」在进入已成事实后严格劣于「容纳」。斗争威胁支撑的纳什不是 SPE。逆向归纳留下：进入，容纳。Selten 1965 的完美性、1975 的颤抖手，是同一直觉的不同技术。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对象：有限扩展式，完美回忆。解：SPE。算法（完美信息）：逆向归纳。不完美信息但子博弈仍多的，在每个子博弈里解纳什，再拼回。斯塔克尔伯格是完美信息两步量：领导者预见到追随者的最优反应，这正是 SPE，不是普通古诺的同时行动纳什。</p><p>策略式纳什集合包含 SPE 集合。精炼是缩小，不是另造支付。混合在树上用行为策略：每个信息集一个局部混合；完美回忆下与混合策略等价（Kuhn）。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可信性来自到达之后还要最优。威胁要成为 SPE 的一部分，惩罚者在惩罚子博弈里必须真的愿意罚。一次性降价若伤害自己更深，就不可信。要把惩罚做可信，必须改支付（沉淀成本、合同）或改结构（重复，让惩罚变成未来路径上的最优）。<a href="/econ/stackelberg">斯塔克尔伯格</a>已经用过「领导者预见追随者的反应」；用本课的话说，那是两步完美信息树上的 SPE，不是把古诺的同时行动纳什硬改成先手。</p><p>逆向归纳把整棵树的 SPE 支付唯一钉住（在无平局时），这比纳什强得多。但也脆：一丁点不完全信息或平局，归纳路径可以跳。实验中的最后通牒偏离，是对照，不是定义错误。无限地平线没有最后一步，归纳不能从终点开始，必须回到定义：每一截子博弈仍是纳什。下一课的无名氏定理就站在这条无限树上。</p><h3 id="承诺必须改树" tabindex="-1">承诺必须改树 <a class="header-anchor" href="#承诺必须改树" aria-label="Permalink to &quot;承诺必须改树&quot;">​</a></h3><p>若在位者能在进入前烧掉「降价会亏损」的桥——合同、产能、沉淀广告——支付变了，SPE 可以变成「不进入」。台词上的威胁改不了树。Selten 1975 的颤抖手更强：每个信息集都被微小失误碰到。SPE 是其必要条件。信号博弈的路径外信念要等到完美贝叶斯。</p><p><span class="marginnote">有限完美信息、支付无平局时，逆向归纳给出唯一 SPE 路径。平局或多最优时，SPE 集合可以大于一条路径。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>SPE 不约束非单点信息集上的信念，信号博弈里「偏离后对方怎么想」仍自由，可以撑起很怪的纳什。下一课重复博弈会显示：SPE 集合在贴现因子高时变得非常大，精炼几乎不筛。颤抖手完美、直觉标准是更细的刀，主干只到 SPE 与后课的完美贝叶斯。</p><p>无限地平线没有最后一步，逆向归纳不能从终点开始，必须用「每一截仍是纳什」的定义本身。那正是无名氏定理的舞台。</p><p>有限完美信息再加「无平局」，逆向归纳给出唯一 SPE 路径；平局一开，归纳分叉，本课不靠唯一性说话。</p><p>后课默认：动态、可观察的行动，解概念从纳什升级为 SPE；不可信威胁删掉。</p><p>颤抖手让每个信息集以任意小概率被碰到，不可信威胁变成会执行的亏本招。SPE 更弱、更好算；有限完美信息树上两者常常重合。本课用 SPE，不预支序贯均衡。进入遏制里，在位者「斗争」在进入已成事实后严格劣于「容纳」，斗争威胁支撑的纳什不是 SPE。要把惩罚做可信，必须改支付或改成重复结构，让惩罚变成未来路径上的最优。</p><p><span class="marginnote">策略式纳什集合包含 SPE 集合。精炼是缩小，不是另造支付。完美回忆下行为策略与混合策略等价（Kuhn）。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>策略式纳什不管未达节点；SPE 要求每个子博弈仍是纳什。</li><li>完美信息用逆向归纳；斯塔克尔伯格是 SPE。</li><li>精炼缩小均衡集，不改支付。</li><li>重复与不完美信息会把 SPE 重新撑大。</li><li>出处：Selten, 1965；<em>IJGT</em> 1975。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 博弈<!--]--><!--[--> · 课序 均衡<!--]--></p><p class="lesson-progress">第 6 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/trembling-hand/">颤抖手完美</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

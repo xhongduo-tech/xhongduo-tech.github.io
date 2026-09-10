@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>关键期限 DV01 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_key-tenor-dv01.md.CIg0-f-u.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 收益率曲线<!--]--><!--[--> · 课序 拟合<!--]--></p><p class="lesson-progress">第 10 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bermudan-swaption/">百慕大互换期权</a></p><p class="lesson-next"> 下一课：<a href="/quant/merton-structural/">Merton 结构模型</a></p></nav><div style="position:relative;"><div><h1 id="关键期限-dv01" tabindex="-1">关键期限 DV01 <a class="header-anchor" href="#关键期限-dv01" aria-label="Permalink to &quot;关键期限 DV01&quot;">​</a></h1><div class="epigraph"><p>关键利率久期把形状风险收成一组相对敏感；交易与 PnL 需要的是每个关键期限上「一基点值多少钱」的向量，以便直接解对冲名义。</p><footer>—— 对照 Ho, Key Rate Durations, Journal of Fixed Income, 1992；Golub &amp; Tilman, Journal of Portfolio Management, 1997</footer></div><p>修正久期和 DV01 描述平行移动；<a href="/quant/key-rate-duration">关键利率久期</a>（KRD）把平行拆成三角形局部平移，单位仍是「相对价格 / 收益率」。关键期限 DV01（key-tenor DV01, bucketed PV01）是同一组冲击的货币化：第 \(j\) 个关键点上移 1bp，组合价值变动多少元。Ho（1992）给出冲击的几何；Golub 与 Tilman（1997）把关键利率与 PCA、VaR 放进同一张风险表。本篇写 DV01 向量如何从曲线雅可比算出、它与 KRD 差一个价格因子、以及多曲线下矩阵为什么必须按「哪一条曲线、哪一个期限」展开。它补足 <a href="/quant/duration-convexity">久期、凸性</a> 的标量 01，并给<a href="/quant/curve-butterfly">曲线蝶式</a>、<a href="/quant/swap-spread">互换价差</a>、<a href="/quant/basis-swap">基差互换</a> 提供对冲的线性代数。短端模型的希腊字母要先映射到这些可交易桶，见 <a href="/quant/hull-white">Hull-White</a> 与 <a href="/quant/hjm">HJM</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>风控限额和交易员的下单单位是名义与美元（或人民币）01，不是久期年数。同一 KRD，面值一亿与面值一千万的货币风险差十倍。把 KRD 乘以现价再乘 1bp，在线性产品上得到关键期限 DV01；含权产品必须直接对全价做差分，因为有效久期随状态变。问题是冲击定义：扰动市场报价再重新自助，还是扰动已插值的曲线节点？前者与可交易工具对齐，后者与 Ho 的三角形对齐；二者在全局插值下会对不齐，10Y 互换 bump 会污染 30Y 远期。</p><p>第二个问题是共线性。关键点取 1Y、2Y、3Y、5Y、7Y、10Y、15Y、20Y、30Y 时，相邻互换高度相关，把组合 DV01 向量投到工具篮子上会得到巨大的反向名义。Golub–Tilman 同时报告 PCA：用三因子解释大部分方差，关键 01 负责局部残差。只用满桶 DV01 对冲，是在交易噪声。</p><h3 id="krd-与-dv01-的换算" tabindex="-1">KRD 与 DV01 的换算 <a class="header-anchor" href="#krd-与-dv01-的换算" aria-label="Permalink to &quot;KRD 与 DV01 的换算&quot;">​</a></h3><p>对第 \(j\) 个关键冲击 \(\Delta=10^{-4}\)，</p> \[\mathrm{DV01}_j = P^{(j)}-P, \qquad \mathrm{KRD}_j = -\frac{1}{P}\frac{P^{(j)}-P}{\Delta}. \]<p>因而 \(\mathrm{DV01}_j \approx -P\cdot\mathrm{KRD}_j\cdot\Delta\)。符号惯例必须钉死：许多系统把 DV01 做成「收益率上升时的亏损为正」，与数学差分差一个负号。跨系统加总前先对符号做对表。平行 DV01 应约等于 \(\sum_j\mathrm{DV01}_j\)（线性插值、同向 1bp 时）；加总失败说明泄漏或边界外推，是实现测试，见 Ho 篇。</p><p><span class="marginnote">DV01、PV01、CS01、IR01 不是同义词。CS01 是信用利差 01；IR01 有时只指折现曲线。文档应写「SOFR 10Y par DV01」而不是「利率 01」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>工具 bump。</strong> 对每个关键互换（或国债、OIS）把市场平价上移 1bp，其余报价不变，按原规则重新<a href="/quant/curve-bootstrap">自助</a>，重估组合。得到的是对可交易报价的雅可比，最适合解对冲：若 \(J\) 是工具 DV01 矩阵（列=对冲工具，行=组合在各桶的敏感，或直接一维组合对工具报价的梯度），名义 \(x\) 满足 \(J x = -\mathrm{DV01}_{\mathrm{port}}\)。这是关键期限 DV01 的本职工作。</p><p><strong>节点 bump。</strong> 在零息或远期节点上做 Ho 三角形，保持报价不变、只动插值。适合解释「曲线形状」和与 KRD 对照，但篮子对冲还要再乘一层报价对节点的雅可比。两种 bump 都应存在，并定期对账：差异来自插值泄漏、曲线构建约束（正远期、平滑）和固定端日计数。</p><p><strong>多曲线矩阵。</strong> 行是组合，列是 \(({\text{曲线}},{\text{期限}})\)：SOFR 折现 2Y/5Y/10Y/30Y，投影 3M 的同样期限，国债曲线，可能还有<a href="/quant/swap-spread">互换价差</a> 与期限<a href="/quant/basis-swap">基差</a>。对冲工具必须落在同一格子上，否则 10Y 互换会同时动折现与投影，看起来像对冲了国债 10Y。跨币种再加<a href="/quant/xccy-basis">交叉货币基差</a> 列。</p><h3 id="从模型希腊字母到桶" tabindex="-1">从模型希腊字母到桶 <a class="header-anchor" href="#从模型希腊字母到桶" aria-label="Permalink to &quot;从模型希腊字母到桶&quot;">​</a></h3><p>Hull–White 对短端 \(r\) 的 delta 不是可交易 01。标准做法是扰动市场曲线、重解 \(\theta(t)\)、重定价，得到关键期限 DV01——承认一因子几乎把所有桶变成共线。HJM 与 LMM 可以对每个远期给出解析或半解析的 01，再聚合成关键点；相关结构决定聚合后的条件数。<a href="/quant/bermudan-swaption">百慕大</a> 与 <a href="/quant/cms-convexity">CMS</a> 的有效 01 状态依赖，应用当日全价差分，并在大场景下重定价，而不是把昨日线性向量乘 \(\Delta y\)。</p><p>PnL 解释：</p> \[\Delta P \approx \sum_{c,j}\mathrm{DV01}_{c,j}\,\Delta y_{c,j} + \text{凸性} + \text{theta} + \text{残差}. \]<p>残差应监控：持续的残差表示关键点太稀、插值与市场冲击不一致，或含权凸性被线性项丢掉。不要把残差当 alpha。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>关键期限 DV01 把无穷维曲线梯度投到有限个可交易方向上。三角形基使「动 10Y」在相邻关键点为 0，中间线性，从而与 10Y 工具的风险大体对齐。对冲比是货币 01 之比：组合 10Y DV01 为 \(-8\) 万元/bp，对冲工具为 \(-2\) 万元/bp 每单位名义，则需要约 4 单位名义。泄漏来自工具自身也有相邻桶 01，必须解向量而不是逐桶独立打零——与 KRD 篇同一句话，只是现在单位是钱。</p><p>PCA 三因子是这组向量的低秩近似：水平约各桶之和，斜率约长减短，曲率约<a href="/quant/curve-butterfly">蝶式</a>。Golub–Tilman 建议两层：用 PCA 管可交易的大方差，用关键 01 管折缝。只有关键 01 时，交易员会对每一个 1bp 噪声下单；只有 PCA 时，7Y 的局部折缝会对冲到 5Y 与 10Y 上留下残差。</p><p><span class="marginnote">1bp 差分与 10bp 有效 01 因凸性而不同。限额、对冲、PnL 解释必须用同一冲击大小。含权账簿用 1bp 线性 01 去对冲 50bp 情景，是已知的缺口，应另设备兑情景。</span></p><h3 id="远期-dv01-与平价-dv01" tabindex="-1">远期 DV01 与平价 DV01 <a class="header-anchor" href="#远期-dv01-与平价-dv01" aria-label="Permalink to &quot;远期 DV01 与平价 DV01&quot;">​</a></h3><p>平价 DV01 扰动平价收益率或平价互换报价；远期 DV01 扰动瞬时或简单远期节点。后者更接近 HJM/LMM 的状态，前者更接近经纪商报价。把 LMM 的 caplet 01 直接当成 10Y 平价 01，中间隔着年金权重。系统应标明坐标。信用曲线的 CS01 是利差关键期限上的同类对象，与利率 DV01 分列，见<a href="/quant/reduced-form-intensity">简化形式强度</a>；不要加总成一个「10Y 敏感」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>关键点集合要稳定，像会计科目；哪一个桶 01 大可以变。点过多则 \(J^\top J\) 病态，应对名义加 Tikhonov 或先投到 PCA。插值必须局部，否则 Ho 三角形在引擎里不是三角形。外汇、通胀、信用各自一张矩阵。A 股与政策短端高度绑定，短端桶的 01 可能被一个逆回购操作同时推动，条件数和流动性都与美债不同。</p><p>不要用模型内对冲（只对冲 \(r\) 或只对冲前三个 LMM 因子）替代关键期限 DV01 限额：模型内中性在市场里仍有斜率与折缝。反过来，也不要把关键 01 当成定价模型。它是风险的坐标。</p><p><span class="marginnote">实现测试：单位名义的 10Y 平价互换，其 10Y 关键 DV01 应接近该互换自身的 PV01，相邻桶应接近零（在局部插值下）。若 30Y 桶出现明显 01，自助泄漏，先修曲线再修对冲。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>关键期限 DV01 是关键点 1bp 冲击下的货币价值变化，等于把 Ho 的 KRD 货币化，供解对冲名义与 PnL 解释。</li><li>工具 bump 对齐可交易报价；节点 bump 对齐形状基；两者都要对账。</li><li>多曲线下是「曲线 × 期限」矩阵，互换价差与期限基差是独立列。</li><li>与 PCA 分层使用：三因子管大方差，关键桶管折缝；满桶对冲会放大噪声。</li><li>模型希腊字母必须映射到这些桶；含权产品用全价差分。</li><li>出处：Ho, <em>Journal of Fixed Income</em>, 1992；Golub &amp; Tilman, <em>Journal of Portfolio Management</em>, 1997；平行 01 见 Macaulay（1938）与 Hull 的 DV01 表述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 收益率曲线<!--]--><!--[--> · 课序 拟合<!--]--></p><p class="lesson-progress">第 10 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/merton-structural/">Merton 结构模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

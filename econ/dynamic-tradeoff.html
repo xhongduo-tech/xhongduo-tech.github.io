@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>动态权衡与调整 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_dynamic-tradeoff.md.B8jltLbr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本结构动态<!--]--><!--[--> · 课序 债务的时间维度<!--]--></p><p class="lesson-progress">第 15 / 42 课</p><p class="lesson-prereq"> 先修：<a href="/econ/leland-model/">Leland 动态资本结构</a></p><p class="lesson-next"> 下一课：<a href="/econ/market-timing-theory/">市场择时理论</a></p></nav><div style="position:relative;"><div><h1 id="动态权衡与调整" tabindex="-1">动态权衡与调整 <a class="header-anchor" href="#动态权衡与调整" aria-label="Permalink to &quot;动态权衡与调整&quot;">​</a></h1><div class="epigraph"><p>有发行成本时，企业不会每时每刻对准 $D^\ast$；杠杆在一条调整带里游走，只有撞到边界才发债或回购。</p><footer>—— Fischer, Heinkel and Zechner, Dynamic Capital Structure Choice, Journal of Finance 1989；Goldstein, Ju and Leland, Journal of Business 2001；Leary and Roberts, Journal of Finance 2005</footer></div><p><a href="/econ/leland-model">上一课</a>的永久债没有发行成本，杠杆随 \(V\) 被动变化，不会主动再平衡。本课缺口是动态权衡：固定或比例发行成本使最优政策变成 \((s,S)\) 式调整带。不重解平滑粘贴，不把优序的柠檬折价提前写成唯一摩擦。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态权衡预测杠杆应紧贴 \(D^\ast\)。观察上杠杆缓慢、且有大量「不作为」。Fischer–Heinkel–Zechner（1989）把再资本化写成有成本的期权：只有当杠杆偏离带来的税盾与困境损失，超过发行成本，才调整。Goldstein–Ju–Leland（2001）允许按价值比例再平衡，连接 Miles–Ezzell 的 WACC 世界。缺口是：权衡仍然在，但可检验的不是「截面上人人在 \(D^\ast\)」，而是「偏离的持续性与调整频率」。</p><p><span class="marginnote">Leary–Roberts（2005）：调整行为与有成本的动态权衡一致，对「一次择时留下永久残差」提出挑战。本课先钉机制；下一课 Baker–Wurgler 专写择时。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>状态是杠杆或 \(V\) 相对债务。每期（或连续）权衡：税盾流失、困境逼近 vs 发行/回购成本。最优是反射边界：上沿减债（或发股），下沿加债。带的宽度随成本上升、随波动上升（更常碰到边界，但也不愿频繁付成本）。这与存货、现金管理的 \((s,S)\) 同构，后课现金持有会再见。</p><p>实证语言：部分调整回归 \(Lev_{t+1}-Lev_t=\lambda(D^\ast-Lev_t)\) 里的 \(\lambda\) 不是结构速度——若真实政策是带内零调整，线性 \(\lambda\) 会估出一个「慢」的平均数。本课只要：慢不等于没有目标。</p><div class="mermaid"></div><p>盈利冲击：利润高则账面杠杆被动下降，带内可以不回购——看起来像优序的「盈利企业低杠杆」，其实是权衡加成本。识别留给课程最后一课；这里禁止用被动下降否证目标的存在。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是固定成本破坏凸性规划的「每期一阶条件」。无成本时 Leland 的票息可以随时改；有成本时，等待的期权价值为正，类似实物期权：现在调整放弃「也许价格自己回来」的权利。宏观课序的投资调整成本是近亲；公司金融写在负债侧。</p><p>与 APV：带内债务金额路径不规则，资本预算应用 APV 或时变 WACC，而不是一个永远的目标权重——目标是带的中心，不是每时点的实现。</p><h3 id="动态权衡不是优序" tabindex="-1">动态权衡不是优序 <a class="header-anchor" href="#动态权衡不是优序" aria-label="Permalink to &quot;动态权衡不是优序&quot;">​</a></h3><p>优序：没有目标，杠杆是融资缺口的残差。动态权衡：有目标，有带。两者都可以产生盈利–杠杆负相关。后课择时给出第三种：市场高估时发股，杠杆残差可以永久留下。本课只把「慢」从「无目标」里救出来。</p><p><span class="marginnote">Flannery–Rangan（2006）等报告较快的部分调整；估计对 \(D^\ast\) 设定敏感。结构课不拿某一 \(\lambda\) 当真理，只拿带政策当机制。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要把本课写成部分调整回归综述。下一课市场择时：若股票被错误定价，边界政策本身会被「窗口」移动。也不要把发行成本只理解成承销费：柠檬、稀释、契约谈判都是成本，会加宽带。</p><p>后课默认：权衡目标可以与调整带共存；不作为是最优等待，不是理论失败。择时与个人税尚未进入。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>发行成本把 \(D^\ast\) 变成调整带；带内杠杆随盈亏与市值游走。</li><li>「慢」不等于没有目标；线性 \(\lambda\) 不是结构速度。</li><li>被动的盈利–杠杆负相关不足以否证权衡。</li><li>出处：Fischer, Heinkel and Zechner, <em>JF</em> 1989；Goldstein, Ju and Leland, <em>JB</em> 2001；Leary and Roberts, <em>JF</em> 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 估值、资本结构与治理<!--[--> · 单元 资本结构动态<!--]--><!--[--> · 课序 债务的时间维度<!--]--></p><p class="lesson-progress">第 15 / 42 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/market-timing-theory/">市场择时理论</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

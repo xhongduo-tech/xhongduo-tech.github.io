@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>事件驱动回测引擎 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_event-driven-backtest.md.B7bT8hPQ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 2 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/research-sim-prod/">研究、模拟、实盘隔离</a></p><p class="lesson-next"> 下一课：<a href="/quant/late-data-recon/">时钟、迟到数据与对账</a></p></nav><div style="position:relative;"><div><h1 id="事件驱动回测引擎" tabindex="-1">事件驱动回测引擎 <a class="header-anchor" href="#事件驱动回测引擎" aria-label="Permalink to &quot;事件驱动回测引擎&quot;">​</a></h1><div class="epigraph"><p>金融决策发生在订单、报价与成交这些带时间戳的事件上。把收益向量一次性乘上权重，会跳过路径依赖的成交、拒单与队列，得到一条无法在模拟里复现的权益曲线。</p><footer>—— 据 López de Prado, Advances in Financial Machine Learning 对回测与数据结构化的论述；Harris, Trading and Exchanges 对连续市场事件的描述</footer></div><p>向量化回测把价格对齐成矩阵，用一次线性代数得到持仓与损益。它对日频、满仓、假定中点成交的因子研究往往够用。一旦策略的损益依赖「当时能否排到队头、部分成交如何累积、撤单是否成功、下一笔行情是否已经看见这张单」，矩阵乘法就丢掉了状态。事件驱动引擎把市场数据、信号、订单请求与回报当成时间有序的事件队列，策略是状态机上的回调。Pardo 把仿真当作评估交易系统的核心步骤；Aldridge 对高频系统的描述也是事件处理循环。本篇写回测架构：为什么需要事件循环、事件里必须有什么、以及它如何与向量化分工。不涉及把事件流设计成误导其他参与者的交易手法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>路径依赖来自三处。第一，成交是库存与队列的函数：同样的目标仓位，先到的限价单与后到的市价单产生不同的均价与剩余风险，见<a href="/quant/order-types">订单类型</a> 与<a href="/quant/cancel-queue-position">队列位置</a>。第二，信号若在事件频率上更新，向量化常用的「用当日收盘算信号、用次日开盘成交」会漏掉日内的可交易窗口，也会在 bar 内制造前视。第三，风控与资金是状态：打到限额之后后续事件必须被拒绝，而不是在事后把超限持仓从矩阵里裁掉并假装当天没有那些交易。</p><p>López de Prado 强调金融数据的结构是非均匀的时间戳与重叠的标签。事件驱动是这种结构在工程上的对应物：引擎的时钟由事件戳推进，而不是由等间隔格子推进。O&#39;Hara 的价格形成发生在序贯交易上；把序贯过程压成日频矩阵，等于改写过程。向量化仍然有用——它快，适合在研究环境里扫数千个候选——但其输出必须被理解为「在一组成交假设下的近似」，晋级到模拟时应换事件引擎，见<a href="/quant/research-sim-prod">环境隔离</a>。</p><h3 id="事件时间与因果" tabindex="-1">事件时间与因果 <a class="header-anchor" href="#事件时间与因果" aria-label="Permalink to &quot;事件时间与因果&quot;">​</a></h3><p>事件循环的不变量是：处理戳为 \(t\) 的事件时，策略只能看见 \(\le t\) 且已经到达的信息。迟到的包应带着到达戳，而不是带着交易所戳直接进入「当前簿」，否则回测会用当时尚未收到的最优价成交，这是前视。因果还要求订单回报作为事件插回队列：你不能在同一瞬间既假设成交完成又用成交后的簿去算下一个信号，除非交易所的撮合语义确实如此。这些细节在日频向量化里被「次日开盘」一笔勾销，在日内则决定夏普能否复制。</p><p><span class="marginnote">用 <code>for t in bars: position[t] = f(close[t])</code> 再 <code>pnl = position.shift(1)*return</code> 是向量化的最小因果修补。它仍假设在 bar 结束时无条件成交。事件引擎要显式模拟「下单、等待、部分成交、取消」这一段，而不是用 shift 假装延迟。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>核心是一条按 <code>(timestamp, sequence)</code> 排序的优先队列。事件类型至少包括：行情（成交、报价、簿更新）、时钟（定时再平衡、拍卖、清盘）、订单请求、订单回报（确认、拒绝、成交、取消）、以及数据修订。策略订阅行情与时钟，输出订单请求；撮合器订阅请求与行情，输出回报；账本订阅回报，更新仓位与现金。Harris 对连续市场的描述可以直接翻译成这张图：指令进入簿，撮合产生成交，成交与取消改写簿，参与者在下一事件上反应。</p><p>撮合器是回测保真度的上限。最低档：按下一笔成交价或中点加上价差成交，忽略队列。中档：维护简化的价位队列，用历史成交消耗队头，见队列位置一文。高档：回放 L3 或订单日志。档位必须声明，因为<a href="/quant/capacity-participation">容量</a> 与滑点敏感性都依赖它。无论哪一档，撮合器不得看见策略的未来订单，也不得把未到达的行情用于当前撮合。</p><h3 id="与向量化的混合" tabindex="-1">与向量化的混合 <a class="header-anchor" href="#与向量化的混合" aria-label="Permalink to &quot;与向量化的混合&quot;">​</a></h3><p>实践中常用两层。研究层：向量化生成信号与目标仓位路径，成本用解析冲击函数快速扣。模拟层：把同一目标仓位喂给事件引擎，看完成率与短fall。两层差异过大时，以事件层为准，并回写研究层的成本参数，而不是以向量化夏普为准去「修」事件层。CPCV 与网格搜索应发生在便宜的一层，但候选集合冻结后必须全部经过事件层；否则过拟合发生在成交假设上，统计调整看不见。</p><p><span class="marginnote">事件引擎的随机性（如队列消耗的随机模型）必须可种子化。不可重复的回测不能进 CPCV，也不能进监管审计。种子是试验定义的一部分，与代码哈希并列。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>事件循环把全局状态的更新变成确定性的单线程语义（逻辑上单线程；实现上可以并行独立品种，但品种内仍需有序）。这避免了向量化里隐式的「所有名字在同一 bar 同时成交、现金无限、拒单不存在」。现金与保证金在每一笔成交事件后更新，后续订单若资金不足则拒绝——拒绝本身是事件，策略必须处理，否则模拟会静默丢单而研究以为满仓。</p><p>性能上，事件引擎比矩阵慢几个数量级。这是保真度的价格。优化应发生在数据结构（按品种分区的簿、批量行情编码），而不是发生在「先算完所有信号再一次性撮合」——后者会重新引入前视，除非信号严格只用当时状态。Aldridge 讨论的低延迟系统在生产上关心微秒；回测关心的是语义一致：同一事件流、同一状态机，研究评估与模拟账户不应因循环实现不同而分叉。</p><h3 id="公司行动、停牌与拍卖" tabindex="-1">公司行动、停牌与拍卖 <a class="header-anchor" href="#公司行动、停牌与拍卖" aria-label="Permalink to &quot;公司行动、停牌与拍卖&quot;">​</a></h3><p>这些是必须进入队列的特殊事件，而不是收盘价里已经被复权掉的注释。停牌期间订单应被拒绝或冻结，复牌时的集合竞价有自己的撮合规则。向量化常把停牌日的收益写成零并继续调仓，等于在不可交易时成交。事件引擎若没有这些事件类型，日内保真度再高，日界上仍会造假。它们与<a href="/quant/late-data-recon">迟到数据</a> 的修订事件一起，构成「非价格」的因果来源。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>事件驱动不能修复错误的数据或错误的试验次数。它只是把成交假设从隐含变成显式。若 L2 深度是聚合的，队列模型仍是猜测；应把猜测写成情景，做<a href="/quant/cost-sensitivity">成本敏感性</a>，而不是把模型成交当成交易所真相。回放历史簿还有幸存者与协议变更问题：旧的撮合规则与今日不同，引擎必须按历史规则分支，或声明无法重现某段制度。</p><p>不要在事件引擎里实现「保证成交」的捷径来让曲线好看。未成交、部分成交、拒单是信息：它们降低换手、改变风险，也降低纸面夏普。把它们抹掉，等于回到向量化的无摩擦世界，同时保留了事件引擎的计算成本。与实盘隔离的接口是：同一订单状态机、同一事件类型名，只是网关从撮合器换成真交易所。</p><p><span class="marginnote">Pardo 强调仿真参数（滑点、成交率）应保守。事件引擎让这些参数有了着落，但不自动使它们保守。默认中点仍是激进假设，只是实现得更精致。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>事件驱动回测用有序事件推进状态，用来保留成交、拒单与风控的路径依赖；向量化是研究层的快速近似。</li><li>因果不变量是：只使用已到达的信息，订单回报必须作为事件插回队列。</li><li>撮合器档位决定滑点与容量结论的上限，必须声明并做敏感性。</li><li>停牌、拍卖、公司行动与修订都是事件；把它们埋进复权收盘价会在日界上前视或假成交。</li><li>引擎必须可重复；晋级到模拟应与实盘共享状态机语义。</li><li>出处：López de Prado, <em>Advances in Financial Machine Learning</em>, 2018；Harris, <em>Trading and Exchanges</em>；Pardo, <em>The Evaluation and Optimization of Trading Strategies</em>；Aldridge, <em>High-Frequency Trading</em>；O&#39;Hara, <em>Market Microstructure Theory</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 2 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/late-data-recon/">时钟、迟到数据与对账</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

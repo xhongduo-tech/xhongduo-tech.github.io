@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Steering Vectors 表示操纵向量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_steering-vectors.md.B1J1Xohc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 15 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/activation-patching/">Activation Patching 激活修补</a></p><p class="lesson-next"> 下一课：<a href="/llm/linear-representation-hypothesis/">线性表示假设</a></p></nav><div style="position:relative;"><div><h1 id="steering-vectors-表示操纵向量" tabindex="-1">Steering Vectors 表示操纵向量 <a class="header-anchor" href="#steering-vectors-表示操纵向量" aria-label="Permalink to &quot;Steering Vectors 表示操纵向量&quot;">​</a></h1><div class="epigraph"><p>不必优化权重：把从对比提示里读出的激活差加到残差上，就可以在推理时推动语言模型的行为。</p><footer>—— Turner et al., Activation Addition: Steering Language Models Without Optimization, arXiv:2308.10248, 2023</footer></div><p>转向向量（steering vector）是一条在推理期加到激活上的方向。构造通常很轻：跑两组对比输入，把某层激活相减，得到 \(v\)，再在新提示上做 \(h\leftarrow h+\alpha v\)。Turner 等人称之为 Activation Addition（ActAdd）；Rimsky 等人在 Llama 2 上做成对比激活加法（CAA），用选择题式对比集提取更稳的方向。Zou 等人的表示工程把同一思想推广到多种概念的读写。本篇写如何构造、加在哪、以及线性加法能控制什么、不能控制什么。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>改行为的默认路径是改权重：SFT、DPO、RL。周期长，且每次更新都可能伤别的能力。若目标概念在残差里近线性，推理期加法就是一个可开关的旋钮：\(\alpha=0\) 回到原模型，\(\alpha\) 变号则反向。问题化成三条：方向是否稳定、层与 token 位置如何选、\(\alpha\) 如何在有效控制与能力损伤之间折中。</p><p>对比集的质量决定向量的语义。用「我热爱 …」减「我厌恶 …」得到的情感方向，和用「有害请求」减「无害请求」得到的安全方向，不是同一类对象。表面词面若在两组里不对称，向量会变成关键词触发器。</p><h3 id="相关方向与因果方向" tabindex="-1">相关方向与因果方向 <a class="header-anchor" href="#相关方向与因果方向" aria-label="Permalink to &quot;相关方向与因果方向&quot;">​</a></h3><p>均值差是相关：它指向两组激活差异最大的方向，不一定是模型用来产生行为的方向。加法干预能改变行为，说明该方向充分驱动输出；平行通路仍可能存在。Park 等人后来用因果内积把探针方向与干预方向接到同一几何里，但工程上仍应把「提取」和「验证」分开：在保留提示上测行为，而不是只看训练集上的分类间隔。</p><p><span class="marginnote">同一套加法也可以降低拒答或放大偏见。公开文本若只写提取步骤、不写部署约束，会被反向使用。工程上应将 \(\alpha\) 的符号与范围放在服务端，并把向量当安全控制面而不是用户可调参数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>ActAdd 的原型：两条短提示（如「Love」与「Hate」）在选定层取残差，相减得 \(v\)，在生成时对后续位置广播加法。CAA 把对比做成同一题干下的正负选项，在每个选择题的最后位置取激活，平均差再归一化，得到更少词面污染的方向。推理时把 \(v\) 加到若干层的残差，或只加在助手回复的起始 token。</p> \[h^{(\ell)} \leftarrow h^{(\ell)} + \alpha\,\hat{v}^{(\ell)}. \]<p>\(\alpha\) 用验证集网格搜索。多层可以共用一个 \(v\)，也可以每层一个。层数越多，控制越强，越容易伤流畅度与任务准确率。Rimsky 等人报告，中后层往往比最浅层更有效，这与「概念在中层线性可分」的探针曲线一致。</p><h3 id="与权重编辑、提示工程的比较" tabindex="-1">与权重编辑、提示工程的比较 <a class="header-anchor" href="#与权重编辑、提示工程的比较" aria-label="Permalink to &quot;与权重编辑、提示工程的比较&quot;">​</a></h3><p>转向不改参数，可按请求开关，适合做运行时策略。ROME 类编辑改的是 MLP 权重，持久且针对事实。提示工程改的是输入，不保证内部沿固定方向移动。三者可叠加：提示提供任务，转向提供风格或安全偏置，编辑提供必须改写的事实。评估时要分开测，否则说不清增益来自哪一段。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>线性表示假设给出机制草图：概念 \(c\) 对应方向 \(v_c\)，加法相当于在反事实上滑动 \(c\) 的取值，而不（理想情况下）移动正交概念。叠加使正交只是近似：加情感方向时，偶尔会带动语体、长度、甚至话题。\(\alpha\) 过大时，残差离开训练流形，解码变成乱码——这是几何越界，不是「概念太强」。</p><h3 id="位置广播与解码耦合" tabindex="-1">位置广播与解码耦合 <a class="header-anchor" href="#位置广播与解码耦合" aria-label="Permalink to &quot;位置广播与解码耦合&quot;">​</a></h3><p>把 \(v\) 加在每一个生成步，等于持续施加偏置，风格控制更稳，但会抑制需要反向特征的续写。只加在第一枚回复 token，影响较小，后续步可能漂回去。采样温度会放大或掩盖转向：低温度下 \(\alpha\) 的 logit 效应更醒目。评测应固定解码参数，再扫 \(\alpha\)。</p><p><span class="marginnote">对比激活若在「正确选项 token」上提取，向量可能混进「选 A / 选 B」的格式方向。CAA 用题干末位置而不是选项字母位置，就是为了减少这种污染。提取位置与施加位置可以不同，但必须在实验里分开报告。</span></p><p>Zou 等人展示真实性、有害性等概念可被线性读写；这支持「加法是通用控制原语」。通用不表示无副作用。每个向量都应在能力基准与对照概念上做泄漏测试：情感向量不应把事实问答的准确率打崩。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>转向不是对齐训练的替代。对抗后缀、越狱模板可以让激活走出 \(v\) 能纠正的区域，\(\alpha\) 再大也只是把乱流再推一把。对不可信客户端，用户若能关掉加法，运行时转向就不是安全边界。它更适合：产品里的风格旋钮、研究里的因果干预、以及在已对齐模型上做小幅偏置。</p><p>向量会过时。继续预训练、合并模型、换聊天模板，都会让均值差方向失效。应把对比集与提取层纳入版本，换检查点就重提。多概念同时转向时，方向之间的内积决定冲突；需要正交化或分层施加，而不是把 \(\alpha\) 简单相加。</p><p><span class="marginnote">不要用单一演示提示宣称「我们控制了诚实」。应在固定套件上看：目标行为的变化量、无关任务的掉点、以及反向 \(\alpha\) 是否给出反向行为。没有反向测试的转向，可能只是在加噪声。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>转向向量从对比激活提取方向，在推理期做残差加法，从而不改权重地推动行为。</li><li>ActAdd 用短提示对；CAA 用选择题对比集，通常更少词面捷径。</li><li>层、token 位置、\(\alpha\) 与解码参数共同决定有效性；必须在保留集上调，并测能力损伤。</li><li>加法检验的是充分性；概念纠缠与流形越界会带来副作用。</li><li>运行时转向可开关，但不能单独充当对抗鲁棒的安全边界。</li><li>出处：Turner et al., arXiv:2308.10248, 2023；Rimsky et al., <em>Steering Llama 2 via Contrastive Activation Addition</em>, ACL 2024；概念读写见 Zou et al., 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 15 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/linear-representation-hypothesis/">线性表示假设</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

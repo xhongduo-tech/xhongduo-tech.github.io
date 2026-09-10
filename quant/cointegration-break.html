@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>协整破裂 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cointegration-break.md.BOJYwBSJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 6 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/kalman-hedge/">Kalman 时变对冲比</a></p><p class="lesson-next"> 下一课：<a href="/quant/distance-pairs/">距离法配对</a></p></nav><div style="position:relative;"><div><h1 id="协整破裂" tabindex="-1">协整破裂 <a class="header-anchor" href="#协整破裂" aria-label="Permalink to &quot;协整破裂&quot;">​</a></h1><div class="epigraph"><p>若协整关系本身会在未知时点发生水平或斜率转换，标准残差单位根检验会把「带断裂的协整」误判成「根本没有协整」。</p><footer>—— Gregory &amp; Hansen, Residual-based Tests for Cointegration in Models with Regime Shifts, Journal of Econometrics, 1996</footer></div><p><a href="/quant/kalman-hedge">上一课</a>把时变对冲比写成随机游走状态，可交易信号必须用预测步；滤波残差平稳不能用 Johansen 的 \(p\) 值证明。Kalman 适应的是缓慢漂移的 \(\beta\)，不是未知时点的机制转换。缺口是曾经协整、后来断了：水平漂移、趋势转换、或连斜率一起换。Engle–Granger / Johansen 的全样本直线会把两段均衡揉成一条过宽的带，交易规则却仍把旧 \(\beta\) 当成均衡。本课写破裂检验与交易是两件事。不重推滤波递推。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设对数价格 \(y_t\)、\(x_t\) 都是 I(1)。Engle–Granger 的零假设是「无协整」：残差 \(\hat{u}_t=y_t-\hat\alpha-\hat\beta x_t\) 仍是单位根。若真实关系在 \(t=\tau\) 处从 \(( \alpha_1,\beta_1 )\) 跳到 \(( \alpha_2,\beta_2 )\)，全样本一条直线拟合会把两段均衡揉成一条过宽的带，残差看起来像随机游走。ADF 或 Phillips–Ouliaris 于是拒绝不了「无协整」，或者更糟：样本前半段显著、你已经开仓，后半段系数变了，残差朝一个方向走、再也不回来。</p><p>配对交易里这表现为「价差的历史标准差」突然失效。公司行为（分拆、增发、指数调入调出）、行业监管、会计口径、以及 2008、2020 这类宏观机制转换，都会让 \(\beta\) 不再是同一个数。问题不是要不要协整，而是：在未知断裂下，残差平稳性检验的势会塌掉，而交易规则却仍把旧 \(\beta\) 当成均衡。</p><h3 id="水平漂移、趋势与机制转换" tabindex="-1">水平漂移、趋势与机制转换 <a class="header-anchor" href="#水平漂移、趋势与机制转换" aria-label="Permalink to &quot;水平漂移、趋势与机制转换&quot;">​</a></h3><p>Gregory–Hansen 把备择写成三类。水平漂移（level shift）：截距在 \(\tau\) 处跳一下，\(\beta\) 不变，像一只股票除权或基准利率台阶。趋势转换：确定性趋势的斜率也变。机制转换（regime shift）：截距与斜率都变，这是配对里最常见、也最伤的一种——对冲比本身换了。检验统计量是在可能的断裂日期上取 inf 的残差 ADF（或 \(Z_t\)、\(Z_\alpha\)），临界值比标准 Engle–Granger 更宽，因为搜索断裂本身消耗了自由度。</p><p><span class="marginnote">「价差 Z-score 到 2 就开仓」默认协整向量在形成期内不变。Gregory–Hansen 要问的是：形成期内部是否已经发生过一次水平或斜率转换。若发生过，历史标准差被两段制度拉大，阈值看起来很保守，实则对当前制度过松。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实务上不要只用全样本 EG。至少做三层。第一层：滚动窗口 Engle–Granger 或 Johansen，看 \(\hat\beta\) 与残差半衰期是否稳定。第二层：在候选窗口上跑 Gregory–Hansen 的 ADF*、\(Z_t^\ast\)，并报告估计的 \(\hat\tau\)。第三层：把 \(\hat\tau\) 附近当成不可交易区间——不是把断裂日当天的残差当成「更大的 alpha」。Hansen 1992 年对 I(1) 回归参数不稳定性的检验、Bai–Perron 的多断裂估计，可以作辅助，但协整残差的单位根零假设与普通回归的参数稳定性零假设不是同一个检验。</p><p>误差修正模型在断裂后必须重估。旧的</p> \[\Delta y_t=\lambda(y_{t-1}-\alpha-\beta x_{t-1})+\cdots \]<p>中，\(\lambda\) 的符号与幅度只在旧均衡附近有意义。断裂后若仍用旧 \((\alpha,\beta)\)，误差修正项会变成一个带漂移的错误信号，看起来像「价差还会回归」，其实是在用错误的原点。Johansen 系统在确定性项带断裂时也需要 Hansen 或 Johansen–Mosconi–Nielsen 一类设定，不能把 rank 检验的 p 值直接当成交易许可。</p><h3 id="从检验到仓位-确认滞后" tabindex="-1">从检验到仓位：确认滞后 <a class="header-anchor" href="#从检验到仓位-确认滞后" aria-label="Permalink to &quot;从检验到仓位：确认滞后&quot;">​</a></h3><p>检出断裂有滞后。inf 型统计量要在一个修剪区间（常见是样本的 15%–85%）上搜索，\(\hat\tau\) 的置信带往往有好几周。交易上这意味着：当你在统计上「确认」破裂时，旧仓位可能已经沿着错误残差走出很远。因此规则应是预先规定的：残差突破形成期若干倍标准差且滚动 \(\beta\) 的置信区间不再覆盖旧点，即减仓或平仓，而不是等论文里的 ADF* 过临界值。后者是事后诊断，不是盘中触发器。</p><p><span class="marginnote">把 Gregory–Hansen 的临界值表直接拿来当日内配对的停损线，是把渐近检验误当成滤波器。日频、周频上它有用；tick 上价格是带微观结构噪声的，单位根与协整的渐近理论要对 <a href="/quant/microstructure-noise">噪声</a> 另作处理。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>协整破裂伤策略的渠道有三条。识别错误：你交易的不是平稳价差，而是一段错误设定的 I(1) 残差，期望回归时间无限。拥挤平仓：同一对名字被许多账户用相近的 \(\beta\) 对冲，断裂日大家同时认错，价差的一次性跳跃伴有流动性真空，见<a href="/quant/factor-crowding">因子拥挤</a> 在统计套利层的同类现象。样本内过拟合：在全样本上挑「看起来协整」的对，等价于对断裂点做了隐式选择，伪平稳的对在样本外会集中爆炸。</p><p>误差修正速度 \(\lambda\) 本身也会变。危机里相关结构向 1 塌缩，\(\beta\) 趋近于 1 但残差波动变大，半衰期估计会系统性偏短——你以为两天能回归，实际是共同因子主导下的假回归。Avellaneda–Lee 式的残差 OU 假设与协整是近亲：OU 的均值一旦漂移，Z-score 开仓就变成在错误的原点上加仓。</p><h3 id="为何「再等等会回归」特别危险" tabindex="-1">为何「再等等会回归」特别危险 <a class="header-anchor" href="#为何「再等等会回归」特别危险" aria-label="Permalink to &quot;为何「再等等会回归」特别危险&quot;">​</a></h3><p>I(1) 残差的局部路径可以像平稳过程一样走一段。这会诱使账户用时间止损的反面——「还没到持有期终点，再拿着」。Gregory–Hansen 的备择明确允许新均衡存在，但新均衡的位置对旧仓位是一笔已实现亏损，不是期权。若新 \(\beta\) 对应基本面的永久变化（业务分拆、指数权重永久上调），期望回归为零。容量在这里是非线性的：小账户或许能在确认后按新协整再开；大账户的平仓本身就是把残差推得更远的冲击。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>检验的势在断裂靠近样本两端时很弱，修剪参数不是免费的。多断裂比单断裂更符合 2010 年代之后的市场，但多重搜索会进一步抬高临界值，小样本日频配对（一年约 250 点）很容易什么都检不出，却仍会亏钱。A 股还要处理涨跌停与停牌造成的伪断裂：价格冻结几天再跳开，残差 ADF 会被几个点主导。</p><p>成本与可交易性。断裂前后买卖价差往往同时变宽，按旧价差估算的「回归利润」在冲击后不再覆盖往返成本。借券失败、成份股权重调整日的一揽子交易，都会让 \(\beta\) 在你无法成交的时点跳变。不要把「检出协整」写成可套利定理：无摩擦下的误差修正期望，减去<a href="/quant/effective-realized-spread">有效价差</a>与冲击之后，许多对的净期望为负。策略文档里应同时报告：无断裂子样本的残差半衰期、断裂窗口的最大不利偏移、以及假设冲击为 ADV 某比例时的容量上限。</p><p><span class="marginnote">Engle–Granger 与 Johansen 给出的是统计关系，不是法偿的收敛承诺。指数套利、ETF 申赎有制度上的收敛机制；普通股票对没有。把后者写成前者，是类别错误。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>协整破裂是未知时点的水平或斜率转换；全样本残差单位根检验会把带断裂的协整误判为无协整，或让旧 \(\beta\) 在断裂后继续当均衡。</li><li>Gregory–Hansen（1996）用 inf 型残差检验覆盖水平漂移、趋势转换与机制转换；临界值宽于 Engle–Granger，且 \(\hat\tau\) 有确认滞后。</li><li>交易规则应把滚动 \(\beta\) 失稳与残差单边走扩当作减仓触发，而不是把 ADF* 当盘中信号。</li><li>拥挤平仓、价差走阔与冲击使断裂窗口的账面回归不可当作期望利润。</li><li>股票对没有指数套利那种制度收敛；新均衡可以永久偏离旧仓位。</li><li>出处：Gregory and Hansen, <em>Journal of Econometrics</em>, 1996；同作者 <em>Oxford Bulletin of Economics and Statistics</em>, 1996；Engle and Granger, <em>Econometrica</em>, 1987；Hansen, <em>Journal of Business &amp; Economic Statistics</em>, 1992。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 6 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/distance-pairs/">距离法配对</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

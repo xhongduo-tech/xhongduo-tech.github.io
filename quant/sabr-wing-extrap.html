@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SABR 翼部外推 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_sabr-wing-extrap.md.CTnsLKgD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 波动率与期权续<!--[--> · 单元 局部与随机波动<!--]--><!--[--> · 课序 曲面、产品与对冲<!--]--></p><p class="lesson-progress">第 2 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/heston-feller/">Heston Feller 条件</a></p><p class="lesson-next"> 下一课：<a href="/quant/svi-arb-params/">SVI 无套利参数化</a></p></nav><div style="position:relative;"><div><h1 id="sabr-翼部外推" tabindex="-1">SABR 翼部外推 <a class="header-anchor" href="#sabr-翼部外推" aria-label="Permalink to &quot;SABR 翼部外推&quot;">​</a></h1><div class="epigraph"><p>Hagan 领头项在校准网格上可以很贴，却在远翼给出向下弯的隐含波动甚至负密度；外推因此不是把公式接着往外算，而是换一条落在无套利集合里的翼，或改用无套利密度再积分。</p><footer>—— Hagan, Kumar, Lesniewski and Woodward, Managing Smile Risk, Wilmott, 2002；无套利 SABR 密度见同一作者组后续工作，2014</footer></div><p><a href="/quant/sabr">SABR</a> 的交付是固定到期上的摄动微笑，<a href="/quant/sabr-calib">校准</a> 在 ATM 与 25-delta 附近把 \(\alpha,\rho,\nu\) 对齐。交易与风控还要回答网格之外的执行价：数字期权的远翼、方差互换的 \(1/K^2\) 积分、以及内部模型需要的宽支撑。Hagan、Kumar、Lesniewski、Woodward 2002 年的领头项在 \(|\ln(K/F)|\) 大、\(\nu\sqrt{T}\) 大时可以破坏凸性：隐含波动下弯，<a href="/quant/gatheral-arb-free">Gatheral 密度核</a> \(g(k)\) 变负。本篇写翼部为什么不能「接着用公式」、Lee 矩给的斜率上界、以及文献里两类公开修法——切断后接无套利参数化，或解简化的向前方程得到正密度。它不替代整张 <a href="/quant/svi-ssvi">SVI</a> 曲面，也不把高阶展开当成无套利证明。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>领头项 \(\sigma_{\mathrm{B}}(K)\) 是对真实 SABR 微笑的渐近近似，有效域大致是不太深的翼、不太长的到期、不太大的 vol-of-vol。校准器若只在流动性好的执行价上加权，最优 \((\rho,\nu)\) 可以使这些点的误差小于买卖价差，同时让更远的公式值在数学上非法。非法有两种可观测：\(\sigma_{\mathrm{B}}\) 随 \(|K|\) 下降以至于价格不再凸；或价格仍正但二阶差分变负。后者就是蝶式套利，对应负的风险中性密度。外推问题是：在公式已经离开有效域之后，如何定义 \(\sigma_{\mathrm{B}}(K)\) 或 \(C(K)\)，使（1）与校准区间内的价格光滑衔接，（2）密度非负，（3）翼斜率不超过 Lee（2004）的矩约束。</p><p>直接继续调用 2002 年公式，三项里往往一项都不满足。Obłój 等改进的近似可以扩大一点有效域，但远翼仍不是存在性定理。Paulot 的高阶项同样是摄动，不是凸性保证。因此「更好的展开」与「无套利外推」是两件工作：前者减少校准网格上的偏差，后者保证网格外仍是合法的欧式表面。</p><h3 id="lee-上界把线性翼钉死" tabindex="-1">Lee 上界把线性翼钉死 <a class="header-anchor" href="#lee-上界把线性翼钉死" aria-label="Permalink to &quot;Lee 上界把线性翼钉死&quot;">​</a></h3><p>对数货币性 \(k=\ln(K/F)\)，总方差 \(w(k)=\sigma_{\mathrm{B}}^2(k)\,T\)。Lee 的矩公式给出</p> \[\limsup_{k\to+\infty}\frac{w(k)}{k}\le 2, \]<p>左翼有对称陈述。线性增长的 \(w\) 是许多随机波动模型的远翼行为，也是 <a href="/quant/svi-ssvi">SVI</a> 的几何。若 SABR 公式在某 \(k\) 之外开始下弯，隐含的 \(w/|k|\) 会回头，密度更容易变负。外推的最小合法选择之一，是在某个切点改接一条斜率不超过 Lee 上界的直线（对 \(w\)），并检查衔接处的 \(g(k)\)。斜率取满 2 对应极厚的尾，方差互换会变得很贵；实务上常取更小的斜率，等于声明「我们不把全部矩风险标到无穷」。这是模型风险选择，应写进曲面文档。</p><p><span class="marginnote">用常数隐含波动接翼，等价于对数正态尾，矩全存在，但往往与校准区间的偏斜不衔接，蝶式在接头处出现尖刺。接的是 \(w(k)\) 还是 \(\sigma_{\mathrm{B}}(k)\)，凸性含义不同；应在总方差上做线性，再反解波动，而不是在波动上做水平外推还自称无套利。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>切断加参数化。在流动性执行价上保留 SABR 校准值，在两侧切点之外改用 raw SVI 或 SSVI 切片，约束 \(b(1+|\rho|)\) 使 \(w\) 的渐近斜率合法，并扫描 \(g(k)\ge 0\)。接头要用价格或 \(w\) 的一阶连续（最好二阶）以免 Delta、Vega 跳。这把「SABR 管可对冲的中段、SVI 管合法远翼」写成明确分工，与做市「中段用 SABR 语言、发布曲面用无套利参数化」的惯例一致。</p><p>密度修正。Hagan、Kumar、Lesniewski、Woodward（2014）以及相关的无套利 SABR 工作，把问题收成：在简化的向前 Kolmogorov 方程上求密度，保证正性，再积分得到欧式价格，反解波动。翼部由 PDE 的边界与扩散系数决定，而不是由领头项的代数外推决定。代价是每个到期要解一次一维 PDE，校准循环变重，但交付的是合法密度。Andreasen–Huge 一类方法在局部波动语境里也是「用正的向前方程长出价格」；精神相同，动态不同。生产上若已经用 Dupire 表吃整张面，SABR 只做微笑语言，翼部应交给无套利插值层，而不是再维护一套 SABR-PDE。</p><h3 id="校准权重与外推不能互相拆台" tabindex="-1">校准权重与外推不能互相拆台 <a class="header-anchor" href="#校准权重与外推不能互相拆台" aria-label="Permalink to &quot;校准权重与外推不能互相拆台&quot;">​</a></h3><p>若校准对 10-delta 给了很大权重，而 10-delta 已接近领头项的破裂区，最优 \(\nu\) 会被非法翼拉走，中段对冲比跟着坏。正确顺序是：中段加权校准，翼部降权或干脆不进目标函数，然后<strong>另外</strong>做外推。外推参数（切点、Lee 斜率、SVI 的 \(b\)）应稳定，不随一日的脏翼报价跳动。报告要同时给出：校准残差（网格内）、接头位置、外推翼的 \(g(k)\) 最小值、以及方差互换等对翼敏感的产品相对昨日的变动有多少来自外推规则而不是来自 ATM。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>摄动展开匹配的是小噪声下的局部几何：ATM 水平、偏斜、弯曲。远翼由大偏差控制，领头项没有义务在那里保持凸。市场报价在远翼稀疏、买卖价差宽，校准器若「看见」几个脏点，会用 \(\nu\) 去拟合噪声，把非法性推得更远。外推的机制是承认：中段参数的信息含量到切点为止；切点之外用矩约束与正密度代替市场点。这与 <a href="/quant/arb-free-iv">无套利插值</a> 的哲学相同，只是输入从离散香草变成了「SABR 中段 + 翼部先验」。</p><p>对冲含义。翼部产品的 Vega 桶若落在外推区，其 Delta、Vanna 由外推规则决定，不由 2002 年公式决定。规则一改，P&amp;L 解释就跳。因此翼规则是模型的一部分，版本要冻结，不能每日换切点去贴某个远翼经纪商报价。若远翼真的有可交易的流动性，应把切点外移并改用能在该处保持凸的方法（SVI 或密度 PDE），而不是把领头项的非法值当成市场。</p><h3 id="正态、移位与右翼零吸收" tabindex="-1">正态、移位与右翼零吸收 <a class="header-anchor" href="#正态、移位与右翼零吸收" aria-label="Permalink to &quot;正态、移位与右翼零吸收&quot;">​</a></h3><p>\(\beta=0\) 或移位 SABR 改变的是现货坐标的边界：利率可以非正，左翼的「零」被移走。右翼（极高执行价）的矩约束仍然存在。把 Black SABR 的外推规则原样接到 Bachelier 波动上，会把 Lee 的 \(w(k)\) 定义弄错——正态模型的货币性与总方差要按 Bachelier 公式重写。移位参数 \(s\) 很大时，左翼在对数坐标里看起来「不那么远」，非法性会改出现在另一侧。外推文档必须写坐标系：Black 的 \(k\) 还是正态的 \(K-F\)。</p><p><span class="marginnote">方差互换、Corridor 方差、数字期权对翼的权重不同。同一条外推对香草可能「看不见问题」，对 \(1/K^2\) 积分已经差一个价差。验收外推要用对翼敏感的标准产品，而不是只用 ATM 残差。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>2002 年论文管理的是微笑风险的中段语言。2014 年前后的无套利 SABR 是对密度正性的修补，不是把摄动变成精确解。SVI/SSVI 在单切片与跨期上更直接地接受 Gatheral 约束，常被用作发布层。选择 SABR 外推还是直接发布 SVI，取决于交易是否仍用 \(\alpha,\beta,\rho,\nu\) 对话：利率与外汇做市往往保留 SABR 语言，股票指数香草更常直接 SVI。无论哪种，翼部都不能默认为「公式的自然延拓」。</p><p>长到期、高 \(\nu\) 时，有效域可能缩到比 25-delta 还窄，此时应降低对该到期的 SABR 信任，改数值方法或换模型，而不是把切点越推越近还继续对外称 SABR 曲面。Obłój、Paulot 改善的是近似质量，验收仍以 \(g(k)\) 与日历为准。</p><p><span class="marginnote">自动把负密度的执行价「删除」再校准，会让参数依赖删除规则，翼外推变得不可复现。应保留点、降权，并把删除规则写成配置，而不是当成数据清洗的隐形步骤。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Hagan 领头项的有效域在中段；远翼下弯或负密度时，外推必须换函数，而不是继续调用同一公式。</li><li>Lee 矩给出总方差翼斜率的上界；在 \(w\) 上线性衔接是最小合法先验之一。</li><li>实务两条路：切点接 SVI/线性翼，或用无套利 SABR 密度 PDE；校准权重不应包括已经破裂的翼。</li><li>翼规则影响方差互换与数字期权，必须版本化，并用对翼敏感的产品验收。</li><li>出处：Hagan, Kumar, Lesniewski and Woodward, <em>Wilmott</em>, 2002 与 2014 年无套利 SABR；Lee, <em>Mathematical Finance</em>, 2004；对照 Gatheral SVI 与 Obłój 等改进展开。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 波动率与期权续<!--[--> · 单元 局部与随机波动<!--]--><!--[--> · 课序 曲面、产品与对冲<!--]--></p><p class="lesson-progress">第 2 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/svi-arb-params/">SVI 无套利参数化</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

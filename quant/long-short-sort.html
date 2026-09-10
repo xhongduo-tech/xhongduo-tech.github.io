@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单因子排序与多空 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_long-short-sort.md.DkZPXS9C.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 11 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/investment-factor/">投资与资产增长</a></p><p class="lesson-next"> 下一课：<a href="/quant/industry-neutral/">行业中性</a></p></nav><div style="position:relative;"><div><h1 id="单因子排序与多空" tabindex="-1">单因子排序与多空 <a class="header-anchor" href="#单因子排序与多空" aria-label="Permalink to &quot;单因子排序与多空&quot;">​</a></h1><div class="epigraph"><p>先按一个可观测特征把股票排进分位组合，再看高减低的价值加权收益是否显著；这是把截面预测写成可交易因子的标准实验，而不是回归系数本身。</p><footer>—— 综合 Fama–French 组合排序传统与后续因子复制惯例</footer></div><p><a href="/quant/investment-factor">上一课</a>把高资产增长预测低收益收成 CMA，并要求控制价值、盈利与净发行。前面 SMB、HML、WML、RMW、CMA、BAB、ILLIQ 共用同一套实验室手续，却还没被写成可检查的流程。缺口是：<strong>排序、断点、加权、持有、多空、再对已有因子回归 α</strong>——手续一改，溢价可以翻倍或消失。本课把单因子排序写成构造语言：NYSE 断点、独立 vs 从属双重排序、等权 vs 价值加权、多空 α 与截面回归各自回答什么。不重推资产增长的会计定义。后课行业中性与市值中性默认已经会读这条手续。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>个股回归 \(R_{i,t+1}=a+b\,x_{it}+e\) 的 \(b\) 显著，只说明特征在样本里有预测斜率。它不保证：按 \(x\) 切开的两端能形成可持有组合、中间组是否单调、微型股是否贡献全部 \(b\)、换手是否吃掉均值。组合排序把这些问题变成持仓。多空（long-short）再把多头与空头的差额当成一个资产，便于放进时间序列回归的右侧或左侧。</p><p>问题是排序有太多自由度：形成频率、分位数、断点总体、加权、滞后、跳月、行业中性、价格过滤。没有预先承诺，同一特征可以「被发现」也可以「被杀死」。单因子实验的最低标准是：这些选择写进定义，并报告对它们的敏感性，而不是只贴一个 t 统计量。</p><h3 id="排序不等于已经定价" tabindex="-1">排序不等于已经定价 <a class="header-anchor" href="#排序不等于已经定价" aria-label="Permalink to &quot;排序不等于已经定价&quot;">​</a></h3><p>分位组合的平均收益差是<strong>未调整</strong>的溢价。把它对市场或五因子回归得到的 α 才是相对已有模型的增量。HML 作为右侧因子时，左边若仍是 B/M 十分位，α 应接近零——这是一致性检查，不是新发现。左边若是另一个特征（动量、ILLIQ），α 才回答「单因子排序是否已被现有因子吸收」。</p><p><span class="marginnote">等权十分位的 t 值几乎总比价值加权好看，因为小盘权重大、特异性对冲得看起来更净。可投资结论以价值加权、带流动性过滤的版本为准。等权当作诊断：若等权显著而价值加权不显著，效应在经济上可能不重要。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>单变量：每个再平衡日对股票 \(i\) 计算特征 \(x_{it}\)（已滞后到可获得），在断点总体（通常 NYSE 上市、不含负账面等）上取分位 \(q\)，把全体股票（含 AMEX/NASDAQ）按这些断点分进组。组内价值加权，持有到下一再平衡日。多空是最高组减最低组，或 2×3 里两端的平均差。重叠持有（如动量 J/K）则每月对若干 vintage 等权。</p><p>独立双重排序：两个特征各自取断点，格子是笛卡尔积，用于构造在另一特征上中性的腿（SMB 对 B/M 平均）。从属排序：先按规模分组，再在组内按第二特征排，保证每组股票数均匀，但第二特征的断点随规模变。独立排序会出现空格子或极稀格子；从属排序会让「高 B/M」在小盘与大盘意味着不同的绝对比率。</p> \[r_t^{\mathrm{LS}}=\sum_{i\in H}w_{it}R_{it}-\sum_{j\in L}w_{jt}R_{jt},\qquad \sum w=1 \]<p>\(w\) 用上期市值。然后</p> \[r_t^{\mathrm{LS}}=\alpha+\beta^\top F_t+\varepsilon_t \]<p>\(F\) 是已有因子。Newey–West 处理重叠持有造成的序列相关。GRS 检验一组分位组合的 α 是否联合为零。</p><h3 id="断点、滞后与可投资宇宙" tabindex="-1">断点、滞后与可投资宇宙 <a class="header-anchor" href="#断点、滞后与可投资宇宙" aria-label="Permalink to &quot;断点、滞后与可投资宇宙&quot;">​</a></h3><p>用全体股票的分位数当断点，NASDAQ 微型股会把阈值拉到不可交易区，大盘全部挤进同一组。NYSE 断点是 Fama–French 的 antidote。特征必须严格滞后：6 月用 t−1 年报，价格用已实现市值，动量跳过 t 月以免反转。宇宙要预先规定：价格不低于某阈值、过去成交额、是否含金融、是否含新上市。事后剔除「亏钱的名字」是前视。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为何排序比回归更接近交易：回归的 \(b\) 给每只股票相同斜率，极端 \(x\) 与中间 \(x\) 共用一个系数；排序允许非线性（只有两端有溢价、中间平坦）。多空强制资金中性，去掉市场水平的第一主成分，让 t 值反映截面。价值加权让组合收益对应「按市值计的经济」，与指数、与主动管理的基准更可比。</p><p>为何排序会骗人：两端组在特征上的差异可能只是行业、只是 β、只是流动性。单调性检查（十分位平均收益是否逐步上升）是最低防御。双重排序与行业中性把明显的混淆变量拿掉。正交化（对已有因子回归特征或回归收益）回答的是增量，但顺序敏感：先去掉价值再排盈利，与先去掉盈利再排价值，残差因子不同。</p><h3 id="多空的空头腿不是免费的" tabindex="-1">多空的空头腿不是免费的 <a class="header-anchor" href="#多空的空头腿不是免费的" aria-label="Permalink to &quot;多空的空头腿不是免费的&quot;">​</a></h3><p>账面 LS 假设能按收盘价卖空全部低组。借券费、禁止卖空、涨跌停让空头腿的实现收益高于回测（空头更贵）。许多异常的统计显著性来自空头。应单独报告多头超额、空头超额、以及仅做多相对基准。BAB 还要报告杠杆融资；反转要报告换手。单因子论文若只给 LS 均值，等于把不可实现的一半写进了夏普。</p><p><span class="marginnote">2×3 相对十分位更稳：两端更宽、换手更低、与 French 数据库一致，便于把新特征做成第四个因子。十分位更适合看单调性和「是否只有微型股」。两种都应给，只给更显著的那种是选择报告。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>多重检验：几百个特征里总会出现 t&gt;2 的多空。p-hacking 的防法是预注册定义、样本外、以及 Bonferroni 一类门槛，另文展开。这里只强调单因子实验的内部有效性：同一宇宙、同一断点哲学、同一加权，才能比较 HML 与「新价值」、WML 与「新动量」。</p><p>不要用截面 Fama–MacBeth 的 \(b\) 代替组合 α，也不要用组合 α 代替经济显著性（年化溢价 × 容量）。不要在再平衡日用当日收盘特征并假设当日收盘成交——至少滞后一天。A 股还要处理停牌：停牌股票不能进新组合，也不能用不可成交的收盘价算持有期收益。</p><p>跨因子比较时，把所有特征都做成月度 2×3 价值加权、NYSE 断点、同一过滤，再看相关矩阵与正交 α。这比各自沿用原文的十分位等权更公平，也更能说明<a href="/quant/ff5">五因子</a>相对三因子到底加了什么。</p><p><span class="marginnote">方法论源头是 Fama–French 1993 的组合构造与后续 Ken French 数据说明，而不是单独一篇「排序论文」。Fama–MacBeth 1973 是截面回归传统，与组合排序互补。Jegadeesh–Titman 的 J/K 是动量特有的重叠持有，不要套到年度财务因子上造成无谓换手。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>单因子排序用滞后特征、NYSE 断点、组内加权把截面预测收成可持有组合；多空再收成一条收益序列。</li><li>独立 2×3 用于构造在另一特征上中性的因子；十分位用于看单调性。</li><li>定价语句是对已有因子的 α 与 GRS，不是等权十分位的原始均值。</li><li>空头可实现性、滞后、过滤和加权属于定义；改其中一项就不是同一个因子。</li><li>出处：Fama &amp; French, 1993 的构造惯例；时间序列检验见同文及后续五因子；截面回归见 Fama–MacBeth, 1973。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 11 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/industry-neutral/">行业中性</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

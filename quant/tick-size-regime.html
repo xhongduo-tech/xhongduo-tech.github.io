@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>最小变动价位 tick | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_tick-size-regime.md.Da2bkQZc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 市场设计<!--]--></p><p class="lesson-progress">第 12 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/maker-taker/">Maker-taker 费用</a></p><p class="lesson-next"> 下一课：<a href="/quant/lot-size-odd-lot/">手数与零股</a></p></nav><div style="position:relative;"><div><h1 id="最小变动价位-tick" tabindex="-1">最小变动价位 tick <a class="header-anchor" href="#最小变动价位-tick" aria-label="Permalink to &quot;最小变动价位 tick&quot;">​</a></h1><div class="epigraph"><p>最小报价单位把价格变成栅格上的点。栅格太粗，价差被制度卡住；栅格太细，时间优先被一连串一 tick 的插队削弱。</p><footer>—— Harris, Stock Price Clustering and Discreteness, Review of Financial Studies, 1991；对照 SEC Tick Size Pilot Program 的公开设计</footer></div><p><a href="/quant/maker-taker">Maker-taker 费用</a>说明名义价差可以被回扣压到一个 tick。本课的缺口是：这一个 tick 本身是制度选的，不是自然常数。Harris 把价格离散与聚类写成微观结构对象；Angel 讨论最小报价单位如何改变深度与报价竞争。美股小数化、Tick Size Pilot、A 股按价格分档的 tick、日本与港股的阶梯 tick，都是同一旋钮的不同刻度。后课的手数与价格栅格会把数量维补上；本课只处理价格维的最小步长。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>连续协议里，买卖价差的下限是一个 tick \(\Delta\)。相对 tick \(\Delta/P\) 才是经济量：同样 0.01，对 5 元股票是 20 个基点，对 500 元股票是 0.2 个基点。先修课的价差分解假定 \(s\) 可以随处理成本与信息连续变窄；一旦 \(s\) 被钉在 \(\Delta\)，分解里的处理项会被制度项替代。做市商不能再靠「再窄半个 tick」去抢队列，只能靠时间优先、隐藏单、或换到允许更细报价的场所。</p><p>另一方向：\(\Delta\) 太小，报价可以以一 tick 的改善插到队头，时间优先被价格优先频繁改写，深度在每个价位变薄，消息流变吵。Tick Size Pilot 把一批小盘股强制放大 tick，问的就是：更粗的栅格是否换来更深的展示深度，以及这笔深度是不是可成交的。问题不是「tick 应该是多少」，而是相对 tick 如何改写价差下限、队列价值和多场所报价竞争。</p><h3 id="名义-tick、相对-tick-与约束价差" tabindex="-1">名义 tick、相对 tick 与约束价差 <a class="header-anchor" href="#名义-tick、相对-tick-与约束价差" aria-label="Permalink to &quot;名义 tick、相对 tick 与约束价差&quot;">​</a></h3><p>记报价价差 \(s=n\Delta\)，\(n=1,2,\ldots\)。\(n=1\) 的股票是 tick-constrained：观察到的价差不能再窄，有效价差的改善只能来自中点成交、暗池或零售内化，而不是来自更窄的 BBO。\(n\) 经常大于 1 的股票，tick 不是紧约束，价差主要由信息和存货决定。横截面比较必须用 \(s/P\) 或 \(n\)，不能用「都是两分钱」。A 股高价股与低价股落在不同 tick 档，同一日历日里相对 tick 可以差一个数量级。</p><p><span class="marginnote">费用按股或按金额计，tick 按价格计。Maker-taker 回扣以分/股计时，一个 tick 的价差收入与回扣的相对权重随股价变化。高价股更容易被压到 \(n=1\)，因为同样的回扣占价差比例更大。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>描述一只股票的 tick 制度：当前 \(\Delta(P)\)、是否阶梯函数、哪些场所允许中点或亚 tick 改善。计算约束频率：BBO 等于一 tick 的时间占比、成交发生在 BBO 上的占比。深度报「一 tick 档的股数」和「若干基点内的金额」两套，前者对做市商的队列有意义，后者对机构冲击有意义。Pilot 或制度变更用事件研究：变更前后的报价价差、有效价差、深度、换手、以及小单大单的份额。不要只用报价价差：约束变紧时报价价差可能上升（被钉在新的 \(\Delta\)），有效价差因中点成交增加而不一定同幅上升。</p><p>跨市场上市时，tick 可以不一致。同一公司在两处的相对 tick 不同，价格发现会偏向栅格更细或费用更便宜的场所，这与后课<a href="/quant/market-fragmentation">市场分割</a>衔接。方法是把相对 tick 当成场所特征，而不是证券特征。</p><h3 id="聚类不是噪声" tabindex="-1">聚类不是噪声 <a class="header-anchor" href="#聚类不是噪声" aria-label="Permalink to &quot;聚类不是噪声&quot;">​</a></h3><p>Harris（1991）记录价格在整数、半数、整 tick 上的聚类。离散栅格加上人类与算法的协调，使某些价位更厚。聚类随 \(\Delta\) 变：小数化之后整分上的聚类减弱，但未消失。把聚类当数据错误洗掉，会删掉真实的深度堆积。把聚类当「非理性」，又忽略了协调均衡：在粗栅格上，整 tick 就是唯一合法点。清洗应删错价，不删合法栅格上的堆量。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>tick 通过三条通道进入价格形成。第一，价差下限：约束股票的买卖价差不能低于 \(\Delta\)，逆向选择很小的名字也被制度加了一层租金。第二，队列抢占：更细的栅格让价格优先更频繁地压过时间优先，挂单的期权价值下降，展示意愿可能下降。第三，多场所竞争：允许亚 tick 的暗池或零售批发商，可以把成交放到公开 BBO 内部，公开簿的 \(n=1\) 不再代表真实可成交价差。Angel、Harris 与 Spatt 把小数化后的深度变薄与报价竞争写进市场结构事实，而不是写成「流动性变好了」的单一叙事。</p><p>做市收入在约束股票上更像赚一个 tick 加回扣，而不是赚信息租金。信息事件到来时，他们用撤单和拉宽 \(n\) 来保护自己，而不是把 \(\Delta\) 本身变大——\(\Delta\) 是规则。因此 tick 制度改变的是平静期的价差底，不一定改变公告窗口的价差峰。</p><p><span class="marginnote">不要把 <a href="/quant/roll-model">Roll</a> 估出的有效价差与 \(\Delta\) 直接相减当「非制度成分」。Roll 在 \(n=1\) 且中点成交很多时，协方差结构已经不是连续买卖回跳。先看约束频率，再决定 Roll 是否适用。</span></p><div class="mermaid"></div><h3 id="相对-tick-随股价与拆股跳档" tabindex="-1">相对 tick 随股价与拆股跳档 <a class="header-anchor" href="#相对-tick-随股价与拆股跳档" aria-label="Permalink to &quot;相对 tick 随股价与拆股跳档&quot;">​</a></h3><p>固定名义 \(\Delta\) 下，股价翻倍则相对 tick 减半，约束频率下降；拆股则反向。制度没变，栅格的经济紧度变了。事件研究若跨过拆股而不分段，会把公司行为当成 tick 政策的效果。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>Tick Size Pilot 的结论绑定小盘股、绑定试点期的路由与费用，不能外推成「所有股票都应放大 tick」。加密市场的 tick 往往极细，约束来自 lot 与手续费而非 \(\Delta\)。外汇有报价小数位惯例，与股票 tick 法律含义不同。本课不讨论如何用一 tick 插队去抢做市商队列的交易手法；那是规则允许的价格优先，研究只计量它如何改变深度分布。</p><p>下一课补数量维：即使价格可按 \(\Delta\) 走，订单还要满足手数。两维一起才构成可提交的栅格。</p><p><span class="marginnote">A 股 tick 随价格分档，回测里的「涨 1%」在不同价格区对应不同 tick 数。信号若用 tick 计数而不是收益率，必须随股价切换档位。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>经济对象是相对 tick \(\Delta/P\)，不是名义分毫。</li><li>\(n=1\) 时价差下限是制度，价差分解的处理项被钉住。</li><li>栅格变细削弱时间优先、摊薄每档深度；变粗可能加展示深度，但不保证有效价差同向变化。</li><li>费用、暗池与中点成交会让公开 tick 不再等于经济价差步长。</li><li>价格聚类是离散栅格上的协调，不是默认脏数据。</li><li>出处：Harris, <em>RFS</em>, 1991；Angel 对最小报价单位的讨论；SEC Tick Size Pilot 公开文件；Angel, Harris and Spatt 对小数化后市场结构的综述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 市场设计<!--]--></p><p class="lesson-progress">第 12 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/lot-size-odd-lot/">手数与零股</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

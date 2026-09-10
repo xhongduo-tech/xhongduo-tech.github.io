@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Qwen3-ASR 技术报告 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_qwen3-asr-paper.md.CEKfWHwR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 218 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/qwen3-vl-paper/">Qwen3-VL 技术报告</a></p><p class="lesson-next"> 下一课：<a href="/llm/qwen3-omni-paper/">Qwen3-Omni 技术报告</a></p></nav><div style="position:relative;"><div><h1 id="qwen3-asr-技术报告" tabindex="-1">Qwen3-ASR 技术报告 <a class="header-anchor" href="#qwen3-asr-技术报告" aria-label="Permalink to &quot;Qwen3-ASR 技术报告&quot;">​</a></h1><div class="epigraph"><p>两档全功能转写加一个非自回归强制对齐器：理解先验来自 Qwen3-Omni，输出契约收成语种槽与转写槽。</p><footer>—— Shi 等，Qwen3-ASR Technical Report，arXiv:2601.21337</footer></div><p>Qwen3-ASR 家族不是 30B Omni Thinker 的原盘上线，而是三份可部署模型： <strong>Qwen3-ASR-1.7B</strong>、<strong>Qwen3-ASR-0.6B</strong> 做语种识别加转写，覆盖 <strong>30 种语言 + 22 种汉语方言</strong>（合计 52）；<strong>Qwen3-ForcedAligner-0.6B</strong> 用非自回归槽填充给 11 种语言的词/句打时间戳。三者 Apache 2.0。叶子里的 <a href="/llm/qwen3-asr-lalm">AuT</a>、<a href="/llm/qwen3-asr-dynamic-window">动态窗</a>、<a href="/llm/qwen3-asr">SKU 对照</a> 已有专文；本篇按报告写训练四段、输出语法、对齐器公式与效率表，不把 Omni 的 Talker 复述成 ASR。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>传统 AED / Transducer 在干净朗读上已经接近标注噪声上限，但长音频、噪声、专名、多语方言、歌声仍然脆。大音频语言模型能借世界知识听懂，却容易把「听写」改成摘要，延迟与参数对纯转写过重。生产还要时间戳：过去用 CTC / CIF 后处理，粒度死、多语要多套音素词典。开源基准分数接近时，真实场景（口音、老人小孩、极低信噪、绕口令、多说话人）仍能拉开差距——所以报告除公开集外另建内部压力套件。</p><p>需要一条继承：理解来自 <a href="/llm/qwen3-omni-paper">Qwen3-Omni</a>，输出收成固定槽位；时间戳另训一个 NAR 对齐器，而不是让自回归解码器逐 token 吐毫秒。两档 ASR 必须是<strong>同一产品族</strong>，否则语种表、无语音 <code>language None</code>、上下文偏置 prompt 都要分叉。</p><h3 id="_1-7b-与-0-6b-不是「完整版-阉割语种」" tabindex="-1">1.7B 与 0.6B 不是「完整版 / 阉割语种」 <a class="header-anchor" href="#_1-7b-与-0-6b-不是「完整版-阉割语种」" aria-label="Permalink to &quot;1.7B 与 0.6B 不是「完整版 / 阉割语种」&quot;">​</a></h3><p>两档都做 LID 与转写，覆盖同一 52。ForcedAligner 是另一模型、11 语、最长 300 秒，不要写进 ASR SKU。0.6B 配套约 180M / 896 维 AuT；1.7B 配套约 300M / 1024 维 AuT。选档是容量配对：0.6B 换并发与约 92 ms 级 TTFT；1.7B 换稳健。发布名指<strong>解码器档位</strong>，不要把 AuT 加进去当成「2B 模型」去对标 Whisper-large。</p><p><span class="marginnote">「建在 Qwen3-Omni 上」指训练继承：两档都走了约 3T token 的 Omni 多模态阶段。推理图是瘦身后的 AuT + projector + 小 Qwen3，没有 Talker，也没有 235B 路由。SFT 明确训成 ASR-only，减轻指令注入。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>波形 → 128 维 Fbank → 分块 Conv2D 八倍下采样到约 <strong>12.5 Hz</strong> → AuT（动态 FlashAttention 窗约 1–8 s）→ 学习型 projector → Qwen3 解码器。AuT 本身是 AED，在约 <strong>4000 万小时</strong>伪标语音上预训练（中英为主），与 Omni 阶段的约 2000 万小时监督音频是不同课程，不要把两个数字写成同一个编码器的同一遍数据。</p><p>训练四段：(1) AuT 预训练；(2) Omni 预训练，与 Qwen3-Omni 相同，两档各约 3T；(3) ASR SFT，用与预训练不相交的较小多语数据做格式迁移，并加入非语音、流式增强、上下文偏置；(4) RL，报告用 <strong>GSPO</strong>，约 5 万句（约 35% 中英、35% 多语、30% 功能数据），补噪声与难例。有语音时输出 <code>language … &lt;asr_text&gt;…</code>；无语音时 <code>language None</code> 且转写槽为空。系统提示里的上下文 token 当作背景知识，允许用户偏置专名。</p><h3 id="forcedaligner-时间槽而不是下一个词" tabindex="-1">ForcedAligner：时间槽而不是下一个词 <a class="header-anchor" href="#forcedaligner-时间槽而不是下一个词" aria-label="Permalink to &quot;ForcedAligner：时间槽而不是下一个词&quot;">​</a></h3><p>对齐器把转写改写成带 <code>[time]</code> 槽的序列，AuT 帧长 80 ms，时间戳离散成最多 3750 类（对应 300 s）。Qwen3-0.6B 上看全部序列，线性头填槽；训练时输出与标签<strong>不对齐移位</strong>（因果、同步 CE，只在时间槽上计损失），并随机决定每个词/字后是否插入起止槽。伪标来自 Montreal Forced Aligner，模型被写成蒸馏并平滑 MFA 的系统性偏移，而不是复制 MFA。推理 NAR：一次填完所有槽，下标乘 80 ms 还原。支持词、句、段及用户指定任意边界。</p><div class="mermaid"></div><p>单次 ASR 音频最长约 1200 s（20 分钟）；对齐器 300 s。音频类型含语音、歌声、带伴奏的整首歌。流式与离线共用同一权重，差别只在可见音频与回退窗口。vLLM 是官方高效推理路径；对齐器评测用 PyTorch + FlashAttention。</p><p><span class="marginnote">效率表在单卡、约 2 分钟音频、vLLM 0.14、bf16、CUDA Graph 下测。0.6B 并发 1 时 TTFT 平均 92 ms；并发 128 的在线异步吞吐约 2000（秒音频 / 秒）。不要把实验室 RTF 写成手机端实时因子。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>LALM 转写的条件是 \(p(y_{\mathrm{lid}}, y_{\mathrm{asr}}\mid x, c)\)：\(c\) 为可选上下文。先形成音频的高层理解再生成字，专名可以从语言模型抄进来，这是相对纯声学匹配的差。SFT 把指令跟随关掉，是为了让 \(y\) 停在听写而不是聊天。RL 的功能数据针对「复杂环境里别胡编、别把噪声听成词」。</p><p>动态窗让同一套权重服务短块流式与长查询离线：窗太短则上下文不够，太长则首包延迟。12.5 Hz 是 8× 下采样的直接后果，不是另设的语义码本。对齐器放弃 next-token，是因为时间戳不是「下一个汉字」：槽位预先知道、只需填离散帧号，NAR 更合适。MFA 伪标有偏，同步 CE 加随机插槽迫使模型学边界分布而不是背教师的偏移。</p><h3 id="内部基准为什么必须写进读法" tabindex="-1">内部基准为什么必须写进读法 <a class="header-anchor" href="#内部基准为什么必须写进读法" aria-label="Permalink to &quot;内部基准为什么必须写进读法&quot;">​</a></h3><p>公开英中集上各家分数已经挤在标注误差附近。报告因此用内部套件压口音（英语 16 组）、22 种方言、老人小孩、极低 SNR、不流畅与绕口令式重复、多说话人中文对话，并单列歌声与整首带 BGM。多语在 Common Voice / Fleurs / MLS / MLC-SLM 及内部 15 语上评，Fleurs 还按语种流行度切子集。LID 单独报表。读实验时，1.7B「开源 SOTA、接近最强商业 API」是这条协议下的句子，不是任意 WER 表上的万能冠军。</p><p><span class="marginnote">基线含 GPT-4o-Transcribe、Gemini-2.5-Pro、Doubao-ASR，以及 Whisper-large-v3、FunASR-MLT-Nano、GLM-ASR-Nano。引用「超过 Whisper」必须带语种与噪声条件。对齐器相对 MFA / NFA 等报累计平均偏移相对降 67%–77%，那是人工标注测试集上的偏移，不是任意字幕软件的字准。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>ASR-only 意味着用户不能靠自然语言指令把模型临时改成翻译器或会议摘要；要摘要应另接 LLM。上下文偏置能灌专名，也能灌错名。无语音检测会把极轻声或远场漏成 <code>language None</code>。20 分钟上限不是无限长会议：更长要切段，切段会丢掉跨段偏置。歌声与 BGM 是报告卖点，现场混响 + 合唱仍应单测。</p><p>ForcedAligner 的 80 ms 栅格决定时间分辨率下限；要帧级音素对齐仍需传统工具。11 语与 ASR 的 52 不要混用。NAR 不能流式逐词出时间戳。伪标蒸馏会继承 MFA 在某语种上的系统误差。许可是 Apache 2.0，但训练数据本身未开源。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Qwen3-ASR 报告发布两档 52 语种/方言转写模型与一个 11 语 NAR 强制对齐器，权重 Apache 2.0。</li><li>训练：AuT 伪标预训练 → Omni 约 3T → ASR SFT（含非语音/流式/偏置）→ GSPO RL。</li><li>输出固定为语种槽加 <code>&lt;asr_text&gt;</code>；对齐器填 <code>[time]</code> 槽，帧长 80 ms。</li><li>0.6B 换吞吐，1.7B 换稳健；内部压力集比公开 WER 更能解释「听起来差很多」。</li><li>出处：Xian Shi 等，<em>Qwen3-ASR Technical Report</em>，arXiv:2601.21337，2026。对照 Xu 等 Qwen3-Omni，arXiv:2509.17765。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 多模态与代码论文<!--]--><!--[--> · 课序 视觉语言<!--]--></p><p class="lesson-progress">第 218 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/qwen3-omni-paper/">Qwen3-Omni 技术报告</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OLG 与动态无效率再访 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_olg-diamond.md.BJvMhd6z.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 增长<!--]--><!--[--> · 课序 资本与技术<!--]--></p><p class="lesson-progress">第 16 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/ramsey-cass-koopmans/">Ramsey–Cass–Koopmans</a></p><p class="lesson-next"> 下一课：<a href="/econ/endogenous-growth/">内生增长：人力资本与 R&amp;D</a></p></nav><div style="position:relative;"><div><h1 id="olg-与动态无效率再访" tabindex="-1">OLG 与动态无效率再访 <a class="header-anchor" href="#olg-与动态无效率再访" aria-label="Permalink to &quot;OLG 与动态无效率再访&quot;">​</a></h1><div class="epigraph"><p>世代交叠里，当代人不必把未出生者的效用写进目标；资本回报可以低于增长率，过度积累可以是竞争均衡。</p><footer>—— Diamond, National Debt in a Neoclassical Growth Model, AER 1965</footer></div><p><a href="/econ/ramsey-cass-koopmans">上一课</a>把无限寿命（或完备利他）钉在修正黄金律：通常 \(k^*\lt k_{\mathrm{gold}}\)。黄金律课已经预告叠代可以越过那条线。本课的缺口是再访这条无效率：为何<strong>有限寿命</strong>使 \(r\lt n\) 一类配置可以成为均衡，以及国债在 Diamond 里如何挤出过度的 \(K\)。内生 \(g\) 仍留到下一课；本课生产技术仍是索洛型递减报酬。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RCK 的欧拉来自同一个主体比较今天与明天。OLG 里青年储蓄供老年消费，市场利率使青年的欧拉成立，但没有一个主体为「所有未来世代的稳态 \(c\)」负责。于是分散均衡的 \(k\) 由人口结构、养老金与工资路径决定，可以落在 \(k_{\mathrm{gold}}\) 之上。缺口不是再推修正黄金律，而是：Diamond（1965）的两期叠代如何让动态无效率成为均衡现象。</p><p><span class="marginnote">动态无效率：存在帕累托改进，使每一世代稳态消费都不下降。判据仍是黄金律那条：\(f&#39;(k)-\delta\lt n+g\) 时，少留资本、多吃，稳态全面更好。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>两期生存：青年工作、储蓄 \(s\)，老年消费 \((1+r)s\)。资本 \(K_{t+1}\) 等于青年储蓄。工资与 \(r\) 来自竞争企业的 \(F(K,L)\)。稳态储蓄函数与资本需求的交点给出 \(k^*\)。与 RCK 不同，没有 \(\rho\) 把 \(k^*\) 锁在修正黄金律；时间偏好只进入青年的欧拉，不代表未出生者。</p><div class="mermaid"></div><p>判断无效率的可观察代理仍常是 \(r\) 是否低于增长。经验有争议（安全利率、资本回报、土地），本课只给模型内判据。Diamond 同时指出：若经济动态无效率，适当的国债可以减少资本、提高稳态福利——国债在此不是必然的负担。动态有效时，国债挤出有成本。</p><h3 id="不要把-olg-写成「rck-加人口」" tabindex="-1">不要把 OLG 写成「RCK 加人口」 <a class="header-anchor" href="#不要把-olg-写成「rck-加人口」" aria-label="Permalink to &quot;不要把 OLG 写成「RCK 加人口」&quot;">​</a></h3><p>人口增长 \(n\) 在两套模型里都摊薄 \(k\)。分叉来自偏好加总：RCK 有无限视野的单一贴现；OLG 的帕累托比较必须让每一世代都不损失，计划者问题要用另一套权重。利他遗产若足够强，OLG 被推回 RCK，无效率窗口关掉。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>青年面对的 \(r\) 是其储蓄的私人回报。稳态时若资本已经很多，\(r\) 很低，但青年仍可能因没有其他储值手段而持有 \(K\)。未出生者无法在当期市场出价要求少积累。于是竞争均衡可以帕累托次优——这与福利定理在有限商品、有限人经济里的前提不同：这里有无限世代，市场不完全。</p><p>动态有效时，每代人的资本刚好被后来的增长「值回票价」。国债与资本在储值上竞争，挤出 \(K\) 会降低稳态 \(c\)。无效率时，挤出反而把经济推回黄金律一侧。政策含义依赖判据，不能从「债务=坏」或「债务=免费午餐」单边出发。</p><p>两期是教学装置。三期或连续时间 OLG 不改变核心：缺少无限视野的单一主体，黄金律另一侧就可以是均衡。土地、货币若提供替代储值，过度积累的窗口会缩小——因为青年不必把全部储蓄都做成 \(K\)。本课生产侧仍用递减报酬的 \(F(K,L)\)，不把叠代写成内生增长；\(g\) 外生时，无效率是水平问题，不是增长率问题。</p><p>封闭经济里 \(S=I\) 仍是恒等。OLG 改的是谁储蓄、均衡 \(k\) 停在哪，不是把恒等读成「储蓄决定投资」的因果。黄金律课的外生 \(s\) 可以偶然落在无效率区；本课说的是竞争均衡自己可以停在那里。</p><p><span class="marginnote">社会保障现收现付也是世代间转移，功能上像国债。它是否改进，同样取决于经济是否过度积累，而不是口号。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不估计 \(r\) 与 \(n\) 的计量争论，不把长寿、年金市场与习惯写成主干。货币、土地可以提供替代储值，减弱无效率——那是更后的课。也不要把 Diamond 的国债写成公司金融的杠杆；这里的债是代际资产，不是 MM。量化栏的利率期限不是 \(r\lt n\) 的检验。</p><p>内生增长下一课会让 \(g\) 被研发移动；动态无效率的切线条件要重写，本课不预先做。封闭核算的 \(S=I\) 在叠代里仍然是恒等：无效率改的是均衡 \(k\) 的位置，不是把会计读成因果。开放经济的外债可以替代国内 \(K\) 当储值，判据更绕，留给经常账户课。</p><p>计划者若用各世代效用的贴现和，仍可能选出黄金律附近的路径；分散市场缺的是那套权重。因此「OLG 无效率」不是技术 \(F\) 的问题，是代际市场不完全。RCK 用无限寿命把同一主体贯穿所有日期，缺口被内部化。两套模型不要用同一个「代表性家庭」标签。现收现付与国债在账户上都是代际转移，福利符号仍跟 \(r\) 对 \(n+g\) 的位置走。</p><p>后课默认：RCK 通常有效；OLG 可以动态无效率，国债/养老金的福利符号随判据而变。下一课打开外生 \(g\)：知识若可生产，递减报酬还能否关掉增长引擎。内生 \(g\) 会改切线条件，本课不提前重写。</p><p>黄金律的 \(r\lt n+g\) 判据在此仍然够用；经验上安全利率与资本回报会对出不同答案，本课不选边。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RCK 内部化未来的自己；OLG 的市场不内部化未出生者。</li><li>分散均衡可以 \(k\gt k_{\mathrm{gold}}\)，动态无效率是均衡而非只是外生 \(s\) 的事故。</li><li>无效率时，国债挤出资本可以改进；有效时挤出有成本。</li><li>利他遗产把模型推回 Ramsey。</li><li>替代储值（土地、货币）会缩小过度积累窗口。</li><li>出处：Diamond, AER 1965；对照 Phelps 黄金律与 RCK。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观：核算与增长<!--[--> · 单元 增长<!--]--><!--[--> · 课序 资本与技术<!--]--></p><p class="lesson-progress">第 16 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/endogenous-growth/">内生增长：人力资本与 R&amp;D</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

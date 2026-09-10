@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>资金成本作为 alpha 底 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_funding-cost-floor.md.TZtRu7ok.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场制度、资金与事件<!--[--> · 单元 资金与清算<!--]--><!--[--> · 课序 杠杆与结算<!--]--></p><p class="lesson-progress">第 8 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/settlement-cycle/">结算周期</a></p><p class="lesson-next"> 下一课：<a href="/quant/earnings-event-driven/">业绩公告作为事件</a></p></nav><div style="position:relative;"><div><h1 id="资金成本作为-alpha-底" tabindex="-1">资金成本作为 alpha 底 <a class="header-anchor" href="#资金成本作为-alpha-底" aria-label="Permalink to &quot;资金成本作为 alpha 底&quot;">​</a></h1><div class="epigraph"><p>纸面超额收益要先减去当时占用资金的成本，剩下的才可能是 alpha；成本随保证金、借券、回购与结算占用而变，不是一个常数无风险利率。</p><footer>—— 据 Frazzini and Pedersen, Journal of Financial Economics, 2014；Brunnermeier and Pedersen, 2009 整理</footer></div><p>到上一课<a href="/quant/settlement-cycle">结算周期</a>为止，占用的来源已经拆开：股票维持保证金、强平缺口、借券费、回购 haircut、CCP 保证金、在途结算。本课把它们乘上<strong>当时资金价格</strong>，收成策略的底。后面事件课默认：事件收益若不算资金与可成交约束，只是研究 CAR，不是可交易 alpha。本课不重推各占用公式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>因子回测常对超额收益相对市场或相对 Fama–French，分母是名义本金，分子不含融资。Frazzini–Pedersen 的 Betting Against Beta 把杠杆约束放进资产定价：受约束的投资者买高 beta，低 beta 需要杠杆才有吸引力。本课不复制该因子，只用同一思想：没有廉价杠杆，低波动多头与高换手多空的纸面夏普不可实施。缺口是给每条策略路径一条资金账单，账单用 PIT 利率与 PIT 占用，禁止用样本均值利率或用后来的政策利率回填危机月份。</p><p>无风险利率只覆盖「自有现金的机会成本」；杠杆腿还要加信用利差、special 费、保证金利息规则。</p><h3 id="alpha-底不是无风险利率" tabindex="-1">Alpha 底不是无风险利率 <a class="header-anchor" href="#alpha-底不是无风险利率" aria-label="Permalink to &quot;Alpha 底不是无风险利率&quot;">​</a></h3><p>把超额收益定义成 \(r-r_f\) 只扣了现金的机会成本，没扣空头借券、没扣 haircut 上升导致的强制去杠杆损失。后者是路径依赖的，不能在期末用一个平均费率相减来替代——去杠杆发生在波动最高的日子，平均费率会低估。本课要求按日：占用\(_t\) × 利率\(_t\) + 借券费\(_t\) + 已实现缺口。</p><p><span class="marginnote">同一策略在自有资金 100% 与杠杆 2 倍下，纸面 alpha 可以相同（若按名义缩放），扣资金后符号可以相反。报告时要声明资金来源。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每日账单至少四项：（1）融资负债 × 当时融资利率；（2）空头市值 × 当时借券费；（3）CCP/期货保证金占用的机会成本或明确的保证金利息；（4）因 haircut/维持线/召回导致的强制交易，按缺口价计入，不摊进「成本率」。求和后从策略收益中扣除，再谈是否覆盖 Fama–French。利率与费率全部 as-of，危机月用危机月的 GC 与 special，不用十年均值。</p><p>若无法得到费率，给出上限/下限两套账单，而不是默认零。零是最强的前视：假设你永远是 GC、永远有无限授信。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>资金底解释了为何许多异象集中在难融资的一侧：纸面空头赚的是租金加价格，扣费后只剩价格，甚至为负。杠杆约束还改变组合形状：你无法按理论权重持有低保证金消耗与高消耗的名字，于是行业中性、价值多空在实施时偏向易融资端。财务课的质量空头与本课相接：低质量往往 special、haircut 高、公告跳空大，三条账单同时变厚。</p><p><span class="marginnote">后课事件策略换手更高、占用更短、但跳空更频。底的结构不变，只是缺口项权重大于借券项。</span></p><p>按日加总：融资负债×当时融资利率，空头×借券费，保证金占用×机会成本或保证金利息，外加已实现强平/召回缺口。全部 as-of。报告三列：纸面超额、\(r-r_f\)、扣完整账单后。零费率只作为对照。杠杆 1× 与杠杆 2× 分开报告，避免把不可得的杠杆夏普写进结论。事件策略同样走这张账单，只是缺口项权重大。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不估计完整的中介资产定价模型，不把本课写成 BAB 因子复制。下一课起对象换成事件日历：业绩公告、并购、指数。后课默认：凡称可交易 alpha，已扣 PIT 资金账单；只报 CAR 的，须标明未扣资金与冲击。</p><p>后课事件策略换手更高，账单结构不变。凡称可交易 alpha，三列收益里至少要有扣完整账单的一列。零费率、常数杠杆、无缺口强平，从本课起视为制度前视，不是「简化假设」。财务质量空头与本课相接：special、高 haircut、公告跳空常同时出现。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>占用来源已拆开；本课乘上当时价格，收成账单。</li><li>\(r-r_f\) 不是完整的资金底。</li><li>按日 PIT 计费，不能用均值费率代替路径依赖的去杠杆。</li><li>零费率零 haircut 是最强制度前视。</li><li>事件课开始：研究窗口 ≠ 扣费后的可交易收益。</li><li>出处：Frazzini and Pedersen (2014)；Brunnermeier and Pedersen (2009)；前几课制度文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场制度、资金与事件<!--[--> · 单元 资金与清算<!--]--><!--[--> · 课序 杠杆与结算<!--]--></p><p class="lesson-progress">第 8 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/earnings-event-driven/">业绩公告作为事件</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

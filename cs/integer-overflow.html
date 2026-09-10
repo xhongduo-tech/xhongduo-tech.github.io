@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>整数溢出 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_integer-overflow.md.DlJb3jmw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 10 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/cs/undefined-behavior/">未定义行为</a></p><p class="lesson-next"> 下一课：<a href="/cs/lifetime-dangling/">生命周期与悬挂</a></p></nav><div style="position:relative;"><div><h1 id="整数溢出" tabindex="-1">整数溢出 <a class="header-anchor" href="#整数溢出" aria-label="Permalink to &quot;整数溢出&quot;">​</a></h1><div class="epigraph"><p>无符号运算在模 $2^n$ 上闭合；有符号溢出不在这个闭合里——标准把它留给未定义行为，而不是留给「绕回」。</p><footer>—— 据 ISO/IEC 9899；Kernighan &amp; Ritchie, The C Programming Language, 2nd ed.；Bryant and O&#39;Hallaron, Computer Systems: A Programmer&#39;s Perspective 整理</footer></div><p>上一课<a href="/cs/undefined-behavior">未定义行为</a>把「离开抽象机器」收成总规则。本课不重列附录 J，也不从比特编码另起——补码怎么排是信息课的缺口。缺口是：日常加减看起来像数学整数，<strong>C 的 <code>int</code> 与 <code>unsigned</code> 在越界时走的不是同一条规则</strong>。把两条混成「都会 wrap」，优化器会删掉你的溢出检查。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>机器字宽有限。无符号类型的加减乘在标准里定义为模 \(2^n\)，绕回是语义，不是事故。有符号类型的溢出是 UB：实现可以绕回，也可以陷入，也可以让编译器假设「有符号加减永不溢出」从而把 <code>if (a + 1 &lt; a)</code> 整段删掉。缺口因此不是「整数有范围」，而是<strong>哪一种溢出仍有定义</strong>。前面栈与数组课里的下标计算，很多从这里开始悄悄变成 UB。</p><p>本课只谈 C 的整数类型在表达式中的溢出。移位、除零、从无符号到有符号的转换另有规则，点到为止：负值右移是实现定义；移位位数不小于宽度是 UB。后课信息与离散会把补码表示讲清；这里先把语言契约钉死，避免用「硬件会 wrap」去写源码。</p><h3 id="无符号绕回不是「更安全」" tabindex="-1">无符号绕回不是「更安全」 <a class="header-anchor" href="#无符号绕回不是「更安全」" aria-label="Permalink to &quot;无符号绕回不是「更安全」&quot;">​</a></h3><p>模运算有定义，不表示逻辑正确。长度相减得到巨大的 <code>size_t</code>、分配尺寸绕回，是真实漏洞模式。有符号用更宽类型或先检查再运算；无符号要用模的代数来想，而不是当成不会错的自然数。也不要把 <code>char</code> 默认有符号当成可移植事实——那是实现定义。</p><p><span class="marginnote">CSAPP 第 2 章用模 \(2^w\) 讲无符号与补码算术，并强调 C 对有符号溢出的处理与硬件指令不必相同。ISO C 把无符号规定为绕回，把有符号溢出规定为 UB，正是为了让优化器利用「数学整数」的不等式。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先看操作数在整数提升与常规算术转换之后的类型，再判断是否无符号。需要可移植的溢出检查时：对无符号，用模前的不等式（如 <code>a &gt; UINT_MAX - b</code>）；对有符号，用更宽类型或标准库即将提供的检查接口，避免先算出已经溢出的结果再判断。循环下标用无符号时，倒数到 0 的 <code>--</code> 会绕回，终止条件要按模来写。</p><div class="mermaid"></div><p><code>size_t</code> 无符号。对象大小、数组长度相减优先用无符号规则思考。需要差值可能为负时，先转成有符号宽类型，并保证输入在范围内。</p><p>提升规则会在运算前把较小类型变成 <code>int</code>，于是 <code>uint16_t</code> 相乘可能在有符号 <code>int</code> 上溢出——这是语言，不是硬件字宽。写固定宽度算术时要先看运算在哪种类型上进行。后课悬挂会从「尺寸绕回导致分配过小、随后写爆」接过来。信息与离散课会把补码表示讲清；在那之前，本课禁止用「寄存器里反正 wrap」来为有符号 C 辩护。无符号绕回是模运算，要真当模来用，例如环形缓冲下标。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>优化器若允许假设有符号永不溢出，就可以把计数器递增写成更简单的归纳，把看似多余的范围检查当死代码。这与上一课的机制是同一件事，只是对象从指针换成了整数。无符号没有这条假设，所以同一套检查写成无符号时可能「恰好」留下；这不是风格胜利，是两类语义不同。</p><p>后课信息课会说明：硬件上有符号加法与无符号加法往往是同一条指令，只是标志位解释不同。语言选择把有符号溢出从这条指令的绕回里摘出去，是为了抽象机器，不是因为 ALU 算不了。</p><p>移位与乘积是同一契约的延伸：把长度算成字节数时 <code>n * sizeof *p</code> 若用有符号 <code>int</code> 装 <code>n</code>，乘法可能 UB，再传给 <code>malloc</code> 时已经离开语言。无符号包装会给出过小的分配尺寸，随后的写入越界——从溢出走进悬挂与越界两条后课。循环 <code>for (int i = 0; i &lt;= n; i++)</code> 在 <code>n == INT_MAX</code> 时也可能溢出。信息课将说明硬件上加减常常不分有无符号；本课要记住：语言在有符号一侧故意不认那条绕回。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲 IEEE 浮点溢出，那是数值课与 <a href="/cs/ieee-754">IEEE 754</a> 的事。也不把补码位型重推一遍。下一课<a href="/cs/lifetime-dangling">生命周期与悬挂</a>回到对象寿命。后课默认：无符号绕回有定义；有符号溢出是 UB；不能用一次硬件观察代替标准。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>无符号算术模 \(2^n\)；有符号溢出是未定义行为。</li><li>硬件绕回不能当作有符号 C 的语义。</li><li>长度与下标计算要先分清类型，再写检查。</li><li>下一课处理指针在对象死后仍被使用的问题。</li><li>出处：ISO C 整数语义；CSAPP 第 2 章；K&amp;R 类型与算术。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 控制与未定义<!--]--></p><p class="lesson-progress">第 10 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/lifetime-dangling/">生命周期与悬挂</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Merton 结构模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_merton-structural.md.B1aqVcIV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 信用<!--]--><!--[--> · 课序 结构与简化<!--]--></p><p class="lesson-progress">第 11 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/quant/key-tenor-dv01/">关键期限 DV01</a></p><p class="lesson-next"> 下一课：<a href="/quant/black-cox/">Black-Cox 首达</a></p></nav><div style="position:relative;"><div><h1 id="merton-结构模型" tabindex="-1">Merton 结构模型 <a class="header-anchor" href="#merton-结构模型" aria-label="Permalink to &quot;Merton 结构模型&quot;">​</a></h1><div class="epigraph"><p>公司债是对公司资产的或有要求权：股权是以负债面值为执行价的看涨，债务是无风险债减去一份看跌；信用利差来自那份看跌的价值。</p><footer>—— Merton, On the Pricing of Corporate Debt: The Risk Structure of Interest Rates, Journal of Finance, 1974</footer></div><p><a href="/quant/key-tenor-dv01">上一课</a>把曲线风险收成关键点 1bp 冲击下的货币价值：三因子管大方差，关键桶管折缝。缺口是信用利差还没有微观故事——利差若只当外生贴现，无法回答股权波动、杠杆和到期如何共同决定违约损失。本课写 Merton（1974）结构模型：股权是以资产为标的、负债为执行价的看涨。不重讲 DV01 分桶。后课 Black–Cox 默认已经读完：原文违约只在到期发生，短端利差结构是错的，只把它当中长端杠杆叙事。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>关键期限已经能解释无违约曲线怎么扭。承诺收益高于国债的那一段，要在无套利下由违约损失解释。若只把利差当成外生贴现，无法回答：股权波动、杠杆和到期如何共同决定利差，以及股东与债权人的利益如何冲突。结构模型的答案是：违约不是外生跳，而是资产价值相对负债的或有事件；可观测的股价与负债面值应能反推 \(V\) 与资产波动 \(\sigma_V\)，再给债务标价。</p><p>问题立刻变成可识别性。\(V\) 不交易，能看到的是 \(E\) 与股权波动 \(\sigma_E\)。Merton 给出两者由看涨公式相连，于是可解。但原文假设：违约只在 \(T\) 发生，负债是单一零息，无破产成本，绝对优先，资产可连续交易且无股利或股利已知。真实资本结构是息票、契约、滚动融资与谈判，短端 CDS 还有跳到违约的成分。结构模型解释截面与杠杆的比较静态很好，拟合一个月期 CDS 往往失败——这正是强度模型存在的原因。</p><h3 id="违约只在到期-短端利差塌缩" tabindex="-1">违约只在到期：短端利差塌缩 <a class="header-anchor" href="#违约只在到期-短端利差塌缩" aria-label="Permalink to &quot;违约只在到期：短端利差塌缩&quot;">​</a></h3><p>几何布朗运动连续，到期前 \(V_t\gt D\) 时，剩余时间内打到 \(D\) 以下的概率随期限缩短而迅速变小（除非已经贴在 \(D\) 上）。因此短期限信用利差在 Merton 里接近零，而市场短端 CDS 显著为正。这不是参数没校准好，是模型禁止了「今晚突然违约」。Black–Cox 把边界改成首达，Leland 把边界改成内生，强度模型则直接允许不可料的跳。选用 Merton 原文，等于接受短端利差结构是错的，只把它当中长端杠杆叙事。</p><p><span class="marginnote">KMV / Moody&#39;s 的距离违约把 Merton 改成实务：用经验映射把 DD 变成实际违约频率，而不是相信风险中性看跌就是历史违约率。结构公式负责相对排序，违约概率表负责校准，二者不要合成「模型已经匹配 CDS」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>资产动态在风险中性下为</p> \[\mathrm{d}V_t= (r-\delta)V_t\,\mathrm{d}t+\sigma_V V_t\,\mathrm{d}W_t, \]<p>\(\delta\) 为资产支出率。到期负债面值 \(D\)，股权</p> \[E_t=V_te^{-\delta\tau}N(d_1)-De^{-r\tau}N(d_2),\qquad d_{1,2}=\frac{\ln(V_t/D)+(r-\delta\pm\sigma_V^2/2)\tau}{\sigma_V\sqrt{\tau}}, \]<p>\(\tau=T-t\)。债务 \(B_t=V_t-E_t\)。承诺收益率 \(y\) 由 \(B_t=De^{-y\tau}\) 反解，信用利差 \(s=y-r\)。看跌保护了债权人相对无风险债的缺口，利差随 \(\sigma_V\) 与杠杆 \(D e^{-r\tau}/V\) 上升。Geske（1977）把付息债写成复合期权：付息才买到下一期期权，否则违约，从而把息票结构接进同一框架。</p><p><strong>校准。</strong> 股权市值 \(E^{\mathrm{mkt}}\) 与股权波动 \(\sigma_E\)（由股价估计）满足</p> \[E^{\mathrm{mkt}}=C(V,\sigma_V),\qquad \sigma_E E^{\mathrm{mkt}}=\frac{\partial C}{\partial V}\sigma_V V. \]<p>迭代解 \((V,\sigma_V)\)。距离违约常用</p> \[\mathrm{DD}=\frac{\ln(V/D)+(\mu-\sigma_V^2/2)\tau}{\sigma_V\sqrt{\tau}}, \]<p>\(\mu\) 是真实测度漂移（资产回报），与定价用的 \(r\) 不同。Bharath 与 Shumway（2008）比较「朴素」DD 与迭代 Merton，发现简单杠杆与股权波动已经解释大部分，迭代的增量有限——提醒：结构模型的力量在变量选择，不一定在精确反解 \(V\)。</p><h3 id="随机利率与优先级" tabindex="-1">随机利率与优先级 <a class="header-anchor" href="#随机利率与优先级" aria-label="Permalink to &quot;随机利率与优先级&quot;">​</a></h3><p>原文利率常数。把 \(r\) 换成 Hull–White 或确定的远期，债务变成随机利率下的看跌，仍可数值解；与国债曲线的相对利差才是信用。绝对优先在破产法里不总成立，回收可能高于或低于 \(V_T\) 的理论分配，利差会留下一个回收残差。对手方暴露是随机的，CVA 需要整条暴露路径，Merton 只给出发行人自身的违约机制，见<a href="/quant/counterparty-credit">对手方信用</a>。可转债里股权与信用同源，结构故事最干净，但逐日标记仍多用股价加强度，见可转债篇。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>经济机制是期权平价：债权人把无风险债卖给了股东一份以企业为标的的看跌， premia 表现为利差。杠杆越高、看跌越实值，利差越大；资产波动越高，看跌越贵，利差越大；期限的作用非单调——极短期限来不及违约（连续路径），极长期限折现与资产增长可能改善偿付，中段利差往往最高。这给出「高波动成长股的债不便宜」和「去杠杆收窄利差」的比较静态，而不需要外生强度。</p><p>股东有激励增加 \(\sigma_V\)（资产替代）因为看涨凸性；债权人相反。Merton 框架把这种冲突写成希腊字母：股权对 \(\sigma_V\) 的 vega 为正。契约、抵押和首达边界（Black–Cox）是对这一激励的法律约束。没有边界时，股东可以让 \(V\) 在到期前任意接近 \(D\) 而不触发违约，短端债权人得不到补偿——又回到短端利差塌缩。</p><p><span class="marginnote">风险中性利差不是历史违约损失的期望。\(\sigma_V\) 与风险溢价进入 \(V\) 的真实漂移，历史 DD 用 \(\mu\)，CDS 用风险中性。把 KMV 的 EDF 直接当 CDS 强度，会把股权风险溢价误当成违约补偿。</span></p><h3 id="与强度、首达的边界" tabindex="-1">与强度、首达的边界 <a class="header-anchor" href="#与强度、首达的边界" aria-label="Permalink to &quot;与强度、首达的边界&quot;">​</a></h3><p>Merton：违约时间在 \(\{T\}\cup\{\infty\}\)，信息是连续的资产价值。Black–Cox：违约时间是首达，仍由 \(V\) 完全预见（对看门口的人）。强度：违约是不可料跳，可拟合任意 CDS 期限结构，但杠杆与股价的联系要外生塞进 \(\lambda(S)\)。交易 CDS 用强度；讲资本结构和可转债稀释用结构；讲契约与破产触发用首达。不要用 Merton 封闭公式去拟合整条 CDS 曲线再宣称「结构模型校准完成」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要对滚动短期债务假装存在一个远在几年后的 \(T\)。不要忽略股利、回购与投资：\(\delta\) 不是装饰。不要用股权期权隐含波动当 \(\sigma_E\) 却不处理杠杆导致的波动倾斜——股权是看涨，\(\sigma_E\) 随 \(V\) 变。复杂负债（优先、银行贷款、或有可转）需要 Geske 式的多层或直接数值模拟。利率波动与信用的相关（长期债）超出原文，可用 Longstaff–Schwartz（1995）一类扩展，但那已靠近首达加随机利率。</p><p>结构模型给错向风险一个自然相关：对手方 \(V\) 下跌时既更容易违约、又可能与你的组合同向。这比外生相关矩阵更有故事，校准仍然困难。资本公式与限额不要单独依赖 DD，短端与跳跃要用 CDS。</p><p><span class="marginnote">出处必须是 Merton, <em>Journal of Finance</em>, 1974，而不是 Black–Scholes 1973 本身。1973 年给了看涨公式；1974 年把公司债写成该公式的资本结构应用，并讨论风险结构（利差期限结构）。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Merton（1974）把股权写成资产上看涨、债务写成无风险债减看跌，信用利差是看跌的价格。</li><li>由股权市值与股权波动反解资产价值与资产波动；距离违约是实务排序工具。</li><li>违约只发生在到期，连续路径使短端利差过低，这是模型特征不是校准失误。</li><li>Geske 复合期权处理息票；随机利率与破产成本是后续扩展。</li><li>与 Black–Cox 首达、Duffie–Jarrow–Lando 强度分工：结构讲资本结构，强度拟合 CDS。</li><li>出处：Merton, <em>Journal of Finance</em>, 1974；Black &amp; Scholes, 1973；Geske, <em>Journal of Financial and Quantitative Analysis</em>, 1977；Bharath &amp; Shumway, <em>Review of Financial Studies</em>, 2008。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 信用<!--]--><!--[--> · 课序 结构与简化<!--]--></p><p class="lesson-progress">第 11 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/black-cox/">Black-Cox 首达</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

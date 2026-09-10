@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>交叉验证在金融中的泄漏 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cv-leakage-finance.md.SC9sOvwR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 研究与回测<!--[--> · 单元 偏差<!--]--><!--[--> · 课序 常见坑<!--]--></p><p class="lesson-progress">第 7 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/walk-forward/">样本外与滚动检验</a></p><p class="lesson-next"> 下一课：<a href="/quant/deflated-sharpe/">Deflated Sharpe</a></p></nav><div style="position:relative;"><div><h1 id="交叉验证在金融中的泄漏" tabindex="-1">交叉验证在金融中的泄漏 <a class="header-anchor" href="#交叉验证在金融中的泄漏" aria-label="Permalink to &quot;交叉验证在金融中的泄漏&quot;">​</a></h1><div class="epigraph"><p>标准 K 折交叉验证假定观测独立同分布。金融标签在时间上重叠、特征在截面上同时被全样本标准化，折外分数于是含有折内信息。</p><footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 7, 2018</footer></div><p>机器学习把交叉验证当成防过拟合的默认工具：把样本切成 \(K\) 折，轮流用 \(K-1\) 折训练、一折检验，用折外误差选模型。该程序在独立同分布的分类问题上近似无偏。金融里两条假设同时坏掉。第一，收益与标签是序列相关的，三障碍、持有期收益、重叠的月度超额都让相邻观测共享同一段未来路径。第二，特征工程经常在全样本上做标准化、主成分、行业中性化，等于让检验折的分布信息流入训练。López de Prado 把由此产生的乐观偏差称为泄漏（leakage）；Arnott、Harvey 与 Markowitz（2019）的回测协议把「特征是否仅用当时可得信息构造」写成纪律，而不是写成可选项。本篇只讨论时间序列与截面金融里的泄漏机制，以及清洗（purging）与禁运（embargo）如何把 \(K\) 折改成可用的近似。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设每条样本有特征 \(X_t\) 与标签 \(y_t\)。若 \(y_t\) 是未来 \(h\) 期收益，则 \(y_t\) 与 \(y_{t+1}\) 共享 \(h-1\) 期的市场价格。把 \(t\) 放进训练集、把 \(t+1\) 放进测试集，测试标签的实现路径已经有一部分出现在训练标签里。模型不必真正可预测，只要记住这段重叠路径的噪声，折外就会偏高。持有期越长、采样越密，重叠越严重。这与普通监督学习教材里「随机打乱再切折」的建议正好相反：打乱会把未来事件均匀洒进每一折，泄漏从偶发变成系统性。</p><p>截面上还有第二种泄漏。用全样本估计的均值、方差、主成分载荷、行业中性化的行业收益，都含有「未来那些天」的信息。检验折里一只股票的 Z-score 若用了含检验期的截面均值，排序在折外被人为稳定。点-in-time 基本面、指数成份、停牌状态若未按当时可得版本对齐，泄漏以<a href="/quant/late-data-recon">迟到数据</a>的形式出现，交叉验证无法发现它，只会重复它。</p><h3 id="标签重叠不是唯一的通道" tabindex="-1">标签重叠不是唯一的通道 <a class="header-anchor" href="#标签重叠不是唯一的通道" aria-label="Permalink to &quot;标签重叠不是唯一的通道&quot;">​</a></h3><p>信息也可以从目标泄漏到特征：把同一只股票的未来成交量、未来波动、未来是否被纳入因子 ETF 写进 \(X_t\)，再宣称折外 AUC 很高。也可以从预处理泄漏：先在全样本上做特征选择或超参网格，再对选定的子集做 \(K\) 折，折外分数度量的是「已被全样本挑过的子集」，不是算法在新数据上的误差。这与<a href="/quant/multiple-testing-factors">多重检验</a>是同一自由度，只是藏在流水线而不是藏在 \(t\) 统计量表里。</p><p><span class="marginnote">sklearn 默认的 <code>KFold(shuffle=True)</code> 在价格序列上几乎总是错的。时间序列应使用过去训练、未来检验的切分；若坚持 \(K\) 折，必须按时间块切，并在训练与测试的接缝处做清洗与禁运。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Purged \(K\)-fold（López de Prado）：仍把样本分成 \(K\) 个连续时间块作为测试折，但训练折里凡是标签与测试折时间区间重叠的观测一律删除（purge）。若测试折覆盖 \([t_1,t_2]\)，任何标签区间与 \([t_1,t_2]\) 相交的训练样本都出局。这样训练标签不再包含测试期的价格路径。</p><p>Embargo：在测试折结束之后再空出一小段，不让紧邻的训练样本用到测试期之后、却仍与测试收益序列相关的那段。经验上禁运长度与标签平均持有期、自相关长度同阶。清洗处理的是标签重叠，禁运处理的是残差的序列相关；两者都做，折外分数才会接近真正的「当时只能看到过去」。</p><h3 id="特征管道必须嵌在每一折之内" tabindex="-1">特征管道必须嵌在每一折之内 <a class="header-anchor" href="#特征管道必须嵌在每一折之内" aria-label="Permalink to &quot;特征管道必须嵌在每一折之内&quot;">​</a></h3><p>标准化、PCA、目标编码、行业收益的估计，只能在当前训练折上拟合，再变换到测试折。任何 <code>fit</code> 若看见了测试折的 \(X\) 或 \(y\)，折外指标就作废。嵌套交叉验证把超参搜索关在内层折，外层折只评一次；金融里外层还应是<a href="/quant/walk-forward">滚动</a>或组合清洗验证，而不是随机折。Arnott–Harvey–Markowitz 要求：样本起止、 universes、成本假设与研究决策按时间顺序记录，禁止用全样本统计量去裁剪后来才定义的策略。</p><p><span class="marginnote">清洗会丢掉大量训练样本，尤其是标签很长时。这不是浪费，是在用样本换无偏。若清洗后训练折空了，说明你的标签长度与折长度不匹配，应加长折、减短标签，或改用<a href="/quant/walk-forward">滚动检验</a>，而不是取消清洗。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>泄漏让模型学习<strong>测试期已经实现的共同因子路径</strong>。一个极端例子：标签是未来二十日收益，特征是过去五日收益，随机 \(K\) 折会让部分「过去五日」落在另一部分样本的「未来二十日」里，动量或反转的折外表现于是含有同一段价格。更隐蔽的例子是：用全样本估计的协方差去做风险中性化，检验折的残差在样本内已经被抽掉了检验期真正出现的那一个主成分，折外 \(R^2\) 虚高。</p><p>从统计量看，泄漏缩小的是折外误差与折内误差的差距，让你以为泛化很好。过拟合没有消失，只是评估器坏了。这比「样本内夏普很高、样本外很低」更危险，因为后者至少会阻止部署；泄漏过的交叉验证会给过拟合策略一张合格证。Bailey 与 López de Prado 后来用 Deflated Sharpe 与 CPCV 从另一头计量选择偏差；交叉验证泄漏是更早的一步——评估器本身就偏了，后面的夏普调整也是在偏的输入上做算术。</p><h3 id="截面相关与分组切分" tabindex="-1">截面相关与分组切分 <a class="header-anchor" href="#截面相关与分组切分" aria-label="Permalink to &quot;截面相关与分组切分&quot;">​</a></h3><p>股票在同一天高度相关，按观测（股票-日）随机切折，测试折里总会有与训练折同一天的其他股票。共同冲击被训练看见，测试只是同一天的另一半截面。按日期分组切分（同一天所有股票同进同出）能堵住这一条。若策略是截面排序，测试折仍应是未来的日期，而不是同一天的另一组股票。行业、主题 ETF 成份重叠时，仅按股票代码分组不够，因为测试名字的标签仍由训练名字的交易日决定。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>清洗与禁运使折与折之间不再对称，也不再有 \(K\) 份几乎等长的训练。这会降低估计精度，换来偏差下降。高换手、短标签的微观结构信号，清洗损失较小；长持有的价值因子，清洗可能删掉训练折的大部分，此时滚动或锚定窗口更自然。不要把 purged CV 的折外夏普直接当成可交易夏普：折外预测值还要经过成交假设、<a href="/quant/cost-sensitivity">费用敏感性</a> 与容量，评估器无偏不等于策略可执行。</p><p>不要用交叉验证去替代经济约束。泄漏修干净之后，许多机器学习信号的折外优势会消失——这应视为方法在做它该做的事。也不要在清洗之后，又用全样本调一次特征列表。López de Prado 的七条失败原因里，第一条往往不是模型不够深，而是数据与标签的时间结构被当成了表格。工程上，流水线必须是 <code>fit</code> 只碰训练索引；任何全局 <code>fit_transform</code> 都应视为缺陷。</p><p><span class="marginnote">验证集若用来早停神经网络，它就参与了训练。金融里常见的做法是再切一段最终检验，或用嵌套滚动。把早停的验证曲线画进研报当「样本外」，是泄漏的一种礼貌形式。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>金融观测不满足 IID；\(K\) 折随机打乱会把未来路径与全样本统计量漏进训练。</li><li>标签重叠用 purging 删除，序列相关用 embargo 隔开；预处理必须在每一训练折内独立拟合。</li><li>截面策略应按日期分组切分，避免同一天的共同因子被训练与测试共享。</li><li>评估器无偏之后，仍需处理尝试次数、成本与容量；泄漏修复不是 alpha 证明。</li><li>嵌套与滚动用来防止「折外分数」本身成为选择对象。</li><li>出处：López de Prado, <em>Advances in Financial Machine Learning</em>, Wiley, 2018，第 7 章；Arnott, Harvey and Markowitz, <em>Journal of Financial Data Science</em>, 2019；Bailey, Borwein, López de Prado and Zhu, <em>Notices of the AMS</em>, 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 研究与回测<!--[--> · 单元 偏差<!--]--><!--[--> · 课序 常见坑<!--]--></p><p class="lesson-progress">第 7 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/deflated-sharpe/">Deflated Sharpe</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

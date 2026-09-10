@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>再分配与效率代价 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_redistribution-efficiency.md.CWO2hsLN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 公共财政<!--[--> · 单元 税与支出<!--]--><!--[--> · 课序 政府做什么<!--]--></p><p class="lesson-progress">第 4 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/income-tax-incentives/">所得税与激励</a></p><p class="lesson-next"> 下一课：<a href="/econ/social-security-annuity/">社会保障与年金</a></p></nav><div style="position:relative;"><div><h1 id="再分配与效率代价" tabindex="-1">再分配与效率代价 <a class="header-anchor" href="#再分配与效率代价" aria-label="Permalink to &quot;再分配与效率代价&quot;">​</a></h1><div class="epigraph"><p>把一美元从高能力转到低能力，桶会漏：漏的是劳动与税基的行为反应，不是转运本身不道德。代价由弹性决定，不能用「再分配无用」把权重设掉。</p><footer>—— Okun, Equality and Efficiency: The Big Tradeoff, 1975；Atkinson and Stiglitz, Lectures on Public Economics；对照 Mirrlees 与 Saez 的充分统计</footer></div><p><a href="/econ/income-tax-incentives">上一课</a>给出激励相容所得税的弹性语言。本课缺口是把那条弹性收成规范权衡：社会福利函数要对齐谁，漏桶漏多少。不重推 Mirrlees 一阶条件。后课社会保障把再分配从当期收入换到生命周期；本课先钉静态的效率代价。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Okun 的漏桶：转移一元，到穷人手上不足一元，差额是行政成本与激励。现代公共财政把「激励」写成上一课的税基弹性：边际税提高，机械增益被行为损失抵消一部分。缺口不是再讲一次平均—边际，而是：<strong>福利权重与弹性是两件东西</strong>。权重来自规范（Atkinson 的不平等厌恶、功利、罗尔斯）；弹性来自行为。把弹性估大，用来论证权重应为零，是类别错误；把权重设高，用来否认弹性，同样错误。</p><p>次优已经贯穿 Ramsey：没有一次总付，再分配必须走扭曲工具。第一最佳的福利定理在此本来就不适用——不是市场「突然失效」，是工具集受限。</p><h3 id="效率代价不是再分配无用" tabindex="-1">效率代价不是再分配无用 <a class="header-anchor" href="#效率代价不是再分配无用" aria-label="Permalink to &quot;效率代价不是再分配无用&quot;">​</a></h3><p>「漏了所以别转」漏掉了：目标函数里一元对低收入的权重可以大于一元对高收入。桶漏 20%，若权重比大于 \(1/0.8\)，转移仍可提高福利。争论应落在权重与弹性的数字，而不是落在「有漏就停」。行政成本是漏的另一截，与激励不是同一导数，但同进桶。</p><p><span class="marginnote">Atkinson–Stiglitz 把最优税写成社会福利函数对激励约束。本课用漏桶作翻译，避免把讲义里的 \(\lambda\) 只当成拉格朗日符号。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>充分统计：小幅提高某段边际税的福利效应 \(=(\)机械转移 \(\times\) 权重差\()-(\)税基收缩 \(\times\) 边际公共资金\()\)。经验工作估弹性与税率，规范工作选权重；两者分开报告。不平等测度（基尼、Atkinson 指数）是结果指标，不是工具；工具仍是 \(T(y)\) 与转移。与公共品：提供 \(G\) 也花漏桶里的钱，萨缪尔森条件里的边际公共资金正是这里的漏。标签效应（EITC 对工时、转移对消费）会改变漏的位置，充分统计要写在具体工具上，不能写在「再分配」三个字上。</p><div class="mermaid"></div><p>不要用税前基尼下降直接当成功：税前收入已含行为，循环论证。看税后分配与行为调整后的福利。行政成本（申报、稽查、欺诈）是漏的另一截，弹性公式常常省略它；把行政成本当零，会高估给定税率下的净转移。Atkinson 的不平等厌恶参数把权重写成可讨论的数字，避免「公平」停在形容词。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是受限工具集下的帕累托边界。再分配沿着激励相容集移动，每一步用弹性标出可行方向的斜率。权重决定沿这条边界停在哪一点。没有弹性，边界是第一最佳的 45° 转移；弹性把边界弯回去。Ramsey 商品税是同一边界在另一组工具上的投影；所得税通常更对准能力，漏可以更小——这是 Atkinson–Stiglitz 弱可分结果的直觉。</p><p>政治约束（税率上限、不可对某群征税）把可行集再切一刀，漏桶更漏。那是政治经济学，本课只承认它会改变弹性有效值（避税通道）。动态上，资本与人力资本的积累把静态漏换成增长路径上的另一条代价，本课不把增长理论写完，只禁止用静态漏桶否定一切跨期再分配，或用增长口号取消弹性。</p><p><span class="marginnote">Okun 1975 的隐喻先于充分统计最优税文献，但方向一致：代价是技术性的漏，不是把平等从目标函数里删掉。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不选定一个国家的最优基尼。不把增长理论里的再分配与资本积累写完。动态一致性、资本税留给宏观。下一课：强制年金与社会保障，把再分配从截面换到寿命与收入风险。后课默认：主张或反对某项转移时，同时写权重与弹性；只写其中一项，论证不完整。现金转移与实物转移的漏不同：后者限制用途，代理成本换方向，弹性公式要另写，本课不展开菜单。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>再分配走扭曲工具，漏桶的漏是弹性与行政成本。</li><li>福利权重与行为弹性是两类对象，不能互相取消。</li><li>有漏仍可能提高福利，若权重差大于漏的倒数。</li><li>边际公共资金把漏接到公共品提供。</li><li>行政成本是漏的另一截，与劳动弹性不是同一导数。</li><li>出处：Okun 1975；Atkinson and Stiglitz；Mirrlees；Saez。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 公共财政<!--[--> · 单元 税与支出<!--]--><!--[--> · 课序 政府做什么<!--]--></p><p class="lesson-progress">第 4 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/social-security-annuity/">社会保障与年金</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>softmax 替代与 softpick | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_softmax-alternatives.md.BGP6cyYq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 9 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/sigmoid-attention/">sigmoid 注意力</a></p><p class="lesson-next"> 下一课：<a href="/llm/cross-layer-kv-sharing/">跨层 KV 共享 CLA</a></p></nav><div style="position:relative;"><div><h1 id="softmax-替代与-softpick" tabindex="-1">softmax 替代与 softpick <a class="header-anchor" href="#softmax-替代与-softpick" aria-label="Permalink to &quot;softmax 替代与 softpick&quot;">​</a></h1><div class="epigraph"><p>Softmax 把权重钉在单纯形上；若需要稀疏、需要可关断、或不需要概率解释，就该换投影，而不是再叠一个门。</p><footer>—— Martins &amp; Astudillo, From Softmax to Sparsemax, ICML 2016；离开单纯形的路线上还有 softpick 一类可关断算子</footer></div><p><a href="/llm/sigmoid-attention">上一课</a>用逐点 sigmoid 离开单纯形。<a href="/llm/gated-attention">门控注意力</a>则留在 softmax 里事后调幅。本课把中间地带收齐：仍想要<strong>行内竞争</strong>，但不想要 softmax 的严格正、满支撑。Sparsemax、entmax 把一部分键精确打到 0；softpick 一类算子进一步取消「必须是分布」。后课转向 KV 跨层共享，默认你已知道「归一化是可选模块」，不再把 softmax 当成注意力定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Softmax 输出 \(p_i\gt 0\) 且 \(\sum p_i=1\)。长序列上绝大多数键应真正不贡献，尾部的正质量却仍在稀释、仍在占存储。Sigmoid 能全关，却失去竞争，尺度要另补。缺口是：<strong>保留 argmax 式的相对比较，同时允许精确零</strong>，或允许和不为 1。</p><p>Martins 与 Astudillo 的 sparsemax 是把向量投影到单纯形，落在面上的坐标可以为 0。Entmax 在 softmax 与 sparsemax 之间用一个 \(\alpha\) 插值。近期的 softpick 把「挑出若干正贡献、其余为零、不做单纯形归一」当成核，服务的是可关断加稀疏，而不是概率。</p><p><span class="marginnote">「Attention is off by one」把分母写成 \(1+\sum e^{z}\)，等价于多一个永不出现的键。它仍在指数族里，本课不把它当成另一族替代，只提醒：分母微变也会改变汇的强度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Sparsemax：\(\mathrm{sparsemax}(z)=\mathrm{argmin}_{p\in\Delta}\|p-z\|^2\)，阈值以下的坐标为 0，其余平移后和为 1。Entmax\(_\alpha\) 用 Tsallis 熵， \(\alpha=1\) 退回 softmax，\(\alpha=2\) 即 sparsemax。二者都能接在 \(QK^\top/\sqrt{d_k}\) 之后，掩码仍是非法位置先置 \(-\infty\) 或移出投影。</p><p>Softpick 不把输出约束在 \(\Delta\) 上：先用光滑函数挑出正向贡献，再按需归一或直接乘值。实现上要自己管输出尺度，思想与 sigmoid 更近，但挑的过程仍看行内相对大小，不是完全逐点。</p><h3 id="梯度与核融合" tabindex="-1">梯度与核融合 <a class="header-anchor" href="#梯度与核融合" aria-label="Permalink to &quot;梯度与核融合&quot;">​</a></h3><p>Softmax 的 Jacobian 有闭式 $ \mathrm{diag}(p)-pp^\top$。Sparsemax 只在支撑集上类似仿射，支撑随输入变，核要动态掩码。这就是为何生产级解码器仍默认 softmax：不是表达力最优，而是分块核、反向、混合精度都已打磨。替代函数若不能进 Flash 一类核，长上下文先不可用。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>精确零让 KV 在数学上可以跳过——若实现真去跳。多数框架仍算满矩阵，稀疏只发生在数值里，加速不明显。表达上，稀疏竞争恢复了「少数键拿走全部质量」，比 sigmoid 更像检索；比 softmax 更不像「每个键都沾一点」。Entmax 的 \(\alpha\) 是在稀释与硬选择之间滑动的旋钮，训练中可学或固定。</p><p>和不为 1 时，残差写入幅度随通过质量变，注意力汇可以消失，也回到上一课的范数问题。课序上应先问要不要单纯形，再问支不支持精确零。</p><p><span class="marginnote">头与头可以不同核，但几乎没人这么做：检查点、核、超参都会裂成按头的配置。替代发生在整层，而不是按头点菜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要在已经收敛的 softmax 模型上只换激活来「升级」。单纯形上的尖峰是训出来的，换投影会把已有头的功能打乱。评测若只看困惑度，softmax 通常仍赢；看长上下文噪声、sink、可关断，替代才有理由。下一课开始省 KV，默认层内仍是 softmax，除非显式声明。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>替代 softmax 的动机是稀疏、可关断或放弃概率解释，不是重推 SDPA。</li><li>Sparsemax / entmax 保留单纯形竞争并允许精确零；sigmoid / softpick 离开分布。</li><li>生产默认仍是 softmax，因为核与稳定性；数值稀疏不等于核稀疏。</li><li>换核不能当已有检查点的热修补。</li><li>出处：Martins &amp; Astudillo, ICML 2016；sigmoid 见上一课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 9 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/cross-layer-kv-sharing/">跨层 KV 共享 CLA</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

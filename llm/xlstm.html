@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>xLSTM 复兴 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_xlstm.md.BYuIUYeI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 前沿架构与型号 2025-2026<!--[--> · 单元 架构<!--]--><!--[--> · 课序 线性与混合<!--]--></p><p class="lesson-progress">第 4 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rwkv-7-goose/">RWKV-7 Goose</a></p><p class="lesson-next"> 下一课：<a href="/llm/titans-test-time-memory/">Titans 测试时记忆</a></p></nav><div style="position:relative;"><div><h1 id="xlstm-复兴" tabindex="-1">xLSTM 复兴 <a class="header-anchor" href="#xlstm-复兴" aria-label="Permalink to &quot;xLSTM 复兴&quot;">​</a></h1><div class="epigraph"><p>指数门控加上可修订的存储，以及可并行的矩阵记忆，LSTM 能否在十亿参数语言建模上重新接近 Transformer 与 SSM。</p><footer>—— Beck, Pöppel, Hochreiter 等，xLSTM: Extended Long Short-Term Memory，NeurIPS 2024，arXiv:2405.04517</footer></div><p>1990 年代的恒定误差转盘与门控让 LSTM 避开 RNN 梯度消失，并一度统治序列任务，直到 2017 年注意力把它在规模上甩开。Beck、Pöppel、Spanring、Hochreiter 等人问：若用现代 LLM 的残差、归一化与堆叠技巧，只改 LSTM 已知的三处缺陷，能走多远？缺陷是：存储决策难以修订、标量细胞容量不够、以及记忆混合导致无法沿时间并行。答案是 <strong>xLSTM</strong>：指数门控的 <strong>sLSTM</strong>（标量记忆 + 新的头内混合）与带协方差更新的 <strong>mLSTM</strong>（矩阵记忆、可完全并行），再装进两种残差块里堆叠。代码：github.com/NX-AI/xlstm。本篇写细胞与块，不把 2025 年缩放律续作的 7B 曲线写成 2024 原文主表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>原始细胞</p> \[c_t=f_t\,c_{t-1}+i_t z_t,\qquad h_t=o_t\,\psi(c_t) \]<p>用 sigmoid 门。最近邻检索实验里，一旦写入一个「还行」的匹配，后来更好的匹配很难把旧值挤走——sigmoid 饱和后修订弱。Wikitext-103 按词频切片，LSTM 在稀有词上困惑度更差，像容量被标量 \(c\) 卡住。记忆混合（隐状态到门与细胞输入的循环边）让逐步依赖无法写成块内 GEMM，Flash 类核用不上。</p><p>Transformer 用全量 KV 换修订与容量，代价是二次。SSM / <a href="/llm/mamba-2">Mamba-2</a> / <a href="/llm/rwkv">RWKV</a> 走线性，但 sLSTM 一侧仍想保留<strong>状态跟踪</strong>：Merrill 等指出无记忆混合的对角 RNN 与 Transformer 同属 \(\mathsf{TC}^0\)，奇偶与括号需要混合。xLSTM 因此不能把所有块都做成可并行的 mLSTM；架构记号 <code>xLSTM[a:b]</code> 表示 mLSTM 块与 sLSTM 块之比。</p><h3 id="指数门控必须配归一化" tabindex="-1">指数门控必须配归一化 <a class="header-anchor" href="#指数门控必须配归一化" aria-label="Permalink to &quot;指数门控必须配归一化&quot;">​</a></h3><p>把 \(i_t\)、\(f_t\) 改成 \(\exp(\cdot)\) 能产生大于 1 的写入，从而覆盖旧内容，但数值会爆。sLSTM 引入归一化状态 \(n_t=f_t n_{t-1}+i_t\)，输出用 \(c_t/n_t\)；再用稳定器 \(m_t=\max(\log f_t+m_{t-1},\log i_t)\) 平移对数域，证明替换 \(i&#39;,f&#39;\) 不改变网络输出与参数梯度。这是「可修订」的数值条件，不是装饰。</p><p><span class="marginnote">Cover 定理被用来解释块设计：先把历史非线性映到高维再线性可分。sLSTM 用后置上投影（类 Transformer FFN）；mLSTM 用前置上投影（类 SSM），因为矩阵记忆的容量随宽度涨。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>sLSTM</strong>：标量（或每头一组标量）细胞，指数输入门，遗忘门可选 sigmoid 或指数，输出门仍 sigmoid。多细胞时在头内做记忆混合，头间不混合——指数门控下这是新的混合方式。它不可完全并行，作者提供寄存器级 CUDA，墙钟通常慢于 mLSTM 不到两倍。</p><p><strong>mLSTM</strong>：细胞升为 \(C_t\in\mathbb{R}^{d\times d}\)，协方差规则 \(C_t=f_t C_{t-1}+i_t v_t k_t^\top\)，归一化状态累加门控键，检索</p> \[\tilde h_t=C_t q_t\big/\max\{n_t^\top q_t,1\}. \]<p>无隐到门的循环边，故可改写成并行形式，核思路接近 FlashAttention / GLA。多头与多细胞在此等价。指数门同样用 sLSTM 那套稳定化。</p><p>块：sLSTM 块是「细胞 → 门控 MLP」后置上投影，可选短卷积；mLSTM 块把细胞包在两个 MLP 之间，带卷积、可学习跳连与逐分量输出门。整网 Pre-LN 残差堆叠。实验记号如 <code>xLSTM[7:1]</code>：48 块里 42 个 mLSTM、6 个 sLSTM。</p><p>合成任务：形式语言上带混合的 sLSTM 能解 Transformer / Mamba 解不开的奇偶等；多查询联想检索上矩阵记忆补容量。SlimPajama 15B token 上比当时一批线性方法看验证困惑度；300B token 后再比长上下文外推、下游与 PALOMA 571 域。原文结论是：指数门控与改记忆结构让 xLSTM 在性能与缩放上可与 SOTA Transformer、SSM 有利对照。后续 <em>xLSTM Scaling Laws</em>（arXiv:2510.02228）在 80M–7B、2B–2T token 上报计算最优前沿相对 Transformer 更优、且优势随训练 / 推理上下文变长而扩大——那是续作，引用时分开。</p><div class="mermaid"></div><h3 id="并行与混合不能互相替代" tabindex="-1">并行与混合不能互相替代 <a class="header-anchor" href="#并行与混合不能互相替代" aria-label="Permalink to &quot;并行与混合不能互相替代&quot;">​</a></h3><p>把全部 sLSTM 换成 mLSTM，状态跟踪任务会退回对角 RNN 的上限；把全部换成 sLSTM，训练吞吐回不到 Flash 级。7:1 是容量优先的配比，不是唯一正确比例。矩阵记忆每步 \(d\times d\) 更新贵，但可在 GPU 上并行，墙钟不一定差；边缘侧则看压缩状态是否装得下，而不是看 FLOPs 表。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>最近邻失败来自「写入后门关闭」。指数输入门允许新匹配以大于旧归一化质量的权重进 \(c\)，除 \(n_t\) 之后旧值份额下降，这是修订。稀有词失败来自标量瓶颈：矩阵 \(C\) 把键值对外积存成可查询的联想表，检索是 \(Cq\)，更接近线性注意力 / 快速权重，而不是一个 tanh 细胞。mLSTM 的 \(\max\{\cdot,1\}\) 防止归一化点积过小。</p><p>sLSTM 的混合让门看到其它细胞的 \(h\)，从而把「奇偶位」这类非对角状态传下去。这与 <a href="/llm/rwkv-7-goose">RWKV-7</a> 用非对角 DPLR 超 \(\mathsf{TC}^0\) 是同一类表达力讨论，实现完全不同：一个是 LSTM 家族加指数门，一个是广义 delta RNN。</p><p><span class="marginnote">mLSTM 的协方差更新与线性注意力加法规则同类，但带门控学习率与衰减；不要写成「xLSTM = 注意力」。sLSTM 才是 LSTM 原教旨的门控细胞。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="_2024-原文不是-2026-年的服务栈" tabindex="-1">2024 原文不是 2026 年的服务栈 <a class="header-anchor" href="#_2024-原文不是-2026-年的服务栈" aria-label="Permalink to &quot;2024 原文不是 2026 年的服务栈&quot;">​</a></h3><p>主实验在 SlimPajama 量级，不是从零训 70B 聊天模型。推理常数内存成立，但 mLSTM 的 \(d\times d\) 状态随头数与宽线性涨，仍可能大于高度压缩的 SSM。与 Transformer 比墙钟，取决于核：无 TFLA / 官方 CUDA 时，论文数字不可复现。PALOMA 域多，平均优势不能掩盖个别域回退。</p><p>出处钉 NeurIPS 2024 / arXiv:2405.04517。作者单位 JKU Linz ELLIS、NXAI。不要把 NXAI 后续商用模型卡上的参数量写回这篇缩放图。需要线性注意力对照时读 <a href="/llm/delta-net">DeltaNet</a> 与 Gated DeltaNet；需要纯 RNN 服务读 RWKV-7。形式语言与 MQAR 是用来拆开「指数门控修订」与「矩阵容量」两件贡献的探针，不能单独拿来宣传通用聊天。300B SlimPajama 之后的外推图若不用官方块配比，sLSTM 的逐步核会拖垮对照。边缘部署看的是压缩状态能否常驻，不是验证集困惑度小数点后三位。</p><p><span class="marginnote">出处：Beck, Pöppel, Spanring, Auer, Prudnikova, Kopp, Klambauer, Brandstetter, Hochreiter，<em>xLSTM: Extended Long Short-Term Memory</em>，NeurIPS 2024，arXiv:2405.04517。LSTM 原文：Hochreiter &amp; Schmidhuber, 1997。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>xLSTM 用指数门控修订存储，用 mLSTM 矩阵记忆扩容量，用 sLSTM 头内混合保状态跟踪。</li><li>mLSTM 可并行；sLSTM 逐步，但有优化核。</li><li>块按 Cover 思路升维；<code>[a:b]</code> 配比在容量与跟踪之间折中。</li><li>2024 原文在合成任务与 SlimPajama 上与 Transformer / SSM 有利对照；更大缩放见续作。</li><li>出处：Beck et al.，arXiv:2405.04517。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 前沿架构与型号 2025-2026<!--[--> · 单元 架构<!--]--><!--[--> · 课序 线性与混合<!--]--></p><p class="lesson-progress">第 4 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/titans-test-time-memory/">Titans 测试时记忆</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

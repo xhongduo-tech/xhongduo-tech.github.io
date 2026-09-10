@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>混合策略与存在性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_mixed-strategy.md.BUulPq2A.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 博弈<!--]--><!--[--> · 课序 均衡<!--]--></p><p class="lesson-progress">第 4 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/econ/nash-equilibrium/">策略式与纳什</a></p><p class="lesson-next"> 下一课：<a href="/econ/correlated-equilibrium/">相关均衡</a></p></nav><div style="position:relative;"><div><h1 id="混合策略与存在性" tabindex="-1">混合策略与存在性 <a class="header-anchor" href="#混合策略与存在性" aria-label="Permalink to &quot;混合策略与存在性&quot;">​</a></h1><div class="epigraph"><p>每个有限策略式博弈至少有一个混合策略均衡点。</p><footer>—— Nash, Equilibrium Points in n-Person Games, PNAS, 1950</footer></div><p><a href="/econ/nash-equilibrium">上一课</a>（策略式与纳什）。在此之上，解写成相互最优反应，并指出纯策略可以空。猜硬币、点球左右、监察与偷税，最优反应是「别让对方猜中」，任何纯招都被针对。缺口是存在性：给有限博弈一个一定非空的均衡集，并把混合解释成对手必须无差异。本课钉这一点，不进入扩展式。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>有限集 \(S_i\) 上的纯策略，最优反应对应在边界上跳动，乘积对应可以没有不动点。混合策略 \(\sigma_i\in\Delta(S_i)\) 把行动空间做成单纯形，期望效用</p> \[u_i(\sigma)=\sum_{s\in S}\Bigl(\prod_j\sigma_j(s_j)\Bigr)u_i(s) \]<p>对 \(\sigma_i\) 线性。最优反应变成「把概率只放在纯策略最佳应答上」，对应凸值、上半连续。角谷给出不动点：这就是纳什存在定理。</p><p>混合不是「喜欢随机」。均衡里，被混合的那些纯策略必须给出相同的期望支付，否则应把概率全部挪到更好的那一个。随机化的功能是让对手无差异，从而对手也愿意随机。</p><h3 id="存在不是唯一-混合不是可观测的行动" tabindex="-1">存在不是唯一，混合不是可观测的行动 <a class="header-anchor" href="#存在不是唯一-混合不是可观测的行动" aria-label="Permalink to &quot;存在不是唯一，混合不是可观测的行动&quot;">​</a></h3><p>存在定理不挑哪一个均衡，也不说局中人真的掷骰子。等价解释：群体里不同人抽到不同纯策略，宏观频率等于 \(\sigma\)。实验里能否把混合读成频率，是后话；定义仍是 \(\Delta(S_i)\) 上的纳什。</p><p><span class="marginnote">两人零和有限博弈，von Neumann 的极小极大值等于混合纳什支付。Nash 把存在性从零和推广到一般 \(n\) 人。证明骨架与<a href="/econ/ge-existence">竞争均衡存在性</a>同属角谷，定义域是策略单纯形的乘积。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>有限博弈：每个 \(S_i\) 有限。混合策略空间 \(\Sigma=\prod_i\Delta(S_i)\) 是紧凸集。最优反应对应 \(r:\Sigma\rightrightarrows\Sigma\) 非空、凸值、上半连续，故存在 \(\sigma^*\in r(\sigma^*)\)。</p><p>检查混合纳什的操作：对每一 \(i\)，支撑集 \(\mathrm{supp}(\sigma_i^*)\) 里每个纯策略都是对 \(\sigma_{-i}^*\) 的最佳应答，支撑外的纯策略不更好。这比「对所有混合偏离都不亏」更便于手算。</p><p>连续行动（古诺产量）可以在纯策略上存在，靠的是拟凹与紧凸，不必混合。本课的存在性针对有限行动；两种技术不要混成一句「博弈都有均衡」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么无差异是关键：若对手的混合还让某一纯策略严格更好，自己应退回纯策略，均衡瓦解。故巡逻必须以使小偷在偷与不偷之间无差异的概率进行——不是因为警察喜欢掷硬币，而是因为只有无差异才能让小偷也停在混合里。支付差决定混合概率，概率本身往往不是目标。</p><p>这与<a href="/econ/expected-utility">期望效用</a>课序衔接：策略式里的 \(u_i\) 已经是 vNM 效用，混合上的线性来自独立性。若放弃独立性，混合均衡的含义要重写，主干不走。存在性本身也不挑均衡：猜硬币的两个纯策略各 1/2 是唯一混合纳什，但协调博弈可以有两个纯和一个混合，混合往往风险更差，本课不把它当选择规则。</p><h3 id="检查支撑的操作" tabindex="-1">检查支撑的操作 <a class="header-anchor" href="#检查支撑的操作" aria-label="Permalink to &quot;检查支撑的操作&quot;">​</a></h3><p>猜一个支撑，令支撑内各纯策略对对手混合的支付相等，解出概率，再验证支撑外确实不更好。支付差变了，均衡频率立刻变——比较静态落在概率上，不落在「喜欢随机」上。二人零和里，混合纳什支付等于极小极大值，有「博弈的值」；非零和没有值这个对象。相关均衡允许公共信号协调，集合更大；主干仍用独立混合。</p><p><span class="marginnote">纯化（Harsanyi 1973）：把混合读成对微扰私有支付的纯策略极限。个体不必掷骰子，群体频率仍可以是 \(\sigma^*\)。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>无限（可数）纯策略集，均衡可以空。不连续支付（伯川德加整数定价的某些写法）也会空。存在性不给选择：多个混合均衡时，哪一个被玩，要靠精炼或制度。扩展式里，混合可以在信息集上，也可以在行为策略上，Kuhn 定理在完美回忆下把两者接通——下一课要用到树，不在本课展开。</p><p>行为策略与混合策略的区分要等到有信息集的树；本课策略式里两者还不必分开。</p><p>后课默认：有限策略式均衡集非空；谈到随机化，先检查无差异条件。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>纯策略纳什可空；混合把行动做成单纯形，角谷给出存在。</li><li>均衡混合要求支撑内纯策略无差异。</li><li>随机化是为了让对手无差异，不是偏好随机。</li><li>连续行动另靠拟凹，不自动等于混合。</li><li>出处：Nash, <em>PNAS</em> 1950；von Neumann, 1928 极小极大。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 博弈<!--]--><!--[--> · 课序 均衡<!--]--></p><p class="lesson-progress">第 4 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/correlated-equilibrium/">相关均衡</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

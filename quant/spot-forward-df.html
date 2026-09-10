@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>即期、远期与折现 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_spot-forward-df.md.C16gLHlR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 曲线<!--]--><!--[--> · 课序 构建<!--]--></p><p class="lesson-progress">第 1 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ag-weather-premium/">农产品天气升水</a></p><p class="lesson-next"> 下一课：<a href="/quant/curve-bootstrap/">Bootstrap 曲线</a></p></nav><div style="position:relative;"><div><h1 id="即期、远期与折现" tabindex="-1">即期、远期与折现 <a class="header-anchor" href="#即期、远期与折现" aria-label="Permalink to &quot;即期、远期与折现&quot;">​</a></h1><div class="epigraph"><p>同一条无套利期限结构可以用折现因子、即期利率或远期利率三种坐标写出；价格是折现因子的线性组合，利率是它的非线性变换。</p><footer>—— 标准固定收益恒等式；教科书表述见 Hull, Options, Futures, and Other Derivatives</footer></div><p><a href="/quant/discrete-hedge-error">上一课</a>把连续对冲留在离散世界的残差。缺口是固定收益的计价核：折现因子，而不是再对冲一次期权。固定收益的第一层语言不是久期，而是现金的时间价格。折现因子 \(P(t,T)\) 是 \(t\) 时刻一单位在 \(T\) 确定支付的现值。即期利率是把该折现写成某种复利惯例下的收益率。远期利率是两个折现因子之比所隐含的、起息在未来的借贷利率。三者一一对应（在给定日计数与复利惯例下），但交易与风险系统各有偏好：折现因子线性，适合把现金流加总；即期方便报价与比较；远期是互换、FRA 与曲线构建的自然增量。Hull 把这些恒等式放在远期与互换定价之前；<a href="/quant/curve-bootstrap">Bootstrap</a> 与 <a href="/quant/multi-curve-ois">多曲线</a> 都建立在「先能在三种坐标之间无歧义换算」之上。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>市场不直接报出完整的 \(P(0,T)\) 函数。报出的是存款利率、FRA、期货、互换利率、债券收益率，每一种都是折现因子的不同泛函，还夹杂日计数、节假日、起息延迟。若把「利率」当成一个数，不声明即期还是远期、单利还是连续、实际/360 还是实际/实际，两个台子的曲线无法对齐。无套利首先要求：同一支付在同一曲线上只有一个现值，因此 \(P(t,T)\) 必须是内部一致的。即期与远期只是该函数的重参数化。</p><p>第二层问题是：远期利率是对未来即期的无套利承诺，不是预测。带凸性的期货、带基差的 LIBOR–OIS，会让「简单恒等式」在真实合同上需要调整。本节只把单曲线、无信用的恒等式写清，作为后续自助法与多曲线的代数骨架。</p><h3 id="三种坐标" tabindex="-1">三种坐标 <a class="header-anchor" href="#三种坐标" aria-label="Permalink to &quot;三种坐标&quot;">​</a></h3><p>取 \(t=0\)，连续复利即期 \(y(T)\) 满足 \(P(0,T)=\mathrm{e}^{-y(T)T}\)。简单远期（对区间 \([T,T+\delta]\)）</p> \[F(0;T,T+\delta)=\frac{1}{\delta}\left(\frac{P(0,T)}{P(0,T+\delta)}-1\right). \]<p>瞬时远期 \(f(0,T)=-\partial_T\ln P(0,T)\)，是 \(\delta\to 0\) 的极限。互换利率在单曲线下是折现加权的远期平均。债券价格是票息与本金用 \(P(0,T_i)\) 线性相加。改用即期去写同一价格，会出现非线性：收益率与价格不同形，这正是 <a href="/quant/duration-convexity">久期与凸性</a> 要展开的对象。</p><p><span class="marginnote">\(P(t,T)\) 永远是「确定一单位现金」的现值。信用风险、抵押与融资会改变你该用哪一条折现曲线，但不改变定义。多曲线里折现用 OIS，投影用 LIBOR 远期，二者不再能用同一 \(P\) 互换，见后文。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>给定惯例，换算是代数。从折现到即期：按市场公式解开 \(y\)。从即期到折现：再套回去。从折现网格到远期：相邻到期相除。从远期到折现：选定 \(P(0,T_0)\)（通常短期存款锁定近端），再连乘</p> \[P(0,T_{n})=\frac{P(0,T_{n-1})}{1+\delta_{n}F(0;T_{n-1},T_n)}. \]<p>这就是自助法的内核：每多一个市场合约，多解一个未知折现或远期。插值发生在你选择的坐标上——对 \(P\)、对 \(\ln P\)、对 \(f\) 插值，得到的曲线在翼部与凸性上不同，见 Hagan 与 West 对曲线插值的讨论。</p><p>外汇与股票的远期由现货、利率（或借券）与折现锁定：\(F=S\mathrm{e}^{(r-q)T}\) 是连续股利下的特例。利率不是外生「另一个数」，而是对应货币的折现曲线。跨货币则出现基差：不能用两国存款利率简单算出可交易远期，市场另报交叉货币基差，那已超出单曲线恒等式。</p><h3 id="日计数与起息" tabindex="-1">日计数与起息 <a class="header-anchor" href="#日计数与起息" aria-label="Permalink to &quot;日计数与起息&quot;">​</a></h3><p>同样的「3M 远期」在实际/360 与 30/360 下对应不同的 \(\delta\)，因而不同的 \(F\)。起息 \(T+2\)、月末规则、IMM 日期决定折现节点落在哪一天。忽略日历把理论网格当成交易网格，Bootstrap 会系统性偏。期货与 FRA 还有凸性调整：期货按日盯市，其利率与简单远期差一项与波动率和时间有关的凸性；把期货报价直接当 \(F\) 填进连乘，是常见偏差来源。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无套利把三种坐标焊死：若远期过贵，可借短买长合成反向；若折现不一致，可拆包现金流套利（在理想、可空、无摩擦时）。真实债券还含信用与流动性，政府曲线与互换曲线不是同一 \(P\)。单曲线时代用互换自助出一条 \(P\)，既折现又投影；2008 年后抵押衍生品的折现应接近 OIS，LIBOR 合同的浮动端仍按 LIBOR 远期投影，恒等式分裂成两条曲线，但每一条内部仍遵守「折现 \(\leftrightarrow\) 即期 \(\leftrightarrow\) 远期」。</p><p>价格对折现因子线性，对收益率非线性。所以风险系统若在收益率坐标做平行移动，再用修正久期线性近似，必须记得凸性与关键利率形状，见 <a href="/quant/key-rate-duration">关键利率久期</a>。若直接对 \(P(0,T)\) 做扰动，线性精确，但交易员不按折现因子报价。两套坐标需要一座桥，而不是选边站。</p><h3 id="远期不是预测" tabindex="-1">远期不是预测 <a class="header-anchor" href="#远期不是预测" aria-label="Permalink to &quot;远期不是预测&quot;">​</a></h3><p>风险中性下远期是鞅的期望（对适当的计价单位）。真实世界期望还可以有风险溢价，远期可以系统偏离事后即期。把 \(F(0;T,T+\delta)\) 写成「市场预测的未来 3M 利率」是叙事；数量上它是两个折现因子的比。期限溢价、凸性、监管与供应都会让事后实现不等于今日远期。这与外汇抛补利率平价类似：可交易远期由利率锁定，不由预测锁定。</p><p><span class="marginnote">连续复利在公式里干净，市场几乎从不用它报价。任何把 \(y\) 与 \(F\) 并列的表，都应注明惯例，否则 2bp 的「差异」可能只是单利对连续的换算。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>单曲线恒等式假定同一信用、同一融资、可复制的确定支付。LIBOR 操纵、IBOR 退出、SOFR 与期限 SOFR 的基差，改变的是市场输入，不是 \(P\) 的定义。通胀挂钩、浮动利率债、含权债券不是确定现金流，不能只用折现加总。Hull 的入门公式足够用来统一语言；曲线插值、凸性调整、多曲线拆分必须引用专门文献，不要把入门恒等式写成 2010 年后的全部市场结构。</p><p>数值上，\(P\) 必须单调于 \(T\) 才有正的瞬时远期；插值若振荡会产生负远期，破坏无套利。这是实现约束，应在 Bootstrap 后检查，而不是假设自动成立。</p><p><span class="marginnote">「无风险利率」在教科书里是 \(r\)。多抵押、多币种、有无 CSA 的现实里，折现曲线是融资与抵押的选择，不是自然界的一条线。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>折现因子、即期、远期是同一期限结构的三种坐标；价格对 \(P\) 线性，对收益率非线性。</li><li>简单远期由相邻折现之比定义；自助法用连乘从近端向外解 \(P\)。</li><li>日计数、起息、期货凸性是把合同变成 \(P\) 时的必要细节，不是装饰。</li><li>远期是无套利比率，不是对未来即期的统计预测。</li><li>2008 年后折现与投影可以不是同一条 \(P\)，但每种坐标换算在单条曲线内部仍然成立。</li><li>出处：Hull, <em>Options, Futures, and Other Derivatives</em>；插值实践见 Hagan and West, <em>Applied Mathematical Finance</em>, 2006；多曲线见后文 OIS 专篇。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 曲线<!--]--><!--[--> · 课序 构建<!--]--></p><p class="lesson-progress">第 1 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/curve-bootstrap/">Bootstrap 曲线</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>美式期权与提前行权 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_american-exercise.md.B-DIxI6C.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 股权衍生品<!--]--></p><p class="lesson-progress">第 4 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/risk-neutral-pricing/">风险中性定价</a></p><p class="lesson-next"> 下一课：<a href="/quant/mc-pricing/">蒙特卡洛定价</a></p></nav><div style="position:relative;"><div><h1 id="美式期权与提前行权" tabindex="-1">美式期权与提前行权 <a class="header-anchor" href="#美式期权与提前行权" aria-label="Permalink to &quot;美式期权与提前行权&quot;">​</a></h1><div class="epigraph"><p>美式期权的价值是在停时上取支付贴现的本质确界；最小二乘回归用路径上的基函数估计续持价值，使模拟也能处理提前行权。</p><footer>—— Longstaff and Schwartz, Valuing American Options by Simulation: A Simple Least-Squares Approach, Review of Financial Studies, 2001</footer></div><p><a href="/quant/risk-neutral-pricing">上一课</a>把无套利写成等价鞅测度：可复制支付是货币账户计价下的 \(\mathbb{Q}\)-条件期望，树、PDE、MC 是同一期望的三种计算。缺口是美式把行权权交给持有人，价格变成最优停时，没有欧式那样的简单闭式。无股利美式看涨与欧式同价；有股利的看涨与通常的看跌存在自由边界。本课写执行条件与 LSMC，不重推 Girsanov 与 \(N(d_1)\)。数值网格接到已写的 <a href="/quant/binomial-tree">二叉树</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>持有美式看跌时，立刻行权得到 \(K-S\)，现金可吃利息；继续持有则保留保险——股票再跌还能赚、反弹则损失有限。利率越高、剩余期限越短、越是深度实值，利息动机越强，保险越不值钱，越可能执行。看涨对称：无股利时持有标的没有分红损失，提前执行丢掉保险又丢掉延迟支付执行价的利息，故永不执行，美式与欧式同价。有离散或连续股利时，除权前可能执行以锁定股利。问题是刻画执行区域，并计算</p> \[V_0=\sup_{\tau\in\mathcal{T}} \mathbb{E}^{\mathbb{Q}}\bigl[e^{-r\tau}g(S_\tau)\bigr], \]<p>其中 \(g\) 为内在价值，\(\mathcal{T}\) 为允许停时集合。这不是一个普通期望，而是对策略取本质确界。</p><p>离散行权日的百慕大是中间物：倒推只在行权日做 \(\max\)，其余日期按欧式贴现。许多可转债与雇员期权其实是百慕大。连续美式是百慕大在行权日加密后的极限。</p><h3 id="无股利看涨永不提前" tabindex="-1">无股利看涨永不提前 <a class="header-anchor" href="#无股利看涨永不提前" aria-label="Permalink to &quot;无股利看涨永不提前&quot;">​</a></h3><p>Merton 的论证不依赖对数正态：若利率非负、无股利，美式看涨的欧式部分已经满足 \(C_{\mathrm{E}}\ge S-K e^{-rT}\gt S-K\)（\(r\gt 0,T\gt 0\)），提前执行拿到 \(S-K\) 严格吃亏。\(r=0\) 时不等式变成弱的，执行无益也无害。有股利时 \(C_{\mathrm{E}}\) 可以掉到内在价值以下，欧式允许这种「便宜」，美式不允许，必须用执行把价格托到 \(g\) 之上。看跌即使无股利也可能执行：深度实值看跌像短期限债券，持有它损失 \(K\) 的利息。</p><p><span class="marginnote">「美式一定比欧式贵」只在同一支付、同一可交易对冲下因为策略集更大才成立。若欧式有更好的现金用途或美式有离散观察限制，数字上仍可能接近。无股利看涨则严格相等，不是「几乎相等」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>低维用倒推。树或差分网格在每个点比较 \(g(S)\) 与贴现的后继期望（续持）。执行区域的边界 \(S^*(t)\) 是使二者相等的点，通常光滑性有限，看跌的 \(S^*(t)\) 随 \(t\to T\) 升向 \(K\)。Barone-Adesi-Whaley（1987）对美式给出二次近似闭式，速度快但有偏；Kim（1990）等把价格写成欧式加上提前行权溢价的积分方程。这些对单资产香草有用，对多资产或路径依赖不够。</p><p>Longstaff-Schwartz 的 LSMC 在 \(\mathbb{Q}\) 下模拟路径（通常是风险中性几何布朗或已校准的因子模型），从到期向前：到期只能执行，\(V_T=g(S_T)\)。在行权日 \(t_k\)，对仍实值的路径，用基函数 \(\psi_j(S_{t_k})\)（多项式、Laguerre 等）回归后续路径的贴现现金流，得到续持估计 \(\hat{C}(S)=\theta\cdot\psi(S)\)。若 \(g(S)\gt \hat{C}(S)\) 则执行，该路径此后的现金流被改写成当下的 \(g(S)\)。全部日期走完后，把每条路径第一次执行的贴现现金流平均，得到价格。回归只用实值路径，是为了把函数逼近集中在可能执行的区域。</p><h3 id="回归与下偏倚、上偏倚" tabindex="-1">回归与下偏倚、上偏倚 <a class="header-anchor" href="#回归与下偏倚、上偏倚" aria-label="Permalink to &quot;回归与下偏倚、上偏倚&quot;">​</a></h3><p>LSMC 用同一组路径既估续持又决策，有向下的偏差：回归是样本内的近似策略，不是真正的最优停时，得到的是某个（次优）停时的价格，因而是真值的下界（忽略模拟方差时）。要上界需要对偶方法，如 Andersen-Broadie 用嵌套模拟估鞅对偶；实践中常加大基函数与路径数，看价格稳定。Glasserman 强调：美式模拟的误差结构与欧式不同，除方差外还有策略偏差。基函数选错会系统性早执行或晚执行；状态变量必须包含马尔可夫因子，亚式要把平均价格放进回归，否则信息不足。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>提前行权把 PDE 变成不等式：在续持区域是 Black-Scholes 方程，在执行区域 \(V=g\)，二者在自由边界相接，通常要求价值匹配与平滑粘贴（\(\Delta\) 连续）。互补形式是</p> \[\max\bigl(g-V,\; V_t+(r-q)SV_S+\tfrac12\sigma^2 S^2 V_{SS}-rV\bigr)=0, \]<p>这是有限差分里投影与惩罚法的来源。经济上，平滑粘贴意味着在最优边界上再微调执行不会一阶改变价值；若 \(\Delta\) 跳跃，持有人可以靠把边界略移来套利式地改进。</p><p>风险中性叙事仍然成立：只是期望换成停时上的 \(\sup\)。对冲在执行边界附近 \(\Gamma\) 很大，离散对冲困难；做市商必须预期到对方的最优执行，而不是假设合约活到 \(T\)。雇员期权还常有离职强迫执行与不可交易约束，Longstaff-Schwartz 原文讨论的是可交易美式，雇员合约要另加流失率，不能直接当同一价格。</p><p><span class="marginnote">LSMC 估的是价格，顺带给出一个执行规则。那个规则是回归出来的近似，不是解析 \(S^*(t)\)。报告「模型里的执行边界」时，应说明是哪组基函数、哪组路径上的分类结果，避免画成定理中的自由边界。</span></p><div class="mermaid"></div><h3 id="百慕大、离散股利与雇员期权" tabindex="-1">百慕大、离散股利与雇员期权 <a class="header-anchor" href="#百慕大、离散股利与雇员期权" aria-label="Permalink to &quot;百慕大、离散股利与雇员期权&quot;">​</a></h3><p>许多可转债与雇员期权只能在离散日期行权，是百慕大：倒推只在那些日期做 \(\max\)，其余时间按欧式贴现。加密行权日则趋向连续美式。离散股利把执行动机集中在除权前夕，自由边界在除权日附近跳跃，网格必须对齐除权日历。雇员期权常附带归属期、离职强迫执行与禁止转让，流失率会降低提前执行的期权价值，不能直接套用可交易美式的 \(S^*(t)\)。LSMC 仍可用，但回归要加入可执行标志与流失随机性。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>连续路径、单因子、可观测马尔可夫状态，是倒推网格的舒适区。跳跃使自由边界问题更绕；随机波动要把 \(v\) 放进状态，二维 PDE 或二维树可行，LSMC 则把 \(v\) 放进回归。可赎回、可转换叠了发行人本息与持有人转股，是双方停时，比单边美式难，通常仍用倒推或 LSMC 的扩展。离散股利在除权瞬间造成 \(S\) 跳跃，执行决策集中在除权前夕，网格必须把除权日对齐。</p><p>LSMC 对虚值路径的执行信息少，深虚值美式看跌主要吃欧式尾部，回归要防止在几乎不执行的区域拟合噪声。路径过少、多项式次数过高会过拟合，表现为样本内价格虚高、样本外策略变差。与树比较：一维香草用 CRR 或差分更干净，LSMC 的理由是维数。不要用高维模拟去给一维美式看跌「再验证四位小数」，那不是它的设计点。</p><p><span class="marginnote">McKean（1965）与后续最优停时文献比 Longstaff-Schwartz 早得多。LSMC 不是美式定价的理论起点，而是高维可计算的策略近似。引用 2001 年论文时，应把它放在模拟算法而不是存在性定理上。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>美式价格是风险中性下停时的本质确界；无股利美式看涨等于欧式（Merton, 1973）。</li><li>看跌与有股利看涨存在执行区域，价格 = 欧式 + 提前行权溢价。</li><li>低维用树或 PDE 在每个节点取 \(\max(g,\text{续持})\)；自由边界满足平滑粘贴。</li><li>Longstaff-Schwartz（2001）用最小二乘估计续持，得到次优停时价格，通常是下界。</li><li>回归状态必须是马尔可夫充分统计量；基函数与实值路径筛选决定偏差。</li><li>一维香草优先网格；LSMC 服务于多资产、路径依赖与可转债一类。</li><li>出处：Merton, <em>Bell Journal</em>, 1973；Longstaff and Schwartz, <em>Review of Financial Studies</em>, 2001；二次近似见 Barone-Adesi and Whaley, <em>Journal of Finance</em>, 1987。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 股权衍生品<!--]--></p><p class="lesson-progress">第 4 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/mc-pricing/">蒙特卡洛定价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

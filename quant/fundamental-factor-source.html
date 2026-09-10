@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基本面因子从哪张表来 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fundamental-factor-source.md.CDH8ujva.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 财务数据与基本面<!--[--> · 单元 预期与分类<!--]--><!--[--> · 课序 从报表到因子<!--]--></p><p class="lesson-progress">第 16 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/quant/industry-classification/">行业分类与可比公司</a></p><p class="lesson-next"> 下一课：<a href="/quant/segment-geo/">分部与地域</a></p></nav><div style="position:relative;"><div><h1 id="基本面因子从哪张表来" tabindex="-1">基本面因子从哪张表来 <a class="header-anchor" href="#基本面因子从哪张表来" aria-label="Permalink to &quot;基本面因子从哪张表来&quot;">​</a></h1><div class="epigraph"><p>价值取资产负债表的权益，盈利取利润表的流量，投资取资产或资本开支的变化，质量常取应计这条勾稽差；字段来源一错，因子名字就只是标签。</p><footer>—— 据 Fama and French, Journal of Financial Economics, 1993、2015；Hou, Xue and Zhang, Review of Financial Studies, 2015 整理</footer></div><p>到上一课<a href="/quant/industry-classification">行业分类与可比公司</a>为止，报表身份、PIT、幸存者、质量与预期都已具备。本课把常用基本面因子指回具体表与字段，当作本课程的索引，而不是再发明一套因子动物园。后课分部、租赁、少数股东只修正这些字段的口径，不改索引逻辑。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Fama–French 三因子的 HML 用账面权益 / 市值：账面来自资产负债表（Compustat 权益类字段），市值来自价量库，六月形成、账面滞后一年报。五因子把盈利（利润表，常为营业收入减费用后的经营利润一类口径）和投资（总资产增长或资本开支相关变化）加进来。Hou–Xue–Zhang 的 q 因子用盈利与投资，字段选择与 FF 不完全相同。缺口是：每个因子先写<strong>哪张表、哪个期间、哪个可用日期、哪个宇宙</strong>，再写分位断点。否则「复制 HML」只复制了名字。</p><p>质量/应计来自本课程早已钉死的 \(NI-OCF\) 或营运资本应计，不是五因子里的盈利。盈利高可以应计也高；来源不同，正交时才有意义。</p><h3 id="因子名不是会计恒等式" tabindex="-1">因子名不是会计恒等式 <a class="header-anchor" href="#因子名不是会计恒等式" aria-label="Permalink to &quot;因子名不是会计恒等式&quot;">​</a></h3><p>「盈利因子」可能用 ROE、ROIC、营业利润/账面，分母有时是权益、有时是资产。名字相同，表不同。本课要求管道里每个信号有一张来源卡：表、字段、缩放、PIT、行业调整与否。没有来源卡，后课无法修正租赁资本化或少数股东——因为不知道该改分子还是分母。</p><p><span class="marginnote">French 数据库的 HML 说明明确写了 Compustat 账面与 CRSP 市值的匹配与滞后。复制因子等于复制这份说明，不是复制「低市净率」口诀。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把主干信号按表归类。资产负债表时点：账面权益、总资产、净现金、递延税、商誉（用于调整）。利润表期间：收入、经营利润、税前/税后利润、减值与一次性项目。现金流量表期间：经营现金流、资本开支、分红与回购。价量库：市值、股本、退市回报。分析师库：共识与修正。每一项套用已有规则：可用日期、当时宇宙、股本口径、行业键。</p><p>形成日历与 Fama–French 对齐时：年报字段用 \(t-1\) 财年、在 \(t\) 年 6 月才进入；季报字段用各自可用日期。不要把季报盈利塞进「官方 HML 复制」还声称一致。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>因子收益对字段选择敏感，因为会计身份会把同一经济冲击记到不同表。并购抬高资产（投资）与商誉（账面），不一定抬高经营现金流（质量）。若投资因子用资产增长、价值用含商誉账面、质量用应计，三者同时被并购推动，看起来像三个 alpha，其实是一次收购会计。来源卡让你看见共线来自同一张表的同一事件。后课租赁入表会改资产与负债，从而同时改投资与杠杆；少数股东会改「归属母公司」的盈利与权益。索引先在，修正才有落点。</p><p><span class="marginnote">本课不进入权重量化，也不把因子当成神经网络特征工程。对象仍是可交易的会计字段与当时信息集。</span></p><p>每条信号一张来源卡：表、字段、缩放、可用日期、宇宙、行业键、NCI 与税务口径。复制 French 库 HML 时，对照其账面定义与六月形成，不要用「低市净率」口诀替代。盈利与应计不要共用同一个利润字段还起两个名字。并购年、准则切换年在卡上留标记，便于后课租赁与商誉修正时知道该改哪一行，而不是再发明一个因子。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不估计全部异象清单，不比较哪些因子「还有效」。分部与地域、租赁表外、合并少数股东是本课序剩下三课，专门修口径。后课默认：提到任何基本面因子，都能指回表、字段、PIT 与宇宙；无法指回的，不当作可复制信号。</p><p>后三课只修正口径：分部改暴露，租赁改资产与负债，NCI 改要求权层。索引本身——价值来自账面、盈利来自利润表、投资来自资产变化、质量来自应计——不再改名。无法指回来源卡的信号，后课默认不当作可复制因子。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>HML 来自账面（表）对市值（价量），六月滞后是构造的一部分。</li><li>盈利来自利润表流量；投资来自资产或资本开支变化；质量来自应计差。</li><li>名字相同可以来源不同；来源卡先于分位断点。</li><li>同一并购可同时推动价值、投资与质量，共线要能指回字段。</li><li>后三课只修正口径，不改这张索引。</li><li>出处：Fama and French (1993, 2015)；Hou, Xue and Zhang (2015)；French 数据库构造说明。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 财务数据与基本面<!--[--> · 单元 预期与分类<!--]--><!--[--> · 课序 从报表到因子<!--]--></p><p class="lesson-progress">第 16 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/segment-geo/">分部与地域</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

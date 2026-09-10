@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Grokking 与突然泛化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_grokking.md.CSkWqbLh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 17 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/linear-representation-hypothesis/">线性表示假设</a></p><!----></nav><div style="position:relative;"><div><h1 id="grokking-与突然泛化" tabindex="-1">Grokking 与突然泛化 <a class="header-anchor" href="#grokking-与突然泛化" aria-label="Permalink to &quot;Grokking 与突然泛化&quot;">​</a></h1><div class="epigraph"><p>我们完全反向工程了这些网络学到的算法：用离散傅里叶变换和三角恒等式，把加法变成圆上的旋转。</p><footer>—— Nanda et al., Progress Measures for Grokking via Mechanistic Interpretability, ICLR 2023</footer></div><p>Grokking 指训练集已经拟合之后很久，测试准确率才突然从随机涨到近乎完美。Power、Burda、Edwards、Babuschkin 与 Misra 在 2022 年于小算法任务（模加法、群运算）上系统报告了这一现象：过拟合阶段的测试性能可以长期极差，然后在继续训练中「顿悟」。表面上这像能力的不连续涌现。Nanda 等人随后在模加法 Transformer 上把学到的算法拆开，定义连续的进度度量，表明顿悟发生在记忆分量被清掉的时候，泛化电路其实早就在长。本篇写现象、机制、以及它和大规模涌现的类比能走多远。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>经典学习曲线里，训练损失与测试损失大致同进退。Grokking 把两条曲线拉开：训练准确率很快到 100%，测试准确率在过拟合平台上停留很久，然后在几乎不变的训练损失下突然上升。Power 等人用小型 Transformer 与 MLP，在模运算、置换群等任务上复现，并观察到权重衰减、数据量、模型宽度都会移动「顿悟」所需的步数。</p><p>若只有行为曲线，解释可以是任意的：隐式正则、随机游走碰巧走到平坦区、数据被突然「理解」。要区分这些故事，需要能在测试准确率仍然很差时，就测量泛化算法是否已经出现。这正是机制解释能提供的进度度量。</p><h3 id="过拟合平台不是什么都没学" tabindex="-1">过拟合平台不是什么都没学 <a class="header-anchor" href="#过拟合平台不是什么都没学" aria-label="Permalink to &quot;过拟合平台不是什么都没学&quot;">​</a></h3><p>平台期的测试损失高，不表示内部没有结构。可能同时存在两条解：一条记忆训练集的查找表，一条真正的算法。训练损失对两者都满意；测试损失只认可后者。若记忆解的权重范数更大，权重衰减会慢慢偏向算法解。表面上的突变，来自测试度量对「记忆还是算法」的不连续敏感，而不是参数空间里的跳跃。</p><p><span class="marginnote">Power 等人的设定是小数据、可穷尽的算法表，和网页语料上的 LLM 涌现不是同一实验。把 grokking 直接叫做「大模型突然会推理的微型版」，是类比，需要额外证据。有用的移植是方法：用内部进度度量去拆开行为上的不连续。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Nanda 等人的主实验：一层或两层 Transformer 学 \(a+b \bmod p\)，带权重衰减。他们发现网络把加数表示成某些频率上的正弦/余弦，再用三角积化和差实现模加，相当于在圆上旋转再读出。验证手段包括：权重与激活的傅里叶谱、在傅里叶空间做消融、以及用解析的旋转算法替换对应分量后性能几乎不变。</p><p>基于这一理解，定义两条进度度量。限制损失（restricted loss）：只保留关键频率，其余消融，看泛化电路单独的表现。排除损失（excluded loss）：只消融关键频率，看记忆通路还能否拟合训练点。两者在测试准确率突变之前就已经连续变化。</p><h3 id="训练的三个阶段" tabindex="-1">训练的三个阶段 <a class="header-anchor" href="#训练的三个阶段" aria-label="Permalink to &quot;训练的三个阶段&quot;">​</a></h3><p>主线实验被分成三阶段。记忆期：训练损失下降，排除损失下降，测试与限制损失仍高——模型在用非关键频率记表。电路形成期：限制损失开始下降，泛化机制进入权重，但记忆分量还在，测试仍差。清理期：权重衰减拆掉记忆分量，测试准确率陡升——grokking 发生在这里。突变是清理的表观，不是电路从零瞬间出现。</p><p>Liu 等人的 Omnigrok 等工作用权重范数与表示范数画相图，指出 grokking 与「表示要长到足够大、权重又被正则压住」的平衡有关。这与 Nanda 的清理故事相容：正则是把记忆解赶出赛道的力。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>模加的傅里叶算法为何被找到？正弦基对循环群是自然的，梯度下降从随机初始化里放大了这些频率，因为它们能用平滑函数拟合全部加法表，而不必为每个 \((a,b)\) 存一项。记忆解在有限训练集上一样能把训练损失打到零，而且往往形成得更快，所以先出现。权重衰减惩罚大范数的查找表，慢变量（算法频率）后来居上。测试准确率只在记忆被拆掉后才反映算法已经就绪。</p><h3 id="进度度量相对行为度量" tabindex="-1">进度度量相对行为度量 <a class="header-anchor" href="#进度度量相对行为度量" aria-label="Permalink to &quot;进度度量相对行为度量&quot;">​</a></h3><p>进度度量的要点是：它们在行为不连续之前连续可测。这为「涌现」提供了一种拆解策略——先反向工程最终算法，再定义该算法的内部强度，最后看强度是否平滑增长。Chughtai 等人在群运算上得到类似的阶段结构。若一种涌现现象找不到任何连续内部度量，才更像真正的相变；grokking 至少在模加上不是。</p><p><span class="marginnote">关键频率是事后知道的。进度度量依赖已经反向工程的算法，不能在训练开始前当通用早停器。它解释历史，不自动预测下一次顿悟何时到来。通用预测需要不依赖最终电路的代理量，例如权重范数、表示稀疏性，这些更弱、更可迁移。</span></p><p>数据量有阈值。太少则算法解不存在或正则来不及赢；太多则一开始就更像普通学习，平台变短。Power 等人画过数据分数与 grokking 延迟的关系。工程上若只关心测试性能，更简单的办法往往是加数据或加强正则，而不是空等顿悟。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>模加上的完美反向工程，目前没有在真实语言模型的「突然会某任务」上复现到同一精度。LLM 的数据不是封闭群表，记忆与算法的边界模糊。把 grokking 当训练配方（「过拟合后再多训一万步」）在大规模上通常不划算：计算应花在数据与目标函数，而不是等待清理期。它更有价值的是概念：行为涌现可以是度量的非线性，内部可以平滑。</p><p>正则选择影响是否出现 grokking。权重衰减是 Nanda 主线；dropout 等也能诱发。没有正则时，记忆解可以长期占据，测试不升。优化器、学习率、是否用满算法表的一部分做训练，都会改阶段边界。复现必须把这些超参写全。</p><p><span class="marginnote">不要把训练曲线上任何测试延迟上升都叫 grokking。学习率调度、数据顺序、评测集污染解除，都能造成「突然变好」。Grokking 特指：训练已饱和、持续过拟合之后、在同一数据分布上泛化陡升。定义收紧，讨论才有意义。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Grokking 是训练已拟合后测试性能延迟陡升的现象，Power 等人在小算法数据集上确立。</li><li>Nanda 等人证明模加网络学的是傅里叶旋转算法，并用限制/排除损失显示内部进度是连续的。</li><li>三阶段为记忆、电路形成、清理；行为突变发生在清理，而不是算法诞生瞬间。</li><li>权重衰减等正则把高范数记忆解挤掉，使泛化解成为测试时的唯一通路。</li><li>与 LLM 涌现可类比的是「度量非线性」，不是「小群表训练配方可直接放大」。</li><li>出处：Power et al., <em>Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets</em>, 2022；Nanda et al., ICLR 2023（arXiv:2301.05217）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机制可解释性<!--[--> · 单元 电路与干预<!--]--><!--[--> · 课序 机制分析<!--]--></p><p class="lesson-progress">第 17 / 17 课</p><!----><p class="lesson-next">本附录到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>宏观状态变量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_macro-state-variables.md.C1yplNYs.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 条件定价<!--]--><!--[--> · 课序 时变风险溢价<!--]--></p><p class="lesson-progress">第 21 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/conditional-capm/">条件 CAPM</a></p><p class="lesson-next"> 下一课：<a href="/quant/ic-ir-timing/">IC / IR 与因子择时</a></p></nav><div style="position:relative;"><div><h1 id="宏观状态变量" tabindex="-1">宏观状态变量 <a class="header-anchor" href="#宏观状态变量" aria-label="Permalink to &quot;宏观状态变量&quot;">​</a></h1><div class="epigraph"><p>资产价格贴现的是未来消费与投资机会；能预报这些机会的宏观变量，就应当进入随机贴现因子，而不是只当宏观研究的背景板。</p><footer>—— Lettau–Ludvigson 的 $cay$；Chen–Roll–Ross 的宏观因子 APT</footer></div><p><a href="/quant/conditional-capm">上一课</a>允许 beta 与市场溢价随信息集变化，并把 \(cay\) 一类变量写成可估的缩放因子；状态必须属于期初信息集。缺口是：状态究竟用哪些可观测总量来代表投资机会集的变化？Chen–Roll–Ross 把宏观意外当作 APT 因子；期限利差、信用利差、\(cay\) 既进入时间序列可预测性，也进入截面风险溢价。本课写哪些变量反复出现、发布日历如何决定 \(\mathcal{F}_t\)，以及对量化组合它们如何当体制识别的慢时钟。不重推条件 CAPM 的矩条件。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>条件 CAPM 已经允许 beta 随信息集变化，但「状态」仍是占位符。ICAPM（Merton）说，对投资机会集的对冲需求会产生额外因子。机会集不可直接观测，实践中用状态变量代理：变量必须能预报未来市场收益或未来波动，投资者才有动机对冲它。单纯与同期产出相关还不够——那只是现金流新闻。Fama–French 的 SMB、HML 常被解释成这种代理：价值与小盘在坏宏观状态下更敏感。宏观状态变量路径则试图把代理还原成可命名的总量，避免永远用回报去解释回报。</p><p>选择困难在于：宏观序列低频、滞后、修订；金融序列高频但内生。用同期通胀意外解释股票收益，和用 \(t-1\) 已发布的 \(cay_t\) 去预报 \(t+1\) 收益，信息集完全不同。条件 CAPM 篇强调工具必须属于 \(\mathcal{F}_t\)；宏观变量把这个问题变成数据发布日历。</p><h3 id="哪些变量反复出现" tabindex="-1">哪些变量反复出现 <a class="header-anchor" href="#哪些变量反复出现" aria-label="Permalink to &quot;哪些变量反复出现&quot;">​</a></h3><p>Chen–Roll–Ross 使用工业产出增长、非预期通胀、期限利差、信用利差等。后续文献广泛使用：违约利差、期限利差、股息价格比、短期利率、\(cay\)、消费增长率、劳动收入。Petkova（2006）表明，用一组预报市场的状态变量，可以在一定程度上吸收 HML 的信息。Lettau–Ludvigson 的 \(cay\) 同时出现在时间序列超额收益预测与条件消费 CAPM 的截面检验里，是宏观状态变量里少有的「两条腿都走路」的例子。</p><p><span class="marginnote">股息价格比、期限利差已经是价格。用它们当状态变量，宏观含义弱、金融含义强。\(cay\) 与工业产出更「宏观」，但估计噪声和发布滞后也更大。没有免费的真实状态。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>时间序列预测。\(r_{m,t+1}=a+b z_t+e_{t+1}\)。\(b\) 显著是进入 ICAPM 的入场券之一。样本短、持久预测变量（\(cay\)、估值比率）导致 Stambaugh 偏误，推断要用模拟或偏误修正。样本外 \(R^2\) 往往接近零，这不立刻杀死变量：Goyal 与 Welch 对许多预测变量的悲观结论，应与截面定价分开看——弱时间序列预测仍可能对应重要的风险价格。</p><p>截面。把 \(z_t r_{m,t+1}\) 或宏观意外当作因子，做 Fama–MacBeth 或 GMM。Chen–Roll–Ross 测的是宏观意外是否被定价；Lettau–Ludvigson 测的是 \(cay\) 缩放的消费风险是否吸收规模与价值。两者都要求因子在期初可构造：意外要用预测模型的残差，而不能用同期实现减去全样本均值（全样本均值含未来）。</p><p>状态依赖风险预算。实务不估计完整 SDF，而是用 \(z_t\) 分体制：高信用利差、低 \(cay\)（坏状态）时降低杠杆、收紧价值或动量的暴露上限。这是条件 CAPM 思想的工程简化，必须防数据挖掘：体制规则要预指定，并承认 Harvey–Liu–Zhu 式的多重检验。</p><h3 id="作为模板" tabindex="-1">\(cay\) 作为模板 <a class="header-anchor" href="#作为模板" aria-label="Permalink to &quot;$cay$ 作为模板&quot;">​</a></h3><p>Lettau 与 Ludvigson 估计消费、资产财富、劳动收入的协整，残差为 \(cay\)。理论上，消费高于财富所支持的水平，预示未来资产收益较低（或未来消费回落）。它把宏观总量的长期预算约束写进一个标量状态。复制时应用递归或滚动协整，处理样本修订；用作者公布的全样本 \(cay\) 做「预测」会高估可交易性。</p><p><span class="marginnote">宏观意外因子在月频上比日频干净，但组合风控是日频的。常见折中是：日频仍用金融状态（利差、波动），宏观状态只在月频再平衡时更新风险预算，避免对修订序列做日频交易。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>随机贴现因子 \(m_{t+1}\) 随状态变，风险价格 \(\lambda_t\) 随 \(z_t\) 变，资产若对 \(z\) 敏感就获得溢价。价值股像一个卖出看跌：在产出与就业恶化时跌得更多，故要求更高收益——若投资者恰好要为这些状态买保险。宏观状态变量是给这条保险单定价的指数。统计 PCA 也能抓到坏状态的共同下跌，但不告诉你跌的是「通胀新闻」还是「贴现率新闻」。宏观分解的价值在于叙事与对冲工具（债券、商品、通胀互换）可以对上。</p><p>与基本面风险模型的衔接：Barra 风格在股票截面上吸收公司特性；宏观状态解释的是风格因子收益何时变贵。可以把 \(f^{\mathrm{HML}}_t\) 对 \(z_{t-1}\) 回归，看价值因子是否在坏状态实现更高收益或更高波动。这比直接让宏观变量进入个股 \(\Sigma\) 更稳——个股对宏观的载荷噪，风格对宏观的载荷厚。</p><h3 id="修订、滞后与「实时」" tabindex="-1">修订、滞后与「实时」 <a class="header-anchor" href="#修订、滞后与「实时」" aria-label="Permalink to &quot;修订、滞后与「实时」&quot;">​</a></h3><p>宏观数据多次修订。用最终修订值做历史条件化，等于使用未来统计局的知识。实时研究应使用当时可得的 vintage。滞后：本月工业产出往往下月才公布，状态变量要移位。忽略这两点，条件模型的样本内成功大量来自不可交易的信息。这与因子研究里用未来行业分类做中性化是同一类错误。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>宏观状态不适合做高换手 alpha。它们的预测 \(R^2\) 低、半衰期长，更像体制变量。把 \(cay\) 当成日频择时信号，会过拟合噪声。多重检验同样残酷：宏观候选很多（通胀、产出、货币、就业的各种变换），搜出来的「状态」需要与 Harvey–Liu–Zhu 同一纪律。</p><p>宏观因子也解释不了所有异象。短期反转、部分微观结构信号几乎不与季度总量对齐。强行把一切塞进 Chen–Roll–Ross，只会得到不显著的风险价格和虚假的安全感。该用微观结构模型的地方不要用宏观 SDF。</p><p><span class="marginnote">状态变量若不能预报收益或波动，投资者没有对冲动机，它就不该进入 ICAPM。同期相关只说明宏观新闻动了现金流，不足以成为截面定价因子。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>宏观状态变量代理投资机会集，进入条件 SDF / ICAPM；它们须能预报未来收益或波动，且属于实时信息集。</li><li>Chen–Roll–Ross（1986）用宏观意外做 APT 因子；Lettau–Ludvigson 用 \(cay\) 同时做超额收益预测与条件消费 CAPM。</li><li>\(cay\) 与估值比率持久、有 Stambaugh 偏误；复制须递归估计，并处理数据修订与发布滞后。</li><li>实务上宏观状态更适合月频体制与风格风险预算，不适合日频挖掘；风格因子是连接个股风险模型与宏观状态的厚样本层。</li><li>候选很多，必须用多重检验纪律；不能用同期宏观相关冒充定价。</li><li>出处：Chen, Roll and Ross, <em>Economic Forces and the Stock Market</em>, Journal of Business, 1986；Lettau and Ludvigson, <em>Consumption, Aggregate Wealth, and Expected Stock Returns</em>, Journal of Finance, 2001，以及 <em>Resurrecting the (C)CAPM</em>, JPE, 2001；Petkova, <em>Do the Fama–French Factors Proxy for Innovations in Predictive Variables?</em>, Journal of Finance, 2006。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 条件定价<!--]--><!--[--> · 课序 时变风险溢价<!--]--></p><p class="lesson-progress">第 21 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ic-ir-timing/">IC / IR 与因子择时</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

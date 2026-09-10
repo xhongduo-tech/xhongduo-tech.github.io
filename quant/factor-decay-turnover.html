@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>因子衰减与换手 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_factor-decay-turnover.md.1zWzNs2V.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 18 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/factor-crowding/">因子拥挤与拥挤崩</a></p><p class="lesson-next"> 下一课：<a href="/quant/multiple-testing-factors/">多重检验与 p-hacking</a></p></nav><div style="position:relative;"><div><h1 id="因子衰减与换手" tabindex="-1">因子衰减与换手 <a class="header-anchor" href="#因子衰减与换手" aria-label="Permalink to &quot;因子衰减与换手&quot;">​</a></h1><div class="epigraph"><p>信息系数的半衰期决定你能等多久；换手决定你为这份等待付多少冲击。两者同时变差时，不是「把频率调低」就能救回来的。</p><footer>—— Grinold 的 IR 分解遇上 Novy-Marx–Velikov 的交易成本分类</footer></div><p><a href="/quant/factor-crowding">上一课</a>把拥挤写成策略持仓重叠与杠杆叠加后的流动性风险，拥挤崩是短窗口去杠杆，不是 IC 慢慢变弱。缺口是实盘还要问两件更窄的事：信号对未来收益的预测力在多久后消失（衰减），以及为了维持该信号需要买卖多少（换手）。衰减快必须高频调仓，换手立刻变成成本；衰减慢可以低换手持有，但往往容量更大或本身是风险溢价。本课把 \(\mathrm{IR}\approx\mathrm{IC}\sqrt{B}\) 从无摩擦拖回微观结构。不重写共动量与踩踏机制。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设 \(t\) 日信号 \(x_t\) 与未来 \(h\) 期收益的截面相关为 \(\mathrm{IC}(h)\)。典型的动量 \(\mathrm{IC}(h)\) 在数周到数月内仍正；短期反转在数日内高、随后变号；价值可以在季度财报之间缓慢衰减。若你按日调仓去追一个本来衰减很慢的信号，大部分交易只是在噪声上换座位。若你按月调仓去交易一个三日就消失的信号，持仓里剩下的几乎是残渣。</p><p>换手不是风格标签，而是信号自相关的函数。分数的一阶自相关高，组合换手低；自相关低，即使 IC 高也难以在成本后存活。Novy-Marx 与 Velikov（2016）按换手给异常分类，并指出高换手异常在引入真实交易成本后大量消失。McLean 与 Pontiff（2016）则记录发表后样本外衰减：那是可预测性被套利或被多重检验高估，与单只股票上信号的期限结构不是同一层，但会叠在一起出现。</p><h3 id="ic-的期限结构" tabindex="-1">IC 的期限结构 <a class="header-anchor" href="#ic-的期限结构" aria-label="Permalink to &quot;IC 的期限结构&quot;">​</a></h3><p>把 \(\mathrm{IC}(h)\) 画出来，比报告「IC=0.05」有用得多。若 \(\mathrm{IC}(h)\) 近似 \(c\rho^{h}\)，半衰期 \(h_{1/2}=\ln 2/|\ln\rho|\) 告诉你调仓周期的上限。更细致的做法是把未来收益拆成逐日增量，看信号对第 1、2、…、k 日收益各自的预测力。很多「日频因子」的预测力集中在开盘后几十分钟，隔夜就已经换了一批人。</p><p><span class="marginnote">用同期 IC（信号与当日收益）做研究是泄漏。衰减曲线必须从「信号可获得之后的第一段收益」算起，并扣掉公告日、涨跌停不可交易的区间。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>衰减诊断。固定形成期，计算 \(x_t\) 与 \(r_{t+1:t+h}\) 的秩相关，对 \(h=1,\ldots,H\) 画图。再对行业、市值中性后的 \(\tilde{x}\) 画同一张图——中性化常常让衰减变快，因为慢变量（行业均值）被拿掉了。</p><p>换手分解。双边换手 \(\sum_i |w_{i,t}-w_{i,t-1}|/2\)。可拆成：分数变化引起的、权重方案（等权变市值加权）引起的、以及约束/优化引起的。纯化与风险中性通常增加换手。把换手与衰减画在一起：理想区是「IC 衰减慢、换手低」；最危险的是「IC 只在 \(h=1\) 显著、日换手 40%」。</p><p>成本后净 IC。用有效价差、冲击模型或 Novy-Marx–Velikov 的价差分组，把预期成本从毛收益里减掉。高换手因子对冲击函数的斜率极度敏感：同一套衰减，在大盘与微盘上净 IR 可以差一个数量级。</p><h3 id="再平衡规则" tabindex="-1">再平衡规则 <a class="header-anchor" href="#再平衡规则" aria-label="Permalink to &quot;再平衡规则&quot;">​</a></h3><p>不是每天把组合推到目标权重。常用：阈值再平衡（偏离超过带宽才交易）、衰减加权（把 \(x_t,x_{t-1},\ldots\) 按 \(\mathrm{IC}(h)\) 加权合成慢信号）、换手惩罚进入优化。这些是用信号滤波器去匹配衰减，而不是用更猛的交易去假装 IC 不会掉。Grinold–Kahn 的最优权重已含「alpha 与风险、成本」的权衡；工程上要把成本写成换手的函数，而不是事后从净值里减一个常数。</p><p><span class="marginnote">降低换手会改变你交易的因子。对动量做过度平滑，会滑向中期趋势；对反转做过度平滑，信号会消失。滤波器是经济选择，要在样本外单独检验，不能只看换手数字变小。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>衰减来自价格发现：信号被交易进去，剩余可预测性下降。它也来自公司事件的节奏——盈利能力按季披露，价值描述子跳变稀疏，所以价值换手低、衰减慢。微观结构信号衰减快，因为它们交易的是盘口上几分钟的不平衡。把不同半衰期的东西加进同一个日频回测，不加持有期匹配，是把慢因子的夏普借给快因子。</p><p>换手来自排序的扰动。即使真 IC 不变，估计噪声也会让边缘股票跨过分位线。分位越多、中性化维度越多、样本越短，噪声交易越多。这是正交化与行业中性的隐蔽账单：更纯的因子往往更吵。</p><h3 id="发表后衰减与持有期衰减" tabindex="-1">发表后衰减与持有期衰减 <a class="header-anchor" href="#发表后衰减与持有期衰减" aria-label="Permalink to &quot;发表后衰减与持有期衰减&quot;">​</a></h3><p>McLean–Pontiff 的发表后下降，说的是异常在论文出现后样本外变弱，部分是统计偏差，部分是资金学习。持有期衰减说的是同一个已发表因子，信号对 \(h=1\) 与 \(h=20\) 的预测力不同。两者会互相加强：发表后资金涌入，会把本来就短的半衰期变得更短，并抬高拥挤。研究设计上应分开报告：复制用原始持有期；实盘用成本后、匹配衰减的持有期；样本切开发表前后。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>成本模型错了，衰减诊断再精确也无用。用固定bps 惩罚会低估小盘、高换手的凸性冲击，高估「降频」的好处。涨跌停让目标换手无法执行，名义衰减与实现衰减脱节。A 股还要把隔夜与开盘集合竞价单独画 IC——很多所谓日频因子其实是隔夜因子。</p><p>不要用全样本最优持有期。那是对 \(H\) 的多重检验。应预先声明调仓频率（与产品、容量一致），再看该频率下衰减是否还撑得住。Harvey–Liu–Zhu 的多重检验逻辑在这里同样适用：试了 12 种再平衡再报告最好的一种，t 值不算数。</p><p><span class="marginnote">容量测试应沿衰减曲线做：增加 AUM 时，先死的是短半衰期、高换手的那截 IC，不是全样本平均 IC。平均 IC 会把已死的短端和还活着的长端混在一起。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>因子可用性由 IC 的半衰期与维持信号所需换手共同决定；只报全样本 IC 会掩盖短端不可交易、长端已变弱。</li><li>Grinold 的 \(\mathrm{IR}\approx\mathrm{IC}\sqrt{B}\) 在有摩擦时必须把广度对应的再平衡写成成本。</li><li>Novy-Marx–Velikov（2016）表明高换手异常在交易成本后大量消失；McLean–Pontiff（2016）记录发表后可预测性下降。</li><li>中性化与纯化通常加快衰减、增加换手；再平衡规则会改变因子的经济含义，需样本外单测。</li><li>持有期衰减与发表后衰减、拥挤是不同层，应分开度量。</li><li>出处：Grinold and Kahn, <em>Active Portfolio Management</em>；Novy-Marx and Velikov, <em>A Taxonomy of Anomalies and Their Trading Costs</em>, RFS, 2016；McLean and Pontiff, <em>Does Academic Research Destroy Stock Return Predictability?</em>, JF, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 构建与检验<!--]--></p><p class="lesson-progress">第 18 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/multiple-testing-factors/">多重检验与 p-hacking</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

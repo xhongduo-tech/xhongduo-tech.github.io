@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则语言泵引理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_pumping-lemma-regular.md.92oiBAjt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 3 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/chomsky-hierarchy/">Chomsky 层级</a></p><p class="lesson-next"> 下一课：<a href="/cs/dfa-minimization/">DFA 最小化与 Myhill–Nerode</a></p></nav><div style="position:relative;"><div><h1 id="正则语言泵引理" tabindex="-1">正则语言泵引理 <a class="header-anchor" href="#正则语言泵引理" aria-label="Permalink to &quot;正则语言泵引理&quot;">​</a></h1><div class="epigraph"><p>正则语言里足够长的串，必有一段可被抽成任意多次，语言仍收下；找不到这样的分解，就不是正则。</p><footer>—— 据 Bar-Hillel, Perles and Shamir, 1961；Sipser, Introduction to the Theory of Computation 整理</footer></div><p>上一课<a href="/cs/chomsky-hierarchy">Chomsky 层级</a>把正则放在 3 型，并声明负向证明留给本课。本课不重画包含链，也不重做<a href="/cs/nfa-dfa">NFA 与 DFA</a>的子集构造。缺口是：<strong>怎样证明某个具体 \(L\) 不是正则</strong>——泵引理是最常用的必要性质，不是刻画。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>正向：给 DFA 或正则式，即证正则。负向：语言无穷，不能逐串检查。DFA 只有 \(|Q|\) 个状态，长于 \(|Q|\) 的接受串必在某状态上循环。抽出循环对应的子串 \(y\)，泵 \(xy^kz\) 仍走同一环。若某 \(L\) 对一切候选分解都能找出一个 \(k\) 使 \(xy^kz\notin L\)，则 \(L\) 非正则。</p><p>标准例子：\(\{a^nb^n\mid n\ge 0\}\)。主干 CFG 课用括号匹配当「正则做不到」的直觉；本课把这句收成引理应用，不再谈记号流。</p><h3 id="泵引理不是充要条件" tabindex="-1">泵引理不是充要条件 <a class="header-anchor" href="#泵引理不是充要条件" aria-label="Permalink to &quot;泵引理不是充要条件&quot;">​</a></h3><p>满足可泵的语言不必正则。引理是「正则 \(\Rightarrow\) 可泵」。证非正则用逆否。有些非正则语言狡猾地可泵，要用 Myhill–Nerode 或封闭性，那是后课。</p><p><span class="marginnote">Bar-Hillel–Perles–Shamir 给出泵引理的经典形式。Sipser 用博弈语言：对手给 \(p\)，你给 \(w\)，对手切 \(xyz\)，你选 \(k\)。写证明时不要漏量化顺序。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>固定泵长度 \(p\)。选 \(w\in L\)、\(|w|\ge p\)（通常取最能破坏计数的那条）。对任意满足 \(|xy|\le p\)、\(|y|\ge 1\) 的分解，指出某个 \(k\)（常取 \(0\) 或 \(2\)）使 \(xy^kz\notin L\)。计数论证：循环落在 \(a\) 段则 \(a,b\) 个数不再相等。</p><div class="mermaid"></div><p>不要把 \(\{ww\mid w\in\{0,1\}^*\}\) 强行用本课引理硬泵——它更自然是后课 CFL 泵或不封闭的材料。本课把 \(a^nb^n\) 与 \(\{a^{n^2}\}\) 一类做完即可。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>引理依赖<strong>有限记忆</strong>：循环是同一状态重访。若允许栈，同一串可以不被这段 \(y\) 破坏，所以 CFL 需要另一条泵引理。本课不提前写 Ogden。</p><p>词法器仍可识别标识符；泵的是语言类，不是「DFA 实现得笨」。有限语言都正则，泵引理对有限 \(L\) 真空成立（取 \(p\) 大于最长串）。</p><p>泵长度 \(p\) 依赖于语言（或 DFA 状态数），不依赖于你选的那条 \(w\) 之外的参数：先有 \(p\)，再选 \(w\)。写反了量化，证明是错的。词法器识别的标识符语言正则，泵不了「任意层括号」；那是下一层 CFG 的事，不要用本课引理去泵程序语法。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 Myhill–Nerode，不用封闭性证非正则（下一课最小化之后才把封闭当工具使）。不把泵引理写成算法：选 \(w\) 需要人。后课默认：要从正则里排除，先尝试泵；失败再换等价类。</p><p>写证明时把「存在 \(p\)」放在最外层，再选 \(w\)，再应付所有切法。量化一乱，泵引理就变成错的组合游戏。后课 Myhill–Nerode 在泵失败时接棒。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>正则 \(\Rightarrow\) 长串可泵；逆否用于排除。</li><li>量化顺序是对手与你的博弈；\(a^nb^n\) 是标准靶。</li><li>可泵不是正则的充要条件。</li><li>出处：Bar-Hillel, Perles and Shamir, 1961；Sipser。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 3 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/dfa-minimization/">DFA 最小化与 Myhill–Nerode</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

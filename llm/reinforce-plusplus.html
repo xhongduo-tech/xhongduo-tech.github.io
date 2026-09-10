@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>REINFORCE++ | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_reinforce-plusplus.md.CkPeg42E.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 推理模型与强化学习续<!--[--> · 单元 策略优化<!--]--><!--[--> · 课序 群体与稳定化<!--]--></p><p class="lesson-progress">第 4 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dr-grpo/">Dr. GRPO</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlvr/">RLVR</a></p></nav><div style="position:relative;"><div><h1 id="reinforce" tabindex="-1">REINFORCE++ <a class="header-anchor" href="#reinforce" aria-label="Permalink to &quot;REINFORCE++&quot;">​</a></h1><div class="epigraph"><p>提示级标准化用同一题的几个样本估均值和标准差，估计有偏且易过拟合；改成全局 batch 标准化，critic-free 的优势才能随 batch 变大而接近无偏。</p><footer>—— Hu、Liu、Xu、Shen，REINFORCE++: Stabilizing Critic-Free Policy Optimization with Global Advantage Normalization，arXiv:2501.03262</footer></div><p><a href="/llm/rloo">RLOO</a>、<a href="/llm/remax">ReMax</a>、<a href="/llm/grpo">GRPO</a> 都去掉 PPO 的 critic，却几乎都在<strong>同一提示的局部组</strong>里构造基线。Hu 等人把这条局部标准化写成有偏估计：中心化奖励与组内 std 不独立，\(k=4\) 时 std 还可能接近 0 把优势打爆。<strong>REINFORCE++</strong> 的核心是 <strong>Global Advantage Normalization</strong>：在整个训练 batch 上减均值、除标准差。实现挂在 OpenRLHF。本篇写两个变体各自的主场，不把 GRPO 公式再推一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PPO 的价值头在 LLM 上贵。Critic-free 方法用同题多样本估 \(A\)，代价是 \(k\) 很小。局部 \((r-\mathrm{mean})/\mathrm{std}\) 有三处伤。理论上，分子分母相关，估计有偏（论文附录 A）。实践上，一组奖励碰巧接近，std→0，优势爆炸。目标上，策略被奖励「赢过本题其它样本」，容易在简单题上刷相对名次，对全局高回报与 OOD 无帮助。</p><p>通用 RLHF 还面对另一约束：提示要多样。若每题 \(k=4\)，同样的生成预算下题数变成 1/4，指令覆盖变窄。作者因此需要一种 <strong>\(k=1\) 也合法</strong>的算法——局部组方法在 \(k=1\) 时直接未定义。PPO 把这个问题交给价值网络：任意提示都能得到 \(V(s)\)。Critic-free 路线一旦离开「同题多样本」，就必须另找一个随 batch 稳定的尺度。全局标准化是把 critic 的「跨状态可比」近似成「跨当前 batch 可比」，用大 \(N\) 换掉第二套权重。</p><h3 id="两个变体不要混名" tabindex="-1">两个变体不要混名 <a class="header-anchor" href="#两个变体不要混名" aria-label="Permalink to &quot;两个变体不要混名&quot;">​</a></h3><p>REINFORCE++（可 \(k\ge 1\)）：把 KL 惩罚进逐步奖励（k1 风格），再对 \(A\) 做全局标准化，走 PPO 式 clip。主打通用偏好、要提示多样性时取 \(k=1\)。REINFORCE++ <strong>w/ Baseline</strong>（\(k\gt 1\)）：先减<strong>组均值</strong>做尺度重整，再除<strong>全局 std</strong>（不用组内 std），KL 用单独的 \(k_2\) 损失 \(\frac12(\log\pi_\theta/\pi_{\mathrm{ref}})^2\)。主打复杂推理 / agent。后者才是「有组采样的 ++」，不要把 GRPO 的局部 std 安到这个名字上。</p><p><span class="marginnote">GRPO 常用 Schulman 的 \(k_3\) KL 无偏正估计。++ w/ Baseline 改 \(k_2\) 当损失，梯度对反向 KL 更稳。这是实现差分，与全局标准化独立。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>全局标准化。</strong> 对 batch \(\mathcal{D}\) 内所有优势</p> \[A^{\mathrm{norm}}=\frac{A-\mathrm{mean}(A\mid\mathcal{D})}{\mathrm{std}(A\mid\mathcal{D})+\varepsilon}. \]<p>\(|\mathcal{D}|\) 到 1024 量级时，均值与标准差近似常数，偏差随 \(N\) 消失。然后最大化与 PPO 相同的 clip 代理。</p><p><strong>\(k=1\) 的 \(A\)。</strong> 终点奖励减从 \(t\) 起的 KL 和：</p> \[A_{q,o_t}=r(o,q)-\beta\sum_{i=t}^{T}\mathrm{KL}(i),\quad \mathrm{KL}(t)=\log\frac{\pi_{\mathrm{old}}(o_t\mid\cdot)}{\pi_{\mathrm{ref}}(o_t\mid\cdot)}. \]<p><strong>w/ Baseline。</strong> \(A&#39;=R-\mathrm{mean}_{\mathrm{group}}(R)\)，再对 \(A&#39;\) 做全局标准化。组均值对付 0/1 与 \([-1,1]\) 混量纲；全局 std 提供稳定尺度。形式上等价于：无 critic、GAE 的 \(\lambda=\gamma=1\)、基线换成该两步标准化的 PPO。</p><p>通用 RLHF 实验：Llama-3-8B-SFT，BT 奖励模型约 70 万偏好对，2 万提示。Chat-Arena-Hard 上 ++（\(k=1\)）得分 46.7，与 GRPO（\(k=4\)）的 46.8 持平，长度更短（832 vs 860）。训练中 GRPO 的 KL 飙得快，像在黑奖励模型；++ 的 KL 更稳。小数据过拟合实验：局部标准化在 AIME 训练集上满分、测试集崩，全局标准化仍能泛化。复杂 agent 设定下 w/ Baseline 优于 GRPO 与 PPO（以原文表为准）。代码：<a href="https://github.com/OpenRLHF/OpenRLHF" target="_blank" rel="noreferrer">https://github.com/OpenRLHF/OpenRLHF</a> 。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>全局标准差来自成百上千条轨迹，几乎不会因某一题的四个样本撞车而归零，这直接关掉 GRPO 的除零式爆炸。减全局均值让简单题的稳分不再天然占满正优势：一道题必须相对<strong>本 batch 的其它题</strong>也好，才得到大正 \(A\)。代价是跨题可比性假设——batch 若全是同一难度切片，全局基线接近组基线。</p><p>\(k=1\) 能工作，是因为基线不再依赖同题同伴，而依赖同时训的其它提示。这与 <a href="/llm/group-relative-baseline">群体相对</a> 的哲学相反：后者坚持对照必须在同提示内。++ 认为局部对照在 RLHF 里造成过拟合；在竞赛数学里，w/ Baseline 仍保留组均值，只是把「除 std」上交全局，折中两条路。训练动态上，局部 z-score 会让策略很快抬高奖励模型分，同时 KL 陡增——典型的长度与套话黑客。全局标准化把「相对同题同伴更好」改成「相对本步所有轨迹更好」，奖励曲线涨得慢，但每单位 KL 换到的分更高。小训练集上的 AIME 切分把这一点变成可引用的过拟合实验：组内标准化可以在训练题上饱和，测试年分崩；全局标准化不能靠「赢过另外三条」背题。</p><p><span class="marginnote">Logic-RL 等后续工作在谜题上采用 REINFORCE++，说明规则奖励域也可以用全局标准化，不限于 BT 奖励模型。算法不绑定奖励来源。</span></p><h3 id="与-dr-grpo-的除-std-之争" tabindex="-1">与 Dr. GRPO 的除 std 之争 <a class="header-anchor" href="#与-dr-grpo-的除-std-之争" aria-label="Permalink to &quot;与 Dr. GRPO 的除 std 之争&quot;">​</a></h3><p><a href="/llm/dr-grpo">Dr. GRPO</a> 认为题级 std 造成难度偏差，主张<strong>不要除</strong>。<a href="/llm/dapo">DAPO</a> 仍除组内 std。++ 同意局部 std 有害，但用<strong>全局</strong> std 换稳定性，而不是删掉标准化。三者对「要不要 z-score」的答案分别是：题内要、不要、batch 内要。实现时必须写明除的是哪一组统计量。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>全局标准化假设 batch 足够大且混合良好。极小 batch 退化成带噪的局部方法。\(k=1\) 在可验证数学上缺少同题负例，探索可能不够，作者才提供 w/ Baseline。PPO clip 仍在，熵崩溃、超长截断等问题 DAPO 处理的，++ 原文不当成主贡献。</p><p>论文版本从「对 prompt 与 RM 稳健」改到「全局优势标准化」，引用时钉 arXiv:2501.03262 的版本。OpenRLHF 默认超参与论文表格可能不一致，复现看配置而不是库名。早期版本强调对奖励模型与提示截断的稳健，后期版本把理论重量放在局部估计的偏差证明上；读二次文献时不要把 v1 摘要与 v9 的两个变体表混成一次实验。</p><p><span class="marginnote">\(k=1\) 的 ++ 生成条数等于提示数，墙钟通常优于 \(k=4\) 的 GRPO；这是预算叙事，不是定理上方差更小。可验证域里同题对照往往更值。</span></p><h3 id="何时不必用" tabindex="-1">何时不必用 ++ <a class="header-anchor" href="#何时不必用" aria-label="Permalink to &quot;何时不必用 ++&quot;">​</a></h3><p>已经在用 GAE critic 且价值头稳，PPO 仍是默认。MoE 长链崩塌的主因是 token 级 IS，应看 <a href="/llm/gspo">GSPO</a>。只要开源 R1 配方对齐，社区更多实现 GRPO/DAPO，++ 的生态样本更少。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>REINFORCE++ 用全局 batch 标准化优势，替代 GRPO/RLOO 的提示级 std。</li><li>主变体允许 \(k=1\)，适合通用 RLHF；w/ Baseline 先减组均值再除全局 std，适合复杂推理。</li><li>Llama-3-8B 上 \(k=1\) 与 GRPO \(k=4\) 的 Arena-Hard 接近，KL 更稳、更不易过拟合简单题。</li><li>与 Dr. GRPO「去掉 std」、DAPO「保留组内 std」构成三条标准化轴。</li><li>出处：Hu 等，<em>REINFORCE++</em>，arXiv:2501.03262；OpenRLHF。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 推理模型与强化学习续<!--[--> · 单元 策略优化<!--]--><!--[--> · 课序 群体与稳定化<!--]--></p><p class="lesson-progress">第 4 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlvr/">RLVR</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

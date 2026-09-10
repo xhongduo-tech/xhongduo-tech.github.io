@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重要性采样对障碍 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_is-barrier.md.Bw_TKWXS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 数值方法<!--]--><!--[--> · 课序 定价引擎<!--]--></p><p class="lesson-progress">第 9 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cv-european/">控制变量对欧式</a></p><p class="lesson-next"> 下一课：<a href="/quant/sobol-qmc/">拟随机数 Sobol</a></p></nav><div style="position:relative;"><div><h1 id="重要性采样对障碍" tabindex="-1">重要性采样对障碍 <a class="header-anchor" href="#重要性采样对障碍" aria-label="Permalink to &quot;重要性采样对障碍&quot;">​</a></h1><div class="epigraph"><p>对路径依赖期权，把布朗运动的漂移扭向支付真正发生的区域，再乘上 Girsanov 似然比，可以得到渐近最优的无偏估计；障碍的稀有触及正是这一套方法的典型对象。</p><footer>—— Glasserman, Heidelberger and Shahabuddin, Asymptotically Optimal Importance Sampling and Stratification for Pricing Path-Dependent Options, Mathematical Finance, 1999</footer></div><p><a href="/quant/cv-european">上一课</a>用路径级 \(C\) 与精确 \(\mathbb{E}[C]\) 降欧式方差，最优 \(\beta\) 为回归系数；深虚值与障碍上线性相关被不连续切断，控制帮助有限。障碍支付接近稀有事件指示，朴素 MC 的相对误差在触及概率变小时恶化。缺口是重要性采样：把路径测度扭向触及区域并乘似然比，保持无偏。本课写障碍上的 IS，不重推控制变量的 \(\beta\)。布朗桥填的是步内连续触及，不替代对格点路径的变测度。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记敲入支付为 \(e^{-rT}(S_T-K)^+\mathbf{1}_{\{\tau_B\le T\}}\)，其中 \(\tau_B\) 是触及障碍 \(B\) 的首时。朴素估计的相对误差在 \(B\) 远离 \(S_0\) 或期限短时并不随 \(N\) 变好：均值以指数速度变小，方差却与均值同阶甚至更大，有效样本量被稀有事件吃掉。敲出把指示反过来，但「差一点就敲出」的路径对价格的导数和对数字部分的方差仍然病态。问题不是再抽一千万条几何布朗运动，而是构造一个等价测度 \(\mathbb{Q}&#39;\)，使 \(\mathbb{Q}&#39;(\tau_B\le T)\) 不再是小概率，同时 Radon–Nikodym 导数在这些路径上不要爆炸。</p><p>障碍还有一层离散化：模拟只在时间格点上看 \(S_{t_i}\)，连续障碍会被漏掉。布朗桥修正给的是条件触及概率，它本身是一种条件蒙特卡洛，可以和 IS 叠用，但不能替代变测度——桥只填格子内部，不把路径整体推向障碍。</p><h3 id="稀有事件与相对误差" tabindex="-1">稀有事件与相对误差 <a class="header-anchor" href="#稀有事件与相对误差" aria-label="Permalink to &quot;稀有事件与相对误差&quot;">​</a></h3><p>设 \(p=\mathbb{Q}(A)\) 很小，\(A\) 为有支付的路径集合。指示函数估计量的方差约为 \(p(1-p)\)，相对误差 \(\sqrt{(1-p)/(Np)}\) 在 \(p\to 0\) 时发散。欧式虚值看涨已经有这个问题，障碍更严重：事件是整条路径的几何约束，不是单点 \(S_T\gt K\)。把终点均值推向 \(K\) 的一维 IS，对敲入不够——路径可以到期实值却从未碰壁。必须对路径测度做扭曲，使「碰壁」成为大概率，而不是只改终点。</p><p><span class="marginnote">重要性采样失败的典型样子不是偏差，而是方差比朴素还大：少数路径带着巨大似然比。监控 \(\sum L_i^2\) 与有效样本量 \(N_{\mathrm{eff}}=(\sum L_i)^2/\sum L_i^2\)，比只看价格点估计更早发出警报。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对漂移为 \(r-q\)、波动 \(\sigma\) 的几何布朗运动，Girsanov 把布朗运动的漂移改成常数 \(\mu\)（或分段常数），似然比为</p> \[L=\exp\Bigl(-\mu W_T^{\mathbb{Q}&#39;}-\tfrac12\mu^2 T\Bigr) \]<p>的离散和形式。估计量是 \(e^{-rT}f(S)\,L\)。Glasserman–Heidelberger–Shahabuddin 用大偏差：在稀有事件 \(\{路径\in A\}\) 上，最优扭曲使新测度下该事件的概率以指数速率趋于 1，且二阶矩以同样的指数速率下降，即渐近最优。对向下敲入，漂移应指向障碍，幅度由障碍距离、波动与期限共同决定，而不是手调一个「看起来多碰到 \(B\)」的数。</p><p>向上与向下、敲入与敲出，最优漂移的符号和是否还要兼顾执行价不同。敲入看涨常常是双约束：先触及 \(B\)，再在到期落在 \(K\) 一侧。实务上可分段：触达前用指向障碍的漂移，触达后切回对欧式有利的漂移，并在切换点把似然比接上。这比全程一个常数 \(\mu\) 更接近渐近最优，实现上也仍是路径上的累加。</p><h3 id="布朗桥与似然比不要混成一件事" tabindex="-1">布朗桥与似然比不要混成一件事 <a class="header-anchor" href="#布朗桥与似然比不要混成一件事" aria-label="Permalink to &quot;布朗桥与似然比不要混成一件事&quot;">​</a></h3><p>格子内部的触及概率 \(p_{\mathrm{hit}}= \exp\bigl(-2(B-S_i)(B-S_{i+1})/(\sigma^2 S^2\Delta t)\bigr)\) 一类公式，是在两端点已给定时对连续路径取条件，属于条件期望，不改变两端点的抽样测度。IS 改变的是两端点（以及整条驱动布朗）怎么被抽出来。正确的组合是：在 \(\mathbb{Q}&#39;\) 下抽格点路径，用桥修正敲入/敲出指示（或把指示换成条件概率以再降方差），再乘整条路径的 \(L\)。若只在原测度上用桥，稀有敲入仍然很少出现格点靠近 \(B\)，桥概率大多接近零，方差改善有限。</p><p>连续观察与离散观察是不同产品。IS 的漂移应对准合约写明的观察频率：日观察障碍的「触及」是格点事件，不必再用连续桥，但漂移仍应指向障碍。把连续公式的最优 \(\mu\) 套到离散障碍上，渐近最优性不再自动成立。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>指数扭曲的直观是：在对数价格的随机游走上，把均值改到事件 \(A\) 的最可能实现（大偏差的最小作用路径）。对单边障碍，这条路径往往是一条指向 \(B\) 的近似直线；似然比正好补偿「我们把概率质量搬过来」这件事。因此无偏性来自测度等价——几何布朗在有限时间上两条漂移测度互相绝对连续——而方差下降来自 \(f L\) 在新测度下不再是极端稀疏的脉冲。</p><p>随机波动与局部波动让最优漂移变成状态依赖。Heston 下障碍的稀有程度同时取决于现货距离和当前方差：低方差时更难触及远处障碍。常数 \(\mu\) 只是近似；更仔细的做法是在 \((S,v)\) 上解一个与生成元相关的特征值问题，或用试抽样估计分段漂移。局部波动 \(\sigma(S,t)\) 已知时，可以沿最小作用路径对变漂移积分，这比假装常数 \(\sigma\) 更一致，也更贵。</p><div class="mermaid"></div><h3 id="与分层、控制变量的叠加" tabindex="-1">与分层、控制变量的叠加 <a class="header-anchor" href="#与分层、控制变量的叠加" aria-label="Permalink to &quot;与分层、控制变量的叠加&quot;">​</a></h3><p>GHS 原文同时讨论分层：在新测度下对终点或对似然比的指数部分分层，避免少数巨大权重。控制变量仍可用同一模型下的欧式闭式，但相关结构在 \(\mathbb{Q}&#39;\) 下会变，必须重新估 \(\beta\)，且 \(\mathbb{E}[C]\) 仍须在原测度下已知——控制的是原期望，不是新测度期望。对偶在强漂移下几乎失效：\(-W\) 不再是对称的另一条同分布路径。顺序应是：先选定 IS 测度，再在该测度上分层，最后才考虑弱控制。</p><p><span class="marginnote">敲出的 IS 容易被用反。若大多数路径本来就不敲出，把漂移推向障碍会增加敲出、减少存活，对敲出看涨可能是在抽样更稀有的「存活且实值」。此时更合理的是推向执行价并远离障碍，或对敲出用朴素抽样、只对敲入做 IS。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>渐近最优是大偏差语句：障碍越远、概率越小，相对优势越明显。障碍就在附近、敲入概率已经是几十个百分点时，IS 的额外方差来自 \(L\) 的波动，可能不如朴素加布朗桥。多障碍、双触、巴黎障碍的最优路径不再是单段直线，手写漂移容易错；此时自适应 IS（先小样本估扭曲参数再正式抽）比硬套单边公式安全。</p><p>跳跃与无穷活动 Lévy 破坏单纯的 Girsanov 漂移图像：触及可以一跳越过障碍，变测度还要扭强度与跳跃度量。把扩散 IS 直接接到 Merton 或 VG 路径上，似然比只解释了布朗部分，跳跃部分的稀有性原封不动。美式障碍还叠加提前行权，IS 不消除 LSMC 的回归偏差。报告时应写清：连续还是离散观察、是否用桥、漂移如何选取、权重的 \(N_{\mathrm{eff}}\)，而不是一句「做了重要性采样」。</p><p><span class="marginnote">Glasserman 的专著把同一套似然比写成可核对的算法，但障碍产品的合约细节（观察频率、交割、返现 rebate）决定 \(A\) 是什么。变测度必须对准 \(A\)，不能对准另一张香草的虚值区域。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>障碍支付接近稀有事件指示，朴素 MC 的相对误差在触及概率变小时恶化；IS 把路径测度扭向触及区域并乘似然比，保持无偏。</li><li>Glasserman–Heidelberger–Shahabuddin（1999）给出路径依赖期权指数扭曲的渐近最优性；单边障碍的最优漂移大致沿指向壁的最小作用路径。</li><li>布朗桥是条件蒙特卡洛，填的是步内连续触及，不替代对格点路径的变测度。</li><li>敲入与敲出、单约束与「碰壁且到期实值」的双约束，对应不同的分段漂移；用反会增大方差。</li><li>随机波动、跳跃、多障碍使常数漂移失效，需状态依赖或自适应 IS，并监控权重有效样本量。</li><li>出处：Glasserman, Heidelberger and Shahabuddin, <em>Mathematical Finance</em>, 1999；系统算法见 Glasserman, <em>Monte Carlo Methods in Financial Engineering</em>, 2004。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 数值方法<!--]--><!--[--> · 课序 定价引擎<!--]--></p><p class="lesson-progress">第 9 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/sobol-qmc/">拟随机数 Sobol</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

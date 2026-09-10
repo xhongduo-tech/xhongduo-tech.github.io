@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>训练网络的拥塞控制 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_training-network-congestion.md.B8z4y0Vy.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 8 / 24 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dragonfly-torus/">Dragonfly 与 torus 对照</a></p><p class="lesson-next"> 下一课：<a href="/llm/gradient-compression/">梯度压缩</a></p></nav><div style="position:relative;"><div><h1 id="训练网络的拥塞控制" tabindex="-1">训练网络的拥塞控制 <a class="header-anchor" href="#训练网络的拥塞控制" aria-label="Permalink to &quot;训练网络的拥塞控制&quot;">​</a></h1><div class="epigraph"><p>集体流量是同步的脉冲，不是数据中心那种长期平滑的大象流。PFC 能保证无损，也能把拥塞暂停扩散成整步挂起；ECN 能标拥塞，也能被集体同时打满而失效。</p><footer>—— 对照 RoCEv2 上的 PFC / DCQCN 与 InfiniBand 拥塞控制；集体同步波见前几课</footer></div><p>拓扑课把边画好了：<a href="/llm/rail-optimized-topology">轨优化</a> 让 DP 走平面，<a href="/llm/dragonfly-torus">Dragonfly / torus</a> 让局部性对齐。本课写边上 <strong>排队时发生什么</strong>。缺口是：\(\alpha\)–\(\beta\) 模型假设 \(\beta\) 稳定；训练一步里所有 rank 同时发同样大小的块，交换机缓冲区被同步 incast 打满，有效 \(\beta\) 塌缩，尾延迟变成 step time。<a href="/llm/pretrain-comm">预训练通信</a> 提过抖动；本课把拥塞控制协议接到集体模式上。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RoCE 常用优先级流控（PFC）做无损：端口拥塞就暂停对端发送。训练 All-Reduce 的同步波会让许多端口同时触及阈值，暂停沿依赖链传播，出现「头端阻塞」：一条慢流把整条轨冻住，NCCL 表现为偶发超时而不是平滑降速。DCQCN 一类 ECN 方案用标记降速，避免暂停扩散，但对齐的集体可能同时被标、同时降、同时再加速，形成振荡。InfiniBand 有自己的拥塞控制与自适应路由，症状类似，旋钮不同。</p><p>问题不是选一个「永远正确」的协议，而是：<strong>集体脉冲的时间尺度比拥塞控制的反馈环更短</strong>。一步只有几十到几百毫秒，控制环还没收敛，下一步又来了。缺口是把训练流量当成特殊负载：少流、大根、同步，而不是互联网 TCP 的假设。</p><p><span class="marginnote">SHARP 一类网内归约减少的是到达根的字节，从而减轻 incast，这是拥塞预防，不是拥塞控制。有硬件就用在 DP All-Reduce 上；All-to-All 仍然没有加法可卸载。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分层处理。预防：轨对齐、层次化 All-Reduce、把 EP 缩进 <a href="/llm/nvlink">NVLink</a> 域、错开检查点、限制并发进程组。这些减少同时到达同一端口的字节。</p><p>控制：RoCE 上谨慎开 PFC（尽量限在该优先级、避免 pause 风暴），用 ECN / DCQCN 做主控；把交换机缓冲区与标记阈值按集体消息大小标定，而不是按通用数据中心模板。IB 上开自适应路由要确认集体是否允许乱序；NCCL 对乱序的容忍随版本与协议而变，先测再开。</p><p>观测：不要只看平均带宽。看每步 All-Reduce 耗时直方图、PFC pause 计数、ECN 标记率、以及「单 rank 拖死全组」的离群。NCCL 超时先当网络尾延迟，再查算法死锁。</p><div class="mermaid"></div><p>应用层也能减脉冲：梯度分桶、与反向重叠、把一次大 All-Reduce 切成与计算交错的 chunk——这正是 NCCL 通道与框架桶的工作。切太碎则掉进 \(\alpha\) 区；切太整则 incas 更狠。拐点仍用带宽模型课的曲线。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无损网络把丢包换成暂停。集体的依赖是全连接的：一个 rank 停，全组停。于是 pause 的爆炸半径等于进程组大小，不是单流。有损 + 重传（纯以太网 TCP）爆炸半径也大，因为 NCCL 常用 RDMA 语义，不走 TCP；改走 TCP 会让 \(\alpha\) 烂掉，训练集群很少这么做。所以训练网几乎总在「无损 RDMA」世界里处理拥塞，手段是暂停或标记，不是丢包重传。</p><p>多租户把两列同步波叠在同一交换机上，相位随机，有时错开反而更好，有时对齐成双倍 incast。隔离（专用轨、专用优先级、专用交换机分区）比调一个全局 DCQCN 参数更稳。这是调度与网络的交接面。</p><p><span class="marginnote">静默丢包与 CRC 错误会表现为极长尾，而不是拥塞控制振荡。监控要把「队列满」与「链路错」分开，否则会把光纤问题调成 ECN 阈值。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在没有测量 pause 计数时关闭 PFC「因为听说会风暴」——有的结构没有 PFC 会丢包，NCCL 更惨。不要把数据中心 web 流量的拥塞配方抄到训练平面。不要期望拥塞控制修复画错的并行网格：EP 跨满 Clos 是体积问题，不是阈值问题。</p><p>下一课梯度压缩从应用层减 \(n\)，从而减脉冲高度。它与拥塞控制正交：先画对拓扑，再决定要不要压缩。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>训练集体是同步脉冲，拥塞控制反馈往往慢于一步。</li><li>PFC 防丢包但会把头端阻塞扩到全组；ECN 防暂停但可能同步振荡。</li><li>预防（层次化、轨、缩组、网内归约）优于只拧阈值。</li><li>观测用逐步直方图与 pause / 标记计数，不只看平均带宽。</li><li>出处：RoCEv2 PFC / DCQCN 实践；InfiniBand 拥塞控制；NCCL 超时排障。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 8 / 24 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gradient-compression/">梯度压缩</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

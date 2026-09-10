@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>任务向量算术 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_task-arithmetic.md.B8fnLgno.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 39 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/model-merging/">模型合并：SLERP / TIES / DARE</a></p><p class="lesson-next"> 下一课：<a href="/llm/causal-lm/">Causal LM</a></p></nav><div style="position:relative;"><div><h1 id="任务向量算术" tabindex="-1">任务向量算术 <a class="header-anchor" href="#任务向量算术" aria-label="Permalink to &quot;任务向量算术&quot;">​</a></h1><div class="epigraph"><p>微调相对预训练的位移可以当向量用：相加组合技能，相减削弱技能，在同一基座上有时能得到没有单独训过的行为。</p><footer>—— Ilharco et al., Editing Models with Task Arithmetic, ICLR 2023</footer></div><p><a href="/llm/model-merging">上一课</a>把 \(\delta\) 从汤里拆出来，并用 TIES / DARE 处理冲突。缺口是算术本身：Ilharco 等人定义任务向量 \(\tau_t=\theta_t^{\mathrm{ft}}-\theta_{\mathrm{pre}}\)，然后 \(\theta_{\mathrm{new}}=\theta_{\mathrm{pre}}+\sum_t\lambda_t\tau_t\)。本课是补层「训练基础与稳定性」的最后一课：缩放实践收在「已有检查点如何组合成新点」，不再从反传讲起。后课若进入附录或其它补层，默认你会：\(\tau\) 与基座绑定、系数 \(\lambda\) 要扫、冲突时回到 TIES。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>希望「代码能力 + 拒答策略 − 过度啰嗦」而不重新训。若各微调只是在预训练盆地里走了一小步，位移近似线性，算术有意义。\(\lambda\gt 1\) 是外推，可能增强任务也放大不稳（LSE、熵）；\(\lambda\lt 0\) 是削弱，可能伤及与该任务纠缠的通用能力。Ilharco 在视觉与部分语言设定上展示加、减、类比式组合。失败时不是调一个全局学习率能修的：那是几何假设破了，应减小 \(\|\tau\|\)、DARE 稀疏、或回到数据上真训。</p><p>与模型汤：汤平均的是 \(\theta\) 本身；任务算术平均（或加减）的是相对<strong>同一预训练</strong>的 \(\delta\)。基座不同不能减。与 EMA：EMA 无任务语义，是时间滤波。</p><p><span class="marginnote">\(\lambda\) 不是学习率。它缩放的是已经学完的位移。\(\lambda=0.5\) 的两个任务加和，才近似「各学一半」的汤；\(\lambda=1\) 两个满血相加，相当于假设方向正交，否则必冲突。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><ol><li>所有 \(\theta_t\) 从同一 \(\theta_{\mathrm{pre}}\) 微调，记录配方以免 \(\tau\) 含无关差异（不同 dropout、\(n\)、词表）。</li><li>选验证集扫 \(\lambda\)（通常 \([-1,2]\) 量级），任务间可不同 \(\lambda_t\)。</li><li>冲突先 TIES/DARE 再算术，或先算术再看哪一任务崩。</li><li>安全相关行为：减法不能当成对齐保证；拒答被减掉是已知风险，评测必须含安全集。</li></ol><p>不要把 RLHF 后的策略与 SFT 的 \(\tau\) 默认可加：RL 步可能离开线性区。先测 \(\theta_{\mathrm{pre}}+\lambda(\theta_{\mathrm{rl}}-\theta_{\mathrm{pre}})\) 的单轴，再多任务加。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>线性假设：损失在 \(\theta_{\mathrm{pre}}\) 附近沿各 \(\tau\) 的低维子空间近似二次，交叉项小则加成立。训练越久、\(\eta\) 越大、任务越改表示，\(\tau\) 越大、交叉项越大。这与「微调应当短」的经验一致：短 \(\tau\) 更好加。深度扩展、MoE 升级改变参数布局，旧 \(\tau\) 不能往新布局上贴。</p><p>数值上 \(\tau\) 应在 FP32 存储。多个 \(\lambda_t\tau_t\) 求和后加回，一次完成，避免连锁 BF16 舍入把小任务吃掉。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不声称任意技能可向量化，也不进入图像编辑里的那套扩散算术。词表或 tokenizer 不同的两个 \(\theta\) 不能减；那是另一条基座，应先对齐词表再谈 \(\tau\)。</p><p>补层到此结束：从注意力反向、初始化、稳定性传感器，走到缩放账与检查点几何。论文、型号与审计仍是附录，不插回这条主干之后的补层课序。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>任务向量是相对同一预训练的 \(\delta\)；加减组合技能，系数 \(\lambda\) 要扫。</li><li>\(\lambda=1\) 多任务相加假设方向近正交；否则先稀疏或符号决议。</li><li>与汤、EMA、RL 步的几何前提不同，不能混减不同基座。</li><li>安全行为可被减法去掉，必须单列评测。</li><li>本补层从反传到检查点算术收束；后课默认已读完本课序。</li><li>出处：Ilharco et al., ICLR 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 39 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/causal-lm/">Causal LM</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

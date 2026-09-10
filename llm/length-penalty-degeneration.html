@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>长度惩罚与退化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_length-penalty-degeneration.md.Dinyvehi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 1 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/fim-decode/">FIM / fill-in-the-middle 解码</a></p><p class="lesson-next"> 下一课：<a href="/llm/diverse-beam-search/">多样束搜索</a></p></nav><div style="position:relative;"><div><h1 id="长度惩罚与退化" tabindex="-1">长度惩罚与退化 <a class="header-anchor" href="#长度惩罚与退化" aria-label="Permalink to &quot;长度惩罚与退化&quot;">​</a></h1><div class="epigraph"><p>极大似然解码会把文本推向重复与套话；长度归一化能改束的排序，却治不好核里已经塌掉的分布。</p><footer>—— Holtzman et al., The Curious Case of Neural Text Degeneration, ICLR 2020；长度归一化见 Wu et al., Google&#39;s NMT, 2016</footer></div><p><a href="/llm/reasoning-faithfulness">上一课</a>把「写出来的思维链是否等于模型内部用过的那条」定成忠实性问题。本课打开「解码进阶」：权重已经冻住，用户看见的字符串仍由搜索目标决定。忠实性约束的是解释；长度惩罚与退化约束的是 <em>那条被当成最优的序列</em> 会不会其实是短循环。后课默认长度偏置与 Holtzman 式退化已经成立，不再从「自回归有一份分类头」讲起。采样旋钮见 <a href="/llm/sampling-temperature-topp">温度 / top-p</a>，束与采样的目标函数对照见 <a href="/llm/beam-vs-sample">Beam vs Sampling</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>束搜索近似 \(\arg\max_y \sum_t \log\pi(y_t\mid y_{\lt t})\)。更长的 \(y\) 对数和更负，实现若不归一化，束会爱提前结束；若简单除以长度，又会偏向注水的长句。Wu 等人在神经机器翻译里用长度惩罚（length penalty）把得分写成</p> \[\mathrm{score}(y)=\frac{\log\pi(y\mid x)}{(5+\lvert y\rvert)^\alpha/(5+1)^\alpha}, \]<p>\(\alpha\) 是经验指数。翻译里这能把过短假设拉回来。开放生成里同一套公式解决不了另一件事：高概率短循环（「是的是的是的」）的 <em>平均</em> 对数概率仍然很高，罚长度只会让循环更长或更短，不会让它变成具体内容。</p><p>Holtzman 等人把这种可观测的重复、万能套话叫做神经文本退化（degeneration）。根因是搜索在追求 MAP，而语言模型在安全的高频续写上堆了大量质量。上一课的忠实性假设「有一条真正用过的链」；若解码已经锁进循环，链本身就不是推理，忠实性无从谈起。缺口是：在不改 \(\pi\) 的前提下，搜索目标如何避免把退化当成最优。</p><p><span class="marginnote">\(T\to 0\) 的采样与 \(B=1\) 的束重合，一样会退化。长度惩罚是束的排序器，不是采样器。不要把 \(\alpha\) 当成温度的替代品。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先分清两套旋钮。长度惩罚只在 <em>已经生成的完整或部分假设</em> 上重排，不改变下一步的支撑集。presence / frequency penalty 按已出现 token 减 logit，改的是逐步分布，能打断短循环，也会伤害必须重复的标识符与 JSON 键。n-gram 阻断是硬约束，下一课之后才展开。开放闲聊应先用核采样，而不是先把束的 \(\alpha\) 调到 2 再抱怨套话。</p><p>翻译、摘要这类「有参照长度」的任务，长度惩罚仍然有用：假设长度应贴近源或预算。对话与思维链没有参照长度，\(\alpha\) 变成另一只看不见的手，把「停得早」或「写得长」写进产品行为。推理模型拉长思维链时，长度惩罚会与「想得够不够」打架——该用显式长度预算，不要借用 GNMT 的 \(\alpha\)。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>MAP 与人写的分布不对齐。人写的续写在核里是多峰的；束把质量收成一条最「安全」的脊。长度惩罚改变的是脊上不同长度点的相对高度，不把脊掰回多峰。因此：有参照的 MT 上，\(\alpha\) 修正的是搜索的长度偏置；开放生成上，真正有效的是改变支撑集（nucleus）或改变目标（采样 + 核对）。退化的典型实验对照是：贪心 / 大束出现重复，核采样在同样 \(\pi\) 上重复率下降——Holtzman 的主结果，不是某一聊天产品的默认温度。</p><p><span class="marginnote">服务端若把 length_penalty 与 repetition_penalty 同时打开，归因会失败。一次只动一类：排序器或逐步惩罚。日志里应记下 \(\alpha\)、是否对 EOS 额外加分，以及有没有覆盖核采样。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 GNMT 的 \(\alpha=0.6\) 抄进聊天默认。不要在 JSON / 代码路径上对标识符做频率惩罚。思维链评测若用带长度惩罚的束，报告的是 MAP 附近的套话链，不是 <a href="/llm/self-consistency">自洽</a> 假设的多样路径。评测解码必须与产品一致。</p><p>出处以 Holtzman et al. ICLR 2020 与 Wu et al. 2016 的长度归一化为准。不要给某一 API 的 <code>length_penalty</code> 默认值编造论文。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>长度惩罚修正束的长度偏置，不修复开放生成的 MAP 退化。</li><li>退化来自高频短循环在平均对数概率上仍然赢，加大 \(\alpha\) 只是让循环换长度。</li><li>开放生成应改支撑集或改目标（采样、核对），而不是只调 GNMT 公式。</li><li>频率惩罚与长度惩罚正交；一次调一类。</li><li>推理长度预算不要借用翻译的 \(\alpha\)。</li><li>后课默认你会区分「排序器」与「采样器」。</li><li>出处：Holtzman et al., ICLR 2020；Wu et al., <em>Google&#39;s Neural Machine Translation System</em>, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 1 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/diverse-beam-search/">多样束搜索</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

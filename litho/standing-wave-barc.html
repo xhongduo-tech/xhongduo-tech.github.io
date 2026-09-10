@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>驻波与 BARC | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_standing-wave-barc.md.BNkPH1aq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 光刻胶与计量<!--[--> · 单元 抗蚀剂<!--]--><!--[--> · 课序 轮廓、驻波与 EUV 胶<!--]--></p><p class="lesson-progress">第 12 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/litho/dissolution-mack/">Mack / Notch 溶解模型</a></p><p class="lesson-next"> 下一课：<a href="/litho/sidewall-angle/">侧壁角</a></p></nav><div style="position:relative;"><div><h1 id="驻波与-barc" tabindex="-1">驻波与 BARC <a class="header-anchor" href="#驻波与-barc" aria-label="Permalink to &quot;驻波与 BARC&quot;">​</a></h1><div class="epigraph"><p>衬底一反射，胶里就出现沿厚度的干涉条纹；溶解速率跟着 $I(z)$ 振荡，侧壁起波。BARC 要关掉的是这场反射，不是另做一层装饰膜。</p><footer>—— 据 Mack 对驻波与 swing curve 的讨论，以及 Levinson 对底层抗反的表述整理</footer></div><p><a href="/litho/dissolution-mack">上一课</a>把浮雕写成 \(R(m)\) 的积分，并默认 \(I(z)\) 是「给定的」。缺口是：衬底反射让入射与反射在胶里干涉，\(I(z)\) 以 \(\lambda/(2n)\) 为周期振荡，\(m(z)\) 跟着振荡。本课钉驻波与底层抗反射（BARC）。剖面角如何进刻蚀，留给<a href="/litho/sidewall-angle">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一课的 \(R(m)\) 在 \(m\) 沿 \(z\) 均匀时给出光滑侧壁。晶圆上很少均匀：胶–衬底界面反射把第二列波送回来，与入射叠加，形成驻波。亮节产酸（或 DNQ 转化）多，暗节少，显影后侧壁出现与周期对应的波纹。CD 对胶厚也极敏感——这就是 swing curve：厚度变四分之一光学波长量级，CD 可以走出窗。</p><p>缺口不是再拟合一次 \(n\) 和 \(m_\mathrm{th}\)，而是把光学薄膜栈接进 \(I(z)\)。只加剂量，平均 \(m\) 上移，波纹还在。只拧 PEB，酸扩散可以糊掉一部分 \(z\) 向条纹，却在付横向模糊的账。</p><h3 id="swing-不是剂量环能锁住的" tabindex="-1">Swing 不是剂量环能锁住的 <a class="header-anchor" href="#swing-不是剂量环能锁住的" aria-label="Permalink to &quot;Swing 不是剂量环能锁住的&quot;">​</a></h3><p>剂量闭环锁的是面能量密度的积分，不锁胶厚。涂覆均匀性、台阶上的局部厚度，走的是 swing 的横轴。BARC 的第一任务是把衬底反射压下去，从而压驻波对比与 swing 振幅。</p><p><span class="marginnote">周期是胶内 \(\lambda/(2n)\)，不是真空 \(\lambda/2\)。换波长、换胶折射率，条纹间距变。浸没改的是镜头侧介质，驻波仍在胶里算。不要把 NA 焦深与驻波节点当成同一个轴向问题。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>光学：用薄膜栈（空气/水–胶–BARC–衬底）算 \(I(z)\)。BARC 是高吸收或干涉相消的底层：有机 BARC 靠 \(k\) 吃反射；无机（如 SiON、SiARC）靠折射率与厚度做减反，并常兼硬掩模。厚度选在反射极小附近，且要对准这一层的 \(\lambda\) 与入射角（高 NA 还要小心角分布）。减反极小通常有多个厚度解，要同时看刻蚀穿通与涂覆窗口，不能只盯光学反射的第一个零点。</p><p>上层抗反（TARC）减的是胶顶反射，主要改 swing 的另一头与斑点，不替代 BARC。CAR 的上层涂层还管出气与胺，功能重叠但机制不同。本课对象是底部反射 → 驻波。换金属衬底而不换 BARC，是驻波事故的常见写法。</p><h3 id="与溶解模型的接口" tabindex="-1">与溶解模型的接口 <a class="header-anchor" href="#与溶解模型的接口" aria-label="Permalink to &quot;与溶解模型的接口&quot;">​</a></h3><p>把 \(I(z)\) 送进产酸或 Dill 曝光，得到 \(m(x,z)\)，再进 Mack / Notch 的 \(R(m)\)。OPC 紧凑模型若假设单一平面强度，等于忽略本课；校准片必须在真实栈上做。换衬底（金属、多晶、介质）等于换反射，BARC 要重选。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>入射与反射相干叠加，波腹波节沿 \(z\) 交替。正胶在波节处转化不足，显影后留下凸起；波腹处过转，凹进。横向看就是侧壁波纹。酸扩散（PEB）在 \(z\) 向也有分量，可以部分抹平条纹，这是 CAR 相对 i 线 DNQ 的额外平滑——下一课讲侧壁角时会看到「波纹被糊掉但仍有平均锥角」。没有 BARC 时，Mack 的 \(R(m)\) 仍然正确，只是输入 \(m(z)\) 已经皱了；把波纹侧壁归因于「γ 不够」会去拧显影，而不是去选 BARC。</p><p>Swing：胶厚变，入射与反射的相位差变，耦合进胶的能量变，平均 CD 随厚度振荡。BARC 把反射振幅打下来，振荡幅度下降，涂胶窗口才打得开。高 NA、大入射角使有效路径与偏振分裂，减反条件变窄，这是矢量成像课已经警告过的薄膜缺口，本课落到 BARC 工艺。</p><p><span class="marginnote">BARC 开口以后，刻蚀要先穿 BARC 再刻衬底。减反膜同时是刻蚀栈的一层，选择比与残留进 AEI。光学最优厚度若刻不穿，光学窗会输给转印。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写某品牌 BARC 的 \(n\)、\(k\) 表，不把「有机一定不如无机」写成定律。EUV 反射掩模与晶圆侧底层是另一套吸收逻辑，后课 EUV 底层再声明。不要把 flare 当成驻波：flare 是长程杂散，驻波是薄膜相干。</p><p>侧壁角的平均值（锥形、倒锥）即使驻波被压平也还在，来自吸收体效应与显影。下一课接这条几何，不再重推干涉。</p><p>换衬底金属或介质而不重选 BARC，是驻波事故的常见写法。光学最优若刻不穿，转印优先。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>衬底反射在胶内产生周期 \(\lambda/(2n)\) 的驻波，\(R(m)\) 跟着振荡。</li><li>Swing curve 是 CD 对胶厚；剂量环锁不住厚度轴。</li><li>BARC 压反射，从而压驻波与 swing；它同时是刻蚀栈。</li><li>TARC 管顶反射，不替代 BARC。</li><li>下一课在减反之后仍要面对剖面角。</li><li>出处：Mack, <em>Fundamental Principles of Optical Lithography</em>；Levinson, <em>Principles of Lithography</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 光刻胶与计量<!--[--> · 单元 抗蚀剂<!--]--><!--[--> · 课序 轮廓、驻波与 EUV 胶<!--]--></p><p class="lesson-progress">第 12 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/sidewall-angle/">侧壁角</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

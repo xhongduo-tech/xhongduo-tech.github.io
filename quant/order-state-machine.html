@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>订单状态机 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_order-state-machine.md.Dv1Ff11z.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 4 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/late-data-recon/">时钟、迟到数据与对账</a></p><p class="lesson-next"> 下一课：<a href="/quant/trading-kill-switch/">风控闸门与熔断</a></p></nav><div style="position:relative;"><div><h1 id="订单状态机" tabindex="-1">订单状态机 <a class="header-anchor" href="#订单状态机" aria-label="Permalink to &quot;订单状态机&quot;">​</a></h1><div class="epigraph"><p>指令从提交到成交或消失，中间要经过确认、排队、部分成交、改单与取消。回测若把目标仓位直接写成持仓，等于跳过这部状态机，也跳过拒单与残余风险。</p><footer>—— 据 Harris, Trading and Exchanges 对订单生命周期与优先规则的论述；对照 FIX 对订单状态的公开语义</footer></div><p>策略输出的是意图：买或卖多少、以什么约束。交易所与经纪商返回的是状态：已接收、已挂上、已部分成交、已拒绝、已取消、已过期。Harris 把连续市场描述为指令进入、排队、撮合与取消的过程；公开的 FIX 协议把这一过程收成可互操作的状态与消息。回测与实盘要对账，必须共享同一部订单状态机：同一意图在模拟撮合器与真网关上走过同类转移，才能比较短fall。本篇写状态、合法转移、以及它们如何进入<a href="/quant/event-driven-backtest">事件驱动引擎</a>。范围限于把意图诚实地变成仓位与记录，不讨论用挂单与撤单去塑造他人看到的簿。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>向量化回测的持仓是时间序列上的一个数。真实持仓是许多张订单的成交增量之和，每张订单还可能有未成交余量在簿上暴露。余量是风险：价格跳开时它可能被捡走，也可能成为你以为已经退出但实际仍挂着的腿。没有状态机，回测无法表达「已提交未确认」「已挂上未成交」「取消中」这些在实盘里占用风控额度的状态。Narang 把交易作业写成必须可审计的环节；不可审计的往往正是这些中间态。</p><p>拒单与替换使问题更尖。资金不足、涨跌停、自成交防控、重复客户订单编号，都会在「New」之前或之后把意图打回。回测若把每一次目标仓位变化都当成必然成交，完成率恒为 1，<a href="/quant/capacity-participation">容量</a> 与<a href="/quant/cost-sensitivity">成本敏感性</a> 都被高估。状态机的第一用途是让未成交成为一等公民：它改变下一事件上的目标缺口，而不是事后填成已成交。</p><h3 id="状态是风控的输入" tabindex="-1">状态是风控的输入 <a class="header-anchor" href="#状态是风控的输入" aria-label="Permalink to &quot;状态是风控的输入&quot;">​</a></h3><p>限额应作用在「已挂出的名义 + 已成交的名义」上，而不是只作用在已成交仓位上。只看仓位，策略可以在等待确认时连续发单，实盘瞬间超限。状态机把 in-flight 量暴露给风控闸门。Harris 对展示量与隐藏量的区分也是状态：冰山的隐藏余量仍是你的指令，即使簿上只显示一小块。回测若只模拟可见深度消耗、不追踪隐藏余量，账本与交易所会对不上。</p><p><span class="marginnote">客户订单编号必须在状态机里唯一且幂等。重发同一编号应回到同一张单，而不是开出第二张。回测忽略幂等，实盘网络重试就会双倍下单；这是对账事故，不是 alpha 衰减。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最小状态集可以写成：<code>created</code>（本地意图）→ <code>pending_new</code>（已发送未确认）→ <code>new</code>（已在簿上或已进入撮合）→ <code>partially_filled</code> → <code>filled</code>；以及从可取消状态出发的 <code>pending_cancel</code> → <code>canceled</code>，还有 <code>rejected</code>、<code>expired</code>、<code>replaced</code>。转移由事件触发：交易所确认、成交回报、拒绝、到期、改单确认。非法转移应报错并使该次回测或该笔实盘进入对账失败，而不是静默纠正——静默纠正会让模拟与实盘各写各的「合理化」。</p><p>部分成交是普通情况而不是异常。每次成交减少余量、增加仓位、更新均价；余量为零才进入 <code>filled</code>。改单在许多市场上等价于取消旧单并提交新单，因而丧失<a href="/quant/cancel-queue-position">队列位置</a>；状态机应把 <code>replaced</code> 做成显式，避免策略以为自己还在队头。市价单可能没有 <code>new</code> 上的长停留，但仍会经历 <code>pending_new</code> 与拒绝（例如已无对手深度且不允许虚市）。这些语义必须按场所分支，并版本化进配置发布。</p><h3 id="与账本、托管三方对账" tabindex="-1">与账本、托管三方对账 <a class="header-anchor" href="#与账本、托管三方对账" aria-label="Permalink to &quot;与账本、托管三方对账&quot;">​</a></h3><p>策略状态机是一方，经纪商/交易所是一方，内部账本是第三方。每一笔成交事件应能在三方找到同一 <code>exec_id</code>。对不上时进入<a href="/quant/late-data-recon">迟到数据与对账</a> 的闸门：停止新开仓。模拟环境用撮合器冒充第二方，但消息字段应尽量与实盘一致，否则隔离只隔离了钱，没有隔离语义。<a href="/quant/research-sim-prod">环境隔离</a> 要求实盘与模拟跑同一状态机代码，差别只在网关。</p><p><span class="marginnote">FIX 的 <code>OrdStatus</code> 与 <code>ExecType</code> 是两套信息：前者是订单当前状态，后者是本条消息的原因。回测自造一套枚举可以，但必须能映射到将用于实盘的那一套，否则日志无法对照。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>状态机把并发下单从「共享持仓变量上的竞态」变成「每张订单的私有状态 + 账本上的聚合」。聚合仓位 = 所有 <code>filled</code> 增量之和；在途风险 = 所有 <code>new</code>/<code>partially_filled</code>/<code>pending_*</code> 的余量。风控读这两项。事件循环保证同一品种上的转移有序，避免先处理取消回报再处理更早的成交这种乱序——乱序应通过序号与到达戳检测，而不是靠最后写入获胜。</p><p>完成率、拒单率、取消率是状态机的自然输出，应进入模拟的晋级关卡。研究层的向量化没有这些比率，只能事后用解析冲击近似。若模拟完成率远低于 1，向量化夏普应视为不可达，而不是用更大名义去「补上」未完成的风险——补上等于在事件层引入新的、未经 CPCV 的规则。López de Prado 对回测过拟合的警告在这里的形式是：针对拒单临时加的补丁是新试验。</p><h3 id="过期、拍卖与会话边界" tabindex="-1">过期、拍卖与会话边界 <a class="header-anchor" href="#过期、拍卖与会话边界" aria-label="Permalink to &quot;过期、拍卖与会话边界&quot;">​</a></h3><p>日终未完成的限价单可能过期、可能转入下一会话，取决于指令的时效（day、IOC、GTC 等）。状态机必须在会话事件上扫描时效，产生 <code>expired</code> 或保持 <code>new</code>。集合竞价期间的状态转移与连续竞价不同：可能没有队列消耗，而是一次性按规则分配。回测若用连续撮合去模拟开盘，均价与成交量都会错。这些是场所规则，应写成数据而不是写成策略 if-else；策略只面对状态与余量。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>状态机保真度有上限。没有 L3，你无法确知自己的队列名次，只能用统计模型；状态仍应追踪「我以为的余量」，并在成交回报与预期不一致时记录模型误差。不要为了让回测通过而对拒绝转移做自动重试而不计入 \(N\)：重试政策是策略的一部分，必须冻结。也不要把状态机做成可以在回测里手工改状态以抹平差错的后台；那会摧毁与实盘的可比性。</p><p>本篇的订单是为了完成已声明的目标仓位。展示、冰山、暗池是合法的执行约束，见订单类型一文；它们改变可见性与优先，不改变「状态必须与成交一致」这一会计要求。任何需要依赖误导性展示才能成立的边缘，都不属于回测架构的讨论范围。工程上应拒绝把「不打算成交的挂单」写成默认执行路径——那既无法与托管对账，也不是本系列的对象。</p><p><span class="marginnote">客户与交易所对「已取消」的定义可能差一笔在途成交：取消请求发出后、确认前的成交仍合法。状态机应允许 <code>pending_cancel</code> 下的成交，再进入 <code>canceled</code> 或 <code>filled</code>。回测若禁止这种转移，实盘对账会在快市里必炸。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>订单状态机把意图、在途余量与成交增量分开，使拒单、部分成交与取消成为回测的一等事件。</li><li>Harris 的连续市场描述与 FIX 的公开状态语义，是模拟与实盘应对齐的最小词典。</li><li>风控必须计入 in-flight 名义；幂等编号防止重试双下单。</li><li>非法转移应使对账失败，而不是静默修补；<code>pending_cancel</code> 下仍可能成交。</li><li>完成率与拒单率是晋级关卡；为拒单临时加的补丁是新的试验次数。</li><li>出处：Harris, <em>Trading and Exchanges</em>；FIX 协议的订单状态语义；Narang, <em>Inside the Black Box</em>；López de Prado, <em>AFML</em>, 2018；执行约束见订单类型与队列位置两篇。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 4 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/trading-kill-switch/">风控闸门与熔断</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

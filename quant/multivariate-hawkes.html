@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多元 Hawkes 互激 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_multivariate-hawkes.md.CctXBCfU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 微观结构续<!--[--> · 单元 簿动力学与点过程<!--]--><!--[--> · 课序 队列与强度<!--]--></p><p class="lesson-progress">第 13 / 18 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hawkes-lob/">Hawkes 订单簿强度</a></p><p class="lesson-next"> 下一课：<a href="/quant/acd-duration/">ACD 自回归条件久期</a></p></nav><div style="position:relative;"><div><h1 id="多元-hawkes-互激" tabindex="-1">多元 Hawkes 互激 <a class="header-anchor" href="#多元-hawkes-互激" aria-label="Permalink to &quot;多元 Hawkes 互激&quot;">​</a></h1><div class="epigraph"><p>一类事件不仅可以激励自己再次发生，还可以激励另一类：主动买抬高随后的主动卖，限价到达抬高随后的撤销。互激把「成串」从单变量记忆写成一张有向的核矩阵。</p><footer>—— Hawkes, Spectra of some self-exciting and mutually exciting point processes, Biometrika, 1971；高频估计与分支矩阵见 Bacry 等人的工作</footer></div><p>一维 Hawkes 只有自激：过去的成交抬高现在的成交强度。<a href="/quant/hawkes-trades">成交到达强度</a> 用它说明成串与分支比；<a href="/quant/hawkes-lob">Hawkes 订单簿强度</a> 已经把事件扩成多类，但重点仍在簿的生成与恢复力。本篇把对象收窄到<strong>互激本身</strong>：核矩阵 \(\Phi=(\phi_{ij})\) 的非对角元、分支矩阵的谱、以及「谁 Granger-激励谁」在点过程里的含义。它是识别工具，用来区分切片动量、回弹补货与闪价回路，不是用来构造一条「跟着互激下单」的策略。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>买卖成交若只有自激，市场像两列几乎分开的火车：买的切片激励更多买，卖的切片激励更多卖。若还有互激，火车之间有换乘：买之后很快有卖，可能是做市存货对冲、套利回补或简单的价格噪声交易。这两种世界里，同样的成交密度对应完全不同的中点路径——前者趋势，后者来回。只报告一维 \(n\) 无法区分。多元模型的最小问题是：估计 \(N_{ij}=\int_0^\infty\phi_{ij}(u)\,\mathrm{d}u\)，即 \(j\) 类事件平均触发多少个 \(i\) 类后代（直接加间接要靠 \((I-N)^{-1}\) 的 resolvent）。</p><p>第二个问题是维数。\(d\) 类事件有 \(d^2\) 个核。没有稀疏性或参数共享，单日微观结构样本也能过拟合出「全连接互激」。需要可检验的约束：例如对角主导、反对角只允许成交、限价-撤销对只允许同侧，等等。</p><h3 id="分支矩阵与谱半径" tabindex="-1">分支矩阵与谱半径 <a class="header-anchor" href="#分支矩阵与谱半径" aria-label="Permalink to &quot;分支矩阵与谱半径&quot;">​</a></h3><p>线性多元 Hawkes 的强度为</p> \[\lambda_i(t)=\mu_i+\sum_j\int_{(-\infty,t)}\phi_{ij}(t-s)\,\mathrm{d}N^j_s. \]<p>积分核得到 \(N=(N_{ij})\)。过程稳定（存在平稳强度）的充分条件是 \(\rho(N)\lt 1\)。\(\rho\) 接近 1 表示系统接近临界分支过程：外生的一笔可以引发长串后代，类与类之间传递。Filimonov–Sornette 式的内生性讨论在多元里应报告 \(\rho(N)\) 与主导特征向量，而不是某一个 \(N_{11}\)。特征向量告诉我们余震能量主要贮存在哪些事件类型里——往往是撤销，而不是成交，因为撤销远更频繁。</p><p><span class="marginnote">\(N_{ij}\) 是事件计数的平均后代，不是股数，也不是价格。大核可以从大量一股的闪价里来。解释经济大小时，至少用标记过程或用「该类事件的平均量」去换算。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>指数核下 \(\phi_{ij}(u)=\alpha_{ij}e^{-\beta_{ij}u}\)，或对所有边共享一组 \(\beta\) 以减少参数。估计用极大似然；高维用正则化（对 \(\alpha\) 的 L1）或逐步加入边：从对角开始，按残差互相关的拉格朗日乘子检验加边。Bacry 等人也发展了基于矩和 Wiener–Hopf 的估计，适合核形状未知、但需要非参数 \(\phi_{ij}(u)\) 的情形——例如看互激是 10 毫秒峰值还是 1 秒峰值。</p><p>因果叙述要小心。点过程里「\(j\) 激励 \(i\)」是：在历史上加入 \(j\) 的事件会提高 \(i\) 的条件强度。它不是结构因果模型里的 do-演算，更不是可交易领先。延迟的行情会让先收到的场所看起来在激励后收到的场所。多市场研究必须用各交易所自己的撮合时间，而不是本地到达时间，否则互激图会画成光纤图。</p><h3 id="三种可命名的子矩阵" tabindex="-1">三种可命名的子矩阵 <a class="header-anchor" href="#三种可命名的子矩阵" aria-label="Permalink to &quot;三种可命名的子矩阵&quot;">​</a></h3><p>把事件排成买成交、卖成交、买限价、卖限价、买撤、卖撤。三个子块几乎总是值得单独报告：</p><ol><li><strong>成交块。</strong> 对角：切片与动量；反对角：回弹、存货对冲。对角减反对角的差，粗略区分趋势流与来回流。</li><li><strong>成交→限价块。</strong> 对手方限价被激励：补货、恢复力；同侧限价被激励：追价排队。</li><li><strong>限价↔撤销块。</strong> 同侧高互激：闪价与探询；若限价强烈激励对手方撤销，可能是报价被跨越前的逃逸。</li></ol><p>这些名字是事后标签，要靠核的时间尺度核对：闪价在毫秒，补货可以到秒，切片看母单节奏。跨尺度的单一指数核会把它们混成一个 \(\alpha\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>互激的微观机制不必是知情。做市商在被买成交击中后，可能撤销剩余买限价并在卖侧补货，于是 \(M^b\) 激励 \(C^b\) 与 \(L^a\)。套利账户在一腿成交后立刻打另一腿，表现为跨合约互激。同一母单的子单在买卖之间很少互激，更多是对角自激。因此核矩阵是参与者混合的投影，不是单一策略的指纹。把估计出来的反对角叫做「做市商存在」是过度诠释；只能说数据与补货回路相容。</p><p>与 QR 的关系：队列变薄会同时提高某些强度，即使没有时间核也会看到「成交之后限价增多」。多元 Hawkes 若不含 \(q\)，会把状态反应估成互激。混合做法是 \(\lambda_i(t)=\mu_i(q_t)+\sum_j(\phi_{ij}*dN^j)\)，让 \(\mu\) 吸收 QR，\(\phi\) 吸收真正的记忆。这是目前较干净的识别，也更难估。</p><h3 id="从互激到价格相关" tabindex="-1">从互激到价格相关 <a class="header-anchor" href="#从互激到价格相关" aria-label="Permalink to &quot;从互激到价格相关&quot;">​</a></h3><p>若买成交激励卖成交的核很强且快，中点更可能在成交后回跳，有效价差的实现部分变小；若几乎只有对角，中点更可能继续走，永久冲击份额上升。Bouchaud 传播核把带符号成交对价格的平均响应写成 \(G(\tau)\)；多元 Hawkes 提供成交符号序列的生成器。二者可以耦合：用 Hawkes 生成符号，用 \(G\) 生成价格，得到冲击的时间结构——这是连接本篇与 <a href="/quant/bouchaud-propagator">传播核</a> 的标准桥。不要在没有价格模型的情况下，从 \(N\) 直接读出夏普。</p><p><span class="marginnote">谱半径接近 1 时，似然对核误设极度敏感。报告时应给出对 \(\beta\) 网格、对是否含开盘、对是否剔除公告窗的稳健性，而不是一个点估计叙事。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>线性互激不能表示「成交之后暂时禁止同方向」这类抑制，而自成交防范与最小报价寿命会制造短不应期。负核或非线性抑制存在文献，但平稳性条件更绕。类别若按价格档位再拆，维数爆炸，通常应停在 BBO 事件。集合竞价、涨跌停板上的连续同向成交会让对角核爆掉，这些时段应删掉或单独建模。</p><p>不要用估计出的 \(\Phi\) 去「预测下一笔类型」当回测 alpha：你自己的下单会立刻改写过程，开环命中率没有执行含义。不要把跨市场的互激图当成领先指标对外宣传，除非已经用撮合时间做过延迟稳健性。午休、隔夜必须切断卷积。</p><p><span class="marginnote">互激矩阵适合做设定检验与机制分类。把它当因子库里的一列高维特征，通常既不平稳，也不正交于波动与成交量。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多元 Hawkes 用核矩阵描述类与类之间的激励；稳定性看分支矩阵的谱半径。</li><li>对角与反对角的成交块区分动量切片与回弹；成交对限价的块描述恢复力。</li><li>高维必须稀疏化；残差互相关用于加边，而不是一上来估满矩阵。</li><li>不含队列状态时，QR 式的状态反应会被误认为互激。</li><li>延迟、制度时段与事件计数（而非股数）限制经济解释。</li><li>出处：Hawkes, <em>Biometrika</em>, 1971；市场中的多元估计见 Bacry, Mastromatteo and Muzy 及后续的核与分支比工作。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 微观结构续<!--[--> · 单元 簿动力学与点过程<!--]--><!--[--> · 课序 队列与强度<!--]--></p><p class="lesson-progress">第 13 / 18 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/acd-duration/">ACD 自回归条件久期</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

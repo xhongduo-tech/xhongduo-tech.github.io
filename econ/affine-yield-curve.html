@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>仿射期限结构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_affine-yield-curve.md.BRn4OKHk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 货币银行与公司金融<!--[--> · 单元 资产定价理论<!--]--><!--[--> · 课序 均衡定价到限价簿<!--]--></p><p class="lesson-progress">第 45 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/econ/liquidity-habitat-term/">流动性溢价与栖息地</a></p><p class="lesson-next"> 下一课：<a href="/econ/to-limit-order-book/">到限价簿：理论在此停</a></p></nav><div style="position:relative;"><div><h1 id="仿射期限结构" tabindex="-1">仿射期限结构 <a class="header-anchor" href="#仿射期限结构" aria-label="Permalink to &quot;仿射期限结构&quot;">​</a></h1><div class="epigraph"><p>若短期利率与风险价格对状态仿射，债券价格就是指数仿射，收益率对因子线性；曲线是状态变量的函数，不是某一档国债的挂单价。</p><footer>—— Duffie and Kan, A Yield-Factor Model of Interest Rates, Mathematical Finance, 1996；对照 Piazzesi 对仿射期限结构模型的综述</footer></div><p><a href="/econ/liquidity-habitat-term">上一课</a>给 EH 补上期限溢价的均衡语言：价格风险、分割、栖息地。\(\ell^{(n)}\) 仍是与 \(m\) 的协方差，尚未给出一条可处理的动态曲线。本课缺口是仿射期限结构（DTSM 的理论核）：用低维因子生成整条 \(y^{(n)}\)。不是国债微观结构，不重写限价簿。主干下一课在等式处停，协议从队列处起。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>栖息地说明 \(\ell^{(n)}\) 可以随相对供给与客户群动，但没有给出 \(y_n\) 如何随几个状态一起走。Vasicek、CIR 已经是单因子特例：短期利率均值回复，债券价格有闭式。Duffie 与 Kan（1996）把家族收成仿射：状态 \(X\) 的漂移与扩散协方差对 \(X\) 仿射，短期利率 \(r=\delta_0+\delta_1\cdot X\)，风险中性下仍仿射，则零息价格 \(P(n,X)=\exp(A(n)+B(n)\cdot X)\)，到期收益率对 \(X\) 线性。这就是因子收益率模型。</p><p>缺口是把 EH 加溢价写成一个状态空间，而不是把 on-the-run、特殊券、可交割最便宜提前写进本栏。那些是量化栏的券与协议；本课的对象是 \(P_n=\mathrm{E}[m^{(n)}]\) 的仿射特化。</p><p><span class="marginnote">仿射：收益率 \(y_n\) 对因子线性。高斯仿射里因子正态；CIR 式平方根保证利率为正但破坏高斯。DTSM 是这类动态期限结构模型的统称，不是某一家央行的拟合软件名。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在风险中性测度下设定 \(X\) 的仿射扩散，选 \(r\) 仿射，解 ODE 得 \(A(n),B(n)\)。物理测度上的风险价格若也对 \(X\) 仿射，则两测度的漂移差可识别为期限溢价的来源——正是上一课 \(\ell^{(n)}\) 的动态版。因子可以叫「水平、斜率、曲率」，那是载荷 \(B(n)\) 的形状，不必先有主成分故事。</p><div class="mermaid"></div><p>Piazzesi 的综述把识别、测量误差、宏观因子（货币政策规则进 \(X\)）写成同一家族的扩展。本课只取 Duffie–Kan 的核：闭式来自仿射，不是来自「国债流动性分层」。相对供给若被写进 \(X\) 的一个分量，栖息地与仿射可以接；盘口厚度仍不是 \(X\)。</p><h3 id="不要把-当成某一档报价" tabindex="-1">不要把 \(y_n\) 当成某一档报价 <a class="header-anchor" href="#不要把-当成某一档报价" aria-label="Permalink to &quot;不要把 $y_n$ 当成某一档报价&quot;">​</a></h3><p>模型产出的是贴现函数。哪一张券、哪一个到期惯例、是否 cheapest-to-deliver，是把贴现函数映射到发票价格的约定。本栏不进入这些约定，以免把 DTSM 吞进微观结构。下一课 <a href="/econ/to-limit-order-book">到限价簿</a>会把这句话执行到底：理论停；簿是协议。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是指数仿射把条件期望变成 ODE。无套利要求同一 \(X\) 给所有到期定价；载荷 \(B(n)\) 描述久期对因子的敏感，期限溢价是风险价格乘这些敏感。EH 是风险价格为零（或与债券回报不相关）的特例；Hicks 式流动性偏好对应风险价格使长端 \(B(n)\) 贡献正的 \(\ell^{(n)}\)。供给冲击若移动栖息地，在仿射里表现为 \(X\) 或风险价格的跳，仍是均衡状态，不是某一档时间优先。</p><p>货币政策可以把短端钉在规则上，长端由 \(B(n)\) 把预期与溢价推出去——非常规政策扭的是 \(X\) 里的期限供给或风险价格，上一课已经留过通道。本课不估计 QE 基点。</p><p><span class="marginnote">Duffie and Kan, <em>Mathematical Finance</em> 1996。Piazzesi 的 Handbook 章节是对照综述。不要发明 arXiv。不要把仿射写成「三因子股票模型」的债券版；截面股票因子在量化栏。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要在本栏做 Fama–Bliss 回归，不要拟合 Nelson–Siegel 再宣布栖息地被证实。也不要把国债 ETF、期货基差、回购特殊券写进来。因子实证与交易协议一律换栏。本课之后不是再写一个均衡模型，而是承认曲线上的数字还没有交易程序。</p><p>后课默认：仿射 DTSM 用低维状态生成整条收益率曲线，期限溢价是仿射风险价格；这不是微观结构。下一课把本栏主干停在限价簿之前。打开 <a href="/quant/lob-structure">/quant/lob-structure</a> 时，只携带「应当有一个均衡价格」，不携带队列几何，也不携带哪一档国债的挂单。</p><p>高斯仿射可以让利率为负；那是模型代价，不是对 ZLB 的描述。平方根与影子利率是后补，本课不展开。</p><p>宏观因子（通胀、产出缺口）可以放进 \(X\)，使短端规则与长端溢价在同一个仿射里。那仍是均衡 DTSM，不是把 Phillips 曲线画到国债盘口上。测量误差、调查利率、或用掉期代替国债，属于把 \(y_n\) 接到哪一套报价，后课交接时一并放下。</p><p>本栏读者打开 <a href="/econ/to-limit-order-book">到限价簿</a> 时，只携带仿射曲线与栖息地溢价，不携带 tick、队列与特殊券。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Duffie–Kan：仿射状态 ⇒ 债券价格指数仿射 ⇒ 收益率对因子线性。</li><li>这是 EH 与栖息地溢价的动态特化，不是国债盘口理论。</li><li>主干下一课交接：理论停，簿是协议；不重写限价簿。</li><li>\(y_n\) 不是某一档挂单价；特殊券与 CTD 是映射约定，换栏再谈。</li><li>打开 <a href="/quant/lob-structure">/quant/lob-structure</a> 时不携带队列几何。</li><li>高斯仿射可让利率为负，那是模型代价，不是对下限的描述。</li><li>出处：Duffie and Kan, <em>Mathematical Finance</em> 1996；对照 Piazzesi 对仿射 DTSM 的综述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 货币银行与公司金融<!--[--> · 单元 资产定价理论<!--]--><!--[--> · 课序 均衡定价到限价簿<!--]--></p><p class="lesson-progress">第 45 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/to-limit-order-book/">到限价簿：理论在此停</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

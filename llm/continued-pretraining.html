@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Continued Pretraining | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_continued-pretraining.md.DrOqqI_W.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 预训练配方续<!--]--><!--[--> · 课序 阶段与数据<!--]--></p><p class="lesson-progress">第 18 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/annealing-phase/">Annealing 退火阶段</a></p><p class="lesson-next"> 下一课：<a href="/llm/olmo2-midtrain-recipe/">OLMo 2 midtrain 配方</a></p></nav><div style="position:relative;"><div><h1 id="continued-pretraining" tabindex="-1">Continued Pretraining <a class="header-anchor" href="#continued-pretraining" aria-label="Permalink to &quot;Continued Pretraining&quot;">​</a></h1><div class="epigraph"><p>多阶段自监督训练并不新鲜；我们把后一段叫 mid-training，用来注入新知识、补上预训练没买到的能力。</p><footer>—— OLMo Team，*2 OLMo 2 Furious*，arXiv:2501.00656（并追溯 Gururangan et al. 2020）</footer></div><p>Continued pretraining（续预训练，常缩写 CPT）指：已经用下一词损失训过的语言模型，<strong>不改目标、继续在新语料上做自监督</strong>。Gururangan 等人 2020 年把这条路写成领域自适应（DAPT）与任务自适应（TAPT）：先在目标域无标注文本上续训，再做分类微调，往往比直接微调更稳。OLMo 2 明确引用该工作，同时采用 Abdin 等与 OpenAI 2024 的词 <strong>mid-training</strong>，把续训放进底座交付，而不是留给下游用户。本篇写续训作为方法，配方细节见 <a href="/llm/olmo2-midtrain-recipe">midtrain 专文</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>通用网页预训练给出语言与世界知识的宽先验，但域内分布——数学解题、学术段落、指令腔——在网页里稀疏。把这些源从第一步就按高比例混入，会挤占通识 token，且你往往<strong>在训了数 T 之后才发现缺哪一门</strong>。从头重跑太贵。另一条路是监督微调：有输入输出对就能改行为，可是格式一变、域一偏，模型容易只学表面模板，底层计算图仍弱。</p><p>续训要回答的是：在<strong>同一条语言模型损失</strong>下，用远少于预训练的 token，把域内边际抬上去，并且尽量不把已经买到的通识冲掉。这与「换任务头」不同，也与 RLHF 不同。失败模式很具体：灾难性遗忘、把评测集训练进续训混合、以及把 SFT 误当成 CPT。</p><h3 id="自监督续训不是指令微调" tabindex="-1">自监督续训不是指令微调 <a class="header-anchor" href="#自监督续训不是指令微调" aria-label="Permalink to &quot;自监督续训不是指令微调&quot;">​</a></h3><p>CPT 的样本仍是原文 continuation：网页、论文、合成题面与解答可以首尾相接，损失在每个 token 上。SFT 把对话模板、系统角色、拒绝策略写进条件分布，梯度集中在助手侧。OLMo 2 的中训含 FLAN 与 Tulu 式指令源，<strong>损失仍是语言模型</strong>，只是这些源的格式更像下游；真正的 Instruct 要再走 SFT → DPO → RLVR。读论文时不要看见「instruction data」就把中训标成后训练。</p><p><span class="marginnote">Gururangan 的 DAPT 在领域语料上续训 RoBERTa；TAPT 在任务无标注文本上再续一段。现代 LLM 的「域」更大：STEM、代码、多语、长上下文都可以是一段 CPT。共同约束是：目标仍是下一词条件概率。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>操作上几乎总是三件事一起定：从哪个检查点出发、新混合是什么、学习率如何从当前值收到更低。OLMo 2 的公开实例：从 olmo-mix 上训完的 Base 中段/末段出发，换成 Dolmino Mix 1124，<strong>线性把学习率降到零</strong>——续训与 <a href="/llm/annealing-phase">退火阶段</a> 叠成同一流水线。不是所有 CPT 都必须到零：有人在恒定低学习率上续域内数据，便于以后再续一次；那是另一份日程，不能把 OLMo 2 的到零写成 CPT 的定义。</p><p>防遗忘的公开做法是<strong>把通用网页留在混合里</strong>。Dolmino 各档里过滤后的 DCLM 大约一半 token；数学、Wiki、StackExchange、FLAN 是另一半。micro-anneal 里甚至用 10% 数学 / 90% 网页也能把 GSM* 从约 28 拉到约 61，说明续训不要求域内占满预算，但要求域内信号存在。域内数据稀缺时，报告允许小倍数重复（2×、4×），再靠网页稀释。</p><div class="mermaid"></div><h3 id="何时续训、何时直接-sft" tabindex="-1">何时续训、何时直接 SFT <a class="header-anchor" href="#何时续训、何时直接-sft" aria-label="Permalink to &quot;何时续训、何时直接 SFT&quot;">​</a></h3><p>若缺口是「不会解应用题、不会读科学段落」，监督对只能教格式，教不会中间算术；CPT 或合成解题文本更对症。若缺口是「会做但拒答、啰嗦、不会用工具」，那是后训练。OLMo 2 先用中训把 GSM8K 从 24.1 拉到 67.5（7B，含训练集污染声明），再交给 Tulu 配方——顺序不能倒过来指望 SFT 补底座算术。相反，把对话数据当 CPT 的主体、还不留网页锚点，通识基准会掉，聊天看起来变好只是风格漂移。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>下一词损失在新分布上继续，等于用旧参数当初始化做一次较短的预训练。表示空间已经被通识撑开，域内稀疏模式更容易被拟合——这是「先宽后窄」的课程，而不是新归纳偏置。学习率必须低于预训练峰值的典型原因是：特征已经可用，大步长会破坏。OLMo 2 用线性到零把这一点做成硬约束；其它配方用峰值的 10%–30% 常数段，语义相同：续训步长是微调量级，数据仍是无监督。</p><p>遗忘来自分布偏移。若新混合的 token 几乎不在旧支持里，softmax 会把质量挪到新高频 n-gram 上，旧事实的对数概率下降。混合网页是在梯度里保留旧支持的经验风险。重复域内数据则是在短预算里提高该支持的采样频率；报告的 micro-anneal 显示 2× 优于 1×，4× 开始持平，说明重复有上限。把代码解答改写成自然语言（TinyGSM-MIND）能大幅改变续训收益：底座代码占比只有约 2% 时，<strong>代码形式的标签与评测（自然语言解题）不对齐</strong>，续训会学错表面。</p><p><span class="marginnote">「续训」在工程上还包含长上下文 CPT：Qwen3、Llama 4 把窗口从 4K/8K 拉到 32K–256K，本质也是同一损失、新长度分布。OLMo 2 的中训不承担这条，默认仍 4K。不要把所有 mid-training 都写成数学补丁。</span></p><h3 id="和从零预训练、和适配器的差别" tabindex="-1">和从零预训练、和适配器的差别 <a class="header-anchor" href="#和从零预训练、和适配器的差别" aria-label="Permalink to &quot;和从零预训练、和适配器的差别&quot;">​</a></h3><p>从零预训练没有「旧支持要保护」的问题，配比可以更野；续训的配比必须保守。LoRA / 适配器把更新限制在低秩子空间，遗忘更小、域内容量也更小；满参 CPT 相反。开放底座把满参续训写成默认可复现路径，是因为检查点与数据都在：外部研究者可以只跑 50B，不必 5T。这不意味着满参续训在商用上总是更优——显存、灾难性遗忘、评测泄漏的成本要单独算。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>评测泄漏是续训最脏的边界。OLMo 2 把 GSM8K <strong>训练集</strong>放进 Dolmino，开发决策只用 200 条 GSM*；held-out 1119 条仍可能与训练题同分布。写「续训让模型学会数学」必须同时写污染口径。合成数据用更强模型改写时，还存在教师泄漏：分数一部分是蒸馏。许可上，续训混合里的 NC 或论坛条款不会因为底座 Apache 而消失。</p><p>不要把任何「多训一会儿」都叫 CPT。提高预训练预算、不换分布，只是更长的 Stage 1。CPT 的方法差分是<strong>检查点已存在 + 分布有意偏移</strong>。也不要把领域自适应的经典 BERT 实验直接外推到 32B：规模更大时，网页里已经含不少科学文本，边际可能变小；OLMo 2 的 GSM 跳变是因为预训练数学确实弱，不是普遍常数。</p><p>学习率若在续训中重新 warmup 到预训练峰值，等于主动打乱已收敛尺度，报告的主配方不这么做。优化器状态是否从预训练继承，公开叙述以「从检查点继续、线性落到零」为准；自行重初始化 Adam 矩会改变短预算行为，属于未在主表里消融的分叉。</p><p><span class="marginnote">出处：Gururangan et al.，<em>Don&#39;t Stop Pretraining</em>，ACL 2020；OLMo Team，<em>2 OLMo 2 Furious</em>，arXiv:2501.00656。实现日程见 <a href="/llm/annealing-phase">退火阶段</a>；Dolmino 配比见 <a href="/llm/olmo2-midtrain-recipe">OLMo 2 midtrain 配方</a>。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Continued pretraining 在已有 LM 检查点上继续下一词损失，用于域、任务或质量分布的偏移，不是 SFT。</li><li>防遗忘依赖通用网页锚点；域内可以少而精，稀缺时可小倍数重复。</li><li>OLMo 2 把 CPT 命名为 mid-training，并与学习率退火叠在同一短阶段。</li><li>评测集、合成教师、许可证都是续训特有的污染与合规面。</li><li>出处：ACL 2020 与 arXiv:2501.00656。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 预训练配方续<!--]--><!--[--> · 课序 阶段与数据<!--]--></p><p class="lesson-progress">第 18 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/olmo2-midtrain-recipe/">OLMo 2 midtrain 配方</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

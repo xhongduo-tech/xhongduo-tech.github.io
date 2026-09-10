@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>簿的均场极限 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_lob-mean-field.md.BtoPmdov.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 24 / 50 课</p><p class="lesson-prereq"> 先修：<a href="/quant/lob-shape-macro/">簿的宏观形状</a></p><p class="lesson-next"> 下一课：<a href="/quant/frequent-batch-auction/">Budish–Cramton–Shim 频繁批量拍卖</a></p></nav><div style="position:relative;"><div><h1 id="簿的均场极限" tabindex="-1">簿的均场极限 <a class="header-anchor" href="#簿的均场极限" aria-label="Permalink to &quot;簿的均场极限&quot;">​</a></h1><div class="epigraph"><p>当到达的订单无穷多、每一笔无穷小，限价簿的状态可以用深度密度的偏微分方程来描述。个体博弈收成对这个密度的反应，密度再由个体行动自洽。</p><footer>—— Cont, Stoikov and Talreja, A stochastic model for order book dynamics, Operations Research, 2010；均场控制的交易拥挤见 Cardaliaguet and Lehalle, Mean field game of controls and an application to trade crowding, Mathematics and Financial Economics, 2018</footer></div><p><a href="/quant/lob-shape-macro">宏观形状</a>是经验直方图。缺口是：直方图能否作为大量微观订单的极限定律被推导出来，而不是只被测量。Cont、Stoikov 与 Talreja（2010）用独立到达的点过程描述各档增减；Cardaliaguet 与 Lehalle（2018）把拥挤执行写成均场博弈。本课只取「从个体到密度」这一层，不把统计物理的整套场论搬进来，也不重推单期 \(\lambda\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Parlour 的状态是两个整数队长，维数随档数爆炸。均场用密度 \(\rho(t,p)\) 表示价格 \(p\) 附近的深度，到达、撤单、成交写成对 \(\rho\) 的算子。问题是两类模型的分工：若订单流被当成外生强度（Cont 等），形状是排队系统的稳态，没有策略；若交易者对拥挤反应（均场博弈），强度对 \(\rho\) 内生，出现拥堵反馈。前者适合描述，后者适合问「大家都用同样执行算法时冲击如何变」。</p><p>Kyle 的连续拍卖已经是一种均场：噪声布朗、知情者对价格函数最优。限价簿均场把价格函数换成整条密度，状态更富，解析更少。</p><h3 id="外生强度-vs-对密度的控制" tabindex="-1">外生强度 vs 对密度的控制 <a class="header-anchor" href="#外生强度-vs-对密度的控制" aria-label="Permalink to &quot;外生强度 vs 对密度的控制&quot;">​</a></h3><p>CST（2010）：限价、市价、撤单是独立泊松，强度可依赖价差等低维状态，稳态可算、可校准到事件流。预测是统计的。均场博弈：每个小交易者选交易速率，成本依赖所有人加总的永久冲击，均衡是 PDE–HJB 系统。预测是策略的：公告同时执行会自我加重冲击。Admati–Pfleiderer 的聚集在连续密度上变成拥挤外部性。</p><p><span class="marginnote">Lasry–Lions 均场博弈是数学框架。本课只引用它在订单流拥挤上的应用，不讲一般存在性定理。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>点过程簿：各档深度是生灭过程，市价把对方近端吃掉并可能改变价差状态。校准用各事件类型的强度。输出：价差分布、形状、首达时间。它能复制宏观轮廓的一部分，但不能解释强度从哪来。</p><p>均场执行：代表性交易者最小化冲击 + 等待，冲击是平均场 \(\mu_t\) 的函数。均衡时 \(\mu\) 等于个体最优的加总。比较静态：同时段目标越多，瞬时 \(\lambda\) 式成本越高，最优是错开——与策略噪声相反的「避开拥挤」。现实里截止时间不允许任意错开，于是收盘密度出现尖峰。</p><h3 id="从密度再读" tabindex="-1">从密度再读 \(P(Q)\) <a class="header-anchor" href="#从密度再读" aria-label="Permalink to &quot;从密度再读 $P(Q)$&quot;">​</a></h3><p>给定 \(\rho\)，市价 \(Q\) 沿密度积分得到即时价格。\(\rho\) 随机或随场变化时，冲击过程有持续性。这为非线性冲击与平方根冲击等经验定律提供一条「形状积分」通道，而不是从 Kyle 线性出发再假设临时冲击函数。临时/永久冲击课已有执行侧叙述；这里只强调簿密度是那个函数的状态基础。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>均场极限抹掉队内名次，只保留密度——FIFO 的位置租金在极限里变成密度的局部高度，时间优先的微观价值被平均掉。因此均场更接近 pro-rata 或「无穷可分订单」的世界，用来谈形状与拥挤合适，用来谈抢一个队头不合适。速度竞赛是有限人、非均场的博弈，下一单元开始。</p><p>外生点过程把撤单写成强度，能拟合高撤单率，但不解释为什么强度在新闻时跳。把强度条件于公共信息，就回到 Foucault 被捡，只是写在密度上。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>独立泊松忽略订单流自相关（Hawkes）。无穷小订单忽略手数栅格与冰山。校准过的 CST 模型常低估真实冲击凸性，因为缺少策略同步。均场博弈的对称假设在「一个巨鹰对一群小单」时失效，那是 Kyle 单一知情者的领地。</p><p><span class="marginnote">不要用均场 PDE 去给某一档的队头排队时间做精确预测。名次是离散对象，要回 Parlour / 队列反应模型。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>均场把簿写成深度密度：外生点过程给出可校准稳态，均场博弈给出拥挤外部性。</li><li>极限抹掉 FIFO 名次，适合形状与同步执行，不适合队头抢位。</li><li>冲击函数可以由密度积分得到，而不必回到单期线性 \(\lambda\)。</li><li>出处：Cont, Stoikov and Talreja, <em>Operations Research</em>, 2010；Cardaliaguet and Lehalle, <em>Mathematics and Financial Economics</em>, 2018；形状对照 Bouchaud, Mézard and Potters, 2002。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 24 / 50 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/frequent-batch-auction/">Budish–Cramton–Shim 频繁批量拍卖</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

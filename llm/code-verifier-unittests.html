@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>代码验证器：单元测试 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_code-verifier-unittests.md.RDSmBbTI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 奖励模型进阶<!--]--><!--[--> · 课序 奖励从哪来<!--]--></p><p class="lesson-progress">第 7 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rubric-reward/">评分细则奖励</a></p><p class="lesson-next"> 下一课：<a href="/llm/math-verifier-equivalence/">数学验证器与等价</a></p></nav><div style="position:relative;"><div><h1 id="代码验证器-单元测试" tabindex="-1">代码验证器：单元测试 <a class="header-anchor" href="#代码验证器-单元测试" aria-label="Permalink to &quot;代码验证器：单元测试&quot;">​</a></h1><div class="epigraph"><p>通过率是程序给的，不是裁判给的；奖励通道上只应留下可复现的沙箱结果。</p><footer>—— 对照 HumanEval / MBPP 的单测传统；CodeRL、DeepSeek-R1 把编译与测试接到策略梯度</footer></div><p><a href="/llm/rubric-reward">上一课</a>把质量拆成条目，其中「程序是否做对」仍可能交给 LLM 裁判。缺口是：代码域存在真正的 <a href="/llm/verifiable-reward">可验证奖励</a>——<strong>单元测试与编译器。</strong> 本课把 \(R\) 写成沙箱里的通过率。Le 等人的 CodeRL、竞赛编程流水线、R1 的代码奖励，都走这条通道。后课数学验证器是另一类程序判定，不要混进单测。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>代码生成的「看起来对」极廉价：类型名像那么回事、注释写得很自信。标量 RM 与 LLM 裁判都吃这一套。单测把事件钉死：给定输入，输出是否等于期望、是否在时限与内存内、是否允许网络。\(R\) 可以是 0/1（全过）或通过率。策略梯度要的就是这个可批量调用的函数。</p><p>噪声来自规范，不是来自网络：公开测例覆盖不足会把错误实现标成对；浮点与并发会让同一 \(y\) 的 \(R\) 抖动。HumanEval 原协议是隐藏测例；训练若只用公开用例，RL 会硬编码输出。</p><h3 id="抽取与运行是-的一部分" tabindex="-1">抽取与运行是 \(R\) 的一部分 <a class="header-anchor" href="#抽取与运行是-的一部分" aria-label="Permalink to &quot;抽取与运行是 $R$ 的一部分&quot;">​</a></h3><p>模型常常把代码包在 Markdown 或解释里。extract 失败则 \(R=0\) 或 mask，二者对格式的压力不同，见可验证奖励课。运行规范：镜像、超时、是否联网、是否可写磁盘，必须版本化。副作用会让奖励不可复现，<a href="/llm/ppo-llm">PPO</a> 的优势变成噪声。</p><p><span class="marginnote">不要把「用 GPT-4 读代码打分」叫做本课的验证器。那是上一课的裁判。本课的动词是执行。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对每个题 \(x\) 采 \(G\) 条完成（<a href="/llm/grpo">GRPO</a> 组采样天然合适），抽代码，在沙箱跑测试集 \(\mathcal{T}\)：</p> \[R(x,y)=\frac1{|\mathcal{T}|}\sum_{t\in\mathcal{T}}\mathbf{1}\{\mathrm{exec}(y,t)=\mathrm{ok}\}. \]<p>隐藏测例只用于金标，不进训练 \(R\)，否则过优化测例洞无法被发现。编译失败、超时、抽取失败单独记账，不要与逻辑错误混成一个桶。优势用组内基线；全 0 / 全 1 组无梯度，留给后课动态采样。</p><div class="mermaid"></div><p>与 <a href="/llm/process-supervision">过程监督</a> 不同：单测是结果信号，中间错误但测例碰巧过仍得高 \(R\)。要逐步质量，需另加 PRM 或静态检查，不要假装通过率等于过程正确。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>通过率比 0/1 密：部分测例提供部分信用，方差低于「全过才给 1」。但部分分会鼓励「写一个总能过样例的硬编码」。测例要含边界与随机化输入。时限把复杂度写进 \(R\)：算法对但常数大，会被判错——这是环境定义，应在题面声明。</p><p><span class="marginnote">沙箱吞吐决定 RL 墙钟。数学正则便宜几个数量级；代码 batch 要按环境分组，避免数学 step 等超时。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有单测的开放编程题不属于本课，应退回细则或裁判。代理式修仓库（SWE）的环境更重，留到后课 SWE-RL。单测 \(R\) 仍会过优化公开用例：保留隐藏集与人工抽查。下一课把「答案相等」从字符串匹配升级到数学等价。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>代码奖励是沙箱通过率，抽取与运行规范属于 \(R\)。</li><li>隐藏测例只做金标；训练用例会被硬编码。</li><li>组采样 + 相对优势适合 0/1 或通过率；全对全错组无梯度。</li><li>通过率不是过程正确；需要逐步信号时另接 PRM。</li><li>出处：Chen 等 HumanEval；Austin 等 MBPP；Le 等 CodeRL；R1 的代码可验证奖励。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 奖励模型进阶<!--]--><!--[--> · 课序 奖励从哪来<!--]--></p><p class="lesson-progress">第 7 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/math-verifier-equivalence/">数学验证器与等价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

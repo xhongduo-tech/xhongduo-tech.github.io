@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>频域与时频模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_frequency-domain-models.md.DjSrhiWo.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 6 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/transformer-return-prediction/">Transformer 截面收益预测</a></p><p class="lesson-next"> 下一课：<a href="/quant/double-machine-learning/">双重机器学习 DML</a></p></nav><div style="position:relative;"><div><h1 id="频域与时频模型" tabindex="-1">频域与时频模型 <a class="header-anchor" href="#频域与时频模型" aria-label="Permalink to &quot;频域与时频模型&quot;">​</a></h1><div class="epigraph"><p>不同频率的效用与风险价格不必相同；把贴现与冲击分解到频谱上，才能看出长期成分是否比短期成分更贵。</p><footer>—— Dew-Becker and Giglio, Asset Pricing in the Frequency Domain: Theory and Applications, Review of Financial Studies, 2016</footer></div><p>时域模型把收益写成滞后与同期项的和。频域把同一协方差结构换成频谱：每个频率 \(\omega\) 上有一份功率、一份相干、一份风险价格。Dew-Becker 与 Giglio（2016）把资产定价等式变换到频率上，使「长期风险是否被定价」变成频谱上的可估计对象，而不是只能在时域里选一个长期消费因子。Ortu、Tamoni 与 Tebaldi 讨论持久冲击如何进入长期风险；Bandi 与相关文献把长记忆与周期成分写成可估计的谱。工程上更短的谱是波动：Corsi 的 <a href="/quant/har-rv">HAR</a> 用日、周、月已实现波动混合不同频率；小波与短时傅里叶则把谱变成时变的时频图。本篇写频谱作为<strong>定价与预测的坐标系</strong>，不是把价格拿去画一张好看的周期图就交易。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>消费资产定价里，长期风险模型声称投资者在乎增长的持久成分。时域检验把消费滤成一个长期因子，滤子选择本身就是超参。频域把定价核与收益的协方差按频率分解：若只有低频带上的协方差被定价，长期风险叙事得到支持；若高频带同样有价格，叙事要改。问题是估计：宏观序列短、谱泄漏、以及商业周期频率上只有几个独立波动。把月频股票超额拿去估「八年周期」的风险价格，有效样本极小。</p><p>预测侧的问题不同。收益接近白噪声，周期图上的峰大多是噪声。用带通滤波抽出「周期项」再回归未来收益，很容易把样本内的起伏当成周期。Hamilton 对 HP 滤波的批评在这里适用：滤波造成的相位与超前滞后可以制造虚假可预测性。合法的预测用法是：<strong>预先指定频率带</strong>（例如一周以内、一月、一年以上），在样本外比较各带特征的增量，而不是看全样本谱峰去命名周期。</p><h3 id="频谱密度不是交易信号" tabindex="-1">频谱密度不是交易信号 <a class="header-anchor" href="#频谱密度不是交易信号" aria-label="Permalink to &quot;频谱密度不是交易信号&quot;">​</a></h3><p>平稳过程 \(x_t\) 的谱密度 \(f_x(\omega)\) 是自协方差的傅里叶交换。它描述方差在频率上的分配，不描述 \(t+1\) 的条件均值。把 \(f_x\) 的某个峰对应的周期当作持有期，是把二阶结构误当成一阶可预测。可预测性若存在，应出现在从 \(x\) 到 \(r\) 的交叉谱或在带通特征的样本外 IC 上。HAR 之所以有用，是因为它用三个时域滞后去逼近波动的长记忆，目标是预测波动，不是预测收益的周期。</p><p><span class="marginnote">对价格做傅里叶再「去掉高频重建」，接近未来函数：全样本 FFT 使用了窗口两端的点。实时时频必须用因果窗或只向过去的小波，否则与<a href="/quant/look-ahead-bias">前视偏差</a>无异。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>定价。</strong> 按 Dew-Becker–Giglio：在频率 \(\omega\) 上估计收益与定价核（或宏观因子）的谱协方差，积分得到该频带贡献的风险溢价。实现可用多元谱估计（加窗周期图、多窗口）或带通滤波后再做时域回归——后者更易沟通，但滤子必须在样本外固定。报告低频带与高频带的溢价及标准误；只报全频积分等于回到无条件 beta。</p><p><strong>波动。</strong> HAR 把 \(RV_t\) 对日、周、月 RV 回归，见已实现波动篇；<a href="/quant/realized-garch">已实现 GARCH</a> 把已实现测度写进条件方差。这是三个粗频率的混合，参数少，适合作为时频模型的基准。小波方差把 \(RV\) 分解到尺度上，可检验哪一尺度驱动预测；须用滚动窗，并在边界用反射或截断，声明边界处理。</p><p><strong>收益预测。</strong> 把特征做成带通：例如估值与宏观用一年以上成分，微观结构用一周以内。各带分别进入<a href="/quant/regularized-linear-alpha">正则线性</a>或 NN3，看增量。分数差分（\(0\lt d\lt 1\)）是另一种保留长记忆、去掉单位根的线性滤波，见<a href="/quant/fracdiff">分数阶差分</a>，它与谱在低频的幂律相联系，但 \(d\) 在特征工程里是超参，不是对 DGP 的承诺。</p> \[\gamma(h)=\int_{-\pi}^{\pi} f(\omega)e^{i\omega h}\,\mathrm{d}\omega. \]<p>自协方差与谱互为傅里叶对；选滞后阶与选频带是同一枚硬币的两面。报告时应说明硬币的哪一面被当成超参网格，并计入<a href="/quant/backtest-overfitting">过拟合次数</a>。</p><h3 id="时频-局部化之后仍要因果" tabindex="-1">时频：局部化之后仍要因果 <a class="header-anchor" href="#时频-局部化之后仍要因果" aria-label="Permalink to &quot;时频：局部化之后仍要因果&quot;">​</a></h3><p>短时傅里叶与连续小波给出 \(t\) 与 \(\omega\) 上的能量。资产定价关心的是 \(t\) 时刻可获得的局部谱：例如「最近三个月的低频方差占比」。Morlet 一类双边小波在 \(t\) 处使用未来样本；金融里应改用因果小波或只对 \(s\le t\) 的数据做变换。危机时高频能量上升，局部谱可以当状态变量进入条件风险价格，与<a href="/quant/macro-factor-set">宏观因子</a>的流动性状态类似。不要把时频图上的亮斑事后命名为交易区间。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>长期风险：持久的消费（或现金流）冲击在低频有功率；若定价核在这些频率上与收益更相关，低频溢价更高。这是谱上的 beta。商业周期频率（数年到十年）样本短，估计最吵，却是宏观叙事最爱用的带——应预注册，而不是搜完再命名。高频带更多是折现率噪声与微观结构；把高频功率当成 alpha 来源，通常是在交易噪声。</p><p>波动长记忆：已实现方差的自相关衰减慢，HAR 用加性的三个频率逼近。预测收益时，波动状态可以进入风险补偿（时变风险价格），见时间变化风险溢价一类条目；这仍是二阶进一阶，需要经济约束，不能从周期图直接读出多空。</p><p>与机器学习的接口：把各频带能量当作 GKX 特征表的额外列，增量往往小且与已有的动量、波动列共线。有价值的是预先指定的长期估值成分对短期反转的正交，而不是让网络自己学一组任意带通滤波器——后者等价于在频域里做无惩罚的弹性网。</p><p><span class="marginnote">季节性（周内、月内、财报季）是确定频率，不是谱估计的峰。应单独用日历哑变量处理，见日历与隔夜一类讨论，否则谱会把季节性误认为可交易周期。</span></p><h3 id="中国市场的交易时钟" tabindex="-1">中国市场的交易时钟 <a class="header-anchor" href="#中国市场的交易时钟" aria-label="Permalink to &quot;中国市场的交易时钟&quot;">​</a></h3><p>A 股有午休、集合竞价与涨跌停，日频 RV 的高频端含有制度间断，不是扩散的抽样误差。HAR 的「日」成分已混进开盘跳价。频带特征若用分钟收益构造，必须声明是否含集合竞价、是否剔除涨跌停不可交易区间。把美股连续交易的谱估计器原样套过来，高频带没有经济含义。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用全样本 HP 或双边小波做「周期择时」。不要在周期图上搜峰再回测该周期的持有期。不要把 Dew-Becker–Giglio 的定价分解翻译成高频交易信号。可做的是：预注册频带、因果变换、HAR 作波动基准、分带溢价与分带 IC 分开报告。计算上多窗口谱估计比单张 FFT 稳，但仍救不了宏观序列太短。</p><p><span class="marginnote">出处：Dew-Becker and Giglio, <em>RFS</em>, 2016；Ortu, Tamoni and Tebaldi, <em>RFS</em>, 2013；Corsi, <em>Journal of Financial Econometrics</em>, 2009（HAR）；Granger and Joyeux, 1980（分数差分）；Hamilton 对 HP 滤波的讨论。小波方法见 Percival and Walden 的标准处理，使用时必须改成因果版本。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>频域把风险价格与协方差按频率切开；长期风险是低频带上的定价，不是周期图上的交易信号。</li><li>预测应预注册频带并做因果滤波；全样本谱峰与双边小波会前视。</li><li>HAR 是波动上最省参数的多频率基准；收益预测的频带特征须相对已有动量与波动列报增量。</li><li>季节性用日历处理，不要留给谱去发现。</li><li>出处：Dew-Becker–Giglio, <em>RFS</em>, 2016；Ortu–Tamoni–Tebaldi, <em>RFS</em>, 2013；Corsi, 2009。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 6 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/double-machine-learning/">双重机器学习 DML</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

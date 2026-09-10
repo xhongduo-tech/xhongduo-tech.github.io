@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>准备金、乘数与内生货币 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_reserve-endogenous-money.md.FGsq8bcj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 货币银行与公司金融<!--[--> · 单元 中介<!--]--><!--[--> · 课序 银行为何存在<!--]--></p><p class="lesson-progress">第 7 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/econ/deposit-insurance/">存款保险</a></p><p class="lesson-next"> 下一课：<a href="/econ/rtgs-payments/">支付系统与 RTGS</a></p></nav><div style="position:relative;"><div><h1 id="准备金、乘数与内生货币" tabindex="-1">准备金、乘数与内生货币 <a class="header-anchor" href="#准备金、乘数与内生货币" aria-label="Permalink to &quot;准备金、乘数与内生货币&quot;">​</a></h1><div class="epigraph"><p>商业银行不是把已有的储蓄「贷出去」；贷款在账上同时创造出存款。</p><footer>—— 据 Tobin, Commercial Banks as Creators of Money, 1963；McLeay, Radia and Thomas, Bank of England Quarterly Bulletin 2014 整理</footer></div><p><a href="/econ/deposit-insurance">上一课</a>（存款保险）。<a href="/econ/diamond-dybvig">Diamond–Dybvig 挤兑</a>。挤兑模型是真实技术上的存款合同，没有法定准备金账户。本课缺口是把银行放回货币体系：存款作为<a href="/econ/money-as-medium">支付</a>手段，如何被创造、准备金在其中约束什么。不重讲数量方程的 \(MV=PY\)——那是<a href="/econ/quantity-theory">数量理论</a>的课；本课只补银行账。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>教科书乘数把故事写成：央行先扔出一笔高能货币 \(H\)，银行按准备金率 \(r\) 留下一块、把 \(1-r\) 贷出，存款经过轮转放大为 \(D=H/r\)。因果箭头是 \(H\to D\)。若这是全部，上一课的银行只是被动的准备金过滤器，贷款需求、资本、挤兑信念都进不了货币供给。</p><p>经验与会计指向相反的箭头。银行先与借款人签订贷款，资产记贷款、负债记借款人存款，广义货币当场增加。准备金是结算用的央行负债，银行可以事后在银行间市场或向央行借。若央行盯的是利率而不是 \(H\) 的数量，准备金迁就存款，而不是存款迁就准备金。缺口是：在哪一种政策体制下乘数是会计恒等，在哪一种体制下它是因果理论。</p><p><span class="marginnote">Gurley–Shaw 的 inside money 在这里得到会计实现：贷款与存款是同一笔分录的两侧。Outside money 是央行负债，不在商业银行表内被「创造」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先写两套账，再谈约束。贷款创造：银行 A 向企业贷出 100，A 的资产 +100 贷款，负债 +100 存款。若企业把钱支付到银行 B，A 失去准备金、B 得到准备金与存款；系统内存量仍是那 100 的 inside money，只是准备金在银行间再分配。乘数叙事把「准备金再分配」误写成「贷款来自事先吸收的储蓄」。</p><p>约束有三层，乘数只看见第一层的法定准备金率。其一，准备金与结算：日终若 A 准备金不足，必须借，价格是银行间利率；央行若把该利率钉住，就按需提供准备金。其二，资本：贷款消耗风险加权资产，<a href="/econ/basel-capital">巴塞尔</a>比准备金更硬地限制能创造多少存款。其三，借款人意愿与存款人提取：没有贷款需求，存款不会凭空扩；提取与挤兑把 inside money 要换成 outside money，这才回到 Diamond–Dybvig。</p><div class="mermaid"></div><p>Tobin（1963）强调：银行「创造货币」仍受资产报酬与负债成本约束，不是无限制的印刷机。英格兰银行 2014 年季度公报把当代操作写成：央行设定利率，货币量由银行、借款人与财政共同决定。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>内生货币的机制是利率规则下的结算弹性。存款转账要求准备金在银行间过户；若央行随时按目标利率提供或吸收准备金，高能货币成为内生，乘数的 \(H\) 不再是外生推动力。<a href="/econ/quantity-theory">数量理论</a>里的 \(M\) 若取广义货币，其量就是这张内生过程的结果，不是政策工具本身。政策工具是利率、走廊、以及后课的非常规资产负债表。</p><p>挤兑把内生过程打成非弹性。人人要把银行存款变成现金或央行存款时，系统需要 outside money 的净注入；没有<a href="/econ/lender-of-last-resort">最后贷款人</a>，内生创造会以同样的会计速度逆转：贷款回收、存款消失。因此内生货币与 Diamond–Dybvig 兼容：平时贷款创造存款，慌时存款要求变成准备金，乘数叙事在慌时才看起来像「准备金不够所以要收缩」。</p><h3 id="乘数何时仍是有用的会计" tabindex="-1">乘数何时仍是有用的会计 <a class="header-anchor" href="#乘数何时仍是有用的会计" aria-label="Permalink to &quot;乘数何时仍是有用的会计&quot;">​</a></h3><p>法定准备金率 \(r\) 仍给出一个上界：\(D\le H/r\)，若窗口关闭且银行不能用其他流动资产代替准备金。上界不是因果：\(H\) 增加不一定把 \(D\) 推到上界，贷款需求、资本、利率才决定走多远。盯准备金数量的体制（历史上某些货币目标区间）使 \(H\) 更像外生，乘数看起来更「真」；盯利率的走廊使 \(H\) 迁就，乘数只剩恒等。本课以当代利率操作为默认，与<a href="/econ/taylor-rule">泰勒规则</a>一致，不把 1950 年代的高能货币实验写成一般理论。</p><p><span class="marginnote">教科书乘数常配「漏出现金」的几何级数。现金漏出改变的是准备金在银行体系内的留存，仍不是贷款的事前来源。来源是信贷合同。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要用「贷款创造存款」否认储蓄–投资核算：那是<a href="/econ/saving-investment-id">恒等式</a>层面的流量，不决定哪家银行能放哪笔贷。也不要把内生货币读成银行可以无视通胀：价格水平仍受需求、利率与预期约束，只是传导不经由外生 \(H\)。法定准备金率降到接近零的体制里，乘数作为因果理论已经没有操作对象。</p><p>本课不写巴塞尔公式，不写 Bagehot 规则。下一课处理挤兑时谁必须提供 outside money；再下一课才把资本当作硬约束引入。Friedman 的数量重述是附录对照，不在这里重开货币需求函数。</p><p>也不要把「银行创造货币」读成财政货币理论或任意名义锚。价格水平如何被利率规则钉住，是 <a href="/econ/woodford-interest">Woodford 附录</a> 与主干 NK 的事。本课只改因果箭头：\(M\) 的广义存量主要是银行账，不是央行事先印好再借出的存货。</p><p>后课默认：平时 \(D\) 由信贷创造，准备金迁就结算；慌时箭头反转，需要 outside money。不要在最后贷款人课里把银行重新写成「先有储蓄再放贷」的过滤器。数量方程里的广义 \(M\) 是本课过程的结果，工具仍是利率。</p><p>盯准备金数量的体制使乘数看起来更像因果。盯利率的走廊使 \(H\) 迁就，乘数只剩会计。本课以利率操作为默认。</p><p>不要用「贷款创造存款」否认储蓄–投资恒等式。那是流量核算，不决定哪一笔贷能放。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>贷款与存款是同一分录；广义货币主要由商业银行创造。</li><li>乘数在盯利率体制下是会计，不是 \(H\to D\) 的因果。</li><li>真正的约束是利率、资本与提取；挤兑把 inside money 要换成 outside money。</li><li>出处：Tobin 1963；McLeay, Radia and Thomas, <em>BoE Quarterly Bulletin</em> 2014；Gurley and Shaw 1960。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 货币银行与公司金融<!--[--> · 单元 中介<!--]--><!--[--> · 课序 银行为何存在<!--]--></p><p class="lesson-progress">第 7 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/rtgs-payments/">支付系统与 RTGS</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

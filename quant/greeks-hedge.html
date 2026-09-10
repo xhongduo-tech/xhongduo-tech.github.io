@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Delta / Gamma / Vega 对冲 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_greeks-hedge.md.WcfEV8Kr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 14 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/variance-swap-vix/">方差互换与 VIX</a></p><p class="lesson-next"> 下一课：<a href="/quant/discrete-hedge-error/">离散对冲误差</a></p></nav><div style="position:relative;"><div><h1 id="delta-gamma-vega-对冲" tabindex="-1">Delta / Gamma / Vega 对冲 <a class="header-anchor" href="#delta-gamma-vega-对冲" aria-label="Permalink to &quot;Delta / Gamma / Vega 对冲&quot;">​</a></h1><div class="epigraph"><p>期权价值对标的、对标的的二阶、对波动率的一阶，构成日常风险账；对冲是用可交易工具把这几项暴露压到限额以内，而不是消灭全部 P&amp;L。</p><footer>—— Hull, Options, Futures, and Other Derivatives</footer></div><p>Black–Scholes–Merton 的复制论证在连续交易、常数波动、无跳跃时，用标的（或期货）动态对冲即可复制欧式期权。交易台并不活在定理里：仓位是一篮子香草与奇异，波动率在动，再平衡是离散的。John Hull 的教科书把希腊字母组织成可运算的风险：Delta 是对现货（或远期）的一阶，Gamma 是 Delta 对现货的导数，Vega 是对隐含波动率的一阶，再加上 Theta、Rho。对冲的意思是：选期货、掉期或别的期权，使组合的 \(\Delta,\Gamma,\nu\) 落在限额内，并承认未对冲的高阶与交叉项会变成 P&amp;L。它与 <a href="/quant/discrete-hedge-error">离散对冲误差</a> 衔接：即使 Delta 在每次再平衡时都归零，Gamma 仍在两次平衡之间工作。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>非线性衍生产品的价值 \(V(S,\sigma,t)\) 在市场因子变动时不是直线。一阶 Taylor 用 Delta 与 Vega 解释小移动；现货大动时 Gamma 与 Volga、Vanna 变成主导。若只对冲 Delta，等价于局部线性化，暴跌或暴涨时复制失败，而这正是卖出期权的风险。若要对冲 Gamma，必须引入另一个非线性工具——通常是别的期权——因为期货的 Gamma 为零。若要对冲 Vega，同样需要期权或方差互换一类对波动率敏感的工具。问题是在流动性、买卖价差与模型定义下，选哪几个工具、在哪一个微笑动态下算这些导数。</p><p>希腊字母依赖模型与报价惯例。Black 的 \(\Delta\) 与「微笑 sticky strike」下的 \(\Delta\) 不同；Heston 的 Vega 是对 \(v_0\) 或对某一参数，与对 Black 隐含波动的 Vega 要换算。Hull 的教学默认 Black–Scholes 公式的解析希腊字母，作为共同语言；生产上必须声明：对冲用的是哪一个曲面、哪一种 sticky 假设。</p><h3 id="三个一阶对象不是三种独立货币" tabindex="-1">三个一阶对象不是三种独立货币 <a class="header-anchor" href="#三个一阶对象不是三种独立货币" aria-label="Permalink to &quot;三个一阶对象不是三种独立货币&quot;">​</a></h3><p>Delta 改变时，若现货同时动、波动率也动，P&amp;L 不能拆成三个独立账户后简单相加——还有 \(S\) 与 \(\sigma\) 的交叉 Vanna。把账分成 Delta 账、Gamma 账、Vega 账是管理近似：限额按线性风险加一点凸性缓冲。真正的复制误差见离散对冲与跳跃。方差互换对 Vega 几乎线性、对现货 Delta 在复制后较小，常被用来卸指数 Vega；单名则往往仍用香草。</p><p><span class="marginnote">市场说的 Vega 常是「隐含波动率变动一个百分点」的价值，不是对 Heston \(\sigma\) 或 SABR \(\nu\) 的偏导。报告希腊字母必须带单位：每 1% vol、每 1 个现货点、还是每 1 个远期基点。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Black–Scholes 下欧式看涨</p> \[\Delta = \mathrm{e}^{-qT}N(d_1),\qquad \Gamma=\frac{\mathrm{e}^{-qT}n(d_1)}{S\sigma\sqrt{T}},\qquad \nu=S\mathrm{e}^{-qT}n(d_1)\sqrt{T}, \]<p>Vega 这里用 \(\nu\) 以免与方差混淆。Delta 对冲：用 \(-\Delta\) 单位标的（或等价期货）使组合 \(\Delta_{\mathrm{port}}=0\)。现货变动 \(\mathrm{d}S\) 后，未再平衡前组合 P&amp;L 约 \(\frac12\Gamma(\mathrm{d}S)^2+\Theta\mathrm{d}t+\nu\mathrm{d}\sigma+\cdots\)。卖出期权则 \(\Gamma\lt 0\)，需要在大动时亏损，用 Theta 收取时间价值作为补偿——这是 Hull 反复强调的 Gamma–Theta 权衡。</p><p>Gamma 对冲：加入数量 \(\lambda\) 的对冲期权，使 \(\Gamma+\lambda\Gamma_h=0\)，再回头调整标的使 Delta 仍为零。对冲期权会带来自己的 Vega 与期限结构，通常无法同时把 \(\Gamma\) 与 \(\nu\) 都精确打到零，除非工具足够多。实务是解一个小的加权最小二乘：对关键执行价、关键到期的桶做 Vega 与 Gamma 分桶，而不是对整个曲面的单一 Vega 标量。</p><h3 id="vega-分桶与微笑对冲" tabindex="-1">Vega 分桶与微笑对冲 <a class="header-anchor" href="#vega-分桶与微笑对冲" aria-label="Permalink to &quot;Vega 分桶与微笑对冲&quot;">​</a></h3><p>单一 Vega 把所有执行价的隐含波动当成平行移动。真实移动是倾斜与弯曲，对应 <a href="/quant/sabr">SABR</a> 的 \(\rho,\nu\) 或主元。分桶 Vega：按到期（有时再按 Delta）分组，用该桶里的香草去对冲该桶暴露。方差互换或 VIX 期货接近对 \(1/K^2\) 加权的方差敏感，和 ATM Vega 不同，见 <a href="/quant/variance-swap-vix">方差互换与 VIX</a>。外汇的 RR 与 BF 报价直接对应偏斜与弯曲的对冲工具，比单一 Vega 更接近市场坐标。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Delta 对冲把一阶现货风险转给期货市场，留下凸性。若隐含波动不变且再平衡连续，Gamma 与 Theta 在 Black–Scholes 方程里对消，复制误差趋于零。波动率一变，Vega 项出现，必须用别的期权再对冲；对冲期权的 Delta 又破坏原来的 Delta 中性，需要一轮迭代。这是交易日盘中的标准循环，不是模型缺陷。</p><p>对冲比率对微笑动态敏感。Sticky strike：执行价固定的隐含波动不随现货动，Delta 接近 Black Delta。Sticky delta：固定 Delta 的点跟着现货走。SABR 或局部波动率给出第三种。同一香草，三种 Delta 可以差几个百分点，对大名义这就是真实金钱。Hagan 等人写 SABR 的动机之一，正是让 Delta 与微笑移动一致，见 <a href="/quant/sabr">SABR</a>。Heston 下应对状态变量 \(v\) 做 Vega，再映射到市场报价的桶。</p><h3 id="gamma-的符号与尾部" tabindex="-1">Gamma 的符号与尾部 <a class="header-anchor" href="#gamma-的符号与尾部" aria-label="Permalink to &quot;Gamma 的符号与尾部&quot;">​</a></h3><p>做空香草：负 Gamma，现货静止时赚 Theta，大动时亏。做多香草相反。对冲 Gamma 并不是道德上「更中性」，只是把尾部卖给另一张期权的卖方。若对冲工具流动性差，名义 Gamma 对冲会在压力期转不动，账面中性瞬间变成裸露。限额因此同时约束 Gamma 与再对冲所需的流动性，而不是只约束瞬时 \(\Gamma\) 数字。</p><p><span class="marginnote">Rho 与股息风险在长期限股权与可转债上可以大过日内 Delta。Hull 把 Rho 列为标准希腊字母，短到期外汇里它常被折进远期点，不单独对冲。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>解析希腊字母假设模型正确、参数瞬时不变。跳风险不能用 Delta–Gamma 局部展开抓住；离散对冲留下与 \(\Gamma\) 成正比的误差。多曲线下利率产品的「Delta」可能是对折现曲线、对投影曲线、对关键期限的不同桶，见 <a href="/quant/key-rate-duration">关键利率久期</a> 与 <a href="/quant/multi-curve-ois">OIS 与多曲线</a>。信用与借券不在 Black–Scholes 希腊字母里。</p><p>Hull 提供的是共同记号与对冲直觉，不是某家银行的限额政策。生产系统要把模型 Vega 转成市场桶，把期货 Delta 转成交易合约规格，并记录微笑动态假设。没有这些，希腊字母只是 PDE 的偏导数，不能当对冲指令。</p><p><span class="marginnote">把组合「Delta 中性、Gamma 中性、Vega 中性」写成已无风险，忽略了交叉项、期限错配与对手方。中性是限额语言，不是套利定理。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Delta、Gamma、Vega 是价值对现货一阶、二阶与对隐含波动一阶；Hull 用它们组织期权风险账。</li><li>Delta 对冲用标的或期货；Gamma 与 Vega 必须用非线性工具，且通常不能同时用单一工具清零。</li><li>Gamma–Theta 在 Black–Scholes 里对消；波动率移动打破对消，需要 Vega 对冲。</li><li>对冲比依赖微笑动态（sticky strike / delta / 模型）；SABR 与局部波动率给出不同 Delta。</li><li>分桶 Vega 比单一标量 Vega 更接近交易坐标；方差互换权重不同于 ATM Vega。</li><li>出处：Hull, <em>Options, Futures, and Other Derivatives</em>；微笑对冲见 Hagan et al., 2002；方差条带见 Carr and Madan, 1998。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品与波动率<!--[--> · 单元 定价<!--]--><!--[--> · 课序 波动率<!--]--></p><p class="lesson-progress">第 14 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/discrete-hedge-error/">离散对冲误差</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

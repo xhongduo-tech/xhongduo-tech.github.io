@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RLS 三角 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_rls-tradeoff.md.o-nrjwf5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 随机性<!--]--><!--[--> · 课序 计数噪声到缺陷<!--]--></p><p class="lesson-progress">第 27 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/stochastics-vs-nils/">随机性与 NILS</a></p><p class="lesson-next"> 下一课：<a href="/litho/stochastic-process-window/">随机工艺窗口</a></p></nav><div style="position:relative;"><div><h1 id="rls-三角" tabindex="-1">RLS 三角 <a class="header-anchor" href="#rls-三角" aria-label="Permalink to &quot;RLS 三角&quot;">​</a></h1><div class="epigraph"><p>分辨率要核小，LER 要核大或光子多，灵敏度要光子少：三个顶点不能同时钉在最优。胶与剂量的选择是在三角形里挪点。</p><footer>—— 据 Gallatin / Bristol 对 resolution–LER–sensitivity 权衡的公开论述；Naulleau 的随机实验语法</footer></div><p><a href="/litho/stochastics-vs-nils">上一课</a>把光学 NILS 写成随机增益。缺口是材料侧不能再假装「更敏、更锐、更光」可兼得：这就是 RLS 三角。主干 <a href="/litho/euv-resist">EUV 胶</a> 已经点过名字。本课把它接到本课程的核、计数与 Z 因子上。均值 E–D 窗外还要切随机窗，留给<a href="/litho/stochastic-process-window">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Resolution：有效模糊（电子核 + 酸核 + 显影）必须短于半节距预算。LER：同一套涨落，核短则高频毛、光子少则幅度大。Sensitivity：\(E_\mathrm{size}\) 低则扫描快、源功率够用，但 \(N\) 小、尾肥。加淬灭、降 PEB：核短、分辨率好、灵敏度差、有时 LER 高频升。加剂量：LER 与缺陷降，灵敏度这项「变差」（从产能看）。加吸收 / 金属胶：同样 \(E\) 下 \(N\) 升，但团簇与沾污换一套 R。</p><p>缺口不是再讲 CAR 循环，而是：后课改配方时必须声明挪的是哪一角，禁止只报「更敏」或只报「LER 3 nm」。Z 因子是三角上的一个标量投影，投影方向随定义变。</p><h3 id="光学不取消三角" tabindex="-1">光学不取消三角 <a class="header-anchor" href="#光学不取消三角" aria-label="Permalink to &quot;光学不取消三角&quot;">​</a></h3><p>NILS 升高，同样材料点的 LER 与缺陷改善，看起来三角缩小。目标 CD 若跟着缩，R 角更紧。RET 是在光学上买裕量，不是删除材料三角。<a href="/litho/pag-quencher">pag-quencher</a> 的一对加载是 R 与 S 之间最常用的配方轴。</p><p><span class="marginnote">不要把三角画成等边必然。有的胶族 L 角被团聚钉死，加剂量也降不到地板以下。那是化学地板，不是几何课。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>画图：横轴 \(E_\mathrm{size}\)，纵轴 LER，参数是模糊或节距；另一张看缺陷率。资格：同一节距、同一 NILS 协议下比胶，否则在比光学。改一个旋钮（PEB、负载、胶厚、剂量）必须同时报 R、L、S 三个读出——CD 能否分辩、谱或 \(3\sigma\)、清场/到尺寸剂量。</p><p>与<a href="/litho/acid-diffusion-lwr">酸扩散</a>：\(\ell\) 是三角里明确的核旋钮。与二次电子核：EUV 上即使 \(\ell\to 0\)，R 角仍被 \(G_e\) 卡住。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>信息论口语：更少的光子要在更小的体积里做更确定的决定，统计不允许。模糊把体积做大，确定些，边糊。化学增益把一个光子变成许多酸，灵敏度好，但把出生位置的随机放大——Ito 的增益在 DUV 买产能，在 EUV 薄胶上把 L 角推出来。金属氧化物提高吸收，是在 S 角用截面付钱，而不是用增益付钱，L 角换成团簇。</p><p>Gallatin 把 LER 写成模糊与剂量的函数，定性就是这个三角。定量预因子随胶变，本课不抄某一拟合当定律。</p><p><span class="marginnote">干法显影与 MOR 会改三角的材料边，不删除顶点。后两课换胶族，三角语言保留。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不把某篇 SPIE 的「最佳模糊 5 nm」写成所有层。不重导瑞利 \(k_1\) 来当 R 的定义——R 这里是胶核与半节距预算，不是镜头公式。下一课把三角上的点放进剂量–焦平面：有的点平均 CD 窗还在，随机窗已经关上。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RLS：核短、光子多、剂量低不能同时最优。</li><li>改 PEB / 淬灭 / 吸收 / 剂量都是在三角上挪点，必须三报。</li><li>NILS 改光学增益，不删除三角；目标缩则 R 更紧。</li><li>Z 因子是投影，不是第四个独立物理。</li><li>出处：Gallatin / Bristol RLS；Naulleau；主干 <a href="/litho/euv-resist">euv-resist</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 随机性<!--]--><!--[--> · 课序 计数噪声到缺陷<!--]--></p><p class="lesson-progress">第 27 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/stochastic-process-window/">随机工艺窗口</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

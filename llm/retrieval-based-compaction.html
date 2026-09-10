@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>检索式上下文压缩 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_retrieval-based-compaction.md.ChqA1kmm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 5 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/structured-memory-compaction/">结构化记忆压缩</a></p><p class="lesson-next"> 下一课：<a href="/llm/jit-context-retrieval/">Just-in-Time Context Retrieval</a></p></nav><div style="position:relative;"><div><h1 id="检索式上下文压缩" tabindex="-1">检索式上下文压缩 <a class="header-anchor" href="#检索式上下文压缩" aria-label="Permalink to &quot;检索式上下文压缩&quot;">​</a></h1><div class="epigraph"><p>把检索到的文档先压成相对查询的短摘要再拼进提示，既能少算 token，也减轻模型在长检索结果里找证据的负担。</p><footer>—— Xu、Shi、Choi，RECOMP: Improving Retrieval-Augmented LMs with Compression and Selective Augmentation，ICLR 2024</footer></div><p>RAG 把文档前置进上下文，推理费用随检索块线性涨，而且块一多，读者更容易 <a href="/llm/lost-in-middle">丢掉中间</a>。Xu、Shi、Choi 提出 <strong>RECOMP</strong>（Retrieve, Compress, Prepend）：在黑盒 LM 之前加一个小压缩器，按查询把 \(N\) 篇检索文档收成短文本 \(s\)，再前置。\(s\) 要短、要有助于端任务、并尽量忠实于证据；若检索无用，允许输出空串，即 <strong>选择性增强</strong>。Jiang 等的 LongLLMLingua（arXiv:2310.06839）从另一头做：用小模型按问题相关的对比困惑度做 token 级修剪，并调整块顺序以对抗位置偏差。二者都是 <strong>查询条件下的压缩</strong>，与对整段代理轨迹做 <a href="/llm/compaction-summarize">摘要压缩</a> 不同：前者的原文在索引里还在，压缩是为这一次生成服务的视图。本篇写这条检索侧路径。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>前置全文检索块有三害。算力：LM 要编码远长于问题的 token。利用：即使换成长上下文骨干，中间证据仍可能读不到。干扰：Mallen 等与 Shi 等已表明无关或弱相关文档会伤害生成。加长窗口不自动取消这三害，见 <a href="/llm/context-rot">腐烂</a>。需要在检索器与生成器之间加一层，把「可能有关的许多段」变成「这一问真正该看见的几句」。</p><p>现成摘要模型不是为「让下游 LM 答对」训练的，会保留流畅叙事、丢掉答案跨度。RECOMP 因此不优化 Rouge，而优化 <strong>前置 \(s\) 之后端任务是否变好</strong>。抽取式压缩用对比学习选出「接上就能引出目标输出」的句子；生成式压缩从极大规模 LM 的查询型摘要蒸馏到小 encoder-decoder。压缩器必须明显小于生成器，否则只是把费用挪到另一张卡上。</p><h3 id="压缩率与空摘要" tabindex="-1">压缩率与空摘要 <a class="header-anchor" href="#压缩率与空摘要" aria-label="Permalink to &quot;压缩率与空摘要&quot;">​</a></h3><p>论文报告：语言建模与开放域问答上，oracle 压缩可到约 <strong>6%</strong> token 仍不掉点甚至超过全文前置；训练过的压缩器在语言建模上约 25% 压缩率接近不掉点，问答上压到原文 5%–10% token 时相对跌幅通常不超过约 10%。空摘要不是失败：检索与问题无关、或参数记忆已够用时，前置噪声不如不前置。这与「总是 RAG」的产品默认相反，却直接针对干扰文档问题。</p><p><span class="marginnote">检索式压缩改变的是这一次提示，不删除语料库。用户要引用原文时，应保留句级指针。若压缩器改写后无法指回段落，合规场景应只用抽取式，不用抽象式。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>形式化：给定输入 \(\mathbf{x}\)、目标 \(\mathbf{y}\)、检索集 \(D=\{d_i\}_{i=1}^{N}\)，压缩器 \(c_\theta(\mathbf{x},D)\mapsto \mathbf{s}\)。生成器 \(M\) 冻结，\(M([\mathbf{s};\mathbf{x}])\) 应趋向 \(\mathbf{y}\)。抽取式：把 \(D\) 打成句子，双编码器分别嵌入句子与 \(\mathbf{x}\)，内积表示「前置该句对产生 \(\mathbf{y}\) 有多有用」，取 top 句拼接。训练用对比目标，正例是能改善端任务的句子。抽象式：以 \(\mathbf{x}\) 与拼接后的 \(D\) 为条件生成 \(s\)，监督来自 GPT-3 一类极大模型的查询摘要蒸馏。忠实性主要靠抽取式「几乎逐句来自原文」；抽象式在第 6 节做人工忠实检查，不作为训练项。</p><p>LongLLMLingua 的粗到细：先按问题相关分数排文档、丢掉整篇噪声，再在篇内按对比困惑度删 token，最后把高相关块移到模型更敏感的位置（明确针对 Liu 等的位置偏差）。NaturalQuestions 上相对 GPT-3.5-Turbo 可到约 +21.4% 且 token 约 1/4；LooGLE 上报约 94% 费用下降；约 10k token 提示在 2×–6× 压缩时端到端延迟 1.4×–2.6×。LLMLingua / Selective-Context 更偏 <strong>无查询</strong> 的信息量修剪，LongLLMLingua 强调无查询会留下与问题无关的「看起来信息量大」的噪声。</p><p>Provence（Chirkova 等，arXiv:2501.16214）把抽取式再做成动态句数：不必预先指定留几句，从零到全留。与 RECOMP 抽取式的差别是：后者常把句数当超参，前者试图按篇决定。工程上还可以叠：先句级 RECOMP / 重排，再可选 token 级 Lingua。</p><div class="mermaid"></div><h3 id="与重排、摘要压缩的分工" tabindex="-1">与重排、摘要压缩的分工 <a class="header-anchor" href="#与重排、摘要压缩的分工" aria-label="Permalink to &quot;与重排、摘要压缩的分工&quot;">​</a></h3><p>重排改变块的 <strong>顺序与去留</strong>，通常不改块内文本。检索式压缩继续在块内剪句或剪 token，或跨块合成一句答案线索。窗口内轨迹摘要面对的是自生成历史，没有「语料库里的原文」可回指，失真代价更高。因此：对检索块用 RECOMP/Lingua；对代理轨迹用 compaction 与外存。不要用 Lingua 去剪尚未结束的推理草稿，对比困惑度会把正在写的公式当冗余。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>抽取式的归纳偏置是：有用性 ≈ 与查询在嵌入空间的对齐，且该对齐要用端任务对比来校准，而不是用无监督相似。否则会选出「主题像、不含答案」的句——这正是干扰项。抽象式用极大模型当教师，图的是跨文档综合；失败模式是幻觉与不可引用。选择性空串把压缩器变成门控：相当于学会「何时不 RAG」。LongLLMLingua 的位置重排不增加信息，只把剩余高信号块送到 U 形曲线的高峰，是在压缩之后对 <a href="/llm/lost-in-middle">Lost in the Middle</a> 的补丁。</p><p>查询条件是这条路线的核心。无查询压缩适合「这段话本身有信息量就要留」（如压缩书籍章节供人读）。RAG 的读者只关心 <strong>这一问</strong>。用无查询 Lingua 压检索块，会留下与问题正交的高信息句，窗口看起来更短，干扰密度可能更高。</p><p><span class="marginnote">压缩率不是目标函数。6% oracle 说明信息理论上够用；训练压缩器到 6% 若掉点，应放宽长度而不是硬刷压缩率排行。费用曲线要和端任务一起报。</span></p><h3 id="忠实与可转移" tabindex="-1">忠实与可转移 <a class="header-anchor" href="#忠实与可转移" aria-label="Permalink to &quot;忠实与可转移&quot;">​</a></h3><p>RECOMP 称压缩器在语言建模上可从训练所用的 LM 转到其他 LM；问答上转移更弱，因为答案跨度对生成器更敏感。抽取式默认更忠实，但 Zhang 等指出抽取也可能通过并列改变含义，只是比抽象少见。评测应抽查：答案是否被 \(s\) 支持、\(s\) 是否被 \(D\) 支持。只报 EM/F1 会掩盖「答对了但引用了压缩器幻觉」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>RECOMP 假设 \(D\) 已给定，不改进检索器。垃圾进则垃圾压：压缩器不能从无关 \(D\) 里变出答案，最多输出空串退回参数记忆。多跳需要的证据分散在多篇且必须联合时，句级 top-N 可能拆断链条，HotpotQA 上更要盯召回而不是平均压缩率。token 级修剪会破坏代码与表格对齐，编程、法律条款优先句级或整块去留。</p><p>与 JIT 检索的边界：压缩器仍把 \(s\) 在 <strong>生成开始前</strong> 放进窗口；JIT 把载荷留到工具调用时。混合是合理的：先压一轮给规划，细节用路径再读。不要把 LongLLMLingua 的 NQ +21.4% 抄到任意长上下文任务上，那是该文设定下相对 GPT-3.5-Turbo 的数。</p><p><span class="marginnote">黑盒 API 按输出 token 与输入 token 计费。压缩器自己的前向若跑在本地小模型上，通常划算；若压缩器也是 GPT-4 级，RECOMP 的「小压缩器」前提不成立，应改抽取式或重排。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>检索式压缩在 RAG 的检索与生成之间插入查询条件下的短视图，降低费用并减轻中间丢失与干扰。</li><li>RECOMP 提供抽取式与抽象式压缩器，并允许空摘要做选择性增强；oracle 压缩率可到约 6%。</li><li>LongLLMLingua 用粗到细的查询相关修剪加位置重排，同时打费用、延迟与位置偏差。</li><li>无查询修剪不适合 RAG；轨迹摘要与检索压缩的原文可回指性不同，不要混用。</li><li>压缩器小于生成器、评测看端任务与忠实性，而不是 Rouge 或压缩率榜。</li><li>出处：Xu 等，<em>RECOMP</em>，ICLR 2024，arXiv:2310.04408；Jiang 等，<em>LongLLMLingua</em>，arXiv:2310.06839。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 5 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/jit-context-retrieval/">Just-in-Time Context Retrieval</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

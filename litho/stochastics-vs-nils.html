@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>随机性与 NILS | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_stochastics-vs-nils.md.CeSWdOfi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 随机性<!--]--><!--[--> · 课序 计数噪声到缺陷<!--]--></p><p class="lesson-progress">第 26 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/stochastic-z-factor/">缺陷率与 Z 因子</a></p><p class="lesson-next"> 下一课：<a href="/litho/rls-tradeoff/">RLS 三角</a></p></nav><div style="position:relative;"><div><h1 id="随机性与-nils" tabindex="-1">随机性与 NILS <a class="header-anchor" href="#随机性与-nils" aria-label="Permalink to &quot;随机性与 NILS&quot;">​</a></h1><div class="epigraph"><p>同样数目的光子涨落，切在陡坡上只走一点边，切在缓坡上就断或桥。NILS 是随机的光学放大器，不是胶参数。</p><footer>—— 据 Mack 对 NILS；Naulleau 对对比度 / 斜率与 LCDU、缺陷的公开讨论</footer></div><p><a href="/litho/stochastic-z-factor">上一课</a>的 Z 因子通常不含光学项。缺口是把<a href="/litho/nils-ils">NILS</a> 乘进同一套尾：<a href="/litho/euv-stochastics">随机效应</a> 已说过对比越高、同样 \(\Delta n\) 造成的 \(\Delta\mathrm{CD}\) 越小。本课把这句话写成缺陷率与 LCDU 对 NILS 的敏感，而不重导 ILS 定义。分辨率–LER–灵敏度三角如何同时动，留给<a href="/litho/rls-tradeoff">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>边位移 \(\delta x\approx \delta I/(dI/dx)\)。相对强度噪声 \(\delta I/I\) 来自光子与化学计数，于是 \(\delta x\) 反比于 ILS，相对 CD 噪声反比于 NILS。Z 因子再好的胶，落到禁戒节距的缓坡上，悬崖仍会贴上来。缺口不是再定义 NILS，而是：随机预算必须按图形类给光学项，不能只给胶的 Z。</p><p>加 NA、换 SMO、加助条，首先改的是 NILS，从而改有效噪声增益。加剂量改的是 \(\delta I/I\) 的幅度。两条杠杆不要写成一个「对比度」。光学 \(C\) 高通常 NILS 也高，但切点不在最陡处时，只报 \(C\) 会撒谎——主干 NILS 课已强调，随机上更致命。</p><h3 id="high-na-不是自动降随机" tabindex="-1">High-NA 不是自动降随机 <a class="header-anchor" href="#high-na-不是自动降随机" aria-label="Permalink to &quot;High-NA 不是自动降随机&quot;">​</a></h3><p>0.55 可以提高同一尺寸孔的 MTF / NILS，有助于 LCDU。目标尺寸若跟着缩，面积掉、\(N\) 掉，NILS 增益可能被体积抵消。<a href="/litho/euv-stochastics">euv-stochastics</a> 已警告账要重算；本课指出重算的光学入口就是新的 NILS 图，不是瑞利 CD 公式。</p><p><span class="marginnote">阈值必须声明。换 \(I_\mathrm{th}\) 等于换读斜率的位置，随机增益跟着变。胶 \(\gamma\) 改有效切点，光学 NILS 与胶耦合，又回到剂量–焦耦合课，不是新光学。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>同一胶、同一剂量，换照明或 OPC 看 LCDU 与 \(D_\mathrm{def}\)：若 NILS 升而剂量不变，改善应归光学。同一照明，加剂量：NILS 几乎不动，改善归 \(N\)。把两张矩阵分开，才能填随机预算的「对比项」与「剂量项」。模拟：均值空中像给出 NILS，MC 给出尾；禁止用均值 EPE 代替失效概率。</p><p>弱孔、线端、二维拐角先画 NILS 热图，再决定哪里要随机感知 OPC。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>计数噪声是强度的相对涨落（泊松）或酸数的相对涨落。除以当地斜率之后变成纳米。NILS 把斜率无量纲化到目标 CD，便于跨尺寸比：NILS=1 的边，几个百分点的剂量噪声就是几个百分点的 CD 噪声量级。缺陷作为越过间距或线宽阈值的事件，对这个增益指数敏感——所以公开图里「NILS 再高一点，缺孔掉一个数量级」与「再加几 mJ」可以同样陡。</p><p>模糊核降低 NILS（潜像），同时降低噪声高频。净效果对 LCDU 不一定单调，这正是下一课 RLS 三角的来源。本课先把光学 NILS 与材料核分开记账。</p><p><span class="marginnote">flare 抬 \(I_\mathrm{min}\)，切点移到更缓处，NILS 掉，桥崖前移。杂散光是随机预算的光学项，不是胶脏了。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不重推 \(\mathrm{NILS}=\mathrm{CD}\cdot\mathrm{ILS}\) 的代数——见主干。不把「NILS&gt;2」写成全球量产门槛。下一课把分辨率（要锐核）、LER（要糊核）、灵敏度（要少光子）写成不能同时最优的三角。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>随机边抖反比于 NILS；光学项必须按图形进入预算。</li><li>加 NILS 与加剂量是不同杠杆，要用对照矩阵拆。</li><li>High-NA 改 NILS 也改面积，账要重算。</li><li>潜像核会再砍 NILS；与光学 NILS 分列。</li><li>出处：Mack 的 NILS；Naulleau 对斜率与随机计量。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 随机性<!--]--><!--[--> · 课序 计数噪声到缺陷<!--]--></p><p class="lesson-progress">第 26 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/rls-tradeoff/">RLS 三角</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OS+ / Outlier Suppression | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_outlier-suppression.md.D0oUJjkm.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 量化与压缩论文<!--]--><!--[--> · 课序 权重量化<!--]--></p><p class="lesson-progress">第 253 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/omniquant/">OmniQuant</a></p><p class="lesson-next"> 下一课：<a href="/llm/zeroquant/">ZeroQuant</a></p></nav><div style="position:relative;"><div><h1 id="os-outlier-suppression" tabindex="-1">OS+ / Outlier Suppression <a class="header-anchor" href="#os-outlier-suppression" aria-label="Permalink to &quot;OS+ / Outlier Suppression&quot;">​</a></h1><div class="epigraph"><p>LayerNorm 的 $\gamma$ 把少数通道放大成异常值；把缩放迁走，再对非对称激活做通道级平移，低比特格子才不必为尖峰和空半轴同时付税。</p><footer>—— Wei 等，Outlier Suppression，NeurIPS 2022；OS+，EMNLP 2023</footer></div><p>Xiuying Wei、Yunchen Zhang、Xiangguo Zhang、Ruihao Gong 等人 2022 年的 NeurIPS 论文 <strong>Outlier Suppression（OS）</strong> 把 Transformer 语言模型激活难量化的原因，钉在 <strong>LayerNorm 之后的通道尖峰</strong>，并与 \(\gamma\) 的跨通道差异对应。2023 年 EMNLP 的 <strong>Outlier Suppression+（OS+）</strong>（arXiv:2304.09145）把方法从 BERT / GPT-2 量级推到 OPT、BLOOM、LLaMA，补上通道级 <strong>平移 + 缩放</strong> 的等价变换，并讨论何种平移在量化误差上最优。两篇是同一条异常值故事的前后节：先诊断 \(\gamma\)，再给出可吸收的仿射校正。它们早于或并行于 SmoothQuant 的公开叙事，引用时不要把 2023 年的 LLaMA 数字写回 2022 年的 BERT 实验。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>低比特 Transformer 在 BERT 时代已经知道激活比权难。OS 的观察更具体：异常值不是随机散在 token 上，而是<strong>固定藏在某些特征维</strong>，并且这些维与 LayerNorm 的 \(\gamma\) 大幅度重合。\(\gamma\) 在浮点里是合法的逐通道增益；量化之后，同一张量共享的尺度被这些维绑架，其余维等效比特崩溃。只做逐张量 min-max，或只在 softmax 前裁剪，治不了「结构上被 \(\gamma\) 放大」的通道。</p><p>到了 OPT-175B / LLaMA，通道异常值更重，W8A8 成为服务端命题。OS 的 token 级裁剪与 \(\gamma\) 迁移对小模型有效，对大模型不够：激活还常常<strong>非对称</strong>，对称量化把一半格子浪费在几乎没有质量的负半轴或正半轴。OS+ 要回答：在等价变换类里，平移和缩放各管什么，怎样选才对量化 MSE 最优，以及能否融进下一层线性，保持稠密 INT 核。</p><h3 id="第一篇-os-迁出-layernorm" tabindex="-1">第一篇 OS：\(\gamma\) 迁出 LayerNorm <a class="header-anchor" href="#第一篇-os-迁出-layernorm" aria-label="Permalink to &quot;第一篇 OS：$\gamma$ 迁出 LayerNorm&quot;">​</a></h3><p>LayerNorm 输出 \(y=\gamma\odot \hat{x}+\beta\)。把 \(\gamma\) 乘进下一层权重的对应输入通道，浮点函数不变，LayerNorm 的输出不再被巨大 \(\gamma\) 拉出长尾。再配合 token 级的缩放 / 裁剪，压住仍残留的尖峰。这是 2022 年 BERT、GPT-2 上冲击 INT8 / INT6 的配方。它还不是大模型 W8A8 的完整解：没有系统的通道平移，也没有 175B 表格。贡献首先是<strong>诊断</strong>——异常值是通道级的、与 Norm 仿射相关——后来 LLM.int8()、SmoothQuant 的通道故事与此同族。</p><p><span class="marginnote">OS 的「抑制」不是把信息抹掉。\(\gamma\) 迁移只是换一个坐标系表达同一仿射。真正丢信息的是随后的量化与裁剪。写「抑制异常值」时要写清：迁走的是谁、裁掉的是谁。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>OS+ 对通道 \(j\) 做</p> \[x&#39;_j=\frac{x_j-\delta_j}{s_j}, \]<p>\(\delta\) 让分布对中，\(s\) 压幅度。下一层 \(Y=X&#39;W&#39;+b&#39;\) 通过</p> \[W&#39;_{j,:}=s_j W_{j,:},\quad b&#39;\leftarrow b+W^\top\delta \]<p>一类吸收保持 \(X&#39;W&#39;+b&#39;=XW+b\)（按实现的左右乘约定调整）。\(s\) 的角色与 SmoothQuant 同构；\(\delta\) 是 OS+ 相对「只缩放」的增量。作者讨论在量化误差模型下平移的最优选择——例如与通道中位数或均值对齐——而不是只从校准 max 写一个启发式。校准估 \(\delta,s\)，可与逐 token 激活量化、逐通道权重量化组合。</p><div class="mermaid"></div><p>实验合同：OS 正文以 BERT 类编码器、GPT-2 小生成模型的 GLUE / 语言模型指标为主，冲击到 4–8 bit 激活。OS+ 给出 OPT、BLOOM、LLaMA 上 W8A8、W6A6 等设定的困惑度与零样本，强调平移对非对称通道的收益，以及等价变换可完全吸收、推理不留额外核。与 SmoothQuant 同场时，OS+ 把平移写成差异化卖点；与 LLM.int8() 同场时，卖点是保持稠密整数核。不要用 BERT 的 INT4 数字去承诺 LLaMA-7B 的 W4A4。</p><h3 id="非对称激活需要先对中" tabindex="-1">非对称激活需要先对中 <a class="header-anchor" href="#非对称激活需要先对中" aria-label="Permalink to &quot;非对称激活需要先对中&quot;">​</a></h3><p>对称 INT8 假设 0 在动态范围中心。LayerNorm 之后若某通道几乎全为正、另一通道偏负，max-abs 尺度被长的那一侧决定，短的一侧只用到几个 bin。平移把质量移到 0 附近，同样 8-bit 的有效分辨率上升。量化成非对称（带零点）也能对中，但零点让整数 GEMM 变 \(Wq_x\) 多一项纠偏，核更重。OS+ 倾向用等价平移把分布推回可对称量化的区域，好走对称 INT 核。这是工程选择，不是「零点不合法」。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(\gamma\) 是逐通道乘子。浮点里它校正 Norm 后的尺度；量化里它与激活尖峰相乘，变成固定的难通道。迁 \(\gamma\) 等于承认：难的不是「数据里的语义维」，而是「归一化仿射把数值放在了坏坐标」。平移处理的是一阶矩，缩放处理的是幅度，二者不可互相替代。等价仿射类 \(\{x\mapsto (x-\delta)/s\}\) 在线性层可完全吸收，因此可以在 PTQ 里当预处理，而不改任务损失。</p><p>与 SmoothQuant 的谱系：两边都做通道缩放迁难度。SmoothQuant 用 \(\alpha\) 在权重与激活的 max 之间分配；OS+ 强调平移最优性，并明确从 LayerNorm \(\gamma\) 的 2022 诊断出发。实践中两套 \(s\) 常常数值相近，差异主要在 \(\delta\) 与是否迁 \(\gamma\)。与 AWQ 方向相反：OS+ 为激活量化服务，AWQ 为权重量化服务。</p><p><span class="marginnote">RMSNorm 没有独立的 \(\beta\)，且常把 \(\gamma\) 留在 Norm 里。OS 的「\(\gamma\) 迁移」在 LLaMA 上变成「吸收 RMSNorm 的 \(\gamma\) 或后接仿射」。OS+ 的平移对 RMSNorm 输出仍有意义。抄 BERT 实现到 LLaMA 时要对齐 Norm 定义。</span></p><h3 id="从-bert-到-llama-的模型合同变了" tabindex="-1">从 BERT 到 LLaMA 的模型合同变了 <a class="header-anchor" href="#从-bert-到-llama-的模型合同变了" aria-label="Permalink to &quot;从 BERT 到 LLaMA 的模型合同变了&quot;">​</a></h3><p>2022 年的 GLUE 掉点 0.5% 与 2023 年 LLaMA 的 WikiText PPL +0.1 不是同一签字。编码器双向、序列短、任务分类头可重新校准；解码器生成误差沿 token 累积。OS+ 必须用生成模型重新证明，不能靠 OS 的 GLUE 表外推。175B 级若出现 LLM.int8() 所述的涌现异常特征，仅迁 \(\gamma\) 可能不够，还要缩放、旋转或分流。把 OS+ 写成「已经解决 4-bit 激活」超过两篇论文的主张。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="两篇论文不要合成一个超方法" tabindex="-1">两篇论文不要合成一个超方法 <a class="header-anchor" href="#两篇论文不要合成一个超方法" aria-label="Permalink to &quot;两篇论文不要合成一个超方法&quot;">​</a></h3><p>引用 2022 只谈 \(\gamma\) 与小模型低比特；引用 2023 再谈平移、LLaMA、W8A8。社区口头禅「OS+」常把两者混称，复现时却漏掉平移或漏掉 \(\gamma\) 迁移。融合顺序与下一层是否含 bias 有关：无 bias 的线性层吸收平移要靠后接项或改下一层的等价常数，漏了就会有静默偏置。逐 token 动态量化与静态 \(\delta,s\) 叠加时，通道平移仍然有用，但 token 尺度会部分替代 \(s\) 的角色，消融要分开报。</p><p>OS / OS+ 不提供 2-bit 码本，也不学旋转。极低比特权重应看 GPTQ、AWQ、QuIP#。它们也不量化 KV。NPU 上若对称 INT8 核更成熟，平移对齐称的价值更大；若硬件原生支持非对称，收益缩小。指令微调模型要重估 \(\delta,s\)，因为 \(\gamma\) 虽未改，激活通道统计会变。</p><p><span class="marginnote">出处：Wei et al.，<em>Outlier Suppression: Pushing the Limit of Low-bit Transformer Language Models</em>，NeurIPS 2022；Wei et al.，<em>Outlier Suppression+: Accurate Quantization of Large Language Models by Equivalent and Optimal Shifting and Scaling</em>，EMNLP 2023。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>OS 把激活异常值诊断为 LayerNorm \(\gamma\) 放大的通道尖峰，并用迁移 + 裁剪做低比特 PTQ。</li><li>OS+ 补上通道平移与缩放的等价变换，面向 OPT / LLaMA 的 W8A8、W6A6。</li><li>平移对非对称激活、缩放对幅度、\(\gamma\) 迁移对 Norm 仿射，三者职责不同。</li><li>2022 的 BERT 合同不能代替 2023 的生成模型合同。</li><li>出处：Wei et al.，NeurIPS 2022 与 EMNLP 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 量化与压缩论文<!--]--><!--[--> · 课序 权重量化<!--]--></p><p class="lesson-progress">第 253 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/zeroquant/">ZeroQuant</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

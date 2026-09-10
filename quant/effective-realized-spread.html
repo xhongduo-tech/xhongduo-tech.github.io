@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>有效价差与实现价差 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_effective-realized-spread.md.CAC2rDqj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 价格形成<!--]--></p><p class="lesson-progress">第 22 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/vpin/">VPIN</a></p><p class="lesson-next"> 下一课：<a href="/quant/lee-ready/">Lee-Ready 算法</a></p></nav><div style="position:relative;"><div><h1 id="有效价差与实现价差" tabindex="-1">有效价差与实现价差 <a class="header-anchor" href="#有效价差与实现价差" aria-label="Permalink to &quot;有效价差与实现价差&quot;">​</a></h1><div class="epigraph"><p>报价价差是挂在簿上的宽度；有效价差是成交相对中点实际付了多少；实现价差是做市商把这笔存货再转手之后还剩多少。</p><footer>—— Huang and Stoll, Dealer versus Auction Markets: A Paired Comparison of Execution Costs on NASDAQ and the NYSE, Journal of Financial Economics 1996</footer></div><p><a href="/quant/vpin">上一课</a>把 PIN 的不平衡搬到成交量时钟：等体积桶、批量分类、滚动绝对不平衡比；它测流量毒性，不要读成 EKOP 意义下的知情概率。<a href="/quant/spread-decomposition">价差分解</a>给出了会计，<a href="/quant/roll-model">Roll</a> 给出了只用成交价的隐含测度。缺口是把执行成本接到成交上：有效价差是成交相对中点实际付了多少，实现价差是做市商转手之后还剩多少。本课写这一对定义，不重推 VPIN 的桶长。它测的是已经发生的成交有多贵，不是生成模型里的知情概率。后课 Lee–Ready 默认：方向 \(D\) 必须先定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>报价价差 \(A-B\) 是对外宣布的一轮往返成本。实际成交价 \(P\) 往往在价差内部。对主动方，真正付的是 \(P\) 相对当时中点 \(M=(A+B)/2\) 的距离。对被动方，这笔单变成存货之后中点会动。若只报告报价价差，竞价市场与做市商市场无法比；若只报告有效价差，又看不到事后冲击。缺口是一套符号一致、可按成交加总的定义，并把冲击从实现利润里分开。</p><h3 id="方向-必须先定义" tabindex="-1">方向 \(D\) 必须先定义 <a class="header-anchor" href="#方向-必须先定义" aria-label="Permalink to &quot;方向 $D$ 必须先定义&quot;">​</a></h3><p>所有价差公式都乘以成交方向 \(D\)：主动买 \(+1\)，主动卖 \(-1\)。没有 \(D\)，\((P-M)\) 的符号无意义。Lee–Ready 用成交价相对中点，平价时用 tick 检验。方向错误会把有效价差系统性压低（随机分类使 \(D(P-M)\) 期望变小）。高频、多交易所、中点延迟一毫秒，分类错误率就不是可以忽略的边角。</p><p><span class="marginnote">有效价差不是「成交价减买一」。买一是被动卖的报价，主动买成交可能发生在卖一、卖二甚至中点。中点是当时公开买卖的中心，用来当未受本笔成交污染的参考价——前提是报价时间戳与成交时间戳对齐。错配毫秒，中点就可能已经含了本笔。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记成交价 \(P_t\)、同时刻（或紧前）中点 \(M_t\)、方向 \(D_t\)。<strong>有效价差</strong></p> \[\mathrm{ES}_t=2D_t(P_t-M_t). \]<p>乘 2 是为了与报价价差同量纲：一轮买加一轮卖。单笔主动买若在卖价成交且没有改善，有效价差等于报价价差；若有价格改善，有效价差更小，甚至为负（成交越过中点，在对方一侧）。</p><p>取滞后 \(\tau\)（五分钟、十五分钟、或下一笔报价更新），<strong>实现价差</strong></p> \[\mathrm{RS}_t=2D_t(P_t-M_{t+\tau}). \]<p>它把参考价换成未来中点：被动方若以 \(P_t\) 买入（对应主动卖，\(D_t=-1\)），之后中点下跌，实现价差变负。Huang–Stoll 把<strong>价格冲击</strong>写成有效减实现：</p> \[\mathrm{ES}_t-\mathrm{RS}_t=2D_t(M_{t+\tau}-M_t). \]<p>即方向乘以后续中点变动。冲击大，说明成交后价格顺着主动方走，通常解释为逆向选择或持久的存货压力。实现价差则更接近做市商扣除冲击后的利润：报价价差里的订单处理与存货成分。</p><h3 id="的选择改变成分而不改变会计恒等式" tabindex="-1">\(\tau\) 的选择改变成分而不改变会计恒等式 <a class="header-anchor" href="#的选择改变成分而不改变会计恒等式" aria-label="Permalink to &quot;$\tau$ 的选择改变成分而不改变会计恒等式&quot;">​</a></h3><p>恒等式 \(\mathrm{ES}=\mathrm{RS}+\mathrm{Impact}\) 对任意 \(\tau\) 成立。\(\tau\) 太短，冲击尚未实现，实现价差偏高、冲击偏低；\(\tau\) 太长，不相关信息进入 \(M_{t+\tau}\)，冲击方差变大，均值仍可解释为持久成分。五分钟是美股文献的常见折中，不是定理。开盘、收盘、宏观发布前后，\(\tau\) 应缩短到与信息释放匹配的尺度。跨市场比较必须锁定同一 \(\tau\)、同一方向算法、同一是否对成交量加权。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有效价差捕捉的是<strong>相对公开中点的即时偏离</strong>。限价簿足够深、市价单只扫一档时，它接近报价价差；冰山、暗池、零售内化会把大量成交推进价差内部，有效价差小于报价价差。实现价差捕捉的是<strong>这笔成交作为存货的事后盯市</strong>。若对手是非知情、随后中点随机游走，实现价差的期望约等于有效价差；若对手知情，中点漂移，实现价差被压缩。</p><p>这与 Huang–Stoll（1997）把价差拆成逆向选择、存货、订单处理三块是同一套会计：有效与实现提供不需要完整参数模型的约化统计量。Roll 模型用收益序列协方差估价差，吃的是收盘价，看不见盘中改善；本篇这组度量吃的是带方向的成交，分辨率高得多，也对数据质量苛求得得多。</p><p><span class="marginnote">加权方式会改变故事。等权有效价差突出小单；成交量加权、成交额加权才接近机构实际付的成本。大单拆成多笔时，应按父单聚合再算一个有效价差，否则会把扫档过程拆成许多「看起来很便宜」的子笔。</span></p><h3 id="与-pin、vpin-的分工" tabindex="-1">与 PIN、VPIN 的分工 <a class="header-anchor" href="#与-pin、vpin-的分工" aria-label="Permalink to &quot;与 PIN、VPIN 的分工&quot;">​</a></h3><p>PIN 回答生成过程里知情交易的概率，VPIN 回答成交量时钟上的流量毒性，有效/实现价差回答<strong>已经成交的那一笔有多贵、贵在冲击还是价差租金</strong>。毒性高的时段，冲击成分应上升、实现价差下降——这是联合检验，不是互相定义。不要用 PIN 替代有效价差去给交易台报成本，也不要用实现价差替代 PIN 去做信息风险的横截面。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>公式假设存在可观测的买卖报价与中点。集合竞价只有成交价，没有连续中点，有效价差要另定义参考价（例如开盘前的虚拟中点，或不用开盘笔）。涨跌停时一侧报价缺失，中点失真。盘后、暗池成交若没有同步的公开中点，应标成缺失而不是拿过期中点硬算。</p><p>不要把负的有效价差一律当数据错误：中点穿越、零售价格改善、收盘拍卖的交叉都可以产生负值。不要把实现价差当成做市商的会计利润：还有手续费、返佣、存货隔夜、对冲成本。\(\tau\) 跨越隔夜时，实现价差混入<a href="/quant/calendar-overnight">隔夜收益</a>，应分开报告。方向分类应在清洗后的成交上做，先经过 <a href="/quant/tick-cleaning">Tick 数据清洗</a> 与 <a href="/quant/outlier-trades">异常成交</a>，否则错价会以巨大的 \(P-M\) 主导均值。</p><p><span class="marginnote">Huang–Stoll 1996 的配对比较依赖当时 NASDAQ 的做市商结构与纽交所的专家制度。今日的电子限价簿、零售内化、拍卖机制不同，公式仍可用，制度解释不能照抄「做市商市场更贵」那一句结论。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>报价价差是挂牌宽度；有效价差 \(2D(P-M)\) 是成交相对当时中点的成本；实现价差 \(2D(P-M_{τ})\) 是对照未来中点后被动方还剩的价差。</li><li>价格冲击等于有效减实现，即方向乘中点漂移，约化地对应逆向选择。</li><li>\(\tau\)、方向分类、成交量加权决定水平与排序；跨市场比较必须锁口径。</li><li>负有效价差可以是改善而不是错价；隔夜、停牌、无报价时段要单独处理。</li><li>与 PIN/VPIN 分工：成本会计对生成概率，二者联合看毒性是否真的让冲击变贵。</li><li>出处：Huang and Stoll, <em>Dealer versus Auction Markets</em>, Journal of Financial Economics 1996；价差成分的参数分解见 Huang and Stoll, Journal of Finance 1997。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 订单簿<!--]--><!--[--> · 课序 价格形成<!--]--></p><p class="lesson-progress">第 22 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/lee-ready/">Lee-Ready 算法</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

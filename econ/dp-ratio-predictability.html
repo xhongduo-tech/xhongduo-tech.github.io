@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>股利-价格比预测 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_dp-ratio-predictability.md.Bt4kBxx_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息、流动性与无套利<!--[--> · 单元 无套利与鞅<!--]--><!--[--> · 课序 定价的数学骨架<!--]--></p><p class="lesson-progress">第 23 / 41 课</p><p class="lesson-prereq"> 先修：<a href="/econ/shiller-excess-volatility/">Shiller 过度波动</a></p><p class="lesson-next"> 下一课：<a href="/econ/term-structure-of-risk/">风险的期限结构</a></p></nav><div style="position:relative;"><div><h1 id="股利-价格比预测" tabindex="-1">股利-价格比预测 <a class="header-anchor" href="#股利-价格比预测" aria-label="Permalink to &quot;股利-价格比预测&quot;">​</a></h1><div class="epigraph"><p>股利–价格比是折现率通道的状态变量：它预测回报，是因为会计要求它预测；斜率大小由时变溢价决定，不由「市场无效」单独决定。</p><footer>—— 据 Fama and French, Dividend Yields and Expected Stock Returns, Journal of Financial Economics, 1988；Campbell–Shiller 1988</footer></div><p><a href="/econ/shiller-excess-volatility">上一课</a>从波动端拒绝恒定折现。本课缺口落到<strong>预测变量本身</strong>：\(d-p\)（或 \(D/P\)）作为预期回报的代理。不重画方差界，不把收益率预测做成样本外赛马——那是计量，本栏只要理论地位。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Fama 与 French（1988）把股利收益率写成未来股票回报的预测变量。CS 会计已经说明：若 \(\Delta d\) 通道弱，这件事必须发生。缺口是把它放进 SDF 语言： \(d-p\) 跟踪 \(\mathrm{E}_t[m_{t+1}]\) 或风险价格的状态。Lucas 树里状态是 \(y\)，\(d-p=d-p(y)\)，预测力来自 Markov；习惯模型里状态是盈余消费比，\(d-p\) 与之共变。本课不选哪一个微观基础，只钉：预测变量是折现率的充分统计候选，不是对半强式的自动否证。</p><p>与 <a href="/econ/capm-theory">CAPM</a> 的分界：CAPM 说截面上 \(\mathrm{E}[R^e]\) 与 beta 成正比，可以允许市场溢价时变。\(D/P\) 预测的是时间序列上的市场溢价，不是横截面异象表。不要在本课排序规模与价值。</p><p><span class="marginnote">Fama and French, <em>JFE</em> 22, 1988。同一作者后来的三因子是截面；本课停在总量预测。两件事不要并成「Fama–French 说市场无效」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把 \(d_t-p_t\) 当作状态 \(z_t\) 的代理。欧拉 \(1=\mathrm{E}_t[m_{t+1}(1+R_{t+1})]\) 在 \(z_t\) 上投影，得到 \(\mathrm{E}[R_{t+1}\mid z_t]\) 随 \(z_t\) 变。线性预测 \(R_{t+1}=a+b(d_t-p_t)+\varepsilon_{t+1}\) 是这根投影的一阶近似。\(b\gt 0\) 与「高 \(D/P\) 之后回报高」一致：价格低相对股利，预期折现高。短窗口噪声大、长窗口会计更显——因为 CS 的和是折现长和。</p><div class="mermaid"></div><p>信息：若 \(D/P\) 含未被价格完全揭示的基本面，预测力里会混进 \(\theta\) 的泄漏。GS 部分揭示允许这一点。理论地位仍是：观测到的预测不必等于「业余投资者没读年报」。联合假说没有消失。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是状态依赖的风险价格或风险量。坏状态下 \(m\) 更抖或更倾斜，要求更高的 \(\mathrm{E}[R]\)，同时价格已经下跌，\(D/P\) 升高——于是 \(D/P\) 与后续回报同向。这与流动性接口相容：中介约束收紧时折现升、价格跌，后课 He–Krishnamurthy 会把 \(z\) 写成中介资本；本课的 \(D/P\) 只是一个可观测的坐标。</p><p>不要用 PEAD 解释 \(D/P\)：公告漂移是注意力；估值比率是慢变量。时间尺度不同。</p><p><span class="marginnote">Goyal–Welch 的样本外批评针对预测回归的稳定性，不否定 CS 会计。会计说必须有通道；哪一个有限样本回归能抓住它，是测量。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不报告 \(R^2\)，不比较盈利收益率与股利收益率的赛马。下一课把「时变风险」沿期限展开：短期与长期现金流的风险价格可以不同——风险的期限结构。那是对折现率通道的精细化，不是又一个预测变量清单。</p><p>后课默认：\(D/P\) 是折现率状态的会计代理；它预测回报与过度波动拒绝恒定 \(r\) 是对偶。不是 CAPM 横截面，不是对 EMH 的单独否证。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>股利–价格比预测回报，首先是 CS 会计在 \(\Delta d\) 弱时的推论。</li><li>理论地位是时变 \(m\) 的可观测坐标，不是无效的充分统计。</li><li>时间序列溢价 ≠ 截面因子表。</li><li>出处：Fama and French, <em>JFE</em> 1988；Campbell and Shiller, <em>RFS</em> 1988。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息、流动性与无套利<!--[--> · 单元 无套利与鞅<!--]--><!--[--> · 课序 定价的数学骨架<!--]--></p><p class="lesson-progress">第 23 / 41 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/term-structure-of-risk/">风险的期限结构</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

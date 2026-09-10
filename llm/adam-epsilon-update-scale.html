@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adam ε 与更新尺度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_adam-epsilon-update-scale.md.2pUwwcKc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 18 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/post-ln-warmup/">Post-LN 预热</a></p><p class="lesson-next"> 下一课：<a href="/llm/adam-beta2-spikes/">β₂ 与损失尖峰</a></p></nav><div style="position:relative;"><div><h1 id="adam-ε-与更新尺度" tabindex="-1">Adam ε 与更新尺度 <a class="header-anchor" href="#adam-ε-与更新尺度" aria-label="Permalink to &quot;Adam ε 与更新尺度&quot;">​</a></h1><div class="epigraph"><p>分母里的 $\varepsilon$ 本是为了避免除零；当二阶矩本身小于 $\varepsilon$，自适应步长不再由梯度尺度决定，而由这个常数决定。</p><footer>—— Kingma &amp; Ba, Adam, ICLR 2015；大模型中的不稳分析见 Molybog et al., A Theory on Adam Instability in Large-Scale Machine Learning, 2023</footer></div><p><a href="/llm/post-ln-warmup">上一课</a>把 LN 位置与 warmup 对齐。缺口进入 <a href="/llm/adamw">AdamW</a> 内部：更新是 \(-\eta\,\hat m/(\sqrt{\hat v}+\varepsilon)\)。主干写了解耦衰减，没有把 \(\varepsilon\) 当成稳定性旋钮。Kingma 与 Ba 给的默认 \(10^{-8}\) 在 FP32 全连接网上几乎看不见；LLM 里大量参数的梯度长期稀疏（词表尾、偏置、某些头），\(\sqrt{v}\) 可以小于 \(\varepsilon\)，于是这些坐标的有效学习率变成 \(\eta/\varepsilon\)，与 μP 扫到的 \(\eta\) 无关。本课写这个交叉，下一课写 \(\beta_2\) 与尖峰。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(v\) 是梯度平方的滑动平均。嵌入里罕见 token、刚被初始化的专家、以及 LN 的 \(\gamma\) 在早期，都可以有 \(g\approx 0\) 然后突然来一次非零 \(g\)。若此前 \(v\approx 0\)，分母 \(\approx\varepsilon\)，一步更新幅度是 \(|g|\) 的 \(\eta/\varepsilon\) 倍量级（再经 \(m\) 平滑）。\(\varepsilon=10^{-8}\)、\(\eta=3\times 10^{-4}\) 时 \(\eta/\varepsilon=3\times 10^{4}\)，对「几乎没见过梯度的坐标」是灾难。Llama 一类配方把部分参数组的 \(\varepsilon\) 提到 \(10^{-5}\) 或对 LN 单独分组，图的就是这个。</p><p>混合精度下还有第二条：\(\sqrt{v}\) 在 BF16 里下溢到 0，即使 FP32 主权重上 \(v\) 非零，若 \(v\) 被错误地存成低精度，\(\varepsilon\) 必须大到能当护栏。Molybog 等人从理论上讨论 Adam 在大规模训练中的不稳，与「分母过小 → 偶发巨步」同方向。</p><p><span class="marginnote">有的实现把 \(\varepsilon\) <strong>加在平方根里面</strong>：\(\sqrt{v+\varepsilon}\)。这改变小 \(v\) 时的渐近，与原论文 \(\sqrt{v}+\varepsilon\) 不是同一更新。复现必须对到代码，不能只对到「AdamW, eps=1e-8」一行。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分组而不是全局拧：</p><ul><li>隐藏 GEMM：可保留 \(10^{-8}\)，它们的 \(v\) 通常够大。</li><li>嵌入 / lm_head：更大的 \(\varepsilon\) 或更小的 \(\eta\)，避免热 token 以外的行被 \(\eta/\varepsilon\) 抽打。</li><li>LN / RMSNorm 的 \(\gamma,\beta\)：维度极小，\(v\) 估计噪，常常需要更大 \(\varepsilon\) 或从自适应里拿出来用 SGD 式更新（少见，但应知道选项）。</li></ul><p>coord check：在代理模型上画各层 \(|\Delta\theta|/|\theta|\) 的中位数。若嵌入组比隐藏层大几个数量级，先查 \(\varepsilon\) 与 \(\eta\) 分组，再查是否忘了把嵌入从过大的全局 \(\eta\) 里拆出。</p><p>不要用增大 \(\varepsilon\) 去「当权重衰减」或「当 clip」：\(\varepsilon\) 只在 \(v\) 小的坐标上起作用，对已经很热的坐标几乎恒等。持续贴顶的梯度范数应回到上一课，而不是把 \(\varepsilon\) 改成 \(10^{-3}\) 把全体自适应关掉。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Adam 本意是用 \(\sqrt{v}\) 当每坐标 RMS 梯度，使更新与梯度尺度无关。\(\varepsilon\) 是该估计的地板。地板一旦主导，自适应消失，退化成「大学习率 SGD + 动量」，且只发生在冷坐标上——最冷的坐标一步走最远。这与直觉「稀疏该学慢」相反。权重衰减在这些坐标上若仍按 \(\eta\lambda\) 解耦乘，相对那一次巨步可以忽略，于是冷行的范数被单次更新决定。</p><p>μP 的表假设更新由正确的自适应尺度主导。\(\varepsilon\) 主导时，宽度迁移失效：窄模型上所有坐标都够热，\(\varepsilon\) 看不见；宽模型词表行更冷，\(\varepsilon\) 突然接管。这是后课「学习率敏感度与 μP 实践」必须把 \(\varepsilon\) 写进检查清单的原因。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不改 \(\beta_1,\beta_2\)；\(\beta_2\) 决定 \(v\) 的记忆长度，下一课专门对尖峰。Adafactor、Lion、Sophia 有自己的地板与因式分解，不能把 Adam 的 \(\varepsilon\) 数字贴过去。Fused Adam 的数值顺序（先加 \(\varepsilon\) 再开方还是相反）属于实现，验收靠一小步对照非融合核，不要假设硬件核与论文公式逐位相同。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(\varepsilon\) 是自适应分母的地板；冷坐标上有效学习率变成 \(\eta/\varepsilon\)，可远大于名义 \(\eta\)。</li><li>按嵌入、LN、隐藏层分组，不要全局拧到 \(10^{-3}\) 关掉 Adam。</li><li>\(\sqrt{v}+\varepsilon\) 与 \(\sqrt{v+\varepsilon}\) 是不同更新；低精度存储 \(v\) 会让地板更早接管。</li><li>\(\varepsilon\) 主导时 μP 迁移假设破裂。</li><li>出处：Kingma &amp; Ba, ICLR 2015；Molybog et al., 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 18 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/adam-beta2-spikes/">β₂ 与损失尖峰</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

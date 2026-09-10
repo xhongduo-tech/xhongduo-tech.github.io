@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>香农容量在链路 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_shannon-capacity-link.md.DFnq9pkz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 物理与链路<!--]--><!--[--> · 课序 信号到以太网<!--]--></p><p class="lesson-progress">第 1 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/socket-nonblock/">阻塞与非阻塞套接字</a></p><p class="lesson-next"> 下一课：<a href="/cs/modulation-symbol-rate/">调制与符号率</a></p></nav><div style="position:relative;"><div><h1 id="香农容量在链路" tabindex="-1">香农容量在链路 <a class="header-anchor" href="#香农容量在链路" aria-label="Permalink to &quot;香农容量在链路&quot;">​</a></h1><div class="epigraph"><p>带宽 $B$ 与信噪比把可靠速率钉死在 $C=B\log_2(1+S/N)$；链路的波特、编码与重传都在这个上界下面找工程点。</p><footer>—— 据 Shannon, Communication in the Presence of Noise, Proc. IRE 1949；Nyquist, 1928 整理</footer></div><p><a href="/cs/distributed-os-intuition">上一课</a>把操作系统进阶收到「没有透明分布式 Unix」。主干网络已从<a href="/cs/layering-e2e">分层</a>走到<a href="/cs/socket-api">套接字</a>，帧与 MAC 当 PDU 用，还没有把一跳的比特率接到信息论。<a href="/cs/channel-capacity">信道容量</a>在离散 BSC 上给过 \(C=\max I(X;Y)\)。缺口是<strong>链路上的香农公式</strong>：铜缆、光纤这一跳能可靠运送多少比特，后课调制与线路码都相对这个预算说话。后课默认已经读完本课。不重写 Transformer，不进限价簿。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>教学五层把物理层写成「比特上介质」。介质有噪声、有限带宽。Nyquist：无噪声、\(M\) 电平、带宽 \(B\) 时符号率不超过 \(2B\)，比特率 \(2B\log_2 M\)。Shannon：加性高斯噪声下 \(C=B\log_2(1+\mathrm{SNR})\)，与具体电平表无关。主干以太网课假定「链路有速率」；本课把速率还原成 \(B\) 与 SNR 的函数，而不是网卡说明书上的营销数字。</p><p>不要把 \(C\) 写成「已经达到的吞吐量」。吞吐是 MAC、队列与上层窗口之后的结果。</p><p><span class="marginnote">Shannon 1948 给互信息容量；1949 年 IRE 文把带限高斯信道写成工程常用的 \(B\log(1+\mathrm{SNR})\)。Kurose and Ross 物理层章用同一公式对照拨号与以太网。本课不重证随机编码。</span></p><h3 id="容量不是标称速率" tabindex="-1">容量不是标称速率 <a class="header-anchor" href="#容量不是标称速率" aria-label="Permalink to &quot;容量不是标称速率&quot;">​</a></h3><p>网卡上的 Gb/s 已扣掉编码与 FEC，并且默认误码可忽略；那是工作点，不是 \(C\) 本身。后课调制与线路码都在这个预算下面移动，不改写香农公式。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一跳：给定频谱占用 \(B\)（电缆类别、光通道间隔）与可达到的 SNR（发射功率、衰减、接收机噪声系数）。\(C\) 是可靠速率上界。工程码（后课 8B/10B、FEC）用冗余换距离，使工作点低于 \(C\) 且错误可忽略。画：介质 → \(B\) 与 SNR → \(C\) → 再选调制阶数。</p><div class="mermaid"></div><p>方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>主干<a href="/cs/frame-mac">帧</a>的比特是已经判决后的符号流。判决之前，物理层必须先把波形放进 \(B\)，并对抗噪声。容量把「加冗余」从 CRC 检错升到：整条链路的净信息率不能超过 \(C\)。CRC 仍只覆盖一帧；容量管的是符号流的渐近可靠速率。</p><p>与信息论课的分工：那里 \(C\) 是存在性；这里 \(C\) 是选电缆、光功率与 PAM 阶数时的预算。分离原理仍成立：链路 FEC 不必替 TCP 做端到端校验。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 ISI 均衡的抽头公式，不把 5G NR 的资源块当容量证明。也不把量化金融或 Transformer 注意力写成「信道」。后课默认：一跳的可靠速率以 \(C\) 为界；下一课用调制把 \(C\) 拆成符号率与每符号比特。</p><p>容量是互信息上界在带限链路上的实例，不是某款光模块的标称 Gb/s。标称速率已经含码开销与裕量。</p><p>上一课留下的缺口在本课收口；「香农容量在链路」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课<a href="/cs/modulation-symbol-rate">调制与符号率</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>链路预算：\(C=B\log_2(1+\mathrm{SNR})\)；Nyquist 管无噪声符号率。</li><li>帧里的比特是 \(C\) 之下的工程点，不是上界本身。</li><li>主干网络假定「有速率」；本课把速率接到 \(B\) 与噪声。</li><li>后课只引用本课钉死的对象，不从该领域总问题重开。</li><li>出处：Shannon, 1949；Nyquist, 1928；Kurose and Ross。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 物理与链路<!--]--><!--[--> · 课序 信号到以太网<!--]--></p><p class="lesson-progress">第 1 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/modulation-symbol-rate/">调制与符号率</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LayerNorm 的动机 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_why-layernorm.md.C50Oa0MY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 22 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/why-residual/">残差的动机</a></p><p class="lesson-next"> 下一课：<a href="/llm/dropout-intuition/">Dropout 直觉</a></p></nav><div style="position:relative;"><div><h1 id="layernorm-的动机" tabindex="-1">LayerNorm 的动机 <a class="header-anchor" href="#layernorm-的动机" aria-label="Permalink to &quot;LayerNorm 的动机&quot;">​</a></h1><div class="epigraph"><p>残差保证有路可走，不保证路上的向量尺度稳定；按特征维减均值除标准差，把每个位置重新放到可比的量级。</p><footer>—— 据 Ba, Kiros &amp; Hinton, Layer Normalization, 2016 整理</footer></div><p><a href="/llm/why-residual">残差的动机</a>给出 \(h+f(h)\)。本课不重画旁路。缺口是：沿深度把许多 \(f\) 加回去，\(h\) 的均值与范数会漂移；点积打分、激活的工作区都对尺度敏感。批归一化按批统计，对变长序列、对小 \(B\) 不稳定。方法是 LayerNorm：在每个位置的特征维上独立地标准化。本课只讲动机与接口，不把 RMSNorm、Pre-LN / Post-LN 的全部变体写完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>残差把增量加回 \(h\)。若 \(f\) 的输出均值为正或范数大于 \(1\)，深度个加法之后 \(\|h\|\) 可以单调涨。softmax 与点积会饱和，学习率失去意义。初始化只能管起点。缺口是一个在每层（或每块）可重复的复位：不依赖批里其他样本，不依赖序列里其他位置，只看当前向量的 \(d\) 个坐标。</p><p>BatchNorm 用批内同一通道的统计量。语言模型的 \(B\) 可以很小，长度不同，填充位置会污染均值；推理时还要维护滑动平均。LayerNorm 的统计量来自单一样本的特征维，训练与推理一致。这是序列模型更常用它的原因，不是因为它「总是比 BatchNorm 准」。</p><h3 id="layernorm-不是「把向量变成单位长度」这么一次" tabindex="-1">LayerNorm 不是「把向量变成单位长度」这么一次 <a class="header-anchor" href="#layernorm-不是「把向量变成单位长度」这么一次" aria-label="Permalink to &quot;LayerNorm 不是「把向量变成单位长度」这么一次&quot;">​</a></h3><p>减均值再除标准差之后，结果仍可再乘可学习的 \(\gamma\)、加 \(\beta\)。模型可以恢复尺度与偏移；归一化强迫的是<strong>内部</strong>先居中、先单位方差，再允许仿射。只除 \(\ell_2\) 范数（不做减均值）是另一算子，后课 RMSNorm 走那条，本课不提前替换。也不要把 LayerNorm 当成损失上的约束：它是前向里的一层，有自己的反向。</p><p><span class="marginnote">对 \(x\in\mathbb{R}^d\)，\(\mu=\frac{1}{d}\sum_i x_i\)，\(\sigma^2=\frac{1}{d}\sum_i(x_i-\mu)^2\)，\(\hat x_i=\gamma_i\frac{x_i-\mu}{\sqrt{\sigma^2+\varepsilon}}+\beta_i\)。\(\varepsilon\) 防止除零。\(\gamma,\beta\) 与 \(d\) 同形，按位置广播。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>输入形状 \((B,n,d)\)，LN 在最后一维上算 \(\mu,\sigma\)，输出同形。放在残差块里有两种常见秩序：先 LN 再 \(f\) 再相加（Pre-LN），或先 \(f\) 再相加再 LN（Post-LN）。Pre-LN 让 \(f\) 吃到尺度稳定的输入，深层往往更好训；Post-LN 让块输出被重新标准化。本课不裁定唯一正确；后课读结构图时要看 LN 画在加号前还是后。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>LN 把「绝对尺度」从残差流里拿走，留给 \(\gamma\) 去学相对尺度。点积的输入不再随深度漂到几十，softmax 更不容易无故饱和。它也引入新的依赖：每个坐标的输出依赖该位置上所有坐标的统计量，反向会有对应的耦合。这通常可接受。LN 不能替代残差：没有加法旁路时，深层增益连乘仍在；LN 管的是每一步的工作点，不管路径拓扑。</p><p>\(\varepsilon\) 过小，某位置特征几乎常数时除零风险上升；过大则标准化变弱。这是数值地板，不是新的归纳偏置。LN 对每个位置独立，因此不能在位置之间传递「这一批有多亮」——那是 BatchNorm 的能力，也是它在小 \(B\) 上不稳的原因。序列模型用 LN，是在放弃跨样本统计，换取长度与批大小无关。</p><p>与权重衰减的互动：\(\gamma,\beta\) 是否衰减会影响尺度自由度。常见做法是不衰减 LN 的仿射参数，与偏置类似。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 RMSNorm 的公式对照，不讨论跨设备的统计同步。下一课<a href="/llm/dropout-intuition">Dropout 直觉</a>是正则，不是归一化。后课默认：序列模型的块内用 LayerNorm 复位特征尺度；残差相加与 LN 的顺序要在结构里写明。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>残差加法会累积尺度；LN 在每个位置的特征维上减均值除标准差。</li><li>统计量不依赖批，适合变长序列与小 \(B\)。</li><li>\(\gamma,\beta\) 允许恢复仿射；LN 不是死钉单位范数。</li><li>Pre-LN / Post-LN 改变 \(f\) 看见的尺度，需在图上标明。</li><li>出处：Ba, Kiros &amp; Hinton, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 22 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dropout-intuition/">Dropout 直觉</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

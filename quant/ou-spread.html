@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>残差的 Ornstein-Uhlenbeck | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ou-spread.md.B9UtfaTw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 3 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/johansen/">Johansen</a></p><p class="lesson-next"> 下一课：<a href="/quant/half-life-bands/">半衰期与开平阈值</a></p></nav><div style="position:relative;"><div><h1 id="残差的-ornstein-uhlenbeck" tabindex="-1">残差的 Ornstein-Uhlenbeck <a class="header-anchor" href="#残差的-ornstein-uhlenbeck" aria-label="Permalink to &quot;残差的 Ornstein-Uhlenbeck&quot;">​</a></h1><div class="epigraph"><p>协整留下一条平稳残差；若把它当成连续时间里被拉回长期均值的高斯扩散，半衰期、平稳方差与交易阈值就都由回复速度与扩散系数写出来。</p><footer>—— 均值回复扩散见 Vasicek, Journal of Financial Economics 1977；配对上的状态空间与 OU 见 Elliott, Van Der Hoek and Malcolm, Quantitative Finance 2005</footer></div><p><a href="/quant/engle-granger">Engle–Granger</a> 或 <a href="/quant/johansen">Johansen</a> 给出价差 \(z_t=\hat\beta&#39;X_t\)（含或不含截距）。检验只说 \(z\) 像 \(I(0)\)，没有说它多快回来、回来的噪声有多大。Ornstein–Uhlenbeck（OU）过程把这条残差写成线性均值回复扩散，参数少、与离散 AR(1) 一一对应，是相对价值里最常用的连续时间脚手架。Avellaneda–Lee 在主成分残差上用类似的标准化分数；Elliott 等人把 OU 嵌进状态空间，与 <a href="/quant/kalman-hedge">Kalman 对冲比</a> 同一套滤波语言。本篇写残差何时能被当成 OU、离散抽样怎么估 \(\kappa\)，以及 OU 不是协整的一部分——它是协整之后的动力学假设。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>OU 满足</p> \[dz_t=\kappa(\mu-z_t)\,dt+\sigma\,dW_t,\qquad \kappa\gt 0. \]<p>\(\mu\) 是长期均值，\(\kappa\) 是回复速度，\(\sigma\) 是瞬时扩散。平稳分布为正态，\(\mathrm{Var}(z)=\sigma^2/(2\kappa)\)。半衰期 \(t_{1/2}=\ln 2/\kappa\)：偏离减半所需的日历时间。交易要的正是这两个数：偏离多大才算极端（用平稳标准差），以及预期要抱多久（用半衰期）。没有 OU，残差平稳只告诉你「会回来」，不告诉你「在成本覆盖之前回不来」。</p><p>残差来自估计的 \(\beta\)，不是观测到的真实均衡误差。\(\beta\) 的误差、缓慢漂移、跳跃，都会让 \(z\) 不像高斯 OU。问题是：在承认 \(z\) 是生成出来的前提下，OU 是否仍是可用的局部近似，以及哪些诊断能否定它。</p><h3 id="与-ar-1-的翻译" tabindex="-1">与 AR(1) 的翻译 <a class="header-anchor" href="#与-ar-1-的翻译" aria-label="Permalink to &quot;与 AR(1) 的翻译&quot;">​</a></h3><p>间隔 \(\Delta\) 的观测满足精确离散化</p> \[z_{t+\Delta}=\mu(1-e^{-\kappa\Delta})+e^{-\kappa\Delta}z_t+\eta_{t+\Delta}, \]<p>\(\eta\) 高斯，方差 \(\sigma^2(1-e^{-2\kappa\Delta})/(2\kappa)\)。于是 \(\phi=e^{-\kappa\Delta}\) 即 AR(1) 系数，\(\kappa=-\ln(\phi)/\Delta\)。日频配对 \(\Delta=1/252\) 或 \(\Delta=1\)，只要全程一致。\(\phi\ge 1\) 时 \(\kappa\) 没有正的实数解，对应单位根，与协整假设冲突——应先回到协整检验，而不是强行报一个半衰期。</p><p><span class="marginnote">Vasicek 把 OU 写在短期利率上，金融里它首先是利率模型，不是套利模型。把同一 SDE 套到股票价差，是借用线性回复，不是借用无套利的期限结构。价差可以交易、利率 OU 的 \(\mu\) 在风险中性下会被改写，两者的测度不要混。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>估计。</strong> 对 \(\{z_t\}\) 做 AR(1) 的 OLS 或精确似然（把 \(\eta\) 的方差写成 \(\kappa,\sigma\) 的函数）。OLS 的 \(\hat\phi\) 在 \(\phi\) 近 1 时下偏，半衰期会被估短，策略显得比真实更勤快——这是均值回复估计里最贵的有限样本偏误。可用中位数无偏、加权对称，或直接在连续时间似然上约束 \(\kappa\gt 0\)。</p><p>\(\mu\) 可以限制为 0（对数价格回归已含截距，残差样本均值为 0），也可以放开（滚动窗口里均值漂移）。Avellaneda–Lee 的 \(s\)-score 大致是把 \(z\) 减滚动均值再除以滚动标准差，等价于时变 \(\mu\) 的标准化，而不是全样本 OU 的平稳分布。</p><p>Elliott、Van Der Hoek 与 Malcolm 把可观测价差与潜在 OU 状态分开，用 Kalman 滤波估 \(\kappa\) 与对冲比，允许观测噪声。这在微观结构噪声或执行价不等于信号价时更贴切。纯残差 OU 假定 \(z_t\) 就是状态。</p><h3 id="诊断-ou-不该有的东西" tabindex="-1">诊断：OU 不该有的东西 <a class="header-anchor" href="#诊断-ou-不该有的东西" aria-label="Permalink to &quot;诊断：OU 不该有的东西&quot;">​</a></h3><p>高斯 OU 的增量在给定 \(z_t\) 后是对称、无跳、无 ARCH 的。价差若在偏离大时回复更快，是非线性均值回复，线性 \(\kappa\) 会在中心估一个、在尾巴错一个。若残差有波动聚类，平稳方差不是常数，用全样本 \(\sigma/\sqrt{2\kappa}\) 做阈值会在平静期过密交易、在混乱期不够。残差若还有单位根成分（协整破裂），样本路径会画出一段假的缓慢 OU，\(\kappa\) 接近 0。</p><p>应看：残差的 ACF 是否近似几何衰减；QQ 图是否高斯；大偏离之后的平均回撤是否与 \(\kappa(\mu-z)\) 同阶。拒绝 OU 不等于不能交易，但半衰期公式与正态阈值失效，应换门限模型或非参分位数。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>线性漂移 \(-\kappa(z-\mu)\) 是 OU 唯一的均值回复机制：离得越远，瞬时拉力越大，且与距离成正比。这给出指数衰减的条件期望 \(\mathbb{E}[z_{t+h}\mid z_t]=\mu+e^{-\kappa h}(z_t-\mu)\)，从而半衰期与任意分位的预期通过时间。扩散项保证即使到了 \(\mu\) 也会被打走，于是存在平稳分布，阈值才有「几倍标准差」的含义。</p><p>协整保证（理想情况下）\(z\) 不会带随机趋势；OU 进一步保证趋势的缺席采取这种线性高斯形式。可以平稳但不是 OU：例如带跳的均值回复、CIR 式平方根扩散、或长记忆。用 OU 的人是在用三参数换取可计算的开平规则，而不是声称残差已被证明为 OU。</p><p><span class="marginnote">半衰期短并不自动更好。\(\kappa\) 大通常伴随交易更频、成本占比更高；\(\kappa\) 小则占用时间与风险资本更长。OU 把这组权衡写成参数，真正的约束在下一篇的阈值与成本，不在 SDE 本身。</span></p><h3 id="参数与仓位的接口" tabindex="-1">参数与仓位的接口 <a class="header-anchor" href="#参数与仓位的接口" aria-label="Permalink to &quot;参数与仓位的接口&quot;">​</a></h3><p>平稳标准差 \(s=\sigma/\sqrt{2\kappa}\)。偏离 \(z-\mu=ks\) 时，条件期望回到 \(\mu\) 的路径已知，但到达时间的分布是随机的——不能把半衰期当成「持仓日历天数」的上限。时间止损要用首达时间的分位数，或直接用固定持有期，那是规则，不是 OU 的推论。仓位若按 OU 的 Sharpe（漂移除以扩散）缩放，需假设你可以连续交易且无成本，与限价单执行不一致。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>\(\beta\) 时变时，\(z\) 的生成过程在变，常参数 OU 是局部近似，窗口要短于 \(\beta\) 的变化、长于半衰期，窗口常常不存在。这时应让 \(\beta\) 走 Kalman，OU 只描述滤波后的创新，而不是描述原始回归残差。跳跃会让 \(\sigma\) 估大、\(\kappa\) 估乱，可对残差先做稳健预处理，或改跳扩散均值回复。</p><p>不要在 \(\hat\phi\gt 0.99\) 时仍报一个以年计的半衰期并开仓。不要把分钟级残差的 \(\kappa\) 年化后与日频文献比——微观结构会让高频价差看起来回复极快。不要用风险中性下的 OU（利率、商品便利收益）参数去校准物理测度的交易价差。</p><p>篮子的 Johansen 残差有 \(r\) 条，每条都可以套 OU；它们在样本内正交或斜交取决于规范化，联合交易要考虑残差之间的相关，否则总风险不是各腿 OU 方差之和。</p><p><span class="marginnote">Uhlenbeck 与 Ornstein 的原文是物理布朗运动的速度过程。金融引用链通常是 Vasicek 与后续的配对文献。写出处时，交易篇应点名 Elliott et al. 或 Avellaneda–Lee，而不是只写 1930 年的 Physical Review。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>协整残差若再用 OU 描述，则半衰期为 \(\ln 2/\kappa\)，阈值以平稳标准差为单位。</li><li>离散观测是 AR(1)，\(\phi=e^{-\kappa\Delta}\)；\(\phi\) 近 1 时 OLS 下偏，半衰期看起来过短。</li><li>OU 是动力学假设，不是协整检验的一部分；跳跃、ARCH、非线性回复都会否定它。</li><li>半衰期不是持仓天数的确定上限；成本与时间止损在阈值一篇处理。</li><li>\(\beta\) 漂移时应把 OU 接到滤波创新上，而不是接到过时的静态残差上。</li><li>出处：Vasicek, <em>Journal of Financial Economics</em>, 1977；Elliott, Van Der Hoek, Malcolm, <em>Quantitative Finance</em>, 2005；主成分残差上的 \(s\)-score 见 Avellaneda and Lee, <em>Quantitative Finance</em>, 2010。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 3 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/half-life-bands/">半衰期与开平阈值</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

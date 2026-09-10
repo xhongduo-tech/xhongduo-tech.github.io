@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CAPM 与市场因子 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_capm.md.KNcfrvjv.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 1 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hf-forecast-loss/">高频预测的损失函数</a></p><p class="lesson-next"> 下一课：<a href="/quant/ff3/">Fama-French 三因子</a></p></nav><div style="position:relative;"><div><h1 id="capm-与市场因子" tabindex="-1">CAPM 与市场因子 <a class="header-anchor" href="#capm-与市场因子" aria-label="Permalink to &quot;CAPM 与市场因子&quot;">​</a></h1><div class="epigraph"><p>若投资者只按均值和方差持有组合，市场组合就落在切点上，个股的期望超额收益与它对市场的 beta 成正比。</p><footer>—— Sharpe, Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk, Journal of Finance 1964；Lintner, The Valuation of Risk Assets, Review of Economics and Statistics 1965</footer></div><p>前面各篇处理价格如何被微观结构污染、如何把波动从噪声里取出。资产定价问的是另一层：跨资产的<strong>期望收益</strong>由什么风险补偿决定。Sharpe（1964）与 Lintner（1965）的 <strong>CAPM</strong>（资本资产定价模型）给出最瘦的答案：唯一需要补偿的是不可分散的市场风险，度量是 beta。市场组合的超额收益是那个因子。后续的三因子、五因子、动量，都是在 CAPM 的残差里发现结构之后，把市场因子留下来并往外加。本篇只写 CAPM 与作为因子的市场本身：假设、检验、失败的方式，以及它在工程上仍被当作第一风险的原因。它不是微观结构噪声的低频版，也不是把高频 RV 年化之后的别名。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>个股收益同期高度相关。若相关来自共同因子，分散化无法去掉那一块，理性投资者会要求补偿。若相关只是噪声，补偿应为零。Markowitz 给出均值方差前沿，但没有说均衡时哪个组合被持有。Sharpe 与 Lintner 补上：同质预期、无摩擦、可按无风险利率借贷（Lintner / Black 的零 beta 版本放宽到可卖空）时，所有人持有同一切点组合与无风险资产的混合，切点即市场组合。于是个股的风险只剩它对市场的回归系数。</p><p>要检验的不是「收益能不能被市场解释」——同期 \(R^2\) 高几乎是相关结构的重述——而是<strong>截距</strong>：在 \(E[R_i]-r_f=\beta_i(E[R_m]-r_f)\) 里，是否还有 \(\alpha_i\neq 0\)。横截面上，高 beta 是否真的平均收益更高。问题从微观转到宏观：对象是期望，不是某一日的买卖价差。</p><h3 id="市场组合不可观测" tabindex="-1">市场组合不可观测 <a class="header-anchor" href="#市场组合不可观测" aria-label="Permalink to &quot;市场组合不可观测&quot;">​</a></h3><p>Roll（1977）指出：CAPM 的市场是全部风险资产的价值加权，含人力资本、私有企业、房产、海外。用某个股票指数代替，检验的是「该指数是否均值方差有效」，不是「真正的 CAPM 是否成立」。指数有效则证券在指数上的 \(\alpha\) 为零，这是会计；指数无效则可以测出 \(\alpha\)，也不能否证不可见的真市场。工程上我们仍用可交易的市场因子（CRSP 价值加权、沪深 300、流通市值加权），但必须承认：这是一个可交易因子模型，不是 Roll 意义下的 CAPM 终审。</p><p><span class="marginnote">价值加权与等权市场因子行为不同。等权偏向小盘，本身混进规模。CAPM 的理论市场是价值加权。用等权指数估 beta，再去讨论小盘异象，是把规模从右边挪到了左边。因子定义先于回归。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>时间序列检验。</strong> 对资产或组合 \(i\)，</p> \[R_{i,t}-r_{f,t}=\alpha_i+\beta_i(R_{m,t}-r_{f,t})+\epsilon_{i,t}. \]<p>CAPM 预测 \(\alpha_i=0\)。Gibbons, Ross, Shanken（GRS）对一组组合的 \(\alpha\) 做联合检验。组合通常按 beta、规模、估值预排序，以降低个股噪声、对准可疑的违反方向。\(R_m\) 用价值加权股票市场超额；\(r_f\) 用国库券或逆回购利率，货币与样本期要匹配。</p><p><strong>横截面检验。</strong> 先估 \(\hat\beta_i\)，再回归 \(\bar R_i=\lambda_0+\lambda_m\hat\beta_i+u_i\)。CAPM 预测 \(\lambda_0=r_f\)（或零，若左边已是超额），\(\lambda_m=E[R_m]-r_f\)。Fama–MacBeth 按月做横截面再对 \(\lambda\) 时间序列求均值与标准误，处理残差截面相关。\(\beta\) 带估计误差，需要误差修正或用组合 beta。</p><p><strong>市场因子作为工程对象。</strong> 即使 \(\alpha\) 显著，组合对市场的 \(\beta\) 仍是第一风险：它解释收益方差的大头，决定对冲比率、杠杆与主动额度。实务上先把市场中性做成约束，再在残差上找其他因子。CAPM 作为<strong>定价模型</strong>可以失败，作为<strong>风险模型</strong>的第一主成分仍然在。</p><h3 id="beta-的测量窗与频率" tabindex="-1">Beta 的测量窗与频率 <a class="header-anchor" href="#beta-的测量窗与频率" aria-label="Permalink to &quot;Beta 的测量窗与频率&quot;">​</a></h3><p>\(\beta\) 随窗口变：五年月度、一年日度、对期权用的隔夜/日内拆分，数值不同。日度 beta 受 <a href="/quant/microstructure-noise">微观结构噪声</a> 和非同步交易影响，薄股票 beta 偏低（Scholes–Williams、Dimson 滞后调整）。用已实现 beta（已实现协方差除以市场 RV）要把噪声修正与 <a href="/quant/irregular-sampling">不等间隔</a> 考虑进去，否则高频 beta 不是更准的 CAPM beta。隔夜与日内 beta 可以分估，见 <a href="/quant/calendar-overnight">日历效应</a>；一个数字的 CAPM 假定时段可加。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>均衡机制是需求加总。投资者按 beta 度量边际风险贡献，高 beta 资产价格被抬到使期望收益正好等于 \(\beta\lambda_m\)。线性来自均值方差与联合正态（或二次效用）下需求对收益线性。因子是市场本身，因为加总后只有市场风险留在每个人的组合里。</p><p>经验上这条直线平了：低 beta 股票平均收益并不低那么多，高 beta 补偿不足，这就是低波动 / BAB 一类异象的 CAPM 版本。机制候选包括杠杆约束（无法借到无风险利率去加杠杆低 beta）、基准与委托、以及市场指数并非有效组合。CAPM 的失败方式是<strong>斜率太平、截距按特征排列</strong>，不是「市场因子不重要」。市场因子的 \(\lambda_m\) 在多数样本里仍是最大的一块风险溢价；亏的是它独占期望收益这一句。</p><p><span class="marginnote">Jensen 的 \(\alpha\) 是相对市场的主动收益。基金评价里 \(\alpha\gt 0\) 不一定否证 CAPM，可能是运气、可能是遗漏因子、可能是基准不是投资者的真实市场。评价与检验共用一个回归，解释权不同。写报告应分开：风险归因 vs 均衡定价。</span></p><h3 id="与微观结构篇的接口" tabindex="-1">与微观结构篇的接口 <a class="header-anchor" href="#与微观结构篇的接口" aria-label="Permalink to &quot;与微观结构篇的接口&quot;">​</a></h3><p>CAPM 用低频收益时，可以把微观结构当成测量误差：beta 衰减、隔夜跳、非同步。用日度超额收益做 Fama–MacBeth，通常可忽略 tick 噪声，但不能忽略：停牌、涨跌停使日收益截断；IPO 与退市造成的存活；用收盘中点还是收盘成交。把 PIN 当成「信息风险因子」加进 CAPM，是 Easley–Hvidkjaer–O&#39;Hara 的扩展，已经离开单因子均衡，进入实证多因子——本篇不偷换为 PIN 定价模型。市场因子的构造应先于任何微观结构因子，否则共同波动会被微观指标抢走解释。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用个股回归的不显著 \(\alpha\) 宣称 CAPM 成立：功效极低。应在特征排序组合上做 GRS。不要用样本内最优切点组合当 \(R_m\) 再检验 CAPM——那是 Roll 会计，alpha 被构造为零。不要在中国用美股的 \(r_f\) 与美元市场因子。不要把行业指数当市场因子还报告「CAPM」。</p><p>条件 CAPM（beta 随状态变）可以吸收一部分异象，但需要声明状态变量；无约束的时变 beta 几乎能拟合任何均值，检验失去牙齿。下一篇系列里的规模、价值、动量，应理解为在市场因子之后的增量，而不是 CAPM 的替代品里删掉市场。工程风险模型里市场仍是第一列；定价检验里市场是原假设，不是可以省略的控制。</p><p><span class="marginnote">Sharpe 比率最大化给出切点，CAPM 把切点等同于市场。若投资者有非交易收入、税收、约束，切点不再是可观测指数。实证 CAPM 永远是「对这个可交易市场因子而言，SML 是否成立」。这样写，失败才是可证伪的，而不是被 Roll 一句话取消。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CAPM 由 Sharpe 与 Lintner 给出：均值方差均衡下，期望超额收益与市场 beta 成正比，市场超额是唯一因子。</li><li>可检验的是组合 \(\alpha\) 与证券市场价格线的斜率；Roll 批判表明真市场不可见，实务检验的是可交易市场因子是否有效。</li><li>市场因子解释方差的大头，定价上斜率往往过平；失败不意味着可以从风险模型里删掉市场。</li><li>Beta 的窗口、频率、隔夜拆分和非同步交易会改变测量；高频已实现 beta 要处理噪声。</li><li>后续多因子是在这一列之后加列，而不是改写市场因子的定义。</li><li>出处：Sharpe, <em>Capital Asset Prices</em>, Journal of Finance 1964；Lintner, <em>The Valuation of Risk Assets</em>, Review of Economics and Statistics 1965；检验与批判见 Black, Jensen, Scholes；Roll, <em>A Critique of the Asset Pricing Theory&#39;s Tests</em>, Journal of Financial Economics 1977；GRS, Econometrica 1989。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 截面因子<!--]--><!--[--> · 课序 经典因子<!--]--></p><p class="lesson-progress">第 1 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ff3/">Fama-French 三因子</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Compaction 摘要压缩 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_compaction-summarize.md.BBzScXwA.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 3 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/lost-in-middle/">Lost in the Middle</a></p><p class="lesson-next"> 下一课：<a href="/llm/structured-memory-compaction/">结构化记忆压缩</a></p></nav><div style="position:relative;"><div><h1 id="compaction-摘要压缩" tabindex="-1">Compaction 摘要压缩 <a class="header-anchor" href="#compaction-摘要压缩" aria-label="Permalink to &quot;Compaction 摘要压缩&quot;">​</a></h1><div class="epigraph"><p>把快要顶满窗口的对话蒸馏成高保真摘要，再用摘要重新开一个窗口，使代理能在尽量小的性能损失下继续。</p><footer>—— Anthropic Applied AI，Effective context engineering for AI agents，2025-09-29</footer></div><p>长程代理的轨迹由思维、工具调用与观察叠成。窗口是硬顶，更早到来的是 <a href="/llm/context-rot">上下文腐烂</a>：过期工具输出与错误分叉会锚定后续生成。Anthropic 把 <strong>compaction</strong> 定义为：在接近窗口上限时，把历史摘要成较短文本，<strong>用摘要重启上下文</strong>，并常保留最近访问的资源。Claude Code 的实现是把消息史交给模型，保住架构决策、未解决缺陷与实现细节，丢掉重复的工具结果与闲聊；压缩后再带上最近访问的约五个文件继续。Li、Zhang、Khashabi 等的 SelfCompact（arXiv:2606.23525）指出：工业系统多用 <strong>固定 token 阈值或固定间隔</strong> 触发，不顾轨迹结构，可能在推导中途把已核实的事实抹掉。本篇写摘要式压缩的合同与触发时机，结构化外存见 <a href="/llm/structured-memory-compaction">结构化记忆压缩</a>，检索式见 <a href="/llm/retrieval-based-compaction">检索式上下文压缩</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定间隔压缩（每 \(k\) 轮或每 \(k\) token）与反应式压缩（直到窗口将满）在内容上无知。前者可能在「四条事实刚核实完、尚未合成答案」时开火，摘要若写丢一条，后续只能猜——SelfCompact 图 1 用 BrowseComp 的 Medusa mushroom 题说明：固定间隔把四条已核事实擦掉，模型猜成 Morel。后者把腐烂 token 留到最后一刻，中间许多步已经被垃圾条件污染。两种失败不对称：适时压缩丢掉的是已兑现价值的过程；错时压缩丢掉的是仍在用的中间结果。</p><p>未提示的模型也不擅长判断「自己的上下文是否在烂」。SelfCompact 把这写成元认知缺口：只给压缩工具，开源模型调用时机不均，有的乱压，有的从不压；只给一段评分标准而没有可调用的动作，则无法执行。需要 <strong>工具 + 评分标准</strong> 一起出现。Anthropic 则从产品侧强调：压缩提示要先最大化召回（复杂轨迹里该留的都留下），再迭代提高精度（删掉事后证明无用的过程）。过猛的压缩会丢掉当时看起来琐碎、后来才关键的约束。</p><h3 id="摘要与清理工具结果不是同一刀" tabindex="-1">摘要与清理工具结果不是同一刀 <a class="header-anchor" href="#摘要与清理工具结果不是同一刀" aria-label="Permalink to &quot;摘要与清理工具结果不是同一刀&quot;">​</a></h3><p>Anthropic 把最轻的压缩写成 <strong>tool result clearing</strong>：工具一旦在很深的历史里调用过，原始长输出往往不必再出现，调用记录可以留。这是删除可再获取的字节，不是改写。摘要压缩会改写：把多轮推理收成段落，错误也可能被写进「事实」。API 侧后来提供阈值触发的 <code>compact</code> 内容块（cookbook 中的 <code>compact_20260112</code> 一类），在摘要边界上处理 tool-use 配对。工程上应先上清理，再上摘要，因为清理可逆（再调一次工具），摘要不可逆。</p><p><span class="marginnote">压缩不是加长窗口的替代品，也不是免费的记忆。它把过程变成有损快照。快照里没有的指针、ID、未提交决定，下一窗口就不会再「记得」——除非另有外存。Claude Code 保留最近文件，正是承认摘要覆盖不了工作区状态。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Anthropic 配方可以收成：序列化消息史 → 专用摘要提示 → 新窗口 = 系统指令 + 摘要 + 最近资源。提示应明确列出必须保留的类型（目标、约束、决策、未决 bug、关键路径）与必须丢弃的类型（重复 grep 输出、已合并的失败尝试细节）。用真实复杂轨迹调提示：先查漏，再查冗。子代理架构是另一种压缩：子代理消耗数万 token 探索，只回传 1k–2k 的蒸馏结果，主代理窗口保持干净；那是空间隔离，不是时间上的摘要重启，但都在减 token。</p><p>SelfCompact 把触发权交回模型。脚手架周期插入评分标准探测（间隔 \(N\) 步），模型输出 <code>COMPRESS</code> 或 <code>CONTINUE</code>；若压缩，再插入摘要提示，用 <strong>同一个模型</strong> 写摘要，从摘要前缀继续。评分标准规定：子任务已收束或轨迹在收敛时开火；推导中途或卡住时抑制——卡住时压缩反而可能丢掉诊断线索，原文选择抑制，与「卡住就重启」的产品直觉不同。六个基准、七个模型上，相对无摘要基线，竞赛数学最多 +18.1 分，代理搜索 +5–9 分，单题费用低 30–70%，并匹配或超过固定间隔摘要。消融：去掉评分标准后工具使用不稳。代码在 <code>tianjianl/selfcompact</code>。</p><div class="mermaid"></div><h3 id="高保真要保住什么" tabindex="-1">高保真要保住什么 <a class="header-anchor" href="#高保真要保住什么" aria-label="Permalink to &quot;高保真要保住什么&quot;">​</a></h3><p>摘要的评价不能用普通 Rouge。代理需要的是 <strong>决策与约束的可继续性</strong>：接口名称、复现命令、已排除的假设、尚未跑的测试。工具 JSON 全文、过时的文件片段、重复的自我鼓励，优先删。SelfCompact 强调按「已关闭的推理单元」切：一条事实被核完再压，四条核完再合成。数学推导中途的部分式子若被压成「正在求 x」，下一步可能符号对不上。这是结构敏感，不是长度敏感。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>压缩改变的是下一轮的条件前缀。从信息论看，摘要是对历史的有损编码，解码器是同一个 LLM。编码失败的典型模式有三：幻觉（摘要写入从未发生的决策）、删除（丢掉一条约束）、冻结（把已过期的猜测写成定论）。评分标准不能消除幻觉，只能改善 <strong>何时</strong> 编码。内容质量仍取决于摘要提示与模型。因此生产系统常把不可从摘要恢复的东西另存：待办列表、<code>NOTES.md</code>、记忆工具目录——那是下一篇的结构化记忆，不是本篇的窗口内摘要。</p><p>固定阈值的吸引力是可运维：95% 窗口就压，Claude Code 一类产品如此。代价是与轨迹正交。自适应触发降低错时风险，但引入一次额外前向（探测）。SelfCompact 用 KV 前缀复用探测与摘要，使额外成本主要是短生成。探测间隔 \(N\) 仍是超参：\(N\) 太大接近反应式，\(N\) 太小变成每步问一次「要不要压」。</p><p><span class="marginnote">把压缩写成用户命令 <code>/compact</code>，是把元认知外包给人类。SelfCompact 证明一段短标准可以在无训练条件下补上部分判断。二者可以并存：自动策略负责常规边界，人工压缩负责「我知道刚才那段推理全错、请丢掉」。</span></p><h3 id="与腐烂、中间丢失的关系" tabindex="-1">与腐烂、中间丢失的关系 <a class="header-anchor" href="#与腐烂、中间丢失的关系" aria-label="Permalink to &quot;与腐烂、中间丢失的关系&quot;">​</a></h3><p>腐烂说长度与污物会伤质量；中间丢失说位置会伤检索。摘要同时缩短长度、丢掉中段污物，并常把「还重要的信息」放到新窗口的前部或紧邻生成点，客观上缓解两条曲线。它不修复模型的位置癖好：摘要本身若写得很长，读者仍可能丢掉摘要中部。所以摘要要短，且把当前目标放在末尾。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Anthropic 博文是工程立场，不是对照实验；引用时写清「产品经验 + 原则」。SelfCompact 是训练免费脚手架，数字绑在所列数学与搜索基准、所列开源模型；不要把 +18.1 写成任意代理的保证。阈值压缩在对话型、需要语气连贯的任务上可能更合适；评分标准压缩在可分段的解题与搜索上更合适。法律、医疗等需要逐字引用的域，摘要会破坏可审计性，应改用摘录式压缩或外链原文。</p><p>压缩与子代理不要重复做同一件事：子代理已经回传过蒸馏，主轨迹再定期把子代理摘要摘要一次，会二次失真。工具清理应先于摘要，以免摘要模型去「总结」一篇即将被删除的 HTML。</p><p><span class="marginnote">评测压缩必须看下游任务，而不是摘要流畅度。SelfCompact 用最终答题与费用；Claude Code 用能否继续改同一仓库。用人工读摘要打分，会偏好好看但丢掉复现命令的段落。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Compaction 将接近上限的轨迹有损蒸馏后重启窗口，是长程代理的第一杠杆。</li><li>固定阈值与固定间隔对轨迹结构无知，可能抹掉仍在使用的中间结果。</li><li>最轻的一刀是清理可再获取的工具结果；摘要会改写，错误可被冻结成「事实」。</li><li>SelfCompact 用压缩工具加评分标准做自适应触发，数学上最多 +18.1 分、搜索 +5–9 分，费用低 30–70%。</li><li>摘要提示应先保召回再削精度；当前目标放在新窗口末端，并另存不可恢复状态。</li><li>出处：Anthropic，<em>Effective context engineering for AI agents</em>，2025-09-29；Li 等，<em>Self-Compacting Language Model Agents</em>，arXiv:2606.23525。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 3 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/structured-memory-compaction/">结构化记忆压缩</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

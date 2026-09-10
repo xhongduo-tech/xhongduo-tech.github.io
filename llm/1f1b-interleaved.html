@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>1F1B 与交错流水 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_1f1b-interleaved.md.BOweZl3H.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 21 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/anneal-mixture/">退火阶段的配比</a></p><p class="lesson-next"> 下一课：<a href="/llm/zero-bubble-pipeline/">零气泡流水</a></p></nav><div style="position:relative;"><div><h1 id="_1f1b-与交错流水" tabindex="-1">1F1B 与交错流水 <a class="header-anchor" href="#_1f1b-与交错流水" aria-label="Permalink to &quot;1F1B 与交错流水&quot;">​</a></h1><div class="epigraph"><p>稳定段里每个阶段交替做一个前向和一个反向，激活只需为「在飞的那几份微批」留着；再把一层切成多个虚阶段交错，气泡还能再压一截。</p><footer>—— Narayanan 等，Megatron-LM，SC 2021；对照 Huang 等 GPipe</footer></div><p><a href="/llm/anneal-mixture">上一课</a>把数据时间表写完。这些 token 要在切成 \(P\) 段的流水线上跑起来。主干 <a href="/llm/pipeline-parallel">流水线并行</a> 已经给出 GPipe 的先全前向再全反向、以及 1F1B / PipeDream-Flush 的交替调度。本课不重讲「为什么要切深度」。缺口是工程上真正用的两件事：1F1B 的激活内存公式，以及把模型层交错成多个虚流水（interleaved 1F1B）来进一步填气泡。后课零气泡会拆反向；本课先把调度日历钉死。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>GPipe 的激活内存随微批数 \(M\) 涨。大模型激活早已是显存主角，\(M\gg P\) 虽能填气泡，却存不下。1F1B 在一个全局 batch 内同步更新，稳定段每个阶段做完一个微批前向立刻做另一个微批反向，激活只保留约 \(P\) 份在飞微批，而不是 \(M\) 份。Narayanan 等人在 Megatron-LM 里把这套调度写进 GPU 集群配方。缺的是：预热与冲刷仍有气泡，\((P-1)\) 量级的空拍在 \(P\) 很大时仍疼。</p><p>交错流水的想法是：同一张卡持有不相邻的多层（虚阶段），让气泡里的空拍去算另一虚阶段的活。这不增加设备，只改变层到卡的映射。代价是更复杂的依赖图，以及与 <a href="/llm/tensor-parallel">张量并行</a> 叠在一起时的通信顺序。</p><h3 id="微批仍是数据维" tabindex="-1">微批仍是数据维 <a class="header-anchor" href="#微批仍是数据维" aria-label="Permalink to &quot;微批仍是数据维&quot;">​</a></h3><p>\(M\) 切的是 batch，不是序列。退火阶段的长文档上采样会让每微批激活变大，1F1B 的内存公式系数不变，常数变大。调度课必须能读数据课的序列长度，不能假定微批体积恒定。</p><p><span class="marginnote">PipeDream 的异步权重版本与预训练常用的 Flush 式 1F1B 不同。本课默认同步更新：反向对齐该微批前向时的权重。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标准 1F1B：warmup 让管道填满；稳态 F、B 交替；cooldown 冲刷。选 \(M\ge P\)，气泡比例约 \((P-1)/(M+P-1)\) 量级。交错：把 \(L\) 层分给 \(P\) 卡时，每卡拿 \(v\) 个虚阶段（层块交错），调度按虚阶段的 1F1B 展开。\(v\) 增大，气泡下降，但每卡要为更多虚阶段存一份「在飞」激活，内存又涨。\(v\) 是气泡与激活之间的旋钮，不是越大越好。</p><p>实现上，集合通信（TP 的 All-Reduce）应挂在每个虚阶段的前后，避免跨虚阶段误用同一块通信缓冲。与数据并行的梯度同步仍在全局 batch 边界。</p><h3 id="与重计算的搭配" tabindex="-1">与重计算的搭配 <a class="header-anchor" href="#与重计算的搭配" aria-label="Permalink to &quot;与重计算的搭配&quot;">​</a></h3><p>重计算丢掉中间激活、反向时重做前向，可与 1F1B 相乘：在飞微批数已是 \(P\) 量级，再对层内激活重算。交错后虚阶段变多，重计算的时间表更碎，要防止与通信重叠课里的流（stream）抢资源。</p><p><span class="marginnote">\(M\) 不能被梯度累积的「逻辑 batch」偷换。累积步数、微批、流水深度三者乘完才是优化器 batch。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>流水线的空拍来自前向依赖链与反向依赖链无法在同一时刻铺满 \(P\) 张卡。1F1B 用反向填充前向留下的洞。交错把一条深依赖链拆成多条浅链叠在同一设备上，洞里有别的链的活可干。数学上的层计算没有变，变的是日历。气泡降到零需要改反向结构——下一课。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>交错增加实现复杂度与死锁风险，调试应先在 \(v=1\) 的 1F1B 上对齐损失。它不减少层间激活的通信量，只减少空算。MoE 的 All-to-All 另有日历，不能假设与 1F1B 自然咬合。零气泡课会把反向拆成输入梯度与权重梯度两拍，才能在不增加 \(v\) 的情况下再挤空拍。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>数据配方之后，本课补 1F1B 日历与交错虚阶段，不重讲为何切深度。</li><li>1F1B 把激活从 \(M\) 降到约在飞的 \(P\) 份；交错用同卡多层填气泡。</li><li>\(v\) 与重计算、TP 通信顺序互相抢资源，要一起定。</li><li>默认同步 Flush，不把 PipeDream 异步噪声引进预训练。</li><li>出处：Narayanan et al., Megatron-LM, SC 2021；Huang et al., GPipe；Narayanan et al., PipeDream。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 21 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/zero-bubble-pipeline/">零气泡流水</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

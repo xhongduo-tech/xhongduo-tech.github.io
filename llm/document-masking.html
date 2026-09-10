@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Document attention mask | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_document-masking.md.DdtS2tnp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 注意力与序列模型<!--]--><!--[--> · 课序 训练结构细节<!--]--></p><p class="lesson-progress">第 15 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/packing-cross-doc-mask/">跨文档 packing 掩码</a></p><p class="lesson-next"> 下一课：<a href="/llm/midtraining/">Midtraining</a></p></nav><div style="position:relative;"><div><h1 id="document-attention-mask" tabindex="-1">Document attention mask <a class="header-anchor" href="#document-attention-mask" aria-label="Permalink to &quot;Document attention mask&quot;">​</a></h1><div class="epigraph"><p>把「这篇与那篇不可见」写成注意力在 softmax 之前的结构：块内因果或双向，块间为零。它是一张图，不是一个分隔符。</p><footer>—— 工程对象：块对角掩码；形式化与等价性见 Krell et al., arXiv:2107.02027；融合核见 Dao et al. FlashAttention 变长接口</footer></div><p>因果掩码回答「未来不可见」。<strong>Document attention mask</strong> 再加一条：即便在时间上靠前，若所属文档不同，也不可见。它出现在 packing、多文档 batch、以及「同一请求里拼了系统提示 + 多段检索」的服务侧。数学上是块对角（再与因果下三角求交）；工程上可以是稠密 \(n\times n\) 布尔、FlexAttention 的 <code>document_id</code>、或 <code>cu_seqlens</code> 把每篇当成独立变长序列。本篇把掩码当一等公民写清形状、与 RoPE、与 KV 缓存的交叉；装箱算法与填充率见 <a href="/llm/packing-cross-doc-mask">跨文档 packing 掩码</a> 与 <a href="/llm/sequence-packing">packing</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>令序列 \(x_{1:n}\) 来自文档 \(d(t)\in\{1,\ldots,M\}\)。标准因果注意力的允许集是 \(\{(t,s):s\le t\}\)。文档掩码的允许集是</p> \[\mathcal{A}=\bigl\{(t,s): s\le t,\ d(t)=d(s)\bigr\} \]<p>（编码器双向则去掉 \(s\le t\)，只保留 \(d(t)=d(s)\)）。\(\mathcal{A}\) 的补集在 softmax 前设为 \(-\infty\)。没有这张图，模型没有「文档」概念，只有「更早的 token」。分隔符可以出现在嵌入里，但嵌入不能删掉一条已经算出来的边。</p><p>服务侧同样有文档：系统提示、工具结果、多文件上下文若共享因果窗，后文件可以抄前文件机密或检索碎片。训练用了 document mask、推理不用，或反过来，都是分布偏移。问题是把 \(d(t)\) 从数据管道传到注意力核，且与 GQA、滑窗、块稀疏兼容。</p><h3 id="块对角不是滑窗" tabindex="-1">块对角不是滑窗 <a class="header-anchor" href="#块对角不是滑窗" aria-label="Permalink to &quot;块对角不是滑窗&quot;">​</a></h3><p>滑窗限制的是距离 \(|t-s|\le w\)，与文档无关。文档掩码限制的是等价类 \(d\)。两者可叠加：篇内滑窗、篇间仍全断。Longformer / BigBird 的全局 token 若跨篇共享，会重新打通块对角，必须规定全局点只属于一篇或禁止跨篇全局。不要把「局部注意力」当成已经做了文档隔离。</p><p><span class="marginnote">Padding 掩码切断 pad 位置；文档掩码切断不同 \(d\)。实现里常或成一张加法掩码。漏掉 pad 会让 pad 嵌入污染；漏掉 \(d\) 会让上一篇污染。日志应分开统计两种无效边的数量，而不是只报「用了 attention mask」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数据侧输出 <code>document_ids</code> 或 <code>cu_seqlens</code>。核侧三条路径：</p><p><strong>稠密加性掩码。</strong> 构造 \(M\in\mathbb{R}^{n\times n}\)，\(M_{ts}=0\) 若 \((t,s)\in\mathcal{A}\)，否则 \(-10^4\) 量级。与 \(QK^\top/\sqrt{d_k}\) 相加。实现简单，FlashAttention 原初接口不完全吃任意加性掩码，可能回退，内存 \(O(n^2)\)。</p><p><strong>变长分段。</strong> 把每篇当成独立序列，累积长度 <code>cu_seqlens</code>，核在段内做因果 SDPA，段间无边。这是 document mask 的零物化实现，复杂度 \(\sum_m n_m^2\)。要求同一 batch 的段能拼成核所支持的布局（如 THD）。</p><p><strong>文档 id 比较。</strong> FlexAttention 等把 <code>d[t]==d[s] &amp; causal</code> 编译进核。适合不规则块（一篇被切断成两段但共享 id 的情况要先定义：通常切断后视为两篇，除非显式续段）。</p><h3 id="与位置、与-kv" tabindex="-1">与位置、与 KV <a class="header-anchor" href="#与位置、与-kv" aria-label="Permalink to &quot;与位置、与 KV&quot;">​</a></h3><p>RoPE 相位按位置下标。文档掩码不自动重置位置：若下标跨篇连续，篇首仍带大相位，即使看不见上一篇。等价训练通常<strong>按篇重置位置</strong>，与掩码是两件套。KV 缓存按物理下标存；decode 时新 token 的 \(d\) 若仍是当前篇，只应 vis 本篇已缓存键，或在分页里把上一篇的页标为不可见。连续批处理中不同请求本就是不同文档，请求间隔离是调度器的 mask，请求内多文档才是本篇对象。</p><div class="mermaid"></div><p>BERT 式 NSP 需要两句可见性与文档掩码同时存在：句子 A/B 在同一包内可能同 id 或不同 id，Krell 等为此改了按序列计的损失。因果 LM 没有 NSP，文档掩码就是块内下三角。混合窗口（Gemma 式局部+全局层）时，全局层若看满 \(L\)，跨篇边会在全局层重现——要在全局层也应用同一 \(\mathcal{A}\)，或接受「只有全局层泄漏」。这是架构级选择，应写入报告。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>softmax 行归一化只在 \(\mathcal{A}\) 的行支撑上发生。切断跨篇边后，质量不会分给另一篇，梯度也不会从另一篇的键流过来。这恢复「文档是独立抽样」的近似，使 packing 的硬件收益不改任务定义。与因果掩码求交保证自回归仍成立：篇内不能看未来。两者缺一，要么泄漏未来，要么泄漏邻篇。</p><p><span class="marginnote">可视化注意力时，若绘制了跨篇高权重，先查 mask 是否坏，再解释「模型学会了跨文档推理」。训练若声称 document-masked，图上不应出现块外质量。</span></p><h3 id="和前缀掩码、和检索拼接" tabindex="-1">和前缀掩码、和检索拼接 <a class="header-anchor" href="#和前缀掩码、和检索拼接" aria-label="Permalink to &quot;和前缀掩码、和检索拼接&quot;">​</a></h3><p>前缀 LM（T5 一部分设定、UL2）允许前缀双向、后缀因果，那是另一张图。文档掩码可以叠在前缀 LM 上：每篇内部前缀双向，篇间仍断。检索增强把多段 hit 拼进上下文，若不做 document mask，模型把 hit 当连续章节；若做，则每段独立，更像「多段只读记忆」。产品要的是哪一种，不能从训练 packing 默认值推断。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>任意加性掩码与高度融合的 FA2/FA3 核不总兼容，团队用 <code>cu_seqlens</code> 换速度时，必须保证切段与 \(d(t)\) 一致，否则静默跨篇。GQA 下掩码按查询行定义，KV 头共享不改变 \(\mathcal{A}\)。滑窗 + 文档 + 因果 三条件求交后，有效键更少，MFU 上升、长程依赖下降，是刻意的。</p><p>不要用 BOS/EOS 替换 \(\mathcal{A}\)。不要假设推理框架默认 document mask：多数 chat 模板只有因果。训练用了、服务没用，表现为「喜欢把上一轮用户话当成本轮文档内上下文」——若上一轮本应隔离，这是 bug。评测长上下文 NIAH 若在单文档上做，与多文档 mask 无关；多针多文档测试才考这张图。</p><p><span class="marginnote">出处：Krell et al., arXiv:2107.02027（块对角以实现无污染 packing）；Vaswani et al. 2017（因果掩码作为前驱）；Dao et al. FlashAttention 变长 <code>cu_seqlens</code>；FlexAttention 文档 id 接口为工程实现。T5 / PaLM 的拼接是否带块对角，以各自报告为准，不可一律假定。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Document attention mask 是允许集 \(\{(t,s):d(t)=d(s)\}\) 与因果约束的交，加在 softmax 前。</li><li>实现可以是稠密矩阵、<code>cu_seqlens</code> 分段、或 document_id 比较；语义相同，复杂度不同。</li><li>位置重置、KV 可见页、全局注意力层是否遵守 \(\mathcal{A}\)，都要单独规定。</li><li>分隔 token 不删除边；滑窗切断的是距离不是文档。</li><li>训练与推理必须同一张图，否则 packing 等价性在服务端失效。</li><li>出处：Krell et al., arXiv:2107.02027；FlashAttention varlen；Vaswani 因果掩码。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 注意力与序列模型<!--]--><!--[--> · 课序 训练结构细节<!--]--></p><p class="lesson-progress">第 15 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/midtraining/">Midtraining</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

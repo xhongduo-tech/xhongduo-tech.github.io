@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chow 断点检验 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_chow-test.md.DAX-q6IW.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 时间序列续<!--]--><!--[--> · 课序 多元与长记忆<!--]--></p><p class="lesson-progress">第 19 / 35 课</p><p class="lesson-prereq"> 先修：<a href="/quant/state-space-kalman-smoother/">状态空间与 Kalman 平滑</a></p><p class="lesson-next"> 下一课：<a href="/quant/arfima-long-memory/">ARFIMA 与长记忆</a></p></nav><div style="position:relative;"><div><h1 id="chow-断点检验" tabindex="-1">Chow 断点检验 <a class="header-anchor" href="#chow-断点检验" aria-label="Permalink to &quot;Chow 断点检验&quot;">​</a></h1><div class="epigraph"><p>若斜率在某一已知日期前后不是同一组参数，把样本绑在一次回归里估的是两段体制的加权；用分段残差平方和对照，可以检验这个断裂。</p><footer>—— Chow, Tests of Equality Between Sets of Coefficients in Two Linear Regressions, Econometrica, 1960</footer></div><p><a href="/quant/state-space-kalman-smoother">Kalman 平滑</a> 让参数慢慢游走，会把真的政策日、改革日、危机日抹成斜坡。Chow 问的是<strong>已知日期</strong>上的一次性断裂：\(\beta\) 在 \(t_0\) 前后是否相同。Andrews、Bai–Perron 把日期未知时的上确界检验与多断点写成后续。本课缺口：VAR/GARCH/HAR 的全样本系数在有断点时持续被高估、IRF 被污染。下一课 ARFIMA 处理的是缓慢衰减的记忆，容易与未建模断点互相假扮——先把断点检验钉住。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>线性回归，预指定 \(t_0\)，Chow 的 \(F\) 比较全样本 RSS 与两段分别 RSS。原假设：\(\beta_1=\beta_2\)。金融里 \(t_0\) 常常「看起来像」：金融危机、涨跌停改革、QFII、熔断。用数据找最大 \(F\) 再当 Chow，临界值不再是普通 \(F\)——那是 Andrews 的 Quandt 似然比，须用上确界分布。</p><p>问题分两层：日期已知（制度公告）用 Chow；日期未知用 QLR/Bai–Perron。把第二层假装成第一层，会过度拒绝。对象是<strong>均值方程（或给定方差模型）的参数稳定</strong>，不是波动水平的一切变化——方差断裂应有专门检验。</p><h3 id="与-cusum-的分工" tabindex="-1">与 CUSUM 的分工 <a class="header-anchor" href="#与-cusum-的分工" aria-label="Permalink to &quot;与 CUSUM 的分工&quot;">​</a></h3><p><a href="/quant/cusum-mosum">CUSUM/MOSUM</a> 对递归残差累积，善于探测逐渐漂移。Chow/QLR 善于一次性水平跳。两者应并列：改革日附近用 Chow，缓慢自由化用 CUSUM。Kalman 随机游走 \(\beta_t\) 是第三种：每个时点都在变，没有「两段」。先选对象再选检验。</p><p><span class="marginnote">在最大 \(t\) 的那一天标断点，再讲故事，是设定搜索。预登记候选日期（官方实施日），或用 Bai–Perron 并把置信区间一起报。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>已知日期。</strong> Chow \(F\)；异方差用稳健 Wald 的分段版本；小样本、肥尾用自助（在原假设下抽残差，保持 GARCH 则块自助）。两段 \(T\) 极不对称时，短段系数方差大，\(F\) 功效低。</p><p><strong>未知日期。</strong> Andrews QLR：对中间 70% 样本扫 \(t_0\)，取最大统计量，用 Andrews 临界值。Bai–Perron 允许多个断点，用信息准则或序列检验定个数，给出日期的置信区间。残差相关时须 HAC 版本。</p><p><strong>GARCH 持续性。</strong> Lamoureux–Lastrapes：忽略方差水平的断裂会把 \(\alpha+\beta\) 推向 1。对波动模型，应允许 \(\omega\) 分段，再估持续性——这是 Chow 思想在方差方程，不是把收益均值切两段就完。</p><h3 id="var-与-irf" tabindex="-1">VAR 与 IRF <a class="header-anchor" href="#var-与-irf" aria-label="Permalink to &quot;VAR 与 IRF&quot;">​</a></h3><p>全样本 VAR 在断点后 \(\Phi\) 变了，IRF 是混合物。应分段估 IRF，或把断点写成已知的交互项。Granger 全样本显著若只来自一段，分段后消失——应报告。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Chow 是线性约束的 \(F\)：把「一段参数」对「两段参数」的拟合改善，按自由度标准化。机制要求断点外参数恒定、误差同分布。若其实是三断点，两段 Chow 会误设，RSS 改善不够或把错误 \(t_0\) 当断点。QLR 的机制是多重检验的上确界：在很多候选日里看最极端的 \(F\)，临界值因此更高。</p><p>未建模断点与长记忆的外观相似：均值或方差的几次水平跳，会让 ACF 拖尾。这就是下一课必须先做断点再谈 ARFIMA 的原因。Diebold–Inoue 等讨论过这种假长记忆。</p><p><span class="marginnote">事件研究的 \(t=0\) 是均值的一次跳，通常不把 \(\beta\) 当断裂。Chow 的对象是斜率/截距体制，不是单日 AR。单日用事件窗，体制用分段。</span></p><h3 id="内生断点与政策" tabindex="-1">内生断点与政策 <a class="header-anchor" href="#内生断点与政策" aria-label="Permalink to &quot;内生断点与政策&quot;">​</a></h3><p>若 \(t_0\) 是因为 \(y\) 已经崩了才宣布的政策，断点内生，Chow 的分布更麻烦。应用公告准备期之外的日期，或工具化政策。这与 IV 课的排除是同一识别问题在时间上的版本。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>多重断点 + 短样本，Bai–Perron 会切出没有经济含义的碎段。异方差、GARCH、跳跃让经典 \(F\) 过度拒绝，须稳健或自助。面板断点（各公司不同 \(t_0\)）是另一文献，不要对混合 OLS 做一次 Chow 宣称「市场断了」。</p><p>工程：预登记制度日做 Chow；探索性用 QLR 并报日期置信区间；波动模型允许水平分段。不要用 Chow 替代 <a href="/quant/robust-regression-outliers">稳健回归</a> 去「删危机」。不要在同一序列上搜完断点再估 ARFIMA 还声称发现长记忆而不报告断点步骤。下一课：在断点处理之后，若 ACF 仍双曲线衰减，才轮到分整。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Chow 检验已知日期上的参数断裂；用数据搜日期须改用 QLR/Bai–Perron 的上确界临界值。</li><li>与 CUSUM（渐变）、Kalman（每期游走）对象不同，应先选机制再选检验。</li><li>忽略方差水平断裂会抬高 GARCH 持续性；忽略均值断裂会制造假长记忆外观。</li><li>内生政策日、肥尾、GARCH 都要求稳健或自助，而不是教科书 \(F\)。</li><li>出处：Chow, <em>Econometrica</em>, 1960；未知日期见 Andrews, <em>Econometrica</em>, 1993；多断点见 Bai and Perron, <em>Econometrica</em>, 1998。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 金融计量与高频统计<!--[--> · 单元 时间序列续<!--]--><!--[--> · 课序 多元与长记忆<!--]--></p><p class="lesson-progress">第 19 / 35 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/arfima-long-memory/">ARFIMA 与长记忆</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jacobi 并行解码 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_jacobi-decoding.md.BEgaKmqG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 10 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/self-speculative-decoding/">自投机解码</a></p><p class="lesson-next"> 下一课：<a href="/llm/streaming-detokenize/">流式 detokenize 边界</a></p></nav><div style="position:relative;"><div><h1 id="jacobi-并行解码" tabindex="-1">Jacobi 并行解码 <a class="header-anchor" href="#jacobi-并行解码" aria-label="Permalink to &quot;Jacobi 并行解码&quot;">​</a></h1><div class="epigraph"><p>把未来 token 看成非线性方程组的未知数，用上一轮猜测并行更新所有位置；对得上的前缀留下，对不上的退回逐步。</p><footer>—— Santilli et al., Accelerating Transformer Inference for Translation via Parallel Decoding, ACL 2023；Lookahead 见 Fu et al., 2024</footer></div><p><a href="/llm/self-speculative-decoding">上一课</a>仍保留串行草稿：浅层逐步猜，\(\gamma\) 步之后才校验。本课把「猜」也并行化。Santilli 等人把翻译解码写成 Jacobi / Gauss–Seidel 迭代：一次前向同时更新多个未来位置，用上一轮的填法当条件。它不保证每轮都前进很多；精确性来自 <em>验证与回退</em>，不是来自一次 Jacobi 扫就把方程解完。主干已有 <a href="/llm/lookahead-decoding">Lookahead Decoding</a> 把 n-gram 池加上去；本课只补方程视角与朴素 Jacobi 为什么常常不加速，以免后课把 Lookahead 当成唯一的并行解码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>自回归 \(x_{t+1}=f(x_{\le t})\) 是三角依赖。GPU 能一次算很多位置，因果却强迫逐步。投机用外源填未来位置；自投机用浅层填。有没有第三种填法：用 <em>同一完整模型、上一轮的猜测</em> 填？这就是定点迭代。缺口是期望前进：若初始猜测远离真解，一轮并行更新之后，只有最左边一个位置可能对，其余全废，还多付了宽查询的注意力。翻译上，Santilli 等人观察到在某些设置可减少前向次数；开放生成上，无辅助结构的 Jacobi 经常亏。Lookahead 要解决的正是「猜出来的碎片如何缓存再验」，本课先把不加池的 Jacobi 写清楚。</p><p><span class="marginnote">Jacobi 解码可以做成与贪心路径一致：每轮只提交从左起连续猜对的前缀。采样版本需要对每个位置定义接受规则，否则分布漂到迭代器上。不要宣传「并行所以无损」而不写提交规则。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>初始化未来窗口 \(\tilde x_{t+1:t+W}\)（随机、复制上一 token、或抄提示 n-gram）。每轮用完整模型对窗口做一次前向（因果掩码仍以 <em>已提交前缀 + 当前猜测</em> 为条件），得到各位置新的 argmax 或样本，写回窗口。从左扫描：与校验分布一致的最长前缀提交，窗口右移。Gauss–Seidel 变体在同一前向里用刚刚更新的左侧位置条件右侧，依赖核能否提供这种掩码；标准因果核通常做的是 Jacobi（整窗看上一轮）。</p><p>窗口 \(W\) 越大，一次 <a href="/llm/flashattention">FlashAttention</a> 的查询越长，算术强度上升，这是相对逐步 decode 的真正硬件理由。但未提交的位置是错条件，算力打在可能被丢的查询上。Lookahead 把窗口轨迹切成 n-gram 进池，验证枝单独掩码，才把「打在错条件上的计算」变成可回收的提案。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>定点 \(x=f(x)\) 的收敛速度取决于 \(f\) 对右侧扰动有多敏感。语言模型里，一个早期 token 错误会让后续条件全部错位，收缩系数不小于 1，故朴素 Jacobi 的提交长度期望接近 1。翻译有较强的局部对应，偶尔能多提交几个。开放生成依赖池与验证枝，不是依赖多扫几次窗口。墙钟上，只有「期望提交 \(\gt 1\) 且宽查询仍在带宽墙内」才加速；prefill 已经算力密集时，再加宽窗口会撞计算屋顶。</p><p>与<a href="/llm/speculative-decoding">投机</a>的差别：投机的草稿分布 \(q\) 明确进入似然比；Jacobi 的 \(q\) 是上一轮点估计，没有逐步 \(q(\tilde x_i)\) 就不好做 Leviathan residual。实践中贪心 Jacobi 用「是否等于目标 argmax」当接受，采样要另写规则。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在生产聊天默认开朴素 Jacobi。有 Lookahead / Medusa / EAGLE 时，Jacobi 只是其中 Lookahead 的生成枝。与分页 KV 的接口：窗口位置的查询仍对应已提交长度之后的逻辑下标，页表要为未提交位置准备临时槽，提交失败则丢槽。投机与 Jacobi 不要无文档地叠两层窗口。</p><p>出处：Santilli et al., ACL 2023；Fu et al., Lookahead Decoding, 2024。不发明 arXiv。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>朴素 Jacobi 用上一轮猜测并行更新未来位置，提交从左连续猜对的前缀。</li><li>开放生成上期望前进常接近 1，加速靠宽查询的强度，不靠魔法收敛。</li><li>Lookahead 在 Jacobi 之上加 n-gram 池与验证枝，才成为可用算法。</li><li>无损必须写提交规则；没有逐步 \(q\) 就不能直接套 Leviathan residual。</li><li>宽窗口抬算术强度，也抬可能被丢的 FLOPs。</li><li>后课离开搜索算法，处理流式字符串边界。</li><li>出处：Santilli et al., ACL 2023；Fu et al., 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 10 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/streaming-detokenize/">流式 detokenize 边界</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

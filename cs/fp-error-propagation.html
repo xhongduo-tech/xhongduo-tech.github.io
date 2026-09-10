@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>舍入误差如何传播 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_fp-error-propagation.md.B0bkciaA.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 浮点之后<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/conditional-bayes/">条件概率与贝叶斯</a></p><p class="lesson-next"> 下一课：<a href="/cs/condition-number/">条件数</a></p></nav><div style="position:relative;"><div><h1 id="舍入误差如何传播" tabindex="-1">舍入误差如何传播 <a class="header-anchor" href="#舍入误差如何传播" aria-label="Permalink to &quot;舍入误差如何传播&quot;">​</a></h1><div class="epigraph"><p>每次浮点运算把精确结果再映回有限集合；分析算法时要把这次映回写成乘在结果上的 $(1+\delta)$，而不是假装在实数域演算。</p><footer>—— 据 Higham, Accuracy and Stability of Numerical Algorithms；Golub and Van Loan, Matrix Computations 整理</footer></div><p>上一课<a href="/cs/conditional-bayes">条件概率与贝叶斯</a>收束信息与离散主干：有限对象上的条件与反转已经钉死。<a href="/cs/ieee-754">IEEE 754</a> 已经给出位型、偏置指数与默认舍入。本课是「数值计算」第一课；后课默认已经读完本课。不重讲概率，也不从符号位、尾数宽度另起。缺口是：格式已经固定，<strong>一步舍入怎样写进代数、多步之后误差项如何长到终点</strong>。问题本身有多敏感，交给<a href="/cs/condition-number">条件数</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>实数 \(x\) 在机器上变成 \(\mathrm{fl}(x)=x(1+\varepsilon)\)，\(|\varepsilon|\le u\)，其中 \(u\) 是舍入单位。算术运算 \(\circ\) 的模型是 \(\mathrm{fl}(a\circ b)=(a\circ b)(1+\delta)\)，\(|\delta|\le u\)（在不溢出的前提下）。缺口因此不是「浮点不精确」的口号，而是<strong>可传递的误差代数</strong>：把每一步的 \(\delta\) 乘进后续运算，得到对终点的界。没有这套记号，后课稳定与消去只会剩下一堆反例。</p><p>信息课已经说明 NaN 与无穷是编码；本课假定运算落在规格化有限数上，例外与非规格化不在此展开。贝叶斯课的「误差」是概率质量；这里的误差是舍入引入的相对扰动，对象不同。</p><h3 id="传播不是条件数" tabindex="-1">传播不是条件数 <a class="header-anchor" href="#传播不是条件数" aria-label="Permalink to &quot;传播不是条件数&quot;">​</a></h3><p>条件数问：数据里已有的扰动被问题放大多少。本课问：算法在机器上每步新注入多少舍入。总误差大致是「问题放大 × 算法注入」。把二者都叫做「数值不稳定」，后课无法分工：病态问题即使用精确算术也会大变；不稳定算法则在良态问题上也会毁掉位数。</p><p><span class="marginnote">Higham 用 \(\mathrm{fl}\) 与 \(\gamma_n\) 把舍入写成可计算的乘性扰动。Golub and Van Loan 把同一套用在矩阵乘与分解。Wilkinson 的早期浮点误差代数是源头，本课按 Higham 的记号走。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记 \(\gamma_n=nu/(1-nu)\)（当 \(nu\lt 1\)）。\(n\) 次乘加的朴素界用 \(\gamma_n\) 吸收「每次一个 \(u\) 再相乘」的高阶项。标量求和 \(\hat s=\mathrm{fl}(x_1+\cdots+x_n)\) 满足 \(|\hat s-s|\le \gamma_{n-1}\sum|x_i|\) 量级。内积、矩阵乘把同一计数换成「每个输出经过多少次乘加」。</p><div class="mermaid"></div><p>本课只给前向图像：\(\hat y-y\)。把 \(\hat y\) 解释成「某个近旁问题的精确解」是后课后向稳定。求和顺序与补偿算法只点名，算法在<a href="/cs/summation-order">求和顺序</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>相对误差在乘法下近似相加（对数量级），在加减下取决于是否相近相消——那是消去课。传播分析的用处是：看出误差如何随运算次数线性或更糟地长，从而知道 \(n\) 很大时朴素三重循环不只是慢，界也变宽。FMA 少一次舍入，会改 \(\delta\) 的个数，不改 754 位型。后课线性代数把同一 \(\gamma_n\) 接到分解与迭代。</p><p>相对模型在加减时并不总是忠实：若结果的量级远小于操作数，相对误差相对真值可以爆掉，那是消去课。本课的 \(\gamma_n\) 先假定没有这种抵消，给出「普通乘加链」的尺度，用来比较算法：同样 \(n\) 次运算，有的把常数藏进 \(\gamma_n\)，有的把 \(n\) 变成 \(n^2\)。矩阵乘的三种循环顺序在精确算术里相同，在浮点里给出不同的 \(E\)，但通常仍是同一量级的 \(\|E\|\le\gamma_n\|A\|\,\|B\|\)。后课条件数把这个 \(E\) 当成数据扰动来读，前向误差才有问题这一侧的乘数。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重画 IEEE 位域，不讲异常标志。区间算术是另一套工具。后课默认：有限精度运算写成 \((1+\delta)\)；复合用 \(\gamma_n\) 计量；总误差要与条件数分工。下一课定义条件数。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>舍入写成相对扰动 \(\delta\)；多步用 \(\gamma_n\) 界跟踪。</li><li>传播描述算法注入；条件数描述问题放大。不重写 754 格式。</li><li>内积与矩阵乘的误差计数来自乘加次数。</li><li>出处：Higham；Golub and Van Loan。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 浮点之后<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/condition-number/">条件数</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

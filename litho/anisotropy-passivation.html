@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>各向异性与侧壁钝化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_anisotropy-passivation.md.BTPGAH-Q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集成、控制与良率<!--[--> · 单元 刻蚀与转印<!--]--><!--[--> · 课序 把胶的形状变成硅的形状<!--]--></p><p class="lesson-progress">第 5 / 33 课</p><p class="lesson-prereq"> 先修：<a href="/litho/hardmask-sin-tin/">硬掩模 SiN / TiN</a></p><p class="lesson-next"> 下一课：<a href="/litho/etch-loading-effect/">刻蚀负载效应</a></p></nav><div style="position:relative;"><div><h1 id="各向异性与侧壁钝化" tabindex="-1">各向异性与侧壁钝化 <a class="header-anchor" href="#各向异性与侧壁钝化" aria-label="Permalink to &quot;各向异性与侧壁钝化&quot;">​</a></h1><div class="epigraph"><p>各向异性不是离子「只会往下打」的神话；侧壁靠聚合物或氧化层挡住横向化学，底部靠离子把钝化打掉。</p><footer>—— 对照 RIE 钝化–离子协同的教材图像；Coburn–Winters 之后的侧壁化学通称</footer></div><p><a href="/litho/hardmask-sin-tin">上一课</a>把深度交给硬掩模。缺口是剖面：开口要直、底要清、侧壁不能长瘤或挖空。本课钉各向异性与侧壁钝化。负载效应如何让钝化通量随密度变，留给[下一课](/litho/etch-loading-effect）。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>纯化学刻蚀各向同性，细线立不住；纯溅射损伤大、选择比差。RIE 的直壁来自：<strong>底部</strong>离子去钝化 + 反应，<strong>侧壁</strong>钝化膜挡横向。含氟碳的介质刻蚀、HBr/O<sub>2</sub> 的多晶硅、金属氯化学，钝化物种不同，逻辑同构。钝化太厚：底清不掉、CD 缩、弓形；太薄：腰斩、底切、选择比崩。</p><p>缺口是<strong>剖面旋钮</strong>，不是再讲鞘层。OPC 紧凑核通常不显式含侧壁角；3D 胶/刻蚀抽检才看见钝化失败。把顶视 CD 当直壁，电学和打穿会反对。</p><h3 id="钝化是图形相关的" tabindex="-1">钝化是图形相关的 <a class="header-anchor" href="#钝化是图形相关的" aria-label="Permalink to &quot;钝化是图形相关的&quot;">​</a></h3><p>聚合物前体来自气体和被刻的胶/硬掩模。开口率高，碳源与消耗变，侧壁膜厚随局部环境走——这就是下一课负载的化学面。孤立线与密线剖面可以一个垂直、一个倾斜，AEI CD 却被调到同一数。</p><p><span class="marginnote">过刻阶段钝化条件往往与主刻不同。主刻直、过刻腰斩，是常见的食谱拼接错误。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>旋钮：聚合物比（C/F、O<sub>2</sub> 添加）、离子能量、温度、气压（角分布）。计量：截面 TEM/SEM、侧壁角、底脚、弓形、残留。与选择比课联立：同一聚合物既保硬掩模又保侧壁，窗口是三维的。ALE 用循环把钝化与去除拆开，本课承认它是钝化逻辑的极限形式，不展开循环时序。</p><p>剖面规格要对代表 AR 和开口率，而不是只切一条密线。主刻与过刻的钝化比若分家，应分两段计量，避免「平均侧壁角」掩盖过刻腰斩。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>侧壁膜生长速率对离子通量不敏感（少离子），对中性通量和表面温度敏感。底部膜被离子溅射或离子协助反应去掉。角分布宽时，侧壁也被离子擦到，钝化变薄，出现弓形。电荷在高 AR 孔的累积会弯离子轨迹，侧壁出现缺口——几何 ARDE 的电场版。剖面进入 via 填充和可靠性（虚空、击穿）。</p><div class="mermaid"></div><p>离子角尾把侧壁膜擦薄，图中弓形与底切是同一平衡被破坏的两种脸。剖面规格要分主刻与过刻，不能只报平均角。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不写某气体的未公开配比。不把钝化当缺陷课的颗粒源展开。光学侧壁角（胶）与刻蚀侧壁角不要混报。</p><p>后课默认：直壁是钝化与离子的平衡，随开口率漂。下一课把这漂移命名为负载，并接到填充与 dummy。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>各向异性 = 侧壁钝化 + 底部离子去钝化，不是离子神话。</li><li>钝化厚度随开口率与过刻阶段变，顶视 CD 不够。</li><li>剖面进入填充与可靠性。</li><li>出处：RIE 钝化协同教材图像；Coburn–Winters 传统。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集成、控制与良率<!--[--> · 单元 刻蚀与转印<!--]--><!--[--> · 课序 把胶的形状变成硅的形状<!--]--></p><p class="lesson-progress">第 5 / 33 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/etch-loading-effect/">刻蚀负载效应</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KTransformers CPU/GPU 混合推理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ktransformers-hybrid.md.DXIQm-eu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 推理系统与硬件 2026<!--[--> · 单元 推理系统<!--]--><!--[--> · 课序 新组件<!--]--></p><p class="lesson-progress">第 2 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/deepseek-3fs/">DeepSeek 3FS 文件系统</a></p><p class="lesson-next"> 下一课：<a href="/llm/amx-kernel/">AMX 内核与至强加速</a></p></nav><div style="position:relative;"><div><h1 id="ktransformers-cpu-gpu-混合推理" tabindex="-1">KTransformers CPU/GPU 混合推理 <a class="header-anchor" href="#ktransformers-cpu-gpu-混合推理" aria-label="Permalink to &quot;KTransformers CPU/GPU 混合推理&quot;">​</a></h1><div class="epigraph"><p>注意力与 KV 留在 GPU，专家权重放进内存条：MoE 的稀疏性把「显存墙」拆成「哪些专家此刻真的要算」。</p><footer>—— Chen et al., KTransformers, SOSP 2025；实现于 kvcache-ai/ktransformers</footer></div><p>Mixture-of-Experts 的参数量主要在专家里，每 token 却只激活一小撮。把整网塞进 GPU 是在为从未点亮的矩阵付 HBM 租金。KTransformers（清华 MADSys、Approaching.AI 等，Apache-2.0）把这条不对称写成系统：GPU 跑注意力（DeepSeek 上是 MLA）并持有 KV；CPU 用 AMX / AVX-512 核跑专家。SOSP 2025 论文相对既有混合方案报告 prefill 加速 4.62–19.74×、decode 1.25–4.09×。本篇写放置、核与异步调度，不把某一张 4090 上的 tokens/s 抄成所有 SKU 的 SLA。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>671B 级 MoE（DeepSeek-V3/R1）在单卡 24 GB 上「按稠密模型」不可部署，不是因为注意力算不动，而是专家权重体积。DRAM 容量按 TB 买比 HBM 便宜一个数量级，但带宽和矩阵吞吐差一截。朴素 offload 会在两处死掉：CPU 侧 GEMM 仍走通用 PyTorch / llamafile，prefill 被 CPU 钉死；CPU 与 GPU 逐步同步，CUDA graph 切不成一张，launch 与 PCIe 等待叠在 decode 上。</p><p>低并发、长提示的本地或边缘场景，GPU 算力经常闲着等 CPU 专家；高并发则相反，专家变成多 token 的小 batch，算术强度上去，AMX 才划算。同一套核不能既服务「每专家 1 个 token」又服务「每专家几十个 token」，否则 decode 会在铺满 tile 的开销里打转。</p><h3 id="热路径不是专家" tabindex="-1">热路径不是专家 <a class="header-anchor" href="#热路径不是专家" aria-label="Permalink to &quot;热路径不是专家&quot;">​</a></h3><p>Decode 每步都要读当前层全部驻留 KV，带宽敏感，必须靠近 GPU。Router 选出的专家只碰该 token 的那几列权重。于是正确的切分是：<strong>KV 与注意力在 GPU，专家在 CPU（或按热度部分回灌 GPU）</strong>。把 KV 也卸到主机，TPOT 会变成 PCIe 故事，见 <a href="/llm/kv-offload">KV 卸载</a>。</p><p><span class="marginnote">混合推理降低的是「同时在线的权重体积」，不是「模型记得的内容」。没激活的专家不在 GPU 上，不等于它们可以从检查点里删掉。量化（INT4/INT8）是另一轴，和放置正交：CPU 核吃的是量化后的布局，GPU 注意力仍按引擎的 KV 精度走。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>系统从 HuggingFace Transformers 注入替换模块：CPU 上是融合 MoE + AMX/AVX-512 GEMM；GPU 上可注入 FlashInfer 注意力，权重可选 Marlin 一类量化核。异步任务调度把动态形状的 CPU/GPU 前向收进<strong>一张</strong> CUDA graph，避免逐步 launch。论文里的 Expert Deferral 故意推迟一部分专家，给 CPU/GPU 重叠留窗口，CPU 利用率从常低于 75% 拉到接近 100%，额外吞吐最高约 1.45×，一组基准上平均精度下降不超过 0.5%。</p><p>kt-kernel 是可独立使用的 CPU 核库，并已接到 SGLang：<code>--kt-method</code> 选 AMXINT4 / AMXINT8 / LLAMAFILE 等，<code>--kt-num-gpu-experts</code> 控制留在 GPU 的专家数，<code>--kt-cpuinfer</code> 对齐物理核，<code>--kt-threadpool-count</code> 对齐 NUMA。放置策略包括 uniform、frequency、front-loading、random；<code>--kt-enable-dynamic-expert-update</code> 按运行期路由统计改放置。<code>--kt-max-deferred-experts-per-token</code> 打开流水。原生 FP8 / RAWINT4 还有 <code>--kt-gpu-prefill-token-threshold</code>：短于阈值走混合 prefill（不额外占一层专家显存），长于阈值走逐层 GPU prefill（更快，但要多留一层 MoE 的 VRAM）。</p><div class="mermaid"></div><h3 id="amx-核与-avx-512-的切换" tabindex="-1">AMX 核与 AVX-512 的切换 <a class="header-anchor" href="#amx-核与-avx-512-的切换" aria-label="Permalink to &quot;AMX 核与 AVX-512 的切换&quot;">​</a></h3><p>权重按 cache 层级排：专家矩阵纵向切成任务、横向切成贴 L2 的块，块内再切成 AMX tile。输入常驻 L3，权重从 DRAM 进 L2，tile 乘累加在寄存器，中间结果必要时停 L1。同专家的任务尽量同调度，减少反复打 DRAM。SOSP 文与 LMSYS 集成博文写：单路 Xeon 上 AMX 核持续吞吐最高约 <strong>21.3 TFLOPS</strong>，相对 oneDNN/PyTorch 基线约 3.9–4×。低算术强度（每专家 token 数 ≤4 的微基准）改走与同一布局兼容的 AVX-512，相对死用 AMX 最高约 1.20×。这是<strong>核的测量</strong>，不是某一颗至强的铭牌峰值。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>MoE 前向是 \(y = x + \sum_i g_i(x)\, E_i(x)\)，大多数 \(g_i=0\)。混合系统把 \(E_i\) 的驻留介质变成放置表的函数。GPU 专家降低 CPU 访存与 PCIe 上激活往返；太多 GPU 专家会把本该给 KV 的 HBM 吃掉。动态更新在偏斜路由上有用，但依赖工作负载：提示长度、并发、GPU 专家数都要进实验记录，不能假设「frequency 永远优于 uniform」。</p><p>Expert Deferral 的数值代价来自改变执行顺序与可能的部分重叠，不是改公式。论文把精度下降写成平均值上限，不保证每一个下游任务。生产上应把 deferred 数当实验旋钮，过质量门再放大。NUMA：双路机器必须按节点切线程池与权重副本，否则 AMX 核再快也被跨路 QPI/UPI 拖成内存墙。</p><p><span class="marginnote">SGLang 集成把 GPU 张量并行与 CPU/GPU 混合专家并行叠在一起。多卡时「热专家」可以在 GPU 之间再切；CPU 侧仍是容量池。不要用单卡 4090 的博客数字去填 8×L20 + 双路 Xeon 的容量表——LMSYS 文里那是另一套并发与量化。</span></p><h3 id="和-llama-cpp-卸载不是同一条产品" tabindex="-1">和 llama.cpp 卸载不是同一条产品 <a class="header-anchor" href="#和-llama-cpp-卸载不是同一条产品" aria-label="Permalink to &quot;和 llama.cpp 卸载不是同一条产品&quot;">​</a></h3><p>llama.cpp 把层或专家按内存层级换入换出，通用、门槛低，但 AMX 路径长期不是为 MoE 专家形状打磨的。KTransformers 的主张是：布局、tile、调度、CUDA graph 捕获必须为「每层一次稀疏专家」重做。代价是硬件面变窄：吃满数字需要 Sapphire Rapids 及以后的 AMX，以及足够的 DDR。没有 AMX 时 llamafile 后端仍能跑，只是 prefill 会回到 CPU 瓶颈叙事。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>单 GPU + 大内存适合本地 671B 级体验与低 QPS；要高并发、紧 TPOT，仍应把专家留在 GPU 或走多机 EP。延迟路径上 CPU 专家的尾延迟受频率、C 状态、内存带宽争用影响，和 GPU kernel 的可预期性不同。量化布局与 GPU 权重文件是两套路径：<code>--kt-weight-path</code> 指向转换过的 CPU 权重，和 HuggingFace 的 GPU 权重并列，漏转换就会在运行期炸。</p><p>不要把 21.3 TFLOPS 写进至强选型表当铭牌。不要把 Deferral 的 0.5% 平均掉点理解成「免费重叠」。动态专家迁移会与前缀缓存、CUDA graph 抢生命周期，开启前先固定并发与提示分布再 A/B。</p><p>内存账要分开算：CPU 侧是量化后的专家权重加 NUMA 副本；GPU 侧是注意力、KV、热专家与 CUDA graph 的固定开销。512 GB DRAM 跑 671B 级 INT4 专家常见，但不是公式——层数、专家数、是否双路复制都要按检查点实际体积量。PCIe 上往返的是激活与路由结果，不是整网权重；一旦把 KV 也走这条总线，混合方案的前提就没了。并发一高，每专家 token 变多，CPU 核从「算得动」变成「算不完」，这时应加 GPU 专家数或换成多卡 EP，而不是再买内存条。</p><p><span class="marginnote">出处：Chen 等 <em>KTransformers: Unleashing the Full Potential of CPU/GPU Hybrid Inference for MoE Models</em>, SOSP 2025；<a href="https://github.com/kvcache-ai/ktransformers" target="_blank" rel="noreferrer">https://github.com/kvcache-ai/ktransformers</a> 与 kt-kernel README；LMSYS <em>Accelerating Hybrid Inference in SGLang with KTransformers CPU Kernels</em>（2025-10-22）。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>混合推理把 KV/注意力放 GPU、把稀疏专家放 CPU，用 MoE 激活稀疏换 DRAM 容量。</li><li>AMX 核按 cache 切块，高 ARI 走 AMX、低 ARI 走 AVX-512；论文测到单路约 21.3 TFLOPS。</li><li>异步调度 + CUDA graph + Expert Deferral 用来叠 CPU/GPU，而不是逐步同步。</li><li>SGLang 用 <code>--kt-num-gpu-experts</code> 等参数管热专家与 NUMA。</li><li>这是低并发、大模型的容量策略，不是高 QPS 替代多卡 EP。</li><li>出处：SOSP 2025 论文与 kvcache-ai 仓库。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 推理系统与硬件 2026<!--[--> · 单元 推理系统<!--]--><!--[--> · 课序 新组件<!--]--></p><p class="lesson-progress">第 2 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/amx-kernel/">AMX 内核与至强加速</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

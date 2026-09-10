@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RL 缩放律 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rl-scaling-laws.md.D6tSVUBp.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 自博弈与监督扩展<!--]--><!--[--> · 课序 超越人类标注<!--]--></p><p class="lesson-progress">第 39 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/llm/tool-integrated-rl/">工具整合推理 RL</a></p><p class="lesson-next"> 下一课：<a href="/llm/thinking-budget-adaptive/">思考预算与自适应思考</a></p></nav><div style="position:relative;"><div><h1 id="rl-缩放律" tabindex="-1">RL 缩放律 <a class="header-anchor" href="#rl-缩放律" aria-label="Permalink to &quot;RL 缩放律&quot;">​</a></h1><div class="epigraph"><p>预训练有损失–算力曲线；RL 的曲线画的是优化强度对金标，并且经常先升后降。</p><footer>—— Gao 等奖励模型过优化的标度；OpenAI o1 / DeepSeek-R1 把更多 RL 算力换成推理时行为；Kimi k1.5 的报告</footer></div><p><a href="/llm/tool-integrated-rl">上一课</a>把环境变复杂。本单元最后一问：再堆 RL 算力是否总换来能力。缺口是：<strong>预训练缩放律不能直接抄到 RL——代理奖励会 Goodhart，墙钟还被生成长度吃掉。</strong> Gao、Schulman、Hilton 给了 RM 过优化随优化步与 RM 规模的经验律。o1、R1、k1.5 给出另一条：可验证 RL 算力 ↔ 推理表现。本课对照两条，接到下一单元「想多久」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Kaplan / Hoffmann 律预测预训练损失。RL 没有平稳的交叉熵：目标是 \(\mathbb{E}[R]\)，\(R\) 还在变（策略分布移、RM 过期）。能画的是：横轴 RL FLOPs 或步数，纵轴金标（AIME、隐藏测例、人类）。偏好 RM 上，Gao 曲线拐点随 RM 参数量推迟。可验证域拐点来自校验器洞与熵塌，形状不同，仍可能降。</p><p>另一轴是推理时计算：同一套权，多想一会儿（预算、并行采样）也能涨分。训练 RL 与测试时计算可互换到何种程度，是 o1 类系统的核心产品问题，下一单元展开。本课只钉训练侧缩放。</p><h3 id="不要把代理-当损失" tabindex="-1">不要把代理 \(r\) 当损失 <a class="header-anchor" href="#不要把代理-当损失" aria-label="Permalink to &quot;不要把代理 $r$ 当损失&quot;">​</a></h3><p>预训练诚实画 val loss。RL 若画代理奖励，缩放律会永远上升。金标与墙钟必须进图。DAPO 用 AIME avg@32，并报步数相对 R1-Zero 配方减半，这才是可比较的缩放点。</p><p><span class="marginnote">组大小 \(G\)、长度、是否动态采样改变「一步」的 FLOPs。横轴要用 token 或焦耳，不要用未定义的 step。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实验卡：基座规模、RL 提示数、生成 token 总数、是否 KL、奖励类型。画金标 vs 生成 token。扫：更多步 vs 更大 \(G\) vs 更长 \(L\)。经验：可验证域在熵未塌时单调一段时间；偏好域更早拐。RM 规模与策略规模的相对关系按 Gao：策略相对 RM 过强则更快过优化。</p><div class="mermaid"></div><p>与 <a href="/llm/kl-free-rl">无 KL</a>：去掉 KL 让同一 FLOPs 走得更远，拐点可能更早，应用金标而不是「走得远」当成功。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可验证 RL 的边际来自覆盖更多会分叉的题与更长搜索。边际递减：题库耗尽、熵塌、长度费用。偏好 RL 的边际被过优化截断。蒸馏（后课）把 RL 得到的长链行为用 SFT 交给小模型，是另一种缩放：一次 RL，多次学生。</p><p><span class="marginnote">R1-Zero 从基座直接 RL，缩放的是「无 SFT 冷启动」的探索；R1 加冷启动，曲线不可与 Zero 混横轴。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有公开的类 Hoffmann 的 RL 最优分配公式。实践是：可验证轴堆 RL 直到金标饱和或费用墙；偏好轴早停。同一 FLOPs 花在更大 \(G\) 还是更长 \(L\)，边际不同，要分开发而不是合成一个「RL 步数」。下一单元从训练算力转到<strong>一次推理想多久</strong>，那是测试时缩放，与本课互补。</p><p>横轴用生成 token 或焦耳，不要用未定义的 step。同一算力花在 G 还是 L 上要分开画，拐点看金标不是代理 r。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RL 缩放必须画金标 vs 真实生成算力；代理 \(r\) 会假永远涨。</li><li>偏好域拐点见 Gao；可验证域受熵、题库、长度限制。</li><li>一步的 FLOPs 随 \(G\) 与 \(L\) 变，横轴要定义。</li><li>测试时计算是另一条轴，下一单元。</li><li>出处：Gao, Schulman, Hilton；OpenAI o1；DeepSeek-AI R1；Kimi k1.5；Kaplan/Hoffmann 仅作预训练对照。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 自博弈与监督扩展<!--]--><!--[--> · 课序 超越人类标注<!--]--></p><p class="lesson-progress">第 39 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/thinking-budget-adaptive/">思考预算与自适应思考</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

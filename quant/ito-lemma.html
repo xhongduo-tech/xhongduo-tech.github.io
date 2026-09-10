@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>伊藤引理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ito-lemma.md.DtjVsfZ_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 布朗运动<!--]--></p><p class="lesson-progress">第 3 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/quadratic-variation/">二次变差</a></p><p class="lesson-next"> 下一课：<a href="/quant/sde-meaning/">随机微分方程的含义</a></p></nav><div style="position:relative;"><div><h1 id="伊藤引理" tabindex="-1">伊藤引理 <a class="header-anchor" href="#伊藤引理" aria-label="Permalink to &quot;伊藤引理&quot;">​</a></h1><div class="epigraph"><p>对 $C^{2,1}$ 的 $f(t,W_t)$，二阶项 $\partial_{ww}f\,(\mathrm d W)^2$ 不可忽略，它贡献 $\tfrac12\partial_{ww}f\,\mathrm d t$。</p><footer>—— 据 Itô, On Stochastic Differential Equations, Mem. Amer. Math. Soc., 1951；Karatzas and Shreve, 1991, 第 3 章整理</footer></div><p>上一课<a href="/quant/quadratic-variation">二次变差</a>给出乘法表 \((\mathrm d W)^2=\mathrm d t\)。缺口是：若状态是 \(W\) 的非线性函数，增量怎么写。经典链式法则丢掉二阶，会把 \(\ln S\)、期权价格、贴现因子的漂移全部写错。本课只把 Itô 公式钉成后课 SDE 的微分引擎，不把积分构造重做一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设 \(Y_t=f(t,W_t)\)，\(f\) 对时间 \(C^1\)、对空间 \(C^2\)。普通微积分写 \(\mathrm d Y=f_t\,\mathrm d t+f_w\,\mathrm d W\)。布朗路径上 \((\Delta W)^2\) 与 \(\Delta t\) 同阶，泰勒的二阶项在极限里活下来。漏掉它，\(Y\) 的漂移少一块 \(\tfrac12 f_{ww}\)，后面几何布朗运动的显式解、Feynman–Kac 的生成元都会差一个二阶微分算子。</p><p>缺口不是「再解释一次二次变差」，而是把二次变差喂进多元泰勒，得到封闭的 \(\mathrm d f\)。多维、带漂移的 \(X\) 是同一条公式的坐标替换，本课先写清一维布朗，再声明推广。</p><h3 id="伊藤不是把导数换成随机导数" tabindex="-1">伊藤不是把导数换成随机导数 <a class="header-anchor" href="#伊藤不是把导数换成随机导数" aria-label="Permalink to &quot;伊藤不是把导数换成随机导数&quot;">​</a></h3><p>\(f_w\) 仍是普通偏导，没有新的「路径导数」。随机性全部来自把 \((\mathrm d W)^2\) 换成 \(\mathrm d t\)，再取极限。Stratonovich 积分会把二阶项藏进对称极限，链式法则看起来像经典的；本序列主干用 Itô，因为 \(\int H\,\mathrm d W\) 在可积条件下是鞅，定价要这条鞅性质。</p><p><span class="marginnote">金融里常把 \(\tfrac12\sigma^2\) 叫做凸性调整。来源就是 \(f(x)=x^2\) 或 \(\ln x\) 的 \(f&#39;&#39;\)： Jensen 与 Itô 修正是同一块二阶。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一维公式：</p> \[\mathrm d f(t,W_t)=\Bigl(\partial_t f+\tfrac12\partial_{ww}f\Bigr)\mathrm d t+\partial_w f\,\mathrm d W_t. \]<p>若 \(X\) 满足 \(\mathrm d X=\mu\,\mathrm d t+\sigma\,\mathrm d W\)，则</p> \[\mathrm d f(t,X_t)=\bigl(f_t+\mu f_x+\tfrac12\sigma^2 f_{xx}\bigr)\mathrm d t+\sigma f_x\,\mathrm d W_t. \]<p>乘法规则仍是上一课的表：\(\mathrm d W\cdot\mathrm d t=0\)。积分形式是定义；微分形式是简写。后课写 GBM、写期权价值过程，都直接套第二式。生成元 \(\mathcal A=\mu\partial_x+\tfrac12\sigma^2\partial_{xx}\) 会在 <a href="/quant/feynman-kac">Feynman–Kac</a> 再出现，本课只把它从 Itô 里读出来。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Itô 积分取左端点，增量 \(\Delta W\) 与已经确定的 \(f_w(t_i,W_{t_i})\) 独立，一阶项期望为零，二阶项期望留下 \(\tfrac12 f_{ww}\Delta t\)。这就是漂移修正的概率来源。对凸函数 \(f_{ww}\gt 0\)，Itô 漂移大于经典漂移——期权的时间价值、对数坐标里的 \(-\tfrac12\sigma^2\)，都是这块符号。</p><p>公式要求 \(f\) 足够光滑。弱解、局部时、Tanaka 公式处理 \(|W|\) 这类不够 \(C^2\) 的函数，主干定价用不到，不在本课。多维时交叉变差 \([W^i,W^j]_t=\rho_{ij}t\) 进入混合二阶导；后课若写相关布朗，只加这一项。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 Itô 公式（需要等距、局部化、停时），不引入 Stratonovich。跳扩散的 Itô 还要加 \(\Delta f-f_x\Delta X\) 的补偿，留给<a href="/quant/jump-process-intuition">跳过程直觉</a>。后课默认：对 \(C^{2,1}\) 函数可以直接写 Itô；SDE 的微分运算以本课第二式为准。下一课<a href="/quant/sde-meaning">随机微分方程的含义</a>回答 \(\mathrm d X=\mu\,\mathrm d t+\sigma\,\mathrm d W\) 作为对象究竟是什么。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>伊藤引理 = 链式法则 + \(\tfrac12 f_{xx}\,\mathrm d[X]\)。</li><li>修正项来自二次变差，不是新的导数概念。</li><li>主干用 Itô 是为了积分的鞅性质。</li><li>生成元 \(\mathcal A\) 就是公式里的漂移算子。</li><li>出处：Itô, 1951；Karatzas–Shreve 第 3 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 随机分析与金融数学<!--[--> · 单元 路径与积分<!--]--><!--[--> · 课序 布朗运动<!--]--></p><p class="lesson-progress">第 3 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/sde-meaning/">随机微分方程的含义</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

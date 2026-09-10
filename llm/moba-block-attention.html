@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MoBA 块注意力混合 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_moba-block-attention.md.DpxhKWpa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 前沿架构与型号 2025-2026<!--[--> · 单元 架构<!--]--><!--[--> · 课序 目标、表示与内核<!--]--></p><p class="lesson-progress">第 8 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/llm/byte-latent-transformer/">Byte Latent Transformer</a></p><p class="lesson-next"> 下一课：<a href="/llm/flashkda-kernel/">FlashKDA 关联记忆内核</a></p></nav><div style="position:relative;"><div><h1 id="moba-块注意力混合" tabindex="-1">MoBA 块注意力混合 <a class="header-anchor" href="#moba-块注意力混合" aria-label="Permalink to &quot;MoBA 块注意力混合&quot;">​</a></h1><div class="epigraph"><p>少加结构先验，让模型自己决定看哪些历史块：把 MoE 的 top-k 路由接到注意力的键值块上。</p><footer>—— Lu, Jiang, Liu, Qiu, Zhou 等，MoBA: Mixture of Block Attention for Long-Context LLMs，arXiv:2502.13189 / NeurIPS 2025</footer></div><p>滑窗与 sink 把稀疏图案写死，换任务就失效；线性注意力改核，复杂推理上证据不足，从现有 Transformer 迁过去也贵。Moonshot 的 Enzhe Lu、Jiezhong Qiu、Xinyu Zhou 等人提出 <strong>Mixture of Block Attention（MoBA）</strong>：上下文切成块，每个查询对块做均值池化打分，top-k 选块再在块内做 softmax 注意力。参数量与满注意力相同，因而可以在训练中切换满 / 稀疏，并接到 FlashAttention 变长接口。论文写明已用于 Kimi 的长上下文请求。代码：github.com/MoonshotAI/MoBA。本篇写路由与因果约束，不把部署声明写成公开的 Kimi 层配置表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>有效上下文要涨到百万级，满注意力二次不可接受。一类方法加很强结构：sink、窗口、固定跨度——省算力，但把「该看哪」写进归纳偏置。<a href="/llm/longformer">Longformer</a> 与 <a href="/llm/nsa-paper">NSA</a> 各有图案；Quest、Minference、RetrievalAttention 在推理期动态选 token，却不大减<strong>训练</strong>期的长上下文账单。另一类改成 Mamba / <a href="/llm/rwkv">RWKV</a> / RetNet，与 softmax 差距大，转换成本高。问题收成：如何保持 Transformer 框架、少加结构、让模型自治选择，并在满与稀疏之间可切换。</p><p>MoE 已在 FFN 上证明 top-k 专家路由可行。MoBA 把「专家」换成<strong>沿长度切的 KV 块</strong>。查询仍是 token，键值按块成组；门控决定看哪些历史块。这比「永远看最近一块 + 永远看前缀」更一般：窗口与 sink 都是 MoBA 在特定门控下的特例。</p><h3 id="因果不能靠-softmax-自己保证" tabindex="-1">因果不能靠 softmax 自己保证 <a class="header-anchor" href="#因果不能靠-softmax-自己保证" aria-label="Permalink to &quot;因果不能靠 softmax 自己保证&quot;">​</a></h3><p>块内均值池化若包含未来 token，分数会泄漏。两条硬规则：查询不能路由到未来块（未来块分数 \(-\infty\)）；<strong>当前块强制选中</strong>并在块内用因果掩码。当前块类似现代 MoE 的共享专家：静态路由保证局部上下文，并堵住「池化看见未来」的洞。实现上当前块注意力与历史块注意力分开算，再用 online softmax 合并。</p><p><span class="marginnote">缩放律实验：块大小 512、top-3，8K 序列上稀疏度 \(1-512\times 3/8192=81.25\%\)；因当前块必选，历史最多再看 2 块。不要把 top-k=3 理解成三块任意历史。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对单头查询 \(q\) 与 \(K,V\in\mathbb{R}^{N\times d}\)，满注意力是 \(\mathrm{softmax}(qK^\top)V\)。MoBA 只在选中下标集 \(I\) 上算。\(N\) 分成 \(n\) 块，块长 \(B=N/n\)，第 \(i\) 块区间 \(I_i\)。亲和</p> \[s_i=\langle q,\mathrm{mean\_pool}(K[I_i])\rangle, \]<p>\(g_i=1\) 当且仅当 \(s_i\) 进入 top-k（加因果掩码与当前块强制）。\(I=\bigcup_{g_i\gt 0}I_i\)。无额外参数：分数用已有 \(q\) 与块内 \(K\) 均值，不是另训的专家网络。</p><p>实现五步：按门控与因果得到 query–块赋值；按块重排 query；对每块做变长 FlashAttention（当前块 causal=True，历史块 causal=False）；排回原序；online softmax 融合。图 2 显示相对 Flash 满注意力，在加长序列与固定约 95% 稀疏（64 块、top-k=3、块长随 \(N\) 涨）下的时间优势。</p><p>细粒度：32K 上保持 75% 稀疏，把块从「8 选 2」细到「128 选 32」，验证损失可差约 \(10^{-2}\)，细更好——与 DeepSeekMoE 一类「细专家」同方向，只是切在长度维。混合：层可在满注意力与 MoBA 间切换。从 Llama 3.1 8B 做长上下文续训，窗口 128K→256K→512K→1M；最后 100B token 打开 MoBA，\(B=4096\)、top-K=12，相对 1M 稀疏可达 \(1-4096\times 12/10^6=95.31\%\)。推理可「prefill MoBA + decode 满注意力」。RULER@128K：两种 MoBA 配置 0.7690 / 0.7671，满注意力 0.8031。NIAH 到 1M 可接受，Prefill-Full-Decode 略好。</p><div class="mermaid"></div><h3 id="与线性注意力不是同一笔交易" tabindex="-1">与线性注意力不是同一笔交易 <a class="header-anchor" href="#与线性注意力不是同一笔交易" aria-label="Permalink to &quot;与线性注意力不是同一笔交易&quot;">​</a></h3><p>MoBA 选中的块里仍是 softmax，保留精确的块内依赖与现有核；复杂度约 \(O(NkBd)\) 量级（\(k\) 个块），由 \(B\) 与 \(k\) 调稀疏。线性核把全部历史压进固定状态，回忆机制不同。论文明确反对「为了长上下文先改核」；要的是可从满注意力平滑走进稀疏。Kimi 产品线后来还有 <a href="/llm/kimi-linear-kda">Kimi Linear</a>，那是另一条核；MoBA 是稀疏 softmax。不要把两篇的 RULER 分数混成一个架构。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>均值池化是廉价的块摘要，类似 MoE 用路由网络看专家原型。Top-k 强迫每个查询只付 \(k\) 块的注意力 FLOPs。当前块保证局部句法；远程块由内容寻址，而不是由窗口碰巧覆盖。细块让路由分辨率提高：大块把无关 token 与针绑在同一专家里，分数被稀释。混合层留下几层满注意力当全局保险，类似 3:1 线性混合里的满注意力层，但是稀疏图案仍是 softmax。</p><p>Flash 变长路径避免为每个块 pad 到 \(B\)。Online softmax 保证一个查询看多块时归一化全局正确，不能各块各自 softmax 再拼接。因果掩码加在分数上，不是加在池化之后补救。</p><p><span class="marginnote">Llama-8B-1M-MoBA 从 128K 续训到 1M 用了位置插值。RULER 128K 上 MoBA 相对满注意力仍有约 3 分差距（0.77 vs 0.80）。引用「接近满注意力」要带上稀疏度与是否 decode 满注意力。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="路由错误不可由-softmax-纠正" tabindex="-1">路由错误不可由 softmax 纠正 <a class="header-anchor" href="#路由错误不可由-softmax-纠正" aria-label="Permalink to &quot;路由错误不可由 softmax 纠正&quot;">​</a></h3><p>针若落在未选中的块，块内再精确也看不见。均值池化对块内多主题不敏感，细 \(B\) 是补救也是算力。Decode 若也走 MoBA，生成质量可能低于 Prefill-MoBA–Decode-Full；服务要在吞吐与针准确之间选配置。10M 长度实验靠固定块数、加大 \(B\) 保持稀疏，块摘要更粗。训练期 MoBA 才能减长上下文训练成本；仅推理稀疏省不了预训账单。门控没有可训练的专家网络，分数完全来自 \(q\) 与块均值的点积，省参数也限制了「块摘要」的表达力——多主题块会把针稀释。生产若把 decode 也稀疏化，必须单独报 NIAH，不能只用 prefill 数字代表整条请求。块大小与 top-k 要随序列长度一起改，才能保持论文里的稀疏度；只改其一会让对照失效。</p><p>出处：Lu et al.，Moonshot AI / 清华 / 浙大（浙大实验室），arXiv:2502.13189，NeurIPS 2025。MoE 经典：Shazeer et al. 2017。FlashAttention：Dao et al.。部署句以论文摘要为准，不要编造 Kimi 内部层数。</p><p><span class="marginnote">出处：Lu, Jiang, Liu, Du, …, Zhang, Qiu，<em>MoBA: Mixture of Block Attention for Long-Context LLMs</em>，arXiv:2502.13189。代码 MoonshotAI/MoBA。基线含 Llama 3.1 8B 长上下文续训设定。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MoBA 对 KV 分块做 top-k 路由，块内仍是 softmax 注意力。</li><li>禁止未来块、强制当前块因果，参数量与满注意力相同，可切换。</li><li>细粒度分块在同等稀疏下更好；可与满注意力层混合。</li><li>8B 续训到 1M；RULER 128K 接近满注意力；已用于 Kimi 长请求。</li><li>出处：Lu et al.，arXiv:2502.13189。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 前沿架构与型号 2025-2026<!--[--> · 单元 架构<!--]--><!--[--> · 课序 目标、表示与内核<!--]--></p><p class="lesson-progress">第 8 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/flashkda-kernel/">FlashKDA 关联记忆内核</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

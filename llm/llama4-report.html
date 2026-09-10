@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Llama 4 技术报告 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llama4-report.md.BRwQVX7S.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 开源续<!--]--></p><p class="lesson-progress">第 186 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/llama3-report/">Llama 3 技术报告</a></p><p class="lesson-next"> 下一课：<a href="/llm/gemma2-report/">Gemma 2 报告</a></p></nav><div style="position:relative;"><div><h1 id="llama-4-技术报告" tabindex="-1">Llama 4 技术报告 <a class="header-anchor" href="#llama-4-技术报告" aria-label="Permalink to &quot;Llama 4 技术报告&quot;">​</a></h1><div class="epigraph"><p>Llama 4 是我们第一批使用混合专家架构的模型：每个 token 只激活总参数的一部分。</p><footer>—— Meta，The Llama 4 herd，2025 年 4 月 5 日博客</footer></div><p>Llama 1–3 把稠密解码器做成开源默认之后，2025 年 4 月 Meta 把下一代写成<strong>原生多模态 MoE</strong>。公开交付物是 Scout 与 Maverick 的开源权重，以及仍在训练、当时不开放的教师 Behemoth。没有同名完整 arXiv 技术报告时，可核对的「报告」就是官方博客加 <code>llama-models</code> 模型卡。方向概览见 <a href="/llm/llama-4">Llama 4 与 MoE</a>；本篇按那两份文本把预训练、中训、后训练与未公开处摊开，不编一层层宽表。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>稠密 405B 把「更大」直接变成每次前向更贵。固定训练 FLOPs 时，MoE 可以把专家库做大、每次只跑一小截，同一算力预算下容量更高。Llama 4 要回答的产品问题是：开源权重能否在「单卡 / 单主机可部署」的激活量上接近上一代稠密旗舰，同时把图像从适配器改成预训练期的一等模态。</p><p>另一条轴是上下文。Llama 3.1 的 128K 再往上，KV 与 RoPE 相位都吃紧。博客把 Scout 的输入上下文写成千万 token 量级，并引入 iRoPE。工程上必须把<strong>训练长度</strong>和<strong>宣传外推长度</strong>分开，否则会按 10M 去采购缓存。</p><h3 id="两份文本对得上、对不上的数字" tabindex="-1">两份文本对得上、对不上的数字 <a class="header-anchor" href="#两份文本对得上、对不上的数字" aria-label="Permalink to &quot;两份文本对得上、对不上的数字&quot;">​</a></h3><p><strong>博客（2025-04-05）</strong>：首次 MoE；Scout 约 17B 激活、16 专家、总参约 109B；Maverick 约 17B 激活、128 个路由专家加共享专家、总参约 400B，层间交替稠密 FFN 与 MoE；Behemoth 约 288B 激活、16 专家、总参近 2T，用作教师。原生多模态走 early fusion；视觉编码器基于 MetaCLIP，与冻结的 Llama 骨干分开适配。Scout 预训练与后训练窗口 256K，博客称输入可达 10M。整体数据混合超过 30T，多语相对 Llama 3 约十倍，覆盖约 200 种语言（逾 100 种各超过 10 亿 token）。Behemoth 预训练用 FP8、约 32K GPU，峰值约 390 TFLOPs/GPU。</p><p><strong>模型卡</strong>：Scout 上下文栏写 10M、token 计数约 40T；Maverick 上下文栏写 1M、约 22T；知识截止均为 2024 年 8 月。输入为多语文本与图像，输出为多语文本与代码。Scout 以 BF16 发布、INT4 量化可进单张 H100；Maverick 另提供 FP8，宣称可放进单台 H100 DGX 主机。</p><p><span class="marginnote">30T、40T、22T 不是同一口径。博客的「混合超过 30T」是配方叙事；模型卡的 token count 按检查点计。不要把三数加总，也不要用 40T 去反推 Maverick 的 22T 是「少训了」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="metap、fp8-与中训" tabindex="-1">MetaP、FP8 与中训 <a class="header-anchor" href="#metap、fp8-与中训" aria-label="Permalink to &quot;MetaP、FP8 与中训&quot;">​</a></h3><p>博客把超参选择写成 <strong>MetaP</strong>：按层学习率与初始化尺度可在不同 batch、宽度、深度与 token 量之间迁移。这是训练稳定性声明，不是一篇可复现的 μP 附录。精度上强调 FP8 预训练不牺牲质量，并给出 Behemoth 的 GPU 吞吐数字。中训（mid-training）用专门长上下文数据把核心能力再抬一截，同时解锁 Scout 的超长输入主张。</p><p>Maverick 的 MoE 层：128 个路由专家加<strong>一个共享专家</strong>，每个 token 必走共享支路，再走 128 选 1。交替稠密层意味着大约一半层仍是全量 FFN，激活量不能按「整网都是 1/128」去估。Scout 专家更少（16），换更简单的并行与更高专家利用率。二者激活量接近、总量差约四倍。</p> \[y = S(x) + E_{i^*(x)}(x),\qquad i^*(x)=\arg\max_i r_i(x) \]<p>上式概括 Maverick 所写的「共享 + 单一路由专家」。\(S\) 与打分函数 \(r\) 未公开，实现以发布配置为准。</p><div class="mermaid"></div><h3 id="后训练-轻-sft、在线-rl、轻-dpo" tabindex="-1">后训练：轻 SFT、在线 RL、轻 DPO <a class="header-anchor" href="#后训练-轻-sft、在线-rl、轻-dpo" aria-label="Permalink to &quot;后训练：轻 SFT、在线 RL、轻 DPO&quot;">​</a></h3><p>相对 Llama 3 的重 SFT，Llama 4 把管道改成轻量监督微调 → 在线强化学习 → 轻量 DPO。关键观察是：SFT 与 DPO 会过约束，限制在线 RL 的探索，尤其伤害推理、代码与数学。他们用 Llama 自身当裁判，丢掉超过一半被标成「太易」的数据，只在更难的集合上做轻 SFT。随后的多模态在线 RL 继续筛中等偏难提示，并交替「训练—再过滤」。DPO 只处理回复质量的边角，用来在智能与闲聊之间找平衡。Behemoth 一侧更极端：SFT 数据剪掉约 95%（小模型约 50%），并重写异步在线 RL 基础设施，博客称相对前代约 10 倍训练效率。</p><p>Scout 与 Maverick 都从 Behemoth <strong>共蒸馏</strong>（codistillation）。教师前向的软目标与硬标签动态加权；学生训练里已含的数据，教师前向成本被摊掉，新数据再补教师 logits。教师未开放时，无法从开源图还原教师梯度。</p><p><span class="marginnote">iRoPE：多数层仍用 RoPE，交错插入不带位置编码的注意力层，推理时再对注意力做温度缩放。「i」同时指 interleaved 与对 infinite context 的志向。256K 是训过的窗口；10M 是长度泛化主张，支撑是针检索与长代码 NLL，不是完整 10M 综合基准表。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>MoE 的机制承诺是：总参数变大时，FLOPs 跟激活走。路由若崩溃，有效容量退回「几个专家的稠密小网」，109B/400B 只是占盘。共享专家把每个 token 都需要的变换从路由里拿出来；\(k=1\) 让组合数等于专家数，细粒度不如 top-8 的开源 MoE，换的是路由与通信更简单。交替稠密层保证一部分表示变换不经过离散选择。</p><p>早融合把视觉 token 与文本放进同一自注意力，图文统计在预训练就对齐。代价是模态互相干扰——后训练必须用课程在图、推理、闲聊之间找平衡。视觉编码器不与骨干联合从零训，而是基于 MetaCLIP、对着冻结 Llama 适配。预训练最多约 48 张图，后训练测到 8 张；视频被写成视频帧静图。</p><p>iRoPE 把局部相对几何和超长顺序拆到不同层。RoPE 层继续提供邻域相位；<a href="/llm/nope">NoPE</a> 层避免所有层都在超长下标上卷绕。温度缩放不改相对位置，只改 softmax 锋利度。没有论文级消融表之前，不应把 10M 归因成「只加了 NoPE」或「只加了温度」。</p><h3 id="蒸馏把教师的-stem-写进学生权重" tabindex="-1">蒸馏把教师的 STEM 写进学生权重 <a class="header-anchor" href="#蒸馏把教师的-stem-写进学生权重" aria-label="Permalink to &quot;蒸馏把教师的 STEM 写进学生权重&quot;">​</a></h3><p>Behemoth 在 MATH-500、GPQA Diamond 上相对 GPT-4.5 / Claude Sonnet 3.7 / Gemini 2.0 Pro 的对照，是 Meta 自报、且对应「仍在训练」的教师。Scout / Maverick 的质量里有一块是蒸馏过来的行为，不是 17B 激活自己从网页长出来的。评测协议与社区争议存在时，写系统应以自己的任务回归为准，不要把发布博文的「best in class」当误差条。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>开源 MoE 的第一约束是专家并行与装载，不是激活 FLOPs。单主机能跑 Maverick，不等于单卡能装 400B。按「17B 激活」去对标稠密 17B 的显存配方会低估。Scout 的 10M 若按全量 KV 理解，缓存不可部署；真正能用的长度取决于实现是否做稀疏注意力、分页或外部检索。</p><p>模型卡写明训练数据含公开来源、许可数据以及 Meta 产品与服务中的信息（包括公开分享的 Instagram / Facebook 帖与 Meta AI 交互）。这与 Llama 3 模型卡「不含 Meta 用户数据」不是同一句话。再分发与商用要读当时 Llama 许可，不能假设与 3.x 条款逐字相同。</p><p><span class="marginnote">不要给 Behemoth 编一层层宽，也不要把 Maverick 的 1M 与 Scout 的 10M 写成全系列同一窗口。能写进架构图的，只有博客里的专家数、共享专家、交替层、iRoPE、MetaP 与后训练三段式。</span></p><p>路由是否加噪声、容量因子、负载损失形式，官方文没有写成可复现超参。层号与「Scout 是否每一层都是 MoE」，博客只给定性描述。这些空不要用开源配置文件的一次快照去回填成「报告原表」。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Llama 4 把族从稠密改为 MoE，并改为图文早融合；可引用文本是 2025-04-05 博客与官方模型卡，当时没有同名完整技术报告。</li><li>Scout：17B 激活 / 16 专家 / 109B 总量，训 256K，宣传外推 10M；Maverick：17B 激活 / 128 路由 + 共享 / 400B，模型卡上下文 1M。</li><li>Behemoth 约 288B 激活、近 2T 总量，作共蒸馏教师，发布时仍在训练、不开放权重。</li><li>后训练为轻 SFT → 在线 RL → 轻 DPO，并丢掉过易样本；Behemoth 侧 SFT 剪得更狠，RL 基础设施重写。</li><li>256K 是训过的窗口；10M 是官方长度泛化主张，伴随 iRoPE。</li><li>出处：Meta，<em>The Llama 4 herd</em>，2025-04-05；配套见 Hugging Face / <code>meta-llama</code> 模型卡。无同名完整技术报告时，不以虚构 arXiv 代替。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 开源续<!--]--></p><p class="lesson-progress">第 186 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gemma2-report/">Gemma 2 报告</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

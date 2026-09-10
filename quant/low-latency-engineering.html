@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>低延迟工程：内核旁路与 FPGA | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_low-latency-engineering.md.DQcD9JlA.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 7 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/quant/colocation-microwave/">主机托管与微波</a></p><p class="lesson-next"> 下一课：<a href="/quant/timestamp-precision/">时间戳精度与单调时钟</a></p></nav><div style="position:relative;"><div><h1 id="低延迟工程-内核旁路与-fpga" tabindex="-1">低延迟工程：内核旁路与 FPGA <a class="header-anchor" href="#低延迟工程-内核旁路与-fpga" aria-label="Permalink to &quot;低延迟工程：内核旁路与 FPGA&quot;">​</a></h1><div class="epigraph"><p>操作系统把网卡中断、系统调用与调度写成通用分时；内核旁路把数据包交给用户态轮询，FPGA 把解析与风控下沉到硬件流水线。目标是抖动，不只是平均延迟。</p><footer>—— 对照 Aldridge, High-Frequency Trading 对系统架构的综述；Intel DPDK 与网卡厂商内核旁路文档；交易所 FPGA 馈送的公开产品说明</footer></div><p><a href="/quant/colocation-microwave">上一课</a>把物理路径停在机笼与城际。<a href="/quant/matching-engine-arch">撮合核</a>已说明核内单线程全序。本课的缺口是<strong>客户主机上、入核之前那几微秒</strong>：内核网络栈、上下文切换、内存分配如何把「同等线长」重新变成不确定到达。后课时钟课测量这些抖动。本课写机制与研究含义，不提供可部署的旁路或 FPGA 交易代码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>标准路径：网卡中断 → 内核协议栈 → socket → 用户进程。每一段都可能被调度器打断，尾部延迟可以比中位高一个数量级。时间优先只认到达全序，尾部才是经济量。内核旁路（如 Onload、DPDK 一类）让用户态直接轮询描述符队列，绕过系统调用与内核拷贝。FPGA 则在网卡或夹层卡上做协议解析、簿的部分更新、甚至预风控，再把事件送给 CPU 或直接回包。问题是：这些技术改变的是谁的抖动分布，会不会把研究用的软件模拟器训到一个永远达不到的执行集合。</p><p>回测若用日频或分钟 bar，本课全部无关。事件级回测若假设「看见行情立刻可撤」，等于假设内核旁路 + 核绑定 + 无日志阻塞已经实现。未实现时，模拟器应给撤单一个延迟分布，而不是一个常数 0。Aldridge 的工程章节强调关键路径上禁止锁、禁止分配、禁止磁盘；研究日志若写在同一线程，你测到的是日志系统的延迟。</p><h3 id="确定性比「更低的中位」更值钱" tabindex="-1">确定性比「更低的中位」更值钱 <a class="header-anchor" href="#确定性比「更低的中位」更值钱" aria-label="Permalink to &quot;确定性比「更低的中位」更值钱&quot;">​</a></h3><p>把中位从 8 µs 降到 4 µs，而 99.9 分位仍是 200 µs，FIFO 竞赛里你仍会在微突发中输掉。工程对象是延迟直方图，尤其是与邻居流量、垃圾回收、CPU 频率缩放相关的尾部。Java 一类运行时除非暂停被严格控制，否则不适合核绑定的撮合客户端。这不是语言偏见，是停顿与时间优先不兼容。</p><p><span class="marginnote">FPGA 行情解码可以在卡上输出「已解码的增量事件」。CPU 若仍用非旁路栈收同一组播，两条路径会给出不同到达时钟。必须声明策略看见的是哪一条，否则信号与执行脚不在同一世界。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>关键路径清单：收包 → 解码 → 风控 → 决策 → 组包 → 发送。每一项标注运行位置（CPU 核 / FPGA / 另一进程）与是否共享缓存。核绑定、隔离中断、关闭频率缩放、大页内存，都是为了把操作系统从随机扰动改成近似专用机。测量用硬件时间戳（网卡、PTP）而不是 <code>gettimeofday</code>。对比实验：同一策略逻辑，走内核栈 vs 旁路，报告到达撮合的往返分布——对象是分布，不是「快了多少倍」的营销数字。</p><p>FPGA 适合稳定、规格化的流水：SBE 解码、价格整数比较、简单的涨跌幅与数量检查。不适合频繁改参数的研究策略。把研究平台与生产关键路径分成两套二进制：研究用可观测性强的语言，生产用抖动受控的实现，用同一内部事件定义对拍。对拍失败时以生产为准去改研究，而不是用研究的「理论单」去指责交易所。</p><h3 id="与-a-股报撤约束同时存在" tabindex="-1">与 A 股报撤约束同时存在 <a class="header-anchor" href="#与-a-股报撤约束同时存在" aria-label="Permalink to &quot;与 A 股报撤约束同时存在&quot;">​</a></h3><p>旁路与 FPGA 不创造额外的合法报撤密度。<a href="/quant/cn-program-trading-rules">程序化规则</a>与<a href="/quant/cn-fee-cancel-ratio">撤单收费</a>把报撤写成监管对象。工程上能发 10 万笔不意味着规则允许。延迟工程的可行集是「在已报告、未触发异常、公平接入」之内压抖动，不是把境外期货做市的报撤曲线搬到沪深股票。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>内核栈为隔离与通用性付税：拷贝、系统调用、调度。旁路用轮询把税换成占用整核的电与机会成本。FPGA 把确定性交给硬件时钟周期，代价是迭代慢、规格绑定、故障模式难调试。对市场质量：客户侧抖动下降，核入口的到达过程更「尖」，连续簿上的速度租金更集中于能付工程固定成本的人——与 Budish 等对军备竞赛的描述同方向，只是战场从光纤移到网卡。</p><p>生产事故里，工程优化本身是风险：驱动 bug、FPGA 映像错误、内核旁路与操作系统补丁不兼容。后课交易所故障会看到客户侧与交易所侧的故障会互相放大；监控必须覆盖「旁路端口无包」而不是只覆盖策略 PnL。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不提供可编译的内核旁路交易程序、FPGA 抢跑逻辑或绕过会员网关的接入。研究实现用公开规格做解码即可。云上共享内核的虚拟机无法复制托管裸机的抖动承诺，回测不要用云虚拟时钟去校准微秒策略。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>低延迟工程的对象是到达抖动的尾部，不是平均延迟的广告数字。</li><li>内核旁路与 FPGA 改变客户侧关键路径，不改变撮合优先规则。</li><li>模拟器必须给「看见→可撤」一个真实延迟分布；A 股还要叠报撤制度。</li><li>出处：Aldridge, <em>High-Frequency Trading</em>；DPDK / 厂商旁路文档；Budish 等对速度竞赛的讨论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易所、数据与工程<!--[--> · 单元 交易所技术<!--]--><!--[--> · 课序 从撮合到清算<!--]--></p><p class="lesson-progress">第 7 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/timestamp-precision/">时间戳精度与单调时钟</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

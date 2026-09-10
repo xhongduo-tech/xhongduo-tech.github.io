@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LSTM 门控 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_lstm-gating.md.CwbNmZOZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 循环与对齐<!--]--></p><p class="lesson-progress">第 30 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rnn-long-range/">RNN 与长程依赖</a></p><p class="lesson-next"> 下一课：<a href="/llm/gru-vs-lstm/">GRU 对照</a></p></nav><div style="position:relative;"><div><h1 id="lstm-门控" tabindex="-1">LSTM 门控 <a class="header-anchor" href="#lstm-门控" aria-label="Permalink to &quot;LSTM 门控&quot;">​</a></h1><div class="epigraph"><p>把状态拆成可以逐维加的细胞，再用门控制写入、读出与遗忘；加法路径让时间轴上的增益可以接近 $1$。</p><footer>—— 据 Hochreiter &amp; Schmidhuber, Long Short-Term Memory, Neural Computation, 1997 整理</footer></div><p><a href="/llm/rnn-long-range">RNN 与长程依赖</a>把长程收成 \(\rho^k\)。本课不重推 BPTT。缺口是：普通 \(h_t=\tanh(W_h h_{t-1}+\cdots)\) 的转移是乘法式的，很难把 \(\rho\) 锁在 \(1\)。方法是 LSTM：细胞 \(c_t\) 以加法和逐维门更新，\(h_t\) 由 \(c_t\) 经输出门读出。GRU 是下一课的简化。本课不把门写成注意力权重，也不对全体过去做一次内容寻址。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>残差课在深度上引入加法旁路。时间轴上需要类似结构：让 \(c_t\) 可以选择「把 \(c_{t-1}\) 几乎原样留下」。普通 RNN 没有这条加法。LSTM 引入三个门——遗忘 \(f_t\)、输入 \(i_t\)、输出 \(o_t\)——取值在 \((0,1)\)，由当前 \(x_t\) 与 \(h_{t-1}\) 经 sigmoid 产生。细胞</p> \[c_t=f_t\odot c_{t-1}+i_t\odot\tilde c_t, \]<p>\(\tilde c_t\) 是候选写入。若 \(f_t\approx 1\)、\(i_t\approx 0\)，则 \(c_t\approx c_{t-1}\)，反向 \(\partial c_t/\partial c_{t-1}\approx 1\)（在那些维上）。缺口是这条<strong>可学习的恒等</strong>，不是更多层 tanh。</p><p>门是逐维的，不是对整个向量一个标量。模型可以在某些坐标上长期记忆，在另一些上快速改写。这与 LayerNorm 的逐特征复位不同：门决定<strong>是否传递过去</strong>，LN 决定<strong>当前尺度</strong>。</p><h3 id="门不是-softmax-注意力" tabindex="-1">门不是 softmax 注意力 <a class="header-anchor" href="#门不是-softmax-注意力" aria-label="Permalink to &quot;门不是 softmax 注意力&quot;">​</a></h3><p>三个门各自对细胞的坐标做缩放，不在时间维上归一化，也不去读任意过去的 \(h_s\)。信息要进入 \(c\)，必须在当时通过输入门；漏掉的时间步没有事后「回头去查」。把 LSTM 理解成「已经有了注意力」，后课 Bahdanau 会变成重复。本课的记忆是一条递推的细胞，寻址仍是时间顺序的。</p><p><span class="marginnote">原始 LSTM 用常数误差转盘描述加法路径。后来的遗忘门（Gers 等）让细胞能主动清空，否则 \(c\) 会无限累积。本课取带遗忘门的通行写法。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每步从 \((h_{t-1},x_t)\) 算出 \(f_t,i_t,o_t,\tilde c_t\)，更新 \(c_t\)，再 \(h_t=o_t\odot\tanh(c_t)\)。参数是若干张仿射（可拼成一块矩阵乘）。反向沿 \(c\) 的加法路径回传，同时每步加上门对参数的局部导数。梯度裁剪仍常用，因为门与候选仍可能在短程上放大。初始化遗忘门偏置为正，使早期更倾向「记住」，是常见技巧。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>长程依赖变成「遗忘门长期接近 \(1\) 的那些维」。这比强迫 \(\|W_h\|_2=1\) 更容易优化，因为是否传递由数据决定，不必全局谱半径精确为 \(1\)。短程仍走候选与门的非线性，表达力不丢。代价是每步参数与状态大约是简单 RNN 的四倍量级，且仍不能沿时间并行。</p><p>细胞与隐状态分开，使「记得」不必等于「对外露出」：输出门可以关掉， \(c\) 仍在。这在需要长时间计数或开关的模式上有用。代价是多一份要保存的状态，BPTT 的内存按 \(2n\) 而不是 \(n\) 涨（粗算）。初始化与裁剪仍然需要：门在 \(0/1\) 两端饱和时，\(\sigma&#39;\) 接近 \(0\)，短程路径也会消失。</p><p>失败模式：遗忘门学成总是 \(1\)，细胞饱和；或总是 \(0\)，退化为短程网络。正则与截断 BPTT 仍会影响能学到多远。LSTM 是结构上的缓解，不是无限记忆定理。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不对照 GRU 的两个门，不写 seq2seq。下一课<a href="/llm/gru-vs-lstm">GRU 对照</a>用更少的门做同一件加法记忆。后课默认：需要跨许多步的状态时，用门控 RNN 而不是朴素 tanh 递推；记忆仍是一条细胞，不是对过去全体的读取。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>LSTM 用加法更新细胞，遗忘门接近 \(1\) 时时间轴增益接近 \(1\)。</li><li>三个门逐维控制遗忘、写入、读出；不是时间维上的 softmax。</li><li>漏掉的时间步不能事后随机访问。</li><li>参数与状态更贵，递推仍串行。</li><li>出处：Hochreiter &amp; Schmidhuber, Neural Computation, 1997。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 序列与注意力之前<!--]--><!--[--> · 课序 循环与对齐<!--]--></p><p class="lesson-progress">第 30 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/gru-vs-lstm/">GRU 对照</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

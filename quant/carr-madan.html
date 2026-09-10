@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Carr-Madan FFT 定价 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_carr-madan.md.DRfIc8eX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 数值方法<!--]--><!--[--> · 课序 定价引擎<!--]--></p><p class="lesson-progress">第 1 / 25 课</p><p class="lesson-prereq"> 先修：<a href="/quant/barrier-monitoring/">障碍期权监控频率</a></p><p class="lesson-next"> 下一课：<a href="/quant/cos-method/">COS 方法</a></p></nav><div style="position:relative;"><div><h1 id="carr-madan-fft-定价" tabindex="-1">Carr-Madan FFT 定价 <a class="header-anchor" href="#carr-madan-fft-定价" aria-label="Permalink to &quot;Carr-Madan FFT 定价&quot;">​</a></h1><div class="epigraph"><p>欧式看涨对对数执行价的傅里叶变换，在乘上一个指数阻尼之后可积；特征函数代入闭式核，一次 FFT 给出整条执行价网格上的价格。</p><footer>—— Carr and Madan, Option Valuation Using the Fast Fourier Transform, Journal of Computational Finance, 1999</footer></div><p><a href="/quant/funding-liquidity">上一课</a>把因子收到融资约束。缺口换成期权曲面的计算引擎：特征函数一次 FFT。<a href="/quant/heston">Heston</a> 已经把欧式价格写成特征函数的反演，但原文是两条概率积分 \(P_1,P_2\)，每个执行价单独做振荡积分。Peter Carr 与 Dilip Madan 1999 年指出：若把看涨价格看成对数执行价 \(k=\ln K\) 的函数，其傅里叶变换在适当阻尼下有闭式，且对一串等距 \(k\) 可以用快速傅里叶变换一次算完。工程对象从此变成「特征函数 + 阻尼 + FFT 网格」，而不是「每个 \(K\) 一次求积」。本篇写这条变换，不重推 Heston 的 Riccati；任何仿射或 Levy 模型只要交出 \(\phi(u)=\mathbb{E}[e^{iu\ln S_T}]\)，就接到同一套核上。蒙特卡洛与 <a href="/quant/option-pde">PDE</a> 仍服务路径依赖与美式；香草截面的校准，FFT 通常是默认引擎。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>风险中性下 \(C(K)=e^{-rT}\mathbb{E}[(S_T-K)^+]\)。当密度未知而特征函数已知，经典路是 Gil-Pelaez 反演分布函数，或 Heston 那种拆成资产或然与现金或然。两条路对每个 \(K\) 都要积一次，校准上万个报价时浪费极大，且被积函数在 \(u=0\) 附近有 \(1/u\) 奇异，数值要小心。</p><p>直接对 \(C(k)\) 做傅里叶在数学上不合法：\(k\to-\infty\) 时看涨趋向远期，函数不属 \(L^1\)。Carr–Madan 引入阻尼 \(c(k)=e^{\alpha k}C(k)\)，\(\alpha\gt 0\) 使 \(c\) 可积，再写</p> \[\psi(v)=\int_{-\infty}^{\infty}e^{ivk}c(k)\,dk, \]<p>\(\psi\) 可用 \(\phi\) 表出。反演给出所有 \(k\) 上的 \(C(k)\)。问题收成：选 \(\alpha\) 使 \(\psi\) 在数值上既不爆炸也不把质量削掉，并把连续积分收成 FFT 能吃的等距和。</p><h3 id="阻尼核与特征函数" tabindex="-1">阻尼核与特征函数 <a class="header-anchor" href="#阻尼核与特征函数" aria-label="Permalink to &quot;阻尼核与特征函数&quot;">​</a></h3><p>对 \(x=\ln S_T\)，支付 \((e^x-e^k)^+\) 的变换给出</p> \[\psi(v)=\frac{e^{-rT}\phi\bigl(v-(\alpha+1)i\bigr)}{\alpha^2+\alpha-v^2+i(2\alpha+1)v}. \]<p>分母是阻尼看涨的二次多项式；分子把特征函数挪到复平面上的一条水平线 \(\mathrm{Im}=-(\alpha+1)\)。Heston、 Merton 跳跃、方差伽马、CGMY，只要 \(\phi\) 在该条带解析，公式原样可用。这与 Heston 原文沿实轴积 \(\mathrm{Re}(e^{-iuk}\phi(u)/(iu))\) 是同一信息的不同切片：一条带 \(\alpha\) 的解析延拓，换来整条 \(K\) 网格与更稳的被积函数。</p><p><span class="marginnote">\(\alpha\) 不是「精度参数」那么简单。太小，阻尼不够，\(c(k)\) 在左端仍不可积，FFT 泄漏；太大，特征函数被推到远离实轴，Heston 的分支与矩爆炸会先坏。股权香草常用 \(\alpha\in[0.75,1.75]\)，应用看涨–看跌平价把虚值一侧映到实值核上，避免深虚值看涨去乘很大的 \(e^{\alpha k}\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>取积分截断 \(v_{\max}\)、点数 \(N=2^n\)，步长 \(\eta=v_{\max}/N\)。对数执行价网格步长 \(\lambda=2\pi/(N\eta)\)，这是 FFT 的对偶关系：\(\eta\) 密则 \(K\) 网格疏，反之亦然。Simpson 权修正梯形误差。实现步骤：对 \(j=0,\ldots,N-1\) 算 \(\psi(j\eta)\)，乘阻尼反演前因子与 Simpson 权，做复 FFT，再乘 \(e^{-\alpha k}/\pi\) 一类常数，得到 \(C(k_m)\)。需要的执行价若不在网格上，三次样条即可；校准通常先把市场 \(K\) 映到最近网格，或对 \(\lambda\) 做一次以 ATM 为中心的平移（此时多一个指数平移定理里的相位）。</p><p>虚值看跌用平价从看涨取，或对看跌单独写一版负阻尼。短到期、深虚值时 \(\psi(v)\) 衰减慢，要加大 \(v_{\max}\)；长到期、Heston 强均值回复时衰减快，可减 \(N\)。与逐点求积比，一次 \(N=2^{12}\) 的 FFT 往往覆盖整条微笑，校准循环里应缓存 \(\phi\) 在网格上的值。</p><h3 id="与-heston-原文反演的关系" tabindex="-1">与 Heston 原文反演的关系 <a class="header-anchor" href="#与-heston-原文反演的关系" aria-label="Permalink to &quot;与 Heston 原文反演的关系&quot;">​</a></h3><p>Heston（1993）积的是概率，Carr–Madan 积的是阻尼价格。同一 \(\phi\)，同一价格，数值误差结构不同：前者每个 \(K\) 独立、便于单点希腊值；后者整条微笑一致、便于校准目标函数。分支切割、Feller 违反时的矩问题，两种反演都会遇到——那是特征函数实现的问题，见 <a href="/quant/heston">Heston</a>，不是 FFT 网格的问题。Lewis、Lipton 的积分核、Attari 的简化被积函数，是同一家族的变体；生产代码选一种核并固定 \(\alpha\) 与 \(N\)，不要在校准中途切换。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>傅里叶变换把卷积型的期望变成乘法。看涨支付在对数执行价上不是平方可积，阻尼相当于把测度改到 \(e^{\alpha k}\) 下，使变换存在；反演后再除回去。FFT 只是把这条连续反演收成 \(O(N\log N)\) 的等距和，它不引入新的定价理论：无套利、风险中性、特征函数解析延拓，全部发生在 \(\psi\) 的公式里。</p><p>网格对偶是机制的另一半。想要执行价很密，必须让频率步长 \(\eta\) 变大，高频截断变差，翼部振荡；想要积分更准，执行价网格变稀，ATM 附近要插值。这是信号处理里时频测不准在期权上的版本。实践上 \(N\)、\(\eta\)、\(\alpha\) 与对数现货的锚点一起当成数值规格，用 Black–Scholes 特征函数做回归测试：复现公式到 \(10^{-8}\)，再换 Heston。</p><p><span class="marginnote">FFT 给出的是欧式香草。美式、障碍、亚式不能把支付塞进同一个 \(\psi\)。COS、PIDE、<a href="/quant/mc-pricing">蒙特卡洛</a> 各管一块。不要因为「有特征函数」就认为所有产品都能 FFT。</span></p><div class="mermaid"></div><h3 id="看跌、数字与希腊值" tabindex="-1">看跌、数字与希腊值 <a class="header-anchor" href="#看跌、数字与希腊值" aria-label="Permalink to &quot;看跌、数字与希腊值&quot;">​</a></h3><p>数字期权对应密度，可用 \(\phi\) 直接反演，不必走阻尼看涨再对 \(K\) 差分——差分会放大 FFT 的高频涟漪。Delta、Vega 可对参数微分 \(\phi\) 再走同一核，比价格有限差分干净。Rho 若利率进入贴现与漂移两处，特征函数与前因子都要导。网格上的蝶式应保持正，否则是 \(\alpha\) 或截断不足，不是市场在套利。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Levy 模型在极短到期的翼部，密度不光滑，FFT 振荡明显，需加大 \(N\) 或改 COS。<a href="/quant/heston">Heston</a> 在深虚值短到期衰减慢，且 \(2\kappa\theta\lt \sigma^2\) 时矩可能在有限 \(u\) 爆炸，\(\alpha\) 把路径推得更近爆炸点。利率与分红若随 \(T\) 变化，每个到期单独一条 \(\phi\)，不要共用一张频率表却混用贴现。</p><p>实现上必须用看涨–看跌平价把计算放到实值一侧；必须测试 \(\alpha\) 扰动下 ATM 是否稳定；必须把 FFT 的 \(k\) 网格与远期对齐，否则「ATM」落在两个节点之间，校准会假弯。Carr–Madan 不解决特征函数的分支：那是模型实现。引用 1999 年论文是为了阻尼变换与 FFT 用法，不是为了 Heston 的闭式。</p><p><span class="marginnote">出处：Carr and Madan, <em>Journal of Computational Finance</em>, 1999。Heston 的 \(P_1,P_2\) 积分是 1993 年另一条路。Lewis（2001）与 Lipton（2002）给出带围道的等价核。不要把 FFT 的发明年写成期权定价年。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Carr–Madan（1999）对阻尼看涨做傅里叶，核由特征函数闭式给出，FFT 一次得到执行价网格。</li><li>\(\alpha\) 使变换可积，却把 \(\phi\) 推离实轴；要在泄漏与矩爆炸之间取值。</li><li>频率步长与执行价步长对偶，校准规格应固定 \(N,\eta,\alpha\) 并用 Black–Scholes 回归。</li><li>与 Heston 原文逐点反演同一信息，适合整条微笑；美式与路径依赖不在此核内。</li><li>虚值用平价映到实值；希腊值应对 \(\phi\) 解析求导再 FFT。</li><li>出处：Carr and Madan, <em>JCF</em>, 1999；特征函数模型见 Heston, <em>RFS</em>, 1993；对照 <a href="/quant/heston">Heston</a> 与 <a href="/quant/cos-method">COS 方法</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 衍生品数值与模型<!--[--> · 单元 数值方法<!--]--><!--[--> · 课序 定价引擎<!--]--></p><p class="lesson-progress">第 1 / 25 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/cos-method/">COS 方法</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

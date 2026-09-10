@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tick 数据清洗 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_tick-cleaning.md.BS5jNtRZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 35 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/freq-hft-mid-slow/">高频、中频与低频</a></p><p class="lesson-next"> 下一课：<a href="/quant/outlier-trades/">异常成交与错价</a></p></nav><div style="position:relative;"><div><h1 id="tick-数据清洗" tabindex="-1">Tick 数据清洗 <a class="header-anchor" href="#tick-数据清洗" aria-label="Permalink to &quot;Tick 数据清洗&quot;">​</a></h1><div class="epigraph"><p>已实现核要在噪声与信号之间做权衡，但若原始成交里还留着盘外时间、非正价格和离谱跳点，再精致的核也只是在放大录入错误。</p><footer>—— Barndorff-Nielsen, Hansen, Lunde, Shephard, Realised Kernels in Practice: Trades and Quotes, Econometrics Journal 2009</footer></div><p><a href="/quant/freq-hft-mid-slow">上一课</a>把体制写成 \((H,\) 容量瓶颈，延迟预算），禁止跨体制挪用实现价差、ILLIQ、撤单率。高频估计却把逐笔成交与报价当成观测；原始 tick 是交易所、数据商、对时与事后撤销叠在一起的日志。缺口是规则化的清洗管道：时间窗、合法性、价差、相对中点偏离、时间戳合并。本课先把数据变成可以进模型的样本，不重讲体制分层。错价、错单、交易所撤销这些带业务含义的异常，放在 <a href="/quant/outlier-trades">异常成交与错价</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一条成交记录至少有时间戳、价格、数量、买卖标志、交易所代码。其中任何一维都可以坏：时间戳落在闭市、价格为零、数量是合约乘数搞错后的天文数字、标志与报价矛盾、同一毫秒重复推送。报价侧还有买大于卖、一档数量为负、价差占价格的 40%。这些点若进入收益平方和，单笔就能主导全日 <a href="/quant/rv-noise">已实现波动</a>。</p><p>清洗的目标不是「让序列看起来平滑」，而是删掉<strong>不可能是真实可成交状态</strong>的记录，同时尽量不删真实的大跳——财报、熔断、跳空开盘。规则必须可审计：同一原始文件、同一规则，应得到同一张干净表。不可审计的「分析师手删」不能进生产。</p><h3 id="交易与报价要成对处理" tabindex="-1">交易与报价要成对处理 <a class="header-anchor" href="#交易与报价要成对处理" aria-label="Permalink to &quot;交易与报价要成对处理&quot;">​</a></h3><p>许多过滤器要用当时的买卖报价：成交是否在价差外过远、报价价差是否离谱。只清成交、不清报价，中点是脏的；只清报价、成交仍含盘前打印，有效价差会爆炸。时间戳对齐规则（成交对上一笔有效报价，还是对同时刻）属于清洗合同的一部分，应写进配置，而不是写进某个函数的默认参数。</p><p><span class="marginnote">数据商的「已筛选」字段不能替代自己的规则。不同终端对盘前、盘后、拍卖、交叉盘、报表更正的口径不同。复现一篇论文的 RV，应复现它引用的 BHLS 或 Brownlees–Gallo 规则，而不是复现你订阅源里一个名叫 <code>is_valid</code> 的布尔列。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一套被广泛引用的实务清单（BHLS 对交易与报价的 P/Q 规则，叙述如下，细节以原文表格为准）按层执行，先硬约束后统计约束。</p><p><strong>合法性与会话。</strong> 丢掉时间戳在连续竞价（或研究设定的会话）之外的记录；丢掉价格、买价、卖价非正或数量非正；丢掉买价高于卖价的锁定/交叉报价——除非该市场允许且你明确要研究交叉。拆股、分红日应用复权因子，或在原始价格上估计、事后只对日度加总复权，不要混用。</p><p><strong>价差与偏离。</strong> 丢掉报价价差超过价格一个固定比例（例如 10%，小价股另设）的记录。成交价相对当时中点的偏离超过若干倍「正常价差」或滚动中位数绝对偏差的，标为可疑。BHLS 对成交还有相对邻近成交中位数的过滤器：在一个短窗里，价格远离邻域中位数则删。这一层已经接近异常值规则，阈值应分品种、分时段校准，开盘前几分钟单独放宽或单独处理。</p><p><strong>时间戳与重复。</strong> 同一时间戳多笔成交：或合并量、或保留全部但标记为同一事件。对时到交易所时钟，处理夏令时与时区。乱序到达应按交易所序列号重排，而不是按本地接收时间。</p> \[\text{保留}_t =\mathbf{1}_{\{t\in\mathcal{T}\}} \mathbf{1}_{\{P_t\gt 0,Q_t\gt 0\}} \mathbf{1}_{\{s_t \lt \bar s\}} \mathbf{1}_{\{|P_t-m_t|\lt \kappa_t\}}. \]<p>上式只是层的示意：\(\mathcal{T}\) 是会话，\(s_t\) 是价差，\(m_t\) 是邻域中位数或中点，\(\kappa_t\) 是阈值。实现上每层单独留删除日志，以便事后知道 RV 的变化来自哪一条规则。</p><h3 id="过滤器顺序与日志" tabindex="-1">过滤器顺序与日志 <a class="header-anchor" href="#过滤器顺序与日志" aria-label="Permalink to &quot;过滤器顺序与日志&quot;">​</a></h3><p>先删不可能（非正、闭市），再删报价交叉，再删宽价差，最后才用相对中位数——否则中位数本身被坏点污染，阈值失效。每条被删记录保留原因码。汇总每日删除比例：若某日删掉 30% 成交，应停机检查是否规则过严或数据源中断，而不是继续估 PIN。清洗是数据契约，不是让波动变小的旋钮。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>硬规则的机制是剔除<strong>支撑集之外</strong>的点：负价格在连续价格模型里概率为零。相对中位数规则的机制是：在短窗内，有效价格的变动受波动约束，录入错误通常是孤立的水平跳、随即回来。真实信息跳往往会在随后的成交里被确认——邻域中位数会跟着走，过滤器不应反复触发。若一条规则在宏观发布的十秒内大量触发，它在删信号。</p><p>合并同一时间戳，是把「交易所批量打印」还原成一次撮合事件，避免把同一时刻的多笔当成独立收益、夸大 RV。这与 <a href="/quant/irregular-sampling">不等间隔采样</a> 里「事件时间」的定义直接相关：清洗后的事件，才是点过程的点。</p><p><span class="marginnote">零收益成交（价格与上一笔相同）一般应保留。它们是真实的时间消耗，对持续时间模型、成交量时钟都有用。把零收益全删，等于按价格变化抽样，会改变 <a href="/quant/microstructure-noise">微观结构噪声</a> 的表观结构。</span></p><h3 id="清洗与噪声模型的边界" tabindex="-1">清洗与噪声模型的边界 <a class="header-anchor" href="#清洗与噪声模型的边界" aria-label="Permalink to &quot;清洗与噪声模型的边界&quot;">​</a></h3><p>清洗删的是错误记录；微观结构噪声模型描述的是真实成交相对有效价格的偏差（价差弹跳、离散报价）。先清洗再估噪声，否则噪声方差被错价主导。反过来，不要指望用已实现核的带宽去「洗掉」未过滤的错价——核是平滑，不是合法性检查。两篇文章必须分开：管道保证样本，模型解释样本。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有对所有市场通用的阈值。美股小数报价之后与之前不同；A 股最小报价单位按价格分档，价差比例规则要跟着变。期货的夜盘、ETF 的申赎窗口、停牌复牌的第一笔，都应有例外表。实时清洗不能用「全日中位数」，只能用因果滚动窗，回测若用全日信息就会前视。</p><p>不要把清洗做成让回测更好看的调参：收紧阈值会降低 RV、减少价差均值，策略夏普会假升。规则应在研究计划里预先登记，或至少对阈值做敏感性。不要在清洗阶段做方向分类；分类是下游。不要删除交易所事后确认有效、只是「看起来大」的成交——那是 <a href="/quant/outlier-trades">异常成交与错价</a> 要单独标记、而不是在合法性层抹掉的对象。</p><p><span class="marginnote">复现时最常见的分歧不是公式，是：是否纳入拍卖、是否纳入奇数股、是否纳入暗池打印、时间戳取撮合时还是报告时。这些选择对有效价差的影响可以大于 Huang–Stoll 两种市场之间的差异。方法部分应写成配置，而不是散文。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Tick 清洗是可审计的分层过滤：会话、合法性、价差、相对偏离、时间戳，而不是把序列画平滑。</li><li>BHLS 的交易/报价规则是已实现核实务的常用合同；顺序是先硬约束，后统计约束，并留删除日志。</li><li>零收益应保留；同戳合并影响事件时间定义；实时规则必须因果。</li><li>清洗处理错误记录，不替代噪声模型，也不应删掉真实大跳。</li><li>阈值与拍卖/暗池口径必须写入配置；它们对下游 RV 与价差的影响经常大于模型选择。</li><li>出处：Barndorff-Nielsen, Hansen, Lunde, Shephard, <em>Realised Kernels in Practice: Trades and Quotes</em>, Econometrics Journal 2009；亦见 Brownlees and Gallo 的高频清洗讨论。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 35 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/outlier-trades/">异常成交与错价</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

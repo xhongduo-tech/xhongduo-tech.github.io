@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>过拟合、权重衰减与早停 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_overfit-wd-earlystop.md.BTRu6Ber.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 一阶优化<!--]--></p><p class="lesson-progress">第 12 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/val-gen-gap/">验证集与泛化缺口</a></p><p class="lesson-next"> 下一课：<a href="/llm/chain-rule-graph/">链式法则与计算图</a></p></nav><div style="position:relative;"><div><h1 id="过拟合、权重衰减与早停" tabindex="-1">过拟合、权重衰减与早停 <a class="header-anchor" href="#过拟合、权重衰减与早停" aria-label="Permalink to &quot;过拟合、权重衰减与早停&quot;">​</a></h1><div class="epigraph"><p>当验证损失开始上升，继续沿着训练损失走就是在记样本；停下来，或把参数往回拉，是同一问题的两种时间尺度。</p><footer>—— 据 Srivastava et al., Dropout, JMLR 2014；Loshchilov &amp; Hutter, Decoupled Weight Decay Regularization, ICLR 2019；Prechelt, Early Stopping, 1998 整理</footer></div><p><a href="/llm/val-gen-gap">验证集与泛化缺口</a>给出 \(L_{\mathrm{train}}\) 与 \(L_{\mathrm{val}}\) 分叉的读法。本课不重划分。缺口是：分叉之后做什么。方法有三条常用杠杆——早停、权重衰减、以及稍后才细讲的 Dropout。本课把前两条钉在优化循环里；Dropout 留在前馈单元末课，避免和注意力掩码混在一起。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>缺口扩大，说明当前 \(\theta\) 正在拟合训练集的特异结构。若容量远大于数据，经验风险可以继续降，期望风险升高。优化器没有义务在「真规律」处停下，因为它看不见 \(R\)。缺口因此不是再换损失的代数形式，而是在更新规则或停止时间上加约束，使路径不要走得太远。</p><p>早停：监视 \(L_{\mathrm{val}}\)，在它不再改善后若干步，取历史上验证最好的检查点。权重衰减：在损失里加 \(\frac{\lambda}{2}\|\theta\|_2^2\)，或在更新里减 \(\eta\lambda\theta\)（与 Adam 解耦的 AdamW）。两者都在限制 \(\theta\) 离开原点或离开早先较好的区域，但一个作用在时间上，一个作用在范数上。</p><h3 id="权重衰减不是学习率变小" tabindex="-1">权重衰减不是学习率变小 <a class="header-anchor" href="#权重衰减不是学习率变小" aria-label="Permalink to &quot;权重衰减不是学习率变小&quot;">​</a></h3><p>\(\eta\) 缩小让每一步都短，训练与验证的拟合都会变慢。\(\lambda\) 把参数往 \(0\) 拉，对大权重惩罚更重，改变的是可到达的假设集合，而不只是速度。把衰减写进 Adam 的梯度里，会被二阶矩缩放，有效 \(\lambda\) 随坐标而变，不再是「全体参数同一 \(\ell_2\) 罚」。AdamW 把 \(\theta\leftarrow\theta-\eta\lambda\theta\) 放在自适应步之后，才接近经典权重衰减。调 \(\eta\) 代替调 \(\lambda\)，缺口对不上。</p><p><span class="marginnote">早停依赖验证集，因此对验证有轻度过拟合。权重衰减不看验证，但 \(\lambda\) 本身仍要用验证来选。没有「完全不碰验证的正则」，只有「不要用测试集选 \(\lambda\)」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>训练循环里同时记录：当前 \(\theta\)、验证指标、最佳检查点。早停耐心（patience）用步数而不是 epoch 声明，因为大语料上一个 epoch 极长。权重衰减系数 \(\lambda\) 与 \(\eta\) 一起报；改批量大小时，\(\lambda\) 是否缩放要与更新规则一致。偏置与归一化增益有时不衰减，以免把尺度自由度一并罚掉——这是实现惯例，本课允许，但不把例外写成新理论。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>过拟合是容量与数据相对关系的现象，不是某一层写错。同一模型在更多数据上可以不过拟合；同一数据上更宽更深更容易过拟合。早停把有效容量变成「训练了多久」：停得早，相当于没用满后期那些能记样本的自由度。权重衰减则让小范数解更受偏好；在线性模型里这对应岭回归，在深度网里它更像一种尺度约束，与后面残差、LayerNorm 的尺度互动。</p><p>Dropout 稍后会在前向上随机关掉单元，迫使表示冗余。它与权重衰减可叠加，不是替代。本课不把三种杠杆比出唯一赢家；验证曲线才是裁判。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲数据增强、标签平滑的完整菜单，也不把 Dropout 公式写完。下一单元转入<a href="/llm/chain-rule-graph">链式法则与计算图</a>：优化要用的梯度从哪来。后课默认：训练必有验证监视；过拟合时先看早停与 \(\lambda\)，再谈改结构。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>过拟合表现为训练损失仍降、验证损失升；优化器不会自动停在泛化最好处。</li><li>早停用验证历史回滚；权重衰减用范数约束可到达的 \(\theta\)。</li><li>衰减不是把 \(\eta\) 改小；与 Adam 合用应对齐 AdamW 的解耦写法。</li><li>Dropout 是第三条杠杆，本课不展开。</li><li>出处：Prechelt, 1998；Loshchilov &amp; Hutter, ICLR 2019；Srivastava et al., JMLR 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 一阶优化<!--]--></p><p class="lesson-progress">第 12 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/chain-rule-graph/">链式法则与计算图</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

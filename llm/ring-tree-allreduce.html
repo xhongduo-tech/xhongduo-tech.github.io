@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ring / Tree allreduce | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ring-tree-allreduce.md.-Szs1NlI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 1 / 24 课</p><p class="lesson-prereq"> 先修：<a href="/llm/multi-tenant-gpu/">多租户隔离</a></p><p class="lesson-next"> 下一课：<a href="/llm/reduce-scatter-allgather/">reduce-scatter 与 all-gather</a></p></nav><div style="position:relative;"><div><h1 id="ring-tree-allreduce" tabindex="-1">Ring / Tree allreduce <a class="header-anchor" href="#ring-tree-allreduce" aria-label="Permalink to &quot;Ring / Tree allreduce&quot;">​</a></h1><div class="epigraph"><p>同一条 All-Reduce，可以沿环把体积摊成 $2(N-1)$ 步小块，也可以沿树把延迟收成对数跳。选哪张图，取决于消息有多大、拓扑有多对称。</p><footer>—— 对照带宽最优环算法与 NCCL 的 Ring / Tree；集群侧总图见预训练通信</footer></div><p><a href="/llm/on-device-speculative">端侧投机</a> 把延迟墙收在单机草稿。本课打开新课「通信与集群」：多卡一步里真正同步的，是梯度或分片参数，原语几乎总是 All-Reduce。<a href="/llm/pretrain-comm">预训练通信</a> 已经把库、<a href="/llm/nvlink">NVLink</a>、跨节点三层画在一张图上；缺口是 <strong>算法本身</strong>：环与树搬的字节不同、对拓扑的对称性要求不同。后课默认你会：All-Reduce 可以拆成环上的流水，也可以拆成树上的归约加广播，有效带宽不是网卡标称。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(N\) 张卡各持一份同形张量，要得到逐元素求和（或平均）。朴素做法是每张卡把整份发给根再广播回来，根的注入带宽是 \(N-1\) 倍体积，立刻成为墙。数据并行的梯度 All-Reduce 每步都要做这一次，体积等于参数量；张量并行的层内 All-Reduce 更短、更频繁。问题不是「要不要同步」，而是：<strong>同步的调度把带宽瓶颈放在谁身上</strong>。</p><p>环的承诺是带宽最优：每张卡只跟左右邻居说话，每条边负载相同。树的承诺是延迟更短：跳数 \(O(\log N)\)，但根附近的边更忙，小消息时启动开销主导。NCCL 在同一进程组里两种都会用，按消息大小切换。<a href="/llm/nvlink">NVLink</a> 域内环很香，因为链路对称；跨节点若环绕过订阅不足的轨，最慢那一跳拖住整步。</p><p><span class="marginnote">Patarasuk 与 Yuan 给出过带宽最优 All-Reduce 的下界：每卡至少要发出并收回约 \(2\frac{N-1}{N}\) 倍本地体积。环达到这个下界；树在大消息上通常达不到，除非层次化到「每节点一份」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>环 All-Reduce 标准分解是：先做 <strong>reduce-scatter</strong>（每卡留下 \(1/N\) 的归约结果），再做 <strong>all-gather</strong>（把各片拼回全量）。实现上把张量切成 \(N\) 块，沿环同时转：第 \(k\) 步，卡 \(i\) 把当前块发给 \(i+1\)，并与从 \(i-1\) 收到的块做本地归约。两轮各 \(N-1\) 步之后，每卡持有完整和。流水使链路几乎一直满；代价是步数随 \(N\) 线性涨，小消息时 \(\alpha\) 项打死。</p><p>树 All-Reduce 是归约树加广播树（可以是同一棵，也可以是双二叉树）。跳数对数，适合延迟区。跨节点常见层次化：节点内先用 <a href="/llm/nvlink">NVLink</a> 收成每节点一份，再在节点间走树或环，最后节点内展开。这样跨节点体积从「每 GPU 一份」变成「每节点一份」，正是 <a href="/llm/pretrain-comm">预训练通信</a> 写过的层次化，本课只把它钉在「树负责跨节点段、环负责域内段」这一分工上。</p><div class="mermaid"></div><p>NCCL 还可以把一次调用切成若干 chunk，环与树同时跑在不同 chunk 上（或先树后环）。用户几乎不手写环；要手写时，见引擎课里的自定义 allreduce，那是服务侧短消息的特化，训练梯度同步仍以库为准。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>时间粗写成 \(T \approx (k-1)\alpha + \frac{k-1}{k}n\beta\) 一类，环的 \(k=N\)，树的 \(k\) 与度数、是否双树有关。\(\alpha\) 是启动延迟，\(\beta\) 是字节的倒数带宽，\(n\) 是本地字节。大 \(n\) 时第二项主导，环的边负载均匀，busbw 接近链路的 \(\frac{N-1}{N}\) 效率；小 \(n\) 时第一项主导，树少跳更赢。这就是后课带宽模型要定量的对象——本课先建立「两种 \(k\)」。</p><p>环假设邻居之间有足够点对点带宽。NVLink 域、NVSwitch 平坦域满足；跨机柜若环的逻辑邻居落在同一条拥挤的叶子上行，逻辑环变成物理热点。树假设中间节点吃得下瞬时入度；层次化把入度关在节点内高带宽域，正是为了不让树的根长在百 Gb/s 网卡上。</p><p><span class="marginnote">「Ring 一定更快」是错的。8 卡 NVLink 上几 MB 的梯度，环几乎总是对的；64 卡以太网、几十字节的控制同步，树或折中更对。看 <code>nccl-tests</code> 的 busbw–size 曲线，不要只看算法名字。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在不对称拓扑上强行单环：PCIe 与 NVLink 混用的节点，环会周期性地掉到慢边上。不要把营销里的「NVLink 全互连」当成跨柜也成立——柜外仍是网卡，All-Reduce 必须层次化。In-network 归约（如某些 InfiniBand SHARP）是第三张图：交换机做加，树的中间计算不占用 GPU；有则用，没有则回到主机侧环/树，不要假设每一代交换机都会加。</p><p>数值上，环是分段加，顺序与树不同，浮点和不完全结合律。BF16 / FP8 梯度通信时，这会变成可复现性差异，不是 bug。需要比特级一致时，固定算法与 chunk 大小，或在较高精度里归约。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>All-Reduce 的环实现达到带宽下界，步数随 \(N\) 线性；树实现跳数对数，适合延迟区。</li><li>大消息、对称链路用环；小消息、跨节点用层次化树。</li><li>环在物理上要求邻居带宽均匀；逻辑环画错轨，最慢边即 step time。</li><li>后课把 All-Reduce 拆成 reduce-scatter 与 all-gather，供 ZeRO 直接调用。</li><li>出处：带宽最优环的经典分析；NCCL 公开的 Ring / Tree 算法选择；层次化见 <a href="/llm/pretrain-comm">预训练通信</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 1 / 24 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/reduce-scatter-allgather/">reduce-scatter 与 all-gather</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

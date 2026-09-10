@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Landmark Attention 原文 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_landmark-paper.md.BF-GS4lv.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 位置与长上下文论文<!--]--></p><p class="lesson-progress">第 134 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/beacon-paper/">Activation Beacon 原文</a></p><p class="lesson-next"> 下一课：<a href="/llm/memorizing-transformers/">Memorizing Transformers</a></p></nav><div style="position:relative;"><div><h1 id="landmark-attention-原文" tabindex="-1">Landmark Attention 原文 <a class="header-anchor" href="#landmark-attention-原文" aria-label="Permalink to &quot;Landmark Attention 原文&quot;">​</a></h1><div class="epigraph"><p>不必让每个查询扫完整段历史；先问每一块的地标，再只对选中的块做随机访问，上下文长度就可以从二次扫描里解开。</p><footer>—— Mohtashami &amp; Jaggi，Landmark Attention: Random-Access Infinite Context Length for Transformers，2023</footer></div><p>EPFL 的 Amirkeivan Mohtashami 与 Martin Jaggi 的 Landmark Attention 把长上下文写成块级目录问题：每块插入一个地标 token，查询先对地标做一次粗检索，再只把命中块的原始键值载入做细注意力。远块不必按时间顺序扫过，目录分数高就可以直接展开——这就是标题里的 random-access。可见集变成「全部地标 + 少数块原文」，与序列长度解耦。本篇按 2023 年原文的训练图与两段 softmax 写；KV 预算的其它压法见 <a href="/llm/kv-as-long-context">KV 压缩作为长上下文手段</a>，概念速览见 <a href="/llm/landmark-attention">Landmark Attention</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>全注意力把过去每一个键放进可见集，长度一涨，二次代价与 KV 体积一起涨。滑窗把远键整段剪掉，针测失败。压缩记忆把远历史揉进固定状态，细节对不准。Transformer-XL 的段缓存仍是邻段前缀，不是任意远的随机访问。需要一种训练得出来的块级目录：目录项很少，每一项都能把查询带回那一块的原始 token。</p><p>地标机制要同时回答：块内信息由谁代表；查询如何用代表做随机访问；训练时的可见集如何与推理时「先地标、后局部」对齐。做不到对齐，上线一改图就掉点；代表若是不可学习的均值，目录对所有查询相同，精确拷贝仍然失败。</p><h3 id="随机访问对时间顺序的拒绝" tabindex="-1">随机访问对时间顺序的拒绝 <a class="header-anchor" href="#随机访问对时间顺序的拒绝" aria-label="Permalink to &quot;随机访问对时间顺序的拒绝&quot;">​</a></h3><p>滑窗与 XL 缓存都假设「有用的远信息会沿时间渗过来」。小说里的伏笔、代码里的函数定义、定理证明里的引理，往往是内容寻址而不是时间近邻。Landmark 的问题设定因此是信息检索式的：先搜哪一块，再读块内文字，中间那些块可以不进细算。</p><p><span class="marginnote">地标是序列里的真实 token，不是块均值。均值对所有查询相同；地标的键随查询进入注意力，不同问题会点亮不同块。这是它和不可学习压缩记忆的差别。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="按块插入地标" tabindex="-1">按块插入地标 <a class="header-anchor" href="#按块插入地标" aria-label="Permalink to &quot;按块插入地标&quot;">​</a></h3><p>输入按固定块长 \(\ell\) 切开，每块末尾插入一个地标。地标参与同一套注意力与前馈，占一个真实位置。训练时，块内普通 token 主要看见本块邻居；地标看见本块全部 token，被梯度逼成该块的可寻址代表。后续位置若不能直接扫过往全部键，就只能先碰到这些地标——目录是训出来的，不是外挂检索器。</p><h3 id="先对地标、再对局部" tabindex="-1">先对地标、再对局部 <a class="header-anchor" href="#先对地标、再对局部" aria-label="Permalink to &quot;先对地标、再对局部&quot;">​</a></h3><p>查询 \(q_t\) 先对已有地标键 \(\{k^{(L)}_b\}\) 打分。分高的块命中，再载入那些块的原始 \(K,V\) 做第二次局部 softmax。未命中的块既不进细算，也不必留在高速缓存。可见集与 \(n\) 解耦，只与块数（粗路）和选中块数 × \(\ell\)（细路）有关：</p> \[b^\star=\mathrm{top}\text{-}k\left(\frac{q_t^\top k^{(L)}_b}{\sqrt{d}}\right),\qquad y_t=\mathrm{softmax}\!\left(\frac{q_t K_{b^\star}^\top}{\sqrt{d}}\right)V_{b^\star}. \]<p>也可以用地标分数做门控：超过阈值才展开。训练需要让地标键真能代理块内注意力质量，否则粗路点中的块细路用不上。</p><h3 id="训练图必须已经分层" tabindex="-1">训练图必须已经分层 <a class="header-anchor" href="#训练图必须已经分层" aria-label="Permalink to &quot;训练图必须已经分层&quot;">​</a></h3><p>若训练仍用满注意力、只在推理改成地标检索，分布会裂开。做法是让训练期可见集已经是：当前块局部边 + 过去块的地标边，必要时再对若干块做可微的软展开，使「凭地标跳进原文」成为网络的一部分。地标自己对块内做满注意力，梯度从后续查询经地标流回块内 token。与 Longformer 全局点不同：全局点是任务指定的少数中枢，地标是按块均匀铺开的目录。与 Memorizing Transformers 的 kNN 不同：那里检索的是过去层的 \((k,v)\) 向量，地标是序列里显式的 token 接口。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>两段 softmax 把质量分配拆成「哪一段可能有答案」与「段内哪一个键」。只要 \(\ell\) 落在一层局部注意力的舒适跨度内，块内尖峰能力仍在，拷贝与针测仍可能——失败出在粗路漏块。\(\ell\) 太长，一个地标代表太多互不相关的句子，目录变钝，细路二次项也回来；太短，地标数接近 \(n\)，粗路自己又变成二次。</p><p>两段 softmax 不是一次满注意力的恒等改写。粗路用一个键代替整块，等价于对块内键做了内容相关的池化。漏块不可逆：细路看不见的 token 权重精确为零。这与 Beacon 的区别是：Beacon 的细路默认也不看早块原文，只看摘要；Landmark 在命中之后看的是原文，因此随机访问一旦点对，细节可以精确。未命中则比 Beacon 更惨——连糊摘要都没有。</p><p><span class="marginnote">应单独报块召回，而不是只报最终损失。语言建模可以靠局部流畅撑住，同时粗路系统性漏掉定义块。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>离散选块会漏。top-\(k\) 太狠，答案所在块进不了细路，针测突然崩溃而不是平滑掉点。太松，又走回近似满注意力。地标占上下文一个位置，块很多时目录扫描也有成本，极端长度要对地标再分级。不要把 Landmark 理解成「推理时对 KV 做聚类」：代表是训练出来的 token，对已训好的满注意力模型事后插地标、不微调，目录没有语义。也不要和 MLA 混名：MLA 压每个 token 的秩，地标压序列维的块数。</p><p>部署上，未选中块的 KV 可以下放到主机内存或丢掉，这才是「无限上下文」的工程含义——细算只打在命中块上，不是算力无限。取舍：需要任意位置的精确随机访问，地标是对口工具；只需要最近窗口加指令前缀，滑窗更便宜。</p><p><span class="marginnote">与 Activation Beacon 同时读时：一个训的是「压缩后仍可见的摘要 token」，一个训的是「可展开的目录 token」。产品若必须逐字引用，Landmark 的细路原文更合适；若只要章节大意且 \(n\) 极大，Beacon 的固定压缩率更可预测。</span></p><h3 id="原文之后的谱系" tabindex="-1">原文之后的谱系 <a class="header-anchor" href="#原文之后的谱系" aria-label="Permalink to &quot;原文之后的谱系&quot;">​</a></h3><p>Focused Transformer 用对比学习改善缓存里相关键的区分；NSA 把压缩支路写进融核。Landmark 2023 的主场仍是标准注意力上改掩码与两段检索，实现相对直接。读 2024 年检索式 KV 论文时，地标是「块代表可学习、检索可训练」这一支的早期完整形态。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Landmark Attention 原文把序列切块，每块一个可学习地标；查询先对地标、再对命中块原文。</li><li>随机访问：远块不必按时间扫过，目录命中即可展开。</li><li>训练可见集必须已分层；两段 softmax 会漏块，应报块召回。</li><li>压缩轴是序列块，不是头数或精度；与 MLA、H2O、kNN 记忆不是同一件事。</li><li>出处：Mohtashami &amp; Jaggi，<em>Landmark Attention: Random-Access Infinite Context Length for Transformers</em>，2023，arXiv:2305.16300。对照 Beltagy 等 Longformer（2020）、Wu 等 Memorizing Transformers（2022）、Zhang 等 Activation Beacon（2024）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 位置与长上下文论文<!--]--></p><p class="lesson-progress">第 134 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/memorizing-transformers/">Memorizing Transformers</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

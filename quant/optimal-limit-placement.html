@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>最优限价单放置理论 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_optimal-limit-placement.md.rPsrcZK4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 19 / 50 课</p><p class="lesson-prereq"> 先修：<a href="/quant/adverse-selection-vs-nonexecution/">逆向选择对非执行风险</a></p><p class="lesson-next"> 下一课：<a href="/quant/price-time-pro-rata/">价格-时间对 pro-rata</a></p></nav><div style="position:relative;"><div><h1 id="最优限价单放置理论" tabindex="-1">最优限价单放置理论 <a class="header-anchor" href="#最优限价单放置理论" aria-label="Permalink to &quot;最优限价单放置理论&quot;">​</a></h1><div class="epigraph"><p>选了限价之后还要选格子：贴在 BBO 是买执行概率、卖队列位置；埋深一档是买被捡保护、卖非执行。最优档位是把上一课的两份风险标在 tick 栅格上。</p><footer>—— 据 Goettler, Parlour and Rajan, Equilibrium in a Dynamic Limit Order Market, Journal of Finance, 2005；对照 Foucault, Kadan and Kandel, Limit Order Book as a Market for Liquidity, Review of Financial Studies, 2005</footer></div><p><a href="/quant/adverse-selection-vs-nonexecution">逆向选择对非执行</a>给出目标函数的两项。缺口是离散网格上的<strong>放置</strong>：在哪一个 tick、多深的队列。Foucault–Kadan–Kandel（2005）把簿写成流动性市场，执行等待随价位变化；Goettler–Parlour–Rajan（2005）计算动态均衡的下单分布。本课写放置的一阶直觉与可观测含义，不重画<a href="/quant/price-grid-tick">价格栅格</a>的合法性，也不把执行算法的 Almgren 轨迹搬进来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>连续价格下「挂在 \(p\)」是一维搜索。tick 把搜索收成少数整数档。贴 BBO：\(\pi_{\mathrm{fill}}\) 高，但同价位队可能很长，时间优先下你排在尾部，真实执行未必快；且被捡窗口开着。挂在次优档：队可能更短甚至空，但必须等 BBO 被吃掉或撤掉才轮到，非执行升、被捡降。隔空挂在更远处，几乎变成止损备忘录。问题是状态 \((n_{\mathrm{bbo}},n_{\mathrm{next}},\sigma,T)\) 如何映射到档位，而不是再讨论要不要市价。</p><p>费用使问题非单调：有的场所对提供流动性返佣，贴 BBO 的净成本下降，放置整体前移。</p><h3 id="排队位置比档位标签更重要" tabindex="-1">排队位置比档位标签更重要 <a class="header-anchor" href="#排队位置比档位标签更重要" aria-label="Permalink to &quot;排队位置比档位标签更重要&quot;">​</a></h3><p>同样挂在 \(b_1\)，队头与队尾的 \(\pi_{\mathrm{fill}}\) 差一个到达过程。最优「放置」包括是否值得用更有攻击性的价格<strong>跳到新的队头</strong>（提高一个 tick 买位置）。这是在用价差换时间优先。Parlour 已说队尾可能不如市价；这里说队尾可能不如贵一个 tick 的新队头。</p><p><span class="marginnote">Obizhaeva–Wang 型最优执行是冲击函数上的轨迹，对象是市价切片。本课对象是被动单的格点。两者可组合：母单决定被动比例，子单再选档。不要把执行课的 \(\lambda\) 轨迹抄进放置。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在离散档 \(k=0,1,2,\ldots\)（0 为 BBO）上比较期望效用。\(k=0\) 的状态含队列长度；\(k\ge 1\) 的成交需要先消耗更优档。FKK（2005）强调：提供更优价格的人缩短别人的等待，是在出售流动性，应获得价差；均衡等待时间随「性价比」调整。GPR（2005）显示均衡下单会填在若干档上，形状随波动与信息变化，而不是只堆在第一档。</p><p>经验：用随后的成交与中点移动，估计各档的实现 \(\pi\) 与被捡；或看撤单后改挂的方向。Cont 等人的队列反应模型提供强度，但那是统计，不是本课的均衡放置。</p><h3 id="多单位与冰山" tabindex="-1">多单位与冰山 <a class="header-anchor" href="#多单位与冰山" aria-label="Permalink to &quot;多单位与冰山&quot;">​</a></h3><p>大单不能只选一个 \(k\)：可能拆到若干档，或同一档用冰山反复丧失时间优先。最优放置变成分配问题。隐藏理论课会说：展示量本身是信号，会改变别人的 \(\pi\) 与被捡。本课默认完全可见的单位单。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>放置是在揭示耐心。Roşu 的排序在栅格上变成：最急的被动者贴 BBO，次急的挂次优。观测到的深度形状是耐心分布与 tick 的卷积。tick 变粗，可区分的档变少，排队博弈加剧，时间优先更值钱——这是后文 tick size pilot 的微观机制，也是 Harris 对最小变动价位的老结论。</p><p>信息到来时，最优 \(k\) 立刻外移或改撤：近端变成被捡区。补给从远端往回填，形状出现「空洞」再愈合。宏观形状课会把愈合后的平均轮廓写成幂律一类描述；那是加总，不是单人最优。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>计算均衡对类型分布敏感，不能当交易台的档位计算器。真实还有 peg 指令自动贴档，把放置外包给交易所，见市场设计续。pro-rata 下「队尾」不再最差，放置逻辑翻转，下一课专门写。跨市场时本地最优档可能劣于另一场所的 BBO，路由先于放置。</p><p><span class="marginnote">回测里用事后成交标记「若挂在 k 会成交」，忽略你挂上会改变队列与别人策略，会系统性高估近端 \(\pi\)。放置理论是均衡对象，不是历史簿上的点击模拟。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>最优放置在 BBO 队列、跳价抢队头、次优档之间比较 \(\pi\) 与被捡。</li><li>时间优先让「同一档的位置」成为决策变量；费用与 tick 平移最优 \(k\)。</li><li>FKK 与 GPR 给出流动性市场与计算均衡两条理论路径。</li><li>出处：Foucault, Kadan and Kandel, <em>Review of Financial Studies</em>, 2005；Goettler, Parlour and Rajan, <em>Journal of Finance</em>, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 信息与库存之后的微观结构<!--[--> · 单元 限价簿理论<!--]--><!--[--> · 课序 排队、竞争与形状<!--]--></p><p class="lesson-progress">第 19 / 50 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/price-time-pro-rata/">价格-时间对 pro-rata</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

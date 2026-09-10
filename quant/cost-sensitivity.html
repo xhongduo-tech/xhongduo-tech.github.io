@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>费用、滑点敏感性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_cost-sensitivity.md.Dy_P8W4t.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 研究与回测<!--[--> · 单元 实验设计<!--]--><!--[--> · 课序 稳健<!--]--></p><p class="lesson-progress">第 10 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cpcv/">组合过拟合 CPCV</a></p><p class="lesson-next"> 下一课：<a href="/quant/capacity-participation/">容量与参与率</a></p></nav><div style="position:relative;"><div><h1 id="费用、滑点敏感性" tabindex="-1">费用、滑点敏感性 <a class="header-anchor" href="#费用、滑点敏感性" aria-label="Permalink to &quot;费用、滑点敏感性&quot;">​</a></h1><div class="epigraph"><p>许多异常按换手排序后，高换手一端在交易成本上不可交易；结论随价差与冲击假设而翻转，说明「扣费后仍显著」必须做成对成本参数的函数，而不是做成一个点。</p><footer>—— Novy-Marx and Velikov, Review of Financial Studies, 2016；对照 Perold, Journal of Portfolio Management, 1988</footer></div><p><a href="/quant/cpcv">上一课</a>用组合划分生成许多条样本外路径，估计回测过拟合概率；它不替代成本。缺口是回测表把费用当成已知常数，真实成本随名字、波动、参与率与拥挤变化。本课写费用与滑点的敏感性：成本在哪一段区间里结论翻转。不重讲 PBO。它与<a href="/quant/net-edge">可交易性</a>互补：前者画弹性，后者给身份绑定的净期望。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>净收益可以写成毛收益减去单位成本乘换手。单位成本 \(c\) 不是标量。报价价差的一半、有效价差、实现价差依次更接近你付的钱；冲击随 \(q/\mathrm{ADV}\) 上升；卖空还有借券。把它们压成「单边 10bp」，等于假设一个与规模、名字、波动无关的世界。对该世界里的夏普做<a href="/quant/deflated-sharpe">Deflated Sharpe</a> 或 CPCV，统计量再干净，输入也是错的。</p><p>更麻烦的是成本与信号选择纠缠。网格搜索偏爱高换手规则，因为无摩擦时换手把微弱的条件期望放大成高夏普。一旦 \(c\) 上升，这些规则最先死亡。若你先在 \(c=0\) 上完成选择，再对冠军做一次成本扣除，敏感性被低估：死去的那些高换手兄弟没有进入分母，冠军看起来「扣费后还行」。正确顺序是：成本模型进入训练目标，或至少对每一候选在一组 \(c\) 上同时评分，让选择本身对 \(c\) 稳健。</p><h3 id="实施缺口与滑点不是同一会计科目" tabindex="-1">实施缺口与滑点不是同一会计科目 <a class="header-anchor" href="#实施缺口与滑点不是同一会计科目" aria-label="Permalink to &quot;实施缺口与滑点不是同一会计科目&quot;">​</a></h3><p>Perold 的实施缺口是决策价到最终成交的全程差异：延误、部分成交、放弃的单。滑点常被回测写成「成交价相对下一根 bar 的开盘或中点偏了若干 tick」。前者是账户层面的诊断，后者是模拟器里的一个参数。把滑点设成常数 tick、却用决策价记账，会漏掉延误；只在成交上加价差、却假设全部立即成交，会漏掉未成交。敏感性必须分别冲击这几项：价差乘数、冲击函数的系数、成交率、借券费率，而不是只扫一个「总费用 bp」。</p><p><span class="marginnote">Frazzini、Israel 与 Moskowitz 用机构执行数据估计的短fall 低于许多学术价差模型。用他们的数字当唯一 \(c\)，再声称零售可复制的日频策略「对成本不敏感」，是身份错配。敏感性表的每一列都要注明：谁的成本。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一张最低限度的敏感性表：横轴是成本情景（例如有效价差的 \(0.5\times,1\times,2\times\)，再叠加平方根冲击的不同系数），纵轴是扣费后夏普、换手、最大回撤、以及 \(\mu_{\mathrm{net}}\) 过零的规模。Novy-Marx–Velikov 的精神是按换手分档展示，避免用低换手因子的稳健性给高换手策略背书。对统计套利与微观结构信号，还应按波动分位与 ADV 分位分层：同一 \(c\) 在低价小盘上可以是致命的，在指数期货上可以忽略。</p><p>保本成本（break-even cost）是使 \(\mu_{\mathrm{net}}=0\) 的那个 \(c^\star\)。若 \(c^\star\) 低于你历史有效价差的下分位，策略在观测到的成本下没有边缘；若 \(c^\star\) 远高于上分位，结论对成本较不敏感。把 \(c^\star\) 与 Almgren–Chriss 一类冲击在目标参与率下的预测值比较，比报「我们扣了 8bp」更难作假。成本参数本身应在训练段估计、在检验段冻结，否则用全样本价差去解释全样本信号，又是一层<a href="/quant/cv-leakage-finance">泄漏</a>。</p><h3 id="让选择对成本稳健" tabindex="-1">让选择对成本稳健 <a class="header-anchor" href="#让选择对成本稳健" aria-label="Permalink to &quot;让选择对成本稳健&quot;">​</a></h3><p>对每一组超参计算一条 \(c\mapsto\mathrm{SR}_{\mathrm{net}}(c)\) 曲线，用该曲线在合理 \(c\) 区间上的最差或积分作为选择标准，而不是用 \(c=0\) 的夏普。这会自然惩罚换手。另一种做法是把成本情景当成 CPCV 路径的一个额外维度：过拟合概率应在「坏成本」下仍然不是 \(1/2\)。工程上，回测引擎必须把费用、税费、借券与滑点写成可配置输入，而不是写死在成交函数里，否则敏感性分析每次都要改代码，实际上不会做。</p><p><span class="marginnote">只对最终冠军扫一遍 \(c\)，是最常见的虚假稳健。冠军是在某一种 \(c\) 下选出来的；对它扫 \(c\) 只描述它的局部弹性，不描述选择程序的弹性。应报告「在每一种 \(c\) 下重新选择」时冠军是否还是同一个家族。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>成本对期望的侵蚀与换手成正比，对夏普的侵蚀还通过波动：扣费后若减少的是正的均值而不是波动，夏普下降得比均值更快。冲击是凸的：参与率上升时边际成本上升，所以规模放大不是把 \(c\) 线性外推。拥挤使 \(c\) 变成状态变量——2007 年 8 月那类同步退出里，价差与冲击同时跳升，平静期校准的 \(c\) 完全不够。敏感性若只用平静期的价差分布，会漏掉左尾最要紧的那一截。</p><p>滑点与信号衰减同向恶化。衰减快的信号必须更快成交，于是成为 taker、付有效价差与临时冲击；衰减慢的信号可以排队、用时间换价格，但对<a href="/quant/cancel-queue-position">队列位置</a>敏感，回测若假设中点成交，等于把 maker 的等待无偿赠送。Harris 对 make/take 的划分在这里变成成本情景：主动成交情景与被动成交情景应分开画，而不是平均成一个滑点。</p><h3 id="税费、最小变动价位与离散" tabindex="-1">税费、最小变动价位与离散 <a class="header-anchor" href="#税费、最小变动价位与离散" aria-label="Permalink to &quot;税费、最小变动价位与离散&quot;">​</a></h3><p>A 股印花税、T+1、涨跌停使「对称的双边 bp」模型失效：卖边更贵、未成交与延迟隔夜暴露都是成本。最小变动价位把滑点量子化，低价股上一个 tick 可以是几十个基点。敏感性分析应把 tick 成本单独扫一遍。期货与 ETF 一级市场有另一套费用与冲击，不能用股票有效价差去填。身份、场所、指令类型都是成本函数的自变量，见<a href="/quant/order-types">订单类型</a>。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>学术成本模型有测量误差，机构执行数据有选择偏差。敏感性分析不能消灭误差，但能告诉你结论依赖哪一段假设。若翻转点落在模型误差范围内，策略尚未准备好谈部署。不要用「我们做过敏感性」这句话替代那张表：必须出现 \(c\) 的定义、样本、以及翻转点。也不要把成本敏感性当成优化目标去搜一组「在所有 \(c\) 下都好看」的超参——那会把成本情景变成新的样本内维度，需要外层<a href="/quant/walk-forward">滚动</a>来约束。</p><p>容量是敏感性的规模轴。同一参与率下，\(c\) 随 ADV 与波动变；把规模轴与成本轴拆开，才能看到是「费用假设杀了策略」还是「规模杀了策略」。二者的联合报告见<a href="/quant/capacity-participation">容量与参与率</a>。</p><p><span class="marginnote">Lesmond–Schill–Zhou（2004）把动量利润称作 illusory，针对的是当时无成本表。后续文献并未证明所有高换手策略都是幻觉；证明的是：不扫成本、不报翻转点的夏普，不能当作可交易边缘。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>费用与滑点应做成情景表与保本成本，而不是回测表底下一行常数 bp。</li><li>高换手策略对 \(c\) 最敏感；选择必须在扣费目标上进行，否则冠军本身是无摩擦世界的产物。</li><li>实施缺口、价差、冲击、未成交要分开扫；身份与场所决定你该用哪一列成本。</li><li>平静期价差不能代表拥挤与涨跌停；翻转点若落在测量误差里，策略不可部署。</li><li>成本轴与规模轴是联合约束，下一步是容量与参与率。</li><li>出处：Novy-Marx and Velikov, <em>RFS</em>, 2016；Perold, <em>JPM</em>, 1988；Korajczyk and Sadka, <em>JFE</em>, 2004；Lesmond, Schill and Zhou, <em>JFE</em>, 2004；Almgren and Chriss, <em>Journal of Risk</em>, 2000/2001；Frazzini, Israel and Moskowitz, 执行成本研究。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 研究与回测<!--[--> · 单元 实验设计<!--]--><!--[--> · 课序 稳健<!--]--></p><p class="lesson-progress">第 10 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/capacity-participation/">容量与参与率</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OIS 与多曲线 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_multi-curve-ois.md.D7rd2LlF.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 曲线<!--]--><!--[--> · 课序 构建<!--]--></p><p class="lesson-progress">第 3 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/curve-bootstrap/">Bootstrap 曲线</a></p><p class="lesson-next"> 下一课：<a href="/quant/duration-convexity/">久期、凸性</a></p></nav><div style="position:relative;"><div><h1 id="ois-与多曲线" tabindex="-1">OIS 与多曲线 <a class="header-anchor" href="#ois-与多曲线" aria-label="Permalink to &quot;OIS 与多曲线&quot;">​</a></h1><div class="epigraph"><p>抵押衍生品的折现应跟随隔夜指数互换曲线；LIBOR 合同的浮动端仍按 LIBOR 远期投影——一条曲线不能再同时做两件事。</p><footer>—— 危机后市场惯例；Bianchetti, Two Curves, One Price, Risk, 2010；Hull and White, LIBOR vs. OIS: The Derivatives Discounting Dilemma</footer></div><p><a href="/quant/curve-bootstrap">上一课</a>按到期逐个解折现或远期节点，使构建集在给定插值下精确重定价，并点名多曲线下同一算法分别服务折现曲线与投影曲线。缺口正是「分别」：2008 年以前许多台子用同一条 LIBOR 互换曲线既折现又预测浮动现金流；危机中 LIBOR–OIS 基差撑开，再也不能当微小摩擦。有抵押衍生品的折现更靠近 OIS；浮动端仍挂钩 3M LIBOR 的合同，投影必须用 3M 曲线。本课写折现曲线与投影曲线成对出现。不重推自助法的一维求解。后课久期默认已经知道 Delta 是「曲线 × 期限」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单曲线下，标准浮动端在重置与支付匹配时，现值可收成面额减终折现，互换利率是折现加权远期平均，远期由同一 \(P\) 的比得到。基差一宽，3M LIBOR 远期不再等于 OIS 隐含的三个月复利，用 OIS 折现却用 LIBOR 自助的远期，价格会变；用 LIBOR 折现抵押组合，又与 CSA 的隔夜利息不一致，出现虚假 P&amp;L。问题是明确三件事：折现用哪条曲线、每个浮动指标用哪条投影曲线、不同期限 LIBOR（1M/3M/6M）之间的基差如何用额外曲线或基差互换吸收。</p><p>外汇与跨货币 CSA 还引入美元以外的抵押与交叉货币基差，使折现变成「本币 OIS 调整后的曲线」。那是多曲线的下一层；本篇先把单币种、抵押利率衍生品的双曲线结构说清。</p><h3 id="抵押、无抵押与折现" tabindex="-1">抵押、无抵押与折现 <a class="header-anchor" href="#抵押、无抵押与折现" aria-label="Permalink to &quot;抵押、无抵押与折现&quot;">​</a></h3><p>理想 CSA：每日足额现金抵押，报酬指数为隔夜有效利率，则增量现金流的折现接近 OIS（或该指数的互换曲线）。无抵押组合的折现应反映对手方信用与自身融资，那是 CVA/FVA 的领域，不应假装仍是 LIBOR 曲线就完事，也不应无条件改用 OIS。Hull–White 的「两难」正在于：同一法律主体的不同交易可能分属不同 CSA，折现不能全球唯一。多曲线首先是估值约定，然后才是曲线构建技术。</p><p><span class="marginnote">OIS 曲线由隔夜指数互换自助，不是「把 LIBOR 曲线减一个常数」。形状可以不同，尤其在短端政策利率路径与长端供需上。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先自助 OIS：输入是隔夜存款、短端 OIS、长端 OIS 互换，得到折现 \(P^D(0,T)\)。再自助投影：对 3M LIBOR 互换，固定端用 \(P^D\) 折现，浮动端是 \(\sum P^D(0,T_i)\delta_i F^{3M}(0;T_{i-1},T_i)\)，其中 \(F^{3M}\) 来自投影折现 \(P^{3M}\) 或其等价远期曲线。已知 \(P^D\) 时，每个新互换到期解投影曲线的一个新节点。1M、6M 用基差互换或对应期限的互换再解 \(P^{1M},P^{6M}\)。FRA 直接报投影远期，仍要用 \(P^D\) 折现其结算。</p><p>欧式期权与上限的标的是投影远期，微笑可以仍用 <a href="/quant/sabr">SABR</a> 标记；估值时贴现用 \(P^D\)。旧单曲线公式里「互换 Delta」混着折现风险与远期风险；多曲线必须拆成 OIS Delta 与 LIBOR 基差 Delta，否则对冲会用错工具。</p><h3 id="公式层的最小改动" tabindex="-1">公式层的最小改动 <a class="header-anchor" href="#公式层的最小改动" aria-label="Permalink to &quot;公式层的最小改动&quot;">​</a></h3><p>确定现金流（固定端、已确定的浮动支付）只碰 \(P^D\)。尚未确定的浮动，用对应指标的远期乘以年分数，再乘 \(P^D\)。不要用 \(P^{3M}\) 去折现 3M 现金流——\(P^{3M}\) 在构造上往往只是为了生成 \(F^{3M}\) 的辅助对象，未必是可交易的零息债券价格。Bianchetti 强调价格只有一个：所有现金流最终都用折现曲线送到今天，投影曲线只负责期望浮动。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>LIBOR 含银行信用与流动性，OIS 更接近有抵押的隔夜。二者之差是基差，本身可交易（LIBOR–OIS 基差互换）。危机后基差的水平与波动都大到必须当独立风险因子。单曲线等于假设基差恒为零；多曲线把基差的期限结构显式化。IBOR 改革用 SOFR、€STR 等几乎无信用的隔夜替代 LIBOR 之后，折现与投影在隔夜复利互换上可以重新靠近，但期限 SOFR、跨期限基差、历史 LIBOR 残余合同仍然强制多曲线或至少多指数。</p><p>对冲上，抵押互换的折现风险用 OIS 对冲，浮动指标风险用对应互换或期货对冲。用旧的「单一互换曲线 01」会在基差变动时出现无法解释的 P&amp;L。这与 <a href="/quant/key-rate-duration">关键利率久期</a> 的分桶思想一致，只是桶的维度从「期限」增加了「哪一条曲线」。</p><h3 id="与自助法、远期定义的衔接" tabindex="-1">与自助法、远期定义的衔接 <a class="header-anchor" href="#与自助法、远期定义的衔接" aria-label="Permalink to &quot;与自助法、远期定义的衔接&quot;">​</a></h3><p>远期定义仍是「适当曲线上两个零息之比」，但必须声明是哪条曲线。OIS 远期描述隔夜复利的未来路径；3M LIBOR 远期描述 3M 定盘。无套利不再要求二者相等，只要求各自与可交易互换、基差互换一致。这是对 <a href="/quant/spot-forward-df">即期、远期与折现</a> 单曲线恒等式的限制性说明：恒等式在单条曲线内成立，跨曲线相等不是恒等式。</p><p><span class="marginnote">把多曲线理解成「多做几次 Bootstrap」是对的；理解成「利率有了两个真值」是错的。真值是合同现金流加 CSA；曲线是用来表示这些现金流的坐标。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>多曲线定价仍常假设确定性基差或确定性曲线，把波动只放在投影远期的微笑上。基差本身随机时，抵押凸性、交叉货币与 Quanto 需要更重的模型，不应把 2010 年的双曲线确定性框架写成已经包含全部凸性。无 CSA 或弱 CSA 不能无条件 OIS 折现。清算中心与双边 CSA 的报酬指数若不同，折现曲线应按净额集分割。</p><p>Bianchetti（2010）与 Hull–White 的 OIS/LIBOR 讨论是危机后惯例的枢纽文献；它们不规定 SOFR 过渡后的每一张合同。构建细节仍依赖 Hagan–West 插值与日历。读旧论文里的单曲线数值例，不能直接当今日抵押组合的估值。</p><p><span class="marginnote">LIBOR 停用后，「多曲线」没有过时：变成 OIS 折现加期限利率、RFR 复利、跨币种基差。名字还在，指标换了。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>危机后抵押衍生品用 OIS 折现，IBOR 浮动端用自身投影曲线；单曲线假设基差为零，已与市场矛盾。</li><li>价格仍只有一个：投影给出浮动期望，折现把所有现金流送到今天。</li><li>不同期限 IBOR 需要各自曲线或基差互换；对冲要拆 OIS 01 与基差 01。</li><li>\(P^{3M}\) 常是生成远期的辅助，不应用它折现。</li><li>CSA 细节决定能否 OIS 折现；无抵押是另一套信用与融资调整。</li><li>出处：Bianchetti, <em>Risk</em>, 2010；Hull and White, LIBOR vs. OIS；构建技术见 Hagan and West, 2006；入门恒等式见 Hull 教科书。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率与固定收益<!--[--> · 单元 曲线<!--]--><!--[--> · 课序 构建<!--]--></p><p class="lesson-progress">第 3 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/duration-convexity/">久期、凸性</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

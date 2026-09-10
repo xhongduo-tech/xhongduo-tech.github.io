@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>逆向选择成本度量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_adverse-selection-cost.md.Dk1LLpq-.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 微观结构续<!--[--> · 单元 成交方向与采样<!--]--><!--[--> · 课序 方向分类<!--]--></p><p class="lesson-progress">第 3 / 18 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bulk-volume-classification/">Bulk Volume Classification</a></p><p class="lesson-next"> 下一课：<a href="/quant/tick-bars/">Tick bars</a></p></nav><div style="position:relative;"><div><h1 id="逆向选择成本度量" tabindex="-1">逆向选择成本度量 <a class="header-anchor" href="#逆向选择成本度量" aria-label="Permalink to &quot;逆向选择成本度量&quot;">​</a></h1><div class="epigraph"><p>有效价差是成交当时付出的即时成本；实现价差是流动性提供者把存货重新定价之后还剩的收入。两者之差，是价格向主动方有利方向留下的那一截——经验上被当作逆向选择。</p><footer>—— Huang &amp; Stoll, The Components of the Bid-Ask Spread, Journal of Finance, 1997；有效与实现价差的会计见 Huang &amp; Stoll, Journal of Financial Economics, 1996</footer></div><p><a href="/quant/spread-decomposition">价差分解</a> 把报价宽度写成处理、存货与信息三项的概念和。要落到可加总的成交样本，Huang 与 Stoll 给出两条互相衔接的路。会计路：有效价差减实现价差，得到价格冲击，当作逆向选择的美元成本。结构路：用成交方向对价格变化的回归，把价差拆成逆向选择份额 \(\alpha\)、存货份额 \(\beta\) 与处理份额 \(1-\alpha-\beta\)。本篇写这两套<strong>度量</strong>如何构造、窗口与方向分类如何改变数字，以及它们和 <a href="/quant/glosten-milgrom">Glosten–Milgrom</a> 条件期望之差、和 Kyle 的 \(\lambda\) 如何换算。不重复价差三分法的教科书叙事。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>流动性提供者怕的是：在不知情时与知情对手成交，随后中点朝对方有利方向跳走，报价价差里本该到手的收入被吃掉。要一个数字回答「这一笔、这一天、这只股票的逆向选择有多贵」。报价价差本身不够，因为它含处理与存货。成交方向本身不够，因为它不是成本。需要把「事后中点走了多远」写成与有效价差同量纲的量，才能比较市场、比较时段。</p><p>识别问题紧随其后。成交后中点移动，既可以是信息写入价格，也可以是存货诱导的报价调整，也可以是公开消息碰巧同向。Huang–Stoll 的结构模型用方向的自相关去分离存货（存货使方向负相关，因为做市商要平衡头寸）与信息（信息使价格永久移动）。会计分解更粗，不做这层分离，因此「有效减实现」是逆向选择的上界式代理，不是点识别。</p><h3 id="有效、实现与冲击" tabindex="-1">有效、实现与冲击 <a class="header-anchor" href="#有效、实现与冲击" aria-label="Permalink to &quot;有效、实现与冲击&quot;">​</a></h3><p>记方向 \(D_t\)、成交价 \(P_t\)、成交时中点 \(M_t\)、随后窗口结束时中点 \(M_{t+h}\)。</p> \[s^{\mathrm{e}}_t=2D_t(P_t-M_t),\qquad s^{\mathrm{r}}_t=2D_t(P_t-M_{t+h}),\qquad s^{\mathrm{as}}_t=s^{\mathrm{e}}_t-s^{\mathrm{r}}_t=2D_t(M_{t+h}-M_t). \]<p>\(s^{\mathrm{as}}\) 就是窗口 \(h\) 上的价格冲击，常被直接叫做逆向选择成本。\(h\) 取 5 分钟、30 分钟或随后 \(k\) 笔，数字会变：太短，永久冲击还没走完；太长，无关信息混入。方向 \(D\) 来自 <a href="/quant/lee-ready">Lee–Ready</a> 或官方标志；分类错误同时压低 \(s^{\mathrm{e}}\) 与 \(s^{\mathrm{as}}\)，因为随机 \(D\) 使 \(D\Delta M\) 向零。</p><p><span class="marginnote">实现价差可以为负：流动性提供者事后亏损。这正是毒性状态的会计表达。不要把负实现价差当成计算错误而取绝对值——符号是内容。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>会计度量：对每笔主动成交计算 \(s^{\mathrm{e}},s^{\mathrm{r}},s^{\mathrm{as}}\)，按成交额加权日度平均，再在截面或时序上比较。开收盘拍卖单独一列。\(M_{t+h}\) 必须用成交后的报价，不能用含本笔的中点，否则冲击被低估。多市场用本所中点或综合中点须锁死。</p><p>结构度量（Huang–Stoll 1997 的三向分解，叙述其识别，不以某一次估计值为准）：成交价变化对滞后方向回归，系数里 \(\alpha\) 对应价差中被信息吃掉的比例，\(\beta\) 对应存货，\(\alpha=\beta=0\) 时只剩处理导致的买卖弹跳。方向的一阶自相关进入存货识别：若买卖强烈负相关，模型把更多宽度派给存货。估计需要逐笔 \(D\) 与价差水平；价差时变时应允许 \(S_t\) 进入回归，而不是用全日平均价差。</p><h3 id="窗口-h-是定义的一部分" tabindex="-1">窗口 h 是定义的一部分 <a class="header-anchor" href="#窗口-h-是定义的一部分" aria-label="Permalink to &quot;窗口 h 是定义的一部分&quot;">​</a></h3><p>同一股票，五分钟 \(s^{\mathrm{as}}\) 与日终 \(s^{\mathrm{as}}\) 可以差一倍。报告必须带 \(h\)。事件时间的 \(k\) 笔窗口在开盘加密、午后变稀，与时钟 \(h\) 不可比。做市存货的「转手」若平均只要几十秒，五分钟已经把存货回复算进实现价差，会计逆向选择会偏小；若知情信息要几十分钟才被公开确认，五分钟又偏小。没有无模型的正确 \(h\)。实务是报一组 \(h\)，看排序是否稳定。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Glosten–Milgrom 里买卖报价是条件期望，价差本身就是逆向选择；没有存货，实现价差的期望应为零，有效价差全是信息。Kyle 里没有固定买卖价，逆向选择表现为 \(\lambda y\)。Huang–Stoll 允许三项共存：处理制造回跳，存货制造方向负相关与中点偏移，信息制造与方向同号的永久移动。会计 \(s^{\mathrm{as}}\) 把后两项里「中点确实走了」的部分收成一截美元，因此含存货。要把存货拿掉，必须用结构模型或用做市商头寸数据。</p><p>经验规律与机制一致：公告前、小盘、分析师覆盖低，\(s^{\mathrm{as}}\) 与 \(\alpha\) 上升；小数化压处理项更明显，信息项下降较少。这与「价差变窄等于信息不对称消失」的叙事相反。比较两个市场谁更「公平」，应比 \(s^{\mathrm{as}}\) 或 \(\alpha\)，而不是只比报价宽度。</p><h3 id="与-lambda、pin-的量纲" tabindex="-1">与 lambda、PIN 的量纲 <a class="header-anchor" href="#与-lambda、pin-的量纲" aria-label="Permalink to &quot;与 lambda、PIN 的量纲&quot;">​</a></h3><p>Kyle 回归 \(\Delta m=\lambda y\) 里 \(\lambda y\) 是价格变化，\(2D\Delta m\) 与 \(s^{\mathrm{as}}\) 同族，差别在 \(y\) 是连续数量而这里每笔权重是 2。PIN 是概率，不是美元；高 PIN 日往往高 \(s^{\mathrm{as}}\)，但回归系数不是恒等变换。Goyenko 等人把各类流动性代理对照时，冲击类与价差类相关高、与成交量类相关低。写表格时不要把 PIN、\(\lambda\)、\(s^{\mathrm{as}}\)、\(\alpha\) 排成「同一逆向选择」的四列而不声明量纲。</p><p><span class="marginnote"><a href="/quant/lee-ready">Lee–Ready</a> 错误率在一 tick 价差上最高，而这类股票的报价宽度本来就小。逆向选择占比 \(\alpha\) 会被分类噪声和窄价差同时扭曲。截面排序前应对 \(D\) 的来源做分层，或改用官方主动标志。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>线性、固定份额、窗口内没有公开跳，是结构模型的舒适区。开盘、熔断、涨跌停让 \(M_{t+h}\) 截断，\(s^{\mathrm{as}}\) 无定义或接近零。费用与回扣改写经济价差：名义 \(s^{\mathrm{e}}\) 不含 taker 费，比较 NASDAQ 与纽交所必须加回费用，Huang–Stoll 1996 的市场对照已经强调这一点。暗池中点成交的 \(s^{\mathrm{e}}\) 接近零，冲击仍可能很大，会计会把它们读成「便宜但有信息」——这可能正好是选择偏差。</p><p>不要把 \(s^{\mathrm{as}}\) 叫做 PIN。不要用一个 \(h\) 的冲击去校准所有持有期的做市利润。不要在没有方向的 OHLC 上估 Huang–Stoll。A 股涨跌停日中点不能沿停板方向走完，\(s^{\mathrm{as}}\) 被制度截断，应剔除或单独建模。</p><p><span class="marginnote">出处：Huang &amp; Stoll, <em>The Components of the Bid-Ask Spread</em>, Journal of Finance, 1997；有效与实现价差见 Huang &amp; Stoll, JFE 1996。会计分解的使用见后续市场质量文献。机制原形见 Glosten–Milgrom（1985）与 Kyle（1985）。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>逆向选择的会计代理是有效价差减实现价差，等于窗口内与方向同号的中点移动。</li><li>Huang–Stoll 用方向回归把价差拆成信息、存货与处理份额；会计冲击仍含存货。</li><li>窗口 \(h\) 属于定义；应报告一组窗口看排序是否稳定。</li><li>方向分类错误把有效价差与冲击同时向零拉。</li><li>与 PIN、Kyle \(\lambda\) 相关但量纲不同，不能当同一列变量。</li><li>费用、拍卖、停板与暗池改变会计含义。</li><li>出处：Huang &amp; Stoll, Journal of Finance, 1997；Journal of Financial Economics, 1996。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 微观结构续<!--[--> · 单元 成交方向与采样<!--]--><!--[--> · 课序 方向分类<!--]--></p><p class="lesson-progress">第 3 / 18 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/tick-bars/">Tick bars</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

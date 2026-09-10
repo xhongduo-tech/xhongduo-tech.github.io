@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波动缩放仓位 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_vol-scale-cta.md.D3Csxh6k.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观与 CTA<!--[--> · 单元 趋势与 Carry<!--]--><!--[--> · 课序 策略<!--]--></p><p class="lesson-progress">第 4 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/breakout-ma/">突破与均线</a></p><p class="lesson-next"> 下一课：<a href="/quant/xasset-trend-corr/">跨资产趋势相关</a></p></nav><div style="position:relative;"><div><h1 id="波动缩放仓位" tabindex="-1">波动缩放仓位 <a class="header-anchor" href="#波动缩放仓位" aria-label="Permalink to &quot;波动缩放仓位&quot;">​</a></h1><div class="epigraph"><p>时间序列动量把仓位写成趋势符号除以已实现波动再乘目标风险；没有这一层，高波合约会主导组合，夏普与左尾都会变差。</p><footer>—— Moskowitz, Ooi &amp; Pedersen, Time Series Momentum, Journal of Financial Economics, 2012</footer></div><p><a href="/quant/breakout-ma">上一课</a>把突破、均线与过去超额符号收成同一趋势赌注的三种滤波器；比较必须在同一波动缩放下进行。缺口是那个「同一波动缩放」还没写：方向来自趋势，盈亏的尺度来自仓位。本课写 CTA 语境下的 \(1/\hat\sigma\)：它改变权重与杠杆路径，不创造新的方向信息。不重讲通道止损。后课跨资产相关默认已经读完：危机 alpha 有一部分来自组合层目标波动，而不是 \(\mathrm{sign}(\cdot)\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>不加缩放时，名义等权的期货组合方差由原油、天然气、股指来决定，汇率与短端利率几乎不占风险。趋势信号即使在汇率上同样有效，也表现不出来。问题是把每条合约的风险贡献拉齐，使组合更接近「信息的等权」而不是「波动的等权」。第二个问题是时间序列上的杠杆：\(\hat\sigma\) 低时加杠杆，\(\hat\sigma\) 高时去杠杆。这既是对波动聚类的响应，也是一条与经纪商保证金平行的减仓规则，会在拥挤时变成市场供给。</p><p>识别上必须区分三种「波动」：合约已实现波动、策略组合已实现波动、隐含波动。CTA 主规则用第一种估权重；产品说明书盯第二种；用 VIX 对股指腿做第三种择时是额外赌注。混用而不声明，回测不可复现。</p><h3 id="合约层-目标波动除以估计波动" tabindex="-1">合约层：目标波动除以估计波动 <a class="header-anchor" href="#合约层-目标波动除以估计波动" aria-label="Permalink to &quot;合约层：目标波动除以估计波动&quot;">​</a></h3><p>MOP 的形式是</p> \[w_{i,t}=\mathrm{sign}(r_{t-L,t}^{i})\cdot\frac{\sigma_{\mathrm{tgt}}}{\hat\sigma_{i,t}}. \]<p>\(\hat\sigma\) 常用日收益的 EWMA 或过去约两个月实现波动，年化时注意交易日数。\(\sigma_{\mathrm{tgt}}\) 是规则参数，不是预测。估计窗太短，仓位抖动、换手上升；太长，对危机中的波动跳升反应迟钝。应预先固定衰减因子或窗口，并报告有无缩放两列夏普、偏度与最大回撤。缩放会改变有效杠杆，基准必须是同等目标风险下的被动组合，而不是未杠杆的现货指数。</p><p><span class="marginnote">波动缩放不是 Kelly。Kelly 用期望与方差决定最优分数；这里的 \(\mathrm{sign}\) 不含幅度，期望被当成只来自方向。把 \(1/\hat\sigma\) 解释成增长最优，会在信号失效时仍然加满杠杆。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>估计：对数收益、去周末与节假日、对跳空单独处理。股指与商品在公告日的实现波动会上升，EWMA 会在事后加一脚减速；这是特征还是缺陷，取决于你是否愿意在跳完之后还留着危机前的杠杆。上限：对 \(\hat\sigma\) 设地板，防止平静期杠杆无穷大；对 \(|w|\) 设天花板，防止单合约占满保证金。组合层再按总波动缩放到产品目标，避免「合约层已经 40%、十个同向合约合成远超说明书」。</p><p>诊断：把 PnL 拆成「方向对了」与「杠杆对了」。危机月里若方向对但缩放把名义砍光，危机 alpha 会小于未缩放版本——这不是 bug，是规则。应同时给投资者看：未缩放、仅合约缩放、合约加组合缩放三列。与风险平价的关系：等风险权重是截面上的 \(1/\sigma\)；vol targeting 是时间上的 \(1/\sigma\)。CTA 常常两者都做，杠杆对总波动的弹性大约是两层相乘。</p><h3 id="策略层缩放与合约层缩放不是同一开关" tabindex="-1">策略层缩放与合约层缩放不是同一开关 <a class="header-anchor" href="#策略层缩放与合约层缩放不是同一开关" aria-label="Permalink to &quot;策略层缩放与合约层缩放不是同一开关&quot;">​</a></h3><p>Barroso–Santa-Clara 对股票 WML 的缩放，针对的是动量策略自身的波动爆发（动量崩溃）。CTA 的合约层缩放针对的是资产异质波动。两者可以同时开：先按合约 \(1/\sigma_i\) 配权，再按组合 \(\sigma_{\mathrm{port}}\) 调总杠杆。只开后者、合约仍等名义，高波商品依旧主导。只开前者、不开总杠杆上限，同向趋势时产品波动会漂。工程上这是两个旋钮，回测应做 \(2\times 2\)，而不是一个「vol target」标签。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>资产收益有波动聚类：高波动后往往仍高。若条件夏普在高波动状态更低（Moreira–Muir 的方向），则降低杠杆提高无条件夏普。趋势策略还有一条特有机制：波动上升常与转折或拥挤减仓同时发生，不加缩放会在最差流动性上留着最大名义。缩放提前减仓，牺牲趋势加速段的一部分利润，换更薄的左尾。</p><p>反向成本是「波动挤压」：平静期加杠杆，突然跳升时所有 vol target 账户一起卖，见<a href="/quant/crowding-spiral">拥挤螺旋</a>。因此缩放改善的是单策略在外生波动下的风险调整收益；当策略本身大到推动波动，缩放变成内生反馈。容量评估必须把同业规则相关算进去。</p><h3 id="估计误差会写成错误的杠杆" tabindex="-1">估计误差会写成错误的杠杆 <a class="header-anchor" href="#估计误差会写成错误的杠杆" aria-label="Permalink to &quot;估计误差会写成错误的杠杆&quot;">​</a></h3><p>\(\hat\sigma\) 向下偏，杠杆向上偏。用未调整的已实现波动、忽略隔夜、或在涨跌停下把零收益当成低波动，都会在国内期货上系统性加杠杆。隐含波动通常高于已实现，若用 IV 做缩放会整体更保守，并引入波动风险溢价的暴露。选择哪一种要写进说明书：CTA 传统用已实现，因为信号是价格趋势，风控也想跟已实现风险走；用 IV 是另一种产品。</p><p><span class="marginnote">目标波动定到 20% 再宣传「与论文同样的 40% 合约目标」，只是把组合层缩放藏进了营销。投资者看到的回撤由最终产品杠杆决定。信息比不会因为你把目标写大而提高。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把波动缩放叫做新的 alpha 因子。不要在已经缩放后再用未缩放多头当基准。不要把 VIX 择时、合约 \(1/\sigma\) 与组合目标三个开关搅在一个回测里只报最好的一列。保证金与变异保证金已经在高波时要钱，vol target 是额外的自选减仓；两者同日触发时，执行计划要预先错开，避免与清算盘抢价。</p><p>与 <a href="/quant/frazzini-bab">BAB</a> 的差别：BAB 利用的是杠杆约束造成的 beta 定价错误；CTA 缩放是主动选择风险暴露。不要把低波超配与趋势 vol target 写成同一个「低波动溢价」。A 股与商品的涨跌停使 \(\hat\sigma\) 在极限日失真，应使用限价调整或跳过该日的稳健估计。</p><p><span class="marginnote">出处：Moskowitz, Ooi &amp; Pedersen, <em>Time Series Momentum</em>, JFE, 2012。策略波动管理见 Barroso and Santa-Clara, Journal of Financial Economics, 2015；Moreira and Muir, Journal of Finance, 2017。保证金螺旋见 Brunnermeier and Pedersen, RFS, 2009。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CTA 的波动缩放把仓位写成方向除以已实现波动，使风险贡献可比较，并在波动上升时自动降杠杆。</li><li>合约层 \(1/\sigma_i\) 与组合层目标波动是两个开关；危机 alpha 有一部分来自后者而非符号函数。</li><li>缩放改善风险调整收益，但在拥挤的 vol target 同步减仓时会自我强化冲击。</li><li>估计窗、地板、上限与是否用隐含波动必须预先固定，并报告有无缩放的对照。</li><li>出处：Moskowitz et al., 2012；Barroso–Santa-Clara, 2015；Moreira–Muir, 2017。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观与 CTA<!--[--> · 单元 趋势与 Carry<!--]--><!--[--> · 课序 策略<!--]--></p><p class="lesson-progress">第 4 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/xasset-trend-corr/">跨资产趋势相关</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

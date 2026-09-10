@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>转换效率的物理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_conversion-efficiency-physics.md.IYC9ClJZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 EUV 光源、掩模与胶<!--[--> · 单元 光源与光学<!--]--><!--[--> · 课序 等离子体到镜面<!--]--></p><p class="lesson-progress">第 2 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/co2-drive-laser-chain/">CO₂ 驱动激光放大链</a></p><p class="lesson-next"> 下一课：<a href="/litho/tin-plasma-emission/">锡等离子体辐射</a></p></nav><div style="position:relative;"><div><h1 id="转换效率的物理" tabindex="-1">转换效率的物理 <a class="header-anchor" href="#转换效率的物理" aria-label="Permalink to &quot;转换效率的物理&quot;">​</a></h1><div class="epigraph"><p>转换效率是带内 EUV 能量除以打到靶上的激光能量。几个百分点是整厂功耗和收集镜热负荷的杠杆，不是光谱仪上的峰值亮度。</p><footer>—— 据 Bakshi, EUV Lithography；ASML 对 in-band CE 的公开定义</footer></div><p><a href="/litho/co2-drive-laser-chain">上一课</a>把十千瓦级 CO₂ MOPA 送到锡靶。缺口是：红外瓦数不等于中间焦点的带内瓦数。中间隔着等离子体耦合、辐射分支和收集几何。本课钉转换效率（conversion efficiency, CE）的物理定义与上限来自哪里。锡离子为什么在 13.5 nm 亮，留给<a href="/litho/tin-plasma-emission">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>驱动链可以再加一级放大，墙插功率跟着涨。若 CE 停在约 1%（实心滴、无预脉冲），激光白烧、镜子更热、碎屑更猛，IF 仍到不了 <a href="/litho/asml-nxe">NXE</a> 公开的 250 W 级里程碑。<a href="/litho/euv-prepulse">预脉冲</a>把 CE 抬到约 5–6%，是把靶的密度标长改到 CO₂ 能吸收的窗口，不是把放大链再乘一个系数。</p><p>缺口因此是能量分支，不是再画一张 MOPA 框图。打到靶上的激光，一部分被临界密度面反射，一部分变成离子动能和流体力学膨胀，一部分变成宽带辐射；只有落在多层膜约 2% 窗口内的那一份，才进 CE 的分子。</p> \[\mathrm{CE} = \frac{E_{\mathrm{EUV,in-band}}}{E_{\mathrm{laser,on-target}}}. \]<p><span class="marginnote">公开数字通常按主脉冲激光能量归一。把预脉冲能量加进分母，会把同一套实验说成两个 CE。引用时核对原文定义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程上把 CE 拆成可调的三块：靶（滴径、预脉冲展开、盘的光学厚度）、激光（波长、强度、脉宽、焦斑）和等离子体状态（温度、密度、停留时间）。CO₂ 的临界密度 \(n_c\propto\lambda^{-2}\)，把吸收区放在相对稀薄的冕，有利于把能量停在带内价态而不是过密反射。短波长固体激光更容易耦进过密区，实验室可以出光，量产 CE 往往更差——这是选 10.6 μm 的效率理由，上一课只写了链，本课才写为什么这条链的波长不能随便换。</p><p>计量在带内通道做：多层膜标定的探测器看 13.5 nm 附近积分，激光量热计看靶上能量。立体角要声明：有的实验报 \(2\pi\) 内的 CE，量产合同是收集镜实际收到、再扣 \(R_{\mathrm{col}}\) 和气体之后的 IF。两者差一个几何因子，不能拿大阪大学单脉冲纪录直接当 NXE 的 CE。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>最优窗口是辐射流体力学的交集。太冷，锡离子价态不够，UTA 暗；太热，能量跑到更高电离和动能，CE 掉、碎屑更硬。Nishihara、Fujioka 等对激光等离子体 EUV 的辐射流体模拟，把这块写成「在膨胀尚未拆完靶之前，把温度钉在数十电子伏」。预脉冲负责把靶送到这个状态，主脉冲负责在微秒寿命里把能量耦进去。</p><p>O&#39;Sullivan 等对锡未分辨跃迁阵列的原子物理给出光谱上限：即使每个激光光子都变成辐射，带内分支比仍受 UTA 宽度与多层窗口重叠限制。CE 的几个百分点不是「工程没做好」，是原子物理加几何收集的乘积。量产再抠的是：在 50 kHz、氢气流和逐渐变脏的收集镜下，把 CE 维持在这个窗口，而不是单次打出纪录。</p><p><span class="marginnote">IF 功率还要乘收集立体角、收集镜反射率和氢柱透过率。CE 高而 \(R_{\mathrm{col}}(t)\) 掉，产能照样垮。本课只钉激光→带内这一段；功率路线课再把整条账乘开。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不展开 Sn⁸⁺–Sn¹⁴⁺ 的具体跃迁，那是下一课的辐射。也不把 5–6% 写成与滴径无关的物理常数——发生器改尺寸，膨胀时间和光学厚度都要重调。出处：Bakshi 对 CE 与 LPP 能量流；ASML 对 in-band 定义；Fujioka / Nishihara 等辐射流体工作；O&#39;Sullivan 等锡 UTA 光谱。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CE 是带内 EUV 相对靶上激光的比值，不是全谱亮度。</li><li>波长、靶形态和等离子体温度密度共同决定分支；预脉冲改的是靶，不是定义。</li><li>后课默认：加激光之前先问 CE 窗口还在不在。</li><li>出处：Bakshi；ASML in-band CE；Fujioka、Nishihara、O&#39;Sullivan 等。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 EUV 光源、掩模与胶<!--[--> · 单元 光源与光学<!--]--><!--[--> · 课序 等离子体到镜面<!--]--></p><p class="lesson-progress">第 2 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/tin-plasma-emission/">锡等离子体辐射</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

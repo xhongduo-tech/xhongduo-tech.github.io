@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SLR 与 LALR | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_slr-lalr.md.nOeGRcRT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序语言与编译<!--[--> · 单元 前端<!--]--><!--[--> · 课序 从文本到结构<!--]--></p><p class="lesson-progress">第 10 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/cs/lr-shift-reduce/">LR 与移进归约</a></p><p class="lesson-next"> 下一课：<a href="/cs/ast/">抽象语法树</a></p></nav><div style="position:relative;"><div><h1 id="slr-与-lalr" tabindex="-1">SLR 与 LALR <a class="header-anchor" href="#slr-与-lalr" aria-label="Permalink to &quot;SLR 与 LALR&quot;">​</a></h1><div class="epigraph"><p>同一张项集规范族上，SLR 用 FOLLOW 决定归约，LALR 把 LR(1) 项按芯合并；表更小，认的语言夹在 SLR 与 LR(1) 之间。</p><footer>—— 据 DeRemer, Simple LR(k) Grammars, 1971；DeRemer and Pennello, Efficient Computation of LALR(1) Look-Ahead Sets, 1982；龙书第 4 章整理</footer></div><p>上一课<a href="/cs/lr-shift-reduce">LR 与移进归约</a>给出项、闭包、GOTO、移进/归约冲突，并声明 SLR 用 FOLLOW、LALR 是 Yacc 的实用点，没有填表。本课不重画最右推导。缺口是三种表的差别：SLR(1)、LALR(1)、LR(1)——状态怎么增，冲突怎么少。归约时可挂语义动作，下一课 AST 就在这里接。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>LR(0) 项不带前瞻，同一状态里两条完成项就会归约/归约冲突。SLR：完成项 \(A\to\alpha\cdot\) 只对 \(a\in\mathrm{FOLLOW}(A)\) 归约。FOLLOW 是粗前瞻，可能仍冲突。LR(1) 项 \([A\to\alpha\cdot\beta,a]\) 把前瞻钉在项上，状态变多，冲突最少（在确定 CFG 的实用范围内）。LALR：把芯（忽略前瞻的 LR(0) 部分）相同的 LR(1) 状态合并，前瞻取并。状态数约等于 LR(0) 族，前瞻比 SLR 细。</p><p>缺口是这层包含：\(\mathrm{SLR}\subset\mathrm{LALR}\subset\mathrm{LR}(1)\)（能无冲突分析的文法类）。Yacc/bison 默认 LALR(1)。if-else 仍常要 <code>%left</code>/<code>%nonassoc</code> 人工消二义，LALR 本身并不消去二义。</p><h3 id="合并可能引入新冲突" tabindex="-1">合并可能引入新冲突 <a class="header-anchor" href="#合并可能引入新冲突" aria-label="Permalink to &quot;合并可能引入新冲突&quot;">​</a></h3><p>两个 LR(1) 状态芯同、前瞻不同，合并后可能在同一完成项上多出一个不该归约的符号。故存在 LALR 冲突而规范 LR(1) 无冲突的文法。本课承认，不构造病态长例。</p><p><span class="marginnote">DeRemer 的 SLR 与 LALR。龙书 4.6–4.7 节比较表大小。Knuth LR(\(k\)) 是上一课总框架。本课要生成器选哪张表，不手填 GOTO 全表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>从增广文法建 LR(0) 项集（SLR/LALR 的芯）。SLR：归约栏填 FOLLOW。要 LALR：传播前瞻（DeRemer–Pennello）或先 LR(1) 再合并。冲突仍在则改文法或加优先级。</p><div class="mermaid"></div><p>分析循环与上一课相同：查动作表直到接受。归约 \(A\to\alpha\) 时执行用户动作：<code>new</code> AST 节点——对象下一课才定义，本课只留挂钩。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>左递归对三族都友好。表的体积：LR(1) 可能上千态，LALR 几百，够一门课的语言。错误恢复（恐慌模式丢记号）是生成器附加，本课点名。</p><p>不要把 FOLLOW 当 FIRST：FOLLOW 管「A 推完后后面能见什么」，归约用它。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不列出闭包伪代码全文，不处理 GLR。后课默认：实用语法用 LALR/SLR 表驱动；归约动作构造抽象语法树，丢掉分层非终结符。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>SLR 用 FOLLOW；LR(1) 项带前瞻；LALR 合并芯。</li><li>文法类 SLR ⊂ LALR ⊂ LR(1)；Yacc 用 LALR。</li><li>归约挂钩给下一课 AST。</li><li>出处：DeRemer, 1971；DeRemer and Pennello, 1982；龙书第 4 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序语言与编译<!--[--> · 单元 前端<!--]--><!--[--> · 课序 从文本到结构<!--]--></p><p class="lesson-progress">第 10 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ast/">抽象语法树</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Filtered Historical Simulation | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fhs-var.md.Ci-frh7e.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cornish-fisher-var/">Cornish-Fisher VaR</a></p><p class="lesson-next"> 下一课：<a href="/quant/copula-var/">Copula VaR</a></p></nav><div style="position:relative;"><div><h1 id="filtered-historical-simulation" tabindex="-1">Filtered Historical Simulation <a class="header-anchor" href="#filtered-historical-simulation" aria-label="Permalink to &quot;Filtered Historical Simulation&quot;">​</a></h1><div class="epigraph"><p>历史模拟的残差里既有当时的波动水平，也有收益的横截面依赖；先用条件方差把波动滤掉，对标准化残差重抽样，再配上今日的波动，历史情景才能对当前体制说话。</p><footer>—— Barone-Adesi, Giannopoulos and Vosper, VaR without Correlations in Nonlinear Portfolios, Journal of Futures Markets, 1999</footer></div><p>朴素 <a href="/quant/var-methods">历史 VaR</a> 把过去 \(n\) 日的因子变化等权应用到今日头寸上。Pritsker（2006）指出它的核心迟钝：窗口里大部分日子来自旧体制，今日若已处于高 \(\sigma_t\)，等权经验分位数会偏低。Barone-Adesi、Giannopoulos 与 Vosper 的过滤历史模拟（Filtered Historical Simulation, FHS）把「形状」和「尺度」拆开：用 <a href="/quant/garch">GARCH</a>（或 EWMA）估计条件方差，取出标准化残差 \(z_t=r_t/\sigma_t\)，从 \(\{z_t\}\) 有放回抽样，再乘上从今日出发的预测波动，得到情景收益。相关结构不必另估一张矩阵——多资产时直接重抽样历史残差<strong>向量</strong>，经验依赖留在向量里。本篇写这一滤–抽–配的步骤、非线性定价，以及它仍不是压力测试。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>历史法想保留的是经验分布：厚尾、偏度、某些非线性，都不必写成参数族。它不想保留的是「过去每一天的波动水平与今天相同」。波动聚类使无条件分位数与条件分位数分家：危机刚开始时，\(\sigma_t\) 已经跳起，窗口中位数仍是平静期。参数法用 \(\sigma_t\Phi^{-1}(\alpha)\) 解决尺度，却把形状钉成正态（或 \(t\)）。FHS 的问题设定是：形状用历史残差的经验测度，尺度用条件方差模型，二者分开校准。</p><p>第二句话是相关。多元参数 VaR 要估 \(\Sigma_t\)，维数高时噪声大，且高斯相关没有尾依赖。FHS 不对残差估相关矩阵：一次抽出某日的整条残差向量，该日各资产如何同涨同跌，原样进入情景。Barone-Adesi 等人标题里的 “without correlations” 不是「假设不相关」，而是「不显式参数化相关」。</p><h3 id="过滤必须在信息集上可测" tabindex="-1">过滤必须在信息集上可测 <a class="header-anchor" href="#过滤必须在信息集上可测" aria-label="Permalink to &quot;过滤必须在信息集上可测&quot;">​</a></h3><p>\(\sigma_t\) 必须关于 \(t-1\) 可测。用含当日收益的已实现波动去标准化当日残差再「预测」当日 VaR，是前视。GARCH 一步预测 \(\sigma_{t|t-1}\)、RiskMetrics 的 EWMA 更新，都合法。过滤模型本身若在全样本上估一次再回看，参数含未来；严谨做法是滚动估计，或至少用当时生产参数回放，与 <a href="/quant/var-backtest">VaR 回测</a> 的信息集要求一致。</p><p><span class="marginnote">残差 \(z_t\) 应接近无条件方差为 1 的白噪声。若 GARCH 滤不干净，平方残差仍有自相关，重抽样会低估波动持续性。先做残差诊断，再谈分位数。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>单资产、单步。</strong> 拟合 \(r_t=\mu_t+\sigma_t z_t\)，例如 GARCH(1,1)。保存 \(\{z_s\}_{s=1}^{n}\)。今日预测 \(\sigma_{t+1}\)。从 \(\{z_s\}\) 抽 \(z^\ast\)，情景收益 \(r^\ast=\mu_{t+1}+\sigma_{t+1}z^\ast\)。对组合线性时，损失 \(L^\ast=-w r^\ast\)。重复 \(M\) 次，取经验 \(\alpha\) 分位数，即 FHS-VaR；超过该分位数的平均即 FHS-ES。\(M\) 可以大于 \(n\)（有放回），但有效信息仍由 \(n\) 个残差决定，99.9% 不会因为 \(M\) 很大而变得可靠。</p><p><strong>多步地平线。</strong> 十日 VaR 不能对一日残差乘 \(\sqrt{10}\)。应迭代：抽 \(z^\ast_1\)，更新 \(\sigma\) 到下一步，再抽 \(z^\ast_2\)，得到路径收益之和。路径上的波动会随抽到的大残差而升高，这是 GARCH 反馈，平方根法则没有。期权时间衰减与路径依赖必须在这条路径上重定价，而不是对期末现货做一次静态全定价了事。</p><p><strong>非线性组合。</strong> 对每个情景的因子路径，用全定价器算组合价值变化。这正是 FHS 相对 delta–gamma 参数法的要点：残差可以来自线性因子，定价可以非线性。深度虚值期权在历史残差里若从未被「走到」，凸性仍不会出现——FHS 不能创造未见过的跳，只能把见过的跳按今日 \(\sigma\) 重新缩放。</p><h3 id="多元残差向量与-dcc-变体" tabindex="-1">多元残差向量与 DCC 变体 <a class="header-anchor" href="#多元残差向量与-dcc-变体" aria-label="Permalink to &quot;多元残差向量与 DCC 变体&quot;">​</a></h3><p>基础 FHS：多元 GARCH 或各资产一元 GARCH 后，标准化残差向量 \(\mathbf{z}_t\) 整向量重抽样，保留同期经验 Copula。若各资产波动模型不同步（一个用 GARCH，一个用 EWMA），向量里的「同日」仍必须是日历同日，否则假独立。更参数化的变体先用 <a href="/quant/dcc">DCC</a> 滤相关，再对去相关残差抽样、用今日相关矩阵配回去；这能让相关随今日 \(\Sigma_t\) 变，但把尾依赖交给了 DCC 的椭圆假设。Barone-Adesi 原意更接近前者：少估矩阵，多信历史同日。</p><p><span class="marginnote">残差窗口与波动模型窗口可以不同：GARCH 用较长样本估持续性，\(z\) 的经验测度用较短窗口以跟上尾形状。两个带宽都要写进模型卡，并且不得用回测通过率去搜。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>过滤的机制是尺度分离。\(z_t\) 的经验分布近似无条件形状；乘 \(\sigma_{t+1}\) 之后，分位数随今日条件方差平移。高波动日限额自动收紧，这正是条件覆盖所要求的，也是等权历史法做不到的。重抽样向量的机制是非参数 Copula：把各边缘的概率积分变换留给经验残差，联合结构就是历史同日的联合。高斯 Copula 的 \(\lambda=0\) 问题，在样本里曾经一起崩过的日子上，会被那些向量带进尾巴；样本里从未一起崩过，FHS 同样看不见。</p><p>与 <a href="/quant/cornish-fisher-var">Cornish–Fisher</a> 的差别：CF 把形状收成两个矩；FHS 保留残差的整个经验测度，包括矩表达不了的双峰与非对称。与 MC 的差别：MC 的形状来自你写下的过程；FHS 的形状来自过滤后的历史。FHS 仍有模型风险，只是模型主要在波动方程，不在联合正态。</p><h3 id="残差里还有什么没被滤掉" tabindex="-1">残差里还有什么没被滤掉 <a class="header-anchor" href="#残差里还有什么没被滤掉" aria-label="Permalink to &quot;残差里还有什么没被滤掉&quot;">​</a></h3><p>均值设定、隔夜跳、除权事件、错误印记，都会变成「形状」。不清洗则一个错误脉冲在每次抽到它时按今日 \(\sigma\) 放大，FHS-ES 会被单个点主导。过度清洗又会削掉真尾巴。预指定清洗规则，并报告抽到极值残差的频率。体制切换若表现为残差分布的改变而不仅是 \(\sigma_t\) 的改变，单一窗口的 \(z\) 会把两体制混成一个形状；这时应缩短残差窗口，或对压力期单独做 <a href="/quant/stressed-var-frtb">压力 VaR</a>，而不是指望 GARCH 吸收一切。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>FHS 依赖波动模型：GARCH 估爆、IGARCH 不均值回复、多元维数下一元过滤不一致，都会进入分位数。它不创造样本外的跳幅：把 1998 年的残差配上 2026 年的 \(\sigma\)，得到的是「当时那种标准化冲击在今天的尺度上」，不是「今天可能出现的新冲击」。监管压力期与 FHS 日常条件 VaR 应分开：前者换测度，后者换尺度。</p><p>回测上，FHS 的违反应比等权历史更接近独立（条件覆盖），这是它存在的经验理由。若独立性仍失败，过滤不够或残差有时变偏度。不要把 FHS 的 \(M\) 次抽样误差当成模型不确定度的全部；有效样本是 \(n\) 个历史日。期权账簿必须全定价；对过滤后的现货做 delta 近似，会把 FHS 退回带 GARCH 尺度的参数法。</p><p><span class="marginnote">标题里的 “without correlations” 常被误读成忽略依赖。实现检查：多元情景是否整向量抽出。若对每个资产独立抽 \(z_i\)，你加回的是独立 Copula，组合 VaR 会系统性偏低。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>FHS 用条件方差过滤历史收益，对标准化残差重抽样，再配上今日波动，得到条件经验分位数。</li><li>多元时整向量抽样，经验依赖不必另估相关矩阵；独立抽各资产会毁掉这一优点。</li><li>多步地平线应迭代更新 \(\sigma\)，并在路径上重定价，不能乘平方根。</li><li>FHS 不创造未见过的跳跃；压力期与日常条件 VaR 是不同测度。</li><li>出处：Barone-Adesi, Giannopoulos and Vosper, <em>Journal of Futures Markets</em>, 1999；相关讨论见 Barone-Adesi 等 “Don&#39;t look back”；Pritsker 对朴素历史法迟钝的批评，<em>Journal of Banking &amp; Finance</em>, 2006。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 流动性与尾部风险<!--[--> · 单元 市场与流动性<!--]--><!--[--> · 课序 度量<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/copula-var/">Copula VaR</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

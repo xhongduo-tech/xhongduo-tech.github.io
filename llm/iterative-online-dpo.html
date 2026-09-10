@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>迭代与在线 DPO | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_iterative-online-dpo.md.CVOPn_Q4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 自博弈与监督扩展<!--]--><!--[--> · 课序 超越人类标注<!--]--></p><p class="lesson-progress">第 26 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/llm/train-infer-mismatch/">训练-推理精度不匹配</a></p><p class="lesson-next"> 下一课：<a href="/llm/self-rewarding-lm/">自奖励语言模型</a></p></nav><div style="position:relative;"><div><h1 id="迭代与在线-dpo" tabindex="-1">迭代与在线 DPO <a class="header-anchor" href="#迭代与在线-dpo" aria-label="Permalink to &quot;迭代与在线 DPO&quot;">​</a></h1><div class="epigraph"><p>离线偏好对来自旧策略；策略一走远，成对数据过期。迭代生成再标注，等于把 DPO 接回 on-policy 环。</p><footer>—— Rafailov 等 DPO 的离线设定；迭代 DPO / 在线偏好（Snorkel、Intel、后续 on-policy DPO 变体）把教师换成当前 π</footer></div><p><a href="/llm/train-infer-mismatch">上一课</a>收束 PPO/GRPO 的系统偏差。本单元问：没有更多人类比较时，监督从哪来。<a href="/llm/dpo">DPO</a> 默认吃固定 \((y_w,y_l)\)。缺口是：<strong>最优策略一旦离开造对分布，离线 DPO 在过期对上拟合，等于 off-policy 偏好学习。</strong> 本课写迭代与在线 DPO，不重导 BT 回代。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>DPO 假设比较由当前关心的 \(r\) 在 \(\pi_{\mathrm{ref}}\) 邻域产生。公开偏好集来自 ChatGPT 或其他教师，\(\pi_{\mathrm{ref}}\) 对两条 \(y\) 概率都极低，梯度噪。即使对来自自己的 SFT，一轮 DPO 之后 \(\pi_\theta\) 已变，继续在旧对上多 epoch，就是对过期行为分布做极大似然。迭代：用当前策略采样候选，再请人、RM 或 LLM 裁判标序，换成新对，更新 \(\pi_{\mathrm{ref}}\) 或保持冻结。在线：每步或每批都重新造对，更接近 <a href="/llm/ppo-llm">PPO</a> 的数据流，只是损失仍是 DPO。</p><p>Dong 等 RSO、迭代 DPO 的工业复现，都在补这条分布缺口。它不自动解决 <a href="/llm/rm-overoptimization">过优化</a>：裁判若是旧 RM，迭代只是更快榨干 RM。每轮提示集也应刷新或重加权，否则只是对同一批 \(x\) 反复打磨，看起来在线、实际题面离线。</p><h3 id="参考策略跟不跟" tabindex="-1">参考策略跟不跟 <a class="header-anchor" href="#参考策略跟不跟" aria-label="Permalink to &quot;参考策略跟不跟&quot;">​</a></h3><p>每轮把 \(\pi_{\mathrm{ref}}\) 改成上一轮 \(\pi\)，邻域跟着走，KL 意义变成「相对昨天」，能力可以走远，也更容易崩。冻结最初 SFT 当 ref，更像 InstructGPT 的锚。必须声明。在线 DPO 文献里两种都有。</p><p><span class="marginnote">用 RM 打分造对，再 DPO，不是「无奖励模型」；只是 RM 不进 PPO。过优化曲线仍然适用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一轮：\(\pi\) 对每个 \(x\) 采 \(K\) 条 → 裁判或 RM 排序 → 取最好/最差或所有胜负对 → DPO 若干步 → （可选）更新 ref。金标抽检每轮都做，防止代理分涨、人降。在线小 batch 时，学习率低于离线，因为对的噪声大。与 RLHF 第三阶段对照：PPO 用标量 \(r\)；这里用序。两者都要新样本。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>迭代把 DPO 从「一次监督」变成偏好版 on-policy。梯度始终在当前会说的话上比较，避免对数比噪声。走得远的能力来自采样覆盖，不是来自损失形式。若 \(K\) 小、温度低，候选几乎相同，对没有信息，退化成空转——与 GRPO 全对组同一病。</p><p><span class="marginnote">自奖励（下一课）是把 JUD 换成模型自己；本课仍假设外部序。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>人类每轮标，贵，很快碰到可扩展监督问题。RM 或 LLM 裁判迭代，便宜，Goodhart 更快。混合：多数对由 AI 标，少数由人校准 RM。无 KL 的 PPO 与在线 DPO 在可验证域上常不如直接 GRPO；本课主场是开放偏好。下一课去掉外部裁判。</p><p>每轮都要外部金标抽检；提示集也要刷新，否则名为在线、题面仍离线。π_ref 冻结还是跟随必须声明。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>离线 DPO 对过期；迭代/在线用当前 π 造对，接回 on-policy。</li><li>造对的裁判若是 RM，过优化仍在。</li><li>\(\pi_{\mathrm{ref}}\) 冻结或跟随必须声明。</li><li>候选无分叉则对无信息，需温度与 \(K\)。</li><li>出处：Rafailov 等 DPO；迭代 DPO 工业配方；Dong 等 RSO；对照 Ouyang PPO 的在线样本。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 奖励、自博弈与推理行为<!--[--> · 单元 自博弈与监督扩展<!--]--><!--[--> · 课序 超越人类标注<!--]--></p><p class="lesson-progress">第 26 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/self-rewarding-lm/">自奖励语言模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

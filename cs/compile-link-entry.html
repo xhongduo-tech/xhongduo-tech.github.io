@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>编译、链接与入口 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_compile-link-entry.md.Ba59SRiO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 从语句到地址<!--]--></p><p class="lesson-progress">第 1 / 26 课</p><p class="lesson-prereq">本课为该课程第一课，后课默认已经读完这里。</p><p class="lesson-next"> 下一课：<a href="/cs/stack-heap-static/">栈、堆与静态存储</a></p></nav><div style="position:relative;"><div><h1 id="编译、链接与入口" tabindex="-1">编译、链接与入口 <a class="header-anchor" href="#编译、链接与入口" aria-label="Permalink to &quot;编译、链接与入口&quot;">​</a></h1><div class="epigraph"><p>源文件是文本；可执行文件是机器能加载的字节布局。中间隔着翻译、合并符号，以及一条约定好的入口。</p><footer>—— 据 Kernighan &amp; Ritchie, The C Programming Language, 2nd ed.；ISO/IEC 9899；Bryant and O&#39;Hallaron, Computer Systems: A Programmer&#39;s Perspective 第 7 章整理</footer></div><p>本课是计算机栏第一课。后面的存储区、指针、调用约定、比特与门电路，都默认你会把「写下的语句」和「进程里从某个地址取指」连起来，不再从「计算机是什么」或香农比特另起。后课默认已经读完本课。缺口只有一条：一行 <code>printf</code> 怎样变成 CPU 从固定入口开始执行。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>人写的是函数名与类型；加载器要的是按段排好的字节，以及第一条指令的地址。单文件可以假装「编译即镜像」；多文件、库与启动代码必须<strong>链接</strong>——把各编译单元的重定位片段拼成一张地址地图，解析外部符号，填上真正的跳转与数据地址。缺口因此不是 C 语法，而是工具链分工：谁产出可重定位目标，谁把符号绑死，进程为何不从 <code>main</code> 的第一个字节起步。</p><p>把整条链当成黑盒，链接时报 <code>undefined reference</code> 时不知道该改哪个 <code>.o</code>；调试时行号与指令对不上，也是同一缺口。本课只铺流水线；宏展开留给<a href="/cs/preprocessor-preview">预处理器</a>，参数怎么进寄存器留给<a href="/cs/calling-convention-preview">调用约定直觉</a>。</p><h3 id="main-不是第一条指令" tabindex="-1"><code>main</code> 不是第一条指令 <a class="header-anchor" href="#main-不是第一条指令" aria-label="Permalink to &quot;`main` 不是第一条指令&quot;">​</a></h3><p><code>main</code> 是程序员看见的语义入口。进程真实的第一条用户指令在启动例程（C 运行时，常称 crt）：它整理参数与环境，再调用 <code>main</code>，再把返回值交给 <code>exit</code>。把「入口」等同于 <code>int main</code>，后课谈动态链接与进程布局时会对不齐。</p><p><span class="marginnote">K&amp;R 用 <code>cc</code> 驱动预处理、编译、链接。ISO C 把 translation unit 与链接阶段分开：同一标识符如何跨单元合并，是<a href="/cs/module-header">模块与头文件</a>的缺口。CSAPP 第 7 章把目标文件、符号解析与重定位写成程序员可见的机器模型。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>典型 C 路径：源文件经过预处理得到编译单元；编译器产出目标文件，内含代码段、数据、重定位表与符号表；链接器合并这些片段，解析 <code>extern</code>，写出可执行镜像或共享库。静态链接把用到的库代码拷进镜像；动态链接把解析推迟到加载或首次调用，见<a href="/cs/dynamic-link-preview">动态链接直觉</a>。</p><p>符号分定义与引用。两个强符号同名则链接失败；未定义符号——声明了却没有任何单元给出定义——同样失败。弱符号与公共符号是实现细节，本课只记：<strong>编译各自产出碎片，链接器负责拼成一张可加载的地址地图</strong>。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>目标文件里的跳转与取址在链接前是占位。链接器按最终布局计算各段基址，把占位改成相对或绝对地址——这就是重定位。没有这一步，多文件程序无法互相调用。加载器把镜像映射进进程之后，控制权交给入口符号；用户代码从 <code>main</code> 才开始有定义。</p><p>理解这条链，下一课才能问：镜像里的全局变量、函数里的自动变量、运行时申请的块，分别落在哪片地址上。那些区域不是语法糖，而是链接与加载留下的分区。</p><p>分别编译能成立，是因为每个目标文件把自己还不知道的地址留成重定位项，而不是把「整个程序」一次吃进编译器。调试信息、栈展开表也可以作为段被链接器搬运，但本课不依赖它们：只要符号解析与入口约定在，后课的栈帧、库与系统调用才有附着点。把入口想成 <code>main</code> 的花括号，会在 crt 初始化全局构造、环境指针、对齐栈之前就去谈程序语义，顺序反了。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲指令编码，也不讲虚存如何把文件映成页。ISA 与页表是组成、操作系统后课。也不把预处理器的 <code>#include</code> 守卫在此展开。大模型栏的「编译」是另一套图编译，本栏不写 Transformer。</p><p>后课默认：多文件程序经编译得到带重定位的目标文件，经链接得到镜像，经加载从约定入口进入用户代码。下一课<a href="/cs/stack-heap-static">栈、堆与静态存储</a>在这张镜像上划分寿命。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>编译按编译单元产出带重定位的目标文件；链接合并片段并解析符号。</li><li>可执行镜像含代码、数据与入口；<code>main</code> 由启动代码调用，不是进程第一条指令。</li><li>静态链接在链接期并入库代码；动态链接推迟解析。</li><li>后课默认已会把源语句对应到入口之后的地址。</li><li>出处：K&amp;R；ISO/IEC 9899 翻译与环境；CSAPP 第 7 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序设计与机器模型<!--[--> · 单元 语言与内存<!--]--><!--[--> · 课序 从语句到地址<!--]--></p><p class="lesson-progress">第 1 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/stack-heap-static/">栈、堆与静态存储</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

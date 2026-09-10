@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>刻蚀偏置与 OPC 回环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_etch-bias-opc-loop.md.DEXXo7vE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集成、控制与良率<!--[--> · 单元 刻蚀与转印<!--]--><!--[--> · 课序 把胶的形状变成硅的形状<!--]--></p><p class="lesson-progress">第 7 / 33 课</p><p class="lesson-prereq"> 先修：<a href="/litho/etch-loading-effect/">刻蚀负载效应</a></p><p class="lesson-next"> 下一课：<a href="/litho/cmp-topography/">CMP 与形貌</a></p></nav><div style="position:relative;"><div><h1 id="刻蚀偏置与-opc-回环" tabindex="-1">刻蚀偏置与 OPC 回环 <a class="header-anchor" href="#刻蚀偏置与-opc-回环" aria-label="Permalink to &quot;刻蚀偏置与 OPC 回环&quot;">​</a></h1><div class="epigraph"><p>ADI 贴目标之后，腔体还要把边再挪一截；这截偏置该回写进 OPC 版本，而不是每个班次拿 AEI 去拧扫描机剂量。</p><footer>—— 对照 ADI/AEI 偏置、紧凑刻蚀核与 run-to-run 的分工；Levinson 对 after-etch 计量的区分</footer></div><p><a href="/litho/etch-loading-effect">上一课</a>把负载写成布局邻域。缺口是闭环：在线 AEI 看见偏置漂了，谁改、改哪一层模型。<a href="/litho/etch-in-opc">刻蚀进 OPC</a> 与 <a href="/litho/etch-model-calibration">刻蚀模型校准</a> 已写核如何进迭代、如何标定；本课钉<strong>量产回环</strong>：何时重拟合核、何时只调平均偏置、何时重工晶圆。CMP 形貌如何先毁掉焦深，留给[下一课](/litho/cmp-topography）。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>偏置 = AEI − ADI（同一部位）。它随腔体老化、聚合物积累、硬掩模厚度和开口率漂。<a href="/litho/adi-aei">ADI/AEI</a> 已要求两套控制图。回环错误形态：用 AEI 误差去改扫描机剂量——把刻蚀指纹写进光学，下层套刻和胶窗一起坏。正确分层：扫描机盯 ADI；刻蚀 APC 盯平均速率/偏置；密度形状的变化才触发 OPC 核重标定。</p><p>缺口是<strong>版本与频率</strong>，不是再拟合一次核。每片重 OPC 不可能；每季度重标定可能太慢。中间是偏置偏移量（global etch bias）进 APC，形状残差进工程触发器。</p><h3 id="回环不是实时-ilt" tabindex="-1">回环不是实时 ILT <a class="header-anchor" href="#回环不是实时-ilt" aria-label="Permalink to &quot;回环不是实时 ILT&quot;">​</a></h3><p>在线数据稀疏、有计量延迟、有抽样偏差（下一门过程控制会展开）。只能更新低维参数：全场平均、径向一次项，或许分密度档。二维 jog 的核形状仍靠工程实验片。把稀疏 AEI 直接当全芯片目标去反演 OPC，会拟合噪声。</p><p><span class="marginnote">OPC 版本号含刻蚀食谱 id 与核版本。腔体大保养后应走验证矩阵，而不是假定偏置连续可滑。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>数据：成对或对齐的 ADI/AEI、开口率图。决策树：平均偏置漂 → 刻蚀时间/过刻 APC；径向指纹 → 腔体匹配；密度斜率变 → 重采集校准片、更新核；局部新热点 → LRC/PWQ，可能改设计。与后课 APC、R2R 的关系：本课定义光刻–刻蚀分工；控制课写滤波与抽样。</p><p>仿真链：更新核后必须重跑关键层 LRC，不能只改表格里一个数。</p><p>触发器要数字化：密度斜率相对校准片偏多少、新热点是否只在一种开口率出现。含糊的「感觉偏了就重 OPC」会把核版本刷爆。SEMI 意义上的过程控制把低维更新和模型重辨识分开，本课沿用这道缝。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>平均偏置对应全球中性/离子水平；密度斜率对应微负荷与钝化。前者可周频更新，后者是模型结构。扫描机剂量主要动 ADI 均值，对刻蚀密度斜率几乎无能为力。故「AEI 偏了就加剂量」会在密孤立差上越补越歪。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不把 OPC 当每片控制环。不重写等离子体第一性原理。金属–via enclosure 的 AEI 目标属于此环的规格，不要改成 ADI 目标。</p><p>后课默认：偏置分层回写；扫描机不背刻蚀的锅。下一课形貌来自 CMP，它会先改焦点和对准，再改下一层的光学。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>刻蚀偏置回环分层：均值进 APC，形状进核版本，禁止用 AEI 拧剂量。</li><li>OPC 版本绑定食谱；大保养后重验证。</li><li>稀疏计量只能更新低维参数。</li><li>出处：ADI/AEI 与计算光刻刻蚀核通称；Levinson 计量区分。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集成、控制与良率<!--[--> · 单元 刻蚀与转印<!--]--><!--[--> · 课序 把胶的形状变成硅的形状<!--]--></p><p class="lesson-progress">第 7 / 33 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/cmp-topography/">CMP 与形貌</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

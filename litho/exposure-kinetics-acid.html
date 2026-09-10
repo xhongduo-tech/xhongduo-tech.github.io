@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>曝光动力学与光酸生成 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_exposure-kinetics-acid.md.DPx5jbTY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 曝光与反应<!--]--><!--[--> · 课序 从光子到轮廓<!--]--></p><p class="lesson-progress">第 2 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/litho/dill-parameters/">Dill 参数 A、B、C</a></p><p class="lesson-next"> 下一课：<a href="/litho/peb-reaction-diffusion/">PEB 反应扩散模型</a></p></nav><div style="position:relative;"><div><h1 id="曝光动力学与光酸生成" tabindex="-1">曝光动力学与光酸生成 <a class="header-anchor" href="#曝光动力学与光酸生成" aria-label="Permalink to &quot;曝光动力学与光酸生成&quot;">​</a></h1><div class="epigraph"><p>Dill 的 $C$ 写出 PAC 怎么被消耗；化学放大还要把同一段曝光读成酸的出生。动力学在曝光结束时停止，催化不在这里开始。</p><footer>—— 据 Dill 曝光方程与 Ito / Willson 产酸接口；Mack 对 PAC/PAG 转化的表述整理</footer></div><p><a href="/litho/dill-parameters">上一课</a>把 \(A\)、\(B\)、\(C\) 钉成胶内吸收与 \(m\) 的速率。缺口是：<a href="/litho/car-resist">CAR</a> 的潜像不是抑制剂分数，而是酸浓度。本课把曝光动力学接到光酸生成。<a href="/litho/pag-quencher">PAG 与淬灭剂</a>已经说明酸从哪来、碱钉阈值；这里只补曝光时段的速率，不重写那一对配方旋钮。PEB 里酸怎么走，留给<a href="/litho/peb-reaction-diffusion">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Dill 方程的 \(m\) 对 DNQ 就是 PAC 分数。CAR 里对应物是未转化 PAG 分数：曝光把 PAG 打成酸（DUV 上直接或经敏化；EUV 上经二次电子，本课先承认路径不同，不写截面表）。低剂量、无耗尽时，酸浓度近似与吸收能量成正比，看起来像「\(C\) 乘剂量」。剂量高了，PAG 耗尽，\(m\) 指数下降，产酸饱和——这是曝光动力学，不是 PEB 增益。</p><p>缺口因此是：把上一课的 \(\partial m/\partial t=-CIm\) 读成酸源项 \(h=h_0(1-m)\)（或等价的 PAG 转化分数），并声明淬灭剂在曝光结束时几乎还没动。把酸图直接写成空中像 \(I(x)\)，等于假定转化永远线性、碱为零。</p><h3 id="曝光结束-催化尚未开始" tabindex="-1">曝光结束，催化尚未开始 <a class="header-anchor" href="#曝光结束-催化尚未开始" aria-label="Permalink to &quot;曝光结束，催化尚未开始&quot;">​</a></h3><p>室温下脱保护速率通常可以忽略。扫描狭缝走过之后，晶圆上只有酸与剩余 PAG、预置碱。Ito / Willson 的放大发生在后烘。本课禁止用「化学增益」解释曝光时段的灵敏度：增益还没开机。</p><p><span class="marginnote">EUV 一次 92 eV 吸收可经电离产多颗酸，有效「量子产率」可以大于 1，仍是曝光事件，不是 PEB 循环。Kozawa 的电离路径改的是本课源项的预因子，不改「曝光写酸、PEB 用酸」的分工。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>紧凑写法：指定 \(C\) 与初始 PAG 加载，沿狭缝时间积分 \(I(x,z,t)\)，得到转化分数与酸浓度 \(h(x,z)\)。漂白若 \(A\neq 0\)，必须与强度联立，否则底部酸会被高估。表征：用 \(E_0\) 扫胶、或用指示剂看产酸，但 \(E_0\) 还含显影与 PEB，不能单独反解 \(C\)——标定要固定后烘再拆。</p><p>与<a href="/litho/pag-quencher">淬灭剂</a>的接口：曝光模块输出的是生成酸；有效酸要等下一课中和。本课可以承认「碱在膜里」，但速率方程仍把中和留给 PEB 温度下的扩散–反应。把中和写进曝光积分，等于给室温一个虚假的催化时钟。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>DUV：光子把鎓盐 PAG 打成超强酸，量子效率通常小于 1，受聚合物吸收分流——上一课的 \(B\) 并不全是 PAG。酸一旦生成，在曝光时间尺度上基本钉在出生点附近；室温扩散长度远小于 PEB 的 \(\ell\)。EUV：吸收截面由高 Z 与聚合物共同决定，二次电子把能量交给 PAG，源项在空间上已经带一颗纳米核——那颗核的模型是随机课序的题目，本课只把平均产酸写进 \(h\)。</p><p>线性区：\(h\propto(1-e^{-CE})\) 一类饱和形式（细节随是否用剂量还是局部强度积分而变）。OPC 紧凑胶若用「有效剂量 × 灵敏度」，等于取了这个函数的切线；PAG 耗尽或漂白强时切线撒谎。</p><p><span class="marginnote">不要把「更敏」写成更大的 \(C\)。加 PAG 加载、加 PEB、减淬灭都能降 \(E_0\)，只有第一种主要改本课的源项幅度。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不写 PAG 分子式，不把某胶的量子产率当节点规格。不重推 CAR 循环——<a href="/litho/car-resist">化学放大</a>已经钉过。下一课默认本课交出平均酸图 \(h(x,z)\)，再在 PEB 温度下做反应–扩散。随机计数把 \(h\) 换成离散分子，那是后一单元；本课仍是连续场。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>曝光动力学把 Dill \(C\) 读成 PAG 转化与酸源项；催化不在曝光里。</li><li>低剂量近线性，高剂量 PAG 耗尽饱和。</li><li>淬灭剂库存带到 PEB，不在室温积分里被「用掉」。</li><li>EUV 电离可让每光子酸数 \(\gt 1\)，仍属曝光源项。</li><li>「更敏」未必是更大的 \(C\)。</li><li>出处：Dill 曝光方程；Ito / Willson 产酸；Mack 教材中的 PAG 转化。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 胶物理模型与随机性<!--[--> · 单元 曝光与反应<!--]--><!--[--> · 课序 从光子到轮廓<!--]--></p><p class="lesson-progress">第 2 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/peb-reaction-diffusion/">PEB 反应扩散模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

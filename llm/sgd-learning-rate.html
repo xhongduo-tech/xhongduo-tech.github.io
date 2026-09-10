@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>梯度下降与学习率 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_sgd-learning-rate.md.D2Y82QRE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 一阶优化<!--]--></p><p class="lesson-progress">第 8 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/clm-as-next-token/">下一词分类</a></p><p class="lesson-next"> 下一课：<a href="/llm/minibatch-noise/">小批量噪声</a></p></nav><div style="position:relative;"><div><h1 id="梯度下降与学习率" tabindex="-1">梯度下降与学习率 <a class="header-anchor" href="#梯度下降与学习率" aria-label="Permalink to &quot;梯度下降与学习率&quot;">​</a></h1><div class="epigraph"><p>沿损失下降最快的方向走一小步；这一小步有多长，由学习率说了算，不由梯度自己的欧氏长度说了算。</p><footer>—— 据 Cauchy, Méthode générale pour la résolution des systèmes d&#39;équations simultanées, 1847；Goodfellow et al., Deep Learning, 2016 整理</footer></div><p><a href="/llm/clm-as-next-token">下一词分类</a>给出标量损失 \(L(\theta)\)。本课不重写因式分解。缺口是：有了对 \(\theta\) 的导数之后，如何改参数。方法是梯度下降：\(\theta\leftarrow\theta-\eta\nabla_\theta L\)。本课只钉住「方向来自梯度、步长来自 \(\eta\)」；小批量噪声、动量、二阶自适应是后课。反向如何算出 \(\nabla L\)，要等到计算图那一单元。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>损失是参数的函数。在当前 \(\theta\)，一阶泰勒说：沿 \(v\) 走 \(\varepsilon\)，损失改变约 \(\varepsilon\langle\nabla L,v\rangle\)。要使改变最负，\(v\) 应与 \(-\nabla L\) 同向。缺口不是新的损失，而是这条局部规则如何变成一次更新，以及 \(\eta\) 为什么不能从梯度里消掉。</p><p>若令 \(\eta\) 等于 \(1/\|\nabla L\|\)，每步都在参数空间走固定欧氏长度，损失的局部曲率一变就会过冲。若令 \(\eta\) 随损失绝对值变，又把损失的任意可加常数引进步长。正确的接口是：\(\nabla L\) 只给方向与相对尺度，\(\eta\) 是独立超参，用来匹配参数的典型量级和损失的局部光滑程度。</p><h3 id="学习率不是「梯度的倒数」" tabindex="-1">学习率不是「梯度的倒数」 <a class="header-anchor" href="#学习率不是「梯度的倒数」" aria-label="Permalink to &quot;学习率不是「梯度的倒数」&quot;">​</a></h3><p>有人把 \(\eta\) 理解成让 \(\eta\|\nabla L\|\) 等于某一个固定的参数扰动。那是在用一阶信息冒充线搜索。真实线搜索要沿该方向试 \(L\)，深度学习几乎不做；\(\eta\) 是全局常数或按日程衰减的标量。自适应方法稍后会给每个坐标不同的有效步长，但那是用梯度历史估尺度，仍不是「这一步的梯度取倒数」。把 \(\eta\) 当成梯度归一化，后课 Adam 的 \(\hat m/\sqrt{\hat v}\) 会看起来像重复劳动。</p><p><span class="marginnote">全梯度下降用整个训练集的 \(L\)。本课先写这一形式，只为把 \(\eta\) 从噪声里分开。下一课才把 \(\nabla L\) 换成小批量估计。实践中几乎从不用全梯度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一次更新 \(\theta_{t+1}=\theta_t-\eta_t g_t\)，其中 \(g_t=\nabla_\theta L(\theta_t)\)（或下一课的批量估计）。\(\eta_t\) 可以恒定，可以按步数分段衰减，可以按余弦从初值降到末值。选择 \(\eta\) 的量级通常与初始化、层宽、损失平均方式绑定：损失若从「求和」改成「求平均」，梯度缩小 \(B\) 倍，\(\eta\) 往往要放大，否则名义上的同一数字其实不是同一有效步长。</p><p>停步条件不是本课的重点。本课只需承认：固定 \(\eta\) 时，靠近极小点若曲率很大，会在谷底振荡；曲率很小，则走得极慢。这是一阶方法的几何，不是实现 bug。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(\eta\) 把参数空间的欧氏度量强加给损失的几何。损失在不同层、不同矩阵上的尺度可以差几个数量级，同一 \(\eta\) 对有的坐标过大、对有的过小。这正是后课自适应方法要补的缺口。本课先把问题暴露出来：不是「先把网络训好再谈优化」，而是没有 \(\eta\) 就没有训练。</p><p>梯度下降保证的是：在 \(\eta\) 足够小、 \(L\) 足够光滑时，一步之后 \(L\) 不会上升。足够小取决于 Lipschitz 常数一类量，实践中靠试。过大的 \(\eta\) 让损失发散或长期震荡；过小的 \(\eta\) 让人误以为模型没有容量。调 \(\eta\) 是在调这条一阶程序，不是在调词表。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不计算梯度，只使用它。不讲牛顿法、不讲自然梯度。下一课<a href="/llm/minibatch-noise">小批量噪声</a>把 \(g\) 换成随机估计，并解释噪声为何既妨碍又有用。后课默认：参数更新是减 \(\eta\) 乘梯度；改变损失的平均方式必须同时声明对 \(\eta\) 的影响。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>一阶更新沿 \(-\nabla L\)，步长由独立的学习率 \(\eta\) 给定。</li><li>\(\eta\) 不是梯度的归一化常数；损失从求和改成平均会改变有效步长。</li><li>过大则震荡或发散，过小则看似训不动。</li><li>全梯度只是记号；实现几乎总是后课的小批量。</li><li>出处：Cauchy, 1847；Goodfellow et al., Deep Learning, 2016。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 一阶优化<!--]--></p><p class="lesson-progress">第 8 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/minibatch-noise/">小批量噪声</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

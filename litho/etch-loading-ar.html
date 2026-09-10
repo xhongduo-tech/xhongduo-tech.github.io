@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深宽比与刻蚀负荷 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_etch-loading-ar.md.Bz5qatq7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 制程、封装与管制<!--[--> · 单元 前后道<!--]--><!--[--> · 课序 器件与集成<!--]--></p><p class="lesson-progress">第 2 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/litho/rie-pattern-transfer/">反应离子刻蚀转印</a></p><p class="lesson-next"> 下一课：<a href="/litho/contact-hole-patterning/">接触孔与通孔图形化</a></p></nav><div style="position:relative;"><div><h1 id="深宽比与刻蚀负荷" tabindex="-1">深宽比与刻蚀负荷 <a class="header-anchor" href="#深宽比与刻蚀负荷" aria-label="Permalink to &quot;深宽比与刻蚀负荷&quot;">​</a></h1><div class="epigraph"><p>同一套离子与自由基，开口一深、邻近一密，到达底部的通量就不是晶圆平均值；速率随几何走，叫深宽比相关刻蚀，也叫负荷。</p><footer>—— 刻蚀通称：ARDE 与宏 / 微负荷，不把某一腔体的速率表当成自然常数</footer></div><p><a href="/litho/rie-pattern-transfer">上一课</a>把 RIE 写成协同与硬掩模转印，默认开口够宽、通量够均匀。缺口是几何：接触孔、浅槽和密线之间，深宽比（AR）和开口面积一变，中性基与离子到达底部的概率变，CD 与深度不再跟紧凑偏置走。本课钉 ARDE 与负荷效应。孔阵列相对线空为什么更难印、更难刻，留给<a href="/litho/contact-hole-patterning">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一课的选择比窗口是对「某种膜、某种偏置」说的。同样食谱，孤立宽槽先到底，密线或深孔还在爬——这是深宽比相关刻蚀（ARDE）：高 AR 特征速率下降。晶圆上开放面积大，自由基被吃光，全局速率下降，叫宏负荷；局部密度高，邻近图形抢通量，叫微负荷。OPC 若只用一个与密度无关的偏置，疏密交界会先出窗口。</p><p>缺口不是再讲离子从哪来，而是：转印函数对<strong>布局</strong>敏感。DTCO 的密度规则、虚拟图形（dummy）和填充，有一部分是在买更均匀的刻蚀通量，而不是在买光学对比。</p><h3 id="arde-不是焦深" tabindex="-1">ARDE 不是焦深 <a class="header-anchor" href="#arde-不是焦深" aria-label="Permalink to &quot;ARDE 不是焦深&quot;">​</a></h3><p>光学焦深按 \(\lambda/\mathrm{NA}^2\) 变薄，是空中像沿轴。ARDE 是腔体传输：中性基要扩散进孔，离子有角分散，深孔底部通量掉。两者都会让「看起来一样的设计 CD」在硅上分叉，计量链不同。把深孔刻不穿写成曝光不足，会去拧剂量。</p><p><span class="marginnote">过刻用来照顾最慢的孔，同时最宽的槽已经在啃硬掩模或衬底。窗口是最慢特征与最快特征之间的选择比，不是平均速率。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工程上把图形分成 AR 族与开口面积族，用截面和终点信号看谁先停、谁还在走。缓解不外乎：降 AR（先开硬掩模再换化学）、加钝化抑制宽槽横向、用脉冲或低占空比改离子/中性比、布局上插 dummy 把局部开放面积拉平。ALE 用循环把「每圈去掉的量」从通量梯度里解开，那是薄膜课的工具；本课的连续 RIE 仍活在通量里。</p><p>虚拟图形必须同时过光学与刻蚀两关：dummy 会改空中像邻近，也会改微负荷。只为刻蚀填满、不管 OPC，邻近热点会换一个地方出现。</p><div class="mermaid"></div><h3 id="填充图形是刻蚀的-ret" tabindex="-1">填充图形是刻蚀的 RET <a class="header-anchor" href="#填充图形是刻蚀的-ret" aria-label="Permalink to &quot;填充图形是刻蚀的 RET&quot;">​</a></h3><p>光学有 SRAF；刻蚀有密度填充。两者都改变邻域算子。区别是：SRAF 不应在晶圆上作为独立图形留下；dummy 往往留下，要能被后续 CMP 或电学接受。规则手册里的「最小/最大密度」常是负荷约束，被误写成分辨率约束。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>中性自由基无方向，运输靠扩散；孔越深越窄，口部消耗后底部欠饱和，速率掉——ARDE 的化学支。离子有鞘层加速，但仍有角分布；深孔壁挡住斜离子，底部离子通量也掉，物理支同样 ARDE。宏负荷是整片开放面积的反应器级质量守恒：面积大，自由基分母变大。微负荷是图案尺度的局部耗尽。三者可以同时在，不能用一个「loading 百分比」打天下。</p><p>这解释了接触孔过刻比线空更凶：孔的 AR 更高、底部更黑，终点要以孔为准，线槽就过刻。也解释了为何紧凑刻蚀模型至少要一个密度项；没有这一项，上一课的全芯片核在 SRAM 与逻辑交界处系统性地偏。</p><p><span class="marginnote">同一食谱换掩模开口率，速率可以明显变。比较两台刻蚀机的「快慢」而不声明开口率和 AR，没有意义。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要发明某国产刻蚀机在某一 AR 下的纳米/分。通称机制够用：通量随几何变。不要把 ARDE 写成只有深硅 MEMS 才有——逻辑接触孔和金属沟槽已经在这个词里。本课不重写 Coburn 协同，只把它放进有限深宽比的腔。</p><p>CMP 碟形、电镀填充也会随密度变，那是后道另一条负荷，不要和干法微负荷混成一张图。下一课的孔图形化会把光学低对比和本课的高 AR 叠在同一类图形上。</p><p><span class="marginnote">出处：半导体刻蚀通称中的 ARDE、macro/micro loading；与 RIE 教材中的传输限制。不引用未公开的腔体速率曲线。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ARDE：高深宽比降低底部离子/自由基通量，速率下降。</li><li>宏负荷吃整片开口面积；微负荷吃局部密度。</li><li>过刻窗口夹在最慢孔与最快槽之间。</li><li>dummy 与密度规则有一部分是刻蚀 RET，不是光学 \(k_1\)。</li><li>接触孔图形化下一课，光学与刻蚀在孔上会合。</li><li>出处：刻蚀通称 ARDE 与负荷；不编造工具速率。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 制程、封装与管制<!--[--> · 单元 前后道<!--]--><!--[--> · 课序 器件与集成<!--]--></p><p class="lesson-progress">第 2 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/contact-hole-patterning/">接触孔与通孔图形化</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

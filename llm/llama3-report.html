@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Llama 3 技术报告 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_llama3-report.md.DtqKy17p.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 开源续<!--]--></p><p class="lesson-progress">第 185 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/qwen25-report/">Qwen2.5 技术报告</a></p><p class="lesson-next"> 下一课：<a href="/llm/llama4-report/">Llama 4 技术报告</a></p></nav><div style="position:relative;"><div><h1 id="llama-3-技术报告" tabindex="-1">Llama 3 技术报告 <a class="header-anchor" href="#llama-3-技术报告" aria-label="Permalink to &quot;Llama 3 技术报告&quot;">​</a></h1><div class="epigraph"><p>我们选择标准稠密 Transformer 而不是 MoE，以便把研发流程缩放到 405B；后训练保持相对简单：SFT、拒绝采样与 DPO。</p><footer>—— Grattafiori 等，The Llama 3 Herd of Models，arXiv:2407.21783</footer></div><p><a href="/llm/llama-3">Llama 3 数据与 tokenizer</a> 写 15T 与 128k 词表；<a href="/llm/llama-3-1">Llama 3.1 长上下文</a> 写 8k→128k 课程。本篇对着 <strong>Herd 论文</strong>写剩下的骨架：<strong>为何 405B 稠密、表 3 的层与头、(3.8\times 10^{25}) FLOP、16K H100、后训练轮次、工具与 Llama Guard 3</strong>。论文声明表中数字对应 <strong>Llama 3.1</strong>，行文仍称 Llama 3。不要把 2024 年 4 月仅 8B/70B、8k 窗口的首发，与 7 月 405B/128k 混成一张「都叫 3」的规格。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Llama 2 的上限是 70B 与约 2T token。下一代若要在开源许可下逼近 GPT-4 档，需要一次<strong>计算最优附近的旗舰宽度</strong>，以及两个过训练的小档（8B/70B）用同一套数据与后训练。MoE 能在同样 FLOP 下堆更多参数，但论文把<strong>训练稳定性与流程可扩展</strong>设为一等约束，于是放弃稀疏。第二个问题是后训练：PPO 一类算法在 405B 上难稳，他们把流程收成奖励模型 + SFT + 拒绝采样 + DPO 的多轮迭代，并把工具、代码、多语、安全写进数据策展，而不是换网络。</p><h3 id="三档超参是报告里最硬的表" tabindex="-1">三档超参是报告里最硬的表 <a class="header-anchor" href="#三档超参是报告里最硬的表" aria-label="Permalink to &quot;三档超参是报告里最硬的表&quot;">​</a></h3><p>表 3：8B 为 32 层、宽 4096、FFN 14336、32 查询头；70B 为 80 层、宽 8192、FFN 28672、64 查询头；405B 为 <strong>126 层、宽 16384、FFN 53248、128 查询头</strong>。三档都是 <strong>8 个 KV 头</strong> 的 <a href="/llm/gqa">GQA</a>，<a href="/llm/swiglu">SwiGLU</a>，词表 128k，RoPE (\theta=500{,}000)。峰值学习率随宽度下降：(3\times 10^{-4}) / (1.5\times 10^{-4}) / (8\times 10^{-5})。405B 预训练 <strong>15.6T</strong> token、预算 <strong>(3.8\times 10^{25})</strong> FLOP，约 Llama 2 旗舰的 50 倍。小模型在同样数据上远超计算最优步数，用旗舰在后训练里再蒸馏式地帮它们——论文把这写成刻意的推理成本最优，而不是「没算过缩放律」。</p><p><span class="marginnote">4 月的 Llama 3 8B/70B 知识截止不同、窗口 8k；3.1 把三档都拉到 128k 并放出 405B。许可为更新后的 Llama 3 Community License，不是 Apache。Guard 3 是配套安全分类器，不是语言模型本体。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>预训练三阶段（405B）：(1) 主体 next-token，AdamW，8k 步热身，余弦到 (8\times 10^{-7})，约 120 万步；batch 从 4M token × 4k 长，经 8M × 8k，再到 16M，以稳住前期。(2) 长上下文约 <strong>800B</strong> token，六档加长到 128k，门禁为短任务恢复 + 针检索，详见长上下文专文。(3) 退火，并上采样高质量域；小模型退火对 GSM8K/MATH 有明显增益，405B 上增益可忽略。训练在最多 <strong>16K 张 H100</strong>（Grand Teton，NVLink 机内，RoCE 400Gbps 机间）上进行；小档用 InfiniBand 集群。并行含张量、流水、数据与上下文并行；MFU 与切分表见论文表 4。54 天窗口里约 78% 意外中断被归为硬件。</p><h3 id="后训练-多轮-sft-rs-dpo" tabindex="-1">后训练：多轮 SFT + RS + DPO <a class="header-anchor" href="#后训练-多轮-sft-rs-dpo" aria-label="Permalink to &quot;后训练：多轮 SFT + RS + DPO&quot;">​</a></h3><p>每轮：在预训练检查点上训奖励模型（人类偏好）；SFT 指令数据；拒绝采样造优质轨迹；<a href="/llm/rafailov-dpo">DPO</a> 对齐。多轮迭代把工具使用、代码、推理、事实性、多语、长上下文与精确遵嘱的策展数据加进去。论文明确不把 PPO 当默认，理由是更不稳、更难扩。工具调用成为一等能力：模型学习何时调用、如何填参、如何根据工具结果继续，评测含该协议。安全写进第 5.4 节与 Guard 模型，输入输出都可过滤。组合式多模态（图像/视频/语音适配器）是论文中的实验系统，<strong>不是</strong> 3.1 文本权重的默认前向，不要写成原生早融合。</p><div class="mermaid"></div><p>人类评测与表 2 把 8B / 70B / 405B 分到三个等价班，对照 Gemma 2、Mixtral、GPT-4、Claude 3.5 等。旗舰叙事是「在大量任务上与 GPT-4 可比、接近 SOTA」。小档「同参数班第一」。这些是 2024-07 的表，提示协议（是否 CoT、shot 数）印在脚注里，引用时不要丢掉。代码与推理的增益被明确写成后训练策展的结果，而不是 126 层突然会搜索；多语 8 种工作语言是 Instruct 产品范围，预训练里更多语种只保证切得动。安全评测覆盖短对话与长前缀、many-shot 有害示范——窗口拉长后，文档内对抗与恶意示范会进入同一上下文，Guard 3 必须跟长窗一起发。</p><p><span class="marginnote">8B/70B 预训练含多语，但 4 月版产品意图偏英语；3.1 Instruct 才把德、法、意、葡、印地、西、泰等列为支持对话语种。覆盖面仍不是 119 语种故事。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>选稠密的机制是优化器与并行栈的确定性：每个 token 走全部 FFN，没有专家负载塌缩，故障重启与检查点形状更简单。代价是同等 FLOP 下总参数少于稀疏旗舰，服务 405B 必须模型并行。GQA 8 KV 头把 decode 缓存打到可接受斜率，与 128 个查询头的表达力折中；头维 (16384/128=128)。高 (\theta) RoPE 为后续拉窗留相位余量，真正的 128k 仍靠持续预训练。</p><p>DPO 直接在偏好对上拟合，避开在线 RL 的价值估计；拒绝采样用奖励模型或校验器筛轨迹，等于在 SFT 前做一次「只留高分续写」。工具的机制是把调用格式写进后训练分布，推理侧仍要约束解码与沙箱——权重不会执行 HTTP。IsoFLOPs 在高预算下变平，所以 405B 对「再宽一点或再多一点 token」不敏感，这是他们敢钉这个宽度的理由。</p><h3 id="过训练的-8b-不是缩小的-405b" tabindex="-1">过训练的 8B 不是缩小的 405B <a class="header-anchor" href="#过训练的-8b-不是缩小的-405b" aria-label="Permalink to &quot;过训练的 8B 不是缩小的 405B&quot;">​</a></h3><p>同样 15T+，8B 重复看数据更多，记忆与表面模式更强；405B 更接近计算最优，泛化与复杂推理更强。后训练用旗舰造数据喂小模型，使 8B Instruct 超过「纯小模型自己 RL」。因此不能用 8B 的 HumanEval 外推 405B，也不能用 405B 的电费去骂 8B 的本地部署。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>Llama 4 的 MoE 路线与本报告的「为稳定而稠密」是后续决策，不能回写。组合多模态实验不是 3.1 发布权重。Community License 有用户数与可接受使用限制。15.6T 公开来源仍不可逐条审计；污染分析以论文为准。405B 的 128k 服务是带宽问题，多数业务用不到标称上限。RoCE 上训 405B、IB 上训小档，复现基础设施成本不在开源包里。环境温度造成的 1–2% 日周期吞吐波动被写进基础设施章节，提醒超大作业的「MFU」含数据中心气候，不是纯算法常数。检查点平均与退火是收尾稳定性手段，不能当成又一种架构。</p><p>不要把 4 月博客的 8k 窗口写成 Herd 论文的默认产品规格。3.2 / 3.3 是后来的视觉与指令快照，见各专文。</p><p><span class="marginnote">真实编号：arXiv:2407.21783。数据与切词细节见 <a href="/llm/llama-3">llama-3</a>；窗口几何见 <a href="/llm/llama-3-1">llama-3-1</a>。论文作者行为 Grattafiori 等 / Llama 团队。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Llama 3.1 三档稠密：8B / 70B / 405B（126 层、宽 16384、128Q/8KV），GQA + SwiGLU + RoPE (\theta=5\times 10^5)。</li><li>405B 用 (3.8\times 10^{25}) FLOP、15.6T token、最多 16K H100；刻意选稠密以稳定扩展。</li><li>后训练多轮：RM、SFT、拒绝采样、DPO；工具与 Guard 3 随报告发布。</li><li>评测表对应 3.1；4 月 8B/70B 8k 首发是另一快照。</li><li>出处：Grattafiori 等，<em>The Llama 3 Herd of Models</em>，arXiv:2407.21783。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 闭源与前沿型号<!--]--><!--[--> · 课序 开源续<!--]--></p><p class="lesson-progress">第 185 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/llama4-report/">Llama 4 技术报告</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>聚类标准误 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_clustered-se.md.Dg8JCohz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计量经济学<!--[--> · 单元 识别与回归<!--]--><!--[--> · 课序 从相关到因果<!--]--></p><p class="lesson-progress">第 4 / 28 课</p><p class="lesson-prereq"> 先修：<a href="/econ/hac-heteroskedasticity/">异方差与 HAC</a></p><p class="lesson-next"> 下一课：<a href="/econ/ovb-measurement-error/">遗漏变量与测量误差</a></p></nav><div style="position:relative;"><div><h1 id="聚类标准误" tabindex="-1">聚类标准误 <a class="header-anchor" href="#聚类标准误" aria-label="Permalink to &quot;聚类标准误&quot;">​</a></h1><div class="epigraph"><p>同一聚类里的观测可以任意相关；聚类标准误只要求聚类之间近似独立。把一家企业二十年当成二十个独立点，显著性几乎一定虚高。</p><footer>—— Liang and Zeger 广义估计方程传统；Cameron, Gelbach and Miller, Review of Economics and Statistics 2008；Bertrand, Duflo and Mullainathan, QJE 2004；对照 Angrist and Pischke 第 8 章</footer></div><p><a href="/econ/hac-heteroskedasticity">上一课</a>用 White 修独立截面的异方差，用 Newey–West 修<strong>一条</strong>序列的短记忆。本课缺口是面板与重复抽样：误差在同一企业、同一县、同一学校里相关，但不同聚类之间可以近似独立。把 \(N\times T\) 格点当 \(NT\) 个 i.i.d.，或只开 robust 不开 cluster，SE 系统性偏小。识别下一课才回到<a href="/econ/ovb-measurement-error">遗漏变量与测量误差</a>；本课把推断钉在「冲击发生的那一层」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>聚类 \(g\) 内允许 \(\mathrm{Cov}(u_{gi},u_{gj})\neq 0\)，组间 \(g\neq h\) 则协方差为零。有效信息量接近聚类个数 \(G\)，不是行数 \(N\)。五十个州的政策回归，名义样本可以是州–年几千行，\(G=50\) 才是渐近的分母。Bertrand–Duflo–Mullainathan 演示：州级 DiD 若忽略序列相关，\(t\) 统计量严重膨胀。缺口不是再选一次核带宽，而是：<strong>相关块的边界在哪，以及 \(G\) 不够大时正态近似还能否用。</strong></p><h3 id="聚类不是越细越好" tabindex="-1">聚类不是越细越好 <a class="header-anchor" href="#聚类不是越细越好" aria-label="Permalink to &quot;聚类不是越细越好&quot;">​</a></h3><p>把聚类拆到个体，等于回到 White：组内相关被假装切碎。把聚类升到「全世界一年一个簇」，\(G\) 太小，CRVE 自己也不稳。层级应对准<strong>赋值或冲击的共同来源</strong>：政策在县，就县聚类；共同宏观冲击再加时间维，才考虑双向。乱聚到「看起来相关的一切」，是把设计语言换成相关图。</p><p><span class="marginnote">Abadie–Athey–Imbens–Wooldridge 强调：聚类应对准设计（哪些单位被政策或被抽样绑在一起），不是把所有显著的组内相关都收进 SE 配方。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>聚类稳健协方差（cluster-robust / Liang–Zeger）把每个 \(g\) 的 \(X_g&#39;\hat u_g\hat u_g&#39;X_g\) 整块加总，再夹进 \((X&#39;X)^{-1}\) 两边。组内相关结构不必参数化——这是它相对随机效应 GLS 的便宜之处。面板企业固定效应：默认企业聚类；州政策：州聚类。双向聚类用 Cameron–Gelbach–Miller 的公式，要求两个方向的簇都足够多。</p><p>\(G\) 很小（常见口诀：少于约 50）时，渐近 \(t\) 仍偏乐观。补救：wild cluster bootstrap（Rademacher 权重乘残差，保留簇结构）、或把推断改成随机化 / 置换——后者是另一套逻辑，本课只标出口。</p><div class="mermaid"></div><p>不平衡聚类——少数簇特别大——会让 CRVE 低估方差。报告 \(G\)、最大簇份额，比只报「已经 cluster」更诚实。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是承认：一次共同冲击打在整个 \(g\) 上，不能靠多一行观测把这次冲击「平均掉」。三明治中间从 \(\sum_i \hat u_i^2 x_i x_i&#39;\) 变成 \(\sum_g\)（簇得分外积）。\(G\to\infty\) 才是一致性的渐近；行数 \(N\to\infty\) 而 \(G\) 固定，聚类 SE 并不自动对。这与上一课 HAC 的 \(T\to\infty\) 是同一类「依赖单位个数」故事，只是依赖单位从时间换成了簇。</p><p>固定效应吸掉簇内时不变均值，<strong>不</strong>吸掉簇内时变相关。开了企业 FE 仍要企业聚类，两句话不互相替代。</p><p><span class="marginnote">Miller 等人后来的警告：少量大簇、处理几乎只发生在几个簇里时，CRVE 与 bootstrap 都可能失效。这时要回到设计：有效对照到底有几个。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>聚类救不了识别：簇内 \(X\) 与 \(u\) 仍可一起动，那是<a href="/econ/ovb-measurement-error">遗漏变量</a>的事。空间相关若跨过你画的边界，「簇间独立」失败，要更高一层或空间 HAC。量化栏公司金融里双向聚类更常见，本课不重写那些表，也不进限价簿。后课<a href="/econ/bootstrap-econ">Bootstrap</a>会把 wild cluster 写成一般重抽样装置；这里只为 \(G\) 小留一个入口。</p><p>后课默认：政策在哪一层赋值，SE 就聚到那一层；写下 \(G\)。下一课从推断回到外生失败的两条经典形状。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>组内可任意相关、组间独立：有效 \(N\) 接近 \(G\)。</li><li>聚类层级对准冲击，不是越细越「稳健」。</li><li>\(G\) 小时渐近 \(t\) 偏乐观，考虑 wild cluster bootstrap。</li><li>FE 不替代聚类；聚类不替代外生。</li><li>出处：Bertrand, Duflo and Mullainathan, <em>QJE</em> 2004；Cameron, Gelbach and Miller, <em>ReStat</em> 2008；Angrist and Pischke；Wooldridge。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计量经济学<!--[--> · 单元 识别与回归<!--]--><!--[--> · 课序 从相关到因果<!--]--></p><p class="lesson-progress">第 4 / 28 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/ovb-measurement-error/">遗漏变量与测量误差</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

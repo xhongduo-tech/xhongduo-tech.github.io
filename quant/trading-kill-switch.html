@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>风控闸门与熔断 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_trading-kill-switch.md.GYXJ3ptk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 5 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/order-state-machine/">订单状态机</a></p><p class="lesson-next"> 下一课：<a href="/quant/trading-telemetry/">监控：PnL、敞口、拒单</a></p></nav><div style="position:relative;"><div><h1 id="风控闸门与熔断" tabindex="-1">风控闸门与熔断 <a class="header-anchor" href="#风控闸门与熔断" aria-label="Permalink to &quot;风控闸门与熔断&quot;">​</a></h1><div class="epigraph"><p>熔断打断的是交易的连续性，不是损失本身；它把一段时间的价格发现推迟到规则允许重新开市之后，并改变参与者在暂停前后愿意提供的流动性。</p><footer>—— Greenwald and Stein, Transactional Risk, Market Crashes, and the Role of Circuit Breakers, Quarterly Journal of Economics, 1991</footer></div><p><a href="/quant/order-state-machine">上一课</a>把意图、在途余量与成交增量分开，拒单与部分成交成为回测一等事件；风控必须计入 in-flight 名义。缺口是与策略解耦的硬约束：状态机保证对账诚实，不保证任何热路径都不能越过名义、亏损、频率与价格带；交易所熔断暂停的是整个品种，不是某一家的算法。本课把公司内部 kill switch 与市场公开熔断分开写。不重讲 FIX 转移图。后课遥测默认闸门独立于信号，并由无权改策略的人变更。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>状态机让拒单可对账，拦不住热路径上越过限额的合法转移。自动化交易把「下错一笔单」的成本从人工反应时间压缩到毫秒。2012 年 Knight Capital 因部署错误把旧代码与新代码同时接到市场，约四十五分钟内实现数亿美元亏损，随后被 SEC 以市场准入规则（Rule 15c3-5）项下的风控失效处罚。2010 年 5 月 6 日的闪崩里，E-mini S&amp;P 与个股出现流动性瞬时蒸发，CFTC–SEC 联合报告与 Kirilenko、Kyle、Samadi、Tuzun（2017）表明：高频做市在压力下撤出，卖单砸进已空的簿，价格发现在一两分钟内失真。问题因此有两层。第一层是<strong>本账户</strong>：如何保证任何策略、任何热路径都不能越过预先写死的名义、亏损、频率与价格带。第二层是<strong>市场规则</strong>：当交易所自己停住，你的撤单、排队与对冲假设全部作废，<a href="/quant/statarb-stops">止损</a>价变成不可成交的缺口。</p><p>闸门若与策略写在同一个进程、同一套配置里，策略「优化」会把闸门一起优化掉。这不是修辞：回测里把日亏损上限当成可调超参，等于在样本内截断左尾，和 Kaminski–Lo 讨论的止损滤波器是同一类偏差，只是截断发生在组合层。Kill switch 的定义必须独立于信号，并由无权改策略的人变更。</p><h3 id="内部闸门与交易所熔断不是同一把锁" tabindex="-1">内部闸门与交易所熔断不是同一把锁 <a class="header-anchor" href="#内部闸门与交易所熔断不是同一把锁" aria-label="Permalink to &quot;内部闸门与交易所熔断不是同一把锁&quot;">​</a></h3><p>内部闸门作用在<strong>你的订单流</strong>：预交易检查（pre-trade）拒绝越权委托，盘中检查在成交后更新限额，紧急开关撤销未成交并禁止新开。交易所熔断作用在<strong>所有人的订单流</strong>：LULD 把个股成交限制在参考价附近的带内，MWCB 在宽基指数跌幅达到 7%、13%、20% 时分级暂停。Greenwald–Stein 关心的是市场崩溃时做市商的交易风险；内部闸门关心的是单一主体的操作与杠杆。把 MWCB 当成「我的策略会自动停」是范畴错误：熔断重开后，你的仓位可能已经隔夜、已经穿了保证金，而交易所并不替你平仓。</p><p><span class="marginnote">Rule 15c3-5 要求经纪商对市场准入做财务与监管风控，包括错单、重复单与信用限额。买席位直连的机构不能把这项义务「外包给策略」。闸门是准入条件，不是 alpha 的一部分。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把控制点按时间与权限分层，而不是设一个巨大的 if。</p><p><strong>预交易（同步、可拒绝）。</strong> 每笔拟发订单对照：账户与策略的最大名义、单名集中度、价格相对中间价或涨跌停的偏离、下单速率、重复单指纹、以及该品种是否处于停牌或 LULD 暂停。拒绝必须留下原因码，供<a href="/quant/trading-telemetry">监控</a>统计，否则「闸门很严」无法与「行情源坏了导致误拒」区分。价格带要用独立于信号的参考价（例如交易所官方或另一家托管的 BBO），避免策略自己的微观价格把带算歪。</p><p><strong>盘中（异步、可触发平仓或只禁开仓）。</strong> 标记到市场的亏损、毛/净敞口、希腊字母桶、与风险模型预测跟踪误差。触发后的动作必须预先枚举：只撤未成交、禁止新开但允许减仓、对冲到基准、或向经纪商发 flatten。Khandani 与 Lo 描述的 2007 年 8 月量化去杠杆说明：许多账本同时执行「减风险」时，<a href="/quant/factor-crowding">拥挤</a>把闸门变成冲击源。因此组合级闸门应先降杠杆、再按流动性顺序减仓，而不是让每一条策略的止损同时抢薄簿。</p><p><strong>人工与法定。</strong> 总开关应能在交易与风控两处独立按下，并在按下后锁配置，直到双人复核恢复。与<a href="/quant/kelly-sizing">分数 Kelly</a>的关系是：Kelly 给的是增长最优仓位，闸门给的是破产约束；满 Kelly 在参数高估时会先撞上闸门而不是先实现对数增长。</p><h3 id="阈值标定不能用全样本左尾" tabindex="-1">阈值标定不能用全样本左尾 <a class="header-anchor" href="#阈值标定不能用全样本左尾" aria-label="Permalink to &quot;阈值标定不能用全样本左尾&quot;">​</a></h3><p>日亏损限额若按全样本 99% 分位来设，等于把最坏路径写进规则后再声称「从未击穿」。正确做法是：限额来自授权与资本，而不是来自回测分位；再用样本外路径做压力，看触发频率是否高到让策略无法工作、或低到形同虚设。极值应用 <a href="/quant/evt">EVT</a> 讨论尾巴形状，但 EVT 分位数是风险报告，不是自动平仓线——自动平仓要考虑流动性和能否成交，这超出了广义帕累托的对象。</p><p>交易所熔断的「方法」对交易者是适应而不是设计：文档必须写明，暂停期间如何处理子单、如何取消队列、重开集合竞价用什么价格更新风控参考。Lauterbach 与 Ben-Zion（1993）对以色列市场熔断的经验表明，暂停后的价格发现与成交量路径并不自动回到暂停前；把熔断当成免费的波动压缩，会在重开缺口上重复支付。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>预交易闸门改变的是到达交易所的订单强度。过紧的价格带把紧急对冲也拒掉，账本在跳跃后以错误 Delta 过夜；过松则只在事后写日志。机制上这是 Type I / Type II：误拒伤害对冲，漏放伤害资本。频率限制针对的是失控循环（撤单重发、错单重试），不是针对知情交易的到达率；把它设成「每秒最多 N 笔」而不区分新单、改单与撤单，会在波动升高、本应加密报价时把做市策略卡死。</p><p>市场熔断的机制是切断连续竞价。Subrahmanyam 指出，若知情交易者预期暂停，他们可能把交易提前，使暂停前波动上升——熔断被部分内生化。闪崩后引入的 LULD 用更窄的个股带来替代全面停市，意图是限制明显错价而不冻结指数。对套利账本，带内限制等于暂时关闭一腿：ETF 与成分股、期货与现货若不同步触及，中性变成方向，这与涨跌停下的<a href="/quant/index-arb">指数套利</a>是同一类单腿风险。</p><p>Kill switch 触发后的路径依赖往往比触发条件更重要。若动作是「市价打平」，你在最差流动性上实现损失，闸门变成强制止损，Kaminski–Lo 对趋势资产「止损有时有用」、对回归资产「止损有害」的分野在组合层再现。更可审计的动作是：撤开仓、只允许减仓限价、并把剩余风险交给预先指定的人工台。闸门买的是时间，不是最优执行。</p><h3 id="闸门失效通常是配置与权限-不是公式" tabindex="-1">闸门失效通常是配置与权限，不是公式 <a class="header-anchor" href="#闸门失效通常是配置与权限-不是公式" aria-label="Permalink to &quot;闸门失效通常是配置与权限，不是公式&quot;">​</a></h3><p>Knight 类事故很少是因为少写了一个不等式，而是因为：热备与主进程各发一遍、配置回滚把限额改回无限、测试品种映射到生产代码、或风控进程依赖与策略同一份行情而一起冻结。独立行情、独立时钟、独立的「心跳死亡则自动禁发」比把限额从 10% 调到 8% 更接近真正的冗余。15c3-5 与 MiFID II 对算法交易的组织要求，核心是责任人与可杀进程，而不是某一个希腊字母阈值。</p><p><span class="marginnote">把熔断当成 alpha：在 MWCB 前减仓、暂停期间做跨市场，假设你能预知触发且对腿仍可交易。这把公共规则变成拥挤的择时信号，容量极差，也不应写进内部闸门的恢复条件。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用回测器里的「若亏损超过 x 则仓位归零」去替代生产闸门：回测没有拒单、没有部分成交、没有交易所拒绝、也没有人工恢复流程。不要把策略的时间止损与公司 kill switch 共用一个开关，否则研究同学会为了提高样本内夏普去关风控。A 股涨跌停、临停、指数熔断（2016 年的短暂实践）使「价格带」必须用本地规则，不能把 LULD 参数平移。衍生品的闸门要按保证金与场景亏损，而不是只按标的名义；期权组合的 Delta 中性在底层熔断时立即失效，见 <a href="/quant/greeks-hedge">希腊字母对冲</a>。</p><p>报告应区分：预交易拒绝率、盘中触发次数、触发后的实现亏损、以及误触发（行情错价、合约乘数配错）。后一项是闸门的成本；前几项是它买到的保险是否太贵。没有误触发统计的「零事故」可能只是闸门从未武装。</p><p><span class="marginnote">恢复生产必须比按下更慢：对账持仓、核对未成交、确认交易所会话，再按白名单品种逐步放开。快速恢复是第二次事故的常见前奏。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>内部 kill switch 是与策略解耦的硬限额与紧急动作；交易所熔断是公共的价格发现中断。两者都会造成缺口与单腿风险，但权限与失败模式不同。</li><li>Greenwald–Stein（1991）与 Subrahmanyam（1994）讨论的是市场暂停如何改变流动性与知情交易时机；不能把这些定理当成公司日亏损限额的公式。</li><li>预交易拒绝、盘中禁开仓、市价打平是三种强度；在拥挤里同步打平会把风控变成冲击，见 2007 年量化去杠杆与闪崩中的流动性蒸发。</li><li>限额来自资本与授权，不是来自全样本分位；阈值若被策略搜索过，闸门就变成了另一个止损超参。</li><li>出处：Greenwald and Stein, <em>QJE</em>, 1991；Subrahmanyam, <em>Journal of Finance</em>, 1994；Lauterbach and Ben-Zion, <em>Journal of Finance</em>, 1993；Kirilenko, Kyle, Samadi and Tuzun, <em>Journal of Finance</em>, 2017；CFTC–SEC, <em>Findings Regarding the Market Events of May 6, 2010</em>；SEC Rule 15c3-5；Khandani and Lo, 2007/2011。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易系统<!--[--> · 单元 链路<!--]--><!--[--> · 课序 工程<!--]--></p><p class="lesson-progress">第 5 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/trading-telemetry/">监控：PnL、敞口、拒单</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

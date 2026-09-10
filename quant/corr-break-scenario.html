@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>相关性崩溃情景 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_corr-break-scenario.md.trk44s6o.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 组合与风险续<!--[--> · 单元 配置、尾部与压力<!--]--><!--[--> · 课序 仓位与尾部<!--]--></p><p class="lesson-progress">第 12 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/reverse-stress-test/">反向压力测试</a></p><p class="lesson-next"> 下一课：<a href="/quant/crowding-capacity-metric/">拥挤度与容量指标</a></p></nav><div style="position:relative;"><div><h1 id="相关性崩溃情景" tabindex="-1">相关性崩溃情景 <a class="header-anchor" href="#相关性崩溃情景" aria-label="Permalink to &quot;相关性崩溃情景&quot;">​</a></h1><div class="epigraph"><p>危机里「相关升到 1」是观测现象；风控要把它写成可复现的因子移动：哪一篮子必须同向、波动是否先标准化、以及这是历史回放还是假设冲击。</p><footer>—— 现象见 Longin–Solnik、Forbes–Rigobon、Loretan–English；情景构造对照 Brunnermeier 对融资螺旋的叙述</footer></div><p><a href="/quant/correlation-breakdown">相关性崩溃</a> 一文写现象：下行 exceedance correlation、异方差把传染测高、融资与火线抛售让分散化失效。本篇不重复那条证据链，只写<strong>如何把崩溃做成压力引擎里的一条情景</strong>：输入今日头寸，输出一条或一组 \(x\)，使指定篮子的共同运动达到预声明的强度，并与日常 DCC、Copula VaR、反向压力测试共用同一套 \(g\)。Loretan 与 English 早已警告：若不先定义压力期与波动调整，「correlation breakdown」可以在任何样本里被搜出来。情景若也在数据里搜最大相关段，只是把同一错误写进限额。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>日常 \(\Sigma_t\) 或 DCC 的 \(R_t\) 给出条件线性相关。压力日组合损失远大于 \(w^\top\Sigma_t w\)，因为：（1）波动升，Forbes–Rigobon 偏差让滚动相关跳升；（2）真尾依赖升高；（3）融资约束让可抵押篮子被同时卖出。限额系统不能在崩溃当天再估一张 \(\Sigma\)，必须预先有一条<strong>不依赖当天实现</strong>的规则：哪些名字被当成同一篮子、篮子内相关升到多少、篮子外是否保持、波动乘多少。</p><p>问题不是「把全市场 \(\rho\) 乘 1.5」。那会错误惩罚真正的对冲腿（某些趋势、期权、黄金），也会放过「表面上分散、融资上同一抵押」的集中。情景要按<strong>机制篮子</strong>切：经纪商可接受的抵押、同一 CTA 信号、同一信用指数成份，而不是按行业分类表机械加相关。</p><h3 id="三种合法构造-不要混成一个旋钮" tabindex="-1">三种合法构造，不要混成一个旋钮 <a class="header-anchor" href="#三种合法构造-不要混成一个旋钮" aria-label="Permalink to &quot;三种合法构造，不要混成一个旋钮&quot;">​</a></h3><p><strong>历史回放。</strong> 把 2008 年 9–10 月、2015 年 8 月、2020 年 3 月的因子变化套在今日头寸上。相关结构是那段历史自己的，不是你估出来的。优点是无可争议的已实现联合；缺点是头寸换了之后，那段历史未必仍是最坏相关。<strong>假设冲击。</strong> 指定篮子 \(B\)，令 \(R_{ij}\leftarrow 1-\varepsilon\) 对 \(i,j\in B\)，其余块保持日常 \(R_t\)，再配波动乘数。<strong>Copula 角落。</strong> 保持边缘，把 \(t\) Copula 的 \(\nu\) 降到很低或把 Clayton 参数推到样本外，抽联合极端。第一种是回放，后两种是判断。报告必须分开，不能把假设冲击的损失叫做「历史压力」。</p><p><span class="marginnote">先把收益用压力期或日常 \(\sigma\) 标准化，再改相关，最后再乘回波动。把「未标准化的一起跌」直接写成相关情景，会把波动冲击与相关冲击算两遍，或算错遍。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>篮子清单预先冻结。</strong> 例如：股指与高贝塔成份、信用指数与成份 CDS、基差交易的现券与期货、风险平价的股债商品外汇、境内可抵押回购券。每只篮子写触发叙事（保证金上调、赎回、指数剔除）。同一名字可属于多个篮子；情景一次只激活一个主篮子，另做「多篮子同时激活」的组合情景，避免相关矩阵被改到不正定却说不清是谁。</p><p><strong>矩阵手术。</strong> 在相关矩阵上把子块抬向 1，须做谱投影或收缩，保证正定。简单做法是：篮子内写成单因子，\(x_i=\beta_i F+\varepsilon_i\)，把 \(\mathrm{Var}(F)\) 升到使两两相关达到目标，特异方差按比例缩小。这比逐元素改 \(\rho_{ij}\) 更干净。目标相关不要写 1.00，写 0.85 或 0.9 并做敏感性；字面 \(\rho=1\) 会让对冲腿的残差为零，造成虚假完美对冲或虚假无穷损失，取决于符号。</p><p><strong>波动与跳。</strong> 相关崩溃几乎总与波动跳升同时发生。情景应给 \(\sigma\) 乘数（例如 2×、3×）或直接用压力年的已实现波动，并单独加一条跳：指数缺口、信用跳违约。只用相关、不改波动，会低估期权与 CPPI 缺口；只改波动、不改相关，会低估看似分散的线性账簿。BN 跳跃检验提供「跳日」清单，可当回放子集，但假设情景不应在全历史里搜 \(Z\) 最大的日子——那是数据挖掘。</p><h3 id="校准目标来自现象文献-不是来自优化器" tabindex="-1">校准目标来自现象文献，不是来自优化器 <a class="header-anchor" href="#校准目标来自现象文献-不是来自优化器" aria-label="Permalink to &quot;校准目标来自现象文献，不是来自优化器&quot;">​</a></h3><p>Longin–Solnik、Ang–Chen 的下行 exceedance correlation 给假设冲击一个数量级：从平静期 0.3 走到压力期 0.7 一类，而不是从 0.3 走到 1。Forbes–Rigobon 要求报告「除波动后相关是否仍升」：若标准化后相关几乎不变，情景应以波动冲击为主，不要强行改 \(R\)。Brunnermeier 的叙事给篮子：可抵押、被经纪商接受、被同一风险模型减仓的名字。校准是把文献数字写成参数范围，不是拟合一条使当前资本最大的相关路径——后者是反向压力的近亲，须声明。</p><p>与 DCC、Copula VaR 的日常数字对照：情景损失应高于日常 99% VaR 一个预先讨论过的倍数；若不高，说明篮子切错或头寸本来就极集中，相关改不动总风险。若过高到定价器崩溃，先检查正定与映射，再检查是否误把对冲腿也抬成同号。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>统计层：共同因子方差上升时，即使载荷不变，线性相关上升。情景里「升 \(\mathrm{Var}(F)\)」就是在写这个。额外的传染是新因子（融资）出现：原来正交的残差被同一个 haircut 绑在一起。机制篮子存在的理由是捕捉这第二个因子，而不是把 \(\sigma_F\) 再乘一次。</p><p>经济层：火线抛售的冲击作用在被同时卖的篮子上，Kyle 的 \(\lambda\) 让价格同向。相关矩阵的手术是对这一价格同向的线性近似。它不会自动包含流动性枯竭（买卖价差炸开、深度下降）。完整情景应同时降低可成交量或提高冲击函数，否则线性账簿的损失对、但执行与补保仍按平静期假设，现金会先于 VaR 耗尽。</p><p><span class="marginnote">风险平价与 vol target 在相关崩溃里不是被动受害者：规则本身在 \(\sigma\) 上升时制造同步减仓，相关与拥挤互相放大。情景若只改 \(\Sigma\)、不改这些规则的内生流量，会低估第二轮。</span></p><h3 id="与反向压力如何衔接" tabindex="-1">与反向压力如何衔接 <a class="header-anchor" href="#与反向压力如何衔接" aria-label="Permalink to &quot;与反向压力如何衔接&quot;">​</a></h3><p>正向相关情景问「若篮子 \(B\) 相关升到 0.9，我们亏多少」。反向问「要达到 \(L^\star\)，相关最少要升到哪、还是其实一个名字就够」。两者共用篮子清单。若反向优化总是走单一名称而非相关崩溃，说明当前组合的真正风险是集中度，相关情景是次要的——应改限额，而不是把相关乘数调到能「看见」崩溃为止。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>高维正定、缺失历史、停牌与涨跌停，使回放不可交易：指数路径你复制不出。假设冲击在新兴市场、商品、加密上更依赖判断，因为压力样本短。t Copula 对称尾会在上涨端也制造假同涨，对冲评估会偏。工程折中：日常仍用 DCC 或收缩 \(\Sigma\)；周频压力引擎跑冻结的历史回放 + 两到三个假设篮子冲击；反向压力另册。</p><p>不要把「股债相关转正」写成全球所有资产相关为 1。不要用指数相关替代可交易成份组合相关。不要在同一张情景里既把波动乘 3 又把未标准化相关拉到 1 却不做诊断。不要用情景损失去反推一个「隐含相关」再当 alpha。</p><p><span class="marginnote">情景参数（篮子、目标 \(\rho\)、\(\sigma\) 乘数）与候选策略网格一样，不能看完结果再挑最温和的那组。冻结、敏感性、与 2008/2020 回放并列，是最低治理。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>相关性崩溃情景是预声明的因子移动规则，不是把全市场 \(\rho\) 乘一个数，也不是在样本里搜最大相关段。</li><li>历史回放、假设篮子冲击、Copula 角落三种构造必须分开报告；先标准化波动再改相关。</li><li>篮子按融资与减仓同步机制切，目标相关用下行 exceedance 的数量级校准，并保持矩阵正定。</li><li>与日常 DCC/Copula VaR、反向压力共用 \(g\)；内生 vol target 流量应进入第二轮。</li><li>出处：Longin and Solnik, 2001；Ang and Chen, 2002；Forbes and Rigobon, 2002；Loretan and English, 2000；Brunnermeier, JEP 2009；现象综述见 <a href="/quant/correlation-breakdown">相关性崩溃</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 组合与风险续<!--[--> · 单元 配置、尾部与压力<!--]--><!--[--> · 课序 仓位与尾部<!--]--></p><p class="lesson-progress">第 12 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/crowding-capacity-metric/">拥挤度与容量指标</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

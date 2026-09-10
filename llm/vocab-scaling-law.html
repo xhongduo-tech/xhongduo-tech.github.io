@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>词表规模缩放律 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_vocab-scaling-law.md.B4z-lB-t.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 27 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/depth-vs-width/">深度对宽度</a></p><p class="lesson-next"> 下一课：<a href="/llm/lr-batch-scaling-law/">学习率与批次缩放律</a></p></nav><div style="position:relative;"><div><h1 id="词表规模缩放律" tabindex="-1">词表规模缩放律 <a class="header-anchor" href="#词表规模缩放律" aria-label="Permalink to &quot;词表规模缩放律&quot;">​</a></h1><div class="epigraph"><p>词表更大，每 token 更富、序列更短，但嵌入与输出头吃掉更多参数，softmax 更贵；存在与模型和数据相匹配的词表大小，而不是「越大越细越好」。</p><footer>—— Gowda &amp; May, Finding the Optimal Vocabulary Size for Neural Machine Translation, Findings of EMNLP 2020；跨切分比较须用 BPB，见 Radford et al., GPT-2, 2019</footer></div><p><a href="/llm/depth-vs-width">上一课</a>比较深度与宽度时，要求声明 \(N\) 是否含嵌入。缺口正是 \(|V|\)：它既改变 \(N\)（两项 \(|V|d\)），也改变同样字节文本的 token 数 \(T\)，从而改变 <a href="/llm/perplexity-bpb">PPL 与 BPB</a> 哪一个可比。Gowda 与 May 在翻译上扫词表大小，发现过小与过大都伤 BLEU。语言模型同构，只是指标换成 BPB 与下游。本课不重讲 BPE 规则，只写 \(|V|\) 如何进入缩放账。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定字节语料。\(|V|\) 升：平均每 token 字节数升，\(T\) 降，每个预测步条件更富、分类更难；嵌入参数 \(|V|d\) 升，若总 \(N\) 固定则非嵌入容量下降。\(|V|\) 降：相反，序列变长，注意力二次项更贵，模型把容量花在重复拼常见词。BPB 把总 NLL 摊到字节上，是这条轴的正确纵轴；token PPL 会把细词表夸成「PPL 更低」。</p><p>计算：\(C\approx 6ND\) 里的 \(D\) 是 <strong>token</strong> 数。同样字节、更大词表，\(D\) 变小，若按 token 预算训练，等于少看了字节；若按字节预算训练，\(D\) 随 \(|V|\) 变，Chinchilla 的「20 token / 参数」不能跨词表原样贴。必须先声明预算单位是 token 还是字节。</p><p><span class="marginnote">多语言与代码把熵分布拉宽。英文为主的最优 \(|V|\) 对字节级中文或混合代码不是最优。词表缩放律要按数据配比分层，不能用一份英文拟合去立法。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>扫 \(|V|\) 时：</p><ol><li>固定字节评测集与训练字节预算（或明确改用 token 预算并报告换算）。</li><li>固定非嵌入 \(N\) 或固定总 \(N\)，两种实验问的问题不同：前者问「词表本身」，后者问「总参数怎么切给词表」。</li><li>纵轴用 BPB 与下游，不用 PPL。</li><li>输出 softmax / Cut CE 的计算随 \(|V|\) 涨，墙钟单独记，不要只报 loss。</li></ol><p>初始化与 z-loss：\(\log|V|\) 变了，第 0 step CE 的健康锚点变了；α 可能要随 \(|V|\) 略调（z-loss 课已警告）。不要把 32K 上的 α 贴到 256K。</p><p>近期若干工作把最优 \(|V|\) 写成随 \(N\) 缓增的函数：更大的模型吃得起更大词表。本课接受「最优随尺度移动」，但不把某一篇的拟合系数当常数。你的数据与分词算法（BPE vs unigram）会改系数。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>词表是输入输出的瓶颈宽度。太小：模型必须用多层把碎片拼成词，深度被浪费在拼写；太大：大量行稀疏，Adam 冷坐标与 <a href="/llm/adam-epsilon-update-scale">ε 课</a> 的巨步更频繁，嵌入豁免政策更关键。tied 时 \(|V|d\) 只付一次，untied 付两次，缩放账必须分开。</p><p>注意力二次项按 token 计。同样字节，小词表让 \(n\) 变大，FlashAttention 更贵，序列长度预热的策略也要改。所以 \(|V|\) 不是与形状无关的「预处理超参」，它进 FLOPs 与稳定性。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>字节级模型（ByT5 一类）把 \(|V|\approx 256\)，把拼写完全交给深度，是轴的一端，不是本课要选的默认。下一课在<strong>已固定词表</strong>的前提下，写学习率如何随 batch 缩放——那条定律的 \(B\) 是 token batch，词表一变，同样字节的 \(B\) 已变，必须先读完本课再去乘线性规则。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>跨 \(|V|\) 比较用 BPB 与字节预算；token PPL 与「每参数 20 token」不能原样搬。</li><li>\(|V|\) 同时改 \(N\) 的切分、序列长、softmax 费用与嵌入冷坐标。</li><li>扫时声明固定的是总 \(N\) 还是非嵌入 \(N\)。</li><li>最优词表随模型尺度与数据配比移动，系数要重拟合。</li><li>出处：Gowda &amp; May, Findings of EMNLP 2020；Radford et al., GPT-2, 2019。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 缩放实践<!--]--><!--[--> · 课序 形状、批次与生长<!--]--></p><p class="lesson-progress">第 27 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/lr-batch-scaling-law/">学习率与批次缩放律</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Unigram 切分 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_unigram-segmentation.md.BX2dfDuL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 表示与 Transformer 块<!--[--> · 单元 分词<!--]--><!--[--> · 课序 从字符到子词<!--]--></p><p class="lesson-progress">第 3 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/bpe-merge-rule/">BPE 合并规则</a></p><p class="lesson-next"> 下一课：<a href="/llm/vocab-size-unk/">词表大小与 UNK</a></p></nav><div style="position:relative;"><div><h1 id="unigram-切分" tabindex="-1">Unigram 切分 <a class="header-anchor" href="#unigram-切分" aria-label="Permalink to &quot;Unigram 切分&quot;">​</a></h1><div class="epigraph"><p>子词正则化用从 Unigram 语言模型里概率采样的多种切分来训练，使模型不再绑死在某一种贪心分割上。</p><footer>—— 据 Kudo, Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates, ACL 2018 整理</footer></div><p><a href="/llm/bpe-merge-rule">上一课</a>给出了频率驱动的有序合并表：推理时贪心焊对，一条字符串一条切分。本课不重讲合并、也不重讲 token 是什么。缺口是：同一字符串在 \(V\) 上通常有许多合法分割，BPE 只走其中一条由训练期计数决定的路径，既没有子词的生成概率，也不能在训练时把替代切分当作噪声。Kudo 的 Unigram 语言模型把切分写成似然问题，SentencePiece 把它做成可训练的词表加 Viterbi 解码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/bpe-merge-rule">BPE 合并规则</a>的确定性在部署时是优点，在估计时是限制。若 <code>unhappiness</code> 只能被焊成某一种碎片序列，模型从未见过另一种同样能拼回原文的分割，对拼写变体和噪声就脆。更根本的是：BPE 从不给每个子词一个 \(P(x)\)，因此无法问「在这张词表下，哪一条分割的联合概率最大」，只能问「合并表里哪一对更早」。</p><p>要把切分从程序变成模型，需要两样东西。第一，词表里每个符号带一个概率，使一条分割的质量可以相乘。第二，一种从语料估计这些概率、并删掉不怎么降低损失的符号的算法，否则 \(|V|\) 无法收缩到预算内。Kudo 把符号当作独立的 Unigram，忽略切分内部的条件依赖——粗糙，但恰好能用动态规划穷举或近似穷举所有分割。</p><h3 id="多种切分不是标注错误" tabindex="-1">多种切分不是标注错误 <a class="header-anchor" href="#多种切分不是标注错误" aria-label="Permalink to &quot;多种切分不是标注错误&quot;">​</a></h3><p>对子词系统来说，多种切分是定义里就有的。<code>hello</code> 可以是一个原子，也可以是 <code>he</code>+<code>llo</code>，只要两者都在 \(V\) 里。BPE 用合并历史消歧；Unigram 用似然消歧。训练时还可以故意不消歧，按概率抽样，强迫后续的嵌入与块对同一原文的不同离散序列都给出相近的预测。这就是子词正则化，BPE 做不到，除非另接一套随机切断规则。</p><p><span class="marginnote">Unigram 里的「独立」是建模假设，不是事实。相邻子词当然相关。这个假设的用处是让格（lattice）上的和积可以用前向算法算，而不是声称语言真是 Unigram。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>给定词表 \(V\) 与概率 \(p(x)\gt 0\)（\(\sum_{x\in V}p(x)=1\) 在实现里常做成损失归一），字符串 \(X\) 的一条分割 \(\mathbf{x}=(x_1,\ldots,x_m)\) 的概率是</p> \[P(\mathbf{x})=\prod_{i=1}^{m} p(x_i). \]<p>推理取 Viterbi 分割 \(\arg\max_{\mathbf{x}} P(\mathbf{x})\)，即在所有能拼回 \(X\) 的分割里选联合概率最大的。训练时，Kudo 用 EM：E 步在当前 \(p\) 下对语料的切分格求期望计数，M 步把计数归一成新的 \(p\)；再丢掉损失贡献最小的一批符号，缩小 \(V\)，迭代到目标大小。初始 \(V\) 往往很大，从种子词和高频子串填满，再剪枝——方向与 BPE 相反。</p><p>SentencePiece 把这套流程做成对原始 unicode 字符串直接操作的工具，不必先按语言分词。采样切分时，从格上按概率抽出不是 Viterbi 的路径，温度或 \(l\) 最佳列表控制多样性。推理仍可改回 Viterbi，以保持稳定。</p><h3 id="与-bpe-的算法对照" tabindex="-1">与 BPE 的算法对照 <a class="header-anchor" href="#与-bpe-的算法对照" aria-label="Permalink to &quot;与 BPE 的算法对照&quot;">​</a></h3><p>BPE：从小表长到大表，每步加一个焊住的对，没有 \(p(x)\)。Unigram：从大表剪到小表，每步有 \(p(x)\)，切分是优化问题。两者最后都给你一张 \(V\) 和一套把字符串变成 id 序列的规则，但规则的语义不同。BPE 的规则是「按冻结的合并优先级贪心」；Unigram 的规则是「在当前概率下做最短描述（最大似然分割）」。概率一变，Viterbi 路径可以变；合并表一冻，BPE 路径不变。</p><p><span class="marginnote">实践里常把 Unigram 的 Viterbi 结果当成「标准切分」存下来。真正吃到正则化好处的是训练期采样。若训练与推理都只走 Viterbi，Unigram 就退化成另一种确定性分词器，只是词表来源不同。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Unigram 的动态规划把字符串看成可以在任意允许边界切开的格。节点是字符下标，边是 \(V\) 中一个能覆盖这段跨度的符号。Viterbi 找一条边权乘积最大的路径；前向算法把所有路径的概率加起来，得到 \(P(X)\) 的边际。EM 用这条边际做责任分配：经常出现在高概率路径上的符号得到保留，几乎只出现在差路径上的符号被剪掉。</p><p>这解释了它与频率合并的经验差别。BPE 会焊住「经常相邻」的对，即使这个对作为原子并不比拆开更省描述长度。Unigram 会留下「单独带着也能解释很多字符串」的符号，即使它们不是最高频相邻对。数字、词缀、汉字单字，常常在 Unigram 表里以不同的生存方式出现。谁更好，要看下游任务对稳定性与正则化的需要，而不是看哪张表更像语言学。</p><h3 id="正则化如何进入损失" tabindex="-1">正则化如何进入损失 <a class="header-anchor" href="#正则化如何进入损失" aria-label="Permalink to &quot;正则化如何进入损失&quot;">​</a></h3><p>训练一个翻译或语言模型时，每次看到 \(X\)，先从 \(P(\mathbf{x}\mid X)\) 抽一条分割，再把这条离散序列送进网络。网络必须对几种碎片化程度不同的输入都预测对。这把一部分切分不确定性从分词器挪到了模型容量里。推理若改回 Viterbi，等于在测试时取众数切分；若仍采样，则生成会多一重噪声，通常只用于分析，不用于对照实验的主结果。</p><p><span class="marginnote">子词正则化不是 dropout。它改的是输入的离散序列，不是隐单元。长度会变，位置对齐会变，后面的注意力看到的「谁是邻居」也会变。这是刻意的。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>Unigram 仍假设切分块独立，长程的「这两个词素总是一起出现」只能间接反映在 \(p(x)\) 里，不能像高阶模型那样显式建模。格的边数随 \(|V|\) 和字符串长度增长，需要剪枝或长度限制，否则中文长句上的动态规划会慢。与 BPE 的质量差距在大词表、大数据上往往小于词表大小和预分词选择带来的差距；换算法不是调 \(|V|\) 的替代品。</p><p>SentencePiece 的实现细节——是否对空白做元符号、是否 byte fallback、NFKC 规范化——会同时影响 BPE 模式与 Unigram 模式。那些问题属于覆盖与往返，下一课起才定量讨论。本课只要求：当你看见「Unigram tokenizer」时，想到的是带概率的词表加格上的最优化，而不是另一张合并表。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>BPE 用冻结合并表贪心焊对；Unigram 用 \(p(x)\) 在切分格上做最大似然分割。</li><li>词表生长方向相反：BPE 自底向上合并，Unigram 自顶向下剪枝。</li><li>训练可采样多种切分做子词正则化；推理通常改回 Viterbi。</li><li>独立 Unigram 是为了让动态规划可行，不是语言事实。</li><li>与 BPE 的差别是切分语义，不是「什么是 token」；后者上一课已经钉死。</li><li>出处：Kudo, ACL 2018；Kudo &amp; Richardson, <em>SentencePiece</em>, EMNLP 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 表示与 Transformer 块<!--[--> · 单元 分词<!--]--><!--[--> · 课序 从字符到子词<!--]--></p><p class="lesson-progress">第 3 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/vocab-size-unk/">词表大小与 UNK</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

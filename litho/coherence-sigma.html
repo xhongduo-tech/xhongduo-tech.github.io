@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>相干因子 σ | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_coherence-sigma.md.BLDJMANB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 相干、空中像与焦深<!--]--></p><p class="lesson-progress">第 12 / 48 课</p><p class="lesson-prereq"> 先修：<a href="/litho/partial-coherence/">部分相干照明</a></p><p class="lesson-next"> 下一课：<a href="/litho/hopkins-tcc/">Hopkins TCC</a></p></nav><div style="position:relative;"><div><h1 id="相干因子-σ" tabindex="-1">相干因子 σ <a class="header-anchor" href="#相干因子-σ" aria-label="Permalink to &quot;相干因子 σ&quot;">​</a></h1><div class="epigraph"><p>部分相干不是一种气氛；$\sigma$ 把照明光瞳的半径按投影 $\mathrm{NA}$ 归一，成为可以写进工艺配方的填充比。</p><footer>—— 据 Hopkins 对有效光源的定义，以及 Mack, Fundamental Principles of Optical Lithography 对 $\sigma$ 的产线用法整理</footer></div><p><a href="/litho/partial-coherence">上一课</a>已经说明：投影光刻既不是单平面波，也不是完全非相干，强度是互不相干源点各自相干成像后的叠加。缺口是把「光源有多大」收成一个相对投影孔径的无量纲数，并写清环形时要两个半径。本课专钉</p> \[\sigma=\frac{\mathrm{NA}_\mathrm{illum}}{\mathrm{NA}_\mathrm{proj}}. \]<p>四维 TCC 如何把任意光瞳图案收成双线性核，留给<a href="/litho/hopkins-tcc">下一课</a>。不要回头从瑞利公式讲分辨率：\(\sigma\) 改的是通带里哪些级在干涉，不改 \(\mathrm{NA}/\lambda\) 这条截止。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一课给出了部分相干的物理图像，但工艺单上不能写「比较相干」。照明孔径与投影孔径之比把 Köhler 光瞳上的填充半径变成一个数：\(\sigma\to 0\) 接近点源，\(\sigma\to 1\) 接近填满入瞳。同一套镜头、同一张掩模，\(\sigma\) 一变，物面互相干宽度变，空中像对比随之变。缺口因此是定义与读法，而不是开始画偶极。</p><p>浸没改了像方 \(n\)，合同 \(\mathrm{NA}\) 变了，同样的物理照明角对应的 \(\sigma\) 会变。所以配方必须同时写 \(\mathrm{NA}\) 与 \(\sigma\)，只报其中一个没有意义——上一课的 margin 已经警告过，本课把它写成操作规则。</p><h3 id="σ-不是激光线宽" tabindex="-1">σ 不是激光线宽 <a class="header-anchor" href="#σ-不是激光线宽" aria-label="Permalink to &quot;σ 不是激光线宽&quot;">​</a></h3><p>时间相干由光谱宽度决定，空间相干由源的角大小决定。\(\sigma\) 只管后者。把准分子的线宽拧窄，是色差课的旋钮；把照明光瞳填大，是本课的旋钮。两个量都叫「相干」，产线上必须分开写。</p><p><span class="marginnote">环形照明用 \(\sigma_\mathrm{in}\)–\(\sigma_\mathrm{out}\) 两个填充半径，仍按投影 \(\mathrm{NA}\) 归一。中心遮拦不是「另一个 \(\sigma\) 定义」，只是圆盘挖了洞。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>常规圆照明：有效光源是半径 \(\sigma\) 的圆盘，落在以投影光瞳为单位圆的坐标系里。每个源点对应一个入射方向，把物频谱在光瞳里平移 \(\sigma\) 量级的一段。\(\sigma\) 越大，平移的集合越大，越接近非相干极限的传递；\(\sigma\) 越小，越接近阿贝的相干乘法。</p><p>互相干函数在物面上的相关宽度与照明角成反比，也就是与 \(\sigma\cdot\mathrm{NA}/\lambda\) 成反比。相关宽度与关键节距相比：宽则邻缝相干干涉，窄则近似独立发光。部分相干的工艺含义，就是把这根长度调到与目标周期同一量级。</p><h3 id="填充形状仍是-σ-家族" tabindex="-1">填充形状仍是 σ 家族 <a class="header-anchor" href="#填充形状仍是-σ-家族" aria-label="Permalink to &quot;填充形状仍是 σ 家族&quot;">​</a></h3><p>圆、环、四级，都先落在 \(\sigma\) 坐标系里再谈图案。后课 TCC 的积分域就是这块有效光源。本课不优化像素化光瞳；只要求：说到「\(\sigma=0.8\)」指圆填充半径，说到环带必须写内外两个数。偶极的极点位置同样用这个归一，那是 RET 课的画法。</p><p><span class="marginnote">Köhler 照明把源成像到光瞳，晶圆各点看到同一套入射角，所以 \(\sigma\) 是光瞳几何量，不是掩模面上某点的本地相干时间。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>源点在光瞳里离轴越远，衍射级整体平移越多。密线栅的一级能否与零级同时进瞳，取决于平移是否把一级从窗外拽回来——这是 \(\sigma\) 与节距的耦合，机制上已是离轴照明的萌芽，本课只读圆填充：较大的 \(\sigma\) 本身就包含一批轴外源点，密图形的调制往往优于点源，但三束干涉对离焦仍然脆。</p><p>\(\sigma\) 太大，接近非相干，传递函数变成光瞳自相关，高频掉得快，孤立与密图形的折中会往另一头走。因此 \(\sigma\) 不是「越大越像非相干显微镜就越好」，而是针对节距与图形类别的填充半径。</p><h3 id="后课默认的接口" tabindex="-1">后课默认的接口 <a class="header-anchor" href="#后课默认的接口" aria-label="Permalink to &quot;后课默认的接口&quot;">​</a></h3><p>说到部分相干工艺，先写 \(\mathrm{NA}\) 与 \(\sigma\)（环带写内外）。有效光源 \(S(\mathbf{f})\) 定义在单位光瞳上，支撑半径为 \(\sigma\)。下一课把 \(S\) 与两个错位光瞳的重叠叫做 TCC，不再解释 \(\sigma\) 是什么。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>\(\sigma\) 不决定波长、不决定胶的 \(\gamma\)、不包含偏振态。高 \(\mathrm{NA}\) 下每个源点还要带琼斯矢量，那是矢量成像的缺口；\(\sigma\) 的几何定义不变。光源形状优化把圆盘升级成二维像素，仍用同一归一坐标，不是新的相干物理。</p><p>禁止把显微镜的「时间相干长度」写进本课的 \(\sigma\)。带宽效应留给色差课。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(\sigma=\mathrm{NA}_\mathrm{illum}/\mathrm{NA}_\mathrm{proj}\) 是照明填充比，必须与投影 \(\mathrm{NA}\) 一起报。</li><li>它描述空间相干（源的角大小），不是激光线宽。</li><li>环带用 \(\sigma_\mathrm{in}\)–\(\sigma_\mathrm{out}\)；图案再复杂也先落在这套归一里。</li><li>\(\sigma\) 改物面相关宽度，从而改哪些级在干涉；截止频率仍是 \(\mathrm{NA}/\lambda\)。</li><li>下一课用这块有效光源构造 TCC。</li><li>出处：Hopkins 部分相干成像；Mack, <em>Fundamental Principles of Optical Lithography</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 相干、空中像与焦深<!--]--></p><p class="lesson-progress">第 12 / 48 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/hopkins-tcc/">Hopkins TCC</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

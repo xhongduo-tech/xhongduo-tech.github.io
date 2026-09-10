@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Differential Attention | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_differential-attention.md.BIYmnncR.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 注意力与序列模型<!--]--><!--[--> · 课序 稀疏与内核<!--]--></p><p class="lesson-progress">第 2 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/deepseek-sparse-attention/">DeepSeek Sparse Attention</a></p><p class="lesson-next"> 下一课：<a href="/llm/flex-attention/">FlexAttention</a></p></nav><div style="position:relative;"><div><h1 id="differential-attention" tabindex="-1">Differential Attention <a class="header-anchor" href="#differential-attention" aria-label="Permalink to &quot;Differential Attention&quot;">​</a></h1><div class="epigraph"><p>两组 softmax 注意力图相减，以抵消共同的注意力噪声，促使稀疏模式出现。</p><footer>—— Ye, Dong, Xia, Sun, Zhu, Huang, Wei, Differential Transformer, 2024</footer></div><p><a href="/llm/sdpa">SDPA</a> 把相容性收成一张非负、行和为 1 的表。非负是资产，也是漏洞：无关上下文仍分到不可忽略的质量，关键跨度被稀释。Ye 等人把查询、键各切成两路，算两张 softmax 图再相减，类比差分放大器与主动降噪耳机。宏观仍是预 RMSNorm + SwiGLU 的解码器，换的是打分层。它不改连通性稀疏，也不换线性核；稀疏是分数相减之后学出来的，不是掩码画出来的。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>检索与针测显示，标准 Transformer 会把大量归一化质量分给无关段落。作者把这些多余分数叫做注意力噪声。softmax 没有「负贡献」：不能对某段上下文减分，只能把质量在正数单纯形上重分配。头数再多，每头仍是一张非负图，噪声可以在头之间共振。</p><p>目标不是再发明一种核特征或块选择，而是在同一套 \(QK^\top\) 接口上提高信噪比。约束是参数量与 FLOPs 与对照 Transformer 对齐，以便缩放曲线可比；并尽量复用 FlashAttention，而不是从零写核。</p><p><span class="marginnote">这里的「稀疏」指分数集中在少数相关位置，不是 BigBird 式固定边集，也不是 NSA/DSA 的硬选择。可视化更尖，不等于复杂度从二次降下来。计算仍是两路 softmax。</span></p><h3 id="头数减半是为了对齐-flops" tabindex="-1">头数减半是为了对齐 FLOPs <a class="header-anchor" href="#头数减半是为了对齐-flops" aria-label="Permalink to &quot;头数减半是为了对齐 FLOPs&quot;">​</a></h3><p>查询、键投影扩到 \(2d\)，值也扩到 \(2d\)，再沿通道切开做两路。为对齐计算，Diff 的头数取对照的一半（对照 16 头则 Diff 8 头，头维 \(d\) 相同）。作者建议总头数不要太少，以免「半头」伤表达。后处理用每头 RMSNorm（实现里写成 GroupNorm）再乘固定系数 \((1-\lambda_{\mathrm{init}})\)，用来对齐梯度尺度，从而能继承相近的学习率。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>差分注意力写为</p> \[\mathrm{DiffAttn}(X)=\Bigl(\mathrm{softmax}\frac{Q_1K_1^\top}{\sqrt{d}}-\lambda\,\mathrm{softmax}\frac{Q_2K_2^\top}{\sqrt{d}}\Bigr)V, \]<p>其中 \([Q_1;Q_2]=XW^Q\)，\([K_1;K_2]=XW^K\)，\(V=XW^V\)。\(\lambda\) 可学习，重参数为</p> \[\lambda=\exp(\lambda_{q_1}\cdot\lambda_{k_1})-\exp(\lambda_{q_2}\cdot\lambda_{k_2})+\lambda_{\mathrm{init}}. \]<p>默认 \(\lambda_{\mathrm{init}}=0.8-0.6\exp(-0.3(l-1))\)，浅层更接近 0.8。消融显示各层共用常数（如 0.8）也大致稳健。多头时 \(\lambda\) 层内共享。每头归一后拼接、再输出投影。FlashAttention 可分别跑两路再减；值维是头维两倍时，需要支持不同 QK/V 维的实现，或走作者提供的第二种拼法。</p><p>3B 级实验：隐 3072，28 层，头维 128，Diff 12 头对对照 24 头，约 28 亿参数，上下文 4096，批 4M token，训 1T。数据与设定跟 StableLM-3B-4E1T 同类。Eval Harness 平均 60.6，高于同预算量级的 OpenLLaMA-3B-v2（57.5）与 StableLM-base-alpha-3B-v2（56.8）。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="相减取消的是共模-不是随机噪声" tabindex="-1">相减取消的是共模，不是随机噪声 <a class="header-anchor" href="#相减取消的是共模-不是随机噪声" aria-label="Permalink to &quot;相减取消的是共模，不是随机噪声&quot;">​</a></h3><p>两路若学到相似的无关峰值，减法把它们压下去；对只在一路尖的相关跨度，差分为正。\(\lambda\) 不是固定的 1，避免两路塌成同一张图导致输出近零。初始化随层递减，深层允许更强的差分。Naderi 等人的分析被作者引来说明差分让注意力矩阵谱更均衡、缓解秩崩塌——这是线性代数侧的配套叙事，主证据仍是检索与缩放。</p><p>缩放：830M 到 13.1B，拟合后约 68 亿参数的 Diff 达到约 110 亿对照的验证损失（约 62% 参数）；3B 模型上约 1600 亿 token 的 Diff 打平约 2510 亿 token 的对照（约 64% token）。作者概括为「约 65% 的模型或数据」。64K 续训后，书本上的累积 NLL 随长度下降更快。多针检索在 4K 上 \(N=6,R=2\) 时 0.85 对 0.55；64K 上当针在前半段、尤其 25% 深度时，差距可达约 76 个百分点。注意力质量分析：Diff 分给答案跨度约 0.27–0.40，噪声约 0.01–0.02；对照答案约 0.03–0.09，噪声约 0.5。</p><p><span class="marginnote">许多样本 ICL 从 1-shot 加到 64K，平均准确率提升约 5.2 到 21.6 个百分点；打乱示范顺序时，最好与最差之间的缝更窄。这支持「少被无关 token 带跑」，不是只支持针测这一种检索。</span></p><h3 id="异常值与量化是附带性质" tabindex="-1">异常值与量化是附带性质 <a class="header-anchor" href="#异常值与量化是附带性质" aria-label="Permalink to &quot;异常值与量化是附带性质&quot;">​</a></h3><p>差分让激活更少极端值，作者认为对量化友好。这不是量化论文，不要写成已经在生产里低比特达标。幻觉评测（问答与摘要）上的改进，解释仍是「少看无关上下文」，与噪声定义一致。数学推理有报增益，但主叙事应落在上下文信噪比，以免变成又一张综合榜。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>两路 softmax 几乎是两倍注意力 FLOPs，靠减头对齐后，墙钟仍可能差一截，取决于核是否真融合。解码期 KV 仍按序列线性增长；差分不解决缓存。\(\lambda\) 学崩或两路高度相关时，有效注意力变弱，需要看层间 \(\lambda\) 与两路 KL。每头 RMSNorm 在后续 V2 讨论里被指可能不利于超大规模后期稳定——若只复现 2024 原文，保留它；若跟生产改法，应读 UniLM 的 Diff-Transformer-V2（额外 \(Q_2\)、去掉每头 RMSNorm、token 相关 \(\lambda\)）。</p><p>不要把差分写成稀疏注意力加速器，也不要写成线性 RNN。它与 <a href="/llm/flex-attention">FlexAttention</a> 的关系是：分数修改可以表达 \(\mathrm{A}_1-\lambda\mathrm{A}_2\)，但官方 Flex 论文明确说差分这类换范式的变体不在 score_mod 合同内。实现上应走两路 FA 或专用核。</p><p>3B / 1T 与 13B 缩放相对开源对照有力，相对同期最强稠密模型不是直接替代声明。头数过少时「半头」代价会被低估。幻觉与摘要上的增益同样来自信噪比：模型少把质量摊给无关句，抄错上下文的机会下降。这不能替代事实核查或检索增强，只说明注意力噪声会表现为「看起来像幻觉的上下文串扰」。量化实验若只报异常值直方图，还缺校准后的下游；把「更少 outlier」写成已经能 4-bit 无损，超出原文。</p><p><span class="marginnote">相减后的权重不必非负、行和也不必为 1。可视化时不要再用「概率」去读。真正进入残差的是加权后的值；与 SDPA 一样，看权重不等于看贡献。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Differential Attention 用两路 softmax 图的差作为分数，抵消共模噪声，让相关跨度更尖。</li><li>\(\lambda\) 可学习并随层初始化；每头归一与 \((1-\lambda_{\mathrm{init}})\) 用来对齐梯度。</li><li>对齐参数与 FLOPs 时头数减半；缩放上约用 65% 的模型或 token 打平对照损失。</li><li>多针检索、长上下文 NLL、多示范 ICL 与顺序稳健是主证据。</li><li>计算仍是二次，只是信噪比变了；不是块稀疏，也不是线性状态。</li><li>生产级改法（V2）与原文的每头 RMSNorm、参数对齐策略不同，复现要对版本。</li><li>出处：Ye et al.，<em>Differential Transformer</em>，arXiv:2410.05258，2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 前沿架构续<!--[--> · 单元 注意力与序列模型<!--]--><!--[--> · 课序 稀疏与内核<!--]--></p><p class="lesson-progress">第 2 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/flex-attention/">FlexAttention</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

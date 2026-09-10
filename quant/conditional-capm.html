@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>条件 CAPM | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_conditional-capm.md.CkhUBlss.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 条件定价<!--]--><!--[--> · 课序 时变风险溢价<!--]--></p><p class="lesson-progress">第 20 / 23 课</p><p class="lesson-prereq"> 先修：<a href="/quant/multiple-testing-factors/">多重检验与 p-hacking</a></p><p class="lesson-next"> 下一课：<a href="/quant/macro-state-variables/">宏观状态变量</a></p></nav><div style="position:relative;"><div><h1 id="条件-capm" tabindex="-1">条件 CAPM <a class="header-anchor" href="#条件-capm" aria-label="Permalink to &quot;条件 CAPM&quot;">​</a></h1><div class="epigraph"><p>无条件的市场 beta 解释不了价值与规模，并不等于条件 CAPM 失败；若风险溢价与 beta 随状态同向变动，无条件回归会把定价误差剩在截距里。</p><footer>—— Jagannathan–Wang；Lettau–Ludvigson 用 $cay$ 做条件定价</footer></div><p><a href="/quant/multiple-testing-factors">上一课</a>把因子发现写成多重检验：t=2 是单次门槛，动物园里要用更高的 t，并把未报告的尝试计入。缺口转到定价语句本身：无条件 CAPM 被规模与价值拒绝，是否只因为 beta 与市场溢价随状态变化？Jagannathan–Wang 与 Lettau–Ludvigson（含 \(cay\)）把条件模型写成可估的缩放因子。Hansen–Richard 说条件有效并不蕴含无条件有效。本课写条件 CAPM 如何把时变风险从 alpha 里还给定价，以及 Lewellen–Nagel 为何认为许多版本所需的 beta 时变过大。不重写 p-hacking 的计数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多重检验管「这个 α 算不算发现」；留下的是 α 会不会只是条件 beta 的无条件投影。条件模型写为</p> \[E[r_{i,t+1}\mid \mathcal{F}_t]=\beta_{i,t}\,E[r_{m,t+1}\mid \mathcal{F}_t], \]<p>\(\beta_{i,t}=\mathrm{Cov}_t(r_{i,t+1},r_{m,t+1})/\mathrm{Var}_t(r_{m,t+1})\)。无条件期望两边，会出现 \(\beta\) 与市场溢价的协方差项。若价值股在衰退时 beta 升高，而衰退时市场溢价也高，则价值股无条件收益更高，即使每一期都按条件 CAPM 定价。无条件回归把这块协方差误读成 alpha。Fama–French 三因子可以被理解为用规模与价值去代理这种状态相关的风险，而不是对 CAPM 逻辑的彻底否定。</p><p>Hansen 与 Richard（1987）从理论上说明：条件均值–方差有效并不蕴含无条件有效。因此「市场组合无条件不在前沿上」不能单独杀死条件 CAPM。要拒绝它，必须在同一信息集下检验条件矩。</p><h3 id="信息集无法被穷尽" tabindex="-1">信息集无法被穷尽 <a class="header-anchor" href="#信息集无法被穷尽" aria-label="Permalink to &quot;信息集无法被穷尽&quot;">​</a></h3><p>条件期望相对于研究者使用的工具变量。工具太少，时变被低估，模型看起来像无条件 CAPM，继续被拒绝；工具太多或数据挖掘，又落入 Harvey–Liu–Zhu 的多重检验。Lettau–Ludvigson 选择 \(cay\)，是因为它来自消费与资产财富的协整剩余，有宏观含义，而不是在几百个宏观序列里挑 t 最大的那个——尽管任何单一宏观变量仍可能幸运。</p><p><span class="marginnote">用未来才知道的状态（下季度 NBER 衰退标签）做条件，是前视。状态变量必须属于 \(t\) 时刻的信息集：\(cay_t\)、期限利差、默认利差、已实现波动，而不是 \(t+1\) 的消费增长本身。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工具变量或缩放因子。把条件 CAPM 写成无条件的多因子：市场、\(z_t r_{m,t+1}\)、以及必要时 \(z_t\) 本身。Jagannathan–Wang 用劳动收入与违约利差一类变量；Lettau–Ludvigson 用 \(cay_t\) 与 \(cay_t\times r_{m,t+1}\)。截面上检验这些缩放因子能否吸收 Fama–French 组合的均值。</p><p>时变 beta。滚动回归、DCC 或对状态变量的参数化 \(\beta_{i,t}=b_{i0}+b_{i1}z_t\)。再检验 \(E[r_{i,t+1}-\beta_{i,t}r_{m,t+1}]=0\)。Lewellen 与 Nagel（2006）强调：若用短窗口直接估条件 beta，许多声称成功的条件 CAPM 在合理的时变幅度下无法解释价值溢价——所需的 beta 波动太大，短窗口估计也噪声很大。</p><p>消费 CAPM 的条件化。Lettau–Ludvigson 把 \(cay\) 放进消费 CAPM，坏状态下消费风险的价格更高。这与条件市场 CAPM 是表亲：市场是消费的代理，\(cay\) 调节风险价格。</p><h3 id="检验的功效与资产选择" tabindex="-1">检验的功效与资产选择 <a class="header-anchor" href="#检验的功效与资产选择" aria-label="Permalink to &quot;检验的功效与资产选择&quot;">​</a></h3><p>用 25 个规模–价值组合去检验，相关结构很强，看似高 \(R^2\) 可能来自组合的共同均值。Lewellen、Nagel 与 Shanken 呼吁加入其他资产、报告置信区间而不只是点估计 \(R^2\)。条件 CAPM 的论文尤其容易在「解释了这 25 个组合」上过度自信。工业应用里更应看：状态变量是否在样本外预测市场溢价，以及条件 beta 是否在真正的坏状态（而不是事后标签）上升。</p><p><span class="marginnote">\(cay\) 的构建使用全样本协整，会有前视成分。实务复制应递归估计消费–财富关系，接受样本外 \(cay\) 更噪，这才是条件信息集的诚实版本。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>经济机制是风险的跨期转移。投资者在财富受损、消费–财富比恶化时更厌恶风险，要求更高的市场溢价；同时，高经营杠杆、高财务杠杆的价值股在该状态下市场敏感度上升。两者相乘，无条件溢价出现在价值与小盘上。这与「价值是错误定价」不必然互斥：错误定价也可以在坏状态被放大。条件 CAPM 只是提供一个风险叙事，能否独占解释权要看条件矩是否被定价完。</p><p>统计机制是遗漏变量。无条件 CAPM 漏掉了 \(z_t r_m\)。把状态变量写进模型，等价于一个宏观因子模型的离散版本。Chen–Roll–Ross 的宏观因子、Fama–French 的回报因子、条件 CAPM 的缩放市场，是三种对「时变风险价格」的参数化。</p><h3 id="lewellen–nagel-的批评意味着什么" tabindex="-1">Lewellen–Nagel 的批评意味着什么 <a class="header-anchor" href="#lewellen–nagel-的批评意味着什么" aria-label="Permalink to &quot;Lewellen–Nagel 的批评意味着什么&quot;">​</a></h3><p>他们的短窗口 beta 估计显示，价值股的 beta 在坏时期升高的幅度，不足以在合理的市场溢价波动下产生观察到的价值溢价。这意味着：要么条件 CAPM 仍漏因子，要么状态变量选错，要么溢价有非风险成分。对量化实践的含义不是「不要做条件化」，而是不要以为加一个宏观变量就能把价值变成纯 CAPM。条件化是检验，不是自动洗白。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>状态变量有频率与修订。宏观序列滞后、修订，使 \(z_t\) 在实盘 \(t\) 不可得。金融变量（期限利差、信用利差、VIX）更及时，但更像是市场自己的价格，用它们「解释」市场溢价接近同义反复。Lettau–Ludvigson 的吸引力在于 \(cay\) 来自宏观总量；代价是低频、估计误差与样本期短。</p><p>对组合管理：条件 beta 可用于风险预算（衰退状态下降低价值超配的名义额度，或提高对冲），但把条件 alpha 当成可交易信号，会迅速碰到宏观状态变量那一篇里的滞后、修订与多重检验。条件 CAPM 首先是定价检验框架，其次才是择时装置。</p><p><span class="marginnote">拒绝无条件 CAPM、接受某个条件版本、再拒绝另一个条件版本，可以同时为真。报告时应写明信息集 \(\mathcal{F}_t\) 里到底有哪些 \(z\)，而不是笼统说「条件 CAPM 成立」。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>条件 CAPM 允许 beta 与市场溢价随信息集变化；无条件检验失败不足以否证条件版本（Hansen–Richard）。</li><li>Jagannathan–Wang（1996）与 Lettau–Ludvigson（2001，含 \(cay\)）把条件模型写成可估的缩放因子，用以吸收规模与价值的无条件溢价。</li><li>状态变量必须属于期初信息集；全样本 \(cay\) 有前视，复制应递归。</li><li>Lewellen–Nagel（2006）表明许多条件 CAPM 所需的 beta 时变过大，短窗口证据并不支持「价值只是条件市场风险」。</li><li>条件化与 Fama–French、宏观因子是对时变风险价格的不同参数化，不是互相取消。</li><li>出处：Jagannathan and Wang, <em>The Conditional CAPM and the Cross-Section of Expected Returns</em>, Journal of Finance, 1996；Lettau and Ludvigson, <em>Resurrecting the (C)CAPM</em>, Journal of Political Economy, 2001；Lewellen and Nagel, <em>The Conditional CAPM Does Not Explain Asset-Pricing Anomalies</em>, Journal of Financial Economics, 2006；Hansen and Richard, <em>The Role of Conditioning Information in Deducing Testable Restrictions</em>, Econometrica, 1987。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 资产定价与因子<!--[--> · 单元 条件定价<!--]--><!--[--> · 课序 时变风险溢价<!--]--></p><p class="lesson-progress">第 20 / 23 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/macro-state-variables/">宏观状态变量</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

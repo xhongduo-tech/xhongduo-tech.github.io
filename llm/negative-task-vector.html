@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>负任务向量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_negative-task-vector.md.ByCql8AO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 编辑与遗忘<!--]--><!--[--> · 课序 改一处而不动其他<!--]--></p><p class="lesson-progress">第 26 / 26 课</p><p class="lesson-prereq"> 先修：<a href="/llm/forgetting-metrics/">遗忘的度量</a></p><p class="lesson-next"> 下一课：<a href="/llm/reward-model/">奖励模型</a></p></nav><div style="position:relative;"><div><h1 id="负任务向量" tabindex="-1">负任务向量 <a class="header-anchor" href="#负任务向量" aria-label="Permalink to &quot;负任务向量&quot;">​</a></h1><div class="epigraph"><p>任务向量是微调后减去微调前的权重差；取负再加回去，等于在权重空间里沿适应方向退回，从而削弱该任务。</p><footer>—— Ilharco 等，Editing Models with Task Arithmetic（ICLR 2023）</footer></div><p><a href="/llm/forgetting-metrics">遗忘的度量</a>给了验收卡。本课用一种不碰 \(D_f\) 文本做梯度上升的方法：Ilharco 等人的任务算术。设 \(\theta_{\mathrm{pre}}\) 为起点，\(\theta_t\) 为在任务 \(t\) 上微调后的权重，任务向量 \(\tau_t=\theta_t-\theta_{\mathrm{pre}}\)。推理时 \(\theta_{\mathrm{pre}}+\tau_t\) 增强任务；\(\theta_{\mathrm{pre}}-\lambda\tau_t\) 削弱任务。课程「微调、编辑与遗忘」收到这里：适应是一条可加减的方向，负号即遗忘的几何。后课默认会把算术与 <a href="/llm/lora-merge-conflict">LoRA 合并</a>、ROME 槽编辑区分开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>你已经为任务 \(t\) 付过一次 SFT（全参或可物化的<a href="/llm/lora">LoRA</a>）。现在要减弱 \(t\)（过时技能、误加的风格、需去掉的能力），却不想维护 \(D_f\) 做 RMU 或反向梯度。若适应近似沿一条直线，退回去应当削弱 \(t\)。问题：\(\tau_t\) 与其它任务是否正交？\(\lambda\gt 1\) 会不会越过 \(\theta_{\mathrm{pre}}\) 把通用能力也打负？多任务曾用 \(\theta_{\mathrm{pre}}+\tau_1+\tau_2\) 相加，负号只是其中一项取负——冲突与合并课同源。</p><p>LLM 全参 \(\tau\) 与模型同大，存一份差很贵。LoRA 的 \(\tau\) 就是 \(\gamma BA\)（相对挂载前），负任务向量 = 减去该适配器，几乎免费。若知识在 \(\theta_{\mathrm{pre}}\) 里而不在 \(\tau\) 里，取负无效：只能削弱「这次微调新增的」，不能削弱预训练先验。这与<a href="/llm/machine-unlearning">遗忘课</a>「LoRA 去不掉预训练知识」一致。</p><h3 id="算术发生在权重空间-不是在梯度上再训" tabindex="-1">算术发生在权重空间，不是在梯度上再训 <a class="header-anchor" href="#算术发生在权重空间-不是在梯度上再训" aria-label="Permalink to &quot;算术发生在权重空间，不是在梯度上再训&quot;">​</a></h3><p>不做优化步。假设微调轨迹的弦 \(\tau\) 近似有用方向。非线性网络里这是启发式；Ortiz-Jimenez 等人讨论在切空间里任务算术更干净，实践仍大量直接加减 \(\theta\)。</p><p><span class="marginnote">Ilharco 原文在 CLIP 与 T5 等模型上展示加技能、减技能、类比组合。解码器 LLM 上同样可做，但 λ 网格必须用遗忘卡，不能假设 λ=1 最优。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>保存 \(\theta_{\mathrm{pre}}\) 与 \(\theta_t\)（或 LoRA 因子）。选 \(\lambda\) 网格（如 0.3–1.5），构造 \(\theta_{\mathrm{pre}}-\lambda\tau_t\)，在<a href="/llm/forgetting-metrics">遗忘卡</a>上测：任务 \(t\) 探针下降、声明的 \(D_r\) 效用、格式。<a href="/llm/chat-template">模板</a>必须与训 \(t\) 时一致，否则减的是错误条件。多任务：\(\theta_{\mathrm{pre}}+\sum_i\sigma_i\lambda_i\tau_i\)，其中 \(\sigma_i\in\{+1,-1\}\)。符号冲突用 TIES 一类修剪，或干脆不要把强负任务与强正相关任务加在同一张网上。</p><div class="mermaid"></div><p>与 ROME 比：任务向量是全局稠密差，不定位槽，副作用按层散开。与 RMU 比：不需要领域语料前向，但必须有一次「正向微调」作为 \(\tau\) 的定义；从未为危险能力专门微调过，就没有该能力的任务向量可减——减一个代理任务（如「回答 WMDP 风格题」的 SFT）只是近似。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>一阶看，\(\theta_{\mathrm{pre}}+\tau_t\) 沿微调弦走到终点。负号沿弦反向。若损失在该方向上近似凸且其它任务的梯度与 \(\tau_t\) 内积小，则 \(t\) 弱化、其它任务少动。内积大时，负 \(\tau_t\) 等于损坏共享特征，效用栏崩。这就是为何要正交性假设，以及为何<a href="/llm/lora-intrinsic-rank">内在秩</a>低的适应更适合算术：\(\tau\) 能量集中，比较像一条技能轴。</p><p>\(\lambda\gt 1\) 是外推：可能比 \(\theta_{\mathrm{pre}}\) 更不会做 \(t\)，也可能离开预训练流形。必须靠效用栏截断。LoRA 负向量：\(-\gamma BA\) 加回 \(W_0\)，与从未挂载等价当 \(\lambda=1\)；\(\lambda\neq 1\) 是部分挂载或过校正。</p><p><span class="marginnote">回放是数据空间的折中；负任务向量是权重空间的折中。可以先回放再算术，但难归因。默认选一种主方法。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有 \(\theta_{\mathrm{pre}}\) 或不可物化的适配器，无法做本课。量化后再减，误差累积，应在合并精度上做算术再量化。安全上：负掉「拒答任务向量」会削弱对齐，符号要审查。本课程结束：SFT 工程决定数据与损失；PEFT 决定谁可训练；编辑与遗忘决定如何局部改写或沿任务轴退回。论文附录里的型号对比不插入这条主干。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>任务向量 \(\tau_t=\theta_t-\theta_{\mathrm{pre}}\)；加增强、减削弱。</li><li>只能削弱写在 \(\tau_t\) 里的适应，不能减去预训练先验。</li><li>\(\lambda\) 必须用遗忘卡扫描；\(\lambda\gt 1\) 是外推。</li><li>多任务加减与 LoRA 合并同一类冲突。</li><li>LoRA 上负向量几乎就是卸载或缩放卸载。</li><li>出处：Ilharco 等，Task Arithmetic，ICLR 2023；度量承接 TOFU / WMDP / 局部性评测。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 SFT、适配与编辑<!--[--> · 单元 编辑与遗忘<!--]--><!--[--> · 课序 改一处而不动其他<!--]--></p><p class="lesson-progress">第 26 / 26 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/reward-model/">奖励模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

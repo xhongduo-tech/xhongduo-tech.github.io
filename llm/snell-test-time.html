@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Test-time compute 综述 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_snell-test-time.md.C6rZn7Vo.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 对齐与强化学习论文<!--]--><!--[--> · 课序 RL 与推理时<!--]--></p><p class="lesson-progress">第 165 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/s1-budget-forcing/">s1 / budget forcing</a></p><p class="lesson-next"> 下一课：<a href="/llm/mcts-llm-paper/">MCTS-LLM 搜索</a></p></nav><div style="position:relative;"><div><h1 id="test-time-compute-综述" tabindex="-1">Test-time compute 综述 <a class="header-anchor" href="#test-time-compute-综述" aria-label="Permalink to &quot;Test-time compute 综述&quot;">​</a></h1><div class="epigraph"><p>按题目难度把推理期算力用对，可以比继续加大预训练参数更有效；最优策略不是对所有提示都做同一种更贵的解码。</p><footer>—— Snell, Lee, Xu, Kumar，Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters，2024</footer></div><p>「测试时计算」在 2024 年后变成产品词，但可核对的机制实验应以 Snell、Lee、Xu、Kumar 的论文为主（arXiv:2408.03314，后收入 ICLR 2025）。他们固定权重，问：若允许花一笔非平凡的推理 FLOPs，准确率还能涨多少？两条主路径是：（1）在稠密过程验证器上搜索；（2）根据提示自适应地改回答分布（修订、更长链）。关键结论：收益随<strong>难度桶</strong>变，计算最优是按桶选策略，盲目 Best-of-N 不是最优。概念短述见 <a href="/llm/test-time-scaling">Test-time compute scaling</a>；本篇钉原文设定、4× 与 14× 这两句该怎么引用，以及和 o1 / R1 / s1 的分工。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>预训练缩放问参数、数据、训练 FLOPs。测试时缩放问的是已经训好的 \(\pi\)：同一题上多花 decode——独立多样本、逐步修订、对 PRM 做束或 lookahead——下游准确率的曲线。当时不少策略给出负面或含糊结果，缺少把「方法 × 难度 × FLOPs」画在一起的图。更政策性的问题是：在匹配 FLOPs 时，把算力加在预训练更大模型上，还是加在小模型的更长推理上。</p><p>他们强调提示难度是一等变量。简单题上 \(p\) 已接近 1，再加 \(N\) 只买重复；很难的题上 \(p\) 接近 0，搜索补不齐预训练缺失的知识；中间区才有陡斜率。因此「测试时计算万能」不能写成定律。难度要相对<strong>该基座</strong>定义：对小模型很难的题，对大模型可能是中等。</p><h3 id="两条机制不要合成一句广告" tabindex="-1">两条机制不要合成一句广告 <a class="header-anchor" href="#两条机制不要合成一句广告" aria-label="Permalink to &quot;两条机制不要合成一句广告&quot;">​</a></h3><p>路径（1）需要过程奖励模型：逐步 \(Q\) 让束搜索、lookahead 有可比较的前缀分，与 <a href="/llm/lightman-prm">Lightman</a> 的验证器同源，但用在生成中途而不只是完整轨迹 Best-of-N。路径（2）不增加并行候选，而是改同一条回答的分布——修订自己的答案、或把计算花在更长的中间 token。o1 的公开叙事偏（2）的用户体验；R1 把（2）在训练期用 RL 内化；s1 用 Wait 在解码期拉长度。Snell 的贡献是在 PaLM 2 系列与数学题上把（1）（2）都做成可比较的缩放图，并引入按难度的分配器。</p><p><span class="marginnote">「14× 更大模型」是 FLOPs 匹配、且小模型在该题上已有不可忽略成功率时的读数，不是「任意题小模型狂搜都赢大模型」。很难的桶上预训练仍更有效。引用必须带条件从句。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>基座以 PaLM 2-S 等为主，任务以 MATH（及配套难度分层）为中心。验证器为过程奖励模型。搜索侧：对逐步分做束、lookahead 等，对比独立 Best-of-N。修订侧：让模型在已有答案上迭代改写，测试时更新 \(p(y\mid x)\)。难度：用基座视角的成功信号分桶（具体探针以原文第 4 节为准），再在每个桶上选当时边际最高的策略与预算。</p><p>计算最优（compute-optimal）：不是全局一种 \(N\)，而是「这个提示、这笔预算 \(C\) 下选哪条机制」。他们报告相对盲目 Best-of-N，合适分配可以把测试时缩放效率提高 <strong>4 倍以上</strong>（ICLR 文本亦写 2–4× 一档，以图为准）。FLOPs 匹配比较：当较小模型对该题已有一定 pass 率，测试时计算可以超过约 <strong>14 倍参数</strong> 的短解码模型。这些是数学推理设定下的实验，不是聊天助手的延迟–满意度定律。</p><div class="mermaid"></div><h3 id="与-kaplan-chinchilla-对照" tabindex="-1">与 Kaplan / Chinchilla 对照 <a class="header-anchor" href="#与-kaplan-chinchilla-对照" aria-label="Permalink to &quot;与 Kaplan / Chinchilla 对照&quot;">​</a></h3><p>训练 FLOPs 改变权重，对未来所有提示摊销。测试 FLOPs 每次查询重付。单位都是 FLOPs，边际收益形状不同：训练曲线是跨任务的损失；测试曲线是单题准确率，且强烈依赖 \(p(x)\)。产品上只有高价值查询才值得把测试预算加到与预训练边际可比。把「小模型 + 狂搜」写成通用部署，会在开放聊天上买延迟、买不来知识。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><h3 id="宽度覆盖模式-深度改变单条计算" tabindex="-1">宽度覆盖模式，深度改变单条计算 <a class="header-anchor" href="#宽度覆盖模式-深度改变单条计算" aria-label="Permalink to &quot;宽度覆盖模式，深度改变单条计算&quot;">​</a></h3><p>独立样本把失败打到 \((1-p)^N\)，这是宽度。深度要求 \(\pi\) 在中间 token 上真的在做自检或换解；若策略从未被激励写长链，加长只是重复套话。PRM 给深度搜索提供逐步目标，否则树在错误的 \(Q\) 上长。自适应之所以必要，是因为 \(p\) 随题变：两端的一阶导数都接近 0，中间才是甜点。难度估计会错——估易则拒付预算，估难则给用户买延迟。原文用的是分析用分桶；产品还需要可关闭的快/慢开关。</p><p><span class="marginnote">匹配 FLOPs 时必须声明比较的是预训练 FLOPs 还是该次推理 FLOPs。用「小模型搜了 100 次」比「大模型答一次」可以，但 100 次 decode 要算进左侧。只比参数量不比生成 token，结论为空。</span></p><h3 id="验证器误差随预算放大" tabindex="-1">验证器误差随预算放大 <a class="header-anchor" href="#验证器误差随预算放大" aria-label="Permalink to &quot;验证器误差随预算放大&quot;">​</a></h3><p>Best-of-N 与树搜索都会过优化 \(s\)。\(N\) 或深度越大，越能找到验证器喜欢但真值错的轨迹。因此计算最优不是「把 \(C\) 用满」，而是在验证器尚未被打穿的区间里选斜率最大的机制。安全与拒答必须进入 \(s\)，否则更多测试时计算等于更强的对抗搜索。这与系统卡里「能力上升伴随新风险」是同一逻辑，Snell 用数学验证器把它量化成过优化，而不是用越狱题。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>公开论文与封闭系统必须分开引用。o1 没有同等程度的解码器消融；R1 把长链训练进 \(\pi\)，推理可以不再显式 BoN——这是第三条路，成本在训练。s1 表明序列拉长可以极小 SFT 实现，但不含 PRM 搜索，也不含按题最优分配。Snell 的 4× / 14× 绑定 PaLM 2、MATH、他们的 PRM 与分桶，换 Qwen + 规则奖励不会自动同一倍数。</p><p>服务上思考预算要和 KV 池、队列优先级绑在一起。默认全开长链会打满共享 decode。不要用短上下文聊天的 SLA 去承诺竞赛级思考延迟。没有过程验证器时，路径（1）退化成多数票或 ORM，饱和更早，见 Lightman 的 ORM 曲线。</p><p><span class="marginnote">禁止把未公开的 o1 内部报告写成 arXiv。需要封闭数字时，引用官方博客日期与当时基准声明，并注明不可复现。本篇是 Snell 2024 的论文卡，不是对所有测试时方法的百科全书。</span></p><h3 id="何时不必上计算最优分配" tabindex="-1">何时不必上计算最优分配 <a class="header-anchor" href="#何时不必上计算最优分配" aria-label="Permalink to &quot;何时不必上计算最优分配&quot;">​</a></h3><p>全是简单短指令，固定 \(N=1\)。没有难度探针且不能付自适应调度，选一种机制并封顶预算更可运维。验证器比生成器还弱，加大 \(C\) 只会过优化。知识不在模型里的题，把预算改去检索或更大预训练，而不是更深的树。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Snell 等 2024：固定权重，用推理 FLOPs 换准确率；主路径为 PRM 搜索与自适应改分布。</li><li>收益随相对基座的难度变；计算最优是按桶选策略，不是全局加大 \(N\)。</li><li>相对盲目 Best-of-N，文中报告效率可提高 4 倍以上；条件满足时测试时计算可超过约 14× 参数的短解码。</li><li>很难的题上搜索补不齐预训练；很简单的题上搜索很快饱和。</li><li>o1 / R1 / s1 应分开引用：产品叙事、训练期内化、解码期 Wait，都不是这篇的实验对象。</li><li>出处：Snell, Lee, Xu, Kumar，<em>Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</em>，arXiv:2408.03314，2024（ICLR 2025）。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 对齐与强化学习论文<!--]--><!--[--> · 课序 RL 与推理时<!--]--></p><p class="lesson-progress">第 165 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/mcts-llm-paper/">MCTS-LLM 搜索</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

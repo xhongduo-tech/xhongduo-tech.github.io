@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>科斯定理与交易成本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_coase-theorem.md.CES1bIT3.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 市场失灵<!--]--><!--[--> · 课序 外部性与公共<!--]--></p><p class="lesson-progress">第 17 / 31 课</p><p class="lesson-prereq"> 先修：<a href="/econ/missing-markets/">缺失市场</a></p><p class="lesson-next"> 下一课：<a href="/econ/cap-and-trade/">总量管制与许可证</a></p></nav><div style="position:relative;"><div><h1 id="科斯定理与交易成本" tabindex="-1">科斯定理与交易成本 <a class="header-anchor" href="#科斯定理与交易成本" aria-label="Permalink to &quot;科斯定理与交易成本&quot;">​</a></h1><div class="epigraph"><p>若交易成本为零，权利的初始分配不影响资源配置的效率；有摩擦时，法律规则本身就是经济问题。</p><footer>—— 据 Coase, The Problem of Social Cost, Journal of Law and Economics, 1960 整理</footer></div><p><a href="/econ/missing-markets">上一课</a>（缺失市场）。用庇古税把漏列的边际塞回私人一阶条件，但计划者必须知道 \(\mathrm{MD}(q^*)\)。缺口是：当事双方若能自己谈，还要不要这个税？科斯把问题从「算准税率」换成「界定权利、看谈判成本」。本课钉零成本基准与摩擦打开后的含义，不把科斯写成「政府永远多余」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>庇古默认损害方向是单向的：工厂害邻居，所以罚工厂。科斯指出相互性：禁止工厂等于损害工厂使用空气的权利。有效性问的是：权利放在哪一边，事后的生产与损害是否还能被谈回社会最优。若谈判没有成本，初始权利只改变谁向谁付钱，不改变最终的 \(q^*\)。</p><p>缺口因此不是再写一条 \(\mathrm{MD}\) 曲线，而是：在<a href="/econ/core-equivalence">核</a>那种可结盟逻辑里，把「排放权」当作可转让禀赋。两人、权利清晰、转移可执行时，核收缩到有效点附近——这与埃奇沃思透镜是同一几何，只是商品多了一维权利。</p><h3 id="科斯定理不是科斯写的那五个字" tabindex="-1">科斯定理不是科斯写的那五个字 <a class="header-anchor" href="#科斯定理不是科斯写的那五个字" aria-label="Permalink to &quot;科斯定理不是科斯写的那五个字&quot;">​</a></h3><p>Stigler 后来才叫它定理。Coase 原文的重点在后半：交易成本为正时，初始权利与责任规则改变哪些交易发生得起。零成本只是对照。把原文读成「放任即可」，丢掉了摩擦那一半。</p><p><span class="marginnote">教具：工厂产值与洗衣店损失。权利给洗衣店，工厂买排放权直到边际产值等于边际损失；权利给工厂，洗衣店付钱让工厂减产，停在同一点。支付方向相反，有效点相同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对象：两人、完全信息、权利可转让、合约可强制执行、效用可转移（或至少可谈判到帕累托边界）。结论：有效配置与权利的初始分配无关；分配效应当然有关。这是<a href="/econ/welfare-theorems">第二福利定理</a>的私人版本：总额转移在这里是权利本身，市场（谈判）去实现有效点。</p><p>交易成本 \(c\gt 0\) 时，只有增益超过 \(c\) 的交易发生。权利放在「本来就会做有效选择」的一方，可以省掉谈判；放错边，谈判又谈不成，就停在无效点。于是法律的比较静态是：哪一种初始规则使必须发生的交易更少、更便宜。</p><div class="mermaid"></div><p>多人、免费搭车时，谈判联盟复制了核的阻塞困难：人越多，越接近下一课的公共物品。科斯基准在小数目上最干净。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>零成本时，价格（或一次性支付）把外部性重新商品化。权利是禀赋，谈判是交易，有效性回到第一定理。税变成多余——不是因为损害不存在，而是因为市场已经被补全。支付方向随初始权利变，这是分配； \(q^*\) 不变，这是效率。两人盒里把权利画成禀赋点，谈判沿透镜走到合同曲线，与<a href="/econ/edgeworth-pareto">埃奇沃思</a>同一张图。</p><p>摩擦破坏的是「补全」这一步。写合约要描述状态、监测排放、防止事后敲竹杠。权利模糊时，双方争的是权利本身，不是排放数量。此时庇古税与科斯谈判都缺信息：前者缺 \(\mathrm{MD}\)，后者缺可执行的产权。比较的是两种信息体制，不是「市场对政府」的口号。人数一多，每个受益者都想让别人去谈，摩擦与免费搭车叠在一起——那是下一课。</p><h3 id="企业是降低交易成本的一种装置" tabindex="-1">企业是降低交易成本的一种装置 <a class="header-anchor" href="#企业是降低交易成本的一种装置" aria-label="Permalink to &quot;企业是降低交易成本的一种装置&quot;">​</a></h3><p>Coase 更早的《企业的性质》把企业看成用权威替代市场谈判。若工厂和洗衣店合并，排放变成内部转移定价，双边外部消失。合并本身有组织成本，超过这个成本就不如继续做两个主体再谈判或再征税。本课不重写厂商技术，只把治理结构放进可行性：税、禁令、合并、法庭，是替代的契约形式。</p><p>拟线性（或可转移效用）关掉收入效应，教具才有「 \(q^*\) 与权利无关」。效用不可转移时，权利带来的财富会改需求，有效点可以微移。不要在一般偏好里硬说数量一字不差。</p><p><span class="marginnote">权利必须可让渡。若「清洁空气」无法排除搭便车的居民，双边谈判组不起来。定理的域是稀少当事人、权利清晰、法庭便宜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>完全信息是关键。不对称信息下列出菜单，谈判本身有逆向选择与信号，要等到本课程的信息课序。不可分、非凸时谈判可能停在错误的角点。收入效应大、效用不可转移时，「与初始分配无关」只对效率近似成立，对分配不成立。</p><p>也不要把科斯用来给限价簿背书。权利交易仍是抽象的净转移，不是订单簿上的排队。后课公共物品把非竞争、非排他推到极端，谈判的联盟规模爆炸。</p><p>权利若不可转让，零成本结论立刻垮：谈判没有商品可交。科斯要的是可交易的产权，不是「贴一张告示」。</p><p>后课默认：零交易成本下，清晰产权可使外部性内部化；正成本时，权利分配进入效率。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>外部性有相互性；有效性问最终 \(q^*\)，不先验惩罚某一方。</li><li>零成本谈判下，初始权利只改分配；正成本下，规则改效率。</li><li>科斯是补全市场，不是取消损害。</li><li>人数一多，谈判靠近免费搭车。</li><li>出处：Coase, <em>JLE</em> 1960；定理一名来自 Stigler 的转述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 一般均衡与福利<!--[--> · 单元 市场失灵<!--]--><!--[--> · 课序 外部性与公共<!--]--></p><p class="lesson-progress">第 17 / 31 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/cap-and-trade/">总量管制与许可证</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>弹性训练与掉卡 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_elastic-training.md.C0VJIevg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 30 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/distributed-ckpt-format/">分布式检查点格式</a></p><p class="lesson-next"> 下一课：<a href="/llm/straggler-mitigation/">落后者缓解</a></p></nav><div style="position:relative;"><div><h1 id="弹性训练与掉卡" tabindex="-1">弹性训练与掉卡 <a class="header-anchor" href="#弹性训练与掉卡" aria-label="Permalink to &quot;弹性训练与掉卡&quot;">​</a></h1><div class="epigraph"><p>故障不应当成整场作业的结束：世界缩小后按新的并行计划从上一完好检查点拉起，已训过的 token 尽量接着记账。</p><footer>—— 据 Athlur 等 Varuna、PyTorch Elastic；对照 MegaScale / Llama 3 万卡故障处理整理</footer></div><p><a href="/llm/distributed-ckpt-format">上一课</a>让权重能在新的 TP/PP/EP 度下重切。缺的是控制面：谁发现 rank 没了、如何排空异步 writer、如何选一个仍然合法的并行计划、如何让数据游标在缩小的世界里不重复不遗漏。本课不重讲张量地图字段。缺口是掉卡后的弹性续训。落后者是「还活着但很慢」；本课先处理「已经死了」。故障率课会给万卡的概率背景。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同步集合通信把故障变成全组挂起：All-to-All 与 All-Reduce 没有「缺席默认值」。必须超时检测、中止、从检查点拉起。若每次掉卡都等人工改脚本，MTTR 以小时计，万卡作业的有效时间所剩无几。Varuna 一类系统把流水切分随可用机器数重算；torchelastic 提供进程组重建。工程缺口是与 1F1B / MoE EP 组的约束兼容：不是任意 \(n\) 都能跑，合法世界大小是离散集合。</p><p>数据侧：弹性后 \(n_{\mathrm{dp}}\) 变了，全局 \(B\) 若要保持，就要改 \(k\) 或 \(b_{\mathrm{micro}}\)，学习率会计跟着动。游标必须按「已消费 token」而不是按「每个 rank 的文件偏移」恢复，否则 DP 度变化会错位。</p><h3 id="检测要快-但不能误杀" tabindex="-1">检测要快，但不能误杀 <a class="header-anchor" href="#检测要快-但不能误杀" aria-label="Permalink to &quot;检测要快，但不能误杀&quot;">​</a></h3><p>网络抖动与 GC 会造成短暂无响应。超时太短，弹性风暴；太长，空等。应结合 NCCL 健康、心跳、以及「是否卡在同一集合通信」来判定，而不是单 ping。</p><p><span class="marginnote">热备空闲节点可以缩短 MTTR，但要计入利用率。没有热备时，缩小世界继续训往往优于等维修。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>合法计划表：预先枚举若干 \((n_{\mathrm{dp}},n_{\mathrm{tp}},n_{\mathrm{pp}},n_{\mathrm{ep}})\) 组合，掉卡后选不超过当前存活数的最大可行点。从 latest 完好检查点加载，重切分片。排空或取消异步保存队列。重置 CUDA 上下文与通信组。加载器按全局 token 游标恢复，必要时丢掉当前未完成的全局 batch。日志把这次弹性记成一次「非确定性事件」，供重放课声明：弹性后的数值不必与从未掉卡的 run 逐 bit 相同，但 token 会计必须连续。</p><p>盒约束：EP 组大小变化时专家数仍要整除；否则拒绝该计划，继续缩小 DP 而不是强行改专家数。</p><h3 id="与退火、评测" tabindex="-1">与退火、评测 <a class="header-anchor" href="#与退火、评测" aria-label="Permalink to &quot;与退火、评测&quot;">​</a></h3><p>弹性发生在退火段时，配比版本号必须从检查点恢复，不能回到 \(w_{\mathrm{main}}\)。训练中评测的进程若与训练共享作业，应一并拉起或显式禁用，避免评测器对着半新权重写结果。</p><p><span class="marginnote">部分框架支持「换一批节点但保持世界大小」。这仍是弹性，只是计划不变、只换机器；检查点仍建议落一次，防止坏 GPU 内存污染。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>集合通信的进程组是静态的。弹性等于结束旧群、在新群上从一致快照重启优化器。丢失的是「上一检查点到故障」之间的梯度，不是整个 run。异步保存若把间隔压到分钟级，丢失可接受。这与数据去污染无关，但与可复现有关：随机数状态若只存在死掉的 rank 上，恢复后噪声不同。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>弹性不修复慢卡，只修复死卡。缩小世界会改变 \(B\) 与通信模式，收敛曲线允许折一下，但应在报告里标注。下一课处理仍活着的慢节点：它们不会触发超时，却把每一步的墙钟拉到最差 rank。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲分片格式；只补掉卡后选计划、加载、接上 token 会计。</li><li>合法世界大小是离散表；EP 整除约束优先。</li><li>游标按全局 token；弹性事件要记账。</li><li>丢失窗口由异步检查点间隔决定。</li><li>出处：Athlur et al., Varuna, EuroSys 2022；PyTorch Elastic；Jiang et al., MegaScale。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 30 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/straggler-mitigation/">落后者缓解</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

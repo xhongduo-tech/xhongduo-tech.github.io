@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>自动微分的正向与反向模式 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_autograd-two-modes.md.LoS2iSEN.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 反向传播<!--]--><!--[--> · 课序 链式法则<!--]--></p><p class="lesson-progress">第 15 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/backprop-layerwise/">反向传播一行一层</a></p><p class="lesson-next"> 下一课：<a href="/llm/vanish-explode-grad/">梯度消失与爆炸</a></p></nav><div style="position:relative;"><div><h1 id="自动微分的正向与反向模式" tabindex="-1">自动微分的正向与反向模式 <a class="header-anchor" href="#自动微分的正向与反向模式" aria-label="Permalink to &quot;自动微分的正向与反向模式&quot;">​</a></h1><div class="epigraph"><p>同一条链式法则，从输入往输出推是正向模式，从输出往输入推是反向模式；谁便宜，取决于自变量多还是因变量多。</p><footer>—— 据 Griewank &amp; Walther, Evaluating Derivatives；Baydin et al., Automatic Differentiation in Machine Learning, JMLR 2018 整理</footer></div><p><a href="/llm/backprop-layerwise">反向传播一行一层</a>默认从损失往参数走。本课不重写线性层的两次 GEMM。缺口是：自动微分还有另一种扫法——正向模式：每个中间量携带对某个输入的导数，随前向一起走。训练几乎总用反向，因为 \(L\) 是标量、\(\theta\) 是百万到千亿维。正向模式在「少数输入、许多输出」时才更便宜。本课把两种复杂度钉住，避免把 backprop 当成 AD 的唯一定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>计算图有 \(n\) 个独立输入、\(m\) 个输出。要全部一阶导数，即 \(m\times n\) 的 Jacobian。正向模式选一个输入方向 \(v\)，一次扫图得到 \(Jv\)（Jacobian-vector）；要满 Jacobian，约需 \(n\) 次。反向模式选一个输出余向量 \(u\)，一次扫图得到 \(u^\top J\)（vector-Jacobian）；要满 Jacobian，约需 \(m\) 次。缺口不是新的局部导数，而是这次计数：深度学习训练 \(m=1\)、\(n\) 极大，故反向一次就够；若问「每个输出对某一个输入」的敏感度，\(n=1\) 则正向一次就够。</p><p>框架里的 autograd 默认反向。Jacobian-vector 接口（有的叫 forward-over-reverse）用于二阶、用于梯度惩罚，那是后话。本课只要求能回答：为什么训练不跑正向 AD。</p><h3 id="正向模式不是「再做一次前向传播」" tabindex="-1">正向模式不是「再做一次前向传播」 <a class="header-anchor" href="#正向模式不是「再做一次前向传播」" aria-label="Permalink to &quot;正向模式不是「再做一次前向传播」&quot;">​</a></h3><p>前向传播算的是值。正向 AD 算的是值与切空间里的种子一起走：每个张量多带一个与自身同形的切向量。开销大约是常数倍的前向，不是「免费」。反向 AD 则要保存中间值，内存与图深度（或与检查点策略）相关。把正向 AD 理解成「不占内存的反向」，形状和次数都错：它省的是反向那次扫，不省对每个输入各扫一次的次数。</p><p><span class="marginnote">标量损失对参数的梯度是 \(1\times n\) 的行。反向一次得到整行。正向要对每个参数种子跑一次，才能填满这一行。这就是训练不用正向模式的全部理由。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记图为复合 \(f=f_k\circ\cdots\circ f_1\)。正向 AD：选 \(v\)，令 \(\dot x_0=v\)，递推 \(\dot x_{i}=J_{f_i}\dot x_{i-1}\)，最后得到 \(J_f v\)。反向 AD：选 \(u\)，令 \(\bar x_k=u\)，递推 \(\bar x_{i-1}=J_{f_i}^\top\bar x_i\)，最后得到 \(J_f^\top u\)。实现上，正向 AD 可与数值前向融合；反向 AD 要先完整前向再逆序。混合模式对中间层切分，用于极深图的检查点，本课只点名，不展开。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>复杂度差来自矩阵乘法结合律：\((AB)v\) 与 \(u^\top(AB)\) 的结合顺序不同，中间维被收缩的次数就不同。层很宽时，物化完整 Jacobian 不可能；两种模式都只传播向量。反向模式还要面对内存：残差块可以把反向路径变短，检查点则用重计算换存储。这些是系统课的主题；机制上只需记住，反向不是计算上无条件更优，只是对「标量损失 + 大量参数」更优。</p><p>数值梯度检验常用正向有限差分对单个参数，那是 \(O(n)\) 次前向，只能抽样若干坐标。它检验的是局部规则写得对不对，不能替代 AD。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不推导 Hessian-vector 的两次反向。下一课<a href="/llm/vanish-explode-grad">梯度消失与爆炸</a>问的是反向路径上局部增益的连乘，不是 AD 模式选错。后课默认：训练用反向 AD；说到 Jacobian-vector，才考虑正向或正向嵌反向。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>正向 AD 一次得 \(Jv\)，次数随输入维；反向 AD 一次得 \(u^\top J\)，次数随输出维。</li><li>训练 \(m=1\)，故反向一次给出全部参数梯度。</li><li>正向 AD 不是免费前向，每个张量携带切向量。</li><li>反向 AD 的代价在内存与检查点，不在「算不出梯度」。</li><li>出处：Griewank &amp; Walther；Baydin et al., JMLR 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 反向传播<!--]--><!--[--> · 课序 链式法则<!--]--></p><p class="lesson-progress">第 15 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/vanish-explode-grad/">梯度消失与爆炸</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

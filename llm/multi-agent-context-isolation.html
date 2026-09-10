@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多智能体上下文隔离 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_multi-agent-context-isolation.md.D1sPvWeg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 9 / 19 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agents-md-spec/">AGENTS.md 项目规范</a></p><p class="lesson-next"> 下一课：<a href="/llm/acm-context/">ACM Agentic Context Management</a></p></nav><div style="position:relative;"><div><h1 id="多智能体上下文隔离" tabindex="-1">多智能体上下文隔离 <a class="header-anchor" href="#多智能体上下文隔离" aria-label="Permalink to &quot;多智能体上下文隔离&quot;">​</a></h1><div class="epigraph"><p>子代理在自己的新鲜对话里跑：中间工具调用留在子窗口，只有最终消息回到父代理。父到子的通道就是那条 prompt 字符串。</p><footer>—— Anthropic，Claude Agent SDK / Subagents 文档；原则见 Effective context engineering for AI agents，2025-09-29</footer></div><p>单窗口代理把探索、失败栈与最终答案混在同一条历史上，主上下文被 grep 输出和错误分叉填满，这就是 <a href="/llm/context-rot">上下文腐烂</a> 的多智能体版本。<strong>上下文隔离</strong>把子任务放到独立窗口：子代理不自动继承父对话，也不在两次调用之间保留记忆；需要知道的事实必须写进调用时的提示。Anthropic 把子代理的收益写成：隔离上下文、并行分析、专用指令而不膨胀主提示。这与 <a href="/llm/multi-agent-orchestration">多代理编排</a> 的「谁说话」不同：编排管调度，隔离管<strong>每个说话者看见什么</strong>。本篇写通道、泄漏模式与协议层不共享记忆，不写如何绕过权限。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>父窗口若把「读遍仓库」和「写补丁」放在一起，工具结果会永久占位，后续规划被过期文件片段锚定。Anthropic 工程文把子代理写成另一种压缩：子代理消耗数万 token 探索，只回传约 1k–2k 蒸馏结果，主窗口保持干净。那是空间隔离，不是时间上的 <a href="/llm/compaction-summarize">Compaction 摘要</a>。失败模式对称：隔离过度时，子代理看不到会话里刚定的接口名，会重造一套；隔离不足时，子代理带着父历史里的错误假设开工。</p><p>AutoGen（Wu 等，arXiv:2308.08155）把代理做成可对话行动者，群聊默认有广播压力：每人每轮看见全量日志，费用随角色数超线性涨。CAMEL、MetaGPT 用角色提示分区，但若实现上仍拼接同一条 <code>messages</code> 数组，提示分区只是幻觉。隔离必须是<strong>运行时窗口边界</strong>，不是人设段落。</p><h3 id="默认新鲜窗口-而不是默认-fork" tabindex="-1">默认新鲜窗口，而不是默认 fork <a class="header-anchor" href="#默认新鲜窗口-而不是默认-fork" aria-label="Permalink to &quot;默认新鲜窗口，而不是默认 fork&quot;">​</a></h3><p>Claude Agent SDK 写明：子代理上下文从空白开始，不含父对话；父到子的唯一通道是 Agent 工具的 prompt。子代理有自己的系统提示、工具子集、可选技能；项目 <code>CLAUDE.md</code> 是否加载取决于 <code>settingSources</code>。两次调用同一 <code>research-assistant</code> 也不共享上次读过的文件，除非你把路径写进新 prompt，或把笔记落到工作区文件。这强迫协调器做结构化交接：问题、约束、相关路径、先前结论，全部显式。</p><p><span class="marginnote">产品后来加了 <code>context: fork</code>：子代理继承父对话全文，但子侧工具噪声仍不回写父窗口。fork 适合依赖会话细微差别的任务；可写清的独立子任务应保持新鲜窗口，以免把腐烂一并继承。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>最小隔离合同：协调器持有用户目标与共享工件指针（文件、票、PR）；每个子代理收到一份自包含 brief；返回值是摘要或产物路径，不是原始工具轨迹。并行时各子窗口互不可见，避免两个检索代理在同一条 KV 里互相污染。工作区隔离（如独立 git worktree）是文件系统边界，与 token 窗口隔离正交：可以窗口隔离但共享磁盘，也可以两者都隔离。</p><p>评测应分开报：主窗口峰值 token、子窗口峰值、回传字节、任务成功率。只报最终对错会掩盖「主窗口被探索日志撑满」或「子代理因 brief 缺字段而幻觉接口」。Anthropic 强调子代理适合探索性、可丢弃的路径；不可逆的生产写操作应留在权限更严的父代理或人在环。</p><div class="mermaid"></div><h3 id="交接必须可归因" tabindex="-1">交接必须可归因 <a class="header-anchor" href="#交接必须可归因" aria-label="Permalink to &quot;交接必须可归因&quot;">​</a></h3><p>隔离之后，错误会变成「谁说的」。brief 应带来源：哪次用户原话、哪份文件、哪次子代理结论。回传应区分事实（读到的签名）与推断（「可能是竞态」）。否则父代理会把子代理的猜测提升成下一回合的前提。这与 <a href="/llm/a2a-protocol">A2A 协议</a> 的不透明协作一致：智能体之间不共享记忆与工具，只交换任务、消息与产物；生产多智能体更接近协议隔离，而不是共享一块黑板。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>隔离改变的是条件前缀的分区。每个子前向只看见 brief + 自己的工具定义 + 自己的观察。注意力不再被父任务的无关文件切碎，<a href="/llm/lost-in-middle">中间丢失</a> 的受害范围缩到子轨迹。回传相当于一次有损编码：编码失败就是丢失字段或写入未发生的决策。协调器要用清单（接口名、复现命令、未跑测试）检查回传，而不是只看文风。</p><p>并行隔离还有调度含义：两个子代理同时改同一文件会冲突。窗口隔离不自动提供锁。共享状态应落在可合并的工件（分支、票）上，由父代理串行合并。群聊式编排若每轮全量广播，隔离被抵消——那是 AutoGen 群聊要靠摘要路由才能控费用的原因。</p><p><span class="marginnote">费用近似为各窗口 token 之和，不是主窗口单独的长度。十个隔离探索各自 20k，主窗口仍可能只有 4k 回传，但账单按 200k 计。报「主上下文变干净」必须同时报总 token。</span></p><h3 id="记忆层不要偷偷打破隔离" tabindex="-1">记忆层不要偷偷打破隔离 <a class="header-anchor" href="#记忆层不要偷偷打破隔离" aria-label="Permalink to &quot;记忆层不要偷偷打破隔离&quot;">​</a></h3><p>若所有代理读写同一块 <a href="/llm/mem0-layer">Mem0</a> 或 <a href="/llm/zep-graphiti">Zep</a> 库且不做租户/角色过滤，窗口隔离只是表演：子代理会检索到父会话里的私有笔记。记忆写入要带来源代理身份与可见性；跨代理共享应是显式工件，而不是默认可搜全库。这是架构约束，不是检索技巧。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>SDK 文档描述的是 Claude 产品线的默认；其他框架可能把整个 <code>messages</code> 传给每个角色。引用时写清实现。fork 与新鲜窗口是两种合同，不要在同一路由里混用而不标注。法律或审计场景需要保留子轨迹全文，隔离压缩会破坏取证——应把子会话日志另存，而不是只留摘要。</p><p>不要把隔离当成越权手段：子代理工具白名单应比父更窄，而不是更宽。本篇只讨论上下文分区与回传合同。</p><p><span class="marginnote">出处：Anthropic Agent SDK <em>Subagents</em>；Anthropic Applied AI，<em>Effective context engineering for AI agents</em>，2025-09-29。编排对照 Wu 等 AutoGen，arXiv:2308.08155。协议层不共享记忆见 Google A2A 公告。子代理数字「数万 token 进、1k–2k 出」来自该工程博文，不是对照实验表。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多智能体上下文隔离让子任务在新鲜（或显式 fork 的）窗口运行，中间噪声不回写父历史。</li><li>父到子的通道是 brief；两次调用默认不共享记忆，除非写入工作区或记忆库。</li><li>回传是有损编码，必须可归因；共享记忆库会静默打破窗口隔离。</li><li>评测要报主/子峰值与总 token，不能只报主窗口变短。</li><li>出处：Anthropic Agent SDK 与 2025-09-29 工程文；AutoGen arXiv:2308.08155。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 上下文工程与记忆<!--[--> · 单元 上下文管理<!--]--><!--[--> · 课序 原理与策略<!--]--></p><p class="lesson-progress">第 9 / 19 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/acm-context/">ACM Agentic Context Management</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>上下文感知解码 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_context-aware-decoding.md.C-8u7-55.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 5 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dola-decoding/">DoLa 层对比</a></p><p class="lesson-next"> 下一课：<a href="/llm/ngram-blocking/">n-gram 阻断</a></p></nav><div style="position:relative;"><div><h1 id="上下文感知解码" tabindex="-1">上下文感知解码 <a class="header-anchor" href="#上下文感知解码" aria-label="Permalink to &quot;上下文感知解码&quot;">​</a></h1><div class="epigraph"><p>模型有时更相信自己的参数记忆，而不是你刚贴上的证据；把「有上下文」与「无上下文」的分布对比，才能把生成拉回当前证据。</p><footer>—— Shi et al., Trusting Your Evidence: Hallucinate Less with Context-aware Decoding, NAACL 2024</footer></div><p><a href="/llm/dola-decoding">上一课</a>对比的是同一前向里的深浅层，对象是参数里的「先验 vs 事实」。本课把对比轴换成 <em>条件</em>：同一层、同一权重，一次看见检索到的证据 \(c\)，一次看不见。Shi 等人的 Context-aware Decoding（CAD）用有上下文的 logits 减去无上下文的 logits，放大那些「只因为看见 \(c\) 才升高」的 token。它针对的是上下文接地（context-grounded）生成：摘要、RAG、阅读理解。不要把 CAD 写成通用抗幻觉开关——没有 \(c\)，对比无定义。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RAG 与长提示把证据写进前缀，但逐步分布仍可能跟参数里更强的共现走：实体名触发了训练中的高频属性，证据里的相反属性被忽略。这是忠实性问题在解码端的版本：<a href="/llm/dola-decoding">上一课</a>假设事实在深层；这里事实在 <em>提示</em> 里，模型却不「信」。缺口是：如何在不改权重、不重训的前提下，提高 \(c\) 对下一步的因果作用。</p><p>朴素做法「把证据重复三遍」浪费上下文窗口，且不保证逐步对齐。CAD 的对比明确针对这一点：无上下文分布 \(p_\theta(\cdot\mid x)\) 代表先验，有上下文 \(p_\theta(\cdot\mid c,x)\) 代表先验加证据；差放大后者相对前者多出来的质量。</p><p><span class="marginnote">两次前向共享大部分计算图，但不共享 KV：无上下文那次没有 \(c\) 的键值。实现上这是两次 decode 步，或一次 batch=2 的前向。比 DoLa 的中间层钩子更贵，比 MBR 仍便宜。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令 \(z^+\) 为条件于 \((c,x,\text{prefix})\) 的 logits，\(z^-\) 为只条件于 \((x,\text{prefix})\) 的 logits（生成前缀仍要一致，否则对比的不是「证据」，而是另一条链）。对比</p> \[p_{\mathrm{CAD}}(x_t)\propto \mathrm{softmax}\big(z^+ + \alpha(z^+-z^-)\big), \]<p>\(\alpha\gt 0\) 是放大系数（原文把对比写成对点分的加权）。\(\alpha=0\) 退回普通有上下文解码；\(\alpha\) 过大把只在 \(c\) 里出现的罕见拼写放大成胡话。温度与 top-p 加在对比之后，顺序同<a href="/llm/sampling-temperature-topp">核采样</a>。</p><p>无上下文那条链的 KV 可以更短（没有 \(c\)），但生成前缀必须同步追加，否则 \(z^-\) 条件错位。投机解码时，草稿若只跑 \(z^+\)，目标用 CAD，接受规则对的不是 CAD 分布——要么两边都做对比，要么承认有损加速。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>若某 token 在看见 \(c\) 后 logit 升高、看不见时不高，它会被 CAD 进一步抬高；若两边都高（语言先验），差值接近 0，行为接近普通解码。这解释了为什么 CAD 对「证据与先验冲突」最有效，对「证据只是复述常识」几乎无感。它与 DoLa 正交：一个对比层，一个对比条件；可以叠，但归因必须分开做消融。</p><p>两次前向的墙钟接近 2×，除非做成 batch=2 共用权重加载——decode 带宽墙上，同一份权重乘两条序列，算术强度上升，边际成本低于 2。这是后课性能会计会再用的观察：对比解码是「小 batch 变 2」而不是「步数翻倍」。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有明确 \(c\) 的闲聊不要开 CAD：随便把系统提示当 \(c\)，对比的是「有无系统提示」，不是证据忠实。\(c\) 极长时，无上下文那次省下的 KV 可观，但有上下文那次仍是长上下文账单。证据互相矛盾时，CAD 会放大冲突里 logit 差更大的那一侧，不一定是对的一侧。评测要钉死 \(c\) 的切分（段落、top-k 段落），否则数字不可比。</p><p>出处：Shi et al., NAACL 2024。不要把 PMI 提示或 Dola 的层差写成 CAD。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CAD 对比有无上下文的逐步分布，放大证据引起的 logit 差。</li><li>需要同步的两条条件，KV 不共享证据段；batch=2 可摊权重加载。</li><li>对象是上下文接地任务；无 \(c\) 则无定义。</li><li>与 DoLa、投机叠用时必须声明对比是否进入接受规则。</li><li>\(\alpha\) 过大伤害流畅；过小等于没开。</li><li>后课处理更硬的约束：禁止已出现的 n-gram。</li><li>出处：Shi et al., NAACL 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 5 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ngram-blocking/">n-gram 阻断</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

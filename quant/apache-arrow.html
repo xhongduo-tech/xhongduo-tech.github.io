@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Apache Arrow 零拷贝 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_apache-arrow.md.Ce_y0rox.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 数据与研究基础设施<!--[--> · 单元 数据栈<!--]--><!--[--> · 课序 工具<!--]--></p><p class="lesson-progress">第 4 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/quant/clickhouse-finance-ts/">ClickHouse 金融时序</a></p><p class="lesson-next"> 下一课：<a href="/quant/qlib-quant/">Microsoft Qlib</a></p></nav><div style="position:relative;"><div><h1 id="apache-arrow-零拷贝" tabindex="-1">Apache Arrow 零拷贝 <a class="header-anchor" href="#apache-arrow-零拷贝" aria-label="Permalink to &quot;Apache Arrow 零拷贝&quot;">​</a></h1><div class="epigraph"><p>列式内存布局一旦在进程之间成为契约，分析就可以指向同一段缓冲区，而不必在每次语言边界上把表拆成行、再拼回来——拷贝不是计算，却常常比计算更贵。</p><footer>—— 据 Apache Arrow 对列式内存格式、IPC 与 Flight 的说明</footer></div><p>量化研究栈是多语言的：行情库是 q 或 C++，特征是 Python，模型是另一份 Python 或 JVM，回测又回到 C++。<a href="/quant/kdb-plus">kdb+</a>、<a href="/quant/dolphindb">DolphinDB</a>、<a href="/quant/clickhouse-finance-ts">ClickHouse</a> 各自有内部布局，一旦导出变成 CSV 或逐行 JDBC，列存的优势在门口被交回去。Apache Arrow 定义一份语言无关的列式内存规格：RecordBatch、Schema、缓冲对齐与空值位图。所谓零拷贝，指的是在这份规格被双方遵守时，读者可以 mmap 或共享内存指向同一缓冲区，而不再分配第三份行式对象。本篇写这份契约解决什么、何时其实仍在拷贝、以及金融时序作为批数据如何沿着 IPC/Flight 走。它是数据面架构，不是行情源。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次「把当天成交交给 pandas」的典型路径是：数据库按行序列化，驱动在客户端建行对象，pandas 再转成列。三份内存、两次解析，CPU 花在移动字节。Arrow 把表规定为若干等长列缓冲：值数组、可选偏移（变长）、空值位图。Python、Java、C++、Rust 只要实现同一规格，就可以交换指针。问题变成：金融字段能否自然落进这些缓冲（时间戳精度、字典编码的符号、嵌套的深度快照），以及哪些边界会强迫拷贝——例如要变成带索引的 pandas Series、要做非对齐运算、或要越过不能共享内存的机器。</p><p>第二个问题是流与批。Arrow 的 IPC 是一批一批的 RecordBatch，Flight 把同一思想放到 RPC。它适合「扫描一段分区」的研究作业，不适合单笔成交的微秒回调。把 Arrow 塞进 tickerplant 热路径，会把批协议用成消息队列。</p><h3 id="布局契约-schema-与缓冲" tabindex="-1">布局契约：Schema 与缓冲 <a class="header-anchor" href="#布局契约-schema-与缓冲" aria-label="Permalink to &quot;布局契约：Schema 与缓冲&quot;">​</a></h3><p>Schema 声明字段名、类型、可空性、字典。时间用 <code>timestamp[ns]</code> 还是 <code>timestamp[us]</code>，必须在数据契约里冻结，否则 Python 与 C++ 各自「本地默认」会制造 1000 倍的错位。符号用字典编码（integer 码 + 字符串表）接近 kdb+ 的枚举：比较走整数，显示走表。变长字符串没有字典时，偏移数组使随机访问仍是 \(O(1)\) 定位到片段，但缓存局部性不如定长。空值位图让「价为空」不必用 NaN 哨兵——金融里 NaN 与真正缺失不是一回事，应显式分开。</p><p><span class="marginnote">零拷贝是布局契约的推论，不是所有 Arrow API 的默认行为。<code>to_pandas()</code> 在旧版本会拷贝；即使零拷贝模式，一旦你改了那一列，所有权规则也会强制复制。说「我们用了 Arrow」不等于「我们没有拷贝」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>研究作业的推荐边界是文件或 Flight，而不是 pickle。落盘用 Arrow IPC 文件或 Parquet（磁盘上的列式，读入时可解码到 Arrow）。进程内用共享内存或内存映射 IPC。跨主机用 Flight：协议带着 Schema 与批次，避免 HTTP JSON。批次大小按列投影后的字节计：太小则 RPC 开销主导，太大则尾延迟与失败重试变贵。分区与 <a href="/quant/point-in-time">点时</a> 目录对齐——每个批次对应确定的交易日与版本，这样模型训练才能引用「某一份不可变批」而不是「当时库里碰巧是什么」。</p><p>从行情库导出时，做一次显式投影：只要后面用到的列。把 L2 十档拆成结构体列还是拆成 20 个标量列，要看下游。结构体保持物理相邻；标量列更易被只读两档的作业裁剪。不要在 Arrow 里用 JSON 字符串存簿，那是把列式外壳套在行式内容上。</p><h3 id="字典、时间与复权列" tabindex="-1">字典、时间与复权列 <a class="header-anchor" href="#字典、时间与复权列" aria-label="Permalink to &quot;字典、时间与复权列&quot;">​</a></h3><p>字典需要约定：码表是全局一张，还是每批次一张。全局表让多日连接不必反复解码，但新上市代码要能追加；每批次一张更简单，合并时要重映射。复权因子应作为单独列随批走，而不是在导出时把价格改写成「已复权」却不留原始价——研究与会计会同时需要两者。时间列保留交易所时钟与到达时钟两列，见事件驱动回测对因果的要求；Arrow 不会替你选哪一列当索引。</p><p>校验应在边界上做：行数、空值计数、时间单调性、符号字典覆盖。失败则拒绝批次，而不是在 pandas 里「fillna 继续」。这与 <a href="/quant/tick-cleaning">Tick 清洗</a> 的失败即停是同一纪律，只是对象从消息变成 RecordBatch。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>零拷贝能成立，是因为读者对缓冲只读、且生命周期短于提供者的映射。IPC 文件把 Schema 与若干 RecordBatch 写成可 mmap 的布局；操作系统把文件页送进页缓存，多个 Python 进程可以映射同一文件而不各持一份。Flight 在 TCP 上传同一布局，通常至少有一次网络拷贝，但避免了二次序列化。Plasma 一类的共享内存对象存储曾把「对象 ID → 缓冲」做进进程外服务，Arrow 生态后来更多靠 Flight 与文件。机制上要记住：网络、GPU 上传、以及任何需要行式 API 的库，都会打破零拷贝。</p><p>与数据库内部布局的关系：Arrow 不是 kdb+ 列文件，也不是 ClickHouse part。桥接层负责把内部列转成 Arrow 缓冲。好的桥接是整列 <code>memcpy</code> 或直接包装已对齐的缓冲；坏的桥接是按单元格走回调。评估一个「Arrow 连接器」应看它是否整列转换，而不是看它是否 import 了 <code>pyarrow</code>。</p><h3 id="所有权、可变与语言边界" tabindex="-1">所有权、可变与语言边界 <a class="header-anchor" href="#所有权、可变与语言边界" aria-label="Permalink to &quot;所有权、可变与语言边界&quot;">​</a></h3><p>Python 的 GC、C++ 的析构、JVM 的堆外内存，对同一缓冲有不同的释放规则。Arrow 用引用计数或明确的父对象保持缓冲活着。把缓冲交给会原地修改的算法（某些排序、某些填充），必须先 <code>copy</code>。金融管道里，默认把批次当不可变：新特征写成新列或新批次，不改输入。这与 MergeTree 的不可变 parts、与点时分区的不可变快照是同一哲学在内存里的对应。</p><p><span class="marginnote">GPU 与 Arrow 的交集是另一份布局（例如设备上的列式）。主机 Arrow 到设备往往是一次 DMA 拷贝。不要把「CPU 上零拷贝」宣传成训练循环没有数据移动。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>Arrow 不管交易日历，不管复权语义，不管权限。Schema 演进（加列、改字典）必须版本化，否则旧读者会解错。超宽的深度快照会使单一 RecordBatch 超过合理内存；应按时间切批，而不是按「一天一行」。嵌套列表表示变长档位时，偏移稍错就会静默读到别人的量——对嵌套列的校验比对标量更严。</p><p>不要用 Arrow 当 WAL。不要把 pickle 的 numpy 数组改个扩展名叫做 Arrow。不要在热路径上为每一笔成交建一个 RecordBatch。跨团队共享时，把 Schema 登记下来，像接口一样评审，而不是在笔记本里随手改列名。</p><p><span class="marginnote">零拷贝降低的是边界税，不是算法复杂度。特征若仍是逐行 Python 循环，省掉的序列化会被解释器吃回去。Arrow 与向量化计算是配套的；只换格式不换循环，收益很小。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Apache Arrow 用语言无关的列式内存规格，使进程之间可以共享缓冲，而不是反复行式序列化。</li><li>零拷贝成立于只读、同布局、生命周期受控；pandas、网络、GPU 与原地修改会打破它。</li><li>金融字段要冻结时间精度、符号字典与缺失语义；批次与点时分区对齐。</li><li>与行情库的桥应整列转换；热路径仍用专用内存表，Arrow 服务批研究。</li><li>Schema 要当接口来版本化。</li><li>出处：Apache Arrow 列式格式、IPC 与 Flight 文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 数据与研究基础设施<!--[--> · 单元 数据栈<!--]--><!--[--> · 课序 工具<!--]--></p><p class="lesson-progress">第 4 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/qlib-quant/">Microsoft Qlib</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

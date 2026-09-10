@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>梯度累积与微批 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_grad-accum-microbatch.md.BdKPiAqn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 26 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ulysses-sp/">DeepSpeed Ulysses</a></p><p class="lesson-next"> 下一课：<a href="/llm/moe-training-all2all/">MoE 训练 all-to-all</a></p></nav><div style="position:relative;"><div><h1 id="梯度累积与微批" tabindex="-1">梯度累积与微批 <a class="header-anchor" href="#梯度累积与微批" aria-label="Permalink to &quot;梯度累积与微批&quot;">​</a></h1><div class="epigraph"><p>优化器看见的 batch 是微批体积乘累积步数乘数据并行度；显存放不下时，用多次前反向的梯度加总来模拟大 batch，而不把学习率公式里的 $B$ 偷偷改掉。</p><footer>—— 对照 Goyal 等大 batch SGD；GPipe 的微批；预训练配方中的 global batch</footer></div><p><a href="/llm/ulysses-sp">上一课</a>按序列切分之后，单次前向的激活仍可能撑满卡：长 \(s\)、厚层、MoE 容量。不能再加大每卡微批，有时还要减小。本课不重讲 SP 布局。缺口是把「微批 / 累积 / 全局 batch / 学习率」收成一张会计，避免流水的 \(M\)、DP 的 \(n\)、累积的 \(k\) 被三个配置文件各写各的。MoE 的 All-to-All 会按微批触发；本课先把稠密情形的 \(B\) 钉住。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记每卡微批 token 数为 \(b_{\mathrm{micro}}\)（或样本数 × 长度），数据并行度 \(n_{\mathrm{dp}}\)，累积步 \(k\)，则全局 batch \(B=b_{\mathrm{micro}}\cdot n_{\mathrm{dp}}\cdot k\)（再乘流水里同时注入的微批语义——必须与框架定义一致）。GPipe 的 \(M\) 往往就是这里的「一次优化步里流水线上飞过的微批数」，与 \(k\) 可能重合或相乘，取决于实现是否在流水 flush 之后才累积。配错则真实 \(B\) 与日志不一致，Chinchilla 会计、学习率标度全部错。</p><p>Goyal 等人指出大 batch 要线性放大学习率并做 warmup。预训练若靠累积把 \(B\) 做大，应沿用同一逻辑；若累积只是为了显存、意图保持小 \(B\)，就不要再乘学习率。意图必须声明。</p><h3 id="流水与累积的两种接法" tabindex="-1">流水与累积的两种接法 <a class="header-anchor" href="#流水与累积的两种接法" aria-label="Permalink to &quot;流水与累积的两种接法&quot;">​</a></h3><p>一种：一次 1F1B flush 消耗 \(M\) 个微批，立刻 step，则 \(k=1\)，\(M\) 参与 \(B\)。另一种：多次 flush 才 step，梯度在优化器里加总，则 \(k\gt 1\)。ZB 与 DualPipe 的全局 batch 边界必须落在 step 上，不能落在半截双流上。</p><p><span class="marginnote">Norm 层与 Dropout 的统计应对「逻辑微批」还是「累积后」？训练里通常按微批算 BN 类统计；Transformer 多用 LN，问题较轻，但仍不要在累积之间更新 LN 的可学习参数以外的状态。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在一张表里写：\(s\)、\(b_{\mathrm{micro}}\)、\(M\)、\(k\)、\(n_{\mathrm{dp}}\)、\(n_{\mathrm{tp}}\)、\(n_{\mathrm{pp}}\)、\(n_{\mathrm{sp}}\)，以及推导出的 \(B\) 与每步 token。加载器按 \(b_{\mathrm{micro}}\) 吐数据；SP 对齐 padding 在这一层做完。改变任一并行度时重算 \(B\)，决定是改 \(k\) 保 \(B\) 还是改学习率跟新 \(B\)。</p><p>显存不够：先降 \(b_{\mathrm{micro}}\)、开重计算，再加 \(k\) 保 \(B\)。\(b_{\mathrm{micro}}\) 过小会伤害 GEMM 与拉低重叠率，这是计算通信课的约束。长 \(s\) 时优先降 \(b_{\mathrm{micro}}\) 而不是降 \(s\)，以免违背长文档上采样。</p><h3 id="与退火、课程" tabindex="-1">与退火、课程 <a class="header-anchor" href="#与退火、课程" aria-label="Permalink to &quot;与退火、课程&quot;">​</a></h3><p>退火若改变平均 \(s\)，同样 \(b_{\mathrm{micro}}\) 的激活跳动，可能要动态 \(k\)。动态 \(k\) 等于动态 \(B\)，学习率要跟。课程课说顺序与 LR 同表；本课要求 \(B\) 也在那张表上。</p><p><span class="marginnote">日志打印的 <code>tokens/sec</code> 必须声明是不是含 padding、是不是全局。SP padding 会让有效 token 小于 \(B\)。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>梯度累积是线性的：\(\sum_{i=1}^{k}g_i\) 在全精度加总时等价于大 batch 的梯度（忽略 BN 与 Dropout 的噪声差异）。半精度累积要用 FP32 master 梯度，否则尾数被吃掉。流水的 \(M\) 个微批在一次 flush 内已经是一种「空间上的累积」，再在时间上累积 \(k\) 次，数值上都是求和，但同步点不同：flush 内有阶段间依赖，flush 间是完整的前反向。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>累积不减少 SP/TP 通信次数，只减少 step 次数，优化器与检查点更稀。过稀的 step 让学习率日程的「步」与墙钟脱节。下一课 MoE 的 All-to-All 每个微批都打一次，降 \(b_{\mathrm{micro}}\)、加 \(k\) 会让通信次数线性涨，稠密模型上「用累积换显存」的经验不能照搬。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲 Ulysses；只补 \(B\) 的会计：微批、累积、DP、流水 \(M\)。</li><li>显存不够时降微批、加重计算、加 \(k\) 保 \(B\)；声明学习率跟不跟 \(B\)。</li><li>半精度要用 FP32 累积梯度。</li><li>MoE 下累积会放大 All-to-All 次数，下一课处理。</li><li>出处：Goyal et al., <em>Accurate, Large Minibatch SGD</em>；Huang et al., GPipe；Megatron-LM 配方中的 global batch 定义。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 26 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/moe-training-all2all/">MoE 训练 all-to-all</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

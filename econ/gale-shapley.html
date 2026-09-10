@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gale–Shapley 稳定匹配 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_gale-shapley.md.DF7Fr13a.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 拍卖与匹配<!--]--><!--[--> · 课序 机制<!--]--></p><p class="lesson-progress">第 27 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/econ/agv-mechanism/">AGV 期望外部性</a></p><p class="lesson-next"> 下一课：<a href="/econ/matching-strategy-proof/">策略证明与延迟接受</a></p></nav><div style="position:relative;"><div><h1 id="gale–shapley-稳定匹配" tabindex="-1">Gale–Shapley 稳定匹配 <a class="header-anchor" href="#gale–shapley-稳定匹配" aria-label="Permalink to &quot;Gale–Shapley 稳定匹配&quot;">​</a></h1><div class="epigraph"><p>稳定匹配存在，且可由延迟接受算法得到：一方按名单求婚，另一方暂持当前最好、拒绝其余，直到没有新的求婚。</p><footer>—— Gale and Shapley, College Admissions and the Stability of Marriage, American Mathematical Monthly, 1962</footer></div><p><a href="/econ/agv-mechanism">上一课</a>（AGV 期望外部性）。在共同价值拍卖里把「谁得到物品」写成叫价与信息。缺口是双边都有偏好、没有一件拍品、也不必有货币：住院医师与医院、学生与学校、婚姻市场。此时要问的不是期望收入，而是配对能否被一对人拆掉。本课钉稳定与延迟接受，不把策略操纵写成下一课，也不把早期签约写成柠檬逐级退出。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>两边有限集 \(M,W\)，每人有对另一边的严格偏好，允许宁可无人配对。匹配 \(\mu\) 把一边映到另一边（或单身）。阻塞对：\((m,w)\) 互相宁可对方而不是 \(\mu\) 给的对象（或单身）。稳定：没有阻塞对，也没有人宁可单身。不稳定的匹配在分散市场上站不住——那一对会私下跑掉。</p><p>Gale–Shapley 证明稳定匹配非空。算法（延迟接受，DA）：求婚方按偏好名单从上到下求婚；接收方在到手的求婚里暂持当前最好，拒绝其余；被拒者继续向下。有限步终止，结果稳定。求婚方得到所有稳定匹配中对自己最好的那个（求婚方最优稳定匹配）；接收方得到对自己最差的稳定匹配。</p><h3 id="稳定不是帕累托的全部" tabindex="-1">稳定不是帕累托的全部 <a class="header-anchor" href="#稳定不是帕累托的全部" aria-label="Permalink to &quot;稳定不是帕累托的全部&quot;">​</a></h3><p>稳定匹配在双方偏好下是帕累托有效的（没有全体都更满意的另一匹配），但两边的利益对立：求婚方最优稳定匹配对接收方是最差稳定匹配。存在性不给出「哪一边该求婚」。</p><p><span class="marginnote">原文用婚姻与大学录取两个故事。多对一录取里，学校有名额，稳定仍可定义；算法把学校当成接收方时，得到学校最优稳定匹配。Roth 后来把住院医师匹配写成同一算法。</span></p><p>偏好严格时算法路径唯一（给定哪一边求婚）。 无差异要加打破规则，稳定集可以变大，本课不写。 没有货币：不能用价格把阻塞对买走；稳定是无转移效用下的核。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对象：有限双边、严格偏好、一对一（或多对一的名额版）。解概念：稳定匹配。构造：DA。证明稳定：若终止时还有阻塞对，则求婚方早应向那人求过、且被更差地拒绝，与接收方「只升不降」矛盾。非空由此构造给出，不必先写不动点。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>延迟接受把「试探性占有」写成单调过程：接收方手中的对象只换更好的，求婚方的名单只往下走。终止时，每个被拒的对象都曾比当时的暂持更差，因此不会在终点变成阻塞。稳定匹配全体在双边偏好下构成格：两边的利益相反地排序。核在无转移效用下恰好是稳定匹配集；有转移时核可以靠边付款撑住更多配置，那是赋值博弈，本课不写。</p><p>与拍卖的对照：IPV 二价用价格让最高估值拿走物品；匹配里没有公共价格，阻塞对代替了「另有买家愿出更高价」。共同价值诅咒在这里变成「我对你的评价取决于别人没选你吗」——那是匹配中的外部性，标准 GS 模型假定偏好不依赖别人的匹配，本课维持这个假设。延迟接受不是讨价还价：没有转移、没有折现，只有名单上的试探性占有。终止时的匹配落在核里，因为任何阻塞对都已在算法路径上被拒绝过。</p><p>求婚权选的是格的一端，不是把核做大。 无转移时稳定就是核；有货币则边付款可以撑住别的配置，那是赋值博弈，本课不写。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>偏好若依赖谁和谁配对（外部性、同伴），稳定可以空。同一边内部也有偏好（室友问题）时，稳定可以空——GS 的双边结构是关键。名额、夫妻捆绑、院系配额会破坏存在性或稳定性，那是 Roth 以后的市场设计，本课只钉经典双边。</p><p>后课默认：稳定匹配存在，DA 给出求婚方最优；下一课问报偏好是不是占优策略。</p><h3 id="算法是核的构造-不是讨价还价" tabindex="-1">算法是核的构造，不是讨价还价 <a class="header-anchor" href="#算法是核的构造-不是讨价还价" aria-label="Permalink to &quot;算法是核的构造，不是讨价还价&quot;">​</a></h3><p>鲁宾斯坦轮流出价有折现与货币；DA 没有转移、没有时间折现，只有名单。把 DA 读成「谁先开口谁占便宜」在本模型里是对的：求婚权等于选出格的一端。市场设计里选哪一边求婚，就是选哪一端稳定匹配。</p><p><span class="marginnote">室友问题（同一边配对）可以没有稳定匹配。GS 用的是双边、无外部性地偏好，存在性不是随便一个匹配市场都有的。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>稳定 = 无阻塞对；分散市场要求稳定，否则一对人会跑掉。</li><li>DA 终止于稳定匹配，且对求婚方是所有稳定里最好的。</li><li>稳定集成格，两边利益对立。</li><li>无货币、无共同价值叫价；策略能否诚实留给下一课。</li><li>出处：Gale and Shapley, <em>Amer. Math. Monthly</em> 1962。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 博弈与信息<!--[--> · 单元 拍卖与匹配<!--]--><!--[--> · 课序 机制<!--]--></p><p class="lesson-progress">第 27 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/matching-strategy-proof/">策略证明与延迟接受</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

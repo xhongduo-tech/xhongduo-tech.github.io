@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>掩模 CD 与放置误差 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_mask-cd-ppe.md.CP1ptI04.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 DUV 与多重曝光<!--[--> · 单元 掩模<!--]--><!--[--> · 课序 透过与三维<!--]--></p><p class="lesson-progress">第 18 / 32 课</p><p class="lesson-prereq"> 先修：<a href="/litho/mask-shadowing/">掩模阴影</a></p><p class="lesson-next"> 下一课：<a href="/litho/ebeam-mask-pec/">电子束写掩模邻近效应</a></p></nav><div style="position:relative;"><div><h1 id="掩模-cd-与放置误差" tabindex="-1">掩模 CD 与放置误差 <a class="header-anchor" href="#掩模-cd-与放置误差" aria-label="Permalink to &quot;掩模 CD 与放置误差&quot;">​</a></h1><div class="epigraph"><p>晶圆 CD 与套刻预算里，有一截来自版上的线宽与图案放置，再经 MEF 放大；阴影是系统几何，这一课是掩模厂的随机与场内误差。</p><footer>—— 据 SEMI 掩模规格与 mask shop 对 CDU、registration / PPE 的通称，以及 Mack 对掩模误差增强因子的表述</footer></div><p><a href="/litho/mask-shadowing">上一课</a>把厚吸收体斜入射的阴影钉成系统指纹。缺口是版本身的制造误差：特征 CD、图案放置（PPE、registration）怎样写进晶圆。不要把阴影位移再叫一次套刻。多重图形从 <a href="/litho/lele-multipattern">LELE</a> 另起课序，本课不染色。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>阴影给出可预测的方位偏置，OPC 可以按模型补。掩模厂写出的多边形还有：全局与局部 CD 偏差、线宽均匀性（mask CDU）、图案相对设计网格的放置误差。低 \(k_1\) 下掩模误差增强因子（MEF / MEEF）常大于 1，版上 1 nm 可以变成晶圆上更大的一截。放置误差在晶圆上以 \(1/M\) 缩小（DUV 透射典型 \(4\times\)），但仍进入 overlay 与同层相邻间距。</p><p>缺口因此是「掩模误差进晶圆」的预算语言，而不是再解麦克斯韦。没有这层，后课 LELE 会把两次版的 PPE 和扫描机 overlay 混成一个 \(\delta\)。</p><h3 id="mask-shop-通称" tabindex="-1">Mask shop 通称 <a class="header-anchor" href="#mask-shop-通称" aria-label="Permalink to &quot;Mask shop 通称&quot;">​</a></h3><p>厂与客户合同里常见：CD 均值、CDU（范围或 \(3\sigma\)）、linearity、邻近相关 CD、registration / image placement、以及 PPE 作为局部放置。SEMI 掩模相关规范给出测量与数据交换的通称框架，具体纳米规格按层、按节点在采购文件里，不是教科书常数。本课不编某一 SEMI 条款的数字。</p><p><span class="marginnote">MEF 随节距、光瞳、胶和密度变。孤立 SRAF 的有效 MEF 可以很大：杆从「不印」翻成「印出」。不要用一个 MEF=2 打天下。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>预算拆开：CD 类误差 × MEF → 晶圆 CDU；放置类 × 缩小倍率 → 晶圆 overlay 的掩模分量。两台扫描机匹配时，还要加两张版之间的相对 registration。计量：掩模 CD-SEM / 光学检测给出版图；晶圆 CD-SEM 与套刻标记给出放大后的结果。拆源时用同一标记设计，避免把阴影不对称读成 PPE。</p><p>写入工具（VSB 或多束）的场拼接、充电、雾化是 PPE 的物理来源之一，本课只要求承认「版上有放置」，不讲电子束机。换版、换写场校准，PPE 指纹会变；晶圆侧会看成「这批 overlay 突然差」，根子可能在 mask shop 而不是扫描机。</p><h3 id="opc-不能吸收随机-cdu" tabindex="-1">OPC 不能吸收随机 CDU <a class="header-anchor" href="#opc-不能吸收随机-cdu" aria-label="Permalink to &quot;OPC 不能吸收随机 CDU&quot;">​</a></h3><p>OPC 补的是模型可重复的邻近与 M3D。掩模随机 CDU 和局部 PPE 没有逐芯片的预畸变（除非做芯片专属修正，成本另论）。因此掩模规格必须进工艺窗：PV-band 要留出 mask CDU×MEF。把窗口算满名义版，上线后版一换就掉良率——本课不把这句话量化成百分比。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>光学上，开口宽度误差改变衍射级振幅比，空中像阈值处的边移动按 MEF 放大。放置误差让整段频谱带一个线性相位，像面图形平移；对套刻标记和器件图形若测量口径不同，表观 overlay 还会含标记结构因子。LELE 的相邻线若来自两张版，两张 PPE 之差直接变成局部节距，与扫描机 \(\delta\) 同类、不同源。</p><p>\(4\times\) 缩小让版上放置看起来「没那么毒」，但 MEF 对 CD 是放大；所以先进层往往是 CD 规格比放置更难买。EUV 反射掩模 \(M\) 仍是 \(4\times\)（High-NA 另论），吸收体阴影与 PPE 要在同一张误差表里分列。</p><p>上一课的阴影位移若被 OPC 按模型补掉，剩下的才是 PPE 与随机 CDU。混在一个「掩模误差」桶里，APC 会拧错旋钮：补几何阴影要用方位偏置，补 PPE 要用写场校准。</p><p><span class="marginnote">不要用晶圆 overlay 的公开设备规格去反推掩模 registration 已经「免费」。设备规格通常不含掩模分量，或只在匹配语境里另述。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不给 7 nm 掩模价格或良率。不发明 SEMI 条款号对应的纳米表。缺陷（针孔、相位坑）是另一张缺陷预算，不要和 CDU 混成一个 \(3\sigma\)。后课默认：凡写晶圆 CDU / overlay，先问掩模 CD×MEF 与 PPE×\(1/M\) 是否已单列。</p><p><span class="marginnote">曲线 ILT 掩模的 CD 与放置计量口径与曼哈顿不同，合同语言仍是 CDU / placement，但量测算法必须声明。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>阴影是系统几何；本课是掩模厂 CD 与 PPE。</li><li>晶圆 CD 吃 MEF 放大；放置吃缩小倍率进入 overlay。</li><li>SEMI / mask shop 通称规格按层采购，不编宇宙纳米数。</li><li>OPC 吃得掉模型偏差，吃不掉随机 mask CDU。</li><li>出处：SEMI 掩模规格通称；mask shop CDU / registration 语言；Mack 对 MEF。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 DUV 与多重曝光<!--[--> · 单元 掩模<!--]--><!--[--> · 课序 透过与三维<!--]--></p><p class="lesson-progress">第 18 / 32 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/ebeam-mask-pec/">电子束写掩模邻近效应</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

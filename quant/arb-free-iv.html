@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>隐波插值 arbitrage-free | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_arb-free-iv.md.CoyMRNa1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 期权做市细节<!--[--> · 单元 簿与希腊<!--]--><!--[--> · 课序 曲面无套利<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/discrete-hedge-error/">离散对冲误差</a></p><p class="lesson-next"> 下一课：<a href="/quant/butterfly-calendar-arb/">蝶式与日历无套利</a></p></nav><div style="position:relative;"><div><h1 id="隐波插值-arbitrage-free" tabindex="-1">隐波插值 arbitrage-free <a class="header-anchor" href="#隐波插值-arbitrage-free" aria-label="Permalink to &quot;隐波插值 arbitrage-free&quot;">​</a></h1><div class="epigraph"><p>离散执行价上的隐含波动率只是一组点；插值必须把这些点连成对执行价凸、对期限不引入日历套利的价格曲面，否则做市簿在自己的中间价上就已经可被静态收取。</p><footer>—— Gatheral, The Volatility Surface, Wiley, 2006；无套利参数化见 Gatheral and Jacquier, Quantitative Finance, 2014</footer></div><p><a href="/quant/ag-weather-premium">上一课</a>把外汇与商品课序收在农产品天气升水。本课打开期权做市细节。市场给出的是有限的看涨看跌报价，不是连续函数 \(\sigma_{\mathrm{imp}}(K,T)\)。<a href="/quant/vol-surface">隐含波动率曲面</a> 把这些点定义成 Black 坐标；做市与风险管理还要把缺档补上，并对外推翼部。插值若在波动率坐标里随便拉线性或三次样条，对应的看涨价格 \(C(K,T)\) 很容易对 \(K\) 失去凸性，或对 \(T\) 出现日历倒挂。Jim Gatheral 把无套利写成对总方差切片的约束，并与 SVI 一类参数化配套；后续的 SSVI 给出跨期限的充分条件。本篇写插值层：如何从离散报价生成一张可送进 <a href="/quant/dupire">Dupire</a> 与希腊字母引擎的曲面。动力学模型 <a href="/quant/heston">Heston</a>、<a href="/quant/sabr">SABR</a> 是另一层，不能代替无套利插值。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定折现与远期 \(F_T\)，欧式看涨 \(C(K,T)\) 必须满足：对 \(K\) 凸且递减（看涨），蝶式非负；对适当定义的日历，更长期限不能更便宜。Breeden–Litzenberger 要求 \(\partial^2 C/\partial K^2\ge 0\)。把 \(C\) 经 Black 公式写成 \(\sigma_{\mathrm{imp}}\) 后，这些不等式变成对 \(\sigma_{\mathrm{imp}}\) 的微分约束，不是「波动率曲线看起来光滑」那么弱。线性插 \(\sigma_{\mathrm{imp}}(K)\) 在执行价格子上几乎总会在某处产生负密度；在期限上线性插 \(\sigma_{\mathrm{imp}}\) 则常破坏总方差递增。</p><p>工程问题因此是：在哪一个坐标插、用什么形状族、如何处理买卖价差与缺失翼。插值的服务对象是价格与密度，隐含波动只是中间语言。若插完之后还要用 Heston 去拟合同一张曲面，Heston 的五个参数通常过不了所有点——那是模型风险，应落在残差上，而不是反过来让插值去迁就某个随机波动参数集。</p><h3 id="总方差比波动率更接近日历约束" tabindex="-1">总方差比波动率更接近日历约束 <a class="header-anchor" href="#总方差比波动率更接近日历约束" aria-label="Permalink to &quot;总方差比波动率更接近日历约束&quot;">​</a></h3><p>记 \(w(k,T)=\sigma_{\mathrm{imp}}^2(k,T)\,T\)，\(k=\ln(K/F_T)\)。无日历套利的一个常用充分条件是：对固定 \(k\)（或对固定 Delta，视报价惯例），\(w(\cdot,T)\) 随 \(T\) 递增。插 \(\sigma_{\mathrm{imp}}\) 本身时，短端 \(T\) 很小，\(\sigma\) 的一点噪声会被 \(1/\sqrt{T}\) 放大；插 \(w\) 再开方回去，期限维更稳。执行价维仍要保证 \(C\) 凸，这不是 \(w\) 递增能自动给出的，还要对切片形状设限，见 <a href="/quant/svi-ssvi">SVI / SSVI</a> 与 <a href="/quant/butterfly-calendar-arb">蝶式与日历</a>。</p><p><span class="marginnote">外汇按 Delta 报价、股票按执行价报价。插值应在市场的自然坐标上进行，再映射到 \(K\) 做凸性检验。把 25-delta 点当成 \(K=0.75S\) 去插，无套利检查的是一张错位的格子。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>先把报价变成欧式中间价。</strong> 用看跌看涨平价把实值转到虚值，剔除提前行权溢价（个股美式）与明显的锁报价。买卖价差内选中间或选更可能无套利的一侧；强迫穿过全部脏点会牺牲凸性。远期必须与所用的利率、股息（或借券）一致，否则偏斜是持有成本误差。</p><p><strong>切片：凸参数化或约束样条。</strong> 一类是参数族：SVI 的五个参数、SABR 的 \(\alpha,\rho,\nu\)（\(\beta\) 常固定）。参数族若满足 Gatheral–Jacquier 一类条件，切片内无静态套利，翼部渐近受控。另一类是带约束的样条：在 \(C(K)\) 上做凸回归（Ait-Sahalia–Duarte 一类思想），或 Kahale 的无套利插值，直接保证节点间凸。Andreasen–Huge 用一维有限差分正向扩散，从今日的局部方差把曲面「长」出来，得到可微且无套利的插值，适合要送进 PDE 的场景。</p><p><strong>期限：总方差插值加单调约束。</strong> 两个上市到期 \(T_1\lt T_2\) 之间，对固定 \(k\) 令 \(w(k,T)\) 在 \(w(k,T_1)\) 与 \(w(k,T_2)\) 之间单调插值（常线性）。若短端 \(w\) 已高于长端，先修正切片（涨买卖价、拒绝锁报价），不要靠插值「抹平」一个已经可日历套利的输入。得到 \(C(K,T)\) 后，用有限差分或自动微分检查蝶式与日历，不合格则回到参数约束，而不是在希腊字母上加补丁。</p><h3 id="翼部-lee-矩与切断" tabindex="-1">翼部：Lee 矩与切断 <a class="header-anchor" href="#翼部-lee-矩与切断" aria-label="Permalink to &quot;翼部：Lee 矩与切断&quot;">​</a></h3><p>Lee（2004）给出总方差对 \(|k|\) 的渐近与风险中性矩的关系：翼不能比线性增长更快到任意陡。无约束样条在远翼会拉出负密度或无限矩。做法是：在最后一个可靠报价之外切到 SVI 的线性翼、或切到指定的极限斜率，并保证与最后一点 \(C^1\) 或至少 \(C^0\) 相接。外推是假设，应单独做 Vega 分桶，避免远翼假设污染 ATM 对冲，见 <a href="/quant/greeks-hedge">Delta / Gamma / Vega 对冲</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无套利插值保证的是：存在一个风险中性边际族，与所插的欧式价格一致，且日历相容。它不保证存在扩散、不保证存在随机波动过程，更不保证明日微笑如何移动。因此插值层回答「今天的香草表有没有内部矛盾」；<a href="/quant/heston">Heston</a> 与 <a href="/quant/sabr">SABR</a> 回答「微笑从何种动态来、Delta 应如何随现货搬」。把 SABR 单到期拟合直接当跨到期插值，期限维通常无套利失败，因为原文摄动针对固定 \(T\)。把 Heston 当插值器，五个参数过拟合短端就牺牲长端，且短端陡峭偏斜往往拟合不足。</p><p>做市中间价若自身可蝶式套利，做市商会成为被收割的对象：对手用三档执行价锁定数理上为正的收益，风险只剩执行与保证金。这与「模型算错障碍期权」不同，是静态的。插值质量的第一检验是：用自己的中间价曲面能否扫出正的蝶式或日历；能，就还不是一张可发布的曲面。</p><h3 id="与局部波动、参数模型的衔接" tabindex="-1">与局部波动、参数模型的衔接 <a class="header-anchor" href="#与局部波动、参数模型的衔接" aria-label="Permalink to &quot;与局部波动、参数模型的衔接&quot;">​</a></h3><p>Dupire 公式的分母是蝶式。插值若在密度上振荡，局部波动会爆炸或变负。故生产顺序常是：无套利插值（或 Andreasen–Huge）得到光滑 \(C\) → 抽 \(\sigma_{\mathrm{loc}}\) → 再决定是否用 SLV 把 Heston 动态与残差微笑缝在一起。SVI/SSVI 可解析求导，适合这一管道。SABR 适合单到期标记与交易语言，跨到期仍要靠总方差拼接，不能假设同一个 \(\alpha\) 过程服务所有上市月。</p><p><span class="marginnote">「校准了 Heston 所以曲面无套利」不成立。Heston 价格作为 \(K\) 的函数通常凸，但校准目标若是隐含波动残差最小，离散执行价上仍可能因插值或权重点而局部破凸。无套利是对发布曲面的硬约束，不是对动力学模型的自动赠品。</span></p><div class="mermaid"></div><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>买卖价差宽时，「无套利中间价」可能不存在：买价凸、卖价凸，中间不凸。此时应报告区间，而不是虚构一个穿过所有中间价的光滑曲面。短到期隔夜期权的 \(T\) 对交易日历极度敏感，总方差几乎是隔夜跳的方差，插值不要跨过周末当普通隔夜，见 <a href="/quant/overnight-gap-hedge">隔夜跳空对冲</a>。美式、期货期权、日经乘数与外汇 Delta 惯例，都会让「同一公式」插错对象。</p><p>参数化过拟合当日，次日参数跳，对冲比不稳——这是插值过度灵活的代价。约束越强（SSVI、凸回归），残差越大，但希腊字母更稳。选择取决于：曲面是为了给香草做市（更贴点），还是为了给奇异与局部波动供数（更光滑、更无套利）。Gatheral 的书给出约束与参数化，不是某一交易所的官方插值算法。</p><p><span class="marginnote">在隐含波动上做三次样条、再对价格检查凸性「大多数时候通过」，不是无套利插值。通过应是构造保证，或每次发布强制扫描；抽样检查会在压力日的翼部失效，而那一天密度最重要。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>无套利插值的对象是欧式价格的凸性与日历，隐含波动只是坐标。</li><li>期限维优先插总方差并保持递增；执行价维用 SVI/凸样条/Andreasen–Huge，避免负密度。</li><li>翼部外推受 Lee 矩约束，且应与近翼报价光滑相接。</li><li>Heston 与 SABR 提供动态与单到期标记，不替代跨执行价、跨到期的无套利拼接。</li><li>中间价若可静态套利，做市簿在发布前就已经亏了期望。</li><li>出处：Gatheral, <em>The Volatility Surface</em>, 2006；Gatheral and Jacquier, <em>Arbitrage-free SVI volatility surfaces</em>, QF, 2014；Lee, <em>The Moment Formula</em>, 2004；Dupire, 1994。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 期权做市细节<!--[--> · 单元 簿与希腊<!--]--><!--[--> · 课序 曲面无套利<!--]--></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/butterfly-calendar-arb/">蝶式与日历无套利</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

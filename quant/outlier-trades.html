@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异常成交与错价 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_outlier-trades.md.CNDjP4o-.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 36 / 40 课</p><p class="lesson-prereq"> 先修：<a href="/quant/tick-cleaning/">Tick 数据清洗</a></p><p class="lesson-next"> 下一课：<a href="/quant/microstructure-noise/">微观结构噪声</a></p></nav><div style="position:relative;"><div><h1 id="异常成交与错价" tabindex="-1">异常成交与错价 <a class="header-anchor" href="#异常成交与错价" aria-label="Permalink to &quot;异常成交与错价&quot;">​</a></h1><div class="epigraph"><p>过滤器可以删掉不可能为真的记录；仍留在样本里的极端成交，有的是录入错误，有的是胖手指，有的是真实的信息或流动性冲击——三者进模型的方式不能相同。</p><footer>—— 在 Barndorff-Nielsen 等人的实务过滤与交易所错单处理规则之上的工作区分</footer></div><p><a href="/quant/tick-cleaning">Tick 数据清洗</a> 解决的是合法性：闭市打印、非正价格、交叉报价、孤立的录入跳点。清洗之后，样本里仍会留下数量或价格极端的成交。它们可能是做市商键盘多打一个零、数据商把小数点移位、交易所随后宣布的错单（busted / erroneous trade），也可能是宏观秒级的真实成交。把它们一律当噪声删掉，会低估尾部流动性成本；一律当有效价格，会让 <a href="/quant/rv-noise">已实现波动</a> 与 <a href="/quant/effective-realized-spread">有效价差</a> 被单笔劫持。本篇处理这层<strong>带业务含义的异常</strong>：如何识别、如何与清洗规则分工、如何在估计里降权而不是装看不见。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>合法性过滤用的是支撑集：价格必须为正。异常成交用的是<strong>经济可行性</strong>：以当时簿的深度与最小报价单位，这一笔的价格、数量是否可能被真实订单生成。一笔比前一中点偏离 8% 的成交，在迷你股灾里可能真实，在平时可能是打印错误。同一统计阈值无法同时服务两种制度。</p><p>交易所自己有错单机制：明显偏离参考价的成交可被撤销，随后的数据源会发更正。研究若用「当时看到的打印」做实时策略，与用「T+1 更正后的磁带」做事后 RV，结论会不同。问题是建立标签，而不是再写一条更严的中位数规则。</p><h3 id="三类应分开的极端" tabindex="-1">三类应分开的极端 <a class="header-anchor" href="#三类应分开的极端" aria-label="Permalink to &quot;三类应分开的极端&quot;">​</a></h3><p>第一类是<strong>数据错误</strong>：字段错位、合约代码张冠李戴、未复权的拆股日。它们从未发生在市场上。第二类是<strong>错单与撤销</strong>：当时撮合了，事后被规则取消，法律上不当作成交。第三类是<strong>真实极端</strong>：胖手指若未被撤销，对手方确实成交；信息到达时的大单也是真的。三类对持仓、对波动、对交易成本的含义不同。混成一个 <code>outlier=True</code> 布尔值，下游无法决定是删、是改、还是保留并标注。</p><p><span class="marginnote">胖手指（fat finger）常常是真实撮合：价格或数量偏离意图，但簿上对手的单被吃掉了。若交易所未撤销，它应进入执行成本与存货，只是不应单独代表有效价格路径。RV 可以对这一笔降权或拆成「价格跳 + 随即反转」来诊断，而不是在清洗层物理删除。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在清洗后的样本上打标签，至少四列：价格偏离、数量偏离、事后撤销、反转。价格偏离用当时中点或短窗中位数，但阈值按会话状态切换——开盘拍卖、熔断、涨跌停附近用另一套。数量偏离对照同标的的滚动成交量分位，以及当时可见深度：一笔量超过卖一到卖五合计很多倍，且没有后续跟风，更像错误或冰山暴露，需要人工规则或交易所标志。</p><p>事后撤销应对交易所的更正通道：成交 ID 被 cancel、insert 以新价格替换。研究库应保留「打印时」与「最终」两份，实时回放只能用前者。反转诊断：若 \(t\) 的价格跳在随后 \(\Delta\) 内几乎完整收回，且中间没有信息公告，则更像弹跳式错价或流动性空洞，而不是新的有效价格。这与 Hasbrouck 定价误差的想法一致——暂时成分会反转，信息成分会留下。</p> \[\mathrm{rev}_t=\frac{(P_t-M_{t-})-(P_{t+\Delta}-M_{t-})}{P_t-M_{t-}}. \]<p>\(\mathrm{rev}\) 接近 1 表示跳被收回。可与有效价差、实现价差对照：错价往往有效价差极大、实现价差在 \(\Delta\) 后接近零或变号。</p><h3 id="降权-而不是只删" tabindex="-1">降权，而不是只删 <a class="header-anchor" href="#降权-而不是只删" aria-label="Permalink to &quot;降权，而不是只删&quot;">​</a></h3><p>估计 RV、核、预平均时，对标记为疑似错价的点可以：删除、用前一有效价替换、或在核权重里降权。删除改变采样时间，进入 <a href="/quant/irregular-sampling">不等间隔</a> 的偏差；替换等于承认有效价格连续。生产上应报告三种处理的区间，而不是只给一种「干净 RV」。交易成本研究则相反：若该笔对客户真实成交，必须进有效价差，哪怕事后你认为是错价。对象决定处理，没有全局最优。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>录入错误的生成是孤立的、与订单流无关的水平位移。胖手指的生成是把意图数量或价格乘错，撮合沿簿向下扫，往往伴随一串向下（或向上）的档位成交，随后人工或算法撤剩余单。信息冲击的生成是多方同时主动，后续成交会确认新水平，中点不回到原处。用「单点 vs 一串」「是否反转」「是否有公告与同行业联动」可以把三类分开，准确率不是 100%，但比单一 z-score 好。</p><p>错价进入平方收益的机制是二次的：\(\Delta P\) 大十倍，对 RV 的贡献大百倍。所以异常成交对二阶矩估计的危害，远大于对一阶均值。PIN 的日度计数对单笔错价相对稳健（仍可能把方向计错），对把一笔拆成重复打印则不稳健。VPIN 的等体积桶会被超大错量提前封桶，打乱成交量时钟。异常标签因此要喂给所有下游，而不是只喂给 RV 模块。</p><p><span class="marginnote">重复打印（同一成交 ID 出现两次）看起来像数量异常，本质是数据管道错误，应在清洗的 ID 去重层解决。本篇说的异常是 ID 唯一、字段合法、经济上仍可疑的点。两层过滤器责任不同，日志也应分开，否则删除率无法诊断。</span></p><h3 id="与微观结构噪声的关系" tabindex="-1">与微观结构噪声的关系 <a class="header-anchor" href="#与微观结构噪声的关系" aria-label="Permalink to &quot;与微观结构噪声的关系&quot;">​</a></h3><p><a href="/quant/microstructure-noise">微观结构噪声</a> 假定几乎每笔都有一个小的 \(\varepsilon_t\)，来自价差与离散。异常成交是稀疏的、幅度大的污染，用 i.i.d. 噪声或平稳噪声模型去吸收会把噪声方差估爆，并带偏已实现核的带宽选择。正确顺序：清洗合法性 → 标记异常 → 在干净且已降权的样本上估噪声与 RV。不要把胖手指拟合进 \(\mathrm{Var}(\varepsilon)\)。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>没有不含主观的异常定义。阈值必须按品种流动性分桶：对高价、高流动性股票 1% 的偏离已经极端，对薄货可能是正常的一档跳。涨跌停、指数熔断、个股停牌复牌的第一笔，应进入白名单，禁止当错价删。跨市场套利腿中，一腿看起来像错价、另一腿在对敲，可能是真实的延迟。</p><p>不要用全样本分位做回测标签，那会前视。不要把策略亏损的日子事后标成「数据有问题」再删。不要假设数据商已经应用了交易所全部撤销——延迟可能以天计。合规上，若研究用于最佳执行报告，必须以对客真实成交为准，不能用「疑似错价」把贵的成交从样本里拿掉。</p><p><span class="marginnote">A 股没有美式那样频繁的 trade bust 公开磁带，但有行情源对涨跌停、临时停牌、集合竞价的特殊标志。异常成交的优先信息是交易所标志位，其次才是统计反转。标志位缺失时，统计规则只能当候选，不能当法律事实。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>合法性清洗之后仍要单独处理异常成交：数据错误、事后撤销、真实极端三类不可共用一个布尔值。</li><li>识别靠偏离、深度、撤销通道与随后反转；信息跳会留下，错价常收回。</li><li>处理依赖用途：RV 与核应对疑似错价降权或做敏感性；执行成本必须保留真实成交。</li><li>错量会破坏 VPIN 的成交量时钟；错价以平方项主导 RV。标签要作为数据契约传给下游。</li><li>阈值因果、分品种、尊重停牌与熔断白名单；禁止用亏损日回写异常。</li><li>出处：过滤框架见 Barndorff-Nielsen et al., <em>Realised Kernels in Practice</em>；暂时价格误差与反转见 Hasbrouck 对定价误差的讨论。交易所错单规则按各市场现行通知执行。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 市场微观结构<!--[--> · 单元 高频数据<!--]--><!--[--> · 课序 采样与噪声<!--]--></p><p class="lesson-progress">第 36 / 40 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/microstructure-noise/">微观结构噪声</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

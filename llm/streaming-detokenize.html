@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流式 detokenize 边界 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_streaming-detokenize.md.BDar7h9x.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 11 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/jacobi-decoding/">Jacobi 并行解码</a></p><p class="lesson-next"> 下一课：<a href="/llm/sampler-kernel/">采样器内核</a></p></nav><div style="position:relative;"><div><h1 id="流式-detokenize-边界" tabindex="-1">流式 detokenize 边界 <a class="header-anchor" href="#流式-detokenize-边界" aria-label="Permalink to &quot;流式 detokenize 边界&quot;">​</a></h1><div class="epigraph"><p>Token 不是字符：一个片可能是半个 UTF-8 码点，也可能跨过词的边界；过早把字节刷给客户端，会打出替换符或把词切成两次闪烁。</p><footer>—— Sennrich et al., Neural Machine Translation of Rare Words with Subword Units, ACL 2016；实现对照 HuggingFace TextStreamer 与 tiktoken 的增量解码</footer></div><p><a href="/llm/jacobi-decoding">上一课</a>在 token 空间并行猜。产品交付的是字符串，而且是 <em>边生成边推</em>。本课补 token 与 Unicode 之间的缝：detokenize 不能每来一个 id 就 <code>decode</code> 一次并立刻发送。BPE / byte-level BPE 下，未完成的 UTF-8 序列、尚未合并的尾片、以及带空格标记的片，都会让增量解码与整段解码不一致。后课的采样器内核仍在 id 空间；本课把字符串边界钉死，避免把 UI 闪烁当成模型问题。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>训练与评测都在完整序列上 <code>tokenizer.decode(ids)</code>。流式把 <code>ids[:k]</code> 的解码结果当已交付文本，假设它是 <code>decode(ids)</code> 的前缀。该假设对字符级词表成立，对 BPE 不成立：下一个 token 可能改写最后一个码点（byte-level 下续上 UTF-8 尾字节），或吞掉一个尚未显示的空格标记。缺口是增量协议：哪些后缀是 <em>稳定前缀</em>，可以发给客户端；哪些必须缓冲，直到再来一个 token 或遇到 EOS。</p><p>另一类边界是多字节标点与 CJK：一个汉字常是一个 token，看起来没有问题；英文 <code>ing</code> 后缀却可能把已显示的 <code>runn</code> 变成 <code>running</code>，若 UI 已画出 <code>runn</code>，只能闪烁改写。协议应允许「替换最后一段未稳定后缀」，或等到稳定再发。</p><p><span class="marginnote">n-gram 阻断在 token 空间；用户看见的重复在字符串空间。两者对不齐时，会出现「模型没重复 token、屏幕上重复了词」或反过来。日志应同时存 id 与稳定字符串。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>维护字节缓冲。每来一个 token，先转换成字节（byte-level BPE）或拼到暂定 Unicode 串，然后：</p><ul><li>若缓冲末尾是未完成 UTF-8，不发送，等后续 token。</li><li>若分词器带 <code>Ġ</code> / <code>▁</code> 一类前缀空格标记，只有当空格已经确定属于已完成词，才把上一个词标为稳定。</li><li>对客户端提供两种帧：<code>append</code> 稳定前缀，<code>replace_tail</code> 修正未稳定后缀。SSE / WebSocket 必须声明哪一种；只支持 append 的网关只能延迟发送。</li></ul><p>停止词、JSON 括号匹配若在字符串上做，必须用 <em>已稳定</em> 前缀，不能用含半个码点的缓冲，否则会误触发。约束解码的掩码仍在 token 空间，不要用字符串停止词替代文法。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>整段 <code>decode</code> 通常会在末尾做一次「尽量解释」的容错；增量路径若每步都走容错，就会把半序列解释成 <code>�</code> 再在下一步撤回。正确的增量解码器与 tiktoken / HuggingFace 的 stream decoder 一样：内部状态机记住未完成字节，绝不把非法 UTF-8 当字符发出。投机与 Jacobi 若一次提交 \(k\) 个 token，应按批跑增量状态，而不是 \(k\) 次独立 <code>decode</code>——后者会把中间不稳定态泄漏到网上。</p><p><a href="/llm/kv-layout">KV 布局</a>与 detokenize 无关：缓存里没有字符串。但流式 TTS / 终端 UI 的延迟会把「先等一个 token 再发」放大成可感知卡顿；权衡是稳定 vs TTFT 字符串。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在网关用 Python <code>tokenizer.decode(ids[:k])</code> 每 token 一次当协议。不要把替换符发给用户再删除。工具调用的 JSON 解析应对稳定前缀做增量 parse，半个字符串 token 不是合法 JSON。多语言混合时，byte-level 与 sentencepiece 的稳定规则不同，转换检查点必须换对应解码器。</p><p>出处：Sennrich et al., ACL 2016；增量行为以 tiktoken 与 HuggingFace <code>TextIteratorStreamer</code> 的实现为准。无单独「流式 detokenize」会议论文，不编造。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>流式可发送的是稳定前缀，不是每个 id 的即时 <code>decode</code>。</li><li>未完成 UTF-8 与未定空格标记必须缓冲或允许改尾。</li><li>停止词与 JSON 只认稳定字符串；掩码仍在 token 空间。</li><li>一次提交多 token 时按批走增量状态机。</li><li>UI 闪烁往往是协议只支持 append。</li><li>后课回到 GPU：采样器本身也是内核。</li><li>出处：Sennrich et al., ACL 2016；HuggingFace / tiktoken 增量解码实现。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 11 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/sampler-kernel/">采样器内核</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

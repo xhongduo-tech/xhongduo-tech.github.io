@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>激活：ReLU 与饱和 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_activation-relu-saturation.md.BqOtSEgE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 18 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/linear-layer-bias/">线性层与偏置</a></p><p class="lesson-next"> 下一课：<a href="/llm/why-init/">初始化为何需要</a></p></nav><div style="position:relative;"><div><h1 id="激活-relu-与饱和" tabindex="-1">激活：ReLU 与饱和 <a class="header-anchor" href="#激活-relu-与饱和" aria-label="Permalink to &quot;激活：ReLU 与饱和&quot;">​</a></h1><div class="epigraph"><p>逐元素非线性把一串仿射从「仍是一层仿射」里救出来；导数长期接近零，反向增益就被掐断。</p><footer>—— 据 Nair &amp; Hinton, Rectified Linear Units Improve Restricted Boltzmann Machines, ICML 2010；Glorot, Bordes &amp; Bengio, AISTATS 2011 整理</footer></div><p><a href="/llm/linear-layer-bias">线性层与偏置</a>补上 \(b\)。本课不重写仿射。缺口是：仿射的复合仍是仿射，再深的 \(W^{(\ell)}\) 也只是一张等效矩阵。必须在层间插入不是仿射的逐元素函数 \(\sigma\)。本课对比饱和激活与 ReLU：前者在幅值大时 \(\sigma&#39;\approx 0\)，加重消失；后者在正半轴增益为 \(1\)，负半轴为 \(0\)。GELU、SwiGLU 是后话，这里只把「为何要非线性、饱和如何伤反向」钉住。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>两个仿射 \(A_2(A_1 x)\) 等于一个仿射。没有 \(\sigma\)，深度不增加函数类，只增加参数化同一超平面的方式。分类、语言建模需要的决策面是弯曲的、分区的。缺口是最小的非线性：每个坐标独立地 \(\sigma(z_i)\)，形状不变，不引入新的轴。</p><p>sigmoid \(\sigma(z)=(1+\mathrm{e}^{-z})^{-1}\)、tanh 把值挤进有界区间，大 \(|z|\) 时导数指数变小——这就是饱和。它曾被当作「概率」或「有界特征」的优点，却与<a href="/llm/vanish-explode-grad">梯度消失与爆炸</a>的增益连乘直接冲突。ReLU \(\sigma(z)=\max(z,0)\) 正半轴不饱和，负半轴硬切。函数类因此变成分段线性，深度开始真正增加折点数量。</p><h3 id="relu-不是「不会消失」" tabindex="-1">ReLU 不是「不会消失」 <a class="header-anchor" href="#relu-不是「不会消失」" aria-label="Permalink to &quot;ReLU 不是「不会消失」&quot;">​</a></h3><p>负半轴导数为 \(0\)，若一个单元对几乎所有样本都为负，它的 \(W\) 行收不到梯度，称为死 ReLU。这是另一种消失，只是发生在单元子集上，而不是整层谱半径。学习率过大、偏置过负、输入分布突然偏移，都会制造死单元。Leaky ReLU、GELU 缓解硬零，但不取消「需要非线性」这条。把 ReLU 宣传成消失问题的彻底解决，后课残差与初始化会显得多余。</p><p><span class="marginnote">输出层接 softmax 时，倒数第二层常用 ReLU 或 GELU，而不是再接一个 sigmoid。概率由 softmax 提供；中间层要的是不饱和的增益，不是再做一次单纯形。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>MLP 一层：\(h=\sigma(Wx+b)\)。反向：\(\mathrm{d}z=\mathrm{d}h\odot\sigma&#39;(z)\)。ReLU 的 \(\sigma&#39;\) 是指示函数 \(\mathbf{1}_{z\gt 0}\)（\(0\) 点的次梯度取 \(0\) 或 \(1\) 均可，实现任意约定）。tanh 的 \(\sigma&#39;=1-\tanh^2 z\)。堆叠 \(L\) 层就有 \(L\) 次逐元素门，夹在 \(L\) 次仿射之间。本课不讨论宽度如何选，那是参数量课。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分段线性网络把 \(\mathbb{R}^d\) 切成多面体，每个多面体内仍是仿射，边界由 ReLU 的过零决定。深度增加折点的组合数，这是表达力来源。饱和激活则把表示压进有界盒子，前向不会爆炸，反向却容易没梯度——前向稳定与反向可训不是同一件事。现代前馈默认非饱和（或弱饱和）激活，把有界性交给后课的 LayerNorm，而不是交给 \(\sigma\) 的值域。</p><p>选择 \(\sigma\) 还改变初始化理论：ReLU 大约一半单元为 \(0\)，方差传递与 tanh 不同。下一课专门处理这件事，本课只要求：激活的导数进入增益连乘，选 \(\sigma\) 就是在选默认增益。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 GELU 的积分形式，不写门控线性单元。下一课<a href="/llm/why-init">初始化为何需要</a>假定激活已选定，问 \(W\) 的尺度。后课默认：MLP 层是仿射加非饱和逐元素激活；说到饱和，是在诊断消失。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>无非线性则多层仿射退化成一层；\(\sigma\) 是深度有意义的前提。</li><li>饱和激活在大幅值时掐断反向增益。</li><li>ReLU 正半轴增益为 \(1\)，但死单元是局部消失。</li><li>中间层不要用 sigmoid 来「当概率」，概率留给 softmax。</li><li>出处：Nair &amp; Hinton, ICML 2010；Glorot et al., AISTATS 2011。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 前馈网络<!--]--><!--[--> · 课序 多层感知机<!--]--></p><p class="lesson-progress">第 18 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/why-init/">初始化为何需要</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

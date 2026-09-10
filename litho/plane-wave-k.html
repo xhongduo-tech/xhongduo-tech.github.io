@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>平面波与波矢 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_plane-wave-k.md.B5ivubir.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 电磁与几何光学<!--[--> · 单元 场与波<!--]--><!--[--> · 课序 从麦克斯韦到平面波<!--]--></p><p class="lesson-progress">第 2 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/litho/maxwell-to-wave/">麦克斯韦方程到波动方程</a></p><p class="lesson-next"> 下一课：<a href="/litho/polarization-states/">偏振：线、圆与椭圆</a></p></nav><div style="position:relative;"><div><h1 id="平面波与波矢" tabindex="-1">平面波与波矢 <a class="header-anchor" href="#平面波与波矢" aria-label="Permalink to &quot;平面波与波矢&quot;">​</a></h1><div class="epigraph"><p>均匀介质里，相位只沿一个方向线性变化；波矢 $\mathbf{k}$ 给出该方向的波长倒数与传播指向。</p><footer>—— 据 Born &amp; Wolf, Principles of Optics 对平面波与色散关系的表述整理</footer></div><p><a href="/litho/maxwell-to-wave">上一课</a>从无源均匀介质推出波动方程，时谐场满足亥姆霍兹方程。本课不重推旋度恒等式。缺口是：方程的特解长什么样？波矢 \(\mathbf{k}\) 如何把方向、波长与频率绑在一起？后课的衍射、光瞳坐标与空间频率，都默认平面波是「基」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>亥姆霍兹 \(\nabla^2\mathbf{E}+k^2\mathbf{E}=0\) 在无限均匀介质中最简单的解，是相位沿固定方向线性变化的场。若只停留在标量方程而不引入 \(\mathbf{k}\)，无法说清「斜入射」「离轴方向」「横向空间频率」这些后课符号从哪来。缺口不是再写一遍麦克斯韦，而是把特解写成平面波，并把 \(|k|\) 与传播角绑死。</p><p>后一课程的 <a href="/litho/em-wave-index">单色波、折射率与光程</a> 会把 \(n\)、光程与相位积分再钉一次。本课先在均匀介质里完成几何：\(\mathbf{k}\) 的方向就是等相位面的法向。</p><h3 id="波长与波数必须分开写" tabindex="-1">波长与波数必须分开写 <a class="header-anchor" href="#波长与波数必须分开写" aria-label="Permalink to &quot;波长与波数必须分开写&quot;">​</a></h3><p>角频率 \(\omega\) 固定时，\(k=|\mathbf{k}|=\omega/v=2\pi/\lambda\)。真空波长 \(\lambda_0\) 与介质波长 \(\lambda=\lambda_0/n\) 不是同一个数。口语里的「193 nm」几乎总是真空（或空气）标称值；介质里的振荡周期要除以 \(n\)。本课用 \(k=n k_0\)、\(k_0=\omega/c\) 把这套约定先写进平面波。</p><p><span class="marginnote">波矢沿相位增加最快的方向。各向同性介质里坡印廷矢量与 \(\mathbf{k}\) 同向。后课光瞳上的每一点，对应一组平面波方向，不是对应一个「光线颜色」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>平面波（取电场某一 Cartesian 分量）：</p> \[E(\mathbf{r},t)=\mathrm{Re}\bigl\{E_0\,e^{i(\mathbf{k}\cdot\mathbf{r}-\omega t)}\bigr\}. \]<p>代入亥姆霍兹方程，得色散关系 \(|\mathbf{k}|=k=n k_0\)。等相位面是垂直于 \(\mathbf{k}\) 的平面。沿 \(\mathbf{k}\) 走 \(\Delta s\)，相位变 \(k\Delta s\)。对光轴 \(z\) 成角 \(\theta\) 的平面波：\(k_z=k\cos\theta\)，\(k_\perp=k\sin\theta\)。横向空间频率</p> \[f=\frac{k_\perp}{2\pi}=\frac{n\sin\theta}{\lambda_0} \]<p>是后课夫琅禾费衍射与数值孔径的入口。本课不展开角谱积分，只钉：任意单色场可以想成许多不同 \(\mathbf{k}\) 的叠加，每个平面波带着自己的方向。</p><div class="mermaid"></div><p>麦克斯韦还要求横波条件 \(\mathbf{k}\cdot\mathbf{E}=0\)。本课先承认电场在垂直 \(\mathbf{k}\) 的平面内；两个正交分量如何命名，是下一课 <a href="/litho/polarization-states">偏振：线、圆与椭圆</a>。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>有限孔径上的场不是严格单一平面波，而是一包 \(\mathbf{k}\)。投影物镜在瞳面选通一部分横向波矢，物面图形的每个空间频率分量按不同角度传播，再在像面叠加。这是后课衍射语言的几何骨架；本课不把成像积分写出来。</p><p>平面波也是理解折射的预备：界面两侧切向 \(\mathbf{k}\) 连续（从而 \(n\sin\theta\) 连续），法向 \(k_z\) 随 \(n\) 改变。下一课之后的 <a href="/litho/fresnel-coefficients">菲涅尔系数</a> 都建立在这套分解上。没有 \(\mathbf{k}\)，斯涅尔定律只是几何口诀，没有波动来源。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课仍是均匀、无界介质里的特解。有限光束是许多 \(\mathbf{k}\) 的窄包络；相干长度与带宽在 <a href="/litho/coherence-length-prep">相干长度与光源带宽预备</a> 才讨论。也不处理导模、光子晶体等非均匀结构的离散谱。</p><p>标量写法暂时略去偏振椭圆。几何光线是 \(|\mathbf{k}|\) 很大、包络缓慢时的极限；何时必须回到波动，见本课程末课。后课默认：提到「一个方向的单色光」，就是一个 \(\mathbf{k}\)；空间频率先写成 \(n\sin\theta/\lambda_0\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>平面波是均匀介质里亥姆霍兹的特解；\(|\mathbf{k}|=nk_0=2\pi/\lambda\)。</li><li>横向分量 \(k_\perp\) 与传播角通过 \(n\sin\theta/\lambda_0\) 进入后课空间频率。</li><li>任意场可分解为平面波叠加；光瞳即对 \(\mathbf{k}\) 的选择。</li><li>横波条件留给偏振课；界面振幅比留给菲涅尔课。</li><li>出处：Born &amp; Wolf, <em>Principles of Optics</em>；Hecht, <em>Optics</em> 第 2 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 电磁与几何光学<!--[--> · 单元 场与波<!--]--><!--[--> · 课序 从麦克斯韦到平面波<!--]--></p><p class="lesson-progress">第 2 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/polarization-states/">偏振：线、圆与椭圆</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

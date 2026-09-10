@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>掩模规则检查 MRC | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_mask-rule-check.md.Cvkxy8ON.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 ILT、MRC 与写入<!--]--></p><p class="lesson-progress">第 12 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/litho/ilt-regularization/">ILT 正则化</a></p><p class="lesson-next"> 下一课：<a href="/litho/mrc-fixup/">MRC 修复</a></p></nav><div style="position:relative;"><div><h1 id="掩模规则检查-mrc" tabindex="-1">掩模规则检查 MRC <a class="header-anchor" href="#掩模规则检查-mrc" aria-label="Permalink to &quot;掩模规则检查 MRC&quot;">​</a></h1><div class="epigraph"><p>光学逆给出的多边形，只有落进掩模厂能写、能蚀、能检的几何集合里，才是一张订单；这个集合叫掩模规则。</p><footer>—— 对照掩模厂（mask shop）对可写性约束与 MRC 的工程通称</footer></div><p><a href="/litho/ilt-regularization">上一课</a>把逆问题的稳定解写成平滑、鲁棒与向可制造集合的投影。缺口是这个集合的语言。掩模厂不读损失函数，只读宽度、间距、面积、jog、尖角——掩模规则检查（Mask Rule Check, MRC）。OPC 或 ILT 若在 MRC 上爆掉，版被拒收，窗口数字作废。本课钉曼哈顿/多边形 MRC。曲线掩模把规则改写成曲率语言，留给<a href="/litho/curvilinear-mrc">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>电子束写入、吸收体蚀刻、缺陷检测，都有最小可分辨的几何。碎片切得太短、衬线太尖、SRAF 太细或太近，光学上可能有益，写入上会变成剂量不足的窄条、蚀刻后断裂、或检测误报。MRC 是掩模厂与晶圆厂之间的合同：最小宽度/间距、最小面积、最小 jog 长度、内角半径、SRAF 打印风险规则等。</p><p>计算光刻若把 MRC 只当优化结束后的过滤器，会在 TAPOUT 前夜发现成千上万违例，再手工或脚本「拍平」，把上一课辛辛苦苦正则掉的窗口又吐回去。缺口是：MRC 必须进迭代（投影或惩罚），而不是事后质检。</p><h3 id="mrc-不是-drc" tabindex="-1">MRC 不是 DRC <a class="header-anchor" href="#mrc-不是-drc" aria-label="Permalink to &quot;MRC 不是 DRC&quot;">​</a></h3><p>设计规则检查（DRC）保证硅上拓扑与库合同：最小晶体管间距、通孔覆盖。MRC 保证<strong>掩模上</strong>的绘制可制造。DRC 干净但 OPC 后 MRC 爆掉，掩模厂仍拒收。两条规则集、两套坐标系（常有 4× 倍率）、两种失败后果。不要把「设计过了 DRC」写成「版能写」。</p><p><span class="marginnote">倍率要把晶圆纳米换成掩模纳米再比规则。High-NA 变形光学两个方向倍率不同，MRC 的「最小宽度」必须按轴声明，不能用一张各向同性表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>规则以掩模厂工艺手册为准：VSB 与多束、二元与衰减、EUV 吸收体厚度，各有一套。计算侧在每次边移动或像素更新后做增量检查，违例则回退、合并碎片、或加惩罚。SRAF 另表：太靠近主图形会印出，太细写不出，落在两堵墙之间。</p><p>签核顺序通常是：DRC → OPC/ILT（内含 MRC 投影）→ 再跑全芯片 MRC → 热区人工或局部再优化。掩模数据准备（断裂成电子束炮或位图）还会引入新的 jog 与缝，二次 MRC 要在断裂之后再跑一次，否则优化器看到的多边形与将要写的几何不是同一张。</p><h3 id="与-epe-的冲突如何仲裁" tabindex="-1">与 EPE 的冲突如何仲裁 <a class="header-anchor" href="#与-epe-的冲突如何仲裁" aria-label="Permalink to &quot;与 EPE 的冲突如何仲裁&quot;">​</a></h3><p>某一碎片为了 EPE 想变窄，MRC 不许。仲裁优先级：不可写则不可出货，EPE 必须改用邻边、助条或放宽设计。把 MRC 权重调到接近零，等于把拒收留给掩模厂——日历上更贵。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>VSB 按矩形炮填充：过窄的条需要过小的成形孔径或过多微炮，剂量与位置误差上升。蚀刻有微负载，孤立细条与密细条的 CD 偏置不同，规则里的「最小宽度」其实是蚀刻后仍不断的宽度。检测算法对直角边训练，尖角和亚分辨率锯齿会触发误报或漏报。MRC 是这三条工艺链在几何上的交集，不是单一光学常数。</p><p>投影到 MRC 集合，会改变掩模频谱的高频。透镜本会滤掉一部分高频，所以「拍平尖角」对空中像的伤害往往小于对写入的伤害——这正是允许（甚至鼓励）丢掉无用锐角的原因。但最小间距若被强制拉大，助条可能失效，窗口真的掉，那是规则与光学的真冲突，要改规则或改照明，而不是再切碎边。</p><p><span class="marginnote">报告「OPC 后 MRC 干净」时写清：是否含断裂后、是否含 SRAF、规则版本对应哪家掩模厂。用 A 厂规则签核、向 B 厂下单，是常见事故。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>MRC 不保证晶圆 CD，只保证掩模可加工。规则过宽，等于把 RET 的收益剃光；过窄，掩模厂良率崩。规则随写入器世代变，VSB 年代的最小宽度不能直接套到多束曲线上——那是下一课。EUV 吸收体与 DUV 铬/MoSi 的蚀刻偏置不同，不能共用一张 MRC 表。修补（e-beam repair）之后也要再过 MRC，补丁本身可以制造新的 jog 与尖角。</p><p>后课默认：可制造集合已经用多边形 MRC 定义过；曲线还要把「边平行间距」升级成曲率与颈宽。</p><p>规则版本号必须写进掩模订购单，与 OPC 所用投影集合一致。</p><p><span class="marginnote">ILT 正则里的 MRC 投影，若用的是过时规则，会把解投影到一个掩模厂已经不再接受的集合上。规则版本必须进 TAPOUT 合同。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MRC 是掩模厂可写性合同：宽度、间距、面积、jog，不是 DRC。</li><li>必须进入 OPC/ILT 迭代，不能只当前夜过滤器。</li><li>断裂之后要二次检查，写入几何与优化多边形可能不一致。</li><li>与 EPE 冲突时，不可写优先于名义轮廓。</li><li>出处：掩模厂 MRC / 可写性约束的工程通称。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算光刻与掩模写入<!--[--> · 单元 图形修正<!--]--><!--[--> · 课序 ILT、MRC 与写入<!--]--></p><p class="lesson-progress">第 12 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/mrc-fixup/">MRC 修复</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

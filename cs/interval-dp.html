@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>区间 DP 直觉 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_interval-dp.md.CdTLOhEB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法<!--[--> · 单元 设计范式与难解<!--]--><!--[--> · 课序 范式<!--]--></p><p class="lesson-progress">第 37 / 43 课</p><p class="lesson-prereq"> 先修：<a href="/cs/knapsack/">背包</a></p><p class="lesson-next"> 下一课：<a href="/cs/p-vs-np/">P 与 NP</a></p></nav><div style="position:relative;"><div><h1 id="区间-dp-直觉" tabindex="-1">区间 DP 直觉 <a class="header-anchor" href="#区间-dp-直觉" aria-label="Permalink to &quot;区间 DP 直觉&quot;">​</a></h1><div class="epigraph"><p>最优在区间内部某点切开；按长度从小到大填表，$O(n)$ 个左端、$O(n)$ 个右端、$O(n)$ 个切点，常是 $\Theta(n^3)$。</p><footer>—— 据 Godbole, On the Computation of Matrix Chain Products, 1973；CLRS 第 15.2 节整理</footer></div><p>上一课<a href="/cs/knapsack">背包</a>把状态做成「前 \(i\) 件 × 容量 \(w\)」，\(\Theta(nW)\) 随 \(W\) 的数值膨胀，还没有复杂度类的名字。本课不重写 0-1 转移。缺口是另一族状态：<strong>子数组或子链的闭区间</strong> \([i,j]\)，转移枚举切点 \(k\in(i,j)\)。矩阵链乘法、石子合并、最优二叉搜索树都是这张表。输入长度是 \(n\) 个元素，\(\Theta(n^3)\) 相对 \(n\) 是多项式；背包那张表相对二进制输入仍可能指数——下一课才把两类分开命名。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(n\) 个矩阵相乘 \(A_1\cdots A_n\)，结合律使切点不同代价不同（维数 \(p_{i-1}\times p_i\)）。\(dp[i][j]\) 为乘完 \(A_i\cdots A_j\) 的最小代价，转移 \(dp[i][j]=\min_k(dp[i][k]+dp[k+1][j]+p_{i-1}p_k p_j)\)。必须先算短区间：长度 \(1\) 代价 \(0\)，再长度 \(2,3,\ldots\)。缺口是「切点在区间内部」，不是再发明容量。</p><p>石子合并（相邻两堆合并）同一骨架，代价定义不同。括号化与最优 BST 也是区间加切点。不要把最长公共子序列硬塞进区间：LCS 的状态是两个前缀，不是一段连续下标的切。</p><h3 id="区间不是滑动窗口贪心" tabindex="-1">区间不是滑动窗口贪心 <a class="header-anchor" href="#区间不是滑动窗口贪心" aria-label="Permalink to &quot;区间不是滑动窗口贪心&quot;">​</a></h3><p>贪心「每次合并最便宜的相邻对」一般错，没有交换论证。必须枚举切点。这正是<a href="/cs/opt-substructure">最优子结构</a>成立、贪心选择不成立的例子。</p><p><span class="marginnote">CLRS 15.2 矩阵链。Godbole 1973 讨论链乘计算。本课要填表顺序与 \(\Theta(n^3)\)，不把 Knuth 优化（四边形不等式把切点单调、降到 \(n^2\)）写进主干。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>定义 \(dp[i][j]\)。边界：空段或单元素。按 \(j-i\) 升序，对每个 \(k\) 取 \(\min\) 或 \(\max\)。方案记录 \(\mathrm{arg}\)。复杂度：状态 \(O(n^2)\)，转移 \(O(n)\)。</p><div class="mermaid"></div><p>与背包对照：这里没有 \(W\) 这一维；多项式性对 \(n\) 成立。背包判定仍可能难，因为 \(W\) 的位数才是输入长度。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>最优子结构：最优括号在唯一顶层切点 \(k^*\) 切开，左右链必须最优。重叠：许多 \([i,j]\) 共享更短区间。环上的区间（首尾相邻）要加倍或断环成链，本课点名，不写完环形石子。</p><p>不要对有交叉而不只切一刀的结构用二维区间（真的平面剖分是卡特兰，状态更肥）。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不命名 P/NP，不证矩阵链在 P。不引入四边形不等式加速。后课默认：连续区间上的最优结合用 \(\Theta(n^3)\) 区间 DP；背包式 \(\Theta(nW)\) 仍按数值计。判定问题的多项式时间从下一课起才叫 P。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>区间 DP：状态是 \([i,j]\)，转移切一刀，常 \(\Theta(n^3)\)。</li><li>对 \(n\) 多项式；背包 \(\Theta(nW)\) 仍随数值涨。</li><li>相邻合并的贪心一般没有交换论证。</li><li>出处：CLRS 第 15.2 节；Godbole, 1973。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法<!--[--> · 单元 设计范式与难解<!--]--><!--[--> · 课序 范式<!--]--></p><p class="lesson-progress">第 37 / 43 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/p-vs-np/">P 与 NP</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

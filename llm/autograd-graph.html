@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>自动微分与计算图 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_autograd-graph.md.DcKu-FQT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 反传与初始化<!--]--><!--[--> · 课序 训练一个 Transformer 之前<!--]--></p><p class="lesson-progress">第 2 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/attention-backward/">注意力的反向传播</a></p><p class="lesson-next"> 下一课：<a href="/llm/xavier-kaiming-init/">Xavier / Kaiming 初始化</a></p></nav><div style="position:relative;"><div><h1 id="自动微分与计算图" tabindex="-1">自动微分与计算图 <a class="header-anchor" href="#自动微分与计算图" aria-label="Permalink to &quot;自动微分与计算图&quot;">​</a></h1><div class="epigraph"><p>反向模式把标量损失对全体输入的导数，收成一次与计算图拓扑相反的扫描；每条原语只提供局部 Jacobian-向量积。</p><footer>—— 据 Rumelhart, Hinton &amp; Williams, Nature 1986；综述见 Baydin et al., Automatic Differentiation in Machine Learning, JMLR 2018</footer></div><p><a href="/llm/attention-backward">上一课</a>把 softmax 注意力的 \(dQ,dK,dV\) 手写清楚了。缺口立刻出现：一层注意力只是图上的一个子图，还有嵌入、RMSNorm、FFN、残差与交叉熵。逐算子手推 Jacobian 既不能随架构改动，也容易漏掉广播与掩码。本课把「反传」从一条注意力公式换成<strong>计算图上的反向模式自动微分</strong>。后课的初始化假定：框架会按图把梯度送回每一个叶子参数，你要管的是尺度，不是有没有链式法则。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>前向把张量运算排成有向无环图：节点是值，边是原语（矩阵乘、softmax、加减、gather）。训练要的是 \(\partial\mathcal{L}/\partial\theta\)，其中 \(\theta\) 是全部叶子。符号微分会把表达式胀成指数级；数值微分对每个参数前向两次，十亿参数不可行。反向模式（即深度学习里的反传）只要求损失是标量：先正向记录中间值或重算所需的检查点，再从 \(\partial\mathcal{L}/\partial\mathcal{L}=1\) 逆拓扑传播向量-Jacobian 积。</p><p><a href="/llm/attention-backward">注意力反向</a> 已是这条规则在一个子图上的实例。本课的缺口不是再写一遍 \(dS\)，而是：<strong>图如何决定保存什么、何时释放、广播如何把梯度求和回同一缓冲</strong>。漏掉 residual 的加法边，底层嵌入会少一半梯度；漏掉 embedding gather 的 scatter-add，被多个位置共用的 token 只收到最后一次写入。</p><p><span class="marginnote">PyTorch 一类动态图在前向现场把 Function 压栈；静态图则先编译再跑。对你要写的 Transformer，二者的数学对象相同，差别在控制流与重算策略。Paszke 等人把动态图写成可运行的原语，并不另造一种导数定义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每个原语 \(y=f(x)\) 必须实现：已知 \(v=\partial\mathcal{L}/\partial y\)，求 \(v^\top Df(x)\)，即 VJP。矩阵乘 \(Y=XW\) 的 VJP 是 \(dX=dY W^\top\)、\(dW=X^\top dY\)，与手推公式同类。加法 \(y=a+b\) 把 \(dy\) 原样发给 \(a\) 和 \(b\)。广播把较瘦的那个输入上的梯度沿被扩张的轴求和。<code>gather</code> 的反向是 <code>scatter_add</code>：同一 index 出现多次，梯度相加。</p><p>实现上通常有两类检查点。默认：保存前向张量供反向读取，显存随深度与序列长涨。梯度检查点：只保存若干边界，中间段反向时重算前向。FlashAttention 是核内重算，检查点是层间重算，可以叠用，但都改变「图上哪些边被物化」，不改变 VJP 定义。</p><p>混合精度把部分节点改成 BF16/FP16，反向仍可能在 FP32 累加器里做。这是数值策略，不是另一种微分。若某节点在前向被 <code>detach</code> 或 <code>stop_gradient</code>，图在那里断开，下游参数收不到这条路径的梯度——MoE 负载均衡有时故意这么做，必须写进配方，不能当框架 bug。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>反向模式的代价：对标量损失，一次反传得到全体 \(\partial\mathcal{L}/\partial\theta\)，时间与前向量级相同（常数因子，通常 1–2 倍于前向），额外存储与「保存的激活」成正比。前向模式 AD 适合输入维远小于输出维，语言模型正好相反，所以训练不用前向模式扫参数。</p><p>拓扑顺序必须尊重数据依赖。流水线并行把图画成跨设备的阶段，微批之间的激活仍是边；ZeRO 把叶子参数切到不同 rank，反向时梯度在切分后的叶子上做 All-Reduce 或 Reduce-Scatter。这些是同一张逻辑图的切分，VJP 公式不改。错的切分表现为「某一层梯度恒为零」或「范数少乘了 \(\sqrt{N}\)」，要用后课的梯度范数监控来抓，而不是改 softmax 公式。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>自动微分不保证梯度有用。饱和的 softmax、被 mask 成 0 的位置、以及 <code>float16</code> 下变成 Inf 的中间值，图仍会返回一个数，那个数可以是 0 或 NaN。本课只保证：<strong>若前向定义了 \(f\)，反向实现了对应 VJP，得到的就是 \(\nabla f\)</strong>（在浮点误差内）。尺度、裁剪、跳过坏 batch，是后课。</p><p>不要用手写注意力反向去替代框架；手写的用途是审查融合核。若融合核的 VJP 与 <a href="/llm/attention-backward">注意力反向</a> 不一致，那是实现错误，不是「另一种注意力」。二阶量（Hessian-向量积）可以再在此图上套一层前向-over-反向，本课不进入二阶优化。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>反向模式 AD 把标量损失的梯度收成一次逆拓扑扫描；每个原语只提供 VJP。</li><li>注意力手推公式是图上一个子图；残差、广播、gather 的求和边同样不可漏。</li><li>保存激活、层间检查点、核内重算改的是存储，不改导数定义。</li><li>图断开（detach）与混合精度是配方决策，必须显式。</li><li>有梯度不等于梯度可用；尺度留给初始化与稳定性课。</li><li>出处：Rumelhart, Hinton &amp; Williams, <em>Nature</em> 1986；Baydin et al., <em>JMLR</em> 2018；Paszke et al., PyTorch, NeurIPS 2019。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 反传与初始化<!--]--><!--[--> · 课序 训练一个 Transformer 之前<!--]--></p><p class="lesson-progress">第 2 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/xavier-kaiming-init/">Xavier / Kaiming 初始化</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>学习率敏感度与 μP 实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_lr-sensitivity-mup-practice.md.C9lsy9FB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 20 / 39 课</p><p class="lesson-prereq"> 先修：<a href="/llm/adam-beta2-spikes/">β₂ 与损失尖峰</a></p><p class="lesson-next"> 下一课：<a href="/llm/weight-decay-exemptions/">权重衰减的豁免：嵌入与 norm</a></p></nav><div style="position:relative;"><div><h1 id="学习率敏感度与-μp-实践" tabindex="-1">学习率敏感度与 μP 实践 <a class="header-anchor" href="#学习率敏感度与-μp-实践" aria-label="Permalink to &quot;学习率敏感度与 μP 实践&quot;">​</a></h1><div class="epigraph"><p>标准参数化下最优学习率随宽度漂；μP 让每层特征更新在宽度极限仍为 $\Theta(1)$，于是窄模型上扫到的 $\eta$ 可以零样本迁移——前提是分母、深度与嵌入分组没有先把假设打破。</p><footer>—— Yang, Hu 等，Tensor Programs V: Tuning Large Neural Networks via Zero-Shot Hyperparameter Transfer</footer></div><p><a href="/llm/adam-beta2-spikes">上一课</a>与 \(\varepsilon\) 课指出：Adam 分母一旦被地板或滞后接管，自适应尺度不再是 μP 假设的那个。缺口是把主干 <a href="/llm/mup">μP</a> 从「宽度定标表」收成<strong>可运行的实践清单</strong>。本课不重推 abc 规则，只写：在已经处理 logit 增长、clip、\(\varepsilon\)、\(\beta_2\) 之后，如何扫 \(\eta\)、如何做 coord check、哪些轴<strong>不要</strong>假装已经 μP 化。后课的权重衰减豁免是清单上的下一项。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>SP 下加宽后最优 \(\eta\) 移动：窄的能学、宽的要么炸要么不动。μP 的承诺是最优 \(\eta\) 对宽度近乎常数。Wortsman 等人的小代理恰恰说明：不稳模式可以在小模型上用大学习率复现。于是实践问题变成两层——（1）目标模型必须真的是 μP，而不是 SP 网络外面乘了一个 \(1/d\)；（2）扫 \(\eta\) 的代理必须已经打开与大模型相同的稳定件（QK-Norm 或 cap、同样的 \(\beta_2\)、同样的 \(\varepsilon\) 分组），否则代理的最优 \(\eta\) 落在大模型会炸的区里。</p><p>Tensor Programs V 对宽度是定理级，对深度、batch、序列长度是经验附录。把四者捆成「全部 μP」会在深度变 2 倍、batch 变 8 倍时静默失败。本课把敏感度写成：<strong>先固定深度与数据配方，只扫宽度轴；其它轴用各自的课</strong>（深度缩放、批次定律）。</p><p><span class="marginnote">coord check 不是看损失。损失可以对宽度碰巧都降，而某层更新幅度随 \(d\) 线性涨——那种涨会在真正的目标宽度上变成 NaN。必须画 \(|\Delta\mathrm{activation}|\) 对宽度是否平坦。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>实践顺序：</p><ol><li>实现 infshape：输入、隐藏、输出三列乘数与初始化分开，注意力 \(1/\sqrt{d_k}\) 保留。</li><li>打开与目标相同的稳定件（本单元已讲的那些），再在窄代理上扫 \(\eta\)。</li><li>coord check：加宽若干档，前向激活更新幅度平坦才迁移。</li><li>迁移后<strong>不要</strong>再把 \(\eta\) 按 SP 习惯除以 \(\sqrt{d}\)。</li></ol><p>敏感度图：在代理上画最终 CE 对 \(\eta\) 的 U 形。μP 下 U 形的谷底位置随宽度应重叠。若宽模型的谷底左移，检查是否 SP 残留（某层学习率没乘表）、是否 \(\varepsilon\) 在宽词表上接管、是否残差没按深度缩放。谷底变窄（更敏感）通常是稳定性不够，不是 μP 失效——先加 cap / 降 \(\beta_2\)，再谈迁移。</p><p>与主干 <a href="/llm/weight-decay-mup">权重衰减与 μP</a> 对齐：\(\lambda\) 的单位是 \(\eta\lambda\)，改 \(\eta\) 等于改衰减率。扫 \(\eta\) 时 \(\lambda\) 要么跟着定义成无量纲组合，要么明确「\(\lambda\) 固定、衰减率变」。两种合法，混用使 U 形不可读。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>μP 让隐藏层的特征更新对宽度 \(O(1)\)。学习率敏感度来自：太小则困在核体制（只训最后一层），太大则一步破坏已学特征。稳定件改变的是「太大」这一侧的悬崖位置，所以必须先装护栏再扫。小代理加大学习率能复现大模型不稳，意思是：<strong>悬崖可以在小模型上找</strong>，不是可以在小模型上用 SP 扫完再希望 μP 魔法把它搬走。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不给一张可抄的乘数表——表在库与论文附录，抄错列比不用 μP 更糟。词表、层数、上下文不是宽度，下一单元分别有定律。MoE 专家内部宽度与路由维是否标成 infshape，必须显式；错标一个专家线性层，只有专家在加宽时爆炸。</p><p>代理与目标的稳定件集合必须逐项打勾，不能口头说「都是 AdamW」就算对齐。下一课处理衰减豁免：哪些参数根本不应进入 \(\eta\lambda\) 这一乘。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>μP 迁移的前提是目标真是 μP，且代理与目标共享稳定件。</li><li>coord check 看更新幅度对宽度，不看损失是否碰巧都降。</li><li>深度、batch、序列长度不享受与宽度同等的定理；敏感度谷变窄优先查稳定性。</li><li>扫 \(\eta\) 时声明 \(\lambda\) 是固定还是跟 \(\eta\) 走。</li><li>出处：Yang 等，Tensor Programs V；Wortsman et al., ICLR 2024 对小代理复现不稳。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础与稳定性<!--[--> · 单元 稳定性<!--]--><!--[--> · 课序 训练为什么会炸<!--]--></p><p class="lesson-progress">第 20 / 39 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/weight-decay-exemptions/">权重衰减的豁免：嵌入与 norm</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>梯度压缩 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_gradient-compression.md.WMt1kSBy.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 9 / 24 课</p><p class="lesson-prereq"> 先修：<a href="/llm/training-network-congestion/">训练网络的拥塞控制</a></p><p class="lesson-next"> 下一课：<a href="/llm/parameter-server-contrast/">参数服务器对照</a></p></nav><div style="position:relative;"><div><h1 id="梯度压缩" tabindex="-1">梯度压缩 <a class="header-anchor" href="#梯度压缩" aria-label="Permalink to &quot;梯度压缩&quot;">​</a></h1><div class="epigraph"><p>DP 的 All-Reduce 体积等于参数量。压梯度是压 $n$，不是压模型；误差进优化器，不进部署权重。</p><footer>—— 对照 QSGD、Deep Gradient Compression、PowerSGD；集体体积见带宽模型课</footer></div><p><a href="/llm/training-network-congestion">上一课</a> 在链路上排队。本课从应用层减字节：对数据并行的梯度做有损压缩，再 All-Reduce。缺口不是再讲环算法，而是 <strong>何时 \(n\) 大到必须伤数值</strong>。<a href="/llm/pretrain-comm">预训练通信</a> 提过 BF16 / FP8 通信 dtype，那是精度换带宽；本课再往下：稀疏化、量化梯度、低秩分解梯度。它与后课参数服务器有交接——PS 时代大量工作是压缩上行；All-Reduce 集群同样能用，只是对称地每卡都要编解码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>DDP 每步 All-Reduce 的 \(n\) 与模型参数量同阶，与 batch、序列无关。模型涨、网卡不按比例涨时，DP 组跨节点段成为墙，重叠也盖不住。降低 DP 度会伤吞吐或逼你加大 TP——TP 又要求 <a href="/llm/nvlink">NVLink</a>。压缩梯度给出第三条：保持 DP 度，减小 \(n\)。</p><p>代价在优化轨迹。压缩是有损的：QSGD 一类随机量化保留无偏但增方差；Top-k 稀疏化丢小坐标，要误差反馈才不让方向漂；PowerSGD 把梯度矩阵收成低秩因子，带宽随秩走，表达力也随秩走。问题是：<strong>压缩误差是否被 Adam 与大 batch 吞掉，还是在损失平台上留下一层永远到不了的缝</strong>。</p><p><span class="marginnote">这不是 <a href="/llm/gptq">GPTQ</a> 那种权重量化。权重压缩改推理函数；梯度压缩只改训练通信，训练结束仍可存满精度权重。两套格子不要混用同一套校准叙事。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三类常用手法，可以叠，但验收必须在最终优化器轨迹上。</p><p>量化通信：梯度用 FP16 / BF16 / FP8，或整数网格加尺度。实现简单，和集体库的 dtype 开关一致。无偏随机舍入（QSGD）在理论上好分析，工程上确定性格子加足够大 batch 往往也够。</p><p>稀疏 / 误差反馈：每卡只发 Top-k 或随机 \(k\) 个坐标，其余留在本地残差里下次再试（Lin 等人 DGC 的主线）。All-Reduce 变成不规则稀疏集体，NCCL 的密张量路径不直接适用，常要自管或先聚成块稀疏。</p><p>低秩：PowerSGD 对分层梯度做一次幂迭代式分解，All-Reduce 只同步因子。秩很小则 \(n\) 降一个数量级；注意力与 MLP 的梯度是否真低秩，是经验问题，不是定理。</p><div class="mermaid"></div><p>与层次化兼容：先节点内密 All-Reduce 或 reduce-scatter，再对每节点一份做压缩跨节点。节点内 <a href="/llm/nvlink">NVLink</a> 很胖，不必压；跨节点再压，编解码次数也少。这比每卡独立 Top-k 再对齐索引更省事。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无偏量化增加梯度噪声，效果近似略减学习率或略增 batch。Adam 的二阶矩会吸收一部分尺度变化，但 FP8 通信若与丢失缩放不对齐，会出现整层梯度下溢——那是数值协议，不是压缩比。稀疏化无误差反馈时，小而持续的方向（词表里的稀有实体）会被系统抹掉，表现为长尾能力先死。低秩假设在训练后期梯度变噪、秩升高时可能失效，需要升秩或关掉。</p><p>压缩与数据并行的「各卡比特级一致」冲突：编解码顺序、随机舍入种子必须全组相同，否则权重分叉，集体下一次对不齐。这比密 BF16 All-Reduce 更脆。</p><p><span class="marginnote">MoE 的梯度仍按专家切片；压缩要按片做，避免把路由相关的小梯度当噪声删掉。EP 的墙是 All-to-All 激活置换，不是梯度 \(n\)，压梯度救不了 EP。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>小模型、NVLink 域内 DP，压缩常常得不偿失：编解码吃 GPU，NVLink \(\beta\) 已经够。大模型跨柜 DP、以太网 \(\beta\) 不够时才值得。不要把论文里「压缩 100×、精度不掉」的 CNN 数字抄到 LLM 上而不做消融。不要与检查点、激活检查点搞混——那些减的是存储与激活显存，不是 DP 通信 \(n\)。</p><p>下一课参数服务器是另一种通信形状：不对称、推拉、天然适合稀疏更新。若你的压缩已经是极度稀疏的 embedding 梯度，PS 可能比对称 All-Reduce 更合适。稠密 Transformer 主体仍是 All-Reduce 世界。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>梯度压缩减 DP 的 \(n\)，不改部署权重；与 PTQ 权重量化不是一事。</li><li>量化通信最便宜；Top-k 要误差反馈；PowerSGD 赌梯度低秩。</li><li>先节点内密归约，再跨节点压，匹配 NVLink / 网卡两档 \(\beta\)。</li><li>编解码必须全组一致，否则副本分叉。</li><li>出处：Alistarh 等 QSGD；Lin 等 Deep Gradient Compression；Vogels 等 PowerSGD。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 集合通信与异构加速<!--[--> · 单元 集合通信<!--]--><!--[--> · 课序 算法与拓扑<!--]--></p><p class="lesson-progress">第 9 / 24 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/parameter-server-contrast/">参数服务器对照</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

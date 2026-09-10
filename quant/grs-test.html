@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GRS 检验 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_grs-test.md.B26K-ywu.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 因子与横截面续<!--[--> · 单元 经典扩展与异象<!--]--><!--[--> · 课序 定价因子<!--]--></p><p class="lesson-progress">第 26 / 32 课</p><p class="lesson-prereq"> 先修：<a href="/quant/fiftytwo-week-high/">52 周高点动量</a></p><p class="lesson-next"> 下一课：<a href="/quant/harvey-liu-zhu/">Harvey-Liu-Zhu 多重检验</a></p></nav><div style="position:relative;"><div><h1 id="grs-检验" tabindex="-1">GRS 检验 <a class="header-anchor" href="#grs-检验" aria-label="Permalink to &quot;GRS 检验&quot;">​</a></h1><div class="epigraph"><p>一组资产的定价误差是否联合为零，等价于问：在因子之外再纳入这些资产，切点组合的夏普能不能显著提高。</p><footer>—— Gibbons, Ross and Shanken, A Test of the Efficiency of a Given Portfolio, Econometrica, 1989</footer></div><p>时间序列里每只检验资产都有一个 \(\alpha_i\)。逐个看 t 值会漏掉它们的相关：十个中等 α 若残差高度相关，联合证据弱；若残差几乎正交，联合证据强。<a href="/quant/capm">CAPM</a> 与<a href="/quant/ff3">三因子</a>要回答的是「这组 α <strong>一起</strong>是否为零」，不是「里面有没有某只碰巧显著」。Gibbons、Ross 与 Shanken 给出在残差联合正态下的精确有限样本 \(F\) 检验，并把统计量写成夏普改进。它是因子模型最常用的联合检验，也是检验资产选得太多时最先失效的那一个。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>对 \(N\) 个检验资产、\(K\) 个因子，\(T\) 期超额收益</p> \[R_t=\alpha+\beta F_t+e_t,\qquad e_t\sim \mathrm{i.i.d.}\ \mathcal{N}(0,\Sigma). \]<p>原假设 \(H_0:\alpha=0\)（\(N\times 1\)）。若逐个检验，多重比较会膨胀一类错误；若只报告平均 \(|\alpha|\)，又丢掉协方差。需要一个把 \(\hat\alpha\) 与 \(\hat\Sigma\) 收成标量、并在正态假设下有已知空分布的统计量。</p><p>几何上，因子的切点组合有夏普 \(\theta_p\)；把检验资产加进去后切点夏普为 \(\theta_*\)。\(H_0\) 成立则因子已经张成均值方差前沿上相关的那一段，\(\theta_*=\theta_p\)。GRS 检验的就是 \(\theta_*\) 对 \(\theta_p\) 的改进是否只是抽样噪声。Roll 的批评仍然在：你检验的是<strong>手里这组因子</strong>对<strong>手里这组资产</strong>是否均值方差有效，不是不可观测的真市场。</p><h3 id="联合为零-不是平均为零" tabindex="-1">联合为零，不是平均为零 <a class="header-anchor" href="#联合为零-不是平均为零" aria-label="Permalink to &quot;联合为零，不是平均为零&quot;">​</a></h3><p>平均 α 接近零、但一半大正一半大负，GRS 仍可拒绝：模型系统性地误定价两端。反过来，所有 α 同号但残差几乎共线（它们其实是同一个被遗漏因子的复制），GRS 可能不如看起来那么显著——\(\Sigma^{-1}\) 会把重复的方向降权。这正是联合检验相对「数一数有几个 t&gt;2」的优点。</p><p><span class="marginnote">GRS 假定残差 IID 正态。日频金融残差有波动聚集与肥尾，有限样本 \(F\) 的尺寸会歪。月频、检验组合而非个股，是文献默认；用日频个股做 GRS 再声称「模型被摧毁」，往往是分布假设被摧毁。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>令 \(\hat\alpha\) 为 \(N\times 1\) 的 OLS 截距，\(\hat\Sigma\) 为残差协方差（通常用无偏形式），\(\bar f\) 为因子样本均值，\(\hat\Omega\) 为因子样本协方差。GRS 统计量</p> \[\mathrm{GRS}=\frac{T-N-K}{N}\cdot\frac{\hat\alpha^\top\hat\Sigma^{-1}\hat\alpha}{1+\bar f^\top\hat\Omega^{-1}\bar f} \]<p>在 \(H_0\) 与正态 IID 下服从 \(F_{N,\,T-N-K}\)。分母里的 \(1+\bar f^\top\hat\Omega^{-1}\bar f=1+\hat\theta_p^2\)，把因子自身的夏普平方拿掉：α 的「大」要相对于因子已经解释掉的均值。分子是 Mahalanobis 意义下 α 的总长度。</p><p>实施要点：检验资产必须比因子多出真正的新方向，但 \(N\) 又不能靠近 \(T-K\)。\(T-N-K\) 一窄，\(F\) 的分母自由度不够，\(\hat\Sigma\) 接近奇异，统计量爆炸。文献用 25 个规模–价值组合、或 5×5 再加动量组，月频几十年，就是为了让 \(N\ll T\)。A 股样本短、行业与政策分段多，更应控制 \(N\)：用 5×5 或 2×3 组合，而不是两百只个股。</p><h3 id="与-fama–macbeth、wald-的关系" tabindex="-1">与 Fama–MacBeth、Wald 的关系 <a class="header-anchor" href="#与-fama–macbeth、wald-的关系" aria-label="Permalink to &quot;与 Fama–MacBeth、Wald 的关系&quot;">​</a></h3><p><a href="/quant/fama-macbeth">Fama–MacBeth</a> 估的是风险价格 \(\lambda\) 的时间序列；GRS 估的是时间序列 α 的联合。可交易因子下，α 与 \(\lambda\) 的偏离是同一套定价误差的两种写法，应选一个主检验，不要两张表都当独立发现。大样本 Wald \(T\hat\alpha^\top\hat\Sigma^{-1}\hat\alpha\) 忽略因子均值的不确定性，也没有 GRS 那种精确 \(F\)；Shanken 修正与 GMM 处理生成回归量，对象偏向截面 \(\lambda\)。工程顺序：先 GRS 看这组因子对这组组合够不够；再 FM 报告经济幅度。</p><p>因子模型比较时，嵌套模型可以用 GRS：三因子相对市场、五因子相对三因子，看 α 是否被新因子吃掉。非嵌套则 GRS 不能直接当「谁更好」——拒绝 CAPM 与拒绝三因子可以同时发生。应报告每个模型自己的 GRS、平均 \(|\alpha|\)、以及 \(R^2\)，而不是只给最小的那个 p 值。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>在联合正态下，均值方差有效性有精确的小样本检验，这是 GRS 相对渐近 χ² 的理由。统计量把 α 放到残差度量里：被共同残差驱动的 α 不算「很多独立证据」。分母标准化因子已有的夏普，避免「因子很弱、α 看起来很大」或「因子已经很强、一点点 α 仍显著」两种误读不对齐——后者仍可能拒绝，但经济上改进的夏普可能很小。因此除了 p 值，应报告 \(\hat\theta_*-\hat\theta_p\) 或 \(\hat\alpha^\top\hat\Sigma^{-1}\hat\alpha\) 的经济尺度。</p><p>拒绝的含义是模型对<strong>这组左边</strong>失败，不是对所有资产失败。按 β 排序的组合专门打 CAPM；按规模–价值排序专门打市场模型；按动量排序专门打三因子。检验资产的选择就是备择假设。把「对 25 个规模–价值组合 GRS 不拒绝」写成「模型成立」，漏掉了动量、盈利、换手等你没放进左边的方向。</p><h3 id="a-股左边怎么选" tabindex="-1">A 股左边怎么选 <a class="header-anchor" href="#a-股左边怎么选" aria-label="Permalink to &quot;A 股左边怎么选&quot;">​</a></h3><p>A 股若把含壳的小盘放进 5×5，GRS 很容易拒绝任何从美股搬来的三因子，拒绝的是壳与投机，不一定是「市场 β 无效」，见<a href="/quant/cn-shell-premium">壳溢价</a>。Liu–Stambaugh–Yuan 的做法是先剔除最小 30%，再用剩余股票构造检验组合与中国因子。复制 GRS 必须声明宇宙。涨跌停与停牌使月度组合收益仍含不可成交区间，α 里有执行缺口；这不会让软件报错，但会让「定价误差」含微观结构。</p><p><span class="marginnote">\(N\gt T\) 时 \(\Sigma\) 不可逆，GRS 未定义。先降维（组合、主成分）或给 \(\Sigma\) 加收缩，后者已经不是 1989 年的精确 \(F\)。不要对个股截面硬做 GRS。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>正态 IID 不成立时，可用 GMM Wald、bootstrap 或对残差做 Newey–West 再报渐近检验，但不要再引用 \(F\) 临界值。结构断裂（2015、2020、注册制扩容）使全样本 GRS 难解释：应分段，或承认检验的是「平均意义下的线性因子模型」。</p><p>不要用同一批数据先搜因子再做 GRS 还把 p 值当名义水平——搜过的因子已经用了 α 的信息，见<a href="/quant/harvey-liu-zhu">Harvey–Liu–Zhu</a>。不要只剔除使 GRS 变差的组合。不要把「加入某因子后 GRS 的 p 从 0.01 变成 0.06」当成该因子被定价，幅度可能仍大。</p><p><span class="marginnote">出处：Gibbons, Ross and Shanken, <em>Econometrica</em>, 1989。几何解释即切点夏普比较。时间序列 α 的经济报告习惯见 Fama &amp; French 1993、2015。A 股检验组合的宇宙见 Liu, Stambaugh and Yuan, <em>JFE</em>, 2019。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>GRS 对一组时间序列 α 做联合 \(F\) 检验，原假设是因子对检验资产均值方差有效。</li><li>统计量是 α 的马氏长度相对因子夏普的标准化；空分布在残差 IID 正态下精确。</li><li>\(N\) 须远小于 \(T\)；检验资产的选择就是备择，未放入左边的异常不算被通过。</li><li>日频、个股、肥尾下不要用名义 \(F\)；A 股须先规定是否含壳与最小市值。</li><li>与 FM 截面 λ 是同一套误差的两种语言，应指定主检验。</li><li>出处：Gibbons, Ross and Shanken, <em>A Test of the Efficiency of a Given Portfolio</em>, Econometrica, 1989。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 因子与横截面续<!--[--> · 单元 经典扩展与异象<!--]--><!--[--> · 课序 定价因子<!--]--></p><p class="lesson-progress">第 26 / 32 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/harvey-liu-zhu/">Harvey-Liu-Zhu 多重检验</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>组合子与不动点 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_combinators-fixed-point.md.CN2gvc7q.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 可计算性<!--]--><!--[--> · 课序 判定的边界<!--]--></p><p class="lesson-progress">第 19 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/lambda-calculus/">λ 演算</a></p><p class="lesson-next"> 下一课：<a href="/cs/time-hierarchy/">时间层级定理</a></p></nav><div style="position:relative;"><div><h1 id="组合子与不动点" tabindex="-1">组合子与不动点 <a class="header-anchor" href="#组合子与不动点" aria-label="Permalink to &quot;组合子与不动点&quot;">​</a></h1><div class="epigraph"><p>$S$ 与 $K$ 生成全部 λ 项的组合子片段；$Y=\lambda f.(\lambda x.f(xx))(\lambda x.f(xx))$ 给出不动点，递归不必「调用名字」。</p><footer>—— 据 Curry；Schönfinkel；Barendregt 整理</footer></div><p>上一课<a href="/cs/lambda-calculus">λ 演算</a>用变量绑定写函数，并留下递归。缺口是两件：<strong>组合子</strong>（无自由变量的项，甚至无绑定器的 \(SK\) 基底）与<strong>不动点组合子</strong> \(Y\)，把 Kleene 递归定理写成 β 等式 \(YF = F(YF)\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>绑定器让语法有环境。Schönfinkel–Curry：闭项可译成 \(S,K\) 的应用，\(I=SKK\)。\(Kxy=x\)，\(Sxyz=xz(yz)\)。图灵完全性保留。不动点：对任意 \(F\)，要 \(X\) 使 \(X=FX\)。\(Y\) 满足 \(YF\to F(YF)\)。于是递归定义 \(F=\lambda r.\cdots r\cdots\) 变成 \(YF\)。这与 TM 侧递归定理同一现象，对象是项不是编码。</p><p>\(\Omega\) 是 \(Y\) 作用在「忽略参数循环」上的亲戚；有不动点不等于有范式。</p><h3 id="不是最小不动点定理" tabindex="-1">\(Y\) 不是最小不动点定理 <a class="header-anchor" href="#不是最小不动点定理" aria-label="Permalink to &quot;$Y$ 不是最小不动点定理&quot;">​</a></h3><p>Knaster–Tarski 在格上谈最小不动点，是后课验证。这里 \(Y\) 只保证 β 等式，不管「最小」、不管语义域。Scott 域把二者接起来，本课不进。</p><p><span class="marginnote">Curry 的组合逻辑。Turing 也有不动点组合子 \(\Theta\)。Barendregt 第 6 章。实现里的 <code>letrec</code> 是编译器的回边，语义上相当于 \(Y\)。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>验证 \(YF = F(YF)\) 的两步 β。用 \(Y\) 写阶乘： \(F=\lambda r.\lambda n.\mathrm{if}n0\,1\,(n\cdot r(n-1))\)，\(YF\) 为阶乘项。指出无类型才能把 \(r\) 当函数又当值；\(Y\) 在简单类型里不可类型化（后课）。</p><div class="mermaid"></div><p>不要把 \(S,K\) 当成优化过的指令集：它们极小，项会膨胀。用处是理论基底，不是虚拟机。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>可计算性单元到此：TM、λ、组合子同一类。自指有两种写法——编码上的 Kleene 与项上的 \(Y\)。下一单元加钟：时间层级。本课不开始数步。</p><p>组合逻辑等式理论不可判定（与 λ 相同）。Rice 的精神平移：非平凡的外延性质对项编码不可判定。</p><p>\(Y\) 本身无范式，\(YF\) 是否有范式取决于 \(F\)。Turing 的 \(\Theta\) 满足 \(\Theta F \to F(\Theta F)\) 且约化更「eager」。组合逻辑的等式理论不可判定，与 λ 相同。可计算性单元到此：三种语法、一个类。下一单元给同一台 TM 加上步数。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 \(B,C,W\) 基底变体全文，不谈线性逻辑组合子。不把 \(Y\) 写成 Python 装饰器教程。后课默认：递归 = 某不动点组合子；可计算模型在无类型 λ / TM 间可换。下一课时间层级定理。</p><p>可计算性课序在此封口：TM、λ、组合子同一类，自指有编码版与项版。下一单元开始数步数与格子，对象还是这些机器，只是多了资源。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(S,K\) 生成组合子逻辑，与闭 λ 项同等力。</li><li>\(YF=F(YF)\)：递归是不动点，不是特殊语法。</li><li>有等式不等于有范式。</li><li>出处：Curry；Schönfinkel；Barendregt。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 可计算性<!--]--><!--[--> · 课序 判定的边界<!--]--></p><p class="lesson-progress">第 19 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/time-hierarchy/">时间层级定理</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

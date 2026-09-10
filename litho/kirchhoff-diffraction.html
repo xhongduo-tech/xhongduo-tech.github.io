@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kirchhoff 衍射 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_kirchhoff-diffraction.md.Z2-RP1pi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 波动与衍射<!--]--></p><p class="lesson-progress">第 3 / 48 课</p><p class="lesson-prereq"> 先修：<a href="/litho/helmholtz-huygens/">亥姆霍兹与惠更斯–菲涅尔</a></p><p class="lesson-next"> 下一课：<a href="/litho/fresnel-fraunhofer/">菲涅尔与夫琅禾费</a></p></nav><div style="position:relative;"><div><h1 id="kirchhoff-衍射" tabindex="-1">Kirchhoff 衍射 <a class="header-anchor" href="#kirchhoff-衍射" aria-label="Permalink to &quot;Kirchhoff 衍射&quot;">​</a></h1><div class="epigraph"><p>亥姆霍兹加上辐射条件，把孔径下游的场收成面积分；真正动手时还必须规定屏上的 $U$ 与法向导数——Kirchhoff 用入射场去填开口、用零去填铬，这是边值近似，不是又一条波动方程。</p><footer>—— Born &amp; Wolf, Principles of Optics 对 Kirchhoff 衍射与边值不自洽的讨论</footer></div><p><a href="/litho/helmholtz-huygens">上一课</a>已经用格林定理把亥姆霍兹写成惠更斯–菲涅尔积分，并点过 Kirchhoff / Rayleigh–Sommerfeld 的名字。缺口是：<strong>孔径平面上到底代入什么 \(U\) 和 \(\partial U/\partial n\)</strong>。积分核有了，边值仍是猜的。本课只钉这条近似；近场二次相位与远场傅里叶极限，留给<a href="/litho/fresnel-fraunhofer">菲涅尔与夫琅禾费</a>。不要从瑞利 CD 起笔，也不要把厚掩模电磁另起炉灶——那是后课 Kirchhoff 对严格电磁的题目。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>观察点场由包围孔径的闭曲面上的 \(U\) 与 \(\partial U/\partial n\) 决定。铬屏外侧的真实场既不是入射波，也不是严格为零：边缘有散射，阴影区有绕射。若坚持先解完整边值再积分，掩模开口课走不下去。Kirchhoff 的办法是：开口内用未扰动的入射场及其法向导数，不透明屏上两者都取零，半球上的贡献用辐射条件丢掉。缺口因此是这套<strong>边值替换</strong>合不合法，而不是再写一遍 \(e^{ikR}/R\)。</p><p>不自洽立刻出现：亥姆霍兹在平面上不能同时指定 Dirichlet 与 Neumann；开口边缘上场值跳跃，与连续解矛盾。尽管如此，当开口线度远大于波长、观察点不太靠近边缘，积分对后课已经够用。</p><h3 id="薄屏透过率是同一句话的工程写法" tabindex="-1">薄屏透过率是同一句话的工程写法 <a class="header-anchor" href="#薄屏透过率是同一句话的工程写法" aria-label="Permalink to &quot;薄屏透过率是同一句话的工程写法&quot;">​</a></h3><p>光刻把开口写成复透过率 \(t(x,y)\)，出射 \(U=t\,U_\mathrm{inc}\)，铬上 \(t=0\)。这就是 Kirchhoff 边值的物面版：不追边缘电流，只乘一层。\(t\) 可以带相移，仍是标量薄屏，不是三维吸收体。</p><p><span class="marginnote">「Kirchhoff 掩模」在计算光刻里几乎总是薄屏 \(t(x,y)\)，与本课的衍射边值是同一近似的两端。吸收体厚度与波长同量级时，边值本身错，必须换电磁求解器。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Helmholtz–Kirchhoff 公式把观察点写成</p> \[U(P)=\frac{1}{4\pi}\iint_{\Sigma}\Bigl(U\frac{\partial G}{\partial n}-G\frac{\partial U}{\partial n}\Bigr)\,dS,\qquad G=\frac{e^{ikR}}{R}. \]<p>代入 Kirchhoff 边值，开口积分只剩入射场，倾斜因子来自 \(\partial G/\partial n\) 与球面波的夹角，Born &amp; Wolf 给出常用的 \((1+\cos\theta)/2\)。\(k\) 里的 \(n\) 仍是<a href="/litho/em-wave-index">第一课</a>的符号。</p><p>Rayleigh–Sommerfeld 换一套在孔径平面上为零的格林函数，于是只需要 \(U\) 或只需要 \(\partial U/\partial n\)，边值不再过定。角谱传播与它等价。本课不改仿真代码，只要求：说到「标量衍射」，默认已经做了 Kirchhoff 类边值，而不是麦克斯韦在铬角上的精确解。</p><h3 id="倾斜因子不是新的折射率" tabindex="-1">倾斜因子不是新的折射率 <a class="header-anchor" href="#倾斜因子不是新的折射率" aria-label="Permalink to &quot;倾斜因子不是新的折射率&quot;">​</a></h3><p>大角度贡献被压掉，对应倏逝分量进不去下游。这与后课「可传播频率不超过 \(n/\lambda\)」同根，本课不引入 \(\mathrm{NA}\)。</p><p><span class="marginnote">Kirchhoff 在边缘上场不连续，严格说会辐射不存在的电荷层。开口 \(\gg\lambda\) 时，误差集中在边缘一条带，对远场级振幅的相对贡献变小。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>入射平面波被铬截断。Kirchhoff 假装开口里的场仍是那一束平面波，屏上什么都没有；下游每一点是开口面元的相干叠加。亮暗条纹来自光程差，机制与上一课相同，只是现在明确：<strong>错的是边值，不是核</strong>。边缘附近的真实场会修正级振幅的相位，薄铬、大开口时这项是小量。</p><p>后课把 \(R\) 在近场展到二次、在光瞳展到线性，全部坐在本课的开口积分上。没有边值约定，菲涅尔数没有积分对象。</p><h3 id="后课默认的接口" tabindex="-1">后课默认的接口 <a class="header-anchor" href="#后课默认的接口" aria-label="Permalink to &quot;后课默认的接口&quot;">​</a></h3><p>说到标量掩模衍射，先承认 Kirchhoff 薄屏（或等价 Rayleigh–Sommerfeld / 角谱），再问近场还是夫琅禾费。厚吸收体、偏振边界留给电磁课；本课不把 \(t(x,y)\) 升级成波导。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不管透镜玻璃里的逐面折射：物镜后课收成光瞳，等于在频率域乘窗。也不处理有限带宽。禁止把 Kirchhoff 说成「麦克斯韦的精确解」；不自洽是教材里写明的，不是可以忽略的脚注。更不要引用未公开的掩模电磁误差表——开口远大于波长时，标量边值已经够后课用。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>惠更斯积分的核上一课已有；本课补的是开口与屏上的 Kirchhoff 边值。</li><li>开口填入射场、铬填零，与薄屏 \(t(x,y)\) 是同一近似。</li><li>边值过定、边缘不连续；开口 \(\gg\lambda\) 时对远场仍可用。</li><li>Rayleigh–Sommerfeld / 角谱去掉过定，仍是标量。</li><li>近场与远场如何砍相位，下一课。</li><li>出处：Born &amp; Wolf, <em>Principles of Optics</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 波动与衍射<!--]--></p><p class="lesson-progress">第 3 / 48 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/fresnel-fraunhofer/">菲涅尔与夫琅禾费</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

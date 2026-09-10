@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Long CoT SFT | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_long-cot-sft.md.CSRNGywS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习<!--[--> · 单元 推理模型训练<!--]--><!--[--> · 课序 长推理与可验证奖励<!--]--></p><p class="lesson-progress">第 16 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/llm/prm-guided-search/">过程奖励引导的搜索</a></p><p class="lesson-next"> 下一课：<a href="/llm/verifiable-reward/">可验证奖励</a></p></nav><div style="position:relative;"><div><h1 id="long-cot-sft" tabindex="-1">Long CoT SFT <a class="header-anchor" href="#long-cot-sft" aria-label="Permalink to &quot;Long CoT SFT&quot;">​</a></h1><div class="epigraph"><p>先把「愿意写很长、结构完整的推理链」写成模仿目标，测试时搜索才有合格的提案分布；只靠过程奖励在树上剪，剪的是还不会写长链的模型。</p><footer>—— 对照 o1 类系统的监督冷启动；Muennighoff 等 s1 用精选长链做 SFT</footer></div><p><a href="/llm/prm-guided-search">上一课</a> 把过程奖励用在<strong>测试时搜索</strong>：生成器仍是普通策略，PRM 只打分、剪枝。缺口是提案本身：若模型只会写短答或只会写「看起来像步骤」的短句，束再宽也搜不出 DeepSeek-R1 / o1 那种可达数百到数万 token 的链。Long CoT SFT 用教师轨迹做监督微调，把长链的格式、自我检查与停写条件写进 \(\pi\)。后面的可验证奖励与 RL 闭环默认策略已经会产出可解析的长推理，而不是从零教它「先写 Step 1」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PRM 引导搜索不更新生成器权重。计算加在推理期，训练分布仍是短指令跟随。要把测试时算力变成训练时技能，至少需要一条模仿路径：在 \((x,z,y)\) 上最大化 \(\sum\log\pi_\theta(z_t\mid x,z_{\lt t})\)，其中 \(z\) 是长思维链，\(y\) 是答案。教师可以是更强的闭源推理模型、人类解答、或已有 RL 检查点的拒绝采样。s1 表明：精心筛选的约 1K 条也可以改变长度–准确率斜率；R1 的冷启动则用更大的长链语料。本课不争论 1K 还是百万，只规定 <strong>SFT 在闭环里的位置：RL 之前的格式与长度先验</strong>。</p><p>缺口还有停写。长链 SFT 若只模仿「一直写」，模型学会不结束；若教师链偏短，RL 阶段再拉长度会与 SFT 先验打架。预算强迫（到点插入结束标记、或插入 Wait 续写）是解码期补丁，见 s1；训练期则要在数据里同时出现「该停」与「该再想」的例子。</p><h3 id="过程切分要与后课-prm-对齐" tabindex="-1">过程切分要与后课 PRM 对齐 <a class="header-anchor" href="#过程切分要与后课-prm-对齐" aria-label="Permalink to &quot;过程切分要与后课 PRM 对齐&quot;">​</a></h3><p><a href="/llm/prm-guided-search">过程奖励搜索</a> 强调切步器是接口。Long CoT 语料若用另一套换行习惯，后续 PRM 进训练环时分数会对错跨度。SFT 阶段就应固定步骤边界（编号、特殊 token、或「段落=一步」），并在文档里冻结。<span class="marginnote">不要把 Long CoT SFT 写成「再做一次普通指令微调，只是 max_length 开大」。普通 SFT 的目标是最终回答；这里的损失必须落在思维 token 上，否则模型学会藏起推理、只吐短答案，搜索与 RL 都看不见过程。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="数据过滤与损失落点" tabindex="-1">数据过滤与损失落点 <a class="header-anchor" href="#数据过滤与损失落点" aria-label="Permalink to &quot;数据过滤与损失落点&quot;">​</a></h3><p>数据：\(x\) 为题，\(z\) 为思维，\(y\) 为可核对答案。损失只在 \(z,y\)（或只在 \(z\) 若 \(y\) 由程序填）。过滤：格式合法、答案能通过校验器（为下一课铺路）、长度分布覆盖目标预算的分位数，而不是只要最长。过长且循环的教师链会教复读。</p><p>训练就是标准 CE，但包装不同：特殊起止标记包住 \(z\)；推理时可选择是否对用户隐藏 \(z\)。上下文窗口必须大于目标链，否则 SFT 在教截断句。packing 不得把一条链从中间切开到下一样本——切开等于教残缺 CoT。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>SFT 改变的是先验 \(\pi(z\mid x)\) 的支撑集：以前概率接近零的长前缀现在有质量。PRM 搜索的提案变好，同一束宽下更常碰到对的链。这不是 RL；没有奖励梯度，模型也不会为「更对」而探索与教师不同的算法，只会复述教师的风格与错误。教师错解若没被过滤，会高置信地被模仿——长链把错误写得更像证明。</p><p>长度与准确率在 SFT 后常常正相关：更愿意写的模型在数学上更好，因为预算本身来自教师的「难的题写得长」。这会把「难度」与「话多」绑死，下一课的长度预算 RL 要再拆开。SFT 阶段至少应在数据里混入短而对的题，避免策略认为短等于错。</p><p><span class="marginnote">从指令模型而不是基座做 Long CoT SFT，遗忘普通聊天的风险更高；从基座做，则格式与拒答要另补。选择取决于产品是否允许推理专用检查点。R1 类做法把冷启动当作闭环的第一段，而不是唯一段。</span></p><h3 id="与测试时缩放的分工" tabindex="-1">与测试时缩放的分工 <a class="header-anchor" href="#与测试时缩放的分工" aria-label="Permalink to &quot;与测试时缩放的分工&quot;">​</a></h3><p>Best-of-N、束、PRM 搜索继续加在 SFT 之后，仍然有效，而且通常比加在短答模型上更值。但 SFT 之后再只靠搜索、不加 RL，探索仍锁在教师风格邻域。若教师已经很强且覆盖目标域，产品可以停在 SFT + 搜索；若要对齐竞赛数学或新工具，必须进入可验证奖励。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>长链占满窗口，batch 内真实题数下降，<a href="/llm/batch-vs-lr">批次与学习率</a> 的 \(B\) 按 token 计会看起来很大、按题计很小。应按<strong>题数</strong>看是否学到多样性，按 token 看优化噪声。梯度累积要按题对齐，避免一条超长链主导更新。</p><p>蒸馏闭源链有许可与污染问题：评测题若在教师轨迹里出现，SFT 变成背答案。过滤要用题面哈希与基准对照，与评测课的污染是同一纪律。不要把 Arena 文风的长回答当成 Long CoT——没有可解析步骤与答案锚点的长散文，对后课校验器无用。</p><p><span class="marginnote">s1 的 budget forcing 是推理干预，不是本课的训练损失。可以在 SFT 模型上用 Wait / 截断画测试时曲线，用来验收「长度先验是否已内化」。曲线完全平，说明 SFT 没教会可变长度思考，只是学会了一种固定模板。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Long CoT SFT 把长推理链写进策略的模仿分布，补的是 PRM 搜索改不了生成器这一缺口。</li><li>损失必须落在思维 token；步骤边界与后课 PRM 共用切分器。</li><li>它不提供探索，会复制教师错误；短而对的样本要混入以免「短=错」。</li><li>题级 batch 与 token 级 \(B\) 要分开记账。</li><li>过滤可解析答案，为可验证奖励铺路。</li><li>出处：o1 类冷启动叙述；s1 的精选长链 SFT；R1 闭环中的监督段。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习<!--[--> · 单元 推理模型训练<!--]--><!--[--> · 课序 长推理与可验证奖励<!--]--></p><p class="lesson-progress">第 16 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/verifiable-reward/">可验证奖励</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

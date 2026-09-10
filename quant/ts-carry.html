@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>期限结构 Carry | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ts-carry.md.Ces1YXUg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 宏观与 CTA<!--[--> · 单元 趋势与 Carry<!--]--><!--[--> · 课序 策略<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/cta-tsmom/">时间序列动量 CTA</a></p><p class="lesson-next"> 下一课：<a href="/quant/breakout-ma/">突破与均线</a></p></nav><div style="position:relative;"><div><h1 id="期限结构-carry" tabindex="-1">期限结构 Carry <a class="header-anchor" href="#期限结构-carry" aria-label="Permalink to &quot;期限结构 Carry&quot;">​</a></h1><div class="epigraph"><p>Carry 是价格不变时持有该资产能得到的收益；在债券与商品上，这笔收益首先写在期限结构的斜率与滚下上，而不是写在现货涨跌的故事里。</p><footer>—— Koijen, Moskowitz, Pedersen &amp; Vrugt, Carry, Journal of Financial Economics, 2018</footer></div><p><a href="/quant/cta-tsmom">上一课</a>把管理期货的可交易规则收成 TSMOM：对自身过去超额取符号，再按波动缩放、跨资产分散。缺口是总收益里还有一笔与价格方向无关的持有期收入：<a href="/quant/carry-everywhere">跨资产 Carry</a> 给出统一会计，本课对准 <strong>期限结构 Carry</strong>——债券 roll-down、商品展期、外汇远期曲线。不重讲多尺度滤波器。后课突破/均线默认已经读完：趋势看已经走的方向，Carry 问曲线形态暂时不变时持有哪一段会「收租」；混成一个「商品多头」会双计。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>若期望假说成立，远期利率是未来即期的无偏预测，债券的 roll-down 期望被收益率上升抵消，Carry 均值为零。若持有成本成立且无便利收益，商品近远月价差只反映仓储与融资，多头展期不是溢价。实证上两条都不干净：期限溢价使中长端债券的 Carry 能预测超额；库存与套保压力使商品曲线的斜率能预测期货超额。问题是把「可观测的曲线几何」写成事前信号，并避免与动量、价值、风险平价抢同一笔收益。</p><p>第二个问题是持有哪一段。同一条曲线上，近月 Carry 与远月日历价差不是同一个组合：前者混着现货溢价，后者更接近纯期限溢价（Szymanowska 等人的分解）。CTA 若只用近月，期限结构 Carry 与趋势会严重缠绕，因为近月总收益含展期。</p><h3 id="价格不变时-曲线贡献多少" tabindex="-1">价格不变时，曲线贡献多少 <a class="header-anchor" href="#价格不变时-曲线贡献多少" aria-label="Permalink to &quot;价格不变时，曲线贡献多少&quot;">​</a></h3><p>债券：到期收益率不变时，票息加上价格沿曲线滚下（roll-down）。近似</p> \[\mathrm{Carry}_{\mathrm{bond}}\approx y\cdot\Delta t + \frac{\partial P}{\partial \tau}\Delta\tau, \]<p>后一项是期限减少导致的价格变化，陡峭的曲线给出更大的正 Carry。商品期货：合约价格不变时，换月锁定近月相对次近月的价差，符号随 backwardation / contango 而变，见<a href="/quant/roll-yield">展期收益</a>。外汇：若即期不变，利率差是 Carry；若再看远期曲线的期限结构，不同到期的隐含升贴水可以做成曲线交易，而不只是 G10 现货利差。统一检验是：当期 Carry 对后续超额回归，系数为正。</p><p><span class="marginnote">Carry 高不代表资产便宜。高息货币可以很贵，贴水商品可以现货已经很高。价值看价格相对缓慢基本面，Carry 看持有期收入。KMPV 把二者分开，正是为了阻止用股利收益率同时当价值和 Carry。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>类内计算 Carry，波动缩放后截面多空或与 TSMOM 合成。债券：用拟合曲线计算 roll-down，控制久期，避免把「做多最长的债券」写成 Carry。商品：用可成交的近次近价差年化，避开即将交割与指数滚仓窗；库存分位作条件变量，而不是再用一遍斜率。外汇：利差或远期升水，新兴市场单独预算尾部。股指期货：分红减融资再减基差里的期限成分，国内还要处理贴水的制度原因，见<a href="/quant/cn-index-fut-basis">股指期货基差</a>。</p><p>诊断必须包括崩溃月：外汇 Carry 的避险挤压、商品曲线突然翻面、债券期限溢价在通胀意外时的同步。去掉崩溃后若溢价消失，卖的是尾部；若仍在，才更像收入补偿。与趋势的相关应分资产类报告：商品上往往更高（总收益含展期），汇率上可以很低（高息货币正在贬值）。</p><h3 id="不要把-roll-写进趋势再宣称正交" tabindex="-1">不要把 roll 写进趋势再宣称正交 <a class="header-anchor" href="#不要把-roll-写进趋势再宣称正交" aria-label="Permalink to &quot;不要把 roll 写进趋势再宣称正交&quot;">​</a></h3><p>商品期货十二个月收益含大量展期。若 TSMOM 用总收益符号、Carry 用同一窗口的平均斜率，两条腿双计。做法是：趋势尽量用现货或剔除展期的价格动量，Carry 独占曲线；或在回归里把 Carry 当作控制。债券上期限溢价与 Carry 几乎同义，再叠加「债券价值」要用真实收益率水平。CTA 产品若只有近月趋势，归因里应强制拆出现货腿与展期腿，否则无法回答「这是趋势还是收租」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>风险：高 Carry 状态在坏天气里提供负收益——避险货币升值、曲线陡峭化伴随增长恐慌或通胀意外、商品贴水在需求崩溃时翻成升水。投资者为持有这些状态要求补偿。仓储：低库存 → 便利收益高 → 正展期，这是 Working 通道，不完全是灾害风险。套保压力：生产商付保险费，使远期偏低。行为：把利差或贴水当成稳票息而低估翻转概率。三条在不同资产类权重不同，KMPV 的贡献是比较静态：可观测收入腿仍然预测收益。</p><p>金融化改变执行：商品指数在固定窗口滚仓，机械正 Carry 策略会与指数抢同一条曲线。期限结构 Carry 的容量取决于远月深度，不取决于现货故事有多漂亮。</p><h3 id="条件化-斜率加库存-而不是无条件收租" tabindex="-1">条件化：斜率加库存，而不是无条件收租 <a class="header-anchor" href="#条件化-斜率加库存-而不是无条件收租" aria-label="Permalink to &quot;条件化：斜率加库存，而不是无条件收租&quot;">​</a></h3><p>正展期常出现在现货已涨、库存已低之时，继续加杠杆会同时暴露现货回补与曲线转正。Gorton–Hayashi–Rouwenhorst 把库存拉进条件期望，就是阻止把无条件平均 Carry 当成租金。债券上，Carry 在政策利率路径被重新定价时可以整段曲线一起亏；波动缩放能限制名义，限制不了期限溢价因子的单期实现。因此期限结构 Carry 的风控应盯曲线因子（水平、斜率、凸率）的跳跃，而不是只盯单券波动。</p><p><span class="marginnote">把风险平价的债券超配叫做「吃 Carry」是口误。风险平价超配的是低波动的久期；Carry 超配的是 roll-down 高的区段。两者在陡峭曲线上碰巧同向，在平坦曲线加低波动时分道。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>融资与保证金是收益的一部分，尤其是外汇与商品。远月流动性差，用看不见的远月斜率当信号会把噪声写成 alpha。税务与分红处理影响股指 Carry。不要把 contango 当成「一定做空该品种」而不看现货溢价是否为正。不要在已经持有全球债券风险平价的组合里，把债券 Carry 当成完全独立的第三利润源。实施上优先可成交合约与避开公开滚仓窗，见<a href="/quant/commodity-roll-alpha">商品展期 alpha</a>。</p><p><span class="marginnote">出处：Koijen, Moskowitz, Pedersen &amp; Vrugt, <em>Carry</em>, Journal of Financial Economics, 2018。商品分解见 Erb &amp; Harvey, FAJ, 2006；期限溢价解剖见 Szymanowska et al., Journal of Finance, 2014。仓储理论见 Working, 1949。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>期限结构 Carry 是曲线在价格不变假设下的持有期收益：债券 roll-down、商品展期、外汇利差与远期曲线。</li><li>它预测超额，但不是价值，也不是趋势；商品总收益里的展期必须从 TSMOM 中拆开以免双计。</li><li>崩溃、曲线翻面与库存回补是左尾；无条件平均正 Carry 不是可领的租金。</li><li>容量由可成交的曲线区段决定，指数滚仓窗是执行约束。</li><li>出处：Koijen et al., JFE, 2018；Erb–Harvey, 2006；Szymanowska et al., 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 宏观与 CTA<!--[--> · 单元 趋势与 Carry<!--]--><!--[--> · 课序 策略<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/breakout-ma/">突破与均线</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

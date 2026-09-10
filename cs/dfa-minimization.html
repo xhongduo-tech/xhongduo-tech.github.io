@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>DFA 最小化与 Myhill–Nerode | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_dfa-minimization.md.SxT5HzO9.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 4 / 66 课</p><p class="lesson-prereq"> 先修：<a href="/cs/pumping-lemma-regular/">正则语言泵引理</a></p><p class="lesson-next"> 下一课：<a href="/cs/regular-closure/">正则语言的封闭性</a></p></nav><div style="position:relative;"><div><h1 id="dfa-最小化与-myhill–nerode" tabindex="-1">DFA 最小化与 Myhill–Nerode <a class="header-anchor" href="#dfa-最小化与-myhill–nerode" aria-label="Permalink to &quot;DFA 最小化与 Myhill–Nerode&quot;">​</a></h1><div class="epigraph"><p>正则语言对应字母表上的有限指数右同余；等价类就是最小 DFA 的状态，个数是语言的固有不变量。</p><footer>—— 据 Nerode, Linear Automaton Transformations, 1958；Hopcroft, 1971 整理</footer></div><p>上一课<a href="/cs/pumping-lemma-regular">泵引理</a>给出排除正则的必要性质，并点名「有些非正则可泵」。本课不重写博弈。缺口是<strong>充要刻画</strong>：Myhill–Nerode 等价类有限当且仅当语言正则，并且最小 DFA 在同构意义下唯一。主干<a href="/cs/nfa-dfa">NFA/DFA</a>只说过「确定化之后可再压状态」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>同一正则语言可以有许多 DFA，状态数从子集构造的 \(2^{|Q|}\) 到「刚好够用」。何谓够用？对 \(x,y\in\Sigma^*\)，定义 \(x\sim_L y\) 当且仅当 \(\forall z,\ xz\in L\iff yz\in L\)。这是右同余。指数（等价类个数）有限 \(\iff\) \(L\) 正则。每个类做成一个状态，\(\delta([x],a)=[xa]\)，接受类是那些 \(x\in L\)。</p><p>泵引理看不到「两个前缀是否永远可互换」。\(\{a^nb^n\}\) 的前缀 \(a^i\) 两两不等价（后面跟 \(b^i\) 才能分），指数无穷，故非正则——这补上泵失败时的工具。</p><h3 id="最小不是「看起来少」" tabindex="-1">最小不是「看起来少」 <a class="header-anchor" href="#最小不是「看起来少」" aria-label="Permalink to &quot;最小不是「看起来少」&quot;">​</a></h3><p>任意 DFA 可按可区分性合并：两状态 \(p,q\) 可区分，若存在 \(z\) 使恰好一个走到接受。Hopcroft 划分细化给出 \(O(|Q||\Sigma|\log|Q|)\) 算法。最小化结果与 Nerode 自动机同构。少一个状态就会认错语言。</p><p><span class="marginnote">Nerode 1958；Myhill 的同余更偏句法。Hopcroft 1971 最小化是词法生成器的标准步骤。本课要的是不变量 \(|Q_{\min}|\)，不手写全部划分表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对给定 \(L\)，尝试列出无穷多两两可区分的前缀，即证非正则。对给定 DFA，算不可区分划分，商自动机即最小。不要把 NFA 最小化当多项式问题——NFA 最小状态数是难的，本课对象是 DFA。</p><div class="mermaid"></div><p><a href="/cs/thompson-nfa">Thompson</a> 与子集构造之后接本课，才得到词法器里那张紧表。本补层不重做构造，只收等价类。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(|Q_{\min}|\) 是语言的复杂度，与具体正则式写法无关。指数无穷就是「需要无限记忆的前缀」。后课封闭性证明常构造乘积自动机，再最小化只是工程；正确性不依赖最小。</p><p>不要用状态数比较 NFA 与 DFA 的「谁更强」：语言类相同，状态可以指数分开。</p><p>Hopcroft 划分从「接受/拒绝」两块出发，用字母表符号细化，直到稳定。实现是词法生成器的标准后段，本课要的是：最小状态数是 \(L\) 的不变量，与你怎么写正则式无关。NFA 状态数可以远小于 DFA，但不能拿来当 Myhill–Nerode 指数。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证 Hopcroft 算法的对数因子，不讨论 NFA 最小化的 PSPACE 性。不把 Myhill–Nerode 推广到树自动机。后课默认：正则 \(\iff\) 有限指数右同余；谈「唯一最小 DFA」即这个对象。封闭性是下一课在运算下保持这一类。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>\(\sim_L\) 有限指数当且仅当 \(L\) 正则；类即最小状态。</li><li>DFA 按可区分性商掉，结果唯一。</li><li>无穷多可区分前缀 \(\Rightarrow\) 非正则，补泵引理。</li><li>出处：Nerode, 1958；Hopcroft, 1971。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算理论<!--[--> · 单元 自动机与形式语言<!--]--><!--[--> · 课序 从字母表到图灵机<!--]--></p><p class="lesson-progress">第 4 / 66 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/regular-closure/">正则语言的封闭性</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

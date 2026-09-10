@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Routing Transformer 聚类 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_routing-kmeans.md.CvjUTWvU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 注意力变体<!--]--></p><p class="lesson-progress">第 122 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/nystrom-landmarks/">Nyströmformer 地标</a></p><p class="lesson-next"> 下一课：<a href="/llm/su-rope/">RoPE 原文</a></p></nav><div style="position:relative;"><div><h1 id="routing-transformer-聚类" tabindex="-1">Routing Transformer 聚类 <a class="header-anchor" href="#routing-transformer-聚类" aria-label="Permalink to &quot;Routing Transformer 聚类&quot;">​</a></h1><div class="epigraph"><p>用在线 k-means 把 token 分到簇，注意力只在簇内发生：稀疏边由内容学出来，窗提供确定的近邻底盘。</p><footer>—— Roy, Saffar, Vaswani &amp; Grangier, Efficient Content-Based Sparse Attention with Routing Transformers，TACL 2021</footer></div><p>固定窗看不见远而相关的位置；随机哈希不保证桶对着语义。Roy、Saffar、Vaswani 与 Grangier 的 Routing Transformer 用 <strong>k-means 路由</strong> 决定谁和谁互相看见：每个位置被分到最近的中心，同簇之内做注意力。本篇按原文把在线聚类如何嵌进层内、分配怎样变成掩码、负载与 Straight-Through 如何约束训练写完。层导读见 <a href="/llm/routing-transformer">Routing Transformer</a>。这里路由的是注意力边，不是 MoE 的 FFN 专家。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>内容稀疏的理想是：每个查询只对少数高相容键做 softmax，复杂度随簇大小而不是随 \(n\) 二次增长。实现必须在训练中更新「谁和谁一组」，必须可（准）微，必须避免全体挤进同一个簇。LSH（Reformer）用随机超平面，桶不可学习；确定窗不看内容。第三条路是：簇中心随表示移动，分配随内容演变，同时保留局部窗，以免暂时不像的相邻 token 被拆开。</p><p>主场是长字符级语言建模与像素级图像生成：长度长，局部相关与内容相关同时存在。enwik8、WikiText-103、PG-19 与 ImageNet/CIFAR 像素序列是原文的证据场。需要写清的命题是<strong>内容型稀疏注意力</strong>，而不是又一个通用 LLM 层规范。</p><h3 id="欧氏最近邻不是点积注意力" tabindex="-1">欧氏最近邻不是点积注意力 <a class="header-anchor" href="#欧氏最近邻不是点积注意力" aria-label="Permalink to &quot;欧氏最近邻不是点积注意力&quot;">​</a></h3><p>k-means 最小化到中心的欧氏距离，注意力打分是点积。二者在向量归一化、尺度一致时相关，但不是恒等：范数大的向量会主导欧氏划分。实践中常对路由向量单独投影或归一化，使分簇几何与打分几何对齐。若不做这一步，簇边界跟着范数走，语义相近但范数不同的 token 会被拆开。哈希桶没有可学习中心，也不能用重建损失把中心拉向数据——这是相对 Reformer 的核心差异。</p><p><span class="marginnote">名字里的 routing 容易撞上 Switch Transformer。MoE 路由输出专家索引与门控，稀疏的是 FFN 容量；这里输出的是注意力掩码，投影参数仍是一份。负载均衡的数学相似，对象不同。不要用专家数选择的经验直接当簇数 \(k\) 的充分条件。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每一层（或每一头）维护 \(k\) 个中心 \(\mu_1,\ldots,\mu_k\)。对位置 \(t\) 的路由向量 \(x_t\)，</p> \[c(t)=\arg\min_j \|x_t-\mu_j\|^2. \]<p>注意力允许 \(t\) 看见 \(\{s:c(s)=c(t)\}\) 内的位置，再与因果掩码、局部窗取并。中心用在线均值或指数滑动更新，并常附 k-means 辅助损失，使表示可分。Straight-Through 让离散 \(\arg\min\) 的反向能更新产生 \(x_t\) 的网络；中心本身更多靠均值更新而不是主损失的直接梯度。簇容量限制或平衡项防止退化成少数大簇——大簇内部又变回二次。</p><h3 id="在线-k-means-而不是离线聚类" tabindex="-1">在线 k-means 而不是离线聚类 <a class="header-anchor" href="#在线-k-means-而不是离线聚类" aria-label="Permalink to &quot;在线 k-means 而不是离线聚类&quot;">​</a></h3><p>中心必须随 batch 更新。对整份语料做一次 k-means 再冻结，表示一变边界就过时。在线是把聚类嵌进前向：每个 batch 既算注意力，也更新 \(\mu\)。生成时中心通常取训练结束时的值；若推理仍重跑 k-means 而不固定，同一前缀的掩码会抖，缓存哪一组键变得不确定。\(k\) 决定均衡时的平均簇大小 \(\approx n/k\)，复杂度约 \(k\cdot(n/k)^2=n^2/k\)。相对满注意力省 \(k\) 倍；要写成 \(O(n)\)，必须让 \(k\propto n\) 或对簇容量封顶。原文常见叙述是 \(k\) 取 \(\sqrt{n}\) 量级，得到 \(O(n^{1.5})\) 一类亚二次，而不是严格线性。</p><h3 id="与局部窗并用" tabindex="-1">与局部窗并用 <a class="header-anchor" href="#与局部窗并用" aria-label="Permalink to &quot;与局部窗并用&quot;">​</a></h3><p>纯聚类可能把相邻位置拆开。原文把路由注意力与半径 \(w\) 的局部注意力并用，可见集是两套边的并。图像上局部窗是 2D 邻域；语言上是一维半径。窗是安全网：训练早期中心未分开、或某步路由崩溃时，近邻仍在，模型不会立刻变成袋模型。消融必须把 \(w\) 与 \(k\) 拆开报——像素网格局部性极强，窗的贡献可能大于路由，只报一个「Routing Transformer 分数」会把窗的功劳算给聚类。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>聚类把空间划成 Voronoi 单元，注意力成为单元内的全连接。表示一变，边界就动，边是动态的。这比 Longformer 的确定图更贴内容，也更难写成静态 CUDA 掩码：每个 batch 的 gather 索引不同。训练早期中心挤在一起，几乎全体进少数簇，必须靠平衡项把路由拉开。后期死簇（没有 token）或超大簇都会让有效 \(k\) 下降。应监控簇大小直方图，而不是只看 loss。</p><h3 id="straight-through-与辅助损失" tabindex="-1">Straight-Through 与辅助损失 <a class="header-anchor" href="#straight-through-与辅助损失" aria-label="Permalink to &quot;Straight-Through 与辅助损失&quot;">​</a></h3><p>\(\arg\min\) 不可微。Straight-Through 在分配附近把梯度当恒等，更新 \(x_t\) 的方向有偏。辅助 k-means 损失把表示拉向可分的球形簇，可能与主任务冲突：为了好分簇而牺牲簇外仍有用的几何。两项权重要扫。容量封顶会丢边：挤不进簇的 token 只能走窗。评测若在高丢边率下仍好，说明任务其实不需要那些远程边，路由的价值被高估。</p><p><span class="marginnote">因果路由时，未来 token 不能参与当前的中心更新，否则中心已经看过未来，再施下三角掩码只是掩了注意力、没掩聚类。语言模型必须规定：中心只由过去更新，还是使用滞后的全局中心。用整段双向 k-means 再切因果边，是泄漏。原文实验含 LM 与图像，复现要对齐这一条。</span></p><h3 id="负载均衡与" tabindex="-1">负载均衡与 \(n^2/k\) <a class="header-anchor" href="#负载均衡与" aria-label="Permalink to &quot;负载均衡与 $n^2/k$&quot;">​</a></h3><p>公式 \(n^2/k\) 假设簇均衡。若 90% 的 token 进一个簇，墙钟回到接近二次，表达力也集中在那一个大完全图上。平衡损失与容量是在保复杂度声明，不只是在保「每个中心都学到东西」。\(k\) 太大，簇内样本不足，注意力统计差，中心也难估；\(k\) 太小，二次回潮。图像生成里局部窗很大时，路由只处理「非局部但同簇」的像素，命题更窄，仍成立，只是贡献份额要靠消融才能看见。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>动态 gather 与不平衡簇让它在现代 GPU 上很难打过 Flash 稠密或规则滑窗。它没有成为 LLaMA 类模型的层规范。作为 TACL 2021 论文，它把可学习的内容稀疏写进版图，并在长字符与像素序列上给出证据；它不提供服务期 KV 的简单切片——簇随层、随时间变，缓存哪些键是开放问题。不要用本篇论证 MoE 专家数，也不要把 Routing 与 Reformer 写成同一种分桶：一个学中心，一个随机哈希。</p><p>PG-19 一类书籍级建模若只报困惑度，可能只是把文体相近的段落聚在一起，流畅度升、精确指代不一定升。应有针对性探针。Vaswani 作为共同作者，提示这是注意力家族内部的效率论文，不是翻译系统的新槽位，也不是 Switch 的前身。可以想象注意力路由与专家路由叠在同一模型里，原文没有把二者做成同一套门。</p><p><span class="marginnote">推理时冻结中心，等于把 Voronoi 边界钉死在训练结束的表示上。域移之后分配失真，远程边连错。继续在线更新中心则掩码抖。产品若真要内容稀疏，必须在「冻边界」与「抖掩码」里选一个，并把它写进服务协议；论文表格通常不包含这一条。</span></p><h3 id="与段均值地标、lsh-的对照" tabindex="-1">与段均值地标、LSH 的对照 <a class="header-anchor" href="#与段均值地标、lsh-的对照" aria-label="Permalink to &quot;与段均值地标、LSH 的对照&quot;">​</a></h3><p>Nyström 段均值是位置网格上的盲代表；Routing 中心是内容上的学得代表。LSH 桶是随机超平面切出的区域，不可学习。三者都能把 \(n\) 分成 \(m\) 组去做更便宜的注意力，分组依据分别是下标、欧氏最近邻、随机投影。选哪一种，先看任务的相似性是否沿位置、沿内容、还是根本不稳定。Routing 只在第三条假设不成立、第二条成立时有先验优势。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Routing Transformer 用在线 k-means 做内容型注意力路由，并与局部窗并用。</li><li>均衡时复杂度约 \(n^2/k\)；\(k\propto n\) 或容量封顶才能谈线性。</li><li>离散分配依赖平衡损失与 Straight-Through；死簇与超大簇都要监控。</li><li>因果下中心更新不得偷看未来；动态 gather 不利规则内核。</li><li>与 Reformer 的差别是可学习中心，与 MoE 的差别是稀疏对象是边不是专家。</li><li>出处：Roy, Saffar, Vaswani &amp; Grangier，<em>Efficient Content-Based Sparse Attention with Routing Transformers</em>，TACL 2021。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 注意力变体<!--]--></p><p class="lesson-progress">第 122 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/su-rope/">RoPE 原文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

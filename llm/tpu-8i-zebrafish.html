@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>TPU 8i（Zebrafish）推理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_tpu-8i-zebrafish.md.DsQjdxw_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 推理系统与硬件 2026<!--[--> · 单元 硬件<!--]--><!--[--> · 课序 Google TPU 第八代<!--]--></p><p class="lesson-progress">第 8 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/llm/tpu-8t-sunfish/">TPU 8t（Sunfish）训练</a></p><p class="lesson-next"> 下一课：<a href="/llm/virgo-ici/">Virgo ICI 互连</a></p></nav><div style="position:relative;"><div><h1 id="tpu-8i-zebrafish-推理" tabindex="-1">TPU 8i（Zebrafish）推理 <a class="header-anchor" href="#tpu-8i-zebrafish-推理" aria-label="Permalink to &quot;TPU 8i（Zebrafish）推理&quot;">​</a></h1><div class="epigraph"><p>384 MB 片上 SRAM 与 288 GB HBM 是为了把推理工作集留在硅上；互连改 Boardfly，是为了 MoE 的直径而不是训练的 3D 环面。</p><footer>—— Google 第八代 TPU 官方博文：TPU 8i 的四条推理向改动</footer></div><p><strong>TPU 8i</strong> 是第八代里做推理、后训练与强化学习采样的那颗芯片。报道中的代号 Zebrafish；对外名称 8i。与 8t 同期宣布（2026-04-22），官方写当年晚些时候 GA。和训练芯片不同，Google 给 8i 列了可引用的每芯片存储与互连数字：HBM <strong>288 GB</strong>、片上 SRAM <strong>384 MB</strong>（上一代的 3×）、ICI <strong>19.2 Tb/s</strong>（2×）、Boardfly 把网络直径降 <strong>50% 以上</strong>、Collectives Acceleration Engine（CAE）把片上集合延迟最多降约 <strong>5×</strong>，推理性价比相对上一代高约 <strong>80%</strong>。单芯片峰值 FLOPS 仍未出现在该博文的条目中——<strong>公开信息有限</strong>，本篇不抄第三方 PFLOPS。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Agent 与 MoE 服务把「等」放大：每步 decode 要读 KV，专家并行要 All-to-all，多智能体并发把尾延迟变成产品。训练向的 3D torus 在万卡上对带宽友好，对「任意两芯片之间跳数」不友好。推理芯片若沿用同一张图，集合的直径会先打死 TPOT。第二堵墙是内存：KV 与激活工作集如果每步都打 HBM 甚至主机，算力再高也闲着。8i 的问题是同时加 <strong>片上容量</strong>、<strong>HBM 容量</strong>、<strong>更胖的 ICI</strong> 和 <strong>更扁的拓扑</strong>，并加一颗专做集合的 CAE，而不是再堆训练用的 MXU 叙事。</p><p>官方还改了主机：每台服务器物理 CPU 主机数加倍，换 Axion，用 NUMA 隔离。推理路径上 tokenization、批调度、工具调用都在主机；主机不够时，加速器数字全是假的。</p><h3 id="sram-是为-kv-工作集标定的" tabindex="-1">SRAM 是为 KV 工作集标定的 <a class="header-anchor" href="#sram-是为-kv-工作集标定的" aria-label="Permalink to &quot;SRAM 是为 KV 工作集标定的&quot;">​</a></h3><p>博文写明：8i 的 SRAM 容量按生产规模推理模型的 KV 占用标定。384 MB 不是「缓存越大越好」的广告词，而是把热工作集从反复打 HBM 里救出来的预算。规划仍要按分片后的本地 HBM 288 GB 去算并发 × 序列；SRAM 不替代 HBM 的 KV 主存储，它改变的是层内/集合的往返。</p><p><span class="marginnote">80% better performance-per-dollar 与「同样成本服务近两倍客户」是官方产品句。没有附上对照代际的测试集与并发曲线。容量规划用 288 GB / 19.2 Tb/s / 直径减半这些物理量，把 80% 当 TCO 列而不是 tokens/s SLA。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>软件栈与 8t 对齐：JAX、MaxText、PyTorch、SGLang、vLLM，裸金属。推理编译仍是 XLA 友好的静态 bucket：decode 的 batch 与序列桶要在编译期钉住，动态长度会逼出反复编译。ICI 19.2 Tb/s 给的是 MoE 路由与张量并行逐步通信的屋顶线；拓扑是 <a href="/llm/boardfly">Boardfly</a>，不是 8t 的 3D torus。Pod 规模官方用层次描述（四芯片积木 → 八板成组 → 三十六组），<strong>未在同一篇博文给出 Pod 芯片合同数</strong>；第三方常写 1,152 / 1,024 active——公开信息有限，规划以日后规格页为准。</p><p>CAE 把全局集合从通用 TensorCore 路径上卸下来，目标是高并发下的 on-chip 延迟。它不是稀疏专家的自动加速器，也不是 SparseCore 换皮：官方点名的是 collectives。RL 与后训练被放进 8i 的产品句，因为采样与在线更新同样吃逐步延迟，但并行策略仍要自己在 ICI 域内收紧。</p><div class="mermaid"></div><h3 id="和-v5e-v6e-推理档的差别" tabindex="-1">和 v5e / v6e 推理档的差别 <a class="header-anchor" href="#和-v5e-v6e-推理档的差别" aria-label="Permalink to &quot;和 v5e / v6e 推理档的差别&quot;">​</a></h3><p><a href="/llm/tpu-v5e-infer">v5e / v6e</a> 是已在 Cloud 文档里有完整每芯表的效率档：16/32 GB HBM、2D 环面、单机最多 8 芯。8i 是新一代推理专用硅，HBM 288 GB、ICI 19.2 Tb/s、拓扑换代。不要用 v6e-8 的 8 芯心智模型去填 8i Pod；也不要在 8i GA 前把博文数字写进生产配额脚本。v5e/v6e 的 Sax / Pathways 多机路径，8i 的编排名称以 GA 时的 Cloud 文档为准，本篇不提前发明产品名。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Decode 受 HBM 带宽与 KV 驻留约束；prefill 才吃满矩阵单元。8i 把 HBM 提到 288 GB，是为了让更长上下文、更大并发的 KV 不必那么早切到多机 DCN。SRAM 3× 降低的是层内暂存与集合缓冲的往返。Boardfly 降直径，All-to-all 的跳数分布变窄，尾延迟随最慢那一跳走，这正是 MoE 服务要买的东西。CAE 5× 是「片上集合延迟」的官方上限表述，不是端到端 TPOT 的 5×。</p><p>NUMA：加倍的主机是为了让 CPU 侧不再先饱和。把 tokenizer 和工具沙箱打到错误的半边，表现为芯片算力吃不满，和 v5e 8 芯 VM 上的亲和性问题同类，只是 8i 把主机做成第一等设计点。</p><p><span class="marginnote">8t / 8i 官方称相对 Ironwood 最高约 2× 能效（performance-per-watt）。这是芯片到机房液冷整栈叙事，第四代液冷 CDU 是配套，不是用户可调的频率旋钮。推理 TCO 仍要另算主机、交换机与空置率。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>GA 前无稳定的 Cloud SKU 表，切片形状、每主机芯片数、计价都未在本篇所引博文列出。单芯片 FLOPS 公开信息有限：不要用报道里的 10.1 PFLOPS 一类数字写进内部容量计算器，除非 Google 规格页出现同数。Boardfly Pod 小于 8t 的 9600 芯片 superpod，大模型若单 Pod 放不下，会碰到 8i 域外的 Virgo/DCN，逐步延迟按另一档计。</p><h3 id="静态图与并发桶" tabindex="-1">静态图与并发桶 <a class="header-anchor" href="#静态图与并发桶" aria-label="Permalink to &quot;静态图与并发桶&quot;">​</a></h3><p>TPU 推理的习惯仍是编译好的 decode 循环：形状一变就要再编译。8i 的 288 GB 让单芯片能放下更长 KV，但不自动变成 GPU 那种动态 paged attention 生态。服务侧要把并发、序列长度收成少数 bucket，用连续批把请求填进同一形状，否则 CAE 与 Boardfly 的延迟优势会被 Python 逐步调度吃掉。投机解码、MTP 一类变长草稿，需要运行时与编译器明确支持，不能从「推理芯片」四个字推出已有 vLLM 里每一条投机路径。RL 采样若与在线服务混部，采样批次的形状更乱，更应隔离切片，避免把 serving 的静态图打成训练式动态网格。</p><p>不要在 8i 上用 8t 的 torus 跳数估 MoE。不要把 384 MB SRAM 理解成「KV 全进 SRAM」——官方是工作集与 KV 占用的标定，主存储仍是 288 GB HBM。延迟敏感服务先证明单 Pod ICI 够，再付多 Pod。框架名单（vLLM / SGLang / JAX）表示官方方向是开放软件，不表示 2026-04 宣布当天每条内核路径都已打满 8i。</p><p><span class="marginnote">出处：Google <em>Two chips for the agentic era</em>（288 GB、384 MB、19.2 Tb/s、Boardfly 直径、CAE、80% perf/$）；Next ’26 <em>What’s next in Google AI infrastructure</em>。拓扑细节见 <a href="/llm/boardfly">Boardfly</a>。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>TPU 8i 是第八代推理/RL 芯片；Zebrafish 为报道代号。</li><li>官方每芯片：288 GB HBM、384 MB SRAM、ICI 19.2 Tb/s；峰值 FLOPS 博文未列全，公开信息有限。</li><li>Boardfly 降直径，CAE 降片上集合延迟；主机加倍并改 Axion。</li><li>产品叙述：推理性价比约 +80%，能效相对 Ironwood 最高约 2×。</li><li>规划用存储与互连物理量，等 Cloud 规格页再填 FLOPS 与 Pod 芯片数。</li><li>出处：Google 第八代 TPU 官方博文。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 推理系统与硬件 2026<!--[--> · 单元 硬件<!--]--><!--[--> · 课序 Google TPU 第八代<!--]--></p><p class="lesson-progress">第 8 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/virgo-ici/">Virgo ICI 互连</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

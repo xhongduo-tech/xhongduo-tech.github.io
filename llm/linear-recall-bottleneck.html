@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>线性模型的召回瓶颈 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_linear-recall-bottleneck.md.Brzu70UT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 SSM 与线性续<!--]--><!--[--> · 课序 状态、扫描与召回<!--]--></p><p class="lesson-progress">第 31 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/hybrid-layer-ratio/">混合比与层排布</a></p><p class="lesson-next"> 下一课：<a href="/llm/state-size-vs-context/">状态大小对上下文</a></p></nav><div style="position:relative;"><div><h1 id="线性模型的召回瓶颈" tabindex="-1">线性模型的召回瓶颈 <a class="header-anchor" href="#线性模型的召回瓶颈" aria-label="Permalink to &quot;线性模型的召回瓶颈&quot;">​</a></h1><div class="epigraph"><p>固定大小状态是有损压缩；在需要精确拷贝远距 token 的基准上，纯线性混合会系统性失败，除非插入真正的内容寻址。</p><footer>—— Arora et al., Simple Linear Attention Language Models Balance the Recall-Throughput Tradeoff, 2024；亦见其对 Zoology 式受控检索任务的分析</footer></div><p><a href="/llm/hybrid-layer-ratio">上一课</a>断言 \(r=0\) 不行，没有把「不行」写成可测的缺口。本课补召回瓶颈：在联想检索、MQAR 一类任务上，<a href="/llm/linear-attention">线性注意力</a>、<a href="/llm/selective-scan">选择性扫描</a>、<a href="/llm/long-convolution">长卷积</a> 相对 softmax 的失败模式。下一课把瓶颈量化到状态维 \(N\) 对上下文 \(n\) 的关系。本课先定性：失败的是<strong>精确身份</strong>，不是困惑度曲线好看就够。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>语言建模困惑度可以被局部统计带得很低，掩盖「一百步前那个随机键对应的值」有没有被记住。受控任务把键值对塞进上下文，要求模型在末尾按键取回值。Softmax 注意力在表还塞得下时几乎完美。线性状态必须把整张表压进 \(N\) 维或 \(d\times d\) 矩阵。缺口是承认：<strong>吞吐基准不能替代召回基准</strong>，混合架构的 \(r\) 应由召回曲线决定下限。</p><p>Arora 等人用这类任务比较基于线性注意力的模型与注意力，并讨论用少量注意力或改进的线性机制换吞吐。本课取诊断，不把 BASED 型号当词条。</p><p><span class="marginnote">「召回」在这里是上下文内精确取回，不是检索增强生成的语料库召回，也不是医学召回率那个词。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>构造长度为 \(n\) 的序列：若干 \((k_i,v_i)\) 散布其中，查询 \(k^*\) 出现在末尾，标签是对应 \(v^*\)。变化：键是否重复、是否需要同时记住多对、干扰项密度、距离分布。测准确率对 \(n\)、对状态维、对是否含一层 softmax。把同一数据上的 LM 困惑度并列，观察两者解耦。</p><p>诊断线性失败：若加大 \(N\) 或矩阵状态维，召回上升，则是容量问题；若加大到接近 \(nd\) 仍差，则是更新规则问题（加性糊掉、无竞争）。Delta / 少量注意力通常对第一类有帮助，对「任意稀疏同时多对」仍要内容寻址。</p><h3 id="和注意力汇、长度缩放" tabindex="-1">和注意力汇、长度缩放 <a class="header-anchor" href="#和注意力汇、长度缩放" aria-label="Permalink to &quot;和注意力汇、长度缩放&quot;">​</a></h3><p>召回失败有时被误诊为 sink 或温度。把长度缩放、门控调到最优仍失败，且全注意力基线成功，才能归因于压缩。本课实验顺序：先保证 softmax 基线通过，再换线性层。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>SSD 对偶已经说明线性模型对应低结构的注意力矩阵，秩受 \(N\) 限制。多对精确绑定需要近乎对角、位置特异的权重，满秩才稳。压缩后键碰撞，读出是若干值的线性混合，准确率按碰撞率下降。选择与门控降低噪声写入，改善有效信噪，但<strong>不增加秩的数量级</strong>。</p><p>困惑度对碰撞不敏感：多数 token 不需要那对精确绑定。这就是为何只看 LM loss 会选出过小的 \(r\)。</p><p><span class="marginnote">代码补全、多跳问答、长文档指代，是召回瓶颈在真实数据上的投影。受控任务用来定下限，不是用来刷榜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>受控任务可以做得对注意力过于友好（键随机、值短），从而低估线性模型在有结构键上的表现。反过来，若任务可被统计捷径解决，会高估线性。应用结论时要对齐任务结构。下一课给出 \(N\) 对 \(n\) 的粗规则，避免只停留在「线性不行」的口号。混合比课的 \(r\gt 0\) 在本课拿到证据。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>固定状态把上下文压成有损摘要，精确远距取回会系统性失败。</li><li>困惑度掩盖该失败；须用受控召回任务与注意力基线对照。</li><li>加大状态、delta、选择能改善容量与信噪，不把秩提到满 KV 表。</li><li>混合架构的注意力层是为这条瓶颈预留的内容寻址。</li><li>出处：Arora et al., 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 SSM 与线性续<!--]--><!--[--> · 课序 状态、扫描与召回<!--]--></p><p class="lesson-progress">第 31 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/state-size-vs-context/">状态大小对上下文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

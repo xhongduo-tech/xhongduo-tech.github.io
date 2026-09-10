@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对数空间与 underflow | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_logspace-underflow.md.BL5i7S18.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 从向量到损失<!--]--></p><p class="lesson-progress">第 6 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/llm/cross-entropy-mle/">交叉熵与极大似然</a></p><p class="lesson-next"> 下一课：<a href="/llm/clm-as-next-token/">下一词分类</a></p></nav><div style="position:relative;"><div><h1 id="对数空间与-underflow" tabindex="-1">对数空间与 underflow <a class="header-anchor" href="#对数空间与-underflow" aria-label="Permalink to &quot;对数空间与 underflow&quot;">​</a></h1><div class="epigraph"><p>概率连乘很快小于浮点能表示的最小正数；改成对数相加，再在 logsumexp 里只指数化相对值。</p><footer>—— 据 Goodfellow, Bengio &amp; Courville, Deep Learning, 2016；Press, Teukolsky, Vetterling &amp; Flannery, Numerical Recipes 整理</footer></div><p><a href="/llm/cross-entropy-mle">交叉熵与极大似然</a>把损失写成 \(-\log p_y\)。本课不重推 \(p-y\)。缺口是：实现里若先算出 \(p\) 再取 \(-\log\)，或把许多概率乘在一起，会先 underflow 成 \(0\)，再对 \(0\) 取对数得到 Inf。方法是全程在对数空间工作：用 \(\mathrm{logsumexp}\) 直接从 \(z\) 得到 \(\log\sum\mathrm{e}^{z_k}\)，序列上的联合似然改成对数相加。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>float32 的最小正正规数大约 \(10^{-38}\)。几十项小于 \(0.1\) 的概率相乘就会变成 \(0\)。softmax 的分母是 \(\sum\mathrm{e}^{z_k}\)，若 \(z\) 很负，指数先变成 \(0\)，归一化变成 \(0/0\)。交叉熵要的其实不是 \(p\) 本身，而是 \(\log p_y\)。缺口因此不是新的损失函数，而是同一条似然的数值通道：只传递对数，不传递接近零的概率。</p><p>序列模型把 \(P(t_{1:n})=\prod_i P(t_i\mid t_{\lt i})\) 写成乘积。下一课会把每一项当成分类；本课先规定：这个乘积只在对数里存在，\(\sum_i\log P(t_i\mid t_{\lt i})\)。任何「先算联合概率再取对数」的实现，在长度超过几十时就已经不可信。</p><h3 id="不是「先-softmax-再-」" tabindex="-1">\(\mathrm{logsumexp}\) 不是「先 softmax 再 \(\log\)」 <a class="header-anchor" href="#不是「先-softmax-再-」" aria-label="Permalink to &quot;$\mathrm{logsumexp}$ 不是「先 softmax 再 $\log$」&quot;">​</a></h3><p>代数上 \(\log p_y=z_y-\mathrm{logsumexp}(z)\)。若先做 softmax 得到 \(p\) 再 \(\log p_y\)，中间的 \(p_y\) 在错误类极确信时会下溢成 \(0\)，损失变成 Inf，梯度变成 NaN。\(\mathrm{logsumexp}\) 先减最大值再在对数里加回，中间量的量级由相对分数决定，不经过接近 \(0\) 的 \(p\)。框架的 <code>cross_entropy</code> 走的是这一条，不是两条算子的串联。</p><p><span class="marginnote">\(\mathrm{logsumexp}(z)=m+\log\sum_k\mathrm{e}^{z_k-m}\)，\(m=\max z\)。减 \(m\) 与 softmax 课相同，差别是这里返回对数配分函数，不返回 \(p\)。需要 \(p\) 时再指数化 \(\log p\)，而且往往只在评估时才需要。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对一组 logits \(z\in\mathbb{R}^{K}\)：</p> \[\log\sum_k\mathrm{e}^{z_k}=\max(z)+\log\sum_k\exp\bigl(z_k-\max(z)\bigr). \]<p>交叉熵实现为 \(-z_y+\mathrm{logsumexp}(z)\)。若有一批独立事件的对数概率 \(\ell_i\)，联合对数似然是 \(\sum_i\ell_i\)，平均负对数似然再除以项数。比较两个假设时，比较的是对数似然差，不要把对数变回概率再除——比值会再次下溢。</p><p>需要在对数空间混合两个分布时，用 \(\mathrm{logaddexp}(a,b)=\log(\mathrm{e}^a+\mathrm{e}^b)\)，同样先提出较大者。本课不把这写成注意力的另一条公式；它只是同一数值原则：指数只作用在平移后的差值上。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>浮点加法在量级相差过大时会吞掉小数。\(\mathrm{logsumexp}\) 把所有指数的自变量限制在 \((-\infty,0]\)，最大项是 \(\mathrm{e}^0=1\)，其余项 \(\le 1\)，求和不会溢出；若所有项都极负，求和可能下溢成 \(0\)，但此时 \(\log\) 之前已经加回了 \(m\)，损失仍是有限的大数，而不是 NaN。这是「用平移保住相对尺度」与 softmax 课同一技巧，对象从 \(p\) 换成了 \(\log Z\)。</p><p>训练循环里应默认损失在对数空间闭合：前向出 logits，损失出标量，不要为了日志去把整批 \(p\) 物化。评估 perplexity 时，\(\mathrm{e}^{L}\) 才从 nat 变回「有效分支数」；若 \(L\) 已经平均过，再指数不会 underflow。先对每个 token 的 \(p\) 连乘再开 \(n\) 次方，才会在长序列上崩掉。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不定义语言模型的时间展开，只准备好对数可加。下一课<a href="/llm/clm-as-next-token">下一词分类</a>把每个位置当成一次 \(K=|V|\) 的分类。混合精度下更小的指数范围，是工程课的事。后课默认：看见「概率的积」，就改写成对数的和；看见交叉熵实现，就认为它走 logsumexp，而不是 softmax 再 log。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>概率连乘会 underflow；联合似然只在对数空间以求和存在。</li><li>交叉熵应写成 \(-z_y+\mathrm{logsumexp}(z)\)，不要先物化 \(p\)。</li><li>\(\mathrm{logsumexp}\) 先减最大值，与稳定 softmax 同一平移，返回的是对数配分。</li><li>评估 perplexity 时对平均负对数似然再指数，不要对概率连乘开方。</li><li>出处：Goodfellow et al., Deep Learning, 2016；Numerical Recipes 对溢出与对数求和的处理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 深度学习基础<!--[--> · 单元 张量与目标<!--]--><!--[--> · 课序 从向量到损失<!--]--></p><p class="lesson-progress">第 6 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/clm-as-next-token/">下一词分类</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

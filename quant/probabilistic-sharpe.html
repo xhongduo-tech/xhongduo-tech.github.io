@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>概率夏普 PSR | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_probabilistic-sharpe.md.BXGRI4qU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 标签、验证与过拟合<!--[--> · 单元 金融机器学习<!--]--><!--[--> · 课序 标签与验证<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bailey-dsr/">Deflated Sharpe 原文</a></p><p class="lesson-next"> 下一课：<a href="/quant/backtest-overfitting/">过拟合次数与试错</a></p></nav><div style="position:relative;"><div><h1 id="概率夏普-psr" tabindex="-1">概率夏普 PSR <a class="header-anchor" href="#概率夏普-psr" aria-label="Permalink to &quot;概率夏普 PSR&quot;">​</a></h1><div class="epigraph"><p>夏普是估计量。我们要的是：在估计了偏度、峰度与样本量之后，真实夏普超过某条预先声明阈值的概率。</p><footer>—— Bailey and López de Prado, The Sharpe Ratio Efficient Frontier, Journal of Risk, 2012</footer></div><p><a href="/quant/deflated-sharpe">Deflated Sharpe</a> 把 PSR 当成 DSR 的构件一笔带过：先有「超过阈值的概率」，再把阈值换成多次试验的极值。Bailey 与 López de Prado 2012 年在 <em>Journal of Risk</em> 的 <em>The Sharpe Ratio Efficient Frontier</em> 里，PSR 是<strong>主对象</strong>。它回答单次（或预先指定的）策略：给定观测夏普、样本长度、偏度与峰度，\(\mathbb{P}(\mathrm{SR}\gt \mathrm{SR}^*)\) 的渐近估计是多少。\(\mathrm{SR}^*\) 可以是 0，可以是融资与风险厌恶要求的最低夏普，也可以是另一个基准策略的夏普。DSR 是两年后才加上「被选过的最大值」这一层。本篇写 PSR 本身、非正态修正、两条策略的比较，以及原文的夏普有效前沿——在给定高阶矩下，夏普不能任意高。不把 PSR 再讲成 DSR。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>样本夏普 \(\widehat{\mathrm{SR}}=\bar x/s_x\) 即使在 IID 正态下也有误差；非正态时误差更大。从业者却常用「夏普大于 1」或「大于 2」当确定性标签。Opdyke（2007）给出夏普的渐近分布；Mertens 把偏度与峰度写进方差。Bailey–López de Prado 把这些收成一个单边概率：</p> \[\widehat{\mathrm{PSR}}(\mathrm{SR}^*)=Z\left[\frac{(\widehat{\mathrm{SR}}-\mathrm{SR}^*)\sqrt{T-1}}{\sqrt{1-\hat\gamma_3\widehat{\mathrm{SR}}+\frac{\hat\gamma_4-1}{4}\widehat{\mathrm{SR}}^2}}\right], \]<p>\(Z\) 为标准正态 CDF。直观：\(\widehat{\mathrm{SR}}\) 越高于阈值、\(\sqrt{T}\) 越大、高阶矩越接近正态，PSR 越高。左偏或肥尾抬高分母，同样的点估计对应更低的 PSR。问题是把夏普从「表上的一个数」还原成「对 \(\mathrm{SR}\gt \mathrm{SR}^*\) 的检验」。</p><p>阈值必须预先声明。看完 \(\widehat{\mathrm{SR}}=1.4\) 再把 \(\mathrm{SR}^*\) 设为 1.3，PSR 接近 1 没有信息。合法的 \(\mathrm{SR}^*\)：0；资金成本折明年化后的最低可接受；或对照组的样本夏普（比较用）。</p><h3 id="两条策略的-psr-不是两个-psr-相减" tabindex="-1">两条策略的 PSR 不是两个 PSR 相减 <a class="header-anchor" href="#两条策略的-psr-不是两个-psr-相减" aria-label="Permalink to &quot;两条策略的 PSR 不是两个 PSR 相减&quot;">​</a></h3><p>比较 A 与 B，应对超额差 \(x_t^A-x_t^B\) 直接算夏普，再对这个差的夏普做 PSR，阈值通常为 0。分别报告 PSR(A)、PSR(B) 再看谁大，会忽略相关：高度相关的两个策略，差的夏普标准误远小于「两个独立夏普之差」。原文的比较框架针对的是差，不是两个概率的排序。基准必须可投资且与 A 同期，否则差的夏普没有实施意义。</p><p><span class="marginnote">年化约定要与 \(T\) 一致。用年化夏普、却把 \(T\) 当交易日数而不把阈值与方差同步年化，会把 PSR 算爆。应在同一频率上算 \(\widehat{\mathrm{SR}}\) 与 \(\mathrm{SR}^*\)，再年化只用于展示。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>输入：同一频率的超额收益序列（已扣费、已含融资），\(T\)、\(\widehat{\mathrm{SR}}\)、\(\hat\gamma_3\)、\(\hat\gamma_4\)，以及预先写死的 \(\mathrm{SR}^*\)。短样本的峰度极噪，应报告 PSR 对 \(\gamma_4\) 截尾或 Winsorize 的敏感性，而不是只报一个点。序列相关时，先把有效样本量换成长期方差意义下的 \(T_{\mathrm{eff}}\)（Newey–West 或 Lo 的调整），再进入公式；假装日度点独立，PSR 会虚高，见 <a href="/quant/ir-sharpe">IR / Sharpe</a>。</p><p>最小轨迹长度（MinTRL）：原文问，要把 PSR 推到某置信度，区分 \(\mathrm{SR}^*\) 与真夏普，需要多少年。所需长度大致随 \((\mathrm{SR}-\mathrm{SR}^*)^{-2}\) 增长。高换手策略看起来 \(T\) 很大，有效独立信息可能很少；用日历天数去套 MinTRL 会低估需要的样本。这与 DSR 的 \(\mathrm{SR}_0\) 是不同计算：MinTRL 假定你已经指定了一个策略和一个阈值，没有「选了 \(N\) 次」这一层。</p><h3 id="夏普有效前沿-高阶矩限制-sr" tabindex="-1">夏普有效前沿：高阶矩限制 SR <a class="header-anchor" href="#夏普有效前沿-高阶矩限制-sr" aria-label="Permalink to &quot;夏普有效前沿：高阶矩限制 SR&quot;">​</a></h3><p>原文的「efficient frontier」不是 Markowitz 的 \(\mu\)–\(\sigma\) 前沿。它说：给定偏度与峰度（以及矩存在），样本夏普不能任意大——极端夏普与极端高阶矩互相约束。观测到又高又稳的夏普、同时声称收益接近正态，往往自相矛盾：要么矩没估计对，要么样本不够展示左尾。前沿给出一个诊断：把 \((\widehat{\mathrm{SR}},\hat\gamma_3,\hat\gamma_4)\) 标在图上，若落在不可能区域附近，应怀疑数据清洗、截断损失或卖出期权式的未实现左尾。短波动策略的样本 PSR 可以很高，直到左尾到来；前沿提醒 PSR 仍是渐近陈述，不是对跳跃风险的保险。</p><p><span class="marginnote">对收益做去极值、截断回撤年、换波动估计，都会改变 \(\widehat{\mathrm{SR}}\) 与高阶矩，从而改变 PSR。这些属于额外试验，晋级到 DSR 时 \(N\) 应增加，而不是继续声称「只算了一次 PSR」。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>PSR 的机制是 Wald 型单侧检验：分子是点估计相对阈值的距离，分母是考虑了高阶矩的标准误，再映射到正态概率。它比「夏普是否大于 1」多了样本量与形状，比自举便宜。正态 CDF 的代价是：真实抽样分布在小 \(T\)、大峰度下并不正态，PSR 的 0.95 不是精确的 95% 置信。大样本、近对称时近似可用；日内肥尾、两年样本时，应把 PSR 当排序工具，并用自举核对。</p><p>与 Sortino、Calmar 的差别：那些换分母或换路径泛函，仍是点估计。PSR 不改变绩效定义，只给<strong>同一个夏普</strong>配上推断。产品契约若承诺的是下行偏差，应另做下行比的推断，而不是用 PSR 假装已经管了左尾——PSR 只通过 \(\gamma_3,\gamma_4\) 部分进入左尾，不读取最大回撤。</p><h3 id="从-psr-到-dsr-只改阈值" tabindex="-1">从 PSR 到 DSR 只改阈值 <a class="header-anchor" href="#从-psr-到-dsr-只改阈值" aria-label="Permalink to &quot;从 PSR 到 DSR 只改阈值&quot;">​</a></h3><p>\(N=1\) 且 \(\mathrm{SR}^*\) 取你的最低可接受夏普时，DSR 与 PSR 重合。一旦存在未申报的搜索，继续报 PSR\((0)\) 是在用错误的原假设。正确升级是把 \(\mathrm{SR}^*\) 换成 \(\mathrm{SR}_0(N,V)\)，即 <a href="/quant/bailey-dsr">原文 DSR</a>。两者在代码里应是同一函数、不同阈值，而不是两套互相竞争的「更好的夏普」。研报应同时给：预先指定阈值的 PSR（技能相对产品契约），以及计入 \(N\) 的 DSR（技能相对搜索过程）。缺一个，叙事就不完整。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>PSR 高不等于可交易：成本应先进入 \(x_t\)。PSR 也不处理标签泄漏与切分选择；那是 purge 与 CPCV 的事。不要对滚动窗口的每一段都算 PSR 再挑选最高的那段展示——那是把 PSR 当成新的选择对象。截面因子的 \(t\) 统计量有自己的多重检验文献，不要用 PSR 去替代 Harvey–Liu–Zhu。</p><p>估计 \(\gamma_3,\gamma_4\) 需要比估计均值更多的样本。极端值对峰度的影响可以单独翻转 PSR 的结论，应报告剔除最大亏损日之后的 PSR 作为压力，而不是把剔除当作正式收益定义——除非产品规则本来就会截断。</p><p><span class="marginnote">PSR 的 \(Z[\cdot]\) 在自变量很大时饱和在 1 附近，失去分辨率。比较两个都「PSR=1.000」的策略，应回到差的夏普、路径分布与经济约束，而不是比更多小数位。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PSR 是 2012 年原文的主统计量：在非正态下，观测夏普超过预先声明阈值的渐近概率。</li><li>比较两个策略应对收益差做 PSR，而不是比较两个概率；频率、\(T\) 与阈值必须一致。</li><li>夏普有效前沿用高阶矩限制「可能的」夏普，用于诊断截断左尾与自相矛盾的矩。</li><li>\(N=1\) 时 DSR 退化为 PSR；有搜索时必须升级阈值，两者是同一函数的两种用法。</li><li>出处：Bailey and López de Prado, <em>The Sharpe Ratio Efficient Frontier</em>, Journal of Risk, 2012；Opdyke, <em>Journal of Asset Management</em>, 2007；Lo, <em>FAJ</em>, 2002；DSR 见 Bailey and López de Prado, <em>JPM</em>, 2014。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 标签、验证与过拟合<!--[--> · 单元 金融机器学习<!--]--><!--[--> · 课序 标签与验证<!--]--></p><p class="lesson-progress">第 8 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/backtest-overfitting/">过拟合次数与试错</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

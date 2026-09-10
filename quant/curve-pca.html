@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>曲线 PCA：水平、斜率、曲率 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_curve-pca.md.DFyN5HOO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 收益率曲线<!--]--><!--[--> · 课序 拟合<!--]--></p><p class="lesson-progress">第 3 / 20 课</p><p class="lesson-prereq"> 先修：<a href="/quant/svensson/">Svensson 扩展</a></p><p class="lesson-next"> 下一课：<a href="/quant/curve-butterfly/">蝶式交易</a></p></nav><div style="position:relative;"><div><h1 id="曲线-pca-水平、斜率、曲率" tabindex="-1">曲线 PCA：水平、斜率、曲率 <a class="header-anchor" href="#曲线-pca-水平、斜率、曲率" aria-label="Permalink to &quot;曲线 PCA：水平、斜率、曲率&quot;">​</a></h1><div class="epigraph"><p>国债收益协方差的前三个特征向量，稳定地呈现几乎平行的平移、短端对长端的扭转、以及中段对两翼的弯曲；这组形状是相关结构的代数后果，也是久期、陡峭化与蝶式作为对冲基的统计理由。</p><footer>—— Litterman and Scheinkman, Common Factors Affecting Bond Returns, Journal of Fixed Income, 1991</footer></div><p><a href="/quant/svensson">上一课</a>在 Nelson–Siegel 上增加第二驼峰，使远期可出现双隆起；官方 NSS 服务光滑贴现，可交易对冲仍要用基准券、关键利率或 PCA。缺口是估计程序本身：特征向量为何几乎总是水平、斜率、曲率，以及这是经济结构还是光滑曲线的代数伪迹。本课写 Litterman–Scheinkman 的 PCA。<a href="/quant/yield-curve-factors">收益率曲线因子</a> 已把 LSC 写成可交易语言；本课不重推 Svensson 的 \(\lambda\)，也不把宏观 APT 再展开。后课蝶式默认已经读完：NS 解析载荷模仿 LSC，但不是特征向量。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>取固定网格 \(\tau_1,\ldots,\tau_N\) 上的零息收益率变动 \(\Delta y_t\in\mathbb{R}^N\)（或久期标准化后的债券超额收益）。样本协方差 \(\Sigma=\mathrm{Cov}(\Delta y)\) 或相关矩阵 \(R\) 的特征分解</p> \[\Sigma = Q\,\mathrm{diag}(\lambda_1,\ldots,\lambda_N)\,Q^\top,\qquad \lambda_1\ge\lambda_2\ge\cdots \]<p>给出正交载荷 \(Q\) 的列 \(\phi_1,\phi_2,\phi_3,\ldots\)。经验上 \(\lambda_1\) 解释绝大部分方差，\(\phi_1\) 近乎平坦，\(\phi_2\) 一次过零，\(\phi_3\) 中段一峰两端反号——即水平、斜率、曲率（level, slope, curvature, LSC）。问题是：这是利率市场的经济结构，还是「期限相邻的变量高度相关」这一统计事实的自动推论？若是后者，任何光滑曲线的 PCA 都会画出 LSC，用它当「发现了三因子」就过强；若同时还是经济结构，则对冲仍应沿这组方向做，但不要把方差比例写成风险溢价比例。</p><p>Litterman–Scheinkman 的对象是债券<strong>收益</strong>的共同因子，形状用久期解释后仍呈 LSC。实务风控更常对 \(\Delta y\) 做 PCA，使因子直接说「曲线怎么扭」。两套特征向量相近但不相同：收益 PCA 混入滚动与凸性实现。必须声明分解对象，否则「第一因子解释 85%」不可比。</p><h3 id="相关矩阵还是协方差矩阵" tabindex="-1">相关矩阵还是协方差矩阵 <a class="header-anchor" href="#相关矩阵还是协方差矩阵" aria-label="Permalink to &quot;相关矩阵还是协方差矩阵&quot;">​</a></h3><p>协方差保留波动的绝对水平：短端政策波动大时，\(\phi_1\) 会被短端拉斜。相关矩阵先把各期限标准化，载荷更接近「纯形状」，但回到 PnL 要对冲比率再乘各 \(\sigma(\tau)\)。LS 原文与许多交易台用接近协方差（或收益协方差）的对象，因为钱是按波动绝对大小赔的。用相关矩阵做图更好看、用协方差做对冲更贴近。同一篇笔记里不要混用还比较「解释比例」——相关 PCA 的 90% 与协方差 PCA 的 90% 不是同一个 90%。</p><p><span class="marginnote">特征向量换号。比较历史因子收益前，把 \(\phi_1\) 与十年变动的相关定为正，\(\phi_2\) 与 2s10s 陡峭化定为正，否则夏普符号无意义地翻转。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>网格。</strong> 每日先把可交易券映到固定期限的即期或平价收益率（无套利插值），再差分。不要在「今日有哪些基准券」的变动集合上直接 PCA：加入 7 年、去掉 20 年，会使 \(\phi_3\) 跳。缺失点用曲线插值补齐，插值规则应与定价系统一致。</p><p><strong>个数。</strong> 前三因子在国债上常解释九成以上；危机里政策短端与长端溢价脱钩，第四因子暂时变大。停止准则不要只看累积比例，还要看：用三因子对冲后的残差是否仍有可交易的关键利率结构。有，就保留 KRD；没有，三因子足够。过早砍到两因子，蝶式风险会进残差并被当成 alpha。</p><p><strong>可交易投影。</strong> 把 \(\phi_1,\phi_2,\phi_3\) 回归到 2s、5s、10s、30s 的久期组合，得到对冲篮子，使篮子在样本里尽量复制主成分。权重应随 \(\phi\) 更新而慢变，避免每日重估把噪声当成换仓信号。与 NS 参数久期对照：NS 的 \(L_1,L_2,L_3(\tau)\) 是解析 LSC，PCA 的 \(\phi\) 是数据 LSC；二者相关高时，可用 NS 情景做沟通、用 PCA 篮子做对冲。</p><h3 id="lord–pelsser-lsc-是相关结构的事实" tabindex="-1">Lord–Pelsser：LSC 是相关结构的事实 <a class="header-anchor" href="#lord–pelsser-lsc-是相关结构的事实" aria-label="Permalink to &quot;Lord–Pelsser：LSC 是相关结构的事实&quot;">​</a></h3><p>Roger Lord 与 Antoon Pelsser（2007）指出：若收益率变动的相关随 \(|\tau_i-\tau_j|\) 光滑衰减——近似 Toeplitz——则前几个特征向量在数学上就接近平坦、一次过零、二次弯曲。这是离散 Sturm–Liouville / 振荡定理一类现象，不一定需要宏观故事。含义有两层。正向：你几乎总会看到 LSC，它是「曲线光滑」的伴随事实，跨币种重复出现并不神秘。反向：第四、第五因子更可能是网格、插值与样本噪声，把它们当成新的风险溢价因子要格外谨慎。经济内容进入的是<strong>因子的价格</strong>（超额收益对 \(\phi_k\) 的回归），不是进入「是否画得出曲率」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>相邻期限几乎一起动，是因为贴现因子是短率路径的积分（期望），共同冲击——政策、通胀、增长——沿曲线传导并被均值回复与溢价倾斜。传导核若光滑，相关就是光滑的，LSC 随之而来。斜率因子额外对应「短端跟央行、长端跟增长与期限溢价」的差分；曲率对应中段供需与政策路径的非单调。宏观可以把 \(\phi\) 的实现回归到公告，那是第二层；第一层 PCA 不需要宏观就能存在。</p><p>方差贡献与定价贡献错位：\(\lambda_1\) 最大，水平冲击却可能被短期利率政策对冲掉一大部分，超额收益对斜率更敏感。这与股票里市场因子解释方差、价值解释截面均值是同一类现象，<a href="/quant/giglio-xiu">Giglio–Xiu</a> 的逻辑在此同样适用。做风险：按 \(\lambda_k\) 分配限额。做溢价：按 \(\beta\) 对后续超额收益的预测，而不是按特征值排序去叠加杠杆。</p><h3 id="与-ns-svensson、与关键利率" tabindex="-1">与 NS / Svensson、与关键利率 <a class="header-anchor" href="#与-ns-svensson、与关键利率" aria-label="Permalink to &quot;与 NS / Svensson、与关键利率&quot;">​</a></h3><p>NS 强制 LSC 形状，残差是第四方向以后。PCA 让数据决定 \(\phi\)，可能出现略斜的「水平」或略弯的「斜率」，对冲比更贴样本，跨样本不可比。Svensson 的第二驼峰一般<strong>不是</strong> \(\phi_4\)：\(\phi_4\) 正交于前三，NSS 的 \(L_3\) 与 \(L_2\) 高度相关。把 NSS 的 \(\beta_3\) 当成第四主成分，会双重计算曲率。关键利率是局部基，三因子是全局基：同一平行移动不要既用久期又用 \(\phi_1\) 对冲一遍。残差应落在 KRD 限额里，而不是再提取 \(\phi_4\) 去交易，除非该方向稳定且可交易。</p><p><span class="marginnote">对超额收益做 PCA 还是对 \(\Delta y\) 做 PCA，决定因子能否直接解释「钱」。风险管理用 \(\Delta y\)；讨论期限溢价用收益。Litterman–Scheinkman 标题是债券收益的共同因子，形状讨论常改用收益率冲击，写作时要分开。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>短样本的 \(\phi_3\) 极噪，蝶式对冲可能在付点差。期权、MBS 的暴露是状态依赖的，线性三因子只是一阶；波动上升时负凸性把残差放大。信用曲线、通胀曲线、掉期曲线要各自分解：名义国债的 \(\phi\) 不能当全部利率产品的风险模型。A 股政策短端钉住时，\(\phi_1\) 更斜、\(\phi_2\) 对沟通更敏感，美债样本的解释比例不能当本地参数。</p><p>PCA 冲击一般隐含锁定价，模拟未来曲线应对无套利投影，或只在短视野当情景。Litterman–Scheinkman（1991）发表于 <em>Journal of Fixed Income</em>，是债券风险的共同语言来源。Lord–Pelsser（2007）警告不要把 LSC 神化成发现。Nelson–Siegel（1987）提供解析对照。Ho（1992）的关键利率是局部补充。不要把 LSC 标成 Chen–Roll–Ross 宏观 APT 的债券版，也不要标成 Fama–French：后者是截面特征排序，前者是一条曲线上的统计降维。</p><p><span class="marginnote">解释比例随平静期上升，并不等于市场「更三因子化」。低波动时噪声相对共同冲击更小，特征值更集中。应用压力子样本再估一次 \(\phi\)，检查对冲篮子是否仍稳。</span></p><p><span class="marginnote">用相关 PCA 画出漂亮的 \(\phi\)、用协方差 PCA 算对冲比，必须在同一笔记声明。只贴相关图去定仓，短端绝对风险会被低估或高估。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Litterman–Scheinkman 对债券收益（实务亦常对 \(\Delta y\)）做 PCA，前三因子呈水平、斜率、曲率，解释大部分共同变动。</li><li>光滑的期限相关结构在代数上就会产生 LSC（Lord–Pelsser）；经济内容主要在因子是否被定价，不在是否画得出曲率。</li><li>对冲用贴近 \(\phi\) 的久期、陡峭化、蝶式，并与关键利率分担局部残差。</li><li>NS 解析载荷模仿 LSC 但不是特征向量；Svensson 第二驼峰不是第四主成分。</li><li>协方差与相关、收益与 \(\Delta y\)，解释比例不可混比；PCA 不宜当无套利定价模型。</li><li>出处：Litterman and Scheinkman, <em>Journal of Fixed Income</em>, 1991；Lord and Pelsser, <em>Applied Mathematical Finance</em>, 2007；对照 Nelson and Siegel, 1987；关键利率见 Ho, 1992。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 利率信用与曲线<!--[--> · 单元 收益率曲线<!--]--><!--[--> · 课序 拟合<!--]--></p><p class="lesson-progress">第 3 / 20 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/curve-butterfly/">蝶式交易</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

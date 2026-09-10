@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多样束搜索 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_diverse-beam-search.md.DbqgVIOi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 2 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/length-penalty-degeneration/">长度惩罚与退化</a></p><p class="lesson-next"> 下一课：<a href="/llm/mbr-decoding/">MBR 解码</a></p></nav><div style="position:relative;"><div><h1 id="多样束搜索" tabindex="-1">多样束搜索 <a class="header-anchor" href="#多样束搜索" aria-label="Permalink to &quot;多样束搜索&quot;">​</a></h1><div class="epigraph"><p>普通束里的邻居共享前缀，看起来像 $B$ 条假设，实际是同一条脊上的微扰；分组并惩罚组间重叠，才能把宽度花在真正不同的续写上。</p><footer>—— Vijayakumar et al., Diverse Beam Search: Decoding Diverse Solutions from Neural Sequence Models, AAAI 2018</footer></div><p><a href="/llm/length-penalty-degeneration">上一课</a>说明长度惩罚改的是束内排序，挡不住整束一起滑进同一短循环。本课补宽度怎么用：普通束的 \(B\) 条高度相关，把 \(B\) 从 4 加到 16 往往只是同一句话的标点差。Vijayakumar 等人的 Diverse Beam Search（DBS）把束分成若干组，组内仍按对数概率进，组间用多样性项互斥。它仍是确定性搜索，不是 <a href="/llm/sampling-temperature-topp">温度 / top-p</a> 的随机核。后课的 MBR 要一堆 <em>彼此不像</em> 的候选，先修这一刀。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>束在每一步扩展所有存活前缀，再按累计 \(\log\pi\) 留 \(B\) 条。因为早期 token 决定了大部分质量，存活条很快共享长前缀，后期只在同义词上分叉。图像描述、对话回复、问题的多种解法，要的是语义多样，不是编辑距离 1 的 \(B\) 份。加大 \(B\) 会线性增加 KV 与逐步扩展成本，多样性却饱和——这是「用束冒充 Best-of-N」失败的原因：<a href="/llm/best-of-n">BoN</a> 的独立样本不共享解码前缀，束共享。</p><p>缺口因此不是再写一遍束算法，而是：在仍想要近似 MAP 的框架里，如何把组间不相似度写进逐步选择，使 \(B\) 条覆盖多种模式。DBS 的多样性项是工程可算的代理（n-gram 重叠、Hamming），不是语义嵌入；它能拆开表面形式，不保证拆开语义。</p><p><span class="marginnote">DBS 不改变 \(\pi\)。被惩罚的是 <em>相对其他组已经选中的 token</em>，不是词表上的绝对禁令。一组若全体走低概率岔路，多样性赢了、任务可能输了。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>将 \(B\) 条分成 \(G\) 组，每组宽度 \(B/G\)。第 1 组按普通束走；第 \(g\) 组在逐步打分上减去与前 \(g-1\) 组已选 token 的重叠惩罚（原文用 Hamming diversity：同位不同 token 给奖励）。组间顺序是课程式的：先占高概率模式，后组被赶到次优模式。惩罚系数 \(\lambda\) 过大，后组会变成胡话；过小则退回普通束。</p><p>实现上每步仍要对词表打分，只是各组成员的有效得分不同。KV 仍按 \(B\) 条前缀各存一份，前缀共享只能发生在同组内部早期。服务侧若用分页 KV，组间分叉后必须 copy-on-write，多样性的显存账单与普通束同阶。不要指望 DBS 比独立采样更省：它省的是「随机性」，不是字节。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>普通束的选择是全局 Top-\(B\)；DBS 的选择是 <em>条件于已占模式</em> 的 Top。多样性项把搜索从「一条脊」掰成「若干条脊」，每条脊上仍然是贪心的局部 MAP。因此 DBS 产出的集合适合作为下游重排或 MBR 的提案集：覆盖比普通束宽，又比温度采样可控。它与 nucleus 的差别：nucleus 每步随机，DBS 每步确定；重复跑 DBS 得到同一集合，重复采样不会。</p><p><span class="marginnote">图像描述是 DBS 的原评测域：同一张图需要多个不同的句子。开放聊天把 DBS 当「更有创意」会失望——组间惩罚不懂幽默，只懂 n-gram 不重复。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>代码与 JSON 上，多样性项会拆开本该重复的结构（相同的键名、循环体）。应关 DBS，把合法集合交给<a href="/llm/constrained-decoding">约束解码</a>。数学题上，多种正确写法有用，但错误模式也被拆开，组数变成错误放大器——此时应用采样 + 答案聚合，而不是 DBS。\(\lambda\) 与 \(G\) 必须当超参扫，不能从 AAAI 2018 的图像描述默认值抄到 70B 对话。</p><p>出处以 Vijayakumar et al. AAAI 2018 为准。后续的 diverse decoding、contrastive decoding 是不同目标，不要写进本课公式。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>普通束的 \(B\) 条共享前缀，宽度浪费在微扰上。</li><li>DBS 分组并用组间重叠惩罚，把搜索掰到多条脊。</li><li>多样性是表面形式代理，不是语义保证。</li><li>显存与逐步成本仍按 \(B\) 走；分页只解决共享前缀，不消灭分叉后的 KV。</li><li>结构输出与必须重复的文本应关 DBS。</li><li>提案集可交给后课 MBR；需要随机覆盖时用采样。</li><li>出处：Vijayakumar et al., AAAI 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多样与约束解码<!--[--> · 单元 多样与质量<!--]--><!--[--> · 课序 采样之外<!--]--></p><p class="lesson-progress">第 2 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/mbr-decoding/">MBR 解码</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

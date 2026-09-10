@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Martingale Optimal Transport | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_martingale-optimal-transport.md.CF1nalvi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 稳健方法与模型治理<!--[--> · 单元 鲁棒与在线<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 3 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bocpd-online-changepoint/">BOCPD 在线变点检测</a></p><p class="lesson-next"> 下一课：<a href="/quant/rl-market-making/">强化学习做市（Ganesh-Cartea）</a></p></nav><div style="position:relative;"><div><h1 id="martingale-optimal-transport" tabindex="-1">Martingale Optimal Transport <a class="header-anchor" href="#martingale-optimal-transport" aria-label="Permalink to &quot;Martingale Optimal Transport&quot;">​</a></h1><div class="epigraph"><p>在给定终端边际的所有鞅测度上取期权支付的上下界，就是带鞅约束的最优传输；界由香草表面钉住，中间的路径依赖支付被夹在可复制与不可复制之间。</p><footer>—— Beiglböck, Henry-Labordère and Penkner, Model-independent bounds for option prices—a mass transport approach, Finance and Stochastics, 2013</footer></div><p>香草期权在固定到期把风险中性边际 \(\mu_T\) 几乎钉死，这是 Breeden–Litzenberger 的二阶导。路径依赖、美式、或两个到期之间的联合，则还取决于边际之间如何耦合。不选 Heston、不选局部波动，只要求价格过程是鞅（或贴现鞅），问某支付 \(G\) 的无模型上、下界——这就是鞅最优传输（Martingale Optimal Transport, MOT）。Beiglböck、Henry-Labordère 与 Penkner（2013）把该问题写成带鞅约束的质量传输，并给出对偶：上界等于用香草与动态持有标的去复制的最便宜超复制。本篇写边际、鞅约束、与 <a href="/quant/gatheral-arb-free">无套利波动曲面</a> 的接口。对象是公开香草表面给出的模型无关界，不是去找一个「正确」的随机波动参数。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设 \(S\) 为贴现后的标的（利率为零的叙述下即价格本身），\(\mathbb{E}[S_T]=\mathbb{E}[S_0]\)，\(S_T\sim\mu_T\)，其中 \(\mu_T\) 由到期 \(T\) 的香草带恢复。对支付 \(G(S_{t_1},\ldots,S_{t_n})\) 或 \(G(S_T)\) 的函数型，模型无关上界是</p> \[\overline{G}=\sup_{\mathbb{P}\in\mathcal{M}(\mu)}\mathbb{E}^{\mathbb{P}}[G], \]<p>\(\mathcal{M}(\mu)\) 为具有给定边际、且 \(S\) 为鞅的概率集合。下界对偶地取 inf。没有鞅约束的普通最优传输会给出更宽的界——质量可以任意耦合，均值可以漂移——那对衍生品定价过宽，因为无套利要求贴现价格为鞅。MOT 的难点正是这道约束：耦合既要匹配边际，又要满足 \(\mathbb{E}[S_{t_{k+1}}\mid\mathcal{F}_{t_k}]=S_{t_k}\)。</p><p>第二句话是可交易性。对偶一旦成立，上界对应一个由香草静态仓位加标的动态交易组成的超复制；若市场只能交易离散执行价、还有买卖价差，界要放宽。把 MOT 数字当成可执行套利，必须扣掉表面本身的无套利修补，见 Gatheral–Jacquier 一类 <a href="/quant/gatheral-arb-free">无套利表面</a> 与 <a href="/quant/svi-ssvi">SVI</a>。</p><h3 id="边际来自香草-耦合不是" tabindex="-1">边际来自香草，耦合不是 <a class="header-anchor" href="#边际来自香草-耦合不是" aria-label="Permalink to &quot;边际来自香草，耦合不是&quot;">​</a></h3><p>单一到期的欧式支付 \(g(S_T)\) 的价格被 \(\mu_T\) 完全决定（积分 \(\int g\,d\mu_T\)），MOT 无事可做。一旦 \(G\) 依赖两个到期，或依赖运行中的最大最小、或依赖亚式平均，就需要联合律。局部波动模型挑选一种特定耦合（由扩散系数钉住的马尔可夫核）；随机波动挑选另一种。MOT 不挑选，只对所有鞅耦合取极端。因此 MOT 界包含一切无套利模型的价格，也因此往往很宽——宽不是计算失败，是信息不足：香草没说路径。</p><p><span class="marginnote">Breeden–Litzenberger 从香草恢复的是风险中性密度，前提是表面无日历与蝶式套利。输入一个自身已套利的微笑，MOT 的可行集可能是空的。先把表面投影到无套利，再做传输。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>两点边际。</strong> 最清晰的教科书情形：给定 \(\mu,\nu\) 为 \(S_{t}\) 与 \(S_{T}\) 的分布，\(t\lt T\)，求 \(\sup\mathbb{E}[G(S_t,S_T)]\) 使 \(S\) 为鞅且边际匹配。Beiglböck–Henry-Labordère–Penkner 把原问题写成传输计划 \(\pi(dx,dy)\) 上的线性规划，约束含 \(\int y\,\pi(dy\mid x)=x\)。对偶变量对应香草的静态仓位与可测的对冲策略。数值上可用离散化的 LP，或用 Skorokhod 嵌入等结构在一维上找最优耦合（左凸序、凸序是鞅耦合存在的经典条件：\(\nu\) 必须凸序大于 \(\mu\)，否则不存在连接二者的鞅）。</p><p><strong>凸序检验。</strong> 若较后的边际在凸序上并不大于较前的，香草表面已经蕴含日历套利，任何 MOT 都不应再求界，应先回到表面校准。这与 Dupire 局部波动要求期限结构可嵌入同一扩散是同一经济：不能把后到期的风险中性分布做得「更不分散」却仍是鞅。</p><p><strong>路径依赖。</strong> 障碍、回望、方差交换的离散版本，都可以写成 \(G\) 对路径泛函。界的宽窄取决于 \(G\) 对耦合的敏感度。方差类支付往往对二次变差敏感，而仅有终端边际时二次变差几乎未被钉住，MOT 上界可以接近平凡（用极端振荡的鞅）。这时需要更多输入：方差互换报价、或中间到期的香草，把 \(\mathcal{M}\) 缩小。信息集决定界的有用性。</p><h3 id="对偶-超复制与次复制" tabindex="-1">对偶：超复制与次复制 <a class="header-anchor" href="#对偶-超复制与次复制" aria-label="Permalink to &quot;对偶：超复制与次复制&quot;">​</a></h3><p>上界等于 \(\inf\{\)静态香草成本 \(+\) 动态对冲的可接受剩余\(\}\)，使得对一切鞅路径支付 \(\ge G\)。这把「模型无关」翻译成交易语言：你能用今天的香草簿加上可预测的 Delta 去包住 \(G\)，成本就是上界。买卖价差、保证金、离散对冲误差使真实超复制更贵。MOT 数字是零价差、连续或指定离散交易日、无缺口的理想界。工程报告应同时给理想 MOT 界与加价差后的可执行界。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>最优传输选择最昂贵（或最便宜）的耦合。没有鞅约束时，最优往往是单调分位数耦合（Hoeffding–Fréchet）。有鞅约束后，质量必须「往返」以保持条件期望，最优耦合呈现 tent / 左-右curtain 一类结构（一维 MOT 的典型图景）。经济含义是：最坏定价者在边际允许的范围内，把标的在中间时刻尽量推到对 \(G\) 最不利的位置，同时保证还能在期末回到 \(\mu_T\)。这与「选一个波动模型把路径走得最毒」是同一件事的线性规划版。</p><p>与 <a href="/quant/heston">Heston</a> 对照：Heston 给出一个内点价格；MOT 给出所有鞅模型的包络。若 Heston 价格贴近 MOT 上界，说明该支付的风险几乎已被香草决定，模型风险小；若落在区间中央且区间很宽，说明你在对未被香草观察的耦合下注，应加买更多香草或方差产品去缩界，而不是微调 \(\kappa,\rho\)。</p><h3 id="离散到期与连续时间" tabindex="-1">离散到期与连续时间 <a class="header-anchor" href="#离散到期与连续时间" aria-label="Permalink to &quot;离散到期与连续时间&quot;">​</a></h3><p>实务只有有限到期的香草，MOT 在这些时刻上做多边际鞅传输。时刻之间的路径仍自由，障碍的连续监控会被高估或低估，取决于你是否把监控点放进边际列表。这与障碍的离散/连续监控基差是同一空隙，见障碍类产品的工程处理：要么买入更多中间到期香草，要么承认界针对离散监控。连续时间 MOT 与嵌入问题相连，理论强，但输入仍只能是你能交易的表面。</p><p><span class="marginnote">一维 MOT 相对干净；多标的 MOT（篮子、价差期权）需要联合香草或交叉香草，否则边际乘积加上各成分鞅，界极宽。没有交易的指数期权表面时，对篮子做 MOT 更多是教学装置。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要在有蝶式套利的表面上跑 MOT。不要把 MOT 上界当成可卖出的报价——那是零摩擦超复制。不要用 MOT 替代校准：它回答「香草已决定多少」，不回答「市场用哪一个耦合」。利率、分红、借券使「鞅」要写在远期或总回报过程上，币本位与现金本位的比特币期权（见 <a href="/quant/deribit-dvol">DVOL</a>）不是同一鞅。跳跃存在时，鞅约束仍成立，但最优耦合的结构改变；局部扩散的 curtain 图不能原样搬到有跳的市场上。</p><p>Beiglböck、Nutz 与 Touzi 等后续工作把对偶在更弱条件下补全。工程上优先保证：输入表面无套利、凸序成立、支付 \(G\) 的监控网格与可交易到期一致。界太宽时，正确反应是增加可交易工具进信息集，而不是换一个更紧的模型假装信息变多。</p><p><span class="marginnote">出处：Beiglböck, Henry-Labordère and Penkner, <em>Finance and Stochastics</em>, 2013。对偶补全见 Beiglböck, Nutz and Touzi。边际恢复见 Breeden and Litzenberger。无套利表面见 Gatheral 及相关条目。Hobson 的 Skorokhod 嵌入是 MOT 的前身直觉。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MOT 在给定香草边际的全体鞅测度上取路径支付的上下界，是带鞅约束的最优传输。</li><li>Beiglböck–Henry-Labordère–Penkner（2013）给出传输原问题与超复制对偶；凸序是鞅耦合存在的条件。</li><li>单到期欧式被边际钉死；多到期与路径依赖才需要 MOT，界的宽度等于香草未观察的耦合风险。</li><li>输入表面必须先无套利；否则可行集为空或界无意义。</li><li>可执行性须另加价差与离散对冲；理想 MOT 数字不是自动的套利利润。</li><li>出处：Beiglböck, Henry-Labordère and Penkner, 2013；Beiglböck, Nutz and Touzi；Breeden–Litzenberger。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 稳健方法与模型治理<!--[--> · 单元 鲁棒与在线<!--]--><!--[--> · 课序 方法<!--]--></p><p class="lesson-progress">第 3 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/rl-market-making/">强化学习做市（Ganesh-Cartea）</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

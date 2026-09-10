@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>单色波、折射率与光程 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_em-wave-index.md.aaGlkBAY.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 波动与衍射<!--]--></p><p class="lesson-progress">第 1 / 48 课</p><p class="lesson-prereq"> 先修：<a href="/litho/yield-defect-die-area/">良率、缺陷密度与芯片面积</a></p><p class="lesson-next"> 下一课：<a href="/litho/helmholtz-huygens/">亥姆霍兹与惠更斯–菲涅尔</a></p></nav><div style="position:relative;"><div><h1 id="单色波、折射率与光程" tabindex="-1">单色波、折射率与光程 <a class="header-anchor" href="#单色波、折射率与光程" aria-label="Permalink to &quot;单色波、折射率与光程&quot;">​</a></h1><div class="epigraph"><p>单色光在均匀介质里以确定的相速度传播；折射率把真空波长改写成介质里的波数，光程则把几何路径收成相位。</p><footer>—— 据 Born &amp; Wolf, Principles of Optics 对单色标量场与光程的表述整理</footer></div><p><a href="/litho/yield-defect-die-area">上一课</a>把良率、缺陷密度与芯片面积收在「器件与图形化的由来」末。本课是「成像与分辨率」的第一课。后面的衍射、数值孔径、部分相干、空中像和瑞利判据，都默认你会「单色复振幅、折射率 \(n\)、光程决定相位」，不再从麦克斯韦方程或从临界尺寸起笔。不能从 <a href="/litho/rayleigh-litho">瑞利判据</a> 讲起：那条式子假定波长、孔径与工艺因子已经是可用的符号，而符号从哪来、相位如何沿路径累积，是更早的一层约定。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>投影光刻要在晶圆上写下随位置变化的曝光剂量。剂量来自电磁场；场在光学教材里首先被收成单色标量波。若一开始就把问题写成「怎样印出 40 nm 线」，波长、介质和相位差都还没有定义，后面的干涉与衍射会变成一堆无根的符号。缺口因此不是分辨率公式，而是：先把照明当成角频率 \(\omega\) 固定的单色场，把材料当成折射率 \(n\)，把几何路径换成光程，使后课的每一个相位都可以从本课的积分读出来。</p><p>单色是硬约束。扫描仪里的准分子激光或 EUV 等离子体都有有限带宽，但成像推导先在单一 \(\omega\) 上做完，再把带宽当色差与相干长度的微扰。本课不处理带宽；后课需要色散时，只引用「本课的 \(n\) 其实是 \(n(\omega)\)」。</p><h3 id="真空波长还不是介质里的波" tabindex="-1">真空波长还不是介质里的波 <a class="header-anchor" href="#真空波长还不是介质里的波" aria-label="Permalink to &quot;真空波长还不是介质里的波&quot;">​</a></h3><p>真空中波长 \(\lambda_0\)、波数 \(k_0=2\pi/\lambda_0\)。进入折射率为 \(n\) 的介质，相速度变成 \(c/n\)，波长缩成 \(\lambda=\lambda_0/n\)，波数变成 \(k=n k_0\)。若把「193 nm」直接当成水里或胶里的振荡周期，浸没与抗蚀剂里的相位会全部算错。光刻口语里的曝光波长几乎总是真空（或空气）标称值；介质修正必须显式乘 \(n\)。</p><p><span class="marginnote">本课的「单色波」是复振幅 \(U(\mathbf{r})\) 所代表的时谐场，不是「只有一个纵模的激光器」的工程说明书。有限带宽、部分相干、偏振，分别是后面几课留下的缺口。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>约定电场（或标量代理）写成</p> \[E(\mathbf{r},t)=\mathrm{Re}\bigl\{U(\mathbf{r})\,e^{-i\omega t}\bigr\}. \]<p>\(U\) 满足亥姆霍兹方程 \((\nabla^2+n^2 k_0^2)U=0\)。在几何光学极限下，相位沿光线累积为</p> \[\phi = k_0\int n\,ds = k_0\cdot\mathrm{OPL}, \]<p>光程 \(\mathrm{OPL}=\int n\,ds\)。两束光在汇合点的相位差就是光程差乘 \(k_0\)。干涉条纹的亮暗、透镜是否消球差、浸没水层算不算「更厚的空气」，全部先问光程，再问强度。</p><p>折射率 \(n\) 在本课取实数。吸收用复折射率 \(n+i\kappa\) 描述，EUV 多层膜和光刻胶的消光是后课的材料缺口；这里只需承认：不吸收的均匀介质里，\(n\) 把路径长度换成相位，不把能量吃掉。</p><h3 id="平面波是后课衍射的基" tabindex="-1">平面波是后课衍射的基 <a class="header-anchor" href="#平面波是后课衍射的基" aria-label="Permalink to &quot;平面波是后课衍射的基&quot;">​</a></h3><p>均匀介质里的特解是平面波 \(U=\exp(i\mathbf{k}\cdot\mathbf{r})\)，\(|\mathbf{k}|=n k_0\)。传播方向的单位矢量决定空间频率将怎样被写进下一课。本课不展开角谱；只钉死：任意单色场可以想成许多不同方向的平面波叠加，而每个平面波携带的相位仍由 \(n\) 与路径决定。</p><p><span class="marginnote">光程的单位是长度。不要把 OPL 直接叫「相位」：相位是 \(k_0\) 乘光程，无量纲（弧度）。少写 \(k_0\)，数值孔径和焦深的公式会差一个 \(2\pi\)。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>成像的全部相干运算都是在比相位。透镜把物面各点发出的球面波收成会聚波，靠的是玻璃里的额外光程抵消空气里的几何程差。掩模开口与铬的边界，首先是透过率跳变，其次才是衍射；透过区内部，相位仍然按 \(n\) 走。晶圆上方若有浸没水，最后一段光程的 \(n\) 不再是 1，后课的 \(\mathrm{NA}=n\sin\theta\) 才能大于 1——那个 \(n\) 就是本课的符号，不必另造。</p><p>强度 \(I\propto|U|^2\) 丢掉绝对相位，保留相对相位。光刻胶响应的是强度（以及后续化学），不是 \(U\) 本身；但没有 \(U\) 的相位差，强度调制无从谈起。因此栏的顺序是：先波与光程，再衍射与光瞳，再空中像，最后才是胶。</p><h3 id="后课默认的符号" tabindex="-1">后课默认的符号 <a class="header-anchor" href="#后课默认的符号" aria-label="Permalink to &quot;后课默认的符号&quot;">​</a></h3><p>从本课起，\(\lambda\) 写真空波长，\(\lambda/n\) 才是介质波长；\(k_0=2\pi/\lambda\)；\(n\) 是实折射率，除非后课显式改成复数。平面波的方向角 \(\theta\) 相对光轴测量，后课的空间频率 \(n\sin\theta/\lambda\) 直接用这里的 \(n\) 与 \(\theta\)。不要在衍射课里重新解释「为什么要乘 \(n\)」。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课固定的是单色标量接口，不是完整电磁学。偏振、多层膜的矢量边界条件、部分相干的互相干函数，都不在本课。也不要把 \(n\) 理解成「材料折射率表上的某一个数」就可以结束：温度、波长、浸没水的杂质都会改 \(n\)，那是工艺控制，不是定义。几何光学的光线只是亥姆霍兹方程的短波极限；当特征尺寸落到波长量级，后课必须回到波动，不能继续只画光线。</p><p>单色假设排除了「白光显微镜」式的讨论。光刻光源被设计成很窄的谱，正是为了让本课的 \(\omega\) 成为好的零阶模型。带宽的残余效应（色差、相干长度）留给照明与镜头课，不在这里展开。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>光刻栏从单色复振幅、折射率 \(n\) 与光程开始，不从瑞利公式或产线 CD 开始。</li><li>真空波长 \(\lambda\) 与介质波长 \(\lambda/n\) 必须分开；相位是 \(k_0\int n\,ds\)。</li><li>平面波是均匀介质里的基，方向角进入后课的空间频率。</li><li>强度丢掉绝对相位，成像靠的是光程差。</li><li>后课默认已经读完本课，不再重讲 \(n\) 与光程。</li><li>出处：Born &amp; Wolf, <em>Principles of Optics</em>；波动光学接口亦见 Goodman, <em>Introduction to Fourier Optics</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 成像与分辨率<!--[--> · 单元 波动光学<!--]--><!--[--> · 课序 波动与衍射<!--]--></p><p class="lesson-progress">第 1 / 48 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/helmholtz-huygens/">亥姆霍兹与惠更斯–菲涅尔</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

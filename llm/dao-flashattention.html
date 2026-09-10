@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FlashAttention 原文 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dao-flashattention.md.DAPKTPpf.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 注意力变体<!--]--></p><p class="lesson-progress">第 111 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/fastformer/">Fastformer</a></p><p class="lesson-next"> 下一课：<a href="/llm/dao-fa2/">FlashAttention-2 原文</a></p></nav><div style="position:relative;"><div><h1 id="flashattention-原文" tabindex="-1">FlashAttention 原文 <a class="header-anchor" href="#flashattention-原文" aria-label="Permalink to &quot;FlashAttention 原文&quot;">​</a></h1><div class="epigraph"><p>一种输入输出感知的精确注意力：用分块减少 GPU 高带宽存储与片上 SRAM 之间的读写，而不把 softmax 注意力改成近似。</p><footer>—— Dao、Fu、Ermon、Rudra、Ré，FlashAttention，NeurIPS 2022</footer></div><p>Tri Dao、Daniel Y. Fu、Stefano Ermon、Atri Rudra 与 Christopher Ré 的 NeurIPS 2022 论文，把注意力从「再发明一种相容性」拉回 <strong>IO 复杂度</strong>。当时加速注意力的文献几乎都在改模型：稀疏、低秩、核线性。他们要的是同一条缩放点积，结果精确（合理浮点误差内），但少碰 HBM。算法专文见 <a href="/llm/flashattention">FlashAttention</a>。本篇写 2210 年前后这篇系统论文交了什么分析、什么端到端数字、以及明确留给 FA2/FA3 的缺口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>朴素 SDPA 把 \(n\times n\) 的分数与权重写进 HBM，再读回来乘 \(V\)。A100 上算术吞吐远高于 HBM 带宽，注意力成为内存墙；训练还要把 \(A\) 留给反向，显存按 \(n^2\) 涨。近似方法能降阶，但预训练权重对不上。需要的是：IO 感知的精确算法，复杂度阶仍二次，主导项变成「片上块大小与 \(n,d\) 的读写次数」。</p><p>论文把 GPU 记成两级：HBM 大而慢，SRAM 小而快。注意力的标准实现是三次分离核（GEMM → softmax → GEMM），中间张量每次都过 HBM。融合不够：softmax 的分母依赖整行，朴素分块会错。必须同时解决 <strong>在线归一化</strong> 与 <strong>反向不存 \(A\)</strong>。这是算法问题，也是 CUDA 核问题；只写 NumPy 伪代码交不了墙钟。</p><h3 id="io-分析是正文贡献-不只是附录" tabindex="-1">IO 分析是正文贡献，不只是附录 <a class="header-anchor" href="#io-分析是正文贡献-不只是附录" aria-label="Permalink to &quot;IO 分析是正文贡献，不只是附录&quot;">​</a></h3><p>作者用标准的 IO 复杂度语言：在 SRAM 容量 \(M\) 下，证明分块注意力的 HBM 访问次数相对朴素 \(O(n^2)\) 元素往返有更紧的上界（仍含与 \(n^2 d / M\) 相关的项）。读者应记住：这是 <strong>访存次数</strong> 的理论，不是「注意力变线性」。把 FlashAttention 引进复杂度课而不提 SRAM 容量 \(M\)，会变成错误的 \(O(n)\) 传说。</p><p><span class="marginnote">引用写 Dao, Fu, Ermon, Rudra, Ré，NeurIPS 2022。不要把 FA2 的查询维并行或 FA3 的 TMA 写回这篇。作者后来在斯坦福 / Together 继续写续作，第一篇只覆盖 Ampere 上的 IO 感知精确核。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>前向：查询按行块、键值按列块装入 SRAM，块内打分，用行最大值 \(m\) 与指数和 \(\ell\) 做在线 softmax，累加输出 \(O\)。因果块可整块跳过。反向：保存 \(Q,K,V\)、输出与归一化统计，重算块内注意力以传播梯度——用算术换激活显存。Dropout 在重算时用同一掩码。实现是融合 CUDA 核；头维、因果、dropout、变长派生模板。</p><p>端到端：用 GPT-2 式训练展示相对 PyTorch 基线的加速（论文图中常见 <strong>约 2–4×</strong> 量级，随长度与是否因果变），以及更长上下文在同样显存下可训。基准对照包括当时的 Megatron 融合核、xFormers 等；相对「完全物化」的加速最大，相对已经融合的 GEMM 更小。BERT / GPT 微调与 MLPerf 一类设定用来说明不是合成 GEMM 玩具。精确性用与标准实现的数值差衡量，而不是用下游准确率代替——因为命题是 exact。</p><div class="mermaid"></div><h3 id="论文量过、也量不出的东西" tabindex="-1">论文量过、也量不出的东西 <a class="header-anchor" href="#论文量过、也量不出的东西" aria-label="Permalink to &quot;论文量过、也量不出的东西&quot;">​</a></h3><p>量过：相对 PyTorch 朴素实现的速度与显存；长序列下能跑起来的 \(n\)；与部分融合基线的差。量不出（留给后续）：小 batch、长序列时 SM 占用率——第一代并行主轴是 batch×头，序列维在线程块内循环；解码 \(n_q=1\)；Hopper 异步拷贝；FP8。2022 年摘要里的加速倍数 <strong>绑定 A100 与当时基线</strong>。用 H100 上的 FA3 数字回溯夸这篇，或用这篇的 3× 去承诺 2026 年所有框架，都不符合原文。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>在线 softmax 的结合律使分块与精确归一化相容：两段键的 \((m,\ell,O)\) 可合成全局量。IO 收益来自键值瓦片在驻留查询块上的复用。这些在算法专文展开。原文作为系统论文还多写了一层：<strong>注意力是 IO 瓶颈这一诊断本身</strong>。若读者仍以为瓶颈是 FLOPs，会去减 FLOPs（稀疏）；若接受诊断，会去减 HBM 往返（分块融合）。2022 年后预训练默认 Flash，说明诊断被社区接受。近似注意力并未消失，但不再是「想训长序列的唯一出路」。</p><p>反向重算把注意力核变成与梯度检查点同类的交易：步时换显存。论文强调粒度在核内，不是层间 checkpoint。两者可叠，但账要分开算。</p><p><span class="marginnote">「Exact」不包含跨平台 bitwise 复现。浮点结合律不同会有尾差。目标是与物化算法同类误差，不是与 CPU 双精度逐位相同。</span></p><h3 id="和近似注意力论文的引用关系" tabindex="-1">和近似注意力论文的引用关系 <a class="header-anchor" href="#和近似注意力论文的引用关系" aria-label="Permalink to &quot;和近似注意力论文的引用关系&quot;">​</a></h3><p>Linformer、Performer、BigBird 改函数类。FlashAttention 改实现。评测合同不同：前者必须报质量；后者质量应对齐基线，只报速度与显存才合法。原文相关工作把近似方法列为正交。不要在引用时写成「FlashAttention 击败了 Performer 的困惑度」——那不是同一比赛。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="占用率、解码、分页不在-2022-合同里" tabindex="-1">占用率、解码、分页不在 2022 合同里 <a class="header-anchor" href="#占用率、解码、分页不在-2022-合同里" aria-label="Permalink to &quot;占用率、解码、分页不在 2022 合同里&quot;">​</a></h3><p>长序列、batch=1 时线程块不够铺满 A100，加速来自少写 \(n\times n\)，不是来自接近 GEMM 峰值。解码短查询要 FlashDecoding。Paged KV 要页表感知核。头维过宽导致块变小，IO 收益下降。没有对应模板时框架回退物化，OOM 会突然回来。Dropout 与变长是训练核变重的原因，推理基准不要混用训练核。</p><p>不要用单张「2–4×」当 SLA。写清：GPU、精度、因果、长度、\(d\)、\(h\)、对照实现。第一代 <code>flash-attn</code> 包与论文算法也不完全同步，以当时版本发行说明为准。</p><p>端到端数字还依赖优化器、数据加载与通信。论文用 GPT-2 式训练说明注意力核不再是唯一墙，并不等于「换核就三倍整网」。序列不够长时，融合核的启动开销可能让不上已经写得很好的分步 GEMM。头维 64 与 128 的 SRAM 装块策略不同，IO 上界里的 \(M\) 跟着变，不能把某一头维的加速抄到另一头维。因果掩码大约减半前填计算，非因果编码器没有这笔免费跳过；引用时必须声明是否因果。Dropout 让反向重算必须携带随机状态，推理基准若误开训练核，会把这篇的速度故事讲脏。</p><p>社区后来把 Flash 当成默认，容易忘掉原文的对手是物化实现与近似注意力论文。2022 年的贡献是证明「精确」和「可训更长」可以同时成立；不是证明稀疏与核方法没有应用。蛋白质、超长像素这类 \(n\) 大到二次计算本身不可接受的任务，仍要换函数类。Flash 只是把二次计算从「先被显存杀死」推迟到「真的算不完」。</p><p><span class="marginnote">出处：Dao et al.，<em>FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness</em>，NeurIPS 2022。续作：FlashAttention-2（2023）、FlashAttention-3（2024）分篇。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>NeurIPS 2022 提出 IO 感知的精确分块注意力，避免物化 \(n\times n\) 矩阵。</li><li>理论对象是 HBM 访问次数；计算仍二次。</li><li>端到端卖点是 A100 上相对朴素实现的速度与可训长度，不是新的模型质量。</li><li>占用率、解码 split-KV、Hopper 异步留给续作。</li><li>出处：Dao et al.，NeurIPS 2022。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 架构论文续<!--]--><!--[--> · 课序 注意力变体<!--]--></p><p class="lesson-progress">第 111 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dao-fa2/">FlashAttention-2 原文</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

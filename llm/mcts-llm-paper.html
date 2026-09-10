@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MCTS-LLM 搜索 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mcts-llm-paper.md.Qe4vcY29.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 对齐与强化学习论文<!--]--><!--[--> · 课序 RL 与推理时<!--]--></p><p class="lesson-progress">第 166 / 296 课</p><p class="lesson-prereq"> 先修：<a href="/llm/snell-test-time/">Test-time compute 综述</a></p><p class="lesson-next"> 下一课：<a href="/llm/alphazero-lm/">AlphaZero 式语言模型</a></p></nav><div style="position:relative;"><div><h1 id="mcts-llm-搜索" tabindex="-1">MCTS-LLM 搜索 <a class="header-anchor" href="#mcts-llm-搜索" aria-label="Permalink to &quot;MCTS-LLM 搜索&quot;">​</a></h1><div class="epigraph"><p>把语言模型同时当成推理智能体与世界模型，再用蒙特卡洛树搜索在推理空间里做有原则的探索，而不是一次生成整条思维链。</p><footer>—— Hao et al., Reasoning with Language Model is Planning with World Model (RAP), EMNLP 2023</footer></div><p>把语言模型接到蒙特卡洛树搜索上，不是再发明一套 UCB 公式，而是把「动作、状态、奖励、转移」写成文本对象，让一次查询里的计算预算可以按节点分配。2023 年这条线几乎同时出现两篇可引用的论文：Hao 等人的 RAP（Reasoning via Planning）把同一套冻结 LLM 既当智能体又当世界模型，在内部模拟里走 MCTS；Zhou 等人的 LATS（Language Agent Tree Search，ICML 2024）把环境交互当成转移，不再另训世界模型，并加上自我反思。机制专文见 <a href="/llm/mcts-llm">MCTS 用于语言模型</a>。本篇写这两篇（以及它们明确对照的 ToT）实际改了 MDP 的哪一块、评测数字在什么设定下成立，以及为什么不能把一次带搜索的解码写成「已经完成 AlphaZero 式训练」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Chain-of-Thought 把多步推理压成一条从左到右的文本。错一步，后面整段跟着错；<a href="/llm/self-consistency">自洽</a> 用多条独立链投票，错的前缀会在 \(N\) 条里重复付费。Tree of Thoughts（Yao 等，2023）把思维切成节点、用 BFS/DFS 搜，但价值来自再提示同一个模型，深度通常很浅。Hao 等人把缺口写得更硬：语言模型缺少可查询的内部世界状态——积木在哪、方程里中间量是多少——因此无法像人那样「先在脑子里走几步再决定」。Blocksworld 一类规划题上，直接让 GPT-3 出计划成功率极低，而人可以靠状态想象完成。</p><p>RAP 要回答的不是「要不要树」，而是：状态与动作如何实例化成文本、奖励从哪来、MCTS 的四步如何接到两次不同的提示（智能体 vs 世界模型）。LATS 面对的是另一类任务：网页购物、HotPotQA 检索、写代码跑测试。这些任务有可执行环境，转移不必靠模型幻觉下一块积木；缺的是把 ReAct 的「想-做」和 ToT 的搜索、Reflexion 的语言反馈收进同一次 MCTS。</p><h3 id="世界模型是提示角色-不是新权重" tabindex="-1">世界模型是提示角色，不是新权重 <a class="header-anchor" href="#世界模型是提示角色-不是新权重" aria-label="Permalink to &quot;世界模型是提示角色，不是新权重&quot;">​</a></h3><p>RAP 的世界模型 \(p(s_{t+1}\mid s_t,a_t,c&#39;)\) 与策略 \(p(a_t\mid s_t,c)\) 共用同一套冻结参数，差别只在提示 \(c\) 与 \(c&#39;\)。Blocksworld 里状态是积木配置的自然语言描述，动作是 STACK / UNSTACK / PUT / PICKUP 加上对象；世界模型被要求写出执行该动作后的新配置。数学题里动作可以是子问题，状态是对子问题的回答。这已经不是棋盘上的确定规则：文本世界模型会写错下一状态，搜索再精确也只是在错误动力学上规划。</p><p><span class="marginnote">RAP 默认基座是 LLaMA-33B，温度 0.8，提示全部手写。把数字对照到 GPT-4 的 CoT 时，比较的是「33B + 规划」对「更强模型的单链」，不是同一 \(\pi\) 上有无 MCTS。LATS 主实验则直接用 GPT-3.5 / GPT-4 当 \(p_\theta\)，同样不更新权重。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>RAP 的一次 MCTS 迭代仍是选择、扩展、模拟、回传。选择用 \(Q(s,a)\) 加探索项；扩展时智能体采样 \(d\) 个动作，世界模型各预测下一状态；模拟用 rollout 策略走到终点；回传把路径上的奖励聚合成 \(Q\)。奖励不是单一标量，论文给出几类可组合的项：动作的对数概率（模型「本能」）、状态置信（对同一子问题多次采样的多数比例）、LLM 自评（让模型当评论员）。终止后，作者观察到按路径累计奖励取最优，往往优于只按访问次数。多条完整轨迹还可以再集成，接近自洽，但是在树上共享了前缀计算。</p><p>LATS 把转移换成环境：代码解释器、网页、维基检索返回的观察写回节点。价值是混合的：语言模型对轨迹的评分，加上成功/失败的环境信号；失败轨迹触发一段语言反思，作为后续扩展的额外上下文。它不需要 RAP 那种内部动力学提示，但每步扩展都可能真的点一次网页或跑一次测试，墙钟和副作用与纯文本规划不是同一量纲。</p><div class="mermaid"></div><h3 id="评测数字绑在任务与基座上" tabindex="-1">评测数字绑在任务与基座上 <a class="header-anchor" href="#评测数字绑在任务与基座上" aria-label="Permalink to &quot;评测数字绑在任务与基座上&quot;">​</a></h3><p>Blocksworld 上 RAP 报告：LLaMA-33B + RAP 相对 GPT-4 的 CoT，在计划生成设定里有约 33% 的相对提升；2/4/6 步题上提升更明显。GSM8K 与 PrOntoQA 上 RAP 相对 CoT、least-to-most 及其自洽变体都有一致增益。这些表必须带着「步骤级动作、有限迭代次数、手写奖励」一起读。LATS 用 GPT-3.5 时，HotPotQA 上相对 ReAct 大约翻倍，WebShop 平均分提高约 22.1；接 GPT-4 时 HumanEval Pass@1 报到 92.7%。编程数字含环境执行与反思，不能当成纯采样的 pass@1。</p><p>ToT 是共同对照：BFS/DFS + 思维节点，没有显式世界模型，也没有 LATS 的环境闭环。三者都把动作切粗（句/步/工具调用），否则词表级分支使扩展不可行——这一点与机制专文一致。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>UCB 把预算压向 \(Q\) 高且访问少的边。RAP 的 \(Q\) 若来自可靠的状态置信，搜索会在分叉点加模拟；若世界模型系统性写错积木位置，高 \(Q\) 只是「模型自信的错觉」。LATS 的环境反馈降低了这一类动力学幻觉，但把方差换成了工具失败、页面改版、测试套件噪声。自我反思是语言形式的资格迹：它不改 \(\theta\)，只改后续提示，因此同一失败模式可能被反复写入上下文，树变深的同时提示也变长。</p><p>计算上，RAP 每次扩展是两次 decode（动作 + 状态）；LATS 每次扩展可能是一次 decode 加一次环境。共享前缀让树优于独立 <a href="/llm/best-of-n">Best-of-N</a>，但节点一多，KV 与提示长度重新碰到服务墙。探索常数抄棋类默认值通常过大：语言模型先验已经很锋利，\(c\) 大会退化成更贵的宽度采样。</p><p><span class="marginnote">Snell 等 2024 把带过程奖励的 lookahead 看成去掉随机探索后的 MCTS 特例，强调测试时更想利用而不是为了学 \(V\) 去探索。RAP/LATS 的默认形态正是冻结 \(\pi\)、只在该次查询上搜。要把轨迹写回权重，需要另做 SFT 或 RL，那是下一篇 AlphaZero 式框架才系统做的事。</span></p><h3 id="与提示自评的可靠性" tabindex="-1">与提示自评的可靠性 <a class="header-anchor" href="#与提示自评的可靠性" aria-label="Permalink to &quot;与提示自评的可靠性&quot;">​</a></h3><p>RAP 自己用多种奖励，正是因为单一「请给 0–1 分」的自评不稳定。LATS 把环境 0/1 当作锚，语言模型分只作辅助。任务没有执行器时，搜索质量封顶在评论员校准上：数学最终答案可核对，过程分仍可能奖励「看起来像标准解答」的错步。这与 <a href="/llm/prm-guided-search">过程奖励引导的搜索</a> 是同一上限，只是 RAP 用提示评论员，而不是单独训的 PRM。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><h3 id="论文贡献停在测试时规划" tabindex="-1">论文贡献停在测试时规划 <a class="header-anchor" href="#论文贡献停在测试时规划" aria-label="Permalink to &quot;论文贡献停在测试时规划&quot;">​</a></h3><p>不要把 RAP/LATS 写成「语言模型通过 MCTS 学会了推理」。下次查询树清空。o 系列公开系统卡强调强化学习与思维链，没有给出可复现的树超参；对照应停在博客表述。步骤切分失败时（模型一步写完整答案），树退化成 BoN。安全上，搜索最大化 \(s\)，若 \(s\) 不含拒答，MCTS 比单次采样更会找到越狱完成路径。LATS 的计算机/网页权限把这一风险从文本变成真实副作用，必须沙箱。</p><p>复现时最容易抄错的是动作粒度、迭代次数和是否用环境。只报 HumanEval 92.7% 而不写 GPT-4、执行器与反思，等于没有复现。Blocksworld 的合法动作若由规则过滤而不是模型自由生成，已经借用了领域约束，不能外推到开放对话。</p><p><span class="marginnote">可引用：Hao et al., RAP, EMNLP 2023；Zhou et al., LATS, ICML 2024；Yao et al., Tree of Thoughts, 2023。不要虚构「MCTS-LLM 2024」这种不存在的单一论文标题；本篇标题是栏目名，指向这一组公开工作。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RAP 把冻结 LLM 同时提示成智能体与世界模型，用 MCTS 在文本状态上规划；LATS 用环境转移替换内部动力学，并加入语言反思。</li><li>动作必须是步骤/工具级；价值来源决定方差，提示自评弱于可执行反馈。</li><li>评测数字绑定基座与脚手架：LLaMA-33B+RAP 的规划提升，不能直接当成 GPT-4 的搜索增益。</li><li>二者都是测试时搜索，不是自我对弈训练；轨迹进权重要另做蒸馏或 RL。</li><li>出处：Hao et al., <em>Reasoning with Language Model is Planning with World Model</em>，EMNLP 2023；Zhou et al., <em>Language Agent Tree Search Unifies Reasoning, Acting, and Planning in Language Models</em>，ICML 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 文献与系统<!--[--> · 单元 对齐与强化学习论文<!--]--><!--[--> · 课序 RL 与推理时<!--]--></p><p class="lesson-progress">第 166 / 296 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/alphazero-lm/">AlphaZero 式语言模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

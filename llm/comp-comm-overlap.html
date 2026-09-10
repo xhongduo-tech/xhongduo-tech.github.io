@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>计算通信重叠 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_comp-comm-overlap.md.DjHWdzaZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 24 / 36 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dualpipe/">DualPipe</a></p><p class="lesson-next"> 下一课：<a href="/llm/ulysses-sp/">DeepSpeed Ulysses</a></p></nav><div style="position:relative;"><div><h1 id="计算通信重叠" tabindex="-1">计算通信重叠 <a class="header-anchor" href="#计算通信重叠" aria-label="Permalink to &quot;计算通信重叠&quot;">​</a></h1><div class="epigraph"><p>集合通信只要能与无关的 GEMM 同时飞，墙上时间就接近两者的最大值而不是之和；做不到，张量并行的 All-Reduce 就会把流水线刚省下的气泡又填回去。</p><footer>—— 据 Shoeybi 等 Megatron-LM 与 Korthikanti 等对激活重计算、序列并行中的重叠讨论整理</footer></div><p><a href="/llm/dualpipe">上一课</a>在流水轴上用第二套流量遮挡跨阶段传输。层内的 <a href="/llm/tensor-parallel">张量并行</a> 仍在每次线性层后做 All-Reduce / All-Gather，默认会挡住下一层 GEMM。本课不重讲列切行切配对。缺口是把通信提交到另一条 CUDA stream（或等效的通信加速器路径），与本地计算重叠，以及哪些依赖让重叠非法。Ulysses 会改序列维通信模式；本课先处理通用的「藏通信」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>TP 的通信体积随 \(b\times s\times d\) 涨，长文档上采样把 \(s\) 推高后，即使 GEMM 很胖，All-Reduce 仍可能暴露。若实现是同步 NCCL 再启动下一次矩阵乘，墙上时间是计算加通信。重叠要求：已发布的通信不与正在写的同一块激活冲突，且有足够的独立计算可盖住延迟。Korthikanti 等人在减激活重计算的工作里，把序列并行的通信与计算重叠写成系统问题，而不是开关一个 <code>async</code> 标志。</p><p>非法重叠的典型错误：下一层还要用这次 All-Reduce 的结果，却提前开算，静默数值错误。必须用事件依赖，而不是靠「通常挺准」。</p><h3 id="能盖住的只有独立工作" tabindex="-1">能盖住的只有独立工作 <a class="header-anchor" href="#能盖住的只有独立工作" aria-label="Permalink to &quot;能盖住的只有独立工作&quot;">​</a></h3><p>流水的 \(W\)、下一微批的无关层、MoE 里尚未 dispatch 的本地路由，都可以当遮挡。若模型太浅、微批太小，没有独立工作，重叠百分比是零。这与 DualPipe 同一逻辑：并发度来自日历，不是来自驱动版本号。</p><p><span class="marginnote">梯度 All-Reduce（数据并行）与激活 All-Reduce（张量并行）可重叠的对象不同。前者常与下一层反向 GEMM 重叠；后者与同一层的后续计算或下一层前向重叠。配置里不要共用一个 <code>overlap</code> 布尔。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对每个集合通信标注生产者缓冲区与消费者内核。能重叠的，post 通信后立刻在计算 stream 上跑不依赖该缓冲区的内核；消费者内核 wait 通信完成。Megatron / TransformerEngine 一类实现把 MLP 的 All-Reduce 与邻近 GEMM 排好。能拆的通信（reduce-scatter / all-gather 对）按块流水，使第一块数据回来就先算，不必等整张表。</p><p>测量要用按层的 profiler，而不是只看 MFU。重叠失败时 MFU 仍可能好看（GEMM 很满），墙上时间却差一截。应报通信暴露时间。</p><h3 id="与精度、融合内核" tabindex="-1">与精度、融合内核 <a class="header-anchor" href="#与精度、融合内核" aria-label="Permalink to &quot;与精度、融合内核&quot;">​</a></h3><p>融合的 LN+GEMM 若把本该当遮挡的小核吃进大核，重叠窗口消失。FP8 等低精度可能缩短 GEMM、暴露通信。重叠策略要随精度与融合开关重测，不能抄一份 1F1B+BF16 的日历到所有配方。</p><p><span class="marginnote">CPU 侧提交太慢会让 GPU 假重叠：通信 kernel 尚未 launch，计算已经跑完。需要 CUDA graph 或固定提交顺序，那是加载与图捕获的交界，后课会碰到。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>在依赖图上，通信边与计算边若无数据冲突，硬件可以并发。墙上时间 \(\approx \max(T_{\mathrm{comp}},T_{\mathrm{comm}})\) 加上无法重叠的串行残余。TP 度升高，\(T_{\mathrm{comm}}\) 涨、\(T_{\mathrm{comp}}\) 因分片下降，重叠从「锦上添花」变成「能否扩展」的条件。这与专家粒度课里通信-计算比是同一张账，只是通信原语从 All-to-All 换成 All-Reduce。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>重叠不减少通信字节，带宽不够时 \(\max\) 仍由通信决定。拓扑差（跨机架当 TP 组）会让 \(T_{\mathrm{comm}}\) 大到无法遮挡——应把 TP 留在 NVLink 域。下一课 Ulysses 把长序列的注意力激活切开，通信模式变成按序列分片的 All-to-All，重叠对象又变。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课不重讲 TP 切片；只补合法地把集合通信与无关 GEMM 并发。</li><li>依赖必须用事件表达；非法重叠是静默错。</li><li>微批、融合、精度会吃掉可遮挡窗口；用暴露时间而不是只看 MFU。</li><li>不减少字节，只改墙上时间的加法变最大值。</li><li>出处：Shoeybi et al., Megatron-LM；Korthikanti et al., <em>Reducing Activation Recomputation in Large Transformer Models</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 词表、配比与并行调度<!--[--> · 单元 并行进阶<!--]--><!--[--> · 课序 调度、重叠与容错<!--]--></p><p class="lesson-progress">第 24 / 36 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ulysses-sp/">DeepSpeed Ulysses</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>嵌套交叉验证 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_nested-cv.md.CDAfUOWn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 回测验证补全<!--]--><!--[--> · 课序 过拟合与重要性<!--]--></p><p class="lesson-progress">第 14 / 17 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pbo/">Probability of Backtest Overfitting</a></p><p class="lesson-next"> 下一课：<a href="/quant/mda-importance/">MDA 特征重要性</a></p></nav><div style="position:relative;"><div><h1 id="嵌套交叉验证" tabindex="-1">嵌套交叉验证 <a class="header-anchor" href="#嵌套交叉验证" aria-label="Permalink to &quot;嵌套交叉验证&quot;">​</a></h1><div class="epigraph"><p>用同一折既选超参数又报告误差，折外分数是有偏的乐观；必须把选择关在内层，把评估留给从未参与选择的外层。</p><footer>—— 据 Varma and Simon, Bias in Error Estimation When Using Cross-Validation for Model Selection, BMC Bioinformatics, 2006；Cawley and Talbot, On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation, JMLR, 2010</footer></div><p>交叉验证本意是估计泛化误差。一旦折外分数被用来在模型、正则、窗口、特征子集之间做选择，它就不再是误差的无偏估计——选择把噪声抬进了「最好」的那个配置，报告的数字是最大值的期望，不是任一配置的期望。Varma 与 Simon、Cawley 与 Talbot 把这层偏差写成嵌套交叉验证（nested cross-validation）要消灭的对象：内层循环只负责选择，外层循环只负责评估，外层测试折从不进入网格。金融里同一逻辑更硬，因为标签重叠、非平稳与 <a href="/quant/walk-forward">滚动检验</a> 上的第二次选择几乎是默认操作。本篇写嵌套结构、与 <a href="/quant/pbo">PBO</a> / <a href="/quant/cpcv">CPCV</a> 的分工，以及非嵌套 \(K\) 折为什么会系统性夸大截面预测力。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设算法有超参数 \(\lambda\)（树深、惩罚系数、回看窗口、是否加某过滤器）。非嵌套做法是：在全部数据上做一次 \(K\) 折，每个 \(\lambda\) 得到一个折外分数，挑 \(\lambda^\star\)，再把 \(\lambda^\star\) 的折外分数当作泛化误差去写研报。错误在于 \(\lambda^\star\) 的折外分数参与了比较。即使所有 \(\lambda\) 真误差相同，最大值的期望仍高于真误差。Cawley–Talbot 强调：模型选择的过拟合与模型拟合的过拟合是两件事；只对后者做正则、却用同一验证集做前者，偏差不会消失。</p><p>金融版本往往更隐蔽。研究者用 2010–2018 做滚动选参，用 2019–2021 看结果，觉得这已经是样本外；若 2019–2021 被用来在五种信号、三种成本假设、两次窗口长度之间再挑一次，外层仍然泄漏。Walk-forward 效率、样本外夏普、折外 \(R^2\)，只要还用于选择，就回到非嵌套。问题是给出一个协议，使「选 \(\lambda\)」与「估误差」使用不相交的信息。</p><h3 id="内层与外层的信息集" tabindex="-1">内层与外层的信息集 <a class="header-anchor" href="#内层与外层的信息集" aria-label="Permalink to &quot;内层与外层的信息集&quot;">​</a></h3><p>嵌套结构有两层划分。外层把样本切成 \(K_{\mathrm{out}}\) 个评估折（金融里应是时间块或滚动窗口，禁止打乱）。对每一个外层训练部分，再做一次内层交叉验证或内层滚动，只在这部分上搜索 \(\lambda\)，得到 \(\lambda^\star_{\mathrm{inner}}\)，然后在对应的外层测试折上评估<strong>一次</strong>。最终报告的是 \(K_{\mathrm{out}}\) 个外层分数的分布或拼接曲线，不是内层最好折的数字。\(\lambda\) 可以在各外层训练段上不同，这正是非平稳下应该发生的事；把它们平均成一个「最终超参」只是为了部署方便，评估仍以外层为准。</p><p><span class="marginnote">sklearn 式 <code>GridSearchCV</code> 之后再在全样本上报 <code>best_score_</code>，就是非嵌套。金融库若把「验证段夏普」既用于早停又用于选模型再写进表格，同样有偏。早停是内层的事，表格只能写外层。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>嵌套滚动。</strong> 外层：用 \([t-W_{\mathrm{out}},t)\) 之前的全部历史当外层训练，用 \([t,t+H)\) 当外层测试，向前推进。内层：仅在外层训练段里再切验证窗，搜索网格（深度、学习率、回看、\(L_1\) 惩罚、是否行业中性），按内层验证的扣费后目标选出 \(\lambda^\star\)，冻结核到外层测试段。外层测试段禁止再调仓规则、再改成本、再剔品种。这与机器学习教材里的 nested CV 同构，只是划分必须遵守时间箭头，并在接缝处对重叠标签做 purge，见 <a href="/quant/cv-leakage-finance">泄漏</a>。</p><p><strong>嵌套 CPCV。</strong> 若目的是估计选择偏差而不是给出一条可部署曲线，外层可以用组合划分生成许多条评估路径，内层在每条路径的训练块上做网格。计算更重，但对「网格这一层」的过拟合更敏感。与只对冻结候选算 <a href="/quant/pbo">PBO</a> 的差别是：这里网格尚未冻结，内层就是在生成候选；PBO 假设候选列表已闭合。</p><p><strong>特征选择也要进内层。</strong> 先在全样本上按 IC 或 MDA 筛列，再对外层做交叉验证，等于把特征选择的尝试次数藏起来。筛列、标准化、PCA、行业收益估计，必须 <code>fit</code> 在当前内层训练折上。这与 <a href="/quant/point-in-time">点-in-time</a> 是同一纪律在验证协议上的投影。</p><h3 id="偏差—方差与计算预算" tabindex="-1">偏差—方差与计算预算 <a class="header-anchor" href="#偏差—方差与计算预算" aria-label="Permalink to &quot;偏差—方差与计算预算&quot;">​</a></h3><p>嵌套把用于评估的样本「用得更干净」，但每层都会减小训练长度。外层折太少，外层分数方差大，你得到无偏却无用的区间；内层折太少，选择本身不稳定，\(\lambda^\star\) 乱跳。Cawley–Talbot 指出选择偏差可以很大，即使样本量看起来不少。金融信噪比低，网格应先靠经济约束削薄（换手上限、可交易宇宙、禁止用未来函数），而不是靠把网格加密再靠嵌套去「修正」。嵌套不是对任意宽搜索的许可证。</p><p>计算上，外层 \(K_{\mathrm{out}}\) 乘内层 \(K_{\mathrm{in}}\) 乘网格大小。应对配置向量化评分；订单级回测放在外层最终候选上，而不是对每个内层格子重放逐笔。若评分函数本身有泄漏（全样本 rank 断点），嵌套只是把泄漏嵌套地复制。</p><p><span class="marginnote">外层分数的均值仍可能因为非平稳而不可外推到下一体制。无偏是相对「同一数据生成过程上的选择过程」而言的，不是相对未来市场。嵌套之后仍要保留一段从未碰过的持有期样本，或接受「没有这样的样本」这一事实。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>非嵌套的乐观偏差来自对验证分数取最大值。验证分数是真误差加噪声，噪声在选择中被系统性地挑中。嵌套把最大值留在内层，外层看到的是「这个选择程序在新块上的实现」，期望对应选择程序的风险，而不是对应被选中配置在验证集上的噪声。Varma–Simon 在小样本分类上显示非嵌套 CV 可以显著低估误差；金融标签的信噪比更低，同一机制只会被放大。</p><p>与多重检验的关系：网格点就是尝试次数。嵌套并不减少尝试，它只是不让你用尝试所依据的那些分数去报成绩。尝试次数仍应进入 <a href="/quant/deflated-sharpe">DSR</a> 的 \(N\)，或进入 <a href="/quant/white-reality-check">White Reality Check</a> 的规则集合。嵌套是评估协议，不是把 \(N\) 变回 1 的魔法。</p><h3 id="何时不必嵌套" tabindex="-1">何时不必嵌套 <a class="header-anchor" href="#何时不必嵌套" aria-label="Permalink to &quot;何时不必嵌套&quot;">​</a></h3><p>若超参数在样本开始之前就冻结（预注册、沿用上一产品的参数、只用经济常数），没有选择，单层因果滚动就够。若网格极粗且所有格子外层表现几乎一样，选择偏差小，嵌套与否差几个基点——但仍应报告「未选择」。危险的是中等宽度的网格：看起来很克制，恰好足够吸收一段历史的噪声。经验上，凡是「我们试了几种窗口，取了验证最好的」都需要嵌套或把尝试计入 \(N\)。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>嵌套不修复前视特征、不修复用未来成交量做的 VWAP 假设、不修复全样本行业分类修订。它只修复「用评估数据选模型」这一层。外层若仍是随机 \(K\) 折而不是时间块，泄漏协议比嵌套更优先。也不要把外层 \(K_{\mathrm{out}}\) 条路径的最大值写成「样本外夏普」——那又是一次选择，见 <a href="/quant/overfit-as-risk">过拟合作为风险</a>。</p><p>部署时需要一个单一 \(\lambda\)。常见做法是在全部训练历史（不含最终持有期）上重跑一次内层选择，得到部署参数，评估数字仍然只用外层历史路径。不要用外层测试去微调后再报同一段外层。内层目标必须与外层评估对齐：内层用毛 \(R^2\)、外层用扣费夏普，选择会偏向高换手；两边都应是扣费后、容量约束后的同一效用。</p><p><span class="marginnote">嵌套交叉验证的计算成本常被拿来当不做的理由。更便宜的替代是大幅缩小网格并预注册，而不是回到非嵌套的 <code>best_score_</code>。宽搜索加非嵌套，是最贵的那种便宜。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>非嵌套交叉验证用同一折既选模型又报误差，折外分数是最大值的有偏估计。</li><li>嵌套把选择关在内层，外层测试折不参与网格、早停与特征筛列。</li><li>金融里外层应是时间块或滚动，接缝处清洗标签；特征管道的 <code>fit</code> 必须停在内层训练折。</li><li>嵌套不把尝试次数变回 1，DSR / Reality Check / PBO 仍要计 \(N\)。</li><li>预注册的窄网格可以不嵌套；凡是「试了几种取最好」就必须嵌套或把尝试写入评估。</li><li>出处：Varma and Simon, <em>BMC Bioinformatics</em>, 2006；Cawley and Talbot, <em>JMLR</em>, 2010；López de Prado, <em>Advances in Financial Machine Learning</em>, 2018；Arnott, Harvey and Markowitz, <em>Journal of Portfolio Management</em>, 2019。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 统计套利与高频续<!--[--> · 单元 回测验证补全<!--]--><!--[--> · 课序 过拟合与重要性<!--]--></p><p class="lesson-progress">第 14 / 17 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/mda-importance/">MDA 特征重要性</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

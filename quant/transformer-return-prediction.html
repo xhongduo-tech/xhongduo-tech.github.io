@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Transformer 截面收益预测 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_transformer-return-prediction.md.CjVKkGjV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/supply-chain-graph-factor/">供应链网络因子</a></p><p class="lesson-next"> 下一课：<a href="/quant/frequency-domain-models/">频域与时频模型</a></p></nav><div style="position:relative;"><div><h1 id="transformer-截面收益预测" tabindex="-1">Transformer 截面收益预测 <a class="header-anchor" href="#transformer-截面收益预测" aria-label="Permalink to &quot;Transformer 截面收益预测&quot;">​</a></h1><div class="epigraph"><p>注意力把任意两个位置的交互变成一次打分；用到收益预测时，位置是滞后的时间或同一日的其他股票，信息集与掩码决定这是条件期望还是泄漏。</p><footer>—— 注意力内核见 Vaswani et al., Attention Is All You Need, NeurIPS 2017；截面预测的样本外协议见 Gu, Kelly and Xiu, Review of Financial Studies, 2020</footer></div><p>前馈 <a href="/quant/gkx-nn3">NN3</a> 把每个公司–月份当成独立的表格行。时间序列模型把同一公司的滞后收益与特征当成序列。Transformer 用缩放点积注意力在序列（或集合）上做内容寻址，避免循环网络的逐步传递，也避免把交互写死成固定滞后阶数。Jiang、Kelly 与 Xiu（2023）用卷积神经网络读价格图像，说明「让网络看路径形状」可以进入主流资产定价；注意力是同一意图的另一套原语。本篇写注意力在收益预测里可以看哪些位置、必须加哪些掩码，以及它相对 GKX 表格模型多出来的自由度如何被信噪比惩罚。内核的数值细节见 LLM 侧的 Scaled Dot-Product Attention 条目；这里只把它当成<strong>带掩码的截面估计器</strong>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>表格模型假定 \(t\) 日的预测只依赖 \(x_{i,t}\)。若可预测性来自路径——动量的形成期形状、波动的期限结构、收益在过去若干月的排列——则需要序列编码器。LSTM 把历史压进隐状态，长程依赖要穿过许多步；注意力让 \(q_t\) 直接读任意滞后 \(k\) 的键。问题是金融序列短、噪声大：月频个股路径只有几十到上百个点，注意力头很容易把某一次危机的特异形状记住。GKX 的教训是样本外 \(R^2\) 以百分点计；Transformer 的参数量通常更大，默认假设应是过拟合，直到验证拒绝。</p><p>第二句话是「截面注意力」：让股票 \(i\) 去读同一日其他股票 \(j\) 的特征。这在经济上可以表示同行、客户或共同因子，在计量上极容易变成用同期收益平滑。没有把 \(j\) 的标签与同期收益从键里拿掉，注意力就是泄漏的图模型。合法的截面注意必须与 <a href="/quant/gnn-asset-pricing">GNN</a> 遵守同一信息集：只读 \(\mathcal{F}_t\) 可知的特征，不读 \(r_{j,t+1}\)。</p><h3 id="时间注意与截面注意是两个模型" tabindex="-1">时间注意与截面注意是两个模型 <a class="header-anchor" href="#时间注意与截面注意是两个模型" aria-label="Permalink to &quot;时间注意与截面注意是两个模型&quot;">​</a></h3><p>时间注意：每个公司一条序列，位置是滞后月份，因果掩码禁止读未来。截面注意：每个日期一张集合，位置是股票，没有时间顺序，必须靠特征与边来限制谁能读谁。两者可以叠成「先时间编码、再截面混合」，参数与泄漏风险加倍。对照实验应分开报告，不要用一个大模型的单次样本外数字同时声称赢了 LSTM 和赢了 NN3。</p><p><span class="marginnote">把收盘价序列直接送进注意力而不做收益率或<a href="/quant/fracdiff">分数差分</a>一类变换，模型会去拟合非平稳水平。GKX 用的是特征，不是原始价格路径；图像论文把 OHLC 画成图，仍是有界的形状，不是单位根水平。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>序列。</strong> 对每个 \((i,t)\)，取滞后 \(L\) 期的特征与收益（均已对 \(t\) 可测），得到矩阵 \(X_{i,t}\in\mathbb{R}^{L\times d}\)。查询来自最近一期，键值来自 \(1\ldots L\)，因果掩码保证位置 \(s\) 不读 \(s&#39;\gt s\)。输出一个向量，再接到线性头预测 \(r_{i,t+1}\)。\(L\) 由 IC 期限结构决定，见<a href="/quant/label-horizon-overlap">标签重叠</a>：动量用十二个月，短反转用几天；把 \(L\) 拉到十年通常只增加危机记忆。</p><p><strong>训练。</strong> 时间切分、purge、早停与 GKX 相同。学习率与 dropout 对注意力更敏感：头数多时，单个头发散会污染平均。正则优先：权重衰减、头的 dropout、以及限制头数（金融里 2–4 头往往够用）。评价必须包含无注意的 NN3 / GBDT 与简单动量特征；Transformer 只报相对这些基准的增量。</p><p><strong>截面注意。</strong> 若使用，键只能是滞后特征或时点图特征（客户、行业），并对同行数量做抽样或行业内注意，以免 \(N^2\) 把全市场平均灌进每一个查询。显式行业哑变量或<a href="/quant/industry-neutral">行业中性</a>往往已经吸收了大部分「读邻居」的增益。</p> \[h_{i,t}=\mathrm{softmax}\left(\frac{Q_{i,t}K_{i,t}^\top}{\sqrt{d_k}}+M\right)V_{i,t}. \]<p>\(M\) 在非法位置为 \(-\infty\)。没有 \(M\) 的「全连接股票 Transformer」默认视为泄漏，除非证明键不含任何未来函数。</p><h3 id="与价格图像、文本注意的关系" tabindex="-1">与价格图像、文本注意的关系 <a class="header-anchor" href="#与价格图像、文本注意的关系" aria-label="Permalink to &quot;与价格图像、文本注意的关系&quot;">​</a></h3><p>Jiang–Kelly–Xiu 的图像模型把开高低收画成二维，用卷积读趋势形状，避免手工动量窗口。Transformer 读的是离散时间上的特征序列，表达力重叠，数据表示不同。文本上的注意力（新闻、公告）属于<a href="/quant/news-nlp-alpha">舆情</a>：文档时间戳与交易时钟对齐之后，才能把 BERT 一类编码器接到收益头。三种「注意」——价格路径、公司特征序列、文本——应分族报告增量 \(R^2\)，不要堆进同一个多层注意再看 SHAP。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>注意力权重可视化不等于贡献：真正进入残差的是加权后的值。高权重但值接近零的滞后月贡献小。金融里权重还容易集中在波动最大的那几个月，模型学到的是危机指示而不是条件均值。应在测试年检查权重是否稳定落在经济上可解释的滞后（例如形成期 2–12 月），还是每年跳到不同的极值月。</p><p>相对树：GBDT 用分裂做交互，对尺度不敏感；注意力用点积，必须标准化，且交互是「谁在看谁」而不是「哪个分位」。相对 NN3：多了路径依赖，也多了过拟合维度。有效市场加低信噪的先验意味着：若手工动量已经把路径的一阶统计用完，注意力的合理结果是增量接近零。零增量是有效的负结果，应被发表在内部记录里，而不是靠加头直到样本内 \(R^2\) 上升。</p><p><span class="marginnote">Avramov–Cheng–Metzker 的经济约束对 Transformer 更紧：路径模型换手往往更高，因为权重随最近收益跳动。验证目标应含换手惩罚，否则早停会选中一个不可交易的高 \(R^2\)。</span></p><h3 id="中国市场的时钟" tabindex="-1">中国市场的时钟 <a class="header-anchor" href="#中国市场的时钟" aria-label="Permalink to &quot;中国市场的时钟&quot;">​</a></h3><p>日频注意力若跨越隔夜与竞价，必须按可交易日历切片，涨停不可买的标签不能进损失，见 GKX 篇对 Leippold–Wang–Zhou 的讨论。T+1 使「用今日路径预测今日剩余时段」在股票上不可执行；标签应从下一可卖日算起。把美股分钟级注意结构搬到 A 股日频，是时钟错配。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要用未加因果掩码的编码器去「看全样本序列」。不要把 LLM 的上下文窗口叙事套到 94 个公司特征上——特征不是 token，长度短、共线强。不要用注意力权重当经济学发现而不做分样本。可做的是：短 \(L\)、少头、强制表格基准、换手进入验证。计算上的 FlashAttention 一类内核改变的是速度，不改变信息集。</p><p><span class="marginnote">出处：Vaswani et al., NeurIPS 2017；Gu, Kelly and Xiu, <em>RFS</em>, 2020；Jiang, Kelly and Xiu, <em>Journal of Finance</em>, 2023（价格图像）；Avramov, Cheng and Metzker, <em>Management Science</em>, 2023；Leippold, Wang and Zhou, <em>JFE</em>, 2022。注意力公式的缩放与饱和见 Vaswani 原文，不是收益可预测性的来源。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Transformer 用带掩码的注意力编码路径或合法邻居；预测协议仍是 GKX 的样本外 \(R^2\) 与可交易约束。</li><li>时间注意与截面注意必须分开对照；截面注意读同期收益即泄漏。</li><li>增量应相对 NN3、树与手工动量报告；零增量是可接受的结果。</li><li>换手、涨跌停与 T+1 进入验证，否则路径模型只在纸面变强。</li><li>出处：Vaswani et al., 2017；Gu–Kelly–Xiu, <em>RFS</em>, 2020；Jiang–Kelly–Xiu, <em>JF</em>, 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 机器学习资产定价<!--[--> · 单元 深度截面模型<!--]--><!--[--> · 课序 模型族<!--]--></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/frequency-domain-models/">频域与时频模型</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

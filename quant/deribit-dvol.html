@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deribit DVOL 隐含波动 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_deribit-dvol.md.Dy8QQa_U.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">附录 零售流与预测市场<!--[--> · 单元 预测市场与加密<!--]--><!--[--> · 课序 新市场<!--]--></p><p class="lesson-progress">第 10 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/onchain-exchange-flows/">链上交易所流入流出</a></p><!----></nav><div style="position:relative;"><div><h1 id="deribit-dvol-隐含波动" tabindex="-1">Deribit DVOL 隐含波动 <a class="header-anchor" href="#deribit-dvol-隐含波动" aria-label="Permalink to &quot;Deribit DVOL 隐含波动&quot;">​</a></h1><div class="epigraph"><p>DVOL 把 Deribit 上比特币或以太坊期权的报价压成一条大约三十天的隐含波动指数；它是该场所微笑的公开摘要，不是已实现波动，也不是全球所有期权场所的统一「币圈 VIX」。</p><footer>—— 据 Deribit 对 DVOL 的公开方法说明整理；指数结构对照 CBOE VIX 条带与 Grünbichler–Longstaff 对波动期货的讨论</footer></div><p>Deribit 是比特币与以太坊期权的主要公开场所之一。DVOL（Deribit Implied Volatility Index）用该场所的期权隐含波动构造近三十天的指数，分 BTC 与 ETH 等标的，常被当作加密的「VIX」。本篇写它测的是哪一套期权、如何接到方差风险，以及与 <a href="/quant/vix-futures">VIX 期货</a>、<a href="/quant/var-swap-replication">方差互换复制</a> 的同构与裂缝。对象是公开指数方法与公开期权簿，不是如何冲击标记价格。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>隐含波动是把期权价格倒进某个定价公式得到的 \(\sigma\)。场所指数还要再做一步：在许多执行价与到期上加权，插值到固定期限（DVOL 为三十天量级），再发布一个数。VIX 的经济学内核是虚值香草的 \(1/K^2\) 条带，近似方差互换；DVOL 的公开方法以 Deribit 期权的隐含波动为原料做期限与执行价的综合，细节以当时说明书为准，<strong>不必</strong>与 CBOE 条带逐项相同。把 DVOL 直接叫做「比特币方差互换公平值」会跨过：公式是否模型无关、是否用中点还是标记、哪些执行价被剔除、以及 BTC 期权是币本位还是稳定币本位。</p><p>第二句话是场所基差。同一 BTC 波动，Deribit、其他期权所、场外与传统上市产品（若有）可以不一致。DVOL 只压缩 Deribit 的微笑。用它去对冲在别的场所持有的期权，剩下的是场所与合约规格基差，类似 <a href="/quant/btc-etf-basis">ETF 对期货</a> 而不是无风险。</p><h3 id="标的是隐含-不是已实现" tabindex="-1">标的是隐含，不是已实现 <a class="header-anchor" href="#标的是隐含-不是已实现" aria-label="Permalink to &quot;标的是隐含，不是已实现&quot;">​</a></h3><p>已实现波动是路径上的二次变差（或近端高频估计）。DVOL 是风险中性世界里对未来波动的定价摘要。二者之差是方差风险溢价在加密期权上的投影，见 <a href="/quant/skew-risk-premium">偏度风险溢价</a>。DVOL 上升可以来自：期权需求（保护买入）、现货跳跃预期、或做市商加价。它不告诉你下一根 K 线的方向。把 DVOL 日变化当 BTC 空头信号，是把波动指数当成了现货观点，除非另有经检验的预测关系——而那关系应样本外、并控制已实现波动滞后。</p><p><span class="marginnote">币本位期权的 Grek 与稳定币计价的 VIX 式指数，单位不同。PnL 归因若把 DVOL 点当成「与 VIX 同样的方差点」，会把报价惯例写进 alpha。先对说明书：指数是波动率点还是方差点，乘数如何换美元或换币。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>复制口径。</strong> 读 Deribit 当时有效的 DVOL 方法：纳入的到期、执行价筛选、买卖中点还是标记 IV、如何插值到三十天、假期与结算日如何处理。用公开期权簿按同一规则重算，检查与官方 DVOL 的跟踪误差。误差大时，先查是否用了标记而非中点、是否纳入了低流动性翼部。翼部虚值在加密上极宽，一条远虚值的 IV 尖刺可以污染指数；方法若已剔除深度虚值或要求最小 vega，应在复制里同样剔除。</p><p><strong>期限结构。</strong> 近月与次近月 IV 的插值给出三十天；更长到期提供曲线。加密期权常在事件（升级、ETF 决定、宏观）前把近端抬起。DVOL 是曲线上的一个点，事件交易要看整条期限，而不是只看指数。与 <a href="/quant/svi-ssvi">SVI/SSVI</a> 校准衔接时，DVOL 可当 ATM 附近的锚，但不能替代无套利表面。</p><p><strong>风险溢价诊断。</strong> 比较 DVOL 与随后三十天已实现波动：平均而言隐含高于已实现的部分，是卖波动的毛溢价，须扣对冲误差、跳跃与费用。加密跳跃比 SPX 更频繁，卖 DVOL「carry」的左尾厚。回测卖波动若用指数点而不用可交易期权组合，会漏掉微笑变形与保证金。</p><h3 id="与-vix-方法的同构不要过度引申" tabindex="-1">与 VIX 方法的同构不要过度引申 <a class="header-anchor" href="#与-vix-方法的同构不要过度引申" aria-label="Permalink to &quot;与 VIX 方法的同构不要过度引申&quot;">​</a></h3><p>VIX 期货有独立的期货曲线与结算；DVOL 若无可交易期货，现货指数本身不可持有。交易 DVOL 观点必须落到 Deribit 期权（跨式、方差复制、日历）或其它波动产品。Grünbichler–Longstaff 的波动期货直觉——均值回复加凸性——可以借用，但比特币现货带跳、周末不停，Heston 式校准会系统性低估尾部，见 <a href="/quant/heston">Heston</a> 与跳跃模型。指数只是把微笑平均成一个数，平均会掩盖偏度：同样的 DVOL，认沽翼可以完全不同。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>做市商用隐含波动对冲库存：现货上冲时认购被行权风险增加，IV 与偏度都会动。DVOL 作为加权平均，对 ATM 与近端更敏感（具体权重以方法为准）。现货周末继续交易，期权保证金与标记在 Deribit 上仍更新，于是「周末已实现」可以在周一同时推高已实现估计与隐含。这与股票 VIX 的周末效应同族但更强。ETF 上市、宏观数据、稳定币事件会把需求从现货赶到期权，DVOL 可以在现货尚未完成趋势时先动。</p><p>与链上库存的关系是弱的。<a href="/quant/onchain-exchange-flows">交易所流出</a> 改变现货可售量，DVOL 改变的是期权供给与尾部价格。二者同向恶化描述压力体制，没有会计恒等式把储备映射到 DVOL 点。</p><h3 id="标记、中点与循环引用" tabindex="-1">标记、中点与循环引用 <a class="header-anchor" href="#标记、中点与循环引用" aria-label="Permalink to &quot;标记、中点与循环引用&quot;">​</a></h3><p>若指数使用标记 IV，而标记又参考指数或同一套平滑表面，可能出现轻度循环。复制与交易应以可成交中点为主诊断，标记仅用于风险。薄翼部的标记可以远离任何可执行报价，把 DVOL 当成可对冲的方差会高估翼部贡献。稳健做法是报告：官方 DVOL、中点重算 DVOL、以及 ATM 二十五 delta 风险逆转，三者一起看。</p><p><span class="marginnote">DVOL 不是波动率目标组合的权重。把它当择时信号去加减 BTC 现货，引入的是波动风险溢价与方向的混合物。若目标是卖波动，应持有期权组合并做现货对冲；若目标是方向，应直接说明，不要借 DVOL 的名字。</span></p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>不要把 DVOL 与已实现波动的差当年化无风险。不要用单一指数替代微笑交易。不要假设 ETH DVOL 与 BTC DVOL 可互相复制——到期、跳跃与用户结构不同。Deribit 保证金、保险基金与指数成分（标记用的现货指数）变化会改变 IV 本身，应当成制度修订。其他场所的「隐含波动指数」若方法不同，禁止拼接成一条超长历史。</p><p>作为风险：DVOL 分位数是加密期权体制的公开仪表，对杠杆现货账簿的压力测试有用。作为产品：没有期货曲线时，carry 必须从期权表面赚，成本是跳跃与翼部。公开方法说明书是第一输入，研报里的「币圈 VIX」口号不是。</p><p><span class="marginnote">出处：Deribit DVOL 公开方法说明（以当时版本为准）。VIX 条带见 CBOE 说明书与本站方差互换 / VIX 期货条目。波动期货早期理论见 Grünbichler and Longstaff, 1996。不要用 DVOL 替代 CBOE VIX 的监管或结算定义。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>DVOL 是 Deribit 期权隐含波动的约三十天公开摘要，场所与规格特定，不是全球统一方差互换。</li><li>它是隐含而非已实现；与随后已实现之差是溢价诊断，须扣跳跃与对冲误差。</li><li>复制要对齐筛选、中点/标记与插值；翼部噪声可以污染指数。</li><li>无可交易 DVOL 期货时，观点必须落到期权组合；指数本身不可持有。</li><li>与 VIX 同构可借鉴均值回复与凸性，不可假设方法逐项相同。</li><li>出处：Deribit 说明书；CBOE VIX 方法；Grünbichler and Longstaff, 1996。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">附录 零售流与预测市场<!--[--> · 单元 预测市场与加密<!--]--><!--[--> · 课序 新市场<!--]--></p><p class="lesson-progress">第 10 / 10 课</p><!----><p class="lesson-next">本附录到此结束。</p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

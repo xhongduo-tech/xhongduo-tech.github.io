@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>阿莱悖论与独立性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_allais-independence.md.B2lEgoEg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 风险<!--]--><!--[--> · 课序 期望效用<!--]--></p><p class="lesson-progress">第 26 / 41 课</p><p class="lesson-prereq"> 先修：<a href="/econ/vnm-axioms/">vNM 公理怎么用</a></p><p class="lesson-next"> 下一课：<a href="/econ/risk-aversion/">风险厌恶与阿罗–普拉特</a></p></nav><div style="position:relative;"><div><h1 id="阿莱悖论与独立性" tabindex="-1">阿莱悖论与独立性 <a class="header-anchor" href="#阿莱悖论与独立性" aria-label="Permalink to &quot;阿莱悖论与独立性&quot;">​</a></h1><div class="epigraph"><p>共同结果从两张彩票里同时删去之后，排序仍应保持——可实验里同一批人会把这道算术做错。</p><footer>—— 据 Allais, Le comportement de l&#39;homme rationnel devant le risque, Econometrica, 1953 整理</footer></div><p><a href="/econ/vnm-axioms">上一课</a>（vNM 公理怎么用）。用独立性推出 \(U(F)=\mathbb{E}_F u\)。本课不重讲表示定理，也不另起一套彩票符号。缺口是：独立性在复合彩票上意味着共同混合项可以消掉，但 Allais 的问卷让相当一部分人留下共同项、改变排序。主干仍用期望效用，必须先标明这条公理哪里脆，后课 Arrow–Pratt 才知道自己站在哪一块石头上。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>取 Allais 的经典四张彩票。\(A\) 确定得到一笔中奖；\(B\) 以高概率得到更多、以小概率得到零。另一对 \(A&#39;\)、\(B&#39;\) 是把前一对与「大概率得到零」做同样的混合。独立性要求 \(A\succsim B\) 当且仅当 \(A&#39;\succsim B&#39;\)，因为两对之差只是同一个共同结果被加进或拿掉。许多人选 \(A\) 而选 \(B&#39;\)：确定效应让人在第一对里躲开零的可能，第二对里零已经是常态，又去追高期望。</p><p>缺口因此不是「人不会算期望」，而是：<strong>共同结果独立性在描述上失败</strong>。若把失败写成新理论，后课的凹伯努利函数、随机占优都要改写。本栏选择：把阿莱当边界对照，主干继续用 \(\mathbb{E}u\)，但禁止后课假装独立性从未被质疑。</p><h3 id="共同结果与共同比率是同一公理的两面" tabindex="-1">共同结果与共同比率是同一公理的两面 <a class="header-anchor" href="#共同结果与共同比率是同一公理的两面" aria-label="Permalink to &quot;共同结果与共同比率是同一公理的两面&quot;">​</a></h3><p>共同比率效应把概率按同一因子缩小，独立性同样要求排序不变。经验上它与共同结果一起出现。Machina 的局部期望效用、Chew 的加权效用、Quiggin 的秩依赖，都是放松独立性而保留一阶随机占优之类的弱性质。本课不展开这些表示，只指出：放松点是独立性，不是完备传递。</p><p><span class="marginnote">确定性的 \(1\) 与概率 \(0.99\) 在 vNM 里只差一个仿射刻度上的小权重。阿莱显示人把「确定」当成质变。这是对线性概率权重的打击。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把独立性写成：比较 \(F\) 与 \(G\) 时，把二者同时与 \(H\) 混合，排序不变。阿莱构造的是特别的 \(H\)——一大块共同的零，或一大块共同的确定中奖。检验只需两对选择，不必估计 \(u\)。这与显示偏好课的 WARP 同类：成对观测直接打公理，不经过参数。</p><p>若坚持 vNM，只能说受试者「算错」或问卷框架不稳定。若放弃 vNM，下一条仍常用的弱化是：一阶随机占优保留、介于独立与完全非线性之间。后课随机占优会在期望效用内部叙述；它也可以在更弱的单调性下叙述，那是边界。</p><div class="mermaid"></div><p>问卷里的钱通常很小，把「确定一百万」换成「确定十块」时，确定效应往往仍在，只是强度变。这提醒：阿莱打的是权重的线性，不是奖金额的凹性。本课不估计一个 \(u\) 去拟合四张表。</p><p>本课不把前景理论写成新主干。概率扭曲、损失参照是另一条文献；货币理论与资产定价课默认仍是 \(\mathbb{E}u\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>独立性失败的机制是「确定」与「几乎确定」不对齐线性权重，以及共同尾事件并未被决策者心理消掉。vNM 的证明把无差异概率当效用，正是假定这些权重可加减。阿莱等于说：无差异概率在不同共同项背景下不一致，伯努利函数随问卷变，表示崩溃。</p><p>对后课的含义是双层的。规范层：若接受独立性作为理性要求，阿莱是偏差，保险与最优风险分担公式仍按 \(\mathbb{E}u\) 写。描述层：若要拟合问卷，不要用同一 \(u\) 去硬套四张彩票。本栏宏观与公司金融走规范层；问卷本身不当成拒绝保险理论的充分统计。</p><p><span class="marginnote">Allais 原文针对的是 Savage 与 vNM 当时的确定性等价讨论，不是后来的前景理论。引用时不要把 1953 年的悖论写成 Kahneman–Tversky 的附录。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>实验室彩票的钱小、概率刻度被画在纸上，与市场里的保险、组合选择不是同一菜单。市场数据较少直接复制阿莱四张表。因此主干保留期望效用，不是无视实验，而是对象不同：后课 Arrow–Pratt、随机占优、或有要求权都在市场与理论内部使用 \(\mathbb{E}u\)。</p><p>也不要把阿莱读成「人喜欢风险」。同一批人在第一对里表现得极度厌恶零结果，在第二对里又去追尾。这是独立性失败，不是凹性失败。凹性是下一课在 vNM 内部的缺口。</p><p>Ellsberg 打的是未知概率，不是已知概率上的线性。本课序不把模糊引进主干。保险与资产定价后课若改用秩依赖，必须显式声明；默认仍是期望。</p><p>后课默认：工作表示仍是 \(\mathbb{E}u\)；写风险厌恶时不再回头论证独立性。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>独立性要求共同混合项不改变排序；阿莱问卷系统违背这一点。</li><li>失败打在线性概率权重上，不是打在完备传递上。</li><li>本栏主干仍用期望效用，把阿莱当描述对照。</li><li>下一课在 vNM 内部测度凹性，不把悖论改写成「喜欢风险」。</li><li>出处：Allais, <em>Econometrica</em>, 1953；von Neumann and Morgenstern, 1944；Mas-Colell, Whinston and Green 第 6 章。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 微观：选择与需求<!--[--> · 单元 风险<!--]--><!--[--> · 课序 期望效用<!--]--></p><p class="lesson-progress">第 26 / 41 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/risk-aversion/">风险厌恶与阿罗–普拉特</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

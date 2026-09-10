@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>半衰期与开平阈值 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_half-life-bands.md.CrdefvIc.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 4 / 15 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ou-spread/">残差的 Ornstein-Uhlenbeck</a></p><p class="lesson-next"> 下一课：<a href="/quant/kalman-hedge/">Kalman 时变对冲比</a></p></nav><div style="position:relative;"><div><h1 id="半衰期与开平阈值" tabindex="-1">半衰期与开平阈值 <a class="header-anchor" href="#半衰期与开平阈值" aria-label="Permalink to &quot;半衰期与开平阈值&quot;">​</a></h1><div class="epigraph"><p>距离法配对用历史标准差的两倍做开仓、回到均值做平仓；这是一条可复现的规则，不是从价差动力学推出来的最优障碍，半衰期与往返成本会改同一条规则该不该做。</p><footer>—— Gatev, Goetzmann and Rouwenhorst, Pairs Trading: Performance of a Relative-Value Arbitrage Rule, Review of Financial Studies 2006</footer></div><p><a href="/quant/ou-spread">OU 残差</a> 给出两个尺度：回复有多快（半衰期），偏离有多大（平稳标准差）。把它们变成订单，还缺开仓、平仓、止损与「抱太久就走」。Gatev、Goetzmann 与 Rouwenhorst 用形成期距离最小的配对，交易期在价差偏离历史两倍标准差时开仓、交叉时平仓，为相对价值提供了可对照的基准。Avellaneda–Lee 用 \(s\)-score 的 \(\pm 1.25\) 一类阈值。最优障碍文献（如 Leung–Li）在 OU 加成本下解进出障碍，说明「两倍标准差」只是启发式。本篇写半衰期如何过滤配对、阈值如何被成本推动，以及样本内最优障碍为何在样本外失效。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>设价差 \(z_t\) 已标准化或已拟合 OU。规则要决定：在哪些 \(z\) 上开反向仓，在哪些 \(z\) 上平，是否用止损，是否用时间止损。没有成本时，OU 的最优策略倾向于「立刻上最大仓、在均值平」，因为期望拉力在偏离处最大。有买卖价差与冲击时，必须等偏离大到覆盖往返成本加风险补偿，否则 Sharpe 在摩擦后变负。</p><p>半衰期过滤是另一层：\(\kappa\) 太小，资本占用长，结构断裂来得比回复早；\(\kappa\) 太大，交易像噪声交易，成本占比高。Gatev 等人的距离配对没有显式 \(\kappa\)，但形成期窗口与持有到交叉，隐含了「不要抱无限久」。问题是把这组启发式写成与 OU 参数、成本参数一致的约束，而不是再调一组魔术数字。</p><h3 id="两倍标准差从哪里来" tabindex="-1">两倍标准差从哪里来 <a class="header-anchor" href="#两倍标准差从哪里来" aria-label="Permalink to &quot;两倍标准差从哪里来&quot;">​</a></h3><p>Gatev–Goetzmann–Rouwenhorst 的 2σ 是形成期价差的样本标准差，不是 OU 平稳分布的 \(\sigma/\sqrt{2\kappa}\)。形成期若含趋势，σ 被抬高，开仓变少；若过短，σ 被低估，开仓过密。2 没有最优性证明，好处是简单、可复现、少一个样本内优化维度。把 2 换成网格搜索的 1.5 或 2.5，必须把搜索本身纳入多重检验，否则夏普是过拟合。</p><p><span class="marginnote">「回到均值平仓」在无成本时合理，在有成本时往往不是最优：最优平仓障碍通常在均值的另一侧之前就该走，或甚至在均值同一侧的某个更近水平——因为再等交叉要付时间风险。启发式平仓在 0，是为了规则干净，不是因为 OU 的首达时间在 0 处最优。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>半衰期过滤。</strong> 由 AR(1) 的 \(\phi\) 得 \(t_{1/2}=\ln 2/(-\ln\phi)\)（时间单位与 \(\Delta\) 一致）。设定上限：例如半衰期超过形成期的三分之一，则不做——还没回来，\(\beta\) 或均值可能已经变了。设定下限：半衰期短于若干个交易间隔，且往返成本占平稳 \(\sigma\) 的比例过高，则不做。过滤在形成期末做一次，避免用交易期信息选参数。</p><p><strong>固定倍数阈值。</strong> 开仓 \(|z-\mu|\gt k s\)，平仓 \(|z-\mu|\lt k_{\mathrm{exit}} s\)，止损 \(|z-\mu|\gt k_{\mathrm{stop}} s\)。\(s\) 用形成期或滚动窗口。时间止损：持有超过 \(c\cdot t_{1/2}\) 仍未平则平，承认 OU 的首达时间有长尾。Gatev 规则近似 \(k=2,\ k_{\mathrm{exit}}=0\)，无显式止损。</p><p><strong>成本调整。</strong> 往返成本 \(c\)（价差单位）至少要求 \(k s\) 显著大于 \(c\)，否则开仓的期望收敛不够付摩擦。更细的做法是把 OU 的期望收益 \(\mathbb{E}[\int \kappa(\mu-z)dt]\) 在障碍间积分，减 \(c\)，再除以占用波动。Leung 与 Li 一类最优双障碍把这个问题写成控制，解出 \(k\) 随 \(c,\kappa,\sigma\) 变：成本升则 \(|k|\) 升。</p><h3 id="标准化-σ-还是分位数" tabindex="-1">标准化：σ 还是分位数 <a class="header-anchor" href="#标准化-σ-还是分位数" aria-label="Permalink to &quot;标准化：σ 还是分位数&quot;">​</a></h3><p>用标准差做 \(k\) 假定对称与近似高斯。残差若厚尾，2σ 开仓太频，应用经验分位数或 <a href="/quant/evt">EVT</a> 的超出阈值。\(s\)-score 用滚动均值与滚动波动，能适应异方差，但滚动窗口又是带宽：太短则阈值乱跳、假信号；太长则像全样本 OU。报告阈值时必须写 \(s\) 的定义窗口，否则规则不可复现。</p><p>Avellaneda–Lee 在因子残差上交易，阈值针对残差的 \(s\)-score，不是原始价格比。把他们的 1.25 套到 Engle–Granger 价差上，量纲已经不是同一套标准化。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>OU 下，从障碍 \(a\) 出发到 \(b\) 的期望时间有闭式，期望折现收益在无成本时对「更极端的 \(a\)」更大，但更极端意味着更少的交易次数。成本是每次进出的固定（或与波动成比例的）扣减，于是最优 \(a\) 是次数与每次期望利润的折中。半衰期进入折现：\(\kappa\) 小，同样的障碍，期望等待长，折现后利润下降，障碍应更远或干脆不做。</p><p>时间止损的机制是截断首达时间的长尾，并在协整破裂时止损：若 \(\beta\) 已经坏了，\(z\) 不会按 OU 回来，时间止损把「无限等待」关掉。它与价格止损不同：价格止损认 OU 仍成立但碰到更大的扩散实现；时间止损认模型可能已经错了。</p><p><span class="marginnote">形成期/交易期分离是 Gatev 等人控制前视的关键：配对与 σ 只用形成期。若每天重估 \(k\) 与名单却用含当天的滚动 σ，阈值会在大偏离当天被抬高，开仓被推迟，这是一种隐性的前视或至少是同步偏差，回测会好看。</span></p><h3 id="多重配对与拥挤" tabindex="-1">多重配对与拥挤 <a class="header-anchor" href="#多重配对与拥挤" aria-label="Permalink to &quot;多重配对与拥挤&quot;">​</a></h3><p>许多对同时用 2σ，信号在市场压力下相关：残差一起裂开，一起触发。组合层的开仓次数与杠杆不受单对规则约束。半衰期短的对往往是同一行业微观结构噪声，看起来夏普高，容量小。阈值应随参与率和冲击上调，否则单对回测的 \(k=2\) 在组合上变成不可执行的 \(k\)。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>最优障碍对 \(\kappa,\sigma,c\) 敏感，样本内校准的 \(k\) 在样本外 \(\kappa\) 一变就错。更稳健的是粗网格加成本压力，而不是精细到 1.83σ。涨跌停、停牌让「交叉平仓」无法执行，规则必须定义替代平仓。分红与拆股会制造假突破，阈值应在复权序列上算，执行在实际可成交价上算。</p><p>不要用交易期最小化回撤去选 \(k\)。不要把止损设在刚好比回测里最大不利偏移远一点的地方。不要对半衰期三天的噪声对和半衰期三个月的协整对用同一 \(k\)——成本占比完全不同。</p><p>与 <a href="/quant/kalman-hedge">Kalman 对冲</a> 叠用时，\(z\) 每天被重定义，\(\sigma\) 必须来自滤波创新而不是来自过时残差；否则阈值跟踪的是已经不交易的那条价差。Gatev 的距离法不估计 \(\beta\) 的动态，阈值语义更简单，但对对冲比误设更敏感。</p><p><span class="marginnote">RFS 2006 的贡献是相对价值规则的可复现绩效与风险特征（包括回撤集中在某些时期），不是证明 2σ 最优。后续论文改阈值、改协整、改 Kalman，比较时应先对齐形成期长度与成本假设，再谈超额。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>半衰期过滤掉「回不来」与「回得太快以至于只剩成本」的配对；它是形成期约束，不是交易期调参。</li><li>2σ 开仓、回均值平仓是 Gatev 等人的可复现启发式；有成本时最优平仓一般不是均值交叉。</li><li>阈值的 \(s\) 必须定义窗口与是否滚动；厚尾时用分位数，异方差时用 \(s\)-score 一类局部尺度。</li><li>时间止损截断首达长尾并限制协整破裂后的无限等待。</li><li>样本内最优 \(k\) 极易过拟合；成本、冲击与拥挤会把单对阈值推远。</li><li>出处：Gatev, Goetzmann, Rouwenhorst, <em>Review of Financial Studies</em>, 2006；\(s\)-score 见 Avellaneda and Lee, <em>Quantitative Finance</em>, 2010；OU 加成本的最优障碍见 Leung and Li 等均值回复交易文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计套利<!--[--> · 单元 配对与篮子<!--]--><!--[--> · 课序 协整<!--]--></p><p class="lesson-progress">第 4 / 15 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/kalman-hedge/">Kalman 时变对冲比</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

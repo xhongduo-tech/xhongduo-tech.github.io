@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>标量衍射的适用边界 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_scalar-diffraction-bound.md.CtyHRiMK.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 电磁与几何光学<!--[--> · 单元 几何成像<!--]--><!--[--> · 课序 透镜与光瞳<!--]--></p><p class="lesson-progress">第 13 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/litho/coherence-length-prep/">相干长度与光源带宽预备</a></p><p class="lesson-next"> 下一课：<a href="/litho/mosfet-gate-length/">MOSFET 与栅长</a></p></nav><div style="position:relative;"><div><h1 id="标量衍射的适用边界" tabindex="-1">标量衍射的适用边界 <a class="header-anchor" href="#标量衍射的适用边界" aria-label="Permalink to &quot;标量衍射的适用边界&quot;">​</a></h1><div class="epigraph"><p>标量衍射用单一复振幅 $U$ 代替矢量 $\mathbf{E}$；当线宽与波长可比、偏振与多层边界变得重要时，必须回到麦克斯韦的全部分量。</p><footer>—— 据 Born &amp; Wolf, Principles of Optics 与 Mack, Fundamental Principles of Optical Lithography 对标量近似的讨论整理</footer></div><p><a href="/litho/coherence-length-prep">上一课</a>说明有限带宽与时间相干。电磁与几何光学课程至此收束于一个判断：后课大量用标量 \(U\) 做衍射，何时可信？本课是本课程最后一课。下一课转入 <a href="/litho/mosfet-gate-length">MOSFET 与栅长</a>——器件为何需要图形，而不是把成像积分提前写完。单色波、折射率与光程的课程接口，要等到器件课结束之后的 <a href="/litho/em-wave-index">单色波、折射率与光程</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>从 <a href="/litho/maxwell-to-wave">麦克斯韦方程到波动方程</a> 起，有时用矢量（<a href="/litho/polarization-states">偏振</a>、<a href="/litho/fresnel-coefficients">菲涅尔</a>），有时用标量（<a href="/litho/plane-wave-k">平面波</a>、<a href="/litho/thin-lens-equation">透镜方程</a>）。缺口是：什么条件下标量错得不可接受？本课只谈建模层次，不把产线分辨公式当作本课的定理。</p><p>标量默认：偏振可平均或单一、孔径上给定 \(U\) 后自由空间传播、薄膜与衬底的矢量耦合已吸进有效边界。这些在低 NA、特征远大于 \(\lambda\) 时常常够用。高 NA、窄缝、金属多层会把 s/p 差异和三维边界抬到一阶。</p><h3 id="标量失败不是「几何光学失败」" tabindex="-1">标量失败不是「几何光学失败」 <a class="header-anchor" href="#标量失败不是「几何光学失败」" aria-label="Permalink to &quot;标量失败不是「几何光学失败」&quot;">​</a></h3><p>几何光学是 \(\lambda\to 0\) 的光线极限；标量衍射是中间层；矢量电磁是完整层。特征缩小先打破的是几何（要衍射），再在 NA 与材料变极端时打破标量（要矢量）。不要把「要算衍射」与「必须 FDTD」当成同一句话。</p><p><span class="marginnote">Kirchhoff 型标量：孔径上 \(U\) 等于未扰动入射再乘透过率。掩模厚度、侧壁与多层会破坏这个假设。Mack 把光学光刻的成像链写在标量 Hopkins 框架里，并明确矢量与三维掩模是修正项。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标量：\(( \nabla^2+k^2)U=0\)，给定边界上的 \(U\)，用角谱或惠更斯–菲涅尔传播。倾向适用：中低 NA、特征 \(\gg\lambda\)、偏振对比弱、薄膜已折成有效透过率。失效信号：p/s 反射差显著、窄缝 TE/TM 传播不同、掩模三维阴影、金属色散与等离子体效应。</p><p>矢量：保留 \(\mathbf{E}\)、\(\mathbf{H}\) 与界面条件。严格解用于掩模与薄膜栈的关键图形；全芯片日常仍跑标量，再对库做矢量校正。本课不教求解器，只划边界。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>历史顺序是：先光线，再标量衍射，再在节点推进后把矢量当校正。日常引擎仍是标量，因为全芯片要快。本课定位：知道何时标量是零阶、何时必须加矢量补丁，而不是在每一处重推麦克斯韦。</p><p>三层次按问题选。画共轭与倍率用几何；算空中像用标量 \(U\)；掩模三维与高 NA 偏振用矢量。后一课程从单色 \(U\)、折射率与光程重新展开成像，默认读者已经接受这条分层，并且已经知道器件为什么要图形。</p><p>标量失败的典型现场是：同一套光学模型对线和孔的预测偏差方向不同，或 TE/TM 空中像差出一截工艺窗口。那不是「再调一次 \(k_1\)」能吸收的，而是模型层级选错。本课把这条经验写成边界，不把求解器当内容。器件课接下来只问图形对象，不再升级麦克斯韦。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不教 FDTD 或严格耦合波的实现，也不讨论电子束、纳米压印。抗蚀剂化学、照明部分相干的 Hopkins 交叉系数，属于成像主线，不在本课写完。下一课起解释 MOSFET 栅、CMOS 成对、半节距与节点名——图形化的对象，不是成像公式。</p><p>后课默认：标量 \(U\) 是窄带、偏振可控制时的工作马；高 NA 与三维掩模要矢量验证。光学前置课程在此结束。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>几何 → 标量衍射 → 矢量电磁，按特征、NA 与材料升级，不是越完整越好。</li><li>标量快，适合全芯片；高 NA、三维掩模、强金属层需要矢量。</li><li>本课程不把成像主线写完；下一课改问器件为何要图形。</li><li>单色波与光程在器件课之后才作为成像课程的第一课。</li><li>出处：Mack, <em>Fundamental Principles of Optical Lithography</em>；Born &amp; Wolf, <em>Principles of Optics</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 电磁与几何光学<!--[--> · 单元 几何成像<!--]--><!--[--> · 课序 透镜与光瞳<!--]--></p><p class="lesson-progress">第 13 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/mosfet-gate-length/">MOSFET 与栅长</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>隐含 vs 已实现波动 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_iv-vs-rv.md.CvzJm84T.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-07</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 9 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/quant/realized-garch/">已实现 GARCH</a></p><p class="lesson-next"> 下一课：<a href="/quant/evt/">极值理论 EVT</a></p></nav><div style="position:relative;"><div><h1 id="隐含-vs-已实现波动" tabindex="-1">隐含 vs 已实现波动 <a class="header-anchor" href="#隐含-vs-已实现波动" aria-label="Permalink to &quot;隐含 vs 已实现波动&quot;">​</a></h1><div class="epigraph"><p>若标的在风险中性测度下是扩散，整条期权微笑可以合成一条对未来二次变差的无模型预测；它不是某一执行价上的 Black–Scholes 反解。</p><footer>—— Britten-Jones and Neuberger, Option Prices, Implied Price Processes, and Stochastic Volatility, Journal of Finance 2000</footer></div><p><a href="/quant/realized-garch">上一课</a>把 RV 类测量与收益联立，一步预测能用上今日收盘前已经实现的日内信息；它仍是物理测度的条件方差，不是隐含波动。缺口是期权每天报出一套隐含波动：前者是风险中性期望，后者是物理测度下已经走完的二次变差。Britten-Jones–Neuberger 在扩散假设下从虚值期权复原风险中性积分方差。本课写 IV 与 RV 各自估什么、差一项方差风险溢价，以及把 ATM IV 直接当 RV 预测会错在哪里。不重写测量方程里的 \(\xi,\varphi,\tau\)。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>记现货（或期货）价格为扩散 \(dS_t/S_t=\mu_t dt+\sigma_t dW_t\)。\([0,T]\) 上的积分方差 \(\int_0^T\sigma_t^2 dt\) 是路径对象：一天走完，<a href="/quant/rv-noise">RV</a> 去估它。合约起始日，市场并不知道这条路径，只交易对它的或有权益。Black–Scholes 把 \(\sigma\) 当常数，从一个期权反解 \(\sigma_{\mathrm{IV}}(K,T)\)，得到微笑，不是一个数。要问「市场认为未来方差是多少」，必须先指定：是哪一个 \(K\)，还是把整条微笑积成对二次变差的期望。</p><p>风险中性测度 \(\mathbb{Q}\) 下，\(\mathbb{E}^{\mathbb{Q}}[\int_0^T\sigma_t^2 dt]\) 一般不等于 \(\mathbb{E}^{\mathbb{P}}[\int_0^T\sigma_t^2 dt]\)。卖方差保护的人要求补偿，隐含方差通常高于后续已实现方差，差额是<strong>方差风险溢价</strong>。Bollerslev、Tauchen 与 Zhou 用它预测超额收益；Carr 与 Wu 在指数期权上估计溢价为负（对持有方差多头而言）。问题因此有两层：如何从期权取出可与 RV 对齐的对象；对齐之后，剩余差该解释为预测误差还是风险价格。</p><h3 id="模型相关-iv-与无模型-iv" tabindex="-1">模型相关 IV 与无模型 IV <a class="header-anchor" href="#模型相关-iv-与无模型-iv" aria-label="Permalink to &quot;模型相关 IV 与无模型 IV&quot;">​</a></h3><p>ATM 的 Black–Scholes IV 使用方便，却把微笑的斜度丢掉了。深虚值看跌的高 IV 对应左尾，对方差互换的贡献按 \(1/K^2\) 加权，不是按成交量加权。局部波动、Heston 各自给出另一套「隐含」过程，彼此不可比。Britten-Jones–Neuberger 的贡献是：在扩散族里，与今日期权相容的风险中性扩散是唯一的，因而风险中性期望二次变差也是唯一的，可由期权价格的积分写出，无需再估一个结构模型。跳跃会破坏「唯一扩散」这一条，无模型公式估的是对数合约的期望，与二次变差不再相等——这是后文的边界。</p><p><span class="marginnote">VIX 不是 S&amp;P 500 的「预测波动率」，而是对未来三十天方差互换公平费率的离散近似，再开方、年化。把它与后续三十天 RV 的标准差直接画散点，斜率小于 1 并不证明期权「高估了波动」，而常常是溢价与离散复制误差叠在一起。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>复制。</strong> 对充分光滑的收益函数 \(f(S_T)\)，Carr–Madan 给出用债券、远期与连续虚值期权的静态组合。取 \(f(x)=\ln(x)\)，伊藤公式在扩散下把 \(\ln S_T\) 与 \(\int (dS/S)\)、\(\int\sigma^2 dt\) 连起来。整理后，风险中性期望积分方差等于虚值看涨与看跌价格对 \(K^2\) 的积分。Britten-Jones–Neuberger 在零利率、连续执行价的设定里把这条恒等式写清楚：隐含过程的二次变差期望，就是今天能交易的期权组合的价值。</p><p>离散实现近似 CBOE 公式。设远期为 \(F\)，执行价网格 \(\{K_i\}\)，虚值期权中点价 \(Q(K_i)\)，则</p> \[\sigma_{\mathrm{MF}}^2 \approx \frac{2e^{rT}}{T}\sum_i \frac{\Delta K_i}{K_i^2} Q(K_i)-\frac{1}{T}\left(\frac{F}{K_0}-1\right)^2, \]<p>其中 \(K_0\) 是不高于 \(F\) 的最近执行价。截断、离散、买卖价差都会偏高或偏低；Jiang–Tian 讨论了截断偏差：两端执行价不够远时，无模型 IV 系统性偏低。</p><p><strong>与 RV 对齐。</strong> 把 \(\sigma_{\mathrm{MF}}^2\) 与同期 RV 比较，必须统一：期限 \(T\)、是否含<a href="/quant/calendar-overnight">隔夜</a>、RV 是否做噪声修正、是否含跳跃。指数方差互换的浮动腿接近已实现方差（成交价路径），不是中点 RV。用五分钟 RV 去验证 VIX，是一种带宽选择，不是理论要求。</p><h3 id="方差风险溢价的符号" tabindex="-1">方差风险溢价的符号 <a class="header-anchor" href="#方差风险溢价的符号" aria-label="Permalink to &quot;方差风险溢价的符号&quot;">​</a></h3><p>定义 \(\mathrm{VRP}_t=\mathbb{E}^{\mathbb{Q}}_t[\mathrm{QV}_{t,t+\tau}]-\mathbb{E}^{\mathbb{P}}_t[\mathrm{QV}_{t,t+\tau}]\)。用无模型 IV 减 HAR 一类对 RV 的条件预测，得到 VRP 的代理。指数上该代理多为正（IV 高于预期 RV）：买保护的人付溢价。个股上符号更杂，还有跳跃溢价与流动性。溢价时变，危机中 IV 与 RV 一齐升，但 IV 升得更狠，随后 RV 回落，多空方差的持有期收益在平静期为正、在跳跃日为负。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>扩散下，二次变差与对数合约由伊藤修正项锁死：路径越「抖」，\(\ln S_T\) 相对 \(\int dS/S\) 掉得越多。期权市场给 \(\ln S_T\) 定价，也就给了 \(\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]\)。物理测度下的 RV 没有经过这层定价核。核若讨厌方差上升的状态（典型是坏状态），就会把 \(\mathbb{Q}\) 下的方差期望抬到 \(\mathbb{P}\) 之上。于是「IV 减 RV」既有预测误差，也有风险价格，不能用均方误差单独评判 IV 的好坏。</p><p>微笑的斜度进入积分，是因为虚值看跌在 \(1/K^2\) 权重下仍贡献左尾。只看 ATM IV，等于假装微笑平坦。偏斜变陡时，无模型 IV 与 ATM IV 的裂口加大；这时若仍用 ATM 去对 RV，会把偏斜变化误读成水平波动预测误差。</p><p><span class="marginnote">Britten-Jones–Neuberger 要求样本路径连续。有跳跃时，方差互换复制出的是 \(\mathbb{E}^{\mathbb{Q}}[-2\ln(S_T/F)-2(S_T/F-1)]\) 一类对数合约，与 \(\mathbb{E}^{\mathbb{Q}}[\sum(\Delta S/S)^2]\) 差一项跳跃凸性。指数上跳跃不可忽略，VIX 对二次变差是近似，对对数合约更忠实。</span></p><h3 id="信息含量检验" tabindex="-1">信息含量检验 <a class="header-anchor" href="#信息含量检验" aria-label="Permalink to &quot;信息含量检验&quot;">​</a></h3><p>早期文献问：隐含波动能否预测后续已实现波动，是否涵盖 GARCH 与历史 RV。结论通常是：IV 有信息，但不充分统计；RV 的滞后项仍显著。这与「IV 是 \(\mathbb{Q}\) 期望、RV 是 \(\mathbb{P}\) 实现」并不矛盾：即使 \(\mathbb{Q}\) 期望是 RV 的最优风险中性预测，物理测度下的最优预测仍可依赖历史 RV。把 IV 放进 HAR 的外生项，是工程上折中，不是把两个测度当成一个。</p><h2 id="边界与工程取舍" tabindex="-1">边界与工程取舍 <a class="header-anchor" href="#边界与工程取舍" aria-label="Permalink to &quot;边界与工程取舍&quot;">​</a></h2><p>执行价网格疏、远翼无报价时，积分要外推微笑。外推方法（常弹性、SABR、截断）会改变无模型 IV 几个点，对个股尤其严重。美式、股息、提前行权破坏欧式复制；用美式反推欧式再积分，引入模型。买卖价差使虚值期权中点偏贵，IV 偏高，部分「溢价」其实是流动性。</p><p>不要把单一 \(K\) 的 IV 与 RV 的标准差比：单位先统一到方差，再开方。不要用含隔夜的收盘 RV 去对交易时段的方差互换。高频 RV 有<a href="/quant/microstructure-noise">微观结构噪声</a>，朴素一分钟 RV 会假高，让 IV−RV 假小。跳跃日 RV 含跳，无模型 IV 含跳跃溢价，裂口解释要分开连续方差与跳。</p><p>交易上，做空「IV 减 RV」是做空方差风险溢价，不是做一个无风险的预测误差。跳跃、缺口、离散对冲误差会在溢价最宽的日子兑现。复制要用整条链，用 ATM 期权当方差互换是 Delta 对冲后的近似，偏斜大时误差大。</p><p><span class="marginnote">同一标的的 IV 曲面与 RV 估计都依赖清洗与同步。期权延迟、现货期货基差、除息，都会制造假的 IV−RV。比较论文时先看：无模型还是 ATM、RV 的采样与噪声修正、样本是否剔除跳跃日。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>无模型隐含方差由虚值期权对 \(1/K^2\) 积分得到，对应风险中性期望二次变差（扩散假设下）；ATM 的 Black–Scholes IV 不是同一对象。</li><li>RV 估物理测度下已实现的积分方差；IV 与后续 RV 之差含预测误差与方差风险溢价，指数上 IV 通常更高。</li><li>Britten-Jones–Neuberger 给出扩散族里隐含过程的唯一性；有跳跃时复制对准对数合约，与二次变差有凸性差。</li><li>对齐期限、隔夜、噪声修正与跳跃处理之后，才能谈「隐含是否高估已实现」。</li><li>VIX 是方差互换费率的离散近似，不是对未来波动的无偏点预测。</li><li>出处：Britten-Jones and Neuberger, <em>Journal of Finance</em>, 2000；复制恒等式见 Carr and Madan, Towards a Theory of Volatility Trading；方差互换见 Demeterfi, Derman, Kamal, Zou；无模型 IV 的经验实施见 Jiang and Tian, <em>Review of Financial Studies</em>, 2005；溢价见 Bollerslev, Tauchen, Zhou 与 Carr and Wu。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 时间序列<!--[--> · 单元 收益与波动<!--]--><!--[--> · 课序 波动<!--]--></p><p class="lesson-progress">第 9 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/evt/">极值理论 EVT</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

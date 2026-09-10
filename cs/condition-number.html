@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>条件数 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.CC8Wo1gR.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.96509d72.js"></script>
+    <script type="module" src="/assets/app.CklzBiWw.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.InCnrqk-.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.C8ukg3AQ.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.BCPl2Yo-.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.C6E8suM_.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.CjNlbMrG.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.DIqNpIXl.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.CB3qsD-t.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DHplgUGa.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.DmFtAngB.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.DanNOANF.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.nEW5MERP.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.YRt2N0Li.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.CH6tBVs8.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.BVr0QQTs.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.BZEDqjfU.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.BEEf7c9B.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.ChRwhq5h.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.CG27GDmJ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.Cj5pmo9L.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.C3uKAir7.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.JlfKOBws.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.CnRKmehZ.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.BRi39K3u.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.DLwGljUB.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.kGxk7k4-.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.DgqSZoG9.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.Dr3AuhVj.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.CVGe_Ck7.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.C93ZzEqT.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.CW4pIxOp.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.lDcPRqHF.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.Bha3D2Uo.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.D6Q9BfmH.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.CBfkm10q.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.C0_tIs9q.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.xWktRbEy.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.BEZG2iKe.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.BbJR7cgh.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.D8Q-56Xs.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.kVtmp0UU.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.DNYWk1NW.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_condition-number.md.D7h1HSvi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 浮点之后<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/fp-error-propagation/">舍入误差如何传播</a></p><p class="lesson-next"> 下一课：<a href="/cs/forward-backward-stability/">前向稳定与后向稳定</a></p></nav><div style="position:relative;"><div><h1 id="条件数" tabindex="-1">条件数 <a class="header-anchor" href="#条件数" aria-label="Permalink to &quot;条件数&quot;">​</a></h1><div class="epigraph"><p>条件数度量问题本身：输入的相对扰动能把输出相对地放大多少；它不关心你用哪一种算法去解。</p><footer>—— 据 Higham, Accuracy and Stability of Numerical Algorithms；Trefethen and Bau, Numerical Linear Algebra 整理</footer></div><p>上一课<a href="/cs/fp-error-propagation">舍入误差如何传播</a>把每步 \(\mathrm{fl}\) 写成 \((1+\delta)\)。本课不重推 \(\gamma_n\)，也不从范数公理课另起。缺口是：机器注入的扰动已经有记号了，<strong>数据里原本就有的扰动、以及问题把扰动放大的倍数，还没有名字</strong>。没有条件数，就无法判断「位数全丢」究竟该怪算法还是该怪问题。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把问题看成映射 \(f\)：数据 \(x\) 映到解 \(y=f(x)\)。相对条件数是输出相对变化与输入相对变化之比，在扰动趋于 0 时的上确界。对可微标量，\(|f&#39;(x)|\,|x|/|f(x)|\) 给出一阶估计。缺口因此不是再写一遍舍入模型，而是<strong>把 \(f\) 的敏感度从实现里抽出来</strong>。同一 \(f\) 可以用稳定或不稳定的算法来求；条件数只看 \(f\)。</p><p>线性方程 \(Ax=b\) 的 \(f\) 是「给定 \(A,b\) 求 \(x\)」。后课矩阵范数会把这条写成 \(\kappa(A)=\|A\|\,\|A^{-1}\|\)。本课先在标量与一阶图像上建立定义，避免一上来陷入范数选择。求根、插值同样有各自的 \(f\)；龙格现象里插值映射可以极病态，那是最后一课。</p><h3 id="病态不是「算法写错了」" tabindex="-1">病态不是「算法写错了」 <a class="header-anchor" href="#病态不是「算法写错了」" aria-label="Permalink to &quot;病态不是「算法写错了」&quot;">​</a></h3><p>\(\kappa\) 大表示精确算术下数据一动解就大动。换高精度、换主元，都无法把问题变成良态；最多把算法自己的注入压下去，让总误差接近条件数给出的下限。把病态当成 bug，会去「调算法」而拒绝承认测量数据配不上这个 \(f\)。相反，\(\kappa\) 接近 1 仍可能因不稳定算法丢掉所有位数。</p><p><span class="marginnote">Trefethen and Bau 把条件数与后向稳定并列成数值线性代数的两根轴。Higham 第 1 章区分问题与算法。本课不把 Wilkinson 的完整矩阵条件理论写完，只留定义与分工。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>标量：\(\kappa\approx |xf&#39;(x)/f(x)|\)。减法 \(f(a,b)=a-b\) 在 \(a\approx b\) 时 \(\kappa\) 相对输出可以很大——这是消去课的问题侧。线性方程组：后课用矩阵范数精确写 \(\kappa(A)\)；本课先记住「\(A\) 接近奇异则 \(\kappa\) 大」。求值多项式在特定基下也可以病态，即使根分离良好。</p><div class="mermaid"></div><p>经验规则：若 \(\kappa\approx 10^k\)，相对输入误差 \(10^{-d}\) 可能只剩 \(d-k\) 位可靠。这是数量级，不是定理；范数与扰动结构会修正它。</p><p>相对与绝对条件要分开：接近零的输出用相对误差可以人为变大，绝对值其实稳定。选择哪一种取决于应用把什么当「准」。线性方程通常用相对；求一个可能为零的量要用绝对或混合。后课矩阵范数把 \(\kappa\) 变成可算的 \(\|A\|\|A^{-1}\|\)；本课的标量图像已经够用来读「放大多少位」。算法课的合格线始终是：注入的后向误差约 \(u\)，前向大约 \(\kappa u\)，不要无故平方 \(\kappa\)。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>条件数把「能从数据里读出多少解的信息」量化。测量、离散化、把实数输入成浮点，都是数据扰动。算法再叠加舍入。后课后向稳定说：好算法表现得像「只扰动了数据一点再精确求解」；于是总相对误差约 \(\kappa\) 乘上机器 \(\varepsilon\) 量级。这就是两课必须分开的原因：一个乘在 \(f\) 上，一个乘在实现上。</p><p>线性映射的 \(\kappa_2\) 等于最大与最小奇异值之比，几何上是单位球被拉成椭球后的轴比。缩放一行可以改 \(\|A\|\) 而不改真正的解敏感度，所以比较矩阵「谁更病态」前要先问范数与平衡。非线性 \(f\) 的条件随点而变：根附近 \(f&#39;\) 接近 0 则求根病态，即使牛顿每步的线性系看起来良态。插值课会看到采样点一变，\(\kappa\) 可以差指数级。本课先把「放大倍数属于 \(f\)」这句话钉死，后面每一课的算法合格线都是：不要在 \(\kappa\) 给出的下限之上再糟一个数量级。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不选矩阵范数、不证 \(\kappa(A)=\|A\|\,\|A^{-1}\|\)。下一课<a href="/cs/forward-backward-stability">前向稳定与后向稳定</a>定义算法好坏。后课默认：条件数属于问题；良态仍可能被坏算法毁掉；病态不能靠换主元治愈。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>条件数是 \(f\) 对数据扰动的相对放大，与算法无关。</li><li>病态给出误差下界；稳定算法把注入压到接近这个下界。</li><li>减法、近奇异线性系、某些插值都是典型病态 \(f\)。</li><li>下一课用前向/后向误差判断算法。</li><li>出处：Higham；Trefethen and Bau。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数值计算<!--[--> · 单元 误差与稳定<!--]--><!--[--> · 课序 浮点之后<!--]--></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/forward-backward-stability/">前向稳定与后向稳定</a></p></nav></section></article><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>
