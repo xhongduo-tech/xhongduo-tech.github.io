@@ -30,7 +30,7 @@ Zou 等人优化的不是完整危害内容，而是一个短的**肯定性开�
 把用户查询固定为 $q$，可优化后缀为 $s = (s_1,\ldots,s_m)$，完整输入 $x = q \oplus s$。损失针对目标开场 $y^\star$ 的教师强制对数似然，形式上是
 
 $$
-\mathcal{L}(s) = -\sum_{t} \log p_\theta(y^\star_t \mid q \oplus s \oplus y^\star_{<t}).
+\mathcal{L}(s) = -\sum_{t} \log p_\theta(y^\star_t \mid q \oplus s \oplus y^\star_{\lt t}).
 $$
 
 GCG 的一步大致是：对当前位置的 one-hot 取 $\nabla_{e} \mathcal{L}$，在嵌入空间找出最能降损失的若干候选 token，再在这些候选上做前向，真正换上损失最低的那一个；对各个位置轮换，故称坐标。多查询、多模型可以共享同一段 $s$，于是有「通用后缀」的说法：优化目标变成若干 $(q, \theta)$ 上损失之和。转移则是在优化时从未见过的模型上测同一 $s$。

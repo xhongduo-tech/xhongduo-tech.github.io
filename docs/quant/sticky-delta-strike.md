@@ -45,7 +45,7 @@ $$
 \frac{\partial\sigma}{\partial S}=-\frac{K}{S^2}\sigma'(K/S),
 $$
 
-总 Delta = Black Delta + Vega $\times$ 该项。负偏斜、看跌，$K<S$，$\sigma'$ 的符号使下跌抬高该 $K$ 的隐含波动，多头看跌的总 Delta 更负（更需要买现货对冲）。做市若用错规则，会系统性偏一侧库存。
+总 Delta = Black Delta + Vega $\times$ 该项。负偏斜、看跌，$K\lt S$，$\sigma'$ 的符号使下跌抬高该 $K$ 的隐含波动，多头看跌的总 Delta 更负（更需要买现货对冲）。做市若用错规则，会系统性偏一侧库存。
 
 **从市场估计 SSR。** 用现货移动日的 ATM 隐含波动变化对 $\Delta\log S$ 回归，再用同日偏斜标准化。噪声大，需按期限分桶、剔除事件日或单独报事件日。不要用跨到期混合样本。对照模型：在 Bergomi / Heston / rBergomi 里对 $S$ 做 bump（或看模拟的条件微笑），读出 SSR 期限结构，再与回归值比，而不是只比今日拟合。
 

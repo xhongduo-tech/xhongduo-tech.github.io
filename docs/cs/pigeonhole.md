@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-有限集 $A$ 到更小的有限集 $B$ 没有单射。缺口因此不是新的归纳格式，而是把这句话当引理用：把对象当鸽子、取值当笼子，得出两个对象同值。加强版：$\lvert A\rvert>m\lvert B\rvert$ 则某笼子至少 $m+1$ 只。
+有限集 $A$ 到更小的有限集 $B$ 没有单射。缺口因此不是新的归纳格式，而是把这句话当引理用：把对象当鸽子、取值当笼子，得出两个对象同值。加强版：$\lvert A\rvert\gt m\lvert B\rvert$ 则某笼子至少 $m+1$ 只。
 
 本课不数「有多少种放法」——排列组合在图与树之后才系统上。[容斥](/cs/inclusion-exclusion)给并集的精确计数，鸽笼只管「至少一个非空过载」。生日问题的概率形式要等离散概率；这里只谈必然重复。
 
@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-声明 $B$ 是笼子、$A$ 是鸽子，验证 $\lvert A\rvert>\lvert B\rvert$。加强版用反证：若每笼 $\le m$，则 $\lvert A\rvert\le m\lvert B\rvert$。典型： $n+1$ 个整数中有两个模 $n$ 同余——笼子是余数 $0,\ldots,n-1$。$n^2+1$ 个两两比较的序列里有单调子列，本课不把 Erdős–Szekeres 写完，只表明加强版能走多远。
+声明 $B$ 是笼子、$A$ 是鸽子，验证 $\lvert A\rvert\gt \lvert B\rvert$。加强版用反证：若每笼 $\le m$，则 $\lvert A\rvert\le m\lvert B\rvert$。典型： $n+1$ 个整数中有两个模 $n$ 同余——笼子是余数 $0,\ldots,n-1$。$n^2+1$ 个两两比较的序列里有单调子列，本课不把 Erdős–Szekeres 写完，只表明加强版能走多远。
 
 ```mermaid
 flowchart TD

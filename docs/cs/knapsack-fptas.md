@@ -40,7 +40,7 @@ flowchart TD
 
 ## 机制
 
-每个物品价值误差 $<K$，最多 $n$ 件，总误差 $<\varepsilon v_{\max}\le\varepsilon\,\mathrm{OPT}$（若 OPT $\ge v_{\max}$）。容量约束未放松。与伪多项式：状态值域变成 $O(n^2/\varepsilon)$。与 PTAS：FPTAS 要 $\mathrm{poly}(n,1/\varepsilon)$，PTAS 允许 $n^{f(1/\varepsilon)}$。
+每个物品价值误差 $\lt K$，最多 $n$ 件，总误差 $\lt \varepsilon v_{\max}\le\varepsilon\,\mathrm{OPT}$（若 OPT $\ge v_{\max}$）。容量约束未放松。与伪多项式：状态值域变成 $O(n^2/\varepsilon)$。与 PTAS：FPTAS 要 $\mathrm{poly}(n,1/\varepsilon)$，PTAS 允许 $n^{f(1/\varepsilon)}$。
 
 ## 边界
 

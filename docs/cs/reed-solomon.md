@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Reed and Solomon, 1960；MacWilliams and Sloane 整理</footer>
 </div>
 
-上一课[汉明码](/cs/hamming-code) 是二元、纠 1 比特。缺口是**符号级**：磁盘扇区、QR、光盘上的突发错误。Reed–Solomon（RS）在 $\mathbb{F}_q$ 上，$q>n$，码字是次数 $<k$ 的多项式的求值向量。$d_{\min}=n-k+1$（Singleton 达到，MDS）。本课要求值图像；有限域构造在数论单元。
+上一课[汉明码](/cs/hamming-code) 是二元、纠 1 比特。缺口是**符号级**：磁盘扇区、QR、光盘上的突发错误。Reed–Solomon（RS）在 $\mathbb{F}_q$ 上，$q\gt n$，码字是次数 $\lt k$ 的多项式的求值向量。$d_{\min}=n-k+1$（Singleton 达到，MDS）。本课要求值图像；有限域构造在数论单元。
 
 ## 问题
 
@@ -31,7 +31,7 @@ section: cs
 
 ```mermaid
 flowchart TD
-  MSG["k 个系数"] --> POLY["次数 < k 的多项式"]
+  MSG["k 个系数"] --> POLY["次数 ＜ k 的多项式"]
   POLY --> EVAL["n 个点求值"]
   EVAL --> MDS["d = n-k+1"]
 ```

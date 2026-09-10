@@ -11,11 +11,11 @@ section: econ
 <footer>—— 据 Debreu, Theory of Value, 1959；Mas-Colell, Whinston and Green 第 17 章与数学附录整理</footer>
 </div>
 
-上一课[压缩映射](/econ/contraction-mapping)给出唯一不动点与算法。超额需求、最优反应（单值时）通常只有连续性与紧凸值域，没有 $\beta<1$。缺口是存在性，不是唯一、不是迭代。Brouwer：紧凸 $C\subset\mathbb{R}^n$，$f:C\to C$ 连续，则存在 $x=f(x)$。Kakutani 把 $f$ 换成对应，下一课再补。
+上一课[压缩映射](/econ/contraction-mapping)给出唯一不动点与算法。超额需求、最优反应（单值时）通常只有连续性与紧凸值域，没有 $\beta\lt 1$。缺口是存在性，不是唯一、不是迭代。Brouwer：紧凸 $C\subset\mathbb{R}^n$，$f:C\to C$ 连续，则存在 $x=f(x)$。Kakutani 把 $f$ 换成对应，下一课再补。
 
 ## 问题
 
-单纯形 $\Delta^{n-1}=\{p\ge 0:\sum p_i=1\}$ 紧凸。把超额需求 $z(p)$ 改造成 $f(p)\propto p+\max\{z(p),0\}$ 一类的连续自映射（Walras 定律帮助像仍在单纯形上），不动点满足 $z(p^*)\le 0$ 且对 $p_i^*>0$ 有 $z_i=0$。这是[存在性与不动点](/econ/ge-existence)的骨架。本课不把 Debreu 的论证写完，只把 Brouwer 的假设与结论钉死：连续、紧、凸、自映射，四件缺一不可。
+单纯形 $\Delta^{n-1}=\{p\ge 0:\sum p_i=1\}$ 紧凸。把超额需求 $z(p)$ 改造成 $f(p)\propto p+\max\{z(p),0\}$ 一类的连续自映射（Walras 定律帮助像仍在单纯形上），不动点满足 $z(p^*)\le 0$ 且对 $p_i^*\gt 0$ 有 $z_i=0$。这是[存在性与不动点](/econ/ge-existence)的骨架。本课不把 Debreu 的论证写完，只把 Brouwer 的假设与结论钉死：连续、紧、凸、自映射，四件缺一不可。
 
 博弈里纯策略最优反应若单值连续，纳什就是 Brouwer。最优反应多半集值，要 Kakutani；有限博弈混合策略单纯形上的期望收益对混合概率线性，最佳反应凸值上半连续，那是后两课。本课先承认：单值连续已经够用 Brouwer。
 

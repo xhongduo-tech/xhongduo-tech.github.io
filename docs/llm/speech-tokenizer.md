@@ -32,7 +32,7 @@ SoundStream 把波形编码为多层残差向量量化（RVQ）码流，并用�
 $$
 \mathbf{e} = E(x),\qquad
 z^{(1)}=\mathrm{Q}_1(\mathbf{e}),\quad
-z^{(q)}=\mathrm{Q}_q\Bigl(\mathbf{e}-\sum_{i<q}\mathrm{Decode}_i(z^{(i)})\Bigr).
+z^{(q)}=\mathrm{Q}_q\Bigl(\mathbf{e}-\sum_{i\lt q}\mathrm{Decode}_i(z^{(i)})\Bigr).
 $$
 
 每层 $z^{(q)}$ 是码本下标，全部层拼起来描述该帧的声学。语言模型可以只预测第一层（粗结构）再并行或自回归补残差层。

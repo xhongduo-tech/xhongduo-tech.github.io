@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-企业抽到生产率 $\varphi$，支付固定生产成本。出口另付固定成本 $f_x$ 与冰山 $\tau$。只有 $\varphi\ge\varphi_x^*>\varphi^*$（国内存活门槛）的企业出口。开放：出口机会提高利润预期，进入增加，国内门槛 $\varphi^*$ 上升，最低效企业退出。行业加总生产率升。缺口不是再讲 Krugman 品种，而是：贸易的增益有一块来自**组内再配置**，即使没有 HO 的要素再配置。这与[生产函数](/econ/production-function-estimation)估到的厂级 $\omega$ 分布对接：Melitz 把分布的截断当成一般均衡结果。
+企业抽到生产率 $\varphi$，支付固定生产成本。出口另付固定成本 $f_x$ 与冰山 $\tau$。只有 $\varphi\ge\varphi_x^*\gt \varphi^*$（国内存活门槛）的企业出口。开放：出口机会提高利润预期，进入增加，国内门槛 $\varphi^*$ 上升，最低效企业退出。行业加总生产率升。缺口不是再讲 Krugman 品种，而是：贸易的增益有一块来自**组内再配置**，即使没有 HO 的要素再配置。这与[生产函数](/econ/production-function-estimation)估到的厂级 $\omega$ 分布对接：Melitz 把分布的截断当成一般均衡结果。
 
 <span class="marginnote">Melitz–Ottaviano、Bernard–Eaton–Jensen–Kortum 是变体。本课以 2003 年 CES + 帕累托（常用闭式）为最小模型。异质是生产率，不是任意固定效应。</span>
 

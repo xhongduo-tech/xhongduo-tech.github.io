@@ -33,7 +33,7 @@ Arrow–Debreu：0 期把所有日期–状态商品一次卖完。Radner：每�
 
 ```mermaid
 flowchart TD
-  GEI["上一课：J < S，两层价格"] --> RAD["计划 + 价格 + 预期"]
+  GEI["上一课：J ＜ S，两层价格"] --> RAD["计划 + 价格 + 预期"]
   RAD --> PF["完美预见：ψ = 实际 p"]
   RAD --> SPAN["只在可交易方向对齐 MRS"]
   PF --> SUN["下一课：外在信号能否进入 ψ"]

@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-分数差分 $(1-L)^d y_t=\eta_t$，$d=0$ 短记忆，$d=1$ 单位根，$0<d<0.5$ 平稳长记忆：$\sum|\gamma_k|=\infty$ 但过程仍弱平稳。ARFIMA 再给 $\eta_t$ 套 ARMA。问题是估计 $d$（Geweke–Porter-Hudak 对数周期图、Whittle、精确时域似然）以及识别：$d$ 与高阶 AR、与结构突变、与体制混合（Granger 的聚合论证） observationally 纠缠。
+分数差分 $(1-L)^d y_t=\eta_t$，$d=0$ 短记忆，$d=1$ 单位根，$0\lt d\lt 0.5$ 平稳长记忆：$\sum|\gamma_k|=\infty$ 但过程仍弱平稳。ARFIMA 再给 $\eta_t$ 套 ARMA。问题是估计 $d$（Geweke–Porter-Hudak 对数周期图、Whittle、精确时域似然）以及识别：$d$ 与高阶 AR、与结构突变、与体制混合（Granger 的聚合论证） observationally 纠缠。
 
 日收益本身通常不是长记忆；**平方与 RV** 才是。对收益水平套 ARFIMA 是错对象。对 RV，Corsi 的 HAR 用日周月约束 AR(22) 近似长记忆，估计稳、保正性。ARFIMA 的 $d$ 在短样本噪，预测还要保证正的波动。
 
@@ -23,7 +23,7 @@ section: quant
 
 Diebold 与 Inoue 等说明：忽略断点时 $\hat d$ 偏上。GARCH 的 $\alpha+\beta\approx 1$ 是短记忆的慢指数，有限样本 ACF 也可拖尾。应先：分段或允许水平位移，再估 $d$；对照 HAR 的样本外。对象是谱的零频形状，不是「市场有记忆」的叙事。
 
-<span class="marginnote">$d>0.5$ 非平稳；对 RV 若估到 0.4–0.45，应怀疑断点或近单位根，而不是宣称更强的长记忆。对数 RV 常更接近平稳，HAR 也常建在 $\log RV$ 上。</span>
+<span class="marginnote">$d\gt 0.5$ 非平稳；对 RV 若估到 0.4–0.45，应怀疑断点或近单位根，而不是宣称更强的长记忆。对数 RV 常更接近平稳，HAR 也常建在 $\log RV$ 上。</span>
 
 ## 方法
 
@@ -51,7 +51,7 @@ Diebold 与 Inoue 等说明：忽略断点时 $\hat d$ 偏上。GARCH 的 $\alph
 
 ## 边界与工程取舍
 
-$T<1000$ 日估 $d$ 很噪。多元、缺失、隔夜拼接会污染低频谱。不要对价格水平 ARFIMA$(0,d,0)$ 再解释为「可预测」——那是近单位根。不要用 $\hat d$ 做交易信号。
+$T\lt 1000$ 日估 $d$ 很噪。多元、缺失、隔夜拼接会污染低频谱。不要对价格水平 ARFIMA$(0,d,0)$ 再解释为「可预测」——那是近单位根。不要用 $\hat d$ 做交易信号。
 
 工程：RV 预测默认 HAR；用 ARFIMA 做 $d=0$ 的描述与稳健性。先断点、再分整。下一课给出比较这些模型的损失函数。
 

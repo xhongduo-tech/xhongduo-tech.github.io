@@ -27,7 +27,7 @@ section: llm
 
 ## 方法
 
-硬规则（论文 Algorithm 1）用前一枚 token $s^{(t-1)}$ 的哈希播种伪随机数，把词表对半划成绿表 $G$ 与红表 $R$，下一步只从 $G$ 采样。它容易分析，但对低熵位置过狠。软规则（Algorithm 2）引入绿表比例 $\gamma\in(0,1)$ 与硬度 $\delta>0$：绿表大小为 $\gamma|\mathcal{V}|$，只把绿表位置的 logits 加上 $\delta$，再 softmax 采样。$\delta=0$ 退回无水印；$\gamma=1/2$、$\delta\to\infty$ 接近硬规则。
+硬规则（论文 Algorithm 1）用前一枚 token $s^{(t-1)}$ 的哈希播种伪随机数，把词表对半划成绿表 $G$ 与红表 $R$，下一步只从 $G$ 采样。它容易分析，但对低熵位置过狠。软规则（Algorithm 2）引入绿表比例 $\gamma\in(0,1)$ 与硬度 $\delta\gt 0$：绿表大小为 $\gamma|\mathcal{V}|$，只把绿表位置的 logits 加上 $\delta$，再 softmax 采样。$\delta=0$ 退回无水印；$\gamma=1/2$、$\delta\to\infty$ 接近硬规则。
 
 检测复现每一步的绿表，统计长度为 $T$ 的片段里落在绿表的次数 $|s|_G$。原假设 $H_0$ 是「文本的生成不知道绿表规则」，则 $\mathbb{E}[|s|_G]=\gamma T$，方差为 $T\gamma(1-\gamma)$。单比例 $z$ 统计量为
 
@@ -35,7 +35,7 @@ $$
 z=\frac{|s|_G-\gamma T}{\sqrt{T\gamma(1-\gamma)}}.
 $$
 
-硬规则 $\gamma=1/2$ 时退化为论文里的 $z=2(|s|_G-T/2)/\sqrt{T}$。选定阈值（例如 $z>4$，单侧假阳性约 $3\times 10^{-5}$）后，拒绝 $H_0$ 即判定含水印。图 1 的例子用 OPT-6.7B、$\gamma=0.25$、$\delta=2$ 的多项式采样，约 28 个绿表 token 对上无水印期望的 9 个，偶然概率约 $6\times 10^{-14}$。代码在 `jwkirchenbauer/lm-watermarking`。
+硬规则 $\gamma=1/2$ 时退化为论文里的 $z=2(|s|_G-T/2)/\sqrt{T}$。选定阈值（例如 $z\gt 4$，单侧假阳性约 $3\times 10^{-5}$）后，拒绝 $H_0$ 即判定含水印。图 1 的例子用 OPT-6.7B、$\gamma=0.25$、$\delta=2$ 的多项式采样，约 28 个绿表 token 对上无水印期望的 9 个，偶然概率约 $6\times 10^{-14}$。代码在 `jwkirchenbauer/lm-watermarking`。
 
 ```mermaid
 flowchart TD

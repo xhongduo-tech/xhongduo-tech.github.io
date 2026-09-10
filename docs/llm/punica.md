@@ -39,7 +39,7 @@ $$
 y = y_0 + B_i A_i x
 $$
 
-（实现里常再乘 $\alpha/r$）。Punica 把 $x\mapsto Ax$ 与 $v\mapsto Bv$ 收成同一种算子：Segmented Gather Matrix-Vector Multiplication（SGMV）。先按适配器 id 把同一 $A,B$ 的请求排成连续分段，记分界 $s_0=0<\cdots<s_n=B$，第 $k$ 段对应一个 LoRA：
+（实现里常再乘 $\alpha/r$）。Punica 把 $x\mapsto Ax$ 与 $v\mapsto Bv$ 收成同一种算子：Segmented Gather Matrix-Vector Multiplication（SGMV）。先按适配器 id 把同一 $A,B$ 的请求排成连续分段，记分界 $s_0=0\lt \cdots\lt s_n=B$，第 $k$ 段对应一个 LoRA：
 
 $$
 Y[s_k:s_{k+1}] \mathrel{+}= X[s_k:s_{k+1}]\, W^{(k)},

@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-策略网络输出的是 $\pi_\theta(\cdot\mid s)$。温度为 $\tau$ 的采样来自 $\pi_\theta^{1/\tau}$ 再归一化（对 logits 除 $\tau$）。$\tau>1$ 展平分布，组内更易分叉，[GRPO](/llm/grpo) 更有相对信号；$\tau<1$ 接近 greedy，组内复制，动态采样狂丢组。DAPO 评测 AIME 用温度 1.0、top-$p=0.7$。许多助手服务默认 $\tau=0.7$。用服务温度做训练，探索不足；用训练温度做产品，用户看见胡言。
+策略网络输出的是 $\pi_\theta(\cdot\mid s)$。温度为 $\tau$ 的采样来自 $\pi_\theta^{1/\tau}$ 再归一化（对 logits 除 $\tau$）。$\tau\gt 1$ 展平分布，组内更易分叉，[GRPO](/llm/grpo) 更有相对信号；$\tau\lt 1$ 接近 greedy，组内复制，动态采样狂丢组。DAPO 评测 AIME 用温度 1.0、top-$p=0.7$。许多助手服务默认 $\tau=0.7$。用服务温度做训练，探索不足；用训练温度做产品，用户看见胡言。
 
 top-$p$ / top-$k$ 把支撑截断，IS 的 $\pi_\theta$ 若在全词表上算，与真正 $\pi_{\mathrm{beh}}$ 不一致。要么训练前向也施加同一截断，要么训练期关掉核采样，只留温度。
 

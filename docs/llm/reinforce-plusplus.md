@@ -21,7 +21,7 @@ PPO 的价值头在 LLM 上贵。Critic-free 方法用同题多样本估 $A$，�
 
 ### 两个变体不要混名
 
-REINFORCE++（可 $k\ge 1$）：把 KL 惩罚进逐步奖励（k1 风格），再对 $A$ 做全局标准化，走 PPO 式 clip。主打通用偏好、要提示多样性时取 $k=1$。REINFORCE++ **w/ Baseline**（$k>1$）：先减**组均值**做尺度重整，再除**全局 std**（不用组内 std），KL 用单独的 $k_2$ 损失 $\frac12(\log\pi_\theta/\pi_{\mathrm{ref}})^2$。主打复杂推理 / agent。后者才是「有组采样的 ++」，不要把 GRPO 的局部 std 安到这个名字上。
+REINFORCE++（可 $k\ge 1$）：把 KL 惩罚进逐步奖励（k1 风格），再对 $A$ 做全局标准化，走 PPO 式 clip。主打通用偏好、要提示多样性时取 $k=1$。REINFORCE++ **w/ Baseline**（$k\gt 1$）：先减**组均值**做尺度重整，再除**全局 std**（不用组内 std），KL 用单独的 $k_2$ 损失 $\frac12(\log\pi_\theta/\pi_{\mathrm{ref}})^2$。主打复杂推理 / agent。后者才是「有组采样的 ++」，不要把 GRPO 的局部 std 安到这个名字上。
 
 <span class="marginnote">GRPO 常用 Schulman 的 $k_3$ KL 无偏正估计。++ w/ Baseline 改 $k_2$ 当损失，梯度对反向 KL 更稳。这是实现差分，与全局标准化独立。</span>
 

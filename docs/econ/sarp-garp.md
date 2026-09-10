@@ -17,11 +17,11 @@ section: econ
 
 直接显示 $x^t\,R^D\,x^s$：当期选 $x^t$ 且 $p^t\cdot x^s\le p^t\cdot x^t$。WARP 禁止 $x^t\,R^D\,x^s\,R^D\,x^t$ 且二者不等。三个观测可以 $x^1\,R^D\,x^2\,R^D\,x^3\,R^D\,x^1$，两两检查都不触发 WARP。钱泵在链上，不在成对上。缺口是把传递闭包管起来。
 
-强公理 SARP：间接显示偏好 $R$（$R^D$ 的传递闭包）无循环——若 $x^1 R x^k$ 且诸束不全相等，则不能 $x^k R^D x^1$。广义公理 GARP（Varian, 1982）：若 $x R y$，则不能 $p_y\cdot x<p_y\cdot y$。GARP 允许无差异造成的「平的」集值需求；SARP 更适合单值需求。有限观测上，GARP 才是「存在凹效用合理化」的恰条件。
+强公理 SARP：间接显示偏好 $R$（$R^D$ 的传递闭包）无循环——若 $x^1 R x^k$ 且诸束不全相等，则不能 $x^k R^D x^1$。广义公理 GARP（Varian, 1982）：若 $x R y$，则不能 $p_y\cdot x\lt p_y\cdot y$。GARP 允许无差异造成的「平的」集值需求；SARP 更适合单值需求。有限观测上，GARP 才是「存在凹效用合理化」的恰条件。
 
 ### Afriat 把公理收成线性不等式
 
-Afriat（1967）：GARP 成立当且仅当存在数 $u^t$、$\lambda^t>0$ 使
+Afriat（1967）：GARP 成立当且仅当存在数 $u^t$、$\lambda^t\gt 0$ 使
 
 $$
 u^s\le u^t+\lambda^t p^t\cdot(x^s-x^t).

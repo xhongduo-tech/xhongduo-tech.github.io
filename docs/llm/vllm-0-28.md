@@ -49,7 +49,7 @@ flowchart TD
 
 ## 机制
 
-设序列长 $T$、KV 头 $H$、TP 为 $P$。无 DCP 时每卡存约 $T \times \lceil H/P \rceil$ 的 KV，当 $P>H$ 则每卡存满 $T$。DCP size 为 $D$ 时，沿 $T$ 再切 $D$ 份，每卡约 $T/D$ 再乘头维分片。容量换的是：合并注意力所需的跨卡归约。在线 softmax 必须交换分子与分母的 log-sum-exp，否则分片上的局部 softmax 不能拼成全局分布。这与训练里的 context parallel 同一数值问题，只是 decode 的 Q 长度退化成 1。
+设序列长 $T$、KV 头 $H$、TP 为 $P$。无 DCP 时每卡存约 $T \times \lceil H/P \rceil$ 的 KV，当 $P\gt H$ 则每卡存满 $T$。DCP size 为 $D$ 时，沿 $T$ 再切 $D$ 份，每卡约 $T/D$ 再乘头维分片。容量换的是：合并注意力所需的跨卡归约。在线 softmax 必须交换分子与分母的 log-sum-exp，否则分片上的局部 softmax 不能拼成全局分布。这与训练里的 context parallel 同一数值问题，只是 decode 的 Q 长度退化成 1。
 
 分层卸载的正确性仍是「块只读」。写只发生在追加新 token 的 HBM 分配；冷块换出不必写回脏页。部分加载意味着一次 get 可以只带回前缀若干 chunk，引擎要用细粒度前缀匹配（0.28 也修了 partial-tail reuse，#50507）接上，而不是假定二级介质原子地有整段序列。规范 CPU 布局让 TP 变化时仍能解释同一块字节，这是卸载能跨并行度存活的前提。
 

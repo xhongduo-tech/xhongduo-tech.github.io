@@ -39,15 +39,15 @@ Token 级：维护一个结束 id 集合，每步采样后若 `y_t\in S_{\mathrm
 
 ```mermaid
 flowchart TD
-  SAMP["采样下一个 token"] --> DEC["解码累计字符串"]
-  SAMP --> EOS{"id ∈ eos 集合?"}
-  EOS -->|是| STOP["结束：finish=eos"]
-  DEC --> STR{"后缀命中 stop 串?"}
-  STR -->|是| CUT["裁掉匹配段，finish=stop"]
-  STR -->|否，但是某模式的真前缀| HOLD["挂起流式增量"]
-  STR -->|否，且非前缀| EMIT["向客户端提交增量"]
-  SAMP --> LEN{"达到 max_tokens?"}
-  LEN -->|是| TRUNC["结束：finish=length"]
+  SAMP["采样下一个 token"] --\gt  DEC["解码累计字符串"]
+  SAMP --\gt  EOS{"id ∈ eos 集合?"}
+  EOS --\gt |是| STOP["结束：finish=eos"]
+  DEC --\gt  STR{"后缀命中 stop 串?"}
+  STR --\gt |是| CUT["裁掉匹配段，finish=stop"]
+  STR --\gt |否，但是某模式的真前缀| HOLD["挂起流式增量"]
+  STR --\gt |否，且非前缀| EMIT["向客户端提交增量"]
+  SAMP --\gt  LEN{"达到 max_tokens?"}
+  LEN --\gt |是| TRUNC["结束：finish=length"]
 ```
 
 ## 机制

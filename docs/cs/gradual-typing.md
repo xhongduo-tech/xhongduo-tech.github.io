@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Siek and Taha, Gradual Typing, 2006；Tobin-Hochstadt and Felleisen, Interlanguage Migration；Pierce TAPL 对照整理</footer>
 </div>
 
-上一课[效应](/cs/effect-systems)假定类型已知。缺口是**部分注解**：TypeScript、Typed Racket 让未注的部分当 $\star$，注了的部分走 STLC/HM。一致性（consistency）$\sim$ 不是 $<:$：$\star\sim\tau$ 对任意 $\tau$。本课钉强制与 blame，不把 TypeScript 的 `any` 逃逸当健全样本。
+上一课[效应](/cs/effect-systems)假定类型已知。缺口是**部分注解**：TypeScript、Typed Racket 让未注的部分当 $\star$，注了的部分走 STLC/HM。一致性（consistency）$\sim$ 不是 $\lt :$：$\star\sim\tau$ 对任意 $\tau$。本课钉强制与 blame，不把 TypeScript 的 `any` 逃逸当健全样本。
 
 ## 问题
 

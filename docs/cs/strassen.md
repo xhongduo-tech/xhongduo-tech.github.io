@@ -17,7 +17,7 @@ section: cs
 
 $C=AB$，$n=2^k$。分成四块。Strassen 七个乘积 $P_i$（块的加减组合），再加减拼 $C$ 的块。$T(n)=7T(n/2)+O(n^2)=\Theta(n^{\log_2 7})$。加法更多，数值稳定性比朴素差，阈值下切回 $O(n^3)$。
 
-缺口是这次双线性恒等式。更快的 $\omega$ 记录（Coppersmith–Winograd 族）点名：理论 $\omega<2.373$，实现仍常 Strassen 或朴素。
+缺口是这次双线性恒等式。更快的 $\omega$ 记录（Coppersmith–Winograd 族）点名：理论 $\omega\lt 2.373$，实现仍常 Strassen 或朴素。
 
 ### 不是高斯消元已经最优
 

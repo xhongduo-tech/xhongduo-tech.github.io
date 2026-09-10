@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-softmax 对平移不变：$\ell$ 加常数，$p$ 不变，CE 不变。但对缩放敏感：$\ell$ 乘 $c>1$，分布变锋利。初始化若把 $W_{\mathrm{out}}$ 放得太大，未训练模型已经接近 one-hot，梯度 $p_i(1-p_i)$ 极小，前几百 step 像冻住。放得太小，则 $p$ 接近均匀，CE $\approx\log|V|$，这其实是健康起点——优化从「没有意见」开始，而不是从「错误的自信」开始。
+softmax 对平移不变：$\ell$ 加常数，$p$ 不变，CE 不变。但对缩放敏感：$\ell$ 乘 $c\gt 1$，分布变锋利。初始化若把 $W_{\mathrm{out}}$ 放得太大，未训练模型已经接近 one-hot，梯度 $p_i(1-p_i)$ 极小，前几百 step 像冻住。放得太小，则 $p$ 接近均匀，CE $\approx\log|V|$，这其实是健康起点——优化从「没有意见」开始，而不是从「错误的自信」开始。
 
 [Tied 嵌入](/llm/tied-untied-embedding) 令 $W_{\mathrm{out}}=E$。输入课选的 $\sigma$ 此时直接变成 logit 尺度，不能再单独把输出乘一个小因子而不改输入。untied 时常见做法是输出比输入更小，或按 μP 输出列：避免宽度增长时 logits 以 $\sqrt{d}$ 爆炸。漏掉输出列，正是宽模型「第一步 NaN」的经典原因之一。
 

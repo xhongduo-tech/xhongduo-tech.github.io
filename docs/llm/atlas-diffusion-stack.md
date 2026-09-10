@@ -45,7 +45,7 @@ $$
 v_{\mathrm{cfg}} = v_\theta(z_t,t,\varnothing) + s\bigl(v_\theta(z_t,t,c)-v_\theta(z_t,t,\varnothing)\bigr),
 $$
 
-$s$ 是引导尺度。$s=1$ 回到条件生成；$s>1$ 强化 $c$，包括相机与空间上下文。无分类器训练要求以一定概率丢掉 $c$，才能学到 $v_\theta(\cdot,\varnothing)$。Ho 与 Salimans 2022 年的 CFG 原写在 $\epsilon$ 预测上，思想同样适用。
+$s$ 是引导尺度。$s=1$ 回到条件生成；$s\gt 1$ 强化 $c$，包括相机与空间上下文。无分类器训练要求以一定概率丢掉 $c$，才能学到 $v_\theta(\cdot,\varnothing)$。Ho 与 Salimans 2022 年的 CFG 原写在 $\epsilon$ 预测上，思想同样适用。
 
 蒸馏：教师用多步积分出干净 $\hat{z}$，学生用更少步拟合同一位移，或拟合一致性条件（同一轨迹上不同 $t$ 映到同一终点）。目标是把每帧 NFE 从几十降到个位数，而不把空间一致性整段丢掉。Shifted noise schedules 改变 $t$ 的采样密度，让高噪声或低噪声段多训练，属于同一栈上的日程旋钮。
 

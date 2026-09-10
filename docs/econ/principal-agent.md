@@ -39,7 +39,7 @@ $$
 \frac{1}{u'(w(x))}=\lambda+\mu\Bigl(1-\frac{f(x\mid a_L)}{f(x\mid a_H)}\Bigr)
 $$
 
-（Holmström 的形式）。$\mu>0$ 是 IC 的影子价格，似然比高的 $x$ 工资高。
+（Holmström 的形式）。$\mu\gt 0$ 是 IC 的影子价格，似然比高的 $x$ 工资高。
 
 连续行动的一阶方法：把 IC 换成代理人的 FOC，要求 $F$ 对 $a$ 的单调似然比与 CDF 凸性，否则用 Grossman–Hart 的离散实施。
 

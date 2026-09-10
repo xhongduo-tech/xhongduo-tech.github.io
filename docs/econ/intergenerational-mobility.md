@@ -11,7 +11,7 @@ section: econ
 <footer>—— Becker and Tomes, Human Capital and the Rise and Fall of Families, JLaborE 1986；Chetty, Hendren, Kline and Saez 的美国流动地图</footer>
 </div>
 
-[上一课](/econ/inequality-r-g)谈财富相对增长的膨胀。收入机会可以在财富份额上升时改善或恶化。本课缺口是**代际**：人力资本投资与邻里如何把 $z$ 的马尔可夫从一代接到下一。不重写 $r>g$ 会计。
+[上一课](/econ/inequality-r-g)谈财富相对增长的膨胀。收入机会可以在财富份额上升时改善或恶化。本课缺口是**代际**：人力资本投资与邻里如何把 $z$ 的马尔可夫从一代接到下一。不重写 $r\gt g$ 会计。
 
 ## 问题
 
@@ -50,5 +50,5 @@ flowchart TD
 
 - Becker–Tomes：约束使人力资本投资依赖父母财富。
 - 流动用转移矩阵与秩弹性，不只基尼。
-- 与 $r>g$ 的财富故事时间尺度和机制都不同。
+- 与 $r\gt g$ 的财富故事时间尺度和机制都不同。
 - 出处：Becker and Tomes, *JOLE* 1986；Chetty et al., *QJE* 2014。

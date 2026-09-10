@@ -21,7 +21,7 @@ section: llm
 
 ### 逐步 KL 无法看见序列终点
 
-对提示 $x$，教师分布是 $p_T(y\mid x)=\prod_t p_T(y_t\mid y_{<t},x)$。词表蒸馏在每个 $t$ 最小化 $\mathrm{KL}\bigl(p_T(\cdot\mid y_{<t},x)\,\|\,p_S(\cdot\mid y_{<t},x)\bigr)$，前缀 $y_{<t}$ 通常来自数据或教师。序列级目标近似最大化 $p_S(y^{(T)}\mid x)$，其中 $y^{(T)}$ 是教师的一条完整样本（或束搜索假设）。两条目标在 $p_S=p_T$ 时一致，学生欠容量时差得很远：逐步 KL 是局部的，序列似然才把「后面那些 token 是否还能接上」算进梯度。
+对提示 $x$，教师分布是 $p_T(y\mid x)=\prod_t p_T(y_t\mid y_{\lt t},x)$。词表蒸馏在每个 $t$ 最小化 $\mathrm{KL}\bigl(p_T(\cdot\mid y_{\lt t},x)\,\|\,p_S(\cdot\mid y_{\lt t},x)\bigr)$，前缀 $y_{\lt t}$ 通常来自数据或教师。序列级目标近似最大化 $p_S(y^{(T)}\mid x)$，其中 $y^{(T)}$ 是教师的一条完整样本（或束搜索假设）。两条目标在 $p_S=p_T$ 时一致，学生欠容量时差得很远：逐步 KL 是局部的，序列似然才把「后面那些 token 是否还能接上」算进梯度。
 
 <span class="marginnote">词表蒸馏还要求师生词表可对齐，否则 KL 没有定义。序列蒸馏的接口是文本：教师 decode 成字符串，学生用自己的 tokenizer 再编码。词表不同、字节回退、特殊符号不一致时，序列路往往是唯一能落地的路。见 [端侧蒸馏](/llm/on-device-distill)。</span>
 
@@ -30,7 +30,7 @@ section: llm
 固定教师，对每个 $x$ 得到一条或多条 $y^{(T)}$，学生最小化
 
 $$
-\mathcal{L}_{\mathrm{seq}} = -\sum_t \log p_S\bigl(y^{(T)}_t \mid y^{(T)}_{<t}, x\bigr).
+\mathcal{L}_{\mathrm{seq}} = -\sum_t \log p_S\bigl(y^{(T)}_t \mid y^{(T)}_{\lt t}, x\bigr).
 $$
 
 这就是标准 SFT，标签来自教师而不是人类。Kim 与 Rush 在翻译里用教师的束搜索假设作为序列目标，并讨论用序列级分数（如 BLEU）做进一步的序列级训练；LLM 实践里更常见的是采样多条再过滤，而不是把 BLEU 直接写成强化学习奖励。过滤可以按规则（答案可核对）、按奖励模型、或按格式，那是 [拒绝采样](/llm/rejection-sampling-rft) 与蒸馏的交界，本篇只要求：进入学生损失的是完整序列，不是逐步软标签。

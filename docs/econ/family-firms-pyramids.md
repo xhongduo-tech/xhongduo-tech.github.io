@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-LLSV：许多国家的典型企业不是 Berle–Means 的分散股东，而是家族或国家通过金字塔、交叉持股维持控制。Almeida–Wolfenzon：金字塔便于用内部资本市场配置，也便于掏空。若公司金融实证默认「股东价值最大化的公众公司」，外部有效性只覆盖一种所有权。缺口是把现金流权（C）与投票权（V）分开，隧道（tunneling）是 $V>C$ 时的代理。
+LLSV：许多国家的典型企业不是 Berle–Means 的分散股东，而是家族或国家通过金字塔、交叉持股维持控制。Almeida–Wolfenzon：金字塔便于用内部资本市场配置，也便于掏空。若公司金融实证默认「股东价值最大化的公众公司」，外部有效性只覆盖一种所有权。缺口是把现金流权（C）与投票权（V）分开，隧道（tunneling）是 $V\gt C$ 时的代理。
 
 <span class="marginnote">Claessens, Djankov and Lang 的东亚金字塔。Johnson 等人的掏空。Burkart, Panunzi and Shleifer 的家族控制权权衡。</span>
 

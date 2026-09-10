@@ -37,7 +37,7 @@ section: llm
 
 Transformer 按层串行。算第 $\ell$ 层时，第 $\ell+1$ 层的 KV 可以从主机 DMA 进来，与当前层的 GEMM 重叠。写回同理：本层刚写出的新 KV 可以在后续层计算时异步落到 DRAM/SSD，不必卡在本层结束的栅栏上。失败模式是预取窗口大于 HBM 预算：猜错下一请求会把真正热的块挤走，尾延迟比不分层更差。因此交互池通常只对「调度器已经排上的下一条」做预取，而不是把磁盘上所有前缀往卡上灌。
 
-带宽不等式仍然成立。令一步要读的 KV 字节为 $M$，链路带宽为 $B_{\mathrm{io}}$，可重叠的计算时间为 $t_{\mathrm{comp}}$。若 $M/B_{\mathrm{io}} > t_{\mathrm{comp}}$ 且这些字节都在磁盘，则 TTFT 或 TPOT 的下界就是传输。减 $M$ 的手段：GQA/MLA、KV 量化、只拉本步窗口。增 $t_{\mathrm{comp}}$ 的手段：更大的连续批、把冷会话从交互池拿开。
+带宽不等式仍然成立。令一步要读的 KV 字节为 $M$，链路带宽为 $B_{\mathrm{io}}$，可重叠的计算时间为 $t_{\mathrm{comp}}$。若 $M/B_{\mathrm{io}} \gt  t_{\mathrm{comp}}$ 且这些字节都在磁盘，则 TTFT 或 TPOT 的下界就是传输。减 $M$ 的手段：GQA/MLA、KV 量化、只拉本步窗口。增 $t_{\mathrm{comp}}$ 的手段：更大的连续批、把冷会话从交互池拿开。
 
 ```mermaid
 flowchart TD

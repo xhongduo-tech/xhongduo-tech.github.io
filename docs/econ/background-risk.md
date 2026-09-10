@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Gollier and Pratt, Risk Vulnerability and the Tempering Effect of Background Risk, Econometrica, 1996；Pratt, Econometrica, 1964 整理</footer>
 </div>
 
-[上一课](/econ/prudence-kimball)把 $u'''>0$ 收成谨慎，并说明预防性储蓄针对**尚未保险**的未来风险。本课不重写 $\pi$ 的局部公式，也不把两期欧拉再推一遍。缺口是：同一期里往往还有一份独立、不可交易的噪声 $\tilde y$（劳动收入、健康、住房）。人对可交易风险 $\tilde x$ 的态度，不再等于无 $\tilde y$ 时的 $r_A$，而是间接效用 $v(w)=\mathbb{E}u(w+\tilde y)$ 的厌恶。Gollier–Pratt 的风险脆弱性，说的就是这份背景如何提高有效厌恶。
+[上一课](/econ/prudence-kimball)把 $u'''\gt 0$ 收成谨慎，并说明预防性储蓄针对**尚未保险**的未来风险。本课不重写 $\pi$ 的局部公式，也不把两期欧拉再推一遍。缺口是：同一期里往往还有一份独立、不可交易的噪声 $\tilde y$（劳动收入、健康、住房）。人对可交易风险 $\tilde x$ 的态度，不再等于无 $\tilde y$ 时的 $r_A$，而是间接效用 $v(w)=\mathbb{E}u(w+\tilde y)$ 的厌恶。Gollier–Pratt 的风险脆弱性，说的就是这份背景如何提高有效厌恶。
 
 ## 问题
 

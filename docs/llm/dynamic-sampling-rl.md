@@ -11,7 +11,7 @@ section: llm
 <footer>—— Yu 等 DAPO 的 Dynamic Sampling；约束写在目标的 s.t. 里</footer>
 </div>
 
-[上一课](/llm/overlong-filtering)处理截断标签。即使长度健康，[GRPO](/llm/grpo) 仍会在准确率为 0 或 1 的题上得到零优势。缺口是：**有效 batch 随训练变瘦，更新浪费在无信号组上。** DAPO 的动态采样要求 $0<|\{o_i:\text{答对}\}|<G$，buffer 未满就继续采。本课写这一约束。消融上它把分数从 42 推到 50，是四件套里最大的一块。
+[上一课](/llm/overlong-filtering)处理截断标签。即使长度健康，[GRPO](/llm/grpo) 仍会在准确率为 0 或 1 的题上得到零优势。缺口是：**有效 batch 随训练变瘦，更新浪费在无信号组上。** DAPO 的动态采样要求 $0\lt |\{o_i:\text{答对}\}|\lt G$，buffer 未满就继续采。本课写这一约束。消融上它把分数从 42 推到 50，是四件套里最大的一块。
 
 ## 问题
 
@@ -33,7 +33,7 @@ section: llm
 flowchart TD
   P["题 x"] --> G["采 G 条"]
   G --> R["组内 R"]
-  R --> CHK{"0 < 答对数 < G"}
+  R --> CHK{"0 ＜ 答对数 ＜ G"}
   CHK -->|否| DROP["丢弃，再采样"]
   CHK -->|是| BUF["进入训练 batch"]
   BUF --> UPD["GRPO / DAPO 更新"]

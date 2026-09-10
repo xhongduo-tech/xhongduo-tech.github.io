@@ -39,7 +39,7 @@ $$
 \mathcal{L}_{\mathrm{SimPO}}=-\mathbb{E}\log\sigma\bigl(r_\theta(x,y_w)-r_\theta(x,y_l)-\gamma\bigr).
 $$
 
-没有 SFT 辅助项，没有 $\pi_{\mathrm{ref}}$。$\beta$ 放大平均差；$\gamma>0$ 是目标间隔，满足后 logistic 梯度变小，未满足的对继续推。数据仍是 $(x,y_w,y_l)$，与 DPO 相同。作者在 UltraFeedback 一类成对集上，从同一 SFT 检查点出发比 DPO、IPO、KTO、ORPO 等，主榜是 AlpacaEval 2（含长度控制胜率）与 Arena-Hard。
+没有 SFT 辅助项，没有 $\pi_{\mathrm{ref}}$。$\beta$ 放大平均差；$\gamma\gt 0$ 是目标间隔，满足后 logistic 梯度变小，未满足的对继续推。数据仍是 $(x,y_w,y_l)$，与 DPO 相同。作者在 UltraFeedback 一类成对集上，从同一 SFT 检查点出发比 DPO、IPO、KTO、ORPO 等，主榜是 AlpacaEval 2（含长度控制胜率）与 Arena-Hard。
 
 ### 间隔是 margin 不是 KL 系数
 

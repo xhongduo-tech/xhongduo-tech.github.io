@@ -56,7 +56,7 @@ Ulysses 的通信体积在「$s$ 与 $C$ 同比增加」时保持每卡常数—
 
 在线 softmax 的结合律使分块与精确归一化相容：两段键的 $(m,\ell,O)$ 可合成全局量。这与 FlashAttention 单卡分块是同一代数；Ring 只是把块放到不同卡。浮点顺序不同，末位有差，目标是同类误差，不是 bitwise 复现。
 
-<span class="marginnote">GQA / MQA 让 Ulysses 先碰壁：$h_{\mathrm{kv}}<C$ 时无法按 KV 头切开。Ring 与 USP 的 Ring 维不受此限。推理模型普遍 GQA，纯 Ulysses 的 $C$ 往往只能取 2、4、8，超长 $s$ 仍要靠 Ring 维。</span>
+<span class="marginnote">GQA / MQA 让 Ulysses 先碰壁：$h_{\mathrm{kv}}\lt C$ 时无法按 KV 头切开。Ring 与 USP 的 Ring 维不受此限。推理模型普遍 GQA，纯 Ulysses 的 $C$ 往往只能取 2、4、8，超长 $s$ 仍要靠 Ring 维。</span>
 
 ### 和 Megatron SP、和 EP 的边界
 

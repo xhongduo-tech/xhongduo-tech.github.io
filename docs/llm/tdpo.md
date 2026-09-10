@@ -11,7 +11,7 @@ section: llm
     <footer>—— Zeng 等，Token-level Direct Preference Optimization，ICML 2024</footer>
 </div>
 
-DPO 把 KL 正则的奖励最大化回代成策略对数比，损失落在整条 $y_w$ 与 $y_l$ 上。语言模型真正采样的却是条件分布 $\pi(\cdot\mid [x,y^{<t}])$。Zeng 等人指出：句子级目标对逐步散度的控制是间接的，训练中不受欢迎回答上的序列 KL 往往涨得比受欢迎回答更快，策略在「对齐」的同时把质量摊薄。他们把生成写成 token MDP，用 Bellman 把句子奖励接到逐步优势，再把 Bradley–Terry 改写成 token 级遗憾偏好，得到 Token-level Direct Preference Optimization（TDPO）。它仍是离线成对损失，不训显式奖励模型、训练环里也不采样；改的是散度写在哪一层、梯度如何压两侧 KL 的差。
+DPO 把 KL 正则的奖励最大化回代成策略对数比，损失落在整条 $y_w$ 与 $y_l$ 上。语言模型真正采样的却是条件分布 $\pi(\cdot\mid [x,y^{\lt t}])$。Zeng 等人指出：句子级目标对逐步散度的控制是间接的，训练中不受欢迎回答上的序列 KL 往往涨得比受欢迎回答更快，策略在「对齐」的同时把质量摊薄。他们把生成写成 token MDP，用 Bellman 把句子奖励接到逐步优势，再把 Bradley–Terry 改写成 token 级遗憾偏好，得到 Token-level Direct Preference Optimization（TDPO）。它仍是离线成对损失，不训显式奖励模型、训练环里也不采样；改的是散度写在哪一层、梯度如何压两侧 KL 的差。
 
 ## 问题
 
@@ -27,7 +27,7 @@ DPO 把 KL 正则的奖励最大化回代成策略对数比，损失落在整条
 
 ## 方法
 
-把状态写成 $s_t=[x,y^{<t}]$，动作为下一个 token，折扣 $\gamma=1$。token 级目标在每个前缀上最大化相对参考策略的优势，并减去逐步反向 KL：
+把状态写成 $s_t=[x,y^{\lt t}]$，动作为下一个 token，折扣 $\gamma=1$。token 级目标在每个前缀上最大化相对参考策略的优势，并减去逐步反向 KL：
 
 $$
 \max_{\pi_\theta}\;\mathbb{E}\bigl[A_{\pi_{\mathrm{ref}}}(s_t,z)-\beta\,D_{\mathrm{KL}}\bigl(\pi_\theta(\cdot\mid s_t)\,\|\,\pi_{\mathrm{ref}}(\cdot\mid s_t)\bigr)\bigr].
@@ -36,7 +36,7 @@ $$
 闭式最优把 $Q_{\pi_{\mathrm{ref}}}$ 映回策略。定义序列前向 KL 为各步前向 KL 之和
 
 $$
-D_{\mathrm{SeqKL}}(x,y;\pi_{\mathrm{ref}}\|\pi_\theta)=\sum_{t} D_{\mathrm{KL}}\bigl(\pi_{\mathrm{ref}}(\cdot\mid [x,y^{<t}])\,\|\,\pi_\theta(\cdot\mid [x,y^{<t}])\bigr).
+D_{\mathrm{SeqKL}}(x,y;\pi_{\mathrm{ref}}\|\pi_\theta)=\sum_{t} D_{\mathrm{KL}}\bigl(\pi_{\mathrm{ref}}(\cdot\mid [x,y^{\lt t}])\,\|\,\pi_\theta(\cdot\mid [x,y^{\lt t}])\bigr).
 $$
 
 令 $u$ 为与 DPO 相同的隐含奖励差，$\delta$ 为两侧序列前向 KL 之差（乘 $\beta$）。token 级 Bradley–Terry 给出第一版损失

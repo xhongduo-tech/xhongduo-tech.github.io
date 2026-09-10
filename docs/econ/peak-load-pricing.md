@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-把一天分成峰 $H$ 与谷 $L$，运营成本 $c$ 每单位，容量成本 $\beta$ 按能同时服务的最大负荷收取。容量 $K$ 必须满足 $q_H\le K$、$q_L\le K$。有效率的价格（福利最大化、可补贴或总额转移可用时）满足：谷时若 $q_L<K$，则 $P_L=c$；峰时 $q_H=K$，则 $P_H=c+\beta$（更一般：$P_H=c+\mu$，$\mu$ 是容量约束的乘子）。缺口不是把峰谷写成[三级歧视](/econ/price-discrimination)的两个弹性组，而是：**$\beta$ 由谁在何时支付。**
+把一天分成峰 $H$ 与谷 $L$，运营成本 $c$ 每单位，容量成本 $\beta$ 按能同时服务的最大负荷收取。容量 $K$ 必须满足 $q_H\le K$、$q_L\le K$。有效率的价格（福利最大化、可补贴或总额转移可用时）满足：谷时若 $q_L\lt K$，则 $P_L=c$；峰时 $q_H=K$，则 $P_H=c+\beta$（更一般：$P_H=c+\mu$，$\mu$ 是容量约束的乘子）。缺口不是把峰谷写成[三级歧视](/econ/price-discrimination)的两个弹性组，而是：**$\beta$ 由谁在何时支付。**
 
 若峰谷都打满（shifting peak），容量成本在两段需求之间分摊，Steiner 的图解给出交点，使 $q_H=q_L=K$。不要默认「峰永远独自承担全部 $\beta$」。
 
@@ -36,7 +36,7 @@ section: econ
 ```mermaid
 flowchart TD
   CAP["容量 K，成本 β"] --> PK["峰：q_H = K，μ_H > 0"]
-  CAP --> OF["谷：q_L < K 则 μ_L = 0"]
+  CAP --> OF["谷：q_L ＜ K 则 μ_L = 0"]
   PK --> PH["P_H = c + μ_H"]
   OF --> PL["P_L = c"]
   PH --> SHIFT["双满容：β 在两段分摊"]

@@ -17,7 +17,7 @@ section: econ
 
 Sonnenschein–Mantel–Debreu 说：超额需求除了齐次性、瓦尔拉斯定律与连续性，几乎可以任意。故唯一性没有免费午餐。充分条件要从总体结构来，不能从「每个人都凸」来。两条教科书路径：
 
-**总替代（gross substitutes）**：$\ell\neq k$ 时 $\partial z_\ell/\partial p_k>0$（相对价格意义上：$p_k$ 升，对 $\ell$ 的超额需求升）。则均衡唯一，试错在单纯形上全局稳定。
+**总替代（gross substitutes）**：$\ell\neq k$ 时 $\partial z_\ell/\partial p_k\gt 0$（相对价格意义上：$p_k$ 升，对 $\ell$ 的超额需求升）。则均衡唯一，试错在单纯形上全局稳定。
 
 **总体弱公理（WAR）**：总量超额需求表现得像单个人的 WARP。则均衡集合凸，试错对唯一均衡稳定。代表性主体是 WAR 的特例，不是一般加总。
 
@@ -31,7 +31,7 @@ Sonnenschein–Mantel–Debreu 说：超额需求除了齐次性、瓦尔拉斯�
 
 ## 方法
 
-正规化在单纯形或计价物截面上写 $\dot p_\ell=z_\ell(p)$（投影掉定律的相关方向）。Lyapunov 函数常用 $\sum(p_\ell-p^*_\ell)^2$ 或 $\max z_\ell$；GS 下超额需求对相对价格的符号模式让 $V$ 下降。WAR 给出 $p^*\cdot z(p)>0$ 对 $p\not\sim p^*$（合适正规化下），同样推动 $p$ 朝 $p^*$ 走。
+正规化在单纯形或计价物截面上写 $\dot p_\ell=z_\ell(p)$（投影掉定律的相关方向）。Lyapunov 函数常用 $\sum(p_\ell-p^*_\ell)^2$ 或 $\max z_\ell$；GS 下超额需求对相对价格的符号模式让 $V$ 下降。WAR 给出 $p^*\cdot z(p)\gt 0$ 对 $p\not\sim p^*$（合适正规化下），同样推动 $p$ 朝 $p^*$ 走。
 
 非唯一时，比较静态可以跳盆地：参数微移，均衡集里哪一点被「选中」试错说了不算——还取决于初值。指数定理（Dierker）说正则经济均衡个数一般为奇数；本课只点「可以多个」，不把度理论展开。
 

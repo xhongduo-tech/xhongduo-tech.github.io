@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-束搜索近似 $\arg\max_y \sum_t \log\pi(y_t\mid y_{<t})$。更长的 $y$ 对数和更负，实现若不归一化，束会爱提前结束；若简单除以长度，又会偏向注水的长句。Wu 等人在神经机器翻译里用长度惩罚（length penalty）把得分写成
+束搜索近似 $\arg\max_y \sum_t \log\pi(y_t\mid y_{\lt t})$。更长的 $y$ 对数和更负，实现若不归一化，束会爱提前结束；若简单除以长度，又会偏向注水的长句。Wu 等人在神经机器翻译里用长度惩罚（length penalty）把得分写成
 
 $$
 \mathrm{score}(y)=\frac{\log\pi(y\mid x)}{(5+\lvert y\rvert)^\alpha/(5+1)^\alpha},

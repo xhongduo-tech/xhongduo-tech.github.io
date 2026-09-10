@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Magill and Quinzii, Theory of Incomplete Markets, 1996；Geanakoplos, An Introduction to General Equilibrium with Incomplete Asset Markets, JME, 1990 整理</footer>
 </div>
 
-定位：[上一课](/econ/core-equivalence)。复制使核缩到瓦尔拉斯配置，故事默认商品空间列全、Arrow 证券张成全部状态。[状态依存](/econ/state-contingent)已钉完全市场那一端。本课不重写 Debreu–Scarf 的分离。缺口是张成不足：只有 $J<S$ 种资产，现货与证券两层价格，均衡不必有效，名义单位可以留下实不确定性。
+定位：[上一课](/econ/core-equivalence)。复制使核缩到瓦尔拉斯配置，故事默认商品空间列全、Arrow 证券张成全部状态。[状态依存](/econ/state-contingent)已钉完全市场那一端。本课不重写 Debreu–Scarf 的分离。缺口是张成不足：只有 $J\lt S$ 种资产，现货与证券两层价格，均衡不必有效，名义单位可以留下实不确定性。
 
 ## 问题
 
@@ -35,7 +35,7 @@ Geanakoplos–Polemarchakis：即便只允许用现有资产再交易，GEI 均�
 
 ```mermaid
 flowchart TD
-  AD["完全：span = R^S，帕累托"] --> GEI["J < S：张成不足"]
+  AD["完全：span = R^S，帕累托"] --> GEI["J ＜ S：张成不足"]
   GEI --> WEL["均衡不必帕累托，甚至不必约束有效"]
   GEI --> NOM["名义资产：实际配置可不定"]
   GEI --> REAL["实资产：通常局部确定"]

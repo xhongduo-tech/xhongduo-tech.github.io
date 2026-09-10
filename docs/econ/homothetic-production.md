@@ -15,13 +15,13 @@ section: econ
 
 ## 问题
 
-$f$ 齐次 $k$ 次指 $f(\lambda z)=\lambda^k f(z)$ 对一切 $\lambda>0$。$k=1$ 即 CRS 在单产出语言里的写法。可微时欧拉定理给出
+$f$ 齐次 $k$ 次指 $f(\lambda z)=\lambda^k f(z)$ 对一切 $\lambda\gt 0$。$k=1$ 即 CRS 在单产出语言里的写法。可微时欧拉定理给出
 
 $$
 \sum_j z_j\frac{\partial f}{\partial z_j}(z)=k\,f(z).
 $$
 
-缺口是读 $k=1$：若要素按边际产出付酬 $w_j=p\,\mathrm{MP}_j$（价格接受，后课才正式做），则 $\sum w_j z_j=p q$，会计上的增加值被要素分尽。$k<1$（DRS）则 $\sum w_j z_j<p q$，留下正利润；$k>1$ 则支付超过产值，竞争支付站不住——与技术课 IRS 炸开供给是同一道墙。
+缺口是读 $k=1$：若要素按边际产出付酬 $w_j=p\,\mathrm{MP}_j$（价格接受，后课才正式做），则 $\sum w_j z_j=p q$，会计上的增加值被要素分尽。$k\lt 1$（DRS）则 $\sum w_j z_j\lt p q$，留下正利润；$k\gt 1$ 则支付超过产值，竞争支付站不住——与技术课 IRS 炸开供给是同一道墙。
 
 位似（homothetic）更弱：等产量是彼此的径向放大，$f=F(h(z))$，$h$ 一次齐次，$F$ 递增。成本份额沿射线不变，但欧拉分尽仍要求底层 $h$ 一次齐次且竞争按 $h$ 的边际付酬。不要把位似直接叫 CRS。
 
@@ -42,7 +42,7 @@ flowchart TD
   IN["上一课：有效内点"] --> HOM["f 齐次 k 次"]
   HOM --> EU["欧拉：z·∇f = k f"]
   EU --> CRS["k=1：要素支付分尽 q"]
-  EU --> DRS["k<1：留下利润残差"]
+  EU --> DRS["k＜1：留下利润残差"]
   CRS --> LATER["后课：成本对 q 线性"]
 ```
 

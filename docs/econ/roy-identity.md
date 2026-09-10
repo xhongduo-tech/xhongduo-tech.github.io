@@ -67,6 +67,6 @@ Roy 把「偏好 → 需求」的箭头在值函数上接了一段短路。不�
 
 - 间接效用的价格斜率，按财富斜率折成商品，就是马歇尔需求。
 - 依据是包络：最优束移动的一阶项消失。
-- 角点改成超梯度；$\partial v/\partial w>0$ 靠局部非饱和。
+- 角点改成超梯度；$\partial v/\partial w\gt 0$ 靠局部非饱和。
 - 希克斯需求尚未作为本课对象。
 - 出处：Roy, *Econometrica*, 1947；Mas-Colell, Whinston and Green 第 3 章。

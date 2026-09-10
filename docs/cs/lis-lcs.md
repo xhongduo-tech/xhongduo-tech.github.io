@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-LIS：严格上升（或非降）最长子序列。$dp[i]=\max_{j<i,a_j<a_i} dp[j]+1$ 是 $O(n^2)$。维护数组 `tail[len]`：当前长度 `len` 的最小结尾。二分插入 $O(n\log n)$。Dilworth：LIS 长度 = 最少不升链划分（点名）。
+LIS：严格上升（或非降）最长子序列。$dp[i]=\max_{j\lt i,a_j\lt a_i} dp[j]+1$ 是 $O(n^2)$。维护数组 `tail[len]`：当前长度 `len` 的最小结尾。二分插入 $O(n\log n)$。Dilworth：LIS 长度 = 最少不升链划分（点名）。
 
 LCS：两串 $A,B$，$dp[i][j]$ 来自左、上、或对角 $+1$。$\Theta(nm)$。公共子串连续，另一转移。
 

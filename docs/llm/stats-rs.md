@@ -15,7 +15,7 @@ Bai、Stiennon、Llama 2、ReST 把「拒绝采样」写成：从策略采 $N$ �
 
 ## 问题
 
-目标策略由 KL 正则最优给出：$\pi_r(y\mid x)=\pi_{\mathrm{sft}}(y\mid x)\exp(r(x,y)/\beta)/Z(x)$。直接从 $\pi_r$ 自回归采样需要每步知道 $Z$ 或逐步奖励，通常没有。从 $\pi_{\mathrm{sft}}$ 采样成本低，但分布是提案不是目标。重要性采样可以事后加权，权重 $\exp(r/\beta)/Z$ 方差大，且 $Z$ 未知。拒绝采样提供另一条路：提案抽出 $y$，掷 $u\sim U[0,1]$，若 $u<\pi_r(y)/(M\pi_{\mathrm{sft}}(y))$ 则接受。$M$ 满足对一切尚未接受的 $y$，$M\pi_{\mathrm{sft}}\ge\pi_r$。接受的样本（在理想条件下）来自 $\pi_r$，不是「分数最高的几个」。
+目标策略由 KL 正则最优给出：$\pi_r(y\mid x)=\pi_{\mathrm{sft}}(y\mid x)\exp(r(x,y)/\beta)/Z(x)$。直接从 $\pi_r$ 自回归采样需要每步知道 $Z$ 或逐步奖励，通常没有。从 $\pi_{\mathrm{sft}}$ 采样成本低，但分布是提案不是目标。重要性采样可以事后加权，权重 $\exp(r/\beta)/Z$ 方差大，且 $Z$ 未知。拒绝采样提供另一条路：提案抽出 $y$，掷 $u\sim U[0,1]$，若 $u\lt \pi_r(y)/(M\pi_{\mathrm{sft}}(y))$ 则接受。$M$ 满足对一切尚未接受的 $y$，$M\pi_{\mathrm{sft}}\ge\pi_r$。接受的样本（在理想条件下）来自 $\pi_r$，不是「分数最高的几个」。
 
 LLM 社区的 top-$k$-over-$N$ 永远返回分数排序的上尾，与 $\beta$ 无关。若 RM 有噪，上尾是 hack 集中区；若需要的是「按 $\pi_r$ 的概率质量」而不是「点估计最大值」，上尾会系统性地过信 RM。统计拒绝采样用 $\beta$ 在「信 RM」与「信 SFT」之间插值，并给出期望接受率与 $r_{\mathrm{max}}$ 的关系。
 
@@ -27,7 +27,7 @@ LLM 社区的 top-$k$-over-$N$ 永远返回分数排序的上尾，与 $\beta$ �
 
 ## 方法
 
-对固定提示，维护已接受集合 $\mathcal{Y}$。重复：从 $\pi_{\mathrm{sft}}$ 抽一条尚未在 $\mathcal{Y}$ 中的 $y$，抽 $u\sim U[0,1]$，估计接受概率 $p_{\mathrm{acc}}(y)=\pi_{r_\psi}(y\mid x)/(M\pi_{\mathrm{sft}}(y\mid x))$；若 $u<p_{\mathrm{acc}}$ 则纳入 $\mathcal{Y}$。直到条数够用。因 $\pi_r/\pi_{\mathrm{sft}}\propto\exp(r/\beta)$，$p_{\mathrm{acc}}$ 单调于奖励。论文 Theorem 1：令 $r_{\mathrm{max}}$ 为尚未接受候选里的最大奖励，候选数趋于无穷时，期望接受率为
+对固定提示，维护已接受集合 $\mathcal{Y}$。重复：从 $\pi_{\mathrm{sft}}$ 抽一条尚未在 $\mathcal{Y}$ 中的 $y$，抽 $u\sim U[0,1]$，估计接受概率 $p_{\mathrm{acc}}(y)=\pi_{r_\psi}(y\mid x)/(M\pi_{\mathrm{sft}}(y\mid x))$；若 $u\lt p_{\mathrm{acc}}$ 则纳入 $\mathcal{Y}$。直到条数够用。因 $\pi_r/\pi_{\mathrm{sft}}\propto\exp(r/\beta)$，$p_{\mathrm{acc}}$ 单调于奖励。论文 Theorem 1：令 $r_{\mathrm{max}}$ 为尚未接受候选里的最大奖励，候选数趋于无穷时，期望接受率为
 
 $$
 \mathbb{E}_{y\sim\pi_{\mathrm{sft}}}\Bigl[\exp\bigl((r_\psi(x,y)-r_{\mathrm{max}})/\beta\bigr)\Bigr].
@@ -40,7 +40,7 @@ flowchart TD
   SFT["y ~ πsft"] --> U["u ~ Uniform(0,1)"]
   RM["rψ(x,y)"] --> ACC["p_acc ∝ exp((r − r_max)/β)"]
   SFT --> ACC
-  U --> CMP{"u < p_acc?"}
+  U --> CMP{"u ＜ p_acc?"}
   ACC --> CMP
   CMP -->|是| Y["纳入近似 πr 集合"]
   CMP -->|否| SFT

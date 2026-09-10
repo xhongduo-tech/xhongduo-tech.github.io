@@ -11,7 +11,7 @@ section: econ
 <footer>—— Hansen and Jagannathan, Implications of Security Market Data for Models of Dynamic Economies, Journal of Political Economy 1991</footer>
 </div>
 
-定位：[上一课](/econ/stochastic-discount-factor)。无套利已经给出 $m>0$ 使 $p=\mathrm{E}[m x]$，风险溢价是与 $m$ 的协方差。SDF 课点过名字：可交易夏普比越高，定价核必须越波动——但没有把不等式写出。本课缺口就是这道会计界。不校准消费模型，不估计市场 beta。
+定位：[上一课](/econ/stochastic-discount-factor)。无套利已经给出 $m\gt 0$ 使 $p=\mathrm{E}[m x]$，风险溢价是与 $m$ 的协方差。SDF 课点过名字：可交易夏普比越高，定价核必须越波动——但没有把不等式写出。本课缺口就是这道会计界。不校准消费模型，不估计市场 beta。
 
 ## 问题
 
@@ -54,7 +54,7 @@ flowchart TD
 
 把 HJ 界当成「估计风险厌恶」是倒过来：界不产出 $\gamma$，它只否决太平滑的核。消费数据进入下一课，才会把 $\sigma(m)$ 翻译成 $\gamma$ 与消费增长波动的乘积。本课禁止用股权溢价的百分数改写不等式。横截面因子是否张成投影，见 [/quant/ff3](/quant/ff3)；这里只保留可行域。
 
-<span class="marginnote">$m$ 必须为正才排除套利。HJ 的波动界可以先不管正性，再加 $m>0$ 的收紧。收紧后下界更高：同样的夏普要求更抖的正核。</span>
+<span class="marginnote">$m$ 必须为正才排除套利。HJ 的波动界可以先不管正性，再加 $m\gt 0$ 的收紧。收紧后下界更高：同样的夏普要求更抖的正核。</span>
 
 ## 边界
 

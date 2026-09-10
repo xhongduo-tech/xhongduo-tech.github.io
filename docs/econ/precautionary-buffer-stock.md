@@ -11,7 +11,7 @@ section: econ
 <footer>—— Leland, Saving and Uncertainty: The Precautionary Demand for Saving, QJE 1968；Carroll, Buffer-Stock Saving and the Life Cycle/Permanent Income Hypothesis, QJE 1997</footer>
 </div>
 
-[上一课](/econ/permanent-income)的确定性等价把风险关掉。本课缺口是：当 $u'''>0$（谨慎）且劳动收入不可完全保险，欧拉里多出一项预防性溢价，目标资产变成缓冲存量。不重写 Friedman 的永久/暂时切法。
+[上一课](/econ/permanent-income)的确定性等价把风险关掉。本课缺口是：当 $u'''\gt 0$（谨慎）且劳动收入不可完全保险，欧拉里多出一项预防性溢价，目标资产变成缓冲存量。不重写 Friedman 的永久/暂时切法。
 
 ## 问题
 
@@ -19,7 +19,7 @@ section: econ
 
 缺口是给 PIH 加上不可保风险，而不是重推 [vNM](/econ/expected-utility)。伯努利 $u$ 已有，只动三阶。
 
-<span class="marginnote">缓冲存量需要不耐烦（$\beta(1+r)<1$）或借贷约束，否则财富会漂到无限来自保。Carroll 把不耐烦与失业风险焊在一起，得到稳定的目标比。</span>
+<span class="marginnote">缓冲存量需要不耐烦（$\beta(1+r)\lt 1$）或借贷约束，否则财富会漂到无限来自保。Carroll 把不耐烦与失业风险焊在一起，得到稳定的目标比。</span>
 
 ## 方法
 

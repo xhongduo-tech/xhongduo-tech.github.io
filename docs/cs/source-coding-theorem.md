@@ -11,11 +11,11 @@ section: cs
 <footer>—— 据 Shannon, 1948；Cover and Thomas, Elements of Information Theory 整理</footer>
 </div>
 
-复杂性单元在[BQP](/cs/bqp-intuition) 收束。本单元换尺子。[熵](/cs/entropy-bits) 已定义 $H(X)$，并声明压缩下界留给后课。缺口是**信源编码定理**（无噪声）：块长 $n\to\infty$ 时，平均码长 $\ge H$，且对任意 $\varepsilon$ 存在码 $<H+\varepsilon$。不重写自信息。
+复杂性单元在[BQP](/cs/bqp-intuition) 收束。本单元换尺子。[熵](/cs/entropy-bits) 已定义 $H(X)$，并声明压缩下界留给后课。缺口是**信源编码定理**（无噪声）：块长 $n\to\infty$ 时，平均码长 $\ge H$，且对任意 $\varepsilon$ 存在码 $\lt H+\varepsilon$。不重写自信息。
 
 ## 问题
 
-符号来自分布 $p$，独立同分布。定长编码 $nH$ 量级比特不够覆盖全部 $\mathcal{X}^n$，但典型集大小约 $2^{nH}$，把非典型扔掉（小概率），即可用约 $nH$ 比特编号典型串。变长前缀码：期望长度 $L$ 满足 $H\le L<H+1$（Shannon 码、后课 Huffman）。定理的渐近形式用典型集；单符号形式用 Kraft 不等式。
+符号来自分布 $p$，独立同分布。定长编码 $nH$ 量级比特不够覆盖全部 $\mathcal{X}^n$，但典型集大小约 $2^{nH}$，把非典型扔掉（小概率），即可用约 $nH$ 比特编号典型串。变长前缀码：期望长度 $L$ 满足 $H\le L\lt H+1$（Shannon 码、后课 Huffman）。定理的渐近形式用典型集；单符号形式用 Kraft 不等式。
 
 [Kolmogorov](/cs/kolmogorov-complexity) 是单串最短程序；这里是分布上的期望码长。不要混。
 

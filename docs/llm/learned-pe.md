@@ -45,7 +45,7 @@ $P$ 随语言模型的其他参数一起用梯度更新。没有权重共享要�
 
 ```mermaid
 flowchart TD
-  I["下标 i < L_max"] --> Tab["查找表 P"]
+  I["下标 i ＜ L_max"] --> Tab["查找表 P"]
   W["token id"] --> E["token 嵌入"]
   Tab --> Sum["x_i = e + P_i"]
   E --> Sum

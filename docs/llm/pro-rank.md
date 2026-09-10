@@ -11,7 +11,7 @@ section: llm
     <footer>—— Song, Yu, Li, Yu, Huang, Li, Wang，Preference Ranking Optimization for Human Alignment，AAAI 2024</footer>
 </div>
 
-成对方法把多次采样的信息收成 $y^1\succ y^2$。更长的序若再被切成对，名次之间的全局结构消失：第三名与第五名的差距、第一名相对其余全体的独占，都进不了同一条归一化。Song 等人提出 Preference Ranking Optimization（PRO）：把任意长度的偏好排序写成类似 Plackett–Luce 的递推一对多对比，用长度平均对数概率当 $r_\pi$，再加一项对第一名的 SFT。本篇写 AAAI 2024 原文如何从 BT 扩到 listwise、动态温度如何用 RM 分数拉开「略差」与「很差」，以及加长排序（混入 ChatGPT 回答）时他们声称的收益。成对退化（$n=2$）时 PRO 仍是一对一对比，但推导目标是 $n>2$。
+成对方法把多次采样的信息收成 $y^1\succ y^2$。更长的序若再被切成对，名次之间的全局结构消失：第三名与第五名的差距、第一名相对其余全体的独占，都进不了同一条归一化。Song 等人提出 Preference Ranking Optimization（PRO）：把任意长度的偏好排序写成类似 Plackett–Luce 的递推一对多对比，用长度平均对数概率当 $r_\pi$，再加一项对第一名的 SFT。本篇写 AAAI 2024 原文如何从 BT 扩到 listwise、动态温度如何用 RM 分数拉开「略差」与「很差」，以及加长排序（混入 ChatGPT 回答）时他们声称的收益。成对退化（$n=2$）时 PRO 仍是一对一对比，但推导目标是 $n\gt 2$。
 
 ## 问题
 
@@ -36,7 +36,7 @@ $$
 人类或 RM 给出 $y^1\succ y^2\succ\cdots\succ y^n$。策略分数为长度平均对数概率
 
 $$
-r_\pi(x,y^k)=\frac{1}{|y^k|}\sum_t\log P(y^k_t\mid x,y^k_{<t}).
+r_\pi(x,y^k)=\frac{1}{|y^k|}\sum_t\log P(y^k_t\mid x,y^k_{\lt t}).
 $$
 
 listwise 项为
@@ -52,7 +52,7 @@ $$
 均匀对待所有负例不合理：略差的 $y^{k+1}$ 与差很多的 $y^n$ 应受不同惩罚。作者用另一个 $r_\phi$ 的分数定义温度
 
 $$
-\mathcal{T}^i_k=\frac{1}{r_\phi(x,y^k)-r_\phi(x,y^i)}\quad(i>k),
+\mathcal{T}^i_k=\frac{1}{r_\phi(x,y^k)-r_\phi(x,y^i)}\quad(i\gt k),
 $$
 
 正例温度取负例温度的最小，以免分子分母失衡。分差大则温度低、对比更锋利。消融表明：去掉 SFT、只靠动态温度时收益更明显；与 SFT 联合时仍有增益。没有可靠 $r_\phi$ 时，退回均匀温度，损失仍是递推 PL。

@@ -29,7 +29,7 @@ $$
 p_{\mathrm{CAD}}(x_t)\propto \mathrm{softmax}\big(z^+ + \alpha(z^+-z^-)\big),
 $$
 
-$\alpha>0$ 是放大系数（原文把对比写成对点分的加权）。$\alpha=0$ 退回普通有上下文解码；$\alpha$ 过大把只在 $c$ 里出现的罕见拼写放大成胡话。温度与 top-p 加在对比之后，顺序同[核采样](/llm/sampling-temperature-topp)。
+$\alpha\gt 0$ 是放大系数（原文把对比写成对点分的加权）。$\alpha=0$ 退回普通有上下文解码；$\alpha$ 过大把只在 $c$ 里出现的罕见拼写放大成胡话。温度与 top-p 加在对比之后，顺序同[核采样](/llm/sampling-temperature-topp)。
 
 无上下文那条链的 KV 可以更短（没有 $c$），但生成前缀必须同步追加，否则 $z^-$ 条件错位。投机解码时，草稿若只跑 $z^+$，目标用 CAD，接受规则对的不是 CAD 分布——要么两边都做对比，要么承认有损加速。
 

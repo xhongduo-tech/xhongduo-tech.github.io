@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-要大小 $k$ 的无放回均匀子集（或每个位置等概率）。若 $n$ 知，Fisher–Yates 前 $k$ 即可。$n$ 不知：Algorithm R：遇到第 $i$ 个（$i>k$），以 $k/i$ 决定是否入选，入选则均匀替换池中一席。归纳：看完 $i$ 个后池是前 $i$ 个的均匀 $k$ 子集。缺口是**用递推概率代替预先 $n$**。
+要大小 $k$ 的无放回均匀子集（或每个位置等概率）。若 $n$ 知，Fisher–Yates 前 $k$ 即可。$n$ 不知：Algorithm R：遇到第 $i$ 个（$i\gt k$），以 $k/i$ 决定是否入选，入选则均匀替换池中一席。归纳：看完 $i$ 个后池是前 $i$ 个的均匀 $k$ 子集。缺口是**用递推概率代替预先 $n$**。
 
 <span class="marginnote">Vitter, *ACM Trans. Math. Software*, 1985，含跳过几何随机数的加速。Knuth 卷 2 抽样。加权蓄水池（Efraimidis）点名不展开。</span>
 

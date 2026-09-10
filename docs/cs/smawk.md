@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-矩阵 $M$ 完全单调：对 $a<b$，$c<d$，若 $M(a,c)>M(a,d)$ 则 $M(b,c)>M(b,d)$（行最小位置非降的充分结构）。SMAWK：奇偶行减列，递归。查询 $M(i,j)$ 若 $O(1)$，总时间 $O(n)$（$n\times n$）。
+矩阵 $M$ 完全单调：对 $a\lt b$，$c\lt d$，若 $M(a,c)\gt M(a,d)$ 则 $M(b,c)\gt M(b,d)$（行最小位置非降的充分结构）。SMAWK：奇偶行减列，递归。查询 $M(i,j)$ 若 $O(1)$，总时间 $O(n)$（$n\times n$）。
 
 DP 一层：$dp'[i]=\min_j dp[j]+w(j,i)$ 可一次 SMAWK。比分治少 $\log$。
 

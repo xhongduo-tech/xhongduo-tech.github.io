@@ -27,13 +27,13 @@ Merton（1974）只在债务到期日检查偿付。Black 与 Cox（1976）引�
 
 ## 方法
 
-资产仍是 GBM。Black–Cox 取指数边界 $B(t)=C e^{-\gamma(T-t)}$（或等价参数化），使 $V_t/B(t)$ 仍有可处理的漂移。未违约时股权满足带障碍的 PDE，在 $V=B(t)$ 处 $E=0$，在 $T$ 且 $V>D$ 时 $E=V-D$。债务 $B_{\mathrm{debt}}=V-E$。首达密度对 GBM 对数是已知的，生存概率
+资产仍是 GBM。Black–Cox 取指数边界 $B(t)=C e^{-\gamma(T-t)}$（或等价参数化），使 $V_t/B(t)$ 仍有可处理的漂移。未违约时股权满足带障碍的 PDE，在 $V=B(t)$ 处 $E=0$，在 $T$ 且 $V\gt D$ 时 $E=V-D$。债务 $B_{\mathrm{debt}}=V-E$。首达密度对 GBM 对数是已知的，生存概率
 
 $$
-\mathbb{Q}(\tau>t)=\mathbb{Q}\big(\inf_{s\le t} V_s > B(s)\big)
+\mathbb{Q}(\tau\gt t)=\mathbb{Q}\big(\inf_{s\le t} V_s \gt  B(s)\big)
 $$
 
-可用 $N(\cdot)$ 的组合写出。于是零息公司债的风险中性期望可拆成：在 $\tau>T$ 时得到约定本金，在 $\tau\le T$ 时得到边界回收的折现。这比 Merton 多出一截「提前接管」的现金流。
+可用 $N(\cdot)$ 的组合写出。于是零息公司债的风险中性期望可拆成：在 $\tau\gt T$ 时得到约定本金，在 $\tau\le T$ 时得到边界回收的折现。这比 Merton 多出一截「提前接管」的现金流。
 
 Leland（1994）把债务写成永续票息，破产成本与税盾进入企业总价值，股权选择使价值最大化的边界 $B^*$，条件是平滑粘贴。Leland–Toft（1996）再引入有限期限债务滚动，得到利差期限结构随杠杆和到期的比较静态。Longstaff–Schwartz（1995）让利率随机（Vasicek 型）并保留常数边界，数值解首达，信用与利率相关进入利差。这些是 Black–Cox 的直接后裔：违约仍是资产碰到某条线。
 

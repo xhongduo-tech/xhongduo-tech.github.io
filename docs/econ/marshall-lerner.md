@@ -19,7 +19,7 @@ section: econ
 
 上一课的 $E$ 来自资产市场。本课问的是同一 $\Delta e$ 在贸易账上的符号，不是再拆 CIP 与 UIP。实证弹性、pass-through 系数一律不在此报。
 
-<span class="marginnote">教学口径：初始贸易平衡、供给完全弹性、只看需求弹性时，$\lvert\eta_X\rvert+\lvert\eta_M\rvert>1$ 则贬值改善 $CA$。罗宾逊把供给弹性与初始差额补进去，条件更苛刻，精神仍是「数量必须够动」。</span>
+<span class="marginnote">教学口径：初始贸易平衡、供给完全弹性、只看需求弹性时，$\lvert\eta_X\rvert+\lvert\eta_M\rvert\gt 1$ 则贬值改善 $CA$。罗宾逊把供给弹性与初始差额补进去，条件更苛刻，精神仍是「数量必须够动」。</span>
 
 ## 方法
 

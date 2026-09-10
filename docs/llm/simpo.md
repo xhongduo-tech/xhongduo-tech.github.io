@@ -30,7 +30,7 @@ $\log\pi_\theta-\log\pi_{\mathrm{ref}}$ 还消掉参考已经很高的模式：�
 定义无参考的隐含奖励为长度平均对数概率，再乘温度 $\beta$：
 
 $$
-r_\theta(x,y)=\frac{\beta}{|y|}\log\pi_\theta(y\mid x)=\frac{\beta}{|y|}\sum_{t=1}^{|y|}\log\pi_\theta(y_t\mid x,y_{<t}).
+r_\theta(x,y)=\frac{\beta}{|y|}\log\pi_\theta(y\mid x)=\frac{\beta}{|y|}\sum_{t=1}^{|y|}\log\pi_\theta(y_t\mid x,y_{\lt t}).
 $$
 
 成对损失为带间隔的 Bradley–Terry：
@@ -39,7 +39,7 @@ $$
 \mathcal{L}_{\mathrm{SimPO}}=-\mathbb{E}\log\sigma\bigl(r_\theta(x,y_w)-r_\theta(x,y_l)-\gamma\bigr).
 $$
 
-$\beta$ 放大平均对数概率的差，使 $\sigma$ 工作在有梯度的区间；$\gamma>0$ 要求喜欢侧的奖励至少高出不喜欢侧一段固定边距，否则损失不降到零。没有 SFT 辅助项，也没有 $\pi_{\mathrm{ref}}$。数据仍是 $(x,y_w,y_l)$，与 DPO 相同，吃不成对的点赞要另走 [KTO](/llm/kto)。
+$\beta$ 放大平均对数概率的差，使 $\sigma$ 工作在有梯度的区间；$\gamma\gt 0$ 要求喜欢侧的奖励至少高出不喜欢侧一段固定边距，否则损失不降到零。没有 SFT 辅助项，也没有 $\pi_{\mathrm{ref}}$。数据仍是 $(x,y_w,y_l)$，与 DPO 相同，吃不成对的点赞要另走 [KTO](/llm/kto)。
 
 Meng 等人在同一套成对数据上比较参考型与无参考型目标，显示平均奖励加间隔可以达到或超过 DPO，同时少一份模型。超参上 $\beta$ 与 $\gamma$ 耦合：$\beta$ 大则差被放大，$\gamma$ 可以略小；$\gamma$ 大则即使平均差已经为正，仍继续推。应在验证偏好准确率与生成长度上一起看，只看训练损失会把模型推向「无限拉大间隔」，表现为过拒或过长解释。
 

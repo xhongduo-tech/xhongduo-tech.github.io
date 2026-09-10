@@ -11,7 +11,7 @@ section: quant
 <footer>—— Choueifaty & Coignard, Toward Maximum Diversification, Journal of Portfolio Management, 2008；Roncalli, Introduction to Risk Parity and Budgeting, 2013</footer>
 </div>
 
-[风险平价](/quant/risk-parity) 把每项资产的风险贡献钉在 $1/N$。真实的配置往往要先定预算：股票 40% 的风险、利率 30%、信用 20%、商品 10%，或因子上价值与动量各一半。这就是风险预算（risk budgeting）：给定向量 $b>0$、$b^\top\mathbf{1}=1$，求 $w$ 使 $\mathrm{RC}_i(w)=b_i\sigma(w)$。Choueifaty 与 Coignard（2008）从另一条轴出发：最大化分散化比率 $\mathrm{DR}(w)=(w^\top\sigma)/\sqrt{w^\top\Sigma w}$，得到最分散组合（MDP）。本篇写预算问题的解、MDP 与 ERC 何时重合、以及欧拉分配在因子与 CVaR 上如何推广。它仍不使用 $\mu$，但把「平」推广成「按政策分配」。
+[风险平价](/quant/risk-parity) 把每项资产的风险贡献钉在 $1/N$。真实的配置往往要先定预算：股票 40% 的风险、利率 30%、信用 20%、商品 10%，或因子上价值与动量各一半。这就是风险预算（risk budgeting）：给定向量 $b\gt 0$、$b^\top\mathbf{1}=1$，求 $w$ 使 $\mathrm{RC}_i(w)=b_i\sigma(w)$。Choueifaty 与 Coignard（2008）从另一条轴出发：最大化分散化比率 $\mathrm{DR}(w)=(w^\top\sigma)/\sqrt{w^\top\Sigma w}$，得到最分散组合（MDP）。本篇写预算问题的解、MDP 与 ERC 何时重合、以及欧拉分配在因子与 CVaR 上如何推广。它仍不使用 $\mu$，但把「平」推广成「按政策分配」。
 
 ## 问题
 
@@ -27,13 +27,13 @@ MDP 问的是另一个规范性目标：在波动尺度上尽量分散，等价�
 
 ## 方法
 
-风险预算：在 $w>0$ 下解
+风险预算：在 $w\gt 0$ 下解
 
 $$
 \frac{w_i(\Sigma w)_i}{w^\top\Sigma w}=b_i,\qquad i=1,\ldots,N.
 $$
 
-Roncalli 给出与加权 ERC 类似的优化表示，例如最小化 $\tfrac12 w^\top\Sigma w-\sum_i b_i\ln w_i$（在适当约束下）。$b=\mathbf{1}/N$ 回到 ERC。数值仍是凸或可用循环缩放稳定求解，前提是 $\Sigma$ 正定、$b>0$。某个 $b_i=0$ 意味着该资产权重必须为 0，应从集合删除。允许卖空时贡献可正可负，会计要改成多头预算与空头预算分离，或对 $|w|$ 的暴露预算，否则「负贡献」难以解释给投委会。
+Roncalli 给出与加权 ERC 类似的优化表示，例如最小化 $\tfrac12 w^\top\Sigma w-\sum_i b_i\ln w_i$（在适当约束下）。$b=\mathbf{1}/N$ 回到 ERC。数值仍是凸或可用循环缩放稳定求解，前提是 $\Sigma$ 正定、$b\gt 0$。某个 $b_i=0$ 意味着该资产权重必须为 0，应从集合删除。允许卖空时贡献可正可负，会计要改成多头预算与空头预算分离，或对 $|w|$ 的暴露预算，否则「负贡献」难以解释给投委会。
 
 MDP：
 

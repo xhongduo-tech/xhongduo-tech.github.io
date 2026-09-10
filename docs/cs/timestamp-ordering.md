@@ -23,7 +23,7 @@ section: cs
 
 ## 方法
 
-对象元数据：`max_read_ts`、`max_write_ts`（及版本链）。读：若 $ts(T) < max_write_ts$ 可能 abort 或读旧版。写：若 $ts(T) < max_read_ts$ abort（已有更晚读）。提交：刷日志仍 WAL。
+对象元数据：`max_read_ts`、`max_write_ts`（及版本链）。读：若 $ts(T) \lt  max_write_ts$ 可能 abort 或读旧版。写：若 $ts(T) \lt  max_read_ts$ abort（已有更晚读）。提交：刷日志仍 WAL。
 
 与快照隔离：SI 用开始戳读，提交戳写检测，不是完整 TSO。本课 TSO 更接近「调度等价于戳序串行」。
 

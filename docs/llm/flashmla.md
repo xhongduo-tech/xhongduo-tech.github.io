@@ -54,7 +54,7 @@ flowchart TD
 
 FlashAttention 的 tile 假设 $d$ 能放进片上，且 $K,V$ 同宽。MLA decode 的 $d_k\neq d_v$、缓存是潜向量、可能 FP8、可能稀疏 top-k。强行 pad 到 576×576 会浪费 MMA 与带宽。吸收后的分数是查询侧矩阵与 $c^{KV}$ 的乘，核必须按这个收缩后的几何来切 K 块。分页块 64 与 TMA 对齐，乱改块大小会让调度元数据失效。
 
-$s_q>1$ 出现在投机校验、MTP 闭环、或某些并行解码。核若只优化 $s_q=1$，投机路径会退回慢实现，接受长度再高也被注意力核钉住。FlashMLA 把 $s_q$ 当一等维度，和 [Hydragen](/llm/hydragen) 的「多查询打同一 KV」在精神上同类，但几何是 MLA 的潜向量，不是 MHA 前缀分解。分页块表必须与引擎一致：块大小 64、逻辑槽到物理页的间接层，都要进 metadata，否则 TMA 会读到错误的 $c^{KV}$。
+$s_q\gt 1$ 出现在投机校验、MTP 闭环、或某些并行解码。核若只优化 $s_q=1$，投机路径会退回慢实现，接受长度再高也被注意力核钉住。FlashMLA 把 $s_q$ 当一等维度，和 [Hydragen](/llm/hydragen) 的「多查询打同一 KV」在精神上同类，但几何是 MLA 的潜向量，不是 MHA 前缀分解。分页块表必须与引擎一致：块大小 64、逻辑槽到物理页的间接层，都要进 metadata，否则 TMA 会读到错误的 $c^{KV}$。
 
 <span class="marginnote">早期 blog 把 580 TFLOPS 和 H800 BF16 峰值 260 TFLOPS 写在一起，容易误导：Tensor Core 峰值与稀疏/稠密核不是同一口径。以仓库 README 当时表格与 deep-dive 为准，并写 SM 代数。</span>
 

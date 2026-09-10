@@ -7,7 +7,7 @@ section: cs
 # Lucas 定理
 
 <div class="epigraph">
-<p>素数 $p$ 下，$\binom{n}{m}\equiv\prod\binom{n_i}{m_i}\pmod p$，其中 $n_i,m_i$ 是 $p$ 进制数字；某位 $n_i<m_i$ 则组合数为 0。</p>
+<p>素数 $p$ 下，$\binom{n}{m}\equiv\prod\binom{n_i}{m_i}\pmod p$，其中 $n_i,m_i$ 是 $p$ 进制数字；某位 $n_i\lt m_i$ 则组合数为 0。</p>
 <footer>—— 据 Lucas, Sur les congruences des nombres eulériens, 1878；初等数论教材整理</footer>
 </div>
 
@@ -15,13 +15,13 @@ section: cs
 
 ## 问题
 
-$n=\sum n_i p^i$，$m=\sum m_i p^i$，$0\le n_i,m_i<p$。Lucas：$\binom{n}{m}\equiv\prod_i\binom{n_i}{m_i}\pmod p$。每位 $\binom{n_i}{m_i}$ 可 $O(p)$ 或预处理阶乘表 $O(p)$。$n_i<m_i$ 则该位 0，整体 0。
+$n=\sum n_i p^i$，$m=\sum m_i p^i$，$0\le n_i,m_i\lt p$。Lucas：$\binom{n}{m}\equiv\prod_i\binom{n_i}{m_i}\pmod p$。每位 $\binom{n_i}{m_i}$ 可 $O(p)$ 或预处理阶乘表 $O(p)$。$n_i\lt m_i$ 则该位 0，整体 0。
 
 缺口是进制拆，不是 Lucas 数列（同名不同）。模 $p^k$ 要用更高（Kummer、Lucas 推广），本课点名。
 
 ### 不是中国剩余定理本身
 
-模合数 $M=\prod p_i^{k}$ 时，对每个 $p^k$ 算组合数再 CRT。$k=1$ 用本课；$k>1$ 更重。不要只 Lucas 再 CRT 到 $p^2$。
+模合数 $M=\prod p_i^{k}$ 时，对每个 $p^k$ 算组合数再 CRT。$k=1$ 用本课；$k\gt 1$ 更重。不要只 Lucas 再 CRT 到 $p^2$。
 
 <span class="marginnote">Lucas 1878。Kummer 进位次数给 $p$ 进赋值。后课生成函数 $\sum\binom n k x^k=(1+x)^n$ 在形式幂级数，不取模。</span>
 

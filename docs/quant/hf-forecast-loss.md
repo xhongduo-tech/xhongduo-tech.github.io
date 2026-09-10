@@ -35,7 +35,7 @@ section: quant
 
 **推断。** DM + HAC；多模型 SPA。嵌套（HAR 对 AR(1) RV）用 Clark–West 或自助。高频观测数 $n$ 大不是独立信息量——长期依赖与重叠仍在，不要用 $\sqrt n$ 当功效幻想。
 
-**校准。** MZ：$x=a+b\hat h+e$，HAC。$b<1$ 仍可能是代理噪声衰减。看 QLIKE 为主。
+**校准。** MZ：$x=a+b\hat h+e$，HAC。$b\lt 1$ 仍可能是代理噪声衰减。看 QLIKE 为主。
 
 ### 与执行、定价
 

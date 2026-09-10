@@ -21,7 +21,7 @@ $$
 U_t=u(c_t)+\beta\sum_{k=1}^{\infty}\delta^k u(c_{t+k}),
 $$
 
-$\delta$ 是长期因子，$\beta\le 1$ 是「现在」相对「以后所有期」的额外折扣。$\beta<1$ 时，从 $t$ 看 $t+1$ 对 $t+2$ 的相对权重是 $\delta$，从 $t+1$ 看变成 $\beta\delta$——计划在边界上翻脸。缺口是把上一课的一致性拆掉，而不是重讲[偏好](/econ/preference-choice)或 [vNM](/econ/expected-utility)。
+$\delta$ 是长期因子，$\beta\le 1$ 是「现在」相对「以后所有期」的额外折扣。$\beta\lt 1$ 时，从 $t$ 看 $t+1$ 对 $t+2$ 的相对权重是 $\delta$，从 $t+1$ 看变成 $\beta\delta$——计划在边界上翻脸。缺口是把上一课的一致性拆掉，而不是重讲[偏好](/econ/preference-choice)或 [vNM](/econ/expected-utility)。
 
 <span class="marginnote">真双曲常用 $1/(1+k\Delta)$。准双曲 $\beta$–$\delta$ 是离散近似，便于动态规划。本课以准双曲为主，机制相同：现时额外折扣。</span>
 

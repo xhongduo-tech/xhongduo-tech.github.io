@@ -23,7 +23,7 @@ R1 还保留对 $\pi_{\mathrm{ref}}$ 的 KL。长链推理里策略必须远离�
 
 社区把 DAPO 缩成「把 clip 上界改成 0.28」。原文的贡献是四项一起、加上整数化后的 17K 数学题与 verl 配方。只改一个 $\varepsilon$ 达不到表 1 的 50 分。
 
-<span class="marginnote">约束 $0<|\{o_i:\text{答对}\}|<G$ 写在目标的 s.t. 里：动态采样不是可选技巧，是目标定义的一部分。buffer 未满就继续采，不更新。</span>
+<span class="marginnote">约束 $0\lt |\{o_i:\text{答对}\}|\lt G$ 写在目标的 s.t. 里：动态采样不是可选技巧，是目标定义的一部分。buffer 未满就继续采，不更新。</span>
 
 ## 方法
 
@@ -42,7 +42,7 @@ $$
 
 **Token-level loss。** 分母是组内 token 总数，而不是 $G$。同一错误模式无论出现在短答还是长答，按 token 同等惩罚。
 
-**Overlong shaping。** 先可对截断样本 mask 损失。再给出软惩罚：长度 $\le L_{\max}-L_{\mathrm{cache}}$ 不罚；中间线性从 0 到 $-1$；$|y|>L_{\max}$ 为 $-1$。主实验 $L_{\max}=16384$、$L_{\mathrm{cache}}=4096$，生成上限 20480。
+**Overlong shaping。** 先可对截断样本 mask 损失。再给出软惩罚：长度 $\le L_{\max}-L_{\mathrm{cache}}$ 不罚；中间线性从 0 到 $-1$；$|y|\gt L_{\max}$ 为 $-1$。主实验 $L_{\max}=16384$、$L_{\mathrm{cache}}=4096$，生成上限 20480。
 
 超参：AdamW $1\times 10^{-6}$，rollout 提示 batch 512、$G=16$，训练 mini-batch 512（每轮 rollout 16 次梯度）。评测 AIME 重复 32 次报 avg@32，温度 1.0、top-$p=0.7$。数据：把竞赛题改写成**整数答案**以便规则解析，得到 DAPO-Math-17K。
 

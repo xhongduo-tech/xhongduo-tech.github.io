@@ -21,7 +21,7 @@ LALM 把同一目标拆成两段。先得到音频理解状态 $h=f_{\mathrm{enc
 
 $$
 p(y\mid h,\text{format})
-=\prod_t p(y_t\mid y_{<t},h,\text{format}),
+=\prod_t p(y_t\mid y_{\lt t},h,\text{format}),
 $$
 
 其中 $\text{format}$ 规定语种标签与 `<asr_text>` 一类槽位。语言先验进入第二段，声学证据留在 $h$ 里。要解决的是：把文本 LLM 已经学到的句法、实体和语种先验，变成转写解码器的先验，同时保留足够的声学证据，避免「听成」常见句。Qwen3-ASR 指出，在公开测试集上各系统分数接近标注噪声上限时，真实场景的差异仍然很大——内部评测覆盖复杂声学、方言、老人小孩与多语。范式比较不能只看 LibriSpeech 小数点。

@@ -1,0 +1,2792 @@
+[
+  {
+    "n": 1,
+    "section": "quant",
+    "title": "约束：换手、行业、杠杆",
+    "slug": "portfolio-constraints"
+  },
+  {
+    "n": 2,
+    "section": "quant",
+    "title": "再平衡规则",
+    "slug": "rebalance-rules"
+  },
+  {
+    "n": 3,
+    "section": "quant",
+    "title": "Brinson 归因",
+    "slug": "brinson"
+  },
+  {
+    "n": 4,
+    "section": "quant",
+    "title": "因子归因",
+    "slug": "factor-attribution"
+  },
+  {
+    "n": 5,
+    "section": "quant",
+    "title": "IR / Sharpe / Sortino",
+    "slug": "ir-sharpe"
+  },
+  {
+    "n": 6,
+    "section": "quant",
+    "title": "最大回撤与 Calmar",
+    "slug": "drawdown-calmar"
+  },
+  {
+    "n": 7,
+    "section": "quant",
+    "title": "买卖价差成本",
+    "slug": "spread-cost"
+  },
+  {
+    "n": 8,
+    "section": "quant",
+    "title": "线性 / 平方根冲击",
+    "slug": "sqrt-impact"
+  },
+  {
+    "n": 9,
+    "section": "quant",
+    "title": "Almgren-Chriss 最优执行",
+    "slug": "almgren-chriss"
+  },
+  {
+    "n": 10,
+    "section": "quant",
+    "title": "瞬时 vs 永久冲击",
+    "slug": "temp-perm-impact"
+  },
+  {
+    "n": 11,
+    "section": "quant",
+    "title": "TWAP / VWAP / POV",
+    "slug": "twap-vwap-pov"
+  },
+  {
+    "n": 12,
+    "section": "quant",
+    "title": "实施缺口 Implementation Shortfall",
+    "slug": "implementation-shortfall"
+  },
+  {
+    "n": 13,
+    "section": "quant",
+    "title": "Avellaneda-Stoikov",
+    "slug": "avellaneda-stoikov"
+  },
+  {
+    "n": 14,
+    "section": "quant",
+    "title": "库存风险与偏度报价",
+    "slug": "inventory-skew"
+  },
+  {
+    "n": 15,
+    "section": "quant",
+    "title": "排队与成交概率",
+    "slug": "fill-probability"
+  },
+  {
+    "n": 16,
+    "section": "quant",
+    "title": "毒性流与停报价",
+    "slug": "toxic-flow"
+  },
+  {
+    "n": 17,
+    "section": "quant",
+    "title": "VaR：历史、参数、MC",
+    "slug": "var-methods"
+  },
+  {
+    "n": 18,
+    "section": "quant",
+    "title": "Expected Shortfall",
+    "slug": "expected-shortfall"
+  },
+  {
+    "n": 19,
+    "section": "quant",
+    "title": "回测 VaR：Kupiec / Christoffersen",
+    "slug": "var-backtest"
+  },
+  {
+    "n": 20,
+    "section": "quant",
+    "title": "杠杆、保证金与强平",
+    "slug": "leverage-liquidation"
+  },
+  {
+    "n": 21,
+    "section": "quant",
+    "title": "流动性风险与变现时间",
+    "slug": "liquidity-horizon"
+  },
+  {
+    "n": 22,
+    "section": "quant",
+    "title": "对手方与信用风险要点",
+    "slug": "counterparty-credit"
+  },
+  {
+    "n": 23,
+    "section": "quant",
+    "title": "过拟合作为风险",
+    "slug": "overfit-as-risk"
+  },
+  {
+    "n": 24,
+    "section": "quant",
+    "title": "体制切换失效",
+    "slug": "regime-break-risk"
+  },
+  {
+    "n": 25,
+    "section": "quant",
+    "title": "相关性崩溃",
+    "slug": "correlation-breakdown"
+  },
+  {
+    "n": 26,
+    "section": "quant",
+    "title": "幸存者偏差",
+    "slug": "survivorship-bias"
+  },
+  {
+    "n": 27,
+    "section": "quant",
+    "title": "前视偏差",
+    "slug": "look-ahead-bias"
+  },
+  {
+    "n": 28,
+    "section": "quant",
+    "title": "点-in-time 基本面",
+    "slug": "point-in-time"
+  },
+  {
+    "n": 29,
+    "section": "quant",
+    "title": "停牌、涨跌停与不可交易",
+    "slug": "trading-halts"
+  },
+  {
+    "n": 30,
+    "section": "quant",
+    "title": "分红、拆股与复权",
+    "slug": "corporate-actions"
+  },
+  {
+    "n": 31,
+    "section": "quant",
+    "title": "样本外与滚动检验",
+    "slug": "walk-forward"
+  },
+  {
+    "n": 32,
+    "section": "quant",
+    "title": "交叉验证在金融中的泄漏",
+    "slug": "cv-leakage-finance"
+  },
+  {
+    "n": 33,
+    "section": "quant",
+    "title": "Deflated Sharpe",
+    "slug": "deflated-sharpe"
+  },
+  {
+    "n": 34,
+    "section": "quant",
+    "title": "组合过拟合 CPCV",
+    "slug": "cpcv"
+  },
+  {
+    "n": 35,
+    "section": "quant",
+    "title": "费用、滑点敏感性",
+    "slug": "cost-sensitivity"
+  },
+  {
+    "n": 36,
+    "section": "quant",
+    "title": "容量与参与率",
+    "slug": "capacity-participation"
+  },
+  {
+    "n": 37,
+    "section": "quant",
+    "title": "研究、模拟、实盘隔离",
+    "slug": "research-sim-prod"
+  },
+  {
+    "n": 38,
+    "section": "quant",
+    "title": "事件驱动回测引擎",
+    "slug": "event-driven-backtest"
+  },
+  {
+    "n": 39,
+    "section": "quant",
+    "title": "时钟、迟到数据与对账",
+    "slug": "late-data-recon"
+  },
+  {
+    "n": 40,
+    "section": "quant",
+    "title": "订单状态机",
+    "slug": "order-state-machine"
+  },
+  {
+    "n": 41,
+    "section": "quant",
+    "title": "风控闸门与熔断",
+    "slug": "trading-kill-switch"
+  },
+  {
+    "n": 42,
+    "section": "quant",
+    "title": "监控：PnL、敞口、拒单",
+    "slug": "trading-telemetry"
+  },
+  {
+    "n": 43,
+    "section": "quant",
+    "title": "卫星与地理",
+    "slug": "satellite-geo"
+  },
+  {
+    "n": 44,
+    "section": "quant",
+    "title": "信用卡与消费",
+    "slug": "card-spending"
+  },
+  {
+    "n": 45,
+    "section": "quant",
+    "title": "供应链与货运",
+    "slug": "supply-chain-alt"
+  },
+  {
+    "n": 46,
+    "section": "quant",
+    "title": "舆情与文本",
+    "slug": "news-nlp-alpha"
+  },
+  {
+    "n": 47,
+    "section": "quant",
+    "title": "期权链作为现货信号",
+    "slug": "options-as-spot-signal"
+  },
+  {
+    "n": 48,
+    "section": "quant",
+    "title": "标签、预测期与重叠",
+    "slug": "label-horizon-overlap"
+  },
+  {
+    "n": 49,
+    "section": "quant",
+    "title": "特征：滞后、截面 rank",
+    "slug": "cs-rank-features"
+  },
+  {
+    "n": 50,
+    "section": "quant",
+    "title": "树模型：GBDT",
+    "slug": "gbdt-alpha"
+  },
+  {
+    "n": 51,
+    "section": "quant",
+    "title": "正则线性模型",
+    "slug": "regularized-linear-alpha"
+  },
+  {
+    "n": 52,
+    "section": "quant",
+    "title": "防止未来函数",
+    "slug": "no-future-function"
+  },
+  {
+    "n": 53,
+    "section": "quant",
+    "title": "交易作为 MDP 的陷阱",
+    "slug": "trading-mdp-pitfalls"
+  },
+  {
+    "n": 54,
+    "section": "quant",
+    "title": "模拟器偏差",
+    "slug": "sim-to-real-trading"
+  },
+  {
+    "n": 55,
+    "section": "quant",
+    "title": "执行 RL 与冲击",
+    "slug": "rl-execution"
+  },
+  {
+    "n": 56,
+    "section": "quant",
+    "title": "T+1 与回转交易约束",
+    "slug": "cn-tplus1"
+  },
+  {
+    "n": 57,
+    "section": "quant",
+    "title": "涨跌停与集合竞价",
+    "slug": "cn-limit-auction"
+  },
+  {
+    "n": 58,
+    "section": "quant",
+    "title": "融券与做空约束",
+    "slug": "cn-short-constraint"
+  },
+  {
+    "n": 59,
+    "section": "quant",
+    "title": "北向资金与沪深港通",
+    "slug": "stock-connect"
+  },
+  {
+    "n": 60,
+    "section": "quant",
+    "title": "科创板 / 创业板制度差异",
+    "slug": "star-chinext"
+  },
+  {
+    "n": 61,
+    "section": "quant",
+    "title": "转债与正股联立",
+    "slug": "cb-equity-link"
+  },
+  {
+    "n": 62,
+    "section": "quant",
+    "title": "ETF 申赎与 IOPV",
+    "slug": "cn-etf-creation"
+  },
+  {
+    "n": 63,
+    "section": "quant",
+    "title": "融资融券保证金与强平",
+    "slug": "cn-margin-trading"
+  },
+  {
+    "n": 64,
+    "section": "quant",
+    "title": "大宗交易与折价",
+    "slug": "cn-block-trade"
+  },
+  {
+    "n": 65,
+    "section": "quant",
+    "title": "ST / 退市风险",
+    "slug": "cn-st-delist"
+  },
+  {
+    "n": 66,
+    "section": "quant",
+    "title": "停牌复牌与信息窗口",
+    "slug": "cn-halt-resume"
+  },
+  {
+    "n": 67,
+    "section": "quant",
+    "title": "可转债打新与赎回",
+    "slug": "cb-call-put"
+  },
+  {
+    "n": 68,
+    "section": "quant",
+    "title": "股指期货保证金与贴水",
+    "slug": "cn-index-fut-basis"
+  },
+  {
+    "n": 69,
+    "section": "quant",
+    "title": "国债期货 CTD 与基差",
+    "slug": "cn-tf-ctd"
+  },
+  {
+    "n": 70,
+    "section": "quant",
+    "title": "商品期货夜盘",
+    "slug": "cn-night-session"
+  },
+  {
+    "n": 71,
+    "section": "quant",
+    "title": "Contango / Backwardation",
+    "slug": "contango-backwardation"
+  },
+  {
+    "n": 72,
+    "section": "quant",
+    "title": "展期收益",
+    "slug": "roll-yield"
+  },
+  {
+    "n": 73,
+    "section": "quant",
+    "title": "期现套利",
+    "slug": "cash-and-carry"
+  },
+  {
+    "n": 74,
+    "section": "quant",
+    "title": "跨期套利",
+    "slug": "calendar-spread-arb"
+  },
+  {
+    "n": 75,
+    "section": "quant",
+    "title": "仓单与交割",
+    "slug": "futures-delivery"
+  },
+  {
+    "n": 76,
+    "section": "quant",
+    "title": "保证金与盯市",
+    "slug": "futures-margin"
+  },
+  {
+    "n": 77,
+    "section": "quant",
+    "title": "最便宜可交割 CTD",
+    "slug": "ctd-cheapest"
+  },
+  {
+    "n": 78,
+    "section": "quant",
+    "title": "隐含回购利率",
+    "slug": "implied-repo"
+  },
+  {
+    "n": 79,
+    "section": "quant",
+    "title": "展期成交量与持仓",
+    "slug": "roll-volume-oi"
+  },
+  {
+    "n": 80,
+    "section": "quant",
+    "title": "库存报告与曲线",
+    "slug": "inventory-curve"
+  },
+  {
+    "n": 81,
+    "section": "quant",
+    "title": "季节性展期",
+    "slug": "seasonal-roll"
+  },
+  {
+    "n": 82,
+    "section": "quant",
+    "title": "跨品种价差",
+    "slug": "intercommodity-spread"
+  },
+  {
+    "n": 83,
+    "section": "quant",
+    "title": "利率平价",
+    "slug": "irp"
+  },
+  {
+    "n": 84,
+    "section": "quant",
+    "title": "购买力平价作为锚",
+    "slug": "ppp-anchor"
+  },
+  {
+    "n": 85,
+    "section": "quant",
+    "title": "交叉汇率三角",
+    "slug": "fx-triangle"
+  },
+  {
+    "n": 86,
+    "section": "quant",
+    "title": "商品便利收益",
+    "slug": "convenience-yield"
+  },
+  {
+    "n": 87,
+    "section": "quant",
+    "title": "库存与曲线",
+    "slug": "commodity-inventory"
+  },
+  {
+    "n": 88,
+    "section": "quant",
+    "title": "NDF 与不可兑换货币",
+    "slug": "ndf"
+  },
+  {
+    "n": 89,
+    "section": "quant",
+    "title": "交叉货币基差",
+    "slug": "xccy-basis"
+  },
+  {
+    "n": 90,
+    "section": "quant",
+    "title": "商品展期 alpha",
+    "slug": "commodity-roll-alpha"
+  },
+  {
+    "n": 91,
+    "section": "quant",
+    "title": "能源裂解价差",
+    "slug": "crack-spread"
+  },
+  {
+    "n": 92,
+    "section": "quant",
+    "title": "农产品天气升水",
+    "slug": "ag-weather-premium"
+  },
+  {
+    "n": 93,
+    "section": "quant",
+    "title": "隐波插值 arbitrage-free",
+    "slug": "arb-free-iv"
+  },
+  {
+    "n": 94,
+    "section": "quant",
+    "title": "蝶式与日历无套利",
+    "slug": "butterfly-calendar-arb"
+  },
+  {
+    "n": 95,
+    "section": "quant",
+    "title": "Delta 对冲频率",
+    "slug": "delta-hedge-freq"
+  },
+  {
+    "n": 96,
+    "section": "quant",
+    "title": "Pin risk",
+    "slug": "pin-risk"
+  },
+  {
+    "n": 97,
+    "section": "quant",
+    "title": "隔夜跳空对冲",
+    "slug": "overnight-gap-hedge"
+  },
+  {
+    "n": 98,
+    "section": "quant",
+    "title": "隐波曲面 SVI / SSVI",
+    "slug": "svi-ssvi"
+  },
+  {
+    "n": 99,
+    "section": "quant",
+    "title": "Vanna / Volga 对冲",
+    "slug": "vanna-volga"
+  },
+  {
+    "n": 100,
+    "section": "quant",
+    "title": "Charm / Color 高阶希腊",
+    "slug": "higher-greeks"
+  },
+  {
+    "n": 101,
+    "section": "quant",
+    "title": "离散股息对美式期权",
+    "slug": "discrete-dividend-am"
+  },
+  {
+    "n": 102,
+    "section": "quant",
+    "title": "障碍期权监控频率",
+    "slug": "barrier-monitoring"
+  },
+  {
+    "n": 103,
+    "section": "quant",
+    "title": "订单流毒性",
+    "slug": "ofi-toxicity"
+  },
+  {
+    "n": 104,
+    "section": "quant",
+    "title": "队列不平衡因子",
+    "slug": "queue-imbalance-alpha"
+  },
+  {
+    "n": 105,
+    "section": "quant",
+    "title": "成交到达强度",
+    "slug": "hawkes-trades"
+  },
+  {
+    "n": 106,
+    "section": "quant",
+    "title": "微观价格",
+    "slug": "microprice"
+  },
+  {
+    "n": 107,
+    "section": "quant",
+    "title": "深度加权中间价",
+    "slug": "depth-mid"
+  },
+  {
+    "n": 108,
+    "section": "quant",
+    "title": "Hasbrouck 信息份额",
+    "slug": "hasbrouck-is"
+  },
+  {
+    "n": 109,
+    "section": "quant",
+    "title": "Kyle lambda 冲击系数",
+    "slug": "kyle-lambda"
+  },
+  {
+    "n": 110,
+    "section": "quant",
+    "title": "Amihud 非流动性",
+    "slug": "amihud-illiquidity"
+  },
+  {
+    "n": 111,
+    "section": "quant",
+    "title": "Pastor-Stambaugh 流动性",
+    "slug": "pastor-stambaugh"
+  },
+  {
+    "n": 112,
+    "section": "quant",
+    "title": "Corwin-Schultz 价差估计",
+    "slug": "corwin-schultz"
+  },
+  {
+    "n": 113,
+    "section": "quant",
+    "title": "Roll 有效价差估计",
+    "slug": "roll-effective-spread"
+  },
+  {
+    "n": 114,
+    "section": "quant",
+    "title": "VPIN 实时毒性",
+    "slug": "vpin-realtime"
+  },
+  {
+    "n": 115,
+    "section": "quant",
+    "title": "订单流不平衡 OFI",
+    "slug": "ofi-cont"
+  },
+  {
+    "n": 116,
+    "section": "quant",
+    "title": "撤单速率",
+    "slug": "cancel-rate"
+  },
+  {
+    "n": 117,
+    "section": "quant",
+    "title": "冰山探测",
+    "slug": "iceberg-detection"
+  },
+  {
+    "n": 118,
+    "section": "quant",
+    "title": "Hou-Xue-Zhang q-因子",
+    "slug": "q-factor-hxz"
+  },
+  {
+    "n": 119,
+    "section": "quant",
+    "title": "Stambaugh-Yuan 错误定价",
+    "slug": "sy-mispricing"
+  },
+  {
+    "n": 120,
+    "section": "quant",
+    "title": "Fama-French 六因子",
+    "slug": "ff6"
+  },
+  {
+    "n": 121,
+    "section": "quant",
+    "title": "Quality Minus Junk",
+    "slug": "qmj"
+  },
+  {
+    "n": 122,
+    "section": "quant",
+    "title": "Betting Against Beta 原文",
+    "slug": "frazzini-bab"
+  },
+  {
+    "n": 123,
+    "section": "quant",
+    "title": "HML Devil",
+    "slug": "hml-devil"
+  },
+  {
+    "n": 124,
+    "section": "quant",
+    "title": "时间序列动量",
+    "slug": "tsmom"
+  },
+  {
+    "n": 125,
+    "section": "quant",
+    "title": "跨资产价值与动量",
+    "slug": "value-momentum-everywhere"
+  },
+  {
+    "n": 126,
+    "section": "quant",
+    "title": "Carry 跨资产",
+    "slug": "carry-everywhere"
+  },
+  {
+    "n": 127,
+    "section": "quant",
+    "title": "盈利意外 PEAD / SUE",
+    "slug": "pead-sue"
+  },
+  {
+    "n": 128,
+    "section": "quant",
+    "title": "应计 anomalous accruals",
+    "slug": "accruals-anomaly"
+  },
+  {
+    "n": 129,
+    "section": "quant",
+    "title": "净股票发行",
+    "slug": "net-issuance"
+  },
+  {
+    "n": 130,
+    "section": "quant",
+    "title": "资产增长异常",
+    "slug": "asset-growth"
+  },
+  {
+    "n": 131,
+    "section": "quant",
+    "title": "毛利率 Novy-Marx",
+    "slug": "gross-profitability"
+  },
+  {
+    "n": 132,
+    "section": "quant",
+    "title": "投资因子 CMA",
+    "slug": "cma-investment"
+  },
+  {
+    "n": 133,
+    "section": "quant",
+    "title": "Fama-MacBeth 回归",
+    "slug": "fama-macbeth"
+  },
+  {
+    "n": 134,
+    "section": "quant",
+    "title": "Giglio-Xiu 潜因子",
+    "slug": "giglio-xiu"
+  },
+  {
+    "n": 135,
+    "section": "quant",
+    "title": "IPCA 工具主成分",
+    "slug": "ipca"
+  },
+  {
+    "n": 136,
+    "section": "quant",
+    "title": "风险溢价时变",
+    "slug": "time-varying-rp"
+  },
+  {
+    "n": 137,
+    "section": "quant",
+    "title": "宏观因子：增长、通胀、流动性",
+    "slug": "macro-factor-set"
+  },
+  {
+    "n": 138,
+    "section": "quant",
+    "title": "收益率曲线因子",
+    "slug": "yield-curve-factors"
+  },
+  {
+    "n": 139,
+    "section": "quant",
+    "title": "波动率风险溢价",
+    "slug": "variance-risk-premium"
+  },
+  {
+    "n": 140,
+    "section": "quant",
+    "title": "偏度风险溢价",
+    "slug": "skew-risk-premium"
+  },
+  {
+    "n": 141,
+    "section": "quant",
+    "title": "尾部风险因子",
+    "slug": "tail-risk-factor"
+  },
+  {
+    "n": 142,
+    "section": "quant",
+    "title": "资金流动性因子",
+    "slug": "funding-liquidity"
+  },
+  {
+    "n": 143,
+    "section": "quant",
+    "title": "Carr-Madan FFT 定价",
+    "slug": "carr-madan"
+  },
+  {
+    "n": 144,
+    "section": "quant",
+    "title": "COS 方法",
+    "slug": "cos-method"
+  },
+  {
+    "n": 145,
+    "section": "quant",
+    "title": "Longstaff-Schwartz 美式 MC",
+    "slug": "longstaff-schwartz"
+  },
+  {
+    "n": 146,
+    "section": "quant",
+    "title": "最小二乘蒙特卡洛 LSM",
+    "slug": "lsm-american"
+  },
+  {
+    "n": 147,
+    "section": "quant",
+    "title": "PDE Crank-Nicolson",
+    "slug": "crank-nicolson"
+  },
+  {
+    "n": 148,
+    "section": "quant",
+    "title": "ADI 高维 PDE",
+    "slug": "adi-pde"
+  },
+  {
+    "n": 149,
+    "section": "quant",
+    "title": "树图与美式提前行权",
+    "slug": "tree-early-exercise"
+  },
+  {
+    "n": 150,
+    "section": "quant",
+    "title": "控制变量对欧式",
+    "slug": "cv-european"
+  },
+  {
+    "n": 151,
+    "section": "quant",
+    "title": "重要性采样对障碍",
+    "slug": "is-barrier"
+  },
+  {
+    "n": 152,
+    "section": "quant",
+    "title": "拟随机数 Sobol",
+    "slug": "sobol-qmc"
+  },
+  {
+    "n": 153,
+    "section": "quant",
+    "title": "Heston 特征函数",
+    "slug": "heston-cf"
+  },
+  {
+    "n": 154,
+    "section": "quant",
+    "title": "Bates 跳扩散",
+    "slug": "bates"
+  },
+  {
+    "n": 155,
+    "section": "quant",
+    "title": "Merton 跳扩散",
+    "slug": "merton-jump"
+  },
+  {
+    "n": 156,
+    "section": "quant",
+    "title": "Variance Gamma",
+    "slug": "variance-gamma"
+  },
+  {
+    "n": 157,
+    "section": "quant",
+    "title": "CGMY",
+    "slug": "cgmy"
+  },
+  {
+    "n": 158,
+    "section": "quant",
+    "title": "SABR 校准",
+    "slug": "sabr-calib"
+  },
+  {
+    "n": 159,
+    "section": "quant",
+    "title": "Local-stochastic vol",
+    "slug": "local-stoch-vol"
+  },
+  {
+    "n": 160,
+    "section": "quant",
+    "title": "Bergomi 方差曲线",
+    "slug": "bergomi"
+  },
+  {
+    "n": 161,
+    "section": "quant",
+    "title": "Rough volatility",
+    "slug": "rough-vol"
+  },
+  {
+    "n": 162,
+    "section": "quant",
+    "title": "Gatheral 无套利曲面",
+    "slug": "gatheral-arb-free"
+  },
+  {
+    "n": 163,
+    "section": "quant",
+    "title": "Dupire 局部波动校准",
+    "slug": "dupire-calib"
+  },
+  {
+    "n": 164,
+    "section": "quant",
+    "title": "VIX 期货定价",
+    "slug": "vix-futures"
+  },
+  {
+    "n": 165,
+    "section": "quant",
+    "title": "方差互换复制",
+    "slug": "var-swap-replication"
+  },
+  {
+    "n": 166,
+    "section": "quant",
+    "title": "波动率套利",
+    "slug": "vol-arb"
+  },
+  {
+    "n": 167,
+    "section": "quant",
+    "title": "Dispersion 交易",
+    "slug": "dispersion-trade"
+  },
+  {
+    "n": 168,
+    "section": "quant",
+    "title": "Nelson-Siegel",
+    "slug": "nelson-siegel"
+  },
+  {
+    "n": 169,
+    "section": "quant",
+    "title": "Svensson 扩展",
+    "slug": "svensson"
+  },
+  {
+    "n": 170,
+    "section": "quant",
+    "title": "曲线 PCA：水平、斜率、曲率",
+    "slug": "curve-pca"
+  },
+  {
+    "n": 171,
+    "section": "quant",
+    "title": "蝶式交易",
+    "slug": "curve-butterfly"
+  },
+  {
+    "n": 172,
+    "section": "quant",
+    "title": "互换价差",
+    "slug": "swap-spread"
+  },
+  {
+    "n": 173,
+    "section": "quant",
+    "title": "基差互换",
+    "slug": "basis-swap"
+  },
+  {
+    "n": 174,
+    "section": "quant",
+    "title": "SOFR 过渡与后备",
+    "slug": "sofr-transition"
+  },
+  {
+    "n": 175,
+    "section": "quant",
+    "title": "CMS 凸性调整",
+    "slug": "cms-convexity"
+  },
+  {
+    "n": 176,
+    "section": "quant",
+    "title": "百慕大互换期权",
+    "slug": "bermudan-swaption"
+  },
+  {
+    "n": 177,
+    "section": "quant",
+    "title": "关键期限 DV01",
+    "slug": "key-tenor-dv01"
+  },
+  {
+    "n": 178,
+    "section": "quant",
+    "title": "Merton 结构模型",
+    "slug": "merton-structural"
+  },
+  {
+    "n": 179,
+    "section": "quant",
+    "title": "Black-Cox 首达",
+    "slug": "black-cox"
+  },
+  {
+    "n": 180,
+    "section": "quant",
+    "title": "简化形式强度模型",
+    "slug": "reduced-form-intensity"
+  },
+  {
+    "n": 181,
+    "section": "quant",
+    "title": "CDS 定价与升水",
+    "slug": "cds-pricing"
+  },
+  {
+    "n": 182,
+    "section": "quant",
+    "title": "CDS-债券基差",
+    "slug": "cds-bond-basis"
+  },
+  {
+    "n": 183,
+    "section": "quant",
+    "title": "指数 vs 单名",
+    "slug": "cdx-vs-single"
+  },
+  {
+    "n": 184,
+    "section": "quant",
+    "title": "高斯 Copula 与批判",
+    "slug": "gaussian-copula-cdo"
+  },
+  {
+    "n": 185,
+    "section": "quant",
+    "title": "回收率假设",
+    "slug": "recovery-assumption"
+  },
+  {
+    "n": 186,
+    "section": "quant",
+    "title": "评级迁移矩阵",
+    "slug": "rating-migration"
+  },
+  {
+    "n": 187,
+    "section": "quant",
+    "title": "主权 CDS",
+    "slug": "sovereign-cds"
+  },
+  {
+    "n": 188,
+    "section": "quant",
+    "title": "Ledoit-Wolf 收缩",
+    "slug": "ledoit-wolf"
+  },
+  {
+    "n": 189,
+    "section": "quant",
+    "title": "图形 Lasso 精度矩阵",
+    "slug": "glasso"
+  },
+  {
+    "n": 190,
+    "section": "quant",
+    "title": "因子协方差 vs 样本",
+    "slug": "factor-vs-sample-cov"
+  },
+  {
+    "n": 191,
+    "section": "quant",
+    "title": "EWMA 协方差",
+    "slug": "ewma-cov"
+  },
+  {
+    "n": 192,
+    "section": "quant",
+    "title": "DCC 动态相关入组合",
+    "slug": "dcc-portfolio"
+  },
+  {
+    "n": 193,
+    "section": "quant",
+    "title": "层次风险平价 HRP",
+    "slug": "hrp"
+  },
+  {
+    "n": 194,
+    "section": "quant",
+    "title": "等风险贡献 ERC",
+    "slug": "erc"
+  },
+  {
+    "n": 195,
+    "section": "quant",
+    "title": "CVaR 优化",
+    "slug": "cvar-opt"
+  },
+  {
+    "n": 196,
+    "section": "quant",
+    "title": "交易成本感知优化",
+    "slug": "tcost-opt"
+  },
+  {
+    "n": 197,
+    "section": "quant",
+    "title": "换手惩罚",
+    "slug": "turnover-penalty"
+  },
+  {
+    "n": 198,
+    "section": "quant",
+    "title": "多空与多头约束",
+    "slug": "long-short-constraints"
+  },
+  {
+    "n": 199,
+    "section": "quant",
+    "title": "行业/国家中性组合",
+    "slug": "industry-country-neutral"
+  },
+  {
+    "n": 200,
+    "section": "quant",
+    "title": "Black-Litterman 观点",
+    "slug": "bl-views"
+  },
+  {
+    "n": 201,
+    "section": "quant",
+    "title": "风险预算再平衡",
+    "slug": "rb-rebalance"
+  },
+  {
+    "n": 202,
+    "section": "quant",
+    "title": "波动目标 vol targeting",
+    "slug": "vol-targeting"
+  },
+  {
+    "n": 203,
+    "section": "quant",
+    "title": "Obizhaeva-Wang",
+    "slug": "obizhaeva-wang"
+  },
+  {
+    "n": 204,
+    "section": "quant",
+    "title": "Gatheral-Schied 无漂移",
+    "slug": "gatheral-schied"
+  },
+  {
+    "n": 205,
+    "section": "quant",
+    "title": "Almgren 临时冲击校准",
+    "slug": "almgren-temp-calib"
+  },
+  {
+    "n": 206,
+    "section": "quant",
+    "title": "到达价格算法",
+    "slug": "arrival-price"
+  },
+  {
+    "n": 207,
+    "section": "quant",
+    "title": "暗池路由",
+    "slug": "dark-pool-routing"
+  },
+  {
+    "n": 208,
+    "section": "quant",
+    "title": "参与率封顶",
+    "slug": "participation-cap"
+  },
+  {
+    "n": 209,
+    "section": "quant",
+    "title": "开盘/收盘竞价执行",
+    "slug": "auction-execution"
+  },
+  {
+    "n": 210,
+    "section": "quant",
+    "title": "冰山与隐藏单",
+    "slug": "iceberg-algo"
+  },
+  {
+    "n": 211,
+    "section": "quant",
+    "title": "智能订单路由 SOR",
+    "slug": "smart-order-routing"
+  },
+  {
+    "n": 212,
+    "section": "quant",
+    "title": "成交后分析 TCA",
+    "slug": "tca"
+  },
+  {
+    "n": 213,
+    "section": "quant",
+    "title": "Gatev-Goetzmann-Rouwenhorst",
+    "slug": "ggr-pairs"
+  },
+  {
+    "n": 214,
+    "section": "quant",
+    "title": "Avellaneda-Lee 统计套利",
+    "slug": "avellaneda-lee"
+  },
+  {
+    "n": 215,
+    "section": "quant",
+    "title": "Copula 配对",
+    "slug": "copula-pairs"
+  },
+  {
+    "n": 216,
+    "section": "quant",
+    "title": "Kalman 价差滤波",
+    "slug": "kalman-spread"
+  },
+  {
+    "n": 217,
+    "section": "quant",
+    "title": "协整秩选择",
+    "slug": "coint-rank"
+  },
+  {
+    "n": 218,
+    "section": "quant",
+    "title": "时变对冲比断裂",
+    "slug": "hedge-ratio-break"
+  },
+  {
+    "n": 219,
+    "section": "quant",
+    "title": "篮子 PCA 残差",
+    "slug": "pca-residual-basket"
+  },
+  {
+    "n": 220,
+    "section": "quant",
+    "title": "行业内相对价值",
+    "slug": "sector-rv"
+  },
+  {
+    "n": 221,
+    "section": "quant",
+    "title": "ADR / 两地上市溢价",
+    "slug": "adr-premium"
+  },
+  {
+    "n": 222,
+    "section": "quant",
+    "title": "ETF 创建赎回套利",
+    "slug": "etf-create-redeem"
+  },
+  {
+    "n": 223,
+    "section": "quant",
+    "title": "Triple Barrier 标签",
+    "slug": "triple-barrier"
+  },
+  {
+    "n": 224,
+    "section": "quant",
+    "title": "Meta-labeling",
+    "slug": "meta-labeling"
+  },
+  {
+    "n": 225,
+    "section": "quant",
+    "title": "分数阶差分",
+    "slug": "fracdiff"
+  },
+  {
+    "n": 226,
+    "section": "quant",
+    "title": "信息驱动 bar：tick/volume/dollar",
+    "slug": "imbalance-bars"
+  },
+  {
+    "n": 227,
+    "section": "quant",
+    "title": "Combinatorial Purged CV",
+    "slug": "cpcv-lopez"
+  },
+  {
+    "n": 228,
+    "section": "quant",
+    "title": "Embargo 与 purge",
+    "slug": "purge-embargo"
+  },
+  {
+    "n": 229,
+    "section": "quant",
+    "title": "Deflated Sharpe 原文",
+    "slug": "bailey-dsr"
+  },
+  {
+    "n": 230,
+    "section": "quant",
+    "title": "概率夏普 PSR",
+    "slug": "probabilistic-sharpe"
+  },
+  {
+    "n": 231,
+    "section": "quant",
+    "title": "过拟合次数与试错",
+    "slug": "backtest-overfitting"
+  },
+  {
+    "n": 232,
+    "section": "quant",
+    "title": "点-in-time 基本面对齐",
+    "slug": "pit-alignment"
+  },
+  {
+    "n": 233,
+    "section": "quant",
+    "title": "Cornish-Fisher VaR",
+    "slug": "cornish-fisher-var"
+  },
+  {
+    "n": 234,
+    "section": "quant",
+    "title": "Filtered Historical Simulation",
+    "slug": "fhs-var"
+  },
+  {
+    "n": 235,
+    "section": "quant",
+    "title": "Copula VaR",
+    "slug": "copula-var"
+  },
+  {
+    "n": 236,
+    "section": "quant",
+    "title": "压力 VaR 与 FRTB",
+    "slug": "stressed-var-frtb"
+  },
+  {
+    "n": 237,
+    "section": "quant",
+    "title": "流动性调整 VaR",
+    "slug": "liquidity-adjusted-var"
+  },
+  {
+    "n": 238,
+    "section": "quant",
+    "title": "成分 ES / Euler 分配",
+    "slug": "component-es"
+  },
+  {
+    "n": 239,
+    "section": "quant",
+    "title": "保证金模型 SPAN / SIMM",
+    "slug": "span-simm"
+  },
+  {
+    "n": 240,
+    "section": "quant",
+    "title": "缺口风险 gap risk",
+    "slug": "gap-risk"
+  },
+  {
+    "n": 241,
+    "section": "quant",
+    "title": "拥挤度与清盘螺旋",
+    "slug": "crowding-spiral"
+  },
+  {
+    "n": 242,
+    "section": "quant",
+    "title": "对手方 CVA 要点",
+    "slug": "cva-lite"
+  },
+  {
+    "n": 243,
+    "section": "quant",
+    "title": "时间序列动量 CTA",
+    "slug": "cta-tsmom"
+  },
+  {
+    "n": 244,
+    "section": "quant",
+    "title": "期限结构 Carry",
+    "slug": "ts-carry"
+  },
+  {
+    "n": 245,
+    "section": "quant",
+    "title": "突破与均线",
+    "slug": "breakout-ma"
+  },
+  {
+    "n": 246,
+    "section": "quant",
+    "title": "波动缩放仓位",
+    "slug": "vol-scale-cta"
+  },
+  {
+    "n": 247,
+    "section": "quant",
+    "title": "跨资产趋势相关",
+    "slug": "xasset-trend-corr"
+  },
+  {
+    "n": 248,
+    "section": "quant",
+    "title": "危机 alpha",
+    "slug": "crisis-alpha"
+  },
+  {
+    "n": 249,
+    "section": "quant",
+    "title": "管理期货风险平价",
+    "slug": "mfd-risk-parity"
+  },
+  {
+    "n": 250,
+    "section": "quant",
+    "title": "商品趋势 vs 展期",
+    "slug": "trend-vs-roll"
+  },
+  {
+    "n": 251,
+    "section": "quant",
+    "title": "外汇 Carry 与动量",
+    "slug": "fx-carry-mom"
+  },
+  {
+    "n": 252,
+    "section": "quant",
+    "title": "债券趋势",
+    "slug": "bond-trend"
+  },
+  {
+    "n": 253,
+    "section": "quant",
+    "title": "Lee-Ready 算法",
+    "slug": "lee-ready"
+  },
+  {
+    "n": 254,
+    "section": "quant",
+    "title": "Tick Rule / Quote Rule",
+    "slug": "tick-quote-rule"
+  },
+  {
+    "n": 255,
+    "section": "quant",
+    "title": "Bulk Volume Classification",
+    "slug": "bulk-volume-classification"
+  },
+  {
+    "n": 256,
+    "section": "quant",
+    "title": "逆向选择成本度量",
+    "slug": "adverse-selection-cost"
+  },
+  {
+    "n": 257,
+    "section": "quant",
+    "title": "Tick bars",
+    "slug": "tick-bars"
+  },
+  {
+    "n": 258,
+    "section": "quant",
+    "title": "Volume bars",
+    "slug": "volume-bars"
+  },
+  {
+    "n": 259,
+    "section": "quant",
+    "title": "Dollar bars",
+    "slug": "dollar-bars"
+  },
+  {
+    "n": 260,
+    "section": "quant",
+    "title": "Tick Imbalance Bars",
+    "slug": "tick-imbalance-bars"
+  },
+  {
+    "n": 261,
+    "section": "quant",
+    "title": "Volume Imbalance Bars",
+    "slug": "volume-imbalance-bars"
+  },
+  {
+    "n": 262,
+    "section": "quant",
+    "title": "Dollar Imbalance Bars",
+    "slug": "dollar-imbalance-bars"
+  },
+  {
+    "n": 263,
+    "section": "quant",
+    "title": "Queue-reactive 模型",
+    "slug": "queue-reactive"
+  },
+  {
+    "n": 264,
+    "section": "quant",
+    "title": "Cont-Kukanov-Stoikov 最优挂单",
+    "slug": "cks-optimal-placement"
+  },
+  {
+    "n": 265,
+    "section": "quant",
+    "title": "Hawkes 订单簿强度",
+    "slug": "hawkes-lob"
+  },
+  {
+    "n": 266,
+    "section": "quant",
+    "title": "多元 Hawkes 互激",
+    "slug": "multivariate-hawkes"
+  },
+  {
+    "n": 267,
+    "section": "quant",
+    "title": "ACD 自回归条件久期",
+    "slug": "acd-duration"
+  },
+  {
+    "n": 268,
+    "section": "quant",
+    "title": "LOBSTER / ITCH 行情",
+    "slug": "lobster-itch-feed"
+  },
+  {
+    "n": 269,
+    "section": "quant",
+    "title": "Bouchaud 传播核",
+    "slug": "bouchaud-propagator"
+  },
+  {
+    "n": 270,
+    "section": "quant",
+    "title": "平方根冲击律",
+    "slug": "square-root-impact-law"
+  },
+  {
+    "n": 271,
+    "section": "quant",
+    "title": "Madhavan-Richardson-Roomans",
+    "slug": "mrr-decomposition"
+  },
+  {
+    "n": 272,
+    "section": "quant",
+    "title": "延迟套利",
+    "slug": "latency-arbitrage"
+  },
+  {
+    "n": 273,
+    "section": "quant",
+    "title": "Carhart 四因子",
+    "slug": "carhart4"
+  },
+  {
+    "n": 274,
+    "section": "quant",
+    "title": "特质波动 IVOL",
+    "slug": "ivol-anomaly"
+  },
+  {
+    "n": 275,
+    "section": "quant",
+    "title": "MAX 极端收益效应",
+    "slug": "max-effect"
+  },
+  {
+    "n": 276,
+    "section": "quant",
+    "title": "Baker-Wurgler 情绪",
+    "slug": "baker-wurgler"
+  },
+  {
+    "n": 277,
+    "section": "quant",
+    "title": "彩票型需求因子",
+    "slug": "lottery-demand"
+  },
+  {
+    "n": 278,
+    "section": "quant",
+    "title": "动量崩溃",
+    "slug": "momentum-crash"
+  },
+  {
+    "n": 279,
+    "section": "quant",
+    "title": "时序 vs 截面动量",
+    "slug": "ts-vs-cs-momentum"
+  },
+  {
+    "n": 280,
+    "section": "quant",
+    "title": "隔夜 / 日内 alpha",
+    "slug": "overnight-intraday-alpha"
+  },
+  {
+    "n": 281,
+    "section": "quant",
+    "title": "行业动量",
+    "slug": "industry-momentum"
+  },
+  {
+    "n": 282,
+    "section": "quant",
+    "title": "52 周高点动量",
+    "slug": "fiftytwo-week-high"
+  },
+  {
+    "n": 283,
+    "section": "quant",
+    "title": "GRS 检验",
+    "slug": "grs-test"
+  },
+  {
+    "n": 284,
+    "section": "quant",
+    "title": "Harvey-Liu-Zhu 多重检验",
+    "slug": "harvey-liu-zhu"
+  },
+  {
+    "n": 285,
+    "section": "quant",
+    "title": "壳溢价 / 小市值",
+    "slug": "cn-shell-premium"
+  },
+  {
+    "n": 286,
+    "section": "quant",
+    "title": "换手率因子",
+    "slug": "cn-turnover-factor"
+  },
+  {
+    "n": 287,
+    "section": "quant",
+    "title": "北向持股因子",
+    "slug": "cn-northbound-hold"
+  },
+  {
+    "n": 288,
+    "section": "quant",
+    "title": "涨跌停邻近效应",
+    "slug": "cn-limit-proximity"
+  },
+  {
+    "n": 289,
+    "section": "quant",
+    "title": "龙虎榜异常",
+    "slug": "cn-lhb-anomaly"
+  },
+  {
+    "n": 290,
+    "section": "quant",
+    "title": "VECM 向量误差修正",
+    "slug": "vecm"
+  },
+  {
+    "n": 291,
+    "section": "quant",
+    "title": "Gregory-Hansen 协整破",
+    "slug": "gregory-hansen"
+  },
+  {
+    "n": 292,
+    "section": "quant",
+    "title": "Bai-Perron 结构断点",
+    "slug": "bai-perron"
+  },
+  {
+    "n": 293,
+    "section": "quant",
+    "title": "CUSUM / MOSUM",
+    "slug": "cusum-mosum"
+  },
+  {
+    "n": 294,
+    "section": "quant",
+    "title": "HMM 隐马尔可夫体制",
+    "slug": "hmm-regime"
+  },
+  {
+    "n": 295,
+    "section": "quant",
+    "title": "门限协整",
+    "slug": "threshold-cointegration"
+  },
+  {
+    "n": 296,
+    "section": "quant",
+    "title": "OU 最优停时",
+    "slug": "ou-optimal-stopping"
+  },
+  {
+    "n": 297,
+    "section": "quant",
+    "title": "Hayashi-Yoshida 相关",
+    "slug": "hayashi-yoshida"
+  },
+  {
+    "n": 298,
+    "section": "quant",
+    "title": "Epps 效应",
+    "slug": "epps-effect"
+  },
+  {
+    "n": 299,
+    "section": "quant",
+    "title": "并购套利",
+    "slug": "merger-arbitrage"
+  },
+  {
+    "n": 300,
+    "section": "quant",
+    "title": "可转债套利",
+    "slug": "convertible-arb"
+  },
+  {
+    "n": 301,
+    "section": "quant",
+    "title": "指数调仓套利",
+    "slug": "index-rebalance-arb"
+  },
+  {
+    "n": 302,
+    "section": "quant",
+    "title": "Probability of Backtest Overfitting",
+    "slug": "pbo"
+  },
+  {
+    "n": 303,
+    "section": "quant",
+    "title": "嵌套交叉验证",
+    "slug": "nested-cv"
+  },
+  {
+    "n": 304,
+    "section": "quant",
+    "title": "MDA 特征重要性",
+    "slug": "mda-importance"
+  },
+  {
+    "n": 305,
+    "section": "quant",
+    "title": "White Reality Check",
+    "slug": "white-reality-check"
+  },
+  {
+    "n": 306,
+    "section": "quant",
+    "title": "Hansen SPA 检验",
+    "slug": "hansen-spa"
+  },
+  {
+    "n": 307,
+    "section": "quant",
+    "title": "Maker-taker 费用",
+    "slug": "maker-taker"
+  },
+  {
+    "n": 308,
+    "section": "quant",
+    "title": "Guéant-Lehalle-Fernandez-Tapia",
+    "slug": "glft-market-making"
+  },
+  {
+    "n": 309,
+    "section": "quant",
+    "title": "Cartea-Jaimungal 执行",
+    "slug": "cartea-jaimungal"
+  },
+  {
+    "n": 310,
+    "section": "quant",
+    "title": "Bertsimas-Lo 动态执行",
+    "slug": "bertsimas-lo"
+  },
+  {
+    "n": 311,
+    "section": "quant",
+    "title": "Huberman-Stanzl 无套利冲击",
+    "slug": "huberman-stanzl"
+  },
+  {
+    "n": 312,
+    "section": "quant",
+    "title": "瞬时冲击传播核",
+    "slug": "transient-impact-kernel"
+  },
+  {
+    "n": 313,
+    "section": "quant",
+    "title": "自适应 POV",
+    "slug": "adaptive-pov"
+  },
+  {
+    "n": 314,
+    "section": "quant",
+    "title": "子单切片",
+    "slug": "child-order-slicing"
+  },
+  {
+    "n": 315,
+    "section": "quant",
+    "title": "滑点归因",
+    "slug": "slippage-attribution"
+  },
+  {
+    "n": 316,
+    "section": "quant",
+    "title": "收盘竞价不平衡",
+    "slug": "close-auction-imbalance"
+  },
+  {
+    "n": 317,
+    "section": "quant",
+    "title": "永续合约资金费率",
+    "slug": "crypto-perp-funding"
+  },
+  {
+    "n": 318,
+    "section": "quant",
+    "title": "Funding rate 套利",
+    "slug": "funding-rate-arb"
+  },
+  {
+    "n": 319,
+    "section": "quant",
+    "title": "加密期现基差交易",
+    "slug": "crypto-basis-trade"
+  },
+  {
+    "n": 320,
+    "section": "quant",
+    "title": "清算连锁",
+    "slug": "liquidation-cascade"
+  },
+  {
+    "n": 321,
+    "section": "quant",
+    "title": "Uniswap 恒定乘积 AMM",
+    "slug": "uniswap-cpmm"
+  },
+  {
+    "n": 322,
+    "section": "quant",
+    "title": "Uniswap v3 集中流动性",
+    "slug": "uniswap-v3-clmm"
+  },
+  {
+    "n": 323,
+    "section": "quant",
+    "title": "MEV sandwich",
+    "slug": "mev-sandwich"
+  },
+  {
+    "n": 324,
+    "section": "quant",
+    "title": "CEX-DEX 套利",
+    "slug": "cex-dex-arb"
+  },
+  {
+    "n": 325,
+    "section": "quant",
+    "title": "稳定币脱锚风险",
+    "slug": "stablecoin-depeg"
+  },
+  {
+    "n": 326,
+    "section": "quant",
+    "title": "电话会语气 NLP",
+    "slug": "earnings-call-tone"
+  },
+  {
+    "n": 327,
+    "section": "quant",
+    "title": "Heston Feller 条件",
+    "slug": "heston-feller"
+  },
+  {
+    "n": 328,
+    "section": "quant",
+    "title": "SABR 翼部外推",
+    "slug": "sabr-wing-extrap"
+  },
+  {
+    "n": 329,
+    "section": "quant",
+    "title": "SVI 无套利参数化",
+    "slug": "svi-arb-params"
+  },
+  {
+    "n": 330,
+    "section": "quant",
+    "title": "SSVI 期限结构一致性",
+    "slug": "ssvi-term-consistency"
+  },
+  {
+    "n": 331,
+    "section": "quant",
+    "title": "Rough Bergomi",
+    "slug": "rough-bergomi"
+  },
+  {
+    "n": 332,
+    "section": "quant",
+    "title": "局部-随机混合校准",
+    "slug": "lsv-hybrid-calib"
+  },
+  {
+    "n": 333,
+    "section": "quant",
+    "title": "方差互换 vs 波动互换",
+    "slug": "var-vs-vol-swap"
+  },
+  {
+    "n": 334,
+    "section": "quant",
+    "title": "Gamma scalping PnL",
+    "slug": "gamma-scalping-pnl"
+  },
+  {
+    "n": 335,
+    "section": "quant",
+    "title": "Dispersion 相关溢价",
+    "slug": "dispersion-corr-prem"
+  },
+  {
+    "n": 336,
+    "section": "quant",
+    "title": "Sticky delta / sticky strike",
+    "slug": "sticky-delta-strike"
+  },
+  {
+    "n": 337,
+    "section": "quant",
+    "title": "VIX 期限结构交易",
+    "slug": "vix-term-structure-trade"
+  },
+  {
+    "n": 338,
+    "section": "quant",
+    "title": "Risk reversal 偏度交易",
+    "slug": "risk-reversal-skew"
+  },
+  {
+    "n": 339,
+    "section": "quant",
+    "title": "模型无关隐含矩",
+    "slug": "model-free-moments"
+  },
+  {
+    "n": 340,
+    "section": "quant",
+    "title": "Hull-White 树校准",
+    "slug": "hw-tree-calib"
+  },
+  {
+    "n": 341,
+    "section": "quant",
+    "title": "Hull-White 两因子",
+    "slug": "hw-two-factor"
+  },
+  {
+    "n": 342,
+    "section": "quant",
+    "title": "LMM 漂移与测度变换",
+    "slug": "lmm-drift-measure"
+  },
+  {
+    "n": 343,
+    "section": "quant",
+    "title": "CMS 复制与凸性调整",
+    "slug": "cms-replication"
+  },
+  {
+    "n": 344,
+    "section": "quant",
+    "title": "利率-信用混合定价",
+    "slug": "rates-credit-hybrid"
+  },
+  {
+    "n": 345,
+    "section": "quant",
+    "title": "CDS 生存曲线自举",
+    "slug": "cds-survival-bootstrap"
+  },
+  {
+    "n": 346,
+    "section": "quant",
+    "title": "KMV 违约距离 DD",
+    "slug": "kmv-dd"
+  },
+  {
+    "n": 347,
+    "section": "quant",
+    "title": "CVA 暴露剖面 EPE",
+    "slug": "cva-exposure-profile"
+  },
+  {
+    "n": 348,
+    "section": "quant",
+    "title": "DVA 自身信用调整",
+    "slug": "dva-own-credit"
+  },
+  {
+    "n": 349,
+    "section": "quant",
+    "title": "FVA 融资估值调整",
+    "slug": "fva-funding"
+  },
+  {
+    "n": 350,
+    "section": "quant",
+    "title": "MVA 初始保证金调整",
+    "slug": "mva-initial-margin"
+  },
+  {
+    "n": 351,
+    "section": "quant",
+    "title": "SA-CCR EAD",
+    "slug": "sa-ccr-ead"
+  },
+  {
+    "n": 352,
+    "section": "quant",
+    "title": "IMM EEPE 内部模型",
+    "slug": "imm-eepe"
+  },
+  {
+    "n": 353,
+    "section": "quant",
+    "title": "Wrong-way risk",
+    "slug": "wrong-way-risk"
+  },
+  {
+    "n": 354,
+    "section": "quant",
+    "title": "SIMM 敏感度保证金",
+    "slug": "simm-delta-vega"
+  },
+  {
+    "n": 355,
+    "section": "quant",
+    "title": "Black-Litterman 先验收缩",
+    "slug": "bl-prior-shrink"
+  },
+  {
+    "n": 356,
+    "section": "quant",
+    "title": "ERC 与边际风险贡献",
+    "slug": "erc-mrc"
+  },
+  {
+    "n": 357,
+    "section": "quant",
+    "title": "HRP 联结与准对角化",
+    "slug": "hrp-linkage"
+  },
+  {
+    "n": 358,
+    "section": "quant",
+    "title": "分数 Kelly 边界",
+    "slug": "fractional-kelly-bound"
+  },
+  {
+    "n": 359,
+    "section": "quant",
+    "title": "CVaR Rockafellar-Uryasev",
+    "slug": "cvar-ru-opt"
+  },
+  {
+    "n": 360,
+    "section": "quant",
+    "title": "回撤约束优化",
+    "slug": "drawdown-constrained-opt"
+  },
+  {
+    "n": 361,
+    "section": "quant",
+    "title": "组合保险 CPPI / TIPP",
+    "slug": "cppi-tipp"
+  },
+  {
+    "n": 362,
+    "section": "quant",
+    "title": "HAR-RV 多尺度预测",
+    "slug": "har-rv-forecast"
+  },
+  {
+    "n": 363,
+    "section": "quant",
+    "title": "Barndorff-Nielsen 跳跃检验",
+    "slug": "bn-jump-test"
+  },
+  {
+    "n": 364,
+    "section": "quant",
+    "title": "Copula-CoVaR",
+    "slug": "copula-covar"
+  },
+  {
+    "n": 365,
+    "section": "quant",
+    "title": "反向压力测试",
+    "slug": "reverse-stress-test"
+  },
+  {
+    "n": 366,
+    "section": "quant",
+    "title": "相关性崩溃情景",
+    "slug": "corr-break-scenario"
+  },
+  {
+    "n": 367,
+    "section": "quant",
+    "title": "拥挤度与容量指标",
+    "slug": "crowding-capacity-metric"
+  },
+  {
+    "n": 368,
+    "section": "quant",
+    "title": "Nested CPCV",
+    "slug": "nested-cpcv"
+  },
+  {
+    "n": 369,
+    "section": "quant",
+    "title": "FDR / Romano-Wolf",
+    "slug": "fdr-romano-wolf"
+  },
+  {
+    "n": 370,
+    "section": "quant",
+    "title": "CSCV 组合对称交叉验证",
+    "slug": "cscv"
+  },
+  {
+    "n": 371,
+    "section": "quant",
+    "title": "策略容量与冲击衰减",
+    "slug": "strategy-capacity-decay"
+  },
+  {
+    "n": 372,
+    "section": "quant",
+    "title": "拥挤 alpha 衰减",
+    "slug": "crowded-alpha-decay"
+  },
+  {
+    "n": 373,
+    "section": "quant",
+    "title": "费用滑点蒙特卡洛",
+    "slug": "cost-mc-sensitivity"
+  },
+  {
+    "n": 374,
+    "section": "quant",
+    "title": "经济显著性 vs 统计显著性",
+    "slug": "econ-vs-stat-sig"
+  },
+  {
+    "n": 375,
+    "section": "quant",
+    "title": "实盘漂移监测",
+    "slug": "live-drift-monitor"
+  },
+  {
+    "n": 376,
+    "section": "quant",
+    "title": "Alpha-GPT 人类启发式挖掘",
+    "slug": "alpha-gpt-mining"
+  },
+  {
+    "n": 377,
+    "section": "quant",
+    "title": "Hubble：AST 沙箱与三重门",
+    "slug": "hubble-alpha-agent"
+  },
+  {
+    "n": 378,
+    "section": "quant",
+    "title": "XAlpha：假设到代码",
+    "slug": "xalpha-hypothesis-code"
+  },
+  {
+    "n": 379,
+    "section": "quant",
+    "title": "AlphaSchema 领域本体",
+    "slug": "alphaschema-ontology"
+  },
+  {
+    "n": 380,
+    "section": "quant",
+    "title": "QuantGPT 与 BRAIN 自动化",
+    "slug": "quantgpt-brain"
+  },
+  {
+    "n": 381,
+    "section": "quant",
+    "title": "101 Formulaic Alphas",
+    "slug": "kakushadze-101-alphas"
+  },
+  {
+    "n": 382,
+    "section": "quant",
+    "title": "Kronos K 线基础模型",
+    "slug": "kronos-kline-fm"
+  },
+  {
+    "n": 383,
+    "section": "quant",
+    "title": "FinGPT",
+    "slug": "fingpt"
+  },
+  {
+    "n": 384,
+    "section": "quant",
+    "title": "BloombergGPT",
+    "slug": "bloomberggpt"
+  },
+  {
+    "n": 385,
+    "section": "quant",
+    "title": "CTBench 中文金融基准",
+    "slug": "ctbench"
+  },
+  {
+    "n": 386,
+    "section": "quant",
+    "title": "EDINET-Bench 金融长文档",
+    "slug": "edinet-bench"
+  },
+  {
+    "n": 387,
+    "section": "quant",
+    "title": "FinMMDocR 多模态文档基准",
+    "slug": "finmmdocr"
+  },
+  {
+    "n": 388,
+    "section": "quant",
+    "title": "FinSearchComp 检索基准",
+    "slug": "finsearchcomp"
+  },
+  {
+    "n": 389,
+    "section": "quant",
+    "title": "TiMi：离线研发 + 分钟级执行",
+    "slug": "timi-trading-agent"
+  },
+  {
+    "n": 390,
+    "section": "quant",
+    "title": "TradingAgents 多智能体辩论",
+    "slug": "tradingagents-multiagent"
+  },
+  {
+    "n": 391,
+    "section": "quant",
+    "title": "LLM 情绪 alpha（Lopez-Lira-Tang）",
+    "slug": "llm-sentiment-alpha"
+  },
+  {
+    "n": 392,
+    "section": "quant",
+    "title": "LLM embedding 因子",
+    "slug": "llm-embedding-alpha"
+  },
+  {
+    "n": 393,
+    "section": "quant",
+    "title": "GEX 计算与聚合",
+    "slug": "gex-calculation"
+  },
+  {
+    "n": 394,
+    "section": "quant",
+    "title": "Gamma Flip 零 gamma 位",
+    "slug": "gamma-flip-level"
+  },
+  {
+    "n": 395,
+    "section": "quant",
+    "title": "经销商正负 gamma 体制",
+    "slug": "dealer-gamma-regime"
+  },
+  {
+    "n": 396,
+    "section": "quant",
+    "title": "0DTE 期权微观结构",
+    "slug": "zero-dte-microstructure"
+  },
+  {
+    "n": 397,
+    "section": "quant",
+    "title": "Strike Magnetism / Max Pain",
+    "slug": "strike-magnetism-max-pain"
+  },
+  {
+    "n": 398,
+    "section": "quant",
+    "title": "经销商 Vanna / Charm 到期流",
+    "slug": "dealer-vanna-charm-flows"
+  },
+  {
+    "n": 399,
+    "section": "quant",
+    "title": "JPM Collar 季度护盘",
+    "slug": "jpm-collar-flow"
+  },
+  {
+    "n": 400,
+    "section": "quant",
+    "title": "Vol ETP 每日再平衡流",
+    "slug": "vol-etp-rebalance-flow"
+  },
+  {
+    "n": 401,
+    "section": "quant",
+    "title": "Ni et al. 期权需求压力",
+    "slug": "ni-option-demand-pressure"
+  },
+  {
+    "n": 402,
+    "section": "quant",
+    "title": "Amaya et al. 0DTE 与波动",
+    "slug": "amaya-0dte-volatility"
+  },
+  {
+    "n": 403,
+    "section": "quant",
+    "title": "程序化交易管理规定与实施细则",
+    "slug": "cn-program-trading-rules"
+  },
+  {
+    "n": 404,
+    "section": "quant",
+    "title": "高频交易认定标准",
+    "slug": "cn-hft-threshold"
+  },
+  {
+    "n": 405,
+    "section": "quant",
+    "title": "差异化收费与撤单率监控",
+    "slug": "cn-fee-cancel-ratio"
+  },
+  {
+    "n": 406,
+    "section": "quant",
+    "title": "融券 T+0 封堵",
+    "slug": "cn-margin-short-t0"
+  },
+  {
+    "n": 407,
+    "section": "quant",
+    "title": "主机托管清退与交易单元整改",
+    "slug": "cn-colocation-rectify"
+  },
+  {
+    "n": 408,
+    "section": "quant",
+    "title": "中基协程序化权威解读",
+    "slug": "cn-amac-program-trading"
+  },
+  {
+    "n": 409,
+    "section": "quant",
+    "title": "雪球结构与定价",
+    "slug": "snowball-pricing"
+  },
+  {
+    "n": 410,
+    "section": "quant",
+    "title": "敲入事件与对冲踩踏",
+    "slug": "snowball-knockin-cascade"
+  },
+  {
+    "n": 411,
+    "section": "quant",
+    "title": "对冲商的障碍期权堆积与 gamma",
+    "slug": "snowball-dealer-hedging"
+  },
+  {
+    "n": 412,
+    "section": "quant",
+    "title": "DMA 杠杆与微盘流动性危机",
+    "slug": "dma-microcap-crisis"
+  },
+  {
+    "n": 413,
+    "section": "quant",
+    "title": "指增产品超额衰减",
+    "slug": "index-enhancement-decay"
+  },
+  {
+    "n": 414,
+    "section": "quant",
+    "title": "T0 底仓增强",
+    "slug": "t0-basis-enhancement"
+  },
+  {
+    "n": 415,
+    "section": "quant",
+    "title": "Gu-Kelly-Xiu 与 NN3",
+    "slug": "gkx-nn3"
+  },
+  {
+    "n": 416,
+    "section": "quant",
+    "title": "Autoencoder 条件因子模型",
+    "slug": "autoencoder-factor-model"
+  },
+  {
+    "n": 417,
+    "section": "quant",
+    "title": "GNN 资产定价",
+    "slug": "gnn-asset-pricing"
+  },
+  {
+    "n": 418,
+    "section": "quant",
+    "title": "供应链网络因子",
+    "slug": "supply-chain-graph-factor"
+  },
+  {
+    "n": 419,
+    "section": "quant",
+    "title": "Transformer 截面收益预测",
+    "slug": "transformer-return-prediction"
+  },
+  {
+    "n": 420,
+    "section": "quant",
+    "title": "频域与时频模型",
+    "slug": "frequency-domain-models"
+  },
+  {
+    "n": 421,
+    "section": "quant",
+    "title": "双重机器学习 DML",
+    "slug": "double-machine-learning"
+  },
+  {
+    "n": 422,
+    "section": "quant",
+    "title": "因果树与异质处理效应",
+    "slug": "causal-tree-heterogeneity"
+  },
+  {
+    "n": 423,
+    "section": "quant",
+    "title": "SHAP 因子归因",
+    "slug": "shap-factor-attribution"
+  },
+  {
+    "n": 424,
+    "section": "quant",
+    "title": "跨市场迁移学习",
+    "slug": "cross-market-transfer-learning"
+  },
+  {
+    "n": 425,
+    "section": "quant",
+    "title": "DeepLOB",
+    "slug": "deeplob-cnn-lstm"
+  },
+  {
+    "n": 426,
+    "section": "quant",
+    "title": "TransLOB / AxialLOB",
+    "slug": "translob-axiallob"
+  },
+  {
+    "n": 427,
+    "section": "quant",
+    "title": "Neural Hawkes 订单流强度",
+    "slug": "neural-hawkes-orderflow"
+  },
+  {
+    "n": 428,
+    "section": "quant",
+    "title": "深度 LOB 模型的泄漏陷阱",
+    "slug": "deep-lob-leakage"
+  },
+  {
+    "n": 429,
+    "section": "quant",
+    "title": "ABIDES 事件驱动仿真",
+    "slug": "abides-simulation"
+  },
+  {
+    "n": 430,
+    "section": "quant",
+    "title": "MarS 生成式订单流",
+    "slug": "mars-generative-sim"
+  },
+  {
+    "n": 431,
+    "section": "quant",
+    "title": "Market Generator（VAE）",
+    "slug": "market-generator-vae"
+  },
+  {
+    "n": 432,
+    "section": "quant",
+    "title": "Sig-Wasserstein GAN",
+    "slug": "sig-wasserstein-gan"
+  },
+  {
+    "n": 433,
+    "section": "quant",
+    "title": "LLM 多智能体市场仿真",
+    "slug": "llm-multiagent-market-sim"
+  },
+  {
+    "n": 434,
+    "section": "quant",
+    "title": "生成式回测的评估",
+    "slug": "generative-backtest-eval"
+  },
+  {
+    "n": 435,
+    "section": "quant",
+    "title": "Deep Hedging",
+    "slug": "deep-hedging-buehler"
+  },
+  {
+    "n": 436,
+    "section": "quant",
+    "title": "Deep BSDE 求解器",
+    "slug": "deep-bsde"
+  },
+  {
+    "n": 437,
+    "section": "quant",
+    "title": "Neural SDE",
+    "slug": "neural-sde"
+  },
+  {
+    "n": 438,
+    "section": "quant",
+    "title": "PINN 期权定价",
+    "slug": "pinn-option-pricing"
+  },
+  {
+    "n": 439,
+    "section": "quant",
+    "title": "Path Signature 特征",
+    "slug": "path-signature-features"
+  },
+  {
+    "n": 440,
+    "section": "quant",
+    "title": "Signature Trading",
+    "slug": "signature-trading"
+  },
+  {
+    "n": 441,
+    "section": "quant",
+    "title": "Sig-SDE",
+    "slug": "sig-sde"
+  },
+  {
+    "n": 442,
+    "section": "quant",
+    "title": "kdb+ / q",
+    "slug": "kdb-plus"
+  },
+  {
+    "n": 443,
+    "section": "quant",
+    "title": "DolphinDB",
+    "slug": "dolphindb"
+  },
+  {
+    "n": 444,
+    "section": "quant",
+    "title": "ClickHouse 金融时序",
+    "slug": "clickhouse-finance-ts"
+  },
+  {
+    "n": 445,
+    "section": "quant",
+    "title": "Apache Arrow 零拷贝",
+    "slug": "apache-arrow"
+  },
+  {
+    "n": 446,
+    "section": "quant",
+    "title": "Microsoft Qlib",
+    "slug": "qlib-quant"
+  },
+  {
+    "n": 447,
+    "section": "quant",
+    "title": "vn.py 交易框架",
+    "slug": "vnpy-framework"
+  },
+  {
+    "n": 448,
+    "section": "quant",
+    "title": "Boehmer 零售流识别",
+    "slug": "boehmer-retail-flow"
+  },
+  {
+    "n": 449,
+    "section": "quant",
+    "title": "PFOF 订单流支付",
+    "slug": "pfof-payment-flow"
+  },
+  {
+    "n": 450,
+    "section": "quant",
+    "title": "meme 事件与轧空",
+    "slug": "meme-short-squeeze"
+  },
+  {
+    "n": 451,
+    "section": "quant",
+    "title": "Da-Engel-Gao 投资者关注度",
+    "slug": "investor-attention-deg"
+  },
+  {
+    "n": 452,
+    "section": "quant",
+    "title": "WSB 舆情因子",
+    "slug": "wsb-sentiment-factor"
+  },
+  {
+    "n": 453,
+    "section": "quant",
+    "title": "Polymarket / Kalshi 事件合约",
+    "slug": "prediction-market-venues"
+  },
+  {
+    "n": 454,
+    "section": "quant",
+    "title": "预测市场跨市场套利",
+    "slug": "prediction-market-arbitrage"
+  },
+  {
+    "n": 455,
+    "section": "quant",
+    "title": "比特币现货 ETF 基差",
+    "slug": "btc-etf-basis"
+  },
+  {
+    "n": 456,
+    "section": "quant",
+    "title": "链上交易所流入流出",
+    "slug": "onchain-exchange-flows"
+  },
+  {
+    "n": 457,
+    "section": "quant",
+    "title": "Deribit DVOL 隐含波动",
+    "slug": "deribit-dvol"
+  },
+  {
+    "n": 458,
+    "section": "quant",
+    "title": "Wasserstein DRO 组合",
+    "slug": "wasserstein-dro-portfolio"
+  },
+  {
+    "n": 459,
+    "section": "quant",
+    "title": "BOCPD 在线变点检测",
+    "slug": "bocpd-online-changepoint"
+  },
+  {
+    "n": 460,
+    "section": "quant",
+    "title": "Martingale Optimal Transport",
+    "slug": "martingale-optimal-transport"
+  },
+  {
+    "n": 461,
+    "section": "quant",
+    "title": "强化学习做市（Ganesh-Cartea）",
+    "slug": "rl-market-making"
+  },
+  {
+    "n": 462,
+    "section": "quant",
+    "title": "美国 T+1 结算",
+    "slug": "us-t1-settlement"
+  },
+  {
+    "n": 463,
+    "section": "quant",
+    "title": "SR 11-7 模型风险管理",
+    "slug": "sr-11-7-model-risk"
+  },
+  {
+    "n": 464,
+    "section": "quant",
+    "title": "MiFID II RTS 6 算法交易合规",
+    "slug": "mifid-ii-rts6"
+  },
+  {
+    "n": 465,
+    "section": "quant",
+    "title": "EU AI Act 金融条款",
+    "slug": "eu-ai-act-finance"
+  }
+]

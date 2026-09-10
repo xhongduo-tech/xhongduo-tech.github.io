@@ -23,7 +23,7 @@ CUDA 服务的加载是盘 → 主机 → HBM。[权重加载](/llm/weight-loadi
 
 ## 方法
 
-用 MLX 实现或社区 LLM 包：权重以框架格式或转换脚本进统一内存，generate 循环在框架内。批处理 $B>1$ 在本地聊天少见；若做，UMA 上加大 $B$ 仍摊权重，拐点逻辑同前，只是峰值不同。与 Python 互操作：大数组应保持 MLX 端，避免 `numpy()` 隐式拷到 CPU 再拷回。流式 detokenize 仍在 CPU，注意不要每 token 触发大同步。
+用 MLX 实现或社区 LLM 包：权重以框架格式或转换脚本进统一内存，generate 循环在框架内。批处理 $B\gt 1$ 在本地聊天少见；若做，UMA 上加大 $B$ 仍摊权重，拐点逻辑同前，只是峰值不同。与 Python 互操作：大数组应保持 MLX 端，避免 `numpy()` 隐式拷到 CPU 再拷回。流式 detokenize 仍在 CPU，注意不要每 token 触发大同步。
 
 ```mermaid
 flowchart TD

@@ -38,9 +38,9 @@ section: quant
 $$
 \text{保留}_t
 =\mathbf{1}_{\{t\in\mathcal{T}\}}
-\mathbf{1}_{\{P_t>0,Q_t>0\}}
-\mathbf{1}_{\{s_t < \bar s\}}
-\mathbf{1}_{\{|P_t-m_t|<\kappa_t\}}.
+\mathbf{1}_{\{P_t\gt 0,Q_t\gt 0\}}
+\mathbf{1}_{\{s_t \lt  \bar s\}}
+\mathbf{1}_{\{|P_t-m_t|\lt \kappa_t\}}.
 $$
 
 上式只是层的示意：$\mathcal{T}$ 是会话，$s_t$ 是价差，$m_t$ 是邻域中位数或中点，$\kappa_t$ 是阈值。实现上每层单独留删除日志，以便事后知道 RV 的变化来自哪一条规则。

@@ -36,7 +36,7 @@ $$
 其中 $u_\theta$ 是标准的 $\beta$ 倍对数比差，$w$ 不反传。序列概率连乘会下溢且方差极大，改用长度平均：
 
 $$
-w(x,y)=\exp\Bigl(\frac1{|y|}\sum_{t}\log\pi_\theta(y_t\mid x,y_{<t})\Bigr).
+w(x,y)=\exp\Bigl(\frac1{|y|}\sum_{t}\log\pi_\theta(y_t\mid x,y_{\lt t})\Bigr).
 $$
 
 这仍有输入偏置：有的提示上模型天生更自信，在策略样本的 $w$ 也不均匀，违背「在策略样本应等权」的思想实验。作者提出两种校准，默认用 sampled alignment：用温度 1 随机采样一个 token 的期望概率 $\sum_v\pi_\theta(v\mid s_t)^2$ 去除每个位置的 $\pi_\theta(y_t\mid s_t)$，再长度平均取指数。贪婪校准则除该步最大 token 概率。校准后，来自当前策略的样本权重更集中，来自其它模型的样本仍然偏低。

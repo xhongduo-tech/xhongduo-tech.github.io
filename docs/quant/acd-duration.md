@@ -27,7 +27,7 @@ $$
 \psi_i=\omega+\alpha x_{i-1}+\beta\psi_{i-1},\qquad x_i=\psi_i\varepsilon_i,\quad \mathbb{E}[\varepsilon_i]=1.
 $$
 
-$\varepsilon$ 取指数、Weibull 或广义伽马。指数对应无记忆的标准化等待；Weibull 允许风险率随等待时间上升或下降。平稳性要求 $\alpha+\beta<1$（在这一线性式里）。$\alpha+\beta$ 接近 1 表示久期的持续性强：忙的状态会持续，闲的状态也会持续。这与 Hawkes 分支比接近 1 是对偶现象的两种参数化，数值上不能直接划等号，因为一个积分的是核，一个自回归的是间隔。
+$\varepsilon$ 取指数、Weibull 或广义伽马。指数对应无记忆的标准化等待；Weibull 允许风险率随等待时间上升或下降。平稳性要求 $\alpha+\beta\lt 1$（在这一线性式里）。$\alpha+\beta$ 接近 1 表示久期的持续性强：忙的状态会持续，闲的状态也会持续。这与 Hawkes 分支比接近 1 是对偶现象的两种参数化，数值上不能直接划等号，因为一个积分的是核，一个自回归的是间隔。
 
 <span class="marginnote">$\psi_i$ 是条件期望间隔，强度的粗糙对偶是 $1/\psi_i$。只有在新息为指数、且强度在两次事件之间为常数时，这种对偶才精确。Hawkes 的强度在事件之间是连续衰减的，ACD 默认在两次事件之间把条件均值钉住，这是离散时间标记的代价。</span>
 

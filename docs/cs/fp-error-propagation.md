@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-记 $\gamma_n=nu/(1-nu)$（当 $nu<1$）。$n$ 次乘加的朴素界用 $\gamma_n$ 吸收「每次一个 $u$ 再相乘」的高阶项。标量求和 $\hat s=\mathrm{fl}(x_1+\cdots+x_n)$ 满足 $|\hat s-s|\le \gamma_{n-1}\sum|x_i|$ 量级。内积、矩阵乘把同一计数换成「每个输出经过多少次乘加」。
+记 $\gamma_n=nu/(1-nu)$（当 $nu\lt 1$）。$n$ 次乘加的朴素界用 $\gamma_n$ 吸收「每次一个 $u$ 再相乘」的高阶项。标量求和 $\hat s=\mathrm{fl}(x_1+\cdots+x_n)$ 满足 $|\hat s-s|\le \gamma_{n-1}\sum|x_i|$ 量级。内积、矩阵乘把同一计数换成「每个输出经过多少次乘加」。
 
 ```mermaid
 flowchart TD

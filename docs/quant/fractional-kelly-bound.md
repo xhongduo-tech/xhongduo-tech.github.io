@@ -21,7 +21,7 @@ section: quant
 
 ### 过赌的损失对 $g(f)$ 不对称
 
-两点赌局或正态近似下，$g(f)$ 在 $f^\ast$ 处最大，二阶近似 $g(f)\approx g^\ast-\frac12\kappa(f-f^\ast)^2$，但定义域在 $f$ 大时被 $P(1+fR\le 0)>0$ 切断，$g\to-\infty$。泰勒对称只在邻域有效。估计误差若均值为正（回测乐观），落在切断一侧的概率更大。贝叶斯做法是对 $\mu$ 积分 $g(f\mid\mu)$ 再对 $f$ 最大化，等价于更厌恶，最优 $f$ 小于插件全 Kelly。分数 Kelly 是这一积分的粗实现：不显式写先验，直接 $\lambda\hat f_{\mathrm{plugin}}$。$\lambda$ 对应先验有多宽、以及你愿意用多少增长换安全。
+两点赌局或正态近似下，$g(f)$ 在 $f^\ast$ 处最大，二阶近似 $g(f)\approx g^\ast-\frac12\kappa(f-f^\ast)^2$，但定义域在 $f$ 大时被 $P(1+fR\le 0)\gt 0$ 切断，$g\to-\infty$。泰勒对称只在邻域有效。估计误差若均值为正（回测乐观），落在切断一侧的概率更大。贝叶斯做法是对 $\mu$ 积分 $g(f\mid\mu)$ 再对 $f$ 最大化，等价于更厌恶，最优 $f$ 小于插件全 Kelly。分数 Kelly 是这一积分的粗实现：不显式写先验，直接 $\lambda\hat f_{\mathrm{plugin}}$。$\lambda$ 对应先验有多宽、以及你愿意用多少增长换安全。
 
 <span class="marginnote">连续公式 $f=\mu/\sigma^2$ 在 $\mu$ 年化 5%、$\sigma$ 10% 时给出五倍杠杆。半 Kelly 仍是 2.5 倍。分数不是「小数点后的谨慎」，杠杆仍可能被融资与保证金否决。边界要同时满足 Kelly 分数与机构杠杆上限，取更紧的一个。</span>
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 对照 Basel 对 general / specific wrong-way risk 的区分，以及 Canabarro–Duffie 对暴露与信用依赖的讨论</footer>
 </div>
 
-[对手方](/quant/counterparty-credit) 与 [CVA](/quant/cva-lite) 都提到独立假设一破，公式偏低。本篇把错向风险（wrong-way risk, WWR）单独写成对象：一般错向相对特定错向、它如何让 $\mathbb{E}[V_\tau^+]>\mathbb{E}[V_t^+]$、[SA-CCR](/quant/sa-ccr-ead) 的 α 与 [IMM EEPE](/quant/imm-eepe) 各自补了哪一层、以及为什么用无条件相关去「加一个 ρ」常常加错地方。它补的是违约与暴露的联合，不是再讲一遍净额与抵押。
+[对手方](/quant/counterparty-credit) 与 [CVA](/quant/cva-lite) 都提到独立假设一破，公式偏低。本篇把错向风险（wrong-way risk, WWR）单独写成对象：一般错向相对特定错向、它如何让 $\mathbb{E}[V_\tau^+]\gt \mathbb{E}[V_t^+]$、[SA-CCR](/quant/sa-ccr-ead) 的 α 与 [IMM EEPE](/quant/imm-eepe) 各自补了哪一层、以及为什么用无条件相关去「加一个 ρ」常常加错地方。它补的是违约与暴露的联合，不是再讲一遍净额与抵押。
 
 ## 问题
 

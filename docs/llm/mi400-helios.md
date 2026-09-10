@@ -44,7 +44,7 @@ flowchart TD
 
 ### 与 NVL72 的厂商对比怎么引用
 
-AMD 新闻稿相对「领先竞品方案」（脚注指向 Vera Rubin NVL72 公开规格）声称：峰值 FP4 约 +15%，HBM 容量约 +50%，HBM 带宽约 +6%，scale-out 带宽约 +50%，以及建模的 tokens per dollar 最多约 +30%（Kimi K2 Thinking、32K/8K、高中低交互点）。这些数字全部带 Performance Labs 日期与「厂商配置可能不同」。工程上只把它们当作**规格表对拍**，验收仍跑自己的模型、自己的 ROCm 版本、自己的电价。不要把 +30% $/token 写进财报级规划。
+AMD 新闻稿相对「领先竞品方案」（脚注指向 Vera Rubin NVL72 公开规格）声称：峰值 FP4 约 +15%，HBM 容量约 +50%，HBM 带宽约 +6%，scale-out 带宽约 +50%，以及建模的 tokens per dollar 最多约 +30%（Kimi K2 Thinking、32K/8K、高中低交互点）。这些数字全部带 Performance Labs 日期与「厂商配置可能不同」。工程上只把它们当作**规格表对拍**，验收仍跑自己的模型、自己的 ROCm 版本、自己的电价。不要把 +30% USD/token 写进财报级规划。
 
 机械上 Helios 是双宽 ORW、液冷托盘；服务性（托盘重量、盲插针数）以白皮书为准。软件上 CUDA 生态仍是默认工具链，ROCm 的负担在内核覆盖与集合性能，不在 HBM 容量——容量已经按产品页领先一截。
 
@@ -54,7 +54,7 @@ AMD 新闻稿相对「领先竞品方案」（脚注指向 Vera Rubin NVL72 公�
 
 HBM4 12 栈把单卡带宽推到 23.3 TB/s，整架 1.7 PB/s 是 72 卡加总。Decode 是否接近这条屋顶线，取决于 KV 布局与是否把热数据留在 192 MB L2 / WGP 本地存储。CDNA 5 的 WGP、Wave32、Tensor Data Mover 等微架构细节见 Hot Chips / 产品白皮书；本篇不把未在 MI455X 产品页出现的每 SIMD 寄存器数抄成规格。FP64 仅 5 TFLOPS 量级说明 MI455X 不是 MI430X：买错 SKU，科学计算峰值会差两个数量级。
 
-<span class="marginnote">「72 GPU 共享 31 TB」是容量加总与互连可达性，不是 cache-coherent 的单一指针空间保证。CPU–GPU 相干（Venice 经 Infinity Fabric）覆盖的是托盘内主机内存与 GPU 的协同，不是 72 卡 HBM 的透明 DSM。程序员仍应按分片与集合通信来写。</span>
+<span class="marginnote"> 「72 GPU 共享 31 TB」是容量加总与互连可达性，不是 cache-coherent 的单一指针空间保证。CPU–GPU 相干（Venice 经 Infinity Fabric）覆盖的是托盘内主机内存与 GPU 的协同，不是 72 卡 HBM 的透明 DSM。程序员仍应按分片与集合通信来写。</span> 
 
 ### 开放标准的真实成本
 
@@ -66,7 +66,7 @@ ORW + UALink + UEC 降低的是多供应商机房的机械与协议锁定；它�
 
 对拍 [Vera Rubin 六芯片](/llm/rubin-six-chips) 时，记住两边都是「整架共设计」：GPU、CPU、scale-up、scale-out NIC。差别在协议开放性与 SKU 拆分（AMD 把 HPC 做成 MI430X），不在「要不要做机架」。ROCm 与 CUDA 的内核覆盖差，会比 15% 峰值 FP4 更早出现在真实 tokens/s 里；验收应先看集合通信是否走满 UALoE，再看矩阵单元是否吃到 MXFP4。
 
-<span class="marginnote">出处：AMD Instinct MI455X 产品页；AAI 2026 Helios 新闻稿（含 MI400-003/007/023/025 脚注）；Helios 产品页的 ORW / UALoE 描述。墙钟与 $/token 以自测为准。</span>
+<span class="marginnote"> 出处：AMD Instinct MI455X 产品页；AAI 2026 Helios 新闻稿（含 MI400-003/007/023/025 脚注）；Helios 产品页的 ORW / UALoE 描述。墙钟与 USD/token 以自测为准。</span>
 
 ## 小结
 

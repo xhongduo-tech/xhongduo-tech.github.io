@@ -21,7 +21,7 @@ Bayer–Friz–Gatheral 的回答是对数正态 Volterra：用一条分数布�
 
 ### 分数核如何同时服务短端与长端
 
-核 $K(u,s)=(u-s)^{H-1/2}$ 在 $H<1/2$ 时于对角线发散：刚刚发生的冲击对近端 $\xi$ 极度敏感，远端核平方可积、冲击被稀释。同一 $\eta$ 因而可以同时给出陡的短偏斜与相对平静的长方差——这是一因子 rBergomi 相对两因子经典 Bergomi 的结构性优势，不是「少了一个因子却多了一个字母」。Fukasawa 把短端偏斜对 $\sqrt{T}$ 的发散阶与 $H$ 连起来：Heston 有效 $H=1/2$，短端永远嫌不够陡；把 $H$ 放到 $0.1$，阶就对上了。
+核 $K(u,s)=(u-s)^{H-1/2}$ 在 $H\lt 1/2$ 时于对角线发散：刚刚发生的冲击对近端 $\xi$ 极度敏感，远端核平方可积、冲击被稀释。同一 $\eta$ 因而可以同时给出陡的短偏斜与相对平静的长方差——这是一因子 rBergomi 相对两因子经典 Bergomi 的结构性优势，不是「少了一个因子却多了一个字母」。Fukasawa 把短端偏斜对 $\sqrt{T}$ 的发散阶与 $H$ 连起来：Heston 有效 $H=1/2$，短端永远嫌不够陡；把 $H$ 放到 $0.1$，阶就对上了。
 
 <span class="marginnote">rBergomi 不是「Heston 加上分数布朗」。Heston 的状态是一维马尔可夫 CIR；rBergomi 的状态是整条曲线加一条非马尔可夫噪声。没有 Riccati，也没有 Feller 条件可检查。把五参数习惯套过来，会把 $\xi_0$ 误当成 $v_0$。</span>
 
@@ -72,7 +72,7 @@ flowchart TD
 
 有跳时短端 $\xi_0$ 已混进跳补偿，连续 Volterra 会把跳质量误读成更糙的 $H$ 或更大的 $\eta$。跳跃与粗糙可以叠加，识别必须用路径产品或已实现跳检验，不能单靠香草。分数布朗在 $H\neq 1/2$ 时不能当对冲工具；Delta 对冲的是 $S$，曲线对冲的是 $\xi$ 的桶，与经典 Bergomi 相同，只是核变了。
 
-<span class="marginnote">出处不要写成「Gatheral 2018 发明了 rBergomi」。2016 年 Bayer–Friz–Gatheral 是定价与数值；2018 年 Gatheral–Jaisson–Rosenbaum 是尺度律。Mandelbrot–Van Ness 给出 $W^H$；Comte–Renault 把它接到光滑侧（$H>1/2$）。</span>
+<span class="marginnote">出处不要写成「Gatheral 2018 发明了 rBergomi」。2016 年 Bayer–Friz–Gatheral 是定价与数值；2018 年 Gatheral–Jaisson–Rosenbaum 是尺度律。Mandelbrot–Van Ness 给出 $W^H$；Comte–Renault 把它接到光滑侧（$H\gt 1/2$）。</span>
 
 <span class="marginnote">用 rBergomi 给 VIX 定价时，标的是未来三十天方差的平方根。分数核对近端凸性极敏感，Heston 均值回复会系统性低估这一凸性——这是引入粗糙核的交易动机之一，而不只是为了贴两周 25-delta。</span>
 

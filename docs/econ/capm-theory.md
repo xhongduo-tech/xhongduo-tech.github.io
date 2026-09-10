@@ -29,7 +29,7 @@ $$
 \mathrm{E}[R_i]-r_f = \beta_i\bigl(\mathrm{E}[R_m]-r_f\bigr),\qquad \beta_i=\frac{\mathrm{Cov}(R_i,R_m)}{\mathrm{Var}(R_m)}.
 $$
 
-用 SDF 语言：这等于限制 $m=a-b R_m$（$a,b$ 由无风险与市场溢价定）。与市场负相关的收益在 $m$ 高时较高，溢价为负——保险；$\beta>0$ 的资产在市场差时也差，必须提供正溢价。特异方差被分散，不进入 $m$，故不进入期望收益。
+用 SDF 语言：这等于限制 $m=a-b R_m$（$a,b$ 由无风险与市场溢价定）。与市场负相关的收益在 $m$ 高时较高，溢价为负——保险；$\beta\gt 0$ 的资产在市场差时也差，必须提供正溢价。特异方差被分散，不进入 $m$，故不进入期望收益。
 
 ```mermaid
 flowchart TD

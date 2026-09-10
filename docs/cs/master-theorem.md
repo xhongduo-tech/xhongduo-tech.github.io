@@ -17,7 +17,7 @@ section: cs
 
 归并、二分、Strassen 乘法都把规模 $n$ 切成 $a$ 块、每块约 $n/b$，合并花 $f(n)$。递归树的层数是 $\Theta(\log_b n)$，叶子是 $n^{\log_b a}$。总代价是根上的 $f$、中间层、叶子三者之一主导。没有比较 $f$ 与 $n^{\log_b a}$ 的规则，每道题都要重画树。
 
-缺口因此不是「递归是什么」，而是一条够用的判定：$f$ 多项式地小于、等于、或大于叶子阶时，$T(n)$ 分别是 $\Theta(n^{\log_b a})$、$\Theta(n^{\log_b a}\log n)$、$\Theta(f(n))$。规律性条件（对某个 $c<1$ 有 $a f(n/b)\le c f(n)$）管第三种，本课点名不展开证明。
+缺口因此不是「递归是什么」，而是一条够用的判定：$f$ 多项式地小于、等于、或大于叶子阶时，$T(n)$ 分别是 $\Theta(n^{\log_b a})$、$\Theta(n^{\log_b a}\log n)$、$\Theta(f(n))$。规律性条件（对某个 $c\lt 1$ 有 $a f(n/b)\le c f(n)$）管第三种，本课点名不展开证明。
 
 ### 主定理不是所有递归
 
@@ -27,7 +27,7 @@ $T(n)=T(n-1)+\Theta(n)$ 不是等分，主定理不适用；那是等差求和�
 
 ## 方法
 
-先算临界指数 $\log_b a$。把 $f(n)$ 与 $n^{\log_b a}$ 比多项式因子：若 $f=O(n^{\log_b a-\varepsilon})$ 对某 $\varepsilon>0$，叶子赢；若 $f=\Theta(n^{\log_b a})$，每层同阶，乘 $\log n$；若 $f$ 更大且规律，根上的 $f$ 赢。
+先算临界指数 $\log_b a$。把 $f(n)$ 与 $n^{\log_b a}$ 比多项式因子：若 $f=O(n^{\log_b a-\varepsilon})$ 对某 $\varepsilon\gt 0$，叶子赢；若 $f=\Theta(n^{\log_b a})$，每层同阶，乘 $\log n$；若 $f$ 更大且规律，根上的 $f$ 赢。
 
 ```mermaid
 flowchart TD

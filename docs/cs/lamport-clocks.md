@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-Dijkstra 的临界区假设共享变量可见。跨主机时，只有消息。墙钟 skew 会把因果说反。Lamport 的缺口是：happened-before 偏序，以及逻辑时钟 $C$ 满足 $a\to b\Rightarrow C(a)<C(b)$。全序广播用时钟加进程号打破并列。主干 2PC 用协调器日志给提交一个全序，是工程特例，不是 1978 文的全部。
+Dijkstra 的临界区假设共享变量可见。跨主机时，只有消息。墙钟 skew 会把因果说反。Lamport 的缺口是：happened-before 偏序，以及逻辑时钟 $C$ 满足 $a\to b\Rightarrow C(a)\lt C(b)$。全序广播用时钟加进程号打破并列。主干 2PC 用协调器日志给提交一个全序，是工程特例，不是 1978 文的全部。
 
 <span class="marginnote">逻辑时钟不度量秒。真实时间同步（NTP）是另一问题。向量时钟后来细化并发，1978 文用标量。</span>
 

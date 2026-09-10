@@ -27,7 +27,7 @@ Deng 等 iCoT 逐步删掉思维链开头的 token，直到只剩答案，把推
 
 ## 方法
 
-标准 LM：$H_t=\mathrm{Transformer}(E_t)$，$p(x_{t+1}|x_{\le t})=\mathrm{softmax}(W h_t)$。潜模式在 $i<t<j$ 时 $E_t$ 含 $h_i,\ldots,h_{t-1}$ 而非 $e(x)$。最后隐状态已经过最终 Norm，幅度可控，可反传。$n$ 个潜思维需要 $n+1$ 次前向（可用 KV 缓存），串行前向是训练效率的已知瓶颈。
+标准 LM：$H_t=\mathrm{Transformer}(E_t)$，$p(x_{t+1}|x_{\le t})=\mathrm{softmax}(W h_t)$。潜模式在 $i\lt t\lt j$ 时 $E_t$ 含 $h_i,\ldots,h_{t-1}$ 而非 $e(x)$。最后隐状态已经过最终 Norm，幅度可控，可反传。$n$ 个潜思维需要 $n+1$ 次前向（可用 KV 缓存），串行前向是训练效率的已知瓶颈。
 
 数据集。数学：GSM8k，用 Deng 等合成链，$c=2$，约 3 个替换阶段后再加一阶段去掉剩余语言链。逻辑：ProntoQA；以及新提出的 **ProsQA**（带搜索的证明问答）——概念关系是 DAG，自然语言陈述，要找有效路径，比 ProntoQA 更多干扰分支。ProsQA 最多 6 步，故 $N=6$ 阶段。推理时把潜步数与最后训练阶段对齐，贪心解码。
 
@@ -35,10 +35,10 @@ Deng 等 iCoT 逐步删掉思维链开头的 token，直到只剩答案，把推
 
 ```mermaid
 flowchart TD
-  Q["问题 token"] --> BOT["<bot>"]
+  Q["问题 token"] --> BOT["＜bot>"]
   BOT --> H1["连续思维 h"]
   H1 --> H2["再喂回为嵌入"]
-  H2 --> EOT["<eot>"]
+  H2 --> EOT["＜eot>"]
   EOT --> ANS["语言：剩余链或答案"]
 ```
 

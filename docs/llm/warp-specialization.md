@@ -33,8 +33,8 @@ CUTLASS 3.x 的 Hopper GEMM 把 CTA 写成集体（collective）：一份 `Mainl
 
 ```mermaid
 flowchart LR
-  P["生产者 warp<br/>发 TMA"] --> BUF["smem pipeline stages"]
-  BUF --> C["消费者 warpgroup<br/>WGMMA"]
+  P["生产者 warp＜br/>发 TMA"] --> BUF["smem pipeline stages"]
+  BUF --> C["消费者 warpgroup＜br/>WGMMA"]
   C --> E["Epilogue / softmax"]
   C -->|"named barrier"| P
 ```

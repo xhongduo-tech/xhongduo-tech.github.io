@@ -28,7 +28,7 @@ section: llm
 1. 本地算路由，得到每个 token 的专家 id。
 2. **Dispatch All-to-All**：按专家所在设备重排 token，凑成各卡的专家 batch。
 3. 本地对每个专家跑 FFN（往往再配一张容量掩码，空槽不参与有效 FLOPs 统计）。
-4. **Combine All-to-All**：把专家输出按原 token 顺序发回，加权求和（$k>1$ 时）。
+4. **Combine All-to-All**：把专家输出按原 token 顺序发回，加权求和（$k\gt 1$ 时）。
 
 ```mermaid
 flowchart LR

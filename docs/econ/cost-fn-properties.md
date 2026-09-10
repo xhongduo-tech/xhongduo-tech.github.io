@@ -23,7 +23,7 @@ $c$ 是最优值，不是又一个任意的会计科目。任意光滑函数不�
 
 Shephard 说 $\nabla_w c=z$。那是可微点上的包络，下一课专写。本课的齐次、单调、凹，在不可微时仍成立，而且它们约束着「什么样的导数（若存在）配得上一个 $c$」。把引理写在性质前面，会让人以为成本函数只有那一条导数公式。
 
-<span class="marginnote">一次齐次：$c(\lambda w,q)=\lambda c(w,q)$，$\lambda>0$。最优 $z$ 不变，只是账单乘 $\lambda$。这也是「没有货币幻觉」：要素价格与成本同单位。</span>
+<span class="marginnote">一次齐次：$c(\lambda w,q)=\lambda c(w,q)$，$\lambda\gt 0$。最优 $z$ 不变，只是账单乘 $\lambda$。这也是「没有货币幻觉」：要素价格与成本同单位。</span>
 
 ## 方法
 

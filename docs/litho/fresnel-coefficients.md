@@ -32,7 +32,7 @@ r_s=\frac{n_1\cos\theta_i-n_2\cos\theta_t}{n_1\cos\theta_i+n_2\cos\theta_t},\qua
 r_p=\frac{n_2\cos\theta_i-n_1\cos\theta_t}{n_2\cos\theta_i+n_1\cos\theta_t}.
 $$
 
-$t_s$、$t_p$ 由切向场连续确定。垂直入射时 $r_s=r_p=(n_1-n_2)/(n_1+n_2)$，$r<0$ 表示相对入射电场有 $\pi$ 相位跳——[薄膜干涉](/litho/thin-film-interference) 必须把这「半波损失」与几何光程差一起算。反射率 $R_s=|r_s|^2$，$R_p=|r_p|^2$。$R_s$ 与 $R_p$ 一般不相等，只在正入射重合。
+$t_s$、$t_p$ 由切向场连续确定。垂直入射时 $r_s=r_p=(n_1-n_2)/(n_1+n_2)$，$r\lt 0$ 表示相对入射电场有 $\pi$ 相位跳——[薄膜干涉](/litho/thin-film-interference) 必须把这「半波损失」与几何光程差一起算。反射率 $R_s=|r_s|^2$，$R_p=|r_p|^2$。$R_s$ 与 $R_p$ 一般不相等，只在正入射重合。
 
 ```mermaid
 flowchart TD
@@ -59,7 +59,7 @@ flowchart TD
 ## 小结
 
 - s/p 菲涅尔系数由两侧 $n$ 与入射角决定；斯涅尔定律约束折射角。
-- 垂直入射反射率只与折射率差有关；$r<0$ 带来相位跳，影响干涉。
+- 垂直入射反射率只与折射率差有关；$r\lt 0$ 带来相位跳，影响干涉。
 - 振幅比不是功率比；跨介质时功率还要乘阻抗因子。
 - 多层膜 = 界面系数与传播相位连乘，下一课先看特殊角。
 - 出处：Born &amp; Wolf, *Principles of Optics*；Jackson, *Classical Electrodynamics* 第 7 章。

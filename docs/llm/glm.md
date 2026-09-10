@@ -32,7 +32,7 @@ BERT 在 `[MASK]` 上做词表 softmax，多 token 答案要迭代或限制成�
 从文档中挖连续片段，输入侧留下带空白标记的上下文（可见两侧，故有双向信号），输出侧按自回归重建被挖内容：
 
 $$
-p(s_1,\ldots,s_m\mid x_{\backslash s})=\prod_{j=1}^{m}\prod_{t}p\bigl(s_{j,t}\mid x_{\backslash s}, s_{<j}, s_{j,<t}\bigr).
+p(s_1,\ldots,s_m\mid x_{\backslash s})=\prod_{j=1}^{m}\prod_{t}p\bigl(s_{j,t}\mid x_{\backslash s}, s_{\lt j}, s_{j,\lt t}\bigr).
 $$
 
 $m$ 与 $|s_j|$ 可变：短而密的空白偏 NLU；少而长的空白偏生成。多任务混合使单一预训练权重能微调到两类下游。模型是 Transformer，具体层规范随年代变：早期 GLM 与 BERT 更近，ChatGLM2 起逐步靠拢 GPT 式 RMSNorm、旋转位置等，但家族叙事仍把预训练目标溯源到 2022 这篇 ACL。

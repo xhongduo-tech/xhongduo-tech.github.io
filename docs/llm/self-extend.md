@@ -27,15 +27,15 @@ RoPE 点积只看见相对距离 $\Delta$。训练时 $\Delta\in\{0,\ldots,L-1\}
 
 $$
 \Delta'(d)=\begin{cases}
-d & d<w\\
+d & d\lt w\\
 w+\bigl\lfloor(d-w)/g\bigr\rfloor & d\ge w
 \end{cases}
 $$
 
-$d<w$ 的边与短窗训练完全同构。$d\ge w$ 的边把 $g$ 个连续 token 折成同一个阶梯，阶梯宽度为 1 个「分组位置」。只要
+$d\lt w$ 的边与短窗训练完全同构。$d\ge w$ 的边把 $g$ 个连续 token 折成同一个阶梯，阶梯宽度为 1 个「分组位置」。只要
 
 $$
-w+\bigl\lfloor(L'-w)/g\bigr\rfloor < L
+w+\bigl\lfloor(L'-w)/g\bigr\rfloor \lt  L
 $$
 
 所有 $\Delta'$ 仍落在训练支撑内。$g$ 越大，能覆盖的 $L'$ 越长，远端分辨率越差。这是明确的交换，不是隐藏超参。
@@ -50,7 +50,7 @@ Self-Extend 默认仍允许 $q$ 看见所有 $k\le p$（或实现里再叠滑窗
 
 ```mermaid
 flowchart LR
-  D["真实距离 d"] --> N{"d < 邻窗 w?"}
+  D["真实距离 d"] --> N{"d ＜ 邻窗 w?"}
   N -->|"是"| R["Δ = d 高分辨率"]
   N -->|"否"| G["Δ = w + floor((d-w)/g)"]
   R --> A["RoPE 点积"]
@@ -73,7 +73,7 @@ Self-Extend 不降低二次复杂度。128k 全注意力照样贵，只是相位
 
 另一条边界是评测诚实：训练免费延窗很容易在 PPL 上好看——远端被折回熟悉的 $\Delta$，困惑度不会炸。RULER 的多跳和 ∞Bench 的篇章题仍可能失败，因为模型从未在那种距离上做过推理，只是现在「算得动」。Self-Extend 延长的是几何覆盖，不是自动延长算法能力。需要多跳时，应把它当成让模型「看得见」的补丁，再决定要不要检索或续训，而不是当成长程推理已经齐备。
 
-<span class="marginnote">实现时最常见的 bug 是把 floor 写成对绝对位置 $p//g$ 再相减。那会让近邻也被分组，局部流畅一起糊掉。公式必须先分支 $d<w$，再对超出部分做 floor。</span>
+<span class="marginnote">实现时最常见的 bug 是把 floor 写成对绝对位置 $p//g$ 再相减。那会让近邻也被分组，局部流畅一起糊掉。公式必须先分支 $d\lt w$，再对超出部分做 floor。</span>
 
 ## 小结
 

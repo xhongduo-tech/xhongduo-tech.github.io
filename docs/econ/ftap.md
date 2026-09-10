@@ -51,11 +51,11 @@ flowchart TD
 
 下一课把 EMM 单独钉：何谓等价、何谓鞅、折现用哪一个账户。
 
-后课默认：有限市场 NA ⇔ 正状态价格 ⇔ 存在 SDF $m>0$。完全则唯一。连续时间用 NFLVR 替换 NA。有效市场假说不是 FTAP。
+后课默认：有限市场 NA ⇔ 正状态价格 ⇔ 存在 SDF $m\gt 0$。完全则唯一。连续时间用 NFLVR 替换 NA。有效市场假说不是 FTAP。
 
 ## 小结
 
-- 教室版 FTAP：无套利 ⇔ 存在 $q\gg 0$（或 $m>0$）。
+- 教室版 FTAP：无套利 ⇔ 存在 $q\gg 0$（或 $m\gt 0$）。
 - 第二定理：完全 ⇔ 等价鞅测度唯一。
 - 连续时间把 NA 升级为 NFLVR，精神仍是对偶。
 - 出处：Harrison and Kreps, *JET* 1979；Dalang–Morton–Willinger；Delbaen and Schachermayer, 1994。

@@ -24,10 +24,10 @@ section: quant
 一维线性 Hawkes 的强度为
 
 $$
-\lambda(t)=\mu+\int_{(-\infty,t)}\phi(t-s)\,\mathrm{d}N_s=\mu+\sum_{t_i<t}\phi(t-t_i),
+\lambda(t)=\mu+\int_{(-\infty,t)}\phi(t-s)\,\mathrm{d}N_s=\mu+\sum_{t_i\lt t}\phi(t-t_i),
 $$
 
-其中 $N$ 是计数过程，$\phi\ge 0$ 是核。指数核 $\phi(u)=\alpha e^{-\beta u}$ 最常用，强度在每笔成交后跳上 $\alpha$，再以 $\beta$ 衰减。稳定性要求分支比 $n=\int_0^\infty\phi(u)\,\mathrm{d}u<1$：$n$ 是一笔事件平均触发的「后代」事件数，$n\to 1$ 表示内生反馈接近临界，一小段外生流可以引发长串余震。Filimonov 与 Sornette 曾用接近 1 的分支比讨论市场内生性；估计对核的误设与短样本很敏感，不能把某日 $\hat n\approx 1$ 直接写成「即将崩盘」。
+其中 $N$ 是计数过程，$\phi\ge 0$ 是核。指数核 $\phi(u)=\alpha e^{-\beta u}$ 最常用，强度在每笔成交后跳上 $\alpha$，再以 $\beta$ 衰减。稳定性要求分支比 $n=\int_0^\infty\phi(u)\,\mathrm{d}u\lt 1$：$n$ 是一笔事件平均触发的「后代」事件数，$n\to 1$ 表示内生反馈接近临界，一小段外生流可以引发长串余震。Filimonov 与 Sornette 曾用接近 1 的分支比讨论市场内生性；估计对核的误设与短样本很敏感，不能把某日 $\hat n\approx 1$ 直接写成「即将崩盘」。
 
 <span class="marginnote">Hawkes 的「自激」是条件强度上升，不是价格一定沿同一方向走。同向切片与反向补货都可以抬高成交计数。要把方向放进模型，应用带标记的点过程或买卖分开的二元 Hawkes。</span>
 

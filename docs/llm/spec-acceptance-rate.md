@@ -37,7 +37,7 @@ $\alpha=1$ 时 $\mathbb{E}[L]=\gamma+1$。这是链拓扑、独立假设下的�
 
 ## 方法
 
-把一次投机循环的墙钟写成 $T_{\mathrm{draft}}+T_{\mathrm{verify}}+T_{\mathrm{overhead}}$。链上草稿若比目标慢 $c$ 倍（$c<1$ 表示草稿更便宜），常近似 $T_{\mathrm{draft}}\approx c\gamma\,T_{\mathrm{target\_step}}$，$T_{\mathrm{verify}}\approx T_{\mathrm{target\_step}}$（验证序列略长于 1，但仍是一次权重搬运）。于是加速比
+把一次投机循环的墙钟写成 $T_{\mathrm{draft}}+T_{\mathrm{verify}}+T_{\mathrm{overhead}}$。链上草稿若比目标慢 $c$ 倍（$c\lt 1$ 表示草稿更便宜），常近似 $T_{\mathrm{draft}}\approx c\gamma\,T_{\mathrm{target\_step}}$，$T_{\mathrm{verify}}\approx T_{\mathrm{target\_step}}$（验证序列略长于 1，但仍是一次权重搬运）。于是加速比
 
 $$
 S\approx \frac{\mathbb{E}[L]}{c\gamma+1}.
@@ -63,7 +63,7 @@ flowchart LR
 
 ## 机制
 
-加速来自减少「目标权重被完整搬运的次数」。每次搬运的收益是 $\mathbb{E}[L]$，成本是草稿加更宽验证。内存墙越显著（小 batch、大模型），$\mathbb{E}[L]>1$ 就越划算；计算墙越显著（大 batch、已经饱和的 GEMM），验证变宽会把 $S$ 压到 1 以下。因此论文里 Medusa 强调 batch=1，DistServe 一类系统讨论的 PD 分离并不自动叠加同一档投机加速——decode 实例 batch 变大后，$c$ 与验证宽度的相对关系会变。
+加速来自减少「目标权重被完整搬运的次数」。每次搬运的收益是 $\mathbb{E}[L]$，成本是草稿加更宽验证。内存墙越显著（小 batch、大模型），$\mathbb{E}[L]\gt 1$ 就越划算；计算墙越显著（大 batch、已经饱和的 GEMM），验证变宽会把 $S$ 压到 1 以下。因此论文里 Medusa 强调 batch=1，DistServe 一类系统讨论的 PD 分离并不自动叠加同一档投机加速——decode 实例 batch 变大后，$c$ 与验证宽度的相对关系会变。
 
 不同提议器的 $\alpha$ 不可比。Medusa 远头条件独立，$\alpha$ 随深度掉得快，靠树宽度补。EAGLE 顺序特征外推，$\alpha$ 更深更稳。EAGLE-2 让局部 $\alpha$ 参与长树。Lookahead 的「接受」是 n-gram 命中，低熵域高、开放域低。V3 MTP 在 $D=1$ 时第二 token 接受率约 85%–90%，$\gamma$ 实质上是 1，报告约 1.8× TPS，与 $\mathbb{E}[L]\approx 1+\alpha$、草稿很便宜的图像一致，不能外推到 $\gamma=5$。
 

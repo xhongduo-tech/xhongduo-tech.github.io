@@ -18,7 +18,7 @@ section: llm
 一条渲染后的样本形如 $\texttt{prefix}\circ\texttt{response}$。完整因果损失是
 
 $$
-\mathcal{L}=\sum_{t\in T}-\log p_\theta(x_t\mid x_{<t}),
+\mathcal{L}=\sum_{t\in T}-\log p_\theta(x_t\mid x_{\lt t}),
 $$
 
 若 $T$ 含前缀，梯度鼓励模型在「用户刚问完」的位置上复述用户、或把系统提示续成更长的系统提示。评测时前缀由产品写入、不可改，训练时却在预测它，训练–推理目标不一致。多轮更严重：上一轮助手已在上下文里，若再对用户轮计损失，模型学会用用户口吻说话。

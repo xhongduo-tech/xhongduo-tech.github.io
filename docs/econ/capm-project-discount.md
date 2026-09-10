@@ -19,7 +19,7 @@ CAPM 说 $\mathrm{E}[R_i]-r_f=\beta_i(\mathrm{E}[R_m]-r_f)$。公司金融进阶
 
 缺口因此是拆两层：经营风险（资产 beta）对财务风险（杠杆把 $\beta_E$ 放大）。Tirole 把投资决策写成「NPV 在股东目标下用机会成本」；机会成本由项目风险定。Brealey–Myers 的纯业务可比（pure play）是操作：找业务相近、交易的企业，去杠杆得到 $\beta_A$，再按项目目标杠杆杠杆回去。
 
-<span class="marginnote">Hamada 公式（在债务 beta 为零的近似下）：$\beta_E=\beta_A\bigl(1+(1-\tau_c)D/E\bigr)$。债务有风险时 $\beta_D>0$，去杠杆要同时拆 $\beta_E$ 与 $\beta_D$。不要把权益 beta 直接当项目成本。</span>
+<span class="marginnote">Hamada 公式（在债务 beta 为零的近似下）：$\beta_E=\beta_A\bigl(1+(1-\tau_c)D/E\bigr)$。债务有风险时 $\beta_D\gt 0$，去杠杆要同时拆 $\beta_E$ 与 $\beta_D$。不要把权益 beta 直接当项目成本。</span>
 
 ## 方法
 

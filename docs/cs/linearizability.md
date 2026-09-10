@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Herlihy and Wing, Linearizability: A Correctness Condition for Concurrent Objects, TOPLAS 1990 整理</footer>
 </div>
 
-上一课[拜占庭将军](/cs/byzantine-generals)封上时间与失败课序。本单元不重写 $n>3f$。缺口是**对象看起来像什么**：多副本、多客户端时，「一次写」何时变成大家读到的值。本课钉线性一致（linearizability），后课再放松到顺序、因果、最终。后课默认已经读完：强一致首先指这个实时+原子点。
+上一课[拜占庭将军](/cs/byzantine-generals)封上时间与失败课序。本单元不重写 $n\gt 3f$。缺口是**对象看起来像什么**：多副本、多客户端时，「一次写」何时变成大家读到的值。本课钉线性一致（linearizability），后课再放松到顺序、因果、最终。后课默认已经读完：强一致首先指这个实时+原子点。
 
 ## 问题
 

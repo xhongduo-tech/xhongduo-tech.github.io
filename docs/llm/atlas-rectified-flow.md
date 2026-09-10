@@ -54,7 +54,7 @@ $$
 \tilde v=v_{\emptyset}+s\bigl(v_c-v_{\emptyset}\bigr),
 $$
 
-$s>1$ 加强文本或参考服从。这是家族技巧；Atlas 只说可以使用，没有给出 $s$ 的默认值。
+$s\gt 1$ 加强文本或参考服从。这是家族技巧；Atlas 只说可以使用，没有给出 $s$ 的默认值。
 
 ```mermaid
 flowchart LR

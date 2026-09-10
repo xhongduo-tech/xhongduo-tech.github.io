@@ -17,7 +17,7 @@ section: econ
 
 Gauss–Markov 的球形误差在截面异方差、时间序列相关、州–年面板里几乎从不真。White：异方差下 OLS 仍一致，协方差用残差平方加权的「三明治」。聚类：同一州的年份之间 $u_{it}$ 相关，有效样本接近州的个数而不是州–年格点数。Bertrand–Duflo–Mullainathan 演示 DiD 忽略这一点会严重过度拒绝。缺口是：聚类层级要对准赋值发生的层级；乱聚到过细，名义 $p$ 又会过小。
 
-多重检验：二十个结果、五个子样本，期望有一个「$p<0.05$」。Bonferroni 过保守；Benjamini–Hochberg FDR、Romano–Wolf 逐步法在功效与控制之间折中。预注册与单一主结果是设计手段，不是统计公式。
+多重检验：二十个结果、五个子样本，期望有一个「$p\lt 0.05$」。Bonferroni 过保守；Benjamini–Hochberg FDR、Romano–Wolf 逐步法在功效与控制之间折中。预注册与单一主结果是设计手段，不是统计公式。
 
 <span class="marginnote">Cameron–Gelbach–Miller：聚类数少时用野 bootstrap。Abadie–Athey–Imbens–Wooldridge：聚类应对准设计（哪些单位被随机或被政策），不是「所有看起来相关的」。</span>
 

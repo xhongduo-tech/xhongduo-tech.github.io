@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Knuth, Optimum Binary Search Trees, 1971；Yao, Efficient Dynamic Programming, 1980 整理</footer>
 </div>
 
-上一课[斜率优化](/cs/convex-hull-trick)用直线凸包。另一类：$dp[i][k]=\min_{j<i} dp[j][k-1]+w(j+1,i)$。缺口是决策单调与四边形不等式 $w(a,c)+w(b,d)\le w(a,d)+w(b,c)$（$a\le b\le c\le d$）。不重写 CHT。后课 SMAWK 把单调完全矩阵的行最小线性求。
+上一课[斜率优化](/cs/convex-hull-trick)用直线凸包。另一类：$dp[i][k]=\min_{j\lt i} dp[j][k-1]+w(j+1,i)$。缺口是决策单调与四边形不等式 $w(a,c)+w(b,d)\le w(a,d)+w(b,c)$（$a\le b\le c\le d$）。不重写 CHT。后课 SMAWK 把单调完全矩阵的行最小线性求。
 
 ## 问题
 

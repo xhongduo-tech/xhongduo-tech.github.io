@@ -27,10 +27,10 @@ Li 等人的对比解码用小模型当业余分布，在 logit 上做专家减�
 
 ## 方法
 
-设前缀 $x_{<t}$，模型给出 $p_\theta(\cdot\mid x_{<t})$。取概率最高的 $k$ 个 token 构成 $V^{(k)}$。对每个 $v\in V^{(k)}$，把 $v$ 接到前缀上得到该步的隐状态 $h_v$（实现上常用最后一层、该位置的输出向量）。历史集合 $H=\{h_{x_1},\ldots,h_{x_{t-1}}\}$。分数为
+设前缀 $x_{\lt t}$，模型给出 $p_\theta(\cdot\mid x_{\lt t})$。取概率最高的 $k$ 个 token 构成 $V^{(k)}$。对每个 $v\in V^{(k)}$，把 $v$ 接到前缀上得到该步的隐状态 $h_v$（实现上常用最后一层、该位置的输出向量）。历史集合 $H=\{h_{x_1},\ldots,h_{x_{t-1}}\}$。分数为
 
 $$
-\mathrm{score}(v)=(1-\alpha)\,p_\theta(v\mid x_{<t}) - \alpha \max_{h\in H}\mathrm{cos}(h_v,h).
+\mathrm{score}(v)=(1-\alpha)\,p_\theta(v\mid x_{\lt t}) - \alpha \max_{h\in H}\mathrm{cos}(h_v,h).
 $$
 
 $x_t=\arg\max_{v\in V^{(k)}}\mathrm{score}(v)$。$\alpha=0$ 退化为 top-$k$ 上的贪心（再对 $k=1$ 就是普通贪心）。$\alpha$ 靠近 $1$ 时相似度项主导，模型倾向选与上下文最不齐的头部候选，连贯性会掉。余弦也可用点积，但应固定归一化，否则范数大的层会吞掉概率项。

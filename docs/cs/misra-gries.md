@@ -7,7 +7,7 @@ section: cs
 # 流算法 Misra–Gries
 
 <div class="epigraph">
-<p>一遍扫描，$k-1$ 个计数器找出频率 $>n/k$ 的候选项；真频繁项不会漏，假阳性再扫或抽样验证。</p>
+<p>一遍扫描，$k-1$ 个计数器找出频率 $\gt n/k$ 的候选项；真频繁项不会漏，假阳性再扫或抽样验证。</p>
 <footer>—— 据 Misra and Gries, Finding Repeated Elements, 1982；Cormode and Hadjieleftheriou 流频繁项综述整理</footer>
 </div>
 
@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-长 $n$ 的流，找出现 $>n/k$ 的项（至多 $k-1$ 个真）。MG：维护 $\le k-1$ 个 (item,count)。新项已在则加；表满且不在则全体减 1，计数 0 的丢掉。真频繁项始终在表中（或结束时计数被低估但仍在）。Count-Min、SpaceSaving 点名。
+长 $n$ 的流，找出现 $\gt n/k$ 的项（至多 $k-1$ 个真）。MG：维护 $\le k-1$ 个 (item,count)。新项已在则加；表满且不在则全体减 1，计数 0 的丢掉。真频繁项始终在表中（或结束时计数被低估但仍在）。Count-Min、SpaceSaving 点名。
 
 缺口是固定 $k$ 空间，不是排序。
 
@@ -48,6 +48,6 @@ flowchart TD
 ## 小结
 
 - $k-1$ 计数器一遍流。
-- 真 $>n/k$ 不漏；频率低估。
+- 真 $\gt n/k$ 不漏；频率低估。
 - 精确需第二遍。
 - 出处：Misra and Gries, 1982。

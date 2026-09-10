@@ -63,7 +63,7 @@ CVaR / ES 同样齐次（正一阶）时可以定义 MRC 与 CRC，ERC 式平价
 
 $\Sigma$ 半正定时 $\sigma$ 在核方向上为 0，MRC 不定，应先因子化或加对角。现金与期货保证金使「权重和为 1」与风险暴露脱节，欧拉应对暴露向量做，而不是对账户净值权重做完再假装齐次。与 [成分 ES](/quant/component-es) 对照：同一套符号，对象从 $\sigma$ 换成 ES，坏日子里 MRC 会跳；波动 ERC 不能当尾巴平价已经完成。
 
-<span class="marginnote">Maillard–Roncalli–Teiletche 的唯一性是 CRC 等式在 $w>0$ 上的唯一性，不是 MRC 向量唯一。许多 $w$ 可以有相近的 MRC 形态（近似等边），只有一个（在给定 $\Sigma$ 上）让 CRC 精确相等。</span>
+<span class="marginnote">Maillard–Roncalli–Teiletche 的唯一性是 CRC 等式在 $w\gt 0$ 上的唯一性，不是 MRC 向量唯一。许多 $w$ 可以有相近的 MRC 形态（近似等边），只有一个（在给定 $\Sigma$ 上）让 CRC 精确相等。</span>
 
 ```mermaid
 flowchart TD

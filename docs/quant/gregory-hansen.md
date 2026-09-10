@@ -33,7 +33,7 @@ $$
 y_t=\mu_1+\mu_2\varphi_{t\tau}+\beta_1 x_t+\beta_2 x_t\varphi_{t\tau}+e_t,
 $$
 
-$\varphi_{t\tau}=1_{\{t>\tau\}}$。配对里最伤的是 C/S：对冲比本身换了。C 只移动价差原点，旧仓的期望亏损是一笔水平跳；C/S 让残差带上错误的随机趋势，期望回归时间不再是 [OU](/quant/ou-spread) 的半衰期。检验必须预先声明用哪一类，不能三类都跑再挑最显著的那个 $\tau$。
+$\varphi_{t\tau}=1_{\{t\gt \tau\}}$。配对里最伤的是 C/S：对冲比本身换了。C 只移动价差原点，旧仓的期望亏损是一笔水平跳；C/S 让残差带上错误的随机趋势，期望回归时间不再是 [OU](/quant/ou-spread) 的半衰期。检验必须预先声明用哪一类，不能三类都跑再挑最显著的那个 $\tau$。
 
 <span class="marginnote">$\varphi_{t\tau}$ 是虚拟变量，不是平滑转移。Gregory–Hansen 的备择是一次性台阶，不是 Tong 的门限或 Hamilton 的来回跳。价差在某个带宽内不调整，应去看[门限协整](/quant/threshold-cointegration)，而不是把「中间一段像单位根」写成机制转换。</span>
 

@@ -31,7 +31,7 @@ $$
 
 ```mermaid
 flowchart TD
-  BM["布朗: 连续, 二次变差 = t"] --> ITO["伊藤: 多 1/2 f_xx d<X>"]
+  BM["布朗: 连续, 二次变差 = t"] --> ITO["伊藤: 多 1/2 f_xx d＜X>"]
   ITO --> GEO["几何布朗的对数修正"]
   ITO --> BDGT["下一课: 财富动力学"]
 ```

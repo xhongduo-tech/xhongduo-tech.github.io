@@ -29,7 +29,7 @@ $$
 \mathrm{pass@}k=\mathbb{E}\left[1-\frac{\binom{n-c}{k}}{\binom{n}{k}}\right],
 $$
 
-$c$ 为 $n$ 次中通过数；$n-c<k$ 时分子为零，pass@$k=1$。实现用稳定递推避免大组合数溢出。报告必须写 $n,k,$ 温度, top-$p,$ 是否过滤语法失败。功能正确性以隐藏测试为准；表面相似（BLEU）不是 pass。
+$c$ 为 $n$ 次中通过数；$n-c\lt k$ 时分子为零，pass@$k=1$。实现用稳定递推避免大组合数溢出。报告必须写 $n,k,$ 温度, top-$p,$ 是否过滤语法失败。功能正确性以隐藏测试为准；表面相似（BLEU）不是 pass。
 
 ```mermaid
 flowchart TD

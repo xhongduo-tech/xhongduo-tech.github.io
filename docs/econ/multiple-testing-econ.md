@@ -21,13 +21,13 @@ $m$ 个原假设，各用水平 $\alpha$。若独立且全真，至少一次错�
 
 ### 只报显著的那个就是多重检验
 
-正文里只出现一个 $p<0.05$ 的系数，附录里躺着十九个不显著的孪生规格，读者按 $m=1$ 来读，名义水平已经坏了。这不是诚实问题的修辞，是样本空间没写全。机器学习里的 snooping 同源：特征在同一张表上挑完再检验，要用样本外或正交化，不能靠「最后只报一个」。
+正文里只出现一个 $p\lt 0.05$ 的系数，附录里躺着十九个不显著的孪生规格，读者按 $m=1$ 来读，名义水平已经坏了。这不是诚实问题的修辞，是样本空间没写全。机器学习里的 snooping 同源：特征在同一张表上挑完再检验，要用样本外或正交化，不能靠「最后只报一个」。
 
 <span class="marginnote">Angrist–Pischke 的实用划分：一个 primary outcome，其余当 robustness 并标明探索。FDR 适合探索清单；确认性研究更常保 FWER 或干脆只测一个。</span>
 
 ## 方法
 
-Bonferroni：每个检验用 $\alpha/m$，简单、常过严。Holm：将 $p$ 排序 $p_{(1)}\le\cdots\le p_{(m)}$，找最小 $k$ 使 $p_{(k)}>\alpha/(m-k+1)$，拒绝更小的那些——逐步、仍控 FWER，功效通常高于 Bonferroni。Benjamini–Hochberg：找最大 $k$ 使 $p_{(k)}\le k\alpha/m$，拒绝 $1,\ldots,k$，在独立或正依赖下控 FDR。检验相关时，BH 仍常用；FWER 方法可能更保守。Westfall–Young 一类 bootstrap 可同时吃进相关与小样本，装置接上一课，细节不在此展开。
+Bonferroni：每个检验用 $\alpha/m$，简单、常过严。Holm：将 $p$ 排序 $p_{(1)}\le\cdots\le p_{(m)}$，找最小 $k$ 使 $p_{(k)}\gt \alpha/(m-k+1)$，拒绝更小的那些——逐步、仍控 FWER，功效通常高于 Bonferroni。Benjamini–Hochberg：找最大 $k$ 使 $p_{(k)}\le k\alpha/m$，拒绝 $1,\ldots,k$，在独立或正依赖下控 FDR。检验相关时，BH 仍常用；FWER 方法可能更保守。Westfall–Young 一类 bootstrap 可同时吃进相关与小样本，装置接上一课，细节不在此展开。
 
 ```mermaid
 flowchart TD

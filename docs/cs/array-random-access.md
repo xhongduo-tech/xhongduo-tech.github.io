@@ -23,7 +23,7 @@ section: cs
 
 ## 方法
 
-表示：一块连续虚拟地址，元素同宽。读写下标 $i$ 合法当且仅当 $0\le i<n$。构造分配 $n\times\mathrm{size}$ 字节。随机访问 $\Theta(1)$ 步；顺序扫 $\Theta(n)$ 步且对 cache 友好。
+表示：一块连续虚拟地址，元素同宽。读写下标 $i$ 合法当且仅当 $0\le i\lt n$。构造分配 $n\times\mathrm{size}$ 字节。随机访问 $\Theta(1)$ 步；顺序扫 $\Theta(n)$ 步且对 cache 友好。
 
 ```mermaid
 flowchart LR

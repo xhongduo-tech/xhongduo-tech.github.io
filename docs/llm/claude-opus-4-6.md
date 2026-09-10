@@ -33,12 +33,12 @@ Opus 4.5 已经能做长程编码。4.6 要补的是：大库导航、自己查�
 
 ```mermaid
 flowchart TD
-  REQ["claude-opus-4-6"] --> AD["自适应思考"]
-  AD --> EF["effort: low / medium / high / max"]
-  REQ --> CC["上下文压缩 beta"]
-  REQ --> M1["1M 窗口 beta，>200k 溢价"]
-  REQ --> TEAM["Claude Code agent teams"]
-  REQ --> OUT["最多 128k 输出"]
+  REQ["claude-opus-4-6"] --\gt  AD["自适应思考"]
+  AD --\gt  EF["effort: low / medium / high / max"]
+  REQ --\gt  CC["上下文压缩 beta"]
+  REQ --\gt  M1["1M 窗口 beta，\gt 200k 溢价"]
+  REQ --\gt  TEAM["Claude Code agent teams"]
+  REQ --\gt  OUT["最多 128k 输出"]
 ```
 
 ### 评测脚注里的陷阱
@@ -51,7 +51,7 @@ HLE「带工具」：网页搜索与抓取、代码执行、程序化工具调�
 
 安全机制：因网络能力上升增加六类探测，博文同时强调用模型帮开源打补丁。过度拒答下降与失配率持平，是后训练与政策的曲面，不是 ASL 编号在本篇正文里的改写——部署档以当时系统卡与政策页为准，本篇不臆造 ASL。
 
-<span class="marginnote">参数、层数、训练 token、RL 算法名均未公开。客户引言（Notion、GitHub、Cursor、Harvey 的 BigLaw Bench 90.2% 等）是存在性反馈，Harvey 数字是该客户基准，不是 Anthropic 主表。</span>
+<span class="marginnote"> 参数、层数、训练 token、RL 算法名均未公开。客户引言（Notion、GitHub、Cursor、Harvey 的 BigLaw Bench 90.2% 等）是存在性反馈，Harvey 数字是该客户基准，不是 Anthropic 主表。</span> 
 
 ### 和 4.5、和 5 代
 
@@ -67,7 +67,7 @@ Excel 增强与 PowerPoint 研究预览改变的是工具环：先结构化表�
 
 出处：Anthropic，*Introducing Claude Opus 4.6*，2026-02-05；系统卡以官网当时 PDF 为准。参数量未公开。
 
-<span class="marginnote">Terminal-Bench 2.0 脚注：自报分数与他实验室公布分数并列，harness 多为 Terminus-2，OpenAI 侧用 Codex CLI。资源 1× 保证 / 3× 上限，5–15 sample。换 harness 即不可比。</span>
+<span class="marginnote"> Terminal-Bench 2.0 脚注：自报分数与他实验室公布分数并列，harness 多为 Terminus-2，OpenAI 侧用 Codex CLI。资源 1× 保证 / 3× 上限，5–15 sample。换 harness 即不可比。</span> 
 
 ## 小结
 

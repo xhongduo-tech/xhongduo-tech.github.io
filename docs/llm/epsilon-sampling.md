@@ -11,11 +11,11 @@ section: llm
     <footer>—— Hewitt, Manning & Liang, Truncation Sampling as Language Model Desmoothing, 2022</footer>
 </div>
 
-[上一课](/llm/locally-typical)按与条件熵的距离取核，同时削弱过可预测的头部与过意外的长尾。缺口是另一条更简单的截断：绝对地板 $\varepsilon$，丢掉 $p(v)<\varepsilon$ 的原子。词表上 softmax 几乎总把正概率分给每一个 token，不等于模型认为每个续写都合理。Hewitt 等人把 truncation sampling 解释为去平滑；$\eta$-sampling 让地板随熵变，见 [Min-p / $\eta$](/llm/minp-typical)。Nucleus 切累计质量，没有绝对噪声地板。本课只把 $\varepsilon$ 这条水平线写清楚。不重推 typical 的距离排序。
+[上一课](/llm/locally-typical)按与条件熵的距离取核，同时削弱过可预测的头部与过意外的长尾。缺口是另一条更简单的截断：绝对地板 $\varepsilon$，丢掉 $p(v)\lt \varepsilon$ 的原子。词表上 softmax 几乎总把正概率分给每一个 token，不等于模型认为每个续写都合理。Hewitt 等人把 truncation sampling 解释为去平滑；$\eta$-sampling 让地板随熵变，见 [Min-p / $\eta$](/llm/minp-typical)。Nucleus 切累计质量，没有绝对噪声地板。本课只把 $\varepsilon$ 这条水平线写清楚。不重推 typical 的距离排序。
 
 ## 问题
 
-温度不改变支撑。$T\to 0$ 在数值上接近贪心，但任何 $T>0$ 仍给长尾留着正质量，长序列里总会抽到一次。Nucleus 保证核上有质量 $\tau$，却不保证核内每个原子都大于某绝对量：为了凑满 $\tau$，可以纳入大量 $10^{-5}$ 量级的碎片。开放生成的胡话往往来自这些碎片，而不是来自核外交界处的某个中等词。需要一条与排序无关的规则：概率已经小到可以当成数值噪声的，直接为零。
+温度不改变支撑。$T\to 0$ 在数值上接近贪心，但任何 $T\gt 0$ 仍给长尾留着正质量，长序列里总会抽到一次。Nucleus 保证核上有质量 $\tau$，却不保证核内每个原子都大于某绝对量：为了凑满 $\tau$，可以纳入大量 $10^{-5}$ 量级的碎片。开放生成的胡话往往来自这些碎片，而不是来自核外交界处的某个中等词。需要一条与排序无关的规则：概率已经小到可以当成数值噪声的，直接为零。
 
 绝对地板的困难是尺度。不同模型、不同温度、不同前缀下，$p_{\max}$ 可以差一个数量级，同一 $\varepsilon$ 在尖峰步只切尾巴，在平坦步可能把全部 token 判为噪声。Hewitt 用去平滑来给 $\varepsilon$ 一个故事：训练相当于在真实的稀疏后续上加了一层平滑，推理把小于平滑幅度的质量当作人为添加而删掉。故事给出数量级直觉（$\varepsilon$ 应像平滑强度），并不给出可从验证 PPL 反解的公式。$\varepsilon$ 仍是超参。
 
@@ -63,7 +63,7 @@ softmax 把任意 logits 变成满支撑。标签平滑、大词表、多义续�
 
 ### 温度把 $\varepsilon$ 变成另一条曲线
 
-$T>1$ 把质量从峰推向尾，$p(v)\ge\varepsilon$ 的集合变大，截断变弱。$T<1$ 相反，同一 $\varepsilon$ 更狠。因此 $\varepsilon$ 与 $T$ 强耦合，不能分开抄社区默认值。Nucleus 的 $\tau$ 在温度变化时仍保证核质量，更稳；$\varepsilon$ 保证的是原子下限，不保证核质量。这是 Hewitt 同时提出 $\eta$ 的动机：用熵把地板拉回与当前尺度匹配的地方。若坚持纯 $\varepsilon$，温度扫描必须重扫 $\varepsilon$。
+$T\gt 1$ 把质量从峰推向尾，$p(v)\ge\varepsilon$ 的集合变大，截断变弱。$T\lt 1$ 相反，同一 $\varepsilon$ 更狠。因此 $\varepsilon$ 与 $T$ 强耦合，不能分开抄社区默认值。Nucleus 的 $\tau$ 在温度变化时仍保证核质量，更稳；$\varepsilon$ 保证的是原子下限，不保证核质量。这是 Hewitt 同时提出 $\eta$ 的动机：用熵把地板拉回与当前尺度匹配的地方。若坚持纯 $\varepsilon$，温度扫描必须重扫 $\varepsilon$。
 
 <span class="marginnote">验证集上最小的 next-token 概率几乎总是远小于任何可用的 $\varepsilon$，因为它包含长尾标签。用验证最小概率定 $\varepsilon$ 会得到 $10^{-12}$ 一类废值，等于关闭截断。</span>
 
@@ -81,7 +81,7 @@ $T>1$ 把质量从峰推向尾，$p(v)\ge\varepsilon$ 的集合变大，截断�
 
 ## 小结
 
-- $\varepsilon$-sampling 丢掉 $p(v)<\varepsilon$ 的原子再归一化，把截断解释为对 LM 过度平滑的反向操作。
+- $\varepsilon$-sampling 丢掉 $p(v)\lt \varepsilon$ 的原子再归一化，把截断解释为对 LM 过度平滑的反向操作。
 - 它保证原子下限，不保证核质量；与 nucleus 的 $\tau$ 不是同一旋钮。
 - 温度强烈改变有效支撑，必须与 $\varepsilon$ 联合扫描；空核要回退到 $\arg\max$。
 - $\eta$ 与 min-$p$ 是自适应地板，用来缓解绝对阈值在平坦步切空、在尖峰步切不够的问题。

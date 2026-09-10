@@ -37,7 +37,7 @@ flowchart TD
 
 ## 机制
 
-同步模型里的 $\Delta$ 是消息延迟；本课的 $\varepsilon$ 是时钟读数误差。二者独立：延迟界小并不自动让钟准。用时间戳排序必须满足 $|C_i(e)-C_j(f)|>2\varepsilon$ 才能下结论，否则只能说「分不清」。Spanner 的 commit wait 就是等 $\varepsilon$ 过去再对外可见——机制在后课，本课只准备 $\varepsilon$ 这个符号。
+同步模型里的 $\Delta$ 是消息延迟；本课的 $\varepsilon$ 是时钟读数误差。二者独立：延迟界小并不自动让钟准。用时间戳排序必须满足 $|C_i(e)-C_j(f)|\gt 2\varepsilon$ 才能下结论，否则只能说「分不清」。Spanner 的 commit wait 就是等 $\varepsilon$ 过去再对外可见——机制在后课，本课只准备 $\varepsilon$ 这个符号。
 
 漂移校正：线性补偿（测得频率偏差后调 skew）比反复硬跳更平滑。leap second 是 UTC 的政治，对单调钟无关，对墙钟日志是坑。
 
@@ -52,6 +52,6 @@ flowchart TD
 ## 小结
 
 - 漂移使对准后的钟再分开；对时给出误差区间 $\varepsilon$。
-- 跨机时间戳比较要 $|Δt|>2\varepsilon$，否则无先后。
+- 跨机时间戳比较要 $|Δt|\gt 2\varepsilon$，否则无先后。
 - 超时用单调钟；墙钟会回拨。
 - 出处：Cristian, 1989；Mills NTP；Lamport, 1978。

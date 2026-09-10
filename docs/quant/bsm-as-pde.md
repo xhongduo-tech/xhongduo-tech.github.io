@@ -28,7 +28,7 @@ Black–Scholes 原文用 $\Delta$ 对冲消去 $\mathrm d W$，令收益率等�
 ## 方法
 
 $$
-V_t+\tfrac12\sigma^2 S^2 V_{SS}+r S V_S-r V=0,\qquad t<T,\ S>0,
+V_t+\tfrac12\sigma^2 S^2 V_{SS}+r S V_S-r V=0,\qquad t\lt T,\ S\gt 0,
 $$
 
 $V(T,S)=g(S)$。这是变系数抛物方程。对数坐标 $x=\ln S$ 把它变成常系数热方程，这是闭式与有限差分数值的共同入口。$\sigma=0$ 时退成贴现的运输方程，解为 $e^{-r(T-t)}g(Se^{r(T-t)})$，即远期兑现——与无风险情形一致。

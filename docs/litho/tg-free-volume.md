@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据聚合物自由体积与 $T_g$ 的通称（Fox / Flory 量级语言）；光刻中的扩散与回流叙述见 Mack</footer>
 </div>
 
-[上一课](/litho/resist-reflow)把回流写成 $T>T_g$ 的黏流。缺口是把 $T_g$ 与自由体积写进同一套胶物理：它们也管 PEB 里酸的 $D$，不只管显影后流动。本课钉这两个聚合物量。瓶子里的时间如何改它们，留给[下一课](/litho/resist-shelf-life)。
+[上一课](/litho/resist-reflow)把回流写成 $T\gt T_g$ 的黏流。缺口是把 $T_g$ 与自由体积写进同一套胶物理：它们也管 PEB 里酸的 $D$，不只管显影后流动。本课钉这两个聚合物量。瓶子里的时间如何改它们，留给[下一课](/litho/resist-shelf-life)。
 
 ## 问题
 

@@ -33,10 +33,10 @@ $$
 
 ## 方法
 
-**步骤。** 收益矩阵为时间 $\times$ 配置。对每个 $c$：在训练块拼接的样本上计算绩效 $R^{\mathrm{IS}}_{n,c}$（通常是扣费夏普），$n^\star_c=\arg\max_n R^{\mathrm{IS}}_{n,c}$；在检验块上计算 $R^{\mathrm{OOS}}_{n,c}$，得到冠军的相对排名 $\omega_c$（高于其样本外绩效的配置所占比例）。过拟合指示 $1\{\omega_c>1/2\}$。
+**步骤。** 收益矩阵为时间 $\times$ 配置。对每个 $c$：在训练块拼接的样本上计算绩效 $R^{\mathrm{IS}}_{n,c}$（通常是扣费夏普），$n^\star_c=\arg\max_n R^{\mathrm{IS}}_{n,c}$；在检验块上计算 $R^{\mathrm{OOS}}_{n,c}$，得到冠军的相对排名 $\omega_c$（高于其样本外绩效的配置所占比例）。过拟合指示 $1\{\omega_c\gt 1/2\}$。
 
 $$
-\widehat{\mathrm{PBO}}=\frac{1}{|\mathcal{C}|}\sum_{c} 1\{\omega_c>1/2\}.
+\widehat{\mathrm{PBO}}=\frac{1}{|\mathcal{C}|}\sum_{c} 1\{\omega_c\gt 1/2\}.
 $$
 
 同时画 IS–OOS 散点：横轴训练绩效、纵轴检验绩效，每点一个组合上的冠军。过拟合常表现为负斜率。Bailey 等人还建议 logit 变换与 IS–OOS 相关系数。技能真实且选择温和时，PBO 应明显低于 $1/2$，散点不出现稳定负斜率。

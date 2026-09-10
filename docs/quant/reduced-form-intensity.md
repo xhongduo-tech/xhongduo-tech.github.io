@@ -24,7 +24,7 @@ section: quant
 在滤过的信息下，若 $\tau$ 是强度 $\lambda$ 的 Cox 过程，则
 
 $$
-\mathbb{Q}(\tau>t\mid \mathcal{F}_t^\lambda)=\exp\Big(-\int_0^t \lambda_s\mathrm{d}s\Big),
+\mathbb{Q}(\tau\gt t\mid \mathcal{F}_t^\lambda)=\exp\Big(-\int_0^t \lambda_s\mathrm{d}s\Big),
 $$
 
 无条件生存是该指数的期望。公司零息债（回收为零）的价格是 $\mathbb{E}[\exp(-\int_0^T (r_s+\lambda_s)\mathrm{d}s)]$，与违约利率之和的零息债同构。Lando 强调：条件于强度路径，违约是泊松；强度本身可以是 CIR、跳扩散或宏观因子。Jarrow–Turnbull 早期版本常取 $\lambda$ 与 $r$ 独立、甚至确定性风险结构，便于把信用当成折现修正；后续文献把相关加回来。

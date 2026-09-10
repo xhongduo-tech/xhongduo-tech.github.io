@@ -54,7 +54,7 @@ flowchart TD
 
 多产出时必须回到向量次加性，不能按每种产品的 AC 分别检验。铁路的客运与货运共享路网，分产品 AC 可能都上升，合产仍更省——这正是 Baumol 强调「对自然垄断做成本检验要用整条 $c(q)$」的原因。后课自然垄断读的是这一全局陈述，不是某一条下降的平均成本曲线。
 
-<span class="marginnote">范围经济是 $c(q_1,q_2)<c(q_1,0)+c(0,q_2)$，与规模经济并列，同属次加性家族。不要把多产品次加写成霍特林选址，也不要写成订单簿的合并。Varian 教材把 returns to scale 与 economies of scale 分章对照，本课沿这条刀。</span>
+<span class="marginnote">范围经济是 $c(q_1,q_2)\lt c(q_1,0)+c(0,q_2)$，与规模经济并列，同属次加性家族。不要把多产品次加写成霍特林选址，也不要写成订单簿的合并。Varian 教材把 returns to scale 与 economies of scale 分章对照，本课沿这条刀。</span>
 
 ## 边界
 

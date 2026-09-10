@@ -53,7 +53,7 @@ Qwen3-VL 技术报告写明两套统一标注：QwenVL-HTML 带细粒度元素�
 Decoder 把解析当成条件语言建模：视觉前缀提供页的 token，目标是 HTML 字符串。对阅读顺序中的块 $b_1,\ldots,b_B$，监督是
 
 $$
-p(y\mid x)=\prod_{t}\mathrm{LM}\big(y_t\mid y_{<t},\;v(x)\big),\quad y=\mathrm{HTML}(b_1,\ldots,b_B)
+p(y\mid x)=\prod_{t}\mathrm{LM}\big(y_t\mid y_{\lt t},\;v(x)\big),\quad y=\mathrm{HTML}(b_1,\ldots,b_B)
 $$
 
 其中 $v(x)$ 为页的视觉前缀。标签提供离散的对象类型先验，`data-bbox` 把回归问题改成与文本混排的数字串，模型用同一套语言模型头发射。嵌套标签强迫层次：表在段落之间、单元格在表内。这比扁平 JSON 列表更容易表达「图下有题注、题注下有来源」。

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Stapper 对 IC 良率与负二项的经典工作；半导体良率模型教材通称</footer>
 </div>
 
-[上一课](/litho/virtual-metrology)结束控制环。缺口是出货概率：缺陷如何把管芯杀死。[光刻](/litho) 主干已多次点名随机与系统失效；本课钉经典良率函数。关键面积如何把布局变成有效缺陷灵敏度，留给[下一课](/litho/critical-area）。
+[上一课](/litho/virtual-metrology)结束控制环。缺口是出货概率：缺陷如何把管芯杀死。光刻主干已多次点名随机与系统失效；本课钉经典良率函数。关键面积如何把布局变成有效缺陷灵敏度，留给[下一课](/litho/critical-area)。
 
 ## 问题
 

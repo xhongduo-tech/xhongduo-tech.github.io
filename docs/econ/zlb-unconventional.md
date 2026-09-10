@@ -27,7 +27,7 @@ section: econ
 
 ```mermaid
 flowchart TD
-  TAY["泰勒利率 < 下限"] --> ELB["i 卡住"]
+  TAY["泰勒利率 ＜ 下限"] --> ELB["i 卡住"]
   ELB --> FG["前瞻：更低更久"]
   ELB --> QE["资产负债表"]
   FG --> EU["欧拉里的未来 r"]

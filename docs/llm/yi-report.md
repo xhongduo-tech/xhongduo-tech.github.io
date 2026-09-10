@@ -43,7 +43,7 @@ section: llm
 flowchart TD
   RAW["CC + 中英多源"] --> PIPE["级联过滤与强去重 → 3.1T"]
   PIPE --> BASE["Yi-6B / 34B Base，GQA"]
-  BASE --> SFT["SFT <10K ChatML"]
+  BASE --> SFT["SFT ＜10K ChatML"]
   BASE --> CTX["继续训释放 200K"]
   BASE --> DUS["深度上采样"]
   SFT --> VL["ViT 对齐 Chat 空间"]
@@ -68,7 +68,7 @@ Yi 第一代默认窗是 4K，200K 是独立检查点。代码与数学在 2024 
 
 ## 小结
 
-- Yi-6B/34B：3.1T 中英精料、全系列 GQA、RoPE ABF；对齐 <10K 人工指令 + ChatML。
+- Yi-6B/34B：3.1T 中英精料、全系列 GQA、RoPE ABF；对齐 $\lt$10K 人工指令 + ChatML。
 - 34B 过训是为了 INT4 消费卡推理，而不是追求 Chinchilla 最优。
 - 200K、VL、深度上采样都是轻量继续训扩展，默认 Base 仍是 4K。
 - 出处：01.AI，*Yi: Open Foundation Models by 01.AI*，arXiv:2403.04652，2024。

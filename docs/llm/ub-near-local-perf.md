@@ -37,8 +37,8 @@ section: llm
 flowchart TD
   INTRA["节点内 UB"] --> B["带宽：按规格"]
   INTRA --> L["时延：基线"]
-  INTER["节点间 UB"] --> B2["带宽：衰减 < 3%"]
-  INTER --> L2["时延：增加 < 1 µs"]
+  INTER["节点间 UB"] --> B2["带宽：衰减 ＜ 3%"]
+  INTER --> L2["时延：增加 ＜ 1 µs"]
   B2 --> OK["宽 TP / 域内 EP / 池化 KV 仍按 Scale-Up"]
   L2 --> CAVEAT["decode 小步：仍要测层同步，不只信 1 µs"]
   OUT["超节点外 RoCE"] --> OTHER["另一档屋顶线，3% 规则不适用"]

@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-标准因果 LM 的似然是 $\prod_t p(x_t \mid x_{<t})$，位置 $t$ 看不见 $t$ 右侧。若把「右侧已有文本」只写进系统提示用自然语言描述，模型既没有在预训练里见过这种事件，也没有位置编码上的结构保证。把整文件当前缀、让模型从文件头重写到中段，则浪费前缀计算，且容易改掉本应冻结的后缀。
+标准因果 LM 的似然是 $\prod_t p(x_t \mid x_{\lt t})$，位置 $t$ 看不见 $t$ 右侧。若把「右侧已有文本」只写进系统提示用自然语言描述，模型既没有在预训练里见过这种事件，也没有位置编码上的结构保证。把整文件当前缀、让模型从文件头重写到中段，则浪费前缀计算，且容易改掉本应冻结的后缀。
 
 需要的是一种训练时就出现的事件：模型在写中段的每一步都能看见左上下文与右上下文。架构上可以上编码器或双向注意力，但那会放弃现成的因果解码栈。FIM 的问题设定是： **仍然用因果解码**，仅通过排列与哨兵，把后缀信息搬到中段 token 的条件前缀里。
 
@@ -30,7 +30,7 @@ section: llm
 Bavarian 等人的 PSM（Prefix–Suffix–Middle）把一条训练序列排成：
 
 $$
-\texttt{<fim\_prefix>} \circ P \circ \texttt{<fim\_suffix>} \circ S \circ \texttt{<fim\_middle>} \circ M \circ \texttt{<fim\_end>}
+\texttt{\lt fim\_prefix\gt } \circ P \circ \texttt{\lt fim\_suffix\gt } \circ S \circ \texttt{\lt fim\_middle\gt } \circ M \circ \texttt{\lt fim\_end\gt }
 $$
 
 其中 $P,S,M$ 分别为前缀、后缀、中段。模型对整段做标准因果损失，但实践里常只在 $M$ 上计损失，或对三段都计损失——论文比较了变体，结论是适当比例的 FIM 对左到右困惑度伤害很小。SPM（Suffix–Prefix–Middle）把后缀放在最前；两种排列可以按一定概率混合，以减轻模型对「哨兵出现顺序」的过拟合。

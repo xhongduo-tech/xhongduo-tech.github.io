@@ -26,7 +26,7 @@ section: llm
 流水线是：页图 → 高分辨率 [ViT](/llm/vit-as-encoder) → 连接器 → LLM。没有独立的检测–识别两阶段也可以工作：注意力在 patch 格子上隐式完成「看哪里」。输出模板决定任务：纯转写、带坐标的定位、键值抽取、或问答。Qwen-VL 把图文任务与指向写进同一解码器；InternVL 与 LLaVA-NeXT 则证明，升分辨率（动态切格或 AnyRes）对文字任务的增益远大于对自然图 VQA。
 
 $$
-p(y\mid I,x)=\prod_t p(y_t\mid I,x,y_{<t})
+p(y\mid I,x)=\prod_t p(y_t\mid I,x,y_{\lt t})
 $$
 
 $I$ 是页图，$x$ 是指令（「转成 Markdown」「抽取日期」）。结构监督来自回答本身：若训练目标是带表格语法的文本，模型才有压力保持格线关系。

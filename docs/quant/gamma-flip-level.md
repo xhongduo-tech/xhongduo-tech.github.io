@@ -37,7 +37,7 @@ section: quant
 
 最大未平仓执行价、[最大痛点](/quant/strike-magnetism-max-pain)、Gamma Flip 是三个不同的统计量。最大 OI 是仓位最厚的 $K$；最大痛点是使期权内在价值之和最小的交割价；flip 是净 Gamma 的零。它们可以碰巧接近（OI 厚的 $K$ 附近 Gamma 也大），但没有恒等式。检验钉住应预指定看哪一个，Ni、Pearson 与 Poteshman（2005）用的是期权到期日的执行价聚类，不是 GEX 根。
 
-<span class="marginnote">根对符号约定一阶敏感：把看涨看跌的经销商符号对调，曲线翻号，根一般还在，但「之上为正还是为负」对调。体制叙事必须与 [GEX](/quant/gex-calculation) 的同一约定绑定。</span>
+<span class="marginnote"> 根对符号约定一阶敏感：把看涨看跌的经销商符号对调，曲线翻号，根一般还在，但「之上为正还是为负」对调。体制叙事必须与 [GEX](/quant/gex-calculation) 的同一约定绑定。</span> 
 
 ## 机制
 
@@ -51,12 +51,12 @@ Flip 跟着 0DTE 现货走，说明当日凸性由当日合约主导；这时「
 
 ```mermaid
 flowchart TD
-  OI["日终 OI 与微笑规则"] --> CUR["GEX 作为 S 的曲线"]
-  CUR --> ROOT["变号根 S*"]
-  ROOT --> REG["S 相对 S* 的体制标签"]
-  REG --> VOL["已实现波动 / 日内自相关检验"]
-  PIN["到期执行价钉住"] --> DIFF["与 S* 分开检验"]
-  ROOT --> DIFF
+  OI["日终 OI 与微笑规则"] --\gt  CUR["GEX 作为 S 的曲线"]
+  CUR --\gt  ROOT["变号根 S*"]
+  ROOT --\gt  REG["S 相对 S* 的体制标签"]
+  REG --\gt  VOL["已实现波动 / 日内自相关检验"]
+  PIN["到期执行价钉住"] --\gt  DIFF["与 S* 分开检验"]
+  ROOT --\gt  DIFF
 ```
 
 ## 边界与工程取舍

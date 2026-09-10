@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-$M$ 次检验，单次水平 $\alpha$ 会使期望假阳性个数为 $\alpha M$。FWER $=\mathrm{P}(\text{至少一次假发现})$ 在独立性下用 Bonferroni $\alpha/M$ 控制，相关时过严。FDR $=\mathbb{E}[\mathrm{FP}/\max(R,1)]$，$R$ 为拒绝个数：允许清单变长时混进少量假发现，换功效。Harvey–Liu–Zhu 的 $t>3$ 近似某种 FWER 校准；策略网格往往 $M$ 更大、相关更高，需要显式程序，而不是把 3.0 再抄一遍。
+$M$ 次检验，单次水平 $\alpha$ 会使期望假阳性个数为 $\alpha M$。FWER $=\mathrm{P}(\text{至少一次假发现})$ 在独立性下用 Bonferroni $\alpha/M$ 控制，相关时过严。FDR $=\mathbb{E}[\mathrm{FP}/\max(R,1)]$，$R$ 为拒绝个数：允许清单变长时混进少量假发现，换功效。Harvey–Liu–Zhu 的 $t\gt 3$ 近似某种 FWER 校准；策略网格往往 $M$ 更大、相关更高，需要显式程序，而不是把 3.0 再抄一遍。
 
 相关结构是核心。十个近亲动量窗口不是十次独立试验：Bonferroni 过罚，朴素 BH 在任意依赖下也不保证（需 Benjamini–Yekutieli 的对数惩罚或正回归依赖假设）。Romano–Wolf 用自举直接估最大值的零分布，相关被数据带着走。问题是：这份报告要的是「几乎没有一个假的」（FWER）还是「清单里假的不超过一成」（FDR），以及统计量是否可自举。
 

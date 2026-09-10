@@ -32,7 +32,7 @@ section: llm
 控制环把分位数接回调度。观测到交互类 TTFT 的滚动 P95 逼近阈值，就减低优先级准入、限制同时前填条数、或缩小 decode 批。等到均值报警往往太晚。老化（已等待时长 / 截止时间）让接近违约的请求获得临时提升，专门打尾巴，而不是打平均。
 
 $$
-\mathrm{breach}=\mathbf{1}\bigl[q_{p}(\mathrm{TTFT})\gt T_1\ \lor\ \mathrm{TBT\text{-}viol}> \rho\bigr]
+\mathrm{breach}=\mathbf{1}\bigl[q_{p}(\mathrm{TTFT})\gt T_1\ \lor\ \mathrm{TBT\text{-}viol}\gt  \rho\bigr]
 $$
 
 窗口级 `breach` 用于告警与自动降级（关投机、减 `max_tokens`、拒绝批处理类）。请求级违约用于 [goodput](/llm/goodput) 计数。两级都要，只留告警没有请求级滤镜，容量规划仍会按吞吐来。

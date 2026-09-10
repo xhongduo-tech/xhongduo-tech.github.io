@@ -33,7 +33,7 @@ $$
 \Delta = \mathrm{e}^{-qT}N(d_1),\qquad \Gamma=\frac{\mathrm{e}^{-qT}n(d_1)}{S\sigma\sqrt{T}},\qquad \nu=S\mathrm{e}^{-qT}n(d_1)\sqrt{T},
 $$
 
-Vega 这里用 $\nu$ 以免与方差混淆。Delta 对冲：用 $-\Delta$ 单位标的（或等价期货）使组合 $\Delta_{\mathrm{port}}=0$。现货变动 $\mathrm{d}S$ 后，未再平衡前组合 P&L 约 $\frac12\Gamma(\mathrm{d}S)^2+\Theta\mathrm{d}t+\nu\mathrm{d}\sigma+\cdots$。卖出期权则 $\Gamma<0$，需要在大动时亏损，用 Theta 收取时间价值作为补偿——这是 Hull 反复强调的 Gamma–Theta 权衡。
+Vega 这里用 $\nu$ 以免与方差混淆。Delta 对冲：用 $-\Delta$ 单位标的（或等价期货）使组合 $\Delta_{\mathrm{port}}=0$。现货变动 $\mathrm{d}S$ 后，未再平衡前组合 P&L 约 $\frac12\Gamma(\mathrm{d}S)^2+\Theta\mathrm{d}t+\nu\mathrm{d}\sigma+\cdots$。卖出期权则 $\Gamma\lt 0$，需要在大动时亏损，用 Theta 收取时间价值作为补偿——这是 Hull 反复强调的 Gamma–Theta 权衡。
 
 Gamma 对冲：加入数量 $\lambda$ 的对冲期权，使 $\Gamma+\lambda\Gamma_h=0$，再回头调整标的使 Delta 仍为零。对冲期权会带来自己的 Vega 与期限结构，通常无法同时把 $\Gamma$ 与 $\nu$ 都精确打到零，除非工具足够多。实务是解一个小的加权最小二乘：对关键执行价、关键到期的桶做 Vega 与 Gamma 分桶，而不是对整个曲面的单一 Vega 标量。
 

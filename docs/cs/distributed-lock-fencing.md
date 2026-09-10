@@ -17,7 +17,7 @@ section: cs
 
 错误模式：进程 A 得锁，GC 暂停，锁租约到期，B 得锁并写，A 醒来用旧连接写——后写覆盖。锁服务此时认为 A 已不是持有者，但存储不知道。缺口不是更短超时，而是**资源验证代次**。
 
-Fencing token：锁每次授予单调递增整数。A 的 token=5，B 的 token=6。存储（或对象版本、或 HDFS 租约）拒绝 $<$ 当前最大 token 的写。A 的迟到写失败。这把[租约](/cs/leases)从「时间」换成「资源上的代次」。
+Fencing token：锁每次授予单调递增整数。A 的 token=5，B 的 token=6。存储（或对象版本、或 HDFS 租约）拒绝 $\lt $ 当前最大 token 的写。A 的迟到写失败。这把[租约](/cs/leases)从「时间」换成「资源上的代次」。
 
 <span class="marginnote">没有存储配合，任何「分布式锁」都只是提示，不是互斥。ZooKeeper 食谱若只创节点不带 fencing，有经典坑。</span>
 

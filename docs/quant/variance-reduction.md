@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-独立再抽样把误差按 $1/\sqrt{N}$ 降，成本线性。缺口是构造新的 $\tilde\xi$，使 $\mathbb E[\tilde\xi]=\mathbb E[\xi]$（或已知偏差），且 $\mathrm{Var}(\tilde\xi)<\mathrm{Var}(\xi)$。没有无偏性，缩方差会偷偷变成改价格。本课不重写 SDE 离散，只在已经能模拟 $\xi$ 之后改估计量。
+独立再抽样把误差按 $1/\sqrt{N}$ 降，成本线性。缺口是构造新的 $\tilde\xi$，使 $\mathbb E[\tilde\xi]=\mathbb E[\xi]$（或已知偏差），且 $\mathrm{Var}(\tilde\xi)\lt \mathrm{Var}(\xi)$。没有无偏性，缩方差会偷偷变成改价格。本课不重写 SDE 离散，只在已经能模拟 $\xi$ 之后改估计量。
 
 三条经典手段对应三种结构：对称（对偶）、相关的已知期望（控制）、改抽样测度再加权（重要性）。它们可以叠加，但每加一层都要核验期望不变。
 

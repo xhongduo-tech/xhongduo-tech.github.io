@@ -59,7 +59,7 @@ flowchart TD
 
 连续极限里，若实现过程的瞬时方差等于定价 $\sigma^2$，且无波动风险溢价，scalping 的期望为零，只剩离散噪声。市场拒绝「无溢价」：风险中性下的 $\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]$ 高于物理期望，条带贵于随后实现。Delta 对冲的多头期权是这条溢价的香草实现，权重是该期权的 $\Gamma$ 而不是 $1/K^2$。Bakshi–Kapadia 的贡献是把「期权贵」写成可检验的 Delta 对冲收益，而不是只比较 ATM IV 与历史波动。
 
-随机波动下，即使 $\mathbb{E}[\mathrm{d}\langle\log S\rangle]=v_t\mathrm{d}t$，若 $v_t$ 与定价所用的 Black $\sigma$ 不同，且 $\mathrm{d}v$ 与 $\mathrm{d}S$ 相关，Vega / Vanna 项有均值。Heston 里 $\rho<0$ 使下跌伴随 $v$ 上升，空头看跌的 Delta 对冲收益更负。用 Black Delta 对冲随机波动世界，本身就是模型错误；BK 的检验用的是市场惯例 Delta，测到的是这一惯例下的溢价，包含模型误设。生产上应用记账模型的 Delta，再把模型外的 Vega 分桶。
+随机波动下，即使 $\mathbb{E}[\mathrm{d}\langle\log S\rangle]=v_t\mathrm{d}t$，若 $v_t$ 与定价所用的 Black $\sigma$ 不同，且 $\mathrm{d}v$ 与 $\mathrm{d}S$ 相关，Vega / Vanna 项有均值。Heston 里 $\rho\lt 0$ 使下跌伴随 $v$ 上升，空头看跌的 Delta 对冲收益更负。用 Black Delta 对冲随机波动世界，本身就是模型错误；BK 的检验用的是市场惯例 Delta，测到的是这一惯例下的溢价，包含模型误设。生产上应用记账模型的 Delta，再把模型外的 Vega 分桶。
 
 ### 与方差互换 PnL 的换算
 

@@ -36,7 +36,7 @@ section: quant
 风险中性定价：
 
 $$
-V=\mathbb{E}^{\mathbb{Q}}\Big[\sum_{i} e^{-r t_i} C_i\,\mathbf{1}_{\{\tau_{\mathrm{out}}=t_i\}} + e^{-rT} \Pi_T\,\mathbf{1}_{\{\tau_{\mathrm{out}}>T\}}\Big],
+V=\mathbb{E}^{\mathbb{Q}}\Big[\sum_{i} e^{-r t_i} C_i\,\mathbf{1}_{\{\tau_{\mathrm{out}}=t_i\}} + e^{-rT} \Pi_T\,\mathbf{1}_{\{\tau_{\mathrm{out}}\gt T\}}\Big],
 $$
 
 其中 $C_i$ 为敲出日现金流，$\Pi_T$ 为未敲出时的到期本金与票息或下跌参与。模拟须在每个敲出日检查 $S_{t_i}\ge B_{\mathrm{out}}$，在每个敲入日检查 $S_{t_j}\le B_{\mathrm{in}}$。步长粗于观察网格会漏敲入；只在敲出日抽样会把每日敲入变成离散敲入，价格偏贵（对发行人）或偏便宜（对投资者）取决于哪一侧。Broadie–Glasserman–Kou 修正可用于把每日观察近似成连续障碍平移，但雪球同时有两种频率，实务上以按交易日网格的蒙特卡洛为主，方差缩减用对偶路径与控制变量。

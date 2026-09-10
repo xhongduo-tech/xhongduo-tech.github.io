@@ -24,9 +24,9 @@ section: quant
 趋势仓位 $w_t=\mathrm{sign}(r_{t-L,t})/\hat\sigma_t$。股权缓慢下跌且 $L$ 不过长时，$w$ 翻空，后续下跌变成利润，这是危机 alpha 的主通道。股权跳空下跌后迅速 V 型反转时，信号还没翻或刚翻空就被反打，vol targeting 还可能在底部附近把名义砍掉，反弹时仓位不足——这是左尾。Kaminski 强调的正是这种路径依赖：危机 alpha 是对「持续、可交易的压力」的暴露，不是对「任何坏日子」的期权。
 
 $$
-\mathbb{E}[R^{\mathrm{CTA}}\mid \text{慢熊市}]>0
+\mathbb{E}[R^{\mathrm{CTA}}\mid \text{慢熊市}]\gt 0
 \quad\text{不蕴含}\quad
-\mathbb{E}[R^{\mathrm{CTA}}\mid \text{单日崩盘}]>0.
+\mathbb{E}[R^{\mathrm{CTA}}\mid \text{单日崩盘}]\gt 0.
 $$
 
 <span class="marginnote">用 2008 年全年 CTA 正收益去外推「下一次闪崩」。2008 有足够长的下跌让慢信号翻空；2015 年 8 月、2018 年 2 月、2020 年 3 月后半段的路径完全不同。危机 alpha 必须按路径类型分层，而不是按「股权为负的月份」一锅炖。</span>

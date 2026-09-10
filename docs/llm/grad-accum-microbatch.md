@@ -21,7 +21,7 @@ Goyal 等人指出大 batch 要线性放大学习率并做 warmup。预训练若
 
 ### 流水与累积的两种接法
 
-一种：一次 1F1B flush 消耗 $M$ 个微批，立刻 step，则 $k=1$，$M$ 参与 $B$。另一种：多次 flush 才 step，梯度在优化器里加总，则 $k>1$。ZB 与 DualPipe 的全局 batch 边界必须落在 step 上，不能落在半截双流上。
+一种：一次 1F1B flush 消耗 $M$ 个微批，立刻 step，则 $k=1$，$M$ 参与 $B$。另一种：多次 flush 才 step，梯度在优化器里加总，则 $k\gt 1$。ZB 与 DualPipe 的全局 batch 边界必须落在 step 上，不能落在半截双流上。
 
 <span class="marginnote">Norm 层与 Dropout 的统计应对「逻辑微批」还是「累积后」？训练里通常按微批算 BN 类统计；Transformer 多用 LN，问题较轻，但仍不要在累积之间更新 LN 的可学习参数以外的状态。</span>
 

@@ -41,7 +41,7 @@ Riley–Samuelson、Myerson 把同一问题收到直接机制上的虚拟估值�
 flowchart TD
   SIG["信号博弈：路径外 μ"] --> AUC["规则写死：密封出价"]
   IPV["IPV：价值 = 自己的 v"] --> FP["一价：付自己的价"]
-  FP --> SHADE["BNE：b(v) < v，依赖 F、n"]
+  FP --> SHADE["BNE：b(v) ＜ v，依赖 F、n"]
   SHADE --> SP["后课：二价，占优真话"]
 ```
 
@@ -66,7 +66,7 @@ flowchart TD
 ## 小结
 
 - IPV：价值私有且独立；一价付自己的报价。
-- 对称 BNE 遮挡，$b(v)<v$，均匀时为 $\frac{n-1}{n}v$。
+- 对称 BNE 遮挡，$b(v)\lt v$，均匀时为 $\frac{n-1}{n}v$。
 - 最优依赖先验，不是占优策略。
 - 规则写死支付，不再靠路径外信念撑均衡。
 - 出处：Vickrey, 1961（已含一价）；Riley and Samuelson, *AER*, 1981；Krishna, *Auction Theory*。

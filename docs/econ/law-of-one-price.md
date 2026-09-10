@@ -41,7 +41,7 @@ flowchart TD
 
 LOP 的机制是复制：两套组合若支付相同，需求会冲向便宜的那套，直到价格对齐——前提是两套都能自由交易。NA 的机制更强：即便不能精确复制，只要能做出「只赚不赔」的方向，需求无穷，价格撑不住。$q$ 为正保证每个状态都还值钱，没有「灾难状态被标成零或负」的免费保险。
 
-[SDF](/econ/stochastic-discount-factor) 把 $q$ 除以概率写成 $m$。LOP 对应存在（可变号的）$m$ 使 $p=\mathrm{E}[m x]$；NA 对应存在 $m>0$。主干 SDF 课已经用过 NA 这一端；本课补的是弱的那一端，以免后文 FTAP 听起来像从天上掉下来。
+[SDF](/econ/stochastic-discount-factor) 把 $q$ 除以概率写成 $m$。LOP 对应存在（可变号的）$m$ 使 $p=\mathrm{E}[m x]$；NA 对应存在 $m\gt 0$。主干 SDF 课已经用过 NA 这一端；本课补的是弱的那一端，以免后文 FTAP 听起来像从天上掉下来。
 
 <span class="marginnote">Law of one price 在国际金融里还指汇率与商品，那是另一课的 PPP。这里的 LOP 是或有支付空间上的线性。</span>
 

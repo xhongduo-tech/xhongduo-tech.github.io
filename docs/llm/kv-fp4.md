@@ -29,7 +29,7 @@ NVFP4：公开说明常见 16 元素一块、块尺度 FP8（E4M3），另可有
 
 生产路径（NVIDIA）：用 TensorRT Model Optimizer 的 `quantize` API，配置在 FP8 权重/激活之上再开 NVFP4 KV；也可把权重也打成 NVFP4 以吃 4-bit MMA，那是另一配方。推理时新 token 的 $k,v$ 量化写入分页缓存，页内布局需让数据与尺度在最后一维连续（vLLM 侧实验布局有 `[k_data, k_scale, v_data, v_scale]` 一类）。注意力核读入块，按块尺度还原到 FP8，再与 $q$ 做点积；softmax 仍应在较高精度。QAT 与 PTQ 共用同一套配置入口，QAT 把量化噪声编进训练，长上下文更稳，成本高。
 
-研究路径：KVQuant 用逐通道键、RoPE 前量化键、非均匀码本、逐向量稠密+稀疏分离异常值，在 3-bit 上对 LLaMA 族 WikiText 困惑度劣化 $<0.1$，并讨论百万到千万 token 级上下文的显存可行性。KIVI 用免调 2-bit 非对称轴加短全精度残差窗口，换峰值显存与吞吐。它们的码是整数格子，没有 Blackwell 的 FP4 数据通路，反量化在软件。FP4 KV 买的是**与权重/激活相同的块浮点硬件**；KIVI 买的是更极端的容量。
+研究路径：KVQuant 用逐通道键、RoPE 前量化键、非均匀码本、逐向量稠密+稀疏分离异常值，在 3-bit 上对 LLaMA 族 WikiText 困惑度劣化 $\lt 0.1$，并讨论百万到千万 token 级上下文的显存可行性。KIVI 用免调 2-bit 非对称轴加短全精度残差窗口，换峰值显存与吞吐。它们的码是整数格子，没有 Blackwell 的 FP4 数据通路，反量化在软件。FP4 KV 买的是**与权重/激活相同的块浮点硬件**；KIVI 买的是更极端的容量。
 
 ```mermaid
 flowchart TD

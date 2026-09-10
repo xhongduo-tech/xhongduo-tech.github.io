@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Wadler and Blott, How to Make Ad-hoc Polymorphism Less Ad-hoc, 1989；Peyton Jones 等 GHC 实现笔记；Pierce TAPL 对照整理</footer>
 </div>
 
-上一课[泛型实现](/cs/generics-monomorphization)把 $\forall$ 降到代码。缺口是**特设重载**：$==$ 在 `int` 与 `[a]` 上不同，却要同一套静态决议。类型类（Haskell）/ trait（Rust）给出约束；实现上常是**字典传递**：记录一组函数指针。本课钉决议与字典，不重写子类型的 $<:$。
+上一课[泛型实现](/cs/generics-monomorphization)把 $\forall$ 降到代码。缺口是**特设重载**：$==$ 在 `int` 与 `[a]` 上不同，却要同一套静态决议。类型类（Haskell）/ trait（Rust）给出约束；实现上常是**字典传递**：记录一组函数指针。本课钉决议与字典，不重写子类型的 $\lt :$。
 
 ## 问题
 

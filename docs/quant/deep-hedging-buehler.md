@@ -15,7 +15,7 @@ Black–Scholes 的 delta 来自完备市场的复制：连续交易、无摩擦
 
 ## 问题
 
-记或有索取权支付为 $Z$（对终端或路径可测）。离散时点 $0=t_0<\cdots<t_N=T$，可交易工具价格过程 $S$，策略 $\delta_{t_k}$ 在 $t_k$ 基于信息 $\mathcal{F}_{t_k}$ 选取。计入交易成本 $c$ 后，终端损益形如
+记或有索取权支付为 $Z$（对终端或路径可测）。离散时点 $0=t_0\lt \cdots\lt t_N=T$，可交易工具价格过程 $S$，策略 $\delta_{t_k}$ 在 $t_k$ 基于信息 $\mathcal{F}_{t_k}$ 选取。计入交易成本 $c$ 后，终端损益形如
 
 $$
 \mathrm{PL}(\delta)= -Z + p_0 + \sum_{k=0}^{N-1}\delta_{t_k}\cdot(S_{t_{k+1}}-S_{t_k}) - \sum_{k} c(\Delta\delta_{t_k},S_{t_k}).

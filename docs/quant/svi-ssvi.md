@@ -23,7 +23,7 @@ $$
 w(k)=a+b\bigl(\rho(k-m)+\sqrt{(k-m)^2+\sigma^2}\bigr),
 $$
 
-$b\ge 0$，$|\rho|<1$，$\sigma>0$，且 $a+b\sigma\sqrt{1-\rho^2}\ge 0$ 以保证 $w>0$。$a$ 平移水平，$b$ 张翼角，$\rho$ 旋转，$m$ 平移微笑中心，$\sigma$ 控制 ATM 附近的圆润（此 $\sigma$ 不是 Black 波动，也不是 Heston 的 vol-of-vol）。问题收成：何时这五个参数给出凸价格，何时一串切片拼起来不产生日历套利。
+$b\ge 0$，$|\rho|\lt 1$，$\sigma\gt 0$，且 $a+b\sigma\sqrt{1-\rho^2}\ge 0$ 以保证 $w\gt 0$。$a$ 平移水平，$b$ 张翼角，$\rho$ 旋转，$m$ 平移微笑中心，$\sigma$ 控制 ATM 附近的圆润（此 $\sigma$ 不是 Black 波动，也不是 Heston 的 vol-of-vol）。问题收成：何时这五个参数给出凸价格，何时一串切片拼起来不产生日历套利。
 
 ### 为何对总方差而不是对 $\sigma_{\mathrm{imp}}$ 参数化
 
@@ -80,7 +80,7 @@ SVI 假设欧式、单一标的、Black 坐标。美式溢价、离散股息、�
 
 Gatheral（2006）是系统阐述与实践整理；无套利 SSVI 的定理性结果以 2014 年论文为准。不要把 2006 年书中的示例参数当成今日市场的校准。Heston（1993）与 Hagan 等（2002）解决的是动态与单到期标记，SVI 解决的是曲面几何；三篇文献互补，不是三代替代。
 
-<span class="marginnote">代码里若对 $w(k)$ 开方得到 $\sigma_{\mathrm{imp}}$ 时遇到 $w<0$，说明参数已出允许集，应投影回去，而不是取绝对值继续定价——负总方差没有 Black 反解。</span>
+<span class="marginnote">代码里若对 $w(k)$ 开方得到 $\sigma_{\mathrm{imp}}$ 时遇到 $w\lt 0$，说明参数已出允许集，应投影回去，而不是取绝对值继续定价——负总方差没有 Black 反解。</span>
 
 ## 小结
 

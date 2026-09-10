@@ -23,7 +23,7 @@ o 系列把「总是先想」做成默认，延迟与费用在简单题上浪费
 
 `budget_tokens` 限制思考段最多写多长，与 `max_tokens` 的最终答案上限分开。预算过小，难题退回标准模式的智能；预算过大，账单按 $15/百万输出线性涨，且可能出现重复推理。官方称两种模式下提示方式大体相同，不必为 thinking 重写全部提示词。这与「另起一个 o 模型名」的产品策略不同：名称仍是 3.7 Sonnet，模式是请求参数。
 
-<span class="marginnote">研究博文举过内部 QA：给另一份 Claude 当评委等设置，用来论证加思维能抬分。那些数字是 Anthropic 自有协议，不能直接当公开榜。SWE-bench 等外部表以当时系统卡/博文表格为准，并声明是否启用 thinking 以及脚手架。</span>
+<span class="marginnote"> 研究博文举过内部 QA：给另一份 Claude 当评委等设置，用来论证加思维能抬分。那些数字是 Anthropic 自有协议，不能直接当公开榜。SWE-bench 等外部表以当时系统卡/博文表格为准，并声明是否启用 thinking 以及脚手架。</span> 
 
 ## 方法
 
@@ -35,13 +35,13 @@ Claude Code 是围绕该模型的终端智能体产品，能多步改仓库；�
 
 ```mermaid
 flowchart TD
-  REQ["同一 3.7 权重"] --> STD["标准模式：短延迟"]
-  REQ --> EXT["extended thinking"]
-  EXT --> BUD["budget_tokens"]
-  BUD --> TH["可见思维 token"]
-  TH --> ANS["最终答案"]
-  EXT --> BILL["思维按输出价格计费"]
-  STD --> ANS2["直接答案"]
+  REQ["同一 3.7 权重"] --\gt  STD["标准模式：短延迟"]
+  REQ --\gt  EXT["extended thinking"]
+  EXT --\gt  BUD["budget_tokens"]
+  BUD --\gt  TH["可见思维 token"]
+  TH --\gt  ANS["最终答案"]
+  EXT --\gt  BILL["思维按输出价格计费"]
+  STD --\gt  ANS2["直接答案"]
 ```
 
 ### 对数增益与任务可核对性
@@ -54,7 +54,7 @@ flowchart TD
 
 「同一模型」意味着无需另做路由分类器选 o 或非 o；用户或客户端用开关当路由。模型若在标准模式下就写得很长，开关的边际变小。强化学习让模型学会在难题上用满预算、在简单题上早停——校准不好就会出现「简单题仍写两千 token」或「难题预算用尽仍空」。系统卡关心思维是否可信：若思维写「我应拒答」而答案却执行了注入指令，可见性会误导审计。
 
-<span class="marginnote">后续 Claude 4.6+ 文档把 `budget_tokens` 标为将弃用，改 adaptive thinking。那是另一代 API。写 3.7 时机制就是显式预算的 extended thinking。不要用 4.x 的 effort 字段解释 2025-02 的请求。</span>
+<span class="marginnote"> 后续 Claude 4.6+ 文档把 `budget_tokens` 标为将弃用，改 adaptive thinking。那是另一代 API。写 3.7 时机制就是显式预算的 extended thinking。不要用 4.x 的 effort 字段解释 2025-02 的请求。</span> 
 
 ### 与 o 系列、与 3.5 computer use
 
@@ -66,7 +66,7 @@ o3 默认总是推理模型，工具在链内；3.7 让用户选是否推理，�
 
 把 3.7 写成「Claude 的 o1」只在「可花更多测试时计算」这一层成立；混合开关、可见链、同一价目表是差异。编码智能体成绩必须拆开：模型、Claude Code 脚手架、是否 thinking、步数上限。系统卡对「思维可信度」持研究态度，不是宣称链上每句都是因果解释。
 
-<span class="marginnote">出处：Anthropic，*Claude 3.7 Sonnet and Claude Code*（2025-02-24）；*Claude's extended thinking*；Claude 3.7 Sonnet 系统卡 PDF。参数量未公开。</span>
+<span class="marginnote"> 出处：Anthropic，*Claude 3.7 Sonnet and Claude Code*（2025-02-24）；*Claude's extended thinking*；Claude 3.7 Sonnet 系统卡 PDF。参数量未公开。</span> 
 
 ## 小结
 

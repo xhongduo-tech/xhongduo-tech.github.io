@@ -18,7 +18,7 @@ section: quant
 设 $X=\mathrm{QV}_{0,T}$。方差互换的浮动腿是 $X$，固定腿是 $K_{\mathrm{var}}$；波动互换的浮动腿是 $\sqrt{X}$，固定腿是 $K_{\mathrm{vol}}$。凹函数开方给出
 
 $$
-K_{\mathrm{vol}}=\mathbb{E}[\sqrt{X}]<\sqrt{\mathbb{E}[X]}=\sqrt{K_{\mathrm{var}}},
+K_{\mathrm{vol}}=\mathbb{E}[\sqrt{X}]\lt \sqrt{\mathbb{E}[X]}=\sqrt{K_{\mathrm{var}}},
 $$
 
 等号仅在 $X$ 几乎必然为常数时成立。vol-of-vol 越大、期限越长、跳跃越肥，缺口越大。交易员把方差互换执行价报成「波动率点」$\sqrt{K_{\mathrm{var}}}$，把波动互换报成 $K_{\mathrm{vol}}$，两个数字看起来像同一单位，差的正是这笔凸性。问题是：何时必须分开定价、波动互换有没有模型无关复制、以及用方差互换去对冲波动互换会留下什么希腊字母。

@@ -29,7 +29,7 @@ section: quant
 
 每条消息只进一类。改单拆成撤加增，与交易所会计一致。心跳、状态校验必须丢掉，否则强度被技术消息污染，见 [L2 / L3](/quant/l2-l3-data) 与 [LOBSTER / ITCH](/quant/lobster-itch-feed)。
 
-<span class="marginnote">成交篇里的分支比 $n=\int\phi$ 在这里变成矩阵 $N=\int\Phi(u)\,\mathrm{d}u$。稳定性看谱半径 $\rho(N)<1$。单看成交子块的 $n_{MM}$ 会低估系统内生性：撤单与限价的回路可能才是主导。</span>
+<span class="marginnote">成交篇里的分支比 $n=\int\phi$ 在这里变成矩阵 $N=\int\Phi(u)\,\mathrm{d}u$。稳定性看谱半径 $\rho(N)\lt 1$。单看成交子块的 $n_{MM}$ 会低估系统内生性：撤单与限价的回路可能才是主导。</span>
 
 ## 方法
 

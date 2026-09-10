@@ -29,7 +29,7 @@ section: cs
 flowchart TD
   K["select k"] --> LSIZE["s = size(左)"]
   LSIZE --> EQ["k = s+1: 根"]
-  LSIZE --> LEFT["k <= s: 左"]
+  LSIZE --> LEFT["k ＜= s: 左"]
   LSIZE --> RIGHT["k > s+1: 右, k -= s+1"]
 ```
 

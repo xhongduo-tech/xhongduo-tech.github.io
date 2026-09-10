@@ -47,17 +47,17 @@ Gamma 爆炸来自正态分布密度在 $\sqrt{\tau}\to 0$ 时向 $K$ 集中：�
 
 Charm（$\partial\Delta/\partial t$）在到期近平值处极大，意味着即使现货不动，Delta 也会因时间流逝而变。这是 [高阶希腊](/quant/higher-greeks) 在到期周的具体用途：用 Charm 估计「下一小时若不交易、Delta 会自己走多远」，从而提前加宽或提前平仓。只看瞬时 $\Delta$ 会低估静止市场里的对冲需求。
 
-<span class="marginnote">自动行权阈值（例如价内 $0.01）把理论钉住点从 $K$ 移到阈值对应的价格。风控情景应按交易所规则平移 $K$，而不是按教学上的精确 $S=K$。</span>
+<span class="marginnote">自动行权阈值（例如价内 $0.01）把理论钉住点从 $K$ 移到阈值对应的价格。风控情景应按交易所规则平移 $K$，而不是按教学上的精确 $S=K$。</span> 
 
 ```mermaid
 flowchart TD
-  Tau["剩余 τ → 0"] --> G["平值 Gamma 爆炸"]
-  G --> Hedge["Delta 在 0 与 1 间摇摆"]
-  OI["大 OI 执行价"] --> Pin["收盘靠近 K 的统计钉住"]
-  Hedge --> Bin["行权 / 不行权 二元缺口"]
-  Pin --> Bin
-  Bin --> ON["隔夜未知 Delta"]
-  Charm["Charm 即使 S 不动也改变 Δ"] --> Hedge
+  Tau["剩余 τ → 0"] --\gt  G["平值 Gamma 爆炸"]
+  G --\gt  Hedge["Delta 在 0 与 1 间摇摆"]
+  OI["大 OI 执行价"] --\gt  Pin["收盘靠近 K 的统计钉住"]
+  Hedge --\gt  Bin["行权 / 不行权 二元缺口"]
+  Pin --\gt  Bin
+  Bin --\gt  ON["隔夜未知 Delta"]
+  Charm["Charm 即使 S 不动也改变 Δ"] --\gt  Hedge
 ```
 
 ## 边界与工程取舍
@@ -66,7 +66,7 @@ flowchart TD
 
 Ni–Pearson–Poteshman（2005）提供的是期权到期与价格位置的经验关系，不是保证你可以通过对冲流去「制造」收盘价。合规与交易所规则把操纵收盘排除在对冲政策之外。Heston / SABR 校准用的是未到期曲面，对 $\tau\to 0$ 的 Gamma 峰值通常没有额外约束；不要用平常日的 Vega 限额去覆盖到期日的 Gamma。Hull 把 Gamma 列为标准风险，到期日只是这一项的极端实现。
 
-<span class="marginnote">用到期日实现波动去「验证」隐含波动，样本被钉住扭曲：路径在 $K$ 附近被压缩，实现方差可能偏低。这是微观结构对 RV 的污染，不是微笑模型突然变准。</span>
+<span class="marginnote"> 用到期日实现波动去「验证」隐含波动，样本被钉住扭曲：路径在 $K$ 附近被压缩，实现方差可能偏低。这是微观结构对 RV 的污染，不是微笑模型突然变准。</span> 
 
 ## 小结
 

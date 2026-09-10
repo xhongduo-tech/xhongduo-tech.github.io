@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-RE-NK：IS 完全前瞻，指引极强，BK 对泰勒原理敏感。Gabaix：人对未来的注意打认知折扣 $m<1$，有效上把 $\mathbb{E}_t x_{t+1}$ 换成 $m\mathbb{E}_t x_{t+1}$ 一类项。结果：IS 更少前瞻、财政乘数变大、指引变弱、决定性区域变化。Woodford 的有限计划视界是姐妹。缺口是给本单元一个可塞进 SW 的参数化，而不是再列五种摩擦的并集。
+RE-NK：IS 完全前瞻，指引极强，BK 对泰勒原理敏感。Gabaix：人对未来的注意打认知折扣 $m\lt 1$，有效上把 $\mathbb{E}_t x_{t+1}$ 换成 $m\mathbb{E}_t x_{t+1}$ 一类项。结果：IS 更少前瞻、财政乘数变大、指引变弱、决定性区域变化。Woodford 的有限计划视界是姐妹。缺口是给本单元一个可塞进 SW 的参数化，而不是再列五种摩擦的并集。
 
 <span class="marginnote">Gabaix, *AER* 110(8), 2020, 2271–2327。Woodford 有限视界。Angeletos and Lian 的不完全信息 NK。Farhi and Werning 的有限理性与乘数。</span>
 

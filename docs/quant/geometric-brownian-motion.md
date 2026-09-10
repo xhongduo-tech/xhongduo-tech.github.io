@@ -27,7 +27,7 @@ section: quant
 
 ## 方法
 
-GBM：$\mathrm d S_t=\mu S_t\,\mathrm d t+\sigma S_t\,\mathrm d W_t$，$S_0>0$，$\sigma$ 常数。令 $Y=\ln S$，Itô 给出
+GBM：$\mathrm d S_t=\mu S_t\,\mathrm d t+\sigma S_t\,\mathrm d W_t$，$S_0\gt 0$，$\sigma$ 常数。令 $Y=\ln S$，Itô 给出
 
 $$
 \mathrm d Y_t=\bigl(\mu-\tfrac12\sigma^2\bigr)\mathrm d t+\sigma\,\mathrm d W_t,

@@ -23,7 +23,7 @@ section: cs
 
 ## 方法
 
-合计：从空表倍增到 $n$，复制长度 $1+2+\cdots+n/2 < n$，全部 push 的插入本身也是 $n$，总和 $\Theta(n)$。势能 $\Phi$：取 $\Phi=$ 当前长度与容量之差的常数倍，使每次便宜操作 $\hat{c}=c+\Delta\Phi=O(1)$，复制时 $\Delta\Phi$ 为负、抵消 $\Theta(n)$。
+合计：从空表倍增到 $n$，复制长度 $1+2+\cdots+n/2 \lt  n$，全部 push 的插入本身也是 $n$，总和 $\Theta(n)$。势能 $\Phi$：取 $\Phi=$ 当前长度与容量之差的常数倍，使每次便宜操作 $\hat{c}=c+\Delta\Phi=O(1)$，复制时 $\Delta\Phi$ 为负、抵消 $\Theta(n)$。
 
 ```mermaid
 flowchart TD

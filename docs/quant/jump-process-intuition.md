@@ -27,7 +27,7 @@ section: quant
 
 ## 方法
 
-最简接口：$\mathrm d S/S=\mu\,\mathrm d t+\sigma\,\mathrm d W+J\,\mathrm d N$，其中 $N$ 是强度 $\lambda$ 的泊松过程，$J>-1$。补偿后 $\mathrm d N-\lambda\mathrm d t$ 是鞅。风险中性下，$\mu$ 与跳补偿必须一起调整，使贴现 $S$ 为局部鞅；如何拆开扩散溢价与跳溢价，是选 $Q$，不是唯一。特征函数在指数仿射时可用，便于欧式；路径依赖与美式通常走蒙特卡洛或树。
+最简接口：$\mathrm d S/S=\mu\,\mathrm d t+\sigma\,\mathrm d W+J\,\mathrm d N$，其中 $N$ 是强度 $\lambda$ 的泊松过程，$J\gt -1$。补偿后 $\mathrm d N-\lambda\mathrm d t$ 是鞅。风险中性下，$\mu$ 与跳补偿必须一起调整，使贴现 $S$ 为局部鞅；如何拆开扩散溢价与跳溢价，是选 $Q$，不是唯一。特征函数在指数仿射时可用，便于欧式；路径依赖与美式通常走蒙特卡洛或树。
 
 PIDE：Feynman–Kac 的局部项之外加积分项 $\lambda\int\bigl(V(t,S(1+J))-V\bigr)\nu(\mathrm d J)$。PDE 课的二阶算子不够。
 

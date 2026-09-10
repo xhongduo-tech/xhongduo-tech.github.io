@@ -36,7 +36,7 @@ $$
 = F\bigl(\beta_0+\beta_x x+\beta_\delta\delta+\beta_\sigma\sigma+\beta_{\mathrm{imb}}\mathrm{imb}\bigr).
 $$
 
-$\beta_x<0$：前面量越大越难成交。$\delta$ 的符号取决于 $p$ 在簿的哪一侧：更优的价格缩短等待，但更优也更接近被逆向选择。Lo–MacKinlay–Zhang 估计的是执行时间分布，可转换成给定地平线的成交概率。做市 HJB 里的 $\lambda(\delta)$ 应理解为：在典型队列状态下，距离 $\delta$ 的**条件**成交强度；把队尾的经验成交率塞进 Avellaneda–Stoikov，会系统性高估被动收入。
+$\beta_x\lt 0$：前面量越大越难成交。$\delta$ 的符号取决于 $p$ 在簿的哪一侧：更优的价格缩短等待，但更优也更接近被逆向选择。Lo–MacKinlay–Zhang 估计的是执行时间分布，可转换成给定地平线的成交概率。做市 HJB 里的 $\lambda(\delta)$ 应理解为：在典型队列状态下，距离 $\delta$ 的**条件**成交强度；把队尾的经验成交率塞进 Avellaneda–Stoikov，会系统性高估被动收入。
 
 ### 队列反应：深度自己改变强度
 

@@ -21,7 +21,7 @@ section: quant
 
 ### 换序条件不是一句「几乎处处」
 
-路径导数要求 $\mathbb{E}[\partial_\theta f(S(\theta))]$ 存在且等于 $\partial_\theta\mathbb{E}[f]$。示性函数 $\mathbf{1}_{S_T>K}$ 对 $S_T$ 的导数是 Dirac，模拟里看不见，估计变成 0。把数字平滑成窄价差，路径导数回来，但估的是价差不是数字——与 [数字](/quant/digital-options) 的复制一致，这是特征不是 bug。
+路径导数要求 $\mathbb{E}[\partial_\theta f(S(\theta))]$ 存在且等于 $\partial_\theta\mathbb{E}[f]$。示性函数 $\mathbf{1}_{S_T\gt K}$ 对 $S_T$ 的导数是 Dirac，模拟里看不见，估计变成 0。把数字平滑成窄价差，路径导数回来，但估的是价差不是数字——与 [数字](/quant/digital-options) 的复制一致，这是特征不是 bug。
 
 <span class="marginnote">波动率进入扩散系数时，路径导数要对 SDE 的变分过程（tangent process）积分，不能只对终点解析式里的 $\sigma$ 写偏导。GBM 闭式还能手写；局部波动与 Heston 必须联立变分方程。</span>
 

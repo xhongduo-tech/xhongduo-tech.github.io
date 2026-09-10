@@ -19,7 +19,7 @@ section: econ
 $v(s)=\sup_{\{a_t\}} \sum_{t=0}^\infty \beta^t F(s_t,a_t)$。
 在正则条件下 $v$ 满足
 $v(s)=\max_{a\in\Gamma(s)}\{F(s,a)+\beta v(g(s,a))\}$。
-右端定义算子 $(Tv)(s)=\max_a\{F+\beta v\circ g\}$。贝尔曼方程即 $v=Tv$。有限期则从终端值向后递推，没有不动点问题；无穷期折扣 $\beta<1$ 才用压缩。
+右端定义算子 $(Tv)(s)=\max_a\{F+\beta v\circ g\}$。贝尔曼方程即 $v=Tv$。有限期则从终端值向后递推，没有不动点问题；无穷期折扣 $\beta\lt 1$ 才用压缩。
 
 序列问题与函数方程的等价不是自动的：要有限回报、可行计划非空、可测选择。Stokey–Lucas–Prescott 把这些写成假设清单。本课不逐条证等价，只标明：写出 $v=Tv$ 之后，还要用压缩（或单调性）确认 $T$ 的不动点就是序列问题的值。
 
@@ -27,7 +27,7 @@ $v(s)=\max_{a\in\Gamma(s)}\{F(s,a)+\beta v(g(s,a))\}$。
 
 欧拉方程是内部解对 $a$ 的 FONC，连接 $v'(s)$ 与 $v'(s')$（包络再给 $v'$）。它是贝尔曼的一阶条件，假定内点、可微。角点、不可微、离散行动只有贝尔曼，没有欧拉。后课[跨期消费与欧拉方程](/econ/consumption-euler)会从贝尔曼推欧拉；本课禁止把两者当同一句话。
 
-<span class="marginnote">$\beta=1$ 的未折扣问题可以没有有限值，或要 overtaking 准则。主干宏观折扣 $\beta<1$。平均报酬、最优增长的无界回报用加权范数，仍是压缩家族，不是另一套哲学。</span>
+<span class="marginnote">$\beta=1$ 的未折扣问题可以没有有限值，或要 overtaking 准则。主干宏观折扣 $\beta\lt 1$。平均报酬、最优增长的无界回报用加权范数，仍是压缩家族，不是另一套哲学。</span>
 
 ## 方法
 

@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 DeCandia et al., Dynamo: Amazon's Highly Available Key-value Store, SOSP 2007 整理</footer>
 </div>
 
-上一课[Quorum](/cs/quorum-rw)的严格相交在分区下会拒绝写。Dynamo 选[PACELC](/cs/cap-pacelc)的 A 与 L。缺口是**提示移交与修复**：写没到「该在的」副本时，系统如何还不丢、如何终收敛。本课不重写 $R+W>n$ 的证明。后课 LWW 是收敛时的一种打结。
+上一课[Quorum](/cs/quorum-rw)的严格相交在分区下会拒绝写。Dynamo 选[PACELC](/cs/cap-pacelc)的 A 与 L。缺口是**提示移交与修复**：写没到「该在的」副本时，系统如何还不丢、如何终收敛。本课不重写 $R+W\gt n$ 的证明。后课 LWW 是收敛时的一种打结。
 
 ## 问题
 

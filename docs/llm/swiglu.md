@@ -21,7 +21,7 @@ GELU 要解决的是平滑：让负值以小系数漏过去，正值也不再是
 
 ### 从 GELU 到 SiLU 的连续性
 
-GELU 定义为 $x\Phi(x)$，$\Phi$ 是标准正态 CDF。常用近似 $\,0.5x\bigl(1+\tanh[\sqrt{2/\pi}(x+0.044715x^3)]\bigr)$。SiLU（也称 Swish，Ramachandran 等人讨论过 $x\sigma(x)$）形状相近，计算更便宜。两者都是「输入乘自己的饱和函数」，和 ReLU 同属门控视角，只是门由数据相关的 $\Phi$ 或 $\sigma$ 给出，而不是 $\mathbf{1}_{x>0}$。<span class="marginnote">BERT 论文写的是 GELU，GPT-2 也是。很多代码库用 `nn.GELU(approximate="tanh")`。SiLU 进入 LLM 主流，是因为 SwiGLU 选了它当门，不是因为 SiLU 单独赢了一次大规模预训练赛。</span>
+GELU 定义为 $x\Phi(x)$，$\Phi$ 是标准正态 CDF。常用近似 $\,0.5x\bigl(1+\tanh[\sqrt{2/\pi}(x+0.044715x^3)]\bigr)$。SiLU（也称 Swish，Ramachandran 等人讨论过 $x\sigma(x)$）形状相近，计算更便宜。两者都是「输入乘自己的饱和函数」，和 ReLU 同属门控视角，只是门由数据相关的 $\Phi$ 或 $\sigma$ 给出，而不是 $\mathbf{1}_{x\gt 0}$。<span class="marginnote">BERT 论文写的是 GELU，GPT-2 也是。很多代码库用 `nn.GELU(approximate="tanh")`。SiLU 进入 LLM 主流，是因为 SwiGLU 选了它当门，不是因为 SiLU 单独赢了一次大规模预训练赛。</span>
 
 ## 方法
 

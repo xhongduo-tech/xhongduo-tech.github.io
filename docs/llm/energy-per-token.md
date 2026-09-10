@@ -11,7 +11,7 @@ section: llm
 <footer>—— Horowitz, Computing's Energy Problem (and what we can do about it), ISSCC 2014；NLP 训练能耗见 Strubell et al., ACL 2019</footer>
 </div>
 
-[上一课](/llm/batch-roofline-knee)用时间谈拐点。本课把同一工作点换成能量：逐步墙钟乘平均功率，再除以本步产出的 token 数（投机可能 $>1$）。Horowitz 给出片上算术相对 DRAM 访问的能量差；decode 每步扫 HBM 上的权重，能量画像接近「内存系统」而不是「满负荷 Tensor Core」。后课把焦耳与 GPU 租金收成服务成本；这里先避免用 FLOPs 去估电费。
+[上一课](/llm/batch-roofline-knee)用时间谈拐点。本课把同一工作点换成能量：逐步墙钟乘平均功率，再除以本步产出的 token 数（投机可能 $\gt 1$）。Horowitz 给出片上算术相对 DRAM 访问的能量差；decode 每步扫 HBM 上的权重，能量画像接近「内存系统」而不是「满负荷 Tensor Core」。后课把焦耳与 GPU 租金收成服务成本；这里先避免用 FLOPs 去估电费。
 
 ## 问题
 

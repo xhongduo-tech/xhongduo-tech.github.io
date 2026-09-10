@@ -29,11 +29,11 @@ $\theta$ 叫市场的风险的市场价格（下一课才命名）。本课只�
 
 二次变差是路径性质，$[W]_t=t$ 在等价测度下不变。因此 $\sigma$ 不随 $P\to Q$ 改变；变的只是 $\mathrm d t$ 项。把「风险中性」理解成「波动率换成别的数」，是把测度和模型校准混在一起。校准是[波动率是输入不是输出](/quant/vol-as-input)的事。
 
-<span class="marginnote">Novikov：$\mathbb E\exp(\tfrac12\int\theta^2)<\infty$ 则指数局部鞅是真鞅。实践中常对有界 $\theta$ 直接用；无界时要核验，否则 $Q$ 甚至不是概率。</span>
+<span class="marginnote">Novikov：$\mathbb E\exp(\tfrac12\int\theta^2)\lt \infty$ 则指数局部鞅是真鞅。实践中常对有界 $\theta$ 直接用；无界时要核验，否则 $Q$ 甚至不是概率。</span>
 
 ## 方法
 
-设 $\theta$ 适应、$\int_0^T\theta^2<\infty$ a.s.，且 $\xi$ 为 $P$-鞅。定义 $Q(A)=\mathbb E_P[\xi_T 1_A]$。则 $W^Q_t=W_t+\int_0^t\theta_s\,\mathrm d s$ 是 $Q$-布朗运动（至 $T$）。SDE $\mathrm d X=\mu\,\mathrm d t+\sigma\,\mathrm d W$ 改写为 $\mathrm d X=(\mu-\sigma\theta)\,\mathrm d t+\sigma\,\mathrm d W^Q$。多维时 $\theta$ 是向量，$\sigma\theta$ 是矩阵乘积；$\sigma$ 不满秩时不是任意漂移都能消掉——那是不全市场课的缺口。
+设 $\theta$ 适应、$\int_0^T\theta^2\lt \infty$ a.s.，且 $\xi$ 为 $P$-鞅。定义 $Q(A)=\mathbb E_P[\xi_T 1_A]$。则 $W^Q_t=W_t+\int_0^t\theta_s\,\mathrm d s$ 是 $Q$-布朗运动（至 $T$）。SDE $\mathrm d X=\mu\,\mathrm d t+\sigma\,\mathrm d W$ 改写为 $\mathrm d X=(\mu-\sigma\theta)\,\mathrm d t+\sigma\,\mathrm d W^Q$。多维时 $\theta$ 是向量，$\sigma\theta$ 是矩阵乘积；$\sigma$ 不满秩时不是任意漂移都能消掉——那是不全市场课的缺口。
 
 Itô 公式在 $Q$ 下对 $W^Q$ 照常使用，因为 $W^Q$ 仍是布朗。密度过程满足 $\mathrm d\xi=-\theta\xi\,\mathrm d W$，无漂移，与上一课「密度是 $P$-鞅」一致。
 

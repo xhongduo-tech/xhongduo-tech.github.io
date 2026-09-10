@@ -32,7 +32,7 @@ CTRL 的规则针对已生成集合 $G$。对词表中每个 token $i$，设原�
 $$
 \ell_i' =
 \begin{cases}
-\ell_i / \theta & \ell_i > 0,\\
+\ell_i / \theta & \ell_i \gt  0,\\
 \ell_i \cdot \theta & \ell_i \le 0.
 \end{cases}
 $$
@@ -42,7 +42,7 @@ $$
 Presence / frequency 是加法族。设 $c_i$ 为截至当前的出现次数，$p,f$ 为两个标量，
 
 $$
-\ell_i' = \ell_i - p\cdot \mathbf{1}_{c_i>0} - f\cdot c_i.
+\ell_i' = \ell_i - p\cdot \mathbf{1}_{c_i\gt 0} - f\cdot c_i.
 $$
 
 $p$ 打击「再用一次已经用过的词」，$f$ 打击高频词。许多实现还把窗口限制在最近 $W$ 个 token，避免开篇专有名词在全文里永远减分。计数是 token 级还是解码后的字符串级，要写进协议：前者实现简单，后者更接近用户看到的「重复了这句话」。

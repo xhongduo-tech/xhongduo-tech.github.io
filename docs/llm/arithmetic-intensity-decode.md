@@ -29,7 +29,7 @@ $$
 I_{\mathrm{decode}}\approx\frac{\mathrm{FLOPs}(B,n)}{W_{\mathrm{bytes}}+\mathrm{KV}(n)\cdot B_{\mathrm{eff}}}.
 $$
 
-$B_{\mathrm{eff}}$ 是本步真正要扫 KV 的序列数（连续批里各 $n$ 不同，用和）。与硬件屋顶比 $I_{\star}=\mathrm{peak}/\mathrm{bandwidth}$ 比较：$I<I_{\star}$ 则带宽绑定。优化按分子分母：减字节（量化、GQA、MLA）、增 FLOPs 复用（加大 $B$、chunked prefill 混入、投机加宽 $n_q$）。换一张 FLOPS 翻倍、带宽不变的卡，带宽绑定区的 TPOT 几乎不动——用强度可以事先预言，而不必上机「试一下」。
+$B_{\mathrm{eff}}$ 是本步真正要扫 KV 的序列数（连续批里各 $n$ 不同，用和）。与硬件屋顶比 $I_{\star}=\mathrm{peak}/\mathrm{bandwidth}$ 比较：$I\lt I_{\star}$ 则带宽绑定。优化按分子分母：减字节（量化、GQA、MLA）、增 FLOPs 复用（加大 $B$、chunked prefill 混入、投机加宽 $n_q$）。换一张 FLOPS 翻倍、带宽不变的卡，带宽绑定区的 TPOT 几乎不动——用强度可以事先预言，而不必上机「试一下」。
 
 ```mermaid
 flowchart TD

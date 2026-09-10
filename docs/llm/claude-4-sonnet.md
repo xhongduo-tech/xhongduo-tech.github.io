@@ -52,7 +52,7 @@ flowchart TD
 
 ASL-2 意味着生物等项的系统层防护弱于 Opus 的 ASL-3。若应用把 Sonnet 与 Opus 做成自动路由，安全边界必须按**实际被调用的模型**走，不能因为「都是 Claude 4」就套 Opus 的合规结论。反过来，用 Sonnet 的 SWE 分数宣传「ASL-3 旗舰编码」是张冠李戴。
 
-<span class="marginnote">参数量未公开。不要用第三方倒推的「中档密度」去填。窗口、输出上限以当时 API 文档为准；本篇所引发布材料没有把 Sonnet 4 写成百万上下文。</span>
+<span class="marginnote"> 参数量未公开。不要用第三方倒推的「中档密度」去填。窗口、输出上限以当时 API 文档为准；本篇所引发布材料没有把 Sonnet 4 写成百万上下文。</span> 
 
 ### 和 3.7、和 GPT-5 中档
 
@@ -64,7 +64,7 @@ ASL-2 意味着生物等项的系统层防护弱于 Opus 的 ASL-3。若应用�
 
 不要把 72.7% 写成「世界最佳编码模型」而不加脚手架与是否思考。那句营销在博文里更常贴在 Opus 的长程叙事上，尽管 SWE 主表 Sonnet 略高。科学发现、超长自主运行，材料没有把 Sonnet 写成 Opus 的平替。思考中工具仍是 beta；生产智能体要假设工具在思维循环里引入注入面。
 
-<span class="marginnote">出处：Anthropic，*Introducing Claude 4*，2025-05-22；*System Card: Claude Opus 4 & Claude Sonnet 4*。前代混合推理见 [Claude 3.7](/llm/claude-37)。参数量未公开。</span>
+<span class="marginnote"> 出处：Anthropic，*Introducing Claude 4*，2025-05-22；*System Card: Claude Opus 4 & Claude Sonnet 4*。前代混合推理见 [Claude 3.7](/llm/claude-37)。参数量未公开。</span> 
 
 ## 小结
 

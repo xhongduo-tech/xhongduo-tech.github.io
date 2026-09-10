@@ -18,7 +18,7 @@ section: llm
 对长度为 $T$ 的 token 序列，平均负对数似然
 
 $$
-\mathrm{NLL}=\frac{1}{T}\sum_{t=1}^{T}-\log p(x_t\mid x_{<t}),
+\mathrm{NLL}=\frac{1}{T}\sum_{t=1}^{T}-\log p(x_t\mid x_{\lt t}),
 $$
 
 自然对数下单位是 nat。困惑度 $\mathrm{PPL}=\exp(\mathrm{NLL})$。直观：每一步模型还在几个等价选项里平均地犹豫。均匀分布时 $\mathrm{PPL}=|V|$；完美预测时为 1。它与训练 CE（硬目标、无平滑）一一对应，所以优化器直接推的就是它的对数。
@@ -26,7 +26,7 @@ $$
 换 BPE 词表之后，$T$ 变了。更粗的切分让 $T$ 变小，每 token 任务更难，PPL 通常变大；更细的切分相反。于是「模型 A 的 PPL 低于模型 B」在词表不同时没有意义。GPT-2 用 bits-per-byte：把同一批 UTF-8 字节上的总 NLL（仍来自 token 因子，但加总后除以字节数）再换成以 2 为底：
 
 $$
-\mathrm{BPB}=\frac{1}{B\ln 2}\sum_{t}-\log p(x_t\mid x_{<t}),
+\mathrm{BPB}=\frac{1}{B\ln 2}\sum_{t}-\log p(x_t\mid x_{\lt t}),
 $$
 
 $B$ 是字节数。这是这段文本的压缩率上界（算术编码意义下），与切成多少 token 无关。

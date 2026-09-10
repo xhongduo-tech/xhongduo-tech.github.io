@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-循环群 $\langle g\rangle$ 阶 $n$，$a\in\langle g\rangle$，求 $x$。令 $m=\lceil\sqrt n\rceil$，$x=im-j$，$0\le j<m$。则 $g^{im}=a g^{j}$。枚举 $j$ 存 $a g^j$（或 $g^j$）入哈希；枚举 $i$ 算 $g^{im}$ 查询。时间空间 $O(\sqrt n)$。
+循环群 $\langle g\rangle$ 阶 $n$，$a\in\langle g\rangle$，求 $x$。令 $m=\lceil\sqrt n\rceil$，$x=im-j$，$0\le j\lt m$。则 $g^{im}=a g^{j}$。枚举 $j$ 存 $a g^j$（或 $g^j$）入哈希；枚举 $i$ 算 $g^{im}$ 查询。时间空间 $O(\sqrt n)$。
 
 缺口是时间–空间折中，不是 NP 证书。Pohlig–Hellman 先把 $n$ 分解成小素因子再 CRT，点名。
 

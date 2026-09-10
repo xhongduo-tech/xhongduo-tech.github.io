@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-教师强制下，骨干一次算出所有位置的 $E_i=f(x_{<i})\in\mathbb{R}^D$，分类器 $C\in\mathbb{R}^{D\times|V|}$ 得到
+教师强制下，骨干一次算出所有位置的 $E_i=f(x_{\lt i})\in\mathbb{R}^D$，分类器 $C\in\mathbb{R}^{D\times|V|}$ 得到
 
 $$
 \ell_i = C_{x_i}^\top E_i - \log\sum_{j\in V}\exp(C_j^\top E_i).

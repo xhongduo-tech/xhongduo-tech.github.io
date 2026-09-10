@@ -17,7 +17,7 @@ section: quant
 
 风险中性下 $C(K)=e^{-rT}\mathbb{E}[(S_T-K)^+]$。当密度未知而特征函数已知，经典路是 Gil-Pelaez 反演分布函数，或 Heston 那种拆成资产或然与现金或然。两条路对每个 $K$ 都要积一次，校准上万个报价时浪费极大，且被积函数在 $u=0$ 附近有 $1/u$ 奇异，数值要小心。
 
-直接对 $C(k)$ 做傅里叶在数学上不合法：$k\to-\infty$ 时看涨趋向远期，函数不属 $L^1$。Carr–Madan 引入阻尼 $c(k)=e^{\alpha k}C(k)$，$\alpha>0$ 使 $c$ 可积，再写
+直接对 $C(k)$ 做傅里叶在数学上不合法：$k\to-\infty$ 时看涨趋向远期，函数不属 $L^1$。Carr–Madan 引入阻尼 $c(k)=e^{\alpha k}C(k)$，$\alpha\gt 0$ 使 $c$ 可积，再写
 
 $$
 \psi(v)=\int_{-\infty}^{\infty}e^{ivk}c(k)\,dk,
@@ -71,7 +71,7 @@ flowchart TD
 
 ## 边界与工程取舍
 
-Levy 模型在极短到期的翼部，密度不光滑，FFT 振荡明显，需加大 $N$ 或改 COS。[Heston](/quant/heston) 在深虚值短到期衰减慢，且 $2\kappa\theta<\sigma^2$ 时矩可能在有限 $u$ 爆炸，$\alpha$ 把路径推得更近爆炸点。利率与分红若随 $T$ 变化，每个到期单独一条 $\phi$，不要共用一张频率表却混用贴现。
+Levy 模型在极短到期的翼部，密度不光滑，FFT 振荡明显，需加大 $N$ 或改 COS。[Heston](/quant/heston) 在深虚值短到期衰减慢，且 $2\kappa\theta\lt \sigma^2$ 时矩可能在有限 $u$ 爆炸，$\alpha$ 把路径推得更近爆炸点。利率与分红若随 $T$ 变化，每个到期单独一条 $\phi$，不要共用一张频率表却混用贴现。
 
 实现上必须用看涨–看跌平价把计算放到实值一侧；必须测试 $\alpha$ 扰动下 ATM 是否稳定；必须把 FFT 的 $k$ 网格与远期对齐，否则「ATM」落在两个节点之间，校准会假弯。Carr–Madan 不解决特征函数的分支：那是模型实现。引用 1999 年论文是为了阻尼变换与 FFT 用法，不是为了 Heston 的闭式。
 

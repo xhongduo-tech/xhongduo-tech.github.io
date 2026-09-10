@@ -21,9 +21,9 @@ $$
 \Delta X_t=\Pi X_{t-1}+\sum_{i=1}^{k-1}\Gamma_i\Delta X_{t-i}+\Phi D_t+\varepsilon_t.
 $$
 
-若 $X$ 协整，则 $\Pi$ 的秩为 $r<p$，$\Pi=\alpha\beta'$。$\beta'X_{t-1}$ 是 $r$ 个均衡误差（价差），$\alpha$ 是把误差喂回各条差分方程的载荷，$\Gamma_i$ 是短期动态。没有协整时 $\Pi=0$，应在差分上做 VAR；若误把 I(1) 当 I(0) 做水平 VAR，就是伪回归。问题是在给定 $r$ 下估 $(\alpha,\beta,\Gamma)$，并解释哪些方程真正做误差修正。
+若 $X$ 协整，则 $\Pi$ 的秩为 $r\lt p$，$\Pi=\alpha\beta'$。$\beta'X_{t-1}$ 是 $r$ 个均衡误差（价差），$\alpha$ 是把误差喂回各条差分方程的载荷，$\Gamma_i$ 是短期动态。没有协整时 $\Pi=0$，应在差分上做 VAR；若误把 I(1) 当 I(0) 做水平 VAR，就是伪回归。问题是在给定 $r$ 下估 $(\alpha,\beta,\Gamma)$，并解释哪些方程真正做误差修正。
 
-两变量时 Engle–Granger 的 ECM 是 VECM 的特例：$p=2,r=1$，且 $\beta$ 由单方程 OLS 钉死。多变量、$r>1$ 时必须在系统里估，否则协整空间的基选错，载荷无意义。Johansen 篇处理 $r$ 的检验；本篇假定 $r$ 已选定（或作为情景），聚焦方程与识别。
+两变量时 Engle–Granger 的 ECM 是 VECM 的特例：$p=2,r=1$，且 $\beta$ 由单方程 OLS 钉死。多变量、$r\gt 1$ 时必须在系统里估，否则协整空间的基选错，载荷无意义。Johansen 篇处理 $r$ 的检验；本篇假定 $r$ 已选定（或作为情景），聚焦方程与识别。
 
 ### 长期与短期是两块矩阵
 

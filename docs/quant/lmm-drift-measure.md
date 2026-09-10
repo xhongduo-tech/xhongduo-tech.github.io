@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-取定日期 $T_0<\cdots<T_n$，$\tau_i=T_{i+1}-T_i$，
+取定日期 $T_0\lt \cdots\lt T_n$，$\tau_i=T_{i+1}-T_i$，
 
 $$
 L_i(t)=\frac{1}{\tau_i}\left(\frac{P(t,T_i)}{P(t,T_{i+1})}-1\right).
@@ -67,7 +67,7 @@ $$
 
 ### 从债券比推到 $\tau L/(1+\tau L)$
 
-固定 $k>i$。乘积
+固定 $k\gt i$。乘积
 
 $$
 \frac{P(t,T_i)}{P(t,T_{k+1})}=\prod_{j=i}^{k}\bigl(1+\tau_j L_j(t)\bigr)

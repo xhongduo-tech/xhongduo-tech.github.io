@@ -49,7 +49,7 @@ flowchart TD
 
 ## 机制
 
-稀疏能省，是因为精确 softmax 的二次项从 $O(L^2)$ 落到 $O(Lk)$。Indexer 仍对过去长度二次扫描，但头数与维数小、走 FP8，常数远小于 MLA。端到端是否降费，取决于长度是否越过「indexer + gather 开销 < 稠密 MLA」的交叉点。短前填可以用掩码 MHA 模拟 DSA，原文就承认：这时稀疏核可能更慢，因为多了一层间接。服务必须按长度分叉，而不是全长度强制 sparse。
+稀疏能省，是因为精确 softmax 的二次项从 $O(L^2)$ 落到 $O(Lk)$。Indexer 仍对过去长度二次扫描，但头数与维数小、走 FP8，常数远小于 MLA。端到端是否降费，取决于长度是否越过「indexer + gather 开销 $\lt$ 稠密 MLA」的交叉点。短前填可以用掩码 MHA 模拟 DSA，原文就承认：这时稀疏核可能更慢，因为多了一层间接。服务必须按长度分叉，而不是全长度强制 sparse。
 
 FP8 KV 把反量化放到 CUDA Core，MMA 在 Tensor Core。稀疏 decode 的 dequant 可能比 MMA 还重，这是稠密 FlashMLA 用 CTA cluster 交叉共享内存要解决的问题；稀疏路径同样吃这条墙，只是装载集合变成 top-k 而不是全前缀。`indices` 里已经编码物理页，TMA 按条目去取，不再走稠密块表。错误的页号会静默读到别人的潜向量，比稠密越界更难查。
 
@@ -65,7 +65,7 @@ Sparse MLA 需要 SM90 或 SM100、足够新的 CUDA。稀疏 prefill 核无 bat
 
 ### 元数据与 MTP 的 $s_q$
 
-稠密与稀疏解码都先 `get_mla_metadata`。稀疏还要把 `topk` 传进 metadata，使 tile 按「每查询可见条目数」而不是全前缀长度来切。投机或 MTP 让 $s_q>1$ 时，`indices` 的 query 维必须与这 $s_q$ 对齐：每一投机位置各自一份 top-k，不能复用主位置的索引。核若按 $s_q=1$ 优化而校验路径 $s_q=2$，稀疏 gather 会错位。FlashMLA 把 $s_q$ 当一等维度，稀疏路径同样适用。分页块大小与 656 字节 FP8 行宽必须写进引擎的 block size，否则「页号 × 页大小 + 偏移」与物理行对不上。
+稠密与稀疏解码都先 `get_mla_metadata`。稀疏还要把 `topk` 传进 metadata，使 tile 按「每查询可见条目数」而不是全前缀长度来切。投机或 MTP 让 $s_q\gt 1$ 时，`indices` 的 query 维必须与这 $s_q$ 对齐：每一投机位置各自一份 top-k，不能复用主位置的索引。核若按 $s_q=1$ 优化而校验路径 $s_q=2$，稀疏 gather 会错位。FlashMLA 把 $s_q$ 当一等维度，稀疏路径同样适用。分页块大小与 656 字节 FP8 行宽必须写进引擎的 block size，否则「页号 × 页大小 + 偏移」与物理行对不上。
 
 与 [FlashMLA](/llm/flashmla) 稠密路径的选用：上下文短、或 indexer 尚未热身，走稠密；128K 级且 $k\ll L$，走稀疏。与 NSA 的选用见 DSA 文：已有 MLA 检查点要细粒度续训，走 DSA + Sparse MLA 核；从零训、要块对齐，走 NSA。出处：Li & Liu，FlashMLA；DSA 定义见 DeepSeek-V3.2，arXiv:2512.02556。不要伪造稀疏核的独立 arXiv。
 

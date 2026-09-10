@@ -29,10 +29,10 @@ RoPE 点积只看见 $\Delta=p_q-p_k$。预训练 $\Delta\in\{0,\ldots,L-1\}$。
 
 ### 邻域注意力与分组注意力
 
-设组大小 $G$、邻窗 $w_n$。对查询位置 $p$ 与键 $k\le p$，真实距离 $d=p-k$。邻域内 $d<w_n$ 时，$\Delta'=d$，与短窗训练同构。邻域外，相对位置取 $\lfloor d/G\rfloor$ 一类分组，再平移 $w_n-\lfloor w_n/G\rfloor$，使阶梯在邻窗边界上与真实 $\Delta$ 衔接，避免出现「窗内是 1023、窗外突然是 5」的裂缝。只要
+设组大小 $G$、邻窗 $w_n$。对查询位置 $p$ 与键 $k\le p$，真实距离 $d=p-k$。邻域内 $d\lt w_n$ 时，$\Delta'=d$，与短窗训练同构。邻域外，相对位置取 $\lfloor d/G\rfloor$ 一类分组，再平移 $w_n-\lfloor w_n/G\rfloor$，使阶梯在邻窗边界上与真实 $\Delta$ 衔接，避免出现「窗内是 1023、窗外突然是 5」的裂缝。只要
 
 $$
-w_n+\bigl\lfloor(L'-w_n)/G\bigr\rfloor < L,
+w_n+\bigl\lfloor(L'-w_n)/G\bigr\rfloor \lt  L,
 $$
 
 所有 $\Delta'$ 仍落在支撑集内。$G$ 越大，能覆盖的 $L'$ 越长，远端分辨率越差。实现上对同一对 $(q,k)$ 不算两次完整注意力：邻域用正常 RoPE，远处用分组后的位置 id 替换，再在 softmax 前把远处 logits 写进对应列。
@@ -43,7 +43,7 @@ $$
 
 ```mermaid
 flowchart TD
-  D["真实距离 d"] --> N{"d < 邻窗 wn?"}
+  D["真实距离 d"] --> N{"d ＜ 邻窗 wn?"}
   N -->|"是"| NB["neighbor attention：Δ = d"]
   N -->|"否"| GB["grouped attention：floor 后平移"]
   NB --> S["原 softmax"]
@@ -53,7 +53,7 @@ flowchart TD
 
 ## 机制
 
-机制是相对位置轴上的分段不可逆压缩：近端斜率 1，远端斜率 $1/G$。RoPE 每一维 $\cos(\theta_i\Delta')$ 在远端变慢，等价于只对远距做了位置插值，近距完全没插。中间键的**内容**仍在，只是共享组内相位，组内竞争靠 $q^\top k$ 的内容部分。标题里的「已经是 LongLM」指：短窗训练已经教会模型如何对 $\Delta<L$ 的键分配质量；Self-Extend 负责不要把 $\Delta\ge L$ 送进这套已经学会的函数。
+机制是相对位置轴上的分段不可逆压缩：近端斜率 1，远端斜率 $1/G$。RoPE 每一维 $\cos(\theta_i\Delta')$ 在远端变慢，等价于只对远距做了位置插值，近距完全没插。中间键的**内容**仍在，只是共享组内相位，组内竞争靠 $q^\top k$ 的内容部分。标题里的「已经是 LongLM」指：短窗训练已经教会模型如何对 $\Delta\lt L$ 的键分配质量；Self-Extend 负责不要把 $\Delta\ge L$ 送进这套已经学会的函数。
 
 与 YaRN 分工：YaRN 改 $\theta_i$ 与温度，通常配合续训；Self-Extend 改整数 $\Delta$，权重冻结。与 DCA 分工：Self-Extend 一条全局阶梯；DCA 保证当前块完整 $L$ 分辨率，并单独处理相邻块。原文实验含与微调长窗模型的比较：在部分理解任务上，无训练的 Self-Extend 可以接近甚至超过昂贵续训，这被用来支撑「能力已在权重里」；同时短基准不掉，用来支撑「邻域没被分组污染」。
 
@@ -65,7 +65,7 @@ flowchart TD
 
 评测诚实是原文用任务集在做、读者仍要自己补的部分：PPL 因 $\Delta'$ 落回支撑集而容易好看；RULER 多跳与全书问答仍可能失败，因为模型从未在那种距离上做过推理，只是现在「算得动」。Self-Extend 延长的是几何覆盖。论文里相对微调模型「有时更好」不能理解成永远不必续训——那是 2024 年初若干 7B/13B 设定下的表。
 
-<span class="marginnote">最常见的实现 bug 是对绝对位置做 $p//G$ 再相减，导致近邻也被分组。必须先分支 $d<w_n$，再对超出部分 floor。</span>
+<span class="marginnote">最常见的实现 bug 是对绝对位置做 $p//G$ 再相减，导致近邻也被分组。必须先分支 $d\lt w_n$，再对超出部分 floor。</span>
 
 ### 超参与模型族
 

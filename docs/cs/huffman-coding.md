@@ -11,11 +11,11 @@ section: cs
 <footer>—— 据 Huffman, A Method for the Construction of Minimum-Redundancy Codes, 1952；Cover and Thomas 整理</footer>
 </div>
 
-上一课[信源编码定理](/cs/source-coding-theorem) 给出 $H\le L<H+1$ 的空间。缺口是构造：**Huffman 算法**达到所有前缀码中最小的 $L=\sum p_i\ell_i$。不重证 Kraft，不写算术（下一课才把码长变成分数比特）。
+上一课[信源编码定理](/cs/source-coding-theorem) 给出 $H\le L\lt H+1$ 的空间。缺口是构造：**Huffman 算法**达到所有前缀码中最小的 $L=\sum p_i\ell_i$。不重证 Kraft，不写算术（下一课才把码长变成分数比特）。
 
 ## 问题
 
-已知有限字母表与 $p_i>0$。前缀码 $\iff$ 二叉树叶。期望长度 = 加权路径长。Huffman：把最小的两权合成一父节点，权相加，递归。最优性：存在最优码使两最小符号互为兄弟，故归纳成立。码长 $\ell_i=\lceil-\log p_i\rceil$ 的 Shannon 码未必最优，Huffman 才是。
+已知有限字母表与 $p_i\gt 0$。前缀码 $\iff$ 二叉树叶。期望长度 = 加权路径长。Huffman：把最小的两权合成一父节点，权相加，递归。最优性：存在最优码使两最小符号互为兄弟，故归纳成立。码长 $\ell_i=\lceil-\log p_i\rceil$ 的 Shannon 码未必最优，Huffman 才是。
 
 当某 $p_i$ 很大，$L$ 仍 $\ge 1\cdot p_{\max}$，离 $H$ 可差近 1。这是「不拆符号」的代价，留给算术编码。
 

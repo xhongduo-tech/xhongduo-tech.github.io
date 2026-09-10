@@ -11,7 +11,7 @@ section: econ
     <footer>—— Dixit and Pindyck, Investment under Uncertainty, 1994；Myers, Determinants of Corporate Borrowing, Journal of Financial Economics 1977 中的增长期权；对照 McDonald and Siegel, QJE 1986</footer>
 </div>
 
-[上一课](/econ/eva-residual-income)把 DCF 与剩余收益收成等价。主干里[实物期权](/econ/real-options-theory)已经给出门槛 $V^\ast>I$。本课缺口是进阶操作：在 NPV 表上如何把扩张、分阶段、关停、转换写成增量价值，而不把 Dixit–Pindyck 重推一遍，也不把交易所隐含波动当成工厂的输入。
+[上一课](/econ/eva-residual-income)把 DCF 与剩余收益收成等价。主干里[实物期权](/econ/real-options-theory)已经给出门槛 $V^\ast\gt I$。本课缺口是进阶操作：在 NPV 表上如何把扩张、分阶段、关停、转换写成增量价值，而不把 Dixit–Pindyck 重推一遍，也不把交易所隐含波动当成工厂的输入。
 
 ## 问题
 

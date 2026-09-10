@@ -21,7 +21,7 @@ section: cs
 
 ## 方法
 
-启动：绑定网卡到 vfio，hugepage 池。运行：每核一队列 RSS，收 mbuf，处理，发。需要与内核互通时：tap/KNI 或 virtio。对照 [NVMe 用户态](未单列)：同样是 poll + 用户驱动。对照 tun：tun 仍经内核虚拟设备；DPDK 直接硬件。
+启动：绑定网卡到 vfio，hugepage 池。运行：每核一队列 RSS，收 mbuf，处理，发。需要与内核互通时：tap/KNI 或 virtio。对照 NVMe 用户态（SPDK）：同样是 poll + 用户驱动。对照 tun：tun 仍经内核虚拟设备；DPDK 直接硬件。
 
 ```mermaid
 flowchart TD

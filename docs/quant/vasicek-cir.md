@@ -33,7 +33,7 @@ $$
 dr_t = a(b-r_t)\,dt + \sigma\,dW_t,
 $$
 
-$a>0$ 为回复速度，$b$ 为长期均值，$\sigma$ 为常数扩散。$r_t$ 是高斯的，条件均值指数回复到 $b$，条件方差有上界 $\sigma^2/(2a)$。零息债 $P(t,T)=\mathbb{E}\big[\exp(-\int_t^T r_s ds)\big|\mathcal{F}_t\big]$ 对 $r_t$ 仿射：
+$a\gt 0$ 为回复速度，$b$ 为长期均值，$\sigma$ 为常数扩散。$r_t$ 是高斯的，条件均值指数回复到 $b$，条件方差有上界 $\sigma^2/(2a)$。零息债 $P(t,T)=\mathbb{E}\big[\exp(-\int_t^T r_s ds)\big|\mathcal{F}_t\big]$ 对 $r_t$ 仿射：
 
 $$
 P(t,T)=A(\tau)\exp\big(-B(\tau)r_t\big),\qquad \tau=T-t,

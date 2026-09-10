@@ -49,7 +49,7 @@ DCC、BEKK 估的是条件协方差，隐含高斯或椭圆新息。若新息确
 
 条件 Copula 的机制是让这个形状随信息变：昨天两资产都大跌，今天的下尾参数可以升高。它与 DCC 的差别在于：DCC 更新的是二阶矩，Copula 更新的可以是尾参数。Patton 对汇率的实证是，美元对其他货币的依赖在贬值一侧更强，且该不对称随时间变，常相关模型抓不住。
 
-<span class="marginnote">秩变换对异常值比 Pearson 稳健，但不创造尾依赖。用 Spearman 相关替代 Pearson，只是换了边缘不变的刻度；若真实 Copula 是 Clayton，你仍需要一个能产生 $\lambda_L>0$ 的模型，而不是一个更稳健的 $\rho$。</span>
+<span class="marginnote">秩变换对异常值比 Pearson 稳健，但不创造尾依赖。用 Spearman 相关替代 Pearson，只是换了边缘不变的刻度；若真实 Copula 是 Clayton，你仍需要一个能产生 $\lambda_L\gt 0$ 的模型，而不是一个更稳健的 $\rho$。</span>
 
 ### 定价与风险里的同一对象
 
@@ -82,7 +82,7 @@ flowchart TD
 ## 小结
 
 - Sklar 把联合分布拆成边缘与 Copula；连续边缘下 Copula 唯一，是依赖的完整对象。
-- 线性相关既不不变也不描述尾依赖；高斯 Copula 在 $|\rho|<1$ 时尾依赖为零。
+- 线性相关既不不变也不描述尾依赖；高斯 Copula 在 $|\rho|\lt 1$ 时尾依赖为零。
 - Patton 的条件 Copula 允许依赖时变且不对称，与只更新相关矩阵的 DCC 不是同一层。
 - 两步法：先过滤边缘，再在伪观测上估 Copula；边缘错则 Copula 不可信。
 - 高维用椭圆加 DCC，或 vine；选型必须看上尾下尾，而不是只看似然。

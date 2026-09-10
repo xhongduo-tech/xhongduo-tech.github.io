@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-给定正定 $\Sigma$ 与单纯形 $w>0,\mathbf{1}^\top w=1$，最小方差把质量堆到低波动、低相关的角上；等权忽略 $\Sigma$；逆波动 $w_i\propto 1/\sigma_i$ 忽略相关。ERC 要求
+给定正定 $\Sigma$ 与单纯形 $w\gt 0,\mathbf{1}^\top w=1$，最小方差把质量堆到低波动、低相关的角上；等权忽略 $\Sigma$；逆波动 $w_i\propto 1/\sigma_i$ 忽略相关。ERC 要求
 
 $$
 w_i(\Sigma w)_i = w_j(\Sigma w)_j \qquad \forall i,j,
@@ -33,10 +33,10 @@ $$
 
 ## 方法
 
-Maillard 等人证明：在 $w>0$、$\Sigma$ 正定下 ERC 存在且唯一，并且落在等权与最小方差的「之间」——用总波动与集中度刻画，不是逐分量不等式。相关全相等时，ERC 退回逆波动；波动全相等时，相关更低的资产拿更高权重。等价优化包括最小化贡献两两差的平方，以及带对数障碍的方差最小化
+Maillard 等人证明：在 $w\gt 0$、$\Sigma$ 正定下 ERC 存在且唯一，并且落在等权与最小方差的「之间」——用总波动与集中度刻画，不是逐分量不等式。相关全相等时，ERC 退回逆波动；波动全相等时，相关更低的资产拿更高权重。等价优化包括最小化贡献两两差的平方，以及带对数障碍的方差最小化
 
 $$
-\min_{w>0}\ \tfrac12 w^\top\Sigma w \quad\text{s.t.}\quad \sum_i \ln w_i \ge c,
+\min_{w\gt 0}\ \tfrac12 w^\top\Sigma w \quad\text{s.t.}\quad \sum_i \ln w_i \ge c,
 $$
 
 适当 $c$ 时 KKT 给出 $w\circ(\Sigma w)=\lambda\mathbf{1}$。对数项阻止权重坍到零，这是相对最小方差最关键的正则：GMV 可以稀疏，ERC 在内点不能。

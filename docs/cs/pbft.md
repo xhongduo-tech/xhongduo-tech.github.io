@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Castro and Liskov, Practical Byzantine Fault Tolerance, OSDI 1999 整理</footer>
 </div>
 
-上一课[VR](/cs/viewstamped-replication)的视图更换假定备份只崩溃或慢。缺口是**备份撒谎**：准备证书必须防伪造、防分裂。本课接[拜占庭将军](/cs/byzantine-generals)的 $n>3f$，时间用部分同步，不把口头 OM 递归再写一遍。后课对照 2PC：2PC 连崩溃协调者都堵，更不抗撒谎。
+上一课[VR](/cs/viewstamped-replication)的视图更换假定备份只崩溃或慢。缺口是**备份撒谎**：准备证书必须防伪造、防分裂。本课接[拜占庭将军](/cs/byzantine-generals)的 $n\gt 3f$，时间用部分同步，不把口头 OM 递归再写一遍。后课对照 2PC：2PC 连崩溃协调者都堵，更不抗撒谎。
 
 ## 问题
 

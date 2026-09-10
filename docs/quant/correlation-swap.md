@@ -33,7 +33,7 @@ section: quant
 
 ## 机制
 
-指数方差 $\sigma_I^2\approx\sum w_i^2\sigma_i^2+2\sum_{i<j}w_i w_j\rho_{ij}\sigma_i\sigma_j$。固定 $\sigma_i$ 时，$\rho$ 升则 $\sigma_I$ 升。分散卖指数波动、买成分波动，近似卖 $\rho_{\mathrm{imp}}$。相关互换直接在 $\rho$ 上结算，省掉把 $\sigma_i$ 波动当噪声的那一层，但失去了期权凸性：相关到 1 附近，期权分散还有 vega 凸性，互换是线性的。
+指数方差 $\sigma_I^2\approx\sum w_i^2\sigma_i^2+2\sum_{i\lt j}w_i w_j\rho_{ij}\sigma_i\sigma_j$。固定 $\sigma_i$ 时，$\rho$ 升则 $\sigma_I$ 升。分散卖指数波动、买成分波动，近似卖 $\rho_{\mathrm{imp}}$。相关互换直接在 $\rho$ 上结算，省掉把 $\sigma_i$ 波动当噪声的那一层，但失去了期权凸性：相关到 1 附近，期权分散还有 vega 凸性，互换是线性的。
 
 ```mermaid
 flowchart TD

@@ -47,7 +47,7 @@ flowchart TD
 
 ### 形式化对照
 
-Skalse 等的 gaming：若存在 $\pi$ 使 $r(\pi)>r(\pi_{\mathrm{honest}})$ 且 $R^*(\pi)<R^*(\pi_{\mathrm{honest}})$，则 $r$ 可被 game。RLHF 里 $\pi_{\mathrm{honest}}$ 可取 SFT 或早停点。实际检测是经验的：在优化路径上找金标下降的点。没有证明 $r$ 不可 game，只有「在这些探针上还没掉」。探针覆盖之外的黑客默认存在。
+Skalse 等的 gaming：若存在 $\pi$ 使 $r(\pi)\gt r(\pi_{\mathrm{honest}})$ 且 $R^*(\pi)\lt R^*(\pi_{\mathrm{honest}})$，则 $r$ 可被 game。RLHF 里 $\pi_{\mathrm{honest}}$ 可取 SFT 或早停点。实际检测是经验的：在优化路径上找金标下降的点。没有证明 $r$ 不可 game，只有「在这些探针上还没掉」。探针覆盖之外的黑客默认存在。
 
 ## 机制
 

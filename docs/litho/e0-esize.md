@@ -42,7 +42,7 @@ flowchart TD
 
 ## 机制
 
-开放区强度接近空中像的局部最大（还含 flare）。清底要求沿厚的有效剂量把 $m$ 降到 $R$ 能挖穿。图形边的强度是 $I_\mathrm{th}<I_\mathrm{max}$，要让 $I_\mathrm{th}$ 对应的化学达到同样的 $m$ 阈值，入射剂量必须更高——于是 $E_\mathrm{size}>E_0$。flare 抬暗区，会抬 $E_0$ 的「起雾」端，却不一定按同一比例抬 $E_\mathrm{size}$，暗侵蚀与桥接先报警。
+开放区强度接近空中像的局部最大（还含 flare）。清底要求沿厚的有效剂量把 $m$ 降到 $R$ 能挖穿。图形边的强度是 $I_\mathrm{th}\lt I_\mathrm{max}$，要让 $I_\mathrm{th}$ 对应的化学达到同样的 $m$ 阈值，入射剂量必须更高——于是 $E_\mathrm{size}\gt E_0$。flare 抬暗区，会抬 $E_0$ 的「起雾」端，却不一定按同一比例抬 $E_\mathrm{size}$，暗侵蚀与桥接先报警。
 
 淬灭剂负载同时抬两个锚点，但 $E_\mathrm{size}$ 对负载往往更敏感，因为边沿正在争夺带上。[淬灭剂](/litho/pag-quencher)的阈值语言在这里变成两个可测剂量。
 

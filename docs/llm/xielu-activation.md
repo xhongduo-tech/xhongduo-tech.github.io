@@ -32,7 +32,7 @@ ELU 的负支是 $\alpha(e^x-1)$，积分仍是初等函数，实现里最多一
 $$
 \frac{d}{dx}\,\mathrm{xIELU}(x)=
 \begin{cases}
-2\alpha_p x+\beta_p & x>0,\\
+2\alpha_p x+\beta_p & x\gt 0,\\
 \alpha_n(e^x-1)+\beta_n & x\le 0.
 \end{cases}
 $$
@@ -42,7 +42,7 @@ $\alpha_p,\alpha_n$ 每层可学；$\beta$、$C$ 全网固定。积分并令 $\b
 $$
 \mathrm{xIELU}(x)=
 \begin{cases}
-\alpha_p x^2 + 0.5\,x & x>0,\\
+\alpha_p x^2 + 0.5\,x & x\gt 0,\\
 \alpha_n(e^x-1)-\alpha_n x + 0.5\,x & x\le 0.
 \end{cases}
 $$

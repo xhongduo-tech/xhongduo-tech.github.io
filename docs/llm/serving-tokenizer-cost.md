@@ -29,7 +29,7 @@ TGI router 的 `--max-input-tokens` / `--max-total-tokens` 在 Rust 侧按 token
 
 服务端应把 tokenizer 当成与权重同版本的只读工件：启动时加载，请求时 `encode`，禁止运行时下载。TGI 的 `--tokenizer-name` 挂在 router 上，validation workers 并行做校验与分词，model server 收的是已经合法的 id 或经协议约定的文本。LMDeploy / vLLM / MindIE 各自把分词放在 API 进程或引擎进程，但逻辑相同：热路径上不要做 Hub I/O。批处理 encode（多条提示一次调用）能摊薄 Python 开销，对离线批有用；在线延迟敏感路径往往是单条 encode，更依赖底层 Rust。
 
-流式 detokenize 必须是**增量状态机**，而不是每步 `tokenizer.decode(all_ids)`。完整重解码的成本随已生成长度线性涨，会在长输出上把 CPU 做成第二条 decode 曲线。增量接口维护已输出的字节缓冲：新 token 的字节追加后，只把构成完整 UTF-8 码点、且不会被后续合并规则作废的前缀吐给客户端。BPE 没有「未来 token 改写过去字节」的语义，但特殊处理（byte fallback、控制符、`<0xNN>`）仍可能让朴素逐 token `decode([id])` 失败。实现上应使用官方 incremental decoder，而不是自己按 id 查 vocab 字符串再拼接。
+流式 detokenize 必须是**增量状态机**，而不是每步 `tokenizer.decode(all_ids)`。完整重解码的成本随已生成长度线性涨，会在长输出上把 CPU 做成第二条 decode 曲线。增量接口维护已输出的字节缓冲：新 token 的字节追加后，只把构成完整 UTF-8 码点、且不会被后续合并规则作废的前缀吐给客户端。BPE 没有「未来 token 改写过去字节」的语义，但特殊处理（byte fallback、控制符、`&lt;0xNN>`）仍可能让朴素逐 token `decode([id])` 失败。实现上应使用官方 incremental decoder，而不是自己按 id 查 vocab 字符串再拼接。
 
 ```mermaid
 flowchart TD

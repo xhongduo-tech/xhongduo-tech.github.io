@@ -11,13 +11,13 @@ section: cs
 <footer>—— 据 Kulkarni, Demirbas, Madappa, Avva and Leone, Logical Physical Clocks, OPODIS 2014 整理</footer>
 </div>
 
-上一课[向量时钟](/cs/vector-clocks)给了完备因果，但 $O(n)$ 太大，且时间戳不能当「几点几分」给运维看。缺口是**单整数（或短元组）上的因果，同时贴近物理时间**。本课不重证 $V(a)<V(b)\Leftrightarrow a\to b$。后课快照仍用 Chandy–Lamport 的标记，不把 HLC 当全局割。
+上一课[向量时钟](/cs/vector-clocks)给了完备因果，但 $O(n)$ 太大，且时间戳不能当「几点几分」给运维看。缺口是**单整数（或短元组）上的因果，同时贴近物理时间**。本课不重证 $V(a)\lt V(b)\Leftrightarrow a\to b$。后课快照仍用 Chandy–Lamport 的标记，不把 HLC 当全局割。
 
 ## 问题
 
-Lamport 标量钟的数字会与墙钟脱节：长时间只本地事件，逻辑时间猛涨，或反过来墙钟超前很多。运维、调试、粗粒度 TTL 想读物理时间；协议想要 $a\to b\Rightarrow T(a)<T(b)$。缺口不是再做一个 NTP，而是 **pt + 逻辑计数**：在时钟误差范围内跟着墙走，误差撑不住时用计数把因果顶住。
+Lamport 标量钟的数字会与墙钟脱节：长时间只本地事件，逻辑时间猛涨，或反过来墙钟超前很多。运维、调试、粗粒度 TTL 想读物理时间；协议想要 $a\to b\Rightarrow T(a)\lt T(b)$。缺口不是再做一个 NTP，而是 **pt + 逻辑计数**：在时钟误差范围内跟着墙走，误差撑不住时用计数把因果顶住。
 
-Kulkarni 等人的 HLC：每个事件一个 $(l,c)$。$l$ 跟踪 $\max(\text{本地物理}, \text{收到的 }l)$；$c$ 在 $l$ 不变时当 Lamport 计数。比较先看 $l$ 再看 $c$。这样 $a\to b\Rightarrow (l,c)_a<(l,c)_b$，并且 $l$ 通常靠近 NTP。
+Kulkarni 等人的 HLC：每个事件一个 $(l,c)$。$l$ 跟踪 $\max(\text{本地物理}, \text{收到的 }l)$；$c$ 在 $l$ 不变时当 Lamport 计数。比较先看 $l$ 再看 $c$。这样 $a\to b\Rightarrow (l,c)_a\lt (l,c)_b$，并且 $l$ 通常靠近 NTP。
 
 <span class="marginnote">HLC 不是 TrueTime：它不暴露 $\varepsilon$，也不提供外部一致性。它只是更好打印、更好做粗排序的逻辑钟。</span>
 

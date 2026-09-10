@@ -33,7 +33,7 @@ $$
 
 **乘门控（Switch 默认）**：$y=p_{i^*}E_{i^*}(x)$。$\partial L/\partial p_{i^*}$ 来自输出，再经 softmax 传到全部 logits——未选中专家也能从「归一化的分母」里收到负向信号：提高 $p_{i^*}$ 会压低其他 $p_j$。这不是反事实价值，只是归一化耦合。
 
-**Straight-through**：前向用离散 $\mathcal{E}$，反向把 $\partial L/\partial \mathcal{E}$ 当成对 soft $p$ 的梯度。估计方差大，适合 $k>1$ 或 Expert-choice 这种硬 top。**REINFORCE / 得分函数**：把选择当策略，用 $L$ 当负回报估计 $\nabla \log \pi(\mathcal{E}\mid x)$，无偏但噪声大，大 batch 预训练很少当主路径。**Gumbel-softmax**：用连续松弛训练、离散部署，温度退火要对齐；语言模型预训练里不如乘 $p$ 常见。
+**Straight-through**：前向用离散 $\mathcal{E}$，反向把 $\partial L/\partial \mathcal{E}$ 当成对 soft $p$ 的梯度。估计方差大，适合 $k\gt 1$ 或 Expert-choice 这种硬 top。**REINFORCE / 得分函数**：把选择当策略，用 $L$ 当负回报估计 $\nabla \log \pi(\mathcal{E}\mid x)$，无偏但噪声大，大 batch 预训练很少当主路径。**Gumbel-softmax**：用连续松弛训练、离散部署，温度退火要对齐；语言模型预训练里不如乘 $p$ 常见。
 
 DeepSeek-V3 一类无辅助损失配方把负载交给专家偏置的更新，而不是加大 $\alpha$。偏置的梯度来自负载统计，不来自 token 损失——路由器权重仍主要靠乘门控吃主损失。分工要写进实现：哪一组参数吃哪一种梯度。
 
@@ -59,7 +59,7 @@ flowchart TD
 
 softmax 门控的雅可比在高置信时接近零：一旦 $p_{i^*}\approx 1$，乘 $p$ 不再提供有效学习信号，路由器锁死。这与注意力饱和是同一类几何。缓解包括：路由 logits 的 z-loss（惩罚 $\log\sum e^{h_i}$ 过大）、噪声门控（Shazeer 2017）、以及较低的路由温度。Expert-choice 的列 top 对行方向不可微，更依赖 STE 或「只对选中位置的分数回传」。
 
-$k>1$ 时，两个专家的 $g_i$ 通常在被选集合上再归一。归一把信用限制在已选子集内：第三个专家仍然只从「没进子集」得到分母信号。增大 $k$ 会改善信用分配的覆盖，同时增加计算——这是质量–梯度方差的权衡，不是单纯的 FLOPs 权衡。
+$k\gt 1$ 时，两个专家的 $g_i$ 通常在被选集合上再归一。归一把信用限制在已选子集内：第三个专家仍然只从「没进子集」得到分母信号。增大 $k$ 会改善信用分配的覆盖，同时增加计算——这是质量–梯度方差的权衡，不是单纯的 FLOPs 权衡。
 
 <span class="marginnote">日志里同时看三件事：路由熵、$W_r$ 的梯度范数、各专家接收的 token 数。熵高而 $\|g_r\|$ 极小，说明主损失没进路由器；熵低而专家负载仍均，可能是偏置在干活、$W_r$ 已经死锁。只看损失曲线会漏掉「稀疏已经名存实亡」。</span>
 

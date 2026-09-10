@@ -17,7 +17,7 @@ section: econ
 
 一个消费计划是 $n$ 个非负数，一个价格是 $n$ 个正数，一个宏观状态可以是资本与生产率的一对。它们都是向量。若只把向量当成「一列数字」，「价格微调时需求怎么变」「最优是否存在」没有共同语言：前者要连续映射，后者要闭集上的极值。两者都依赖**开集**。
 
-$U\subset\mathbb{R}^n$ 为开集，若每个 $x\in U$ 都有 $\varepsilon>0$ 使开球 $B_\varepsilon(x)=\{y:\|y-x\|<\varepsilon\}$ 仍在 $U$ 内。闭集是开集的补。内部、边界、闭包由开集生成：$\operatorname{int} A$ 是含于 $A$ 的最大开集，$\bar A$ 是含 $A$ 的最小闭集，$\partial A=\bar A\setminus\operatorname{int} A$。序列 $x_k\to x$ 当且仅当每个含 $x$ 的开集最终吞掉整个尾段。
+$U\subset\mathbb{R}^n$ 为开集，若每个 $x\in U$ 都有 $\varepsilon\gt 0$ 使开球 $B_\varepsilon(x)=\{y:\|y-x\|\lt \varepsilon\}$ 仍在 $U$ 内。闭集是开集的补。内部、边界、闭包由开集生成：$\operatorname{int} A$ 是含于 $A$ 的最大开集，$\bar A$ 是含 $A$ 的最小闭集，$\partial A=\bar A\setminus\operatorname{int} A$。序列 $x_k\to x$ 当且仅当每个含 $x$ 的开集最终吞掉整个尾段。
 
 ### 开不是「可以买到」
 

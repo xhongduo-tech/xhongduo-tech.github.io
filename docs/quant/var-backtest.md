@@ -11,11 +11,11 @@ section: quant
 <footer>—— Kupiec, Techniques for Verifying the Accuracy of Risk Measurement Models, Journal of Derivatives, 1995；Christoffersen, Evaluating Interval Forecasts, International Economic Review, 1998</footer>
 </div>
 
-算出 [VaR](/quant/var-methods) 之后，模型是否校准只能用后来实现的损失来检验。把第 $t$ 日损失 $L_t$ 与前一日做出的 $\mathrm{VaR}_{t|t-1}$ 比较，定义违反指示 $I_t=\mathbf{1}\{L_t>\mathrm{VaR}_{t|t-1}\}$。若声明水平为 $\alpha$（例如 99% VaR 对应违反概率 $p=1-\alpha=0.01$），则在正确的条件覆盖下，$I_t$ 应像成功概率为 $p$ 的伯努利，且对过去信息独立。Kupiec（1995）给出无条件覆盖的似然比检验（比例失败检验，POF）：只问违反次数对不对。Christoffersen（1998）把区间预测的评价拆成无条件覆盖加独立性，再合成条件覆盖。Basel 的交通灯用的是次数规则的监管简化。本篇写检验的假设、功效与误用，不把「通过 Kupiec」写成模型正确的证书——尤其对 [Expected Shortfall](/quant/expected-shortfall)，次数检验本来就不够。
+算出 [VaR](/quant/var-methods) 之后，模型是否校准只能用后来实现的损失来检验。把第 $t$ 日损失 $L_t$ 与前一日做出的 $\mathrm{VaR}_{t|t-1}$ 比较，定义违反指示 $I_t=\mathbf{1}\{L_t\gt \mathrm{VaR}_{t|t-1}\}$。若声明水平为 $\alpha$（例如 99% VaR 对应违反概率 $p=1-\alpha=0.01$），则在正确的条件覆盖下，$I_t$ 应像成功概率为 $p$ 的伯努利，且对过去信息独立。Kupiec（1995）给出无条件覆盖的似然比检验（比例失败检验，POF）：只问违反次数对不对。Christoffersen（1998）把区间预测的评价拆成无条件覆盖加独立性，再合成条件覆盖。Basel 的交通灯用的是次数规则的监管简化。本篇写检验的假设、功效与误用，不把「通过 Kupiec」写成模型正确的证书——尤其对 [Expected Shortfall](/quant/expected-shortfall)，次数检验本来就不够。
 
 ## 问题
 
-风险模型每日输出一个数字 $v_t$，声称 $\mathbb{P}(L_t>v_t\mid\mathcal{F}_{t-1})=p$。这比「长期平均违反率是 $p$」更强：在已经知道今日波动很高时，$v_t$ 应升高，使条件概率仍为 $p$。无条件覆盖只要求 $E[I_t]=p$；条件覆盖要求 $E[I_t\mid\mathcal{F}_{t-1}]=p$，因而 $\{I_t\}$ 在正确设定下是独立同分布伯努利。波动聚集的市场里，一个过时的无条件 VaR 会在危机中连续违反，平均次数也许还能用更长的平静期「摊平」，独立性则立刻失败。Christoffersen 要检验的正是这种成串。
+风险模型每日输出一个数字 $v_t$，声称 $\mathbb{P}(L_t\gt v_t\mid\mathcal{F}_{t-1})=p$。这比「长期平均违反率是 $p$」更强：在已经知道今日波动很高时，$v_t$ 应升高，使条件概率仍为 $p$。无条件覆盖只要求 $E[I_t]=p$；条件覆盖要求 $E[I_t\mid\mathcal{F}_{t-1}]=p$，因而 $\{I_t\}$ 在正确设定下是独立同分布伯努利。波动聚集的市场里，一个过时的无条件 VaR 会在危机中连续违反，平均次数也许还能用更长的平静期「摊平」，独立性则立刻失败。Christoffersen 要检验的正是这种成串。
 
 样本很小。一年 250 日、99% VaR，期望违反 2.5 次。次数检验的功效极低：模型把 $p$ 错成 0.02，也常常无法拒绝。这是检验设计的核心约束，不是操作上「再多积累几年」就能完全消失的细节。问题是：在如此稀疏的事件上，哪些假设还值得检验，以及不拒绝时应该怎样陈述结论。
 

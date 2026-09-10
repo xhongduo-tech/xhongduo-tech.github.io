@@ -22,7 +22,7 @@ Terry 等四条（常加因果）：
 - **Writes Follow Reads**：本会话读过的写，成为后续写的因果前驱。
 - **Monotonic Writes**：本会话的写按程序序被所有副本看见。
 
-缺口：实现靠会话粘滞（打同一副本）或带版本向量的读修复，不是靠 $R+W>n$。移动客户端换接入点会破粘滞，必须把向量放进 cookie 或令牌。
+缺口：实现靠会话粘滞（打同一副本）或带版本向量的读修复，不是靠 $R+W\gt n$。移动客户端换接入点会破粘滞，必须把向量放进 cookie 或令牌。
 
 <span class="marginnote">Bayou 与 Terry 的会话论文是移动弱复制的同一脉络。因果会话 ≈ 客户端视角的[因果一致](/cs/sequential-causal-consistency)。</span>
 

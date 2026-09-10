@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-条件独立：$Y(1),Y(0)\perp D\mid X$，再加重叠 $0<P(D=1\mid X)<1$。则在 $X=x$ 的细胞里，处理对照均值差识别 $\mathbb{E}[\tau\mid X=x]$，再对处理组分布积分得 ATT。缺口是维数：$X$ 一多，细胞空。Rosenbaum–Rubin：倾向得分 $e(X)=P(D=1\mid X)$ 是平衡得分，条件于 $e(X)$ 同样有 CIA。于是匹配、分层、加权（IPW）都在 $e(X)$ 上操作。
+条件独立：$Y(1),Y(0)\perp D\mid X$，再加重叠 $0\lt P(D=1\mid X)\lt 1$。则在 $X=x$ 的细胞里，处理对照均值差识别 $\mathbb{E}[\tau\mid X=x]$，再对处理组分布积分得 ATT。缺口是维数：$X$ 一多，细胞空。Rosenbaum–Rubin：倾向得分 $e(X)=P(D=1\mid X)$ 是平衡得分，条件于 $e(X)$ 同样有 CIA。于是匹配、分层、加权（IPW）都在 $e(X)$ 上操作。
 
 Heckman–Ichimura–Todd 把匹配写成核：用对照的核加权平均当 $\hat Y_i(0)$。重叠失败时（处理组跑到 $e$ 的尾部无人对照）不要外推——与合成控制的凸包禁令同族。
 

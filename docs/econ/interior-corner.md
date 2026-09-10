@@ -23,7 +23,7 @@ $$
 \nabla u(x)=\lambda p-\mu,\qquad \mu_i x_i=0,\qquad p\cdot x=w.
 $$
 
-$x_i>0$ 则 $\mu_i=0$，该坐标回到等式。$x_i=0$ 则 $\partial u/\partial x_i\le\lambda p_i$：这件商品的边际效用不够买。局部非饱和把预算变成等式；非负约束把一部分商品变成不等式。
+$x_i\gt 0$ 则 $\mu_i=0$，该坐标回到等式。$x_i=0$ 则 $\partial u/\partial x_i\le\lambda p_i$：这件商品的边际效用不够买。局部非饱和把预算变成等式；非负约束把一部分商品变成不等式。
 
 ### 角点不是计算错误
 

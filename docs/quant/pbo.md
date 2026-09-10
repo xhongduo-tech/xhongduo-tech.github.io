@@ -27,10 +27,10 @@ section: quant
 
 ## 方法
 
-**CSCV 步骤。** 将收益矩阵（时间 $\times$ 配置）按时间切成 $S$ 块。对每一个组合 $c$：在训练块上计算每个配置的绩效 $R^{\mathrm{IS}}_{n,c}$，取 $n^\star_c=\arg\max_n R^{\mathrm{IS}}_{n,c}$；在检验块上计算同一批配置的绩效 $R^{\mathrm{OOS}}_{n,c}$，得到 $n^\star_c$ 的相对排名 $\omega_c\in(0,1]$（可取高于其样本外绩效的配置所占比例）。过拟合指示 $1\{\omega_c>1/2\}$（或等价地，冠军样本外低于中位数）。
+**CSCV 步骤。** 将收益矩阵（时间 $\times$ 配置）按时间切成 $S$ 块。对每一个组合 $c$：在训练块上计算每个配置的绩效 $R^{\mathrm{IS}}_{n,c}$，取 $n^\star_c=\arg\max_n R^{\mathrm{IS}}_{n,c}$；在检验块上计算同一批配置的绩效 $R^{\mathrm{OOS}}_{n,c}$，得到 $n^\star_c$ 的相对排名 $\omega_c\in(0,1]$（可取高于其样本外绩效的配置所占比例）。过拟合指示 $1\{\omega_c\gt 1/2\}$（或等价地，冠军样本外低于中位数）。
 
 $$
-\widehat{\mathrm{PBO}}=\frac{1}{|\mathcal{C}|}\sum_{c\in\mathcal{C}} 1\bigl\{\omega_c>1/2\bigr\}.
+\widehat{\mathrm{PBO}}=\frac{1}{|\mathcal{C}|}\sum_{c\in\mathcal{C}} 1\bigl\{\omega_c\gt 1/2\bigr\}.
 $$
 
 Bailey 等人还建议报告 logit 变换与样本内—样本外绩效的相关系数。负相关是过拟合的典型症状；接近零的弱相关也可能只是信噪比太低，未必是技能。

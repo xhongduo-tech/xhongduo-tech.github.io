@@ -27,7 +27,7 @@ section: llm
 
 ## 方法
 
-给定词表 $V$ 与概率 $p(x)>0$（$\sum_{x\in V}p(x)=1$ 在实现里常做成损失归一），字符串 $X$ 的一条分割 $\mathbf{x}=(x_1,\ldots,x_m)$ 的概率是
+给定词表 $V$ 与概率 $p(x)\gt 0$（$\sum_{x\in V}p(x)=1$ 在实现里常做成损失归一），字符串 $X$ 的一条分割 $\mathbf{x}=(x_1,\ldots,x_m)$ 的概率是
 
 $$
 P(\mathbf{x})=\prod_{i=1}^{m} p(x_i).

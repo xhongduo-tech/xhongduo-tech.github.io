@@ -23,7 +23,7 @@ $$
 
 用收益写成 $1=\mathrm{E}[m\,R]$，超额收益写成 $0=\mathrm{E}[m\,R^e]$。缺口不是挑选一个因子，而是先承认：**定价是找一个 $m$，再问它由偏好还是由因子张成。** [或有要求权](/econ/state-contingent)里的状态价格 $\pi(s)$ 就是离散版本：$m(s)=\pi(s)/\mathrm{Prob}(s)$。
 
-<span class="marginnote">无套利给出 $m>0$ 的存在（等价鞅测度）。市场完全时 $m$ 唯一；不完全时 $m$ 是一个集合，价格仍由该集合里任一元素给出。Hansen–Richard：条件信息改变的是投影，不是这套会计。</span>
+<span class="marginnote">无套利给出 $m\gt 0$ 的存在（等价鞅测度）。市场完全时 $m$ 唯一；不完全时 $m$ 是一个集合，价格仍由该集合里任一元素给出。Hansen–Richard：条件信息改变的是投影，不是这套会计。</span>
 
 ## 方法
 
@@ -76,7 +76,7 @@ $m$ 可以依赖不可交易的消费或人力资本，投影到股票市场上�
 
 ## 小结
 
-- 无套利 ⇔ 存在 $m>0$ 使 $p=\mathrm{E}[m x]$。
+- 无套利 ⇔ 存在 $m\gt 0$ 使 $p=\mathrm{E}[m x]$。
 - 风险溢价是收益与 $m$ 的协方差，不是方差本身。
 - 欧拉给出 $m$ 的偏好表示；完全市场给出唯一状态价格。
 - 出处：Harrison and Kreps, *JET* 1979；Hansen and Richard, *Econometrica* 1987；Ross, *Journal of Business* 1978。

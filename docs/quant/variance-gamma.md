@@ -39,7 +39,7 @@ $$
 \omega=\frac1\nu\ln\bigl(1-\theta\nu-\tfrac12\sigma^2\nu\bigr),
 $$
 
-要求 $1-\theta\nu-\sigma^2\nu/2>0$。特征函数
+要求 $1-\theta\nu-\sigma^2\nu/2\gt 0$。特征函数
 
 $$
 \phi(u)=\mathbb{E}[\mathrm{e}^{iu X_t}]=\bigl(1-iu\theta\nu+\tfrac12\sigma^2\nu u^2\bigr)^{-t/\nu}.
@@ -49,7 +49,7 @@ $$
 
 ### 从特征函数读活动性
 
-Lévy 密度可由 $\phi$ 的 Lévy–Khintchine 表示读出：VG 对应 $Y=0$ 的 CGMY 型，密度在零附近像 $1/|x|$，无穷多小跳，积分 $\int_{|x|<1}|x|\Pi(\mathrm{d}x)<\infty$（有限变差），$\int_{|x|<1}\Pi(\mathrm{d}x)=\infty$（无穷活动）。模拟可用伽马增量直接抽 $G_{t+\Delta}-G_t$，再抽条件正态；或把正负跳当成两个伽马过程。没有 Feller 条件，也没有负方差。短步长下路径看起来「毛」，那是无穷小跳，不是离散化把扩散走成跳。
+Lévy 密度可由 $\phi$ 的 Lévy–Khintchine 表示读出：VG 对应 $Y=0$ 的 CGMY 型，密度在零附近像 $1/|x|$，无穷多小跳，积分 $\int_{|x|\lt 1}|x|\Pi(\mathrm{d}x)\lt \infty$（有限变差），$\int_{|x|\lt 1}\Pi(\mathrm{d}x)=\infty$（无穷活动）。模拟可用伽马增量直接抽 $G_{t+\Delta}-G_t$，再抽条件正态；或把正负跳当成两个伽马过程。没有 Feller 条件，也没有负方差。短步长下路径看起来「毛」，那是无穷小跳，不是离散化把扩散走成跳。
 
 校准目标通常是隐含波动切片。$\sigma$ 近似 ATM 水平，$\nu$ 抬翼部，$\theta$ 决定偏斜方向。三个参数对单切片识别尚可，对日历价差几乎没有额外自由：独立增量把 $T$ 与 $2T$ 的分布锁成同一无穷可分律的幂，期限结构形状是模型输出，不是输入。这与 Dupire、Heston、Bergomi 都相反。
 

@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-你已经为任务 $t$ 付过一次 SFT（全参或可物化的[LoRA](/llm/lora)）。现在要减弱 $t$（过时技能、误加的风格、需去掉的能力），却不想维护 $D_f$ 做 RMU 或反向梯度。若适应近似沿一条直线，退回去应当削弱 $t$。问题：$\tau_t$ 与其它任务是否正交？$\lambda>1$ 会不会越过 $\theta_{\mathrm{pre}}$ 把通用能力也打负？多任务曾用 $\theta_{\mathrm{pre}}+\tau_1+\tau_2$ 相加，负号只是其中一项取负——冲突与合并课同源。
+你已经为任务 $t$ 付过一次 SFT（全参或可物化的[LoRA](/llm/lora)）。现在要减弱 $t$（过时技能、误加的风格、需去掉的能力），却不想维护 $D_f$ 做 RMU 或反向梯度。若适应近似沿一条直线，退回去应当削弱 $t$。问题：$\tau_t$ 与其它任务是否正交？$\lambda\gt 1$ 会不会越过 $\theta_{\mathrm{pre}}$ 把通用能力也打负？多任务曾用 $\theta_{\mathrm{pre}}+\tau_1+\tau_2$ 相加，负号只是其中一项取负——冲突与合并课同源。
 
 LLM 全参 $\tau$ 与模型同大，存一份差很贵。LoRA 的 $\tau$ 就是 $\gamma BA$（相对挂载前），负任务向量 = 减去该适配器，几乎免费。若知识在 $\theta_{\mathrm{pre}}$ 里而不在 $\tau$ 里，取负无效：只能削弱「这次微调新增的」，不能削弱预训练先验。这与[遗忘课](/llm/machine-unlearning)「LoRA 去不掉预训练知识」一致。
 
@@ -43,7 +43,7 @@ flowchart LR
 
 一阶看，$\theta_{\mathrm{pre}}+\tau_t$ 沿微调弦走到终点。负号沿弦反向。若损失在该方向上近似凸且其它任务的梯度与 $\tau_t$ 内积小，则 $t$ 弱化、其它任务少动。内积大时，负 $\tau_t$ 等于损坏共享特征，效用栏崩。这就是为何要正交性假设，以及为何[内在秩](/llm/lora-intrinsic-rank)低的适应更适合算术：$\tau$ 能量集中，比较像一条技能轴。
 
-$\lambda>1$ 是外推：可能比 $\theta_{\mathrm{pre}}$ 更不会做 $t$，也可能离开预训练流形。必须靠效用栏截断。LoRA 负向量：$-\gamma BA$ 加回 $W_0$，与从未挂载等价当 $\lambda=1$；$\lambda\neq 1$ 是部分挂载或过校正。
+$\lambda\gt 1$ 是外推：可能比 $\theta_{\mathrm{pre}}$ 更不会做 $t$，也可能离开预训练流形。必须靠效用栏截断。LoRA 负向量：$-\gamma BA$ 加回 $W_0$，与从未挂载等价当 $\lambda=1$；$\lambda\neq 1$ 是部分挂载或过校正。
 
 <span class="marginnote">回放是数据空间的折中；负任务向量是权重空间的折中。可以先回放再算术，但难归因。默认选一种主方法。</span>
 
@@ -55,7 +55,7 @@ $\lambda>1$ 是外推：可能比 $\theta_{\mathrm{pre}}$ 更不会做 $t$，也
 
 - 任务向量 $\tau_t=\theta_t-\theta_{\mathrm{pre}}$；加增强、减削弱。
 - 只能削弱写在 $\tau_t$ 里的适应，不能减去预训练先验。
-- $\lambda$ 必须用遗忘卡扫描；$\lambda>1$ 是外推。
+- $\lambda$ 必须用遗忘卡扫描；$\lambda\gt 1$ 是外推。
 - 多任务加减与 LoRA 合并同一类冲突。
 - LoRA 上负向量几乎就是卸载或缩放卸载。
 - 出处：Ilharco 等，Task Arithmetic，ICLR 2023；度量承接 TOFU / WMDP / 局部性评测。

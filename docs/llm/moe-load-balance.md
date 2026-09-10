@@ -30,7 +30,7 @@ f_i=\frac{1}{T}\sum_{t=1}^{T}\mathbf{1}[i\in\mathcal{E}(x_t)],\qquad
 P_i=\frac{1}{T}\sum_{t=1}^{T}p_i(x_t).
 $$
 
-$f_i$ 是专家 $i$ 被选中的分数（$k=1$ 时和为 1；$k>1$ 时常改成按 token 归一的分配份额）。$P_i$ 是平均路由概率。辅助损失为
+$f_i$ 是专家 $i$ 被选中的分数（$k=1$ 时和为 1；$k\gt 1$ 时常改成按 token 归一的分配份额）。$P_i$ 是平均路由概率。辅助损失为
 
 $$
 \mathcal{L}_{\mathrm{aux}}=\alpha\, N\sum_{i=1}^{N} f_i P_i.

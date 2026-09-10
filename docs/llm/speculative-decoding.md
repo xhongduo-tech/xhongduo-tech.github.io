@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-iteration-level 调度拆的是请求级屏障，拆不掉长度为 $T$ 的自回归链：目标模型 $p(x_t\mid x_{<t})$ 每步必须看见真实的已接受前缀。缩短这条链的合法方式只有：在一次目标前向里检查多个未来位置。这要求有人先把未来位置的 token **填上**，否则因果模型没有可并行的查询。填的人必须便宜，否则总时间变成「贵串行 + 更贵串行」。填错了必须能改，而且改完的分布不能漂到草稿上——否则加速以改变模型行为为代价，评测与安全承诺都失效。
+iteration-level 调度拆的是请求级屏障，拆不掉长度为 $T$ 的自回归链：目标模型 $p(x_t\mid x_{\lt t})$ 每步必须看见真实的已接受前缀。缩短这条链的合法方式只有：在一次目标前向里检查多个未来位置。这要求有人先把未来位置的 token **填上**，否则因果模型没有可并行的查询。填的人必须便宜，否则总时间变成「贵串行 + 更贵串行」。填错了必须能改，而且改完的分布不能漂到草稿上——否则加速以改变模型行为为代价，评测与安全承诺都失效。
 
 于是问题收成三条：如何提出候选（草稿）；如何在一次前向里给每个候选位置算出目标分布（并行校验）；如何决定接受多少、拒绝后从什么分布再采样（无损耦合）。Leviathan 等人的算法同时给了后两条的标准答案；第一条可以是任意近似模型，包括更小的 Transformer。
 
@@ -27,14 +27,14 @@ Prefill 已经高度并行，投机收益小。Decode 每步算术强度低，�
 
 ## 方法
 
-设已有前缀 $x$。草稿 $q$ 自回归写出 $\tilde x_1,\ldots,\tilde x_\gamma$，并留下各步的 $q(\cdot\mid x,\tilde x_{<i})$。目标模型对序列 $(x,\tilde x_1,\ldots,\tilde x_\gamma)$ 做一次前向，得到每个位置的 $p(\cdot\mid x,\tilde x_{<i})$，外加最后一个位置的分布用于可能的额外 token。然后从左到右扫描。
+设已有前缀 $x$。草稿 $q$ 自回归写出 $\tilde x_1,\ldots,\tilde x_\gamma$，并留下各步的 $q(\cdot\mid x,\tilde x_{\lt i})$。目标模型对序列 $(x,\tilde x_1,\ldots,\tilde x_\gamma)$ 做一次前向，得到每个位置的 $p(\cdot\mid x,\tilde x_{\lt i})$，外加最后一个位置的分布用于可能的额外 token。然后从左到右扫描。
 
 ### 接受–拒绝与补采样
 
 对第 $i$ 个草稿 token $\tilde x_i$，以概率
 
 $$
-\min\left(1,\frac{p(\tilde x_i\mid \mathrm{prefix}_{<i})}{q(\tilde x_i\mid \mathrm{prefix}_{<i})}\right)
+\min\left(1,\frac{p(\tilde x_i\mid \mathrm{prefix}_{\lt i})}{q(\tilde x_i\mid \mathrm{prefix}_{\lt i})}\right)
 $$
 
 接受。若接受，前缀增长，继续看 $i+1$。若拒绝，丢掉 $i$ 及其右侧全部草稿，从修正分布

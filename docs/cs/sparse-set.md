@@ -18,7 +18,7 @@ section: cs
 需要：`add`/`remove`/`contains`、迭代当前 $n$ 个成员、以及反复 `clear`。位图 `clear` 是 $\Theta(U/w)$；哈希常数大且不保插入序。稀疏集合：`dense[0..n)` 存元素，$`sparse[x]`$ 若有效则指向 `dense` 中位置。不变式：
 
 $$
-x\in S \iff 0\le \mathrm{sparse}[x]<n \ \land\ \mathrm{dense}[\mathrm{sparse}[x]]=x.
+x\in S \iff 0\le \mathrm{sparse}[x]\lt n \ \land\ \mathrm{dense}[\mathrm{sparse}[x]]=x.
 $$
 
 `sparse` 的垃圾值只要不满足往返就不会被当成成员——因此**不必初始化 `sparse`**。缺口是这个往返测试，不是新的散列。
@@ -27,12 +27,12 @@ $$
 
 ## 方法
 
-`contains(x)`：读 $i=\mathrm{sparse}[x]$，判断 $i<n$ 且 `dense[i]==x`。`add`：已在则返回；否则 `dense[n]=x`，`sparse[x]=n`，$n{+}{+}$。`remove`：与末尾交换并改 `sparse`。`clear`：$n\leftarrow 0$，旧 `sparse` 槽全部失效。迭代扫 `dense[0..n)`。
+`contains(x)`：读 $i=\mathrm{sparse}[x]$，判断 $i\lt n$ 且 `dense[i]==x`。`add`：已在则返回；否则 `dense[n]=x`，`sparse[x]=n`，$n{+}{+}$。`remove`：与末尾交换并改 `sparse`。`clear`：$n\leftarrow 0$，旧 `sparse` 槽全部失效。迭代扫 `dense[0..n)`。
 
 ```mermaid
 flowchart TD
   X["候选 x"] --> SP["i = sparse[x]"]
-  SP --> CK["i < n 且 dense[i] = x"]
+  SP --> CK["i ＜ n 且 dense[i] = x"]
   CK --> IN["在集合中"]
 ```
 

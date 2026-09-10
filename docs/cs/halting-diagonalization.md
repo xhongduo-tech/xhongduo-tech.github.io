@@ -23,7 +23,7 @@ section: cs
 
 $\Sigma^*$ 可数，语言不可数，故存在不可识别语言。对角化给出**具体**的不可判定语言，而且仍 RE。纯基数不给出 $A_{\mathrm{TM}}$。
 
-<span class="marginnote">Turing 1936 证明判定问题无解。课堂把接受问题与停机问题分成两个语言。Cantor 对角化是同一手法在 $\{0,1\}^{\mathbb{N}}$ 上；这里翻的是「第 $M$ 台机器在输入 $\langle M\rangle$ 上」。</span>
+<span class="marginnote"> Turing 1936 证明判定问题无解。课堂把接受问题与停机问题分成两个语言。Cantor 对角化是同一手法在 $\{0,1\}^{\mathbb{N}}$ 上；这里翻的是「第 $M$ 台机器在输入 $\langle M\rangle$ 上」。</span> 
 
 ## 方法
 
@@ -31,9 +31,9 @@ $\Sigma^*$ 可数，语言不可数，故存在不可识别语言。对角化给
 
 ```mermaid
 flowchart TD
-  H["假设 H 判定 A_TM"] --> D["D 翻转 H 在 ⟨M,⟨M⟩⟩"]
-  D --> CONTR["D⟨D⟩ 矛盾"]
-  CONTR --> UNDEC["A_TM 不可判定"]
+  H["假设 H 判定 A_TM"] --\gt  D["D 翻转 H 在 ⟨M,⟨M⟩⟩"]
+  D --\gt  CONTR["D⟨D⟩ 矛盾"]
+  CONTR --\gt  UNDEC["A_TM 不可判定"]
 ```
 
 不要把「程序员看不出来会不会停」当成证明：那是经验，对角化是存在性矛盾。

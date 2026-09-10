@@ -23,7 +23,7 @@ section: cs
 
 二义文法（if-else、加减乘）在 LALR 上会移进/归约冲突。bison 用优先级与结合性给冲突格一个确定动作。这是工具约定，语言的无二义性并未被证明——只是表变成函数。
 
-<span class="marginnote">Johnson 的 yacc 服务 Unix C 编译器。GNU bison 兼容并扩展（`%glr-parser` 点名，下一课才讲 GLR）。龙书 4.8–4.9 节把生成器当 LALR 的落地。</span>
+<span class="marginnote"> Johnson 的 yacc 服务 Unix C 编译器。GNU bison 兼容并扩展（`%glr-parser` 点名，下一课才讲 GLR）。龙书 4.8–4.9 节把生成器当 LALR 的落地。</span> 
 
 ## 方法
 
@@ -31,10 +31,10 @@ section: cs
 
 ```mermaid
 flowchart TD
-  Y["文法 .y"] --> GEN["yacc / bison"]
-  GEN --> TBL["LALR 表 + yyparse"]
-  LEX["yylex"] --> TBL
-  TBL --> AST["语义值 / AST"]
+  Y["文法 .y"] --\gt  GEN["yacc / bison"]
+  GEN --\gt  TBL["LALR 表 + yyparse"]
+  LEX["yylex"] --\gt  TBL
+  TBL --\gt  AST["语义值 / AST"]
 ```
 
 中期：把词法规则与语法规则分成两个文件，用共享的记号枚举。不要在 lex 动作里解析表达式。

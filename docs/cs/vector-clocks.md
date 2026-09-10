@@ -7,7 +7,7 @@ section: cs
 # 向量时钟
 
 <div class="epigraph">
-<p>$a\to b$ 当且仅当 $V(a)<V(b)$。标量 Lamport 钟保存因果的「若」，向量钟把并发也标出来。</p>
+<p>$a\to b$ 当且仅当 $V(a)\lt V(b)$。标量 Lamport 钟保存因果的「若」，向量钟把并发也标出来。</p>
 <footer>—— 据 Lamport, Time, Clocks, and the Ordering of Events in a Distributed System, CACM 1978；Fidge, 1988；Mattern, 1989 整理</footer>
 </div>
 
@@ -15,9 +15,9 @@ section: cs
 
 ## 问题
 
-Lamport：$a\to b$（happened-before）是最小传递关系，含同一进程内的程序顺序，以及「发消息先于对应收消息」。并发：$a\nrightarrow b$ 且 $b\nrightarrow a$。标量逻辑钟 $C$ 满足 $a\to b\Rightarrow C(a)<C(b)$，逆命题不成立：钟大的不一定是因果后继，可能只是并发被编号排了队。
+Lamport：$a\to b$（happened-before）是最小传递关系，含同一进程内的程序顺序，以及「发消息先于对应收消息」。并发：$a\nrightarrow b$ 且 $b\nrightarrow a$。标量逻辑钟 $C$ 满足 $a\to b\Rightarrow C(a)\lt C(b)$，逆命题不成立：钟大的不一定是因果后继，可能只是并发被编号排了队。
 
-缺口：复制、调试、垃圾回收要问「这两次写是否并发」。标量钟回答不了。向量钟 $V$ 是 $n$ 维计数器，$V(a)<V(b)$（逐分量 $\le$ 且至少一处 $<$）当且仅当 $a\to b$。
+缺口：复制、调试、垃圾回收要问「这两次写是否并发」。标量钟回答不了。向量钟 $V$ 是 $n$ 维计数器，$V(a)\lt V(b)$（逐分量 $\le$ 且至少一处 $\lt $）当且仅当 $a\to b$。
 
 <span class="marginnote">Fidge 与 Mattern 独立给出向量形式。Lamport 1978 的标量钟仍是发送时带时间戳、取 max 再加一的骨架。</span>
 

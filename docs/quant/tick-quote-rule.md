@@ -26,8 +26,8 @@ section: quant
 $$
 D_t^{\mathrm{Q}}=
 \begin{cases}
-+1, & P_t>M_{t-}\\
--1, & P_t<M_{t-}\\
++1, & P_t\gt M_{t-}\\
+-1, & P_t\lt M_{t-}\\
 \text{NA}, & P_t=M_{t-}
 \end{cases}
 $$

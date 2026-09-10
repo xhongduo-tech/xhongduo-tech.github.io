@@ -27,11 +27,11 @@ section: quant
 
 ## 方法
 
-**QLIKE。** 对每个 $t$，用 $\hat h_t$ 与 $RV_t$ 算损失，样本外平均。数值上 $\hat h_t>0$ 强制，GARCH 要检查。QLIKE 重罚低估波动（$x/h$ 大），对风控比对称 MSE 更对口。
+**QLIKE。** 对每个 $t$，用 $\hat h_t$ 与 $RV_t$ 算损失，样本外平均。数值上 $\hat h_t\gt 0$ 强制，GARCH 要检查。QLIKE 重罚低估波动（$x/h$ 大），对风控比对称 MSE 更对口。
 
 **推断。** Diebold–Mariano 对损失差做 t，HAC 滞后与重叠地平线匹配。嵌套模型（GARCH 对常数方差）DM 的零分布非标准，应用 Clark–West 或自助。多模型用 Hansen SPA 或 Romano–Wolf，避免「扫十个 HAR 变体再报最佳」。
 
-**校准。** Mincer–Zarnowitz：$RV_{t+1}=a+b\hat h_{t+1}+e$，无偏要 $a=0,b=1$，标准误 HAC。$b<1$ 常见于噪声代理导致的衰减，不一定是预测有偏——又一个 Patton 警告。应同时看 QLIKE 与 MZ，不单看 $R^2$。
+**校准。** Mincer–Zarnowitz：$RV_{t+1}=a+b\hat h_{t+1}+e$，无偏要 $a=0,b=1$，标准误 HAC。$b\lt 1$ 常见于噪声代理导致的衰减，不一定是预测有偏——又一个 Patton 警告。应同时看 QLIKE 与 MZ，不单看 $R^2$。
 
 ### 与 VaR 回测分工
 

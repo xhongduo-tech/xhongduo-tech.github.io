@@ -23,7 +23,7 @@ section: cs
 
 回文子序列是另一 DP。本课连续子串。不要用 LCS 与反串当本课主算法——那是 $O(n^2)$。
 
-<span class="marginnote">Manacher 1975。后课最小表示是旋转，不是回文。回文树（eertree）点名。</span>
+<span class="marginnote"> Manacher 1975。后课最小表示是旋转，不是回文。回文树（eertree）点名。</span> 
 
 ## 方法
 
@@ -31,9 +31,9 @@ section: cs
 
 ```mermaid
 flowchart TD
-  S["插 # 统一奇心"] --> C["中心 c, 右界 r"]
-  C --> P["半径 p[i]"]
-  P --> PAL["全部回文子串半径"]
+  S["插 # 统一奇心"] --\gt  C["中心 c, 右界 r"]
+  C --\gt  P["半径 p[i]"]
+  P --\gt  PAL["全部回文子串半径"]
 ```
 
 计数不同回文子串要再处理。

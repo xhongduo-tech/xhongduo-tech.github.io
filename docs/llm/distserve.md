@@ -21,7 +21,7 @@ Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 的 DistServe 把「前填与�
 
 ### Goodput 不是吞吐
 
-吞吐可以靠牺牲延迟堆上去。DistServe 优化的是在 TTFT 与 TPOT **同时**满足（评测里对 $>90\%$ 请求达标）时，每 GPU 能吃的请求率。这个指标让「拆开之后多复制了一份权重」的代价可见：权重多占卡，但若干扰消失、并行更贴合，达标速率仍可升。只报吞吐，分离看起来永远赢，因为可以把延迟藏在队列里。
+吞吐可以靠牺牲延迟堆上去。DistServe 优化的是在 TTFT 与 TPOT **同时**满足（评测里对 $\gt 90\%$ 请求达标）时，每 GPU 能吃的请求率。这个指标让「拆开之后多复制了一份权重」的代价可见：权重多占卡，但若干扰消失、并行更贴合，达标速率仍可升。只报吞吐，分离看起来永远赢，因为可以把延迟藏在队列里。
 
 <span class="marginnote">实例（instance）在 DistServe 里是「一份完整模型权重对应的资源」，内部可以有多卡模型并行。拆分后有 prefill 实例与 decoding 实例，权重至少两份。不要把「一张卡既做 P 又做 D」还叫做这篇论文里的分离。</span>
 
@@ -69,7 +69,7 @@ Sarathi 一类切块把 stall 的上界钉在 $\tau$ 上，但每一拍仍是混
 
 不要伪造第三篇「PD 分离原论文」的 arXiv。可引用的就是 DistServe（arXiv:2401.09670）与 Splitwise（arXiv:2311.18677）。后续生产框架的实现以各自文档为准，性能数字随版本变。
 
-<span class="marginnote">出处钉 Zhong 等 *DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving*，OSDI 2024，arXiv:2401.09670。7.4× / 12.6× 必须带着「$>90\%$ 双 SLO 达标」一起抄，去掉约束就不是这篇的指标。</span>
+<span class="marginnote">出处钉 Zhong 等 *DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving*，OSDI 2024，arXiv:2401.09670。7.4× / 12.6× 必须带着「$\gt 90\%$ 双 SLO 达标」一起抄，去掉约束就不是这篇的指标。</span>
 
 ## 小结
 

@@ -23,7 +23,7 @@ section: cs
 
 ## 方法
 
-优化器比较：colocated < broadcast < shuffle（通常）。强制提示可钉。bloom 过滤器随广播或 shuffle 前过滤。外连接：broadcast 方向受限（只能广播被保留侧的对面等），与外连接下推防火墙同类。
+优化器比较：colocated $\lt$ broadcast $\lt$ shuffle（通常）。强制提示可钉。bloom 过滤器随广播或 shuffle 前过滤。外连接：broadcast 方向受限（只能广播被保留侧的对面等），与外连接下推防火墙同类。
 
 ```mermaid
 flowchart TD

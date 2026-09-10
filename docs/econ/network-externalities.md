@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Katz and Shapiro, Network Externalities, Competition, and Compatibility, American Economic Review, 1985 整理</footer>
 </div>
 
-[上一课](/econ/vertical-differentiation)（垂直差异）。质量排序一致，$\theta$ 切开谁买哪一档；固定成本型质量可以给出自然寡头。本课不重写 Mussa–Rosen 菜单，也不把 $s_H>s_L$ 再选一遍。缺口是采用外部性：别人买同一系统，我的净效用上升——这不是「人人同意质量更高」，规模本身进入支付意愿。Katz–Shapiro 把预期安装基础做成均衡对象。
+[上一课](/econ/vertical-differentiation)（垂直差异）。质量排序一致，$\theta$ 切开谁买哪一档；固定成本型质量可以给出自然寡头。本课不重写 Mussa–Rosen 菜单，也不把 $s_H\gt s_L$ 再选一遍。缺口是采用外部性：别人买同一系统，我的净效用上升——这不是「人人同意质量更高」，规模本身进入支付意愿。Katz–Shapiro 把预期安装基础做成均衡对象。
 
 ## 问题
 

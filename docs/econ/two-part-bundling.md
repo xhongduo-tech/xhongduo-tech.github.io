@@ -27,7 +27,7 @@ section: econ
 
 ## 方法
 
-同质：直接验证 $p=\mathrm{MC}$、$A=\mathrm{CS}$。异质：类型 $\theta$ 的需求 $q(p,\theta)$，参与约束 $A\le\mathrm{CS}(p,\theta)$ 对边际类型紧。提高 $p$ 放松对高类型抽取的限制，但扭曲用量；最优 $p>\mathrm{MC}$ 是次优。连续类型、激励相容的非线性价目接到[筛选](/econ/screening-rent)，本课只钉两部这一维。
+同质：直接验证 $p=\mathrm{MC}$、$A=\mathrm{CS}$。异质：类型 $\theta$ 的需求 $q(p,\theta)$，参与约束 $A\le\mathrm{CS}(p,\theta)$ 对边际类型紧。提高 $p$ 放松对高类型抽取的限制，但扭曲用量；最优 $p\gt \mathrm{MC}$ 是次优。连续类型、激励相容的非线性价目接到[筛选](/econ/screening-rent)，本课只钉两部这一维。
 
 捆绑：比较三种利润——分开卖、只卖包、混合。评价独立或正相关时，捆绑增益小；负相关时包的需求更集中。成本超可加会吃掉捆绑的理由。不要用三级的 $\mathrm{MR}_i=\mathrm{MC}$ 套到包上而不声明需求如何加总。
 

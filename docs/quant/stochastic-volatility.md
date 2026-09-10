@@ -42,7 +42,7 @@ dS_t=\mu S_t\,dt+\sqrt{v_t}S_t\,dW^S_t,\qquad
 dv_t=\kappa(\theta-v_t)\,dt+\xi\sqrt{v_t}\,dW^v_t,
 $$
 
-$\mathrm{Corr}(dW^S,dW^v)=\rho$。$\rho<0$ 是连续时间的杠杆。Feller 条件 $2\kappa\theta>\xi^2$ 防止方差碰到零。期权定价用特征函数反演，这是 Heston 相对早期 Hull–White、Scott 模型的工程优势：不必对每张期权都 Monte Carlo。
+$\mathrm{Corr}(dW^S,dW^v)=\rho$。$\rho\lt 0$ 是连续时间的杠杆。Feller 条件 $2\kappa\theta\gt \xi^2$ 防止方差碰到零。期权定价用特征函数反演，这是 Heston 相对早期 Hull–White、Scott 模型的工程优势：不必对每张期权都 Monte Carlo。
 
 ### 估计对象要写清是收益还是期权面
 
@@ -50,7 +50,7 @@ $\mathrm{Corr}(dW^S,dW^v)=\rho$。$\rho<0$ 是连续时间的杠杆。Feller 条
 
 ## 机制
 
-乘积过程：收益等于噪声乘以缓慢变动的尺度。尺度的自回归产生波动聚集；尺度的额外冲击产生「波动可以自己跳」的路径，从而使收益的峰度与期权的微笑不再完全由过去 $r^2$ 决定。杠杆 $\rho<0$ 或 $\mathrm{Corr}(z,\eta)<0$ 让价格下跌与方差上升同时发生，生成偏斜的风险中性密度，这是 Heston 能拟合偏度的机制。GARCH 的非对称（EGARCH/GJR）把同一现象写进可测方程，下一步 $\sigma$ 在下跌后确定性地更高；SV 允许下跌当日方差就被相关布朗运动抬起，时点更「同期」。
+乘积过程：收益等于噪声乘以缓慢变动的尺度。尺度的自回归产生波动聚集；尺度的额外冲击产生「波动可以自己跳」的路径，从而使收益的峰度与期权的微笑不再完全由过去 $r^2$ 决定。杠杆 $\rho\lt 0$ 或 $\mathrm{Corr}(z,\eta)\lt 0$ 让价格下跌与方差上升同时发生，生成偏斜的风险中性密度，这是 Heston 能拟合偏度的机制。GARCH 的非对称（EGARCH/GJR）把同一现象写进可测方程，下一步 $\sigma$ 在下跌后确定性地更高；SV 允许下跌当日方差就被相关布朗运动抬起，时点更「同期」。
 
 滤波机制：观测 $r_t$ 只告诉你 $|r_t|$ 大则 $h_t$ 可能大，但仍有 $z_t$ 与 $\eta_t$ 的混淆。RV 出现后，一日之内有大量平方和，$h_t$ 几乎被钉住，SV 与已实现测量模型开始合流。没有 RV 时，SV 的滤波宽度可以很大，一步 VaR 的点预测未必赢 GARCH，赢的是对密度与期权的描述。
 

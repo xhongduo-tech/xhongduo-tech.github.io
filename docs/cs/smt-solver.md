@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Nelson and Oppen, 1979；Barrett et al., SMT-LIB；Kroening and Strichman 整理</footer>
 </div>
 
-上一课[CDCL](/cs/dpll-cdcl) 只懂 0-1 子句。Hoare 的 VC 含 $i+1<n$、数组读。缺口是 **SMT**：$\mathrm{QF\_LIA}$、$\mathrm{QF\_BV}$、数组。本课钉 DPLL(T) 形状，不把一阶完全性请回来——带量词的碎片许多不可判定，求解器靠实例化启发式。
+上一课[CDCL](/cs/dpll-cdcl) 只懂 0-1 子句。Hoare 的 VC 含 $i+1\lt n$、数组读。缺口是 **SMT**：$\mathrm{QF\_LIA}$、$\mathrm{QF\_BV}$、数组。本课钉 DPLL(T) 形状，不把一阶完全性请回来——带量词的碎片许多不可判定，求解器靠实例化启发式。
 
 ## 问题
 

@@ -30,7 +30,7 @@ section: llm
 1. 本地计算路由，得到每个 token 的专家编号。
 2. **Dispatch All-to-All**：按专家所在设备重排 token。
 3. 各卡只跑自己拥有的专家 FFN。
-4. **Combine All-to-All**：按原 token 顺序把输出送回，若 $k>1$ 再加权求和。
+4. **Combine All-to-All**：按原 token 顺序把输出送回，若 $k\gt 1$ 再加权求和。
 
 GShard 允许 $k=2$，每个 token 可能去两张卡；Switch 取 $k=1$，一次分发、一次合并，通信体积大约减半，实现路径也更直。容量因子 $c$ 决定每个专家的槽位数 $C=\lceil c\cdot T/N\rceil$，其中 $T$ 是这一层看到的 token 数。预训练配置里 $c$ 略大于 1，用来吸收路由的自然波动，而不把链路打满。
 

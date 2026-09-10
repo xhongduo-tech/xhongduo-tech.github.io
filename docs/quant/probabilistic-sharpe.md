@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey and López de Prado, The Sharpe Ratio Efficient Frontier, Journal of Risk, 2012</footer>
 </div>
 
-[Deflated Sharpe](/quant/deflated-sharpe) 把 PSR 当成 DSR 的构件一笔带过：先有「超过阈值的概率」，再把阈值换成多次试验的极值。Bailey 与 López de Prado 2012 年在 *Journal of Risk* 的 *The Sharpe Ratio Efficient Frontier* 里，PSR 是**主对象**。它回答单次（或预先指定的）策略：给定观测夏普、样本长度、偏度与峰度，$\mathbb{P}(\mathrm{SR}>\mathrm{SR}^*)$ 的渐近估计是多少。$\mathrm{SR}^*$ 可以是 0，可以是融资与风险厌恶要求的最低夏普，也可以是另一个基准策略的夏普。DSR 是两年后才加上「被选过的最大值」这一层。本篇写 PSR 本身、非正态修正、两条策略的比较，以及原文的夏普有效前沿——在给定高阶矩下，夏普不能任意高。不把 PSR 再讲成 DSR。
+[Deflated Sharpe](/quant/deflated-sharpe) 把 PSR 当成 DSR 的构件一笔带过：先有「超过阈值的概率」，再把阈值换成多次试验的极值。Bailey 与 López de Prado 2012 年在 *Journal of Risk* 的 *The Sharpe Ratio Efficient Frontier* 里，PSR 是**主对象**。它回答单次（或预先指定的）策略：给定观测夏普、样本长度、偏度与峰度，$\mathbb{P}(\mathrm{SR}\gt \mathrm{SR}^*)$ 的渐近估计是多少。$\mathrm{SR}^*$ 可以是 0，可以是融资与风险厌恶要求的最低夏普，也可以是另一个基准策略的夏普。DSR 是两年后才加上「被选过的最大值」这一层。本篇写 PSR 本身、非正态修正、两条策略的比较，以及原文的夏普有效前沿——在给定高阶矩下，夏普不能任意高。不把 PSR 再讲成 DSR。
 
 ## 问题
 
@@ -21,7 +21,7 @@ $$
 \widehat{\mathrm{PSR}}(\mathrm{SR}^*)=Z\left[\frac{(\widehat{\mathrm{SR}}-\mathrm{SR}^*)\sqrt{T-1}}{\sqrt{1-\hat\gamma_3\widehat{\mathrm{SR}}+\frac{\hat\gamma_4-1}{4}\widehat{\mathrm{SR}}^2}}\right],
 $$
 
-$Z$ 为标准正态 CDF。直观：$\widehat{\mathrm{SR}}$ 越高于阈值、$\sqrt{T}$ 越大、高阶矩越接近正态，PSR 越高。左偏或肥尾抬高分母，同样的点估计对应更低的 PSR。问题是把夏普从「表上的一个数」还原成「对 $\mathrm{SR}>\mathrm{SR}^*$ 的检验」。
+$Z$ 为标准正态 CDF。直观：$\widehat{\mathrm{SR}}$ 越高于阈值、$\sqrt{T}$ 越大、高阶矩越接近正态，PSR 越高。左偏或肥尾抬高分母，同样的点估计对应更低的 PSR。问题是把夏普从「表上的一个数」还原成「对 $\mathrm{SR}\gt \mathrm{SR}^*$ 的检验」。
 
 阈值必须预先声明。看完 $\widehat{\mathrm{SR}}=1.4$ 再把 $\mathrm{SR}^*$ 设为 1.3，PSR 接近 1 没有信息。合法的 $\mathrm{SR}^*$：0；资金成本折明年化后的最低可接受；或对照组的样本夏普（比较用）。
 

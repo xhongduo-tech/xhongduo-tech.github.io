@@ -11,7 +11,7 @@ section: llm
     <footer>—— Chen 等，Noise Contrastive Alignment of Language Models with Explicit Rewards，NeurIPS 2024</footer>
 </div>
 
-UltraFeedback 一类数据往往给同一提示打出 $K>2$ 条回答和标量分，再被裁成最高分对随机一条，送进 [DPO](/llm/dpo)。中间两条次优回答和分值都被扔掉。Chen 等人用噪声对比估计（NCE / InfoNCE）把对齐接回生成模型里的对比学习：InfoNCA 把「哪一条更像最优策略的样本」写成多类交叉熵，DPO 是它在成对、硬标签下的极限；NCA 则用二元 NCE，优化每条回答的绝对隐含奖励，用来对付 DPO 训练中喜欢侧似然一路下降的现象。两者都能吃奖励数据集和偏好数据集。本篇按论文把 InfoNCA 与 NCA 放在同一框架里写，标题沿用作者强调的 NCA 这一支。
+UltraFeedback 一类数据往往给同一提示打出 $K\gt 2$ 条回答和标量分，再被裁成最高分对随机一条，送进 [DPO](/llm/dpo)。中间两条次优回答和分值都被扔掉。Chen 等人用噪声对比估计（NCE / InfoNCE）把对齐接回生成模型里的对比学习：InfoNCA 把「哪一条更像最优策略的样本」写成多类交叉熵，DPO 是它在成对、硬标签下的极限；NCA 则用二元 NCE，优化每条回答的绝对隐含奖励，用来对付 DPO 训练中喜欢侧似然一路下降的现象。两者都能吃奖励数据集和偏好数据集。本篇按论文把 InfoNCA 与 NCA 放在同一框架里写，标题沿用作者强调的 NCA 这一支。
 
 ## 问题
 
@@ -33,7 +33,7 @@ $$
 \mathcal{L}^{\mathrm{InfoNCA}}=-\sum_{i=1}^{K}\frac{e^{r_i/\alpha}}{\sum_j e^{r_j/\alpha}}\log\frac{e^{r_\theta(x,y_i)}}{\sum_j e^{r_\theta(x,y_j)}}.
 $$
 
-$K=2$ 且 $\alpha\to 0$ 时软标签变成 one-hot 赢家，目标退化为 DPO 的 $-\log\sigma(r_w-r_l)$。$\alpha>0$ 时次优回答仍按 softmax 权重贡献梯度，$K$ 增大相当于用更多样本估计配分。NCA 的奖励数据损失为
+$K=2$ 且 $\alpha\to 0$ 时软标签变成 one-hot 赢家，目标退化为 DPO 的 $-\log\sigma(r_w-r_l)$。$\alpha\gt 0$ 时次优回答仍按 softmax 权重贡献梯度，$K$ 增大相当于用更多样本估计配分。NCA 的奖励数据损失为
 
 $$
 \mathcal{L}^{\mathrm{NCA}}=-\sum_{i=1}^{K}\Biggl[\frac{e^{r_i/\alpha}}{\sum_j e^{r_j/\alpha}}\log\sigma\bigl(r_\theta(x,y_i)\bigr)+\frac1K\log\sigma\bigl(-r_\theta(x,y_i)\bigr)\Biggr].
@@ -73,7 +73,7 @@ InfoNCA 在指令跟随的 GPT-4 评估上可以略高于 NCA；NCA 的优势写
 
 ## 边界与工程取舍
 
-有标量分且 $K>2$ 时，InfoNCA / NCA 才发挥数据利用率；只有成对时 InfoNCA 即 DPO，值得试的是 NCA。两者都要参考 $\mu$ 与 $\beta$，前向与 DPO 同级，另加 $K$ 条的 softmax。$K$ 受显存限制，同一提示的多条回答要对齐 padding。奖励模型的尺度必须与 $\alpha$ 匹配：分是 0/1 还是百分制，softmax 形状完全不同，应先标准化再扫 $\alpha$。
+有标量分且 $K\gt 2$ 时，InfoNCA / NCA 才发挥数据利用率；只有成对时 InfoNCA 即 DPO，值得试的是 NCA。两者都要参考 $\mu$ 与 $\beta$，前向与 DPO 同级，另加 $K$ 条的 softmax。$K$ 受显存限制，同一提示的多条回答要对齐 padding。奖励模型的尺度必须与 $\alpha$ 匹配：分是 0/1 还是百分制，softmax 形状完全不同，应先标准化再扫 $\alpha$。
 
 它不是在线 RL，不采样新回答。次优回答若来自完全不同的模型族，作为 $\mu$ 下的噪声对照会错位。论文保证的是理想条件下收敛到最优策略的理论命题，有限 $K$ 与错指定奖励时只是启发式。
 

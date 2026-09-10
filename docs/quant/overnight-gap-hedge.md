@@ -41,7 +41,7 @@ $$
 
 ### 波动率跳与交叉希腊
 
-隔夜不只动 $S$。财报后隐含波动常崩溃（事件落地），$\Delta\sigma<0$，多头 Vega 亏损，空头 Vega 盈利，同时现货大动。Vanna 项 $\partial^2 V/\partial S\partial\sigma$ 在偏斜产品上很大：现货下跌伴随 vol 上升是股指常见情景，见 [Skew](/quant/vol-skew)。只对冲 Delta 的隔夜政策会在「跌且 vol 升」时同时吃到 Gamma 与 Vanna。收盘前的结构应看 [Vanna / Volga](/quant/vanna-volga) 暴露，而不是只看 $\Delta$。[Heston](/quant/heston) 的负相关 $\rho$ 把这一情景写成模型；用 Black Delta 过夜等于忽略它。[SABR](/quant/sabr) 的微笑动态同样改变隔夜有效 Delta。
+隔夜不只动 $S$。财报后隐含波动常崩溃（事件落地），$\Delta\sigma\lt 0$，多头 Vega 亏损，空头 Vega 盈利，同时现货大动。Vanna 项 $\partial^2 V/\partial S\partial\sigma$ 在偏斜产品上很大：现货下跌伴随 vol 上升是股指常见情景，见 [Skew](/quant/vol-skew)。只对冲 Delta 的隔夜政策会在「跌且 vol 升」时同时吃到 Gamma 与 Vanna。收盘前的结构应看 [Vanna / Volga](/quant/vanna-volga) 暴露，而不是只看 $\Delta$。[Heston](/quant/heston) 的负相关 $\rho$ 把这一情景写成模型；用 Black Delta 过夜等于忽略它。[SABR](/quant/sabr) 的微笑动态同样改变隔夜有效 Delta。
 
 ## 机制
 

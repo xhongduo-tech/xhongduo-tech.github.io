@@ -21,7 +21,7 @@ section: quant
 
 ### 窗宽与意外
 
-标准化意外 $s_t=(a_t-E[a_t])/\sigma_a$，回归 $r_{t,i}=\gamma s_t 1_{i\in\mathrm{窗}}+\cdots$。窗太宽混进无关波动，太窄错过慢消化。外汇里数秒到数分钟；个股盈余可能数十分钟。应预登记窗，并报告泄漏窗 $t<0$。
+标准化意外 $s_t=(a_t-E[a_t])/\sigma_a$，回归 $r_{t,i}=\gamma s_t 1_{i\in\mathrm{窗}}+\cdots$。窗太宽混进无关波动，太窄错过慢消化。外汇里数秒到数分钟；个股盈余可能数十分钟。应预登记窗，并报告泄漏窗 $t\lt 0$。
 
 <span class="marginnote">「有新闻的日子 RV 高」可以全是连续 $\sigma$ 升，BN–S 不拒绝。新闻效应不等于跳效应。应同时报窗内连续波动与跳贡献。</span>
 

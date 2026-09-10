@@ -44,7 +44,7 @@ $D$ 可用过去 $n$ 日日均成交额的分数。滚动更新 $D$ 时只能用
 ```mermaid
 flowchart TD
   PQ["增量 p×q"] --> ACC["累计名义 x"]
-  ACC -->|"x < D"| WAIT["写入当前桶"]
+  ACC -->|"x ＜ D"| WAIT["写入当前桶"]
   ACC -->|"x ≥ D"| CUT["按金额比例切开"]
   CUT --> BAR["一根名义为 D 的 bar"]
   BAR --> STAT["OHLC、股数、笔数、Δt"]

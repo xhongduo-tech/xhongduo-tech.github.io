@@ -25,7 +25,7 @@ $\mathrm{Var}(W_t)=t$ 是分布的二阶矩，对固定 $t$ 取期望。二次�
 
 ## 方法
 
-取分区 $0=t_0<\cdots<t_n=t$，令 $Q_\pi=\sum_{i=0}^{n-1}(W_{t_{i+1}}-W_{t_i})^2$。网格步长 $\|\pi\|\to 0$ 时，$Q_\pi\to t$ 依概率（沿合适的细分序列则几乎必然）。定义 $[W]_t=t$。交叉变差 $[W,t]=0$、$[t,t]=0$。形式乘法表：
+取分区 $0=t_0\lt \cdots\lt t_n=t$，令 $Q_\pi=\sum_{i=0}^{n-1}(W_{t_{i+1}}-W_{t_i})^2$。网格步长 $\|\pi\|\to 0$ 时，$Q_\pi\to t$ 依概率（沿合适的细分序列则几乎必然）。定义 $[W]_t=t$。交叉变差 $[W,t]=0$、$[t,t]=0$。形式乘法表：
 
 $$
 \mathrm d W\cdot\mathrm d W=\mathrm d t,\qquad \mathrm d W\cdot\mathrm d t=0,\qquad \mathrm d t\cdot\mathrm d t=0.

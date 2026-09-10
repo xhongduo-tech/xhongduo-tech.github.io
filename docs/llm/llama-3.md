@@ -32,7 +32,7 @@ Llama 1/2 把块结构定成开源默认之后，下一档可公开核对的跳�
 **Tokenizer。** 采用 128k 级词表的 BPE，实现对齐 tiktoken（字节级、GPT-4 一类词表的近亲），而不是 Llama 1/2 的 SentencePiece 32k。训练分词器时向代码、多语与数字倾斜，使那些域的平均 token/字节下降。特殊符号为对话模板、工具调用预留槽位，但本篇把它们当成词表容量，不展开对话格式。
 
 $$
-n_{\mathrm{tok}} \approx C \cdot \mathrm{bytes}(x),\qquad C_{\mathrm{L3}} < C_{\mathrm{L2}}
+n_{\mathrm{tok}} \approx C \cdot \mathrm{bytes}(x),\qquad C_{\mathrm{L3}} \lt  C_{\mathrm{L2}}
 $$
 
 $C$ 是压缩系数。英语大约可少约 15% 的 token；代码与部分非英语下降更明显——具体百分比随语料变，方向稳定：同样 8k 位置，Llama 3 装得下更多源代码和更多非英语句子。

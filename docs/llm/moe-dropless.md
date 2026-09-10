@@ -21,7 +21,7 @@ Dropless 要同时满足：零 drop（每个被路由到的 token 都真正进�
 
 ### drop 会污染你以为已经均衡的统计
 
-辅助损失里的 $f_i$ 统计的是「路由器点名了谁」。若点名之后又 drop，真正更新参数的频率是 $f_i^{\mathrm{eff}}<f_i$。日志里看起来均匀，专家梯度仍偏。Dropless 让 $f_i$ 与有效更新对齐，均衡损失这才作用在真实计算上。<span class="marginnote">「Dropless」不是「无容量约束」。设备显存与通信缓冲仍有物理上限；只是上限不再翻译成按 $\mathrm{CF}$ 丢 token，而是翻译成「这一步 $n_i$ 太大就 OOM 或改用更慢的回退」。工程上仍要盯 $\max_i n_i$。</span>
+辅助损失里的 $f_i$ 统计的是「路由器点名了谁」。若点名之后又 drop，真正更新参数的频率是 $f_i^{\mathrm{eff}}\lt f_i$。日志里看起来均匀，专家梯度仍偏。Dropless 让 $f_i$ 与有效更新对齐，均衡损失这才作用在真实计算上。<span class="marginnote">「Dropless」不是「无容量约束」。设备显存与通信缓冲仍有物理上限；只是上限不再翻译成按 $\mathrm{CF}$ 丢 token，而是翻译成「这一步 $n_i$ 太大就 OOM 或改用更慢的回退」。工程上仍要盯 $\max_i n_i$。</span>
 
 ## 方法
 

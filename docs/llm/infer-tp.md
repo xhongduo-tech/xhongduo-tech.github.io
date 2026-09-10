@@ -27,11 +27,11 @@ DistServe 指出：提示不算太短时，prefill 接近 compute-bound，intra-
 
 ## 方法
 
-推理 TP 仍落在 NVLink 域：节点内 2/4/8 卡一组。嵌入与 LM 头可按词表切。Decode 开启 CUDA Graph 时，All-Reduce 必须能进图，或整段 TP 通信用可捕获的内核；否则图捕获失败，步延迟回退。连续批处理把多个请求的单 token 拼成 $b>1$ 的 decode batch，All-Reduce 的 payload 变成 $b\times d$，延迟占比下降——这是「decode 也能用较大 $T$」的主要条件。Batch 上不去时（显存被 KV 占满、或流量低），应降 $T$、换复制。
+推理 TP 仍落在 NVLink 域：节点内 2/4/8 卡一组。嵌入与 LM 头可按词表切。Decode 开启 CUDA Graph 时，All-Reduce 必须能进图，或整段 TP 通信用可捕获的内核；否则图捕获失败，步延迟回退。连续批处理把多个请求的单 token 拼成 $b\gt 1$ 的 decode batch，All-Reduce 的 payload 变成 $b\times d$，延迟占比下降——这是「decode 也能用较大 $T$」的主要条件。Batch 上不去时（显存被 KV 占满、或流量低），应降 $T$、换复制。
 
 ### 与 GQA、MLA、投机解码叠在一起
 
-GQA：KV 头数须能被 $T$ 整除，否则 padding 或复制。MLA：潜在 KV 的切分不能假设「一头一卡」；开源栈常见注意力复制、专家走 EP，$T=1$。投机解码的验证步一次吃进树节点，序列宽度 $>1$，瞬时更像一小段 prefill，TP 的计算通信比暂时变好；不能据此把 decode 稳态的 $T$ 调到验证步的最优。验证步与普通 decode 步若共用同一并行度，应按稳态 TPOT 选，让验证步偶尔偏贵。
+GQA：KV 头数须能被 $T$ 整除，否则 padding 或复制。MLA：潜在 KV 的切分不能假设「一头一卡」；开源栈常见注意力复制、专家走 EP，$T=1$。投机解码的验证步一次吃进树节点，序列宽度 $\gt 1$，瞬时更像一小段 prefill，TP 的计算通信比暂时变好；不能据此把 decode 稳态的 $T$ 调到验证步的最优。验证步与普通 decode 步若共用同一并行度，应按稳态 TPOT 选，让验证步偶尔偏贵。
 
 ```mermaid
 flowchart TD

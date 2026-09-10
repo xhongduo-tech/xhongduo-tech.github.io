@@ -21,7 +21,7 @@ section: cs
 
 ### 不是「多加点 epsilon」
 
-固定 $\varepsilon$ 比较会引入新不一致（$a<b$、$b<c$ 但 $a>c$）。要的是精确符号或一致扰动。
+固定 $\varepsilon$ 比较会引入新不一致（$a\lt b$、$b\lt c$ 但 $a\gt c$）。要的是精确符号或一致扰动。
 
 <span class="marginnote">Shewchuk 1997 谓词。CGAL 精确核。后课 Karger 离开几何。</span>
 

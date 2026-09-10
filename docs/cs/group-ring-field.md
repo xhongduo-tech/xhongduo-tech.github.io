@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-群 $(G,\cdot)$：结合、单位、逆。交换则 Abel。$(\mathbb{Z}/n\mathbb{Z})^\times$、椭圆曲线点（后课）是乘/加群。[布尔](/cs/boolean-algebra) 的 $\{0,1\}$ 加法若取异或也是群。环：加是 Abel 群，乘结合分配，不必有乘逆。域：环且 $0$ 除外都有乘逆。$\mathbb{Z}/n\mathbb{Z}$ 是域 $\iff n$ 素数。有限域阶必 $p^k$，下一课构造 $k>1$。
+群 $(G,\cdot)$：结合、单位、逆。交换则 Abel。$(\mathbb{Z}/n\mathbb{Z})^\times$、椭圆曲线点（后课）是乘/加群。[布尔](/cs/boolean-algebra) 的 $\{0,1\}$ 加法若取异或也是群。环：加是 Abel 群，乘结合分配，不必有乘逆。域：环且 $0$ 除外都有乘逆。$\mathbb{Z}/n\mathbb{Z}$ 是域 $\iff n$ 素数。有限域阶必 $p^k$，下一课构造 $k\gt 1$。
 
 同态：保运算。DH 在循环群；RSA 在环 $\mathbb{Z}/n\mathbb{Z}$ 的乘。
 

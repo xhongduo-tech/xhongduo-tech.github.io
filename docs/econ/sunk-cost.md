@@ -29,7 +29,7 @@ $$
 
 教科书常把「固定成本」画成 AC 与 AVC 的垂直距离。若这笔钱尚未付出、歇业可免，它影响进入，不影响已经在场的短期停产。若已经付出且不能转卖，它两头都不影响：既不改短期停产（只比 $p$ 与 AVC），也不该进入事后的利润核算当「还要再付一次」。把沉没写进短期 MC，会让供给左移——那是会计，不是决策。
 
-<span class="marginnote">停产规则：短期若 $p<\min\mathrm{AVC}$，产量为零；若 $\min\mathrm{AVC}\le p<\min\mathrm{AC}$ 且固定部分已沉没，仍生产、会计亏损。长期不存在「沉没」：不弥补 $c_{\mathrm{LR}}$ 就退出。</span>
+<span class="marginnote">停产规则：短期若 $p\lt \min\mathrm{AVC}$，产量为零；若 $\min\mathrm{AVC}\le p\lt \min\mathrm{AC}$ 且固定部分已沉没，仍生产、会计亏损。长期不存在「沉没」：不弥补 $c_{\mathrm{LR}}$ 就退出。</span>
 
 ## 方法
 

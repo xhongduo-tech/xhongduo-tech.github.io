@@ -18,7 +18,7 @@ section: quant
 设 $X$ 分段光滑或有有限 $p$-变差。其签名 $S(X)_{0,T}$ 的第 $n$ 级是
 
 $$
-S^n(X)_{0,T}=\int_{0<t_1<\cdots<t_n<T}\mathrm{d}X_{t_1}\otimes\cdots\otimes\mathrm{d}X_{t_n}\in(\mathbb{R}^d)^{\otimes n}.
+S^n(X)_{0,T}=\int_{0\lt t_1\lt \cdots\lt t_n\lt T}\mathrm{d}X_{t_1}\otimes\cdots\otimes\mathrm{d}X_{t_n}\in(\mathbb{R}^d)^{\otimes n}.
 $$
 
 Chen 恒等式给出拼接性质：$S(X*Y)=S(X)\otimes S(Y)$。树状等价的路径（来回抽回的毛刺）共享签名；加上时间坐标后，时间重参数化被部分固定，签名能区分「走得快慢」。问题是：未经增强的价格路径平移不变（一阶含增量）、尺度污染所有阶、离散采样下二次变差退化。直接把收盘价序列丢进截断签名，得到的特征对交易几乎无用，不是因为签名理论错，是因为输入不是理论假设的那条路径。

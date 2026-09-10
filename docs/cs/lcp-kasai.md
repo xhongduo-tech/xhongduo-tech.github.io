@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-$LCP[i]=\mathrm{lcp}(T[SA[i-1]..], T[SA[i]..])$（下标约定课内固定一种）。已知 $SA$ 与 $ISA$，Kasai：按 $k=ISA$ 的文本位置 $i=0,1,\ldots$ 考虑后缀 $T[i..]$ 与在 $SA$ 中的前一名。若上一步 LCP 为 $h>0$，则这一步至少 $h-1$（去掉一个字符）。缺口是**用这个 $h-1$ 下界避免从零比**，合计比较 $O(n)$。
+$LCP[i]=\mathrm{lcp}(T[SA[i-1]..], T[SA[i]..])$（下标约定课内固定一种）。已知 $SA$ 与 $ISA$，Kasai：按 $k=ISA$ 的文本位置 $i=0,1,\ldots$ 考虑后缀 $T[i..]$ 与在 $SA$ 中的前一名。若上一步 LCP 为 $h\gt 0$，则这一步至少 $h-1$（去掉一个字符）。缺口是**用这个 $h-1$ 下界避免从零比**，合计比较 $O(n)$。
 
 <span class="marginnote">Kasai et al., CPM 2001。有了 LCP，后缀数组 + RMQ 可模拟后缀树许多查询。</span>
 

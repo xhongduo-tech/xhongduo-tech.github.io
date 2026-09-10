@@ -15,9 +15,9 @@ section: econ
 
 ## 问题
 
-$X_i$ 独立同分布、$\mathbb{E}|X_1|<\infty$，则 $\bar X_n\to\mathbb{E}X_1$ 几乎必然（Kolmogorov 强 LLN）。有限二阶矩时，弱 LLN 用 Chebyshev 即可：$\mathrm{Var}(\bar X_n)=\sigma^2/n\to 0$。宏观含意：连续统或大量独立家庭的人均消费收敛到期望，个体冲击不进入总量。相关不能任意：完全相关时平均仍是一个冲击；弱相关、混合条件下 LLN 仍可成立，完全保险或共同因子则留下系统部分。后课风险分担、不完全市场会用这条对照，本课先把独立情形钉死。
+$X_i$ 独立同分布、$\mathbb{E}|X_1|\lt \infty$，则 $\bar X_n\to\mathbb{E}X_1$ 几乎必然（Kolmogorov 强 LLN）。有限二阶矩时，弱 LLN 用 Chebyshev 即可：$\mathrm{Var}(\bar X_n)=\sigma^2/n\to 0$。宏观含意：连续统或大量独立家庭的人均消费收敛到期望，个体冲击不进入总量。相关不能任意：完全相关时平均仍是一个冲击；弱相关、混合条件下 LLN 仍可成立，完全保险或共同因子则留下系统部分。后课风险分担、不完全市场会用这条对照，本课先把独立情形钉死。
 
-CLT：$\mathbb{E}X_1^2<\infty$ 时 $\sqrt{n}(\bar X_n-\mu)\Rightarrow N(0,\sigma^2)$。加总后的剩余不确定性按 $1/\sqrt{n}$ 缩小，形状变正态。计量里估计量的标准误来自这里。宏观若只关心确定性等价总量，LLN 够用；若关心有限 $N$ 经济的波动尺度，CLT 给阶。
+CLT：$\mathbb{E}X_1^2\lt \infty$ 时 $\sqrt{n}(\bar X_n-\mu)\Rightarrow N(0,\sigma^2)$。加总后的剩余不确定性按 $1/\sqrt{n}$ 缩小，形状变正态。计量里估计量的标准误来自这里。宏观若只关心确定性等价总量，LLN 够用；若关心有限 $N$ 经济的波动尺度，CLT 给阶。
 
 ### LLN 不是「样本大了就等于期望」的口号
 

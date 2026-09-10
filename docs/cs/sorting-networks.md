@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-比较器 $(i,j)$：若 $x_i>x_j$ 则交换。网络对任意输入正确 $\Leftrightarrow$ 对 0-1 输入正确（0-1 原理）。Batcher：奇偶归并、双调排序，$O(\log^2 n)$ 层、$O(n\log^2 n)$ 比较器。AKS：$O(\log n)$ 层，常数巨大。实践 Batcher 或 bitonic GPU。
+比较器 $(i,j)$：若 $x_i\gt x_j$ 则交换。网络对任意输入正确 $\Leftrightarrow$ 对 0-1 输入正确（0-1 原理）。Batcher：奇偶归并、双调排序，$O(\log^2 n)$ 层、$O(n\log^2 n)$ 比较器。AKS：$O(\log n)$ 层，常数巨大。实践 Batcher 或 bitonic GPU。
 
 缺口是无数据依赖控制，不是堆排序。
 

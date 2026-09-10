@@ -29,7 +29,7 @@ section: quant
 
 预测端常用：过去 $k$ 日已实现波动、EWMA、[GARCH](/quant/garch)、隐含波动或已实现核。组合级应直接预测 $L\tilde w$ 的波动，而不是对每个资产预测再合成——合成要处理相关，相关在压力里失效。对期货可以按合约的美元波动（价格 $\times$ 乘数 $\times\hat\sigma$）分配张数。杠杆上限 $L\le L_{\max}$、单名参与率上限、保证金缓冲应与 $\sigma^\star$ 同时写入，否则低波动期会把名义加到不可执行或不可融资的水平。
 
-平滑：$L_t$ 对 $L_{t-1}$ 做 $\mathrm{EWMA}$ 或对 $\hat\sigma$ 做下限（vol floor），避免 $\hat\sigma\to 0$ 时杠杆发散。带宽：仅当 $|\hat\sigma-\sigma^\star|>\delta$ 才调整 $L$，与权重再平衡的阈值同构。离散再平衡日（例如每周）把交易赶到固定日期，便于容量规划，但会在周中波动跳升时让实现波动暂时越带。
+平滑：$L_t$ 对 $L_{t-1}$ 做 $\mathrm{EWMA}$ 或对 $\hat\sigma$ 做下限（vol floor），避免 $\hat\sigma\to 0$ 时杠杆发散。带宽：仅当 $|\hat\sigma-\sigma^\star|\gt \delta$ 才调整 $L$，与权重再平衡的阈值同构。离散再平衡日（例如每周）把交易赶到固定日期，便于容量规划，但会在周中波动跳升时让实现波动暂时越带。
 
 $$
 L_t=\mathrm{clip}\Bigl(\frac{\sigma^\star}{\hat\sigma_t},\,L_{\min},\,L_{\max}\Bigr),\qquad

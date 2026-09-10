@@ -21,7 +21,7 @@ MVCC 课留下「读按快照」。SI 把快照钉在事务开始（或第一条
 
 ## 方法
 
-开始：记 startTS。读：最新的 committedTS < startTS 的版本（加上自己的写）。写：私有直到提交，再分配 commitTS 并检查写集。失败则整个事务撤，靠 WAL UNDO。本课不把每家数据库默认级别写成同一 SI。
+开始：记 startTS。读：最新的 committedTS $\lt$ startTS 的版本（加上自己的写）。写：私有直到提交，再分配 commitTS 并检查写集。失败则整个事务撤，靠 WAL UNDO。本课不把每家数据库默认级别写成同一 SI。
 
 ```mermaid
 flowchart TD

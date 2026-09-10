@@ -39,7 +39,7 @@ $$
 L^{\mathrm{CLIP}}(\theta)=\mathbb{E}_t\Bigl[\min\bigl(r_t(\theta)\hat A_t,\,\mathrm{clip}(r_t(\theta),1-\epsilon,1+\epsilon)\hat A_t\bigr)\Bigr].
 $$
 
-$\hat A_t>0$ 时，未裁剪项鼓励增大比率，但超过 $1+\epsilon$ 后裁剪项封顶，再增大 $\pi_\theta(a_t\mid s_t)$ 不再加分。$\hat A_t<0$ 时，鼓励减小比率，低于 $1-\epsilon$ 后同样封顶。$\min$ 取较悲观的一个，因此目标不会为了极端比率而无限改进。完整损失还减去价值误差、加上熵奖励：
+$\hat A_t\gt 0$ 时，未裁剪项鼓励增大比率，但超过 $1+\epsilon$ 后裁剪项封顶，再增大 $\pi_\theta(a_t\mid s_t)$ 不再加分。$\hat A_t\lt 0$ 时，鼓励减小比率，低于 $1-\epsilon$ 后同样封顶。$\min$ 取较悲观的一个，因此目标不会为了极端比率而无限改进。完整损失还减去价值误差、加上熵奖励：
 
 $$
 L_t(\theta)= \mathbb{E}_t\bigl[L^{\mathrm{CLIP}}_t(\theta)-c_1 L^{\mathrm{VF}}_t(\theta)+c_2 S[\pi_\theta](s_t)\bigr],

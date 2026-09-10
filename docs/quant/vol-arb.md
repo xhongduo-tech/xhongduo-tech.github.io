@@ -21,9 +21,9 @@ $$
 \mathrm{d}\Pi \approx \frac12\Gamma S^2\bigl(\sigma_t^2-\sigma_{\mathrm{imp}}^2\bigr)\,\mathrm{d}t
 $$
 
-再加上高阶与跳跃。多头期权在 $\sigma_t>\sigma_{\mathrm{imp}}$ 的时段赚钱，这就是 Gamma scalping 的来源。问题有三层。第一，单一执行价的 $\Gamma(S)$ 随现货移动，权重不是方差互换的 $1/K^2$，现货一旦远离执行价，你不再交易「纯方差」。第二，$\sigma_{\mathrm{imp}}$ 本身会变：Vega 与 Vanna、Volga 让曲面运动进入 PnL，对冲若只用 Black Delta，等于把微笑风险当 alpha。第三，平均而言 $\mathbb{E}^{\mathbb{Q}}[\sigma^2]>\mathbb{E}^{\mathbb{P}}[\sigma^2]$，买波动的期望是付保险费，不是领免费午餐。
+再加上高阶与跳跃。多头期权在 $\sigma_t\gt \sigma_{\mathrm{imp}}$ 的时段赚钱，这就是 Gamma scalping 的来源。问题有三层。第一，单一执行价的 $\Gamma(S)$ 随现货移动，权重不是方差互换的 $1/K^2$，现货一旦远离执行价，你不再交易「纯方差」。第二，$\sigma_{\mathrm{imp}}$ 本身会变：Vega 与 Vanna、Volga 让曲面运动进入 PnL，对冲若只用 Black Delta，等于把微笑风险当 alpha。第三，平均而言 $\mathbb{E}^{\mathbb{Q}}[\sigma^2]\gt \mathbb{E}^{\mathbb{P}}[\sigma^2]$，买波动的期望是付保险费，不是领免费午餐。
 
-因此「套利」二字在这里是行话。静态蝶式违例才是模型无关、持有到期的锁定价；vol arb 是带风险价格的相对价值，胜率来自溢价是否过高、对冲是否足够干净，而不是来自 $g(k)<0$。
+因此「套利」二字在这里是行话。静态蝶式违例才是模型无关、持有到期的锁定价；vol arb 是带风险价格的相对价值，胜率来自溢价是否过高、对冲是否足够干净，而不是来自 $g(k)\lt 0$。
 
 ### 从单期权到条带：何时才像方差互换
 

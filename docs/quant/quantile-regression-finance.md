@@ -11,7 +11,7 @@ section: quant
 <footer>—— Koenker and Bassett, Regression Quantiles, Econometrica, 1978</footer>
 </div>
 
-[稳健回归](/quant/robust-regression-outliers) 用有界 $\psi$ 保护**均值斜率**不被离群绑架。若问题本身是「跌的时候 $\beta$ 是否更大」「VaR 怎么随因子变」，对象就不是均值。Koenker 与 Bassett 的分位回归最小化 check 函数 $\rho_\tau(u)=u(\tau-1_{u<0})$，得到 $Q_{y|x}(\tau)=x^\top\beta(\tau)$。Engle 与 Manganelli 的 CAViaR 把分位写成动态。本课是「在金融数据上做回归」这一课序的最后一课：均值、稳健均值之后，**把斜率写成 $\tau$ 的函数**。下一单元从截面/单方程转到多元时间序列，第一课 VAR 接的是：分位仍是单方程，共同动态要系统估计。
+[稳健回归](/quant/robust-regression-outliers) 用有界 $\psi$ 保护**均值斜率**不被离群绑架。若问题本身是「跌的时候 $\beta$ 是否更大」「VaR 怎么随因子变」，对象就不是均值。Koenker 与 Bassett 的分位回归最小化 check 函数 $\rho_\tau(u)=u(\tau-1_{u\lt 0})$，得到 $Q_{y|x}(\tau)=x^\top\beta(\tau)$。Engle 与 Manganelli 的 CAViaR 把分位写成动态。本课是「在金融数据上做回归」这一课序的最后一课：均值、稳健均值之后，**把斜率写成 $\tau$ 的函数**。下一单元从截面/单方程转到多元时间序列，第一课 VAR 接的是：分位仍是单方程，共同动态要系统估计。
 
 ## 问题
 

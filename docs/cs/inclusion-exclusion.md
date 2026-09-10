@@ -33,7 +33,7 @@ $$
 
 ## 方法
 
-两项直接减交。三项按上式。一般：$\lvert\cup_i A_i\rvert=\sum_i|A_i|-\sum_{i<j}|A_i\cap A_j|+\cdots+(-1)^{k+1}\sum|A_{i_1}\cap\cdots\cap A_{i_k}|+\cdots$。补集形式：不在任何 $A_i$ 里的个数 $=|\Omega|$ 减并。
+两项直接减交。三项按上式。一般：$\lvert\cup_i A_i\rvert=\sum_i|A_i|-\sum_{i\lt j}|A_i\cap A_j|+\cdots+(-1)^{k+1}\sum|A_{i_1}\cap\cdots\cap A_{i_k}|+\cdots$。补集形式：不在任何 $A_i$ 里的个数 $=|\Omega|$ 减并。
 
 ```mermaid
 flowchart TD

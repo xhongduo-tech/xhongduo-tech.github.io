@@ -51,7 +51,7 @@ flowchart TD
 
 ## 机制
 
-$k=1$ 的通信是一份 dispatch 加一份 combine，payload 大约是 $T\cdot d$ 量级，不随 $k$ 加倍。专家内部仍是标准 FFN（当时多为 GeLU MLP）。有效 FLOPs 约等于稠密 FFN 的 $1/N$ 再乘容量因子带来的浪费：若 $c>1$，空槽仍可能占位，实际利用率小于 100%。
+$k=1$ 的通信是一份 dispatch 加一份 combine，payload 大约是 $T\cdot d$ 量级，不随 $k$ 加倍。专家内部仍是标准 FFN（当时多为 GeLU MLP）。有效 FLOPs 约等于稠密 FFN 的 $1/N$ 再乘容量因子带来的浪费：若 $c\gt 1$，空槽仍可能占位，实际利用率小于 100%。
 
 ### 质量与稀疏的交换
 

@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-战后美国（及其它发达经济）HP 后的典型图景：$\sigma(c)<\sigma(y)<\sigma(i)$；工时强顺周期；劳动生产率顺周期但弱于产出；通胀与产出的共动随样本变；名义利率顺周期较弱。Kydland–Prescott 用技术冲击的 RBC 去对其中若干条，劳动波动与生产率往往是短板。NK 加入需求与粘性后，另一些矩改善，另一些（通胀持续性）靠指数化或习惯。缺口是把「要匹配的是共动」钉住，而不是从零讲什么是衰退。
+战后美国（及其它发达经济）HP 后的典型图景：$\sigma(c)\lt \sigma(y)\lt \sigma(i)$；工时强顺周期；劳动生产率顺周期但弱于产出；通胀与产出的共动随样本变；名义利率顺周期较弱。Kydland–Prescott 用技术冲击的 RBC 去对其中若干条，劳动波动与生产率往往是短板。NK 加入需求与粘性后，另一些矩改善，另一些（通胀持续性）靠指数化或习惯。缺口是把「要匹配的是共动」钉住，而不是从零讲什么是衰退。
 
 <span class="marginnote">Stock and Watson, *Handbook of Macroeconomics* 第 1 卷。Chari, Kehoe and McGrattan 的「Wedges」把事实改写成效率、劳动、投资、需求四个楔，是诊断而不是命名冲击。</span>
 

@@ -18,7 +18,7 @@ section: quant
 若标的是可交割现货 $S$，期货在利率确定时是 $\mathbb{E}^{\mathbb{Q}}[S_T]$（适当测度）。VIX 不是可交易现货：复制组合每天随期权集改写，且指数是方差的凹函数（开方）。Jensen 给出
 
 $$
-\mathbb{E}\bigl[\sqrt{X}\bigr]<\sqrt{\mathbb{E}[X]},
+\mathbb{E}\bigl[\sqrt{X}\bigr]\lt \sqrt{\mathbb{E}[X]},
 $$
 
 $X$ 为未来三十天方差。于是 VIX 期货低于「未来方差互换公平值的平方根」——差一项凸性调整，随 vol-of-vol 与剩余期限增大。把现货 VIX 当成期货的持有成本标的去贴现，等于忽略：指数不可持有、开方凹性、以及 $T$ 时刻的条带与今天的条带不是同一组期权。

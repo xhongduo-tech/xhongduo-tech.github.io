@@ -38,7 +38,7 @@ $$
 **自回归。** Decoder-only 对历史 token 做因果注意。下一步的联合写成
 
 $$
-p(b_t\mid \mathbf{b}_{<t})=p(b_t^c\mid\mathbf{b}_{<t})\,p(b_t^f\mid\mathbf{b}_{<t},b_t^c).
+p(b_t\mid \mathbf{b}_{\lt t})=p(b_t^c\mid\mathbf{b}_{\lt t})\,p(b_t^f\mid\mathbf{b}_{\lt t},b_t^c).
 $$
 
 先预测粗、再条件预测细。两个子 token 各自嵌入后拼接、线性融合，作为该时刻的输入。这与语言模型的「先主题后细节」类似，但对象是一根 K 线而不是一个子词。

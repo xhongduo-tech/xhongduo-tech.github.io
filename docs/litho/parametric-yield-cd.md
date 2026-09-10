@@ -33,7 +33,7 @@ section: litho
 
 ## 机制
 
-失败率 $\approx P(|\mathrm{CD}-\mathrm{target}| > \mathrm{spec})$ 经电学函数扭曲。非高斯尾巴（边缘场、双机混流）主导。机台对套刻把 via 电阻分布拉宽。APC 切均值不切混流双峰——dedication 或匹配才切双峰。
+失败率 $\approx P(|\mathrm{CD}-\mathrm{target}| \gt  \mathrm{spec})$ 经电学函数扭曲。非高斯尾巴（边缘场、双机混流）主导。机台对套刻把 via 电阻分布拉宽。APC 切均值不切混流双峰——dedication 或匹配才切双峰。
 
 ```mermaid
 flowchart TD

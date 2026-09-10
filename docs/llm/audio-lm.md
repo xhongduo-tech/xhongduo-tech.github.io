@@ -18,7 +18,7 @@ section: llm
 经典 ASR 是判别式：最大化 $p(y_{\mathrm{text}}\mid x_{\mathrm{audio}})$。TTS 是另一套生成式：$p(x_{\mathrm{audio}}\mid y_{\mathrm{text}})$。对话系统还要 $p(y_{\mathrm{text}}\mid x_{\mathrm{audio}}, \text{context})$。三套模型、三套特征、三套对齐，拼接时接口损耗大。Audio LM 的设想是：若存在音频词表 $\mathcal{V}_a$ 和文本词表 $\mathcal{V}_t$，一个模型估计
 
 $$
-p(z_{t}\mid z_{<t}),\qquad z_i\in\mathcal{V}_a\cup\mathcal{V}_t.
+p(z_{t}\mid z_{\lt t}),\qquad z_i\in\mathcal{V}_a\cup\mathcal{V}_t.
 $$
 
 条件里既可以有文字也可以有声学码，任务变成前缀不同的同一种解码。困难在于 $\mathcal{V}_a$ 的帧率高、噪声大，且与 $\mathcal{V}_t$ 没有天然对齐。硬拼词表会导致文本能力被音频噪声梯度带偏，或音频生成变成含混的嗡嗡。

@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-一层循环加到 $n$ 是 $\sum_{k=1}^n 1=\Theta(n)$。嵌套或 $T(n)=T(n-1)+n$、$T(0)=0$ 展开为 $\sum k=\Theta(n^2)$。缺口因此不是新的 $O$ 定义，而是几张表：等差 $\sum k=n(n+1)/2$，等比 $\sum r^k$ 在 $|r|<1$ 时有界、$r=2$ 时 $\Theta(2^n)$，调和数 $H_n=\sum_{k=1}^n 1/k=\Theta(\log n)$。展开线性递推 $T(n)=T(n-1)+f(n)$ 得 $T(n)=T(0)+\sum f$。
+一层循环加到 $n$ 是 $\sum_{k=1}^n 1=\Theta(n)$。嵌套或 $T(n)=T(n-1)+n$、$T(0)=0$ 展开为 $\sum k=\Theta(n^2)$。缺口因此不是新的 $O$ 定义，而是几张表：等差 $\sum k=n(n+1)/2$，等比 $\sum r^k$ 在 $|r|\lt 1$ 时有界、$r=2$ 时 $\Theta(2^n)$，调和数 $H_n=\sum_{k=1}^n 1/k=\Theta(\log n)$。展开线性递推 $T(n)=T(n-1)+f(n)$ 得 $T(n)=T(0)+\sum f$。
 
 分治 $T(n)=2T(n/2)+n$ 只点到「展开成 $\Theta(n\log n)$」，证明留给后课主定理。本课够用的是减一递推与有限和。
 

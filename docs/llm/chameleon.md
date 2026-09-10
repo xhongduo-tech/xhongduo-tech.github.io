@@ -24,7 +24,7 @@ Meta FAIR 2024 年 5 月的 **Chameleon** 是 7B / 34B 稠密 Transformer：图�
 早期融合的操作定义是：任意图文交错序列 $z_{1:n}$ 上
 
 $$
-\mathcal{L}=-\sum_t \log p_\theta(z_t\mid z_{<t}),
+\mathcal{L}=-\sum_t \log p_\theta(z_t\mid z_{\lt t}),
 $$
 
 $z_t$ 既可以是子词也可以是图像码。没有单独的图像交叉层，也没有「先看完图再读字」的路由。Gemini 同期也走原生多模态，但报告写明 Gemini 用**单独的图像解码器**；Chameleon 强调自己是端到端稠密、无路由。不要把两者画成同一张结构图。

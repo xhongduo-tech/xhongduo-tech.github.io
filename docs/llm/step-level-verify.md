@@ -36,7 +36,7 @@ section: llm
 **束搜索 / 树搜索。** 每层保留 $B$ 个高分前缀，每前缀扩展 $k$ 个下一步，用 $q$ 或 $q$ 与生成对数概率的混合排序。算力约为 $B\times k\times$ 深度，比 $N$ 条独立完整轨迹更集中在高质量前缀上。价值归约仍是 min 还是乘积，决定束里长解答是否被系统性淘汰。
 
 $$
-\mathrm{score}(s_{1:t})=\alpha\sum_{i\le t}\log\pi_\theta(s_i\mid x,s_{<i})+(1-\alpha)\log q_i
+\mathrm{score}(s_{1:t})=\alpha\sum_{i\le t}\log\pi_\theta(s_i\mid x,s_{\lt i})+(1-\alpha)\log q_i
 $$
 
 $\alpha=1$ 退回普通束搜索，$\alpha=0$ 纯 PRM。需要在验证集上扫：纯 PRM 会偏向标注风格的短步，纯似然会偏向流畅的错步。

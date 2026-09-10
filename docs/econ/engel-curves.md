@@ -23,7 +23,7 @@ Engel 定律：食品份额随总支出下降——食品是必需品，收入�
 
 收入扩张路径（IEP）是 $w$ 变动时 $x(p,w)$ 在商品空间里扫出的轨迹。恩格尔曲线是 IEP 在单一坐标上的投影。马歇尔需求曲线钉住 $w$ 动 $p$，二者正交。上一课的吉芬是马歇尔曲线向上；本课的劣等是恩格尔曲线局部向下。不要把两条曲线画成一张。
 
-<span class="marginnote">必需品：收入弹性 $\eta_i<1$，份额随 $w$ 下降。奢侈品 $\eta_i>1$，份额上升。加总 $\sum_i\omega_i\eta_i=1$，不能所有商品都是奢侈品。</span>
+<span class="marginnote">必需品：收入弹性 $\eta_i\lt 1$，份额随 $w$ 下降。奢侈品 $\eta_i\gt 1$，份额上升。加总 $\sum_i\omega_i\eta_i=1$，不能所有商品都是奢侈品。</span>
 
 ## 方法
 
@@ -34,7 +34,7 @@ Working 形式允许 $\beta_i\neq 0$，份额随 $\log w$ 动，对应非位似�
 ```mermaid
 flowchart TD
   GIFF["上一课：一点上的 ∂x/∂w"] --> ENG["恩格尔：整条 x_i(w)"]
-  ENG --> NEC["η < 1：必需品，份额下降"]
+  ENG --> NEC["η ＜ 1：必需品，份额下降"]
   ENG --> LUX["η > 1：奢侈品"]
   ENG --> HOM["位似：射线，η = 1"]
   ENG --> LATER["后课：EV/CV 用收入路径"]

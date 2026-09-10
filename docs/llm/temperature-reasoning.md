@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wang et al., Self-Consistency Improves Chain of Thought Reasoning, ICLR 2023；温度作为逐步熵见 Holtzman et al., ICLR 2020</footer>
 </div>
 
-[上一课](/llm/logit-bias)把逐步仿射钉死。本课把[温度](/llm/sampling-temperature-topp)从开放生成的文风旋钮，接到推理任务：思维链、工具调用、数学。主干里 [Self-Consistency](/llm/self-consistency) 已经用 $T>0$ 抽多条链再投票；这里只补缺口——同一 $\pi$ 上，$T=0$ 与 $T=0.7$ 改变的不只是重复率，还有 *能不能碰到正确盆地*。后课转向加速：自投机与 Jacobi，默认你会按任务选 $T$，而不是全局一份 `temperature=0`。
+[上一课](/llm/logit-bias)把逐步仿射钉死。本课把[温度](/llm/sampling-temperature-topp)从开放生成的文风旋钮，接到推理任务：思维链、工具调用、数学。主干里 [Self-Consistency](/llm/self-consistency) 已经用 $T\gt 0$ 抽多条链再投票；这里只补缺口——同一 $\pi$ 上，$T=0$ 与 $T=0.7$ 改变的不只是重复率，还有 *能不能碰到正确盆地*。后课转向加速：自投机与 Jacobi，默认你会按任务选 $T$，而不是全局一份 `temperature=0`。
 
 ## 问题
 
@@ -48,7 +48,7 @@ flowchart TD
 
 ## 边界与工程取舍
 
-不要把温度交给最终用户无上界拉高还不截断。不要用 $T=0$ 的单链准确率与 $T=0.7,N=16$ 的自洽比「模型变强了」——多的是测试时计算。种子在张量并行下不可比特级复现，推理回归测试不要依赖 $T>0$ 的逐 token 对齐。
+不要把温度交给最终用户无上界拉高还不截断。不要用 $T=0$ 的单链准确率与 $T=0.7,N=16$ 的自洽比「模型变强了」——多的是测试时计算。种子在张量并行下不可比特级复现，推理回归测试不要依赖 $T\gt 0$ 的逐 token 对齐。
 
 出处：Wang et al., ICLR 2023；Holtzman et al., ICLR 2020。后续温度敏感性测量以各自论文的任务集为准，不发明编号。
 

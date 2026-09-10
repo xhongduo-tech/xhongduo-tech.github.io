@@ -59,7 +59,7 @@ flowchart TD
 
 ### 为什么 $\gamma$ 有最优值
 
-$\tau(\gamma)$ 随 $\gamma$ 递增但边际递减：$\alpha<1$ 时后几个草稿很难被全部接受。草稿成本近似线性于 $\gamma$（自回归草稿）或线性于树节点。于是存在使净加速最大的 $\gamma^\star$。$\alpha$ 升高，$ \gamma^\star$ 右移。服务若全局锁死 $\gamma=5$，在 $\alpha=0.5$ 的流量上 $\tau=1.97$，五步草稿几乎白做。动态 $\gamma$ 就是在这条曲线上爬坡。
+$\tau(\gamma)$ 随 $\gamma$ 递增但边际递减：$\alpha\lt 1$ 时后几个草稿很难被全部接受。草稿成本近似线性于 $\gamma$（自回归草稿）或线性于树节点。于是存在使净加速最大的 $\gamma^\star$。$\alpha$ 升高，$ \gamma^\star$ 右移。服务若全局锁死 $\gamma=5$，在 $\alpha=0.5$ 的流量上 $\tau=1.97$，五步草稿几乎白做。动态 $\gamma$ 就是在这条曲线上爬坡。
 
 与连续批的交互：Orca 式 iteration-level 调度本就按 iter 插入新请求。投机把一个 iter 的「工作量」变成随机变量。稳定做法是：iter 的时间片按「一次目标前向」来切（校验一次），接受长度只影响本请求的进度，不改变 iter 边界。这样新请求仍能在校验结束后加入，TPOT 方差主要来自 $\alpha$，而不是来自偶发的超长草稿循环。
 
@@ -75,7 +75,7 @@ $\tau(\gamma)$ 随 $\gamma$ 递增但边际递减：$\alpha<1$ 时后几个草�
 
 出处：Leviathan 等，*Fast Inference from Transformers via Speculative Decoding*，ICML 2023，arXiv:2211.17192；Chen 等投机采样；EAGLE-2 动态树；DeepSeek-V3 报告中 MTP 的接受率数字。调度启发式是工程层，不要伪造成 Leviathan 论文里的现成算法名称。
 
-<span class="marginnote">$\alpha>0.55\text{–}0.60$ 一类经验阈值只说明「草稿开销开始赚回来」，依赖草稿/目标成本比，不是定理。换 MTP 这种极便宜草稿，阈值更低；换又慢又不准时的草稿，阈值更高。</span>
+<span class="marginnote">$\alpha\gt 0.55\text{–}0.60$ 一类经验阈值只说明「草稿开销开始赚回来」，依赖草稿/目标成本比，不是定理。换 MTP 这种极便宜草稿，阈值更低；换又慢又不准时的草稿，阈值更高。</span>
 
 ## 小结
 

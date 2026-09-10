@@ -33,7 +33,7 @@ $$
 r(s,q,t)= s - q\gamma\sigma^2(T-t),
 $$
 
-即无差异价格相对中间价下移（$q>0$ 时）或上移（$q<0$ 时）。最优买卖围绕 $r$ 而不是围绕 $s$：
+即无差异价格相对中间价下移（$q\gt 0$ 时）或上移（$q\lt 0$ 时）。最优买卖围绕 $r$ 而不是围绕 $s$：
 
 $$
 \delta^a+\delta^b = \gamma\sigma^2(T-t)+\frac{2}{\gamma}\ln\Bigl(1+\frac{\gamma}{\kappa}\Bigr).

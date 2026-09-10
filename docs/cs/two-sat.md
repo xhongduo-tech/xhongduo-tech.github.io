@@ -21,7 +21,7 @@ section: cs
 
 ### 赋值沿着缩点 DAG
 
-可满足时：在缩点 DAG 上拓扑，若 $\mathrm{SCC}(\neg x)$ 排在 $\mathrm{SCC}(x)$ 之后则令 $x$ 真（或对称约定）。同一块内文字同真同假，故块内不能同时有 $x$ 与 $\neg x$。实现上常：若 $\mathrm{id}[x]<\mathrm{id}[\neg x]$ 则 $x$ 假，其中 `id` 为拓扑序编号。
+可满足时：在缩点 DAG 上拓扑，若 $\mathrm{SCC}(\neg x)$ 排在 $\mathrm{SCC}(x)$ 之后则令 $x$ 真（或对称约定）。同一块内文字同真同假，故块内不能同时有 $x$ 与 $\neg x$。实现上常：若 $\mathrm{id}[x]\lt \mathrm{id}[\neg x]$ 则 $x$ 假，其中 `id` 为拓扑序编号。
 
 <span class="marginnote">Aspvall–Plass–Tarjan 1979 把 2-SAT（及若干带量词的变体）收到线性。Horn-SAT 另有单位传播多项式，本课不混。后课欧拉回路换对象：边的遍历，不是文字。</span>
 

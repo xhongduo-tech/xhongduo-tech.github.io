@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Knuth, Optimum Binary Search Trees, 1971；CLRS 第 15.5 节整理</footer>
 </div>
 
-上一课[序列比对](/cs/sequence-alignment)是两序列格图。本课一个有序关键字列 $k_1<\cdots<k_n$，访问概率 $p_i$、空隙 $q_i$。缺口是最优 BST：根选 $k_r$，左右子树最优。主干[区间 DP](/cs/interval-dp)已给矩阵链形状。本课把概率加权写清，Knuth 优化留一半给下一课矩阵链对照。
+上一课[序列比对](/cs/sequence-alignment)是两序列格图。本课一个有序关键字列 $k_1\lt \cdots\lt k_n$，访问概率 $p_i$、空隙 $q_i$。缺口是最优 BST：根选 $k_r$，左右子树最优。主干[区间 DP](/cs/interval-dp)已给矩阵链形状。本课把概率加权写清，Knuth 优化留一半给下一课矩阵链对照。
 
 ## 问题
 

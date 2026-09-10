@@ -21,7 +21,7 @@ section: llm
 
 ### 为什么嵌入维通常等于块宽度
 
-残差相加要求被加的张量同形。若 $E[t]\in\mathbb{R}^{d_e}$、$d_e\neq d_{\mathrm{model}}$，必须立刻做一次 $d_e\to d_{\mathrm{model}}$ 的投影才能进入 [残差流](/llm/residual-stream)。这多一张矩阵，也多一次可以过拟合的线性。因式分解嵌入、自适应输入走的就是这条路：故意让 $d_e<d_{\mathrm{model}}$，用投影换表体积。默认架构不走，是为了少一个接口。本课以默认为主，把投影当成边界上的逃逸口。
+残差相加要求被加的张量同形。若 $E[t]\in\mathbb{R}^{d_e}$、$d_e\neq d_{\mathrm{model}}$，必须立刻做一次 $d_e\to d_{\mathrm{model}}$ 的投影才能进入 [残差流](/llm/residual-stream)。这多一张矩阵，也多一次可以过拟合的线性。因式分解嵌入、自适应输入走的就是这条路：故意让 $d_e\lt d_{\mathrm{model}}$，用投影换表体积。默认架构不走，是为了少一个接口。本课以默认为主，把投影当成边界上的逃逸口。
 
 <span class="marginnote">$d_{\mathrm{model}}$ 不是「嵌入专属超参」。它是注意力头维之和、FFN 输入维、层归一化的特征维。改它等于改整网。只为了省嵌入表去减 $d$，会把每一层的容量一起砍掉。</span>
 

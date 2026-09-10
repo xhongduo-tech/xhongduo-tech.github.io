@@ -30,7 +30,7 @@ $$
 若双方都可能违约，先倒的一方触发 close-out。我的 CVA 只应在对方先违约的路径上计提，DVA 只应在我先违约的路径上计提。独立假设下可用生存乘积
 
 $$
-\mathbb{Q}(\tau_C\in\mathrm{d}t,\tau_B>t)=e^{-\int(\lambda_C+\lambda_B)}\lambda_C\,\mathrm{d}t
+\mathbb{Q}(\tau_C\in\mathrm{d}t,\tau_B\gt t)=e^{-\int(\lambda_C+\lambda_B)}\lambda_C\,\mathrm{d}t
 $$
 
 修正密度。忽略首次违约，会在双方利差都宽时把 CVA 与 DVA 都算大，净调整偏「自身受益」或偏「双计损失」，取决于哪条曲线更宽。相关违约（共同因子）再改联合密度；金融对手方在危机里 $\tau_B$ 与 $\tau_C$ 同跳，首次违约调整与错向缠在一起，独立乘积不够。

@@ -27,7 +27,7 @@ sigmoid $\sigma(z)=(1+\mathrm{e}^{-z})^{-1}$、tanh 把值挤进有界区间，�
 
 ## 方法
 
-MLP 一层：$h=\sigma(Wx+b)$。反向：$\mathrm{d}z=\mathrm{d}h\odot\sigma'(z)$。ReLU 的 $\sigma'$ 是指示函数 $\mathbf{1}_{z>0}$（$0$ 点的次梯度取 $0$ 或 $1$ 均可，实现任意约定）。tanh 的 $\sigma'=1-\tanh^2 z$。堆叠 $L$ 层就有 $L$ 次逐元素门，夹在 $L$ 次仿射之间。本课不讨论宽度如何选，那是参数量课。
+MLP 一层：$h=\sigma(Wx+b)$。反向：$\mathrm{d}z=\mathrm{d}h\odot\sigma'(z)$。ReLU 的 $\sigma'$ 是指示函数 $\mathbf{1}_{z\gt 0}$（$0$ 点的次梯度取 $0$ 或 $1$ 均可，实现任意约定）。tanh 的 $\sigma'=1-\tanh^2 z$。堆叠 $L$ 层就有 $L$ 次逐元素门，夹在 $L$ 次仿射之间。本课不讨论宽度如何选，那是参数量课。
 
 ```mermaid
 flowchart TD

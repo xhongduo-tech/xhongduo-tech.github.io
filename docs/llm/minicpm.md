@@ -31,9 +31,9 @@ Chinchilla 式算力最优把数据量钉在参数的约 20 倍；若小模型�
 
 $$
 \mathrm{WSD}(s)=\begin{cases}
-(s/W)\,\eta, & s<W,\\
+(s/W)\,\eta, & s\lt W,\\
 \eta, & W\le s\le T,\\
-f(s-T)\,\eta, & s>T,
+f(s-T)\,\eta, & s\gt T,
 \end{cases}
 $$
 

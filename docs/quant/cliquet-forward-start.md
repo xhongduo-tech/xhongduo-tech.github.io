@@ -11,7 +11,7 @@ section: quant
 <footer>—— Rubinstein, Pay Now, Choose Later, Risk, 1991；cliquet 结构见结构产品实务与 Wilmott 对重置期权的讨论</footer>
 </div>
 
-[上一课](/quant/quanto-options)把外汇计价加进多资产。本课回到单资产，但把**执行价的时钟**推迟：远期起始在 $t_0>0$ 才令 $K=S_{t_0}$，cliquet 把区间收益 $\bigl(S_{t_{i+1}}/S_{t_i}-1\bigr)$ 逐段封顶，再累加或复合。缺口是前向微笑——ATM 香草曲面不够，因为每段重置都在未来的 ATM 上取值。后课 autocallable 会把重置与障碍耦合。
+[上一课](/quant/quanto-options)把外汇计价加进多资产。本课回到单资产，但把**执行价的时钟**推迟：远期起始在 $t_0\gt 0$ 才令 $K=S_{t_0}$，cliquet 把区间收益 $\bigl(S_{t_{i+1}}/S_{t_i}-1\bigr)$ 逐段封顶，再累加或复合。缺口是前向微笑——ATM 香草曲面不够，因为每段重置都在未来的 ATM 上取值。后课 autocallable 会把重置与障碍耦合。
 
 ## 问题
 

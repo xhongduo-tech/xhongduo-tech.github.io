@@ -37,7 +37,7 @@ flowchart TD
   APX --> NO["无保证的贪心：不算"]
 ```
 
-[贪心正确性](/cs/greedy-correct)要的是 $\rho=1$。本课允许 $\rho>1$，但仍要证。
+[贪心正确性](/cs/greedy-correct)要的是 $\rho=1$。本课允许 $\rho\gt 1$，但仍要证。
 
 ## 机制
 

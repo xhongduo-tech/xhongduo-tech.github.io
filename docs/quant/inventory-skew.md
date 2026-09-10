@@ -34,7 +34,7 @@ b = m_{\mathrm{fair}} - \tfrac{s}{2} - \psi(q-q^\star),\qquad
 a = m_{\mathrm{fair}} + \tfrac{s}{2} - \psi(q-q^\star),
 $$
 
-其中 $\psi>0$ 为偏度系数，$q$ 以买入库存为正。$q>q^\star$ 时 $b,a$ 一起下降：更愿意被买、更不愿意再买。这正是无差异价格 $r=m_{\mathrm{fair}}-\psi(q-q^\star)$ 两侧再加对称半价差。$\psi$ 在 Ho–Stoll / Avellaneda–Stoikov 中对应 $\gamma\sigma^2(T-t)$ 一类量；实务上常取与库存限额、波动和剩余会话时间有关的分段线性：接近库存上限时 $\psi$ 陡增，直到一侧撤出市场。
+其中 $\psi\gt 0$ 为偏度系数，$q$ 以买入库存为正。$q\gt q^\star$ 时 $b,a$ 一起下降：更愿意被买、更不愿意再买。这正是无差异价格 $r=m_{\mathrm{fair}}-\psi(q-q^\star)$ 两侧再加对称半价差。$\psi$ 在 Ho–Stoll / Avellaneda–Stoikov 中对应 $\gamma\sigma^2(T-t)$ 一类量；实务上常取与库存限额、波动和剩余会话时间有关的分段线性：接近库存上限时 $\psi$ 陡增，直到一侧撤出市场。
 
 宽度 $s$ 可以独立于 $\psi$ 设定：随 $\sigma$、成交强度、以及 [毒性](/quant/toxic-flow) 上升而加宽。存货模型给出 $s$ 的下限来自库存方差，信息模型给出另一条下限来自逆向选择；观察到的价差是两者与处理成本的和，见 [价差分解](/quant/spread-decomposition)。估计 $\psi$ 可用做市商自己的报价中点对 $q$ 回归，或用专家数据（旧 NYSE）做 Madhavan–Smidt 式的部分调整：存货向目标回归，报价是存货与信息的函数。
 

@@ -30,7 +30,7 @@ GPT-2 不用当时已有的 Common Crawl 快照当主库。作者认为爬虫噪
 两份模型都是解码器-only Transformer，目标为
 
 $$
-L(\theta)=-\mathbb{E}_{x\sim\mathcal{D}}\sum_t\log\pi_\theta(x_t\mid x_{<t}).
+L(\theta)=-\mathbb{E}_{x\sim\mathcal{D}}\sum_t\log\pi_\theta(x_t\mid x_{\lt t}).
 $$
 
 GPT-2 相对 GPT-1 的结构改动很小：层归一化挪到每个子层输入，并在最后一块自注意力后再加一层 LN；词表用字节级 BPE，减少未登录词。规模扫 117M、345M、762M、1.5B。上下文 1024。GPT-3 把同一骨架拉到 175B：96 层、隐宽 12288、96 头，上下文 2048；中间若干层使用交替的稠密与局部带状稀疏注意力，以控制长序列代价。优化器为 Adam 一类自适应方法，学习率余弦退火，批大小随规模加大，175B 档约 320 万 token 一批，共看约 3000 亿 token。

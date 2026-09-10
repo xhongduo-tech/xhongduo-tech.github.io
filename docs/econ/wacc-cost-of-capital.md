@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-[MM 1958](/econ/modigliani-miller) 已经警告：看到 $r_E>r_D$ 就加杠杆，是把切片成本当成资产成本。有公司税之后，税后债务成本是 $r_D(1-\tau_c)$，教科书 WACC 写成
+[MM 1958](/econ/modigliani-miller) 已经警告：看到 $r_E\gt r_D$ 就加杠杆，是把切片成本当成资产成本。有公司税之后，税后债务成本是 $r_D(1-\tau_c)$，教科书 WACC 写成
 
 $$
 r_{\mathrm{WACC}}=\frac{E}{V}r_E+\frac{D}{V}r_D(1-\tau_c).
@@ -61,7 +61,7 @@ Miles–Ezzell 与 Harris–Pringle 给出不同再平衡假设下税盾的折�
 
 本课不推导 CAPM，不估计市场溢价。$r_E$ 在这里仍是输入。[优序](/econ/pecking-order)说发股有柠檬，那是发行成本，不是把 WACC 里的 $r_E$ 人为加几个点当「股权贵」。柠檬应进发行折价或 APV 副作用。
 
-后课默认：WACC 折未杠杆 FCF、权重用目标市值、税盾与再平衡政策匹配。债务水平锁定则离开常数 WACC，交给 APV。不要用 $r_E>r_D$ 证明应当加杠杆。
+后课默认：WACC 折未杠杆 FCF、权重用目标市值、税盾与再平衡政策匹配。债务水平锁定则离开常数 WACC，交给 APV。不要用 $r_E\gt r_D$ 证明应当加杠杆。
 
 宏观课序与家庭欧拉给出的是随机折现；WACC 是确定等价或 beta 调整后的一个利率，不是另一套偏好。
 

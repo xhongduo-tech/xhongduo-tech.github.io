@@ -56,6 +56,6 @@ flowchart TD
 
 - Looped Transformer 用全局循环次数 $T$ 当测试时计算旋钮，去掉 ACT 的每位置门。
 - 同一规则的迭代任务上，参数远少于同等深度的不共享栈。
-- $T_{\mathrm{test}}>T_{\mathrm{train}}$ 不自动变好；振荡说明规则不可复用或预算没训到。
+- $T_{\mathrm{test}}\gt T_{\mathrm{train}}$ 不自动变好；振荡说明规则不可复用或预算没训到。
 - 语言模型困惑度往往更吃不共享的深度。
 - 出处：Giannou et al., ICML 2023。

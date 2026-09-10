@@ -21,7 +21,7 @@ $$
 \hat\epsilon = \epsilon_u + \gamma\,(\epsilon_c-\epsilon_u)
 $$
 
-$\gamma=1$ 为普通条件；$\gamma>1$ 沿条件方向外推。过强则过饱和、丢多样性、文字乱码——与 LM-CFG 过强跑题同类。
+$\gamma=1$ 为普通条件；$\gamma\gt 1$ 沿条件方向外推。过强则过饱和、丢多样性、文字乱码——与 LM-CFG 过强跑题同类。
 
 <span class="marginnote">空条件必须与训练 dropout 协议一致。推理用的「负提示」是把 $u$ 换成负文本，几何仍是远离不想要的属性。</span>
 

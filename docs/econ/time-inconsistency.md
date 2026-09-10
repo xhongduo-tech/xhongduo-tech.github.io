@@ -11,7 +11,7 @@ section: econ
 <footer>—— Kydland and Prescott, Rules Rather than Discretion, JPE 1977；对照 Barro and Gordon 的通胀偏差</footer>
 </div>
 
-[上一课](/econ/taylor-principle)（泰勒原理）。在此之上，政策写成 $\phi_\pi>1$ 的反应函数。卢卡斯批判要求规则进入预期。本课的缺口是：将来的政策制定者仍会重新优化。Kydland 与 Prescott（1977）证明，缺乏承诺时，事先最优的规则一般不是事后最优。零下限是下一课的工具约束；本课先把激励约束写完。
+[上一课](/econ/taylor-principle)（泰勒原理）。在此之上，政策写成 $\phi_\pi\gt 1$ 的反应函数。卢卡斯批判要求规则进入预期。本课的缺口是：将来的政策制定者仍会重新优化。Kydland 与 Prescott（1977）证明，缺乏承诺时，事先最优的规则一般不是事后最优。零下限是下一课的工具约束；本课先把激励约束写完。
 
 ## 问题
 
@@ -23,7 +23,7 @@ Taylor 规则若只是「过去碰巧这么做」，不是承诺。承诺意味�
 
 ## 方法
 
-Barro–Gordon：央行目标含通胀平方与失业（或产出）对 $u^*$ 的偏离；短 Phillips 含 $\pi-\pi^e$。承诺解：选 $\pi$，令 $\pi^e=\pi$，得到低通胀。权变解：对给定 $\pi^e$ 选最优 $\pi$，再令 $\pi^e$ 等于这个选择，得到 $\pi>\pi_{\mathrm{commit}}$，$\tilde{u}=0$。信誉均衡可以在重复博弈里用触发策略支撑更好的结果，接近无名氏定理——那是博弈课已有的逻辑，对象换成通胀。
+Barro–Gordon：央行目标含通胀平方与失业（或产出）对 $u^*$ 的偏离；短 Phillips 含 $\pi-\pi^e$。承诺解：选 $\pi$，令 $\pi^e=\pi$，得到低通胀。权变解：对给定 $\pi^e$ 选最优 $\pi$，再令 $\pi^e$ 等于这个选择，得到 $\pi\gt \pi_{\mathrm{commit}}$，$\tilde{u}=0$。信誉均衡可以在重复博弈里用触发策略支撑更好的结果，接近无名氏定理——那是博弈课已有的逻辑，对象换成通胀。
 
 ```mermaid
 flowchart TD

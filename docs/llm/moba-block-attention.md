@@ -33,7 +33,7 @@ $$
 s_i=\langle q,\mathrm{mean\_pool}(K[I_i])\rangle,
 $$
 
-$g_i=1$ 当且仅当 $s_i$ 进入 top-k（加因果掩码与当前块强制）。$I=\bigcup_{g_i>0}I_i$。无额外参数：分数用已有 $q$ 与块内 $K$ 均值，不是另训的专家网络。
+$g_i=1$ 当且仅当 $s_i$ 进入 top-k（加因果掩码与当前块强制）。$I=\bigcup_{g_i\gt 0}I_i$。无额外参数：分数用已有 $q$ 与块内 $K$ 均值，不是另训的专家网络。
 
 实现五步：按门控与因果得到 query–块赋值；按块重排 query；对每块做变长 FlashAttention（当前块 causal=True，历史块 causal=False）；排回原序；online softmax 融合。图 2 显示相对 Flash 满注意力，在加长序列与固定约 95% 稀疏（64 块、top-k=3、块长随 $N$ 涨）下的时间优势。
 

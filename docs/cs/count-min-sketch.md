@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-流中元素更新 $(x,\Delta)$，$\Delta\ge 0$。查询 $\hat{f}(x)=\min_j \mathrm{CM}[j,h_j(x)]$。真频 $f(x)\le\hat{f}(x)$。取 $w=\lceil e/\varepsilon\rceil$，$d=\lceil\ln(1/\delta)\rceil$，有 $\Pr[\hat{f}(x)>f(x)+\varepsilon\|f\|_1]\le\delta$。缺口是**用最小压住其它键的碰撞噪音**，空间 $O((1/\varepsilon)\log(1/\delta))$ 与 $n$ 无关。
+流中元素更新 $(x,\Delta)$，$\Delta\ge 0$。查询 $\hat{f}(x)=\min_j \mathrm{CM}[j,h_j(x)]$。真频 $f(x)\le\hat{f}(x)$。取 $w=\lceil e/\varepsilon\rceil$，$d=\lceil\ln(1/\delta)\rceil$，有 $\Pr[\hat{f}(x)\gt f(x)+\varepsilon\|f\|_1]\le\delta$。缺口是**用最小压住其它键的碰撞噪音**，空间 $O((1/\varepsilon)\log(1/\delta))$ 与 $n$ 无关。
 
 <span class="marginnote">Cormode and Muthukrishnan, *Journal of Algorithms*, 2005。行哈希 pairwise 独立通常够用。</span>
 

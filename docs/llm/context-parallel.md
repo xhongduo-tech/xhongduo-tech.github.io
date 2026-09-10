@@ -55,7 +55,7 @@ flowchart TD
 
 ## 机制
 
-Ulysses 的 All-to-All 把布局从 $(s/C,\, h)$ 换成 $(s,\, h/C)$。每张卡发出自己的序列块给所有需要对应头的卡。负载在头之间均匀时，体积均衡；GQA 下 KV 头很少，$h_{\mathrm{kv}}<C$ 时对换失败，必须复制 KV 或改切分轴。Ring 的每步 P2P 体积是一块 $K,V$：$\propto b\cdot(s/C)\cdot d$。$C$ 步之后总流量 $\propto b s d$，与 All-to-All 同阶，但模式是邻居之间的带宽，更容易叠计算。环的直径是 $C$，最后一块 KV 到达的延迟 $\propto C$；过大的 $C$ 让末步的计算掩盖不住等待。
+Ulysses 的 All-to-All 把布局从 $(s/C,\, h)$ 换成 $(s,\, h/C)$。每张卡发出自己的序列块给所有需要对应头的卡。负载在头之间均匀时，体积均衡；GQA 下 KV 头很少，$h_{\mathrm{kv}}\lt C$ 时对换失败，必须复制 KV 或改切分轴。Ring 的每步 P2P 体积是一块 $K,V$：$\propto b\cdot(s/C)\cdot d$。$C$ 步之后总流量 $\propto b s d$，与 All-to-All 同阶，但模式是邻居之间的带宽，更容易叠计算。环的直径是 $C$，最后一块 KV 到达的延迟 $\propto C$；过大的 $C$ 让末步的计算掩盖不住等待。
 
 在线 softmax 是 Ring 等价性的核心：不能对各块各自 softmax 再平均，那会错。必须累积 $\max$、$\sum e^{s_{ij}-\max}$ 与加权值，按块更新。实现漏掉 max 的跨块传播，会出现一整段注意力被某一块主导或数值 Inf。FlashAttention 已经在单卡分块里做了同一套累积；Ring 是把块分到了不同卡。
 

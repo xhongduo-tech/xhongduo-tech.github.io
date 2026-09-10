@@ -11,7 +11,7 @@ section: quant
 <footer>—— Nelson, Conditional Heteroskedasticity in Asset Returns: A New Approach, Econometrica 1991；Glosten, Jagannathan and Runkle, Journal of Finance 1993</footer>
 </div>
 
-[上一课](/quant/garch)把 ARCH 收成 GARCH(1,1)，平稳性要求 $\alpha+\beta<1$，并点名对称 GARCH 不解释杠杆效应。缺口就是非对称：股票指数的波动在下跌后升得更猛。Nelson 的 EGARCH 在对数方差上同时放入冲击大小与符号；GJR 在水平平方上为负残差加额外权重。本课写新闻冲击曲线，并不识别财务杠杆与波动反馈。不重推 GARCH(1,1) 的 $\omega,\alpha,\beta$。
+[上一课](/quant/garch)把 ARCH 收成 GARCH(1,1)，平稳性要求 $\alpha+\beta\lt 1$，并点名对称 GARCH 不解释杠杆效应。缺口就是非对称：股票指数的波动在下跌后升得更猛。Nelson 的 EGARCH 在对数方差上同时放入冲击大小与符号；GJR 在水平平方上为负残差加额外权重。本课写新闻冲击曲线，并不识别财务杠杆与波动反馈。不重推 GARCH(1,1) 的 $\omega,\alpha,\beta$。
 
 ## 问题
 
@@ -23,13 +23,13 @@ $$
 \log\sigma_t^2=\omega+\beta\log\sigma_{t-1}^2+\alpha\bigl(|z_{t-1}|-E|z_{t-1}|\bigr)+\gamma z_{t-1}.
 $$
 
-$\gamma<0$ 时负 $z$ 抬高下一期对数方差。对数保证 $\sigma_t^2>0$，不必对 $\alpha,\beta$ 做非负约束。GJR-GARCH 为
+$\gamma\lt 0$ 时负 $z$ 抬高下一期对数方差。对数保证 $\sigma_t^2\gt 0$，不必对 $\alpha,\beta$ 做非负约束。GJR-GARCH 为
 
 $$
-\sigma_t^2=\omega+\bigl(\alpha+\gamma\mathbf{1}_{\{\varepsilon_{t-1}<0\}}\bigr)\varepsilon_{t-1}^2+\beta\sigma_{t-1}^2.
+\sigma_t^2=\omega+\bigl(\alpha+\gamma\mathbf{1}_{\{\varepsilon_{t-1}\lt 0\}}\bigr)\varepsilon_{t-1}^2+\beta\sigma_{t-1}^2.
 $$
 
-$\gamma>0$ 对应股票上的杠杆效应。Zakoian 的 TARCH 用绝对值而非平方，同一家族。
+$\gamma\gt 0$ 对应股票上的杠杆效应。Zakoian 的 TARCH 用绝对值而非平方，同一家族。
 
 ### 杠杆效应与波动反馈不是同一条因果
 
@@ -39,7 +39,7 @@ $\gamma>0$ 对应股票上的杠杆效应。Zakoian 的 TARCH 用绝对值而非
 
 ## 方法
 
-**估计。** 仍用条件（准）极大似然。EGARCH 无正性约束，优化更自由，但 $\log\sigma^2$ 在极端 $z$ 下可以跑得很远，数值要裁剪创新或用稳健 $z$ 分布。GJR 保持水平方程，约束 $\omega>0$，$\alpha\ge 0$，$\alpha+\gamma\ge 0$，$\beta\ge 0$，平稳性涉及非对称下的期望系数，不是简单的 $\alpha+\beta<1$。创新用高斯或 t；股票上 t 或 GED（Nelson 原文用 GED）更常见。
+**估计。** 仍用条件（准）极大似然。EGARCH 无正性约束，优化更自由，但 $\log\sigma^2$ 在极端 $z$ 下可以跑得很远，数值要裁剪创新或用稳健 $z$ 分布。GJR 保持水平方程，约束 $\omega\gt 0$，$\alpha\ge 0$，$\alpha+\gamma\ge 0$，$\beta\ge 0$，平稳性涉及非对称下的期望系数，不是简单的 $\alpha+\beta\lt 1$。创新用高斯或 t；股票上 t 或 GED（Nelson 原文用 GED）更常见。
 
 **新闻冲击曲线。** 估计后画出 $z\mapsto\sigma_{t}^2(z)$（其余固定在稳态）。比较对称 GARCH、EGARCH、GJR 在 $z=-2$ 与 $z=+2$ 处的高度。样本外用 QLIKE、VaR 违反率、以及下跌日后的预测误差，而不是只看样本内似然——非对称多一个参数，样本内几乎总会赢。
 
@@ -65,14 +65,14 @@ RV 对昨日负收益回归，系数常为负，HAR 可加杠杆。那是已实�
 
 非对称在个股上比指数上噪：个股特质跳会把 $\gamma$ 打飞。风险模型更常对指数、行业、因子组合估 EGARCH/GJR，个股用映射。EGARCH 多步预测与矩没有 GARCH(1,1) 那么干净；若产品只需要一步 VaR，两者都可用；若需要解析的多期方差，GJR 或带杠杆的 GARCH 更省事。
 
-不要把 $\gamma$ 显著当成可交易的「跌了就做多波动」。那是条件方差的拟合，执行还要方差风险溢价与成本。不要在对称 GARCH 与 EGARCH 之间用全样本 AIC 选完再报告唯一模型的 t 值。预指定：股票指数用非对称，汇率用对称，作为默认，其余当稳健性。正性约束在 GJR 上可能顶住（$\alpha=0$，$\gamma>0$），含义是「只有下跌日更新方差」，应报告，而不是当作优化失败。
+不要把 $\gamma$ 显著当成可交易的「跌了就做多波动」。那是条件方差的拟合，执行还要方差风险溢价与成本。不要在对称 GARCH 与 EGARCH 之间用全样本 AIC 选完再报告唯一模型的 t 值。预指定：股票指数用非对称，汇率用对称，作为默认，其余当稳健性。正性约束在 GJR 上可能顶住（$\alpha=0$，$\gamma\gt 0$），含义是「只有下跌日更新方差」，应报告，而不是当作优化失败。
 
 <span class="marginnote">新闻冲击曲线在 $z$ 的两端样本很少。$\gamma$ 往往被少数极端日识别。估计应检查删掉最大的一两个负收益后 $\gamma$ 是否还在。若消失，模型是在拟合跳跃，不是稳定的杠杆通道——跳跃应单独建模或用稳健损失。</span>
 
 ```mermaid
 flowchart TD
   Z["标准化冲击 z_{t-1}"] --> MAG["大小 |z|"]
-  Z --> SGN["符号 z 或 1_{ε<0}"]
+  Z --> SGN["符号 z 或 1_{ε＜0}"]
   MAG --> EG["EGARCH: 进入 log σ²"]
   SGN --> EG
   MAG --> GJR["GJR: 负日放大 ε²"]

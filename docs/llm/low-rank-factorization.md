@@ -30,7 +30,7 @@ flowchart TD
   W["满秩 W"] --> MET["任务度量: Fisher 或 WX"]
   MET --> SVD["截断 SVD"]
   SVD --> UV["U, V 因子"]
-  UV --> FUSE{"2r < min(d) 且有核?"}
+  UV --> FUSE{"2r ＜ min(d) 且有核?"}
   FUSE -->|是| FAST["两次瘦 GEMM"]
   FUSE -->|否| MEM["只省存储"]
 ```

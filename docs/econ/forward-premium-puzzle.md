@@ -25,7 +25,7 @@ UIP：$\mathbb{E}[\Delta e]=i-i^*$。Fama：把 $\Delta e$ 对远期溢价（或
 
 ```mermaid
 flowchart TD
-  UIP["UIP: β = 1"] --> FAMA["Fama: β 常 < 1 甚至负"]
+  UIP["UIP: β = 1"] --> FAMA["Fama: β 常 ＜ 1 甚至负"]
   RP["时变风险溢价"] --> FAMA
   EXP["预期误差 / 比索"] --> FAMA
   CIP["CIP 复制"] --> Q["/quant/irp, 不是本谜"]

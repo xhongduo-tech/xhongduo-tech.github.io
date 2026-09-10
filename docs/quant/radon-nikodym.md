@@ -17,7 +17,7 @@ section: quant
 
 同一可测空间上可以有许多概率。若 $P(A)=0\Rightarrow Q(A)=0$，称 $Q$ 关于 $P$ 绝对连续，记 $Q\ll P$。Radon–Nikodym 定理给出密度 $\xi\ge 0$，$\mathbb E_P[\xi]=1$，且 $\mathbb E_Q[X]=\mathbb E_P[\xi X]$。缺口是把这条定理当成定价运算：期望换测度 = 原测度下乘密度。没有密度，后课「风险中性」只是改写 $\mu$，没有概率对象。
 
-互绝对连续 $Q\sim P$ 要求两边零集相同，从而 $\xi>0$ a.s.，$\mathrm d P/\mathrm d Q=1/\xi$。定价要等价测度，是为了不把 $P$ 下的不可能事件变成 $Q$ 下的正概率套利通道。
+互绝对连续 $Q\sim P$ 要求两边零集相同，从而 $\xi\gt 0$ a.s.，$\mathrm d P/\mathrm d Q=1/\xi$。定价要等价测度，是为了不把 $P$ 下的不可能事件变成 $Q$ 下的正概率套利通道。
 
 ### 密度不是似然比的口头禅
 
@@ -57,7 +57,7 @@ flowchart TD
 ## 小结
 
 - $Q\ll P$ 当且仅当存在密度 $\xi=\mathrm d Q/\mathrm d P$。
-- 等价要求 $\xi>0$；密度过程 $\xi_t$ 是 $P$-鞅。
+- 等价要求 $\xi\gt 0$；密度过程 $\xi_t$ 是 $P$-鞅。
 - $Q$ 下期望 = $P$ 下乘 $\xi$；条件期望走 Bayes。
 - 密度是路径泛函，不是统计检验的口头禅。
 - 出处：Karatzas–Shreve §3.5；Shreve SDE II 第 5 章。

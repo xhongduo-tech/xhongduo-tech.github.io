@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-投影已经会做。缺口是时间一致性：对 $s<t$，今天对 $M_t$ 的预测应等于今天已经看到的 $M_s$，否则中间可以插入一个有偏的增量。适应、可积、加上这条投影关系，就是鞅。定价里还要处理 $\int\sigma S\,\mathrm d W$ 这类未必可积的积分——它往往只是局部鞅。把两者混成「都是公平游戏」，Girsanov 的指数过程何时真是鞅会说不清。
+投影已经会做。缺口是时间一致性：对 $s\lt t$，今天对 $M_t$ 的预测应等于今天已经看到的 $M_s$，否则中间可以插入一个有偏的增量。适应、可积、加上这条投影关系，就是鞅。定价里还要处理 $\int\sigma S\,\mathrm d W$ 这类未必可积的积分——它往往只是局部鞅。把两者混成「都是公平游戏」，Girsanov 的指数过程何时真是鞅会说不清。
 
 ### 局部鞅不是「差一点的鞅」
 
@@ -27,7 +27,7 @@ section: quant
 
 过程 $M$ 适应、可积，若对 $s\le t$ 有 $\mathbb E[M_t\mid\mathcal F_s]=M_s$，则称鞅。上鞅把等号换成 $\le$（期望下降），下鞅相反。布朗运动是鞅；$\mathrm e^{\sigma W_t-\frac12\sigma^2 t}$ 在 Novikov 条件下是鞅。有限变差的补偿子把下鞅拆成鞅加增过程（Doob–Meyer），本课只需要：定价时把有补偿的部分叫漂移，无补偿的叫鞅部分。
 
-伊藤积分 $\int_0^t H\,\mathrm d W$：若 $\mathbb E\int H^2<\infty$，则是平方可积鞅，且 $[\int H\,\mathrm d W]=\int H^2\,\mathrm d t$。若只有 $\int H^2<\infty$ a.s.，则是连续局部鞅。GBM 的随机项 $\int\sigma S\,\mathrm d W$ 先作为局部鞅出现；在真实测度下 $S$ 本身一般不是鞅，因为还有 $\mu S\,\mathrm d t$。
+伊藤积分 $\int_0^t H\,\mathrm d W$：若 $\mathbb E\int H^2\lt \infty$，则是平方可积鞅，且 $[\int H\,\mathrm d W]=\int H^2\,\mathrm d t$。若只有 $\int H^2\lt \infty$ a.s.，则是连续局部鞅。GBM 的随机项 $\int\sigma S\,\mathrm d W$ 先作为局部鞅出现；在真实测度下 $S$ 本身一般不是鞅，因为还有 $\mu S\,\mathrm d t$。
 
 ```mermaid
 flowchart TD

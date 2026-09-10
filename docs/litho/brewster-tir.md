@@ -21,13 +21,13 @@ section: litho
 
 ### 全反射不是「折射角等于 90° 的光线」
 
-$\theta_i=\theta_c$ 时 $\theta_t=90^\circ$，透射波沿界面掠射。$\theta_i>\theta_c$ 时 $\sin\theta_t>1$，折射角不再是实数，透射侧场沿界面传播、沿法向指数衰减。能量在无吸收时全部反射，$|r_s|=|r_p|=1$，但场仍然渗进疏媒约一个波长。把 TIR 理解成「光线在界面折回、对面什么都没有」，会丢掉近场耦合。
+$\theta_i=\theta_c$ 时 $\theta_t=90^\circ$，透射波沿界面掠射。$\theta_i\gt \theta_c$ 时 $\sin\theta_t\gt 1$，折射角不再是实数，透射侧场沿界面传播、沿法向指数衰减。能量在无吸收时全部反射，$|r_s|=|r_p|=1$，但场仍然渗进疏媒约一个波长。把 TIR 理解成「光线在界面折回、对面什么都没有」，会丢掉近场耦合。
 
-<span class="marginnote">Brewster 角 $\theta_B=\arctan(n_2/n_1)$（从 $n_1$ 到 $n_2$）。此时反射线与折射线垂直，$r_p=0$。临界角 $\theta_c=\arcsin(n_2/n_1)$，仅当 $n_1>n_2$。</span>
+<span class="marginnote">Brewster 角 $\theta_B=\arctan(n_2/n_1)$（从 $n_1$ 到 $n_2$）。此时反射线与折射线垂直，$r_p=0$。临界角 $\theta_c=\arcsin(n_2/n_1)$，仅当 $n_1\gt n_2$。</span>
 
 ## 方法
 
-令上一课的 $r_p=0$，得到 $\theta_i+\theta_t=90^\circ$，即 Brewster 条件。反射光为纯 s 线偏振（入射若含 p，p 分量全部进入折射）。全内反射：$n_1>n_2$ 且 $\theta_i>\theta_c$。透射侧波矢的法向分量变成虚数，倏逝波振幅 $\propto e^{-\kappa z}$，$\kappa=\frac{2\pi}{\lambda}\sqrt{n_1^2\sin^2\theta_i-n_2^2}$，穿透深度约 $\lambda$ 量级。
+令上一课的 $r_p=0$，得到 $\theta_i+\theta_t=90^\circ$，即 Brewster 条件。反射光为纯 s 线偏振（入射若含 p，p 分量全部进入折射）。全内反射：$n_1\gt n_2$ 且 $\theta_i\gt \theta_c$。透射侧波矢的法向分量变成虚数，倏逝波振幅 $\propto e^{-\kappa z}$，$\kappa=\frac{2\pi}{\lambda}\sqrt{n_1^2\sin^2\theta_i-n_2^2}$，穿透深度约 $\lambda$ 量级。
 
 无吸收时功率不进入疏媒，但相位 $\arg r$ 随入射角变化，伴随 Goos–Hänchen 横向位移。本课只记 $|r|=1$ 与衰减，精细相位计量留给后课。
 
@@ -56,7 +56,7 @@ Brewster 角随折射率比移动：浸没或镀膜会把 $\theta_B$ 挪到另�
 ## 小结
 
 - Brewster 角：$r_p=0$，反射光为线偏 s。
-- 全内反射：$\theta_i>\theta_c$ 时 $|r|=1$，疏媒侧为倏逝波。
+- 全内反射：$\theta_i\gt \theta_c$ 时 $|r|=1$，疏媒侧为倏逝波。
 - 倏逝场渗入约一个波长；近场耦合靠受抑全反射，不是本课主线。
 - 投影成像通常不在 TIR 区；角概念用于光路与偏振。
 - 出处：Hecht, *Optics*；Born &amp; Wolf, *Principles of Optics*。

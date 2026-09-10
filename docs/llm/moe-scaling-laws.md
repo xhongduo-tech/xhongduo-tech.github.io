@@ -21,7 +21,7 @@ section: llm
 
 ### 活跃参数与总参数
 
-记总专家为 $N_e$，每个专家参数 $P_e$，再加共享的注意力与路由参数 $P_s$。总参数 $N_{\mathrm{tot}}\approx P_s+N_e P_e$，活跃参数 $N_{\mathrm{act}}\approx P_s+k P_e$（忽略路由开销）。稠密模型是 $N_e=1,k=1$ 的特例。Switch 取 $k=1$，用极大的 $N_e$ 拉高 $N_{\mathrm{tot}}$，同时把 $N_{\mathrm{act}}$ 留在可训练的 FLOPs 预算里。比较扩展时，FLOPs 轴应对齐 $N_{\mathrm{act}}D$，存储与服务显存对齐 $N_{\mathrm{tot}}$。<span class="marginnote">推理期若 $k>1$ 或专家因负载被多次调用，活跃计算会高于训练会计。服务扩展律不能直接搬训练时的 $N_{\mathrm{act}}$。训练扩展只对「每个 token 固定 top-$k$」这一假设干净。</span>
+记总专家为 $N_e$，每个专家参数 $P_e$，再加共享的注意力与路由参数 $P_s$。总参数 $N_{\mathrm{tot}}\approx P_s+N_e P_e$，活跃参数 $N_{\mathrm{act}}\approx P_s+k P_e$（忽略路由开销）。稠密模型是 $N_e=1,k=1$ 的特例。Switch 取 $k=1$，用极大的 $N_e$ 拉高 $N_{\mathrm{tot}}$，同时把 $N_{\mathrm{act}}$ 留在可训练的 FLOPs 预算里。比较扩展时，FLOPs 轴应对齐 $N_{\mathrm{act}}D$，存储与服务显存对齐 $N_{\mathrm{tot}}$。<span class="marginnote">推理期若 $k\gt 1$ 或专家因负载被多次调用，活跃计算会高于训练会计。服务扩展律不能直接搬训练时的 $N_{\mathrm{act}}$。训练扩展只对「每个 token 固定 top-$k$」这一假设干净。</span>
 
 ## 方法
 

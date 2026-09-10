@@ -36,7 +36,7 @@ section: llm
 **似然比**：比较 Canary 的平均 token 对数概率与一组同样长度的对照随机串。若
 
 $$
-\Delta=\frac{1}{T}\sum_{t=1}^{T}\log p_\theta(c_t\mid c_{<t})-\mathbb{E}_{r\sim\mathcal{R}}\Bigl[\tfrac{1}{T}\sum_{t}\log p_\theta(r_t\mid r_{<t})\Bigr]
+\Delta=\frac{1}{T}\sum_{t=1}^{T}\log p_\theta(c_t\mid c_{\lt t})-\mathbb{E}_{r\sim\mathcal{R}}\Bigl[\tfrac{1}{T}\sum_{t}\log p_\theta(r_t\mid r_{\lt t})\Bigr]
 $$
 
 显著为正，则模型对 Canary 的偏好超过「任意高熵串」的基线，即使贪婪解码没有一字不差地吐出。这比精确匹配更敏感，也需要对照集 $\mathcal{R}$ 与 Canary 在长度、字母表上对齐。

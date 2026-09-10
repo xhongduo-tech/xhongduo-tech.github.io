@@ -37,7 +37,7 @@ $$
 r_j=\log p^{\mathrm{talk}}_{j:j+n_{\mathrm{true}}}(X_{j+1:j+n_{\mathrm{true}}+1})-\log \bar p^{\mathrm{talk}}_{j:j+n_{\mathrm{true}}}(\cdots).
 $$
 
-REINFORCE 加强高于平均的理由。作者发现丢掉负回报更稳，尽管引入偏差。非近视：$n_{\mathrm{true}}>1$，让「为后面几步铺垫」的思维也能得分。主实验从 Mistral 7B 出发，语料以 OpenWebMath 为主（技术文本密度高），并在 C4 上验证仍有、但更小的收益。
+REINFORCE 加强高于平均的理由。作者发现丢掉负回报更稳，尽管引入偏差。非近视：$n_{\mathrm{true}}\gt 1$，让「为后面几步铺垫」的思维也能得分。主实验从 Mistral 7B 出发，语料以 OpenWebMath 为主（技术文本密度高），并在 C4 上验证仍有、但更小的收益。
 
 评测故意**不做** GSM8K / CommonsenseQA 的任务微调：零样本直接答题。报告 CommonsenseQA $36.3\%\to 47.2\%$，GSM8K $5.9\%\to 10.9\%$，且随思维 token 数增加而更好。他们还观察到思维对「难预测 token」的帮助不成比例地大。
 

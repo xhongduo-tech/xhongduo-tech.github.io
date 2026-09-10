@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-$\gcd$ 与最小正线性组合重合：存在 $x,y$，$ax+by=\gcd(a,b)$（Bézout）。扩展欧几里得在递归同时带回 $x,y$。$\gcd(a,n)=1\iff a$ 在 $\mathbb{Z}/n\mathbb{Z}$ 可逆，$a^{-1}\equiv x\pmod n$。$\gcd>1$ 则 $ax\equiv 1$ 无解；$ax\equiv b$ 有解当 $\gcd\mid b$。
+$\gcd$ 与最小正线性组合重合：存在 $x,y$，$ax+by=\gcd(a,b)$（Bézout）。扩展欧几里得在递归同时带回 $x,y$。$\gcd(a,n)=1\iff a$ 在 $\mathbb{Z}/n\mathbb{Z}$ 可逆，$a^{-1}\equiv x\pmod n$。$\gcd\gt 1$ 则 $ax\equiv 1$ 无解；$ax\equiv b$ 有解当 $\gcd\mid b$。
 
 二进制 gcd、Lehmer 加速是实现，本课标准除法版。
 
