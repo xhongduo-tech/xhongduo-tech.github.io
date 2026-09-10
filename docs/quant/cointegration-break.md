@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gregory & Hansen, Residual-based Tests for Cointegration in Models with Regime Shifts, Journal of Econometrics, 1996</footer>
 </div>
 
-配对与统计套利常把两只（或多只）价格当成一个协整系统：价差是平稳的，偏离会回到误差修正项所描述的均衡。Engle 与 Granger 1987 年把这一结构写成残差平稳加误差修正；Johansen 把它推进到向量系统。真正会让策略穿仓的，往往不是「从来没有协整」，而是曾经有、后来断了。Gregory 与 Hansen 1996 年的工作正是针对未知时点的机制转换：水平漂移、趋势转换、或连斜率一起换。检验与交易是两件事——能检出断裂，并不等于你能在断裂发生的那几天按旧残差去平仓而不付出冲击。
+[上一课](/quant/kalman-hedge)把时变对冲比写成随机游走状态，可交易信号必须用预测步；滤波残差平稳不能用 Johansen 的 $p$ 值证明。Kalman 适应的是缓慢漂移的 $\beta$，不是未知时点的机制转换。缺口是曾经协整、后来断了：水平漂移、趋势转换、或连斜率一起换。Engle–Granger / Johansen 的全样本直线会把两段均衡揉成一条过宽的带，交易规则却仍把旧 $\beta$ 当成均衡。本课写破裂检验与交易是两件事。不重推滤波递推。
 
 ## 问题
 

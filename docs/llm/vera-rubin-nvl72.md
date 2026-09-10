@@ -11,7 +11,7 @@ section: llm
     <footer>—— NVIDIA 对 Vera Rubin NVL72 的公开表述：the entire rack operates as one rack-scale accelerator</footer>
 </div>
 
-上一篇把 [机柜作为逻辑加速器](/llm/rack-as-accelerator) 写成形态：NVLink 域覆盖整柜时，通信与调度按单域设计。本篇把对照物换成 **Vera Rubin NVL72**。NVIDIA 公开材料写：一柜集成 72 个 Rubin GPU 与 36 个 Vera CPU，由 [NVLink 6](/llm/nvlink-6) 连接，并配 ConnectX-9 SuperNIC 与 BlueField-4 DPU；柜外再走 Quantum-X800 InfiniBand 或 Spectrum-X 以太网。Blackwell 一代的 GB200 NVL72 已经把「72 GPU 一域」产品化；Rubin 一代把同一形态接到新的六芯片栈上，见 [六芯片共设计](/llm/rubin-six-chips)。本篇讨论这柜在编程模型里是什么，不把厂商营销里的训练 GPU 倍数或每 token 成本写成自己的测量。
+[上一课](/llm/infiniband-gpudirect)把柜外平面写成 InfiniBand / RoCE，GPUDirect 去掉主机 DRAM 弹跳；柜内高频通信仍走 NVLink。缺口是把对照物换成 **Vera Rubin NVL72**：一柜 72 个 Rubin GPU 与 36 个 Vera CPU，由 [NVLink 6](/llm/nvlink-6) 连接，柜外再走 Quantum-X800 或 Spectrum-X。本课讨论这柜在编程模型里是什么——一次 `all_reduce` 的通信子是整柜还是子集。不重讲 RDMA 弹跳公式，也不把厂商营销里的训练倍数写成自己的测量。六芯片栈见 [六芯片共设计](/llm/rubin-six-chips)。
 
 ## 问题
 

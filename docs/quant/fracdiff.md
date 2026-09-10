@@ -11,7 +11,7 @@ section: quant
 <footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 5, 2018；分数差分的经典表述见 Granger and Joyeux, Journal of Time Series Analysis, 1980</footer>
 </div>
 
-对数价格通常像 I(1)，一阶差分后的收益像 I(0)，但收益几乎白噪声，长期记忆被抽空。机器学习特征若用原始价格，单位根让样本均值没有锚，模型会把水平当信息；若用收益，又丢掉缓慢的均值回复与趋势结构。Granger 与 Joyeux、Hosking 把分数阶差分（$d\in\mathbb{R}$）写成 ARFIMA 的一部分：过程可以是平稳的长记忆，而不是只能在 0 与 1 之间跳。López de Prado 在 AFML 第 5 章把同一工具用到特征工程：对价格做 $d$ 阶差分，取仍能通过 ADF 的最小 $d$，使特征尽量保留记忆。本篇写这个折衷怎么算、权重怎么截断；单位根检验本身见[单位根与协整预备](/quant/unit-root)。
+[上一课](/quant/meta-labeling)让初级管方向、次级管是否交易与多大，次级标签必须来自有方向的三重障碍。缺口转到特征侧：对数价格像 I(1)，一阶差分后的收益像 I(0)，但收益几乎白噪声，长期记忆被抽空。机器学习若用原始价格，单位根让样本均值没有锚；若用收益，又丢掉缓慢结构。分数阶差分在单位根与白噪声之间取折衷；AFML 取其能通过平稳性检验的最小 $d$。本课写这个折衷怎么算、权重怎么截断。不重写 meta-labeling 的接受率。单位根检验本身见[单位根与协整预备](/quant/unit-root)。
 
 ## 问题
 

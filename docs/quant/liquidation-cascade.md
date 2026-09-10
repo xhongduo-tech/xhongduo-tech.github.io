@@ -11,7 +11,7 @@ section: quant
     <footer>—— Brunnermeier and Pedersen, Market Liquidity and Funding Liquidity, Review of Financial Studies, 2009</footer>
 </div>
 
-[杠杆、保证金与强平](/quant/leverage-liquidation) 把单账户触及维持水平后的非自愿变现写成损失机制。加密永续把同一机制自动化：标记价格穿过清算价，引擎接管仓位，按规则以市价或拍卖减仓，亏损先由保证金承担，穿仓可能动用保险基金，再不够则自动减仓（ADL）盈利方。当许多账户的清算价挤在同一价格带、深度相对未平仓量过薄时，一笔触发会把标记推进下一簇清算价，形成清算连锁（liquidation cascade）。Thurner、Farmer 与 Geanakoplos 在杠杆模型里演示过肥尾如何由强平阈值内生；Adrian 与 Shin 记录主动去杠杆放大周期。本篇写公开清算流水线、连锁的会计条件与风险架构上的含义。对象是机制与自身账户保护，不是定位他人清算价或设计触发连锁的交易。
+[上一课](/quant/crypto-basis-trade)把加密期现基差写成有到期期货对可结算现货的持有成本交易，盯市使期货腿出现现金缺口。缺口是永续引擎上的强制减仓：标记穿过清算价，引擎接管，穿仓可能动用保险基金，再不够则 ADL。当许多账户的清算价挤在同一价格带、深度相对未平仓量过薄时，一笔触发会把标记推进下一簇清算价。本课写清算连锁的会计条件与自身账户保护。不重推期现无套利带。对象不是定位他人清算价。
 
 ## 问题
 

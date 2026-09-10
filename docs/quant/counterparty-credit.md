@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Canabarro and Duffie, Measuring and Marking Counterparty Risk, 2003</footer>
 </div>
 
-买债券时，你借出本金，信用风险的上界大致是面值减回收。做互换、期权、回购时，今天市值可能对你有利、明天翻面，违约若发生在暴露为正的日子，损失是重置该合约的成本。对手方信用风险（CCR）研究的就是这条随机暴露，以及如何用净额、抵押品、CVA 把它标成价格与资本。Merton（1974）给出企业负债的期权图景；Duffie 一脉把它接到强度模型与对手方估值。2008 年之后，CVA 从「调整项」变成交易台自己的风险因子——对手方利差一动，未违约也可能立刻亏钱。
+[上一课](/quant/liquidity-horizon)把变现时间写成冲击与方差的权衡：Almgren–Chriss 给出轨迹，Brunnermeier–Pedersen 说明融资能把可行 $T$ 突然压短。缺口是衍生品的损失还可以来自对面：违约时的正暴露乘 LGD，暴露由市值路径、净额与抵押决定，不是固定面值。EE/EPE 服务估值与资本，PFE 服务限额；CVA 把期望损失提前标进价格。本课写 CCR 要点，不重写执行轨迹上的 $T$。
 
 ## 问题
 

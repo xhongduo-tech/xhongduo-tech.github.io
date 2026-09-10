@@ -11,7 +11,7 @@ section: quant
     <footer>—— Sobol', On the Distribution of Points in a Cube and the Approximate Evaluation of Integrals, USSR Computational Mathematics and Mathematical Physics, 1967</footer>
 </div>
 
-伪随机蒙特卡洛的误差是 $\sigma/\sqrt{N}$。拟蒙特卡洛（quasi-Monte Carlo, QMC）改用确定性点列去填单位立方体，希望经验分布函数更快贴近均匀。Ilya Sobol' 1967 年构造的序列在金融路径积分里用得最广：方向数一旦选好，任意维数都可以按位运算生成，且前若干维的投影均匀性特别好。Boyle 的模拟框架不因此改变——仍是风险中性期望——变的是驱动布朗如何被「随机数」填进 $[0,1]^d$。本篇写 Sobol' 点列、置乱与路径构造，不重写 Euler；与方差缩减的关系见 [对偶与重要性采样](/quant/mc-variance-reduction)，一般 MC 见 [蒙特卡洛定价](/quant/mc-pricing)。
+[上一课](/quant/is-barrier)把障碍上的稀有事件扭到新测度并乘似然比；随机波动、跳跃、多障碍使常数漂移失效。变测度之后，积分仍在单位立方体上。缺口是拟随机：用 Sobol' 点列去填 $[0,1]^d$，而不是「更好的伪随机」。本课写点列、Owen 置乱与路径映射，不重写 IS 的指数扭曲。与方差缩减叠用时光滑性下降，应先改核再改点列。
 
 ## 问题
 

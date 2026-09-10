@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 CloudMatrix-Infer 在 CloudMatrix384 上对大规模专家并行（如 EP320）与分离式缓存池的设计</footer>
 </div>
 
-MoE 推理有两笔跨设备账单：token 去找专家的 dispatch/combine，以及注意力要读的历史 KV。[专家并行推理](/llm/infer-ep) 在普通以太网集群里常被 decode 的小 payload 打死，KV 则习惯跟 decode 卡绑死，调度变成「请求必须去有它缓存的那台」。CloudMatrix384 的 UB 域把这两笔账单收进同一超节点：论文中的大规模专家并行可以把 DeepSeek-R1 铺到 EP320——每张 910C 双 Die，一 Die 一个路由专家——同时把 KV 放进经 UB 均匀可达的分布式缓存池。本篇只写超节点**内部**这两件事如何咬合，跨超节点走 RoCE 见 [下一篇](/llm/cloudmatrix-roce-scaleout)。
+[上一课](/llm/cloudmatrix-resource-pool)把固定服务器配比拆成可独立伸缩、可互指的三池；统一编址让远端页成为虚址，局部性仍在。缺口是 MoE 推理的两笔跨设备账单：dispatch/combine 与历史 KV——普通以太网里前者被 decode 小 payload 打死，后者习惯跟 decode 卡绑死。[专家并行推理](/llm/infer-ep) 已写过普通集群的约束；本课只写超节点**内部**这两件事如何咬合。不重讲份额调度。跨超节点走 RoCE 见 [下一篇](/llm/cloudmatrix-roce-scaleout)。
 
 ## 问题
 

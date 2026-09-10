@@ -11,11 +11,11 @@ section: llm
 <footer>—— 华为 2019 年 8 月 23 日昇腾 910 与 MindSpore 发布会公开规格</footer>
 </div>
 
-昇腾 910（Ascend 910）是华为云端训练取向的 AI 处理器，2018 年全联接大会公布方向，2019 年正式发布。公开要点是：7 nm 级工艺（发布材料写作 7nm+EUV）、单 Die **32 个达芬奇 AI Core**、FP16 **256 TFLOPS**、INT8 **512 TOPS**、设计功耗 350 W、达到设计算力时功耗约 310 W。芯片不止矩阵核：还集成控制 CPU、数字视觉预处理（DVPP）与任务调度器（Task Scheduler），组成可自我管理的 SoC。互连方面，公开产品与架构材料提到 HCCS、PCIe、RoCE 等，用于卡间与主机。本篇钉这一代的公开骨架，迭代产品 910B / [910C](/llm/ascend-910c-dual-die) 的双 Die 与 HBM 容量以各世代文档为准，不把 910C 的 128 GB 写回 2019 年的 910。
+[上一课](/llm/jalapeno-ai-assisted-design)把 Jalapeño 的规格收在测量—验证—学习闭环里，自家模型参与 RTL 与内核搜索；那是另一条产品线的设计方法。缺口是课程要接到华为云端训练芯片：昇腾软件栈（CANN、MindSpore、后来的 MindIE）从哪一代核模型长出来。本课钉 2019 年 **昇腾 910** 的公开骨架：32 个达芬奇 AI Core、FP16 256 TFLOPS、INT8 512 TOPS。不重讲 OpenAI 的 PPA 对照，也不把 910C 的 128 GB 写回这一代。后课达芬奇三条流水默认已经读完本课的 SoC 轮廓。
 
 ## 问题
 
-2019 年的训练芯片要同时回答三件事：稠密矩阵乘的峰值、卷积/视觉预处理、以及如何把算力接到当时的 TensorFlow / 自研 MindSpore 上。通用 GPU 用 SIMT 覆盖这一切；华为选择领域架构 **达芬奇**，用 Cube / Vector / Scalar 三条流水对矩阵、向量与控制，见 [下篇](/llm/davinci-cube-vector)。问题是：如何在单 Die 上铺 32 个这样的 AI Core，并配上足够的片上缓冲与片外高带宽内存，使训练任务的数据喂得动。
+达芬奇核模型的第一代锚点要同时接住稠密矩阵乘、卷积/视觉预处理，以及当时的 TensorFlow / 自研 MindSpore。通用 GPU 用 SIMT 覆盖这一切；华为选择 Cube / Vector / Scalar 三条流水，见 [下篇](/llm/davinci-cube-vector)。缺口是如何在单 Die 上铺 32 个这样的 AI Core，并配上足够的片上缓冲与片外高带宽内存，使训练任务喂得动。
 
 发布会强调算力达到规格且功耗低于设计值，针对的是「高峰功耗不可部署」的质疑。对今天的 LLM 读者，910 的意义是昇腾软件栈（CANN、MindSpore、后来的 MindIE）的第一代云端锚点：图编译、算子库、集合通信都从这一代的核模型长出来。把 2024 年 910C 的双 Die 故事读回 910，会错核数、错内存、错互连。
 

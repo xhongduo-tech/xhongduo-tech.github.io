@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006</footer>
 </div>
 
-市场不报 $\sigma$，报的是价格。交易员却几乎总把香草写成隐含波动率 $\sigma_{\mathrm{imp}}(K,T)$：同一个 Black-Scholes 公式，每个执行价、每个到期日塞进不同的 $\sigma$。曲面不是模型假设，而是坐标变换——把价格里的凸性与保险价值翻译成波动数字，便于插值、比较与对冲。1987 年之后曲面不再平坦，偏斜成为一等事实，见 [Skew 与 Smile](/quant/vol-skew)。Dupire 把整张欧式价格表翻译成局部波动，见 [Dupire](/quant/dupire)。本篇写曲面的定义、无套利约束与参数化，不把 Heston 或 SABR 的全部校准展开成另一本书。
+[上一课](/quant/option-pde)把无套利 PDE 接到网格：美式用投影或罚函数，障碍应对齐节点，离散方案应尽量保持正权重。缺口是市场报的是价格，交易员却在 $(K,T)$ 上谈 $\sigma_{\mathrm{imp}}$：曲面是把凸性翻译成波动数字的坐标变换，不是常数 $\sigma$ 假设。1987 年之后曲面不再平坦。本课写定义、静态无套利与切片参数化，不重写差分格式。偏斜见 [Skew 与 Smile](/quant/vol-skew)，局部波动见 [Dupire](/quant/dupire)。
 
 ## 问题
 

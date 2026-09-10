@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA CUTLASS 3 / CuTe, 文档与设计说明</footer>
 </div>
 
-CUTLASS 长期是 NVIDIA 上手写 GEMM 与融合核的标准模板库。3.x 把核心从「隐式的多层 GEMM 层次」推进到 CuTe：布局是一等对象，拷贝与 MMA 是作用在布局上的集体操作。随后的 cuTeDSL 把同一套布局代数露到 Python 侧，让核作者用接近 DSL 的方式描述 tile、流水与指令选择。对本系列而言，它是 [FlashInfer](/llm/flashinfer) 与生产注意力背后更底层的语言：不是服务契约，而是「这块 SRAM 里的矩阵，在 Hopper 上该怎么搬、怎么乘」。
+[上一课](/llm/triton-attention-kernel)把 Triton 写成可阅读的分块注意力：`autotune` 扫块大小，不代替算法正确性检查；Hopper 集体指令上曾落后于 CUDA 特化。缺口是生产核里真正难的是地址：同一逻辑 tile 在 HBM、smem、寄存器里是三套布局。CUTLASS 3 的 CuTe 用布局代数把拷贝与 MMA 写成布局之间的组合。本课写这套代数，不重写 Triton 的掩码加载。它不是服务契约，而是「这块 SRAM 里的矩阵该怎么搬、怎么乘」。
 
 ## 问题
 

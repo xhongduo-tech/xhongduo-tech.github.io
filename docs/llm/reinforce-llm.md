@@ -11,7 +11,7 @@ section: llm
 <footer>—— Williams, Simple Statistical Gradient-Following Algorithms for Connectionist Reinforcement Learning, Machine Learning 1992</footer>
 </div>
 
-语言模型的强化学习一度被写成「必须上 PPO、必须训一个同规模 Critic」。Williams 在 1992 年给出的 REINFORCE 更朴素：从当前策略采样一整条轨迹，用这条轨迹的回报去乘每个动作的对数概率梯度。没有时序差分，没有 GAE，也没有第二套网络。DeepSeek-R1 一类工作把可验证奖励和[不依赖 Critic 的优势](/llm/critic-free-advantage)重新推到前台之后，这条 1992 年的估计器又成了默认内核。本篇把 REINFORCE 写成语言模型上的蒙特卡洛策略梯度；标题里的 R3 指工程上常绑在一起的三件套——**回报（Return）、REINFORCE 梯度、与参考策略的正则**——不是另一篇需要虚构编号的论文。
+[上一课](/llm/rloo)用同提示其余完成的平均奖励作留一基线，对 REINFORCE 降方差、不训 critic；$k=1$ 无法做，与 GRPO 同属组内对照。缺口是把这条 1992 年的蒙特卡洛策略梯度本身写清楚：序列级奖励下整段 $\log\pi_\theta(y\mid x)$ 乘同一个 $(R-b)$，以及工程上常绑在一起的回报、梯度与参考正则。DeepSeek-R1 一类把可验证奖励重新推到前台之后，Williams 估计器又成默认内核。本课写语言模型上的 REINFORCE，不重写留一公式。R3 不是另一篇需要虚构编号的论文。
 
 ## 问题
 

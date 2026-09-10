@@ -11,7 +11,7 @@ section: llm
 <footer>—— Rafailov et al., Direct Preference Optimization, NeurIPS 2023</footer>
 </div>
 
-InstructGPT 的后半段是显式 [奖励模型](/llm/reward-model) 加 PPO：先拟合 $r_\phi$，再在策略上最大化 $r$、并用 KL 把策略拴在 SFT 参照附近。PPO 对语言模型又贵又脆，要调采样、优势估计、KL 系数。Rafailov 等人 2023 年的 Direct Preference Optimization（DPO）指出，在 KL 正则的奖励最大化这个特定目标下，最优奖励可以写成策略相对参照的对数比，于是 Bradley-Terry 似然里的 $r(y_w)-r(y_l)$ 变成两条回答的对数概率差。损失只涉及 $\pi_\theta$ 与冻结的 $\pi_{\mathrm{ref}}$，不必再训 RM，也不必在训练环里采样。本篇写这条闭式回代、$\beta$ 的含义、以及它相对 RM+PPO 少了什么、多了什么。Azar 等人的 [IPO](/llm/ipo) 针对 DPO 在错指定与过拟合上的问题，留到下一篇。
+[上一课](/llm/bradley-terry)用 $P(i\succ j)=\sigma(s_i-s_j)$ 连接潜在分数与成对胜率；InstructGPT 的 RM 与后文的似然都建立在这一比较模型上，分数的绝对偏移在每个提示上不可识别。InstructGPT 的后半段是显式 [奖励模型](/llm/reward-model) 加 PPO，对语言模型又贵又脆。缺口是 Direct Preference Optimization：在 KL 正则的奖励最大化下，最优奖励可以写成策略相对参照的对数比，BT 似然直接对 $\pi$ 求导。本课写这条闭式回代与 $\beta$，不重推 BT 的识别。不必再训 RM，也不必在训练环里采样；[IPO](/llm/ipo) 针对过拟合留到下一篇。
 
 ## 问题
 

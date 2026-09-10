@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Bangia, Diebold, Schuermann and Stroughair 对流动性调整 VaR 的问题设定</footer>
 </div>
 
-标准市场风险把持有期写成 1 天或 10 天，再把波动按 $\sqrt{T}$ 外推。前提是：到期你能按中间价附近清仓，买卖价差可以忽略，你的卖盘不会改变价格。对国债期货或大盘 ETF 这大致成立；对高收益债、小盘股、奇异 OTC 衍生品不成立。变现时间（liquidity horizon）把「多久才能在可接受冲击下退出」变成风险参数，而不是事后才发现的摩擦。它连接 [Kyle 模型](/quant/kyle-model) 里的冲击、[流动性因子](/quant/liquidity-factor) 里的溢价，以及监管账本里 FRTB 按风险因子分档的持有期。
+[上一课](/quant/leverage-liquidation)把强平写成对损失路径的改写：临界反向收益约为 $m-1/\lambda$，内部限额应严于外部强平，跳空可以越过盘中缓冲。缺口是即使没有被强平，仓位也未必能在 VaR 地平线上按中间价退出：变现时间是风险参数，不是事后摩擦。外生价差与内生冲击要分开；朴素 $\sqrt{H}$ 既不是渐进清仓的市场风险，也不含冲击。本课写 $T$ 的权衡与 FRTB 分档，不重写保证金螺旋公式。它连接 [Kyle 模型](/quant/kyle-model) 里的冲击与 [流动性因子](/quant/liquidity-factor) 里的溢价。
 
 ## 问题
 

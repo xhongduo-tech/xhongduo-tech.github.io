@@ -11,11 +11,11 @@ section: llm
 <footer>—— Xiao et al., Efficient Streaming Language Models with Attention Sinks, 2023</footer>
 </div>
 
-把长生成写成 KV 预算，最直接的一刀是砍条数：每个新 token 都追加一对键值，缓存随 $t$ 线性涨，decode 每步还要把已驻留的键全部扫一遍。Xiao 等人 2023 年的 StreamingLLM 给出一种**推理期、固定形状**的驻留策略：可见集永远是「少数文首汇点 ∪ 最近窗口」，$n_{\mathrm{keep}}=k+w$，与已经写出多少 token 无关。它和量化、低秩不是同一根轴——精度与头宽可以仍是满的，省的是条数。本篇只把 StreamingLLM 当成 KV 策略来写：它改哪一项、误差从哪来、和 H2O / MLA 如何并表；汇点现象与配方步骤见 [Attention Sink](/llm/attention-sink) 与 [StreamingLLM](/llm/streaming-llm)。
+[上一课](/llm/kivi)把 KV 打到免调的非对称 2-bit：键逐通道、值逐 token，可见集仍是全长，误差是噪声不是删除。缺口是条数轴：量化压的是每条字节，decode 仍要扫已驻留的全部键，缓存仍随 $t$ 涨。产品若只要当前句稳定、缓存常数、不必微调，就得把 $n_{\mathrm{keep}}$ 钉死。本课把 StreamingLLM 写成 KV 策略：汇点加窗口，$n_{\mathrm{keep}}=k+w$。不重讲 2-bit 轴与残差窗口。汇点现象见 [Attention Sink](/llm/attention-sink)；后课 MLA 默认已经知道条数与宽度是两根因子。
 
 ## 问题
 
-满缓存的承诺是位置 $t$ 仍能精确读到位置 $1$ 的键。兑现承诺的存储是每层 $O(t\,h_{\mathrm{kv}} d_k)$。对话、日志、无限续写会把 $t$ 推到远超训练长度，服务进程先被 KV 填满，再被带宽拖死。产品往往并不真要「三小时前那句话的逐 token 键」，只要**当前句稳定、缓存常数、不必微调**。
+KIVI 压的是每条字节，可见集仍是全长；条数还会随 $t$ 涨。满缓存的承诺是位置 $t$ 仍能精确读到位置 $1$ 的键。兑现承诺的存储是每层 $O(t\,h_{\mathrm{kv}} d_k)$。对话、日志、无限续写会把 $t$ 推到远超训练长度，服务进程先被 KV 填满，再被带宽拖死。产品往往并不真要「三小时前那句话的逐 token 键」，只要**当前句稳定、缓存常数、不必微调**。
 
 朴素滑窗把 $n_{\mathrm{keep}}$ 钉在 $w$ 上，却会在某个 $t>w$ 把文首覆盖掉。softmax 分母失锚，窗口内权重被放大，即使当前句完全在窗口里也会崩。于是「减条数」这件事多了一个约束：不能按时间无脑淘汰最老的键，必须给归一化留锚。StreamingLLM 的策略价值正在这里：它不是又一种注意力公式，而是一条写进 KV 管理器的驻留规则。
 

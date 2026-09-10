@@ -1,0 +1,58 @@
+---
+title: Armstrong 公理
+date: 2026-09-08
+section: cs
+---
+
+# Armstrong 公理
+
+<div class="epigraph">
+<p>函数依赖的语法推导由自反、增广、传递三条公理完备：能推出的，恰是所有实例上都成立的。</p>
+<footer>—— 据 Armstrong, Dependency Structures of Data Base Relationships, IFIP 1974；Beeri, Fagin and Howard；Ramakrishnan and Gehrke</footer>
+</div>
+
+查询语言进阶在[计划缓存](/cs/prepared-plan-cache)收口。本课打开依赖理论：主干 [范式](/cs/normal-forms) 已经用函数依赖（FD）判断宽表，但把「F 蕴含 X→Y」当成能看出来的事实。缺口是**证明系统**：Armstrong 公理给出可靠完备的推导，闭包算法下一课才当决策过程。
+
+## 问题
+
+FD $X \to Y$ 表示：任何合法实例上，X 值相同则 Y 值相同。一组 FD $F$ 的逻辑蕴含 $F \models X \to Y$：每个满足 $F$ 的关系也满足 $X \to Y$。人眼列举无穷实例不可能。缺口是语法：$F \vdash X \to Y$ 当且仅当语义蕴含（完备性），且推不出假依赖（可靠性）。
+
+Armstrong：自反（若 $Y \subseteq X$ 则 $X \to Y$）；增广（$X \to Y$ 则 $XZ \to YZ$）；传递（$X \to Y$ 且 $Y \to Z$ 则 $X \to Z$）。由此可导出合并、分解、伪传递等规则，便于手推，不是另一套公理。
+
+<span class="marginnote">Armstrong 1974。Beeri, Fagin, Howard 证明该公理系统对 FD 完备。多值依赖需要更多公理，那是 4NF 课。本课只处理 FD。</span>
+
+## 方法
+
+要从 $F$ 证明 $X \to Y$，用公理做有限步推导，或（实践上）算 $X$ 在 $F$ 下的闭包 $X^+$，看 $Y \subseteq X^+$——算法正确性依赖本课的完备性。本课先钉公理，下一课才写闭包与最小覆盖。
+
+例子：已知 $A \to B$，$B \to C$，由传递得 $A \to C$；再增广得 $AD \to CD$。自反给出平凡依赖，避免「空集决定一切」的误读：空集决定的是空属性集，不是全部属性。
+
+```mermaid
+flowchart TD
+  F["FD 集 F"] --> AX["Armstrong 推导"]
+  AX --> SYN["F 推出 X 决定 Y"]
+  INST["满足 F 的实例"] --> SEM["F 蕴含 X 决定 Y"]
+  SYN --> EQ["可靠完备则重合"]
+  SEM --> EQ
+```
+
+## 机制
+
+范式分解「沿违反的 FD 切开」默认我们能列出隐含依赖。缺完备性会漏拆；缺可靠性会拆错。键的定义「决定全部属性」同样是闭包等于 $U$，建立在本课上。
+
+包与 NULL：经典 FD 理论假定无 NULL、集合语义。SQL 表有 NULL 时「相等」变糊，工程约束用唯一索引近似 FD。本课理论按经典关系；与 [三值](/cs/sql-null) 的缝点名即可。
+
+## 边界
+
+本课不把闭包线性时间算法写完，不定义正则覆盖。也不引入嵌入式依赖、元组生成依赖的一般表aux。3NF/BCNF 的判定下一课之后用闭包做。
+
+后课默认：谈到 $F$ 蕴含某 FD，指 Armstrong 可推（等价于所有实例上成立）。查询语言课的约束检查是运行时；这里是模式设计时的蕴涵。
+
+公理是证明系统，不是 DBMS 里的一个模块名。
+
+## 小结
+
+- 自反、增广、传递对 FD 可靠完备。
+- 语义蕴含与语法推导重合，键与范式才可计算。
+- 闭包与最小覆盖下一课：把推导变成算法。
+- 出处：Armstrong 1974；Beeri, Fagin and Howard；Ramakrishnan and Gehrke。

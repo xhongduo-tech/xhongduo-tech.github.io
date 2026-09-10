@@ -11,11 +11,11 @@ section: llm
 <footer>—— 对照 Nagel et al., AdaRound, ICML 2020；Intel AutoRound 把同一思路做到大语言模型权重量化</footer>
 </div>
 
-训练后再量化（Post-Training Quantization, PTQ）要在**不回传全网**的前提下，把已经训好的浮点权重映到低比特格子。前面几篇把三条主路写清楚了：[GPTQ](/llm/gptq) 用 Hessian 做层输出最小二乘补偿，[AWQ](/llm/awq) 用激活幅度保护显著通道，[SmoothQuant](/llm/smoothquant) 把激活异常值迁到权重上以便 W8A8。还剩一条经常被折叠进「某种 GPTQ 变体」的路：不改网格形状、只改**每个权重该落到哪一个相邻整数**。Nagel 等人 2020 年的 AdaRound 把「向上或向下」做成可学习的松弛；Intel 的 AutoRound 用带符号的梯度下降把这套取整优化做到千亿以下常见的 LLM 权重上，并作为 Neural Compressor 一类工具链里的默认 PTQ 之一。本篇写取整优化与「其他 PTQ」的位置，不把 GPTQ 的二阶补偿或 AWQ 的通道缩放再讲一遍。
+[上一课](/llm/gguf)把 GGUF 写成带元数据的张量容器，k-quant 用超级块多层尺度做 2–6 bit 权重，墙钟取决于有没有对应核。缺口是 PTQ 还剩第三根轴：[GPTQ](/llm/gptq) 改未量化列，[AWQ](/llm/awq) 改通道缩放，格子已定之后每个权重仍要在相邻整数里选向上还是向下。本课钉 AdaRound / AutoRound 一类取整优化，以及它在工具链里与前三条路如何级联。不重讲 mmap 与 `Q4_K_M` 配方。后课 W8A8 默认检查点契约是分组与尺度布局，不是方法名。
 
 ## 问题
 
-均匀量化把浮点 $w$ 写成 $s\cdot\mathrm{clip}(\mathrm{round}(w/s-z)+z)$ 一类仿射。尺度 $s$ 与零点 $z$ 可以按张量、按通道或按组统计一次；真正把连续值钉死的，是 $\mathrm{round}$。最近邻取整（round-to-nearest, RTN）对 8-bit 往往够用，到 4-bit 或 3-bit，层输出 $\|WX-\hat{W}X\|_F$ 会先坏在那些「离两个格子几乎一样远、但乘上激活之后差很多」的权重上。误差是 $(w-\hat{w})x$，不是 $|w-\hat{w}|$ 本身。RTN 优化的是权重空间的欧氏距离，推理关心的是输出空间。
+GGUF/k-quant 定的是容器与分块格子；格子已定之后，每个权重仍要选向上还是向下。均匀量化把浮点 $w$ 写成 $s\cdot\mathrm{clip}(\mathrm{round}(w/s-z)+z)$ 一类仿射。尺度 $s$ 与零点 $z$ 可以按张量、按通道或按组统计一次；真正把连续值钉死的，是 $\mathrm{round}$。最近邻取整（round-to-nearest, RTN）对 8-bit 往往够用，到 4-bit 或 3-bit，层输出 $\|WX-\hat{W}X\|_F$ 会先坏在那些「离两个格子几乎一样远、但乘上激活之后差很多」的权重上。误差是 $(w-\hat{w})x$，不是 $|w-\hat{w}|$ 本身。RTN 优化的是权重空间的欧氏距离，推理关心的是输出空间。
 
 二阶重建（GPTQ）承认这一点，但它的自由度花在「量化完一列之后改尚未量化的列」。取整优化走另一条：格子已经定了，每个权重只在 $\lfloor w/s\rfloor$ 与 $\lceil w/s\rceil$ 之间选，组合数是 $2^{d}$，直接搜不行。要把这个离散选择变成能用校准激活打几轮前向就能下降的目标，才能叫 PTQ，而不是退回 [QAT](/llm/qat)。
 

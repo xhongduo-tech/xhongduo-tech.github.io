@@ -11,7 +11,7 @@ section: quant
     <footer>—— Almgren, Thum, Hauptmann and Li, Direct Estimation of Equity Market Impact, Risk, 2005</footer>
 </div>
 
-[Almgren–Chriss](/quant/almgren-chriss) 把临时项写成速率的函数，轨迹对 $\eta$ 敏感：$\eta$ 大则更慢、更接近匀速，$\eta$ 小则更敢前倾。Almgren 等人（2005）用机构股权母单直接估计冲击定律，把永久与临时分开，并发现规模项更接近平方根而非 Kyle 直线。本篇只写**临时**这一截如何校准：因变量取什么、如何分层、如何避免把 alpha 与永久项吞进 $\eta$，以及校准之后怎样进 AC / 到达价算法。它是计量与实验设计，不是「把短fall 除以速率得到今日最优 $\eta$」的日内公式。[线性与平方根冲击](/quant/sqrt-impact) 讨论函数形状；这里讨论同一形状下参数如何从执行账本里长出来。
+[上一课](/quant/gatheral-schied)证明无漂移、线性冲击与标准期望–风险目标下最优执行是确定性轨迹，自适应不降低期望冲击。缺口是轨迹对临时冲击系数 $\eta$ 敏感：$\eta$ 大则更慢，$\eta$ 小则更敢前倾。Almgren 等人用机构股权母单直接估计冲击定律，发现规模项更接近平方根。本课只写**临时**这一截如何校准：因变量取什么、如何分层、如何避免把 alpha 与永久项吞进 $\eta$。不重推无漂移下的闭式轨迹。[线性与平方根冲击](/quant/sqrt-impact) 讨论函数形状；这里讨论同一形状下参数如何从执行账本里长出来。
 
 ## 问题
 

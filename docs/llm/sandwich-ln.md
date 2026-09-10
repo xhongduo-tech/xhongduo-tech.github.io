@@ -11,7 +11,7 @@ section: llm
 <footer>—— 工程实践，见于部分中文大模型与早期 BERT 变体</footer>
 </div>
 
-Transformer 块里，残差和 LayerNorm 的相对位置决定了梯度能不能穿过几十上百层。Vaswani 等人 2017 年的原版是 Post-LN：先算子层，再与残差相加，最后归一化。GPT-2 以降的主流是 Pre-LN：先归一化再进子层，残差路径保持一条干净的恒等通路。Xiong 等人在 *On Layer Normalization in the Transformer Architecture*（2020）里把这两种摆法的训练动力学写清楚了。Sandwich-LN 不是一篇独立论文的名字，而是一种工程拼法：残差**内侧**保留 Pre-LN，残差**外侧**再加一层 LN，形状接近 $\mathrm{LN}\bigl(x + \mathrm{Sublayer}(\mathrm{LN}(x))\bigr)$。它出现在一些中文大模型实现、早期 BERT 变体和若干稳定深网的内部配方里，目的很具体——用多一次归一化换训练稳定性。
+[上一课](/llm/parallel-attn-ffn)从同一归一化输入同时算注意力与 FFN，一次加回残差：层内串行变浅，本层 FFN 看不到本层注意力输出。并行改的是深度与重叠，不是 LN 放在残差哪一侧。缺口是残差内外各缺一层时的尺度：Pre-LN 好训但出口漂移，Post-LN 出口整齐但梯度窄。Sandwich-LN 在内外各放一次归一化，形状接近 $\mathrm{LN}(x+\mathrm{Sublayer}(\mathrm{LN}(x)))$。本课写这种工程拼法，不重写并行块的公式。它不是一篇独立论文名，可见于部分中文大模型实现与早期 BERT 变体。
 
 ## 问题
 

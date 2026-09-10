@@ -11,7 +11,7 @@ section: quant
     <footer>—— Brennan and Schwartz, Finite Difference Methods and Jump Processes Arising in the Pricing of Contingent Claims, Journal of Financial and Quantitative Analysis, 1978</footer>
 </div>
 
-Black-Scholes 方程是热方程的近亲。一旦接受 [风险中性](/quant/risk-neutral-pricing) 与 Itô，价格 $V(S,t)$ 就满足带变系数的抛物 PDE；终端条件是支付，空间边界由渐近行为给出。闭式解只覆盖狭小的一族支付。Brennan 与 Schwartz 1978 年把有限差分系统地接到或有索取权，包括跳跃合成与美式约束。Courtadon、Hull-White 随后改精度与坐标系。Wilmott、Tavella-Randall 把稳定性、边界与自由边界写成工程问题。差分与 [二叉树](/quant/binomial-tree) 在显式格式下几乎是同一组权重；与 [蒙特卡洛](/quant/mc-pricing) 相比，PDE 适合一到两维、要全体希腊值、要美式障碍的场合。Dupire 的局部波动也是在 $(K,T)$ 平面上的 PDE，见 [Dupire](/quant/dupire)。
+[上一课](/quant/mc-variance-reduction)在保持 $\mathbb{E}[Y']=V$ 的前提下减小模拟方差：对偶、控制变量、重要性采样都不消除测度错误与时间离散偏差。缺口是低维上要整张 $V(S,t)$ 与美式不等式：无套利给出抛物 PDE，有限差分一次求解得曲面，希腊值来自空间差分。显式格式与三叉树同族，受 CFL 约束。本课写差分与自由边界，不重写 VR 估计器。高维、强路径依赖应转回模拟；局部波动见 [Dupire](/quant/dupire)。
 
 ## 问题
 

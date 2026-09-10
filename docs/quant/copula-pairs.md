@@ -11,7 +11,7 @@ section: quant
 <footer>—— Sklar 定理见 Sklar, 1959；配对应用见 Liew & Wu, Pairs Trading: A Copula Approach, Journal of Derivatives & Hedge Funds, 2013 一类文献；综述见 Krauss, Statistical Arbitrage Pairs Trading Strategies: Review and Outlook, 2017</footer>
 </div>
 
-[距离法](/quant/distance-pairs) 用标准化价格的 SSD 选对，默认依赖是「走在一起」的 $L^2$ 邻近。[GGR](/quant/ggr-pairs) 的开仓是价差的两个标准差。Copula 配对改的是依赖的语言：先给每条腿一个边缘（经验分布或参数分布），再用 Copula 描述联合，开仓看条件分位数或误定价指数，而不是看 $P_i-P_j$。它能表达上尾、下尾不对称依赖，这是相关系数和欧氏距离做不到的。代价是：边缘与 Copula 族都要选，样本内拟合更好看，样本外误设更重。本篇写它相对距离法补了什么，以及什么时候只是把同一笔回归换了一套更重的衣服。
+[上一课](/quant/avellaneda-lee)用 PCA 或 ETF 定义残差，用 OU 的均衡波动标准化成分数再做多空；交易对象是正交补，持有期以日计，$s$-score 在 $\kappa\to 0$ 时自动关机。缺口是依赖的语言。残差与 SSD 默认「走在一起」的 $L^2$ 邻近，会漏掉下尾强依赖、上尾弱依赖——而这正是配对在危机里一起裂开的来源之一。本课用 Copula 把边缘与依赖分开，用条件分位开仓。不重推 s-score。后课 Kalman 价差滤波默认已经读完：条件概率不等于误差修正。
 
 ## 问题
 

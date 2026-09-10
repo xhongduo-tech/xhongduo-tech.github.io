@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Glosten and Milgrom, Journal of Financial Economics, 1985；Easley, López de Prado and O'Hara, Flow Toxicity and Liquidity in a High-Frequency World, Review of Financial Studies, 2012</footer>
 </div>
 
-做市的毛收入是价差，成本是被更好信息选中时的库存亏损。Glosten 与 Milgrom（1985）证明：即使处理成本为零，只要存在知情交易者，买卖价差就必须等于两个条件期望之差，否则专家的期望利润为负。流的毒性（flow toxicity）把这一逻辑从「结构性的知情者比例」推进到「当前这一段订单流有多毒」：毒性高时，同样的挂单变成负 EV 的期权。Easley、López de Prado 与 O'Hara 用 [VPIN](/quant/vpin) 在成交量时钟上更新这一度量，并讨论毒性与流动性蒸发的联系；日度的 [PIN](/quant/pin) 则是同一家族的低频版本。Cartea、Jaimungal 等人把短期逆向选择写进做市的 HJB，使报价在存货偏度之外再规避可预测的有毒流。本篇写停报价作为最优控制里的角点解：毒性越过阈值时，两侧或单侧的最优距离是「不挂」。不写如何识别零售或如何抢在他人撤单前成交。
+[上一课](/quant/fill-probability)把成交概率写成队列位置、市价消耗、取消与价格离去的竞争风险；高填成与高逆向选择在队头绑定，填成还不是事后收入。做市的毛收入是价差，成本是被更好信息选中时的库存亏损。缺口是流的毒性：当前这一段订单流有多毒，同样的挂单会变成负 EV 的期权。毒性越过阈值时，两侧或单侧的最优距离是「不挂」——停报价是最优控制里的角点解。本课写从加宽、改价连续过渡到停报价，不写如何识别零售。
 
 ## 问题
 

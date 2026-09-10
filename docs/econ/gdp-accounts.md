@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据联合国《国民账户体系》（SNA）；Kuznets 对国民收入的早期测算整理</footer>
 </div>
 
-[上一课](/econ/gibbard-satterthwaite)（Gibbard–Satterthwaite）。在此之上，机制设计收在显示原理：私人类型可以变成激励相容的直接显示。本课换尺度。宏观要的不是某一次配置的信息约束，而是已经发生的交易如何加总成「这一年的产出」。显示原理不给出总量；[SNA](https://unstats.un.org/unsd/nationalaccount/) 给出三条必须相等的算法。后课的储蓄恒等式、价格指数和增长，都默认你会这三条账，不再从「GDP 是不是福利」讲起。
+[上一课](/econ/ml-causal-econ)把计量收到双 debias 的 ATE。本课换尺度。宏观要的不是某一次配置的信息约束，而是已经发生的交易如何加总成「这一年的产出」。显示原理不给出总量；[SNA](https://unstats.un.org/unsd/nationalaccount/) 给出三条必须相等的算法。后课的储蓄恒等式、价格指数和增长，都默认你会这三条账，不再从「GDP 是不是福利」讲起。
 
 ## 问题
 

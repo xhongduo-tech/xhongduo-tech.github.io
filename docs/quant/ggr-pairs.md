@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gatev, Goetzmann & Rouwenhorst, Pairs Trading: Performance of a Relative-Value Arbitrage Rule, Review of Financial Studies, 2006</footer>
 </div>
 
-Gatev、Goetzmann 与 Rouwenhorst（GGR）把配对交易从交易台口诀收成一篇可复制的实证研究。规则本身在 [距离法配对](/quant/distance-pairs) 里写过：12 个月形成、6 个月交易、SSD 选对、$2\sigma$ 开仓。本篇写的是**这篇 RFS 论文作为证据**：样本怎么叠、超额从哪来、风险像什么、以及它后来被 Do–Faff、Engelberg 等人改写之后还剩什么。它不是协整检验，也不是 [Avellaneda–Lee](/quant/avellaneda-lee) 的残差 OU；它是「最朴素的相对价值规则是否还有平均利润」这一问题的基准答案。后续几乎所有配对变体——协整、Copula、Kalman——都在有意无意地对照 GGR 的表。
+[上一课](/quant/iceberg-algo)停在执行隐蔽。缺口是配对交易作为可复制实证研究。Gatev、Goetzmann 与 Rouwenhorst（GGR）把配对交易从交易台口诀收成一篇可复制的实证研究。规则本身在 [距离法配对](/quant/distance-pairs) 里写过：12 个月形成、6 个月交易、SSD 选对、$2\sigma$ 开仓。本篇写的是**这篇 RFS 论文作为证据**：样本怎么叠、超额从哪来、风险像什么、以及它后来被 Do–Faff、Engelberg 等人改写之后还剩什么。它不是协整检验，也不是 [Avellaneda–Lee](/quant/avellaneda-lee) 的残差 OU；它是「最朴素的相对价值规则是否还有平均利润」这一问题的基准答案。后续几乎所有配对变体——协整、Copula、Kalman——都在有意无意地对照 GGR 的表。
 
 ## 问题
 

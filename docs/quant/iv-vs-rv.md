@@ -11,7 +11,7 @@ section: quant
 <footer>—— Britten-Jones and Neuberger, Option Prices, Implied Price Processes, and Stochastic Volatility, Journal of Finance 2000</footer>
 </div>
 
-期权市场每天报出一套隐含波动，现货高频又给出一套[已实现波动](/quant/rv-noise)。两者都叫「波动」，对象却不同：前者是风险中性期望，后者是物理测度下已经走完的二次变差。Britten-Jones 与 Neuberger 证明，在无跳跃的扩散假设下，从连续执行价的虚值期权可以复原风险中性积分方差，而不必指定局部或随机波动模型。Carr–Madan 的对数合约复制、Demeterfi–Derman–Kamal–Zou 的方差互换，以及后来 Jiang–Tian 的无模型隐含波动、CBOE 的 VIX，走的是同一条复制恒等式。本篇写 IV 与 RV 各自估什么、差一项方差风险溢价，以及把 ATM 隐含波动直接当 RV 预测会错在哪里。
+[上一课](/quant/realized-garch)把 RV 类测量与收益联立，一步预测能用上今日收盘前已经实现的日内信息；它仍是物理测度的条件方差，不是隐含波动。缺口是期权每天报出一套隐含波动：前者是风险中性期望，后者是物理测度下已经走完的二次变差。Britten-Jones–Neuberger 在扩散假设下从虚值期权复原风险中性积分方差。本课写 IV 与 RV 各自估什么、差一项方差风险溢价，以及把 ATM IV 直接当 RV 预测会错在哪里。不重写测量方程里的 $\xi,\varphi,\tau$。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
     <footer>—— 数学网页语料的工作假设；公开抽取见 OpenWebMath 等从 Common Crawl 回收公式的实践</footer>
 </div>
 
-通用网页管线会系统性伤害数学。Trafilatura 按新闻密度砍短节点，行内公式先没；Wenzek 的维基 KenLM 把高符号密度当成不像自然语言；DCLM 的指令正例很少是推导。要得到可学的数学，必须单独做抽取与校对：从 arXiv TeX、维基数学、MathStackExchange、以及 Crawl 里带 MathJax / MathML 的页，恢复出平衡的符号序列，并丢掉编译失败、乱码与纯图片公式。Penedo 的 FineWeb 可以提供「提到数学的网页」；真正的推导监督来自保留了 LaTeX 的专用桶。Soldaini 的 Dolma 把论文源分开，正是因为 HTML 网页不是数学的可靠载体。
+[上一课](/llm/xl-dedup)处理译本：目标通常是知识降权、各语种保留句法，而不是全球只留英语。通用抽取与维基困惑度会丢掉或惩罚公式；跨语言去重也解决不了 MathJax 被砍掉。缺口是数学必须分源抽取与校对——优先 TeX 源，HTML 要恢复公式节点，可解析不等于数学正确。本课写抽取与校对门，不重讲平行簇。后课代码门默认：勿用英语网页质量头截断符号密集桶。
 
 ## 问题
 

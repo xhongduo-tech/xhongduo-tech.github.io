@@ -11,7 +11,7 @@ section: llm
     <footer>—— Muennighoff et al., Scaling Data-Constrained Language Models, 2023</footer>
 </div>
 
-Chinchilla 的计算最优默认数据够用：你需要的 $D$ 都可以是独特的。真实预训练经常先撞上数据墙——高质量文本就那么多，再大的集群也不能把独特 token 变出来。Muennighoff 等人 2023 年系统问：若独特数据只有 $U$，而计算预算要求看到 $D>U$ 的 token，多 epoch 重复该怎么折算成「有效数据」？他们发现，大约前四个 epoch 的重复仍接近新数据的收益，之后边际下降，需要用衰减公式把重复 token 打个折扣。本篇讲这条数据约束扩展，以及它和过训、混合代码、继续去重之间的关系。
+[上一课](/llm/moe-scaling-laws)要求 MoE 扩展拆开总参数与活跃参数：增加专家数提高容量，但摊薄每个专家的数据，并加重路由与 All-to-All。稠密与稀疏的计算最优都默认独特 token 够用；缺口是数据墙——高质量文本就那么多，计算预算要求的 $D$ 可以大于独特量 $U$。本课写重复如何折算成有效数据：多 epoch 的边际会衰减。不重写 Switch 的标度式。后课默认已经读完：去重改变的是 $U$ 的定义。
 
 ## 问题
 

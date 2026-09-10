@@ -11,7 +11,7 @@ section: quant
     <footer>—— Glasserman, Heidelberger and Shahabuddin, Asymptotically Optimal Importance Sampling and Stratification for Pricing Path-Dependent Options, Mathematical Finance, 1999</footer>
 </div>
 
-障碍期权的蒙特卡洛经常把计算预算浪费在「什么也没发生」的路径上。敲入看涨在障碍远离现货时，绝大多数轨迹既不触及障碍、到期也不贡献支付；敲出则相反，存活路径很多，但方差仍被那一小撮刚好擦边的轨迹撑大。对偶与控制变量对这种近似指示函数的支付帮助有限，因为对称性和线性相关都被不连续切断。Glasserman、Heidelberger 与 Shahabuddin（1999）把大偏差意义下的指数扭曲写成金融里可操作的漂移更换：在新测度下障碍变成典型事件，再用似然比还原风险中性期望。本篇只写障碍上的重要性采样（importance sampling, IS），一般对偶与控制见 [方差缩减](/quant/mc-variance-reduction)，离散格式见 [蒙特卡洛定价](/quant/mc-pricing)。
+[上一课](/quant/cv-european)用路径级 $C$ 与精确 $\mathbb{E}[C]$ 降欧式方差，最优 $\beta$ 为回归系数；深虚值与障碍上线性相关被不连续切断，控制帮助有限。障碍支付接近稀有事件指示，朴素 MC 的相对误差在触及概率变小时恶化。缺口是重要性采样：把路径测度扭向触及区域并乘似然比，保持无偏。本课写障碍上的 IS，不重推控制变量的 $\beta$。布朗桥填的是步内连续触及，不替代对格点路径的变测度。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照多活与主备在有状态生成服务上的差异：缓存亲和与版本一致先于拨流量</footer>
 </div>
 
-无状态 HTTP 的故障转移是切负载均衡。自回归服务的状态在 GPU 的 KV 里、在 [前缀缓存](/llm/prefix-caching) 里、在 [适配器页](/llm/adapter-hot-swap) 里、在 [TPM 桶](/llm/token-ratelimit) 里。一区断电，另一区可以立刻接住新 TCP，却接不住旧序列：用户看到的是断流、重连、冷前填、可能换一个模型版本。本篇写多区域转移要搬哪些控制面、哪些只能降级，以及如何避免「转移成功、TTFT 分位爆炸、账单翻倍」。不编造未公开的跨洋 NVLink，也不把某一云厂商的全球加速器名词当成标准。
+[上一课](/llm/moderation-inline)把同步卡点写成阻塞前填或阻塞出站；TTFT 含 $T_{\mathrm{mod}}$，超时是闭还是开必须预先写成政策。审核在单区关键路径上。无状态 HTTP 的故障转移是切负载均衡；自回归服务的状态在 GPU 的 KV、[前缀缓存](/llm/prefix-caching)、[适配器页](/llm/adapter-hot-swap) 与 [TPM 桶](/llm/token-ratelimit) 里。缺口是另一区可以立刻接住新 TCP，却接不住旧序列：用户看到的是断流、冷前填、可能换一个模型版本。本课写要搬哪些控制面、哪些只能降级。不编造未公开的跨洋 NVLink。
 
 ## 问题
 

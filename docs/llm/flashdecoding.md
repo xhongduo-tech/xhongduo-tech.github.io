@@ -11,11 +11,11 @@ section: llm
 <footer>—— Dao 等，Flash-Decoding（2023 年技术说明）</footer>
 </div>
 
-[FlashAttention](/llm/flashattention) 与 [FA2](/llm/flashattention-2) 的并行主轴是 batch、头、以及查询行。自回归解码每步 $n_q$ 通常为 1，长上下文又逼得 batch 变小，于是「查询维」几乎没东西可切。A100 上百余个 SM，若只有「batch×头」份活，注意力核发出的加载指令填不满带宽，生成在长 KV 上会显著慢于前填时同长度的单位计算。Flash-Decoding（常写 FlashDecoding）给同一套在线 softmax 增加第三维并行：把 KV 沿序列切开，各切片用 FlashAttention 算局部注意力，再按 log-sum-exp 归约成精确的一行输出。
+[上一课](/llm/flashattention-3)为 Hopper 的异步 TMA/WGMMA 重写精确注意力调度，目标是利用率而不是改 softmax。小结点名：与 FlashDecoding 的 KV 维并行是不同轴。缺口是解码步 $n_q$ 通常为 1，FA2/FA3 沿查询行切的活几乎没了，batch×头填不满 SM，长 KV 本该喂饱 HBM 却发不出足够加载。[FlashAttention](/llm/flashattention) 与 [FA2](/llm/flashattention-2) 的查询维并行不重讲。本课钉第三维：沿 KV 切开、段内仍走分块注意力、段间用 log-sum-exp 归约成精确一行。后课分页与低比特核默认已经知道这条并行轴。
 
 ## 问题
 
-解码步的注意力是「一条（或一个小 batch 的）查询 × 长度为 $t$ 的 KV」。计算量 $O(t d)$，数据搬家同样 $O(t d)$ 量级，本应是带宽问题：多发加载才能接近 HBM 峰值。FA2 式查询并行在 $n_q=1$ 时退化成每个头一个线程块（再乘 batch）。头数 32、batch 1 时，只有数十个块在发加载，远少于 SM 数，带宽利用率低下。上下文越长，本该越好喂饱总线，却因为并行度不够而喂不进去——这是长上下文生成特有的尴尬，不是公式突然变慢。
+FA3 把精确注意力的利用率钉在 Hopper 的异步流水上；解码步仍是「一条（或一个小 batch 的）查询 × 长度为 $t$ 的 KV」。计算量 $O(t d)$，数据搬家同样 $O(t d)$ 量级，本应是带宽问题：多发加载才能接近 HBM 峰值。FA2 式查询并行在 $n_q=1$ 时退化成每个头一个线程块（再乘 batch）。头数 32、batch 1 时，只有数十个块在发加载，远少于 SM 数，带宽利用率低下。上下文越长，本该越好喂饱总线，却因为并行度不够而喂不进去——这是长上下文生成特有的尴尬，不是公式突然变慢。
 
 朴素的 split-KV 若不做正确归约，会变成各段各自 softmax 再拼，那是错的注意力。必须把每段的输出向量和每行的 log-sum-exp 写出来，用与在线 softmax 相同的代数合成全局结果。FlashDecoding 的贡献是把这件事做成与 FlashAttention 同一家族的实现：段内仍分块、少写中间矩阵；段间只多写极少的统计量。
 

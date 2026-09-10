@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照云厂商 API 的 RPM / TPM 配额与服务端在 encode 之后、prefill 之前的闸门</footer>
 </div>
 
-HTTP 429 在普通 JSON API 里按请求计数就够。自回归服务里，一次「请求」的代价可以从几百 FLOPs 到一次数万长度的前填再加数千步 decode，差两个数量级。云厂商因此同时报 RPM（每分钟请求）与 TPM（每分钟 token），有的再拆输入 TPM 与输出 TPM。本篇把计量钉在与引擎相同的 tokenizer 上，说明预扣、结算、突发与拒绝；分词开销见 [tokenizer 服务成本](/llm/serving-tokenizer-cost)，账单里缓存折扣见 [提示缓存计费](/llm/prompt-cache-billing)。不编造一篇 token rate limit 的会议论文。
+[上一课](/llm/adapter-hot-swap)把热更新写成迭代边界上的指针切换：在途请求钉旧页，新请求钉新页；适配器版本必须进入 KV 缓存键。版本对了，一次「请求」的代价仍可以从几百 FLOPs 到数万长度前填再加数千步 decode。HTTP 429 按请求计数会系统性偏向重请求。缺口是把计量钉在与引擎相同的 tokenizer 上：同时报 RPM 与 TPM，并做预扣–结算。本课写突发、拒绝与分项；账单里缓存折扣见 [提示缓存计费](/llm/prompt-cache-billing)。不编造一篇 token rate limit 的会议论文。
 
 ## 问题
 

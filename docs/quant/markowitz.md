@@ -11,7 +11,7 @@ section: quant
 <footer>—— Markowitz, Portfolio Selection, Journal of Finance, 1952</footer>
 </div>
 
-Markowitz（1952）把分散化从谚语写成二次规划：给定期望向量 $\mu$ 与协方差 $\Sigma$，最小化 $w^\top\Sigma w$ 并约束期望收益与预算。有效前沿是均值–方差平面上的上半支，两基金定理说任意有效组合都是两个有效基金的混合。Sharpe 与 Lintner 的 [CAPM](/quant/capm) 把其中一个基金在均衡里等同于市场。本篇只写选择问题本身：前沿怎么来、卖空与约束如何改变形状、以及为什么同一套公式在估计 $\mu,\Sigma$ 之后会变成下一篇要处理的 [误差放大](/quant/cov-shrinkage)。1959 年的书把效用与长期投资补全，数学对象没有离开二次风险。
+[上一课](/quant/corporate-bond-otc)停在单券流动性。缺口是截面：如何把多资产的均值与协方差写成组合权重。Markowitz（1952）把分散化从谚语写成二次规划：给定期望向量 $\mu$ 与协方差 $\Sigma$，最小化 $w^\top\Sigma w$ 并约束期望收益与预算。有效前沿是均值–方差平面上的上半支，两基金定理说任意有效组合都是两个有效基金的混合。Sharpe 与 Lintner 的 [CAPM](/quant/capm) 把其中一个基金在均衡里等同于市场。本篇只写选择问题本身：前沿怎么来、卖空与约束如何改变形状、以及为什么同一套公式在估计 $\mu,\Sigma$ 之后会变成下一篇要处理的 [误差放大](/quant/cov-shrinkage)。1959 年的书把效用与长期投资补全，数学对象没有离开二次风险。
 
 ## 问题
 

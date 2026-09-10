@@ -11,7 +11,7 @@ section: llm
     <footer>—— Sanchez et al., Stay on topic with Classifier-Free Guidance, 2023</footer>
 </div>
 
-扩散模型里的无分类器引导（classifier-free guidance, CFG）用同一网络的有条件与无条件预测做外推，让生成更贴条件。Sanchez 等人把同一线性组合接到自回归语言模型的 logits 上：一次前向看完整提示，一次前向看空条件或负提示，再按引导强度 $\gamma$ 混合。它不是文法约束里的 CFG（上下文无关文法，见[约束解码](/llm/constrained-decoding)），也不训练分类器。代价是每步大约两次目标前向，以及外推过度时的重复、跑题或自信的胡话。本篇写的是 logits 算术如何改变下一步分布，以及它与对比解码、对比搜索的差别。
+[上一课](/llm/repetition-penalty)在解码期改已出现 token 的 logits，打断短循环，不改变训练分布。缺口是提示仍是软约束：模型可以「听见」指令，仍在长文本里滑回无条件闲聊先验。扩散里的无分类器引导用有条件与无条件预测做外推；Sanchez 等人把同一线性组合接到自回归 logits 上。本课写语言模型上的 CFG：$\gamma$ 如何沿条件减无条件走得更远，以及它与对比解码、对比搜索不是同一机制。不重推 presence / frequency 的加法项。注意不是文法约束里的 CFG。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— ISO 28500 WARC；Common Crawl 数据格式说明</footer>
 </div>
 
-预训练网页的第一批字节通常不是 HTML 文件，而是 Common Crawl 定期发布的 WARC 容器。WARC（Web ARChive）是 ISO 28500 规定的记录序列：每条记录有头部块、内容块，用空行与 `Content-Length` 界定。Crawl 还提供 WAT（元数据）与 WET（已抽取纯文本）衍生集。解析 WARC 的任务是：在 PB 级 gzip 分片上正确切开记录，选出 `response`（及需要的 `conversion`），把 HTTP 载荷交给后续 HTML 抽取。本篇只写容器与记录，不写 [trafilatura 正文抽取](/llm/html-extract) 的 DOM 启发式；那是下一站。
+[上一课](/llm/pretrain-ckpt)要求检查点覆盖参数、优化器、日程与数据进度，resume 分精确轨迹与够用的续训。网页预训练的第一批字节通常不是 HTML 文件，而是 Common Crawl 的 WARC 容器。缺口是按 `Content-Length` 切开记录、选出 `response`，并把 HTTP 状态与 charset 写成解析的一部分。本课只写容器与记录，不重讲原子发布，也不提前做 [正文抽取](/llm/html-extract)。后课抽取默认：坏记录已跳过并计数，WET 不是自己可控的正文。
 
 ## 问题
 

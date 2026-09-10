@@ -11,7 +11,7 @@ section: llm
 <footer>—— Loshchilov &amp; Hutter，AdamW；Yang 等，Tensor Programs / μP</footer>
 </div>
 
-权重衰减控制参数范数，学习率控制一步走多远。Adam 若把 $\ell_2$ 正则写进损失，梯度会先被 $\sqrt{v}$ 除，有效衰减跟着二阶矩走，不再是你写下的 $\lambda$。AdamW 把衰减解耦成独立的一次乘：每次更新后 $W\leftarrow W-\eta\lambda W$（实现细节略有出入）。μP（Maximal Update Parameterization）要解决另一件事：宽度 $d$ 变大时，初始化方差、学习率、有时包括衰减，必须按层类型用确定的幂次重标，使「每层的特征更新」在无穷宽极限里仍是 $O(1)$，从而窄模型上扫到的超参可以零样本迁到宽模型。Yang 等人的 Tensor Programs 系列给出这套定标；本篇只谈它与衰减、AdamW 的交界，不展开无限宽图的全部引理。
+[上一课](/llm/pretrain-mixed-precision)用窄格式做 GEMM、宽格式存主权重；Unscale 顺序会静默改写有效学习率。缺口是宽度定标与衰减的交界。AdamW 下每步乘 $1-\eta\lambda$，衰减率是 $\eta\lambda$ 而不是 $\lambda$ 本身；隐藏层矩阵的梯度与初始化又随 $d$ 变，μP 要求按层类型用确定幂次重标，使窄模型上扫到的超参可以迁到宽模型。本课只谈衰减与 μP 的交界，不重写损失缩放，也不展开无限宽图的全部引理。后课 z-loss 默认已经读完：尺度、宽度、范数、步长不是同一旋钮。
 
 ## 问题
 

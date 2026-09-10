@@ -11,7 +11,7 @@ section: quant
     <footer>—— Barndorff-Nielsen, Hansen, Lunde, Shephard, Realised Kernels in Practice: Trades and Quotes, Econometrics Journal 2009</footer>
 </div>
 
-高频估计——已实现波动、有效价差、PIN 的买卖计数——都把逐笔成交与报价当成观测。原始 tick 不是观测，是交易所、数据商、对时、撮合与事后撤销叠在一起的日志。不清洗就做统计，最大的「微观结构噪声」往往是坏记录而不是买卖价差弹跳。Barndorff-Nielsen、Hansen、Lunde 与 Shephard 在把已实现核落到交易与报价实务时，给出一套可复述的过滤规则；Brownlees 与 Gallo 以及 Olsen 传统也有平行清单。本篇写的是**规则化的管道**：时间窗、合法性、价差、相对中点偏离、时间戳合并。错价、错单、交易所撤销这些带业务含义的异常，放在 [异常成交与错价](/quant/outlier-trades)；本篇先把数据变成可以进模型的样本。
+[上一课](/quant/freq-hft-mid-slow)把体制写成 $(H,$ 容量瓶颈，延迟预算），禁止跨体制挪用实现价差、ILLIQ、撤单率。高频估计却把逐笔成交与报价当成观测；原始 tick 是交易所、数据商、对时与事后撤销叠在一起的日志。缺口是规则化的清洗管道：时间窗、合法性、价差、相对中点偏离、时间戳合并。本课先把数据变成可以进模型的样本，不重讲体制分层。错价、错单、交易所撤销这些带业务含义的异常，放在 [异常成交与错价](/quant/outlier-trades)。
 
 ## 问题
 

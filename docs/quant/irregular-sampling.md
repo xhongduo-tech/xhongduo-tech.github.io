@@ -11,7 +11,7 @@ section: quant
     <footer>—— 高频计量中 previous-tick 插值与 refresh time 的标准处理；久期一侧见 Engle and Russell, Autoregressive Conditional Duration, Econometrica 1998</footer>
 </div>
 
-教科书里的收益是等间隔：日、分钟、秒。交易所里的观测是点过程：成交与报价在随机时刻到达，密集与稀疏随会话、随事件变化。把点过程强行钉到日历网格，或假装每笔间隔相同，都会改变 [微观结构噪声](/quant/microstructure-noise) 的表观、改变已实现协方差的偏差。Engle 与 Russell 的 ACD 直接为久期建模；Hayashi–Yoshida 在不同步成交下估协方差而不做插值；Barndorff-Nielsen 等人用 refresh time 把多资产拉到共同的事件时钟。本篇写采样方案本身，它是估计量的一部分，不是数据读取的边角。
+[上一课](/quant/rv-noise)写无噪声时 RV 一致估积分波动，有 i.i.d. 噪声时偏差 $2n\sigma_\varepsilon^2$；先清洗与异常处理，再谈 TSRV、已实现核与预平均。教科书里的收益是等间隔，交易所里的观测是点过程。缺口是采样方案本身：日历网格、事件时钟、多资产对时，都会改变噪声的表观与已实现协方差的偏差。本课写采样，不重推核带宽。插值不是中性操作；「一分钟线」已经是某种聚合产品。
 
 ## 问题
 

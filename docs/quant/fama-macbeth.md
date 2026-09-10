@@ -11,7 +11,7 @@ section: quant
     <footer>—— Fama & MacBeth, Risk, Return, and Equilibrium: Empirical Tests, Journal of Political Economy, 1973</footer>
 </div>
 
-资产定价要估的是风险价格 $\lambda$，不是某一只股票的 α。把 $T$ 期、$N$ 只资产堆成一次混合回归，残差在截面上同期相关，普通标准误会把精度说得太高。Eugene Fama 与 James MacBeth 1973 年的做法是把检验拆成两步：时间序列估 β，再对每一个 $t$ 做一次截面回归，最后对斜率取平均。它是 [CAPM](/quant/capm) 与多因子模型最常用的截面语言，也是后续 Shanken 修正、GMM、[Giglio–Xiu 三步法](/quant/giglio-xiu) 要修补的起点。本篇写步骤、标准误真正在防什么、以及生成回归量如何把 $\lambda$ 的精度说错。
+[上一课](/quant/crypto-mark-price)停在加密微观结构。缺口回到截面风险价格：Fama–MacBeth，而不是再写永续合约。资产定价要估的是风险价格 $\lambda$，不是某一只股票的 α。把 $T$ 期、$N$ 只资产堆成一次混合回归，残差在截面上同期相关，普通标准误会把精度说得太高。Eugene Fama 与 James MacBeth 1973 年的做法是把检验拆成两步：时间序列估 β，再对每一个 $t$ 做一次截面回归，最后对斜率取平均。它是 [CAPM](/quant/capm) 与多因子模型最常用的截面语言，也是后续 Shanken 修正、GMM、[Giglio–Xiu 三步法](/quant/giglio-xiu) 要修补的起点。本篇写步骤、标准误真正在防什么、以及生成回归量如何把 $\lambda$ 的精度说错。
 
 ## 问题
 

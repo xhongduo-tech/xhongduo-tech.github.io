@@ -11,7 +11,7 @@ section: quant
     <footer>—— Longstaff and Schwartz, Valuing American Options by Simulation: A Simple Least-Squares Approach, Review of Financial Studies, 2001</footer>
 </div>
 
-欧式合约把行权钉在 $T$，美式把行权权交给持有人：任意 $t\le T$（或离散的行权日）只要内在价值高于续持，就可以执行。Merton（1973）已经证明：无股利的美式看涨不应提前执行，因为它是时间价值为正的保险；有股利的看涨、以及通常的看跌，存在一个自由边界 $S^*(t)$，低于（看跌）或高于（看涨）该边界就该执行。解析上这是最优停时与障碍未知的 Stefan 问题，没有像 Black-Scholes 那样的简单闭式。数值上，[二叉树](/quant/binomial-tree) 与 [PDE](/quant/option-pde) 在低维自然；高维则依赖模拟。Longstaff-Schwartz（2001）用最小二乘蒙特卡洛（LSMC）把续持价值回归出来，成为可转债、员工期权与多资产美式的标准算法之一。本篇写提前行权的经济条件与 LSMC，不把欧式公式重推一遍。
+[上一课](/quant/risk-neutral-pricing)把无套利写成等价鞅测度：可复制支付是货币账户计价下的 $\mathbb{Q}$-条件期望，树、PDE、MC 是同一期望的三种计算。缺口是美式把行权权交给持有人，价格变成最优停时，没有欧式那样的简单闭式。无股利美式看涨与欧式同价；有股利的看涨与通常的看跌存在自由边界。本课写执行条件与 LSMC，不重推 Girsanov 与 $N(d_1)$。数值网格接到已写的 [二叉树](/quant/binomial-tree)。
 
 ## 问题
 

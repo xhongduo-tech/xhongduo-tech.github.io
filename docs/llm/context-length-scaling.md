@@ -11,7 +11,7 @@ section: llm
 <footer>—— Kaplan 等，Scaling Laws for Neural Language Models，2020；对照 Hoffmann 等对固定窗口下参数与数据的权衡</footer>
 </div>
 
-[二次注意力](/llm/attention-quadratic-cost) 让「把窗口加长一倍」在算力上不是把 token 数加长一倍：每层每 token 要看的键也加长了。Kaplan 等人 2020 年在缩放律里单独画过损失随上下文长度 $n_{\mathrm{ctx}}$ 的变化——它确实下降，指数却远小于模型规模 $N$ 或数据量 $D$ 那两条。Hoffmann 等人后来把计算最优写成 $N$ 与 $D$ 的匹配，实验里上下文往往钉死在一个常数（如 2048）。本篇只把「损失怎么随窗口变」和「算力最优怎么把窗口当常数」这两件事对齐，不把 Hoffmann 的参数–数据法则展开成专文。
+[上一课](/llm/moe-shared-routed-size)把 MoE 的第一约束写成每 token 激活 $A$，以及共享从 $A$ 里扣走的比例 $\rho$，稀疏容量的课序到此收束。缺口转到另一维：损失随上下文长度 $n_{\mathrm{ctx}}$ 怎么降，以及加长窗口在算力上能不能当成「多训 token」。[二次注意力](/llm/attention-quadratic-cost) 让窗口加长一倍不是 token 数加长一倍；Kaplan 等人 2020 年画过很缓的幂律，Hoffmann 的计算最优默认窗口固定。本课把这两件事对齐，不把参数–数据法则展开成专文。后课评测默认：训练支撑内的损失缩放，与位置外推的损失陡升，是相反的两条曲线。
 
 ## 问题
 

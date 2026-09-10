@@ -11,7 +11,7 @@ section: llm
 <footer>—— Rae 等，Compressive Transformers for Long-Range Sequence Modelling，2020</footer>
 </div>
 
-Transformer-XL 给每层接上一截过去的激活当记忆，窗口外的 token 以「未经压缩的 KV 式状态」被引用，再往前就丢弃。Rae 等人 2020 年的 Compressive Transformer 在 XL 的记忆之外再加一层**压缩记忆**：oldest 的那截激活经过卷积、池化或注意力池化，变成更少的槽，而不是直接出队。它是长程序列建模在预训练时代早期的一条主路——对象是字符级与文档级语言建模（enwik8、PG-19），不是后来的 128k 指令模型，但「把旧状态压实而不是扔掉」这一想法，直接通向 Infini-Attention 与各类 KV 压缩。本篇只写压缩记忆本身。
+[上一课](/llm/dual-chunk-attention)将序列按约等于训练长度的块切开，块内沿用原 RoPE，块间做仍在支撑集内的位置映射；训练免费，但不降低 KV 线性增长。位置重编号救的是相位，救不了「再早的历史只能丢」。缺口是把 oldest 的那截激活压成更少的槽，而不是直接出队。Rae 等人 2020 年的 Compressive Transformer 在 Transformer-XL 的记忆之外再加一层压缩记忆，对象是字符级与文档级语言建模。本课只写压缩记忆本身，不重写 DCA 的三套边。它通向后来的 Infini-Attention 与各类 KV 压缩。
 
 ## 问题
 

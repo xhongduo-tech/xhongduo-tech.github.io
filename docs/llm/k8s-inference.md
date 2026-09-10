@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 Kubernetes Deployment 的副本语义，以及 Orca / vLLM 把调度落在模型迭代上的服务引擎</footer>
 </div>
 
-把 LLM 塞进集群，第一反应往往是：镜像打好，写一个 Deployment，`replicas: N`，前面挂 Service。这对无状态 HTTP 成立。生成式推理不成立：每条请求在 GPU 上持有 [分页 KV](/llm/paged-attention)，副本之间不能随便挪；卡与卡之间有 NVLink / UB 域，[张量并行](/llm/infer-tp) 与 [专家并行](/llm/infer-ep) 必须落在同一通信域；prefill 与 decode 的 SLO 不同，常要 [PD 分离](/llm/pd-disaggregation)。Kubernetes 默认调度器看见的是 CPU、内存、以及设备插件报上来的 `nvidia.com/gpu: 1`。它不知道 KV 占用、不知道机柜是一块逻辑加速器，也不知道杀掉一个 Pod 等于丢掉该副本上所有会话状态。本篇把「K8s 上跑推理」写成工作负载类型问题：何时还能用 Deployment，何时必须自定义调度。
+[上一课](/llm/cloudmatrix-infer)用融合算子减少 decode 的 launch 与多余 All-to-All，AIV-Direct 躲开 SDMA 启动税。缺口是把引擎塞进集群时，第一反应往往是 Deployment + `replicas: N`：那份契约假定 Pod 可互换、滚动可硬杀，生成式推理不成立——每条请求持有 [分页 KV](/llm/paged-attention)，TP/EP 必须落在同一通信域。本课把「K8s 上跑推理」写成工作负载类型。不重讲 Prolog/GMM 流水表。后课扩缩默认已经读完：杀掉一个 Pod 等于丢掉该副本上所有会话状态。
 
 ## 问题
 

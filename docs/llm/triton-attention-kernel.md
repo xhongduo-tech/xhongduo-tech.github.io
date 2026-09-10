@@ -11,7 +11,7 @@ section: llm
 <footer>—— Tillet, Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations, MAPL 2019</footer>
 </div>
 
-手写 CUDA 注意力要同时管正确性（在线 softmax）与硬件细节（warp、bank、MMA 布局）。Tillet 的 Triton 把并行模型收成：每个程序实例处理一块数据，`tl.load` / `tl.store` 带掩码，编译器插入共享存储与向量化。OpenAI 随后用它把 FlashAttention 写成可阅读的 Python，成为教学与研究里最常见的「可改的注意力核」。本篇写这条路径：Triton 的编程模型如何承载分块 SDPA，以及它相对 CUTLASS / 手写 CUDA 的边界。公式仍是 [缩放点积](/llm/sdpa)，算法仍是 [FlashAttention](/llm/flashattention) 的 IO 感知分块。
+[上一课](/llm/thunderkittens)把 tile 定在 16×16 一级以对齐 WGMMA：在线 softmax 与掩码仍要算法作者负责，分页服务不是默认对象。缺口是另一条更短的写法：Triton 用 SPMD 块程序与带掩码的 load/store，让分块注意力可以写成短 Python。语言管共享存储与向量化，不自动推出最优注意力。本课写这条路径的边界，不重写 kitten 的类型系统。公式仍是 [缩放点积](/llm/sdpa)，算法仍是 [FlashAttention](/llm/flashattention) 的 IO 感知分块。
 
 ## 问题
 

@@ -11,13 +11,7 @@ section: quant
     <footer>—— 指数定义见 CBOE VIX 方法说明书；早期波动期货见 Grünbichler and Longstaff, Journal of Banking & Finance, 1996；曲线框架对照 Bergomi</footer>
 </div>
 
-[方差互换与 VIX](/quant/variance-swap-vix) 写的是指数本身：CBOE 用 SPX 虚值期权的 $1/K^2$ 离散条带，插值到三十天再开方。交易的主要工具却是 VIX 期货（及期货期权）。期货到期时盯的是结算时刻的 VIX 指数，而该指数已经是「当时起三十天」方差互换复制的平方根。因此期货价格是
-
-$$
-F_{t,T}^{\mathrm{VIX}}=\mathbb{E}^{\mathbb{Q}}_t\bigl[\mathrm{VIX}_T\bigr]=\mathbb{E}^{\mathbb{Q}}_t\Bigl[100\sqrt{\mathrm{VS}_{T,T+\tau}}\Bigr],
-$$
-
-其中 $\mathrm{VS}_{T,T+\tau}$ 为从 $T$ 起 $\tau=30/365$ 的公平方差执行价（年化约定以说明书为准）。本篇写这一凸性、期限结构为何常年升水、以及 Heston / Bergomi / [粗糙波动](/quant/rough-vol) 如何给 $F_{t,T}$ 定价。不重复条带公式的逐步推导，也不把 VIX 期权的波动曲面当成另一本书。
+[上一课](/quant/dupire-calib)把局部波动校准写成病态反问题：先造无套利 $w(k,T)$，再用 $\partial_T w/g$ 抽出 $\sigma_{\mathrm{loc}}$；动态缺陷要靠 SLV 或随机方差，不能靠更细的校准网格。[方差互换与 VIX](/quant/variance-swap-vix) 已经写出指数本身的条带复制。缺口是交易的主要工具——VIX 期货：盯的是结算时刻的 VIX，而该指数已是当时起三十天方差互换的平方根。本课写凸性、期限结构升水与模型定价，不重推导条带公式。标的是未来的三十天线，不是路径已实现。
 
 ## 问题
 

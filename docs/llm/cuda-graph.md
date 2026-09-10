@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA CUDA C++ Programming Guide, CUDA Graphs</footer>
 </div>
 
-现代 LLM 推理的一步 decode 往往是几百个短 kernel：层切、RMSNorm、GEMM、注意力、残差。每个 kernel 从 CPU 启动一次，启动开销在微秒量级；当 kernel 自身也只有几十微秒，CPU 提交会成为墙钟的一阶项。CUDA Graph 把这段依赖图捕获下来，实例化后用一次 `cudaGraphLaunch` 重放。GPU 侧仍跑同样的 MMA 与访存，变的是提交模型。本篇按 CUDA 文档写捕获、约束、更新与失败模式，以及它和连续批处理、动态形状的摩擦。不把某一框架的加速比写成通用定律。
-
-与 [连续批处理](/llm/continuous-batching)、[Decode 显存墙](/llm/decode-memory-wall) 的关系是：Graph 减启动税；batch 与 HBM 减的是计算 / 带宽税。三件事不要互相替代。
+[上一课](/llm/tensor-core)把峰值钉在 Tensor Core 的 MMA 上：大 GEMM 切成固定形状的 tile，没走这条流水线就吃不到产品表。缺口是 decode 一步往往是几百个短 kernel——层切、RMSNorm、GEMM、注意力、残差——每个从 CPU 启动一次；核自身只有几十微秒时，提交税成为墙钟一阶项。本课写 CUDA Graph：把这段依赖图捕获下来，实例化后一次 `cudaGraphLaunch` 重放。不重讲 MMA 精度与布局，GPU 侧仍跑同样的乘与访存。后课 MPS/MIG 默认已经读完：Graph 减启动税，[连续批处理](/llm/continuous-batching) 与 [Decode 显存墙](/llm/decode-memory-wall) 减的是计算与带宽税，三件事不要互相替代。
 
 ## 问题
 

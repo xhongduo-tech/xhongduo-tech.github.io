@@ -11,7 +11,7 @@ section: llm
 <footer>—— Uesato 等，Solving math word problems with process- and outcome-based feedback，2022；Lightman 等，Let's Verify Step by Step</footer>
 </div>
 
-推理任务的标注可以停在终点：数学题的数字、代码的单测、对话的整体偏好。这种只对完整输出给标量的做法叫结果监督（outcome supervision）。它与偏好对、与 [过程监督](/llm/process-supervision) 共享「用反馈改策略」这一目的，但信用分配完全不同：过程监督给每一步对错，结果监督只给终点。Uesato 等人在数学应用题上系统比较了过程反馈与结果反馈；Lightman 等人在 MATH 上把结果奖励模型（ORM）和过程奖励模型（PRM）对照，作为验证器去挑 Best-of-N。本篇只写结果这一端：它监督什么、梯度从哪回传、何时够用、何时会奖到错误推理。
+[上一课](/llm/dpo-beta-ref)把 DPO 的 $\beta$ 写成偏离代价、参考写成冻结的 SFT 锚；$\beta$ 缩放成对对数比，不能用学习率代替。偏好对仍是整段比较。推理任务的标注可以停在终点：数学题的数字、代码的单测。缺口是结果监督——只对完整输出给标量，信用分配与 [过程监督](/llm/process-supervision) 完全不同。本课只写结果这一端，不重扫 $\beta$。第一步就错、后面碰巧得到对的数字，结果监督会当成正例。
 
 ## 问题
 

@@ -11,11 +11,11 @@ section: llm
 <footer>—— DeepSeek-AI, DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model, 2024</footer>
 </div>
 
-GQA 靠少头缩小 KV，MLA 靠**每个 token 一条窄潜向量**缩小 KV。DeepSeek-V2 的 Multi-head Latent Attention 把键值联合压进 $c^{KV}\in\mathbb{R}^{d_c}$，多头所需的满宽 $K,V$ 由上投影临时展开；部署时上投影可以吸收，decode 逐步只追加 $c^{KV}$ 和很小的解耦 RoPE 键。头数可以保持甚至超过常规 MHA，缓存却跟 $d_c$ 走，不跟 $h d_k$ 走。架构与吸收公式见 [MLA](/llm/mla)；本篇只把「压缩了 KV 的哪一维、服务时省下什么」写清楚。
+[上一课](/llm/streaming-kv)把 $n_{\mathrm{keep}}$ 钉成汇点加窗口，缓存与生成长度脱钩，按位置留槽、中段历史精确丢失。缺口是宽度轴：条数淘汰动的是谁留下，每条仍是满宽 $K,V$；GQA 少头，MLA 则每个 token 一条窄潜向量，头数可以保持。本课钉 MLA 对 KV 的压缩：decode 缓存 $c^{KV}$ 与小 RoPE 键，上投影吸收才兑现服务降幅。不重讲汇点环形缓冲。架构公式见 [MLA](/llm/mla)；后课连续批默认每 token 字节已经按这条宽度记账。
 
 ## 问题
 
-推理显存里，注意力的 KV 往往压过激活，长生成、高并发时压过一部分权重。MHA 每层每 token 存 $2 h d_k$ 个数；GQA 把它变成 $2 h_{\mathrm{kv}} d_k$。继续减 $h_{\mathrm{kv}}$ 是在砍记忆通道，质量会掉。另一条没被 GQA 用掉的自由度是：生成 $K,V$ 的映射可能是低秩的，真正需要**随序列增长而驻留**的自由度数远小于 $h d_k$。若训练时就用瓶颈去写 KV，推理就可以只缓存瓶颈。
+StreamingLLM 钉的是 $n_{\mathrm{keep}}$；每条仍可以是满宽 $K,V$。推理显存里，注意力的 KV 往往压过激活，长生成、高并发时压过一部分权重。MHA 每层每 token 存 $2 h d_k$ 个数；GQA 把它变成 $2 h_{\mathrm{kv}} d_k$。继续减 $h_{\mathrm{kv}}$ 是在砍记忆通道，质量会掉。另一条没被 GQA 用掉的自由度是：生成 $K,V$ 的映射可能是低秩的，真正需要**随序列增长而驻留**的自由度数远小于 $h d_k$。若训练时就用瓶颈去写 KV，推理就可以只缓存瓶颈。
 
 目标有三条同时成立。第一，训练仍按多头算分数、混值，质量对标 MHA。第二，decode 不得把满宽 $K,V$ 物化进缓存。第三，RoPE 作用在头内坐标上，不能被共享潜变量直接旋转掉。压缩 KV 的设计必须回答：缓存张量的形状变成什么、每 token 多少字节、并发因此能抬多少。
 

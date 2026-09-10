@@ -11,7 +11,7 @@ section: llm
 <footer>—— Bai et al., Constitutional AI: Harmlessness from AI Feedback, 2022；原则坐标系见 Askell 等 HHH，2021</footer>
 </div>
 
-人类比较贵，且让标注员长期阅读有害内容有伦理与疲劳成本。Bai 等人的 Constitutional AI（CAI）给出一条可操作的替代：人写一部自然语言「宪法」（原则列表），模型按原则对回答做批评与修订，再用这些成对或偏好数据做监督与 RL——即 RLAIF：Reinforcement Learning from AI Feedback。Askell 的 HHH 仍是轴：CAI 主要把无害轴的比较改成原则驱动的 AI 反馈，有用轴在原论文设定里仍可保留人类偏好。本篇写 AI 反馈的数据形态、它拟合的是哪一个生成器、以及评测时如何防止「教师与学生共享盲区」。不把原则写成可绕过的清单，也不把批评提示写成攻击说明书。
+[上一课](/llm/expert-vs-crowd)把众包放在有用轴的规模上，把专家放在无害边界与带真值的诚实上；数据量不平衡时必须分头或加权。人类比较贵，且让标注员长期阅读有害内容有伦理与疲劳成本。缺口是把 AI 反馈当作偏好：人写原则，模型按原则批评与修订，再拿这些对做监督与 RL。本课写 RLAIF 的数据形态，不重讲分流协议。它拟合的是教师在原则条件下的行为；评测要防止教师与学生共享盲区。
 
 ## 问题
 

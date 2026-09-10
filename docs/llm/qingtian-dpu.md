@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照华为云青田架构白皮书，以及 CloudMatrix384 把 Qingtian 卡作为节点 VPC 平面出口的描述</footer>
 </div>
 
-CloudMatrix384 有三张网：UB 管域内 Scale-Up，RoCE 管 NPU 之间的 Scale-Out，第三张是接到数据中心的 VPC 平面。论文写明：每节点一块青田（Qingtian）卡，挂在鲲鹏上，作为该节点的南北向出口，单向带宽最多 400 Gbps 量级，跑标准以太网/IP，可选 UB-over-Ethernet。它不是「又一块更快的网卡」这么简单——华为云的青田体系把虚拟化、VPC 隔离、弹性网卡从宿主机内核里搬走，让控制面下发到卡上的表项，数据面在卡上转发。本篇写 DPU 在超节点里干什么、VPC 控制面如何落到卡，以及为什么推理数据面不要走这条口。
+[上一课](/llm/cloudmatrix-roce-scaleout)把超节点之间交给 RoCE：域内放 TP/宽 EP/池化 KV，域间放跨柜 KV、副本与外部 RDMA。缺口是第三张网：接到数据中心的 VPC 平面——南北向若仍由宿主机 Linux 做软交换，部署与租户隔离都会和推理抢 CPU。本课写青田 DPU：节点级 VPC 出口与管控代理。不重讲队列对与 PFC。后课 Infer 默认已经读完：MoE 与 KV 数据面走 UB/RoCE，不要从青田口转发 token。
 
 ## 问题
 

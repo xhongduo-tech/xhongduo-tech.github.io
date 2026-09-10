@@ -11,7 +11,7 @@ section: llm
 <footer>—— 针与草堆（NIAH）、RULER、∞Bench 所划出的评测分层</footer>
 </div>
 
-[位置插值](/llm/position-extrapolation) 与 [YaRN](/llm/yarn) 把「算得动」和「相位还在支撑集里」当成第一道关。过关之后，产品仍会写出「支持 128k」——这句话在工程上至少有三层含义：数值稳定、语言建模困惑度没有崩、下游任务在该长度上仍然可用。后两层必须靠评测集，而不是靠 `max_position_embeddings` 这个配置项。NIAH、RULER、∞Bench 大致对应从「找得到一根针」到「合成多跳」再到「超十万 token 的真实任务」。本篇讲怎么考位置外推，不把任何一种延窗方法重写一遍。
+[上一课](/llm/context-length-scaling)指出语言建模损失随窗口下降，但幂律远弱于参数与数据；同等 FLOPs 下加长窗口会减少有效 token 数，平均 PPL 对长尾依赖也不敏感。[位置插值](/llm/position-extrapolation) 与 [YaRN](/llm/yarn) 把「算得动」和「相位还在支撑集里」当成第一道关。过关之后，产品仍会写出「支持 128k」。缺口是把这句话拆成递进探针：数值稳定、PPL 没崩、下游在该长度上仍可用——后两层必须靠 NIAH、RULER、∞Bench，而不是靠配置项。本课写怎么考位置外推，不把任何一种延窗方法重写一遍。
 
 ## 问题
 

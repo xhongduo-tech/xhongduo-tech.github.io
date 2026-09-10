@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 OpenAI API 参考与 TGI / vLLM / MindIE 的兼容层说明</footer>
 </div>
 
-开源推理引擎几乎都提供一层「看起来像 OpenAI」的 HTTP：路径是 `/v1/chat/completions` 或 `/v1/completions`，请求里有 `model`、`messages` 或 `prompt`、`temperature`、`max_tokens`、`stream`。TGI 把它做成 Messages API 开关，vLLM 做成 `api_server`，LMDeploy 做成 `serve api_server`，MindIE EndPoint 把该路径列进支持表。本篇写这层协议在工程上承诺了什么、故意没承诺什么。它不是 IETF RFC，也没有一篇叫「OpenAI Compatible API」的经典论文；行为以各引擎文档与 OpenAI 公开的字段说明为准，不要编造协议的 arXiv。
+[上一课](/llm/mindie)把昇腾推理写成 EndPoint 兼容多种 HTTP 形状：协议皮对齐不保证延迟分布与 GPU 引擎相同，版本间组件名以安装指南为准。缺口是这层「看起来像 OpenAI」的路径几乎被所有开源引擎共用：承诺了 URL、字段与 SSE 形状，故意没承诺语义、工具调用与多模态的完备。本课写信封兼容对语义兼容，不重写 MindIE 的 NPU 调度。它不是 IETF RFC，行为以各引擎文档为准。
 
 ## 问题
 

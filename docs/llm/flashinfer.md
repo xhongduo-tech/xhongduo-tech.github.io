@@ -11,7 +11,7 @@ section: llm
 <footer>—— Ye et al., FlashInfer, 2024</footer>
 </div>
 
-FlashAttention 证明了精确注意力可以不物化分数矩阵。服务推理紧接着问第二件事：同一套在线 softmax，如何对着分页 KV、变长 batch、decode 单 token 与 prefill 长前缀同时跑得快。Ye 等人的 FlashInfer 把答案收成一个可组合的 CUDA 内核库——面向 LLM 推理的注意力与采样原语，而不是再发一篇「更快的训练注意力」论文。它被 [SGLang](/llm/sglang) 等引擎当作默认后端之一：调度器负责请求何时进、KV 存在哪一页，FlashInfer 负责按页表把缩放点积算完。
+[上一课](/llm/sw-pipeline-buffer)把软件流水写成多份片上缓冲让拷贝与 MMA 重叠：Ampere 走 `cp.async` group，Hopper 走 TMA + mbarrier，stage 受 smem 与占用率约束。缺口是服务侧注意力的对象不是训练用的方阵：分页 KV、变长 batch、共享前缀要求核内 gather 与级联，而不是先整理成连续缓冲再调训练核。FlashInfer 把同一套在线 softmax 收成可定制的推理内核库。本课写这条服务契约，不重写 double buffering 的 stage 公式。调度器仍见 [SGLang](/llm/sglang) 一类引擎。
 
 ## 问题
 

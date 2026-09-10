@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA CUDA MPS 文档与 Multi-Instance GPU User Guide</footer>
 </div>
 
-数据中心很少让一张 A100 / H100 只跑一个 7B 推理进程。空闲的 SM 与空闲的 HBM 是真金。CUDA Multi-Process Service（MPS）让多个进程的 kernel 在同一块 GPU 上并发，共享上下文服务器，提高占用。Multi-Instance GPU（MIG）从 Ampere 起用硬件把一张卡切成多份实例，每份有自己的 SM、HBM 切片与隔离。两者可以叠：MIG 用户指南写明可在每个 GPU 实例上再开 MPS。本篇对齐这两种并发机制各自解决什么、不能解决什么。不把某一云厂商的切片售卖策略写成硬件规格。
-
-与 [连续批处理](/llm/continuous-batching) 的差别：连续批处理是同一进程内的请求复用；MPS / MIG 是多进程 / 多租户复用。
+[上一课](/llm/cuda-graph)用捕获与重放砍掉短 kernel 的 CPU 启动税；拓扑固定才划算，动态 batch 要分桶或放弃整步图。缺口是占用：数据中心很少让一张 A100 / H100 只跑一个 7B 进程，空闲的 SM 与 HBM 要被第二、第三个进程看见。本课对齐 MPS（多进程空间共享）与 MIG（硬件切 SM 与 HBM）。不重讲 Graph 的捕获约束。[连续批处理](/llm/continuous-batching) 是同一进程内的请求复用；MPS / MIG 是多进程 / 多租户复用。后课 NVLink 默认已经读完：切碎的卡不能再假装成一张全互连加速器。
 
 ## 问题
 

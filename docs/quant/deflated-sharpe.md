@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey and López de Prado, The Deflated Sharpe Ratio, Journal of Portfolio Management, 2014</footer>
 </div>
 
-夏普比率是回测表上最常被单独展示的数字。Lo（2002）已经说明：收益非 IID 时，夏普的抽样分布并不等于「均值除以标准差再乘根号 $T$」那种直觉，偏度与肥尾会改变其方差。Bailey 与 López de Prado（2014）把另一层偏差叠上去——你报告的往往不是预先指定的那一个策略的夏普，而是 $N$ 次试验里最大的那个。Deflated Sharpe Ratio（DSR）回答的问题是：在非正态、以及「从 $N$ 次试验中挑出最大者」这两项同时存在时，观测到的夏普有多大概率对应着真正为正的技能。它不是又一种收益变换，而是对**被选择过的夏普**做假设检验。
+[上一课](/quant/cv-leakage-finance)把金融交叉验证的泄漏钉住：随机打乱、$K$ 折共享未来路径、预处理在全样本上拟合，都会把评估器弄偏。缺口是评估器无偏之后，你报告的往往不是预先指定的那一个夏普，而是 $N$ 次试验里最大的那个。本课写 Deflated Sharpe：对**被选择过的夏普**做假设检验。不重讲 purge/embargo。后课 CPCV 默认已经读完：DSR 回答「这个点估计还剩多少技能」，不替代多条样本外路径。
 
 ## 问题
 

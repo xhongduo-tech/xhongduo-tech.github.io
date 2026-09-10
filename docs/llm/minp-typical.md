@@ -11,7 +11,7 @@ section: llm
     <footer>—— Hewitt, Manning & Liang, Truncation Sampling as Language Model Desmoothing, 2022；Min-p 见 Nguyen et al., 2024</footer>
 </div>
 
-开放生成里，下一步的条件分布很少是「一个高峰加均匀噪声」。模型有时几乎确定下一个词，有时在几个近义续写之间摊平。Holtzman 的 nucleus 用累计质量 $p$ 切核，截断宽度不看峰有多尖。Hewitt 等人把截断写成去平滑：绝对地板 $\varepsilon$ 与随熵浮动的 $\eta$ 都是在删掉「模型自己也不信」的原子。Nguyen 等人的 min-$p$ 把地板改成与当前最大概率成比例。三者同属截断族，不是另一种束搜索。信息论上按熵距离取核的做法见 [Locally Typical Sampling](/llm/locally-typical)；本篇只写相对峰高与相对熵的截断。
+[上一课](/llm/sampling-temperature-topp)用温度改熵、top-$k$ 固定集合截断、top-$p$ 按累计质量自适应截断。缺口是：nucleus 的核宽不看峰有多尖——高峰时可能只剩两三个 token，平坦时为凑满 $p$ 会吞进碎块。开放生成里分布有时几乎确定、有时在近义续写之间摊平，需要随当前分布自适应的地板。Hewitt 等人的 $\varepsilon$ / $\eta$、Nguyen 等人的 min-$p$ 同属截断族；按熵距离取核见 [Locally Typical Sampling](/llm/locally-typical)。本课写相对峰高与随熵浮动的截断。不重推温度与 nucleus 的定义。后课重复惩罚默认已经分清「改支撑」与「改已出现 token 的分」。
 
 ## 问题
 

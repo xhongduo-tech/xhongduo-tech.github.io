@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data'
 import { curriculumOrder } from '../data/curriculum'
-import { isSectionId } from '../data/sections'
+import { isSectionId, sectionMeta } from '../data/sections'
 
 const props = defineProps({
   section: { type: String, default: '' },
@@ -30,6 +30,10 @@ const list = computed(() => {
   if (props.limit > 0) rows = rows.slice(0, props.limit)
   return rows
 })
+
+function sectionName(id) {
+  return isSectionId(id) ? sectionMeta[id].name : ''
+}
 </script>
 
 <template>
@@ -37,7 +41,12 @@ const list = computed(() => {
   <ol v-else class="post-list">
     <li v-for="post in list" :key="post.url" class="blog-entry">
       <a :href="withBase(post.url)">{{ post.title }}</a>
-      <time v-if="post.date" :datetime="post.date">{{ post.date }}</time>
+      <span class="post-meta">
+        <span v-if="!section && sectionName(post.section)" class="post-section">{{
+          sectionName(post.section)
+        }}</span>
+        <time v-if="post.date" :datetime="post.date">{{ post.date }}</time>
+      </span>
     </li>
   </ol>
 </template>

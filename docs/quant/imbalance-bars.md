@@ -11,7 +11,7 @@ section: quant
 <footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 2, 2018</footer>
 </div>
 
-大多数回测仍在时间 bar 上运行：一分钟一根、一天一根。时钟均匀，信息到达不均匀。开盘、公告、流动性爆发时一根 bar 里塞进大量价格发现；午休或隔夜可能几乎没有成交，却仍占一根。Easley、López de Prado 与 O'Hara 在成交时钟上讨论毒性；López de Prado 在 AFML 第 2 章把数据结构化写成一套 bar：tick、volume、dollar，以及在累积不平衡达到阈值时才封口的信息驱动 bar。目的不是画更好看的图，而是让样本更接近「一次信息到达、一个观测」，以便后续的三重障碍、特征与交叉验证少被时钟扭曲。本篇写这些 bar 怎么封口、与 [OFI](/quant/ofi-cont) 或盘口存量不平衡不是同一对象。
+[上一课](/quant/fracdiff)用 $(1-L)^d$ 在单位根与白噪声之间取折衷，取仍能通过平稳性检验的最小 $d$ 以保留记忆。缺口是采样时钟：大多数回测仍在时间 bar 上，时钟均匀、信息到达不均匀。开盘与公告一根里塞进大量价格发现，午休仍占一根。López de Prado 把数据结构化写成 tick / volume / dollar bar，以及累积不平衡达到阈值才封口的信息驱动 bar。本课写这些 bar 怎么封口，以及与 [OFI](/quant/ofi-cont) 不是同一对象。不重推 $d$ 的权重递推。后课 CPCV 默认已经知道 bar 的墙钟时长是随机的。
 
 ## 问题
 

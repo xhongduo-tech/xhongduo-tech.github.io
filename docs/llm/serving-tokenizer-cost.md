@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Hugging Face tokenizers 与 TGI router 把分词放在引擎之外的工程划分</footer>
 </div>
 
-服务延迟表常只报 GPU 上的 TTFT 与每 token 时间。真实路径上，请求先要 [chat template](/llm/chat-template) 渲染，再经 BPE / Unigram 切成 token id，长度校验通过后才 prefill；反向则每步 decode 出一个 id，再 detokenize 成可显示字符串，经 SSE 送出。短模型、长提示、高并发时，CPU 上的 encode 可以追上甚至超过一次小模型 prefill。[Tokenizer 算法](/llm/tokenizer-design) 另一篇写训练目标；本篇写**服务路径上的开销与正确性**：Rust 分词器、增量解码、不完整 UTF-8、以及为什么 TGI 要把 tokenizer 放进 router。不编造一篇「tokenizer serving cost」的会议论文。
+[上一课](/llm/multi-lora-serving)把多 LoRA 写成一份基座加分页中的许多 $A,B$：SGMV 把不同适配器的低秩乘收进一次 decode，KV 不可跨 LoRA 复用。缺口是延迟表常只报 GPU：请求先要 [chat template](/llm/chat-template) 渲染再 encode，流式还要增量 detokenize，短模型、长提示时 CPU 可以追上一次小模型 prefill。本课写服务路径上的开销与正确性，不重写 SGMV。算法目标见 [Tokenizer 算法](/llm/tokenizer-design)。
 
 ## 问题
 

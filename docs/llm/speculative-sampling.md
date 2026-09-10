@@ -11,7 +11,7 @@ section: llm
     <footer>—— Chen et al., Accelerating Large Language Model Decoding with Speculative Sampling, 2023；与 Leviathan et al. 的投机解码同一耦合</footer>
 </div>
 
-投机加速把「每步一次大模型」换成「草稿连猜若干步、目标一次并行校验」。Chen 等人在大语言模型上把算法叫做投机采样（speculative sampling），Leviathan 等人叫做投机解码；核心都是修正的拒绝采样。产品真正要买的不是「看起来像大模型」，而是 **采样一致性**：任意能被目标分布 $p$ 单独抽到的序列，投机过程以相同概率产出。原理与墙钟折算见[投机解码](/llm/speculative-decoding)；本篇把一致性条件写清楚——哪些改动保持 $p$，哪些只是近似加速。
+[上一课](/llm/stop-sequences)把检索停用词与解码 stop sequences 分开，终止条件包括结束 token、字符串模式与长度预算。缺口是加速：投机把「每步一次大模型」换成草稿连猜、目标一次并行校验。产品要买的不是「看起来像大模型」，而是采样一致性——任意能被目标分布 $p$ 抽到的序列，投机过程以相同概率产出。原理与墙钟见[投机解码](/llm/speculative-decoding)。本课把一致性条件写清楚：温度、nucleus、min-$p$、掩码必须进入用来比较的 $p$ 与 $q$。不重写 stop 的字符串匹配。
 
 ## 问题
 

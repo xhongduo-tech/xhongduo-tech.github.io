@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照生成服务把 TTFT 作为请求级跨度，用直方图与足够样本估计尾部</footer>
 </div>
 
-[TTFT](/llm/ttft) 专文定义墙钟从请求接受到首个被接受的输出 token；[服务指标](/llm/serving-metrics) 把它与 TPOT、吞吐并列；[SLO](/llm/serving-slo) 把分位数写成合同。本篇只写**怎么追踪**：时间戳打在哪、直方图怎么切、标签基数如何控制、样本不够时 P99 在撒谎。没有追踪，SLO 是一张不会响的纸；追踪口径错了，告警会冤枉调度器或放过真正的排队。不编造一篇 TTFT percentile tracing 的会议论文。
+[上一课](/llm/prompt-cache-billing)把提示缓存计费拆成写入、读取、未缓存尾；命中次数不够时缓存比不缓存更贵。[TTFT](/llm/ttft) 已定义墙钟从接到请求到首个被接受的输出 token，[SLO](/llm/serving-slo) 把分位数写成合同。缺口是怎么追踪：时间戳打在哪、直方图怎么切、标签基数如何控制、样本不够时 P99 在撒谎。口径错了，告警会冤枉调度器或放过真正的排队。本课只写追踪。不编造一篇 TTFT percentile tracing 的会议论文。
 
 ## 问题
 

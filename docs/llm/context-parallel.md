@@ -11,7 +11,7 @@ section: llm
 <footer>—— Megatron 序列并行；上下文并行与 Ring Attention 为对照</footer>
 </div>
 
-张量并行切隐藏宽，流水线切深度，数据并行切 batch。序列足够长时，激活里体积最大的维是 $s$：LayerNorm、Dropout、注意力的 $QKV$ 都带着 $b\times s\times d$。序列并行与上下文并行都把 $s$ 切开，但动机不同。Megatron 的序列并行（sequence parallelism）绑在张量并行上：TP 组里本来完整复制的那一段激活，改沿序列分片，省的是 **Norm / Dropout 的激活内存**，通信仍在同一组 NVLink 卡之间。上下文并行（context parallel）面向超长上下文：每张卡持有连续的一段 token，注意力的全局依赖靠集体通信补齐——DeepSpeed Ulysses 一类用 All-to-All 把头和序列维对换；Ring Attention 沿环传递 KV 块，块上做局部注意力，数学上逼近或等于全局 SDPA。本篇把「为了省激活」和「为了放得下超长 $s$」分成两条，不把它们写成同一个旋钮。
+[上一课](/llm/pipeline-parallel)按深度切层，阶段间只传边界激活，适合节点间带宽，怕气泡与阶段负载不均。缺口是序列维。激活里体积最大的往往是 $s$：LayerNorm、Dropout、注意力的 $QKV$ 都带着 $b\times s\times d$，PP 不缩短上下文。本课把两条切开——Megatron 序列并行省的是 TP 组内 Norm/Dropout 激活，上下文并行才在注意力内部补 KV。不重讲 1F1B。后课专家并行默认已经读完：短序列与在线 decode 往往不值得开 CP。
 
 ## 问题
 

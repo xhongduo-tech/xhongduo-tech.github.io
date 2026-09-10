@@ -1,4 +1,6 @@
 import { fromOutline, markAppendix, type Outline } from './schema'
+import { lithoSupplement } from './litho-supplement'
+import { lithoFoundations } from './litho-foundations'
 
 const outline: Outline[] = [
   [
@@ -8,7 +10,7 @@ const outline: Outline[] = [
         '波动光学',
         [
           [
-            '从波到空中像',
+            '波动与衍射',
             [
               '单色波、折射率与光程|em-wave-index',
               '亥姆霍兹与惠更斯–菲涅尔|helmholtz-huygens',
@@ -20,6 +22,11 @@ const outline: Outline[] = [
               '透镜与数值孔径|lens-na',
               '光学扩展量与远心|etendue-telecentricity',
               '远心误差|telecentric-error',
+            ],
+          ],
+          [
+            '相干、空中像与焦深',
+            [
               '部分相干照明|partial-coherence',
               '相干因子 σ|coherence-sigma',
               'Hopkins TCC|hopkins-tcc',
@@ -29,6 +36,11 @@ const outline: Outline[] = [
               '焦深与瑞利焦深|depth-of-focus',
               '离焦作为像差|defocus-as-aberration',
               'Bossung 曲线|bossung-curve',
+            ],
+          ],
+          [
+            '偏振与像差',
+            [
               '偏振与矢量成像|vector-imaging',
               'TE / TM 对比|te-tm-polarization',
               'Jones 矩阵|jones-polarization',
@@ -47,7 +59,7 @@ const outline: Outline[] = [
         '产线判据',
         [
           [
-            '分辨率',
+            '瑞利与邻近',
             [
               '瑞利判据：CD = k₁ λ / NA|rayleigh-litho',
               '半节距对线宽|halfpitch-vs-cd',
@@ -58,6 +70,11 @@ const outline: Outline[] = [
               '疏密偏差|iso-dense-bias',
               '线端缩短|line-end-shortening',
               '波长台阶：g/i 线、KrF、ArF、EUV|litho-wavelengths',
+            ],
+          ],
+          [
+            '流程、套刻与产能',
+            [
               '掩模、胶、曝光、显影、刻蚀转印|litho-process-flow',
               '显影后对刻蚀后|adi-aei',
               '套刻 Overlay 与对准|litho-overlay',
@@ -81,7 +98,7 @@ const outline: Outline[] = [
         '抗蚀剂',
         [
           [
-            '化学',
+            '胶化学',
             [
               '正胶与负胶|positive-vs-negative',
               'DNQ–Novolac 胶|dnq-novolac',
@@ -93,6 +110,11 @@ const outline: Outline[] = [
               '酸扩散与线宽粗糙度|acid-diffusion-lwr',
               'LWR 与 LCDU|lwr-lcdu',
               '显影与衬度曲线|resist-contrast-curve',
+            ],
+          ],
+          [
+            '轮廓、驻波与 EUV 胶',
+            [
               'Mack / Notch 溶解模型|dissolution-mack',
               '驻波与 BARC|standing-wave-barc',
               '侧壁角|sidewall-angle',
@@ -280,7 +302,7 @@ const outline: Outline[] = [
         '图形修正',
         [
           [
-            'OPC 到 ILT',
+            'OPC 与 SMO',
             [
               '光学邻近修正 OPC|opc',
               '规则 OPC 对模型 OPC|rule-vs-model-opc',
@@ -290,6 +312,12 @@ const outline: Outline[] = [
               '光源掩模协同优化 SMO|smo',
               '光瞳图优化|pupil-source-map',
               '波前与 SMO+|smo-plus-wavefront',
+              '紧凑模型对严格电磁|compact-vs-rigorous',
+            ],
+          ],
+          [
+            'ILT、MRC 与写入',
+            [
               '逆光刻 ILT 与曲线掩模|ilt-curvilinear',
               'ILT 正则化|ilt-regularization',
               '掩模规则检查 MRC|mask-rule-check',
@@ -301,7 +329,6 @@ const outline: Outline[] = [
               '机器学习 OPC|ml-opc',
               '热点修复|hotspot-fix',
               'DTCO|dtco-patterning',
-              '紧凑模型对严格电磁|compact-vs-rigorous',
             ],
           ],
         ],
@@ -399,4 +426,26 @@ const papers: Outline[] = [
   ],
 ]
 
-export const lithoTree = [...fromOutline(outline), ...markAppendix(fromOutline(papers))]
+const [fourier, resistPhys, track, scanner, euvDepth, maskData, sim, integ, roadmap] = lithoSupplement
+
+export const lithoTree = [
+  ...fromOutline([
+    ...lithoFoundations,
+    outline[0],
+    fourier,
+    outline[1],
+    resistPhys,
+    track,
+    outline[2],
+    scanner,
+    outline[3],
+    euvDepth,
+    outline[4],
+    maskData,
+    sim,
+    outline[5],
+    integ,
+    roadmap,
+  ]),
+  ...markAppendix(fromOutline(papers)),
+]

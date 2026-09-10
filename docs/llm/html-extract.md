@@ -11,7 +11,7 @@ section: llm
     <footer>—— Penedo et al., FineWeb；抽取器对照 Barbaresi Trafilatura 与 Bevendorff et al. Resiliparse</footer>
 </div>
 
-网页预训练并不从「文档」开始，而从 HTML 字节开始。Common Crawl 的 WARC 里混着导航、脚本、评论框、cookie 横幅、页脚法律声明和真正的主文。把标签剥掉得到的不是文章，而是一堆按 DOM 顺序拼起来的碎片。正文抽取要做的，是在不理解语义的前提下，用结构、密度与模板信号把主文从样板里切开。Barbaresi 的 Trafilatura 与 Webis 的 Resiliparse 是当前公开管线里最常对打的两套实现：前者偏准、级联多种启发式；后者偏快、面向 WARC 全量扫描。Penedo 等人在 FineWeb 里把抽取器选择写成一等消融——不是实现细节，而是数据配方本身。
+[上一课](/llm/cc-warc)把 WARC 收成带 URI 与 HTTP 载荷的记录流：切分遵守 `Content-Length`，`revisit` 与截断单独策略。载荷仍是 HTML 字节，导航、脚本、cookie 横幅与主文混在一起。缺口是正文抽取——它是后续管线唯一看见的字符串，也是网页配方的上限，不是去标签。本课对照 Trafilatura 与 Resiliparse，不重讲记录类型。后课 CCNet 默认：换抽取器即换数据集。
 
 ## 问题
 

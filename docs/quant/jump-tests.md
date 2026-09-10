@@ -11,7 +11,7 @@ section: quant
 <footer>—— Barndorff-Nielsen and Shephard, Power and Bipower Variation, Journal of Financial Econometrics 2004；检验理论见同作者 2006 年 Journal of Financial Econometrics 文</footer>
 </div>
 
-高频收益的大缺口，有的是连续波动在开盘附近升高，有的是价格真的跳了。二次变差不区分二者。[已实现方差](/quant/rv-noise) $\mathrm{RV}$ 估二次变差，Barndorff-Nielsen 与 Shephard 的双幂次变差（bipower variation）在有限次跳跃下仍估连续部分的积分波动。两者按渐近方差标准化后，构成一套可操作的非参数跳跃检验。Huang–Tauchen 把相对跳跃份额写成经验上常用的统计量；Aït-Sahalia–Jacod、Lee–Mykland 从另外的幂次与局部窗口回答同一问题。本篇写 BN–S 检验的对象、噪声如何冒充跳，以及「检出跳」并不自动给出可交易的跳溢价。
+[上一课](/quant/dcc)把条件协方差写成 $D_t R_t D_t$，更新二阶相关，不产生尾依赖，并点名与 Copula、EVT 互补。缺口是高频路径上的大缺口：有的是连续波动在开盘附近升高，有的是价格真的跳了。二次变差不区分二者。RV 估二次变差，双幂次变差在有限次跳跃下仍估连续部分的积分波动。本课写 BN–S 检验的对象、噪声如何冒充跳。不重写 DCC 的 $Q_t$。
 
 ## 问题
 

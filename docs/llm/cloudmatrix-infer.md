@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 Zuo et al. 对 CloudMatrix-Infer 中 FusedDispatch/FusedCombine、AIV-Direct 与 AIC/AIV 非对称流水的描述</footer>
 </div>
 
-[资源池](/llm/cloudmatrix-resource-pool) 与 [宽 EP](/llm/cloudmatrix-moe-kv) 给出拓扑；真正吃满 910C，要在核里把异构引擎叠起来。每颗 910C Die 有 24 个 AIC（Cube，矩阵/卷积）和 48 个 AIV（Vector，逐元素），另有系统 DMA（SDMA）承担常规集合通信搬运。CloudMatrix-Infer 的硬件相关优化是：把 MoE 的通信与计算融进 FusedDispatch / FusedCombine；用 AIV-Direct 让 Vector 核经 UB 直写远端 NPU 内存，躲开 SDMA 的启动延迟；再把注意力路径与 MoE 路径拆成两条微批流水，按负载给不同数量的 AIC/AIV。本篇写这套重叠，不把论文里某一档 tokens/s 写成机房 KPI。
+[上一课](/llm/qingtian-dpu)把 VPC 控制面落到青田卡：路由与安全组在卡上执行，卡故障等于节点失管。缺口是真正吃满 910C 要在核里叠异构引擎：24 AIC + 48 AIV + SDMA，decode 一步若每段独立 launch，启动税压过有效 FLOPs。[资源池](/llm/cloudmatrix-resource-pool) 与 [宽 EP](/llm/cloudmatrix-moe-kv) 给出拓扑；本课写 CloudMatrix-Infer 的融合与 AIC/AIV/SDMA 重叠。不重讲弹性网卡。后课 K8s 默认已经读完：融合契约是静态预分配，不是调度器字段。
 
 ## 问题
 

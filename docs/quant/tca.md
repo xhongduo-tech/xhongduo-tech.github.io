@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Perold 实施缺口会计；Berkowitz, Logue and Noser, The Overall Costs of Transaction Execution, Journal of Finance, 1988；Kissell 对执行质量分解的实务框架整理</footer>
 </div>
 
-成交后分析（Transaction Cost Analysis, TCA）是执行质量的事后会计：对已完成的母单，选定基准价格，把实现均价、费用、延误与未成交对照过去，按场所、算法、紧急度分层，再把结论喂回 [智能订单路由](/quant/smart-order-routing) 与日程参数。它不是盘中决策规则，也不替代 [Almgren–Chriss](/quant/almgren-chriss) 的事前最优控制。Perold 给出组合层面的恒等式——纸面相对真实；Berkowitz、Logue 与 Noser 用全日 VWAP 度量纽交所机构成本，把「均价相对市场」写成可加总的统计。本篇写基准如何选、如何拆、以及哪些结论不能从一张平均滑点表里读出来。
+[上一课](/quant/obizhaeva-wang)用线性供给与指数弹性描述限价簿的消耗–恢复，最优常呈期初块、中间连续、期末块；参数是深度密度与弹性，不能把 AC 的 $\eta$ 改名套用。那是事前控制。缺口是成交后分析：对已完成的母单选定基准，把实现均价、费用、延误与未成交对照过去，按场所、算法、紧急度分层，再喂回路由与日程。TCA 不是盘中决策规则，也不替代事前最优控制。本课写基准如何选、如何拆。若基准可以事后挑选，任何算法都能在某一把尺子上赢。
 
 ## 问题
 

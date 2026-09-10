@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hasbrouck, Trading Costs and Returns for U.S. Equities: Estimating Effective Costs from Daily Data, Journal of Finance, 2009</footer>
 </div>
 
-[有效价差与实现价差](/quant/effective-realized-spread) 回答已经成交的一笔有多贵；[价差分解](/quant/spread-decomposition) 回答宽出来的那一截补偿的是处理、存货还是逆向选择。组合构建还需要第三件事：在没有逐笔、甚至只有日频数据时，给每一只股票一个**事前**的半价差，用来惩罚换手、估算实施缺口。Hasbrouck（2009）用贝叶斯 Gibbs 在 Roll 型结构上从日数据恢复有效成本；Torre 的 BARRA 市场冲击手册则把报价价差写成冲击模型里与数量无关的一项，再叠加随规模上升的冲击。两者都是把「价差」变成优化器里的 $c_i$，而不是微观结构论文里的识别对象。本篇写这张成本怎么进组合，以及它和冲击项如何分工。
+[上一课](/quant/drawdown-calmar)用路径风险收束组合评价。缺口是实施：组合权重要先付买卖价差才能变成可交易。[有效价差与实现价差](/quant/effective-realized-spread) 回答已经成交的一笔有多贵；[价差分解](/quant/spread-decomposition) 回答宽出来的那一截补偿的是处理、存货还是逆向选择。组合构建还需要第三件事：在没有逐笔、甚至只有日频数据时，给每一只股票一个**事前**的半价差，用来惩罚换手、估算实施缺口。Hasbrouck（2009）用贝叶斯 Gibbs 在 Roll 型结构上从日数据恢复有效成本；Torre 的 BARRA 市场冲击手册则把报价价差写成冲击模型里与数量无关的一项，再叠加随规模上升的冲击。两者都是把「价差」变成优化器里的 $c_i$，而不是微观结构论文里的识别对象。本篇写这张成本怎么进组合，以及它和冲击项如何分工。
 
 ## 问题
 

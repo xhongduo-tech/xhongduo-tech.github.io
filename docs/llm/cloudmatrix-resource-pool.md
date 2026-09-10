@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 Zuo et al., Serving Large Language Models on Huawei CloudMatrix384, arXiv:2506.12708 对 peer-to-peer 池化与统一访问的表述</footer>
 </div>
 
-传统机柜按「一台服务器 = 若干 CPU + 若干加速器 + 本地 DRAM + 一块网卡」出厂。调度器只能整机分配，内存多算力闲、算力满内存空，都无法拆开重组。[CloudMatrix 384](/llm/cloudmatrix-384) 把这条捆绑拆掉：384 张昇腾 910C 与 192 颗鲲鹏经统一总线（UB）全互连，论文写明原则是「everything can be pooled, treated equally, and combined freely」。池化要落地，必须有**统一编址**：远端 HBM 与远端 DRAM 不是另一台机器上的文件，而是同一地址空间里可直接访问的对象。本篇写三池如何拆、地址如何编，不把未公开的单通道眼图抄成规格。
+[上一课](/llm/ub-near-local-perf)给出近本地的定量依据：健康 UB 域上节点间带宽衰减低于 3%、时延增加低于 1 µs；大块 TP/EP 可按近本地规划，decode 小步仍要测同步税。缺口是传统机柜仍按「CPU + 加速器 + 本地 DRAM + 网卡」捆绑出厂，调度器不能拆开重组。本课写 CloudMatrix 的计算 / 内存 / 网络三池与统一编址。不重讲表 1 的测量条件。后课宽 EP 默认已经读完：远端 HBM 是带翻译的全局虚址，不是更快的拷贝 API。
 
 ## 问题
 

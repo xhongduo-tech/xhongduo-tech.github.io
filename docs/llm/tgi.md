@@ -11,7 +11,7 @@ section: llm
 <footer>—— Hugging Face，Text Generation Inference Architecture 文档</footer>
 </div>
 
-Text Generation Inference（TGI）是 Hugging Face 为开源大模型写的一套生产向推理工具箱：连续批处理、张量并行、Server-Sent Events 流式输出、OpenTelemetry 与 Prometheus、以及后来补上的 OpenAI Messages API。官方架构文档把它拆成三块——Rust 写的 router（也称 webserver）、Python 写的 model server、以及把两者拉起来的 launcher。调度在 router 里发生，GEMM 与 KV 在 model server 里发生，中间用 gRPC。本篇按这份文档写调用流，不把某一版吞吐数字写成论文结果。Hugging Face 后续已把 TGI 标为维护模式，并推荐新部署优先看 vLLM、SGLang 以及本地侧的 llama.cpp / MLX；理解 TGI，是为了看清「HTTP 服务」与「逐步解码引擎」为什么必须拆开，以及后来的引擎继承了哪些接口习惯。
+[上一课](/llm/mlc-tvm)把 TVM/MLC 写成一前端多 codegen：动态序列与 decode 模板是 LLM 相对早期 TVM 评测多出来的编译问题。缺口是 HTTP 服务与逐步解码必须拆开：TGI 用 Rust router 做调度与 tokenize，Python model server 做推理，中间 gRPC。连续批、SSE、OpenAI Messages API 是它留给后续引擎的接口习惯。本课写这套调用流，不重写 TVM 调度搜索。仓库已是维护模式；读它是为了看清拆分，而不是把旧镜像当成默认最优。
 
 ## 问题
 

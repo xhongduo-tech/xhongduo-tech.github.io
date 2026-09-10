@@ -27,6 +27,10 @@ const byline = computed(() => {
   return [section, date].filter(Boolean).join(' · ')
 })
 
+const CATALOG_PATHS = new Set(['/llm/', '/quant/', '/econ/', '/litho/', '/cs/', '/llm', '/quant', '/econ', '/litho', '/cs'])
+const isHome = computed(() => route.path === '/' || route.path === '')
+const isCatalog = computed(() => CATALOG_PATHS.has(route.path))
+
 function storedTheme() {
   try {
     return sessionStorage.getItem(THEME_KEY)
@@ -121,7 +125,7 @@ watch(
       </nav>
     </header>
 
-    <article class="tuf-article">
+    <article class="tuf-article" :class="{ 'is-home': isHome, 'is-catalog': isCatalog }">
       <section>
         <p v-if="byline" class="article-byline">{{ byline }}</p>
         <LessonNav />

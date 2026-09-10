@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey, Borwein, López de Prado and Zhu, Pseudo-Mathematics and Financial Charlatanism, Notices of the AMS, 2014</footer>
 </div>
 
-市场风险、信用风险、流动性风险都作用在已经决定要交易的仓位上。过拟合作为风险，作用在更早一步：你选中的规则本身是噪声的函数。样本内夏普被搜出来，样本外期望接近零甚至为负，但风控系统仍按样本内波动配杠杆。Bailey、Borwein、López de Prado 与 Zhu 把这件事写成可计算的对象：回测过拟合概率（PBO）、以及把选择偏差从夏普里扣掉的紧缩夏普（deflated Sharpe ratio）。它与[多重检验与 p-hacking](/quant/multiple-testing-factors) 共享「尝试次数」这一核心，但强调的是交易策略配置的组合爆炸，而不只是因子动物园里的 t 门槛。
+[上一课](/quant/counterparty-credit)把对手方损失写成违约时正暴露乘 LGD：净额与 CSA 压缩当前暴露，错误方向风险使独立假设下的 CVA 偏低。缺口发生在更早一步：你选中的规则本身可以是噪声的函数，样本内夏普被搜出来，风控仍按样本内波动配杠杆。Bailey、Borwein、López de Prado 与 Zhu 把回测过拟合概率与紧缩夏普写成可计算对象。本课写这种选择偏差，不重写 EE/PFE。它与 [多重检验](/quant/multiple-testing-factors) 共享尝试次数，对象是策略配置的爆炸。
 
 ## 问题
 

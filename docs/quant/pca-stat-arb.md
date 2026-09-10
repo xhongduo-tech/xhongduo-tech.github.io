@@ -11,7 +11,7 @@ section: quant
     <footer>—— Avellaneda & Lee, Statistical Arbitrage in the US Equities Market, Quantitative Finance, 2010</footer>
 </div>
 
-统计套利这里特指截面残差的短持有均值回归，不是指数期货的制度套利。Avellaneda 与 Lee 给出一条完整的工程链：对收益矩阵做 PCA（等价于对数据矩阵做 SVD），取前 $K$ 个因子解释共同运动，个股残差拟合 OU，用残差的 Z-score 做多空。他们同时试验用 ETF 收益当因子，发现在部分年份 ETF 模型比纯 PCA 更稳。这与[统计风险模型 PCA](/quant/stat-risk-pca) 共用分解工具，目标相反：风险模型要的是 $\Sigma$，这里要的是可交易的 $u_{it}$。把主成分当成 alpha 本身，是另一类拥挤赌注。
+[上一课](/quant/distance-pairs)用形成期标准化价格的平方偏差选对、用两个标准差开仓——这是 GGR 的可复制规则，不是协整估计。距离近只说明历史路径贴近，共同因子仍留在价差里。缺口是截面残差的短持有均值回归：对收益矩阵做 PCA/SVD，取前 $K$ 个因子解释共同运动，交易正交补上的 $u_{it}$，而不是主成分本身。Avellaneda–Lee 同时试验 ETF 因子；把主成分当成 alpha，是另一类拥挤赌注。本课写这条工程链。不重写距离阈值。
 
 ## 问题
 

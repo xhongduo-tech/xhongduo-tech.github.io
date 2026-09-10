@@ -11,7 +11,7 @@ section: llm
 <footer>—— Willard 与 Louf，Efficient Guided Generation for Large Language Models；以及 XGrammar 对 CFG 的推进</footer>
 </div>
 
-产品要的往往不是自由散文，而是能 `json.loads` 的对象、能进解析器的 SQL、或枚举里的一项。事后用提示「请输出 JSON」再正则抢救，失败率随 schema 变复杂而上升。约束解码把文法嵌进采样：每一步只允许自动机认为合法的 token。Willard 与 Louf 把正则（及可推到 CFG 的路径）收成有限状态机，并对词表做索引，使引导生成的开销接近常数级查表，实现落在 Outlines 库。SGLang 用压缩 FSM 进一步合并无分支路段；XGrammar 用下推自动机与自适应掩码缓存把 CFG 做到服务热路径可承受。本篇写掩码如何保证结构、以及结构保证不等于事实正确。
+[上一课](/llm/sglang-radix-tree)用压缩前缀树把从序列起点出发的 token 路径索引到分页 KV：裂边分叉，淘汰先摘零引用的 LRU 叶子。缺口是输出还要属于编译后的语言：约束解码在每步把 logit 截到文法允许的 token。Outlines 用 FSM 加词表索引，SGLang 压缩无分支路径，XGrammar 用 PDA 服务 CFG。本课写掩码如何保证结构，不重写前缀树的命中。结构合法不等于内容为真。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
     <footer>—— Li et al., DataComp-LM: In search of the next generation of training sets for language models</footer>
 </div>
 
-启发式与维基困惑度能丢掉乱码，却越来越分不清「通顺的知识」和「通顺的空文」。Li 等人的 DataComp-LM（DCLM）把 DataComp 的方法论搬到语言模型：给出一个从 Common Crawl 来的公共池，参赛者只提交过滤或重采样策略，训练协议锁死，用下游套件排名。他们给出的 DCLM-baseline 用一个便宜的 fastText 分类器——正例来自高质量论坛与指令风格文本，负例来自随机网页——在池子上打分截断，得到的子集在 7B、万亿 token 量级上具有竞争力。关键不是又一个数据集名字，而是：过滤本身可以被当成可复现的研究对象。
+[上一课](/llm/dolma-fineweb)把抽取、过滤、去重写成可消融步骤：Dolma 管多源治理，FineWeb 管网页纯度，FineWeb-Edu 把尺子改成教育价值。启发式与维基困惑度能丢掉乱码，却越来越分不清「通顺的知识」和「通顺的空文」。缺口是把过滤本身做成可复现的竞赛对象：公共池、锁训练、只比 $f$。本课写 DCLM 与 baseline 分类器，不重讲 Dolma 配比。后课语义去重默认：先去重再打分，竞赛分数不管许可与评测泄漏。
 
 ## 问题
 

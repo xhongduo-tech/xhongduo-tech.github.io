@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006；充分条件见 Gatheral and Jacquier, Quantitative Finance, 2014</footer>
 </div>
 
-[隐含波动率曲面](/quant/vol-surface) 是坐标，[无套利插值](/quant/arb-free-iv) 是从离散报价造出一张可发布的 $C(K,T)$ 的工程。[蝶式与日历](/quant/butterfly-calendar-arb) 写的是可交易扫描。Jim Gatheral 补的是中间这一层：**在总方差坐标里，把静态无套利写成对函数 $w(k,T)$ 的明确不等式**，使 SVI 一类参数族可以先验地被约束，而不是事后用三档期权去撞。2014 年与 Antoine Jacquier 的 SSVI 进一步给出一整族切片上无日历套利的充分条件。本篇写这些不等式从何而来、与 [Dupire](/quant/dupire) 分母的关系，以及充分条件不是必要条件；插值流程、样条与 Andreasen–Huge 仍见插值篇，SVI 五个字母的校准见 [SVI / SSVI](/quant/svi-ssvi)。
+[上一课](/quant/rough-vol)用已实现对数波动的尺度律给出 $H\approx 0.1$，rBergomi 把指数核换成 $(T-t)^{H-1/2}$；Dupire 只管边际，不管这条粗糙路径。[隐含波动率曲面](/quant/vol-surface) 是坐标，[无套利插值](/quant/arb-free-iv) 是从离散报价造 $C(K,T)$ 的工程。缺口是中间这一层：在总方差坐标里，把静态无套利写成对 $w(k,T)$ 的明确不等式。本课写 Gatheral 的 $g(k)$ 与日历单调，不重推粗糙核。充分条件不是必要条件；SVI 五个字母的校准见 [SVI / SSVI](/quant/svi-ssvi)。
 
 ## 问题
 

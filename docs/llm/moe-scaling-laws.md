@@ -11,7 +11,7 @@ section: llm
     <footer>—— Clark 等人对路由语言模型的统一扩展律；Fedus 等人的 Switch Transformer</footer>
 </div>
 
-稠密扩展律把参数量 $N$ 和训练 FLOPs 几乎焊在一起：$C\approx 6ND$。MoE 松开这道焊点。专家总数决定存储容量，路由只激活 $k$ 个专家，活跃参数 $N_{\mathrm{act}}$ 决定每 token 的计算。Fedus 等人用 Switch 证明，在相近的 FLOPs 下可以放下远更多的总参数；Clark 等人则把路由模型的损失写成对活跃容量与专家数都敏感的标度，而不是只代入总参数。本篇讲 MoE 扩展时必须分开的两条轴——专家数与活跃参数——以及稀疏带来的额外损耗：路由、负载不均、通信。
+[上一课](/llm/overtraining-for-inference)把 $D/N$ 明显大于 Chinchilla 点写成部署策略：推理次数极大时，用更多 token 换更小、更好服务的模型。缺口是稀疏把 $N$ 焊开。MoE 的 FLOPs 跟活跃参数，存储跟总参数；仍用总参数去套稠密曲线，会同时读出「更弱」和「更强」。本课把专家数与 $N_{\mathrm{act}}$ 拆成两条轴。不重讲过训区间的下游可预测性。后课数据约束默认已经读完：名义 FLOPs 不含空槽与负载尾部。
 
 ## 问题
 

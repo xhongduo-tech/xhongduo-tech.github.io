@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gagnon and Karolyi, Multi-market Trading and Arbitrage, Journal of Financial Economics, 2010；Froot and Dabora, Journal of Financial Economics, 1999</footer>
 </div>
 
-美国存托凭证（ADR）把一股或若干股本国普通股寄存在托管行，再在美国交易所或 OTC 挂出收据。理论上收据与本国股经汇率与转换比率应对齐；实际上溢价折价可以持续数日甚至数年。Froot 与 Dabora 用 Royal Dutch / Shell 这类孪生股票证明：交易地点本身会把当地指数的冲击写进「同一」现金流。Gagnon 与 Karolyi 在大规模跨境对上测量偏离，并把幅度连到卖空、借贷与资本管制这些持有成本。A 股与 H 股、A 股与 ADR 是同一逻辑的另外两套管道：现金流转的是一家公司，价格形成的是两群被制度切开的投资者。本篇写溢价作为**带摩擦的基差**，不是作为免费的均值回归。沪深港通是另一条通道，见[北向资金](/quant/stock-connect)。
+[上一课](/quant/sector-rv)用分类先验限制「谁和谁像」，把行业轮动从残差里拿掉；格子净暴露必须报告，否则策略混进行业动量。缺口是跨境同一现金流的两条价格。ADR 与本国股、A/H、孪生股票在理论上应对齐，溢价折价却可以持续；可转换性决定它是套利对象还是分割定价。本课写溢价作为带持有成本的基差。不重开行业格子。后课 ETF 申赎默认已经读完：可执行带必须含同步报价、汇率、转换费与制度约束。
 
 ## 问题
 

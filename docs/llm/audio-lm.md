@@ -11,7 +11,7 @@ section: llm
 <footer>—— 归纳自 AudioLM / VALL-E / AudioPaLM 一系工作</footer>
 </div>
 
-音频语言模型（Audio LM）把离散或软对齐的音频符号放进自回归 Transformer，用语言建模损失训练。它不是 ASR 的别名：ASR 把音频映到文字；Audio LM 可以在音频符号上续写、可以条件文本生成语音（TTS），也可以两者交织。VALL-E 证明神经编解码器的码序列可以被 LLM 式模型当「语音文本」来生成。AudioPaLM 把 PaLM 的文本能力与音频 token 接到同一套解码器上。Qwen-Audio 则把大规模音频编码器接到 LLM，走理解与指令跟随，而不只做 codec 续写。三者共享「音频进入语言模型」这一骨架，输出空间不同。本篇区分这些变体，避免把所有带语音的 LLM 都叫成同一件事。
+[上一课](/llm/speech-tokenizer)把波形映到离散符号：SoundStream / EnCodec 的 RVQ 服务重建，HuBERT 式单元服务语义；单码本很难同时最优，帧率决定 LLM 序列长度。符号有了。缺口是用语言建模损失在这些符号上训练：可以续写音频、可以条件文本做 TTS、也可以条件音频做 ASR，三者不是一个损失。VALL-E 把 codec 码当「语音文本」来生成；AudioPaLM 把文本能力与音频 token 接到同一解码器；Qwen-Audio 更靠近理解与指令跟随。本课区分这些变体，不重讲 RVQ 与 k-means 怎么离散化。
 
 ## 问题
 

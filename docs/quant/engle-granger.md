@@ -11,7 +11,7 @@ section: quant
 <footer>—— Engle and Granger, Co-integration and Error Correction: Representation, Estimation, and Testing, Econometrica 1987</footer>
 </div>
 
-价差交易要的不是两只股票都平稳，而是它们的某个线性组合平稳：各自可以是随机游走，组合却有均值。Granger 把这种关系叫做协整；Engle 与 Granger 给出表示、两步估计与检验。残差进入误差修正模型（ECM），描述「偏离长期关系之后谁向谁拉」。统计套利里，对冲比往往就是这步水平回归的斜率，残差交给 [Ornstein–Uhlenbeck](/quant/ou-spread) 去谈半衰期。本篇写 Engle–Granger 作为协整的入门构造：它能识别什么、临界值为什么不是普通 ADF，以及为什么两资产之外要换 [Johansen](/quant/johansen)。
+[上一课](/quant/jump-tests)把单路径的不连续钉完。缺口从「一只资产有没有跳」换成两只资产能不能用长期关系当价差。价差交易要的不是两只股票都平稳，而是它们的某个线性组合平稳：各自可以是随机游走，组合却有均值。Granger 把这种关系叫做协整；Engle 与 Granger 给出表示、两步估计与检验。残差进入误差修正模型（ECM），描述「偏离长期关系之后谁向谁拉」。统计套利里，对冲比往往就是这步水平回归的斜率，残差交给 [Ornstein–Uhlenbeck](/quant/ou-spread) 去谈半衰期。本篇写 Engle–Granger 作为协整的入门构造：它能识别什么、临界值为什么不是普通 ADF，以及为什么两资产之外要换 [Johansen](/quant/johansen)。
 
 ## 问题
 

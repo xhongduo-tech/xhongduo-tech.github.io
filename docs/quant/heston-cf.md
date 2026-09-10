@@ -11,7 +11,7 @@ section: quant
     <footer>—— Heston, A Closed-Form Solution for Options with Stochastic Volatility, Review of Financial Studies, 1993</footer>
 </div>
 
-[Heston 模型](/quant/heston) 写的是机制：CIR 方差、杠杆 $\rho$、五个参数如何弯折微笑。本篇只把那篇 1993 年论文真正交付的对象——特征函数——展开到能实现的程度。Steven Heston 证明，在风险中性测度下 $\ln S_T$ 的条件特征函数对方差是仿射的，系数为 Riccati 的闭式；看涨价格写成两个累积概率 $P_1,P_2$，每个是半无穷振荡积分。后来的工程文献几乎全在修这一积分：对数分支、阻尼、FFT 与余弦展开。没有稳定的特征函数，Heston 的「半闭式」比蒙特卡洛更危险。模型选择、Feller 条件与校准哲学仍见模型篇，这里不重复。
+[上一课](/quant/sobol-qmc)把金融定价写成单位立方体上的积分节点，Koksma–Hlawka 要求有限变差；不连续支付上理论速度不成立。[Heston 模型](/quant/heston) 已经写出 CIR 方差与杠杆如何弯折微笑。缺口是那篇 1993 年论文真正交付的对象——仿射特征函数，以及沿积分路径的对数分支。本课把 $\phi(u)$ 展开到能实现，不重讲 Sobol' 方向数，也不重复 Feller 与校准哲学。没有稳定的特征函数，Heston 的「半闭式」比蒙特卡洛更危险。
 
 ## 问题
 

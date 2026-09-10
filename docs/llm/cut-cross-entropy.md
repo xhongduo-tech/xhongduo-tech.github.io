@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wijmans, Huval, Hertzberg, Koltun, Krähenbühl, Cut Your Losses in Large-Vocabulary Language Models, arXiv:2411.09009</footer>
 </div>
 
-FlashAttention 把注意力的 $n\times n$ 表留在 SRAM 里之后，训练显存的大头滑到了**词表交叉熵**。词表从 32K 涨到 128K、256K，序列又拉长，logits 张量 $E C^\top$ 的体积按 $N|V|$ 涨。Wijmans 等指出：Gemma 2 2B 一类「骨干不大、词表极大」的模型上，交叉熵可以占到训练显存的大部分——文中 Gemma 2 2B 的损失层约 24 GB，分类头合计约 28 GB；Phi-3.5 Mini、Llama 3 8B 也给出 40%–65% 量级的占比。**Cut Cross-Entropy（CCE）** 不把完整 logits 物化到 HBM：只算正确 token 的点积，并在片上对词表做 log-sum-exp；反向利用 softmax 稀疏，丢掉低于数值精度的梯度项。Apple 开源实现见 `apple/ml-cross-entropy`。本篇写训练损失核，不是推理采样。
+[上一课](/llm/z-loss)指出交叉熵对 logits 平移不变，z-loss 惩罚 LSE 的平方以钉住绝对尺度，并保护半精度指数与后续的 Cut CE 归约。缺口是物化。词表涨到 128K、256K 之后，完整 logits $N\times|V|$ 成为训练显存的硬顶，FlashAttention 把注意力表留在 SRAM 之后这个问题更刺。本课写 Cut Cross-Entropy：只算正确 token 的点积，在片上对词表做 log-sum-exp。不重推导 $(z-z_0)^2$。后课默认已经读完：省的是物化，不是改成 sampled softmax。
 
 ## 问题
 

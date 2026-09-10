@@ -11,7 +11,7 @@ section: llm
 <footer>—— Georgi Gerganov，ggml 与 llama.cpp 仓库</footer>
 </div>
 
-llama.cpp 把 LLaMA 一类因果 LM 的推理收成 C/C++ 程序：依赖少、能在笔记本、手机、树莓派和带桌面 GPU 的机器上跑。底层张量库是 ggml（以及后续 ggml-org 生态），提供量化数据类型、计算图和各硬件后端。模型以 GGUF 容器分发，里面是分块的量化权重与元数据。它不是集群里的 vLLM 替代品，而是 **本地优先** 的运行时：进程内加载、单用户或轻度并发、用量化换内存。本篇按仓库与社区格式写 ggml 张量、GGUF、量化与后端，不编造会议论文——Gerganov 的工作以开源实现为出处。
+[上一课](/llm/tensorrt-llm)把 NVIDIA 上的 LLM 推理写成 IFB、paged KV 与可选引擎构建：FP8/FP4 是硬件对齐的产品能力，跨厂商与前缀树不是它的主场。缺口是消费级与本地：没有那张卡或不想装深度学习栈时，需要量化权重加少依赖的 C/C++ 运行时。llama.cpp 以 ggml 为张量库、以 GGUF 分发模型，优化目标是单条请求在内存预算内出字。本课写这条本地路径，不重写 TRT-LLM 的 IFB。它不是集群里的 vLLM 替代品。
 
 ## 问题
 

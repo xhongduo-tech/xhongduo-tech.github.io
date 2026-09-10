@@ -11,7 +11,7 @@ section: llm
 <footer>—— Liu 等，DoRA: Weight-Decomposed Low-Rank Adaptation，ICML 2024</footer>
 </div>
 
-LoRA 用 $BA$ 去逼近 $\Delta W$，隐含假设「增量低秩」已经足够。Liu 等人把全参微调时权重的变化拆开看：矩阵的列（或行）既在转方向，也在改长度。LoRA 的加性更新把这两件事缠在同一个低秩乘积里，幅度往往被带得不足，或被方向更新误伤。DoRA（Weight-Decomposed Low-Rank Adaptation）显式写成「幅度向量 × 单位方向」，方向用 LoRA 去适配，幅度单独成可学习参数。它不是新的量化，也不是动态分配秩；它改的是低秩增量作用在权重上的几何。
+[上一课](/llm/qlora)冻结 4-bit 基座，在 16-bit 里训练 LoRA 增量；公式仍是 $h=W_0x+\frac{\alpha}{r}BAx$，改的是 $W_0$ 的存储。量化不增加容量，也不拆开增量的几何。缺口是：全参微调时列既在转方向也在改长度，加性 $BA$ 把两件事缠在同一个低秩乘积里，幅度往往被带得不足。DoRA 写成幅度向量乘单位方向，方向用 LoRA 更新，幅度单独学。本课钉这条几何。不重讲 NF4，也不做动态秩。
 
 ## 问题
 

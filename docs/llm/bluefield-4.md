@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA 对 BlueField-4 的公开表述：把基础设施服务卸载、加速并隔离，作为 AI 工厂的控制平面</footer>
 </div>
 
-ConnectX-9 解决的是「数据包怎么尽快进出 GPU」。工厂还要回答另一件事：谁来跑存储协议、谁来做加解密、谁来把多租户的虚拟网与安全策略从宿主机操作系统里拿开。NVIDIA 在 GTC Washington 公开的 BlueField-4 DPU，把一颗 64 核 Grace CPU 与 ConnectX-9 网络做进同一套封装，吞吐写成 800 Gb/s，并给出相对 BlueField-3「约 6 倍算力、可支撑约 4 倍规模 AI 工厂」的平台对比。它属于 Vera Rubin 公开的六芯片之一，早可用窗口被写成 2026 年随 Vera Rubin 平台。本篇只谈**基础设施卸载**，不把 DPU 写成另一张推理 GPU。
+[上一课](/llm/connectx-9-spectrum-x)把数据包尽快进出 GPU 交给 SuperNIC；Spectrum-X 改的是集合通信下的以太网行为。缺口是基础设施平面：存储协议、加解密、多租户虚拟网，不能继续和训练抢宿主机。本课写 BlueField-4：Grace 级 CPU 加 ConnectX-9，用于卸载，不是推理 GPU。不重讲每 GPU 1.6 Tb/s 与 800G 端口如何分口径。后课 Spectrum-6 默认已经读完 SuperNIC 与 DPU 不要混成同一运维对象。
 
 ## 问题
 

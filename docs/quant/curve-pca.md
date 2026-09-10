@@ -11,7 +11,7 @@ section: quant
     <footer>—— Litterman and Scheinkman, Common Factors Affecting Bond Returns, Journal of Fixed Income, 1991</footer>
 </div>
 
-[收益率曲线因子](/quant/yield-curve-factors) 已经把水平、斜率、曲率写成可交易语言，并强调 PCA 一般不满足无套利。[Nelson–Siegel](/quant/nelson-siegel) 用解析载荷**模仿**这三种形状。本篇把对象收窄到估计程序本身：Robert Litterman 与 José Scheinkman 对债券收益做主成分时，估的是哪一张矩阵、特征向量为何几乎总是「LSC」、以及 Lord–Pelsser 所谓「事实还是伪迹」。它与 [关键利率](/quant/key-rate-duration) 的分工是全局正交基对局部三角形基；与 Svensson 的分工是样本正交对参数驼峰。不把宏观 APT 或仿射定价模型再展开。
+[上一课](/quant/svensson)在 Nelson–Siegel 上增加第二驼峰，使远期可出现双隆起；官方 NSS 服务光滑贴现，可交易对冲仍要用基准券、关键利率或 PCA。缺口是估计程序本身：特征向量为何几乎总是水平、斜率、曲率，以及这是经济结构还是光滑曲线的代数伪迹。本课写 Litterman–Scheinkman 的 PCA。[收益率曲线因子](/quant/yield-curve-factors) 已把 LSC 写成可交易语言；本课不重推 Svensson 的 $\lambda$，也不把宏观 APT 再展开。后课蝶式默认已经读完：NS 解析载荷模仿 LSC，但不是特征向量。
 
 ## 问题
 

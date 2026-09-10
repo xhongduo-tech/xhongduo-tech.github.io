@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Bailey, Borwein, López de Prado and Zhu, Notices of the AMS, 2014；López de Prado, Advances in Financial Machine Learning, 2018</footer>
 </div>
 
-回测最常见的自我安慰是：样本内优化参数，样本外看净值。滚动检验（walk-forward）把这条切割沿时间反复推进——用 $[t-W,t)$ 训练，用 $[t,t+H)$ 交易，再把窗口向前平移。Pardo 把它写成交易系统评估的标准程序；López de Prado 在 *Advances in Financial Machine Learning* 里则提醒：单条滚动路径仍然只是一条路径，尝试次数一大，它同样会被过拟合。本篇把滚动检验当成**时间上的样本外协议**，而不是当成「已经证明策略可部署」的证书。它要回答的是：参数是否随样本漂移、样本外是否仍有边缘，以及你有没有在滚动结果上做第二次选择。
+[上一课](/quant/corporate-actions)把可投资收益钉成公司行为调整后的持有期总回报；复权价与交易所价各有用途。缺口是样本内优化、样本外看净值这条切割仍只是一条路径，尝试次数一大同样过拟合。本课把滚动检验写成时间上的样本外协议，而不是可部署证书。不重讲调整因子。后课交叉验证泄漏默认已经读完：你有没有在滚动结果上做第二次选择。
 
 ## 问题
 

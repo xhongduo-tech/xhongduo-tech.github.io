@@ -11,7 +11,7 @@ section: llm
     <footer>—— Chen et al., Punica: Multi-Tenant LoRA Serving, MLSys 2024</footer>
 </div>
 
-[LoRA](/llm/lora) 把适应写成 $\Delta W=BA$。单租户可以把增量合并进 $W_0$，decode 与基座相同。多租户一旦为每个 $BA$ 存一份合并后的满秩权重，显存按租户线性涨，切换还要重载数 GB。Chen 等人 2024 年的 Punica 把问题反过来：GPU 上常驻一份预训练基座（他们称为 backbone），KV 占大头，适配器按需从主机换入；基座的密集投影对整批做一次 GEMM——这就是**背景批**——再用特制 CUDA 核把各请求自己的 $BAx$ 加回去。本篇只写这条批处理契约与 SGMV 核，集群分页与异构秩的展开见 [多 LoRA 服务](/llm/multi-lora-serving)，动态合并见 [dLoRA](/llm/dlora)。
+[上一课](/llm/slora)用统一页池同时管 KV 与 LoRA 权重，MBGMM 在非连续页与多秩混批上做 gather 低秩乘；基座 GEMM 仍共享。「数千适配器」以冷备在 CPU、活跃集有限为前提。缺口是批处理契约本身：GPU 上常驻一份基座，适配器按需换入，基座密集投影对整批做一次 GEMM——这就是背景批——再用核把各请求自己的 $BAx$ 加回去。本课写这条契约与 SGMV 核。集群分页与异构秩见 [多 LoRA 服务](/llm/multi-lora-serving)；动态合并见 [dLoRA](/llm/dlora)。不重写页池。
 
 ## 问题
 

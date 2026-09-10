@@ -11,7 +11,7 @@ section: llm
 <footer>—— Groq 的 LPU / SRAM 路线，以及 NVIDIA 对 Groq 3 LPX 的公开定位：面向交互式、低延迟 decode 的机柜级推理加速器</footer>
 </div>
 
-通用 GPU 擅长训练、prefill 和大 KV 上的注意力；逐步 decode 在小 batch 时撞的是[显存墙](/llm/decode-memory-wall)，延迟还被动态调度的抖动放大。Groq 从第一代 LPU 起就走另一条路：片上大容量 SRAM、编译器静态编排计算与数据移动、尽量确定性的执行，换低延迟与稳定的 TPOT。NVIDIA 公开的 **Groq 3 LPX** 把这条路线收成 Vera Rubin 平台上的第七类芯片/机柜：每柜 256 颗 LPU，与 NVL72 组成异构推理路径。本篇用 NVIDIA 已经公布的 LPX 规格讲系统，用 LPU/SRAM 传统讲它为什么低延迟；营销加速比只作厂商口径，不改编造的单核频率表。
+[上一课](/llm/rubin-liquid-power-smoothing)把 Rubin 代写成 100% 液冷与 Intelligent Power Smoothing：冷却与平滑是设施约束，不是注意力超参。缺口是逐步 decode 在小 batch 时撞[显存墙](/llm/decode-memory-wall)，延迟还被动态调度放大；通用 GPU 的 HBM 机器不是为「每个用户很快看到下一个 token」特化的。本课写 **Groq 3 LPX**：片上 SRAM、编译器静态编排、与 NVL72 的异构推理路径。不重讲 45°C 进水，也不把营销加速比改编造的单核频率表。
 
 ## 问题
 

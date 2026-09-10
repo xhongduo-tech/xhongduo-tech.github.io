@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA 对 Spectrum-X Ethernet Photonics 的公开描述：光引擎与交换机芯片同一封装，外部激光源供光</footer>
 </div>
 
-[ConnectX-9](/llm/connectx-9-spectrum-x) 是 scale-out 的端点。本篇写对端的交换机：Spectrum-6。NVIDIA 公开把它写成 102.4 Tb/s 级以太网交换，相对上一代系统容量约 2 倍，并作为 Vera Rubin 平台的六芯片之一，与 ConnectX-9 组成下一代 Spectrum-X。形态上同时支持可插拔光学与共封装光学（CPO）；CPO 产品线被称作 Spectrum-X Ethernet Photonics。本篇只讨论已经写进官方博客与交换机数据表的结构，不把合作伙伴新闻稿里的工艺节点当成 NVIDIA 数据手册，也不编造未公开的 BER 曲线。
+[上一课](/llm/bluefield-4)把基础设施卸载钉在 DPU 上：网络、存储与安全从宿主机拿开，SuperNIC 仍管 scale-out 带宽。缺口是对端的交换机：端口光电转换按端口线性涨电，光模块是现场故障源。[ConnectX-9](/llm/connectx-9-spectrum-x) 是端点；本课写 Spectrum-6 与共封装光学（CPO）。不重讲 DOCA 服务链，也不编造未公开的 BER 曲线。后课 MGX 托盘默认已经读完：CPO 换的是笼子，不是集合通信算法。
 
 ## 问题
 

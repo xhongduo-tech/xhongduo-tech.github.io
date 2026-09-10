@@ -11,7 +11,7 @@ section: llm
 <footer>—— LMDeploy / InternLM 团队，TurboMind 架构文档</footer>
 </div>
 
-LMDeploy 是上海人工智能实验室 InternLM 团队开源的大模型推理与服务工具。它不是「又一个 Python `generate` 封装」，而是双后端：热路径上的 TurboMind（C++/CUDA，从 NVIDIA FasterTransformer 长出来），以及为快速适配、覆盖 TurboMind 内核目录之外模型而准备的 PyTorch 引擎。服务入口可以是 Python API，也可以是与 [OpenAI 兼容协议](/llm/openai-compat-api) 对齐的 HTTP。本篇按官方 TurboMind 文档写三件东西：持久化 batch、把 KV 当「缓存的缓存」来管的内存池、以及对话场景下对 LLaMA 族注意力的改动。量化核与具体版本的吞吐表随发布变，不在这里写成永恒排名。
+[上一课](/llm/tgi)把服务拆成 router / model server：新请求的 prefill 会打断当前 decode batch，tokenizer 在 router，不在 GPU 热路径上。缺口是对话场景下 batch 成员与 KV 必须在进程寿命内一直可变：LMDeploy 的热路径是 TurboMind，用持久化 batch 与带 LRU 的 KV 槽位池，不支持的结构回退 PyTorch。本课写这套动态，不重写 TGI 的 gRPC 批次协议。量化核与版本吞吐表随发布变，不写成永恒排名。
 
 ## 问题
 

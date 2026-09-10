@@ -11,7 +11,7 @@ section: quant
 <footer>—— Kaldor, Speculation and Economic Stability, Review of Economic Studies, 1939；凯恩斯正常 backwardation 见 A Treatise on Money, 1930；希克斯见 Value and Capital, 1939</footer>
 </div>
 
-商品远期相对现货的升贴水，不能只用利率加仓储来解释。仓储理论在利息与存储成本之外，加上一项**便利收益**（convenience yield）：持有实物的人获得连续生产、避免停工、满足意外订单的期权式好处，空头期货合约没有这个好处。Kaldor（1939）把便利收益明确写进投机与稳定的讨论；Working（1949）与 Brennan（1958）把它变成库存的递减函数。更早，凯恩斯（1930）提出正常 backwardation：生产商净套保做空，投机者要求期货价格低于预期未来现货；希克斯（1939）把期限结构上的风险溢价一般化。两条线经常被混成一句「商品该升水」。本篇把便利收益留在**现货对远期的仓储恒等式**里，把凯恩斯—希克斯留在**风险溢价**里，并说明 Gorton、Hayashi 与 Rouwenhorst（2013）为何更支持前一条作为一阶机制。
+[上一课](/quant/fx-triangle)写明交叉必须等于媒介路径乘积；远期三角与 CIP 是同一一致性的到期版本。外汇三角不解释商品远期相对现货的升贴水。仓储理论在利息与存储成本之外，加上一项便利收益：持有实物获得连续生产、避免停工的期权式好处，空头期货没有。缺口是把 $y$ 留在现货对远期的仓储恒等式里，把凯恩斯—希克斯留在风险溢价里，不要混成一句「商品该升水」。本课写这条识别。Gorton、Hayashi 与 Rouwenhorst（2013）更支持仓储作为一阶机制。
 
 ## 问题
 

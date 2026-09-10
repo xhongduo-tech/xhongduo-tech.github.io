@@ -11,7 +11,7 @@ section: quant
 <footer>—— CME SPAN 公开方法论；ISDA SIMM 公开方法论（非清算衍生品初始保证金）</footer>
 </div>
 
-交易所清算用 SPAN（Standard Portfolio Analysis of Risk）一类扫描模型给期货与期权组合算初始保证金：在价格与波动的有限情景网格上取最大损失，再扣品种内、品种间价差抵扣，并设空头期权下限。非清算 OTC 衍生品在保证金规则（UMR）下，行业标准是 ISDA 的 SIMM（Standard Initial Margin Model）：用敏感性（delta、vega、曲率）按风险类别加总，相关与集中度由公开参数给出，精神接近 FRTB 标准法的敏感性法，但校准目标是初始保证金而非银行资本。本篇对照两套**公开**模型：它们如何把组合映到一个须缴纳的数，以及这个数与 [VaR](/quant/var-methods)、[ES](/quant/expected-shortfall) 的差别。不写如何把保证金逼到对方强平阈值。
+[上一课](/quant/component-es)表明正齐次风险度量可按 Euler 公式切成成分之和，ES 的成分是尾巴情景里各腿的条件期望；VaR 的 Euler 切片噪声大且度量不连贯。缺口是保证金不是资本切开。交易所清算与非清算 OTC 要的是须缴纳的初始保证金：地平线是保证金期，模型是网格最大损失或行业标定的敏感性加总，不是你估的 $\Sigma$。本课对照 SPAN 与 ISDA SIMM。不重写条件期望。后课缺口风险默认已经读完：网格外的跳两套标准模型都会漏。
 
 ## 问题
 

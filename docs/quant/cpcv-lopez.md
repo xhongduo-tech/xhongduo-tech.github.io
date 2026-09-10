@@ -11,7 +11,7 @@ section: quant
 <footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 12, 2018</footer>
 </div>
 
-[组合过拟合 CPCV](/quant/cpcv) 一文从 Bailey 等人的回测过拟合概率（PBO）出发，把组合对称划分写成估计「样本内冠军样本外是否掉到中位以下」的实验设计。AFML 第 12 章的 Combinatorial Purged Cross-Validation（CPCV）还有另一半用途，而且常常才是工程上先碰到的那一半：对**已经冻结的一个估计器**，生成许多条样本外预测路径，用路径上的绩效分布代替「那一条幸运的 walk-forward」。本篇写这一半：组数 $N$、每组测试块数 $k$、路径条数如何计数、每条路径上如何 purge，以及它与 PBO、与[滚动检验](/quant/walk-forward)如何分工。不把 CPCV 再讲成一种优化器。
+[上一课](/quant/imbalance-bars)按活动量切片减轻墙钟等权造成的异方差，不平衡 bar 在成交符号累积超出期望时封口。缺口是验证：walk-forward 只给出一条拼接的样本外曲线，看不到切分稍有不同时点估计会散成什么样。[组合过拟合 CPCV](/quant/cpcv) 一文从 PBO 出发；AFML 的 Combinatorial Purged CV 还有另一半——对已经冻结的估计器，生成许多条样本外预测路径。本课写组数 $N$、每组测试块数 $k$、路径条数如何计数、每条路径上如何 purge。不把 bar 的封口规则再讲一遍，也不把 CPCV 再讲成优化器。
 
 ## 问题
 

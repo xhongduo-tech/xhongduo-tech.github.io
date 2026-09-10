@@ -11,7 +11,7 @@ section: quant
     <footer>—— Huang and Stoll, Dealer versus Auction Markets: A Paired Comparison of Execution Costs on NASDAQ and the NYSE, Journal of Financial Economics 1996</footer>
 </div>
 
-[价差分解](/quant/spread-decomposition)给出了会计，[Roll](/quant/roll-model) 给出了只用成交价的隐含测度。比较两个市场谁更「便宜」，不能只看买一卖一的距离。本课把执行成本接到成交上：报价价差是挂在簿上的宽度，有效价差是成交相对中点实际付了多少，实现价差是做市商把这笔存货再转手之后还剩多少。Huang 与 Stoll 用有效减实现去逼近价格冲击。它测的是已经发生的成交有多贵，不是 [PIN](/quant/pin) 那种生成模型里的知情概率。
+[上一课](/quant/vpin)把 PIN 的不平衡搬到成交量时钟：等体积桶、批量分类、滚动绝对不平衡比；它测流量毒性，不要读成 EKOP 意义下的知情概率。[价差分解](/quant/spread-decomposition)给出了会计，[Roll](/quant/roll-model) 给出了只用成交价的隐含测度。缺口是把执行成本接到成交上：有效价差是成交相对中点实际付了多少，实现价差是做市商转手之后还剩多少。本课写这一对定义，不重推 VPIN 的桶长。它测的是已经发生的成交有多贵，不是生成模型里的知情概率。后课 Lee–Ready 默认：方向 $D$ 必须先定义。
 
 ## 问题
 

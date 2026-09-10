@@ -11,7 +11,7 @@ section: llm
 <footer>—— Gao et al., PAL: Program-aided Language Models, ICML 2023；Chen et al., Program of Thoughts Prompting, TMLR 2023</footer>
 </div>
 
-自然语言思维链用下一 token 做加法、计数、日期换算，错误率随位数和循环次数上升。Gao 等人的 PAL（Program-aided Language Models）让模型生成程序，由 Python 一类解释器执行，把执行结果当答案。Chen 等人的 Program of Thoughts（PoT）同一方向，更强调在代码里用注释与中间变量把推理写清楚，再执行得到数值。两者都是「语言模型做形式化，机器做计算」。本篇把它当作一种提示形态：示范从 $(x,z_{\text{text}},y)$ 换成 $(x,\text{code},y)$，而不是一篇语言运行时教程。
+[上一课](/llm/least-to-most)先分解出有序子问题，再多次求解并把子答案回填进后续上下文；子答案必须由宿主钉住，分解错了会沿回填协议传播。自然语言思维链仍用下一 token 做加法、计数、日期换算，错误率随位数上升。缺口是 PAL / PoT：模型生成程序，由解释器执行得到答案，把计算从下一 token 里卸出。本课写这一提示形态，不重讲分解示范。无精确核对的任务不要用；需要交错观察时应走 ReAct，而不是一次交脚本。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Berkeley Function Calling Leaderboard（Gorilla 团队）；对照 OpenAI 式 tools 协议</footer>
 </div>
 
-[Function calling](/llm/function-calling) 把副作用写成带 JSON Schema 的声明，模型输出名字与参数，宿主执行。产品上这条链路的失败是结构化的：编造不存在的函数、漏必填项、类型错、该并行时串行、不该调用时硬调、该调时却用散文假装查过。Berkeley Function Calling Leaderboard（BFCL）把这些失败写成一张分项表：简单单调用、多函数选择、并行调用、并行加多函数，以及相关性（何时不调）。计分主路径是 AST / 结构匹配，辅以可执行子集上的真调用。它测的是工具协议能力，不是 [ReAct](/llm/react) 散文里偶发的 `Action:` 字符串，也不是 τ-bench 那种带用户与政策的长期代理。本篇写 BFCL 的任务切片、匹配规则，以及为什么「JSON 能 parse」远不够。
+[上一课](/llm/ifbench)用 IFEval 测表面约束服从，用 IFBench 测这种服从有没有过拟合检查器。可验证格式高分不保证会调工具。[Function calling](/llm/function-calling) 把副作用写成带 JSON Schema 的声明；失败是结构化的：编造函数、漏必填、类型错、该并行时串行、不该调时硬调。缺口是一张公共分项表：简单单调用、多函数选择、并行、并行加多函数，以及何时不调。BFCL 用 AST / 结构匹配计分，测的是工具协议，不是 [ReAct](/llm/react) 散文，也不是带用户与政策的长期代理。本课写切片与匹配规则，不重讲 IFEval 谓词。
 
 ## 问题
 

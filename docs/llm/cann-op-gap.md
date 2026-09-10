@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 CANN 算子包 / aclnn / Ascend C 与 CUDA–Triton 生态的公开分工</footer>
 </div>
 
-把 Transformer 搬到昇腾，第一道墙很少是峰值 TOPS，而是**算子落差**：CUDA 侧已经融进一条核的东西，在 CANN 上可能拆成若干 aclnn 调用，或根本没有登记项。CANN（Compute Architecture for Neural Networks）把驱动、Runtime、算子库和[图编译](/llm/npu-friendly-ops)叠在一起，对上通过 `torch_npu`、MindSpore、ONNX Runtime 的执行提供器接框架。本篇只写落差的形状与补法，不编造未公开的核吞吐，也不把某一版 OPP 的算子表抄成永远覆盖。
+[上一课](/llm/cann-graph)用 GE 把框架图变成达芬奇上的融合执行序列：图融合改数学子图，UB 融合保数据少进 HBM。缺口是图再融，CUDA 侧已经进一条核的东西，在 CANN 上可能拆成若干 aclnn，或根本没有登记项。本课写算子落差的形状与补法。不重讲 `fusion_result.json` 与长度桶。自定义缺口走 TBE/Ascend C；集合通信仍走 HCCL。
 
 ## 问题
 

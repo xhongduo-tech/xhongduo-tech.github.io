@@ -11,7 +11,7 @@ section: llm
 <footer>—— Dettmers 等，QLoRA: Efficient Finetuning of Quantized LLMs，NeurIPS 2023</footer>
 </div>
 
-LoRA 已经把可训练参数砍到基座的一个零头，但训练时仍要把冻结的 $W_0$ 以 16-bit 放进显存，再为适配器准备激活与 Adam 状态。65B 级模型在这一约束下仍然进不了单张 48GB 卡。Dettmers 等人 2023 年的 QLoRA 不改 $h=W_0x+\frac{\alpha}{r}BAx$ 这条前向，而是把冻结的 $W_0$ 存成 4-bit，计算时再反量化；并补上两种专门对付量化常数与优化器尖峰的工程：对量化常数再做一次量化，以及用统一内存把 Adam 状态页出 GPU。Guanaco 一类结果说明：在合适的数据上，这样训出的适配器可以贴近 16-bit LoRA，而不是「4-bit 只能做玩具实验」。
+[上一课](/llm/lora-rank-alpha)把前向增量钉成 $\frac{\alpha}{r}BA$，有效步长是学习率、$\alpha/r$ 与适配器梯度的乘积。可训练参数已经砍到零头，训练时却仍要把冻结的 $W_0$ 以 16-bit 放进显存。65B 级模型在这一约束下进不了单张 48GB 卡。缺口不是再调 $r$ 或 $\alpha$，而是把 $W_0$ 的存储压到 4-bit、计算时再反量化，并且消化量化常数与优化器尖峰。本课写 NF4、双重量化与分页优化器。不改 LoRA 前向，也不替代推理侧专用量化。
 
 ## 问题
 

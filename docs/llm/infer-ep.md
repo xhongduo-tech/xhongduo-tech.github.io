@@ -11,11 +11,11 @@ section: llm
     <footer>—— 对照 GShard / Switch 的专家并行语义，以及 DeepSeek-V2/V3 开源栈在推理期宽 EP、窄 TP 的部署约束</footer>
 </div>
 
-[专家并行](/llm/expert-parallelism) 的语义在推理里同样没变：专家沿设备切开，token 两次 All-to-All 找专家再回家。变的是 batch 与是否必须全体专家常驻。预训练微批大、路由分散，EP 是放下数百专家的正道。服务 decode 每步每请求一个 token，连续批不够时 All-to-All 的启动延迟高于 GEMM；Mixtral 8 专家常常整份复制或走 TP，因为 $N=8$ 放得下。DeepSeek-V3 一类 256 路由专家放不进单卡，又要避免 MLA 在 TP 维上复制潜投影，开源栈才走向「注意力复制、专家 EP、TP 常取 1」。本篇写推理期 EP 的通信、与 [专家缓存](/llm/moe-inference-cache) 的分界，以及 prefill/decode 两套 batch 画像。
+[上一课](/llm/infer-pp)把推理流水线按深度切层：prefill 可用多请求或切块填管道，decode 必须靠连续批，否则气泡约 $P-1$。缺口是专家轴：语义仍是专家切开、token 两次 All-to-All，但 decode 每步每请求一个 token，连续批不够时启动延迟高于稀疏 GEMM；256 路由专家又放不进单卡复制。本课钉专家并行推理：何时 EP、组跨多宽、如何避免 decode 被集合通信打死。不重讲 PP 气泡。与 [专家缓存](/llm/moe-inference-cache) 的分界是权重移动对 token 置换。
 
 ## 问题
 
-MoE 推理的显存主角是专家权重，不是 37B 激活。全部复制到每张生成卡，671B 级放不进节点；全部走训练式大 EP，decode 小 batch 的 All-to-All 时延可能高过稀疏 GEMM 省下的时间。第三条路是单机 [专家缓存](/llm/moe-inference-cache)：热专家留 HBM，冷的从主机搬——那是权重移动，不是 token 置换。EP 推理指的仍是「专家住在固定卡上、token 去找它们」。问题是何时 EP、EP 组跨多宽、如何避免 decode 被集合通信打死。
+推理 PP 按深度切层填管道；专家沿设备切开时，decode 的 All-to-All 是另一笔税。MoE 推理的显存主角是专家权重，不是 37B 激活。全部复制到每张生成卡，671B 级放不进节点；全部走训练式大 EP，decode 小 batch 的 All-to-All 时延可能高过稀疏 GEMM 省下的时间。第三条路是单机 [专家缓存](/llm/moe-inference-cache)：热专家留 HBM，冷的从主机搬——那是权重移动，不是 token 置换。EP 推理指的仍是「专家住在固定卡上、token 去找它们」。问题是何时 EP、EP 组跨多宽、如何避免 decode 被集合通信打死。
 
 Prefill 一次吃整段提示，token 多、路由发散，All-to-All payload 大，计算通信比接近训练，EP 很划算。Decode 路由往往更粘滞，payload 小，启动开销突出。PD 分离之后，两阶段可以选不同 EP 度：P 侧为吞吐上大 EP，D 侧为延迟上小 EP 或复制热专家。Colocate 则被迫共用。
 

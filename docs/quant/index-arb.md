@@ -11,7 +11,7 @@ section: quant
     <footer>—— MacKinlay & Ramaswamy, Index-Futures Arbitrage and the Behavior of Stock Index Futures Prices, Review of Financial Studies, 1988</footer>
 </div>
 
-指数套利（index arbitrage）是制度上最近似「有收敛日期的相对价值」：期货约定以指数为标的结算，现货一揽子可以复制指数。Modest 与 Sundaresan、Brennan 与 Schwartz、MacKinlay 与 Ramaswamy 把基差写成持有成本加减一个由摩擦决定的无套利带。带内的偏离不是免费午餐；带外的偏离在执行时面对一揽子同时成交、涨跌停、股利预测误差与保证金。Harris、Sofianos、Shapiro 以及 Sofianos 对程序化交易与盈利性的研究表明：可执行利润远小于报价基差所暗示的数字，且策略会把期货信息更快地写入现货，同时抬高短窗口波动。
+[上一课](/quant/residual-momentum)用因子回归残差的 12−1 累计排序，试图保留特异相对强度；残差不可直接买卖，中性是否成立取决于窗口与因子选择。那是统计溢价，没有到期强制收敛。缺口是制度上最近似「有收敛日期的相对价值」：期货以指数结算，现货一揽子可以复制指数，基差写成持有成本加减一条由摩擦决定的无套利带。带内偏离不是免费午餐；带外面对一揽子同时成交、涨跌停、股利预测与保证金。本课写这条指数套利。不重讲残差动量的换手。
 
 ## 问题
 

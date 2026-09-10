@@ -11,7 +11,7 @@ section: llm
 <footer>—— Sennrich, Haddow, Birch, Neural Machine Translation of Rare Words with Subword Units, ACL 2016</footer>
 </div>
 
-语言模型不直接吃 Unicode 字符序列。Tokenizer 把字节或字符收成词表里的整数，决定哪些统计共现能被「一个 token」一次性看见。BPE 从字符表出发反复合并最频繁的对；Unigram 从过大的候选词表用似然删词；字节级模型（ByT5）几乎放弃词表，让网络自己在字节上组合。三种方案对应三种对「什么算一个符号」的承诺。词表大小与压缩率的定量权衡下一篇写；本篇写算法本身：训练目标、切分规则、以及和预训练数据的耦合。
+[上一课](/llm/synthetic-pretrain)把合成数据写成预训练补丁：改写比凭空生成更可追溯，二者都要与真实文本按 token 下限混合，通顺度分类器会给完美语法的错误打高分。缺口是符号层。模型不直接吃 Unicode；切分算法决定哪些共现能被一个 token 看见，且与数据配比耦合——tokenizer 训练集的领域与语种，决定谁获得短符号。本课写 BPE、Unigram 与字节级三条承诺。不重讲合成崩塌。词表大小与压缩率下一课再定量；后课默认已经读完切分规则本身。
 
 ## 问题
 

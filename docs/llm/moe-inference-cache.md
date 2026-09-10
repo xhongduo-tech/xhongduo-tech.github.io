@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Lepikhin 等 GShard（2020）的训练通信，与 Mixtral / DeepSeek 技术报告中的推理稀疏激活</footer>
 </div>
 
-[专家并行](/llm/expert-parallelism) 在预训练里默认假设：参与 EP 的设备上，各自负责的专家权重始终在高速存储里，token 用两次 All-to-All 找专家、再回家。推理尤其是单机、小 batch、decode 逐步生成时，这个假设既不必要也不经济。Mixtral 一类 top-$2$、DeepSeek-V3 一类「总专家数百、每 token 只激活数个」的模型，一次前向真正用到的专家是全集的一小撮。把冷专家从 HBM 里赶走、把热专家钉住，是推理侧独有的缓存问题，不是把训练图原样搬到服务进程。
+[上一课](/llm/deepseek-moe)把 MoE 写成细粒度路由 + 共享 + 较高 $k$，V3 量级是总参 671B、激活约 37B；推理比的是激活量，系统复杂度是主要边界。训练默认专家常驻高速存储，token 用两次 All-to-All 找专家。缺口是 decode、小 batch 时这个假设既不必要也不经济：一次前向真正用到的是全集的一小撮。把冷专家从 HBM 赶走、把热专家与[共享专家](/llm/shared-expert-moe)钉住，是推理侧独有的缓存问题。本课写容量、命中率、缺页惩罚，不重写 DeepSeek 的 $N$ 与 $k$。
 
 ## 问题
 

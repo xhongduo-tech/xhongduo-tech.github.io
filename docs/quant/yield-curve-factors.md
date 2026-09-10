@@ -11,7 +11,7 @@ section: quant
     <footer>—— Litterman & Scheinkman, Common Factors Affecting Bond Returns, Journal of Fixed Income, 1991</footer>
 </div>
 
-把一条名义收益率曲线上的各期限当作一组资产，它们的变动高度共线：很少出现十年涨、二十年不动、三十年反向的独立跳跃。Robert Litterman 与 José Scheinkman 对债券收益（或收益率变动）做主成分，得到后来成为固定收益共同语言的三因子：**水平、斜率、曲率**。本篇写 PCA 在曲线上估什么、如何映射到久期与关键利率，以及统计因子与无套利曲线模型（Vasicek、HJM）之间只是近似相等。更局部的对冲见[关键利率久期](/quant/key-rate-duration)；本篇管全局三因子。
+[上一课](/quant/macro-factor-set)用增长、通胀、流动性给跨资产共同收益命名，进入定价的应是意外而非水平；风格因子是股票截面层，宏观是状态层。缺口是名义曲线自身的共线。各期限很少独立跳跃，满秩协方差对冲噪声大、交易碎。本课写 Litterman–Scheinkman 的水平、斜率、曲率，以及可交易近似（久期、陡峭化、蝶式）。不重写宏观意外的构造。后课方差风险溢价默认已经读完：PCA 一般不满足无套利，不替代仿射或 HJM 定价。
 
 ## 问题
 

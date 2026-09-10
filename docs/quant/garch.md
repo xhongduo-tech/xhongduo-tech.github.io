@@ -11,7 +11,7 @@ section: quant
 <footer>—— Engle, Autoregressive Conditional Heteroscedasticity, Econometrica 1982；Bollerslev, Generalized Autoregressive Conditional Heteroskedasticity, Journal of Econometrics 1986</footer>
 </div>
 
-日收益的线性自相关弱，平方的自相关强：大波动后面还是大波动。Engle（1982）的 ARCH 让条件方差成为过去平方冲击的函数；Bollerslev（1986）的 GARCH 把条件方差自身也放进方程，用很少的参数吸收长的平方记忆。GARCH 是日频波动建模的默认均值–方差装置，对象是**条件方差过程**，不是积分波动的高频估计。有 RV 时，HAR 与已实现 GARCH 会改写信息集；没有 RV 时，GARCH 仍是能从一条收益序列抽出 $\sigma_t$ 的方法。
+[上一课](/quant/realized-kernel)把噪声下的 IV 估计写成收益自协方差的核加权和，带宽随噪声–信号比变化。缺口是没有高频时：日收益线性自相关弱，平方自相关强。Engle 的 ARCH 让条件方差成为过去平方冲击的函数；Bollerslev 的 GARCH 把条件方差自身也放进方程。本课写日频默认的条件方差过程。有 RV 时 HAR 与已实现 GARCH 会改写信息集；无 RV 时 GARCH 仍能从一条收益序列抽出 $\sigma_t$。不重写核函数与带宽。
 
 ## 问题
 

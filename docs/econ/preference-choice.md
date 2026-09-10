@@ -11,7 +11,7 @@ section: econ
 <footer>—— 据 Debreu, Theory of Value, 1959；Mas-Colell, Whinston and Green, Microeconomic Theory, 1995 整理</footer>
 </div>
 
-本课是金融栏的第一课。后面的效用、需求、均衡和宏观，都默认你会「完备且传递的偏好」，不再从「人喜欢什么」的心理学讲起。量化栏的[限价簿](/quant/lob-structure)假定已经有人在报价；本栏要先问：报价背后的排序从哪来。后课默认已经读完本课。
+[上一课](/econ/stochastic-order-prep)把随机占优预备收在数学基础课末。本课是「微观：选择与需求」的第一课。后面的效用、需求、均衡和宏观，都默认你会「完备且传递的偏好」，不再从「人喜欢什么」的心理学讲起。量化栏的[限价簿](/quant/lob-structure)假定已经有人在报价；本栏要先问：报价背后的排序从哪来。后课默认已经读完本课。
 
 ## 问题
 

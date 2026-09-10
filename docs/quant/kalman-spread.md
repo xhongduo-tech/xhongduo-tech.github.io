@@ -11,7 +11,7 @@ section: quant
 <footer>—— 线性滤波见 Kalman, 1960；状态空间计量见 Harvey, 1989；配对上把价差建成均值回复状态见 Elliott, Van Der Hoek and Malcolm, Quantitative Finance, 2005</footer>
 </div>
 
-[Kalman 时变对冲比](/quant/kalman-hedge) 的状态是 $\beta_t$：观测方程是一条带噪声的价格关系，滤波输出对冲比。本篇把状态换成**价差本身**（或其均衡水平）：对冲比先用 OLS、协整或缓慢更新钉住，得到 $e_t=y_t-\hat\beta x_t$，再让 $e_t$ 的均值或 OU 水平成为隐状态。Elliott 等人的论文两条都做；工程上必须拆开，因为 $Q$ 加在 $\beta$ 上还是加在价差水平上，同一笔缺口的叙事完全相反。交易信号应来自预测步的价差偏离，平滑只能做事后解剖。
+[上一课](/quant/copula-pairs)把边缘与依赖分开，用条件分位开仓，补的是非线性、不对称尾部；强依赖可以与 $I(1)$ 价差共存，必须单独声明交易对象。缺口是价差的隐状态。原始 $e_t$ 含微观结构噪声与缓慢漂移，直接算 Z-score 会把每一次跳动都当成均衡偏离；滤波平滑又含未来。本课把状态换成价差的均衡水平或潜在 OU，信号用预测步偏离。不重选 Copula 族。它与[时变对冲比](/quant/kalman-hedge)正交，必须分开设 $Q$。
 
 ## 问题
 

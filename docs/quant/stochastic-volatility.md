@@ -11,7 +11,7 @@ section: quant
 <footer>—— Taylor, Financial Returns Modelled by the Product of Two Stochastic Processes, 1982；Heston, A Closed-Form Solution for Options with Stochastic Volatility, Review of Financial Studies 1993</footer>
 </div>
 
-GARCH 的 $\sigma_t$ 由过去残差完全决定。随机波动（stochastic volatility, SV）给方差一个自己的冲击：即使昨日收益平静，今日波动也可以被潜过程抬起。Taylor（1982, 1986）在离散时间把收益写成两个过程的乘积；Heston（1993）在连续时间给出带相关布朗运动的平方根方差，并得到期权的半闭式特征函数。SV 要回答的是：波动是否有不可由收益平方完全观测的成分，以及这笔额外风险如何进入期权与滤波。它与 GARCH 是近亲，不是高频 RV 的替代品；RV 出现后，潜波动往往被已实现测量钉住，见 [已实现 GARCH](/quant/realized-garch)。
+[上一课](/quant/egarch-gjr)用 EGARCH 与 GJR 拟合新闻冲击曲线，符号偏检验能发现对称 GARCH 抽不干的非对称。缺口是：GARCH 的 $\sigma_t$ 仍由过去残差完全决定。随机波动给方差一个自己的冲击：即使昨日收益平静，今日波动也可以被潜过程抬起。Taylor 的离散 SV 与 Heston 的连续时间平方根方差是两条写法。本课问波动是否有不可由收益平方完全观测的成分，以及这笔额外风险如何进入期权与滤波。不重写 $\gamma$ 的新闻冲击曲线。后课已实现 GARCH 默认已经知道潜方差与可测条件方差的差别。
 
 ## 问题
 

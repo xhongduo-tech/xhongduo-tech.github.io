@@ -11,7 +11,7 @@ section: llm
 <footer>—— Shazeer et al., Outrageously Large Neural Networks, 2017；Lepikhin et al., GShard, 2020</footer>
 </div>
 
-稠密 FFN 让每个 token 走过全部中间通道。参数再大，一次前向的 FLOPs 就再大。Shazeer 等人 2017 年的稀疏门控混合专家（Sparsely-Gated MoE）把 FFN 换成 $N$ 个专家，路由网络给每个 token 打分，只把 top-$k$ 个专家真正算一遍。Lepikhin 等人的 GShard（2020）把这套机制接到 Transformer 上，做出能在 TPU 上训练的万亿参数翻译模型。路由是 MoE 的中枢：选错专家，容量再大也是噪声；选得太集中，多数专家饿死，模型退化成稠密小网。本篇只讲 token 如何选专家，以及为什么必须有负载均衡，不把 Switch 的 $k=1$ 或 DeepSeek 的细粒度专家展开成全文。
+[上一课](/llm/glu)把门写成稠密通道系数，不是专家选择；多一份矩阵要用缩小中间维来对齐参数。门控仍让每个 token 走过全部通道。缺口是把容量做成专家库：总参数很大，每次只跑 top-$k$ 个 FFN。Shazeer 等人 2017 年的稀疏门控 MoE 与 Lepikhin 等人的 GShard（2020）把路由接到 Transformer 上。路由必须便宜、负载必须匀、硬件还有容量上限。本课写 token 如何选专家，不把 Switch 的 $k=1$ 或 DeepSeek 的细粒度展开成全文。
 
 ## 问题
 

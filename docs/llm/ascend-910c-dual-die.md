@@ -11,7 +11,7 @@ section: llm
 <footer>—— Zuo et al., Serving Large Language Models on Huawei CloudMatrix384（公开论文 §3.3.1）</footer>
 </div>
 
-昇腾 910C 是 2024 年一代旗舰 NPU，接在 910B 之后。华为公开论文把它写成**双 Die 共封装**：两颗相同计算裸片放在同一封装里，共享 **8 个内存栈（各 16 GB，共 128 GB）**，Die 间互连合计最高 **540 GB/s**（每方向 270 GB/s）。每 Die **24 个 AIC、48 个 AIV**，计算引擎支持 FP16/BF16 与 INT8；封装内存带宽合计最高 **3.2 TB/s**（每 Die 1.6 TB/s）。网络上每 Die 接两平面：UB Scale-Up（七条 224 Gb/s 收发，单向约 196 GB/s）与 RDMA Scale-Out（单向最高 200 Gb/s）。本篇只用这些已发表数字讨论「一封装两 Die」对 LLM 并行的含义，不补充未出现在论文或华为文档里的工艺节点与晶体管数。
+[上一课](/llm/davinci-cube-vector)把 AI Core 写成 Cube / Vector / Scalar 三条流水，外加 MTE/FixPipe 搬运；融合的目标是让 Cube 输出留在 UB 给 Vector。缺口是单 Die 受光罩与 HBM PHY 限制，算力与内存涨到头之后怎么封装。本课写 910C **双 Die 共封装**：两颗裸片、8 栈 128 GB、Die 间最高 540 GB/s。不重讲 NZ 布局与哪条流水吃 GEMM。后课 CANN 图编译默认已经读完：软件看见的「一张 910C」内部是两个并行原子。
 
 ## 问题
 

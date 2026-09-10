@@ -11,7 +11,7 @@ section: quant
 <footer>—— Koijen, Moskowitz, Pedersen & Vrugt, Carry, Journal of Financial Economics, 2018</footer>
 </div>
 
-[跨资产 Carry](/quant/carry-everywhere) 给出统一会计：价格不变时还剩什么。本篇把镜头对准 **期限结构 Carry**——债券的 roll-down 与期限利差，商品与股指期货近远月的斜率，以及外汇掉期曲线上的期限溢价。Erb 与 Harvey 在商品上早已把展期从现货腿拆开；KMPV 把它收成可与外汇利差并列的信号。趋势看价格已经走的方向，期限结构 Carry 问的是：若曲线形态短期内不变，持有哪一段会「收租」。把两条腿混成一个「商品多头」，会在 contango 里把负展期当成趋势亏钱，或在贴水里把仓储租金当成 TSMOM。
+[上一课](/quant/cta-tsmom)把管理期货的可交易规则收成 TSMOM：对自身过去超额取符号，再按波动缩放、跨资产分散。缺口是总收益里还有一笔与价格方向无关的持有期收入：[跨资产 Carry](/quant/carry-everywhere) 给出统一会计，本课对准 **期限结构 Carry**——债券 roll-down、商品展期、外汇远期曲线。不重讲多尺度滤波器。后课突破/均线默认已经读完：趋势看已经走的方向，Carry 问曲线形态暂时不变时持有哪一段会「收租」；混成一个「商品多头」会双计。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA 对 Spectrum-X Ethernet 的公开定位：面向 AI 的 scale-out 以太网，与 ConnectX SuperNIC 成套</footer>
 </div>
 
-[Scale-Up 与 Scale-Out](/llm/scale-up-vs-scale-out) 把扩展分成两层。本篇只写向外那一层的端点：NVIDIA 公开产品线里的 ConnectX-9 SuperNIC，以及它和 Spectrum-X Ethernet 一起承担的 GPU 到 GPU 通信。Vera Rubin 平台把 ConnectX-9 与 Spectrum-6 交换机写成下一代 Spectrum-X 的两端。数字只引用厂商已经写上产品页与技术博客的规格——例如 SuperNIC 页上的「每 GPU 最高 1.6 Tb/s 吞吐」、以及 BlueField-4 介绍里把 ConnectX-9 写成 800 Gb/s 网络——不把某一栏加速比抄成自己的测量，也不编造未公开的 SerDes 眼图或未发布的 SKU 功耗表。
+[上一课](/llm/nvlink-c2c-superchip)把 CPU–GPU 一致性互连钉在 NVLink-C2C 上：Rubin 一代公开 1.8 TB/s 双向，卡间仍走 NVLink 6 的 3.6 TB/s。缺口是向外那一层的端点：训练的数据并行、检查点、跨柜 MoE 仍然要穿数据中心网络。本课写 ConnectX-9 SuperNIC 与 Spectrum-X Ethernet。不重讲超芯砖块，也不把某一栏加速比抄成自己的测量。后课 BlueField-4 默认已经读完：SuperNIC 首先是 scale-out 高速端点，不是 DPU。
 
 ## 问题
 

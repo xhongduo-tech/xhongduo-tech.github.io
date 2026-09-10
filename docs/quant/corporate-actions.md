@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Fama, Fisher, Jensen and Roll, The Adjustment of Stock Prices to New Information, International Economic Review, 1969</footer>
 </div>
 
-股票收益的定义看起来只是价格差，真正可投资的是公司行为调整后的持有期回报：现金分红、拆股与并股、配股、转增、分拆、合并、特殊股息。CRSP 把这些写成持有期收益与累积调整因子；Fama、Fisher、Jensen 与 Roll（1969）用拆股公告检验半强有效。搞错复权，因子会变成「对数据供应商调整算法的暴露」：动量用错价格，分红被丢掉的价值因子少了一块权益收益，拆股让换手与价格过滤全部错位。本篇写总回报与价格回报的差别、调整因子如何进入回测，以及它与[前视](/quant/look-ahead-bias)、[时点基本面](/quant/point-in-time) 的交界。
+[上一课](/quant/trading-halts)把价格路径与可成交集合分开：用限制价或填充价当成交，是不可实现的回测。缺口是即使每天都能成交，收益定义仍然会错：未调整价差把拆股当成损益，价格回报丢掉股利。本课写公司行为调整后的持有期总回报。不重讲 LULD 档位。后课滚动检验默认已经读完：复权价用于连续收益，未复权价用于下单与价格过滤。
 
 ## 问题
 

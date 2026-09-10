@@ -11,7 +11,7 @@ section: llm
     <footer>—— Keskar et al., CTRL: A Conditional Transformer Language Model for Controllable Generation, 2019</footer>
 </div>
 
-Holtzman 等人指出，极大似然解码容易把文本锁进重复圈：一旦某短语成为高概率续写，条件分布会继续强化它。截断采样（nucleus、min-$p$）从支撑上砍长尾，对「圈内 token 仍然合法且概率很高」帮助有限。CTRL 引入的 repetition penalty 以及后来 API 里的 frequency / presence penalty，是另一条路：看已经写出的上下文，把出现过的 token 从本步 logits 里压下去。它们不改变训练，只在解码器里改分。效果来得快，副作用是话题漂移、拒绝合法重提，以及与截断、温度的次序纠缠。
+[上一课](/llm/minp-typical)把 nucleus、$\varepsilon$、$\eta$、min-$p$ 写成逐步截断再归一化，目标是去掉过度平滑的长尾。缺口是：圈内 token 仍然合法且概率很高，砍长尾帮不上。Holtzman 指出极大似然解码容易锁进重复圈。CTRL 的 repetition penalty 与 API 里的 frequency / presence penalty，看已经写出的上下文，把出现过的 token 从本步 logits 里压下去。本课写这类解码期惩罚：对象是 token 计数，不是语义重复，并与截断、温度的次序纠缠。不重写 min-$p$ 的地板公式。
 
 ## 问题
 

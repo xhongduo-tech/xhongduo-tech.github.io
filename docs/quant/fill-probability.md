@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Cont, Stoikov and Talreja, A stochastic model for order book dynamics, Operations Research, 2010；Lo, MacKinlay and Zhang, Econometric models of limit-order executions, Journal of Financial Economics, 2002</footer>
 </div>
 
-做市与被动执行都把未成交限价单当作会在未来某个随机时刻变成成交的合约。若把成交写成「价格碰到我的限价就成交」，会忽略 [限价订单簿](/quant/lob-structure) 上同一价位的时间优先：真正决定你何时开始成交的是前面剩余量，而不是这一档的总量。Cont、Stoikov 与 Talreja（2010）用各档位上的生灭过程描述到达、取消与市价消耗；Lo、MacKinlay 与 Zhang（2002）用生存分析估计限价单的执行时间。Huang、Lehalle 与 Rosenbaum 的队列反应模型让强度依赖当前队列长度。本篇把成交概率写成队列状态的函数，服务于 [Avellaneda-Stoikov](/quant/avellaneda-stoikov) 里那个被当成外生强度 $\lambda(\delta)$ 的对象——在真实 FIFO 簿上，$\lambda$ 必须通过位置来实现。不讨论如何插入队列或利用撮合细节去抢位。
+[上一课](/quant/inventory-skew)用报价中点平移改变下一笔成交方向的概率：宽度与偏度是两个控制量，只加宽不改变库存漂移。偏度假定成交强度已知。缺口是把未成交限价单当成随机时刻才会变成成交的合约：真正决定何时开始成交的是前面剩余量，而不是这一档的总量。成交概率由队列位置、市价消耗、取消与价格离去共同决定，不能还原成「距离中间价几个 tick」。本课把 $\lambda(\delta)$ 写成必须通过位置来实现的对象。不讨论如何插入队列。
 
 ## 问题
 

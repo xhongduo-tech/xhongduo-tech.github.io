@@ -558,12 +558,104 @@ header.site-header {
 .blog-entry time {
   flex-shrink: 0;
   color: var(--theme-muted);
-  font-size: 1.1em;
+  font-size: 1em;
   white-space: nowrap;
 }
 
 .post-empty {
   color: var(--theme-muted);
+}
+
+.post-meta {
+  flex-shrink: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8em;
+  color: var(--theme-muted);
+  font-size: 1.1em;
+  white-space: nowrap;
+}
+
+.post-section {
+  font-size: 0.95em;
+}
+
+.home-tagline {
+  font-style: italic;
+  color: var(--theme-muted);
+  margin-top: 0;
+}
+
+.section-map {
+  list-style: none;
+  width: 90%;
+  max-width: none;
+  margin: 1.6rem 0 2.2rem;
+  padding: 0;
+}
+
+.tuf-article section .section-map {
+  width: 90%;
+  max-width: none;
+  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+}
+
+.tuf-article section .section-map li {
+  width: 100%;
+  max-width: none;
+  padding-inline-start: 0;
+  -webkit-padding-start: 0;
+}
+
+.section-map li {
+  display: grid;
+  grid-template-columns: 6.5em 1fr auto;
+  gap: 1.2em;
+  align-items: baseline;
+  padding: 0.55em 0;
+  margin: 0;
+  border-bottom: 1px solid var(--theme-table-border);
+}
+
+.section-map-name {
+  font-size: 1.35em;
+}
+
+.tuf-article section .section-map-name:any-link {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.tuf-article section .section-map-name:any-link:hover {
+  color: var(--accent-ink);
+}
+
+.section-map-blurb {
+  width: auto !important;
+  max-width: none;
+  margin: 0;
+  color: var(--theme-muted);
+  font-size: 1.25rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.section-map-count {
+  color: var(--theme-muted);
+  font-variant-numeric: oldstyle-nums;
+  white-space: nowrap;
+}
+
+/* 栏目页介绍与知识树同宽，不再困在 Tufte 55% 正文栏。 */
+.tuf-article.is-catalog section p {
+  width: 90%;
+  max-width: none;
+}
+
+.tuf-article.is-catalog section .kt p,
+.tuf-article.is-catalog .kt-desc {
+  width: 100%;
 }
 
 /* 知识树是目录，不必困在 Tufte 55% 正文栏里。 */
@@ -767,8 +859,31 @@ header.site-header {
   .lesson-nav,
   .post-list,
   .blog-entry,
-  .kt {
+  .kt,
+  .section-map,
+  .tuf-article.is-catalog section p,
+  .tuf-article.is-catalog .kt-desc,
+  .tuf-article section .section-map,
+  .tuf-article section .section-map li {
     width: 100%;
+  }
+
+  .section-map li {
+    grid-template-columns: 1fr auto;
+    gap: 0.4em 1em;
+  }
+
+  .section-map-name {
+    grid-column: 1;
+  }
+
+  .section-map-count {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .section-map-blurb {
+    grid-column: 1 / -1;
   }
 
   section img,

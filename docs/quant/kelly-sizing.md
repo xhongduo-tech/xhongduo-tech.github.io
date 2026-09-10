@@ -11,7 +11,7 @@ section: quant
     <footer>—— Kelly, A New Interpretation of Information Rate, Bell System Technical Journal, 1956；Thorp 与 Samuelson 之后的分数化实践</footer>
 </div>
 
-Kelly 1956 年从信息率出发：在重复赌局中，按后验优势把财富的一个固定比例投注，可使财富的对数期望（渐近增长率）最大。Thorp 把它带到 21 点与证券；连续时间、正态超额收益下，全 Kelly 仓位近似 $\mu/\sigma^2$，与 Merton 对数效用的风险资产权重同形。统计套利里「每对、每个 Z-score 信号下多少名义」常被不严谨地叫做 Kelly。真正约束增长的是：边缘 $\mu$ 要在扣费后估计、且估计噪声很大；满 Kelly 对 $\mu$ 高估极度敏感；Samuelson 批评用增长率代替期望效用。实务几乎总是分数 Kelly，并加杠杆上限与回撤熔断。它不保证正复利。
+[上一课](/quant/zscore-entry)把偏离标准化成阈值规则；窗口、均值/波动与 $c$ 共同决定换手，名义阈值在非平稳与拥挤下会失效。开仓规则仍没有回答每对、每个信号下多少名义。缺口是 Kelly：重复赌局中按后验优势投注财富的一个固定比例，使对数期望最大；连续近似下 $f\approx\mu/\sigma^2$。边缘必须是扣费后的，满 Kelly 对 $\mu$ 高估极度敏感。实务几乎总是分数 Kelly，并加杠杆上限。本课写这条仓位语言——它不保证正复利，也不重扫 $c$。
 
 ## 问题
 

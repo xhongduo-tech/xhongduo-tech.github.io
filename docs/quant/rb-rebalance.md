@@ -11,11 +11,11 @@ section: quant
     <footer>—— 据 Roncalli, Introduction to Risk Parity and Budgeting, 2013；对照 Perold and Sharpe 对再平衡作为动态策略的论述</footer>
 </div>
 
-[风险预算](/quant/risk-budgeting) 回答政策问题：每一块风险该占组合波动的多少。本篇回答实施问题：给定预算 $b$，现仓的实现贡献 $\widehat{\mathrm{RC}}$ 已经偏离 $b$，何时、用多大交易把它推回去。权重再平衡与风险再平衡不是同一张交易清单——波动上升的资产即使权重没变，贡献也会膨胀；相关性上升会让两块「看起来分散」的预算叠在同一因子上。Roncalli 把预算写成对欧拉分解的约束；Perold 与 Sharpe 提醒：任何把组合推回目标的规则本身是动态策略。风险预算再平衡把这两句话接起来：目标在贡献空间，交易仍在名义空间，中间隔着时变的 $\Sigma$ 与冲击。它不使用 $\mu$，也不保证再平衡本身有正期望。
+[上一课](/quant/bl-views)把观点写成 $P\mu=Q+\varepsilon$：权重目标不是观点，应进约束或参考组合；$Q$ 与 $\Pi$ 必须同一超额与地平。缺口是实施：[风险预算](/quant/risk-budgeting) 给定 $b$ 之后，现仓的欧拉贡献会因价格漂移与 $\Sigma$ 变动而偏离，权重带宽再平衡修的不是贡献空间。本课钉风险预算再平衡：监控什么、何时触发、推回哪一点。不重讲 Idzorek 的 $\Omega$。它不使用 $\mu$，也不保证再平衡本身有正期望。
 
 ## 问题
 
-记组合波动 $\sigma(w)=\sqrt{w^\top\Sigma w}$，资产 $i$ 的欧拉贡献 $\mathrm{RC}_i=w_i(\Sigma w)_i/\sigma(w)$，政策要求 $\mathrm{RC}_i/\sigma(w)=b_i$。昨日解出的 $w^\star$ 在今日一般不再满足该等式：价格把 $w$ 漂走，$\Sigma$ 的实现也在变。若按市值权重的带宽再平衡，你修的是 $w-w^{\mathrm{policy}}$，而 $w^{\mathrm{policy}}$ 往往只是上一次预算问题的解，不是今天的解。若每天用新 $\Sigma$ 重解预算再全额交易，换手由协方差估计噪声驱动，[价差](/quant/spread-cost)会把「精确的 $b$」变成负的实施缺口。
+观点表改的是 $\mu$；预算 $b$ 给定之后，贡献仍会被价格与 $\Sigma$ 漂走。记组合波动 $\sigma(w)=\sqrt{w^\top\Sigma w}$，资产 $i$ 的欧拉贡献 $\mathrm{RC}_i=w_i(\Sigma w)_i/\sigma(w)$，政策要求 $\mathrm{RC}_i/\sigma(w)=b_i$。昨日解出的 $w^\star$ 在今日一般不再满足该等式：价格把 $w$ 漂走，$\Sigma$ 的实现也在变。若按市值权重的带宽再平衡，你修的是 $w-w^{\mathrm{policy}}$，而 $w^{\mathrm{policy}}$ 往往只是上一次预算问题的解，不是今天的解。若每天用新 $\Sigma$ 重解预算再全额交易，换手由协方差估计噪声驱动，[价差](/quant/spread-cost)会把「精确的 $b$」变成负的实施缺口。
 
 问题因此有三层。第一层：监控什么——贡献偏离、权重偏离、还是因子暴露偏离。第二层：触发什么——日历、带宽、还是效用增益超过成本的禁交易带，见[再平衡规则](/quant/rebalance-rules)。第三层：推回哪一点——昨日 $w^\star$、今日重解的 $w^\star(\hat\Sigma_t)$、还是只修越界的块。三层选错，投委会看到的「风险预算」与交易台执行的母单会对不上。
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Hot Chips 2026 Jalapeño 架构叙述：把数据放在需要它的地方、在需要的时刻到达，减少空等</footer>
 </div>
 
-[推理专用](/llm/jalapeno-inference-only) 把指标收成延迟与焦耳。本篇写 OpenAI 给出的机制性原因：观察到的延迟往往被**架构造成的等待**主导，而不是被矩阵单元的峰值时钟主导。Jalapeño 被说成 memory-sliced：每个核有自己那一份 HBM 的本地视图；常见跨核模式走专用低延迟集合网络，其余走更灵活的通用 NoC。公开规格里单封装 15.4 TB/s HBM4、216 GiB，128 芯片聚合带宽被讲者用来估算「若只看带宽天花板」的每用户 token 率，并立刻承认真实系统远低于该天花板——也就是说，**搬得动不等于用得满**。不确定的微架构参数（切片数、NoC 频率）不编造。
+[上一课](/llm/jalapeno-openai-broadcom-tsmc)把公开叙事钉成 OpenAI 定义架构与计算核 RTL，Broadcom / Celestica 做实现，互连走 Tomahawk 6 而不是 NVLink。缺口是：观察到的延迟往往被架构造成的等待主导，而不是被矩阵单元的峰值时钟主导。[推理专用](/llm/jalapeno-inference-only) 把指标收成延迟与焦耳；本课写 memory-sliced 与专用集合网络如何让操作数本地。不重讲 3nm 与封装级 PFLOP 表。后课切片细节默认已经读完：搬得动不等于用得满。
 
 ## 问题
 

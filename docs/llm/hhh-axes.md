@@ -11,7 +11,7 @@ section: llm
 <footer>—— Askell et al., A General Language Assistant as a Laboratory for Alignment, 2021；Bai et al., Training a Helpful and Harmless Assistant with RLHF, 2022</footer>
 </div>
 
-Askell 等人把对齐实验室的目标收成三个轴：有用（Helpful）、诚实（Honest）、无害（Harmless），合称 HHH。有用要求模型按用户意图做事、在含糊时追问；诚实要求不编造、不确定时说不确定、不隐瞒已知限制；无害要求不协助造成伤害、不无故冒犯。Bai 等人随后的 HH-RLHF 把其中两条——有用与无害——做成可训练的成对偏好，并公开了 Anthropic 的 HH 比较集。本篇写多轴为什么不能压成一个 [奖励模型](/llm/reward-model) 标量、比较协议怎么拆、以及评测必须成对看哪些曲线。诚实轴与引用幻觉见 [虚构引用](/llm/honesty-citations)；无害推得过猛见 [过度拒绝](/llm/over-refusal)。
+[上一课](/llm/absolute-rating-prefs)把 Likert / 十分制钉成绝对位置仪器：受锚、趋中与漂移支配，跨实验室减平均分通常无意义；发布门槛需要绝对仪器，大规模 RM 需要成对仪器。Askell 等人把对齐目标收成有用、诚实、无害三轴。缺口是多轴不能压成一个 [奖励模型](/llm/reward-model) 标量：用户要危险帮助时，有用与无害相反。本课写拆轴协议，不重推 Likert 校准。后课专家 vs 众包默认：一致率要分轴报告，不要平均成一条总序。
 
 ## 问题
 

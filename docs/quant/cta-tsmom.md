@@ -11,7 +11,7 @@ section: quant
 <footer>—— Moskowitz, Ooi & Pedersen, Time Series Momentum, Journal of Financial Economics, 2012</footer>
 </div>
 
-[时间序列动量](/quant/tsmom) 写的是 MOP 的学术定义与检验。本篇把同一对象接到 **CTA / 管理期货**：流动期货池、多时间尺度、波动目标、换月与危机凸性如何被产品化。Hurst、Ooi 与 Pedersen 用一个世纪的趋势证据说明，这件事不是 1980 年代商品顾问的样本偶然；Baltas 与 Kosowski 一类工作则讨论容量、换手与波动缩放如何改写夏普。把 CTA 的宣传册直接贴上 2012 年论文的 t 值，或把论文的 12 个月符号当成业界唯一规则，都会错。
+[上一课](/quant/cva-lite)停在估值调整。缺口换成宏观期货趋势产品。[时间序列动量](/quant/tsmom) 写的是 MOP 的学术定义与检验。本篇把同一对象接到 **CTA / 管理期货**：流动期货池、多时间尺度、波动目标、换月与危机凸性如何被产品化。Hurst、Ooi 与 Pedersen 用一个世纪的趋势证据说明，这件事不是 1980 年代商品顾问的样本偶然；Baltas 与 Kosowski 一类工作则讨论容量、换手与波动缩放如何改写夏普。把 CTA 的宣传册直接贴上 2012 年论文的 t 值，或把论文的 12 个月符号当成业界唯一规则，都会错。
 
 ## 问题
 

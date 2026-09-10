@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 InstructGPT 的标注示范、Self-Instruct 的自举合成、LIMA 的精选、以及 ShareGPT 与 OpenHermes 两类公开混合物</footer>
 </div>
 
-基座会续写，不会按产品意图回答。SFT 把「题面→回答」写成可学习的条件，于是数据从哪里来、留下什么，直接变成模型的任务定义。Ouyang 等人的 InstructGPT 用标注员按指南写示范；Wang 等人的 Self-Instruct 用模型从种子任务生成指令与实例；Zhou 等人的 LIMA 只用约一千条人工精选。公开生态里，ShareGPT 提供真实用户与 ChatGPT 的多轮日志，OpenHermes 一类则把大量 GPT-4 合成与社区集拼成可下载的混合物。四条路不是互斥的，但混在一个目录里却不做来源标签与清洗，等于把标注指南、教师口吻、用户牢骚和种子任务的偏置平均进同一个损失。本篇谈来源分类与清洗该删什么；人写与合成的对比见 [下一篇](/llm/human-vs-synthetic-instruct)，多轮字段见 [多轮格式](/llm/multiturn-format)。
+[上一课](/llm/sft-forgetting)把灾难性遗忘与对齐税拆开：旧协议崩了才回放，口吻变了则改评测。诊断之后仍要决定监督从哪来。缺口是来源分类与清洗：标注示范、社区多轮、精选小集、合成汇编四类，混在一个目录里却不做来源标签，等于把标注指南、教师口吻、用户牢骚和种子任务的偏置平均进同一个损失。本课写该删什么、如何分桶。人写与合成的对比见 [下一课](/llm/human-vs-synthetic-instruct)；多轮字段见 [多轮格式](/llm/multiturn-format)。不重讲遗忘的三张表。
 
 ## 问题
 

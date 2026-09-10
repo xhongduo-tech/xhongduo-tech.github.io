@@ -11,7 +11,7 @@ section: quant
 <footer>—— Cornish and Fisher, Moments and Cumulants in the Specification of Distributions, Review of the International Statistical Institute, 1937；风险应用见 Zangari, RiskMetrics Monitor, 1996</footer>
 </div>
 
-[参数 VaR](/quant/var-methods) 在椭圆且线性的账簿上把分位数写成 $\mu+\sigma\Phi^{-1}(\alpha)$。真实损失常左偏、峰度高于 3：下跌日比对称正态更肥。完全放弃参数法、改历史模拟或蒙特卡洛，要付窗口噪声或模型风险；仍想闭式、只多两个矩时，Cornish–Fisher 展开把正态分位数 $z_\alpha$ 换成按偏度、峰度校正后的 $\omega_\alpha$。Zangari（1996）把它写进 RiskMetrics 的修正 VaR；Favre 与 Galeano（2002）用修正分位数做对冲基金组合。本篇写展开式、适用区间，以及它相对 [ES](/quant/expected-shortfall) 与 [EVT](/quant/evt) 只是中间一层近似——不是厚尾的极限定理。
+[上一课](/quant/pit-alignment)收束回测信息集。缺口是损失分位数在非正态下的闭式修正。[参数 VaR](/quant/var-methods) 在椭圆且线性的账簿上把分位数写成 $\mu+\sigma\Phi^{-1}(\alpha)$。真实损失常左偏、峰度高于 3：下跌日比对称正态更肥。完全放弃参数法、改历史模拟或蒙特卡洛，要付窗口噪声或模型风险；仍想闭式、只多两个矩时，Cornish–Fisher 展开把正态分位数 $z_\alpha$ 换成按偏度、峰度校正后的 $\omega_\alpha$。Zangari（1996）把它写进 RiskMetrics 的修正 VaR；Favre 与 Galeano（2002）用修正分位数做对冲基金组合。本篇写展开式、适用区间，以及它相对 [ES](/quant/expected-shortfall) 与 [EVT](/quant/evt) 只是中间一层近似——不是厚尾的极限定理。
 
 ## 问题
 

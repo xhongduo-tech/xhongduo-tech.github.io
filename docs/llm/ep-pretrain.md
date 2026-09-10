@@ -11,7 +11,7 @@ section: llm
     <footer>—— Lepikhin et al., GShard, 2020；Fedus et al., Switch Transformers, 2021</footer>
 </div>
 
-预训练里的专家并行（Expert Parallelism, EP）不是又一种切隐藏维的办法。稠密 FFN 的参数对每个 token 都要算一遍，切分单位是矩阵的行或列；MoE 把 FFN 换成一组专家，切分单位是专家本身。GShard 在 TPU mesh 上把「专家维」映射成一次跨设备置换，Switch Transformer 在同一语义上把路由收到 $k=1$，容量桶和通信缓冲区变得更好预分配。两边共用的集体操作都是 All-to-All：先按专家所在设备把 token 发出去，本地 GEMM，再把激活收回来。本篇只讲这条预训练通信原语，不重写路由公式，也不把推理期的专家复制方案展开。
+[上一课](/llm/context-parallel)要么在 TP 组内沿 $s$ 切 Norm/Dropout 激活（注意力仍见完整序列），要么让每卡只持一段 token、用 All-to-All 或环传 KV 补全局依赖。缺口是专家维。MoE 把 FFN 换成一组专家，切分单位是专家本身，不是矩阵的行或列；数据并行复制全部专家会把显存按专家数线性炸掉。本课写预训练专家并行：Dispatch / Combine 两次 All-to-All。不重写 Ring 与 Ulysses。后课 5D 组合默认已经读完：这是置换不是归约。
 
 ## 问题
 

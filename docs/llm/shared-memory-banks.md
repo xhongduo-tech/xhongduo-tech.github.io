@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA CUDA C++ Programming Guide, Shared Memory</footer>
 </div>
 
-片上共享内存（shared memory）是 CTA 内线程协作的暂存：容量远小于 HBM，带宽却高一个数量级以上。GEMM tile、FlashAttention 的 $K,V$ 块、softmax 的行统计，几乎都先落到这里再喂 [Tensor Core](/llm/tensor-core)。带宽不是「整块 SRAM 任意读」，而是拆成 32 条 bank；地址映射决定一次 warp 访存是一次完成，还是变成两次、四次甚至三十二次。Bank conflict 是共享内存屋顶线里最常见、也最容易被 kernel 名字掩盖的那一项。
-
-本篇按 CUDA 编程指南写编址、广播、填充与 swizzle，以及它和 MMA 布局的交接。不编造未公开的 bank 周期表。
+[上一课](/llm/cuda-occupancy)把占用率写成 SM 上常驻 warp 相对上限的比：高占用帮助隐藏长延迟，但不等于高吞吐，tile 与避免寄存器溢出往往更优先。缺口是 CTA 协作的那块片上暂存：共享内存按 32 个 bank 交错编址，同一 warp 打到同一 bank 的不同字就会 $n$-way 串行化。GEMM tile 与 FlashAttention 的 $K,V$ 块几乎都先落到这里再喂 [Tensor Core](/llm/tensor-core)。本课写编址、广播、padding 与 swizzle，不重写占用率公式。后课切块与 MMA 布局默认已经读完这条编址。
 
 ## 问题
 

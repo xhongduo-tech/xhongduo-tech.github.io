@@ -11,7 +11,7 @@ section: quant
     <footer>—— Longstaff and Schwartz, Valuing American Options by Simulation: A Simple Least-Squares Approach, Review of Financial Studies, 2001</footer>
 </div>
 
-美式价格是停时上的本质确界，经济条件与自由边界见 [提前行权](/quant/american-exercise)。低维网格见 [二叉树](/quant/binomial-tree) 与 [PDE](/quant/option-pde)。Francis Longstaff 与 Eduardo Schwartz 2001 年要解决的是高维：路径可以模拟，但不能在每条路径上再嵌套一层期望。他们的做法是：从到期倒推，在每个行权日只用**实值路径**，把已实现的后续贴现现金流回归到当前状态的基函数上，回归拟合当作续持；若内在价值更大就执行，并**改写该路径此后的现金流**。本篇按原文算法写清楚「回归的是现金流、不是期权价值」，这与 Tsitsiklis–Van Roy 及一般 [LSM](/quant/lsm-american) 的差别留到下一篇。欧式 [蒙特卡洛](/quant/mc-pricing) 的离散格式与随机数不在这里重复。
+[上一课](/quant/cos-method)在 $[a,b]$ 上用余弦展开密度，欧式价格是特征函数系数与支付系数的点积；百慕大可嵌同一核，但连续美式与路径依赖不是欧式 COS 的范围。美式价格是停时上的本质确界，低维网格另有树与 PDE。缺口是高维：路径可以模拟，但不能在每条路径上再嵌套一层期望。Longstaff–Schwartz 从到期倒推，用实值路径上的最小二乘拟合续持，并改写该路径此后的现金流。本课按原文写清「回归的是现金流、不是期权价值」，不重推 COS 的累积量区间。与 Tsitsiklis–Van Roy 及一般 [LSM](/quant/lsm-american) 的差别留到下一篇。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— OCP Microscaling Formats (MX) Specification v1.0</footer>
 </div>
 
-Jalapeño 把矩阵算力写成 **13.4 PFLOP/s 的 MXFP4×MXFP4**。这不是厂商私有的 4-bit 别名，而是 Open Compute Project 已发布的微缩放浮点：块大小 32，元素为 FP4 E2M1（1 符号、2 指数、1 尾数），块尺度为 E8M0（8 bit 纯指数、2 的幂）。存储上每块 8 + 32×4 = 136 bit，合 4.25 bit/元素。推理要在 [HBM 带宽墙](/llm/decode-memory-wall) 上多扫一些权重，4-bit 比 FP8 再省一倍量级的字节；没有块尺度，FP4 自身的动态范围只有大约 12 倍，装不下 Transformer 各层差几个数量级的张量。本篇写 OCP 数值与它对推理核的约束，不把 NVIDIA 的 NVFP4 或某家私有 INT4 方案写成「也叫 MXFP4」。
+[上一课](/llm/jalapeno-hbm4-2p5d)把近存写成 HBM4 + 2.5D 中介层：Jalapeño 封装级 15.4 TB/s、216 GiB；物理带宽与切片化缺一则屋顶线用不满。缺口是矩阵峰值标在哪一种 4-bit 上：没有块尺度，FP4 自身的动态范围装不下各层差几个数量级的张量。本课写 OCP **MXFP4**（块 32、E2M1 元素、E8M0 尺度）。不重讲 JEDEC 接口宽度，也不把 NVFP4 或私有 INT4 写成「也叫 MXFP4」。后课 Tomahawk 域默认已经读完：峰值在 MXFP4×MXFP4 上，是为了在 HBM 墙上多扫一些权重。
 
 ## 问题
 

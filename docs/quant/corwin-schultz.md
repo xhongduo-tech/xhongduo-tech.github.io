@@ -11,7 +11,7 @@ section: quant
 <footer>—— Corwin & Schultz, A Simple Way to Estimate Bid-Ask Spreads from Daily High and Low Prices, Journal of Finance, 2012</footer>
 </div>
 
-许多历史样本只有日开高低收，没有可靠的逐笔报价，也没有 Lee–Ready 所需的中点时间戳。[Roll](/quant/roll-model) 用成交价的一阶协方差估有效价差，但协方差为正时公式没有实数解，日频上失败率不低。Corwin 与 Schultz 换一组矩：假设真实价格的高低极差由波动主导，观测到的最高价更常落在卖价、最低价更常落在买价，于是高低价距被价差撑开。两日联合的高低距与单日高低距对波动与价差的暴露不同，联立可解。本篇写这一估计量的识别、隔夜调整，以及它相对 Roll、相对[有效价差直接算法](/quant/effective-realized-spread) 的位置。
+[上一课](/quant/mrr-decomposition)把 $\Delta p_t$ 写成意外订单流的永久冲击 $\theta$、方向切换的暂时成分 $\phi$，以及公共信息残差；隐含价差 $2(\theta+\phi)$。许多历史样本只有日开高低收，没有 Lee–Ready 所需的中点时间戳，MRR 跑不起来。[Roll](/quant/roll-model) 在日频上协方差为正时没有实数解。缺口是 Corwin–Schultz：用单日与两日高低价距的不同时间加总性质，从日线里解有效价差。本课写这一估计量，不重推 MRR 的 AR(1)。它估的是宽度，不是 Kyle 的 $\lambda$。
 
 ## 问题
 

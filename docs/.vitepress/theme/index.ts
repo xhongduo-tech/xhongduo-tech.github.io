@@ -3,6 +3,7 @@ import NotFound from './NotFound.vue'
 import PostList from './PostList.vue'
 import KnowledgeTree from './KnowledgeTree.vue'
 import LessonNav from './LessonNav.vue'
+import SectionMap from './SectionMap.vue'
 import './tufte-base.css'
 import './site.css'
 
@@ -13,5 +14,6 @@ export default {
     app.component('PostList', PostList)
     app.component('KnowledgeTree', KnowledgeTree)
     app.component('LessonNav', LessonNav)
+    app.component('SectionMap', SectionMap)
   },
 }

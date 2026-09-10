@@ -13,6 +13,8 @@ import { llmPapers } from './llm-papers'
 import { llmAudit } from './llm-audit'
 import { llmFrontier } from './llm-frontier'
 import { llmSideline } from './llm-sideline'
+import { llmSupplement } from './llm-supplement'
+import { llmFoundations } from './llm-foundations'
 
 const representation: Outline = [
   '表示与 Transformer 块',
@@ -887,28 +889,58 @@ const trunk: Outline[] = [
   ],
 ]
 
+const [
+  trainBasics,
+  archDepth,
+  pretrainEng,
+  finetuneEdit,
+  rlDepth,
+  decodeDepth,
+  inferSysDepth,
+  commCluster,
+  compressDepth,
+  evalDepth,
+  alignMonitor,
+  retrievalEng,
+  multimodalGen,
+] = llmSupplement
+
 export const llmTree = [
   ...fromOutline([
+    llmFoundations,
     representation,
     trunk[0],
+    archDepth,
+    multimodalGen,
+    trainBasics,
     trunk[1],
+    pretrainEng,
     extraDataEng,
     trunk[2],
+    finetuneEdit,
     trunk[3],
     extraAlignData,
+    alignMonitor,
     trunk[4],
+    rlDepth,
     extraSampling,
+    decodeDepth,
     trunk[5],
     trunk[6],
+    inferSysDepth,
     extraCuda,
     extraServing,
     trunk[7],
+    commCluster,
     trunk[8],
+    compressDepth,
     trunk[9],
     extraEvalMethod,
+    evalDepth,
     extraSafety,
     trunk[10],
     extraPrompting,
+    retrievalEng,
   ]),
   ...markAppendix(llmSideline),
   ...markAppendix(llmPapers),

@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Moskowitz, Ooi & Pedersen, Time Series Momentum, JFE 2012；Asness, Moskowitz & Pedersen, Value and Momentum Everywhere, JF 2013</footer>
 </div>
 
-单资产趋势的夏普通常平庸，管理期货的夏普来自分散。Moskowitz 等人的 TSMOM 在数十个期货上取平均；Asness、Moskowitz、Pedersen 证明动量风格在跨资产上有共同成分，也仍有可分散的残差。本篇写 **趋势盈亏的相关结构**：底层资产相关、信号同号相关、减仓相关，是三件不同的事。配置 CTA 的人若只用底层 $\rho$ 去想象分散化，会在 2013、2018、2020 一类全球波动冲击里发现：趋势账本的第一主成分突然变大。这与[相关性崩溃](/quant/correlation-breakdown)同构，对象换成了趋势策略的 PnL。
+[上一课](/quant/vol-scale-cta)把仓位写成方向除以已实现波动：合约层 $1/\sigma_i$ 与组合层目标波动是两个开关；拥挤的 vol target 会同步减仓。缺口是单资产趋势的夏普通常平庸，管理期货的夏普来自分散——但「分散」有三层：底层资产相关、信号同号相关、减仓相关。本课写趋势盈亏的相关结构。不重讲 EWMA 窗口。这与[相关性崩溃](/quant/correlation-breakdown)同构，对象换成了趋势策略的 PnL。
 
 ## 问题
 

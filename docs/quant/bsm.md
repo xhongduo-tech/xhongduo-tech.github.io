@@ -11,7 +11,7 @@ section: quant
     <footer>—— Black and Scholes, The Pricing of Options and Corporate Liabilities, Journal of Political Economy, 1973</footer>
 </div>
 
-1973 年同一季节里出现了两篇把期权从「经验规则」推进到可复制证券的论文。Black 与 Scholes 在 *Journal of Political Economy* 给出欧式看涨、看跌的闭式解，并把公司负债读成期权；Merton 在 *Bell Journal* 把论证放进连续时间，处理股利、随机利率与美式约束，标题就是「理性期权定价」。二者共用的机制是动态对冲：用标的与无风险债券复制期权的瞬时风险，组合局部无风险，因而必须赚无风险利率，否则存在套利。期望收益 $\mu$ 在复制论证里被消掉，这不是假设投资者风险中性，而是无套利把风险价格锁进了标的本身。本篇写公式与假设，PDE 的离散化见 [PDE 与有限差分](/quant/option-pde)，测度更换见 [风险中性定价](/quant/risk-neutral-pricing)。
+[上一课](/quant/net-edge)把统计套利收到费用后的可交易边。缺口换成可复制的或有要求权：连续对冲给出期权价，而不是再估计价差均值回归。1973 年同一季节里出现了两篇把期权从「经验规则」推进到可复制证券的论文。Black 与 Scholes 在 *Journal of Political Economy* 给出欧式看涨、看跌的闭式解，并把公司负债读成期权；Merton 在 *Bell Journal* 把论证放进连续时间，处理股利、随机利率与美式约束，标题就是「理性期权定价」。二者共用的机制是动态对冲：用标的与无风险债券复制期权的瞬时风险，组合局部无风险，因而必须赚无风险利率，否则存在套利。期望收益 $\mu$ 在复制论证里被消掉，这不是假设投资者风险中性，而是无套利把风险价格锁进了标的本身。本篇写公式与假设，PDE 的离散化见 [PDE 与有限差分](/quant/option-pde)，测度更换见 [风险中性定价](/quant/risk-neutral-pricing)。
 
 ## 问题
 

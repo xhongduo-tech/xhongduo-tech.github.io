@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Ljungqvist, Malloy and Marston, Rewriting History, Journal of Finance, 2009；Fama–French 账面滞后与 Asness–Frazzini 对 HML 时点的处理</footer>
 </div>
 
-[时点基本面](/quant/point-in-time) 把单个字段的版本链说清：查询 $(t,i)$ 应返回截至 $t$ 已发布的最新版本，而不是 latest-available 回写到财期结束日的数字。对齐（alignment）是下一步，也是风险系统更常翻车的一步：价格、股本、行业、指数成份、分析师共识、风险模型暴露与会计字段，往往来自不同供应商、不同日历、不同修订政策。把它们 join 在「财期结束日」或「报表编号」上，等于用三套互不相等的信息集去算同一个 $t$ 的因子与暴露。本篇写 join 键、三套日历、以及错位如何同时污染 alpha 与 [基本面风险模型](/quant/fundamental-risk-model) 的归因。它是 [前视偏差](/quant/look-ahead-bias) 在多表合并上的专用条款。
+[上一课](/quant/backtest-overfitting)把报告最大值的原假设改成「整簇无技能」，有效试验次数由绩效相关结构决定。缺口从「试了多少次」转到「用的数字在 $t$ 时是否存在」。[时点基本面](/quant/point-in-time) 把单个字段的版本链说清；对齐是下一步：价格、股本、行业、成份、共识、风险暴露与会计字段来自不同供应商、不同日历。用财期结束日去 join 交易日，等于用未来报表算当时的因子。本课写 join 键、三套日历、以及错位如何同时污染 alpha 与风险归因。不重写 Reality Check 的自举。
 
 ## 问题
 

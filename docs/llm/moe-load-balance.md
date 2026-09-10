@@ -11,7 +11,7 @@ section: llm
 <footer>—— Fedus, Zoph, Shazeer, Switch Transformers, 2021</footer>
 </div>
 
-MoE 的主损失只关心下一个 token 对不对。对路由来说，把所有人送进目前最好的那个专家，短期交叉熵往往更低，于是正反馈开始：热专家数据更多、变得更好、更热。Shazeer 2017 就加过重要性损失；GShard 与 Switch 把它写成可计算的辅助项，加在训练目标上。负载均衡损失（load balancing loss, auxiliary loss）的任务很窄：让每个专家被选中的频率、以及路由分配给它的平均概率，尽量接近均匀。它不教专家怎么变换表示，只教路由器别塌缩。DeepSeek-V3 后来改用无辅助损失、靠偏置调负载的策略，说明这件事重要，但损失形式可以换。
+[上一课](/llm/expert-parallelism)把不同专家放到不同设备，通信税与 $k$、隐藏维、负载均匀度成正比；细粒度小专家更容易通信受限。All-to-All 是置换不是求和。缺口是训练目标本身会把路由推向崩溃：主损失只关心下一个 token，热专家更热。Shazeer 2017 就加过重要性损失；GShard 与 Switch 把它写成 $\alpha N\sum_i f_i P_i$。本课写这条辅助项，不重讲 EP 的拓扑。它只约束分配，不替代容量上限；DeepSeek-V3 后来改用无辅助损失的偏置，问题相同、方法不同。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Avellaneda and Stoikov, High-frequency trading in a limit order book, Quantitative Finance, 2008</footer>
 </div>
 
-连续限价簿上，做市商同时挂买、挂卖，靠价差赚钱，却被动接受成交与库存漂移。Ho 与 Stoll（1981）已经把经销商的最优报价写成存货与剩余交易时间的函数；Avellaneda 与 Stoikov（2008）把同一问题放到限价订单簿的强度模型里：中间价是布朗运动，成交是强度随挂单距离指数下降的泊松过程，目标是指数效用的期望。结果很干净——无差异价格（reservation price）相对中间价平移与库存成正比，最优价差有一项库存风险、一项与到达强度有关的执行溢价。Guéant、Lehalle 与 Fernandez-Tapia（2013）以及 Cartea、Jaimungal 与 Penalva 的教科书把这套结构推广到多资产、终端惩罚与各种强度。本篇写架构与一阶条件，不把公式当成可直接搬到生产撮合上的挂单机器人说明书；真实市场还有逆向选择，见 [毒性流](/quant/toxic-flow)，库存偏度的会计见下一篇 [库存风险与偏度报价](/quant/inventory-skew)。
+[上一课](/quant/smart-order-routing)把母单配额分配到场所与订单类型，目标是条件期望下的执行质量；合成最优报价是输入，不是可执行对象——路由解决的是「去哪成交」，不是「挂多宽、往哪边偏」。连续限价簿上，做市商同时挂买、挂卖，靠价差赚钱，却被动接受成交与库存漂移。缺口是把最优报价写成存货与剩余时间的函数：中间价扩散，成交是强度随距离下降的泊松过程，目标是指数效用。结果是无差异价格相对中间价平移与库存成正比。本课写架构与一阶条件。真实市场还有逆向选择，见 [毒性流](/quant/toxic-flow)；库存偏度见下一课。
 
 ## 问题
 

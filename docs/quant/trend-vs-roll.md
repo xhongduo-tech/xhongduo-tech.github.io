@@ -11,7 +11,7 @@ section: quant
 <footer>—— Erb & Harvey, The Strategic and Tactical Value of Commodity Futures, FAJ 2006；趋势定义对照 Moskowitz, Ooi & Pedersen, JFE 2012</footer>
 </div>
 
-商品 CTA 的漂亮年份，有时来自原油单边，有时来自长期 backwardation 的收租，有时两者叠在一起。Erb 与 Harvey 要求把现货腿与展期腿分开记账；Gorton 与 Rouwenhorst 的长期事实、Working 的仓储理论解释展期何时为正；Moskowitz 的 TSMOM 则在商品期货总收益上取符号。本篇的问题很窄：**趋势与展期是不是同一笔钱**，何时同向、何时打架，以及 CTA 与曲线策略如何避免双计。只说「商品有趋势」或只说「商品有 roll yield」，都不够写进同一份产品说明书。
+[上一课](/quant/mfd-risk-parity)用风险份额合成「多头风险平价」与「趋势 CTA」，并点名归因要拆开静态溢价、趋势切换与展期，防止两条溢价被记成四条 alpha。缺口正是商品这条腿：**趋势与展期是不是同一笔钱**。本课并列总收益趋势、去展期动量与事前斜率。不重讲 $\pi$ 与保证金。后课外汇 Carry/动量默认已经读完：同向出现在低库存挤仓，对撞出现在曲线与现货分道。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— White, A Reality Check for Data Snooping, Econometrica, 2000；Bailey, Borwein, López de Prado and Zhu, Notices of the AMS, 2014</footer>
 </div>
 
-回测表上的夏普、胜率、最大回撤，几乎从未对应「事先指定、只跑一次」的实验。参数网格、品种池、起止日期、成本假设、进出场变体，都会把一次检验变成 $N$ 次试错后再报告最大值。White（2000）的 Reality Check 把这件事收成可自举的推断：基准之上的最优绩效，必须与「零技能簇的最大值」比较。Bailey、Borwein、López de Prado 与 Zhu（2014）则把同一机制写成更刺耳的命题——试错足够多时，任意事先指定的回测目标都可以被拟合，而这不表示策略有技能。本篇写**次数**：如何计数、如何进入极值、以及与 [过拟合作为风险](/quant/overfit-as-risk)、[Deflated Sharpe](/quant/deflated-sharpe)、[CPCV](/quant/cpcv) 的分工。它不替代 [VaR](/quant/var-methods) 的分位数，但决定你拿去配杠杆的那条权益曲线是否合法。
+[上一课](/quant/probabilistic-sharpe)把 PSR 写成观测夏普超过预先声明阈值的渐近概率；$N=1$ 时 DSR 退化为 PSR，有搜索时必须升级阈值。缺口是次数本身：参数网格、品种池、起止日期、成本假设都会把一次检验变成 $N$ 次试错后再报告最大值。White 的 Reality Check 把最优绩效与「零技能簇的最大值」比较；Bailey 等人把同一机制写成试错足够多时任意回测目标都可以被拟合。本课写如何计数、如何进入极值，以及与 DSR、PBO、CPCV 的分工。不重推 PSR 的非正态标准误。
 
 ## 问题
 

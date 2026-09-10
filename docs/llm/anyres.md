@@ -11,7 +11,7 @@ section: llm
 <footer>—— Liu 等, LLaVA-NeXT AnyRes</footer>
 </div>
 
-CLIP 与早期 LLaVA 的视觉输入边长是固定的：224 或 336。文档上的小字、屏幕截图上的图标，缩进去就不可逆。LLaVA-NeXT 提出 AnyRes：高分辨率图不单次 resize 到固定画布，而是选一个接近原图长宽比的网格，切成多块，每块缩放到 ViT 的原生边长，外加一张全局低分辨率图，分别编码再拼接视觉 token。本篇只讲这种「固定编码器、可变切格」；按原生分辨率直接切 patch、不强制缩进固定格，见 [Naive Dynamic Resolution](/llm/qwen-vl-naive-dynamic-res)。
+[上一课](/llm/vl-connector)写连接器在哪一处压缩视觉信息：固定查询交叉注意力、浅 MLP，或像素格子重排。固定分辨率加固定查询会在文档上叠畸变与压缩。缺口是编码器权重与原生边长 $S$ 不变，用多张 $S\times S$ 作物去覆盖高分辨率，作物数量与排列随原图形状变。LLaVA-NeXT 的 AnyRes 选接近原图长宽比的网格，外加一张全局低分辨率图，分别编码再拼接。本课写「固定编码器、可变切格」，不重讲 Q-Former 与 pixel shuffle 的差别。按原生分辨率直接切 patch，见 [Naive Dynamic Resolution](/llm/qwen-vl-naive-dynamic-res)。
 
 ## 问题
 

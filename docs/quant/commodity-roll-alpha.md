@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gorton & Rouwenhorst, Facts and Fantasies about Commodity Futures, Financial Analysts Journal, 2006；期限溢价分解见 Szymanowska et al., Journal of Finance, 2014</footer>
 </div>
 
-Gorton 与 Rouwenhorst（2006）把长期商品期货事实从若干幻想里拆出来：与股票相当的平均超额、与股债的低相关、对通胀的对冲——而这些超额很大程度来自期货市场本身，而不是现货商品当收藏品一路升值。Erb 与 Harvey（2006）同时强调：指数收益对展期与多样化再平衡敏感，「商品」不是一个同质 beta。展期 alpha 指的是：用曲线形态（以及其背后的库存与便利收益）在品种之间做多 backwardation、做空 contango，或用更聪明的合约选择去打败机械近月滚仓，从而把 Gorton–Rouwenhorst 的平均事实变成一个可交易的横截面。Szymanowska、de Roon、Nijman 与 van den Goorbergh（2014）把商品期货溢价拆成现货溢价与期限溢价，后者正是曲线上不同到期的收益差。Boons 与 Prado（2019）的基差动量把基差的变化做成信号。本篇管跨品种与跨到期的**可移植规则**；同一品种内部按季节选月，见 [季节性展期](/quant/seasonal-roll)。
+[上一课](/quant/xccy-basis)把交叉货币基差写成市场远期相对 OIS-CIP 远期的修正，必须作为输入曲面；它不是 UIP 套息，也不是 NDF 可兑换性溢价。外汇基差不回答商品指数为什么赚钱。Gorton 与 Rouwenhorst 确立商品期货作为资产类别的平均事实，超额很大程度来自期货市场本身。缺口是把平均变成可交易横截面：按基差、库存或基差动量在品种与到期之间排序，并避开机械滚仓窗。展期 alpha 是仓储语言的交易层。本课写跨品种与跨到期的可移植规则；同一品种内部按季节选月，见 [季节性展期](/quant/seasonal-roll)。
 
 ## 问题
 

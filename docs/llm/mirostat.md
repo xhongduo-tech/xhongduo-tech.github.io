@@ -11,7 +11,7 @@ section: llm
     <footer>—— Basu, Ramachandran, Keskar & Devlekar, Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity, 2021</footer>
 </div>
 
-Nucleus 与温度给出的是逐步形状，不给出序列的平均信息量。同一 $p=0.9$ 在尖峰步几乎贪心，在平坦步仍很宽，整段文本的交叉熵会随模型状态漂。Basu 等人的 Mirostat 把解码写成反馈控制：选定目标惊奇度 $s_*$（因而目标困惑度 $2^{s_*}$），每步根据当前估计截断词表、采样，再用观测到的 $-\log p(y_t)$ 去修正截断阈值。它直接打 Holtzman 指出的退化——重复会把惊奇度压得过低，回路会放宽或改门槛把惊奇度拉回设定值。本篇写这个回路与 top-$k$ / nucleus 的差别，以及它不能当校准器的边界。
+[上一课](/llm/speculative-sampling)用似然比接受草稿 token，拒绝时从 $\max(0,p-q)$ 再采样，使每步实现目标分布 $p$。缺口是：nucleus 与温度给出逐步形状，不给出序列的平均信息量。同一 $p=0.9$ 在尖峰步几乎贪心，在平坦步仍很宽，整段交叉熵随状态漂。Basu 等人的 Mirostat 把解码写成反馈控制：选定目标惊奇度 $s_*$，用观测到的 $-\log p(y_t)$ 修正截断阈值。本课写这个回路与 top-$k$ / nucleus 的差别。不重推残差采样。投机无损需共享控制器状态；后课对比搜索默认已经知道闭环钉的是自信息量。
 
 ## 问题
 

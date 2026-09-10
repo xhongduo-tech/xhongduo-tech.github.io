@@ -11,7 +11,7 @@ section: llm
     <footer>—— Su et al., A Contrastive Framework for Neural Text Generation, ACL 2022</footer>
 </div>
 
-Holtzman 指出极大似然续写会重复，nucleus 从截断分布里随机抽，用噪声换连贯。Su 等人的 Contrastive Search 走第三条路：每步仍先看模型概率，但在 top-$k$ 候选上加一项 *退化惩罚*——候选 token 对应的隐状态若与已写出上下文太像，分数被扣。最终通常取 $\arg\max$，因此它是确定性搜索，不是采样。训练侧他们还讨论对比目标，使表示更分散；推理侧的打分公式可以单独接到已训好的因果 LM 上。本篇写推理公式、它与对比解码 / CFG 的差别，以及确定性带来的评测陷阱。
+[上一课](/llm/mirostat)用目标惊奇度 $s_*$ 做设定值，以逐步 $-\log p$ 为误差，自适应截断阈值。缺口是：重复圈在概率上可以自洽，频率惩罚按 token 计数，近义反复与隐状态塌缩可以绕过。Su 等人的 Contrastive Search 在 top-$k$ 候选上加退化惩罚——候选隐状态若与已写上下文太像，分数被扣。它通常取 $\arg\max$，是确定性搜索。本课写推理公式，以及它与对比解码 / CFG 不是同一几何。不重写 Mirostat 的 $s_*$ 回路。
 
 ## 问题
 

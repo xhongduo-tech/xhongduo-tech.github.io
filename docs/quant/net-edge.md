@@ -11,7 +11,7 @@ section: quant
     <footer>—— Novy-Marx & Velikov, A Taxonomy of Anomalies and Their Trading Costs, Review of Financial Studies, 2016</footer>
 </div>
 
-统计套利与相对价值的论文表格，多半是信号收益。可交易性问的是另一张表：同样的信号，在可执行价格、有限深度、借券与容量约束下，净期望是否仍为正。Perold 把纸面与现实的差叫做实施缺口；Korajczyk 与 Sadka、Lesmond、Schill 与 Zhou 对动量表明，成本可以吃掉大部分纸面利润。Novy-Marx 与 Velikov 把一批异常按换手分类，高换手策略对价差假设最敏感。Frazzini、Israel 与 Moskowitz 用机构执行数据给出另一套更低的成本估计——结论依赖你是谁、走哪条执行管道，而不是存在一个普遍的「扣费后仍有 多少夏普」。没有容量数字的边缘不是可部署的边缘。
+[上一课](/quant/statarb-stops)把离场写成回归平仓、价格止损与时间止损，优先级预先写死；有交易成本时止损增加换手并常在流动性差时触发。信号表上的毛期望还不是可部署的边缘。缺口是同一套信号在可执行价格、有限深度、借券与容量约束下，净期望是否仍为正。高换手策略对价差假设最敏感；没有容量数字的边缘不是可交易边缘。本课写扣费后的那张表。不重排止损优先级。
 
 ## 问题
 

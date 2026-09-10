@@ -11,7 +11,7 @@ section: quant
     <footer>—— Leland, Option Pricing and Replication with Transaction Costs, Journal of Finance, 1985；渐近对冲带见 Whalley and Wilmott 等后续工作</footer>
 </div>
 
-[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 给出每次再平衡时要交易的标的数量；[离散对冲误差](/quant/discrete-hedge-error) 给出两次平衡之间误差的渐近形状。还缺一问：隔多久、或 Delta 偏多远，才再交易一次。Black–Scholes 的连续复制在价差为正时期望成本发散——无限次穿越买卖价。Hayne Leland 1985 年把成本写进复制，得到对波动率的修正；后来的效用与渐近方法给出「无交易带」：只有 Delta 走出带宽才调仓。频率因此是决策变量，不是把日内网格调到一分钟就更接近理论。本篇写如何选规则，不重复误差公式的推导。
+[上一课](/quant/butterfly-calendar-arb)把蝶式非负写成离散凸性、日历约束对齐远期货币性并看总方差；发现违例应回写插值，而不是先改希腊字母。[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 给出每次再平衡要交易的标的数量；[离散对冲误差](/quant/discrete-hedge-error) 给出两次平衡之间误差的渐近形状。缺口是隔多久、或 Delta 偏多远，才再交易一次。连续复制在价差为正时期望成本发散；Leland 把成本写进复制，效用与渐近方法给出无交易带。频率是决策变量。本课写如何选规则，不重复误差公式。
 
 ## 问题
 

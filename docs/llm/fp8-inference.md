@@ -11,11 +11,11 @@ section: llm
 <footer>—— Micikevicius et al., FP8 Formats for Deep Learning, 2022（NVIDIA / Arm / Intel）</footer>
 </div>
 
-INT8 把值写成整数乘尺度；FP8 把值写成带指数的小浮点。同样 8-bit，语义不同：异常通道在整数格子里会绑死 max 尺度，在 FP8 里先消耗的是指数头空间。Hopper 一类 GPU 把 FP8 GEMM 做成 Tensor Core 一等公民之后，推理侧开始把权重、激活甚至 KV 往 FP8 搬，而不必走 SmoothQuant 那套「迁到 INT8」的预处理。代价是格式要选对——E4M3 还是 E5M2——并且几乎总要配缩放。本篇写推理，不把训练期的 FP8 混合精度配方整段搬过来；训练侧见 [混合精度预训练](/llm/pretrain-mixed-precision)。
+[上一课](/llm/w4a16)把 W4A16 写成 decode 带宽墙的默认权重量化，W4A8 再打激活则交叉误差更大；与 W8A8 真正在换的是激活精度。缺口是同宽不同语义：INT8 仿射会被通道尖峰绑死 max 尺度，FP8 带指数，Hopper 把 FP8 GEMM 做成 Tensor Core 一等公民之后，不必再走「迁到 INT8」才能喂 8-bit 核。本课钉推理用的 E4M3 / E5M2、缩放与哪些算子不准降。不重讲 4-bit 格子怎么选。训练配方见 [混合精度预训练](/llm/pretrain-mixed-precision)；后课 QAT 默认 FP8 前向图已经和 INT8 分开。
 
 ## 问题
 
-半精度推理的墙有两面：权重与 KV 的带宽，以及 prefill 的矩阵吞吐。INT8 能打通整数管道，但对 LLM 激活的通道尖峰不友好，往往要离线平滑或在线分流，见 [W8A8](/llm/w8a8)。人们想要一种「位宽相同、动态范围更像浮点」的格式，减少逐通道仿射的痛苦，同时仍能喂饱 8-bit Tensor Core。
+W4A16 压的是权重加载；同是 8-bit，INT8 与 FP8 不是同一条激活路。半精度推理的墙有两面：权重与 KV 的带宽，以及 prefill 的矩阵吞吐。INT8 能打通整数管道，但对 LLM 激活的通道尖峰不友好，往往要离线平滑或在线分流，见 [W8A8](/llm/w8a8)。人们想要一种「位宽相同、动态范围更像浮点」的格式，减少逐通道仿射的痛苦，同时仍能喂饱 8-bit Tensor Core。
 
 IEEE 没有把 FP8 收成唯一标准。工业界收敛到两种指数-尾数拆法，由 Micikevicius 等人 2022 年的联合白皮书写清，并进入 OCP 的 8-bit 浮点讨论：E4M3 与 E5M2。推理要回答的不是「有没有 FP8 这个名字」，而是：**前向操作数用哪一种、缩放放在张量还是块上、哪些算子不准降**。选错格式的典型失败是 E4M3 溢出成 NaN/Inf，或 E5M2 尾数太粗把小权重打成零。
 

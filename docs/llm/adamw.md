@@ -11,11 +11,11 @@ section: llm
 <footer>—— Loshchilov & Hutter, Decoupled Weight Decay Regularization, ICLR 2019</footer>
 </div>
 
-Adam 用梯度的一阶与二阶滑动平均给每个参数自己的步长，训练深度网络很稳，却长期和「权重衰减」以一种错误的方式绑在一起。许多人在损失上加 $\frac{\lambda}{2}\|w\|^2$，再把这项的梯度喂给 Adam，以为自己在做与 SGD 相同的衰减。Loshchilov 与 Hutter 指出：在自适应方法里，这不等于对权重做与尺度无关的衰减。AdamW 把衰减写成参数更新里单独的一项，与 Adam 的自适应步长解耦。它此后成为 Transformer 预训练的默认优化器，Gopher、Llama 以及后续解码器几乎都建立在这一更新上。
+[上一课](/llm/vocab-compression)表明 $V$ 同时买压缩、付嵌入税，名额分配与 tokenizer 训练集配比同构。缺口是预训练默认优化器：Adam 用每坐标的矩自适应步长，若把 $L_2$ 写进损失，衰减会被 $\sqrt{v}$ 调制，不再是 SGD 意义上的权重衰减。本课写 AdamW——把衰减从矩更新里拆出。不重讲 $C/T$。后课矩阵优化器默认已经读完这条解耦更新。
 
 ## 问题
 
-SGD 带权重衰减的更新可以写成
+词表与压缩率定完之后，更新规则仍可能把衰减绑错。SGD 带权重衰减的更新可以写成
 
 $$
 w \leftarrow w - \eta \bigl(\nabla \ell(w) + \lambda w\bigr) = (1-\eta\lambda)w - \eta\nabla\ell(w).

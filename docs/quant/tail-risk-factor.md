@@ -11,7 +11,7 @@ section: quant
     <footer>—— Kelly and Jiang, Tail Risk and Asset Prices, Review of Financial Studies, 2014</footer>
 </div>
 
-极值理论把单只损失的尾巴写成广义帕累托，用来外推 VaR，见 [EVT](/quant/evt)。资产定价问的是另一句话：当**市场整体**的左尾变厚时，哪些股票一起跌，这笔共同冲击有没有被定价。Bryan Kelly 与 Hao Jiang 2014 年在《Review of Financial Studies》里用截面日收益的 Hill 估计构造时变尾部风险 $\lambda_t$，再按个股对 $\lambda$ 创新的 $\beta$ 排序。它不是把 EVT 套到组合损益上，而是把「共同崩盘厚度」做成因子。与偏度风险、下行 $\beta$ 近亲，但识别来自幂律指数，不是来自三阶矩或负半方差。
+[上一课](/quant/skew-risk-premium)把偏度风险溢价写成风险中性三阶矩与物理预期已实现偏度之差，度量左尾保险的价格；与 VRP 相关但不相同——方差对正负对称，偏度针对崩盘。缺口是共同崩盘厚度是否被定价。极值理论把单只损失的尾巴写成广义帕累托，用来外推 VaR；资产定价要问的是市场整体左尾变厚时，哪些股票一起跌。本课写 Kelly–Jiang 的截面 Hill 因子。不重做 BKM / KNS 复制。后课资金流动性默认已经读完：测的是崩盘形状，不是市场收益的水平。
 
 ## 问题
 

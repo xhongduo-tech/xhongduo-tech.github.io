@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA NVLink / NVLink Switch 产品说明与各代 GPU 数据手册中的已公布带宽</footer>
 </div>
 
-PCIe 把 GPU 连到主机，也勉强能做 GPU 间拷贝，但带宽与协议开销按 I/O 总线设计。NVLink 从 Pascal 起做成 GPU–GPU 的高速串行互连，代数加链路、加速率。NVSwitch 从 DGX-2 一类系统起，把多条 NVLink 接到交换芯片，使域内任意两张 GPU 不必经主机或经邻居转发。H100 产品页写第四代 NVLink 900 GB/s；A100 数据手册写第三代 600 GB/s；Blackwell 产品与 GB200 技术博客写第五代每 GPU 1.8 TB/s，约为 PCIe Gen5 的 14 倍。NVL72 再用 NVLink Switch System 把域扩到 72 卡、聚合 130 TB/s。本篇写链路与交换如何分层，以及软件怎样踩中它们。不编造未公开的单 lane 波特率或未发布的下一代带宽。
-
-系统形态见 [NVL72](/llm/gb200-nvl72)；拓扑对比见 [全互连 vs Clos](/llm/all-to-all-vs-clos)；集合通信见 [预训练通信](/llm/pretrain-comm)。
+[上一课](/llm/mps-mig)把一张卡上的并发写成两条：MPS 提高占用、隔离弱；MIG 硬件切片、适合多租户。缺口是卡与卡之间：PCIe 按 I/O 总线设计，喂不动最密的集合通信。本课写 NVLink 链路与 NVSwitch 域，以及软件怎样踩中它们。不重讲 MIG 路数，也不编造未公开的单 lane 波特率。系统形态见 [NVL72](/llm/gb200-nvl72)；拓扑对比见 [全互连 vs Clos](/llm/all-to-all-vs-clos)。
 
 ## 问题
 

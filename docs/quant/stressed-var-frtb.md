@@ -11,7 +11,7 @@ section: quant
 <footer>—— BCBS, Revisions to the Basel II market risk framework, 2009；BCBS, Minimum capital requirements for market risk, 2016/2019</footer>
 </div>
 
-Basel 2.5 在 2009 年修订中给内部模型加上 **stressed VaR**：10 日 99% VaR，参数必须在一段连续 12 个月的显著压力期上校准，再与日常 VaR 并行进入资本。日常 [VaR](/quant/var-methods) 在 2003–2006 年估出来的 $\Sigma$ 到了 2007 年仍然偏小；危机后若立刻用危机样本重估，资本会在波动已经实现之后才升高，且随后随窗口滚出而下降。压力校准把「哪一段历史」写成制度，而不是写成交易台的选择。巴塞尔交易账本根本审查（FRTB，BCBS 2016 年标准、2019 年修订）进一步用 [Expected Shortfall](/quant/expected-shortfall) 替换 VaR 作为内部模型主度量，并保留压力校准、按风险因子分档的流动性期限、不可建模风险因子（NMRF）与违约风险。本篇只写公开的巴塞尔文本里这两层制度，不写各司法辖区的实施细则与厂商模型。
+[上一课](/quant/copula-var)把组合分位数拆成边缘、Copula 与定价函数三层，专门修正依赖误设；高斯 Copula 没有尾依赖，应在条件边缘的概率积分变换上估 $C$。缺口是制度测度。日常条件 VaR 回答「给定今日信息，明天的分位数」；监管资本还要回答「若市场像历史上最坏的那一年，分位数是多少」——繁荣期窗口会把危机相关忘掉。本课写 Basel 2.5 的 stressed VaR，以及 FRTB 用 ES 替换内部模型主度量。不重推 Sklar 分解。后课流动性调整默认已经读完：日常限额与监管资本不必共用同一套窗口。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— OpenAI，Hot Chips 2026 Jalapeño 网络页</footer>
 </div>
 
-Jalapeño 的芯片互连没有走 NVLink 那一类专用加速器链路，而是把 Broadcom 的 **Tomahawk 以太交换**当成规模化生产路径。OpenAI 与 Broadcom 的联合说明里，Tomahawk 被点名为把平台拉到大规模部署的网络硅；Hot Chips 2026 进一步给出域的大小与职责：机柜内本地域 128 颗、跨柜全局域 2048 颗，拓扑是半扁平两级 Clos，**张量并行走更高带宽、专家并行走较低带宽**。公开封装级数字把本地域写成 600 GB/s、全局域写成 200 GB/s。本篇把这套以太域对到 [Scale-Up / Scale-Out](/llm/scale-up-vs-scale-out) 的编程含义上，并用 Broadcom 已公布的 Tomahawk 6（BCM78910 系列，102.4 Tb/s）说明交换芯片这一档能提供什么——不把分析师对托盘里几颗交换芯片的猜测写成 OpenAI 规格。
+[上一课](/llm/jalapeno-mxfp4)把矩阵峰值钉在 MXFP4×MXFP4：32 元素共享 E8M0 尺度，有效 4.25 bit/元素。缺口是单封装仍要跨芯片切：[张量并行](/llm/tensor-parallel) 要低延迟 All-Reduce，[专家并行](/llm/expert-parallelism) 要 All-to-All；Jalapeño 没有走 NVLink，而把 Broadcom Tomahawk 以太交换当成规模化路径。本课把本地域 128 颗、全局域 2048 颗对到 [Scale-Up / Scale-Out](/llm/scale-up-vs-scale-out)。不重讲 E2M1 码表。不要把分析师对托盘里几颗交换芯片的猜测写成 OpenAI 规格。
 
 ## 问题
 

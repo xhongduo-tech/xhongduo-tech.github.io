@@ -11,7 +11,7 @@ section: quant
 <footer>—— Brunnermeier and Pedersen, Market Liquidity and Funding Liquidity, Review of Financial Studies, 2009</footer>
 </div>
 
-[资金流动性](/quant/funding-liquidity) 写的是中介能不能借到钱；[杠杆与强平](/quant/leverage-liquidation) 写的是单账户触及维持保证金之后的算术。拥挤度问的是第三句话：有多少钱、多少杠杆、多少止损线叠在同一张合约、同一个因子、同一条 CTA 信号上。Brunnermeier 与 Pedersen 的亏损螺旋与保证金螺旋，在拥挤状态下从「可能」变成「几乎必然」——不是因为波动公式变了，而是因为被迫卖出的数量已经大到自己制造下一轮波动。Stein 指出，精明投资者同质化之后，套利本身会制造不稳定。本篇把拥挤当成可观测的状态变量，把清盘螺旋当成拥挤与融资约束的乘积，而不是事后叙事。
+[上一课](/quant/gap-risk)把缺口写成不可交易间隔里的离散跳跨过非线性阈值，连续对冲与扩散 VaR 都覆盖不到；应对准障碍与 CPPI 底建跳情景。缺口是同步减仓。许多基金的风险模型、波动目标、保证金公式在同一天给出同一方向的指令时，被迫卖出的数量可以自己制造下一轮波动。本课把拥挤当成可观测状态，把清盘螺旋当成拥挤与融资约束的乘积。不重推跳过程。后课 CVA 默认已经读完：拥挤测的是可同步变现的名义，不是 AUM 水平。
 
 ## 问题
 

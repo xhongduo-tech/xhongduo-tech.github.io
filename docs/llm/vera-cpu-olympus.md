@@ -11,7 +11,7 @@ section: llm
     <footer>—— NVIDIA：88 个自研 Olympus 核，Spatial Multithreading 提供每核两线程、整颗 176 线程</footer>
 </div>
 
-[六芯片](/llm/rubin-six-chips) 里，Rubin 负责矩阵与注意力，Vera 负责让 GPU 别饿死。NVIDIA 公开把 **Vera CPU** 写成：88 个 NVIDIA 自研 **Olympus** 核，Arm 兼容；**Spatial Multithreading** 把每核资源做物理划分，跑两个硬件线程，整颗 176 线程。相对 Grace（72 个 Neoverse V2），Vera 还公开了更大的每核 L2、统一 L3、更高的 LPDDR5X 容量与带宽，以及翻倍的 [NVLink-C2C](/llm/nvlink-c2c-superchip)。本篇讲核与多线程模型对大模型系统意味着什么，不把「IPC 高 50%」一类厂商对照写成自己的 SPEC 分数。
+[上一课](/llm/nvlink-sharp)把 SHARP 放到交换内做集合规约：NVLink 6 服务域内 TP，IB SHARP 服务柜外，同名不同层。缺口是 GPU 之外谁来跑控制流：工具调用、沙箱、路由、KV 预置、批调度，这些不太吃 Tensor Core。本课写 **Vera CPU**：88 个自研 Olympus 核、Spatial Multithreading、以及相对 Grace 的内存与 C2C。不重讲网内加法，也不把「IPC 高 50%」写成自己的 SPEC 分数。后课超芯默认已经读完这条 CPU 侧。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 机制见 Gyöngy 与 Dupire 的边际匹配；粒子校准见 Guyon and Henry-Labordère；混合 SLV 的工程传统见 Lipton 以及 Ren, Madan and Qian</footer>
 </div>
 
-[Dupire](/quant/dupire) 能把欧式曲面变成 $\sigma_{\mathrm{loc}}(S,t)$，香草拟合到数值误差，但远期微笑被锁死。[Heston](/quant/heston) 与 [SABR](/quant/sabr) 保留动态，却只用几个参数去贴整张面，残差落在翼部与短端。局部随机波动（local-stochastic volatility, LSV / SLV）把二者乘在一起：随机方差因子负责聚类与杠杆，杠杆函数 $L$ 负责把条件方差修到与 Dupire 一致。结果是香草仍对齐市场，障碍等路径产品的价格落在纯局部与纯随机之间。本篇写这一乘积规格、条件期望约束与粒子校准，不重复 Dupire 公式推导，也不把 Heston 五参数再解释一遍。
+[上一课](/quant/sabr-calib)把 SABR 校准写成 Hagan 映射的反问题：冻 $\beta$，ATM 解 $\alpha$，加权拟合 $\rho,\nu$，并检查密度与日历。[Dupire](/quant/dupire) 能把欧式曲面变成 $\sigma_{\mathrm{loc}}(S,t)$，香草拟合到数值误差，但远期微笑被锁死；纯随机波动保留动态，却贴不齐整张面。缺口是乘积规格：随机因子负责聚类与杠杆，杠杆函数 $L$ 把条件方差修到与 Dupire 一致。本课写 LSV 的约束与粒子校准，不重推 SABR 的识别策略，也不把 Heston 五参数再解释一遍。
 
 ## 问题
 

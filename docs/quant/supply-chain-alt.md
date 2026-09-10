@@ -11,7 +11,7 @@ section: quant
 <footer>—— Cohen and Frazzini, Economic Links and Predictable Returns, Journal of Finance, 2008</footer>
 </div>
 
-供应链把公司连成有向图：客户公告、地震、港口堵塞与运价冲击沿边传播。Cohen 与 Frazzini（2008）用 Compustat 披露的主要客户关系，发现客户收益预测供应商随后收益，市场对沿边信息反应不足。Menzly 与 Ozbas（2010）用投入产出表得到更宽的跨行业可预测性。Acemoglu、Carvalho、Ozdaglar 与 Tahbaz-Salehi（2012）从网络结构解释特质冲击如何变成宏观波动。Barrot 与 Sauvagnat（2016）用自然灾害识别投入专用性；Carvalho、Nirei、Saito 与 Tahbaz-Salehi（2021）用东日本大地震追踪供应链中断。货运是同一张图上的流量与价格：波罗的海干散货指数、铁路车皮、集装箱运价、AIS 船舶轨迹的**公开或授权统计**。Kalouptsidi（2014）把船舶建造时滞写成航运供给的状态变量；Brancaccio、Kalouptsidi 与 Papageorgiou（2020）把地理与搜寻写成内生贸易成本。本篇把供应链与货运当作研究用另类信息：边与流量如何进入收益，而不是如何爬取提单或定位单艘商船的操作说明。
+[上一课](/quant/card-spending)把卡与账户流水写成流动性约束下的消费测量：评价应先看对官方序列的 nowcast，再问公司特异残差是否存在；授权日与结算日是测量问题。缺口是公司还连成有向图：客户公告、自然灾害与运价沿边传播，货运指数混合需求、船舶供给与拥塞。Cohen–Frazzini 与 Menzly–Ozbas 把贸易边写成收益可预测性；边必须滞后到可获得。本课写供应链与货运如何进入收益，不重写卡数据的家庭金融识别。对象是研究用公开或授权统计，不是如何定位单船。
 
 ## 问题
 

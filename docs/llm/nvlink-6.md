@@ -11,7 +11,7 @@ section: llm
     <footer>—— NVIDIA 技术博客：NVLink 6 delivers 3.6 TB/s of bidirectional GPU-to-GPU bandwidth per GPU</footer>
 </div>
 
-Scale-Up 的屋顶线写在卡间，不写在以太网端口上。NVIDIA 对 **NVLink 6** 的公开规格是：**每 GPU 双向 3.6 TB/s（3600 GB/s）的 GPU–GPU 带宽**，相对 Blackwell 一代每 GPU 1.8 TB/s 翻倍。出处是 NVIDIA 技术博客 *Inside the NVIDIA Vera Rubin Platform: Six New Chips, One AI Supercomputer* 与 *Inside NVIDIA Rubin GPU Architecture* 中的互连对照表，不是本站测量。在 [Vera Rubin NVL72](/llm/vera-rubin-nvl72) 里，NVLink 6 交换托盘把 72 张 Rubin GPU 收成全互连域：任意 GPU 到任意 GPU 走机柜脊，而不是走 ToR。本篇只谈这条 Scale-Up 织物，柜外 RDMA 见 [GPUDirect](/llm/infiniband-gpudirect)。
+[上一课](/llm/rubin-tma)把 TMA 写成硬件描述符上的批量异步搬移，对象是近端：寄存器 → 共享内存 → HBM。缺口是跨节点通信不是 TMA 的对象；Scale-Up 的屋顶线写在卡间。本课写 **NVLink 6**：公开规格为每 GPU 双向 3.6 TB/s，NVL72 交换托盘把 72 张 Rubin 收成全互连域。不重讲描述符与 MoE 槽的内联覆盖。柜外 RDMA 见 [GPUDirect](/llm/infiniband-gpudirect)。
 
 ## 问题
 

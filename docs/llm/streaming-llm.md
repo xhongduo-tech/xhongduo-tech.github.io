@@ -11,7 +11,7 @@ section: llm
 <footer>—— Xiao 等，Efficient Streaming Language Models with Attention Sinks，2023</footer>
 </div>
 
-[Attention Sink](/llm/attention-sink) 一篇只讲现象：softmax 把质量沉到最初几个标记，滑窗一旦切掉它们，窗口内权重失真。Xiao 等人 2023 年的 StreamingLLM 把现象收成一套推理配方，并在语言建模与流式生成上证明：不微调、不恢复全历史，也能让已训好的稠密注意力模型在「任意长」的生成中保持稳定的困惑度。本篇写这套配方与它的产品边界，汇点机制不重复展开。
+[上一课](/llm/long-context-eval)把宣称窗口与有效上下文分开：NIAH 是检索冒烟，全绿不能肯定可用；RULER 把 $L_{\mathrm{eff}}$ 读成随难度左移的曲线。评测尺子有了。缺口是服务端想要 KV 不随 $t$ 涨：滑窗给出 $O(w)$ 缓存，全注意力预训练的模型一改窗却会在切掉文首后胡言。[Attention Sink](/llm/attention-sink) 只讲了现象。Xiao 等人 2023 年的 StreamingLLM 把现象收成一套推理配方：不微调、不恢复全历史。本课写这套配方与产品边界，不重做评测集的任务族，也不把汇点机制再展开。
 
 ## 问题
 

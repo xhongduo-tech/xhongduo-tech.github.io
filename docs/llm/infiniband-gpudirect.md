@@ -11,7 +11,7 @@ section: llm
     <footer>—— NVIDIA GPUDirect RDMA：第三方 PCIe 设备可直接读写 GPU 显存，避开主机 DRAM 弹跳缓冲</footer>
 </div>
 
-[Scale-Up 与 Scale-Out](/llm/scale-up-vs-scale-out) 把机柜内 NVLink 域和机柜间数据中心网络拆成两层。本篇只谈 Scale-Out 这一层里、对大模型训练与推理最关键的两条技术：**InfiniBand**（以及同语义的 RoCE）作为跨节点传输平面，**GPUDirect** 作为让这块平面直达 HBM 的路径。没有 GPUDirect，NCCL 的跨节点 All-Reduce 会在 GPU 与网卡之间多走主机 DRAM；有了它，网卡 DMA 引擎对着 GPU 暴露的 PCIe 窗口读写，主机只在注册缓冲区时出现，不在数据路径上。Vera Rubin NVL72 一类机柜把 72 张 GPU 收成一块加速器之后，柜外仍然要靠这层网络把许多机柜收成集群，见 [Vera Rubin NVL72](/llm/vera-rubin-nvl72)。
+[上一课](/llm/nvlink)把 GPU–GPU 专用互连钉在 NVLink / NVSwitch 上：最密的集合通信必须落在域内，跨柜走网卡。缺口是 Scale-Out 这一层如何直达 HBM：没有 GPUDirect，跨节点 All-Reduce 会在 GPU 与网卡之间弹跳主机 DRAM。本课写 InfiniBand（以及同语义的 RoCE）加上 GPUDirect RDMA。不重讲 600 / 900 / 1800 GB/s 那张卡间表。柜外把许多机柜收成集群，见 [Vera Rubin NVL72](/llm/vera-rubin-nvl72)。
 
 ## 问题
 

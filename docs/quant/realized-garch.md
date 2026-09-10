@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hansen, Huang and Shek, Realized GARCH: A Joint Model for Returns and Realized Measures of Volatility, Journal of Applied Econometrics 2012</footer>
 </div>
 
-GARCH 只用 $\varepsilon_{t-1}^2$ 更新 $\sigma_t$；HAR 只用 RV 的滞后预测 RV，不保证与收益的条件方差是同一个过程。Hansen、Huang 与 Shek（2012）的已实现 GARCH（Realized GARCH）把两者接起来：GARCH 式的潜方差 $h_t$ 由过去的已实现测量驱动，再写一条测量方程，把当日 RV（或核、双幂次）连到 $h_t$ 与当日收益新息。对象是**收益与已实现测度的联合动态**，从而一步 $h_{t+1}$ 能用上今日收盘前已经实现的日内信息。它不是把 GARCH 的 $\varepsilon^2$ 换成 RV 那么简单，测量方程里的杠杆函数才把日收益与 IV 的同期相关写进去。
+[上一课](/quant/stochastic-volatility)让对数方差走带新息的自回归；有 RV 时潜波动被钉住，SV 与已实现测量模型合流。缺口是把合流写成可估的联合动态：GARCH 只用 $\varepsilon_{t-1}^2$ 更新；HAR 只用 RV 预测 RV，不保证与收益的条件方差是同一个过程。Hansen–Huang–Shek 的已实现 GARCH 让潜方差 $h_t$ 由已实现测量驱动，再写测量方程把当日 RV 连到 $h_t$ 与当日收益新息。本课写这条联合模型。不重推 Heston 特征函数。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Barndorff-Nielsen, Hansen, Lunde and Shephard, Designing Realized Kernels to Measure the ex post Variation of Equity Prices in the Presence of Noise, Econometrica 2008</footer>
 </div>
 
-朴素已实现方差把噪声的二次变差按采样次数加进积分波动。两尺度方法用疏密网格解两个未知数；已实现核把同一问题写成 HAC：噪声表现为短滞后的收益自相关（Roll 指纹），用核函数把这些滞后加回去。Barndorff-Nielsen、Hansen、Lunde 与 Shephard（2008）给出核估计量在内生噪声下的设计条件，2009 年的实践论文处理清洗、带宽与成交/报价选择。本篇专写核本身：公式、核函数、带宽，以及它与 [RV 噪声修正](/quant/rv-noise) 里其他估计量的分工。
+[上一课](/quant/har-rv)用日、周、月 RV 近似长记忆，对象是已实现方差的条件均值，不包含方差风险溢价，也不能替代噪声修正后的 RV 构造。缺口正是构造：朴素已实现方差把噪声的二次变差按采样次数加进积分波动。已实现核把同一问题写成 HAC：噪声表现为短滞后的收益自相关，用核函数把这些滞后加回去。Barndorff-Nielsen、Hansen、Lunde 与 Shephard 给出内生噪声下的设计条件。本课专写核、带宽，以及它与 [RV 噪声修正](/quant/rv-noise) 里其他估计量的分工。不重推 HAR 的三期限回归。
 
 ## 问题
 

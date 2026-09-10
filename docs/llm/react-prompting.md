@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Yao et al., ReAct, ICLR 2023 的提示协议；交错循环的系统含义见多步 ReAct 专文</footer>
 </div>
 
-[多步 ReAct](/llm/react) 写的是控制流：Thought–Action–Observation 循环、停止条件、错误如何随步数累积。本篇只写 *提示形态*：少样本里一条轨迹长什么样、槽位如何命名、怎样示范失败后改口、自由文本格式如何退化，以及它与 [function calling](/llm/function-calling) 信封的对应。不把规划器、MCP 拓扑或产品编排再讲一遍。读完应能写出一套与线上动作空间一致的示范，而不是再实现一个智能体运行时。
+[上一课](/llm/pal-pot)让模型生成程序、由解释器执行：评测看执行结果，不看代码字符串；一次交脚本，中途没有观察。[多步 ReAct](/llm/react) 已经写出 Thought–Action–Observation 循环。缺口是提示形态：少样本里一条轨迹长什么样、槽位如何命名、怎样示范失败后改口。本课只写表面协议，不把规划器或产品编排再讲一遍。解码应在 Observation 前停止，禁止模型伪造观察。后课 Reflexion 默认：任务一结束，失败原因并不自动进入下一次尝试。
 
 ## 问题
 

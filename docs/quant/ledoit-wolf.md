@@ -11,7 +11,7 @@ section: quant
     <footer>—— Ledoit and Wolf, Honey, I Shrunk the Sample Covariance Matrix, Journal of Portfolio Management, 2004；公式见 2003 年 JEF 与 2004 年 JMA</footer>
 </div>
 
-[估计误差与收缩](/quant/cov-shrinkage) 写的是病态协方差如何毁掉 Markowitz 权重，以及收缩、因子、随机矩阵清理的分工。本篇把 Ledoit–Wolf（LW）估计器本身写具体：目标 $F$ 怎么选、最优强度 $\delta$ 从哪一组矩来、2003–2004 年三篇论文各自收缩向哪里，以及它与后来的非线性收缩、[因子协方差](/quant/factor-vs-sample-cov) 如何衔接。公式是
+[上一课](/quant/sovereign-cds)停在信用曲线。缺口是组合优化里协方差怎么估。[估计误差与收缩](/quant/cov-shrinkage) 写的是病态协方差如何毁掉 Markowitz 权重，以及收缩、因子、随机矩阵清理的分工。本篇把 Ledoit–Wolf（LW）估计器本身写具体：目标 $F$ 怎么选、最优强度 $\delta$ 从哪一组矩来、2003–2004 年三篇论文各自收缩向哪里，以及它与后来的非线性收缩、[因子协方差](/quant/factor-vs-sample-cov) 如何衔接。公式是
 
 $$
 \hat\Sigma=(1-\delta)S+\delta F,

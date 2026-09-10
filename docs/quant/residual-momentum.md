@@ -11,7 +11,7 @@ section: quant
     <footer>—— Blitz, Huij & Martens, Residual Momentum, Journal of Empirical Finance, 2011</footer>
 </div>
 
-普通[动量 WML](/quant/momentum-wml) 按过去 12−1 个月的总收益排序。总收益里混着 $\beta$、价值、行业与特异部分。Grundy 与 Martin 早已指出，动量的因子暴露随形成期的因子收益而变：牛市过后赢家是高 $\beta$，熊市过后赢家是低 $\beta$。崩溃往往发生在市场反转时，旧暴露变成错误的方向。Blitz、Huij 与 Martens 把排序变量换成对市场或三因子回归的残差累计，意图保住特异动量、削掉时变的因子赌注。它不是「更安全的印钞机」：残差估计有噪声，换手与容量问题仍在，崩溃会减轻但不保证消失。
+[上一课](/quant/pca-stat-arb)用 PCA/SVD 或 ETF 抽共同因子，交易残差的均值回归；对象是正交补，半衰期会时变甚至变号。那是短 horizon 残差回归，符号可能与中期相对强度相反。普通 [WML](/quant/momentum-wml) 按 12−1 总收益排序，混着 $\beta$、价值、行业与特异部分；崩溃往往发生在市场反转时，旧暴露变成错误方向。缺口是把排序变量换成因子回归残差的累计，试图保住特异动量、削掉时变的因子赌注。本课写这条残差动量，必须与上一课的短 horizon 残差策略分账，不重推 SVD。
 
 ## 问题
 

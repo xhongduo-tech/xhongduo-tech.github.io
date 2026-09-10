@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA 对第三代 MGX 与 Vera Rubin NVL72 的公开机械叙事：cable-free、hose-free、fanless，NVLink 交换托盘可在机柜继续运行时更换</footer>
 </div>
 
-[机柜作为一块逻辑加速器](/llm/rack-as-accelerator) 讲的是编程模型。本篇讲这块加速器怎么被装进 19 英寸机柜：第三代 NVIDIA MGX。Vera Rubin NVL72 公开写成建立在第三代 MGX 机柜上，18 个计算托盘加 9 个 NVLink 交换托盘，72 个 Rubin GPU 与 36 个 Vera CPU，ConnectX-9 与 BlueField-4 也在托盘里。相对 Blackwell 一代，公开重点从「把 72 卡连上」转到「无缆模块化与可服务性」。NVIDIA 称 Vera Rubin NVL72 已进入量产、按计划在 2026 下半年出货。机械与 RAS 只引用官方已经写出的结构，不编造未公开的背板针数或铜缆眼图。
+[上一课](/llm/spectrum-6-cpo)把 Spectrum-6 写成 102.4 Tb/s 级以太网交换，CPO 把硅光引擎与 ASIC 共封装，目标是功耗与可维护性。缺口是这块加速器怎么被装进 19 英寸机柜：电缆、风扇、软管才是现场故障，不是算法。[机柜作为一块逻辑加速器](/llm/rack-as-accelerator) 讲编程模型；本课讲第三代 MGX：无缆计算托盘与可热插拔交换。不重讲 ELS 与 SN6800 端口表。后课液冷默认已经读完同一套机柜的机械面。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Glasserman, Monte Carlo Methods in Financial Engineering, 2004；Boyle, Options: A Monte Carlo Approach, Journal of Financial Economics, 1977</footer>
 </div>
 
-[蒙特卡洛定价](/quant/mc-pricing) 写风险中性抽样与离散偏差。[对偶、控制变量与重要性采样](/quant/mc-variance-reduction) 把三种方差缩减放在同一约束下。本篇只把控制变量落到**欧式**支付：为什么闭式香草是默认 $C$、$\beta$ 怎么估、几何亚式如何控算术亚式、随机波动里用哪一个 Heston 近似、以及控制解决不了什么。美式 LSM 的策略偏差不在此消除；障碍与稀有事件优先重要性采样。Heston 的特征函数定价见 [Heston](/quant/heston) 与 [Carr–Madan](/quant/carr-madan)，那些是解析引擎，不是本篇的 $C$。
+[上一课](/quant/tree-early-exercise)把重组树上的美式写成每个节点 $\max(g,\text{风险中性续持})$；一维香草用树或 PDE，路径依赖不重组时改 LSM。方差缩减课已经把对偶、控制变量与重要性采样放在同一约束下。缺口是把控制变量落到欧式支付：闭式香草为什么是默认 $C$、$\beta$ 怎么估、几何亚式如何控算术亚式。本课写这一构造，不重讲树上的执行区域。美式 LSM 的策略偏差不在此消除；障碍与稀有事件优先重要性采样。
 
 ## 问题
 

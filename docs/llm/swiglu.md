@@ -11,7 +11,7 @@ section: llm
 <footer>—— Hendrycks &amp; Gimpel, GELU, 2016；Shazeer, GLU Variants, 2020</footer>
 </div>
 
-ReLU FFN 把负值打成零。Hendrycks 与 Gimpel 在 2016 年提出 GELU：把 ReLU 的硬门改成按高斯尾部加权的软门，$x$ 本身乘上它大于零的概率。BERT 和 GPT-2 把 GELU 写进 Transformer 的 FFN，成为 2018–2020 年的默认激活。2020 年 Shazeer 的 *GLU Variants Improve Transformer* 把门控线性单元接到 FFN 上，比较 ReGLU、GeGLU、SwiGLU，结论是 SwiGLU 稳定地优于 GELU MLP。之后的 PaLM、LLaMA、Qwen、DeepSeek 稠密层几乎都用 SwiGLU：SiLU 门控点乘另一条线性，再投回隐藏维。本篇只讲这条激活与门控的演进，不把 GLU 的卷积起源展开成另一篇文章。
+[上一课](/llm/relu-ffn)把逐位置两层 MLP 写成 Transformer 的前馈基线：短序列上它往往比注意力更耗算力，ReLU 硬截断会造成死神经元。缺口正是这条硬门：负值梯度精确为零，幅度与符号在语言模型里都携带信息。Hendrycks 与 Gimpel 的 GELU 把硬门改成软门；Shazeer 2020 年的 SwiGLU 再把门控拆成内容支路与门支路，中间维常取 $\tfrac{8}{3}d$ 以对齐原 FFN 参数量。本课写这条激活与门控的演进，不重写四倍宽度的账。GLU 的卷积起源下一篇再展开。
 
 ## 问题
 

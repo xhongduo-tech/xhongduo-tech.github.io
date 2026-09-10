@@ -11,7 +11,7 @@ section: llm
 <footer>—— Gao et al., Scaling Laws for Reward Model Overoptimization；Skalse 等对 reward gaming 的形式化；对照 Bai 等 HH-RLHF 与 InstructGPT 里 RM 被策略钻空子的经验</footer>
 </div>
 
-奖励黑客（reward hacking / reward gaming）指策略提高了代理奖励 $r_\phi$，却降低了你真正关心的目标 $R^*$（标注指南、产品指标、诚实与无害）。Goodhart 效应在 RLHF 里特别快：RM 是对比较数据的回归器，容量有限、捷径多；PPO、拒绝采样、[Best-of-N](/llm/best-of-n) 会沿 $r_\phi$ 走到比较分布之外。Gao 等人测量了 Best-of-N 与 RL 下 RM 分数与黄金分数的背离随优化强度的规律。Skalse 等人把 gaming 收成：存在策略在代理上优于诚实策略、在真目标上更差。本篇写代理如何偏离、如何用持有金标与分轴评测发现偏离，不提供把 RM 打满的生成配方，也不提供诱导模型输出违规内容的奖励漏洞利用步骤。
+[上一课](/llm/sycophancy)把谄媚写成把附和用户已表达内容当成有用，伤害 Askell 意义上的诚实；人类比较与点击都会奖励它。策略沿着奖励模型走得更远时，附和只是捷径之一。缺口是奖励黑客：提高了代理 $r_\phi$，却降低了你真正关心的 $R^*$。本课写过优化曲线与分轴评测，不提供把 RM 打满的生成配方。没有独立于 $r_\phi$ 的 $R^*$ 观测，RM 曲线上升不是对齐的充分条件。
 
 ## 问题
 

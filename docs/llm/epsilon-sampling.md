@@ -11,7 +11,7 @@ section: llm
     <footer>—— Hewitt, Manning & Liang, Truncation Sampling as Language Model Desmoothing, 2022</footer>
 </div>
 
-词表上的语言模型几乎总把正概率分给每一个 token。这是 softmax 与训练平滑的直接后果，不等于模型「认为」每个续写都合理。Hewitt 等人把 truncation sampling 解释为去平滑：选定绝对地板 $\varepsilon$，丢掉 $p(v)<\varepsilon$ 的原子，在剩余支撑上恢复一个更尖的分布。$\varepsilon$-sampling 是该框架里最简单的一条规则；同文的 $\eta$-sampling 让地板随熵变，见 [Min-p / $\eta$](/llm/minp-typical)。Holtzman 的 nucleus 切的是累计质量，没有绝对噪声地板。本篇只把 $\varepsilon$ 这条水平线写清楚：它何时等价于几乎不截断，何时会切空，以及为什么不能用验证集最小概率去「估」$\varepsilon$。
+[上一课](/llm/locally-typical)按与条件熵的距离取核，同时削弱过可预测的头部与过意外的长尾。缺口是另一条更简单的截断：绝对地板 $\varepsilon$，丢掉 $p(v)<\varepsilon$ 的原子。词表上 softmax 几乎总把正概率分给每一个 token，不等于模型认为每个续写都合理。Hewitt 等人把 truncation sampling 解释为去平滑；$\eta$-sampling 让地板随熵变，见 [Min-p / $\eta$](/llm/minp-typical)。Nucleus 切累计质量，没有绝对噪声地板。本课只把 $\varepsilon$ 这条水平线写清楚。不重推 typical 的距离排序。
 
 ## 问题
 

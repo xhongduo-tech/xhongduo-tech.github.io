@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA TensorRT-LLM 文档与 2023 年 10 月开源说明</footer>
 </div>
 
-TensorRT-LLM 是 NVIDIA 的开源 LLM 推理库，目标不是再发明一套注意力公式，而是把 Hopper/Blackwell 上的 Tensor Core、Transformer Engine、FP8/FP4 以及融合核，收成可部署的运行时。2023 年 10 月仓库公开时，主打 in-flight batching、paged KV、流式输出，并强调相对手写 FasterTransformer 的可维护性。随后文档补上 Python LLM API、与 Triton / Dynamo 的衔接，以及 PyTorch 侧可改的模块化架构。本篇按官方文档与开发者博客写能力边界，不编造会议论文编号——它是产品仓库，不是 SOSP 那一类单篇系统论文。
+[上一课](/llm/constrained-decoding)把约束解码写成逐步掩码：token 化与字符文法不对齐会造成错误掩码或可表示性空洞；热路径掩码必须按序列、可与连续批共存。缺口是 NVIDIA GPU 上要把 IFB、paged KV 与平台量化核收成可部署运行时，而不是再发明注意力公式。TensorRT-LLM 是产品仓库，编引擎换峰值，PyTorch 路径换迭代速度。本课按官方文档写能力边界，不重写文法自动机，也不编造会议论文编号。
 
 ## 问题
 

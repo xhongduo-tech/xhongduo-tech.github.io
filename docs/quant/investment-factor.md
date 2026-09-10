@@ -11,11 +11,11 @@ section: quant
 <footer>—— Cooper, Gulen & Schill, Asset Growth and the Cross-Section of Stock Returns, Journal of Finance, 2008</footer>
 </div>
 
-公司加总资产之后，股东事后平均拿得更少。Titman、Wei、Xie 2004 年写过资本开支异常；Cooper、Gulen、Schill 把度量扩成总资产增长率，效应更强、更宽。Fama–French 把低投资减高投资做成 [CMA](/quant/ff5)。q 理论把高投资读成低贴现率的结果；过度投资与帝国建造把它读成代理问题。本篇写资产增长的会计分解、CMA 与单变量投资因子的差别，以及它和[价值](/quant/value-factors)、[盈利](/quant/quality-profitability)的共线。
+[上一课](/quant/liquidity-factor)把非流动性写成 ILLIQ 特征与 Pástor–Stambaugh 风险因子，并点名与规模、反转共线。缺口转到公司侧：加总资产之后，股东事后平均拿得更少。Titman–Wei–Xie 写过资本开支异常；Cooper–Gulen–Schill 扩成总资产增长率；Fama–French 把低投资减高投资做成 [CMA](/quant/ff5)。q 理论把高投资读成低贴现率；过度投资把它读成代理问题。本课写资产增长的会计分解、CMA 与单变量投资因子的差别，以及它和[价值](/quant/value-factors)、[盈利](/quant/quality-profitability)的共线。不重写 ILLIQ 与流动性 β。
 
 ## 问题
 
-给定当前市值，股利贴现说：未来再投资越多、留给股东的自由现金流越晚，内部收益率越低。于是**预期投资高应对应预期收益低**。投资可以观测为资本开支、固定资产增长、存货增长、并购带来的总资产跳跃，或一揽子 $\Delta A_t/A_{t-1}$。若市场对贴现率或对代理问题定价不全，高增长资产的公司会留下负 α。
+流动性是交易摩擦；投资是资产负债表上的再投资。给定当前市值，股利贴现说：未来再投资越多、留给股东的自由现金流越晚，内部收益率越低。于是**预期投资高应对应预期收益低**。投资可以观测为资本开支、固定资产增长、存货增长、并购带来的总资产跳跃，或一揽子 $\Delta A_t/A_{t-1}$。若市场对贴现率或对代理问题定价不全，高增长资产的公司会留下负 α。
 
 三因子用 B/M 间接包含了一部分：高投资常压低未来 B/M、抬高当前估值。实证上资产增长在控制 B/M 后仍然预测负收益，所以不是纯价值。盈利侧则相反：高盈利公司有时多投资，有时把现金吐出；投资与盈利必须分开，否则 CMA 会偷偷带上 RMW 的反号。
 

@@ -11,11 +11,11 @@ section: llm
 <footer>—— Dauphin et al., Language Modeling with Gated Convolutional Networks, 2017</footer>
 </div>
 
-Gated Linear Unit（GLU）比 Transformer 还早进入语言模型。Dauphin 等人 2017 年在卷积语言模型里用 GLU 替代普通卷积后的 ReLU：同一段输入分成两半，一半走 $\sigma$，一半保持线性，点乘后作为层输出。LSTM 的输入门、遗忘门证明过「门控对语言建模极有用」，但循环算起来慢。GLU 把门控留在前馈或卷积里，保留选择信息的能力，丢掉时间步进。2020 年 Shazeer 把同一思想接到 Transformer 的 FFN，得到 ReGLU、GeGLU、SwiGLU。本篇只讲 GLU 本身：门从哪来、和残差、和 MoE 路由有何不同。
+[上一课](/llm/swiglu)把现代稠密 LLM 的默认 FFN 收成 $\mathrm{SiLU}(xW)\odot(xV)$ 再投影。它改的是前馈槽位里的激活与矩阵数，不是专家路由。缺口是门控本身从哪来：Dauphin 等人 2017 年在卷积 LM 里用 $\sigma(xW)\odot(xV)$，内容支路保持线性，丢掉循环、保住选择。2020 年 Shazeer 把同一思想接到 Transformer 的 FFN，得到 ReGLU、GeGLU、SwiGLU。本课写 GLU：门从哪来、和残差、和 MoE 路由有何不同。不重测 SwiGLU 的困惑度表。
 
 ## 问题
 
-深度网络若只做线性再加逐点非线性，每个通道要么被激活函数压扁，要么原样穿过，没有「这一维这次要不要写入下一层」的独立开关。循环网络用门解决这个问题，但序列长度上无法并行。卷积或 Transformer 的前馈层是并行的，若仍用 ReLU，就缺少显式的信息流控制。
+[SwiGLU](/llm/swiglu) 已经是生产上的默认 FFN。它继承的那条不对称——内容支路线性、门走饱和——不是 2020 年才发明的。深度网络若只做线性再加逐点非线性，每个通道要么被激活函数压扁，要么原样穿过，没有「这一维这次要不要写入下一层」的独立开关。循环网络用门解决这个问题，但序列长度上无法并行。卷积或 Transformer 的前馈层是并行的，若仍用 ReLU，就缺少显式的信息流控制。
 
 Dauphin 面对的是门控卷积：希望卷积层既能看局部上下文，又能像 LSTM 那样挡住无关特征。他们比较了 $\tanh$ 门、sigmoid 门和 GLU，发现 GLU 训练更快、更稳。问题因此被说成：在非循环结构里，用最少的额外线性层，给每个通道一个数据相关的系数。
 

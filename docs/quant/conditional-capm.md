@@ -11,11 +11,11 @@ section: quant
 <footer>—— Jagannathan–Wang；Lettau–Ludvigson 用 $cay$ 做条件定价</footer>
 </div>
 
-CAPM 说资产的条件期望收益正比于它对市场的条件 beta。实证里人们却拿全样本平均收益对全样本 beta 做截面回归，发现截距、规模、价值都拒绝模型。Jagannathan 与 Wang（1996）指出：若 beta 或市场溢价随状态变化，无条件 CAPM 可以不成立，而条件 CAPM 仍然成立。Lettau 与 Ludvigson（2001）用消费–财富比 $cay$ 作为状态变量，显示价值、规模等组合的条件 beta 在坏状态下更高，从而在无条件均值里表现为「异象」。条件 CAPM 要处理的，就是把时变风险从「alpha」里还给定价。
+[上一课](/quant/multiple-testing-factors)把因子发现写成多重检验：t=2 是单次门槛，动物园里要用更高的 t，并把未报告的尝试计入。缺口转到定价语句本身：无条件 CAPM 被规模与价值拒绝，是否只因为 beta 与市场溢价随状态变化？Jagannathan–Wang 与 Lettau–Ludvigson（含 $cay$）把条件模型写成可估的缩放因子。Hansen–Richard 说条件有效并不蕴含无条件有效。本课写条件 CAPM 如何把时变风险从 alpha 里还给定价，以及 Lewellen–Nagel 为何认为许多版本所需的 beta 时变过大。不重写 p-hacking 的计数。
 
 ## 问题
 
-条件模型写为
+多重检验管「这个 α 算不算发现」；留下的是 α 会不会只是条件 beta 的无条件投影。条件模型写为
 
 $$
 E[r_{i,t+1}\mid \mathcal{F}_t]=\beta_{i,t}\,E[r_{m,t+1}\mid \mathcal{F}_t],

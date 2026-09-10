@@ -11,7 +11,7 @@ section: quant
 <footer>—— Nelson, Conditional Heteroskedasticity in Asset Returns: A New Approach, Econometrica 1991；Glosten, Jagannathan and Runkle, Journal of Finance 1993</footer>
 </div>
 
-GARCH(1,1) 对正负残差一视同仁，但股票指数的波动在下跌后升得更猛。Black（1976）用财务杠杆讲故事：股价跌则公司杠杆升，股权波动升。Nelson（1991）的 EGARCH 在对数方差上同时放入冲击的绝对值与符号；Glosten、Jagannathan 与 Runkle（1993）的 GJR 在水平平方上加一个负残差哑变量。两者要解决的是**非对称波动**，不是另起一套积分波动理论。对象仍是日收益的条件方差；有 RV 时，非对称可以写进 HAR 或已实现 GARCH 的杠杆项，逻辑同源。
+[上一课](/quant/garch)把 ARCH 收成 GARCH(1,1)，平稳性要求 $\alpha+\beta<1$，并点名对称 GARCH 不解释杠杆效应。缺口就是非对称：股票指数的波动在下跌后升得更猛。Nelson 的 EGARCH 在对数方差上同时放入冲击大小与符号；GJR 在水平平方上为负残差加额外权重。本课写新闻冲击曲线，并不识别财务杠杆与波动反馈。不重推 GARCH(1,1) 的 $\omega,\alpha,\beta$。
 
 ## 问题
 

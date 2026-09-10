@@ -11,7 +11,7 @@ section: llm
     <footer>—— NVIDIA NCCL 文档与 GPU 集群上的 Megatron 类预训练实践</footer>
 </div>
 
-预训练的并行维最终都要落到集体通信。数据并行要同步梯度，张量并行要在层内归约或聚集激活，流水线要在阶段之间递交激活，专家并行要 All-to-All，上下文并行要沿序列传键值。GPU 集群上这些调用大多经过 NCCL。NCCL 再往下，节点内尽量走 NVLink，跨节点走 InfiniBand 或 RoCE。算法论文里一个「All-Reduce」符号，在机柜里可能是 NVLink 上的环，再拼一条跨节点的树；带宽可以差出一个数量级。本篇把这三层——库、节点内互连、跨节点网络——放到同一张图里，说明预训练为什么对拓扑如此敏感。
+[上一课](/llm/activation-checkpointing)用计算换激活显存，按 Transformer 层设检查点；瓶颈不在激活时不应再加深重计算。缺口是集体通信落到哪条物理链路上。DP、TP、PP、EP、CP 最终都要经 NCCL：节点内走 NVLink，跨节点走 InfiniBand 或 RoCE，带宽可以差出一个数量级。本课把库、节点内互连、跨节点网络放到同一张图里。不重讲分段检查点。后课扩展律默认已经读完：层内高频通信必须落在 NVLink 域。
 
 ## 问题
 

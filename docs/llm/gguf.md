@@ -11,11 +11,11 @@ section: llm
 <footer>—— ggml / llama.cpp 的 GGUF 规范与 k-quant 实现说明</footer>
 </div>
 
-本地推理要把模型当成一个文件打开，而不是先起 Python、再把 safetensors 解成半精度再临时量化。GGUF（GPT-Generated Unified Format）是 ggml 生态用来替换早期混乱 `.bin` / GGML 文件的容器：魔数、版本、键值元数据、张量信息、然后是按块存放的量化权重。k-quant（`Q2_K` … `Q6_K`，以及常见的 `Q4_K_M` 配方）是写在这种容器里的一族**分块量化数据类型**，用 256 权重量级的超级块、块内再分组，配不同精度的尺度，减轻老式 `Q4_0` 一块一个 scale 对异常通道的伤害。它不是一篇 ICLR 论文里的新目标函数，而是 llama.cpp 里为 CPU / Metal / CUDA 核写出来的存储与计算布局。质量与速度必须锁定量化类型再比；「GGUF 模型」只说明容器，不说明比特。运行时故事见 [llama.cpp / ggml](/llm/llamacpp)。
+[上一课](/llm/smoothquant)用逐通道对角缩放把激活异常值的量化难度迁到权重上，使 W8A8 的稠密 INT8 GEMM 可行，服务的是 prefill / 大 batch 算力墙。缺口是本地分发：要当一个文件打开就开始 matmul，而不是先起 Python 再临时量化；老式 `Q4_0` 单尺度又会被异常通道绑架。本课钉 GGUF 容器与 k-quant 分块布局。不重讲 $\alpha$ 迁移，也不把 GPTQ/AWQ 的目标函数再推一遍。运行时见 [llama.cpp / ggml](/llm/llamacpp)；后课其他 PTQ 默认「GGUF」只说明容器、不说明比特。
 
 ## 问题
 
-早期 GGML 二进制随量化方案迭代，转换脚本与加载器经常互不认。模型还要把词表、RoPE 基、架构名、量化版本放在一起，否则 mmap 到一半才发现缺 tokenizer。需要一种带版本的容器：新加载器能跳过不认识的元数据键，旧文件能报错而不是静默错。这是 GGUF 要解的**分发**问题。
+SmoothQuant 服务的是 GPU 上的 W8A8 核；本地要把模型当成一个文件打开。早期 GGML 二进制随量化方案迭代，转换脚本与加载器经常互不认。模型还要把词表、RoPE 基、架构名、量化版本放在一起，否则 mmap 到一半才发现缺 tokenizer。需要一种带版本的容器：新加载器能跳过不认识的元数据键，旧文件能报错而不是静默错。这是 GGUF 要解的**分发**问题。
 
 量化问题是另一轴。`Q4_0` 一类方案把 32 个权重共用一个 FP16 尺度，异常值把尺度拉大，同块其余权重的有效比特变少，困惑度在 7B 上已经刺手。GPTQ / AWQ 用校准去保护显著方向，但依赖 Python 量化流水线与特定 GPU 核，和 ggml 的「打开文件就开始 matmul」不吻合。k-quant 要在**纯分块、可 SIMD 反量化**的约束下，用更多的尺度比特换异常值鲁棒性，并且让转换在 CPU 上对任意 HF 权重跑完，不必解 Hessian。
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wang 与 Komatsuzaki，GPT-J，2021；Chowdhery 等，PaLM，2022</footer>
 </div>
 
-标准 Pre-LN 块是两条串行残差：先注意力写回 $x$，再前馈读这个更新后的状态。GPT-J 把两步改成从同一个 $\mathrm{LN}(x)$ 并行计算，相加后一次写回。PaLM 采用同一结构，并报告在其尺度上更省计算。并行不减少注意力的二次项，也不改变 FFN 宽度公式；它减少的是层内的串行深度，并让 FFN 看不到本层注意力的输出。参数效率与表示深度因此一起被改写。
+[上一课](/llm/residual-scaling)用随 $N$ 变化的 $\alpha,\beta$ 让每层对表示的改写保持小摄动，DeepNorm 使 Post-LN 深度可以到千层量级。它针对深度，不改层内串行。缺口是标准 Pre-LN 块里注意力与 FFN 必须串行：本层 FFN 读本层注意力的输出，流水线空隙大。GPT-J 改成从同一 $\mathrm{LN}(x)$ 并行计算、一次写回；PaLM 在大尺度上采用。本课写这条更浅的层内依赖，不重推 DeepNorm 的 $\alpha(N)$。并行不减少注意力的二次项，只改变参数所在深度与计算重叠。
 
 ## 问题
 

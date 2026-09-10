@@ -11,7 +11,7 @@ section: llm
 <footer>—— Press et al., Measuring and Narrowing the Compositionality Gap in Language Models, Findings of EMNLP 2023</footer>
 </div>
 
-多跳问题要求把若干事实按依赖顺序接起来。模型有时在单独问「A 的首都是哪」时能答对，一旦问「A 的首都的市长是谁」就编造或张冠李戴。Press 等人把这种落差叫做组合性缺口（compositionality gap），并提出 Self-Ask：模型先写出后续问题（follow-up），自答或检索后再写下一问，最后给原题答案。它看起来像极简版的[分解](/llm/least-to-most)加可选检索，但子问题的类型是 *补全缺失事实*，不是同一技能上更短的习题。本篇写这一提示形态，以及它与 [ReAct 提示](/llm/react-prompting) 在问句槽位上的差别。
+[上一课](/llm/reflexion)用口头强化把失败写进情景记忆，学习随记忆的生命周期结束；它改的是跨尝试的元文本，不是多跳事实的绑定。多跳问题要求把若干事实按依赖顺序接起来：子问题会答、组合题不会。缺口是 Self-Ask：强迫中间量以后续问句与中间答案的形式出现，以缩小组合性缺口。本课写这一提示形态，不重讲反思记忆。子问题是补全事实，不是同一技能的更短习题；与 [Least-to-Most](/llm/least-to-most) 外壳相似、对象不同。
 
 ## 问题
 

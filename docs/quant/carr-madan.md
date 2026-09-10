@@ -11,7 +11,7 @@ section: quant
     <footer>—— Carr and Madan, Option Valuation Using the Fast Fourier Transform, Journal of Computational Finance, 1999</footer>
 </div>
 
-[Heston](/quant/heston) 已经把欧式价格写成特征函数的反演，但原文是两条概率积分 $P_1,P_2$，每个执行价单独做振荡积分。Peter Carr 与 Dilip Madan 1999 年指出：若把看涨价格看成对数执行价 $k=\ln K$ 的函数，其傅里叶变换在适当阻尼下有闭式，且对一串等距 $k$ 可以用快速傅里叶变换一次算完。工程对象从此变成「特征函数 + 阻尼 + FFT 网格」，而不是「每个 $K$ 一次求积」。本篇写这条变换，不重推 Heston 的 Riccati；任何仿射或 Levy 模型只要交出 $\phi(u)=\mathbb{E}[e^{iu\ln S_T}]$，就接到同一套核上。蒙特卡洛与 [PDE](/quant/option-pde) 仍服务路径依赖与美式；香草截面的校准，FFT 通常是默认引擎。
+[上一课](/quant/funding-liquidity)把因子收到融资约束。缺口换成期权曲面的计算引擎：特征函数一次 FFT。[Heston](/quant/heston) 已经把欧式价格写成特征函数的反演，但原文是两条概率积分 $P_1,P_2$，每个执行价单独做振荡积分。Peter Carr 与 Dilip Madan 1999 年指出：若把看涨价格看成对数执行价 $k=\ln K$ 的函数，其傅里叶变换在适当阻尼下有闭式，且对一串等距 $k$ 可以用快速傅里叶变换一次算完。工程对象从此变成「特征函数 + 阻尼 + FFT 网格」，而不是「每个 $K$ 一次求积」。本篇写这条变换，不重推 Heston 的 Riccati；任何仿射或 Levy 模型只要交出 $\phi(u)=\mathbb{E}[e^{iu\ln S_T}]$，就接到同一套核上。蒙特卡洛与 [PDE](/quant/option-pde) 仍服务路径依赖与美式；香草截面的校准，FFT 通常是默认引擎。
 
 ## 问题
 

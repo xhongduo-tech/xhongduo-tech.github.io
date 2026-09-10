@@ -11,7 +11,7 @@ section: llm
 <footer>—— Xiong 等，On Layer Normalization in the Transformer Architecture，2020</footer>
 </div>
 
-原版 Transformer 把 LayerNorm 放在残差加法之后，称为 Post-LN。GPT-2 之后的绝大多数解码器把 LayerNorm 放在注意力与前馈之前，残差在未归一化的主干上相加，称为 Pre-LN。Xiong 等人 2020 年的分析指出：这不是风格差异，而是梯度尺度与初始化下的稳定性差异。现代大模型几乎一边倒选 Pre-LN，并不等于 Post-LN 的表示更差；而是在几百层、大学习率、少 warmup 的约束下，Pre-LN 能先把损失拉下来。
+[上一课](/llm/nope)说明解码器的可见前缀长度已经泄漏顺序，显式位置有时会变成过拟合训练长度的捷径，位置通道可以做减法。缺口从坐标转到块内的归一化顺序：LN 在残差加法之前还是之后，决定深层梯度能不能过。原版 Transformer 是 Post-LN；GPT-2 之后的解码器几乎一边倒 Pre-LN。Xiong 等人 2020 年指出这不是风格差异，而是梯度尺度与初始化下的稳定性差异。本课写这条顺序，不重讲因果掩码如何编码位置；后课 RMSNorm、残差缩放默认已经读完它。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Brunnermeier, Deciphering the Liquidity and Credit Crunch 2007–2008, JEP 2009</footer>
 </div>
 
-分散化依赖一个数字：条件相关在你需要它的时候仍然小于 1。经验上，股权、信用、部分商品在大跌日的共同运动远强于平静期——Longin 与 Solnik（2001）用极值相关说明下行端更黏，Ang 与 Chen（2002）在美股组合上给出非对称相关。行业口头禅「correlation goes to one」说的就是这件事。Brunnermeier 把 2008 年写成流动性与信用的螺旋：火线抛售让价格同向，融资约束让更多人加入同一侧。本篇区分三种容易混在一起的对象：真的尾部依赖升高、波动上升造成的相关估计偏差、以及分散化在组合约束下的失效。它与 [DCC](/quant/dcc)、[Copula](/quant/copula)、[EVT](/quant/evt) 是同一现象的不同写法。
+[上一课](/quant/regime-break-risk)把体制切换失效写成旧参数在断点后仍被用于交易：反复马尔可夫体制与一次性结构断裂是不同装置，实时不能使用全样本才知道的 $\tau$。缺口是分散化依赖的那个数字：压力期共同运动远强于平静期，可能是尾部依赖升高、异方差造成的相关高估，或融资约束下的同步减仓。Longin–Solnik 与 Ang–Chen 记录下行端更黏。本课区分这三层，不重写 Bai–Perron 的断点检验。它与 [DCC](/quant/dcc)、[Copula](/quant/copula) 是同一现象的不同写法。
 
 ## 问题
 

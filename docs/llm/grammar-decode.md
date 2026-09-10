@@ -11,7 +11,7 @@ section: llm
     <footer>—— Willard 与 Louf，Efficient Guided Generation for Large Language Models；Dong 等 XGrammar 把同一思路推到 CFG</footer>
 </div>
 
-产品要的往往不是自由散文，而是能进解析器的程序片段、能匹配括号的表达式、或一份带递归结构的配置。事后用提示「请按某某文法输出」再靠重试抢救，失败率随嵌套变深而上升。文法约束解码（grammar-constrained decoding）把上下文无关文法（CFG）嵌进采样：每一步只允许下推自动机认为合法的 token。相对 [结构化输出总述](/llm/constrained-decoding)，本篇只谈 **CFG 这一档**：它比正则多了无限嵌套与互递归，也比「JSON Schema 的某一子集」更通用。llama.cpp 的 GBNF、Guidance 的文法、XGrammar 的 PDA 与自适应掩码缓存，都是这条线上的工程落点。结构保证不等于语义正确，词表与终结符不对齐还会造出可表示性空洞。
+[上一课](/llm/top-a-sampling)用 $p(v)\ge a p_{\max}^{2}$ 做相对冠军的二次地板，仍是逐步截断，不是结构保证。缺口是产品要的往往能进解析器：程序片段、括号匹配、递归配置。事后提示再重试，失败率随嵌套变深而上升。文法约束解码把上下文无关文法嵌进采样：每步只允许下推自动机认为合法的 token。相对 [结构化输出总述](/llm/constrained-decoding)，本课只谈 CFG 这一档。不重写 top-$a$ 的二次地板。后课 JSON 约束默认已经知道掩码改的是支持集，不改权重。
 
 ## 问题
 

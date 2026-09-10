@@ -11,7 +11,7 @@ section: quant
     <footer>—— Crank and Nicolson, A Practical Method for Numerical Evaluation of Solutions of Partial Differential Equations of the Heat-Conduction Type, Proceedings of the Cambridge Philosophical Society, 1947</footer>
 </div>
 
-[PDE 与有限差分](/quant/option-pde) 已经写出 Black–Scholes 抛物方程、显式/隐式权、美式投影与边界。本篇只把时间离散钉在 Crank–Nicolson（CN）：$\theta=1/2$ 的 $\theta$-方法。Brennan–Schwartz 把差分引进或有索取权时，工程上最终几乎总落到 CN 或带 Rannacher 起步的 CN，而不是停留在显式三叉。它不是 1978 年发明的期权算法，而是 1947 年热传导格式在金融坐标里的应用。二维因子要把 CN 换成 [ADI](/quant/adi-pde)；高维则回到 [蒙特卡洛](/quant/mc-pricing)。Heston 的欧式香草更常走特征函数，见 [Heston](/quant/heston)，PDE–CN 留给美式、障碍与局部波动。
+[上一课](/quant/lsm-american)用有限基上的最小二乘代替续持条件期望：TVR 闭环价值，LS 闭环停时现金流；一维香草用网格，LSM 的理由是维数与复杂可行集。回到低维抛物方程，[PDE 与有限差分](/quant/option-pde) 已经写出显式/隐式权、美式投影与边界。缺口是把时间离散钉在 Crank–Nicolson：$	heta=1/2$ 的 $	heta$-方法，以及折角支付上的振荡与 Rannacher 起步。本课只写这一格式，不重推 LSM 的基函数。二维因子要换成 [ADI](/quant/adi-pde)；高维则回到蒙特卡洛。
 
 ## 问题
 

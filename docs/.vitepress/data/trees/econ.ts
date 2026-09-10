@@ -1,4 +1,6 @@
 import { fromOutline, markAppendix, type Outline } from './schema'
+import { econSupplement } from './econ-supplement'
+import { econFoundations, econFields } from './econ-foundations'
 
 const outline: Outline[] = [
   [
@@ -8,7 +10,7 @@ const outline: Outline[] = [
         '偏好',
         [
           [
-            '理性选择',
+            '偏好到效用',
             [
               '偏好、完备与传递|preference-choice',
               '连续性|continuity-preference',
@@ -17,6 +19,11 @@ const outline: Outline[] = [
               '效用函数何时存在|utility-representation',
               '拟线性与位似|quasilinear-homothetic',
               'CES 与 Cobb–Douglas|ces-cobb-douglas',
+            ],
+          ],
+          [
+            '需求与对偶',
+            [
               '预算集与马歇尔需求|marshallian-demand',
               '内点与角点|interior-corner',
               '间接效用与支出函数|indirect-utility',
@@ -25,6 +32,11 @@ const outline: Outline[] = [
               '斯勒茨基方程|slutsky-equation',
               '斯勒茨基对称与负半定|slutsky-symmetry',
               '吉芬与劣等|giffen-inferior',
+            ],
+          ],
+          [
+            '加总与跨期',
+            [
               '恩格尔曲线|engel-curves',
               '等价变化与补偿变化|ev-cv',
               '显示偏好 WARP|revealed-preference',
@@ -41,7 +53,7 @@ const outline: Outline[] = [
         '风险',
         [
           [
-            '不确定下的选择',
+            '期望效用',
             [
               '冯·诺依曼–Morgenstern 期望效用|expected-utility',
               'vNM 公理怎么用|vnm-axioms',
@@ -52,6 +64,11 @@ const outline: Outline[] = [
               '背景风险|background-risk',
               '均值方差何时等于 EU|mean-variance-eu',
               '两基金分离|two-fund-separation',
+            ],
+          ],
+          [
+            '占优、状态与模糊',
+            [
               '随机占优|stochastic-dominance',
               '二阶占优与均值保持展开|sosd-mps',
               '三阶占优|third-order-sd',
@@ -243,7 +260,7 @@ const outline: Outline[] = [
         '信息经济学',
         [
           [
-            '不对称',
+            '逆向选择与信号',
             [
               '逆向选择与柠檬市场|akerlof-lemons',
               '逐级退出|unraveling-lemons',
@@ -251,6 +268,11 @@ const outline: Outline[] = [
               '混同与分离|pooling-separating',
               '筛选与信息租金|screening-rent',
               'Rothschild–Stiglitz 崩溃|rs-unraveling',
+            ],
+          ],
+          [
+            '道德风险与合同',
+            [
               '道德风险与隐藏行动|moral-hazard',
               '霍姆斯特罗姆充足统计|holmstrom-informativeness',
               '有限责任下的激励|limited-liability-mh',
@@ -259,6 +281,11 @@ const outline: Outline[] = [
               '职业关注|career-concerns',
               '套牢与专用性|hold-up-gh',
               '不完全合同|incomplete-contracts',
+            ],
+          ],
+          [
+            '机制可实施',
+            [
               '显示原理|revelation-principle',
               '可实施性与包络|implementability-envelope',
               'VCG 与枢轴|vcg-pivot',
@@ -486,7 +513,7 @@ const outline: Outline[] = [
         '资产定价理论',
         [
           [
-            '到市场之前',
+            '折现因子与谜题',
             [
               '有效市场假说|emh',
               'EMH 三档|emh-three-forms',
@@ -498,6 +525,11 @@ const outline: Outline[] = [
               '习惯形成|habit-formation',
               '长期风险|long-run-risk',
               '稀有灾难|rare-disasters',
+            ],
+          ],
+          [
+            '均衡定价到限价簿',
+            [
               '消费 CAPM|ccapm',
               'Merton ICAPM|icapm-merton',
               'CAPM 作为均衡陈述|capm-theory',
@@ -563,4 +595,21 @@ const papers: Outline[] = [
   ],
 ]
 
-export const econTree = [...fromOutline(outline), ...markAppendix(fromOutline(papers))]
+const [behavior, infoLiq, dynMacro, corpAdv, econometrics, trade] = econSupplement
+
+export const econTree = [
+  ...fromOutline([
+    econFoundations,
+    ...outline.slice(0, 4),
+    econometrics,
+    ...outline.slice(4, 6),
+    dynMacro,
+    outline[6],
+    corpAdv,
+    behavior,
+    infoLiq,
+    trade,
+    ...econFields,
+  ]),
+  ...markAppendix(fromOutline(papers)),
+]

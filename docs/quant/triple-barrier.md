@@ -11,7 +11,7 @@ section: quant
 <footer>—— López de Prado, Advances in Financial Machine Learning, Chapter 3, 2018</footer>
 </div>
 
-监督学习需要一张 $(X_t,y_t)$ 表。金融里最常见的 $y_t$ 是未来 $h$ 期收益，它不问中间有没有击穿你本来会止损的水平，也不问是否早已到达你本来会止盈的水平。López de Prado 在 *Advances in Financial Machine Learning* 第 3 章把标签改成路径依赖的三重障碍（triple-barrier）：上障碍（止盈）、下障碍（止损）、垂直障碍（最大持有期）。标签由**哪一道先被碰到**决定，通常取值 $\{+1,-1\}$，或再加 $0$ 表示时间壁垒先到且未触碰水平障碍。这不是为了让分类准确率更好看，而是为了让 $y$ 与可执行规则使用同一条路径。固定期限标签的重叠与标准误问题见[标签、预测期与重叠](/quant/label-horizon-overlap)；本篇只写三重障碍本身。
+[上一课](/quant/etf-create-redeem)停在一级市场套利。缺口是监督学习标签如何按路径障碍定义。监督学习需要一张 $(X_t,y_t)$ 表。金融里最常见的 $y_t$ 是未来 $h$ 期收益，它不问中间有没有击穿你本来会止损的水平，也不问是否早已到达你本来会止盈的水平。López de Prado 在 *Advances in Financial Machine Learning* 第 3 章把标签改成路径依赖的三重障碍（triple-barrier）：上障碍（止盈）、下障碍（止损）、垂直障碍（最大持有期）。标签由**哪一道先被碰到**决定，通常取值 $\{+1,-1\}$，或再加 $0$ 表示时间壁垒先到且未触碰水平障碍。这不是为了让分类准确率更好看，而是为了让 $y$ 与可执行规则使用同一条路径。固定期限标签的重叠与标准误问题见[标签、预测期与重叠](/quant/label-horizon-overlap)；本篇只写三重障碍本身。
 
 ## 问题
 

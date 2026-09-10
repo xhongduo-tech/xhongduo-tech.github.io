@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA Hopper 架构白皮书与 CUTLASS 3.x warp-specialized GEMM / 异步流水文档</footer>
 </div>
 
-经典 CUDA 核假设 CTA 内所有线程执行同一条路径，用掩码处理边界。拷贝与计算于是被栅栏切成「先全体搬、再全体算」的两段。Ampere 的 `cp.async` 已经允许搬与算在时间上重叠，但发行拷贝的仍是即将做 MMA 的那些线程。Hopper 把 TMA 与 WGMMA 做成两条可以真正并发的硬件流水线之后，让同一批线程兼当搬运工和计算工，会在发行槽与寄存器上互相挡路。Warp specialization 把 CTA 分成角色：生产者 warp 只发 [TMA](/llm/hopper-tma)，消费者 warp 只发 [WGMMA](/llm/wgmma)，中间用 named barrier / mbarrier 和多级流水缓冲衔接。
-
-本篇写角色划分、占用率代价，以及它和「全体异步拷贝」的差别。不编造未公开的 warp 调度器端口数。
+[上一课](/llm/kernel-fusion-tiling)把 tiling 与融合写成增加复用、避免中间激活落 HBM：tile 先对齐 MMA 原子，融合可能因占用率下降而在小形状上失效。缺口是同一 CTA 里拷贝与计算仍走同一条 SIMT 路径：Hopper 上 TMA 与 WGMMA 可以并发，让同一批线程兼当搬运工和计算工会在发行槽与寄存器上互相挡路。Warp specialization 把 CTA 分成生产者与消费者。本课写角色划分，不重写融合的 epilogue 账。[TMA](/llm/hopper-tma) 与 [WGMMA](/llm/wgmma) 的指令细节在后课展开。
 
 ## 问题
 

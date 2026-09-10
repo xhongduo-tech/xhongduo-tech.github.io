@@ -11,7 +11,7 @@ section: llm
 <footer>—— 华为昇腾社区，MindIE Service 开发文档</footer>
 </div>
 
-MindIE（Mind Inference Engine）是华为在昇腾硬件上的高性能推理框架。模型应用层可以走 MindIE LLM（含 MindSpore Transformers 一类承载），服务化层走 MindIE Service：对外提供 RESTful，对内接到昇腾推理加速引擎。昇腾社区文档把它的服务组件写成 Tools、Client、Management Service 与 Server；Server 里的 EndPoint 明确兼容 Triton、OpenAI、TGI、vLLM 的请求接口。本篇写这套**服务化与硬件绑定**的形状，不写具体芯片的未公开指令吞吐，也不把某一版 Atlas 服务器的 QPS 当成论文。CUDA 生态里的 TGI / LMDeploy / vLLM 解决的是「如何在 GPU 上连续批」；MindIE 还要多回答一句：客户已经按 OpenAI 或 TGI 写好的客户端，如何在 NPU 上不改协议地接住。
+[上一课](/llm/lmdeploy)把 TurboMind 写成持久化 batch 与支持不连续 KV 的间接指针 FMHA：对话里 Q/K 长度不匹配是一等需求，INT8 KV 用来换并发。缺口是客户栈在昇腾上：MindIE 不是 CUDA 引擎改名，EndPoint 兼容 Triton / OpenAI / TGI / vLLM 的 HTTP 形状，内核仍是 MindIE LLM 或 Turbo 插件。本课写服务化与硬件绑定，不重写 TurboMind 的槽位池，也不写未公开的指令吞吐。
 
 ## 问题
 

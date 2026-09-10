@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wang et al., Plan-and-Solve Prompting, ACL 2023</footer>
 </div>
 
-零样本思维链用一句「Let's think step by step」就能让足够大的模型写出中间步骤。Wang、Lei、Li、Liu、Wang、Chen 与 Deng 在 2023 年指出：这条链经常在算术题上漏步——变量还没提取、中间量还没算，就已经跳到答案。Plan-and-Solve（PS）把提示改成两段程序：先写计划，再执行计划。它不引入工具，也不改权重，只改零样本指令的结构。后续把计划做成可调度 DAG 的智能体，见 [规划 vs 反应式循环](/llm/plan-vs-react)；本篇只写这条提示本身，以及它相对零样本 CoT 补了哪一类错。
+[上一课](/llm/self-ask)强迫中间量以问句—答案对出现，绑定必须把上一跳实体写进下一问。零样本思维链用一句「Let's think step by step」就能写出中间步骤，却经常在算术题上漏步。缺口是 Plan-and-Solve：先写计划，再执行计划——仍然零样本、仍然纯文本，只改指令结构。本课写这条提示，不引入工具，也不改权重。缺步和算错不要混着改提示；后续把计划做成可调度 DAG，见 [规划 vs 反应式循环](/llm/plan-vs-react)。
 
 ## 问题
 

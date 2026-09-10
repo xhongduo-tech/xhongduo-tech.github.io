@@ -11,11 +11,11 @@ section: llm
     <footer>—— Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models, ICLR 2023</footer>
 </div>
 
-只推理不行动，模型会在过时或虚构的事实上把链条写得很长。只行动不推理，每一步都像条件反射，难在稀疏奖励或多跳问题上选对工具参数。Yao 等人把两者收成同一条轨迹：Thought（对当前状态的简短推理）、Action（对接口的调用）、Observation（环境返回），循环直到给出答案。这就是 ReAct。它先在提示里用少样本轨迹教会格式，后来的系统则把 Action 落成 [function calling](/llm/function-calling) 字段，把 Observation 落成 `role: tool`。本篇写交错循环本身：它相对纯 CoT 与纯 Act 补了什么，以及步数变长时错误如何累积。规划器先写完整计划再执行，见 [规划 vs 反应式循环](/llm/plan-vs-react)。
+[上一课](/llm/mcp)用 JSON-RPC 让宿主发现并调用外部服务器上的工具、资源与提示：解决的是生态与隔离，不是新的推理算法，也不替代多步 Agent 循环。目录与鉴权有了。缺口是轨迹本身：只推理不行动会在虚构事实上把链条写得很长；只行动不推理难在多跳上选对工具参数。Yao 等人把 Thought、Action、Observation 收成同一条循环，先用少样本轨迹教会格式，后来落成 [function calling](/llm/function-calling) 与 `role: tool`。本课写交错循环，不重写 MCP 的传输与威胁模型。规划器先写完整计划再执行，见 [规划 vs 反应式循环](/llm/plan-vs-react)。
 
 ## 问题
 
-知识密集型问答需要查文档；交互式环境（ALFWorld、网店）需要点按钮。Chain-of-Thought 只优化文本上的中间步骤，没有观察通道，幻觉事实会被后续步骤当成前提。纯行动轨迹（只有 Action / Observation）缺少「我为什么选这个 API」的可写工作记忆，模型在相似工具之间抖动，也难以在失败后解释该换策略。需要一种格式，让推理痕迹对环境可见的状态条件化，又让动作对推理痕迹条件化。
+MCP 给出的是可发现的工具目录，不是多步轨迹。[function calling](/llm/function-calling) 把单次调用写成字段，缺口是循环。知识密集型问答需要查文档；交互式环境（ALFWorld、网店）需要点按钮。Chain-of-Thought 只优化文本上的中间步骤，没有观察通道，幻觉事实会被后续步骤当成前提。纯行动轨迹（只有 Action / Observation）缺少「我为什么选这个 API」的可写工作记忆，模型在相似工具之间抖动，也难以在失败后解释该换策略。需要一种格式，让推理痕迹对环境可见的状态条件化，又让动作对推理痕迹条件化。
 
 多步还引入停止问题。没有明确的结束动作，模型会一直搜；过早结束则答案缺少证据。轨迹一长，上下文被观察挤满，早期 Thought 被推出窗口，行为退化成只看最近一次搜索片段。ReAct 的问题不只是「要不要工具」，而是「交错的工作记忆如何在有限窗口里保持可执行」。
 

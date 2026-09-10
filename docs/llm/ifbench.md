@@ -11,7 +11,7 @@ section: llm
 <footer>—— Zhou et al., IFEval；Pyatkin 等 IFBench 将新约束当作分布外服从测试</footer>
 </div>
 
-[IFEval](/llm/ifeval) 的贡献是把「听不听指令」从有用性、文风和知识里拆出来：字数、段落、关键词、格式、语言、标点，凡能写成确定性检查函数的，就按通过/失败计分。Zhou 等人的协议——prompt-level 全约束满足、instruction-level 原子平均——已经成为回归门禁。问题随之而来：约束库存是公开的、有限的，强化学习若直接拿 verifier 当奖励，模型会过拟合那一张函数表。IFBench 要测的是**对新约束类型的服从是否还在**：检查器族与 IFEval 刻意错开，难度与组合方式也更接近「没背过的格式要求」。本篇把二者当成同一条尺子的校准端与留出端，而不是两套互不相干的排行榜。
+[上一课](/llm/niah-variants)把标准单针 NIAH 写成检索冒烟，并用多针、干扰、运算与草堆改命题。那是长上下文检索，不是格式服从。[IFEval](/llm/ifeval) 已经把「听不听指令」拆成可验证谓词，prompt-level 与 instruction-level 成为回归门禁。缺口是这张函数表会过拟合：强化学习若直接拿 verifier 当奖励，分数涨可能只是会做见过的格式体操。IFBench 用留出约束类型测服从有没有泛化，检查器族与 IFEval 刻意错开。本课把二者当成同一条尺子的校准端与留出端，不重写 NIAH 变体网格。
 
 ## 问题
 

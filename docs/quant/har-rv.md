@@ -11,7 +11,7 @@ section: quant
 <footer>—— Corsi, A Simple Approximate Long-Memory Model of Realized Volatility, Journal of Financial Econometrics 2009</footer>
 </div>
 
-已实现波动的自相关拖得很长，FIGARCH 或 ARFIMA 能描述，却难估计、难约束为正。Corsi（2009）提出异质自回归（HAR）：用昨日、近一周、近一月的 RV 做回归，近似长记忆。灵感来自 Müller 等人的异质市场假说——不同交易者按不同时间尺度决策，波动于是叠了多层成分。HAR 要解决的是 **RV 的条件均值**，不是噪声下如何构造 RV；后者见 [已实现波动与噪声修正](/quant/rv-noise) 与 [已实现核](/quant/realized-kernel)。本篇假定已经有一条日频 RV 序列，问它如何预报明天。
+[上一课](/quant/unit-root)给出 $\rho=1$ 时估计量的非标准分布，并警告 I(1) 水平回归会伪回归；对数价格当 I(1)、收益当 I(0) 是工作默认，波动的阶数要单独检查。缺口是已实现波动的自相关拖得很长：FIGARCH 或 ARFIMA 能描述，却难估计、难约束为正。Corsi 用日、周、月 RV 的线性组合近似长记忆，避免估计分整阶数。本课问的是 **RV 的条件均值**如何预报明天，不是噪声下如何构造 RV。不重推 ADF 临界值。后课已实现核默认已经把预测对象与估计对象分开。
 
 ## 问题
 

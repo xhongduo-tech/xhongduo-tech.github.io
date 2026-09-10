@@ -11,7 +11,7 @@ section: llm
     <footer>—— 对照 CloudMatrix384 把 RDMA 平面与 UB 平面分开：跨超节点走 RoCE，域内走 UB</footer>
 </div>
 
-[Scale-Up](/llm/scale-up-vs-scale-out) 解决的是超节点内部：TP、宽 EP、池化 KV 都假设一个低延迟全互连域。模型与流量再大，也会走出 384 张 910C 的边界——多副本、跨超节点的 PD、训练梯度、检查点、把 KV 热页送到另一柜的 decode 池。CloudMatrix384 为此单独做了 RDMA 平面：每张 NPU 贡献最多 400 Gbps 量级的单向 RoCE，只有 NPU 参加，与控制面、存储面隔离。本篇写为什么跨超节点用 RoCE/RDMA、什么流量配得上这条平面、以及它和 UB 内存语义差在哪。不编造未写入论文的交换机芯片型号。
+[上一课](/llm/cloudmatrix-moe-kv)把宽 EP 与分布式 KV 收进 UB 域：dispatch 走消息语义，KV 走内存语义，一 Die 一专家。缺口是流量会走出 384 张 910C：多副本、跨超节点 PD、训练梯度、检查点。本课写独立 RDMA 平面上的 RoCE Scale-Out。不重讲热专家倾斜，也不把 UB 故事写到机房之间。后课青田卡默认已经读完：域内 UB、域间 RoCE，两套拥塞模型。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Spector et al., ThunderKittens, 2024</footer>
 </div>
 
-Hopper 一代 GPU 把高性能核的写法从「手排 shared memory 与 MMA」推进到 TMA 异步拷贝、WGMMA、warp specialization 叠在一起。能写对的人很少，能写快的人更少。Spector、Arora、Singhal 与 Ré 的 ThunderKittens 给出另一条路：以固定形状的 tile（他们叫 kitten）为原子，在 C++ 模板里提供加载、存储、mma、softmax 一类操作，让注意力和 GEMM 看起来像对块做的 numpy。目标不是新的注意力公式，而是让实验室能在 H100 上把自定义核写到接近 FlashAttention 的速度，而不掉进一千行内联 PTX。
+[上一课](/llm/flashinfer)把服务注意力收成分页、变长与级联：数学仍是缩放点积加在线 softmax，速度来自核内 gather 与编译期特化。缺口是研究侧要改窗口、偏置、头维时，不愿每次 fork 生产核：ThunderKittens 用固定形状的 tile 类型，把 Hopper 上的加载、MMA 与行归约收成可组合的 C++ 原语。目标不是新的注意力公式。本课写这条抽象，不重写 FlashInfer 的页表契约。
 
 ## 问题
 

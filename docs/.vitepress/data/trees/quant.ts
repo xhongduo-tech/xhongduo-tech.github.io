@@ -2,6 +2,8 @@ import { fromOutline, markAppendix, type Outline } from './schema'
 import { quantExtra } from './quant-extra'
 import { quantAudit } from './quant-audit'
 import { quantFrontier } from './quant-frontier'
+import { quantSupplement } from './quant-supplement'
+import { quantFoundations } from './quant-foundations'
 
 const outline: Outline[] = [
   [
@@ -536,9 +538,60 @@ const outline: Outline[] = [
   ],
 ]
 
+const [
+  cnMicro,
+  futuresBasis,
+  fxCmdty,
+  optMM,
+  hfFactor,
+  cryptoMicro,
+  factorCont,
+  derivNum,
+  ratesCredit,
+  portOpt,
+  execAlg,
+  statArbCont,
+  btMethod,
+  riskM,
+  cta,
+] = quantExtra
+
+const [microTheory, econometricsHF, derivDepth, portStrat, exchData, cnMarketDepth] = quantSupplement
+
 export const quantTree = [
-  ...fromOutline(outline),
-  ...quantExtra,
+  ...fromOutline(quantFoundations),
+  ...fromOutline(outline.slice(0, 1)),
+  cnMicro,
+  cnMarketDepth,
+  cryptoMicro,
+  microTheory,
+  econometricsHF,
+  ...fromOutline(outline.slice(1, 2)),
+  factorCont,
+  hfFactor,
+  ...fromOutline(outline.slice(2, 4)),
+  statArbCont,
+  ...fromOutline(outline.slice(4, 5)),
+  optMM,
+  derivNum,
+  derivDepth,
+  futuresBasis,
+  fxCmdty,
+  ...fromOutline(outline.slice(5, 6)),
+  ratesCredit,
+  ...fromOutline(outline.slice(6, 7)),
+  portOpt,
+  portStrat,
+  cta,
+  ...fromOutline(outline.slice(7, 8)),
+  execAlg,
+  ...fromOutline(outline.slice(8, 9)),
+  riskM,
+  ...fromOutline(outline.slice(9, 10)),
+  btMethod,
+  ...fromOutline(outline.slice(10, 11)),
+  exchData,
+  ...fromOutline(outline.slice(11)),
   ...markAppendix(quantAudit),
   ...markAppendix(quantFrontier),
 ]

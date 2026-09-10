@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatev, Goetzmann & Rouwenhorst, Pairs Trading, Review of Financial Studies, 2006</footer>
 </div>
 
-统计套利的开仓几乎总是某种标准化偏离：GGR 用形成期价差的两个标准差；Elliott、Van Der Hoek 与 Malcolm 以及 Avellaneda–Lee 把价差或残差建成状态空间 / OU，再用偏离均衡的标准差当信号。Z-score 看起来只有一个超参 $c$，实际上窗口长度、均值是否用指数加权、是否对波动做新息标准化、多对同时开仓时如何做多重比较，每一项都改写期望与成本。它不是检测「真实均衡」的充分统计量；它是一个带噪声的滤波器，阈值越极端，样本内越漂亮、成交越少、容量越假。
+[上一课](/quant/etf-arb)把 ETF 套利写成 AP 申赎把二级价格拉向可复制篮子；偏离含信息领先与口径陈旧，只有可执行带外的部分才值得评估。申赎是制度收敛，统计套利的开仓则几乎总是某种标准化偏离。缺口是 Z-score 这一滤波器：窗口、均值/波动定义与阈值 $c$ 共同决定换手和净期望，不是单一的「两倍标准差魔法」。GGR 用形成期固定 $\sigma$；OU/Kalman 用均衡波动与时变均值。本课写这些选择如何改写期望。不重讲 AP 约束。
 
 ## 问题
 

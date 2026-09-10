@@ -11,7 +11,7 @@ section: llm
 <footer>—— Ethayarajh 等，KTO: Model Alignment as Prospect Theoretic Optimization，2024</footer>
 </div>
 
-成对偏好优化默认两条假设：每条提示都能配上「更好 / 更差」的一对回答；人类选择可以用 Bradley–Terry 写成奖励差的 logistic。现场数据经常两边都不成立——产品日志里大量是单条点赞、点踩、被用户编辑掉的回复，并没有同时存在的对照样本。Ethayarajh 等人把 Kahneman 与 Tversky 的前景理论搬进对齐目标，提出 KTO（Kahneman–Tversky Optimization）：损失只看二元标签，隐含奖励仍用相对参考策略的对数比，但价值函数按「得」与「失」分开、且对损失更敏感。它不是又一个 DPO 的改名，而是换掉「必须成对 + 必须 BT」这两条。
+[上一课](/llm/ipo)用平方损失把对数比差 $h$ 推向 $1/(2\tau)$，间隔有限，噪声对上不易把 $\log\pi$ 拉爆；数据仍是成对比较，参照仍是 SFT。现场日志里大量是单条点赞、点踩，并没有同时存在的对照样本。缺口是 KTO：损失只看二元标签，隐含奖励仍用相对参考策略的对数比，但价值函数按「得」与「失」分开。本课换掉「必须成对 + 必须 BT」这两条，不重推 IPO 的 $\Psi$。不成对不等于无参考；无参考的是 [ORPO](/llm/orpo)。
 
 ## 问题
 

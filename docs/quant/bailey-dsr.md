@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey and López de Prado, The Deflated Sharpe Ratio, Journal of Portfolio Management, 2014</footer>
 </div>
 
-[Deflated Sharpe](/quant/deflated-sharpe) 一文给出 DSR 的公式、有效 $N$ 的计数，以及它与成本、CPCV 的工程接口。本篇回到 Bailey 与 López de Prado 2014 年原文在写什么：夏普作为估计量的抽样误差（接 Lo 2002）、非正态如何进入渐近方差（Mertens）、以及——原文的核心——把原假设从「一次抽样的零技能」改成「$N$ 次试验最大值的零技能」。DSR 在原文里是一个**概率**（标准正态 CDF 的值），不是把夏普乘上某个折扣系数得到的新比率。把它读成「放气后的年化夏普 0.8」，是后来实务里的误用。与[过拟合作为风险](/quant/overfit-as-risk)、[组合过拟合](/quant/cpcv) 的关系是：原文提供解析的、可进每一张表的检验；PBO 提供基于路径排名的过拟合概率。两者都来自同一组作者的问题意识，对象不同。
+[上一课](/quant/purge-embargo)按标签区间与测试时间的相交删除训练样本（purge），并在测试块之后加 embargo，处理 $y$ 的重叠与 $X$ 的短程相关。缺口是：清洗之后你报告的夏普，往往仍是看过 $N$ 次试验之后的最大者。[Deflated Sharpe](/quant/deflated-sharpe) 一文给出公式与有效 $N$；本课回到 2014 年原文：把原假设从「一次抽样的零技能」改成「$N$ 次试验最大值的零技能」。DSR 在原文里是一个概率，不是把夏普乘上折扣系数。不重写 purge 窗口如何由 $t_{i,1}$ 决定。
 
 ## 问题
 

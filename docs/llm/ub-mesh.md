@@ -11,7 +11,7 @@ section: llm
 <footer>—— Jiang et al., UB-Mesh: a Hierarchically Localized nD-FullMesh Datacenter Network Architecture, arXiv:2503.20377</footer>
 </div>
 
-UB-Mesh 是华为公开的 AI 数据中心网络架构：用**层次化、局部优先的 n 维全互连**（nD-FullMesh）替代对称 Clos 作为 Scale-Up 主体，并用 [统一总线 UB](/llm/ub-lingqu) 把 NPU、CPU、低/高基数交换和网卡连起来。CloudMatrix384 论文写明，384 超节点的 UB 设计是 UB-Mesh 的**递归落地**。本篇写拓扑原则与论文里的工程取舍：短距电直连优先、分层带宽、以及 UB-Mesh-Pod 作为 4 维实现。不把论文中 4D-Pod 的 1024 NPU 设计直接当成 [CloudMatrix 384](/llm/cloudmatrix-384) 的 SKU，也不把相对 Clos 的成本倍数写成你机房的报价。
+[上一课](/llm/hccs-to-ub)把 HCCS 钉在节点内一致性（公开形态以 8 卡 Atlas 为主），UB 钉在多柜超节点 Scale-Up；二者不是改名。缺口是 UB 域用什么拓扑：对称 Clos 对所有流量一视同仁，光模块与高基数交换随规模恶化。本课写 **UB-Mesh**：层次化、局部优先的 n 维全互连，短距电直连优先。不重讲四档互连的分工表。CloudMatrix384 的 UB 是这篇拓扑的递归落地，不要把论文里 4D-Pod 的 1024 NPU 直接当成 [CloudMatrix 384](/llm/cloudmatrix-384) 的 SKU。
 
 ## 问题
 

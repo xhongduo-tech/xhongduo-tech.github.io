@@ -11,7 +11,7 @@ section: quant
     <footer>—— Obizhaeva and Wang, Optimal Trading Strategy and Supply/Demand Dynamics, Journal of Financial Markets, 2013</footer>
 </div>
 
-Almgren–Chriss 把临时冲击写成交易速率的瞬时函数：走得快，当下成交价差，走完就按设定消失或留下永久项。[瞬时与永久冲击](/quant/temp-perm-impact) 的传播图景则要求：消耗的流动性会按核函数回到簿上。Obizhaeva 与 Wang（2013）把这张图写成可解的供给–需求动力学：块状的限价簿、指数弹性（resilience），交易使中间价（或可成交价）移动，随后以速率 $\rho$ 向基本面回复。最优策略往往包含期初与期末的块交易，中间是连续消耗与等待恢复——形状与 AC 的光滑双曲正弦不同。本篇写模型对象、最优结构与校准边界。它是执行层的簿动力学，不是诱单或抢跑的手册。
+[上一课](/quant/implementation-shortfall)把实施缺口定义为纸面组合与真实组合的价值差，参照点是决策价；跑赢 VWAP 既不充分也不必要于缩小 IS。会计尺子还不是簿的动力学。Almgren–Chriss 把临时冲击写成速率的瞬时函数；[瞬时与永久冲击](/quant/temp-perm-impact) 则要求消耗的流动性按核回到簿上。缺口是把这张图写成可解的供给–需求：块状限价簿、指数弹性，交易使价格移动，随后以速率 $\rho$ 回复。最优往往含期初与期末块、中间连续消耗——形状与 AC 的光滑双曲正弦不同。本课写模型对象与校准边界，不是诱单手册。
 
 ## 问题
 

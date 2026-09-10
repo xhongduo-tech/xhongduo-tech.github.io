@@ -11,7 +11,7 @@ section: llm
 <footer>—— Lepikhin et al., GShard, 2020；Fedus et al., Switch Transformers, 2021</footer>
 </div>
 
-MoE 的参数量随专家数线性涨，单卡放不下全部专家，数据并行又会在每张卡复制整份专家库，内存立刻爆炸。Expert Parallelism（EP，专家并行）的做法是：专家沿设备维切分，第 $i$ 个专家住在第 $i \bmod E$ 张卡上；每个 token 根据路由结果被发送到拥有该专家的设备，本地算完 FFN，再按原 batch 次序发回。GShard 在 TPU 上用的跨设备分发、Switch 的容量桶，以及 Megatron-LM 一类 GPU 框架里的 MoE 层，核心都是这两次 All-to-All。本篇讲并行策略，不重写路由公式。
+[上一课](/llm/switch-transformer)将路由取 $k=1$，用容量因子限制每专家 token 数，超额丢弃专家增量；稀疏度是 $1/N$，选错没有第二个专家兜底。参数量随 $N$ 线性涨，单卡放不下，数据并行又会在每张卡复制整份专家库。缺口是并行的第四维：专家沿设备切分，token 用两次 All-to-All 找专家再回家。GShard、Switch 与后来的 GPU MoE 层，核心都是这两次通信。本课写 EP，不重写 $k=1$ 的路由公式；后课负载均衡默认已经知道通信税与负载均匀度成正比。
 
 ## 问题
 

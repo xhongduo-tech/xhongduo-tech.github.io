@@ -11,7 +11,7 @@ section: quant
     <footer>—— Carr–Wu 对方差风险溢价的估计；Bollerslev, Tauchen & Zhou, Expected Stock Returns and Variance Risk Premia, Review of Financial Studies, 2009</footer>
 </div>
 
-隐含波动通常高于随后实现的波动。把这个缺口叫「期权太贵」只说了一半：卖出方差的人在市场暴跌、波动跳跃时赔钱，要求事先补偿。波动率风险溢价（variance risk premium, VRP）把缺口写成风险价格：$\mathrm{VRP}_t=\mathbb{E}^{\mathbb{Q}}_t[\mathrm{QV}_{t,t+h}]-\mathbb{E}^{\mathbb{P}}_t[\mathrm{QV}_{t,t+h}]$。无模型隐含方差来自期权条带，与[方差互换和 VIX](/quant/variance-swap-vix) 同一套复制；物理期望来自已实现方差的预测。本篇写如何对齐这两个期望、Bollerslev–Tauchen–Zhou 用 VRP 预测超额收益，以及把 ATM 隐含波动减历史波动当成 VRP 会错在哪里。
+[上一课](/quant/yield-curve-factors)用曲线变动的主成分给出水平、斜率、曲率，解释大部分国债共同收益；方差贡献与风险溢价贡献可以错位。缺口从债券的形状因子转到期权的二次变差价格。隐含波动通常高于随后实现的波动，卖出方差的人在暴跌、波动跳跃时赔钱，要求事先补偿。本课把 VRP 写成 $\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]-\mathbb{E}^{\mathbb{P}}[\mathrm{QV}]$，并对齐无模型隐含方差与物理期望。不重做曲线 PCA。后课偏度溢价默认已经读完：ATM 隐含减历史波动不是 VRP。
 
 ## 问题
 

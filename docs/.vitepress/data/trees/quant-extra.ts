@@ -8,21 +8,36 @@ const extra: Outline[] = [
       [
         '交易制度',
         [
-          'T+1 与回转交易约束|cn-tplus1',
-          '涨跌停与集合竞价|cn-limit-auction',
-          '融券与做空约束|cn-short-constraint',
-          '北向资金与沪深港通|stock-connect',
-          '科创板 / 创业板制度差异|star-chinext',
-          '转债与正股联立|cb-equity-link',
-          'ETF 申赎与 IOPV|cn-etf-creation',
-          '融资融券保证金与强平|cn-margin-trading',
-          '大宗交易与折价|cn-block-trade',
-          'ST / 退市风险|cn-st-delist',
-          '停牌复牌与信息窗口|cn-halt-resume',
-          '可转债打新与赎回|cb-call-put',
-          '股指期货保证金与贴水|cn-index-fut-basis',
-          '国债期货 CTD 与基差|cn-tf-ctd',
-          '商品期货夜盘|cn-night-session',
+          [
+            '回转、涨跌停与板块',
+            [
+              'T+1 与回转交易约束|cn-tplus1',
+              '涨跌停与集合竞价|cn-limit-auction',
+              '科创板 / 创业板制度差异|star-chinext',
+              'ST / 退市风险|cn-st-delist',
+              '停牌复牌与信息窗口|cn-halt-resume',
+            ],
+          ],
+          [
+            '融券与互联互通',
+            [
+              '融券与做空约束|cn-short-constraint',
+              '北向资金与沪深港通|stock-connect',
+              '融资融券保证金与强平|cn-margin-trading',
+            ],
+          ],
+          [
+            '产品与联立',
+            [
+              '转债与正股联立|cb-equity-link',
+              'ETF 申赎与 IOPV|cn-etf-creation',
+              '大宗交易与折价|cn-block-trade',
+              '可转债打新与赎回|cb-call-put',
+              '股指期货保证金与贴水|cn-index-fut-basis',
+              '国债期货 CTD 与基差|cn-tf-ctd',
+              '商品期货夜盘|cn-night-session',
+            ],
+          ],
         ],
       ],
     ],
@@ -33,18 +48,28 @@ const extra: Outline[] = [
       [
         '期限结构',
         [
-          'Contango / Backwardation|contango-backwardation',
-          '展期收益|roll-yield',
-          '期现套利|cash-and-carry',
-          '跨期套利|calendar-spread-arb',
-          '仓单与交割|futures-delivery',
-          '保证金与盯市|futures-margin',
-          '最便宜可交割 CTD|ctd-cheapest',
-          '隐含回购利率|implied-repo',
-          '展期成交量与持仓|roll-volume-oi',
-          '库存报告与曲线|inventory-curve',
-          '季节性展期|seasonal-roll',
-          '跨品种价差|intercommodity-spread',
+          [
+            '曲线与展期',
+            [
+              'Contango / Backwardation|contango-backwardation',
+              '展期收益|roll-yield',
+              '季节性展期|seasonal-roll',
+              '库存报告与曲线|inventory-curve',
+              '展期成交量与持仓|roll-volume-oi',
+            ],
+          ],
+          [
+            '套利与交割',
+            [
+              '期现套利|cash-and-carry',
+              '跨期套利|calendar-spread-arb',
+              '仓单与交割|futures-delivery',
+              '最便宜可交割 CTD|ctd-cheapest',
+              '隐含回购利率|implied-repo',
+              '跨品种价差|intercommodity-spread',
+              '保证金与盯市|futures-margin',
+            ],
+          ],
         ],
       ],
     ],
@@ -55,16 +80,26 @@ const extra: Outline[] = [
       [
         '定价',
         [
-          '利率平价|irp',
-          '购买力平价作为锚|ppp-anchor',
-          '交叉汇率三角|fx-triangle',
-          '商品便利收益|convenience-yield',
-          '库存与曲线|commodity-inventory',
-          'NDF 与不可兑换货币|ndf',
-          '交叉货币基差|xccy-basis',
-          '商品展期 alpha|commodity-roll-alpha',
-          '能源裂解价差|crack-spread',
-          '农产品天气升水|ag-weather-premium',
+          [
+            '汇率平价',
+            [
+              '利率平价|irp',
+              '购买力平价作为锚|ppp-anchor',
+              '交叉汇率三角|fx-triangle',
+              'NDF 与不可兑换货币|ndf',
+              '交叉货币基差|xccy-basis',
+            ],
+          ],
+          [
+            '商品曲线',
+            [
+              '商品便利收益|convenience-yield',
+              '库存与曲线|commodity-inventory',
+              '商品展期 alpha|commodity-roll-alpha',
+              '能源裂解价差|crack-spread',
+              '农产品天气升水|ag-weather-premium',
+            ],
+          ],
         ],
       ],
     ],
@@ -75,16 +110,26 @@ const extra: Outline[] = [
       [
         '簿与希腊',
         [
-          '隐波插值 arbitrage-free|arb-free-iv',
-          '蝶式与日历无套利|butterfly-calendar-arb',
-          'Delta 对冲频率|delta-hedge-freq',
-          'Pin risk|pin-risk',
-          '隔夜跳空对冲|overnight-gap-hedge',
-          '隐波曲面 SVI / SSVI|svi-ssvi',
-          'Vanna / Volga 对冲|vanna-volga',
-          'Charm / Color 高阶希腊|higher-greeks',
-          '离散股息对美式期权|discrete-dividend-am',
-          '障碍期权监控频率|barrier-monitoring',
+          [
+            '曲面无套利',
+            [
+              '隐波插值 arbitrage-free|arb-free-iv',
+              '蝶式与日历无套利|butterfly-calendar-arb',
+              '隐波曲面 SVI / SSVI|svi-ssvi',
+            ],
+          ],
+          [
+            '对冲与高阶希腊',
+            [
+              'Delta 对冲频率|delta-hedge-freq',
+              'Pin risk|pin-risk',
+              '隔夜跳空对冲|overnight-gap-hedge',
+              'Vanna / Volga 对冲|vanna-volga',
+              'Charm / Color 高阶希腊|higher-greeks',
+              '离散股息对美式期权|discrete-dividend-am',
+              '障碍期权监控频率|barrier-monitoring',
+            ],
+          ],
         ],
       ],
     ],
@@ -95,18 +140,28 @@ const extra: Outline[] = [
       [
         '信号',
         [
-          '订单流毒性|ofi-toxicity',
-          '队列不平衡因子|queue-imbalance-alpha',
-          '成交到达强度|hawkes-trades',
-          '微观价格|microprice',
-          '深度加权中间价|depth-mid',
-          'Hasbrouck 信息份额|hasbrouck-is',
-          'Pastor-Stambaugh 流动性|pastor-stambaugh',
-          'Roll 有效价差估计|roll-effective-spread',
-          'VPIN 实时毒性|vpin-realtime',
-          '订单流不平衡 OFI|ofi-cont',
-          '撤单速率|cancel-rate',
-          '冰山探测|iceberg-detection',
+          [
+            '簿与到达',
+            [
+              '订单流毒性|ofi-toxicity',
+              '队列不平衡因子|queue-imbalance-alpha',
+              '成交到达强度|hawkes-trades',
+              '微观价格|microprice',
+              '深度加权中间价|depth-mid',
+              '订单流不平衡 OFI|ofi-cont',
+              '撤单速率|cancel-rate',
+              '冰山探测|iceberg-detection',
+            ],
+          ],
+          [
+            '信息份额与流动性',
+            [
+              'Hasbrouck 信息份额|hasbrouck-is',
+              'Pastor-Stambaugh 流动性|pastor-stambaugh',
+              'Roll 有效价差估计|roll-effective-spread',
+              'VPIN 实时毒性|vpin-realtime',
+            ],
+          ],
         ],
       ],
     ],
@@ -138,7 +193,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '因子与资产定价续',
+    '条件因子与宏观定价',
     [
       [
         '因子动物园',
@@ -258,7 +313,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '组合优化进阶',
+    '协方差、约束与配置',
     [
       [
         '估计与约束',
@@ -293,7 +348,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '执行算法续',
+    '最优执行模型',
     [
       [
         '最优执行',
@@ -315,7 +370,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '统计套利续',
+    '配对交易方法',
     [
       [
         '配对交易',
@@ -340,7 +395,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '回测方法学续',
+    '标签、验证与过拟合',
     [
       [
         '金融机器学习',
@@ -365,7 +420,7 @@ const extra: Outline[] = [
     ],
   ],
   [
-    '风险计量续',
+    '流动性与尾部风险',
     [
       [
         '市场与流动性',

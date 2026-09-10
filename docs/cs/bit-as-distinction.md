@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Shannon, A Mathematical Theory of Communication, 1948；Bateson, Steps to an Ecology of Mind, 1972 整理</footer>
 </div>
 
-本课是计算机栏的第一课。后面的进制、补码、门电路、指令和协议，都默认你会「有两种可分辨状态，并且给它们编了号」，不再从「计算机是什么机器」讲起。大模型栏的[离散符号](/llm/token-as-discrete-unit)假定词表已经存在；本栏要先问：任何可编号的对象，底下那一层区分从哪来。后课默认已经读完本课。
+[上一课](/cs/process-addrspace-tour)把进程地址空间一览收在程序设计课末。本课是「信息与离散」的第一课。后面的进制、补码、门电路、指令和协议，都默认你会「有两种可分辨状态，并且给它们编了号」，不再从「计算机是什么机器」讲起。大模型栏的[离散符号](/llm/token-as-discrete-unit)假定词表已经存在；本栏要先问：任何可编号的对象，底下那一层区分从哪来。后课默认已经读完本课。
 
 ## 问题
 

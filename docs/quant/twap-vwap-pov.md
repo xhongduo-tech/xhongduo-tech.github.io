@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Almgren and Chriss, Optimal Execution of Portfolio Transactions, Journal of Risk, 2000/2001；Harris, Trading and Exchanges 对拆单与基准的论述整理</footer>
 </div>
 
-机构若一次性用市价打穿 [限价订单簿](/quant/lob-structure) 的可见深度，即时冲击会把成交均价推离决策时的中间价。实务因此把母单切成子单，在一段时间窗口内释放。三条最常用的启发式路径是时间加权平均价（TWAP）、成交量加权平均价（VWAP）与参与成交量（POV, participation of volume）。它们不是最优控制的解——那是 Almgren–Chriss 一类均值–方差执行问题——而是把「何时、以多快的速率交易」收成可审计的日程。Berkowitz、Logue 与 Noser（1988）用全日 VWAP 度量纽约证券交易所的交易成本；Madhavan 讨论过以 VWAP 为基准时交易者如何被激励去贴近市场成交量曲线。本篇把三种日程写成执行状态机，并与 [实施缺口](/quant/implementation-shortfall) 对照：日程决定你相对哪条路径被评价，缺口决定你相对决策价损失了多少。
+[上一课](/quant/temp-perm-impact)把瞬时冲击写成可随流动性恢复而衰减，永久冲击留在中点里；放慢交易主要省瞬时，永久项对给定总量往往省不掉。还缺一条可审计的释放规则。缺口是把母单切成子单、在窗口内规定速率 $v_t$：TWAP 按时钟均匀，VWAP 跟踪成交量曲线，POV 保持固定参与率。它们不是 Almgren–Chriss 的最优控制，而是把「何时、以多快」收成日程。本课写成执行状态机，并与 [实施缺口](/quant/implementation-shortfall) 对照。不重推传播核。
 
 ## 问题
 

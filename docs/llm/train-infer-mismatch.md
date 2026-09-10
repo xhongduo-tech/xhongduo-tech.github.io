@@ -1,0 +1,61 @@
+---
+title: 训练-推理精度不匹配
+date: 2026-09-08
+section: llm
+---
+
+# 训练-推理精度不匹配
+
+<div class="epigraph">
+<p>版本号相同、模板相同，logπ 仍可以系统性地偏：生成在 FP8 引擎里，训练在 BF16 里，比率全是噪声。</p>
+<footer>—— 对照 OpenRLHF / verl 要求重算对数概率；推理量化与训练精度对齐的工程报告</footer>
+</div>
+
+[上一课](/llm/rl-difficulty-curriculum)与温度、课程把分布对齐到「该学的题」。缺口是数值：**rollouter 的量化、内核、softmax 实现与 learner 不一致时，存储的 $\log\pi_{\mathrm{beh}}$ 不是训练图上的 $\pi$。** 这是假 off-policy。本课写精度与内核匹配。它结束「超参与偏差」单元，下一单元转向自博弈与监督扩展。
+
+## 问题
+
+vLLM / SGLang 常用 FP8 / INT8 权、融合 softmax、不同的 RoPE 数值。Megatron 训练用 BF16，softmax 在 fp32 累加。逐步 $\log\pi$ 差 $10^{-2}$ 量级，长链上累积到使 $\rho_t$ 偏离 1，即使 `sync_id` 相同。PPO clip 会把大量 token 判为「走太远」而截掉，有效更新变稀，或反向把噪声当优势。
+
+另一类不匹配：dropout 在训练前向开着、生成时关；或 RMSNorm 的 epsilon、词汇表裁剪不同。这些比 FP8 更隐蔽。词表里的特殊思维标签若只在一侧注册，整段链的 logprob 会从第一枚标签开始偏。
+
+### 重算是校正，不是可选优化
+
+正确做法：用与梯度同一张训练图、同一精度，对 $(x,y)$ 重算 $\log\pi_\theta$ 与（若需要）$\log\pi_{\mathrm{old}}$。生成引擎的 logprob 只用于采样决策，不进损失——除非已证明与训练图逐 token 对齐。许多崩溃在「为省一次前向而相信引擎 logprob」之后出现。
+
+<span class="marginnote">参考模型若也走推理引擎，KL 同样偏。无 KL 配方少一条偏置源，仍要策略自身自洽。</span>
+
+## 方法
+
+清单：词表与特殊 token id、chat 模板、精度、RoPE/YaRN 参数、是否融合 MoE 路由、dropout 全关、mask 一致。对齐测试：同一批 $(x,y)$ 在引擎与训练图上算 logprob，看最大绝对误差与 clip 命中率。超过阈值则强制重算，或把生成也改成训练精度（慢）。量化 rollouter 可以保留，但 IS 分母改用重算的 BF16 $\pi_{\mathrm{beh}}$——注意：那已经不是真行为概率，采样仍来自量化模型。更干净的是：采样与 logprob 都承认量化是 $\pi_{\mathrm{beh}}$，训练图用同一量化前向（难）或接受偏差并减小 $\eta$。
+
+```mermaid
+flowchart TD
+  ENG["引擎 FP8 logπ"] --> GAP["与 BF16 训练图不一致"]
+  GAP --> RE["训练图重算 logπ"]
+  RE --> RATIO["ρ 才进入 clip"]
+  TEST["同一 y 对误差"] --> GATE["超阈则禁止用引擎 logπ"]
+```
+
+种子：采样在引擎，重算是 teacher-forced，不需要同种子。需要复现轨迹时才钉引擎种子。
+
+## 机制
+
+softmax 的实现差是乘性噪声，clip 把它变成非对称的稀疏梯度。看起来像熵塌或学习率过大，根因是比率失效。对齐后，clip 命中率应回到「真的近端更新」水平。这与 [截断 IS](/llm/truncated-importance-sampling) 的 $c$ 正交：先消除系统偏差，再谈截断阈值。
+
+<span class="marginnote">MoE 路由在量化前后若翻转专家，token 级比率比较的是两个子网络，GSPO 文中的路由挥发在精度不匹配时更早出现。</span>
+
+## 边界与工程取舍
+
+评测引擎可以继续量化；训练闭环的 logprob 路径不能。产品 decode 与训练精度不同造成的是**服务 gap**，不是 IS 噪声，应用匹配解码的评测集单独报。本课收束 PPO/GRPO 细节：奖励从哪来、优势怎么造、近端怎么守、系统怎么对齐。下一课开始在没有更多人类比较的前提下扩展监督。
+
+
+发布前用同一批 y 对引擎与训练图做 logprob 误差门槛；超阈则禁止把引擎对数概率写进损失。
+
+## 小结
+
+- 引擎与训练图的精度/内核差会造成假 off-policy，clip 命中率异常。
+- 用训练图重算 logπ 再进比率；引擎 logπ 默认不可信。
+- 用同一批 y 做对数概率对误差测试，当作发布门槛。
+- 量化采样可以保留，但必须声明行为策略是否包含量化。
+- 出处：OpenRLHF / verl 的 logprob 重算实践；Sheng 等 HybridFlow 的多引擎接口；MoE 路由见 Zheng 等 GSPO。

@@ -11,7 +11,7 @@ section: llm
 <footer>De 等，Griffin / RecurrentGemma，Google DeepMind，2024</footer>
 </div>
 
-把每一层都做成全序列注意力，短程模式会付两次钱：一次质量，一次 KV。DeepMind 的 Griffin 把全局通道换成门控线性循环，把精确匹配限制在滑动窗口里，并用 RecurrentGemma 把这条混合落到可训练的开源模型上。它要证明的不是 RNN 全面复辟，而是全局 softmax 可以被常数状态的循环替换，前提是局部注意力还在。
+[上一课](/llm/mamba-2)用 SSD 证明：一类选择性 SSM 与结构化（半可分）注意力是同一算子的两种写法，训练走矩阵核、推理走常数状态扫描。对偶覆盖的是有生成元结构的注意力，不是任意 softmax。缺口是：若不想付全局 KV，精确匹配能否限制在窗口里，全局通道换成门控线性循环？Griffin 把语言模型写成局部 softmax 与 RG-LRU 的混合，全程没有全局注意力；RecurrentGemma 是开源实例。本课写这条循环混合，不重讲 SSD 的矩阵恒等式。窗口宽度与循环状态宽是两条独立预算。
 
 ## 问题
 

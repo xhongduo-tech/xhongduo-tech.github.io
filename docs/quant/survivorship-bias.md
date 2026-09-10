@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Brown, Goetzmann, Ibbotson and Ross, Survivorship Bias in Performance Studies, RFS 1992</footer>
 </div>
 
-回测与业绩评价默认你看到的截面，就是当时可投资的截面。幸存者偏差打破这个默认：数据库往往只留下活到今天的基金、活到样本期末的股票、活到指数里的成份。Brown、Goetzmann、Ibbotson 与 Ross（1992）证明，对业绩研究而言，这种筛选会系统性地抬高平均收益、压低风险。Malkiel（1995）、Elton–Gruber–Blake（1996）、Carhart–Carpenter–Lynch–Musto（2002）在共同基金上给出量级；Shumway（1997）指出 CRSP 退市收益缺失会让小盘与困境股的平均收益被高估。量化研究里，它不只是「基金排行榜」的问题：任何从今天的股票池往回生成因子，都在用幸存者讲过去。
+[上一课](/quant/stress-reverse-stress)问极端情景怎么设。缺口是研究样本本身：你看到的截面，往往已经筛选过活下来的对象。回测与业绩评价默认你看到的截面，就是当时可投资的截面。幸存者偏差打破这个默认：数据库往往只留下活到今天的基金、活到样本期末的股票、活到指数里的成份。Brown、Goetzmann、Ibbotson 与 Ross（1992）证明，对业绩研究而言，这种筛选会系统性地抬高平均收益、压低风险。Malkiel（1995）、Elton–Gruber–Blake（1996）、Carhart–Carpenter–Lynch–Musto（2002）在共同基金上给出量级；Shumway（1997）指出 CRSP 退市收益缺失会让小盘与困境股的平均收益被高估。量化研究里，它不只是「基金排行榜」的问题：任何从今天的股票池往回生成因子，都在用幸存者讲过去。
 
 ## 问题
 

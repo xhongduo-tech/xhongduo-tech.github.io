@@ -11,7 +11,7 @@ section: quant
 <footer>—— Johansen, Journal of Economic Dynamics and Control 1988 与 Econometrica 1991；信息准则选秩见 Aznar and Salvador, Journal of Time Series Analysis, 2002 一类讨论</footer>
 </div>
 
-两资产配对默认秩 $r=1$ 或 $0$，[Johansen](/quant/johansen) 的顺序检验几乎退化成「有没有协整」。篮子一旦到三只以上，$r$ 变成必须显式选择的对象：$r=0$ 不该做水平组合，$r$ 过大则把近单位根方向当成可交易价差。本篇写秩作为**交易规格**如何选：迹与最大特征值打架时怎么办、信息准则与顺序检验如何分工、以及过拟合 $r$ 怎样在样本外把篮子打穿。它补的是 Johansen 文中「检验程序」之后、下单之前的那一截，而不是再讲一遍广义特征分解。
+[上一课](/quant/kalman-spread)把状态写成价差的均衡水平或潜在 OU，可交易信号用预测步偏离；新息若仍像单位根，问题在 $\beta$ 或协整破裂，不是把均值再平滑一次。缺口是篮子的秩。两资产配对默认 $r=1$ 或 $0$，三只以上 $r$ 必须显式选择：$r=0$ 不该做水平组合，$r$ 过大则把近单位根方向当成可交易价差。本课写秩作为交易规格如何选。不重写 Kalman 的 $Q,R$。后课对冲比断裂默认已经读完：顺序检验不是后验概率。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Hagan, Kumar, Lesniewski and Woodward, Managing Smile Risk, Wilmott, 2002</footer>
 </div>
 
-[SABR](/quant/sabr) 写的是模型与摄动公式：CEV 远期乘随机 $\alpha$，相关 $\rho$ 与 vol-of-vol $\nu$ 弯折微笑。交易里每天要做的是另一件事——给定 ATM、风险逆转与蝶式，或给定一列执行价的隐含波动，反解参数并检查翼部密度。本篇只写这一反问题：冻哪些、解哪些、目标函数用价格还是波动、跨到期如何拼，以及 2002 年领头项在校准里如何先坏掉。曲面坐标见 [隐含波动率曲面](/quant/vol-surface)，偏斜度量见 [Skew](/quant/vol-skew)。它不替代 Heston 的全局特征函数校准，也不替代 Dupire 的整张局部波动表。
+[上一课](/quant/cgmy)用四参数 tempered stable 刻画纯跳 Lévy，欧式走傅里叶；独立增量决定了期限结构与无聚类，精细结构估计不能替代 Heston/Bergomi 的动态。[SABR](/quant/sabr) 已经写出 CEV 远期乘随机 $\alpha$ 的摄动公式。缺口是反问题：给定 ATM、风险逆转与蝶式，冻哪些、解哪些、目标用价格还是波动。本课写这一校准，不重推 CGMY 的 $\Gamma(-Y)$，也不替代 Dupire 的整张局部波动表。按到期独立校准后再插值参数，与 Heston 全局五参数不是同一类问题。
 
 ## 问题
 

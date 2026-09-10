@@ -11,7 +11,7 @@ section: quant
     <footer>—— 危机后市场惯例；Bianchetti, Two Curves, One Price, Risk, 2010；Hull and White, LIBOR vs. OIS: The Derivatives Discounting Dilemma</footer>
 </div>
 
-2008 年以前，许多台子用同一条 LIBOR 互换曲线既折现又预测浮动现金流。危机中 LIBOR–OIS 基差从几个基点撑开到数十甚至上百，再也不随「微小摩擦」被忽略。有抵押（CSA）的衍生品，日终抵押接近以隔夜指数计息，其融资与折现更靠近 OIS；而未抵押或浮动端仍挂钩 3M LIBOR 的合同，投影必须用 3M 曲线。Marco Bianchetti 2010 年在 *Risk* 上用「两条曲线、一个价格」概括定价：折现曲线与投影曲线成对出现。John Hull 与 Alan White 把「该用 LIBOR 还是 OIS 折现」写成交易与估值的两难，并说明抵押约定如何决定选择。自助法仍然适用，只是未知量拆开了。
+[上一课](/quant/curve-bootstrap)按到期逐个解折现或远期节点，使构建集在给定插值下精确重定价，并点名多曲线下同一算法分别服务折现曲线与投影曲线。缺口正是「分别」：2008 年以前许多台子用同一条 LIBOR 互换曲线既折现又预测浮动现金流；危机中 LIBOR–OIS 基差撑开，再也不能当微小摩擦。有抵押衍生品的折现更靠近 OIS；浮动端仍挂钩 3M LIBOR 的合同，投影必须用 3M 曲线。本课写折现曲线与投影曲线成对出现。不重推自助法的一维求解。后课久期默认已经知道 Delta 是「曲线 × 期限」。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— An 等，Training-Free Long-Context Scaling of Large Language Models，2024（Qwen 团队；常与 YaRN 配套出现）</footer>
 </div>
 
-Qwen 系模型在把窗口从训练长度拉到 32k、128k 时，除了 [YaRN](/llm/yarn) 这类频率补丁，还用过一套按块拆注意力的推理方案：Dual Chunk Attention（DCA）。An 等人 2024 年的训练免费长上下文缩放论文把 DCA 写清楚——同一条序列上并存三种边：块内、块间、相邻块。它针对 RoPE 解码器「一次吃完整长文档」的设定，与流式汇点配方不是同一条产品线。本篇写块wise 位置，不把 YaRN 的分段频率再讲一遍；二者在 Qwen2 一类发布里经常一起出现，评测上应能拆开。
+[上一课](/llm/self-extend)在推理时把远相对位置按组折叠，近邻保持真实 $\Delta$，无需微调即可延窗；中间键仍参加注意力，$g$ 换的是远端分辨率。单一阶梯不特殊对待块的内部结构。缺口是按约等于训练长度的块切开：块内沿用原 RoPE，块间使用仍落在支撑集内的位置映射，相邻块单独处理以免坐标系裂缝。An 等人 2024 年的 Dual Chunk Attention 写这条，Qwen 系长窗口里常与 [YaRN](/llm/yarn) 配套。本课写块wise 位置，不把分段频率再讲一遍；二者应能拆开消融。
 
 ## 问题
 

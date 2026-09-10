@@ -11,7 +11,7 @@ section: quant
 <footer>—— Moskowitz, Ooi & Pedersen, Time Series Momentum, Journal of Financial Economics, 2012</footer>
 </div>
 
-CTA 的方向来自趋势，但盈亏的尺度来自仓位。Moskowitz、Ooi、Pedersen 的单资产权重与 $\hat\sigma_{i,t}$ 成反比，目标常取较高的合约层波动再在组合层面对冲。Barroso 与 Santa-Clara 在股票动量上证明，对策略自身的已实现波动做缩放，能显著改善崩溃月。Moreira 与 Muir 把「波动管理」写成更一般的风险定价事实：低波动状态之后的夏普更高。本篇只管 **CTA 语境下的波动缩放**：它改变权重与杠杆路径，不创造新的方向信息；它减回撤，也可能在趋势加速的危机初段少赚钱。把危机 alpha 全部算进 $\mathrm{sign}(\cdot)$，会高估信号、低估风控规则。
+[上一课](/quant/breakout-ma)把突破、均线与过去超额符号收成同一趋势赌注的三种滤波器；比较必须在同一波动缩放下进行。缺口是那个「同一波动缩放」还没写：方向来自趋势，盈亏的尺度来自仓位。本课写 CTA 语境下的 $1/\hat\sigma$：它改变权重与杠杆路径，不创造新的方向信息。不重讲通道止损。后课跨资产相关默认已经读完：危机 alpha 有一部分来自组合层目标波动，而不是 $\mathrm{sign}(\cdot)$。
 
 ## 问题
 

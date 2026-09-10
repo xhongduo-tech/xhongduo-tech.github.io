@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Grinold and Kahn, Active Portfolio Management，以及 Clarke, de Silva and Thorley, Journal of Portfolio Management, 2002</footer>
 </div>
 
-[Markowitz](/quant/markowitz) 给出无摩擦二次规划，[Grinold 基本定律](/quant/ic-ir-timing) 把信息比率写成预测力乘以广度。实盘组合几乎从不落在那个解上：章程禁止过快换手，基准要求行业不能飘，融资与保证金钉死总杠杆。约束不是风控备忘录上的装饰，而是把 $\alpha$ 与 $\Sigma$ 映射成可持有权重的线性与锥约束。Clarke、de Silva 与 Thorley（2002）把这件事收成转移系数（transfer coefficient）：约束越紧，理想主动权重与实现权重的相关越低，定律里的 IR 按同一比例下降。本篇写换手、行业、杠杆三条最常见的硬约束如何进入优化器，以及它们如何彼此打架。信号层的[行业中性](/quant/industry-neutral)是另一件事——那是改描述子；这里改的是持仓。
+[上一课](/quant/risk-budgeting)在欧拉贡献上求解 $\mathrm{RC}_i=b_i$，最分散组合惩罚相关簇里的重复下注；这些规则都不使用 $\mu$，因此不替代有观点时的切点。无约束风险预算给出一组理想权重。缺口是实盘几乎从不落在那个解上：章程禁止过快换手，基准要求行业不能飘，融资钉死总杠杆。Clarke、de Silva 与 Thorley（2002）把约束的代价收成转移系数：理想主动权重与实现权重的相关越低，定律里的 IR 按同一比例下降。本课写换手、行业、杠杆如何进入优化器，不重推 ERC 与 MDP 的内点解。信号层的[行业中性](/quant/industry-neutral)是改描述子；这里改的是持仓。
 
 ## 问题
 

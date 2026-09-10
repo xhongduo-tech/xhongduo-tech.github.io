@@ -11,7 +11,7 @@ section: quant
     <footer>—— Litterman & Scheinkman, Common Factors Affecting Bond Returns, Journal of Fixed Income, 1991</footer>
 </div>
 
-陡峭化对冲掉水平之后，曲线还可能在中间鼓起或塌陷。蝶式（butterfly, fly）就是针对这一曲率：通常买两翼、卖中间（或反向），并尽量把平行移动与斜率暴露压到接近零，只留下对「中间相对两端」的赌注。Litterman 与 Scheinkman（1991）把国债收益的共同因子分解为水平、斜率、曲率，给了这套仓位一个方差分解上的理由；Diebold 与 Li（2006）在 Nelson–Siegel 载荷里把曲率写成显式的中段驼峰。本篇写如何用久期与关键期限把飞构成可交易组合，它与期权里的[蝶式无套利](/quant/butterfly-calendar-arb)不是同一对象，也与[收益率曲线因子](/quant/yield-curve-factors)的第三主成分、[关键利率久期](/quant/key-rate-duration)的局部三角形相互翻译。定价引擎仍是整条曲线；蝶式是风险坐标，不是新的短端模型。
+[上一课](/quant/curve-pca)对债券收益（或 $\Delta y$）做 PCA，前三因子呈水平、斜率、曲率；对冲用贴近 $\phi$ 的久期、陡峭化、蝶式。缺口是蝶式还没有写成可交易权重：如何把平行移动与斜率压到接近零，只留下「中间相对两端」。本课写飞的约束与坐标。不重讲相关矩阵对协方差的解释比例。它与期权里的[蝶式无套利](/quant/butterfly-calendar-arb)不是同一对象。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Ma, Ho & McCauley, The markets for non-deliverable forwards in Asian currencies, BIS Quarterly Review, June 2004</footer>
 </div>
 
-不可交割远期（Non-Deliverable Forward, NDF）在到期时不交换本金，只用预先指定的定盘汇率与合约汇率之差，乘以名义本金，以美元（偶尔以其他可兑换货币）现金结算。它存在的原因是：韩元、新台币、印度卢比、巴西雷亚尔、印尼盾、历史上的在岸人民币等，即期或远期的本金交割对外资受限。Ma、Ho 与 McCauley（2004）把亚洲 NDF 写成在资本管制下仍能让境外投资者对冲本币债与股权的市场，并记录 NDF 隐含利率与在岸利率的系统偏离。McCauley、Shu 与 Ma（2014）更新了规模：NDF 在全球远期中的份额上升，而人民币国际化为可交割的 CNH 之后，人民币 NDF 被部分替代。Lipscomb（2005）从纽约联储角度概述市场结构。本篇把 NDF 当作**分割市场的可交易远期**，而不是当成「CIP 失败」的反例。
+[上一课](/quant/commodity-inventory)把 Working 曲线写成库存与现货升水反向，且在低库存端非线性变陡；价格代理库存只在预测未来收益时合法。那是可交割商品的仓储。缺口是本金交割对外资受限的货币：NDF 到期不交换本金，只用定盘与合约汇率之差以美元现金结算。在岸远期与离岸 NDF 可以对同一货币报出不同价格，二者之差通常无法交割完成，不是 CIP 失败的反例。本课把 NDF 当作分割市场的可交易远期。不重写 $y(I)$。
 
 ## 问题
 

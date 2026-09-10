@@ -11,7 +11,7 @@ section: llm
 <footer>—— 数据并行是标准做法；ZeRO 见 Rajbhandari 等，DeepSpeed</footer>
 </div>
 
-数据并行（DP / DDP）是最容易讲清的分布式训练：模型在每张卡上复制一份，各卡吃不同的微批，反传后对梯度做 All-Reduce，得到全局平均梯度，再各自做一次相同的优化器步。模型不大、一张卡放得下时，它几乎是默认。Adam 一类优化器却在每张卡上复制了沉重的状态：FP32 主权重、一阶矩、二阶矩。参数本身若以 BF16 计只要 2 字节，Adam 状态可以到 12 字节量级，复制 $N$ 次是纯冗余。Rajbhandari 等人在 DeepSpeed 里提出 ZeRO（Zero Redundancy Optimizer）：继续用数据并行的语义，但把这些重复张量按 rank 分片，需要时再聚集。本篇讲 DP 的通信语义，以及 ZeRO 为什么是「仍是数据并行」。分档细节（ZeRO-1/2/3）放在下一篇。
+[上一课](/llm/batch-vs-lr)把 $B$ 写成全局 token batch：改卡数、序列长、累积都是在改 $B$；低于临界 batch 可尝试放大 $\eta$，学习率与全局 batch 的关系不因后文的分片改变。缺口是复制。模型在每张卡上复制一份时，Adam 状态（主权重、$m$、$v$）是显存里最大的冗余。本课写数据并行的通信语义，以及 ZeRO 为何仍是 DP：把冗余分片、需要时再聚集。不重拟合 $B_{\mathrm{crit}}$。分档细节下一课再写。
 
 ## 问题
 

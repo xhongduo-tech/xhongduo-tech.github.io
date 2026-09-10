@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gregory, Counterparty Credit Risk and Credit Value Adjustment, 对照其后续 xVA 论述</footer>
 </div>
 
-[对手方与信用风险](/quant/counterparty-credit) 把暴露、净额、PFE 与错向风险摊开。本篇收窄到 **CVA 这一条价格**：Jon Gregory 反复强调的，是把对手方违约当成可以盯市的衍生品风险，而不是信贷部年底拨一次备抵。2008 年之后，未违约的名字只要 CDS 走阔，CVA 台就会立刻亏损；资本规则随后把 CVA 波动收成独立的市场风险。读 Gregory 不是为了背完整 xVA 字母表，而是为了分清：哪些假设让公式可算，哪些假设在催缴与错向里已经作废。
+[上一课](/quant/crowding-spiral)把清盘螺旋写成亏损螺旋与保证金螺旋在拥挤条件下的加总，减仓量相对深度足够大时自我强化。缺口从市场冲击转到对手方违约是否可盯市。未违约的名字只要 CDS 走阔，CVA 台就会立刻亏损；把暴露压成「EAD × LGD × PD」等于丢掉随机 $V_t$ 与 $\tau$ 的依赖。本课收窄到 CVA 这一条价格。不重测可同步减仓量。后课默认已经读完：CVA 进 PnL，与 PFE 限额测度不同。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Zhang 与 Sennrich，RMSNorm，2019</footer>
 </div>
 
-LayerNorm 对每个 token 的特征维做减均值、除标准差，再仿射。Zhang 与 Sennrich 在 2019 年问：均值中心化这一步对 Transformer 是否必要？他们给出 RMSNorm：只除以均方根，不减均值，保留一个缩放向量。LLaMA 之后的开源解码器几乎把它当成默认归一化。它不是新的残差顺序，而是 Pre-LN 块内部更便宜的一次归一化；和 DeepNorm、并行 Attention-FFN 正交，但常被一起写进同一套实现。
+[上一课](/llm/pre-ln-post-ln)把 LN 相对残差的位置写成稳定性：Pre-LN 留一条不经过子层的梯度公路，深层好训；Post-LN 输出尺度整齐，深了常训不成。顺序定了，块内部仍可以换算子。缺口是均值中心化这一步对 Transformer 是否必要。Zhang 与 Sennrich 2019 年的 RMSNorm 只除均方根，通常只留增益 $\gamma$，LLaMA 之后的开源解码器几乎把它当成默认。本课写这个更便宜的尺度约束，不重推 Pre-LN 的梯度通路。它不是新的残差顺序，和 DeepNorm、并行 Attention-FFN 正交。
 
 ## 问题
 

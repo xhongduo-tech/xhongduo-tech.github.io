@@ -11,7 +11,7 @@ section: llm
 <footer>—— Shinn et al., Reflexion: Language Agents with Verbal Reinforcement Learning, NeurIPS 2023</footer>
 </div>
 
-[ReAct](/llm/react) 的轨迹在单次任务内交错，任务一结束，失败原因并不自动进入下一次尝试。Shinn 等人加了一层口头强化：Actor 生成轨迹，Evaluator 给出成功/失败或稀疏分数，然后模型写一段 Self-Reflection——自然语言总结「错在哪、下次改什么」——写入情景记忆，下一回合的 Actor 提示带上这些段落。这就是 Reflexion。它不更新权重，强化学习的「回报」被说成话，而不是变成梯度。本篇写这条记忆—反思—再试的提示形态，不把一般 RLHF 或过程奖励再讲成同一算法。
+[上一课](/llm/react-prompting)用固定槽位交错示范 Thought、可解析 Action、以及宿主回填的 Observation；长轨迹上格式会漂。轨迹在单次任务内交错，任务一结束，失败原因并不自动进入下一次尝试。缺口是 Reflexion：评估器判定成败，再生成口头反思写入记忆，供下一回合 Actor 条件化。本课写这条记忆—反思—再试，不更新权重，也不把一般 RLHF 讲成同一算法。必须用同等重试次数的无反思基线，才能把增益算在反思上。
 
 ## 问题
 

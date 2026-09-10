@@ -11,7 +11,7 @@ section: llm
 <footer>—— Amirkeivan Mohtashami, Martin Jaggi, Landmark Attention, 2023</footer>
 </div>
 
-全注意力把过去每一个键都放进可见集，长度一涨，[二次代价](/llm/attention-quadratic-cost)与 KV 体积一起涨。滑窗把远键整段剪掉；压缩记忆把远历史揉进固定状态，细节对不准。Mohtashami 与 Jaggi 2023 年的 Landmark Attention 走第三条路：把序列切成块，每块选出一个地标 token，查询先对地标做一次粗检索，再只对命中块里的原始 token 做细注意力。于是「任意远的某段」可以按内容跳进去，而不必常驻全部键。本篇只讲这条地标随机访问，KV 预算的其他压法见 [KV 压缩作为长上下文手段](/llm/kv-as-long-context)，按块可学习选择见 [Native Sparse Attention](/llm/native-sparse-attention)。
+[上一课](/llm/activation-beacon)用可学习信标 token 压缩块内激活，后续注意力读信标以降低 KV 增长；有效上下文约等于最近满分辨率窗 + 信标链，摘要可被普通点积寻址。信标是压缩后的内容。缺口是另一条块级目录：每块选一个地标，查询先对地标粗检索，再只对命中块里的原始 token 做细注意力——任意远的某段可以按内容跳进去，而不必常驻全部键。Mohtashami 与 Jaggi 2023 年的 Landmark Attention 走这条。本课写地标随机访问，不重讲信标训练。其他 KV 压法见 [KV 压缩作为长上下文手段](/llm/kv-as-long-context)。
 
 ## 问题
 

@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA Hopper 架构白皮书与 CUDA 编程指南中的 Tensor Memory Accelerator / `cp.async.bulk`</footer>
 </div>
 
-Ampere 已经提供 `cp.async`：线程把全局地址搬进共享内存，拷贝与随后的 `mma.sync` 可以重叠。Hopper（H100 一类）再进一步，引入 Tensor Memory Accelerator（TMA）：用张量映射描述符表达多维布局、盒子大小与边界填充，由拷贝引擎执行 `cp.async.bulk.tensor`，把地址生成从 SIMT 线程上卸下。LLM 核里的大块 $A$、$B$、注意力的 $K,V$ 瓦片，适合走这条路径；完全随机的 gather 仍然不是 TMA 的对象。
-
-本篇写 Hopper 这一代的异步拷贝：从 `cp.async` 到 TMA、描述符、mbarrier、以及 cluster 上的 multicast。Rubin 对描述符的内联覆盖见 [TMA 与本地化访存](/llm/rubin-tma)，不在这里提前写成 H100 特性。
+[上一课](/llm/cuda-graph-infer)把推理 Graph 写成重放拓扑稳定的 decode 步：动态形状靠分桶，图不改变 HBM / MMA 屋顶线，也不替代融合。缺口是规则张量的搬移仍常占 SIMT 发行槽：Hopper 用 TMA 把多维盒子与边界填充交给拷贝引擎，线程只负责发和等。Ampere 的 `cp.async` 仍把地址算术留在线程上。本课写描述符、mbarrier 与 cluster multicast，不重写 Graph 捕获规则。计算 warp 如何特化见 [warp specialization](/llm/warp-specialization)。
 
 ## 问题
 

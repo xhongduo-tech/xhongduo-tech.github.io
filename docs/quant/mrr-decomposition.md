@@ -11,7 +11,7 @@ section: quant
 <footer>—— Madhavan, Richardson &amp; Roomans, Why Do Security Prices Change? A Transaction-Level Analysis of NYSE Stocks, Review of Financial Studies, 1997</footer>
 </div>
 
-买卖价差不是一块铁板。[Glosten–Milgrom](/quant/glosten-milgrom) 把报价写成条件期望，价差来自逆向选择；存货模型把中点偏移写成头寸管理；[Roll 模型](/quant/roll-model) 用收益的负一阶相关恢复有效价差，却把信息与摩擦捆在同一个协方差里。Madhavan、Richardson、Roomans（1997）在成交层面给出一个可估的线性结构：**MRR**。它把交易方向的自相关显式写进信念更新，从而把价差拆成永久成分（信息不对称 $\theta$）与暂时成分（指令处理加存货补偿 $\phi$），并允许公共信息独立冲击有效价值。本站 [价差分解](/quant/spread-decomposition) 讲会计身份；本篇写 MRR 的识别与误用边界。它回答的是「这一笔成交之后，价格里留下了什么」，不是「做市商赚了多少点」。
+[上一课](/quant/huang-stoll-spread)用方向与报价调整估价差份额：两路稳，三路识别弱；方向分类噪声系统性压低逆向选择份额。Glosten–Milgrom 把价差写成逆向选择，Roll 把信息与摩擦捆在同一个协方差里。缺口是成交层面的线性结构 MRR：把交易方向的自相关写进信念更新，拆出永久成分 $\theta$ 与暂时成分 $\phi$。本课写识别与误用边界，不重跑 Huang–Stoll 的三路。它回答「这一笔成交之后，价格里留下了什么」，不是「做市商赚了多少点」。
 
 ## 问题
 

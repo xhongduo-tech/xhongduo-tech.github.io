@@ -11,11 +11,11 @@ section: llm
 <footer>—— Yu et al., Orca: A Distributed Serving System for Transformer-Based Generative Models, OSDI 2022</footer>
 </div>
 
-自回归服务的基本矛盾是：每条请求要跑许多次模型才能写完，而各条要写多少 token 事先不知道。传统静态批把 $B$ 条请求绑在一起，跑到这 $B$ 条**全部结束**才吐结果、才收下一批，早结束的请求在 GPU 上陪跑 padding，晚到的请求在队列里空等。Yu 等人 2022 年的 Orca 把调度粒度从「一条请求的一生」改成「一次迭代」，从而让批次的成员关系随时间连续变化——后来被广泛称为连续批处理（continuous batching）。本篇写它解决什么空洞、批次如何胀缩；iteration 级调度器与选择性批处理的机制细节见 [iteration-level 调度](/llm/iteration-scheduling)。
+[上一课](/llm/mla-kv)压缩的是每 token KV 的宽度，条数仍等于序列长；并发与长生成吃的是带宽账单。缺口从空间转到时间轴：各条请求要写多少 token 事先不知道，静态批绑到全员结束，早结束的陪跑 padding，晚到的空等。本课钉连续批处理：调度粒度从「一条请求的一生」改成「一次迭代」，成员随时间进出。不重讲 $d_c$ 与吸收。iteration 级钩子见 [iteration-level 调度](/llm/iteration-scheduling)；后课静态/动态对照默认已经见过成员可变的批。
 
 ## 问题
 
-一条生成请求的寿命是 prefills 一次、再 decode $T$ 步，$T$ 是输出长度，方差很大。静态批的利用率被最长那条决定：设批内长度分别为 $T_1,\ldots,T_B$，GPU 实际有效的 decode 步大约是 $\sum_i T_i$，但墙钟步数是 $\max_i T_i$，空隙比例为 $1-\mathrm{mean}(T)/\max(T)$。对话流量里这个空隙经常是主项，不是边角。
+MLA 压的是每 token 宽度，批的寿命仍被最慢请求钉死。一条生成请求的寿命是 prefill 一次、再 decode $T$ 步，$T$ 是输出长度，方差很大。静态批的利用率被最长那条决定：设批内长度分别为 $T_1,\ldots,T_B$，GPU 实际有效的 decode 步大约是 $\sum_i T_i$，但墙钟步数是 $\max_i T_i$，空隙比例为 $1-\mathrm{mean}(T)/\max(T)$。对话流量里这个空隙经常是主项，不是边角。
 
 更糟的是到达过程。新请求不能加入正在跑的批，必须等当前批的最慢成员结束。队列延迟与批内气泡叠加，尾延迟被少数长生成绑架。吞吐看起来可以靠加大 $B$ 抬，但加大 $B$ 同时加大 $\max T$ 的期望，空等更凶。自回归工作负载需要一种**成员可变的批**：谁写完谁走，谁到了谁在下一次前向里出现。
 

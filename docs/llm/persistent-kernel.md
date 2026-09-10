@@ -11,9 +11,7 @@ section: llm
     <footer>—— NVIDIA CUTLASS 持久化调度 / CUDA 占用率模型，对照 Hopper 白皮书中的异步流水</footer>
 </div>
 
-默认执行模型里，每个 kernel 启动对应一批 CTA，跑完即走，SM 流水线排空，下一次启动再填满。短核密集时，排水与启动的间隙可见；即使用 [CUDA Graph](/llm/cuda-graph-infer) 把启动收成一次，图中相邻节点仍是两次独立的核，中间仍可能丢占用。Persistent kernel 把网格做成大约「占满 SM」的常驻 CTA，内层循环从工作队列（下一 tile、下一层、下一请求的一块 GEMM）取活，直到队列空。CUTLASS 的 persistent / stream-K 调度、部分推理引擎的 decode 循环，都在这一模型里。
-
-本篇写何时该常驻、工作如何分发、以及和 Graph、融合的分工。不编造未公开的 SM 排水周期数。
+[上一课](/llm/wgmma)把 WGMMA 写成 4-warp 异步矩阵乘加：完成靠 commit/wait group，形状与 swizzle 是硬合同，小 $M$ 的 decode 打不满阵列。缺口是短核密集时启动与排水：即使用 [CUDA Graph](/llm/cuda-graph-infer) 把提交收成一次，相邻节点仍可能丢占用。Persistent kernel 把网格做成约占满 SM 的常驻 CTA，内层从工作队列取活。本课写何时该常驻、工作如何分发，不重写 wgmma 的形状合同。
 
 ## 问题
 

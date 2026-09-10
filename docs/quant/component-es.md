@@ -11,17 +11,17 @@ section: quant
 <footer>—— Tasche, Capital Allocation to Business Units and Sub-Portfolios: the Euler Principle；ES 的连贯性见 Acerbi and Tasche, 2002</footer>
 </div>
 
-[ES](/quant/expected-shortfall) 给出整个组合的一个尾部数字。限额、业绩与资本还要问：这个数字里有多少来自交易台 A、因子 $k$、或单名 $i$。Euler 分配利用正齐次：$\rho(\lambda X)=\lambda\rho(X)$ 对 $\lambda>0$，于是
+[上一课](/quant/liquidity-adjusted-var)把外生价差成本加到中间价 VaR 上，更一致的做法是在每条情景用可成交价定义 $L$；大仓位的主导项是冲击与变现时间。缺口是切开。[ES](/quant/expected-shortfall) 给出整个组合一个尾部数字，限额与资本还要问这个数字里有多少来自交易台 A 或单名 $i$。本课写正齐次风险度量上的 Euler 分配，以及边际 / 成分 / 增量三个量如何分叉。不重讲半价差加法。后课保证金模型默认已经读完：资本切开优先 ES。
+
+## 问题
+
+正齐次 $\rho(\lambda X)=\lambda\rho(X)$（$\lambda>0$）给出 Euler 切开
 
 $$
 \rho(X)=\sum_i w_i\frac{\partial\rho}{\partial w_i},
 $$
 
-各项 $w_i\partial_i\rho$ 称为成分风险（component / Euler contribution）。波动上这就是风险预算里的 $w_i(\Sigma w)_i/\sigma$，见 [风险预算](/quant/risk-budgeting)。尾巴上，ES 的偏导数是条件期望 $E[X_i\mid X\ge q_\alpha]$（在连续分布、定义恰当的版本上）。本篇写成分 ES、边际 ES 与增量 ES 的差别，以及为什么 VaR 的 Euler 分配在经济上更难站稳。它补的是加总之后如何切开，不是如何估分位数。
-
-## 问题
-
-组合 ES 不能按名义权重切开：相关、尾依赖、期权凸性都会让「占净值 10%」与「占 ES 10%」脱钩。朴素用单独计算的 $\mathrm{ES}(X_i)$ 再按比例缩放，和不连贯的 VaR 一样会惩罚分散化或重复计算。需要一种分配，使得：(1) 各项之和精确等于组合 $\rho$；(2) 对边际增加仓位的方向正确（多承担组合尾巴的名字，分到更多资本）；(3) 与连贯性相容——分散化降低组合 ES 时，分配不会出现「合并后各项之和上升」。
+各项 $w_i\partial_i\rho$ 称为成分风险。波动上这就是 [风险预算](/quant/risk-budgeting) 里的 $w_i(\Sigma w)_i/\sigma$；尾巴上，ES 的偏导数是条件期望 $E[X_i\mid X\ge q_\alpha]$（连续分布、定义恰当的版本）。组合 ES 不能按名义权重切开：相关、尾依赖、期权凸性都会让「占净值 10%」与「占 ES 10%」脱钩。朴素用单独计算的 $\mathrm{ES}(X_i)$ 再按比例缩放，和不连贯的 VaR 一样会惩罚分散化或重复计算。需要一种分配，使得：(1) 各项之和精确等于组合 $\rho$；(2) 对边际增加仓位的方向正确（多承担组合尾巴的名字，分到更多资本）；(3) 与连贯性相容——分散化降低组合 ES 时，分配不会出现「合并后各项之和上升」。
 
 Tasche 论证：在正齐次风险度量上，Euler 分配是满足「与边际风险定价一致」的标准选择。Denault 从博弈论的 Aumann–Shapley 值到达同一点。问题是把 $\partial\mathrm{ES}/\partial w_i$ 写成可估计的条件期望，并处理原子、非线性、以及「去掉整个台」与「微增一个基点」不是同一问题。
 

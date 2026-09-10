@@ -11,13 +11,7 @@ section: quant
 <footer>—— Amihud, Illiquidity and Stock Returns, Journal of Financial Markets, 2002</footer>
 </div>
 
-Amihud（2002）提出
-
-$$
-\mathrm{ILLIQ}_{i,t}=\frac{1}{D_{i,t}}\sum_{d=1}^{D_{i,t}}\frac{|R_{i,d}|}{\mathrm{VOLD}_{i,d}},
-$$
-
-用日度绝对收益与成交金额的比，代理价格冲击。它故意简陋：长样本、多国家、不必逐笔报价，就能给每只股票一个月一个非流动性数字。本站 [流动性因子](/quant/liquidity-factor) 已经把它放进特征溢价与 Pástor–Stambaugh 风险因子的对照里；本篇回到**度量本身**：它在微观结构上对应什么、和 [Kyle lambda](/quant/kyle-lambda)、价差、PIN 距离多远、日度构造有哪些陷阱。Amihud 原文的资产定价结论——非流动性高的股票平均收益更高，市场非流动性创新被定价——是这个度量的用途之一，不是定义。
+[上一课](/quant/corwin-schultz)用单日与两日高低价距从日线里解有效价差；隔夜跳与涨跌停必须调整，否则两日窗口不是两倍的日内扩散。价差是宽度，还不是「每单位资金的价格影响」。缺口是 Amihud 的 ILLIQ：用日度绝对收益与成交金额之比代理冲击，好在长样本、多国家、不必逐笔报价。本课写度量本身，不重推高低距方程。资产定价结论是这个度量的用途之一，不是定义。后课 Kyle $\lambda$ 默认：ILLIQ 与高频 $\lambda$ 相关，不是恒等。
 
 ## 问题
 

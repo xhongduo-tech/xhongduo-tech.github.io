@@ -11,7 +11,7 @@ section: quant
     <footer>—— Duffie, Credit Swap Valuation, Financial Analysts Journal, 1999；以及 Duffie and Singleton, Credit Risk, 2003</footer>
 </div>
 
-信用违约互换（CDS）是标准化的信用保护：买方定期支付升水，一旦参考实体发生信用事件，卖方按合约支付名义本金减去回收（或实物交割可交割债）。Duffie（1999）把这张合约写成强度模型下的两腿贴现；Duffie 与 Singleton（2003）把它接到整条可违约期限结构。2009 年 ISDA「大爆炸」之后，报价从「平价升水」改成「固定票息加预付」，但经济对象没变：仍然是风险中性违约时点与回收的乘积。本篇写升水如何从保护腿与费用腿解出、标准模型用了哪些约定，以及它与债券利差、对手方估值不是同一件事——后两者见 [CDS–债券基差](/quant/cds-bond-basis) 与 [对手方信用](/quant/counterparty-credit)。
+[上一课](/quant/reduced-form-intensity)把违约写成强度点过程，生存概率是 $\exp(-\int\lambda)$ 的期望，短端利差可按 CDS 钉住。缺口是合约本身：升水如何从保护腿与费用腿解出，以及它与债券利差、对手方估值不是同一件事。本课写 CDS 定价与标准票息约定。不重推仿射强度。后课基差默认已经读完：$\lambda$ 由 CDS 校准，不是由评级迁移频率直接代入。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Fedus, Zoph, Shazeer, Switch Transformers, 2021</footer>
 </div>
 
-GShard 已经证明 Transformer 的 FFN 可以换成 MoE，但实现上每个 token 走两个专家（$k=2$），容量、通信、负载统计都更绕。Fedus、Zoph 与 Shazeer 在 2021 年的 Switch Transformer 把路由减到 **$k=1$**：softmax 后只把概率最高的那个专家算一遍。论文标题里的 switch 就是这个开关。简化之后，他们在 TPU 上把专家数加到上百，用和稠密模型同量级的 FLOPs 撑起远更大的参数量，并系统写了容量因子、辅助损失、专家 dropout 和稳定性技巧。本篇只讲 Switch 相对 GShard 改了什么，以及 $k=1$ 的代价。
+[上一课](/llm/moe-routing)让每个 token 用线性打分选 top-$k$ 专家，并强调容量上限与负载均衡，否则路由崩溃、有效容量塌缩。GShard 常用 $k=2$，两份 All-to-All、两套容量桶更绕。缺口是把路由减到 $k=1$：损失糟多少、能否用更多专家把容量补回来。Fedus、Zoph 与 Shazeer 2021 年的 Switch Transformer 走这把开关，并系统写了容量因子、辅助损失与稳定性技巧。本课写相对 GShard 改了什么，不重写 token-choice 的一般原理。推理成本仍是一份 FFN，不是 $N$ 份。
 
 ## 问题
 

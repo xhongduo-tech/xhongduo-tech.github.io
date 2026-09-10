@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hansen and Hodrick, Forward Exchange Rates as Optimal Predictors of Future Spot Rates, Journal of Political Economy, 1980</footer>
 </div>
 
-监督学习把收益当成标签。标签一旦是未来 $h$ 日的累计收益，相邻样本的标签共享 $h-1$ 日的收益，观测不再独立。Hansen 与 Hodrick（1980）在远期溢价回归里把这个问题写清楚；Newey 与 West（1987）给出 HAC 标准误的常用实现。Jegadeesh–Titman 的动量重叠持有、Fama–French 的月度组合，都是在组合层处理重叠，而不是假装每日都是新实验。Gu、Kelly 与 Xiu（2020）把机器学习引进截面定价时，明确用下一期收益作目标并强调样本外；López de Prado 在金融机器学习中强调三重障碍标签、以及交叉验证中的 purge 与 embargo。本篇写三件必须预先写死的事：标签定义、预测期 $h$ 与信号衰减是否匹配、重叠如何进入标准误与交叉验证。它决定[树模型](/quant/gbdt-alpha)的「重要性」有多少是统计幻觉。
+[上一课](/quant/web-data-compliance)收束另类数据能不能用。缺口是监督学习的标签契约：预测期重叠让样本不再独立。监督学习把收益当成标签。标签一旦是未来 $h$ 日的累计收益，相邻样本的标签共享 $h-1$ 日的收益，观测不再独立。Hansen 与 Hodrick（1980）在远期溢价回归里把这个问题写清楚；Newey 与 West（1987）给出 HAC 标准误的常用实现。Jegadeesh–Titman 的动量重叠持有、Fama–French 的月度组合，都是在组合层处理重叠，而不是假装每日都是新实验。Gu、Kelly 与 Xiu（2020）把机器学习引进截面定价时，明确用下一期收益作目标并强调样本外；López de Prado 在金融机器学习中强调三重障碍标签、以及交叉验证中的 purge 与 embargo。本篇写三件必须预先写死的事：标签定义、预测期 $h$ 与信号衰减是否匹配、重叠如何进入标准误与交叉验证。它决定[树模型](/quant/gbdt-alpha)的「重要性」有多少是统计幻觉。
 
 ## 问题
 

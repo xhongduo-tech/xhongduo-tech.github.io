@@ -11,7 +11,7 @@ section: quant
 <footer>—— Sharpe, Mutual Fund Performance, Journal of Business, 1966；以及 Sharpe, The Sharpe Ratio, Journal of Portfolio Management, 1994</footer>
 </div>
 
-组合评价最常用的三个无量纲比——Sharpe、信息比率（IR）、Sortino——都是「平均超额除以某种离散」。差别不在公式漂不漂亮，而在分子是相对现金还是相对基准，分母是全体波动、主动波动还是下行偏差。Sharpe（1966）的报酬–变异比针对互助基金相对无风险（或相对一种参考）的效率；1994 年的澄清把事后比写成差分收益的均值除以差分的标准差。Grinold 与 Kahn 的 IR 把同一结构用到主动收益上，并与基本定律衔接，见 [IC/IR 与因子择时](/quant/ic-ir-timing)。Sortino 与 van der Meer（1991）把分母换成低于目标的偏差，使比率对左尾更敏感。本篇写三个比的对象、年化与抽样误差，以及为什么换分母会改排序——不是为了挑一个「更好看」的数。
+[上一课](/quant/factor-attribution)把主动收益写成主动暴露乘以模型因子收益，加上特异项；贡献是事后乘法，不是对因子溢价的检验。归因回答「钱从哪来」。缺口是把不同波动、不同基准、不同非对称的策略压成可比较的无量纲比：分子是相对现金还是相对基准，分母是全体波动、主动波动还是下行偏差。Sharpe（1966/1994）针对相对无风险的效率；Grinold 与 Kahn 的 IR 用到主动收益；Sortino 与 van der Meer（1991）把分母换成下行偏差。本课写三个比的对象、年化与抽样误差，不重写 Brinson 与持仓型归因。
 
 ## 问题
 
