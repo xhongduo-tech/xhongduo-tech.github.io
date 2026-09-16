@@ -4,3 +4,8 @@ docs/.vitepress/cache/
 .DS_Store
 
 logs/
+
+# Local generation artifacts omitted from the site tree
+.cursor/write-batches/
+docs/.vitepress/data/batch-*.json
+docs/.vitepress/theme/_kt-llm-debug.png
