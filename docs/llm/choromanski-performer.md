@@ -59,7 +59,7 @@ Reformer 用 LSH 把相似查询键分桶，复杂度带大常数，短序列往
 
 TrEMBL 序列长、局部化学与长程接触同时存在，稀疏窗口会切掉接触图，低秩投影不区分残基。像素栅格 $64\times 64\times 3$ 展成一万两千步，是当时 softmax 显存的刑具。语言建模短句上，Flash 式精确 softmax 后来把「线性」的墙钟优势吃掉；原文的实验年份里，对手是 Reformer 与 Linformer，不是 FlashAttention。读 2021 年的 2× Reformer，不要写成 2026 年相对 FA2 的加速。
 
-## 边界与工程取舍
+## 边界
 
 ### $m$、尖峰任务与外推
 

@@ -62,7 +62,7 @@ HBM4、第三代 Transformer Engine、NVFP4 属于 Rubin GPU 执行层，细节�
 
 GB200 NVL72 已经把「72 GPU 一域」产品化。Vera Rubin NVL72 保持同构：计算托盘 + 交换托盘、柜外 SuperNIC、液冷。换代的是芯片代数与共设计范围（网卡、DPU、以太交换、CPU 一并换代），不是把域改成 128。因此软件迁移的第一约束仍是：通信子是否整柜、HBM 是否按相加规划、调度是否认域。第二约束才是 NVFP4、HBM4、NVLink 6 的新能力。把 Rubin 平台当成「只能跑新模型」是错的；当成「可以继续按 8 卡副本切」也是错的。
 
-## 边界与工程取舍
+## 边界
 
 不要用 NVL72 取消 Scale-Out。不要把 LPU 柜、存储柜的公开吞吐加进 GPU 柜的 MFU。不要填写未出现在 NVIDIA 文档里的铜缆单通道速率或未公布的背板表。操作系统与 Kubernetes 若只懂 8 卡 Pod，会把平台切碎，需要拓扑管理器。Confidential computing 改变多租户上能否放受保护权重，与峰值 FLOPS 无关，但与云上卖点有关——不要在关闭 TEE 的自建机房里假设同一隔离级别。
 

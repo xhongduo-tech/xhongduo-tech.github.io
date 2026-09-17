@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Codd, A Relational Model of Data for Large Shared Data Banks, CACM 1970 整理</footer>
 </div>
 
-[上一课](/cs/socket-nonblock)把进程间通信收到套接字：字节可以跨主机送达。[文件作为字节流](/cs/file-bytestream)已经把持久化写成可寻址的字节序列，[B 树与外存](/cs/btree-external)已经能按键查找，[缓冲与脏页](/cs/buffer-dirty)已经承认内存与磁盘可以不一致。本课不重讲套接字、文件或 B 树。缺口是：字节和文件都在，但还没有把「一张表、一行、一个属性」命名成关系，完整性更无从说起。后课默认已经读完本课。
+[上一课](/cs/app-backpressure)把反压接到业务：窗口、有界阻塞或显式 request，与 PFC/rwnd 分层叠用，计算机网络进阶到此收束。[文件作为字节流](/cs/file-bytestream)已经把持久化写成可寻址的字节序列，[B 树与外存](/cs/btree-external)已经能按键查找，[缓冲与脏页](/cs/buffer-dirty)已经承认内存与磁盘可以不一致。本课不重讲套接字、文件或 B 树。缺口是：字节和文件都在，但还没有把「一张表、一行、一个属性」命名成关系，完整性更无从说起。后课默认已经读完本课。
 
 ## 问题
 

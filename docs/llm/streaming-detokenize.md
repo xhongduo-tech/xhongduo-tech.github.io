@@ -47,7 +47,7 @@ flowchart TD
 
 [KV 布局](/llm/kv-layout)与 detokenize 无关：缓存里没有字符串。但流式 TTS / 终端 UI 的延迟会把「先等一个 token 再发」放大成可感知卡顿；权衡是稳定 vs TTFT 字符串。
 
-## 边界与工程取舍
+## 边界
 
 不要在网关用 Python `tokenizer.decode(ids[:k])` 每 token 一次当协议。不要把替换符发给用户再删除。工具调用的 JSON 解析应对稳定前缀做增量 parse，半个字符串 token 不是合法 JSON。多语言混合时，byte-level 与 sentencepiece 的稳定规则不同，转换检查点必须换对应解码器。
 

@@ -39,7 +39,7 @@ Perold 的实施缺口比较决策价与最终成交：延误、部分成交、�
 
 ### 谁的成本：做市、机构、零售
 
-Frazzini–Israel–Moskowitz 的执行短fall 低于许多学术价差模型，因为大机构有中间商、暗池与耐心。高频做市的有效成本更低，但他们赚的是价差，不是残差回归的那一段。零售与准机构按屏幕价差付费，Novy-Marx–Velikov 的结论更贴近。同一篇 PCA 统计套利论文，对这三类参与者的 $\mu_{\mathrm{net}}$ 可以一正两负。可交易性必须绑定身份：融资利率、借券渠道、能否参与 ETF 一级市场、有无期现额度。没有身份的「净夏普」是未定义的数。
+Frazzini–Israel–Moskowitz 的执行缺口 低于许多学术价差模型，因为大机构有中间商、暗池与耐心。高频做市的有效成本更低，但他们赚的是价差，不是残差回归的那一段。零售与准机构按屏幕价差付费，Novy-Marx–Velikov 的结论更贴近。同一篇 PCA 统计套利论文，对这三类参与者的 $\mu_{\mathrm{net}}$ 可以一正两负。可交易性必须绑定身份：融资利率、借券渠道、能否参与 ETF 一级市场、有无期现额度。没有身份的「净夏普」是未定义的数。
 
 <span class="marginnote">容量曲线应假设拥挤：若 $A$ 只是你自己的规模，而市场上同类资本是 $10A$，冲击应按 $11A$ 估。2007 年 8 月的残差相关上升，是容量的状态依赖形式，不是平均 ADV 能概括的。</span>
 
@@ -53,7 +53,7 @@ Frazzini–Israel–Moskowitz 的执行短fall 低于许多学术价差模型，
 
 加宽[Z-score](/quant/zscore-entry) 阈值、降低换手、价值加权、剔除最低流动性分位、禁止在调整日与涨跌停日开仓，都是在用毛 $\mu$ 换 $\mu_{\mathrm{net}}$。分数[Kelly](/quant/kelly-sizing) 降低名义，使冲击函数停在较平的一段。时间止损缩短持有会增加换手，可能损害净期望，尽管它限制破裂；这是保险费。可交易性优化的目标函数应是约束下的 $\mu_{\mathrm{net}}$ 或扣费后的效用，不是毛夏普。把成本当回测最后一行「减 8bp」的脚注，会让前面所有超参选择都在错误的目标上完成。
 
-## 边界与工程取舍
+## 边界
 
 学术价差模型（Hasbrouck、Roll、有效价差代理）有测量误差，可能高估或低估。机构执行数据有选择偏差（只含活下来的执行、只含某类订单）。真实部署要用自己的成交回报去校准冲击，而不是永远借用论文参数。A 股的印花税、T+1、涨跌停使美股校准不可移植。现金不够、无法同时锁两腿时，策略从套利变成方向性，成本模型也要改成单腿。
 
@@ -80,6 +80,6 @@ flowchart TD
 - 可交易性是扣有效价差、冲击、借券与实施缺口之后的 $\mu_{\mathrm{net}}$，以及它随规模下降的容量曲线，不是纸面夏普。
 - Novy-Marx–Velikov（2016）表明高换手异常对成本最敏感；动量上 Korajczyk–Sadka、Lesmond–Schill–Zhou 给出同一教训。
 - 统计套利换手高、杠杆在残差空间里更大，成本误差会被放大；平静期价差不能用于破裂窗口。
-- 成本随参与者身份与拥挤状态而变；Frazzini–Israel–Moskowitz 的机构短fall 不能自动授予所有账户。
+- 成本随参与者身份与拥挤状态而变；Frazzini–Israel–Moskowitz 的机构缺口 不能自动授予所有账户。
 - 规则与仓位应直接对 $\mu_{\mathrm{net}}$ 优化；毛边缘真实且大规模不可用，可以同时成立。
 - 出处：Novy-Marx and Velikov, *Review of Financial Studies*, 2016；Perold, *Journal of Portfolio Management*, 1988；Korajczyk and Sadka, *Journal of Financial Economics*, 2004；Lesmond, Schill and Zhou, *JFE*, 2004；Almgren and Chriss, *Journal of Risk*, 2000/2001；配对成本见 Do and Faff, 2012。

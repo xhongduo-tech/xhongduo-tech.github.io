@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack 对 focus–exposure matrix 与 Bossung 测量的定义</footer>
 </div>
 
-[上一课](/litho/ed-process-window)把合格区画成剂量–离焦平面上的重叠面积，并假定每个 $(E,z)$ 都有一个 CD 读数。缺口是：这个读数从哪次曝光来。本课把窗口铺成焦散矩阵（FEM, focus–exposure matrix）：场与场之间阶梯式改焦距和剂量，得到 Bossung 的数据骨架。空间均匀性（CDU）留给[下一课](/litho/cdu-uniformity），本课默认矩阵里的场代表「同一工艺点」。
+[上一课](/litho/ed-process-window)把合格区画成剂量–离焦平面上的重叠面积，并假定每个 $(E,z)$ 都有一个 CD 读数。缺口是：这个读数从哪次曝光来。本课把窗口铺成焦散矩阵（FEM, focus–exposure matrix）：场与场之间阶梯式改焦距和剂量，得到 Bossung 的数据骨架。空间均匀性（CDU）留给[下一课](/litho/cdu-uniformity)，本课默认矩阵里的场代表「同一工艺点」。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Moyne 等对半导体 run-to-run 控制的论述；SEMI 对 R2R 的通称</footer>
 </div>
 
-[上一课](/litho/apc)给出厂级控制器骨架。缺口是信息方向：胶厚已经量了，还要不要等本层 CD 回来再补？本课钉前馈与反馈的 R2R。抽样计划决定这些环看见什么，留给[下一课](/litho/sampling-plan）。
+[上一课](/litho/apc)给出厂级控制器骨架。缺口是信息方向：胶厚已经量了，还要不要等本层 CD 回来再补？本课钉前馈与反馈的 R2R。抽样计划决定这些环看见什么，留给[下一课](/litho/sampling-plan)。
 
 ## 问题
 

@@ -59,7 +59,7 @@ flowchart TD
 
 <span class="marginnote">Top-$k$ 的 $k$ 是基数约束，top-$a$ 的 $a$ 是相对二次地板。名字里都有 top，集合构造毫无关系。不要把 $a$ 理解成「再留百分之 $a$ 的词表」。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 与 typical、min-$p$ 选一条曲线即可
 

@@ -71,7 +71,7 @@ flowchart TD
 
 [DAPO](/llm/dapo) 仍是 token 级比率，改的是上下 $\varepsilon$、零梯度组与平均方式。[CISPO](/llm/minimax-m1) 把 clip 从比率移到 IS 权重，仍按 token 更新。GSPO 改的是**比率的定义域**。三者都批评 GRPO 的 clip，但「放宽上界」「永远不丢 token」「整段丢或留」是三个不同处方。Qwen 报告里的 MoE 崩塌，前两剂都不针对专家抖动。
 
-## 边界与工程取舍
+## 边界
 
 GSPO 的几何平均是对真序列重要性权重的有偏近似（长度归一）。后续有工作指出它扰动了奖励与 KL 的原则性权衡；若目标是渐进无偏，不要把 GSPO 写成最后理论形态。序列级 clip 在需要逐步信用（过程奖励、多轮工具）时粒度粗，要用 GSPO-token 并自己定义 $\hat A_{i,t}$。
 

@@ -65,7 +65,7 @@ NVLS 的机制是组播虚拟地址 + 交换机归约：一次 `ld_reduce` 语�
 
 InfiniBand 交换机上的 SHARP 吃跨节点梯度；NVLS 吃 NVLink 域。层次化集体通信仍然对：域内 NVLS，域间 IB SHARP 或普通 RDMA。数字不可加总成「系统有多少 TFLOPS 的网内计算」。NVSHMEM 可以在两层之上提供统一的 put/get，但底层延迟仍是分层的。GPUDirect 保证网卡直达 HBM，见 [InfiniBand 与 GPUDirect](/llm/infiniband-gpudirect)，与 NVLS 正交：一个去弹跳，一个去重复归约。
 
-## 边界与工程取舍
+## 边界
 
 不要在 Ampere 八卡 PCIe 机器上指望 NVLS。不要为了 NVSHMEM 重写整个训练框架而不先量 NCCL+NVLS 是否已经够。不要在 CUDA Graph 里混用未注册的用户缓冲还抱怨 NVLS 没生效。不要把 Device API 的 PTX 示例复制进生产核而不处理 multimem 的对齐与 fence。MIG 与「一卡多 rank」会禁用 NVLS。消息极小时，卸载与组播的建立成本可能高于环；应用仍应让 NCCL 调优器选择，而不是全程强制 `NCCL_NVLS_ENABLE=1`。
 

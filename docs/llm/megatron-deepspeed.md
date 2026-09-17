@@ -60,7 +60,7 @@ flowchart TD
 
 只用 NVIDIA Megatron Core 也能 3D（2021 年后的 Megatron 已含 PP）。Megatron-DeepSpeed 的历史意义是 **当时** 把 DeepSpeed 的 PP/ZeRO 与 Megatron TP 接上，并真训到 530B。纯 DeepSpeed 没有 Megatron 那套对 Transformer 最友好的列/行切分细节。 [Alpa](/llm/alpa) 用编译器搜层间/层内方案，目标是少手写网格；MT-NLG 是手写网格的高峰实例。
 
-## 边界与工程取舍
+## 边界
 
 2201.11990 的 SOTA 零/少样本是 2022 年初对照，稠密 530B 很快被更小但数据更多的模型在公开榜上追上。序列 2048 不是长上下文模型。论文的社会偏见章节说明放大不自动消除刻板印象。仓库与论文功能集不完全相等：看到 MoE、curriculum 要以对应 DeepSpeed/Megatron 文档为准，不要全部算进 530B 正文。
 

@@ -72,7 +72,7 @@ Vicuna 7B/13B/33B 与 Zephyr-7B 上，原文报告 Medusa-1 可超过约 2.2 倍
 
 <span class="marginnote">开源 FasterDecoding/Medusa 与论文是同一条线。框架里后来出现的「Medusa 头」实现，节点数、接受规则、是否冻骨干都以当时代码为准，不要把 ICML 表格里的 2.x 直接抄到另一套运行时上。</span>
 
-## 边界与工程取舍
+## 边界
 
 大 batch 下 decode 已接近 compute-bound，再叠树验证可能变慢。头数不是越多越好：第五个头的边际接受长度可能盖不住节点。分布式里头跟着骨干切，树掩码要在每张卡上一致。Medusa 不替代连续批，也不解决长上下文 KV 体积。
 

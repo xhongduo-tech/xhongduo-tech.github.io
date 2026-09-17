@@ -36,8 +36,6 @@ flowchart TD
   GET --> CDN["可缓存对象"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 GeoDNS 找近边缘。Cookie 可用于鉴权 URL。队头：H1 多连接拉片；H2 多流。PMTUD 影响分片下载。DRM 在分片上，点名。
@@ -50,7 +48,7 @@ GeoDNS 找近边缘。Cookie 可用于鉴权 URL。队头：H1 多连接拉片�
 
 把整部电影当一个文件 Progressive Download 失去 ABR 与缓存粒度。
 
-上一课留下的缺口在本课收口；「DASH / HLS」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[ABR 自适应码率](/cs/abr-streaming)。
+下一课[ABR 自适应码率](/cs/abr-streaming)。
 
 ## 小结
 

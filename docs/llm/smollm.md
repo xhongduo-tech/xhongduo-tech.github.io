@@ -65,7 +65,7 @@ flowchart TD
 
 [Phi](/llm/phi) 用教材合成拧样本效率，数据细节更不透明。SmolLM 把 Cosmopedia 与 FineWeb-Edu 公开，用「可教育网页」补世界知识，用 Python-Edu 补代码，而不是纯合成。MobileLLM 是架构论文，权重当时不公开；SmolLM-135M 在博客对照里用 600B 超过 MobileLLM-125M 的 1T 数字（跨评测栈，只作定向参考）。[StableLM 2](/llm/stablelm2) 1.6B 摊开源表但偏通用网页；SmolLM 更激进地滤教育分。
 
-## 边界与工程取舍
+## 边界
 
 2048 上下文对长文档不够，长窗要另做微调。合成数据会把 Mixtral 的事实错误与偏见写进小模型，教育分类器也会误杀非教材但有用的论坛。Apache 与数据集各子集许可要分别看：模型卡 permissive，不自动覆盖所有预训练网页版权争议。WebGPU demo 证明 135M/360M 可进浏览器，不证明 1.7B 在低端手机上的电池预算。
 

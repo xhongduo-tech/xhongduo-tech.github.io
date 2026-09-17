@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照良率工程对 systematic vs random 的划分；计算光刻热点与颗粒缺陷的分工</footer>
 </div>
 
-[上一课](/litho/critical-area)把随机颗粒写成 $A_\mathrm{cr}$。缺口是分类：探针图上的重复失败是系统，散点是随机，混在一张 $D$ 里会开错药。[热点 PV](/litho/hotspot-pv) 已定义过程变化下的系统杀手；本课钉良率账的拆分。EUV 光子与化学随机，留给[下一课](/litho/stochastic-yield）。
+[上一课](/litho/critical-area)把随机颗粒写成 $A_\mathrm{cr}$。缺口是分类：探针图上的重复失败是系统，散点是随机，混在一张 $D$ 里会开错药。[热点 PV](/litho/hotspot-pv) 已定义过程变化下的系统杀手；本课钉良率账的拆分。EUV 光子与化学随机，留给[下一课](/litho/stochastic-yield)。
 
 ## 问题
 

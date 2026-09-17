@@ -59,7 +59,7 @@ flowchart TD
 
 <span class="marginnote">$\alpha=10$ 只来自试点，作者未再扫。换 0/1 或 $\pm 1$（DAPO）会改与 KL 的相对尺度，必须重调 $\beta$。不要把 10 当成验证器 RL 的物理常数。</span>
 
-## 边界与工程取舍
+## 边界
 
 RLVR 不覆盖开放写作；那是 Tulu 的 DPO 段。验证器写错（解析失败、约束实现与 IFEval 不一致）会系统性强化错误程序。MATH 的等价判断比整数 GSM8K 脆，假阴性把对的当 0。405B 实验证明配方可放大，不证明每个实验室都该上价值头——后续开源推理栈更多用 GRPO 类无 critic。
 

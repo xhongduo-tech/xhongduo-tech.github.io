@@ -60,7 +60,7 @@ MoE 把宽度从激活里解开：45.9B 激活要能进 8 卡 8-bit 的 1M 服�
 
 FlashAttention 长窗模型在 32K–256K 仍是默认质量锚；MiniMax-01 的卖点是超过 200K 之后 RULER 掉点更慢、前填延迟更接近线性。它不是「softmax 已死」：那 10 层 softmax 是精度锚。Mamba 一类 SSM 把状态写进时不变或输入相关的递归，MiniMax 仍用注意力接口（QKV + 门控），内核与 MoE 通信栈可以复用更多 Transformer 工程。不要把 Lightning 写成 FlashAttention 的别名。
 
-## 边界与工程取舍
+## 边界
 
 开源权重在 GitHub `MiniMax-AI/MiniMax-01`。线性核 + 变长 ring + ETP 不是 vLLM 默认路径，要用他们的推理栈或自己接核，否则 1M 只存在于配置文件。8-bit 1M 的「单机 8 卡」是设计约束，不是消费级笔记本故事。VL-01 的 512B 续训与四阶段视觉课程不在 Text-01 的下一词损失里。
 

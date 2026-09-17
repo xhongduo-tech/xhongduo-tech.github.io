@@ -62,7 +62,7 @@ $s_q\gt 1$ 出现在投机校验、MTP 闭环、或某些并行解码。核若�
 
 一步 Transformer：注意力 FlashMLA → 若 MoE 则 DeepEP dispatch → DeepGEMM → DeepEP combine。三者争 SM 与 HBM 带宽。V3 解码部署把少量 SM 给 dispatch+MoE，把注意力当大头，正是因为 decode 的 MLA 更吃带宽。关掉 FlashMLA 只换「更快 MoE」会测错瓶颈。投机或 MTP 把 $s_q$ 抬到 2 附近时，核从纯访存墙往算力墙挪一截，seesaw 的重叠更值钱；只拿 $s_q=1$ 的带宽数字去给校验路径做容量规划会偏乐观。
 
-## 边界与工程取舍
+## 边界
 
 FlashMLA 需要 SM90 或 SM100、足够新的 CUDA。A100 没有 TMA/WGMMA 这条路径，不能把仓库核当可移植后端。分页块大小、KV 精度、稠密还是稀疏、MQA 还是 MHA 模式，必须与检查点以及 [MLA](/llm/mla) 吸收后的权重 layout 一致。吸收若漏做，核按潜向量读、权重却按满宽 $K$ 训，位置与内容会静默错。不要把 FlashMLA 当成任意模型的「更快 FlashAttention」，GQA 的 Llama 仍应走 FlashAttention 系列。
 

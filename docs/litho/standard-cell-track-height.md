@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 imec DTCO 对 track height、FinFlex 与布线网格的公开论述</footer>
 </div>
 
-[上一课](/litho/min-area-tip-to-tip)把 tip 与面积写成独立条款。缺口是单元：逻辑库用几条金属轨高，直接决定有多少 tip、多少 via、电源是否挤在不可印的缝里。[DTCO](/litho/dtco-patterning) 已点名轨道；本课钉图形化侧如何选轨高。缩放助推器（接触上栅、埋入电源等）留给[下一课](/litho/scaling-boosters）。
+[上一课](/litho/min-area-tip-to-tip)把 tip 与面积写成独立条款。缺口是单元：逻辑库用几条金属轨高，直接决定有多少 tip、多少 via、电源是否挤在不可印的缝里。[DTCO](/litho/dtco-patterning) 已点名轨道；本课钉图形化侧如何选轨高。缩放助推器（接触上栅、埋入电源等）留给[下一课](/litho/scaling-boosters)。
 
 ## 问题
 

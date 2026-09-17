@@ -61,7 +61,7 @@ Talker 解耦文本表示之后，外部模块可以改 Thinker 的字再送给�
 
 <span class="marginnote">表里 Audio Encoder 约 650M、Thinker 30B-A3B、Talker 3B-A0.3B。服务要把三套 MoE 专家并行配好；只量化 Thinker、漏掉 Talker，表现为「字对、声怪」，不是听力坏了。</span>
 
-## 边界与工程取舍
+## 边界
 
 40 分钟是单实例理解上限，不是无限会议；更长要切段。语音生成只有 10 语，用户用第 11 种语言听写再要求「用同一种语言回答」会 silently 落到英语或中文音色。Talker 不读 Thinker 文本嵌入，口译场景的术语一致性要靠离散 token 与系统提示，不能假设声学条件自动抄词。Captioner 与 Instruct 是不同检查点。
 

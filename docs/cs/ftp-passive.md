@@ -36,8 +36,6 @@ flowchart TD
   NAT["NAT"] --> FAIL["主动常失败"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 PMTUD、TLS（FTPS）让双连接更痛。Cookie 无。多播无。当代对象是理解「载荷里嵌地址」与 NAT 冲突——SIP 同类，点名。
@@ -50,7 +48,7 @@ PMTUD、TLS（FTPS）让双连接更痛。Cookie 无。多播无。当代对象�
 
 把 ALG 当安全边界会在加密后失效。
 
-上一课留下的缺口在本课收口；「FTP 被动模式」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[BitTorrent 与 DHT](/cs/bittorrent-dht)。
+下一课[BitTorrent 与 DHT](/cs/bittorrent-dht)。
 
 ## 小结
 

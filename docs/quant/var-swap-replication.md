@@ -11,7 +11,7 @@ section: quant
     <footer>—— Carr and Madan, Towards a Theory of Volatility Trading, 1998；对数合约见 Neuberger, Journal of Portfolio Management, 1994；交易员算法见 Demeterfi, Derman, Kamal and Zou, 1999</footer>
 </div>
 
-[方差互换与 VIX](/quant/variance-swap-vix) 给出产品与指数的全景：[隐含 vs 已实现](/quant/iv-vs-rv) 对齐两个测度；[波动率风险溢价](/quant/variance-risk-premium) 解释二者之差。本篇只把复制恒等式写清楚：Peter Carr 与 Dilip Madan 1998 年关于波动率交易的理论，如何把任意欧式收益拆成条带；Anthony Neuberger 的对数合约为何正好对上二次变差；以及 Kresimir Demeterfi、Emanuel Derman、Michael Kamal 与 Joseph Zou 如何把连续积分收成有限执行价的权重。跳跃、离散采样与有限翼把恒等式变成近似，出价来自这些缺口，而不是来自 Heston 参数。不重复 VIX 官方离散和的逐步规则，也不把期货凸性展开成定价篇。
+[上一课](/quant/vix-futures)把期货定价收在远期方差曲线上，对冲是未来条带的近似复制。[方差互换与 VIX](/quant/variance-swap-vix) 给出产品与指数的全景：[隐含 vs 已实现](/quant/iv-vs-rv) 对齐两个测度；[波动率风险溢价](/quant/variance-risk-premium) 解释二者之差。本篇只把复制恒等式写清楚：Peter Carr 与 Dilip Madan 1998 年关于波动率交易的理论，如何把任意欧式收益拆成条带；Anthony Neuberger 的对数合约为何正好对上二次变差；以及 Kresimir Demeterfi、Emanuel Derman、Michael Kamal 与 Joseph Zou 如何把连续积分收成有限执行价的权重。跳跃、离散采样与有限翼把恒等式变成近似，出价来自这些缺口，而不是来自 Heston 参数。不重复 VIX 官方离散和的逐步规则，也不把期货凸性展开成定价篇。
 
 ## 问题
 
@@ -85,7 +85,7 @@ VIX 是这一复制的公开、离散、固定期限版本，再开方。期货�
 
 <span class="marginnote">复制是静态加 Delta，不是无风险套利。你仍然暴露于跳余项、离散对冲、融资与期权买卖价差。模型无关指的是公平 $K_{\mathrm{var}}$ 的扩散部分，不是 PnL 的方差为零。</span>
 
-## 边界与工程取舍
+## 边界
 
 欧式、连续 $K$、连续交易、纯扩散或有限活动跳的可积条件，是恒等式的假设。美式提前行权破坏「持有到期」的 $f(S_T)$。利率随机时，对数复制要在远期测度重写，股票公式不能直接贴到债券期权。相关交易所报价不同步会造成条带瞬时套利幻觉。
 

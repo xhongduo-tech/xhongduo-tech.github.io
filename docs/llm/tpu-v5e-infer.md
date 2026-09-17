@@ -55,7 +55,7 @@ NUMA：8 芯 VM 上 CPU0 到 Chip0 快于到 Chip4。数据加载与 embedding �
 
 <span class="marginnote">公开表的 HBM 是每芯容量，不是「切片自动统一寻址」。8×16 GB = 128 GB 要靠模型并行把层或张量切开，KV 也按并行轴切开。规划 max batch × max seq 时按分片后的本地 HBM 算，再留碎片与运行时开销。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 供给池、编译图与 GPU 心智模型
 

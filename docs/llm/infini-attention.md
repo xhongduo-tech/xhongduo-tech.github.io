@@ -71,7 +71,7 @@ flowchart TD
 
 <span class="marginnote">实现时 $M$ 的数值范围会随段数漂移。必须有 $z$ 做归一，或对 $M$ 做缩放/衰减，否则后段读取会被早期累加的范数淹没。衰减等于温和地遗忘，会削弱「leave no context」的字面含义，却往往更稳。这是稳定性与口号之间的取舍，应在消融里写明。</span>
 
-## 边界与工程取舍
+## 边界
 
 Infini-attention 是架构，通常需要从头训或至少训注意力与门。不能像 StreamingLLM 那样接到冻结的 Llama 上就宣称无限。Google 论文展示了长 passkey、长书摘要等，复现时数据配比、段长 $n$、是否用 delta，都会改结果；不要把报道中的 1M 长度理解成即插即用的产品开关。
 

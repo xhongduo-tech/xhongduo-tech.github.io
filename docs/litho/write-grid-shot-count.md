@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 VSB 地址栅、成形孔径台阶与多束像素的写入器通称</footer>
 </div>
 
-[上一课](/litho/mask-pec-detail)把剂量图拆成多层核。缺口是这张连续图必须落在硬件栅格上：地址单元、最小炮、束距。本课钉写入网格与 shot 数。落在栅格上的 CD 如何统计成整张均匀性，留给[下一课](/litho/mask-cdu）。
+[上一课](/litho/mask-pec-detail)把剂量图拆成多层核。缺口是这张连续图必须落在硬件栅格上：地址单元、最小炮、束距。本课钉写入网格与 shot 数。落在栅格上的 CD 如何统计成整张均匀性，留给[下一课](/litho/mask-cdu)。
 
 ## 问题
 

@@ -52,7 +52,7 @@ $\lambda$ 减小，优势更局部，对错误 $V$ 更不敏感，但终点对�
 
 <span class="marginnote">$\lambda=1$ 且无 $V$（减组均值）就是带基线的蒙特卡洛，接近 REINFORCE / GRPO 精神。</span>
 
-## 边界与工程取舍
+## 边界
 
 没有 critic 就不要假装 GAE。异步 rollout 下 $V$ 与生成策略版本不一致，$\delta_t$ 系统偏，应降低对 $V$ 的信任（提高 $\lambda$）或重算 $V$。价值初始化见后课。$\lambda$ 与逐步 KL 的 $\beta$ 耦合：KL 已很密时，即使 $\lambda$ 小，中间也有信号。
 

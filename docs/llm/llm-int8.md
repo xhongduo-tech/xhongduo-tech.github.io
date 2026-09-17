@@ -67,7 +67,7 @@ flowchart TD
 
 拆列让 CUDA 核变成两支，异常比例一高或 gather 不连续，吞吐掉回 FP16。SmoothQuant 用离线 $s$ 把 $\mathcal{O}$ 的难度迁到权重，恢复稠密 INT8 Tensor Core，prefill 更爱这条路。LLM.int8() 的历史贡献是**证明精度障碍是通道结构**，并把 175B 第一次装进 8-bit 推理软件栈。产品上，数据中心 prefill 后来多选平滑后的 W8A8；消费级「8-bit 加载」仍大量使用 bitsandbytes 分解，因为实现现成、质量可预期、对核峰值不敏感。两种终点都合法，不要用其中一种否定原文。
 
-## 边界与工程取舍
+## 边界
 
 ### bitsandbytes 与论文核不是逐行对应
 

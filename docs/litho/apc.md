@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 SEMI 对 APC / run-to-run 的通称；IEEE 半导体生产中的先进过程控制传统</footer>
 </div>
 
-[上一课](/litho/critical-layer-alignment)把对准树交到量产。缺口是闭环：读数如何变成下一场的设定。[剂量控制](/litho/dose-control) 已有机内环；本课钉厂级 APC（advanced process control）的位置。前馈与反馈如何拆，留给[下一课](/litho/feedforward-feedback-r2r）。
+[上一课](/litho/critical-layer-alignment)把对准树交到量产。缺口是闭环：读数如何变成下一场的设定。[剂量控制](/litho/dose-control) 已有机内环；本课钉厂级 APC（advanced process control）的位置。前馈与反馈如何拆，留给[下一课](/litho/feedforward-feedback-r2r)。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Yee 网格 FDTD（Taflove 传统）在掩模近场中的应用</footer>
 </div>
 
-[上一课](/litho/mask-cost-cycle)收完掩模厂的钱与周期。缺口是：为什么 MPC 与 AIMS 必须存在——开口里的场不是设计多边形的投影。本课起仿真门，钉 FDTD 掩模仿真。周期结构的频域另一条路，留给[下一课](/litho/rcwa）。
+[上一课](/litho/mask-cost-cycle)收完掩模厂的钱与周期。缺口是：为什么 MPC 与 AIMS 必须存在——开口里的场不是设计多边形的投影。本课起仿真门，钉 FDTD 掩模仿真。周期结构的频域另一条路，留给[下一课](/litho/rcwa)。
 
 ## 问题
 

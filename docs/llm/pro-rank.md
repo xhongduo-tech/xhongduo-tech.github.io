@@ -81,7 +81,7 @@ $n\to\infty$ 的修辞是「看见更多带标签的语言空间样本」；实�
 
 <span class="marginnote">$\beta$ 随 $n$ 涨，是为了让第一名 NLL 不被 $n-1$ 个 softmax 项淹没。若不调 $\beta$，加长排序可能只在对比上过拟合 RM，流畅性掉。监控应分列 SFT 项与 PL 项。</span>
 
-## 边界与工程取舍
+## 边界
 
 PRO 需要全序或至少可排的 $n$ 条。只有成对时，$n=2$，优势主要来自平均对数概率 + SFT，而不是 listwise。增补候选要花钱或调用教师；用 $\mathrm{RM}_{\mathrm{train}}$ 排序则把 RM 偏差写进序。LLaMA-7B、HH、生成 128 token 的设定不能外推到长思维链。BLEU 在对话上弱，原文同时报奖励与裁判，读的人应以后者为准。
 

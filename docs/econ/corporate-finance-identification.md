@@ -11,7 +11,7 @@ section: econ
 <footer>—— 对照 Angrist–Pischke 的设计语言；公司金融里 Rajan–Zingales、自然实验与 IV 的传统</footer>
 </div>
 
-[上一课](/econ/family-firms-pyramids)把 $V\neq C$ 写成结构。本课收束「公司金融进阶」：以后凡写「治理导致价值」，要能指出冲击从哪来。下一课才从[潜在结果](/econ/potential-outcomes)展开一般识别语言；这里只补公司金融特有的内生性，不把 Rubin 模型提前推一遍。
+[上一课](/econ/family-firms-pyramids)把 $V\neq C$ 写成结构。本课收束「公司金融进阶」：以后凡写「治理导致价值」，要能指出冲击从哪来。一般识别语言要从后面的[潜在结果](/econ/potential-outcomes)一课才展开；这里只补公司金融特有的内生性，不把 Rubin 模型提前推一遍。
 
 ## 问题
 
@@ -37,7 +37,7 @@ flowchart TD
 
 ## 边界
 
-本课不发明新的 IV。聚类、弱 IV、双重差分平行趋势交给下一课程计量课序。贸易课序的跨国比较是另一套外生性（中国冲击等）。公司金融补层在此封口；下一课[潜在结果](/econ/potential-outcomes)。
+本课不发明新的 IV。聚类、弱 IV、双重差分平行趋势交给下一课程计量课序。贸易课序的跨国比较是另一套外生性（中国冲击等）。公司金融补层在此封口；一般识别语言留给后面的[潜在结果](/econ/potential-outcomes)一课。
 
 ## 小结
 

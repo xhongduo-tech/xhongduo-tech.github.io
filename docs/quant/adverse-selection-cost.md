@@ -11,7 +11,7 @@ section: quant
 <footer>—— Huang & Stoll, The Components of the Bid-Ask Spread, Journal of Finance, 1997；有效与实现价差的会计见 Huang & Stoll, Journal of Financial Economics, 1996</footer>
 </div>
 
-[价差分解](/quant/spread-decomposition) 把报价宽度写成处理、存货与信息三项的概念和。要落到可加总的成交样本，Huang 与 Stoll 给出两条互相衔接的路。会计路：有效价差减实现价差，得到价格冲击，当作逆向选择的美元成本。结构路：用成交方向对价格变化的回归，把价差拆成逆向选择份额 $\alpha$、存货份额 $\beta$ 与处理份额 $1-\alpha-\beta$。本篇写这两套**度量**如何构造、窗口与方向分类如何改变数字，以及它们和 [Glosten–Milgrom](/quant/glosten-milgrom) 条件期望之差、和 Kyle 的 $\lambda$ 如何换算。不重复价差三分法的教科书叙事。
+[批量成交量分类](/quant/bulk-volume-classification)在桶上劈出买卖方向。 [价差分解](/quant/spread-decomposition) 把报价宽度写成处理、存货与信息三项的概念和。要落到可加总的成交样本，Huang 与 Stoll 给出两条互相衔接的路。会计路：有效价差减实现价差，得到价格冲击，当作逆向选择的美元成本。结构路：用成交方向对价格变化的回归，把价差拆成逆向选择份额 $\alpha$、存货份额 $\beta$ 与处理份额 $1-\alpha-\beta$。本篇写这两套**度量**如何构造、窗口与方向分类如何改变数字，以及它们和 [Glosten–Milgrom](/quant/glosten-milgrom) 条件期望之差、和 Kyle 的 $\lambda$ 如何换算。不重复价差三分法的教科书叙事。
 
 ## 问题
 
@@ -68,7 +68,7 @@ Kyle 回归 $\Delta m=\lambda y$ 里 $\lambda y$ 是价格变化，$2D\Delta m$ 
 
 <span class="marginnote">[Lee–Ready](/quant/lee-ready) 错误率在一 tick 价差上最高，而这类股票的报价宽度本来就小。逆向选择占比 $\alpha$ 会被分类噪声和窄价差同时扭曲。截面排序前应对 $D$ 的来源做分层，或改用官方主动标志。</span>
 
-## 边界与工程取舍
+## 边界
 
 线性、固定份额、窗口内没有公开跳，是结构模型的舒适区。开盘、熔断、涨跌停让 $M_{t+h}$ 截断，$s^{\mathrm{as}}$ 无定义或接近零。费用与回扣改写经济价差：名义 $s^{\mathrm{e}}$ 不含 taker 费，比较 NASDAQ 与纽交所必须加回费用，Huang–Stoll 1996 的市场对照已经强调这一点。暗池中点成交的 $s^{\mathrm{e}}$ 接近零，冲击仍可能很大，会计会把它们读成「便宜但有信息」——这可能正好是选择偏差。
 

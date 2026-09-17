@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Liskov and Zilles, Programming with Abstract Data Types, SIGPLAN 1974；Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms 整理</footer>
 </div>
 
-[上一课](/cs/dram-timing)把指令、cache、一致性和远程内存都收进可执行的机器：比特已经能算、能存、能在核间可见。本课不重讲 MESI，也不从「计算机是什么」另起。缺口是：还没有给**可复用的布局**命名——栈、表、图在 ISA 里都只是 load/store。[比特作为区分](/cs/bit-as-distinction)给出串，[渐近记号](/cs/asymptotic-notation)给出步数怎么写。本课只钉抽象数据类型：操作集合加代价，实现另选。后课默认已经读完本课。
+[上一课](/cs/cache-side-channel)把微结构进阶收到 Prime+Probe：组相联的占用能当信道，性能机制即安全边界，不能单靠 ISA 正确性。本课不重讲 MESI，也不从「计算机是什么」另起。缺口是：还没有给**可复用的布局**命名——栈、表、图在 ISA 里都只是 load/store。[比特作为区分](/cs/bit-as-distinction)给出串，[渐近记号](/cs/asymptotic-notation)给出步数怎么写。本课只钉抽象数据类型：操作集合加代价，实现另选。后课默认已经读完本课。
 
 ## 问题
 

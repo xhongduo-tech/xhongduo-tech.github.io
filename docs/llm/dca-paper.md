@@ -58,7 +58,7 @@ flowchart TD
 
 <span class="marginnote">先各自 softmax 再加权，与一次大 softmax 不等价。接 FlashAttention 时应在 logits 域合并，或接受近似并在消融里写清楚。这是 70B 实验能复现与否的常见坑。</span>
 
-## 边界与工程取舍
+## 边界
 
 DCA 不给常数内存。KV 仍按 $n$ 增长。块长 $s$ 与 $c$ 错位会让 intra 也偏离训练窗。对已经原生长窗预训练、相对位置本就正确的模型，再套三套 $\phi$ 可能负优化。ALiBi 没有可切换的旋转 $\phi$。
 

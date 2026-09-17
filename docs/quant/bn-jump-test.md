@@ -11,7 +11,7 @@ section: quant
 <footer>—— Barndorff-Nielsen and Shephard, Econometrics of Testing for Jumps in Financial Economics, Journal of Financial Econometrics, 2006</footer>
 </div>
 
-[跳跃检验](/quant/jump-tests) 一文把 BN–S、Huang–Tauchen、Lee–Mykland 与 Aït-Sahalia–Jacod 放在同一张地图上，说明「检出跳」不等于可交易预测。本篇收窄到 Barndorff-Nielsen 与 Shephard 的 2004 年幂变差与 2006 年检验理论：线性差、比率、对数三种统计量如何从同一对 $(RV,BV)$ 出来、渐近方差里的 $\theta$ 从哪来、有限样本为何偏，以及相对跳跃份额 $\mathrm{RJ}$ 何时比 $Z$ 更好用。不在这里展开局部窗口定位或无穷活动幂变差；那些仍指向综述文。对象是：**在网格 $\Delta\to 0$、噪声可忽略、跳跃有限活动时，如何检验当天是否有跳、跳对二次变差贡献多大。**
+[上一课](/quant/har-rv-forecast)借 HAR-CJ 把跳从持续波动里拆走；怎么判「当天有跳」，本篇写 BN 的检验。[跳跃检验](/quant/jump-tests) 一文把 BN–S、Huang–Tauchen、Lee–Mykland 与 Aït-Sahalia–Jacod 放在同一张地图上，说明「检出跳」不等于可交易预测。本篇收窄到 Barndorff-Nielsen 与 Shephard 的 2004 年幂变差与 2006 年检验理论：线性差、比率、对数三种统计量如何从同一对 $(RV,BV)$ 出来、渐近方差里的 $\theta$ 从哪来、有限样本为何偏，以及相对跳跃份额 $\mathrm{RJ}$ 何时比 $Z$ 更好用。不在这里展开局部窗口定位或无穷活动幂变差；那些仍指向综述文。对象是：**在网格 $\Delta\to 0$、噪声可忽略、跳跃有限活动时，如何检验当天是否有跳、跳对二次变差贡献多大。**
 
 ## 问题
 
@@ -67,7 +67,7 @@ $$
 
 方差互换浮动腿跟总二次变差，BN 分解解释 IV−RV 在公告日的裂口有多少来自跳。CPPI 一类路径依赖产品的缺口由再平衡窗口里的跳驱动，日度 $Z$ 只能事后标记「那天有跳」，不能替代窗口内最大不利增量的直接测量。期权对冲若假设连续路径，显著跳日应触发限额或跳附加，而不是把 $Z$ 阈值做成开仓信号。
 
-## 边界与工程取舍
+## 边界
 
 无穷活动、微观噪声、隔夜缺口、错价，都会破坏 2006 年定理。隔夜应单独一项，不要塞进第一格再进 BV。稀疏成交的小盘上，五分钟格里大量零收益，BV 与 TP 不稳定，应降频或换已实现核后再检验。多元共同跳需要向量变差，单名 $Z$ 的同时拒绝不等于共同跳检验。
 

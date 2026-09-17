@@ -11,7 +11,7 @@ section: quant
 <footer>—— Asness & Frazzini, The Devil in HML's Details, Journal of Portfolio Management, 2013</footer>
 </div>
 
-[价值：BM / EP / CF](/quant/value-factors) 写过三种会计映射，并点到 HML Devil 是「价格改成月度更新」。本篇只写这一处细节：Fama–French 的 HML 用上一年 12 月底市值当 B/M 的分母，次年 6 月才换仓，价格最多陈旧一年半；Asness–Frazzini 保持账面滞后以避免前视，但分母用**当期价格**。魔鬼不在新的基本面，而在价值因子里混进了多少已经实现的动量。
+[上一课](/quant/frazzini-bab)把跨资产的 β 斜率下注收成 BAB，还交回融资约束这条状态变量。[价值：BM / EP / CF](/quant/value-factors) 写过三种会计映射，并点到 HML Devil 是「价格改成月度更新」。本篇只写这一处细节：Fama–French 的 HML 用上一年 12 月底市值当 B/M 的分母，次年 6 月才换仓，价格最多陈旧一年半；Asness–Frazzini 保持账面滞后以避免前视，但分母用**当期价格**。魔鬼不在新的基本面，而在价值因子里混进了多少已经实现的动量。
 
 ## 问题
 
@@ -65,7 +65,7 @@ E/P、CF/P 若用 TTM 与当期价格，本来就比年度 HML 快。用 Devil �
 
 <span class="marginnote">月度价格会让价值在崩盘当月大幅加仓银行与周期股。这是特征，不是 bug。回测若再叠加「当月最低价成交」，会把流动性幻觉写进 Devil。应用次月开盘或成交量加权价格，并扣掉涨跌停。</span>
 
-## 边界与工程取舍
+## 边界
 
 换手明显高于 6 月 HML，容量受大盘约束仍好于动量，但已不是「几乎免费」。税务与冲击成本在月度再平衡下必须进净值。国际样本上，财报滞后规则不同，Devil 的账面日期要按当地披露日历，而不是统一 6 月。A 股壳与 ST 的市值跳跃会让当期 B/M 爆炸，需缩尾。
 

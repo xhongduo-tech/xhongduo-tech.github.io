@@ -54,7 +54,7 @@ flowchart TD
 
 <span class="marginnote">「开源栈」包括：权重、融合脚本、EP/DP 配置、MLA 核、MoE grouped GEMM、偏置、分词与聊天模板。只换成 Hugging Face 里的 `AutoModel` 贪心生成，测到的延迟不是 V3 报告里的推理效率。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 容量规划要写清精度与并发
 

@@ -37,11 +37,11 @@ flowchart TD
 
 UMA 消灭设备拷贝，不消灭访存能量与带宽。Horowitz 的 DRAM 能量项仍在。研究迭代（改模型、立刻跑）是 MLX 的强项；多租户 SLA 不是——没有 HBM 池与成熟的连续批生态可与 vLLM 对标。选择 MLX 是为了本地与研究，不是把数据中心服务搬到 Mac Studio 就结束会计。
 
-## 边界与工程取舍
+## 边界
 
 不要用 MLX 的 eager 研究脚本当生产多用户引擎。不要把 Metal 与 CUDA FA 的加速比横比而不钉 $n,B$。下一课：浏览器里的 WebGPU，连 Python 都没有。
 
-出处：MLX 项目（Hannun 等）；Apple Silicon 统一内存硬件文档。不发明 arXiv。
+出处：MLX 项目（Hannun 等）；Apple Silicon 统一内存硬件文档。
 
 ## 小结
 

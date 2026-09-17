@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Bajt 等对 Ru 帽层；Bakshi 多层与表面化学</footer>
 </div>
 
-[上一课](/litho/euv-phase-shift-mask)无论二元还是相移，工作面都是多层顶。缺口是这层顶在真空、氢和 EUV 下怎么活：量产公开的覆盖层是钌（Ru）。黑边要把场外多层弄黑，留给[下一课](/litho/black-border）。
+[上一课](/litho/euv-phase-shift-mask)无论二元还是相移，工作面都是多层顶。缺口是这层顶在真空、氢和 EUV 下怎么活：量产公开的覆盖层是钌（Ru）。黑边要把场外多层弄黑，留给[下一课](/litho/black-border)。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: cs
 <footer>—— Turing, On Computable Numbers, with an Application to the Entscheidungsproblem, Proc. London Math. Soc. 1936</footer>
 </div>
 
-[上一课](/cs/to-systems-boundary)（计算栈到此为止）。附录对照，不插入主干课序。主干已在[存储程序](/cs/to-systems-boundary)、[P 与 NP](/cs/p-vs-np)里用过「有限步骤的机械过程」与判定问题；这里对照 **Turing 1936 原文的问题**：希尔伯特判定问题能否有统一手续，以及用机器把「可计算」钉死。不重做停机证明的全部细节，也不把本篇插回比特课之前。
+本篇是文献对照附录的第一课，不插入主干课序：附录只对照文献，不推进课序。主干已在[存储程序](/cs/stored-program)、[P 与 NP](/cs/p-vs-np)里用过「有限步骤的机械过程」与判定问题；这里对照 **Turing 1936 原文的问题**：希尔伯特判定问题能否有统一手续，以及用机器把「可计算」钉死。不重做停机证明的全部细节，也不把本篇插回比特课之前。
 
 ## 问题
 

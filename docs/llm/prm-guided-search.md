@@ -58,7 +58,7 @@ flowchart TD
 
 <span class="marginnote">混合 $\log\pi+\lambda v$ 里的 $\lambda$ 是目标函数的一部分。$\lambda=0$ 退回似然束；$\lambda\to\infty$ 忽略生成器的流畅性，可能得到高分但不合法的步骤文本。应在验证集上扫 $\lambda$，不要假设 PRM 分数已与 logits 同量纲。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### PRM 校准差时，少搜比多搜更安全
 

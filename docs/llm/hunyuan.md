@@ -64,7 +64,7 @@ GQA+CLA 把 KV 从 $4 n_h d_h \ell$ 收到 $2 n_g d_h \ell$。CLA 的代价是�
 
 <span class="marginnote">Hunyuan-Large 预训练表报 MMLU 88.4、相对 Llama 3.1-70B 明显高、与 405B 同桌。这是 Base 数字；Chat/Instruct 另表。不要用 Base MMLU 去对元宝产品体验。</span>
 
-## 边界与工程取舍
+## 边界
 
 开源 Large 验证的是「52B 激活 MoE + 256K」，不是腾讯云 API 上每一个 hunyuan-* 名字。后续公开的 **Hunyuan-TurboS**（官方称 Hybrid-Transformer-Mamba MoE，总约 560B、激活约 56B）与 **Hunyuan-T1**（在 TurboS 上做推理后训练）是另一代结构，本篇不把 Mamba 层写进 Large。Yuanbao 万亿 MoE 无开源层表，禁止用 16 专家去反推。
 

@@ -56,4 +56,4 @@ flowchart TD
 - 2008 与欧债把最后贷款人扩到影子链与主权，边界重开。
 - 财政主导可以吞掉法律独立；指数不是充分统计。
 - 本课是经济史对照的收束，不接下一课。
-- 出处：Kydland and Prescott 1977；Barro and Gordon；Rogoff；Alesina and Summers 1993；Cukierman；Bernanke 2015；Eichengreen。
+- 出处：Kydland and Prescott 1977；Rogoff；Alesina and Summers 1993；Cukierman；Bernanke 2015；Eichengreen。

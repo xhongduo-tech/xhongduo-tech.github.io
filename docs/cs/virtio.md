@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Russell, virtio: Towards a De-Facto Standard For Virtual I/O Devices, 2008；virtio 规范的教学整理</footer>
 </div>
 
-[上一课](/cs/ept-npt)加快了译址。[陷阱与模拟](/cs/trap-and-emulate) 若对每个 `out` 到虚拟磁盘端口都陷入，块 I/O 会毁。[bio](/cs/bio-block) 与 [DMA](/cs/io-dma) 在宿主侧已能搬页。缺口是**半虚拟化 I/O**：客机知道自己在虚拟机里，使用约定好的环，而不是假装成一台古老的 IDE。操作系统课在此收束；下一课网络从端到端分层开始。
+[上一课](/cs/ept-npt)加快了译址。[陷阱与模拟](/cs/trap-and-emulate) 若对每个 `out` 到虚拟磁盘端口都陷入，块 I/O 会毁。[bio](/cs/bio-block) 与 [DMA](/cs/io-dma) 在宿主侧已能搬页。缺口是**半虚拟化 I/O**：客机知道自己在虚拟机里，使用约定好的环，而不是假装成一台古老的 IDE。操作系统课在此收束；下一课进入文件系统实现，从[FAT 与目录项](/cs/fat-filesystem)读起。
 
 ## 问题
 
@@ -37,13 +37,13 @@ virtio 把 I/O 虚拟化从「指令级模拟」改成「批量共享内存协�
 
 ## 边界
 
-本课不引入 SR-IOV 的全部 VF 配置。不把每代 virtio 规范章节当考纲。操作系统主干结束：没有再下一课 OS 对象；网络课假定一台机器已能做 DMA 与队列。
+本课不引入 SR-IOV 的全部 VF 配置。不把每代 virtio 规范章节当考纲。操作系统主干到此结束，再往后的课不再添 OS 对象；网络课假定一台机器已能做 DMA 与队列。
 
-后课默认：客机 I/O 可经半虚拟化队列到达宿主设备。两台机器之间如何分层与端到端查错，下一课[分层与端到端](/cs/layering-e2e)。
+后课默认：客机 I/O 可经半虚拟化队列到达宿主设备。两台机器之间如何分层与端到端查错，后面的[分层与端到端](/cs/layering-e2e)一课会展开。
 
 ## 小结
 
 - virtio 用共享环做半虚拟化 I/O，减少寄存器陷入。
 - 宿主后端接已有块层与 DMA；客机仍是完整内核。
-- 跨主机协议分层是下一课[分层与端到端](/cs/layering-e2e)。
+- 跨主机协议分层是后面[分层与端到端](/cs/layering-e2e)一课的内容。
 - 出处：Russell, 2008；OASIS virtio；Tanenbaum *MOS*。

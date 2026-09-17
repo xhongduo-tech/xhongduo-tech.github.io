@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 LER/LWR 转移、刻蚀平滑与 PSD 的公开讨论；[LER 的 PSD](/litho/ler-psd) 已钉频谱</footer>
 </div>
 
-[上一课](/litho/selectivity-arde)把过刻写成选择比的税。缺口是边的频谱：ADI 的 LER 不是 AEI 的 LER。[LER PSD](/litho/ler-psd) 与 [相关长度](/litho/ler-correlation-length) 已在胶侧讲过；本课钉转印算子对频谱做什么，不重推 3σ 定义。硬掩模材料如何当「更耐打的边」，留给[下一课](/litho/hardmask-sin-tin）。
+[上一课](/litho/selectivity-arde)把过刻写成选择比的税。缺口是边的频谱：ADI 的 LER 不是 AEI 的 LER。[LER PSD](/litho/ler-psd) 与 [相关长度](/litho/ler-correlation-length) 已在胶侧讲过；本课钉转印算子对频谱做什么，不重推 3σ 定义。硬掩模材料如何当「更耐打的边」，留给[下一课](/litho/hardmask-sin-tin)。
 
 ## 问题
 

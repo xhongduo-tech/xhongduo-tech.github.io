@@ -51,12 +51,12 @@ HybridFlow 的 auto-mapping 按模型工作负载搜放置。无数据依赖的�
 
 ```mermaid
 flowchart LR
-  subgraph phase1 [生成相]
+  subgraph phase1["生成相"]
     V["vLLM / SGLang 醒"] --> KV["KV + 采样"]
     DS1["FSDP/ZeRO 睡"]
   end
   KV --> SYNC["NCCL 重分片 / 权重同步"]
-  subgraph phase2 [训练相]
+  subgraph phase2["训练相"]
     V2["推理引擎睡"] --> TR["前向+反向+优化器"]
     DS2["训练引擎醒"]
   end
@@ -75,7 +75,7 @@ Sleep 的正确性依赖于分配器真正把 KV 与临时工作区还给操作�
 
 异步部分 rollout 让生成引擎不必等训练结束，提高卡利用率，但轨迹来自略旧的 $\theta$。PPO 的重要性采样能吞一点偏移；GRPO 组内相对优势对「组内混了两版策略」更敏感。资源复用选择（sleep 分时 vs 异步双组卡）因此会漏进算法超参。不要只在系统层开 async，却在论文表格里按严格 on-policy 报。
 
-## 边界与工程取舍
+## 边界
 
 复用解决的是 **设备空转与双份权重**，不解决长轨迹的 CPU tokenizer、环境模拟器或奖励模型排队。那些瓶颈要把环境并行与 [delta tokenization](/llm/delta-tokenization) 分开治。MoE 生成若用专家并行，与训练的 EP 布局再对一次，3D-HybridEngine 的相交假设要重验。LoRA 只训适配器时，生成引擎必须能在基座上热插适配器，否则每步仍要同步整网。
 

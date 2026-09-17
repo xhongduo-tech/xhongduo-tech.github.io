@@ -11,7 +11,7 @@ section: quant
 <footer>—— Black and Perold, Theory of Constant Proportion Portfolio Insurance, Journal of Economic Dynamics and Control, 1992</footer>
 </div>
 
-组合保险要的不是最大化夏普，而是在事先声明的地板之上参与上涨。期权复制（OBPI）用看跌或动态 Delta 去买这份凸性，贵且依赖隐含波动。Black 与 Jones（1987）、Perold 与 Sharpe（1988）把同一思想收成常数比例组合保险（Constant Proportion Portfolio Insurance, CPPI）：风险暴露等于固定乘数 $m$ 乘以垫子。Black 与 Perold（1992）给出连续时间理论：在无跳、可连续交易时，CPPI 等价于一份幂效用下的最优策略，并保证不破地板。Estep 与 Kritzman（1988）的时间不变组合保护（Time Invariant Portfolio Protection, TIPP）把地板随净值新高上移，把已实现收益锁进保险。本篇写垫子、乘数与缺口，不把 CPPI 写成止损规则的别名，也不把它与[回撤约束优化](/quant/drawdown-calmar)混成同一个规划。
+[上一课](/quant/drawdown-constrained-opt)把回撤当优化约束解；本篇的 CPPI 把同一条地板改成机械乘数。组合保险要的不是最大化夏普，而是在事先声明的地板之上参与上涨。期权复制（OBPI）用看跌或动态 Delta 去买这份凸性，贵且依赖隐含波动。Black 与 Jones（1987）、Perold 与 Sharpe（1988）把同一思想收成常数比例组合保险（Constant Proportion Portfolio Insurance, CPPI）：风险暴露等于固定乘数 $m$ 乘以垫子。Black 与 Perold（1992）给出连续时间理论：在无跳、可连续交易时，CPPI 等价于一份幂效用下的最优策略，并保证不破地板。Estep 与 Kritzman（1988）的时间不变组合保护（Time Invariant Portfolio Protection, TIPP）把地板随净值新高上移，把已实现收益锁进保险。本篇写垫子、乘数与缺口，不把 CPPI 写成止损规则的别名，也不把它与[回撤约束优化](/quant/drawdown-calmar)混成同一个规划。
 
 ## 问题
 
@@ -49,7 +49,7 @@ CPPI 的收益对风险资产是凸的：上涨时垫子变厚、仓位变大，
 
 风控上的杠杆上限、保证金与 CPPI 的 $m$ 同量纲但不同对象。$m$ 相对于垫子，不是相对于净值：净值远高于地板时，净值杠杆 $E/V=m(1-F/V)$ 可以低于 $m$。把 $m$ 写成「五倍杠杆产品」会误导。反过来，净值贴近地板时，净值杠杆仍可接近 $m$，小垫子配高乘数，绝对风险资产金额已经很小，但相对垫子的跳风险最大。报告应同时给 $E/V$ 与 $E/C$，以及再平衡窗口内的历史最大不利跳幅是否超过 $1/m$。
 
-## 边界与工程取舍
+## 边界
 
 CPPI 不处理对手方：债券腿若是发行人负债，地板本身会在发行人违约时消失。担保人、SPV、国债抵押必须写进产品，而不是写进乘数。交易成本使连续再平衡不可行；应在含冲击的仿真里选阈值，而不是在无摩擦净值上画「从未破地板」。A 股涨跌停与 T+1 让股票腿无法按公式调仓，期货或 ETF 往往才是可执行的风险腿，基差与升贴水进入垫子误差。
 

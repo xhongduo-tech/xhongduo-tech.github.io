@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML FY2024：净销售 €28.3B；EUV 系统销售 €8.3B / 44 台（含 High-NA）；DUV €12.8B / 374 台；Installed Base €6.5B。年报给销量与销售额，不给可抄的价目表</footer>
 </div>
 
-[上一课](/litho/euv-vs-multipattern-cost-crossover)用模块成本比较路径。缺口是模块里最大的资本项。本课钉机台价格与折旧。折旧如何在厂级变成瓶颈机台数量，留给[下一课](/litho/capacity-planning-bottleneck）。
+[上一课](/litho/euv-vs-multipattern-cost-crossover)用模块成本比较路径。缺口是模块里最大的资本项。本课钉机台价格与折旧。折旧如何在厂级变成瓶颈机台数量，留给[下一课](/litho/capacity-planning-bottleneck)。
 
 ## 问题
 

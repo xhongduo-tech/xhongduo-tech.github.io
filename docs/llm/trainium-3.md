@@ -66,7 +66,7 @@ MXFP8 与 MXFP4 是这一代的一等列；BF16 峰值几乎没涨，说明窄�
 
 检查点、动态形状、控制流是 NeuronCore-v4 相对「完全静态图」的延伸。动态 decode 仍常用长度桶；完全任意的 Python 控制流不会因为 ISA 扩展就变成 eager GPU。与 CUDA 生态对照：可移植的是 PyTorch 模块图，不是 kernel。
 
-## 边界与工程取舍
+## 边界
 
 不要把发布页 2.52 PFLOPS 与架构页 2.56 TB/s NeuronLink 混进同一张未经注明口径的表。不要在 Gen1 上假设 144 芯片的内存池。不要把 Trainium4 预告（官方曾写相对 Trainium3 的 FP4 / FP8 / 带宽倍数）当成已交付容量。Inf2 的 Inferentia 路径不能套用 Trainium3 的 MXFP4 峰值。
 

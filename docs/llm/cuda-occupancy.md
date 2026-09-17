@@ -11,7 +11,7 @@ section: llm
 <footer>—— NVIDIA CUDA C++ Programming Guide：Occupancy、Launch Configuration 与 Occupancy Calculator 相关章节</footer>
 </div>
 
-[上一课](/llm/serving-tokenizer-cost)把推理系统课序收在 tokenizer / detokenize 的服务开销。本课打开 CUDA 与内核实现。GPU 把线程分层：warp 是 32 路 SIMT 的调度单位，CTA（Cooperative Thread Array，即 thread block）是能用共享内存与 `__syncthreads` 的协作组，grid 是一次 kernel 启动的全部 CTA。占用率（occupancy）描述每个 SM 上能同时驻留多少 warp（或 CTA），从而在一次长延迟（共享内存 bank 冲突、全局内存访问、指令依赖）时切到别的 warp 继续发指令。LLM 的 GEMM、[FlashAttention](/llm/flashattention)、归一化核都在这条规则下选 block 尺寸与每线程资源。本篇写三级层次、占用率公式与限制因素、以及为什么盲目拉满占用率会伤 [Tensor Core](/llm/tensor-core) 核。
+[上一课](/llm/on-device-speculative)把性能会计课序收在端侧投机解码：本地草稿减少端云往返，RTT 主导时草稿较慢仍能赢。本课打开 CUDA 与内核实现。GPU 把线程分层：warp 是 32 路 SIMT 的调度单位，CTA（Cooperative Thread Array，即 thread block）是能用共享内存与 `__syncthreads` 的协作组，grid 是一次 kernel 启动的全部 CTA。占用率（occupancy）描述每个 SM 上能同时驻留多少 warp（或 CTA），从而在一次长延迟（共享内存 bank 冲突、全局内存访问、指令依赖）时切到别的 warp 继续发指令。LLM 的 GEMM、[FlashAttention](/llm/flashattention)、归一化核都在这条规则下选 block 尺寸与每线程资源。本篇写三级层次、占用率公式与限制因素、以及为什么盲目拉满占用率会伤 [Tensor Core](/llm/tensor-core) 核。
 
 ## 问题
 
@@ -72,7 +72,7 @@ flowchart TD
   PROF --> TUNE["调 tile / 接受中等占用 / 治访存"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 占用率跨架构不可比：Ampere 与 Hopper 的 $W_{\mathrm{max}}$、寄存器文件、共享内存分区不同，同一 kernel 的 occ 数字会跳，见[GPU 代际](/llm/nvidia-gpu-gen)。Hopper 的 warpgroup MMA 还引入「多个 warp 必须协同」的约束，单纯拉高无关 warp 的占用率可能帮不上 TMA/WGMMA 流水线。动态共享内存在运行时才定，理论占用率要按最坏请求算，否则高峰形状会突然掉驻留。
 

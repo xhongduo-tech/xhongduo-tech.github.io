@@ -63,7 +63,7 @@ Async-Ulysses 能涨吞吐，是因为 Ulysses 的 All-to-All 与 $W_Q,W_K,W_V$ 
 
 多模态专用系统往往假设 any-to-text、固定视觉塔。Megatron 的 TP 要求头数可整除、层形状整齐，ViT 与扩散 U-Net 不满足。纯 FSDP 能训 72B，但 160K 上下文会在注意力激活上爆，必须 SP。VeOmni 的卖点是这三者可配在同一网格上，并且加一个音频编码器不必改网格代码。
 
-## 边界与工程取舍
+## 边界
 
 ### 数字绑定形状与是否冻结编码器
 

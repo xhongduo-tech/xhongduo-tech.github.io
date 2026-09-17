@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 DRAM 与 3D NAND 图形化负担转移的公开论述</footer>
 </div>
 
-[上一课](/litho/foundry-roadmap-compare)对比逻辑代工。缺口是存储。本课钉 DRAM 与 NAND 的光刻角色。3D NAND 负担如何具体转移，留给[下一课](/litho/3d-nand-litho-shift）。
+[上一课](/litho/foundry-roadmap-compare)对比逻辑代工。缺口是存储。本课钉 DRAM 与 NAND 的光刻角色。3D NAND 负担如何具体转移，留给[下一课](/litho/3d-nand-litho-shift)。
 
 ## 问题
 

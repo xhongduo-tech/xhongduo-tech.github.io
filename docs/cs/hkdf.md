@@ -11,8 +11,6 @@ section: cs
 <footer>—— Krawczyk, Cryptographic Extraction and Key Derivation, 2010；RFC 5869</footer>
 </div>
 
-## 定位
-
 上一课[CSPRNG](/cs/csprng)从熵池抽新鲜随机。缺口是**已经有共享秘密**（ECDH 输出、PSK）时如何派生 AEAD 键、IV 盐、下一跳棘轮键。主干[KDF 与慢哈希](/cs/kdf-slow-hash)管口令；本课 HKDF 管高熵 IKM。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ ECDH 的共享坐标不是均匀密钥。直接截断当 AES 键会留结构。H
 ### 不能当口令哈希
 
 口令熵低，要慢哈希与盐。HKDF 快，假设 IKM 已有足够熵。
-
 
 <span class="marginnote">RFC 5869。TLS 1.3 的 HKDF-Expand-Label 是加了标签的扩展。Signal 棘轮更后用同一思想。</span>
 
@@ -41,13 +38,9 @@ flowchart TD
   EXP --> OKM["用途分离的键"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 域分离让「同一共享秘密」长出握手密钥、应用密钥、导出密钥而不串用。这是协议级构造的零件。密钥如何存放、谁能碰，下一课 HSM 与生命周期——算法再对，内存里的明文键仍是威胁模型里的端点。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 粒子校准见 Guyon and Henry-Labordère；混合 SLV 的工程传统见 Lipton 以及 Ren, Madan and Qian</footer>
 </div>
 
-[局部随机波动](/quant/local-stoch-vol) 给出乘积规格 $\sigma_t=L(S_t,t)\sqrt{v_t}$ 与条件期望约束 $L^2\mathbb{E}[v\mid S]=\sigma_{\mathrm{Dup}}^2$。本篇只写**校准顺序与识别**：因子先钉在哪里、杠杆怎么估、混合权重用什么仪器、粒子与 PDE 如何与定价引擎对账。不重复 Dupire 公式，不把 [Heston](/quant/heston) 五参数再解释一遍，也不把 [Bergomi](/quant/bergomi) 曲线动态重推；那些是因子候选，不是本篇的对象。
+[上一课](/quant/rough-bergomi)把 $H$ 钉在时间序列、只让 $\eta,\rho$ 拟合偏斜；分层校准是同一纪律。[局部随机波动](/quant/local-stoch-vol) 给出乘积规格 $\sigma_t=L(S_t,t)\sqrt{v_t}$ 与条件期望约束 $L^2\mathbb{E}[v\mid S]=\sigma_{\mathrm{Dup}}^2$。本篇只写**校准顺序与识别**：因子先钉在哪里、杠杆怎么估、混合权重用什么仪器、粒子与 PDE 如何与定价引擎对账。不重复 Dupire 公式，不把 [Heston](/quant/heston) 五参数再解释一遍，也不把 [Bergomi](/quant/bergomi) 曲线动态重推；那些是因子候选，不是本篇的对象。
 
 ## 问题
 
@@ -65,7 +65,7 @@ Gyöngy 只锁定边际。混合校准要锁定的是**条件方差的分解**�
 
 <span class="marginnote">把 $\lambda$ 解释成「市场有多相信随机波动」是故事，不是识别。$\lambda$ 是障碍相对 Dupire 与纯 SV 的位置参数。换一家的障碍报价，$\lambda$ 就应重估；香草没动而 $\lambda$ 大变，说明识别靠的是那几张障碍，限额应写在障碍流动性上。</span>
 
-## 边界与工程取舍
+## 边界
 
 有跳时 Dupire 比值不再是瞬时连续方差，$L$ 会把跳质量吸成尖峰。随机利率、离散股利要进生成元，不能把股票 $L$ 表直接乘到期货上。高维篮子的条件期望不再是标量 $S$ 的函数，要投影。逐日重校准 $L$ 而不版本化，会使历史 PnL 无法复现，对冲比昨天与今天不在同一模型里。
 

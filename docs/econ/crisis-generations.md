@@ -54,4 +54,4 @@ flowchart TD
 - 第二代：守住成本内生，灰色区多重均衡。
 - 第三代：币种与期限错配，贬值验证信贷崩溃。
 - 可叠加；用一代否证另一代是类别错误。
-- 出处：Obstfeld, *EER* 1996；Chang and Velasco；Krugman 1999。
+- 出处：Obstfeld, *EER* 1996；Krugman 1999。

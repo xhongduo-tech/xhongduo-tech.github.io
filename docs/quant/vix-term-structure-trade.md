@@ -11,7 +11,7 @@ section: quant
     <footer>—— 期货凸性与曲线对象对照 Bergomi；升水与方差风险溢价见 Bollerslev–Tauchen–Zhou 一类文献；指数定义见 CBOE</footer>
 </div>
 
-[VIX 期货定价](/quant/vix-futures) 写标的是未来三十天条带的平方根，以及开方凸性。[方差互换与 VIX](/quant/variance-swap-vix) 写指数本身。本篇写**期限结构上的仓**：日历、展期、陡峭化与平坦化，如何把曲线形状拆成凸性、溢价与均值回复，以及 [Bergomi](/quant/bergomi) / [rBergomi](/quant/rough-bergomi) 的快慢方差如何映射到可交易月份。不重复 CBOE 条带逐步规则，也不把单月期货的仿射近似再推一遍。
+[上一课](/quant/sticky-delta-strike)把切片随现货的搬法定成规则；从切片到曲线，本篇摆仓。[VIX 期货定价](/quant/vix-futures) 写标的是未来三十天条带的平方根，以及开方凸性。[方差互换与 VIX](/quant/variance-swap-vix) 写指数本身。本篇写**期限结构上的仓**：日历、展期、陡峭化与平坦化，如何把曲线形状拆成凸性、溢价与均值回复，以及 [Bergomi](/quant/bergomi) / [rBergomi](/quant/rough-bergomi) 的快慢方差如何映射到可交易月份。不重复 CBOE 条带逐步规则，也不把单月期货的仿射近似再推一遍。
 
 ## 问题
 
@@ -61,7 +61,7 @@ flowchart TD
 
 <span class="marginnote">VIX 期货结算价是特殊开盘拍卖的 VIX，不是前收盘。展期若留到结算，基差跳一层规则风险。多数期限结构账在到期前滚出，把结算当独立事件。</span>
 
-## 边界与工程取舍
+## 边界
 
 流动性集中在前三、四个月份，远月买卖价差宽，陡峭化的多头腿可能填不上官方权重。VIX 期权与期货的保证金、涨跌停与熔断与 SPX 不同，危机日对冲可能中断。不要用 Heston 校准的香草去给远月 VIX 定价还报告「已对冲」：一因子月份共线。不要把 ETF 展期产品（XIV 一类历史）的结构产品风险当成期货日历本身——那些产品有日内再平衡与终止条款。
 

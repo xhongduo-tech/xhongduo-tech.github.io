@@ -66,7 +66,7 @@ tokens/s 对 LLM 是「生成 token / 时间」，输入长度方差大时，若
 
 GPT-J 小模型档被 Llama 3.1 8B 替换后，数据集任务仍是摘要（CNN-DailyMail），但模型上下文与结构变了，不能把 GPT-J 的历史 tokens/s 和 8B 新结果连成一条「硬件加速曲线」。Llama 2 70B 跨多轮仍在，用来看趋势相对合法，仍要声明场景（Offline 还是 Server）和是否 Interactive。Blackwell 相对 Hopper 的倍数只在同一条目、同一场景、同一划分下有意义；NVIDIA 博客里的 unverified 数字必须标未验证，不能当正式表格。
 
-## 边界与工程取舍
+## 边界
 
 不要用 MLPerf Offline 第一名承诺聊天产品的 P99 TTFT。不要在封闭划分里换未经允许的权重再报官方数。不要把不同轮次、不同模型拼成排行榜。不要忽略系统描述里的 GPU 数、互连、软件栈——8×H200 与 1×GB200 NVL72 不是同一 SUT。边缘设备跑 8B 与数据中心跑 405B 没有可比的 tokens/s。DeepSeek-R1 一类推理模型的生成长度和思维链会改 TPOT 画像，套 70B 对话阈值会错。
 

@@ -49,7 +49,7 @@ flowchart TD
 
 <span class="marginnote">rsLoRA 的 γ 与 GaLore 无关。不要给 GaLore 再乘一份 α/r。显存省在 Adam 状态，不省在权重存储——检查点仍是满 W。</span>
 
-## 边界与工程取舍
+## 边界
 
 推理与全参相同，没有适配器可切换任务。多任务仍要存多份 $W$ 或差分。SVD 周期在超大层上有计算开销，需摊进吞吐。激活显存仍在，长上下文下 GaLore 救不了注意力二次方，那是[长微调课](/llm/long-context-finetune)的问题。
 

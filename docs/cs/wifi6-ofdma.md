@@ -37,8 +37,6 @@ flowchart TD
   MLO["多链路"] --> LOG["一条逻辑连接"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 有线 HOL 是结构；无线 HOL 常是整块信道被一个 STA 占满——OFDMA 对症。速率自适应仍按 RU 的 SNR 做。与 PFC 无关。主干 VLAN 可在 AP 上映射 SSID，不改 OFDMA。
@@ -51,7 +49,7 @@ BSS coloring：同频邻 BSS 可空间复用，干扰当噪声进 SNR。
 
 监管功率与 DFS 雷达仍限制真实 $B$，标准表不是室内承诺。
 
-上一课留下的缺口在本课收口；「WiFi 6 / 7 与 OFDMA」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[蓝牙与 BLE](/cs/bluetooth-ble)。
+下一课[蓝牙与 BLE](/cs/bluetooth-ble)。
 
 ## 小结
 

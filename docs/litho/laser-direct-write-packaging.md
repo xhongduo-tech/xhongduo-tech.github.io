@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 LDI（laser direct imaging）与先进封装光刻尺度的通称</footer>
 </div>
 
-[上一课](/litho/xray-near-field)关掉接近式短波主路。缺口是后段互连与封装的尺度。本课钉激光直写与封装光刻。面板级更大场，留给[下一课](/litho/panel-level-litho）。
+[上一课](/litho/xray-near-field)关掉接近式短波主路。缺口是后段互连与封装的尺度。本课钉激光直写与封装光刻。面板级更大场，留给[下一课](/litho/panel-level-litho)。
 
 ## 问题
 

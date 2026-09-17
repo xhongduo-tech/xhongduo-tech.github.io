@@ -11,7 +11,7 @@ section: quant
     <footer>—— Cox, Ross and Rubinstein, Option Pricing: A Simplified Approach, Journal of Financial Economics, 1979</footer>
 </div>
 
-[二叉树](/quant/binomial-tree) 写 CRR 的 $u,d,p^*$ 与重组。[提前行权](/quant/american-exercise) 写 Merton 的经济条件与连续自由边界。本篇把二者接到同一套倒推：树作为完全市场的动态规划网格，美式 $\max$ 如何改变节点值、执行区域如何随 $n$ 收敛、以及和 [PDE 投影](/quant/option-pde)、[LSM](/quant/lsm-american) 的误差结构有何不同。不重推复制公式，也不把 Longstaff–Schwartz 的回归再写一遍。一维香草美式，树仍是最干净的引擎之一；高维才轮到模拟。
+[上一课](/quant/adi-pde)把低维非欧式交给 ADI 的时间步投影；一维香草还有更省的引擎。[二叉树](/quant/binomial-tree) 写 CRR 的 $u,d,p^*$ 与重组。[提前行权](/quant/american-exercise) 写 Merton 的经济条件与连续自由边界。本篇把二者接到同一套倒推：树作为完全市场的动态规划网格，美式 $\max$ 如何改变节点值、执行区域如何随 $n$ 收敛、以及和 [PDE 投影](/quant/option-pde)、[LSM](/quant/lsm-american) 的误差结构有何不同。不重推复制公式，也不把 Longstaff–Schwartz 的回归再写一遍。一维香草美式，树仍是最干净的引擎之一；高维才轮到模拟。
 
 ## 问题
 
@@ -65,7 +65,7 @@ flowchart TD
 
 树：偏差来自 $\Delta t$、节点未对准 $S^*$、障碍抽样；无抽样方差。PDE–CN：空间与时间截断、投影或罚函数；曲面一次给出全部 $S_0$。LSM：策略与基函数偏差加 MC 方差；维数友好。一维美式看跌，加密 CRR 或 PDE 是基准，LSM 用来交叉检验下界，不应反过来用 LSM 给树「定价」。雇员期权与可转债若状态仍是一两个马尔可夫因子，优先树/PDE；因子再多才 LSM。
 
-## 边界与工程取舍
+## 边界
 
 随机波动要二维树或 PDE/[ADI](/quant/adi-pde)，一维 CRR 无法把 $v$ 放进执行决策。跳跃破坏邻接后继。连续时间的平滑粘贴、提前行权溢价积分方程（Kim 等）给出对照，但不是树的输出格式。报告树价应写 $n$、是否百慕大、股利日程、是否做了外推。不要用 $n=50$ 的锯齿边界当论文里的 $S^*(t)$ 图。
 

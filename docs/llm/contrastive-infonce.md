@@ -11,7 +11,7 @@ section: llm
 <footer>—— van den Oord 等 CPC 中的 InfoNCE；句向量实践见 [池化](/llm/embedding-pooling)</footer>
 </div>
 
-[上一课](/llm/deployment-monitoring)收束对齐补层。本课程改做检索与嵌入：生成器之外需要可缓存的向量。主干已有池化与 [CLIP](/llm/clip) 双塔；本课把损失钉成 InfoNCE，作为后课难负例、Matryoshka、指令嵌入的共同目标。缺口不是再讲 Transformer，而是：**句向量要有度量目标**。
+[上一课](/llm/analogical-prompting)把「推理链与提示」课序收在类比提示：让模型先自生成相关例题再解当前题，把选题从人工少样本挪到测试时生成。本课打开「嵌入训练与检索工程」，从生成器转向检索：生成器之外需要可缓存的向量。主干已有池化与 [CLIP](/llm/clip) 双塔；本课把损失钉成 InfoNCE，作为后课难负例、Matryoshka、指令嵌入的共同目标。缺口不是再讲 Transformer，而是：**句向量要有度量目标**。
 
 ## 问题
 

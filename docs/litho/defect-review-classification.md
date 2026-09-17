@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照缺陷复检（review SEM）与 ADC 自动分类的产线通称</footer>
 </div>
 
-[上一课](/litho/defect-inspection-optical-ebeam)找到候选。缺口是标签：自动分类（ADC）快而错，人工 SEM 慢而准。本课钉复检与分类。良率如何随时间被这些标签推着学，留给[下一课](/litho/yield-learning-curve）。
+[上一课](/litho/defect-inspection-optical-ebeam)找到候选。缺口是标签：自动分类（ADC）快而错，人工 SEM 慢而准。本课钉复检与分类。良率如何随时间被这些标签推着学，留给[下一课](/litho/yield-learning-curve)。
 
 ## 问题
 

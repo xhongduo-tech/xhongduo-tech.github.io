@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006；无套利参数化见 Gatheral and Jacquier, Quantitative Finance, 2014</footer>
 </div>
 
-[上一课](/quant/ag-weather-premium)把外汇与商品课序收在农产品天气升水。本课打开期权做市细节。市场给出的是有限的看涨看跌报价，不是连续函数 $\sigma_{\mathrm{imp}}(K,T)$。[隐含波动率曲面](/quant/vol-surface) 把这些点定义成 Black 坐标；做市与风险管理还要把缺档补上，并对外推翼部。插值若在波动率坐标里随便拉线性或三次样条，对应的看涨价格 $C(K,T)$ 很容易对 $K$ 失去凸性，或对 $T$ 出现日历倒挂。Jim Gatheral 把无套利写成对总方差切片的约束，并与 SVI 一类参数化配套；后续的 SSVI 给出跨期限的充分条件。本篇写插值层：如何从离散报价生成一张可送进 [Dupire](/quant/dupire) 与希腊字母引擎的曲面。动力学模型 [Heston](/quant/heston)、[SABR](/quant/sabr) 是另一层，不能代替无套利插值。
+[上一课](/quant/discrete-hedge-error)把离散对冲的误差停在步长与限额：过频对冲放大噪声，最优频率权衡误差与冲击。本课打开期权做市细节。市场给出的是有限的看涨看跌报价，不是连续函数 $\sigma_{\mathrm{imp}}(K,T)$。[隐含波动率曲面](/quant/vol-surface) 把这些点定义成 Black 坐标；做市与风险管理还要把缺档补上，并对外推翼部。插值若在波动率坐标里随便拉线性或三次样条，对应的看涨价格 $C(K,T)$ 很容易对 $K$ 失去凸性，或对 $T$ 出现日历倒挂。Jim Gatheral 把无套利写成对总方差切片的约束，并与 SVI 一类参数化配套；后续的 SSVI 给出跨期限的充分条件。本篇写插值层：如何从离散报价生成一张可送进 [Dupire](/quant/dupire) 与希腊字母引擎的曲面。动力学模型 [Heston](/quant/heston)、[SABR](/quant/sabr) 是另一层，不能代替无套利插值。
 
 ## 问题
 
@@ -61,7 +61,7 @@ flowchart TD
   Pub --> Dyn["Heston / SABR 拟合动态"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 买卖价差宽时，「无套利中间价」可能不存在：买价凸、卖价凸，中间不凸。此时应报告区间，而不是虚构一个穿过所有中间价的光滑曲面。短到期隔夜期权的 $T$ 对交易日历极度敏感，总方差几乎是隔夜跳的方差，插值不要跨过周末当普通隔夜，见 [隔夜跳空对冲](/quant/overnight-gap-hedge)。美式、期货期权、日经乘数与外汇 Delta 惯例，都会让「同一公式」插错对象。
 

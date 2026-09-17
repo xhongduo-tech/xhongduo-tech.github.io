@@ -61,7 +61,7 @@ flowchart TD
 
 <span class="marginnote">Arena 分数对延迟、拒答率和工具不可见。投票人看到的是已经生成好的文本。服务上 TTFT 很差、动不动拒答的模型，只要被抽中且产出了看起来好的回答，仍可获高 Elo。产品体验不能只抄 Arena。</span>
 
-## 边界与工程取舍
+## 边界
 
 Arena 不替代自动基准。知识、数学、代码的可执行对错仍要 [MMLU](/llm/mmlu)、[GSM8K](/llm/math-bench)、[HumanEval](/llm/code-bench)；格式要 [IFEval](/llm/ifeval)；长文检索要 [NIAH](/llm/niah)。Arena 回答的是「在当前用户分布上，盲测偏好序如何」。发布应把自动集当回归、把 Arena 与内部盲测当产品对齐，而不是互相取消。
 

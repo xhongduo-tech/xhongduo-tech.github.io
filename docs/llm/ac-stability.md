@@ -57,7 +57,7 @@ Actor-critic 的不动点要求 $V$ 等于当前 $\pi$ 的真价值。优化是�
 
 <span class="marginnote">参考模型冻结，critic 不冻结。有人误把 $\pi_{\mathrm{ref}}$ 的对数概率当基线。那是 KL 项，不是 $V$。基线必须是「不依赖当前动作 $a_t$」的值，才能不偏置策略梯度；$\log\pi_{\mathrm{ref}}(a_t)$ 依赖 $a_t$，不能当 $V$ 用。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 何时该放弃 critic
 

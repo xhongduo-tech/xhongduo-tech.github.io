@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 Anderson, *Security Engineering*；Egele et al. 对 Android 密码学误用的测量；对照 NIST 与 RFC 的合同条款</footer>
 </div>
 
-## 定位
-
 上一课[归约](/cs/provable-security-reduction)说明证明有前提。缺口是把本单元散见的失败收成**检查单**，作为密码学进阶的封口，并交给下一单元「证书链到底验什么」。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 库默认值也是合同
 
 有的 API 默认 ECB 或允许 `None` 算法。选库等于选游戏前提。
-
 
 <span class="marginnote">Anderson 反复强调实现与流程。学术测量（如 CryptoLint 一类）表明误用普遍。本课不提供扫描目标站点的操作指南。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   FAIL --> FIX["回到 AEAD 与 HKDF 合同"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 误用把可证明对象变回「有加密外观」。审查应问合同而非算法名。协议与身份单元将看到：TLS 配置、JWT `alg`、OAuth 重定向，是同一类失败在协议层的投影。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

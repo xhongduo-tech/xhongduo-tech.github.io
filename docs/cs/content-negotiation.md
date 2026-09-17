@@ -36,8 +36,6 @@ flowchart TD
   CE --> VARY["缓存按 Vary 键"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 CDN 要按 Vary 键存多份，否则省的带宽变成错页。QUIC 0-RTT 的协商头也可重放。语言协商与 GeoDNS 后课可叠加。安全：压缩与加密同用有 CRIME 一类历史，TLS 上谨慎压缩。
@@ -50,7 +48,7 @@ chunked 与 gzip 常叠：先压缩再分块。
 
 强制只 gzip 而不看 Accept-Encoding 会破坏老客户。
 
-上一课留下的缺口在本课收口；「内容协商与压缩」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[WebSocket](/cs/websocket)。
+下一课[WebSocket](/cs/websocket)。
 
 ## 小结
 

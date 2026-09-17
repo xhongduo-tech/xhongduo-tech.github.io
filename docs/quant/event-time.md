@@ -49,10 +49,10 @@ section: quant
 
 ```mermaid
 flowchart LR
-  subgraph clock [时钟时间]
+  subgraph clock["时钟时间"]
     C1["10:00:00"] --> C2["10:00:01"] --> C3["10:00:02"]
   end
-  subgraph event [事件时间]
+  subgraph event["事件时间"]
     E1["成交"] --> E2["撤单"] --> E3["新限价"] --> E4["成交"]
   end
   C1 -.->|"格子内可能空、可能爆发"| C2

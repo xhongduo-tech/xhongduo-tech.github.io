@@ -64,7 +64,7 @@ GQA 让 decode 的 KV 按 KV 头数增长，200K 外推在内存上才谈得上�
 
 <span class="marginnote">InternEvo 在 1024 卡、全局 batch 不变时仍报 53% MFU，长序列 256K 训练 7B 报约 88% MFU。这些是框架数字，不能当成 Chat 模型的推理吞吐。</span>
 
-## 边界与工程取舍
+## 边界
 
 InternLM2 报告很长，但 MoE、MLA 不是该代内容。200K 针测满分不等于 LongBench 任务满分；2.5-1M 同理。COOL 的条件标签若在开源 Chat 模板里未暴露，用户无法在推理时切换「无害/有用」条件——条件可能只存在于训练。2.5 无综合技术报告，1M 的位置编码、稀疏注意力、是否 YaRN 均不可臆造。StepProver 是定理证明专线，另文。
 

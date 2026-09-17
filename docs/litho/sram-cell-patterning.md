@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照先进节点 SRAM 多图形、切线与 EUV 对 bitcell 的公开 DTCO 讨论</footer>
 </div>
 
-[上一课](/litho/scaling-boosters)把逻辑密度助推器写成新层。缺口是位元：SRAM 单元面积直接进缓存密度，图形比逻辑更二维、更周期，失败则整宏报废。[热点](/litho/hotspot-pv) 已警告 SRAM 拐角；本课钉单元图形化选项。金属与 via 如何协同，留给[下一课](/litho/metal-via-co-optimization）。
+[上一课](/litho/scaling-boosters)把逻辑密度助推器写成新层。缺口是位元：SRAM 单元面积直接进缓存密度，图形比逻辑更二维、更周期，失败则整宏报废。[热点](/litho/hotspot-pv) 已警告 SRAM 拐角；本课钉单元图形化选项。金属与 via 如何协同，留给[下一课](/litho/metal-via-co-optimization)。
 
 ## 问题
 

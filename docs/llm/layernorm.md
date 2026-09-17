@@ -64,7 +64,7 @@ flowchart LR
 
 同一算子，放在 $x+F(x)$ 之后或 $F$ 之前，梯度完全不同——那是 Pre-LN 与 Post-LN 的主题。对 LayerNorm 自身只需记住：它总是沿最后一维归约。若错误地沿序列维做 LN，会把不同位置混成一套 $\mu,\sigma$，瞬间接通本该由注意力学习的耦合，并破坏因果。实现时的 `normalized_shape` 必须是宽度 $d$，不是 $n$ 或 $n\times d$。
 
-## 边界与工程取舍
+## 边界
 
 LayerNorm 对全零或近常数向量敏感：$\sigma$ 接近 $\sqrt{\varepsilon}$，输出被 $\varepsilon$ 主导。宽度极大时，fp16 下求和与平方和需要提升精度。它比 RMSNorm 多一次中心化，内核更重；在带宽已是瓶颈的训练里，这是后来改 RMS 的直接动机。
 

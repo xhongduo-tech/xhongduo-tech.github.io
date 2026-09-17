@@ -11,7 +11,7 @@ section: quant
     <footer>—— 对数合约与方差见 Neuberger, 1994 与 Carr–Madan, 1998；模型无关波动见 Britten-Jones and Neuberger, Journal of Finance, 2000；凸性与波动互换见后续 Carr–Lee 等</footer>
 </div>
 
-[方差互换复制](/quant/var-swap-replication) 把公平 $K_{\mathrm{var}}=\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]$ 写成虚值香草按 $1/K^2$ 的积分。[方差互换与 VIX](/quant/variance-swap-vix) 把同一对象做成产品与指数。本篇对齐的是另一份合同：波动互换（volatility swap）支付已实现波动 $\sqrt{\mathrm{QV}}$（按合同年化），公平执行价是 $K_{\mathrm{vol}}=\mathbb{E}^{\mathbb{Q}}[\sqrt{\mathrm{QV}}]$。二者常被用「波动率点」混着报价，Jensen 缺口于是被算进 alpha。不重复条带权重的逐步推导，也不把 VIX 期货的开方凸性再展开成定价篇——那里的标的是未来隐含方差的平方根，这里的标的是路径已实现波动。
+[上一课](/quant/lsv-hybrid-calib)收在混合强度要用路径产品来识别。[方差互换复制](/quant/var-swap-replication) 把公平 $K_{\mathrm{var}}=\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]$ 写成虚值香草按 $1/K^2$ 的积分。[方差互换与 VIX](/quant/variance-swap-vix) 把同一对象做成产品与指数。本篇对齐的是另一份合同：波动互换（volatility swap）支付已实现波动 $\sqrt{\mathrm{QV}}$（按合同年化），公平执行价是 $K_{\mathrm{vol}}=\mathbb{E}^{\mathbb{Q}}[\sqrt{\mathrm{QV}}]$。二者常被用「波动率点」混着报价，Jensen 缺口于是被算进 alpha。不重复条带权重的逐步推导，也不把 VIX 期货的开方凸性再展开成定价篇——那里的标的是未来隐含方差的平方根，这里的标的是路径已实现波动。
 
 ## 问题
 
@@ -74,7 +74,7 @@ VIX 期货是 $\mathbb{E}[\sqrt{\mathrm{VS}_{T,T+\tau}}]$，里面的 $\mathrm{V
 
 <span class="marginnote">Heston 可以同时给出 $K_{\mathrm{var}}$ 与 $K_{\mathrm{vol}}$ 的矩近似，但 $K_{\mathrm{var}}$ 应以市场条带为准，只让模型提供 $\mathrm{Var}(X)$。用模型重定价方差互换再开方，等于丢掉无模型锚。</span>
 
-## 边界与工程取舍
+## 边界
 
 翼部截断使 $K_{\mathrm{var}}$ 偏低，从而 $\sqrt{K_{\mathrm{var}}}$ 偏低；凸性调整若再用被截断的条带估 $\mathrm{Var}(X)$，误差同向叠加。有限执行价下「无模型」已是算法。利率、分红、离散采样写进合同附录，两边必须同一套。外汇波动互换常按已实现波动结算、名义对 Delta 风险，股权方差互换更标准；跨资产搬公式要注意年化与报价惯例。
 

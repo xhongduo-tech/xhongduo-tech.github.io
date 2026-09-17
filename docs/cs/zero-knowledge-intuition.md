@@ -11,8 +11,6 @@ section: cs
 <footer>—— Goldwasser, Micali and Rackoff, The Knowledge Complexity of Interactive Proof Systems, 1985, 1989</footer>
 </div>
 
-## 定位
-
 上一课[后量子](/cs/post-quantum-kyber)换了陷门。缺口是**另一类协议目标**：不传输证人，只传输可验的对话。主干没有 ZK 课；本课直觉，不写电路到多项式的全套。与[交互证明](/cs/interactive-proofs)的复杂度课只点名，不重推 IP=PSPACE。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 可靠性≠零知识
 
 可靠性：假命题不能过。零知识：真命题的对话不泄漏证人。可以强可靠而完全不零知识（直接给证人）。
-
 
 <span class="marginnote">GMR 1985/1989。Schnorr 协议是离散对数的经典 Σ 协议形状，本课只当例子点名，不给用于伪造的代数步骤。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   S["模拟器无证人"] --> VIEW["视图不可区分"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 ZK 服务「选择性披露」：我属于集合、我付过款、我知道原像——验证者不带走可转述的证书。它不替代 TLS，不替代 AEAD。计算成本高，协议要选陈述。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

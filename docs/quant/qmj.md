@@ -11,7 +11,7 @@ section: quant
 <footer>—— Asness, Frazzini & Pedersen, Quality Minus Junk, Review of Accounting Studies, 2019</footer>
 </div>
 
-[质量与盈利](/quant/quality-profitability) 一文以 Novy-Marx 的毛利率和 Fama–French 的 RMW 为主。本篇写 Asness、Frazzini、Pedersen 的 **QMJ**（Quality Minus Junk）：它不是单变量盈利定理，而是四块指标的分位合成，再做成接近市场中性的多空。读 QMJ 之前先分清：毛利率腿回答「赚钱的资产是否被低估」；QMJ 回答「一张综合质量表能否在贵的同时仍然赚 α」。安全块会把 [BAB](/quant/low-vol-bab) 偷运进来，分红块会把[净发行](/quant/net-issuance)偷运进来——这是设计，不是笔误，但报告时必须拆开。
+[上一课](/quant/ff6)收在模型选择：HML 在更长右侧上更常冗余，价值特征仍可交易。[质量与盈利](/quant/quality-profitability) 一文以 Novy-Marx 的毛利率和 Fama–French 的 RMW 为主。本篇写 Asness、Frazzini、Pedersen 的 **QMJ**（Quality Minus Junk）：它不是单变量盈利定理，而是四块指标的分位合成，再做成接近市场中性的多空。读 QMJ 之前先分清：毛利率腿回答「赚钱的资产是否被低估」；QMJ 回答「一张综合质量表能否在贵的同时仍然赚 α」。安全块会把 [BAB](/quant/low-vol-bab) 偷运进来，分红块会把[净发行](/quant/net-issuance)偷运进来——这是设计，不是笔误，但报告时必须拆开。
 
 ## 问题
 
@@ -63,7 +63,7 @@ QMJ 对 HML 为负、对动量接近零到略正。价值-质量组合类似 Nov
 
 <span class="marginnote">增长块用的是长期盈利变化，不是一个月的[盈余惊喜](/quant/pead-sue)。把 PEAD 写进 QMJ 会把事件时间的漂移当成质量。同样，一年资产扩张属于[资产增长](/quant/asset-growth)，不要与五年盈利增长混成一个 z。</span>
 
-## 边界与工程取舍
+## 边界
 
 金融业毛利率与 Z-score 难定义，通常剔除或单独模型。负账面使 ROE 爆炸，需缩尾或改用资产口径。A 股 ST、壳与融券标的会使 junk 空头不可复制；只做多高质量、不做空，得到的是低 β 质量组合，不是 QMJ。交易成本：月度再平衡加安全块的 β 更新，换手高于 RMW；容量主要在大盘价值加权。
 

@@ -36,8 +36,6 @@ flowchart TD
   PB --> WIRE["再进 HTTP/gRPC 帧"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 CPU：JSON 解析在 10G 上可成瓶颈，TSO 帮不上。QUIC 0-RTT 重放对非幂等 POST+JSON 危险。CDN 可缓存 GET+JSON，难缓存 gRPC。IPv6 过渡不影响编码。
@@ -50,7 +48,7 @@ CPU：JSON 解析在 10G 上可成瓶颈，TSO 帮不上。QUIC 0-RTT 重放对�
 
 无长度的 JSON 流会粘包，不能只靠 TCP。
 
-上一课留下的缺口在本课收口；「序列化：JSON / Protobuf」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[DNS 缓存与 TTL](/cs/dns-cache-ttl)。
+下一课[DNS 缓存与 TTL](/cs/dns-cache-ttl)。
 
 ## 小结
 

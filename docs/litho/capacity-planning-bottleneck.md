@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 fab capacity planning 与约束理论在光刻区的应用通称</footer>
 </div>
 
-[上一课](/litho/tool-price-depreciation)给出小时成本。缺口是台数。本课钉产能规划与瓶颈。把扫描机采购放进整厂资本开支，留给[下一课](/litho/fab-capex）。
+[上一课](/litho/tool-price-depreciation)给出小时成本。缺口是台数。本课钉产能规划与瓶颈。把扫描机采购放进整厂资本开支，留给[下一课](/litho/fab-capex)。
 
 ## 问题
 

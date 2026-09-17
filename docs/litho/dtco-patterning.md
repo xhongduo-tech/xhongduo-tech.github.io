@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 imec 对 DTCO 与先进节点图形化路径的公开论述</footer>
 </div>
 
-[上一课](/litho/hotspot-fix)（热点修复）。把计算光刻的加速收成：物理模型签核，学习模型最多近似前向。缺口是：再快的 OPC 也救不回一套与工艺作对的库。标准单元轨道高度、允许节距、通孔网格、是否让某层走 [EUV 双重](/litho/euv-double-pattern) 或 SAQP，必须在设计时就选好。imec 把这套闭环称作 DTCO（Design–Technology Co-Optimization）。本课钉图形化侧的协同。紧凑模型对严格电磁，留给下一课。
+[上一课](/litho/hotspot-fix)（热点修复）把压不住的局部热点分三轨处置，并把重复热点升级成改库的诉求。缺口是：再快的 OPC 也救不回一套与工艺作对的库。标准单元轨道高度、允许节距、通孔网格、是否让某层走 [EUV 双重](/litho/euv-double-pattern) 或 SAQP，必须在设计时就选好。imec 把这套闭环称作 DTCO（Design–Technology Co-Optimization）。本课钉图形化侧的协同，也是计算光刻与掩模写入课程的末课；紧凑模型对严格电磁的分工，[前面](/litho/compact-vs-rigorous)已经钉过。版图怎么交到掩模厂，[下一课](/litho/gdsii-oasis)从 GDSII 与 OASIS 另起。
 
 ## 问题
 
@@ -57,7 +57,7 @@ flowchart TD
 
 DTCO 不增加 NA，不创造光子。它只避免在不可印集合上浪费计算光刻。协同失败的典型症状是：OPC 日历爆炸、热区在量产中途冒出、N3E 一类「放松节距退回单次」的成本修复。公开节点故事可以引用这类权衡，不要编未公布的规则数值。
 
-后课默认：设计规则是 DTCO 的产物；紧凑成像模型是评估器里跑得最快的那一层，其与严格电磁的差，下一课再钉。
+后课默认：设计规则是 DTCO 的产物；紧凑成像模型是评估器里跑得最快的那一层，其与严格电磁的差，[紧凑模型对严格电磁](/litho/compact-vs-rigorous)一课已经钉过。
 
 <span class="marginnote">引用 imec DTCO 时写清比较的是哪一种图形化路径（EUV 单次、双重、SAQP）与哪一类单元。只展示一张标准单元漂亮图，不是协同已经完成。</span>
 

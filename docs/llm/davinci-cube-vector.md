@@ -61,7 +61,7 @@ INT8 / FP16 在 Cube 与 Vector 上的支持是公开能力；910C 论文写明�
 
 910 系列后续把 Cube 与 Vector 拆到不同物理核时，编译器生成 Mix 核：AIC 子函数跑矩阵，AIV 子函数跑向量，入口做同步。IR 文档中的 Cube–Vector 优化流（fixpipe、切 Mix 核）就是把这一硬件事实变成 pass。LLM 解码器层天然是 Mix：注意力与 MLP 的 GEMM 在 AIC，归一化与激活在 AIV。微批流水用两套工作填满两边，避免「等 Vector 时 Cube 空转」。
 
-## 边界与工程取舍
+## 边界
 
 不要手写与文档几何不符的 Cube 形状还指望峰值。不要在 Vector 上模拟大矩阵乘。不要忽略 FixPipe 的后处理能力而在 HBM 上再做一遍 ReLU。动态 shape 会破坏编译期切块，使三条流水的双缓冲失效，这是 NPU 不喜欢动态轴的硬件原因。
 

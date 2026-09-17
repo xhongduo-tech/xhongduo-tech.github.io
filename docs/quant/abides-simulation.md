@@ -11,7 +11,7 @@ section: quant
     <footer>—— Byrd, Hybinette and Balch, ABIDES: Towards High-Fidelity Multi-Agent Market Simulation, 2019/2020</footer>
 </div>
 
-回放历史限价簿，等于假设你的订单不影响随后的路径。执行、做市、冲击和多代理交互一旦进入问题，回放就不够。ABIDES（Agent-Based Interactive Discrete Event Simulation）把交易所、噪声交易者、价值交易者、趋势代理和做市商放进同一条事件队列：每个代理登记下一次唤醒，内核弹出最早事件，投递消息，代理再决定是否发单。Byrd、Hybinette 与 Balch 以及后续的 ABIDES-Markets / Gym 接口，把这一内核写成可重复实验的研究平台。它回答「在给定代理种群与撮合规则下，市场路径长什么样、我的代理插入后路径如何变」，不回答「历史 alpha 有多高」。与 [事件驱动回测](/quant/event-driven-backtest) 的差别是：后者通常仍吃历史事件流，ABIDES 可以让事件流本身由代理内生生成。
+[上一课](/quant/deep-lob-leakage) 把未来挡在协议里；挡得住看未来，挡不出自己订单进入后的路径。回放历史限价簿，等于假设你的订单不影响随后的路径。执行、做市、冲击和多代理交互一旦进入问题，回放就不够。ABIDES（Agent-Based Interactive Discrete Event Simulation）把交易所、噪声交易者、价值交易者、趋势代理和做市商放进同一条事件队列：每个代理登记下一次唤醒，内核弹出最早事件，投递消息，代理再决定是否发单。Byrd、Hybinette 与 Balch 以及后续的 ABIDES-Markets / Gym 接口，把这一内核写成可重复实验的研究平台。它回答「在给定代理种群与撮合规则下，市场路径长什么样、我的代理插入后路径如何变」，不回答「历史 alpha 有多高」。与 [事件驱动回测](/quant/event-driven-backtest) 的差别是：后者通常仍吃历史事件流，ABIDES 可以让事件流本身由代理内生生成。
 
 ## 问题
 
@@ -51,7 +51,7 @@ ABIDES 也可以回放真实消息，同时让被试代理发单，其余历史�
 
 生成式基础模型路线见 [MarS](/quant/mars-generative-sim)：从数据学消息分布，而不是从手写代理规则生成。ABIDES 的优势是规则可解释、可做插入实验；劣势是校准负担在人。二者可以对照：同一被试代理分别在规则仿真与生成式回放里跑，看结论是否同号。
 
-## 边界与工程取舍
+## 边界
 
 计算成本随代理数与消息数上升。高保真 L3 全市场仿真很难实时。研究应缩小到单标的或少量标的，并承认跨品种套利代理缺失。A 股的集合竞价、涨跌停、T+1 不是默认内核的一部分，必须作为规则显式实现，否则仿真的是另一个市场。不要用未实现涨跌停的连续簿仿真去评估 A 股开盘策略。
 

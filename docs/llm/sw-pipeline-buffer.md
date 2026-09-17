@@ -65,7 +65,7 @@ Cluster multicast 时，stage 规划还要算上「同一盒子到达多个 CTA�
 
 每个 stage 的生产者 acquire（槽空闲）→ 拷贝 → arrive 完成；消费者 wait 完成 → MMA → release 槽。任何一条边反了都会覆盖或死锁。注意力核若在 MMA 与 softmax 之间还要复用同一块 smem 放 $S$ 碎片，等于额外一种缓冲对象，stage 图要重画，不能共用 GEMM 的双缓冲注释。数值对照应用关闭流水的串行核（$s=1$、同步拷贝）做基线；尾差应在浮点顺序容差内，数量级差异是屏障错误。
 
-## 边界与工程取舍
+## 边界
 
 不要在 smem 已经装不下两个 tile 时强行 double buffer——应先减小 tile，或把 $B$ 的一部分改走寄存器直供（若指令允许）。不要把主机 pinned 的 double buffer（CUDA 流上的 `cudaMemcpyAsync` 乒乓）和核内 smem 流水当成同一件事：前者藏的是 PCIe 或跨设备拷贝，后者藏的是 HBM 到 smem。不要跨架构复制 stage：A100 与 H100 的拷贝引擎、MMA 延迟比不同，CUTLASS 默认值也不同。
 

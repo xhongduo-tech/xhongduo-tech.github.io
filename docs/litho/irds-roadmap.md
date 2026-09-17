@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 IEEE IRDS（International Roadmap for Devices and Systems）及其 Lithography 章节的定位</footer>
 </div>
 
-[上一课](/litho/transistor-density-metric)统一了密度口径。缺口是行业共识表从哪来。本课钉 IRDS。表上的层成本如何落到晶圆，留给[下一课](/litho/cost-per-layer-wafer）。
+[上一课](/litho/transistor-density-metric)统一了密度口径。缺口是行业共识表从哪来。本课钉 IRDS。表上的层成本如何落到晶圆，留给[下一课](/litho/cost-per-layer-wafer)。
 
 ## 问题
 

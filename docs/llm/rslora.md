@@ -47,7 +47,7 @@ flowchart LR
 
 <span class="marginnote">全参没有 γ。不要把 rsLoRA 的大学习率抄回全参——[学习率课](/llm/lora-vs-full-lr)仍然有效。</span>
 
-## 边界与工程取舍
+## 边界
 
 极小 $r$（1–2）时 $1/r$ 与 $1/\sqrt{r}$ 差一截，迁移必须重标 $\alpha$。极大 $r$ 接近全参时，低秩假设本身弱，缩放争论次要。QLoRA 存 4-bit 基座，缩放仍作用在 16-bit 适配器上，rsLoRA 同样适用。合并推理时 $\gamma BA$ 一次加进 $W_0$，部署不保留「用哪种缩放」的区别，只保留学到的矩阵。
 

@@ -51,7 +51,7 @@ LoRA 初始化 $BA=0$，早期梯度只在低秩因子上积累。大学习率�
 
 <span class="marginnote">[chat template](/llm/chat-template) 与仅回复掩码错误时，两种参数化都会「变傻」。先排除格式，再比较 η。用错误掩码扫出的「最优学习率」不可用。</span>
 
-## 边界与工程取舍
+## 边界
 
 DoRA、AdaLoRA 有自己的几何与秩分配，默认 $\eta$ 不能从本课直接抄，但「适配器大于全参」的方向仍在。嵌入层若解冻，应对齐全参量级，否则词表漂移。长上下文 SFT 有效批次更小，应先补累积，再动 $\eta$，见[下一课](/llm/long-context-finetune)。
 

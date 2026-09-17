@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Wei 等 FLAN（ICLR 2022）、Taori 等 Stanford Alpaca（2023）、Chiang 等 Vicuna 所用的 ShareGPT（2023）</footer>
 </div>
 
-[上一课](/llm/large-scale-failure-rate)把万卡训练的故障率收到工程账上：检查点、弹性、掉卡。本课打开新课程「微调、编辑与遗忘」：基座已经能稳定跑完，缺口变成**拿什么示范去改条件分布**。指令数据有三条至今仍在混用的谱系——把 NLP 任务模板化的 FLAN、用教师模型自举的 Alpaca、从真实 ChatGPT 导出多轮的 ShareGPT。它们不是同一张表的三个版本。后课默认已经分清这三条，再谈[仅回复损失](/llm/response-only-loss)与[chat template](/llm/chat-template)；不在这里重写 [LoRA](/llm/lora) 或[全参超参](/llm/full-sft-hparams)。
+[上一课](/llm/sft-safety-mix)把「微调」课序收在安全数据占 SFT 的比例：扫描出的混合是粗对齐，为的是给 RM / DPO 留两边都能动的初始化。本课打开「SFT、适配与编辑」：缺口变成**拿什么示范去改条件分布**。指令数据有三条至今仍在混用的谱系——把 NLP 任务模板化的 FLAN、用教师模型自举的 Alpaca、从真实 ChatGPT 导出多轮的 ShareGPT。它们不是同一张表的三个版本。后课默认已经分清这三条，再谈[仅回复损失](/llm/response-only-loss)与[chat template](/llm/chat-template)；不在这里重写 [LoRA](/llm/lora) 或[全参超参](/llm/full-sft-hparams)。
 
 ## 问题
 
@@ -49,7 +49,7 @@ SFT 学的是渲染后前缀上的条件分布。FLAN 把「任务说明」变�
 
 <span class="marginnote">后课用到的约定：说到「Alpaca 格式」指单轮 Instruction 字段；说到「对话 SFT」指消息列表经 chat template 渲染。不要用「指令数据」一词同时覆盖三者。</span>
 
-## 边界与工程取舍
+## 边界
 
 谱系不是时间线上的淘汰。2024 年以后的配方仍在混：数学用网格与合成解答，助手口吻用精选对话，工具用协议化轨迹。边界是：教师蒸馏继承教师的安全与谄媚；导出对话继承 UI 与隐私；任务网格几乎不教多轮。许可上，Alpaca 与早期 ShareGPT 都不能当「可商用金标准」。评测上，MMLU 偏 FLAN 族，人评开放生成偏 ShareGPT / LIMA 族；只报其中一个，会选出错误配比。
 

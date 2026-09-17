@@ -55,7 +55,7 @@ flowchart TD
 
 <span class="marginnote">冻骨干时交叉注意力多 10% 量级 FLOPs、多一批可训参数，却仍可能赢——因为可训比例太低时全自回归「没东西可学」。读 IDEFICS2 必须带上冻/解冻条件，否则会引成互相矛盾的两句话。</span>
 
-## 边界与工程取舍
+## 边界
 
 IDEFICS1-80B 的显存与 LLaMA 许可使其更像研究基线。IDEFICS2-8B 可进 Apache 栈，但 Mistral 词表与聊天模板不能和一代混用。切图使预填充随张数与 split 线性涨，服务要设最大视觉 token，而不能默认 320×多图。论文验证和是内部任务混合，对外引用应落在公开的 MMMU / TextVQA / DocVQA 表，并写明 64 还是 split。不要把「与 Gemini 1.5 Pro 在某张难基准上接近」扩展成全面持平。
 

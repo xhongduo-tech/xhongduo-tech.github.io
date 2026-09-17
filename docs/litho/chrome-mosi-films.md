@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照二元铬掩模与衰减相移掩模（attPSM）膜系的教科书与产线通称</footer>
 </div>
 
-[上一课](/litho/mask-blank-ltem)把坯钉成 LTEM/石英光学元件。缺口是面上要长什么膜：挡光、相移、还是 EUV 吸收体。本课钉 DUV 主流的铬与 MoSi。膜怎么被刻出侧壁，留给[下一课](/litho/mask-etch-sidewall）。
+[上一课](/litho/mask-blank-ltem)把坯钉成 LTEM/石英光学元件。缺口是面上要长什么膜：挡光、相移、还是 EUV 吸收体。本课钉 DUV 主流的铬与 MoSi。膜怎么被刻出侧壁，留给[下一课](/litho/mask-etch-sidewall)。
 
 ## 问题
 

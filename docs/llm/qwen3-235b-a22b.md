@@ -58,7 +58,7 @@ flowchart TD
 
 报告里 235B-A22B-Base 对 Qwen2.5-Plus、Llama-4-Maverick、DeepSeek-V3 Base 等，用来证明约 10% 激活的 MoE 底座。Instruct 的思考分数是后训练产物。把 Base MMLU 增量说成「聊天超过 R1」，或把思考 AIME 贴到 Base 检查点，都会算错账。2507 将部分尺寸拆成更偏聊天或更偏思考的快照，说明 5 月「单权重双模式」不是产品终态；写系统要钉检查点日期。
 
-## 边界与工程取舍
+## 边界
 
 默认思考会让分类题变成数百 token 内心独白；产品必须把 `enable_thinking` 接到 UX。预算打断句是英文模板，换语言未保证。36T 与 119 语种不可外部审计；PDF OCR 噪声在旗舰里同样存在。131K 仍不是 1M。专家并行、EP 通信与负载不均是生产事故主因。`transformers<4.51` 会 `KeyError: qwen3_moe`。许可证以当时 Apache 2.0 卡片为准。
 

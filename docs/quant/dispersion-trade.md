@@ -11,7 +11,7 @@ section: quant
     <footer>—— Driessen, Maenhout and Vilkov, The Price of Correlation Risk, Journal of Finance, 2009；方差分解为指数期权文献的标准恒等式</footer>
 </div>
 
-指数收益是成分的加权和。方差恒等式把指数方差拆成特质块与相关块：
+[上一课](/quant/vol-arb)把指数方差记成单一账本上的相对价值。指数收益是成分的加权和。方差恒等式把指数方差拆成特质块与相关块：
 
 $$
 \sigma_I^2=\sum_i w_i^2\sigma_i^2+\sum_{i\neq j}w_i w_j\rho_{ij}\sigma_i\sigma_j.
@@ -80,7 +80,7 @@ flowchart TD
 
 <span class="marginnote">隐含相关对「全体个股 IV 平行乘一个因子」敏感。个股做市商集体把翼部标高时，$\rho_{\mathrm{impl}}$ 会下降（分母变大），并不等于市场在卖相关。应同时看 $\sigma_I$ 与 $\sum w_i\sigma_i$ 的水平。</span>
 
-## 边界与工程取舍
+## 边界
 
 恒等式是方差的，不是波动率的。用 ATM IV 代替 $\sigma$ 会留下 Jensen 与微笑误差。期限必须一致：指数用三十天、个股用当周，相关没有定义。美式个股、欧式指数，早行权溢价进入 $\sigma_i$。指数调整、停牌、成分跳进跳出，使权重 $w_i$ 与期权上市不同步。跨国指数的个股期权散落在不同交易所，时区使「同一时刻的 $\rho$」是幻象。
 

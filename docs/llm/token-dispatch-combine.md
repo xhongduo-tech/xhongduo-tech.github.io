@@ -79,7 +79,7 @@ $s$ 是每元素字节。因子 2 是 dispatch 加 combine。均匀时每卡发�
 
 反向再走两遍置换：对专家输出的梯度做一次「按专家聚集」，对专家输入的梯度做一次「按 token 打散」。路由矩阵 $W_r$ 通常不随专家切分，其梯度留在本地。不要把 combine 的加权和当成 All-Reduce——权重是 per-token 的门控，不是跨卡求和。
 
-## 边界与工程取舍
+## 边界
 
 小 batch 自回归 decode 是 dispatch/combine 最痛的工作点：每步 $T$ 只有并发请求数，$kT/E$ 可能小于 1，All-to-All 的启动延迟大于 payload。DeepSeek-V3 解码部署因此把 EP 拉到 320、每卡一个专家，并用 IBGDA 做点对点，而不是套训练时的分层 IB+NVLink 核。Mixtral 8 专家常常整模型复制或只做 TP，避开逐步置换。
 

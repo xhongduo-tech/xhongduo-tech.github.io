@@ -37,7 +37,7 @@ $$
 
 ### 不规则 batch 的反向
 
-前向可变，反向的路由梯度仍只沿被选中的专家走，与[下一课](/llm/moe-router-gradient)将展开的 straight-through 是同一条链。差别只在：没有因 drop 而人为断开的边。实现必须按与前向相同的 permutation 把梯度 scatter 回 token 序，permutation 本身由路由下标构成，不可与下一 step 复用。
+前向可变，反向的路由梯度仍只沿被选中的专家走，与[路由器梯度](/llm/moe-router-gradient)一课将展开的 straight-through 是同一条链。差别只在：没有因 drop 而人为断开的边。实现必须按与前向相同的 permutation 把梯度 scatter 回 token 序，permutation 本身由路由下标构成，不可与下一 step 复用。
 
 ```mermaid
 flowchart TD
@@ -60,7 +60,7 @@ flowchart TD
 
 显存峰值按 $\sum_i n_i \cdot d_{\mathrm{ff}}$ 的激活计，极端崩溃时某一专家吃下几乎全部 $kT$ 个槽位，单专家激活可以打爆 HBM。生产配方往往加一个**软顶**：超过某 $n_{\max}$ 才 drop 或拆成两拍。这与经典 $\mathrm{CF}$ 不同——$n_{\max}$ 设在分布的极尾，平时不触发，只防爆炸。把它设成 $c_{\mathrm{eq}}$ 就退回有 drop 的 MoE，只是核仍是 grouped GEMM。
 
-## 边界与工程取舍
+## 边界
 
 Dropless 对「专家数很大、$k$ 很小、负载已经较均」最划算：不规则核的收益来自少 padding，均衡之后 $n_i$ 接近，grouped GEMM 接近一块大方阵。专家很少且经常崩到 $1$–$2$ 个热专家时，核再快也救不了 straggler，应先修路由。微调 batch 远小于预训练时，$n_i$ 更稀疏，kernel 启动占比上升，Dropless 的吞吐优势会缩小甚至倒挂，需要单独 profile。
 

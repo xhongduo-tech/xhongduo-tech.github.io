@@ -52,4 +52,4 @@ flowchart TD
 - 标准不完全市场稳态尾偏薄。
 - 帕累托尾来自乘性财富过程加重置。
 - 尾决定谁供给资本、加总 MPC 的权重。
-- 出处：Gabaix 幂律综述；Benhabib, Bisin and Zhu；Piketty–Zucman。
+- 出处：Gabaix 幂律综述；Piketty–Zucman。

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Shewhart 控制图传统；SEMI 与半导体厂对 SPC 的通称</footer>
 </div>
 
-[上一课](/litho/sampling-plan)给出看见什么。缺口是判决：这些点何时算受控漂移（交给 APC）、何时算异常（停机、重工、排除数据）。本课钉 SPC 与控制图。套刻专用回路，留给[下一课](/litho/overlay-control-loop）。
+[上一课](/litho/sampling-plan)给出看见什么。缺口是判决：这些点何时算受控漂移（交给 APC）、何时算异常（停机、重工、排除数据）。本课钉 SPC 与控制图。套刻专用回路，留给[下一课](/litho/overlay-control-loop)。
 
 ## 问题
 

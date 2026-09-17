@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 dedicated chuck / tool dedication 与 overlay matching 的公开讨论</footer>
 </div>
 
-[上一课](/litho/wafer-distortion-stress)给出工艺弯月。缺口是混流：量产不会单机。[机台匹配](/litho/tool-matching) 已写扫描机指纹匹配；本课钉**层间套刻的机台对**，不重写照明瞳匹配全文。厂级数据如何把这些环连起来，留给[下一课](/litho/fab-data-loop）。
+[上一课](/litho/wafer-distortion-stress)给出工艺弯月。缺口是混流：量产不会单机。[机台匹配](/litho/tool-matching) 已写扫描机指纹匹配；本课钉**层间套刻的机台对**，不重写照明瞳匹配全文。厂级数据如何把这些环连起来，留给[下一课](/litho/fab-data-loop)。
 
 ## 问题
 

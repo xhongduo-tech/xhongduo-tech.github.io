@@ -62,7 +62,7 @@ Bank 是硬件上的独立存储体，每个时钟每个 bank 能服务有限次
 
 先看核是否真的受 smem 约束：计数器里 shared efficiency 低、bank conflicts 高，同时 Tensor Pipe 不饱和，才值得改布局。若 Tensor Pipe 已高、冲突只是几个百分点，去抠 padding 的收益常被占用率损失抵消。改 swizzle 后必须重测数值：布局错会表现为静默错位，而不是 CUDA error。单元测试应用已知 GEMM / 注意力对照，不能只看墙钟变快。
 
-## 边界与工程取舍
+## 边界
 
 不要把 bank conflict 解释成「共享内存坏了」。不要在任意架构上假设 32-bit 口诀适用于 128-bit 向量。不要为消除 2-way 冲突而把 tile 降到填不满 MMA 的尺寸——算术强度塌掉，比轻微冲突更伤。[CUTLASS](/llm/cutlass) 的默认布局已经为各代 MMA 调过，手改一处 stride 就要把冲突与 MMA 合法性一起回归。
 

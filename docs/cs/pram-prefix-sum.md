@@ -11,23 +11,23 @@ section: cs
 <footer>—— 据 Ladner and Fischer, Parallel Prefix Computation, 1980；JáJá, An Introduction to Parallel Algorithms 整理</footer>
 </div>
 
-上一课[外存 I/O](/cs/external-memory-model)是层次。PRAM：多处理器同步共享 RAM。缺口是前缀（scan）：$s_i=a_1+\cdots+a_i$。串行 $O(n)$。并行：树上升下降 $O(\log n)$ 步。不重写 I/O 排序。后课 work-span。CREW/CRCW 点名。
+上一课[外存 I/O](/cs/external-memory-model)换的是存储层次这个成本维度；本课换并行度。PRAM 是最朴素的并行模型：多处理器同步地在共享 RAM 上执行指令。缺口是前缀（scan）$s_i=a_1+\cdots+a_i$——串行一遍 $O(n)$，看似天生串行，实则树形两遍只要 $O(\log n)$ 步。本课不重写 I/O 排序；后课 work-span 才给并行成本记账，CREW/CRCW 变体点名即可。
 
 ## 问题
 
-平衡二叉树：内部点存区间和，再向下推前缀。工作 $O(n)$，跨度 $O(\log n)$。链表前缀要用指针跳跃（Wyllie）或随机。CRCW 可更快但模型强。
+在数组上造一棵平衡二叉树：上升遍求每个内部结点的区间和，下降遍把父结点积攒的左侧和往下推加，两遍各 $O(\log n)$ 跨度、总工作 $O(n)$。链表没有下标，前缀要先指针跳跃（Wyllie 的路径倍增）或随机化重排成数组。CRCW 允许同拍并发写时还能更快，但那是在用更强的模型换结果。
 
-缺口是前缀，不是 GPU 编程课。
+缺口是前缀这个原语本身，不是 GPU 编程课。
 
 ### 不是 MapReduce 语义
 
-PRAM 同步共享内存。MapReduce 是数据并行另一模型。不要混。
+PRAM 是同步共享内存，每步所有处理器齐步走；MapReduce 是另一套数据并行模型，靠无共享机器间的分布式洗牌。两者的成本记账不能混用。
 
 <span class="marginnote">Ladner–Fischer 1980。Blelloch scan。后课 work-span 把 PRAM 界翻译成 fork-join。</span>
 
 ## 方法
 
-数组树两遍。应用：过滤（紧凑）、词法分析、括号匹配并行点名。
+方法就是数组上的树两遍：上升、下降。有了 scan，一大批看似串行的应用立刻并行化——过滤（按谓词得 0/1 再排他 scan 算新下标，即紧凑）、并行词法分析、括号匹配——点名即可。
 
 ```mermaid
 flowchart TD
@@ -36,15 +36,15 @@ flowchart TD
   DN --> S["s_i 前缀"]
 ```
 
-结合律运算即可（$\min$、$\times$）。
+树形两遍只用到结合律：$\min$、$\times$ 等任何满足结合的运算都能代入，不必可交换。
 
 ## 机制
 
-区间结合律使树正确。工作 = 总运算，跨度 = 依赖长链。与快速幂：都是树形结合，一个并行一层、一个串行平方。与 FFT：蝶形也是 $\log n$ 层。
+树形分解为什么对：结合律允许把区间任意切分再组合，内部结点的和与计算顺序无关。工作等于总运算次数，跨度等于依赖链的最长路径——上升、下降各贡献一段长 $\log n$ 的链。与快速幂同构：都是树形结合，快速幂用平方把指数对折，串行里一层一个平方；FFT 的蝶形网络同样是 $\log n$ 层的树形依赖。
 
 ## 边界
 
-本课不写 EREW 最优常数。不写 MPI 网络。后课默认：前缀和 $O(\log n)$ 跨度、$O(n)$ 工作。下一课 work-span 与 fork-join。
+本课不追 EREW 下常数的最优实现，不写 MPI 这类网络模型。后课默认：前缀和 $O(\log n)$ 跨度、$O(n)$ 工作。下一课 work-span 与 fork-join。
 
 ## 小结
 

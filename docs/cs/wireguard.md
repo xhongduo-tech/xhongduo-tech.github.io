@@ -11,8 +11,6 @@ section: cs
 <footer>—— Donenfeld, WireGuard: Next Generation Kernel Network Tunnel；Noise Protocol Framework</footer>
 </div>
 
-## 定位
-
 上一课[IPsec](/cs/ipsec-ike)功能全、配置面大。缺口是**故意缩小的 VPN 合同**：固定套件、静态公钥当身份、内核里短路径。不重写 X25519。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ IKE 的算法协商与策略语言易配错。WireGuard：身份=公钥，允许
 ### 不是隐匿工具
 
 默认不是反审查。握手包可被识别。Tor 更后。
-
 
 <span class="marginnote">Donenfeld 白皮书。Linux 主线 wg。本课不写指纹识别隧道的测量步骤。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   KEYS --> TUN["隧道包"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 小 TCB 降低实现漏洞密度，不降低密钥分发与端点信任问题。下一课把 VPN 对照零信任：隧道把人放进网，不等于应用该信这个人的每一次请求。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

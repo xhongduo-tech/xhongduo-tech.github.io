@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照线端缩短、二维成像与先进节点金属 tip 规则的公开讨论</footer>
 </div>
 
-[上一课](/litho/design-rule-origin)把规则读成失效模式。缺口是二维专项：最小面积（孔、岛、via 垫）和 tip-to-tip（线端对线端）往往先于一维节距成为密度瓶颈。[二维成像](/litho/2d-imaging-contacts-lineend) 与 [线端缩短](/litho/line-end-shortening) 已讲光学；本课钉它们如何变成手册条款，并接到单元轨道。标准单元轨道高度，留给[下一课](/litho/standard-cell-track-height）。
+[上一课](/litho/design-rule-origin)把规则读成失效模式。缺口是二维专项：最小面积（孔、岛、via 垫）和 tip-to-tip（线端对线端）往往先于一维节距成为密度瓶颈。[二维成像](/litho/2d-imaging-contacts-lineend) 与 [线端缩短](/litho/line-end-shortening) 已讲光学；本课钉它们如何变成手册条款，并接到单元轨道。标准单元轨道高度，留给[下一课](/litho/standard-cell-track-height)。
 
 ## 问题
 

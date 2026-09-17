@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据公开 CAR 讨论中的酸放大器（acid amplifier）机制整理，不涉及具体配方</footer>
 </div>
 
-[上一课](/litho/quencher-loading)把碱负载写成阈值零点与暗区保险丝。缺口是灵敏度仍不够时，有人在配方里再加一截化学增益：酸放大器（acid amplifier, AA）——酸催化前体分解，放出更多酸。本课钉这层增殖。PEB 温度如何同时改增益与扩散，留给[下一课](/litho/peb-bake），不在这里拧烘箱。
+[上一课](/litho/quencher-loading)把碱负载写成阈值零点与暗区保险丝。缺口是灵敏度仍不够时，有人在配方里再加一截化学增益：酸放大器（acid amplifier, AA）——酸催化前体分解，放出更多酸。本课钉这层增殖。PEB 温度如何同时改增益与扩散，留给[下一课](/litho/peb-bake)，不在这里拧烘箱。
 
 ## 问题
 

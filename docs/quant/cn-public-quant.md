@@ -11,7 +11,7 @@ section: quant
 <footer>—— 对照 Cremers and Petajisto, How Active is Your Fund Manager?, RFS, 2009 对主动份额与跟踪的讨论；《公开募集证券投资基金运作管理办法》对指数基金与持仓的约束；中证、沪深指数编制方案</footer>
 </div>
 
-[上一课](/quant/live-capacity-estimate)把工程课序收在实盘容量。本课打开课程「中国市场进阶」。缺口是**产品形态**：公募量化与指数增强如何把容量、[成分历史](/quant/index-constituents-history)与 A 股制度写成可销售的跟踪误差。Cremers 与 Petajisto（2009）把主动份额与跟踪误差拆开；中国公募的主动份额还受披露与风格披露约束。后课私募中性换杠杆与空头工具。不要重写[LOB](/quant/lob-structure)。
+[上一课](/quant/cn-night-session)把夜盘写成早于结算的风险时钟：结算价取自日盘，挂单跨夜规则各所不同。本课打开课程「中国市场进阶」。缺口是**产品形态**：公募量化与指数增强如何把容量、[成分历史](/quant/index-constituents-history)与 A 股制度写成可销售的跟踪误差。Cremers 与 Petajisto（2009）把主动份额与跟踪误差拆开；中国公募的主动份额还受披露与风格披露约束。后课私募中性换杠杆与空头工具。不要重写[LOB](/quant/lob-structure)。
 
 ## 问题
 

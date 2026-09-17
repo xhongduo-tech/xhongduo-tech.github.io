@@ -11,7 +11,7 @@ section: quant
     <footer>—— Duffie & Singleton, An Econometric Model of the Term Structure of Interest-Rate Swap Yields, Journal of Finance, 1997</footer>
 </div>
 
-同一到期的平价互换利率减去国债收益率，叫做互换价差（swap spread）。危机前的美元 10Y 价差通常为正：互换浮动端带银行信用，国债带特殊性和税收优势，Duffie 与 Singleton（1997）用强度框架把可违约短端接到互换曲线。Liu、Longstaff 与 Mandell（2006）把价差拆成信用风险的市场价格与流动性。Feldhütter 与 Lando（2008）进一步分解出国债便利收益、信用与互换市场自身的因素。2008 年之后长端美元价差可以变负，Klingler 与 Sundaresan（2019）用养老金的久期需求解释「负互换价差之谜」。本篇写价差是哪几条曲线之差、多曲线时代它如何改名，以及它与[基差互换](/quant/basis-swap)、[OIS 与多曲线](/quant/multi-curve-ois)、[SOFR 过渡](/quant/sofr-transition)的分工。它补的是[Hull-White](/quant/hull-white) 与 [HJM](/quant/hjm) 通常假定的「单一无风险曲线」缺口。
+[上一课](/quant/curve-butterfly)把曲率账拆到关键点上，并把互换价差从曲率 PnL 里单独记账——现在轮到它自己。同一到期的平价互换利率减去国债收益率，叫做互换价差（swap spread）。危机前的美元 10Y 价差通常为正：互换浮动端带银行信用，国债带特殊性和税收优势，Duffie 与 Singleton（1997）用强度框架把可违约短端接到互换曲线。Liu、Longstaff 与 Mandell（2006）把价差拆成信用风险的市场价格与流动性。Feldhütter 与 Lando（2008）进一步分解出国债便利收益、信用与互换市场自身的因素。2008 年之后长端美元价差可以变负，Klingler 与 Sundaresan（2019）用养老金的久期需求解释「负互换价差之谜」。本篇写价差是哪几条曲线之差、多曲线时代它如何改名，以及它与[基差互换](/quant/basis-swap)、[OIS 与多曲线](/quant/multi-curve-ois)、[SOFR 过渡](/quant/sofr-transition)的分工。它补的是[Hull-White](/quant/hull-white) 与 [HJM](/quant/hjm) 通常假定的「单一无风险曲线」缺口。
 
 ## 问题
 
@@ -63,7 +63,7 @@ LIBOR 停用后，美元标准互换转到 SOFR。SOFR 是担保隔夜回购，�
 
 <span class="marginnote">用 CDS 解释 LIBOR 互换价差，在银行 CDS 流动性好的年份有帮助；用同一套回归解释 SOFR 互换价差，系数应当塌缩——担保隔夜不应该再按无担保银行强度定价。回归样本跨过 2023 年停用而不分段，是在估计一个不存在的结构。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要在单曲线 Hull–White 树里「校准互换价差」却仍用同一 $P(0,T)$ 折现国债复制组合。不要把 swap spread 的历史均值当锚：制度断点（清算强制、LIBOR 停用、QT/QE）会移动无条件均值。不要忽略期货 CTD：用国债期货对冲互换，价差 PnL 里含 cheapest 切换。税务（某些市场的国债利息税收优势）会造出无法用信用对冲的结构性价差。
 

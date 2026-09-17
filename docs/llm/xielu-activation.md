@@ -77,7 +77,7 @@ flowchart TD
 
 ReLU$^2$：正支亲戚，负支切断。SwiGLU：结构不同，对照必须匹配参数。xSiLU：同一「积分仿射梯度」方法论用在 SiLU 上，负梯度范围由 $\alpha$ 扩到 $(-\alpha,1+\alpha)$。xIELU 选 ELU 当负支原型，是为了积分便宜与有界。So 等的 Primer / ReLU$^2$、Shazeer 的 GLU 变体是经验前史；本方法把经验收成梯度公理。
 
-## 边界与工程取舍
+## 边界
 
 125B token、3B 级不是满训练定律。换到万亿 token、门控 FFN、MoE 专家内部，符号与 $\alpha$ 的学习率都要重扫——激活参数相对 $W$ 极小，却能改每层动态范围，应用独立、较小的学习率或与 RMSNorm 的 $\gamma$ 同组。混合精度下负支 `exp` 要在较高精度或先 clip 输入，否则与 ELU 相同的溢出。
 

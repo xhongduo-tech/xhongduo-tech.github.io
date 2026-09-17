@@ -37,8 +37,6 @@ flowchart TD
   DROP["仍丢则 QP 昂贵恢复"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 incast 对 RoCE 更致命，故 PFC+ECN。HOL：PFC 整类暂停会冻无关 QP。ECMP 乱序对 RDMA 不友好，常要保序或网卡重排。MTU 用巨帧摊头。与 5G URLLC 对照：都是用资源换尾延迟，一层在机房以太网，一层在空口。
@@ -49,7 +47,7 @@ incast 对 RoCE 更致命，故 PFC+ECN。HOL：PFC 整类暂停会冻无关 QP�
 
 互联网广域不假设 PFC，RoCE 留在数据中心。
 
-上一课留下的缺口在本课收口；「RoCE 与无损网络」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[AIMD 与 Chiu–Jain](/cs/aimd-dynamics)。
+下一课[AIMD 与 Chiu–Jain](/cs/aimd-dynamics)。
 
 ## 小结
 

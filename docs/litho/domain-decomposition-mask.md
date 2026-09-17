@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照掩模 EMF 域分解 / 重叠近场拼接的计算光刻公开方法</footer>
 </div>
 
-[上一课](/litho/rcwa)把周期结构交给模态法。缺口是逻辑版既非无限周期也不可整场 FDTD。本课钉域分解。严格近场如何变成可校准的胶模型，留给[下一课](/litho/resist-model-calibration）。
+[上一课](/litho/rcwa)把周期结构交给模态法。缺口是逻辑版既非无限周期也不可整场 FDTD。本课钉域分解。严格近场如何变成可校准的胶模型，留给[下一课](/litho/resist-model-calibration)。
 
 ## 问题
 

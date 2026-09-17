@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack, Fundamental Principles of Optical Lithography 对 aerial image 与 image contrast 的定义整理</footer>
 </div>
 
-[上一课](/litho/hopkins-tcc)（Hopkins TCC）。给出部分相干与 TCC，强度原则上可以算。缺口是：还没有把「算出来的 $I(x,y)$」命名为空中像，也没有规定产线用哪一个标量来读它好不好印。本课钉空中像与对比度（以及 NILS），焦深如何把这张图沿轴毁掉，留给[下一课](/litho/depth-of-focus)。胶如何把强度变成溶速，是抗蚀剂课的缺口。
+[上一课](/litho/hopkins-tcc)（Hopkins TCC）。给出部分相干与 TCC，强度原则上可以算。缺口是：还没有把「算出来的 $I(x,y)$」命名为空中像，也没有规定产线用哪一个标量来读它好不好印。本课钉空中像与对比度（以及 NILS）。对比度怎么换成剂量标尺、NILS 与 ILS 如何分工，留给[下一课](/litho/nils-ils)；焦深如何把这张图沿轴毁掉，是后面的[焦深与瑞利焦深](/litho/depth-of-focus)一课。胶如何把强度变成溶速，是抗蚀剂课的缺口。
 
 ## 问题
 
@@ -80,5 +80,5 @@ flowchart TD
 - 线栅用 $C=(I_\mathrm{max}-I_\mathrm{min})/(I_\mathrm{max}+I_\mathrm{min})$；边缘用 NILS。
 - $C$ 不是胶衬度 $\gamma$；阈值切 CD 只是临时接口。
 - 低调制来自零级偏置或丢失衍射级，机制已在空中像上可见。
-- 本课在最佳焦距定义对比；离焦是下一课。
+- 本课在最佳焦距定义对比；NILS 与 ILS 是下一课，离焦随后。
 - 出处：Mack, *Fundamental Principles of Optical Lithography*；Goodman 对像面强度的傅里叶光学表述。

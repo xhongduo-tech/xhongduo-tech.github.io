@@ -61,7 +61,7 @@ Mamba2 负责长序列状态压缩，稀疏的 softmax 层负责需要精确键�
 
 AngelHCF 为 Mamba 的 prefill/decode 与专家并行单独优化；状态用 fp32 是因为低精度 SSM 状态会在长生成里漂。只把 Hugging Face 权重塞进纯 Transformer 服务栈，延迟曲线对不上 1.8× 那句。上下文并行的 state-passing 是他们 RL 框架的工程点，复现算法不必复现该通信。
 
-## 边界与工程取舍
+## 边界
 
 闭源旗舰。可核对的是论文超参与 Arena / 自动榜；完整 16T 配比与 3M 指令不可字节级复现。T1 是 TurboS 衍生的慢思考模型，用户在元宝里选 T1 或 R1，不等于 TurboS 默认深想。Large 的 256K 开源权重不能当 TurboS 的本地替代。
 

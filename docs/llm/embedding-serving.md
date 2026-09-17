@@ -40,11 +40,11 @@ flowchart TD
 
 算术强度随 $B$ 与 $n$ 升，容易 compute-bound，MFU 可比 LLM decode 高一个数量级。这解释了为什么同一张卡跑嵌入「看起来利用率很好」、跑聊天 decode「利用率很差」——不是嵌入实现更强，是工作点不同。成本 $C$ 按请求或按 token 计都可以，但不要用 LLM 的 $C_{\mathrm{tok}}$ 乘嵌入 token。
 
-## 边界与工程取舍
+## 边界
 
 不要为嵌入建 KV 池。不要把交叉编码器当双编码器用（QPS 会垮）。下一课回到 LLM：权重如何加载与流式进 GPU，这才是自回归服务启动的账单。
 
-出处：Reimers & Gurevych, EMNLP 2019。TEI 等为工程实现。不发明 arXiv。
+出处：Reimers & Gurevych, EMNLP 2019。TEI 等为工程实现。
 
 ## 小结
 

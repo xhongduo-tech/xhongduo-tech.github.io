@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照电子束 PEC 双高斯 / 雾化模型的通称；基础见写掩模邻近校正文献</footer>
 </div>
 
-[上一课](/litho/mask-write-time)把写入小时钉成家族公式。缺口是剂量图本身：通称 PEC 课已经说了「调剂量不调多边形」，本课补核的阶次、校准与过校正。网格与炮数如何量化这张图，留给[下一课](/litho/write-grid-shot-count）。
+[上一课](/litho/mask-write-time)把写入小时钉成家族公式。缺口是剂量图本身：通称 PEC 课已经说了「调剂量不调多边形」，本课补核的阶次、校准与过校正。网格与炮数如何量化这张图，留给[下一课](/litho/write-grid-shot-count)。
 
 ## 问题
 

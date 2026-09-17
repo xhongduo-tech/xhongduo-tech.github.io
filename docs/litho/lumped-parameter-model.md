@@ -11,7 +11,7 @@ section: litho
 <footer>—— C. A. Mack，光刻集总参数模型（LPM）；亦见 *Fundamental Principles of Optical Lithography*</footer>
 </div>
 
-[上一课](/litho/development-rate-model)把浮雕写成 $R(m)$ 的三维积分。缺口是：曝光矩阵要扫的是 CD 对剂量（以及后课的焦），全 PDE 对手算和快速 OPC 过重。本课钉 Mack 的集总参数模型（lumped parameter model, LPM）。三维轮廓仿真何时必须回去，留给[下一课](/litho/resist-profile-simulation）。
+[上一课](/litho/development-rate-model)把浮雕写成 $R(m)$ 的三维积分。缺口是：曝光矩阵要扫的是 CD 对剂量（以及后课的焦），全 PDE 对手算和快速 OPC 过重。本课钉 Mack 的集总参数模型（lumped parameter model, LPM）。三维轮廓仿真何时必须回去，留给[下一课](/litho/resist-profile-simulation)。
 
 ## 问题
 

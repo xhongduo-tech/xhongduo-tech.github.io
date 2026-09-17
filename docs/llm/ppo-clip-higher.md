@@ -46,7 +46,7 @@ MiniMax-M1 后来认为大量 off-policy 轮次里 Clip-Higher 仍会丢掉分�
 
 <span class="marginnote">$\varepsilon_{\mathrm{high}}-\varepsilon_{\mathrm{low}}$ 不是学习率。学习率过大时，未裁剪侧一步就冲出区间，clip 只是更频繁地截断，有效更新变稀。</span>
 
-## 边界与工程取舍
+## 边界
 
 偏好 RM 上优势噪声大，抬上截可能放大 RM 抖动，过优化更快。可验证 0/1 是 Clip-Higher 的主场。[无 KL 的 RL](/llm/kl-free-rl) 更依赖这条探索通道，因为没有参考分布把策略拉回。价值函数与 GAE 不因 clip 改变定义。下一课才谈 critic 从哪初始化。序列级比率（GSPO）的 $\varepsilon$ 量纲不同，禁止把 0.28 抄过去。
 

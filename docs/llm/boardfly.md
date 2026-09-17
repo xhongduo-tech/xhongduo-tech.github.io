@@ -51,7 +51,7 @@ NVLink 6 的 NVL72 是机柜全互连，每 GPU 双向 3.6 TB/s，见 [NVLink 6]
 
 <span class="marginnote">Boardfly 只服务 8i。8t 继续 torus。两颗芯片共享 Axion 主机与 Virgo scale-out，但不共享 Pod 内图。混用 8t/8i 的作业要把两种 ICI 当成不互通的 scale-up 域，中间是 Virgo。</span>
 
-## 边界与工程取舍
+## 边界
 
 公开信息有限的条目：Pod 芯片合同数、最大跳数、组间过订阅、铜/光端口速率、故障时直径如何退化。不要用 StorageReview / 会议笔记里的 7 hop 当 SLO。GA 前无用户可订的切片 SKU。通信密集负载上「最高约 50% 延迟改善」若出现在转述中，以官方「直径 −50%+」为准去理解物理，不以未引用测试集的百分比当验收门槛。
 

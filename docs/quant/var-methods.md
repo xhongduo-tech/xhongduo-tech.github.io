@@ -11,7 +11,7 @@ section: quant
 <footer>—— Jorion, Value at Risk: The New Benchmark for Managing Financial Risk；Duffie and Pan, An Overview of Value at Risk, Journal of Derivatives, 1997</footer>
 </div>
 
-[上一课](/quant/glft-market-making)把最优报价收到库存。缺口从交易台控制换成账簿分位数：VaR 是损失的语言，不是再优化一层价差。VaR（Value at Risk）在 1990 年代成为交易账簿的通用语言：选定置信水平 $\alpha$（如 99%）与地平线 $h$（如一日），VaR 是损失分布的 $\alpha$ 分位数。JP Morgan 的 RiskMetrics（1996）把参数法普及到业界；Jorion 的教科书把它写成风险管理的基准定义；Duffie 与 Pan（1997）综述了从线性头寸到期权非线性的计算路径。三种标准算法——历史模拟、参数（方差–协方差）、蒙特卡洛——对应三种对损失分布的假设，而不是三种不同的风险定义。定义本身的缺陷（非次可加、忽略尾部形状）由 [Expected Shortfall](/quant/expected-shortfall) 承接；数字是否校准则由 [Kupiec / Christoffersen 回测](/quant/var-backtest) 检验。本篇只写 VaR 作为分位数如何被三种方法算出来，以及各自把不确定性藏在哪里。
+[上一课](/quant/iceberg-algo)把隐藏单收进执行日程与总 IS 评价。缺口从交易台控制换成账簿分位数：VaR 是损失的语言，不是再优化一层价差。VaR（Value at Risk）在 1990 年代成为交易账簿的通用语言：选定置信水平 $\alpha$（如 99%）与地平线 $h$（如一日），VaR 是损失分布的 $\alpha$ 分位数。JP Morgan 的 RiskMetrics（1996）把参数法普及到业界；Jorion 的教科书把它写成风险管理的基准定义；Duffie 与 Pan（1997）综述了从线性头寸到期权非线性的计算路径。三种标准算法——历史模拟、参数（方差–协方差）、蒙特卡洛——对应三种对损失分布的假设，而不是三种不同的风险定义。定义本身的缺陷（非次可加、忽略尾部形状）由 [Expected Shortfall](/quant/expected-shortfall) 承接；数字是否校准则由 [Kupiec / Christoffersen 回测](/quant/var-backtest) 检验。本篇只写 VaR 作为分位数如何被三种方法算出来，以及各自把不确定性藏在哪里。
 
 ## 问题
 
@@ -61,7 +61,7 @@ VaR 作为分位数，对分布在 $\alpha$ 以下的部分完全不敏感：把
 
 参数与 MC 都要把头寸映到有限因子：收益率曲线关键点、信用利差、隐含波动曲面、外汇。映射剩余的基础风险不在 VaR 里，除非单独加项。历史法若用组合的真实 P&L 序列，自动包含曾出现过的基础风险，但不包含未曾出现的。两种遗漏不同：一个是结构性的「没映射」，一个是样本的「没见到」。压力测试与 [EVT](/quant/evt) 用来补「没见到」的尾巴；映射审计用来补「没映射」的风险。
 
-## 边界与工程取舍
+## 边界
 
 VaR 不是连贯风险度量，分散化可能失效：两个组合各自 VaR 之和可以小于合并 VaR，见 Artzner 等（1999）的反例。它也不回答强平、保证金追缴、流动性枯竭——那些改变 $L$ 的定义本身。窗口、衰减因子、置信水平、是否含隔夜跳空，每一个都是带宽。99.9% 对日数据几乎是外推，历史法尤其没有足够的点。
 

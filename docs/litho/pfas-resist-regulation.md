@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照半导体光刻中 PFAS 用途与 2020s 监管讨论的公开产业/SPIE 叙述</footer>
 </div>
 
-[上一课](/litho/supply-chain-single-source)谈工具集中。缺口是材料许可。本课钉 PFAS 与光刻胶管制。代工如何在法规与工具约束下选节点路径，留给[下一课](/litho/foundry-roadmap-compare）。
+[上一课](/litho/supply-chain-single-source)谈工具集中。缺口是材料许可。本课钉 PFAS 与光刻胶管制。代工如何在法规与工具约束下选节点路径，留给[下一课](/litho/foundry-roadmap-compare)。
 
 ## 问题
 

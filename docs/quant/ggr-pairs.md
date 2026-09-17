@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gatev, Goetzmann & Rouwenhorst, Pairs Trading: Performance of a Relative-Value Arbitrage Rule, Review of Financial Studies, 2006</footer>
 </div>
 
-[上一课](/quant/iceberg-algo)停在执行隐蔽。缺口是配对交易作为可复制实证研究。Gatev、Goetzmann 与 Rouwenhorst（GGR）把配对交易从交易台口诀收成一篇可复制的实证研究。规则本身在 [距离法配对](/quant/distance-pairs) 里写过：12 个月形成、6 个月交易、SSD 选对、$2\sigma$ 开仓。本篇写的是**这篇 RFS 论文作为证据**：样本怎么叠、超额从哪来、风险像什么、以及它后来被 Do–Faff、Engelberg 等人改写之后还剩什么。它不是协整检验，也不是 [Avellaneda–Lee](/quant/avellaneda-lee) 的残差 OU；它是「最朴素的相对价值规则是否还有平均利润」这一问题的基准答案。后续几乎所有配对变体——协整、Copula、Kalman——都在有意无意地对照 GGR 的表。
+[上一课](/quant/net-edge)把可交易性收到 $\mu_{\mathrm{net}}$：毛边缘真实与大规模不可用可以同时成立。缺口是配对交易作为可复制实证研究。Gatev、Goetzmann 与 Rouwenhorst（GGR）把配对交易从交易台口诀收成一篇可复制的实证研究。规则本身在 [距离法配对](/quant/distance-pairs) 里写过：12 个月形成、6 个月交易、SSD 选对、$2\sigma$ 开仓。本篇写的是**这篇 RFS 论文作为证据**：样本怎么叠、超额从哪来、风险像什么、以及它后来被 Do–Faff、Engelberg 等人改写之后还剩什么。它不是协整检验，也不是 [Avellaneda–Lee](/quant/avellaneda-lee) 的残差 OU；它是「最朴素的相对价值规则是否还有平均利润」这一问题的基准答案。后续几乎所有配对变体——协整、Copula、Kalman——都在有意无意地对照 GGR 的表。
 
 ## 问题
 
@@ -47,7 +47,7 @@ Engelberg、Gao 与 Jagannathan 指出，配对利润在新闻与信息事件附
 
 协整配对把 SSD 换成 Engle–Granger 或 Johansen，赌的是残差 $I(0)$，对 $\beta\neq 1$ 更诚实，但对形成期长度与多重检验更敏感。Avellaneda–Lee 把对象从「一对价格」换成「截面残差」，持有期更短，换手更高。Copula 配对改的是依赖结构，不是距离。GGR 在谱系上是所有这些方法的**可复制下界**：比它更复杂的规则，必须证明在扣费与容量之后仍能超过这个下界，而不是只在样本内夏普上超过。时间止损（六个月强平）是 GGR 风险控制的核心，见 [止损与时间止损](/quant/statarb-stops)；后来者若改成价格止损或无限期等待，已经离开原文的证据范围。
 
-## 边界与工程取舍
+## 边界
 
 GGR 是 1962–2002 年美股、CRSP 口径、可卖空假设下的证据。A 股 [融券约束](/quant/cn-short-constraint)、涨跌停、T+1 会使空腿经常缺席，策略退化成单边买入「便宜腿」，那是反转或价值，不是配对。复制应报告子样本（电子化前后、ETF 普及前后），而不是把四十年均值写成当前期望。成本模型至少要换成有效价差与同时成交失败率；仍用「单边 8 bp」去声称「我们复制了 GGR 且仍然赚钱」，是在用原文的成本假设给自己的市场背书。
 

@@ -36,11 +36,11 @@ flowchart TD
 
 $I$ 更低，量化减字节几乎线性减步时（直到核常数或 L3 打满）。AMX 提高算术吞吐，把工作点略往算力推，但 $B=1$ 的 decode 仍难离开带宽屋顶。这解释了为什么 CPU 上 4-bit 相对 8-bit 的加速比往往比 GPU 上更「值」。
 
-## 边界与工程取舍
+## 边界
 
 不要用 Python 循环 decode。不要在超线程上加倍线程当免费 2×。质量：k-quant 与 GPTQ 不是同一误差，基准要锁类型。下一课：端与云如何切，而不是二选一。
 
-出处：llama.cpp / GGUF；Intel AMX；Dettmers 等 8-bit 工作为相关背景。不发明编号。
+出处：llama.cpp / GGUF；Intel AMX；Dettmers 等 8-bit 工作为相关背景。
 
 ## 小结
 

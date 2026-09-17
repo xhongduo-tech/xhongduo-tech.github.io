@@ -65,7 +65,7 @@ souping 的机制是：不同 shuffle 对应损失曲面上邻近的极小值，
 
 7B 平均 $53.0\rightarrow 62.9$；13B $58.9\rightarrow 68.3$；32B $66.3\rightarrow 73.3$；1B $31.9\rightarrow 43.7$。跳得最狠的是 GSM8K 与 DROP：7B 的 GSM8K $24.1\rightarrow 67.5$、DROP $40.7\rightarrow 60.8$。MMLU 的增益温和（7B $59.8\rightarrow 63.7$），说明配方不是「只刷多选」。7B 中训后的平均分超过**未经中训的 13B**，这是报告用来论证「课程比再堆参数更便宜」的句子，不要外推成 7B Instruct 超过 13B Instruct。
 
-## 边界与工程取舍
+## 边界
 
 开发集与 held-out 必须分开读。AGIEval、MMLU-Pro、TriviaQA 等 held-out 也随中训上升，但 GSM8K 的绝对数字含训练题。合成与 FLAN 的许可、NC 条款、论坛来源，商用要按成分审。Qwen2.5 作为改写教师，使「完全开放」在数据生成链上打了折扣——权重与主语料可复现，教师不可替换为同一开放模型时，合成子集只能近似。
 

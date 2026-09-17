@@ -11,8 +11,6 @@ section: cs
 <footer>—— Rivest, Adleman and Dertouzos 的设想；Paillier；Gentry, Fully Homomorphic Encryption Using Ideal Lattices, STOC 2009</footer>
 </div>
 
-## 定位
-
 上一课[MPC](/cs/threshold-mpc)靠交互。缺口是**非交互外包**：数据在服务器上以密文计算，服务器不该见明文。本课直觉，不把 FHE 写成已可替换数据库的产品课。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ AEAD 密文不能加。RSA 的乘性是缺陷也是半同态；Paillier 加同�
 ### 结果给谁看
 
 同态不解决访问控制：能解密的人看见 $f(x)$。要隐藏 $f(x)$ 仍需 MPC 或只把结果给客户。
-
 
 <span class="marginnote">Gentry 2009。后续 BGV/BFV/CKKS 是工程族，本课不选厂商。不要发明 arXiv 号。CKKS 近似算术有精度合同，不是精确整数。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   EVAL --> DEC["持钥者解密得 f(x)"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 外包计算的威胁模型：服务器诚实执行电路但好奇。恶意服务器可改电路，完整性要另验（或用验证计算）。可证明安全下一课把这些都收成归约语言。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

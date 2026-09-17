@@ -70,7 +70,7 @@ MPS 的机制是集中式 CUDA 上下文：服务器拥有 GPU，客户端的启
 
 MIG：邻居 OOM 不会吃掉你的切片；邻居的 kernel 超时不应拖垮你的 SM。这是租户 SLA 的基础。MPS：邻居可以占满 SM，你的 decode TPOT 抖动。要用 MPS 做多租户，必须在上层限流，不能把硬件隔离预期套上去。故障恢复：MIG 实例可以按 UUID 重启进程；MPS 服务器崩溃会影响所有客户端。监控上，MIG 应按实例采 `nvidia-smi`；MPS 要看服务器日志与整卡指标。
 
-## 边界与工程取舍
+## 边界
 
 不要在 MIG 模式下按整卡 MPS 文档去设 `EXCLUSIVE_PROCESS`。不要把 A100 的 7 路切片表抄到 H100 上却仍写 10GB——H100 产品页对 SXM 写约 10GB，NVL 形态是约 12GB，形态不同。不要期望 MIG 实例之间走 NVLink 做层内 All-Reduce。不要用 MPS 修复连续批处理没写好的单进程占用。
 

@@ -58,7 +58,7 @@ flowchart TD
 
 论文把相关工作写成一条谱系：VALL-E 式 codec LM、VITS / FastSpeech 式声学模型、YourTTS 式克隆、以及 CosyVoice / Matcha-TTS 一流匹配。Fish-Speech 的差分是 Dual-AR 稳住 GFSQ，而不是再叠一条 Mel 扩散。评测叙述强调复杂语言现象与克隆相对基线更好；具体 MOS、WER 表以 PDF 实验节为准，博客的 SoTA 句不能替代表格。在线 playground 的社区音色是用户上传与授权问题，和论文训练集不是同一法律对象。
 
-## 边界与工程取舍
+## 边界
 
 AR 错误累积、句中崩溃、语码混合仍难。GAN 声码器在未见过的采样率或频响上会失真。无 G2P 不自动等于专有名词可读，仍可能要用户注音。开源许可与商用条款以 GitHub / 卡片为准。S2 Pro（后续技术报告 arXiv:2603.08823 一线）改数据规模与 RL，架构仍 Dual-AR，但不是本篇的 72 万小时模型。实时因子随量化、batch 与流式切块变化：论文的 4060 / 4090 数字只说明「可以不用 ODE 多步也能到交互延迟」，不能写成所有部署的 SLA。
 

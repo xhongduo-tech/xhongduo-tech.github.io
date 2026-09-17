@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 panel-level packaging（FOPLP）光刻与畸变的公开讨论</footer>
 </div>
 
-[上一课](/litho/laser-direct-write-packaging)选了封装工具族。缺口是基板从圆变方、变大。本课钉面板级封装光刻。显示面板更极端的场，留给[下一课](/litho/display-litho）。
+[上一课](/litho/laser-direct-write-packaging)选了封装工具族。缺口是基板从圆变方、变大。本课钉面板级封装光刻。显示面板更极端的场，留给[下一课](/litho/display-litho)。
 
 ## 问题
 

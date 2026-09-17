@@ -58,7 +58,7 @@ Model server 的 CLI 暴露量化（bitsandbytes / GPTQ / AWQ / FP8 等）、推
 
 索引页强调分布式追踪（OpenTelemetry）与 Prometheus 指标，这是它相对「脚本里 `model.generate`」真正多出来的一层。Router 还暴露 CORS、最大并发、best-of 与 stop sequence 上限。这些上限是拒绝服务与资源保护，不是采样算法本身。Watermarking、logits warper、guidance（按 schema 约束解码）属于生成侧功能，落在 engine 路径上，但调度合约仍然是 prefill / decode / filter。
 
-## 边界与工程取舍
+## 边界
 
 TGI 的模型覆盖以当时流行的开源结构为准（Llama、Falcon、StarCoder、BLOOM、GPT-NeoX、T5 等），新架构的第一落点已经不在这个仓库。TRT-LLM 等后端会替换 model server 与 launcher，router 仍可保留——这说明「HTTP + 组批」与「某种 CUDA 图」是可替换的。选 TGI 还是 vLLM，应看团队是否已经吃进它的运维面（镜像、指标、Hub 集成），而不是比较一篇没有版本号的延迟表。
 

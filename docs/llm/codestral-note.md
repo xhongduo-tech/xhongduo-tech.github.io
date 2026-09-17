@@ -54,7 +54,7 @@ Codestral Mamba（约 7B 状态空间）与 Transformer 22B 同名不同架构�
 
 <span class="marginnote">端点配额模型不同：IDE 端点发布时有 beta 免费与排队，组织级 API 按 token。缓存键必须含 FIM 后缀，多打一个字符就会改变中间段。这些写在文档里，属于公开工程约束，不是逆向。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 把博客当论文用时，错在哪
 

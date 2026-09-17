@@ -82,4 +82,4 @@ $L$ 已经用尽香草信息。放大因子的 $\sigma$（vol-of-vol）同时改
 - 杠杆函数用粒子或 Fokker–Planck 校准，且须与定价共用同一离散格式。
 - $L$ 不是 $\sigma_{\mathrm{loc}}$ 的别名，因子重定时要重算 $L$。
 - 跳与短端尖峰会污染 $L$；LSV 不替代跳跃模型。
-- 出处：边际匹配见 Dupire, *Risk*, 1994 与 Gyöngy；粒子校准见 Guyon and Henry-Labordère；SLV 工程见 Lipton 及 Ren, Madan and Qian。
+- 出处：边际匹配见 Dupire, *Risk*, 1994 与 Gyöngy；SLV 工程见 Lipton 及 Ren, Madan and Qian。

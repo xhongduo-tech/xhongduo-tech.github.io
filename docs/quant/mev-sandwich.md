@@ -11,7 +11,7 @@ section: quant
     <footer>—— Daian et al., Flash Boys 2.0, IEEE S&amp;P 2020；机制概述见 Ethereum.org, Maximal extractable value (MEV)</footer>
 </div>
 
-Philip Daian、Steven Goldfeder、Tyler Kell、Yunqi Li、Xueyuan Zhao、Iddo Bentov、Lorenz Breidenbach 与 Ari Juels 在 *Flash Boys 2.0* 里把去中心化交易所上的可提取价值写成市场结构问题：交易在进入区块之前是公开的，矿工（以及后来的验证者、构建者）决定顺序，于是出现优先 gas 拍卖（priority gas auction, PGA）和对排序敏感的利润。Ethereum.org 把同一对象称为最大可提取价值（maximal extractable value, MEV）：通过包含、排除或重排交易，超出标准区块奖励与手续费的那部分价值。三明治（sandwich）是文献与官方文档都讨论过的一类**经济机制**：一笔带滑点上限的 AMM 兑换，在公开队列里暴露了「愿意接受的最差价格」；排序权可以把该兑换夹在两笔方向相同的库存调整之间，使成交落在交易者已经授权的最差端附近，剩余从兑换者转移到拥有排序权或赢得排序竞争的一方。本篇只写这一租金从何而来、谁在支付、它与 [延迟套利](/quant/latency-arbitrage) 的相似之处。不写如何构造、如何选择对象、如何报价或如何执行。
+[上一课](/quant/uniswap-v3-clmm)把 AMM 深度写成沿 tick 分段的程序化分布；谁先穿越、按什么顺序穿越，还没定。Philip Daian、Steven Goldfeder、Tyler Kell、Yunqi Li、Xueyuan Zhao、Iddo Bentov、Lorenz Breidenbach 与 Ari Juels 在 *Flash Boys 2.0* 里把去中心化交易所上的可提取价值写成市场结构问题：交易在进入区块之前是公开的，矿工（以及后来的验证者、构建者）决定顺序，于是出现优先 gas 拍卖（priority gas auction, PGA）和对排序敏感的利润。Ethereum.org 把同一对象称为最大可提取价值（maximal extractable value, MEV）：通过包含、排除或重排交易，超出标准区块奖励与手续费的那部分价值。三明治（sandwich）是文献与官方文档都讨论过的一类**经济机制**：一笔带滑点上限的 AMM 兑换，在公开队列里暴露了「愿意接受的最差价格」；排序权可以把该兑换夹在两笔方向相同的库存调整之间，使成交落在交易者已经授权的最差端附近，剩余从兑换者转移到拥有排序权或赢得排序竞争的一方。本篇只写这一租金从何而来、谁在支付、它与 [延迟套利](/quant/latency-arbitrage) 的相似之处。不写如何构造、如何选择对象、如何报价或如何执行。
 
 ## 问题
 
@@ -59,7 +59,7 @@ flowchart TD
 
 <span class="marginnote">Flash Boys 2.0 度量的是优先费竞争与 DEX 上的可提取价值，并讨论其对共识稳定性的压力。它不是三明治的操作规范。引用该文应落在 PGA、透明内存池与排序权，而不是落在任何可复现的交易模板。</span>
 
-## 边界与工程取舍
+## 边界
 
 本机制依赖：（1）状态在交易间可被同一区块内的其他交易改变；（2）意图在排序前可被观察；（3）用户给出了非零的执行弹性。私有订单流削弱（2）；批量同步撮合削弱（1）的时间结构；紧限额削弱（3），并以更高的失败率为代价。集中流动性改变的是曲线形状和穿越 tick 的冲击路径，不取消限额作为公共信息的事实，见 [v3](/quant/uniswap-v3-clmm)。跨域 MEV、中继与构建者市场会改变租金的分成，不自动改变兑换者执行短差的来源。
 

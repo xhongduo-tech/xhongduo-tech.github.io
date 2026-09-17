@@ -11,7 +11,7 @@ section: quant
 <footer>—— 杠杆基金每日再平衡的代数是恒等式；VIX 期货 ETP 的展期与危机见 Alexander and Korovilas、Eraker and Wu 以及 2018 年 2 月反向产品终止的公开事后分析</footer>
 </div>
 
-VXX、UVXY、SVXY 一类产品把短期 [VIX 期货](/quant/vix-futures) 包装成股票代码：有的目标是恒定期限的多头方差暴露，有的再乘杠杆或取反向。为保持目标，管理人必须**每日**调整期货数量，并沿曲线展期以维持加权期限，见 [Contango](/quant/contango-backwardation) 与一般 [再平衡规则](/quant/rebalance-rules)。Alexander 与 Korovilas、Eraker 与 Wu 等把这类 ETP 的定价、展期损耗与反馈写成可检验对象；2018 年 2 月 5 日前后，反向产品在波动率急升中按规则买回期货，XIV 等终止，使「再平衡流」进入公共记忆。本篇写份额、杠杆与期货张数之间的公开恒等式，以及它何时大到足以冲击曲线。这不是教人在收盘前几分钟抢 ETP 执行的流程。
+[上一课](/quant/jpm-collar-flow) 的「季度护盘」停在商标叙事；本篇读会计规则更硬的每日再平衡。VXX、UVXY、SVXY 一类产品把短期 [VIX 期货](/quant/vix-futures) 包装成股票代码：有的目标是恒定期限的多头方差暴露，有的再乘杠杆或取反向。为保持目标，管理人必须**每日**调整期货数量，并沿曲线展期以维持加权期限，见 [Contango](/quant/contango-backwardation) 与一般 [再平衡规则](/quant/rebalance-rules)。Alexander 与 Korovilas、Eraker 与 Wu 等把这类 ETP 的定价、展期损耗与反馈写成可检验对象；2018 年 2 月 5 日前后，反向产品在波动率急升中按规则买回期货，XIV 等终止，使「再平衡流」进入公共记忆。本篇写份额、杠杆与期货张数之间的公开恒等式，以及它何时大到足以冲击曲线。这不是教人在收盘前几分钟抢 ETP 执行的流程。
 
 ## 问题
 
@@ -73,7 +73,7 @@ flowchart TD
   CURVE --> AUM
 ```
 
-## 边界与工程取舍
+## 边界
 
 产品名会变、会终止、会改杠杆，历史序列要按当时说明书复原。欧洲与亚洲上市的同类产品有不同时钟，不能用美股收盘去对。VIX 只锚定 S&P 500 方差，商品或个股波动 ETP 是另一市场。不要用 ETP 净值去「预测 VIX」——净值是期货的滞后包装。不要把 XIV 的单日当成每日可重复的 alpha 来源：那是尾部加上产品设计。
 

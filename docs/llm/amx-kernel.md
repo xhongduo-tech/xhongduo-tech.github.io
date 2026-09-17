@@ -62,7 +62,7 @@ $$
 
 AVX-512 寄存器窄、指令开销低，适合低 ARI 与非矩阵算子（softmax、layernorm、路由）。AMX 适合高 ARI 的专家 GEMM 与 prefill。GPU Tensor Core 的形状与调度由 CUDA 生态包圆；AMX 要把 cache 层级写进核，因为没有同等的共享存储编程模型。混合推理里常见的做法是同一块权重布局同时喂 AMX 与 AVX-512，运行时按 token/专家比切换，避免两套 pack。
 
-## 边界与工程取舍
+## 边界
 
 单芯片峰值 TOPS 随 SKU、频率、L2、内存通道而变，应读当时那一颗至强的产品简报，不要把某篇 MoE 核论文的持续 TFLOPS 当成铭牌。后续至强代际扩展了数据类型（文档按代数列出），写核要以目标 CPUID 为准，而不是假设 SPR 的 INT8/BF16 全集在所有至强上可用。信号栈、seccomp、旧 glibc、未转发 AMX 的虚机，是部署期最高频的「有 AMX 却跑不起来」。
 

@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Chamberlin and Boyce, SEQUEL, 1974；SQL 标准对 GROUP BY；Ramakrishnan and Gehrke 对聚合算子的整理</footer>
 </div>
 
-[上一课](/cs/app-backpressure)把计算机网络进阶收到应用背压。本课打开数据库进阶：主干 [SQL 声明](/cs/sql-declarative) 已把 `SELECT`–`FROM`–`WHERE` 钉在代数上，并点名分组「把元组集收成组上的标量」，但没有机制。缺口不是重讲投影，而是 **GROUP BY 如何改变结果模式**，以及 `HAVING` 与 `WHERE` 为何不能互换。不重写 Transformer，不进限价簿。
+[上一课](/cs/sharding)把库水平切开：片内事务，片间要 2PC 或弱化，复制与分片正交。本课打开查询语言进阶：主干 [SQL 声明](/cs/sql-declarative) 已把 `SELECT`–`FROM`–`WHERE` 钉在代数上，并点名分组「把元组集收成组上的标量」，但没有机制。缺口不是重讲投影，而是 **GROUP BY 如何改变结果模式**，以及 `HAVING` 与 `WHERE` 为何不能互换。不重写 Transformer，不进限价簿。
 
 ## 问题
 

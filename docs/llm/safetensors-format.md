@@ -38,11 +38,11 @@ flowchart TD
 
 无执行 + mmap 使加载器成为纯字节搬运，便于与[自定义加载流水](/llm/weight-loading-streaming)重叠。JSON 头解析是一次性 CPU 微秒～毫秒，相对百 GB 搬运可忽略。对齐保证直接转 `bfloat16` 视图合法。跨进程共享只读 mmap 可减冷启动主机内存（fork 前打开），GPU 仍要各自一份设备副本。
 
-## 边界与工程取舍
+## 边界
 
 不要用 `pickle.loads` 加载来路不明的检查点。不要把 safetensors 当万能容器塞 Python 对象。与 GGUF 的选择按运行时：vLLM/HF 一条，llama.cpp 一条。下一课程单元改谈 GPU 之外的运行时，从 ONNX Runtime 开始。
 
-出处：Hugging Face safetensors 规范与安全文档。无单独会议论文，不编造 arXiv。
+出处：Hugging Face safetensors 规范与安全文档。无单独会议论文。
 
 ## 小结
 

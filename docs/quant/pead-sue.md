@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bernard & Thomas, Journal of Accounting Research, 1989 / 1990</footer>
 </div>
 
-Ball 与 Brown 1968 年已经看到盈余符号与事后收益同向。Bernard 与 Thomas 把现象收成可检验的机制：标准化未预期盈余（**SUE**）排序后，组合在公告后继续赚 α，且超额收益在**后续几个季报窗口**再次集中。这是事件时间的漂移，不是[质量](/quant/qmj)里的长期盈利水平，也不是月度[动量](/quant/momentum-wml)的全部。把 PEAD 写进 QMJ 或把 12−1 赢家全部解释成盈余惊喜，都会弄错频率。
+[上一课](/quant/carry-everywhere)把跨资产的持仓收益收进一个可预测的 carry。Ball 与 Brown 1968 年已经看到盈余符号与事后收益同向。Bernard 与 Thomas 把现象收成可检验的机制：标准化未预期盈余（**SUE**）排序后，组合在公告后继续赚 α，且超额收益在**后续几个季报窗口**再次集中。这是事件时间的漂移，不是[质量](/quant/qmj)里的长期盈利水平，也不是月度[动量](/quant/momentum-wml)的全部。把 PEAD 写进 QMJ 或把 12−1 赢家全部解释成盈余惊喜，都会弄错频率。
 
 ## 问题
 
@@ -65,7 +65,7 @@ flowchart TD
 
 <span class="marginnote">PEAD 不是「盈利因子」。RMW 问的是盈利能力水平；PEAD 问的是相对预期的增量。高水平、负意外的公司可以同时空于 PEAD、多于 RMW。季度再平衡的 SUE 因子换手远高于年度 RMW。</span>
 
-## 边界与工程取舍
+## 边界
 
 公告后六十年文献显示效应变弱：覆盖增加、量化资金交易 PEAD、微观结构改善。剩余是否够付成本，取决于宇宙与执行。分析师修订本身也是信号（盈余修正动量），与 SUE 部分重叠。不要把管理层指引、电话会语气做成「SUE」还引用 1989 年。不要在已经持有价格动量的产品里再叠加未经正交的 PEAD，而不查相关。
 

@@ -68,7 +68,7 @@ cHBM 同样没有产品表。合理预期（来自行业对定制底座的一般
 
 Rubin 的 HBM4 容量、NVFP4 峰值、NVL72 的 72 卡，都是那一代已经公开的产品数字。Feynman 没有对应列。用「每代翻倍」外推 2028 的 EFLOPS 或 NVLink TB/s，属于编造。LP40 的 NVFP4 支持出现在平台叙事里，也不等于 Feynman GPU 的精度集合已公布。
 
-## 边界与工程取舍
+## 边界
 
 本篇拒绝填写：晶体管数、SRAM、HBM 栈数、TDP、SM 数、NVLink 单端口速率、机柜 GPU 数、单卡 PFLOPS。次级媒体对「超过两千瓦」一类功耗的推测不引用。Intel 代工 / EMIB 等合作若未在 NVIDIA 产品材料确认，不写进架构合同。
 

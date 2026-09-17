@@ -67,7 +67,7 @@ Clip-Higher 改变的是**信任域的不对称**：允许「罕见但高优势�
 
 <span class="marginnote">整数化答案降低解析假阴性，也会改变题意（例如把根式改成 $a+b+c$）。复现必须用他们处理后的 17K，而不是对 MATH 原文套同一规则脚本。</span>
 
-## 边界与工程取舍
+## 边界
 
 DAPO 主实验是数学、Qwen2.5-32B 基座、规则 $\pm 1$。不保证偏好 RM、代码沙箱或 MoE 路由抖动下同样 50 分。[MiniMax-M1](/llm/minimax-m1) 后来认为在大量 off-policy 轮次里 Clip-Higher 仍会丢掉分叉词，改 clip IS 权重。[GSPO](/llm/gspo) 则把比率收到序列级。选 DAPO 是因为它把 R1 缺口写成可运行系统，不是因为它结束了 clip 之争。
 

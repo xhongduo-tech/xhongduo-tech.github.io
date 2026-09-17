@@ -55,7 +55,7 @@ flowchart TD
 
 <span class="marginnote">多进程组（TP 一组、DP 一组、EP 一组）会并发集体。NCCL 的默认表按单组微基准来，并发时网卡与 NVLink 被多组切开，有效算法可能不再是单组最优。生产要以真实网格的 step 剖析为准。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要在每次迭代改 `NCCL_ALGO`。不要把某一代 DGX 上扫出来的表抄到以太网集群。RCCL 与 NCCL 名字像，决策表不是同一份——AMD 课再写。TPU 的 mesh 通信不走这张表。
 

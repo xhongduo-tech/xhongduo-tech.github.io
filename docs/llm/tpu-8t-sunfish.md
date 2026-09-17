@@ -52,7 +52,7 @@ Goodput 机制是 RAS：链路级绕行比作业级重启便宜。OCS 把「坏�
 
 <span class="marginnote">代号 Sunfish 出现在行业报道与芯片对照图说明里，便于和 Broadcom 合作设计的叙事对上。写采购单与 API 名称用 TPU 8t。未在官方规格页出现的每芯 SRAM 容量、每芯 HBM GB，本篇留空。</span>
 
-## 边界与工程取舍
+## 边界
 
 8t 与 8i **都能**跑多种负载，官方写 specialization 解锁效率。用 8t 做延迟敏感 decode，会付训练向的互连与 SRAM 配比；用 8i 做万卡 pretrain，会碰到 Boardfly Pod 规模上限。Cloud 供给池、配额与 GA 日期以控制台为准。跨站点百万芯片是 Pathways 的逻辑作业，梯度同步的物理延迟仍受广域网约束，不要把「near-linear scaling」理解成跨洋 AllReduce 与 Pod 内一样。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML 对 pellicle 导入前后策略的公开叙述；不要写成推荐工艺</footer>
 </div>
 
-[上一课](/litho/pellicle-lifetime)把膜写成消耗品。缺口是膜还扛不住功率、或破膜率不可接受时：有人选择无薄膜运行。本课钉风险账。胶如何吸收 13.5 nm、能涂多厚，留给[下一课](/litho/euv-resist-absorption）。
+[上一课](/litho/pellicle-lifetime)把膜写成消耗品。缺口是膜还扛不住功率、或破膜率不可接受时：有人选择无薄膜运行。本课钉风险账。胶如何吸收 13.5 nm、能涂多厚，留给[下一课](/litho/euv-resist-absorption)。
 
 ## 问题
 

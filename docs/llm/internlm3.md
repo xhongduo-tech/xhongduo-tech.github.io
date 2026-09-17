@@ -57,7 +57,7 @@ GQA 2 个 KV 头对 32 个查询头，是非常省 KV 的设置；decode 带宽�
 
 <span class="marginnote">仓库引用文献仍是 InternLM2 报告。论文号不能改写成 InternLM3。2 的 1.8B/7B/20B 与 3 的单一 8B Instruct 不是同一发布矩阵。</span>
 
-## 边界与工程取舍
+## 边界
 
 未开源 Base、未开源数据卡、未开源 RL 配方。不要把 MindSearch「搜一百页」或 7B-Chat-1M 安到 3 上。思考模式延迟和 token 账单会上去，产品若默认开思考会伤闲聊；文档示例还把思考预算写成约 8192 新 token，短答模式不应套这套 `max_new_tokens`。安全免责与 2 系相同：仍可能出偏激内容。许可以当时 Apache / 仓库 LICENSE 为准。官方 IQPT 叙事若成立，意义是「过滤与配比可以替代盲目堆 token」，但没有开放配比表，外部无法画同一条效率曲线，只能把 4T 当作发布约束而不是可复现实验。OpenCompass 五维（学科、语言、知识、推理、理解）是实验室惯用切分，与 Arena Elo 不是同一把尺。推荐推理栈仍是 LMDeploy 优先、transformers 作对照，与 2.5 的 1M 权重推荐同一工具链，但 3 并没有放出对应的 1M 检查点。
 

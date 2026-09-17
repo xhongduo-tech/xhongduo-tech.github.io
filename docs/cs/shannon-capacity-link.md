@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Shannon, Communication in the Presence of Noise, Proc. IRE 1949；Nyquist, 1928 整理</footer>
 </div>
 
-[上一课](/cs/distributed-os-intuition)把操作系统进阶收到「没有透明分布式 Unix」。主干网络已从[分层](/cs/layering-e2e)走到[套接字](/cs/socket-api)，帧与 MAC 当 PDU 用，还没有把一跳的比特率接到信息论。[信道容量](/cs/channel-capacity)在离散 BSC 上给过 $C=\max I(X;Y)$。缺口是**链路上的香农公式**：铜缆、光纤这一跳能可靠运送多少比特，后课调制与线路码都相对这个预算说话。后课默认已经读完本课。不重写 Transformer，不进限价簿。
+[上一课](/cs/socket-nonblock)把套接字分成阻塞与非阻塞：阻塞等就绪，非阻塞立即返回、靠多路复用再来，TCP 语义不变。主干网络已从[分层](/cs/layering-e2e)走到[套接字](/cs/socket-api)，帧与 MAC 当 PDU 用，还没有把一跳的比特率接到信息论。[信道容量](/cs/channel-capacity)在离散 BSC 上给过 $C=\max I(X;Y)$。缺口是**链路上的香农公式**：铜缆、光纤这一跳能可靠运送多少比特，后课调制与线路码都相对这个预算说话。后课默认已经读完本课。不重写 Transformer，不进限价簿。
 
 ## 问题
 
@@ -36,8 +36,6 @@ flowchart TD
   MOD --> PHY["低于 C 的可靠速率"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 主干[帧](/cs/frame-mac)的比特是已经判决后的符号流。判决之前，物理层必须先把波形放进 $B$，并对抗噪声。容量把「加冗余」从 CRC 检错升到：整条链路的净信息率不能超过 $C$。CRC 仍只覆盖一帧；容量管的是符号流的渐近可靠速率。
@@ -50,7 +48,7 @@ flowchart TD
 
 容量是互信息上界在带限链路上的实例，不是某款光模块的标称 Gb/s。标称速率已经含码开销与裕量。
 
-上一课留下的缺口在本课收口；「香农容量在链路」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[调制与符号率](/cs/modulation-symbol-rate)。
+下一课[调制与符号率](/cs/modulation-symbol-rate)。
 
 ## 小结
 

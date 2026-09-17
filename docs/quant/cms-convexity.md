@@ -11,7 +11,7 @@ section: quant
     <footer>—— Hagan, Convexity Conundrums: Pricing CMS Swaps, Caps, and Floors, Wilmott, 2003</footer>
 </div>
 
-固定期限互换利率（constant maturity swap rate, CMS）出现在结构化票据、陡峭化票据和许多「按 10Y 互换利率支付」的合同里。标准互换里，浮动端若按同一套互换利率在年金测度下结算，互换利率是鞅，平价合约无需凸性调整。CMS 把这个利率在另一个支付日、按另一个年分数付给持有人，计价物变成普通零息或 Libor 腿，鞅性质丢失。Hagan（2003）把由此产生的凸性调整写成可用香草 swaption 静态复制的对象；Hunt、Kennedy 与 Pelsser（2000）的马尔可夫泛函模型则给出与整条微笑一致的动力学框架。本篇写调整从哪一个测度来、复制如何落到 swaption 立方，以及为何一因子 [Hull-White](/quant/hull-white) 对 CMS 斜率产品不够。[LMM](/quant/lmm) 与 [HJM](/quant/hjm) 提供多因子相关，[百慕大互换期权](/quant/bermudan-swaption) 则是另一类必须用同一立方校准的曲线期权。
+[上一课](/quant/sofr-transition)把过渡后的多曲线残差停在法律常数与回看日历上。固定期限互换利率（constant maturity swap rate, CMS）出现在结构化票据、陡峭化票据和许多「按 10Y 互换利率支付」的合同里。标准互换里，浮动端若按同一套互换利率在年金测度下结算，互换利率是鞅，平价合约无需凸性调整。CMS 把这个利率在另一个支付日、按另一个年分数付给持有人，计价物变成普通零息或 Libor 腿，鞅性质丢失。Hagan（2003）把由此产生的凸性调整写成可用香草 swaption 静态复制的对象；Hunt、Kennedy 与 Pelsser（2000）的马尔可夫泛函模型则给出与整条微笑一致的动力学框架。本篇写调整从哪一个测度来、复制如何落到 swaption 立方，以及为何一因子 [Hull-White](/quant/hull-white) 对 CMS 斜率产品不够。[LMM](/quant/lmm) 与 [HJM](/quant/hjm) 提供多因子相关，[百慕大互换期权](/quant/bermudan-swaption) 则是另一类必须用同一立方校准的曲线期权。
 
 ## 问题
 
@@ -55,7 +55,7 @@ $$
 
 Hull–White 树擅长美式取消与路径依赖票息，也能给 CMS 一个数，但一因子把曲线模态绑死，CMS 10s30s 的价格不可信。实务分工：欧式 CMS 用复制（市场立方）或校准到立方的微笑模型；带取消的 CMS 结构化票据用低因子马尔可夫泛函或回归 Monte Carlo，并强制欧式边界贴近复制价格。百慕大 swaption 校准共终端香草；CMS 校准整个微笑切片。两种产品不要共用「只拟合 ATM 的 $a,\sigma$」。Hunt–Kennedy–Pelsser 的马尔可夫泛函正是为了让低维状态仍能贴住今日的香草微笑，从而改善 CMS 一类函数。
 
-## 边界与工程取舍
+## 边界
 
 不要用 caplet 波动代替 swaption 波动做 CMS 复制：标的不同。不要在复制积分里使用无约束的外推微笑，负密度会把调整变成任意数。不要对 CMS 陡峭化用两个边际调整相减，必须联合分布。不要用国债 CMS 的历史来标定互换 CMS，[互换价差](/quant/swap-spread) 会进去。
 

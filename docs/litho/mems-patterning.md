@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 MEMS 光刻与 Bosch 深硅刻蚀的通称</footer>
 </div>
 
-[上一课](/litho/photonics-patterning)把目标函数换成损耗。缺口是力学器件。本课钉 MEMS 图形化。灰度把第三维写进胶厚，留给[下一课](/litho/grayscale-litho）。
+[上一课](/litho/photonics-patterning)把目标函数换成损耗。缺口是力学器件。本课钉 MEMS 图形化。灰度把第三维写进胶厚，留给[下一课](/litho/grayscale-litho)。
 
 ## 问题
 

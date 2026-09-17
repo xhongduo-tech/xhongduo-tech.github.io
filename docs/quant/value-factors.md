@@ -11,7 +11,7 @@ section: quant
 <footer>—— 综合 Fama–French 的 B/M 与 Lakonishok–Shleifer–Vishny 的相对价值度量</footer>
 </div>
 
-价值因子不是只有 HML。账面市值比（B/M）、盈余收益率（E/P）、现金流价格比（CF/P 或 C/P）都在问：为每单位基本面付了多少价格。Fama–French 把 B/M 做成[三因子](/quant/ff3)里的 HML；Lakonishok、Shleifer、Vishny 1994 年用 E/P、C/P 与销售增长论证「反向投资」。本篇把这三条度量放在同一套排序语言里，写它们何时一致、何时因亏损、应计与无形资产而分道。质量与盈利不是价值，见[质量与盈利](/quant/quality-profitability)。
+[上一课](/quant/short-term-reversal)把价格类信号收在反弹与流动性供给上；更慢的那一支叫价值。价值因子不是只有 HML。账面市值比（B/M）、盈余收益率（E/P）、现金流价格比（CF/P 或 C/P）都在问：为每单位基本面付了多少价格。Fama–French 把 B/M 做成[三因子](/quant/ff3)里的 HML；Lakonishok、Shleifer、Vishny 1994 年用 E/P、C/P 与销售增长论证「反向投资」。本篇把这三条度量放在同一套排序语言里，写它们何时一致、何时因亏损、应计与无形资产而分道。质量与盈利不是价值，见[质量与盈利](/quant/quality-profitability)。
 
 ## 问题
 
@@ -65,7 +65,7 @@ E/P 在亏损潮年份会把大量股票赶出排序或堆进极端组，溢价�
 
 <span class="marginnote">价值溢价的容量主要在大盘价值加权腿。等权小盘价值混有微观结构与[反转](/quant/short-term-reversal)。国际与 A 股上 E/P、CF/P 有时比 B/M 更稳，因为账面质量与壳资源让 B 的噪声大于 E 与 CF。不要把美股 HML 的失效直接翻译成「价值死了」。</span>
 
-## 边界与工程取舍
+## 边界
 
 财务滞后与 6 月重构避免前视，也让价值在价格暴跌后最多延迟半年才加仓——HML Devil 用当期价格就是为了加快。加快的代价是换手与和动量的负相关更尖锐。前视账面（用未公开的年报）会在回测里造出假溢价。
 

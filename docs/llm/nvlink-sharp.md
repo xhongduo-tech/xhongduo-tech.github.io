@@ -57,7 +57,7 @@ flowchart TD
 
 IB 交换机上的 SHARP 服务 Scale-Out：数据并行、跨柜树。NVLink SHARP 服务 Scale-Up：域内 TP。协议族同名，作用域不同。一个作业可以两层都开：域内先网上归约，每柜一份结果再上 IB SHARP。也可以只开一层。调参时应分别看域内 busbw 与跨柜 busbw，不要用一个 NCCL 环境变量解释两种墙。
 
-## 边界与工程取舍
+## 边界
 
 不要对 All-to-All 指望 SHARP。不要在没有 NVLink 6 交换的 8 卡 PCIe 箱上假设网内 FP8 归约。不要把交换托盘的 14.4 TFLOPS 加进模型 FLOPS 去报 MFU。数值上，FP8 归约有缩放与饱和问题，与 Transformer Engine 的 FP8 配方不是自动同一套。关闭 SHARP 必须作为运行时可选项，供数值对照与故障隔离。
 

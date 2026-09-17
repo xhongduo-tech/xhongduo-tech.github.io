@@ -56,7 +56,7 @@ Unigram 的似然是 $\sum_{x\in D}\log \sum_{s\in \mathrm{Seg}(x)} p(s)$，内�
 
 SentencePiece 默认在 Unicode 字符上操作，辅以 NFKC。GPT-2 起的字节级 BPE 先把文本打成 UTF-8 字节，256 个基符号保证永不 UNK。tiktoken 是后者的高速推理实现，几乎不训练词表。Llama 1/2 仍用 SentencePiece-BPE；Llama 3、GPT-4 一类改 tiktoken 式编码。迁移时不能用 SentencePiece 去「近似」cl100k：空白标记、预分词正则、字节回退全不同，同一句的 token 数可差出一截，上下文预算与计费会对不上。正确做法是权重与 tokenizer 绑定，而不是用「都是 BPE」当互换许可证。
 
-## 边界与工程取舍
+## 边界
 
 NFKC 会折叠兼容字符，对想保留全角风格或某些数学字母形状的任务是伤害。FST 子集不等于完整 Unicode 规范化。Unigram 训练要调极大候选表与剪枝节奏，比 BPE 重。在线正则化与推理时的贪心切分若不一致，会在评测上制造幽灵增益。词表若按英语网页训，日文汉字会被切得很碎，这是数据问题不是算法问题——SentencePiece 语言无关，不自动语言公平。服务路径上，纯 Python 绑定不如 tiktoken 的 Rust 核快，这是实现而不是论文范围；但 `.model` 的加载与规范化 FST 仍有一次性成本，应在进程启动时完成。
 

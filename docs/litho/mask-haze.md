@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 photomask haze / progressive defects 与硫酸根–铵根化学的公开文献传统</footer>
 </div>
 
-[上一课](/litho/aims-mask-qualification)用打印视角放行了版。缺口是时间：DUV 高剂量曝光、残留离子、 pellicle 微环境会在膜上或石英上长雾（haze）。本课钉掩模雾化。雾化管理要进周期与钱，留给[下一课](/litho/mask-cost-cycle）。
+[上一课](/litho/aims-mask-qualification)用打印视角放行了版。缺口是时间：DUV 高剂量曝光、残留离子、 pellicle 微环境会在膜上或石英上长雾（haze）。本课钉掩模雾化。雾化管理要进周期与钱，留给[下一课](/litho/mask-cost-cycle)。
 
 ## 问题
 

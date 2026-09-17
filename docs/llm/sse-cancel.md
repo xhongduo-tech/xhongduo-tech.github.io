@@ -64,7 +64,7 @@ SSE 是单向、基于 HTTP/1.1 长连接的文本帧。它不保证每 token �
 
 兼容层在 `stream: true` 时通常不在中间帧填完整 `usage`，最后一帧或 `[DONE]` 之前补。取消则可能没有任何 usage。网关计费若只认 usage 字段，取消流量会变成零成本攻击面：恶意客户端占满 decode 再断开。应对是在引擎侧按已生成 token 记账，而不是按是否收到 `[DONE]`。`finish_reason` 在正常路径取值 `stop` / `length`；取消不一定有机会写出该字段。
 
-## 边界与工程取舍
+## 边界
 
 不要为取消单独发明一个必须鉴权的 `POST /cancel/{id}` 才认为功能完备。对浏览器与 SDK 而言，关连接是最便宜的信号；TGI / vLLM 的主流实践也是这条。内部管理面可以另做 abort by id，用于管理员杀请求，但它不是客户端协议的一部分。[OpenAI 兼容协议](/llm/openai-compat-api) 没有标准化这条管理 API。
 

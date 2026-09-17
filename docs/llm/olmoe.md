@@ -55,7 +55,7 @@ Mixtral 是 8 专家 top-2，专家肥、组合少。DeepSeek MoE 把专家切�
 
 <span class="marginnote">开放不等于「训练便宜」。5T token 的 MoE 预训对独立实验室仍然很重；开放的价值是避免第二支队伍从零猜配方。若只想要一个 1B 激活的聊天模型，直接下 Instruct 权重即可，不必复现 5T。</span>
 
-## 边界与工程取舍
+## 边界
 
 OLMoE 的规模锚在 7B 总参，不能外推成「开放 MoE 已经追上闭源数百 B」。它证明的是：在 1B 激活附近，稀疏加开放数据可以明显超过同激活稠密小模型，并在部分基准上接近更大的稠密模型。换到数学竞赛或超长上下文，容量与数据覆盖仍受 7B 存储上限约束，不要写成通用替代。
 
@@ -72,4 +72,4 @@ OLMoE 的规模锚在 7B 总参，不能外推成「开放 MoE 已经追上闭�
 - 粒度介于 Mixtral 的粗 8 选 2 与 DeepSeek 的上百专家之间，便于单机研究路由与专门化。
 - 推理费按激活算、内存按总参算；64 路 top-8 对内核与端侧并不「免费」。
 - 分析结论（饱和、共激活、领域分工）绑定于公开检查点，换数据后不要当定理。
-- 出处：Muennighoff et al.，*OLMoE: Open Mixture-of-Experts Language Models*；Ai2 / Hugging Face `allenai/OLMoE` 模型卡。不编造 arXiv 编号。
+- 出处：Muennighoff et al.，*OLMoE: Open Mixture-of-Experts Language Models*；Ai2 / Hugging Face `allenai/OLMoE` 模型卡。

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 imec 对 scaling boosters（BPR、CFET 前的单元助推）的公开路线图叙述</footer>
 </div>
 
-[上一课](/litho/standard-cell-track-height)把轨高收成整数约束。缺口是：轨已经很少，仍要面积，就得把电源或接触从拥挤的中间层挪走。[DTCO](/litho/dtco-patterning) 点过助推器；本课钉图形化含义。SRAM 如何单独玩一套几何，留给[下一课](/litho/sram-cell-patterning）。
+[上一课](/litho/standard-cell-track-height)把轨高收成整数约束。缺口是：轨已经很少，仍要面积，就得把电源或接触从拥挤的中间层挪走。[DTCO](/litho/dtco-patterning) 点过助推器；本课钉图形化含义。SRAM 如何单独玩一套几何，留给[下一课](/litho/sram-cell-patterning)。
 
 ## 问题
 

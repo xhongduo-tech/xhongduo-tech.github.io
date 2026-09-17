@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML 与代工对 EUV 插入临界层、浸没保留次临界层的公开叙事</footer>
 </div>
 
-[上一课](/litho/cost-per-layer-wafer)给出按层加总。缺口是决策：某层该不该从 LELE/SAQP 迁 EUV。本课钉成本交叉。[DUV 多重代价](/litho/duv-multipattern-cost) 已写 7/5 nm 结构；这里收成交叉逻辑。机台本身多贵，留给[下一课](/litho/tool-price-depreciation）。
+[上一课](/litho/cost-per-layer-wafer)给出按层加总。缺口是决策：某层该不该从 LELE/SAQP 迁 EUV。本课钉成本交叉。[DUV 多重代价](/litho/duv-multipattern-cost) 已写 7/5 nm 结构；这里收成交叉逻辑。机台本身多贵，留给[下一课](/litho/tool-price-depreciation)。
 
 ## 问题
 

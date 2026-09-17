@@ -11,7 +11,7 @@ section: quant
     <footer>—— Raissi, Perdikaris and Karniadakis, Physics-informed neural networks, JCP 2019；金融差分传统见 Brennan–Schwartz</footer>
 </div>
 
-期权价格在马尔可夫扩散下满足抛物 PDE，工程默认是 [有限差分](/quant/option-pde) 与 [Crank–Nicolson](/quant/crank-nicolson)。物理信息神经网络（PINN）用一个对 $(t,S)$（或更多状态）的网络 $V_\theta$，在随机配点上惩罚
+[Neural SDE](/quant/neural-sde) 在路径上抽样测度；PINN 不抽样，直接把 PDE 残差写进损失。期权价格在马尔可夫扩散下满足抛物 PDE，工程默认是 [有限差分](/quant/option-pde) 与 [Crank–Nicolson](/quant/crank-nicolson)。物理信息神经网络（PINN）用一个对 $(t,S)$（或更多状态）的网络 $V_\theta$，在随机配点上惩罚
 
 $$
 \partial_t V + \mathcal{L}V - rV
@@ -75,7 +75,7 @@ Black–Scholes 残差含 $V_{SS}$。自动微分的二阶在深网络上贵且�
 
 <span class="marginnote">「物理信息」在此的物理就是无套利 PDE。它不包含微观结构、跳跃补偿（除非写进 $\mathcal{L}$）或交易摩擦。摩擦下的定价不是这个残差的解，见 Deep Hedging。</span>
 
-## 边界与工程取舍
+## 边界
 
 PINN 对超参敏感，复现实验必须记录配点生成器种子、权重日程和归一化。不要用单一 ATM 价格误差宣称优于差分：应报沿货币性与到期的最大误差、希腊的最大误差、以及美式边界的位移。跳跃、路径依赖（亚式状态要升维）、粗糙波动的非半鞅算子，都超出标准抛物 PINN 的舒适区。
 

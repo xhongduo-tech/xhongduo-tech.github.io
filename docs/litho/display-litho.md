@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 FPD（平板显示）光刻机与半导体步进器的尺度分工</footer>
 </div>
 
-[上一课](/litho/panel-level-litho)把封装面板做到半米量级。缺口是显示把基板做到米级。本课钉显示光刻。封装步进器作为半导体厂仍会买的大视场机，留给[下一课](/litho/packaging-steppers）。
+[上一课](/litho/panel-level-litho)把封装面板做到半米量级。缺口是显示把基板做到米级。本课钉显示光刻。封装步进器作为半导体厂仍会买的大视场机，留给[下一课](/litho/packaging-steppers)。
 
 ## 问题
 

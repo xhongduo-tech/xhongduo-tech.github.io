@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 two-photon polymerization（Nanoscribe 一类）的公开原理</footer>
 </div>
 
-[上一课](/litho/grayscale-litho)用二维剂量做高度。缺口是任意三维。本课钉双光子 3D 打印。生物芯片光刻作为另一应用域，留给[下一课](/litho/biochip-litho）。
+[上一课](/litho/grayscale-litho)用二维剂量做高度。缺口是任意三维。本课钉双光子 3D 打印。生物芯片光刻作为另一应用域，留给[下一课](/litho/biochip-litho)。
 
 ## 问题
 

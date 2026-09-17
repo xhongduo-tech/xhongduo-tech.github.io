@@ -11,7 +11,7 @@ section: quant
 <footer>—— 现象见 Longin–Solnik、Forbes–Rigobon、Loretan–English；情景构造对照 Brunnermeier 对融资螺旋的叙述</footer>
 </div>
 
-[相关性崩溃](/quant/correlation-breakdown) 一文写现象：下行 exceedance correlation、异方差把传染测高、融资与火线抛售让分散化失效。本篇不重复那条证据链，只写**如何把崩溃做成压力引擎里的一条情景**：输入今日头寸，输出一条或一组 $x$，使指定篮子的共同运动达到预声明的强度，并与日常 DCC、Copula VaR、反向压力测试共用同一套 $g$。Loretan 与 English 早已警告：若不先定义压力期与波动调整，「correlation breakdown」可以在任何样本里被搜出来。情景若也在数据里搜最大相关段，只是把同一错误写进限额。
+[反向压力测试](/quant/reverse-stress-test)收在逆问题要靠经济结构筛；相关这条轴的情景构造，是本篇的落地。[相关性崩溃](/quant/correlation-breakdown) 一文写现象：下行 exceedance correlation、异方差把传染测高、融资与火线抛售让分散化失效。本篇不重复那条证据链，只写**如何把崩溃做成压力引擎里的一条情景**：输入今日头寸，输出一条或一组 $x$，使指定篮子的共同运动达到预声明的强度，并与日常 DCC、Copula VaR、反向压力测试共用同一套 $g$。Loretan 与 English 早已警告：若不先定义压力期与波动调整，「correlation breakdown」可以在任何样本里被搜出来。情景若也在数据里搜最大相关段，只是把同一错误写进限额。
 
 ## 问题
 
@@ -51,7 +51,7 @@ Longin–Solnik、Ang–Chen 的下行 exceedance correlation 给假设冲击一
 
 正向相关情景问「若篮子 $B$ 相关升到 0.9，我们亏多少」。反向问「要达到 $L^\star$，相关最少要升到哪、还是其实一个名字就够」。两者共用篮子清单。若反向优化总是走单一名称而非相关崩溃，说明当前组合的真正风险是集中度，相关情景是次要的——应改限额，而不是把相关乘数调到能「看见」崩溃为止。
 
-## 边界与工程取舍
+## 边界
 
 高维正定、缺失历史、停牌与涨跌停，使回放不可交易：指数路径你复制不出。假设冲击在新兴市场、商品、加密上更依赖判断，因为压力样本短。t Copula 对称尾会在上涨端也制造假同涨，对冲评估会偏。工程折中：日常仍用 DCC 或收缩 $\Sigma$；周频压力引擎跑冻结的历史回放 + 两到三个假设篮子冲击；反向压力另册。
 

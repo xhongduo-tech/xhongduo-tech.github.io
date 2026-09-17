@@ -62,7 +62,7 @@ DeepStack 让浅层边缘与深层语义同时进入 Decoder 的**计算**，而
 
 <span class="marginnote">评测至少拆四张表：纯文本、OCR/文档、视觉推理（MMMU / MathVista / MathVision）、视频与多图。综合分会把「会想数学、不会抄发票」的 Thinking 档和「会抄字、不会证几何」的 Instruct 档搅在一起。</span>
 
-## 边界与工程取舍
+## 边界
 
 256K 含视觉 token，页数 × 每页 merge 后的 patch 会先打满窗口。超长 PDF 仍要切分。扫描件加密、极细字、极端旋转，要靠旋转与分辨率策略，不是 235B 自动解决。原生 PDF 字节流是 [Qwen3.5-OCR](/llm/qwen35-ocr) 的产品能力，不要写进 3-VL 基座。开源权重与云上 `qwen-vl-ocr-*` 快照的任务覆盖并不相同。
 

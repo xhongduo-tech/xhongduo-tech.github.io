@@ -11,8 +11,6 @@ section: cs
 <footer>—— Blanchet, ProVerif；Meier, Schmidt, Cremers 与 Basin, Tamarin；Dolev and Yao, 1983</footer>
 </div>
 
-## 定位
-
 上一课[生物识别](/cs/biometrics-far-frr)结束因素课。缺口是把[Dolev–Yao](/cs/dolev-yao)变成**可跑的验证**：Needham–Schroeder 下一课就是经典反例。本课工具直觉，不教安装，不重写 TLA+。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 找到攻击是强结果
 
 「无攻击」相对于模型。漏掉一条信道就漏攻击。Lowe 的修复正是模型里多出来的身份字段。
-
 
 <span class="marginnote">Blanchet 的 ProVerif；Tamarin 的多重集重写。本课不把工具当 seL4 那种 C 验证。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   MODEL["模型外通道"] -.-> SIL["工具沉默"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 形式化把身份单元从「清单」升到「可证的交错」。下一课 Needham–Schroeder：经典认证协议如何在模型里被 Lowe 指出漏洞。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

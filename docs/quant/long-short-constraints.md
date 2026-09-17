@@ -11,7 +11,7 @@ section: quant
     <footer>—— Jagannathan and Ma, Risk Reduction in Large Portfolios: Why Imposing the Wrong Constraints Helps, Journal of Finance, 2003</footer>
 </div>
 
-[Markowitz](/quant/markowitz) 的无约束解允许 $w_i$ 任意为负。章程、借券、融资与产品说明书把它切成几类可行集：多头（$w\ge 0,\mathbf{1}^\top w=1$）、多空美元中性（$\mathbf{1}^\top w=0$）、净暴露钉基准、总暴露（毛杠杆）上限、130/30 这类不对称多空。约束改的不是 $\mu$ 的叙事，是二次规划的 Kuhn–Tucker 活跃集：哪些名字被顶在零、哪些腿被顶在毛杠杆。Jagannathan 与 Ma（2003）进一步指出，非负约束在总体层面等价于对 $\Sigma$ 做一种收缩，样本外方差可以下降。本篇写这些可行集、130/30 与市场中性的会计、约束作为正则，以及与 [行业/国家中性](/quant/industry-country-neutral) 同时打开时如何互抢自由度。杠杆与换手的制度条目亦见 [组合约束](/quant/portfolio-constraints)；这里聚焦**符号与净/毛暴露**。
+[上一课](/quant/turnover-penalty)把换手摩擦写成平滑惩罚，并清点 $w_0$ 的遗产暴露。[Markowitz](/quant/markowitz) 的无约束解允许 $w_i$ 任意为负。章程、借券、融资与产品说明书把它切成几类可行集：多头（$w\ge 0,\mathbf{1}^\top w=1$）、多空美元中性（$\mathbf{1}^\top w=0$）、净暴露钉基准、总暴露（毛杠杆）上限、130/30 这类不对称多空。约束改的不是 $\mu$ 的叙事，是二次规划的 Kuhn–Tucker 活跃集：哪些名字被顶在零、哪些腿被顶在毛杠杆。Jagannathan 与 Ma（2003）进一步指出，非负约束在总体层面等价于对 $\Sigma$ 做一种收缩，样本外方差可以下降。本篇写这些可行集、130/30 与市场中性的会计、约束作为正则，以及与 [行业/国家中性](/quant/industry-country-neutral) 同时打开时如何互抢自由度。杠杆与换手的制度条目亦见 [组合约束](/quant/portfolio-constraints)；这里聚焦**符号与净/毛暴露**。
 
 ## 问题
 
@@ -57,7 +57,7 @@ Jagannathan–Ma 机制：样本 $\Sigma$ 把某些资产标成「对冲工具�
 
 净暴露、毛杠杆、beta 中性、行业中性、单票上限可以一起把可行集掏空，或只留下「几乎等于上期」的点。这时求解器仍返回一个点，目标值没有意义。应在优化前做约束诊断：放松一条看影子价格，或分层满足（先制度硬约束，再中性，再 alpha）。[换手惩罚](/quant/turnover-penalty) 相对 $w_0$ 过强时，等于又加了一组「接近上期」的软约束，冲突更频繁。新产品建仓期应允许更大毛杠杆路径或分步放松中性，否则第一天就不可行。
 
-## 边界与工程取舍
+## 边界
 
 不要把美元中性叫做市场中性。不要在不可卖空市场用对称多空文献的夏普当容量。不要只钉毛杠杆不钉单票：毛 2 可以是 200 只各 1%，也可以是两只各 100%。不要用无约束样本切点的崩溃来论证「必须多头」——应先收缩 $\Sigma$ 与锚 $\mu$，再决定符号约束；Jagannathan–Ma 是额外的正则，不是对均值方差理论的否定。期权、期货的符号与名义乘数要使 $w$ 的定义与现货一致，否则净暴露会计是错的。
 

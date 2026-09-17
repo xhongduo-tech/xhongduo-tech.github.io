@@ -11,7 +11,7 @@ section: quant
 <footer>—— Barone-Adesi, Giannopoulos and Vosper, VaR without Correlations in Nonlinear Portfolios, Journal of Futures Markets, 1999</footer>
 </div>
 
-朴素 [历史 VaR](/quant/var-methods) 把过去 $n$ 日的因子变化等权应用到今日头寸上。Pritsker（2006）指出它的核心迟钝：窗口里大部分日子来自旧体制，今日若已处于高 $\sigma_t$，等权经验分位数会偏低。Barone-Adesi、Giannopoulos 与 Vosper 的过滤历史模拟（Filtered Historical Simulation, FHS）把「形状」和「尺度」拆开：用 [GARCH](/quant/garch)（或 EWMA）估计条件方差，取出标准化残差 $z_t=r_t/\sigma_t$，从 $\{z_t\}$ 有放回抽样，再乘上从今日出发的预测波动，得到情景收益。相关结构不必另估一张矩阵——多资产时直接重抽样历史残差**向量**，经验依赖留在向量里。本篇写这一滤–抽–配的步骤、非线性定价，以及它仍不是压力测试。
+[Cornish–Fisher](/quant/cornish-fisher-var)在标准化残差上估形状、用今日 $\sigma_t$ 定标。朴素 [历史 VaR](/quant/var-methods) 把过去 $n$ 日的因子变化等权应用到今日头寸上。Pritsker（2006）指出它的核心迟钝：窗口里大部分日子来自旧体制，今日若已处于高 $\sigma_t$，等权经验分位数会偏低。Barone-Adesi、Giannopoulos 与 Vosper 的过滤历史模拟（Filtered Historical Simulation, FHS）把「形状」和「尺度」拆开：用 [GARCH](/quant/garch)（或 EWMA）估计条件方差，取出标准化残差 $z_t=r_t/\sigma_t$，从 $\{z_t\}$ 有放回抽样，再乘上从今日出发的预测波动，得到情景收益。相关结构不必另估一张矩阵——多资产时直接重抽样历史残差**向量**，经验依赖留在向量里。本篇写这一滤–抽–配的步骤、非线性定价，以及它仍不是压力测试。
 
 ## 问题
 
@@ -49,7 +49,7 @@ $\sigma_t$ 必须关于 $t-1$ 可测。用含当日收益的已实现波动去�
 
 均值设定、隔夜跳、除权事件、错误印记，都会变成「形状」。不清洗则一个错误脉冲在每次抽到它时按今日 $\sigma$ 放大，FHS-ES 会被单个点主导。过度清洗又会削掉真尾巴。预指定清洗规则，并报告抽到极值残差的频率。体制切换若表现为残差分布的改变而不仅是 $\sigma_t$ 的改变，单一窗口的 $z$ 会把两体制混成一个形状；这时应缩短残差窗口，或对压力期单独做 [压力 VaR](/quant/stressed-var-frtb)，而不是指望 GARCH 吸收一切。
 
-## 边界与工程取舍
+## 边界
 
 FHS 依赖波动模型：GARCH 估爆、IGARCH 不均值回复、多元维数下一元过滤不一致，都会进入分位数。它不创造样本外的跳幅：把 1998 年的残差配上 2026 年的 $\sigma$，得到的是「当时那种标准化冲击在今天的尺度上」，不是「今天可能出现的新冲击」。监管压力期与 FHS 日常条件 VaR 应分开：前者换测度，后者换尺度。
 

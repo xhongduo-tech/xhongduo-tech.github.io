@@ -11,7 +11,7 @@ section: quant
 <footer>—— López de Prado, Advances in Financial Machine Learning 对 tick imbalance bars 的定义</footer>
 </div>
 
-前面三档 bars 的边界由**活动规模**触发：笔数、体积、金额。它们在买卖完全对冲时仍按同样节奏封口——市场很忙但没有净方向，你还是会得到一根根 OHLC。**Tick Imbalance Bars (TIB)** 把触发器换成**方向累积**：用 [tick 规则](/quant/tick-quote-rule) 给每笔一个 $b_t=\pm 1$，累加 $\theta_t=\sum b_i$，当 $|\theta|$ 超过「若方向独立所应有的」阈值就封口。López de Prado 把这类叫做信息驱动 bars：信息到来时不平衡变大，bar 变密。本篇写阈值公式、期望笔数的更新，以及它与 [BVC](/quant/bulk-volume-classification) 桶不平衡的差别。
+[Dollar bars](/quant/dollar-bars)把金额维补齐，标定停在每日 bar 数同阶。前面三档 bars 的边界由**活动规模**触发：笔数、体积、金额。它们在买卖完全对冲时仍按同样节奏封口——市场很忙但没有净方向，你还是会得到一根根 OHLC。**Tick Imbalance Bars (TIB)** 把触发器换成**方向累积**：用 [tick 规则](/quant/tick-quote-rule) 给每笔一个 $b_t=\pm 1$，累加 $\theta_t=\sum b_i$，当 $|\theta|$ 超过「若方向独立所应有的」阈值就封口。López de Prado 把这类叫做信息驱动 bars：信息到来时不平衡变大，bar 变密。本篇写阈值公式、期望笔数的更新，以及它与 [BVC](/quant/bulk-volume-classification) 桶不平衡的差别。
 
 ## 问题
 
@@ -72,7 +72,7 @@ flowchart TD
 
 <span class="marginnote">指数加权的半衰期决定体制切换有多快。太短，阈值跟着噪声跳，bar 长度剧烈抖动；太长，开盘后仍用昨日午后的 $P$，阈值与当日方向体制错配。半衰期应在若干交易日量级上交叉验证，不要用含测试日的密度去选。</span>
 
-## 边界与工程取舍
+## 边界
 
 开盘拍卖没有逐笔 tick 路径，TIB 应从连续盘第一笔重新初始化 $\theta$。涨跌停的同价长串会让 $|\theta|$ 线性上涨，TIB 在停板上疯狂封口，收益全是零——必须冻结。多市场合并成交带会把跨场所的价格跳当成 tick，虚假不平衡。不要把 TIB 的 bar 计数直接当 VPIN：VPIN 有固定 $V$ 与滚动绝对不平衡；TIB 没有固定体积。
 

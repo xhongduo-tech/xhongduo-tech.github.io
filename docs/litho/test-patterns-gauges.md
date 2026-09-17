@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 OPC 校准 gauge、通过节距与二维测试键的产线通称</footer>
 </div>
 
-[上一课](/litho/resist-model-calibration)把拟合协议钉死。缺口是样本从哪来：只放 1D 通过节距，二维线端与 SRAM 会成为外推。本课钉测试图形与 gauge。残差怎么读，留给[下一课](/litho/model-residual-analysis）。
+[上一课](/litho/resist-model-calibration)把拟合协议钉死。缺口是样本从哪来：只放 1D 通过节距，二维线端与 SRAM 会成为外推。本课钉测试图形与 gauge。残差怎么读，留给[下一课](/litho/model-residual-analysis)。
 
 ## 问题
 

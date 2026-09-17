@@ -11,7 +11,7 @@ section: quant
     <footer>—— Basel Committee, The standardised approach for measuring counterparty credit risk exposures (SA-CCR), CRE52</footer>
 </div>
 
-[对手方与信用风险](/quant/counterparty-credit) 写的是随机暴露、PFE 与 CVA 的经济对象；[CVA 要点](/quant/cva-lite) 写的是盯市价格。资本公式要的是另一个数：违约风险暴露 EAD。内部模型用 [EEPE](/quant/imm-eepe)；标准化路径在巴塞尔换成了 SA-CCR，取代 CEM 的名义本金折扣与 SM 的久期网格。本篇只写 CRE52 把一个净额集映到
+[上一课](/quant/mva-initial-margin)把保证金锁定计成 MVA；监管资本一侧的 EAD，本篇按标准化法算。[对手方与信用风险](/quant/counterparty-credit) 写的是随机暴露、PFE 与 CVA 的经济对象；[CVA 要点](/quant/cva-lite) 写的是盯市价格。资本公式要的是另一个数：违约风险暴露 EAD。内部模型用 [EEPE](/quant/imm-eepe)；标准化路径在巴塞尔换成了 SA-CCR，取代 CEM 的名义本金折扣与 SM 的久期网格。本篇只写 CRE52 把一个净额集映到
 
 $$
 \mathrm{EAD}=\alpha\bigl(\mathrm{RC}+\mathrm{PFE}\bigr)
@@ -68,7 +68,7 @@ $V-C$ 大幅为负时乘数跌向 5% 地板，承认超额抵押降低未来暴�
 
 相对 CEM，同一净额集在有抵押、有期限抵消时 EAD 通常下降，无抵押远期、商品与错对冲集合上可能上升——替换不是全局降资本。相对 [IMM EEPE](/quant/imm-eepe)，SA-CCR 不能把利率与信用的错向写进路径，只能靠 α；内部模型获准时，资本 EAD 用 α×EEPE（另有压力校准），标准化法仍可能用于下限、披露或未获准的净额集。杠杆率往往直接吃 SA-CCR 或 IMM 暴露，不再乘信用风险权重，于是低权重对手方的杠杆约束可以比 RWA 更紧。实施顺序应是：法律净额集 → CSA 参数 → 产品映射 → 公式 → 再与 CVA 引擎对 $V$ 与抵押，而不是先调 α。
 
-## 边界与工程取舍
+## 边界
 
 不要把合同名义加总当 EAD。不要假设跨资产类对冲会降低 SA-CCR。不要用内部模型的 δ 替换监管 δ 去「更精确」——那会失去标准化的可复现性，也不被承认。结构化产品若不能映射到五类之一，会掉进「其他」或被拆腿，拆法必须事前冻结。初始保证金在 NICA 里降低 RC，但对 PFE 的乘数与 AddOn 仍在；把 IM 当成把 EAD 收到零，公式不允许。
 

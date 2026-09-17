@@ -11,7 +11,7 @@ section: quant
 <footer>—— Beiglböck, Henry-Labordère and Penkner, Model-independent bounds for option prices—a mass transport approach, Finance and Stochastics, 2013</footer>
 </div>
 
-香草期权在固定到期把风险中性边际 $\mu_T$ 几乎钉死，这是 Breeden–Litzenberger 的二阶导。路径依赖、美式、或两个到期之间的联合，则还取决于边际之间如何耦合。不选 Heston、不选局部波动，只要求价格过程是鞅（或贴现鞅），问某支付 $G$ 的无模型上、下界——这就是鞅最优传输（Martingale Optimal Transport, MOT）。Beiglböck、Henry-Labordère 与 Penkner（2013）把该问题写成带鞅约束的质量传输，并给出对偶：上界等于用香草与动态持有标的去复制的最便宜超复制。本篇写边际、鞅约束、与 [无套利波动曲面](/quant/gatheral-arb-free) 的接口。对象是公开香草表面给出的模型无关界，不是去找一个「正确」的随机波动参数。
+[BOCPD](/quant/bocpd-online-changepoint) 在线更新变点信念；模型不确定还有一条更硬的路：干脆不选模型。香草期权在固定到期把风险中性边际 $\mu_T$ 几乎钉死，这是 Breeden–Litzenberger 的二阶导。路径依赖、美式、或两个到期之间的联合，则还取决于边际之间如何耦合。不选 Heston、不选局部波动，只要求价格过程是鞅（或贴现鞅），问某支付 $G$ 的无模型上、下界——这就是鞅最优传输（Martingale Optimal Transport, MOT）。Beiglböck、Henry-Labordère 与 Penkner（2013）把该问题写成带鞅约束的质量传输，并给出对偶：上界等于用香草与动态持有标的去复制的最便宜超复制。本篇写边际、鞅约束、与 [无套利波动曲面](/quant/gatheral-arb-free) 的接口。对象是公开香草表面给出的模型无关界，不是去找一个「正确」的随机波动参数。
 
 ## 问题
 
@@ -65,7 +65,7 @@ flowchart TD
 
 <span class="marginnote">一维 MOT 相对干净；多标的 MOT（篮子、价差期权）需要联合香草或交叉香草，否则边际乘积加上各成分鞅，界极宽。没有交易的指数期权表面时，对篮子做 MOT 更多是教学装置。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要在有蝶式套利的表面上跑 MOT。不要把 MOT 上界当成可卖出的报价——那是零摩擦超复制。不要用 MOT 替代校准：它回答「香草已决定多少」，不回答「市场用哪一个耦合」。利率、分红、借券使「鞅」要写在远期或总回报过程上，币本位与现金本位的比特币期权（见 [DVOL](/quant/deribit-dvol)）不是同一鞅。跳跃存在时，鞅约束仍成立，但最优耦合的结构改变；局部扩散的 curtain 图不能原样搬到有跳的市场上。
 

@@ -61,7 +61,7 @@ GRPO 在代码上的奖励比「像不像人类写的逐步解释」更硬：测
 
 <span class="marginnote">「对标 GPT-4 Turbo」写在代码与数学基准上。通用 Arena 风格分数是「没有崩」，不是宣称全面超过 GPT-4o 聊天。Lite 的 HumanEval 再高，也不承担 236B 的 SWE-Bench 叙事。</span>
 
-## 边界与工程取舍
+## 边界
 
 236B 总参的部署是 MoE 集群问题：激活 21B 只描述 FLOPs 量级，专家并行、MLA 吸收核、128K KV 缺一则复现不了报告延迟。Lite 适合单机，但 LiveCodeBench / SWE-Bench 叙事属于旗舰。338 语的长尾没有单语充分测例。FIM 在 236B Instruct 上不是默认卖点。数据截止 2023-11，CVE 与新框架会过时。许可 permissive，但专家权重体积使「商用可下」不等于「边侧可跑」。从 V2 中间点继续训，意味着 Coder-V2 的通识上限仍受那份中间检查点约束：6T 代码数学可以加尖，不能把没见过的世界知识变出来。
 

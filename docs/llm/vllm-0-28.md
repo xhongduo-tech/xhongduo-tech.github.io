@@ -55,7 +55,7 @@ flowchart TD
 
 <span class="marginnote">0.28 默认 `max_num_batched_tokens` 从 8192 提到 16384，前缀缓存对 Mamba 默认打开。这会改变你原来按 8K 批上限估的 KV 占用。分层与 DCP 都是「让同一批里能塞更多请求」的手段，调默认批大小时要一起看 HBM。</span>
 
-## 边界与工程取舍
+## 边界
 
 DCP 增大通信，短上下文、高 QPS 小 batch 可能得不偿失。上限 `tp_size/H` 意味着 MLA（有效 $H$ 很小）从 DCP 获益最大，稠密多头相对收益小。PD 分离、投机、图执行的组合以当时文档矩阵为准，不要从发行说明的「支持」一词推出所有后端全绿。磁盘分层的尾延迟会破坏 TPOT：只适合被抢占会话与冷前缀，正在 decode 的工作集必须留在 HBM，见 [KV 卸载](/llm/kv-offload)。
 

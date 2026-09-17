@@ -11,7 +11,7 @@ section: quant
 <footer>—— Merton, Lifetime Portfolio Selection under Uncertainty: the Continuous-Time Case, Review of Economics and Statistics, 1969</footer>
 </div>
 
-[上一课](/quant/shifted-lognormal-negative-rates)收口利率移位。本课打开组合进阶：主干 [Markowitz](/quant/markowitz) 是单期二次，[Kelly](/quant/kelly-sizing) 已写出连续极限 $f\approx\mu/\sigma^2$ 与分数化。缺口是 **Merton 公式的实现**：估计 $\mu,\sigma$、对冲需求（对随机机会集）、以及为什么机构几乎从不下满公式仓。后课动态规划把离散再平衡写进同一问题。
+[上一课](/quant/vol-targeting)把缩放日的母单执行收在参与率与同向抛压上。本课打开组合进阶：主干 [Markowitz](/quant/markowitz) 是单期二次，[Kelly](/quant/kelly-sizing) 已写出连续极限 $f\approx\mu/\sigma^2$ 与分数化。缺口是 **Merton 公式的实现**：估计 $\mu,\sigma$、对冲需求（对随机机会集）、以及为什么机构几乎从不下满公式仓。后课动态规划把离散再平衡写进同一问题。
 
 ## 问题
 

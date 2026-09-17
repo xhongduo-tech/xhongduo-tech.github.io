@@ -11,7 +11,7 @@ section: quant
     <footer>—— Bailey, Borwein, López de Prado and Zhu, The Probability of Backtest Overfitting, Journal of Computational Finance, 2017</footer>
 </div>
 
-在同一段历史上试验足够多的止损、窗口、过滤与杠杆之后，总会出现一条夏普好看的回测。Bailey、Borwein、López de Prado 与 Zhu（2017）把这种现象收成一个概率：回测过拟合概率（Probability of Backtest Overfitting, PBO）。它不问「最优配置的夏普是否显著大于零」，而问「被选中的那一个，在没见过的样本上是否还能赢过候选集合的中位数」。与把过拟合当作一类风险的定性讨论相比，PBO 是可计算的频率；与 [紧缩夏普](/quant/deflated-sharpe) 相比，它用的是相对排名而不是被放气的点估计。估计工具是组合对称交叉验证（CSCV），[CPCV](/quant/cpcv) 在同一骨架上加上清洗与禁运。本篇写定义、估计与误用，不把 PBO 当成可优化的目标函数。
+[上一课](/quant/index-rebalance-arb)的信号必须当时可知；回测里试过多少次，同样要交代。在同一段历史上试验足够多的止损、窗口、过滤与杠杆之后，总会出现一条夏普好看的回测。Bailey、Borwein、López de Prado 与 Zhu（2017）把这种现象收成一个概率：回测过拟合概率（Probability of Backtest Overfitting, PBO）。它不问「最优配置的夏普是否显著大于零」，而问「被选中的那一个，在没见过的样本上是否还能赢过候选集合的中位数」。与把过拟合当作一类风险的定性讨论相比，PBO 是可计算的频率；与 [紧缩夏普](/quant/deflated-sharpe) 相比，它用的是相对排名而不是被放气的点估计。估计工具是组合对称交叉验证（CSCV），[CPCV](/quant/cpcv) 在同一骨架上加上清洗与禁运。本篇写定义、估计与误用，不把 PBO 当成可优化的目标函数。
 
 ## 问题
 
@@ -55,7 +55,7 @@ Bailey 等人还建议报告 logit 变换与样本内—样本外绩效的相关
 
 一个完整的实验设计可以是：用 PBO/CSCV 看搜索是否过拟合；用 DSR 给最终那一个夏普放气；用 [嵌套交叉验证](/quant/nested-cv) 或因果 [滚动](/quant/walk-forward) 给出可叙述的样本外曲线；用 [Hansen SPA](/quant/hansen-spa) 或 Reality Check 检验是否优于明确的基准。四者回答不同问题。只用滚动，你不知道换切分会怎样；只用 DSR，你不知道相对排名；只用 PBO，你没有一张可审计的「从某年做到某年」的权益曲线。把 PBO 当唯一闸门，会放过「相对中位还行、但全体都没有经济边缘」的候选簇。
 
-## 边界与工程取舍
+## 边界
 
 块太短，切断依赖、路径看似很多但信息重复；块太长，组合数不够，频率估计吵。$S$ 应预先声明并做敏感性，而不是挑让 PBO 最低的 $S$。绩效指标必须与实盘一致：用毛夏普算出来的低 PBO，在扣费后可能翻转，因为高换手配置在样本内更容易靠忽略成本取胜。
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Hansen, A Test for Superior Predictive Ability, Journal of Business &amp; Economic Statistics, 2005</footer>
 </div>
 
-White 的 Reality Check 问「最好的规则是否优于基准」，但把许多期望为负、噪声很大的差规则留在集合里时，最大值的自举分布被这些差规则撑宽，检验变得过于保守——有技能也拒绝不了。Hansen（2005）的 Superior Predictive Ability（SPA）检验针对同一原假设
+[上一课](/quant/white-reality-check)收在差规则稀释功效的警告上，SPA 正是冲着它来的。White 的 Reality Check 问「最好的规则是否优于基准」，但把许多期望为负、噪声很大的差规则留在集合里时，最大值的自举分布被这些差规则撑宽，检验变得过于保守——有技能也拒绝不了。Hansen（2005）的 Superior Predictive Ability（SPA）检验针对同一原假设
 
 $$
 H_0:\ \mu_k\le 0\quad\text{对所有 }k,
@@ -59,7 +59,7 @@ $\hat\omega_k$ 须与 $d_{k,t}$ 的依赖结构一致，通常用 HAC 或与平�
 
 SPA / Reality Check：相对明确基准的存在性检验。PBO：搜索冠军的相对中位可迁移性。DSR：对已选夏普的解析放气。Harvey–Liu–Zhu：因子发现的多重 $t$。一个策略研究室的协议可以是：候选矩阵先扣费，再 SPA 相对买入持有或相对已部署基准；对通过存在性的搜索，报 PBO 与 DSR；因子论文另走 HLZ / FDR。用 SPA 替代 PBO 会漏掉「全体都赢基准但选择无相对价值」；用 PBO 替代 SPA 会漏掉「相对中位还行但全体没有经济边缘」。
 
-## 边界与工程取舍
+## 边界
 
 SPA 仍是对历史期望 $\mu_k$ 的检验，非平稳时 $\mu$ 不是未来边缘。块自举假设弱依赖而非突变；体制切换应分段报告，而不是把两段过程混成一个更「有功效」的长样本。学生化方差在很短样本上本身很吵，极端肥尾下正态极值近似差，可辅以子抽样。
 

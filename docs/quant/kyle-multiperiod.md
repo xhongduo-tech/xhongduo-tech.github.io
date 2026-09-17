@@ -11,7 +11,7 @@ section: quant
 <footer>—— Kyle, Continuous Auctions and Insider Trading, Econometrica, 1985</footer>
 </div>
 
-[债券趋势](/quant/bond-trend)把信号写在过去超额的符号上，价格被当成已经形成的输入。主干里[单期 Kyle](/quant/kyle-model)已经给出一次批量出清的线性均衡，[Glosten-Milgrom](/quant/glosten-milgrom)给出单位方向上的序贯学习，[限价簿](/quant/lob-structure)与[订单类型](/quant/order-types)给出电子盘的状态机。本课不重推单期 $\lambda=\sigma_V/(2\sigma_u)$。缺口是：同一知情者若可以交易多次，他会不会第一拍就把信息砸完？连续拍卖极限里，深度与揭示路径如何随时间走。
+[上一课](/quant/crypto-mark-price)把「价格该怎么记」收在标记价格与清算规则上。[债券趋势](/quant/bond-trend)把信号写在过去超额的符号上，价格被当成已经形成的输入。主干里[单期 Kyle](/quant/kyle-model)已经给出一次批量出清的线性均衡，[Glosten-Milgrom](/quant/glosten-milgrom)给出单位方向上的序贯学习，[限价簿](/quant/lob-structure)与[订单类型](/quant/order-types)给出电子盘的状态机。本课不重推单期 $\lambda=\sigma_V/(2\sigma_u)$。缺口是：同一知情者若可以交易多次，他会不会第一拍就把信息砸完？连续拍卖极限里，深度与揭示路径如何随时间走。
 
 ## 问题
 

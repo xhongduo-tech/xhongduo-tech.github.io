@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006；Gatheral and Jacquier, Arbitrage-free SVI volatility surfaces, Quantitative Finance, 2014</footer>
 </div>
 
-[上一课](/quant/overnight-gap-hedge)把隔夜写成强制离散步，日内加密对冲不能消灭跳空 Gamma；收盘政策应限制 $|\Gamma|$ 并处理 Vanna。那是时间上的对冲节奏，不是切片几何。[隐含波动率曲面](/quant/vol-surface) 需要一种比逐点样条更省参数、比完整随机波动更贴近报价的语言。缺口是 SVI：把总方差 $w(k)$ 写成双曲线型，两端渐近线性；SSVI 用 ATM 总方差做期限骨架，使日历套利可被充分条件排除。SVI 是静态参数化，不是 [Heston](/quant/heston) 的五个动力学参数。本课写公式、约束与插值层的分工。
+[上一课](/quant/butterfly-calendar-arb)把蝶式与日历写成可扫描的静态约束，发现违例应回写插值或参数化，而不是先改希腊字母。那是检验层，不是切片参数化。[隐含波动率曲面](/quant/vol-surface) 需要一种比逐点样条更省参数、比完整随机波动更贴近报价的语言。缺口是 SVI：把总方差 $w(k)$ 写成双曲线型，两端渐近线性；SSVI 用 ATM 总方差做期限骨架，使日历套利可被充分条件排除。SVI 是静态参数化，不是 [Heston](/quant/heston) 的五个动力学参数。本课写公式、约束与插值层的分工。
 
 ## 问题
 
@@ -74,7 +74,7 @@ flowchart TD
   Pub --> Dyn["另用 Heston / SABR / SLV 做动态"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 SVI 假设欧式、单一标的、Black 坐标。美式溢价、离散股息、外汇 Delta 转换错误，都会变成假偏斜。短到期若由跳跃主导，双曲线可能仍拟合，但参数失去「随机波动启发」的解释，只是形状。SSVI 的充分条件不是必要条件：市场可以无日历套利却落在 SSVI 族外；强行投影会留下残差。
 

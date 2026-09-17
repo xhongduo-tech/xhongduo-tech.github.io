@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照掩模干法刻蚀、侧壁角与 mask 3D 的公开讨论</footer>
 </div>
 
-[上一课](/litho/chrome-mosi-films)选定铬或 MoSi（及对照 EUV 吸收体）。缺口是图形如何从胶转到膜：横向偏置、微沟槽、侧壁角。本课钉掩模刻蚀与侧壁。胶的显影与版清洗，留给[下一课](/litho/mask-develop-clean）。
+[上一课](/litho/chrome-mosi-films)选定铬或 MoSi（及对照 EUV 吸收体）。缺口是图形如何从胶转到膜：横向偏置、微沟槽、侧壁角。本课钉掩模刻蚀与侧壁。胶的显影与版清洗，留给[下一课](/litho/mask-develop-clean)。
 
 ## 问题
 

@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 Denning 的信息流；Schwartz, Avgerinos and Brumley 对污点的 SoK；Soot/CodeQL 一类工程</footer>
 </div>
 
-## 定位
-
 上一课[KLEE](/cs/symbolic-execution)沿路径跑。缺口是**不执行也能问流**：源→汇。本课收污点与静态告警的合同，不把 CodeQL 查询写成对外部目标的作战。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 净化器撒谎
 
 黑名单替换不是净化。污点会信你标注的 sanitizer。
-
 
 <span class="marginnote">Denning；BitBlaze/TaintCheck 一类动态污点点名。本课禁止扫描他人站点。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   SAN["真净化"] --> CUT["切断污点"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 发现要可编码成规则。下一课 ASan/UBSan/MSan 把一类空间/未定义错误变成确定失败。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

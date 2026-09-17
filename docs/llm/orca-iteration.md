@@ -57,7 +57,7 @@ flowchart TD
 
 选择性批处理依赖「大部分 FLOPs 在按 token 计的 GEMM、注意力是少数按序列的不规则算子」这一结构。若模型换成每步都是不规则稀疏核，分类可能反过来。Orca 把范围钉在 Transformer 生成服务，是为了让算子分类成立。RNN 生成也可以做迭代级调度，但不需要同一套注意力切分。标题里的 Transformer-Based Generative Models 是范围声明。
 
-## 边界与工程取舍
+## 边界
 
 Orca 不解决 KV 预留碎片：仍可按最大长度给连续缓冲，于是并发被碎片卡住——这正是 PagedAttention 要补的洞。它也不解决 prefill 与 decode 计算密度不同造成的互相干扰；混合批次可以在迭代级下发生，PD 分离是更后的策略。公平性、抢占、前缀共享在原文里不是一等公民。
 

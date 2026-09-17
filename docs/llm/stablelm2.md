@@ -67,7 +67,7 @@ rsqrt 段的机制是让学习率随步数缓慢下降而不预设终点，优�
 
 端侧吞吐与量化，报告给了 1.6B 的设备剖面；要本地助手先看 1.6B 指令档。12B 是单卡或双卡服务档，KV 靠 GQA 8 头，不要用 1.6B 的 32 头满 KV 去估 12B 显存。与 [SmolLM](/llm/smollm) 比，StableLM 2 更早摊开完整源表；SmolLM 更强调教育过滤与合成教材。与 [MobileLLM](/llm/mobilellm) 比，1.6B 不是为手机 SRAM 深度优先而设计，而是云侧可复现的 2B 以下点。
 
-## 边界与工程取舍
+## 边界
 
 12B 没有与 1.6B 等长的独立技术报告，架构与 token 量以模型卡为准，不要把 1.6B 的 24 层日程线性乘到 40 层。Community License 含使用与归因约束。Books3 被明确排除。z-loss 未进主实验，不能把别家的 logits 压制当成 StableLM 2 的默认实现。从 StableLM 3B 4e1t 等前代接 LoRA，层数与词表都不兼容。
 

@@ -91,7 +91,7 @@ ALFWorld 训练曲线上，成功率先升；检查点处 $|G^{S}(\tilde{\mathbf
 
 <span class="marginnote">GiGPO 的步级组是「事后对照」，不是 MCTS 里的前向分支。它不能比较从未在组内出现过的动作，也不能在确定性、永不重复的状态空间里变出微优势。开放网页若几乎没有共享 DOM 快照，应预期 $A^{S}$ 接近关闭，算法退回 GRPO。</span>
 
-## 边界与工程取舍
+## 边界
 
 主结果钉在 Qwen2.5-1.5B/3B/7B-Instruct、组大小 ALFWorld/WebShop 为 8、搜索 QA 为 5、最多 4 轮。1.5B 上 GiGPO（$F_{\mathrm{norm}}=1$）相对 GRPO：ALFWorld 成功率 +13.3 个百分点（72.8% → 86.1%），WebShop 成功率 +10.6 个百分点；7B 上分别为 +12.6 与 +9.1。搜索增强 QA 平均 3B 42.1%、7B 47.2%，对照 Search-R1、ZeroSearch、StepSearch。这些数字绑在该骨干与该环境，不是任意代理的保证。
 

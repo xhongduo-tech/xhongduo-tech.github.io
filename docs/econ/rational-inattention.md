@@ -52,4 +52,4 @@ flowchart TD
 - 理性疏忽：容量约束下的最优信号。
 - 可同时解释微观灵活与宏观惯性。
 - 与外生 $\lambda$、与学习、与认知偏差分列。
-- 出处：Sims, *JME* 2003；Maćkowiak and Wiederholt, *AER* 2009。
+- 出处：Sims, *JME* 2003；

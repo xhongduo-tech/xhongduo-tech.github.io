@@ -60,7 +60,7 @@ retention 与线性注意力同族：结合律来自把 $q^\top k$ 与 $v$ 换�
 
 分块的正确性依赖衰减在块边界的因式分解：$\gamma^{n-m}=\gamma^{n-n_0}\gamma^{n_0-m}$。写错块间尺度，块与块之间会出现缝，长序列损失会在块长整数倍处抖动。这是实现 bug 的高发区，不是理论缺陷。
 
-## 边界与工程取舍
+## 边界
 
 解码是主收益：常数 $S$ 对抗 KV。Prefill 很长时，并行/分块 retention 仍要做 $QK^\top\odot D$，带宽与 Flash softmax 竞争，未必更快。精确针测、需要 softmax 竞争的拷贝任务，retention 通常弱一档；产品路径上可混少数注意力层，但那就不是纯 RetNet。
 

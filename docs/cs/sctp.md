@@ -36,8 +36,6 @@ flowchart TD
   CK["INIT cookie"] --> ANTI["抗泛洪"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 拥塞仍 AIMD 族，BDP 同样适用。心跳是协议内，比 TCP keepalive 更一等。不走 TSO 惯例路径，卸载少。RTO 与无线误码同样痛。EVPN 等与 SCTP 无关。
@@ -50,7 +48,7 @@ flowchart TD
 
 防火墙只放 80/443 时 SCTP 出不去。
 
-上一课留下的缺口在本课收口；「SCTP 对照」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[QUIC 流与 0-RTT](/cs/quic-streams-0rtt)。
+下一课[QUIC 流与 0-RTT](/cs/quic-streams-0rtt)。
 
 ## 小结
 

@@ -37,8 +37,6 @@ flowchart TD
   CLAMP --> SMALL["连接钉在小段"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 快重传按段计；MSS 变，三个 dupACK 的字节数变。RoCE 用自己的 MTU，不借 MSS。QUIC 用 PMTUD/PLPMTUD 在 UDP 上。安全：钳制可被中间人用来降效，与 ICMP 缩小同类，需信任边缘。
@@ -51,7 +49,7 @@ flowchart TD
 
 把 MSS 钳到 536「为了兼容」会毁掉现代网。
 
-上一课留下的缺口在本课收口；「MSS 与钳制」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[TCP 状态机](/cs/tcp-state-machine)。
+下一课[TCP 状态机](/cs/tcp-state-machine)。
 
 ## 小结
 

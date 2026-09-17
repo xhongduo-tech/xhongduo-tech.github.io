@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">SimPO 不输出可当 RM 用的绝对分数。$r_\theta$ 依赖当前 $\pi_\theta$，不能拿去离线给别的模型做 Best-of-N，除非那个模型就是正在训的 $\pi$。需要独立打分器，仍要训 RM。</span>
 
-## 边界与工程取舍
+## 边界
 
 省参考前向，代码路径比 DPO 短，比 ORPO 还少一项 SFT 损失。代价：套话校准弱、高分低似然的好回答不友好、$\beta$ 与 $\gamma$ 耦合、与 tokenizer 绑定。离线若用未归一化对数和去挑 winner，会和训练目标打架。KTO 的不成对标签、ORPO 的单体 NLL、DPO 的 KL 语义，这篇都不提供。
 

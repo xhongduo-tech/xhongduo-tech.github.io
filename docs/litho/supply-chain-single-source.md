@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 EUV 工具链集中（ASML、Zeiss、源与激光供应链）的公开产业事实；出口见专门课</footer>
 </div>
 
-[上一课](/litho/moore-litho-view)把密度经济接到工具链。缺口是链上有多少家。本课钉供应链集中与单一来源。[EUV 出口管制](/litho/euv-export-control) 已谈规则；这里谈结构风险。胶的 PFAS 管制，留给[下一课](/litho/pfas-resist-regulation）。
+[上一课](/litho/moore-litho-view)把密度经济接到工具链。缺口是链上有多少家。本课钉供应链集中与单一来源。[EUV 出口管制](/litho/euv-export-control) 已谈规则；这里谈结构风险。胶的 PFAS 管制，留给[下一课](/litho/pfas-resist-regulation)。
 
 ## 问题
 

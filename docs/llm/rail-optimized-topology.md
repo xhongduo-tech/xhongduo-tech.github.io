@@ -47,7 +47,7 @@ flowchart TD
 
 <span class="marginnote">以太网 RoCE 与 InfiniBand 都能做轨优化脂肪树。差别在拥塞控制（后课），不在「可不可以编号对齐」。把厂商名词当成拓扑发明是错的；对齐是布线与编号纪律。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要为了轨优化把 TP 组拆到多节点同号 GPU 上——同号 GPU 之间是网卡 $\beta$，不是 NVLink。不要假设 All-to-All 自动受益。不要在超分严重的 Clos 上只靠轨优化：平面内部仍然可以过订阅。Dragonfly 等非 Clos 拓扑用另一套局部性，下一课对照，不要把 rail 概念硬套过去。
 

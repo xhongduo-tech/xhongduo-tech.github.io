@@ -60,7 +60,7 @@ flowchart LR
 
 通用 All-to-All 假设均匀、规则的分区。MoE 的目的地由路由动态决定，各专家 token 数不同，需要 permute + 变长缓冲 + 可能的 FP8 缩放因子同行。DeepEP 把门控下标当成一等输入。仍用 NCCL 当 RDMA 后端（V2 Gin）不等于「调用 `ncclAllToAll` 就等于 DeepEP」。
 
-## 边界与工程取舍
+## 边界
 
 DeepEP 绑定 Hopper 一类 SM90 PTX、较新的 CUDA/PyTorch/NCCL，以及机内 NVLink + 机间 RDMA。没有 NVLink 的 PCIe 八卡机不是 V3 报告里的域：这时应缩小 EP、把专家留在节点内，而不是指望同一套转发核在跨根复合物上跑出报告数字。V2 缓冲比 V1 大，解码卡上要把它算进 HBM 账，不能只看专家权重。0 SM 的 RDMA 低延迟 EP 在 V2 不再支持；实验性的 Engram、流水线与上下文并行原语也不要当成生产 EP 的默认开关。
 

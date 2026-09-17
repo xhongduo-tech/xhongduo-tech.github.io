@@ -11,7 +11,7 @@ section: quant
     <footer>—— Fama & MacBeth, Risk, Return, and Equilibrium: Empirical Tests, Journal of Political Economy, 1973</footer>
 </div>
 
-[上一课](/quant/crypto-mark-price)停在加密微观结构。缺口回到截面风险价格：Fama–MacBeth，而不是再写永续合约。资产定价要估的是风险价格 $\lambda$，不是某一只股票的 α。把 $T$ 期、$N$ 只资产堆成一次混合回归，残差在截面上同期相关，普通标准误会把精度说得太高。Eugene Fama 与 James MacBeth 1973 年的做法是把检验拆成两步：时间序列估 β，再对每一个 $t$ 做一次截面回归，最后对斜率取平均。它是 [CAPM](/quant/capm) 与多因子模型最常用的截面语言，也是后续 Shanken 修正、GMM、[Giglio–Xiu 三步法](/quant/giglio-xiu) 要修补的起点。本篇写步骤、标准误真正在防什么、以及生成回归量如何把 $\lambda$ 的精度说错。
+[上一课](/quant/regime-switching-premia)把体制溢价收在稳态加权与滤波概率的用途上：无条件溢价与某套择时的实现收益不是同一个数。缺口从条件与择时回到截面风险价格：Fama–MacBeth。资产定价要估的是风险价格 $\lambda$，不是某一只股票的 α。把 $T$ 期、$N$ 只资产堆成一次混合回归，残差在截面上同期相关，普通标准误会把精度说得太高。Eugene Fama 与 James MacBeth 1973 年的做法是把检验拆成两步：时间序列估 β，再对每一个 $t$ 做一次截面回归，最后对斜率取平均。它是 [CAPM](/quant/capm) 与多因子模型最常用的截面语言，也是后续 Shanken 修正、GMM、[Giglio–Xiu 三步法](/quant/giglio-xiu) 要修补的起点。本篇写步骤、标准误真正在防什么、以及生成回归量如何把 $\lambda$ 的精度说错。
 
 ## 问题
 
@@ -73,7 +73,7 @@ flowchart TD
 
 <span class="marginnote">左边用超额收益时，CAPM 的 $\lambda_0$ 应为零、$\lambda_m$ 应接近市场超额的均值。$\lambda_m$ 显著低于 $E[R_m]$ 是常见的「β 溢价过平」，不要用截距去「补」这块缺口还声称模型成立。</span>
 
-## 边界与工程取舍
+## 边界
 
 $N$ 小（只有几十个组合）时，每月截面的 $R^2$ 可以很高，但 λ 的时间序列仍然短，推断瓶颈在 $T$ 与持续性，不在截面拟合。$N$ 大到个股时，β 噪声导致斜率衰减，应用组合、工具变量或收缩。缺失值、退市、停牌会让每月样本成分变化，λ_t 不可比，需要固定投资域或用平衡面板。
 

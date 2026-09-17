@@ -57,7 +57,7 @@ GPipe：阶段 1 在最后一个微批前向结束前，一直握着微批 1 到
 
 数值：PP 不改变一层内部的求和顺序，比改 TP 度更接近比特可复现——前提是微批划分相同。微批大小改变会改 BatchNorm 一类统计（解码器预训练几乎不用 BN）以及 Dropout 噪声的粒度，损失曲线仍会漂。比较 GPipe 与 1F1B 的收敛，应固定 $M$ 与全局 batch。
 
-## 边界与工程取舍
+## 边界
 
 PP 不替代 TP：单层矩阵过大时，阶段内部仍要 TP。也不替代 DP：全局 batch 仍要靠 DP 或更大的 $M$ 来凑。$P$ 受层数整除约束；余下层要有明确归属。检查点按阶段存，扩缩 $P$ 需要重切层到卡的映射。
 
@@ -76,4 +76,4 @@ PipeDream 式真正异步在 LLM 预训练里少见，因为收敛噪声与复�
 - PipeDream 用异步 1F1B 减气泡，但引入权重版本；预训练多用同步的 1F1B / Flush。
 - 1F1B 稳定段交替前向与反向，激活内存约 $O(P)$；交错虚阶段进一步压气泡、加通信次数。
 - $P$ 与 TP、DP、重计算一起选；全局范数与检查点必须跨阶段定义清楚。
-- 出处：Huang 等，GPipe；Narayanan 等，PipeDream；Megatron 的 1F1B / interleaved 调度。
+- 出处：Huang 等，GPipe；Megatron 的 1F1B / interleaved 调度。

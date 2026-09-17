@@ -11,7 +11,7 @@ section: quant
 <footer>—— Dickey and Fuller, Distribution of the Estimators for Autoregressive Time Series with a Unit Root, Journal of the American Statistical Association 1979</footer>
 </div>
 
-价格、汇率、宏观总量经常看起来像随机游走：差分后才像平稳。Dickey 与 Fuller（1979）给出单位根下最小二乘估计量的非标准极限，并构造了检验 $\rho=1$ 的统计量。Engle 与 Granger（1987）接着指出：若干个各自有单位根的序列，线性组合却可以平稳——这就是协整。本篇是预备：弄清 I(1) 与 I(0)、伪回归、以及协整作为「长期均衡残差」的对象。它为 [宏观状态变量](/quant/macro-state-variables) 里的 $cay$、配对交易的价差、以及「能不能对价格做 AR」提供语言，并不展开 Johansen 的全部向量系统。
+[上一课](/quant/arma)把过差分与单位根附近的偏倚留给专门的检验；这里补上。价格、汇率、宏观总量经常看起来像随机游走：差分后才像平稳。Dickey 与 Fuller（1979）给出单位根下最小二乘估计量的非标准极限，并构造了检验 $\rho=1$ 的统计量。Engle 与 Granger（1987）接着指出：若干个各自有单位根的序列，线性组合却可以平稳——这就是协整。本篇是预备：弄清 I(1) 与 I(0)、伪回归、以及协整作为「长期均衡残差」的对象。它为 [宏观状态变量](/quant/macro-state-variables) 里的 $cay$、配对交易的价差、以及「能不能对价格做 AR」提供语言，并不展开 Johansen 的全部向量系统。
 
 ## 问题
 
@@ -49,7 +49,7 @@ Perron 指出，一次水平或趋势断裂会使 DF 偏向不拒绝单位根。
 
 Hamilton 的体制切换可以在平稳体制里产生很长的「看起来像游走」片段。持久 AR 与单位根在短样本几乎不可分。实务选择往往不是哲学，而是用途：做预测区间与误差修正，用协整/VECM；做波动与收益，用差分后的平稳模型；做叙事性「均值回复策略」，必须把半衰期、成本与结构突变写进拒绝域，而不能只扔一个 5% 的 ADF。
 
-## 边界与工程取舍
+## 边界
 
 单位根检验不是数据清洗的替代。拆股、分红、指数调整会造成水平跳跃，ADF 会把它读成永久冲击或断裂。多元时，Engle–Granger 只能找一个协整向量，且依赖谁当左边；系统方法（Johansen）能测秩，但预备阶段先保证单序列阶数一致、样本期没有把两段制度拼在一起。
 

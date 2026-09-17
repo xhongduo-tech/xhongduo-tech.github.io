@@ -49,7 +49,7 @@ Ray placement group 上的 ResourcePool 允许 actor 与 rollout 分时复用同
 
 与 Pathways 一类「单控制器调度多计算图」的系统同族：宏观一张图，微观各节点自己并行。LLM RL 的特殊性在于节点本身已是 3D 并行的大模型，且训练/推理布局不同，所以需要专门的 HybridEngine，而不是通用 DAG 调度器。
 
-## 边界与工程取舍
+## 边界
 
 混合模型增加概念负担：使用者要同时理解 Ray 编排与 FSDP/Megatron/vLLM。调试时错误可能出在控制器逻辑，也可能出在后端内核，栈比单一训练脚本更深。3D 重分片依赖后端暴露的权重布局；新并行策略要接进 HybridEngine 才能吃到零冗余。异步 rollout、投机解码、MoE 专家并行，都是后续工程，不是 2025 年论文里已经证完的部分。
 

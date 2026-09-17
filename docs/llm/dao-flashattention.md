@@ -57,7 +57,7 @@ flowchart TD
 
 Linformer、Performer、BigBird 改函数类。FlashAttention 改实现。评测合同不同：前者必须报质量；后者质量应对齐基线，只报速度与显存才合法。原文相关工作把近似方法列为正交。不要在引用时写成「FlashAttention 击败了 Performer 的困惑度」——那不是同一比赛。
 
-## 边界与工程取舍
+## 边界
 
 ### 占用率、解码、分页不在 2022 合同里
 

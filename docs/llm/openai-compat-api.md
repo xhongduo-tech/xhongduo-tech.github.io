@@ -59,7 +59,7 @@ OpenAI 后来在同一路径上加了 `tools` / `tool_choice`。兼容引擎若�
 
 OpenAI 风格错误体一般是 `{"error": {"message": ..., "type": ..., "code": ...}}`。引擎用 FastAPI 默认 422 或 HTML 错误页时，官方 SDK 会解析失败，表现为「连不上」而不是「参数非法」。兼容工作有一半是把校验错误翻译成这层信封。字段还会漂移：`max_tokens` 与 `max_completion_tokens`、`functions` 与 `tools`。兼容层应声明自己对齐的文档日期，而不是声称追踪最新云 API。
 
-## 边界与工程取舍
+## 边界
 
 兼容协议不包含模型许可、内容安全、检索增强或代理循环。它也不规定 KV 如何分页、是否多 LoRA。那些是引擎与调度的事，见 [多 LoRA 服务](/llm/multi-lora-serving)。客户端 SDK 的默认超时、代理的缓冲（Nginx 默认可能攒满 SSE）会破坏流式语义，这是运维问题，协议文本写不清楚。
 

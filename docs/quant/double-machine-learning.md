@@ -11,7 +11,7 @@ section: quant
     <footer>—— Chernozhukov, Chetverikov, Demirer, Duflo, Hansen, Newey and Robins, Double/Debiased Machine Learning for Treatment and Structural Parameters, The Econometrics Journal, 2018</footer>
 </div>
 
-资产定价和事件研究经常要估一个低维对象：某个处理的平均效应、某个制度变量的结构系数、在灵活控制了一大堆特征之后「还剩多少」。普通做法是把处理 $D$ 和特征 $X$ 一起丢进正则回归或树，再读 $D$ 的系数。正则、早停和过拟合会把这一系数拉向零或拉向噪声，常规标准误也不再成立。Chernozhukov 等人把半参数计量里的 Neyman 正交与样本分割写成一套可操作的双重机器学习（Double/Debiased Machine Learning, DML）：先用任意好的机器学习估讨厌函数，再在正交得分上对目标参数做低维估计。它回答的是识别与推断，不是又一条截面 alpha。与 [Fama–MacBeth](/quant/fama-macbeth) 的风险溢价、[正则线性](/quant/regularized-linear-alpha) 的预测系数，对象不同。
+[频域模型](/quant/frequency-domain-models) 收在预注册频带的因果滤波；本篇从预测转向识别。资产定价和事件研究经常要估一个低维对象：某个处理的平均效应、某个制度变量的结构系数、在灵活控制了一大堆特征之后「还剩多少」。普通做法是把处理 $D$ 和特征 $X$ 一起丢进正则回归或树，再读 $D$ 的系数。正则、早停和过拟合会把这一系数拉向零或拉向噪声，常规标准误也不再成立。Chernozhukov 等人把半参数计量里的 Neyman 正交与样本分割写成一套可操作的双重机器学习（Double/Debiased Machine Learning, DML）：先用任意好的机器学习估讨厌函数，再在正交得分上对目标参数做低维估计。它回答的是识别与推断，不是又一条截面 alpha。与 [Fama–MacBeth](/quant/fama-macbeth) 的风险溢价、[正则线性](/quant/regularized-linear-alpha) 的预测系数，对象不同。
 
 ## 问题
 
@@ -59,7 +59,7 @@ Neyman 正交要求得分 $\psi$ 在讨厌参数的真值处，对讨厌参数�
 
 重叠失败时倾向接近 0 或 1，正交得分方差爆炸。金融处理（成为某个指数成份、进入融资标的）往往高度可由市值与行业预测，正是重叠最差的区域。应报告倾向分布，而不是只报告一个 $\hat\theta$。
 
-## 边界与工程取舍
+## 边界
 
 DML 不赦免前视。控制变量必须是决策或处理发生时的 [点-in-time](/quant/point-in-time) 版本；用全样本主成分当 $X$，讨厌函数本身已经前视，正交无法补救。标签若是重叠的未来收益，得分的时间相关必须进入推断，简单的「正交所以 $t$ 值可当 $z$」是错的。
 

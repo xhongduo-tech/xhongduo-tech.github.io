@@ -11,7 +11,7 @@ section: llm
 <footer>—— Pope et al., Efficiently Scaling Transformer Inference, 2022；头数因子见 Ainslie et al., GQA, 2023</footer>
 </div>
 
-[上一课](/llm/multi-sample-aggregation)把多样本投票写成测试时计算：$N$ 条 decode 的 KV 近线性涨。本课打开「推理系统进阶」：先算清楚一份缓存有多大，再谈屋顶线与美元。公式在 [Decode 显存墙](/llm/decode-memory-wall) 已出现过一回，这里把它收成可代入的会计，不重推注意力。后课用算术强度解释为什么同样的字节在 decode 上是墙；本课只问「放得下多少」。布局是 [BSHD / HND](/llm/kv-layout)，不改变字节计数，只改变能不能合并加载。
+[上一课](/llm/serving-tokenizer-cost)把推理系统课序收在 tokenizer 的服务开销：encode 挡在 GPU 之前，长提示的 CPU 分词可以主导 TTFT。本课打开「性能会计与编译」：先算清楚一份缓存有多大，再谈屋顶线与美元。公式在 [Decode 显存墙](/llm/decode-memory-wall) 已出现过一回，这里把它收成可代入的会计，不重推注意力。后课用算术强度解释为什么同样的字节在 decode 上是墙；本课只问「放得下多少」。布局是 [BSHD / HND](/llm/kv-layout)，不改变字节计数，只改变能不能合并加载。
 
 ## 问题
 
@@ -47,7 +47,7 @@ flowchart TD
 
 [FlashAttention](/llm/flashattention) 不存 $n\times n$ 的 $A$，不改变 KV 缓存大小：缓存的是 $K,V$（或潜向量），不是注意力矩阵。混淆「FA 省显存」与「KV 变小」会把训练激活与推理缓存加错账。
 
-## 边界与工程取舍
+## 边界
 
 不要用训练时的激活检查点数字估推理 KV。不要把「最大上下文 128K」写成每条请求都按 128K 预留——那是分页要消灭的做法；但峰值并发仍要按分位数留余量。MoE 不改变注意力 KV 公式（专家在 FFN）；别把专家参数算进 KV。后课把同一份字节放进屋顶线。
 

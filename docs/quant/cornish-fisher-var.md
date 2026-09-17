@@ -11,7 +11,7 @@ section: quant
 <footer>—— Cornish and Fisher, Moments and Cumulants in the Specification of Distributions, Review of the International Statistical Institute, 1937；风险应用见 Zangari, RiskMetrics Monitor, 1996</footer>
 </div>
 
-[上一课](/quant/pit-alignment)收束回测信息集。缺口是损失分位数在非正态下的闭式修正。[参数 VaR](/quant/var-methods) 在椭圆且线性的账簿上把分位数写成 $\mu+\sigma\Phi^{-1}(\alpha)$。真实损失常左偏、峰度高于 3：下跌日比对称正态更肥。完全放弃参数法、改历史模拟或蒙特卡洛，要付窗口噪声或模型风险；仍想闭式、只多两个矩时，Cornish–Fisher 展开把正态分位数 $z_\alpha$ 换成按偏度、峰度校正后的 $\omega_\alpha$。Zangari（1996）把它写进 RiskMetrics 的修正 VaR；Favre 与 Galeano（2002）用修正分位数做对冲基金组合。本篇写展开式、适用区间，以及它相对 [ES](/quant/expected-shortfall) 与 [EVT](/quant/evt) 只是中间一层近似——不是厚尾的极限定理。
+[上一课](/quant/stress-reverse-stress)把极端损失收成到达 $L$ 的情景路径。缺口是损失分位数在非正态下的闭式修正。[参数 VaR](/quant/var-methods) 在椭圆且线性的账簿上把分位数写成 $\mu+\sigma\Phi^{-1}(\alpha)$。真实损失常左偏、峰度高于 3：下跌日比对称正态更肥。完全放弃参数法、改历史模拟或蒙特卡洛，要付窗口噪声或模型风险；仍想闭式、只多两个矩时，Cornish–Fisher 展开把正态分位数 $z_\alpha$ 换成按偏度、峰度校正后的 $\omega_\alpha$。Zangari（1996）把它写进 RiskMetrics 的修正 VaR；Favre 与 Galeano（2002）用修正分位数做对冲基金组合。本篇写展开式、适用区间，以及它相对 [ES](/quant/expected-shortfall) 与 [EVT](/quant/evt) 只是中间一层近似——不是厚尾的极限定理。
 
 ## 问题
 
@@ -59,7 +59,7 @@ $\gamma_1=\gamma_2=0$ 时退回正态。$\gamma_1\gt 0$ 且 $z\gt 1$ 时第一�
 
 单工具的四矩不能线性加总。组合的 $\gamma_1,\gamma_2$ 依赖联合分布的三阶、四阶交叉矩，维数爆炸。实务两条路：直接在组合损失序列上估四个矩（放弃归因）；或假设联合正态、只在组合 P&amp;L 上做 CF（交叉矩由正态决定，偏度来自非线性定价而非因子偏度）。期权账簿的偏度主要来自 Gamma，用线性映射的因子矩再 CF，会漏掉凸性；应对组合重定价后的损失做矩估计，或改 MC。
 
-## 边界与工程取舍
+## 边界
 
 Cornish–Fisher 是带宽很少的参数补丁：快、可解释、对中等非正态有用。它不是监管意义上的内部模型证明，也不是对 99.9% 的外推。Jorion 把修正 VaR 放在参数法章节的延伸，而不是与历史法、MC 并列的第三种定义。回测仍用 Kupiec / Christoffersen：CF 若在危机连续违反，说明矩窗口过旧或展开不够，不要再加五阶项去「修通过率」。
 

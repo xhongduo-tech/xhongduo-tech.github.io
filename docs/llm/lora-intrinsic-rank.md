@@ -48,7 +48,7 @@ Biderman 等人的「学得少、忘得少」是同一几何的两面：走不�
 
 <span class="marginnote">MoE 上每专家一个切空间，全局 $r$ 不是全局 $d_{\mathrm{int}}$。应按专家看 SVD。</span>
 
-## 边界与工程取舍
+## 边界
 
 内在维测量昂贵，生产上用 $r$ 扫描代替。扫描必须稳住缩放与 $\eta$，否则不是测 $d_{\mathrm{int}}$。随机子空间方法依赖各向同性假设，Transformer 里各层宽度不同，数字只能比同一架构。不要把某篇 GLUE 上 $d_{\mathrm{int}}\approx 200$ 抄到 70B 工具调用上。
 

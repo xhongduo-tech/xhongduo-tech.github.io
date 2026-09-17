@@ -56,7 +56,7 @@ BPE 只在预切分块内部合并。正则若把字母与紧跟的标点切开�
 
 3–6 倍来自 Rust、少分配、预编译正则与避免 Python 循环，不是来自近似算法。任何「更快但不保证 id 一致」的分词器都不能替换 tiktoken 去对 OpenAI 模型。本地开源模型若宣称兼容 GPT-4 tokenizer，应以 tiktoken 的 id 序列为金标准做差分，而不是只比词表大小。FIM 特殊符、`<|endofprompt|>` 是否允许进入普通 `encode`，会改变补全与对话的边界；默认拒绝特殊符、显式允许白名单，是安全默认。
 
-## 边界与工程取舍
+## 边界
 
 tiktoken 不训练、不解决词表污染、不自动升级。新语言或领域要降 token/字节，只能换一张表并重训模型。decode 在错误 id 或截断字节上的行为必须当成 API 契约测试。多进程各自加载大 rank 表会涨 RSS，应共享内存或在 router 进程集中分词（TGI 把 tokenizer 放在 router 一侧就是这个原因）。教育模块与生产 Encoding 混用会把慢路径带进热路径。开源复现 GPT 时，若无法获得完全相同的 `mergeable_ranks`，就不要声称 token 级兼容。
 

@@ -54,7 +54,7 @@ MME 的 FP8 片上缩放对应 NVIDIA TE 里「scale 是 GEMM 元数据」那一
 
 <span class="marginnote">Gaudi 软件套件含 TPC SDK，可写自定义核。没有对应融合时，常见失败是某层在 CPU 上跑、HBM 利用率看起来很低。Profiler 应先问：子图是否全部在设备、HCCL 走的是集成 NIC 还是主机 NIC。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 以太网统一扩展的适用边界
 

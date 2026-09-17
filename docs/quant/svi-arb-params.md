@@ -11,7 +11,7 @@ section: quant
     <footer>—— Gatheral, The Volatility Surface, Wiley, 2006；Gatheral and Jacquier, Arbitrage-free SVI volatility surfaces, Quantitative Finance, 2014</footer>
 </div>
 
-[SVI / SSVI](/quant/svi-ssvi) 写的是切片几何与动态模型的分工。[Gatheral 无套利曲面](/quant/gatheral-arb-free) 写的是总方差 $w(k,T)$ 上的微分不等式。本篇把二者接到**参数层**：原始 SVI 何时给出合法切片，Jump-Wings 坐标如何把约束写成交易员能盯的量，以及校准器应把哪些不等式当成可行域而不是当成事后扫描。Jim Gatheral 的 raw SVI 是
+[上一课](/quant/sabr-wing-extrap)在切点改接 SVI 翼；本篇把「接得合法」写成对参数的不等式。[SVI / SSVI](/quant/svi-ssvi) 写的是切片几何与动态模型的分工。[Gatheral 无套利曲面](/quant/gatheral-arb-free) 写的是总方差 $w(k,T)$ 上的微分不等式。本篇把二者接到**参数层**：原始 SVI 何时给出合法切片，Jump-Wings 坐标如何把约束写成交易员能盯的量，以及校准器应把哪些不等式当成可行域而不是当成事后扫描。Jim Gatheral 的 raw SVI 是
 
 $$
 w(k)=a+b\bigl(\rho(k-m)+\sqrt{(k-m)^2+\sigma^2}\bigr),
@@ -82,7 +82,7 @@ $a$ 平移、$m$ 平移中心、$\sigma$ 管 ATM 圆润，三者在允许集内�
 
 <span class="marginnote">把 SVI 残差再加一层局部波动去贴点，若残差层不在凸锥内，静态套利从残差回来。残差必须作为对允许集的扰动来构造，或接受系统残差。这与 [Dupire 校准](/quant/dupire-calib) 的顺序一致：先合法 $w$，再谈局部方差。</span>
 
-## 边界与工程取舍
+## 边界
 
 单切片无套利不包含日历，也不包含动态。明日微笑如何搬，SVI 不回答。美式溢价、离散股息、错误的远期，都会变成假 $w$，允许集无法修正脏输入。充分条件可能过紧：短端合法的市场形状被投影后留下残差，应记模型风险。Gatheral（2006）给出实践框架；2014 年与 Jacquier 的论文把无套利写成可引用的充分条件，并以 SSVI 处理跨期。实施时以 2014 年的约束陈述为准，不要把 2006 年书中的示例参数当成今日允许集。
 

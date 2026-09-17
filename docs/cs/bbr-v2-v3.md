@@ -36,8 +36,6 @@ flowchart TD
   SIG["丢/ECN"] --> V2["v2 更听信号"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 QUIC 与 Linux TCP 都有实现。多路径下每条路径一套估计。AQM 浅队列让 minRTT 更真。P4 不实现 BBR，BBR 在端。RoCE 用 DCQCN 不是 BBR。
@@ -50,7 +48,7 @@ QUIC 与 Linux TCP 都有实现。多路径下每条路径一套估计。AQM 浅
 
 与不可 ECN 的公网 CUBIC 混跑，结果仍依赖缓冲。
 
-上一课留下的缺口在本课收口；「BBRv2 / v3」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[延迟型拥塞 Vegas / Swift](/cs/delay-based-cc)。
+下一课[延迟型拥塞 Vegas / Swift](/cs/delay-based-cc)。
 
 ## 小结
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照掩模光学检验 D2D / D2DB 的产线通称</footer>
 </div>
 
-[上一课](/litho/mask-develop-clean)交出清洗后的版。缺口是缺陷要被检出：亮场/暗场光学、与谁比。本课钉 die-to-die（D2D）与 die-to-database（D2DB）。检出之后怎么修，留给[下一课](/litho/mask-repair-ebeam）。
+[上一课](/litho/mask-develop-clean)交出清洗后的版。缺口是缺陷要被检出：亮场/暗场光学、与谁比。本课钉 die-to-die（D2D）与 die-to-database（D2DB）。检出之后怎么修，留给[下一课](/litho/mask-repair-ebeam)。
 
 ## 问题
 

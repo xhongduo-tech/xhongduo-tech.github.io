@@ -54,7 +54,7 @@ Production Benchmarks 上多数 disallowed 类与 5.4-thinking 同档；hate 项
 
 OpenAI 7 月文：GPT-5.6 三档，数字表示代际，Sol/Terra/Luna 是可独立迭代的能力档。价目当时为 Sol $5/$30、Terra $2.50/$15、Luna $1/$6（之后有过 Luna/Terra 降价与 Sol 限时折扣，以当时定价页为准）。API 模型页写三档均约 **1.05M** 上下文、**128k** 最大输出、知识截止 **2026-02-16**；effort 可到 `max`。预览博文写 Terra 对标 GPT-5.5、约一半价。因此：若有人说「GPT-5.5 Sol」，与官方命名不一致；应写作 GPT-5.5 或 GPT-5.6 Sol。本篇不把 5.6 的 Agents’ Last Exam 等数字算进 5.5。5.6 介绍文还写 `ultra` 为协调多代理并行工作流的最高能力设置，那是 5.6 Sol 的产品开关，5.5 博文没有对等物；不要把 ultra 填进 5.5 的 effort 列表。5.5 API 公开的是 verbosity 类接口之前已有的 reasoning effort（含 xhigh），以 4 月模型页与博文为准。
 
-## 边界与工程取舍
+## 边界
 
 ### 评测环境与生产入口
 

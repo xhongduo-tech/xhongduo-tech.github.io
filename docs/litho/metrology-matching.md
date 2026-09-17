@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照计量机匹配 / correlation；SEMI 对量测相关与工具匹配的通称</footer>
 </div>
 
-[上一课](/litho/lot-disposition-rework)用计量做放行。缺口是：放行与 APC 若混用未匹配的机台，限会跳、控制器会振荡。[机台匹配](/litho/tool-matching) 已谈扫描机指纹；本课钉**计量侧**匹配。边缘场与部分场为何特别难量、难补，留给[下一课](/litho/edge-field-partial）。
+[上一课](/litho/lot-disposition-rework)用计量做放行。缺口是：放行与 APC 若混用未匹配的机台，限会跳、控制器会振荡。[机台匹配](/litho/tool-matching) 已谈扫描机指纹；本课钉**计量侧**匹配。边缘场与部分场为何特别难量、难补，留给[下一课](/litho/edge-field-partial)。
 
 ## 问题
 

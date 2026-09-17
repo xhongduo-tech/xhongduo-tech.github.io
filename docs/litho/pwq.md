@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照工艺窗口鉴定（PWQ）产线通称；与 FEM / E–D 矩阵及缺陷检测的公开衔接</footer>
 </div>
 
-[上一课](/litho/pattern-matching)标出「长得像杀手」的 clips。缺口是实验：这些候选以及模型没见过的图形，在真实胶、真实扫描机上，窗口角是否先桥、先断、先掉孔。本课钉 PWQ（process window qualification）。全场模型签核的工具链，留给[下一课](/litho/lrc-orc）。
+[上一课](/litho/pattern-matching)标出「长得像杀手」的 clips。缺口是实验：这些候选以及模型没见过的图形，在真实胶、真实扫描机上，窗口角是否先桥、先断、先掉孔。本课钉 PWQ（process window qualification）。全场模型签核的工具链，留给[下一课](/litho/lrc-orc)。
 
 ## 问题
 

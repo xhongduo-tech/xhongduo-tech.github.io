@@ -11,7 +11,7 @@ section: econ
 <footer>—— Ricardo, On the Principles of Political Economy and Taxation, 1817</footer>
 </div>
 
-[上一课](/econ/limited-attention-pead)把有限注意力收到公告漂移。本课程换对象：为何交换、资本如何流。开放宏观主干已经有[经常账户](/econ/open-ca)与三角，但没有把**货物如何在两国间分工**写成理论。本课是贸易课序的第一课，后课默认已经读完：比较优势是机会成本，不是「谁更勤劳」。
+[上一课](/econ/multi-period-consumption-portfolio)把消费–组合收回到离散多期，信息、流动性与无套利课程就此收束：信息核、无套利核、摩擦核、组合核已经对齐。本课是「贸易与国际金融」的第一课，换对象：为何交换、资本如何流。开放宏观主干已经有[经常账户](/econ/open-ca)与三角，但没有把**货物如何在两国间分工**写成理论。后课默认已经读完：比较优势是机会成本，不是「谁更勤劳」。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Levinson 对设计规则与工艺能力的讨论；DTCO 把规则当作协同输出</footer>
 </div>
 
-[上一课](/litho/decomposition-coloring-conflict)把不可染色写成硬失败。缺口是回溯：手册里最小间隔、最小宽度、via 覆盖、密度窗，最初是哪一截物理不够用。[DTCO](/litho/dtco-patterning) 已说规则是协同输出；本课钉起源清单，供后课把面积、轨道、SRAM 读成规则的后果。最小面积与 tip-to-tip 的专项，留给[下一课](/litho/min-area-tip-to-tip）。
+[上一课](/litho/decomposition-coloring-conflict)把不可染色写成硬失败。缺口是回溯：手册里最小间隔、最小宽度、via 覆盖、密度窗，最初是哪一截物理不够用。[DTCO](/litho/dtco-patterning) 已说规则是协同输出；本课钉起源清单，供后课把面积、轨道、SRAM 读成规则的后果。最小面积与 tip-to-tip 的专项，留给[下一课](/litho/min-area-tip-to-tip)。
 
 ## 问题
 

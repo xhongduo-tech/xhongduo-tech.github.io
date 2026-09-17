@@ -11,7 +11,7 @@ section: quant
     <footer>—— Ledoit and Wolf, Honey, I Shrunk the Sample Covariance Matrix, Journal of Portfolio Management, 2004；公式见 2003 年 JEF 与 2004 年 JMA</footer>
 </div>
 
-[上一课](/quant/sovereign-cds)停在信用曲线。缺口是组合优化里协方差怎么估。[估计误差与收缩](/quant/cov-shrinkage) 写的是病态协方差如何毁掉 Markowitz 权重，以及收缩、因子、随机矩阵清理的分工。本篇把 Ledoit–Wolf（LW）估计器本身写具体：目标 $F$ 怎么选、最优强度 $\delta$ 从哪一组矩来、2003–2004 年三篇论文各自收缩向哪里，以及它与后来的非线性收缩、[因子协方差](/quant/factor-vs-sample-cov) 如何衔接。公式是
+[上一课](/quant/drawdown-calmar)把风险预算的回撤口径钉在时间与杠杆的尺度上。缺口是组合优化里协方差怎么估。[估计误差与收缩](/quant/cov-shrinkage) 写的是病态协方差如何毁掉 Markowitz 权重，以及收缩、因子、随机矩阵清理的分工。本篇把 Ledoit–Wolf（LW）估计器本身写具体：目标 $F$ 怎么选、最优强度 $\delta$ 从哪一组矩来、2003–2004 年三篇论文各自收缩向哪里，以及它与后来的非线性收缩、[因子协方差](/quant/factor-vs-sample-cov) 如何衔接。公式是
 
 $$
 \hat\Sigma=(1-\delta)S+\delta F,
@@ -57,7 +57,7 @@ Stein 效应：在高维，无偏的 $S$ 作为矩阵估计方差太大，引入
 
 滚动：在 $t$ 用过去 $T$ 日估 $\hat\Sigma_t$，做最小方差或风险平价，看 $t+1$ 的已实现方差、换手与约束违反。同一窗口里看 $w^\top S w$ 必然偏小。比较对象应包括：样本 $S$（可逆时）、对角、常数相关不收缩、单因子、供应商因子模型。LW 赢在「未加经济结构、只要可逆」的赛道；有可靠的 $X$ 载荷时，因子协方差常赢在可解释与压力叙事，见 [因子协方差 vs 样本](/quant/factor-vs-sample-cov)。
 
-## 边界与工程取舍
+## 边界
 
 不要对已经因子化且条件数良好的 $\Sigma$ 再做一次无结构大 $\delta$ 收缩。不要用全样本估 $\delta$ 再在同一样本上报告组合。不要把日度 $T$ 拉到分钟级还以为 $c=N/T$ 变小了——微观结构噪声会另造一层有偏的 $S$。厚尾与波动聚类下，$S$ 本身不是有效协方差，应先用稳健协方差或已实现核，再 LW。
 

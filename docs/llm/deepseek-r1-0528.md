@@ -60,7 +60,7 @@ flowchart TD
 
 一月蒸馏是「仅 SFT、不再 RL」，0528-Qwen3-8B 同样是把教师思维链写成数据。AIME 上 8B 追上 235B thinking，说明竞赛程序高度可模仿；GPQA 与 LiveCodeBench 上的缺口说明知识与工程环境不能单靠抄链补齐。服务上不要拿 8B 的 AIME 去替代教师的 SWE-Verified。词表与 Qwen3-8B 不完全相同，部署不能假设「随便换 Qwen3 模板」。
 
-## 边界与工程取舍
+## 边界
 
 0528 **没有**公开完整 RL 配方，不能写成「官方确认改用 DAPO / GSPO」。对照闭源 o3 / Gemini 2.5 Pro 是模型卡当时的定性句（approaching），分数以各家自己的协议为准。SWE-Verified 用 Agentless，HLE 只用文本题，Tau-Bench 用 GPT-4.1 扮用户——换框架数字会动。
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Adrian and Brunnermeier, CoVaR, American Economic Review, 2016；条件事件的 Copula 写法见 Girardi and Ergün, Journal of Banking &amp; Finance, 2013</footer>
 </div>
 
-Adrian 与 Brunnermeier 把条件风险价值（CoVaR）定义成：给定机构 $i$ 处于困境，系统 $j$ 的 VaR。$\Delta\mathrm{CoVaR}$ 再减去 $i$ 处于中位数时系统的 CoVaR，度量的是**增量系统贡献**，不是 $i$ 自己的尾巴。原文用分位回归，条件事件取 $X^i=\mathrm{VaR}^i$——在连续分布上是零测集，估计上依赖线性分位。Girardi 与 Ergün 把条件改成 $X^i\le\mathrm{VaR}^i$，并证明可用 Copula 从边缘分位函数解出 CoVaR。本篇写这一条估计路径，与 [Copula VaR](/quant/copula-var) 的分工是：后者是**自己组合**损失的无条件（或市场因子条件）分位数；前者是**别人坏了之后自己（或系统）**的条件分位数。不要把 CoVaR 写成「系统性的 ES」。
+[BN 跳跃检验](/quant/bn-jump-test)收在单日的跳；跨机构的尾依赖，本篇用 Copula 解 CoVaR。Adrian 与 Brunnermeier 把条件风险价值（CoVaR）定义成：给定机构 $i$ 处于困境，系统 $j$ 的 VaR。$\Delta\mathrm{CoVaR}$ 再减去 $i$ 处于中位数时系统的 CoVaR，度量的是**增量系统贡献**，不是 $i$ 自己的尾巴。原文用分位回归，条件事件取 $X^i=\mathrm{VaR}^i$——在连续分布上是零测集，估计上依赖线性分位。Girardi 与 Ergün 把条件改成 $X^i\le\mathrm{VaR}^i$，并证明可用 Copula 从边缘分位函数解出 CoVaR。本篇写这一条估计路径，与 [Copula VaR](/quant/copula-var) 的分工是：后者是**自己组合**损失的无条件（或市场因子条件）分位数；前者是**别人坏了之后自己（或系统）**的条件分位数。不要把 CoVaR 写成「系统性的 ES」。
 
 ## 问题
 
@@ -61,7 +61,7 @@ $\Delta\mathrm{CoVaR}$ 大，来自两件事相乘：机构与系统的尾依赖
 
 $\Delta\mathrm{CoVaR}$ 是同期条件分位，不是「$i$ 导致 $j$」。共同因子可以同时打到两家。要谈因果，需要工具变量、滞后结构或外生冲击，CoVaR 本身不提供。监管用途是排序与监测：谁在压力状态下与系统绑得更紧。把排序写成「系统重要性税基」之前，应做样本外稳定与定义敏感性（等号 vs 小于、高斯 vs $t$、权益 vs CDS）。
 
-## 边界与工程取舍
+## 边界
 
 高维机构网络上，两两 Copula 不保证联合相容；vine 或因子 Copula 才能生成一致的系统变量。系统若定义为等权指数，大行已经被算进 $j$，再对大行算 $\mathrm{CoVaR}^{j\mid i}$ 有机械相关，应使用 leave-one-out 系统。上市样本存活偏差：没上市或已倒闭的机构不在面板里，系统贡献被低估。
 

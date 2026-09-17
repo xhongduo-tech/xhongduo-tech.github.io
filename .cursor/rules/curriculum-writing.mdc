@@ -13,7 +13,7 @@ alwaysApply: true
 ## 写每一课
 
 - 「问题」写的是**上一课留下的缺口**，不是从该领域的第一性原理重讲。用链接点名先修（`[SDPA](/llm/sdpa)`），不要把先修的公式再推导一遍。
-- 第一课（如 `sdpa`、`lob-structure`、`preference-choice`、`em-wave-index`、`bit-as-distinction`）才允许从零铺垫；并写明后课默认已经读完本课。
+- 第一课（如 `sdpa`、`lob-structure`、`preference-choice`、`maxwell-to-wave`、`compile-link-entry`）才允许从零铺垫；并写明后课默认已经读完本课。
 - 后课需要用到的定义，在先修课一次讲清。后课只引用、只补差。
 - 结构仍是：题记 → 定位（上一课 / 本课缺口）→ 问题 → 方法 → 机制 → 边界 → 小结。Tufte：epigraph、`marginnote`、mermaid（节点标签加引号）、中文、真实文献。
 - 不要写成「一个技术点一篇独立综述」。

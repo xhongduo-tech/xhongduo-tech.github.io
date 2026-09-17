@@ -47,7 +47,7 @@ NCCL 还可以把一次调用切成若干 chunk，环与树同时跑在不同 ch
 
 <span class="marginnote">「Ring 一定更快」是错的。8 卡 NVLink 上几 MB 的梯度，环几乎总是对的；64 卡以太网、几十字节的控制同步，树或折中更对。看 `nccl-tests` 的 busbw–size 曲线，不要只看算法名字。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要在不对称拓扑上强行单环：PCIe 与 NVLink 混用的节点，环会周期性地掉到慢边上。不要把营销里的「NVLink 全互连」当成跨柜也成立——柜外仍是网卡，All-Reduce 必须层次化。In-network 归约（如某些 InfiniBand SHARP）是第三张图：交换机做加，树的中间计算不占用 GPU；有则用，没有则回到主机侧环/树，不要假设每一代交换机都会加。
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 隔夜与周末作为非交易间隔见 French, Journal of Financial Economics, 1980；离散复制误差见 Boyle and Emanuel, 1980</footer>
 </div>
 
-[日历效应与隔夜](/quant/calendar-overnight) 把收益拆成 close-to-open 与 open-to-close；期权账本还要把这一拆解写成对冲指令。日内可以把 [Delta 频率](/quant/delta-hedge-freq) 优化到五分钟，收盘铃一响，下一步再平衡最早也要到次日开盘（或夜盘）。跳空 $\Delta S$ 一次实现，空头 Gamma 的损失是 $\frac12\Gamma(\Delta S)^2$ 量级，中间没有切线可走。Black–Scholes 连续复制在这段区间不成立，与跳跃项同类，见 [离散对冲误差](/quant/discrete-hedge-error)。本篇写收盘前如何处置 Gamma、Vega 与交叉项，以及夜盘、周末、宏观发布如何改变「隔夜」的长度。
+[上一课](/quant/pin-risk)把到期日的钉住与 Charm 停在行权截止前。[日历效应与隔夜](/quant/calendar-overnight) 把收益拆成 close-to-open 与 open-to-close；期权账本还要把这一拆解写成对冲指令。日内可以把 [Delta 频率](/quant/delta-hedge-freq) 优化到五分钟，收盘铃一响，下一步再平衡最早也要到次日开盘（或夜盘）。跳空 $\Delta S$ 一次实现，空头 Gamma 的损失是 $\frac12\Gamma(\Delta S)^2$ 量级，中间没有切线可走。Black–Scholes 连续复制在这段区间不成立，与跳跃项同类，见 [离散对冲误差](/quant/discrete-hedge-error)。本篇写收盘前如何处置 Gamma、Vega 与交叉项，以及夜盘、周末、宏观发布如何改变「隔夜」的长度。
 
 ## 问题
 
@@ -66,7 +66,7 @@ flowchart TD
   Basis --> Open["开盘拍卖对齐"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 没有夜盘的标的，隔夜 Gamma 无法用标的微调和缓，只能用期权或承受。有夜盘但深度差时，夜盘对冲本身制造跳空。宏观日历与个股日历重叠时，指数对冲不能覆盖个股残差跳。涨跌停把开盘跳截断，Gamma 损失有上界，但补涨补跌把风险推到随后的交易日，限额应跨日。
 

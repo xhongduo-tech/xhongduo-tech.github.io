@@ -64,7 +64,7 @@ Workspace 是另一条隐蔽边界。Lt 与 cuDNN 都可能要额外缓冲做 sp
 
 TF32 在 Ampere 上默认可能启用，训练与推理的尾差会变。确定性算法（`CUBLAS_WORKSPACE_CONFIG`、cuDNN deterministic 开关）通常放弃最快计划。生产若要对齐数值，应显式关 TF32 或钉算法；若要峰值，应接受启发式与版本漂移。这不是库的缺陷，是「最快」与「可复现」在同一 API 上的两个点。
 
-## 边界与工程取舍
+## 边界
 
 不要用 cuDNN 卷积去实现本可以是 GEMM 的线性层——描述符更重，计划空间更噪。不要用 cuBLAS 拼注意力还宣称已经解决 HBM 上的 $n\times n$。不要把某次 `find` 在 A100 上选出的 ID 写进 H100 的启动参数。许可证上两套库随 CUDA toolkit / 驱动分发，版本要与驱动匹配；容器里「只升级框架不升级 libcudnn」是常见的静默回退来源。
 

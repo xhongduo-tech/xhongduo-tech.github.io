@@ -39,11 +39,11 @@ flowchart TD
 
 与[投机](/llm/speculative-decoding)的差别：投机的草稿分布 $q$ 明确进入似然比；Jacobi 的 $q$ 是上一轮点估计，没有逐步 $q(\tilde x_i)$ 就不好做 Leviathan residual。实践中贪心 Jacobi 用「是否等于目标 argmax」当接受，采样要另写规则。
 
-## 边界与工程取舍
+## 边界
 
 不要在生产聊天默认开朴素 Jacobi。有 Lookahead / Medusa / EAGLE 时，Jacobi 只是其中 Lookahead 的生成枝。与分页 KV 的接口：窗口位置的查询仍对应已提交长度之后的逻辑下标，页表要为未提交位置准备临时槽，提交失败则丢槽。投机与 Jacobi 不要无文档地叠两层窗口。
 
-出处：Santilli et al., ACL 2023；Fu et al., Lookahead Decoding, 2024。不发明 arXiv。
+出处：Santilli et al., ACL 2023；Fu et al., Lookahead Decoding, 2024。
 
 ## 小结
 

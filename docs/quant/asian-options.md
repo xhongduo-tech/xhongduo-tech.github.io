@@ -11,7 +11,7 @@ section: quant
 <footer>—— Kemna and Vorst, A Pricing Method for Options Based on Average Asset Values, Journal of Banking & Finance, 1990</footer>
 </div>
 
-[上一课](/quant/hf-forecast-loss)把高频预测的损失函数收在计量课序末尾。本课打开衍生品进阶：香草只看 $S_T$，奇异把路径统计量写进支付。缺口不是再推一遍 [BSM](/quant/bsm)，而是：**平均价格如何改写状态变量与复制。** 后课默认已经分清几何亚式的闭式与算术亚式的近似/模拟，以及连续平均对离散采样的差。
+[上一课](/quant/dispersion-trade)把相关溢价做成可交易腿，归因分开指数 RV、个股 RV 与实现相关。本课打开衍生品进阶：香草只看 $S_T$，奇异把路径统计量写进支付。缺口不是再推一遍 [BSM](/quant/bsm)，而是：**平均价格如何改写状态变量与复制。** 后课默认已经分清几何亚式的闭式与算术亚式的近似/模拟，以及连续平均对离散采样的差。
 
 ## 问题
 

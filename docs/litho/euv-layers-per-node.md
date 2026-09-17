@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML / 晶圆厂对 EUV 层插入的公开叙事；不要编造某代具体层数表</footer>
 </div>
 
-[上一课](/litho/high-na-pattern-transfer)把单层薄胶做成可转印。缺口是整节点：多少层值得付 EUV 的掩模、源和随机税，多少层留在 ArF 浸没。单次曝光还能走到多小的 $k_1$，留给[下一课](/litho/euv-single-expose-limit）。
+[上一课](/litho/high-na-pattern-transfer)把单层薄胶做成可转印。缺口是整节点：多少层值得付 EUV 的掩模、源和随机税，多少层留在 ArF 浸没。单次曝光还能走到多小的 $k_1$，留给[下一课](/litho/euv-single-expose-limit)。
 
 ## 问题
 

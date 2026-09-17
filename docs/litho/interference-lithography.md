@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 interference lithography（Lloyd 镜、achromatic IL）在实验室与模板中的传统</footer>
 </div>
 
-[上一课](/litho/multibeam-direct-write)说明串行直写的墙。缺口是并行光子的非投影用法。本课钉干涉光刻。X 射线与近场，留给[下一课](/litho/xray-near-field）。
+[上一课](/litho/multibeam-direct-write)说明串行直写的墙。缺口是并行光子的非投影用法。本课钉干涉光刻。X 射线与近场，留给[下一课](/litho/xray-near-field)。
 
 ## 问题
 

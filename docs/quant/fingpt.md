@@ -11,7 +11,7 @@ section: quant
     <footer>—— Yang, Liu and Wang, FinGPT: Open-Source Financial Large Language Models, arXiv:2306.06031，FinLLM @ IJCAI 2023</footer>
 </div>
 
-Yang、Liu 与 Wang 把 FinGPT 写成面向金融的开源框架，而不是单一封闭权重。对照物是 Wu 等人的 BloombergGPT：50B、FinPile 混训、权重与语料不公开。FinGPT 的主张是数据中心：自动采集与清洗互联网上的金融文本，再用 LoRA / QLoRA 把通用基座适配到金融任务，成本比从零预训练低几个数量级。配套仓库 `AI4Finance-Foundation/FinGPT` 与 `FinNLP`。后续的数据中心长文（arXiv:2307.10485）补充实时数据管道与用市场价格当反馈的 RLSP；Instruct-FinGPT（arXiv:2306.12659）把指令微调对准情绪分类。本篇写框架的四层与它在量化研究里能合法承担的角色——特征提取、文档问答、情绪分数——以及它不能承担的角色：时间机器、自动下单、替代[点-in-time](/quant/point-in-time) 基本面。
+[上一课](/quant/kronos-kline-fm)把 K 线学成词表；金融文本那半个市场，本篇写开源的 FinGPT。Yang、Liu 与 Wang 把 FinGPT 写成面向金融的开源框架，而不是单一封闭权重。对照物是 Wu 等人的 BloombergGPT：50B、FinPile 混训、权重与语料不公开。FinGPT 的主张是数据中心：自动采集与清洗互联网上的金融文本，再用 LoRA / QLoRA 把通用基座适配到金融任务，成本比从零预训练低几个数量级。配套仓库 `AI4Finance-Foundation/FinGPT` 与 `FinNLP`。后续的数据中心长文（arXiv:2307.10485）补充实时数据管道与用市场价格当反馈的 RLSP；Instruct-FinGPT（arXiv:2306.12659）把指令微调对准情绪分类。本篇写框架的四层与它在量化研究里能合法承担的角色——特征提取、文档问答、情绪分数——以及它不能承担的角色：时间机器、自动下单、替代[点-in-time](/quant/point-in-time) 基本面。
 
 ## 问题
 
@@ -51,7 +51,7 @@ RLSP 若用同期收益，学到的可能是风险溢价与关注度，而不是
 
 生成式应用层会编造未出现的营收数字、把表格加错行。量化使用应把 LLM 限制在分类与抽取，数字计算交给确定性代码，再在[长文档基准](/quant/edinet-bench)与[多模态文档](/quant/finmmdocr)上测抽取误差。低代码「生成策略」若直接下单，把自然语言的不稳定性送进订单状态机；正确边界是生成假设，假设必须编译成可审计的算子树，对照[101 公式](/quant/kakushadze-101-alphas) 或冻结的特征定义。
 
-## 边界与工程取舍
+## 边界
 
 不要用在线 API 回放历史：供应商模型会升级，网页会变。不要把 FinGPT 演示笔记本里的交易示例当样本外。不要用未经授权的全文做继续预训练后对外发布权重。评测应同时报金融任务与通用任务，以免适配把模型变成只会选 ABCD 的考试机。中文公告的到达时钟以本地可获得为准。
 

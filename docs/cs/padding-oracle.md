@@ -11,8 +11,6 @@ section: cs
 <footer>—— Vaudenay, Security Flaws Induced by CBC Padding, EUROCRYPT 2002；对照 TLS 对填充与 MAC 的历史修补</footer>
 </div>
 
-## 定位
-
 上一课[nonce 误用](/cs/nonce-misuse)是状态合同。缺口是**错误通道**：即使 nonce 唯一，分组密码的填充校验若变成可观测谓词，Dolev–Yao 的理想锁也不成立。本课讲机制与防御，不给可复现的明文恢复步骤。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ PKCS#7 一类填充让明文长度凑整。CBC 解密后检查填充。若攻击
 ### 不是作业题
 
 课程禁止把预言机利用写成实验指导。需要的只是：可区分的失败 = 额外的解密预言；关掉它。
-
 
 <span class="marginnote">Vaudenay 2002。Lucky Thirteen 一类是计时变体，同属错误/时间通道。TLS 1.3 删除 CBC 套件，从根上换 AEAD。</span>
 
@@ -41,13 +38,9 @@ flowchart TD
   E2 --> ORACLE
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 主动敌手的能力包括改字节并看反应。规格若把内部校验暴露成不同 HTTP 状态、不同耗时、不同日志，就等于提供 $ \mathrm{Dec} $ 的部分信息。这与 nonce 复用正交：即使每条消息 nonce 都新，错误通道仍在。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

@@ -49,7 +49,7 @@ Diebold 与 Inoue 等说明：忽略断点时 $\hat d$ 偏上。GARCH 的 $\alph
 
 样本内 $\hat d$ 显著、样本外 HAR 赢，应以预测为准。下一课 Patton 的 QLIKE 说明：波动预测不能用 MSE 在带噪代理上公平比较。ARFIMA vs HAR vs GARCH 的赛必须用正当损失和 RV 代理。
 
-## 边界与工程取舍
+## 边界
 
 $T\lt 1000$ 日估 $d$ 很噪。多元、缺失、隔夜拼接会污染低频谱。不要对价格水平 ARFIMA$(0,d,0)$ 再解释为「可预测」——那是近单位根。不要用 $\hat d$ 做交易信号。
 

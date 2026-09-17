@@ -58,7 +58,7 @@ CPU 算量为什么通常不是墙：GEMM 在 GPU 上随 $B$ 与序列长度涨�
 
 Offload 停在「参数仍在 GPU」。规模上限是单卡能放下 FP16 参数（加当下激活与临时缓冲）。Infinity 在第三档上继续卸参数到 CPU / NVMe，并加瓦片。两者都是存储层级，不是新并行维。选型可以记成：单卡 / 少卡、模型刚好被优化器状态挤爆 → Offload；参数本身已超过单卡，或要上 NVMe → Infinity。不要在 Offload 配置里写 `offload_param: nvme` 却以为仍在论文的 Offload 合同里。
 
-## 边界与工程取舍
+## 边界
 
 不要在 PCIe 代际很老、或 GPU 与主机不在同一 NUMA / 根复用器下，期待论文曲线。流量必须走得动。不要把 CPU Adam 与 GPU fused Adam 当成比特级可换：累积顺序、向量化宽度、是否 `fp32_optimizer_states` 都会改轨迹。需要可复现实验时，关掉卸载做小模型对照。
 

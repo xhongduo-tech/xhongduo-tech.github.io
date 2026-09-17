@@ -59,7 +59,7 @@ Cost per Task 用与指数相同的分项权重，把输入、缓存、输出单
 
 指数是**横切面**的加权正确率/Elo，适合比较「现在谁更通」。METR 视界是**纵切面**的人类工期，适合谈自主时长。Vending-Bench 是单一超长经营的钱。一个模型可以指数很高、视界中等、售货机破产。Artificial Analysis 另有 Coding Agents 等分指数；不要把 Intelligence Index 当成智能体专项。GDPval 原数据集来自 OpenAI 论文（arXiv:2510.04374），AA 的实现是 Stirrup 上的复现与改沙箱，分数也不等于 OpenAI 原文表。
 
-## 边界与工程取舍
+## 边界
 
 v4.2 自称把 v5 的零件提前上车，因为前沿动得太快、他们又刻意让 v4 稳定了约八个月。过渡版本的代价是：权重与题集同时变，历史曲线要分段。GPQA Diamond 退出后，科学推理桶的含义变了；Briefcase 与 GDP.pdf 进入后，指数更吃长文档与多文件项目，对「只会做竞赛题」的模型更狠。
 

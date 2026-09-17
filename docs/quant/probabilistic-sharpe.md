@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey and López de Prado, The Sharpe Ratio Efficient Frontier, Journal of Risk, 2012</footer>
 </div>
 
-[Deflated Sharpe](/quant/deflated-sharpe) 把 PSR 当成 DSR 的构件一笔带过：先有「超过阈值的概率」，再把阈值换成多次试验的极值。Bailey 与 López de Prado 2012 年在 *Journal of Risk* 的 *The Sharpe Ratio Efficient Frontier* 里，PSR 是**主对象**。它回答单次（或预先指定的）策略：给定观测夏普、样本长度、偏度与峰度，$\mathbb{P}(\mathrm{SR}\gt \mathrm{SR}^*)$ 的渐近估计是多少。$\mathrm{SR}^*$ 可以是 0，可以是融资与风险厌恶要求的最低夏普，也可以是另一个基准策略的夏普。DSR 是两年后才加上「被选过的最大值」这一层。本篇写 PSR 本身、非正态修正、两条策略的比较，以及原文的夏普有效前沿——在给定高阶矩下，夏普不能任意高。不把 PSR 再讲成 DSR。
+[上一课](/quant/bailey-dsr)读毕 Deflated Sharpe 原文的两层修正。 [Deflated Sharpe](/quant/deflated-sharpe) 把 PSR 当成 DSR 的构件一笔带过：先有「超过阈值的概率」，再把阈值换成多次试验的极值。Bailey 与 López de Prado 2012 年在 *Journal of Risk* 的 *The Sharpe Ratio Efficient Frontier* 里，PSR 是**主对象**。它回答单次（或预先指定的）策略：给定观测夏普、样本长度、偏度与峰度，$\mathbb{P}(\mathrm{SR}\gt \mathrm{SR}^*)$ 的渐近估计是多少。$\mathrm{SR}^*$ 可以是 0，可以是融资与风险厌恶要求的最低夏普，也可以是另一个基准策略的夏普。DSR 是两年后才加上「被选过的最大值」这一层。本篇写 PSR 本身、非正态修正、两条策略的比较，以及原文的夏普有效前沿——在给定高阶矩下，夏普不能任意高。不把 PSR 再讲成 DSR。
 
 ## 问题
 
@@ -53,7 +53,7 @@ PSR 的机制是 Wald 型单侧检验：分子是点估计相对阈值的距离�
 
 $N=1$ 且 $\mathrm{SR}^*$ 取你的最低可接受夏普时，DSR 与 PSR 重合。一旦存在未申报的搜索，继续报 PSR$(0)$ 是在用错误的原假设。正确升级是把 $\mathrm{SR}^*$ 换成 $\mathrm{SR}_0(N,V)$，即 [原文 DSR](/quant/bailey-dsr)。两者在代码里应是同一函数、不同阈值，而不是两套互相竞争的「更好的夏普」。研报应同时给：预先指定阈值的 PSR（技能相对产品契约），以及计入 $N$ 的 DSR（技能相对搜索过程）。缺一个，叙事就不完整。
 
-## 边界与工程取舍
+## 边界
 
 PSR 高不等于可交易：成本应先进入 $x_t$。PSR 也不处理标签泄漏与切分选择；那是 purge 与 CPCV 的事。不要对滚动窗口的每一段都算 PSR 再挑选最高的那段展示——那是把 PSR 当成新的选择对象。截面因子的 $t$ 统计量有自己的多重检验文献，不要用 PSR 去替代 Harvey–Liu–Zhu。
 

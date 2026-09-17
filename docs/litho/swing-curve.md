@@ -11,7 +11,7 @@ section: litho
 <footer>—— Mack 对 swing curve 的讨论；薄膜周期见 Born &amp; Wolf</footer>
 </div>
 
-[上一课](/litho/thin-film-reflectivity)给出了复反射 $r$。缺口是：产线看见的不是一张 $r$ 表，而是 **CD（或 $E_\mathrm{size}$）随胶厚振荡**——摆动曲线（swing curve）。主干驻波课已经警告过；本课把振荡的周期、振幅与剂量闭环的分工钉死。胶厚怎么选，留给[下一课](/litho/resist-thickness-selection）。
+[上一课](/litho/thin-film-reflectivity)给出了复反射 $r$。缺口是：产线看见的不是一张 $r$ 表，而是 **CD（或 $E_\mathrm{size}$）随胶厚振荡**——摆动曲线（swing curve）。主干驻波课已经警告过；本课把振荡的周期、振幅与剂量闭环的分工钉死。胶厚怎么选，留给[下一课](/litho/resist-thickness-selection)。
 
 ## 问题
 

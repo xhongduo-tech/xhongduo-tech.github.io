@@ -41,7 +41,7 @@ decode 带宽墙上，多搬一次 $|\mathcal{V}|$ 的 logits 到主机，相当
 
 <span class="marginnote">FlashInfer 一类库把采样与注意力同样当 kernel 目录里的条目。引擎若只融合注意力、采样走 PyTorch 算子碎片，profile 会在 `multinomial` 上冒出尖刺。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要为了「与 numpy 比特一致」在热路径保留主机采样。不要在 TP 的每个 rank 上独立采样。结构化输出的掩码生成若在主机，采样核再快也会等掩码——这是下一课的开销。数值：`-inf` 掩码在 FP16 要真的是 `-inf`，否则核里仍有质量泄漏。
 

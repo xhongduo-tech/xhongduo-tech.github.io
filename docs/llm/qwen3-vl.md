@@ -61,7 +61,7 @@ flowchart LR
 
 Qwen-VL-OCR 产品在 3-VL 之上加任务模板与旋转矫正等接口，见 [内置任务](/llm/qwen-vl-ocr-tasks) 与 [粗到细](/llm/qwen-ocr-coarse-to-fine)。基座能力是上限：模板不能让没看见的笔画变成正确 `rowspan`。
 
-## 边界与工程取舍
+## 边界
 
 256K 含视觉 token，页数 × 每页 merge 后的 patch 会先打满窗口。超长 PDF 仍要切分，切分策略错误会丢掉跨文件表头，见 [长 PDF](/llm/qwen-ocr-long-pdf)。扫描件加密、极细字、极端旋转，要靠旋转与分辨率策略，不是 235B 自动解决。化学式、乐谱等在报告里作为解析标签出现，生产准确率应单测，不能用 DocVQA 总分代替。
 

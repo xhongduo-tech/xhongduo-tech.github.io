@@ -57,7 +57,7 @@ GDN 相对滑窗：窗口是硬局部，GDN 用有限状态做可学习压缩，
 
 <span class="marginnote">80B-A3B 的「A3B」是激活约 3B，不是 3 个专家。Hidden 2048、48 层。引用吞吐必须写清对照物是 Qwen3-32B、以及「实现强依赖内核」——官方自己把 flash-linear-attention 与 causal-conv1d 列为推荐。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 博客数字不是论文表
 

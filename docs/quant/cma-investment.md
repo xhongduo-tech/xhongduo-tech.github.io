@@ -11,7 +11,7 @@ section: quant
     <footer>—— Fama & French, A five-factor asset pricing model, Journal of Financial Economics, 2015</footer>
 </div>
 
-CMA（Conservative Minus Aggressive）是五因子里的投资腿：做多资产增长保守的公司，做空扩张激进的公司。会计定义是总资产相对再上一年的增长率，不是单一资本开支，也不是「成长股」的别名。更宽的[资产增长文献](/quant/investment-factor)由 Titman–Wei–Xie 与 Cooper–Gulen–Schill 铺开；本篇只写 Fama–French 如何把它收成与 SMB、HML、RMW 同一套语言的多空因子，以及 q 理论与过度投资两条机制在组合上无法被区分的事实。
+[上一课](/quant/gross-profitability)收在「便宜与赚钱是定价的两面」。CMA（Conservative Minus Aggressive）是五因子里的投资腿：做多资产增长保守的公司，做空扩张激进的公司。会计定义是总资产相对再上一年的增长率，不是单一资本开支，也不是「成长股」的别名。更宽的[资产增长文献](/quant/investment-factor)由 Titman–Wei–Xie 与 Cooper–Gulen–Schill 铺开；本篇只写 Fama–French 如何把它收成与 SMB、HML、RMW 同一套语言的多空因子，以及 q 理论与过度投资两条机制在组合上无法被区分的事实。
 
 ## 问题
 
@@ -77,7 +77,7 @@ q 理论把高投资读成低贴现率的**结果**：边际 q 高时公司扩�
 
 <span class="marginnote">CMA 不是反转。一个月收益高的公司不必在投资上激进。长期反转更贴近价格路径，投资更贴近资产负债表扩张。控制过去三年收益后，资产增长仍常显著；把 CMA 写成「长期反转的会计版」并不准确。</span>
 
-## 边界与工程取舍
+## 边界
 
 财务滞后与 6 月重构同样适用。用未发布年报的资产会前视。季度资产能加快信号，并购一次性跳跃会主导排序，需要缩尾或把「重组年」单独分组。金融行业的资产增长含义不同（资产负债表就是产品），French 的股票因子通常剔除金融。A 股借壳、重组可在一年内把总资产翻数倍，等权空头会被这些点绑架。
 

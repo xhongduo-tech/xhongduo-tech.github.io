@@ -71,7 +71,7 @@ flowchart TD
 
 要 40B 级一代权重或 RefinedWeb 论文叙事，看 Almazrouei 等 *The Falcon Series of Open Language Models*（arXiv:2311.16867）。要 2024 年中可微调的 11B 多语底座与官方 VLM，看 Falcon 2。要状态空间、常显存长生成，那是 Falcon Mamba，架构已换，不能把 11B 的 GQA 配置拷过去。同档密集开源还有 Llama 3.1 8B、Gemma 2 9B/27B：选 Falcon 2 的理由是 TII 许可、十一语网页比例和现成 VLM，而不是默认它在所有英语榜上永远第一——Leaderboard 集合会变。
 
-## 边界与工程取舍
+## 边界
 
 阶段 4 的高质量混合是专有的，外部无法按报告复现最后 500 GT。Open LLM Leaderboard 分数是当时快照，引用要写任务集与日期。多语过滤规则从英语启发式改来，捷克、罗马尼亚等低资源比例仍薄。代码来自 The Stack 再过滤，不是专项代码模型。VLM 视觉塔冻结，OCR 与文档理解上限受 CLIP ViT-L/14 与切图策略约束，不要写成「原生多模态预训练」。
 

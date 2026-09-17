@@ -39,11 +39,11 @@ flowchart TD
 
 数学依赖不能违背：残差加若需要完整 $Y$，AR 之后才能加。有的实现把残差放进融合核，通信必须先完成。为重叠而拆融合，可能得不偿失——decode 上融合省的 HBM 可能大于重叠省的暴露通信。应用 profiler 决定，不要按训练论文的百分比抄。
 
-## 边界与工程取舍
+## 边界
 
 跨节点 TP 的 AR 更长，更值得重叠，但也更难与自定义路径结合。MoE 的 all-to-all 是另一类通信，不要与稠密 TP 的 AR 重叠策略混写。下一课：还在用 NCCL 时，有哪些旋钮。
 
-出处：Megatron-LM；NVIDIA 对 Transformer 引擎通信重叠的工程说明。不发明 arXiv。
+出处：Megatron-LM；NVIDIA 对 Transformer 引擎通信重叠的工程说明。
 
 ## 小结
 

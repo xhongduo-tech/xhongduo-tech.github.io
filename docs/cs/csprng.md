@@ -11,8 +11,6 @@ section: cs
 <footer>—— NIST SP 800-90A；对照 Ferguson, Schneier and Kohno 对生成器失败；Katz and Lindell 的 PRG 合同</footer>
 </div>
 
-## 定位
-
 上一课[ECDSA / EdDSA](/cs/ecdsa-eddsa)把确定性签名当成对 RNG 失败的修复。缺口是**其余一切仍要生成器**：密钥、nonce、盐。PRG 课给了理论 $G(s)$；本课给操作系统与协议里的 CSPRNG 合同。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 不要用哈希时间戳当密钥
 
 可预测输入不是熵。Debian OpenSSL 一类事故是种子空间塌缩——点名失败模式，不给复现。
-
 
 <span class="marginnote">SP 800-90A 的 Hash_DRBG / HMAC_DRBG / CTR_DRBG。Linux getrandom / 用户态 ChaCha。Fork 后要重种。本课不写如何削弱某生成器。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   DRBG --> FS["前向演化防回溯"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 计算安全处处假设「随机带」。CSPRNG 是这条带的工程实现。失败表现为可预测 nonce（回到误用课）或可预测 $k$（回到 ECDSA）。HKDF 下一课是从已有秘密派生，不是从熵池抽——二者分工。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

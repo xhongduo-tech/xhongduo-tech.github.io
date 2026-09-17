@@ -64,7 +64,7 @@ Qwen2.5-VL 的绝对时间对齐，是在分块 MRoPE 上改变 $t$ 的**取值*
 
 <span class="marginnote">ViT 内部另有 2D-RoPE，编码的是尚未合并的 patch 网格。LLM 侧 MRoPE 编码的是合并后的视觉 token 以及文本。两套旋转不要共用同一套 $(h,w)$ 计数，除非实现明确对齐了 merge 前后的坐标。</span>
 
-## 边界与工程取舍
+## 边界
 
 交错不能取消长度外推问题：频率底座、YaRN 一类插值仍可能需要。Qwen3-VL 公开材料提到超长上下文时 MRoPE 的 section 划分与较小的 YaRN factor，因为交错后位置 ID 增长方式与纯 1D 不同。复现时不要把纯文本 YaRN 的默认因子直接套到视觉长视频上。
 

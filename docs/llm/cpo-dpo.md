@@ -75,7 +75,7 @@ TRL 一类库把 label smoothing 做成 DPO 的开关，有的文档写作 cDPO 
 
 <span class="marginnote">$\varepsilon\to 0$ 恢复 DPO；$\varepsilon\to 0.5$ 目标胜率 $0.5$，梯度在 $\hat p=0.5$ 即 $h=0$ 处为零，等于不学偏好。$\varepsilon$ 过大会把有效信号洗掉，不是越保守越好。</span>
 
-## 边界与工程取舍
+## 边界
 
 笔记是两页推导，没有声称在 HH 或 AlpacaEval 上超过 DPO。把它当完整算法论文会过读。$\varepsilon$ 假定翻面对称、与样本无关；真实噪声往往是长度、位置、特定提示上的系统偏差，平滑只处理随机翻面这一层。重复标注可以得到经验翻面率，用来标定 $\varepsilon$；多数开源偏好集没有重复标注，此时 $\varepsilon$ 只是保守先验，不是测出来的噪声水平。没有参照时写不出 $h$，cDPO 仍是带 $\pi_{\mathrm{ref}}$ 的 DPO 变体，省不了第二份前向。平滑改变的是标签目标，不改变对数概率的归约方式：训练若对 token 平均、评估却用求和，零点对应的物理间隔会跟着变，配方里仍要写死。
 

@@ -73,7 +73,7 @@ DPO / SimPO 用 $-\log\sigma(\Delta)$：即使 $\Delta$ 已经很大，仍有小
 
 若把 $\ell_\theta(y)-\ell_\theta(y')$ 看成奖励差，SLiC 铰链就是在奖励差上设 margin，且奖励不减参考对数似然。加上参考就更接近某些「带 margin 的 DPO 变体」；加上长度平均就更接近 SimPO 的 $\Delta$，只是 SimPO 用 logistic 加 $\gamma$，SLiC 用铰链加 $\delta$。工程上应把 SLiC 当成「序列分数的排序校准 + 监督正则」，而不是当成过时的 DPO。它特别适合已经有采样–打分流水线、想把 RM 的序蒸馏进生成器、又不想维护 $\pi_{\mathrm{ref}}$ 的场景。
 
-## 边界与工程取舍
+## 边界
 
 SLiC 需要候选与序，采集比纯 SFT 贵，比在线 PPO 便宜。RM 造序时要防 RM 与生成器闭环过拟合：总用同一 RM 打同一策略的样本，校准会把 RM 的漏洞写成高似然。应定期换新采样、抽查人标。铰链对 $\delta$ 敏感，且不提供「偏好概率」这种可解释输出；要报 BT 准确率，得另算 $\sigma(\ell^+-\ell^-)$，那已经不是训练目标本身。
 

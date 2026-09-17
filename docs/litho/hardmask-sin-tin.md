@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照多层抗蚀剂 / 硬掩模转印的产线通称；[三层 SOC](/litho/trilayer-soc-sog) 已写有机硬掩模栈</footer>
 </div>
 
-[上一课](/litho/ler-transfer-smoothing)把边频谱的转印写完。缺口是材料栈：EUV 薄胶和浸没薄胶都不够直接啃厚介质或硅。[三层胶](/litho/trilayer-soc-sog) 与 [RIE](/litho/rie-pattern-transfer) 已引入硬掩模角色；本课钉 SiN、TiN 在集成里的位置——无机掩模如何改选择比、形貌和计量。各向异性与侧壁钝化，留给[下一课](/litho/anisotropy-passivation）。
+[上一课](/litho/ler-transfer-smoothing)把边频谱的转印写完。缺口是材料栈：EUV 薄胶和浸没薄胶都不够直接啃厚介质或硅。[三层胶](/litho/trilayer-soc-sog) 与 [RIE](/litho/rie-pattern-transfer) 已引入硬掩模角色；本课钉 SiN、TiN 在集成里的位置——无机掩模如何改选择比、形貌和计量。各向异性与侧壁钝化，留给[下一课](/litho/anisotropy-passivation)。
 
 ## 问题
 

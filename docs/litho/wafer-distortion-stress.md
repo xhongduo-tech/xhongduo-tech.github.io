@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照晶圆翘曲、工艺诱导 overlay 与 ASML 对 process-induced overlay 的公开论述</footer>
 </div>
 
-[上一课](/litho/edge-field-partial)处理边缘边界。缺口是整片：沉积、CMP、退火、背面膜让晶圆翘曲，曝光时卡盘强行吸平，释放后又弹回。[晶圆热套刻](/litho/wafer-thermal-overlay) 已谈热；本课钉应力形变。机台对机台套刻，留给[下一课](/litho/tool-to-tool-overlay）。
+[上一课](/litho/edge-field-partial)处理边缘边界。缺口是整片：沉积、CMP、退火、背面膜让晶圆翘曲，曝光时卡盘强行吸平，释放后又弹回。[晶圆热套刻](/litho/wafer-thermal-overlay) 已谈热；本课钉应力形变。机台对机台套刻，留给[下一课](/litho/tool-to-tool-overlay)。
 
 ## 问题
 

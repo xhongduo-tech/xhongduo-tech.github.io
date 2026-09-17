@@ -56,7 +56,7 @@ Ray 降低的是**控制面**复杂度：每个角色是 actor，placement group
 
 长 CoT 表比的是逐步训练时间，不是 GSM8K 准确率。GSM8K / PPO 两条是另一套短上下文配方，用来打 TRL 与 DeepSpeed-Chat。把 3.1× 写进「14B 长链也快三倍」是口径错误。同样，论文承认自己作为社区项目可能追不上有专职团队的工业框架峰值，也不支持视觉-语言模型；依赖 Ray / vLLM / DeepSpeed 的版本耦合是维护税。
 
-## 边界与工程取舍
+## 边界
 
 不要把 OpenRLHF 写成「替代 verl」。两者后来互相吸收：verl 走 HybridFlow 控制面与 3D-HybridEngine；OpenRLHF 走 HF 原生与更短的编排层。选框架看模型是否必须 Megatron 检查点、是否要多后端推理、以及团队能不能接受 Ray 集群运维。算法上 PPO 对超参仍然敏感；Shen 等人写在 Notion 上的 PPO tricks（论文参考文献 [23]）比框架开关更决定是否塌。Agent 多轮要把工具观察从损失里掩掉，见 [多轮 loss mask](/llm/multiturn-loss-mask)，OpenRLHF 的远程引擎只提供调度钩子，不自动保证掩码正确。
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 生成式市场模型的下游评价；对照 Bailey et al. 对回测过拟合、Lopez de Prado 的 CPCV</footer>
 </div>
 
-有了 [VAE 市场生成器](/quant/market-generator-vae)、[Sig-WGAN](/quant/sig-wasserstein-gan) 或 [Neural SDE](/quant/neural-sde)，最容易犯的错是：在合成数据上调策略，再把同一生成器上的绩效写成研究报告。[回测过拟合](/quant/backtest-overfitting) 在历史一条路径上已经足够严重；生成器把「一条路径」变成「无穷条看起来像的路径」，过拟合从记住日期，升级为记住生成器的癖好——假周期、假流动性、假的可预测残差。本篇写评估必须分成三层：过程统计、双样本检验、下游决策稳定性，以及训练生成器与训练策略的样本如何切开；不重复 CPCV 的折法细节，见 [CPCV](/quant/cpcv)，也不把某个 MMD 数值当通行证。
+[LLM 多智能体仿真](/quant/llm-multiagent-market-sim) 停在机制实验；无论生成器是哪种，下游评估都欠一份协议。有了 [VAE 市场生成器](/quant/market-generator-vae)、[Sig-WGAN](/quant/sig-wasserstein-gan) 或 [Neural SDE](/quant/neural-sde)，最容易犯的错是：在合成数据上调策略，再把同一生成器上的绩效写成研究报告。[回测过拟合](/quant/backtest-overfitting) 在历史一条路径上已经足够严重；生成器把「一条路径」变成「无穷条看起来像的路径」，过拟合从记住日期，升级为记住生成器的癖好——假周期、假流动性、假的可预测残差。本篇写评估必须分成三层：过程统计、双样本检验、下游决策稳定性，以及训练生成器与训练策略的样本如何切开；不重复 CPCV 的折法细节，见 [CPCV](/quant/cpcv)，也不把某个 MMD 数值当通行证。
 
 ## 问题
 
@@ -63,7 +63,7 @@ flowchart TD
 
 <span class="marginnote">报告「合成夏普 2.1、历史夏普 0.4」却不报告探针策略与双样本，等于承认生成器比市场好预测。更常见的真相是生成器比市场好被拟合。</span>
 
-## 边界与工程取舍
+## 边界
 
 过程统计通过不能推出期权、执行、多资产同时可用。每个下游状态变量都要进清单。生成器更新后，旧策略的合成绩效作废，必须重跑 C 段真实评估；把生成器当持续学习的数据源，会把非平稳的模型漂移写成 alpha 衰减。监管或投资委员会若要看生成式压力，应提交：时间切开图、关键泛函表、探针策略表、多种子排序，而不是一张合成净值曲线。
 

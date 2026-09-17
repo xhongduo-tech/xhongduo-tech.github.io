@@ -11,7 +11,7 @@ section: quant
 <footer>—— Engle and Russell, Autoregressive Conditional Duration: A New Model for Irregularly Spaced Transaction Data, Econometrica, 1998</footer>
 </div>
 
-Hawkes 从强度 $\lambda(t)$ 出发，事件在强度高的时候更密集。[不等间隔采样](/quant/irregular-sampling) 已经提到，Engle 与 Russell 选择对偶的对象：**久期** $x_i=t_i-t_{i-1}$，即相邻成交（或相邻报价修订）的墙钟间隔。自回归条件久期（Autoregressive Conditional Duration, ACD）令 $x_i=\psi_i\varepsilon_i$，其中 $\psi_i=\mathbb{E}[x_i\mid\mathcal{F}_{i-1}]$ 随过去的久期与过去的 $\psi$ 演化，$\varepsilon_i$ 是正值新息。本篇写 ACD 的设定、与 Hawkes 的翻译、以及它在微观结构里能回答的「下一笔何时来」，而不是「下一笔什么价」。它补成交 Hawkes 没展开的久期计量，不重复核函数与分支比的全部内容。
+[多元 Hawkes](/quant/multivariate-hawkes)把互激写进事件类型之间的强度；间隔本身的计量是另一条路。Hawkes 从强度 $\lambda(t)$ 出发，事件在强度高的时候更密集。[不等间隔采样](/quant/irregular-sampling) 已经提到，Engle 与 Russell 选择对偶的对象：**久期** $x_i=t_i-t_{i-1}$，即相邻成交（或相邻报价修订）的墙钟间隔。自回归条件久期（Autoregressive Conditional Duration, ACD）令 $x_i=\psi_i\varepsilon_i$，其中 $\psi_i=\mathbb{E}[x_i\mid\mathcal{F}_{i-1}]$ 随过去的久期与过去的 $\psi$ 演化，$\varepsilon_i$ 是正值新息。本篇写 ACD 的设定、与 Hawkes 的翻译、以及它在微观结构里能回答的「下一笔何时来」，而不是「下一笔什么价」。它补成交 Hawkes 没展开的久期计量，不重复核函数与分支比的全部内容。
 
 ## 问题
 
@@ -61,7 +61,7 @@ ACD 假定观测到每一次相关事件。馈送丢包会制造假的长久期�
 
 不要用 ACD 去填日历网格再跑等间隔因子：那是把点过程的条件均值插值成假的规则采样。不要在未去季节的原始秒间隔上报告「很强的持续性」——那多半是开盘效应。新息分布若有过离散，指数似然会误导标准误；应至少报告 Weibull 对照。
 
-<span class="marginnote">久期模型回答何时，不回答能否成交、以什么价成交。把它接到执行，还缺队列位置与深度。ACD 可以给市价到达的时钟，不能单独给短fall。</span>
+<span class="marginnote">久期模型回答何时，不回答能否成交、以什么价成交。把它接到执行，还缺队列位置与深度。ACD 可以给市价到达的时钟，不能单独给缺口。</span>
 
 ```mermaid
 flowchart TD

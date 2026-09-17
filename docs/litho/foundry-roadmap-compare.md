@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照领先代工公开节点路径的结构差异；不编造未公布层数</footer>
 </div>
 
-[上一课](/litho/pfas-resist-regulation)把材料风险放进规划。缺口是各厂怎么走。本课钉代工路线对比。存储器路径不同，留给[下一课](/litho/memory-litho-dram-nand）。
+[上一课](/litho/pfas-resist-regulation)把材料风险放进规划。缺口是各厂怎么走。本课钉代工路线对比。存储器路径不同，留给[下一课](/litho/memory-litho-dram-nand)。
 
 ## 问题
 

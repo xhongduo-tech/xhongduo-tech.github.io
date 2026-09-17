@@ -41,7 +41,7 @@ flowchart TD
 
 [FlashAttention](/llm/flashattention) 的 decode 核不关心草稿来自谁，只关心这一拍的查询长度：校验拍 $n_q=\gamma+1$，算术强度略升，与普通投机相同。
 
-## 边界与工程取舍
+## 边界
 
 自投机不是免费午餐：实现复杂度接近双模型投机，还多了「哪些层可跳、KV 能否共用」的正确性证明。训练过的早退改变模型，不能把 LayerSkip 的加速比写回未改权重的 Draft & Verify。高 $T$ 同样打接受率。结构化掩码必须进 $q$，否则草稿净猜非法 token。
 

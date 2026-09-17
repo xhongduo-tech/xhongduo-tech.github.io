@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 VSB 掩模写入与 fracturing 的公开工程讨论</footer>
 </div>
 
-[上一课](/litho/mask-data-prep)把作业单与坐标钉死。缺口是多边形还要切成写模机 primitive。本课钉 fracturing。掩模工艺修正如何再挪这些炮，留给[下一课](/litho/mpc）。
+[上一课](/litho/mask-data-prep)把作业单与坐标钉死。缺口是多边形还要切成写模机 primitive。本课钉 fracturing。掩模工艺修正如何再挪这些炮，留给[下一课](/litho/mpc)。
 
 ## 问题
 

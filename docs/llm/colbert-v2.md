@@ -60,7 +60,7 @@ Search 查询来自 Google 自动补全且答案框链到 StackExchange，标注
 
 <span class="marginnote">几乎所有 IR 集都有未标注相关段落。作者故意用 BEIR 池化、LoTTE 搜索引擎/社区、OpenQA 答案重叠三种不同偏见交叉验证。单点 nDCG 仍应谨慎外推。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 英文 MARCO 训练不自动等于多语
 

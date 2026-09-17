@@ -36,8 +36,6 @@ flowchart TD
   BOTH["同时"] --> BB["发现膨胀"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 QoS 可能把 ICMP 降级，ping 差而 TCP 好。RoCE 要用专门诊断。Maglev 后测量打到不同后端。DoH 不改 ping。权限：ping 要 raw socket 在某系统。
@@ -50,7 +48,7 @@ QoS 可能把 ICMP 降级，ping 差而 TCP 好。RoCE 要用专门诊断。Magl
 
 只报「带宽 1G」不报 RTT 是半张图。
 
-上一课留下的缺口在本课收口；「ping / iperf」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[抓包与 Wireshark](/cs/packet-capture)。
+下一课[抓包与 Wireshark](/cs/packet-capture)。
 
 ## 小结
 

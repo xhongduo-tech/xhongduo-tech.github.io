@@ -40,11 +40,11 @@ flowchart TD
 
 小消息延迟 = 启动 + 传输。自定义路径砍启动、用持久映射砍握手。带宽项在 decode 上往往不是主项。这与屋顶线一致：通信强度同样可以算 FLOPs/通信字节；decode 的层内 AR 是延迟绑定。投机校验加宽 $n_q$，激活变厚，可能越过交叉点。
 
-## 边界与工程取舍
+## 边界
 
 不要在异构或跨节点拓扑上强行自定义。不要与 NCCL 同时各搞一套无文档的顺序，死锁风险。数值与顺序：环形累加顺序与 NCCL 树不同，半精度尾差要验收。下一课：把这次 AR 藏进 GEMM 的空隙。
 
-出处：Shoeybi et al., Megatron-LM；推理侧以 vLLM / TensorRT-LLM 的自定义 All-Reduce 实现为准。不编造论文编号。
+出处：Shoeybi et al., Megatron-LM；推理侧以 vLLM / TensorRT-LLM 的自定义 All-Reduce 实现为准。
 
 ## 小结
 

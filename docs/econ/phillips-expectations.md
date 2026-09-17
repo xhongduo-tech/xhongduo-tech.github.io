@@ -70,4 +70,4 @@ flowchart TD
 - 只有意外的名义冲击暂时移动 $y$、$u$。
 - 供给冲击会让相关变号；加速主义拒绝永久菜单。
 - 简化式替换随政策规则而动，是卢卡斯批判的入口。
-- 出处：Phillips, Economica 1958；Friedman, AER 1968；Lucas 理性预期与中性。
+- 出处：Phillips, Economica 1958；Lucas 理性预期与中性。

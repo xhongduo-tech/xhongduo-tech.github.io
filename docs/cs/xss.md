@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 OWASP XSS；CWE-79；对照[同源与 CSRF](/cs/same-origin-csrf)、[注入](/cs/injection-boundary)</footer>
 </div>
 
-## 定位
-
 上一课[二进制加固](/cs/binary-hardening-obfuscation)结束软件安全。Web 单元从浏览器开始。主干同源课管 Cookie；缺口是**脚本注入**：反射、存储、DOM。不给可复制的恶意脚本。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 不是只防 script 标签
 
 事件属性、CSS、URL 方案都是上下文。编码函数必须匹配上下文。
-
 
 <span class="marginnote">OWASP。本课禁止 XSS payload 教程。CSP 下一课是纵深，不是根治。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   IN --> ESC["按上下文编码"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 SOP 把脚本权限给源。XSS 等于把权限借给输入。会话 Cookie 可被同源于脚本读（除非 HttpOnly，但仍可发请求）。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

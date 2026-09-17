@@ -37,8 +37,6 @@ flowchart TD
   STORE --> IMAP["IMAP 存取"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 DNS 缓存 MX 影响切换。TLS 对 SMTP 是逐跳，不是端到端密信（那是 OpenPGP/S/MIME，点名）。负载均衡对 25 端口要小心会话。分块附件像 HTTP 体，但边界是 MIME。
@@ -51,7 +49,7 @@ DNS 缓存 MX 影响切换。TLS 对 SMTP 是逐跳，不是端到端密信（�
 
 把 25 对全世界开放中继会成为垃圾跳板。
 
-上一课留下的缺口在本课收口；「SMTP / IMAP」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[SPF / DKIM / DMARC](/cs/spf-dkim-dmarc)。
+下一课[SPF / DKIM / DMARC](/cs/spf-dkim-dmarc)。
 
 ## 小结
 

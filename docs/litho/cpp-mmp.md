@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 contacted poly pitch 与 minimum metal pitch 作为 DTCO 度量的通称</footer>
 </div>
 
-[上一课](/litho/node-naming)丢掉商品名当尺子。缺口是代用尺子。本课钉 CPP 与 MMP。如何合成晶体管密度，留给[下一课](/litho/transistor-density-metric）。
+[上一课](/litho/node-naming)丢掉商品名当尺子。缺口是代用尺子。本课钉 CPP 与 MMP。如何合成晶体管密度，留给[下一课](/litho/transistor-density-metric)。
 
 ## 问题
 

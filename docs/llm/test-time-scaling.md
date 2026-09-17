@@ -59,7 +59,7 @@ Kaplan / Chinchilla 一类定律描述训练损失随参数、数据、训练 FL
 
 <span class="marginnote">匹配 FLOPs 时要写清比较的是预训练 FLOPs 还是该次推理 FLOPs。用「小模型搜了 100 次」去比「大模型只答一次」可以，但必须把 100 次 decode 算进左侧。只比参数量不比生成 token，结论是空的。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 公开论文与封闭系统分开引用
 

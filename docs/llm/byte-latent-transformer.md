@@ -55,7 +55,7 @@ Token 来自训练前固定词表，模型往往看不见底层字节；patch �
 
 <span class="marginnote">FLOPs 公式按 Chinchilla 计 FFN、QKVO 与注意力；输入嵌入当查找、计 0 FLOP。反向按前向两倍。复现必须用同一套计数，否则 50% 对不上。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 生态与熵模型绑定
 

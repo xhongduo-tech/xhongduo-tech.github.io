@@ -55,7 +55,7 @@ flowchart TD
 
 [InternVL2](/llm/internvl2) 切 448 格 + 像素重排，编码器来自 InternViT。[MiniCPM-V](/llm/minicpm) 切块后 perceiver 压缩，打端侧。Llama 3.2 视觉冻 LM、交叉注意力。Pixtral 选「自训 ViT + 满自注意力交错 + 继承 Nemo 文本」。文档 OCR 上谁赢取决于分辨率旋钮与协议；不要只抄 MMMU 一句。
 
-## 边界与工程取舍
+## 边界
 
 Apache 2.0 使 12B 视觉可进商用栈，这与 Large / Codestral 的研究许可不同。博客后来标记 12B 为 deprecated、让位给更新的视觉型号，但论文与 2409 权重仍是可引用的 2024 年开源点。编码器序列 4096 限制单张极高分辨率；超过要先缩小。MM-MT-Bench 只有 92 场，适合协议讨论，不适合当唯一上线门禁。
 

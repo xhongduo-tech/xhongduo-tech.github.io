@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 e-beam 气体辅助修复与纳米机械（nanomachining）的掩模厂通称</footer>
 </div>
 
-[上一课](/litho/mask-inspection-d2d-d2db)给出缺陷清单。缺口是哪些能修、用什么刀。本课钉电子束修复与纳米机械。修完要装薄膜，留给[下一课](/litho/pellicle-mount-inspect）。
+[上一课](/litho/mask-inspection-d2d-d2db)给出缺陷清单。缺口是哪些能修、用什么刀。本课钉电子束修复与纳米机械。修完要装薄膜，留给[下一课](/litho/pellicle-mount-inspect)。
 
 ## 问题
 

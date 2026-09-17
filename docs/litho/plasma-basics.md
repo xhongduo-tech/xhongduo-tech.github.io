@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Lieberman–Lichtenberg 等离子体放电基础；Coburn–Winters 表面协同</footer>
 </div>
 
-[上一课](/litho/metal-via-co-optimization)把金属–via 收成联立规则。缺口是转印：enclosure 的 AEI 值从腔体来，而仿真门的刻蚀核只是它的紧凑投影。本课起「集成、控制与良率」，钉等离子体基础。[RIE 转印](/litho/rie-pattern-transfer) 已写协同图像；这里补放电侧：物种、鞘层、偏置，供后课写选择比与钝化。选择比与 ARDE，留给[下一课](/litho/selectivity-arde）。
+[上一课](/litho/patterning-inspection-tools)（图形化检测设备）收束制程、封装与管制课程：换胶换膜等于换检测食谱。缺口是转印：enclosure 的 AEI 值从腔体来，而仿真门的刻蚀核只是它的紧凑投影。本课起「集成、控制与良率」，钉等离子体基础。[RIE 转印](/litho/rie-pattern-transfer) 已写协同图像；这里补放电侧：物种、鞘层、偏置，供后课写选择比与钝化。选择比与 ARDE，留给[下一课](/litho/selectivity-arde)。
 
 ## 问题
 

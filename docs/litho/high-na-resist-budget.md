@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 van Schoot 等对 High-NA 成像与焦深的公开讨论；胶厚与工艺窗口亦见 Levinson</footer>
 </div>
 
-[上一课](/litho/high-na-overlay-na)把 High-NA 的横向合同收到套刻：半场拼接、变形倍率下的层间位移，已经是一等良率项。缺口是轴向。硅片侧 NA 从 0.33 到 0.55，[焦深](/litho/depth-of-focus)按 $\lambda/\mathrm{NA}^2$ 再削一截；胶若仍按 0.33 的厚度涂，膜本身就可能撑满甚至溢出可用焦深，倒塌与刻蚀选择比同时告急。本课钉胶厚预算。真空磁浮台如何把残余离焦压进这张窗，留给[下一课](/litho/euv-maglev-stage)。
+[上一课](/litho/high-na-overlay-na)把 High-NA 的横向合同收到套刻：半场拼接、变形倍率下的层间位移，已经是一等良率项。缺口是轴向。硅片侧 NA 从 0.33 到 0.55，[焦深](/litho/depth-of-focus)按 $\lambda/\mathrm{NA}^2$ 再削一截；胶若仍按 0.33 的厚度涂，膜本身就可能撑满甚至溢出可用焦深，倒塌与刻蚀选择比同时告急。本课钉胶厚预算。变形倍率怎么把半场与写版寻址写进同一张预算，留给[下一课](/litho/anamorphic-mask-mag)；真空磁浮台如何把残余离焦压进这张窗，是后面的[真空磁浮工件台](/litho/euv-maglev-stage)一课。
 
 ## 问题
 

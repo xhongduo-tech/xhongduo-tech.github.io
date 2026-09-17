@@ -54,7 +54,7 @@ flowchart TD
 
 <span class="marginnote">骨干是 GPT-2，GSM8k 34% 不是旗舰数学模型数字。引用「超过 CoT」必须限定在 ProntoQA / ProsQA 这类强规划任务。无课程失败说明潜推理目前依赖语言链作为脚手架。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 可解释性与并行
 

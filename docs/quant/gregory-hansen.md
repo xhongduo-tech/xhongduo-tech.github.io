@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gregory and Hansen, Residual-based Tests for Cointegration in Models with Regime Shifts, Journal of Econometrics, 1996</footer>
 </div>
 
-[协整破裂](/quant/cointegration-break) 写的是交易后果：旧 $\beta$ 在机制转换后继续当均衡，残差单边走扩。[Engle–Granger](/quant/engle-granger) 与 [Johansen](/quant/johansen) 的标准检验则假定协整向量在全样本不变。Gregory 与 Hansen（1996）补的是检验本身：零假设仍是无协整，备择是存在协整、但水平或斜率在未知 $\tau$ 处跳一次。本篇写三类设定、三种 inf 型残差统计量、修剪与临界值，以及它和 [Bai–Perron](/quant/bai-perron) 不是同一个问题。能检出「带断裂的协整」，并不自动给出可交易的新对冲比。
+[上一课](/quant/vecm)收在常系数高斯系统只是局部工具。[协整破裂](/quant/cointegration-break) 写的是交易后果：旧 $\beta$ 在机制转换后继续当均衡，残差单边走扩。[Engle–Granger](/quant/engle-granger) 与 [Johansen](/quant/johansen) 的标准检验则假定协整向量在全样本不变。Gregory 与 Hansen（1996）补的是检验本身：零假设仍是无协整，备择是存在协整、但水平或斜率在未知 $\tau$ 处跳一次。本篇写三类设定、三种 inf 型残差统计量、修剪与临界值，以及它和 [Bai–Perron](/quant/bai-perron) 不是同一个问题。能检出「带断裂的协整」，并不自动给出可交易的新对冲比。
 
 ## 问题
 
@@ -67,7 +67,7 @@ inf 型统计量的机制是：若存在某段制度使残差平稳，则在 $\t
 
 断裂后误差修正项 $\lambda(y_{t-1}-\alpha-\beta x_{t-1})$ 的 $(\alpha,\beta)$ 必须换成新段。用旧均衡去算 $z_t$ 再套 OU，得到的 $\hat\kappa$ 往往接近 0 或符号错乱，半衰期失去含义。正确顺序是：GH 或滚动诊断触发之后，在 $\hat\tau$ 之后的窗口重估协整，再对**新残差**估 OU。$\hat\tau$ 之后样本太短时，不应立刻报一个新半衰期并开仓；应降低杠杆，直到新段有足够观测。最优进出见 [OU 最优停时](/quant/ou-optimal-stopping)，那是给定稳定 OU 之后的控制问题；GH 处理的是「OU 的原点还在不在」这一前提。
 
-## 边界与工程取舍
+## 边界
 
 单次断裂是强假设。2010 年代之后的股票对可能经历指数调入、做空规则、行业分类重画多次。多次搜索抬高临界值，小样本会全面失势。A 股停牌与涨跌停会造成伪断裂：价格冻结再跳开，某个 $\tau$ 上残差「突然平稳」或「突然单位根」，应先做公司行为与停牌处理，再跑 GH。
 

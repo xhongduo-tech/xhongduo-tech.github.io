@@ -60,7 +60,7 @@ flowchart TD
 
 <span class="marginnote">标题里的 phase splitting 指推理请求的 prompt / generation 两段，不是训练里的流水线阶段，也不是模型并行的 layer split。层间切分可以用来放 KV，但那是放置细节，不是这篇的主声称。</span>
 
-## 边界与工程取舍
+## 边界
 
 没有足够快的机间互连，异构拆分会先死在传输上：便宜的 D 卡若只能走慢 PCIe 域，KV 搬家把 TTFT 吃回去。小模型权重复制的相对成本更高；大模型反正多卡，增量小。Mixed 池若长期变成主路径，系统退化成 colocate，异构收益消失，还多付一层调度。功耗帽是机柜级约束，单卡实验看不出 Splitwise 的主贡献。
 

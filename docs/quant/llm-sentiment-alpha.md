@@ -11,7 +11,7 @@ section: quant
 <footer>—— Lopez-Lira and Tang, Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models, 2023</footer>
 </div>
 
-文本因子在词典与主题模型之后，进入了生成式大模型（LLM）打分的阶段。Alejandro Lopez-Lira 与 Yuehua Tang 在 2023 年的工作里，不训练分类器、也不改词表，只把新闻标题送进 ChatGPT，问「这则消息对该公司股价是正面、负面还是中性」，再把回答映射成隔日可交易信号。结果在美股横截面上显著，小盘与低关注名字更强，相对 [舆情与文本](/quant/news-nlp-alpha) 里的 Loughran–McDonald 词频有增量。本篇写这一 **LLM 情绪 alpha** 估什么、如何避免把模型的世界知识当成时间机器，以及它与监督词权、嵌入因子的分工；嵌入侧见 [LLM embedding 因子](/quant/llm-embedding-alpha)。
+[上一课](/quant/tradingagents-multiagent) 把多智能体辩论收在综合与备忘：数字仍须锚定工具输出。文本因子在词典与主题模型之后，进入了生成式大模型（LLM）打分的阶段。Alejandro Lopez-Lira 与 Yuehua Tang 在 2023 年的工作里，不训练分类器、也不改词表，只把新闻标题送进 ChatGPT，问「这则消息对该公司股价是正面、负面还是中性」，再把回答映射成隔日可交易信号。结果在美股横截面上显著，小盘与低关注名字更强，相对 [舆情与文本](/quant/news-nlp-alpha) 里的 Loughran–McDonald 词频有增量。本篇写这一 **LLM 情绪 alpha** 估什么、如何避免把模型的世界知识当成时间机器，以及它与监督词权、嵌入因子的分工；嵌入侧见 [LLM embedding 因子](/quant/llm-embedding-alpha)。
 
 ## 问题
 
@@ -64,7 +64,7 @@ flowchart TD
   SIG --> INC
 ```
 
-## 边界与工程取舍
+## 边界
 
 不要用带浏览、带检索的代理在回测里「查该公司后来发生了什么」。不要把盈余电话会全文一次性塞进上下文再要一个分数——那是摘要任务，泄漏与费用都不同。不要在 A 股上直接用英文模型打中文标题而不做单独样本外。涨跌停使「新闻日当日收益」经常不可交易。多标签（同一公司同日正负标题并存）应保留为意见分歧特征，而不是平均掉；Antweiler–Frank 已区分极性与争议。
 

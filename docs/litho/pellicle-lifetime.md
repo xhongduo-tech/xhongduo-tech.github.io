@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 ASML 对 EUV pellicle 功率、透过率与更换的公开讨论</footer>
 </div>
 
-[上一课](/litho/euv-mask-repair)把版面缺陷修到光化可过。缺口是版上那张膜：[EUV pellicle](/litho/euv-pellicle) 已经写过双程 $T^2$ 和热；本课钉寿命与更换节奏。无膜硬跑的风险，留给[下一课](/litho/pellicle-free-risk）。不重写 DUV 薄膜安装产线。
+[上一课](/litho/euv-mask-repair)把版面缺陷修到光化可过。缺口是版上那张膜：[EUV pellicle](/litho/euv-pellicle) 已经写过双程 $T^2$ 和热；本课钉寿命与更换节奏。无膜硬跑的风险，留给[下一课](/litho/pellicle-free-risk)。不重写 DUV 薄膜安装产线。
 
 ## 问题
 

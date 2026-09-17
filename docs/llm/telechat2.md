@@ -60,7 +60,7 @@ flowchart TD
 
 <span class="marginnote">开源列出 TeleChat2-3B/7B/35B/115B 等对话权重。3B/7B 的工具调用优化是 2 代产品能力，不要用 115B 的 NIAH 图去描述 3B。</span>
 
-## 边界与工程取舍
+## 边界
 
 TeleChat2 本身不是长 CoT 推理模型；要 T1。2.5 的「快」来自后训练取舍，不是蒸馏成小模型。MindSpore 权重与 Hugging Face 格式转换以仓库脚本为准。社区许可含商用申请流程（邮箱 tele_ai@chinatelecom.cn），与 Apache 直用不同。评测表很大，引用须分 Base / Chat / T1。
 

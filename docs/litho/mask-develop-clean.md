@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照电子束胶显影、掩模湿洗与硫酸根残留的产线讨论</footer>
 </div>
 
-[上一课](/litho/mask-etch-sidewall)把吸收体边钉成带倾角的墙。缺口是墙前后的湿法：e-beam 胶显影、去胶、SPM/SC1 一类清洗。本课钉显影与清洗。图形缺陷怎么被看见，留给[下一课](/litho/mask-inspection-d2d-d2db）。
+[上一课](/litho/mask-etch-sidewall)把吸收体边钉成带倾角的墙。缺口是墙前后的湿法：e-beam 胶显影、去胶、SPM/SC1 一类清洗。本课钉显影与清洗。图形缺陷怎么被看见，留给[下一课](/litho/mask-inspection-d2d-d2db)。
 
 ## 问题
 

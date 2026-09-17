@@ -63,7 +63,7 @@ flowchart TD
 
 MemGPT 管窗口放置（RAM/磁盘/函数）。Mem0 管**跨会话事实库**。常见集成：MemGPT 的 archival 指向 Mem0 检索 API，working context 仍放当前人设。不要宣称 Mem0 替代了换页。Zep/Graphiti 在时序无效化与社区节点上更重；Mem0 更轻、更对话抽取优先。
 
-## 边界与工程取舍
+## 边界
 
 LOCOMO 是两人闲聊式长对话，不是 SWE 或浏览。Judge 与 F1 对开放题敏感。GPT-4o-mini 既做抽取又做更新，费用随消息对数线性，需批处理或跳过闲聊。图数据库运维成本高于纯向量。论文作者均 mem0.ai，引用时标明产品论文，对照数字仍以 arXiv 表为准。
 

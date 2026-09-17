@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 LTEM（低热膨胀材料）掩模基板与 SEMI 外形/坯料通称；EUV 坯见 SEMI P37 一类规范</footer>
 </div>
 
-[上一课](/litho/mask-registration)把放置误差收进套刻。缺口是误差有一截来自基板：石英热胀、平坦度、缺陷。本课钉掩模坯与 LTEM。铬与 MoSi 膜长在什么表面上，留给[下一课](/litho/chrome-mosi-films）。
+[上一课](/litho/mask-registration)把放置误差收进套刻。缺口是误差有一截来自基板：石英热胀、平坦度、缺陷。本课钉掩模坯与 LTEM。铬与 MoSi 膜长在什么表面上，留给[下一课](/litho/chrome-mosi-films)。
 
 ## 问题
 

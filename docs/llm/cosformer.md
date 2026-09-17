@@ -77,7 +77,7 @@ softmax 的 Jacobian 在 logits 拉大时把质量推成近似 one-hot。cosForm
 
 相对 Performer：FAVOR+ 的误差在随机特征方差；cosFormer 的误差在模型类本身——它根本不是 softmax。LRA 上取胜，说明基准里很多任务吃近邻与平滑长程，不吃尖峰检索。把 LRA 当成「已经替代 Transformer」会过度推广。
 
-## 边界与工程取舍
+## 边界
 
 精确拷贝、针测、随机访问远端实体，不是 cosFormer 的主场；应保留 softmax 层或改用更大表达力的门控线性 RNN。余弦窗与 RoPE 叠用要小心：位置被乘了两次，外推时 $M$ 与旋转频率一起变，失败时难以归因。交叉注意力里查询、键长度差一个数量级时，$M$ 取 $\max(N_q,N_k)$ 会让短的一侧几乎看不清相对结构，需要按各自长度归一化索引。
 

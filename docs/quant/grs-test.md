@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gibbons, Ross and Shanken, A Test of the Efficiency of a Given Portfolio, Econometrica, 1989</footer>
 </div>
 
-时间序列里每只检验资产都有一个 $\alpha_i$。逐个看 t 值会漏掉它们的相关：十个中等 α 若残差高度相关，联合证据弱；若残差几乎正交，联合证据强。[CAPM](/quant/capm) 与[三因子](/quant/ff3)要回答的是「这组 α **一起**是否为零」，不是「里面有没有某只碰巧显著」。Gibbons、Ross 与 Shanken 给出在残差联合正态下的精确有限样本 $F$ 检验，并把统计量写成夏普改进。它是因子模型最常用的联合检验，也是检验资产选得太多时最先失效的那一个。
+[上一课](/quant/fiftytwo-week-high)提醒单因子 t 不够，要看联合证据。时间序列里每只检验资产都有一个 $\alpha_i$。逐个看 t 值会漏掉它们的相关：十个中等 α 若残差高度相关，联合证据弱；若残差几乎正交，联合证据强。[CAPM](/quant/capm) 与[三因子](/quant/ff3)要回答的是「这组 α **一起**是否为零」，不是「里面有没有某只碰巧显著」。Gibbons、Ross 与 Shanken 给出在残差联合正态下的精确有限样本 $F$ 检验，并把统计量写成夏普改进。它是因子模型最常用的联合检验，也是检验资产选得太多时最先失效的那一个。
 
 ## 问题
 
@@ -74,7 +74,7 @@ A 股若把含壳的小盘放进 5×5，GRS 很容易拒绝任何从美股搬来
 
 <span class="marginnote">$N\gt T$ 时 $\Sigma$ 不可逆，GRS 未定义。先降维（组合、主成分）或给 $\Sigma$ 加收缩，后者已经不是 1989 年的精确 $F$。不要对个股截面硬做 GRS。</span>
 
-## 边界与工程取舍
+## 边界
 
 正态 IID 不成立时，可用 GMM Wald、bootstrap 或对残差做 Newey–West 再报渐近检验，但不要再引用 $F$ 临界值。结构断裂（2015、2020、注册制扩容）使全样本 GRS 难解释：应分段，或承认检验的是「平均意义下的线性因子模型」。
 

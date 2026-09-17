@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照晶圆成本结构与 per-layer litho cost 的产业讨论；不编造美元表</footer>
 </div>
 
-[上一课](/litho/irds-roadmap)给出需求骨架。缺口是钱。本课钉每层成本与每晶圆成本。EUV 与多重的交叉点，留给[下一课](/litho/euv-vs-multipattern-cost-crossover）。
+[上一课](/litho/irds-roadmap)给出需求骨架。缺口是钱。本课钉每层成本与每晶圆成本。EUV 与多重的交叉点，留给[下一课](/litho/euv-vs-multipattern-cost-crossover)。
 
 ## 问题
 

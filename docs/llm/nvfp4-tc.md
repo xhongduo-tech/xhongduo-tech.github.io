@@ -61,7 +61,7 @@ FP8 每张量或每 32 元（MXFP8）一块，格子比 E2M1 细，质量合同�
 
 「权重 INT4 + CUDA 反量化 + FP16 GEMM」省的是盘与 HBM 容量，算术仍按 FP16 屋顶线。NVFP4 Tensor Core 路径省容量 **且** 把 $P$ 换到 4-bit MMA。验收看 SASS / profiler 的 MMA kind，以及端到端是否仍在做逐块反量化。
 
-## 边界与工程取舍
+## 边界
 
 非 Blackwell 设备上不要报 NVFP4 吞吐。SM120 是否完整暴露与 SM100 相同的 `kind::nvf4` 形状，以该 SKU 文档为准，不能从 B200 表抄到消费卡。对齐：16 元一块要求 $K$ 或量化轴能整除；MoE 小 $M$ 还要满足 grouped 核的 $M$ 对齐（SM100 文档曾写 256），两套对齐叠在一起会强制 padding。
 

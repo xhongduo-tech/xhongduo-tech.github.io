@@ -56,7 +56,7 @@ flowchart LR
 
 <span class="marginnote">rsLoRA 的 1/√r 针对可训练因子的方差。VeRA 的随机矩阵尺度由初始化方差决定，应单独设定，使冻结投影的输出与基座激活同量级。</span>
 
-## 边界与工程取舍
+## 边界
 
 领域适配要改很多方向（[DAPT](/llm/domain-adaptation-ft)）时 VeRA 往往不够。RFT 多轮自举需要容量，也不优先 VeRA。它适合：任务极多、每任务数据少、以风格/路由为主。随机种子必须与检查点一起版本化，否则向量无法对上 $A,B$。量化基座（QLoRA）可与 VeRA 叠加：基座 4-bit，向量 16-bit。
 

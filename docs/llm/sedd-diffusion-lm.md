@@ -63,7 +63,7 @@ flowchart TD
   SE["去噪 score entropy"] --> S
 ```
 
-## 边界与工程取舍
+## 边界
 
 规模停在 GPT-2 小/中与 OpenWebText 训练、若干零样本语料，不是 7B 对话模型。[LLaDA](/llm/llada) 才把掩码扩散做到 8B。[MDLM](/llm/mdlm) 证明在只做吸收时，Rao–Blackwell 化的掩码交叉熵可以更简单、方差更低。SEDD 的一般比率框架仍覆盖均匀等非吸收核，那是 MDLM 故意收窄的部分。
 

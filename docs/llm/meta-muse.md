@@ -65,7 +65,7 @@ Llama 4 有可下载的 MoE 表与报告。Muse Spark 是另一条产品线：�
 
 应用里的 Instant / Thinking 是消费级模式；1.3 API 的 minimal–xhigh 是开发者档。把 ChatGPT 式路由器、Gemini Deep Think 或 Grok 的 xhigh 直接写成 Muse 内部实现，都没有官方根据。评测 1.3 必须写档位，否则 AutomationBench 一行无法复现。
 
-## 边界与工程取舍
+## 边界
 
 参数、数据配比、专家表均未在介绍博文给出。1.0 的「小」与 1.3 的「最强 Spark」可能已不是同一容量——官方没有用参数证明跳跃，只用评测与产品语言。开源时间表口头有效、仓库无效。准备度结论按版本：1.1 报告不可直接贴到 1.3。音频、视频、PDF 的输入列表随文档变，集成钉型号页。健康回答需保留「非执业医疗」限定。评测必须标明 Standard vs Contributor、推理档、是否搜索接地。
 

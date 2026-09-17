@@ -57,7 +57,7 @@ GQA 使 KV 相对满头减半：32 个查询头只存 16 套键值，decode 带�
 
 需要单节点、许可可接受、8K 内对话，27B 是 2024 年中很强的开源点。需要 128K、工具、或 Apache，应看 Llama 3.1 / [NeMo](/llm/mistral-nemo) 等，而不是把 Gemma 2 的窗口口头升级。端侧选 2B/9B，不要用 27B 的 Arena 名次去证明手机可跑。从 Gemma 1 微调检查点接到 27B，层数、GQA、双 Norm、soft-cap 都不兼容，必须按 2 代配置重来。
 
-## 边界与工程取舍
+## 边界
 
 训练长度 8K。soft-capping 改变 logits 尺度，采样温度要重扫。绑嵌入使改词表很贵。不要把 Gemini 的未公开层数安到 27B。Gemma 2 报告编号 arXiv:2408.00118，Gemma 1 为 arXiv:2403.08295。不要给 27B 单独立一个不存在的论文号。
 

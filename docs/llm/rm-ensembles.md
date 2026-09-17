@@ -11,7 +11,7 @@ section: llm
 <footer>—— Coste 等，Reward Model Ensembles Help Mitigate Overoptimization；对照 Eisenstein 等 Helping or Herding</footer>
 </div>
 
-[上一课](/llm/negative-task-vector)把行为改写收在权重空间里的负任务向量：沿一条微调方向反走，抹掉不想要的能力。本课打开「强化学习进阶」。策略不再被一条向量推，而是被一个标量奖励拉。[奖励模型](/llm/reward-model) 在 [RLHF 流程](/llm/rlhf-pipeline)里被当成真值；它其实是比较数据上的回归器，对分布外完成的方差从未进入 PPO。缺口是：**同一条 $y$，不同初始化的 RM 会打出差很远的分，策略却只看见均值。** 后课校准、过优化都默认已经读完本课的不确定性。
+[上一课](/llm/prm-in-rl-loop)把强化学习课序收在过程奖励进训练环：把 PRM 从搜索器移到优势与塑造项，给长链稠密信用。本课打开「奖励、自博弈与推理行为」。策略不再被一条向量推，而是被一个标量奖励拉。[奖励模型](/llm/reward-model) 在 [RLHF 流程](/llm/rlhf-pipeline)里被当成真值；它其实是比较数据上的回归器，对分布外完成的方差从未进入 PPO。缺口是：**同一条 $y$，不同初始化的 RM 会打出差很远的分，策略却只看见均值。** 后课校准、过优化都默认已经读完本课的不确定性。
 
 ## 问题
 
@@ -55,7 +55,7 @@ flowchart TD
 
 <span class="marginnote">不确定性是认知的（模型不知），不是随机的（标注噪声）。标注员分歧要另建模，不能指望多训几份 RM 自动吸收。</span>
 
-## 边界与工程取舍
+## 边界
 
 $K$ 次 RM 前向在在线 RL 里很贵。可把成员量化、放到推理卡，或只对高分候选算满 $K$ 份。开放域偏好上集成有文献支持；[可验证奖励](/llm/verifiable-reward) 的 0/1 没有模型不确定性，本课的 $\hat\sigma$ 用不上，应换校验器。集成推迟过优化，下一课问分数的绝对含义是否校准。
 

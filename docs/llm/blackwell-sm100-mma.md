@@ -72,7 +72,7 @@ flowchart LR
 
 CUTLASS 的 SM90 核不能通过改 `arch::Sm100` 三个字符就变合法。TMEM 布局、描述符编码、barrier 相位都要按指南重写。社区博客里「98% cuBLAS」一类数字绑定特定 $M=N=K=4096$ 与作者的手工核，不能当所有形状的保证。
 
-## 边界与工程取舍
+## 边界
 
 不要在 SM120 上承诺 SM100 的 CTA-pair 吞吐。不要用整柜 NVFP4 PFLOPS 去除以 SM 数再当成单核 decode 的可达峰值。不要把 `tcgen05` 与 CUDA `mma` 内联汇编混在同一流水而不统一 barrier 语义。
 

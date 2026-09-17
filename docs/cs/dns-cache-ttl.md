@@ -36,8 +36,6 @@ flowchart TD
   NEG["NXDOMAIN"] --> NC["负缓存"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 Cookie 会话不替代 DNS 缓存。GeoDNS 下一课用同一 TTL 机制发不同答案。H3 的 HTTPS RR 也有 TTL。过期后要重新查询，无线贵。劫持缓存（没有 DNSSEC）是安全课对象。
@@ -50,7 +48,7 @@ Cookie 会话不替代 DNS 缓存。GeoDNS 下一课用同一 TTL 机制发不�
 
 把所有记录 TTL 设 1 秒会把解析器变成权威的 DDoS 放大器。
 
-上一课留下的缺口在本课收口；「DNS 缓存与 TTL」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[DNSSEC](/cs/dnssec)。
+下一课[DNSSEC](/cs/dnssec)。
 
 ## 小结
 

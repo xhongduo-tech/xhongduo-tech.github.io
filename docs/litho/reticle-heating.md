@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 ASML 等对 overlay 热贡献源的公开论述：掩模（reticule）加热是独立于工件台的一项</footer>
 </div>
 
-[上一课](/litho/alignment-spm)把曝光前网格钉在晶圆标记与 SPM 上。缺口是曝光期间掩模自己在热：吸收体和膜堆吃光，热膨胀进套刻，对准再密也测不到这块——它发生在物面。本课钉掩模加热。晶圆侧的曝光热与卡盘冷却留给[下一课](/litho/wafer-thermal-overlay）。
+[上一课](/litho/alignment-spm)把曝光前网格钉在晶圆标记与 SPM 上。缺口是曝光期间掩模自己在热：吸收体和膜堆吃光，热膨胀进套刻，对准再密也测不到这块——它发生在物面。本课钉掩模加热。晶圆侧的曝光热与卡盘冷却留给[下一课](/litho/wafer-thermal-overlay)。
 
 ## 问题
 

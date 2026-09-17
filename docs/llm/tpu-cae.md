@@ -60,7 +60,7 @@ CAE 解决的是芯片内部与紧邻 ICI 端口的同步；Boardfly 解决的�
 
 <span class="marginnote">「near-zero latency」是产品语言，不是测量值。规划时把它读成：目标是把片上集合从「可与 GEMM 比肩的等待」压到「相对一步 decode 可忽略」。具体微秒必须以当时 Cloud 文档或 Hot Chips 幻灯为准，本篇不填写未在官方表出现的数字。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要在 8t 训练作业里寻找 CAE 计数器。不要把 5× 片上延迟写成端到端 tokens/s 的 5×。不要用 v5e / Ironwood 的 SparseCore 调优经验去猜 8i 的 embedding 路径——那块硅已经拿掉。8i Pod 规模、Boardfly 分组在公开博文里有层次图，具体可售切片形状以 Cloud 控制台为准；GA 时间官方只写「年内」。
 

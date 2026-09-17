@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 hybrid bonding overlay（SoIC / Foveros Direct 一类公开叙事）与红外对准</footer>
 </div>
 
-[上一课](/litho/packaging-steppers)的微米场对 RDL 够用。缺口是混合键合要求 nm–十 nm 量级的键合对准。本课钉混合键合的对准。光子学波导对侧壁另一套敏感，留给[下一课](/litho/photonics-patterning）。
+[上一课](/litho/packaging-steppers)的微米场对 RDL 够用。缺口是混合键合要求 nm–十 nm 量级的键合对准。本课钉混合键合的对准。光子学波导对侧壁另一套敏感，留给[下一课](/litho/photonics-patterning)。
 
 ## 问题
 

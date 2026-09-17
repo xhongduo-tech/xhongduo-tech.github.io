@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML / 掩模厂对 EUV black border 的公开方案</footer>
 </div>
 
-[上一课](/litho/ruthenium-capping)把图形区多层用钌帽保护起来。缺口是场与场之间：扫描机按场步进，照明和投影的光晕会打到掩模上图形区以外的多层，反射式几何把它当成合法物面，邻场边缘出现「闪光」或 CD 异常。本课钉黑边（black border）。掩模三维导致的最佳焦面偏移，留给[下一课](/litho/mask-3d-best-focus-shift）。
+[上一课](/litho/ruthenium-capping)把图形区多层用钌帽保护起来。缺口是场与场之间：扫描机按场步进，照明和投影的光晕会打到掩模上图形区以外的多层，反射式几何把它当成合法物面，邻场边缘出现「闪光」或 CD 异常。本课钉黑边（black border）。掩模三维导致的最佳焦面偏移，留给[下一课](/litho/mask-3d-best-focus-shift)。
 
 ## 问题
 

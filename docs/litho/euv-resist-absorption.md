@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Levinson、Mack 对吸收与胶厚；Naulleau 对 EUV 吸收与模糊</footer>
 </div>
 
-[上一课](/litho/pellicle-free-risk)从掩模防护回到硅片。缺口是记录介质：[EUV 胶](/litho/euv-resist) 已把 CAR 与金属氧化物的 RLS 工作点分开；本课专攻吸收系数与厚度如何互锁。底层如何向胶里灌二次电子，留给[下一课](/litho/underlayer-secondary-electron）。
+[上一课](/litho/pellicle-free-risk)从掩模防护回到硅片。缺口是记录介质：[EUV 胶](/litho/euv-resist) 已把 CAR 与金属氧化物的 RLS 工作点分开；本课专攻吸收系数与厚度如何互锁。底层如何向胶里灌二次电子，留给[下一课](/litho/underlayer-secondary-electron)。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 OPC 模型残差诊断与通过节距误差指纹的产线通称</footer>
 </div>
 
-[上一课](/litho/test-patterns-gauges)给出有结构的测量。缺口是拟合结束后如何决定：加项、改光学、还是承认某类图形不进 OPC 而进设计规则禁止。本课钉残差分析。轮廓从 2D 边升级到 3D 胶形，留给[下一课](/litho/3d-resist-model）。
+[上一课](/litho/test-patterns-gauges)给出有结构的测量。缺口是拟合结束后如何决定：加项、改光学、还是承认某类图形不进 OPC 而进设计规则禁止。本课钉残差分析。轮廓从 2D 边升级到 3D 胶形，留给[下一课](/litho/3d-resist-model)。
 
 ## 问题
 

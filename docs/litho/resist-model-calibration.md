@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Mack 紧凑抗蚀剂模型与 EDA CM1 族校准通称</footer>
 </div>
 
-[上一课](/litho/domain-decomposition-mask)让严格近场可以按窗存在。缺口是 OPC 迭代仍要毫秒级前向：[胶紧凑模型](/litho/resist-compact-model) 必须在本层胶、本 PEB、本显影上标定。本课钉校准。用哪些图形当样本，留给[下一课](/litho/test-patterns-gauges）。
+[上一课](/litho/domain-decomposition-mask)让严格近场可以按窗存在。缺口是 OPC 迭代仍要毫秒级前向：[胶紧凑模型](/litho/resist-compact-model) 必须在本层胶、本 PEB、本显影上标定。本课钉校准。用哪些图形当样本，留给[下一课](/litho/test-patterns-gauges)。
 
 ## 问题
 

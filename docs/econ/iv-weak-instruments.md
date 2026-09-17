@@ -48,7 +48,7 @@ flowchart TD
 
 与[卢卡斯批判](/econ/lucas-critique)：工具若是政策规则的一部分，规则一变 $\pi$ 与排除一起变。IV 不是自动结构。
 
-<span class="marginnote">单调性（Imbens–Angrist）在异质下保证 LATE 是编译器的加权；违反则 IV 是符号不定的混合。本课常数 $\beta$ 下还不需要，但弱工具与异质会纠缠。</span>
+<span class="marginnote">单调性（Imbens–Angrist）在异质下保证 LATE 是依从者（complier）的加权；违反则 IV 是符号不定的混合。本课常数 $\beta$ 下还不需要，但弱工具与异质会纠缠。</span>
 
 ## 边界
 

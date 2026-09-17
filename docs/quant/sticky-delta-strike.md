@@ -11,7 +11,7 @@ section: quant
     <footer>—— 粘性比见 Bergomi, Stochastic Volatility Modeling, 2016；SABR 动态与局部波动的冲突见 Hagan et al.；规则作为对冲惯例见市场实践</footer>
 </div>
 
-[Skew 与微笑](/quant/vol-skew) 写今日切片的形状；[SABR](/quant/sabr) 与 [Dupire](/quant/dupire) 给出两种过程，现货一动未来切片的搬法不同。本篇把交易台的两条经验规则写成明确的偏导：sticky strike 与 sticky delta，以及 Bergomi 的偏斜粘性比（skew stickiness ratio, SSR）。它们是对冲坐标，不是模型。不重复 SABR 展开，不把两因子 Bergomi 核再推一遍，也不把 Heston 五参数当作 sticky 的微积分。
+[上一课](/quant/dispersion-corr-prem)把相关溢价收在崩盘补偿；现货一动切片怎么搬，本篇立对冲坐标。[Skew 与微笑](/quant/vol-skew) 写今日切片的形状；[SABR](/quant/sabr) 与 [Dupire](/quant/dupire) 给出两种过程，现货一动未来切片的搬法不同。本篇把交易台的两条经验规则写成明确的偏导：sticky strike 与 sticky delta，以及 Bergomi 的偏斜粘性比（skew stickiness ratio, SSR）。它们是对冲坐标，不是模型。不重复 SABR 展开，不把两因子 Bergomi 核再推一遍，也不把 Heston 五参数当作 sticky 的微积分。
 
 ## 问题
 
@@ -79,7 +79,7 @@ flowchart TD
 
 <span class="marginnote">「市场是 sticky delta」是局部回归结论，不是定理。把 SSR 设成 1 再给一年期障碍定价，等于把短端规则外推到长路径，障碍会错。</span>
 
-## 边界与工程取舍
+## 边界
 
 大跳后执行价网格与 Delta 网格都要重贴，两条规则在跳的那一瞬间没有定义——微笑可以整体上移（危机模式）。翼部流动性差时，$\partial\sigma/\partial k$ 估不稳，SSR 分母抖。多到期联动：现货动时短切片与长切片 SSR 不同，单一规则不能管整张面。
 

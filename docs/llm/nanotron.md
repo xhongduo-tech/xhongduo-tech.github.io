@@ -66,7 +66,7 @@ flowchart TD
 
 Megatron 的语义祖先仍是列切+行切；Nanotron 没有发明新的切法，发明的是把切法暴露成可打印的模块。FSDP 切的是副本上的参数/梯度/优化器，默认没有流水线，长层仍可能单卡放不下。[VeOmni](/llm/veomni) 面向全模态，并行配方是 FSDP+序列并行+专家并行，几乎不用 TP/PP。三者不要互相替代：纯文本大稠密模型、要改结构、集群中等——Nanotron 合适；要 omni 编码器和解码器插件——VeOmni；要官方 PyTorch 分片、模型已能单层放下——FSDP。
 
-## 边界与工程取舍
+## 边界
 
 ### 不要用 README 的功能表当集群 SLA
 

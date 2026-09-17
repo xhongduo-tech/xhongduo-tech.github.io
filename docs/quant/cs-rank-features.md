@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Fama and French 对账面市值比构造与 Compustat 可获得性滞后的标准处理</footer>
 </div>
 
-表格特征在进入模型之前有两步几乎决定结论：什么时候能用（滞后），以及在谁之间比较（截面变换）。Fama 与 French 把账面股权放到至少六个月后的组合形成日，避免用尚未公布的年报。Hou、Xue 与 Zhang（2020）在复制异常时强调 NYSE 断点与滞后，许多「显著」在这一手续下消失。Green、Hand 与 Zhang（2017）同时放入几十个特征，问的是增量信息而不是单个 t。Kelly、Pruitt 与 Su（2019）的 IPCA 把特征当作载荷的函数；Kozak、Nagel 与 Santosh（2020）在特征空间里收缩。截面 rank 或 z-score 是 Barra 与多空排序的共同语言，见[单因子排序](/quant/long-short-sort)。本篇把滞后与 rank 写成特征工程的最小充分统计：不做这两步，[GBDT](/quant/gbdt-alpha) 会把规模、单位和前视当成「非线性」。
+[标签、预测期与重叠](/quant/label-horizon-overlap)把 $y$ 的地平线定完；轮到 $X$。表格特征在进入模型之前有两步几乎决定结论：什么时候能用（滞后），以及在谁之间比较（截面变换）。Fama 与 French 把账面股权放到至少六个月后的组合形成日，避免用尚未公布的年报。Hou、Xue 与 Zhang（2020）在复制异常时强调 NYSE 断点与滞后，许多「显著」在这一手续下消失。Green、Hand 与 Zhang（2017）同时放入几十个特征，问的是增量信息而不是单个 t。Kelly、Pruitt 与 Su（2019）的 IPCA 把特征当作载荷的函数；Kozak、Nagel 与 Santosh（2020）在特征空间里收缩。截面 rank 或 z-score 是 Barra 与多空排序的共同语言，见[单因子排序](/quant/long-short-sort)。本篇把滞后与 rank 写成特征工程的最小充分统计：不做这两步，[GBDT](/quant/gbdt-alpha) 会把规模、单位和前视当成「非线性」。
 
 ## 问题
 
@@ -51,7 +51,7 @@ Rank 的非线性：两端的经济含义往往更强（极端价值、极端动
 
 几十个特征在截面上高度相关（价值族、质量族）。逐列 rank 不消除共线，只统一量纲。随后仍需正交、PCA、IPCA 或正则，见[协方差收缩](/quant/cov-shrinkage)与 Kozak–Nagel–Santosh。GBDT 会把共线列的重要性拆得看起来很散，或集中在某一列上随种子变化。报告时应给一族特征的联合置换重要性，而不是只看单列 gain。Green–Hand–Zhang 的问题意识仍适用：独立信息含量，不是列数。
 
-## 边界与工程取舍
+## 边界
 
 不要用未来宇宙（事后进入指数的成分）做当日 rank。不要把测试期的截面均值与标准差用于训练期标准化。不要对百分比特征再做一次跨期标准化导致双重缩放。中文会计科目与海外 Compustat 的滞后规则不同，必须按交易所披露时钟重写，而不是翻译列名。另类数据列的滞后往往长于供应商宣传的「T+1」，应以你实际收到文件的时间为准。
 

@@ -71,7 +71,7 @@ SSD 矩阵没有 softmax，所以不是「稀疏化的 Transformer」。它更�
 
 Dao & Gu（2024）把这件事说成「Transformers are SSMs」：不是所有 Transformer 都是 SSM，而是**结构化**的注意力（半可分、低秩生成元）与 SSM 重合。普通 softmax 注意力落在这个结构之外，所以对偶不是万能翻译，是给 Mamba 家族划出一块能吃矩阵核的子类。
 
-## 边界与工程取舍
+## 边界
 
 对偶的代价是表达力切口。能写成半可分生成元的注意力不是任意 $QK^\top$。需要高度不规则、内容相关的检索模式时，SSD 仍可能不如全量 softmax。Mamba-2 用更宽状态和更深堆叠去补，工程上还常常在少数层插入真注意力——那已是 Jamba、Griffin 的课题，不是 SSD 本身。<span class="marginnote">训练走矩阵路径、解码走扫描，是同一组权重的两种 schedule，不是两套模型。</span>
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Chevyrev and Lyons, Characteristic functions of measures on geometric rough paths, 2016；生成实现见 Ni, Szpruch, Wiese et al., Sig-Wasserstein GANs, 2021</footer>
 </div>
 
-普通 GAN 把时间序列当成欧氏向量：判别器看的是逐坐标或卷积局部图案。金融市场的「像」，首先是路径泛函的分布——二次变差、杠杆、领先滞后——而不是某一天的点值对齐。[Path Signature](/quant/path-signature-features) 把一条（加时间、做 lead-lag 的）路径压成迭代积分坐标；Chevyrev 与 Lyons 证明期望签名在相当一般的条件下扮演特征函数。Sig-Wasserstein GAN 把生成器的输出路径与真实路径的期望签名对齐，用签名空间里的 Wasserstein 型损失替代像素级对抗。本篇写这一距离为何比逐点 GAN 更贴过程，截断与增强如何改变可识别的动态；评估协议见 [生成式回测的评估](/quant/generative-backtest-eval)，线性读签名做交易见 [Signature Trading](/quant/signature-trading)。
+[VAE 生成器](/quant/market-generator-vae) 靠潜空间重构「像不像」；签名 GAN 把它换成路径泛函的分布距离。普通 GAN 把时间序列当成欧氏向量：判别器看的是逐坐标或卷积局部图案。金融市场的「像」，首先是路径泛函的分布——二次变差、杠杆、领先滞后——而不是某一天的点值对齐。[Path Signature](/quant/path-signature-features) 把一条（加时间、做 lead-lag 的）路径压成迭代积分坐标；Chevyrev 与 Lyons 证明期望签名在相当一般的条件下扮演特征函数。Sig-Wasserstein GAN 把生成器的输出路径与真实路径的期望签名对齐，用签名空间里的 Wasserstein 型损失替代像素级对抗。本篇写这一距离为何比逐点 GAN 更贴过程，截断与增强如何改变可识别的动态；评估协议见 [生成式回测的评估](/quant/generative-backtest-eval)，线性读签名做交易见 [Signature Trading](/quant/signature-trading)。
 
 ## 问题
 
@@ -68,7 +68,7 @@ Wasserstein 相对 Jensen–Shannon 的好处在此仍然成立：支撑不重�
 
 <span class="marginnote">Chevyrev–Lyons 论文写的是粗糙路径上测度的特征函数，不是 GAN。Ni–Szpruch–Wiese 一线把该距离接到生成对抗训练。出处应分开写：识别性归特征函数一文，训练配方归 Sig-WGAN 一文。</span>
 
-## 边界与工程取舍
+## 边界
 
 截断签名对时间网格敏感。同一条潜在连续路径，5 分钟采样与日采样的 $S_N$ 不是同一对象。生成器输出频率必须与训练签名的频率一致，下游回测也必须用同一频率。把日频生成器的样本插值到分钟再做执行仿真，签名匹配不能为微观结构背书。
 

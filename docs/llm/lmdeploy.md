@@ -61,7 +61,7 @@ PyTorch 后端的存在，是承认内核目录跟不上模型发布速度。Int
 
 官方 Python API 支持流式输出与张量并行。流式把 decode 步推到迭代器上，取消与断开必须能从持久化 batch 里把该序列摘掉，否则 LRU 槽会被「客户端已走、引擎仍在写」的幽灵请求占满，见 [sse-cancel](/llm/sse-cancel)。TP 度仍应落在节点内高带宽域；对话 decode 的小 batch 会放大 All-Reduce 延迟，服务期盲目复制训练期的 TP 度，往往不如复制整模。
 
-## 边界与工程取舍
+## 边界
 
 LMDeploy 强在 InternLM 族与已开通的量化 / KV 量化路径，弱在「任意新结构第二天就有手写 CUDA」。与 TGI 相比，它把更多调度放进 C++ 引擎，而不是 Rust HTTP 层；与「纯 PyTorch 服务」相比，它用持久化 batch 换掉了逐步 Python 调度的税。选型应钉版本、钉模型、钉是否走 TurboMind，而不是钉项目名。NCCL 屏障、权重转置、INT8 KV 的精度，都是上线清单里的独立项：关掉 INT8 KV 再比延迟，才能知道瓶颈在注意力核还是在量化误差引起的更长生成。
 

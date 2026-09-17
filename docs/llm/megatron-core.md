@@ -66,7 +66,7 @@ flowchart TD
 
 Core 不管数据加载器里的 tokenizer 策略，也不管子进程启动器的全部运维。NeMo 加配方、日志、HF 桥；TE 加核。只装 Core 就能训，但生产上三者通常一起出现。不要把 Hugging Face `transformers` 的 `device_map` 理解成已经开了 Megatron TP。上下文并行与序列并行名字容易混：后者减轻 TP 组上的激活复制，前者为长序列切 KV；配置里两个 size 都开时，通信图案是两套，不能只抄其中一个论文的环。
 
-## 边界与工程取舍
+## 边界
 
 不要把 2019 的 8.3B / 76% 效率写成 Core 在 H100 上的 MFU。不要把 6144 GPU 弱扩展表外推到以太网机房的强扩展。检查点与并行度绑定。SwiGLU、GQA、MLA 要按模块是否已在 Core 实现来接，而不是假设 2019 的 GeLU MLP 切法自动覆盖。DeepSpeed ZeRO 与 Core 分布式优化器是两条切优化器的路，不要在同一作业里无文档地双开。
 

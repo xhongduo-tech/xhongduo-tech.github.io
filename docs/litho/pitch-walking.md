@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 SADP 计量对 pitch walking / odd–even space 的通称，以及芯轴–侧墙几何的误差传递</footer>
 </div>
 
-[上一课](/litho/mandrel-spacer)把 $W_m$、$P_m$ 与侧墙厚度 $t$ 写成理想几何，并区分 core 与 gap。缺口是上线后这两套 space 通常不相等：mandrel CD、薄膜、回刻脚型只要偏一项，奇数间隔与偶数间隔就分裂。这就是节距漂移（pitch walking）。切断掩模留给[下一课](/litho/cut-mask-dpt）。
+[上一课](/litho/mandrel-spacer)把 $W_m$、$P_m$ 与侧墙厚度 $t$ 写成理想几何，并区分 core 与 gap。缺口是上线后这两套 space 通常不相等：mandrel CD、薄膜、回刻脚型只要偏一项，奇数间隔与偶数间隔就分裂。这就是节距漂移（pitch walking）。奇偶分裂在电学与计量上怎么分桶记账，留给[下一课](/litho/odd-even-pitch)；切断掩模是后面的[切断掩模](/litho/cut-mask-dpt)一课。
 
 ## 问题
 
@@ -56,7 +56,7 @@ flowchart TD
 
 ## 边界
 
-本课不把切线套刻写成 pitch walking：切偏的是线端位置，周期沿栅仍可以奇偶合格。下一课才把线切短。也不编 7 nm 鳍的 walking 纳米规格。公开讨论停在：SADP 必须分桶计量奇偶 space。
+本课不把切线套刻写成 pitch walking：切偏的是线端位置，周期沿栅仍可以奇偶合格。把线切短是后面切断课的事。也不编 7 nm 鳍的 walking 纳米规格。公开讨论停在：SADP 必须分桶计量奇偶 space。
 
 二维局部、线端附近的 spacer 环会让「奇偶」定义模糊，计量 ROI 要避开切区与阵列边缘，否则把几何过渡区当成 walking。
 
@@ -68,5 +68,5 @@ flowchart TD
 - 旋钮主要是 mandrel CD 与薄膜；不是第二次线层 overlay。
 - 计量必须分桶，平均节距会掩盖问题。
 - 与 LELE 的 $\delta$ 指纹要拆源。
-- 切断掩模下一课。
+- 奇偶节距的桶数下一课；切断掩模随后。
 - 出处：SADP 计量对 pitch walking 的通称；上一课芯轴–侧墙几何。

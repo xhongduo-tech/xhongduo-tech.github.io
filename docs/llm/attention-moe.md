@@ -57,4 +57,4 @@ flowchart TD
 - 抖动比 FFN MoE 更伤；默认稀疏容量应留在 FFN。
 - GQA、跳层、稀疏图案不是本课对象。
 - 质量上注意力往往比 FFN 更怕稀疏：一份错的头比一份错的 MLP 更容易毁掉位置信息。
-- 出处：Zhang et al., 2022；Csordás et al., SwitchHead；Fedus et al. 对注意力专家的实验。
+- 出处：Zhang et al., 2022；Fedus et al. 对注意力专家的实验。

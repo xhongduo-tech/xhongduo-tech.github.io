@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey, Borwein, López de Prado and Zhu, The Probability of Backtest Overfitting, Journal of Computational Finance, 2017</footer>
 </div>
 
-[回测过拟合概率](/quant/pbo) 一文写 PBO 的定义与误用：它是相对排名事件的频率，不是可优化的目标。[组合过拟合 CPCV](/quant/cpcv) 把同一骨架加上 purge 与可变的测试块数 $k$，并讨论与 DSR 的接口。[Combinatorial Purged CV](/quant/cpcv-lopez) 则把组合划分用于**单个冻结估计器**的路径分布。本篇回到 Bailey 等人 2017 年原文的实验设计本身：组合对称交叉验证（Combinatorially Symmetric Cross-Validation, CSCV）。它不是又一种优化器，也不是 walk-forward 的替代。对象是：在候选集合已冻结时，如何生成足够多、且对时间块对称的训练–检验划分，使 PBO 与 IS–OOS 散点可估计。
+[FDR / Romano-Wolf](/quant/fdr-romano-wolf)把错误率收在预注册的清单上；清单背后的划分怎么造，本篇写 CSCV。[回测过拟合概率](/quant/pbo) 一文写 PBO 的定义与误用：它是相对排名事件的频率，不是可优化的目标。[组合过拟合 CPCV](/quant/cpcv) 把同一骨架加上 purge 与可变的测试块数 $k$，并讨论与 DSR 的接口。[Combinatorial Purged CV](/quant/cpcv-lopez) 则把组合划分用于**单个冻结估计器**的路径分布。本篇回到 Bailey 等人 2017 年原文的实验设计本身：组合对称交叉验证（Combinatorially Symmetric Cross-Validation, CSCV）。它不是又一种优化器，也不是 walk-forward 的替代。对象是：在候选集合已冻结时，如何生成足够多、且对时间块对称的训练–检验划分，使 PBO 与 IS–OOS 散点可估计。
 
 ## 问题
 
@@ -63,7 +63,7 @@ $S$ 太小，频率估不稳；$S$ 太大，每块太短，切断依赖，路径
 
 CSCV/PBO：候选已闭合，度量选择是否带来相对优势。Nested CPCV：候选尚未闭合，网格必须待在内层。Romano–Wolf：相对明确基准的 FWER 名单，绝对边缘。可以 CSCV 显示相对中位仍好，RW 却不拒绝相对现金——全体没有经济边缘，只是冠军不比同伴更差。完整实验设计把 CSCV 放在搜索闭合之后、部署滚动之前，而不是用 CSCV 去再挑一个更漂亮的切分。
 
-## 边界与工程取舍
+## 边界
 
 交错路径不是交易模拟。PBO 低且 DSR 高，仍可能在因果滚动上因非平稳失败。反过来，PBO 接近 $1/2$ 时几乎不应进模拟账户。计算上应对配置向量化评分；订单级回测跑不了 $\binom{S}{S/2}$ 次。评分若含全样本标准化，组合次数只是复制泄漏。
 

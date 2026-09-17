@@ -58,7 +58,7 @@ flowchart TD
 
 <span class="marginnote">「Virgo ICI」作为口语，指的是 **Virgo 与 ICI 两层互连体系**，不是 Virgo 实现了 ICI 电气规范。写配置与工单时分开：Pod 内 ICI 版本/拓扑，机房侧 Virgo 平面与配额。</span>
 
-## 边界与工程取舍
+## 边界
 
 GA 与 Cloud 区域可用性以控制台为准。每芯片注入 Virgo 的精确速率、交换机端口速率、是否 400 GbE，官方博文未给可引用的完整表——公开信息有限。不要用报道中的 47 Pb/s 去反推过订阅比。不要把 Jupiter 前端网关关掉当「已经有 Virgo」：用户流量、控制面、存储仍可能走另一张网。
 

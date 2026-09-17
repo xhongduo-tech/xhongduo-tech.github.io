@@ -11,7 +11,7 @@ section: quant
     <footer>—— Bakshi and Kapadia, Delta-Hedged Gains and the Negative Market Volatility Risk Premium, Review of Financial Studies, 2003；离散项见 Boyle–Emanuel</footer>
 </div>
 
-[离散对冲误差](/quant/discrete-hedge-error) 把两次再平衡之间的残差写成渐近对象；[对冲频率](/quant/delta-hedge-freq) 决定何时付价差去消灭残差。本篇把同一项收成**可交易的 PnL 恒等式**：Gurdip Bakshi 与 Nikunj Kapadia 证明，指数期权在 Delta 对冲后的平均收益为负——卖出隐含、买入已实现的那一侧在收取波动率风险溢价。Gamma scalping 是多头 Gamma 的操作名称：现货来回动时再平衡「刮」已实现方差。不讨论最优带宽，不把高阶 Charm / Color 再推一遍。
+[上一课](/quant/var-vs-vol-swap)把方差与波动互换的凸性账算完。[离散对冲误差](/quant/discrete-hedge-error) 把两次再平衡之间的残差写成渐近对象；[对冲频率](/quant/delta-hedge-freq) 决定何时付价差去消灭残差。本篇把同一项收成**可交易的 PnL 恒等式**：Gurdip Bakshi 与 Nikunj Kapadia 证明，指数期权在 Delta 对冲后的平均收益为负——卖出隐含、买入已实现的那一侧在收取波动率风险溢价。Gamma scalping 是多头 Gamma 的操作名称：现货来回动时再平衡「刮」已实现方差。不讨论最优带宽，不把高阶 Charm / Color 再推一遍。
 
 ## 问题
 
@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">Theta 不是「独立的第三笔钱」。在扩散模型里它是为持有 Gamma 预收的 $\frac12\Gamma S^2\sigma^2$。把 Theta 当稳定票息、把 Gamma 当意外，会在实现波动低的月份误报利润来源。</span>
 
-## 边界与工程取舍
+## 边界
 
 价差与冲击进入每一笔再平衡，多头 Gamma 的已实现必须覆盖 Theta **加** 成本。微观结构噪声会让过密对冲把买卖弹跳当成已实现方差，虚假 scalping、真实亏损。隔夜跳空无法刮，只能当跳项。微笑移动时，未对冲 Vega 可以盖过 Gamma 项：日报必须拆开，否则策略归因失败。
 

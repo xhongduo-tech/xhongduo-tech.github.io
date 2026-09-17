@@ -60,7 +60,7 @@ TRL 能薄，是因为它把「模型是什么」外包给 HuggingFace。词表�
 
 单机或数卡、HF 检查点、要扫 DPO/KTO/ORPO 一族损失、需要和 `transformers` 主版本同步：TRL 是正确默认。已经有一份能跑的 SFTTrainer 配置，再把同一数据改成 DPO 列，迁移成本低于换框架。相反，多周转工具、要把 [AgentLoop](/llm/agentloop-server) 接到独立推理服务器、或必须跟 Megatron 预训练权重逐比特对齐时，TRL 不是主路径。消费级单卡上的 LoRA PPO 仍然有教学价值：它把 GAE、KL 和价值头的显存税摊开给人看，但不要把 24GB 卡上的 20B 实验外推成集群配方。生成长度一进长 CoT，HF `generate` 路径会先于优化器成为墙钟，这时共置 vLLM 是补丁，Ray 分角色才是换架构。
 
-## 边界与工程取舍
+## 边界
 
 不要用 TRL 的存在证明「RLHF 已经商品化」。PPO 超参、奖励 hacking、验证器漏洞仍然在。不要把实验性 Trainer 写进生产对照而不钉版本。多模态与 agent 环境（OpenEnv 等）是后加层，覆盖面随发行变化。依赖树与 `transformers` 绑定：升级 Transformers 可能静默改变 padding 或 chat template，损失掩码跟着错。
 

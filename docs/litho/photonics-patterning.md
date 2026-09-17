@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照硅光波导对线宽与粗糙度敏感的公开讨论</footer>
 </div>
 
-[上一课](/litho/hybrid-bonding-alignment)把 3D 电学对准收束。缺口是同一套硅工艺上的光子器件。本课钉光子学图形化。MEMS 厚胶与另一套规则，留给[下一课](/litho/mems-patterning）。
+[上一课](/litho/hybrid-bonding-alignment)把 3D 电学对准收束。缺口是同一套硅工艺上的光子器件。本课钉光子学图形化。MEMS 厚胶与另一套规则，留给[下一课](/litho/mems-patterning)。
 
 ## 问题
 

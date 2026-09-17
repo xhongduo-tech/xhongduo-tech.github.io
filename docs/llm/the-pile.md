@@ -52,7 +52,7 @@ C4/mC4 几乎全是 Common Crawl 启发式清洗；Pile 明确反对「只有 CC
 
 <span class="marginnote">Datasheet（Biderman 等后续 arXiv:2201.07311）补数据声明。引用 The Pile 时应指向 Gao 等 2101.00027 与 22 子集表，而不是只写「EleutherAI 数据」。GPT-Neo 的模型卡不能替代这份语料论文。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 公开可下载不等于可商用、可无审计
 

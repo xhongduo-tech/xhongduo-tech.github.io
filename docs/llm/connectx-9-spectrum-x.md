@@ -61,7 +61,7 @@ Scale-out 变快，靠的不是把以太网改名叫 NVLink，而是把「同步
 
 SuperNIC 要靠近 GPU：PCIe（公开材料把这一代平台与 Gen6 准备连在一起讨论）或平台规定的主机接口，决定 GPU Direct / GPU 直接 RDMA 能不能绕开多余拷贝。接口不够宽，1.6 Tb/s 的网卡规格会被主机总线削掉。这是系统问题，不是把网卡插到任意 x16 槽就成立。编排上应把「本节点的 Spectrum-X 网卡」标成拓扑资源，避免把跨 NUMA、跨交换机的网卡塞进同一条延迟敏感的通信子。
 
-## 边界与工程取舍
+## 边界
 
 不要用 ConnectX-9 去「模拟」机柜内 NVLink。不要在没有 Spectrum-X 调优的货架叶子上假设能达到官方 1.6 倍数字。不要把 Tech Preview 的 ConnectX-9 配置文件当成已经 RA 认证的生产模板——NVIDIA 网络文档写过：RA 2.3 等配置未覆盖 ConnectX-9 时，需要带设备 ID `1025` 的 profile。不要编造未公开的单芯片功耗、未发布的固件特性列表，或把 ConnectX-8 的 800 Gb/s 总带宽表直接改名成 ConnectX-9。
 

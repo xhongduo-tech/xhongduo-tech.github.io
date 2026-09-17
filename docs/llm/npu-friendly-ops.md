@@ -59,7 +59,7 @@ NPU 的吞吐来自大规模脉动或向量阵列。阵列一次吃进固定 $M\
 
 GPU 友好：FlashAttention 的动态分块、MoE grouped GEMM、数据依赖稀疏、torch.compile 即时特化。NPU 友好：固定分块、稠密 FFN、静态掩码、AOT 编译。FlashAttention 的算法可以在 NPU 上用**固定块长**的版本近似，但不能假设编译器会自动把 Python 里的变长循环变成那套核。端侧解码 batch=1，Flash 的节省主要是内存流量；若 NPU 没有对应融合注意力，手写分块 SDPA 仍要比碎成 $n$ 次向量点积好。
 
-## 边界与工程取舍
+## 边界
 
 友好约束会限制模型选择。DeepSeek 式细粒度 MoE、原生稀疏注意力、动态分辨率视觉塔，默认都不是手机第一公民。SLM 应在训练或蒸馏阶段就改成 RMSNorm、SwiGLU 或 GELU MLP、GQA、固定窗，而不是训完再「图优化」。量化感知训练要在最终图上做，否则校准的是 GPU 图，部署的是另一张被插入 reshape 的图。
 

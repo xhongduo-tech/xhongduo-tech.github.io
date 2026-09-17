@@ -55,7 +55,7 @@ flowchart LR
 
 计数若与实际写次数不一致，消费者会永久等或提前读到半成品。融合核的正确性比分离式 NCCL 更脆：少一次 write、重复一次 write、或 CTA 崩溃未更新计数，都会表现为静默错数或挂起。调试应能关闭融合、退回库级集体通信做对照。多租户下，一块 GPU 上的融合通信不应踩到另一作业的 NVLink 完成资源——隔离以 MIG / 进程级通信子为准，本篇不假设有未公开的硬件 QoS 计数器。
 
-## 边界与工程取舍
+## 边界
 
 不要在没有 Rubin NVLink 6 的机器上假设同一完成语义。不要把 CPU 发起的 `cudaMemcpy` 叫做 counted writes。不要为未公开的 PTX 写「示例 exploit 式」的手写同步。训练的大块梯度 All-Reduce 仍可能以库级 NCCL + [SHARP](/llm/nvlink-sharp) 更合适：消息大，启动开销被摊掉，融合的复杂度不值得。
 

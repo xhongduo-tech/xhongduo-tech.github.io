@@ -11,7 +11,7 @@ section: quant
 <footer>—— Brace, Gątarek & Musiela, The Market Model of Interest Rate Dynamics, Mathematical Finance, 1997</footer>
 </div>
 
-[LMM](/quant/lmm) 已经把状态选成可观测的简单远期 $L_i$，并写出即期测度下的漂移公式。本篇把那条公式从「可以抄」变成「可以从计价物推出来」：换测度是 Girsanov，漂移是相对债券波动的点积，不是对瞬时 HJM 积分随便离散。Brace、Gątarek 与 Musiela（1997）的市场模型，核心不是对数正态本身，而是 tenor 结构下无套利漂移与 caplet 的 Black 公式在各自远期测度下对齐。Jamshidian 与 Miltersen–Sandmann–Sondermann 几乎同时给出等价构造。读懂漂移，才能判断预测器–校正器在改什么、终端测度与即期测度何时不可互换，以及 [CMS 复制](/quant/cms-replication) 所用的年金测度如何嵌进同一套变换。
+[Hull-White 两因子](/quant/hw-two-factor)把 CMS 斜率与翼部留给了 LMM——本篇把 LMM 的账从根上算清。[LMM](/quant/lmm) 已经把状态选成可观测的简单远期 $L_i$，并写出即期测度下的漂移公式。本篇把那条公式从「可以抄」变成「可以从计价物推出来」：换测度是 Girsanov，漂移是相对债券波动的点积，不是对瞬时 HJM 积分随便离散。Brace、Gątarek 与 Musiela（1997）的市场模型，核心不是对数正态本身，而是 tenor 结构下无套利漂移与 caplet 的 Black 公式在各自远期测度下对齐。Jamshidian 与 Miltersen–Sandmann–Sondermann 几乎同时给出等价构造。读懂漂移，才能判断预测器–校正器在改什么、终端测度与即期测度何时不可互换，以及 [CMS 复制](/quant/cms-replication) 所用的年金测度如何嵌进同一套变换。
 
 ## 问题
 
@@ -89,7 +89,7 @@ $$
 
 欧式 swaption 在年金测度下是对 $S$ 的看涨，但 $S$ 的波动由 $\partial S/\partial L_i$ 与 $L$ 的协方差给出，权重随 $L$ 变，$S$ 不是对数正态。把权重冻在 $t=0$，得到 Black 近似，市场报价与模型之间最常用的桥。该近似相当于忽略了权重随机性带来的又一次测度/凸性修正。中等波动可用；长尾、高 $\sigma$、强时间依赖的 $\sigma_i(t)$ 应用模拟。Rebonato 把 ATM swaption 方差写成 $\sigma$ 与 $\rho$ 的二次型，便于校准，但它是冻结世界里的对象，不能反过来当无套利定义。
 
-## 边界与工程取舍
+## 边界
 
 不要在 $\mathbb{Q}^{T_{i+1}}$ 下给 $L_k$（$k\neq i$）也设零漂移。不要让 $\rho$ 的特征值出负再拿去 Cholesky。不要用 caplet 标定的 $\sigma_i$ 配历史上的满秩相关矩阵：瞬时相关的秩受因子数限制，满秩历史相关通常不正定或不稳定。位移对数正态把 $L+\delta$ 当对数正态，漂移公式里 $L/(1+\tau L)$ 要改成对 $(L+\delta)$ 的相应项，漏改会在负利率区把无套利破坏。
 

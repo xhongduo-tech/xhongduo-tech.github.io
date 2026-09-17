@@ -36,8 +36,6 @@ flowchart TD
   REAL --> CPU["受主机 CPU 限"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 抓包在 Mininet 里方便。iperf 在仿真里量的是模型 $C$。SDN 控制器可接 Mininet。DNS TTL 可加速测试。不要用仿真证明互联网政策。
@@ -50,7 +48,7 @@ flowchart TD
 
 把 1000 台主机仿真在笔记本上会自己成为瓶颈。
 
-上一课留下的缺口在本课收口；「ns-3 与 mininet」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[Reactor / Proactor](/cs/reactor-proactor)。
+下一课[Reactor / Proactor](/cs/reactor-proactor)。
 
 ## 小结
 

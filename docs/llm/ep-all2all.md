@@ -66,7 +66,7 @@ flowchart TD
 
 报告把一个 chunk 切成 attention、dispatch、MLP、combine（反向再拆输入/权重梯度）。重排后，All-to-All 与流水线点对点可以和另一段 GEMM 同时进行。这要求通信核占用的 SM 可调：占满全部 SM 的「很快」All-to-All 会让重叠失败。EP All-to-All 的性能因此是「有效带宽 × 可重叠比例」，不是单项 microbenchmark。
 
-## 边界与工程取舍
+## 边界
 
 没有 NVLink 的跨 PCIe 八卡，分层转发的前提不成立，应缩小 EP、把专家留在节点内，或接受 IB 上更密的点对点网。$k$ 越大，体积线性涨，质量收益必须能付这笔带宽；GShard 的 $k=2$、Switch 的 $k=1$、V3 的 $k=8$ 对应三条完全不同的通信预算。负载不均时核再快也堵：辅助损失、专家偏置、容量因子、冗余专家是同一问题的不同旋钮，不要在 DeepEP 的 issue 里当通信 bug 报。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照领先晶圆厂 capex 结构的公开产业讨论；不编造某厂亿美元数</footer>
 </div>
 
-[上一课](/litho/capacity-planning-bottleneck)数了瓶颈台数。缺口是整张支票。本课钉晶圆厂资本开支。摩尔叙事如何从光刻视角阅读，留给[下一课](/litho/moore-litho-view）。
+[上一课](/litho/capacity-planning-bottleneck)数了瓶颈台数。缺口是整张支票。本课钉晶圆厂资本开支。摩尔叙事如何从光刻视角阅读，留给[下一课](/litho/moore-litho-view)。
 
 ## 问题
 

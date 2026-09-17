@@ -11,7 +11,7 @@ section: quant
 <footer>—— Crosbie & Bohn, Modeling Default Risk, Moody's KMV, 2003（及此前 KMV 技术文档的同一构造）</footer>
 </div>
 
-[Merton 结构模型](/quant/merton-structural) 把股权写成资产看涨，并给出风险中性利差。KMV（后并入 Moody's）把同一期权图景改成信用监测工具：关注的不是看跌价格，而是真实测度下「还有几个资产标准差会撞上负债」。Crosbie 与 Bohn 把违约点取成短期负债加一半长期负债，用股权市值与股权波动迭代出资产价值 $V$ 与 $\sigma_V$，定义违约距离 DD，再通过历史样本把 DD 映射为期望违约频率 EDF。本篇写这一实务构造、它与 $N(-\mathrm{DD})$ 的差别，以及为何 EDF 不能直接当 [CDS](/quant/cds-pricing) 强度；利率动态仍不是 KMV 的重点，随机利率留给 [混合定价](/quant/rates-credit-hybrid)。
+[上一课](/quant/cds-survival-bootstrap)把生存曲线从市场报价里剥出来；本篇换一条路，从资产价值算违约距离。[Merton 结构模型](/quant/merton-structural) 把股权写成资产看涨，并给出风险中性利差。KMV（后并入 Moody's）把同一期权图景改成信用监测工具：关注的不是看跌价格，而是真实测度下「还有几个资产标准差会撞上负债」。Crosbie 与 Bohn 把违约点取成短期负债加一半长期负债，用股权市值与股权波动迭代出资产价值 $V$ 与 $\sigma_V$，定义违约距离 DD，再通过历史样本把 DD 映射为期望违约频率 EDF。本篇写这一实务构造、它与 $N(-\mathrm{DD})$ 的差别，以及为何 EDF 不能直接当 [CDS](/quant/cds-pricing) 强度；利率动态仍不是 KMV 的重点，随机利率留给 [混合定价](/quant/rates-credit-hybrid)。
 
 ## 问题
 
@@ -76,7 +76,7 @@ $\mu$ 进入 DD 却不进入 CDS 定价：真实漂移越高，一年后 $V$ 越
 
 财报滞后、应计与表外项使 DPT 过时；市值却天天动，于是 DD 在季报附近既有信息也有噪声。回购与现金变化应进入净债务，否则 $V$ 与 DPT 双错。非上市没有 $E$，要用会计或可比公司，DD 退化成杠杆加行业波动，排序价值下降。流动性差的股票 $\sigma_E$ 被微观结构噪声抬高，DD 被低估，限额会过紧——应对 $\sigma_E$ 做噪声调整，而不是把 DD 阈值一律放宽。
 
-## 边界与工程取舍
+## 边界
 
 不要对滚动隔夜负债的经纪商用「一半长期债」的非金融规则。不要用期权隐含 $\sigma_E$ 当历史 $\sigma_E$ 却不处理偏斜：虚值看跌隐含波动更高，会系统性压低 DD。不要用单一全球映射表覆盖新兴市场与银行——违约定义与样本密度不同。不要把 DD 日频变化当成可交易 alpha 而不扣微观结构与指数重估。
 

@@ -11,8 +11,6 @@ section: cs
 <footer>—— Feistel, Cryptography and Computer Privacy, Scientific American, 1973；NIST FIPS 46-3（历史）</footer>
 </div>
 
-## 定位
-
 上一课[AES](/cs/aes-structure)是代换–置换网络。缺口是**另一族结构**：Feistel，以及为何 DES 退出主干。[DH 与 RSA 分工](/cs/dh-vs-rsa)不在这里重写；本课只对照块密码骨架。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ AES 每圈都要 MixColumns 这类可逆线性层。Feistel：$R'=L\oplus F(R,k_
 ### 不教破解步骤
 
 本课不给差分分析或穷举的操作序列。只需：块小、密钥短是规格失败，换 AES/ChaCha，不要「加奇异 S 盒」当创新。
-
 
 <span class="marginnote">Luby–Rackoff：足够独立的伪随机轮函数可把 Feistel 做成 PRP。DES 的实际轮函数不是理想对象；分析史说明余量不够今日。</span>
 
@@ -41,13 +38,9 @@ flowchart TD
   R --> L2["新左半 = 旧右半"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 Feistel 把可逆性从 F 上卸走，实现友好。安全仍取决于 F 的混乱与扩散以及圈数。DES 作为历史对照：能讲清「为何要换」，不能当新协议的分组密码。后课流密码 ChaCha 走另一条路：不分组，直接造 PRG 式的密钥流。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

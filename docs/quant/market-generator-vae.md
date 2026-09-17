@@ -11,7 +11,7 @@ section: quant
     <footer>—— Kondratyev and Schwarz, The Market Generator, Risk, 2019；VAE 骨架见 Kingma and Welling, ICLR 2014</footer>
 </div>
 
-历史样本只有一条。对冲、[回测过拟合](/quant/backtest-overfitting) 检验、流动性压力，都需要「像真的、但不是那一条」的路径。经典做法是指定 [Heston](/quant/heston) 或局部波动，校准后再 [蒙特卡洛](/quant/mc-pricing)。Market Generator 把这条链倒过来：不先写 SDE，而用生成模型直接拟合路径测度。变分自编码器（VAE）是其中一条可训练、可条件化、潜空间可解释的路线。本篇写窗口如何进编码器、ELBO 与金融约束如何打架、以及它与 [Sig-Wasserstein GAN](/quant/sig-wasserstein-gan)、[Neural SDE](/quant/neural-sde) 的分工；不把 GAN 训练技巧再写一遍，也不把评估清单留给 [生成式回测的评估](/quant/generative-backtest-eval) 之外的即兴指标。
+[MarS](/quant/mars-generative-sim) 把订单流生成关进合法簿的硬约束；本篇回到更轻的一族：直接拟合路径测度。历史样本只有一条。对冲、[回测过拟合](/quant/backtest-overfitting) 检验、流动性压力，都需要「像真的、但不是那一条」的路径。经典做法是指定 [Heston](/quant/heston) 或局部波动，校准后再 [蒙特卡洛](/quant/mc-pricing)。Market Generator 把这条链倒过来：不先写 SDE，而用生成模型直接拟合路径测度。变分自编码器（VAE）是其中一条可训练、可条件化、潜空间可解释的路线。本篇写窗口如何进编码器、ELBO 与金融约束如何打架、以及它与 [Sig-Wasserstein GAN](/quant/sig-wasserstein-gan)、[Neural SDE](/quant/neural-sde) 的分工；不把 GAN 训练技巧再写一遍，也不把评估清单留给 [生成式回测的评估](/quant/generative-backtest-eval) 之外的即兴指标。
 
 ## 问题
 
@@ -68,7 +68,7 @@ VAE 把「像不像市场」拆成两件事：给定这段历史，后验 $q(z\m
 
 <span class="marginnote">重建误差小不代表生成器可用。自编码器在训练窗上本来就该重建得好。有用的是无条件或条件先验抽样的路径，是否通过过程级的双样本检验，以及下游策略排名是否随生成器种子稳定。</span>
 
-## 边界与工程取舍
+## 边界
 
 VAE 不提供无套利保证。生成的现货与期权可以彼此矛盾；生成的限价簿可以自相交。用作 [Deep Hedging](/quant/deep-hedging-buehler) 模拟器时，对冲网络会利用生成器的伪影——假的可预测性、假的流动性——把样本内风险做成很小。因此生成器必须冻结在对冲训练之前，并用与训练生成器不同的窗口做下游评估，见评估篇。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照半导体失效分析中 FIB 制样与 TEM 的公开方法；JEOL / 产线 FA 通称</footer>
 </div>
 
-[上一课](/litho/reliability-patterning-defects)把寿命写成几何代理。缺口是取证：探针失败或可靠性失败的那颗管芯，剖面究竟是 OPC 桥、刻蚀底切、via 未对准还是填充虚空。本课钉 FIB/TEM 在图形化链上的位置，并结束「集成、控制与良率」。节点怎么命名、钱怎么算，交给下一课程第一课[节点命名与实际尺寸](/litho/node-naming）。
+[上一课](/litho/reliability-patterning-defects)把寿命写成几何代理。缺口是取证：探针失败或可靠性失败的那颗管芯，剖面究竟是 OPC 桥、刻蚀底切、via 未对准还是填充虚空。本课钉 FIB/TEM 在图形化链上的位置，并结束「集成、控制与良率」。节点怎么命名、钱怎么算，交给下一课程第一课[节点命名与实际尺寸](/litho/node-naming)。
 
 ## 问题
 

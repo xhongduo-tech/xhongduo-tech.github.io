@@ -76,7 +76,7 @@ flowchart TD
 
 <span class="marginnote">不要把 Punica 仓库的 API 当成 Hugging Face 的稳定接口。vLLM、TGI、[LoRAX](/llm/lorax-serving) 后来都接了同类 gather 核，日程、是否支持同批多秩、是否要求 $A,B$ 连续，以各项目当时文档为准。</span>
 
-## 边界与工程取舍
+## 边界
 
 SGMV 假定各适配器插在同一组线性层上，形状与缩放可在核内对齐。目标模块集合不同（只 $W_q,W_v$ 对上 FFN 全插）、数值尺度 $\alpha/r$ 不同、以及与 [QLoRA](/llm/qlora) 基座 4-bit 解量化路径耦合，都会让「一次背景 GEMM + 一次 SGMV」这条管道裂开。基座量化后 $W_0x$ 与 $BAx$ 的数值域要对齐，否则低秩分支在半精度下被淹没或溢出。
 

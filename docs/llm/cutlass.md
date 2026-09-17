@@ -68,7 +68,7 @@ Hopper 的集体主循环把 [软件流水](/llm/sw-pipeline-buffer) 做成类�
 
 2.x 仍出现在大量教学材料和旧算子里；3.x 是 Hopper / Ada 异步路径的主线。混用时，不要把 2.x 的 `DefaultGemmConfiguration` 接到 3.x 的 device adapter。Python 前端（CUTLASS Python / cuteDSL 一类）把层次暴露成更短的脚本，生成的仍是同一套集体；调试最终要回到生成的 kernel 配置，而不是只看 Python 层的 tile 数字。
 
-## 边界与工程取舍
+## 边界
 
 不要在能用 cuBLASLt 且不需要自定义融合时，为「用了 CUTLASS」而引入一套编译与 autotune 负担。不要把例子里的 `persistent` 调度抄到极小 decode GEMM 上而不测占用。不要修改 atom 层却不跑数值对照——布局错是静默的。昇腾 / 其他厂商的模板库不是同一层次语言，不能把 `TiledMma` 参数写过去。
 

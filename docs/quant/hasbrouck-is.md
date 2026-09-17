@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hasbrouck, One Security, Many Markets: Determining the Contributions to Price Discovery, Journal of Finance, 1995</footer>
 </div>
 
-[上一课](/quant/depth-mid)把多档可见量收成 $P(Q)$，最优档微价格是 $K=1$ 的极限；小单看微价格，大单看沿簿均价。缺口从一张簿的读数转到多市场：同一索取权在若干交易所或现货/期货同时交易时，新信息先写进哪一个价格——这不是「谁更流动」或「价差更窄」。本课钉 Hasbrouck（1995）信息份额：协整系统里有效价格新息方差的分解。不重讲目标量 $Q$。对照 [微观结构噪声](/quant/microstructure-noise) 的定价误差方差；后课流动性因子默认 IS 不是 PIN，也不是 Kyle $\lambda$。
+[上一课](/quant/iceberg-detection)把隐藏量写进深度与不平衡的测量误差：可见读数不等于在场总量。缺口从一张簿的读数转到多市场：同一索取权在若干交易所或现货/期货同时交易时，新信息先写进哪一个价格——这不是「谁更流动」或「价差更窄」。本课钉 Hasbrouck（1995）信息份额：协整系统里有效价格新息方差的分解。不重讲目标量 $Q$。对照 [微观结构噪声](/quant/microstructure-noise) 的定价误差方差；后课流动性因子默认 IS 不是 PIN，也不是 Kyle $\lambda$。
 
 ## 问题
 

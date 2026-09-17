@@ -57,7 +57,7 @@ AdamW 的时间步 $t$ 若在 skip 时仍递增，$\hat{m}/(\sqrt{\hat{v}}+\epsi
 
 顺序建议：稳定的核（FlashAttention、Cut CE）→ z-loss 限制尺度 → 有限性检查 → clip → step。把 skip 放在 clip 前，避免对 NaN 做除法。不要指望加大 clip 阈值来「吃掉」NaN。也不要把 skip 当成正则：有人发现 skip 后损失更稳，那是因为丢掉了难 batch，不是算法变好。
 
-## 边界与工程取舍
+## 边界
 
 评估 / 推理路径不应沿用训练的 skip：eval 出现 NaN 应失败，否则指标被悄悄算在子集上。RL 与长 CoT 训练中，单条轨迹 logit 爆炸更常见，skip 粒度要从 batch 降到样本，否则一条坏轨迹拖死整组。MoE 上单专家 GEMM 溢出时，skip 整 batch 可能过粗，丢失大量好 token；更细的是对该专家本步置零贡献（类似 drop）并告警。
 

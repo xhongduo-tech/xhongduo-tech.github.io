@@ -63,7 +63,7 @@ LALM 转写的条件是 $p(y_{\mathrm{lid}}, y_{\mathrm{asr}}\mid x, c)$：$c$ �
 
 <span class="marginnote">基线含 GPT-4o-Transcribe、Gemini-2.5-Pro、Doubao-ASR，以及 Whisper-large-v3、FunASR-MLT-Nano、GLM-ASR-Nano。引用「超过 Whisper」必须带语种与噪声条件。对齐器相对 MFA / NFA 等报累计平均偏移相对降 67%–77%，那是人工标注测试集上的偏移，不是任意字幕软件的字准。</span>
 
-## 边界与工程取舍
+## 边界
 
 ASR-only 意味着用户不能靠自然语言指令把模型临时改成翻译器或会议摘要；要摘要应另接 LLM。上下文偏置能灌专名，也能灌错名。无语音检测会把极轻声或远场漏成 `language None`。20 分钟上限不是无限长会议：更长要切段，切段会丢掉跨段偏置。歌声与 BGM 是报告卖点，现场混响 + 合唱仍应单测。
 

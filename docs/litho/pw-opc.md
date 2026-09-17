@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Cobb 模型基 OPC 与计算光刻中对多工艺点 / PV-band 的公开论述</footer>
 </div>
 
-[上一课](/litho/rule-vs-model-opc)把规则表换成可迭代的成像模型，EPE 在校准过的前向里收敛。缺口是：那个前向默认钉在一个工艺点上。剂量、焦点、甚至光源微扰一扫，名义最优边会在角点炸窗。本课钉工艺窗口 OPC（PW-OPC / 多工艺点 OPC）。刻蚀如何再把轮廓挪一截，留给[下一课](/litho/etch-in-opc）。
+[上一课](/litho/rule-vs-model-opc)把规则表换成可迭代的成像模型，EPE 在校准过的前向里收敛。缺口是：那个前向默认钉在一个工艺点上。剂量、焦点、甚至光源微扰一扫，名义最优边会在角点炸窗。本课钉工艺窗口 OPC（PW-OPC / 多工艺点 OPC）。刻蚀如何再把轮廓挪一截，留给[下一课](/litho/etch-in-opc)。
 
 ## 问题
 

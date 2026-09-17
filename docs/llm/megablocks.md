@@ -61,7 +61,7 @@ Switch 的槽位 $c=\mathrm{capacity\_factor}\cdot kT/N$。Tutel 用高度优化
 
 反向需要把 $dY$ 按同样的块结构乘权重转置。块稀疏核要维护转置索引，否则每步重建 CSR 太贵。Grouped GEMM 路径则再调一次不同形状的 grouped 乘。训练图里这两次和正向的 permute 对称。
 
-## 边界与工程取舍
+## 边界
 
 $M_i$ 极度不均时，即使 dropless，墙钟仍由最热专家决定——只是你不再用掉牌假装它不热。EPLB 一类部署均衡是另一层。MegaBlocks 解决的是 **层内核**，不是跨卡放置。
 

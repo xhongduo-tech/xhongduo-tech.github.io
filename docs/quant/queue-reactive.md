@@ -11,7 +11,7 @@ section: quant
 <footer>—— Huang, Lehalle and Rosenbaum, Simulating and analyzing order book data: The queue-reactive model, JASA, 2015；后续校准与仿真见 Huang, Rosenbaum and Saliba</footer>
 </div>
 
-[排队与成交概率](/quant/fill-probability) 已经指出：成交强度若只写成距离中间价的 $\lambda(\delta)$，会把队列长度平均掉。Queue-reactive（队列反应，QR）模型把这句话做成可估计的马尔可夫动力学：在价格网格上，每一档的增、撤、市价强度是**当前队列大小**（以及是否为最优档、价差状态）的函数。Huang、Lehalle 与 Rosenbaum（2015）用这个结构去拟合与仿真限价簿；Huang、Rosenbaum 与 Saliba 后来把它推进到更完整的重建与现实感检验。本篇写状态如何进入强度、如何与 [Hawkes 订单簿强度](/quant/hawkes-lob) 分工，以及仿真能回答什么、不能代替什么。它描述的是可见簿的统计生成器，不是一份挂单脚本。
+[金额不平衡条](/quant/dollar-imbalance-bars)按金额分层把方向时钟调准；条密度不是毒性。 [排队与成交概率](/quant/fill-probability) 已经指出：成交强度若只写成距离中间价的 $\lambda(\delta)$，会把队列长度平均掉。Queue-reactive（队列反应，QR）模型把这句话做成可估计的马尔可夫动力学：在价格网格上，每一档的增、撤、市价强度是**当前队列大小**（以及是否为最优档、价差状态）的函数。Huang、Lehalle 与 Rosenbaum（2015）用这个结构去拟合与仿真限价簿；Huang、Rosenbaum 与 Saliba 后来把它推进到更完整的重建与现实感检验。本篇写状态如何进入强度、如何与 [Hawkes 订单簿强度](/quant/hawkes-lob) 分工，以及仿真能回答什么、不能代替什么。它描述的是可见簿的统计生成器，不是一份挂单脚本。
 
 ## 问题
 

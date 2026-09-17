@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 KLA 一类对宽带等离子体 / 激光检测与电子束检测的公开分工；[图形化检测设备](/litho/patterning-inspection-tools) 已列角色</footer>
 </div>
 
-[上一课](/litho/stochastic-yield)要求看见 ppb 级事件。缺口是仪器：[图形化检测设备](/litho/patterning-inspection-tools) 已分检测与量测；本课钉光学对电子束在**图形化缺陷**上的能力边界，不重写工具市场。复检与分类，留给[下一课](/litho/defect-review-classification）。
+[上一课](/litho/stochastic-yield)要求看见 ppb 级事件。缺口是仪器：[图形化检测设备](/litho/patterning-inspection-tools) 已分检测与量测；本课钉光学对电子束在**图形化缺陷**上的能力边界，不重写工具市场。复检与分类，留给[下一课](/litho/defect-review-classification)。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— Wang et al., Self-Consistency, ICLR 2023；核对器上的多样本见 Cobbe et al., 2021 与 Best-of-N</footer>
 </div>
 
-[上一课](/llm/structured-output-overhead)用掩码保证 *一条* 输出合法。本课关闭「解码进阶」：质量也可以买宽度——独立采样 $N$ 条，在答案空间或打分器上聚合。主干已有 [Self-Consistency](/llm/self-consistency) 与 [Best-of-N](/llm/best-of-n)；这里不重推多数票公式，只补本课序留下的缺口：何时投票、何时 MBR、何时 BoN，以及 $N$ 如何打在 KV 与延迟上。下一课程「推理系统进阶」从[把 KV 字节算清楚](/llm/kv-cache-size-math)开始，因为投票把 $N$ 放大之前必须先会算一份缓存。
+[上一课](/llm/structured-output-overhead)用掩码保证 *一条* 输出合法。本课关闭「多样与约束解码」：质量也可以买宽度——独立采样 $N$ 条，在答案空间或打分器上聚合。主干已有 [Self-Consistency](/llm/self-consistency) 与 [Best-of-N](/llm/best-of-n)；这里不重推多数票公式，只补本课序留下的缺口：何时投票、何时 MBR、何时 BoN，以及 $N$ 如何打在 KV 与延迟上。下一课打开「推理算法」：自回归服务把一次请求切成 prefill 与 decode 两段，先画出两阶段的计算画像。至于投票把 $N$ 放大之后一份缓存吃多少字节，后面的性能会计课会把一份缓存算成字节。
 
 ## 问题
 
@@ -43,13 +43,13 @@ flowchart TD
 
 ## 机制
 
-覆盖近似 $1-(1-p)^N$，但系统性错误使众数是错的。$s$ 的假阳性让 BoN 收敛到奖励黑客。[多样束](/llm/diverse-beam-search)不能替代独立采样：相关样本让有效 $N$ 下降。温度必须落在推理那一档，使 $y$ 不同而不是标点不同。能量与成本随 $N$ 近线性，这是下一课程用屋顶线与美元模型要接的账：投票是测试时计算，不是免费准确率。
+覆盖近似 $1-(1-p)^N$，但系统性错误使众数是错的。$s$ 的假阳性让 BoN 收敛到奖励黑客。[多样束](/llm/diverse-beam-search)不能替代独立采样：相关样本让有效 $N$ 下降。温度必须落在推理那一档，使 $y$ 不同而不是标点不同。能量与成本随 $N$ 近线性，这是后面的性能会计课用屋顶线与美元模型要接的账：投票是测试时计算，不是免费准确率。
 
 <span class="marginnote">Self-consistency 原文的 $N$ 与温度是实验设置，不是产品 SLA。线上 $N$ 应受 KV 池与尾延迟约束，而不是受论文表格约束。</span>
 
-## 边界与工程取舍
+## 边界
 
-不要把 $N=16$ 的自洽准确率当单次模型能力。不要在开放聊天用多数票。不要在 KV 将满时对每个用户开大 $N$——应降 $N$ 或拒请求。许可证与测试集：用测试规则当 $s$ 是泄漏。下一课起不再讨论选哪条字符串，而讨论一条字符串的缓存有多大。
+不要把 $N=16$ 的自洽准确率当单次模型能力。不要在开放聊天用多数票。不要在 KV 将满时对每个用户开大 $N$——应降 $N$ 或拒请求。许可证与测试集：用测试规则当 $s$ 是泄漏。下一课起转入「推理算法」，先给 prefill 与 decode 两段画出计算画像；一条字符串的缓存有多大，留给后面的性能会计课。
 
 出处：Wang et al., ICLR 2023；Cobbe et al., 2021；BoN 见 Ouyang et al. InstructGPT 与 Snell et al. 2024。MBR 见本课序 [MBR 解码](/llm/mbr-decoding)。
 
@@ -60,5 +60,5 @@ flowchart TD
 - Prefill 可共享，decode KV 与延迟近线性于 $N$。
 - 系统性偏差下多数票更稳地错；BoN 上限是 $s$。
 - 结构化合法与投票正交，都要付钱。
-- 解码进阶到此结束；下一课算 KV 字节。
+- 多样与约束解码到此结束；下一课打开「推理算法」，从 prefill / decode 两阶段计算画像开始。
 - 出处：Wang et al., ICLR 2023；Cobbe et al., 2021。

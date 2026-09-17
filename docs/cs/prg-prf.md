@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 Goldreich, Goldwasser and Micali；Blum and Micali；Yao；Katz and Lindell 整理</footer>
 </div>
 
-## 定位
-
 上一课[一次一密](/cs/one-time-pad-perfect-secrecy)要求等长真随机。缺口是**短密钥如何假装成长随机串**。本课给出 PRG 与 PRF 的游戏语言，不重证 Shannon，也不把 AES 圈函数当定义。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 游戏而不是「看起来乱」
 
 不可区分是实验：敌手拿到样例，猜「真随机还是伪随机」。可忽略优势才叫安全。把输出打印出来用肉眼看，不是定义。
-
 
 <span class="marginnote">Goldreich–Goldwasser–Micali 从 PRG 构造 PRF。Yao 把不可区分与下一比特预测连起来。后课 AES 是候选 PRP，本课不把候选当证明。</span>
 
@@ -41,13 +38,9 @@ flowchart TD
   PRF --> Y["看起来随机的输出"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 一次一密的 $k$ 被 $G(s)$ 替换后，完善性换成计算不可区分：无界敌手仍可能区分，多项式敌手不能。PRF 比 PRG 多一个输入轴，才能对每条消息、每个 nonce 派生不同的密钥流或标签。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

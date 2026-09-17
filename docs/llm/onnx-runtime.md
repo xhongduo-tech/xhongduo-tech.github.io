@@ -40,11 +40,11 @@ flowchart TD
 
 ORT 的价值是 *图优化 + EP*：常量折叠、算子融合、把子图交给 TensorRT。LLM 的热核若已是 FA，ORT 未必更快；它赢在没有 PyTorch 依赖的桌面/CPU 路径，以及与 ONNX 工具链的运维。会计仍成立：decode 带宽墙不因换成 ORT 而消失。
 
-## 边界与工程取舍
+## 边界
 
 不要把「已导出 ONNX」当成完成 LLM 服务。不要在分页 KV 上幻想标准 ONNX 注意力。下一课：Intel 侧的 OpenVINO，画像类似但 EP 换成 Intel 硬件。
 
-出处：ONNX 规范；ONNX Runtime 文档。不发明 arXiv。
+出处：ONNX 规范；ONNX Runtime 文档。
 
 ## 小结
 

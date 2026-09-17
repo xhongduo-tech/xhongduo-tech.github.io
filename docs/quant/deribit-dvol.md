@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Deribit 对 DVOL 的公开方法说明整理；指数结构对照 CBOE VIX 条带与 Grünbichler–Longstaff 对波动期货的讨论</footer>
 </div>
 
-Deribit 是比特币与以太坊期权的主要公开场所之一。DVOL（Deribit Implied Volatility Index）用该场所的期权隐含波动构造近三十天的指数，分 BTC 与 ETH 等标的，常被当作加密的「VIX」。本篇写它测的是哪一套期权、如何接到方差风险，以及与 [VIX 期货](/quant/vix-futures)、[方差互换复制](/quant/var-swap-replication) 的同构与裂缝。对象是公开指数方法与公开期权簿，不是如何冲击标记价格。
+[上一课](/quant/onchain-exchange-flows) 给的是库存状态，不是波动；加密的「VIX」在期权簿里。Deribit 是比特币与以太坊期权的主要公开场所之一。DVOL（Deribit Implied Volatility Index）用该场所的期权隐含波动构造近三十天的指数，分 BTC 与 ETH 等标的，常被当作加密的「VIX」。本篇写它测的是哪一套期权、如何接到方差风险，以及与 [VIX 期货](/quant/vix-futures)、[方差互换复制](/quant/var-swap-replication) 的同构与裂缝。对象是公开指数方法与公开期权簿，不是如何冲击标记价格。
 
 ## 问题
 
@@ -60,7 +60,7 @@ flowchart TD
 
 <span class="marginnote">DVOL 不是波动率目标组合的权重。把它当择时信号去加减 BTC 现货，引入的是波动风险溢价与方向的混合物。若目标是卖波动，应持有期权组合并做现货对冲；若目标是方向，应直接说明，不要借 DVOL 的名字。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要把 DVOL 与已实现波动的差当年化无风险。不要用单一指数替代微笑交易。不要假设 ETH DVOL 与 BTC DVOL 可互相复制——到期、跳跃与用户结构不同。Deribit 保证金、保险基金与指数成分（标记用的现货指数）变化会改变 IV 本身，应当成制度修订。其他场所的「隐含波动指数」若方法不同，禁止拼接成一条超长历史。
 

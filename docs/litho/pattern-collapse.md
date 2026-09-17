@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack 与 Levinson 对 pattern collapse 与显影后毛细力的论述整理</footer>
 </div>
 
-[上一课](/litho/sidewall-angle)把剖面角钉成锥或倒锥，并指出刻蚀看见的是斜面。缺口是：角还没交给等离子体之前，漂洗液的表面张力已经可能把相邻线拉塌。本课钉图形倒塌。金属氧化物胶与 CAR 的分叉，留给[下一课](/litho/euv-resist），不在这里换化学家族。
+[上一课](/litho/sidewall-angle)把剖面角钉成锥或倒锥，并指出刻蚀看见的是斜面。缺口是：角还没交给等离子体之前，漂洗液的表面张力已经可能把相邻线拉塌。本课钉图形倒塌。金属氧化物胶与 CAR 的分叉，留给[下一课](/litho/euv-resist)，不在这里换化学家族。
 
 ## 问题
 

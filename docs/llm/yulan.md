@@ -62,7 +62,7 @@ SFT 仍是条件语言建模，DPO 仍是那条 logistic 偏好损失。课程�
 
 <span class="marginnote">Chat-1 基于 LLaMA 只发 delta，合并脚本见仓库 `apply_delta.py`。Chat-2 基于 LLaMA-2-13B，词表同样扩到 51,190，窗口到 8,192。不要把 Chat-2 的 8K 写成 Chat-3 的默认窗；12B 从零线的报告窗是 4K。</span>
 
-## 边界与工程取舍
+## 边界
 
 12B 报告没有公开与工业 7B 同量级的 10T+ 数据，C-Eval / 高考子集上的优势来自双语与测评回灌，不宜外推成「12B 已经超过当时所有 13B」。阶段 3 用 ChatGPT 生成实体问、用 Baichuan-2-13B 做对错评判，长尾清单依赖这两套教师，复现成本不是「下个开源网页包」。DPO 课程的 $\delta$ 与复杂度公式以论文为准，开源 Chat 模板是 `[|Human|] / [|AI|]`，和 Vicuna 的 `USER:` 不是同一套。
 

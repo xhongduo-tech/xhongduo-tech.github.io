@@ -11,7 +11,7 @@ section: quant
 <footer>—— Asness, Moskowitz & Pedersen, Value and Momentum Everywhere, Journal of Finance, 2013</footer>
 </div>
 
-股票里的价值是 [B/M、E/P、CF/P](/quant/value-factors)，动量是 [12−1 WML](/quant/momentum-wml)。Asness、Moskowitz、Pedersen 把同一对风格搬到八个市场：美股、英国、欧洲、日本个股，以及全球股指、外汇、国债、商品。非股票资产没有账面股权，价值改用长期反转一类的「便宜」代理；动量仍用过去约一年的相对收益。本文的贡献不是再发现美股 HML，而是：**风格是跨资产的，负相关也是跨资产的**。
+[上一课](/quant/tsmom)把动量写成期货自身的趋势符号。股票里的价值是 [B/M、E/P、CF/P](/quant/value-factors)，动量是 [12−1 WML](/quant/momentum-wml)。Asness、Moskowitz、Pedersen 把同一对风格搬到八个市场：美股、英国、欧洲、日本个股，以及全球股指、外汇、国债、商品。非股票资产没有账面股权，价值改用长期反转一类的「便宜」代理；动量仍用过去约一年的相对收益。本文的贡献不是再发现美股 HML，而是：**风格是跨资产的，负相关也是跨资产的**。
 
 ## 问题
 
@@ -63,7 +63,7 @@ flowchart TD
 
 <span class="marginnote">everywhere 不是「每个市场每个十年都显著」。单市场 t 值可以平凡，联合与合成才强。用某一个十年的外汇动量崩溃否定 2013 年论文，与用日本动量弱否定它，是同一类以偏概全。</span>
 
-## 边界与工程取舍
+## 边界
 
 交易成本：个股动量贵，商品与外汇动量相对便宜；价值在个股上便宜，在商品上「五年反转」换手也不低。容量：全球个股价值加权远大于商品截面。数据：国债与商品的价值代理有研究自由度，预注册排序规则，避免为 everywhere 而挑选度量。A 股可作为又一个股票市场加入，但涨跌停与融券会改动量空头，不能直接套用欧洲的换手假设。
 

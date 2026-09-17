@@ -11,7 +11,7 @@ section: quant
 <footer>—— CBOE 将 SPX 到期扩展到每个交易日；微观结构与市场质量的讨论见 0DTE 成交占比上升之后的公开研究（含零售参与、已实现波动与做市存货）</footer>
 </div>
 
-零日到期（0DTE）期权在到期日当天仍可交易，剩余时间 $\tau$ 以小时计。CBOE 在 2022 年前后把 S&P 500 的到期日历加密到每个交易日，使 0DTE 占 SPX 期权成交的主体。Beckmeyer、Branger 与 Grünthaler 等以及后续关于零售、波动与市场质量的工作，把对象从「月期权存量」改写成「当日到期的流量与极短 Gamma」。微观结构要点是：Gamma 峰贴着现货、[Charm](/quant/higher-greeks) 与 Vanna 在数小时内完成、[pin risk](/quant/pin-risk) 每天发生一次、日终 [GEX](/quant/gex-calculation) 对当日路径滞后。本篇写这些机械事实与公开证据能支持的市场质量命题，**不**写如何跟随或抢跑 0DTE 对冲流。
+[上一课](/quant/dealer-gamma-regime) 把 GEX 写成时点预测，并提示 0DTE 的时间尺度会改变分层。零日到期（0DTE）期权在到期日当天仍可交易，剩余时间 $\tau$ 以小时计。CBOE 在 2022 年前后把 S&P 500 的到期日历加密到每个交易日，使 0DTE 占 SPX 期权成交的主体。Beckmeyer、Branger 与 Grünthaler 等以及后续关于零售、波动与市场质量的工作，把对象从「月期权存量」改写成「当日到期的流量与极短 Gamma」。微观结构要点是：Gamma 峰贴着现货、[Charm](/quant/higher-greeks) 与 Vanna 在数小时内完成、[pin risk](/quant/pin-risk) 每天发生一次、日终 [GEX](/quant/gex-calculation) 对当日路径滞后。本篇写这些机械事实与公开证据能支持的市场质量命题，**不**写如何跟随或抢跑 0DTE 对冲流。
 
 ## 问题
 
@@ -61,7 +61,7 @@ flowchart TD
   SPOT --> PIN
 ```
 
-## 边界与工程取舍
+## 边界
 
 不要从 0DTE 成交方向外推指数方向：对冲腿会把符号弄乱。不要用日终 GEX 解释上午的路径。不要把单名 0DTE（若存在）与 SPX 0DTE 共用同一经销商假设。中国指数期权的到期日历与做市制度不同，不能把 CBOE 的成交占比结论直接当作本地微观结构。
 

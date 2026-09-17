@@ -60,7 +60,7 @@ AFD 成立，是因为 decode 一步里注意力与 FFN 的屋顶线不同。注
 
 [PD 分离](/llm/pd-disaggregation) 把 prefill 与 decode 分到两组 GPU。AFD 在 decode 内部再拆注意力与 FFN，而且第二组硬件是 LPU 不是 GPU。两者可叠加：NVL72 做 P 与注意力，LPX 做 decode FFN。不要把 LPX 机柜当成又一个 decode GPU 池去跑完整 Transformer——那会浪费 SRAM 路线，又缺少 GPU 那套通用生态。投机解码同理：草稿模型形状小、步数多，适合确定性 SRAM；验证步吃大模型，适合 Rubin。
 
-## 边界与工程取舍
+## 边界
 
 不要用 LPX 训练大模型（公开定位是推理加速器）。不要假设任意 Hugging Face 模型不经编译就能吃到 40 PB/s。不要把「相对 GB200 NVL72 最高约 35 倍每兆瓦吞吐、约 10 倍收入机会」写成自然定律——那是 NVIDIA 对指定万亿参数设定的平台口径。不要编造未出现在博文里的单芯片 TDP、未发布的指令列表。
 

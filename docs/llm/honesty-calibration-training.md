@@ -47,7 +47,7 @@ flowchart TD
 
 <span class="marginnote">长 CoT 推理模型会在链上自我纠正，答案更诚实，链本身仍可能不忠实。后课拆开。</span>
 
-## 边界与工程取舍
+## 边界
 
 医疗法律不能把校准当免责替代。多模态「图里有没有」另有幻觉模式，下一课。工具调用可以把诚实外包给检索与校验器，本课的口头校准仍要，否则工具失败时模型会编。
 
@@ -57,4 +57,4 @@ flowchart TD
 - 口头置信与内部探针不是同一对象。
 - 拒绝 ≠ 诚实；不知不应默认成安全拒。
 - DPO 造「诚实 vs 幻觉」对有效，须防止永远不知。
-- 出处：Kadavath 等；Lin 等 TruthfulQA；Askell / Bai HHH；Ouyang InstructGPT 的真实轴。
+- 出处：Kadavath 等；Askell / Bai HHH；Ouyang InstructGPT 的真实轴。

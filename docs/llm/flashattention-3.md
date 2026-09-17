@@ -57,7 +57,7 @@ Incoherent processing 的直觉是：异常值若集中在少数通道，均匀�
 
 [SageAttention](/llm/sageattention) 面向的是消费级 GPU 上 INT8 张量核更快、以及即插即用的推理量化；平滑的是 $K$ 的通道均值，PV 常留 FP16。[FA3](/llm/flashattention-3) 的 FP8 走 Hopper 硬件，配分块量化与 incoherent processing，目标包括训练场景下的低精度注意力。二者都动 $QK$ 的表示精度，但硬件、数值手法和是否宣称「与 FA2 同级误差」不同。不要把 INT8 Sage 的速度数字写进 H100 FA3 表格，也不要把 FA3 的 PFLOPs 写进 4090 的 INT8 表格。
 
-## 边界与工程取舍
+## 边界
 
 没有 TMA/WGMMA 的设备跑不了这条调度的原意。头维、因果、dropout、变长、paged KV、解码 split-KV，每一项都要单独有核或回退；FA3 论文的主舞台是长序列前向（及反向）利用率，不是服务引擎里所有形状的万能核。FP8 路径要看层与数据：异常值打散对多数层有效，不保证每一层每一时间步都可无条件降精度。黑盒替换时应用任务指标而不是只看内核 TFLOPs。
 

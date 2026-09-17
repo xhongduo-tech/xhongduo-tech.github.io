@@ -78,7 +78,7 @@ Min-$p$ 用 $p_{\max}$ 当置信度代理。尖峰时 $p_{\max}$ 大，相对门
 
 <span class="marginnote">$p_{\mathrm{base}}$ 不是 nucleus 的 $p$。$0.1$ 的 min-$p$ 在 $p_{\max}=0.8$ 时门槛是 $0.08$，可能只留数个 token；nucleus $p=0.1$ 几乎总是过窄。不要把社区博客里的「0.1」跨算法抄参数。</span>
 
-## 边界与工程取舍
+## 边界
 
 自适应截断改变的是每步支撑，不提供序列级的重复控制，也不提供结构约束。停用与文法仍要另接 [stop sequences](/llm/stop-sequences) 与约束解码。投机解码若要保持目标分布，草稿与目标必须使用同一套截断；只在目标上做 min-$p$、草稿上做 nucleus，接受率与无损证明都会坏，见 [投机采样](/llm/speculative-sampling)。
 

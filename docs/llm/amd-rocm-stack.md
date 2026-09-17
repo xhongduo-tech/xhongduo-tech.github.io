@@ -43,7 +43,7 @@ RCCL 源自 NCCL 思路，算法族类似（环、树），但探测图与协议
 
 <span class="marginnote">多框架（Megatron-LM、DeepSpeed、vLLM）对 ROCm 的支持深度不同。推理栈与训练栈要分开验收。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要用 CUDA 占用率工具直接解释 AMD 计数器。不要假设 SHARP / NVLS 在 RCCL 里有同名同能的对应。不要把未支持的精度当成「开个 flag」。下一课国产加速器谱系更异构，连 HIP 这层近路都未必有。
 

@@ -37,8 +37,6 @@ flowchart TD
   MX --> PX
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 反向代理、QUIC 用户态栈都是这种循环。SSH 按键也是。线程池可放在 handler 后做业务，I/O 线程不阻塞——否则 Reactor 假死。与 PTP 无关。
@@ -51,7 +49,7 @@ flowchart TD
 
 在循环里再阻塞 DNS 查询会把整个服务卡住。
 
-上一课留下的缺口在本课收口；「Reactor / Proactor」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[C10K 与并发模型](/cs/c10k-concurrency)。
+下一课[C10K 与并发模型](/cs/c10k-concurrency)。
 
 ## 小结
 

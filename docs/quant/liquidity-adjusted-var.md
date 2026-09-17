@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bangia, Diebold, Schuermann and Stroughair, Modeling Liquidity Risk, Federal Reserve Bank of New York, 1998/1999</footer>
 </div>
 
-标准 [VaR](/quant/var-methods) 的损失 $L$ 用中间价（或理论标记）变化定义。买卖价差即使对小仓位也要付；价差在压力里还会变宽、变吵。Bangia、Diebold、Schuermann 与 Stroughair 把外生流动性写成对 VaR 的附加：在市场风险分位数之上，加上价差成本的一个保守分位数。Hisata 与 Yamai、Almgren–Chriss 一类工作则处理内生流动性：你的数量改变价格，变现时间成为决策变量。本篇写 **LVaR** 作为损失定义的修正，与 [变现时间](/quant/liquidity-horizon) 文分工：那边问 $H$ 怎么选，这边问选定退出假设之后，分位数公式如何改。它仍不替代 [ES](/quant/expected-shortfall) 对尾巴形状的积分。
+[压力 VaR 与 FRTB](/quant/stressed-var-frtb)把校准点移进压力期，还按流动性期限分了档。标准 [VaR](/quant/var-methods) 的损失 $L$ 用中间价（或理论标记）变化定义。买卖价差即使对小仓位也要付；价差在压力里还会变宽、变吵。Bangia、Diebold、Schuermann 与 Stroughair 把外生流动性写成对 VaR 的附加：在市场风险分位数之上，加上价差成本的一个保守分位数。Hisata 与 Yamai、Almgren–Chriss 一类工作则处理内生流动性：你的数量改变价格，变现时间成为决策变量。本篇写 **LVaR** 作为损失定义的修正，与 [变现时间](/quant/liquidity-horizon) 文分工：那边问 $H$ 怎么选，这边问选定退出假设之后，分位数公式如何改。它仍不替代 [ES](/quant/expected-shortfall) 对尾巴形状的积分。
 
 ## 问题
 
@@ -61,7 +61,7 @@ FRTB 用分档流动性期限拉长部分因子的 ES 地平线，是制度上�
 
 逐笔价差含微观结构噪声，日频高低价差（Corwin–Schultz 等）是另一套代理。LVaR 的 $\sigma_s$ 应与 VaR 地平线匹配：用 1 秒价差波动去加 1 日市场 VaR，量纲错误。停牌、涨跌停使报价缺失，价差不是无穷，而是不可交易，应转入 [停牌](/quant/trading-halts) 与缺口，而不是把 $s$ 设成一个大数继续加。OTC 的「价差」常是询价离散点，样本选择偏差大：能观察到的 $s$ 来自仍有人报价的日子。
 
-## 边界与工程取舍
+## 边界
 
 外生 LVaR 透明、适合做市账簿与小仓位限额；对集中头寸几乎无关痛痒。内生数字依赖冲击函数，模型风险大，但方向正确。并行报告优于合成：中间价 VaR、外生 LVaR、含冲击的执行分位数。回测必须用可实现成交价构造 $L$，若仍用中间价回测 LVaR，附加项永远不会被违反序列惩罚。
 

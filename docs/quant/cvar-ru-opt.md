@@ -11,7 +11,7 @@ section: quant
     <footer>—— Rockafellar and Uryasev, Optimization of Conditional Value-at-Risk, Journal of Risk, 2000</footer>
 </div>
 
-[CVaR 优化](/quant/cvar-opt) 一文写如何选 $w$：情景 LP、均值–CVaR 前沿、椭圆世界与均方重合、情景不足时的过拟合。[ES](/quant/expected-shortfall) 写度量公理。本篇只写 **Rockafellar–Uryasev（RU）表示本身**：函数 $F_\alpha(w,\zeta)$、为何对 $\zeta$ 最小化得到 CVaR、为何 $\zeta^\star$ 是 VaR、联合凸从何而来、离散分布上原子与「尾巴均值」的差别。2002 年后续论文把组合与约束写全。它补的是表示定理与辅助变量会计，不是再列一遍工程正则清单。
+[上一课](/quant/fractional-kelly-bound)把杠杆收在增长–安全前沿上；换一套约束语言，本篇回到表示定理。[CVaR 优化](/quant/cvar-opt) 一文写如何选 $w$：情景 LP、均值–CVaR 前沿、椭圆世界与均方重合、情景不足时的过拟合。[ES](/quant/expected-shortfall) 写度量公理。本篇只写 **Rockafellar–Uryasev（RU）表示本身**：函数 $F_\alpha(w,\zeta)$、为何对 $\zeta$ 最小化得到 CVaR、为何 $\zeta^\star$ 是 VaR、联合凸从何而来、离散分布上原子与「尾巴均值」的差别。2002 年后续论文把组合与约束写全。它补的是表示定理与辅助变量会计，不是再列一遍工程正则清单。
 
 ## 问题
 
@@ -69,7 +69,7 @@ $$
 
 最优 $w$ 处，情景的有效尾测度可用于 [成分 ES](/quant/component-es)：在 $\{s:z_s\gt 0\}$（及原子上的分数权重）上取 $E[L_i\mid\text{tail}]$。优化与分配应使用同一尾集合，不要优化用 RU、分配用手写 99% 历史 ES。监管 FRTB 的 ES 有压力窗、风险类、流动性期限，不能把 RU 的最优值填进监管表格。反过来，内部限额用 RU 约束，与监管资本并列，正是表示的工程价值：限额可解、可加线性约束。
 
-## 边界与工程取舍
+## 边界
 
 不要最小化 VaR 还引用 2000 年论文。不要丢掉 $\zeta$ 只最小化经验超阈平均（分位数随 $w$ 变，目标定义循环）。不要在 $S(1-\alpha)$ 过小时把凸解当成稳定 alpha。不要对非凸 $L$ 声称全局最优。多期、中间强平使单期 $L$ 漏掉路径约束，时间一致性不是 RU 单期表示的内容；须把强平写进路径损失，或改动态风险度量。
 

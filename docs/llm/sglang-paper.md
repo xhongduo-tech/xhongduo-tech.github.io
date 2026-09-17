@@ -63,7 +63,7 @@ RadixAttention 写成与 continuous batching、PagedAttention、张量并行相�
 
 <span class="marginnote">公平性是原文列出的未来工作：最长前缀优先可能饿死短前缀请求。生产接入时要另接老化或配额，不能假设论文调度直接满足多租户 SLO。</span>
 
-## 边界与工程取舍
+## 边界
 
 无共享的单轮补全应看连续批与核，而不是调大 radix 缓存。API 推测执行只对闭源、按 token 计费、多调用程序有意义。多模态节点按图像 token 序列对齐，编码器是否缓存取决于实现；文本 radix 不自动覆盖视频。数据并行下每张卡一份分片 KV；跨机命中还要 [decode 亲和](/llm/decode-affinity)，单机树不够。
 

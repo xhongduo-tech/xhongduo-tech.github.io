@@ -61,7 +61,7 @@ NVLink 是专用 SerDes 与协议，面向 GPU 内存语义的短消息与块传
 
 单条 NVLink 降级，NCCL 可能改走剩余链路或更差路径，busbw 下降。NVSwitch 或交换托盘故障，域的对称性破坏，表现为集体通信超时或部分 rank 极慢。PCIe 故障不影响已建立的 NVLink 域内流量，但会影响主机启动与网卡。监控要把 NVLink 错误计数、Switch 健康与 NCCL 超时分开。维护超节点时按域下线，见 [机柜作为逻辑加速器](/llm/rack-as-accelerator)。
 
-## 边界与工程取舍
+## 边界
 
 不要把 H100 NVL 的 600 GB/s 写进 SXM 集群的规划。不要把 NVLink 聚合当成 HBM 带宽。不要期望 MIG 实例享有完整 GPU 的 NVLink 注入。不要在以太网集群上用「逻辑 NVLink」一类营销词去切 64 路 TP。不要填写 Rubin 或其他未在当前产品页给出聚合带宽的下一代数字。
 

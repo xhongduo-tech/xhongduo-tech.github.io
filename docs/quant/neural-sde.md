@@ -11,7 +11,7 @@ section: quant
     <footer>—— Kidger, Morrill, Foster and Lyons, Neural SDEs as Infinite-Dimensional GANs, ICML 2021</footer>
 </div>
 
-离散残差网络 $h_{k+1}=h_k+f_\theta(h_k)$ 的连续极限是 Neural ODE。金融市场的对象是带噪声的路径，极限应对应 SDE：
+[Deep BSDE](/quant/deep-bsde) 用网络解给定的 SDE；本篇反过来，把漂移与扩散写成网络。离散残差网络 $h_{k+1}=h_k+f_\theta(h_k)$ 的连续极限是 Neural ODE。金融市场的对象是带噪声的路径，极限应对应 SDE：
 
 $$
 \mathrm{d}X_t=\mu_\theta(t,X_t)\,\mathrm{d}t+\sigma_\theta(t,X_t)\,\mathrm{d}W_t.
@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">Kidger et al. 的 ICML 标题写 Infinite-Dimensional GANs，指生成器作用在路径空间。实现仍在有限步上走数值解。论文贡献是模型类与训练视角，不是「不必再选步长」。</span>
 
-## 边界与工程取舍
+## 边界
 
 跳跃要用 SDE 加泊松随机测度，或单独的跳跃网络；隔夜缺口同理。系数若全局 Lipschitz 过强，可能限制危机时的扩散爆发；过弱则解爆炸、训练 NaN。校准香草微笑通常仍用参数随机波动或局部波动，Neural SDE 更适合生成与滤波，而不是替换整张曲面的生产定价器。[PINN](/quant/pinn-option-pricing) 解的是给定系数的 PDE；Neural SDE 学系数。先学系数再解 PDE，两套网络的误差会叠，中间必须冻结与验证。
 

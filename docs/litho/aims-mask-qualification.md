@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Zeiss AIMS（Aerial Image Measurement System）掩模鉴定的公开产品与文献通称</footer>
 </div>
 
-[上一课](/litho/pellicle-mount-inspect)给出装膜后的出货态。缺口是光学检验与 SEM 都不等于扫描机打印。本课钉 AIMS。鉴定通过的版在寿命里仍可能雾化，留给[下一课](/litho/mask-haze）。
+[上一课](/litho/pellicle-mount-inspect)给出装膜后的出货态。缺口是光学检验与 SEM 都不等于扫描机打印。本课钉 AIMS。鉴定通过的版在寿命里仍可能雾化，留给[下一课](/litho/mask-haze)。
 
 ## 问题
 

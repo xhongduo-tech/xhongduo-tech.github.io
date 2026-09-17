@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 2000 年代高折射率浸没（high-n immersion）公开研发史整理，第二代流体未进入量产</footer>
 </div>
 
-[上一课](/litho/topcoat-leaching)把水–胶界面的浸出和面涂写成隔离问题。缺口是：水的 $n\approx 1.44$ 已经用尽之后，有没有一种更稠、更「光学」的液体把 $n\sin\theta$ 再往上推。本课钉高 $n$ 浸没液的公开结局：研发有，量产无。干式层与浸没层如何分工，留给[下一课](/litho/dry-vs-immersion-layer）。
+[上一课](/litho/topcoat-leaching)把水–胶界面的浸出和面涂写成隔离问题。缺口是：水的 $n\approx 1.44$ 已经用尽之后，有没有一种更稠、更「光学」的液体把 $n\sin\theta$ 再往上推。本课钉高 $n$ 浸没液的公开结局：研发有，量产无。干式层与浸没层如何分工，留给[下一课](/litho/dry-vs-immersion-layer)。
 
 ## 问题
 

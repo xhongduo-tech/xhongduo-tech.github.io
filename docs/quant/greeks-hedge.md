@@ -11,7 +11,7 @@ section: quant
     <footer>—— Hull, Options, Futures, and Other Derivatives</footer>
 </div>
 
-Black–Scholes–Merton 的复制论证在连续交易、常数波动、无跳跃时，用标的（或期货）动态对冲即可复制欧式期权。交易台并不活在定理里：仓位是一篮子香草与奇异，波动率在动，再平衡是离散的。John Hull 的教科书把希腊字母组织成可运算的风险：Delta 是对现货（或远期）的一阶，Gamma 是 Delta 对现货的导数，Vega 是对隐含波动率的一阶，再加上 Theta、Rho。对冲的意思是：选期货、掉期或别的期权，使组合的 $\Delta,\Gamma,\nu$ 落在限额内，并承认未对冲的高阶与交叉项会变成 P&L。它与 [离散对冲误差](/quant/discrete-hedge-error) 衔接：即使 Delta 在每次再平衡时都归零，Gamma 仍在两次平衡之间工作。
+[上一课](/quant/variance-swap-vix)把离散对冲的不完美收成波动卖方的出价；这一课把对冲写成日常账务。Black–Scholes–Merton 的复制论证在连续交易、常数波动、无跳跃时，用标的（或期货）动态对冲即可复制欧式期权。交易台并不活在定理里：仓位是一篮子香草与奇异，波动率在动，再平衡是离散的。John Hull 的教科书把希腊字母组织成可运算的风险：Delta 是对现货（或远期）的一阶，Gamma 是 Delta 对现货的导数，Vega 是对隐含波动率的一阶，再加上 Theta、Rho。对冲的意思是：选期货、掉期或别的期权，使组合的 $\Delta,\Gamma,\nu$ 落在限额内，并承认未对冲的高阶与交叉项会变成 P&L。它与 [离散对冲误差](/quant/discrete-hedge-error) 衔接：即使 Delta 在每次再平衡时都归零，Gamma 仍在两次平衡之间工作。
 
 ## 问题
 

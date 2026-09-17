@@ -52,7 +52,7 @@ flowchart TD
 
 <span class="marginnote">「原生」在硬件上还指 MMA 是否直接吃 MX 块。Hopper 上常见路径是权重量化、计算升精度；Blackwell / 部分 AMD 路径才有 MXFP4 点积。只改 dtype、不换核，是存储压缩，不是训练峰值。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 可互换编码仍要核对轴与打包
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Bayer, Friz and Gatheral, Pricing under rough volatility, Quantitative Finance, 2016</footer>
 </div>
 
-[粗糙波动](/quant/rough-vol) 写的是经验尺度律：已实现对数波动的增量方差按 $\Delta^{2H}$ 缩放，$H$ 落在 $0.1$ 附近。[Bergomi](/quant/bergomi) 写的是对象：远期方差曲线 $\xi_t(u)$ 对每个到期是鞅，今日曲线从市场填入。Christian Bayer、Peter Friz 与 Jim Gatheral 把二者接到同一条定价规格上——粗糙 Bergomi（rBergomi）：保留曲线对象，只改驱动核。本篇写这一规格、高斯 Volterra 模拟与分层校准，不把 Gatheral–Jaisson–Rosenbaum 的回归再做一遍，也不把两因子指数核的推导重写；[Heston](/quant/heston) 的仿射特征函数在这里用不上。
+[上一课](/quant/ssvi-term-consistency)把一致性收成函数级约束；现在换一条路，让核自己粗糙。[粗糙波动](/quant/rough-vol) 写的是经验尺度律：已实现对数波动的增量方差按 $\Delta^{2H}$ 缩放，$H$ 落在 $0.1$ 附近。[Bergomi](/quant/bergomi) 写的是对象：远期方差曲线 $\xi_t(u)$ 对每个到期是鞅，今日曲线从市场填入。Christian Bayer、Peter Friz 与 Jim Gatheral 把二者接到同一条定价规格上——粗糙 Bergomi（rBergomi）：保留曲线对象，只改驱动核。本篇写这一规格、高斯 Volterra 模拟与分层校准，不把 Gatheral–Jaisson–Rosenbaum 的回归再做一遍，也不把两因子指数核的推导重写；[Heston](/quant/heston) 的仿射特征函数在这里用不上。
 
 ## 问题
 
@@ -66,7 +66,7 @@ flowchart TD
 
 <span class="marginnote">$\eta$ 是分数核的水平，不是 Heston 的 vol-of-vol $\sigma$。量纲随 $H$ 变：比较「rBergomi 的 $\eta$ 与 Heston 的 $\sigma$」没有意义，能比的是它们产生的短端偏斜与 VIX 凸性。</span>
 
-## 边界与工程取舍
+## 边界
 
 欧式没有仿射闭式，校准循环比 Heston 重一个数量级。Wiener 混沌、核回归与深度学习代理可以加速，但生产上仍应保留一条可复现的 hybrid 模拟作为对账金标准。物理测度的 $H$ 与风险中性的 $H$ 不必相同，尽管经验上常接近；中间隔着波动率风险溢价。用历史 $H$、定价 $\eta$，要在报告里写清两个测度。
 

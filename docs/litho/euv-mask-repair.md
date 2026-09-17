@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 EUV 掩模修复公开工艺（电子束、气助）；不要当成 DUV 铬修补的换波长版</footer>
 </div>
 
-[上一课](/litho/mask-roughness)把边沿 PSD 写成 LER 底噪。缺口是缺陷怎么办：多一块吸收体、少一块、或空白相位坑。DUV 的[电子束修复](/litho/mask-repair-ebeam)课属于掩模厂主干，本课只补 EUV 特有的约束——多层、帽、氢和光化验证。薄膜寿命与更换，留给[下一课](/litho/pellicle-lifetime）。
+[上一课](/litho/mask-roughness)把边沿 PSD 写成 LER 底噪。缺口是缺陷怎么办：多一块吸收体、少一块、或空白相位坑。DUV 的[电子束修复](/litho/mask-repair-ebeam)课属于掩模厂主干，本课只补 EUV 特有的约束——多层、帽、氢和光化验证。薄膜寿命与更换，留给[下一课](/litho/pellicle-lifetime)。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Naulleau 对 mask roughness 与 LER；Mack 边缘粗糙框架</footer>
 </div>
 
-[上一课](/litho/mask-3d-best-focus-shift)把三维电磁写成平均焦移。缺口是边沿的随机：掩模粗糙度（mask roughness / mask LER）。修复能否在不毁掉多层的前提下改这块边，留给[下一课](/litho/euv-mask-repair）。
+[上一课](/litho/mask-3d-best-focus-shift)把三维电磁写成平均焦移。缺口是边沿的随机：掩模粗糙度（mask roughness / mask LER）。修复能否在不毁掉多层的前提下改这块边，留给[下一课](/litho/euv-mask-repair)。
 
 ## 问题
 

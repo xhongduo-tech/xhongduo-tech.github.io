@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Mentor Calibre LFD 一类工具的公开定位；DTCO 与光刻友好设计的产线通称</footer>
 </div>
 
-[上一课](/litho/full-chip-simulation-cost)把全场仿真收成算力合同。缺口是设计侧：若库和布线仍制造核修不回来的二维组合，再便宜的卷积也只是更快报红。[DTCO](/litho/dtco-patterning) 已在主干谈协同；本课钉 LFD 作为签核门的设计入口。哪些红是「长得像已知杀手」而不是再跑一遍仿真，留给[下一课](/litho/pattern-matching）。
+[上一课](/litho/full-chip-simulation-cost)把全场仿真收成算力合同。缺口是设计侧：若库和布线仍制造核修不回来的二维组合，再便宜的卷积也只是更快报红。[DTCO](/litho/dtco-patterning) 已在主干谈协同；本课钉 LFD 作为签核门的设计入口。哪些红是「长得像已知杀手」而不是再跑一遍仿真，留给[下一课](/litho/pattern-matching)。
 
 ## 问题
 

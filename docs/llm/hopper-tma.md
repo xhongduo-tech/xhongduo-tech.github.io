@@ -64,7 +64,7 @@ Multicast 的机制是一次 HBM 读、多次 smem 写（在集群可达的 CTA 
 
 TMA 发行后生产者可以立刻去发下一条，不必等。消费者必须 wait 对应 barrier，且对同一块 smem 的复用要遵守 pipeline 的相位：写 stage $i$ 不得覆盖消费者仍在读的 stage。Fence 与 barrier 的配对以 PTX 文档为准；少一次 `arrive` 会表现为随机损坏，多一次可能死锁。调试应先把 stage 降到 2，用固定输入对照 cuBLAS，再加深流水。
 
-## 边界与工程取舍
+## 边界
 
 不要在 Ampere 及更早假设有 TMA。不要把主机 `cudaMemcpy` 叫做 TMA。不要为未公开的引擎队列深度、描述符缓存大小编造数字。跨 GPU 的搬移不是 H100 TMA 的主合同；NVLink 上的远程拷贝有另外的编程模型，柜外仍是 GPUDirect / RDMA。混合精度下，描述符的元素宽度必须与 MMA 输入一致，否则「搬得很快、乘的是错的字节」。
 

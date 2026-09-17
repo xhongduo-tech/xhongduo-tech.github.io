@@ -11,7 +11,7 @@ section: quant
 <footer>—— Broadie, Glasserman and Kou, A Continuity Correction for Discrete Barrier Options, Mathematical Finance, 1997</footer>
 </div>
 
-障碍期权的支付取决于标的有没有在存续期内触及某个水平 $H$。这句话里的「触及」必须先规定观察时钟：连续监控假设路径的每一瞬间都算，离散监控只在收盘、整点或合约列出的时刻取样。同一敲出（knock-out）条款，观察越稀，越难被敲掉，期权越贵；敲入则相反。连续情形在 Black-Scholes 下有 Reiner–Rubinstein 一类闭式；真实合约几乎都是离散的，直接套连续公式会把敲出卖得太便宜。Broadie、Glasserman 与 Kou（1997）给出把障碍平移 $H' = H e^{\pm\beta\sigma\sqrt{\Delta t}}$ 的连续性修正，使离散问题仍能走连续公式。本篇写监控频率如何进入价格与希腊值，以及微观结构里障碍附近的流动性——那是观察网格与簿几何的相互作用，不是一份「如何把价格扫过障碍」的操作手册。欧式香草见 [Black-Scholes-Merton](/quant/bsm)，路径模拟见 [蒙特卡洛定价](/quant/mc-pricing)。
+[上一课](/quant/discrete-dividend-am)把香草美式的倒推对齐除权日；本课的日历换成观察时钟。障碍期权的支付取决于标的有没有在存续期内触及某个水平 $H$。这句话里的「触及」必须先规定观察时钟：连续监控假设路径的每一瞬间都算，离散监控只在收盘、整点或合约列出的时刻取样。同一敲出（knock-out）条款，观察越稀，越难被敲掉，期权越贵；敲入则相反。连续情形在 Black-Scholes 下有 Reiner–Rubinstein 一类闭式；真实合约几乎都是离散的，直接套连续公式会把敲出卖得太便宜。Broadie、Glasserman 与 Kou（1997）给出把障碍平移 $H' = H e^{\pm\beta\sigma\sqrt{\Delta t}}$ 的连续性修正，使离散问题仍能走连续公式。本篇写监控频率如何进入价格与希腊值，以及微观结构里障碍附近的流动性——那是观察网格与簿几何的相互作用，不是一份「如何把价格扫过障碍」的操作手册。欧式香草见 [Black-Scholes-Merton](/quant/bsm)，路径模拟见 [蒙特卡洛定价](/quant/mc-pricing)。
 
 ## 问题
 

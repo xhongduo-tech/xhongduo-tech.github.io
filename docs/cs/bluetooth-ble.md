@@ -37,8 +37,6 @@ flowchart TD
   HOP["跳频"] --> INTF["避 Wi-Fi 干扰"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 以太网 LLDP 发现交换机；BLE 发现外围设备。都是一跳身份，地址空间与安全模型不同（配对、LE Secure Connections）。不进 MAC 表，不跑 STP。若网关把 BLE 桥到 IP，那是应用网关，不是 802.1Q 桥。
@@ -51,7 +49,7 @@ flowchart TD
 
 音频延迟与 BLE 吞吐上限来自间隔与 PHY 档（1M/2M/Coded），不要用千兆以太网对照当缺陷。
 
-上一课留下的缺口在本课收口；「蓝牙与 BLE」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[蜂窝：RAN 与核心网](/cs/cellular-ran-core)。
+下一课[蜂窝：RAN 与核心网](/cs/cellular-ran-core)。
 
 ## 小结
 

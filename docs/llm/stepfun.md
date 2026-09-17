@@ -60,7 +60,7 @@ flowchart TD
 
 <span class="marginnote">「体感逼近 GPT-4」是 WAIC 产品句，不是盲测论文。与 LiveBench 名次一起引用时要分开：一个是主观，一个是特定基准。</span>
 
-## 边界与工程取舍
+## 边界
 
 Step-2 权重未开源，API 以 platform.stepfun.com 当时目录为准。安全、上下文长度、tokenizer、是否 GQA 均未在 Step-2 材料中给出。音频线见 Step-Audio 2 报告（2507.16632），与语言旗舰无关。不要用极客公园转述替代论文；转述只用来还原官方已说的架构选择。
 

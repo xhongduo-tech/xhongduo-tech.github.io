@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">文献名称极易撞车。Moskowitz–Ooi–Pedersen 的 TSMOM、Jegadeesh–Titman 的 J/K、Carhart 的 PR1YR、French 的 WML/UMD、CTA 的均线束，都不是同一个序列。对照表的第一列应是定义，不是「动量」这个词。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要用股票 WML 的 t 值去验证 CTA 产品，不要用 CTA 的危机 alpha 去验证 12−1。不要在已经 vol target 的 TS 与未缩放的 CS 之间比较信息比。不要把 2009 年股票动量崩溃和 2020 年 3 月趋势反转写成同一个风险因子的两次实现——状态变量、持仓与凸性来源都不同。A 股的截面动量受涨跌停与短周期投机影响，时序上指数的趋势跟踪受股指期货制度影响，对照必须用当地规则分别做，不能进口一张美股对照表。
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Ni, Pearson and Poteshman, Stock Price Clustering on Option Expiration Dates, Journal of Financial Economics, 2005；钉住的连续时间叙述见 Avellaneda and Lipkin；最大痛点公式来自从业口耳相传而非同一文献</footer>
 </div>
 
-到期附近，平值期权的 Gamma 变尖，做市对冲与行权决定在执行价 $K$ 处不连续，现货路径表现出向某些 $K$ 靠拢的统计倾向，称为钉住（pinning）或 **strike magnetism**。Ni、Pearson 与 Poteshman（2005）把它写成可检验的聚类：到期日收盘落在期权执行价上的频率，高于用非到期日校准的零假设。Avellaneda 与 Lipkin 用对冲反馈给出连续时间直觉。与此并列的零售指标 **max pain**（最大痛点）定义为：使全部未平仓看涨与看跌的内在价值之和最小的交割价，即「期权买方作为整体最痛」的点。本篇把二者拆开：前者是有机制、有证据的微观结构；后者是粗统计量加过强叙事。经销商 Gamma 的零点见 [Gamma Flip](/quant/gamma-flip-level)，到期缺口见 [pin risk](/quant/pin-risk)。
+[0DTE 微观结构](/quant/zero-dte-microstructure) 停在时点短 Gamma 的体制检验；执行价上的聚集还没拆开。到期附近，平值期权的 Gamma 变尖，做市对冲与行权决定在执行价 $K$ 处不连续，现货路径表现出向某些 $K$ 靠拢的统计倾向，称为钉住（pinning）或 **strike magnetism**。Ni、Pearson 与 Poteshman（2005）把它写成可检验的聚类：到期日收盘落在期权执行价上的频率，高于用非到期日校准的零假设。Avellaneda 与 Lipkin 用对冲反馈给出连续时间直觉。与此并列的零售指标 **max pain**（最大痛点）定义为：使全部未平仓看涨与看跌的内在价值之和最小的交割价，即「期权买方作为整体最痛」的点。本篇把二者拆开：前者是有机制、有证据的微观结构；后者是粗统计量加过强叙事。经销商 Gamma 的零点见 [Gamma Flip](/quant/gamma-flip-level)，到期缺口见 [pin risk](/quant/pin-risk)。
 
 ## 问题
 
@@ -59,7 +59,7 @@ flowchart TD
   FOLK --> TEST
 ```
 
-## 边界与工程取舍
+## 边界
 
 不要用 max pain 做到期方向交易：增量证据弱，且把对冲机制讲成了阴谋。不要把钉住的频率偏移夸大成确定性吸力。不要在薄上市、执行价间距很宽的标的上谈 magnetism。风险管理上，pin risk 仍然真实：空头在 $K$ 附近需要限额与情景，这与是否相信 max pain 无关。
 

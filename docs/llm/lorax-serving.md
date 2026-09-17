@@ -61,7 +61,7 @@ flowchart LR
 
 <span class="marginnote">LoRAX 能从 Hub 拉适配器，不意味着生产应允许任意 URL。来源应白名单、校验哈希、与基座的 `architectures` 对齐。任意租户注入一份形状碰巧能 load 的 $A,B$，是一条模型侧信道，不是「动态」的特性。</span>
 
-## 边界与工程取舍
+## 边界
 
 量化基座（bitsandbytes、GPTQ、AWQ）与 LoRA 数值域要对齐，否则 $BAx$ 在反量化后的 $W_0x$ 旁被淹没。支持的基座架构以当时文档为准：Llama、Mistral、Qwen 等常见解码器优先，自定义层、MoE、多模态投影不要假设 gather 核开箱可用。张量并行下，适配器切片要跟基座 TP 一致，通信应叠在基座 All-Reduce 上的小增量，而不是为 $BA$ 再付一次满秩集合通信。
 

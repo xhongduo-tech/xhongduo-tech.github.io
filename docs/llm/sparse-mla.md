@@ -59,7 +59,7 @@ FP8 KV 把反量化放到 CUDA Core，MMA 在 Tensor Core。稀疏 decode 的 de
 
 后续开源栈里出现名为 `FLASHMLA_SPARSE_DSV4` 的 vLLM 后端，服务的是另一套压缩比与滑窗布局（公开文档写 CSA/HCA，头宽拼接也不同）。那是 V4 注意力层自己的 metadata 与 cache layout，**不是** V3.2 的 `flash_mla_sparse_fwd` 换个开关。写系统对照必须列出：模型代际、压缩率是否为 1、KV 是否 FP8、prefill 还是 decode、`topk` 多少。把 V4 的 512 维语义头宽套到 V3 的 576/512 MQA 上，TMA 形状直接错。
 
-## 边界与工程取舍
+## 边界
 
 Sparse MLA 需要 SM90 或 SM100、足够新的 CUDA。稀疏 prefill 核无 batch 维，引擎要自己做变长拼接。Indexer 不在 FlashMLA 核里：漏跑 indexer、或把稠密分数当索引，top-k 集合无意义。$k$ 与页大小、FP8 打包必须与检查点一致。不要把 640 / 410 TFLOPS 抄成「DSA 让训练也 640」——那是推理核微基准。短序列走稠密模拟时，延迟对比必须声明长度，否则会得出「稀疏更慢」的假结论。
 

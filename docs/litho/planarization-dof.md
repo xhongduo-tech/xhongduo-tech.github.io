@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照瑞利焦深与晶圆形貌预算；Mack / Levinson 对 DOF 与晶圆平坦度的叙述</footer>
 </div>
 
-[上一课](/litho/cmp-topography)给出 CMP 地形。缺口是换算：这笔高度进不进本层焦深。[瑞利](/litho/rayleigh-litho) 与 [E–D 窗](/litho/ed-process-window) 已有 DOF 定义；本课钉平坦化预算，不重推 $k_2\lambda/\mathrm{NA}^2$。关键层对准如何在这张不平的饼上找网格，留给[下一课](/litho/critical-layer-alignment）。
+[上一课](/litho/cmp-topography)给出 CMP 地形。缺口是换算：这笔高度进不进本层焦深。[瑞利](/litho/rayleigh-litho) 与 [E–D 窗](/litho/ed-process-window) 已有 DOF 定义；本课钉平坦化预算，不重推 $k_2\lambda/\mathrm{NA}^2$。关键层对准如何在这张不平的饼上找网格，留给[下一课](/litho/critical-layer-alignment)。
 
 ## 问题
 

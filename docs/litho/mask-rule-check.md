@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照掩模厂（mask shop）对可写性约束与 MRC 的工程通称</footer>
 </div>
 
-[上一课](/litho/ilt-regularization)把逆问题的稳定解写成平滑、鲁棒与向可制造集合的投影。缺口是这个集合的语言。掩模厂不读损失函数，只读宽度、间距、面积、jog、尖角——掩模规则检查（Mask Rule Check, MRC）。OPC 或 ILT 若在 MRC 上爆掉，版被拒收，窗口数字作废。本课钉曼哈顿/多边形 MRC。曲线掩模把规则改写成曲率语言，留给[下一课](/litho/curvilinear-mrc)。
+[上一课](/litho/ilt-regularization)把逆问题的稳定解写成平滑、鲁棒与向可制造集合的投影。缺口是这个集合的语言。掩模厂不读损失函数，只读宽度、间距、面积、jog、尖角——掩模规则检查（Mask Rule Check, MRC）。OPC 或 ILT 若在 MRC 上爆掉，版被拒收，窗口数字作废。本课钉曼哈顿/多边形 MRC。违例怎么修——夹紧、合并还是回退进迭代——留给[下一课](/litho/mrc-fixup)；曲线掩模把规则改写成曲率语言，是后面的[曲线 MRC](/litho/curvilinear-mrc)一课。
 
 ## 问题
 
@@ -54,7 +54,7 @@ flowchart TD
 
 ## 边界
 
-MRC 不保证晶圆 CD，只保证掩模可加工。规则过宽，等于把 RET 的收益剃光；过窄，掩模厂良率崩。规则随写入器世代变，VSB 年代的最小宽度不能直接套到多束曲线上——那是下一课。EUV 吸收体与 DUV 铬/MoSi 的蚀刻偏置不同，不能共用一张 MRC 表。修补（e-beam repair）之后也要再过 MRC，补丁本身可以制造新的 jog 与尖角。
+MRC 不保证晶圆 CD，只保证掩模可加工。规则过宽，等于把 RET 的收益剃光；过窄，掩模厂良率崩。规则随写入器世代变，VSB 年代的最小宽度不能直接套到多束曲线上——那是后面曲线 MRC 课的账。EUV 吸收体与 DUV 铬/MoSi 的蚀刻偏置不同，不能共用一张 MRC 表。修补（e-beam repair）之后也要再过 MRC，补丁本身可以制造新的 jog 与尖角。
 
 后课默认：可制造集合已经用多边形 MRC 定义过；曲线还要把「边平行间距」升级成曲率与颈宽。
 

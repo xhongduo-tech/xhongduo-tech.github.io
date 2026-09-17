@@ -36,8 +36,6 @@ flowchart TD
   AIMD["交替"] --> CONV["收敛交点"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 Reno 每 RTT 约加一 MSS，丢则减半，是 AIMD 实例。CUBIC 用时间立方，仍有乘性事件。ECN 把「减」从丢包提前，几何类似。多瓶颈与不同 RTT 使交点偏离，后课 RTT 不公平。
@@ -50,7 +48,7 @@ Reno 每 RTT 约加一 MSS，丢则减半，是 AIMD 实例。CUBIC 用时间立
 
 实际 ACK 压缩会让「每 RTT 加一」变成突发，几何仍近似。
 
-上一课留下的缺口在本课收口；「AIMD 与 Chiu–Jain」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[快速重传与恢复](/cs/fast-retransmit-recovery)。
+下一课[快速重传与恢复](/cs/fast-retransmit-recovery)。
 
 ## 小结
 

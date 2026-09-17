@@ -36,8 +36,6 @@ flowchart TD
   ACK --> VER["验证后建 TCB"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 AIMD 尚未开始，cookies 在握手。MSS 钳制仍可发生在 SYN 上。Anycast 与 ECMP：ACK 必须回到能验证同一密钥的实例，否则失败——接住拓扑课。卫星长 RTT 使 cookie 时间窗要宽容。
@@ -50,7 +48,7 @@ AIMD 尚未开始，cookies 在握手。MSS 钳制仍可发生在 SYN 上。Anyc
 
 把 cookies 当默认永久开启要接受功能降级。
 
-上一课留下的缺口在本课收口；「SYN cookies」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[保活与半开](/cs/keepalive-half-open)。
+下一课[保活与半开](/cs/keepalive-half-open)。
 
 ## 小结
 

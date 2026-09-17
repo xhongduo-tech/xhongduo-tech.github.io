@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>把所有权矩阵改一格，在估好的需求与成本上重解 Nash 价格，得到的是这条结构下的反事实加价，不是 $HHI$ 阈值上的行政跳变。</p>
-<footer>—— Werden and Froeb 合并模拟传统；Nevo, Mergers with Differentiated Products, 以及 RAND 麦片文的反事实；Farrell and Shapiro 的 UPP；对照 Tirole</footer>
+<footer>—— Werden and Froeb 合并模拟传统；Nevo, Mergers with Differentiated Products, 以及 RAND 麦片文的反事实；Farrell and Shapiro 的 UPP；对照 Tirole, The Theory of Industrial Organization, 1988</footer>
 </div>
 
 [上一课](/econ/two-sided-pricing-io)要求平台合并重解两边价格。本课把装置写全：水平合并如何从[差异化定价](/econ/differentiated-pricing)的一阶条件走到 $\Delta p$。SCP 用集中度筛案；NEIO 用模拟回答「若这两家变成一家，均衡价格动多少」。后课掠夺与排他处理非合并的策略性封锁；本课只改所有权，不改成本函数以外的博弈规则。

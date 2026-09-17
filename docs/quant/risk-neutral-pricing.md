@@ -11,7 +11,7 @@ section: quant
     <footer>—— Harrison and Pliska, Martingales and Stochastic Integrals in the Theory of Continuous Trading, Stochastic Processes and their Applications, 1981</footer>
 </div>
 
-Black-Scholes 用对冲消掉 $\mu$，Cox-Ross 1976 年已指出：一旦可复制，定价可以在一个「所有人风险中性」的假想经济里完成，真实偏好只决定 $\mu$，不进入期权价。Harrison 与 Kreps（1979）在多期离散市场把这句话写成定理：无套利当且仅当存在等价鞅测度；Harrison 与 Pliska（1981）把它接到连续交易与随机积分，完全市场对应鞅测度唯一。此后「风险中性定价」不再是修辞，而是第一基本定理与第二基本定理：存在性给无套利，唯一性给完全、因而给唯一复制价格。本篇写测度更换与贴现期望，不把 [Black-Scholes 公式](/quant/bsm) 的推导再做一遍，只说明公式为什么是 $\mathbb{Q}$ 下的积分。
+[上一课](/quant/binomial-tree)把无套利写成 $p^*$ 落在 $(0,1)$ 的离散条件；连续时间版本需要一个测度。Black-Scholes 用对冲消掉 $\mu$，Cox-Ross 1976 年已指出：一旦可复制，定价可以在一个「所有人风险中性」的假想经济里完成，真实偏好只决定 $\mu$，不进入期权价。Harrison 与 Kreps（1979）在多期离散市场把这句话写成定理：无套利当且仅当存在等价鞅测度；Harrison 与 Pliska（1981）把它接到连续交易与随机积分，完全市场对应鞅测度唯一。此后「风险中性定价」不再是修辞，而是第一基本定理与第二基本定理：存在性给无套利，唯一性给完全、因而给唯一复制价格。本篇写测度更换与贴现期望，不把 [Black-Scholes 公式](/quant/bsm) 的推导再做一遍，只说明公式为什么是 $\mathbb{Q}$ 下的积分。
 
 ## 问题
 

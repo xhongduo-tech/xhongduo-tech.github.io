@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照半导体 yield learning 与缺陷学习周期的公开讨论</footer>
 </div>
 
-[上一课](/litho/defect-review-classification)给出可行动 Pareto。缺口是时间：从首片到目标良率，闭环转多快。[DTCO](/litho/dtco-patterning) 已说规则冻结前应少留系统债；本课钉量产后的学习。参数良率与 CD 分布，留给[下一课](/litho/parametric-yield-cd）。
+[上一课](/litho/defect-review-classification)给出可行动 Pareto。缺口是时间：从首片到目标良率，闭环转多快。[DTCO](/litho/dtco-patterning) 已说规则冻结前应少留系统债；本课钉量产后的学习。参数良率与 CD 分布，留给[下一课](/litho/parametric-yield-cd)。
 
 ## 问题
 

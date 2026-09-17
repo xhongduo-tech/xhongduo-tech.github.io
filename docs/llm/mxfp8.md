@@ -55,7 +55,7 @@ E8M0 没有尾数，块增益是离散的。相邻两步若 amax 跨过 2 的幂
 
 <span class="marginnote">Blackwell 产品材料里 MXFP8 与 MXFP4 的峰值常分栏。MXFP6 有时与 MXFP8 同吞吐，暗示走同一条数据通路、只是编码更窄。不要用 MXFP6 的「更窄」去推更高 TFLOPS。表头稀疏峰值另算。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 布局未标准化
 
@@ -65,7 +65,7 @@ MXFP8 不能替代 softmax、LayerNorm、损失里的宽格式。微缩放管的
 
 跨厂商互换是 MX 的政治目标。真正互换还要约定块沿哪一维切、行列主序、以及 GEMM 布局（例如某些实现要求特定 swizzle）。规范不规定内存 layout。导出权重时要把 vendor 的 layout 注记写进文档，否则「OCP 兼容」只保证解码单个块，不保证整网能直接 GEMM。
 
-<span class="marginnote">出处：OCP MX v1.0 表中的 MXFP8（元素 OFP8 E4M3/E5M2，块 32，尺度 E8M0）；Rouhani et al., arXiv:2310.10537；Micikevicius et al., *FP8 Formats for Deep Learning*, arXiv:2209.05433；Tseng et al., *Recipes for Pre-training LLMs with MXFP8*, arXiv:2506.08027。Hopper 逐张量路径对照 NVIDIA Transformer Engine 用户指南。</span>
+<span class="marginnote">出处：OCP MX v1.0 表中的 MXFP8（元素 OFP8 E4M3/E5M2，块 32，尺度 E8M0）；Micikevicius et al., *FP8 Formats for Deep Learning*, arXiv:2209.05433；Tseng et al., *Recipes for Pre-training LLMs with MXFP8*, arXiv:2506.08027。Hopper 逐张量路径对照 NVIDIA Transformer Engine 用户指南。</span>
 
 ## 小结
 

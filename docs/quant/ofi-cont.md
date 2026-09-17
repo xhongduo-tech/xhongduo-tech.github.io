@@ -11,7 +11,7 @@ section: quant
 <footer>—— Cont, Kukanov & Stoikov, The Price Impact of Order Book Events, Journal of Financial Econometrics, 2014</footer>
 </div>
 
-[上一课](/quant/vpin-realtime)只在等体积桶封口时更新 VPIN；未完成桶按比例提前进入会让最后一截噪声以满桶权重进分子。缺口是短窗中间价的流量定义：存量不平衡与主动买卖差都不是 Cont–Kukanov–Stoikov 的 OFI——真正推动中点的往往是最优档增、撤、成，跳档时会计必须另写。本课钉订单流不平衡及其与 $\Delta m$ 的线性关系。不重讲批量分类。后课撤单率默认 OFI 含限价增撤，不是 Kyle 的市价净需求 $y$。
+[上一课](/quant/depth-mid)把深度写成状态：$P(Q)$ 描述簿现在的样子，不问流量。缺口是短窗中间价的流量定义：存量不平衡与主动买卖差都不是 Cont–Kukanov–Stoikov 的 OFI——真正推动中点的往往是最优档增、撤、成，跳档时会计必须另写。本课钉订单流不平衡及其与 $\Delta m$ 的线性关系。不重讲批量分类。后课撤单率默认 OFI 含限价增撤，不是 Kyle 的市价净需求 $y$。
 
 ## 问题
 
@@ -59,7 +59,7 @@ $\beta$ 随窗口与标的而变，通常与同期平均深度负相关：深度
 
 <span class="marginnote">微价格把中间价推向薄的一侧，与存量 $I_1$ 高度相关。OFI 预测的是 $\Delta m$ 或 $\Delta$ 微价格，自变量是流量。不要把微价格变化和 OFI 同时当因变量与自变量还声称发现了新冲击定律——两者共享 BBO 事件。</span>
 
-## 边界与工程取舍
+## 边界
 
 没有 L2 或至少可靠的 BBO 量，OFI 无法按原文计算。L1 只有价没有量的变化细节时，跳档规则退化。隐藏成交会让显示量的 $\Delta q$ 与真实消耗不一致，OFI 被低估。多市场必须先合成或选主通道，否则同一笔在不同交易所的挂撤会重复。窗口与 $\beta$ 的估计样本不能用未来深度去标准化过去的 OFI。
 

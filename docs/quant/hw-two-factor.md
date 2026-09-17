@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hull & White, Numerical Procedures for Implementing Term Structure Models II: Two-Factor Models, Journal of Derivatives, 1994</footer>
 </div>
 
-[一因子 Hull-White](/quant/hull-white) 用 $\theta(t)$ 锁住今日整条曲线，状态却只有瞬时短端 $r_t$。对贴现类香草这往往够用；对 2s10s、CMS 陡峭化和许多共终端 Bermudan，一维马尔可夫把斜率风险错写成平行风险。[LMM](/quant/lmm) 能把每个远期写成自己的坐标，但美式要回归，计算比低维树贵一个数量级。Hull 与 White（1994）把第二个 Ornstein–Uhlenbeck 因子加进短端，使瞬时曲线获得独立的斜率模态，同时保留高斯仿射：零息债仍是状态的指数线性函数。实务里更常见的等价写法是 Brigo–Mercurio 的 G2++——两个高斯因子加确定性平移拟合曲线。本篇写两因子相对一因子究竟多了什么、欧式公式如何改、二维树在哪里失效，而不再推导一因子的 $\theta(t)$。
+[上一课](/quant/hw-tree-calib)收在一维树管不了斜率；本篇把第二因子写进短端。[一因子 Hull-White](/quant/hull-white) 用 $\theta(t)$ 锁住今日整条曲线，状态却只有瞬时短端 $r_t$。对贴现类香草这往往够用；对 2s10s、CMS 陡峭化和许多共终端 Bermudan，一维马尔可夫把斜率风险错写成平行风险。[LMM](/quant/lmm) 能把每个远期写成自己的坐标，但美式要回归，计算比低维树贵一个数量级。Hull 与 White（1994）把第二个 Ornstein–Uhlenbeck 因子加进短端，使瞬时曲线获得独立的斜率模态，同时保留高斯仿射：零息债仍是状态的指数线性函数。实务里更常见的等价写法是 Brigo–Mercurio 的 G2++——两个高斯因子加确定性平移拟合曲线。本篇写两因子相对一因子究竟多了什么、欧式公式如何改、二维树在哪里失效，而不再推导一因子的 $\theta(t)$。
 
 ## 问题
 
@@ -74,7 +74,7 @@ $$
 
 状态二维时，三叉的节点数按时间层二次增长，重组仍可能，但均值回复方向与相关会使概率掉出 $[0,1]$，需要改中心或改步长。障碍、取消日与 CMS 定盘若再叠加路径依赖票息，树的状态还要加路径变量，三维以上通常放弃。实务分工：可取消互换、债券式取消、中等维度的 Bermudan 用二维 HW/G2++ 格子或 PDE；CMS 陡峭化、需微笑的翼部、多曲线基差，用 LMM 或复制，见 [CMS 凸性](/quant/cms-convexity)。不要因为「已经两因子」就认为 CMS 10s30s 的模型价格可执行。
 
-## 边界与工程取舍
+## 边界
 
 不要用两因子去解释 caplet smile：高斯没有执行价方向的波动差异。不要把历史 PCA 的因子载荷直接当成 $(\sigma,\eta,\rho)$——测度不同，且 PCA 第三因子的曲率在两因子里不存在。不要在贴现 OIS 与预测 LIBOR/SOFR 上共用一对 $(x,y)$ 却不声明基差冻结；多曲线下至少贴现曲线用 G2++，预测曲线另套或加确定性基差。负利率政策期高斯是优点；合同禁止负值时要位移或换 CIR++ 类，后者失去部分欧式封闭式。
 

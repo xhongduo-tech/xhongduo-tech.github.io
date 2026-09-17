@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 CMP 碟形 / 侵蚀与铜互连平坦化的公开讨论；SEMI 对 CMP 过程的通称</footer>
 </div>
 
-[上一课](/litho/etch-bias-opc-loop)把 AEI 偏置分层回写。缺口是垂直：铜或介质 CMP 之后的厚度图，变成下一层的涂胶厚度、反射和焦点。[薄膜反射](/litho/thin-film-reflectivity) 与 [焦点传感器](/litho/focus-sensor-topography) 已有光学与传感；本课钉 CMP 如何制造那张地形。平坦化与焦深预算，留给[下一课](/litho/planarization-dof）。
+[上一课](/litho/etch-bias-opc-loop)把 AEI 偏置分层回写。缺口是垂直：铜或介质 CMP 之后的厚度图，变成下一层的涂胶厚度、反射和焦点。[薄膜反射](/litho/thin-film-reflectivity) 与 [焦点传感器](/litho/focus-sensor-topography) 已有光学与传感；本课钉 CMP 如何制造那张地形。平坦化与焦深预算，留给[下一课](/litho/planarization-dof)。
 
 ## 问题
 

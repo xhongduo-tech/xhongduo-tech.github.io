@@ -59,7 +59,7 @@ Token-shift 提供一阶短程混合，减轻状态里塞句法的压力。去�
 
 <span class="marginnote">RWKV-7 与 Titans / TTT 同时期。后两者用动量 SGD 与分块更新；Goose 坚持逐步广义 delta 以便 RNN 推理逐步常数时间。不要把「测试时学习」写成 Goose 的默认叙事。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 常数状态仍会撞容量
 

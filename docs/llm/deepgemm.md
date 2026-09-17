@@ -60,7 +60,7 @@ V3 在 MoE 上投影前把激活量化成 FP8 再 dispatch，使链路上的字�
 
 DeepGEMM 借用 CUTLASS/CuTe 的一些概念（TMA、warpgroup MMA、pipeline），但避免重度模板。对学习核优化，仓库比从 CUTLASS 例子里抽 MoE 路径更短。生产上，有的栈继续用 CUTLASS 或供应商 BLAS；有的栈（SGLang 等）接 DeepGEMM。性能数字必须绑 GPU 代际：Ampere 无硬件 FP8，不是目标硬件。
 
-## 边界与工程取舍
+## 边界
 
 JIT 首次延迟会进冷启动 TTFT，预热或持久化编译缓存是必须的。形状未对齐时的正确性（mask、scale 广播、专家下标与权重行的对应）比再抠 1% TFLOPS 更要紧。一次 layout 错位会表现为「MoE 层输出分布漂、但损失看起来还在降」，极难查。Mega MoE 把 dispatch 到 combine 收进同一核，上限更高，Nsight 上却更难把通信与 MMA 拆开；未稳定前应先跑分离的 DeepEP + grouped GEMM 路径。
 

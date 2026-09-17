@@ -11,8 +11,6 @@ section: cs
 <footer>—— Klein et al., seL4: Formal Verification of an OS Kernel, SOSP 2009；后续完整性与时间隔离论文点名</footer>
 </div>
 
-## 定位
-
 上一课[SDL](/cs/sdl-lifecycle)是过程。安全进阶最后一课用 **seL4** 把 TCB 最小化接到[证明助手](/cs/proof-assistants)的核：规格、细化、不变式。不重写 L4 IPC。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 不是万能内核
 
 设备驱动与用户态仍要隔离策略。证明的是核，不是整个产品。
-
 
 <span class="marginnote">Klein et al. SOSP 2009。对照本课程开头 Shannon：一端是信息论极限，一端是可证微内核。中间是合同与误用。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   ASSUME["硬件与编译器假设"] --> LIM["证明边界"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 形式方法服务最小 TCB。安全进阶从一次一密走到可证内核：保密极限、计算合同、协议绑定、内存完整、观测响应、隐私预算、组织过程，最后证明核。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照晶圆边缘曝光、部分场与边缘良率的产线通称；[晶圆边缘曝光](/litho/wafer-edge-exposure) 已有轨道侧</footer>
 </div>
 
-[上一课](/litho/metrology-matching)要求尺度可比。缺口是空间：边缘场、部分场（partial fields）常常不进抽样，却在探针图上先红。[边缘曝光](/litho/wafer-edge-exposure) 与 EBR 已讲胶边；本课钉扫描机场被晶圆圆界切开时的成像与控制。应力翘曲如何整片弯网格，留给[下一课](/litho/wafer-distortion-stress）。
+[上一课](/litho/metrology-matching)要求尺度可比。缺口是空间：边缘场、部分场（partial fields）常常不进抽样，却在探针图上先红。[边缘曝光](/litho/wafer-edge-exposure) 与 EBR 已讲胶边；本课钉扫描机场被晶圆圆界切开时的成像与控制。应力翘曲如何整片弯网格，留给[下一课](/litho/wafer-distortion-stress)。
 
 ## 问题
 

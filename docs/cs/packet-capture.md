@@ -37,8 +37,6 @@ flowchart TD
   PCAP --> DISS["按层解剖"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 LACP 哈希决定 SPAN 哪条成员。VXLAN 要解两层。QUIC 加密，只能看 UDP。权限与缓冲丢包使捕获自己丢。测量与捕获同时会改变时序（海森堡）。
@@ -51,7 +49,7 @@ LACP 哈希决定 SPAN 哪条成员。VXLAN 要解两层。QUIC 加密，只能�
 
 在错误的点抓会「证明」错误的层。
 
-上一课留下的缺口在本课收口；「抓包与 Wireshark」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[ns-3 与 mininet](/cs/network-simulation)。
+下一课[ns-3 与 mininet](/cs/network-simulation)。
 
 ## 小结
 

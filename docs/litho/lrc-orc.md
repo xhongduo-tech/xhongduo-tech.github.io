@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 lithography rule check / optical rule check 在计算光刻签核链中的公开定位</footer>
 </div>
 
-[上一课](/litho/pwq)用硅上矩阵锚定缺陷窗。缺口是全芯片：不能对每块磁带都做 PWQ 矩阵。本课钉 LRC / ORC（lithography / optical rule check）——模型驱动的全场或准全场检查。哪些越界可以靠学习模型先排序，留给[下一课](/litho/ml-hotspot-prediction）。
+[上一课](/litho/pwq)用硅上矩阵锚定缺陷窗。缺口是全芯片：不能对每块磁带都做 PWQ 矩阵。本课钉 LRC / ORC（lithography / optical rule check）——模型驱动的全场或准全场检查。哪些越界可以靠学习模型先排序，留给[下一课](/litho/ml-hotspot-prediction)。
 
 ## 问题
 

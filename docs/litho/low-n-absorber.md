@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Philipsen、van Setten、imec 对 low-n EUV 吸收体的公开讨论</footer>
 </div>
 
-[上一课](/litho/reticle-backside-particles)收束掩模台背面。缺口转到版正面：挡住多层反射的那一层，其复折射率 $(n,k)$ 决定阴影、相位和最佳焦点。[吸收体材料](/litho/euv-absorber-materials) 已把 TaBN 与高 k（如 Ni）路线分开；本课专攻低 n——让 $n\to 1$，三维相位税下降。相移掩模作为主动利用相位的另一条路，留给[下一课](/litho/euv-phase-shift-mask）。
+[上一课](/litho/reticle-backside-particles)收束掩模台背面。缺口转到版正面：挡住多层反射的那一层，其复折射率 $(n,k)$ 决定阴影、相位和最佳焦点。[吸收体材料](/litho/euv-absorber-materials) 已把 TaBN 与高 k（如 Ni）路线分开；本课专攻低 n——让 $n\to 1$，三维相位税下降。相移掩模作为主动利用相位的另一条路，留给[下一课](/litho/euv-phase-shift-mask)。
 
 ## 问题
 

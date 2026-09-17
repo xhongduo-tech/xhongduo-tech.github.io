@@ -58,7 +58,7 @@ GQA 从 6B 就上，说明他们把 KV 字节当成 24GB 卡的硬约束，而�
 
 <span class="marginnote">Base 表：Yi-34B MMLU 76.3、C-Eval 81.4、CMMLU 83.7（报告分组表）。Chat 另报 AlpacaEval 与 Arena。不要用 Base MMLU 去对 Chat 的人类偏好。</span>
 
-## 边界与工程取舍
+## 边界
 
 Yi 第一代默认窗是 4K，200K 是独立检查点。代码与数学在 2024 年 3 月的表上相对通识偏弱，这正是 1.5 用 500B 去补的缺口。视觉与深度上采样是扩展章，不是 6B/34B 默认权重。许可证以当时 01.AI 仓库为准（后续 1.5 才全面 Apache 2.0 叙事）。
 

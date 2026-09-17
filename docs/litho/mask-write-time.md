@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照电子束掩模写入产能与多束对复杂度解耦的公开论述</footer>
 </div>
 
-[上一课](/litho/curvilinear-data-volume)把曲线层的体积钉成栅格账。缺口是体积还要变成写模机小时：掩模厂的瓶颈机台、客户的 TAPOUT 日历、以及「改一版要等多久」。本课钉写入时间。PEC 核怎么吃进这些小时，留给[下一课](/litho/mask-pec-detail）。
+[上一课](/litho/curvilinear-data-volume)把曲线层的体积钉成栅格账。缺口是体积还要变成写模机小时：掩模厂的瓶颈机台、客户的 TAPOUT 日历、以及「改一版要等多久」。本课钉写入时间。PEC 核怎么吃进这些小时，留给[下一课](/litho/mask-pec-detail)。
 
 ## 问题
 

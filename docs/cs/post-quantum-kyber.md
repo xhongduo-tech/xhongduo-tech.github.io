@@ -11,8 +11,6 @@ section: cs
 <footer>—— NIST FIPS 203 ML-KEM；FIPS 204 ML-DSA；Regev, LWE；对照[格与 LWE](/cs/lattice-lwe)</footer>
 </div>
 
-## 定位
-
 上一课[双棘轮](/cs/double-ratchet)的 DH 格在量子模型下不再成立。缺口是**换零件**：KEM 封装共享秘密，Dilithium 签。主干[LWE](/cs/lattice-lwe)已给困难直觉；本课落到标准化名字与混合迁移，不重推最坏到平均。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ ECDH 与 RSA 的长期机密性在大规模量子计算机模型下失败。对�
 ### 不是立刻扔掉 ECC
 
 迁移是多年工程。证书、HSM、代码体积、失败模式都要改。本课不贩卖恐慌时间表。
-
 
 <span class="marginnote">FIPS 203/204。Kyber 现名 ML-KEM，Dilithium 现名 ML-DSA。本课不发明 arXiv 编号，不写参数攻击步骤。</span>
 
@@ -41,13 +38,9 @@ flowchart TD
   MIX --> SK["会话键"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 棘轮仍可在 KEM 上换根，只是「DH 公钥」变成封装密文。身份绑定仍要 PKI 或预共享。格方案公钥和密文更大，带宽与 HSM 固件是工程约束，不是密码分析。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

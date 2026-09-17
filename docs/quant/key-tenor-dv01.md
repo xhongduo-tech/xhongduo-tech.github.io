@@ -11,7 +11,7 @@ section: quant
     <footer>—— 对照 Ho, Key Rate Durations, Journal of Fixed Income, 1992；Golub & Tilman, Journal of Portfolio Management, 1997</footer>
 </div>
 
-修正久期和 DV01 描述平行移动；[关键利率久期](/quant/key-rate-duration)（KRD）把平行拆成三角形局部平移，单位仍是「相对价格 / 收益率」。关键期限 DV01（key-tenor DV01, bucketed PV01）是同一组冲击的货币化：第 $j$ 个关键点上移 1bp，组合价值变动多少元。Ho（1992）给出冲击的几何；Golub 与 Tilman（1997）把关键利率与 PCA、VaR 放进同一张风险表。本篇写 DV01 向量如何从曲线雅可比算出、它与 KRD 差一个价格因子、以及多曲线下矩阵为什么必须按「哪一条曲线、哪一个期限」展开。它补足 [久期、凸性](/quant/duration-convexity) 的标量 01，并给[曲线蝶式](/quant/curve-butterfly)、[互换价差](/quant/swap-spread)、[基差互换](/quant/basis-swap) 提供对冲的线性代数。短端模型的希腊字母要先映射到这些可交易桶，见 [Hull-White](/quant/hull-white) 与 [HJM](/quant/hjm)。
+[上一课](/quant/bermudan-swaption)把早行权校准在共终端 swaption 上，并警告线性关键 01 在行权附近不稳。修正久期和 DV01 描述平行移动；[关键利率久期](/quant/key-rate-duration)（KRD）把平行拆成三角形局部平移，单位仍是「相对价格 / 收益率」。关键期限 DV01（key-tenor DV01, bucketed PV01）是同一组冲击的货币化：第 $j$ 个关键点上移 1bp，组合价值变动多少元。Ho（1992）给出冲击的几何；Golub 与 Tilman（1997）把关键利率与 PCA、VaR 放进同一张风险表。本篇写 DV01 向量如何从曲线雅可比算出、它与 KRD 差一个价格因子、以及多曲线下矩阵为什么必须按「哪一条曲线、哪一个期限」展开。它补足 [久期、凸性](/quant/duration-convexity) 的标量 01，并给[曲线蝶式](/quant/curve-butterfly)、[互换价差](/quant/swap-spread)、[基差互换](/quant/basis-swap) 提供对冲的线性代数。短端模型的希腊字母要先映射到这些可交易桶，见 [Hull-White](/quant/hull-white) 与 [HJM](/quant/hjm)。
 
 ## 问题
 
@@ -63,7 +63,7 @@ PCA 三因子是这组向量的低秩近似：水平约各桶之和，斜率约�
 
 平价 DV01 扰动平价收益率或平价互换报价；远期 DV01 扰动瞬时或简单远期节点。后者更接近 HJM/LMM 的状态，前者更接近经纪商报价。把 LMM 的 caplet 01 直接当成 10Y 平价 01，中间隔着年金权重。系统应标明坐标。信用曲线的 CS01 是利差关键期限上的同类对象，与利率 DV01 分列，见[简化形式强度](/quant/reduced-form-intensity)；不要加总成一个「10Y 敏感」。
 
-## 边界与工程取舍
+## 边界
 
 关键点集合要稳定，像会计科目；哪一个桶 01 大可以变。点过多则 $J^\top J$ 病态，应对名义加 Tikhonov 或先投到 PCA。插值必须局部，否则 Ho 三角形在引擎里不是三角形。外汇、通胀、信用各自一张矩阵。A 股与政策短端高度绑定，短端桶的 01 可能被一个逆回购操作同时推动，条件数和流动性都与美债不同。
 

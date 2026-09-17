@@ -11,7 +11,7 @@ section: quant
     <footer>—— Rockafellar and Uryasev, Optimization of Conditional Value-at-Risk, Journal of Risk, 2000</footer>
 </div>
 
-[Markowitz](/quant/markowitz) 用 $w^\top\Sigma w$ 当风险，对称、二次、对估计误差敏感。[Expected Shortfall](/quant/expected-shortfall) 一文写的是度量：ES / CVaR 连贯、对尾巴形状收费。组合构建要问的是如何**选 $w$**。VaR 作为分位数对权重一般非凸，不能直接丢进求解器。Rockafellar 与 Uryasev（2000, 2002）证明 CVaR 等于一个对阈值 $c$ 的最小化，且在损失仿射于 $w$ 时，对 $(w,c)$ 联合凸；用情景样本后成为 LP。本篇写这个可优化形式、均值–CVaR 前沿、与二次风险的对照，以及情景不足时优化器如何把「最坏那几天」当成可重复的 alpha。它补的是选择问题，不是再讲一遍公理。
+[上一课](/quant/erc)把风险预算平摊成每份相等的贡献。[Markowitz](/quant/markowitz) 用 $w^\top\Sigma w$ 当风险，对称、二次、对估计误差敏感。[Expected Shortfall](/quant/expected-shortfall) 一文写的是度量：ES / CVaR 连贯、对尾巴形状收费。组合构建要问的是如何**选 $w$**。VaR 作为分位数对权重一般非凸，不能直接丢进求解器。Rockafellar 与 Uryasev（2000, 2002）证明 CVaR 等于一个对阈值 $c$ 的最小化，且在损失仿射于 $w$ 时，对 $(w,c)$ 联合凸；用情景样本后成为 LP。本篇写这个可优化形式、均值–CVaR 前沿、与二次风险的对照，以及情景不足时优化器如何把「最坏那几天」当成可重复的 alpha。它补的是选择问题，不是再讲一遍公理。
 
 ## 问题
 
@@ -61,7 +61,7 @@ Rockafellar–Uryasev 也可以对 CVaR 做约束、最大化期望，对偶于�
 
 情景少，有效自由度是「坏日子的种类」而不是 $S$。正则包括：对 $w$ 加 $\ell_2$ 或换手惩罚；用因子把 $r_s=B f_s+\varepsilon_s$，只在因子 CVaR 上优化、特异风险二次惩罚；把 $\alpha$ 从 0.99 降到 0.95 以增加有效尾样本，再用压力加码极端。Yamai–Yoshiba 指出厚尾下 ES 估计方差可以大于 VaR；优化是把这个吵的标量再对 $w$ 求导，噪声更大。样本外必须用滚动：在 $t$ 用 $t$ 以前情景优化，评估 $t+1$ 的实现损失是否真的更薄，而不是样本内 CVaR 降了多少——样本内必然降。
 
-## 边界与工程取舍
+## 边界
 
 不要在椭圆假设下换 CVaR 还宣称改善了尾部：此时它与方差只差尺度。不要用未扣流动性的中间价路径做卖方期权或信用的 CVaR 最优。不要把 FRTB 的 ES 资本公式直接当组合目标：监管 ES 有压力期校准、流动性期限与风险类加总，和 Rockafellar–Uryasev 的单期组合 LP 不是同一个数。多空、非线性工具要使 $L(w,r)$ 仍对 $w$ 凸（或分段线性），期权的损失对现货非线性，应用希腊或全定价路径，不能把 delta 当 $w$ 再套线性损失。
 

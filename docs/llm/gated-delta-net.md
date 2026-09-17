@@ -72,7 +72,7 @@ S-NIAH-2（数字针）4K 上 Gated DeltaNet 92.2，DeltaNet 18.6，Mamba-2 56.2
 
 没有 WY，Householder 连乘要物化 $d\times d$ 状态在每一步，IO 打满。紧凑表示让块内是对 $C\times C$ 下三角的操作加 GEMM，与 GLA 的 chunkwise 同一套占用。把门控「吸收」进块端衰减向量，避免在内层再串行乘 $\alpha$。这是这篇作为系统论文的资格：规则简单，能训才算数。
 
-## 边界与工程取舍
+## 边界
 
 头维受 SRAM 限制时，状态容量仍可能不够，召回任务会先坏。作者在 DeltaNet 文中已提示可用分块对角 Householder 换更大有效维；Gated DeltaNet 同样受这条硬件界约束。$\alpha_t$、$\beta_t$ 同时数据依赖，优化可能学成「总是衰减」或「从不衰减」，需要看门控分布，不能只看平均损失。
 

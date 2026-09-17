@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照逻辑密度度量与 SRAM 密度分报的公开惯例</footer>
 </div>
 
-[上一课](/litho/cpp-mmp)给出 CPP 与 MMP。缺口是把尺子合成「密度」时口径不一。本课钉晶体管密度度量。IRDS 如何官方化这些趋势，留给[下一课](/litho/irds-roadmap）。
+[上一课](/litho/cpp-mmp)给出 CPP 与 MMP。缺口是把尺子合成「密度」时口径不一。本课钉晶体管密度度量。IRDS 如何官方化这些趋势，留给[下一课](/litho/irds-roadmap)。
 
 ## 方法
 

@@ -57,7 +57,7 @@ $$
 
 SOFR 折现曲线的关键期限仍用 OIS 互换与期货来对冲，方法见[关键利率久期](/quant/key-rate-duration) 与[关键期限 DV01](/quant/key-tenor-dv01)。一因子模型只能提供贴现凸性与美式，不能替代 SOFR–Treasury 价差、期限 SOFR 基差或季末跳跃。把 $\theta(t)$ 每天重校准去吸收这些，是在用漂移伪装缺失的因子。正确做法是：SOFR 短端用 Hull–White 或 OIS 树，价差与基差用外部曲线，期权用 SOFR 立方校准的 LMM 或换元局部波动。
 
-## 边界与工程取舍
+## 边界
 
 不要把历史 LIBOR 波动表面改名 SOFR 继续用：smile 的信用成分已消失，短端政策敏感性不同。不要忽略回看与 lockout 对路径依赖产品的影响，障碍与区间计息会变。不要用期限 SOFR 给 in-arrears 互换标价而不做凸性。跨币种后备（€STR、SONIA、TONA）各有日历，美元 SOFR 的经验不能当全球模板。
 

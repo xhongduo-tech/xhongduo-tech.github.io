@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Harris, Trading and Exchanges 对多市场执行的论述；O'Hara, High Frequency Market Microstructure 对碎片化与最佳执行的讨论整理</footer>
 </div>
 
-智能订单路由（Smart Order Routing, SOR）是执行层把母单映射到场所集合的策略：看各交易所、暗池、竞价与内部化渠道当时的报价、费用、深度与历史成交率，再决定子单的去向、订单类型与改价规则。它处在 [TWAP / VWAP / POV](/quant/twap-vwap-pov) 所规定的**流量日程**之下、单笔 [订单类型](/quant/order-types) 之上：日程说这一秒该完成多少，SOR 说这些量去哪张簿、用限价还是可立即成交限价。Perold 的 [实施缺口](/quant/implementation-shortfall) 是评价尺子；本篇写架构，不写延迟竞赛、插队或利用撮合细节的路径。
+[成交后分析](/quant/tca)把评价基准锁在下达时刻，并按难度分层报告。智能订单路由（Smart Order Routing, SOR）是执行层把母单映射到场所集合的策略：看各交易所、暗池、竞价与内部化渠道当时的报价、费用、深度与历史成交率，再决定子单的去向、订单类型与改价规则。它处在 [TWAP / VWAP / POV](/quant/twap-vwap-pov) 所规定的**流量日程**之下、单笔 [订单类型](/quant/order-types) 之上：日程说这一秒该完成多少，SOR 说这些量去哪张簿、用限价还是可立即成交限价。Perold 的 [实施缺口](/quant/implementation-shortfall) 是评价尺子；本篇写架构，不写延迟竞赛、插队或利用撮合细节的路径。
 
 ## 问题
 
@@ -64,7 +64,7 @@ SOR 能降低缺口，是因为它把碎片化从「随机选一个默认场所�
 
 <span class="marginnote">把 SOR 当成「总能拿到 NBBO」是范畴错误。NBBO 是监管与展示用的合成，不是成交引擎。最佳执行问的是过程是否合理：是否考虑了价格、速度、场所质量与费用，而不是每一笔都印在合成最优价上。</span>
 
-## 边界与工程取舍
+## 边界
 
 A 股在连续竞价阶段主要是单一场所、价格优先时间优先，SOR 的场所维退化，决策维变成订单类型、保护价与是否参加开收盘竞价；「跨所路由」几乎没有对象。港股、美股、欧洲才有真正的多场所集合。回测若用单一交易所的逐笔去模拟多场所 SOR，场所选择的边际贡献无法识别。
 

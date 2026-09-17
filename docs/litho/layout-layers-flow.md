@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照掩模数据准备中层映射与派生层的产线通称</footer>
 </div>
 
-[上一课](/litho/gdsii-oasis)把交换格式钉成带网格的多边形流。缺口是流里有几十上百个层号：哪些进同一张版、哪些只是标注、哪些要先 OR/AND/NOT 才能变成吸收体。本课钉版图分层与派生流程。真正的 MDP 作业链，留给[下一课](/litho/mask-data-prep）。
+[上一课](/litho/gdsii-oasis)把交换格式钉成带网格的多边形流。缺口是流里有几十上百个层号：哪些进同一张版、哪些只是标注、哪些要先 OR/AND/NOT 才能变成吸收体。本课钉版图分层与派生流程。真正的 MDP 作业链，留给[下一课](/litho/mask-data-prep)。
 
 ## 问题
 

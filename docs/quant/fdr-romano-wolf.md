@@ -11,7 +11,7 @@ section: quant
 <footer>—— Benjamini and Hochberg, Controlling the False Discovery Rate, JRSS-B, 1995；Romano and Wolf, Exact and Approximate Stepdown Methods, Econometrica, 2005</footer>
 </div>
 
-[Harvey–Liu–Zhu](/quant/harvey-liu-zhu) 把因子动物园的尝试次数写成更高的 $t$ 门槛，精神上靠近 Bonferroni 一类族错误率（FWER）。[Hansen SPA](/quant/hansen-spa) 问是否存在至少一条优于基准的规则，是存在性检验。本篇写接下来的清单问题：在 $M$ 个相关的假设上，哪些可以进入「发现」集合。Benjamini–Hochberg（BH）控制错误发现率（FDR）：清单里假阳性的期望比例。Romano–Wolf（RW）逐步法控制 FWER：至少一次假阳性的概率，用自举捕捉统计量之间的相关，比 Bonferroni 有更高功效。White Reality Check 是「最大值是否显著」；RW 是「从最显著开始逐步拒绝，仍控制 FWER」。对象可以是因子 $t$、规则相对基准的绩效，或日度[跳跃检验](/quant/bn-jump-test)的 250 个 p 值。
+[上一课](/quant/nested-cpcv)把选择程序收在路径分布上；选出的名单如何控错误率，本篇写 BH 与 RW。[Harvey–Liu–Zhu](/quant/harvey-liu-zhu) 把因子动物园的尝试次数写成更高的 $t$ 门槛，精神上靠近 Bonferroni 一类族错误率（FWER）。[Hansen SPA](/quant/hansen-spa) 问是否存在至少一条优于基准的规则，是存在性检验。本篇写接下来的清单问题：在 $M$ 个相关的假设上，哪些可以进入「发现」集合。Benjamini–Hochberg（BH）控制错误发现率（FDR）：清单里假阳性的期望比例。Romano–Wolf（RW）逐步法控制 FWER：至少一次假阳性的概率，用自举捕捉统计量之间的相关，比 Bonferroni 有更高功效。White Reality Check 是「最大值是否显著」；RW 是「从最显著开始逐步拒绝，仍控制 FWER」。对象可以是因子 $t$、规则相对基准的绩效，或日度[跳跃检验](/quant/bn-jump-test)的 250 个 p 值。
 
 ## 问题
 
@@ -49,7 +49,7 @@ Bonferroni 用并集界，对相关浪费功效。BH 的机制是：拒绝越多
 
 HLZ 强调已发表 t 是截断样本。BH/RW 若只在文献清单上跑，暗数会让 FDR 失控。内部研究应以实验室日志为 $M$。对旧文献，与其事后 BH，不如发式折扣加样本外。新研究不应把「BH 过关」写成已经过了嵌套 CPCV：多重检验管的是这一张截面上的假发现，不管时间序列上的选择与泄漏。
 
-## 边界与工程取舍
+## 边界
 
 p 值校准失败时，任何多重检验都只是把错误排序。重叠标签、同期相关、异方差，须先在单次检验上修对。RW 的自举在 $M$ 极大、序列很短时不稳定，块长度变成又一个超参数，不能看完名单再挑。FDR 不提供因果：清单里的真发现仍可能是共同因子的多个面具。
 

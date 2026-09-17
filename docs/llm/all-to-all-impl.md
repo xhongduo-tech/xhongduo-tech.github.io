@@ -49,7 +49,7 @@ All-to-All 的 $\alpha$–$\beta$ 模型与 All-Reduce 不同：没有 $\frac{N-
 
 <span class="marginnote">Decode 推理的 EP All-to-All 更苛刻：batch 小，$m$ 更小，更容易掉进延迟区。训练微批掩盖的问题，服务上会变成尾巴。不要用训练的 EP 度直接当推理拓扑。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要把 All-to-All 画成「就是 N 次 All-Gather」。语义不同，优化不同。不要假设 NVLink SHARP 一类网内计算能加速置换——归约才能卸载加法，置换没有加法。不要在以太网 Clos 上用 128 路 EP 去模拟 NVLink 域内宽专家；测的是 hop 与拥塞，不是算力。
 

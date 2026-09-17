@@ -57,7 +57,7 @@ flowchart TD
 
 博客结尾仍在谈更快的 2.5 Flash Lite。Diffusion 是研究轨。没有官方声明它替换 Flash / Pro。评测对照物是 2.0 Flash-Lite，不是 2.5 Pro。把「DeepMind 最快演示」写成「Gemini 用户现在都在用扩散」，与公开文本不符。
 
-## 边界与工程取舍
+## 边界
 
 ### 演示吞吐不是生产 SLA
 

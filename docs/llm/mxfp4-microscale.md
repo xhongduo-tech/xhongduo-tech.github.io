@@ -61,7 +61,7 @@ E8M0 相对「每块一个 FP16 尺度」少了尾数乘法：尺度乘常常退
 
 <span class="marginnote">模拟库与真 MMA 不是同一合同。白皮书的 CUDA 模拟在现有 GPU 上复现数值，吞吐仍是 FP16/FP32 核。Blackwell 等把 MX 推进 Tensor Core 之后，才有「表头 MXFP4 TFLOPS」。只改存储 dtype、计算升回 FP16，是 GPTQ 式 W4A16，不是 MX 点积。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 可互换编码不等于可互换检查点
 

@@ -67,7 +67,7 @@ $T\gt 1$ 把质量从峰推向尾，$p(v)\ge\varepsilon$ 的集合变大，截�
 
 <span class="marginnote">验证集上最小的 next-token 概率几乎总是远小于任何可用的 $\varepsilon$，因为它包含长尾标签。用验证最小概率定 $\varepsilon$ 会得到 $10^{-12}$ 一类废值，等于关闭截断。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 空支撑、子词尺度与协议对齐
 

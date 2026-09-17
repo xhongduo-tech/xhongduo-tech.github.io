@@ -11,7 +11,7 @@ section: quant
 <footer>—— Hamilton, A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle, Econometrica, 1989</footer>
 </div>
 
-[体制切换](/quant/regime-switching-premia) 把 Hamilton 装置接到溢价与配置：风险价格随离散状态变。本篇把同一套隐马尔可夫模型（HMM）接到**价差动力学**：均值、回复速度与扩散可以分体制，滤波概率进入是否开仓、开多大。它补的是 [OU 残差](/quant/ou-spread) 的常参数假设，以及 [Gregory–Hansen](/quant/gregory-hansen) / [Bai–Perron](/quant/bai-perron) 的「换了就不自动回来」。Hamilton（1989）的产出模型是均值切换；配对里更常是方差切换或「回复/随机游走」两体制。本篇写 Hamilton 滤波与 Kim 平滑、识别来自持续性，以及平滑概率为何不能进回测。
+[上一课](/quant/cusum-mosum)的分工表把「反复体制」留给了 HMM。[体制切换](/quant/regime-switching-premia) 把 Hamilton 装置接到溢价与配置：风险价格随离散状态变。本篇把同一套隐马尔可夫模型（HMM）接到**价差动力学**：均值、回复速度与扩散可以分体制，滤波概率进入是否开仓、开多大。它补的是 [OU 残差](/quant/ou-spread) 的常参数假设，以及 [Gregory–Hansen](/quant/gregory-hansen) / [Bai–Perron](/quant/bai-perron) 的「换了就不自动回来」。Hamilton（1989）的产出模型是均值切换；配对里更常是方差切换或「回复/随机游走」两体制。本篇写 Hamilton 滤波与 Kim 平滑、识别来自持续性，以及平滑概率为何不能进回测。
 
 ## 问题
 
@@ -55,7 +55,7 @@ $K=2$ 常被标成低波动/高波动或回复/单位根。$K=3$ 有时分出崩
 
 [门限协整](/quant/threshold-cointegration) 用可观测的价差穿越阈值来切换调整速度，状态不是潜的。HMM 允许宏观「看起来还好」时，收益自身把概率推向危机体制。CUSUM 不估计回来的概率，只检测偏离恒定参数。[最优停时](/quant/ou-optimal-stopping) 通常在单一 OU 下解障碍；体制切换时，最优规则应依赖滤波概率，障碍在高 $\sigma$ 体制更宽或干脆不开。把常参数障碍套在 HMM 残差上，等于忽略了状态。
 
-## 边界与工程取舍
+## 边界
 
 似然多峰、对初值敏感。应多组初值，并约束 $p_{ii}$ 不要估到 1（退化成一次断裂却没有断裂检验的理论）。$K$ 不要用交易期 PnL 去选。不要在滤波概率上再套一层机器学习来「提高夏普」而不把该层纳入多重检验。
 

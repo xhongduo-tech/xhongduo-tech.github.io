@@ -37,8 +37,6 @@ flowchart TD
   WIN --> OPT["需要缩放选项"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 AIMD 每 RTT 加一 MSS，填满 BDP 要约 BDP/MSS 个 RTT，长肥管道慢启动必须指数阶段帮一把。PMTUD 失败导致小 MSS，填满更慢。RoCE 用信用/PFC 填管道，不靠 cwnd 名，但几何相同。
@@ -51,7 +49,7 @@ AIMD 每 RTT 加一 MSS，填满 BDP 要约 BDP/MSS 个 RTT，长肥管道慢启
 
 应用自己再缓冲一层不增加 $C$，只加延迟。
 
-上一课留下的缺口在本课收口；「带宽时延积」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[窗口缩放与时间戳](/cs/window-scale-timestamps)。
+下一课[窗口缩放与时间戳](/cs/window-scale-timestamps)。
 
 ## 小结
 

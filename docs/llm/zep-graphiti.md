@@ -62,7 +62,7 @@ flowchart TD
 
 Mem0$^g$ 也是实体—关系图 + 冲突处理，评测主场 LOCOMO；Zep 主场 DMR + LongMemEval，并强调业务 JSON 与双时序四时间戳。A-Mem 是原子笔记动态链接，不做社区与 bi-temporal 边。选型：要「何时为真」与增量社区用 Graphiti；要轻量对话事实用 Mem0；要演化标签笔记用 A-Mem。可叠：情节原文在 Graphiti，窗口放置仍可由 MemGPT 管。
 
-## 边界与工程取舍
+## 边界
 
 论文是生产系统描述加两公开基准，不是消融到每一个重排器的学术全表。single-session-assistant 回归必须在产品里补「最近助手消息」通道。无公开基准很好测「对话 + CRM 表」联合推理，作者自己列出这一空白。社区刷新周期、BFS 跳数、$n=4$ 上下文都是会改准确率的旋钮。GraphRAG 的 Leiden 全局摘要与这里的标签传播动态社区不要混引数字。
 

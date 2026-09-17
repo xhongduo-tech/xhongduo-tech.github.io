@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 X-ray lithography（IBM 等传统）与近场/倏逝光刻的公开历史</footer>
 </div>
 
-[上一课](/litho/interference-lithography)展示无透镜周期。缺口是短波接近式与倏逝。本课钉 X 射线与近场。封装尺度的激光直写，留给[下一课](/litho/laser-direct-write-packaging）。
+[上一课](/litho/interference-lithography)展示无透镜周期。缺口是短波接近式与倏逝。本课钉 X 射线与近场。封装尺度的激光直写，留给[下一课](/litho/laser-direct-write-packaging)。
 
 ## 问题
 

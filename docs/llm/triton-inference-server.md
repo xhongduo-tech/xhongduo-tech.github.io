@@ -64,7 +64,7 @@ Ensemble 的机制是服务器侧的 DAG 执行：张量在步骤之间留在设
 
 NVIDIA 自己把 Dynamo 写成 Triton 在分布式生成式场景上的后继编排：Triton 解决多框架统一与单机吞吐，Dynamo 解决跨节点 PD 分离、KV 感知路由与分层卸载。已有 Triton 企业用户继续走 NVIDIA AI Enterprise 的生产支持；新的多节点推理模型部署被指向 Dynamo。两者可以在集群里并存：Triton 继续伺候分类、嵌入、ASR ensemble，LLM 生成走 Dynamo 或直接走 vLLM/SGLang。不要把 Dynamo 理解成 Triton 的一个 backend 名。
 
-## 边界与工程取舍
+## 边界
 
 Triton 核心不知道 token 预算、前缀树或 goodput。把 DistServe 式的双 SLO 搜索写进 `config.pbtxt` 没有对应字段。动态批的 `max_queue_delay` 对短请求是延迟税，对 GPU 是吞吐补贴；LLM 的 token 级延迟通常由 inflight batcher 与 CUDA graph 决定，再叠一层动态批窗口往往有害。解耦模式下若 backend 在 `ModelInstanceExecute` 返回前不保持「还能接下一批评」的契约，动态批会退化成过早组批，官方文档对此有明确警告。
 

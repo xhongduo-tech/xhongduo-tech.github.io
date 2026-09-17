@@ -11,7 +11,7 @@ section: quant
     <footer>—— 外汇报价惯例见 Castagna–Mercurio vanna-volga；偏度溢价见 Kozhan–Neuberger–Schneider；指数期权矩见 Bakshi–Kapadia–Madan</footer>
 </div>
 
-[偏度风险溢价](/quant/skew-risk-premium) 写 $\mathbb{Q}$ 与 $\mathbb{P}$ 下三阶矩之差；[Vanna / Volga](/quant/vanna-volga) 把 RR 当三张对冲工具之一。本篇写 **RR 作为交易**：25-delta 风险反转的定义、希腊字母、与 sticky 规则的互动，以及它如何加载 Bakshi–Kapadia 意义上的左尾保险。不把 BKM 积分公式推成矩篇，不把 KNS 复制再写一遍。
+[上一课](/quant/vix-term-structure-trade)把时间轴上的凸性算清；偏斜这笔账在执行价轴上。[偏度风险溢价](/quant/skew-risk-premium) 写 $\mathbb{Q}$ 与 $\mathbb{P}$ 下三阶矩之差；[Vanna / Volga](/quant/vanna-volga) 把 RR 当三张对冲工具之一。本篇写 **RR 作为交易**：25-delta 风险反转的定义、希腊字母、与 sticky 规则的互动，以及它如何加载 Bakshi–Kapadia 意义上的左尾保险。不把 BKM 积分公式推成矩篇，不把 KNS 复制再写一遍。
 
 ## 问题
 
@@ -68,7 +68,7 @@ flowchart TD
 
 <span class="marginnote">25d 不是神圣的。10d RR 更接近尾部、更贵、更噪；风险管理可看 10d，交易账常停在 25d。两者的价差本身是尾部相对浅偏斜的信号。</span>
 
-## 边界与工程取舍
+## 边界
 
 上市网格使「25d」随波动漂移，历史时间序列若用固定 $K$ 会混进 sticky strike。应存 Delta 坐标的 RR，或同时存固定 $k$ 的偏斜。事件日（FOMC、财报、选举）短端 RR 可以跳，与持久偏斜不是同一风险。不要用 Heston 校准后的模型 RR 去替代市场 RR 做交易信号：模型 RR 是 $\rho$ 的函数，已被香草用过。
 

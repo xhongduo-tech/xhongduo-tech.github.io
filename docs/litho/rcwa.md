@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Moharam 与 Gaylord 的 rigorous coupled-wave analysis（RCWA / FMM）</footer>
 </div>
 
-[上一课](/litho/fdtd-mask)用 FDTD 吃非周期 3D。缺口是 SRAM、密线、孔阵列在光学上近似周期，用体网格浪费。本课钉 RCWA。把大场拆成可算的块，留给[下一课](/litho/domain-decomposition-mask）。
+[上一课](/litho/fdtd-mask)用 FDTD 吃非周期 3D。缺口是 SRAM、密线、孔阵列在光学上近似周期，用体网格浪费。本课钉 RCWA。把大场拆成可算的块，留给[下一课](/litho/domain-decomposition-mask)。
 
 ## 问题
 

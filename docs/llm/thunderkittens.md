@@ -59,7 +59,7 @@ flowchart TD
 
 Kittens 的示例注意力多半假设相对规整的 $Q,K,V$ 张量，这适合训练、基准与算法原型。服务里的页表 gather、ragged batch、级联前缀，要在 tile 循环外再包一层索引，或先把页搬成连续 tile。FlashInfer 把这件事做成产品契约；Kittens 把「如何写一只快的 tile 核」做成产品契约。用 Kittens 重写服务注意力完全可行，但工作量在页表与调度，不在 MMA 本身。
 
-## 边界与工程取舍
+## 边界
 
 抽象有代价。固定 kitten 形状对奇怪的头维（例如 80、96 再加非对齐 RoPE 中间态）需要填充或另写特化。编译期模板爆炸与 CUTLASS 同源：每个头维、每种子块布局一份代码。非 NVIDIA 或非 Hopper 上，TMA/WGMMA 特化不存在，库要么降级要么不能用。可读性也有上限：真正的 warp specialization 仍会把生产者 CTA 与消费者 CTA 写开，kitten 不能消灭并行图，只能让图的节点是线性代数而不是 PTX。
 
@@ -71,7 +71,7 @@ Kittens 的示例注意力多半假设相对规整的 $Q,K,V$ 张量，这适合
 
 - ThunderKittens 用固定形状的 tile 类型，把 Hopper 上的加载、MMA 与行归约收成可组合的 C++ 原语。
 - 它不发明新注意力，而是缩短「分块在线 softmax」到 Tensor Core 指令之间的路径。
-- 16×16 一级对齐 WGMMA 的公约数；更大的算法块由多只 kitten 拼成。
+- 16×16 一级对齐 WGMMA 的公约数；
 - 与 CUTLASS、Triton 分工：生产布局代数、快速原型、意见强烈的 AI 小块核，三者重叠但默认不同。
 - 在线 softmax、因果掩码、精度选择仍要算法作者负责；库负责存储层次上的块运算。
 - 分页与 ragged 服务布局不是默认对象，需要额外的索引层。

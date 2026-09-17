@@ -65,4 +65,4 @@ flowchart TD
 - GPT-2 的 $1/\sqrt{N}$、T-Fixup、DeepNorm、ReZero / LayerScale 同属这一杠杆，不要叠乘。
 - 深度因子与 μP 的宽度表、与 warmup 的时间表分工，不能互相冒充。
 - 嵌入与输出头不是残差层，下一课另标。
-- 出处：Radford et al., GPT-2, 2019；Huang et al., T-Fixup, ICML 2020；Wang et al., DeepNet, 2022。
+- 出处：Radford et al., GPT-2, 2019；Wang et al., DeepNet, 2022。

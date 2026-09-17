@@ -66,7 +66,7 @@ $$
 
 Arm 上的宿主进程、CUDA 上下文、NCCL 通信子仍然分对象。统一地址空间减少拷贝，不消除「这段缓冲被哪边缓存」的同步。失败常见于：以为 `malloc` 在 CPU 上的缓冲 GPU 能以 HBM 速度扫；忘记预取，decode 每步都在 C2C 上随机打 KV；以及把检查点写进 C2C 能看见的池，与训练通信抢带宽。profiler 应分别显示 HBM、C2C、NVLink、PCIe 四条流量，而不是一个「GPU 利用率」。
 
-## 边界与工程取舍
+## 边界
 
 不要在 PCIe 独显工作站上假设 C2C。不要把 1.8 TB/s 抄进卡间 TP 的规划——TP 走 NVLink 6。不要为未公开的 cache line 协议、目录项数目编造数字。x86 + GPU 的 UVA / HMM 是另一套一致性，延迟与带宽不能用 Vera 的表去估。
 

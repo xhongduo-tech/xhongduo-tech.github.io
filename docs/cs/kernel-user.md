@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Silberschatz, Galvin and Gagne, Operating System Concepts 整理</footer>
 </div>
 
-[上一课](/cs/exception-table)把语言运行时的异常落到表上的落地信息；编译课到此结束。[特权级](/cs/privilege-rings)和[异常与中断入口](/cs/exception-interrupt-entry)已经给出环与陷入；[分页](/cs/paging-vm)和 [TLB](/cs/tlb-translate)已经能把虚地址译成物理页。本课不重讲页表，也不重做 GC。缺口是：ISA 有环和陷阱，还没有命名**哪一段程序拥有这台机器**。操作系统课从这里开始。
+[上一课](/cs/bootstrapping)把编译课收到自举：用编译器编译自己，直到二进制稳定，信任链靠证明与测试一起撑住。[特权级](/cs/privilege-rings)和[异常与中断入口](/cs/exception-interrupt-entry)已经给出环与陷入；[分页](/cs/paging-vm)和 [TLB](/cs/tlb-translate)已经能把虚地址译成物理页。本课不重讲页表，也不重做 GC。缺口是：ISA 有环和陷阱，还没有命名**哪一段程序拥有这台机器**。操作系统课从这里开始。
 
 ## 问题
 
@@ -45,7 +45,7 @@ flowchart TD
 
 本课不把微内核与宏内核的模块切分写完，也不列出 Linux 的 `syscall` 表。不重导页表项的有效位与权限位：那是分页课的对象，本课只使用「用户页不可执行特权指令」。也不把隔离当成安全课的沙箱；沙箱是更后的策略。
 
-后课默认：谈到「谁在跑」，先问特权。用户程序默认没有设备与页表的写权限；要服务，就陷入。下一课给出被内核切换的那份**进程映像**。
+后课默认：谈到「谁在跑」，先问特权。用户程序默认没有设备与页表的写权限；要服务，就陷入——陷入的约定是下一课[系统调用 ABI](/cs/syscall-abi)，被内核切换的那份**进程映像**再往后给。
 
 ## 小结
 

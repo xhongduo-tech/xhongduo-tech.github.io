@@ -55,7 +55,7 @@ flowchart TD
 
 NeXT 的 AnyRes 最多 4 格、单图为主。OneVision 把格数上限抬到 9 档策略（实现 `max_9`），并在后训练引入多图与视频。Qwen2-VL 的 naive 动态分辨率不切固定 384 格，而是按原生 $H\times W$ 出可变 patch。OneVision 仍是「编码器有首选边长、用切格模拟高分辨率」。文档极长边时，切格缝与 Qwen 式原生网格的误差模式不同：前者怕切断字符，后者怕 token 预算。
 
-## 边界与工程取舍
+## 边界
 
 3.2M + OV 混合的复现依赖 lmms-lab 发布的 json/yaml；论文写「简单」，工程上仍是多源格式统一。视频能力受抽帧率约束，不是小时级定位（那是 Qwen2.5-VL 的绝对时间 MRoPE）。空间智能、3D、GUI 智能体不是该文主体。Qwen2 许可与数据使用条款要单独看。不要把 LLaVA-Video 后续工作的 178K 全量理解成 OV 用了全部。
 

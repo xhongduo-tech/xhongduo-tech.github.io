@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 SPIE Photomask / BACUS 对 mask data preparation 的产线叙述</footer>
 </div>
 
-[上一课](/litho/layout-layers-flow)把设计层收成一张张派生明暗图。缺口是这张图还不能曝光：写模机要的是带剂量、带场拼接、带对准的作业。本课钉 MDP（mask data preparation）。矩形怎么切，留给[下一课](/litho/fracturing）。
+[上一课](/litho/layout-layers-flow)把设计层收成一张张派生明暗图。缺口是这张图还不能曝光：写模机要的是带剂量、带场拼接、带对准的作业。本课钉 MDP（mask data preparation）。矩形怎么切，留给[下一课](/litho/fracturing)。
 
 ## 问题
 

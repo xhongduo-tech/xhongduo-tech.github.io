@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ITRS/IRDS 掩模误差预算与 MEF 放大的通称</footer>
 </div>
 
-[上一课](/litho/write-grid-shot-count)把边钉在写栅上。缺口是全场、全版的 CD 并不因此变平：PEC 残差、刻蚀负载、胶厚、雾化底板都会留下指纹。本课钉 mask CDU。图形放在哪（配准），留给[下一课](/litho/mask-registration）。
+[上一课](/litho/write-grid-shot-count)把边钉在写栅上。缺口是全场、全版的 CD 并不因此变平：PEC 残差、刻蚀负载、胶厚、雾化底板都会留下指纹。本课钉 mask CDU。图形放在哪（配准），留给[下一课](/litho/mask-registration)。
 
 ## 问题
 

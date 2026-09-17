@@ -11,7 +11,7 @@ section: quant
 <footer>—— Bailey, Borwein, López de Prado and Zhu, The Probability of Backtest Overfitting, Journal of Computational Finance, 2017；López de Prado, AFML, Chapter 12</footer>
 </div>
 
-滚动检验给出一条沿时间拼接的样本外曲线，信息有限：窗口个数通常是十几，而且相邻窗口共享状态。Bailey、Borwein、López de Prado 与 Zhu（2017）问的是另一个量：在你搜索过的策略集合里，把样本内最优者拿到样本外，它的表现低于中位数的概率有多大——回测过拟合概率（Probability of Backtest Overfitting, PBO）。估计 PBO 需要许多条对称的训练–检验划分，而不是一条幸运的切分。组合对称交叉验证（CSCV）以及 López de Prado 在 *Advances in Financial Machine Learning* 第 12 章写的组合清洗交叉验证（Combinatorial Purged Cross-Validation, CPCV），就是为了生成这些路径。它们是实验设计，不是又一种优化器。
+[Deflated Sharpe](/quant/deflated-sharpe)把尝试次数折进夏普阈值，路径方法留到本课。滚动检验给出一条沿时间拼接的样本外曲线，信息有限：窗口个数通常是十几，而且相邻窗口共享状态。Bailey、Borwein、López de Prado 与 Zhu（2017）问的是另一个量：在你搜索过的策略集合里，把样本内最优者拿到样本外，它的表现低于中位数的概率有多大——回测过拟合概率（Probability of Backtest Overfitting, PBO）。估计 PBO 需要许多条对称的训练–检验划分，而不是一条幸运的切分。组合对称交叉验证（CSCV）以及 López de Prado 在 *Advances in Financial Machine Learning* 第 12 章写的组合清洗交叉验证（Combinatorial Purged Cross-Validation, CPCV），就是为了生成这些路径。它们是实验设计，不是又一种优化器。
 
 ## 问题
 
@@ -47,7 +47,7 @@ CPCV（AFML 第 12 章）。测试集不再固定为「一半块」，而是从 
 
 一个完整的实验设计可以是：用 CPCV 估计搜索是否过拟合，用 DSR 给最终候选的夏普放气，用嵌套滚动给出一条可叙述的因果样本外曲线，用成本与容量决定能否交易。四者回答不同问题。只用滚动，你不知道若切分不同会怎样；只用 DSR，你不知道相对排名；只用 PBO，你没有一张可审计的「若从某年做到某年」的权益曲线。López de Prado 把 CPCV 放在回测架构的中心，正是因为业界最常犯的错是把一条路径的夏普当成总体参数。
 
-## 边界与工程取舍
+## 边界
 
 组合路径不是交易模拟。交错的训练/检验块无法对应真实的下单顺序，也不能直接用来估[冲击](/quant/cost-sensitivity)。PBO 低且 DSR 高的策略，仍可能在因果滚动上因非平稳而失败。反过来，PBO 接近 $1/2$ 时，几乎不应进入模拟账户：你还没有证据表明搜索产生了可迁移的优势。
 

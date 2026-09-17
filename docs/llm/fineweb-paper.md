@@ -57,7 +57,7 @@ Llama 3 与 Phi-3 都提到过用合成标注做教育过滤，公开网页上�
 
 基础过滤与 trafilatura 来自 RefinedWeb；系统消融、快照内去重、C4 规则拆解与 Edu 头是新的。DCLM 随后在公共池上比较分类器，发现 OpenHermes+ELI5 的 fastText 比维基参照更贴 MMLU——与 Edu 的「解释体」方向一致，只是正例从合成教育分换成指令与论坛长解释。三者连起来读：先把抽取与启发式地板垫高（RefinedWeb / FineWeb），再决定质量头的参照（Edu 或 DCLM），不要跳过地板直接上 70B 打分。
 
-## 边界与工程取舍
+## 边界
 
 FineWeb 是英语网页。多语言、代码、数学公式（LaTeX 是否被 trafilatura 保住）都不在优化目标里。Edu 提示刻意避开高技术页，对大学教材与论文不友好；要 Minerva 式能力得另加 OpenWebMath 或 arXiv。PII 只匿名邮箱和公网 IP，间接标识仍在。分类器会过时：2024 年的教育分头，打 2026 年的模型生成「讲解文」可能全面高分。消融模型 1.82B、最长 350B token，不能保证 70B、15T 上每条启发式仍同号；他们用公开对比模型把 FineWeb / Edu 放到与 RefinedWeb、Dolma、SlimPajama 同一张图上，这是目前能给出的最强公开证据，仍不是闭源配方的上界。
 

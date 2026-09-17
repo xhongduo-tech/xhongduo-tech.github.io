@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 grayscale lithography 与剂量调制三维胶轮廓的通称</footer>
 </div>
 
-[上一课](/litho/mems-patterning)需要三维结构。缺口是如何不用许多层二元曝光去堆斜面。本课钉灰度光刻。双光子把三维做到体素，留给[下一课](/litho/two-photon-3d）。
+[上一课](/litho/mems-patterning)需要三维结构。缺口是如何不用许多层二元曝光去堆斜面。本课钉灰度光刻。双光子把三维做到体素，留给[下一课](/litho/two-photon-3d)。
 
 ## 问题
 

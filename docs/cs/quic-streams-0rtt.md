@@ -37,8 +37,6 @@ flowchart TD
   Z --> REP["重放风险"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 TSO 变成 UDP GSO。ECN 计数在 QUIC 里。PMTUD 在用户态。BBR 常与 QUIC 同部署。SCTP 多流无 Web 加密集成。窗口是流控窗口+拥塞窗口两层，类似 HTTP/2 但加密。
@@ -51,7 +49,7 @@ TSO 变成 UDP GSO。ECN 计数在 QUIC 里。PMTUD 在用户态。BBR 常与 QU
 
 公司防火墙「UDP 危险」会把用户打回 TCP HOL。
 
-上一课留下的缺口在本课收口；「QUIC 流与 0-RTT」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[QUIC 连接迁移](/cs/quic-migration)。
+下一课[QUIC 连接迁移](/cs/quic-migration)。
 
 ## 小结
 

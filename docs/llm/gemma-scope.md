@@ -58,7 +58,7 @@ JumpReLU 把「过不过阈值」变成真正的稀疏开关，重构时系数�
 
 <span class="marginnote">Gemma 2 与 Claude 3 Sonnet 不是同一表示几何。不能把 Gemma Scope 的编号特征当成 Sonnet 转向论文里那个特征的开源版。可迁移的是协议：JumpReLU、canonical $L_0$、全层释放、公开卡片。具体方向要在各自字典里重新发现。</span>
 
-## 边界与工程取舍
+## 边界
 
 27B 只有部分层，最大模型的电路仍有缺口。Gemma 许可证与 SAE 许可证不一致，产品化时要分别合规。JumpReLU 的阈值使实现与纯 ReLU SAE 不互换，用错激活函数会得到无意义的 $L_0$。开放并不自动等于正确：标签噪声、重复存放、canonical 定义随 SAELens 快照变化，都在 README 里出现过警告。
 

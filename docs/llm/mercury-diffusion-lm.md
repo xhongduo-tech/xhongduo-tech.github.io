@@ -59,7 +59,7 @@ flowchart TD
 
 LLaDA 公开 8B、2.3T、损失公式与采样伪代码。Mercury 公开的是产品吞吐、编码榜与「Transformer + 去噪损失」。两者都是离散扩散家族，但 Mercury 不是 LLaDA 的商用包装：数据、步数、是否半自回归块，均未在报告里钉死。不要用 LLaDA 的 $1/t$ 加权去「补全」Mercury 的训练目标。
 
-## 边界与工程取舍
+## 边界
 
 无开源权重则不能复现核。32k 开箱窗口不够长代理仓库。LiveCodeBench 上 Mini 17.0 低于若干速度档闭源模型，编码故事不是全面碾压，主轴是 Pareto 上的速度。后续 Mercury 2 的「推理 dLLM」若只有产品页数字，应另开一篇，不要把 2025 年 Coder 表当成 2026 年推理档。API 兼容不等于 KV cache 语义兼容：流式输出可能是逐步揭开，而不是 token-by-token 因果。
 

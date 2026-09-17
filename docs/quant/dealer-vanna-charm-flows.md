@@ -11,7 +11,7 @@ section: quant
 <footer>—— 混合偏导为 Black–Scholes 价格的直接推论，整理见 Hull；存货进入价格见 Gârleanu, Pedersen and Poteshman, RFS, 2009；公开从业把到期周的该类对冲称作 vanna/charm flows</footer>
 </div>
 
-[Delta / Gamma / Vega](/quant/greeks-hedge) 解释现货动时的对冲。[Charm / Color](/quant/higher-greeks) 写出 $\partial\Delta/\partial t$ 与 $\partial\Gamma/\partial t$。**Vanna** $\partial\Delta/\partial\sigma=\partial\nu/\partial S$ 写出波动一动时 Delta 的变化。把经销商账本的这些偏导加总，得到即使 $\mathrm{d}S=0$ 也会发生的对冲需求，从业者称为 vanna / charm flows。它们在到期周与 [0DTE](/quant/zero-dte-microstructure) 下午被放大，因为短 $\tau$ 上时间导数与交叉导数变尖。本篇写公开可计算的存量（把希腊字母按 OI 聚合）及其机制含义，口径问题同 [GEX](/quant/gex-calculation)：符号来自谁持仓。这不是盘中抢跑对冲单的流程，也不是「上午 charm、下午 vanna」的交易日程表。
+[上一课](/quant/strike-magnetism-max-pain) 把钉住落在现货移动的对冲反馈；$S$ 不动时的 Delta 漂移还没算。[Delta / Gamma / Vega](/quant/greeks-hedge) 解释现货动时的对冲。[Charm / Color](/quant/higher-greeks) 写出 $\partial\Delta/\partial t$ 与 $\partial\Gamma/\partial t$。**Vanna** $\partial\Delta/\partial\sigma=\partial\nu/\partial S$ 写出波动一动时 Delta 的变化。把经销商账本的这些偏导加总，得到即使 $\mathrm{d}S=0$ 也会发生的对冲需求，从业者称为 vanna / charm flows。它们在到期周与 [0DTE](/quant/zero-dte-microstructure) 下午被放大，因为短 $\tau$ 上时间导数与交叉导数变尖。本篇写公开可计算的存量（把希腊字母按 OI 聚合）及其机制含义，口径问题同 [GEX](/quant/gex-calculation)：符号来自谁持仓。这不是盘中抢跑对冲单的流程，也不是「上午 charm、下午 vanna」的交易日程表。
 
 ## 问题
 
@@ -73,7 +73,7 @@ flowchart TD
   H --> SPOT["现货吸收的机械流"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 公开 Vanna/Charm 存量与 GEX 一样受符号约定支配，且多一个微笑动态假设。事件日 $\mathrm{d}\sigma$ 由跳跃主导，微分失效。个股借券与停牌使对冲无法按公式执行。A 股没有同构的公开经销商希腊加总。
 

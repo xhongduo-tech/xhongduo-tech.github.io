@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Ni, Pearson and Poteshman, Journal of Financial Economics, 2005；障碍合约的局部 Gamma 见标准障碍公式与 Broadie–Glasserman–Kou 的监控讨论</footer>
 </div>
 
-雪球（自动赎回结构）把敲出、敲入两道障碍写进同一张票据。发行人对投资者的负债，在障碍附近对标的价格高度弯曲：Gamma 局部爆炸，Charm 与 Color 把弯曲的位置随日历推移。单张合约的对冲是[离散 Delta](/quant/delta-hedge-freq)问题；市场上同时存续的许多张合约若在相近的敲入带上堆积，对冲商的净 Gamma 会变成指数期货与相关 ETF 上可观测的同步流量。Ni、Pearson 与 Poteshman 记录过到期执行价附近的现货钉住；障碍产品把类似机制从到期日扩展到存续期内每一次观察。本篇写**堆积如何把局部 Gamma 加总成市场供给**，衔接[障碍监控频率](/quant/barrier-monitoring)与[库存偏度](/quant/inventory-skew)，不讨论如何把价格推过障碍。
+[上一课](/quant/snowball-knockin-cascade) 记录了敲入后的对冲踩踏；踩踏之前，账本上的障碍如何堆积？雪球（自动赎回结构）把敲出、敲入两道障碍写进同一张票据。发行人对投资者的负债，在障碍附近对标的价格高度弯曲：Gamma 局部爆炸，Charm 与 Color 把弯曲的位置随日历推移。单张合约的对冲是[离散 Delta](/quant/delta-hedge-freq)问题；市场上同时存续的许多张合约若在相近的敲入带上堆积，对冲商的净 Gamma 会变成指数期货与相关 ETF 上可观测的同步流量。Ni、Pearson 与 Poteshman 记录过到期执行价附近的现货钉住；障碍产品把类似机制从到期日扩展到存续期内每一次观察。本篇写**堆积如何把局部 Gamma 加总成市场供给**，衔接[障碍监控频率](/quant/barrier-monitoring)与[库存偏度](/quant/inventory-skew)，不讨论如何把价格推过障碍。
 
 ## 问题
 
@@ -66,7 +66,7 @@ flowchart TD
 
 <span class="marginnote">加总 Gamma 用的是发行人自己的模型。换一套局部波动或改监控修正，峰的位置会平移。对外沟通若只报一个「危险指数点位」，应声明模型与观察约定；否则那是叙事，不是可重复的风险地图。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要把公开的产品规模直接当成期货上的可交易 Gamma：有的仓已经内对冲、有的标的是个股或混合篮子、有的观察日错开。不要用连续障碍公式给日终合约做流量预测。不要把对冲流量研究写成「如何在障碍前反向收割」——那是把风险管理对象当成操纵手册，本篇明确排除。
 

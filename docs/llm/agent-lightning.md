@@ -58,7 +58,7 @@ Rollout 级优势针对的病是：一次 SWE 任务被拆成 20 次 sample，�
 
 [VERLTool](/llm/verltool) 把工具放进 VeRL 可调用的服务器，循环仍在训练框架的 AgentLoop 里。[AgentLoop](/llm/agentloop-server) 是 VeRL 内部的多轮接口，假定你愿意实现 `run()`。Lightning 假定你**不愿意**实现第二份循环。三者都处理观察与 mask，所有权不同：工具服务器、框架内循环、框架外 harness。选错会重复造环境。
 
-## 边界与工程取舍
+## 边界
 
 不要把 14.6 个点写成「换框架就涨」。数据清洗、环境、基座模型都在条件里。不要假设任意 harness 的副作用（计费 API、写生产库）适合在 RL 里无沙箱滚动。代理增加一跳延迟；同步 RL 步可能被最慢的 K8s Job 钉住，需要超时与重试策略。Retokenization 未处理时，开异步只会让错误样本更多。多 agent 握手在 v1.0 里被列为与单 ReAct 不同的建模，实现深度以当时代码为准。
 

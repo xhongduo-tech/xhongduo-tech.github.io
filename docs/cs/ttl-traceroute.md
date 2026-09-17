@@ -36,8 +36,6 @@ flowchart TD
   HASH["探针哈希变"] --> FAKE["ECMP 拼图"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 与 LLDP 对照：LLDP 一跳身份，traceroute 多跳 IP。与 BGP 收敛对照：路径在收敛中途会跳。RPKI 无效丢弃发生在边界，探针可能突然消失。VXLAN 外层 TTL 与内层独立，排障要看你 ping 的是哪一层。
@@ -50,7 +48,7 @@ flowchart TD
 
 把 traceroute 当 SLA 监测不够：要固定流标识与数据面遥测。
 
-上一课留下的缺口在本课收口；「TTL 与 traceroute」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[路由器架构](/cs/router-architecture)。
+下一课[路由器架构](/cs/router-architecture)。
 
 ## 小结
 

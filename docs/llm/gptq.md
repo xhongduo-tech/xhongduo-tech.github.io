@@ -11,7 +11,7 @@ section: llm
 <footer>—— Frantar et al., GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers, ICLR 2023</footer>
 </div>
 
-[上一课](/llm/multi-tenant-gpu)把硬件课序收在多租户 GPU 隔离。本课打开压缩与数值。大模型推理的第一道墙经常是权重体积。175B 级 FP16 要三百多 GB，连单节点 HBM 也不够；decode 每步还要把这些字节扫一遍，见 [Decode 的显存墙](/llm/decode-memory-wall)。训练后再量化（PTQ）比量化感知训练便宜：不回传全网，只用一小校准集。朴素逐元素 round-to-nearest 在 8-bit 往往还能用，到 4-bit 或 3-bit，层输出的重建误差会沿残差流累积，困惑度塌掉。Frantar 等人 2022 年提出的 GPTQ 把 Optimal Brain Quantization 的二阶补偿做成能在千亿参数上跑完的算法：一层一层地解 $\min\|\hat{W}X-WX\|_F^2$，按列量化，并用 Hessian 逆把误差 squirt 到剩余权重上。结果是 OPT-175B / BLOOM-176B 一类模型可以在大约数个 GPU 小时内压到每参数 3–4 bit，生成质量接近原精度，从而把 175B 塞进单卡做生成。它是权重量化，激活仍用较高精度，和同时打激活的 [SmoothQuant](/llm/smoothquant) 不是同一档。
+[上一课](/llm/accelerator-comparison-method)把「集合通信与异构加速」课序收在加速器对比方法：先锁工作负载契约，用自测吞吐与 TCO 说话，把峰值营销从主表拿开。本课打开压缩与数值。大模型推理的第一道墙经常是权重体积。175B 级 FP16 要三百多 GB，连单节点 HBM 也不够；decode 每步还要把这些字节扫一遍，见 [Decode 的显存墙](/llm/decode-memory-wall)。训练后再量化（PTQ）比量化感知训练便宜：不回传全网，只用一小校准集。朴素逐元素 round-to-nearest 在 8-bit 往往还能用，到 4-bit 或 3-bit，层输出的重建误差会沿残差流累积，困惑度塌掉。Frantar 等人 2022 年提出的 GPTQ 把 Optimal Brain Quantization 的二阶补偿做成能在千亿参数上跑完的算法：一层一层地解 $\min\|\hat{W}X-WX\|_F^2$，按列量化，并用 Hessian 逆把误差 squirt 到剩余权重上。结果是 OPT-175B / BLOOM-176B 一类模型可以在大约数个 GPU 小时内压到每参数 3–4 bit，生成质量接近原精度，从而把 175B 塞进单卡做生成。它是权重量化，激活仍用较高精度，和同时打激活的 [SmoothQuant](/llm/smoothquant) 不是同一档。
 
 ## 问题
 
@@ -47,7 +47,7 @@ flowchart TD
   COL --> CMP["用逆 Hessian 补偿剩余列"]
   CMP --> COL
   CMP --> Q["3/4-bit 权重"]
-  Q --> NEXT["量化激活送下一层"]
+  Q --> NEXT["用量化权重算出的激活送下一层"]
 ```
 
 推理时 GEMM 是「低比特权重 × 较高精度激活」，反量化发生在寄存器或 Tensor Core 允许的尺度乘法里，不应先把全模型还原成 FP16 再乘。服务栈里 GPTQ 是一种权重格式，和 KV 的 INT8 不是同一旋钮。
@@ -66,7 +66,7 @@ OBQ 每步挑选量化后误差增量最小的权重，GPTQ 按固定列序走�
 
 3-bit 与 2-bit 在论文里作为极端档：4-bit 是实用甜点，再往下补偿仍在工作，但网格本身太粗，层输出的不可补偿分量变大。把 2-bit GPTQ 和专门为 KV 设计的轴量化混为一谈，会搞错张量对象。
 
-## 边界与工程取舍
+## 边界
 
 GPTQ 不量化激活，小 batch decode 吃权重带宽红利；大 batch prefill 可能仍是计算墙，W4A16 对 Tensor Core 利用率不一定优于 W8A8。核必须真的按 4-bit 加载；先解成 FP16 再乘，只省显存不省带宽。分组大小、是否对称、是否对部分层（如 lm_head）留 8-bit，都是实现细节，换一种会改变质量，不能把某一版 AutoGPTQ 默认当成论文数字。
 

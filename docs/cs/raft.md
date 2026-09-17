@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-状态：Follower / Candidate / Leader。超时无心跳则竞选：自增 term，请求投票。投票：至多一票每任期；候选人日志必须至少与自己一样新（最后条目的 term、index 比较）。当选后 AppendEntries 复制，心跳是空追加。提交：当前任期条目在多数派出现才提交；借此避免论文里讨论的旧任期条目陷阱。
+状态：Follower / Candidate / Leader。超时无心跳则竞选：自增 term，请求投票。投票：至多一票每任期；候选人日志必须至少与投票者（收到 RequestVote 的节点）一样新：比较两者最后条目的 term，term 相同再比 index。当选后 AppendEntries 复制，心跳是空追加。提交：当前任期条目在多数派出现才提交；借此避免论文里讨论的旧任期条目陷阱。
 
 缺口：日志匹配性质——若两日志同一 index 同一 term，则该 index 及之前完全相同。AppendEntries 带前驱 index/term，不一致则拒绝并回退。比「每槽独立 Paxos」更少空洞玩法。
 

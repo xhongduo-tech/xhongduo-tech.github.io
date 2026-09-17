@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照互连 DTCO、via coverage 与多重图形着色的公开讨论</footer>
 </div>
 
-[上一课](/litho/sram-cell-patterning)把 SRAM 收成独立合同。缺口是互连：金属线宽、via 尺寸、enclosure 与颜色必须一起选，否则覆盖规则与 tip 规则互相打架。本课钉金属–via 协同，并结束「仿真、模型与验证」门。胶形如何变成硅与介质里的槽和孔，交给下一课程第一课[等离子体基础](/litho/plasma-basics）。
+[上一课](/litho/sram-cell-patterning)把 SRAM 收成独立合同。缺口是互连：金属线宽、via 尺寸、enclosure 与颜色必须一起选，否则覆盖规则与 tip 规则互相打架。本课钉金属–via 协同，并结束「仿真、模型与验证」门。胶形如何变成硅与介质里的槽和孔，交给下一课程第一课[等离子体基础](/litho/plasma-basics)。
 
 ## 问题
 

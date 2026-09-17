@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 RFC 8446 的设计动机；Rescorla, *The Transport Layer Security Protocol*；对照 Vaudenay 与 BEAST/Lucky Thirteen 的公开分析</footer>
 </div>
 
-## 定位
-
 上一课[ACME](/cs/acme)让证书常见。缺口是**记录层与握手曾怎样失败**。主干[TLS 握手](/cs/tls-handshake)已有 1.2/1.3 形状。本课用历史当反例清单：降级、可区分错误、压缩、重协商——不给复现步骤。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 降级是协议漏洞
 
 回退到 SSL 3.0 或出口套件不是用户偏好，是敌手可选的模式。版本与套件必须认证绑定。
-
 
 <span class="marginnote">RFC 8446 引言即针对旧缺陷。POODLE、BEAST、CRIME、Heartbleed 作为失败模式点名：实现越界读也算史。本课禁止操作指导。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   DROP --> AEAD["只留 AEAD + HKDF"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 协议安全是版本化的合同。部署「兼容一切」等于把最弱环留给主动者。后课 SSH/IPsec/WireGuard 是另一些合同，不要假设「已有 TLS」覆盖它们的威胁模型。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

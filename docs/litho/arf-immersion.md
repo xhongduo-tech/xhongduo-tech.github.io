@@ -11,7 +11,7 @@ section: litho
 <footer>—— ASML, TWINSCAN: 20 years of lithography innovation（公开故事）</footer>
 </div>
 
-[上一课](/litho/adi-defect-inspect)（显影后缺陷检验）。数值孔径 $\mathrm{NA}=n\sin\theta$。空气中 $n\approx 1$，镜头半孔径角再大，$\mathrm{NA}$ 也过不了 1。193 nm 的超纯水折射率大约 1.44，浸没把最后一片镜头元件与晶圆之间的空气换成水，使 $n\sin\theta$ 可以大于 1。ASML 公开写明：干式约 0.93，浸没做到 1.35。Mack 还强调一句容易说反的话：往旧镜头缝里灌水，并不会自动抬高已经做死的 $\mathrm{NA}$；要的是按更高 $n\sin\theta$ 重新设计的浸没物镜。本篇只讲这一介质替换如何进入瑞利公式，以及它没有改掉的东西。
+[上一课](/litho/resist-strip-ash)以胶去除与灰化替涂胶显影与轨道课程收尾，转印完的晶圆以干净表面交回产线；本课另起 DUV 与多重曝光课程。数值孔径 $\mathrm{NA}=n\sin\theta$。空气中 $n\approx 1$，镜头半孔径角再大，$\mathrm{NA}$ 也过不了 1。193 nm 的超纯水折射率大约 1.44，浸没把最后一片镜头元件与晶圆之间的空气换成水，使 $n\sin\theta$ 可以大于 1。ASML 公开写明：干式约 0.93，浸没做到 1.35。Mack 还强调一句容易说反的话：往旧镜头缝里灌水，并不会自动抬高已经做死的 $\mathrm{NA}$；要的是按更高 $n\sin\theta$ 重新设计的浸没物镜。本篇只讲这一介质替换如何进入瑞利公式，以及它没有改掉的东西。
 
 ## 问题
 
@@ -55,7 +55,7 @@ flowchart TD
 
 浸没 DUV 在 EUV 量产之后并未退出。临界层可以迁到 13.5 nm，大量次临界层仍用 $\mathrm{NA}=1.35$ 的 193 nm，因为 wph 高、基础设施成熟。ASML 把 NXT 浸没的 overlay 与 EUV 的 cross-matching 写成产品要点，正是混跑现实。浸没解决的是 193 nm 的 $\mathrm{NA}$ 天花板，不是光子能量与随机效应。
 
-## 边界与工程取舍
+## 边界
 
 浸没不降低掩模复杂度。[离轴照明](/litho/off-axis-illumination) 与 [PSM](/litho/phase-shift-mask) 仍然要，才能把 $k_1$ 压到 0.3 附近。它也不自动改善套刻；水与热还可能增加瞬态变形，要靠编码器工件台与热控来补。成本账上，浸没机比干式贵，但相对 157 nm 新光学栈或过早的 EUV，它让 193 nm 又走了十余年，包括用多重图形走进 7/5 nm 商品节点的非 EUV 层。
 

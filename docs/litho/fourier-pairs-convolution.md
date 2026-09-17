@@ -11,7 +11,7 @@ section: litho
 <footer>—— Goodman, Introduction to Fourier Optics 对卷积定理与基本变换对的表述</footer>
 </div>
 
-[上一课](/litho/patterning-inspection-tools)把主干收到检测与量测设备。主干里已经有[阿贝成像](/litho/abbe-imaging)、[Hopkins TCC](/litho/hopkins-tcc)、[瑞利判据](/litho/rayleigh-litho)和 [MTF](/litho/mtf-optics)。缺口是：**还没有把「频谱 × 光瞳」收成后课可以反复调用的代数骨架**——傅里叶变换对与卷积。本课不重推 $\mathrm{CD}=k_1\lambda/\mathrm{NA}$；那条产线式子默认本课的对已经会用。后课默认已经读完本课。
+[上一课](/litho/focus-drilling)用走焦把焦轴摊开，替成像与分辨率课程收尾；本课另起傅里叶光学与薄膜。主干里已经有[阿贝成像](/litho/abbe-imaging)、[Hopkins TCC](/litho/hopkins-tcc)、[瑞利判据](/litho/rayleigh-litho)和 [MTF](/litho/mtf-optics)。缺口是：**还没有把「频谱 × 光瞳」收成后课可以反复调用的代数骨架**——傅里叶变换对与卷积。本课不重推 $\mathrm{CD}=k_1\lambda/\mathrm{NA}$；那条产线式子默认本课的对已经会用。后课默认已经读完本课。
 
 ## 问题
 
@@ -39,7 +39,7 @@ $t$ 是物面透过率（或等效薄物体），$T$ 是物频谱，$\mathbf{f}$
 后课反复出现的对，本课一次性列出，后面只引用：
 
 - $\mathrm{rect}(x)\leftrightarrow\mathrm{sinc}(f)$：有限缝、扫描狭缝、矩形开口的一维骨架。
-- $\mathrm{circ}(r)\leftrightarrow\mathrm{jinc}$（第一类贝塞尔）：圆孔光瞳 ↔ 艾里核，下一课 PSF 只用这一条。
+- $\mathrm{circ}(r)\leftrightarrow\mathrm{jinc}$（第一类贝塞尔）：圆孔光瞳 ↔ 艾里核，后面的 PSF 课只用这一条。
 - 高斯 $\leftrightarrow$ 高斯：胶模糊、部分照明的光滑源，计算上自闭。
 - $\delta(\mathbf{x})\leftrightarrow 1$：点物的谱是平的，光瞳切它就是在量系统自身。
 - 平移 $t(\mathbf{x}-\mathbf{a})\leftrightarrow T(\mathbf{f})e^{-2\pi i\mathbf{f}\cdot\mathbf{a}}$：OPC 挪边、邻线位移，全是相因子，不是新原理。

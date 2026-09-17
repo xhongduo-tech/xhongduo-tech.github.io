@@ -62,7 +62,7 @@ Warpgroup 内四个 warp 必须同步在同一条 MMA 控制流上。一个 warp
 
 把 A100 核的 `mma.sync` 循环改名成 wgmma 会失败：寄存器碎片、smem swizzle、同步原语全变。迁移路径是换 CUTLASS sm90 集体，或按 PTX 重写消费者循环。Ada（sm89）有自己的 MMA 集合，也不等于 Hopper wgmma。编译架构必须是 `sm_90` / `sm_90a` 文档要求的那一档；用错 target，链接期或加载期才会暴露。
 
-## 边界与工程取舍
+## 边界
 
 不要在非 Hopper 的卡上假设有 wgmma。不要把 FA3 论文里的注意力调度写成「所有 GEMM 都必须 ping-pong softmax」——那是注意力 SFU 占比高时的特化。不要忽略 `fence` 与 wait 配对。数值验收应用已知矩阵对照 cuBLAS，半精度累加顺序不同会有尾差，应设相对容差，但数量级错误说明布局或 wait 错了。
 

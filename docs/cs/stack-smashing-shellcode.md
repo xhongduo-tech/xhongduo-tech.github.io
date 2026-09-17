@@ -11,8 +11,6 @@ section: cs
 <footer>—— Aleph One, Smashing the Stack for Fun and Profit, Phrack 49, 1996；对照 Cowan 等对 canary 的后续</footer>
 </div>
 
-## 定位
-
 上一课[Needham–Schroeder](/cs/needham-schroeder-lowe)假设进程按规范走。缺口是**实现把控制数据与普通对象放在同一可写栈上**。本课只说明机制与为何出现 NX/canary，不提供可运行载荷或注入步骤。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ C 的数组与 `gets` 一类接口不携带长度。局部缓冲之后是保存�
 ### 课程边界
 
 禁止 shellcode、禁止复现步骤。需要的只是：空间安全失败 ⇒ 控制流不再等于源码。防御在后课层层加。
-
 
 <span class="marginnote">Aleph One 是历史文献，本课当反例引用，不当实验指导。Anderson 把这类失败归为实现与语言。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   NX["不可执行栈"] -.->|"缓解, 非根除"| CF
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 进程作为 TCB 的一部分：用户输入变成了跳转目标。下一课 canary：用秘密值检测「帧被踏过」，不修复语言。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

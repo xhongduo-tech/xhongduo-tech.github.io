@@ -11,7 +11,7 @@ section: quant
     <footer>—— Nie, Yan, Guo et al., CFinBench: A Comprehensive Chinese Financial Benchmark for Large Language Models, arXiv:2407.02301，NAACL 2025</footer>
 </div>
 
-中文金融 LLM 评测在公开文献里不叫一张统一的 CTBench，而是一条逐步加厚的栈。Lei 等人的 CFBenchmark（arXiv:2311.05812）测识别、分类、生成等文本处理；FinEval、FinanceIQ、BBT-CFLEB 测知识与基础 NLP。Nie、Yan、Guo 与华为诺亚等提出的 CFinBench 把规模推到 99,100 题、43 个二级类、三种题型（单选、多选、判断），一级类按从业路径分成科目、资格、实务、法律。约 50 个模型上，GPT-4 与若干中文取向模型领先，最高平均准确率约 60.16%（后续版本报道可到约 66%）。本篇以 CFinBench 为主卡片，把 CFBenchmark / FinEval 当作对照，写**中文金融知识考试能测什么、不能测什么**，以及它与交易研究的接口：合规与术语是门槛，不是 alpha。
+[上一课](/quant/bloomberggpt)靠内部集自证增益；换公开考卷，本篇写中文金融基准栈。中文金融 LLM 评测在公开文献里不叫一张统一的 CTBench，而是一条逐步加厚的栈。Lei 等人的 CFBenchmark（arXiv:2311.05812）测识别、分类、生成等文本处理；FinEval、FinanceIQ、BBT-CFLEB 测知识与基础 NLP。Nie、Yan、Guo 与华为诺亚等提出的 CFinBench 把规模推到 99,100 题、43 个二级类、三种题型（单选、多选、判断），一级类按从业路径分成科目、资格、实务、法律。约 50 个模型上，GPT-4 与若干中文取向模型领先，最高平均准确率约 60.16%（后续版本报道可到约 66%）。本篇以 CFinBench 为主卡片，把 CFBenchmark / FinEval 当作对照，写**中文金融知识考试能测什么、不能测什么**，以及它与交易研究的接口：合规与术语是门槛，不是 alpha。
 
 ## 问题
 
@@ -51,7 +51,7 @@ section: quant
 
 同一会计概念在 CAS 与 US GAAP 下并不总等价；资格考试用中国准则。用英文 FinBen 代替 CFinBench，会漏掉中国特定制度（T+1、涨跌停、北向、信息披露时点）。反之，CFinBench 高分不保证 ConvFinQA 式英文表推理。双语产品要两套基准，不要平均成一个「金融分」。
 
-## 边界与工程取舍
+## 边界
 
 不要把公开模拟题微进模型再报 SOTA。不要用生成任务里的「投资建议」当研究结论对外发布——那是评测提示，不是投顾。不要假设判断题上的法规能力等于实盘合规：真实合规看流程与权限，见[研究、模拟、实盘隔离](/quant/research-sim-prod)。题库应版本化：法规修订后旧答案可能变错。
 

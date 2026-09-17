@@ -11,7 +11,7 @@ section: llm
 <footer>—— Ouyang et al., Training language models to follow instructions with human feedback, NeurIPS 2022；偏好学习接到 Christiano et al., NeurIPS 2017</footer>
 </div>
 
-[上一课](/llm/honesty-citations)把对齐数据课序收在诚实与引用。本课打开强化学习课程。Christiano 等人把「难以写进标量函数的目标」收成人类两两比较，再学奖励、用 RL 优化策略。Ouyang 等人把这套偏好 RL 接到指令微调后的语言模型上，构成后来被广泛称作 RLHF 的三阶段流水线：监督微调（SFT）、奖励模型（RM）、近端策略优化（PPO）。它不是单一损失，而是三条数据与四个模型角色的工序：策略、参考、奖励、价值。后续的 [GRPO](/llm/grpo)、[RLOO](/llm/rloo)、直接偏好方法，都是在改第三段怎么走，很少取消「先有示范与偏好」这一事实。
+[上一课](/llm/deployment-monitoring)把「对齐概念与监控」课序收在部署后监控：上线之后抽样、分流、修复或再评测的闭环，补发版评测盖不住的分布缺口。本课打开强化学习课程。Christiano 等人把「难以写进标量函数的目标」收成人类两两比较，再学奖励、用 RL 优化策略。Ouyang 等人把这套偏好 RL 接到指令微调后的语言模型上，构成后来被广泛称作 RLHF 的三阶段流水线：监督微调（SFT）、奖励模型（RM）、近端策略优化（PPO）。它不是单一损失，而是三条数据与四个模型角色的工序：策略、参考、奖励、价值。后续的 [GRPO](/llm/grpo)、[RLOO](/llm/rloo)、直接偏好方法，都是在改第三段怎么走，很少取消「先有示范与偏好」这一事实。
 
 ## 问题
 
@@ -60,7 +60,7 @@ PPO 的近端约束限制每步策略更新幅度，避免一次更新跑出 RM 
 
 <span class="marginnote">Ouyang 等人强调：RLHF 优化的是标注员（及后来的用户）偏好的代理，不是「真」对齐。代理在比较协议、标注员池、提示集上都会偏。换一群标注员，RM 与策略都要重做，不是改一个 β 能修。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 第三阶段最贵，也最先被替换
 

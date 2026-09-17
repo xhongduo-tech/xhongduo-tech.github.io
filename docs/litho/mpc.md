@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 mask process correction 与 e-beam / 掩模刻蚀偏置的产线通称</footer>
 </div>
 
-[上一课](/litho/fracturing)把多边形收成可写的炮。缺口是写出、显影、刻铬/刻吸收体之后，版上 CD 仍不等于数据边：掩模刻蚀有负载，侧壁有倾角，电子雾化有残差。本课钉 MPC（mask process correction）。曲线数据量，留给[下一课](/litho/curvilinear-data-volume）。
+[上一课](/litho/fracturing)把多边形收成可写的炮。缺口是写出、显影、刻铬/刻吸收体之后，版上 CD 仍不等于数据边：掩模刻蚀有负载，侧壁有倾角，电子雾化有残差。本课钉 MPC（mask process correction）。曲线数据量，留给[下一课](/litho/curvilinear-data-volume)。
 
 ## 问题
 
@@ -29,7 +29,7 @@ section: litho
 
 校准：密集/孤立、通过节距、二维拐角的掩模 CD-SEM 或 AFM，ADI（掩模胶）与 AEI（吸收体）成对。模型进 MDP，在 fracturing 之前或之后应用——之后应用要能改炮尺寸或剂量。签核看的是 AEI 对目标，不是胶边。
 
-与 MEF 的衔接：晶圆看到的是 MPC 之后的残差乘 MEF。MPC 做过头会出现过校正振荡，密区过瘦，同样进 [mask CDU](/litho/mask-cdu）。
+与 MEF 的衔接：晶圆看到的是 MPC 之后的残差乘 MEF。MPC 做过头会出现过校正振荡，密区过瘦，同样进 [mask CDU](/litho/mask-cdu)。
 
 ## 机制
 

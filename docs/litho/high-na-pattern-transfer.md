@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 van Schoot 等 High-NA 成像；Levinson 多层硬掩模；金属氧化物胶的耐干法讨论</footer>
 </div>
 
-[上一课](/litho/underlayer-secondary-electron)把潜像写到薄胶与界面电子。缺口是显影之后：浮雕太矮，直接当器件刻蚀掩模不够。本课钉高 NA 薄胶的图形转印。一层芯片要铺多少张 EUV 版，留给[下一课](/litho/euv-layers-per-node）。
+[上一课](/litho/underlayer-secondary-electron)把潜像写到薄胶与界面电子。缺口是显影之后：浮雕太矮，直接当器件刻蚀掩模不够。本课钉高 NA 薄胶的图形转印。一层芯片要铺多少张 EUV 版，留给[下一课](/litho/euv-layers-per-node)。
 
 ## 问题
 

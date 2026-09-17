@@ -63,7 +63,7 @@ Data Buffer 让训练核不必知道工具协议。生成函数只要最终交�
 
 verl、[NeMo-RL](/llm/nemo-rl) 把多引擎当一等需求，适合要扫 vLLM / SGLang / TRT 的平台组。slime 适合已经押 SGLang 服务、Megatron 训练的组织。Molt 等后续工作在文献里把 slime 归到「Megatron-Core 承诺、编排薄」的一端。没有绝对更快：SGLang 的前缀缓存对多轮共享前缀极有利，对无共享的短提示优势会收窄。选框架先写清检查点与推理栈，再谈行数。
 
-## 边界与工程取舍
+## 边界
 
 不要把「battle-tested by GLM」理解成任意任务的质量保证；那是训练环在真实发布里跑通。不要在未提供 mask 的自定义 generate 里把工具 JSON 送进策略损失。异步长尾例子与默认同步 GRPO 的超参不能混用。CPU 契约测试覆盖的是 hook 的导入路径，不是你的沙箱是否在集群里可复现。
 

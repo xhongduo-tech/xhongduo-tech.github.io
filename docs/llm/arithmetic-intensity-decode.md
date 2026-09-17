@@ -44,11 +44,11 @@ flowchart TD
 
 屋顶线是不等式，不是平均利用率仪表。仪表上的 SM% 低，可能是真的带宽绑定，也可能是核启动太碎、或 [KV 布局](/llm/kv-layout)跨步导致有效带宽远低于峰值。强度分析应配合 profiler 的 HBM 吞吐：若 HBM 已接近峰值而 SM% 低，解释成立；若 HBM 也低，先修布局与占用率（FlashDecoding 切 KV）。Pope 等人强调阶段拆分：同一模型，prefill 与 decode 的 $I$ 可以差一个数量级，服务若用一个并行度套两段，必有一段坐错屋顶。
 
-## 边界与工程取舍
+## 边界
 
 不要用训练的 MFU 估 decode。不要把 FA 的「少写 A」写成「decode 变成 compute-bound」。MoE 只激活部分专家时，$W_{\mathrm{bytes}}$ 是 *被点到的* 专家加注意力权重，强度画像随路由波动——均值会骗人。后课把 $I(B)$ 画成拐点。
 
-出处：Williams et al., CACM 2009；Pope et al., 2022。不发明编号。
+出处：Williams et al., CACM 2009；Pope et al., 2022。
 
 ## 小结
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gregory, Counterparty Credit Risk and Credit Value Adjustment；暴露统计的标准定义对照 Pykhtin & Zhu, GARP, 2007</footer>
 </div>
 
-[CVA 要点](/quant/cva-lite) 在独立假设下把单边 CVA 写成 $\sum \mathrm{DF}(t_i)\,\mathrm{EE}(t_i)\,\Delta Q_i$。本篇写 $\mathrm{EE}(t)$ 这条曲线如何从模拟里造出来，以及 EPE、有效 EPE、PFE 各自进哪张报表。Canabarro–Duffie 与 Pykhtin–Zhu 把暴露过程当成与贷款 EAD 不同的对象：它是净额集市值的正部，随市场因子路径、抵押品与提前终止权变化。Gregory 的 xVA 论述把这条剖面既用于定价也用于解释「CDS 没动、EE 形状变了为何仍亏钱」。不重复单边公式的推导，也不把 DVA/FVA/MVA 在这里展开。
+[上一课](/quant/kmv-dd)收在单一对手方的 EDF；对手方换成组合，本篇算暴露曲线。[CVA 要点](/quant/cva-lite) 在独立假设下把单边 CVA 写成 $\sum \mathrm{DF}(t_i)\,\mathrm{EE}(t_i)\,\Delta Q_i$。本篇写 $\mathrm{EE}(t)$ 这条曲线如何从模拟里造出来，以及 EPE、有效 EPE、PFE 各自进哪张报表。Canabarro–Duffie 与 Pykhtin–Zhu 把暴露过程当成与贷款 EAD 不同的对象：它是净额集市值的正部，随市场因子路径、抵押品与提前终止权变化。Gregory 的 xVA 论述把这条剖面既用于定价也用于解释「CDS 没动、EE 形状变了为何仍亏钱」。不重复单边公式的推导，也不把 DVA/FVA/MVA 在这里展开。
 
 ## 问题
 
@@ -64,7 +64,7 @@ $$
 
 每个路径每个时点全量重估美式结构，成本不可接受。标准是：线性产品闭式或快速重估；香草用公式；取消权用 Longstaff–Schwartz 在暴露模拟的内层回归，或用预先校准的网格。内层若用与前台不同的模型，剖面在波动上的敏感会错。计算预算应优先保证净额集正确、抵押逻辑正确、网格对准支付日，再增加因子个数。用一因子 Hull–White 做全部 IRS 暴露，斜率产品的 EE 会假相关，见 [两因子](/quant/hw-two-factor)。
 
-## 边界与工程取舍
+## 边界
 
 不要用债券面值或贷款 EAD 替代 EE。不要把 PFE 99% 当 CVA 名义。不要在日终抵押余额上假设「永远够券」，合格抵押短缺会让剖面在压力里重新膨胀。不要跨净额集合并正负暴露。国内无 CDS 名字的 $\Delta Q$ 来自映射，剖面再精确，CVA 仍被映射主导，两者要分列敏感度。
 

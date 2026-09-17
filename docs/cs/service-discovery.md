@@ -36,8 +36,6 @@ flowchart TD
   DNS["粗 DNS"] --> ENT["入口"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 失败：注册表分区造成脑裂双池。与 iBGP RR 同类风险。GeoDNS 发现的是 POP，不是 pod。PTP 无。安全：未认证注册会把流量拐走，像 BGP 劫持的数据中心版。
@@ -50,7 +48,7 @@ flowchart TD
 
 无健康检查的发现只是更快的错误 DNS。
 
-上一课留下的缺口在本课收口；「服务发现」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[ping / iperf](/cs/network-measurement)。
+下一课[ping / iperf](/cs/network-measurement)。
 
 ## 小结
 

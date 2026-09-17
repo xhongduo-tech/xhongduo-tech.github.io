@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Cymer / Gigaphoton 公开的 ArF 准分子光源；波长台阶见 [litho-wavelengths](/litho/litho-wavelengths)</footer>
 </div>
 
-[上一课](/litho/resist-strip-ash)收束轨道剥离。成像与胶、轨道已经在补层里；缺口转到**曝光机里面谁发光**。本课是「曝光机子系统」第一课：ArF 准分子激光器。不重推 [瑞利判据](/litho/rayleigh-litho)，也不把浸没水膜再讲一遍——[ArF 浸没](/litho/arf-immersion) 假定光源已经是 193 nm。后课带宽、脉冲能量、气体寿命都默认本课的放电结构。
+[上一课](/litho/complementary-euv)收在互补式 EUV：几何仍是 1D+cut，切孔的剂量与随机往往比长直线更苛刻。DUV 主干与胶、轨道补层到此；缺口转到**曝光机里面谁发光**。本课是「曝光机子系统」第一课：ArF 准分子激光器。不重推 [瑞利判据](/litho/rayleigh-litho)，也不把浸没水膜再讲一遍——[ArF 浸没](/litho/arf-immersion) 假定光源已经是 193 nm。后课带宽、脉冲能量、气体寿命都默认本课的放电结构。
 
 ## 问题
 

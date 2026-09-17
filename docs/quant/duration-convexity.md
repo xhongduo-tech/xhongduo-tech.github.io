@@ -11,7 +11,7 @@ section: quant
     <footer>—— Macaulay, Some Theoretical Problems Suggested by the Movements of Interest Rates..., NBER, 1938；教科书表述见 Hull 与 Fabozzi</footer>
 </div>
 
-Frederick Macaulay 1938 年在 NBER 的研究里引入后来所称的麦考利久期：把债券看成一串现金流，用到期时间的现值权重做平均，得到一个以年为单位的「有效到期」。它最初服务的是利率变动与资产负债匹配，而不是交易台的 01。后来市场把价格对收益率的敏感性写成修正久期（modified duration）：在常用报价惯例下，它等于麦考利久期除以 $1+y/m$。凸性是价格对 $y$ 的二阶导，平行移动很大时，久期线性项低估了普通债券的价格（正凸性）。Hull 把这些对象放进固定收益风险的入门；它们描述的是整条曲线的平行移动，形状风险要交给 [关键利率久期](/quant/key-rate-duration)。
+[上一课](/quant/multi-curve-ois)把折现与投影拆成多条曲线，对冲分列 OIS 01 与基差 01。Frederick Macaulay 1938 年在 NBER 的研究里引入后来所称的麦考利久期：把债券看成一串现金流，用到期时间的现值权重做平均，得到一个以年为单位的「有效到期」。它最初服务的是利率变动与资产负债匹配，而不是交易台的 01。后来市场把价格对收益率的敏感性写成修正久期（modified duration）：在常用报价惯例下，它等于麦考利久期除以 $1+y/m$。凸性是价格对 $y$ 的二阶导，平行移动很大时，久期线性项低估了普通债券的价格（正凸性）。Hull 把这些对象放进固定收益风险的入门；它们描述的是整条曲线的平行移动，形状风险要交给 [关键利率久期](/quant/key-rate-duration)。
 
 ## 问题
 

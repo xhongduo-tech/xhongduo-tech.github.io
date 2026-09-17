@@ -36,8 +36,6 @@ flowchart TD
   NOISE["路由/反向噪声"] --> FAIL["公网 Vegas 失败"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 DCTCP 用 CE 比例，Swift 用 delay，都可浅队列。WFQ 隔离后延迟信号更干净。MPTCP 子流 RTT 不同，延迟信号要分路径。QUIC 可在用户态实现 Vegas 变体。
@@ -50,7 +48,7 @@ DCTCP 用 CE 比例，Swift 用 delay，都可浅队列。WFQ 隔离后延迟信
 
 把 Vegas 当默认公网 CC 会吃亏。
 
-上一课留下的缺口在本课收口；「延迟型拥塞 Vegas / Swift」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[无线上的 TCP](/cs/tcp-wireless)。
+下一课[无线上的 TCP](/cs/tcp-wireless)。
 
 ## 小结
 

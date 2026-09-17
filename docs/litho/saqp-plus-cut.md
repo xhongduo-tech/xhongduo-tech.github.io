@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据一维 SAQP + cut 工艺通称整理</footer>
 </div>
 
-[上一课](/litho/cut-mask-dpt)把切断掩模写成自对准线栅上的第二次图形：切的是线，套刻是切对线。缺口是芯轴已经走了两轮 spacer 的情形——SAQP 的线更密、相更多，切的 $k_1$ 与对准更紧。本课钉 SAQP 加切断。浸没多重的代价账留给[下一课](/litho/duv-multipattern-cost），这里只钉 1D 几何。
+[上一课](/litho/cut-mask-dpt)把切断掩模写成自对准线栅上的第二次图形：切的是线，套刻是切对线。缺口是芯轴已经走了两轮 spacer 的情形——SAQP 的线更密、相更多，切的 $k_1$ 与对准更紧。本课钉 SAQP 加切断。浸没多重的代价账留给[下一课](/litho/duv-multipattern-cost)，这里只钉 1D 几何。
 
 ## 问题
 

@@ -11,8 +11,6 @@ section: cs
 <footer>—— Bernstein, ChaCha, a variant of Salsa20；RFC 8439（ChaCha20-Poly1305）</footer>
 </div>
 
-## 定位
-
 上一课[Feistel 与 DES](/cs/feistel-des)说明旧分组密码的结构债。缺口是**软件平台上的流密码**：AES 在无 AES-NI 时易因查表泄漏，ChaCha 用 ARX 躲开这张表。不重写一次一密，也不把「无表」写成完善保密。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ AES 课的 S 盒在软件里常是内存查表，命中模式可当侧信道。[
 ### nonce 仍不能复用
 
 流密码异或与一次一密同形，复用 nonce 则两段明文之差泄漏。ChaCha 不赦免这条。
-
 
 <span class="marginnote">Bernstein 的 Salsa20/ChaCha。TLS 1.3 与许多移动实现选 ChaCha20-Poly1305 当 AES-GCM 的软件备胎。本课不写利用缓存的测量步骤。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
     XOR --> CT["密文"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 作为 PRG，ChaCha 把短密钥拉成密钥流；完整性要另配 Poly1305 或走 AEAD 包装。它不替代公钥，不替代证书。CPU 有 AES-NI 时 AES-GCM 常更快；无硬件时 ChaCha 更可预测。二者都是计算安全候选。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

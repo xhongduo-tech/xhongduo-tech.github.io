@@ -11,7 +11,7 @@ section: quant
     <footer>—— Guéant, Lehalle and Fernandez-Tapia, Dealing with the Inventory Risk: A Solution to the Market Making Problem under Inventory Constraints, Mathematics and Financial Economics, 2013</footer>
 </div>
 
-[Avellaneda–Stoikov](/quant/avellaneda-stoikov) 在有限地平 $T$ 上把无差异价格写成 $s-q\gamma\sigma^2(T-t)$，最优价差含一项随剩余时间放大的库存风险。全天连续做市时，$T$ 是人为的收盘钟，参数随 $T-t$ 漂移，午盘与尾盘的报价公式看起来像两套策略。Guéant、Lehalle 与 Fernandez-Tapia（2013）把问题改写成：指数效用、指数到达强度、对终端库存的二次（或更一般）惩罚，并给出小库存下的闭式近似。结果是一组围绕公允价、随库存平移的最优距离，宽度主要由 $\gamma,\sigma,\kappa$ 与惩罚强度决定，而不必把「距收盘还有多久」当作状态的第一坐标。本篇写 GLFT 相对 AS 改了哪一条目标、近似解长什么样，以及库存硬约束如何进入。它仍是存货模块，不含毒性。
+[毒性流](/quant/toxic-flow)把偏度交回存货：对知情流要会收手。 [Avellaneda–Stoikov](/quant/avellaneda-stoikov) 在有限地平 $T$ 上把无差异价格写成 $s-q\gamma\sigma^2(T-t)$，最优价差含一项随剩余时间放大的库存风险。全天连续做市时，$T$ 是人为的收盘钟，参数随 $T-t$ 漂移，午盘与尾盘的报价公式看起来像两套策略。Guéant、Lehalle 与 Fernandez-Tapia（2013）把问题改写成：指数效用、指数到达强度、对终端库存的二次（或更一般）惩罚，并给出小库存下的闭式近似。结果是一组围绕公允价、随库存平移的最优距离，宽度主要由 $\gamma,\sigma,\kappa$ 与惩罚强度决定，而不必把「距收盘还有多久」当作状态的第一坐标。本篇写 GLFT 相对 AS 改了哪一条目标、近似解长什么样，以及库存硬约束如何进入。它仍是存货模块，不含毒性。
 
 ## 问题
 
@@ -53,7 +53,7 @@ AS 的 $\gamma\sigma^2(T-t)$ 在 $t$ 靠近 $T$ 时发散式变大，尾盘报�
 
 协方差进入惩罚后，做市标的与对冲期货的库存应在同一 $\theta$ 里。现货多头加期货空头可以降低惩罚，偏度相对净风险而不是相对现货股数。漏记对冲腿会把已经中性的簿再 skew 一遍。交叉到达（买 A 的流与卖 B 的流相关）会再改强度；原文的基准设定往往是独立泊松，实务要按品种对估计，否则多资产闭式只是把 AS 的错误乘上矩阵。
 
-## 边界与工程取舍
+## 边界
 
 算术中间价、单位成交、无成本改价、无队列，与 AS 同一组理想化。FIFO 上每次改价丧失时间优先，连续距离控制高估了可重置性。涨跌停与拍卖要把强度模型换成机制特定的填成。隔夜库存的惩罚应大于日内，否则模型鼓励把风险堆到收盘后。
 

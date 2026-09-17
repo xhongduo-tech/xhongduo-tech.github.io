@@ -36,8 +36,6 @@ flowchart TD
   PEER --> RARE["稀有块优先"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 传输仍是 TCP（或 μTP），拥塞各连接 AIMD，共享接入会互抢——接入 AQM 有帮助。DNS 可找 tracker。加密扩展点名。GeoDNS 不调度块。
@@ -50,7 +48,7 @@ flowchart TD
 
 企业网禁 P2P 端口是政策，不是协议缺陷。
 
-上一课留下的缺口在本课收口；「BitTorrent 与 DHT」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[WebRTC 与 ICE](/cs/webrtc-ice)。
+下一课[WebRTC 与 ICE](/cs/webrtc-ice)。
 
 ## 小结
 

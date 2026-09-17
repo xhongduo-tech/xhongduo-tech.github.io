@@ -11,7 +11,7 @@ section: cs
   <footer>—— 据 Booth, A Signed Binary Multiplication Technique, QJMA 1951；Harris and Harris, Digital Design and Computer Architecture 整理</footer>
 </div>
 
-[上一课](/cs/proof-assistants)把计算理论补层封口：证明是可检查的依值项。本课程改走数字系统——ALU、HDL、DRAM、PCIe——不再谈类型论，也不重写 Transformer、不进限价簿。组成主干的[阵列乘法](/cs/array-multiplier)已把无符号部分积铺开，并明确把有符号与 Booth 排除。缺口是：**补码操作数**如何少做几次加，而不是再画一遍与门阵列。
+[上一课](/cs/privilege-rings)把组成主干停在可编程、可陷阱、分模式的 RISC-V 核：陷入升特权、`mret` 降回，用户改不了自己的陷阱入口。本课程接续这条硬件线——ALU、HDL、DRAM、PCIe——不重写 Transformer，也不进限价簿。组成主干的[阵列乘法](/cs/array-multiplier)已把无符号部分积铺开，并明确把有符号与 Booth 排除。缺口是：**补码操作数**如何少做几次加，而不是再画一遍与门阵列。
 
 ## 问题
 
@@ -51,7 +51,7 @@ flowchart TD
 
 ## 小结
 
-- 计算理论已封口；本课打开算术单元：补码乘的部分积编码。
+- 组成主干已封口；本课打开算术单元：补码乘的部分积编码。
 - Booth：游程变成一次加与一次减；基-4 进一步减条数。
 - 不是先取绝对值；与补码加法器同一套。
 - 出处：Booth, *QJMA*, 1951；Harris and Harris；Patterson and Hennessy, COD (RISC-V)。

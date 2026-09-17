@@ -59,7 +59,7 @@ flowchart TD
 
 <span class="marginnote">后来有文章证明：在纯结果奖励下，无偏与长度不变性不能同时成立。Dr. GRPO 选无偏，GRPO 选某种长度再加权。Done Right 是作者的命名，不是唯一正确的几何。</span>
 
-## 边界与工程取舍
+## 边界
 
 43.3% 绑定 Qwen2.5-Math-7B、MATH 中高难度切片与 Qwen-Math 模板，不是 671B Zero 的复现。Qwen 基座的「无模板暴涨」意味着部分推理可能来自预训练泄漏式问答，外推到 Llama 纯基座会打折。去掉 std 后，奖励量纲跨题不一致时学习率更敏感；0/1 奖励还好，未标准化的 RM 分可能需要全局 batch 标准化——那已经接近 [REINFORCE++](/llm/reinforce-plusplus)。
 

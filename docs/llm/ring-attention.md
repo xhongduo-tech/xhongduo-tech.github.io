@@ -53,7 +53,7 @@ flowchart LR
 
 与 Megatron 序列并行不同：后者切的是 Norm/Dropout 的激活，注意力仍在张量并行组内按头本地算。Ring Attention 切的是注意力可见的序列维本身。与 Ulysses 不同：Ulysses 用 All-to-All 换头，通信图案是全集；环是稀疏邻接、体积按块。
 
-## 边界与工程取舍
+## 边界
 
 解码逐步生成时，每步 $Q$ 只有一个 token，块计算盖不住 KV 环传，Ring Attention 的隐藏假设被破坏。超长 decode 更常见的是分页 KV、多机 KV 池，而不是每步转一圈 KV——那正是 [DistAttention](/llm/distattention) 要避开「传 KV」的原因。Ring Attention 的主场是训练与超长 prefill。
 

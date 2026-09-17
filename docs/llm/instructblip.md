@@ -58,7 +58,7 @@ LLM 侧仍然只看见压缩后的前缀加指令文本。若 Q-Former 已经丢
 
 [LLaVA](/llm/llava-paper) 不压缩 patch，指令只在 LLM 里，视觉侧始终是全图网格；它用 GPT-4 合成对话数据，而不是 26 个学术集的指令改写。Flamingo 用 in-context 示范换任务，视觉抽取（64 latent）不看当前问题。InstructBLIP 用**任务条件压缩**换任务，更接近「一个通用视觉编码器 + 按问题检索」。三者都可以叫 instruction / few-shot，注入点分别在 LLM 前缀网格、LM 层间交叉注意、Q-Former query。
 
-## 边界与工程取舍
+## 边界
 
 冻结 ViT 与 32 query 仍在。held-out 泛化不等于任意用户任务：分布仍靠近学术 VQA 与描述。Vicuna 权重受 LLaMA 许可约束；FlanT5 线更易商用，但对话风格不同。不要把 InstructBLIP 写成「BLIP-2 加了 SFT 数据」——少了指令感知 Q-Former，论文的核心消融不成立。
 

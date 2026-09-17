@@ -11,8 +11,6 @@ section: cs
 <footer>—— 据 Szekeres et al., SoK: Eternal War in Memory, Oakland 2013；对照 CWE-416</footer>
 </div>
 
-## 定位
-
 上一课[JOP](/cs/jop-cop)要函数指针可写。缺口是**堆生命周期**：UAF。本课讲悬挂指针与分配器复用，不给利用堆布局的步骤。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 双重释放
 
 重复 `free` 破坏分配器元数据，下一课专门收。UAF 是「用」；double-free 是「还两次」。
-
 
 <span class="marginnote">Szekeres SoK。ASan 后课检测。本课禁止构造 UAF 利用。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   DANG --> BUG["读泄或写串对象"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 堆把时间轴引进空间安全。下一课分配器自身的元数据：chunk 头被改时，分配器成为原语。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

@@ -53,7 +53,7 @@ flowchart LR
 
 <span class="marginnote">「不用分页」指的是注意力核不用分页，不是系统里没有页。页还在，只是在 GPU 页表里，而不是在 Python 的 `block_table` 里。</span>
 
-## 边界与工程取舍
+## 边界
 
 CUDA 虚拟内存接口的可移植性受硬件与驱动绑定。改 UVM 驱动以支持 $64\,\mathrm{KiB}$ 页，在论文环境里可行，在托管云、封闭驱动或非 NVIDIA 设备上就不是一键开关。不改驱动、只用 $2\,\mathrm{MiB}$ 大页时，碎片可能吃掉「相对预留上限」省下的大部分红利，尤其是大量短请求的解码。此时 PagedAttention 的 $16$–$32$ token 块反而更省。
 

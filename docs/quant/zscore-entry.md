@@ -53,7 +53,7 @@ Elliott 等人把配对写成可观测价差加隐状态的均衡水平，过滤
 
 GGR 的 $c=2$ 绑在形成期 $\sigma$ 上，交易期 $\sigma$ 变了也不改阈值，这是一种反周期性：危机里更容易开仓。滚动 Z-score 相反。PCA 残差的 $z$ 在因子模型重估日会跳，开仓可能来自载荷旋转而不是经济偏离。规格必须冻结：因子更新频率、对齐方法、以及更新日是否禁止新开仓。否则回测里的「Z-score 信号」混进了模型维护日历。
 
-## 边界与工程取舍
+## 边界
 
 不要把 $c$ 的样本内网格搜索结果写成理论最优。不要在 $z$ 上叠加 MACD、布林带宽度再声称仍是 GGR 或 Avellaneda–Lee。A 股涨跌停使 $e_t$ 截断，$\hat\sigma$ 低估，开盘后 $z$ 爆炸式触发。卖空约束下，$z\gt c$ 的空头腿经常缺一腿，策略变成单边，Z-score 的「中性」只存在于信号文件里。
 
@@ -75,7 +75,7 @@ flowchart TD
 ## 小结
 
 - Z-score 开仓把偏离标准化成阈值规则；窗口、均值/波动定义与 $c$ 共同决定换手和净期望，不是单一的「两倍标准差魔法」。
-- GGR 用形成期固定 $\sigma$ 与 $c=2$；OU/Kalman 用均衡波动与时变均值。两者样本内表现不可互换引用。
+- GGR 用形成期固定 $\sigma$ 与 $c=2$；两者样本内表现不可互换引用。
 - 非平稳、肥尾、多重配对与拥挤使名义阈值失效；成本上升时应加宽 $c$，而不是用夏普网格去收窄。
 - 滚动 $\sigma$ 具有顺周期；形成期固定 $\sigma$ 更反周期。必须显式选择并做压力测试。
 - 出处：Gatev, Goetzmann and Rouwenhorst, *RFS*, 2006；Elliott, Van Der Hoek and Malcolm, *Quantitative Finance*, 2005；Avellaneda and Lee, *Quantitative Finance*, 2010。

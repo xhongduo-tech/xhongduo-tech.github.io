@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 MAPPER/IMS 一类晶圆多束直写尝试与掩模多束成功的公开对照</footer>
 </div>
 
-[上一课](/litho/3d-nand-litho-shift)结束节点经济课序。缺口是：能否绕过掩模。本课钉多束电子束直写（晶圆）。干涉光刻作为周期图形的另一条路，留给[下一课](/litho/interference-lithography）。
+[上一课](/litho/3d-nand-litho-shift)结束节点经济课序。缺口是：能否绕过掩模。本课钉多束电子束直写（晶圆）。干涉光刻作为周期图形的另一条路，留给[下一课](/litho/interference-lithography)。
 
 ## 问题
 

@@ -45,7 +45,7 @@ flowchart TD
 
 <span class="marginnote">自奖励（下一课）是把 JUD 换成模型自己；本课仍假设外部序。</span>
 
-## 边界与工程取舍
+## 边界
 
 人类每轮标，贵，很快碰到可扩展监督问题。RM 或 LLM 裁判迭代，便宜，Goodhart 更快。混合：多数对由 AI 标，少数由人校准 RM。无 KL 的 PPO 与在线 DPO 在可验证域上常不如直接 GRPO；本课主场是开放偏好。下一课去掉外部裁判。
 

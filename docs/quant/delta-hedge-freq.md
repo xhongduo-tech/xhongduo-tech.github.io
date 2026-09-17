@@ -11,7 +11,7 @@ section: quant
     <footer>—— Leland, Option Pricing and Replication with Transaction Costs, Journal of Finance, 1985；渐近对冲带见 Whalley and Wilmott 等后续工作</footer>
 </div>
 
-[上一课](/quant/butterfly-calendar-arb)把蝶式非负写成离散凸性、日历约束对齐远期货币性并看总方差；发现违例应回写插值，而不是先改希腊字母。[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 给出每次再平衡要交易的标的数量；[离散对冲误差](/quant/discrete-hedge-error) 给出两次平衡之间误差的渐近形状。缺口是隔多久、或 Delta 偏多远，才再交易一次。连续复制在价差为正时期望成本发散；Leland 把成本写进复制，效用与渐近方法给出无交易带。频率是决策变量。本课写如何选规则，不重复误差公式。
+[上一课](/quant/svi-ssvi)把发布曲面交给 SVI/SSVI 参数化，并提醒动态对冲仍要 Heston、SABR 或局部波动。[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 给出每次再平衡要交易的标的数量；[离散对冲误差](/quant/discrete-hedge-error) 给出两次平衡之间误差的渐近形状。缺口是隔多久、或 Delta 偏多远，才再交易一次。连续复制在价差为正时期望成本发散；Leland 把成本写进复制，效用与渐近方法给出无交易带。频率是决策变量。本课写如何选规则，不重复误差公式。
 
 ## 问题
 
@@ -63,7 +63,7 @@ flowchart TD
   Smile["微笑动态决定目标 Δ"] --> Rule
 ```
 
-## 边界与工程取舍
+## 边界
 
 Leland 修正假设再平衡步长固定、成本与 $|\Delta n|$ 成正比、无跳跃。真实成本有固定费用、冲击非线性、期货换月。渐近带宽在 $\Gamma\to\infty$（到期日平值）时建议几乎连续交易，但那时流动性与钉住风险使公式失效。多资产交叉 Gamma 使「一个带宽」变成椭圆域，实现复杂，实务常对主成分或对期货腿分别设限额。
 

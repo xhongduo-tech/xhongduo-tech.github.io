@@ -11,7 +11,7 @@ section: quant
     <footer>—— ISDA, Standard Initial Margin Model (SIMM) Methodology，公开版本</footer>
 </div>
 
-[SPAN 与 SIMM](/quant/span-simm) 一文对照清算网格与非清算敏感性法的分工。本篇只把 SIMM 的**敏感度聚合**写开：风险类别、桶、集中度、delta 保证金、vega 保证金、曲率项，以及为什么同一套希腊字母在 SIMM 与 [SA-CCR](/quant/sa-ccr-ead) / FRTB SA 里会得到三个不可互换的数。UMR 下双边要对账的是这套公开参数，不是你的 $\Sigma$。它补的是公式结构，不是再讲一遍 SPAN 扫描点。
+[上一课](/quant/wrong-way-risk)把错向跳价记进暴露；本篇回到规则侧，看保证金怎么从敏感度里算出来。[SPAN 与 SIMM](/quant/span-simm) 一文对照清算网格与非清算敏感性法的分工。本篇只把 SIMM 的**敏感度聚合**写开：风险类别、桶、集中度、delta 保证金、vega 保证金、曲率项，以及为什么同一套希腊字母在 SIMM 与 [SA-CCR](/quant/sa-ccr-ead) / FRTB SA 里会得到三个不可互换的数。UMR 下双边要对账的是这套公开参数，不是你的 $\Sigma$。它补的是公式结构，不是再讲一遍 SPAN 扫描点。
 
 ## 问题
 
@@ -63,7 +63,7 @@ Delta 与 vega 分开聚合再相加（另加曲率、以及信用基相关等�
 
 内部 IM 模型（若监管允许替代）可以对冲产品类并吃条件相关，但双边 UMR 的默认语言仍是 SIMM。FRTB SA 同样是敏感性 × 权重 × 相关，但流动性期限、DRC、RRAO 与校准目标都不同，不能把 FRTB 资本当 IM。SA-CCR 的 EAD 用名义与监管 δ，不读 vega 表；同一期权可以在 SIMM 里很贵（vega+曲率）、在 SA-CCR 里只按 δ 与名义附加。三套数字并排监控：融资看 SIMM，信用资本看 SA-CCR 或 [IMM](/quant/imm-eepe)，市场风险资本看 FRTB。优化其中一套去压占用，往往会在另一套上冒出来。
 
-## 边界与工程取舍
+## 边界
 
 不要用内部 $\Sigma$ 替换 SIMM 相关「更风险敏感」——那就不再是标准模型，对手无法对账。不要为降 IM 而把结构拆到产品类的缝里（假拆分、关联方簿记），这是规避而不是配置。不要假设集中度阈值以下相关矩阵已经「承认对冲」：同桶高相关仍可能让 $K_b$ 接近加权绝对值之和。奇异风险必须另有名义或缺口限额。版本号、敏感性定义文档、曲线分桶表应与 CSA / IM 协议引用的 SIMM 版本锁死。
 

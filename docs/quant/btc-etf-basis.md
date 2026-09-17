@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 2024 年起美国上市现货比特币 ETF 的公开说明书、申赎机制与 CME 比特币期货规则整理；ETF 管道对照 Petajisto</footer>
 </div>
 
-2024 年 1 月美国现货比特币 ETF 获批上市（IBIT、FBTC 等，GBTC 从封闭式信托转为开放式 ETF），把比特币的敞口放进证券经纪账户。价格发现从此多了一层：二级份额、一级申赎篮子（比特币或现金）、CME 期货、以及各现货场所。本篇写**基差的分解**：份额对 IOPV/NAV、ETF 对 CME 期货、ETF 对可交割现货。制度前件是 [创建赎回](/quant/etf-create-redeem)；加密腿对照 [期现基差](/quant/crypto-basis-trade) 与 [永续资金](/quant/crypto-perp-funding)。对象是公开净值、申赎清单与期货结算规则，不是跨所延迟撮合。
+[预测市场套利](/quant/prediction-market-arbitrage) 把可执行带收到费用与日历；加密侧的基差还多一层 ETF 结构。2024 年 1 月美国现货比特币 ETF 获批上市（IBIT、FBTC 等，GBTC 从封闭式信托转为开放式 ETF），把比特币的敞口放进证券经纪账户。价格发现从此多了一层：二级份额、一级申赎篮子（比特币或现金）、CME 期货、以及各现货场所。本篇写**基差的分解**：份额对 IOPV/NAV、ETF 对 CME 期货、ETF 对可交割现货。制度前件是 [创建赎回](/quant/etf-create-redeem)；加密腿对照 [期现基差](/quant/crypto-basis-trade) 与 [永续资金](/quant/crypto-perp-funding)。对象是公开净值、申赎清单与期货结算规则，不是跨所延迟撮合。
 
 ## 问题
 
@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">同一发行人的现货比特币 ETF 与以太坊 ETF 不能用同一条基差带子。托管、创建单位、定价源与期货对冲工具都不同。合并报告「加密 ETF 基差」只会让监控阈值失去参照。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要用 GBTC 历史溢价当 IBIT 的回测。不要用非说明书指数代替 NAV。不要假设现金申赎与实物申赎有相同的锁定质量。税务（收集账户、实物赎回的资本利得处理）会改变 AP 的参与意愿，从而改变带子宽度，这是制度变量。CME 持仓限额与基金衍生品使用限制，会使期货对冲腿先于现货腿达到容量。
 

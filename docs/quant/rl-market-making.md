@@ -11,7 +11,7 @@ section: quant
     <footer>—— Ganesh, Vadori, Xu, Zheng, Reddy and Veloso, Reinforcement Learning for Market Making in a Multi-agent Dealer Market, arXiv:1911.05892, NeurIPS 2019</footer>
 </div>
 
-[Avellaneda–Stoikov](/quant/avellaneda-stoikov) 与 [GLFT](/quant/glft-market-making) 把做市收成强度模型上的随机控制：中间价扩散、成交泊松、指数效用，最优报价围绕无差异价格平移。[Cartea–Jaimungal](/quant/cartea-jaimungal) 一脉把订单流、短期 alpha 与模型不确定写进同一套 Hamilton–Jacobi–Bellman（HJB）语言。解析解漂亮，前提也硬：到达强度对外生、竞争者不进入状态、维度一升高格子方法就失效。Ganesh、Vadori、Xu、Zheng、Reddy 与 Veloso（2019）换了一条路：在**交易商市场**（dealer / OTC）里搭多智能体模拟器，用强化学习训练报价与对冲，对照的是均值—方差风格的自适应做市商，而不是把限价簿上的排队博弈写成可部署的抢单程序。本篇写 RL 做市相对 HJB 改了哪一层对象、奖励如何对应 Cartea 的风险度量，以及模拟器里学到的偏度为什么仍不是生产策略。它是存货与竞争模块，不是延迟套利说明书。
+[MOT](/quant/martingale-optimal-transport) 给出模型无关的界；要报出会成交的价，控制问题回到做市。[Avellaneda–Stoikov](/quant/avellaneda-stoikov) 与 [GLFT](/quant/glft-market-making) 把做市收成强度模型上的随机控制：中间价扩散、成交泊松、指数效用，最优报价围绕无差异价格平移。[Cartea–Jaimungal](/quant/cartea-jaimungal) 一脉把订单流、短期 alpha 与模型不确定写进同一套 Hamilton–Jacobi–Bellman（HJB）语言。解析解漂亮，前提也硬：到达强度对外生、竞争者不进入状态、维度一升高格子方法就失效。Ganesh、Vadori、Xu、Zheng、Reddy 与 Veloso（2019）换了一条路：在**交易商市场**（dealer / OTC）里搭多智能体模拟器，用强化学习训练报价与对冲，对照的是均值—方差风格的自适应做市商，而不是把限价簿上的排队博弈写成可部署的抢单程序。本篇写 RL 做市相对 HJB 改了哪一层对象、奖励如何对应 Cartea 的风险度量，以及模拟器里学到的偏度为什么仍不是生产策略。它是存货与竞争模块，不是延迟套利说明书。
 
 ## 问题
 
@@ -55,7 +55,7 @@ Cartea 与 Jaimungal（2015）讨论用方差、指数效用或期望短跌来�
 
 若所有做市商同时用 RL 更新，环境非平稳，收敛到的是某种共同学习动态，不一定是纳什，更不是社会福利意义上的最优流动性供给。Ganesh 的主实验是：**一个** RL 代理人对其余固定或自适应政策学习，这是单智能体在非平稳程度较弱的环境里的最优反应，可解释性更好。若干个 RL 同时学，份额与价差可能螺旋收窄，看起来像竞争改善流动性，也可能是共同过拟合模拟器的随机种子。报告时应钉死对手集合是否在训练中冻结。这与解析侧「给定 $\lambda$，求最优 $\delta$」是同一分层：先固定环境，再谈最优；环境若由自己的同类组成，最优必须改口为均衡。
 
-## 边界与工程取舍
+## 边界
 
 本设定不包含限价簿的时间优先、冰山、隐藏量，也不包含共同定位或消息顺序。那些对象属于市场结构与操守规则，不是本篇的控制问题；公开规则对动作集的约束应写成掩码，见交易 MDP 与 [RTS 6](/quant/mifid-ii-rts6)，而不是靠奖励碰运气去「学合规」。强度与参考价在模拟器里是生成的，实盘里是被估计的：估计误差就是 Cartea 所谓模型风险，RL 不会因为是无模型就消失——它把模型误差从方程系数挪到了模拟器假设上。
 

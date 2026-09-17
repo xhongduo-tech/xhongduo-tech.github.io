@@ -62,7 +62,7 @@ Apple 统一内存让 30B 级量化模型在内存够的 Mac 上变得可行：�
 
 训练、微调、PEFT 仍在 PyTorch。导出 GGUF 是单向交付：merge LoRA、选 quant、写出。运行时改权重（在线 LoRA）能力弱于 vLLM 的多适配器服务。Tokenizer 在 GGUF 元数据里，需与训练时一致，否则 [chat template](/llm/chat-template) 对不上。这是本地助手踩坑最多的一层：量化对了、模板错了，模型像变笨。
 
-## 边界与工程取舍
+## 边界
 
 不要用 llama.cpp 的单请求延迟去对比 vLLM 的高并发吞吐。分子分母都不是同一 SLA。许可证以仓库为准（ggml / llama.cpp 的 MIT 等），模型权重另有各家协议。新架构（MLA、极端 MoE）的第一实现往往先出现在 Python 引擎，ggml 要补算子与量化 kernel，会有窗口期。
 

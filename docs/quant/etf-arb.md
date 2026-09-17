@@ -11,7 +11,7 @@ section: quant
     <footer>—— Petajisto, Inefficiencies in the Pricing of Exchange-Traded Funds, Financial Analysts Journal, 2017</footer>
 </div>
 
-ETF 把一揽子证券包装成可在交易所连续交易的份额，并靠一级市场申赎把价格拉回净值（NAV）。Engle 与 Sarkar 较早测量溢价折价；Marshall、Nguyen 与 Visaltanachoti 提供日内可交易证据；Petajisto 系统比较不同类型 ETF 的偏离。Ben-David、Franzoni 与 Moussawi 则问反向问题：ETF 的二级市场交易是否把冲击传给成分股。套利在这里有两条腿——ETF 对 NAV、ETF 对期货或对相关 ETF——每一条都受 AP 资本、证券可交割性、日内 NAV 滞后与成分股停牌约束。没有这些机制，ETF 只是一只流动性更好或更差的封闭式基金。
+[上一课](/quant/index-arb)停在期货基差的伪偏离与执行摩擦；篮子本身也可以做成可交易的份额。ETF 把一揽子证券包装成可在交易所连续交易的份额，并靠一级市场申赎把价格拉回净值（NAV）。Engle 与 Sarkar 较早测量溢价折价；Marshall、Nguyen 与 Visaltanachoti 提供日内可交易证据；Petajisto 系统比较不同类型 ETF 的偏离。Ben-David、Franzoni 与 Moussawi 则问反向问题：ETF 的二级市场交易是否把冲击传给成分股。套利在这里有两条腿——ETF 对 NAV、ETF 对期货或对相关 ETF——每一条都受 AP 资本、证券可交割性、日内 NAV 滞后与成分股停牌约束。没有这些机制，ETF 只是一只流动性更好或更差的封闭式基金。
 
 ## 问题
 
@@ -47,7 +47,7 @@ Ben-David 等认为，ETF 持股高的股票在 ETF 资金流冲击后波动更�
 
 大盘股票 ETF 的表面容量大，但边缘以基点计，真正约束是篮子里最差成分的深度以及 AP 的创建单位规模。小账户可以只做二级市场的 ETF–ETF 或 ETF–期货，不碰一揽子，但那是另一种基差，与成分股套利不是同一策略。拥挤时，人人按同一 iNAV 下单，ETF 自身的价差先走阔，信号在你成交前消失。债券与商品 ETF 的容量更受一级市场创设时间和底层 OTC 流动性约束，日频「折价回归」往往无法在不移动 NAV 的前提下执行。
 
-## 边界与工程取舍
+## 边界
 
 成本项：ETF 有效价差、篮子有效价差、创建/赎回费、现金替代惩罚、借券、以及部分成交。国际产品还有外汇对锁。不要用 NAV 的会计精度去暗示套利精度。监管与发行人可暂停申赎，收敛机制是或有的。
 

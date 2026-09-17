@@ -38,11 +38,11 @@ flowchart TD
 
 成本模型：云 decode 占用槽位的时间贵；端 decode 电与延迟受 DRAM 限制。最优切分随 $n$、$N$、是否长思维链变。长思维链在端上会先撞容量；应云侧 decode 或缩短链。视觉编码可留端（隐私）或留云（算力），见[视觉流水](/llm/vision-encoder-pipeline)。
 
-## 边界与工程取舍
+## 边界
 
 不要为长文档下发满 KV。不要逐步 token 往返云。安全：KV 含提示信息，下发等于泄漏上下文。下一课：端侧投机——用本地草稿减云上目标的逐步次数。
 
-出处：Patel et al., Splitwise；Kang et al., ASPLOS 2017。不发明 arXiv。
+出处：Patel et al., Splitwise；Kang et al., ASPLOS 2017。
 
 ## 小结
 

@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gross and Souleles, Do Liquidity Constraints and Interest Rates Matter for Consumer Behavior? Evidence from Credit Card Data, Quarterly Journal of Economics, 2002</footer>
 </div>
 
-支付与信用卡面板把消费从季度国民账户拉到日、周频率，并带上商户类别与粗地理。Gross 与 Souleles（2002）用发卡行账户证明流动性约束与利率对消费和负债的因果影响。Ganong 与 Noel（2019）用授权的支票账户流水研究失业后的支出路径。Baker、Farrokhnia、Meyer、Pagel 与 Yannelis（2020）以及 Chetty、Friedman、Hendren、Stepner 与 Opportunity Insights 团队在疫情期间把交易数据做成近实时的消费追踪。这些论文的共同点是：**在严格的数据使用协议下研究聚合支出**，回答宏观与家庭金融问题。资产定价侧的延伸是用类别支出的现在时去预测零售、旅游、餐饮等公司的营收意外。本篇只在这一研究传统里写：样本代表性、滞后与修订、以及为什么「卡流水预测同店」常常只是把即将公布的官方系列提前几天，而不是可重复的横截面 alpha。不涉及如何获取个人交易或如何识别持卡人。
+[卫星与地理](/quant/satellite-geo)把场外观测收在 vintage 与增量上。支付与信用卡面板把消费从季度国民账户拉到日、周频率，并带上商户类别与粗地理。Gross 与 Souleles（2002）用发卡行账户证明流动性约束与利率对消费和负债的因果影响。Ganong 与 Noel（2019）用授权的支票账户流水研究失业后的支出路径。Baker、Farrokhnia、Meyer、Pagel 与 Yannelis（2020）以及 Chetty、Friedman、Hendren、Stepner 与 Opportunity Insights 团队在疫情期间把交易数据做成近实时的消费追踪。这些论文的共同点是：**在严格的数据使用协议下研究聚合支出**，回答宏观与家庭金融问题。资产定价侧的延伸是用类别支出的现在时去预测零售、旅游、餐饮等公司的营收意外。本篇只在这一研究传统里写：样本代表性、滞后与修订、以及为什么「卡流水预测同店」常常只是把即将公布的官方系列提前几天，而不是可重复的横截面 alpha。不涉及如何获取个人交易或如何识别持卡人。
 
 ## 问题
 
@@ -51,7 +51,7 @@ Gross–Souleles 与 Ganong–Noel 的价值是因果：信用额度、失业救
 
 家庭金融文献能发表，是因为数据在协议下匿名、结果以回归系数与图的形式出现，而不是可倒推到账户。量化研究应把特征停在「类别–地区–周」或供应商提供的公司指数上。更细的粒度会迅速变成再识别风险，也超出资产定价所需要的信噪比：公司营收本身就是全国或大区聚合。
 
-## 边界与工程取舍
+## 边界
 
 不要把记账 App 的年轻用户样本当成中国或美国全体消费。不要用未授权的个人流水。不要把同步相关（消费与股市同跌）写成预测。跨境旅游与多币种清算会使商户国家与消费发生地不一致。手续费与汇率使「金额」不等于需求量；在通胀期应尽可能用交易笔数或数量指数作稳健性。
 

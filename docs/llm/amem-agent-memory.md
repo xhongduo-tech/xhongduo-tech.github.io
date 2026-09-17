@@ -56,7 +56,7 @@ flowchart TD
 
 <span class="marginnote">GPT-4o 上单跳 F1：LoCoMo 全文 61.56，A-Mem 48.43——局部事实有时仍是「把原文放进窗口」赢。A-Mem 的卖点是长时间题与 token 预算，不是所有切片都优于全文。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 论文复现器与生产库
 

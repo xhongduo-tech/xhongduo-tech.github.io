@@ -53,12 +53,12 @@ section: quant
 
 ```mermaid
 flowchart LR
-  subgraph bidSide [买盘]
+  subgraph bidSide["买盘"]
     B3["b3 更低价"]
     B2["b2"]
     B1["b1 最优买"]
   end
-  subgraph askSide [卖盘]
+  subgraph askSide["卖盘"]
     A1["a1 最优卖"]
     A2["a2"]
     A3["a3 更高价"]

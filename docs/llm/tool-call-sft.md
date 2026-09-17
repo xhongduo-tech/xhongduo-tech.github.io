@@ -52,7 +52,7 @@ SFT 改变的是：在「该用工具」的前缀上，把质量从散文移到�
 
 <span class="marginnote">OpenAI 兼容协议里的 `tools` / `tool_choice` 是推理旋钮。评测「训练是否成功」时必须声明这些字段，否则 auto 下合理的不调用会被标成失败。对照 [constrained-decoding](/llm/constrained-decoding)：解码约束补格式，SFT 补时机与接地。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 合成轨迹的上限是执行器与教师模型
 

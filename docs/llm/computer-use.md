@@ -53,7 +53,7 @@ GUI 工具并不改变 Transformer 内部的注意力公式。训练或指令数
 
 <span class="marginnote">相关工作分层：接地（SeeClick 等）测「点哪」；网页任务（WebArena）测浏览器里的功能正确；OSWorld 测跨应用真实桌面。computer use 是把后两者需要的动作接口产品化。引用时写清测的是哪一层。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 隔离环境是能力叙述的前提
 

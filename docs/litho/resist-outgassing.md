@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 ASML 与抗蚀剂厂商对 EUV 胶放气 / 光学污染的公开讨论整理</footer>
 </div>
 
-[上一课](/litho/euv-secondary-electron)把二次电子产额写成潜像核。缺口是同一套膜在真空扫描时还会挥发：碳氢与酸、配体碎片打到投影镜的 Mo/Si 多层膜上，反射率与 flare 一起坏。本课钉放气。随机缺孔留给[下一课](/litho/stochastic-holes），不在这里用平均 CD 代替缺陷尾。
+[上一课](/litho/euv-secondary-electron)把二次电子产额写成潜像核。缺口是同一套膜在真空扫描时还会挥发：碳氢与酸、配体碎片打到投影镜的 Mo/Si 多层膜上，反射率与 flare 一起坏。本课钉放气。随机缺孔留给[下一课](/litho/stochastic-holes)，不在这里用平均 CD 代替缺陷尾。
 
 ## 问题
 

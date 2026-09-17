@@ -59,7 +59,7 @@ flowchart TD
   ROOT --\gt  DIFF
 ```
 
-## 边界与工程取舍
+## 边界
 
 不要把 flip 当盘中支撑去交易：那超出公开识别，也把快照根当成固定位。不要在个股薄链上解根：OI 稀疏、IV 噪声会使 $\mathrm{GEX}(S)$ 乱跳。不要混用 SPX 与 SPY 的 $S$ 而不换算。A 股没有同构的经销商 Gamma 披露，画「A 股 gamma flip」需要另一套持仓假设。
 

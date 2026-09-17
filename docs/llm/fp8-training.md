@@ -58,7 +58,7 @@ flowchart TD
 
 <span class="marginnote">ZeRO / FSDP All-Gather 的对象必须与 TE 存储约定一致：Gather 来的是 BF16 主副本再量化，还是已经 FP8 的片，决定通信体积与 scale 归属。跨阶段流水时，amax 窗口在 microbatch 之间的更新顺序要固定，否则数值随流水深度漂。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 与推理 FP8、下一代块缩放分家
 

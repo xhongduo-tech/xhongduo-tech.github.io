@@ -57,7 +57,7 @@ KV 是连续批能「连续」起来的物质条件。成员进出时，结束�
 
 <span class="marginnote">不要把连续批处理理解成「动态改变模型的 batch norm 统计」或「训练里的 dynamic batching」。训练的动态批通常是为了凑 token 数；推理的连续批是为了在未知 $T$ 的生成过程中保持 GPU 忙。优化器不在回路里。</span>
 
-## 边界与工程取舍
+## 边界
 
 连续批不是自动公平。队列若按到达序，长 decode 会长期占着 KV 槽，短请求的 TTFT 被槽位耗尽拖住——这是 [抢占](/llm/preemption-fairness) 要补的洞。它也不是自动满足 SLA：吞吐上去了，单条的 TPOT 可能因批变大、因混入 prefill 而变差。容量规划应同时看：平均 $\lvert\mathcal{B}\rvert$、KV 池占用、TTFT 分位数、TPOT 分位数。只报吞吐，会选出永远把批填满的配置。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 改写自 ASML / Cymer 公开材料；光源物理见 Bakshi, EUV Lithography</footer>
 </div>
 
-[上一课](/litho/complementary-euv)（互补式 EUV）。EUV 光刻机不是「有一台 13.5 nm 激光器」。中间焦点（intermediate focus, IF）要的是数百瓦、2% 带宽内的极紫外，而且要能连续打几十亿次、碎屑可控。放电等离子体（DPP）走过样机，量产选的是激光等离子体（laser-produced plasma, LPP）：液滴发生器把直径约 20–30 μm 的锡滴送到焦点，主激光是 10.6 μm 的脉冲 CO₂，把锡电离到 Sn⁸⁺–Sn¹⁴⁺ 一带，未分辨跃迁阵列正好覆盖多层膜窗口。本篇写锡滴、CO₂ 驱动和收集几何；[预脉冲](/litho/euv-prepulse)把转换效率从约 1% 抬到约 5–6%，[收集镜](/litho/zeiss-euv-optics)把 2π 附近的光送到 IF。
+[上一课](/litho/scanner-calibration-cycle)把剂量、焦点与网格钉成校准周期，曝光机子系统课程收到那里；本课起一门新课——EUV 与 ASML。EUV 光刻机不是「有一台 13.5 nm 激光器」。中间焦点（intermediate focus, IF）要的是数百瓦、2% 带宽内的极紫外，而且要能连续打几十亿次、碎屑可控。放电等离子体（DPP）走过样机，量产选的是激光等离子体（laser-produced plasma, LPP）：液滴发生器把直径约 20–30 μm 的锡滴送到焦点，主激光是 10.6 μm 的脉冲 CO₂，把锡电离到 Sn⁸⁺–Sn¹⁴⁺ 一带，未分辨跃迁阵列正好覆盖多层膜窗口。本篇写锡滴、CO₂ 驱动和收集几何；[预脉冲](/litho/euv-prepulse)把转换效率从约 1% 抬到约 5–6%，[收集镜](/litho/zeiss-euv-optics)把 2π 附近的光送到 IF。
 
 ## 问题
 
@@ -65,7 +65,7 @@ flowchart TD
   DEB --> H2["氢气清除"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 LPP 不把 13.5 nm 变成「便宜的短波长灯」。激光器本身是十千瓦级工业系统，滴发生器是真空里的精密流体力学，收集镜是消耗品。CE 的几个百分点是整机功耗与热负荷的杠杆：激光墙插功率远高于 IF 的数百瓦，工厂电力、冷却和水都按这个倍数准备。换氙或固体靶以图「更干净」，通常会在 CE 或重复频率上立刻出局。
 

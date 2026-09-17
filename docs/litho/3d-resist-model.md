@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照三维抗蚀剂剖面模拟与紧凑 2D 轮廓签核的公开讨论</footer>
 </div>
 
-[上一课](/litho/model-residual-analysis)在 2D EPE 上诊断残差。缺口是转印与电学有时对侧壁和剩余厚度敏感：塌缩、开口不足、硬掩模打穿。本课钉三维胶模型。刻蚀核如何标定，留给[下一课](/litho/etch-model-calibration）。
+[上一课](/litho/model-residual-analysis)在 2D EPE 上诊断残差。缺口是转印与电学有时对侧壁和剩余厚度敏感：塌缩、开口不足、硬掩模打穿。本课钉三维胶模型。刻蚀核如何标定，留给[下一课](/litho/etch-model-calibration)。
 
 ## 问题
 

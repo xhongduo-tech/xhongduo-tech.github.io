@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照参数良率与 CD 控制；Levinson 对 CDU 与电学的衔接</footer>
 </div>
 
-[上一课](/litho/yield-learning-curve)把缺陷学习画完。缺口是电学分布：均值 CD 在规格内，尾巴上的管芯时序失败。[CDU](/litho/cdu-etch-bias) 与 [EPE](/litho/edge-placement-error) 已有纳米账；本课钉参数良率。可靠性与潜在图形缺陷，留给[下一课](/litho/reliability-patterning-defects）。
+[上一课](/litho/yield-learning-curve)把缺陷学习画完。缺口是电学分布：均值 CD 在规格内，尾巴上的管芯时序失败。[CDU](/litho/cdu-etch-bias) 与 [EPE](/litho/edge-placement-error) 已有纳米账；本课钉参数良率。可靠性与潜在图形缺陷，留给[下一课](/litho/reliability-patterning-defects)。
 
 ## 问题
 

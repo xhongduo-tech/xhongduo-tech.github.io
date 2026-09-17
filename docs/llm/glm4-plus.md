@@ -57,7 +57,7 @@ Plus 的公开机制只有两句：合成改分布，PPO 改偏好与解题。�
 
 <span class="marginnote">4.5 报告评测截止 2025-07-28：TAU-Bench 70.1%，AIME 24 91.0%，SWE-bench Verified 64.2%，综合 ARC 平均第 3。数字钉日期；事后他模型会改排序。</span>
 
-## 边界与工程取舍
+## 边界
 
 Plus 不可本地对齐层表；不要用 4.5 的 160 专家去解释 2024 年的 Plus。4.5 开源权重很大，Air 才是 100B 级可碰的 MoE。Muon 与 QK-Norm 在移植时必须按报告，不能当标准 AdamW Llama。All Tools 是 GLM-4 报告的对齐线，4.5 的 Agent 是 ARC 里的工具与浏览，评测集不同。
 

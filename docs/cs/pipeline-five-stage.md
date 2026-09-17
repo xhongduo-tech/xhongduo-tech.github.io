@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Patterson and Hennessy, Computer Organization and Design (RISC-V) 整理</footer>
 </div>
 
-[上一课](/cs/privilege-rings)把异常入口收进特权级：用户态不能直接碰 CSR 和页表。[单周期数据通路](/cs/privilege-rings)已经能在一个时钟里跑完一条 RISC-V 整数指令，[多周期与微程序直觉](/cs/multicycle-microcode)已经承认可以把取指、译码、执行拆开。本课不重画 ALU，也不从「处理器是什么」另起。缺口是：单周期的时钟被最长路径钉死；多周期解放了周期，却把功能单元闲置。本课只把通路切成五级并重叠。
+[上一课](/cs/isa-abi-boundary)把 ISA 钉成硬件合同、ABI 钉成软件互调合同：同一 ISA 可带多份 ABI，扩展集写进目标三元组。[单周期数据通路](/cs/single-cycle-datapath)已经能在一个时钟里跑完一条 RISC-V 整数指令，[多周期与微程序直觉](/cs/multicycle-microcode)已经承认可以把取指、译码、执行拆开。本课不重画 ALU，也不从「处理器是什么」另起。缺口是：单周期的时钟被最长路径钉死；多周期解放了周期，却把功能单元闲置。本课只把通路切成五级并重叠。
 
 ## 问题
 
@@ -33,7 +33,7 @@ flowchart LR
   MEM --> WB["WB 写回"]
 ```
 
-控制仍来自[控制器真值表](/cs/control-truth-table)，只是信号随指令在寄存器里向后传，而不是在一拍里驱动整条通路。本课假定指令存储器与数据存储器暂时可同时访问；做不到时就是下一课的结构冒险。
+控制仍来自[控制器真值表](/cs/control-truth-table)，只是信号随指令在寄存器里向后传，而不是在一拍里驱动整条通路。本课假定指令存储器与数据存储器暂时可同时访问；做不到时就是后面[结构冒险](/cs/structural-hazard)一课的缺口。
 
 ## 机制
 

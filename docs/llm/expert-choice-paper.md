@@ -48,7 +48,7 @@ flowchart TD
 
 下一篇 z-loss 对照稳定训练；EC 本身减轻均衡损失，但不自动解决 logit 爆炸。不要把「不用辅助损失」写成 EC 的全部贡献——那是负载几何，不是数值尺度。
 
-## 边界与工程取舍
+## 边界
 
 小 $T$（微 batch）时 top-$C$ 统计崩溃。packing 跨样本会让专家跨句抢 token，论文设定若为单句 / 规范 batch，搬到 LLM packing 必须加掩码。生成任务要用 token-choice 近似，训练–推理差是一等限制。
 

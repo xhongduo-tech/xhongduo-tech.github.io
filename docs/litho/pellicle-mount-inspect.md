@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 DUV pellicle 安装惯例；EUV 膜见 ASML pellicle 公开材料与 Bakshi</footer>
 </div>
 
-[上一课](/litho/mask-repair-ebeam)把可修缺陷补完。缺口是上机前还要罩膜：DUV 有机膜成熟，EUV 膜是另一份热与透过合同。本课钉安装与检验。装好后如何用空中像鉴定打印，留给[下一课](/litho/aims-mask-qualification）。
+[上一课](/litho/mask-repair-ebeam)把可修缺陷补完。缺口是上机前还要罩膜：DUV 有机膜成熟，EUV 膜是另一份热与透过合同。本课钉安装与检验。装好后如何用空中像鉴定打印，留给[下一课](/litho/aims-mask-qualification)。
 
 ## 问题
 

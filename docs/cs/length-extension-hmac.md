@@ -11,8 +11,6 @@ section: cs
 <footer>—— Krawczyk, Bellare and Canetti, HMAC, RFC 2104；Bellare, Canetti and Krawczyk 的分析</footer>
 </div>
 
-## 定位
-
 上一课[海绵](/cs/sha3-sponge)从结构上弱化了长度扩展。缺口是：SHA-2 仍是 MD，**裸哈希不能当 MAC**。主干[MAC 与签名](/cs/mac-signature)已点名 HMAC；本课把长度扩展收成机制。不给伪造操作步骤。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 海绵也不要用裸 $H(k\|m)$ 凑合
 
 KMAC 按海绵合同拌密钥。算法换了，域分离不能省。
-
 
 <span class="marginnote">RFC 2104。安全归约依赖压缩函数的 PRF 性质（Bellare 后来的证明）。本课不提供长度扩展的字节级配方。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   OUTH --> TAG["MAC 标签"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 MAC 证明持有 $k$ 的人认过消息。长度扩展说明「抗碰撞哈希」≠「带密钥认证」。HMAC 把 PRF 需求放到哈希上，工程上可换 SHA-256/SHA-3。签名仍是非对称，下一课生日界先回来管碰撞。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

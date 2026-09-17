@@ -11,8 +11,6 @@ section: cs
 <footer>—— McGrew and Viega, The Galois/Counter Mode；NIST SP 800-38D</footer>
 </div>
 
-## 定位
-
 上一课[ChaCha20](/cs/chacha20)给出软件密钥流。主干[分组模式](/cs/block-modes)已把 GCM 当 AEAD 名字。缺口是**内部**：CTR 与 GHASH 如何咬合，附加数据（AAD）为何不加密却进标签。[MAC 与签名](/cs/mac-signature)的 Encrypt-then-MAC 在此收成单一原语。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 标签失败即拒绝
 
 解密先验标签；失败则不释放明文。把失败当「再试试填充」会重开预言机——下一课。
-
 
 <span class="marginnote">SP 800-38D 限制同一密钥下 nonce 不得重复。96 比特 nonce 最常见。GHASH 不是抗碰撞哈希；它是带密钥的通用哈希，安全靠密钥保密与 nonce 唯一。</span>
 
@@ -42,13 +39,9 @@ flowchart TD
   GH --> T["认证标签"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 AEAD 把[CIA](/cs/cia-triad)的 C 与 I 绑到同一密钥与同一 nonce。主动改密文或 AAD 会使标签失败。它仍假设密钥未泄漏、实现常数时间、nonce 不重复。公钥与身份不在本课。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

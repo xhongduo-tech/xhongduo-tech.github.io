@@ -11,7 +11,7 @@ section: quant
 <footer>—— Easley, López de Prado & O'Hara, Discerning Information from Trade Data, Journal of Financial Economics, 2016</footer>
 </div>
 
-[Lee–Ready](/quant/lee-ready) 要逐笔对照报价，贵、吵、还依赖 BBO 对齐。[VPIN](/quant/vpin) 需要的却是每个成交量桶里的买量与卖量，并不需要知道桶内第十七笔是谁主动。Easley、López de Prado 与 O'Hara 把这件事收成 **Bulk Volume Classification (BVC)**：在[成交量 bar](/quant/volume-bars)（或时间桶、金额桶）上，用标准化价格变化的正态 CDF 当买方成交量比例。本篇写 BVC 作为分类器本身——公式、σ 的估计、它与 tick 规则的系统偏差——而不把 VPIN 的毒性叙事再写一遍。
+[Ellis–Michaely–O'Hara](/quant/emo-trade-sign)把逐笔分类的评估收在按落点分层上；逐笔本身太贵。 [Lee–Ready](/quant/lee-ready) 要逐笔对照报价，贵、吵、还依赖 BBO 对齐。[VPIN](/quant/vpin) 需要的却是每个成交量桶里的买量与卖量，并不需要知道桶内第十七笔是谁主动。Easley、López de Prado 与 O'Hara 把这件事收成 **Bulk Volume Classification (BVC)**：在[成交量 bar](/quant/volume-bars)（或时间桶、金额桶）上，用标准化价格变化的正态 CDF 当买方成交量比例。本篇写 BVC 作为分类器本身——公式、σ 的估计、它与 tick 规则的系统偏差——而不把 VPIN 的毒性叙事再写一遍。
 
 ## 问题
 
@@ -64,7 +64,7 @@ flowchart TD
 
 <span class="marginnote">金额桶与股数桶给出不同的 $z$。高价股一笔金额大，等金额桶更短；低价股相反。跨股票比较 BVC 份额前，必须锁定体积单位，否则比较的是采样频率，不是信息。</span>
 
-## 边界与工程取舍
+## 边界
 
 开盘集合竞价、涨跌停、停牌复牌：$\Delta P$ 受制度截断，$\Phi$ 失真，这些桶应丢弃或改用 tick 规则。多市场把同一套利腿记进两个桶，BVC 会把对冲交易读成双倍单边。$\sigma$ 窗口太短，分类抖动；太长，体制切换后份额迟迟不极化。不要用闪崩单日去标定 $V$ 与 $\sigma$ 窗再声称样本外有效。
 

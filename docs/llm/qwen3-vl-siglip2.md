@@ -62,7 +62,7 @@ flowchart LR
 
 Qwen2-VL 的 DFN ViT 同样来自对比/数据筛选传统，只是检查点与损失细节不同。家族迁移（DFN → 从零 ViT → SigLIP-2）说明骨干是可替换模块，真正跨版本稳定的是动态分辨率、merger 与语言模型侧的位置方案，而不是某一份 ViT 权重。<span class="marginnote">SO-400M 与 Large-300M 的差别是容量配对，不是「小模型用残缺骨干」。两套都从官方 SigLIP-2 初始化，只是宽度与 LLM 侧更匹配。换错检查点会在 merger 输入维上直接对不齐。</span>
 
-## 边界与工程取舍
+## 边界
 
 SigLIP-2 的预训练分布仍偏网页图文对，化学结构式、乐谱、极端倾斜证件不在对比数据的中心。这些能力更多来自后续 OCR 合成与伪标注，不能假设换骨干就自动会解析 SMILES 或五线谱。冻结 SigLIP-2 只训 merger，对齐快但文档任务会顶在视觉表示的天花板上；Qwen3-VL 在对齐阶段之后解冻编码器，是承认天花板要被继续训抬高。
 
@@ -74,4 +74,4 @@ SigLIP-2 的预训练分布仍偏网页图文对，化学结构式、乐谱、�
 - Qwen3-VL 以 SigLIP-2 初始化视觉编码器，默认 SO-400M，2B/4B 用 Large 约 300M，并在动态分辨率上继续训。
 - 适配手段是 2D-RoPE 与绝对位置插值；下游仍接 MLP merger 与 DeepStack，而不是把 text tower 留到推理。
 - 骨干可换：Qwen2-VL 用 DFN ViT，Qwen2.5-VL 从零训 ViT，不能把某一版的层表当成全系列常数。
-- 出处：Zhai 等，SigLIP，2023；Tschannen 等，SigLIP-2，2025；Qwen3-VL 技术报告；对照 Wang 等 Qwen2-VL（2024）与 Qwen2.5-VL 技术报告的视觉初始化。
+- 出处：Zhai 等，SigLIP，2023；Qwen3-VL 技术报告；对照 Wang 等 Qwen2-VL（2024）与 Qwen2.5-VL 技术报告的视觉初始化。

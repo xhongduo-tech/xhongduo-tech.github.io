@@ -71,7 +71,7 @@ $$
 
 与 [KIVI](/llm/kivi) 的相邻故事：KV 也有通道异常值，但 KIVI 量化的是缓存不是权重，轴也不一样。不要把 AWQ 的 $s$ 直接套到 KV 上。
 
-## 边界与工程取舍
+## 边界
 
 AWQ 仍是权重量化。大 batch 的 prefill 若算力墙在 INT8 Tensor Core，W8A8 的 SmoothQuant 可能吞吐更高。小模型、短上下文上，反量化开销能吃掉 4-bit 的带宽收益。lm_head、嵌入有时留高精度，否则词表投影先糊。分组大小与核布局必须和推理引擎一致；Hugging Face 上的 AWQ 包、LMDeploy、TensorRT-LLM 的 AWQ 路径在尺度存放上可能不同，不能只看「都叫 AWQ」。
 

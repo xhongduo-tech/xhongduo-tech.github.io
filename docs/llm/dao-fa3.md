@@ -54,7 +54,7 @@ flowchart LR
 
 SageAttention 面向消费级 INT8 与通道平滑，常把 PV 留在较高精度。FA3 的 FP8 走 Hopper，配分块量化与正交打散，目标包含训练场景。硬件、数值手法、是否宣称与 FA2 同级误差均不同。4090 的 INT8 数字与 H100 的 FP8 PFLOPs 不能合表。
 
-## 边界与工程取舍
+## 边界
 
 ### 没有 TMA/WGMMA 就没有这条调度的原意
 

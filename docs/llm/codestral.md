@@ -56,7 +56,7 @@ flowchart TD
 
 Codestral Mamba 是 7B 级状态空间代码模型，架构不是 22B Transformer，不要混名。Large 2 博客写自己在 Codestral 经验上提高了通用旗舰的代码比例——那是数据经验迁移，Large 仍是通用模型，FIM 与 80 语言代码专用混合仍以 Codestral 为准。不要把 22B 写成 32B，也不要写成 MoE。
 
-## 边界与工程取舍
+## 边界
 
 无官方层表与 token 量附录。评测图是 Mistral 流水线；第三方 HumanEval 复制可能有差。32K 满窗 prefill 对 IDE 仍太贵，生产补全要用前缀缓存、单文件或检索片段。安全：代码模型会补出有漏洞或授权不当的片段，许可证扫描与 SAST 不能省。MNPL 与后来 Codestral 版本的许可可能改，以当时卡片为准。
 

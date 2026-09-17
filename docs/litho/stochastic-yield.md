@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 De Bisschop / Naulleau 对随机失效的公开论述；[随机工艺窗口](/litho/stochastic-process-window) 已切第二张窗</footer>
 </div>
 
-[上一课](/litho/systematic-vs-random-defects)拆开系统与随机。缺口是随机内部：颗粒关键面积解释不了「同一孔阵列、剂量仍在均值窗内」的打开失败。[随机窗](/litho/stochastic-process-window) 与 [z 因子](/litho/stochastic-z-factor) 已有物理；本课钉它如何进良率，不重推 RLS 三角。光学与电子束如何看见这些缺陷，留给[下一课](/litho/defect-inspection-optical-ebeam）。
+[上一课](/litho/systematic-vs-random-defects)拆开系统与随机。缺口是随机内部：颗粒关键面积解释不了「同一孔阵列、剂量仍在均值窗内」的打开失败。[随机窗](/litho/stochastic-process-window) 与 [z 因子](/litho/stochastic-z-factor) 已有物理；本课钉它如何进良率，不重推 RLS 三角。光学与电子束如何看见这些缺陷，留给[下一课](/litho/defect-inspection-optical-ebeam)。
 
 ## 问题
 

@@ -71,7 +71,7 @@ flowchart TD
 
 光学 CPO、定制 HBM 与 A16 同属 2028 菜单，量产风险独立：节点良率、HBM 底座、光学封装任何一项滑期，都会让「A16 原型成功」无法变成「Feynman 机柜到货」。
 
-## 边界与工程取舍
+## 边界
 
 本篇不写：Feynman 的 TFLOPS、HBM 容量、TDP、晶体管数、SRAM、NVLink 速率。不写「已流片成功」或具体步进编号——没有官方原型报告。不把 TSMC 相对 N2P 的 PPA 乘到 Rubin 的产品峰值上得到一张假的 Feynman 表。不把 Intel 18A 背面供电的产品经验直接当成 A16 GPU 的热设计。
 

@@ -53,7 +53,7 @@ flowchart LR
 
 <span class="marginnote">「All = 70.0」是三路都算进去的 MIRACL 平均。线上若关闭多向量，应引用 Dense 67.8 或 Dense+Sparse 68.9，不要继续写 70.0。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 一个模型三路，不等于一路免费
 

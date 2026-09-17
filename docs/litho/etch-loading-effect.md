@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照宏负荷 / 微负荷产线通称；[深宽比与负荷](/litho/etch-loading-ar) 已给几何定义</footer>
 </div>
 
-[上一课](/litho/anisotropy-passivation)指出钝化随开口率变。缺口是集成尺度：芯片上 SRAM 阵列、逻辑、划片槽、dummy 的开口率差，把 CD 和剖面拉成一张密度图。[ARDE 课](/litho/etch-loading-ar) 已钉宏/微负荷；本课不重写到达概率，而钉**设计填充、dummy 与腔体匹配如何管理负载**。刻蚀偏置如何回写 OPC，留给[下一课](/litho/etch-bias-opc-loop）。
+[上一课](/litho/anisotropy-passivation)指出钝化随开口率变。缺口是集成尺度：芯片上 SRAM 阵列、逻辑、划片槽、dummy 的开口率差，把 CD 和剖面拉成一张密度图。[ARDE 课](/litho/etch-loading-ar) 已钉宏/微负荷；本课不重写到达概率，而钉**设计填充、dummy 与腔体匹配如何管理负载**。刻蚀偏置如何回写 OPC，留给[下一课](/litho/etch-bias-opc-loop)。
 
 ## 问题
 

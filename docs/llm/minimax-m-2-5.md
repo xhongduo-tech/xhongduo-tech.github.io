@@ -58,7 +58,7 @@ Office Skills 在 MiniMax Agent 的 MAX 模式里按文件类型加载，再与�
 
 从 10 月末到 2 月，M2 → M2.1 → M2.5，官方用 SWE-Bench Verified 的斜率对比 Claude / GPT / Gemini 家族。机制解释是 RL 环境数量（「公司里大多数任务都做成了环境」）与 Forge 吞吐，而不是换注意力公式。M1 的 Lightning Attention 混合核与 M2 的全注意力 MoE 不是同一对象；不要把 M1 的 1M 窗口默认抄到 M2.5——NVIDIA 模型卡一类第三方页写过约 196K 上下文，**以 MiniMax 当时模型卡为准**。
 
-## 边界与工程取舍
+## 边界
 
 新闻里大量分数来自内部集（VIBE-Pro、RISE、GDPval-MM、金融建模）。内部集有设计者偏差；对外引用应优先 SWE / BrowseComp 并抄脚手架脚注。Terminal Bench 2 改了部分 Dockerfile、统一超时与空响应重试，与别人的 2.0 表不可直接比。BrowseComp 在用量超窗口 30% 时丢弃全部历史，管理策略是分数的一部分。权重开源与否、MIT 还是 Modified-MIT，以仓库 LICENSE 为准（M2.5 常见 MIT / modified-mit 表述，后续 M2.7 许可更紧）。
 

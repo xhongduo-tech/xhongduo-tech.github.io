@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据产线 CD-SEM 计量通称：resist shrink、charging 与边缘算法偏置</footer>
 </div>
 
-[上一课](/litho/cd-sem-scatterometry)把 CD 分成 SEM 局部形貌与散射测量平均剖面，并已经点名收缩与充电。缺口是把这两类伪影写成可操作的计量误差，而不是再比较一次「谁更准」。穆勒矩阵 OCD 留给[下一课](/litho/ocd-mueller）。套刻标记仍不出场。
+[上一课](/litho/cd-sem-scatterometry)把 CD 分成 SEM 局部形貌与散射测量平均剖面，并已经点名收缩与充电。缺口是把这两类伪影写成可操作的计量误差，而不是再比较一次「谁更准」。穆勒矩阵 OCD 留给[下一课](/litho/ocd-mueller)。套刻标记仍不出场。
 
 ## 问题
 

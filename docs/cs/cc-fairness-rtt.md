@@ -36,8 +36,6 @@ flowchart TD
   FAST --> SHARE["占更多瓶颈"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 Clos 内 RTT 同质，RTT 不公平不明显，incast 主导。公网 IXP 出口混流则明显。MSS 钳制让长 RTT 流每加一步字节更少，雪上加霜。多路径 MPTCP 后课可把子流 RTT 再搅一次。
@@ -50,7 +48,7 @@ Clos 内 RTT 同质，RTT 不公平不明显，incast 主导。公网 IXP 出口
 
 指责用户「窗口太大」之前先看 RTT 差。
 
-上一课留下的缺口在本课收口；「RTT 不公平」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[AQM：RED 与 CoDel](/cs/aqm-red-codel)。
+下一课[AQM：RED 与 CoDel](/cs/aqm-red-codel)。
 
 ## 小结
 

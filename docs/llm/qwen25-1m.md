@@ -61,7 +61,7 @@ flowchart TD
 
 <span class="marginnote">YaRN 温度与 DCA 一起用时，短序列行为应保持不变，这是报告明确写出的产品约束：1M 权重在短任务上不能明显弱于 128K 版。</span>
 
-## 边界与工程取舍
+## 边界
 
 开源只有 7B/14B Instruct-1M，没有 72B-1M 权重；Turbo 是 API MoE，不可当开源稠密的隐藏档。生成长度 8K，1M 是输入侧。部署必须走匹配的 vLLM / 官方框架：无 DCA 时 1M 相对位置 OOD；无分块 prefill 时激活先爆；无稀疏时 1M 注意力时间不可用。MInference 的离线头配置换模型要重搜。量化 KV 在早期集成里受限，规划显存不能抄常规 128K 的量化表。
 

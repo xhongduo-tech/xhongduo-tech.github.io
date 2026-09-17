@@ -37,8 +37,6 @@ flowchart TD
   L7 --> BE
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 连接迁移：L4 钉四元组，QUIC 迁移要 CID 感知（下一课 Maglev 相关）。PFC 与 LB 无关。SYN flood 打在 L4 VIP 上，cookies 可在 LB。度量：最少连接 vs 轮询，极化类似 ECMP 大象。
@@ -51,7 +49,7 @@ flowchart TD
 
 把有状态会话只放一台且无粘滞，用户会随机丢登录。
 
-上一课留下的缺口在本课收口；「L4 / L7 负载均衡」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[Maglev](/cs/maglev-lb)。
+下一课[Maglev](/cs/maglev-lb)。
 
 ## 小结
 

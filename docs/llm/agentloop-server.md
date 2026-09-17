@@ -60,7 +60,7 @@ Server 模式能加速，是因为引擎看到的是请求流而不是「必须�
 
 SGLang 的 program / OpenAI 工具调用可以在引擎内跑循环，训练框架看不到 token 边界。AgentLoop 把循环拉回 Python，引擎变纯生成器，便于打日志、接沙箱、写单元测试。代价是多一次 RPC。延迟敏感的单 token 工具（本地计算器）RPC 占比高；高延迟检索则可忽略。不要两者各写一半循环。
 
-## 边界与工程取舍
+## 边界
 
 不要用 Chat Completions 打分再拿文本训练。不要在 Loop 里 `decode` 后改几个字符再 `encode` 当模型输出。自定义 Loop 必须返回与训练 batch 对齐的 mask，否则 PPO 会在观察上更新。`agent_name` 配错会把工具任务送进 SingleTurn，表现为「从不调工具」而不是报错。多 server 的 tokenizer 必须与训练进程字节级一致，包括 special tokens。
 

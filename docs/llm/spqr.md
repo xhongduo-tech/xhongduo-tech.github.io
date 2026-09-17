@@ -62,7 +62,7 @@ $s_{ij}\propto (w_{ij}-\mathrm{quant}(w_{ij}))^2 / (H^{-1})_{ii}$：取整残差
 
 <span class="marginnote">与 SqueezeLLM 的分工：SpQR 停在 OBS / 层输出，网格仍偏均匀加分组；SqueezeLLM 用 OBD / 终局 Fisher 做非均匀质心，稀疏更稀。同场比必须对齐平均比特与是否含元数据。</span>
 
-## 边界与工程取舍
+## 边界
 
 SpQR 是权重量化，不解决 W8A8 prefill。细分组 + 稀疏让 CUDA 核变两支，实现质量决定「15% 加速」能否复现；没有专用核就只剩省显存。校准域仍是 C4 一类文本，代码或指令模型应重标离群。与 SparseGPT 不同：SparseGPT 在中等稀疏率下联合剪枝加量化；SpQR 的稀疏是**高精度例外**，不是把大部分权重置零。Falcon / LLaMA 上的 $\lt$1% 相对 PPL 不要外推到任意 1B 级或 MoE。
 

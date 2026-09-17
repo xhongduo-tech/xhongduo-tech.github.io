@@ -11,7 +11,7 @@ section: quant
     <footer>—— Kelly, Pruitt & Su, Characteristics Are Covariances: A Unified Model of Risk and Return, Journal of Financial Economics, 2019</footer>
 </div>
 
-静态 PCA 假定载荷不随时间变，也不利用市值、估值、盈利这些公司特征。特征模型则常常只解释均值：每月截面把收益对特征回归，并不问这些特征是否进入协方差。Bryan Kelly、Seth Pruitt 与 Yinan Su 的工具主成分分析（Instrumented Principal Component Analysis, IPCA）把两句话焊在一起：$\beta_{it}$ 由预先可知的特征 $z_{i,t-1}$ 工具化，因子 $f_t$ 仍从收益面板里抽。本篇写约束如何识别时变载荷、与无约束 PCA 以及 Fama–French 风格因子如何对照，以及「特征是协方差」这句话不要理解成「特征不是错误定价」。
+[上一课](/quant/giglio-xiu)把潜因子接上可观测因子，主成分没有名字、载荷也不带特征。静态 PCA 假定载荷不随时间变，也不利用市值、估值、盈利这些公司特征。特征模型则常常只解释均值：每月截面把收益对特征回归，并不问这些特征是否进入协方差。Bryan Kelly、Seth Pruitt 与 Yinan Su 的工具主成分分析（Instrumented Principal Component Analysis, IPCA）把两句话焊在一起：$\beta_{it}$ 由预先可知的特征 $z_{i,t-1}$ 工具化，因子 $f_t$ 仍从收益面板里抽。本篇写约束如何识别时变载荷、与无约束 PCA 以及 Fama–French 风格因子如何对照，以及「特征是协方差」这句话不要理解成「特征不是错误定价」。
 
 ## 问题
 
@@ -77,7 +77,7 @@ $f_t$ 本身一般不可直接当期货交易，但可以用对 $\hat\beta_{it}$
 
 <span class="marginnote">IPCA 不能自动解决数据挖掘。往 $z$ 里塞进几十个特征，Γ 会记住样本内的协方差。特征集应预指定，并做样本外：$t$ 之前估 Γ，在 $t$ 的截面上评定价误差。把 300 个异常都当工具，只是把多重检验挪到了 Γ 的行上。</span>
 
-## 边界与工程取舍
+## 边界
 
 缺失特征、停牌、退市使 $z$ 与 $R$ 的样本不一致，需要同步筛选，避免用「还活着的公司」的特征去拟合已退市收益。特征尺度差几个数量级，应截面标准化，否则 Γ 被市值一类的水平量主导。非线性（特征的平方、交叉）可以扩 $z$，立刻增加弱识别与过拟合风险。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Naulleau 二次电子模糊；Kozawa 电离产酸；Levinson 底层功能</footer>
 </div>
 
-[上一课](/litho/euv-resist-absorption)把膜厚和吸收系数锁在一起。缺口是膜下面那一层：事件不仅生于胶内吸收，也生于底层射上来的二次电子。[EUV 底层](/litho/euv-underlayer) 已列功能栈；[二次电子产额](/litho/euv-secondary-electron) 已给产额语言。本课把两者收成设计旋钮。高 NA 下这张薄栈如何转印，留给[下一课](/litho/high-na-pattern-transfer）。
+[上一课](/litho/euv-resist-absorption)把膜厚和吸收系数锁在一起。缺口是膜下面那一层：事件不仅生于胶内吸收，也生于底层射上来的二次电子。[EUV 底层](/litho/euv-underlayer) 已列功能栈；[二次电子产额](/litho/euv-secondary-electron) 已给产额语言。本课把两者收成设计旋钮。高 NA 下这张薄栈如何转印，留给[下一课](/litho/high-na-pattern-transfer)。
 
 ## 问题
 

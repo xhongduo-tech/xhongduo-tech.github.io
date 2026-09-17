@@ -61,7 +61,7 @@ Token 零覆盖等于一层随机深度，但选择集由专家门控决定：�
 
 Decode 时退回 token-choice（当前 token 取 top-$k$）是常见折中，训练–推理路由不一致。缓解包括：训练后期逐步把 EC 退火回 token-choice；或在 prefill 用 EC、decode 用 token-choice（prefill 有完整 $T$）。质量是否可接受，取决于不一致发生在哪些层——底层路由更像词法，不一致伤害更大。不要默认「训练 EC、服务 Switch」零成本。
 
-## 边界与工程取舍
+## 边界
 
 EC 擅长「专家数大、batch 内 token 足够多、$C$ 不是极小整数」的预训练。$T$ 太小（微 batch、短序列）时 top-$C$ 的统计失去意义，$C=1$ 退化成每个专家只抓一个 token，大量 token 零覆盖。多模态交错序列里视觉 token 与文本 token 的分数尺度不同，列上 top 会系统偏向某一模态，需要分模态配额，否则「负载均衡」只是把槽填满，填的全是图或全是字。
 

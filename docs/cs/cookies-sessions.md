@@ -36,8 +36,6 @@ flowchart TD
   SID["不透明会话 ID"] --> SRV["服务器会话表"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 CDN 缓存必须对 `Cookie` 与 `Set-Cookie` 正确 `Vary`，否则串会话——后课 CDN 层次。H2/H3 多请求共享连接，Cookie 仍按请求头。NAT 后 IP 不能当身份。TLS 入口提供机密，Cookie 提供关联。
@@ -50,7 +48,7 @@ CDN 缓存必须对 `Cookie` 与 `Set-Cookie` 正确 `Vary`，否则串会话—
 
 把整份用户档案放进 Cookie 会超大小且泄露。
 
-上一课留下的缺口在本课收口；「Cookie 与会话」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[内容协商与压缩](/cs/content-negotiation)。
+下一课[内容协商与压缩](/cs/content-negotiation)。
 
 ## 小结
 

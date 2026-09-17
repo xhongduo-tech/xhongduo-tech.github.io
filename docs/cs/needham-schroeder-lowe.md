@@ -11,8 +11,6 @@ section: cs
 <footer>—— Needham and Schroeder, 1978；Lowe, Breaking and Fixing the Needham-Schroeder Public-Key Protocol, TACAS 1996</footer>
 </div>
 
-## 定位
-
 上一课[ProVerif/Tamarin](/cs/protocol-verification)要一个经典标本。缺口就是 **NS 公钥协议与 Lowe 修正**：认证对应性失败的最小例子。软件安全下一单元从这里离开协议逻辑，进入内存。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ A 与 B 交换加密 nonce。攻击者 I 让 A 以为在和 I 谈，同时让 B 
 ### 符号攻击≠实现包
 
 本课不给报文级利用。要的是：设计时把身份放进认证消息，再用工具查对应性。
-
 
 <span class="marginnote">Needham–Schroeder 1978 还有对称密钥版与服务器。Lowe 1996 针对公钥版。这是协议验证课的标准例。</span>
 
@@ -39,13 +36,9 @@ flowchart TD
   LOWE["密文内写入对端名"] --> FIX["Lowe 修正"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 身份单元封口：令牌、会话、联邦、因素、形式化，最后用 NSL 说明最小补丁。下一课程单元软件安全：栈上的比特如何破坏「进程按源码语义执行」这一假设。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

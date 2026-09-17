@@ -66,7 +66,7 @@ flowchart TD
 
 *Various Lengths, Constant Speed*（Qin 等人，arXiv:2405.17381）把 Lightning Attention 配上 TransNormerLLM：SimpleRMSNorm、LRPE 等。MiniMax-01 再把它放进 4560 亿 MoE、七层线性加一层 softmax。百万上下文是系统工程（混合层、并行、数据）而不只是 Triton 核。本篇只要求记住：没有块间右乘，线性注意力在因果训练里会先输给 FA 的墙钟，理论复杂度帮不上忙。
 
-## 边界与工程取舍
+## 边界
 
 Lightning 不恢复 softmax 的尖峰拷贝。纯线性栈在针测与精确检索上通常要混层。衰减 $\lambda$ 若全局固定，长程要么全忘要么全糊；数据依赖门控是 GLA / Mamba-2 / Gated DeltaNet 的主题。块大小 $B$ 必须对齐 SRAM 与 Tensor Core；$B$ 太大，块内二次又回来；$B$ 太小，启动开销压过线性项。
 

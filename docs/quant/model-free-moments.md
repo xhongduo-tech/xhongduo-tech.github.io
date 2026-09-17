@@ -11,7 +11,7 @@ section: quant
     <footer>—— Britten-Jones and Neuberger, Option Prices, Implied Price Processes, and Stochastic Volatility, Journal of Finance, 2000；Bakshi, Kapadia and Madan, Review of Financial Studies, 2003</footer>
 </div>
 
-[方差互换复制](/quant/var-swap-replication) 把二次变差的期望写成 $1/K^2$ 加权的虚值香草。[波动互换](/quant/var-vs-vol-swap) 说明开方不再模型无关。本篇把 Carr–Madan 的一般 $f$ 用到幂函数上：Mark Britten-Jones 与 Anthony Neuberger 给出扩散下与欧式面相容的模型无关隐含波动；Gurdip Bakshi、Nikunj Kapadia 与 Dilip Madan 把风险中性偏度、峰度写成看涨看跌对执行价的积分。不重复对数条带的逐步权重，不把 [Heston 特征函数](/quant/heston-cf) 的矩爆炸当成这里的公式。
+[上一课](/quant/risk-reversal-skew)停在 RR 的报价惯例；偏度背后的隐含矩，本篇给全积分式。[方差互换复制](/quant/var-swap-replication) 把二次变差的期望写成 $1/K^2$ 加权的虚值香草。[波动互换](/quant/var-vs-vol-swap) 说明开方不再模型无关。本篇把 Carr–Madan 的一般 $f$ 用到幂函数上：Mark Britten-Jones 与 Anthony Neuberger 给出扩散下与欧式面相容的模型无关隐含波动；Gurdip Bakshi、Nikunj Kapadia 与 Dilip Madan 把风险中性偏度、峰度写成看涨看跌对执行价的积分。不重复对数条带的逐步权重，不把 [Heston 特征函数](/quant/heston-cf) 的矩爆炸当成这里的公式。
 
 ## 问题
 
@@ -67,7 +67,7 @@ Lee 的矩公式把微笑翼斜率与风险中性矩的存在阶连起来：翼�
 
 <span class="marginnote">「模型无关」不是「与动态无关的一切」。到期分布的矩无关动态；二次变差的期望在有跳时有关。BJN 的假设比 BKM 的幂矩更严。</span>
 
-## 边界与工程取舍
+## 边界
 
 短到期深度虚值流动性差，短端隐含偏度噪声极大，不宜当高频信号。长到期折现与分红假设主导四阶。不要把 BKM 偏度与 25d RR 画成同一序列而不加说明：后者是两点 IV 差，前者是积分。不要用 Heston 特征函数在 $u=0$ 的导数去「验证」无模型矩还声称独立——若模型已拟合该面，当然接近；那是拟合质量，不是新信息。
 

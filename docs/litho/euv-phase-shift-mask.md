@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 EUV PSM / 衰减相移的公开探索；Levinson 对相移掩模的一般框架</footer>
 </div>
 
-[上一课](/litho/low-n-absorber)把 n 拉近 1，为的是少付相位税。缺口是相反的策略：有意保留并设计相位，做成相移掩模（PSM），换 NILS。钌帽层如何保护这块膜堆，留给[下一课](/litho/ruthenium-capping）。
+[上一课](/litho/low-n-absorber)把 n 拉近 1，为的是少付相位税。缺口是相反的策略：有意保留并设计相位，做成相移掩模（PSM），换 NILS。钌帽层如何保护这块膜堆，留给[下一课](/litho/ruthenium-capping)。
 
 ## 问题
 

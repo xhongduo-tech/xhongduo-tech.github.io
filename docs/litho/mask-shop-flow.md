@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 SEMI 掩模制造流程的公开分段：blank、write、inspect，以及 pellicle 出货</footer>
 </div>
 
-[上一课](/litho/china-litho-supply-chain)把扫描仪自主拆成胶、光源、镜头和许可档位。缺口是掩模这条平行工业：晶圆厂下单的是一张合格的版，不是国产替代百分比。本课按空白–写入–检验走一遍，不重写 JSR 或蔡司。胶供应商名单留给[下一课](/litho/resist-vendors）。
+[上一课](/litho/china-litho-supply-chain)把扫描仪自主拆成胶、光源、镜头和许可档位。缺口是掩模这条平行工业：晶圆厂下单的是一张合格的版，不是国产替代百分比。本课按空白–写入–检验走一遍，不重写 JSR 或蔡司。胶供应商名单留给[下一课](/litho/resist-vendors)。
 
 ## 问题
 

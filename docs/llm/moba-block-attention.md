@@ -62,7 +62,7 @@ Flash 变长路径避免为每个块 pad 到 $B$。Online softmax 保证一个�
 
 <span class="marginnote">Llama-8B-1M-MoBA 从 128K 续训到 1M 用了位置插值。RULER 128K 上 MoBA 相对满注意力仍有约 3 分差距（0.77 vs 0.80）。引用「接近满注意力」要带上稀疏度与是否 decode 满注意力。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 路由错误不可由 softmax 纠正
 

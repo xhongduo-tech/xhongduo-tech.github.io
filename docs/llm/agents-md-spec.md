@@ -59,7 +59,7 @@ flowchart TD
 
 AGENTS.md 放永远为真的项目事实。按文件类型才生效的约定放 `.mdc` glob。逐步展开的操作手册放技能包（描述常驻、正文按需）。工具接线上放 [MCP](/llm/mcp-design)。四层一起堆满窗口，等于没分层。官方强调与 README 分离，正是为了让人类文档保持短，让代理文档可以具体到命令行。
 
-## 边界与工程取舍
+## 边界
 
 没有 schema 意味着无法在 CI 里静态证明「Never」被遵守。若需要机检，把禁令写成 linter 或预提交钩子，AGENTS.md 只指向那条命令。Team Rules 可在 Cursor 仪表盘强制，那是厂商能力，不是 AGENTS.md 规范的一部分；引用时分开。全球 `~/.cursor/AGENTS.md` 不是文档承诺的位置。
 

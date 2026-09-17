@@ -55,7 +55,7 @@ Generated 是刚抽出的摘要；被后续任务引用才进入 Activated；语
 
 <span class="marginnote">Judge 分数依赖 GPT-4o-mini 与提示；F1 / ROUGE 上 MemOS 并非每一列都高于 Mem0（单跳 F1 45.55 对 47.26）。引用时分列，不要只报总体 73.31。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 操作系统类比的硬边界
 

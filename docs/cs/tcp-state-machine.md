@@ -38,8 +38,6 @@ flowchart TD
   ES --> RST["RST 到 CLOSED"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 SYN 泛洪把 SYN-RCVD 队列填满，下一课 cookies。LACP 与路由变化不改状态机，只改路径。抓包排障：看标志位对状态，比看窗口更先。incast 不改状态，只改拥塞变量。
@@ -52,7 +50,7 @@ SYN 泛洪把 SYN-RCVD 队列填满，下一课 cookies。LACP 与路由变化�
 
 把 TIME_WAIT 当泄漏而全局关，会制造旧段串连接。
 
-上一课留下的缺口在本课收口；「TCP 状态机」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[SYN cookies](/cs/syn-cookies)。
+下一课[SYN cookies](/cs/syn-cookies)。
 
 ## 小结
 

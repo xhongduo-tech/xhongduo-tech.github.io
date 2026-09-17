@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Easley, López de Prado, O'Hara 对成交量时钟的论述，以及 López de Prado, Advances in Financial Machine Learning 对不平衡条的构造</footer>
 </div>
 
-日历 K 线把一天切成等长格子，[事件时间](/quant/event-time) 按消息或成交计数前进，等体积条则每累积固定股数封一桶——[VPIN](/quant/vpin) 用的就是后一种时钟。成交量不平衡条（volume imbalance bars, VIB）再往前一步：桶的边界不再由「已经成交了 $V$ 股」单独决定，而由带符号成交量的累积何时越过阈值决定。方向持续的时候，同样的日历时段会被切成更多条；来回洗刷、符号对冲的时候，一条可以跨过很长的墙钟。本篇写这种采样的定义、阈值如何随历史更新、以及它相对等体积桶与 [盘口不平衡](/quant/order-imbalance) 的分工。它是研究用的时钟，不是一份保证能挖出 alpha 的因子配方。
+[Tick Imbalance Bars](/quant/tick-imbalance-bars)按笔累积带符号不平衡；把每笔换成它的股数，就到了本课。日历 K 线把一天切成等长格子，[事件时间](/quant/event-time) 按消息或成交计数前进，等体积条则每累积固定股数封一桶——[VPIN](/quant/vpin) 用的就是后一种时钟。成交量不平衡条（volume imbalance bars, VIB）再往前一步：桶的边界不再由「已经成交了 $V$ 股」单独决定，而由带符号成交量的累积何时越过阈值决定。方向持续的时候，同样的日历时段会被切成更多条；来回洗刷、符号对冲的时候，一条可以跨过很长的墙钟。本篇写这种采样的定义、阈值如何随历史更新、以及它相对等体积桶与 [盘口不平衡](/quant/order-imbalance) 的分工。它是研究用的时钟，不是一份保证能挖出 alpha 的因子配方。
 
 ## 问题
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— 据 Microsoft Qlib 文档与 Yang et al. 对 Qlib 作为量化投研平台的描述</footer>
 </div>
 
-开源投研框架要解决的不是再写一个梯度提升，而是让数据版本、特征定义、训练切分与回测假设能被同一套配置钉住。Microsoft Qlib 把这些环节收成：二进制数据层、表达式特征、可插拔模型、实验记录与简单回测。[点时基本面](/quant/point-in-time) 与 [前视](/quant/look-ahead-bias) 是它声称要处理的核心风险；[金融交叉验证](/quant/cv-leakage-finance) 则是它未必替你做完的部分。本篇写 Qlib 作为研究架构：数据如何落盘、工作流如何保证可复现、以及它的回测与 [事件驱动引擎](/quant/event-driven-backtest) 之间差哪一层。它不提供可交易的内置策略，也不把示例因子的历史曲线当成容量证明。
+[Apache Arrow](/quant/apache-arrow) 把金融字段落成零拷贝的表；把整条研究流水线钉住的框架，Qlib 是其一。开源投研框架要解决的不是再写一个梯度提升，而是让数据版本、特征定义、训练切分与回测假设能被同一套配置钉住。Microsoft Qlib 把这些环节收成：二进制数据层、表达式特征、可插拔模型、实验记录与简单回测。[点时基本面](/quant/point-in-time) 与 [前视](/quant/look-ahead-bias) 是它声称要处理的核心风险；[金融交叉验证](/quant/cv-leakage-finance) 则是它未必替你做完的部分。本篇写 Qlib 作为研究架构：数据如何落盘、工作流如何保证可复现、以及它的回测与 [事件驱动引擎](/quant/event-driven-backtest) 之间差哪一层。它不提供可交易的内置策略，也不把示例因子的历史曲线当成容量证明。
 
 ## 问题
 

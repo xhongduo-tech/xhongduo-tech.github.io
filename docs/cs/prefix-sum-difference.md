@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms；Sedgewick and Wayne, Algorithms 整理</footer>
 </div>
 
-[上一课](/cs/cache-side-channel)把微结构进阶收到 cache 组相联的副作用上。主干里[数组与随机访问](/cs/array-random-access)已经给出按下标 $\Theta(1)$ 读写，但没有把「一段连续下标的合计」收成预处理结构。本课起数据结构进阶：不重开推测执行，也不重讲地址公式。缺口是：静态数组上的区间和、以及区间加完再读点值——用前缀和与差分数组，而不是每次扫描。后课默认已经读完这里：静态区间和是 $O(1)$ 查询，$O(n)$ 预处理。
+[上一课](/cs/planar-graph)把平面图直觉钉下：简单平面图 $m=O(n)$，来自欧拉公式与面的度数，表示仍是稀疏邻接。主干里[数组与随机访问](/cs/array-random-access)已经给出按下标 $\Theta(1)$ 读写，但没有把「一段连续下标的合计」收成预处理结构。本课起数据结构进阶：不重开推测执行，也不重讲地址公式。缺口是：静态数组上的区间和、以及区间加完再读点值——用前缀和与差分数组，而不是每次扫描。后课默认已经读完这里：静态区间和是 $O(1)$ 查询，$O(n)$ 预处理。
 
 ## 问题
 

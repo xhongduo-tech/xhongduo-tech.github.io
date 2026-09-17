@@ -11,8 +11,6 @@ section: cs
 <footer>—— Bertoni, Daemen, Peeters and Van Assche, Cryptographic sponge functions；NIST FIPS 202</footer>
 </div>
 
-## 定位
-
 上一课[Merkle–Damgård](/cs/merkle-damgard)的链接值即摘要前缀。缺口是**另一族**：Keccak 海绵，SHA-3 与 SHAKE。不重写碰撞三条性质，只换构造。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ MD 的最终摘要往往就是链状态（或截断但仍泄漏可继续的状�
 ### SHAKE 是 XOF
 
 挤出可任意长，当 PRG 式派生时要换域分离，避免与哈希同一上下文。
-
 
 <span class="marginnote">FIPS 202。Keccak 置换是 1600 比特。本课不把 SHA-3 写成「SHA-2 被破所以必须换」——SHA-2 仍广泛安全；SHA-3 是结构多样性。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   SQ --> DIG["摘要或 XOF"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 容量 $c$ 对应安全边际：内部有不输出的部分。这服务抗碰撞与原像，前提是 $f$ 像随机置换。它不自动给 MAC；密钥如何拌进海绵，是域分离问题，下一课与 HMAC 一起收。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

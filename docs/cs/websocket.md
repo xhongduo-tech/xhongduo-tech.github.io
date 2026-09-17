@@ -36,8 +36,6 @@ flowchart TD
   WS --> S2C["服务器推"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 负载均衡要粘会话，因状态在连接上——后课 L4/L7。反向代理须理解 Upgrade，否则 400。心跳：ping/pong 帧，比 TCP keepalive 更适合应用。TSO 对小消息帮助有限。
@@ -50,7 +48,7 @@ flowchart TD
 
 防火墙只懂 GET 文件时 Upgrade 会被剥。
 
-上一课留下的缺口在本课收口；「WebSocket」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[SSE 与服务器推送](/cs/sse-server-push)。
+下一课[SSE 与服务器推送](/cs/sse-server-push)。
 
 ## 小结
 

@@ -11,7 +11,7 @@ section: quant
     <footer>—— Hagan, Kumar, Lesniewski and Woodward, Managing Smile Risk, Wilmott, 2002；无套利 SABR 密度见同一作者组后续工作，2014</footer>
 </div>
 
-[SABR](/quant/sabr) 的交付是固定到期上的摄动微笑，[校准](/quant/sabr-calib) 在 ATM 与 25-delta 附近把 $\alpha,\rho,\nu$ 对齐。交易与风控还要回答网格之外的执行价：数字期权的远翼、方差互换的 $1/K^2$ 积分、以及内部模型需要的宽支撑。Hagan、Kumar、Lesniewski、Woodward 2002 年的领头项在 $|\ln(K/F)|$ 大、$\nu\sqrt{T}$ 大时可以破坏凸性：隐含波动下弯，[Gatheral 密度核](/quant/gatheral-arb-free) $g(k)$ 变负。本篇写翼部为什么不能「接着用公式」、Lee 矩给的斜率上界、以及文献里两类公开修法——切断后接无套利参数化，或解简化的向前方程得到正密度。它不替代整张 [SVI](/quant/svi-ssvi) 曲面，也不把高阶展开当成无套利证明。
+[上一课](/quant/heston-feller)收在为贴短端弯曲而违反 Feller、代价要写明。[SABR](/quant/sabr) 的交付是固定到期上的摄动微笑，[校准](/quant/sabr-calib) 在 ATM 与 25-delta 附近把 $\alpha,\rho,\nu$ 对齐。交易与风控还要回答网格之外的执行价：数字期权的远翼、方差互换的 $1/K^2$ 积分、以及内部模型需要的宽支撑。Hagan、Kumar、Lesniewski、Woodward 2002 年的领头项在 $|\ln(K/F)|$ 大、$\nu\sqrt{T}$ 大时可以破坏凸性：隐含波动下弯，[Gatheral 密度核](/quant/gatheral-arb-free) $g(k)$ 变负。本篇写翼部为什么不能「接着用公式」、Lee 矩给的斜率上界、以及文献里两类公开修法——切断后接无套利参数化，或解简化的向前方程得到正密度。它不替代整张 [SVI](/quant/svi-ssvi) 曲面，也不把高阶展开当成无套利证明。
 
 ## 问题
 
@@ -66,7 +66,7 @@ $\beta=0$ 或移位 SABR 改变的是现货坐标的边界：利率可以非正�
 
 <span class="marginnote">方差互换、Corridor 方差、数字期权对翼的权重不同。同一条外推对香草可能「看不见问题」，对 $1/K^2$ 积分已经差一个价差。验收外推要用对翼敏感的标准产品，而不是只用 ATM 残差。</span>
 
-## 边界与工程取舍
+## 边界
 
 2002 年论文管理的是微笑风险的中段语言。2014 年前后的无套利 SABR 是对密度正性的修补，不是把摄动变成精确解。SVI/SSVI 在单切片与跨期上更直接地接受 Gatheral 约束，常被用作发布层。选择 SABR 外推还是直接发布 SVI，取决于交易是否仍用 $\alpha,\beta,\rho,\nu$ 对话：利率与外汇做市往往保留 SABR 语言，股票指数香草更常直接 SVI。无论哪种，翼部都不能默认为「公式的自然延拓」。
 

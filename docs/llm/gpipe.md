@@ -69,7 +69,7 @@ flowchart LR
 
 PipeDream 用 1F1B 与权重暂存减空转、改激活驻留，并允许阶段内再数据并行。Megatron 后来采用的 PipeDream-Flush 在每个全局 batch 仍同步更新，但稳定段交替前向与反向，激活从 $O(m)$ 收到约 $O(k)$。GPipe 是同步流水线的语义起点：先全部前向再全部反向。实现库（Lingvo 等当时栈）与今天的 Megatron Core `ScheduleGPipe` 同名同调度，数值细节以各自代码为准。
 
-## 边界与工程取舍
+## 边界
 
 只能切「序列化」的层堆。MoE 的专家分支、encoder-decoder 交叉注意力的不规则依赖，要额外切缝。重计算与 $m$ 同时开时，step 时间可能通信盖不住。GPipe 不管张量并行：单层仍然完整，超宽 FFN 仍可能单卡放不下，必须叠 [Megatron-LM](/llm/megatron-lm)。两条实验的 SOTA 是 2018–2019 视觉/NMT，不是现代 MMLU。
 

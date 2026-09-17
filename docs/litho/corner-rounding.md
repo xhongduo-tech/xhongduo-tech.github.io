@@ -11,7 +11,7 @@ section: litho
 <footer>—— 二维傅里叶低通；光刻拐角与邻近见 Mack</footer>
 </div>
 
-[上一课](/litho/forbidden-pitch)处理了周期性一维（及阵列）的 TCC 谷。缺口是非周期二维：**凸角与凹角**在设计上是 90°，印出来是圆弧，SRAM 与逻辑拐弯处的 CD 和间距都按圆弧走。主干 OPE 已点名拐角圆化；本课把它接到 circ–jinc 骨架。边缘放置误差留给[下一课](/litho/edge-placement-error）。不出 OPC 衬线表。
+[上一课](/litho/forbidden-pitch)处理了周期性一维（及阵列）的 TCC 谷。缺口是非周期二维：**凸角与凹角**在设计上是 90°，印出来是圆弧，SRAM 与逻辑拐弯处的 CD 和间距都按圆弧走。主干 OPE 已点名拐角圆化；本课把它接到 circ–jinc 骨架。边缘放置误差留给[下一课](/litho/edge-placement-error)。不出 OPC 衬线表。
 
 ## 问题
 

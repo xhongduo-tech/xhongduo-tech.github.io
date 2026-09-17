@@ -11,7 +11,7 @@ section: quant
     <footer>—— Mercurio, Interest Rates and The Credit Crunch: New Formulas and Market Models, 2009；Bianchetti, Two Curves, One Price, Risk, 2010</footer>
 </div>
 
-基差互换（basis swap）交换两串浮动利息：同一货币、不同指数或不同期限，价差加在其中一条腿上使合约初始公允价值为零。危机前，1M、3M、6M LIBOR 被当成同一无风险短端的不同复利，期限基差只有几个基点；危机中 3s6s、LIBOR–OIS 撑开到必须单独建模。Mercurio（2009）写出多曲线下 cap、FRA 与基差的公式；Bianchetti（2010）把「两条曲线、一个价格」写成市场惯例；Fujii、Shimada 与 Takahashi（2010）讨论有抵押时多条互换曲线如何同时自助。本篇写单币种期限基差与指数基差，不写已单独成篇的[交叉货币基差](/quant/xccy-basis)。它是[OIS 与多曲线](/quant/multi-curve-ois)的可交易腿，也是 [LMM](/quant/lmm) 在停用 LIBOR 之后仍要保留多条 tenor 结构的原因。
+[上一课](/quant/swap-spread)把互换对国债的价差拆进多曲线的关键期限。基差互换（basis swap）交换两串浮动利息：同一货币、不同指数或不同期限，价差加在其中一条腿上使合约初始公允价值为零。危机前，1M、3M、6M LIBOR 被当成同一无风险短端的不同复利，期限基差只有几个基点；危机中 3s6s、LIBOR–OIS 撑开到必须单独建模。Mercurio（2009）写出多曲线下 cap、FRA 与基差的公式；Bianchetti（2010）把「两条曲线、一个价格」写成市场惯例；Fujii、Shimada 与 Takahashi（2010）讨论有抵押时多条互换曲线如何同时自助。本篇写单币种期限基差与指数基差，不写已单独成篇的[交叉货币基差](/quant/xccy-basis)。它是[OIS 与多曲线](/quant/multi-curve-ois)的可交易腿，也是 [LMM](/quant/lmm) 在停用 LIBOR 之后仍要保留多条 tenor 结构的原因。
 
 ## 问题
 
@@ -51,7 +51,7 @@ LMM 的状态是某一 tenor 的简单远期。多曲线之后，3M LMM 与 6M L
 
 互换价差连的是互换与国债；单币种基差连的是两个浮动指数；交叉货币基差连的是两种货币的浮动加本金交换。三者可以相关——美元短缺时 xccy、LIBOR–OIS、国债特殊性一起动——但对冲工具不能借用。用收 LIBOR–OIS 去对冲 EURUSD basis，留下外汇和监管日历。风控科目应是「曲线 × 指数 × 货币」，而不是一个叫 basis 的桶。
 
-## 边界与工程取舍
+## 边界
 
 不要在投影曲线上用全局插值，使 3M 的 10Y 扰动改变 6M 的 30Y 远期，Ho 意义上的三角形在基差维度上崩掉。不要把期货凸性塞进基差节点当「真实远期」。不要为稀疏的 1s3s 报价建一条每天重校准的随机基差因子，参数会吸收噪声。期权smile 在各 tenor 上可以不同，3s6s 的 cap 更薄，模型风险大于香草。
 

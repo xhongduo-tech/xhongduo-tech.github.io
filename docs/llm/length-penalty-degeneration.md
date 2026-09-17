@@ -11,7 +11,7 @@ section: llm
 <footer>—— Holtzman et al., The Curious Case of Neural Text Degeneration, ICLR 2020；长度归一化见 Wu et al., Google's NMT, 2016</footer>
 </div>
 
-[上一课](/llm/reasoning-faithfulness)把「写出来的思维链是否等于模型内部用过的那条」定成忠实性问题。本课打开「解码进阶」：权重已经冻住，用户看见的字符串仍由搜索目标决定。忠实性约束的是解释；长度惩罚与退化约束的是 *那条被当成最优的序列* 会不会其实是短循环。后课默认长度偏置与 Holtzman 式退化已经成立，不再从「自回归有一份分类头」讲起。采样旋钮见 [温度 / top-p](/llm/sampling-temperature-topp)，束与采样的目标函数对照见 [Beam vs Sampling](/llm/beam-vs-sample)。
+[上一课](/llm/fim-decode)把采样与解码课序收在填中解码：哨兵把后缀挪到中段之前，因果模型条件于左右上下文填空。本课打开「多样与约束解码」：权重已经冻住，用户看见的字符串仍由搜索目标决定。[推理的忠实性](/llm/reasoning-faithfulness)约束的是解释；长度惩罚与退化约束的是 *那条被当成最优的序列* 会不会其实是短循环。后课默认长度偏置与 Holtzman 式退化已经成立，不再从「自回归有一份分类头」讲起。采样旋钮见 [温度 / top-p](/llm/sampling-temperature-topp)，束与采样的目标函数对照见 [Beam vs Sampling](/llm/beam-vs-sample)。
 
 ## 问题
 
@@ -23,7 +23,7 @@ $$
 
 $\alpha$ 是经验指数。翻译里这能把过短假设拉回来。开放生成里同一套公式解决不了另一件事：高概率短循环（「是的是的是的」）的 *平均* 对数概率仍然很高，罚长度只会让循环更长或更短，不会让它变成具体内容。
 
-Holtzman 等人把这种可观测的重复、万能套话叫做神经文本退化（degeneration）。根因是搜索在追求 MAP，而语言模型在安全的高频续写上堆了大量质量。上一课的忠实性假设「有一条真正用过的链」；若解码已经锁进循环，链本身就不是推理，忠实性无从谈起。缺口是：在不改 $\pi$ 的前提下，搜索目标如何避免把退化当成最优。
+Holtzman 等人把这种可观测的重复、万能套话叫做神经文本退化（degeneration）。根因是搜索在追求 MAP，而语言模型在安全的高频续写上堆了大量质量。[推理的忠实性](/llm/reasoning-faithfulness)一课假设「有一条真正用过的链」；若解码已经锁进循环，链本身就不是推理，忠实性无从谈起。缺口是：在不改 $\pi$ 的前提下，搜索目标如何避免把退化当成最优。
 
 <span class="marginnote">$T\to 0$ 的采样与 $B=1$ 的束重合，一样会退化。长度惩罚是束的排序器，不是采样器。不要把 $\alpha$ 当成温度的替代品。</span>
 
@@ -48,7 +48,7 @@ MAP 与人写的分布不对齐。人写的续写在核里是多峰的；束把�
 
 <span class="marginnote">服务端若把 length_penalty 与 repetition_penalty 同时打开，归因会失败。一次只动一类：排序器或逐步惩罚。日志里应记下 $\alpha$、是否对 EOS 额外加分，以及有没有覆盖核采样。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要把 GNMT 的 $\alpha=0.6$ 抄进聊天默认。不要在 JSON / 代码路径上对标识符做频率惩罚。思维链评测若用带长度惩罚的束，报告的是 MAP 附近的套话链，不是 [自洽](/llm/self-consistency) 假设的多样路径。评测解码必须与产品一致。
 

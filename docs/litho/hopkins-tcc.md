@@ -23,7 +23,7 @@ section: litho
 
 物频谱 $T(\mathbf{f})$ 是二维的；强度涉及 $T(\mathbf{f}_1)T^*(\mathbf{f}_2)$，自变量是一对二维频率，故 TCC 是四维。不要把它画成「又一条 MTF 曲线」。MTF 是非相干或单频对比的切片；TCC 才是部分相干的完整核。
 
-<span class="marginnote">Hopkins 的有效光源 $S(\mathbf{f})$ 就是上一课的光瞳填充。圆、环、四级全部进 $S$，不进掩模。换照明 = 换 TCC，旧光学模型作废。</span>
+<span class="marginnote">Hopkins 的有效光源 $S(\mathbf{f})$ 就是上一课的光瞳填充。圆、环、四极全部进 $S$，不进掩模。换照明 = 换 TCC，旧光学模型作废。</span>
 
 ## 方法
 

@@ -66,7 +66,7 @@ flowchart TD
 
 数学对象几乎相同：分片数据并行。工程差包括：启动器与配置（Python 参数 vs JSON）；优化器是否必须包一层；CPU 卸载默认卸什么；MoE / 流水线的成熟度随生态走；以及检查点格式。写报告应同时写「`FULL_SHARD` + transformer wrap」和「切了参数 / 梯度 / 状态」，避免「我们用了 FSDP」无法对照「我们用了 ZeRO-3」。不要把 FSDP 当成张量并行：它不切单层矩阵的列，All-Reduce 语义在 DDP 对照里才出现。
 
-## 边界与工程取舍
+## 边界
 
 不要在单卡已能 DDP 时默认 `FULL_SHARD`。不要把自定义缓冲、非 `nn.Parameter` 的缓存、或被 `ignored_modules` 漏掉的层当成已分片。不要在 `no_sync` 梯度累积时忘记：`SHARD_GRAD_OP` 在 `no_sync` 内反传后可以不 reshard，峰值行为会变。`sync_module_states` 用于从 rank0 广播初始权重，初始化在 CPU 上用 `param_init_fn` 可避免所有卡同时物化完整 FP32。
 

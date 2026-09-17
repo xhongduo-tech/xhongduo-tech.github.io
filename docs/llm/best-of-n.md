@@ -61,7 +61,7 @@ flowchart TD
 
 <span class="marginnote">独立采样才能把覆盖写成 $(1-p)^N$。若 $N$ 条共享 KV 前缀却在中途用同一束、同一随机种子，有效多样性远小于 $N$。日志里应记下温度、是否独立 RNG、是否共享前缀缓存——共享前缀省[Prefill](/llm/prefill-compute)，但会降低样本独立性。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### $N$ 线性买的是 decode，不是免费质量
 

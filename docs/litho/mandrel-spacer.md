@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Bencher 等公开的 SADP / spacer 工艺几何，以及上一课 SADP–SAQP 的流程框架</footer>
 </div>
 
-[上一课](/litho/sadp-saqp)说明了为什么用 spacer 把节距劈开、以及切线如何把套刻请回来。缺口是芯轴（mandrel）与侧墙的几何定义：谁决定最终线宽、core space 与 gap space 各吃哪一项误差。节距漂移（奇数/偶数间距）留给[下一课](/litho/pitch-walking），本课先把理想几何钉死。
+[上一课](/litho/sadp-saqp)说明了为什么用 spacer 把节距劈开、以及切线如何把套刻请回来。缺口是芯轴（mandrel）与侧墙的几何定义：谁决定最终线宽、core space 与 gap space 各吃哪一项误差。节距漂移（奇数/偶数间距）留给[下一课](/litho/pitch-walking)，本课先把理想几何钉死。
 
 ## 问题
 

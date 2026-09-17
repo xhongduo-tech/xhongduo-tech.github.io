@@ -11,8 +11,6 @@ section: cs
 <footer>—— Rivest, Shamir and Adleman, 1978；Bellare and Rogaway, Optimal Asymmetric Encryption Padding, EUROCRYPT 1994；PKCS #1 v2</footer>
 </div>
 
-## 定位
-
 上一课[生日攻击](/cs/birthday-attack)钉了哈希宽度。主干[公钥信封](/cs/pubkey-envelope)与[DH 与 RSA 分工](/cs/dh-vs-rsa)已把 RSA 当封装选项。缺口是**明文不能直接当模幂输入**：必须填充。本课收 OAEP，不重推欧拉定理。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 签名填充是另一套
 
 PSS 与 PKCS#1 v1.5 签名填充下一课攻击面才对照。加密填充与签名填充不能混用同一密钥语义而不加域分离。
-
 
 <span class="marginnote">Bellare–Rogaway OAEP。Fujisaki–Okamoto 等是同类「把陷门置换收成 CCA」的框架，本课只钉 OAEP。不要发明 arXiv 编号。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   POW --> C["密文"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 信封仍是：RSA 只封对称键，数据走 AEAD。OAEP 让封装在理想哈希下可归约到 RSA 陷门。实现必须常数时间模幂与严格的填充校验——校验失败不可区分，否则又是预言机。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

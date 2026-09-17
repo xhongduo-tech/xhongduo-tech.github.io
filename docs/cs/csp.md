@@ -11,26 +11,23 @@ section: cs
 <footer>—— W3C CSP；Stamm, Sterne and Markham；对照 MDN 对指令的整理</footer>
 </div>
 
-## 定位
-
-上一课[XSS](/cs/xss)要求编码。缺口是**即使漏了一处**，浏览器策略仍可挡住内联脚本。本课讲 CSP 指令，不写如何绕过 CSP 的清单。
+上一课[XSS](/cs/xss)的根治是输出编码，但编码要求每处拼接都做对。缺口是**即使漏了一处**，浏览器策略仍能挡住内联脚本的执行。本课讲 CSP 指令，不写绕过清单。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
 
 ## 问题
 
-默认允许内联与 eval 时 XSS 面大。script-src 用 nonce 或 hash 放行自己的脚本。缺口是策略与报告（report-only）的部署。
+浏览器默认允许内联脚本与 eval，XSS 一次注入即可执行。CSP 把默认翻成拒绝：script-src 用每响应随机的 nonce 或脚本内容 hash 放行自己的一等脚本，其余一律不跑。缺口是部署——策略怎么写，report-only 模式怎么先观测违例再收紧。
 
 ### nonce 要随机
 
-固定 nonce 等于没策略。每响应须用 CSPRNG。
-
+nonce 必须随机：固定 nonce 等于没策略，注入脚本只要读一次页面就拿到通行证；每个响应用 CSPRNG 现生成。
 
 <span class="marginnote">CSP Level 3。unsafe-inline 几乎撤销脚本保护。本课禁止绕过教程。</span>
 
 ## 方法
 
-列关键指令：script-src、default-src、frame-ancestors、connect-src。对照 CORS 下一课：CSP 管本页能拉什么，CORS 管外源能不能读响应。
+方法先列关键指令：script-src 管脚本，default-src 给其余资源兜底，frame-ancestors 管本页能被谁嵌框，connect-src 管脚本能往哪发请求。对照下一课 CORS：CSP 管本页能拉什么，CORS 管外源能不能读响应，两扇门方向相反。
 
 ```mermaid
 flowchart TD
@@ -39,17 +36,13 @@ flowchart TD
   POL --> RPT["报告违例"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
-纵深：编码失败时策略仍挡一类执行。它不挡无脚本的 HTML 注入外观。CORS 下一课是读响应的另一扇门。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
+机制是纵深：编码漏掉的那一处，注入的 `<script>` 因缺 nonce 被浏览器拒绝执行——错误被限制在「注入了死文本」而非「代码执行」。它不挡无脚本的 HTML 注入：假表单、外观篡改这类钓鱼仍在。一旦写进 unsafe-inline，脚本保护几乎整体撤销。CORS 下一课是读响应的另一扇门。
 
 ## 边界
 
-不写绕过。CORS 下一课。
+不写绕过；边界要点名：策略的安全性按最松的一处计算——任何宽域名通配或放行 data: URL 都拉低整体。CORS 下一课。
 
 ## 小结
 

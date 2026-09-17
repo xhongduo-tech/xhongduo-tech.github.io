@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照紧凑刻蚀模型、ADI/AEI 成对计量与负载效应的产线通称</footer>
 </div>
 
-[上一课](/litho/3d-resist-model)承认胶是三维的。缺口是下一跳：等离子体把胶形变成硬掩模/介质/硅形，偏置随密度与深宽比变。本课钉刻蚀模型校准。[刻蚀进 OPC](/litho/etch-in-opc) 已说明为何要进迭代；这里补怎么标定。全芯片算力，留给[下一课](/litho/full-chip-simulation-cost）。
+[上一课](/litho/3d-resist-model)承认胶是三维的。缺口是下一跳：等离子体把胶形变成硬掩模/介质/硅形，偏置随密度与深宽比变。本课钉刻蚀模型校准。[刻蚀进 OPC](/litho/etch-in-opc) 已说明为何要进迭代；这里补怎么标定。全芯片算力，留给[下一课](/litho/full-chip-simulation-cost)。
 
 ## 问题
 

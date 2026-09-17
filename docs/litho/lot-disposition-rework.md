@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照晶圆厂 lot disposition 与光刻重工（剥胶再曝）的产线通称</footer>
 </div>
 
-[上一课](/litho/high-order-field-correction)把能补的高阶用尽。缺口是决策：残差仍超、或 SPC 异常、或检测出缺陷，批次去哪。本课钉分派与重工。计量机台之间如何可比，留给[下一课](/litho/metrology-matching）。
+[上一课](/litho/high-order-field-correction)把能补的高阶用尽。缺口是决策：残差仍超、或 SPC 异常、或检测出缺陷，批次去哪。本课钉分派与重工。计量机台之间如何可比，留给[下一课](/litho/metrology-matching)。
 
 ## 问题
 

@@ -66,7 +66,7 @@ flowchart TD
 
 [MiniCPM-V](/llm/minicpm) 用 SigLIP + perceiver 把高分辨率压到更短的视觉前缀，目标是端侧；InternVL2 更愿意为云端档保留每格 256 token，用更大 LLM 换推理。Qwen2-VL 的 [naive dynamic resolution](/llm/qwen-vl-naive-dynamic-res) 按原图像素切 patch，不一定先缩进 448 格。三者都叫「动态分辨率」，掩码、位置编码和 token 账单不能互换。InternVL2 对「已经有固定 448 的 InternViT」最友好。
 
-## 边界与工程取舍
+## 边界
 
 2.0 没有单独长篇技术报告；架构与切块数字以官方文档为准，综合分数可与 InternVL 2.5 报告（arXiv:2412.05271）里回溯的 InternVL2 表交叉核对，但 2.5 的编码器 V2.5、Qwen2.5 骨干不属于 2.0。不要把 2.5-Pro 或后续 InternVL3 的测试时缩放写进这一代。
 

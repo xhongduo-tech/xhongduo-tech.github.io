@@ -63,7 +63,7 @@ flowchart TD
 
 <span class="marginnote">DeepSpeed-FastGen 的 Dynamic SplitFuse 与 stall-free 调度是同一类装填：拆提示、按 token 预算与解码融合。不要把两个系统的实验数字互相套用；Sarathi-Serve 的 2.6×–5.6× 只对它的基线与 SLO 成立。</span>
 
-## 边界与工程取舍
+## 边界
 
 Sarathi-Serve 仍是 colocate：前填切片与解码共享同一张 GPU、同一套并行策略。它消除的是时间轴上的无界 stall，不是阶段之间的资源耦合。当 TTFT 与 TBT 都极紧、或两阶段的最优 GPU 代数不同，[PD 分离](/llm/pd-disaggregation) 仍有理由；Mooncake 后来明确写过：线上 SLO 更严时，切块并不能同时拉满前填 MFU 与解码 TBT。小流量、短提示、松 SLO 的服务，切块的收益会被实现复杂度淹没。
 

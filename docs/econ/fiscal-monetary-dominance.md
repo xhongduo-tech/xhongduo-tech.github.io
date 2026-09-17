@@ -52,4 +52,4 @@ flowchart TD
 - 不愉快算术：财政不适应时，紧货币可预示未来通胀。
 - Leeper：主动/被动配对才能局部决定。
 - 稀释、违约、增税是预算闭合的三个出口。
-- 出处：Sargent and Wallace 1981；Leeper, *JME* 1991。
+- 出处：Sargent and Wallace 1981；

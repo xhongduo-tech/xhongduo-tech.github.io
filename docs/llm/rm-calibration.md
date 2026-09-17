@@ -54,7 +54,7 @@ flowchart TD
 
 <span class="marginnote">不要用生成式裁判的口头「置信」当校准。那是另一套未校准的语言，见后课 LLM 裁判。</span>
 
-## 边界与工程取舍
+## 边界
 
 [可验证奖励](/llm/verifiable-reward) 的 0/1 已经是事件本身，不需要 Platt；要校准的是「模型自报的对错概率」，不是 RM。DPO 没有显式 $r$，本课的仿射用不上，它的 $\beta$ 承担类似温度的角色，见 [DPO](/llm/dpo)。校准不阻止 Goodhart：下一课把过优化写成标量奖励的命运，而不是「没校准好」。
 

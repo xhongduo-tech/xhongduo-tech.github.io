@@ -47,4 +47,4 @@ flowchart TD
 - 毒性与偏见基准是分布回归，按切片读，不单报均值。
 - 分类器假阳性要人抽检；过拒不是公平。
 - 评测是否含过滤器必须声明。
-- 出处：Gehman 等 RealToxicityPrompts；Parrish 等 BBQ；Dhamala 等 BOLD；CrowS-Pairs / StereoSet。
+- 出处：Gehman 等 RealToxicityPrompts；Dhamala 等 BOLD；CrowS-Pairs / StereoSet。

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 packaging stepper（大视场投影）与前道扫描机的规格分工</footer>
 </div>
 
-[上一课](/litho/display-litho)给出米级 FPD。缺口是 IC 厂封装线仍用「像步进器的机器」，但规格对着 RDL 而不是 MMP。本课钉封装用步进器。混合键合把对准精度再收紧，留给[下一课](/litho/hybrid-bonding-alignment）。
+[上一课](/litho/display-litho)给出米级 FPD。缺口是 IC 厂封装线仍用「像步进器的机器」，但规格对着 RDL 而不是 MMP。本课钉封装用步进器。混合键合把对准精度再收紧，留给[下一课](/litho/hybrid-bonding-alignment)。
 
 ## 问题
 

@@ -58,7 +58,7 @@ Decode 步小、重复、形状相对稳定，最吃：融合（少访存）、�
 
 产品后期列出 disaggregated serving：prefill 与 decode 可以拆池。机制与 DistServe 相同，实现落在 NVIDIA 的编排（文档中的 Dynamo 等）上。拆开后 [decode 亲和](/llm/decode-affinity) 照样成立，TensorRT-LLM 不会自动把 KV 变成全局共享内存。宽 EP 服 DeepSeek 类模型时，还要处理专家通信，那是并行拓扑，不是 IFB 开关能代替的。
 
-## 边界与工程取舍
+## 边界
 
 非 NVIDIA 后端不是目标；AMD、Apple、CPU 应看 [SGLang](/llm/sglang)、[llama.cpp](/llm/llamacpp)、[MLC](/llm/mlc-tvm)。许可证与企业支持走 NVIDIA AI Enterprise / NGC 容器时，和 GitHub 上的 Apache 式使用不是同一合同，部署前读当时仓库的 LICENSE。模型要有对应实现或可表达的层；新结构的第一天往往仍是 vLLM 社区快，厂商核后到。
 

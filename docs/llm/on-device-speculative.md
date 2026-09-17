@@ -39,11 +39,11 @@ flowchart TD
 
 [FlashAttention](/llm/flashattention) 在云上校验拍 $n_q=\gamma+1$，强度略升；端上草稿用 CPU/NPU 核，走本单元的量化路径。
 
-## 边界与工程取舍
+## 边界
 
 不要在弱网、高抖动上假设 RTT 常数；应用自适应 $\gamma$。不要把端上草稿的输出在拒绝前展示成最终文字（或明确标成草稿）。词表必须一致。本课程不把通信拓扑展开；Ring/Tree 从下一课程开始。
 
-出处：Leviathan et al., ICML 2023；Draft & Verify / LayerSkip 为草稿来源；Splitwise 为阶段拆分背景。不发明 arXiv。
+出处：Leviathan et al., ICML 2023；Draft & Verify / LayerSkip 为草稿来源；Splitwise 为阶段拆分背景。
 
 ## 小结
 

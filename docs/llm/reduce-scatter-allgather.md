@@ -46,7 +46,7 @@ flowchart LR
 
 <span class="marginnote">序列并行 / 上下文并行常对激活做 all-gather 或 reduce-scatter，体积跟序列长度走，与梯度 All-Reduce 的「每步一次参数量」不是同一条屋顶线。并行维正交：不要把 CP 的激活集体算进 DP 的梯度预算。</span>
 
-## 边界与工程取舍
+## 边界
 
 片必须整除，或至少在通信库里可填充。隐藏维、专家数、词表切分若不能被 TP/DP 度整除，会多出不均片，环的负载不再对称。In-network 归约通常针对 All-Reduce 语义；拆成 RS+AG 之后，交换机侧未必有同样的卸载，带宽模型要按主机侧集体重测。
 

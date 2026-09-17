@@ -56,7 +56,7 @@ V2 可以加载旧 GPTQ 4-bit，走另一套 `q_gemm_kernel_gptq`。EXL2 成品�
 
 <span class="marginnote">「2.55 bpw 能跑 70B」描述的是显存可行性与主观连贯，不是 MMLU 无损。更苛刻的指标仍应看校准域上的 PPL 与目标任务。lm_head 留 6-bit 是因为词表投影误差直接进 logits，对采样比中间层更可见。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 单机交互式与服务编排不是同一产品
 

@@ -69,7 +69,7 @@ InfiniBand 相对以太网的传统优势是原生 RDMA、基于信用的流控�
 
 RDMA 要求内存被注册。频繁的小块注册会把驱动开销变成墙；训练框架因此预注册通信缓冲、用持久的 NCCL 通信子。小消息落在延迟区时，GPUDirect 减的是拷贝而不是启动延迟，加链路宽度帮助有限。这时应合并通信、加大 chunk，或把该进程组缩回 NVLink 域。decode 推理的逐步 All-Reduce 往往是这种小消息；跨柜 TP 比训练更不划算，原因正在这里，而不是 InfiniBand「不够快」。
 
-## 边界与工程取舍
+## 边界
 
 不要在只有 PCIe、没有 GPUDirect 的节点上假设「换一张更快的网卡就能线性加速跨节点 TP」。不要把 GPUDirect 写成可以取消层次化集体通信：节点内仍应先在 NVLink 上归约，再把每节点一份结果打到 IB 上，见 [预训练通信](/llm/pretrain-comm)。不要把某一代 ConnectX 的端口速率写成所有集群的物理定律；Vera Rubin 托盘上的 SuperNIC 规格以当时 NVIDIA 产品页为准，本篇不把某一栏 Tb/s 当成自己测的数。
 

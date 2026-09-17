@@ -56,7 +56,7 @@ flowchart LR
 
 <span class="marginnote">仅回复不是「不学上下文」。上下文通过条件进入 $p(\text{response}\mid\text{prefix})$。它禁止的是把条件本身当生成目标。若任务真是续写用户草稿，应把草稿标成助手段，而不是关掉掩码。</span>
 
-## 边界与工程取舍
+## 边界
 
 不是所有后训练都仅回复。继续预训练、领域自适应的第一阶段（见后课[领域适配](/llm/domain-adaptation-ft)）常对全文计损失。偏好方法（DPO 等）在完成上比较，前缀同样是条件。本课只约束监督 SFT。
 

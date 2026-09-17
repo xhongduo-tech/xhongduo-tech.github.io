@@ -50,7 +50,7 @@ Drop 的 token 本层无专家贡献，见主干[容量因子](/llm/moe-capacity
 
 原文默认有 drop 的静态容量。MegaBlocks 的 Dropless、Zhou 等的 Expert Choice 是后继对「不要丢 / 谁来选」的翻案。对照链下一篇就是 Expert Choice。不要把 2021 配方写成 MoE 的终点。
 
-## 边界与工程取舍
+## 边界
 
 TPU 切片、Mesh 与今日 GPU EP 的通信模式不同，吞吐数字不能直接搬。$k=1$ 在 Mixtral 一代产品里并未成为唯一默认——质量与实现栈变了。论文的贡献是简化开关 + 把稳定训练写成可抄的清单，以及参数–计算解耦的实证。
 

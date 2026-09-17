@@ -72,7 +72,7 @@ Tensor Core 之所以快，是因为在固定形状上做密集乘加，数据�
 
 MMA 吃的是已经在 SM 附近的数据。数据从本卡 HBM 来，受 $B$ 约束；从远端 GPU 来，受 NVLink 约束。TP 把大矩阵切开，每卡 MMA 变小，但增加 All-Reduce——你用互连换近端形状。切得过碎，tile 填不满，既丢 $P$ 又付通信。这是 TP 度不能只按显存容量选的原因：还要看 MMA 形状与域带宽，见 [张量并行](/llm/tensor-parallel)。
 
-## 边界与工程取舍
+## 边界
 
 不要为了「用上 Tensor Core」把必须保持 FP32 的归约强行改成 FP16 MMA。不要在 M=1 的 decode 上期待接近表头 TFLOPS。不要把 CUTLASS 例子里的 tile 抄到错误的 sm 版本。依据是 CUDA 文档与架构白皮书，不另造未公开论文来撑峰值表。
 

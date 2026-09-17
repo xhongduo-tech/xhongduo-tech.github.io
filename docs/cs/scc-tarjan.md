@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Tarjan, Depth-First Search and Linear Graph Algorithms, 1972；Kosaraju（未发表讲义，Sharir 1981 记述）；CLRS 第 22.5 节整理</footer>
 </div>
 
-[上一课](/cs/refcount-cycles)把数据结构进阶封在引用计数与环上。本课程改走算法进阶——图、代数、DP 与近似，不重写 Transformer，也不进入限价簿。主干[DFS 与边分类](/cs/dfs-edge-types)已给发现/完成时刻；[连通分量与桥](/cs/bcc-bridge)用 `low` 切无向图。缺口是**有向图的强连通分量**（SCC）：$u$ 与 $v$ 同块当且仅当 $u$ 可达 $v$ 且 $v$ 可达 $u$。后课默认已经会缩点成 DAG。
+[上一课](/cs/randomized-algo)把随机化直觉收进工具箱：Las Vegas 正确、时间随机，Monte Carlo 可错、可重复压错误，硬币在算法内、不代替 NP 证书。本课程仍在图、代数、DP 与近似——不重写 Transformer，也不进入限价簿。主干[DFS 与边分类](/cs/dfs-edge-types)已给发现/完成时刻；[连通分量与桥](/cs/bcc-bridge)用 `low` 切无向图。缺口是**有向图的强连通分量**（SCC）：$u$ 与 $v$ 同块当且仅当 $u$ 可达 $v$ 且 $v$ 可达 $u$。后课默认已经会缩点成 DAG。
 
 ## 问题
 

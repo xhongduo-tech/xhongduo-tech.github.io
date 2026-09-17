@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 SEMI 工厂数据与 APC 接口通称；晶圆厂 MES / FDC 与光刻控制的公开架构</footer>
 </div>
 
-[上一课](/litho/tool-to-tool-overlay)要求按机台对存指纹。缺口是系统：计量、扫描机、轨道、刻蚀、MES 如何把 ton 级数据收成可用状态。本课钉厂级数据闭环。虚拟计量如何在缺测时充数，留给[下一课](/litho/virtual-metrology）。
+[上一课](/litho/tool-to-tool-overlay)要求按机台对存指纹。缺口是系统：计量、扫描机、轨道、刻蚀、MES 如何把 ton 级数据收成可用状态。本课钉厂级数据闭环。虚拟计量如何在缺测时充数，留给[下一课](/litho/virtual-metrology)。
 
 ## 问题
 

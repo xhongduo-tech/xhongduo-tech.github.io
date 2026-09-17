@@ -52,4 +52,4 @@ flowchart TD
 - 全球金融周期：中心风险偏好与美元驱动跨境信贷共动。
 - 浮动汇率对金融条件只部分绝缘。
 - 资本流动管理是跨境宏观审慎。
-- 出处：Rey, Dilemma not Trilemma；Bruno and Shin；Miranda-Agrippino and Rey。
+- 出处：Rey, Dilemma not Trilemma；Bruno and Shin；

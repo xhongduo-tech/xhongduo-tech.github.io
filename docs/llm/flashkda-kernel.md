@@ -57,7 +57,7 @@ Prefill 的 $T$ 大，块内 GEMM 饱满，核的价值是把对角门与 delta 
 
 分页 KV 的单位是 token 块；KDA 状态的单位是每头一张 $V\times K$ 的表。`cu_seqlens` 把变长样本拼成一条，状态按序列条数存，而不是按 token 页表间接。实现若误用 MLA 的 block table 去索引 $S$，会读到错误的联想。多轮对话要携带 `final_state` 到下一轮 `initial_state`，相当于 RNN 隐状态，而不是把历史 token 再 prefill 一遍——这正是线性层省 KV 的来源。MLA 层仍要真实缓存。混合比例 3:1 是报告里的经验点：再稀全局层，精确针测会掉；再密全局层，缓存账作废。
 
-## 边界与工程取舍
+## 边界
 
 FlashKDA 公开合同绑在 SM90+、头宽 128、bf16 主路径。A100 没有这条 TMA/WGMMA 组合，不能把仓库核当可移植后端。门控下界、`A_log` 与 `dt_bias` 必须与训练时的参数化一致，否则遗忘曲线对不上。不要把 FlashKDA 接到纯 softmax 模型上「加速注意力」：没有 KDA 层就没有这份状态。也不要把第三方 H20 的核加速比抄成 1M 上下文 $6\times$ 解码——后者来自 Kimi Linear 相对 MLA 的端到端 TPOT，含缓存体积，不是 CUTLASS 单独的数字。
 

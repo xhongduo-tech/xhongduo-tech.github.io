@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照刻蚀工程对 selectivity 与 ARDE 的通称；[深宽比与负荷](/litho/etch-loading-ar) 已钉几何</footer>
 </div>
 
-[上一课](/litho/plasma-basics)给出离子与中性通量。缺口是材料差与开口几何：胶/硬掩模/介质之间要比速率，同时高 AR 孔底速率下降。[ARDE 课](/litho/etch-loading-ar) 已写宏/微负荷几何；本课在集成门补**选择比窗口如何被 ARDE 收窄**，不重推通量随深度的公式。LER 如何被转印或抹平，留给[下一课](/litho/ler-transfer-smoothing）。
+[上一课](/litho/plasma-basics)给出离子与中性通量。缺口是材料差与开口几何：胶/硬掩模/介质之间要比速率，同时高 AR 孔底速率下降。[ARDE 课](/litho/etch-loading-ar) 已写宏/微负荷几何；本课在集成门补**选择比窗口如何被 ARDE 收窄**，不重推通量随深度的公式。LER 如何被转印或抹平，留给[下一课](/litho/ler-transfer-smoothing)。
 
 ## 问题
 

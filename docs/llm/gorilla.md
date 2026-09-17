@@ -60,7 +60,7 @@ Self-Instruct 的指令若泄漏库名，题会退化成抄写。作者要求生
 
 APIBench 证明：开源小模型 + 文档可以在固定 Hub 上少幻觉。真实工具协议还有并行调用、多函数选择、不该调用时拒绝、多轮观察，见 BFCL。Gorilla 仓库与 Berkeley Function Calling Leaderboard 是同一方向的后续工程，不要把 2023 年 Hub 准确率抄进 BFCL 总榜。
 
-## 边界与工程取舍
+## 边界
 
 题是单次调用合成，不是多工具工作流，也不是让模型在用户机器上任意 `pip install`。执行层仍要白名单与环境隔离；论文可以「建议 densenet121」，产品必须决定是否真的下载权重。检索器质量是上限：Oracle 与 BM25 的差距是检索研究，不是再训一轮 LLaMA 能抹平。Hugging Face 每日上新，冻结的 925 条会过时，RAT 的价值正在于测试期换文档，但换文档也要换 AST 金标。与 Toolformer：一个学何时插入小工具，一个学在大目录里选对条目。与 [规划 vs 反应式循环](/llm/plan-vs-react)：Gorilla 默认一步出调用，复杂任务要外层控制器。
 

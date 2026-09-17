@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Born &amp; Wolf 对电磁边值与偏振的讨论，以及 Mack、Levinson 对高 NA 矢量成像的产线表述整理</footer>
 </div>
 
-[上一课](/litho/bossung-curve)（Bossung 曲线）。在此之上，离焦写成标量光瞳上的二次相位，$C(z)$ 与 NILS$(z)$ 都还在标量空中像里读。缺口是：$\mathrm{NA}\gtrsim 0.7$（浸没到 1.35）时，边缘光线的电场有不可忽略的纵向分量，TM 两束几乎不相干相加，标量对比度过于乐观。本课把强度升级成胶内能量沉积。产线 CD 公式仍留给[下一课](/litho/rayleigh-litho)，不要在这里提前写 $k_1$。
+[上一课](/litho/bossung-curve)（Bossung 曲线）。在此之上，离焦写成标量光瞳上的二次相位，$C(z)$ 与 NILS$(z)$ 都还在标量空中像里读。缺口是：$\mathrm{NA}\gtrsim 0.7$（浸没到 1.35）时，边缘光线的电场有不可忽略的纵向分量，TM 两束几乎不相干相加，标量对比度过于乐观。本课把强度升级成胶内能量沉积。非偏振照明为什么只是平均、取向正交的密线为什么无法共用同一纯 TE，留给[下一课](/litho/te-tm-polarization)；产线 CD 公式仍留给后面的[瑞利判据](/litho/rayleigh-litho)课，不要在这里提前写 $k_1$。
 
 ## 问题
 
@@ -51,7 +51,7 @@ flowchart TD
 
 掩模侧的偏振：透射铬栅会当线栅偏振器，反射 EUV 吸收体也有自己的 s/p 差。那是[掩模 3D](/litho/mask-3d-effect)的缺口。本课的物是「投影侧已经进光瞳的矢量场」，不在掩模膜里做电磁边值。
 
-非偏振照明是 TE 与 TM 的强度平均，密线得到的 NILS 介于两者之间。要极值对比必须控偏振，不能只加大 $\sigma$。分辨率仍由最高频率 $\mathrm{NA}/\lambda$ 限制，矢量没有改截止；它改的是同样进了光瞳的两束，调制可能更弱，有效工艺因子更差——下一课把这笔打进 $k_1$。
+非偏振照明是 TE 与 TM 的强度平均，密线得到的 NILS 介于两者之间。要极值对比必须控偏振，不能只加大 $\sigma$。分辨率仍由最高频率 $\mathrm{NA}/\lambda$ 限制，矢量没有改截止；它改的是同样进了光瞳的两束，调制可能更弱，有效工艺因子更差——后面的瑞利课把这笔打进 $k_1$。
 
 ### 后课默认的接口
 
@@ -71,5 +71,5 @@ Immersion 水的 $n$ 会改夹角，因而改 TM 损失，但流体缺陷与喷�
 - TE 干涉深、TM 对比掉，密图形先付偏振税。
 - 矢量效应在最佳焦距已存在，与离焦二次相位叠加。
 - $\sigma$ 的定义不改；每个源点要带偏振状态。
-- 产线 CD 公式下一课，本课不写 $k_1$。
+- TE / TM 对比是下一课；产线 CD 公式在后面的瑞利课，本课不写 $k_1$。
 - 出处：Born &amp; Wolf, *Principles of Optics*；Mack, *Fundamental Principles of Optical Lithography*；Levinson, *Principles of Lithography*。

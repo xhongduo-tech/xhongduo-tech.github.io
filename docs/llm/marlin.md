@@ -54,7 +54,7 @@ vLLM 的 Marlin 后端要求计算能力 80+、受支持的 group size、以及 
 
 <span class="marginnote">「接近理想 4×」绑定对称 INT4、分组 128、大矩阵、A10 一类推理卡。W4A8、FP8 激活、Hopper 的 FP8 MMA，都要另一颗核。Marlin 后来在 vLLM 里被扩展到更多 dtype，那是仓库演进，引用论文数字时应对齐 2024 年的 INT4×FP16 设定。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 核不修复网格，也不跨架构自动变快
 

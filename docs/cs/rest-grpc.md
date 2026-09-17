@@ -36,8 +36,6 @@ flowchart TD
   GRPC --> TYP["强类型存根"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 负载均衡：REST 可 L7 看路径；gRPC 看服务与方法，要 H2 感知 LB。Cookie 少用于 gRPC，多用 token 头。超时与重试：REST 靠幂等头，gRPC 有 deadline，后课幂等会收。内容协商在 REST 常见，gRPC 固定编码。
@@ -50,7 +48,7 @@ flowchart TD
 
 公开互联网 API 强推 gRPC 会挡浏览器与缓存。
 
-上一课留下的缺口在本课收口；「REST 与 gRPC」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[序列化：JSON / Protobuf](/cs/serialization-protobuf)。
+下一课[序列化：JSON / Protobuf](/cs/serialization-protobuf)。
 
 ## 小结
 

@@ -58,7 +58,7 @@ Expert Deferral 的数值代价来自改变执行顺序与可能的部分重叠�
 
 llama.cpp 把层或专家按内存层级换入换出，通用、门槛低，但 AMX 路径长期不是为 MoE 专家形状打磨的。KTransformers 的主张是：布局、tile、调度、CUDA graph 捕获必须为「每层一次稀疏专家」重做。代价是硬件面变窄：吃满数字需要 Sapphire Rapids 及以后的 AMX，以及足够的 DDR。没有 AMX 时 llamafile 后端仍能跑，只是 prefill 会回到 CPU 瓶颈叙事。
 
-## 边界与工程取舍
+## 边界
 
 单 GPU + 大内存适合本地 671B 级体验与低 QPS；要高并发、紧 TPOT，仍应把专家留在 GPU 或走多机 EP。延迟路径上 CPU 专家的尾延迟受频率、C 状态、内存带宽争用影响，和 GPU kernel 的可预期性不同。量化布局与 GPU 权重文件是两套路径：`--kt-weight-path` 指向转换过的 CPU 权重，和 HuggingFace 的 GPU 权重并列，漏转换就会在运行期炸。
 

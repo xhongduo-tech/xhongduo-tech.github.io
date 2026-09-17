@@ -52,7 +52,7 @@ flowchart TD
 
 <span class="marginnote">不要把 phi-1 的 7B token 训练预算写成「推翻了 Chinchilla」。标度律在固定数据质量下仍近似成立；Phi 做的是把质量当成第三轴，在小参数、小 token 的角点上移动。换一套脏数据，1.3B 不会再现 HumanEval 50%。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 可复现的是主张，不是那条数据管线
 

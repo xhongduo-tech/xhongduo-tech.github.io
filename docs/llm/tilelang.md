@@ -60,7 +60,7 @@ flowchart TD
 
 和 CUTLASS 的关系是互补：CUTLASS 提供经过验证的 MMA 流水与 grouped scheduler；TileLang 让非模板专家也能拼出接近的数据流。峰值核、尤其 SM100 上带块缩放的 NVFP4 grouped GEMM，短期内仍以 CUTLASS / cuDNN 为合同。
 
-## 边界与工程取舍
+## 边界
 
 不要用 TileLang 替换整个推理运行时。它产出的是单个核或融合核，调度、分页 KV、连续批仍在框架里。集成成本是：编译缓存、动态形状分桶、与 PyTorch / TVM runtime 的生命周期。每步即时编译会把 TTFT 打穿。
 

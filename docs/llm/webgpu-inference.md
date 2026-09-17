@@ -37,11 +37,11 @@ flowchart TD
 
 沙箱禁止持久内核与无限显存。每步着色器启动相对 CUDA Graph 更贵，小核更多伤。会计公式仍用，$B_{\mathrm{HBM}}$ 换成共享显存或系统内存。安全：模型文件来自源站，仍要完整性校验，避免恶意着色器或权重。这与 safetensors 的供应链同一类，只是运行在浏览器官辖。
 
-## 边界与工程取舍
+## 边界
 
 不要承诺「在标签页跑 70B」。不要在 iOS Safari 的不稳定 WebGPU 上无检测直跑。下一课：真正的手机 NPU 部署，权限与工具链又不同。
 
-出处：W3C WebGPU；MLC WebLLM；ORT Web。不发明 arXiv。
+出处：W3C WebGPU；MLC WebLLM；ORT Web。
 
 ## 小结
 

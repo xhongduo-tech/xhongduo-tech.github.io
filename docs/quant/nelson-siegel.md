@@ -11,7 +11,7 @@ section: quant
     <footer>—— Nelson and Siegel, Parsimonious Modeling of Yield Curves, Journal of Business, 1987</footer>
 </div>
 
-[上一课](/quant/dispersion-trade)停在指数–成分波动。缺口是债券曲线的低维载荷。债券曲线有无穷个期限，日度观测却只有有限个基准券。Charles Nelson 与 Andrew Siegel 1987 年给出一个极省参数的即期（或远期）函数：三个因子载荷由单一衰减 $\lambda$ 生成，水平、斜率、曲率的解释与后来 Litterman–Scheinkman 的 [曲线 PCA](/quant/curve-pca) 几乎同名，但这里是参数族，不是样本特征向量。[收益率曲线因子](/quant/yield-curve-factors) 写 PCA 的交易近似与无套利模型的分工；本篇写 NS 公式、载荷作为 $\tau$ 的函数、以及 Diebold–Li（2006）如何把它变成可预测的动态因子。Svensson 的第二驼峰见 [Svensson 扩展](/quant/svensson)。它不是 HJM，也不替代 [关键利率久期](/quant/key-rate-duration)。
+[上一课](/quant/corporate-bond-otc)把公司债的询价分层，加价由搜索与议价解释。缺口是债券曲线的低维载荷。债券曲线有无穷个期限，日度观测却只有有限个基准券。Charles Nelson 与 Andrew Siegel 1987 年给出一个极省参数的即期（或远期）函数：三个因子载荷由单一衰减 $\lambda$ 生成，水平、斜率、曲率的解释与后来 Litterman–Scheinkman 的 [曲线 PCA](/quant/curve-pca) 几乎同名，但这里是参数族，不是样本特征向量。[收益率曲线因子](/quant/yield-curve-factors) 写 PCA 的交易近似与无套利模型的分工；本篇写 NS 公式、载荷作为 $\tau$ 的函数、以及 Diebold–Li（2006）如何把它变成可预测的动态因子。Svensson 的第二驼峰见 [Svensson 扩展](/quant/svensson)。它不是 HJM，也不替代 [关键利率久期](/quant/key-rate-duration)。
 
 ## 问题
 
@@ -80,7 +80,7 @@ $\tau\to\infty$ 时 $y\to\beta_0$，长端被锁成水平，不能生成「超�
 
 <span class="marginnote">1987 年论文拟合的是当时美国国债曲线的光滑形态，样本与今日的有效联邦基金走廊、量化宽松扭曲不可混用。公式仍用；$\lambda$ 的达峰期限要按当前网格重选。</span>
 
-## 边界与工程取舍
+## 边界
 
 NS 没有无套利约束，远期可以为负（名义曲线在低利率时代确实可以靠近零，但任意负法仍可能不合理）。信用曲线、通胀曲线可以各套一套 NS，参数不能跨曲线比较除非载荷定义相同。票息、税收、基准券改款会造成「曲线」本身跳动，应先清洗再拟合。
 

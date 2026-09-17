@@ -66,7 +66,7 @@ KL 项改变最优策略：$\pi^\star \propto \pi_{\mathrm{ref}} \exp(r_\phi/\be
 
 <span class="marginnote">白化优势能压住尺度，也会抹掉 batch 之间真实的奖励平移。若某个迭代全是低分样本，标准化仍制造出一半正优势，策略会在垃圾堆里相对地「变好」。需要结合绝对 RM 分做门控或丢弃整批。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 砍掉 critic 时，KL 仍在
 

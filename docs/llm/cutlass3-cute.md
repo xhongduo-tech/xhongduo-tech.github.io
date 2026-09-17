@@ -57,7 +57,7 @@ flowchart TD
 
 cuBLAS / cuDNN 覆盖标准 GEMM 与标准 SDPA 形状，省维护，形状一偏就回到自定义核。CUTLASS 3 是写这些自定义核的官方积木。[FlashInfer](/llm/flashinfer) 在积木之上加了分页与 ragged 契约；训练框架可能直接链 CUTLASS 的 GEMM 与 fused epilogue。选型应沿「标准形状 → 厂商库；新布局 / 新融合 → CUTLASS；服务 KV 池 → 推理内核库」走，而不是用 CUTLASS 重写页分配器。
 
-## 边界与工程取舍
+## 边界
 
 学习曲线仍然陡。布局代数能拦住一类 bug，也会把错误变成模板实例化长文。不是所有注意力变体都值得下沉到 CuTe：窗口大小扫一遍的研究，Triton 更合适。DSL 与 C++ API 的版本要钉死：Hopper 与 Blackwell 的 atom 不同，同一份布局在新指令上可能要改 swizzle。非 NVIDIA 后端没有 CuTe，算法文档应保留与硬件无关的分块描述。
 

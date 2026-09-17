@@ -51,7 +51,7 @@ Databricks 把数据质量当成与 MoE 并列的卖点：12T 经过平台治理
 
 <span class="marginnote">许可按月活用户规模限制大型闭源竞品使用，这与 Mixtral 的 Apache 2.0 是不同的开源政治。部署前读 Databricks Open Model License，不要写进「可随意商用再分发」。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 博客是一等出处，不是可以补全的预印本
 

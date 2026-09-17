@@ -6,6 +6,7 @@ docs/.vitepress/cache/
 logs/
 
 # Local generation artifacts omitted from the site tree
-.cursor/write-batches/
+.cursor/*
+!.cursor/rules/
 docs/.vitepress/data/batch-*.json
 docs/.vitepress/theme/_kt-llm-debug.png

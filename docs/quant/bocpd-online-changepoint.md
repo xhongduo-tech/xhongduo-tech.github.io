@@ -11,7 +11,7 @@ section: quant
 <footer>—— Adams and MacKay, Bayesian Online Changepoint Detection, 2007</footer>
 </div>
 
-[Bai–Perron](/quant/bai-perron) 在全样本上用动态规划切多段，是事后估计。[CUSUM / MOSUM](/quant/cusum-mosum) 沿时间累加残差，对照渐近带做检验。[HMM](/quant/hmm-regime) 假定离散状态会按转移矩阵回来。Adams 与 MacKay（2007）的贝叶斯在线变点检测（BOCPD）问的是另一件事：数据流式到达，在每个 $t$ 给出**当前游程长度**（run length）$r_t$ 的后验 $P(r_t\mid x_{1:t})$，从而得到「最近一次变点在哪」的在线信念，以及下一观测的预测分布。本篇写游程后验、危险率、共轭指数族，以及它为何不能替代 Bai–Perron 的全局切段，也不能当成无成本的交易开关。
+[Wasserstein DRO](/quant/wasserstein-dro-portfolio) 对整球分布偏移稳健；变化集中在单点时，在线检测是另一条路。[Bai–Perron](/quant/bai-perron) 在全样本上用动态规划切多段，是事后估计。[CUSUM / MOSUM](/quant/cusum-mosum) 沿时间累加残差，对照渐近带做检验。[HMM](/quant/hmm-regime) 假定离散状态会按转移矩阵回来。Adams 与 MacKay（2007）的贝叶斯在线变点检测（BOCPD）问的是另一件事：数据流式到达，在每个 $t$ 给出**当前游程长度**（run length）$r_t$ 的后验 $P(r_t\mid x_{1:t})$，从而得到「最近一次变点在哪」的在线信念，以及下一观测的预测分布。本篇写游程后验、危险率、共轭指数族，以及它为何不能替代 Bai–Perron 的全局切段，也不能当成无成本的交易开关。
 
 ## 问题
 
@@ -60,7 +60,7 @@ flowchart TD
 
 <span class="marginnote">MAP 游程 $\arg\max_r P(r_t\mid x_{1:t})$ 在后验扁平时会乱跳。应报告后验质量或期望游程 $\mathbb{E}[r_t\mid x_{1:t}]$，并把决策绑在阈值与冷却上，而不是绑在 MAP 的逐日标签。</span>
 
-## 边界与工程取舍
+## 边界
 
 高斯共轭对收益太瘦；未标准化的平方收益会把波动体制标成均值变点。多元 BOCPD 在资产数稍大时，共轭协方差的自由度消耗极快，宜对残差或因子做，而不是对原始高维收益做。剪枝阈值、危险率、$t$ 分布自由度都是超参，必须在训练段预指定，禁止看着危机周调到「刚好抓住」。
 

@@ -53,4 +53,4 @@ flowchart TD
 - GK：银行激励约束把净值接到信贷供给与利差。
 - 信贷政策补净值或替中介持有风险。
 - 可与 KM 企业抵押叠加。
-- 出处：Gertler and Kiyotaki, *Handbook* 2010；Gertler and Karadi, *JME* 2011。
+- 出处：Gertler and Karadi, *JME* 2011。

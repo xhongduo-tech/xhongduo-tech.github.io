@@ -62,7 +62,7 @@ MMCT 把视觉放进续预训练，使图文题与文本题共享同一套表示
 
 并行解码在已经会想的 Thinking 模型上加测试时宽度；AdaCoT 在训练期教策略**少想**。二者可以叠，但博客把它们分给不同变体。服务上 FullCoT 与 AdaCoT 是不同 API 行为，不要用 Thinking 的 BeyondAIME +8 去宣传 AdaCoT 的省 token。
 
-## 边界与工程取舍
+## 边界
 
 闭源。路由、共享专家、RL 超参、AdaCoT 奖励公式均未公开。方舟上的 `doubao-seed-1-6-*` 与 C 端豆包还有检索与安全层，API 裸模型对不上 App。Seed-OSS-36B 是另一条 Apache 稠密 512K 线，与 1.6 的 256K MoE **不是**同一检查点。
 

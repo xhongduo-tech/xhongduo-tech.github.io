@@ -57,7 +57,7 @@ CTA 的线程数 = 各角色 warp 数 × 32。消费者必须构成完整 warpgr
 
 纯逐元素核、已经很小的 epilogue、以及 Ampere 上没有 TMA/WGMMA 的路径，特化没有硬件对象。A100 上的 CUTLASS GEMM 主流仍是全体 warp 协同 `cp.async` + `mma.sync`。把 Hopper 的角色图 `#ifdef` 到 `sm_80`，轻则编译失败，重则静默走慢路径。小 GEMM（decode 的 $M=1$）上，特化 CTA 可能过大，一个 SM 装不下足够的 CTA 来覆盖延迟，此时更小的非特化核或直接走 cuBLAS 启发式可能更好。
 
-## 边界与工程取舍
+## 边界
 
 不要在一个 warp 里用谓词模拟「一半线程是生产者」还称为 warp 特化——那是通道特化，SIMT 掩码会让两边都慢。不要假设角色数可以运行时变：寄存器分配在编译期按最大路径做。不要把 named barrier 的 ID 空间用尽还不查文档——CTA 内屏障数量有限，注意力核里 MMA、softmax、TMA 三套握手要一起编号。
 

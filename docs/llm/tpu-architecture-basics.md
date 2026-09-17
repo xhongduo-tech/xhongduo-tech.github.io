@@ -45,7 +45,7 @@ flowchart LR
 
 <span class="marginnote">[预训练通信](/llm/pretrain-comm) 的层次化 All-Reduce 在 TPU 上体现为「先沿某一 ICI 维 reduce 再沿另一维」。思想相同，实现不是 NCCL。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要用某一代 GPU 的 TFLOPS 去除某一代 TPU 的 TFLOPS 当结论——存储层次、互连、精度、编译器全不同。不要假设 CUDA 核可以「稍改」跑上 MXU。不要把 Colossus / 内部未公开网络写进容量规划；只用公开 pod 结构。下一课 Cerebras 把「阵列」放大到晶圆，互连问题变成晶圆上的 2D mesh，而不是机柜 ICI。
 

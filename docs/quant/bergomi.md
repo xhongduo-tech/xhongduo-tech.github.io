@@ -11,7 +11,7 @@ section: quant
     <footer>—— Bergomi, Stochastic Volatility Modeling, Wiley, 2016；曲线动态见其 2005–2008 年风险杂志论文</footer>
 </div>
 
-[Heston](/quant/heston) 用一个均值回复的 $v_t$ 生成整条方差期限结构：形状被 $\kappa,\theta,v_0$ 锁成指数型，市场的方差互换曲线只要不是这种形状，香草与方差产品就不能同时准。[Dupire](/quant/dupire) 拟合边际却没有独立的 vol-of-vol。Lorenzo Bergomi 把对象从「瞬时方差」换成「远期方差曲线」$\xi_t^T=\mathbb{E}[v_T\mid\mathcal{F}_t]$：今天观察到的曲线 $\xi_0^T$ 直接作为输入，动态只描述曲线以后如何随机翻动。两因子规格用一个快因子打短端偏斜、一个慢因子打持久凸性，是方差产品与指数期权簿上的常用语言。本篇写曲线对象与因子动态，粗糙波动的后续见 rough Bergomi 一类扩展，这里停在经典 Bergomi。
+[上一课](/quant/local-stoch-vol)把杠杆函数 $L$ 钉在粒子或 Fokker–Planck 的校准上。[Heston](/quant/heston) 用一个均值回复的 $v_t$ 生成整条方差期限结构：形状被 $\kappa,\theta,v_0$ 锁成指数型，市场的方差互换曲线只要不是这种形状，香草与方差产品就不能同时准。[Dupire](/quant/dupire) 拟合边际却没有独立的 vol-of-vol。Lorenzo Bergomi 把对象从「瞬时方差」换成「远期方差曲线」$\xi_t^T=\mathbb{E}[v_T\mid\mathcal{F}_t]$：今天观察到的曲线 $\xi_0^T$ 直接作为输入，动态只描述曲线以后如何随机翻动。两因子规格用一个快因子打短端偏斜、一个慢因子打持久凸性，是方差产品与指数期权簿上的常用语言。本篇写曲线对象与因子动态，粗糙波动的后续见 rough Bergomi 一类扩展，这里停在经典 Bergomi。
 
 ## 问题
 

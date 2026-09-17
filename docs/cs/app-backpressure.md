@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 TCP 窗口对照；Reactive Streams 背压；RFC 9113 流控整理</footer>
 </div>
 
-[TCP 窗口](/cs/tcp-window) 与 [PFC](/cs/pause-pfc) 已给下层反压。[C10K](/cs/c10k-concurrency) 的事件循环若盲目 `read` 会堆内存。[上一课](/cs/retry-idempotency) 的重试会加重生产者。缺口是**应用背压**：把反压接到业务。本课结束计算机网络进阶；下一课程是数据库进阶。
+[TCP 窗口](/cs/tcp-window) 与 [PFC](/cs/pause-pfc) 已给下层反压。[C10K](/cs/c10k-concurrency) 的事件循环若盲目 `read` 会堆内存。[上一课](/cs/retry-idempotency) 的重试会加重生产者。缺口是**应用背压**：把反压接到业务。本课结束计算机网络进阶；下一课进入数据库，先命名[关系模型](/cs/relational-model)。
 
 ## 问题
 
@@ -36,8 +36,6 @@ flowchart TD
   FULL["满"] --> BP["阻塞或窗口减"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 gRPC 流控、TCP rwnd、PFC 可叠三层；只开一层会在其它层爆。重试在背压时要停。负载均衡把溢出转到它机是横向背压。测量：队列深度与 p99，不是只看 iperf。
@@ -46,11 +44,11 @@ gRPC 流控、TCP rwnd、PFC 可叠三层；只开一层会在其它层爆。重
 
 ## 边界
 
-本课不引入某语言异步库的全部 API。数据库进阶从 SQL 聚合另起，不在此插入。后课默认：应用必须有界缓冲并向下反压。
+本课不引入某语言异步库的全部 API。数据库课从[关系模型](/cs/relational-model)另起，聚合不在此插入。后课默认：应用必须有界缓冲并向下反压。
 
 「先打进 Kafka 再算」只是把膨胀换了个名字，仍要有界。
 
-上一课留下的缺口在本课收口；「应用层背压」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[聚合与 GROUP BY](/cs/sql-aggregation)。
+分组聚合在后面的[聚合与 GROUP BY](/cs/sql-aggregation)一课展开。
 
 ## 小结
 

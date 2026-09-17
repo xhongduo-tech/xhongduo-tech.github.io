@@ -11,23 +11,23 @@ section: cs
 <footer>—— 据 Freivalds, Fast Probabilistic Algorithms, 1977；Motwani and Raghavan；CLRS 第 5、32 章整理</footer>
 </div>
 
-上一课[Las Vegas 与 Monte Carlo](/cs/las-vegas-monte-carlo)钉了 MC。指纹：串/多项式/矩阵的哈希，碰撞则可能假阳性。缺口是 Freivalds：检验 $AB=C$ 不必 $O(n^3)$ 再乘一遍。不重写 Karatsuba。后课随机游走混合。
+上一课[Las Vegas 与 Monte Carlo](/cs/las-vegas-monte-carlo)钉了两类随机算法的合同；本课主题是指纹：把串、多项式、矩阵映射成随机的短摘要，相等检验变成比对指纹——碰撞只是可控概率的假阳性。缺口是 Freivalds：检验 $AB=C$ 不必再做一遍 $O(n^3)$ 的乘法。本课不重写 Karatsuba；后课随机游走与混合时间。
 
 ## 问题
 
-多项式恒等：随机 $x$ Schwartz–Zippel，$d$ 次多项式在有限 $S$ 上撞根 $\le d/|S|$。串匹配 Rabin–Karp 同精神。Freivalds：$A,B,C$ 为 $n\times n$，随机 $r\in\{0,1\}^n$，看 $A(Br)\stackrel{?}{=}Cr$，三次矩阵–向量 $O(n^2)$。错当 $AB\neq C$ 仍相等，概率 $\le 1/2$（域更大则更小）。重复 $k$ 次。
+三个实例。多项式恒等：随机取点 $x$，Schwartz–Zippel 给出界——$d$ 次多项式在有限集 $S$ 上撞根的概率 $\le d/|S|$，相等则必真，不等则大概率现形。串匹配的 Rabin–Karp 同精神：模随机素数的滚动哈希当指纹。Freivalds：随机向量 $r\in\{0,1\}^n$，检验 $A(Br)\stackrel{?}{=}Cr$，三次矩阵–向量乘共 $O(n^2)$；若 $AB\neq C$ 却判等的错概率 $\le 1/2$，换成大域取值更小，重复 $k$ 次错概率指数下降。
 
-缺口是检验不是计算乘积。
+缺口是「检验」这个任务，不是计算乘积本身。
 
 ### 不是密码学碰撞抗性
 
-这里是算法 MC，模随机素数。对手看到随机数之前选输入。自适应对手另论。
+这不是密码学的碰撞抗性：指纹的安全性来自随机数在对手选定输入**之后**才抽取——对手若能看到你的随机数再选输入，界即失效。自适应对手要另论。
 
 <span class="marginnote">Freivalds 1977。Schwartz–Zippel。Rabin–Karp。后课混合时间是马尔可夫，不是指纹。</span>
 
 ## 方法
 
-选随机点或向量，模大素数。失败则「可能不等/再试」。要 Las Vegas 乘仍用确定乘。
+套路一致：选随机点或随机向量、模大素数防溢出；判等则接受（可能错），判不等则断言不等（必真）或再试一轮。要 Las Vegas 式的确定性答案，就证伪即重试直到收敛。
 
 ```mermaid
 flowchart TD
@@ -36,15 +36,15 @@ flowchart TD
   AB["AB vs C"] --> FR["Freivalds A(Br)=Cr"]
 ```
 
-串：滚动哈希注意溢出当模。
+实现注意：滚动哈希的乘加要用模运算防溢出，模数取大素数。
 
 ## 机制
 
-线性：$(AB-C)r=0$ 对随机 $r$ 当 $AB-C\neq 0$ 很少。多项式：$P(x)=0$ 根少。与 NTT：NTT 精确卷积；指纹是概率检验。与哈希表：指纹可当键，有碰撞。
+机制一句话：非零对象在随机投影下很少变零。线性代数版：$D=AB-C\neq 0$ 时 $Dr=0$ 要求 $r$ 落进 $D$ 的零空间，随机 $r$ 撞进去的概率小；多项式版：非零 $d$ 次多项式至多 $d$ 个根。指纹由此把「相等检验」整体变成 Monte Carlo。与 NTT 对照：NTT 是精确卷积，指纹是概率检验，一个算一个验。与哈希表对照：指纹可当键但带碰撞概率，哈希表靠冲突解决而非随机化。
 
 ## 边界
 
-本课不写密码学哈希函数。不写 PCP 指纹。后课默认：$O(n^2)$ 检验矩阵乘用 Freivalds。下一课随机游走与混合。
+本课不写密码学哈希函数，不写 PCP 定理里的指纹。后课默认：$O(n^2)$ 检验矩阵乘用 Freivalds。下一课随机游走与混合。
 
 ## 小结
 

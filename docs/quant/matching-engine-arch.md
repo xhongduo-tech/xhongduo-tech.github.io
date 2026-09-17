@@ -11,7 +11,7 @@ section: quant
 <footer>—— 据 Harris, Trading and Exchanges 对电子撮合与优先规则的论述；对照 Budish, Cramton and Shim, The High-Frequency Trading Arms Race, QJE, 2015</footer>
 </div>
 
-[上一课](/quant/ratio-sampling-error)把组合课序收在业绩比率的抽样误差：策略评价假设有一笔可执行的成交。本课打开课程「交易所、数据与工程」。缺口不是再讲[限价簿几何](/quant/lob-structure)，而是**那张簿在主机里如何被一台引擎推进**：单线程还是分片、确定性重放、故障切换、与清算的边界。后课从引擎的输出重建簿、再接到报文协议。后课默认已经读完本课对架构的约定。
+[上一课](/quant/corporate-action-engine)把公司事件收成回测与实盘共用的流水，差别只在点-in-time 可知范围。本课打开课程「交易所、数据与工程」。缺口不是再讲[限价簿几何](/quant/lob-structure)，而是**那张簿在主机里如何被一台引擎推进**：单线程还是分片、确定性重放、故障切换、与清算的边界。后课从引擎的输出重建簿、再接到报文协议。后课默认已经读完本课对架构的约定。
 
 ## 问题
 

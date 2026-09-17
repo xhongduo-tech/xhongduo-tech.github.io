@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Moore 原文的经济命题与其后光刻接棒（RET、浸没、多重、EUV）的产业史</footer>
 </div>
 
-[上一课](/litho/fab-capex)说明支票变大。缺口是为什么还要开：密度经济。本课钉摩尔定律的光刻视角。谁能卖这些机台（单一来源），留给[下一课](/litho/supply-chain-single-source）。
+[上一课](/litho/fab-capex)说明支票变大。缺口是为什么还要开：密度经济。本课钉摩尔定律的光刻视角。谁能卖这些机台（单一来源），留给[下一课](/litho/supply-chain-single-source)。
 
 ## 问题
 

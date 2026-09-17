@@ -43,7 +43,7 @@ flowchart TD
 
 <span class="marginnote">确定性不等于更快。它等于可预测。GPU 在大 batch prefill 上仍可更高吞吐。对比必须声明 batch 与阶段（prefill vs decode）。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要用 GPU 的 MFU 直接打 LPU。不要假设 PyTorch eager 能跑。不要把编译时间从 SLA 里删掉——换模型就要重编。下一课 SambaNova 也是数据流，但强调可重配置数据通路与训练/推理更广的图，而不是 Groq 这种拍级确定性叙事。
 

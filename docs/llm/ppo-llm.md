@@ -63,7 +63,7 @@ flowchart TD
 
 <span class="marginnote">KL 可以写进奖励（逐步减 $\beta\log(\pi_\theta/\pi_{\mathrm{ref}})$），使优势已经含「不要离 SFT 太远」；也可以在损失里另加 KL 项。两种不要叠成未声明的双倍 β。InstructGPT 把 KL 放进奖励一侧。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 四模型常驻是默认成本
 

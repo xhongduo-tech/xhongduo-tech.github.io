@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML 对 overlay control / holistic lithography 的公开论述</footer>
 </div>
 
-[上一课](/litho/spc-control-chart)把残差判异写清。缺口是套刻这条环的专用执行器：场间线性、场内高阶、扫描偏扭。[套刻 Overlay](/litho/litho-overlay) 与预算课已定义量；本课钉回路，高阶场内项如何开，留给[下一课](/litho/high-order-field-correction）。
+[上一课](/litho/spc-control-chart)把残差判异写清。缺口是套刻这条环的专用执行器：场间线性、场内高阶、扫描偏扭。[套刻 Overlay](/litho/litho-overlay) 与预算课已定义量；本课钉回路，高阶场内项如何开，留给[下一课](/litho/high-order-field-correction)。
 
 ## 问题
 

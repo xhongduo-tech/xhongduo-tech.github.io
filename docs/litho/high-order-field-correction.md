@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ASML 对高阶 overlay 校正的公开论述；[高阶套刻](/litho/high-order-overlay) 已钉来源</footer>
 </div>
 
-[上一课](/litho/overlay-control-loop)给出套刻环。缺口是开哪些场内项：[高阶套刻](/litho/high-order-overlay) 已列镜头、扫描与翘曲来源；本课钉**控制政策**：默认开几阶、何时升级、如何防止噪声拟合。批次分派与重工，留给[下一课](/litho/lot-disposition-rework）。
+[上一课](/litho/overlay-control-loop)给出套刻环。缺口是开哪些场内项：[高阶套刻](/litho/high-order-overlay) 已列镜头、扫描与翘曲来源；本课钉**控制政策**：默认开几阶、何时升级、如何防止噪声拟合。批次分派与重工，留给[下一课](/litho/lot-disposition-rework)。
 
 ## 问题
 

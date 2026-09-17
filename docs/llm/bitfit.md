@@ -46,7 +46,7 @@ $y=Wx+b$ 里，$b$ 不随 token 变。它能改变每个通道的触发点，从
 
 <span class="marginnote">NEFTune 动嵌入表示；BitFit 动偏置。二者可叠，但都是弱干预。脏数据上 BitFit 过拟合偏置，表现为所有回复加上固定腔调偏移。</span>
 
-## 边界与工程取舍
+## 边界
 
 生成任务、工具调用、领域术语内化，默认不要只靠 BitFit。分类、校准、轻度风格、作为消融基线，值得跑。服务期 BitFit 的检查点极小，可按用户存一份 $\Delta b$，合并是向量加，无秩冲突——这比后课[LoRA 合并](/llm/lora-merge-conflict)干净，前提是任务够简单。
 

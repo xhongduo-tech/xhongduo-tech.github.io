@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Mack $k_1$ 与 NILS；ASML 对 0.33 单次 vs High-NA / 多重的公开讨论</footer>
 </div>
 
-[上一课](/litho/euv-layers-per-node)决定哪些层上 EUV。缺口是单次能走多远：0.33 NA、13.5 nm 的瑞利墙，再叠加随机、M3D 和掩模粗糙。高 NA 的产能与经济是否值得为这堵墙买单，留给[下一课](/litho/high-na-throughput-economics）。
+[上一课](/litho/euv-layers-per-node)决定哪些层上 EUV。缺口是单次能走多远：0.33 NA、13.5 nm 的瑞利墙，再叠加随机、M3D 和掩模粗糙。高 NA 的产能与经济是否值得为这堵墙买单，留给[下一课](/litho/high-na-throughput-economics)。
 
 ## 问题
 

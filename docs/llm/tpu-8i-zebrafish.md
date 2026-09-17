@@ -54,7 +54,7 @@ NUMA：加倍的主机是为了让 CPU 侧不再先饱和。把 tokenizer 和工
 
 <span class="marginnote">8t / 8i 官方称相对 Ironwood 最高约 2× 能效（performance-per-watt）。这是芯片到机房液冷整栈叙事，第四代液冷 CDU 是配套，不是用户可调的频率旋钮。推理 TCO 仍要另算主机、交换机与空置率。</span>
 
-## 边界与工程取舍
+## 边界
 
 GA 前无稳定的 Cloud SKU 表，切片形状、每主机芯片数、计价都未在本篇所引博文列出。单芯片 FLOPS 公开信息有限：不要用报道里的 10.1 PFLOPS 一类数字写进内部容量计算器，除非 Google 规格页出现同数。Boardfly Pod 小于 8t 的 9600 芯片 superpod，大模型若单 Pod 放不下，会碰到 8i 域外的 Virgo/DCN，逐步延迟按另一档计。
 

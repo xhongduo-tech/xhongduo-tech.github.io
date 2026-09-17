@@ -61,7 +61,7 @@ MoE 上，专家轴是合法的 intra-op 轴；不同拓扑上最优轴不同（
 
 [Megatron-DeepSpeed](/llm/megatron-deepspeed) 给的是一份已验证的 8×35×DP 配方。Alpa 给的是「换模型、换集群时重新搜」。只用 GSPMD 仍要人标轴；Alpa 在 XLA 里自动标。训练生产若模型极规整、集群极固定，手工网格可能更易调试；若每周改结构，编译器更值。
 
-## 边界与工程取舍
+## 边界
 
 JAX 生态与 PyTorch 预训练主流分叉：迁移成本是真实的。动态 shape、数据相关控制流、自定义算子会让 ILP 图不完整。流水线仍有气泡与权重版本问题，Alpa 没有取消 [PipeDream](/llm/pipedream) 里那些物理约束，只是自动选阶段。代价模型过时（新的 FlashAttention、新的 NVLink 带宽）需要重新标定，否则计划停留在旧硬件画像上。
 

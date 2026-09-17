@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 ADI/AEI 偏置、紧凑刻蚀核与 run-to-run 的分工；Levinson 对 after-etch 计量的区分</footer>
 </div>
 
-[上一课](/litho/etch-loading-effect)把负载写成布局邻域。缺口是闭环：在线 AEI 看见偏置漂了，谁改、改哪一层模型。[刻蚀进 OPC](/litho/etch-in-opc) 与 [刻蚀模型校准](/litho/etch-model-calibration) 已写核如何进迭代、如何标定；本课钉**量产回环**：何时重拟合核、何时只调平均偏置、何时重工晶圆。CMP 形貌如何先毁掉焦深，留给[下一课](/litho/cmp-topography）。
+[上一课](/litho/etch-loading-effect)把负载写成布局邻域。缺口是闭环：在线 AEI 看见偏置漂了，谁改、改哪一层模型。[刻蚀进 OPC](/litho/etch-in-opc) 与 [刻蚀模型校准](/litho/etch-model-calibration) 已写核如何进迭代、如何标定；本课钉**量产回环**：何时重拟合核、何时只调平均偏置、何时重工晶圆。CMP 形貌如何先毁掉焦深，留给[下一课](/litho/cmp-topography)。
 
 ## 问题
 

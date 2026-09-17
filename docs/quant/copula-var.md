@@ -11,7 +11,7 @@ section: quant
 <footer>—— Sklar 表示；金融风险中的应用见 Embrechts, McNeil and Straumann；条件 Copula 见 Patton, 2006</footer>
 </div>
 
-[参数 VaR](/quant/var-methods) 用协方差把依赖收成 $\Sigma$，隐含高斯 Copula：相关可以很高，极端仍渐近独立。组合在崩溃日一起爆，正是高斯假设漏掉的那一段。[Copula](/quant/copula) 文写相关结构本身；本篇写它如何变成组合损失的分位数与 [ES](/quant/expected-shortfall)。标准路径是：各边缘用 GARCH 或 EVT 固定，Copula 抽联合均匀变量，反变换成因子情景，再定价、取分位数。Rosenberg 与 Schuermann 把这一「风险加总」写成边缘–Copula–组合的三层。它补的是联合尾巴，不是单名波动。
+[FHS](/quant/fhs-var)把依赖留在整向量抽样里，不另估相关矩阵。 [参数 VaR](/quant/var-methods) 用协方差把依赖收成 $\Sigma$，隐含高斯 Copula：相关可以很高，极端仍渐近独立。组合在崩溃日一起爆，正是高斯假设漏掉的那一段。[Copula](/quant/copula) 文写相关结构本身；本篇写它如何变成组合损失的分位数与 [ES](/quant/expected-shortfall)。标准路径是：各边缘用 GARCH 或 EVT 固定，Copula 抽联合均匀变量，反变换成因子情景，再定价、取分位数。Rosenberg 与 Schuermann 把这一「风险加总」写成边缘–Copula–组合的三层。它补的是联合尾巴，不是单名波动。
 
 ## 问题
 
@@ -49,7 +49,7 @@ $g$ 必须与 [VaR 方法](/quant/var-methods) 文同一纪律：线性映射漏
 
 $d$ 很大时，联合极端事件在样本里几乎不出现，$\lambda$ 的识别靠模型而不靠数据。此时 Copula VaR 的模型风险主导。不同步成交、流动性枯竭会造成假的同期极端（一个先跌、另一个报价未更新）。日频以下更严重。先对齐采样与流动性过滤，再估 $C$。缺失值用「昨日收益为零」填，会人为增加独立；用条件均值填，会人为增加相关。缺失机制应写进模型卡。
 
-## 边界与工程取舍
+## 边界
 
 Copula VaR 贵：每条路径全定价，参数还含 Copula。日常限额可用 FHS 或 $t$ Copula 的快速线性版本；复杂产品、集中信用、跨资产账簿再上全定价 Copula。不要用历史相关标定高斯 Copula 再宣称「做了 Copula 压力」——压力要的是 $\lambda$ 情景，例如把 $\nu$ 降到很低或把 Clayton 参数推到样本外，并声明这是判断不是估计。
 

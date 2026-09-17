@@ -11,7 +11,7 @@ section: quant
 <footer>—— Corsi, A Simple Approximate Long-Memory Model of Realized Volatility, Journal of Financial Econometrics, 2009</footer>
 </div>
 
-[HAR 已实现波动](/quant/har-rv) 一文写 Corsi（2009）的对象：用日、周、月 RV 的线性组合逼近长记忆，避免估计分整阶数。本篇假定那条回归已经成立，把问题换成**预报协议**：一步还是多步、迭代还是直接、水平还是对数、MSE 还是 QLIKE、要不要把跳与测量误差拆开。风控要的一周或十日期方差，不是把一日 $R^2$ 乘上地平线。Patton 表明 QLIKE 对波动预测是一致排序的损失；Bollerslev、Patton 与 Quaedvlieg 的 HARQ 把已实现四分位变差放进回归，修正 RV 作为积分波动代理时的异方差测量误差。Andersen、Bollerslev 与 Diebold 把连续变差与跳分开进 HAR-CJ。这些扩展改的是预报，不是再发明一种长记忆。
+[上一课](/quant/cppi-tipp)把组合保险收在缺口风险；本篇转到输入侧，评波动预报本身。[HAR 已实现波动](/quant/har-rv) 一文写 Corsi（2009）的对象：用日、周、月 RV 的线性组合逼近长记忆，避免估计分整阶数。本篇假定那条回归已经成立，把问题换成**预报协议**：一步还是多步、迭代还是直接、水平还是对数、MSE 还是 QLIKE、要不要把跳与测量误差拆开。风控要的一周或十日期方差，不是把一日 $R^2$ 乘上地平线。Patton 表明 QLIKE 对波动预测是一致排序的损失；Bollerslev、Patton 与 Quaedvlieg 的 HARQ 把已实现四分位变差放进回归，修正 RV 作为积分波动代理时的异方差测量误差。Andersen、Bollerslev 与 Diebold 把连续变差与跳分开进 HAR-CJ。这些扩展改的是预报，不是再发明一种长记忆。
 
 ## 问题
 
@@ -51,7 +51,7 @@ RV 不是积分波动 $IV_t$，而是带测量误差的代理。误差在平静�
 
 HAR 输出条件均值。VaR 还要残差分布：大 RV 之后预报误差也大，残差有波动的波动。把 $\sqrt{\widehat{RV}_{t+1}}$ 直接当正态标准差，忽略 HAR 残差的条件异方差与跳。工程上可在 HAR 残差上再套一层简单 GARCH 或经验分位，或用分位回归直接预报 RV 的分位。组合层面，个股 HAR 加总不等于组合 RV，缺相关；应对因子组合或指数直接估 HAR，再把个股预报留给特异风险。
 
-## 边界与工程取舍
+## 边界
 
 结构突变会让全样本系数被危机年主导。滚动 HAR 适合实盘，但窗口短于两年时月成分估不稳。不要在未清洗的成交价 RV 上比较多步 $R^2$：微观噪声的短记忆会伪装成巨大的 $\beta_d$，一步看起来极准，多步迅速崩溃。也不要把 HAR 预报当成方差风险溢价交易信号：左边是已实现测度，不含风险中性补偿。
 

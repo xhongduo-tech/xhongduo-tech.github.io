@@ -11,7 +11,7 @@ section: quant
     <footer>—— Castagna and Mercurio, The vanna-volga method for implied volatilities, Risk, 2007；外汇一致定价见二人同期工作</footer>
 </div>
 
-[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 把日常账本收成现货一阶、二阶与波动一阶。外汇与部分商品做市还要显式处理两个二阶对象：**Vanna** $\partial^2 V/\partial S\partial\sigma$（等价于 Vega 对现货、或 Delta 对波动）与 **Volga**（Vomma）$\partial^2 V/\partial\sigma^2$（Vega 对波动）。Antonio Castagna 与 Fabio Mercurio 把这一观察收成可计算的定价与对冲术：在 Black–Scholes 价格之上，用 ATM、25-delta 风险反转、25-delta 蝶式三张工具的市价与模型价之差，按目标合约的 Vanna / Volga / Vega 权重去加权，得到与市场三点一致的调整。它不是 [Heston](/quant/heston) 那样的过程，也不是 [SABR](/quant/sabr) 的摄动展开，而是微笑市场上的工具对冲与插值。本篇写方法与适用边界，曲面几何见 [SVI](/quant/svi-ssvi)。
+[上一课](/quant/overnight-gap-hedge)把隔夜停在收盘 Gamma 与限额，事件夜的 Vanna 只出现在情景里。[Delta / Gamma / Vega 对冲](/quant/greeks-hedge) 把日常账本收成现货一阶、二阶与波动一阶。外汇与部分商品做市还要显式处理两个二阶对象：**Vanna** $\partial^2 V/\partial S\partial\sigma$（等价于 Vega 对现货、或 Delta 对波动）与 **Volga**（Vomma）$\partial^2 V/\partial\sigma^2$（Vega 对波动）。Antonio Castagna 与 Fabio Mercurio 把这一观察收成可计算的定价与对冲术：在 Black–Scholes 价格之上，用 ATM、25-delta 风险反转、25-delta 蝶式三张工具的市价与模型价之差，按目标合约的 Vanna / Volga / Vega 权重去加权，得到与市场三点一致的调整。它不是 [Heston](/quant/heston) 那样的过程，也不是 [SABR](/quant/sabr) 的摄动展开，而是微笑市场上的工具对冲与插值。本篇写方法与适用边界，曲面几何见 [SVI](/quant/svi-ssvi)。
 
 ## 问题
 
@@ -77,7 +77,7 @@ flowchart TD
   Px --> H["再 Delta 对冲"]
 ```
 
-## 边界与工程取舍
+## 边界
 
 VV 是展开与三点投影，不是无套利定理。插出的香草微笑可能局部破凸，发布前要扫描。障碍、美式、离散监控的路径依赖超出三点能锁定的范围：不同模型可以共享三点香草、给出不同障碍价，VV 只是其中一种约定。利率、远期点、Delta 惯例（即期 / 远期 / 溢价调整）必须与经纪商一致，否则三点解的是错误工具。
 

@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 SEMI P39 OASIS 与 Calma GDSII 流格式的产业通称</footer>
 </div>
 
-[上一课](/litho/high-na-throughput-economics)把高 NA 的产能与片成本钉成经济账。缺口是：晶圆侧再贵的光子，也要先变成一张可写的版。本课起一门新课——掩模制造与数据准备——从交换格式钉起。分层与布尔派生，留给[下一课](/litho/layout-layers-flow）。
+[上一课](/litho/dtco-patterning)把设计规则、单元库与光刻分解收进同一张可行集，替计算光刻与掩模写入课程收尾。缺口是：晶圆侧再贵的光子，也要先变成一张可写的版。本课起一门新课——掩模制造与数据准备——从交换格式钉起。分层与布尔派生，留给[下一课](/litho/layout-layers-flow)。
 
 ## 问题
 

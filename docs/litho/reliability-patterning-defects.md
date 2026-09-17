@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 BEOL 可靠性（EM、TDDB）与图形化几何的公开讨论</footer>
 </div>
 
-[上一课](/litho/parametric-yield-cd)处理出厂参数。缺口是时间：尖的金属线端、via 落在金属边、刻蚀损伤的栅侧壁，出货时电学可过，寿命不够。本课钉图形化缺陷的可靠性面。TEM/FIB 如何取证，留给[下一课](/litho/failure-analysis-tem-fib）。
+[上一课](/litho/parametric-yield-cd)处理出厂参数。缺口是时间：尖的金属线端、via 落在金属边、刻蚀损伤的栅侧壁，出货时电学可过，寿命不够。本课钉图形化缺陷的可靠性面。TEM/FIB 如何取证，留给[下一课](/litho/failure-analysis-tem-fib)。
 
 ## 问题
 

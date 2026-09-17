@@ -61,7 +61,7 @@ flowchart TD
 
 [Megatron-Core](/llm/megatron-core) 同样可组合，但是 NVIDIA 积木 + Transformer Engine，模型往往要写成 Core 模块。[DeepSpeed](/llm/zero-stages) 用 JSON 档位与引擎包装模块。TorchTitan 赌的是：你愿意跟 PyTorch 2.x API（FSDP2、DTensor、compile），用较少的外部运行时换可维护性。它不是「更快所以替代 Megatron」；405B 配方仍可能在 Core 里有更熟的 MoE 路径。仓库后来加的 DeepSeek-V3、Qwen3 等 `parallelize_*`，以当时代码为准，不要全部算进 2410.06511 的实验表。
 
-## 边界与工程取舍
+## 边界
 
 不要把 65% / 12.59% / 30% 写成对任意基线的承诺。不要在 FSDP1 包装下假设 DTensor 配方能直接跑。不要把 SymmetricMemory、异步 TP 当成所有硬件上都已默认打开。检查点格式与 Megatron / Hugging Face 之间需要转换，不是改扩展名。论文评估在 H100；换互联带宽，4D 的最优维数会动。
 

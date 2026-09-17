@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 SADP 计量对 odd–even pitch / odd–even space 的通称整理</footer>
 </div>
 
-[上一课](/litho/pitch-walking)把芯轴侧与间隙侧不等写成节距漂移。缺口是把「两种间隔」收成计量与电学都认的奇偶节距语言，而不是再推一遍 $W_m$ 与 $t$。切断掩模留给[下一课](/litho/cut-mask-dpt）。
+[上一课](/litho/pitch-walking)把芯轴侧与间隙侧不等写成节距漂移。缺口是把「两种间隔」收成计量与电学都认的奇偶节距语言，而不是再推一遍 $W_m$ 与 $t$。切断掩模留给[下一课](/litho/cut-mask-dpt)。
 
 ## 问题
 

@@ -11,8 +11,6 @@ section: cs
 <footer>—— Diffie, van Oorschot and Wiener, Authentication and Authenticated Key Exchanges, 1992；RFC 8446 对 (EC)DHE 的选择</footer>
 </div>
 
-## 定位
-
 上一课[密钥管理](/cs/key-management-hsm)保护长期根。缺口是**根仍可能在某天泄漏**（备份、强制、漏洞）。前向保密把历史会话从根的命运里摘出去。主干[DH 与 RSA 分工](/cs/dh-vs-rsa)已点名；本课升为主题。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 0-RTT 会打折
 
 [TLS 1.3 0-RTT](/cs/tls13-0rtt) 用 PSK 提前发数据，有重放与弱前向窗口。可用性与遗忘在此打架。
-
 
 <span class="marginnote">Diffie–van Oorschot–Wiener 的认证密钥交换讨论 PFS。本课不给「如何从服务器抠过去会话」的步骤。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   LONG -.->|"泄漏不解密过去"| SK
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 HSM 里的长期钥仍值得关；PFS 保证关不住的那一天历史仍在计算上保密。Signal 下一课把「多次会话」收成棘轮，使更细粒度的遗忘成为可能。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

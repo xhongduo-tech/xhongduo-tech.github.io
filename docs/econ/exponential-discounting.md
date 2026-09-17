@@ -11,7 +11,7 @@ section: econ
 <footer>—— Samuelson, A Note on Measurement of Utility, Review of Economic Studies, 1937；对照 Strotz, Review of Economic Studies, 1955–56</footer>
 </div>
 
-[上一课](/econ/to-limit-order-book)（到限价簿：理论在此停）。主干在限价簿交接处停：均衡给出应当满足的 $p$，协议从队列处起，量化栏拥有[限价簿](/quant/lob-structure)。本课是补层，不重写簿，也不把中间价当成欧拉里的 $r$。缺口是：主干已经用过 $\beta$，但没有问这串权重为什么必须是几何的。后课默认已经读完本课。
+[上一课](/econ/corporate-finance-identification)以识别收束公司金融：凡写「治理导致价值」，先指出冲击从哪来。本课是「跨期、行为与家庭金融」的第一课，回到家庭：主干一路用 $\beta$ 贴现，但没有问这串权重为什么必须是几何的。本课是这层补层，不重写簿，也不把中间价当成欧拉里的 $r$。后课默认已经读完本课。
 
 ## 问题
 
@@ -31,7 +31,7 @@ $$
 
 ```mermaid
 flowchart TD
-  STOP["主干停在限价簿交接"] --> SUP["补层: 跨期加总的形状"]
+  STOP["公司金融识别收束主干"] --> SUP["补层: 跨期加总的形状"]
   SUP --> EXP["指数: d_t = beta^t"]
   EXP --> TC["时间一致: 续计划仍最优"]
   TC --> LATER["后课: 双曲把一致拆掉"]
@@ -55,7 +55,7 @@ flowchart TD
 
 ## 小结
 
-- 主干在限价簿交接处停；本课是补层，回到跨期偏好，不重写簿。
+- 公司金融识别收束主干；本课是补层，回到跨期偏好，不重写簿。
 - Samuelson 贴现效用取几何权重，使计划时间一致。
 - $\beta$ 是偏好，$r$ 是价格；欧拉在切点对齐，不重导。
 - 非几何贴现把自我博弈留给下一课。

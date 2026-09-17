@@ -60,7 +60,7 @@ DeepScaleR 先短后长，是因为长 CoT 的生成时间方差会拖垮同步 
 
 Aligner 的贡献是：分置生成服务器 + Megatron 训练 + TensorRT-LLM refit，把 PPO 四模型拉到 405B。那篇论文的系统数字（千卡、Nemotron 4 340B）不应无说明地贴到 NeMo-RL 的 GRPO 1.5B 教程上。反过来，DeepScaleR 教程证明新库能复现公开推理配方，不证明它已经继承 Aligner 的全部并行度。写架构演进时分成两代，比写成「改了个名」准确。
 
-## 边界与工程取舍
+## 边界
 
 不要把 AIME 超过 o1 写成框架基准——评测协议、解码预算、数据污染都在配方里，不在 Ray 里。不要假设所有 HF 模型都能 TP。隔离环境增加了调试成本：报错可能在子环境的 vLLM 里，驱动进程只看到 Ray actor 挂了。奖励函数与工具沙箱仍要自己接；[VERLTool](/llm/verltool) 那类工具服务器不是 NeMo-RL 的默认形态。
 

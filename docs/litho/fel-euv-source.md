@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 FEL 作为 EUV 源概念与 LPP 锡源量产路径的公开讨论</footer>
 </div>
 
-[上一课](/litho/biochip-litho)离开 IC。缺口是逻辑源是否只能 LPP。[EUV LPP 锡](/litho/euv-lpp-tin) 已钉量产路径。本课钉 FEL 概念。Hyper-NA 之后的物理墙，留给最后一课[post-hyper-na-limits](/litho/post-hyper-na-limits）。
+[上一课](/litho/biochip-litho)离开 IC。缺口是逻辑源是否只能 LPP。[EUV LPP 锡](/litho/euv-lpp-tin) 已钉量产路径。本课钉 FEL 概念。Hyper-NA 之后的物理墙，留给最后一课[post-hyper-na-limits](/litho/post-hyper-na-limits)。
 
 ## 问题
 

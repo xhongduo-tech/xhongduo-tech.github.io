@@ -71,7 +71,7 @@ InfoNCA 在指令跟随的 GPT-4 评估上可以略高于 NCA；NCA 的优势写
 
 [KTO](/llm/kto) 用前景价值把单条 $r_\theta$ 推向参考点上下；[APO](/llm/apo) 用 $\sigma(r_w)$ 规定成对几何。NCA 来自 NCE 判别「数据对噪声」，绝对项有配分与噪声分布的含义。成对 NCA 看起来像「DPO 拆开再加一项压低」，来源不是随意加正则。迁移超参时不要把 KTO 的 $\lambda_D,\lambda_U$ 抄到 NCA 的 $1/K$ 上。
 
-## 边界与工程取舍
+## 边界
 
 有标量分且 $K\gt 2$ 时，InfoNCA / NCA 才发挥数据利用率；只有成对时 InfoNCA 即 DPO，值得试的是 NCA。两者都要参考 $\mu$ 与 $\beta$，前向与 DPO 同级，另加 $K$ 条的 softmax。$K$ 受显存限制，同一提示的多条回答要对齐 padding。奖励模型的尺度必须与 $\alpha$ 匹配：分是 0/1 还是百分制，softmax 形状完全不同，应先标准化再扫 $\alpha$。
 

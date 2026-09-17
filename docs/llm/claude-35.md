@@ -58,7 +58,7 @@ API 把 computer、文本编辑器、shell 等定义成工具 schema；执行层
 
 [Claude 3.7](/llm/claude-37) 把「延长思考」做成显式模式；3.5 升级档仍是普通前向（可多步工具循环，但没有 budget_tokens 思维块）。用 3.7 的 SWE-bench 去比较 3.5 时，必须声明思考预算。本篇停在 2024 年 10 月增补卡。
 
-## 边界与工程取舍
+## 边界
 
 两份材料均无参数。SWE-bench 对脚手架极度敏感，Anthropic 报的 33.4/49.0/40.6 是他们的 pass@1 设定。computer use 应在隔离环境、低风险任务上试，官方自己这样建议。Artifacts 只在 claude.ai 一类产品表面，API 用户要自己做工作区。3.5 Sonnet 后来有过更多快照与下线，引用生产系统须写模型 ID。不要把 2025 年 Sonnet 4 的 1M 窗口写进 3.5。
 

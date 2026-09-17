@@ -11,7 +11,7 @@ section: quant
     <footer>—— Lundberg and Lee, A Unified Approach to Interpreting Model Predictions, NeurIPS, 2017</footer>
 </div>
 
-树与网络把截面收益映射成一个分数之后，投研仍要回答：这笔预测或这笔已实现损益，是价值、动量还是微观结构状态撑起来的。线性风险模型有现成的乘法表 $x^\top f$，见[因子归因](/quant/factor-attribution)。非线性模型没有这一表。Lundberg 与 Lee 把若干事后解释方法收进 SHAP：用合作博弈的 Shapley 值，把 $f(x)- \mathbb{E}[f]$ 分摊到每一列。它是对**当前这个 $f$** 的局部会计，不是对风险因子的识别，也不是因果。与 [MDA](/quant/mda-importance) 的差别是：MDA 打乱一列看损失升多少，给全局重要性；SHAP 给每一行一个分摊向量，可再聚合成「因子族贡献」。本篇写公理、树路径算法、以及把 SHAP 误当成 Brinson 或 DML 时会错在哪里。
+[因果树](/quant/causal-tree-heterogeneity) 把效应异质锁在预指定的处理轴；模型分数本身怎么记账，换 SHAP。树与网络把截面收益映射成一个分数之后，投研仍要回答：这笔预测或这笔已实现损益，是价值、动量还是微观结构状态撑起来的。线性风险模型有现成的乘法表 $x^\top f$，见[因子归因](/quant/factor-attribution)。非线性模型没有这一表。Lundberg 与 Lee 把若干事后解释方法收进 SHAP：用合作博弈的 Shapley 值，把 $f(x)- \mathbb{E}[f]$ 分摊到每一列。它是对**当前这个 $f$** 的局部会计，不是对风险因子的识别，也不是因果。与 [MDA](/quant/mda-importance) 的差别是：MDA 打乱一列看损失升多少，给全局重要性；SHAP 给每一行一个分摊向量，可再聚合成「因子族贡献」。本篇写公理、树路径算法、以及把 SHAP 误当成 Brinson 或 DML 时会错在哪里。
 
 ## 问题
 
@@ -57,7 +57,7 @@ SHAP 不估计 $\mathbb{E}[Y(1)-Y(0)\mid x]$，见[因果树](/quant/causal-tree
 
 与 MDA 同时报告是有用的核对：MDA 高、SHAP 族和也高，依赖较可信；SHAP 高、置换后损失几乎不变，可能是共线分摊或基线选择问题。不要只发 beeswarm。
 
-## 边界与工程取舍
+## 边界
 
 依赖破碎的时间序列上，「缺失一个特征」的期望没有唯一的因果版本。报告应把 SHAP 定位为模型审计：找泄漏列（未来成交量、未来波动若混进 $X$，SHAP 会诚实地点名它们——这是优点），找体制漂移（族贡献在测试年变号），找与风险模型暴露不一致的隐藏风格。它不能替代 [点-in-time](/quant/point-in-time) 审计，也不能替代扣费后的组合评估。
 

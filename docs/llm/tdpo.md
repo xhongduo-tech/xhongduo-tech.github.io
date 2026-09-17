@@ -83,7 +83,7 @@ $\nabla u$ 仍是 DPO 方向：提高 $y_w$、压低 $y_l$ 的相对对数比。
 
 在 IMDb 情感控制上，作者用 GPT-2 Large 的 SFT 检查点比较 DPO 与两种 TDPO，用情感分类器当代理奖励。同一序列 KL 预算下，TDPO$_1$ 与 TDPO$_2$ 能走到更高的期望奖励；TDPO$_2$ 的两侧序列 KL 差更可控。Anthropic HH 上 Pythia-2.8B 的实验报告：TDPO$_2$ 的偏好准确率与 nucleus 采样熵同时高于 DPO 与前向 KL 的 f-DPO。这些数字是该设定下的前沿，不是「任意任务 TDPO 第一」。MT-Bench 上相对 PPO（trlx + 代理 RM）与 DPO 的胜率，同样只说明在他们的训练预算里散度调节换成了可感知的生成质量，不能外推成替代 [PPO 在语言模型中的实现](/llm/ppo-llm)。
 
-## 边界与工程取舍
+## 边界
 
 TDPO 仍要成对数据与参考模型，省不掉 DPO 的两份前向；还要逐步前向 KL，词表一大，每步 KL 是 $O(|V|)$ 的额外开销。$\alpha$ 与 $\beta$ 耦合：$\beta$ 管相对参考的尺度，$\alpha$ 管两侧前向 KL 差进 logistic 的权重。只扫 $\beta$、把 $\alpha$ 固定成 1，等于没用上 TDPO$_2$ 的设计。停梯度必须打在 $y_w$ 的序列 KL 上，打反会把受欢迎轨迹的多样性也压死。
 

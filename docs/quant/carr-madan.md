@@ -11,7 +11,7 @@ section: quant
     <footer>—— Carr and Madan, Option Valuation Using the Fast Fourier Transform, Journal of Computational Finance, 1999</footer>
 </div>
 
-[上一课](/quant/funding-liquidity)把因子收到融资约束。缺口换成期权曲面的计算引擎：特征函数一次 FFT。[Heston](/quant/heston) 已经把欧式价格写成特征函数的反演，但原文是两条概率积分 $P_1,P_2$，每个执行价单独做振荡积分。Peter Carr 与 Dilip Madan 1999 年指出：若把看涨价格看成对数执行价 $k=\ln K$ 的函数，其傅里叶变换在适当阻尼下有闭式，且对一串等距 $k$ 可以用快速傅里叶变换一次算完。工程对象从此变成「特征函数 + 阻尼 + FFT 网格」，而不是「每个 $K$ 一次求积」。本篇写这条变换，不重推 Heston 的 Riccati；任何仿射或 Levy 模型只要交出 $\phi(u)=\mathbb{E}[e^{iu\ln S_T}]$，就接到同一套核上。蒙特卡洛与 [PDE](/quant/option-pde) 仍服务路径依赖与美式；香草截面的校准，FFT 通常是默认引擎。
+[上一课](/quant/barrier-monitoring)把监控频率折成障碍上的单一平移，并交代它何时失效。缺口换成期权曲面的计算引擎：特征函数一次 FFT。[Heston](/quant/heston) 已经把欧式价格写成特征函数的反演，但原文是两条概率积分 $P_1,P_2$，每个执行价单独做振荡积分。Peter Carr 与 Dilip Madan 1999 年指出：若把看涨价格看成对数执行价 $k=\ln K$ 的函数，其傅里叶变换在适当阻尼下有闭式，且对一串等距 $k$ 可以用快速傅里叶变换一次算完。工程对象从此变成「特征函数 + 阻尼 + FFT 网格」，而不是「每个 $K$ 一次求积」。本篇写这条变换，不重推 Heston 的 Riccati；任何仿射或 Levy 模型只要交出 $\phi(u)=\mathbb{E}[e^{iu\ln S_T}]$，就接到同一套核上。蒙特卡洛与 [PDE](/quant/option-pde) 仍服务路径依赖与美式；香草截面的校准，FFT 通常是默认引擎。
 
 ## 问题
 
@@ -69,7 +69,7 @@ flowchart TD
 
 数字期权对应密度，可用 $\phi$ 直接反演，不必走阻尼看涨再对 $K$ 差分——差分会放大 FFT 的高频涟漪。Delta、Vega 可对参数微分 $\phi$ 再走同一核，比价格有限差分干净。Rho 若利率进入贴现与漂移两处，特征函数与前因子都要导。网格上的蝶式应保持正，否则是 $\alpha$ 或截断不足，不是市场在套利。
 
-## 边界与工程取舍
+## 边界
 
 Levy 模型在极短到期的翼部，密度不光滑，FFT 振荡明显，需加大 $N$ 或改 COS。[Heston](/quant/heston) 在深虚值短到期衰减慢，且 $2\kappa\theta\lt \sigma^2$ 时矩可能在有限 $u$ 爆炸，$\alpha$ 把路径推得更近爆炸点。利率与分红若随 $T$ 变化，每个到期单独一条 $\phi$，不要共用一张频率表却混用贴现。
 

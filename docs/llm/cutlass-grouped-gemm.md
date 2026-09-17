@@ -61,7 +61,7 @@ MegaBlocks 论文的块稀疏核是 dropless 的算法论证；其库的 `groupe
 
 Workspace：`kHostPrecompute` 要一份与网格相关的表；融合核还要块尺度张量（SFA/SFB）的 6D 布局。这些字节要进显存账，尤其 NVFP4 的 scale 本身不是免费的。
 
-## 边界与工程取舍
+## 边界
 
 对齐约束是静默坑。SM100 文档写 $M$ 对齐 256，真实 $M_i=17$ 必须 pad 到对齐或走另一套核。Pad 只发生在瓦片边缘，仍比 Switch 式容量因子轻，但「完全 dropless、零 padding」在有对齐的 MMA 上不成立。应在实现里把对齐 padding 与容量掉牌分开记账。
 

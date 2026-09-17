@@ -11,7 +11,7 @@ section: quant
 <footer>—— Kyle, Continuous Auctions and Insider Trading, Econometrica, 1985</footer>
 </div>
 
-[Kyle 模型](/quant/kyle-model) 给出均衡里的 $\lambda=\sigma_V/(2\sigma_u)$：噪声交易越多，同样的知情数量越不容易被认出来，冲击越小。经验研究与交易台把
+[上一课](/quant/amihud-illiquidity)把非流动性收成一个日度比率，低频、粗糙。[Kyle 模型](/quant/kyle-model) 给出均衡里的 $\lambda=\sigma_V/(2\sigma_u)$：噪声交易越多，同样的知情数量越不容易被认出来，冲击越小。经验研究与交易台把
 
 $$
 \Delta p_t=\lambda y_t+\varepsilon_t

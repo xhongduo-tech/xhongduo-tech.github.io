@@ -11,7 +11,7 @@ section: quant
 <footer>—— 线性滤波见 Kalman, Journal of Basic Engineering 1960；金融状态空间见 Harvey, Forecasting, Structural Time Series Models and the Kalman Filter, 1989；配对应用见 Elliott, Van Der Hoek and Malcolm, Quantitative Finance 2005</footer>
 </div>
 
-[Engle–Granger](/quant/engle-granger) 的 $\beta$ 在全样本是常数。[Johansen](/quant/johansen) 的 $\beta$ 在 VECM 里也是常数。指数权重、成分股、相对流动性一变，常数对冲比留下的残差会慢慢变成另一条 $I(1)$。把 $\beta_t$ 写成状态、把价格写成观测，Kalman 滤波给出时变对冲比及其不确定度。Elliott 等人把配对交易写成这种状态空间，残差再按均值回复交易。Alexander 从协整谈最优对冲，已经强调对冲比应随共同趋势的权重调整；滤波是把「随时间调」变成每期可计算的递归。本篇写状态方程怎么设、过程噪声与量测噪声如何打架，以及时变 $\beta$ 与平稳价差之间的紧张关系。
+[上一课](/quant/half-life-bands)把开平阈值与时间止损收在半衰期上：规则默认对冲比不动。[Engle–Granger](/quant/engle-granger) 的 $\beta$ 在全样本是常数。[Johansen](/quant/johansen) 的 $\beta$ 在 VECM 里也是常数。指数权重、成分股、相对流动性一变，常数对冲比留下的残差会慢慢变成另一条 $I(1)$。把 $\beta_t$ 写成状态、把价格写成观测，Kalman 滤波给出时变对冲比及其不确定度。Elliott 等人把配对交易写成这种状态空间，残差再按均值回复交易。Alexander 从协整谈最优对冲，已经强调对冲比应随共同趋势的权重调整；滤波是把「随时间调」变成每期可计算的递归。本篇写状态方程怎么设、过程噪声与量测噪声如何打架，以及时变 $\beta$ 与平稳价差之间的紧张关系。
 
 ## 问题
 
@@ -63,7 +63,7 @@ Kalman 增益把预测误差按「状态不确定 vs 量测噪声」的比例写
 
 三资产以上，状态是向量 $\beta_t$，量测仍是一条组合价。不可识别：许多 $\beta$ 给出同样拟合。需约束（系数和为 0、对基准回归）或把系统写成多量测（多对价格）。Johansen 的空间约束可以当成状态的线性约束，在更新后投影回去。否则 Kalman 篮子会对冲比在等价类里乱走，换手无意义。
 
-## 边界与工程取舍
+## 边界
 
 价格间断、除息、拆股必须在观测方程里处理，否则 $\beta_t$ 会跳一次来吸收公司行为。停牌时量测缺失，滤波应只做预测步。杠杆与整数股使 $\hat\beta_{t|t-1}$ 不能精确执行，量化误差进入 $R$。
 

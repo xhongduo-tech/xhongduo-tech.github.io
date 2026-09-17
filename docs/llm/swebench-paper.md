@@ -52,7 +52,7 @@ BM25 在约 27k token 限制下，大约 40% 实例能覆盖 oracle 文件超集
 
 <span class="marginnote">原文训练数据 SWE-bench-train 来自与测试仓库不相交的 37 个库，用于 SWE-Llama，不是把测试 issue 拿来微调。引用开源模型分数时要声明 oracle 还是 BM25，否则 0.70% 与「接近 Claude 2」会在错误设定下被拼在一起。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 脚手架、子集、污染
 

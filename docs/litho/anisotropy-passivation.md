@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 RIE 钝化–离子协同的教材图像；Coburn–Winters 之后的侧壁化学通称</footer>
 </div>
 
-[上一课](/litho/hardmask-sin-tin)把深度交给硬掩模。缺口是剖面：开口要直、底要清、侧壁不能长瘤或挖空。本课钉各向异性与侧壁钝化。负载效应如何让钝化通量随密度变，留给[下一课](/litho/etch-loading-effect）。
+[上一课](/litho/hardmask-sin-tin)把深度交给硬掩模。缺口是剖面：开口要直、底要清、侧壁不能长瘤或挖空。本课钉各向异性与侧壁钝化。负载效应如何让钝化通量随密度变，留给[下一课](/litho/etch-loading-effect)。
 
 ## 问题
 

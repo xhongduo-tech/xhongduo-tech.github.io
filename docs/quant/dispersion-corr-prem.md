@@ -11,7 +11,7 @@ section: quant
     <footer>—— Driessen, Maenhout and Vilkov, The Price of Correlation Risk, Journal of Finance, 2009；指数相对单名的定价见 Bakshi, Kapadia and Madan, Review of Financial Studies, 2003</footer>
 </div>
 
-[Dispersion 交易](/quant/dispersion-trade) 写腿的构造：短指数波动、长个股波动篮子，目标是对冲平均 vol、留下 $\rho$。本篇写**被定价的那一项**——相关风险溢价本身：它如何从方差恒等式里分离、Bakshi–Kapadia–Madan 对单名与指数隐含矩的不对称、以及溢价与 [偏度风险溢价](/quant/skew-risk-premium)、[波动率风险溢价](/quant/variance-risk-premium) 如何分担崩盘补偿。不把权重截断与借券操作再讲一遍。
+[上一课](/quant/gamma-scalping-pnl)把单腿的 Gamma 租金记完，跨腿的相关块还没定价。[Dispersion 交易](/quant/dispersion-trade) 写腿的构造：短指数波动、长个股波动篮子，目标是对冲平均 vol、留下 $\rho$。本篇写**被定价的那一项**——相关风险溢价本身：它如何从方差恒等式里分离、Bakshi–Kapadia–Madan 对单名与指数隐含矩的不对称、以及溢价与 [偏度风险溢价](/quant/skew-risk-premium)、[波动率风险溢价](/quant/variance-risk-premium) 如何分担崩盘补偿。不把权重截断与借券操作再讲一遍。
 
 ## 问题
 
@@ -66,7 +66,7 @@ flowchart TD
 
 <span class="marginnote">等权 dispersion 与市值加权 dispersion 定价的不是同一个 $\rho$。指数期权对应市值加权；用等权篮子去「增强」溢价，暴露的是小盘相关，危机流动性更差。</span>
 
-## 边界与工程取舍
+## 边界
 
 恒等式是方差的。用 ATM IV 代替 $\sigma$ 会留下 Jensen 与微笑误差，相关溢价被污染。美式个股对欧式指数，早行权溢价进入 $\sigma_i$。成分调整使 $w_i$ 与期权上市不同步。A 股若个股期权深度不够，多头腿无法建立，CRP 不可交易，只是一个不能对冲的诊断指标。
 

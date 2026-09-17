@@ -57,7 +57,7 @@ NeuronLink 让张量并行的激活交换不经过主机 CPU，这是 Inf2 相�
 
 <span class="marginnote">EFA（Trn2 上 EFAv3 3.2 Tbps）是实例间以太网，NeuronLink 是芯片互连。多机 Inf2 没有 UltraServer 那种芯片级跨实例互连，跨机要用网络集合，延迟尺度不同。规划 70B 张量并行时先画在单实例 NeuronLink 域内。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 编译物、核生态与两层网络
 

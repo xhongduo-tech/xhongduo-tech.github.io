@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 Maly 等对 critical area 的论述；IC 良率对布局灵敏度的通称</footer>
 </div>
 
-[上一课](/litho/yield-models)用 $DA$ 做账。缺口是 $A$ 不是芯片外形面积：只有能造成短路、开路、via 失效的几何才算。[设计规则起源](/litho/design-rule-origin) 已说规则是失效代理；本课钉关键面积（critical area）计算。系统热点对随机颗粒，留给[下一课](/litho/systematic-vs-random-defects）。
+[上一课](/litho/yield-models)用 $DA$ 做账。缺口是 $A$ 不是芯片外形面积：只有能造成短路、开路、via 失效的几何才算。[设计规则起源](/litho/design-rule-origin) 已说规则是失效代理；本课钉关键面积（critical area）计算。系统热点对随机颗粒，留给[下一课](/litho/systematic-vs-random-defects)。
 
 ## 问题
 

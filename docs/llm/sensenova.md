@@ -56,7 +56,7 @@ flowchart TD
 
 <span class="marginnote">「全面对标 GPT-4 Turbo / 4o」是商汤新闻稿的对照句。第三方 SuperCLUE 等曾把 SenseChat 5.5 放进国内第一梯队，引用须钉报告期。</span>
 
-## 边界与工程取舍
+## 边界
 
 闭源 5.x 不能本地复现，一体机与 API 的安全过滤、检索增强都在模型外。200K 是「可以有效到达」的产品句，不是针测表。不要把 InternVL 或商汤其他开源视觉骨干偷偷写成 SenseNova 5.0 的视觉编码器。U1 的 VE-free 与 5.0 的「多模态全球领先」可能是完全不同的视觉栈。
 

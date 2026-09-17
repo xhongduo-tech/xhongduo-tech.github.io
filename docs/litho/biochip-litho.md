@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 bioMEMS / lab-on-chip 光刻与 DNA 微阵列光导向合成的通称</footer>
 </div>
 
-[上一课](/litho/two-photon-3d)给出研究用三维聚合物。缺口是生物实验室更常用的平面流程。本课钉生物芯片光刻。回到 EUV 源的替代概念，留给[下一课](/litho/fel-euv-source）。
+[上一课](/litho/two-photon-3d)给出研究用三维聚合物。缺口是生物实验室更常用的平面流程。本课钉生物芯片光刻。回到 EUV 源的替代概念，留给[下一课](/litho/fel-euv-source)。
 
 ## 问题
 

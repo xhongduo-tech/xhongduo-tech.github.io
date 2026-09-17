@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照半导体计量抽样与 SEMI 对计量策略的通称；套刻高阶拟合对采样密度的公开要求</footer>
 </div>
 
-[上一课](/litho/feedforward-feedback-r2r)要前馈与反馈。缺口是可观测性：每批量 2 片 × 9 点，看不见边场弓形，高阶校正会去拟合噪声。本课钉抽样计划。控制图如何用这些点判决，留给[下一课](/litho/spc-control-chart）。
+[上一课](/litho/feedforward-feedback-r2r)要前馈与反馈。缺口是可观测性：每批量 2 片 × 9 点，看不见边场弓形，高阶校正会去拟合噪声。本课钉抽样计划。控制图如何用这些点判决，留给[下一课](/litho/spc-control-chart)。
 
 ## 问题
 

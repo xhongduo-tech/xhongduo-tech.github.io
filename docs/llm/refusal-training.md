@@ -47,7 +47,7 @@ flowchart TD
 
 <span class="marginnote">可验证域很少需要拒答（题就是题）。本课主场是开放助手。</span>
 
-## 边界与工程取舍
+## 边界
 
 法律与医疗的「拒 vs 给一般信息」各国不同，数据合同要地域化。下一课诚实：该答但不确定时，应校准而不是拒；把不知道当成安全拒，会伤害有用并教撒谎式推诿。
 
@@ -57,4 +57,4 @@ flowchart TD
 - 安全 RM 不能当过拒绝的金标。
 - 拒绝格式写进细则：最小充分拒绝。
 - 边界是语境而不是关键词，需要专家双标。
-- 出处：Touvron 等 Llama 2；Bianchi 等 Safety-Tuned LLaMAs；XSTest 过拒绝评测。
+- 出处：Touvron 等 Llama 2；XSTest 过拒绝评测。

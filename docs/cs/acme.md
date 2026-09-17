@@ -11,8 +11,6 @@ section: cs
 <footer>—— RFC 8555；Barnes et al., Automatic Certificate Management Environment</footer>
 </div>
 
-## 定位
-
 上一课[CT](/cs/certificate-transparency)要求证书可被看见。缺口是**谁有资格让 CA 签这张叶**：ACME 用挑战证明控制权，替换人工邮件确认。不重写链验证。
 
 后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。
@@ -24,7 +22,6 @@ section: cs
 ### 通配与多名字
 
 一张证多个 SAN 要每个都过挑战。通配通常强制 DNS-01。
-
 
 <span class="marginnote">RFC 8555。Let’s Encrypt 是部署实例，协议不绑一家 CA。本课不提供抢注或劫持挑战的步骤。</span>
 
@@ -40,13 +37,9 @@ flowchart TD
   CRT --> CT2["仍应进 CT"]
 ```
 
-图中节点是本课的机制骨架；课程不把图展开成可运行的攻击步骤。
-
 ## 机制
 
 身份证明从「组织开信」改成「当时能写该名下的资源」。TLS 的保密不自动保护挑战路径：HTTP-01 常先走 80 端口。CAA 记录限制哪些 CA 可签，是另一层政策。
-
-前提写进合同之后，游戏外的误用只当失败模式点名，不在本课写成操作程序。
 
 ## 边界
 

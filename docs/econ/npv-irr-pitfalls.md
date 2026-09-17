@@ -11,7 +11,7 @@ section: econ
     <footer>—— 据 Fisher, The Theory of Interest, 1930；Hirshleifer, On the Theory of Optimal Investment Decision, Journal of Political Economy 1958；Brealey, Myers and Allen, Principles of Corporate Finance 整理</footer>
 </div>
 
-[上一课](/econ/dollar-dominance)把动态宏观收到美元计价与全球地板。「公司金融进阶」从本课起：把同一套「今天的钱」用到企业项目，并标明 IRR 何时与 NPV 打架。不重解 DSGE，不重写限价簿，不把 CAPM 横截面提前。
+[上一课](/econ/to-limit-order-book)在主干末把理论与协议分开：均衡与合同已经给出「哪一个数字可以叫价格」，交易程序归量化栏的限价簿。本课是「估值、资本结构与治理」的第一课，从市场转向企业：把同一套「今天的钱」用到增量现金流，并标明 IRR 何时与 NPV 打架。不重解 DSGE，不重写限价簿，不把 CAPM 横截面提前。
 
 ## 问题
 
@@ -64,7 +64,7 @@ flowchart TD
 
 本课不估计 beta，不把 WACC 的权重写出来。$r$ 仍是机会成本的占位符。[实物期权](/econ/real-options-theory)已经说过 NPV>0 不必现在执行；那是时机，不是 IRR 代数。后课估值要先保证：接受规则是 NPV，贴现率与现金流口径匹配。
 
-后课默认：独立项目看 NPV 符号；互斥看增量 NPV；IRR 可以多根、可与 NPV 排序冲突。宏观课序在前，家庭与总量的贴现装置不在本课重解。限价簿仍是协议，不在本栏重写。
+后课默认：独立项目看 NPV 符号；互斥看增量 NPV；IRR 可以多根、可与 NPV 排序冲突。主干课程在前，家庭与总量的贴现装置不在本课重解。限价簿仍是协议，不在本栏重写。
 
 资金不受配额时，NPV>0 全做。配额下按 IRR 排序不是最优规划。
 
@@ -74,5 +74,5 @@ flowchart TD
 
 - 项目规则是增量现金流的 NPV；IRR 是使 NPV=0 的根，不必唯一，也不必同序。
 - 互斥比较增量，不比较绝对 IRR；资本配额下 IRR 贪心会选错组合。
-- 宏观课序在前；本课从家庭欧拉把「今天的钱」接到企业项目，不重写限价簿。
+- 主干课程在前；本课从家庭欧拉把「今天的钱」接到企业项目，不重写限价簿。
 - 出处：Fisher 1930；Hirshleifer, *JPE* 1958；Lorie and Savage, *Journal of Business* 1955；Brealey, Myers and Allen。

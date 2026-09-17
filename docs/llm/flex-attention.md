@@ -68,7 +68,7 @@ PagedAttention 把 KV 放在非连续页上。Flex 用 BlockMask 当间接表，
 
 嵌套 `score_mod` 与布尔掩码让「滑窗 + ALiBi + 文档」不再是新核名。这是对研究迭代的真实帮助：变体的墙钟差不再主导是否做实验。它不能表达换状态更新规则的层（DeltaNet、Mamba），也不能表达两路差分注意力。边界就是 SDPA 的代数：仍是一张分数、一次 softmax、一次加权值。
 
-## 边界与工程取舍
+## 边界
 
 原型特性：API 仍可能改（`return_lse` 已转向 `return_aux`）。性能随 GPU 代数与 Triton 版本变；相对 FA3 在 Hopper 上手调的核，Flex 通常是「够用且可组合」，不是绝对最快。动态形状、极度不规则的掩码会让 BlockMask 变稠，退回接近稠密 FA。`score_mod` 过重（大 MLP 打分）会撑爆融合预算，那是 indexer 类设计，应走 DSA 一类专用路径，而不是塞进点修改。
 

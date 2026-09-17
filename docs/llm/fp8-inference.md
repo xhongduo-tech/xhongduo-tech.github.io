@@ -65,7 +65,7 @@ INT8：值 $\approx s\cdot(q-z)$，$q$ 是整数。零点处理非对称分布�
 
 训练 FP8 常前向 E4M3、反向 E5M2，再加重缩放与 amax 历史。推理没有反向，把训练检查点里的 E5M2 梯度统计拿来量化激活，是用错张量。主权重若以 FP32/BF16 保存、推理再静态转 FP8，应在验证集上扫 $\alpha$，不能假定训练时的 per-tensor amax 仍最优——训练 amax 跟踪的是当前 mini-batch，推理要覆盖长尾请求。
 
-## 边界与工程取舍
+## 边界
 
 设备：Hopper / 部分后续 GPU、以及声明支持 FP8 的 NPU 才能把格式变成墙钟。Ampere 上的 FP8 是软件模拟。同一份 FP8 权重在只认 INT8 的服务引擎里要反量化，回到带宽墙。厂商中间件（Transformer Engine、TensorRT-LLM）对融合、缩放粒度、是否允许 E4M3 权重配 FP16 激活（W8A16-FP8）各有默认，对拍数字必须钉版本。
 

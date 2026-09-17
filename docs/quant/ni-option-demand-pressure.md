@@ -11,7 +11,7 @@ section: quant
 <footer>—— Gârleanu, Pedersen and Poteshman, Demand-Based Option Pricing, Review of Financial Studies, 2009；实证与对冲外溢见 Ni, Pearson and Poteshman 及相关后续</footer>
 </div>
 
-教科书把期权价格写成标的过程的函数：给定波动、利率与分红，供需不出现。Ni、Pearson 与 Poteshman 这一支文献要补的，是中介资产负债表。终端投资者净买入看跌或看涨，期权做市商必须接下仓；只要复制有残差——随机波动、跳跃、离散对冲——仓位就有不可对冲风险，风险厌恶的中介会把价格抬离无摩擦公式。这就是**需求压力**（demand pressure）：它先改隐含波动曲面，再经 Delta 对冲改写标的路径。Bollen 与 Whaley（2004）已经看到带符号的期权成交与隐含波动同向变动；Gârleanu–Pedersen–Poteshman（2009）给出与不可对冲方差成比例的定价；Ni、Pearson、Poteshman 与 White（2021）把同一条仓位再写成对股票波动的非信息渠道。本篇写度量与机制，衔接[波动偏斜](/quant/vol-skew)和[Delta 对冲](/quant/greeks-hedge)，不讨论如何制造逼仓或绕开持仓限额。
+[上一课](/quant/vol-etp-rebalance-flow) 把再平衡流停在压力日的期货深度；终端的期权需求是另一层。教科书把期权价格写成标的过程的函数：给定波动、利率与分红，供需不出现。Ni、Pearson 与 Poteshman 这一支文献要补的，是中介资产负债表。终端投资者净买入看跌或看涨，期权做市商必须接下仓；只要复制有残差——随机波动、跳跃、离散对冲——仓位就有不可对冲风险，风险厌恶的中介会把价格抬离无摩擦公式。这就是**需求压力**（demand pressure）：它先改隐含波动曲面，再经 Delta 对冲改写标的路径。Bollen 与 Whaley（2004）已经看到带符号的期权成交与隐含波动同向变动；Gârleanu–Pedersen–Poteshman（2009）给出与不可对冲方差成比例的定价；Ni、Pearson、Poteshman 与 White（2021）把同一条仓位再写成对股票波动的非信息渠道。本篇写度量与机制，衔接[波动偏斜](/quant/vol-skew)和[Delta 对冲](/quant/greeks-hedge)，不讨论如何制造逼仓或绕开持仓限额。
 
 ## 问题
 
@@ -59,7 +59,7 @@ $$
 
 [波动偏斜](/quant/vol-skew)可以来自崩盘恐惧、杠杆效应或需求。需求压力不否定前两者，它给出可检验的增量：在控制已实现偏度与杠杆之后，终端净需求仍解释隐含斜度的时变。风险溢价文献里的「保险很贵」，有一部分是中介风险厌恶乘上不可对冲方差，而不全是代表性投资者的边际效用。两者在指数看跌上经常同向，识别要靠账户持仓，而不是只靠斜率本身。
 
-## 边界与工程取舍
+## 边界
 
 美国的账户类型数据来自交易所的容量代码，延迟与覆盖都不是实时全市场。用公开的 option-to-stock 成交比或 Put/Call 比代替净需求，只能做粗筛选，不能声称复制了 Ni 或 Gârleanu 的回归。做市商内部还会把仓位转到其他柜台或用方差互换对冲 Vega，公开 Gamma 会低估真实存货。跳跃日线性对冲失效，需求压力的平方差公式在跳后要打折。
 

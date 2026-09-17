@@ -23,11 +23,11 @@ HTTP/2 帧不能原样放进 QUIC：流模型与头压缩依赖 TCP 有序。H3�
 
 ### 语义不变运输换
 
-QPACK 避免头压缩再 HOL。发现靠 Alt-Svc 或 HTTPS RR。UDP 不通则 H2。CDN 要终止 QUIC。
+HPACK 在 H2 里敢激进更新字典，靠的是 TCP 严格有序；QUIC 流间无序，沿用会重新引入队头阻塞——一次表更新晚到，后续流的解压全卡住。QPACK 把字典更新拆到独立单向流，头块等到所需更新确认送达才消费，压缩不再牵制数据流。发现靠 Alt-Svc 或 DNS HTTPS RR：服务器在既有连接上广告「h3 可用」，下次另起端口另起协议。UDP 不通则回退 H2。CDN 要终止 QUIC——边缘节点必须自己会说 h3，否则收益止步于回源。
 
 ## 方法
 
-对照：H1 文本 / H2 二进制 TCP / H3 二进制 QUIC。画：浏览器 → QUIC 连接 → 多请求流。与 TSO：UDP GSO。
+三代对照：H1 文本、一连接一请求；H2 二进制帧多路复用，但全体共享一条 TCP；H3 二进制，复用建在 QUIC 流上，每请求一流互不阻塞。实现要点在发送侧：TCP 有内核代做的分段，UDP 没有，要靠 UDP GSO 一类接口一次递一大批报文给内核，否则每包一次系统调用的开销吃掉收益。
 
 ```mermaid
 flowchart TD
@@ -36,21 +36,17 @@ flowchart TD
   DISC["Alt-Svc/HTTPS RR"] --> H3
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
-连接迁移让移动 HTTP 会话活过 IP 变。BBR 常为默认 CC。MSS 变成 QUIC 包大小与 PMTUD。Cookie 仍是语义头，下一课。CDN 边缘要终止 QUIC，证书与 CID 路由是运营。
+连接迁移让移动中的 HTTP 会话活过 IP 变化：连接由 CID 标识而非四元组，Wi-Fi 换蜂窝不断流，这是上一课迁移机制的直接受益者。MSS 语义也换了位置：包大小由 QUIC 自己定并跑 PMTUD；不少部署把 BBR 设为默认 CC。Cookie 仍是语义头，下一课。CDN 边缘终止 QUIC 后，证书管理与按 CID 路由是真实运营工作量。
 
 回退：UDP 不通则 H2。不是协议失败，是路径政策。
 
 ## 边界
 
-本课不引入 WebTransport 的全部。Cookie 与会话是下一课。后课默认：H3 = HTTP 语义 + QUIC 运输。
+本课不引入 WebTransport 的全部。Cookie 与会话是下一课。后课默认：H3 = HTTP 语义 + QUIC 运输。最后一条部署现实：网络只开 TCP 443、UDP 被禁时，用户永远协商不到 H3，QUIC 的好处再大也看不见——协议可用性由路径政策决定。
 
-公司只开 TCP 443 时用户看不见 H3 好处。
-
-上一课留下的缺口在本课收口；「HTTP/3」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[Cookie 与会话](/cs/cookies-sessions)。
+下一课[Cookie 与会话](/cs/cookies-sessions)。
 
 ## 小结
 

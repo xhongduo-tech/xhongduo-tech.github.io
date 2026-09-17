@@ -63,7 +63,7 @@ flowchart LR
 
 WER/CER 测转写；MOS 与 speaker similarity 测合成；指令跟随测理解。用 LibriSpeech 分数比较 VALL-E 没有意义，用 MOS 比较 Qwen-Audio 的 ASR 模式也没有意义。AudioPaLM 的论文用多任务表并列，正是因为任务不可比。写系统卡时，应标明这个 Audio LM 实例打开的是哪一张词表。
 
-## 边界与工程取舍
+## 边界
 
 长音频使离散码序列极长，纯 codec LM 的上下文先爆。理解型用编码器下采样缓解，却损失时间精度，时间戳要另接对齐模块。流式 TTS 还要因果 codec 与低首包延迟；流式 ASR 要块状编码与稳定的语言模型前缀。两者的工程栈只在「Transformer 解码器」这一层相似。
 

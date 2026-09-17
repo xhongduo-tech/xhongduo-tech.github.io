@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照双重/多重图形着色、冲突图与 stitch 的公开算法传统；[LELE 颜色分解](/litho/lele-color-decomposition) 已钉过两次曝光</footer>
 </div>
 
-[上一课](/litho/ml-hotspot-prediction)把学习模型限制在排序。缺口是分解：间距小于单次可印极限的边必须分到不同曝光（不同「色」），这是图论约束，不是风险分。[LELE 颜色分解](/litho/lele-color-decomposition) 已写两次曝光的染色；本课把冲突收进签核门：LRC 必须能报无法着色，而不是留给掩模厂。设计规则为何长成现在这样，留给[下一课](/litho/design-rule-origin）。
+[上一课](/litho/ml-hotspot-prediction)把学习模型限制在排序。缺口是分解：间距小于单次可印极限的边必须分到不同曝光（不同「色」），这是图论约束，不是风险分。[LELE 颜色分解](/litho/lele-color-decomposition) 已写两次曝光的染色；本课把冲突收进签核门：LRC 必须能报无法着色，而不是留给掩模厂。设计规则为何长成现在这样，留给[下一课](/litho/design-rule-origin)。
 
 ## 问题
 

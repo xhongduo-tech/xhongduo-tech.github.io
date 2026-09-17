@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>消费束、价格、资本存量都先是 $\mathbb{R}^n$ 里的点；「附近」必须先写成开球，连续与紧才能开口。</p>
-<footer>—— 据 Rudin, Principles of Mathematical Analysis, 第 2 章；Ok, Real Analysis with Economic Applications, 2011 整理</footer>
+<footer>—— 据 Rudin, Principles of Mathematical Analysis, 第 2 章；Ok, Real Analysis with Economic Applications, 2007 整理</footer>
 </div>
 
 本课是金融栏第一课，也是「数学与优化基础」的第一课。后面的凸集、分离、KKT、不动点、贝尔曼与条件期望，以及微观主干的连续偏好与闭预算，都默认已经会在 $\mathbb{R}^n$ 里说开集、闭集、收敛与紧。后课默认已经读完本课。不要从偏好或效用起笔：排序还没出场，舞台是空间。

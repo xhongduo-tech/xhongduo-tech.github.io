@@ -11,7 +11,7 @@ section: llm
 <footer>—— Sennrich, Haddow, Birch, Neural Machine Translation of Rare Words with Subword Units, ACL 2016</footer>
 </div>
 
-[上一篇附录](/llm/subword-history) 把 GloVe 之后的子词写成词表史。本篇对照 **Sennrich、Haddow、Birch 的 ACL 2016 原文**：在神经机器翻译上用字节对编码（BPE）学子词。主干课 [Tokenizer 设计](/llm/tokenizer-design) 用当代实现；这里只钉论文问了什么、实验怎么写、边界在哪。不发明编号，出处就是 ACL 2016 这篇。
+[上一篇附录](/llm/subword-history) 把 GloVe 之后的子词写成词表史。本篇对照 **Sennrich、Haddow、Birch 的 ACL 2016 原文**：在神经机器翻译上用字节对编码（BPE）学子词。主干课 [Tokenizer 设计](/llm/tokenizer-design) 用当代实现；这里只钉论文问了什么、实验怎么写、边界在哪；出处就是 ACL 2016 这一篇原文。
 
 ## 问题
 
@@ -52,7 +52,7 @@ flowchart TD
 
 当代 LLM 关心 $|V|$ 与压缩率、多语言公平。Sennrich 等人关心 WMT 上的 BLEU 与稀有词翻译。数字不可横向搬到 Llama 词表。对照价值是：开放词表问题被明确写成子词学习问题，并给出可复现的合并程序。
 
-## 边界与工程取舍
+## 边界
 
 贪心合并对语料敏感：多语言拼在一起，高频语言吃掉合并额度。他们主要在双语翻译设定下工作。没有 dropout 式多切分，分词噪声会进模型。字符级语言与无空格语言的空格先验不成立，需要后继工作。
 

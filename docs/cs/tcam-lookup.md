@@ -36,8 +36,6 @@ flowchart TD
   PRI --> ACT["下一跳或 ACL"]
 ```
 
-方法止于选定对象与对照；机制才说它如何嵌入已有分层与主干课。
-
 ## 机制
 
 EVPN MAC 规模可压垮表，要聚合或层次。ECMP 下一跳组在 SRAM，TCAM 只指向组号。OpenFlow 后课把多级流表暴露给控制面，硬件仍常是 TCAM 级联。与容量 $C$ 无关：查表是转发税，不是信道。
@@ -50,7 +48,7 @@ EVPN MAC 规模可压垮表，要聚合或层次。ECMP 下一跳组在 SRAM，T
 
 IPv6 更宽的键更吃 TCAM，这是过渡课留下的硬件账。
 
-上一课留下的缺口在本课收口；「TCAM 查表」进入后课词汇表后只引用。文献用来钉对象与边界，不把本课写成该主题的独立综述。下一课[SDN 与 OpenFlow](/cs/sdn-openflow)。
+下一课[SDN 与 OpenFlow](/cs/sdn-openflow)。
 
 ## 小结
 

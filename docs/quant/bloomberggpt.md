@@ -11,7 +11,7 @@ section: quant
     <footer>—— Wu, İrsoy, Lu, Dabravolski, Dredze, Gehrmann, Kambadur, Rosenberg and Mann, BloombergGPT: A Large Language Model for Finance, arXiv:2303.17564</footer>
 </div>
 
-Wu 等人给出第一篇被广泛引用的金融领域从零预训练大模型报告：BloombergGPT，约 50.6B 参数的 decoder-only，训练在 FinPile（约 3630 亿金融 token）加上约 3450 亿公开通用 token，合计约 7090 亿，实际训练约 5690 亿（不足一整 epoch）。架构按 BLOOM 族与缩放律选在 50B 附近，70 层、40 头，Unigram 分词，512 张 A100，ZeRO-3，BF16。权重与 FinPile 不发布，附录 Chronicles 记录训练过程。评测分三块：通用 LLM 基准、公开金融基准、内部票据任务。本篇写混训为什么是那条路、内部基准不可复现意味着什么、以及量化研究应如何引用这篇论文——当领域适配的存在性证明，而不是当可下载的交易模型。
+[FinGPT](/quant/fingpt)把 BloombergGPT 点成对照物；本篇正面写这篇从零预训练的混训报告。Wu 等人给出第一篇被广泛引用的金融领域从零预训练大模型报告：BloombergGPT，约 50.6B 参数的 decoder-only，训练在 FinPile（约 3630 亿金融 token）加上约 3450 亿公开通用 token，合计约 7090 亿，实际训练约 5690 亿（不足一整 epoch）。架构按 BLOOM 族与缩放律选在 50B 附近，70 层、40 头，Unigram 分词，512 张 A100，ZeRO-3，BF16。权重与 FinPile 不发布，附录 Chronicles 记录训练过程。评测分三块：通用 LLM 基准、公开金融基准、内部票据任务。本篇写混训为什么是那条路、内部基准不可复现意味着什么、以及量化研究应如何引用这篇论文——当领域适配的存在性证明，而不是当可下载的交易模型。
 
 ## 问题
 
@@ -51,7 +51,7 @@ BLOOM-176B 更大，但金融任务上并不自动更好，且推理成本与延
 
 彭博的数据特权是真实的：新闻到达、公司关系、内部标签。评测特权同样真实：内部基准可以紧贴产品。科学上应把两者标成「不可迁移的优势」。开源基准（[CFinBench](/quant/ctbench)、FinSearchComp）存在的理由，就是把评测特权从单一机构手里拿出来。混训论文没有义务开源 FinPile；读者也没有义务把内部 F1 写进自己的因子备忘录。
 
-## 边界与工程取舍
+## 边界
 
 不要试图「复现 BloombergGPT」作为交易研究的前置条件。不要用通用模型在公开金融集上超过 2023 年表格，就宣布领域预训练过时——内部分布可能仍偏。不要把训练计算（512×A100）当成自己微调预算的参照；那是从零预训练的数字。合规上，终端文本有合同约束，不能进公开训练仓。
 

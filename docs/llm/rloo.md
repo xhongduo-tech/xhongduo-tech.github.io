@@ -57,7 +57,7 @@ REINFORCE 的方差来自「整条轨迹一个运气分」。减去与动作无�
 
 <span class="marginnote">重要性采样与 clip 不是 RLOO 的定义部分。若在旧策略轨迹上多 epoch 更新，应补重要性比率，否则变成离策略 REINFORCE。Ahmadian 强调简单；实现若开始堆 clip、GAE、价值头，就应改回叫 PPO。</span>
 
-## 边界与工程取舍
+## 边界
 
 ### 回到基础不是零超参
 

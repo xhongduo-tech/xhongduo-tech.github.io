@@ -51,4 +51,4 @@ flowchart TD
 - 锚定是长期通胀信念对短期冲击的低载荷。
 - 学习、指数化、疏忽的注意力跳升都可以表现为解钉。
 - 家庭预期对 HANK 传导更关键。
-- 出处：Gürkaynak–Sack–Swanson；Coibion, Gorodnichenko and Kamdar, *JEL* 2018。
+- 出处：Gürkaynak–Sack–Swanson；

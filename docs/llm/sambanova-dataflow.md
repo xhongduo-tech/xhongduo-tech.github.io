@@ -41,7 +41,7 @@ flowchart LR
 
 <span class="marginnote">和 Cerebras 的空间网格比：一个偏晶圆 mesh 上的核，一个偏可重配置数据通路。都怕全局不规则；都要编译器。</span>
 
-## 边界与工程取舍
+## 边界
 
 不要把数据流写成「永远省 HBM」。图切分后仍会 spill。不要在动态 MoE 上假设与密 MLP 同样的融合。生态与工具链计入对比方法课的软件维。下一课 Tenstorrent 提供另一条：偏 RISC / 多核 + mesh，更接近「可编程核」而不是固定数据通路。
 

@@ -71,7 +71,7 @@ flowchart LR
 
 在 Pre-LN 解码器、中等以上宽度上，二者常常可互换而不改其余超参，这是 RMSNorm 能成为默认的原因。但它们不是数学等价：LayerNorm 的输出正交于全 1 向量（仿射前），RMSNorm 不是。把 LayerNorm 训好的 $\beta$、$\gamma$ 直接接到 RMSNorm 上没有意义。从 LayerNorm 模型蒸馏到 RMSNorm 需要重训归一化与相邻投影。编码器、极浅模型、或强依赖特征均值的探针任务上，差距可能放大，不能把解码器上的成功直接写成定理。
 
-## 边界与工程取舍
+## 边界
 
 RMSNorm 不解决 Pre-LN 与 Post-LN 的顺序问题，也不提供 DeepNet 那种随深度变化的残差增益。它只降低归一化本身的成本与一个约束。QK-Norm 若存在，通常也是对 $q$、$k$ 做 RMS 或 LN，与块级 RMSNorm 叠床架屋时要避免重复压缩已经很小的向量。
 

@@ -67,7 +67,7 @@ flowchart TD
 
 PyTorch 的 `cudagraphs` 封装用 replay 时的静态地址约定，配合内存池；放松捕获模式仍不能让同步查询合法。TensorRT-LLM 更常在引擎构建期显式建图或捕获，形状范围写进引擎。vLLM 一类把 CUDA Graph 限在 decode 的固定 batch。封装不同，CUDA 合同相同：拓扑固定、捕获中无同步分配。调试应先关图跑数值，再开图比墙钟；图模式下的 CUDA 错误对应不到某一行 Python。
 
-## 边界与工程取舍
+## 边界
 
 不要在默认流上捕获。不要为「所有 batch 都上图」建几十张从不命中的 exec。不要把取样、停用词、外部 tokenizer 塞进图。不要假设 Graph 能提高 Tensor Core 占用——它不改屋顶线。动态 batch 的正确姿势是：能 pad 的上图，不能 pad 的（变长 MoE 发出集、投机树深度变化）走逐步启动。
 
