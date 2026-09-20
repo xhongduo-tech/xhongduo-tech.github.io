@@ -23,6 +23,8 @@ Softmax 注意力的缓存随长度线性涨、计算随长度二次涨。线性
 
 KV cache 存的是过去每一格的键与值；联想状态 $S$ 存的是「键方向 → 值」的压缩表。读查询时不再扫全部过去 token，只做一次 $S^\top q$。写入遵循 delta 规则：先读出当前键上的旧值，再按 $\beta_t$ 把新值写回去，相当于对 $\tfrac12\|S^\top k_t-v_t\|^2$ 做一步 SGD。KDA 在此之前先把 $S$ 乘上 $\mathrm{Diag}(\alpha_t)$，让每一维有自己的半衰期。混合模型里，每四层里三层走 KDA、一层走全局 MLA：长程精确检索留给那一层 softmax，其余层用固定状态扛吞吐。Kimi Linear 报告在公平对比的 1.4T token 设置里，相对满 MLA 可把 KV 用量降到约四分之一，1M 上下文解码吞吐可到约 $6\times$。那是架构账，不是核单独刷出来的峰值。
 
+<span class="marginnote">直觉类比：KV cache 是逐日记录的完整日记本，联想状态 $S$ 是一张摘要卡片——来一个查询不必翻日记，用 $S^\top q$ 一次读出「最像的答案」。摘要查得快、占地小，但容量只有键维那么多，相似的记忆会互相覆盖（碰撞）。</span>
+
 <span class="marginnote">仓库把核函数写成 `flash_kda.fwd`，张量是 $q,k,v,g,\beta$ 加 $A_{\log}$、$\mathrm{dt\_bias}$ 与下界。$\beta$ 在核内做 sigmoid；头宽当前要求 $K=V=128$。不要把 FlashKDA 当成任意线性注意力的通用后端，GLA / Mamba-2 仍走自己的核。</span>
 
 ## 方法
@@ -47,9 +49,23 @@ flowchart TD
 
 Prefill 的 $T$ 大，块内 GEMM 饱满，核的价值是把对角门与 delta 更新融进同一套流水，避免「先算衰减再算 Householder」两次读状态。Decode 一步 $T$ 很小，真正贵的是反复加载 $S$ 以及混合骨干里那一层 MLA 的 KV。FlashKDA 公开材料把加速重点放在 prefill：相对 FLA 里的 Triton `chunk_kda`，第三方在 H20 上量到大约一点七到两点多倍的墙钟，口径是核对比，不是端到端生成。服务若只换 decode 循环却仍用慢 prefill，长请求的首 token 延迟不会动。KDA 层本身不维护 token 级 KV；混合模型里 MLA 层仍要分页缓存。核加速的是线性层，不是把 MLA 也线性化。
 
+<span class="marginnote">数字实例：每头一张 $128\times128$ 的状态表，bf16 每元素 2 字节，单头就是 $128\times128\times2\,\text{B}=32$ KB；32 个头合计约 1 MB。对比动辄数 GB 的 token 级 KV cache，这就是「固定状态扛吞吐、KV 用量降一个量级」的账本来源。</span>
+
 ## 机制
 
 通道级门能工作，是因为联想表的不同奇异方向对应不同寿命的模式：局部句法、实体标识、场景开关。标量 $\alpha_t$ 只能给整张表同一个半衰期；对角 $\mathrm{Diag}(\alpha_t)$ 允许「这一维快忘、那一维慢忘」，更接近 GLA 的细门，同时保留 delta 的定点改写。专用 DPLR 变体的意义是：一般 DPLR 为任意对角加低秩准备了额外校正项，KDA 的低秩部分就是 delta 的 $k k^\top$，可以消掉若干矩阵，让块算法的算术强度落到 Tensor Core 友好的 GEMM 上。Triton 也能发 WGMMA，但不保证 ping-pong、warp 分工与 TMA 切块和手写 CUTLASS 一样紧。FlashKDA 吃的就是这最后一截调度，不是新的注意力公式。
+
+```mermaid
+flowchart TD
+  S["联想表 S（每头 V×K）"] --> G["乘对角门：各通道按自己的半衰期衰减"]
+  G --> RD["读旧值：S^T k_t"]
+  RD --> ERR["残差：v_t − 旧值"]
+  ERR --> W["按 β_t 把残差写回键方向"]
+  W --> S
+  S --> RDOUT["读出：S^T q"]
+```
+
+<span class="marginnote">常见误区：把 FlashKDA 当成「装上就能加速任何模型」的通用注意力核。模型里必须真的存在 KDA 层（通道级门 + delta 改写的状态递推），头宽 128、SM90+ 硬件也都得对上；纯 softmax 模型没有这份状态，接进来要么无处可用，要么数值对不上检查点。</span>
 
 <span class="marginnote">Kimi Linear 公平对比用的是 48B 总参 / 3B 激活、KDA 与 MLA 3:1 交错，训练约 1.4T token；另有 5.7T 的更长程检查点。引用 51.0 MMLU-Pro、84.3 RULER 时必须写「相对同配方满 MLA」，不要写成 FlashKDA 核的分数。</span>
 

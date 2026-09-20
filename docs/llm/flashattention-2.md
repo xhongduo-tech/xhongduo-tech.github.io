@@ -55,6 +55,23 @@ flowchart TD
 
 Split-Q 的机制是数据复用形状变了。$K,V$ 瓦片对块内所有 warp 广播式复用，每个 warp 用自己的 $Q$ 行做私有累加。共享内存主要用于存放被广播的键值，而不是存放待归约的部分分数。同步点减少后，编译器和占用率更容易把寄存器留给 MMA。非 GEMM FLOPs 的削减则让时间从「指数和缩放占一截」回到「张量核占主导」——softmax 不能取消，但可以少做几遍与最终结果等价的重缩放。
 
+```mermaid
+flowchart LR
+  subgraph SK["split-K（第一代）"]
+    A["warp 1 分到键块 1"] --> R["共享内存里等待归约"]
+    B["warp 2 分到键块 2"] --> R
+    R --> O1["跨 warp 相加才出结果"]
+  end
+  subgraph SQ["split-Q（FA2）"]
+    C["warp 1 分到查询行 1–32"] --> P1["独立算完整 softmax 行"]
+    D["warp 2 分到查询行 33–64"] --> P2["独立算完整 softmax 行"]
+  end
+  P1 --> F["无跨 warp 通信，直出输出"]
+  P2 --> F
+```
+
+<span class="marginnote">拿具体数字感受一下查询维并行的「免费」：$n=8192$、每块 128 行时，光一条序列就能切出 64 个查询块，叠加 batch 与头数轻松铺满上百个 SM；而解码时 $n_q\approx 1$，同样的切法只能切出 1 块，一百多个 SM 里只剩一个干活——这正是 FlashDecoding 要沿 KV 另想办法的原因。</span>
+
 <span class="marginnote">若某硬件上共享内存极快、warp 归约很便宜，split-K 未必永远更差。FA2 的选择针对的是当时 A100 上测到的通信税。移植到新架构时，划分要重测，这也是为何会有 [FlashAttention-3](/llm/flashattention-3) 针对 Hopper 再写一版。</span>
 
 ### 与变长、因果、多查询的接口
@@ -66,6 +83,8 @@ Split-Q 的机制是数据复用形状变了。$K,V$ 瓦片对块内所有 warp 
 FA2 救不了解码短查询：查询维没东西可切。长上下文、batch=1 的生成要靠 FlashDecoding 或后续在 KV 维的 split。它也不引入低精度注意力；INT8/FP8 是 SageAttention 或 FA3 的命题。头维不在支持列表、需要自定义掩码、需要稀疏图案时，仍可能回到 xformers 或物化路径。把「已安装 flash-attn 2.x 包」当成「一定在走 FA2 最优核」不可靠，框架还有形状启发式与回退。
 
 占用率优化在 batch 已经很大时收益缩小：SM 早已铺满，再切查询维只增加核启动与尾块不齐。短序列上 FA2 相对融合 GEMM 的优势同样变小。选型应按 $(B,n,h,d)$ 分桶测量，不要用论文里长序列训练图代替聊天解码图。
+
+<span class="marginnote">常见误区：以为 `pip install flash-attn` 装好了 2.x 就一定在跑 FA2 的最优核。实际上框架还会按形状、显存和掩码类型做启发式选择，形状冷门时可能悄悄回退到普通实现。想确认的话要打印实际调用的核函数名，而不是只看 import 是否成功。</span>
 
 <span class="marginnote">文献年份：预印本 2023，会议版本见 ICLR 2024。引用写 Dao, *FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning* 即可，不必叠造文号。</span>
 

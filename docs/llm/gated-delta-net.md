@@ -29,6 +29,8 @@ $$
 
 只改当前键方向，上下文切换时旧场景会残留。S-NIAH 把这拆开：重复合成上下文、只要长程保持时，DeltaNet 到 8K 仍近乎满，Mamba-2 过 2K 就掉；真实文章当草堆、需要过滤时，DeltaNet 在长序列上崩，带门控的模型更好；值从数字换成 UUID、需要记复杂模式时，又是 delta 更强。需要一种更新：$\alpha_t\to 0$ 时整表可清，$\alpha_t\to 1$ 时退回纯 delta。
 
+<span class="marginnote">「S-NIAH（单针在干草堆）」翻译一下：往几万 token 的无关长文里插一根「针」——一个要记住或要找的事实——考模型能不能把它捞回来。变体 -2、-3 换更难的针（数字换成 UUID 之类），分别考「过滤干扰」与「记住复杂模式」。</span>
+
 <span class="marginnote">在线学习视角里，Mamba-2 正则的是 $\|S_t-\alpha_t S_{t-1}\|_F^2$，DeltaNet 正则的是靠近 $S_{t-1}$ 同时对当前键做回归。Gated DeltaNet 把衰减放进正则中心，又保留 delta 的回归项，见表 1 的目标函数对照。</span>
 
 ### 测试时 SGD 的权重衰减
@@ -64,9 +66,23 @@ flowchart TD
 
 $\alpha_t$ 接近 0：Householder 项被压掉，状态近似重置，适合文档边界、主题切换。$\alpha_t$ 接近 1：回到 DeltaNet，适合在稳定话题里改一个事实。$\beta_t$ 仍控制当前键方向改多少。没有 $\alpha$ 时，DeltaNet 原文也承认外推弱，因为缺少显式衰减；Gated DeltaNet 把这当成设计动机而不是事后补丁。
 
+```mermaid
+flowchart TD
+  TASK{"此刻要做哪种记忆操作？"}
+  TASK -->|"整块清空过期场景"| A["Mamba-2：全状态乘 α<br/>快但连邻居一起淡"]
+  TASK -->|"定点改写一个事实"| B["DeltaNet：delta 规则<br/>准但旧场景清不掉"]
+  TASK -->|"既要清又要改"| C["Gated DeltaNet：α 与 delta 相乘"]
+  A -.->|"各管一段"| C
+  B -.->|"互补"| C
+```
+
+<span class="marginnote">初学者容易把 $\alpha_t$ 理解成学习率——其实它是数据依赖的遗忘门：接近 1 是「旧记忆保留」，接近 0 是「整块状态近似重置」。这一步理解错了，调参会往「把 $\alpha$ 先验调小」走，模型就退化成短记忆版 Mamba-2，delta 项形同虚设。</span>
+
 S-NIAH-2（数字针）4K 上 Gated DeltaNet 92.2，DeltaNet 18.6，Mamba-2 56.2；S-NIAH-3（UUID）2K 上 84.2 对 DeltaNet 47.0、Mamba-2 47.6。短合成针上 DeltaNet 仍极强，说明门控不是在所有检索上都单调更好，而是补「该忘的时候忘」。语言建模与常识上作者称全面超过 Mamba-2 与 DeltaNet；读表时应对齐 1.3B、同一数据，不要和 7B Transformer 混排。
 
 <span class="marginnote">混合滑窗不等于「再加一层 softmax 救检索」。窗是局部精确地址，循环状态是压缩过去。分工与 Griffin / Jamba 同类，只是循环核换成 gated delta。评测应分别报纯循环与混合。</span>
+
+<span class="marginnote">给个数感受状态有多省：设每头状态是 $128 \times 128$ 的矩阵，约 1.6 万元素、16-bit 下 32 KB，一层八头也才约 0.26 MB，而且生成多少 token 都不变。对照 KV 缓存每来一个 token 就要新增一份键值，长序列下两者差出几个数量级——这是线性循环层省显存的根源。</span>
 
 ### 硬件路径继承 DeltaNet 分块
 

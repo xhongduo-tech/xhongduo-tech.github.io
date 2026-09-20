@@ -19,6 +19,8 @@ Black Forest Labs 在 2024 年 8 月 1 日开公司博客里同时宣布实验�
 
 评测问题同样尖锐。FID 对提示遵从、排版、极端宽高比不敏感。博客因此改用人工向的对比轴：视觉质量、提示跟随、尺寸/宽高比可变性、字体排版、输出多样性，并把对照写成 Midjourney v6.0、DALL·E 3（HD）、SD3-Ultra。这是官方主张，不是一张可下载的公共榜单协议。
 
+<span class="marginnote">数字实例：12B 参数按 bf16 存（每个参数 2 字节），仅权重就约 24 GB——这就是当时本地跑 FLUX.1 dev 的常见门槛是 24 GB 显存、或者用 fp8 量化把它压到约 12 GB 的原因。模型大不大，先换算成显存再看。</span>
+
 ### 三档是许可证与蒸馏，不是三套骨架
 
 [pro]、[dev]、[schnell] 被明确写成**同一套公开架构描述**上的变体。dev 是 guidance-distilled，直接从 pro 蒸馏，追求相近质量与提示遵从、同尺寸下更高效。schnell 是少步快速档，博客称其不仅超过同级少步模型，也超过未蒸馏的 MJ v6 与 DALL·E 3 HD——这是很强的广告句，引用时必须带上「官方自评」。权重：dev 与 schnell 上 Hugging Face；推理代码在 GitHub 与 Diffusers；ComfyUI 声称 day-1。pro 走 API（当时 Replicate、fal.ai，企业另洽 `flux@blackforestlabs.ai`）。
@@ -31,6 +33,20 @@ Black Forest Labs 在 2024 年 8 月 1 日开公司博客里同时宣布实验�
 
 方法学停在这里。未写：具体 VAE 是否沿用 SD3、隐空间通道、patch 大小、双流块数、分类器自由引导的默认系数、蒸馏教师的采样步。dev 的「指导蒸馏」只说明学生更高效，没有给出蒸馏损失公式。schnell 与 ADD（Adversarial Diffusion Distillation）的关系，博客只在团队履历里点名 ADD，没有写 schnell 就是 ADD 的直接产物——不要自行划等号。
 
+```mermaid
+flowchart TD
+  X["输入 token"] --> QKV["QKV 投影"]
+  X --> MLP["MLP"]
+  QKV --> SEQ["普通串行：先注意力再 MLP"]
+  MLP --> SEQ
+  SEQ --> MW["两次读写显存，撞内存墙"]
+  QKV --> PL["并行层：两路同时算、一次合并"]
+  MLP --> PL
+  PL --> EFF["少一轮往返，硬件效率更高"]
+```
+
+<span class="marginnote">术语翻译：并行层（parallel layers）就是把「注意力」和「MLP」这两件事从排队干改成同时干、最后把结果加起来。省的不是算术量，而是一整轮「写回显存再读出来」的搬运——大模型推理很多时间本来就耗在搬数上。</span>
+
 ### 文生图套件被写成视频的地基
 
 博客末节 *Up Next*：FLUX.1 是文生图，也是「即将到来的文生视频套件」的基础，目标是高清、可编辑、更快。这是路线图，不是 2024-08-01 已发布的视频模型。写 FLUX.1 时把视频能力算进本文，越界。Seed 轮融资 3100 万美元（a16z 领投等）属于公司叙事，与 12B 的训练算力账单无公开换算关系。
@@ -40,6 +56,8 @@ Black Forest Labs 在 2024 年 8 月 1 日开公司博客里同时宣布实验�
 流匹配把生成写成从噪声到数据的常微分方程，训练预测速度场；扩散是其特例。对服务来说，这意味着采样器是 ODE/积分器超参，而不是只能 DDPM 的 1000 步。并行注意力与 RoPE 是把语言模型里已经规模化的器件搬进 DiT：RoPE 便于多分辨率，并行注意力便于把 QKV 与 MLP 的内存墙打穿。多模态块负责文本与图像 token 的交互；并行 DiT 块负责视觉内部的全注意力——博客用「hybrid」概括，未给块图。把 [HunyuanVideo](/llm/hunyuan-video) 的「20 双流 + 40 单流」抄过来当 FLUX，是张冠李戴。
 
 指导蒸馏的机制含义：推理时少做或不做空条件前向，降低 CFG 的双倍算力。代价通常是分布锐度与多样性；官方用「专门微调以保留预训练多样性」来对冲。少步 schnell 把积分区间切粗，质量换延迟。API 档 pro 不公开是否与 dev 同权、只是不同许可证，还是另有未蒸馏教师——只知道 dev 从 pro 蒸馏而来。
+
+<span class="marginnote">术语翻译：CFG（无分类器引导）通俗讲就是每一步都问两遍——「看着提示词画一版」和「不看提示词画一版」——再把两者的差放大来加强提示的影响，所以普通推理每步要算两次前向。指导蒸馏把这种「引导直觉」直接蒸进权重，推理一次前向就够，算力近乎省一半。</span>
 
 <span class="marginnote">官方对照轴含 Typography。这是相对 SD3 早期排版弱的明确主张，仍可能在小字、弯折文字上失败。宽高比 0.1–2.0 MP 是训练/微调覆盖，不是任意 8K 原生长边。</span>
 
@@ -65,6 +83,8 @@ flowchart TD
 无公开训练配方。自评 SOTA 未附可复现协议。dev 非商用；schnell 更快但官方也承认是少步档。后续 FLUX1.1 [pro]（2024-10-02 博客）是另一产品点，不要把 1.1 的速度与价格写回 8 月 1 日的 FLUX.1。视频模型当时未发布。安全、水印、训练数据来源本篇博客几乎不谈。
 
 不要用「Stable Diffusion 3 换皮」一句代替 hybrid 架构。不要发明 12B 的层表。与 Wan / Hunyuan 比的是文生图对文生视频，任务不同；可复用的只有流匹配 + Transformer 这一代际共性。
+
+<span class="marginnote">常见误区：「schnell 快是因为模型小」。它同样是 12B——快在蒸馏后 1 到 4 步就能出图，省的是步数而不是参数。代价是少步档在极端复杂提示和精细细节上让步；显存占用与 dev 是一个量级。</span>
 
 <span class="marginnote">出处：Black Forest Labs，*Announcing Black Forest Labs*，https://bfl.ai/blog/24-08-01-bfl （2024-08-01）。后续 API 与 FLUX1.1 [pro] 见 2024-10-02 *Announcing FLUX1.1 [pro] and the BFL API*。流匹配传统见 Lipman et al.；DiT 见 Peebles & Xie。</span>
 

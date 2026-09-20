@@ -19,6 +19,8 @@ GPU 集群通常是 NVLink 域内 scale-up、InfiniBand/以太网 scale-out 两�
 
 第二问是精度。Gaudi 3 的 MME 支持 FP8（E4M3 与 E5M2）、BF16、FP16、TF32、FP32，累加进 FP32。白皮书写第五代 MME **片上 FP8 输入缩放**，减轻 TPC 做 scale/unscale 的负担。没有这条，FP8 训练会退化成「TPC 量化 + MME 当 BF16 用」。推理同样：表头 1.8 PFLOPS 是矩阵引擎吃到 FP8/BF16 时的数，不是任意 PyTorch 算子的数。
 
+<span class="marginnote">「RoCE（RDMA over Converged Ethernet）」翻译一下：在普通以太网上跑远程内存读写——数据不经过对方 CPU、不进内核协议栈，网卡直接把数据写进对端内存。好处是交换机便宜、运维熟悉；代价是拥塞控制、丢包处理这些 InfiniBand 替你做好的事，要自己在以太网参数里管好。</span>
+
 ### 白皮书对比 Gaudi 2
 
 公开对比（白皮书表格，OAM 形态）：BF16 MME 从 432 到 1835 TFLOPS；FP8 MME 从 865 到 1835（Gaudi 3 上 FP8 与 BF16 矩阵峰值同档）；TPC 从 24 到 64；HBM 从 96 GB / 2.46 TB/s 到 128 GB / 3.7 TB/s；片上 SRAM 48 MB→96 MB；网络 600 GB/s 双向 → 1200 GB/s 双向量级；主机接口 PCIe Gen4×16 → Gen5×16。制程叙述为相对 Gaudi 2 的 7 nm，Gaudi 3 走 TSMC 5 nm。PCIe 卡形态（HL-338 一类产品简介）另给 600 W、128 GB、FP8 E4M3/E5M2 等列，以当时产品简报为准。
@@ -46,6 +48,8 @@ flowchart TD
 
 MME 的 FP8 片上缩放对应 NVIDIA TE 里「scale 是 GEMM 元数据」那一层，但是厂商自己的配方，不是 `transformer_engine.DelayedScaling`。E4M3/E5M2 与 OFP8 编码对齐的是格式宽度，检查点与 NVIDIA FP8 仍可能布局不同。推理 decode 看 3.7 TB/s 与 128 GB：70B BF16 权重大约 140 GB，单卡放不下，需要 TP 或权重量化；FP8 权重大约减半，单卡容量故事才成立。prefill 才有资格接近 1.8 PFLOPS。媒体解码器（白皮书 14 个）与 LLM 文本服务无关，不要写进 tokens/s 分母。
 
+<span class="marginnote">给个数代入网络划分：70B 模型 BF16 权重约 140 GB，切成 8 路张量并行后每卡约 17.5 GB，能塞进 128 GB 卡；但 decode 每步都要跨 8 卡做 AllReduce——每层两次。这些小消息全走那 21 口箱内域，一旦漏到 3 口对外链路，decode 延迟立刻按以太网小消息计价。</span>
+
 ## 机制
 
 双 die 把 MME/TPC/HBM 做成统一内存视图（文档称 128 GB unified HBM），软件按一张加速器编程，不必手工切 die——这与需要显式双 die 调度的某些 GPU MCM 不同。TPC 是 VLIW SIMD，承担 GEMM 之外的 DL 算子；融合质量决定中间张量是否进出 HBM。SRAM 96 MB、白皮书另列很高的片上带宽，用来喂 MME 的 tile，而不是当 70B 的权重缓存。把 FlashAttention 式的「在 SRAM 里重算注意力」搬到 Gaudi，取决于 TPC 库是否已有对应融合，而不是 96 MB 这个数字本身够不够装下一层 KV。
@@ -53,6 +57,19 @@ MME 的 FP8 片上缩放对应 NVIDIA TE 里「scale 是 GEMM 元数据」那一
 以太网 RDMA 的机制是：没有 NVSwitch 的专有链路层，拥塞控制、ECMP 与交换机缓冲成为逐步延迟的一部分，交换机选型因此进入推理容量规划，而不是只出现在数据中心网络组的表格里。预训练大 microbatch 可以靠带宽填满；decode 的小消息 AllReduce 对尾延迟敏感。HCCL 分层是为了让箱内满带宽与箱外 3 口重叠。把 NCCL 的 NVLink+IB 调参经验原样搬来，会调错网卡与队列对。
 
 <span class="marginnote">Gaudi 软件套件含 TPC SDK，可写自定义核。没有对应融合时，常见失败是某层在 CPU 上跑、HBM 利用率看起来很低。Profiler 应先问：子图是否全部在设备、HCCL 走的是集成 NIC 还是主机 NIC。</span>
+
+```mermaid
+flowchart TD
+  subgraph BOX["八卡 OAM 箱（scale-up 域）"]
+    C0["卡 0：24 个 200G 口"] -->|"21 口全互连七张卡"| C1["卡 1–7"]
+    C0 -->|"TP AllReduce 留在箱内"| BOX
+  end
+  BOX -->|"每卡 3 口 × 8 卡 = 1200 GB/s"| SW["标准以太网交换机"]
+  SW --> BOX2["下一个机箱（scale-out）"]
+  DP["数据并行副本 / 专家 All-to-All"] -->|"走箱外 3 口"| SW
+```
+
+<span class="marginnote">初学者容易以为换硬件只是把 `device` 改成 `hpu`。CUDA 核（Marlin、FlashAttention 变体）在 Gaudi 上不存在，没有对应路径的算子会**静默**落到 CPU——程序能跑、结果也对、但慢一个数量级，看 loss 完全看不出来。验收必须开 profiler 看设备时间线，确认没有算子漏到主机。</span>
 
 ## 边界
 

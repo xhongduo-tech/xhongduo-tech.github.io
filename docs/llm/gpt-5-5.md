@@ -50,6 +50,19 @@ Production Benchmarks 上多数 disallowed 类与 5.4-thinking 同档；hate 项
 
 <span class="marginnote">博文评测声明：GPT 侧多在 xhigh、研究环境，与生产 ChatGPT 可能略有差别。HLE、MCP Atlas、τ2 的提示是否调过，脚注写明了才能比。</span>
 
+<span class="marginnote">「测试时计算」就是答题时多花算力：每次请求并行跑多份推理、再从中挑最好的答案，而不是训练一个更大的模型。所以 5.5 Pro 与 5.5 是同一套权重——区别不在「脑子」，在「这次考试给你几本草稿纸」。</span>
+
+<span class="marginnote">数字实例：API 上 GPT-5.5 每百万输入 token $5、输出 $30；Codex Fast 模式生成约快 1.5 倍、成本约 2.5 倍。「买速度」是真金白银换的，不是模型变快了还顺便变便宜。</span>
+
+```mermaid
+flowchart LR
+  G54["GPT-5.4"] --> G55["2026-04-23<br/>GPT-5.5 + GPT-5.5 Pro"]
+  G55 --> G56["2026-07<br/>GPT-5.6 家族"]
+  G56 --> SOL["Sol：旗舰"]
+  G56 --> TER["Terra：日常平衡<br/>官方对标 5.5、约半价"]
+  G56 --> LUN["Luna：成本档"]
+```
+
 ### 公开信息状态：Sol / Terra / Luna
 
 OpenAI 7 月文：GPT-5.6 三档，数字表示代际，Sol/Terra/Luna 是可独立迭代的能力档。价目当时为 Sol $5/$30、Terra $2.50/$15、Luna $1/$6（之后有过 Luna/Terra 降价与 Sol 限时折扣，以当时定价页为准）。API 模型页写三档均约 **1.05M** 上下文、**128k** 最大输出、知识截止 **2026-02-16**；effort 可到 `max`。预览博文写 Terra 对标 GPT-5.5、约一半价。因此：若有人说「GPT-5.5 Sol」，与官方命名不一致；应写作 GPT-5.5 或 GPT-5.6 Sol。本篇不把 5.6 的 Agents’ Last Exam 等数字算进 5.5。5.6 介绍文还写 `ultra` 为协调多代理并行工作流的最高能力设置，那是 5.6 Sol 的产品开关，5.5 博文没有对等物；不要把 ultra 填进 5.5 的 effort 列表。5.5 API 公开的是 verbosity 类接口之前已有的 reasoning effort（含 xhigh），以 4 月模型页与博文为准。
@@ -61,6 +74,8 @@ OpenAI 7 月文：GPT-5.6 三档，数字表示代际，Sol/Terra/Luna 是可独
 博文大表多在 xhigh、研究环境。ChatGPT 里 Thinking、Codex 默认、API `reasoning.effort` 默认（模型页写 medium）不是同一计算预算。GDPval、OfficeQA、内部投行建模是知识工作合同；GeneBench / BixBench 是科研合同；CyberGym 是防护叙事下的能力数字。混成一条「5.5 分数」会同时错估速度与风险。SWE-Bench Pro 脚注已提示记忆化，编码主叙事更应看 Terminal-Bench 2.0 与内部 Expert-SWE，并写清脚手架。
 
 无参数、无数据配比。High 准备度不等于可写攻击步骤。价高于 5.4，官方用 token 效率辩护。Fast mode 与 Pro 是不同的钱：一个买速度，一个买并行计算。5.6 发布后，5.5 仍是独立快照，不要自动把 Sol 的窗口与截止写进 5.5。知识截止、1.05M 窗口属于 5.6 模型页；5.5 API 博文写的是 1M 上下文与当时定价，不要用 5.6 的 February 16, 2026 截止去填 5.5。
+
+<span class="marginnote">常见误区：官方大表多半在 reasoning effort 拉满（xhigh）的研究环境里跑出，而 API 默认档是 medium。自己调用复现不出 82.7% 时，先对齐 effort 档位、脚手架与脚注口径，再怀疑模型本身。</span>
 
 出处：*Introducing GPT-5.5*，2026-04-23；*GPT-5.5 System Card*；命名澄清见 *GPT-5.6* 介绍与 API 模型页。参数量未公开。
 

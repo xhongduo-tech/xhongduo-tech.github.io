@@ -31,6 +31,8 @@ ChatGPT 侧：登录用户的默认从 4o / o3 / o4-mini / 4.1 / 4.5 换到 GPT-
 
 编码与智能体：SWE-bench Verified **74.9%**（相对 o3 的 69.1%；官方注明 500 题中 23 题基础设施不稳，分数在 477 题子集上），同设置下比 o3 high 少 22% 输出 token、少 45% 工具调用。Aider polyglot **88%**。τ2-bench telecom **96.7%**。Scale MultiChallenge **69.6%**（o3-mini 当评分器）。前端内部对决相对 o3 获 70% 偏好。思考模型相对 o3，官方称在视觉推理、智能体编码、研究生科学上用 50%–80% 更少的输出 token 打出更高分。GPT-5 pro 在 GPQA 无工具 **88.4%**；专家在千条经济任务上 67.8% 更偏好 pro，重大错误少 22%。
 
+<span class="marginnote">数字实例：线上抽样里，「迎合」行为（用户说错、模型跟着说对）相对 4o 在免费用户上降 69%、付费用户降 75%；针对性评测从 14.5% 压到不足 6%。压迎合率就是让模型敢纠正你，而不是顺着你说舒服话。</span>
+
 ```mermaid
 flowchart TD
   U["用户请求"] --> R["实时路由器"]
@@ -52,6 +54,18 @@ API 增加 `verbosity`（low / medium / high）与 `reasoning_effort`（含 mini
 
 safe-completions 把安全从输入分类改成输出约束：对偶用途问题，允许非操作性的高层次回答。这改变拒答曲面，减少过度拒绝，同时依赖策略文本与分类器监控——系统卡把 thinking 按准备度框架标成生物/化学 **High**，采取预防性多层防护（分类器、推理监控、执行管道），并声明**没有确证**它已达到「帮助新手造成严重生物伤害」的阈值。迎合与幻觉的机制都是后训练奖励重写：前者惩罚无原则附和，后者在无浏览与损坏工具、缺失图像（CharXiv 去图）等设置里惩罚「假装完成」。o3 在去图后仍有 86.7% 自信作答，thinking 约 9%；生产对话里欺骗率从 o3 的 4.8% 到 thinking 的 2.1%。
 
+```mermaid
+flowchart TD
+  Q["双用途提问：意图模糊"] --> OLD["旧做法：先判意图"]
+  OLD --> R1["判成恶意 → 整段拒绝"]
+  OLD --> R2["判成善意 → 可能给过细步骤"]
+  Q --> NEW["safe-completions：约束输出本身"]
+  NEW --> S["给高层次、非操作性的回答"]
+  S --> S2["必须拒时说明原因，给安全替代"]
+```
+
+<span class="marginnote">「并行测试时计算」就是同一道题让模型同时想好几遍、再挑最好的答案——ChatGPT 里的 thinking-pro 干的是这件事。它花的是服务算力，不是又训了一个更大的模型；贵和慢都贵在这几遍并行思考上。</span>
+
 <span class="marginnote">AIME 2025 无工具 94.6%、MMMU 84.2%、HealthBench Hard 46.2% 来自介绍博文；带工具的 AIME 不得与无工具表直接比。SWE-bench 脚手架、提示强调「彻底验证」、以及 23 题剔除，换设置则 74.9% 不可比。</span>
 
 ### 不要把路由器写成「模型自己决定想多久」的同一权重
@@ -63,6 +77,8 @@ safe-completions 把安全从输入分类改成输出约束：对偶用途问题
 无参数、无数据配比、无路由架构。准备度 High 作用于 thinking，不等于 main 同一档；引用安全结论要写模型名。免费档与额度、mini 回落，使「GPT-5 用户」总体不是同一计算预算。人格预设（Cynic / Robot / Listener / Nerd）是可开关的风格，不是新底座。后续 5.x 快照若改窗口或价目，属于另一篇；本篇停在 2025-08-07 的三份公开文本。
 
 不要用第三方传言填层宽。不要把 ChatGPT 默认路由的延迟写成 API `gpt-5` high 的延迟。健康成绩不替代执业医师——官方自己的限定句要保留。
+
+<span class="marginnote">常见误区：觉得「GPT-5 今天变笨了」，多半不是模型坏了，而是路由器把你的难题送去了快通路 main，或额度用尽回落到 mini。同理，API 的 `gpt-5` 与 ChatGPT 的非推理通路不是同一权重，两边刷出的分数与体感都不能直接互换。</span>
 
 <span class="marginnote">出处：OpenAI，*Introducing GPT-5*；*Introducing GPT-5 for developers*；*GPT-5 System Card*（2025-08-07，PDF 修订日期以卡片为准）。参数量未公开。</span>
 

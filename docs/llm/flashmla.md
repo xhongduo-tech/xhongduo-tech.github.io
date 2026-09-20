@@ -17,6 +17,8 @@ section: llm
 
 V2/V3 的 MLA 在 MQA 模式下，键头宽与值头宽并不对称：常见部署是 `head_dim_k = 576`（内容潜向量与 RoPE 拼接后）、`head_dim_v = 512`，查询头数可以到 128。这与 FlashAttention 默认的 $d_k=d_v\in\{64,128,256\}$ 不是同一套 tile。分页 KV 的块大小在 FlashMLA 稠密解码路径上常用 64。decode 一步 $s_q$ 很小（1，或 MTP/投机时略大），KV 很长，核必须在「访存墙」和「算力墙」两头都接近 H800 的屋顶线。仓库早期数字：访存约 3000 GB/s（H800 SXM5 峰值约 3350 GB/s）、算力墙约 580 TFLOPS 量级；后续 seesaw 调度与稀疏 FP8 核另有 410 TFLOPS 一类配置数字。引用必须绑 kernel 种类与 `batch, heads, seq`。
 
+<span class="marginnote">数字实例：576 = 512 + 64，即 512 维的内容潜向量 $c^{KV}$ 加 64 维 RoPE 位置键。每个 token 每层只缓存这 576 个数（bf16 约 1.1 KB）；对比一个 128 头、头宽 128 的 MHA 模型，每 token 每层要存 K、V 共 $2\times128\times128\times2\,\text{B}=64$ KB，省缓存省的就是这个数量级。</span>
+
 没有专用核时的失败模式有两种。一种是吸收没做，缓存按满宽走，MLA 名存实亡。一种是吸收做了，但用一串小 GEMM 拼 softmax，L2 与启动开销把带宽红利吃掉。FlashMLA 的对象是第二种：在已压缩的 KV 布局上做融合注意力。
 
 ### Prefill 与 decode 不是同一核
@@ -30,6 +32,8 @@ Prefill 的 $N_q\approx N_{kv}$，矩阵乘天然更饱满，甚至可以走 MHA
 ### Seesaw：一套输出上的乒乓
 
 FlashAttention-3 一类 ping-pong 用双缓冲在 Tensor Core 与 CUDA Core 之间重叠。FlashMLA 的 deep-dive 把他们的调度写成 seesaw：数学上仍是在线 softmax，但在寄存器极度紧张的 576 维下只用一套输出矩阵，两组 warpgroup 交错做 MMA 与 softmax/TMA。细粒度 TMA：例如 $64\times 576$ 的 K 块拆成多次 $64\times 64$ 拷贝，第一次拷完即可启动第一段 GEMM，提高对内存延迟的容忍。Cache hint（如 `EVICT_FIRST`）减少 KV 污染 L2。Split-KV 与 combine 之间用 programmatic dependent launch 重叠。Tile scheduler 把请求与块派到 SM，避免长尾请求独占。
+
+<span class="marginnote">术语翻译：seesaw（跷跷板）调度就是两组 warpgroup 轮流「你做矩阵乘、我做 softmax/TMA」，像跷跷板两头交替起落。与 FA3 双缓冲的不同在于：576 维下寄存器太紧张，只保留一套输出矩阵，靠时间上的交错而不是空间上的双份来实现重叠。</span>
 
 这些是 Hopper 特有原语（TMA、WGMMA、PDL），不是可移植的 PyTorch 实现。正确性仍归到分块 softmax 与因果掩码；性能归到 576 维能否把 Tensor Core 喂饱。
 
@@ -53,6 +57,21 @@ flowchart TD
 ### 为什么通用 FA 不够
 
 FlashAttention 的 tile 假设 $d$ 能放进片上，且 $K,V$ 同宽。MLA decode 的 $d_k\neq d_v$、缓存是潜向量、可能 FP8、可能稀疏 top-k。强行 pad 到 576×576 会浪费 MMA 与带宽。吸收后的分数是查询侧矩阵与 $c^{KV}$ 的乘，核必须按这个收缩后的几何来切 K 块。分页块 64 与 TMA 对齐，乱改块大小会让调度元数据失效。
+
+```mermaid
+flowchart LR
+  subgraph MHA["MHA / GQA：缓存满宽 K 和 V"]
+    K1["每 token 存 K，d=128"] --> F1["QK^T 直接打分"]
+    V1["每 token 存 V，d=128"] --> F2["加权 PV"]
+  end
+  subgraph MLA["MLA：只缓存潜向量"]
+    C1["每 token 存 c^KV 512 维 + k_RoPE 64 维"] --> AB["查询侧吸收矩阵先行合并"]
+    AB --> S1["等效打分：变换后的 Q 乘 c^KV"]
+    S1 --> P["再投影回 V 宽 512"]
+  end
+```
+
+<span class="marginnote">常见误区：把 FlashMLA 当成「对所有模型都更快的 FlashAttention」。它只服务 MLA 架构（DeepSeek V2/V3 系）：缓存的单位是潜向量，打分前要把查询侧的投影矩阵「吸收」进权重。Llama 这类 GQA 模型应走 FlashAttention 家族；吸收没做或 layout 不一致时，结果会静默错而不是报错。</span>
 
 $s_q\gt 1$ 出现在投机校验、MTP 闭环、或某些并行解码。核若只优化 $s_q=1$，投机路径会退回慢实现，接受长度再高也被注意力核钉住。FlashMLA 把 $s_q$ 当一等维度，和 [Hydragen](/llm/hydragen) 的「多查询打同一 KV」在精神上同类，但几何是 MLA 的潜向量，不是 MHA 前缀分解。分页块表必须与引擎一致：块大小 64、逻辑槽到物理页的间接层，都要进 metadata，否则 TMA 会读到错误的 $c^{KV}$。
 

@@ -17,11 +17,15 @@ section: llm
 
 [Transformer 块：注意力加前馈](/llm/transformer-block-compose)只要求 FFN 输出与流同宽。若中间层也是 $d_{\mathrm{model}}$，非线性发生在与总线相同的维度里，能分开的特征方向受 $d$ 限制，而总线还要同时承载注意力写来的混合结果。扩宽再缩回，等于在位置内部租用一段临时的高维工作区，算完再投影回流——残差协议不许把总线本身改宽，只能在 $F$ 内部暂扩。
 
+<span class="marginnote">直觉类比：扩展比像「工位旁的临时白板」。总线宽度 $d$ 是桌面大小，$d_{\mathrm{ff}}$ 是旁边租的白板面积——算题时把中间步骤摊在白板上，算完只把结论写回桌面。白板越大，能同时摊开的中间量越多，但租金（参数、显存、算力）也按面积涨。</span>
+
 扩多少是预算问题。中间宽 $d_{\mathrm{ff}}$ 带来约 $2\,d\,d_{\mathrm{ff}}$ 的参数（两张矩阵），在块内常常与注意力投影同量级甚至更大。扩到八倍、十倍，逐位置容量上去，显存与算力也上去，且收益递减。扩得不够，块只是注意力在换位置，位置内几乎做不成新的特征。四倍是原论文的工作点，不是定理；但后文谈「标准块」时，四倍就是那个工作点。
 
 ### 门控改变的是「有效宽度」的记账
 
 SwiGLU 一类把升维拆成两路：一路经激活当门，一路当值，逐元相乘后再降维。参数变成约 $3\,d\,d_{\mathrm{ff}}$（三张 $d\times d_{\mathrm{ff}}$ 量级的矩阵，具体实现常把两路升维合成一次）。若仍取 $d_{\mathrm{ff}}=4d$，块会明显比 ReLU 四倍更贵。常见补偿是令 $d_{\mathrm{ff}}\approx \frac{2}{3}\times 4d=\frac{8}{3}d$，使参数回到四倍 ReLU 附近。比较扩展比时必须声明激活族；只说「四倍」会把 SwiGLU 的中间宽说错。
+
+<span class="marginnote">代个数字：取 $d=4096$（Llama 级宽度），ReLU 四倍的 $d_{\mathrm{ff}}=16384$；SwiGLU 按参数对齐是 $\frac{8}{3}d\approx 10923$，再凑成 256 的倍数取 11008——Llama 配置里这个「不整不齐」的 11008 就是这么来的，比的是参数预算，不是整倍数好看。</span>
 
 <span class="marginnote">本课不讲 GeLU 与 SiLU 的曲线形状，那是激活课序。这里只记账：有没有额外的门控投影，以及为了对齐参数该怎么改 $d_{\mathrm{ff}}$。</span>
 
@@ -34,6 +38,23 @@ $$
 $$
 
 $W_1\in\mathbb{R}^{d\times d_{\mathrm{ff}}}$，$W_2\in\mathbb{R}^{d_{\mathrm{ff}}\times d}$，偏置可有可无。$\sigma$ 逐元。每个位置独立乘这两张矩阵。Vaswani 取 $d_{\mathrm{ff}}=4d$。SwiGLU 写作 $\bigl(\sigma(x W_g)\odot (x W_u)\bigr) W_2$，中间宽按参数对齐常取 $\frac{8}{3}d$，并凑成硬件友好的倍数（例如 256 的倍数）。
+
+两种 FFN 怎么花同一份参数预算，摆在一起看：
+
+```mermaid
+flowchart TD
+  subgraph RELU["ReLU FFN：d_ff = 4d"]
+    R1["W1：d × 4d"] --> R2["逐元激活"]
+    R2 --> R3["W2：4d × d"]
+    R3 --> RT["两张矩阵，共约 8d²"]
+  end
+  subgraph SWI["SwiGLU：d_ff ≈ 8/3 d"]
+    S1["W_gate：d × 8/3 d"] --> S2["门 × 值，逐元相乘"]
+    S3["W_up：d × 8/3 d"] --> S2
+    S2 --> S4["W2：8/3 d × d"]
+    S4 --> ST["三张矩阵，仍约 8d²"]
+  end
+```
 
 选择 $d_{\mathrm{ff}}$ 的经验做法与选 $|V|$ 类似：在块参数预算内扫一两个工作点，看损失。宽度必须整除或对齐到内核友好的尺寸，否则吞吐崩掉，那是实现约束，不是模型约束。MoE 把 $d_{\mathrm{ff}}$ 乘专家数再按路由稀疏激活，有效计算宽度与参数宽度分开，那是后课；稠密块里两者是一回事。
 
@@ -52,6 +73,8 @@ $W_1\in\mathbb{R}^{d\times d_{\mathrm{ff}}}$，$W_2\in\mathbb{R}^{d_{\mathrm{ff}
 ### 参数对齐的算术
 
 ReLU 四倍：两张矩阵，$2\times d\times 4d=8d^2$。SwiGLU 若中间宽仍为 $4d$ 且三路满配，约 $12d^2$，贵一半。把中间宽降到 $\frac{8}{3}d$：$3\times d\times \frac{8}{3}d=8d^2$，与 ReLU 四倍对齐。这就是「SwiGLU 宽度」在文献里常显得不是整数倍的原因——比的是参数，不是 $d_{\mathrm{ff}}/d$ 这个整数。写配置时应同时给出激活类型与 $d_{\mathrm{ff}}$ 的绝对数。
+
+<span class="marginnote">常见误区：看到「四倍 FFN」就默认所有模型都是 $4d$。SwiGLU 系模型为了参数对齐，中间宽其实是约 2.67 倍——Llama 2 在 $d=4096$ 时取 11008 而不是 16384，就是这个道理。看到不整不齐的中间宽，先问激活族再谈扩展比。</span>
 
 <span class="marginnote">不要在 GQA 或 FlashAttention 里回头讲扩展比。那些课假定块已经组成、FFN 已经有宽度。本课也不要去讲 KV 字节。</span>
 

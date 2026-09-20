@@ -23,6 +23,8 @@ decode 与 prefill 的算术强度也不同。Prefill 是 query 与 key 都长�
 
 设一个 step 里有 $B$ 条请求，第 $i$ 条的 query 长度为 $q_i$、KV 长度为 $k_i$。朴素按请求划 CTA，短 decode 的 CTA 很快结束，长 prefill 的 CTA 拖住整个 grid。按 query 行划块则同一 CTA 可能碰到完全不同的页表与因果边界。FlashInfer 要处理的调度对象，是「行块 × KV 块」在不规则形状上的任务图，而不是固定的 $B\times H\times n$ 网格。
 
+<span class="marginnote">「ragged（锯齿）张量」就是每行长短不一的表格：同一个 batch 里，有的请求已经生成了两千个 token，有的刚进来一个字。补零（pad）成方阵当然整齐，但短请求的空格全是白算的算力、白搬的带宽——服务引擎的日常就是跟这种锯齿打交道。</span>
+
 <span class="marginnote">「支持 PagedAttention」只说明能按页表读 $K,V$。能不能在页表之上保持 FlashAttention 级的 SRAM 复用、能不能把共享前缀的 KV 只读一遍，是另一层问题。FlashInfer 的卖点在后一层：把分页、级联、变长当成核的输入约定。</span>
 
 ## 方法
@@ -34,6 +36,8 @@ FlashInfer 把注意力拆成可组合的模板：布局（连续 / 分页 / rag
 ### 采样与融合算子同库
 
 服务热路径不只注意力。Logits 上的 temperature、top-$k$、top-$p$、约束掩码，若各起一个核，短 decode 上启动税比算术还贵。FlashInfer 把采样与若干逐元素融合算子放进同一库，使引擎可以少做框架级的 tensor 往返。注意力核负责「读页表、写 output 与 LSE」；采样核负责「在 vocab 维上做带约束的离散分布」。二者的共同约束是：形状以请求为 jagged，不要先 pad 成方阵。
+
+<span class="marginnote">数字实例：一次核启动的固定开销约几微秒，而 batch=1 的短 decode 一步总共可能只有几百微秒。若 temperature、top-$k$、top-$p$ 各起一个核，光「点火费」就可能占掉两位数百分比的时间——这就是把采样融进少数几个核的动机。</span>
 
 ```mermaid
 flowchart TD
@@ -53,6 +57,18 @@ flowchart TD
 速度来自两处。一是 IO：分页 gather 发生在核内 SRAM 边界，而不是先做一次全局 `index_select`；共享前缀的 KV 在级联路径上被多条 query 复用，HBM 流量按「唯一页」而不是「请求数 × 前缀长度」计。二是特化：因果、GQA 的头比、页大小、头维度在编译期固定后，寄存器与 MMA 形状可以对齐 Hopper / Ampere 的指令，避免通用核里一长串 `if`。即时编译把「这个服务实例实际会用到的组合」实例化出来，代价是首次调用的编译延迟，通常用 warmup 摊掉。
 
 负载均衡则靠把不规则任务切成更细的 tile，再按 tile 调度 CTA，而不是一个请求绑死一个 CTA。长 prefill 被切成多个 query 行块，短 decode 被打包进同一波次。这与训练 FlashAttention 按均匀 $B_r,B_c$ 切块是同一思想，只是块的有效面积随请求变化，需要额外的任务队列或 prefix-sum 做映射。
+
+```mermaid
+flowchart TD
+  PFX["共享前缀 KV（多条请求相同）"] --> C1["只扫一遍：得 O_pfx 与 LSE_pfx"]
+  C1 --> RA["请求 A 扫自己的私有页"]
+  C1 --> RB["请求 B 扫自己的私有页"]
+  RA --> M["按 LSE 指数差重缩放合并"]
+  RB --> M
+  M --> O["各请求的精确输出"]
+```
+
+<span class="marginnote">为什么重要：级联把注意力拆成「共享前缀 + 私有后缀」两段，两段分数不在同一次 softmax 里，必须靠 LSE 把已算出的部分输出按全局最大值重缩放后再合并。这一步的统计量接不上，所有走前缀共享的请求输出都会整体偏掉，而且不报任何错。</span>
 
 <span class="marginnote">LSE（log-sum-exp）随输出一起写回，不是装饰。级联第二段、chunked prefill 的下一块、以及某些投机解码的修正，都要靠这段统计量把已经写出的部分输出按新的最大值重缩放。丢掉 LSE，分块就只能重算整行。</span>
 

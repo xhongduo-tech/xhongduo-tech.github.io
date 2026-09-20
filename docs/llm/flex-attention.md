@@ -17,6 +17,8 @@ section: llm
 
 注意力变体改的几乎都是 softmax 之前那张分数表：有的把部分位置设为 $-\infty$（因果、滑窗、文档、PrefixLM），有的加偏置或非线性（ALiBi、softcap）。手写核要把在线 softmax、反向、解码、GQA 全部再做一遍。通用编译器又很难自动完成「两次 GEMM + 在线 softmax + 反向」这条注意力专用改写。结果是：Mistral 的滑窗、Gemma 2 的 softcap、MPT 的 ALiBi，谁先进了 FA 谁就能训得动。
 
+<span class="marginnote">术语翻译：「软件彩票」指你的想法能不能高效跑起来，取决于运气——恰好有厂商为这个变体写过优化核就算中签，没中就只能用慢几倍的参考实现做实验，连结论都可能是「太慢」造成的假阴性。FlexAttention 想做的就是取消这场抽签。</span>
+
 组合是第二道墙。PrefixLM 是前缀双向或上因果；滑窗加 ALiBi 是掩码加分数偏置。为每对组合再写核不可扩展。需要一种能嵌套、能布尔组合、还能利用块级全掩码跳过计算的表示。
 
 <span class="marginnote">Flex 论文把 Differential Transformer 列为超出 score_mod 合同的例子：它改的是两路 softmax 再减，不是单张分数表上的点修改。能写进 `score_mod` 的，仍是「一张 $QK^\top$」家族。</span>
@@ -62,6 +64,18 @@ flowchart TD
 
 PagedAttention 把 KV 放在非连续页上。Flex 用 BlockMask 当间接表，论文称额外开销可忽略。这比在 FA 上再维护一份分页 fork 更接近「同一编程模型」。
 
+```mermaid
+flowchart TD
+  MM["mask_mod 布尔函数"] --> BM["预计算 BlockMask（tile 粒度）"]
+  BM --> K["全保留 tile：正常计算"]
+  BM --> P["部分掩 tile：逐点套 mask_mod"]
+  BM --> X["全掩 tile：整块跳过，KV 不加载"]
+  K --> O["同一数学结果，更少计算"]
+  P --> O
+```
+
+<span class="marginnote">数字实例：因果掩码会挡住分数表下三角以外约一半的位置。在 $128\times128$ 的 tile 粒度下，长序列训练里几乎一半的块被判成「全掩」，整块既不加载 KV 也不做矩阵乘——这就是 BlockMask 除了融合之外额外的稀疏收益来源。</span>
+
 <span class="marginnote">BlockMask 的粒度是注意力 tile，不是 token。窗口大小与块大小不对齐时，边缘块永远是「部分掩」，稀疏收益变薄。选窗长应同时考虑语义与 tile。</span>
 
 ### 组合爆炸变成函数组合
@@ -73,6 +87,8 @@ PagedAttention 把 KV 放在非连续页上。Flex 用 BlockMask 当间接表，
 原型特性：API 仍可能改（`return_lse` 已转向 `return_aux`）。性能随 GPU 代数与 Triton 版本变；相对 FA3 在 Hopper 上手调的核，Flex 通常是「够用且可组合」，不是绝对最快。动态形状、极度不规则的掩码会让 BlockMask 变稠，退回接近稠密 FA。`score_mod` 过重（大 MLP 打分）会撑爆融合预算，那是 indexer 类设计，应走 DSA 一类专用路径，而不是塞进点修改。
 
 训练与解码是不同模板。只在训练图里 compile，服务期仍可能落到 SDPA。页式推理要同时提供 BlockMask 与正确的 KV 布局，缺一就静默变慢。不要在没有 `torch.compile` 的 eager 路径上谈 Flex 的加速——那只是正确性参考。
+
+<span class="marginnote">常见误区：在 eager 模式下跑一次 FlexAttention，觉得「不比普通 SDPA 快」就放弃。Flex 的加速绑定 `torch.compile` 之后的融核，eager 路径只是正确性参考。正确姿势是先用小形状验证 `mask_mod` 与朴素实现（如 `triu`）结果一致，再编译、放大到真实训练。</span>
 
 与 [SageAttention](/llm/sageattention) 等量化注意力也不是替代：Flex 改的是分数定义与掩码，Sage 改的是低比特 GEMM。可以组合，但要各自验证数值。
 

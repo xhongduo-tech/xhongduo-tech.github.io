@@ -31,6 +31,8 @@ Shishir G. Patil、Tianjun Zhang、Xin Wang 与 Joseph E. Gonzalez（UC Berkeley
 
 Gorilla：LLaMA-7B 指令微调成单轮 user–agent。检索感知训练（RAT）在用户话术后追加 `Use this API documentation for reference:` 与检索文档，教模型用后半段回答前半段。推理两种模式：零样本只吃自然语言；检索模式把 BM25 或 GPT-Index 的 top-1 文档拼进去。另有 Oracle 检索给上界。约束题额外要求参数量、精度下限，测的是读卡片里的 `performance` 字段而不是只会匹配功能词。
 
+<span class="marginnote">数字实例：APIBench 收约 1645 条 API——Torch Hub 约 94 条、TensorFlow Hub 约 626 条、Hugging Face 约 925 条——每条再用 GPT-4 生成约 10 句用户话术。一千多个 API、一万多道「读文档写调用」的题，才够把一个 7B 模型的习惯从「凭记忆报名字」掰成「照文档选条目」。</span>
+
 ```mermaid
 flowchart TD
   U["自然语言请求"] --> R["检索 API 文档"]
@@ -48,9 +50,22 @@ flowchart TD
 
 论文发现：零样本微调后的 Gorilla 已可超过当时 GPT-4 的 API 功能准确率、幻觉更低。若**训练时不看文档、测试时硬塞 BM25**，错误文档会误导，准确率反而掉（Torch Hub / Hugging Face 上有大幅度下降的表）。检索要进训练分布，模型才学会「以后半段 JSON 为准」。文档在测试期改版（版本号、函数名）时，RAT 模型可以跟着新文档走，这是相对纯背表微调的产品句。
 
+<span class="marginnote">直觉类比：RAT 是把模型从「闭卷背目录」训练成「开卷会翻书」。考场（线上环境）换了新版教材，会翻书的学生照常发挥，背书的当场抓瞎——这就是「文档改版时 RAT 还能跟新文档走」的通俗版。</span>
+
 ## 机制
 
 Hub API 的正确调用是「名字 + 关键参数」的树，不是一段像代码的散文。AST 子树匹配把评测从 BLEU 拉到功能等价，与后来 BFCL 的 AST 计分同构，题更窄（单调用、ML 域）。RAT 把检索文档变成条件前缀的一部分，等价于教模型做阅读理解：功能约束在用户句，合法名字在 JSON。重叠 API 靠描述字段与约束字段消歧；没有约束时，多个金标都应被接受，但实现上仍常钉一条参考 API——这是基准的已知粗糙处。
+
+<span class="marginnote">AST（抽象语法树）就是把代码解析成「函数名是根、参数是枝」的树结构。AST 匹配是比树而不是比字符串：换行、引号风格、可选参数写没写都不影响判分，只有「调了哪个 API、必填参数对不对」才算数——这才叫功能等价。</span>
+
+```mermaid
+flowchart TD
+  T1["训练时看文档（RAT）"] --> T2["测试时给文档：最佳，幻觉最低"]
+  T1 --> T3["测试时不给：零样本也尚可"]
+  T4["训练时不看文档"] --> T5["测试时硬塞 BM25 文档：被带偏，准确率反掉"]
+  T1 --> T6["文档改版：跟着新文档走"]
+  T4 --> T7["文档改版：背的旧表失效"]
+```
 
 Self-Instruct 的指令若泄漏库名，题会退化成抄写。作者要求生成话术不出现 API 名，并用少量人工种子。评测 holdout 防止模型只记训练指令。
 

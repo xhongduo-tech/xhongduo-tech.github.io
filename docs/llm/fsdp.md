@@ -19,6 +19,8 @@ DDP 每张卡复制完整参数、梯度与优化器状态，模型稍大就 OOM
 
 问题立刻变成三个工程选择。第一，切多深：只切梯度与优化器，还是连参数也切。第二，All-Gather 的单位多大：整网一次，还是每个 Transformer 块一次。第三，多机时要不要在节点内切、节点间复制，以免跨机 All-Gather 把以太网打满。这些不是三套算法，是同一套分片状态机上的策略枚举。
 
+<span class="marginnote">术语翻译：All-Gather 就是「每张卡把自己那 1/N 份碎片发出来，凑成完整的一份」；Reduce-Scatter 反过来，「把大家手里的梯度求平均，再每人只留 1/N」。可以把它想象成合写一本书：动笔前把全书章节借齐，写完自己那章后只保留自己的批注份额。</span>
+
 ### 策略名与 ZeRO 档位对齐
 
 文档中的 `ShardingStrategy`：
@@ -58,7 +60,25 @@ flowchart TD
 
 状态机比公式重要。对每个 unit，`FULL_SHARD` 在时间轴上交替「完整」与「分片」：完整只覆盖该 unit 的计算窗口。窗口外 GPU 上是 $1/N$ 的参数。峰值 ≈ 分片常驻 + 当前 unit 完整参数 + 激活 + 预取的下一 unit。包装越粗，窗口越大。这就是为什么只报「FSDP 省 $N$ 倍」会骗人：省的是常驻，不是峰值。
 
+<span class="marginnote">数字实例：一个 7B 模型的 FP16 参数约 14 GB。8 卡 `FULL_SHARD` 下每卡常驻只剩约 1.75 GB，但要算上「当前正在 Gather 的层」的完整拷贝、激活和梯度碎片——所以实际峰值远不止 1.75 GB。初学者容易拿 14/8 当总账，结果照样 OOM。</span>
+
 `HYBRID_SHARD` 的机制是缩小 All-Gather 的进程组。组内 $n_{\mathrm{local}}$ 张卡做深切，组间复制一份逻辑模型。跨机不再每层 Gather 整网参数，只在副本之间同步梯度。节点内 NVLink 吃得起 ZeRO-3 的次数，以太网往往吃不起。代价是每台机器仍要放下「一份完整模型 / $n_{\mathrm{local}}$」，机器太少或单机卡太少时混合分片省不出那一档。
+
+```mermaid
+flowchart TD
+  subgraph N1["节点 1（NVLink 互联）"]
+    A1["卡 0: 1/4 参数"] --- A2["卡 1: 1/4 参数"]
+    A2 --- A3["卡 2: 1/4 参数"]
+    A3 --- A4["卡 3: 1/4 参数"]
+  end
+  subgraph N2["节点 2（以太网互联）"]
+    B1["卡 0: 1/4 参数"] --- B2["卡 1: 1/4 参数"]
+    B2 --- B3["卡 2: 1/4 参数"]
+    B3 --- B4["卡 3: 1/4 参数"]
+  end
+  N1 -- "节点间: 只在梯度上 All-Reduce（流量小）" --> N2
+  A1 -. "节点内: 每层 All-Gather 全量参数（NVLink 扛得住）" .-> A4
+```
 
 <span class="marginnote">FSDP 的通信次数随 unit 数线性涨，体积每层仍与该 unit 参数量同阶。深而窄、wrap 很细、跨机 `FULL_SHARD`，延迟项会压过省显存换来的更大微批。选策略先看拓扑：节点内 `FULL_SHARD`，跨机优先 `HYBRID_SHARD` 或 `SHARD_GRAD_OP`，而不是看模型参数口号。</span>
 
@@ -71,6 +91,8 @@ flowchart TD
 不要在单卡已能 DDP 时默认 `FULL_SHARD`。不要把自定义缓冲、非 `nn.Parameter` 的缓存、或被 `ignored_modules` 漏掉的层当成已分片。不要在 `no_sync` 梯度累积时忘记：`SHARD_GRAD_OP` 在 `no_sync` 内反传后可以不 reshard，峰值行为会变。`sync_module_states` 用于从 rank0 广播初始权重，初始化在 CPU 上用 `param_init_fn` 可避免所有卡同时物化完整 FP32。
 
 与梯度裁剪、全局范数：必须在分片上做正确归约。与 `torch.compile`：FSDP2 的可组合性是为这个准备的，但图断裂、动态 wrap 仍是常见坑，要用你目标版本的已知限制清单，而不是假设「compile 后 FSDP 免费加速」。
+
+<span class="marginnote">常见误区：把 FSDP 当成张量并行（TP）。两者都「把模型切开」，但 TP 是把**单层内部的大矩阵乘**切成几块同时算，每步都要通信；FSDP 切的是**层与层之间**的整块参数，只在进出每层时通信。一句话：TP 切「层内的活」，FSDP 切「层的家当」。</span>
 
 <span class="marginnote">出处以 PyTorch 稳定文档的 `FullyShardedDataParallel` 与 `ShardingStrategy` 为准。第三方博客里「FULL 只要 model/N、SHARD_GRAD_OP 只要 45 GB」一类算例依赖具体模型与是否算激活，不能当公式。</span>
 

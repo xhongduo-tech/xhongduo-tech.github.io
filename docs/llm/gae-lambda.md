@@ -19,6 +19,8 @@ section: llm
 
 InstructGPT / 常见 LLM-PPO 配方把 GAE 当默认。缺 $\lambda$ 的复现表等于没给优势定义。
 
+<span class="marginnote">TD 残差 $\delta_t$ 翻译成大白话：这一步实际拿到手的（当场奖励 $r_t$ 加下一步的估价 $V(s_{t+1})$）比 critic 事前估的 $V(s_t)$ 好多少。正数是超预期，负数是不及预期——它是 GAE 的最小积木，后面的一切混合都从它出发。</span>
+
 ### $\gamma=1$ 时 λ 仍有意义
 
 不贴现不等于蒙特卡洛。$\lambda$ 控制的是「向后看多少步 critic 误差」。$\gamma=1,\lambda=1$ 才是满地平线回报。有人把 $\gamma$ 设成 $0.99$ 再配短 $\lambda$，等于故意让远期校验器对开头几乎无影响——若任务是整题对错，这通常是错的。
@@ -44,11 +46,26 @@ flowchart TD
 
 GRPO / RLOO 用组内标量优势，相当于每条轨迹一个 $\hat A$，再广播到 token，没有 $\lambda$。若要逐步信用，回到 PPO+GAE，或给 GRPO 显式 $r_t$（上一课）。不要把「GRPO 的组标准差」叫做 $\lambda$。
 
+<span class="marginnote">给个数字感受 $\lambda$ 的衰减速度：$\lambda=0.95$ 时，10 步以外的残差权重还剩 $0.95^{10}\approx 0.60$，60 步外只剩 $0.95^{60}\approx 0.05$。想让千 token 之外的终点对错稳稳传到句首，就得让 $\lambda$ 逼近 1——这正是长链推理配方偏大的原因。</span>
+
 ## 机制
 
 $\lambda$ 减小，优势更局部，对错误 $V$ 更不敏感，但终点对错传不到选题策略的前几个 token。$\lambda$ 增大，长程依赖进来，方差增大，需要更大 batch 或更强归一化。这与控制里的经验相同，只是 LLM 的「长程」是语义决策而不是关节力矩。
 
 价值函数差时，高 $\lambda$ 更安全（少信 $V$）；价值好时，可降 $\lambda$ 降方差。LLM 上 $V$ 往往差，因此配方偏高 $\lambda$。下一课 clip-higher 改的是策略更新幅度，与 GAE 正交，不要用 clip 去补 $\lambda$ 选错。
+
+```mermaid
+flowchart TD
+  K{"λ 拧在哪一档？"}
+  K -->|"λ = 0"| Z["只信 δ_t：critic 说了算"]
+  Z --> Z2["方差小，但终点对错传不到早期 token"]
+  K -->|"λ ≈ 0.95"| M["几步内的残差加权混合"]
+  M --> M2["偏差与方差折中，LLM 常用档位"]
+  K -->|"λ = 1"| O["整条回报：采样说了算"]
+  O --> O2["终点信号全程可达，长链噪声也全进来"]
+```
+
+<span class="marginnote">这一步做错的典型后果：把 $\lambda$ 当折扣因子、跟着 $\gamma$ 一起调小，终点奖励几乎传不到开头几个 token，模型只能学到「别提前收尾」之类的局部噪声，整段回答该往哪个方向改就丢了。$\gamma$ 管「要不要远期」，$\lambda$ 管「信 critic 几步」，是两个旋钮。</span>
 
 <span class="marginnote">$\lambda=1$ 且无 $V$（减组均值）就是带基线的蒙特卡洛，接近 REINFORCE / GRPO 精神。</span>
 

@@ -17,6 +17,8 @@ Fish Audio 的 Fish-Speech（arXiv:2411.01156）把 TTS 写成：用语言模型
 
 VALL-E、FastSpeech、VITS 等多依赖 G2P。多音字、语码混合、缺乏词典的语言会把错误发音焊进前端，维护 $N$ 套音素规则不可扩展。另一类系统把语义与声学拆开以提高稳，却削弱音色克隆对「这句话怎么说」的理解。扩散 / 流匹配 TTS 音质好，但多步 ODE 与首包延迟和 Agent 不对付。Fish-Speech 要的是：无 G2P 的多语、克隆稳、码本用满、消费卡上能实时。
 
+<span class="marginnote">G2P（grapheme-to-phoneme，字转音）是传统 TTS 前端把文字转成音素序列的一步，像「先查词典标好拼音再照着念」。去掉它，模型直接读文字，多音字靠上下文自己猜——和人一样，而不是靠维护一套套发音规则。</span>
+
 量化侧，普通 VQ 容易死码。FSQ 与成组量化（GVQ）被组合为 GFSQ，目标是压缩比与**近 100% 码本利用率**。利用率高不等于听感好，但利用率低时 AR 很难学到稳定的离散语言。
 
 ### 双 AR 不是两套独立 TTS
@@ -25,15 +27,30 @@ VALL-E、FastSpeech、VITS 等多依赖 G2P。多音字、语码混合、缺乏�
 
 <span class="marginnote">72 万小时是这篇报告的数据规模。社区站点 fish.audio 上的说话人库是产品层，不等于论文训练集可下载。FFGAN 基于 GFSQ，相对 HiFi-GAN 一类波形 GAN，多了离散码条件。</span>
 
+<span class="marginnote">Dual-AR 可以类比乐队：慢模型是看谱的指挥，每一拍给出「这一拍是什么词、什么情绪」；快模型是乐手，在同一拍内把每个音符弹完。指挥不碰音符细节，乐手不管全曲结构——两个时间尺度各管各的，长序列反而不容易崩。</span>
+
 ## 方法
 
 文本：LLM 式 tokenizer，无音素。慢 Transformer：$\mathbf{h}=\mathrm{SlowTransformer}(\mathbf{x})$，$\mathbf{z}=\mathbf{W}_{\mathrm{tok}}\mathrm{Norm}(\mathbf{h})$。快 Transformer：拼接 $\tilde{\mathbf{h}}=[\mathbf{h};\mathbf{c}]$，再 $\mathbf{y}=\mathbf{W}_{\mathrm{cbk}}\mathrm{Norm}(\mathbf{h}^{\mathrm{fast}})$。GFSQ 把潜条件编成组内 FSQ 码，FFGAN 解码为波形。训练目标是双轨交叉熵（语义 token 与码本），外加声码器的对抗与特征损失（论文以架构叙述为主，超参见代码）。多语、多情绪、克隆是同一套 AR，不另训语种专家。
+
+慢、快两级在一个时间步之内怎么串行咬合，放大了一步来看：
+
+```mermaid
+flowchart TD
+  H["慢 Transformer 本步隐状态 h"] --> CT["作为条件喂给快 Transformer"]
+  CT --> F1["快模型在组内逐个出码本码"]
+  F1 --> G["一组 GFSQ 码 = 一帧声学"]
+  G --> NEXT["本步完成，慢模型前进到下一语义步"]
+  NEXT -->|"循环至文本结束"| H
+```
 
 推理：自回归出码，KV cache 加速慢/快两级。相对 Flow Matching，没有 NFE=10 的固定积分成本，延迟更可预测，但误差会沿时间累积——这是 AR TTS 的经典权衡。博客强调去掉扩散延迟。克隆通过参考音频编码进离散条件（实现细节以仓库当时模块为准），论文把它列为实验上相对基线更好的任务，不给「3 秒官方保证」——3 秒是 CosyVoice 报告的句子，不要混引。
 
 ### Firefly-GAN 要解决的是码本墙
 
 若量化器只用掉码本的一小角，AR 的 softmax 再尖也学不到其余符号。GFSQ 把 FSQ 的无死码倾向与分组结合起来，FFGAN 在高利用率码上做对抗重建。论文称评估达 100% 利用率。这是量化器指标，不是 MOS=人类。高频与气息依赖 GAN 判别器；若码率过低，GAN 会「编」出不存在的齿音。
+
+<span class="marginnote">码本利用率可以想成一本 1000 页的编码字典：若模型只用前 100 页，剩下 900 页就是「白背的死码」。利用率近 100% 意味着每页都被用过——AR 学的词汇表没有大片空白，声码器也才重建得出丰富的音色。</span>
 
 ## 机制
 
