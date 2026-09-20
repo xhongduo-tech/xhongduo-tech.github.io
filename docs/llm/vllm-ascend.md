@@ -17,6 +17,8 @@ vLLM-Ascend（包名 `vllm-ascend`）是 vLLM 社区维护的昇腾硬件插件�
 
 团队若已经按 [vLLM 架构](/llm/vllm-architecture) 运维——中央调度、块表、OpenAI 兼容入口——换昇腾时最怕两件事：一是改客户端和监控名；二是把 NCCL、CUDA Graph、FlashAttention 硬编码进业务镜像。昇腾的编程栈是 CANN、`torch_npu`、HCCL，内存接口叫 `torch.npu` 而不是 `torch.cuda`。若每来一代芯片就 fork 一次 vLLM，上游的连续批、抢占、前缀缓存会全部滞后。问题是：如何让**控制面留在 vLLM，数据面换成 NPU**，并且版本还能和上游对齐。
 
+<span class="marginnote">「OOT op」即 out-of-tree（树外）算子：不进 vLLM 主仓库、由插件在运行时注册的自定义实现。类比浏览器插件——内核不认识的新文件格式，由插件接管解码，内核只留好接口。</span>
+
 另一半是算子。[昇腾算子落差](/llm/cann-op-gap) 意味着 PagedAttention、MLA、MoE 分组乘往往不在 ATen 交集里。插件必须能注册 OOT `CustomOp`，把层实现换成 aclnn 或 Ascend C 核，否则「能 import」只等于在 NPU 上跑了一串碎 GEMM。
 
 ### 插件不是引擎分叉
@@ -54,7 +56,23 @@ flowchart TD
 
 ## 机制
 
-控制面每步仍产出「哪些序列、哪些块、prefill 还是 decode」。数据面在 NPU 上执行：线性层走 aclnn GEMM，注意力走官方核或插件自定义核，新 token 的 KV 写入事先分配的块。分页的数学与 GPU 相同——逻辑块号映射物理块号——物理页的 stride、对齐、是否 NZ 格式由昇腾核决定。若核要求头数比为 \{32, 64, 128\} 之一，张量并行切完必须仍落在集合里，否则图模式在 tiling 检查处失败；这是公开 FAQ 写过的硬件/核约束，不是调度器随机拒绝。
+控制面每步仍产出「哪些序列、哪些块、prefill 还是 decode」。数据面在 NPU 上执行：线性层走 aclnn GEMM，注意力走官方核或插件自定义核，新 token 的 KV 写入事先分配的块。分页的数学与 GPU 相同——逻辑块号映射物理块号——物理页的 stride、对齐、是否 NZ 格式由昇腾核决定。<span class="marginnote">「NZ 格式」是昇腾把矩阵切成小块、按 Z 字形交错的存储布局。类比把横排书页改成按列竖排印刷：内容一个字没少，但取字的走法变了，读的人（核）必须按新走法取，否则读出来全是错位字。</span>若核要求头数比为 \{32, 64, 128\} 之一，张量并行切完必须仍落在集合里，否则图模式在 tiling 检查处失败；这是公开 FAQ 写过的硬件/核约束，不是调度器随机拒绝。
+
+「插件到底换了什么、留了什么」，可以画成两张清单的合流：
+
+```mermaid
+flowchart TD
+  UP["留在上游 vLLM"] --> U1["迭代级调度器"]
+  UP --> U2["KV 块表与分页语义"]
+  UP --> U3["OpenAI 兼容入口"]
+  SW["插件内替换 vllm-ascend"] --> S1["NPUWorker 与内存"]
+  SW --> S2["Paged/MLA 注意力核"]
+  SW --> S3["All-Reduce 走 HCCL"]
+  U1 --> RUN["每步 batch 加块表语义不变"]
+  S1 --> RUN
+```
+
+<span class="marginnote">这张图回答的是「为什么客户端不用改」：变动只发生在下排——worker、核、通信库；上排的调度契约与块表协议原样保留。插件模式的全部意义就在「换下排、保上排」这条分界线。</span>
 
 HCCL 替换 NCCL 之后，进程组、设备号、网卡（若跨机）都要按 Atlas 拓扑绑。节点内走 HCCS 或 UB，跨机走 RoCE，与 [Scale-Up / Scale-Out](/llm/scale-up-vs-scale-out) 的分层一致。插件不发明一种新的并行算法，它只是把 Megatron 式 TP 的 All-Reduce 送到 HCCL。多机启动仍用各版本文档里的启动器与设备可见性变量，不要把 `CUDA_VISIBLE_DEVICES` 的脚本原样贴上再指望插件做翻译。
 
@@ -63,6 +81,8 @@ HCCL 替换 NCCL 之后，进程组、设备号、网卡（若跨机）都要按
 开启 NPU 图模式能吃掉 decode 的启动开销，但对 MLA 的查询/KV 头比更严。DeepSeek-V2-Lite 一类切完后头比不在核支持集合里的模型，公开说明里写过图模式暂不支持。此时应关图跑 eager，或改 TP 度让比值合法，而不是认定「昇腾不能跑 DeepSeek」。能跑和能进图是两件事。
 
 ## 边界
+
+<span class="marginnote">常见误区：以为装上插件就自动拥有 GPU vLLM 的全部新特性。上游刚合入的投机解码、新的多模态 projector，都要等插件登记对应的树外算子后才能用。「特性差集」是硬件插件的常态，不是 bug；升级前应对照插件发行说明。</span>
 
 插件的边界首先是硬件与版本锁：没有匹配的 CANN，wheel 装上也会在运行时炸。其次是特性差集：上游 vLLM 刚合入的投机解码、某多模态 projector，要等插件登记对应 OOT op。第三是性能预期：插件优先「行为对齐 GPU vLLM」，融合深度通常不如 MindIE 面向该芯片的专用路径；要用插件当生产引擎，应在目标芯片上自测 TTFT / TPOT，不要引用未钉版本的社区博客数。
 

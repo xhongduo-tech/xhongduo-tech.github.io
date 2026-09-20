@@ -15,6 +15,8 @@ SOSP 2023 的 vLLM 把控制面收成中央调度器、KV 块管理器、worker 
 
 ## 问题
 
+<span class="marginnote">「GIL」是 Python 的全局解释器锁：同一进程里同一时刻只有一个线程在执行 Python 字节码。分词、预处理和调度循环抢 GIL，就是抢「谁能让 Python 动起来」——V1 的解法不是抢锁更快，而是把这些活拆到不同进程，让锁不再串起同一条时间轴。</span>
+
 V0 的 Python 路径上，AsyncLLM、分词、多模态预处理、反分词和流式发送与调度循环抢同一把 GIL。v0.6.0 已经用 ZeroMQ 把 HTTP API 进程拆出去，V1 要把这条多进程边界推进到引擎内部：真正的一步前向只留在 `EngineCore` 里，前端 CPU 工作与之重叠。否则核再快，调度与取样的 Python 尾巴仍会在短解码上露出来。
 
 第二问题是调度表示。把请求标成「正在 prefill」或「正在 decode」，每加一个特性就要在两支上复制逻辑。[Chunked prefill](/llm/chunked-prefill) 要的是「这次只算提示的 $C$ 个 token」；前缀缓存要的是「跳过 $m$ 个已命中 token」；投机解码要的是「一次提交 $k$ 个草稿 token」。它们其实都是同一句话：本步每条请求的 token 预算。V0 用阶段机表达，V1 改用一张字典。
@@ -28,6 +30,8 @@ V0 的 Python 路径上，AsyncLLM、分词、多模态预处理、反分词和�
 ## 方法
 
 进程角色拆成四类。**API Server**：HTTP、分词、多模态加载、反分词、流式。**EngineCore**：只跑调度与执行循环，从输入队列取新请求，每步 `schedule` 再 `execute`。**GPU worker**：模型前向，与 V0 一样按 TP/PP 切。**DP coordinator**（数据并行时）：在多个 EngineCore 之间做内部负载均衡。API 与 Core 之间走 ZeroMQ；官方架构概述写成多 API 对多 Core 的网，任一前端可以把请求送到某个引擎。`AsyncLLM` 仍在前端进程里用 asyncio，但 GIL 不再挡住 Core 的一步。
+
+<span class="marginnote">直觉类比餐厅传菜单：调度器每轮只看「每桌本步做几道菜」（`{request_id: num_tokens}`），不问这桌是刚开始点单（prefill）还是加菜（decode）——在后厨眼里点单和加菜都是「要做几道」。V0 的阶段机则要先问「这桌处于哪个阶段」再走不同流程。</span>
 
 调度器的输出是 `{request_id: num_tokens}`：本步每条请求处理多少 token。提示 token 与已生成 token 同等看待。固定 token 预算下，长提示被切成多步（chunked prefill），短解码可以和一块前填拼在同一步。前缀缓存默认纳入这条路径：命中的前缀不占本步预算。投机解码把草稿长度写成更大的 `num_tokens`。博客认为这张表足够覆盖上述特性，从而删掉 V0 里分叉的阶段逻辑。
 
@@ -55,6 +59,20 @@ Ubicloud 等对 V1 请求生命周期的拆解与官方概述一致：Core 内�
 CPU/GPU 重叠的机制是进程隔离。分词与多模态预处理在 API 进程跑的时候，Core 可以正在跑上一步的 GEMM。GIL 不再把两边串成一条 Python 时间轴。吞吐收益在「核已经很快、CPU 尾巴可见」的短上下文、高 QPS 场景最大；超长前填时核本身是墙，拆进程帮不上二次注意力。
 
 统一 token 预算的机制是把混合批写成资源分配。一步的成本大致随本步 token 数（前填段）和解码条数（读权重）变化。调度器不必先决定「这一步是前填步还是解码步」，只需在预算内塞请求。这简化了代码，也把策略暴露成可调的 `max_num_batched_tokens`：运维调的是预算，不是阶段开关。公平性仍要另写——预算可以被长提示一次吃满，V1 并不自动等于 stall-free，chunk 大小与预算要一起设。
+
+三个特性如何被同一个调度表示覆盖，一张图就能对上：
+
+```mermaid
+flowchart LR
+  B["统一 token 预算"] --> C1["chunked prefill 本步只算 C 个提示 token"]
+  B --> C2["前缀缓存命中的 m 个不占预算"]
+  B --> C3["投机解码一步提交 k 个草稿"]
+  C1 --> OUT["调度表 request_id 到 num_tokens"]
+  C2 --> OUT
+  C3 --> OUT
+```
+
+<span class="marginnote">数字实例：预算 `max_num_batched_tokens=8192` 时，一条 20000 token 的长提示会被切成约 3 步（8192、8192、3616），decode 请求在每步剩余额度里插空执行——这就是 chunked prefill「保护 ITL」的具体机制，不需要单独的阶段调度器。</span>
 
 <span class="marginnote">V1 默认打开前缀缓存，改变的是空载时的 CPU 与内存记账，不是「所有负载都更快」。无共享流量上，缓存插入与淘汰是额外工作；有共享时，少做的前填才是收益。对照实验必须声明是否关闭缓存。</span>
 

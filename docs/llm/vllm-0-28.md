@@ -15,6 +15,8 @@ vLLM 0.28.0（2026-08-26）把两条服务侧主线写进同一版：分层 KV �
 
 ## 问题
 
+<span class="marginnote">代入具体数：8 卡 TP、GQA 只有 4 个 KV 头，头维切两份就用尽了，剩下 6 张卡只能各存一份完整 KV——同一份 KV 在显存里躺 $8/4=2$ 份。DCP 再沿序列维切 4 份，重复才被真正压掉。</span>
+
 长上下文 decode 每步用很小的 Q 去读很长的 KV。张量并行按注意力头切 KV：GQA 的 KV 头数 $H$ 很小，MLA 更极端。当 `tp_size > H`，多出来的卡只能**复制**整份 KV。复制吃的是本可以拿去堆并发的 HBM，不是免费的容错。继续加 TP 会让每卡 KV 重复 `tp_size/H` 次，并发先被显存打死，吞吐再被带宽打死。
 
 另一侧，前缀缓存与多轮会话把冷 KV 留在 GPU 里不划算。CPU 卸载早已有，但跨并行度的布局、磁盘这一层、以及卸载命中只返回部分块，都要引擎承认「二级介质可以不完整」。0.28 把磁盘、外部二级管理器、部分加载和分层指标收进同一套 offload 路径。
@@ -51,11 +53,27 @@ flowchart TD
 
 设序列长 $T$、KV 头 $H$、TP 为 $P$。无 DCP 时每卡存约 $T \times \lceil H/P \rceil$ 的 KV，当 $P\gt H$ 则每卡存满 $T$。DCP size 为 $D$ 时，沿 $T$ 再切 $D$ 份，每卡约 $T/D$ 再乘头维分片。容量换的是：合并注意力所需的跨卡归约。在线 softmax 必须交换分子与分母的 log-sum-exp，否则分片上的局部 softmax 不能拼成全局分布。这与训练里的 context parallel 同一数值问题，只是 decode 的 Q 长度退化成 1。
 
+「复制从哪来、DCP 怎么消掉它」可以画成对照：
+
+```mermaid
+flowchart TD
+  KV["整份 KV 长度 T 头 H"] --> TP["只用 TP 按头切"]
+  TP --> DUP["头切尽后每卡复制整份"]
+  TP --> BOTH["同 8 张卡 再开 DCP"]
+  BOTH --> SLICE["每卡只存 T 除以 D 的切片"]
+  BOTH --> AG["每步 AllGather 短 Q"]
+  AG --> MERGE["LSE 合并各分片注意力"]
+```
+
+<span class="marginnote">「在线 softmax 合并」是分片注意力的标准数值技巧：每个分片只保留局部最大值与指数和（log-sum-exp），最后用一次换底把各片的局部 softmax 拼回全局分布——与 FlashAttention 跨块迭代是同一招，只是这里发生在多卡之间。</span>
+
 分层卸载的正确性仍是「块只读」。写只发生在追加新 token 的 HBM 分配；冷块换出不必写回脏页。部分加载意味着一次 get 可以只带回前缀若干 chunk，引擎要用细粒度前缀匹配（0.28 也修了 partial-tail reuse，#50507）接上，而不是假定二级介质原子地有整段序列。规范 CPU 布局让 TP 变化时仍能解释同一块字节，这是卸载能跨并行度存活的前提。
 
 <span class="marginnote">0.28 默认 `max_num_batched_tokens` 从 8192 提到 16384，前缀缓存对 Mamba 默认打开。这会改变你原来按 8K 批上限估的 KV 占用。分层与 DCP 都是「让同一批里能塞更多请求」的手段，调默认批大小时要一起看 HBM。</span>
 
 ## 边界
+
+<span class="marginnote">常见误区是把磁盘分层当成「慢速显存」随便用。磁盘块的延迟以毫秒计，是 HBM 的上千倍；正在 decode 的 token 每步都要读自己的 KV，落到磁盘就是灾难。分层只服务冷前缀与被抢占的会话，热工作集必须留在 HBM。</span>
 
 DCP 增大通信，短上下文、高 QPS 小 batch 可能得不偿失。上限 `tp_size/H` 意味着 MLA（有效 $H$ 很小）从 DCP 获益最大，稠密多头相对收益小。PD 分离、投机、图执行的组合以当时文档矩阵为准，不要从发行说明的「支持」一词推出所有后端全绿。磁盘分层的尾延迟会破坏 TPOT：只适合被抢占会话与冷前缀，正在 decode 的工作集必须留在 HBM，见 [KV 卸载](/llm/kv-offload)。
 
