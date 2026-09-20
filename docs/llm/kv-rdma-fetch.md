@@ -19,6 +19,8 @@ DistServe（Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 等，OSDI 2024，
 
 传输体积很容易估。每层每 token 的 KV 大约是 $2 h_{\mathrm{kv}} d_k$ 个数（MLA 则是潜向量加小 RoPE 键）。乘上层数、精度字节、提示长度，一次长上下文交接可以到数百 MB 乃至数 GB。PCIe 弹跳路径上，主机拷贝与网卡 DMA 串起来；GPUDirect RDMA 让 NIC 成为 GPU 的 PCIe 对等体，注册过的 HBM 缓冲区可以直接当 RDMA 本地或远端内存。Mooncake 的 Transfer Engine 把 RDMA、TCP、NVLink 等后端收成统一搬运层，SGLang 与 vLLM 都把它接成 PD 分离和跨实例共享的连接器。
 
+<span class="marginnote">数字实例：32 层、8 个 KV 头、头维 128、FP16 时，每 token 每层是 $2 \times 8 \times 128 \times 2 = 4$ KB，全模型每 token 128 KiB；一条 16K 提示的交接就是约 2 GiB——一次 TTFT 的成败可以整个押在网络上。</span>
+
 ### 延迟预算里传输必须可重叠
 
 预填充还在算后面的层时，已经算完的层可以往解码侧推——层间流水把传输藏进剩余计算。若等到整网前向结束再一次性 dump，解码实例会空等一个完整 TTFT。反过来，解码侧若在块到齐之前就开注意力，会读到半新半旧的块表。协议必须有「层 $k$ 的块已提交」的完成语义，而不是只靠一条连接上的字节流。
@@ -30,6 +32,8 @@ DistServe（Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 等，OSDI 2024，
 ### 注册、块粒度、零拷贝
 
 RDMA 要求内存先注册（`ibv_reg_mr` 或 DMA-BUF）。服务引擎不能对每个 token 注册一次：开销和 pin 住的页表都吃不消。实践是预注册一块大池，KV 按 [分页块](/llm/paged-kv-block-size) 从池里切。Mooncake 侧可以是 CPU pinned 池（GPU→池→RDMA→对端池→GPU）或 CUDA 池（GPUDirect，NIC 读 BAR1）。块哈希（前缀缓存用的指纹）同时当对象键：对端按哈希 RDMA Read，或本端 RDMA Write 到对端已公布的地址。
+
+<span class="marginnote">常见误区：以为「每个请求来了再注册一段内存」更灵活。注册要 pin 住页并建页表，开销在毫秒级还占内存；生产做法是启动时预注册一大块池，请求只在池里按块切。逐请求甚至逐 token 注册，会把网卡路径变成分配器瓶颈。</span>
 
 完成队列与批量是延迟的另一半。一块一块轮询会把小块的 QP 往返变成主导；按层或按若干块打包，一次发一串 RDMA Write，用一条完成事件表示「这一层可解码」。PCIe relaxed ordering（Mooncake 里 `IBV_ACCESS_RELAXED_ORDERING` / `MC_IB_PCI_RELAXED_ORDERING`）在 GPU 路径上往往决定能不能从十几 GB/s 走到接近 400 Gb/s 网卡的有效带宽——这是工程开关，不是算法创新，但关掉它，论文里的「RDMA 很快」会在基准上消失。
 
@@ -51,6 +55,19 @@ flowchart LR
 ### 为什么 RDMA 对 KV 特别合适
 
 KV 块在写出后只读，没有训练梯度那种双向归约。单向 RDMA Write 语义与「把只读块放到对端」同构，不需要 NCCL All-Reduce 的树。消息大小从几十 KB（单层一块）到数 MB（一层整序列），正好落在 InfiniBand 有吞吐的区间；过小则 QP 速率不够，过大则占满 HBM 注册池。GPUDirect 省掉的是主机弹跳，不是集合通信算法。
+
+<span class="marginnote">直觉类比：训练的 All-Reduce 像一群人互相校对各自抄的笔记，人人都要发也要收；KV 拉取像快递员把一份封好的包裹放到你家门口——单向、只读、签收即可。用群聊的礼节去送快递，就是把简单的事做贵。</span>
+
+```mermaid
+flowchart TD
+  K["Decode GPU 等一份远端 KV 块"] --> P{"传输走哪条路?"}
+  P -->|"TCP + 主机弹跳"| B["远端 HBM 弹到主机内存, 过协议栈, 再拷进本机"]
+  B --> B2["拷贝与软件栈串行: TTFT 下界被主机拷贝钉死"]
+  P -->|"GPUDirect RDMA"| G["NIC 与 GPU 同一 PCIe 交换机时, 远端直写 HBM"]
+  G --> G2["零主机拷贝, 接近线路速率"]
+  B2 --> L["结论: 先测拓扑, 再谈协议"]
+  G2 --> L
+```
 
 与专家并行的 All-to-All 不同：EP 每步都要按路由打散 token，KV 拉取通常一次交接、随后本地解码。因此可以把昂贵的注册与连接建立摊到会话生命周期，而不是摊到每个 token。会话亲和（[KV 感知路由](/llm/kv-aware-routing)）进一步减少「每轮重新拉取同一前缀」。
 

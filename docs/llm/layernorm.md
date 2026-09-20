@@ -19,6 +19,8 @@ section: llm
 
 需要一种归一化：不沿 batch，不沿时间，只沿「这个 token 的特征向量」。这样每个位置自给自足，掩码与变长自然成立，推理公式与训练相同。LayerNorm 回答的就是这个接口问题，同时保留可学习的逐维缩放与平移，以免归一化把有用的尺度全部洗掉。<span class="marginnote">LayerNorm 的统计单位是单个向量，不是序列，也不是批次。长度为 $n$ 的句子有 $n$ 组独立的 $\mu,\sigma$。位置信息不会进入归一化，也不会因为句子变长而改变某一 token 的 $\sigma$ 定义。</span>
 
+<span class="marginnote">直觉类比：BatchNorm 像全班共用一个音量旋钮（按批次统计调）；LayerNorm 是每个 token 自带耳机和自己的旋钮，随时按自己这帧的信号调音量。于是考场里来几个人、早到晚到（变长、批量为 1）都不影响你自己的音量设定——这就是自回归解码偏爱它的原因。</span>
+
 ## 方法
 
 对 $x\in\mathbb{R}^{d}$，
@@ -58,11 +60,33 @@ flowchart LR
 
 把 $\gamma$、$\beta$ 融进相邻线性层在数学上不总可行：LN 是非线性（除以依赖于 $x$ 的 $\sigma$），不能与矩阵乘交换。推理融合只能做有限的常数折叠，不能取消归一化本身。
 
+<span class="marginnote">数字实例：$x=[2,4,6]$ 的均值 $\mu=4$，标准差 $\sigma\approx1.63$，标准化后是 $[-1.22,\,0,\,1.22]$；若 $\gamma=[1,1,1]$、$\beta=[0,0,0]$，输出就是它本身。整个过程只看这 3 个数，不需要同批次其它样本——把 $x$ 换成推理时的单个 token，公式一字不改。</span>
+
 <span class="marginnote">$\beta$ 与残差里的偏置、以及注意力输出投影的偏置会叠加。Post-LN 时 $\beta$ 直接进入下一层输入；Pre-LN 时 $\beta$ 进入子层，再经 $F$ 写回主干。排查「某维恒正」时，应同时看 LN 的 $\beta$ 与线性层偏置，而不是只怪嵌入。</span>
 
 ### 在残差块中的位置
 
 同一算子，放在 $x+F(x)$ 之后或 $F$ 之前，梯度完全不同——那是 Pre-LN 与 Post-LN 的主题。对 LayerNorm 自身只需记住：它总是沿最后一维归约。若错误地沿序列维做 LN，会把不同位置混成一套 $\mu,\sigma$，瞬间接通本该由注意力学习的耦合，并破坏因果。实现时的 `normalized_shape` 必须是宽度 $d$，不是 $n$ 或 $n\times d$。
+
+```mermaid
+flowchart TD
+  subgraph POST["Post-LN:LN 在残差相加之后"]
+    A1["x"] --> F1["F(x)"]
+    F1 --> ADD1["x + F(x)"]
+    ADD1 --> LN1["LayerNorm"]
+    LN1 --> OUT1["进入下一块"]
+  end
+  subgraph PRE["Pre-LN:LN 在子层之前"]
+    A2["x"] --> LN2["LayerNorm"]
+    LN2 --> F2["F(x)"]
+    A2 --> ADD2["x + F(x)"]
+    F2 --> ADD2
+    ADD2 --> OUT2["进入下一块"]
+  end
+  LN1 -. "Post-LN 主干被收尺度,深了难训" .-> A2
+```
+
+<span class="marginnote">常见误区：初学者容易以为 LN 和 BatchNorm 一样「顺手带来正则化」。BatchNorm 的跨样本统计确实带一点噪声正则；LN 的统计只在单个向量内部，没有任何跨样本信息，也就没有这份副产物——要正则得另配 dropout 或权重衰减，不能指望归一化免费送。</span>
 
 ## 边界
 

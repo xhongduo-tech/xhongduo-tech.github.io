@@ -60,6 +60,20 @@ flowchart TD
 
 衰减使远块贡献指数下降，数值上接近局部，但计算仍扫过所有块状态。这与 softmax 滑窗不同：滑窗物理上不读窗外 KV；线性衰减是读压缩过的状态。检索能力弱于 softmax，是 [线性 RNN 与注意力分工](/llm/linear-rnn-vs-attention) 里那条界，不是核写错了。
 
+<span class="marginnote">cumsum（前缀和）就是「逐项累加」：序列 1, 2, 3, 4 累加后变成 1, 3, 6, 10，第 $t$ 项是前 $t$ 项之和。因果线性注意力每个位置的状态恰好是 KV 的前缀和——坏处是第 $t$ 项依赖第 $t-1$ 项，天然串行，GPU 上千个核心只能干看着。</span>
+
+```mermaid
+flowchart TD
+  NC["非因果：KᵀV 是一个全局矩阵"] --> SH["所有查询共享一次右乘，天然并行"]
+  CAUS["因果：位置 t 只能看前缀"] --> PS["朴素做法 = n 个前缀和，串行"]
+  PS --> CK["分块：块间只维护 1 个累积 KV 状态"]
+  CK --> INTRA["块内：下三角小块，一次 GEMM 搞定"]
+  SH --> FLAT["吞吐几乎不随长度下降"]
+  INTRA --> FLAT
+```
+
+<span class="marginnote">直觉类比：块间状态像记账本——每读完一块就把总额记上一笔，块内的人只查「之前总额加上本页明细」，不用从头翻账。 cumsum 是每一行都重抄一遍此前所有账目；分块把它粗化成「块与块之间记一笔」。</span>
+
 <span class="marginnote">图 1 的对照是 LLaMA+FA2 对 TransNormerLLM+Lightning。架构不完全相同，平坦曲线证明的是*该线性核*的长度缩放，不能直接读成「换核即可让 LLaMA 质量不变、速度恒定」。</span>
 
 ### 从核到 MiniMax 的距离
@@ -75,6 +89,8 @@ Lightning 不恢复 softmax 的尖峰拷贝。纯线性栈在针测与精确检�
 反向必须与前向同一套分块，否则因果线性的梯度会偷偷物化大矩阵。融合失败时，表现会退回 Lightning-1：访存好，复杂度仍近二次。
 
 与 FlashAttention 的切块同构、对象不同：FA 在块内做在线 softmax 与统计量合并；Lightning-2 在块内做无 softmax 的左乘，块间做状态右乘。把 FA 的核直接套到线性公式上，会得到 Lightning-1 那种「切块但仍近二次」的东西。读代码时看块间是否维护 $KV$ 状态，是区分两代 Lightning 的最快方法。
+
+<span class="marginnote">常见误区：初学者容易以为 Lightning Attention 是「让 softmax 注意力变快的新技巧」。实际上它服务的公式里根本没有 softmax（TransNormer 的 NormAttention），它优化的是线性核的访存与因果串行问题。想给标准 Transformer 提速，该找的是 FlashAttention 这一支。</span>
 
 <span class="marginnote">恒定速度假设 $d$ 固定、核占满计算。极短序列上启动开销会让线性核慢于 FA。报 TGS 要给长度范围，不要只截长端的平坦段。</span>
 
