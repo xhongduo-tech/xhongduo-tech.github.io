@@ -19,6 +19,8 @@ section: llm
 
 只优化 GPU 峰值，CPU 喂不饱、交换过订阅、网卡在 MoE All-to-All 的同步突发里打满、DPU 缺席导致主机被存储中断打断，整柜 MFU 仍然上不去。六芯片是把这些失败模式收进同一代硅，而不是同一代营销口号。
 
+<span class="marginnote">「共设计」可以类比造一艘船：引擎、传动轴、螺旋桨按同一个目标航速一起设计。买最强的引擎配上上一代的传动，船速仍由最慢那一环决定——机柜同理，GPU 峰值再高，喂据、交换、卸载任何一环落后，整柜算力就停在瓶颈那颗芯片的水平。</span>
+
 ### 六颗芯片各管哪一层
 
 | 芯片 | 公开角色 | 主要落点 |
@@ -37,6 +39,8 @@ section: llm
 ## 方法
 
 规划机柜时按六层同时画，而不是先填满 GPU 再补网。Scale-Up 平面只允许 NVLink 6：TP、域内 EP、域内集合通信走这里。Scale-Out 平面由 ConnectX-9 注入、Spectrum-6 交换：DP、跨柜 PP、多柜 MoE、存储。控制与安全平面落到 BlueField-4，避免租户作业与基础设施抢同一颗 Vera 核。CPU–GPU 平面走 [NVLink-C2C](/llm/nvlink-c2c-superchip)，把 LPDDR 与 HBM 收成一致性视图，供 KV 卸载与数据预置。
+
+<span class="marginnote">术语翻译：Scale-Up 是「机柜内往大堆」——72 张 GPU 用 NVLink 连成一个全互连域，像公司内部的走道，宽而近；Scale-Out 是「往柜外扩」——用以太网把更多机柜连成集群，像城际高速，路网更大但单程更远。两条平面的带宽表要分开看，混在一起等于买错屋顶线。</span>
 
 软件栈按这个切分来绑进程：训练作业的 NCCL 通信子不要跨越 NVLink 域；存储与遥测走 DPU；柜外拥塞控制交给 SuperNIC 与 Spectrum-X，而不是在应用里重写一套公平队列。CUDA 向后兼容被 NVIDIA 写成平台约束：已有核不必为第六代互连重写，但要吃到 SHARP 与 counted writes，仍需通信库与框架版本跟上。
 
@@ -59,6 +63,21 @@ flowchart TB
 ## 机制
 
 共设计的机制是接口先行。GPU 的 NVLink 端口速率与交换芯片的端口匹配，才有「每 GPU 3.6 TB/s 卡间」这一公开规格，见 [NVLink 6](/llm/nvlink-6)。CPU 的 C2C 端口与 GPU 匹配，才有超芯上的一致性。ConnectX-9 与 Spectrum-6 共用面向 AI 突发的拥塞控制，而不是把数据中心以太网的 ECN 参数直接套到 MoE All-to-All 上。BlueField 上的 DOCA 服务与主机 CUDA 作业分域，安全边界不依赖「租户承诺不碰管理面」。
+
+一次跨柜 MoE All-to-All 突发，六颗芯片各经手什么？
+
+```mermaid
+flowchart TD
+  J["MoE All-to-All 同步突发"] --> GPU["Rubin GPU：产生流量"]
+  GPU -->|"换到的专家在本柜"| SW["NVLink 6 交换：柜内直达"]
+  GPU -->|"专家在别的柜"| NIC["ConnectX-9：整形、隔离后注入"]
+  NIC --> ETH["Spectrum-6：柜外以太交换"]
+  NIC -.->|"检查点 / 存储 / 加密"| DPU["BlueField-4：卸载，不占主机核"]
+  CPU["Vera CPU：编排与喂数"] -.->|"NVLink-C2C 一致性"| GPU
+  ETH --> O["对面机柜的 GPU 接住"]
+```
+
+<span class="marginnote">读图要点：同一次 All-to-All 被拆成两条路——本柜专家走 NVLink 域（快而近），跨柜专家才出以太网（远而挤）。把所有流量都挤到 Scale-Out，还是把基础设施流量（存储、遥测）留给 DPU，正是「六颗芯片各管一层」在一条真实流量上的体现。</span>
 
 液冷、托盘、电源平滑属于同一共设计的封装层。芯片再快，若供电包络按平均功率设计、峰值把机柜拉闸，六颗硅的峰值表都没有意义。NVIDIA 把功率平滑与温水液冷写成平台特性；具体千瓦与摄氏度以产品页为准，本篇不外推。
 
