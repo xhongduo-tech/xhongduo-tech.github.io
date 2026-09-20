@@ -17,6 +17,8 @@ verl（Volcano Engine Reinforcement Learning for LLMs）是 HybridFlow 论文的
 
 把 PPO 画成数据流：actor 生成、reward 模型打分、critic 或组内基线估优势、actor / critic 再训练。每个节点内部已是张量并行、数据并行、流水线并行之一；节点之间还要广播序列、logprob、mask。单控制器（driver 进程逐算子下发）在小模型 RL 里清晰，在 LLM 上调度粒度太细，dispatch 延迟压过计算。多控制器（每个 rank 跑同一份脚本，集合通信同步）适合单一训练图，但 RLHF 是多模型、多阶段、资源可重叠的图，把阶段嵌进 SPMD 脚本会导致：换 GRPO、换异步 rollout、换 Megatron 与 vLLM 的搭配都要改通信嵌套。
 
+<span class="marginnote">术语翻译：单控制器就是一个「总指挥」进程，把每一步算子逐个派给 GPU；多控制器是每个 GPU 各跑一份相同脚本、靠集合通信对齐。前者灵活但指挥消息太密，后者高效但换算法人人都要改脚本。HybridFlow 的折中：总指挥只管阶段级编排，算子级执行交给 GPU 群体自己。</span>
+
 资源放置同样麻烦。生成希望推理引擎的 KV 布局；训练希望 FSDP 或 Megatron 的分片。若保存两份 actor 权重，显存翻倍；若每次用通用通信重分片，迭代时间被 reshard 吃掉。HybridFlow 要同时解决「算法图怎么写」和「训练-生成如何共权重」。
 
 ### 控制平面与数据平面必须拆开
@@ -41,6 +43,17 @@ Hugging Face 生态把 verl 当作可接 TRL 之外的大规模 RL 后端之一�
 
 吞吐增益来自两处。一是调度：单控制器只发阶段级指令，重计算留在多控制器内部，dispatch 开销不再随层数线性膨胀。二是重分片：训练与生成的瓶颈常是权重布局不匹配；3D-HybridEngine 把这次匹配做成一等算子，迭代里的气泡缩短。论文在多种 RLHF 算法与模型规模上给出 1.53× 到 20.57× 的区间——上限出现在基线因冗余权重或拙劣编排而极慢的设置，下限是已经较优的对照。
 
+```mermaid
+flowchart TD
+  T["训练阶段: FSDP / Megatron 分片布局"] --> S{"切换到生成阶段"}
+  S -->|"朴素 dump-reload"| BAD["两份全量权重或慢速转换<br/>显存翻倍, 时间被 reshard 吃掉"]
+  S -->|"3D-HybridEngine"| RE["按布局代数重分片<br/>只搬必须搬的分片"]
+  RE --> R["生成阶段: vLLM 布局 rollout"]
+  R -->|"更新完权重再切回"| S
+```
+
+<span class="marginnote">直觉类比：重分片像两个班组轮流用同一图书馆——训练组按「每人对半分」摆书，推理组要按「书架分区」取用。朴素做法是先把全部书倒在地上再重摆（双倍空间、全场干等）；HybridEngine 是按映射表把书从旧位置直接递到新位置，只动必须动的那部分。</span>
+
 ### 放置与共享
 
 Ray placement group 上的 ResourcePool 允许 actor 与 rollout 分时复用同一组 GPU，或把 reward 模型放到另一组。灵活放置是混合模型的产品：单控制器看得见全局资源，多控制器看不见也不该看见。错误放置的典型症状是生成时训练分片未卸掉、或 critic 与 actor 抢同一张卡导致 OOM。这些是编排 bug，不是算法 bug。
@@ -54,6 +67,8 @@ Ray placement group 上的 ResourcePool 允许 actor 与 rollout 分时复用同
 混合模型增加概念负担：使用者要同时理解 Ray 编排与 FSDP/Megatron/vLLM。调试时错误可能出在控制器逻辑，也可能出在后端内核，栈比单一训练脚本更深。3D 重分片依赖后端暴露的权重布局；新并行策略要接进 HybridEngine 才能吃到零冗余。异步 rollout、投机解码、MoE 专家并行，都是后续工程，不是 2025 年论文里已经证完的部分。
 
 吞吐数字不能跨论文横比。对照系统的版本、是否开启梯度检查点、生成长度、是否与训练同卡，都会改变倍数。合理用法是：在自己的模型与并行策略上复现基线，再看 verl 是否缩短 step time。算法研究还应报告样本效率，而不是只报告 tokens/s。
+
+<span class="marginnote">常见误区：初学者容易把 1.53×–20.57× 读成「换 verl 必得二十倍」。上限出现在基线因冗余权重或编排极差的设置上；自家基线已经调优时，收益可能落在下限甚至持平。正确姿势是先复现自己的基线 step time，再比较换框架后的差值。</span>
 
 <span class="marginnote">把 verl 理解成「Hugging Face 的官方 RLHF 实现」不准确。它是字节跳动与港大等工作开源、社区共建、Hugging Face 文档与教程积极接入的栈。选型时比较的是编排灵活性与引擎适配，而不是品牌归属。</span>
 

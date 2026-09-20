@@ -19,6 +19,8 @@ section: llm
 
 GPU 侧同一张织物：A5X 上 Virgo 支持单数据中心最多 **80,000** GPU、多站点最多 **960,000**。说明 Virgo 不是 TPU 专属协议名，而是 AI Hypercomputer 的东西向承载。问题变成：如何用更扁的交换机层次、更多平面，把加速器 RDMA 从机房前端网里隔离出来。
 
+<span class="marginnote">术语翻译：数据中心里「南北向」流量是机房与外部用户之间的进出，「东西向」是机器与机器之间的横向流量。Virgo 专门承载加速器之间横向的大流量——类比给货运列车修专用重载线，不与客运（用户请求）混轨，两边都更快。</span>
+
 ### ICI 与 Virgo 不要画成一条边
 
 ICI 提供 Pod 内高带宽、短直径（8t 为 3D torus，8i 为 Boardfly）。Virgo 提供 Pod 间 / 机柜间的数据中心带宽。集合通信库若把本该留在 ICI 上的张量并行维画到 Virgo 上，逐步延迟会从专用互连变成以太网。正确的网格是：密通信维 ≤ ICI 域；数据并行、跨 Pod 流水、检查点与存储走 Virgo 或存储网。
@@ -56,6 +58,18 @@ flowchart TD
 
 对推理，Virgo 很少应出现在逐步 decode 的关键路径。8i 的 Boardfly Pod 应装下延迟敏感的专家并行；跨 Pod 的 KV 或数据并行才上 DCN。若 decode 的 AllGather 已经走到 Virgo，先回头看并行度是否画错。
 
+```mermaid
+flowchart TD
+  OP["一次集合通信 / 一股流量"] --> Q1{"通信维是否密<br/>(TP / 专家 / 域内 AllReduce)?"}
+  Q1 -->|"是"| ICI["留在 ICI / NVLink 域内<br/>短跳高带宽"]
+  Q1 -->|"否"| Q2{"流量类型?"}
+  Q2 -->|"DP / 跨 Pod 流水 / KV"| VG["Virgo 东西向织物<br/>RDMA"]
+  Q2 -->|"检查点 / 数据拉取"| ST["存储网 TPUDirect<br/>不与训练抢平面"]
+  Q2 -->|"用户 / 控制面"| FE["Jupiter 前端网"]
+```
+
+<span class="marginnote">直觉类比：把模型并行轴映射到物理网像排座位——密谈的两个人必须同桌（ICI / NVLink 域内），跨桌传纸条走的是慢得多的走廊（Virgo）。座位排错了，再宽的走廊也补不回同桌耳语的带宽；decode 的 AllGather 出现在 Virgo 上，通常就是排座的信号。</span>
+
 <span class="marginnote">「Virgo ICI」作为口语，指的是 **Virgo 与 ICI 两层互连体系**，不是 Virgo 实现了 ICI 电气规范。写配置与工单时分开：Pod 内 ICI 版本/拓扑，机房侧 Virgo 平面与配额。</span>
 
 ## 边界
@@ -65,6 +79,8 @@ GA 与 Cloud 区域可用性以控制台为准。每芯片注入 Virgo 的精确
 ### 和存储网、前端网三张图
 
 Next 博文同时宣布 Managed Lustre 10 TB/s、Rapid Buckets、Z4M 本地盘集群。这些是喂数据与检查点的路径，TPUDirect 让数据绕过主机进加速器，并不走「芯片间 ICI」。Virgo 解决的是加速器东向西向；把检查点打到 Virgo 平面上与训练 AllReduce 争用，会把 goodput 从 97% 目标里抠掉。前端 Jupiter 仍承接用户与控制面。三张图（ICI/NVLink、Virgo、存储/前端）应分开配额与拥塞策略。混用 TPU 与 GPU 时，集合库、数值格式、故障域三条都要单独验收：同一条 Virgo 不意味着 XLA 与 NCCL 看见同一拓扑。
+
+<span class="marginnote">常见误区：容易把三张网（ICI / NVLink、Virgo、存储 / 前端）当成「都是网，随便走」。检查点流量若挤上 Virgo 与训练 AllReduce 争带宽，goodput 会从 97% 的目标里被抠掉——每张网有自己的配额与拥塞策略，混走是要在训练速度上付账的。</span>
 
 8i 的 Boardfly 与 8t 的 torus 都在 Virgo 之下。换芯片代数只改 scale-up 图，不自动改 DCN 规划。区域与跨城链路的时延不在 4× 带宽这句话里；百万芯片是逻辑集群规模，不是「跨洋也能逐步同步」。
 

@@ -19,7 +19,11 @@ section: llm
 
 ALBERT 用因子化嵌入 $E=E_1 E_2$ 降参数，不删 id，OOV 行为不变。裁剪更狠：id 集合变小，fertility 与公平性都会变，压缩课要把它当能力风险，而不是只当存储。
 
-<span class="marginnote">绑定的 lm_head 必须与 embedding 同步删行。只瘦 embedding、头仍 $|V|$，logits 错位。Press & Wolf 的 tying 在这里是约束，不是可选项。</span>
+<span class="marginnote">绑定的 lm_head 必须与 embedding 同步删行。只瘦 embedding、头仍 $|V|$，logits 错位。Press &amp; Wolf 的 tying 在这里是约束，不是可选项。</span>
+
+<span class="marginnote">fertility 可以翻译成「碎词率」：同一个词平均被切成几个 token。裁剪后保留的 token 更常见、往往更短，同样一句话要切成更多片，所以 token 数变多——这就是域内 PPL 不可横比的根源：每 token 的含义被稀释了。</span>
+
+<span class="marginnote">数字实例：$|V|=128{,}000$、$d=2048$ 时，一张表就是 $128000 \times 2048 \approx 2.6$ 亿参数，embedding 加 lm_head 共约 5 亿；若总参数 1.5B，这两张表占三分之一。把 $|V'|$ 砍到 32k，两表立刻缩到约 1.3 亿。</span>
 
 ## 方法
 
@@ -42,6 +46,21 @@ flowchart TD
 未使用行不贡献前向，删它们在域内近似无损。伤害来自边界：稀有但关键的标识符、别的语种、数字块。预分词若把数字切成单数字 token，数字 id 很热，不会被删；若整块数字是稀有合并符号，裁剪会毁掉算术——与量化课的算术崩同类，根因是符号集合。
 
 [LoRA](/llm/lora) 打在 embedding 上时，裁剪要在合并后做，或对 $A,B$ 同样收缩行，否则秩分解的行维与表不一致。
+
+裁剪最容易翻车的路径是「删了表却没删分词器」：旧分词器仍会输出被删的 id，模型查不到行、也不认识这个位置，于是文本要么映到错误的保留 token，要么掉进字节回退，输出突然变成乱码式爆炸。下图画出这条事故链。
+
+```mermaid
+flowchart TD
+  OLD["旧分词器仍在用"] --> OUT["输出被删 id"]
+  OUT --> LOOK["查 embedding 行"]
+  LOOK --> MISS["行不存在"]
+  MISS --> A["落到 UNK"]
+  MISS --> B["字节回退爆炸"]
+  B --> GEN["输出乱码式退化"]
+  A --> GEN
+```
+
+<span class="marginnote">常见误区：初学者容易以为「没被训练到的行删掉是无损的」。实际上删行本身近乎无损，伤害全部来自分词器与表的错位——删除动作本身安全，删除后系统两端不一致才危险。类比：辞掉公司通讯录里的离职员工没问题，但门禁卡没同步注销，他就再也进不了门。</span>
 
 ## 边界
 

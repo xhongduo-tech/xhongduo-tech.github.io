@@ -17,6 +17,8 @@ section: llm
 
 $n_v$ 随分辨率与 patch 走，可以比文本提示还长，直接打进[长上下文曲线](/llm/long-context-memory-curve)的 KV 与二次项。编码器本身不写 LLM 的 KV，但占用 GPU。若与 decode 混在同一张卡，正在吐词的用户被一张图的 ViT 挡住。缺口是阶段拆分：视觉编码、投影、LLM prefill、decode 是否同池，以及编码器批处理（多张图拼 batch）如何与变长 $n_v$ 共存。
 
+<span class="marginnote">术语翻译：ViT（视觉 Transformer）把图像切成 14×14 或 16×16 像素的小块（patch），每块当一个「视觉词」编码；$n_v$ 就是这张图最终变成多少个视觉词。512×512 的图按 14×14 切约有 1300 块——比大多数文本提示还长，这就是它吃 KV 的原因。</span>
+
 动态分辨率（AnyRes、切块）让 $n_v$ 请求间不同，连续批更难。会计必须用实际 $n_v$，不能用「一张图 = 256 token」的旧默认。
 
 <span class="marginnote">视觉 token 的 KV 在 LLM 侧与文本 KV 同公式。减 $n_v$（池化、压缩）是容量优化，与 CLIP 质量权衡，不是本课的核融合细节。</span>
@@ -26,6 +28,8 @@ $n_v$ 随分辨率与 patch 走，可以比文本提示还长，直接打进[长
 独立编码器流或独立池：图在编码器上跑时，文本分词与系统前缀 KV 可并行准备。编码器输出再投影，插入 LLM prefill。连续批：编码器按图像批，LLM 按 token 批，中间有队列。失败回退：编码失败不应占着 LLM 槽。投机对视觉前缀通常只在文本生成段，视觉段是 prefill，投机收益小。
 
 与 [FlashAttention](/llm/flashattention)：LLM prefill 的 $n=n_v+n_{\text{text}}$，二次项主要来自视觉。压缩 $n_v$ 对 TTFT 的导数往往大于再调 LLM 核。
+
+<span class="marginnote">数字实例：$n_v=1000$、文本 100 时，prefill 序列 $n=1100$，二次注意力项约 $1.2\times10^6$；把视觉 token 压到 250，序列 350，二次项降到约 $1.2\times10^5$——降了近一个数量级。这就是「压缩 $n_v$ 的收益大于再调 LLM 内核」的量级感受。</span>
 
 ```mermaid
 flowchart TD
@@ -41,9 +45,20 @@ flowchart TD
 
 两段屋顶：ViT 像训练时的视觉骨干，算力绑定；随后 LLM prefill 也算力绑定，但形状是序列。拆池是为了别让 decode 带宽型工作与 ViT 抢 SM。成本模型应分列「每图编码」与「每视觉 token 的 LLM prefill」，否则定价只按输出字会亏在高分辨率上。
 
+```mermaid
+flowchart TD
+  R["多模态请求到达"] --> S{"编码器与 LLM 是否分池?"}
+  S -->|"同池串行"| SER["TTFT = 编码 + prefill 相加<br/>ViT 与 decode 抢同一批 SM"]
+  S -->|"分池 / 重叠"| OVR["分词与前缀 KV 并行准备<br/>编码批与 token 批之间排队"]
+  SER --> BAD["正在吐词的用户被<br/>一张图的 ViT 挡住"]
+  OVR --> GOOD["decode 带宽型工作<br/>不被算力型 ViT 挤占"]
+```
+
 ## 边界
 
 不要在 CPU 上跑大 ViT 还期待与 GPU LLM 流水（除非刻意端侧）。不要把编码器权重与 LLM 权重轮流换入同一张显存不够的卡而不算换入延迟。下一课：没有自回归的嵌入 / 重排服务，批处理画像又不同。
+
+<span class="marginnote">常见误区：容易按「一张图 = 固定 256 token」估容量。动态分辨率（AnyRes / 切块）下，高分辨率图的 $n_v$ 可以是低分辨率图的数倍，批内请求形状参差；会计与调度必须用实际 $n_v$，否则 KV 容量与定价都会系统性低估高分辨率流量。</span>
 
 出处：Radford et al., CLIP；Liu et al., LLaVA。服务调度是工程延伸，不发明论文号。
 
