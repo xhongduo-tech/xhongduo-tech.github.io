@@ -25,6 +25,10 @@ section: cs
 
 <span class="marginnote">RFC 8555。Let’s Encrypt 是部署实例，协议不绑一家 CA。本课不提供抢注或劫持挑战的步骤。</span>
 
+<span class="marginnote">术语翻译：DNS-01 挑战就是「CA 让你在该域名的 DNS 里放一条指定内容的 TXT 记录，它再去查询核对」。能改一个域名的 DNS，通常就意味着真的控制它——所以泛域名证书（形如星号点 example.com）一般强制走 DNS-01。</span>
+
+<span class="marginnote">数字实例：Let's Encrypt 签发的证书有效期是 90 天。看似很短，但 ACME 把续期做成了全自动（定时任务跑一遍挑战即可），短有效期才可行——私钥泄露后的可用窗口也按同样比例缩短。</span>
+
 ## 方法
 
 按账户→订单→挑战→签发走状态机。强调私钥在申请人主机生成，CA 只签公钥。续期同样要过挑战。对照：企业私有 CA 可用同一思想走内部 ACME。
@@ -40,6 +44,21 @@ flowchart TD
 ## 机制
 
 身份证明从「组织开信」改成「当时能写该名下的资源」。TLS 的保密不自动保护挑战路径：HTTP-01 常先走 80 端口。CAA 记录限制哪些 CA 可签，是另一层政策。
+
+第一张图画的是 ACME 的四个环节怎么连；这张图回答第二个问题：一次 HTTP-01 挑战里双方各做什么、CA 到底验证的是什么绑定。
+
+```mermaid
+flowchart TD
+  REQ["客户端为域名下单"] --> GEN["本地生成密钥对，只上交公钥"]
+  GEN --> TOK["CA 下发一次性令牌"]
+  TOK --> PLACE["把令牌放到约定路径下"]
+  PLACE --> FETCH["CA 主动来拉取该路径"]
+  FETCH --> MATCH{"令牌对得上？"}
+  MATCH -->|"是"| SIGN["签发叶证书"]
+  MATCH -->|"否"| FAIL["订单失败"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「能上 HTTPS 了，网站就安全了」。ACME 只证明「申请那一刻有人控制该域名」：若攻击者能写你的点 well-known 目录或改你的 DNS 记录，它同样能通过挑战、以你的名义拿到正规证书。这是控制面的洞，与 TLS 加密强度无关。</span>
 
 ## 边界
 

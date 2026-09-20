@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">Kabra and DeWitt 的 mid-query reoptimization。Avnur and Hellerstein 的 Eddy（SIGMOD 2000）。综述见 IEEE TKDE 上 Deshpande, Ives, Raman。本课不把连续自适应当默认 OLTP 路径：短查询重优化成本可能高于执行。</span>
 
+<span class="marginnote">直觉类比：静态计划像出发前定死路线的导航，AQP 是边开边看路况——发现前方拥堵（基数爆炸）就原地重规划剩下的路；已经开过的路（物化的中间结果）不必重走。</span>
+
 ## 方法
 
 插入测量算子或在现有迭代器里计数。阈值：估计/实际比超限 → 停管道、把已有中间结果物化、对剩余 SQL（或逻辑树）再跑 DP。Eddies：元组带就绪标志，路由策略学习哪一谓词选择率高。本课以重优化为主，eddy 点名。
@@ -41,6 +43,20 @@ flowchart TD
 事务：重优化发生在同一语句、同一快照；不能换成另一隔离语义。并行：exchange 已把数据切到线程，重优化要协调暂停。OLTP 短查询：自适应常关闭，只在 OLAP 长查询开。
 
 反馈回路：把实际基数写回，供下一次优化或学习型优化器。本课只要求这一次执行能救，学习模型下一课。
+
+第一张图画的是监测—重优化的控制回路；这张图回答第二个问题：一个具体的翻车现场——优化器估 1 万行、实际滚来 500 万行，执行中途到底发生了什么。
+
+```mermaid
+flowchart TD
+  EST["优化器估计：1 万行"] --> START["按内存哈希连接开跑"]
+  START --> MON{"监测点：实际行数？"}
+  MON -->|"500 万行，超阈值数百倍"| SPILL["哈希表打满内存，向外溢写"]
+  SPILL --> MATER["暂停，物化已算出的部分"]
+  MATER --> REOPT["按新基数重跑 DP：换归并连接"]
+  REOPT --> RESUME["同一快照下继续剩余树"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为自适应能拯救一切查询。重优化本身有成本——暂停、物化、再跑一次 DP；对几毫秒的 OLTP 短查询，这些开销可能比查询本身还贵。它真正的主场是动辄几分钟的 OLAP 长查询。</span>
 
 ## 边界
 
