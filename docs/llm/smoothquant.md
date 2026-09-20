@@ -17,6 +17,8 @@ W8A8 的吸引力是硬件：INT8 Tensor Core 吞吐高于 FP16，权重与激�
 
 逐张量 INT8 需要一个尺度覆盖整个张量的 max。激活若存在固定的大通道（与后续 KV 异常值文献一致），尺度被这些通道定死，99% 的通道用到的格子只剩几个 bin，等效比特远低于 8。逐 token 尺度能缓解时间轴上的突变，但通道轴的异常值仍在，而且 decode 时每个 token 都要带尺度。权重没有同样严重的通道尖峰，8-bit 权重相对容易。于是出现不对称：激活难、权重易。若强行 W8A8 而不改分布，精度先坏；若退回 W8A16，INT8 核吃不到激活，加速有限。
 
+<span class="marginnote">直觉类比：INT8 只有 256 个格子。若某个通道的值动辄上千、其余通道都在 0–1 之间，量化尺度就得让着异常值——其他通道全挤进一两个格子，差异被整批抹平。SmoothQuant 的思路不是把异常值变没，而是把这份「难」分一半给权重，让两边的值都落在格子分辨率舒服的区间。</span>
+
 LLM-INT8（Dettmers 等）用混合精度把异常通道拆出去用 FP16，能准，但核变复杂、异常通道比例一高就退回几乎全 FP16。SmoothQuant 想保持**稠密 INT8 GEMM**，用离线等价变换把异常值摊平，而不是在线分流。
 
 ### 迁难度，不是消难度
@@ -40,6 +42,8 @@ s_j=\frac{\max(|X_j|)^\alpha}{\max(|W_j|)^{1-\alpha}},
 $$
 
 $\max(|X_j|)$ 来自校准激活。$\alpha$ 在 $[0,1]$ 间选取（论文常用 0.5 附近再按模型扫）。变换后，$X'=X\mathrm{diag}(s)^{-1}$ 通道更平滑，$W'=\mathrm{diag}(s)W$ 动态范围变大但仍常比原激活好量化。然后对 $X'$、$W'$ 做 INT8 仿射量化，用 INT8 GEMM 累加到 INT32/FP 再反量化。$s$ 可吸收进 LayerNorm 的缩放或上一层的输出，避免额外内核。
+
+<span class="marginnote">数字实例：取 $\alpha=0.5$、某通道激活峰值 $\max|X_j|=100$、权重峰值 $\max|W_j|=1$，则 $s_j=100^{0.5}/1^{0.5}=10$。激活整列除以 10，峰值降到 10；权重整列乘 10。浮点乘出的 $Y$ 一个数都不变，但 INT8 的 256 个格子现在能两边都摊得开了。</span>
 
 ```mermaid
 flowchart TD
@@ -65,6 +69,8 @@ AWQ：$W\leftarrow W\mathrm{diag}(s)$ 且 $s$ 保护显著（通常对应大激�
 
 通道异常值使逐张量尺度 $s_{\mathrm{tensor}}=\max|X|$。平滑后各通道 max 接近，同样 256 个 INT8 格子覆盖的是真正有质量的动态范围。权重侧，乘 $s$ 后 max 变大，量化 MSE 上升，但权重原本没有那么尖的通道，8-bit 仍够。误差以加性噪声进入 GEMM，对 softmax 前的分数与 FFN 输出造成扰动；8-bit 相对 4-bit 权重量化宽松，只要异常值被迁走，扰动通常小于 logit 间距。这解释了为何 W8A8 在 SmoothQuant 后能接近 FP16，而同样 INT8 不平滑会在大模型上崩。
 
+<span class="marginnote">常见误区：初学者容易以为平滑让模型「变准了」。平滑本身是等价改写——纯浮点下输出一个数都不变；它改变的只是量化误差往哪边分摊。掉点只来自后续的 INT8 量化，而平滑让这部分掉点小到可接受。</span>
+
 屋顶线：W8A8 提高算术强度，有利于 prefill 与大 batch。Decode 小 batch 仍可能是扫权重，此时 W4A16 少搬的字节可以胜过 INT8 算得快。产品上要按阶段选配方，不要用一张「INT8 加速 1.5×」覆盖聊天 decode。
 
 <span class="marginnote">$\alpha$ 不是学习率。它只分配「异常值由谁的 8-bit 格子来表达」。扫 $\alpha$ 应看验证 PPL 与下游，而不是看激活直方图是否更好看。</span>
@@ -76,6 +82,17 @@ AWQ：$W\leftarrow W\mathrm{diag}(s)$ 且 $s$ 保护显著（通常对应大激�
 SmoothQuant 不把权重打到 4-bit。要单卡塞 70B，仍需 GPTQ/AWQ/GGUF 一类 W4。它也不替代 QAT。激活在 decode 逐步到来，必须保证量化器的尺度策略（静态校准 vs 动态逐 token）与离线平滑假设一致；动态激活量化会改变论文数字。没有 INT8 GEMM 的设备上，W8A8 可能更慢。
 
 异常值极重、或结构特殊的层（某些 MoE、门控）可能需要对该层保持 FP16，形成混合精度图。LLM-INT8 的在线分流与 SmoothQuant 的离线平滑可以看成两条哲学：一个保留异常通道高精度，一个把它们按进 INT8。后者更吃核，前者更吃实现分支。
+
+```mermaid
+flowchart TD
+  GOAL{"瓶颈是算力 prefill 还是带宽 decode？"}
+  GOAL -->|"decode 小 batch，扫权重"| W4["W4A16：GPTQ / AWQ 只压权重"]
+  GOAL -->|"prefill / 大 batch"| PICK{"异常值怎么处理？"}
+  PICK -->|"离线平滑，稠密 INT8"| SQ["SmoothQuant：W8A8 Tensor Core"]
+  PICK -->|"在线分流异常通道"| MIX["LLM-INT8：异常列走 FP16"]
+  SQ --> CHK["确认：有 INT8 核 + 静态尺度一致"]
+  MIX --> CHK
+```
 
 <span class="marginnote">报告「无损 W8A8」时写明是平滑之后、静态还是动态激活量化、以及上下文长度。没平滑的 INT8 基线崩掉，不能用来衬托任意 8-bit 方案。</span>
 

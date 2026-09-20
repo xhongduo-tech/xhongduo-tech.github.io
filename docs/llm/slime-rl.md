@@ -17,6 +17,8 @@ section: llm
 
 RL 后训练相对预训练多了一条必须在线采样的边。若训练核是 Megatron，推理核却是另一套检查点格式，每步都要转换权重、对齐精度、再启动服务，失败模式是静默的数值漂移。多后端框架为了接口统一，往往不能把 SGLang 的 radix 前缀缓存、router、PD 分离直接暴露给 RL 循环。slime 认为：实验室一旦选定 Megatron 预训练，后训练就应该继续用同一套并行参数，部署再继续用同一套 SGLang；转换步骤越少，越能把预训练的 MFU 经验迁到 RL。
 
+<span class="marginnote">术语翻译：radix 前缀缓存是 SGLang 的看家本领——把请求共享的前缀（同一段系统提示、同一批文档）存成树，后续请求直接复用 KV，不重算。RL 里同一个提示要采样几十条回答，前缀只算一次，吞吐能差好几倍。多后端抽象层削平的正是这类特性。</span>
+
 第二问是数据生成的多样性。数学验证器、搜索、沙箱、多 agent 都想插在采样里，但不想 fork 训练循环。若每个 agent 框架都自带一份 PPO，Megatron 侧的并行与优化器 bug 会分叉。slime 把 agent 写成「自定义数据生成」，训练 / rollout / buffer 仍是同一条管线。
 
 ### 轻量不等于功能少
@@ -58,6 +60,19 @@ Megatron 参数直通意味着你必须会 Megatron 启动惯例；SGLang 前缀
 Data Buffer 让训练核不必知道工具协议。生成函数只要最终交出 token 与 mask；奖励函数交出标量或逐步分；Megatron 只看张量。Agent 工作流因此不会逼你把 [OpenHands](/llm/openhands) 嵌进 C++ 运行时。代价是：若自定义 generate 在 Python 里串行等工具，GPU decode 仍会空转——异步与分离式服务要自己打开，框架只提供钩子。LMSYS 文把「可维护」写成与 SGLang、Megatron 上游同步的能力：上游修一个 serving bug，RL 循环马上能用，不必等中间抽象层适配。
 
 权重 delta 同步假设两次更新之间参数变化稀疏或可按桶编码。全量 NCCL 在单数据中心更简单、更易正确；跨机房文件系统 delta 省带宽，但要处理失败重试与版本号。slime 把 `weight_version` 设到 engine 上，避免训练步与生成步对不上。这与 AReaL 的策略版本号是同一类簿记，实现不共享。
+
+```mermaid
+flowchart TD
+  UPD["Megatron 更新完一步"] --> VER["weight_version 加一"]
+  VER --> Q{"训练与推理在同一机房？"}
+  Q -->|"是"| NCCL["NCCL 全量广播，简单可靠"]
+  Q -->|"跨机房"| DELTA["文件系统按字节差分推 delta"]
+  NCCL --> LOAD["SGLang 加载新版权重"]
+  DELTA --> RETRY["处理重试与版本核对"] --> LOAD
+  LOAD --> GEN["下一轮 rollout 用新策略采样"]
+```
+
+<span class="marginnote">数字实例：8B 模型按 bf16 存全量约 16 GB；RL 一步往往只动一小部分参数，差分后的 delta 可能只有几百 MB。单机房 16 GB 走 NCCL 秒级完成；跨机房每步传 16 GB，一千步就是 16 TB 的流量账——这是 delta 同步存在的理由。</span>
 
 ### 和「多后端框架」如何并存
 

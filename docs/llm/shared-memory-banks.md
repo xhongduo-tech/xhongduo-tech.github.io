@@ -17,11 +17,15 @@ section: llm
 
 CTA 把一块 shared memory 看成线性字节数组，硬件却按 32-bit 字交错映射到 32 个 bank：第 $i$ 个字落在 bank $i \bmod 32$。一个 warp 的 32 个线程若访问 32 个不同 bank，一次发行即可；若多个线程访问**同一 bank 的不同字**，这些请求在该 bank 上排队，称为 $n$-way conflict，$n$ 是该 bank 上互异地址的个数。冲突度直接乘在共享内存的有效带宽上：32-way 时，这块 SRAM 看起来并不比精心排队的全局内存快多少。
 
+<span class="marginnote">直觉类比：32 个 bank 像 32 个银行柜台，32 个线程一人一柜，一个时钟全办完；若 8 个人挤到同一柜台办不同业务，就只能串着办，其余 31 个柜台干看着——这就是 8-way conflict。柜台总数没变，慢的是排队方式。</span>
+
 两种访问**不是**冲突。全体线程读同一地址，硬件做广播；多个线程写同一地址则是数据竞争，结果未定义，必须用原子或先规约再写。问题因此不是「共享内存慢」，而是「地址模式有没有把 32 路 bank 打满」。列优先扫一张 $32\times 32$ 的 32-bit 表，正好让一列落在同一 bank，是教科书级的 32-way conflict。
 
 ### 64-bit 与向量化访问
 
-现代核常按 64-bit 或 128-bit 向量从共享内存取数，再喂 MMA 或寄存器流水。64-bit 字跨两个 32-bit bank。若一个 warp 的向量化负载在 bank 对上仍互不重叠，可以保持冲突免费；若步幅让偶数线程和奇数线程打到同一对 bank，就会出现 2-way 一类冲突。指南按计算能力写了 64-bit 的冲突规则，不能把 32-bit 的「连续线程、连续字」口诀原样套到 `float2` / `int4` 上。Hopper 上 TMA 写入共享内存的粒度更大，冲突检查要从「线程自己算地址」改成「描述符落地后的物理 bank 分布」——搬得快不等于随后 warp 读得也快。
+现代核常按 64-bit 或 128-bit 向量从共享内存取数，再喂 MMA 或寄存器流水。64-bit 字跨两个 32-bit bank。若一个 warp 的向量化负载在 bank 对上仍互不重叠，可以保持冲突免费；若步幅让偶数线程和奇数线程打到同一对 bank，就会出现 2-way 一类冲突。指南按计算能力写了 64-bit 的冲突规则，不能把 32-bit 的「连续线程、连续字」口诀原样套到 `float2` / `int4` 上。
+
+<span class="marginnote">常见误区：以为「大家读同一个数」也算冲突要排队——同地址读是硬件免费广播，一次发完；要躲的是同一 bank 的不同地址。另一个误区是拿 32-bit 口诀直接套 `float2` / `int4`：64-bit 字跨两个 bank，冲突判定要按 bank 对重算。</span>Hopper 上 TMA 写入共享内存的粒度更大，冲突检查要从「线程自己算地址」改成「描述符落地后的物理 bank 分布」——搬得快不等于随后 warp 读得也快。
 
 <span class="marginnote">Nsight Compute 的 shared memory efficiency / bank conflict 计数器，比「核里用了 `__shared__`」更能回答问题。效率低而 HBM 命中很好，优先查 swizzle 与 padding，而不是再加大 tile。</span>
 
@@ -56,11 +60,25 @@ Bank 是硬件上的独立存储体，每个时钟每个 bank 能服务有限次
 
 占用率与 bank 冲突会耦合。为了放下双缓冲 tile 而把每个 CTA 的 smem 用满，调度器能同时驻留的 CTA 变少；此时若再叠加高冲突，每个 CTA 的 smem 阶段更长，SM 更容易饿计算。[软件流水](/llm/sw-pipeline-buffer) 加大 smem 用量，换的是拷贝与计算重叠；重叠的前提是消费阶段本身不因冲突拉长，否则流水线填的是串行化气泡。
 
+这张图回答的问题是：冲突拉长 smem 阶段之后，占用率与流水线是怎么一起被拖垮的。
+
+```mermaid
+flowchart TD
+  SMEM["smem 阶段：n-way 冲突"] --> LONG["共享内存阶段拉长 n 倍"]
+  LONG --> WAIT["算术流水线干等"]
+  TILE["双缓冲 tile 占满 smem"] --> FEW["可驻留 CTA 变少"]
+  FEW --> HIDE["延迟隐藏能力下降"]
+  WAIT --> HUNGRY["SM 饿计算"]
+  HIDE --> HUNGRY
+```
+
 <span class="marginnote">「冲突免费」只对某一个访问模式成立。同一块 tile 按行写、按对角读，不可能两种都免费，除非做两次转置或两份拷贝。GEMM 核选择让 MMA 读取免费，拷贝阶段用 TMA 或向量化写去摊薄生产者侧的代价。</span>
 
 ### 调试时看什么
 
-先看核是否真的受 smem 约束：计数器里 shared efficiency 低、bank conflicts 高，同时 Tensor Pipe 不饱和，才值得改布局。若 Tensor Pipe 已高、冲突只是几个百分点，去抠 padding 的收益常被占用率损失抵消。改 swizzle 后必须重测数值：布局错会表现为静默错位，而不是 CUDA error。单元测试应用已知 GEMM / 注意力对照，不能只看墙钟变快。
+先看核是否真的受 smem 约束：计数器里 shared efficiency 低、bank conflicts 高，同时 Tensor Pipe 不饱和，才值得改布局。
+
+<span class="marginnote">数字实例：32-way conflict 让一条共享内存指令串行发 32 次，等效带宽只剩 1/32；若这条指令原本约占核 25% 的时间，膨胀后相当于吃掉八倍于全核的时长——这就是「SRAM 看起来不比全局内存快多少」的具体账目。</span> 若 Tensor Pipe 已高、冲突只是几个百分点，去抠 padding 的收益常被占用率损失抵消。改 swizzle 后必须重测数值：布局错会表现为静默错位，而不是 CUDA error。单元测试应用已知 GEMM / 注意力对照，不能只看墙钟变快。
 
 ## 边界
 

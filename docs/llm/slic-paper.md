@@ -17,6 +17,8 @@ section: llm
 
 自回归训练优化 $\sum_t\log\pi(y_t\mid x,y_{\lt t})$ 在示范轨迹上的期望。解码却是序列级的：束搜索比序列分数，采样后重打分也比序列概率。两者不一致时出现校准裂缝——加大束宽，自动指标先升后降；最高似然样本是空话，人更喜欢一条似然略低的具体输出。条件生成里这件事被叫做 likelihood–quality mismatch，在机器翻译与摘要上早于对话 RLHF 被写清楚。
 
+<span class="marginnote">数字实例：同一提示下，候选 A 序列对数似然 $-45$，内容是「如前所述、综上所述」的空话；候选 B 似然 $-52$，具体且准确。解码按分数挑了 A，指标却给 B 更高。把 A、B 的似然顺序调过来，解码质量立刻改善——SLiC 做的就是这次调序。</span>
+
 成对偏好后来用 logistic 拟合 Bradley–Terry。SLiC 更早走校准 / 间隔排序：不把偏好概率建成 $\sigma(r_w-r_l)$ 的似然，而要求序列对数似然差超过边距 $\delta$，否则铰链给梯度。正则也不是冻结参照的对数比，而是继续在监督序列上做 NLL，或约束与 SFT 分布的距离。第一篇的问题是校准解码用的那个标量；第二篇的问题是：同一套校准能否吃人类反馈，从而在指令模型上替代 PPO 的复杂环。
 
 ### 候选必须先存在
@@ -57,6 +59,15 @@ flowchart LR
 
 校准的操作定义是：在候选集内，质量序应与 $\ell_\theta$ 同向。于是加大束宽或 Best-of-N 时，挑到的高分样本更可能真的更好。它不保证 $\ell_\theta$ 在绝对意义上等于质量，更不保证概率等于正确率——那是温度缩放一类绝对校准，与排序校准不是同一件事。正则阻止铰链靠把 $y^-$ 打到零、把无关模式抬起来满足间隔。没有正则，生成会崩，条件生成论文里这一点与对齐论文同样成立。
 
+```mermaid
+flowchart LR
+  D["似然差 Δ = ℓ+ − ℓ-"] --> Q{"Δ ≥ δ ?"}
+  Q -->|"是"| Z["铰链：梯度精确为 0"]
+  Q -->|"否"| G["铰链：以恒定梯度推到 δ"]
+  D --> LG["logistic：−log σ(Δ)"]
+  LG --> SM["Δ 再大仍有小梯度，持续微调"]
+```
+
 SLiC-HF 之后，序列分数排序 + 监督正则成为 2023 年「不用 PPO」的一条主路，和 RRHF 的排序损失、后来的 DPO logistic 并列。差别在损失形状与是否引入参照对数比。机制上，SLiC 的奖励就是 $\ell_\theta$ 本身（或长度平均后的 $\ell$），没有 $\pi_{\mathrm{ref}}$；要加上参照，就滑向带 margin 的 DPO 变体，那已经不是原文公式。
 
 <span class="marginnote">第一篇常对长度做归一再比，因为翻译候选长短差大。SLiC-HF 的实现选择必须写进配方。训练用和、解码用平均，校准过的「序」会对不上解码器用的分数。</span>
@@ -66,6 +77,8 @@ SLiC-HF 之后，序列分数排序 + 监督正则成为 2023 年「不用 PPO�
 SLiC 需要候选与序，采集比纯 SFT 贵，比在线 PPO 便宜。候选集过小（每条提示只 2 条）时，铰链过拟合表面差异。正则用 $y_{\mathrm{sft}}$ 时，若示范比采样出来的 $y^+$ 更差，两项打架：应让示范进入候选集一起排序，或降低 $\lambda$。过程错误但答案对的 $y^+$ 会被校准成高似然，这是结果级序的盲区。
 
 不要用 2023 年 BLEU 表去赢 2024 年 Arena。也不要把 TRL 里后来加入的 SLiC 损失默认当成 HF 那一版——有的实现把铰链换成 logistic，名字还叫 SLiC。核对公式是否 $\max(0,\delta-\Delta)$，是否含 SFT 项。
+
+<span class="marginnote">常见误区：看到库名叫 SLiC 就以为在跑原文公式。有的实现把铰链 $\max(0,\delta-\Delta)$ 悄悄换成 logistic $-\log\sigma$，梯度在满足间隔后不再为零，行为完全是另一族。用之前先读一行源码确认损失形状。</span>
 
 <span class="marginnote">作者来自 Google Research。第一篇：Zhao 等，*Calibrating Sequence Likelihood Improves Conditional Language Generation*，ICLR 2023。第二篇：Zhao, Joshi, Liu, Khalman, Saleh, Liu，*SLiC-HF*，arXiv:2305.10425。引用应对准任务，不要两篇混成一张主表。</span>
 

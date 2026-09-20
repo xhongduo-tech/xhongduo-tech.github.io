@@ -19,6 +19,8 @@ Hugging Face 团队（Loubna Ben Allal、Anton Lozhkov、Elie Bakouch 等）在 
 
 第二问是架构。135M 上嵌入已经占很大一块参数，宽而浅的 GPT-2 式 12 层会把深度浪费掉。[MobileLLM](/llm/mobilellm) 主张深窄 + GQA；SmolLM 在两档小模型上跟这条路，1.7B 改回更传统的宽深比。需要分开写，不能三档一张结构表。
 
+<span class="marginnote">数字实例：SmolLM-135M 的词表是 49152、隐藏维 576，仅嵌入矩阵就约 $49152\times576\approx2830$ 万参数，占总参数的两成多。「绑嵌入」让输入查表和输出投影共用同一张表，直接省掉一份这么大的矩阵——模型越小，这一刀省得越明显。</span>
+
 ### 语料三件套，而不是「再爬一轮 Common Crawl」
 
 SmolLM-Corpus 公开组成：
@@ -35,11 +37,15 @@ SmolLM-Corpus 公开组成：
 
 小两档架构明确对齐 MobileLLM：分组查询注意力、深度优先、绑嵌入。1.7B「更传统」——博客用图给出规格，实现以 `HuggingFaceTB/SmolLM-*` 的 `config.json` 为准，本文不把图里的每个整数抄成未核验的绝对权威。全体绑嵌入、梯形（trapezoidal）学习率，冷却段约占训练 **20%**。博客引用 Hägele 等关于梯形日程便于标度律实验的工作（arXiv:2405.18392）。他们在 125M 量级看到超过 Chinchilla 最优点仍有收益，于是把 1.7B 拉到 1T，小档在约 400B 之后部分基准变缓，故停在 600B。
 
+<span class="marginnote">术语翻译：分组查询注意力（GQA）就是「多个提问的查询头，共用少数几组记账的键值头」。标准注意力里每个头都配一套键值，KV 缓存随头数线性涨；GQA 把键值头分组共享后，缓存小几倍，质量几乎不掉——这正是 135M 这种小模型能在浏览器里跑 decode 的前提之一。</span>
+
 冷却期尝试过上采样 Cosmopedia 精选与指令数据，博客称收益不明显，解释是主混合已经够干净。训练过程中对两档小模型每 2B token 评一次常识与知识集。
 
 ### 指令档：公开可许可数据上的 SFT 与 DPO
 
 三档都做了一轮 SFT：WebInstructSub 的可许可子集 + StarCoder2-Self-OSS-Instruct；再一轮 DPO（135M/1.7B 用 HelpSteer，360M 用 argilla/dpo-mix-7k），超参跟 Alignment Handbook 里 Zephyr-Gemma 配方，SFT 学习率改到 $3\times 10^{-4}$。IFEval 上 Qwen2-1.5B-Instruct 仍更高；SmolLM-Instruct 的卖点是许可干净与体积，不是指令榜第一。
+
+<span class="marginnote">直觉类比：预训练像把学生泡在图书馆里自学；SFT 是照着标准示范答题的上岗培训；DPO 则是事后点评——把「好回答」和「差回答」摆在一起，教模型往好的那边偏。三步走完，模型才从「会续写」变成「会听指令」。</span>
 
 ```mermaid
 flowchart TD
@@ -56,6 +62,16 @@ flowchart TD
 ## 机制
 
 教育过滤把下一词目标从「网页平均句」拧到「可讲解的命题」。分类器本身用 Llama 3 70B 标注再蒸馏，因此 SmolLM 的「开放」是语料与学生权重开放，教师标注链仍经过闭源或开权重大模型。合成教材用种子网页约束主题，减轻纯采样导致的主题崩塌；中学受众降低词汇门槛，对 ARC、常识更友好，对专家向 MMLU 不一定更友好——这是数据风格，不是深度不够。
+
+```mermaid
+flowchart TD
+  RAW["FineWeb 网页 / The Stack 代码"] --> LAB["大模型给样本打教育分"]
+  LAB --> CLS["训练小型教育分类器"]
+  CLS -->|"分数不低于阈值 4"| KEEP["保留进 Python-Edu / FineWeb-Edu"]
+  CLS -->|"分数低于阈值"| DROP["丢弃：论坛闲聊、粗糙脚本"]
+  KEEP --> TRAIN["进入预训练混合"]
+  DROP -->|"阈值降到 3 会捞回一部分"| RAW
+```
 
 深窄 + GQA 在 135M 上把有限参数变成更多残差步，表示可以多跳组合；GQA 同时减小 KV，WebGPU decode 才跑得动。1.7B 容量已够，再极端深窄会拉长 decode 深度、手机上也不合算，故回到传统形状。梯形日程的冷却等价于把已学方向收进低损失区，与 [MiniCPM](/llm/minicpm) 的 WSD 衰减同类；主段不是余弦终点写死，所以能先看 400B 再决定是否续到 600B/1T。
 
