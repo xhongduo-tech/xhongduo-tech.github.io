@@ -29,6 +29,8 @@ StarCoderBase：80+ 语言、GitHub issues、commit、Jupyter，1T token。StarC
 
 The Stack v1.2：允许性许可证仓库，opt-out 排除。过滤规则（平均行长、最大行长、字母比例等）被后来许多代码模型沿用。FIM 把文件切成前缀 / 中段 / 后缀，训练时按哨兵拼接，使补全条件于两侧。MQA：多查询共享 KV，补全服务里大 batch 省缓存。
 
+<span class="marginnote">FIM（Fill-in-the-Middle）就是「中间填空」：普通语言模型只会从左往右续写，而写代码时光标前后的代码都知道、缺的是中间。FIM 在训练时把文件切成前缀、中段、后缀重排喂给模型，让它学会看着两侧把中间补出来——这是 IDE 自动补全的基础能力。</span>
+
 The Stack v2：与 Software Heritage 合作，619 种语言的档案标识（SWHID）公开，另加 PR、Kaggle、文档等。3B/7B/15B 用 NeMo 在 Eos Supercomputer（DGX H100）上训。注意力改为 **GQA**，位置改为 RoPE 一类相对编码（相对一代绝对位置），16K 上下文配 **4K 滑动窗**——长程是局部窗的堆叠，不是每层满 16K 稠密。FIM 保留。许可 OpenRAIL，数据可追溯到 SWHID。
 
 ### 小模型打过上一代大 Base
