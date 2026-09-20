@@ -17,6 +17,8 @@ section: llm
 
 SGD 下，梯度噪声方差大约按 $1/B$ 降。若把 $\eta$ 按 $B$ 线性放大，小 batch 上学到的超参在大 batch 上每步走得更远，墙钟上可以近似「同等数据量、更少 step」。Goyal 等人在 ResNet 上给出带 warmup 的线性规则。语言模型用 AdamW，噪声结构不同，线性规则会在某个 **临界 batch** $B_{\mathrm{crit}}$ 之上失效：再加大 $B$，只是减少 step 数、不减少达到同等损失所需的 token 数，再线性加 $\eta$ 只会不稳。
 
+<span class="marginnote">线性规则代个数：基准 $B_0=0.5$M token、$\eta_0=3\times10^{-4}$ 已调稳；batch 提到 $2$M（4 倍）时，线性规则给 $\eta=1.2\times10^{-3}$，$\sqrt{B}$ 规则给 $6\times10^{-4}$——差一倍。AdamW 配方通常更接近后者，这就是「纯线性在 LLM 上偏激进」的直观含义。</span>
+
 McCandlish 等人把 $B_{\mathrm{crit}}$ 写成噪声规模与曲率的比。预训练中 $B_{\mathrm{crit}}$ 随数据与阶段变：训练后期曲率变陡，临界点可能下降。把前期扫到的 $(B,\eta)$ 沿用到后期超大 batch，是尖峰与 [skip](/llm/nan-skip-batch) 的来源之一。问题不是「batch 越大越好」，而是：**当前阶段你在 $B_{\mathrm{crit}}$ 的哪一侧，以及 $\eta$ 该跟 $B$ 还是跟 $\sqrt{B}$ 走**。
 
 ### 全局 token batch 才是 $B$
@@ -48,7 +50,19 @@ flowchart TD
 
 大 $B$ 降低梯度噪声，使更新更接近真梯度方向，小 $\eta$ 时更稳；但过小的噪声会减少逃出尖鞍的机会，有时最终损失略差。线性加 $\eta$ 是在保持「噪声 × 步长」一类的有效温度。Adam 的二阶矩 $v$ 本身随 $B$ 变：大 batch 的 $v$ 更小更稳，同样 $\eta$ 的有效步长变大，这是再叠一层放大，所以纯线性在 Adam 上比 SGD 更危险。这解释了为何 LLM 常比线性更保守。
 
+```mermaid
+flowchart LR
+  BIGB["batch 加大"] --> NV["Adam 二阶矩 v 更小更稳"]
+  NV --> ES["同样 η 的有效步长变大"]
+  ES --> AMP["再按线性放大 η = 双重放大"]
+  AMP --> OVER["有效更新过冲：尖峰 / clip 率飙升"]
+```
+
+<span class="marginnote">这张图回答「为什么 AdamW 上线性规则更容易炸」：加大 batch 本身已经让 Adam 的有效步长变大，再按线性规则放大 $\eta$ 就是双重放大。SGD 没有二阶矩这层放大，所以同一套线性规则在 SGD 上更耐操。</span>
+
 [权重衰减](/llm/weight-decay-mup) 的有效率是 $\eta\lambda$。$\eta$ 随 $B$ 变时，$\lambda$ 若不动，衰减强度在变。大 batch 线性加 $\eta$ 等于加强衰减，模型范数被额外压低，可能被误读成「大 batch 泛化更好」。换 $B$ 时应声明 $\lambda$ 是跟着 $\eta$ 补偿还是保持 $\eta\lambda$ 常数。
+
+<span class="marginnote">记住 $\eta\lambda$ 这个乘积：学习率翻倍而 $\lambda$ 不动，正则强度就悄悄翻倍——权重范数被压得更低，曲线看起来「更稳」，容易被误读成大 batch 泛化更好，其实是衰减在跟着变。</span>
 
 <span class="marginnote">梯度累积不改变数学上的 $B$，但改变流水线气泡与跳过粒度：NaN skip 一个微 batch 与 skip 整个全局 batch 的数据量不同。把累积当「免费加大 $B$」时，要同步改 skip 与日志里的 $B$ 定义。</span>
 

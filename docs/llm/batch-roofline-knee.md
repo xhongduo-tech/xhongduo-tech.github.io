@@ -17,6 +17,8 @@ section: llm
 
 小 $B$ 时每步时间 $\approx (W+\mathrm{KV})/\mathrm{bandwidth}$，与 $B$ 几乎无关，TPOT 稳定、吞吐线性于 $B$。$B$ 大到 GEMM 打满 Tensor Core，逐步时间改由 $\mathrm{FLOPs}(B)/\mathrm{peak}$ 决定，随 $B$ 上升，TPOT 变差，吞吐接近常数（算力屋顶）。缺口是估计拐点 $B^\star$，否则 SLA 会写成互相矛盾的「高并发且低 TPOT」。
 
+<span class="marginnote">翻译一下：decode 一步无论服务 1 个还是 8 个请求，权重都得从显存整个搬一遍，搬运量几乎不变——小 batch 时每人分到的搬运用时相同，所以「每字延迟」不涨，吞吐纯属白赚。7B 模型 FP16 权重约 14 GB，1 个并发要搬 14 GB，4 个并发还是 14 GB，这就是「batch 维复用」。</span>
+
 KV 随 $B$ 涨，容量墙可能先于拐点到来：还没打满算力就 OOM。此时优化应减 KV 字节，而不是再加卡的 FLOPS。反之，KV 很瘦（MLA、短上下文）时，拐点来得早，再堆并发只伤延迟。
 
 <span class="marginnote">拐点不是一个通用整数。它随模型宽、量化、是否投机（$n_q\gt 1$）、以及 prefill 是否混入而变。同一集群白天聊天与夜间批推理，工作点可以分居两侧。</span>
@@ -24,6 +26,8 @@ KV 随 $B$ 涨，容量墙可能先于拐点到来：还没打满算力就 OOM�
 ## 方法
 
 令 $T_{\mathrm{mem}}=(W_{\mathrm{bytes}}+B\cdot \overline{\mathrm{KV}})/(\eta_b B_{\mathrm{HBM}})$，$T_{\mathrm{cmp}}=\mathrm{FLOPs}(B)/(\eta_c\,\mathrm{peak})$。$B^\star$ 满足 $T_{\mathrm{mem}}\approx T_{\mathrm{cmp}}$。权重主导时 $B^\star$ 大致与 $W/\overline{\mathrm{KV}}$ 和屋顶比有关：KV 越大，$B^\star$ 越小（每条序列自己就带来很多字节）。测：$B=1,2,4,\ldots$ 画 TPOT 与 tokens/s。TPOT 平坦段是带宽区；开始爬升是过拐点。吞吐的弯折应对上。
+
+<span class="marginnote">代个数估量级：A100 的 BF16 峰值约 312 TFLOPS、带宽约 2 TB/s，比值约 156 FLOP/字节；7B FP16 每请求每 token 搬 14 GB、算约 14 GFLOP，强度约 1 FLOP/字节。忽略 KV 的话 $B^\star$ 就在 150 上下——KV 一加进来，实际拐点明显更小，所以曲线还是要自己测。</span>
 
 混合批次：[chunked prefill](/llm/chunked-prefill) 把算力密的工作掺进 decode 拍，等效 $I$ 上升，拐点左移，正在流式的用户 TPOT 抖动。分离 prefill/decode 池是为了让 decode 池停在选定的 $B$ 一侧。
 
@@ -37,6 +41,18 @@ flowchart TD
 ## 机制
 
 权重在 batch 维复用，KV 不在请求之间复用（前缀共享除外）。因此拐点同时被两股力量拉：量化权重 → $W$ 小 → 更容易被 KV 主导、拐点可能更早；量化 KV → 每条更瘦 → 可以更大 $B$ 才碰到容量，拐点右移。投机加宽 $n_q$，等效把部分「batch 复用」换成「查询复用」，单请求也能略微右移工作点。
+
+```mermaid
+flowchart TD
+  QW["量化权重：W 变小"] --> D1["更容易被 KV 字节主导"]
+  D1 --> L1["拐点左移：更小 B 就碰到"]
+  QK["量化 KV：每条更瘦"] --> D2["容量墙更远"]
+  D2 --> L2["拐点右移：容纳更大 B"]
+  SP["投机解码 n_q > 1"] --> D3["查询复用替代部分 batch 复用"]
+  D3 --> L2
+```
+
+<span class="marginnote">这张图回答「一个改动会把拐点往哪边推」：两个「量化」方向恰好相反——压权重让拐点提前，压 KV 让拐点推后。调优前先想清楚自己压的是哪一边的字节，别指望「量化」三个字无条件提升并发。</span>
 
 ## 边界
 

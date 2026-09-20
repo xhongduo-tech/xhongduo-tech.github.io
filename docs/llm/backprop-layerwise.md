@@ -19,6 +19,8 @@ section: llm
 
 以线性层为例。正向 $Y=XW^\top$，形状 $(B,d_{\mathrm{out}})=(B,d_{\mathrm{in}})\times(d_{\mathrm{in}},d_{\mathrm{out}})$。上游 $\mathrm{d}Y$ 与 $Y$ 同形。则 $\mathrm{d}X=\mathrm{d}Y\,W$，$\mathrm{d}W=\mathrm{d}Y^\top X$。这不是新的链式法则，只是把 Jacobian 乘积收成两次 GEMM。激活函数 $h=\sigma(y)$ 的反向是 $\mathrm{d}y=\mathrm{d}h\odot\sigma'(y)$，缓存 $y$ 或 $\sigma'(y)$。
 
+<span class="marginnote">GEMM 就是「通用矩阵乘」库函数的缩写，BLAS 里优化到极限的例程。说「反向是两次 GEMM」，意思是反推 $X$ 的梯度用一次矩阵乘、算 $W$ 的梯度再用一次——框架里反传的主体计算就是这两次调用，形状对上就能跑通。</span>
+
 ### 层的反向不是「把正向公式里的符号对调」
 
 $Y=XW^\top$ 并不意味 $\mathrm{d}X=Y\,\mathrm{d}W$ 之类随意排列。每一条规则都来自 $\mathrm{d}L=\langle\mathrm{d}Y,\mathrm{d}Y_{\mathrm{from}\,X,W}\rangle$ 的配对本。写错转置是最常见的实现错误，形状检查会立刻抓住——这正是第一课形状纪律的用处。不要用「反向就是正向的逆矩阵」来记：ReLU 没有逆，线性层的 $W$ 也几乎不可逆。
@@ -49,7 +51,18 @@ flowchart TD
 
 把反向写成层规则之后，实现可以融合：线性+激活+损失不必三次写全局内存。更重要的是诊断：某一层 $\mathrm{d}W$ 的范数接近 $0$，问题在该层局部导数（饱和激活、过大的 softmax），而不是「整网不会求导」。某一层 $\mathrm{d}W$ 爆炸，问题在局部增益连乘，那是[梯度消失与爆炸](/llm/vanish-explode-grad)的主题。
 
+```mermaid
+flowchart TD
+  S["监控各层 dW 范数"] --> C1{"某层范数接近 0?"}
+  C1 -->|"是"| A1["查该层局部导数：激活饱和、softmax 过平"]
+  C1 -->|"否"| C2{"某层范数爆炸?"}
+  C2 -->|"是"| A2["查局部增益连乘，见梯度消失与爆炸课"]
+  C2 -->|"否"| OK["数值健康，再查优化器与数据"]
+```
+
 缓存换计算：不存 $y$ 就要在反向再算一次正向局部量。激活省内存的重计算策略属于工程，本课只要求：规则里出现的 $\sigma'(y)$ 必须在反向时刻能得到。
+
+<span class="marginnote">缓存直觉：反向用到的每个中间量，要么前向时顺手存下来（费显存），要么反向时重算一遍（费算力）。激活检查点是两者之间的旋钮——只存几个关键锚点，锚点之间现场重算。省显存和省时间，往往只能占一头。</span>
 
 ## 边界
 
