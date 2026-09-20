@@ -17,6 +17,8 @@ section: llm
 
 [容量因子](/llm/moe-capacity-factor)的前提是：专家计算必须是形状固定的稠密核——$C$ 行、$d$ 列，空槽用 padding 填零。padding 浪费算力；drop 浪费数据。二者都是在迁就「编译期必须知道 $C$」。若某专家这一步分到 $n_i$ 个 token，$n_i$ 随 step 变，标准 batched GEMM 要么 pad 到 $\max_i n_i$，要么对每个专家发一次不同形状的核启动。前者在负载不均时把冷专家的空行也算一遍；后者把启动开销打满，吞吐崩掉。
 
+<span class="marginnote">术语翻译：GEMM 就是通用的矩阵乘法（一般矩阵乘）。batched GEMM 指把多个形状相同的矩阵乘打包成一个 GPU 核一次发射，省启动开销；padding 指把不足的行补零凑成固定形状——补上的零参与了计算，但不产生有用信息。</span>
+
 Dropless 要同时满足：零 drop（每个被路由到的 token 都真正进专家）、尽量少的 padding、以及仍能走 GPU 上高效的块稀疏 / 分组 GEMM。它解决的不是「如何选专家」——路由仍可以是 Switch 式 token-choice——而是 **选完之后如何计算**。
 
 ### drop 会污染你以为已经均衡的统计
@@ -52,9 +54,23 @@ flowchart TD
 
 去掉 drop 之后，过载专家的 $n_i$ 可以远大于 $kT/N$。该专家这一步的 GEMM 更重，成为步内 straggler；整层墙钟由 $\max_i n_i$ 决定，而不是由平均值决定。Dropless 因此**把质量问题变成同步问题**：token 都算了，但最快卡要等最慢专家。负载均衡损失、专家偏置、辅助 z-loss，在 Dropless 下的首要服务对象从「少 drop」变成「压低 $\max_i n_i$」。
 
+<span class="marginnote">数字实例：$N=64$、一批 4096 个 token、$k=1$ 时均匀负载是每专家 64 个。若路由抖动让最热专家拿到 400 个、其余平均约 58 个，Dropless 这一步的专家 GEMM 就按 400 行来做——关键路径是均匀值的 6 倍以上，而固定容量方案会把超出 80 的那 320 个直接丢掉。</span>
+
 与 padding-to-$C$ 对比：固定容量时，过载被截断，straggler 被人为砍掉，墙钟可预测、质量不可预测。Dropless 相反：质量更接近「路由器真正想要的计算图」，墙钟跟负载峰值走。训练初期路由噪声大，峰值比均值可以高数倍，这时 Dropless 的 step 时间方差会明显高于 Switch+$\mathrm{CF}=1.25$。这不是核写错，是负载的物理后果。
 
 <span class="marginnote">有人用「token 放到最近的未满专家」当 dropless 的替代。那是改路由，不是改核：token 进了它没选的专家，等价于另一种 drop（丢掉原选择）。MegaBlocks 意义上的 Dropless 保留原选择，只改计算形状。</span>
+
+```mermaid
+flowchart TD
+  SUB{"某专家这一步分到 n_i 个 token"}
+  SUB -->|"固定容量 CF"| CAP{"n_i 超过 C？"}
+  CAP -->|"未超"| PAD["空槽 padding：算力有浪费，形状固定"]
+  CAP -->|"超了"| DROP["截断丢 token：质量受损，墙钟可预测"]
+  SUB -->|"Dropless"| FREE["全部真算：质量完整"]
+  FREE --> SLOW["整层墙钟由最忙专家的 max n_i 决定"]
+```
+
+<span class="marginnote">直觉类比：Dropless 像不打烊的食堂——来多少人都做，绝不赶客（零 drop）；代价是窗口产能不均时，整批出餐时间由最慢的那个窗口说了算，别的窗口做完也得等它（straggler 同步）。</span>
 
 ### 何时仍要人为封顶
 

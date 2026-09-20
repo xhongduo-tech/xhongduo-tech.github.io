@@ -19,6 +19,8 @@ Token-choice 的均衡是事后修补：辅助损失、偏置、Dropless 核，�
 
 设 $T$ 个 token、$N$ 个专家，令 $C=kT/N$（$k$ 为每个 token 的目标专家数，只用来定总槽数）。对路由分数矩阵 $S\in\mathbb{R}^{T\times N}$，token-choice 沿专家维对每行取 top-$k$；expert-choice 沿 token 维对每列取 top-$C$。列上取 top 之后，每列恰好 $C$ 个一，专家负载完美均衡。行和变成随机变量：有的 token 被许多专家选中（过分配），有的行和为零（**token drop**，与上一课的专家侧 drop 方向相反）。
 
+<span class="marginnote">直觉类比：token-choice 是求职者海投——每份简历投 $k$ 家，热门公司门口挤爆、冷门公司招不满，要靠辅助损失当「政策调控」；expert-choice 是公司按名额主动抢人——每家正好招满 $C$ 人，但可能有人一份 offer 都拿不到，这一层就「失业」（零覆盖）。</span>
+
 ### 生成时未来 token 还不在矩阵里
 
 训练可以看见整段序列再填 $S$ 的所有行，列上 top-$C$ 合法。自回归 decode 时，当前步只有一个新 token，列上「在全部 $T$ 个里挑」无法执行——未来行不存在。EC 的训练图与逐步生成图因此不一致。这是 [MoE 路由](/llm/moe-routing) 里把它标成非默认的原因，也是本课必须单独写清的缺口。<span class="marginnote">不要把 Expert Choice 理解成「专家可以拒绝 token」。它是硬挑选：每个专家的名额发完即止。拒绝发生在 token 侧——没进任何专家的名额，该层就没有 MoE 变换。</span>
@@ -34,6 +36,8 @@ $$
 输出仍是被选中的 $(t,i)$ 上 $p_{t,i}E_i(x_t)$ 的和。$p$ 可以对列做 softmax 再掩码，或只在选中位置上归一。Zhou 等人表明，同样参数与相近 FLOPs 下，EC 相对 token-choice 可以提高专家利用率，并减轻辅助损失的负担。
 
 过分配时，同一 token 进多于 $k$ 个专家，该 token 的计算超标；欠分配时，行和为零，必须定义回退：残差直通、或强制分配到分数最高的专家（破坏完美均衡）。实践里常混合：**先 EC 再对零覆盖 token 做一次补分配**，均衡变成近似。
+
+<span class="marginnote">数字实例：$T=4096$、$N=64$、$k=2$ 时 $C=2\times4096/64=128$——每位专家必吃满 128 个 token；总槽位 $64\times128=8192$，恰等于 token-choice 下 $4096$ 个 token 各占 $2$ 槽的总计算量。变的不是算多少，是谁来挑谁。</span>
 
 ### 与容量因子的关系
 
@@ -55,11 +59,22 @@ EC 把竞争从「token 抢热专家」换成「专家抢高分 token」。热�
 
 Token 零覆盖等于一层随机深度，但选择集由专家门控决定：往往是路由器对所有专家都不自信的 token，或与整批都不同质的离群点。长尾语言、代码混批里，少数语种 token 更容易零覆盖。这与 token-choice 丢掉**过载专家门口的多余 token** 伤害的对象不同：后者伤害的是热专家的拥挤者，前者伤害的是谁都不想要的人。
 
+```mermaid
+flowchart TD
+  Q{"这一步谁没被算到？"}
+  Q -->|"token-choice：热专家槽满"| HOT["被丢的是拥挤者：排队进热门专家的多余 token"]
+  Q -->|"expert-choice：行和为零"| COLD["被丢的是无人想要者：所有专家都没选它"]
+  HOT --> E1["长尾 token 因挤不进热门通道受损"]
+  COLD --> E2["离群点与冷门语种 token 整层空转"]
+```
+
 <span class="marginnote">预训练可以用整段做 EC；指令微调若按 packing 把无关样本拼进同一 $T$，列上 top-$C$ 会让专家跨样本抢 token，样本之间出现非因果的分配耦合。Packing 边界必须在分数矩阵上掩掉，否则 EC 会引入一种奇特的 batch 内竞争。</span>
 
 ### 推理近似
 
 Decode 时退回 token-choice（当前 token 取 top-$k$）是常见折中，训练–推理路由不一致。缓解包括：训练后期逐步把 EC 退火回 token-choice；或在 prefill 用 EC、decode 用 token-choice（prefill 有完整 $T$）。质量是否可接受，取决于不一致发生在哪些层——底层路由更像词法，不一致伤害更大。不要默认「训练 EC、服务 Switch」零成本。
+
+<span class="marginnote">常见误区：初学者容易把「训练用 EC、上线用 token-choice」当无害的工程细节——这相当于训练时按 A 规则分班、考试时按 B 规则分班，专家学到的分工与生成时的实际流量对不上，且越靠近底层的路由越难承受这种换轨。</span>
 
 ## 边界
 

@@ -23,6 +23,8 @@ $$
 
 其中 $a^{(k)}\sim\pi_\theta$， $o^{(k)}$ 由环境决定。正确的逐 token 掩码 $m_t\in\{0,1\}$ 满足 $m_t=1$ 当且仅当位置 $t$ 属于某段 $a^{(k)}$（且通常排除 padding）。策略目标是 $\sum_t m_t\cdot \ell_t$，其中 $\ell_t$ 是裁剪后的 PPO/GRPO 项。把 $m_t$ 在 $o^{(k)}$ 上设成 1，等于声称模型「选择了」搜索引擎返回的词。
 
+<span class="marginnote">直觉类比：阅卷只应改学生的答案，不能把标准答案抄进学生卷面再一起判分。工具观察就是标准答案——它进上下文（卷面），但梯度（分数）只算在模型自己写的 token 上。mask 为 1 的位置，就是「学生亲笔」的位置。</span>
+
 实现层还有假 mask：先 decode 成文本、拼 messages、再 `apply_chat_template` 得到新 id，按角色启发式标助手为 1。启发式在工具角色名、system 注入、thinking 标签上会飘。唯一可靠的来源是生成时记下的 response id 边界。这就是 [AgentLoop](/llm/agentloop-server) 坚持 token-in-token-out 的原因，也是 [Agent Lightning](/llm/agent-lightning) v1.0 把 retokenization 列为训练事故的原因。
 
 ### 助手轮不等于模型采样轮
@@ -54,6 +56,19 @@ KL 项 $\log\pi_\theta-\log\pi_{\mathrm{ref}}$ 也只应在 $m_t=1$ 上算。对
 ## 机制
 
 Mask 是在声明 **可控集**。策略梯度定理针对的是 $\pi$ 的支持；环境 token 来自另一个分布。形式上可把观察并入状态更新 $s'=f(s,a,o)$，动作空间仍是词表上的模型输出。工程错误等于把 $o$ 标成 $a$。数值上，观察段往往更长（网页、traceback），错误的 1 会主导平均损失，训练看起来在降 loss，其实在拟合噪声文本。
+
+<span class="marginnote">「可控集」就是策略真正能决定的那部分 token。模型只对「自己写出的字」负责：检索返回了什么、编译器报了什么错，都不在它的选择空间里。策略梯度定理的推导前提，正是动作被定义为策略自己采样的 token——mask 就是在代码里执行这条定义。</span>
+
+<span class="marginnote">数字实例：一条轨迹模型动作 200 token、工具观察 1800 token。若观察被误标为 1，token 平均时分母从 200 变成 2000，每个动作 token 的梯度权重被稀释到约九分之一——大部分「学习量」花在了抄网页和报错日志上。</span>
+
+```mermaid
+flowchart TD
+  E["错误: 观察段标 m=1"] --> DEN["平均分母被长工具输出灌水"]
+  DEN --> DIL["真正动作的梯度被稀释"]
+  E --> KL["对观察算 KL 没有定义"]
+  KL --> CLIP["重要性比与 clip 区间失去意义"]
+  DIL --> W["loss 在降, 实际在拟合检索文本与报错日志"]
+```
 
 Retokenization 破坏的是「这段文本对应的 id 就是当时的 $a$」。即使角色 mask 启发式碰巧全标在 assistant 上，id 已变，则 $\log\pi$ 与采样分布不一致，clip 区间失去意义。因此 mask 正确性以 **id 身份**为前提，不以角色字符串为前提。Server 级 token API、代理层记录 raw token，都是为这条前提服务。
 

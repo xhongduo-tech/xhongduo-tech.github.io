@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-一次有用的 KV 搬运要同时满足：体积按层数×前缀长度线性涨（DistServe 给过 OPT-66B、512 token 约 1.13GB 的例子）；延迟必须叠进 TTFT 而不是另开一张墙钟；源和目的可能是 VRAM、pinned DRAM 或远端 DRAM；端点集合随 prefill/decode 工人扩缩而变。用 TCP 搬 GB 级张量，墙钟往往高过重算。用 NCCL 做点对点，动态拓扑与主机内存路径别扭。还要避开跨 NUMA / 跨 PCIe 开关的绕路：从「任意网卡都能发」到「这张卡走这张 NIC」差的是一整条 UPI 或 PCIe 的有效带宽。
+一次有用的 KV 搬运要同时满足：体积按层数×前缀长度线性涨（DistServe 给过 OPT-66B、512 token 约 1.13GB 的例子）；延迟必须叠进 TTFT 而不是另开一张墙钟；源和目的可能是 VRAM、pinned DRAM 或远端 DRAM；端点集合随 prefill/decode 工人扩缩而变。用 TCP 搬 GB 级张量，墙钟往往高过重算。用 NCCL 做点对点，动态拓扑与主机内存路径别扭。还要避开跨 NUMA / 跨 PCIe 开关的绕路：从「任意网卡都能发」到「这张卡走这张 NIC」差的是一整条 UPI 或 PCIe 的有效带宽。<span class="marginnote">术语翻译：RDMA（远程直接内存访问）指网卡绕过操作系统和 CPU，直接把 A 机器内存里的数据写进 B 机器内存，像两栋楼之间修了直达管道，不用每层楼都卸货再装车。pinned 内存（页锁定内存）是向操作系统申请「不许挪到硬盘」的内存——网卡 DMA 只认这种固定地址，普通内存随时可能被系统搬走，没法直接发。</span>
 
 Mooncake 的复用不等式把问题定量化：LLaMA3-70B、前缀 8192，8×A800 上加载带宽大约要 6GB/s 量级才比重算划算，8×H800 上大约 19GB/s——更快的 GPU 让重算变便宜，对传输更苛刻。Transfer Engine 必须把有效带宽做到这个数量级，而不是报网卡标称峰值。
 
@@ -27,7 +27,7 @@ RDMA 与 GPU Direct 要求内存被 pin、被网卡登记。若每次 `get` 临�
 
 ## 方法
 
-上层看到的是同步批量传输加异步状态：对已注册的 DRAM 或 VRAM 区间做 `put`/`get` 一类批量操作，用 `getTransferStatus` 查询进行中或出错。能走 GPU Direct 则绕过主机 bounce buffer。设计文档列出的后端包括：本机 memcpy / `cudaMemcpy`（目的其实在本地时）、TCP（DRAM↔远端 DRAM）、RDMA（多网卡池化与重试）、NVLink、HIP（AMD 上的 IPC/可共享句柄）、cuFile / GPUDirect Storage（NVMe-oF）、以及 EFA 等。失败时在优选 NIC 与备选 NIC 之间改道，而不是把整次请求打成失败给上层重算——上层仍可选择重算，但那是策略，不是传输层默认。
+上层看到的是同步批量传输加异步状态：对已注册的 DRAM 或 VRAM 区间做 `put`/`get` 一类批量操作，用 `getTransferStatus` 查询进行中或出错。能走 GPU Direct 则绕过主机 bounce buffer。<span class="marginnote">「bounce buffer」（中转缓冲）可以想象成机场中转：GPU 显存里的数据先降落（拷贝）到主机内存这个中转站，再登上网卡这班飞机发出去，每趟都要多一次拷贝和 CPU 打理。GPU Direct 就是取消中转的直飞航班——网卡直接进显存提货。但直飞有航线要求（PCIe 拓扑合适），不满足时老老实实中转反而更快，这正是引擎要按拓扑选路的原因。</span>设计文档列出的后端包括：本机 memcpy / `cudaMemcpy`（目的其实在本地时）、TCP（DRAM↔远端 DRAM）、RDMA（多网卡池化与重试）、NVLink、HIP（AMD 上的 IPC/可共享句柄）、cuFile / GPUDirect Storage（NVMe-oF）、以及 EFA 等。失败时在优选 NIC 与备选 NIC 之间改道，而不是把整次请求打成失败给上层重算——上层仍可选择重算，但那是策略，不是传输层默认。
 
 拓扑：每个节点生成矩阵，按内存类型（注册时声明）把 NIC 分成 preferred 与 secondary。正常情况只从 preferred 里选，使 RDMA 留在本 NUMA 或本 PCIe 开关内；失败才动 secondary。传输时根据源/目的地址解析两端 NIC、建连接、提交。环境变量如 `MC_IB_SL` 可把 KV 流量划到与专家并行 All-to-All 不同的虚拟通道，避免同 NIC 上两类流量互相排队。
 
@@ -55,6 +55,17 @@ vLLM Omni 连接器文档给出对照：CPU pinned 池（GPU→主机池→RDMA�
 
 有效带宽来自三条：零拷贝（注册内存上 NIC 直接读）、多 NIC 聚合（块打散到多卡发送）、拓扑局部性（不穿过 UPI）。副本策略在 Store 层用 `change_replica` 把热点系统提示摊到多节点，传输层负责把「多副本」变成「多源聚合带宽」。没有 Engine，多副本只是多份慢拷贝；没有副本，单 NIC 先成为 TTFT 墙。
 
+```mermaid
+flowchart TD
+  JOB["一次 KV 搬运"] --> Z["零拷贝：NIC 直读注册内存"]
+  JOB --> M["多网卡聚合：块分散到多卡"]
+  JOB --> T["拓扑局部性：留在本 NUMA / PCIe 开关"]
+  Z --> EFF["有效带宽逼近 8 x 400Gbps 的标称聚合"]
+  M --> EFF
+  T --> EFF
+  T -- "拓扑不佳" --> FB["退到 pinned DRAM 中转 保住大部分带宽"]
+```
+
 异步状态让前填工人在传输未完成时继续接下一条，解码工人在 KV 未齐时不开始注意力。这与 DistServe 的 pull 缓冲同一思想，只是实现从 NCCL 换成注册内存上的批量 RDMA。重试换 NIC 是为了尾延迟：推理 SLO 对单次超时比训练更敏感，宁可次优路径送达，不要卡在一条拥塞的 QP 上。
 
 <span class="marginnote">注册表是进程内状态。fork、CUDA context 重建、worker 崩溃重启都必须重新注册。漏注册的症状是偶发 RDMA 失败，而不是 Python 异常栈，排障要看引擎日志与 `ibv` 计数。</span>
@@ -65,7 +76,7 @@ vLLM Omni 连接器文档给出对照：CPU pinned 池（GPU→主机池→RDMA�
 
 ## 边界
 
-标称 400 Gbps × 8 不等于 190GB/s 对每条小消息都成立。Engine 的数字来自大块、批量提交；按 token 逐步搬会把带宽变成延迟。PD 路径应按层或按大块刷，与 [KV 传输](/llm/pd-kv-transfer) 的分层重叠一致。TCP 后端是功能降级，不能拿来验证「复用比重算便宜」的不等式。
+标称 400 Gbps × 8 不等于 190GB/s 对每条小消息都成立。Engine 的数字来自大块、批量提交；按 token 逐步搬会把带宽变成延迟。<span class="marginnote">常见误区：以为 8 张 400 Gbps 网卡无论怎么发都能跑出 190GB/s。那相当于用一整列货车运货的效率；如果每个 token 发一辆小车，装卸开销（协议头、中断、建立连接）就把车厢塞满了，实际有效载荷所剩无几。大块批量提交才是带宽数字成立的前提，这和磁盘顺序读写远快于随机小 IO 是同一个道理。</span>PD 路径应按层或按大块刷，与 [KV 传输](/llm/pd-kv-transfer) 的分层重叠一致。TCP 后端是功能降级，不能拿来验证「复用比重算便宜」的不等式。
 
 与分页块大小的耦合：块太小，每次传输的 WQE 过多；块太大，内部碎片与调度粒度变差。Engine 不管块语义，只看见区间列表——把碎片拼成大 scatter-gather 是 Store 或 connector 的责任。GPU 分配器若频繁申请释放，注册抖动会比搬运本身更贵；实践上对 KV 池做一次大注册，再在池内划块。
 

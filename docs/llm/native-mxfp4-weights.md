@@ -17,6 +17,19 @@ section: llm
 
 4-bit 有三条完全不同的故事。第一条是 **PTQ**：BF16/FP8 训完，再校准成 INT4 / MXFP4，服务引擎反量化。第二条是 **发行格式 native**：训练或后训练的最后阶段就把权重量化进目标格子，下载即用，评测声明与检查点同格式。第三条是 **从零窄精度预训练**：前向、反向的 GEMM 都走微缩放 MMA，要随机 Hadamard、随机舍入、保留若干高精度层。把三条都叫「原生 4-bit」，检查点、峰值、掉点原因会对不上。
 
+```mermaid
+flowchart TD
+  S1["路线一 PTQ"] --> P1["BF16 训完 → 校准成 INT4 / MXFP4"]
+  S2["路线二 发行 native"] --> P2["后训练末段量化进目标格子"]
+  S3["路线三 从零窄精度"] --> P3["前向反向 GEMM 都走 4-bit MMA"]
+  P1 --> SAME["三者都自称「原生 4-bit」"]
+  P2 --> SAME
+  P3 --> SAME
+  SAME --> WARN["检查点 / 峰值 / 掉点原因互不可比"]
+```
+
+<span class="marginnote">4.25 bit 这个数怎么来的：32 个元素共用一个 8-bit 尺度，每个元素摊 $8/32=0.25$ bit，加上 E2M1 本身的 4 bit。代个总数：约 1200 亿参数全按 4.25 bit 存大约是 $1200\times10^9\times4.25/8\approx64$ GB——这就是「120b 进单张 80GB 卡」的算术底座，剩下的显存留给 BF16 的注意力、路由和激活。</span>
+
 gpt-oss 选择第二条里偏 MoE 的子集：专家线性权走 MXFP4，注意力、路由、嵌入仍宽。官方介绍博文写：权重在 Hugging Face 上提供，且以 MXFP4 原生量化，使 120b 能进 80GB、20b 进约 16GB。模型卡与 GitHub 进一步收窄：MXFP4 作用于 MoE 层线性投影；`tensor.blocks` 存打包的 FP4（两枚 nibble 进一个 `uint8`），`tensor.scales` 存沿最后一维的块尺度。评测全部在同一套量化上做。问题从「能不能 4-bit 推理」变成「微调之后还能否回到同一发行格式」。
 
 ### Native 指检查点，不指全部计算图
@@ -48,6 +61,8 @@ flowchart TD
 
 微缩放权重能当发行格式，是因为 MoE 专家占参数主体（gpt-oss 卡片量级上专家权约九成），把这一坨打到 4.25 bit，总检查点才能进 80GB。注意力与路由对质量更敏感，留在 BF16，避免把异常通道和路由 logits 推进 E2M1 的 $\pm 6$ 格子。评测绑在量化后权重上，等于承认：**官方分数不承诺 BF16 展开后再量化能复现**。这与 GPTQ 事后校准不同：那里「满精度检查点」才是源，4-bit 是导出；这里源就是 MX 打包。
 
+<span class="marginnote">W4A16 是行话：W 指权重（weight），A 指激活（activation），数字是各自位宽。gpt-oss 默认路径是 W4A16——权重躺在显存里是 4-bit，算矩阵乘时升回 BF16。初学者容易当成 W4A4（两边都 4-bit）；后者才需要 MX Tensor Core 的点积硬件支持。</span>
+
 从零 4-bit 预训练要额外对付梯度偏置与块间离群值：随机 Hadamard 打散尖峰、随机舍入、前后向二维块尺度一致、敏感层留宽。NVFP4 论文把这些写成方法组件，并报告相对 FP8 基线验证损失相对误差约 1% 量级、MMLU-Pro 62.58% 对 62.62%。那是 NVFP4 方法的结果。MXFP4 若直接套同一配方，块更大、尺度无尾数，离群值更容易绑死整块——论文把这一点当作改用 NVFP4 的动机，而不是当作 MX 已经打平的证据。
 
 <span class="marginnote">「原生」在硬件上还指 MMA 是否直接吃 MX 块。Hopper 上常见路径是权重量化、计算升精度；Blackwell / 部分 AMD 路径才有 MXFP4 点积。只改 dtype、不换核，是存储压缩，不是训练峰值。</span>
@@ -59,6 +74,8 @@ flowchart TD
 OCP 规定块沿连续 32 元素；gpt-oss 写明尺度沿张量最后一维。导出脚本若先转置专家权再分块，加载端必须用同一布局。两枚 FP4 打进一个 `uint8` 的端序也不能错。只实现「每组 INT4 + 零点」的引擎，即使用 32 分组，也不是 MX：格子、尺度格式、有无零点全不同。跨 AMD MX 与 NVIDIA MX 的可互换单位是 OCP 块，不是某家自定义 wrapper。
 
 不要把 gpt-oss 的 MXFP4 写成全模型 4-bit，也不要写成已公开的 MXFP4 从头预训练配方。不要把 NVFP4 12B@10T 的表贴到 MXFP4 检查点上。服务引擎必须实现 OCP 块语义；只实现 INT4 GPTQ 的后端不能靠改扩展名加载。微调后若未写回 `blocks`/`scales`，显存规划会按 BF16 翻四倍。跨厂商互换的是 OCP 编码，不是「任意 4-bit 权重」。
+
+<span class="marginnote">转置与端序为什么值得反复核对：分块沿「转置前」还是「转置后」的最后一维切，数值结果完全不同，而且出错不报异常——模型照样加载、照样生成，只是质量悄悄变差。这就是「静默偏」的含义；排查手段通常只能对齐参考实现的打包布局，逐块比对 scales。</span>
 
 与 [NVFP4 Tensor Core 路径](/llm/nvfp4-tc) 的分工：那边写块 16 的 MMA 合同，这里写开权发行里 MX 权重到底覆盖哪些张量。出处：OpenAI *Introducing gpt-oss*；*gpt-oss-120b & gpt-oss-20b Model Card*，arXiv:2508.10925；GitHub `openai/gpt-oss` Precision format；OCP MX v1.0。NVFP4 预训练对照 arXiv:2509.25149，勿回写进 gpt-oss 卡片。
 

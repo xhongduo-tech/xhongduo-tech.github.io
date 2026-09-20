@@ -19,6 +19,8 @@ section: llm
 
 问题立刻变成三个接口，而不是三个新算法。第一，进程组怎么命名，才不会把张量并行的 All-Reduce 误打到数据并行组上。第二，流水线阶段之间传的是什么：立刻发送整块激活，还是先留一个指针、真正用到再拉。第三，优化器切到哪一档：切满参数会和张量并行抢同一份权重布局，切太浅又放不下 Adam 状态。Nanotron 的答案分别是 `ParallelContext`、`TensorPointer`、以及只做 ZeRO-1。
 
+<span class="marginnote">TP / PP / DP 可以翻译成三种「分活」方式：张量并行把一层的大矩阵乘横切成几份，几张卡一起算同一层；流水线并行把层序号分段，你算前几层我算后几层；数据并行每张卡拿一份完整副本、各吃各的数据。代个数字：TP=8、PP=4、DP=16 一共 512 张卡，其中 8×4=32 张卡才拼出一份完整模型，剩下 16 组副本各跑一份数据。</span>
+
 ### 可读性被写成一等约束
 
 仓库把「Explicit APIs for TP and PP which enables easy debugging」列进功能表。这不是宣传语，是取舍：列并行、行并行、异步张量并行都以普通 `nn.Module` 出现；流水线用 `PipelineBlock` 包每一层，而不是在图编译器里隐式切。调试时可以打印某个 block 住在哪个 pipeline rank，而不必反编译融合核。代价是峰值 MFU 通常低于把所有通信藏进自定义 CUDA 的栈。选型时要先问：这次训练是要刷集群利用率，还是要改模型结构并在八张卡上验证切分是否正确。
@@ -60,6 +62,18 @@ flowchart TD
 
 `TensorPointer` 的机制是把「数据依赖」从「立即通信」里拆出来。流水线前向时，上游 block 产出的是指针加元数据；下游 block 进入计算才把真实张量拉过来。微批一多，可以把多次 send/recv 收成批，减少启动次数。写错指针的 rank 字段会表现为静默死锁或错位激活，这是显式 API 的代价：错误可见，但不会被编译器挡住。
 
+```mermaid
+flowchart LR
+  U["上游 block 完成前向"] --> PTR["只发 TensorPointer + 元数据"]
+  PTR --> Q["下游 block 进入计算"]
+  Q --> REQ{"现在需要真实张量?"}
+  REQ -->|"是"| FETCH["按微批批量 send / recv 拉取"]
+  REQ -->|"暂不需要"| WAIT["先排队 继续算别的"]
+  FETCH --> CALC["拿到激活 继续本地计算"]
+```
+
+<span class="marginnote">TensorPointer 可以类比餐厅叫号：上游先把「取餐号」递给下游，下游真正开火时才去窗口端菜。好处是多张订单能并成一趟端；风险是号写错了不会报异常，只会死等（死锁）或端走别人的菜（错位激活）——这正是显式 API 把错误摆到明面上的原因。</span>
+
 <span class="marginnote">ZeRO-1 在这里不是「还没做完 ZeRO-3」的半成品，而是与张量并行共存的选择。参数若再按 DP 切，前向 All-Gather 必须与 TP 的分片布局对齐，实现复杂度跳一档。Nanotron 把这一档留给未完成项。</span>
 
 ### 和 Megatron、FSDP、VeOmni 的分工
@@ -73,6 +87,8 @@ Megatron 的语义祖先仍是列切+行切；Nanotron 没有发明新的切法�
 节点内 TP 上限、1F1B 气泡、ZeRO-1 仍复制参数，都会在跨节点以太网或超大 Adam 上露出。交错流水线、Ring Attention、编译器融合不在合同里。把 Nanotron 的 Llama 示例吞吐写成「Hugging Face 预训练栈的上限」不成立；它是可读实现的吞吐。检查点与 TP/PP 度绑定，改切分要重切权重。词嵌入 tying 漏同步，会表现为一半词表在学、一半梯度为零。异步 TP 在通信不占主导时只会更慢，因为它多算了完整输出。MoE 专家并行是后加能力，负载均衡与 All-to-All 重叠不要默认已经做到 DualPipe 级。评测必须写 GPU 型号、TP×PP×DP、是否 1F1B、序列长度；缺一项就无法和 Megatron 对照。代码以 `huggingface/nanotron` 为准，文档里的问答式 3D 笔记是读源码的地图，不是另一份规范。
 
 <span class="marginnote">引用写 Hugging Face Nanotron 仓库与 `docs/3d_parallelism.md`。不要伪造 arXiv。若论文引用了 Nanotron 训练的某个开源模型，那是下游使用者，不是本库自己的训练报告。</span>
+
+<span class="marginnote">「检查点与 TP/PP 度绑定」如果做错了会立刻翻车：权重文件里每一片都记录着「我是第几维、第几份」的坐标，换并行度直接加载，就是把列并行的某一片当成流水线的某一层装进模型——输出通常直接是乱码。所以文档说「改切分要重切权重」，这一步省不掉。</span>
 
 ## 小结
 

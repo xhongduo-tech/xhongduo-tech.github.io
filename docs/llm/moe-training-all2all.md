@@ -17,17 +17,30 @@ section: llm
 
 GShard 与 Switch 把专家分到设备上，token 跟着专家走。体积 $\propto b_{\mathrm{micro}}\times s\times d\times k$（再加容量空洞）。Ulysses 的 All-to-All 键是序列块；MoE 的键是专家 id，两者叠在同一模型里时，同一层可能连续打两种置换，网络队列更容易堵。1F1B 的阶段若把 MoE 层放在边界，阶段间激活发送与专家置换抢链路。
 
-路由抖动会让每次微批的通信形状微变；实现常用固定容量 padding，把抖动变成空洞字节。空洞不参与有效 FLOPs，但参与带宽，MFU 看起来差。这是专家粒度课的通信-计算比在训练日历上的落地。
+路由抖动会让每次微批的通信形状微变；实现常用固定容量 padding，把抖动变成空洞字节。空洞不参与有效 FLOPs，但参与带宽，MFU 看起来差。这是专家粒度课的通信-计算比在训练日历上的落地。<span class="marginnote">「容量空洞」翻译成大白话：为了收发定长的数据块，系统给每个专家预留了固定大小的「集装箱位」。负载不均时，有的集装箱塞满了，有的只装了三成——但空格子照样要占用带宽运输。这些空格子就是空洞：不产生任何有用的计算，却真实消耗网络时间。</span>
 
 ### 累积把税乘开
 
 每个微批独立路由、独立 All-to-All。$k_{\mathrm{acc}}$ 增大，优化器虽稀，网络次数线性涨。MoE 上「用累积换显存」可能让通信成为主词，应优先重计算、优先更大 $b_{\mathrm{micro}}$、优先更少的 MoE 层跨节点。
 
+```mermaid
+flowchart TD
+  G["梯度累积 k_acc 个微批"] --> M1["微批 1：路由 + 两次 A2A"]
+  G --> M2["微批 2：路由 + 两次 A2A"]
+  G --> M3["……微批 k_acc"]
+  M1 --> TOT["A2A 总次数 = 2 x 层数 x k_acc"]
+  M2 --> TOT
+  M3 --> TOT
+  TOT --> W{"A2A 占墙钟比例"}
+  W -- "过高" --> FIX["改用重计算 / 更大 microbatch / 减 EP 跨度"]
+  W -- "可接受" --> OK["维持配置"]
+```
+
 <span class="marginnote">All-to-All 不是 All-Reduce。实现错成规约会把不同专家的输入加在一起。对拍应用专家输出范数，而不只对总损失。</span>
 
 ## 方法
 
-把 EP 组放在 NVLink 域，跨节点只走 DP 或 PP。Tutel、DeepSpeed-MoE、Megatron-MoE 一类实现提供分组 All-to-All 与容量掩码。调度上：先算路由（本地、便宜），post dispatch，用无关计算重叠，wait 后跑专家 GEMM，再 post combine。与 DualPipe 双流叠加时，两套微批的 All-to-All 必须分缓冲，避免专家 batch 混洗。
+把 EP 组放在 NVLink 域，跨节点只走 DP 或 PP。<span class="marginnote">直觉类比：把专家放进 NVLink 域，就像把经常互相递文件的同事安排坐同一张办公桌——每次 dispatch/combine 都是来回递纸条，同一张桌子的传递快得多；跨节点相当于跨楼层跑腿，速度差一个量级。专家间的 token 每层每批都要递两次，所以「坐哪儿」直接决定这间公司的办事速度。</span>Tutel、DeepSpeed-MoE、Megatron-MoE 一类实现提供分组 All-to-All 与容量掩码。调度上：先算路由（本地、便宜），post dispatch，用无关计算重叠，wait 后跑专家 GEMM，再 post combine。与 DualPipe 双流叠加时，两套微批的 All-to-All 必须分缓冲，避免专家 batch 混洗。
 
 负载均衡（辅助损失或无辅助偏置）是为了让各专家 token 数接近容量，从而让 All-to-All 体积可预测。失衡时热专家所在卡变成计算落后者，下一课的 straggler 会先打在这里。
 
@@ -51,7 +64,7 @@ flowchart TD
 
 ## 边界
 
-本课不解决卡死与掉卡：A2A 是同步障碍，一卡挂则组挂。那是弹性与故障率课。也不解决检查点里专家分片如何按不同 EP 度恢复——下一课格式。稳态下若 A2A 已经占总时间一半，应减 EP 跨度或减 MoE 层数，而不是再加梯度累积。
+本课不解决卡死与掉卡：A2A 是同步障碍，一卡挂则组挂。那是弹性与故障率课。也不解决检查点里专家分片如何按不同 EP 度恢复——下一课格式。稳态下若 A2A 已经占总时间一半，应减 EP 跨度或减 MoE 层数，而不是再加梯度累积。<span class="marginnote">常见误区：以为某一卡慢只拖慢它自己。All-to-All 是集体通信——所有参与卡必须在同一关口互相等齐，最慢的那张卡决定所有人过关的时间，这就是「落后者税」。它和「加均衡损失」直接相关：热专家所在的卡算得多、收得多，往往就是那个最慢的人。</span>
 
 ## 小结
 
