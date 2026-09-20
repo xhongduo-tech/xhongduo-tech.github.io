@@ -17,6 +17,18 @@ section: quant
 
 Cap 支付 $\sum \delta_i(L_i-K)^+$，每段 caplet 在其自身远期测度下是 Black-76。Floor 对称。Swaption 支付年金乘 $(S-K)^+$，在年金测度下也是 Black。问题是同一 $K$ 的 cap 隐波与对应到期的 swaption 隐波一般不一致：一个吃的是单点远期，一个吃的是互换率（远期的加权）。没有期限结构模型，不能把 cap 曲面「转换成」swaption 曲面去对冲。
 
+<span class="marginnote">术语翻译：cap 就是一串「利率保险」——付一笔保费，之后每个计息期若浮动利率涨过执行价，就把超出部分按天数比例赔给你，替锁定融资成本封顶；floor 对称地保下限。swaption 则是「将来有权按约定利率进入互换」的选择权，保的是整段互换、不是单个重置期。</span>
+
+```mermaid
+flowchart TD
+  T0["买入 2 年期 cap：执行价 K，季付"] --> R1["重置日 t1：观察参考利率 L1"]
+  T0 --> R2["重置日 t2：观察 L2"]
+  R1 --> P1["3 个月后：支付 δ·(L1−K)+"]
+  R2 --> P2["3 个月后：支付 δ·(L2−K)+"]
+  P1 --> SUM["每期独立结算：一串 caplet 各自定价"]
+  P2 --> SUM
+```
+
 物理交割 vs 现金交割（cash-settled swaption 的年金公式）改变测度，欧洲现金交割惯例会让 Black 公式的 $A$ 与实物交割不同。实现必须按确认书选。
 
 ### 互换率不是某个 caplet 的 $L$
@@ -29,11 +41,15 @@ Jamshidian 在单因子 Hull–White 下把欧式 swaption 写成债券期权的
 
 Caplet 剥离：从最短 cap 开始剥离 caplet 隐波，注意重叠与日计数。Swaption 网格：到期 × 期限。校准 HW：用部分 swaption；校准 LMM：用 swaption 网格为主，cap 为辅或反过来，视簿的产品。对冲：cap 用期货/FRA 与 caplet 桶；swaption 用对应互换 + 曲线桶 + vol 桶。AAD 穿过年金与互换率定义。
 
+<span class="marginnote">数字实例：名义 1 亿元、执行价 4%、季度计息（$\delta\approx 0.25$）。某重置期参考利率 $L=5\%$，则该期 caplet 支付 $1\mathrm{亿} \times 0.25 \times (5\%-4\%) = 25$ 万元；若 $L=3.5\%$，这一期分文不付。整只 cap 的保费就是把每个 caplet 的期望贴现值加总。</span>
+
 微笑：每个 caplet、每个 swaption 格子一个 SABR，下一课再谈如何让 LMM 同时吃下这些微笑。
 
 ## 机制
 
 Caplet 是对单点 Libor/RFR 复合率的期权；swaption 是对曲线上一条加权平均的期权。相关：曲线因子若高度相关，二者接近；若曲率因子大，长期限 swaption 与一串 caplet 的差就是曲线形态的期权。这正是为什么需要 [HJM](/quant/hjm)/LMM 而不是一个股式 GBM。
+
+<span class="marginnote">常见误区：初学者容易把 swaption 当成「平均到期的 caplet」去对冲。实际上互换率是各远期利率按年金权重加出来的组合，权重还会随利率漂移；只盯一个平均值，曲线变陡、变平带来的盈亏就会落在对冲之外——这正是漏掉的曲线形态风险。</span>
 
 ```mermaid
 flowchart TD
