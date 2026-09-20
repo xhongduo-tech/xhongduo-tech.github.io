@@ -11,7 +11,7 @@ section: llm
 <footer>—— Williams et al., Roofline: An Insightful Visual Performance Model, CACM 2009；接到 Transformer 推理见 Pope et al., 2022</footer>
 </div>
 
-[上一课](/llm/kv-cache-size-math)写出 KV 有多少字节。本课问这些字节在一步 decode 里能摊到多少计算。Williams 的屋顶线把工作点分成算力屋顶与带宽屋顶；[显存墙](/llm/decode-memory-wall)已经给出逐步时间下界。这里把 *算术强度* $I=\mathrm{FLOPs}/\mathrm{bytes}$ 钉成可比较的量：prefill 高、$B=1$ 的 decode 低、加大 batch 或投机加宽查询则回升。后课用拐点谈「batch 要到多大才离开带宽屋顶」。
+[上一课](/llm/kv-cache-size-math)写出 KV 有多少字节。本课问这些字节在一步 decode 里能摊到多少计算。Williams 的屋顶线把工作点分成算力屋顶与带宽屋顶；[显存墙](/llm/decode-memory-wall)已经给出逐步时间下界。这里把 *算术强度* $I=\mathrm{FLOPs}/\mathrm{bytes}$ 钉成可比较的量：<span class="marginnote">算术强度可以读成「每搬运 1 字节换来多少次浮点运算」：分子是这一步做多少计算，分母是为这些计算要进出显存多少字节。比例高，计算单元吃得饱；比例低，大部分时间在等数据到位——decode 的低强度就是这么来的。</span>prefill 高、$B=1$ 的 decode 低、加大 batch 或投机加宽查询则回升。后课用拐点谈「batch 要到多大才离开带宽屋顶」。
 
 ## 问题
 
@@ -29,7 +29,7 @@ $$
 I_{\mathrm{decode}}\approx\frac{\mathrm{FLOPs}(B,n)}{W_{\mathrm{bytes}}+\mathrm{KV}(n)\cdot B_{\mathrm{eff}}}.
 $$
 
-$B_{\mathrm{eff}}$ 是本步真正要扫 KV 的序列数（连续批里各 $n$ 不同，用和）。与硬件屋顶比 $I_{\star}=\mathrm{peak}/\mathrm{bandwidth}$ 比较：$I\lt I_{\star}$ 则带宽绑定。优化按分子分母：减字节（量化、GQA、MLA）、增 FLOPs 复用（加大 $B$、chunked prefill 混入、投机加宽 $n_q$）。换一张 FLOPS 翻倍、带宽不变的卡，带宽绑定区的 TPOT 几乎不动——用强度可以事先预言，而不必上机「试一下」。
+$B_{\mathrm{eff}}$ 是本步真正要扫 KV 的序列数（连续批里各 $n$ 不同，用和）。与硬件屋顶比 $I_{\star}=\mathrm{peak}/\mathrm{bandwidth}$ 比较：$I\lt I_{\star}$ 则带宽绑定。<span class="marginnote">代个数：7B 模型 FP16 权重约 14 GB，$B=1$ 一步 decode 强度只有约 1 FLOP/字节，而 A100 的屋顶比约 $312/2.0\approx156$——算力比带宽富余百倍以上，时间几乎全耗在搬这 14 GB 上（约 7 ms），这就是每秒至多一百多个 token 的来源。</span>优化按分子分母：减字节（量化、GQA、MLA）、增 FLOPs 复用（加大 $B$、chunked prefill 混入、投机加宽 $n_q$）。换一张 FLOPS 翻倍、带宽不变的卡，带宽绑定区的 TPOT 几乎不动——用强度可以事先预言，而不必上机「试一下」。
 
 ```mermaid
 flowchart TD
@@ -44,9 +44,17 @@ flowchart TD
 
 屋顶线是不等式，不是平均利用率仪表。仪表上的 SM% 低，可能是真的带宽绑定，也可能是核启动太碎、或 [KV 布局](/llm/kv-layout)跨步导致有效带宽远低于峰值。强度分析应配合 profiler 的 HBM 吞吐：若 HBM 已接近峰值而 SM% 低，解释成立；若 HBM 也低，先修布局与占用率（FlashDecoding 切 KV）。Pope 等人强调阶段拆分：同一模型，prefill 与 decode 的 $I$ 可以差一个数量级，服务若用一个并行度套两段，必有一段坐错屋顶。
 
+```mermaid
+flowchart LR
+  SUB["同一模型一次前向"] --> PRE["prefill：整段 prompt 一起算"]
+  SUB --> DEC["decode：一次只算一行激活"]
+  PRE --> P2["权重读一次换大量 FLOPs，I 高，算力绑定"]
+  DEC --> D2["权重照读一遍只换一行，I 低，带宽绑定"]
+```
+
 ## 边界
 
-不要用训练的 MFU 估 decode。不要把 FA 的「少写 A」写成「decode 变成 compute-bound」。MoE 只激活部分专家时，$W_{\mathrm{bytes}}$ 是 *被点到的* 专家加注意力权重，强度画像随路由波动——均值会骗人。后课把 $I(B)$ 画成拐点。
+不要用训练的 MFU 估 decode。不要把 FA 的「少写 A」写成「decode 变成 compute-bound」。<span class="marginnote">初学者容易把「FlashAttention 省显存」听成「算得更少了」：它省的是把 $n\times n$ 注意力矩阵写进显存再读回来的流量，矩阵乘法本身一次没少。decode 的瓶颈在权重搬运，FA 管不到那一项，所以不会把 decode 推离带宽屋顶。</span>MoE 只激活部分专家时，$W_{\mathrm{bytes}}$ 是 *被点到的* 专家加注意力权重，强度画像随路由波动——均值会骗人。后课把 $I(B)$ 画成拐点。
 
 出处：Williams et al., CACM 2009；Pope et al., 2022。
 

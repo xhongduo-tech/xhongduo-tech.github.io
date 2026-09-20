@@ -15,11 +15,11 @@ section: llm
 
 ## 问题
 
-收束要防的仍是把课程读成技巧堆砌：循环、schema、压缩、熔断、围栏、影子流量，单看都是工程技巧，合起来才是一套方法。散着记，换一个模型、换一个任务域就全部重来；收进结构，重算的只有常数。所以收束的问题不是复述，是提炼：十三课里哪些是不随模型与任务域改变的结构，哪些只是本次部署的常数。
+收束要防的仍是把课程读成技巧堆砌：循环、schema、压缩、熔断、围栏、影子流量，单看都是工程技巧，合起来才是一套方法。散着记，换一个模型、换一个任务域就全部重来；收进结构，重算的只有常数。<span class="marginnote">直觉类比：学做菜时，「先焯水再下锅」的次序是结构，换什么灶都成立；具体几分钟、几克盐是常数，换锅换灶就要重调。模型换代相当于换了台灶——火候全部重调，做菜的次序不用重学。</span>所以收束的问题不是复述，是提炼：十三课里哪些是不随模型与任务域改变的结构，哪些只是本次部署的常数。
 
 ## 方法
 
-三条线。**架构线**是「架构」单元四课：[Agent 循环的设计空间](/llm/agent-loop-design-space)立五根轴、把循环读成转移核；[工具协议深钻](/llm/agent-tool-protocol-deep)把动作写成有 schema、有配对、有错误通道的契约；[上下文管理策略](/llm/agent-context-strategies)把注意力预算花在未决状态上；[记忆系统的实现](/llm/agent-memory-implementation)给窗口外的细节安家。这条线回答「下一步由谁、按什么协议、看到什么地决定」。**质量线**是编排到成本四课：[多 Agent 编排模式](/llm/agent-multi-orchestration)按信息流与权限流切分、[错误恢复与重试](/llm/agent-error-recovery)给四级失败配四级药、[评测：任务成功率与过程](/llm/agent-eval-success-process)用 pass@k 与 $\mathrm{pass}^k$ 双口径量稳定性、[成本与延迟优化](/llm/agent-cost-latency)把杠杆按平方律排序。**生产线**是最后五课：[安全围栏](/llm/agent-guardrails)立损失上限、[可观测性](/llm/agent-observability)记版本化轨迹账本、[回归测试与版本回滚](/llm/agent-regression-rollback)守变更、[生产案例与失败模式](/llm/agent-production-cases)编目失败。三条线是同一句话的三种说法：Agent 工程是把一次补全变成可审计、可恢复、可预算的劳动过程。
+三条线。**架构线**是「架构」单元四课：[Agent 循环的设计空间](/llm/agent-loop-design-space)立五根轴、把循环读成转移核；<span class="marginnote">术语翻译：「转移核」是概率论借来的词，指「系统下一步往哪走、按什么规则走」的那套规则。放在代理上就是：给定当前上下文，模型会选什么动作、工具会回什么观察——这两个「会怎样」合起来，就是这个循环的转移核。</span>[工具协议深钻](/llm/agent-tool-protocol-deep)把动作写成有 schema、有配对、有错误通道的契约；[上下文管理策略](/llm/agent-context-strategies)把注意力预算花在未决状态上；[记忆系统的实现](/llm/agent-memory-implementation)给窗口外的细节安家。这条线回答「下一步由谁、按什么协议、看到什么地决定」。**质量线**是编排到成本四课：[多 Agent 编排模式](/llm/agent-multi-orchestration)按信息流与权限流切分、[错误恢复与重试](/llm/agent-error-recovery)给四级失败配四级药、[评测：任务成功率与过程](/llm/agent-eval-success-process)用 pass@k 与 $\mathrm{pass}^k$ 双口径量稳定性、[成本与延迟优化](/llm/agent-cost-latency)把杠杆按平方律排序。**生产线**是最后五课：[安全围栏](/llm/agent-guardrails)立损失上限、[可观测性](/llm/agent-observability)记版本化轨迹账本、[回归测试与版本回滚](/llm/agent-regression-rollback)守变更、[生产案例与失败模式](/llm/agent-production-cases)编目失败。三条线是同一句话的三种说法：Agent 工程是把一次补全变成可审计、可恢复、可预算的劳动过程。
 
 ```mermaid
 flowchart TD
@@ -42,6 +42,23 @@ flowchart TD
 
 <span class="marginnote">一句自检：任何「代理方案」若说不清五根轴各取什么值、失败分几级各配什么药、轨迹记在哪本账上，它就还只是一个演示——演示在下一个任务域失效，结构不会。</span>
 
+```mermaid
+flowchart TD
+  subgraph BACK["往回接：地基"]
+    H["Harness 铸环"] --- R["ReAct 立协议"] --- LC["长上下文的账本纪律"]
+  end
+  subgraph CORE["本课程：三条线"]
+    A["架构线：谁决定下一步"] --- Q["质量线：失败与成本定价"] --- O["生产线：围栏·观测·回归"]
+  end
+  subgraph FWD["往前接：闭环"]
+    RL["轨迹进 RL 训练"] --- SI["失败接回数据引擎"]
+  end
+  BACK --> CORE
+  CORE --> FWD
+  LC -. "轨迹=会自己变长的上下文" .-> A
+  O -. "轨迹账本=训练原料" .-> RL
+```
+
 ## 边界
 
 本课程是工程侧的收束：训练侧如何造出更会走环的模型（RL 训练系统一线）、评测基准的内部构造、多代理的理论分析，各有其课，这里只接口。案例数字随产品与模型过期；结构跨域复用。深钻层在此收束一门课，不收束一个领域：模型的时间视界还在涨，这本账会一直写下去。
@@ -50,7 +67,7 @@ flowchart TD
 
 - 三条线收束：架构线分配「下一步」的决定权，质量线给失败与成本定价，生产线守住发布。
 - 核心句式：Agent 工程是把一次补全变成可审计、可恢复、可预算的劳动过程。
-- 往回接 harness 与长上下文两课，往前接 RL 轨迹闭环：账本既是运维证据，也是训练原料。
+- 往回接 harness 与长上下文两课，往前接 RL 轨迹闭环：账本既是运维证据，也是训练原料。<span class="marginnote">为什么重要：轨迹账本不只是出了事查日志用的——它会被搬进 RL 训练循环当原料。这一步记漏了版本、记错了观察，运维顶多查不清一次事故，训练侧却是把带毒的数据喂进了下一版模型，错误会被固化。</span>
 - 常数随模型与任务域重测，结构（五根轴、四级失败、双口径、四层围栏）跨域复用。
 - 遇到「更自主的东西」：先分轴，再立契约，后设门禁，最后记账。
 - 出处：本课程各课口径汇总——Yao et al., ICLR 2023；Schick et al., 2023；Shinn et al., 2023；Wang 等，2024；其余见各课小节。

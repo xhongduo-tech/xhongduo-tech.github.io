@@ -15,11 +15,11 @@ section: llm
 
 ## 问题
 
-轨迹单调增长带来三个复合问题。成本上，每一步都重发全部历史，累计输入 token 随步数近似平方增长。质量上，输入变长后即使任务不难，表现也不稳定——[Context Rot 上下文腐烂](/llm/context-rot)把这命名为注意力预算的耗散；中部信息还会被挤到盲区（[Lost in the Middle](/llm/lost-in-middle)），第一步定下的约束到第二十步就像没说过。机制上，全量保留会让窗口被工具输出占满，模型反而找不到当前目标。所以策略不是「删不删」，是三个决策：何时触发、保什么、丢什么。做错的方向都很具体：从不压缩，长任务死在预算与腐烂上；乱压缩，关键约束被折叠掉，任务在中途换目标而不自知。
+轨迹单调增长带来三个复合问题。成本上，每一步都重发全部历史，累计输入 token 随步数近似平方增长。<span class="marginnote">数字实例：一个 50 步的任务，每步新增 1000 token，若全量保留，累计输入就是 $1000 \times \frac{50\times 51}{2} \approx 127$ 万 token——不是 5 万，而是 25 倍。步数翻倍，这笔账翻的不是一倍，是接近四倍。</span>质量上，输入变长后即使任务不难，表现也不稳定——[Context Rot 上下文腐烂](/llm/context-rot)把这命名为注意力预算的耗散；中部信息还会被挤到盲区（[Lost in the Middle](/llm/lost-in-middle)），第一步定下的约束到第二十步就像没说过。机制上，全量保留会让窗口被工具输出占满，模型反而找不到当前目标。所以策略不是「删不删」，是三个决策：何时触发、保什么、丢什么。做错的方向都很具体：从不压缩，长任务死在预算与腐烂上；乱压缩，关键约束被折叠掉，任务在中途换目标而不自知。
 
 ## 方法
 
-**触发器**：token 阈值、轮数、或任务阶段边界；阈值触发便宜，阶段边界触发更安全。**保留核**：系统提示、未决状态（当前目标、已完成与待办、关键约束）、最近若干轮。**策略谱系**由粗到细：滚动截断最粗暴，丢掉的早期约束不会自己回来；[Compaction 摘要压缩](/llm/compaction-summarize)把已完成子任务折叠成摘要；[结构化记忆压缩](/llm/structured-memory-compaction)把工具输出抽成字段再存；[Mem1 递归上下文重写](/llm/mem1-context)把上下文从存储改成函数——每步按需重写；[AgentFold 上下文折叠](/llm/agentfold)按证据价值丢弃中间步骤；[Just-in-Time Context Retrieval](/llm/jit-context-retrieval)把工具结果落盘、只回句柄，要用再取。**缓存约束**反着压：[Prompt Cache](/llm/prompt-cache) 按前缀命中，压缩改前缀等于缓存全灭；工程解是把稳定段放最前、把可压缩段放后缀，并且只在阶段边界动手。
+**触发器**：token 阈值、轮数、或任务阶段边界；阈值触发便宜，阶段边界触发更安全。**保留核**：系统提示、未决状态（当前目标、已完成与待办、关键约束）、最近若干轮。<span class="marginnote">直觉类比：保留核就是书桌上的东西——正在做的那份文件（当前目标）、贴在显示器上的便条（关键约束）、手边最近翻过的几页（最近几轮）。其余的进抽屉（摘要）或档案室（落盘句柄），要用再取；而抽屉里的东西你不会每写一句话都重新读一遍。</span>**策略谱系**由粗到细：滚动截断最粗暴，丢掉的早期约束不会自己回来；[Compaction 摘要压缩](/llm/compaction-summarize)把已完成子任务折叠成摘要；[结构化记忆压缩](/llm/structured-memory-compaction)把工具输出抽成字段再存；[Mem1 递归上下文重写](/llm/mem1-context)把上下文从存储改成函数——每步按需重写；[AgentFold 上下文折叠](/llm/agentfold)按证据价值丢弃中间步骤；[Just-in-Time Context Retrieval](/llm/jit-context-retrieval)把工具结果落盘、只回句柄，要用再取。**缓存约束**反着压：[Prompt Cache](/llm/prompt-cache) 按前缀命中，压缩改前缀等于缓存全灭；工程解是把稳定段放最前、把可压缩段放后缀，并且只在阶段边界动手。
 
 ```mermaid
 flowchart TD
@@ -40,9 +40,26 @@ flowchart TD
 
 <span class="marginnote">多轮前缀命中是复利：[多轮前缀命中](/llm/multi-turn-prefix)的机制与 [前缀缓存](/llm/kv-prefix-cache)相同——在压缩点之后，所有历史缓存作废，下一步的输入全部重算。把压缩点从「每次都压」改成「阶段边界才压」，缓存命中率的变化是数量级的。</span>
 
+```mermaid
+flowchart TD
+  subgraph HEAD["稳定区（前缀）：永远逐字节不变"]
+    SYS["系统提示与规则文档"]
+    TOOLS["工具定义"]
+  end
+  subgraph TAIL["工作区（后缀）：随时可折叠"]
+    GOAL["当前目标与关键约束（周期性重述）"]
+    OPEN["未决分支：不折叠"]
+    DONE["已完成子任务：折叠成一行摘要"]
+    RAW["原始工具输出：落盘或抽字段"]
+  end
+  HEAD -- "命中前缀缓存，省钱省时" --> TAIL
+  DONE --> SM["摘要 / 句柄"]
+  RAW --> SM
+```
+
 ## 边界
 
-压缩后细节去哪是[记忆系统的实现](/llm/agent-memory-implementation)的问题，本课只管窗口内。提示压缩（[提示压缩 LLMLingua](/llm/prompt-compression)）是逐段降速率的技术件，与折叠是互补不是替代。多代理下每个代理各带一份上下文，隔离与传递的规则在[多 Agent 编排模式](/llm/agent-multi-orchestration)。显存的静态账不在此重复（[长上下文的显存账](/llm/lc-memory-account)已算）；本课是同一笔账在轨迹时间轴上的动态版。没有免费的策略：任何压缩都可能丢掉后来才显出价值的细节，评测要能捕捉这种「丢早了」的失败。
+压缩后细节去哪是[记忆系统的实现](/llm/agent-memory-implementation)的问题，本课只管窗口内。<span class="marginnote">常见误区：初学者容易以为压缩只是为了省钱。其实更要紧的是注意力质量——窗口被几千行工具日志占满后，模型经常「看着答案找不到问题」，压掉噪音往往先提准确率、后降成本。</span>提示压缩（[提示压缩 LLMLingua](/llm/prompt-compression)）是逐段降速率的技术件，与折叠是互补不是替代。多代理下每个代理各带一份上下文，隔离与传递的规则在[多 Agent 编排模式](/llm/agent-multi-orchestration)。显存的静态账不在此重复（[长上下文的显存账](/llm/lc-memory-account)已算）；本课是同一笔账在轨迹时间轴上的动态版。没有免费的策略：任何压缩都可能丢掉后来才显出价值的细节，评测要能捕捉这种「丢早了」的失败。
 
 ## 小结
 

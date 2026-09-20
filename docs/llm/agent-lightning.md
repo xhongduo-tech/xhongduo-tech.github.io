@@ -15,13 +15,13 @@ section: llm
 
 ## 问题
 
-传统 agentic RL 里，训练引擎拥有环境环：下一步 prompt 在 token 空间里是 $p_t=(p_{t-1},a_{t-1},o_t)$，一条 rollout 天然是一条线性 token 轨迹。Harness 介入后，潜在状态变成 $(s^{\mathrm{harness}}, s^{\mathrm{env}})$。Harness 每次**单独构造**发给模型的消息，策略只看见 API 上的 $(p_i,a_i)$ 序列。子 agent、摘要压缩、重试都会让一次任务对应动态数量的训练样本。若仍按「一条 rollout = 一条序列」做组内优势，长短任务的梯度权重会偏。
+传统 agentic RL 里，训练引擎拥有环境环：下一步 prompt 在 token 空间里是 $p_t=(p_{t-1},a_{t-1},o_t)$，一条 rollout 天然是一条线性 token 轨迹。<span class="marginnote">术语翻译：rollout 就是「让代理从头到尾跑一遍任务」——从接到指令到结束，模型每次被调用、每次吐出什么，全程录下来。这份录像就是训练材料，RL 靠它判断哪些动作值得奖励。</span>Harness 介入后，潜在状态变成 $(s^{\mathrm{harness}}, s^{\mathrm{env}})$。Harness 每次**单独构造**发给模型的消息，策略只看见 API 上的 $(p_i,a_i)$ 序列。子 agent、摘要压缩、重试都会让一次任务对应动态数量的训练样本。若仍按「一条 rollout = 一条序列」做组内优势，长短任务的梯度权重会偏。
 
 工程上，把 OpenHands 嵌进 Ray worker 会把依赖和调度绑死。Luo 等人的目标是 **几乎零改动**：agent 继续用原框架，只把 base URL 指到 Lightning。v1.0 发现代理范式被 verl Uni-Agent、AReaL 2.0、slime v0.3.0、Polar 跟进后，真正没写清的是：文本 API 与 token 训练之间如何拼样本。
 
 ### 重分词会拆掉「可合并」假设
 
-框架常在 token 级检查 $p_{i+1}$ 是否以 $(p_i,a_i)$ 为前缀，是则并成一条长序列。但 harness 传的是文本；再 tokenize 一次后，即使字符串相同，$a_i$ 的 token 也可能与采样时不同（特殊符号、前后空白、chat template）。合并会把 logprob 对到错误 id 上。v1.0 把这列为 harnessed RL 的一等故障，而不是 tokenizer 边角。正确做法是训练只用**模型采样时返回的 token**，必要时放弃合并，改成多次调用、在 rollout 级做优势。见 [token 级 API](/llm/agentloop-server) 与 [loss mask](/llm/multiturn-loss-mask)。
+框架常在 token 级检查 $p_{i+1}$ 是否以 $(p_i,a_i)$ 为前缀，是则并成一条长序列。但 harness 传的是文本；再 tokenize 一次后，即使字符串相同，$a_i$ 的 token 也可能与采样时不同（特殊符号、前后空白、chat template）。合并会把 logprob 对到错误 id 上。<span class="marginnote">直觉类比：把文本切成 token 像把句子切成积木——同一段话切两次，切缝未必相同（「don't」可以是一块也可以是三块）。每个积木有编号，模型训练认的是编号；一旦切缝变了，后面所有积木的编号全部错位，记的账就对不上人了。</span>v1.0 把这列为 harnessed RL 的一等故障，而不是 tokenizer 边角。正确做法是训练只用**模型采样时返回的 token**，必要时放弃合并，改成多次调用、在 rollout 级做优势。见 [token 级 API](/llm/agentloop-server) 与 [loss mask](/llm/multiturn-loss-mask)。
 
 <span class="marginnote">v0.x 与 v1.0 是一次重构。引用实验时对版本。旧文的 text-to-SQL / RAG / 数学工具任务证明「能训」；v1.0 的 SWE 数字证明「harness 级编码代理能涨分」，不要混成同一张表。</span>
 
@@ -54,13 +54,23 @@ Disaggregation 把 GPU 训练与 CPU/K8s 上的 agent 执行解耦，环境安�
 
 Rollout 级优势针对的病是：一次 SWE 任务被拆成 20 次 sample，一次检索任务拆成 2 次，若按 sample 平均，编码任务梯度被放大。按 rollout 归约后，任务才是可比的 i.i.d. 单位。这与 GRPO 按「同一问题的 G 条输出」分组不冲突，但分组键必须是任务 id，不是拆开后的调用 id。损失归一化同样：batch 里 sample 数随 harness 动态变化，训练 GPU 数却是固定的，后端要把变长样本集切成 step 与 micro-batch。v1.0 把调度也列为 harnessed RL 的挑战，而不是只改损失公式。
 
+```mermaid
+flowchart TD
+  T1["任务 A：一次 SWE 修复"] -->|"拆成"| SA["20 次 LLM 调用 = 20 个 sample"]
+  T2["任务 B：一次检索问答"] -->|"拆成"| SB["2 次 LLM 调用 = 2 个 sample"]
+  SA --> AVG{"按什么单位算平均?"}
+  SB --> AVG
+  AVG -->|"sample 级：每份同权"| BAD["任务 A 的梯度声音是任务 B 的 10 倍"]
+  AVG -->|"rollout 级：按任务 id 分组归约"| GOOD["每个任务一票，权重可比"]
+```
+
 ### 和 VerlTool、AgentLoop 的分工
 
 [VERLTool](/llm/verltool) 把工具放进 VeRL 可调用的服务器，循环仍在训练框架的 AgentLoop 里。[AgentLoop](/llm/agentloop-server) 是 VeRL 内部的多轮接口，假定你愿意实现 `run()`。Lightning 假定你**不愿意**实现第二份循环。三者都处理观察与 mask，所有权不同：工具服务器、框架内循环、框架外 harness。选错会重复造环境。
 
 ## 边界
 
-不要把 14.6 个点写成「换框架就涨」。数据清洗、环境、基座模型都在条件里。不要假设任意 harness 的副作用（计费 API、写生产库）适合在 RL 里无沙箱滚动。代理增加一跳延迟；同步 RL 步可能被最慢的 K8s Job 钉住，需要超时与重试策略。Retokenization 未处理时，开异步只会让错误样本更多。多 agent 握手在 v1.0 里被列为与单 ReAct 不同的建模，实现深度以当时代码为准。
+不要把 14.6 个点写成「换框架就涨」。数据清洗、环境、基座模型都在条件里。<span class="marginnote">常见误区：初学者容易把「41.8% → 56.4%」读成「接上 Agent Lightning 就自动涨 14.6 个点」。实际这串数字连着三个前提：特定基座（Qwen3.5-9B）、约 6K 条清洗过的训练例、仅 RL 训练。换了任何一个，结果都不可外推。</span>不要假设任意 harness 的副作用（计费 API、写生产库）适合在 RL 里无沙箱滚动。代理增加一跳延迟；同步 RL 步可能被最慢的 K8s Job 钉住，需要超时与重试策略。Retokenization 未处理时，开异步只会让错误样本更多。多 agent 握手在 v1.0 里被列为与单 ReAct 不同的建模，实现深度以当时代码为准。
 
 许可证 MIT；引用同时给 2508.03680 与 2608.17528，并写清实验来自哪一篇。
 
