@@ -17,6 +17,10 @@ section: quant
 
 八课要收的是两条主线。信号单元（前三课）给的是经济价值口径：[深度波动率](/quant/dp-deep-vol)对 HAR 与 QLIKE 交卷，[深度微观信号](/quant/dp-deep-micro-signals)对线性基线与冲击成本交卷，[RL 执行](/quant/dp-rl-execution-deep)对解析基线与短缺分布交卷——三课共享一个判据：扣掉基线与成本之后剩下的才叫增量。定价与验证单元（后五课）给的是测度与模拟器口径：[生成校准](/quant/dp-generative-calibration)立起测度纪律与两本误差账，[深度对冲深化](/quant/dp-deep-hedging-deep)消费冻结的模拟器并把 $\rho$ 钉成产品参数，[模型风险](/quant/dp-model-risk)与[基准数据集](/quant/dp-benchmarks-datasets)把验证制度化。
 
+## 方法
+
+方法是收束而不新增：把八课按「信号单元—定价与验证单元」两条主线重排成一张读序地图，每课只保留三样东西——它交卷的判据、它消费的上游、它留给下游的接口；各课结论仍以各自课内的验收为准，本课不重新计分。地图之后重申三条贯穿口径，边界只做重申、不做扩展。
+
 ### 一张地图
 
 按读序：

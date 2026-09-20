@@ -1485,3 +1485,30 @@ header.site-header {
 .lesson-nav--header .lesson-progress {
   font-variant-numeric: oldstyle-nums;
 }
+
+/* ---- 边注清晰度提升 ---- */
+
+.tuf-article .marginnote {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: var(--theme-text);
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--accent);
+  opacity: 0.92;
+}
+
+.tuf-article .marginnote::before {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.tuf-article .marginnote a:any-link {
+  color: var(--accent-ink);
+  text-decoration-color: var(--accent);
+}
+
+/* 暗色模式下边注左缘用 accent 亮色 */
+[data-theme='dark'] .tuf-article .marginnote {
+  border-left-color: var(--accent);
+  opacity: 0.88;
+}

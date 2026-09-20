@@ -34,6 +34,10 @@ flowchart TD
   TUNE --> NEXT
 ```
 
+## 方法
+
+本课的方法是**把组批写成带预算约束的装填问题**：以步时延上界为约束、本步装入 token 数为目标，工程解落成两条规则——decode 先装满（每请求至多一 token），prefill 用剩余预算切块跨步执行。次序的理由不靠直觉，靠两条 roofline 定价：decode 是带宽活、prefill 是算力活。投机解码与 MoE 作为「一步工作量随机化」的修正项入账，预算按最坏步留。
+
 ## 机制
 
 吞吐的来源在算术强度：单条 decode 每读一遍权重只产一个 token，批内并发是唯一摊薄权重读取的手段（[解码的算术强度](/llm/arithmetic-intensity-decode)、[Decode 的显存墙](/llm/decode-memory-wall)）；所以 ITL 的地板是权重读取时间，批加大先摊薄地板、再撞算力墙，拐点见 [批大小与 roofline 拐点](/llm/batch-roofline-knee)。组批的艺术全在这个拐点之前，翻译成预算语言：预算给小了，decode 摊不薄权重，吞吐亏；给大了，步时延超预算，ITL 合同破。投机解码让「decode 先装」的代价不再恒定：接受 $k$ 个 token 的请求本步多算约 $k$ 倍，接受率高的批步时延更长、但产 token 更多——ITL 与吞吐要按接受长度联评（[投机解码原理](/llm/speculative-decoding)）。MoE 再叠一层：步时延取决于激活了哪些专家，批的构成影响负载，见 [MoE 推理批处理](/llm/moe-inference-batching)。

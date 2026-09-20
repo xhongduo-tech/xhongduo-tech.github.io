@@ -17,6 +17,10 @@ section: quant
 
 [Markowitz](/quant/markowitz) 的无约束解在估计误差面前是放大器——上一课的平坦谷底与顶点跳变就是症状。对策有两族：事后修输入（对 $\Sigma$ 收缩），事前修目标（加罚项或约束）。都不做，错法自然：误差被放大成角点仓位；反过来做歪了也错——把正则强度 $\lambda$ 当玄学，挑到样本内回测最亮为止，等于把多重检验从信号层原样搬到权重层，[多重检验与 p-hacking](/quant/multiple-testing-factors) 的账单照收不误。
 
+## 方法
+
+方法是把「不信任」逐层写进目标函数：权重层加罚、协方差层换估计、可行层加约束——三层的数学身份不同，起到的作用同源。每层给出代表文献与实现口径，约束与罚项的对偶关系留到机制一节对账。挑层的次序从便宜到贵：约束与收缩先上，稀疏罚按需再加；上一课的扰动验收在加了罚项之后照跑不误。
+
 ### 三层罚项
 
 罚在权重上：$\min_w\; w^\top\Sigma w-\gamma\,\mu^\top w+\lambda_2\lVert w\rVert_2^2+\lambda_1\lVert w\rVert_1$。$\ell_2$ 把解往等权方向收，$\ell_1$ 直接产生稀疏组合；Brodie 等（2009）把 $\ell_1$ 稀疏性同时读作正则与成本控制——持有的名字少了，监督与换手都轻。这个对照的极端是 $1/N$：DeMiguel、Garlappi 与 Uppal（2009）的系统比较显示，等权在样本外方差与夏普上常常不输优化组合——正则化不足的 Markowitz，输给最笨的正则。罚在协方差上：[Ledoit-Wolf 收缩](/quant/ledoit-wolf)把 $\Sigma$ 拉向结构化目标，是估计层的正则，[估计误差与收缩](/quant/cov-shrinkage)写了机制。罚在结构上：严格因子结构 $\Sigma=BFB^\top+\Delta$ 用低维载荷换掉满矩阵的自由度，选择逻辑见[因子协方差 vs 样本](/quant/factor-vs-sample-cov)。约束即正则：Jagannathan 与 Ma（2003）证明，非负约束在总体层面等价于对 $\Sigma$ 的一种收缩，「错误」的约束反而降低样本外方差——制度通过可行集完成了统计收缩，细节见[多空与多头约束](/quant/long-short-constraints)。
