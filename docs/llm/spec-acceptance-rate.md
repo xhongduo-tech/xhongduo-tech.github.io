@@ -35,6 +35,8 @@ $\alpha=1$ 时 $\mathbb{E}[L]=\gamma+1$。这是链拓扑、独立假设下的�
 
 <span class="marginnote">$\alpha$ 独立是分析用的。真实接受率沿深度下降，且与上下文相关——这正是 EAGLE-2 改动态树的理由。用常数 $\alpha$ 估加速比，只适合做数量级，不适合当 SLA。</span>
 
+<span class="marginnote">把数代进去看：$\alpha=0.7$、$\gamma=3$ 时，$\mathbb{E}[L]=(1-0.7^4)/(1-0.7)\approx 2.19$，不是直觉的 $0.7\times 4=2.8$。差距来自「在第一个拒绝处就停」——三个草稿全对的概率只有 $0.7^3\approx 34\%$，多数循环提前收工，只多拿一个纠正 token。</span>
+
 ## 方法
 
 把一次投机循环的墙钟写成 $T_{\mathrm{draft}}+T_{\mathrm{verify}}+T_{\mathrm{overhead}}$。链上草稿若比目标慢 $c$ 倍（$c\lt 1$ 表示草稿更便宜），常近似 $T_{\mathrm{draft}}\approx c\gamma\,T_{\mathrm{target\_step}}$，$T_{\mathrm{verify}}\approx T_{\mathrm{target\_step}}$（验证序列略长于 1，但仍是一次权重搬运）。于是加速比
@@ -67,7 +69,21 @@ flowchart LR
 
 不同提议器的 $\alpha$ 不可比。Medusa 远头条件独立，$\alpha$ 随深度掉得快，靠树宽度补。EAGLE 顺序特征外推，$\alpha$ 更深更稳。EAGLE-2 让局部 $\alpha$ 参与长树。Lookahead 的「接受」是 n-gram 命中，低熵域高、开放域低。V3 MTP 在 $D=1$ 时第二 token 接受率约 85%–90%，$\gamma$ 实质上是 1，报告约 1.8× TPS，与 $\mathbb{E}[L]\approx 1+\alpha$、草稿很便宜的图像一致，不能外推到 $\gamma=5$。
 
+```mermaid
+flowchart TD
+  Q["这一步验证值不值?"] --> W{"当前卡在哪面墙?"}
+  W -->|"小 batch 大模型"| M["内存墙: 瓶颈是搬权重"]
+  W -->|"大 batch GEMM 饱和"| C["计算墙: 瓶颈是算力"]
+  M --> G["每次搬运换回 E[L] 个 token, 大于 1 就有收益"]
+  C --> V["验证加宽要付算力, S 可能跌破 1"]
+  G --> D{"草稿够便宜吗? c 接近 0 最理想"}
+  D -->|"是"| OK["墙钟加速为正, 赚"]
+  D -->|"否"| BAD["草稿耗时吃掉收益, 白忙"]
+```
+
 <span class="marginnote">日志至少打四列：草稿/树节点数、提交长度、验证耗时、草稿耗时。只打「accept_rate」会把树宽度造成的变慢误诊成「接受率还行为什么不加速」。</span>
+
+<span class="marginnote">术语翻译：「内存墙」指 decode 每步只产出 1 个 token，瓶颈不在算，而在把几百 GB 的权重从显存搬进计算单元；「计算墙」才是算力打满。投机解码的本质，是用便宜的草稿计算去摊薄最贵的「搬权重」次数——所以小 batch 下最赚，大 batch 下几乎不赚。</span>
 
 ### 如何读各论文里的倍速
 
@@ -86,6 +102,8 @@ flowchart LR
 $\alpha$ 随层、随领域、随语言变。代码、JSON、重复模板偏高；开放闲聊偏低。混合流量里用全局 $\gamma$ 会在难请求上白付验证。EAGLE-2 式动态预算比固定 $\gamma$ 更适应这一点，但实现复杂。没有草稿的 Lookahead 不要套 $c\gamma+1$。
 
 <span class="marginnote">拒绝采样在草稿与目标温度不同时，$\alpha$ 会系统性偏离校准。A/B 实验必须锁采样配置。引用 Leviathan 公式时写独立假设；引用具体倍速时写论文、模型、任务，不写「投机解码一般 3 倍」。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 TPOT 变好，TTFT（首 token 延迟）也跟着变好。实际上投机解码只优化 decode 阶段逐 token 的节奏，首 token 仍要等预填完成才出现。测端到端响应时要把两段拆开看，否则会把收益记错账。</span>
 
 ## 小结
 

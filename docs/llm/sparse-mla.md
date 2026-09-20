@@ -17,6 +17,8 @@ section: llm
 
 稠密 MLA 的分数矩阵仍随上下文长度二次增长。长请求上，即使用了吸收后的 576/512 头宽，softmax 仍要扫全部潜向量。DSA 的论点是：判断「这格要不要」可以很便宜（小头、ReLU、FP8 indexer），真正的 MLA 只需在选中的 $k$ 条上做。若服务侧仍调用稠密 `flash_mla_with_kvcache`，indexer 白算，稀疏只存在于训练图。若先 gather 成不规则列表再走通用 FlashAttention，分页块连续加载被打散，带宽账作废。
 
+<span class="marginnote">直觉类比：indexer 像图书馆的检索卡片——先用一把便宜的小刷子把整面书架扫一遍，标出最像答案的 $k$ 本；真正的精读（大注意力的 576 维头）只翻这 $k$ 本，而不是把整面墙每本书都读一遍。</span>
+
 核要同时满足三件事：查询仍是 MLA 的 MQA 几何（常见 $d_k=576$、$d_v=512$）；KV 可以是 FP8 带尺度的打包布局；可见集合由 `indices` 给出，无效位为 $-1$。Prefill 与 decode 的访存形态不同，仓库因此拆成两套稀疏核，而不是一个 `sparse=True` 开关。
 
 ### 细粒度索引不是更碎的块稀疏
@@ -51,6 +53,17 @@ flowchart TD
 
 稀疏能省，是因为精确 softmax 的二次项从 $O(L^2)$ 落到 $O(Lk)$。Indexer 仍对过去长度二次扫描，但头数与维数小、走 FP8，常数远小于 MLA。端到端是否降费，取决于长度是否越过「indexer + gather 开销 $\lt$ 稠密 MLA」的交叉点。短前填可以用掩码 MHA 模拟 DSA，原文就承认：这时稀疏核可能更慢，因为多了一层间接。服务必须按长度分叉，而不是全长度强制 sparse。
 
+```mermaid
+flowchart TD
+  L["上下文长度 L"] --> DENSE["稠密 MLA：精读全部 L 条潜向量"]
+  L --> SPARSE["稀疏：indexer 小刷子扫全长 + 主注意力只读 k 条"]
+  SPARSE --> CROSS{"L 够大、k 远小于 L？"}
+  CROSS -->|"是"| WIN["省：主注意力从 O(L²) 缩到 O(Lk)"]
+  CROSS -->|"否，短序列"| LOSE["间接开销吃掉收益，走稠密"]
+```
+
+<span class="marginnote">数字实例：128K 上下文取 $k=2048$，主注意力读的可见条目只占全前缀的 $2048/131072\approx1.6\%$。indexer 虽仍扫全长，但它头小、维数低、走 FP8，扫一遍比 576 维 MLA 精读一遍便宜得多——整笔账能不能省，就看这两项的差。</span>
+
 FP8 KV 把反量化放到 CUDA Core，MMA 在 Tensor Core。稀疏 decode 的 dequant 可能比 MMA 还重，这是稠密 FlashMLA 用 CTA cluster 交叉共享内存要解决的问题；稀疏路径同样吃这条墙，只是装载集合变成 top-k 而不是全前缀。`indices` 里已经编码物理页，TMA 按条目去取，不再走稠密块表。错误的页号会静默读到别人的潜向量，比稠密越界更难查。
 
 <span class="marginnote">仓库把稀疏核与 DeepSeek-V3.2-Exp 绑在一起，日期 2025-09-29。不要写成「V3 默认 Sparse MLA」。V3 / V3.1 是稠密 MLA；DSA 从 V3.2 续训才进骨干。</span>
@@ -62,6 +75,8 @@ FP8 KV 把反量化放到 CUDA Core，MMA 在 Tensor Core。稀疏 decode 的 de
 ## 边界
 
 Sparse MLA 需要 SM90 或 SM100、足够新的 CUDA。稀疏 prefill 核无 batch 维，引擎要自己做变长拼接。Indexer 不在 FlashMLA 核里：漏跑 indexer、或把稠密分数当索引，top-k 集合无意义。$k$ 与页大小、FP8 打包必须与检查点一致。不要把 640 / 410 TFLOPS 抄成「DSA 让训练也 640」——那是推理核微基准。短序列走稠密模拟时，延迟对比必须声明长度，否则会得出「稀疏更慢」的假结论。
+
+<span class="marginnote">常见误区：拿 640 / 410 TFLOPS 当成「DSA 让端到端快了 N 倍」。这些是单核微基准的峰值，不含 indexer、变长拼接与调度；真实收益取决于按长度分叉的调度策略——短序列硬走稀疏，可能反而更慢。</span>
 
 ### 元数据与 MTP 的 $s_q$
 
