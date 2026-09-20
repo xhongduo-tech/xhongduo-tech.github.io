@@ -17,6 +17,8 @@ section: llm
 
 只有 NVLink、没有 Switch 时，拓扑往往是 GPU 之间的有限全连接或环：8 卡 HGX 靠底板把每张卡的链路接到其他卡或接到板上的 Switch。链路数不够时，最远一对要转发，All-Reduce 的最慢边拖住一步。NVSwitch 把「转发」收进交换芯片，软件看见的是对称域。问题变成：域有多大、每 GPU 注入带宽多少、域与 PCIe / 网卡如何并存。
 
+<span class="marginnote">直觉类比：没有交换的多卡像一排只能和邻座通电话的人——传话给远处要一张嘴接一张嘴，最远那对费时最长；NVSwitch 像给全屋装了对讲总机，谁呼谁都一步接通，软件也省掉了「谁挨着谁」的记路负担。</span>
+
 公开对照（NVIDIA 手册 / 产品页）：A100 第三代 NVLink 600 GB/s；H100 SXM 900 GB/s，H100 NVL 形态写 600 GB/s，不可混列；Blackwell 第五代 1.8 TB/s。PCIe Gen5 在 H100 产品页为 128 GB/s。NVLink-C2C 把 Grace 与 GPU 相连，技术博客写双向 900 GB/s，那是 CPU–GPU，不是 GPU–GPU 的第五代 1.8 TB/s。三组数字出现在同一 Superchip 上，规划时必须分开。
 
 ### 点对点、板上交换、柜级交换
@@ -28,6 +30,8 @@ section: llm
 ## 方法
 
 软件侧只做一件事：让最密的通信走 NVLink 域，而不是 PCIe 或网卡。NCCL 会查询拓扑；用户要保证进程绑定、`CUDA_VISIBLE_DEVICES`、以及并行网格与域一致。P2P 必须使能，否则拷贝绕道主机。`nvidia-smi topo -m` 上看 NVLink 连接；若两张本应在域内的卡之间显示走 PHB / PIX，先修 PCIe / 绑定，再谈算法。
+
+<span class="marginnote">术语翻译：P2P（点对点）指两张 GPU 不经过主机内存、直接互访对方显存的能力；关掉它，所有卡间拷贝都绕道主机。busbw 是 nccl-tests 报出的「总线带宽」，拿它和该代 NVLink 规格对表——差距大就说明路径不对。</span>
 
 ```mermaid
 flowchart LR
@@ -53,6 +57,18 @@ NVLink GPU–GPU：模型并行、域内 KV。NVLink-C2C：Grace 与 GPU 之间�
 
 NVLink 是专用 SerDes 与协议，面向 GPU 内存语义的短消息与块传输，走 NVSwitch 时在交换芯片内部交叉。协议细节以 NVIDIA 公开白皮书为准，本文不复述未公开的 flit 格式。对软件，机制体现为：`cudaMemcpyPeer` 与 NCCL 的 NVLink 路径不经过主机 DRAM；延迟按加速器互连计。NVSwitch 提供多端口交叉，使域的直径不随「邻居转发」变长。SHARP 一类网内归约若在某代 NVSwitch 上提供，那是交换侧的计算，不是 GPU Tensor Core；是否启用看该代文档，不要假设每一代 Switch 都有同样的网内归约。
 
+```mermaid
+flowchart TD
+  CP["一次 GPU 到 GPU 的 P2P 拷贝"] --> Q{"P2P 使能了吗？"}
+  Q -- "否" --> HOST["经主机 DRAM 中转：PCIe 两跳"]
+  HOST --> SLOW["TP 速度被打死"]
+  Q -- "是" --> SW{"域内有 NVSwitch？"}
+  SW -- "有" --> XF["交换芯片内交叉，平坦域直达"]
+  XF --> FAST["延迟按加速器互连计"]
+  SW -- "无：有限直连" --> FWD["邻居卡逐跳转发"]
+  FWD --> MID["All-Reduce 被最远一对拖住"]
+```
+
 代数上，A100 用更多链路堆出 600 GB/s，H100 再堆到 900 GB/s，Blackwell 把每 GPU 提到 1.8 TB/s。链路数与每条速率的拆分，以该代白皮书为准；产品页通常只给聚合。规划用聚合。域的扩展靠 Switch 端口：节点内几颗 Switch 芯片，机柜内九个托盘，是封装问题，对 CUDA 仍是 device 之间的 P2P。
 
 <span class="marginnote">「14× PCIe Gen5」是 NVIDIA 技术博客对 1.8 TB/s 相对 PCIe Gen5 的对照，用来建立量级，不是某一 kernel 的实测加速比。</span>
@@ -64,6 +80,8 @@ NVLink 是专用 SerDes 与协议，面向 GPU 内存语义的短消息与块传
 ## 边界
 
 不要把 H100 NVL 的 600 GB/s 写进 SXM 集群的规划。不要把 NVLink 聚合当成 HBM 带宽。不要期望 MIG 实例享有完整 GPU 的 NVLink 注入。不要在以太网集群上用「逻辑 NVLink」一类营销词去切 64 路 TP。不要填写 Rubin 或其他未在当前产品页给出聚合带宽的下一代数字。
+
+<span class="marginnote">常见误区：把 NVLink 的 1.8 TB/s 与 HBM 的几 TB/s 混为一谈。前者是卡与卡之间的走廊宽度，后者是卡内计算读自己显存的速度——两者不可加总，也互相替代不了。</span>
 
 PCIe 桥接的双卡 NVLink 与 HGX 全互连不是同一拓扑：前者只覆盖一对卡。买了桥不要当 8 卡域。其他厂商的 GPU 互连（Infinity Fabric、华为互连等）名称与带宽以各自文档为准，不能把 1.8 TB/s 抄过去。
 

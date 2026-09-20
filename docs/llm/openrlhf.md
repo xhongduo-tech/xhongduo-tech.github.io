@@ -17,7 +17,7 @@ section: llm
 
 PPO / [GRPO](/llm/grpo) / [RLVR](/llm/rlvr) 的墙钟里，生成常常占九成以上：每步要对上千条提示各吐数千 token，算术强度低，吃 KV 与连续批处理。训练阶段反过来要 ZeRO、梯度与优化器。把生成塞进训练图，会丢掉 PagedAttention；把反向塞进推理引擎，又没有分片优化器。TRL 与 DeepSpeed-Chat 能在中等规模跑通，但对「四套模型如何占 GPU」往往写死成共置：actor、ref、reward、critic 抢同一份显存，70B 必须靠 Offload 或砍并行度。工业栈如 NeMo-Aligner、verl 的 [HybridFlow](/llm/async-rollout-arch) 把并行与重切分做深，学习曲线也陡。
 
-第二问是长思维链。蒸馏后的 DeepSeek 系模型会把单条轨迹拉到 8K token 量级；同步批必须等最长序列结束，vLLM 的吞吐优势才会变成墙钟。OpenRLHF 的论文把「推理瓶颈」和「新手进不去工业框架」写成同一件产品问题，而不是再发明一种策略梯度。
+第二问是长思维链。蒸馏后的 DeepSeek 系模型会把单条轨迹拉到 8K token 量级；同步批必须等最长序列结束，vLLM 的吞吐优势才会变成墙钟。OpenRLHF 的论文把「推理瓶颈」和「新手进不去工业框架」写成同一件产品问题，而不是再发明一种策略梯度。<span class="marginnote">rollout 就是「让当前模型实际生成一批回答」的过程，好比棋手在脑内把每步棋都推演一遍。RLHF 每轮都要先 rollout 上千条回答、打分，再拿这些真实生成去更新策略——整个循环慢，就是因为这一步要一个 token 一个 token 地往外吐。</span>
 
 ### 共置四模型为什么在 70B 失效
 
@@ -29,7 +29,7 @@ PPO / [GRPO](/llm/grpo) / [RLVR](/llm/rlvr) 的墙钟里，生成常常占九成
 
 系统把 GPU 分成两类角色。**Rollout engine** 用 vLLM 做响应生成：PagedAttention、continuous batching、前缀缓存，显存浪费可以压到个位数百分比量级（Kwon 等 SOSP 2023 报 KV 浪费低于 4%）。**Actor / ZeRO engine** 用 HuggingFace Transformers 实例化模型，DeepSpeed ZeRO 做数据并行，AutoTP 自动注入张量并行，环注意力做序列并行，合称论文里的「3D」。权重在两边之间切分传递：训练侧的 ZeRO 切片经 AutoTP / AutoPP 再切给 vLLM。Ray 负责工作流与数据面，而不是让用户手写 NCCL 拓扑。
 
-算法层它实现 RLHF PPO、[DPO](/llm/rafailov-dpo)、拒绝采样、奖励模型与过程奖励，后续仓库还接了 GRPO 与 [DAPO](/llm/dapo)。论文实验主表用 DAPO、损失取 $k_2$，基座是 DeepSeek 蒸馏的 Qwen 系列，8×H200 140GB，最大输入 1024，生成长度扫 1K–8K，local batch 1 以免 OOM。相对 verl 的逐步墙钟几何平均加速：1.5B 约 **1.22×**，7B 约 **1.42×**，14B 约 **1.68×**；14B-8K 为 328.6s 对 511.1s。GSM8K 上同一套 GRPO 超参，OpenRLHF 一个 epoch 1657s，优化后的 TRL 5189s，约 **3.1×**。PPO 微调 1024 条提示一个 epoch：236.8s 对 DeepSpeed-Chat 的 855s，约 **3.6×**。这些倍数钉在文中硬件、版本与配方，不是跨年定律。
+算法层它实现 RLHF PPO、[DPO](/llm/rafailov-dpo)、拒绝采样、奖励模型与过程奖励，后续仓库还接了 GRPO 与 [DAPO](/llm/dapo)。论文实验主表用 DAPO、损失取 $k_2$，基座是 DeepSeek 蒸馏的 Qwen 系列，8×H200 140GB，最大输入 1024，生成长度扫 1K–8K，local batch 1 以免 OOM。相对 verl 的逐步墙钟几何平均加速：1.5B 约 **1.22×**，7B 约 **1.42×**，14B 约 **1.68×**；14B-8K 为 328.6s 对 511.1s。GSM8K 上同一套 GRPO 超参，OpenRLHF 一个 epoch 1657s，优化后的 TRL 5189s，约 **3.1×**。PPO 微调 1024 条提示一个 epoch：236.8s 对 DeepSpeed-Chat 的 855s，约 **3.6×**。这些倍数钉在文中硬件、版本与配方，不是跨年定律。<span class="marginnote">14B-8K 一步 328.6 秒对 511.1 秒，单步省约 3 分钟；一次 RLHF 要跑成百上千步，折算下来就是数天的机时差。这也是长 CoT 时代框架对比都报「每步墙钟」的原因——算法一样，墙钟差距直接等于实验吞吐。</span>
 
 ```mermaid
 flowchart LR
@@ -50,9 +50,19 @@ flowchart LR
 
 Ray 降低的是**控制面**复杂度：每个角色是 actor，placement group 声明卡数，工作流在驱动进程里读起来像单机脚本。真正吃吞吐的是 vLLM 的解码核与 ZeRO-3 的 All-Gather。论文强调 DeepSpeed 新版 AutoTP：不再为每个 HuggingFace 结构手写 injection policy，运行时自动找线性层与注意力输出。环注意力把长序列的注意力算力沿环切开，对 8K 生成比「只加 TP」更贴长 CoT。
 
-生成与训练的并行策略通常不一致。训练要大 micro-batch 与激活检查点；生成要大 decode batch 与 KV。OpenRLHF 用切片管道在两种布局间搬权重，而不是像 HybridFlow 的 3D-HybridEngine 那样追求零冗余原地重切分。换来的是实现短、对接 HF 模型快；换不来的是跨机广播的带宽税。集群若把 rollout 与训练分到不同节点，权重同步会成为新的临界区——异步设计能把这段从「等整批生成结束」里挪开，但不能消灭通信本身。
+生成与训练的并行策略通常不一致。训练要大 micro-batch 与激活检查点；生成要大 decode batch 与 KV。OpenRLHF 用切片管道在两种布局间搬权重，而不是像 HybridFlow 的 3D-HybridEngine 那样追求零冗余原地重切分。换来的是实现短、对接 HF 模型快；换不来的是跨机广播的带宽税。集群若把 rollout 与训练分到不同节点，权重同步会成为新的临界区——异步设计能把这段从「等整批生成结束」里挪开，但不能消灭通信本身。<span class="marginnote">异步带来的「版本差」可以用过刊类比：训练正在更新第 100 版策略时，缓冲区里可能还躺着第 97 版生成的旧回答。重要性采样就是给旧回答乘一个「折旧系数」来估算它在新策略下的价值；不设 staleness 上限，旧数据攒多了梯度方向就会失真。</span>
 
 ### 对照表必须连着任务读
+
+```mermaid
+flowchart TD
+  CO["共置：四套模型挤同一组 GPU"] --> C1["峰值显存≈四模型相加"]
+  C1 --> C2["70B 需要 Offload 或砍并行度"]
+  SP["分角色：Ray placement group 切卡"] --> S1["部分卡专跑 vLLM rollout"]
+  SP --> S2["其余卡跑 ZeRO 训练与反向"]
+  S1 --> W["权重切片在两类角色间传递"]
+  S2 --> W
+```
 
 长 CoT 表比的是逐步训练时间，不是 GSM8K 准确率。GSM8K / PPO 两条是另一套短上下文配方，用来打 TRL 与 DeepSpeed-Chat。把 3.1× 写进「14B 长链也快三倍」是口径错误。同样，论文承认自己作为社区项目可能追不上有专职团队的工业框架峰值，也不支持视觉-语言模型；依赖 Ray / vLLM / DeepSpeed 的版本耦合是维护税。
 

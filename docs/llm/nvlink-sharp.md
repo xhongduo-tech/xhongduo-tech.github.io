@@ -17,6 +17,8 @@ section: llm
 
 宽 TP 的每一层都有激活或梯度的 All-Reduce。72 卡域上，若仍用纯环，字节在环上走多跳，延迟随参与者涨。若用树，根附近链路过热，且同一加数被搬运多次。GPU 本可以去做 GEMM，却在为集体通信跑归约核、占 HBM 带宽。SHARP 要回答的问题是：归约这种可结合运算，能否在交换端口上做掉，让 GPU 只看见「已经加好的结果」。
 
+<span class="marginnote">直觉类比：All-Reduce 像四个班各算出本班平均分，最后每班都要拿到四班汇总结果。老办法是四份成绩单互相寄来寄去、各自再算一遍；SHARP 像教务处在收发室顺手把四份加好，再发回每班一份总表——寄的份数少了，各班也不用占用上课时间重算。</span>
+
 不是所有集体操作都能同样卸载。All-to-All 是置换，没有可加的中间结果，SHARP 帮不上 MoE 路由的主体——那要靠 NVLink 6 的全互连带宽。All-Reduce / Reduce-Scatter / All-Gather 这类带归约或复制结构的，才是网内计算的对象。把 SHARP 写成「所有 NCCL 调用都加速」会在 EP 规划上误判。
 
 ### 端上归约与网上归约
@@ -28,6 +30,8 @@ section: llm
 ## 方法
 
 打开路径的是通信库，不是模型代码里的一行注解。NCCL 在探测到 NVLink 交换支持 SHARP 时，可为合格的集体操作选择网内算法。作业仍提交同样的 `ncclAllReduce`；差别在协议是否把部分 chunk 标成「请交换机加」。精度必须是交换能算的格式：公开材料点名 FP8 网内计算与每交换托盘的 TFLOPS 规格。训练若梯度仍是 BF16 / FP32，能否走 SHARP、是否先量化再归约，以当时 NCCL 与平台文档为准，不要假设「有 SHARP 就一定用训练精度在交换里加」。
+
+<span class="marginnote">术语翻译：NCCL 是 NVIDIA 的集体通信库，`ncclAllReduce` 就是调一次 All-Reduce。「网内算法」指 NCCL 发现交换机会做加法之后，把一部分加法活儿标记成「请交换机代劳」，GPU 只管收结果。</span>
 
 拓扑上，SHARP 只覆盖它能看见的交换域。NVL72 域内的 TP 组是主场。跨柜 All-Reduce 若走 InfiniBand SHARP，那是另一代交换机上的另一段协议，数字不可与 NVLink 托盘的 14.4 TFLOPS FP8 混加。层次化集体通信仍然成立：域内可 SHARP，域间再走 IB。
 
@@ -51,6 +55,20 @@ flowchart TD
 
 树的内部节点在交换芯片上，而不在某张「根 GPU」上。于是根 GPU 不再成为 HBM 热点，这也是网上归约除了减字节之外的第二个好处。失败模式是：交换算术与 GPU 算术的精度协议不一致，导致与纯 GPU All-Reduce 的 bit 不一致。确定性训练、需要逐 bit 复现的调试，应能关闭 SHARP 对照。
 
+```mermaid
+flowchart TD
+  subgraph END["端上归约：加在 GPU 上"]
+    A1["各方发完整向量给根/对端"] --> A2["GPU 跑归约核做加"]
+    A2 --> A3["同一加数被搬运多次"]
+    A3 --> A4["根 GPU 成为 HBM 热点"]
+  end
+  subgraph NET["网上归约：SHARP"]
+    B1["各方只发一次部分和到交换"] --> B2["交换端口做 FP8 加"]
+    B2 --> B3["向下只转发部分和"]
+    B3 --> B4["重复搬运减少，根热点消失"]
+  end
+```
+
 <span class="marginnote">「最多 50% 流量、最多 20% TP 时间」出自 NVIDIA 对 NVLink 6 SHARP 的公开表述，并附带依赖条件。容量规划把它们当成上界提示，用 nccl-tests 与真实层形状自己测。不要把 20% 写进 SLA。</span>
 
 ### InfiniBand SHARP 与 NVLink SHARP
@@ -60,6 +78,8 @@ IB 交换机上的 SHARP 服务 Scale-Out：数据并行、跨柜树。NVLink SH
 ## 边界
 
 不要对 All-to-All 指望 SHARP。不要在没有 NVLink 6 交换的 8 卡 PCIe 箱上假设网内 FP8 归约。不要把交换托盘的 14.4 TFLOPS 加进模型 FLOPS 去报 MFU。数值上，FP8 归约有缩放与饱和问题，与 Transformer Engine 的 FP8 配方不是自动同一套。关闭 SHARP 必须作为运行时可选项，供数值对照与故障隔离。
+
+<span class="marginnote">常见误区：把「流量最多减半」读成「TP 快一倍」。省的是搬运字节，而通信时间常常只是一步里的一小段；对交换侧 FP8 加法的数值差异敏感时，还要能关掉 SHARP 做对照——它是优化项，不是免费午餐。</span>
 
 昇腾等平台的网内集合若存在，以各自文档为准，不能抄 SHARP 这个缩写的百分比。检查点与存储流量不要进 SHARP 路径。
 

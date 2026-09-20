@@ -25,6 +25,10 @@ CodeAct 让模型直接写代码当动作：开文件、打补丁、跑测试、
 
 <span class="marginnote">CodeAct 来自同一作者线的前作：用可执行代码统一工具调用，而不是为每个 API 写 JSON schema。OpenHands 把它落到软件工程运行时。不要与「写代码的模型」混名：这里代码是动作，不是最终交付物本身（交付物往往也是代码）。</span>
 
+<span class="marginnote">术语翻译：CodeAct 就是把「代理的每一步动作」直接写成一段可执行代码——想查文件就写 `grep`，想改配置就写几行 Python，而不是为每个操作预定义一个带 JSON 参数的「工具」。ACI（agent–computer interface）则是更广的概念：代理与计算机打交道的那层接口怎么设计，命令表、观察格式都算。</span>
+
+<span class="marginnote">直觉类比：事件流像飞机的黑匣子加会议纪要——每条命令、每段输出、每次用户插话都按时间顺序记成一条事件。回放调试看它，模型决定下一步也读它，评测打分还是对它。唯一事实来源的意思是：没有第二本账，谁也不能事后声称「我当时不是这么做的」。</span>
+
 ## 方法
 
 核心循环：任务进入 → 代理根据事件流历史决定下一条动作（消息给用户、执行 IPython、执行 shell、浏览 URL 等）→ 运行时执行 → 结果作为事件追加 → 直到完成、中止或步数上限。事件流是唯一事实来源：文件差异、命令输出、用户插入的补充说明，都是事件，便于回放与评测。运行时默认容器化，仓库挂到工作目录；测试与安装发生在容器内，避免污染宿主机。
@@ -53,6 +57,24 @@ flowchart TD
 ### 与 SWE-agent、Aider 的接口哲学
 
 SWE-agent：小命令集、观察为 LM 特制，自变量是 ACI。OpenHands：大表达空间、平台可插拔，自变量是事件流 + 运行时。Aider：人在回路、git 提交为节奏，地图检索减 token。OpenHands 可以跑全自动评测，也可以做成交互式；默认叙事偏研究平台与开源 Devin 替代。选接口等于选失败形态：ACI 失败是命令不够用，CodeAct 失败是代码动作本身有 bug。
+
+```mermaid
+flowchart TD
+  subgraph SWA["SWE-agent：小命令表"]
+    S1["固定命令集 + 特制观察"] --> S2["失败形态：命令不够用"]
+  end
+  subgraph OH["OpenHands：CodeAct"]
+    O1["模型写代码当动作"] --> O2["失败形态：代码本身有 bug"]
+  end
+  subgraph AID["Aider：人在回路"]
+    A1["人审 + git 小步提交"] --> A2["失败形态：节奏依赖人"]
+  end
+  S2 --> LES["选接口 = 选失败形态"]
+  O2 --> LES
+  A2 --> LES
+```
+
+<span class="marginnote">这张图回答的问题是：三家工具的分工到底差在哪一环。常见误区是拿「谁的 resolved 率高」一概而论——SWE-agent 输在表达力、OpenHands 输在动作自由度、Aider 根本不追求全自动，三者的失败形态不同，适合的任务与人的介入程度也不同。</span>
 
 <span class="marginnote">沙箱网络默认应关或白名单。代理编码需要 pip install 时，应走项目规定的依赖源，而不是让模型随便拉包。配置错误把工作目录指到宿主机根路径，平台抽象帮不上忙——这是运维合同。</span>
 

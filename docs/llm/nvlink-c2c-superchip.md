@@ -86,6 +86,8 @@ flowchart TD
 
 不要在 PCIe 独显工作站上假设 C2C。不要把 1.8 TB/s 抄进卡间 TP 的规划——TP 走 NVLink 6。不要为未公开的 cache line 协议、目录项数目编造数字。x86 + GPU 的 UVA / HMM 是另一套一致性，延迟与带宽不能用 Vera 的表去估。
 
+<span class="marginnote">常见误区：把「统一地址空间」听成「统一速度」。指针能到不等于快——CPU 侧 `malloc` 的大缓冲，GPU 扫它走的是 C2C 屋顶线而非 HBM；不做预取的 decode 每步都在 1.8 TB/s 上随机读，常常不如先把热块搬回 HBM 再算。</span>
+
 超芯增大了故障耦合：CPU 或 C2C 故障影响这对 GPU 的数据引擎，而不只是「少一个网卡」。NVL72 的 RAS 与热插拔以托盘文档为准。多模型共驻时，一致性池会被吵闹邻居污染；要用显式配额，而不是依赖「反正都能看见」。tokenizer、采样与工具返回值可以留在 Vera 侧就近写进一致性缓冲，再由 GPU 以指针消费，这比先落到主机页缓存再经 PCIe 上传更接近超芯的设计意图。若框架仍走「CPU 序列化成字节、GPU 再反序列化」，一致性链路就被降级成了昂贵的拷贝管道。公开路线图若调整超芯配比（例如一 CPU 对几 GPU），以当时 NVIDIA 系统文档为准，不要把 1+2 写成永久物理定律。
 
 <span class="marginnote">出处：NVIDIA Vera Rubin 六芯片博客中的 NVLink-C2C 表与 superchip 节；Rubin GPU 博客中 1800 GB/s CPU–GPU 与 3600 GB/s GPU–GPU 的并列。超芯组成以官方「two Rubin GPUs with one Vera CPU」为准。</span>

@@ -19,6 +19,8 @@ section: llm
 
 第二个问题是评测污染。公开数据上做困惑度，若不显式对评测集去污，会系统性低估困惑度。OLMo-7B 被写成当时最大的、为困惑度评测做过段落级去污的模型之一。
 
+<span class="marginnote">常见误区：以为评测污染只是「背过答案」。更常见的是背过整段文本——模型在预训练语料里见过评测集的段落，困惑度被系统性低估、选择题靠记忆答对。去污要做段落级 n-gram 匹配，文档级查重挡不住这种泄漏。</span>
+
 ### 7B 四变体，不是一个检查点
 
 报告交付：7B 四个变体（不同架构细节、优化器、训练硬件）加一个 1B，全部至少 2T token；Hugging Face 上数百个中间修订。7B 主评估点训到 **2.46T** Dolma，再在 Dolma 上 1000 步把学习率线性收到 0，以抬困惑度与下游。优化器一律 AdamW，$\beta=(0.9,0.95)$，$\epsilon=10^{-5}$。表：1B 为 16 层、$d=2048$、16 头、峰值学习率 $4\times 10^{-4}$、预热 2000 步、绑嵌入、batch 约 4M token；7B 为 32 层、$d=4096$、32 头、2.46T、$3\times 10^{-4}$、预热 5000、不绑嵌入。序列长度 **2048**。词表改自 GPT-NeoX-20B BPE，加 PII 掩码符，**50280**，嵌入矩阵垫到 50304 以对齐 128。
@@ -32,6 +34,8 @@ section: llm
 ### Dolma：按源分开的 2.7T
 
 Dolma 管线：语言过滤、质量过滤、内容过滤、去重、多源混合、分词。报告 Table 2（GPT-NeoX 计）：Common Crawl 网页约 2.18T token，GitHub 代码约 342B，Reddit 约 80B，Semantic Scholar 约 57B，Gutenberg 约 5.2B，Wikipedia 约 3.7B，合计约 **2.67T token** / 4.37B 文档。各源在清洗与最终发布里保持分开，便于做「去掉某一源会怎样」。配套开源造数工具与 WIMBD 分析。适配走 Open Instruct / [Tülu](/llm/tulu)：先指令 SFT，再 DPO。评测：Catwalk 做下游，Paloma 做 585 个域的困惑度；核心零样本套件对齐 Llama 2 文里的常识推理八任务。
+
+<span class="marginnote">数字实例：Dolma 约 2.67T token 里 Common Crawl 占约 2.18T——超过八成；GitHub 342B、Reddit 80B，而 Wikipedia 只有 3.7B。「万亿语料」的主食其实是网页，高质量策展源只是配菜，这正是「去掉某一源会怎样」消融有意义的原因。</span>
 
 ```mermaid
 flowchart TD
@@ -49,6 +53,19 @@ flowchart TD
 「真正开放」的机制不是多一个激活函数，而是让外部能问：MMLU 这一分是 Common Crawl 过滤、是 2.46T 之后的 1000 步退火，还是某一硬件变体的优化器。四份 7B 变体把架构 / 优化器 / 硬件拆开，避免把一次成功跑当成唯一配方。非参数 LN 去掉仿射，减少再引入一组易炸的增益；无 bias 是当时防尖峰的社区共识。SwiGLU 与 RoPE 则是跟 Llama / PaLM 对齐，降低「因为激活函数不同而无法对照」的噪声。
 
 在线评测每 4B token 给一次下游信号，使数据混合与学习率可以在训练中途改，而不是训完才发现常识任务不动。Paloma 去污把「在训练里见过评测段落」从困惑度优势里拿掉，这样和 Pythia、RPJ-INCITE 等比的是拟合新域的能力。中间检查点让「能力何时出现」变成可画的曲线，而不只是最终一个点。
+
+```mermaid
+flowchart TD
+  SCORE["观测到某个下游分数"] --> Q{"贡献来自哪个旋钮?"}
+  Q --> MIX["数据混合: 去掉某源重训对照"]
+  Q --> ANNEAL["2.46T 后的 1000 步退火"]
+  Q --> VAR["架构 / 优化器 / 硬件四变体"]
+  MIX --> EV["每条归因都有公开证据链"]
+  ANNEAL --> EV
+  VAR --> EV
+```
+
+<span class="marginnote">直觉类比：在线评测像开车时的仪表盘——每 4B token 看一眼常识任务读数，发现不对可在中途改数据混合或学习率；不开仪表盘的训练是蒙眼开到终点才发现走错路，而那时几百万美元的算力已经花完。</span>
 
 <span class="marginnote">代码与权重 Apache 2.0。Dolma 各源许可证并不自动等于 Apache：混合里若有更严条款，下游商用要按成分读。报告自己把框架许可写成 Apache，数据要另查 Dolma 文档。</span>
 

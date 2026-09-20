@@ -27,7 +27,7 @@ R1 报告给出了骨架：R1-Zero 在基座上直接 GRPO，奖励主要是答�
 
 ## 方法
 
-蒸馏侧，2025 年 2 月 10 日的 Update #2 发布 **OpenR1-Math-220k**。合作方是 Numina，题干来自改进后的 NuminaMath 1.5。他们对约 40 万题用 DeepSeek-R1 各生成至少两条解答（合计约 80 万条轨迹），本地 512×H100，先 vLLM 后切 SGLang，博文给出大约每卡每小时 15→25 条、集群上每天约 18 万到 30 万条的吞吐。提示沿用模型卡：逐步推理，最终答案放进 `\boxed{}`，单条上限 16k token——他们观察到约 75% 的题在 8k 内能写完，其余常常吃满 16k。过滤用 Math-Verify 规则解析，只留「至少一条答案对」的题；对规则解析失败但格式完整的子集，再用 Llama-3.3-70B-Instruct 做等价判定，救回约 2.8 万题。最终约 22 万题带已核验轨迹。拆成 `default`（约 9.4 万，SFT 最好）与 `extended`（约 13.1 万，混入更多 `cn_k12`，他们发现 SFT 后更差，归因于题更简单）。未过滤原文在 `OpenR1-Math-Raw`。
+蒸馏侧，2025 年 2 月 10 日的 Update #2 发布 **OpenR1-Math-220k**。合作方是 Numina，题干来自改进后的 NuminaMath 1.5。他们对约 40 万题用 DeepSeek-R1 各生成至少两条解答（合计约 80 万条轨迹），本地 512×H100，先 vLLM 后切 SGLang，博文给出大约每卡每小时 15→25 条、集群上每天约 18 万到 30 万条的吞吐。提示沿用模型卡：逐步推理，最终答案放进 `\boxed{}`，单条上限 16k token——他们观察到约 75% 的题在 8k 内能写完，其余常常吃满 16k。过滤用 Math-Verify 规则解析，只留「至少一条答案对」的题；对规则解析失败但格式完整的子集，再用 Llama-3.3-70B-Instruct 做等价判定，救回约 2.8 万题。最终约 22 万题带已核验轨迹。拆成 `default`（约 9.4 万，SFT 最好）与 `extended`（约 13.1 万，混入更多 `cn_k12`，他们发现 SFT 后更差，归因于题更简单）。未过滤原文在 `OpenR1-Math-Raw`。<span class="marginnote">算一笔账：约 40 万题 × 每题至少 2 条 = 约 80 万条轨迹；过滤后只剩 22 万题的合格版本，差不多每 3.6 条原始轨迹才留下 1 份。用 512 张 H100 连跑数天只为生成再筛掉七成——这就是「拒绝采样式蒸馏」的算力代价。</span>
 
 他们用 `default` 对 Qwen2.5-Math-Instruct 做 3 epoch SFT，学习率 $5\times 10^{-5}$，线性日程、10% warmup，并把 RoPE 频率提到 30 万以把上下文从 4k 拉到 32k，得到 OpenR1-Qwen-7B。用 lighteval 对照：MATH-500 上 DeepSeek-Distill-Qwen-7B 91.6、OpenR1-Qwen-7B 90.6、OpenThinker-7B 89.6；AIME24 为 43.3 / 36.7 / 30.0；AIME25 为 40 / 40 / 33.3。声明是「匹配同尺寸蒸馏球」，不是超过官方 Distill。对同一题多条正确轨迹，他们试过只用 Qwen2.5-Math-RM-72B 对**抽出的最终答案**打分再取 top-1，消融显示并不比随机抽一条正确轨迹更好——过程信息被丢掉了。
 
@@ -47,13 +47,25 @@ flowchart TD
 
 `src/open_r1/sft.py` 包 TRL 的 `SFTTrainer`：ZeRO-3、bf16、梯度检查点、可选 Liger kernel。README 示例用 `open-r1/Mixture-of-Thoughts`、最大长度 32768、学习率 $4\times 10^{-5}$、5 epoch。配方目录按「模型名 / 任务 / 变体」放 YAML，例如 `recipes/OpenR1-Distill-7B/sft/config_distill.yaml`。GRPO 脚本把 `get_reward_funcs` 的列表交给 `GRPOTrainer`，生成走 TRL 的 vLLM 后端：单机小模型用 `vllm_mode=colocate`；多机则 `trl vllm-serve` 把生成节点与训练节点拆开。组大小在配方里常见 16（数学）量级，补全可到数万 token，温度与 top-p 按 YAML，不要把 DeepSeekMath 原文的 $G=64$、最大 1024 直接抄过来——那是另一篇论文的设定。
 
-`rewards.py` 的注册表把「可验证」写成可加权的多项：`accuracy` 解析答案；`format` / `tag_count` 约束思维标签；`reasoning_steps` 鼓励步骤结构；`cosine` 与 `length`、`soft_overlong_punishment` 管长度；代码路径有 `code`、`binary_code`、`ioi_code`、`cf_code`，经 E2B 或 Morph 一类沙箱执行。这是 Open-R1 相对报告最工程化的补充：奖励是函数注册，不是再训一张人类偏好 RM。诗歌等不可验证域有社区尝试，不在官方主配方里。
+`rewards.py` 的注册表把「可验证」写成可加权的多项：`accuracy` 解析答案；`format` / `tag_count` 约束思维标签；`reasoning_steps` 鼓励步骤结构；`cosine` 与 `length`、`soft_overlong_punishment` 管长度；代码路径有 `code`、`binary_code`、`ioi_code`、`cf_code`，经 E2B 或 Morph 一类沙箱执行。这是 Open-R1 相对报告最工程化的补充：奖励是函数注册，不是再训一张人类偏好 RM。诗歌等不可验证域有社区尝试，不在官方主配方里。<span class="marginnote">「可验证奖励」就是答案能被程序判对错的奖励：数学题比对 `\boxed{}` 里的最终结果，代码题跑单元测试看是否全绿。它不训练一个会打分的神经网络裁判，因此不容易被「迎合裁判口味」钻空子——前提是题目确实有唯一、可机判的答案。</span>
 
 ## 机制
 
 蒸馏的机制与 R1 报告一致：教师已经会写长链，学生做 next-token 模仿，把「先写草稿再给 boxed 答案」的模板内化。Open-R1 多做的是**可机检过滤**：错链不进 SFT，避免学生模仿漂亮的错误证明。LLM 裁判只处理规则解析失败的格式问题，主信号仍是 Math-Verify。因此数据集质量绑定解析器版本（他们建议 Math-Verify 0.5.2）与金标质量；Numina 金标空或不可解析的题，再强的教师也进不了 `default`。
 
 GRPO 路径的机制是在线组相对：同一题采多条，用规则分数的组内标准化当优势，KL 按 TRL 实现加在目标上。没有 critic，显存才能把 vLLM 生成和策略更新放在同一作业里。奖励加权是产品决策：只留 `accuracy` 会忽视格式，模型可能答对但不按标签结束思维；只留 `format` 会刷标签。代码奖励把「单测是否绿」当成结果监督，与数学 boxed 等价，过程是否作弊（硬编码、改测试）要靠沙箱策略，仓库不能单凭分数证明没有黑客。
+
+```mermaid
+flowchart TD
+  P["同一道数学题"] --> S["采样一组补全（常见 G=16）"]
+  S --> R["规则奖励打分：答案 / 格式 / 长度"]
+  R --> M["组内求均值与标准差"]
+  M --> ADV["优势 = 偏离均值的程度"]
+  ADV --> UP["高于均值加强，低于均值抑制"]
+  UP --> KL["KL 拉住策略别偏离太远"]
+```
+
+<span class="marginnote">初学者容易把 GRPO 的「组内基线」当成一个 critic 价值网络。实际上没有额外的网络：同一题采 16 条回答，用这 16 条奖励的平均值当基线，比平均高就给正优势、低就给负优势。省掉 critic 正是把 vLLM 生成和训练塞进同一作业、显存才够用的原因。</span>
 
 <span class="marginnote">在已蒸馏的检查点上再 GRPO，和在基座上 GRPO，不是同一个实验。前者检验「模板已在、用可验证奖励拧正确率」；后者检验 R1-Zero 命题。Open-R1 同时提供两条入口，写结果时必须写清起点检查点。</span>
 

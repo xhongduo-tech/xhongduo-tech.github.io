@@ -17,11 +17,15 @@ section: llm
 
 张量并行的 decode 每步都要 All-Reduce 一小块激活；MoE decode 每步都要路由一小批 token。若每次都是「计算核结束 → 独立的 NCCL 核 → 再启动计算核」，启动与同步开销会压过负载本身。Blackwell 已有把通信融进核、以及 programmatic dependent launch 一类重叠。Rubin 要补的是互连侧的完成语义：设备发起的写，接收者如何知道「这 8 块都到了」而不走重旗标握手。
 
+<span class="marginnote">术语翻译：CTA 可以粗略理解为「GPU 上一小组并肩干活的线程」；「核内融合通信」就是把原本单独调一次通信库的动作，改写成计算核里的一段——算完一块立刻发出去，整颗 GPU 不必停下来换核。</span>
+
 没有 cheap 的完成通知，融合核只能保守地等更粗的 barrier，气泡回到时间线上。有了计数写，生产者可以对同一计数器累加，消费者看到计数达标再消费。公开博客配图把这条路径称为 counted writes；本篇按该语义写，不编造计数器位宽、是否在交换芯片上实现、或未公布的指令助记符。
 
 ### 旗标握手为什么贵
 
 旗标路径至少两次往返语义：数据写、旗标写、对端可见性、可能的应答。小消息上，旗标与数据争用同一条 NVLink，同步流量占比高。核内融合时，发端 CTA 还在算下一 tile，收端 CTA 空等旗标，SM 利用率掉下去。Counted writes 把「N 次写完成」收成一个单调计数，消费者只盯一个位置。这与 CPU 上的 completion count、RDMA 上的即时完成队列是同一类想法，只是落在 NVLink 的设备发起路径上。
+
+<span class="marginnote">直觉类比：旗标握手像每寄一份快递都打电话问「到了吗」，收件人守在门口干等；counted writes 像收件台挂一块计数板——每到一件自动加一，收件人瞄一眼「8/8」就直接开箱，一个电话都不用打。</span>
 
 <span class="marginnote">Counted writes 不是 SHARP。SHARP 在交换里做归约运算，见 [SHARP](/llm/nvlink-sharp)。Counted writes 解决的是点对点或核内发出的写如何宣告完成。二者可以出现在同一次融合 All-Reduce 里：交换做加，计数做「这一轮到齐」。</span>
 
@@ -49,6 +53,22 @@ flowchart LR
 
 融合通信把集体算法从「库核」拆进「用户核」。All-Reduce 可以变成：本地 tile 归约 → 写邻居 → 等计数 → 再算。环与树仍然存在，只是推进单位从整核变成 tile。消息很小时，计数本身仍有开销；优势出现在「本来就要写数据、顺便更新计数」而不是「数据很小、同步很大」。因此它首先服务高频、中小块、必须在关键路径上的 decode / MoE 路由，而不是一次几百 MB 的检查点。
 
+```mermaid
+flowchart TD
+  subgraph OLD["传统路径：整核屏障"]
+    K1["计算核写完激活"] --> X1["核结束，控制交回 CPU"]
+    X1 --> X2["启动独立 NCCL 核做 All-Reduce"]
+    X2 --> X3["再启动下一个计算核"]
+    X3 --> BUB["启动与同步开销压成气泡"]
+  end
+  subgraph FUSED["融合路径：tile 级生产者-消费者"]
+    K2["计算核产出 tile"] --> X4["边算边经 NVLink 写对端"]
+    X4 --> X5["counted write 更新接收计数"]
+    X5 --> X6["对端计数达标即读即算"]
+    X6 --> K2
+  end
+```
+
 <span class="marginnote">公开材料没有给出 counted writes 相对旗标握手的微秒表。收益应写成「降低同步流量、缩短融合核气泡」，并用自己的核级 profiler 验证。把博客示意图上的「8」当成硬件限额没有依据。</span>
 
 ### 失败与调试
@@ -60,6 +80,8 @@ flowchart LR
 不要在没有 Rubin NVLink 6 的机器上假设同一完成语义。不要把 CPU 发起的 `cudaMemcpy` 叫做 counted writes。不要为未公开的 PTX 写「示例 exploit 式」的手写同步。训练的大块梯度 All-Reduce 仍可能以库级 NCCL + [SHARP](/llm/nvlink-sharp) 更合适：消息大，启动开销被摊掉，融合的复杂度不值得。
 
 decode 服务若 TP 度很高、每步只有很小的激活，counted writes 才是一阶；TP=1 的单卡副本根本走不到这条路径。规划时应先问并行网格，再问是否值得等通信库的融合实现。
+
+<span class="marginnote">常见误区：把 counted writes 当成「提升带宽的技术」。它降的是同步开销与气泡——1 个字节该走多久还是走多久；TP=1 或消息大到启动开销可摊掉的大块同步，用它没有一阶收益。</span>
 
 <span class="marginnote">出处：NVIDIA *Inside NVIDIA Rubin GPU Architecture*「Accelerated scale-up communications」节。完成语义以日后 CUDA 编程指南为准；博客示意图不作指令规范。</span>
 

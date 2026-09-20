@@ -25,6 +25,10 @@ section: llm
 
 <span class="marginnote">`model` 字段在兼容服务里常常是路由键，不是权重哈希。同一字符串在 A 集群指向 7B 量化，在 B 集群指向 70B，是运维约定。客户端不应用 `model` 去推断上下文长度或工具调用能力。</span>
 
+<span class="marginnote">直觉类比：把对话状态放在客户端，就像每次打电话都自报家门并复述前情——服务端（接线员）不记住任何 caller，挂断即忘，所以随便加机器扩容；代价是你每轮都要把全部历史重说一遍，服务端每轮都要重新听一遍（重复 prefill）。</span>
+
+<span class="marginnote">常见误区：看到「100% OpenAI 兼容」就以为 `tools`、`logprobs`、多模态 `content` 数组、`seed` 都能用。多数兼容层只保证信封能解析；不支持的字段有的静默丢弃、有的直接报错。上线前要按字段列测试表：每个用到的字段都发一次真请求，看返回是生效、报错还是被吞。</span>
+
 ## 方法
 
 最小聊天请求是：`POST /v1/chat/completions`，body 含 `model` 与 `messages`（至少一条 `user`）。非流式返回一个 JSON，`choices[0].message.content` 为完整回复，`usage` 里是 prompt / completion token 计数。`stream: true` 时改为 `text/event-stream`，每帧一个 chunk，最后一帧习惯上带结束标记，细节见 [流式输出与取消](/llm/sse-cancel)。Completions 路径 `/v1/completions` 仍被 vLLM 等保留，给续写与旧客户端用；新应用应默认走 chat，以便模板与多轮角色可审计。
@@ -52,6 +56,19 @@ OpenAI 后来在同一路径上加了 `tools` / `tool_choice`。兼容引擎若�
 协议能成为事实标准，是因为它把「对话状态」放在客户端：每次请求带上完整 `messages`，服务端可以无会话。这对无状态水平扩展友好，却把历史重复 tokenize、重复 prefill 的成本甩给引擎——于是需要前缀缓存与 [KV 感知路由](/llm/kv-aware-routing)。流式则把 TTFT 从「整段结束」改成「首 token」，但 `usage` 往往要到流结束才完整，网关不能在第一个 chunk 上做精确计费。
 
 `n`、`best_of` 会把一条 HTTP 请求放大成多条内部序列，显存与计费都按内部序列走。兼容层若只在 HTTP 并发计数上做配额，会被 `n>1` 打穿。`logprobs` 改变返回体积与内核是否物化完整分布，默认应关。`seed` 在张量并行与连续批下通常不能保证跨引擎比特一致，只能当弱可复现，见 [张量并行](/llm/tensor-parallel) 里 All-Reduce 次序对浮点的影响。
+
+```mermaid
+flowchart TD
+  CLI["客户端保存全部历史 messages"] --> REQ["每轮发送完整对话"]
+  REQ --> SV["服务端无状态处理"]
+  SV --> SCALE["可任意水平扩缩容"]
+  REQ --> PF["历史部分重复 prefill"]
+  PF --> COST["算力浪费随轮数增长"]
+  COST --> FIX["补救：前缀缓存 + KV 感知路由"]
+  FIX -.->|把相同前缀调度到同一副本| SV
+```
+
+<span class="marginnote">这张图回答的问题是：无状态信封的工程账算在哪。数字实例：10 轮对话、系统提示加历史共 4000 token 时，第 10 轮请求仍要重算这 4000 个 token 的 prefill，只有最后一句是新的——不设前缀缓存，90% 以上的预填充在做重复劳动。</span>
 
 <span class="marginnote">TGI 自有 HTTP API 与 Messages API 并存。只测 `/generate` 不能证明 OpenAI 客户端可用；只测 chat 也不能证明旧 Completions 脚本可用。兼容矩阵要按路径列，不要按项目名列。</span>
 
