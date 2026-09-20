@@ -19,6 +19,8 @@ section: llm
 
 自适应计算的常见补丁是早退：浅层先出词，置信够了就停。这类方法多半要额外阶段、会伤预训练质量，而且早退 token 在更深递归处没有 KV，后续位置要补洞或并行重算。理想状态是预训练就学会「这个位置该想几步」，推理沿同一路由走，不必事后装门。
 
+<span class="marginnote">直觉类比：MoR 像同一间教室里反复练习——教材（共享权重）只有一套，每个学生（token）自己决定刷几轮：简单题过一遍就走，难题多套几遍。教室座位随轮次变少，谁留下来由成绩（路由分）说了算。</span>
+
 ### 固定深度递归把难度当成常数
 
 语言建模里，功能词、局部重复与真正需要长程规划的位置，所需深度差一个数量级。固定 $N_r$ 等于假设每个 token 同等难。Mixture-of-Depths（Raposo 等）让路由器决定是否进入某一层，那是「跳过层」；MoR 的问题更窄：层已经共享，决策是「再套一次同一块，还是退出」。两者都要处理因果泄漏与负载，但 KV 的缺失模式不同——递归深度上的洞，不是层索引上的洞。
@@ -32,6 +34,8 @@ MoR 的前向是：token 进入共享递归块 $\Phi'$，每一步一个路由�
 **Expert-choice**：把每个递归深度当成专家，按当前隐状态打分，取 top-$k$ 继续。层次过滤保证只有第 $r$ 步入选的 token 才能竞第 $r+1$ 步，形成从浅到深的漏斗。容量按完美均衡的 token-choice 校准：若 $N_r=3$，三步分别处理约 $3/3$、$2/3$、$1/3$ 的 token，使两条策略的计算预算可比。
 
 **Token-choice**：在进入递归栈时一次定深度 $i=\arg\max_j g_t^j$，然后连续套 $i$ 次。没有「看见未来 token 再决定谁留下」的泄漏，但负载要靠均衡损失或无损失偏置来撑，否则热深度吃满、冷深度空转。
+
+<span class="marginnote">数字实例：$N_r=3$ 时 expert-choice 的漏斗约为 3/3 → 2/3 → 1/3：第一步全员参与，第二步只剩三分之二，第三步只剩三分之一。对比「人人走满三步」，最深一层的注意力参与面缩到原来的三分之一——这就是「计算跟着难度走」的具体形状。</span>
 
 ### 两套 KV：按步缓存，或第一步共享
 
@@ -58,6 +62,16 @@ flowchart TD
 
 参数效率来自 $\Phi'$ 的复用：有效深度可以大于独立层数。自适应来自路由器把二次注意力限制在仍「在想」的子集上——难 token 多付一层注意力，易 token 在浅步离开，不再进入更深的 $QK^\top$。这与 MoE「选哪组 FFN 权重」不同：MoR 选的是**同一组权重用几次**，专家是深度而不是参数槽。
 
+```mermaid
+flowchart TD
+  HOLE["早退 token 在更深步没有 KV，查询会缺上下文"] --> A["方案一：Recursion-wise 按步缓存"]
+  HOLE --> B["方案二：Recursive sharing 共享第一步"]
+  A --> A1["注意力只在活跃集上：约按 (k/N)² 降"]
+  A --> A2["代价：多份不等长 KV，分页复杂"]
+  B --> B1["内存约降到 1/N_r，键值长度不减"]
+  B --> B2["代价：解码可能被 KV 读写 IO 卡住"]
+```
+
 Expert-choice 的泄漏与 MoD 同类：训练时 top-$k$ 依赖全序列分位数，推理时未来不可见。论文沿用辅助路由或正则去逼近；token-choice 无此病，但要均衡。层次过滤把「先浅后深」写成硬约束，避免路由器给一个 token 跳过中间步、导致 KV 语义不连续。
 
 <span class="marginnote">Recursive sharing 假设「第一步对所有人必要」。若配方允许第 0 步就退出，共享底就没了，必须改回按步缓存或补算。不要把两种 KV 策略的显存数字混用。</span>
@@ -71,6 +85,8 @@ Expert-choice 的泄漏与 MoD 同类：训练时 top-$k$ 依赖全序列分位�
 规模停在约 1.7B 基座与 FineWeb-Edu 量级，不要外推到千亿稠密或生产 MoE 服务。Expert-choice 的推理路由若校准差，活跃集与训练不一致，接受率式的「算对了」会掉——这里没有投机解码的无损证明，掉的是语言模型质量。Token-choice 在小 batch 上负载噪声大，均衡项会抖。
 
 服务侧，按步缓存要维护多份不等长 KV，连续批处理的分页比标准 decode 复杂；共享 KV 实现简单、吞吐不一定更好。报告吞吐时必须写清缓存策略与是否深度批处理。Middle-Cycle 的首尾独立层不参与共享，参数账要分开算。不要把「递归」理解成在输出序列上展开思维链：MoR 的递归发生在层方向，词表上仍是逐步预测。
+
+<span class="marginnote">常见误区：把「递归」想成模型会在答案里多写几步思考。MoR 的递归发生在层方向——同一块权重复用几次——输出侧仍是普通的下一词预测；它不是思维链，推理过程也不写在词面上，那属于潜空间推理或测试时计算扩展的话题。</span>
 
 <span class="marginnote">出处：Bae et al., *Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation*，NeurIPS 2025，arXiv:2507.10524。参数共享谱系见 Dehghani Universal Transformer、Bae 等 Recursive Transformer；自适应层见 Raposo Mixture-of-Depths、Schuster CALM。代码仓库以论文给出的 `raymin0223/mixture_of_recursions` 为准。</span>
 

@@ -21,6 +21,8 @@ section: llm
 
 场景把用途切开。**Offline** 不模拟用户到达，尽量喂满系统，报吞吐。**Server** 用 LoadGen 的泊松到达模拟在线服务，必须满足 TTFT 与 TPOT（时间每输出 token）约束才承认该吞吐。Llama 2 70B 在政策表中的 Conversational 档是 TTFT 2000 ms / TPOT 200 ms；Interactive 档更严，450 ms / 40 ms。v5.0 起 Interactive 作为独立压力出现；v5.1 把交互场景扩到更多模型。同一套硬件，Offline tokens/s 可以远高于 Server：前者没有尾延迟合同。把 Offline 第一名写成「聊天延迟冠军」，是读错表格。
 
+<span class="marginnote">两个术语翻译加一个数字实例：TTFT（首 token 时间）是你按下回车到屏幕蹦出第一个字等了多久；TPOT（每输出 token 时间）决定打字机的速度——TPOT 200 ms 就是每秒 5 个字，读起来像慢慢打字的人；TPOT 40 ms 约等于每秒 25 个字，接近流利阅读。聊天产品的体感主要由这两项决定，与吞吐是两回事。</span>
+
 ### 样本、LoadGen 与 SUT
 
 一个 LLM 样本在规则里是一条序列（或多模态里的一条带图提示）。SUT（system under test）吃 LoadGen 查询，返回生成。计时边界由 LoadGen 管：何时发、何时算完成、早停条件。提交者不能自己写一个「先把整个测试集排好序再跑」的离线作弊器还标 Server——规则禁止在数据集边界上排序一类行为，并对 LLM 工作负载点名。封闭划分还限制模型等价性、预处理与后处理；开放划分允许更多改动，但海报必须标明划分。精度有 99% 与 99.9% 等高精度变体，LLM 常用相对参考的 ROUGE 与长度约束，而不是 ImageNet 的 top-1。
@@ -32,6 +34,8 @@ section: llm
 读当轮政策表，锁定：模型、数据集、最大生成长度、精度指标、Offline / Server / Interactive 是否提交、延迟阈值。实现参考仓库 `mlcommons/inference` 里对应目录（如 `language/llama2-70b`），用官方 LoadGen。量化、编译、连续批处理、投机解码在封闭划分允许范围内可以做，但必须过精度门。NVIDIA 在 v5.0 技术博客里写 Blackwell 上用 NVFP4 等精度提交并满足准确率——这是「精度门 + 硬件路径」同时成立的例子，不是「FP4 一定合法」的空白支票。
 
 Server 场景的调优目标是：在 TTFT/TPOT 约束下最大化被承认的吞吐。这与无约束拉满 batch 不同，通常要降并发、保预填充队列、有时拆 PD。Interactive 更狠：40 ms TPOT 约等于每用户 25 token/s，batch 不能堆太深。Llama 3.1 8B 在 MLCommons 解说里对 Server 写过 TTFT ≤ 2 s、TPOT ≤ 100 ms 一档，Interactive 再收紧；以政策文件该轮表为准。405B 的 Server 延迟在 NVIDIA v5.0 博客中举例为 TTFT 6 s / TPOT 另有规定，大模型允许更长首包，不能把 70B Interactive 的 450 ms 套过去。
+
+<span class="marginnote">「泊松到达」可以类比奶茶店：顾客不会排好队整齐进店，而是随机零散地来——有时没人、有时一下来三个。Server 场景就是让 LoadGen 扮演这种不讲道理的客流，看你的店（SUT）在「高峰不让人等太久」的前提下每小时能出多少杯。Offline 则像工厂接一笔固定大单，全部原料堆门口慢慢做，只算总产能——两者数字天然差一大截。</span>
 
 ```mermaid
 flowchart TD
@@ -59,6 +63,24 @@ Mixtral 等 MoE 条目额外打到专家路由与 All-to-All，硬件若只有 P
 LoadGen 把「何时发查询」从 SUT 手里拿走，防止实现用未来知识排序。Server 的泊松到达产生排队，TTFT 含排队 + prefill；TPOT 约束迫使 decode 步时间在统计意义上低于阈值（具体统计在规则与 LLM 脚注里，常用百分位要求）。早停避免无限跑：达到统计置信或样本上限。精度门阻止靠乱生成刷吞吐——短且烂的输出会在 ROUGE 与长度约束上失败。Greedy 使随机性不成为变量；规定 sampling 的条目则把温度钉死。
 
 tokens/s 对 LLM 是「生成 token / 时间」，输入长度方差大时，若用请求/s 会不公平，所以套件用 token 吞吐。这与 GenAI-Perf 的 output token throughput 同族，但分母与样本集不同。高质量变体 99.9% 往往迫使少用最猛的量化，吞吐下降——海报上的「高精度」列是另一场比赛。
+
+```mermaid
+flowchart TD
+  CHEAT["四类作弊手法"] --> C1["换更小的模型"]
+  CHEAT --> C2["截短生成"]
+  CHEAT --> C3["放宽采样随机性"]
+  CHEAT --> C4["报无延迟约束的吞吐"]
+  C1 --> G1["参考模型加精度门挡下"]
+  C2 --> G2["长度不低于参考 90% 挡下"]
+  C3 --> G3["greedy 或钉死温度挡下"]
+  C4 --> G4["Server 场景 TTFT 与 TPOT 合同挡下"]
+  G1 --> OK["合规数字才上海报"]
+  G2 --> OK
+  G3 --> OK
+  G4 --> OK
+```
+
+<span class="marginnote">这张图回答的问题是：「MLPerf 数字凭什么可信？」它不是靠设备更准，而是把每一种已知的「刷分姿势」逐一立法封死。初学者容易以为跑分就是「谁机器快谁赢」，实际上榜单比的是「在同等约束下谁快」——约束取消了，比较就不成立，这也是任何基准设计的第一课。</span>
 
 <span class="marginnote">政策表对 Llama2-70b 写明 Conversational 与 Interactive 两档 TTFT/TPOT，并要求生成长度不低于参考的 90%。只报 ROUGE 过线、却把 `max_new_tokens` 砍短，属于违规。输入侧也不允许用压缩过的私有格式绕开计时。</span>
 
