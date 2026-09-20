@@ -21,7 +21,7 @@ $$
 \tilde s = c\,\tanh(s/c)
 $$
 
-把 $\mathbb{R}$ 光滑映到 $(-c,c)$。$|s|\ll c$ 时 $\tanh(x)\approx x$，几乎是恒等；$|s|$ 大时渐近到 $\pm c$，导数 $\mathrm{sech}^2(s/c)$ 变小但不在有限 $s$ 处跳到 0。Gemma 2 报告对注意力与输出 logits 使用不同的 $c$（注意力一侧更大或更小以报告为准，配方必须分开写），目的是在不改 QK-Norm 的前提下给 BF16 留动态范围。
+把 $\mathbb{R}$ 光滑映到 $(-c,c)$。$|s|\ll c$ 时 $\tanh(x)\approx x$，几乎是恒等；$|s|$ 大时渐近到 $\pm c$，导数 $\mathrm{sech}^2(s/c)$ 变小但不在有限 $s$ 处跳到 0。<span class="marginnote">数字实例：取 $c=30$。分数 $s=3$ 时 $\tilde s=30\tanh(0.1)\approx 2.99$，基本没动；$s=30$ 时 $\tilde s=30\tanh(1)\approx 22.9$，已被明显压下；$s=300$ 时 $\tilde s\approx 30\tanh(10)\approx 30$，贴住天花板。小分数照常、大分数封顶，正是「软」的含义。</span>Gemma 2 报告对注意力与输出 logits 使用不同的 $c$（注意力一侧更大或更小以报告为准，配方必须分开写），目的是在不改 QK-Norm 的前提下给 BF16 留动态范围。
 
 这不是温度。温度是 $s/\tau$ 再进 softmax，仍无界；cap 是有界。把 cap 误实现成除以 $c$ 而不乘回，等于永久改温度，检查点与推理会错位。
 
@@ -29,7 +29,7 @@ $$
 
 ## 方法
 
-注意力：在 $S=QK^\top/\sqrt{d_k}$ 之后、掩码与 softmax 之前插入 $\tilde S=c_a\tanh(S/c_a)$。掩码仍是把无效位写成大负数——必须在 cap **之后**加掩码，否则大负数被 tanh 收到 $-c$，softmax 仍会分质量给 padding。输出头：对 $\ell$ 做 $\tilde\ell=c_o\tanh(\ell/c_o)$ 再进 CE。两处 $c$ 禁止共用一个超参名。
+注意力：在 $S=QK^\top/\sqrt{d_k}$ 之后、掩码与 softmax 之前插入 $\tilde S=c_a\tanh(S/c_a)$。掩码仍是把无效位写成大负数——必须在 cap **之后**加掩码，否则大负数被 tanh 收到 $-c$，softmax 仍会分质量给 padding。<span class="marginnote">常见误区：初学者容易把顺序写成「先掩码再 cap」。掩码写的 $-10^9$ 经过 $c\tanh(s/c)$ 会变成 $-c$，一个「普通差分」能追平的量——padding 位置就可能被抽中。顺序错了不报错，只在长序列批量里偶发怪答案，极难排查。</span>输出头：对 $\ell$ 做 $\tilde\ell=c_o\tanh(\ell/c_o)$ 再进 CE。两处 $c$ 禁止共用一个超参名。
 
 反向：对角乘 $\mathrm{sech}^2(s/c)$。顶满区域梯度变小，这是有意的：不再鼓励范数竞赛。与 FlashAttention 融合需要核支持；若核没有 cap，在核外包一层 tanh 会物化 $S$，退回内存墙。没有融合实现时，宁可只对调试层开 cap，不要假装「已对全体注意力 cap」。
 
@@ -37,7 +37,20 @@ $$
 
 ## 机制
 
-相对 QK-Norm：Norm 约束的是 $q,k$ 的范数，点积变成缩放余弦，仍可因可学习标量而变大；cap 直接卡 softmax 的输入。可以叠用：Norm 管训练动态的漂移，cap 管极端值。相对 z-loss：z-loss 是损失项，拉的是词表 LSE；注意力 cap 不进损失，是前向非线性。输出 cap 与 z-loss 部分重叠——都抑制大 logits——但 cap 改变的是表示函数，z-loss 改变的是目标。只开 cap 关 z-loss，LSE 仍可在帽内变大（所有 $\tilde\ell$ 顶满时 softmax 仍锋利）。
+相对 QK-Norm：Norm 约束的是 $q,k$ 的范数，点积变成缩放余弦，仍可因可学习标量而变大；cap 直接卡 softmax 的输入。可以叠用：Norm 管训练动态的漂移，cap 管极端值。相对 z-loss：z-loss 是损失项，拉的是词表 LSE；注意力 cap 不进损失，是前向非线性。输出 cap 与 z-loss 部分重叠——都抑制大 logits——但 cap 改变的是表示函数，z-loss 改变的是目标。只开 cap 关 z-loss，LSE 仍可在帽内变大（所有 $\tilde\ell$ 顶满时 softmax 仍锋利）。三种手段各守一段管线：
+
+```mermaid
+flowchart TD
+  QK["q, k 向量"] --> QN["QK-Norm: 掐输入范数<br/>点积变成缩放余弦"]
+  QN --> S["注意力分数 s 仍可能无界"]
+  S --> CAP["注意力 cap: 卡 softmax 输入幅度"]
+  L["词表 logits"] --> OC["输出 cap: 卡 logits 幅度"]
+  L --> ZL["z-loss: 在损失里压 LSE"]
+  OC --> CE["CE 损失"]
+  ZL --> CE
+```
+
+<span class="marginnote">直觉类比：把打分管线想成一条水路。QK-Norm 是限制进水管的水压，cap 是在软管中途装减压阀，z-loss 是给末端水塔装水位监测。三个阀门各管一段：关掉其中一个，另外两个补不了它的位置——只装减压阀，水塔水位照样可能涨。</span>
 
 ## 边界
 
