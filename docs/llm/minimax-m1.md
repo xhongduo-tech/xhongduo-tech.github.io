@@ -17,6 +17,8 @@ section: llm
 
 推理模型把测试时计算当成缩放轴：生成越长，竞赛与代理任务越好。纯 softmax Transformer 上，前填与 RL rollout 的 FLOPs 随长度二次涨。R1 类模型把思维拉到数万 token 时，墙钟被注意力打穿；再叠软件工程轨迹（仓库级输入），1M 上下文几乎不可训。需要一种已经在基座上验证过的线性核，把 64K–100K 生成的相对 FLOPs 压下来，才谈得上「开源权重里的长思维 RL」。
 
+<span class="marginnote">术语翻译：「测试时计算」就是不改模型参数、靠让模型答题前多打草稿（更长的思维链、更多次自我检查）来换正确率的手段；生成长度就是这条轴上的旋钮。M1 的贡献是把拧这个旋钮的电费（FLOPs）从平方涨压到近线性涨。</span>
+
 第二条缺口是算法。作者在混合架构的 zero-RL 里发现：PPO / [GRPO](/llm/grpo) 的 **token 级 clip** 会把「However / Wait / Aha」一类低概率分叉词在第一次 on-policy 更新后裁掉，后续 off-policy 步再也看不到它们。长链的反思依赖这些词；[DAPO](/llm/dapo) 把上裁剪抬到 $1+\varepsilon_{\mathrm{high}}$，在他们 16 轮 off-policy 的设置里仍不够。
 
 ### 开源权重里几乎没有混合注意力的大规模 RL
@@ -46,6 +48,8 @@ $$
 
 40K 跑通后，用该策略筛更难题，分阶段把生成窗扩到 48K … **80K**。后期负样本先顶满窗口，token-level 损失会在后半段堆过大负梯度；对策是重复检测、样本级与 token 级损失并用、降低梯度裁剪与 $\varepsilon^{\mathrm{IS}}_{\mathrm{high}}$。完整 RL：512×H800、约三周、租卡约 **53.47 万美元**。权重在 GitHub / Hugging Face，vLLM 与 Transformers 可跑。
 
+<span class="marginnote">数字实例：512 张卡 × 约 21 天 × 24 小时 ≈ 25.8 万 GPU 时，53.47 万美元摊下来约 2.1 美元/卡·时——和市面上 H800 的租用单价同一量级。可见「大规模 RL」的开销主要就是卡时，而不是什么神秘的稀缺资源。</span>
+
 ```mermaid
 flowchart TD
   T01["Text-01 456B/45.9B"] --> CPT["续训 7.5T + 长窗至 1M"]
@@ -59,6 +63,17 @@ flowchart TD
 ## 机制
 
 Lightning 层把通道混合做成对长度近线性，softmax 层保留针检索。RL 的 rollout 是长度税最高的一段，线性核直接变成**可负担的测试时缩放**。CISPO 的机制相反：PPO clip 在比率过大时把该 token 的梯度**丢掉**；把 clip 移到 IS 权重上，低概率分叉词仍贡献 $\log\pi$ 梯度，只是权重被截断，熵不至于塌成「只会说稳妥词」。这与 DAPO 的 Clip-Higher 同病：都在救探索，但 CISPO 不依赖「放宽上剪仍可能被 clip 掉」。
+
+```mermaid
+flowchart TD
+  T["低概率反思词，如 Wait / However"] --> R["更新后策略比率 r 偏离 1"]
+  R --> P["PPO / GRPO：clip 的是比率本身"]
+  P -->|"超出区间"| G1["该 token 梯度整个被丢弃"]
+  G1 --> X["反思词从此退出训练，长链塌掉"]
+  R --> C["CISPO：clip 的是 stop-grad 后的 IS 权重"]
+  C --> G2["梯度仍带 log π 进入更新"]
+  G2 --> Y["反思行为继续被强化"]
+```
 
 <span class="marginnote">报告对照表把 DS-R1 写成 R1-0528 的输入 128K / 输出 64K，M1-80k 为输入 1M / 输出 80K。比的是窗口产品规格，不是同一套评测 harness 下的 FLOPs 实测。</span>
 

@@ -31,6 +31,8 @@ Matrix 发布时自称最大的透明预训练堆之一（约 4.5T / 卡片写 4
 
 基础阶段：学习率从 $2\times 10^{-5}$ 线性升到 $2\times 10^{-4}$（2k 步），再余弦回到 $2\times 10^{-5}$（约 365k 步），处理约 **3726B** token。代码当时用 Stack V1 并重复两次以凑配比。衰减阶段：学习率从 $2\times 10^{-4}$ 指数衰减约 148k 步（半衰期为衰减步数的一半，写法对齐 MiniCPM），约 **778B** token，提高书籍、裁判文书、政府文件与指令风格密度；代码换成 Stack V2，代码占比从约 14.77% 提到约 17.04%。7B 在 64 节点 512 张 H800 上训，张量并行 2；他们改 Megatron 以处理超大语料溢出，并做坏节点隔离。
 
+<span class="marginnote">直觉类比：基础阶段像把所有科目的课本通读一遍求「广」，衰减阶段像考前用高质量真题收尾——778B 只占总量的约 17%，却决定最后成绩的形状。MAP-Neo 在这一段顺手把代码教材换成了修订版（Stack V2），并加大了代码的课时占比。</span>
+
 对齐：SFT 两段——先 200 万+ 指令（OpenHermes 2.5 去 TheoremQA、Code-Feedback、WebInstructSub 子集）3 个 epoch 打基础，再 10 万+ 真实多轮加 5k 数学代码回放 1 个 epoch 打聊天。然后迭代 DPO（Nectar 提示、Starling-RM-34B，第三轮加中文偏好）。序列 8192，batch 512。
 
 $$
@@ -38,6 +40,8 @@ L(N,D)=\frac{A}{N^{\alpha}}+\frac{B}{D^{\beta}}+E-d\cdot\log D
 $$
 
 NEO 律在 Chinchilla 三项后再减 $d\log D$。代理模型 250M/460M/980M 各吃 1000B，用来外推 7.8B 在 phase-1 的 **3.07T**。$d$ 实验里大约 $10^{-2}$ 到 $3\times 10^{-2}$；作者承认 $D\to\infty$ 时公式无下界，只在「数 T 到百 T 以下」当局部修正。Huber $\delta=10^{-3}$ 与 $R^2$ 显示比纯 Chinchilla 更贴实际损失——多样语料在 $D$ 大时掉点比 $B/D^{\beta}$ 更快。
+
+<span class="marginnote">术语翻译：$-d\log D$ 是给 Chinchilla 损失加的一个「数据越多、掉点越快」的小修正项，$d$ 只有 $10^{-2}$ 量级。原公式说损失随数据按幂律缓慢下降；这项用来描述多样高质量语料在数 T 量级上的额外红利。它是局部拐杖，不是新物理定律——$D$ 极大时公式会失去下界。</span>
 
 ```mermaid
 flowchart TD
@@ -56,6 +60,18 @@ flowchart TD
 NEO 项的机制主张很窄：异构、高质量、可召回的混合，使大 $D$ 时损失比网页堆的 Chinchilla 拟合更陡。它解释的是这条 Matrix 配比，用来决定 7B 该吃多少、衰减段要不要加代码，而不是一条新物理定律。对 DeepSeek-67B 一类公开曲线，作者说 Chinchilla 会在 $D$ 小时低估损失、$N$ 与 $D$ 都大时高估；NEO 更贴。不要外推到任意 MoE 或纯代码语料。
 
 词表空白开关是机制级事故：代码缩进是语法。基础阶段 QA 与数学仍可涨，说明那些任务不依赖空格；HumanEval 依赖。衰减段换 Stack V2 并提高代码比，是在已经修好的 token 上让表示进盆地，不是突然多了一层 MLP。中文网页召回同样走数据轴。
+
+```mermaid
+flowchart TD
+  SP["SentencePiece 默认去多余空白"] --> COL["缩进塌成单空格"]
+  COL --> CODE["代码任务：缩进即语法，HumanEval 抖动"]
+  COL --> NLC["QA / 数学：不依赖空格，指标照常涨"]
+  NLC --> HIDE["事故在基础阶段不易察觉"]
+  HIDE --> FIX["衰减阶段换固定词表 + Stack V2"]
+  CODE --> FIX
+```
+
+<span class="marginnote">常见误区：以为词表出问题会「全线崩溃」。实际相反——QA、数学这类不依赖缩进的任务照常上涨，只有代码指标抖动，事故最隐蔽的形态就是「大部分指标看起来正常」。开训前用一小段代码文本检查空白是否保留，成本几乎为零。</span>
 
 <span class="marginnote">报告 Table 1 自比：MAP-Neo-7B 在 C-EVAL / MMLU / GSM8K / HumanEval 上高于所列透明模型，并在部分项接近 Llama 3 8B / Mistral。这是他们统一评测管线，转引要写协议。MMLU 58 对 OLMo 53 是同一张表里的数，不是跨论文拼接。</span>
 

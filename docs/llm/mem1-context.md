@@ -19,6 +19,8 @@ Zijian Zhou、Ao Qu、Zhaoxuan Wu、Sunghwan Kim、Alok Prakash、Daniela Rus、
 
 公开多跳集（HotpotQA、2Wiki、Bamboogle）往往只有两跳，不够逼记忆管理。作者把现有 QA 题交错成 $N$ 目标复合题，强迫多次检索再汇总。另在 WebShop 上测购物导航。MEM1 从 Qwen2.5-7B **Base** 用 PPO 训，指令微调或 SFT 轨迹在他们的比较里更弱。复合题的意义是把「还记得第一个子问题的答案」变成拿分的必要条件：模型若在内部状态里丢掉槽位，后面的检索再准也拼不出满分。
 
+<span class="marginnote">内部状态可以想成棋手眼里的「盘面」：棋手不会把之前每一步思考都默背，只保留当前局面和判断。MEM1 让模型每轮把旧盘面、新问题、新信息折成一张新盘面，旧草稿直接作废——窗口长度因此不再随步数堆积。</span>
+
 ### 内部状态是唯一常驻记忆
 
 标注用 XML：内部状态 `<IS_t>`、环境查询 `<query_t>`、观察 `<info_t>`、最终 `<answer_t>`。步 $t+1$ 把 $(\texttt{IS}_t,\texttt{query}_t,\texttt{info}_t)$ 巩固成新的 `IS_{t+1}`，然后删除步 $t$ 的全部标签。任意时刻提示里大约只有有限个新标签，记忆近乎常数。这与 [AgentFold](/llm/agentfold) 保留多块摘要不同：MEM1 是单槽重写，更像覆盖工作记忆。
@@ -30,6 +32,8 @@ Zijian Zhou、Ao Qu、Zhaoxuan Wu、Sunghwan Kim、Alok Prakash、Daniela Rus、
 滚动时程序化截断：模型一产出查询或答案，宿主就按上一节剪上下文。为避免不知何时停，每轮在状态前插入剩余轮数提示，如 `[HINT: YOU HAVE {turns_left} TURNS LEFT]`。1–4 目标最多 6 轮，更难任务 20 轮。奖励是可验证的：QA 用精确匹配，WebShop 用环境奖励。**没有**把「短上下文」写进奖励；短是因为截断强迫模型把要的东西写进 `IS`，否则下一轮看不见，拿不到分。
 
 训练难点：真实生成时上下文每步在变，PPO 若当一条静态轨迹算对数概率会错。MEM1 把各回合拼成逻辑全轨迹，再加 **2D 注意力掩码**：位置 $k$ 只能看见该步生成时仍保留的 token。另对检索来的外部信息加 1D 掩码，梯度只落在模型自己产生的 token 上。这样 $\rho_k(\theta)$ 仍对应「当时真正的条件前缀」。
+
+<span class="marginnote">为什么需要 2D 掩码：训练时若允许模型「看见」已被剪掉的观察，它学到的依赖在生产时根本不存在——像考试允许翻书、上岗却不给书。掩码把每个 token 的可见范围钉死在「当时真正保留的前缀」上，训练与上线看到的世界一致。</span>
 
 ```mermaid
 flowchart TD
@@ -50,6 +54,17 @@ flowchart TD
 
 推理即记忆：chain-of-thought 被当成工作记忆，从观察里抽出以后还要用的槽。截断把「偷懒依赖全文」从可行集里拿掉，RL 只能把信息搬进 `IS`。这与人类用填字游戏练选择注意的类比是教学性的，不是神经科学主张。掩码保证优化与推断一致：若训练能看见已剪掉的观察，模型会学一种生产时不存在的捷径。
 
+```mermaid
+flowchart LR
+  subgraph ACC["追加式：全文累加"]
+    A1["步 1 写入"] --> A2["步 2 再追加"] --> A3["步 3 再追加，越滚越长"]
+  end
+  subgraph MEM["MEM1：单槽覆盖"]
+    M1["IS_1"] --> M2["IS_2 覆盖旧槽"]
+    M2 --> M3["IS_3 覆盖，长度近似不变"]
+  end
+```
+
 失败模式：状态写丢一个约束，后续不可恢复——单槽覆盖没有 [ACM](/llm/acm-context) 的 `query_memory`。状态写入指令式内容会变成持久前缀注入，宿主应对 `IS` 做长度与内容校验。剩余轮数提示是元数据，换预算要重训或至少重评估。
 
 <span class="marginnote">MEM1 优化的是**题内**工作记忆，不是跨会话用户画像。跨会话应叠加 [Mem0](/llm/mem0-layer) / [Zep](/llm/zep-graphiti)。ACM 表 1 把 MEM1 标成不可压缩工作上下文、非无损，指的是它不保留原始观察供回查。</span>
@@ -61,6 +76,8 @@ flowchart TD
 ## 边界
 
 PPO + 2D 掩码对基础设施有要求，不是改一条 prompt。骨干 7B Base，迁到指令模型或别的族要重做。Web QA 从本地 Wikipedia RAG 训、开放网络测，检索器差异会动数字。HINT 轮数泄漏了预算，真实产品若没有硬顶，策略可能不会适时作答。把 MEM1 接到需要引用原始网页片段的合规场景时，必须另存观察日志，因为策略在下一步已经看不见那些标签。
+
+<span class="marginnote">常见误区：把 MEM1 当成「上下文压缩器」外挂。它不是无损压缩——单槽覆盖后，原始观察就回不来了；需要引用原文的合规场景必须自己另存日志。它压缩的是策略的工作记忆，不是档案柜。</span>
 
 <span class="marginnote">出处：Zhou, Qu, Wu, Kim, Prakash, Rus, Zhao, Low, Liang，*MEM1: Learning to Synergize Memory and Reasoning for Efficient Long-Horizon Agents*，arXiv:2506.15841，ICLR 2026。https://github.com/MIT-MI/MEM1 与 https://mit-mi.github.io/mem1-site/。</span>
 

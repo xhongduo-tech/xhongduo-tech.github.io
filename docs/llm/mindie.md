@@ -17,11 +17,15 @@ section: llm
 
 推理引擎若只暴露私有 protobuf，业务侧要为每一种硬件写适配器。反过来，若只把开源 GPU 引擎「编译到昇腾」而不提供服务框架，运维面（探针、多实例、模型更新、负载均衡）仍是空的。昇腾上的约束与 NVIDIA 不同：编程栈走 CANN 与对应算子库，内存与集合通信的原语不是 NCCL 那一套名字，模型并行的可运行拓扑以厂商文档为准。问题因而分成两层——**协议层**要兼容已有客户端，**引擎层**要在 NPU 上做调度、量化与多并发。
 
+<span class="marginnote">「推理服务化」可以翻译成「把模型变成一个会说 HTTP 的服务」：带健康探针、监控指标、多实例、负载均衡与版本更新。引擎算得再快，缺了这层运维面也进不了生产。</span>
+
 第二层问题是产品切分。文本生成、视觉生成、以及「在昇腾上加速开源 vLLM」不是同一个二进制。MindIE 2.x 的导读把大语言模型场景写成：既可以用开源 vLLM 加 MindIE Turbo 一类加速插件，也可以走 MindIE LLM 做文本生成全流程；多模态另有 MindIE SD 做视图生成。把这些当成同一个「昇腾推理」开关，会在选型时把文生图的 SLA 套到对话模型上。
 
 ### 兼容接口不是同一套内核
 
 EndPoint 能收 `/v1/chat/completions`，只说明 HTTP 皮对齐了 [OpenAI 兼容协议](/llm/openai-compat-api)；能收 TGI 的 `/generate_stream`，只说明 SSE 形状接近 [TGI](/llm/tgi)。KV 分页、连续批、量化核仍然是 MindIE LLM 或 Turbo 插件里的实现。协议兼容让客户端少改，不保证延迟分布与 GPU 引擎相同，也不保证每一个可选字段（logprobs、工具调用、vision part）都已实现。
+
+<span class="marginnote">常见误区：以为「兼容 OpenAI 接口」等于「OpenAI 的每个字段都能用」。logprobs、工具调用、多模态 part 等可选字段可能没实现——逐项在当前版本的 API 表里打勾才算数。</span>
 
 <span class="marginnote">昇腾文档按版本号组织（如 MindIE 1.0 与 2.3）。接口路径、组件改名（Service / Motor）以你安装的那一版开发指南为准。本篇用社区公开的架构描述，不把旧版 `config.json` 字段写成跨版本契约。</span>
 
@@ -50,6 +54,18 @@ flowchart TD
 ## 机制
 
 协议适配发生在 EndPoint：同一套内部请求对象，被翻译成不同 URL 与字段。TGI 与 vLLM 都可能使用 `/generate`，文档写明用请求参数区分——这是兼容层的典型税：路径撞名时必须靠 body 判别，网关若只按 URL 做限流，会把两种语义合成一条桶。原生 `/infer_token` 跳过服务端分词，把已经编码的 token 送进引擎，适合自己做 [tokenizer](/llm/serving-tokenizer-cost) 的网关；`/v1/tokenizer` 则把计数暴露成独立 RPC，避免业务用错误词表估算上下文。
+
+```mermaid
+flowchart TD
+  REQ["HTTP 请求进来"] --> E{"EndPoint 识别协议"}
+  E -->|"OpenAI 形状"| T1["翻译成内部请求对象"]
+  E -->|"/generate：TGI 或 vLLM 撞名"| T2["靠请求体参数区分语义"]
+  T1 --> INFER["内部对象送 MindIE LLM 调度"]
+  T2 --> INFER
+  INFER --> SSE["每步 decode 推成 SSE 流"]
+```
+
+<span class="marginnote">直觉类比：EndPoint 像「多语言前台」——客人用 OpenAI 语、TGI 语或 Triton 语点单，前台翻译成同一张厨房工单。麻烦在于两种方言共用同一个词（都叫 /generate），前台必须看「菜名细节」（请求体）才能分清给哪个厨房。</span>
 
 调度在 MindIE LLM：多并发请求共享 NPU，连续批与 KV 管理的具体算法以该组件文档为准。与 GPU 引擎相同的约束仍然成立——prefill 与 decode 争用同一块计算资源，取消必须释放 KV，见 [sse-cancel](/llm/sse-cancel)。NPU 友好算子、图模式、是否能 CUDA Graph 式捕获，属于 CANN 与后端实现，不在本篇展开；服务化只要求：引擎能把「一步 decode」暴露给 EndPoint 去推 SSE。
 

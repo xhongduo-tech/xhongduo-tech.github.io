@@ -19,11 +19,15 @@ section: llm
 
 第二问是内存代数。MI350 停在 [HBM3E](/llm/hbm3e)；MI455X 换成 **12 栈 HBM4**、单卡 **432 GB**、带宽 **23.3 TB/s**。容量与带宽同时跳档，decode 与单卡驻留模型的上限才一起动。HPC 另有 **MI430X** 档（新闻稿写硬件 FP64 最高约 288 TFLOPS），不要和 AI 工厂的 MI455X 混成一张 BOM。
 
+<span class="marginnote">UALoE（UALink over Ethernet）可以翻译成「用以太网的线，跑 UALink 的语义」：物理上是交换式以太，编程上希望整个机架像一块全互连域。开放标准替换的是专有背板，不是免费多出来的带宽。</span>
+
 ### MI455X 单卡公开规格
 
 产品页（2026-07-23）：架构 CDNA 5，工艺 **TSMC 2nm | 3nm FinFET**，**256** 个 Work Group Processor，晶体管 **3200 亿**，峰值时钟 2400 MHz。矩阵峰值：OCP MXFP4 **40.3 PFLOPS**，MXFP6 / MXFP8 / OCP FP8 **20.1 PFLOPS**；FP16 矩阵 5 PFLOPS（结构化稀疏 10.1）；向量 FP16/FP32 约 315 TFLOPS；FP64 矩阵/向量约 5 TFLOPS。内存：432 GB HBM4，12 栈，**23.3 TB/s**，L2 **192 MB**。形态 Enhanced Accelerator Module，直接液冷。Scale-up：UALoE 双向峰值 **3.6 TB/s**；scale-out：UALink 双向峰值 **600 GB/s**。主机侧 PCIe Gen6 与 Infinity Fabric 相干带宽在技术报道里常见 256 GB/s 量级，规划以当时白皮书为准。
 
 相对 MI355X：容量 288→432 GB（1.5×），带宽 8→23.3 TB/s（约 2.9×），MXFP4 峰值从约 10 PFLOPS 量级到 40.3。新闻稿另有「相对 MI355X 最高约 34× token 吞吐」——那是选定负载的系统对比，不是 4× 矩阵峰值的线性外推。
+
+<span class="marginnote">数字实例：单卡 432 GB 意味着一个 400B 参数的 FP8 模型（约 400 GB）能整模驻留一卡，还剩约 30 GB 给 KV 缓存；上一代 288 GB 就必须切多卡。容量跳档改变的是部署拓扑，不只是「跑得快一点」。</span>
 
 <span class="marginnote">Helios 新闻稿把整架写成最多约 2.9 EFLOPS 峰值 FP4、1.4 EFLOPS 峰值 FP8、31 TB HBM4、1.7 PB/s 内存带宽。72 × 432 GB = 31.1 TB，与 31 TB 一致；72 × 40.3 PFLOPS ≈ 2.90 EFLOPS，与 2.9 一致。这是峰值乘积，不是可达到的 MFU。</span>
 
@@ -51,6 +55,17 @@ AMD 新闻稿相对「领先竞品方案」（脚注指向 Vera Rubin NVL72 公�
 ## 机制
 
 把机架当成服务器，改变的是并行轴的物理落点。72 路张量并行或宽专家并行可以留在 UALoE 域内，梯度与跨架流水才走以太网。这与 [NVL72](/llm/vera-rubin-nvl72) 的几何相同，协议不同：UALoE 把 UALink 语义跑在以太物理上，拥塞管理、ECN、以及「像一块内存还是像一台交换机」的编程模型，要以 ROCm / UALink 文档为准，不能从 NVLink SHARP 直接翻译。
+
+```mermaid
+flowchart TD
+  RA["Helios 机架 A：72 GPU"] --> TP["张量 / 专家并行留在 UALoE 域内"]
+  RB["Helios 机架 B：72 GPU"] --> TP2["同样单跳全互连"]
+  RA -->|"跨架梯度 / 流水并行"| ETH["UEC 以太网 scale-out"]
+  RB --> ETH
+  ETH --> C["过订阅处集合变慢：要靠通信-计算重叠"]
+```
+
+<span class="marginnote">常见误区：把「72 GPU 共享 31 TB」读成一块统一编址的大内存。它是容量加总加互连可达性，不是透明的分布式共享内存；程序仍要按分片与集合通信写，否则通信开销会吃掉带宽红利。</span>
 
 HBM4 12 栈把单卡带宽推到 23.3 TB/s，整架 1.7 PB/s 是 72 卡加总。Decode 是否接近这条屋顶线，取决于 KV 布局与是否把热数据留在 192 MB L2 / WGP 本地存储。CDNA 5 的 WGP、Wave32、Tensor Data Mover 等微架构细节见 Hot Chips / 产品白皮书；本篇不把未在 MI455X 产品页出现的每 SIMD 寄存器数抄成规格。FP64 仅 5 TFLOPS 量级说明 MI455X 不是 MI430X：买错 SKU，科学计算峰值会差两个数量级。
 

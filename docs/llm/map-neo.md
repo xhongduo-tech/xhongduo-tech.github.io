@@ -25,6 +25,8 @@ Llama 3、Mistral 开权重推动了微调生态，但预训练混合、中间�
 
 <span class="marginnote">7B 不是 GQA。不要把 2B 的 MQA 写成全系列。FFN 按 $8\times d$ 计的是 SwiGLU 的宽口径，实现里门控投影是否「各一半」要看配置文件，和 Gemma 报告里的计数差同类。</span>
 
+<span class="marginnote">数字实例：MQA 让 2B 的 KV 缓存缩到原来的 $1/8$（8 个查询头共享 1 组 KV）。以 18 层、每头 256 维粗算，上下文 8192、bf16 下每 token 的 KV 约 18 KB，整条序列约 150 MB；若 8 组独立 KV 就要约 1.2 GB——推理并发直接差数倍。7B 反向选择满头，把容量花在质量上。</span>
+
 ## 方法
 
 **Matrix** 语料：报告称发布时是最大的透明预训练堆之一。构成大约网页（Common Crawl 系）过半、代码约 22%，其余论文、书籍与印刷品 OCR。英语侧是对 RedPajama-V2、Dolma CC、CulturaX、Amber/RefinedWeb、SlimPajama 等的再过滤与多层去重（精确文档、MinHash LSH、段落、超长子串）。中文侧约 80% 自爬网页，其余 CCI、ChineseWebText、万卷、Yayi、SkyPile 等。另有印刷品 OCR 管线，以及按主题从网页召回高质量域数据（DeepSeek-Math 式 recalling）。
@@ -34,6 +36,8 @@ Llama 3、Mistral 开权重推动了微调生态，但预训练混合、中间�
 ### 对齐：SFT 之后三轮 Iterative DPO
 
 聊天模型跟 Storm-7B 路线做迭代 DPO：每轮生成成对回复、奖励模型打分、DPO 更新。提示集用 Nectar，奖励模型 Starling-RM-34B；第三轮加入中文偏好数据以保住双语。中间检查点与评估代码一并公开，避免「只有最终 Instruct 一个点」。
+
+<span class="marginnote">术语翻译：迭代 DPO 就是「多轮偏好自举」——每轮让当前模型对同一提示生成两个答案，由奖励模型挑出更好的那个，再用成对偏好做一次 DPO 更新，然后换提示重来。MAP-Neo 跑三轮，第三轮混入中文偏好，防止双语能力被英语偏好数据带偏。</span>
 
 ```mermaid
 flowchart TD
@@ -56,6 +60,18 @@ flowchart TD
 
 <span class="marginnote">「第一个性能可比的全开源双语 LLM」是论文自我定位，对照的是当时透明英语模型与部分开权重 7B。不要扩写成超过所有 2025 年开源 7B。后续独立的 map-neo-report 条目写更长附录，本篇不把 Spark 清洗伪代码展开。</span>
 
+```mermaid
+flowchart TD
+  Q["一个基准分数从哪来?"] --> A1["中文网页召回的量?"]
+  Q --> A2["衰减阶段的配比?"]
+  Q --> A3["DPO 第三轮的中文偏好?"]
+  Q --> A4["分词器空白修复?"]
+  A1 --> ATTR["透明 = 中间检查点 + 配比可查，逐项归因"]
+  A2 --> ATTR
+  A3 --> ATTR
+  A4 --> ATTR
+```
+
 ### 和 OLMo、Yi、工业开权重
 
 要英语科学可复现、Dolma 工具链，选 OLMo。要中英都强且数据全开，MAP-Neo 是 2024 年中少数选项。01.AI 的 Yi 是合作方之一，但 Yi 本身不是 Matrix 配方；不要把 Yi-34B 奖励模型误当成 MAP-Neo 底座。工业开权重（Llama 3 8B、Mistral）仍然可能在英语综合榜领先，它们不开 4.5T 原盘。
@@ -71,6 +87,8 @@ flowchart TD
 报告把预训练分成基础阶段与衰减阶段，学习率同为 $2\times 10^{-4}$ 量级，变的是数据与是否预热。代码指标在修好分词器空白之后，往往在衰减段才拉直——读者容易把这误读成「最后再堆一层 MLP」。机制其实是：前面学到的表示终于能在干净缩进的 token 上对齐 HumanEval 风格的空格，衰减只是降低噪声、让已经对齐的方向进盆地。中文网页召回与数学 recalling 同样主要在数据轴上起作用。若复现时只下载最终权重、不跑衰减段的混合，C-EVAL 与 GSM8K 的对照表会对不上他们论文里的那一列。
 
 基础设施一节写了 H800、NCCL、IB、NVSwitch 与双层 Clos，那些是 512 卡作业能跑完的条件，不是 7B 推理用户需要的。把机房拓扑抄进聊天模型卡没有意义；把「我们改过 Megatron 溢出」漏掉，别人用上游 Megatron 重训 Matrix 却会在他们修过的边界上失败。透明的一半是数据，另一半是这些并不好看的工程补丁。
+
+<span class="marginnote">为什么重要：复现者若只下载最终权重、不跑衰减段的数据混合，C-EVAL 与 GSM8K 会和论文对不上——衰减段那约 778B token 不是可有可无的尾声，而是配方本体。开源中间检查点的意义正在于此：允许你逐段复算每份贡献，而不是只对着终点猜。</span>
 
 <span class="marginnote">真实编号：Zhang 等 *MAP-Neo: Highly Capable and Transparent Bilingual Large Language Model Series*，arXiv:2405.19327（v4 于 2024-07）。不要给 2B 单独立号。仓库：`multimodal-art-projection/MAP-NEO`。</span>
 
