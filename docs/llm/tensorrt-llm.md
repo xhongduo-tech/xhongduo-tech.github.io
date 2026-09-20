@@ -25,6 +25,8 @@ NVIDIA GPU 上跑 Transformer，性能差往往差在核够不够融合、KV 是
 
 <span class="marginnote">官方吞吐数字永远带着 GPU 代数、精度、批大小和是否开启 IFB / paged KV。把某一篇 NVIDIA 博客的 H100 曲线抄到 A10 上，是在比较两块不同的屋顶线。本篇不引用未钉版本的 tokens/s。</span>
 
+<span class="marginnote">直觉类比：编引擎像开业前把中央厨房的流水线一次性定死——菜固定、速度快，改菜单要停业重排；PyTorch eager 路径像现点现做的小厨房——菜单随时换，出菜速度看厨师调度。两条路做的是同一道菜，取舍在「改菜单的频率」。</span>
+
 ## 方法
 
 In-flight batching（IFB）与 Orca / vLLM 的迭代级调度同类：上下文阶段（prefill）与生成阶段可以出现在同一次执行里，完成的序列立刻腾出槽，新序列插进来。文档写明 IFB 要求输入张量 packed、不要靠 padding 填齐。Paged KV 把每层缓存切成块，由 cache manager 分配与回收，对应 Python 里简化过的 `KVCacheManager` 与 C++ batch manager 里更完整的实现；也提供连续 KV 作为对照。调度器与分块 prefill 绑在一起：把长上下文切开，避免单次迭代被超长 prefill 占满，从而稳定 TTFT 与 decode 间隙。
@@ -54,6 +56,21 @@ Decode 步小、重复、形状相对稳定，最吃：融合（少访存）、�
 
 <span class="marginnote">In-flight batching 在 NVIDIA 文本里常与 continuous batching、iteration-level batching 互换。它不是一种新的注意力，而是调度策略。关掉 IFB 的静态批，延迟特征回到「等最长序列」，核再快也救不了队列。</span>
 
+批成员在飞行中怎么进出：
+
+```mermaid
+flowchart TD
+  Q["运行中批: 槽位池"] -->|"每个迭代"| GEN["全体序列各生成一步"]
+  GEN --> F{"有序列到达 EOS?"}
+  F -->|"是"| REL["腾出槽位 + 回收 KV 块"]
+  F -->|"否"| Q
+  NEW["新请求到达"] -->|"插入刚腾出的槽"| Q
+```
+
+静态批要等全批一起开始、一起结束；IFB 把「开始 / 结束」下放到单个序列粒度，槽位像停车位一样即时腾挪，GPU 上始终有活干。
+
+<span class="marginnote">数字实例：一条 4K 上下文的序列，仅 KV 缓存在 BF16 下约为 $2\times32\times4096\times4096\times2$ 字节 $\approx 2$ GB（32 层、$d=4096$ 量级）；切到 FP8 字节数减半，同样显存能多放约一倍并发。decode 阶段每步都要把这些缓存搬一遍，字节减半对带宽墙的收益最直接。</span>
+
 ### 分离式服务仍要传 KV
 
 产品后期列出 disaggregated serving：prefill 与 decode 可以拆池。机制与 DistServe 相同，实现落在 NVIDIA 的编排（文档中的 Dynamo 等）上。拆开后 [decode 亲和](/llm/decode-affinity) 照样成立，TensorRT-LLM 不会自动把 KV 变成全局共享内存。宽 EP 服 DeepSeek 类模型时，还要处理专家通信，那是并行拓扑，不是 IFB 开关能代替的。
@@ -65,6 +82,8 @@ Decode 步小、重复、形状相对稳定，最吃：融合（少访存）、�
 不要用未标明 commit 的「TRT-LLM 比 vLLM 快 × 倍」做架构结论。快慢取决于量化是否对等、是否同一分页与 IFB、是否同一投机设置。能公平对比的是：同一权重精度、同一最大并发、同一 SLA 定义下的 goodput。自定义核意味着调试符号与剖析都要进 NVIDIA 工具链（Nsight），这是团队技能约束。
 
 <span class="marginnote">出处停留在 https://github.com/NVIDIA/TensorRT-LLM、https://nvidia.github.io/TensorRT-LLM/ 与 NVIDIA 技术博客（2023-10 开源及后续特性文）。不给 TensorRT-LLM 编造 arXiv。</span>
+
+<span class="marginnote">常见误区：初学者容易把 FP8/INT4 当成「改个 dtype 就白拿一倍速度」的开关。量化配方要配套校准与缩放策略，质量损失按模型和任务实测；跳过校准直接上线，吞吐曲线好看、答案质量悄悄下滑，而且掉在哪里往往说不清是哪一层引入的。</span>
 
 ## 小结
 

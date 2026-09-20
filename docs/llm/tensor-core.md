@@ -25,6 +25,8 @@ $$
 
 其中 $A,B,C,D$ 是很小的矩阵，形状由指令集规定，例如 16×16×16 一类 tile（具体以该代 CUDA / PTX 文档为准）。大 GEMM 被库切成许多这样的 tile，在 SM 上流水。问题有三。第一，数据类型必须是 Tensor Core 认识的：TF32、BF16、FP16、INT8、FP8、FP4 等，随代增加；FP32 标量路径不是同一条流水线。第二，布局与对齐：行主序 / 列主序、K 维对齐、是否走稀疏 2:4，都会决定能不能发出 MMA。第三，启动与融合：每次 MMA 前后若都把中间结果写回 HBM，算术强度塌掉，有核心等于没有。
 
+<span class="marginnote">术语翻译：MMA（Matrix Multiply-Accumulate）就是一条指令做一次「小矩阵乘加」——不是逐个元素算乘法再相加，而是硬件一步吞下形如 16×16×16 的小块矩阵，直接吐出结果块。可以想象成从「一只一只搬砖」升级成「一托盘一托盘叉运」。</span>
+
 注意力曾长期不是「标准 GEMM」：softmax 插在两次乘之间。FlashAttention 把 softmax 留在 SRAM 里，使两次乘仍能以高强度靠近 Tensor Core 屋顶。没有这块融合，MMA 再快也被 HBM 往返稀释。
 
 ### 从 WMMA 到 warpgroup
@@ -66,7 +68,23 @@ Tensor Core 之所以快，是因为在固定形状上做密集乘加，数据�
 
 异步是 Hopper 之后的一等机制。计算发出 MMA 的同时，TMA 一类引擎把下一块从 HBM 搬进共享内存。软件若在每次 MMA 后 `syncthreads` 到数据完全落地，异步被浪费，表现回到「计算与搬运串行」。CUDA Graph 可以减少 CPU 侧提交这些流水的开销，但不改变 MMA 本身，见 [CUDA Graph](/llm/cuda-graph)。
 
+<span class="marginnote">数字实例：一个 16×16×16 的 MMA tile，乘加量是 $2\times 16^3=8192$ FLOP，而它只需要从共享内存读入 $16\times16 + 16\times16 + 16\times16$ 个元素。数据进得少、算得多，这正是 Tensor Core 强度高、能盖住访存延迟的原因；形状越小（如 decode 的 $M=1$），「算得多」的优势就越薄。</span>
+
 <span class="marginnote">产品表的 Tensor Core 峰值几乎总是「理想形状 + 对应精度 + 常含稀疏」。Nsight 里看到 60% Tensor Pipe 已是好核；看到 0% 则是根本没走 MMA。不要用表头去除墙钟来反推「利用率」。</span>
+
+异步的流水叠法可以这样看：
+
+```mermaid
+flowchart LR
+  HBM["HBM 显存"] -->|"TMA 异步拷贝"| BUF2["共享内存 缓冲 B"]
+  HBM --> BUF1["共享内存 缓冲 A"]
+  BUF1 -->|"第 1 块 tile"| MMA["MMA 计算"]
+  MMA --> ACC["寄存器累加 D"]
+  BUF2 -.->|"计算期间预取"| MMA
+  ACC -.->|"仅在最后写回"| HBM
+```
+
+计算第 $k$ 块的同时搬运第 $k+1$ 块，两台机器（搬运引擎与乘加流水线）不停机；若软件在每块后强行等待同步，这条双轨就退化成单轨串行。
 
 ### 与 NVLink、HBM 的关系
 
@@ -75,6 +93,8 @@ MMA 吃的是已经在 SM 附近的数据。数据从本卡 HBM 来，受 $B$ �
 ## 边界
 
 不要为了「用上 Tensor Core」把必须保持 FP32 的归约强行改成 FP16 MMA。不要在 M=1 的 decode 上期待接近表头 TFLOPS。不要把 CUTLASS 例子里的 tile 抄到错误的 sm 版本。依据是 CUDA 文档与架构白皮书，不另造未公开论文来撑峰值表。
+
+<span class="marginnote">常见误区：初学者容易以为「模型跑在 H100 上 = 自动用满 FP8 Tensor Core」。实际上 dtype、tile 形状、融合方式任何一环不满足，库会静默回退到低峰值路径，代码照常运行、只是慢几倍。验证手段是看 Nsight Compute 的 Tensor Pipe 占用，而不是看日志有没有报错。</span>
 
 库与编译器会静默回退到 CUDA 核心。没有计数器，你以为在吃第五代核心，实际在跑 FMA。任何精度换代的验收都应包含 Tensor Pipe 指标与数值对照。昇腾的 Cube / MMA 是另一套指令与形状，不能把 `mma.sync` 的 tile 写过去。
 
