@@ -17,11 +17,15 @@ section: llm
 
 策略网络输出的是 $\pi_\theta(\cdot\mid s)$。温度为 $\tau$ 的采样来自 $\pi_\theta^{1/\tau}$ 再归一化（对 logits 除 $\tau$）。$\tau\gt 1$ 展平分布，组内更易分叉，[GRPO](/llm/grpo) 更有相对信号；$\tau\lt 1$ 接近 greedy，组内复制，动态采样狂丢组。DAPO 评测 AIME 用温度 1.0、top-$p=0.7$。许多助手服务默认 $\tau=0.7$。用服务温度做训练，探索不足；用训练温度做产品，用户看见胡言。
 
+<span class="marginnote">数字实例：logits 为 $[4,2]$ 时，$\tau=1$ 的概率约 $[0.88,0.12]$；$\tau=2$ 变 $[2,1]$，概率约 $[0.73,0.27]$；$\tau=0.5$ 变 $[8,4]$，概率约 $[0.98,0.02]$ 接近 greedy。温度就是对同一张 logits 表做整体缩放。</span>
+
 top-$p$ / top-$k$ 把支撑截断，IS 的 $\pi_\theta$ 若在全词表上算，与真正 $\pi_{\mathrm{beh}}$ 不一致。要么训练前向也施加同一截断，要么训练期关掉核采样，只留温度。
 
 ### 温度不是熵系数
 
 $\alpha H$ 在训练目标里推高熵；$\tau$ 在数据收集时改变样本。只加 $\alpha$ 而 $\tau\to 0$，仍采不到高熵区域。只升温而 clip 对称，罕见 token 仍抬不起来。探索预算要三处一起声明：$\tau$、clip、$\alpha$。
+
+<span class="marginnote">术语翻译：熵系数 $\alpha H$ 是写进损失里的「鼓励分心条款」，训的是参数；温度 $\tau$ 是采样时拧的「分心旋钮」，改的是这一步抽哪个 token。两个通道独立，只拧一个、另一个拧死，探索照样不到位——所以要 $\tau$、clip、$\alpha$ 一起声明。</span>
 
 <span class="marginnote">评测 pass@$k$ 依赖温度。报 avg@32 必须写 $\tau$。与训练 $\tau$ 不同时，那是另一项实验。</span>
 
@@ -43,6 +47,18 @@ flowchart TD
 ## 机制
 
 $\tau$ 改变的是动作分布的温度，不改变奖励。高 $\tau$ 提高碰到对的链的机会，也提高格式破坏。可验证抽取失败率随 $\tau$ 上升，是预期，不是 bug。应先 SFT 锁格式，再升温。这与可验证奖励课的「先低温度巩固抽取」一致，本课把它接到 GRPO 组方差。
+
+```mermaid
+flowchart TD
+  UP["升温 τ > 1"] --> OPP["更易碰到对的链"]
+  UP --> RISK["格式破坏 / 抽取失败率升"]
+  OPP --> SIG["组方差大：GRPO 有相对信号"]
+  RISK --> MIT["先 SFT 锁格式，过滤兜底"]
+  DOWN["降温 τ < 1"] --> GREEDY["组内复制：全对或全错"]
+  GREEDY --> NOSIG["std = 0：动态采样丢组"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为训练温度越高学得越多。高 $\tau$ 多出来的样本大半是被过滤器丢掉的格式坏链——信号没有变多，算力白烧。升温要盯的是「有效组数」与抽取失败率，不是「采了多少」。</span>
 
 <span class="marginnote">同一 $\tau$，长链后期熵本就低（模型很确定下一个词）。全程固定 $\tau$ 不等于全程同等探索。</span>
 

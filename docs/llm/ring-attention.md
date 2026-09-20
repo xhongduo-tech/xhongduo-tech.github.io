@@ -53,6 +53,18 @@ flowchart LR
 
 数学对象仍是 [SDPA](/llm/sdpa)。分布式只改变 $K,V$ 的驻留与遍历顺序。在线 softmax 的三项 $(m,\ell,O)$ 在块间合并，与 FlashAttention 的块归约同一代数：先比行最大，再按 $e^{m_{\mathrm{old}}-m_{\mathrm{new}}}$ 缩放旧分子。因此「精确」有明确含义：忽略浮点，输出等于把整段 $K,V$ 放在一台机器上的注意力。
 
+```mermaid
+flowchart TD
+  NEW["新 KV 块沿环到达"] --> C["与本地 Q 算块分数"]
+  C --> M["更新行最大：m_new = max(m_old, 块内最大)"]
+  M --> S["旧分子按 e^(m_old − m_new) 缩放"]
+  S --> ADD["加上新块的分子与分母"]
+  ADD --> NEXT["累加结果留驻本地，KV 继续传递"]
+  NEXT --> LAST["P 轮后：除总分子，得精确输出"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为生成阶段也能照搬 Ring。decode 每步只有 1 个新 token 的 $Q$，块注意力的活儿太薄，盖不住转一圈 KV 的通信，重叠假设直接破产；所以推理端更常见的是分页 KV 与 KV 池，而不是每步环传。</span>
+
 复杂度：总 FLOP 仍是 $O(s^2 d)$，只是摊到 $P$ 台设备上，每台 $O(s^2 d/P)$。墙钟在完美重叠时约等于单卡算自己那份的时间，外加无法隐藏的尾部同步。内存每卡 $O(sd/P)$ 量级的激活/KV 块。这与把注意力改成线性是不同的交易：Ring Attention 买的是**分布式内存**，不是渐近 FLOP。上亿长度的展示依赖极大的 $P$，电费与集群调度是真实约束。
 
 与 Megatron 序列并行不同：后者切的是 Norm/Dropout 的激活，注意力仍在张量并行组内按头本地算。Ring Attention 切的是注意力可见的序列维本身。与 Ulysses 不同：Ulysses 用 All-to-All 换头，通信图案是全集；环是稀疏邻接、体积按块。
