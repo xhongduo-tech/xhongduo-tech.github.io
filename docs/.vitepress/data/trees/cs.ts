@@ -10,6 +10,7 @@ import { csNet } from './cs-net'
 import { csDb } from './cs-db'
 import { csSec } from './cs-sec'
 import { csPapers } from './cs-papers'
+import { csDeepDive } from './cs-deepdive'
 import { csSupplement } from './cs-supplement'
 import { csProgramming, csNumeric } from './cs-foundations'
 
@@ -53,5 +54,6 @@ export const csTree = [
     csSec,
     secAdv,
   ]),
+  ...fromOutline(csDeepDive),
   ...markAppendix(fromOutline(csPapers)),
 ]

@@ -11,7 +11,7 @@ section: econ
 <footer>—— Friedman and Schwartz, A Monetary History of the United States, 1963；Eichengreen, Golden Fetters, 1992；Bernanke, Essays on the Great Depression, 2000</footer>
 </div>
 
-[上一课](/econ/local-fiscal-transfers)收束公共财政。本课是**经济史**对照课的第一课；后课默认已经读完：危机用机制对照，不背年份表。缺口是：1929 年的美国股价与银行恐慌，如何变成十年的全球萧条。Friedman–Schwartz 钉住美联储让货币崩溃；Bernanke 补上金融加速器；Eichengreen 把金本位写成国际传导的枷锁。三句话要叠在一起，不能只留一句「股市崩了」。
+[上一课](/econ/pigouvian-carbon-price)把公共财政的加深层收在碳定价：SCC 定水平、Weitzman 判工具，EU ETS 与中国碳市场是同一逻辑的两种制度化。本课是**经济史**对照课的第一课；后课默认已经读完：危机用机制对照，不背年份表。缺口是：1929 年的美国股价与银行恐慌，如何变成十年的全球萧条。Friedman–Schwartz 钉住美联储让货币崩溃；Bernanke 补上金融加速器；Eichengreen 把金本位写成国际传导的枷锁。三句话要叠在一起，不能只留一句「股市崩了」。
 
 ## 问题
 

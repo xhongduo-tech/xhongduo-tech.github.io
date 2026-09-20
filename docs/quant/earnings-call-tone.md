@@ -11,7 +11,7 @@ section: quant
     <footer>—— Mayew and Venkatachalam, The Power of Voice, Journal of Finance, 2012；Price, Doran, Peterson and Bliss, Journal of Banking &amp; Finance, 2012</footer>
 </div>
 
-上市公司在季报后召开盈余电话会：先宣读准备好的稿，再接受分析师提问。Price、Doran、Peterson 与 Bliss 证明，电话会文本的语气对随后收益有增量解释力，超出盈余意外本身。Mayew 与 Venkatachalam 进一步用语音情感分析管理层的情感状态，并把它与未来业绩联系起来。这与 [舆情文本](/quant/news-nlp-alpha) 同属公司披露的语言层，但语料更窄、结构更强：同一事件、可切分的准备稿与问答、可识别的发言人。Loughran 与 McDonald 的金融词典在这里仍然是测量的起点——通用情感词表会把「liability」一类词误判——Huang、Teoh 与 Zhang 则提醒「语气管理」：用词可以比基本面更积极，语气本身可能是操纵而不是信号。本篇写电话会语气作为量化特征：测什么、相对 [SUE](/quant/pead-sue) 的增量、以及问答轮次为何往往比宣读稿更有信息。
+[上一课](/quant/news-nlp-alpha)把公司新闻的语言层收到词典偏差与高维监督：负面词、EPU 与换手税。同一语言层里语料更窄、结构更强的一段，是季报后的盈余电话会：先宣读准备好的稿，再接受分析师提问。Price、Doran、Peterson 与 Bliss 证明，电话会文本的语气对随后收益有增量解释力，超出盈余意外本身。Mayew 与 Venkatachalam 进一步用语音情感分析管理层的情感状态，并把它与未来业绩联系起来。这与 [舆情文本](/quant/news-nlp-alpha) 同属公司披露的语言层，但语料更窄、结构更强：同一事件、可切分的准备稿与问答、可识别的发言人。Loughran 与 McDonald 的金融词典在这里仍然是测量的起点——通用情感词表会把「liability」一类词误判——Huang、Teoh 与 Zhang 则提醒「语气管理」：用词可以比基本面更积极，语气本身可能是操纵而不是信号。本篇写电话会语气作为量化特征：测什么、相对 [SUE](/quant/pead-sue) 的增量、以及问答轮次为何往往比宣读稿更有信息。
 
 ## 问题
 

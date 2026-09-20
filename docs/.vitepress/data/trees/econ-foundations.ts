@@ -89,6 +89,15 @@ export const econFields: Outline[] = [
               '掠夺与排他|predation-exclusion',
             ],
           ],
+          [
+            '加深：创新与纵向',
+            [
+              '研发竞赛与专利|rnd-patent-races',
+              '广告：信息与说服|advertising-economics',
+              '质量选择与声誉|quality-reputation-choosing',
+              '纵向一体化的动机|vertical-integration-why',
+            ],
+          ],
         ],
       ],
     ],
@@ -110,6 +119,15 @@ export const econFields: Outline[] = [
               '财政乘数争议|fiscal-multiplier-debate',
               '主权债务可持续|sovereign-debt-sustain',
               '地方财政与转移支付|local-fiscal-transfers',
+            ],
+          ],
+          [
+            '加深：最优与归宿',
+            [
+              'Mirrlees 最优所得税|mirrlees-optimal-tax',
+              '税收归宿：法定与经济|tax-incidence-statutory',
+              '无谓损失的度量|deadweight-loss-measure',
+              '庇古税与碳定价|pigouvian-carbon-price',
             ],
           ],
         ],

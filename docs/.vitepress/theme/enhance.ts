@@ -6,6 +6,7 @@ export function enhancePage() {
   enhanceCodeBlocks()
   numberMarginNotes()
   buildToc()
+  enhanceBackTop()
   typesetMath()
 }
 
@@ -152,4 +153,33 @@ function typesetMath() {
   if (mj?.typesetPromise) {
     mj.typesetPromise().catch(() => {})
   }
+}
+
+function enhanceBackTop() {
+  let btn = document.querySelector<HTMLButtonElement>('.back-top')
+  if (!btn) {
+    btn = document.createElement('button')
+    btn.className = 'back-top'
+    btn.type = 'button'
+    btn.setAttribute('aria-label', '回到顶部')
+    btn.textContent = '↑'
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
+    document.body.appendChild(btn)
+    let ticking = false
+    const update = () => {
+      ticking = false
+      btn!.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8)
+    }
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(update)
+          ticking = true
+        }
+      },
+      { passive: true },
+    )
+  }
+  update()
 }

@@ -1,5 +1,7 @@
 import { fromOutline, markAppendix, type Outline } from './schema'
 import { lithoSupplement } from './litho-supplement'
+// 光刻栏自 2026-09 起进入维护模式（freeze）：只修错误与链接，不再新增课程。
+// 两大主方向为大模型（部署/后训练/自训练）与量化投资研究，见 data/paths.ts 的两条路线。
 import { lithoFoundations } from './litho-foundations'
 
 const outline: Outline[] = [

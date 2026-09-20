@@ -1,6 +1,7 @@
 import { fromOutline, markAppendix, type Outline } from './schema'
 import { econSupplement } from './econ-supplement'
 import { econFoundations, econFields } from './econ-foundations'
+import { econDeepDive } from './econ-deepdive'
 
 const outline: Outline[] = [
   [
@@ -597,6 +598,57 @@ const papers: Outline[] = [
 
 const [behavior, infoLiq, dynMacro, corpAdv, econometrics, trade] = econSupplement
 
+/** 劳动经济学：此前整块缺失，搜寻匹配的宏观侧已在 dynMacro，这里补劳动侧。 */
+const laborEcon: Outline[] = [
+  [
+    '劳动经济学',
+    [
+      [
+        '供给与需求',
+        [
+          [
+            '个体与厂商',
+            [
+              '闲暇-消费选择与劳动供给|labor-leisure-choice',
+              '劳动供给弹性的估计|labor-supply-elasticity',
+              '劳动需求与边际产出|labor-demand-mrp',
+              '补偿性工资差异|compensating-differentials',
+            ],
+          ],
+        ],
+      ],
+      [
+        '人力资本与工资结构',
+        [
+          [
+            '谁赚得多',
+            [
+              '人力资本：一般与特殊训练|human-capital-becker',
+              '技能溢价与 Tinbergen 竞赛|skill-premium-tinbergen',
+              '教育作为信号|signaling-spence-labor',
+              '超级明星与赢者通拿|superstar-labor',
+            ],
+          ],
+        ],
+      ],
+      [
+        '失业、搜寻与制度',
+        [
+          [
+            '没有出清的市场',
+            [
+              '失业的存量-流量与贝弗里奇|unemployment-stock-flow',
+              '保留工资与搜寻时长|reservation-wage-search',
+              '买方垄断与工资压低|monopsony-wages',
+              '最低工资：两代文献|minimum-wage-debates',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ],
+]
+
 export const econTree = [
   ...fromOutline([
     econFoundations,
@@ -609,7 +661,9 @@ export const econTree = [
     behavior,
     infoLiq,
     trade,
+    ...laborEcon,
     ...econFields,
   ]),
+  ...fromOutline(econDeepDive),
   ...markAppendix(fromOutline(papers)),
 ]

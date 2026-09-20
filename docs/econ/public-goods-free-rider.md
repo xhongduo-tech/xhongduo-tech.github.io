@@ -11,7 +11,7 @@ section: econ
 <footer>—— Samuelson, The Pure Theory of Public Expenditure, Review of Economics and Statistics 1954；Bergstrom, Blume and Varian, Journal of Public Economics 1986；对照 Atkinson and Stiglitz, Lectures on Public Economics</footer>
 </div>
 
-[上一课](/econ/predation-exclusion)收束产业组织：市场失败来自结构与封锁。本课是**公共财政**第一课；后课默认已经读完：失败换成非排他消费，工具换成税与支出。微观[公共物品与免费搭车](/econ/public-goods)已写下 $\sum\mathrm{MRS}=\mathrm{MRT}$。本课不重推切条件，只补自愿供给均衡为何**系统**不足，好让后课 Ramsey 税有一个必须筹资的理由。
+[上一课](/econ/vertical-integration-why)把产业组织的加深层收在一体化的边界：剩余控制权随投资关键性移动，反向力是内部代理成本。本课是**公共财政**第一课；后课默认已经读完：失败换成非排他消费，工具换成税与支出。微观[公共物品与免费搭车](/econ/public-goods)已写下 $\sum\mathrm{MRS}=\mathrm{MRT}$。本课不重推切条件，只补自愿供给均衡为何**系统**不足，好让后课 Ramsey 税有一个必须筹资的理由。
 
 ## 问题
 

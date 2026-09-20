@@ -11,7 +11,7 @@ section: quant
 <footer>—— Easley, O'Hara and Srinivas, Option Volume and Stock Prices: Evidence on Where Informed Traders Trade, Journal of Finance, 1998</footer>
 </div>
 
-[上一课](/quant/news-nlp-alpha)把文本因子写成词典 / 主题 / 监督分层，并强调时间戳与 IDF 前视；公司新闻因子换手高，扣费后往往只留下短窗口。缺口是衍生品链上还有一套现货特征：隐含波动形状、看涨看跌量比、平价偏离，是否包含尚未写入股票中间价的信息。Easley–O'Hara–Srinivas 从知情交易选择场所出发；Muravyev 等人给出股票往往领先的反面证据。本课把期权链当横截面信号，不重写 Tetlock 词表。目标是股票预期收益，不是复制方差互换。
+[上一课](/quant/earnings-call-tone)把语言层收到更窄的语料：电话会的准备稿与问答、相对 SUE 的残差语气，收益窗口对准会议之后。回到另类数据的其他来源，缺口是衍生品链上还有一套现货特征：隐含波动形状、看涨看跌量比、平价偏离，是否包含尚未写入股票中间价的信息。Easley–O'Hara–Srinivas 从知情交易选择场所出发；Muravyev 等人给出股票往往领先的反面证据。本课把期权链当横截面信号，不重写 Tetlock 词表。目标是股票预期收益，不是复制方差互换。
 
 ## 问题
 

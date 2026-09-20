@@ -915,3 +915,573 @@ header.site-header {
     scroll-behavior: auto;
   }
 }
+
+/* ---- 全站搜索（⌘K） ---- */
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--theme-muted);
+  font: inherit;
+  font-size: 0.82em;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  color: var(--theme-text);
+  border-color: var(--theme-muted);
+}
+
+.search-btn-kbd {
+  padding: 0.05rem 0.35rem;
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 0.9em;
+  color: var(--theme-muted);
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 64;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10vh 1rem 0;
+  background: rgba(20, 18, 14, 0.42);
+}
+
+.search-modal {
+  display: flex;
+  flex-direction: column;
+  width: min(600px, 100%);
+  max-height: 70vh;
+  background: var(--theme-bg);
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--theme-code-border);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--theme-text);
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.search-close {
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.25rem;
+  background: transparent;
+  color: var(--theme-muted);
+  font: inherit;
+  font-size: 0.72em;
+  padding: 0.15rem 0.45rem;
+  cursor: pointer;
+}
+
+.search-list {
+  flex: 1;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.search-item {
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.search-item.active {
+  background: var(--highlight-weak);
+}
+
+.search-item-title {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  font-weight: bold;
+}
+
+.search-item-section {
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0 0.4em;
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.25rem;
+  color: var(--theme-muted);
+  font-size: 0.72em;
+  font-weight: normal;
+  vertical-align: 0.1em;
+}
+
+.search-item-appendix {
+  margin-right: 0.5em;
+  color: var(--accent);
+  font-size: 0.72em;
+  font-weight: normal;
+}
+
+.search-item-meta {
+  width: 100%;
+  max-width: none;
+  margin: 0.15rem 0 0;
+  color: var(--theme-muted);
+  font-size: 0.82em;
+}
+
+.search-empty {
+  padding: 1rem 0.75rem;
+  color: var(--theme-muted);
+  font-style: italic;
+}
+
+.search-foot {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border-top: 1px solid var(--theme-code-border);
+  color: var(--theme-muted);
+  font-size: 0.78em;
+}
+
+/* ---- 页脚上一课 / 下一课卡片 ---- */
+
+.lesson-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--theme-code-border);
+  border-radius: 0.45rem;
+  text-decoration: none !important;
+  color: var(--theme-text) !important;
+}
+
+.lesson-card:hover {
+  border-color: var(--accent);
+}
+
+.lesson-card--next {
+  text-align: right;
+}
+
+.lesson-card-dir {
+  color: var(--accent);
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+}
+
+.lesson-card-title {
+  font-weight: bold;
+}
+
+.lesson-card-meta {
+  color: var(--theme-muted);
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  .lesson-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-card--next {
+    text-align: left;
+  }
+
+  .search-btn-label,
+  .search-btn-kbd {
+    display: none;
+  }
+}
+
+/* ---- 回到顶部 ---- */
+
+.back-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.4rem;
+  z-index: 48;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.375rem;
+  background: var(--theme-bg);
+  color: var(--theme-muted);
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.back-top.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.back-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---- 研究路线（首页方向卡 + 路线页） ---- */
+
+.direction-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.direction-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--theme-code-border);
+  border-radius: 0.5rem;
+}
+
+.direction-name {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--accent-ink) !important;
+  text-decoration: none !important;
+}
+
+.direction-goal {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: var(--theme-muted);
+  font-size: 0.9em;
+}
+
+.direction-progress {
+  width: 100%;
+  max-width: none;
+  margin: 0.2rem 0 0;
+  font-size: 0.82em;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.direction-bar,
+.lp-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--highlight-weak);
+  overflow: hidden;
+}
+
+.direction-bar span,
+.lp-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 760px) {
+  .direction-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.learn-path .lp-head {
+  margin: 0.6rem 0 1.4rem;
+}
+
+.lp-goal {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 0.5rem;
+  font-size: 1.02em;
+}
+
+.lp-progress-line {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 0.4rem;
+  color: var(--theme-muted);
+  font-size: 0.9em;
+  font-variant-numeric: oldstyle-nums;
+}
+
+.lp-progress-hint {
+  margin-left: 0.5em;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.lp-bar {
+  max-width: 22rem;
+}
+
+.lp-stage {
+  margin-top: 1.6rem;
+}
+
+.lp-stage-note {
+  width: 100%;
+  max-width: none;
+  margin: 0.2rem 0 0.6rem;
+  color: var(--theme-muted);
+  font-style: italic;
+}
+
+.lp-lessons {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-lessons li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px dotted var(--theme-code-border);
+}
+
+.lp-lessons li.done .lp-link {
+  color: var(--theme-muted);
+  text-decoration: line-through !important;
+}
+
+.lp-check {
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  padding: 0;
+  border: 1px solid var(--theme-copy-btn-border);
+  border-radius: 0.25rem;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.8em;
+  line-height: 1;
+  cursor: pointer;
+  align-self: center;
+}
+
+.lp-check:hover {
+  border-color: var(--accent);
+}
+
+.lp-link {
+  flex: 0 1 auto;
+}
+
+.lp-meta {
+  color: var(--theme-muted);
+  font-size: 0.78em;
+  font-style: italic;
+  text-align: right;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 760px) {
+  .lp-lessons li {
+    flex-wrap: wrap;
+  }
+
+  .lp-meta {
+    flex-basis: 100%;
+    text-align: left;
+    margin-left: 1.75rem;
+  }
+}
+
+/* ================= 视觉打磨：首页编辑式布局 + 组件质感 ================= */
+
+/* UI 组件内禁用两端对齐（CJK+Latin 混排会产生大空隙） */
+.direction-goal,
+.direction-progress,
+.section-map-blurb,
+.lp-goal,
+.lp-progress-line,
+.lp-stage-note,
+.lp-meta,
+.search-item-meta,
+.lesson-card-meta,
+.post-empty {
+  text-align: left;
+  text-justify: auto;
+}
+
+/* 首页：正文保持阅读测宽，组件层破格到全宽（Tufte 式双层版式） */
+.is-home .direction-cards,
+.is-home .section-map,
+.is-home .post-list {
+  width: 100%;
+}
+
+.home-tagline {
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  color: var(--accent-ink);
+  margin-bottom: 1.8rem;
+}
+
+/* 方向卡：accent 顶线 + 编号徽章 + hover 浮起 */
+.direction-card {
+  position: relative;
+  border-top: 3px solid var(--accent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.direction-card::before {
+  position: absolute;
+  top: -0.55rem;
+  right: 0.9rem;
+  padding: 0.05rem 0.55rem;
+  background: var(--theme-bg);
+  color: var(--accent-ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  content: '方向一';
+}
+
+.direction-card:nth-of-type(2)::before {
+  content: '方向二';
+}
+
+.direction-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 26px rgba(60, 40, 20, 0.09);
+}
+
+.direction-name {
+  font-size: 1.18em;
+  text-decoration: none !important;
+}
+
+.direction-bar {
+  height: 5px;
+  margin-top: 0.45rem;
+}
+
+/* 栏目地图：行 hover 与数字着色 */
+.section-map li {
+  transition: background 0.15s ease;
+}
+
+.section-map li:hover {
+  background: var(--highlight-weak);
+}
+
+.section-map-count {
+  color: var(--accent-ink);
+}
+
+/* 路线页：阶段编号 + 圆形勾选 + 行 hover */
+.learn-path {
+  counter-reset: lp-stage;
+}
+
+.lp-stage h2::before {
+  content: counter(lp-stage, decimal-leading-zero) ' · ';
+  counter-increment: lp-stage;
+  color: var(--accent);
+  font-variant-numeric: oldstyle-nums;
+}
+
+.lp-check {
+  border-radius: 50%;
+}
+
+.lp-lessons li {
+  align-items: center;
+  padding-left: 0.4rem;
+  border-bottom: 1px solid var(--theme-code-border);
+  transition: background 0.15s ease;
+}
+
+.lp-lessons li:hover {
+  background: var(--highlight-weak);
+}
+
+.lp-lessons li.done .lp-check::after {
+  content: '';
+}
+
+/* 课程页脚卡片 hover 一致性 */
+.lesson-card {
+  transition: border-color 0.15s ease, transform 0.18s ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-1px);
+}
+
+/* 搜索按钮在首页头部与导航的间距一致性 */
+.search-btn-kbd {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 课程页头部：把课程上下文聚拢成带 accent 左缘的块 */
+.lesson-nav--header {
+  margin: -0.6rem 0 1.6rem !important;
+  padding: 0.65rem 0 0.65rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(to right, var(--highlight-weak), transparent 70%);
+}
+
+.lesson-nav--header p {
+  margin: 0.15rem 0;
+  line-height: 1.7;
+}
+
+.lesson-nav--header .lesson-path,
+.lesson-nav--header .lesson-progress {
+  font-size: 0.88em;
+  color: var(--theme-muted);
+}
+
+.lesson-nav--header .lesson-progress {
+  font-variant-numeric: oldstyle-nums;
+}

@@ -40,6 +40,27 @@ function href(ref) {
   if (!ref || !lesson.value) return ''
   return withBase(`/${lesson.value.section}/${ref.slug}/`)
 }
+
+function cardOf(ref, dir) {
+  if (!ref || !lesson.value) return null
+  const meta = getLesson(lesson.value.section, ref.slug)
+  return {
+    dir,
+    title: ref.title,
+    href: href(ref),
+    written: isWritten(ref),
+    path: meta ? [meta.course, meta.unit, meta.sequence].filter(Boolean).join(' · ') : '',
+    progress: meta && meta.courseSize ? `第 ${meta.indexInCourse} / ${meta.courseSize} 课` : '',
+  }
+}
+
+const footerCards = computed(() => {
+  if (!lesson.value || props.variant !== 'footer') return { prev: null, next: null }
+  return {
+    prev: cardOf(lesson.value.prereq, 'prev'),
+    next: cardOf(lesson.value.next, 'next'),
+  }
+})
 </script>
 
 <template>
@@ -62,5 +83,21 @@ function href(ref) {
     <p v-else-if="variant === 'footer'" class="lesson-next">
       {{ lesson.appendix ? '本附录到此结束。' : '主干课序到此结束。' }}
     </p>
+    <div v-if="variant === 'footer' && (footerCards.prev || footerCards.next)" class="lesson-cards">
+      <a v-if="footerCards.prev" class="lesson-card lesson-card--prev" :href="footerCards.prev.href">
+        <span class="lesson-card-dir">← 上一课</span>
+        <span class="lesson-card-title">{{ footerCards.prev.title }}</span>
+        <span v-if="footerCards.prev.path" class="lesson-card-meta">
+          {{ footerCards.prev.path }}<template v-if="footerCards.prev.progress"> · {{ footerCards.prev.progress }}</template>
+        </span>
+      </a>
+      <a v-if="footerCards.next" class="lesson-card lesson-card--next" :href="footerCards.next.href">
+        <span class="lesson-card-dir">下一课 →</span>
+        <span class="lesson-card-title">{{ footerCards.next.title }}</span>
+        <span v-if="footerCards.next.path" class="lesson-card-meta">
+          {{ footerCards.next.path }}<template v-if="footerCards.next.progress"> · {{ footerCards.next.progress }}</template>
+        </span>
+      </a>
+    </div>
   </nav>
 </template>

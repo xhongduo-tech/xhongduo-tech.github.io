@@ -3,6 +3,7 @@ import { quantExtra } from './quant-extra'
 import { quantAudit } from './quant-audit'
 import { quantFrontier } from './quant-frontier'
 import { quantSupplement } from './quant-supplement'
+import { quantDeepDive } from './quant-deepdive'
 import { quantFoundations } from './quant-foundations'
 
 const outline: Outline[] = [
@@ -489,6 +490,7 @@ const outline: Outline[] = [
               '信用卡与消费|card-spending',
               '供应链与货运|supply-chain-alt',
               '舆情与文本|news-nlp-alpha',
+              '电话会语气 NLP|earnings-call-tone',
               '期权链作为现货信号|options-as-spot-signal',
               '回填偏差|alt-data-backfill-bias',
               '面板构造|alt-panel-construction',
@@ -558,6 +560,57 @@ const [
 
 const [microTheory, econometricsHF, derivDepth, portStrat, exchData, cnMarketDepth] = quantSupplement
 
+/** 主干收束课：把 56 门课程的研究纪律走成一次端到端。插在「稳健方法与模型治理」之后、附录之前。 */
+const quantCapstone: Outline[] = [
+  [
+    '从问题到组合',
+    [
+      [
+        '假设与数据',
+        [
+          [
+            '起点',
+            [
+              '研究问题的起源|research-question-origination',
+              '假设与预注册|hypothesis-preregistration',
+              '数据获取与审计|data-acquisition-audit',
+            ],
+          ],
+          [
+            '信号',
+            [
+              '信号构建：从直觉到可计算量|signal-construction-sandbox',
+              '单信号评估：IC、换手与成本会师|single-signal-eval',
+              '多重检验纪律的现场用法|multitest-discipline-cap',
+            ],
+          ],
+        ],
+      ],
+      [
+        '组合与实盘',
+        [
+          [
+            '从信号到净值',
+            [
+              '组合整合：约束与加权|portfolio-integration-cap',
+              '执行成本预测|execution-cost-forecast-cap',
+              '风险叠加：回撤与尾部|risk-overlay-cap',
+            ],
+          ],
+          [
+            '上线与沉淀',
+            [
+              '分级上线：shadow 到全仓|paper-to-live-staging',
+              '实盘监控与研究再触发|live-monitoring-handoff',
+              '复盘与案例写作|research-postmortem',
+            ],
+          ],
+        ],
+      ],
+    ],
+  ],
+]
+
 export const quantTree = [
   ...fromOutline(quantFoundations),
   ...fromOutline(outline.slice(0, 1)),
@@ -592,6 +645,8 @@ export const quantTree = [
   ...fromOutline(outline.slice(10, 11)),
   exchData,
   ...fromOutline(outline.slice(11)),
+  ...fromOutline(quantCapstone),
+  ...fromOutline(quantDeepDive),
   ...markAppendix(quantAudit),
   ...markAppendix(quantFrontier),
 ]

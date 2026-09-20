@@ -11,7 +11,7 @@ section: econ
 <footer>—— Bain 的产业组织传统；Tirole, The Theory of Industrial Organization, 1988；Berry, Levinsohn and Pakes, Automobile Prices in Market Equilibrium, Econometrica 1995</footer>
 </div>
 
-[上一课](/econ/dollar-swap-lines)收束国际金融续：全球银行的美元批发与互换线。本课是**产业组织**领域课的第一课；后课默认已经读完：从市场结构往下走，问的是品种级需求与策略，不是再写三角或原罪。微观主干已有[垄断与勒纳](/econ/monopoly-lerner)、[可竞争市场](/econ/contestable-markets)，本课不重推 $\mathrm{MR}=\mathrm{MC}$。缺口是：行业表上的 $HHI$ 与「这次合并会不会涨价」之间，缺一条可检验的均衡映射。
+[上一课](/econ/minimum-wage-debates)把劳动经济学收在两代最低工资文献：分歧在对照组的构造，不在立场，劳动课程至此收束。本课是**产业组织**领域课的第一课；后课默认已经读完：从市场结构往下走，问的是品种级需求与策略，不是再写三角或原罪。微观主干已有[垄断与勒纳](/econ/monopoly-lerner)、[可竞争市场](/econ/contestable-markets)，本课不重推 $\mathrm{MR}=\mathrm{MC}$。缺口是：行业表上的 $HHI$ 与「这次合并会不会涨价」之间，缺一条可检验的均衡映射。
 
 ## 问题
 

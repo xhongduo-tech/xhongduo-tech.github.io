@@ -14,6 +14,7 @@ import { llmAudit } from './llm-audit'
 import { llmFrontier } from './llm-frontier'
 import { llmSideline } from './llm-sideline'
 import { llmSupplement } from './llm-supplement'
+import { llmDeepDive } from './llm-deepdive'
 import { llmFoundations } from './llm-foundations'
 
 const representation: Outline = [
@@ -905,6 +906,129 @@ const [
   multimodalGen,
 ] = llmSupplement
 
+/** 后训练研究的数学地基：MDP → 无模型 → 策略梯度 → bandit/离线。插在「强化学习」之后、「奖励、自博弈与推理行为」之前。 */
+const rlFoundations: Outline = [
+  '强化学习基础',
+  [
+    [
+      'MDP 与动态规划',
+      [
+        [
+          '从回报到方程',
+          [
+            'MDP 五元组与轨迹分布|mdp-five-tuple',
+            '回报、折扣与价值函数|return-discounting',
+            '贝尔曼期望与最优方程|bellman-equations-rl',
+            '值迭代与策略迭代|value-policy-iteration',
+          ],
+        ],
+        [
+          '语言模型的决策视角',
+          [
+            '语言生成作为 MDP|llm-decision-view',
+            '探索与利用：ε-贪婪与乐观|exploration-epsilon',
+          ],
+        ],
+      ],
+    ],
+    [
+      '无模型学习',
+      [
+        [
+          '预测与控制',
+          [
+            '蒙特卡洛策略评估|monte-carlo-evaluation',
+            'TD(0) 与自举|td-zero-bootstrapping',
+            'SARSA 与 Q 学习|sarsa-q-learning',
+            '离策略与重要性采样|off-policy-importance-rl',
+            '致命三要素|deadly-triad',
+            '网格世界实验课|gridworld-lab-lesson',
+          ],
+        ],
+      ],
+    ],
+    [
+      '策略梯度',
+      [
+        [
+          '从定理到信任域',
+          [
+            '策略梯度定理|policy-gradient-theorem',
+            'REINFORCE 与方差|reinforce-variance',
+            '基线与优势函数|baselines-advantage',
+            'actor-critic 与自举|actor-critic-bootstrap',
+            '信任域与单调改进|trust-region-monotone',
+            'PPO 的信任域重读|ppo-clip-view',
+          ],
+        ],
+      ],
+    ],
+    [
+      'bandit、离线与后训练',
+      [
+        [
+          '最小案例与收束',
+          [
+            '上下文 bandit|contextual-bandits',
+            '离线 RL 与分布偏移|offline-rl-shift',
+            '奖励过优化的理论视角|reward-overoptimization-theory',
+            '回到后训练：RLHF/GRPO/RLVR 的位置|rl-foundations-map',
+          ],
+        ],
+      ],
+    ],
+  ],
+]
+
+/** 自训练研究的收束课序：把 self-play、RLVR、合成数据、蒸馏收成「闭环」问题。接在「奖励、自博弈与推理行为」之后。 */
+const selfTraining: Outline = [
+  '自训练与数据闭环',
+  [
+    [
+      '闭环的解剖',
+      [
+        [
+          '回路与停止',
+          [
+            '自改进回路的解剖|self-improvement-loop',
+            '数据飞轮的停止条件|data-flywheel-stop',
+            '模型坍缩的实证|model-collapse-empirics',
+          ],
+        ],
+        [
+          '验证与上限',
+          [
+            '验证器瓶颈|verifier-bottleneck',
+            'RLVR 的设计空间|rlvr-design-space',
+            '合成课程与自出题|synthetic-curriculum-close',
+          ],
+        ],
+      ],
+    ],
+    [
+      '闭环的失效模式',
+      [
+        [
+          '循环依赖与污染',
+          [
+            'self-rewarding 的循环依赖|self-reward-debate',
+            '弱到强闭环|weak-to-strong-closure',
+            '蒸馏保底与探索上限|distill-vs-explore',
+            '自博弈的对手选择|player-selection-bias',
+            '自训练数据的污染|contamination-loop',
+          ],
+        ],
+        [
+          '闭环仪表',
+          [
+            '迭代之间该看哪几个数|closure-metrics',
+          ],
+        ],
+      ],
+    ],
+  ],
+]
+
 export const llmTree = [
   ...fromOutline([
     llmFoundations,
@@ -922,7 +1046,9 @@ export const llmTree = [
     extraAlignData,
     alignMonitor,
     trunk[4],
+    rlFoundations,
     rlDepth,
+    selfTraining,
     extraSampling,
     decodeDepth,
     trunk[5],
@@ -942,6 +1068,7 @@ export const llmTree = [
     extraPrompting,
     retrievalEng,
   ]),
+  ...fromOutline(llmDeepDive),
   ...markAppendix(llmSideline),
   ...markAppendix(llmPapers),
   ...markAppendix(llmAudit),

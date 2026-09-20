@@ -3,12 +3,14 @@ import { withBase, useRoute, useData } from 'vitepress'
 import { computed, onMounted, watch, nextTick, ref } from 'vue'
 import { enhancePage } from './enhance'
 import LessonNav from './LessonNav.vue'
+import SearchModal from './SearchModal.vue'
 import { sectionMeta, isSectionId } from '../data/sections'
 
 const THEME_KEY = 'theme-preference'
 const route = useRoute()
 const { page } = useData()
 const theme = ref('light')
+const searchOpen = ref(false)
 
 const nav = [
   { href: '/', label: '首页', match: (path) => path === '/' },
@@ -59,11 +61,24 @@ function toggleTheme() {
 onMounted(() => {
   applyTheme(storedTheme() || systemTheme())
   enhancePage()
+  window.addEventListener('keydown', onGlobalKey)
 })
 watch(
   () => route.path,
   () => nextTick(() => enhancePage()),
 )
+
+function onGlobalKey(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault()
+    searchOpen.value = !searchOpen.value
+  } else if (e.key === '/' && !searchOpen.value) {
+    const tag = document.activeElement?.tagName
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return
+    e.preventDefault()
+    searchOpen.value = true
+  }
+}
 </script>
 
 <template>
@@ -81,6 +96,19 @@ watch(
           >
         </span>
         <span class="nav-tools">
+          <button
+            class="search-btn"
+            type="button"
+            aria-label="搜索（Ctrl/Cmd K）"
+            @click="searchOpen = true"
+          >
+            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <span class="search-btn-label">搜索</span>
+            <kbd class="search-btn-kbd">⌘K</kbd>
+          </button>
           <a
             class="nav-icon-btn"
             href="https://github.com/xhongduo-tech/blog"
@@ -133,6 +161,8 @@ watch(
         <LessonNav variant="footer" />
       </section>
     </article>
+
+    <SearchModal :open="searchOpen" @close="searchOpen = false" />
 
     <footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer>
   </div>

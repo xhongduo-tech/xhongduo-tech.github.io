@@ -1,0 +1,61 @@
+---
+title: FlashAttention 重读：tiling 与 online softmax
+date: 2026-09-18
+section: llm
+---
+
+# FlashAttention 重读：tiling 与 online softmax
+
+<div class="epigraph">
+<p>FlashAttention 的贡献不在算得少，而在把中间结果钉在片上存储里；tiling 决定搬什么，online softmax 决定算到一半怎么办。</p>
+<footer>—— 据 Dao et al., FlashAttention, 2022 整理</footer>
+</div>
+
+[上一课](/llm/sgt-map)把自博弈深化的边界与收束写完，后训练与自训练一族到这里告一段落。本课是「注意力内核工程」的第一课，部署研究从推理热路径上跑得最多的那个内核讲起。本栏里你已经读过 [SDPA](/llm/sdpa) 的公式与 [FlashAttention](/llm/flashattention) 的定位：不物化 $n\times n$ 分数矩阵、计算仍是精确注意力、收益主要来自省 HBM 流量。本课重读它，问的是内核作者的问题：这两条性质靠什么写出来——答案是 tiling 与 online softmax 这一对配套件。后课的访存分析、片上预算、各路变体与移植，都默认你已能把这对件装进脑子。
+
+## 问题
+
+会算注意力与会写注意力内核之间隔着什么。标准实现要走三趟：$S=QK^\top$ 把 $n\times n$ 的分数写进 HBM，softmax 再把它读出来改写回去，$O=PV$ 第三遍读它。$n=8192$、单头、fp16 时，光这张矩阵就是 $128\,\mathrm{MiB}$，在显存里滚三个来回。缺口因此不是 FLOPs，而是：能不能让它根本不落显存。障碍有两个。其一，softmax 的分母要扫完整行才知道，而分块之后每一行只看到一部分键。其二，直接分块会把「归一化」这个全局操作切碎，切错顺序数值就崩。
+
+### softmax 不能分块算——直到随身带上统计量
+
+softmax 逐行定义：减最大值、取指数、除以行和。最大值与行和都是行内归约量，看全行之前只有部分结果。若先对每个块局部 softmax 再把结果平均，得到的是另一个函数，不是 softmax——归一化不是可分的局部操作。
+
+## 方法
+
+tiling 把 $Q$ 切成 $B_r\times d$ 的行块，$K,V$ 切成 $B_c\times d$ 的列块；外层循环扫 KV 块，逐块载入片上 SRAM，内层在片上算这个块的 $S$。online softmax 给每行随身维护三个量：运行最大值 $m$、运行和 $l$、未归一化输出 $O$。新块带来分数 $S$，先更新 $m'=\max(m,\ \mathrm{rowmax}(S))$，再把旧结果按 $e^{m-m'}$ 重缩放：
+
+$$O \leftarrow e^{m-m'}O + e^{S-m'}V,\qquad l \leftarrow e^{m-m'}l + \mathrm{rowsum}\left(e^{S-m'}\right),\qquad m \leftarrow m'.$$
+
+KV 块扫完之后 $O \leftarrow O/l$，一次归一化收尾。每一步只依赖已见过的块，顺序无关。
+
+```mermaid
+flowchart TD
+  QIN["Q 行块驻留片上"] --> S["片上算 S = Q K^T"]
+  KVIN["外层：载入 K,V 块到 SRAM"] --> S
+  S --> UP["更新 m′、l、O：重缩放累加"]
+  UP --> MORE{"还有 KV 块?"}
+  MORE -->|是| KVIN
+  MORE -->|否| NORM["O ← O / l，写回 HBM"]
+```
+
+## 机制
+
+为什么这样合并是对的：每行的部分结果构成三元组 $(m,l,O)$，而 $(m,l,O)$ 上的合并满足结合律——两个部分用 $\max$ 并最大值、按指数加权并和与输出。这条结合律是精确的，不是近似，后面长序列切分与 [FlashDecoding](/llm/flashdecoding) 的二层归并用的正是它。减最大值还兼任数值保险：$e^{S-m'}$ 保证指数不上溢。不这么做错在哪：想省一趟就把局部 softmax 的结果落盘再平均，分布已经错了；或者干脆先算 $P$ 再乘 $V$，$n\times n$ 回到显存，等于没写。
+
+成本账要按字节记。FlashAttention 论文的口径：标准实现需要 $O(n^2)$ 量级的额外 HBM 读写（$S$ 与 $P$ 各进出一遍），FlashAttention 把它降到 $O(n^2 d^2/M)$，其中 $M$ 是片上 SRAM 容量——$d$ 固定、$M$ 以百 KB 计时，主项被 tile 大小吃掉。SRAM 比 HBM 快一个数量级，这就是「省字节」能兑换成时间的原因，下一课把这本账展开。
+
+<span class="marginnote">$n=8192$、$d=128$、fp16：一张 $S$ 矩阵 $128\,\mathrm{MiB}$。A100 上 HBM 约 $1.5$–$2\,\mathrm{TB/s}$，SRAM 约 $19\,\mathrm{TB/s}$——$S$ 每少走一个来回，就省下一毫秒级的搬运。</span>
+
+## 边界
+
+FLOPs 一个没少，省的全是字节；渐近计算仍对 $n$ 二次，二次项本身要靠稀疏或线性变体去动，那是本课程后面的事。训练要反向：分数矩阵没存，就用重算把前向再走一遍换掉存储，数学对象仍是同一个 Jacobian，见[注意力的反向传播](/llm/attention-backward)。因果掩码在块内逐元素施加，对角块之外的整块直接跳过，白送一份稀疏。dropout 同样是块内的逐元素操作。解码时查询只有一两行，沿查询维并行失效，要沿 KV 维另想办法，本课程到长序列一课再收。
+
+## 小结
+
+- tiling 与 online softmax 是一对配套件：前者定搬运粒度，后者让归一化可以边算边改。
+- online softmax 的本质是每行随身带 $(m,l,O)$ 三个统计量，合并满足结合律，精确无近似。
+- 省的是 HBM 流量，不是 FLOPs；访存量从 $O(n^2)$ 降到 $O(n^2 d^2/M)$。
+- 因果掩码、dropout 都落在块内；对角块外的整块跳过是免费的稀疏。
+- 解码与长序列要换并行轴，不是这套骨架失效。
+- 出处：Dao et al., *FlashAttention*, NeurIPS 2022；online softmax 归约见 Milakov & Gimelshein, 2018。
