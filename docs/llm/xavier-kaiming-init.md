@@ -31,6 +31,8 @@ $$
 
 ReLU 把负半轴清零，有效扇入大约减半。He 等人把前向守恒改成 $\mathrm{Var}(W)=2/n_{\mathrm{in}}$（Kaiming normal），反向对应 $2/n_{\mathrm{out}}$。漏掉这个 2，ReLU 栈的激活范数随层衰减，看起来像「学不动」，其实是方差预算写错。
 
+<span class="marginnote">给个数字直觉：$\mathrm{Var}(W)$ 取 $1/n_{\mathrm{in}}$ 时方差守恒；若大了一倍（ReLU 漏算的情形），每过一层激活方差就翻一倍，100 层后是 $2^{100}\approx10^{30}$ 倍——数值早已溢出、激活早已饱和。反过来小一倍就衰减到 $10^{-30}$。「随深度指数」不是修辞，是乘法逐层累乘的直译。</span>
+
 <span class="marginnote">Transformer 的 FFN 用 GELU / SwiGLU，不是 tanh，也不是纯 ReLU。Kaiming 仍常被当起点，因为 GELU 在 0 附近近似半边线性。它不是定理，是把扇入除掉之后再让后课去调乘数。</span>
 
 ## 方法
@@ -42,6 +44,8 @@ ReLU 把负半轴清零，有效扇入大约减半。He 等人把前向守恒改
 - **Kaiming normal（fan-in）**：$\mathcal{N}(0, 2/n_{\mathrm{in}})$，匹配 ReLU 前向。
 - **Kaiming fan-out**：把 $n_{\mathrm{in}}$ 换成 $n_{\mathrm{out}}$，更顾反向。
 
+<span class="marginnote">fan-in / fan-out 翻译一下：fan-in 是「这一层的每个输出要把多少路输入加总起来」（即 $n_{\mathrm{in}}$），fan-out 反之。类比调音台：一路输出混合的输入路数越多，每路音量就得相应调小，否则总和过载——「除以扇入」就是按混合路数调小每路的音量。</span>
+
 注意力的 $W_Q,W_K,W_V,W_O$ 与 FFN 的两（或三）个矩阵都按各自的 $n_{\mathrm{in}},n_{\mathrm{out}}$ 独立抽样。不要用「全网一个 std=0.02」代替扇入：那个常数在 GPT-2 一类配方里出现，已经把深度与宽度的经验折进 0.02，换宽度必须重标，这正是 [μP](/llm/mup) 要系统化的事。本课只钉扇入扇出这一层。
 
 偏置通常初始化为 0。LayerNorm / RMSNorm 的增益初始化为 1、偏置为 0，使起步时归一化是恒等尺度。把 LN 增益也用 Xavier 打乱，等于第一步就破坏归一化的单位尺度假设。
@@ -52,9 +56,23 @@ ReLU 把负半轴清零，有效扇入大约减半。He 等人把前向守恒改
 
 与 [SDPA](/llm/sdpa) 的 $1/\sqrt{d_k}$ 分工：缩放管的是点积维度，初始化管的是投影矩阵把表示放到什么范数。两者同时错，logits 要么饱和要么均匀。只调学习率去补错误的 $\mathrm{Var}(W)$，在窄模型上偶尔能混，加宽后会爆，因为方差错误随 $n_{\mathrm{in}}$ 线性放大。
 
+```mermaid
+flowchart TD
+  V["Var(W) 相对 1/n_in 的取值"] --> BIG["过大：方差逐层乘性放大"]
+  BIG --> SAT["深层激活冲进饱和区，梯度趋 0"]
+  V --> SMALL["过小：ReLU 漏掉 2 倍也算此类"]
+  SMALL --> VAN["激活范数逐层衰减，信号消失"]
+  V --> OK["Xavier / Kaiming：按扇入扇出除掉"]
+  OK --> KEEP["前向与反向方差层间近似守恒"]
+```
+
+<span class="marginnote">这张图回答「初始化写错时故障长什么样」：方差预算过大，故障表现为激活爆炸与饱和、梯度消失；过小（含 ReLU 漏掉 2 倍），表现为信号逐层变弱、训练「学不动」。两种病看起来都像超参没调好，病根却在第一步的 $\mathrm{Var}(W)$——所以先查初始化，再怪学习率。</span>
+
 ## 边界
 
 Xavier / Kaiming 不管嵌入表、不管 tied 输出头的 logit 尺度、不管残差深度。后三课分别补。也不管 Adam 的 $\varepsilon$ 与更新——那是稳定性单元。把 BERT 的 `normal(0, 0.02)` 抄到一个 $d_{\mathrm{model}}=8192$ 的模型上，没有扇入重标，等于拒绝本课的公式。
+
+<span class="marginnote">常见误区：把 0.02 当成「大模型标准差常数」。它是 BERT 一类配方里把当时宽度经验折进去的数，换宽度必须重标——正确姿势是回到 $\sqrt{2/n_{\mathrm{in}}}$ 现算。就像衣服尺码：M 码合身不代表所有人都能穿 M 码，尺子（扇入公式）才是可迁移的部分。</span>
 
 正交初始化、Fixup、ReZero 是同一问题的其他答案：有的保谱范数，有的把残差分支起步乘 0。本课停留在方差启发式，因为它仍是大多数实现的默认；换成谱方法时，要在配方里显式替换，不能与 Xavier 叠乘两套系数。
 
