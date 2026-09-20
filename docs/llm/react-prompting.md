@@ -19,6 +19,8 @@ section: llm
 
 另一问题是示范与线上工具清单漂移。提示里写 `Search[实体]`，线上却是 `hybrid_search(query=...)`，模型会复述旧名字。少样本的动作空间必须是当前白名单的子集，参数写法必须与解析器或 schema 一致。这与 CoT 示范写错进位不同：那里错的是推理，这里错的是接口合同。
 
+<span class="marginnote">少样本（few-shot）示范就是「先给几道做好的例题，再出正式题」：模型靠模仿例题的格式和节奏答题。所以例题里写错一个工具名，模型答题时大概率照着错下去——示范不是参考意见，是被模仿的合同。</span>
+
 ### 三种行，三种受众
 
 Thought 的受众是模型自己的后续 token，有时也是日志审计。Action 的受众是解析器或工具运行时。Observation 的受众是下一步 Thought，且必须由宿主写入。把三种受众写成同一种散文，运行时就无法切分。提示里应用固定前缀（`Thought:` / `Action:` / `Observation:`）或等价的标记，并在系统说明里写清 Action 的语法（函数名、括号、参数分隔）。少样本每一条都要遵守，不能只在系统段写 BNF、示范里却自由发挥。
@@ -45,11 +47,15 @@ flowchart TD
 
 完美轨迹教的是快乐路径，模型学不会空结果、实体歧义、看错片段。至少准备：检索为零时改写查询；检索到近义但错误实体时在 Thought 里明确否定；已经够用时 `Finish` 而不是再搜。Thought 应短，只写当前决策相关的断言，不要在示范里写小作文——测试时模型会模仿长度，把窗口填满。Observation 在示范里应截断到与决策相关的句子，与线上截断策略一致，否则模型期望全文、线上只给片段，会以为工具坏了。
 
+<span class="marginnote">2 到 6 条示范怎么配：至少一条走通的成功路径，一条「空结果打脸后改查询」的路径。工具一多宁缺毋滥——每条示范动辄上千 token，十条过时轨迹又贵又没用，不如一条准确的工具 description。</span>
+
 停止与重复也要在提示里出现，而不是只写在代码注释。系统段写清：同一 Action 与同一参数不得连续重复；达到步数输出 `Finish` 并承认不确定。提示不写，模型就不会在格式层停止。解析器对未知工具名应回填明确错误观察（`unknown tool`），让下一步 Thought 有材料纠正，不要静默丢弃该步——静默会让模型以为调用成功。
 
 ## 机制
 
 提示形态通过条件前缀规定 token 的角色。`Action:` 之后的分布被示范收窄到工具名集合；`Thought:` 之后被收窄到短推理。停止词把一次解码截在调用边界，使交错成为可能。没有停止词，模型会继续写「Observation: …」并进入自嗨。function calling 把 Action 从自由文本里拿出来，提示形态就从「教括号语法」变成「教何时调用、如何在 Thought 里用上一条 tool 消息」。形态变了，交错没变。
+
+<span class="marginnote">常见误区：以为模型「不会」写出 Observation。其实以 Observation: 开头的续写对模型来说完全自然——伪造观察没有任何门槛。硬约束是停止词加宿主回填：解码在调用边界被强制截断，观察只能来自真实执行结果。</span>
 
 格式漂移是长轨迹上的主要失效。步数增多后，模型丢掉前缀、改用中文冒号、合并 Thought 与 Action。缓解：每步由宿主重贴格式提醒或重置为「请只写 Thought 与 Action」；或彻底改用 tools 字段。少样本再长也压不住二十步之后的漂移，这是窗口与格式学习的极限，不是再加两条示范能解的。
 
@@ -58,6 +64,17 @@ flowchart TD
 ### 自由文本槽位与 tools 字段的对应
 
 自由文本：`Action: search[query]` ↔ `tool_calls[].function.name/arguments`。`Observation:` ↔ `role: tool` 的 content。`Thought:` 在协议里常常没有专属字段，只能放在 `content` 里或被省略。省略 Thought 等于提示形态退化成纯 Act，稀疏决策会变差；若产品不想把 Thought 给用户看，仍应让模型在隐藏的 content 或内部信道里写，再剥掉展示。评测「是不是 ReAct 提示」看的是示范与解码是否保留交错与可解析动作，不是看字符串里有没有英文单词 Thought。
+
+```mermaid
+flowchart LR
+  T["Thought: 短推理"] -->|"对应"| TC["content 里的文字，无专属字段"]
+  A["Action: search[query]"] -->|"对应"| FN["tool_calls 的函数名与参数"]
+  O["Observation: 返回结果"] -->|"对应"| RT["role: tool 的 content"]
+  RT --> NEXT["下一步 Thought 读到它"]
+  MISS["Thought 被整个省略"] --> DEG["退化成纯 Act，稀疏决策变差"]
+```
+
+<span class="marginnote">这张图回答「老式自由文本槽位在 function calling 世界里各自落到哪」。最容易丢的是 Thought：协议里没有它的专座，图省事就会被省略——于是「想」消失，只剩「调」，每步决策失去依据，错误调用率随之上升。</span>
 
 与 [Self-Ask](/llm/self-ask) 的格式差别：Self-Ask 的后续问是给自己或检索的问题句，不一定有工具名语法；ReAct 的 Action 必须落在动作表上。与 PAL 的差别：PAL 一次交整脚本；ReAct 每步一个动作并等待观察。不要在同一套少样本里混「先写完 Python 再 Search」，解析器无法定义回合边界。
 

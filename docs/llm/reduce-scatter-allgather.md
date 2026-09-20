@@ -17,6 +17,8 @@ section: llm
 
 All-Reduce 的语义是每卡得到**完整**的和。若下一步立刻用完整梯度做 Adam，这个语义是对的。ZeRO 把优化器状态按参数下标切走之后，第 $r$ 张卡只拥有第 $r$ 片：它只需要那一片的平均梯度，不需要别人那一片。若仍做 All-Reduce，等于先凑齐再扔掉 $\frac{N-1}{N}$，带宽白付。
 
+<span class="marginnote">代入几个数感受一下：$N=8$ 卡、每卡梯度 4 GB 时，All-Reduce 每卡约要搬 $4 \times \frac{7}{8} \times 2 = 7$ GB（归约与分发各一段）；只做 reduce-scatter，每卡搬约 3.5 GB 就拿到自己那一片。省下的那一半，正是 ZeRO 根本不需要的那份全量副本。</span>
+
 对称地，前向需要完整权重时，并不是「从根广播一份」，而是各卡已经持有自己那一片，做一次 all-gather 就能拼回。张量并行的列切 / 行切，也是同一对：先局部 GEMM，再 all-gather 激活或 reduce-scatter 梯度，而不是每次都 All-Reduce 完整隐藏态。问题是：**什么时候必须看到全量，什么时候一片就够**。
 
 <span class="marginnote">MPI 把 `MPI_Reduce_scatter` 与 `MPI_Allgather` 写成独立调用。NCCL 同样暴露 `ncclReduceScatter` 与 `ncclAllGather`。训练框架若只封装 All-Reduce，ZeRO-2/3 与 Megatron 的序列并行会被迫多搬一倍字节。</span>
@@ -41,6 +43,20 @@ flowchart LR
 ## 机制
 
 环上的 reduce-scatter 与 all-gather 可以共用同一套 chunk 调度，只是本地操作不同：前者邻居数据要加进本地片，后者只覆盖或拼接。NCCL 因此能把一次 All-Reduce 做成两次集体调用的融合核，也可以让框架拆开，在中间插入「只更新本片优化器」。拆开之后，计算–通信重叠的窗口变了：reduce-scatter 可以在反向后几层还在算时发出；all-gather 必须在下一微批前向用到该片之前完成。ZeRO-3 的参数 all-gather 因此更容易撞上关键路径，这是分片换来的通信形状，不是网卡变慢。
+
+<span class="marginnote">计算–通信重叠可以类比成「一边炒下一道菜、一边把上一道装盘外送」：reduce-scatter 趁反向还没全部算完就能提前发出，通信藏在计算里；而 all-gather 像开火前必须备齐的食材，晚到一秒前向就得干等——这就是 ZeRO-3 更容易撞关键路径的直觉。</span>
+
+<span class="marginnote">反过来看一个正面例子：若反向只剩最后两层、通信要搬 3.5 GB 而网卡每秒跑 25 GB，RS 大约 0.14 秒就能完成——只要前几层的计算超过这个时长，通信就完全被「盖住」，训练不慢半拍。重叠窗口够大，分片的通信代价就接近免费。</span>
+
+```mermaid
+flowchart TD
+  B1["反向最后几层算完"] --> RS["立即发出 reduce-scatter 梯度片"]
+  RS --> OVL["与前面层的反向计算重叠, 不占关键路径"]
+  OVL --> OPT["每卡只对自己那一片跑 Adam"]
+  OPT --> AGW["ZeRO-3: 下一微批前向前 all-gather 参数片"]
+  AGW --> CP["all-gather 在关键路径上, 延迟直接拖慢训练"]
+  CP --> GEMM["拼回全量权重, 进入前向 GEMM"]
+```
 
 数据量上，一对 RS+AG 与一次 AR 搬的字节同阶。省的不是「少一次集体」，而是 **省掉全量副本的显存**，以及在「不需要全量」时只做一半。若框架误把 ZeRO 写成「All-Reduce 后再切片」，通信回到 DDP，显存却按 ZeRO 宣传——这是配置事故。
 
