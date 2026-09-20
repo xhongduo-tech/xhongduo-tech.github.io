@@ -19,6 +19,8 @@ Jerry Chee、Yaohui Cai、Volodymyr Kuleshov 与 Christopher De Sa 的 NeurIPS 2
 
 自适应取整的另一半来自 OBQ / GPTQ 谱系：量化一个系数后，应用 Hessian 去改尚未量化的系数。QuIP 的 LDLQ 把 Hessian 的 LDL 分解变成顺序取整，使补偿是精确的一次回代，而不是反复显式求逆。问题是同时做到：几何上不相干、算法上能在 70B 级跑完、理论上 2-bit 有界。缺任何一块，都会变成「又一个很慢的 2-bit 启发式」。
 
+<span class="marginnote">术语翻译：不相干性量的是「最大权重相对整体能量有多扎眼」——大致要求 $\max|W_{ij}|$ 与整层 Frobenius 范数之比足够小。比值越大，量化格子越被一两个巨数撑大，其余元素等效比特越低。</span>
+
 ### 不相干性让逐元素网格变得合法
 
 不相干不是「权重看起来像白噪声」的审美，而是量化最坏误差与平均能量之间的比。卷积或嵌入里常见的相干结构——少数大权重、其余近零——对 2-bit 最致命。正交变换混合行与列，把大权重的能量摊到许多中等系数上。浮点函数通过把同一变换施加于激活来保持：推理时 $x$ 先乘 $V$，再与 $W'$ 乘，再乘 $U^\top$，或把 $U,V$ 融进相邻层。代价是部署要带旋转，或融完之后权重不再稀疏、不再可解释。
@@ -50,6 +52,17 @@ GPTQ 用近似 Hessian 逆做块内补偿；LDLQ 把补偿写成精确的三角�
 
 不相干处理之后，每个权重对输出的最坏贡献更接近平均贡献，均匀量化的信噪比才有意义。Hadamard 是一类确定性不相干变换，还与 QuaRot 后来在激活上用的工具同源，但 QuIP# 的旋转是为 **权重几何** 服务，激活往往仍 FP16。E8 格在 8 维单位体积里有高的装填密度：同样 16 个比特（2-bit × 8 维）能表达的最小欧氏误差，优于 8 个独立 2-bit 标量。微调码本让格点从「普遍最优」迁到「这一层权重最优」，接近向量量化的收益，却仍保持格的快速最近邻结构。
 
+```mermaid
+flowchart TD
+  SQ["8 个独立 2-bit 标量"] --> CUBE["代表点：立方格角点"]
+  CUBE --> GAP["角点分布不匀，最坏欧氏误差大"]
+  VQ["8 维一组，共 16 bit"] --> E8["代表点：E8 格码本"]
+  E8 --> DENSE["装填更密，最坏误差更小"]
+  DENSE --> TUNE["码本再按校准微调到本层分布"]
+```
+
+<span class="marginnote">数字实例：8 个权重、每个 2 bit，共 16 bit。逐标量量化只有 $4^8=65536$ 个立方角点可选，且全贴在盒子表面；E8 格用同样 16 bit 给出方向更均匀的 240 个最近邻格点，任何权重到最近代表点的最坏距离更小。</span>
+
 2-bit 的部署机制与 4-bit INT 核不同。均匀 INT4 可以走专用 GEMM；E8 查表或反量化后再乘，算术密度取决于核有没有为该码本写过。论文的质量表不等于服务墙钟。decode 仍是带宽墙：2-bit 权重少搬字节，即使反量化到 16-bit 再乘，加载仍可能赢——前提是反量化本身不是新的墙。
 
 <span class="marginnote">QuIP 与 QuIP# 必须分列引用。NeurIPS 2023 没有 E8，也没有声称 Hadamard 已是最终实现。ICML 2024 的 70B 数字不要写回 2023 的定理陈述。</span>
@@ -65,6 +78,8 @@ W4A16 的生态（AWQ、GPTQ、Marlin 一类核）成熟得多。QuIP# 的产品
 把 QuIP# 的 2-bit 权重接到未经处理的 INT4 激活上，理论界立刻失效。W4A4 是 QuaRot / SpinQuant 的合同。`lm_head` 与嵌入常留更高比特，否则词表投影先坏；论文若已排除这些层，引用时应写「主体线性层 2-bit」。Kronecker / Hadamard 融合若与 RoPE、残差顺序冲突，会出现安静的函数错误。码本微调会过拟合校准句，指令模型要另测，纪律与 GPTQ 相同。
 
 70B 的 2-bit 检查点体积诱人，但训练 QLoRA 一类适配器时，基座若是格量化，反量化核必须进入训练前向。不要假设 bitsandbytes 的 NF4 与 E8 可互换。QuIP 原文的随机正交在大 $d$ 上乘得起是因为实验层宽有限；生产实现几乎都应走 QuIP# 的 Hadamard 路径。
+
+<span class="marginnote">常见误区：看到「70B 压到 2-bit」就以为能直接套现有 INT4 GEMM 提速。E8 权重要么查表、要么反量化后再乘，没有为格码本写过的核，墙钟未必变快——论文的困惑度数字不等于服务延迟数字。</span>
 
 <span class="marginnote">出处：Chee et al.，*QuIP: 2-Bit Quantization of Large Language Models With Guarantees*，NeurIPS 2023；Tseng et al.，*QuIP#: Even Better LLM Quantization with Hadamard Incoherence and Lattice Codebooks*，ICML 2024。</span>
 
