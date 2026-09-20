@@ -21,9 +21,13 @@ Volta 以来，Tensor Core 的软件接口从 warp 级 WMMA、到 Ampere 的 `mm
 
 合同是硬的。线程必须属于对齐的 warpgroup；寄存器里的累加器碎片布局由指令形状规定；smem 中的 $A$、$B$ 必须是该指令认可的 swizzle 与对齐。布局差一点，PTX 汇编可能失败，或运行时读到错误碎片。问题不是「会不会用 Tensor Core」，而是「能不能合法发出 wgmma」。
 
+<span class="marginnote">warpgroup 就是把 4 个连续编号的 warp 捆成 128 线程小组。warp 是显卡调度的基本单位（32 线程）；Hopper 规定 wgmma 必须整组一起发——像签合同要 4 个合伙人同时到场，少一个都签不成。这就是为什么四个 warp 必须同步在同一条 MMA 控制流上。</span>
+
 ### 异步分组在等什么
 
 `mma.sync` 的语义是：指令退休时这次乘加对寄存器可见。`wgmma.mma_async` 把乘加送进 MMA 流水线，可见性延迟到 wait。软件可以把若干次 async 收成一个 group，一次 wait 等待 group 完成。这允许「连发沿 K 的若干 MMA，再一次性等」，与软件流水的 stage 不同：group 管的是 MMA 流水内部的完成，stage 管的是 smem 里哪一块数据合法。两者都要配对，只等一个会要么空转、要么读脏数据。
+
+<span class="marginnote">类比：`wgmma.mma_async` 像外卖下单后立刻去干别的；`commit_group` 是把这单登记进配送队列；`wait_group` 才是站在门口等餐到手。不登记就开吃、或登记了永远不等，对应的就是读脏数据与流水空转——所以 fence、commit、wait 必须成对出现。</span>
 
 <span class="marginnote">口语里的 wgmma 与 PTX 助记符 `wgmma.mma_async` 指同一族指令。文档里还有 `wgmma.fence`、`commit_group`、`wait_group` 等配套。只换 MMA 形状、不插入 fence/wait，属于未定义使用，不是「更快的 sync」。</span>
 
@@ -48,11 +52,22 @@ flowchart TD
 
 WGMMA 的累加器通常高于输入精度（例如 FP16 乘、FP32 累加），epilogue 再转换写回。FP8 变体要求缩放协议在核外交接或在 epilogue 里应用，指令本身不负责「自动对」Transformer Engine 的 amax。稀疏 2:4 若走对应 MMA 变体，权重必须满足模式；稠密权重发稀疏指令是错误，不是加速。不要把产品表上的稀疏 FP8 峰值写进稠密 WGMMA 核的验收标准。
 
+<span class="marginnote">常见误区：看到 FP8 就以为吞吐「直接翻倍」。FP8 省的是位宽与搬运，但缩放协议（谁统计 amax、谁施加 scale）要靠核外或 epilogue 自己补；再把稀疏 2:4 的峰值表拿来看稠密核，参照系就完全错了。</span>
+
 寄存器预算是实践中的硬顶。Warpgroup 要同时活着：当前累加器、（可选）下一块 $A$ 的寄存器操作数、epilogue 向量。Tile 在 $N$ 上张得太大，寄存器溢出，占用率崩溃，wgmma 峰值反而不达。CUTLASS 的默认 `TiledMma` 已经在这一约束下选过；手写放大 $N$ 必须看编译器报告的寄存器数。
 
 ## 机制
 
 WGMMA 快，是因为硬件按固定碎片做密集乘加，并且允许与拷贝、与同一 SM 上其他功能单元重叠。代价是灵活性：不规则稀疏、无法排成碎片的布局、小于一个 warpgroup 的工作，都发不出这条路径。Decode 时 $M$ 很小，即使发出 wgmma，阵列利用率仍低——这是指令峰值与工作形状不匹配，不是 WGMMA 「在 decode 上坏了」。此时更应关心 HBM 与 kernel 启动，见 [显存墙](/llm/decode-memory-wall)。
+
+```mermaid
+flowchart TD
+  G["一个 GEMM 工作负载"] --> M{"矩阵的 M 维多大?"}
+  M -->|"大 tile, M 足够大"| FULL["warpgroup 阵列填满 → 接近峰值"]
+  M -->|"decode: M = 1..8"| THIN["阵列大量空转 → 利用率低"]
+  FULL --> BW["瓶颈转向 TMA / HBM 供给速度"]
+  THIN --> ALT["更该优化: kernel 启动与显存墙"]
+```
 
 Warpgroup 内四个 warp 必须同步在同一条 MMA 控制流上。一个 warp 提前 wait、另一个还在发，属于非法使用。这与普通 SIMT 里「有的通道掩掉」不同：MMA 发行是 warpgroup 级动作，不能靠谓词让其中两个 warp 去干别的。要把 softmax 和 MMA 重叠，正确做法是**不同 warpgroup** 之间 ping-pong，或同一 warpgroup 在 wait 之前的空档做不依赖当前累加器的活，而不是拆开四个 warp。
 
