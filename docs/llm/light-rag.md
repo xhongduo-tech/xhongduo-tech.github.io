@@ -23,6 +23,8 @@ GraphRAG 用社区报告捕捉全局，高层次感更好，但检索要遍历�
 
 「谁写了《傲慢与偏见》」应对准节点与边；「人工智能如何影响现代教育」应对准跨实体的主题键。只用实体检索，抽象问句会碎；只用社区摘要，具体事实会糊。双层不是两个独立系统，而是同一次查询抽出局部关键词与全局关键词，分别打到实体索引和关系索引。
 
+<span class="marginnote">直觉类比：低层检索像按人名查通讯录——「谁写了《傲慢与偏见》」直接命中「奥斯汀」这个节点；高层检索像翻图书馆的主题目录卡——「AI 如何影响教育」要先找到「技术与社会」这类主题键。一次查询两路并走，再把两边的邻居都翻出来。</span>
+
 <span class="marginnote">评测问句由大模型按 GraphRAG 的用户—任务—问题流程生成，每库 125 条，侧重高层次感，不是 Natural Questions 那种短事实。Legal 上对 NaiveRAG 八成胜率，不能直接外推到单跳实体问答。Mix 上与 GraphRAG 的 Overall 接近互有胜负，不要写成全面碾压。</span>
 
 ## 方法
@@ -30,6 +32,19 @@ GraphRAG 用社区报告捕捉全局，高层次感更好，但检索要遍历�
 图索引分三步。$\mathrm{Recog}$：把原文切块，提示大模型识别实体（人名、日期、地点、事件等）与关系。$\mathrm{Prof}$：为每个节点和每条边生成键值对。实体键是名称，值是从原文摘出的描述；关系可以有多个键，由模型根据两端实体的全局主题增强。$\mathrm{Dedupe}$：跨块合并同名实体与相同关系，缩小图。形式写成分块识别的并集再去重：$\hat{\mathcal{D}}=(\hat{\mathcal{V}},\hat{\mathcal{E}})=\mathrm{Dedupe}\circ\mathrm{Prof}(\mathcal{V},\mathcal{E})$。
 
 增量更新对新文档 $D'$ 跑同一套 $\varphi$，得到 $(\hat{\mathcal{V}}',\hat{\mathcal{E}}')$，再与旧图做节点集与边集的并。目标有两条：新边不拆旧连通；计算量与新文档长度成正比，而不是与全库成正比。复杂度上，索引阶段大模型调用次数约为总 token 数除以块大小，没有额外的社区摘要环。
+
+「新文档来了，两种图方案各付多少代价」可以画成对照。
+
+```mermaid
+flowchart TD
+  NEW["新文档 D' 到达"] --> LR["LightRAG：只抽新文档自己的子图"]
+  LR --> MERGE["节点并、边并进旧图"]
+  MERGE --> KEEP["旧边旧描述保留，成本正比于新文档"]
+  NEW --> GR["GraphRAG 式：重跑社区检测与摘要"]
+  GR --> REBUILD["全库级代价，旧图可能被打乱"]
+  KEEP --> READY["索引即刻可用"]
+  REBUILD --> SLOW["高峰期延迟成为产品约束"]
+```
 
 ### 双层检索如何落到向量库
 
@@ -42,6 +57,8 @@ GraphRAG 用社区报告捕捉全局，高层次感更好，但检索要遍历�
 对照表用 GPT-4o-mini 做多维两两比较：全面性、多样性、赋能、总体，并交换答案顺序以减轻位置偏差。Legal（百万级 token、公司法律）上 LightRAG 对 NaiveRAG / RQ-RAG / HyDE 的 Overall 胜率约 $72\%$–$82\%$；对 GraphRAG 约 $54.30\%$ 对 $45.70\%$。Agriculture 与 CS 同样是图方法领先块方法，LightRAG 对 GraphRAG 的 Overall 分别为 $56.38\%$ 与 $54.02\%$。Mix 文集更杂，GraphRAG 的 Overall 略高（$51.86\%$ 对 $48.14\%$），但 Diversity 仍是 LightRAG 高。大库、需要综观的问句上，图索引的优势随 token 规模变大。
 
 <span class="marginnote">胜率是 LLM 裁判，不是 F1。裁判模型与生成模型同属 GPT-4o-mini 家族时，存在风格自偏好风险。原文用交换顺序做了部分校正，但仍不能当成地面真值。复现应固定提示、温度与裁判版本。</span>
+
+<span class="marginnote">数字实例：Agriculture 域上完整模型对 NaiveRAG 的 Overall 胜率是 66.70%；去掉高层（主题）检索掉到 64.67%，去掉低层（实体）检索是 64.98%——两层各贡献约 2 个百分点，细节层与综观层都不是摆设。</span>
 
 ### 增量比重建更重要的场景
 
@@ -64,6 +81,8 @@ flowchart TD
 抽取与剖析每块都要调大模型，索引 token 成本仍高；省的是查询侧的社区遍历与全库重建。图质量绑定提示与去重启发式，开源仓库后来加了不少工程（缓存、重建单实体），论文正文的算法是上述三函数。评测域是 UltraDomain 的教材：农业、计算机、法律、混合人文，不是开放域网页检索。
 
 与 HippoRAG 的分工：HippoRAG 用 PPR 在查询时做联想补全，适合多跳事实；LightRAG 用双层关键词加邻居，适合主题综观，并强调增量。两者都依赖 LLM 抽图，都不要写成「免费的图」。不要把社区报告、PageRank、双层关键词画成同一个模块。
+
+<span class="marginnote">常见误区：以为同名实体自动是同一实体。去重按识别出的名称合并——两个都叫「张伟」的人、或缩写撞名的项目会被并成一个节点，错误合并会把两份来源的描述搅在一起，污染后续检索。</span>
 
 <span class="marginnote">作者单位为香港大学与北京邮电大学。引用写 Guo, Xia, Yu, Ao, Huang，*LightRAG: Simple and Fast Retrieval-Augmented Generation*，arXiv:2410.05779。GraphRAG 对照是 Edge 等 2024；NaiveRAG 按 Gao 等综述里的切块+向量基线理解。</span>
 

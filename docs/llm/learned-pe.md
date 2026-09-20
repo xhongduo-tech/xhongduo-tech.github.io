@@ -89,6 +89,8 @@ flowchart TD
 
 扩窗的土办法包括：随机初始化新行并微调；正弦初始化再微调；对相邻行插值。它们都要求继续训练。没有微调的「直接外推」对可学习绝对表不成立。若有人声称只改 `max_position_embeddings` 就能变长，那是把未初始化的行送进了模型。
 
+<span class="marginnote">常见误区：以为把配置里的 `max_position_embeddings` 从 512 改成 1024 就扩了窗口。实际上新增的 512 行是随机初始化的垃圾向量，直接送进模型；扩窗必须配套继续训练（新行初始化、插值）或换 RoPE，否则输出立即崩坏。</span>
+
 <span class="marginnote">相对可学习 PE（Shaw，2018）查的是距离桶 $i-j$，表长与 $L_{\max}$ 脱钩。不要把「可学习」自动理解成「绝对表」。</span>
 
 另一条边界是与段嵌入、类型嵌入叠加。BERT 把 token + position + segment 相加。三个绝对查找互相抢维度，分析时无法把「位置」单独拿出来。这不影响训练，影响的是把 BERT 的位置表经验搬到 Decoder 时的可比性。Decoder-only 通常没有 segment 表，只剩位置行与 token 行相加，泄漏仍然存在，只是少了一个同谋。

@@ -23,6 +23,14 @@ Touvron 等人的问题不是再提一个注意力变体，而是选一条已经
 
 Pre-LN 针对深层梯度被残差后 LN 切断。[RoPE](/llm/rope) 针对绝对位置在外推与相对几何上的弱点。SwiGLU 针对单支激活把「内容」与「门」绑死。无 bias 针对多一套加法参数带来的内核分支与训练噪声，并与 RMSNorm 的仿射共同管理尺度。四项不是互为替代，缺一项就会回到 2018–2020 年的某一种已知痛点。
 
+```mermaid
+flowchart TD
+  P1["深层梯度被残差后 LN 切断"] --> S1["Pre-RMSNorm"]
+  P2["绝对位置外推与相对几何弱"] --> S2["RoPE"]
+  P3["单支激活绑死内容与门"] --> S3["SwiGLU"]
+  P4["bias 带来内核分支与均值漂移"] --> S4["线性层无 bias"]
+```
+
 <span class="marginnote">论文正文点名的三项改动写着出处：Pre-normalization 来自 GPT-3 实践，RMSNorm 来自 Zhang 与 Sennrich 2019；SwiGLU 来自 Shazeer 2020 与 PaLM；RoPE 来自 Su 等 2021，论文写 GPT-Neo 用过。无 bias 是发布代码与随后复现里一致的默认，和这三项一起构成「LLaMA 块」。</span>
 
 ## 方法
@@ -39,7 +47,7 @@ $$
 \mathrm{SwiGLU}(x)=\bigl(\mathrm{SiLU}(xW) \odot (xV)\bigr)W_2,
 $$
 
-中间维取 $\tfrac{2}{3}\times 4d=\tfrac{8}{3}d$ 再按硬件对齐，使参数量与两层宽 $4d$ 的 ReLU FFN 同量级。线性映射不设 $b$，包括注意力投影与 FFN；RMSNorm 保留缩放 $\gamma$，出口再加一次归一化后接词预测头。词表约 32k，SentencePiece BPE。上下文长度 2048。7B/13B 约 1T token，33B/65B 约 1.4T。优化器 AdamW，$\beta_2=0.95$，余弦衰减到峰值学习率的 10%。
+中间维取 $\tfrac{2}{3}\times 4d=\tfrac{8}{3}d$ 再按硬件对齐，使参数量与两层宽 $4d$ 的 ReLU FFN 同量级。<span class="marginnote">数字实例：$d=4096$（7B 量级）时 $\tfrac{8}{3}d\approx 10923$，向上取成 256 的倍数得到 11008——公开实现里 FFN 中间维就是按这个规则算出来的。对齐让张量并行切得更整齐，参数量仍与 $4d$ 的普通 FFN 同档。</span>线性映射不设 $b$，包括注意力投影与 FFN；RMSNorm 保留缩放 $\gamma$，出口再加一次归一化后接词预测头。词表约 32k，SentencePiece BPE。上下文长度 2048。7B/13B 约 1T token，33B/65B 约 1.4T。优化器 AdamW，$\beta_2=0.95$，余弦衰减到峰值学习率的 10%。
 
 ```mermaid
 flowchart TD
@@ -57,7 +65,7 @@ flowchart TD
 
 ## 机制
 
-Pre-LN 给残差一条不经过归一化的公路，65B、80 层量级才能用论文里的学习率起步。RMSNorm 比 LayerNorm 少一次减均值，带宽更省，LLaMA 把它写成默认，而不是再做一次「要不要中心化」的消融——消融已经在 RMSNorm 原文与 GPT-3 实践里做过。RoPE 让内积只含相对位移，2048 的训练长度下相对几何是稳的；更长外推不是 Llama 1 的设计目标，公式却为后来改基数留下了旋钮。
+Pre-LN 给残差一条不经过归一化的公路，65B、80 层量级才能用论文里的学习率起步。<span class="marginnote">直觉类比：Pre-LN 像给残差流修了一条不设卡的高速公路——原始信号可以原封不动地一路传到顶层，每个子层只是从匝道出去加工再并回来。Post-LN 则要求每段出口都过检查站，模型一深，梯度就在检查站排队，训练难起步。</span>RMSNorm 比 LayerNorm 少一次减均值，带宽更省，LLaMA 把它写成默认，而不是再做一次「要不要中心化」的消融——消融已经在 RMSNorm 原文与 GPT-3 实践里做过。RoPE 让内积只含相对位移，2048 的训练长度下相对几何是稳的；更长外推不是 Llama 1 的设计目标，公式却为后来改基数留下了旋钮。
 
 SwiGLU 在同参数下优于 GELU MLP，是 PaLM 已经付过的实验税。LLaMA 把中间维按 $\tfrac{8}{3}$ 对齐，避免「我们用了门控所以参数多 1.5 倍」这种不可比。无 bias 再减掉与 $d$ 成正比的一小撮参数，四个尺寸的参数表更好对上「纯宽度 × 层数」的心算。
 
@@ -71,7 +79,7 @@ SwiGLU 在同参数下优于 GELU MLP，是 PaLM 已经付过的实验税。LLaM
 
 Llama 1 的许可证与权重传播路径后来引发争议，那是发布策略问题，不是 Pre-LN 的数学问题。上下文 2048、MHA、32k 词表，都是 2023 年初的工作点：长文档、多语压缩、decode 缓存都还没成为这套权重的主约束。英文为主的数据配比会在非英语与代码上留下分词碎片，那是词表问题，留给数据与 tokenizer 专文，不是 RoPE 能修的。
 
-没有 bias 并不禁止所有仿射：RMSNorm 的 $\gamma$ 还在。移植权重时若在 `nn.Linear` 里打开 bias，形状对不上检查点。从 GPT-2 式带 bias 模型蒸馏到 LLaMA 块，必须丢掉或吸收 $b$，不能当无成本。并行 Attention-FFN、Sandwich-LN、GQA 都不在 Llama 1 块内；它们是别的模型或后代的选择。
+没有 bias 并不禁止所有仿射：RMSNorm 的 $\gamma$ 还在。<span class="marginnote">常见误区：初学者容易把「无 bias」理解成模型里没有任何可学习的加法常数。实际上 RMSNorm 的缩放 $\gamma$ 仍在；「无 bias」精确指的是线性映射不带加性向量参数，它管的是推理内核简洁与残差流稳定，不是省参数。</span>移植权重时若在 `nn.Linear` 里打开 bias，形状对不上检查点。从 GPT-2 式带 bias 模型蒸馏到 LLaMA 块，必须丢掉或吸收 $b$，不能当无成本。并行 Attention-FFN、Sandwich-LN、GQA 都不在 Llama 1 块内；它们是别的模型或后代的选择。
 
 <span class="marginnote">论文写 33B，社区常说 30B/32.5B，是因为公开配置与四舍五入。引用尺寸时跟 Touvron 等 2023 的表：7B、13B、33B、65B。不要把后代的 8B/70B 倒填进来。</span>
 

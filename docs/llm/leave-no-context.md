@@ -13,6 +13,8 @@ section: llm
 
 2024 年 Google 这篇预印本的正式标题是 *Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention*。注意力算子本身写在 [Infini-Attention 原文](/llm/infini-attn-paper)；本篇读的是标题所立的研究命题：**无限上下文 Transformer** 要满足什么，现有方法在哪一环「把上下文留在了后面」，以及原文用 1B / 8B 继续预训练给出了哪些存在性证据。口号容易被读成无损信道；论文实际交付的是「写入规则不丢段、状态有界、局部 softmax 仍在」这一组工程约束。
 
+<span class="marginnote">常见误区：把「Leave No Context Behind」读成「上下文无损保留」。有界矩阵装不下无限 token 的全部信息，压缩必然有损；标题承诺的是更新图上没有「丢弃」这条边，不是信道容量无限。需要逐字引用时，仍要外接检索。</span>
+
 ## 问题
 
 长上下文路线在 2023–2024 年已经分叉。一条把窗口硬拉到 128K、1M，KV 与计算仍随 $t$ 涨，靠 FlashAttention、GQA、分块内核把常数压下去。另一条承认状态必须有界：滑窗、注意力汇点、StreamingLLM 只保留最近一段加少数锚点，**中间 token 被显式丢掉**。Compressive Transformer 把旧激活压进固定槽位，槽数仍随要覆盖多远而涨；Transformer-XL 缓存上一层的片段，覆盖半径等于缓存条数乘段长。Memorizing Transformer 用 kNN 外挂检索，索引随 $t$ 涨。
@@ -55,11 +57,28 @@ flowchart TD
 
 与丢段方法的机制对照可以写清楚。滑窗的归纳偏置是马尔可夫：再远的依赖必须已经写进近期表示。汇点把起始位置当成始终在场的锚，中间仍缺。Infini-attention 的归纳偏置是关联记忆：远依赖能留下的，是能被核特征寻址的方向。因此同一标题下，passkey 成功与「相似段落中找第三句」失败可以共存——前者满足寻址假设，后者在 $M$ 里碰撞。Delta 规则提高后者的几率，仍受 $d^2$ 容量限制。
 
+上面的对比回答「各方法的账」；再看一次段内的读写循环，回答「一段文本进来，$M$ 到底发生了什么」。
+
+```mermaid
+flowchart TD
+  SEG["当前段：局部因果 softmax"] --> GATE{"门控混合"}
+  M["压缩记忆 M：全部过去的叠加"] --> READ["线性读取：本段查询扫 M"]
+  READ --> GATE
+  GATE --> OUT["本段输出 = 局部注意力 + 记忆读取"]
+  OUT --> WRITE["σ(K)ᵀV 或 delta 残差写回 M"]
+  WRITE --> M
+  CARRY["段间只传 (M, z)，不传 KV"] --> M
+```
+
+<span class="marginnote">直觉类比：$M$ 不是录音带（可逐字回放），更像一本越写越厚的读后感笔记——每段读完都往里写几笔，以后靠「问题」去翻笔记。独特的问题（passkey）翻得准，相似的问题会同时翻到多条混在一起的笔记（碰撞）。</span>
+
 ### 压缩比与「无限」的实验含义
 
 原文给出相对基线 Transformer 约 114 倍的记忆压缩，来自「存 $M$ 而不存全长 KV」的比值，依赖段长与宽度。无限在实验里等于「测试长度远大于训练窗口，且状态尺寸不变」。它不是计算复杂度为零：段内仍 $O(N^2)$，总长 $T$ 上前向仍与 $T$ 线性。线性已经允许在固定显存里把 $T$ 拉到设备算力的上限；这与「二次注意力硬吃 1M」不是同一档资源。把 1M passkey 写成「模型理解了百万上下文」，超出了探针所能见证的内容。
 
 <span class="marginnote">验收应至少两套针：几乎唯一的 passkey，以及埋在重复句式里的事实。前者只证明更新链没断；后者才逼近「leave no context」在有损记忆上还剩多少可分信息。两套都绿，才能说该任务族上压缩记忆可用。</span>
+
+<span class="marginnote">数字实例：$d=4096$ 时 $M$ 的尺寸约 $d^2 = 1600$ 万个数，FP16 下约 32 MB，与长度无关；而 8B 模型 FP16 的全长 KV 到 1M token 时是 128 GB 量级。这就是「有界状态换无限长度」的账：省掉的正是随长度线性涨的那一项。</span>
 
 ## 边界
 

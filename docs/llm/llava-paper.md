@@ -15,7 +15,7 @@ Liu、Li、Wu、Lee 的 LLaVA（Large Language-and-Vision Assistant）把视觉�
 
 ## 问题
 
-2023 年春，开源侧缺一种「像 ChatGPT 那样按用户指令谈图」的数据与架构。学术 VQA 是单轮短答案；[Flamingo](/llm/flamingo) 是少样本开放生成但权重封闭、桥很重；[BLIP-2](/llm/blip2) / [InstructBLIP](/llm/instructblip) 走 Q-Former 瓶颈。若 CLIP 已经把视觉放到与语言可比较的空间，还要不要为了对齐再训一个 188M 的查询 Transformer？
+2023 年春，开源侧缺一种「像 ChatGPT 那样按用户指令谈图」的数据与架构。学术 VQA 是单轮短答案；[Flamingo](/llm/flamingo) 是少样本开放生成但权重封闭、桥很重；[BLIP-2](/llm/blip2) / [InstructBLIP](/llm/instructblip) 走 Q-Former 瓶颈。若 CLIP 已经把视觉放到与语言可比较的空间，还要不要为了对齐再训一个 188M 的查询 Transformer？<span class="marginnote">Q-Former 可以翻译成「采访式压缩」：先造一小队可学习的提问向量，去几百个视觉 patch 里主动提问，只把答案（约 32 个摘要 token）带给语言模型。省上下文，但多出一坨必须从零训练的参数——LLaVA 的赌注是：CLIP 空间已经够好，不必压缩，全量直送。</span>
 
 数据问题同样硬。没有图的 GPT-4 不能看像素，但 COCO 已经提供了标题与框——足够让教师模型**想象**场景并写出「用户会问什么、助手该怎么答」。LLaVA 赌的是：这种合成指令 + 浅桥，就能把 Vicuna 的对话能力迁到视觉上，而不必十亿级图文对重训桥。
 
@@ -50,6 +50,19 @@ flowchart TD
 
 相对 InstructBLIP，视觉特征**不**随问题改变：同一张图的前缀可缓存，多轮对话只追加文本。相对 Flamingo，不插入门控交叉注意力，部署就是一次标准 Decoder 前向。代价是窗口被 $N_{\mathrm{vis}}$ 永久占用，高分辨率在初代无解。
 
+```mermaid
+flowchart LR
+  IMG["输入图 224×224"] --> CLIP["冻结 CLIP：约 256 个 patch 特征"]
+  CLIP --> W["线性投影 W：换坐标系"]
+  W --> SLOTS["视觉槽位＝序列前缀"]
+  Q["用户指令 token"] --> CONCAT["拼接"]
+  SLOTS --> CONCAT
+  CONCAT --> VIC["Vicuna 因果 LM"]
+  VIC --> CACHE["多轮只追加文本，前缀可缓存"]
+```
+
+<span class="marginnote">线性投影的直觉：CLIP 和 Vicuna 像用两套单位描述同一片地形——一个标英尺、一个标米。那层 $W$ 做的就是换算（旋转加缩放），地形本身没变，所以 Vicuna 能把送进来的向量当自己的词向量一样读。这也是为什么只训一个矩阵就够：对齐的是坐标系，不是视觉能力。</span>
+
 <span class="marginnote">LLaVA-Bench（In-the-Wild）用非常规图与 GPT-4 打分，是论文推动的对话评测，不是 VQAv2 准确率。引用「接近 GPT-4」必须写 LLaVA-Bench 设定，且教师与裁判都是 GPT-4 时存在自偏好风险。</span>
 
 ### 和「再训一个视觉桥」的算力对比
@@ -60,7 +73,7 @@ Q-Former 第一阶段要在图文对上跑三个损失；Flamingo 要在交错�
 
 224 分辨率、冻 ViT、线性层、158K 合成，四条边界一起限制了 OCR、图表与非 COCO 域。GPT-4 教师会把语言模型的偏见写进对话（性别、地域、过度自信）。CC-595K 过滤偏向自然照片，截图与扫描件是域外。Vicuna 基于 LLaMA，权重许可不是 Apache。不要把初代写成已经支持 AnyRes 或多图：那是 NeXT / OneVision。
 
-部署时图像占位符、起止 token、与训练不一致会导致投影槽错位，表现为「能聊天但像没看见图」。量化应保护视觉前缀：每个 patch 上的误差会累积成认错物体，而不是 LLM 突然不会说话。ScienceQA 数字不可当作通用 VQA SOTA。初代没有系统对比「线性 vs MLP」——那是 1.5 的消融。若要用初代权重做文档问答，应预期失败并升级到 1.5 的 336 或 NeXT 的切格，而不是把线性层加宽当成补分辨率。
+部署时图像占位符、起止 token、与训练不一致会导致投影槽错位，表现为「能聊天但像没看见图」。量化应保护视觉前缀：每个 patch 上的误差会累积成认错物体，而不是 LLM 突然不会说话。ScienceQA 数字不可当作通用 VQA SOTA。初代没有系统对比「线性 vs MLP」——那是 1.5 的消融。若要用初代权重做文档问答，应预期失败并升级到 1.5 的 336 或 NeXT 的切格，而不是把线性层加宽当成补分辨率。<span class="marginnote">为什么量化要偏心视觉前缀：一个语言 token 稍有误差，上下文还能把它兜回来；而视觉 patch 的误差是累积的——几百个 patch 各糊一点，模型就把红色认成橙色、把狗认成猫。所以推理量化时视觉前缀常保留更高精度，损失让文本侧去担。</span>
 
 <span class="marginnote">论文全称 *Visual Instruction Tuning*。口头说 LLaVA 时请钉 2304.08485，以免与 LLaVA-1.5（2310.03744）、NeXT 博客、OneVision（2408.03326）抢同一句「LLaVA 证明了浅桥」。</span>
 
