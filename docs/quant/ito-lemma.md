@@ -23,6 +23,8 @@ section: quant
 
 $f_w$ 仍是普通偏导，没有新的「路径导数」。随机性全部来自把 $(\mathrm d W)^2$ 换成 $\mathrm d t$，再取极限。Stratonovich 积分会把二阶项藏进对称极限，链式法则看起来像经典的；本序列主干用 Itô，因为 $\int H\,\mathrm d W$ 在可积条件下是鞅，定价要这条鞅性质。
 
+<span class="marginnote">鞅就是「公平赌局」：已知今天全部信息，明天的期望值就等于今天的值，不多不少。定价要的正是它——风险中性世界里折现后的价格必须是鞅，否则就有免费午餐。Itô 积分恰好满足这条性质而 Stratonovich 不满足，这就是主干选 Itô 的全部理由。</span>
+
 <span class="marginnote">金融里常把 $\tfrac12\sigma^2$ 叫做凸性调整。来源就是 $f(x)=x^2$ 或 $\ln x$ 的 $f''$： Jensen 与 Itô 修正是同一块二阶。</span>
 
 ## 方法
@@ -49,9 +51,23 @@ flowchart LR
   ITO --> SDE["下一课：SDE 含义"]
 ```
 
+<span class="marginnote">$(\mathrm d W)^2=\mathrm d t$ 给个数字直觉：单位波动下一天的增量 $\Delta W$ 约为 $\sqrt{1/365}\approx 0.052$，其平方 $\approx 0.0027$ 恰是 $1/365$。正态增量平方的平均值稳定等于时间长度，不管区间切多细都缩不掉——这就是二阶项能活到极限里的原因。</span>
+
 ## 机制
 
 Itô 积分取左端点，增量 $\Delta W$ 与已经确定的 $f_w(t_i,W_{t_i})$ 独立，一阶项期望为零，二阶项期望留下 $\tfrac12 f_{ww}\Delta t$。这就是漂移修正的概率来源。对凸函数 $f_{ww}\gt 0$，Itô 漂移大于经典漂移——期权的时间价值、对数坐标里的 $-\tfrac12\sigma^2$，都是这块符号。
+
+```mermaid
+flowchart TD
+  STEP["把 df 按泰勒展开到二阶"] --> ORD1["一阶项：f_w · dW"]
+  STEP --> ORD2["二阶项：f_ww · (dW)²"]
+  ORD1 -->|"dW 与已确定的系数独立"| ZERO["期望为零，极限中消失"]
+  ORD2 -->|"乘法表 (dW)² = dt"| LIVE["折算成 ½ f_ww dt<br/>留在漂移里"]
+  ZERO --> SUM["伊藤漂移 = 经典漂移 + ½ f_ww"]
+  LIVE --> SUM
+```
+
+<span class="marginnote">为什么凸函数会多出一块漂移？直觉：对凸函数，「平均处的函数值」低于「函数值的平均」（Jensen 不等式）。价格上下大幅波动时，$\ln S$ 的平均值会被波动往下拽，拽的量正是 $\tfrac12\sigma^2 t$——波动本身成了漂移的一部分，这是普通微积分里不存在的现象。</span>
 
 公式要求 $f$ 足够光滑。弱解、局部时、Tanaka 公式处理 $|W|$ 这类不够 $C^2$ 的函数，主干定价用不到，不在本课。多维时交叉变差 $[W^i,W^j]_t=\rho_{ij}t$ 进入混合二阶导；后课若写相关布朗，只加这一项。
 

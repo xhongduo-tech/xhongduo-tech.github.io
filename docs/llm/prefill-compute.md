@@ -17,11 +17,15 @@ section: llm
 
 首 token 延迟（TTFT）几乎就是 prefill 墙钟（加上排队）。长文档、多轮里拼接的历史、视觉 token 前缀，都会把 $s$ 推到数千以上。注意力在 prefill 上对当前合法的全部键做满二次项，代价 $O(s^2 d)$ 外加投影与 FFN 的 $O(s d_{\mathrm{model}}^2)$，见[二次复杂度](/llm/attention-quadratic-cost)。$s$ 中等、模型很宽时，FFN/投影的大 GEMM 主导； $s$ 再长，二次项追上。无论哪一项主导，算术强度都远高于 decode：每个从 HBM 读入的权重字节会被许多 token 复用。
 
+<span class="marginnote">TTFT 读作 time to first token，就是你按下回车到屏幕上蹦出第一个字的等待时间。用户对「卡不卡」的体感大半来自它：首字转圈多久，比后面每个字快几毫秒更影响评价。所以长提示场景下，优化 prefill 直接等于优化用户等待。</span>
+
 若把 prefill 与 decode 混在同一批，计算密集的长提示会堵住本可以低延迟吐词的短生成，这是分离式服务（如 DistServe 一类工作）的动机。问题不是「要不要做注意力」，而是识别 prefill 是 **compute-bound**：加卡、加 Tensor Core 吞吐、切序列并行，对 TTFT 的一阶导数大；只加 HBM 容量而不加算力，对已经算得动的中等 $s$ 帮助有限。
 
 ### 算术强度为何高
 
 权重 $W$ 在 prefill 中与形状 $(s,d)$ 的激活相乘。$s$ 增大，同一份 $W$ 被更多行用，强度 $\propto s$。注意力的 $QK^\top$ 进一步按 $s$ 复用投影后的 $K$。屋顶线模型里，这一点把工作点推向计算屋顶而不是带宽屋顶。Decode 每步 $s_{\mathrm{q}}=1$，复用消失，工作点掉回带宽屋顶。用同一套「利用率 90%」的口号描述两段，会在 decode 上误判瓶颈。
+
+<span class="marginnote">代入数字感受复用的意义：设某层权重占 1 GB，提示长 $s=4096$。Prefill 读一次这 1 GB 就服务 4096 行激活，摊到每行约 $1\ \mathrm{GB}/4096 = 0.25\ \mathrm{MB}$；Decode 一步只算 1 个新 token，同样 1 GB 权重只服务这一行，单位算量的访存流量差了 4096 倍。这就是「两段算术强度差一个数量级以上」的直观来源。</span>
 
 <span class="marginnote">前缀缓存命中时，prefill 只算增量后缀，TTFT 掉到增量长度决定的计算量。讨论 prefill 特征必须声明是冷提示还是前缀命中。把命中后的延迟写成模型算力，会高估硬件、低估缓存策略。</span>
 
@@ -51,7 +55,21 @@ flowchart TD
 
 TTFT $\approx T_{\mathrm{queue}}+T_{\mathrm{prefill}}$。$T_{\mathrm{prefill}}$ 在计算屋顶上近似 $\mathrm{FLOPs}/(\eta\cdot \mathrm{peak})$，$\eta$ 为核效率。长 $s$ 时 FLOPs 中二次项占比上升，出现「上下文再长一点，首 token 突然不可接受」——这是二次项，不是 decode 带宽。视觉或音频前缀把 $s$ 抬高一截，prefill 特征与纯文本相同，只是 $s$ 的来源变成了切块与合并，见视觉 token 压缩一类专文。
 
+```mermaid
+flowchart LR
+  P1["Prefill：一次喂 s 个 token"] --> P2["同一份权重被复用 s 次"]
+  P2 --> P3["算术强度高"]
+  P3 --> P4["卡在计算屋顶：加算力才变快"]
+  D1["Decode：一次只喂 1 个 token"] --> D2["权重几乎不复用"]
+  D2 --> D3["算术强度低"]
+  D3 --> D4["卡在带宽屋顶：加 HBM 带宽才变快"]
+  P4 --> Q["同一张卡，两段瓶颈不同"]
+  D4 --> Q
+```
+
 批处理：把多条冷提示拼成一个大 $s$ 维或 batch 维，能进一步提高 GEMM 强度，但 TTFT 变成批内最慢请求。连续批处理若让长 prefill 与短 decode 抢同一 SM，decode 的间隔延迟抖动，用户感知成卡顿。调度上把 prefill 当成作业、decode 当成流，是承认两段屋顶线不同，而不是营销。
+
+<span class="marginnote">初学者容易以为「把多个请求拼成一批总是更划算」。吞吐确实涨了，但批内最慢的那条长提示决定所有人的首字延迟。可以想成拼车：车越满越省油，可你的到达时间取决于绕路最远的那个乘客——所以调度器才会把长 prefill 和短 decode 拆开处理。</span>
 
 <span class="marginnote">GQA / MLA 主要减 *decode* 要搬的 KV 字节，对 prefill 的 FLOPs 只是常系数。长提示的 TTFT 不会因为改成 8 个 KV 头就按 8 倍下降。规划首 token SLA 时不要抄 decode 吞吐表。</span>
 

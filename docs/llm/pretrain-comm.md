@@ -27,6 +27,8 @@ section: llm
 
 NCCL 对训练暴露的常用原语包括 All-Reduce、Reduce-Scatter、All-Gather、All-to-All、Broadcast，以及流水线用的 Send/Recv。数据并行的梯度同步走 All-Reduce，或 ZeRO 的 Reduce-Scatter 加 All-Gather；张量并行按实现走 All-Reduce 或 All-Gather / Reduce-Scatter 对；专家并行走 All-to-All；流水线走点对点。库负责选算法、切 chunk、用 GPU 内核做归约，并在可能时走 GPU Direct RDMA，避免绕道主机。
 
+<span class="marginnote">All-Reduce 可以直译成「全员归约」：每张卡手里各有一份数（比如自己那份数据算出的梯度），通信结束时每张卡都拿到所有人的总和。它是数据并行梯度同步的标准动作——不这样做，8 张卡各自的模型就会朝 8 个方向各改各的。All-Gather 则是「每张卡把自己的那份发给大家」，最后每人拼出完整副本。</span>
+
 拓扑感知是配置的一部分。同一节点的 GPU 应划进需要高带宽的进程组（张量并行，必要时包括上下文并行）。跨节点的组承担数据并行与流水线。NCCL 通过查询 NVLink、NVSwitch、NIC 的连接来建图；用户则通过并行网格保证「通信最密的组」落在图里最密的子图上。关闭 GPU Direct、误绑 NUMA、或让网卡与 GPU 不在同一 PCIe 交换机下，都会让这条图退化。
 
 ```mermaid
@@ -49,11 +51,27 @@ flowchart LR
 
 有效带宽可以粗写成 $\min(B_{\mathrm{nvlink}}, B_{\mathrm{nic}}\cdot \eta) $ 再乘算法效率。$\eta$ 包含 RDMA 是否直达、交换机争用、以及多租户干扰。消息很小时，延迟项主导，公式变成 $T \approx \alpha + n\beta$，其中 $\alpha$ 是启动延迟。张量并行的短 All-Reduce、专家并行在小 microbatch 下的 All-to-All，都可能掉进延迟区：再增加链路标称带宽也救不了启动开销。这时应减通信次数（融合通信、更大的层切分）、或把该进程组缩回 NVLink 域。
 
+```mermaid
+flowchart TD
+  M["一次集体通信要发 n 字节"] --> Q{"消息 n 够大吗"}
+  Q -->|"小消息"| A["延迟 α 主导：T ≈ α + nβ"]
+  A --> A1["再加标称带宽也没用"]
+  A --> A2["减次数：融合通信 / 缩回 NVLink 域"]
+  Q -->|"大消息"| B["带宽项 nβ 主导"]
+  B --> B1{"走哪条链路"}
+  B1 -->|"节点内"| C["NVLink：带宽高，易与计算重叠"]
+  B1 -->|"跨节点"| D["先层次化，只发每节点一份"]
+```
+
+<span class="marginnote">可以把 $T \approx \alpha + n\beta$ 想成打一通电话：$\alpha$ 是拨号接通的固定开销，$n\beta$ 是把内容说完的时间。要说的话很短（小消息），接通本身占了九成时长——这时候换更宽的「电话线」毫无意义，只能少打几次（融合通信）或改成当面说（缩回 NVLink 域）。</span>
+
 与计算重叠是另一条轴。数据并行的梯度 All-Reduce 可以在反向的前几层还在算时发出去；流水线可以在计算当前 microbatch 时递交上一个。层内张量并行很难重叠，因为它卡在正向或反向的关键路径上。通信库提供的 `group` 与流（stream）让重叠成为可能，但前提是内核调度没有把计算流堵住，以及缓冲区已经预注册。<span class="marginnote">BF16 / FP8 训练会改变通信体积。梯度用 BF16 通信能减半字节，但需要和缩放、损失精度策略一致。有的系统对梯度做 FP8 通信，进一步减跨节点压力，代价是数值协议必须在所有 DP 副本上对齐。通信 dtype 是训练配方的一部分，不是网卡开关。</span>
 
 ### 故障与噪声
 
 大规模预训练的通信墙不一定来自算法。单条 InfiniBand 链路抖动、一台交换机丢包、一张网卡降速，都会让一次 All-Reduce 的尾延迟变成整步的 step time。NCCL 超时、挂起，常常是拓扑或网卡问题而不是模型代码。监控上应同时看每组集体通信的耗时分布，而不是只看平均吞吐。专家并行的 All-to-All 对负载不均更敏感：热专家所在节点既是计算热点也是网络热点。
+
+<span class="marginnote">初学者容易以为训练挂起一定是模型代码有 bug，实际千卡以上规模时，NCCL 超时最常见的元凶是网络：一根松动的线缆、一台丢包的交换机、一张悄悄降速的网卡。排障时先看 `nccl-tests` 与各通信组耗时分布，再怀疑代码——顺序反了会白烧一整天。</span>
 
 ## 边界
 

@@ -19,7 +19,7 @@ $\max_x f(x)$ s.t. $h(x)=0$，其中 $h:U\to\mathbb{R}^k$，$k\le n$。正则条
 $\nabla f(x^*)=\sum_j\lambda_j\nabla h_j(x^*)$，
 即 $\nabla_x\mathcal{L}(x^*,\lambda)=0$，其中 $\mathcal{L}(x,\lambda)=f(x)-\lambda\cdot h(x)$（最小化时常写 $f+\lambda\cdot h$，符号约定要前后一致）。连同 $h(x^*)=0$，共 $n+k$ 个方程。
 
-预算等式 $p\cdot x=w$ 是 $k=1$ 的仿射特例。$\nabla u(x^*)=\lambda p$ 就是「边际替代率等于价格比」：乘子 $\lambda$ 是收入的影子价值。后课[预算集与马歇尔需求](/econ/marshallian-demand)在局部非饱和下把不等式预算收成等式，用的正是这一课。本课不引入偏好公理，只把等式约束的一阶条件写清楚。
+预算等式 $p\cdot x=w$ 是 $k=1$ 的仿射特例。$\nabla u(x^*)=\lambda p$ 就是「边际替代率等于价格比」：乘子 $\lambda$ 是收入的影子价值。<span class="marginnote">用数字体会「影子价值」：若解出的 $\lambda=0.5$，含义是——预算再松 1 元，最大效用大约再涨 0.5 个单位；松 100 元就涨约 50。所以 $\lambda$ 的单位是「每元钱换多少效用」，它给「钱」在效用尺度上定了价，这就是「影子价格」四个字的来历。</span>后课[预算集与马歇尔需求](/econ/marshallian-demand)在局部非饱和下把不等式预算收成等式，用的正是这一课。本课不引入偏好公理，只把等式约束的一阶条件写清楚。
 
 ### 乘子不是目标的权重
 
@@ -29,7 +29,7 @@ $\lambda$ 不是「约束有多重要」的主观权重，而是一阶匹配的�
 
 ## 方法
 
-构造 $\mathcal{L}$，对 $x$ 与 $\lambda$ 同时求驻点：$\nabla_x\mathcal{L}=0$ 是一阶，$\nabla_\lambda\mathcal{L}=-h=0$ 把约束装回。二阶条件在切空间上：对一切满足 $Dh(x^*)v=0$ 的 $v\neq 0$，$v^\top\nabla_{xx}^2\mathcal{L}\,v$ 取负（极大）。不是对所有 $v$ 要求 Hessian 负定——沿法向的弯曲被约束禁掉了。
+构造 $\mathcal{L}$，对 $x$ 与 $\lambda$ 同时求驻点：$\nabla_x\mathcal{L}=0$ 是一阶，$\nabla_\lambda\mathcal{L}=-h=0$ 把约束装回。二阶条件在切空间上：对一切满足 $Dh(x^*)v=0$ 的 $v\neq 0$，$v^\top\nabla_{xx}^2\mathcal{L}\,v$ 取负（极大）。不是对所有 $v$ 要求 Hessian 负定——沿法向的弯曲被约束禁掉了。<span class="marginnote">把约束面想成一根绷紧的铁丝：点只能在铁丝上滑动（切向），离开铁丝（法向）就不可行。二阶条件只问「沿铁丝滑过去，函数值会不会爬得更高」；至于离开铁丝的方向上函数怎么弯，与本题无关，所以 Hessian 不必全负定。初学者在这里最容易误判成「Hessian 必须整体负定」。</span>
 
 仿射约束加凹目标：一阶充分且全局。这是标准消费者问题最常用的一包假设。非线性等式 $h$ 可能切出非凸可行集，一阶可以指向鞍点；那时 Lagrange 只是必要，不是充分。上一课上境图已经警告过：非线性等式毁掉凸。
 
@@ -44,7 +44,16 @@ flowchart TD
 
 ## 机制
 
-在约束曲面上，允许的无穷小位移 $v$ 满足 $Dh(x^*)v=0$。最优要求 $\nabla f\cdot v=0$ 对一切这样的 $v$，故 $\nabla f$ 正交于切空间，即落在法空间里——法空间由 $\nabla h_j$ 张成。乘子就是这组坐标。
+在约束曲面上，允许的无穷小位移 $v$ 满足 $Dh(x^*)v=0$。最优要求 $\nabla f\cdot v=0$ 对一切这样的 $v$，故 $\nabla f$ 正交于切空间，即落在法空间里——法空间由 $\nabla h_j$ 张成。乘子就是这组坐标。<span class="marginnote">拿一道能口算的题走全程：$\max\,xy$ s.t. $x+y=10$。令 $\mathcal{L}=xy-\lambda(x+y-10)$，一阶给 $\lambda=y$、$\lambda=x$，解得 $x=y=5$、$\lambda=5$。把预算改成 $x+y=11$，最优值从 $25$ 变成 $30.25$——每多 1 元预算效用约多 5，正是 $\lambda$。全过程就是「构造 $\mathcal{L}$、解一阶方程组、读 $\lambda$」。</span>
+
+```mermaid
+flowchart TD
+  S["写下目标 f 与等式约束 h"] --&gt; L["构造增广函数 L = f − λ·h"]
+  L --&gt; FOC["一阶：∇x L = 0 且 h = 0，共 n+k 个方程"]
+  FOC --&gt; SOL["解出候选点与 λ"]
+  SOL --&gt; CHK["二阶：只在切空间上定号"]
+  CHK --&gt; RD["解读 λ：约束松一单位，最优值变多少"]
+```
 
 几何上这仍是分离：上优集与可行超曲面在切点分开，法向量分解成「目标的」与「约束的」。预算问题里两者共线，比例即 $\lambda$。多种商品、一个预算，所以只有一个 $\lambda$；多种资源约束就有一串乘子，后课规划问题、成本最小化会用到。
 

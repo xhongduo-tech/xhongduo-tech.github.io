@@ -17,6 +17,8 @@ section: quant
 
 非线性衍生产品的价值 $V(S,\sigma,t)$ 在市场因子变动时不是直线。一阶 Taylor 用 Delta 与 Vega 解释小移动；现货大动时 Gamma 与 Volga、Vanna 变成主导。若只对冲 Delta，等价于局部线性化，暴跌或暴涨时复制失败，而这正是卖出期权的风险。若要对冲 Gamma，必须引入另一个非线性工具——通常是别的期权——因为期货的 Gamma 为零。若要对冲 Vega，同样需要期权或方差互换一类对波动率敏感的工具。问题是在流动性、买卖价差与模型定义下，选哪几个工具、在哪一个微笑动态下算这些导数。
 
+<span class="marginnote">术语翻译：把期权想成一辆方向盘会自己转的车。Delta 是「现在对方向有多敏感」，Gamma 是「这份敏感本身随路况变多快」，Vega 是「对市场情绪（波动率）有多敏感」。对冲不是预测路往哪走，而是把这几只看不见的手从方向盘上松开。</span>
+
 希腊字母依赖模型与报价惯例。Black 的 $\Delta$ 与「微笑 sticky strike」下的 $\Delta$ 不同；Heston 的 Vega 是对 $v_0$ 或对某一参数，与对 Black 隐含波动的 Vega 要换算。Hull 的教学默认 Black–Scholes 公式的解析希腊字母，作为共同语言；生产上必须声明：对冲用的是哪一个曲面、哪一种 sticky 假设。
 
 ### 三个一阶对象不是三种独立货币
@@ -35,6 +37,8 @@ $$
 
 Vega 这里用 $\nu$ 以免与方差混淆。Delta 对冲：用 $-\Delta$ 单位标的（或等价期货）使组合 $\Delta_{\mathrm{port}}=0$。现货变动 $\mathrm{d}S$ 后，未再平衡前组合 P&L 约 $\frac12\Gamma(\mathrm{d}S)^2+\Theta\mathrm{d}t+\nu\mathrm{d}\sigma+\cdots$。卖出期权则 $\Gamma\lt 0$，需要在大动时亏损，用 Theta 收取时间价值作为补偿——这是 Hull 反复强调的 Gamma–Theta 权衡。
 
+<span class="marginnote">数字实例：一张平值、30 天、隐含波动 20% 的指数看涨，Delta 约 0.51——对冲 100 张需卖空约 51 份指数。现货涨 1 个点后，Gamma（此处约 0.07/点）把 Delta 自己推到约 0.58，不补卖空就凭空多出约 7 份指数的裸方向暴露。这就是 Gamma 在两次再平衡之间「偷偷干活」的方式。</span>
+
 Gamma 对冲：加入数量 $\lambda$ 的对冲期权，使 $\Gamma+\lambda\Gamma_h=0$，再回头调整标的使 Delta 仍为零。对冲期权会带来自己的 Vega 与期限结构，通常无法同时把 $\Gamma$ 与 $\nu$ 都精确打到零，除非工具足够多。实务是解一个小的加权最小二乘：对关键执行价、关键到期的桶做 Vega 与 Gamma 分桶，而不是对整个曲面的单一 Vega 标量。
 
 ### Vega 分桶与微笑对冲
@@ -45,11 +49,25 @@ Gamma 对冲：加入数量 $\lambda$ 的对冲期权，使 $\Gamma+\lambda\Gamm
 
 Delta 对冲把一阶现货风险转给期货市场，留下凸性。若隐含波动不变且再平衡连续，Gamma 与 Theta 在 Black–Scholes 方程里对消，复制误差趋于零。波动率一变，Vega 项出现，必须用别的期权再对冲；对冲期权的 Delta 又破坏原来的 Delta 中性，需要一轮迭代。这是交易日盘中的标准循环，不是模型缺陷。
 
+```mermaid
+flowchart TD
+  T0["开盘: Delta 对冲到中性"] --> SM["盘中: 现货大幅移动"]
+  SM --> GA["Gamma 使 Delta 漂移, 中性被破坏"]
+  GA --> RB["再平衡: 买卖标的补 Delta"]
+  RB --> VM["隔夜: 隐含波动率跳动"]
+  VM --> VG["Vega 暴露浮现"]
+  VG --> OH["加对冲期权压 Vega"]
+  OH --> DD["对冲期权自带 Delta, 又需一轮调整"]
+  DD --> T0
+```
+
 对冲比率对微笑动态敏感。Sticky strike：执行价固定的隐含波动不随现货动，Delta 接近 Black Delta。Sticky delta：固定 Delta 的点跟着现货走。SABR 或局部波动率给出第三种。同一香草，三种 Delta 可以差几个百分点，对大名义这就是真实金钱。Hagan 等人写 SABR 的动机之一，正是让 Delta 与微笑移动一致，见 [SABR](/quant/sabr)。Heston 下应对状态变量 $v$ 做 Vega，再映射到市场报价的桶。
 
 ### Gamma 的符号与尾部
 
 做空香草：负 Gamma，现货静止时赚 Theta，大动时亏。做多香草相反。对冲 Gamma 并不是道德上「更中性」，只是把尾部卖给另一张期权的卖方。若对冲工具流动性差，名义 Gamma 对冲会在压力期转不动，账面中性瞬间变成裸露。限额因此同时约束 Gamma 与再对冲所需的流动性，而不是只约束瞬时 $\Gamma$ 数字。
+
+<span class="marginnote">为什么重要：负 Gamma 的账本「平时小赚、出事大亏」，盈亏像卖保险；许多账户爆仓不是看错方向，而是负 Gamma 遇上跳空——收盘时 Delta 明明是零，开盘已经亏穿限额。这就是限额必须单独管 Gamma、而不只看 Delta 的原因。</span>
 
 <span class="marginnote">Rho 与股息风险在长期限股权与可转债上可以大过日内 Delta。Hull 把 Rho 列为标准希腊字母，短到期外汇里它常被折进远期点，不单独对冲。</span>
 

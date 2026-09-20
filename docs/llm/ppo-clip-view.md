@@ -21,6 +21,8 @@ TRPO 的一阶目标配上二阶度量，慢在两处：共轭梯度每步多几
 
 记逐 token 比率 $r_t(\theta)=\pi_\theta(a_t\mid s_t)/\pi_{\mathrm{old}}(a_t\mid s_t)$，PPO 的裁剪目标是
 
+<span class="marginnote">比率可以读成「新策略比旧策略更爱这个动作几倍」：$r_t=1$ 表示没变，$r_t=1.5$ 表示概率被抬高了 50%。多 epoch 复用同一批数据，本质就是监控这个倍数别离 1 太远。</span>
+
 $$
 L^{\mathrm{CLIP}}(\theta)=\mathbb{E}\bigl[\min\bigl(r_t\hat A_t,\ \mathrm{clip}(r_t,1-\epsilon,1+\epsilon)\hat A_t\bigr)\bigr],\quad \epsilon\approx 0.2.
 $$
@@ -44,9 +46,24 @@ flowchart TD
 
 与上一课的硬约束对读：KL 球是全局的、二阶度量的，且带单调界；clip 是逐样本的、一阶的、乘性的，没有改进保证。它约束的是「单个样本的优势不被无限放大」，悲观化的 $\min$ 让裁剪只在「会进一步推高性能估计」的方向生效——反方向（把已采到的概率压回去）不受限，所以它是不对称的信赖域。这个保证更弱，换来的是：无需 Fisher、无需线搜索，一阶优化器直接跑，多 epoch 复用在比率带内近似安全。GRPO 的位置在此看得最清楚：保留 clip 与参考 KL（信任域那半），去掉 critic 与 GAE（自举那半），组基线补位——是在同一张蓝图上按 LLM 的显存与生成预算重划的取舍。[REINFORCE / R3](/llm/reinforce-llm) 那条纯蒙特卡洛路线则连裁剪都不留，靠参考 KL 的拖曳防崩。
 
+<span class="marginnote">$\min$ 的直觉：在两个「这个样本值多少」的说法里挑悲观的那个。好处是不给「继续吹大优势」的方向发梯度——宁可不赚这笔，也不信夸大的账。</span>
+
+从二阶硬约束到一阶软约束的降档路径，每一步各留什么、扔什么：
+
+```mermaid
+flowchart LR
+  TRPO["TRPO：KL 球硬约束 + 二阶度量"] -->|"只留一阶"| PPO["PPO：逐样本 clip 软约束"]
+  PPO -->|"去 critic 与 GAE"| GRPO["GRPO：clip + 参考 KL + 组基线"]
+  PPO -->|"连 clip 也不要"| R3["R3：纯蒙特卡洛 + KL 拖曳"]
+  TRPO --> G1["留：近似单调改进；付：二阶开销"]
+  PPO --> G2["留：带内近似安全；付：单调界"]
+```
+
 ## 边界
 
 信任域语言的三个警告。其一，clip 不惩罚越界只停发梯度：比率可以一路贴边走远，KL 早停是补丁不是定理。其二，$\epsilon=0.2$ 来自连续控制的实验默认，LLM 实现里它与 KL 目标、minibatch 数耦合，跨栈迁移要重调。其三，整套论证假设优势 $\hat A_t$ 是在 $\pi_{\mathrm{old}}$ 下估的——GAE 的 critic 滞后、组基线的偏差都会让「带内」也不安全，裁剪不修优势估计的错。多 epoch 更新时监控三件：clip fraction、对 $\pi_{\mathrm{old}}$ 的逐 minibatch KL、比率分布的漂移。把长期后果拿掉之后这套机制还剩多少，是下一单元上下文 bandit 要回答的问题。
+
+<span class="marginnote">为什么盯 clip fraction：若三成以上的样本长期顶格，说明学习率或 $\epsilon$ 已经失配——大部分样本不发梯度，等效批量在缩水，训练看着在跑，其实没学多少东西。</span>
 
 ## 小结
 

@@ -23,11 +23,15 @@ section: llm
 
 绕开的核心是 likelihood-ratio 恒等式：$\nabla_\theta\pi_\theta(\tau)=\pi_\theta(\tau)\,\nabla_\theta\log\pi_\theta(\tau)$。轨迹对数概率拆成三段——初始分布、各步转移、各步动作；前两段不含 $\theta$，求导后严格为零，只剩
 
+<span class="marginnote">这个恒等式就是「先取对数再求导」：$\log$ 把乘积变连加，求导时 $\nabla\pi$ 归约成 $\pi\,\nabla\log\pi$。它不引入任何近似——所以本课之后的所有结论都是严格等式，不是「大概成立」。</span>
+
 $$
 \nabla_\theta J(\theta)=\mathbb{E}_{\tau\sim\pi_\theta}\Bigl[\sum_{t}\nabla_\theta\log\pi_\theta(a_t\mid s_t)\,G_t\Bigr],
 $$
 
 其中 $\nabla_\theta\log\pi_\theta(a\mid s)$ 叫得分函数（score function），$G_t$ 是从 $t$ 起的折扣回报。这就是策略梯度定理：梯度只是得分与回报乘积的期望，转移核一次也没出现。不是被近似掉，而是恒等式里根本轮不到它。这一下把「需要环境模型」降成「需要能从环境采样」：跑回合、记对数概率、记回报，梯度就能逐项累积。
+
+<span class="marginnote">得分函数可以读成「往哪个方向调参数，会让动作 $a$ 在状态 $s$ 下更常被抽到」；乘上 $G_t$ 就是按这一回合的收益成比例地抬高（或压低）这个动作的概率——赚得多多抬高，亏了反向压低。</span>
 
 ```mermaid
 flowchart TD
@@ -46,9 +50,24 @@ flowchart TD
 
 <span class="marginnote">「避免状态导数」的准确含义：$\nabla\log\pi_\theta(\tau)$ 里初始分布与转移项严格为零，期望的支撑怎么随 $\theta$ 移动都不用管——这是恒等式，不是近似。若推导里出现了对 $P(s'\mid s,a)$ 的导数，那已经不是这条定理。</span>
 
+「转移核为什么一次也没出现」逐段看轨迹对数概率的拆解：
+
+```mermaid
+flowchart TD
+  LT["log pi_theta(tau) 拆成三段"] --> L0["初始分布项 log rho_0(s_0)"]
+  LT --> L1["转移项 log P(s_t+1 | s_t, a_t)"]
+  LT --> L2["动作项 log pi_theta(a_t | s_t)"]
+  L0 --> Z0["不含 theta：求导严格为 0"]
+  L1 --> Z1["不含 theta：求导严格为 0"]
+  L2 --> K["含 theta：只剩得分函数"]
+  K --> G["梯度 = E[得分 x 回报]，无需环境模型"]
+```
+
 ## 边界
 
 定理给的是**当前** $\theta$ 处的无偏梯度：每更新一步，采样分布就变，旧轨迹的梯度不再对准新策略——复用旧数据必须加重要性权重，那是本课程后面专课处理比率方差的题目。它也不回答步长：参数空间一小步可以是分布上的一大步，本单元最后一课才处理。最直接的麻烦是方差：$G_t$ 的波动原样乘进得分，长回合下估计量吵得没法用——这正是下一课 REINFORCE 要面对的现实。
+
+<span class="marginnote">初学者容易以为「无偏」就等于「稳」；无偏只保证平均方向对，单次估计仍可能大起大落。方差大时每步更新都像掷骰子——这正是后来要加基线、控比率、做信任域的动因。</span>
 
 ## 小结
 
