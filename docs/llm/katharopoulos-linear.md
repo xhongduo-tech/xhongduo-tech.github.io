@@ -15,7 +15,7 @@ Angelos Katharopoulos、Apoorv Vyas、Nikolaos Pappas 与 François Fleuret 的 
 
 ## 问题
 
-2019–2020 年，Transformer 已经在翻译与语言模型上成立，但自回归解码每步都要读增长的键值列表，长度 $N$ 的生成是平方的。Reformer 用 LSH 降理论复杂度，常数大，MNIST 这种 $N=784$ 上往往不快。需要一种：**训练可并行，推理常量化状态**，并且尽量保住点积注意力的接口。作者把问题收成核特征：若 $\mathrm{sim}(q,k)=\phi(q)^\top\phi(k)$，则对 $N$ 的二次可以换成对特征维的线性。剩下的经验问题是：$\phi$ 这么弱，图像与语音还能不能用。
+2019–2020 年，Transformer 已经在翻译与语言模型上成立，但自回归解码每步都要读增长的键值列表，长度 $N$ 的生成是平方的。<span class="marginnote">术语翻译：核特征就是把相似度改写成「先把 q、k 各自映射成新向量 $\phi(\cdot)$，再算内积」。若能这样拆，结合律允许先把历史一侧加总成一份状态，查询来了只做一次乘法——平方到线性的全部秘密就在这一步重排。</span>Reformer 用 LSH 降理论复杂度，常数大，MNIST 这种 $N=784$ 上往往不快。需要一种：**训练可并行，推理常量化状态**，并且尽量保住点积注意力的接口。作者把问题收成核特征：若 $\mathrm{sim}(q,k)=\phi(q)^\top\phi(k)$，则对 $N$ 的二次可以换成对特征维的线性。剩下的经验问题是：$\phi$ 这么弱，图像与语音还能不能用。
 
 论文同时要揭示结构：线性因果注意力就是 RNN。这不是为了用 BPTT 训练——扫描仍然并行——而是为了说明生成时不必存 KV，只需存 $S,z$。对当时「Transformer 不能流式」的批评，这是一条代数回答。
 
@@ -29,7 +29,7 @@ Angelos Katharopoulos、Apoorv Vyas、Nikolaos Pappas 与 François Fleuret 的 
 
 架构仍是多层多头，只换注意力。特征 $\phi=\mathrm{elu}+1$ 保证非负，分母不易翻号。因果形式每步 $O(d_\phi d_v)$ 更新状态。训练用前缀和，不必逐步循环。对照：softmax Transformer、Reformer（多轮哈希，论文按 Kitaev 等的建议设桶）。MNIST：8 层 8 头。为公平墙钟，生成时 softmax / Reformer 也缓存键值（stateful softmax），线性模型只缓存 $S,z$。
 
-MNIST 结果（论文表 1 量级）：线性模型最终困惑度与 softmax 几乎同一档（约 0.65 bpd 量级），吞吐约 **142.8 图/秒**，相对 softmax **约 317×**；单卡可同时生成一万张，因为状态大小与已生成像素数无关。CIFAR-10 长度更长，作者报告自回归预测加速可到 **约 4000×**——分母是逐步 softmax 生成，分子是常数状态递推，序列越长倍数越大。语音：线性每 epoch 大约 **3×** 快于 softmax，音素错误率则明显落后；相对 Reformer，线性在收敛与最终 PER 上都更好。复制任务上线性比 Reformer 更稳地靠近 softmax 损失。
+MNIST 结果（论文表 1 量级）：线性模型最终困惑度与 softmax 几乎同一档（约 0.65 bpd 量级），吞吐约 **142.8 图/秒**，相对 softmax **约 317×**；单卡可同时生成一万张，因为状态大小与已生成像素数无关。<span class="marginnote">数字实例：生成第 3000 个像素时，softmax 要对前 2999 个键各算一次注意力；线性模型只更新一个固定大小的 $S,z$，工作量与已生成多少像素无关。序列越长两条曲线岔得越开，4000× 就是这么来的。</span>CIFAR-10 长度更长，作者报告自回归预测加速可到 **约 4000×**——分母是逐步 softmax 生成，分子是常数状态递推，序列越长倍数越大。语音：线性每 epoch 大约 **3×** 快于 softmax，音素错误率则明显落后；相对 Reformer，线性在收敛与最终 PER 上都更好。复制任务上线性比 Reformer 更稳地靠近 softmax 损失。
 
 ```mermaid
 flowchart LR
@@ -46,7 +46,19 @@ flowchart LR
 
 ## 机制
 
-结合律是唯一代数来源：$\sum_j \phi(q)^\top\phi(k_j)\,v_j=\phi(q)^\top(\sum_j \phi(k_j)v_j^\top)$。softmax 的 $\exp(q^\top k)$ 一般不能写成有限维确定特征的内积，因此本文不是 softmax 的精确改写。RNN 观点：$(S_t,z_t)$ 是充分统计量，查询是读出。与经典 RNN 的差别在于训练用扫描而不是逐步反传过全部时间，以及多头仍是注意力接口。专文写了数值与秩；原文强调的机制贡献是 **把加速从「训练矩阵乘」挪到「生成递推」**——读者若只看训练 FLOPs，会觉得线性注意力在 $N=784$ 上没必要。
+结合律是唯一代数来源：$\sum_j \phi(q)^\top\phi(k_j)\,v_j=\phi(q)^\top(\sum_j \phi(k_j)v_j^\top)$。softmax 的 $\exp(q^\top k)$ 一般不能写成有限维确定特征的内积，因此本文不是 softmax 的精确改写。
+
+```mermaid
+flowchart LR
+  K["历史键 k_j"] --> F["外积 phi(k_j) v_j^T"]
+  F --> S["累加进状态 S"]
+  Q["当前查询 q"] --> O["phi(q)^T S 一次读出"]
+  S --> O
+  O --> Y["注意力输出"]
+  N["朴素注意力：q 对每个 k_j 逐对打分"] -.->|"对 N 平方"| Y
+```
+
+<span class="marginnote">直觉类比：普通注意力像每来一道题就把全部笔记重读一遍；线性注意力像边读边把笔记压成一页固定大小的卡片（状态 $S,z$），答题只看卡片。压缩会丢细节，这正是它后来在精确检索、复制任务上吃亏的直觉来源。</span>RNN 观点：$(S_t,z_t)$ 是充分统计量，查询是读出。与经典 RNN 的差别在于训练用扫描而不是逐步反传过全部时间，以及多头仍是注意力接口。专文写了数值与秩；原文强调的机制贡献是 **把加速从「训练矩阵乘」挪到「生成递推」**——读者若只看训练 FLOPs，会觉得线性注意力在 $N=784$ 上没必要。
 
 <span class="marginnote">论文摘要写「up to 4000× faster on autoregressive prediction of very long sequences」。限定词是 *autoregressive prediction* 与 *very long*。复述时不要删这两个状语。</span>
 

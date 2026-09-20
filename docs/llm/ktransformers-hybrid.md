@@ -17,6 +17,8 @@ Mixture-of-Experts 的参数量主要在专家里，每 token 却只激活一小
 
 671B 级 MoE（DeepSeek-V3/R1）在单卡 24 GB 上「按稠密模型」不可部署，不是因为注意力算不动，而是专家权重体积。DRAM 容量按 TB 买比 HBM 便宜一个数量级，但带宽和矩阵吞吐差一截。朴素 offload 会在两处死掉：CPU 侧 GEMM 仍走通用 PyTorch / llamafile，prefill 被 CPU 钉死；CPU 与 GPU 逐步同步，CUDA graph 切不成一张，launch 与 PCIe 等待叠在 decode 上。
 
+<span class="marginnote">MoE 的稀疏性可以类比医院分诊：671 个「科室」（专家）都盖在楼里（内存条），每个病人（token）只被分诊台（router）送进少数几个科室。楼可以盖得很大，因为同一时刻真正开诊的科室不多——这就是「容量放 DRAM、算力放 GPU」能成立的直觉。</span>
+
 低并发、长提示的本地或边缘场景，GPU 算力经常闲着等 CPU 专家；高并发则相反，专家变成多 token 的小 batch，算术强度上去，AMX 才划算。同一套核不能既服务「每专家 1 个 token」又服务「每专家几十个 token」，否则 decode 会在铺满 tile 的开销里打转。
 
 ### 热路径不是专家
@@ -46,11 +48,24 @@ flowchart TD
 
 权重按 cache 层级排：专家矩阵纵向切成任务、横向切成贴 L2 的块，块内再切成 AMX tile。输入常驻 L3，权重从 DRAM 进 L2，tile 乘累加在寄存器，中间结果必要时停 L1。同专家的任务尽量同调度，减少反复打 DRAM。SOSP 文与 LMSYS 集成博文写：单路 Xeon 上 AMX 核持续吞吐最高约 **21.3 TFLOPS**，相对 oneDNN/PyTorch 基线约 3.9–4×。低算术强度（每专家 token 数 ≤4 的微基准）改走与同一布局兼容的 AVX-512，相对死用 AMX 最高约 1.20×。这是**核的测量**，不是某一颗至强的铭牌峰值。
 
+<span class="marginnote">术语翻译：AMX 是 Intel 新款至强里的「矩阵扩展」指令——相当于在 CPU 里嵌了一小块矩阵乘法单元，一次喂一个 tile；AVX-512 是更通用的向量指令，一次处理 512 位数据。AMX 吃大矩阵才划算，每专家只分到一两个 token 时开销铺不平 tile，所以系统按算术强度在两者之间切换。</span>
+
 ## 机制
 
 MoE 前向是 $y = x + \sum_i g_i(x)\, E_i(x)$，大多数 $g_i=0$。混合系统把 $E_i$ 的驻留介质变成放置表的函数。GPU 专家降低 CPU 访存与 PCIe 上激活往返；太多 GPU 专家会把本该给 KV 的 HBM 吃掉。动态更新在偏斜路由上有用，但依赖工作负载：提示长度、并发、GPU 专家数都要进实验记录，不能假设「frequency 永远优于 uniform」。
 
 Expert Deferral 的数值代价来自改变执行顺序与可能的部分重叠，不是改公式。论文把精度下降写成平均值上限，不保证每一个下游任务。生产上应把 deferred 数当实验旋钮，过质量门再放大。NUMA：双路机器必须按节点切线程池与权重副本，否则 AMX 核再快也被跨路 QPI/UPI 拖成内存墙。
+
+```mermaid
+flowchart LR
+  T1["第 t 步：GPU 注意力先行"] --> DEF["Deferral：故意推迟部分 CPU 专家"]
+  DEF --> T2["第 t+1 步：GPU 注意力与 CPU 专家并行"]
+  T2 --> SYNC["结果汇总，前向捕获成一张 CUDA graph"]
+  SYNC --> GAIN["重叠窗口：CPU 利用率升至约 100%，吞吐最高约 1.45×"]
+  GAIN --> GATE["质量门：平均掉点不超过 0.5%"]
+```
+
+<span class="marginnote">为什么「推迟」反而更快：不推迟时，GPU 每步都要停下来等 CPU 把专家算完，两家轮流上场；推迟一部分专家后，CPU 算「上一步欠的活」与 GPU 算「这一步的注意力」同时进行，像流水线上两个工位各自开工，空转窗口被填满了。</span>
 
 <span class="marginnote">SGLang 集成把 GPU 张量并行与 CPU/GPU 混合专家并行叠在一起。多卡时「热专家」可以在 GPU 之间再切；CPU 侧仍是容量池。不要用单卡 4090 的博客数字去填 8×L20 + 双路 Xeon 的容量表——LMSYS 文里那是另一套并发与量化。</span>
 
@@ -65,6 +80,8 @@ llama.cpp 把层或专家按内存层级换入换出，通用、门槛低，但 
 不要把 21.3 TFLOPS 写进至强选型表当铭牌。不要把 Deferral 的 0.5% 平均掉点理解成「免费重叠」。动态专家迁移会与前缀缓存、CUDA graph 抢生命周期，开启前先固定并发与提示分布再 A/B。
 
 内存账要分开算：CPU 侧是量化后的专家权重加 NUMA 副本；GPU 侧是注意力、KV、热专家与 CUDA graph 的固定开销。512 GB DRAM 跑 671B 级 INT4 专家常见，但不是公式——层数、专家数、是否双路复制都要按检查点实际体积量。PCIe 上往返的是激活与路由结果，不是整网权重；一旦把 KV 也走这条总线，混合方案的前提就没了。并发一高，每专家 token 变多，CPU 核从「算得动」变成「算不完」，这时应加 GPU 专家数或换成多卡 EP，而不是再买内存条。
+
+<span class="marginnote">数字实例：671B 参数按 INT4（每参数 0.5 字节）约要 $671 \times 0.5 = 336$ GB，512 GB 内存条装得下还留有余量；同一模型按 FP16（每参数 2 字节）则约 1.3 TB，任何单机显存都装不下。这笔账就是「用 DRAM 容量换 HBM」的全部出发点。</span>
 
 <span class="marginnote">出处：Chen 等 *KTransformers: Unleashing the Full Potential of CPU/GPU Hybrid Inference for MoE Models*, SOSP 2025；https://github.com/kvcache-ai/ktransformers 与 kt-kernel README；LMSYS *Accelerating Hybrid Inference in SGLang with KTransformers CPU Kernels*（2025-10-22）。</span>
 
