@@ -23,7 +23,7 @@ $$
 
 用 sigmoid 门。最近邻检索实验里，一旦写入一个「还行」的匹配，后来更好的匹配很难把旧值挤走——sigmoid 饱和后修订弱。Wikitext-103 按词频切片，LSTM 在稀有词上困惑度更差，像容量被标量 $c$ 卡住。记忆混合（隐状态到门与细胞输入的循环边）让逐步依赖无法写成块内 GEMM，Flash 类核用不上。
 
-Transformer 用全量 KV 换修订与容量，代价是二次。SSM / [Mamba-2](/llm/mamba-2) / [RWKV](/llm/rwkv) 走线性，但 sLSTM 一侧仍想保留**状态跟踪**：Merrill 等指出无记忆混合的对角 RNN 与 Transformer 同属 $\mathsf{TC}^0$，奇偶与括号需要混合。xLSTM 因此不能把所有块都做成可并行的 mLSTM；架构记号 `xLSTM[a:b]` 表示 mLSTM 块与 sLSTM 块之比。
+Transformer 用全量 KV 换修订与容量，代价是二次。<span class="marginnote">术语翻译：状态跟踪指的是模型能在心里维护一个精确计数器——比如数括号嵌套深度、记一个开关是开还是关。这不是「大意记得住」就行，而是每一步都要准确更新。对角 RNN（每个记忆只看自己）做不到这件事，所以有些块必须保留记忆混合。</span>SSM / [Mamba-2](/llm/mamba-2) / [RWKV](/llm/rwkv) 走线性，但 sLSTM 一侧仍想保留**状态跟踪**：Merrill 等指出无记忆混合的对角 RNN 与 Transformer 同属 $\mathsf{TC}^0$，奇偶与括号需要混合。xLSTM 因此不能把所有块都做成可并行的 mLSTM；架构记号 `xLSTM[a:b]` 表示 mLSTM 块与 sLSTM 块之比。
 
 ### 指数门控必须配归一化
 
@@ -41,7 +41,7 @@ $$
 \tilde h_t=C_t q_t\big/\max\{n_t^\top q_t,1\}.
 $$
 
-无隐到门的循环边，故可改写成并行形式，核思路接近 FlashAttention / GLA。多头与多细胞在此等价。指数门同样用 sLSTM 那套稳定化。
+无隐到门的循环边，故可改写成并行形式，核思路接近 FlashAttention / GLA。<span class="marginnote">数字实例：细胞从标量升级为矩阵后容量差别巨大。若 $d=1024$，mLSTM 的记忆 $C$ 是 $1024\times 1024\approx 100$ 万个数，而传统 LSTM 的细胞 $c$ 每头只有 1 个数——相当于从一格记事本换成一本百万行的联想表，这正是它能补稀有词容量缺口的原因。</span>多头与多细胞在此等价。指数门同样用 sLSTM 那套稳定化。
 
 块：sLSTM 块是「细胞 → 门控 MLP」后置上投影，可选短卷积；mLSTM 块把细胞包在两个 MLP 之间，带卷积、可学习跳连与逐分量输出门。整网 Pre-LN 残差堆叠。实验记号如 `xLSTM[7:1]`：48 块里 42 个 mLSTM、6 个 sLSTM。
 
@@ -66,6 +66,22 @@ flowchart TD
 
 sLSTM 的混合让门看到其它细胞的 $h$，从而把「奇偶位」这类非对角状态传下去。这与 [RWKV-7](/llm/rwkv-7-goose) 用非对角 DPLR 超 $\mathsf{TC}^0$ 是同一类表达力讨论，实现完全不同：一个是 LSTM 家族加指数门，一个是广义 delta RNN。
 
+```mermaid
+flowchart TD
+  K["新键 k"] --> W["外积 v·kᵀ"]
+  V["新值 v"] --> W
+  I["指数输入门 i"] --> W
+  F["遗忘门 f"] --> OLD["衰减旧记忆 f·C"]
+  W --> ADD["加权写入"]
+  OLD --> ADD
+  ADD --> C["记忆矩阵 C"]
+  C --> R["检索 C·q"]
+  Q["查询 q"] --> R
+  N["归一化状态 n"] --> NORM["除以 n·q"]
+  R --> NORM
+  NORM --> H["输出 h̃"]
+```
+
 <span class="marginnote">mLSTM 的协方差更新与线性注意力加法规则同类，但带门控学习率与衰减；不要写成「xLSTM = 注意力」。sLSTM 才是 LSTM 原教旨的门控细胞。</span>
 
 ## 边界
@@ -73,6 +89,8 @@ sLSTM 的混合让门看到其它细胞的 $h$，从而把「奇偶位」这类�
 ### 2024 原文不是 2026 年的服务栈
 
 主实验在 SlimPajama 量级，不是从零训 70B 聊天模型。推理常数内存成立，但 mLSTM 的 $d\times d$ 状态随头数与宽线性涨，仍可能大于高度压缩的 SSM。与 Transformer 比墙钟，取决于核：无 TFLA / 官方 CUDA 时，论文数字不可复现。PALOMA 域多，平均优势不能掩盖个别域回退。
+
+<span class="marginnote">常见误区：初学者容易以为「常数内存推理」等于「内存一定更小」。mLSTM 的状态是 $d\times d$ 矩阵，每加一个头、每加一分宽度它都线性变大；推理到超长上下文时，这个固定状态可能反而比高度压缩的 SSM 状态更大。常数指的是「不随序列长度增长」，不是「数值上很小」。</span>
 
 出处钉 NeurIPS 2024 / arXiv:2405.04517。作者单位 JKU Linz ELLIS、NXAI。不要把 NXAI 后续商用模型卡上的参数量写回这篇缩放图。需要线性注意力对照时读 [DeltaNet](/llm/delta-net) 与 Gated DeltaNet；需要纯 RNN 服务读 RWKV-7。形式语言与 MQAR 是用来拆开「指数门控修订」与「矩阵容量」两件贡献的探针，不能单独拿来宣传通用聊天。300B SlimPajama 之后的外推图若不用官方块配比，sLSTM 的逐步核会拖垮对照。边缘部署看的是压缩状态能否常驻，不是验证集困惑度小数点后三位。
 
