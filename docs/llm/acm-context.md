@@ -19,9 +19,13 @@ ReAct 把思维、动作、观察追加到 $H_t$，直到窗口顶满。摘要�
 
 BrowseComp-Plus、DeepSearchQA、SWE-Bench Verified 上，未训练的 Qwen3.5-9B 已能靠工具调用把 BrowseComp-Plus Pass@1 从 ReAct 的 0.570 拉到 0.635；后训练到 0.727，相对 ReAct 约 +27%。DeepSearchQA +16%，SWE-Bench Verified +8%（文中相对增益表述）。峰值 token 约降 20% 量级，工具调用次数上升——小模型靠探索补参数，压缩是为了让探索继续，而不是为了少做事。简单题往往在顶满之前就结束，因此训练与评测都故意选长程搜索与修仓库；把 ACM 接到闲聊机器人上，管理工具会被闲置，数字也对不上。
 
+<span class="marginnote">Pass@1 就是「只许交一次卷」的通过率：每道题只作答一次，答对才算数。它衡量「一次就做对」的能力，与可以多次尝试取最好成绩的 Pass@k 相对——ACM 提升的正是这个最苛刻的口径，说明收益不是靠碰运气碰出来的。</span>
+
 ### 两个工具，而不是一个摘要器
 
 `manage_context` 把上一摘要边界以来的消息交给摘要 LLM，原文写入工作区，摘要带唯一 ID。`query_memory` 把查询与该 ID 映射的原文交给查询 LLM，返回相关片段。工作上下文保持短；长期记忆在盘上。这模仿 Atkinson–Shiffrin 的短时/长时分离，也接近 [MemGPT](/llm/memgpt) 的 RAM/磁盘，但发起压缩的是策略本身，不是容量警告插入。
+
+<span class="marginnote">Atkinson–Shiffrin 是心理学的记忆双仓库模型：短时记忆容量小、记数秒就忘；长时记忆容量近乎无限、靠线索回忆。ACM 把工作上下文当短时记忆、磁盘原文当长时记忆，`query_memory` 就是「按线索回忆」——人能记几十年的事还能继续生活，靠的正是这种分工而不是把一切都揣在脑子里。</span>
 
 <span class="marginnote">「无损」指原文可按 ID 取回，不是摘要零误差。查询器仍会漏召回或改写。审计时应能打开磁盘上的原始消息，而不是相信摘要里的「已核实」。</span>
 
@@ -52,6 +56,20 @@ flowchart TD
 
 代理发起使压缩对齐子目标边界，而不是对齐 90% 字节。峰值下降是因为锯齿在顶峰前就卸货，KV 峰值与「最后一刻才压」不同。无损使错误摘要可被 `query_memory` 纠正，这是相对 ReSum/ACON 一次性替换历史的结构差异。代价是两次额外 LLM（摘要器、查询器），论文用同一 9B 学生兼任以控成本。
 
+```mermaid
+flowchart LR
+  subgraph TH["阈值触发：撞顶才压"]
+    direction LR
+    T1["占用持续爬升"] --> T2["顶到 90% 被强制摘要"] --> T3["原文一次性丢弃"]
+  end
+  subgraph AG["代理发起：锯齿卸货"]
+    direction LR
+    A1["子目标收束即主动压缩"] --> A2["原文入盘，只留带 ID 摘要"] --> A3["需要时按 ID 回查原文"]
+  end
+  TH -->|"压缩点对齐字节，不对齐推理"| AG
+  AG --> BEN["峰值更低，错摘要可纠正"]
+```
+
 一致性：压缩后探索轮次增加，独立试验更常收敛到同一解。机制解释是噪声少、可继续搜，而不是参数变聪明。Pass@1 与工具次数正相关；强前沿模型用更少工具达到高分，小模型靠管上下文才撑得住长探索。
 
 <span class="marginnote">ACM 是单题内方法，不跨任务累积策略笔记。跨任务演化应对照 ACE 一类，而不是把 ACM 写成终身记忆。表 2 里 ACE 峰值更高、搜索项更弱，引用时不要混。</span>
@@ -63,6 +81,8 @@ AgentFold 在每步输出折叠指令，多尺度摘要留在窗口内，训练�
 ## 边界
 
 数字绑在 Qwen3.5-9B、所列三基准与教师 397B。不要把 +27% 写成任意模型。Meta 仅顾问，实验在 CMU。摘要器/查询器若与策略同模型，会共享其偏差。磁盘上的原文是敏感日志，多租户必须按会话隔离工作区。教师若泄漏答案，模型会学到「看见某模式就压」的捷径而非结构。
+
+<span class="marginnote">这一步如果做错了：教师改写轨迹时不小心把标准答案带进去，学生学到的是「看到某类提示就压缩」甚至直接抄答案的捷径——评测分数涨了，换一批没泄漏的题立刻现原形。所以原文强调「教师推理不得泄漏标准答案」，这不是程序美德，是结果成立的前提。</span>
 
 <span class="marginnote">出处：Li, Ming, Chu, Shao, Jin, Xiong，*ACM: Agentic Context Management for Long Horizon Tasks*，arXiv:2607.23809。代码 https://github.com/lixiaochuan2020/agentic-context-management。基线含 Yao 等 ReAct、Wu 等 ReSum、Kang 等 ACON、Lu 等 SUPO、Ye 等 AgentFold、Zhou 等 MEM1。</span>
 

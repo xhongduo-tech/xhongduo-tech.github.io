@@ -15,7 +15,7 @@ VeRL 把 HybridFlow 落成可跑的库之后，多轮 agent 把旧的 **SPMD rol
 
 ## 问题
 
-SPMD 生成假设：同一时刻所有 DP rank 在做同构的 decode。多轮工具把这个假设毁掉——有的样本已经结束，有的卡在检索。asyncio 协程可以让 worker 在等工具时去跑别的请求，但若推理仍是「整批 tensor 进 `generate`」，协程救不了引擎内部的对齐。Server 模式把引擎换成在线服务：每条样本是独立请求，continuous batching 吸收长度差。
+SPMD 生成假设：同一时刻所有 DP rank 在做同构的 decode。<span class="marginnote">SPMD（单程序多数据）可以理解为广播体操：所有 GPU 跑同一套动作、听同一声口令齐步走。多轮工具任务里，有的样本早就结束、有的还在等网页返回——齐步走就意味着快的 GPU 站着干等，这就是「锁步」的浪费。</span>多轮工具把这个假设毁掉——有的样本已经结束，有的卡在检索。asyncio 协程可以让 worker 在等工具时去跑别的请求，但若推理仍是「整批 tensor 进 `generate`」，协程救不了引擎内部的对齐。Server 模式把引擎换成在线服务：每条样本是独立请求，continuous batching 吸收长度差。
 
 第二问题更隐蔽。Chat Completions 返回文本；下一步把历史文本再 `tokenizer.encode`。`<think>`、工具 JSON、前后空白在很多词表上**不是对合**的：模型生成的 token 序列，与「文本再编」的序列可以不同。训练时若用后者算 $\log\pi(a_t|s_t)$，重要性比是在错误动作上算的。verl 文档写明：Client/Server 之间用基于 Ray actor 的 `generate`，输入输出都是 token id，好让 client 把工具文本与模型 token 的关系自己维护，而不是把不可逆转换藏进 HTTP JSON。
 
@@ -29,7 +29,7 @@ SPMD 生成假设：同一时刻所有 DP rank 在做同构的 decode。多轮�
 
 一步 PPO 仍分 rollout / train 两相（默认同步栅栏时）。Rollout 相：`PPOTrainer` 抽 batch，`AgentLoopManager.generate_sequences`；Manager `wake_up` 所有异步 LLM server，把训练引擎（FSDP / Megatron）权重同步到推理引擎（vLLM / SGLang）；batch 切块发给 `AgentLoopWorker`；每个 prompt 起一个用户定义的 Loop 协程直到结束。Loop 内部：`LLMServerClient.generate(prompt_ids)` → 解析动作 → 调环境 → 拼接 token → 再 generate。
 
-`LLMServerClient` 做两件事。**负载均衡**：第一轮把请求打到当前 inflight 最少的 server。**粘滞会话**：同一 `request_id` 后续轮固定到同一实例，以便前缀缓存与 TP 组内 KV 还在。换实例等于丢掉 cache，多轮会变成反复 prefill。Server 实现上，SGLang 常在 TP 组的 0 号卡上经 Ray 调 `async_generate`；vLLM 可用 ZMQ 与 TP 组通信。都要实现同一套：文本 completion（可选）与 **token-in-token-out**。其他引擎实现 `AsyncServerBase` 即可插入。文档把两种 API 并列，是因为调试时人读文本方便，训练路径却绝不能只走文本。若某个插件只实现了 chat completion，多轮工具任务应视为未接通，而不是「先用着」。训练相仍用 FSDP 或 Megatron 在 token id 上算对数概率；rollout 相交出的 id 必须能直接拼进那次前向，中间不得经过 detokenize。
+`LLMServerClient` 做两件事。**负载均衡**：第一轮把请求打到当前 inflight 最少的 server。**粘滞会话**：同一 `request_id` 后续轮固定到同一实例，以便前缀缓存与 TP 组内 KV 还在。换实例等于丢掉 cache，多轮会变成反复 prefill。<span class="marginnote">前缀缓存可以类比「点过的菜不再重做」：同一会话前几轮的 KV 已留在那块 GPU 显存里，粘住同一实例，后续轮只需算新增的一小段；一旦换实例，整个前缀要从头重算一遍（prefill）。50 轮的会话换 50 次实例，等于把前 49 轮白算 50 遍。</span>Server 实现上，SGLang 常在 TP 组的 0 号卡上经 Ray 调 `async_generate`；vLLM 可用 ZMQ 与 TP 组通信。都要实现同一套：文本 completion（可选）与 **token-in-token-out**。其他引擎实现 `AsyncServerBase` 即可插入。文档把两种 API 并列，是因为调试时人读文本方便，训练路径却绝不能只走文本。若某个插件只实现了 chat completion，多轮工具任务应视为未接通，而不是「先用着」。训练相仍用 FSDP 或 Megatron 在 token id 上算对数概率；rollout 相交出的 id 必须能直接拼进那次前向，中间不得经过 detokenize。
 
 ```mermaid
 flowchart TD
@@ -46,13 +46,22 @@ flowchart TD
 
 ### Token API 的最小契约
 
-输入：已编码的 `prompt_ids`（以及采样参数）。输出：新产生的 `response_ids`，**不得**在 server 内再 decode-encode 一轮。工具返回的文本由 Loop 在 client 侧编码成 observation ids，写入序列，并在 mask 上标 0。下一轮 `prompt_ids` 应是「上一轮完整 token 前缀 + 观察」，而不是「decode 成 messages 再 apply_chat_template」。后者会触发 Agent Lightning v1.0 描述的 retokenization drift。若产品必须走 HTTP 聊天接口，应在代理层保留原始 token（见 [Agent Lightning](/llm/agent-lightning)），不能只存文本日志。
+输入：已编码的 `prompt_ids`（以及采样参数）。输出：新产生的 `response_ids`，**不得**在 server 内再 decode-encode 一轮。工具返回的文本由 Loop 在 client 侧编码成 observation ids，写入序列，并在 mask 上标 0。下一轮 `prompt_ids` 应是「上一轮完整 token 前缀 + 观察」，而不是「decode 成 messages 再 apply_chat_template」。后者会触发 Agent Lightning v1.0 描述的 retokenization drift。<span class="marginnote">drift 的具体形态：模型生成的 ``标记加前后空白可能是 3 个 token；decode 成文本再 encode 回去，可能变成 2 个——动作的 token 边界挪了位置，本该算在这个动作头上的损失，被算到了别的 token 上，优势估计整个错位。</span>若产品必须走 HTTP 聊天接口，应在代理层保留原始 token（见 [Agent Lightning](/llm/agent-lightning)），不能只存文本日志。
 
 <span class="marginnote">粘滞会话与负载均衡有冲突：粘得太死，长尾请求会钉在同一 GPU。第一轮选最空的实例，之后粘住，是折中。极端长尾要用文档中的 stream_mode 调度配方，而不是关掉 sticky。</span>
 
 ## 机制
 
 Server 模式能加速，是因为引擎看到的是请求流而不是「必须等齐的 tensor 批」。这与 [异步 rollout](/llm/async-rollout-arch) 的训练–生成重叠是不同层：即使每步训练仍等所有 Loop 结束（同步 PPO），rollout 内部已经异步。Fully async 配方再把 Trainer 与 Rollouter 分节点、加 staleness。先把 AgentLoop 跑对，再开 fully async，否则版本混乱叠加 mask 错误无法调试。
+
+```mermaid
+flowchart LR
+  A["模型生成 token id 序列"] --> B["路径甲：decode 成文本 → 再 encode"]
+  B --> C["id 序列可能改变：标签与空白丢失"]
+  C --> D["logprob 算在错位动作上，训练漂移"]
+  A --> E["路径乙：保留原始 token id"]
+  E --> F["mask 精确对位动作，训练正确"]
+```
 
 `wake_up` 同步权重是正确性边界。若 Loop 跨一次训练步仍活着（partial rollout），必须定义中断或绑定旧权重，否则同一条 `request_id` 会在更新后继续 decode。默认同步实现里 Loop 在一步内起止，避免这个问题。打开跨步存活就要按 AReaL 的中断语义来。工具等待期间 GPU 不应被该请求独占：server 把这条请求从 running batch 里摘掉，把算力让给其他 prompt，这才是「为避免等工具而引入协程」的硬件含义。若实现上工具调用仍阻塞整个引擎线程，AgentLoop 只是把 Python 写漂亮了，吞吐不会变。
 

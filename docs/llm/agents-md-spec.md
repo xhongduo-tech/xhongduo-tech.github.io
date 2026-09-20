@@ -15,13 +15,13 @@ section: llm
 
 ## 问题
 
-人类 README 要短：快速开始、贡献指南、项目是干什么的。代理还需要另一层：`pnpm turbo run test --filter` 怎么跑、PR 标题格式、哪些目录禁止改、安全坑在哪。若把这些塞进 README，人类读者被淹没；若每个工具各自发明 `CLAUDE.md`、`.cursorrules`、`.aider.conf.yml`，同一仓库会出现互相矛盾的「系统提示」。AGENTS.md 的赌注是：**文件名即协议**。代理按约定去读，不必先学厂商私有 frontmatter。
+人类 README 要短：快速开始、贡献指南、项目是干什么的。代理还需要另一层：`pnpm turbo run test --filter` 怎么跑、PR 标题格式、哪些目录禁止改、安全坑在哪。若把这些塞进 README，人类读者被淹没；若每个工具各自发明 `CLAUDE.md`、`.cursorrules`、`.aider.conf.yml`，同一仓库会出现互相矛盾的「系统提示」。AGENTS.md 的赌注是：**文件名即协议**。<span class="marginnote">「文件名即协议」的意思是：没有 schema、没有注册接口，代理认的就是「AGENTS.md」这个名字本身——好比家用路由器的管理地址 192.168.1.1，不需要谁批准，业界默认本身就是接口。约定俗成代替了规范条文。</span>代理按约定去读，不必先学厂商私有 frontmatter。
 
 没有强制字段。FAQ 写明：标准 Markdown，用任何标题都行，代理只解析你提供的文本。这既是优点也是税：没有 schema 就不能机检「Never」条款是否被遵守，也不能按 glob 只在改 API 时加载。Cursor 因此保留 `.cursor/rules/*.mdc`：需要 `description` / `globs` / `alwaysApply` 时走 Project Rules；需要跨工具共享、永远为真的仓库事实时走 AGENTS.md。
 
 ### 它解决的是提示放置，不是长期记忆
 
-规则在每次补全时被拼进模型上下文的前部。Cursor 文档原话是：大模型在补全之间不保留记忆，规则提供提示级的可复用上下文。会话结束、换模型、子代理开一个新鲜窗口，AGENTS.md 仍要被重新加载。它不是 [MemGPT](/llm/memgpt) 的档案库，也不是 [Mem0](/llm/mem0-layer) 的抽取层。写进 AGENTS.md 的每一行都占用窗口；300 行的「永远加载」文件就是一条 Always Apply 规则，换了文件名而已。
+规则在每次补全时被拼进模型上下文的前部。Cursor 文档原话是：大模型在补全之间不保留记忆，规则提供提示级的可复用上下文。会话结束、换模型、子代理开一个新鲜窗口，AGENTS.md 仍要被重新加载。它不是 [MemGPT](/llm/memgpt) 的档案库，也不是 [Mem0](/llm/mem0-layer) 的抽取层。写进 AGENTS.md 的每一行都占用窗口；300 行的「永远加载」文件就是一条 Always Apply 规则，换了文件名而已。<span class="marginnote">初学者容易以为写进 AGENTS.md 代理就「记住了」。实际上它只是每次对话开场被重新朗读一遍的须知——会话一关就忘，下次开场再读一遍。所以写短很重要：每一行都在消耗每一次对话的注意力预算。</span>
 
 <span class="marginnote">官方没有字节上限，但 Codex CLI 一类实现会截断（社区记录约 32 KiB）。工程上应按注意力预算写：命令、禁区、测什么，而不是把架构图散文化。长流程应链到脚本或技能包，见 [渐进式披露](/llm/progressive-disclosure)。</span>
 
@@ -57,11 +57,23 @@ flowchart TD
 
 ### 与技能、MCP、私有规则的分工
 
-AGENTS.md 放永远为真的项目事实。按文件类型才生效的约定放 `.mdc` glob。逐步展开的操作手册放技能包（描述常驻、正文按需）。工具接线上放 [MCP](/llm/mcp-design)。四层一起堆满窗口，等于没分层。官方强调与 README 分离，正是为了让人类文档保持短，让代理文档可以具体到命令行。
+AGENTS.md 放永远为真的项目事实。按文件类型才生效的约定放 `.mdc` glob。逐步展开的操作手册放技能包（描述常驻、正文按需）。工具接线上放 [MCP](/llm/mcp-design)。四层一起堆满窗口，等于没分层。
+
+```mermaid
+flowchart TD
+  Q{"要写的内容是什么?"} -->|"永远为真的项目事实"| A["AGENTS.md：常驻前缀"]
+  Q -->|"仅特定文件类型生效"| B[".mdc glob 规则"]
+  Q -->|"长操作手册，按需展开"| C["技能包：描述常驻、正文按需"]
+  Q -->|"外部工具接线"| D["MCP 服务器"]
+  A --> W["同一窗口预算"]
+  B --> W
+  C --> W
+  D --> W
+```官方强调与 README 分离，正是为了让人类文档保持短，让代理文档可以具体到命令行。
 
 ## 边界
 
-没有 schema 意味着无法在 CI 里静态证明「Never」被遵守。若需要机检，把禁令写成 linter 或预提交钩子，AGENTS.md 只指向那条命令。Team Rules 可在 Cursor 仪表盘强制，那是厂商能力，不是 AGENTS.md 规范的一部分；引用时分开。全球 `~/.cursor/AGENTS.md` 不是文档承诺的位置。
+没有 schema 意味着无法在 CI 里静态证明「Never」被遵守。若需要机检，把禁令写成 linter 或预提交钩子，AGENTS.md 只指向那条命令。<span class="marginnote">linter 与预提交钩子是「机器把关」：代码提交前自动跑检查，不合规直接拦下。AGENTS.md 则是读给模型听的建议，机器不会执行它——真正一条都不能违反的红线，要落到机器会执行的钩子上，Markdown 只负责告诉模型「去用这个钩子」。</span>Team Rules 可在 Cursor 仪表盘强制，那是厂商能力，不是 AGENTS.md 规范的一部分；引用时分开。全球 `~/.cursor/AGENTS.md` 不是文档承诺的位置。
 
 把密钥、内部主机名、未公开漏洞写进 AGENTS.md 等于把它们提交进 git。安全节应指向密钥管理位置与「不要打印 `.env`」，而不是粘贴值。多租户或开源镜像要检查是否泄漏内部约定。
 

@@ -29,6 +29,8 @@ section: llm
 
 记图为复合 $f=f_k\circ\cdots\circ f_1$。正向 AD：选 $v$，令 $\dot x_0=v$，递推 $\dot x_{i}=J_{f_i}\dot x_{i-1}$，最后得到 $J_f v$。反向 AD：选 $u$，令 $\bar x_k=u$，递推 $\bar x_{i-1}=J_{f_i}^\top\bar x_i$，最后得到 $J_f^\top u$。实现上，正向 AD 可与数值前向融合；反向 AD 要先完整前向再逆序。混合模式对中间层切分，用于极深图的检查点，本课只点名，不展开。
 
+<span class="marginnote">把记号翻译成话：$Jv$ 读作「Jacobian 乘向量」——$J$ 是所有偏导排成的大表，$v$ 是你挑的输入方向，$Jv$ 回答「输出沿这个方向变化多快」。反向的 $u^\top J$ 则反过来问「这个输出扰动该由哪些输入负责」。两个式子都是矩阵乘向量，谁便宜取决于表的两边哪边大。</span>
+
 ```mermaid
 flowchart LR
   IN["许多参数"] --> FWD["正向模式 J 乘 v"]

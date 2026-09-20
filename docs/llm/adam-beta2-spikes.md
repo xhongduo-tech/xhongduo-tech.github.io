@@ -11,11 +11,11 @@ section: llm
 <footer>—— Kingma & Ba 的 $\beta_2$ 默认；Wortsman et al., Small-scale proxies for large-scale Transformer training instabilities, ICLR 2024；Molybog et al., 2023</footer>
 </div>
 
-[上一课](/llm/adam-epsilon-update-scale)把分母地板 $\varepsilon$ 写清。缺口是分母里随时间变的那一项：$v_t=\beta_2 v_{t-1}+(1-\beta_2)g_t^2$。默认 $\beta_2=0.999$ 意味着半衰期约 $\ln 2/(1-\beta_2)\approx 700$ 步。若前一段梯度都很小，$v$ 很小；突然来一个大 $g$（坏 batch、长序列、数据配比切换），$m$ 跟上较快（$\beta_1=0.9$），$v$ 仍小，一步 $|m|/\sqrt{v}$ 极大。Wortsman 等人在小规模代理上复现大模型尖峰，并把 $\beta_2$ 降到 0.95 一类作为稳定杠杆。本课把尖峰从「数据坏了」里拆出优化器这一支。
+[上一课](/llm/adam-epsilon-update-scale)把分母地板 $\varepsilon$ 写清。缺口是分母里随时间变的那一项：$v_t=\beta_2 v_{t-1}+(1-\beta_2)g_t^2$。默认 $\beta_2=0.999$ 意味着半衰期约 $\ln 2/(1-\beta_2)\approx 700$ 步。若前一段梯度都很小，$v$ 很小；突然来一个大 $g$（坏 batch、长序列、数据配比切换），$m$ 跟上较快（$\beta_1=0.9$），$v$ 仍小，一步 $|m|/\sqrt{v}$ 极大。Wortsman 等人在小规模代理上复现大模型尖峰，并把 $\beta_2$ 降到 0.95 一类作为稳定杠杆。本课把尖峰从「数据坏了」里拆出优化器这一支。<span class="marginnote">数字感受 $\beta_2$：它是"旧记忆占多少"的权重。$\beta_2=0.999$ 时新梯度平方只占 0.1%，$v$ 的记忆半衰期约 700 步；降到 0.95 后半衰期只剩约 14 步。$v$ 就像一只反应很慢的体温计——病人的温度（梯度）突然飙升，它还在显示十分钟前的读数，除法一做，步长就爆了。</span>
 
 ## 问题
 
-主干 [梯度裁剪](/llm/grad-clip-loss-spike) 能在 $\|g\|$ 上设天花板，但 Adam 的有效更新是 $m/(\sqrt{v}+\varepsilon)$。裁剪后的 $g$ 仍可能对某些坐标很大、对 $v$ 很小的坐标尤其大。全局 clip 不看 $v$。于是出现典型日志：grad norm 刚过 $c$ 或甚至未过，$|\Delta\theta|$ 已经很大，CE 尖峰。把这类尖峰全部归因于坏数据，会错过 $\beta_2$。
+主干 [梯度裁剪](/llm/grad-clip-loss-spike) 能在 $\|g\|$ 上设天花板，但 Adam 的有效更新是 $m/(\sqrt{v}+\varepsilon)$。裁剪后的 $g$ 仍可能对某些坐标很大、对 $v$ 很小的坐标尤其大。全局 clip 不看 $v$。于是出现典型日志：grad norm 刚过 $c$ 或甚至未过，$|\Delta\theta|$ 已经很大，CE 尖峰。把这类尖峰全部归因于坏数据，会错过 $\beta_2$。<span class="marginnote">常见误区：初学者容易以为"配了梯度裁剪就不会炸"。裁剪只管总长度 $\|g\|$ 这个全局数字，而尖峰发生在个别坐标上——比如几万个坐标里有一个 $v$ 长期接近零、这次 $g$ 又偏大，分母小、分子大，那一个坐标的更新就能把权重推出正常范围，全局范数却毫无异常。</span>
 
 $\beta_2$ 越接近 1，$v$ 越平滑也越滞后。训练后期损失低、梯度小，$v$ 被压低，对后期突然的分布偏移更脆弱——这与「后期更稳」的直觉相反。Gopher / PaLM 报告的后期尖峰，一部分与此同构。
 
@@ -33,9 +33,19 @@ $\beta_2$ 越接近 1，$v$ 越平滑也越滞后。训练后期损失低、梯�
 
 不要在尖峰时手动把 $v$ 重置：那会让全体坐标忘记尺度，比尖峰更糟。skip 坏 batch 仍只对数据尖峰有效；若同一数据重放仍尖，偏向优化器。
 
+```mermaid
+flowchart TD
+  SPIKE["训练中出现 CE 尖峰"] --> REPLAY["同一数据重放一步"]
+  REPLAY -->|"仍尖"| OPTV["怀疑优化器：v 滞后"]
+  REPLAY -->|"不尖"| DATA["坏 batch 或配比切换"]
+  OPTV --> FIX1["降 β2、加大 ε，分别消融"]
+  DATA --> FIX2["skip 该 batch、查数据管道"]
+  STUCK["CE 掉不回来"] --> ROLL["回滚检查点，别指望磨平"]
+```
+
 ## 机制
 
-令某坐标旧 $v_{\mathrm{old}}\ll g_{\mathrm{new}}^2$。一步之后 $v_{\mathrm{new}}=\beta_2 v_{\mathrm{old}}+(1-\beta_2)g_{\mathrm{new}}^2$ 已经变大，所以尖峰往往是**单步或少数步**：随后 $v$ 跟上，更新恢复。若 CE 掉不回来，是权重已经被打到坏区（LN 统计崩、路由锁死），不是 $v$ 还没跟上。后者应回滚检查点，而不是指望再训几百步「磨平」。
+令某坐标旧 $v_{\mathrm{old}}\ll g_{\mathrm{new}}^2$。一步之后 $v_{\mathrm{new}}=\beta_2 v_{\mathrm{old}}+(1-\beta_2)g_{\mathrm{new}}^2$ 已经变大，所以尖峰往往是**单步或少数步**：随后 $v$ 跟上，更新恢复。若 CE 掉不回来，是权重已经被打到坏区（LN 统计崩、路由锁死），不是 $v$ 还没跟上。后者应回滚检查点，而不是指望再训几百步「磨平」。<span class="marginnote">为什么重要：看到损失曲线是"一根刺"还是"断崖式下不来"，处理方式完全相反。一根刺说明 $v$ 一两步就跟上了，可以继续训；掉不回来说明权重已经掉进坏盆地，再训一万步也回不去——此时唯一省钱的做法是回滚到尖峰前的检查点，调整后重跑。</span>
 
 与 [注意力 logit 增长](/llm/attention-logit-growth) 的耦合：熵塌缩后大多数 step 梯度极小，$v$ 被推低；偶尔一个需要软路由的 batch 带来大 $g$，正好踩中「小 $v$ 除大 $g$」。所以压 logit 增长也会减少这类 Adam 尖峰，不是两件无关的事。
 

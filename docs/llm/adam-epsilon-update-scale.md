@@ -11,11 +11,11 @@ section: llm
 <footer>—— Kingma & Ba, Adam, ICLR 2015；大模型中的不稳分析见 Molybog et al., A Theory on Adam Instability in Large-Scale Machine Learning, 2023</footer>
 </div>
 
-[上一课](/llm/post-ln-warmup)把 LN 位置与 warmup 对齐。缺口进入 [AdamW](/llm/adamw) 内部：更新是 $-\eta\,\hat m/(\sqrt{\hat v}+\varepsilon)$。主干写了解耦衰减，没有把 $\varepsilon$ 当成稳定性旋钮。Kingma 与 Ba 给的默认 $10^{-8}$ 在 FP32 全连接网上几乎看不见；LLM 里大量参数的梯度长期稀疏（词表尾、偏置、某些头），$\sqrt{v}$ 可以小于 $\varepsilon$，于是这些坐标的有效学习率变成 $\eta/\varepsilon$，与 μP 扫到的 $\eta$ 无关。本课写这个交叉，下一课写 $\beta_2$ 与尖峰。
+[上一课](/llm/post-ln-warmup)把 LN 位置与 warmup 对齐。缺口进入 [AdamW](/llm/adamw) 内部：更新是 $-\eta\,\hat m/(\sqrt{\hat v}+\varepsilon)$。主干写了解耦衰减，没有把 $\varepsilon$ 当成稳定性旋钮。Kingma 与 Ba 给的默认 $10^{-8}$ 在 FP32 全连接网上几乎看不见；LLM 里大量参数的梯度长期稀疏（词表尾、偏置、某些头），$\sqrt{v}$ 可以小于 $\varepsilon$，于是这些坐标的有效学习率变成 $\eta/\varepsilon$，与 μP 扫到的 $\eta$ 无关。本课写这个交叉，下一课写 $\beta_2$ 与尖峰。<span class="marginnote">「自适应学习率」就是给每个参数配一个独立油门：历史上梯度一直大的参数，分母 $\sqrt{v}$ 大、步子被压小；几乎没收到梯度的参数，分母小、步子放大——好让所有参数进度接近。$\varepsilon$ 是这套机制的"地板"，本课要说的正是：地板一旦比 $v$ 本身还高，油门就失灵了。</span>
 
 ## 问题
 
-$v$ 是梯度平方的滑动平均。嵌入里罕见 token、刚被初始化的专家、以及 LN 的 $\gamma$ 在早期，都可以有 $g\approx 0$ 然后突然来一次非零 $g$。若此前 $v\approx 0$，分母 $\approx\varepsilon$，一步更新幅度是 $|g|$ 的 $\eta/\varepsilon$ 倍量级（再经 $m$ 平滑）。$\varepsilon=10^{-8}$、$\eta=3\times 10^{-4}$ 时 $\eta/\varepsilon=3\times 10^{4}$，对「几乎没见过梯度的坐标」是灾难。Llama 一类配方把部分参数组的 $\varepsilon$ 提到 $10^{-5}$ 或对 LN 单独分组，图的就是这个。
+$v$ 是梯度平方的滑动平均。嵌入里罕见 token、刚被初始化的专家、以及 LN 的 $\gamma$ 在早期，都可以有 $g\approx 0$ 然后突然来一次非零 $g$。若此前 $v\approx 0$，分母 $\approx\varepsilon$，一步更新幅度是 $|g|$ 的 $\eta/\varepsilon$ 倍量级（再经 $m$ 平滑）。$\varepsilon=10^{-8}$、$\eta=3\times 10^{-4}$ 时 $\eta/\varepsilon=3\times 10^{4}$，对「几乎没见过梯度的坐标」是灾难。Llama 一类配方把部分参数组的 $\varepsilon$ 提到 $10^{-5}$ 或对 LN 单独分组，图的就是这个。<span class="marginnote">拿词表想一下：常用词的嵌入行几乎每个 batch 都被更新，$v$ 很"热"；而一个 5 万词表里的生僻词，可能训练一整天只被点亮几次。这一行平时 $v\approx 0$，突然某句话用到它，$\sqrt{v}+\varepsilon\approx 10^{-8}$，一步就把这行嵌入推出去老远——下次再遇到这个词，它的表示已经面目全非。</span>
 
 混合精度下还有第二条：$\sqrt{v}$ 在 BF16 里下溢到 0，即使 FP32 主权重上 $v$ 非零，若 $v$ 被错误地存成低精度，$\varepsilon$ 必须大到能当护栏。Molybog 等人从理论上讨论 Adam 在大规模训练中的不稳，与「分母过小 → 偶发巨步」同方向。
 
@@ -38,6 +38,18 @@ coord check：在代理模型上画各层 $|\Delta\theta|/|\theta|$ 的中位数
 Adam 本意是用 $\sqrt{v}$ 当每坐标 RMS 梯度，使更新与梯度尺度无关。$\varepsilon$ 是该估计的地板。地板一旦主导，自适应消失，退化成「大学习率 SGD + 动量」，且只发生在冷坐标上——最冷的坐标一步走最远。这与直觉「稀疏该学慢」相反。权重衰减在这些坐标上若仍按 $\eta\lambda$ 解耦乘，相对那一次巨步可以忽略，于是冷行的范数被单次更新决定。
 
 μP 的表假设更新由正确的自适应尺度主导。$\varepsilon$ 主导时，宽度迁移失效：窄模型上所有坐标都够热，$\varepsilon$ 看不见；宽模型词表行更冷，$\varepsilon$ 突然接管。这是后课「学习率敏感度与 μP 实践」必须把 $\varepsilon$ 写进检查清单的原因。
+
+```mermaid
+flowchart TD
+  HOT["热坐标：v 大"] --> N1["sqrt(v) 主导分母"]
+  N1 --> U1["步子与梯度尺度无关，平稳"]
+  COLD["冷坐标：v 近 0"] --> N2["ε 主导分母"]
+  N2 --> U2["有效步长 η/ε，偶发巨步"]
+  U1 --> OK["自适应仍然成立"]
+  U2 --> BAD["自适应失效，最冷反而走得最远"]
+```
+
+<span class="marginnote">常见误区：以为"小模型上试好的超参，直接搬到大模型就行"。μP 理论给了这种迁移一些依据，但它的前提是自适应分母由 $\sqrt{v}$ 主导。窄模型里没有冷到触发 $\varepsilon$ 地板的坐标，宽模型的词表尾更冷——同一组超参，窄模型上稳稳当当，放大后冷坐标被 $\eta/\varepsilon$ 抽打。迁移前把 $\varepsilon$、参数分组一起检查，不是迷信单点学习率。</span>
 
 ## 边界
 
