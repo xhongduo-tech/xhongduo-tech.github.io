@@ -57,6 +57,20 @@ flowchart TD
 
 <span class="marginnote">把 ThunderKittens 当成「Python 级框架」会用错。它是 C++ 模板库，编译时间、错误信息和 CUTLASS 同类。收益是语义更接近线性代数，而不是运行时解释器。部署进服务还要自己处理变长、分页、与 PyTorch 的绑定。</span>
 
+double buffering 用两只 shared tile 表达就是轮流换角色：
+
+```mermaid
+flowchart TD
+  HBM["HBM"] -->|"TMA 拷贝进空缓冲"| B2["shared tile: 缓冲 2"]
+  B1["shared tile: 缓冲 1"] -->|"当前块"| MMA["WGMMA 计算"]
+  MMA --> ACC["寄存器累加器"]
+  ACC --> SW["本轮结束: 两缓冲交换角色"]
+  SW -->|"新当前块"| MMA
+  SW -->|"腾空的缓冲还回"| HBM
+```
+
+<span class="marginnote">术语翻译：「寄存器 tile」「shared tile」是带形状与布局信息的 C++ 类型对象，不是裸指针。编译器知道它是 16×16、放在哪个存储层、stride 是多少——布局不合法直接编译报错，而不是跑起来后在性能计数器里看到莫名其妙的低占用。</span>
+
 ### 服务布局不是库的默认
 
 Kittens 的示例注意力多半假设相对规整的 $Q,K,V$ 张量，这适合训练、基准与算法原型。服务里的页表 gather、ragged batch、级联前缀，要在 tile 循环外再包一层索引，或先把页搬成连续 tile。FlashInfer 把这件事做成产品契约；Kittens 把「如何写一只快的 tile 核」做成产品契约。用 Kittens 重写服务注意力完全可行，但工作量在页表与调度，不在 MMA 本身。
