@@ -29,6 +29,8 @@ OCP MX v1.0 由 AMD、Arm、Intel、Meta、Microsoft、NVIDIA、Qualcomm 等共�
 
 量化按块。对向量块 $V\in\mathbb{R}^{32}$，参考算法用块内最大绝对值确定共享指数，使最大元素映射到 FP4 最大正规值附近，再就近偶数舍入到 E2M1。尺度存成 E8M0；元素存成 32 个 nibble。反量化是 $x_i \approx s\cdot \mathrm{decode}(e_i)$。矩阵乘时，两块 MXFP4 的点积可以先在整数或较高精度里累加元素乘积，再补上两个块尺度的指数和——规范第 6 节定义了 MX 向量点积与一般点积，硬件按此实现，而不是先全部展开成 FP32 再 GEMM。
 
+<span class="marginnote">数字实例：算一笔块的存储账——32 个元素 × 4 bit = 128 bit，加一个 8 bit 的 E8M0 尺度，一共 136 bit，恰好 17 字节。摊到每个元素是 $136/32 = 4.25$ bit，这就是「MXFP4 不是 4.00 bit」的出处：多出来的 0.25 bit 是均摊的尺度开销。</span>
+
 Jalapeño 的 13.4 PFLOP/s 计的是这种矩阵乘的峰值，不是「芯片里每一个 ALU 都以 MXFP4 跑」。softmax、层归一化、路由仍需要更高精度；与 [KV 的 8-bit](/llm/kv-int8-fp8) 一样，低精度首先打在**带宽敏感、校准相对稳定**的权重与激活 GEMM 上。OpenAI 在 InferenceX 对比里用过 DeepSeek R1 与 Kimi K2.5 的 MXFP4 部署，说明格式已经进入跨模型的推理路径，而不是某一闭源权重的私有打包。
 
 ```mermaid
@@ -54,6 +56,23 @@ MXFP4 能工作，是因为 Transformer 权重在局部通道上往往近似同�
 
 带宽机制更硬。相对 FP16，4.25 bit 约是 3.8× 的元素密度；相对 FP8，约 1.9×。Decode 扫权重的时间按密度下降，前提是 PHY 与核真的按打包的 nibble 读，而不是在 HBM 里存 MXFP4、进核前解成 FP16。Jalapeño 把峰值标成 MXFP4 矩阵算力，意味着数据通路按此建设。利用率仍取决于 [减少搬运](/llm/jalapeno-data-movement)：格式只减字节，切片化决定这些字节要走多远。
 
+```mermaid
+flowchart TD
+  W["同一份权重, 同一条 15.4 TB/s"] --> F16["FP16 存放: 字节最多"]
+  W --> F8["FP8 存放: 字节省半"]
+  W --> MX["MXFP4 存放: 约 3.8x 元素密度"]
+  F16 --> T1["decode 扫权重: 基准时间"]
+  F8 --> T2["约 1/2 时间"]
+  MX --> T3["约 1/3.8 时间"]
+  T1 --> CV{"前提: 通路按打包 nibble 读"}
+  T2 --> CV
+  T3 --> CV
+  CV -->|"按 4-bit 读"| OK["带宽墙被推远"]
+  CV -->|"存 4 算 16"| BAD["进核前展开, 增益吐回去"]
+```
+
+<span class="marginnote">直觉类比：块共享尺度像小组量身高——每 32 个人为一组，组内身高相近就共用一把刻度尺（E8M0 指数），另一组换一把更粗或更细的。若全公司共用一把尺（单一全局尺度），矮的量没了、高的顶爆表；每人一把尺（逐元素 FP8 尺度）又太贵，MX 选的是「32 人一把」的折中。</span>
+
 <span class="marginnote">OCP 规范写的是互换与基本运算，不保证「任意模型、任意层 MXFP4 都无损」。上线应以该模型在目标任务上的校准与评测为准。Hot Chips 的 Pareto 曲线是系统级吞吐与延迟，不是逐层 SQNR 表。</span>
 
 ### 溢出、下溢与校准
@@ -65,6 +84,8 @@ E2M1 最大幅度有限，块尺度若按 max-abs 设定，块内最大值可表
 不要把 MXFP4 写成「4-bit 即 4.00 bit」：尺度开销使有效比特是 4.25。不要与 GPTQ / AWQ 的分组 INT4 混报压缩比——后者分组大小、是否有零点、是否非对称都不同。不要假设 softmax、RoPE、RMSNorm 都在 MXFP4 里算。不要用芯片峰值 PFLOP/s 除以 13.4 去反推「核数 × 频率 × MAC」——那是未公开微架构。
 
 词表投影、路由 logits、KV 是否 MXFP4，公开材料没有写成全芯片统一。KV 更常见的是 8-bit 档，见 INT8/FP8 实践。混合精度是默认，不是失败。
+
+<span class="marginnote">常见误区：初学者容易以为「MXFP4 就是一切都按 4-bit 算」。实际公开路径上 softmax、层归一化、路由 logits 等仍留在较高精度，MXFP4 主攻带宽敏感、对校准相对不敏感的权重/激活矩阵乘。把归一化和注意力分数也压到 4-bit 通常不是默认选项，而是需要单独验证的激进配置。</span>
 
 <span class="marginnote">出处：OCP MX v1.0（MXFP4 = FP4 E2M1 + 块 32 + E8M0）；Jalapeño 峰值 13.4 PFLOP/s MXFP4×MXFP4 来自 Hot Chips 2026。不编造未公布的累加器位宽或逐层量化配置。</span>
 

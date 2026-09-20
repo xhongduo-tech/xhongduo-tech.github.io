@@ -15,7 +15,7 @@ Megatron 的序列并行（sequence parallelism, SP）诞生在训练里：张�
 
 ## 问题
 
-推理的显存账分三块：权重、KV 缓存、激活 / 工作区。权重靠量化与 EP/TP 切；KV 靠 MLA、GQA、分页。激活常被忽略，直到预填 $s=128\mathrm{k}$、再叠 TP 时，LayerNorm、QKV 投影前后的临时张量把 HBM 打满，表现为 OOM 而不是「KV 不够」。训练的 SP 正是冲着这块来的。推理预填的前向只有一份激活，没有反向存档，体积比训练小，但 $s$ 可以更大，且往往不能靠重计算把中间结果丢掉——预填要尽快出第一个 token，重算拉高 TTFT。
+推理的显存账分三块：权重、KV 缓存、激活 / 工作区。权重靠量化与 EP/TP 切；KV 靠 MLA、GQA、分页。激活常被忽略，直到预填 $s=128\mathrm{k}$、再叠 TP 时，LayerNorm、QKV 投影前后的临时张量把 HBM 打满，表现为 OOM 而不是「KV 不够」。训练的 SP 正是冲着这块来的。推理预填的前向只有一份激活，没有反向存档，体积比训练小，但 $s$ 可以更大，且往往不能靠重计算把中间结果丢掉——预填要尽快出第一个 token，重算拉高 TTFT。<span class="marginnote">代个数字感受激活的量级:预填 $s=128\mathrm{K}$、$d=7168$、BF16 每元素 2 字节,一张 $b\times s\times d$ 的临时张量就是 $128\mathrm{K}\times 7168\times 2\approx 1.8$ GB;TP=4 再开 SP,每卡只留四分之一,约 450 MB。而且同一前向里这样的张量不止一张——激活平时不显山露水,OOM 报告里它才是主角。</span>
 
 SP 不试图让单卡看不见其他位置的注意力。注意力仍在 TP 组内按头做完整序列（Gather 之后）。切开的是注意力 **之外** 的那些按序列独立的算子。若把「推理序列并行」理解成 Ring Attention 那种切 $s$ 再传 KV，会把一次廉价的 Reduce-Scatter 估成一次环形 KV 传递。
 
@@ -47,7 +47,7 @@ Chunked prefill（一次提示切成多块顺序进模型）可以让每一块�
 
 ## 机制
 
-通信体积：一次 All-Reduce 等于 Reduce-Scatter 加 All-Gather，元素数同阶。SP 的「免费」指的是 **不比已经在付的 TP 通信多付一笔**，不是零通信。推理预填若本来开着 TP，打开 SP 几乎不增加集合次数，只改布局。若推理本来用纯 DP 复制权重，为了开 SP 而强行上 TP，会凭空增加 All-Gather，对 decode 尤其不划算。
+通信体积：一次 All-Reduce 等于 Reduce-Scatter 加 All-Gather，元素数同阶。SP 的「免费」指的是 **不比已经在付的 TP 通信多付一笔**，不是零通信。推理预填若本来开着 TP，打开 SP 几乎不增加集合次数，只改布局。若推理本来用纯 DP 复制权重，为了开 SP 而强行上 TP，会凭空增加 All-Gather，对 decode 尤其不划算。<span class="marginnote">把 All-Reduce 拆开翻译:它是「人人交出数据、汇总求和、再人手一份完整结果」一件事;而 Reduce-Scatter 只做前半段(每人拿到一份**切片**的求和),All-Gather 只做后半段(把各自的切片交换拼回完整)。SP 的「免费」就是把这一个大集合通信拆成两半,分别插在 Norm 的前后,集合总量不变。</span>
 
 激活节省发生在 LayerNorm、Dropout 以及部分残差分支。Korthikanti 在训练里与选择性重计算叠在一起，报过约 $5\times$ 的激活下降；推理没有反向，倍数更小，但仍与 $s$ 和 $T$ 成正比。长上下文预填、$T=4$ 或 $8$ 时，省下的是若干个 $b\times s\times d$ 的 BF16 缓冲，对 128k 并不小。
 
@@ -63,7 +63,16 @@ DeepSeek-V3 预填：注意力 TP4+SP+DP8，MoE 走 EP32。SP 只活在注意力
 
 短上下文、小 TP 的 decode 服务不要为 SP 改通信图。收益接近零，实现却要维护两套布局。长预填、已经必须 TP 的设置，SP 应视为默认附件，与 Megatron 训练侧的建议一致。
 
-GQA / MLA 不改变 SP 的语义，但改变 Gather 之后注意力的内存。MLA 的压缩 KV 让长 $s$ 的缓存可行，SP 仍只帮激活。两者一起开时，OOM 要从三张表分别看：权重、KV、激活，不要只加 SP 或只加 MLA。
+```mermaid
+flowchart TD
+  Q["名字都叫『序列并行』<br/>到底在切什么?"] --> C{"注意力内部<br/>有没有跨卡传 KV?"}
+  C -->|"没有,只换 Norm 两侧布局"| SP["Megatron SP<br/>Reduce-Scatter + All-Gather<br/>省激活;注意力仍见满 s"]
+  C -->|"有,s 真的被切开"| CP["上下文并行 CP<br/>Ulysses 换头 / Ring 传 KV<br/>省注意力工作区与 KV 内存"]
+  SP --> S1["decode 逐步: 序列维=1<br/>几乎无物可切"]
+  CP --> S2["decode 逐步: 每步要补全局 KV<br/>通信代价按步付"]
+```
+
+GQA / MLA 不改变 SP 的语义，但改变 Gather 之后注意力的内存。MLA 的压缩 KV 让长 $s$ 的缓存可行，SP 仍只帮激活。两者一起开时，OOM 要从三张表分别看：权重、KV、激活，不要只加 SP 或只加 MLA。<span class="marginnote">常见误区:以为开了 SP,$O(s^2)$ 的注意力工作区也会跟着除以 $T$。实际上 All-Gather 之后注意力看见的仍是完整序列,SP 缩的只是 Gather 前后那些 Norm 类临时张量;真想把注意力工作区也切开,要另叠上下文并行或分块预填,三件事各管各的账。</span>
 
 框架名字混乱是主要工程风险。Megatron-LM 的 `sequence_parallel`、DeepSpeed 的 Ulysses `ds-sequence-parallel-size`、vLLM 里偶见的 sequence parallel 开关，可能指向三条完全不同的通信。上线前用一次「只开 SP、看 NCCL 是 Reduce-Scatter 还是 All-to-All 换头」的探针，比读文档标题可靠。
 

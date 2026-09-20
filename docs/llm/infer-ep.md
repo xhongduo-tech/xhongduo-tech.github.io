@@ -21,13 +21,13 @@ Prefill 一次吃整段提示，token 多、路由发散，All-to-All payload �
 
 ### All-to-All 在 decode 上的税
 
-每卡通信量仍近似 $2\cdot k\cdot (T/E)\cdot d\cdot s$ 字节量级，$T$ 是本步全局 token 数。Decode 时 $T$ 等于连续批大小（再乘 $k$ 路专家）。$T$ 小，$E$ 大，每对端只发几个向量，NCCL 走延迟区。负载不均让热专家卡既算得多又收得多，iteration 时间由它决定。训练可以用更大 microbatch 把直方图摊平；推理加 batch 会撞 KV 显存，而且不同请求的专家并集会变大，缓存局部性变差。
+每卡通信量仍近似 $2\cdot k\cdot (T/E)\cdot d\cdot s$ 字节量级，$T$ 是本步全局 token 数。Decode 时 $T$ 等于连续批大小（再乘 $k$ 路专家）。$T$ 小，$E$ 大，每对端只发几个向量，NCCL 走延迟区。负载不均让热专家卡既算得多又收得多，iteration 时间由它决定。训练可以用更大 microbatch 把直方图摊平；推理加 batch 会撞 KV 显存，而且不同请求的专家并集会变大，缓存局部性变差。<span class="marginnote">代个数字感受「为几句话开一趟卡车」:$T=32$(连续批 32 个请求)、$k=8$、每向量约 7 KB,一步 dispatch 总共只有 256 个向量、约 1.8 MB;摊到 $E=256$ 张专家卡上,平均每对端只收 1 个向量。数据量几 KB,一次集合通信的启动延迟却要几十微秒——payload 太小,延迟全花在「发动」上。</span>
 
 <span class="marginnote">All-to-All 没有求和语义。实现误用 All-Reduce 会把不同 token 搅在一起。推理图里还要处理 padding 槽：容量因子留下的空 token 若进入通信，等于为空气付延迟。Decode 更应该在分发前丢掉空槽。</span>
 
 ## 方法
 
-常见推理拓扑：DP（或复制）打在注意力与共享专家上，EP 打在路由专家上，TP=1 或很小。路由在本地完成，dispatch / combine 两次 All-to-All，本卡跑 grouped GEMM。设备限制路由（V3 训练里每 token 最多到 4 节点）在推理是否保留，影响跨节点跳数：关掉会改善延迟、但与训练分布不一致，质量要重测。共享专家不上 EP，每张注意力卡常驻。
+常见推理拓扑：DP（或复制）打在注意力与共享专家上，EP 打在路由专家上，TP=1 或很小。路由在本地完成，dispatch / combine 两次 All-to-All，本卡跑 grouped GEMM。设备限制路由（V3 训练里每 token 最多到 4 节点）在推理是否保留，影响跨节点跳数：关掉会改善延迟、但与训练分布不一致，质量要重测。共享专家不上 EP，每张注意力卡常驻。<span class="marginnote">共享专家为什么不上 EP:每个 token 都必然经过它。若它只住在某一张卡上,全部 token 都得寄往同一处,那张卡瞬间堵死。让它常驻每张注意力卡、人人本地可算,就完全省掉了寄送——「人人都用的东西要放在手边,只给少数人用的东西才集中存放」。</span>
 
 ### Prefill 宽 EP，decode 先填 batch
 
@@ -53,6 +53,19 @@ MLA 吸收后 KV 小，注意力侧复制多份的成本低于把潜投影按 TP
 ## 机制
 
 推理 EP 仍是置换：计算密度来自「每 token 只激活 $k$ 个专家」，通信密度来自「这 $k$ 个可能不在本卡」。当 $T$ 大，GEMM 盖通信，稀疏优势可见；当 $T$ 小，通信盖 GEMM，稀疏优势只留在显存（每卡不必存全部专家）。这与稠密 [推理 TP](/llm/infer-tp) 相反：TP 的 All-Reduce 在 decode 是固定次数的同步，EP 的 All-to-All 对端数随 $E$ 涨。细粒度小专家更依赖 batched GEMM 把同卡多专家打成一次核，否则算力密度比通信更差。
+
+```mermaid
+flowchart LR
+  T["decode 一步的 1 个 token"] --> Rt["本地路由: 选出 k=8 个专家"]
+  Rt -->|"3 个专家在本卡"| L["本卡 grouped GEMM"]
+  Rt -->|"5 个专家在别的卡"| D["dispatch All-to-All 寄出"]
+  D --> X["远卡上的专家算完"]
+  X --> C["combine All-to-All 寄回"]
+  L --> C
+  C --> S["8 份输出求和,进下一层"]
+```
+
+<span class="marginnote">把 All-to-All 想象成快递分拣:每个包裹(token 的那份激活)按各自的地址(路由结果)寄往不同城市的仓库(专家所在卡),仓库加工后再原路寄回。而 All-Reduce 像全班同学把分数汇总算平均、然后人手发一份——地址人人相同。两者形似神不同,拿错一个,不同 token 的数据就搅在一起了。</span>
 
 专家缓存与 EP 可以分层：跨节点 EP 放下「这一组卡负责的专家全集」，组内再对极冷专家 offload。两者移动的对象不同，日志要分开：NCCL 耗时对 EP，PCIe 耗时对缓存。命中率故事见专家缓存专文；本篇只强调：EP 不能靠缓存消除 All-to-All，只能靠 batch 或缩小 $E$ 减轻它。
 

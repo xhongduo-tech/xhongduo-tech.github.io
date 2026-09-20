@@ -19,6 +19,8 @@ section: llm
 
 代工节点决定能买到的密度、SRAM、HBM PHY 与能效。3nm 级是 2025–2026 年先进推理芯片的公开选项之一；具体是 N3P 还是别的 3nm 变体，应以 OpenAI / TSMC / Broadcom 的正式披露为准。在正式数据手册出现前，把「TSMC 3nm」写成**公开报道中的共识表述**，把 N3P/N3E 拆分写成**二次报道**。
 
+<span class="marginnote">术语翻译：tapeout 就是「设计定稿、送交晶圆厂」——RTL 与版图冻结后交付工厂去制作光罩、开产晶圆。它不是量产，甚至不是拿到芯片：从 tapeout 到能上电的工程样品通常还要几个月封装与测试，所以「九个月 tapeout」和「九个月出产品」是两件事。</span>
+
 ### 三家名字对应三层
 
 - **OpenAI**：工作负载、空间架构、编译器/Gluon、指标与实验室系统；用自家模型加速设计闭环（公开提过相对人工基线的 PPA 例子，如 BF16 乘法与矩阵单元面积）。
@@ -53,7 +55,20 @@ flowchart LR
 
 这种分工能缩短进度，是因为不可加速的部分（先进工艺排队、HBM 供给、交换芯片流片）被映射到已经存在的产品：N3P 类产能、HBM4、Tomahawk 6。可加速的部分（推理数据路径、门控策略、空间 ISA 与编译器）留在 OpenAI，并用自己的模型搜索 PPA。结果是一颗「看起来像定制核、接上却是工业以太与工业封装」的系统。700 W / 13.4 PFLOP/s MXFP4 的封装，是在这个工业约束里选的工作点，而不是在真空里最大化 FLOPS。
 
+```mermaid
+flowchart TD
+  PROJ["定制 ASIC 项目"] --> SPLIT{"哪一部分?"}
+  SPLIT -->|"数据路径 / ISA / 编译器"| FAST["可加速: 内部模型搜 PPA"]
+  SPLIT -->|"工艺 · HBM 供给 · 交换流片"| SLOW["不可加速: 排队等产能"]
+  FAST --> LOOP["设计闭环反复迭代"]
+  SLOW --> MAP["映射到现货: 3nm 产能 · HBM4 · Tomahawk 6"]
+  LOOP --> JOIN["合流: tapeout"]
+  MAP --> JOIN
+```
+
 对 LLM 集群，这意味着通信语义更接近数据中心以太（RoCE/以太交换）而不是 NVLink 域。本地 128 卡域的 600 GB/s 是公开的片间口径，用来放 TP；跨 2048 的 200 GB/s 用来放 EP。能否在 decode 上扛住 All-to-All，取决于 MoE 的专家并行宽度与这档带宽，而不是取决于「TSMC 3nm」这个词。工艺影响的是同一面积里能放多少矩阵单元与 SRAM，带宽表是封装与交换给的。
+
+<span class="marginnote">数字实例：两档片间带宽差 3 倍——本地 128 卡域 600 GB/s，全局 2048 域 200 GB/s。这不是「全局域更差」，而是分工：张量并行每步都要全互联，配快的那档；专家并行可以稀着来，配慢的那档。规划并行策略时先对号入座，再谈带宽够不够。</span>
 
 <span class="marginnote">13.4 PFLOP/s 是 MXFP4 矩阵算力，不是 FP32，也不是「等效 GPU」。与 Rubin 公开 NVFP4 峰值比大小时，必须钉数据类型与是否稠密；SemiAnalysis 等做过同节点对照，仍是二次分析。</span>
 
@@ -66,6 +81,8 @@ flowchart LR
 不确定项（在正式数据手册前应保持开放）：I/O 小芯片的确切工艺与功能切分；HBM 颗粒供应商；Broadcom 在物理设计中的工作份额；封装是 CoWoS 还是别的 2.5D 名称（后续篇若写 2.5D，也只能引用已公开的封装叙述）。不要把 Celestica 写成芯片设计公司。不要把 Tomahawk 6 的 102.4 Tb/s 加进 Jalapeño 封装的 13.4 PFLOP/s 里当「芯片算力」。
 
 供应链风险与 NVIDIA 垂直整合相反：交换与代工是外购。好处是时间；代价是路线图要跟 Broadcom 交换代数与 TSMC 节点窗口对齐。公开多代路线只说到 Gen 2/3 的目标口号，没有给出另一家代工厂。
+
+<span class="marginnote">常见误区：初学者容易把「OpenAI 自研芯片」理解成「连网络交换芯片都是 OpenAI 造的」。公开拓扑明确用的是 Broadcom 的 Tomahawk 6 以太交换——「自研」自研的是架构、计算核与编译器，交换、代工、封装这些重资产环节全是外购现成品，这正是进度能短的机制。</span>
 
 <span class="marginnote">出处：Hot Chips 2026 现场报道中的伙伴致谢、问答转述与封装规格表；Tomahawk 6 拓扑同场幻灯；TSMC N3P/N3E 来自 SemiAnalysis 等公开分析，文中已标明为报道。不编造未公开合同。</span>
 

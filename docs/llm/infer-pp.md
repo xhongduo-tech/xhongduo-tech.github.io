@@ -15,7 +15,23 @@ section: llm
 
 ## 问题
 
-权重大到 TP 组已经占满节点内 NVLink，还是放不下，就得沿深度再切。PP 的通信是边界激活，体积 $b\times s\times d$，次数少，跨节点 InfiniBand 比层内 All-Reduce 更扛得住。这在训练里成立，在 prefill 里也往往成立。Decode 把 $s$ 变成 1，$b$ 若也小，通信延迟相对计算更大，更致命的是调度：阶段必须等上一阶段的该微批（此处即该 decode 步）完成。单请求、同步流水线的气泡比例约 $(P-1)/1$，几乎不可用。
+权重大到 TP 组已经占满节点内 NVLink，还是放不下，就得沿深度再切。PP 的通信是边界激活，体积 $b\times s\times d$，次数少，跨节点 InfiniBand 比层内 All-Reduce 更扛得住。这在训练里成立，在 prefill 里也往往成立。Decode 把 $s$ 变成 1，$b$ 若也小，通信延迟相对计算更大，更致命的是调度：阶段必须等上一阶段的该微批（此处即该 decode 步）完成。单请求、同步流水线的气泡比例约 $(P-1)/1$，几乎不可用。<span class="marginnote">气泡可以用接力赛想象:只有一名选手时,枪响他跑完第 1 棒,其余三棒空着,等他跑完全程才能跑下一棒——四分之三的时间赛道上没人。四名选手(4 个并发请求)错峰进管道,每一棒任何时刻都有人在跑。连续批做的事,就是给管道凑够「同时起跑的选手」。</span>
+
+```mermaid
+flowchart TD
+  subgraph ONE["单请求 decode, P=4"]
+    A1["步 t: 阶段 1 算"] --> A2["阶段 2 算"]
+    A2 --> A3["阶段 3 算"]
+    A3 --> A4["阶段 4 算"]
+    A4 --> A5["步 t+1 才轮回阶段 1<br/>期间 3 段空转"]
+  end
+  subgraph MANY["连续批 R=4 ≥ P"]
+    B1["4 个请求各推一步,一起进管道"] --> B2["阶段 1 接新请求<br/>阶段 2 接上一请求"]
+    B2 --> B3["阶段 3、阶段 4<br/>各接更早的请求"]
+    B3 --> B4["下一拍立即再流一轮<br/>各段始终有活干"]
+  end
+  ONE -.对比.- MANY
+```
 
 Colocate 服务还要把 prefill 与 decode 塞进同一条管道，长 prefill 占满阶段时，decode 步被堵住，TPOT 炸裂；chunked-prefill 只能缓和，不能取消依赖。问题是：PP 作为「扩容轴」与作为「单请求加速轴」在推理里必须拆开讲。
 
@@ -27,7 +43,7 @@ Colocate 服务还要把 prefill 与 decode 塞进同一条管道，长 prefill 
 
 ## 方法
 
-Prefill 实例：层按 FLOPs 均分到 $P$ 段（输出头往往更重，不要按层数均分）。多请求或 chunk 作为填充物。紧 TTFT 时 DistServe 更倾向 intra-op（[推理 TP](/llm/infer-tp)）来砍执行时间；TTFT 宽松、要拉高每卡 goodput 时，inter-op 用更多卡换速率，单请求执行时间只温和上升。Decode 实例：优先用连续批把 $b$ 做大，PP 用来在 batch 已大、还要加卡时扩吞吐；TPOT SLO 很紧时仍要 intra-op 降步延迟，而不是盲目加 $P$。
+Prefill 实例：层按 FLOPs 均分到 $P$ 段（输出头往往更重，不要按层数均分）。多请求或 chunk 作为填充物。紧 TTFT 时 DistServe 更倾向 intra-op（[推理 TP](/llm/infer-tp)）来砍执行时间；TTFT 宽松、要拉高每卡 goodput 时，inter-op 用更多卡换速率，单请求执行时间只温和上升。Decode 实例：优先用连续批把 $b$ 做大，PP 用来在 batch 已大、还要加卡时扩吞吐；TPOT SLO 很紧时仍要 intra-op 降步延迟，而不是盲目加 $P$。<span class="marginnote">goodput 翻译过来是「有效吞吐」:不是裸的 tokens/s,而是**满足延迟 SLO 的那部分**吞吐。加卡通常让裸吞吐涨,可一旦每步变慢、延迟越线,被 SLO 判废的请求比例上升,goodput 反而下跌。扩容决策看 goodput,不看裸吞吐。</span>
 
 ### DistServe 的 inter-op 与同节点分段
 
@@ -64,7 +80,7 @@ PP 减的是每卡权重 $\Phi/P$，通信是点对点激活而不是每层 All-
 
 单请求、低并发的交互式服务，PP 不是默认项；复制或小 $T$ 更干净。离线批处理、长 prefill、大连续批的 decode 池，PP 才像训练时那样划算。$P$ 受层数整除约束；余下层归属要写死。检查点与导出仍按阶段分片，扩缩 $P$ 要重切。
 
-不要把训练 $P$ 搬到在线 decode。也不要把 pipeline bubble 和 PD 干扰当成一件事：前者是阶段依赖，后者是 prefill/decode 抢同一 GPU。对策分别是填管道与拆池子。引用 GPipe / Megatron 说明气泡公式；引用 DistServe（arXiv:2401.09670）说明推理 inter-op 的速率含义与放置。Splitwise 的异构池会进一步让 P 侧与 D 侧选不同的卡型，PP 深度也可以不同。
+不要把训练 $P$ 搬到在线 decode。也不要把 pipeline bubble 和 PD 干扰当成一件事：前者是阶段依赖，后者是 prefill/decode 抢同一 GPU。对策分别是填管道与拆池子。引用 GPipe / Megatron 说明气泡公式；引用 DistServe（arXiv:2401.09670）说明推理 inter-op 的速率含义与放置。Splitwise 的异构池会进一步让 P 侧与 D 侧选不同的卡型，PP 深度也可以不同。<span class="marginnote">常见误区:把「推理变慢」一律归因于气泡。气泡是**阶段之间互相等**,加大 batch、多凑并发就能填;PD 干扰是 **prefill 和 decode 抢同一张卡**,加大 batch 只会更堵,唯一解法是把两类负载拆到不同实例。症状都是长尾延迟,病因和药方完全不同,动手前先分清。</span>
 
 <span class="marginnote">流式输出时用户按 token 感知延迟。PP 把「一步」定义成「所有阶段跑完」。若实现成阶段 1 先出部分结果，那是另一套异步语义，不再是标准同步流水线，延迟统计也要重做。</span>
 

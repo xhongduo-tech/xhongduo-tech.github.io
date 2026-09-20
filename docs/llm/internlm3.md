@@ -31,6 +31,8 @@ InternLM 仓库的 Technical Report 链接仍指向 InternLM2 的 2403.17297。3
 
 结构以 `config.json` 为准（不要用 configuration 文件里的默认 32 层）：`hidden_size=4096`，`num_hidden_layers=48`，`num_attention_heads=32`，`num_key_value_heads=2`（极瘦 [GQA](/llm/gqa)），`head_dim=128`，`intermediate_size=10240`，`hidden_act=silu`，无偏置，词表 **128512**，`rms_norm_eps=1e-5`。RoPE：`rope_theta=5e7`，`rope_scaling` 为 dynamic、factor 6.0，`max_position_embeddings=32768`。这是可复现的实现约束，不是论文里的消融。
 
+<span class="marginnote">数字实例：KV 缓存大小与 KV 头数成正比。32 个查询头只配 2 个 KV 头，意味着每层的 K/V 只存 2 份——是普通多头注意力（32 份）的 1/16。128K 长度评测跑得动，第一功臣就是这 16 倍的缓存减免；代价是所有查询头只能共享两套「看哪里」的投影。</span>
+
 ### 双模式：改系统提示，不改权重
 
 对话模式用书生·浦语身份的系统提示。思考模式换一段「竞赛数学专家、逐步严格推理、`[[8192]]` token 内作答、`\boxed{}`」类提示（文档示例）。同一 `InternLM3ForCausalLM`，行为差来自条件前缀。官方称之为开源里较早把「普通对话 + 深度思考」打进 **一个**通用检查点的做法。推理推荐 transformers ≥ 4.48，部署指向 LMDeploy / vLLM / SGLang，与 2.5 一样走实验室工具链。
@@ -53,7 +55,18 @@ flowchart TD
 
 4T 相对 18T 的故事是 **提高每个 token 的信息密度**，机制上可能是更狠的过滤、更多合成推理、或两者都有——官方没拆开，不能写成已证明的定律。双模式的机制是 **提示条件化策略**：思考提示把解码推进长 CoT 区域，短提示把同一先验用在聊天分布。这与后来混合推理 MoE（思考/不思考作为模式开关）同类，但 InternLM3 是稠密 8B，没有专家分流。
 
+<span class="marginnote">直觉类比：双模式像同一个演员拿两张不同的人设卡——读到「竞赛数学专家、逐步严格推理」那张就进入长推理，读到「亲切助手」那张就闲聊。权重是同一个演员，系统提示是角色卡；这不是两个模型，是同一条件分布被切出的两个行为面。</span>
+
 GQA 2 个 KV 头对 32 个查询头，是非常省 KV 的设置；decode 带宽友好，表达力是否够靠 48 层和 10240 中间维补。相对 InternLM2 全系列较温和的 GQA，3 把 KV 头收到极瘦，这是 8B 单卡服务长评测时的不对称交易：省的是缓存，可能丢的是头间多样性。dynamic RoPE factor 6 与 $5\times 10^{7}$ 基频是长窗外推的实现线索，RULER 报到 128K 说明他们在评测协议里做过超 32K 的压力测试，但 **默认安全窗仍应以 32768 配置为准**，除非模型卡另给 128K 权重文件。实验室同时强调「通专融合」：把通用对话数据与深度推理数据在训练里混起来，而不是先训助手再单独蒸馏推理模型；系统提示只是把已经学到的两种条件分布切出来。
+
+```mermaid
+flowchart LR
+  X["当前 token 隐状态"] --> Q["32 个查询头各算一份 Q"]
+  X --> KV["仅 2 个 KV 头：一份 K、一份 V"]
+  Q --> ATT["每组查询头共用同一份 K/V"]
+  KV --> ATT
+  ATT --> CACHE["KV 缓存按 2 头存：约为 MHA 的 1/16"]
+```
 
 <span class="marginnote">仓库引用文献仍是 InternLM2 报告。论文号不能改写成 InternLM3。2 的 1.8B/7B/20B 与 3 的单一 8B Instruct 不是同一发布矩阵。</span>
 

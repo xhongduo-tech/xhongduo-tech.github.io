@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-单卡 HBM 装不下预填的 $Q,K,V$ 工作区，或 FlashAttention 的分块仍因 $s$ 太大而 OOM。权重已经 TP/EP 切过，KV 也量化了，剩下的墙是 **这一次前向的序列维**。重计算帮不上预填的 TTFT。必须让每卡只存 $s/C$ 的激活，并在注意力里把缺失的 KV 补回来。
+单卡 HBM 装不下预填的 $Q,K,V$ 工作区，或 FlashAttention 的分块仍因 $s$ 太大而 OOM。权重已经 TP/EP 切过，KV 也量化了，剩下的墙是 **这一次前向的序列维**。重计算帮不上预填的 TTFT。必须让每卡只存 $s/C$ 的激活，并在注意力里把缺失的 KV 补回来。<span class="marginnote">用数字感受一下:预填一条 128K token 的提示、用 $C=8$ 张卡做 CP,每卡只需持有约 16K token 的 Q/K/V 工作区,注意力计算也摊成每卡八分之一。但八张卡加起来的总内存和总算量一点没少——CP 是「分摊」手段,不是「节省」手段,这是它和量化、稀疏注意力的本质区别。</span>
 
 补法两类。Ulysses：All-to-All 把 $(s/C,\,h)$ 换成 $(s,\,h/C)$，本地跑满长度注意力（可复用 FlashAttention），再 All-to-All 换回。Ring：每卡固定本地 $Q$ 块，KV 块在环上转 $C-1$ 步，每步做分块 SDPA，用在线 softmax 累加，算术上等价于全局注意力。USP（arXiv:2405.07719）指出：Ulysses 的 $C$ 不能超过头数（GQA 下更严），Ring 把大 GEMM 切碎会伤占用率，于是用 2D mesh 一行 Ulysses、一列 Ring。
 
@@ -46,13 +46,30 @@ flowchart TD
 
 ### KV 布局是预填与 decode 的合同
 
-CP 预填结束时，KV 可能仍按序列分片躺在 $C$ 张卡上。Decode 若继续该布局，每步都要远程读 KV。两种收口：All-Gather 成每张 decode 卡一份（内存换延迟）；或保持分片，decode 用一次针对 $n_q=1$ 的窄通信（类似一次短 Ring）。在线服务几乎总选前者或 PD 分离后的专用 KV 传输，因为 TPOT 比再省一份 KV 副本更贵。分页 KV 还要在 gather 时按块表对齐，不能假设连续 $s/C$。
+CP 预填结束时，KV 可能仍按序列分片躺在 $C$ 张卡上。Decode 若继续该布局，每步都要远程读 KV。两种收口：All-Gather 成每张 decode 卡一份（内存换延迟）；或保持分片，decode 用一次针对 $n_q=1$ 的窄通信（类似一次短 Ring）。在线服务几乎总选前者或 PD 分离后的专用 KV 传输，因为 TPOT 比再省一份 KV 副本更贵。分页 KV 还要在 gather 时按块表对齐，不能假设连续 $s/C$。<span class="marginnote">「KV 布局是合同」可以想象成后厨交接:预填组 8 个人各做完一段菜,decode 组每出一道菜都要用到全部食材。交接只有两种办法——把整套食材复印给每个人(All-Gather,费内存),或者每做一步都跑去别人的冰箱拿(保持分片,费延迟)。在线服务里「每步都跑一趟」的延迟远比多占几份内存贵,所以几乎总选前者。</span>
 
 因果与滑动窗在切分下必须用全局下标。RoPE 的 $\theta$ 同样。块间漏传表现为「某段距离的依赖消失」，损失未必 NaN，要用定点距离的复制探针回归。
 
 ## 机制
 
 Ulysses 的通信体积在「$s$ 与 $C$ 同比增加」时保持每卡常数——这是 Jacobs 等人相对「随 $s$ 涨的序列并行」的理论卖点。推理预填若 $s$ 涨而 GPU 数不涨，$C$ 不变，体积仍随 $s$ 线性涨，常数通信那条定理用不上。Ring 每步 P2P 体积 $\propto b(s/C)d$，总流量 $\propto bsd$，与 All-to-All 同阶，但延迟结构是 $C$ 跳邻居，而不是一次 $C$ 对端的集合。
+
+```mermaid
+flowchart TD
+  subgraph ULY["Ulysses: 换数据布局,不动 KV 位置"]
+    S1["每卡持有 s/C 段、全部 h 个头"] --> A1["All-to-All 对换序列维与头维"]
+    A1 --> S2["每卡看见满 s、h/C 个头"]
+    S2 --> FA["本地跑满长度注意力"]
+    FA --> A2["All-to-All 换回原布局"]
+  end
+  subgraph RING["Ring: 不换布局,KV 在环上走"]
+    L1["每卡固定本地 Q 块与一段 KV"] --> B1["分块注意力 + 在线 softmax 累加"]
+    B1 --> P2P["把 KV 块发给环上下一家"]
+    P2P -->|"转 C-1 步后见过全部 KV"| B1
+  end
+```
+
+<span class="marginnote">GQA 可以这样翻译:让 32 个查询头共用 8 组 KV 头,像 32 个查询员共享 8 间档案室,省下大量 KV 内存。代价是 Ulysses 要沿 KV 头切分——只有 8 间档案室,$C$ 最多取 8;想开到 $C=16$、$C=32$,纯 Ulysses 就切不动了,超长序列只能靠 Ring 维补足。</span>
 
 在线 softmax 的结合律使分块与精确归一化相容：两段键的 $(m,\ell,O)$ 可合成全局量。这与 FlashAttention 单卡分块是同一代数；Ring 只是把块放到不同卡。浮点顺序不同，末位有差，目标是同类误差，不是 bitwise 复现。
 
