@@ -17,6 +17,8 @@ section: llm
 
 LLM 服务里注意力层与非注意力层的资源画像随自回归长度剧烈变化：MLP、LN 对已生成长度几乎常数，注意力的 KV 线性涨、逐步 GEMM 形状也变。静态张量并行按头切，能把一层拆开，但 KV 仍绑在持有该头的实例上，超长请求会把单实例 HBM 打满，同时短请求吃不满。序列并行 / Ring Attention 能切序列，解码却往往要移动大块 KV。
 
+<span class="marginnote">KV 缓存就是解码时为了「不重算历史」而暂存的每层 Key/Value 中间结果：每生成一个 token 都要和全部历史做注意力，没有缓存就得重算整段上下文。它随上下文线性变大，长请求的显存大头往往就是它。</span>
+
 需要一种切分：粒度是序列上的任意长度片段，而不是整请求；数学上等于 MHA / MQA / GQA；增量解码时不要为了「看见远端 KV」而把远端 KV 拉回本地。在线 softmax 已经证明：全局 softmax 可以由分块的 $(m,\ell,O)$ 合并得到。DistAttention 把这条代数从单机 Flash 搬到跨实例，并让通信对象变成 $Q$ 与标量统计。<span class="marginnote">切的是 KV 的序列维，不是模型权重。权重仍可按原 TP/PP 放置；注意力计算可以「借」别的实例上的空闲 HBM 来放 KV 子块。</span>
 
 ## 方法
@@ -42,6 +44,8 @@ $$
 
 与单机分块 softmax 相同。跨实例时，远端不必回传 $\mathrm{KV}_p$，只回传 $(m_p,\ell_p,O_p)$；本地把 $q$ 发给持有该块的实例（decode 下 $q$ 是 KB 级）。论文强调：相对 Ring Attention 传整块 KV（MB–GB），这里通信小一到两个数量级，测得在 4K–256K、LLaMA2-13B、四卡设定上可比 Ring 快数倍到一个数量级，并略快于按头切的 TP（头切仍要为注意力同步较大激活）。
 
+<span class="marginnote">统计合并可以类比多评委打分：每位评委只上报「我这组的最高分 $m$、权重和 $\ell$、加权总和 $O$」三个数，主席就能还原全局打分——评委之间不必互传全部原始评分（也就是整块 KV）。</span>
+
 等价性覆盖 MHA、MQA、GQA：切的是序列，头的布局可以仍按原模型；MQA 的共享 KV 只是块更瘦。新生成的 token 作为新的小块追加、调度，而不必重分整段缓存。
 
 ### 与非注意力层解耦
@@ -66,6 +70,18 @@ flowchart TD
 ## 机制
 
 公式层面 DistAttention 不发明新的相似度，只发明**分布式归约方案**。在线 softmax 的可结合性让「先局部再全局」合法；若直接切序列却在每块上独立 softmax 再加权，结果不等于全局注意力——那是近似。必须传 $m_p$ 与 $\ell_p$，不能只传 $O_p$。
+
+<span class="marginnote">初学者容易想「把每块 KV 各自 softmax，再加权平均」；那不是精确而是近似，长序列下误差会累积。DistAttention 的等价性来自在线 softmax 的可结合性——所以 $m_p$ 与 $\ell_p$ 必须传，只传 $O_p$ 是合并不回来的。</span>
+
+```mermaid
+flowchart LR
+  subgraph RING["Ring Attention: KV 流动"]
+    K1["Q 块驻留本地"] --> K2["整块 KV 沿环逐跳流动"] --> K3["每步通信 MB 到 GB"]
+  end
+  subgraph DA["DistAttention: q 送上门"]
+    D1["KV 块驻留各实例"] --> D2["只把 q(KB 级) 发给持块实例"] --> D3["回传统计 (m, l, O), 合并出全局注意力"]
+  end
+```
 
 Decode 传 $q$ 而不传 KV，是因为 KV 已经在远端，算子是 $q$ 去就数据。Prefill 若 $Q$ 也很长，把整段 $Q$ 广播到所有 KV 持有者会贵，需要按块调度 $Q$ 或让 $Q$ 与对应 KV 共址。论文的服务场景以decode 拉长上下文为主，prefill 仍可能走实例内或有限并行。
 

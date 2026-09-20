@@ -17,7 +17,7 @@ section: llm
 
 U-Net 从 PixelCNN++ 与 Ho 等人的 DDPM 继承而来，Dhariwal 与 Nichol 的 ADM 改过自适应归一化与通道数，但整体仍是卷积多尺度。Transformer 已在语言、识别、自回归像素上显示缩放，扩散却仍是架构局外人。若 U-Net 的归纳偏置并非生成质量的必要条件，扩散就能接过 ViT 的训练配方与缩放曲线。
 
-参数量会骗人：分辨率与 token 数强烈影响计算，却几乎不改参数。ADM 已经用 Gflops 看 U-Net；DiT 把同一尺子拿到 Transformer 类，问：深度、宽度、patch 大小，谁在驱动 FID。
+参数量会骗人：分辨率与 token 数强烈影响计算，却几乎不改参数。ADM 已经用 Gflops 看 U-Net；DiT 把同一尺子拿到 Transformer 类，问：深度、宽度、patch 大小，谁在驱动 FID。<span class="marginnote">Gflops 是一次前向要做多少「十亿次浮点运算」，衡量这一步多费算；参数量只数模型里存了多少个数。同一个模型把 patch 切得更细，token 数翻四倍、计算翻四倍，参数却一个没变——只数参数完全看不出真正的算力开销，这就是论文改用 Gflops 当尺子的原因。</span>
 
 ### 潜空间是为了算力，不是为了换问题
 
@@ -29,7 +29,19 @@ U-Net 从 PixelCNN++ 与 Ho 等人的 DDPM 继承而来，Dhariwal 与 Nichol �
 
 Patchify：潜变量 $I\times I\times C$ 切成 $p\times p$ 块，得到 $T=(I/p)^2$ 个 token，线性映到隐维 $d$，加正弦位置编码。$p$ 减半，$T$ 乘四，Gflops 至少乘四，参数几乎不变。设计空间含 $p\in\{2,4,8\}$。
 
+<span class="marginnote">patchify 可以想象成把照片剪成小方格，每个方格拉直成一条向量、当作一个「词」。$32\times32$ 的潜图按 $p=2$ 剪得到 $(32/2)^2=256$ 个 token，按 $p=8$ 剪只有 16 个。格子越小、token 越多，注意力要两两比较的次数越多，细节也保得越细——所以型号里的「/2」「/8」主要在说算力档位。</span>
+
 条件（时间步 $t$、类别 $c$）试了四种块：上下文 token（把 $t,c$ 当额外 token）、交叉注意力、adaLN（从 $t+c$ 回归 $\gamma,\beta$ 替代 LayerNorm 仿射）、adaLN-Zero（再回归残差前的 $\alpha$，初始化为 $0$，使整块起步为恒等）。adaLN-Zero 计算最轻、FID 最好。其后固定用它。模型档 S/B/L/XL 对齐 ViT：XL 为 $28$ 层、宽 $1152$、$16$ 头。解码：末层自适应 LN 后线性映回 $p\times p\times 2C$，拆成噪声与对角协方差，再折回空间布局。
+
+```mermaid
+flowchart TD
+  TC["条件：时间步 t 与类别 c"] --> Q["四种注入方式"]
+  Q --> A["上下文 token：当额外 token 拼进去"]
+  Q --> B["交叉注意力：多付约 15% Gflops"]
+  Q --> C["adaLN：回归 γ,β 替代 LayerNorm 仿射"]
+  Q --> D["adaLN-Zero：再回归 α 且初始化为 0"]
+  D --> W["整块起步为恒等，FID 最好"]
+```
 
 ### 训练配方几乎原样来自 ADM
 
@@ -40,6 +52,8 @@ ImageNet 类别条件，$256$ 与 $512$。AdamW，学习率 $10^{-4}$ 恒定，�
 四百 K 步时，十二个模型（四档 × 三 patch）的 FID 与 Gflops 强负相关：S/2 与 B/4 等 Gflops 接近则 FID 接近。固定 patch 加宽加深，或固定档减小 $p$，全程 FID 都更好。XL/8 参数不比 XL/2 少，Gflops 少很多，样本差——关键是计算，不是参数。训练总计算（Gflops × batch × 步 × 约 $3$）对 FID：小模型即使多训，也会被大模型少步超过；仅差 $p$ 的 XL/4 与 XL/2 在相同训练 Gflops 下曲线也不同。
 
 块设计：四百 K 步时 adaLN-Zero 的 FID 约是 in-context 的一半。恒等初始化（$\alpha=0$）明显优于普通 adaLN。交叉注意力约加 $15\%$ Gflops，仍不如 adaLN-Zero。分类器自由引导下 XL/2 超过先前扩散 SOTA。$512$ 分辨率同样成立。同一噪声与类别可视化：Gflops 升则细节与结构同步变好。
+
+<span class="marginnote">恒等初始化可以想象成新员工第一天「先什么都不做」：$\alpha=0$ 让每个块一开始原样传递输入，训练中再慢慢学会调节强弱。几十层这样叠起来，开局谁也不干扰谁，网络不会一上来就互相打架——这正是作者报告「训练稳定、无 loss spike」的一个来源。</span>
 
 <span class="marginnote">「更大模型更省训练计算」指达到同一 FID 所需的训练 Gflops，不是单步更快。XL/2 在 TPU v3-256、全局 batch $256$ 上约 $5.7$ iter/s。不要把 ImageNet FID 写成通用视觉生成的唯一尺子，也不要把 adaLN-Zero 写成所有条件注入的唯一解——它是这条设计空间里的赢家。</span>
 

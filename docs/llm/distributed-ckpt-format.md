@@ -17,6 +17,21 @@ section: llm
 
 TP 列切的权重、PP 不同阶段、EP 不同专家、ZeRO 切的优化器状态，四套切分可能同时存在。同步 gather 成完整模型再存，体积与带宽都不可接受，也破坏异步。必须分布式写。读侧却经常换拓扑：调试用更小 TP，生产用更大 EP。格式若把 rank 号写死，等于把并行策略焊进磁盘。
 
+```mermaid
+flowchart LR
+  subgraph OLD["绑死 rank 的整包格式"]
+    O1["rank 0 的 state_dict 整包"] --> O2["rank 0 文件"]
+    O3["rank 1 的 state_dict 整包"] --> O4["rank 1 文件"]
+    O4 --> OF["换世界大小? 读不出来"]
+  end
+  subgraph NEW["tensor-shard 表格式"]
+    N1["每 rank 只写本地分片"] --> N2["元数据: 全局 shape / 切分轴 / 偏移"]
+    N2 --> N3["新拓扑按字节范围重切读取"]
+  end
+```
+
+<span class="marginnote">「分片（shard）」就是把一个大张量沿某个维度切成若干块，每张卡只持有自己那块；「元数据」则像一张快递面单——记录每块的全局形状、切在哪一维、存在哪个文件的哪个偏移，读取时按单取件、按需拼装。</span>
+
 元数据还要版本化：字段增删、dtype（BF16 参数 + FP32 矩）、MoE 专家数变化，都要能拒绝加载或做声明过的转换，而不是静默 reshape 成功。
 
 ### 与词表、数据游标
@@ -29,7 +44,11 @@ TP 列切的权重、PP 不同阶段、EP 不同专家、ZeRO 切的优化器状
 
 采用显式的 tensor-shard 表：逻辑名、全局 shape、切分轴、dtype、校验和、文件偏移。PyTorch DCP、Megatron dist-ckpt 走这一路。写时只写本地分片；读时根据当前并行计划计算需要的字节范围，可能从多个文件 gather 再 scatter 到本地。改 PP 度等于按层边界重新分组，不改权重数值。改 TP 度等于沿隐藏维重切。改 EP 度等于专家列表重分配。
 
+<span class="marginnote">「按字节范围读」省在哪：7B 模型的 fp16 权重约 14 GB，从 TP=4 改成 TP=8 恢复时，每卡只需要约 1.75 GB 的连续块——加载器按元数据算出偏移直接读那一段，而不是把 14 GB 全部下载再自己切。</span>
+
 发布过程：所有 writer 完成后写一份不可变的 metadata.json（或等价），再用原子替换更新「latest」指针。异步课的全局 AND 完成标志，指的就是这份 metadata 的发布。
+
+<span class="marginnote">「原子替换 latest 指针」是能否安全恢复的分界线：写到一半的目录，恢复时会读到半份快照直接崩；先写完全部分片、再一次性把 latest 指过去，任何时刻取到的都是完整快照。这一步做错，弹性训练会在「半份检查点」上反复翻车。</span>
 
 ### 校验与部分加载
 

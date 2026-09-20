@@ -11,11 +11,11 @@ section: llm
     <footer>—— Zhong et al., DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving, OSDI 2024</footer>
 </div>
 
-Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 的 DistServe 把「前填与解码该不该拆开」写成一篇 goodput 论文，而不是一篇异构硬件论文。一次生成先算完整提示、写出 KV、得到首 token（TTFT），再逐步吐后续 token（TPOT / TBT）。Colocate 系统把两阶段编进同一连续批：长前填插入时解码步被拉长，解码占着 HBM 时前填又凑不齐算力。并行策略也被耦合：为 TTFT 加的张量并行可能伤害解码的 All-Reduce 账，为吞吐加的流水线可能伤害单请求延迟。DistServe 拆到不同 GPU 实例，按 TTFT 与 TPOT **同时**达标来搜每阶段的卡数与并行，优化的是满足双 SLO 的最大请求率。概念综述见 [PD 分离](/llm/pd-disaggregation)，KV 怎么搬见 [KV 传输](/llm/pd-kv-transfer)。本篇钉 OSDI 论文的指标、搜索与数字。
+Zhong、Liu、Chen、Hu、Zhu、Liu、Jin、Zhang 的 DistServe 把「前填与解码该不该拆开」写成一篇 goodput 论文，而不是一篇异构硬件论文。一次生成先算完整提示、写出 KV、得到首 token（TTFT），再逐步吐后续 token（TPOT / TBT）。Colocate 系统把两阶段编进同一连续批：长前填插入时解码步被拉长，解码占着 HBM 时前填又凑不齐算力。并行策略也被耦合：为 TTFT 加的张量并行可能伤害解码的 All-Reduce 账，为吞吐加的流水线可能伤害单请求延迟。DistServe 拆到不同 GPU 实例，按 TTFT 与 TPOT **同时**达标来搜每阶段的卡数与并行，优化的是满足双 SLO 的最大请求率。概念综述见 [PD 分离](/llm/pd-disaggregation)，KV 怎么搬见 [KV 传输](/llm/pd-kv-transfer)。本篇钉 OSDI 论文的指标、搜索与数字。<span class="marginnote">TTFT 是「按下回车到看见第一个字」的等待时间；TPOT 是之后每吐一个字的平均间隔。聊天场景里 TTFT 决定「有没有反应」，TPOT 决定「读起来卡不卡」，所以这篇论文把两者都当必须同时满足的硬指标，而不是只优化总吞吐。</span>
 
 ## 问题
 
-两阶段的屋顶线不同。前填在提示不算极短时接近 compute-bound：序列长，GEMM 能喂饱 Tensor Core。解码每步一个新 token，却要读全部权重与日益增长的 KV，接近 memory-bound。两者的最优 batch、最优并行、甚至最优复制因子都不同。绑在一起时，调度只能优先其中一个 SLO，或靠超配同时满足两个。
+两阶段的屋顶线不同。前填在提示不算极短时接近 compute-bound：序列长，GEMM 能喂饱 Tensor Core。解码每步一个新 token，却要读全部权重与日益增长的 KV，接近 memory-bound。两者的最优 batch、最优并行、甚至最优复制因子都不同。绑在一起时，调度只能优先其中一个 SLO，或靠超配同时满足两个。<span class="marginnote">compute-bound 是瓶颈在算力：数据喂得饱，就差算得快；memory-bound 是瓶颈在搬数据：算力在旁边闲着，等权重和 KV 从显存里搬过来。前填一次算一整段，能把算力喂饱；解码每步只产出一个词，却要把整个模型读一遍——所以两者天生喜欢不同的硬件配置。</span>
 
 [Chunked prefill](/llm/chunked-prefill) 加 piggyback 能减轻解码被单次长前填堵住，但 DistServe 指出干扰并未消除。块太小则前填自己不饱和且与解码争用；块大到饱和则几乎拼不进解码；前填还会重复扫 KV，多付内存访问。并行耦合是第二层：intra-op 降执行时间、要 NVLink；inter-op 扩速率、少降延迟。Colocate 实例只能选一套。拆开之后，前填实例可以按紧 TTFT 走更大 TP，解码实例按 TPOT 与 KV 容量走复制或不同的 PP。
 
@@ -53,7 +53,17 @@ flowchart LR
 
 机制是消除时间轴上的互抢，以及解开并行搜索的笛卡尔积。Colocate 的每一步 iteration 里，prefill token 与 decode token 争 SM、争 HBM 带宽、争调度槽。拆开后，P 实例的迭代全是高算术强度，D 实例的迭代全是逐步 decode，CUDA Graph、并行度都可以按阶段固定。代价是 KV 必须在阶段边界移动，且权重复制。当传输时间小于从前干扰造成的等待，goodput 上升；当传输是墙，分离失败——所以放置算法是方法的一部分，不是运维附属。
 
-Pull 队列是突发阀。大量 KV 同时涌向 decode 会打满 D 侧显存；让 D 按需来取，P 侧做缓冲，两边节奏解耦。没有这类阀门，分离系统会在峰值上比 colocate 更脆——colocate 至少「慢在同一张卡上」，分离会「D 侧 OOM、P 侧还在狂写」。
+```mermaid
+flowchart TD
+  P1["Colocate：前填与解码同一迭代"] --> F1["争 SM / HBM 带宽 / 调度槽"]
+  F1 --> R1["一套并行伺候两个 SLO"]
+  P2["分离：P 与 D 各自实例"] --> F2["P 全是重计算迭代，D 全是逐步读权重"]
+  F2 --> R2["各搜各的并行与复制"]
+  R1 -.->|"传输快于干扰等待时"| WIN["Goodput 上升"]
+  R2 --> WIN
+```
+
+Pull 队列是突发阀。大量 KV 同时涌向 decode 会打满 D 侧显存；让 D 按需来取，P 侧做缓冲，两边节奏解耦。没有这类阀门，分离系统会在峰值上比 colocate 更脆——colocate 至少「慢在同一张卡上」，分离会「D 侧 OOM、P 侧还在狂写」。<span class="marginnote">pull 队列可以想象成奶茶店取餐：厨房（prefill）做好一杯就放上出餐台，顾客（decode）自己按需来拿。高峰期变长的是出餐台的台面，而不是顾客被堵进厨房；台面（P 侧显存）满了就先不接新单，系统因此能平稳退避。</span>
 
 ### 切块为什么不能替代拆分
 
