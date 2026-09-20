@@ -29,6 +29,8 @@ $$
 
 因子 2 为 K 与 V，$L$ 层数，$n$ 当前上下文，$b$ 元素宽度。$h_{\mathrm{kv}}$ 在 MHA 等于查询头，GQA / MQA / MLA 把它打下来。系统总 KV 是运行集上 $\sum_r \mathrm{KV}(n_r)$ 再加页内浪费。并发 16、每条 8k、大模型未压缩时，KV 可以超过权重，成为一等公民。还按「模型文件多大」去买卡，会在长上下文上突然破产。
 
+<span class="marginnote">代入数字感受量级：$L=80$、$n=8192$、$h_{\mathrm{kv}}=8$、$d_k=128$、FP16（$b=2$）时，一条请求的 KV ≈ $2\times80\times8192\times8\times128\times2 \approx 2.7$ GB。并发 16 条就是 40 多 GB——接近甚至超过一个 70B FP16 权重的零头，这就是「KV 成为一等公民」的含义。</span>
+
 <span class="marginnote">查询头数不进 KV 公式。把 $h_q$ 代入会把容量需求高估 $h_q/h_{\mathrm{kv}}$ 倍。规划并发与窗口时，必须以 KV 头为准。</span>
 
 ## 方法
@@ -40,6 +42,8 @@ $$
 ### 前填激活与解码的不对称
 
 前填要对 $n$ 个位置保留注意力与 FFN 的中间张量（即使 FlashAttention 不物化 $n\times n$ 分数，FFN 激活仍随 $n$ 线性、宽随 $d$）。一条 100k 提示的激活尖刺可以短暂超过 KV 池里所有短聊天之和，把本已安全的水位打穿。解码步的激活与批大小成正比、与 $n$ 弱相关，通常不是容量主角，带宽才是。因此「能 decode 128k」的配置，仍可能在「prefill 128k」上 OOM——两条路径要分别压测。
+
+<span class="marginnote">常见误区：以为「能 decode 到 128k 就能一次 prefill 128k」。decode 每步只新增一个 token，激活很小；前填要一口气吞下整条提示，激活随长度线性冒尖。压测必须两条路径各跑一遍。</span>
 
 ```mermaid
 flowchart TD

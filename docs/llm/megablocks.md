@@ -19,6 +19,20 @@ MoE 的动态性有两层。第一层是 **哪些 token 去哪个专家**，每�
 
 GPU 其实能跑不规则 GEMM，缺的是把「变长、按专家成块」的稀疏结构说给硬件听。细粒度 CSR 对 Tensor Core 不友好；完全稠密又回到 padding。需要一种 **块级** 稀疏：每个专家的 token 已经由 permute 聚成连续块，块内是稠密 GEMM，块间大小不同。
 
+```mermaid
+flowchart TD
+  subgraph C["容量合同：capacity_factor"]
+    A["每个专家固定 c 个槽位"] --> B{"token 数 vs c"}
+    B -- "超了" --> D["掉牌：丢掉多出的 token"]
+    B -- "没满" --> E["padding：空槽白占算力"]
+  end
+  subgraph DL["dropless：M_i 按实际"]
+    F["分到多少算多少"] --> G["块变胖或变瘦，都不丢"]
+  end
+```
+
+<span class="marginnote">MoE（混合专家）就是给每个 token 发一张「去哪个专家做 FFN」的票。「掉牌（token dropping）」指票开出去发现专家座位已满，这个 token 在这一层干脆不算——像航班超售被挤下来的乘客，信息就这么丢了；「padding」则是座位没人坐也得付座椅钱。</span>
+
 ### 容量超参把质量与效率绑死
 
 `capacity_factor` 进入训练配方之后，学习率、aux loss、专家数都要围着它转。换 GPU 数或 microbatch，最优容量会变。dropless 的目标是把这条超参从配方里删掉：所有被路由到的 token 都算，硬件效率靠核，而不是靠人为截断。
@@ -30,6 +44,8 @@ GPU 其实能跑不规则 GEMM，缺的是把「变长、按专家成块」的�
 MegaBlocks 的计算图仍是标准四段：路由 → permute 按专家聚集 → 专家 FFN → unpermute 并按门控加权。与 Switch 的差别在第三段。把所有专家的输入行块在逻辑上看成一块大的块对角矩阵，乘以各专家的权重。对角块的行数就是 $M_i$，列数是隐藏维。他们为这种结构写了块稀疏 GPU 核，使用混合的 blocked-CSR/COO 描述动态、不均衡的块，并用转置索引支持反向。
 
 库后来把专家 FFN 接到 **grouped GEMM**：给定一组问题 $\{(M_i,N_i,K_i)\}$ 和各矩阵指针，一次启动，持久化线程块轮询问题列表。对标准 MoE，$N_i,K_i$ 通常相同（同一张 FFN 形状），只有 $M_i$ 变——这是 grouped 相对 batched 的最小推广：batched 要求所有问题同形状。CUTLASS 的 `examples/24_gemm_grouped` 是同一问题的厂商实现；MegaBlocks 的贡献是证明 **dropless MoE 可以端到端训起来**，并把 permute 与这块计算接好。
+
+<span class="marginnote">数字实例：4096 个 token、8 个专家，若负载均匀每个专家约 $M_i=512$ 行；但热门专家可能分到 2000 行、冷门只有 30 行。batched GEMM 得按 2000 把 8 份矩阵全 pad 到等大，grouped GEMM 则一次启动吃下 8 份大小各异的活，30 行就是 30 行。</span>
 
 ```mermaid
 flowchart TD
@@ -52,6 +68,8 @@ flowchart TD
 Grouped / 块稀疏 GEMM 能吃满 Tensor Core，是因为 **块内是规则的** $M_{\mathrm{tile}}\times N_{\mathrm{tile}}\times K_{\mathrm{tile}}$。不规则性被推到「下一个块是哪个专家、这个专家还剩多少行」。调度器（CUTLASS 里叫 problem visitor）让线程块以 round-robin 领取瓦片：大 $M_i$ 的专家占更多瓦片，自然多拿一些线程块。若按专家各启一次核，冷专家的 $M_i$ 可能小于一瓦片，占用率塌掉。
 
 Permute 是前置条件。token 仍按原 batch 顺序时，专家 $e$ 的行在内存里不连续，块稀疏的「块」拼不出来，只能 gather 成连续缓冲——这就是 dispatch 的本地部分。MegaBlocks 并不取消置换，它取消的是置换之后的 **定长槽位**。
+
+<span class="marginnote">为什么 permute 省不得：token 若还按 batch 顺序躺在显存里，同一个专家的行就散落各处，块稀疏要求的「同专家的行挨在一起」拼不出来。先把同专家的行 gather 到一起再算，不是多余步骤，而是 Tensor Core 能吃满的前提。</span>
 
 <span class="marginnote">「Never drops tokens」指计算图不因容量截断而丢弃被路由的 token。数值上仍有 dropout、padding 文档边界等。不要写成「MoE 不再需要负载均衡」：不掉牌反而让热专家更热，aux loss 或偏置仍然要。</span>
 

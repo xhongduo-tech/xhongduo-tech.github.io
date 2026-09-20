@@ -19,6 +19,8 @@ section: llm
 
 第二问是生态。Hugging Face 权重进得来、推理引擎出得去，否则 Core 只是 NVIDIA 内部的更快 Megatron。Megatron Bridge 被写成 NeMo 框架里 HF ↔ Core 的双向检查点桥；Transformer Engine 提供 FP8 一类融合核。Core 不替代这些，它提供被加速的并行骨架。
 
+<span class="marginnote">「并行原语」翻译成大白话：把「怎么切模型」做成几个带开关的标准零件。训练脚本不再各自为政地手改循环代码，而是声明「TP=4、PP=2」这样的尺寸，库负责把进程怎么分组、通信走哪条线、数据怎么分片统统摆好。</span>
+
 ### 库与 2019 论文不是同一份工件
 
 论文给出 MLP 列切+行切、注意力按头切、词表并行；实现是若干 `autograd.Function`。Core 把这些收成 `ColumnParallelLinear` / `VocabParallelEmbedding` 一类模块，并加上后来才进入主线的东西：序列并行（Korthikanti 等，激活沿序列再切，减轻 LN/Dropout 复制）、上下文并行（沿序列切注意力 KV，服务长上下文）、流水线调度、专家并行与 **MoE Parallel Folding**（注意力与 MoE 使用不同并行映射，打破 $\mathrm{EP}\le\mathrm{DP}$ 一类旧约束）。分布式优化器按数据并行组切 Adam 状态；分布式检查点按网格保存，换卡数 resume 要按新网格重切。
@@ -54,13 +56,25 @@ flowchart TD
 
 头数必须能被 TP 整除；GQA 的 KV 头要能被 TP 整除或在组内复制。专家数与 EP 度对齐，否则有的 rank 空转。Folding 论文（arXiv:2504.14960）报告 Mixtral 8x22B 在 H100 上 MFU 约 49.3%、Qwen2-57B-A14B 约 39.0%，并写到 1024 GPU、序列至 128K——那是该文实验，不是 Core 对任意 MoE 的保证。token-dropless 与 token-dropping 两种 dispatcher 语义不同，混用检查点会 silently 改路由。
 
-<span class="marginnote">MoE Parallel Folding 的要点是：注意力与专家不必共享同一套 TP×DP 形状。强行让 EP 等于 DP，是旧 dispatcher 的约束，不是数学必然。换网格必须换 dispatcher 与检查点布局。</span>
+<span class="marginnote">「头数必须被 TP 整除」的直观原因：TP 是把 32 个注意力头平分给各卡。TP=8 时每卡管 4 个头，正好切干净；若是 30 个头配 TP=8，第 8 张卡只能干看半拍——这就是「有的 rank 空转」，算力和钱一起浪费。</span>
+
+MoE Parallel Folding 的要点是：注意力与专家不必共享同一套 TP×DP 形状。强行让 EP 等于 DP，是旧 dispatcher 的约束，不是数学必然。换网格必须换 dispatcher 与检查点布局。
 
 ## 机制
 
 正确性仍来自 2019：列切让非线性局部，行切用一次求和恢复线性层。序列并行把 LN 的统计从「TP 组上的完整序列」改成「本段序列」，通信从 All-Reduce 换成沿序列的 All-Gather 变体。CP 让每张卡只存一段 KV，跨段注意力用环形传递 K/V，用通信换激活内存。EP 的 All-to-All 体积随 token 与隐藏宽走，必须落在高带宽域；跨超节点做宽 EP 会把 decode 训练步打成网络步。
 
+```mermaid
+flowchart TD
+  TP["TP：层内 All-Reduce"] --> D1["NVLink 域：单机 8 卡内"]
+  PP["PP：阶段间传边界激活"] --> D2["跨节点：点对点即可"]
+  CP["CP：环形传 K/V"] --> D3["节点内为主，看序列长"]
+  EP["EP：All-to-All 换 token"] --> D4["高带宽域：别跨超节点"]
+```
+
 分布式检查点把每个 rank 的分片写成可聚合的 state dict。弹性换卡数等于换网格：TP 从 8 改到 4 要重切权重，不是改一个环境变量。这与 PyTorch DCP / TorchTitan 的目标相同，格式不自动兼容。
+
+<span class="marginnote">常见误区：以为换卡数就是改个配置重跑。并行度变了，权重在卡上的摆放方式全变，必须把旧网格存的检查点重切到新网格——否则加载时形状对不上，要么直接报错，要么更糟：静默地把张量读错。</span>
 
 ### 与 NeMo / Transformer Engine 的边界
 

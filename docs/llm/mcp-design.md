@@ -19,6 +19,21 @@ Function calling 的 `tools` 数组是**这一次** HTTP 请求里的静态清�
 
 三种信息不能都叫 tool。查询与副作用是工具；大段只读上下文（文件、schema）是资源，应有 URI 与可选订阅；可复用的消息草稿是提示模板，参数化后变成对话前缀。若全做成函数，缓存、权限与日志语义都会错：读第 3 页变成一次「调用」，无法做资源级 ETag 或变更通知。设计问题是原语划分，而不只是再包一层 JSON。
 
+```mermaid
+flowchart TD
+  subgraph T["工具 tool：能改世界"]
+    T1["查询与副作用"] --> T2["tools / call 执行"]
+  end
+  subgraph R["资源 resource：只读上下文"]
+    R1["文件与 schema"] --> R2["URI 读取与订阅"]
+  end
+  subgraph P["提示 prompt：消息草稿"]
+    P1["参数化模板"] --> P2["拼成对话前缀"]
+  end
+```
+
+<span class="marginnote">JSON-RPC 就是用 JSON 文本来传「调用请求」和「返回结果」的约定：每条请求带 method 名和一个 id，回复用同一个 id 对号入座。MCP 的握手、列清单、调用全都套用这一种消息格式，所以换传输（本机管道或远程 HTTP）时方法名不用改。</span>
+
 ### 先协商能力，再调用方法
 
 未在握手中声明的能力，对端不应调用对应方法。服务器说没有 `resources`，客户端就不要发 `resources/read`。客户端若未开放 `sampling`，服务器不能把补全任务踢回宿主。这一位图比「文档里写了个方法」更硬：版本演进时，旧客户端遇到新方法应得到标准 JSON-RPC 错误，而不是静默忽略导致状态分歧。
@@ -30,6 +45,8 @@ Function calling 的 `tools` 数组是**这一次** HTTP 请求里的静态清�
 握手：客户端发 `initialize`，带协议版本、客户端信息与能力；服务器回自身能力与服务器信息；客户端再发 `notifications/initialized`。之后才是业务方法。工具：`tools/list` 返回名称、描述、`inputSchema`（JSON Schema）；`tools/call` 带名字与参数对象，结果是内容块列表（文本、图像等）加可选错误标志。列表可变更时走 `notifications/tools/list_changed`，客户端应再 list。资源：`resources/list` / `resources/read`，URI 标识；可订阅则有 `resources/subscribe` 与更新通知。提示：`prompts/list` / `prompts/get`，返回消息数组草稿。
 
 传输：本地开发以 **stdio** 为主，一帧一条 JSON-RPC 消息，便于任意语言写小服务器。远程需要带会话的 HTTP 流，以便多宿主连接同一数据源；具体路径以当时规范为准。日志、进度、取消是控制面：长调用应能被 `notifications/cancelled` 打断，进度通知不要和最终结果抢同一个 id 语义。错误沿用 JSON-RPC 码（解析 -32700、方法不存在 -32601、非法参数 -32602、内部 -32603）并允许应用层附加 MCP 数据。
+
+<span class="marginnote">stdio 传输可以想象成两个进程之间接了一根水管：宿主把 JSON 消息写进服务器进程的标准输入，服务器把回复写到标准输出。不占端口、不过网卡，数据库密钥可以只留在服务器进程里，宿主崩溃也不会顺手把密钥带崩。</span>
 
 ```mermaid
 flowchart TD
@@ -49,6 +66,8 @@ flowchart TD
 对模型，MCP 往往透明：它仍在 function calling 分布上采样名字与 JSON。协议改变的是**条件前缀从哪来、副作用在哪执行**。发现使工具集随连接的服务器变化；隔离使密钥留在服务器进程；JSON-RPC `id` 使并行 call 可以对齐。`sampling/createMessage` 把方向反过来：服务器请宿主代调模型。这在不可信服务器上等于出借补全能力，默认应关。Roots 向服务器声明工作区根路径，缩小文件类服务器的可见范围，是权限设计而不是检索算法。
 
 通知（notification）无响应、无 id 匹配义务，适合 list_changed、进度、日志。若把通知误当成请求去等结果，客户端会死锁。批量 RPC 在现代 MCP 传输里并不作为一等依赖；实现应以单消息帧为准。schema 稳定性决定生态：同一工具在不同宿主描述不同，模型调用分布就会漂移——这是协议无法单独修复的，需要服务器作者把描述当 API 的一部分来版本化。
+
+<span class="marginnote">常见误区：把通知当请求去等回复。通知没有 id、协议也不给回执，「发完就完」——进度、日志、清单变更都是单向广播。客户端若傻等一个永远不会来的响应，握手之后第一步就会卡死，这类死锁在日志里往往一行错误都没有。</span>
 
 <span class="marginnote">MCP 不替代鉴权网关、不替代结构化解码、不替代多步规划。它只保证有一份可发现的进程契约。内部单个 Agent 运行时若永不复用连接器，直接函数分发更短；为「生态」把高权限 shell 暴露成通用服务器，是设计误用。</span>
 
