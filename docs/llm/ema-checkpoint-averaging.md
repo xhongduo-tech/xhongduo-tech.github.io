@@ -19,6 +19,8 @@ section: llm
 
 代价：$\bar\theta$ 不在训练图上，不能用 $\bar\theta$ 的梯度去继续 Adam。EMA 是旁路。把训练切到 $\bar\theta$ 再继续，等于换了一套不再匹配 $m,v$ 的权重，需要重置优化器状态，本课默认不这么做。
 
+<span class="marginnote">可以把 EMA 想成音频里的低通滤波器：权重在盆地内的高频抖动是背景噪声，$\tau$ 越大滤得越干净、但对新变化的反应也越慢；一次 loss 尖峰好比突发的爆音，不会被立刻删掉，而是被平均拖成一条缓慢衰减的长尾。</span>
+
 <span class="marginnote">$\tau$ 接近 1（如 0.999）时，EMA 半衰期很长，早期压熵段的权重会污染很久。应在 warmup 结束或进入幂律段之后再启动 EMA，或使用偏差修正。</span>
 
 ## 方法
@@ -27,6 +29,8 @@ section: llm
 
 **SWA / 检查点算术平均。** 在日程尾部每隔 $k$ 步存一个 $\theta$，最后均匀平均。不需要每步维护影子，但要磁盘。与 EMA 相比，SWA 明确「从哪一步开始进入平均窗口」，对余弦尾更好解释。
 
+<span class="marginnote">算一笔磁盘账：一个 7B 参数模型的 FP32 检查点约 $7\times10^9\times4$ 字节 $\approx 28$ GB。SWA 尾部每 1000 步存一个、存 20 个就是约 560 GB；EMA 只需常驻一份同样大小的影子，开销不随窗口长度增长。</span>
+
 **Polyak 意义下的全程平均**对 LLM 通常太重：早期权重与后期不在同一盆地。窗口应限制在损失曲线阶段课里的幂律后段与衰减段。
 
 不要把 EMA 当学习率衰减的替代：它不缩小更新，只平滑参数。$\eta$ 仍按日程走。
@@ -34,6 +38,18 @@ section: llm
 ## 机制
 
 若 $\theta_t=\theta^*+\xi_t$，$\xi$ 近零均值高频噪声，平均把 $\xi$ 压低。若尖峰把 $\theta$ 打到远处，EMA 会拖一条长尾巴——$\tau$ 很大时，一次尖峰污染半个半衰期。对策是：尖峰后从最近的干净检查点恢复 $\theta$，并**重置** EMA 为该检查点，或暂时降低 $\tau$。只恢复 $\theta$ 不重置 $\bar\theta$，影子仍含尖刺。
+
+<span class="marginnote">初学者容易以为把 $\theta$ 恢复到干净检查点就万事大吉；实际上 $\bar\theta$ 是全部历史的加权和，尖峰的份量早已按 $(1-\tau)$ 记进影子。不重置影子，污染会按半衰期慢慢渗回之后的每一次评测。</span>
+
+```mermaid
+flowchart TD
+  S["训练中发生 loss 尖峰"] --> THETA["theta 被打到远处"]
+  THETA --> REC["从最近干净检查点恢复 theta"]
+  REC --> Q{"要不要重置影子?"}
+  Q -- "重置 bar theta 为该检查点" --> CLEAN["影子干净, 评测可信"]
+  Q -- "只恢复 theta" --> DIRTY["影子仍含尖刺份量"]
+  DIRTY --> TAIL["按半衰期拖宽数百步"]
+```
 
 与 dropout：训练 $\theta$ 在噪声下更新，$\bar\theta$ 近似期望网络，和 inverted dropout 的推理动机同类，但作用在参数而不是激活。已关 dropout 的大模型预训练上，EMA 的收益主要来自滤尖峰与宽盆地，而不是滤 dropout 噪声。
 

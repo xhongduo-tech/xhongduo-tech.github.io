@@ -19,6 +19,8 @@ section: llm
 
 预训练的 batch 很大，这个问题才变得可解。训练步里一次可以看到成千上万个 token，All-to-All 的 payload 足够填满链路；若只有解码期那种每卡几个 token，启动开销会压过有效带宽。所以 EP 首先是预训练策略：用大 batch 把置换通信摊薄，换来「总参数远大于活跃参数」的容量。
 
+<span class="marginnote">直觉类比：All-to-All 像快递分拣。一整车货（大 batch）能摊薄一次分拣的固定成本；每次只寄一个包裹（小 batch 解码），叫车与交接的时间比送货本身还长。这就是为什么 EP 首先是预训练策略。</span>
+
 ### 置换，不是归约
 
 张量并行前后的 All-Reduce 是对同一份激活或梯度求和；EP 的 All-to-All 是按专家编号做置换，没有求和语义。实现若写成 All-Reduce，专家输入会被搅成所有 token 的混合物。GShard 用的跨设备分发、Switch 的容量桶，本质都是：在已知每卡专家布局的前提下，把 token 重新打包成各专家的本地 batch。<span class="marginnote">All-to-All 要求每张卡事先知道自己要发给每个对端多少 token。容量因子把这件事变成静态缓冲区：槽位先定，超容量的 token 在分发前丢掉，而不是发过去再丢。空槽会进入通信，容量过大等于给空气付带宽。</span>
@@ -33,6 +35,8 @@ section: llm
 4. **Combine All-to-All**：按原 token 顺序把输出送回，若 $k\gt 1$ 再加权求和。
 
 GShard 允许 $k=2$，每个 token 可能去两张卡；Switch 取 $k=1$，一次分发、一次合并，通信体积大约减半，实现路径也更直。容量因子 $c$ 决定每个专家的槽位数 $C=\lceil c\cdot T/N\rceil$，其中 $T$ 是这一层看到的 token 数。预训练配置里 $c$ 略大于 1，用来吸收路由的自然波动，而不把链路打满。
+
+<span class="marginnote">数字实例：$N=64$ 个专家、一层看到 $T=4096$ 个 token、$c=1.25$ 时，每个专家预留 $C=\lceil 1.25\times4096/64\rceil=80$ 个槽位。平均本该 64 个，多出的 16 个用来吸收路由波动；超出的 token 就得丢弃或重排。</span>
 
 ```mermaid
 flowchart LR
@@ -65,6 +69,17 @@ $d$ 是隐状态宽度，$s$ 是每元素字节（BF16 为 2），因子 2 来�
 本地专家的 FLOPs 随中间维 $d_{\mathrm{ff}}$ 和每专家分到的 token 数增长。$d_{\mathrm{ff}}$ 大时，GEMM 算术强度高，All-to-All 容易被盖住；专家又碎又多时，算术强度下降，同一条 NVLink 或 InfiniBand 链路上通信占比上升。预训练因此不能只报「用了 MoE」，必须同时报专家宽度、每卡专家数、EP 组是否跨节点。GShard 在 TPU 上把专家维对齐 mesh 的一条轴，Switch 在同类轴上减少 $k$，都是在为这条 roofline 服务。
 
 节点拓扑会再乘一个系数。同一节点内 NVLink 的带宽比跨节点 InfiniBand 高一个数量级。若 EP 组跨了太多节点，All-to-All 的短消息会被跳数拖死。一种常见约束是限制每个 token 路由到的节点数，把通信域收进更小的 EP 组；代价是路由自由度下降，需要用负载策略把热专家打散到不同节点。
+
+```mermaid
+flowchart TD
+  R["路由结果: 每个 token 选 k 个专家"] --> H{"专家负载均衡吗?"}
+  H -- "均匀" --> EVEN["每卡收约 T/E 个 token"]
+  EVEN --> OK["计算与通信都被摊薄"]
+  H -- "出现热专家" --> HOT["热专家所在卡远超平均负载"]
+  HOT --> WAIT["step time 由最慢的卡决定"]
+  CAP["容量因子 c 定死槽位 C"] --> DROP["超槽 token 被丢弃或重排"]
+  DROP --> BAL["再用辅助损失 / 偏置 / 冗余专家均衡"]
+```
 
 ## 边界
 

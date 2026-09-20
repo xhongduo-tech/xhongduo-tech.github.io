@@ -23,6 +23,8 @@ $$
 
 $k=8$、$d=7168$、FP8 dispatch 时，通信量可以与一层 MLP 的计算同量级。若专家均匀、路由均匀，这是规则 All-to-All；若热专家塌缩，变成多对一拥塞，冷卡在等。Switch Transformer 把 $k$ 收到 1 以简化；GShard 用 $k=2$ 加容量因子把缓冲定死。V3 用 $k=8$ 加节点限制（每 token 最多 4 个节点）控制 IB 跳数。同一「All-to-All」词，三种系统的消息图不同。
 
+<span class="marginnote">数字实例：$k=8$、$d=7168$、FP8（每数 1 字节）时，每个 token 的 dispatch 激活约 $8\times7168=57344$ 字节 $\approx56$ KB。一步 4096 个 token，单卡要发出约 230 MB——这还只是一层的正向。</span>
+
 通用 NCCL All-to-All 假设每对 rank 交换固定长度。MoE 需要：变长、按 `topk_idx` permute、FP8 缩放因子同行、combine 侧对多专家输出加权求和。用规则 All-to-All 加 padding，带宽付给空槽。EP 的核必须把门控输出当成通信计划。
 
 ### Scale-up 与 scale-out 两截
@@ -40,6 +42,8 @@ $k=8$、$d=7168$、FP8 dispatch 时，通信量可以与一层 MLP 的计算同�
 ### Combine 与精度
 
 专家输出乘以门控权重，按源 token 累加。数值上 combine 常保 BF16/FP32，即使 dispatch 是 FP8——V3 明确这样做。累加发生在哪一跳（NVLink 侧还是 IB 侧）决定慢网上看见的是已化简向量还是 $k$ 份原向量。Warp 特化把发送、转发、接收拆开，并与计算流重叠：训练用 DualPipe 把 attention / dispatch / MLP / combine 与反向切块重排，使 All-to-All 与 PP 通信藏进计算；推理预填充用双微批交叉，解码用点对点 IB + IBGDA 降延迟。
+
+<span class="marginnote">术语翻译：dispatch 就是「寄出」——按每个 token 选中的专家地址打包寄走；combine 就是「收货」——专家算完的结果乘上门控权重，再按原单号累加回各自的 token。两次交换合称 EP 的 All-to-All。</span>
 
 ```mermaid
 flowchart TD
@@ -65,6 +69,15 @@ flowchart TD
 ### DualPipe 藏住的是什么
 
 报告把一个 chunk 切成 attention、dispatch、MLP、combine（反向再拆输入/权重梯度）。重排后，All-to-All 与流水线点对点可以和另一段 GEMM 同时进行。这要求通信核占用的 SM 可调：占满全部 SM 的「很快」All-to-All 会让重叠失败。EP All-to-All 的性能因此是「有效带宽 × 可重叠比例」，不是单项 microbenchmark。
+
+```mermaid
+flowchart TD
+  T["token 要去别的节点上的专家"] --> A["路径一: 每条专家边直接打 IB"]
+  T --> B["路径二: 先 IB 到目标节点的入口 GPU"]
+  A --> A1["IB 消息数随 top-k 增长, 慢网拥塞"]
+  B --> B1["再走 NVLink 分发到持专家的卡"]
+  B1 --> B2["IB 跳数被节点限制压成常数"]
+```
 
 ## 边界
 

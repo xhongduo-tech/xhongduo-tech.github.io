@@ -17,6 +17,8 @@ section: llm
 
 Token-choice 的均衡靠辅助损失，失败则专家饿死或过载 drop。作者问：若约束直接写在专家配额上，还能否提高专家利用率与下游质量？分数矩阵 $S\in\mathbb{R}^{T\times N}$，列上 top-$C$、$C$ 由目标等价负载决定，则每个专家恰好 $C$ 个 token。
 
+<span class="marginnote">术语翻译：token-choice 是「学生选课」——每个 token 自己挑最合适的专家，热门课会爆满；expert-choice 是「老师挑学生」——每个专家按配额挑自己最擅长的 token，课课满员，但可能有学生一门课都没被挑上。整篇论文就是这一次视角翻转。</span>
+
 副效应：行和不再恒等于 $k$。过分配与零覆盖是论文必须处理的对象，不是实现 bug。
 
 ### 训练可见整段 $T$
@@ -42,6 +44,18 @@ flowchart TD
 
 与 Switch 的 drop 伤害对象不同：Switch 丢过载门口的人；EC 丢无人认领的人。长尾语言风险在论文的通用语料平均里可能被稀释。
 
+```mermaid
+flowchart TD
+  TC["Token-choice：token 挑专家（每行 top-k）"] --> TCD["专家过载：丢排队的 token"]
+  EC["Expert-choice：专家挑 token（每列 top-C）"] --> ECA["热 token 被多个专家抢（过分配）"]
+  EC --> ECB["冷 token 无人认领（零覆盖）→ 回退 / 残差"]
+  TCD --> CMP["两种路由丢的对象不同，监控指标也不同"]
+  ECA --> CMP
+  ECB --> CMP
+```
+
+<span class="marginnote">常见误区：把「零覆盖 token」当成实现 bug。它恰恰是 expert-choice 的定义性副作用——专家各挑各的，没有任何机制保证每个 token 都被认领。工程上必须显式写回退策略（残差直通或强制分配），并把零覆盖率当一等指标监控。</span>
+
 <span class="marginnote">容量 $C$ 在 EC 里是吃满配额，在 Switch 里是上限。同一符号，对照时必须说清等式还是不等式。</span>
 
 ### 在对照链中的位置
@@ -51,6 +65,8 @@ flowchart TD
 ## 边界
 
 小 $T$（微 batch）时 top-$C$ 统计崩溃。packing 跨样本会让专家跨句抢 token，论文设定若为单句 / 规范 batch，搬到 LLM packing 必须加掩码。生成任务要用 token-choice 近似，训练–推理差是一等限制。
+
+<span class="marginnote">为什么重要：训练时整句可见，专家才能「看着全句挑 token」；生成时下一个词还没出现，列 top-$C$ 根本没得挑。这是 EC 不能直接用于自回归解码、工业界默认仍是 token-choice 的根本原因——不是没人试，而是因果结构不允许。</span>
 
 NeurIPS 2022 的数字绑定他们的模型与数据。Mixtral / DeepSeek 产品默认仍是 token-choice，说明工业默认并未翻转。对照价值是指出负载约束可以写在另一条轴上。
 

@@ -17,6 +17,8 @@ section: llm
 
 稠密 Transformer 的三维并行已经有固定语言：数据并行（DP）切 batch，张量并行（TP）切矩阵宽，流水线并行（PP）切层。MoE 多出来一维——专家。若把所有专家复制到每张卡，和 DP 一样，内存按专家数涨，稀疏的意义只剩下计算，存不住。若把专家和隐藏维一起交给 TP 切，通信模式与专家选择纠缠，几乎无法实现容量约束。必须有一种并行：设备的划分单位是专家，通信的单位是 token。
 
+<span class="marginnote">直觉类比：把 MoE 想象成一家专科医院：科室（专家）分散在不同楼层（GPU），病人（token）先到分诊台（路由），护士用内部快递（All-to-All）把病人送到对应楼层看病（FFN），看完再快递回原楼层（combine）。这两趟快递，就是 EP 的通信税。</span>
+
 ### 通信是 MoE 的税
 
 稠密 FFN 是本地 GEMM。MoE 在 GEMM 之前之后各加一次集体通信。税的大小等于被发送的 token 数乘隐藏维乘字节数，再乘 $k$（每个 token 可能去 $k$ 个专家）。EP 度越高，每卡专家越少、本地 GEMM 越轻，但 All-to-All 的对端越多、越容易被网络堵住。问题因此是：EP 大到刚好让专家放下、计算仍能盖住通信，而不是越大越好。<span class="marginnote">All-to-All 与 All-Reduce 不同。TP 里的 All-Reduce 对同一份梯度或激活做求和；EP 里的 All-to-All 是置换：每张卡把不同 token 发给不同的卡，没有求和语义。实现错成 All-Reduce 会把专家输入搅成垃圾。</span>
@@ -54,6 +56,17 @@ $$
 
 其中 $T$ 是全局 token 数，$s$ 是每元素字节（BF16 为 2）。因子 2 来自 dispatch 与 combine。$T/E$ 是「若均匀」每卡发出的 token；不均时热专家所在卡收到远多于 $T/E$，这就是负载不均同时伤害计算和网络。
 
+```mermaid
+flowchart LR
+  T1["卡0 的 token 要找卡1 上的专家 E3"] --> D["Dispatch：按专家 id 重排发送"]
+  T2["卡1 的 token 要找卡0 上的专家 E1"] --> D
+  D --> F["各卡只算自家专家凑成的 batch"]
+  F --> C["Combine：按原 token 顺序送回原卡"]
+  C --> O["原卡加权求和并写回残差"]
+```
+
+<span class="marginnote">数字实例：取 $T=8192$、$E=32$、$k=2$、$d=4096$、BF16（$s=2$ 字节），每卡一次前向的 All-to-All 约 $2\times2\times256\times4096\times2\approx8.4$ MB。乘上层数、再加上反向的两次，就能理解为什么负载不均时热卡的网络最先被打满。</span>
+
 ### 计算通信比
 
 本地专家 FLOPs 约 $4\cdot (T k / N)\cdot d\cdot d_{\mathrm{ff}}$ 量级（再按每卡专家数分配）。$d_{\mathrm{ff}}$ 大、专家较肥时，GEMM 能盖住 All-to-All；$d_{\mathrm{ff}}$ 小、专家很碎（细粒度 MoE）时，通信占比上升，必须靠更大的 microbatch 或把多个小专家绑在同一卡上做 batched GEMM。这是 DeepSeek 细粒度专家必须认真做内核融合的原因：EP 仍然成立，但 roofline 从计算墙走向通信墙。
@@ -68,7 +81,9 @@ EP 不是推理的唯一方案。服务期若专家数不大，可以把热专�
 
 不要把 EP 和「把 FFN 做成模型并行切行」当成一件事。后者是 TP，通信是 All-Reduce；前者是按专家 ID 的置换。写配置时要分开写 `tp_size` 与 `ep_size`。GShard / Switch 给出的是并行语义；具体 NCCL 还是 TPU 运行时，随硬件换。
 
-拓扑上还有一层容易忽略：同一节点内的 NVLink 与跨节点的 InfiniBand 时延差一个数量级。若 EP 组跨了太多节点，All-to-All 会被跨节点跳数拖死。DeepSeek 一类系统因此限制每个 token 访问的节点数，把 EP 组切成更小的通信域。负载不均会让这个限制更痛：热专家所在节点既是计算热点也是网络热点，step time 由它决定。调试时应同时看每卡的 token 接收直方图和 NCCL 耗时，而不是只看平均 FLOPs。空槽（capacity padding）会进入通信缓冲区，容量因子过大时，你在为空气付带宽。<span class="marginnote">专家并行度不必等于专家总数。每卡可以放多个小专家，用 batched GEMM 一次算完，这正是细粒度 MoE 保计算密度的办法。EP 度只决定「专家被切到几张卡」，不决定「每卡几个专家」。</span>检查点时要按专家切分保存，恢复时设备数若变了，必须做专家重映射，否则权重会对错卡。这些是 EP 作为系统策略的边界，不是路由公式能覆盖的。
+拓扑上还有一层容易忽略：同一节点内的 NVLink 与跨节点的 InfiniBand 时延差一个数量级。若 EP 组跨了太多节点，All-to-All 会被跨节点跳数拖死。DeepSeek 一类系统因此限制每个 token 访问的节点数，把 EP 组切成更小的通信域。负载不均会让这个限制更痛：热专家所在节点既是计算热点也是网络热点，step time 由它决定。调试时应同时看每卡的 token 接收直方图和 NCCL 耗时，而不是只看平均 FLOPs。空槽（capacity padding）会进入通信缓冲区，容量因子过大时，你在为空气付带宽。
+
+<span class="marginnote">常见误区：以为容量因子调大就「安全」。超配的空槽（padding）会占着通信缓冲区一起被发送——容量因子 2.0 意味着你可能为多达一半的空气付带宽和显存。超额 token 应该在分发前就丢弃，而不是把空气搬过网络再扔。</span><span class="marginnote">专家并行度不必等于专家总数。每卡可以放多个小专家，用 batched GEMM 一次算完，这正是细粒度 MoE 保计算密度的办法。EP 度只决定「专家被切到几张卡」，不决定「每卡几个专家」。</span>检查点时要按专家切分保存，恢复时设备数若变了，必须做专家重映射，否则权重会对错卡。这些是 EP 作为系统策略的边界，不是路由公式能覆盖的。
 
 ## 小结
 

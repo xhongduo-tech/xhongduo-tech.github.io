@@ -17,6 +17,8 @@ section: llm
 
 嵌入请求是一次 prefill 式前向，输出 $d$ 维向量，可大批、可padding。重排是对每个候选一次交叉编码，$k$ 候选就是 $k$ 次（或拼 batch）。缺口是不要用 decode 会计：这里没有 $\mathrm{KV}(n)$ 随生成增长，有的是短序列的高 QPS。延迟 SLA 是 p99 毫秒级向量，不是 TPOT。把嵌入与 LLM 放同一连续批，形状与掩码都不同，核融合也不同。
 
+<span class="marginnote">直觉类比：LLM 服务要为每个请求留一块随生成不断变长的「草稿纸」（KV 缓存）；嵌入请求一次前向就交卷，根本不用草稿纸。为嵌入建 KV 池，等于给交卷即走的考生留永久座位，钱花在没人坐的地方。</span>
+
 动态 padding：批内按最长序列 pad，过长尾巴浪费。应按长度分桶，与训练不同，这是服务分桶。
 
 <span class="marginnote">重排器的 FLOPs 随候选数线性，召回 $k=200$ 再重排 50 是典型。成本模型应写在检索路径上，不要记进「每个用户问题一个 LLM token」。RAG 的隐藏账单往往在这里。</span>
@@ -26,6 +28,8 @@ section: llm
 嵌入：静态或半静态形状，CUDA Graph 友好，`torch.compile` 收益比 LLM decode 更干净。大 batch 直到拐点。多卡用数据并行复制模型，不必 TP——模型往往放得进单卡。重排：候选 batch 维，注意注意力掩码。与 LLM 协同：异步队列，不要在 LLM 的 GPU 上同步插一条嵌入前向（打乱 decode 池工作点）。
 
 向量维与归一化是契约（是否 L2），服务端必须与训练一致，否则检索静默变差。
+
+<span class="marginnote">为什么这一步不能错：训练时做了 L2 归一化、服务时忘了做，点积就会带上长度偏差——长文档的向量普遍更长，会系统性地排到前面。整个检索质量悄悄下滑，日志里却没有任何报错。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,20 @@ flowchart TD
 ## 机制
 
 算术强度随 $B$ 与 $n$ 升，容易 compute-bound，MFU 可比 LLM decode 高一个数量级。这解释了为什么同一张卡跑嵌入「看起来利用率很好」、跑聊天 decode「利用率很差」——不是嵌入实现更强，是工作点不同。成本 $C$ 按请求或按 token 计都可以，但不要用 LLM 的 $C_{\mathrm{tok}}$ 乘嵌入 token。
+
+<span class="marginnote">数字实例：7B 模型 BF16 权重约 14 GB，聊天 decode 每生成一个 token 都要把整份权重读一遍，算术强度只有每字节约两次运算；而嵌入一批几百条短句走稠密 GEMM，权重读一次摊给大量计算，算术强度高一个数量级。所以两种「利用率」根本不是一回事。</span>
+
+```mermaid
+flowchart TD
+  SUB["三类请求进站"] --> LLM["LLM decode: KV 随步增长, 看 TPOT"]
+  SUB --> EMB["嵌入: 一次前向出向量, 高 QPS"]
+  SUB --> RE["重排: 每候选一次交叉编码, 成本随 k 线性"]
+  LLM --> POOL1["LLM 池: 连续批 + 分页 KV"]
+  EMB --> POOL2["嵌入池: 长度分桶 + CUDA Graph"]
+  RE --> POOL2
+  POOL1 --> MIX["分池调度, 互不打乱对方工作点"]
+  POOL2 --> MIX
+```
 
 ## 边界
 

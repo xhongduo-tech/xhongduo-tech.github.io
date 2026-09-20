@@ -25,19 +25,6 @@ section: llm
 
 三种可组合方案：（1）云 prefill，KV 不下发，端只显示流——即普通服务；（2）云 prefill，下发 KV，端 decode——只在 $n_{\mathrm{prompt}}$ 小、KV 量化后体积小于再计算时；（3）端上小模型全程，云只在难例升级——路由。投机是（3）的精细版，下一课专写。Splitwise 是云内（1）的机器分型：prefill 池买算力卡，decode 池买显存带宽卡，用 KV 在高速互连上搬——数据中心内才划算。
 
-「云 prefill 完端上接 decode」这条方案，值不值得走要过两道闸：
-
-```mermaid
-flowchart TD
-  PLAN["云 prefill 完，端要不要接 decode"] --> Q{"提示短吗"}
-  Q -->|"长：上万 token"| NO["不下发：满 KV 是体积炸弹"]
-  Q -->|"短"| Q2{"KV 量化后体积 \lt 端重算 prefill 的代价？"}
-  Q2 -->|是| YES["下发 KV：端上 decode"]
-  Q2 -->|否| RE["不下发：端重算或留在云"]
-```
-
-<span class="marginnote">KV 有多大？以 8B 级模型、16K 上下文为例，FP16 未量化的 KV cache 约 2 GB，比很多人想的重得多；压到 4-bit 也还有几百 MB，移动网络上传仍是数十秒级。所以「下发 KV」只在短提示、且量化后体积确实小于端上重算时才划算——这正是决策树第二道闸的存在理由。</span>
-
 
 ```mermaid
 flowchart TD
@@ -51,6 +38,19 @@ flowchart TD
 ## 机制
 
 成本模型：云 decode 占用槽位的时间贵；端 decode 电与延迟受 DRAM 限制。最优切分随 $n$、$N$、是否长思维链变。长思维链在端上会先撞容量；应云侧 decode 或缩短链。视觉编码可留端（隐私）或留云（算力），见[视觉流水](/llm/vision-encoder-pipeline)。
+
+「云 prefill 完端上接 decode」这条方案，值不值得走要过两道闸：
+
+```mermaid
+flowchart TD
+  PLAN["云 prefill 完，端要不要接 decode"] --> Q{"提示短吗"}
+  Q -->|"长：上万 token"| NO["不下发：满 KV 是体积炸弹"]
+  Q -->|"短"| Q2{"KV 量化后体积 \lt 端重算 prefill 的代价？"}
+  Q2 -->|是| YES["下发 KV：端上 decode"]
+  Q2 -->|否| RE["不下发：端重算或留在云"]
+```
+
+<span class="marginnote">KV 有多大？以 8B 级模型、16K 上下文为例，FP16 未量化的 KV cache 约 2 GB，比很多人想的重得多；压到 4-bit 也还有几百 MB，移动网络上传仍是数十秒级。所以「下发 KV」只在短提示、且量化后体积确实小于端上重算时才划算——这正是决策树第二道闸的存在理由。</span>
 
 ## 边界
 
