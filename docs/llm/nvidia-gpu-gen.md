@@ -19,6 +19,8 @@ section: llm
 
 若只比较「FP16 TFLOPS」，会得出「每代大约若干倍」的单薄结论，然后在 decode 上失望：HBM 没有按同一倍数涨。若只比较显存容量，会忽略 FP8 / FP4 让同一容量能放下的参数变多、同时让拐点右移。若只比较 NVLink，会忽略 MIG、机密计算、Transformer Engine 这些改变部署形态的功能。需要一张按轴对齐的表：计算精度、HBM、互连、多实例、系统形态。
 
+<span class="marginnote">术语翻译：「屋顶线拐点」就是把性能想成「算力天花板」与「带宽天花板」中较低的那个——矩阵大时算力封顶，矩阵小时带宽封顶，两段的交点就是拐点。精度每降一档，计算变快、交点右移：原本受算力限制的 prefill 换代后可能反而变成受带宽限制。</span>
+
 公开锚点如下（均为 NVIDIA 产品页 / 数据手册，SXM 类，除非注明）。A100 80GB：HBM2e 带宽约 2.039 TB/s；第三代 NVLink 600 GB/s；第三代 Tensor Core（含 TF32、BF16、稀疏）；MIG 最多 7 实例。H100 SXM：HBM3 80GB、3.35 TB/s；第四代 NVLink 900 GB/s；第四代 Tensor Core 与 Transformer Engine（FP8）；稀疏 FP16 1,979 TFLOPS、稀疏 FP8 3,958 TFLOPS；PCIe Gen5 128 GB/s；MIG 最多 7 个约 10GB 实例；TDP 可到 700W。Blackwell（B200 / GB200 叙事）：第五代 Tensor Core，引入 FP4 / FP6 与微缩放格式；第五代 NVLink 每 GPU 1.8 TB/s；HBM3e，公开材料约 8 TB/s 带宽、单卡容量到 192 GB 量级；GB200 NVL72 把 72 张卡收成 130 TB/s 域。H100 产品页另列 H100 NVL（PCIe 双槽）规格，与 SXM 不可混用。
 
 ### 精度轴：TF32 → FP8 → FP4
@@ -32,6 +34,8 @@ A100 把 TF32 做成 Tensor Core 可用的训练格式，降低「必须 FP16 �
 ## 方法
 
 换代时按工作点选轴，而不是按最高 TFLOPS 选卡。
+
+<span class="marginnote">数字实例：decode 每生成一个 token 都要把全部权重读一遍。7B 模型 FP16 约 14 GB，在 A100 的 2.0 TB/s 上光读权重就要约 7 ms；H100 的 3.35 TB/s 压到约 4 ms；权重再存成 FP8 砍半体积，同样的卡又快近一倍——这就是「decode 看 HBM 带宽与容量」的那本账。</span>
 
 - **Decode / 小 batch**：看 HBM $B$ 与容量。H100 3.35 TB/s 相对 A100 约 2.0 TB/s 有帮助，但小于 FP8 峰值的倍数；Blackwell 约 8 TB/s 与更大 HBM3e 对长 KV 更对症。
 - **Prefill / 训练 GEMM**：看 Tensor Core 精度与 $P$。能跑 FP8 的 H100 已经把平台抬高；Blackwell 的 FP4 对推理 prefill 与大吞吐更敏感。
@@ -61,6 +65,19 @@ Hopper 引入加速器侧机密计算（产品页强调 TEE）。这改变「能
 
 每一代把 MMA 阵列加宽、把支持的数据类型变窄，于是 $P$ 涨。HBM 代数从 HBM2e 到 HBM3 到 HBM3e，引脚速率与堆叠容量涨，$B$ 与 GB 涨，但通常慢于 $P$。NVLink 代数加链路、加每条速率，A100 12 条链路级叙事给出 600 GB/s，H100 产品页 900 GB/s，Blackwell 1.8 TB/s。域的大小在 HGX 上维持 8，在 NVL72 上变成 72——这是系统级机制，不是 SM 内部机制。
 
+```mermaid
+flowchart TD
+  Q["换代选卡：按工作点问轴"] --> W{"负载是什么？"}
+  W -- "Decode / 小 batch" --> AX1["看 HBM 带宽与容量"]
+  AX1 --> C1["长 KV 场景 Blackwell 约 8 TB/s 更对症"]
+  W -- "Prefill / 训练 GEMM" --> AX2["看 Tensor Core 精度与 P"]
+  AX2 --> C2["FP8 从 H100 起，FP4 看 Blackwell 与 TE 配置"]
+  W -- "大模型并行" --> AX3["看 NVLink 域宽"]
+  AX3 --> C3["8 卡域够用选 HGX，要跨 72 选 NVL72"]
+  W -- "多租户切片" --> AX4["看 MIG 粒度"]
+  AX4 --> C4["切片表按该代用户指南核对"]
+```
+
 软件兼容靠 CUDA 能力版本与库。旧的 FP16 GEMM 在新卡上仍能跑，只是停在旧精度的 $P$ 上。要吃新精度，必须让框架调用对应的 cuBLAS / cuDNN / TE 路径，并接受数值协议（缩放因子、微缩放块）。换代失败的常见原因不是驱动装不上，而是工作点仍按上一代精度与 8 卡拓扑切。
 
 <span class="marginnote">H100 NVL 的 NVLink 产品页写 600 GB/s，与 SXM 的 900 GB/s 不同。对比三代时不要把 PCIe 形态的 NVLink 写进 SXM 列。</span>
@@ -72,6 +89,8 @@ Hopper 引入加速器侧机密计算（产品页强调 TEE）。这改变「能
 ## 边界
 
 不要用 A100 的 TF32 峰值去比 H100 的稀疏 FP8。不要在没有 NVLink 的 PCIe 机器上按 HGX 的 8 卡全互连切 TP。不要假设 Blackwell 的 FP4 可以无条件替代训练——产品叙事里 FP4 更偏推理；训练精度以你实际启用的 TE 配置为准。不要把 GTC 路线图上的下一代名称写进这一代的带宽表。
+
+<span class="marginnote">常见误区：以为新卡插上、旧代码自动快 3 倍。旧的 FP16 GEMM 在新卡上仍停在旧精度的 $P$ 上；要吃到 FP8 / FP4 的峰值，框架必须真的调用 TE / cuDNN 的对应路径并接受其缩放协议——没有走出对应 MMA，换代只买到容量收益。</span>
 
 功耗与冷却是硬边界。H100 SXM 可到 700W；Blackwell 机柜是液冷超节点。电与热先于 TFLOPS 决定你能不能把规格用满。昇腾或其他厂商的代际表不能用本篇三列去填。
 

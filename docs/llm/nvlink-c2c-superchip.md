@@ -19,6 +19,8 @@ section: llm
 
 C2C 要解决的是：让 CPU 成为超芯里的数据引擎，而不是机箱里的另一台主机。一致性意味着 load/store 语义跨过两种物理内存，程序员用指针而不是用「拷完再 launch」。代价是：远内存的延迟与带宽仍差一档，乱甩 KV 到 LPDDR 会把 decode 送回 [显存墙](/llm/decode-memory-wall) 更差的分母上。
 
+<span class="marginnote">直觉类比：PCIe 拷贝像把家里的文件复印一份带去办公室再看；C2C 一致性像同一间办公室的共享网盘——大家看的是同一份，谁改了别人立刻看见。但网盘再快，去远处书架取书仍比从手边拿慢：HBM 与 LPDDR 的速度差是物理的，一致性不消除它。</span>
+
 ### 超芯不是一块硅，是一块主机处理板
 
 公开材料把超芯写成：两颗 Rubin GPU + 一颗 Vera CPU，经内存一致性 NVLink-C2C 集成，落在同一主机处理母板上。NVL72 的计算托盘再集成两颗超芯，以及网卡、DPU、液冷。CUDA 仍然看见多颗 GPU；CPU 是宿主。没有把 2 GPU + 1 CPU 融成单个 `cudaSetDevice` 的魔法。「超芯」指封装与一致性域，不是单个 PCIe 功能号。
@@ -54,6 +56,8 @@ $$
 
 卡住。$B_{\mathrm{c}}$ 公开约 1.8 TB/s，$B_{\mathrm{h}}$ 公开高达 22 TB/s，差一个数量级以上。只有当 $p$ 对应的是「否则 OOM 或抢掉热工作集」的那一段，卸载才值得。把全部 KV 默认放到 LPDDR，等于自愿用 C2C 屋顶线跑 decode。PD 分离里，若 decode 池仍在同一超芯，预置可以走 C2C 而不是柜外 RDMA；跨柜仍走 [GPUDirect](/llm/infiniband-gpudirect)。
 
+<span class="marginnote">数字实例：设一次 decode 读 40 GB KV，其中 $p=25\%$ 落在 LPDDR。HBM 项 $30 \text{ GB} / 22 \text{ TB/s} \approx 1.4$ ms，C2C 项 $10 \text{ GB} / 1.8 \text{ TB/s} \approx 5.6$ ms——冷数据只占四分之一，耗时却占八成。压小 $p$（精挑冷块）比抱怨 C2C 慢有效得多。</span>
+
 ## 机制
 
 一致性织物维护 CPU 缓存与 GPU 页之间的所有权。GPU 直达 CPU 内存的 load，可能打到 Vera 的 SCF / L3 / LPDDR；CPU 访问映射到 HBM 的页，走反向 C2C。这比 PCIe BAR 映射更接近 NUMA，但仍是非均匀的。页大小、迁移策略、是否用 ATS / 统一寻址，以 CUDA 与驱动指南为准。本篇不发明机柜级单一页表。
@@ -65,6 +69,18 @@ $$
 ### 软件兼容与失败模式
 
 Arm 上的宿主进程、CUDA 上下文、NCCL 通信子仍然分对象。统一地址空间减少拷贝，不消除「这段缓冲被哪边缓存」的同步。失败常见于：以为 `malloc` 在 CPU 上的缓冲 GPU 能以 HBM 速度扫；忘记预取，decode 每步都在 C2C 上随机打 KV；以及把检查点写进 C2C 能看见的池，与训练通信抢带宽。profiler 应分别显示 HBM、C2C、NVLink、PCIe 四条流量，而不是一个「GPU 利用率」。
+
+```mermaid
+flowchart TD
+  subgraph P["PCIe 路径：拷贝再算"]
+    A1["CPU 算出工具输出"] --> A2["cudaMemcpy 经 PCIe（约 256 GB/s）"]
+    A2 --> A3["拷完再 launch kernel"]
+  end
+  subgraph C["C2C 路径：指针即达"]
+    B1["CPU 直接写一致性缓冲"] --> B2["GPU 以指针 load 消费"]
+    B2 --> B3["仍要管缓存同步与预取"]
+  end
+```
 
 ## 边界
 

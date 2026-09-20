@@ -21,6 +21,10 @@ section: llm
 
 <span class="marginnote">导出用 `torch.onnx.export` 或 dynamo 导出，动态轴要声明。漏掉动态 $n$，就会在 $n=512$ 上编译、在 $n=513$ 上重编译或报错。</span>
 
+<span class="marginnote">术语翻译：ONNX 就是把模型写成一串标准算子（加、乘、MatMul、Attention……）连成的图的中间表示，类似「电路图」；ORT（ONNX Runtime）是执行这张图的引擎；EP（Execution Provider）则是引擎背后的「插座」——同一张图，插到 CUDA 上用 NVIDIA 跑，插到 DirectML 上用任意 DX12 显卡跑，插到 CPU 就用自带内核跑。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「导出成 ONNX 就等于完成 LLM 服务」。实际上 generate 循环、KV 追加、采样多半还留在 Python 里；只把一步 Transformer 导出，每步仍要跨语言调度。要快就得用 I/O binding 在 C++ 里自己写循环并管理 KV 缓冲——那已经接近重写一个推理引擎。</span>
+
 ## 方法
 
 适合 ORT 的：编码器、embedding、单步无分页的固定最大长缓冲（给每请求预留 KV，回到碎片问题）。生产级 LLM 服务更多用 vLLM/TRT-LLM；ORT 出现在：Windows DirectML 桌面、CPU、以及与 Azure 工具链绑定的部署。EP 选择：CUDA / TensorRT / DirectML / CPU。TensorRT EP 会再编译引擎，冷启动长，形状桶与[内核自动调优](/llm/kernel-autotuning)同类。
@@ -39,6 +43,19 @@ flowchart TD
 ## 机制
 
 ORT 的价值是 *图优化 + EP*：常量折叠、算子融合、把子图交给 TensorRT。LLM 的热核若已是 FA，ORT 未必更快；它赢在没有 PyTorch 依赖的桌面/CPU 路径，以及与 ONNX 工具链的运维。会计仍成立：decode 带宽墙不因换成 ORT 而消失。
+
+```mermaid
+flowchart TD
+  G["导入的 ONNX 图"] --> CF["常量折叠：编译期算完定值"]
+  CF --> FUSE["算子融合：多算子并成一个核"]
+  FUSE --> PART{"划分子图"}
+  PART -->|"标准算子"| ORT["ORT 自带内核执行"]
+  PART -->|"热核 / 自定义 op"| TRT["交给 EP：TensorRT 等"]
+  ORT --> RUN["同一进程合成执行"]
+  TRT --> RUN
+```
+
+<span class="marginnote">这张图回答的问题是：ORT 拿到图之后到底做了什么。数字实例：常量折叠把「缩放系数 × 0.5」这类编译期就能算死的乘法直接折成一个数；算子融合把「MatMul + 加偏置 + 激活」并成单个核，少两次中间张量写回显存——在 decode 这种带宽墙上，少一次写回往往比换算术本身更值。</span>
 
 ## 边界
 

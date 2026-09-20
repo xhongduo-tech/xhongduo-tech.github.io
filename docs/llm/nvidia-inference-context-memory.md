@@ -17,6 +17,8 @@ NVIDIA 把这层叫做 **CMX**（Context Memory Storage），产品叙述里也�
 
 长上下文、多轮、多智能体把 KV 体积变成与权重同级的一等公民。G1（GPU HBM）装不下并发会话；G2（主机内存）贵且不跨节点；G3（本机 SSD）不共享；G4（通用网络存储）延迟与功耗按企业存储计，不按「下一次 decode 前要把块预热进 HBM」计。结果是：要么重算 prefill，要么在通用存储上排队，GPU 空转。NVIDIA 要补的是中间档：**Pod 内共享、为 KV 块布局、由 DPU 卸下主机 CPU 的数据面**。公开材料称之为相对本机盘与企业盘之间的上下文层（业界转述里出现过 G3.5 的叫法；以 NVIDIA 自己的「pod-level context tier」为准）。
 
+<span class="marginnote">术语翻译：G1–G4 是给「KV 放哪」排的座位表——G1 是 GPU 显存（最快最小），G2 主机内存，G3 本机 SSD，G4 通用网络存储（最慢最便宜）。CMX 想补的是 G3 与 G4 之间那个「Pod 内共享、专为 KV 设计」的中间档。</span>
+
 Agent 工作流还会把同一段上下文在节点间挪来挪去。没有共享层，迁移等于丢缓存。需要的语义是键值块，不是文件锁：框架决定哪些块留 HBM、哪些下主机、哪些进 CMX。
 
 ### 为什么是 BlueField-4 而不是主机 NVMe-oF
@@ -50,13 +52,31 @@ flowchart TD
 
 KV 块一旦写完只读，直到淘汰。这让闪存层不必做训练检查点那种写回协议：热路径是随机读大块、顺序写新块、按引用计数回收。Memos 的工作是路由与复用：同一前缀的块应能被 Pod 内多个计算节点 RDMA 读，避免每节点一份 NVMe 副本。完整性与加密在 BlueField 上卸载，产品页用 Vera CPU 上压缩与 CRC32C 的倍数（约 3.29× / 3.67×）说明「别把校验放回主机」。这些倍数是处理器微基准叙事，不是端到端 tokens/s。
 
+```mermaid
+flowchart TD
+  NEW["decode 产出新 KV 块"] --> WR["顺序写入 CMX（追加不改写）"]
+  WR --> RO["块进入只读驻留"]
+  RO --> HIT{"下一请求前缀命中？"}
+  HIT -- "是" --> PRE["decode 前预热进 G2/G1"]
+  PRE --> USE["本步 decode 读取"]
+  HIT -- "否" --> STAY["留驻 CMX 等待复用"]
+  STAY --> REF{"引用计数归零？"}
+  USE --> REF
+  REF -- "否" --> RO
+  REF -- "是" --> GC["回收空间给新块"]
+```
+
 预热（prestage）是唯一能把闪存延迟藏进 GEMM 的机制。调度器必须知道下一轮 decode 要用哪些块，否则 CMX 只是一张更贵、更远的盘。Dynamo 的 KV-aware 放置把请求送到「块已经在的地方」，和 [Ray KV-aware 路由](/llm/ray-kv-aware-routing) 同一逻辑，只是介质从引擎 HBM 扩到 Pod 闪存。没有这一层控制面，共享层会退化成全员打同一热点 SSD。
+
+<span class="marginnote">直觉类比：预热像开餐前把菜从冷库推进备餐台——上菜时（decode 开始）不用等冷库开门。前提是调度器提前知道「下一道菜是什么」；乱推一气，备餐台塞满没人点的菜，宝贵的 HBM 反而被挤爆。</span>
 
 <span class="marginnote">NIXL 是搬运库：注册内存、描述符、跨节点 RDMA。CMX 是介质与 DPU 服务。两者缺一，框架只能看见「又一个 blob 后端」。规划时分别问：块管理器是否把 CMX 当一等层；网卡路径是否真走 Spectrum-X 而不是主机核上的 TCP。</span>
 
 ## 边界
 
 CMX 面向 Rubin / BlueField-4 时间线。在只有主机 NVMe 的机房里，应继续用引擎分层卸载与 Mooncake / LMCache，不要假装有 G3.5。多租户隔离、密钥与块生命周期（用户删除会话必须能失效 KV）是产品页上的安全叙事，落地要按 DOCA 与伙伴阵列的实际 ACL 验收。5× TPS / 5× 能效是相对「传统存储路径」的上限表述，长上下文、高复用、预热命中的负载才可能靠近；一次性无共享文档不要指望同等倍数。
+
+<span class="marginnote">常见误区：把 CMX 当成「更大的显存」，指望 decode 时直接从它读。预热没盖住的那次读取会原原本本进 TPOT；热 decode 工作集仍必须常驻 HBM——CMX 买的是容量、跨节点复用和提前预热，不是低延迟主存。</span>
 
 ### 预热窗口与 SLO
 

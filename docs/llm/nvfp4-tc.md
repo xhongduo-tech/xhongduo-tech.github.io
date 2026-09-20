@@ -17,6 +17,8 @@ Blackwell 把 4-bit 浮点推进 MMA。NVFP4 的元素是 **E2M1**（幅度大�
 
 Hopper 推理的主流窄精度是每张量（或每块较大）的 FP8。权重与激活相对 BF16 减半，decode 仍要逐步扫参数与 KV。再窄到 4 bit，动态范围与量化误差成为质量墙：E2M1 的格子粗，一张量一个 amax 会把多数通道挤进少数档位。MXFP4 用 32 元一块的幂次尺度做微缩放，是多厂商标准。NVIDIA 在 Blackwell 上选择更小的块（16）和带尾数的 E4M3 尺度，再用张量级 FP32 把块尺度重新放进 E4M3 能表示的范围。没有这套两级尺度，裸 INT4 / 裸 FP4 不是同一条硬件路径。
 
+<span class="marginnote">数字实例：E2M1 的非零幅度只有 7 档——±0.5、±1、±1.5、±2、±3、±4、±6。若整张量共用一把尺子，一个 6.0 的大值把尺子拉满后，0.6 的小值只能落进 0.5 或 1 两档，一步误差超过 40%；换成 16 元一块各配尺度，0.6 在自己块里可能就是最大值，乘上块尺度后恰好落在满格，几乎无损。</span>
+
 软件栈必须把尺度作为 MMA 操作数送达 TMEM，而不是在 epilogue 里补乘。CUTLASS SM100 的块缩放 MMA、cuDNN 的 grouped+quant 融合、TE 的 `autocast(recipe=NVFP4BlockScaling())`，都是在履行这条合同。H100 没有原生 NVFP4 MMA；在 Hopper 上「NVFP4」最多是存储格式加软件反量化。
 
 ### 两级尺度各管什么
@@ -51,6 +53,8 @@ flowchart TD
 
 E2M1 只有极少档位。块内至少有一个值（amax）在缩放到 FP4 之前接近满格，等价于该样本以近 FP8 的相对精度被表示——预训练文把这说成块内至少 6.25%（1/16）的值近 FP8。MXFP4 的幂次尺度可能整块丢掉一个 binade。NVFP4 用 E4M3 换「尺度更准、范围更窄」，再用 FP32 张量尺度把范围买回来。这是格式设计，不是训练技巧。
 
+<span class="marginnote">直觉类比：两级尺度像地图的双层比例尺——张量级 FP32 先定「这张图覆盖多大范围」，块级 E4M3 再定「每个街区放大多少倍」，E2M1 只负责街区里的步进。粗格子的元素被分进各自的街区后，各得其所。</span>
+
 MMA 侧，SFA 沿 M、SFB 沿 N，按 $K$ 方向的块步进。`tcgen05.mma` 在乘加时应用尺度，累加在 TMEM 的 FP32 格里。Epilogue 再量化回 NVFP4 或写出 BF16。没有这条 MMA，所谓 Tensor Core 路径就不存在。H100 上的 INT4 / FP8 核、软件模拟的 E2M1，都不应标成 NVFP4 Tensor Core。
 
 <span class="marginnote">MXFP4 是 OCP 多厂商标准；NVFP4 是 NVIDIA 在 Blackwell 上的选择。检查点不能假设在 AMD 上原生命中，需要重打包。TE 与 TensorRT-LLM 往往两者都支持，布局不同。发布权重时写清格式名。</span>
@@ -61,9 +65,26 @@ FP8 每张量或每 32 元（MXFP8）一块，格子比 E2M1 细，质量合同�
 
 「权重 INT4 + CUDA 反量化 + FP16 GEMM」省的是盘与 HBM 容量，算术仍按 FP16 屋顶线。NVFP4 Tensor Core 路径省容量 **且** 把 $P$ 换到 4-bit MMA。验收看 SASS / profiler 的 MMA kind，以及端到端是否仍在做逐块反量化。
 
+```mermaid
+flowchart TD
+  subgraph STORE["只存 4 bit：软件反量化"]
+    W1["权重 E2M1 存盘"] --> DQ["CUDA 核逐块反量化"]
+    DQ --> G1["FP16 GEMM：算术按 FP16 屋顶线"]
+    G1 --> R1["只省容量，不省算力"]
+  end
+  subgraph TC["NVFP4 Tensor Core 路径"]
+    W2["权重 E2M1 + 块尺度"] --> M2["SM100 块缩放 MMA 直接吃 4 bit"]
+    M2 --> A2["FP32 累加在 TMEM"]
+    A2 --> R2["容量与算术密度都省"]
+  end
+  R1 -. "验收分界：profiler 看 MMA kind" .-> R2
+```
+
 ## 边界
 
 非 Blackwell 设备上不要报 NVFP4 吞吐。SM120 是否完整暴露与 SM100 相同的 `kind::nvf4` 形状，以该 SKU 文档为准，不能从 B200 表抄到消费卡。对齐：16 元一块要求 $K$ 或量化轴能整除；MoE 小 $M$ 还要满足 grouped 核的 $M$ 对齐（SM100 文档曾写 256），两套对齐叠在一起会强制 padding。
+
+<span class="marginnote">常见误区：看到「4×」就以为每个 GEMM 都快 4 倍。那是峰值算术密度的对照表；实际收益取决于 K 方向能否整除 16、M 对齐是否逼出 padding、尺度流量吃掉多少带宽——decode 的小矩阵常常远吃不满峰值。</span>
 
 质量回归必须分任务：困惑度平滑不代表精确记忆还在。过小的块有助于精度，但尺度流量上升。TE 的 `disable_2d_quantization`、`nvfp4_4over6` 一类开关面向特定训练 / RL 场景，默认推理路径不要随便打开。
 
