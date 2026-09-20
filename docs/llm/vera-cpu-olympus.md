@@ -53,17 +53,35 @@ flowchart TB
 
 普通 SMT：两个逻辑线程争用 ROB、执行端口、缓存；满载时单线程性能掉一截，且掉多少取决于对手。Spatial：公开描述是把宽核的资源划开，减少线程间干扰，换可预期延迟。代价是单线程能用的资源在双线程模式下变少——这是显式折中，不是「免费 2×」。多租户 agent 沙箱更吃可预期，不吃偶发的单线程峰值。训练数据加载若是吞吐型，也可以用双线程换 vCPU 密度。
 
+<span class="marginnote">术语翻译：SMT（同时多线程）就是让一个物理核假装成两个逻辑核、轮流共用同一套执行单元来榨空闲流水线的手段；Spatial Multithreading 换了个思路——把这套执行单元提前物理划成两个各管各的分区，线程各用各的，谁也抢不到对方那份。类比：SMT 是两人合租一张桌子抢着用，Spatial 是直接把桌子切成两张。</span>
+
 ## 机制
 
 88 核做在单一计算裸片上，经第二代 Scalable Coherency Fabric 连统一 L3 与内存控制器。NVIDIA 强调避免 chiplet 跳数带来的延迟抖动，并给出片上织物分带宽、L3 容量等规格。对软件，这意味着核到共享数据的延迟更齐，适合调度器、路由表、小规模聚合这类「到处碰共享结构」的控制面。内存子系统用 LPDDR5X（公开提到 SOCAMM 可维护形态），带宽按 CPU 计已经很高，但仍远低于 HBM4——大 KV 仍应优先留在 GPU，CPU 内存是溢出租、预置缓冲和主机侧状态。
 
 Olympus 的宽、深流水线服务单线程控制流：分支预测与 load-store 决定工具调用和解释器循环的墙钟。GPU 不等这些循环结束就会空转。把 Python 调度器、HTTP 网关无脑堆在同一颗 Vera 上与数据预置抢带宽，会重新制造「主机很忙、GPU 很闲」。应把数据路径留在 C2C 能看见的缓冲上，把杂务推到 DPU 或独立的服务机。
 
+```mermaid
+flowchart TD
+  T["来了一个任务"] --> Q{"它主要吃什么资源?"}
+  Q -->|"分支多、延迟敏感"| ST["Olympus 单线程划分<br/>工具调用 / 沙箱 / 调度"]
+  Q -->|"批量、吞吐型"| DT["Olympus 双线程划分<br/>数据清洗 / 预处理"]
+  Q -->|"存储 / 加密 / 虚拟交换"| DPU["BlueField-4 DPU"]
+  Q -->|"矩阵乘 / 注意力"| GPU["Rubin GPU HBM4"]
+  ST --- C2C["NVLink-C2C 一致性通路"]
+  DT --- C2C
+  C2C --- GPU
+```
+
+<span class="marginnote">数字实例：GPU 的 HBM4 带宽约 22 TB/s，Vera 内存约 1.2 TB/s，相差约 18 倍。同样搬 100 GB 的 KV cache，在 GPU HBM 上不到 5 ms，走 Vera 内存就要 80 ms 以上——这就是「大 KV 必须留在 HBM、CPU 内存只做溢出与预置缓冲」的量化理由。</span>
+
 <span class="marginnote">Confidential Computing 被写成 Vera 原生能力，覆盖 CPU–GPU 边界。这是平台安全叶子的对象。本篇只提醒：开启机密计算后的性能以官方文档为准，不要默认「与关闭时同一 C2C 带宽」。</span>
 
 ### 不要用 Vera 替代 Rubin
 
 Olympus 的 FP8 SIMD 做不了千亿参数的逐步 decode。把小模型「便宜地」放到 CPU 上跑，只适合控制面或真正的轻量预处理。主模型、注意力、专家 GEMM 必须在 Rubin 上。Vera 的成功标准是 GPU 利用率与控制面 P99，不是 CPU 自己的吞吐榜。
+
+<span class="marginnote">常见误区：看到每核 6×128b SVE2 FP8 就想「CPU 也能算 FP8，把小模型搬到 Vera 省一张卡」。实际上 decode 是逐 token 的访存循环，瓶颈在内存带宽而不是算力：CPU 侧 1.2 TB/s 喂不动千亿参数的权重流，而 GPU 有 22 TB/s 的 HBM4 和成千上万个并行单元。SIMD 向量单元是给预处理例程用的，不是给推理主路径用的。</span>
 
 ## 边界
 

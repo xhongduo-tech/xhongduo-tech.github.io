@@ -19,6 +19,8 @@ section: llm
 
 CUDA 仍然看见 72 个 device id。没有一种 `cudaSetDevice` 能把整柜 HBM 收成单一指针空间的魔法。公开产品页给出的机柜级容量是**相加**，不是自动统一寻址。逻辑加速器的意思是：通信与调度按单域设计，模型并行把整柜当一份权重来切。统一内存若存在，以 NVLink-C2C 与编程指南为准，见 [超芯](/llm/nvlink-c2c-superchip)，本篇不发明「机柜级 malloc」。
 
+<span class="marginnote">术语翻译：「逻辑加速器」不是说 CUDA 里多出一个超级 device，而是说调度与集合通信把整柜当成一个域来划——TP、EP、KV 池的成员都从这个域里选。类比：72 张卡像一个机房里的同一间办公室，柜内喊话（NVLink）不要钱也快，跨办公室发邮件（柜外网）就又慢又要排队。</span>
+
 ### 「一块加速器」覆盖计算托盘与交换托盘
 
 NVIDIA 把 NVL72 写成计算托盘加 NVLink 交换托盘的机柜。计算托盘承载 Vera–Rubin 超芯、液冷、柜外网卡；交换托盘把 72 GPU 收成全互连域。第三代 MGX 公开强调无缆托盘与可热插拔交换，使维护窗口按柜级而不是按 PCIe 卡级来写。算法工程师可以不设计歧管，但不能在容量规划里假装功耗与风冷 8 卡机相同。
@@ -30,6 +32,17 @@ NVIDIA 把 NVL72 写成计算托盘加 NVLink 交换托盘的机柜。计算托�
 把一个超节点编成一份模型并行组。TP 度可以超过 8，只要整组 rank 都在该 NVLink 域内。EP 可以把专家铺满 72 卡，decode 时 All-to-All 仍走域内交换。KV 池按整柜 HBM 规划长上下文或高并发。进程布局上，计算托盘仍跑 OS，编排系统应暴露「本柜 NVLink 域」为拓扑标签，禁止把跨柜 GPU 塞进同一 TP 组。
 
 集合通信在域内走 NVLink Switch，并可把一部分归约卸到交换内的 [SHARP](/llm/nvlink-sharp)。对软件，这意味着 NCCL 的算法选择应针对「大域、高带宽、短距」。跨柜仍然用 Scale-Out 网卡做 DP 与存储，不要让检查点流量去抢 NVLink。DGX SuperPOD 一类公开蓝图用多柜 NVL72 加 Spectrum-X 组成可扩展单元；那是集群，不是把 72 再乘成一张更大的 NVLink 网。
+
+<span class="marginnote">数字实例：若按老习惯每 8 卡切一个推理副本，一柜 72 卡会被切成 9 个互不相通的小域，柜内全互连的带宽只用到约九分之一；把 TP 组或专家铺满 72 卡后，一次 `all_reduce` / All-to-All 的所有成员都落在柜内交换托盘上，走的是 TB/s 级的 NVLink 6，而不是柜外网卡。</span>
+
+```mermaid
+flowchart TD
+  R["一次集合通信请求"] --> Q{"参与 rank 是否全在同一 NVLink 域内?"}
+  Q -->|"是"| NV["NVLink 6 交换托盘<br/>必要时 SHARP 在交换内归约"]
+  NV --> OK["TP / 宽 EP / KV 迁移照常跑"]
+  Q -->|"否"| SO["Scale-Out 网卡<br/>IB / Spectrum-X"]
+  SO --> CL["DP 副本 · 存储 · 检查点"]
+```
 
 ```mermaid
 flowchart TB
@@ -53,6 +66,8 @@ Prefill / decode 分离可以发生在超节点内部，KV 走 NVLink 而不是�
 逻辑加速器成立，靠的是域内任意 GPU 对之间不再经过数据中心叶子。交换托盘承担机柜脊：计算托盘连到交换托盘，而不是托盘两两直连成一张不完整的图。于是「机柜脊」是 NVLink 6，不是 Top-of-Rack 以太网。以太网 / IB 网卡仍在，职责是柜外。编程时若把套接字当域内默认路径，等于绕开这块加速器的脊。
 
 每张 GPU 的 HBM 仍是近端最快；经 NVLink 读远端 HBM 有代价，但代价按加速器互连计。权重按 TP 分片常驻近端；KV 与激活是否远程，要看实现是否做了显式迁移。把每 GPU 的 [NVLink 6 卡间 3.6 TB/s](/llm/nvlink-6) 理解成「任意 kernel 都能以该速率扫完全柜 HBM」是错的——那是互连规格，不是单核访存屋顶线。HBM4 的容量与带宽见 [Rubin GPU](/llm/rubin-gpu-hbm4)。
+
+<span class="marginnote">常见误区：初学者容易以为每卡 3.6 TB/s 意味着任何 kernel 都能以这个速率读远端 HBM。实际上那是链路规格：单 kernel 仍受近端 HBM 带宽与 SM 访存能力限制。类比：两家共用一条高速公路，不等于你家客厅能直接开上高速——数据要先被显式搬到能上路的地方。</span>
 
 <span class="marginnote">Vera CPU 在公开配置里与 GPU 成对出现在超芯 / 托盘中，承担编排、数据搬运与部分 agent 控制面。逻辑加速器包含 CPU 内存与 GPU HBM 两层，不要只数 72 个 CUDA device。一致性模型以 NVLink-C2C 为准。</span>
 

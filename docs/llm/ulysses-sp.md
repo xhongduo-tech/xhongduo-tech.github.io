@@ -17,7 +17,21 @@ section: llm
 
 注意力激活与 KV 在训练时随 $s$ 线性涨（重计算可换时间），softmax 的中间量也大。只靠 TP，每卡仍持有全长 $s$。只靠把微批切小，GEMM 效率掉、PP 气泡相对变大。需要第四维：切序列。Ulysses 的选择是：非注意力模块保持按序列分片（每卡 $s/P_{\mathrm{sp}}$），进入注意力前 All-to-All，使每卡持有全部 $s$ 但只持有部分头，用现成的融合注意力核，再 All-to-All 还原。
 
+<span class="marginnote">直觉类比：Ulysses 的 All-to-All 是一次「换座位」——平时每人拿一段长文（序列分片），要算注意力时全班按头重组：每人改拿所有序列的同一批头。数据一个字节都没变，变的只是谁拿着哪一段；算完再换回来。</span>
+
 与 [张量并行](/llm/tensor-parallel) 按头切注意力看起来像同一件事，分工不同：TP 切的是始终存在的头分片，通信是 All-Reduce；Ulysses 的 All-to-All 是布局变换，进出注意力各一次。两者可以叠，但要避免把头切两次切碎。
+
+```mermaid
+flowchart TD
+  subgraph TP["TP 切头"]
+    T["每卡：全长 s × 一部分头"] --> TA["All-Reduce 规约求和"]
+  end
+  subgraph SPX["Ulysses 切序列"]
+    S["每卡：s/P_sp × 头分片"] --> SA["All-to-All 换布局 → 算完换回"]
+  end
+  TA --> C["可叠加 · 但不要把头切两次"]
+  SA --> C
+```
 
 ### 通信体积
 
@@ -35,11 +49,15 @@ All-to-All 的体积 $\propto b\times s\times d$，与 TP 激活通信同阶。$
 
 切分沿 $s$，要求打包后的序列可被 $P_{\mathrm{sp}}$ 整除，或允许 padding。指令样本变长、FIM 重排后长度变化，加载器必须按 SP 对齐补齐，否则集合通信形状不一致。这是数据课与并行课的接缝。
 
+<span class="marginnote">数字实例：$s=32768$、$P_{\mathrm{sp}}=32$ 时每卡分片 1024 个 token，注意力核还吃得饱；把 SP 度推到 128，每卡只剩 256 个 token，核启动与访存的开销开始吃掉收益。SP 度的上限不在通信量，而在「分片后每卡是否还有足够长的序列可算」。</span>
+
 <span class="marginnote">梯度累积把多个微批合成优化步，每微批仍要单独做 Ulysses 通信。累积不减少 SP 通信次数，只减少优化器频率。</span>
 
 ## 机制
 
 布局变换把「长序列、全头」的存储问题，变成「短序列分片、算注意力时换全长少头」。数学上 SDPA 不变。通信模式从规约变成置换，类似 MoE 的 All-to-All，但置换键是序列块与头，不是专家 id。落后者对这种密集同步更敏感：一卡慢，整个 SP 组停。
+
+<span class="marginnote">术语翻译：All-Reduce 是「规约」——大家把各自的数加（或取最大）起来，每人都拿一份总和，数据被做了数学；All-to-All 是「置换」——纯洗牌，各发各的、各收各的，数据原样换主人。Ulysses 只洗牌不做数学，所以进出各一次就够。</span>
 
 ```mermaid
 flowchart TD

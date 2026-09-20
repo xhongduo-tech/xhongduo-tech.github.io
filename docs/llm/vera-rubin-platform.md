@@ -19,6 +19,8 @@ section: llm
 
 另一问是产品时间线。早期技术博客写六芯片共设计；2026 年 GTC / 新闻稿把 **Groq 3 LPU** 列为第七颗、并讨论多种专用机柜（计算 NVL72、以太网、存储、LPU）组成更大的 POD。规划时必须分清：哪些语句描述 NVL72 计算柜，哪些描述工厂级 POD。混写会导致把 256 LPU 或存储柜的能力算进 72 GPU 的 HBM。
 
+<span class="marginnote">术语翻译：Scale-Up 是把一台机器往大做——柜内 72 卡靠 NVLink 织成一张快网；Scale-Out 是用很多台机器往外堆——柜与柜之间走 IB / 以太网。前者快而贵、边界止于机柜；后者慢一档但可以无限复制。容量规划先分清一条流量属于哪一层。</span>
+
 ### 计算柜仍是 72 + 36，平台大于计算柜
 
 公开 NVL72 集成：72 个 Rubin GPU、36 个 Vera CPU、NVLink 6、ConnectX-9 SuperNIC、BlueField-4 DPU。柜外扩展写明 Quantum-X800 InfiniBand 或 Spectrum-X 以太网，以便多柜维持高利用率。平台级材料把 Spectrum-6 交换、共封装光学以太网、以及 DPU 上的存储与安全卸载算进同一代 BOM。程序员看见的仍是 CUDA device 与 RDMA 网卡；平台工程师看见的是两张网——柜内 NVLink、柜外 IB/以太——加上 DPU 上的基础设施平面。
@@ -54,13 +56,27 @@ flowchart TB
 
 平台成立，靠的是流量语义在六（或七）颗芯片之间预先对齐：NVLink 上的集合、网卡上的拥塞与隔离、DPU 上的存储与证明、以太交换上的公平性，不是集成商现场「调通」。Scale-Up 与 Scale-Out 的速率可以差一个数量级，所以并行维必须分层——这一点机柜篇已写。平台机制多出来的是：**复制**：用同一份 BOM 复制许多 NVL72，用同一套 Spectrum-X / IB 配方把它们连成工厂，用同一套 DOCA 策略管租户。没有这一层，超节点只是实验室里的一台大机器。
 
+<span class="marginnote">直觉类比：平台层的「复制」像连锁店开分店——每家分店（一柜 NVL72）内部布局完全一样，店与店之间的物流（Spectrum-X / IB）、保安制度（DPU / DOCA）也用同一套模板。工厂能扩到几百柜，靠的不是单店更大，而是制度可复制。</span>
+
 HBM4、第三代 Transformer Engine、NVFP4 属于 Rubin GPU 执行层，细节见 [Rubin GPU](/llm/rubin-gpu-hbm4)。平台不改 MMA 数学，但决定推理 KV 能否卸到 CPU / 存储柜、训练梯度同步走哪张网、机密计算是否覆盖 NVLink。agent 控制面放在 Vera CPU 上，是平台对「推理不只是 GEMM」的分工：token 生成在 GPU，工具调用与编排在 CPU，长上下文可能在存储架。这些角色是公开叙事，具体延迟以编程指南与基准为准。
+
+```mermaid
+flowchart TD
+  U["agent 收到用户请求"] --> V["Vera CPU: 编排 / 工具调用 / 路由"]
+  V --> G["Rubin GPU: prefill + decode 生成 token"]
+  G --> TC{"这步要不要调工具或检索?"}
+  TC -->|"要"| V
+  TC -->|"不要"| D["token 流回用户"]
+  G -.->|"长上下文 KV 溢出"| ST["存储 / KV 机架<br/>经 BlueField-4 DPU"]
+```
 
 <span class="marginnote">Vera CPU 与 Rubin GPU 经 NVLink-C2C 的一致性模型以超芯文档为准。平台文不发明「机柜级 malloc」。CPU 内存是第二层，不是 72 份 HBM 的自动延伸。</span>
 
 ### 与 Blackwell NVL72 的同构、以及不要抄的差
 
 GB200 NVL72 已经把「72 GPU 一域」产品化。Vera Rubin NVL72 保持同构：计算托盘 + 交换托盘、柜外 SuperNIC、液冷。换代的是芯片代数与共设计范围（网卡、DPU、以太交换、CPU 一并换代），不是把域改成 128。因此软件迁移的第一约束仍是：通信子是否整柜、HBM 是否按相加规划、调度是否认域。第二约束才是 NVFP4、HBM4、NVLink 6 的新能力。把 Rubin 平台当成「只能跑新模型」是错的；当成「可以继续按 8 卡副本切」也是错的。
+
+<span class="marginnote">常见误区：初学者容易以为「换平台」就是把 NVLink 域从 72 扩到更多卡。实际上 Vera Rubin NVL72 仍是 72 卡一域，换代的是芯片代数与共设计范围；多柜扩展靠柜外 IB / 以太网，「NVLink 域跨出机柜」从未出现在公开蓝图里。</span>
 
 ## 边界
 
