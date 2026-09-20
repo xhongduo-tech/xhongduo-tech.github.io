@@ -38,9 +38,25 @@ flowchart TD
 
 无执行 + mmap 使加载器成为纯字节搬运，便于与[自定义加载流水](/llm/weight-loading-streaming)重叠。JSON 头解析是一次性 CPU 微秒～毫秒，相对百 GB 搬运可忽略。对齐保证直接转 `bfloat16` 视图合法。跨进程共享只读 mmap 可减冷启动主机内存（fork 前打开），GPU 仍要各自一份设备副本。
 
+```mermaid
+flowchart LR
+  H8["前 8 字节: 头长度 N"] --> J["JSON 头: 张量名 映射 dtype, shape, 偏移"]
+  J --> D["数据区: 对齐的小端原始字节"]
+  D --> T1["张量 A 的字节区间"]
+  D --> T2["张量 B 的字节区间"]
+  T1 --> V1["mmap 只读视图"]
+  T2 --> V2["mmap 只读视图"]
+  V1 --> G["异步拷到 GPU 或供 CPU 核"]
+  V2 --> G
+```
+
+<span class="marginnote">数字实例：一个 7B 模型 FP16 数据区约 14 GB，JSON 头通常只有几十 KB——占比不到百万分之一。这就是「先读头再 mmap」划算的原因：用一次可忽略的解析，换来按张量名随机访问任意一块字节。</span>
+
+<span class="marginnote">mmap 可以想象成「把文件页直接贴进进程地址空间」：程序拿到的是指向文件的指针，读到哪里操作系统才把对应的磁盘页调进内存。传统加载是先把整个文件抄进主机 RAM 再发给 GPU，等于多抄一整遍。</span>
+
 ## 边界
 
-不要用 `pickle.loads` 加载来路不明的检查点。不要把 safetensors 当万能容器塞 Python 对象。与 GGUF 的选择按运行时：vLLM/HF 一条，llama.cpp 一条。下一课程单元改谈 GPU 之外的运行时，从 ONNX Runtime 开始。
+不要用 `pickle.loads` 加载来路不明的检查点。不要把 safetensors 当万能容器塞 Python 对象。与 GGUF 的选择按运行时：vLLM/HF 一条，llama.cpp 一条。下一课程单元改谈 GPU 之外的运行时，从 ONNX Runtime 开始。<span class="marginnote">「零拷贝」不是完全不拷贝：磁盘到 GPU 之间的真传输省不掉，它省的是「在主机内存里多抄一遍」。对「主机内存 512 GB、模型权重 300 GB」的加载场景，这一遍就是能否启动而不 OOM 的区别。</span>
 
 出处：Hugging Face safetensors 规范与安全文档。无单独会议论文。
 
