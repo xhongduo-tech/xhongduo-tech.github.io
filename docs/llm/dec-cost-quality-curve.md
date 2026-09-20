@@ -51,7 +51,7 @@ flowchart TD
 ```mermaid
 flowchart TD
   subgraph BON["BoN：饱和型"]
-    B1["N 加大"] --> B2["p 高的桶 N>4 几乎无收益"]
+    B1["N 加大"] --> B2["p 高的桶 N 超过 4 后几乎无收益"]
   end
   subgraph MASK["掩码：悬崖型"]
     M1["约束收紧"] --> M2["合法集缩到骨架，质量跳水"]

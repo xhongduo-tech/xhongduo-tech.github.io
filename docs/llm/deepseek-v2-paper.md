@@ -62,6 +62,16 @@ flowchart TD
 
 ### 和 GQA 论文、和 V3
 
+```mermaid
+flowchart TD
+  Q["KV 缓存按什么轴压缩？"] --> MHA["MHA：不压缩，全头缓存"]
+  Q --> MQA["MQA：全部查询共享 1 个 KV 头，省得狠、伤质量"]
+  Q --> GQA["GQA：查询分组共享少数 KV 头，轴 = 头数"]
+  Q --> MLA["MLA：每 token 压成窄潜向量 cKV + 旁路 RoPE 键，轴 = 秩"]
+  GQA --> N1["再减头数就开始伤质量"]
+  MLA --> N2["训练保持多头表达，缓存只跟 d_c 走"]
+```
+
 Ainslie 的 GQA 从多头检查点上转换、少 KV 头。MLA 从零按瓶颈训练、多查询头。不能把 V2 写成「DeepSeek 版 GQA」。V3 沿用 MLA 并改 MoE 均衡与 MTP；写 V2 原文不要倒填无辅助损失。FlashMLA 等推理核是后续系统工作，不是 2405.04434 的实验设置。
 
 ## 边界

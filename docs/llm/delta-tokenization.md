@@ -19,6 +19,8 @@ BPE 与 SentencePiece 先按预分词规则切成 piece，再在 piece 内做合
 
 多轮对话还叠了一层 [chat template](/llm/chat-template)。模板不是简单把新消息 append 到旧字符串末尾：它会在轮次之间插入 `<|im_start|>` / `<|im_end|>`、角色名、以及 `add_generation_prompt=True` 时的助手起始标记。Qwen 一类 ChatML 还会在助手结束符后补换行；GLM 一类会在工具观察处插入 `<|observation|>`。这些都是 **边界 token**：它们不属于用户正文，却决定条件前缀从哪开始、损失从哪开始。只对「最新一条消息的纯文本」做 `tokenizer.encode`，几乎总会漏掉或错切这些标记。
 
+<span class="marginnote">「预分词」翻译一下：分词器先把文本按空格、标点、数字等规则切成小块，再在每小块**内部**做 BPE 合并，合并不许跨块。这条规则正是增量编码的救命稻草——只要切点落在某条块边界（缝）上，左右两段就各编各的，id 一定对得上。</span>
+
 ### 为何不能对增量字符串直接 encode
 
 设上一轮渲染结果是字符串 $P$，本轮是 $C$，字符差集 $C[|P|:]$。若直接
@@ -48,6 +50,8 @@ curr = apply_chat_template(messages[:i+1], add_generation_prompt=False, tokenize
 
 工程上有三条由严到宽的缝。最严是特殊 token 之后：`<|im_end|>` 一类在 BPE 里原子，拼接几乎总是安全。次严是预分词 piece 边界（空白、标点、数字分组规则）。最松是「回滚 $k$ 个 token 再重编尾巴」，$k=1$ 是 TensorRT-LLM 的下限，对 GPT 家族的数字分组等上下文规则仍可能不够。TokTier 在代理流量回放里 56,049 / 56,052 次追加在第一窗口就拼上，3 次扩窗一次，0 次落到全文回退——说明真实追加多半落在稳定缝上，但不能把启发式当证明。失败必须 **多干活、不改 id**，而不是「差不多就算命中」。
 
+<span class="marginnote">为什么要「回滚至少一个 token」：词表里最长 token 可达十几甚至几十个字符，字符级公共前缀的末端可能停在某个 token 中间。类比两人同步抄书——抄到「鸡蛋灌饼」的「灌」字停笔，续写的人必须把「灌」整个划掉重抄，否则拼出来的词可能变成「灌汤包」。</span>
+
 ```mermaid
 flowchart TD
   H["历史 messages 与缓存 ids"] --> R["两次 chat template 渲染"]
@@ -65,9 +69,21 @@ flowchart TD
 
 增量路径要同时服务两件不同的事。推理要前缀缓存：id 序列必须与上次请求的公共前缀逐位相同，KV 才能复用。训练要 token-in-token-out：助手段的 logprob 必须落在「当时采样出来的那些 id」上，而不是事后用另一套模板重编的近亲。边界 token 是两件事的接缝。漏掉生成提示，损失会把 `<|im_start|>assistant` 当成要学的内容；多编一个换行，重要性采样的 $\pi_{\theta_{\mathrm{old}}}$ 与当前策略对不齐。veRL 后续把散落在 AgentLoop 里的家族特判收成 Continuous Token builder：Qwen 补助手 EOS 后的换行，GLM 修剪 `<|observation|>` / `<|user|>`，合并时显式处理 `merge_token_id`。那是同一问题的模型族特化，不是否定 delta 切片，而是承认 **只靠字符串差集在部分模板上会静默错**。
 
+```mermaid
+flowchart TD
+  B["边界漂移: 多编 / 漏编 / 重编一个 id"] --> KV["推理侧: 前缀缓存"]
+  B --> TR["训练侧: 损失与采样对齐"]
+  KV --> K1["KV 键与缓存前缀错位<br/>看似命中, 实际读了错的上下文"]
+  TR --> T1["掩码错位: 学到模板标记<br/>或漏学正文, 新旧策略分布对不上"]
+  K1 --> BAD["策略静默劣化: 工具突然不会用"]
+  T1 --> BAD
+```
+
 ### 损失掩码与边界的对齐
 
 差集编码得到的 id 流要切成「可学习 / 不可学习」。可学习的通常只有助手正文；系统、用户、工具结果、以及所有角色起始标记都是条件。实现上常见错误是：把 `add_generation_prompt` 那段也标成 1，或在工具 JSON 截断处把半个边界 token 划进响应。正确做法是让掩码与 id 同源——都从同一次差集来，而不是先拼文本再另跑一次全量 tokenize 去猜边界。sanity check 应优先核对特殊 token 序列，而不是 Unicode 级的正文 diff。
+
+<span class="marginnote">损失掩码可以类比考试改卷：掩码为 0 的部分是题干和资料，为 1 的才是学生作答的答题区，模型只对答题区打分。若边界切错，把题干划进了答题区，模型就在拼命学「怎么生成角色标记」这种没有意义的题，而真正该学的回答反而没被扣分纠错。</span>
 
 <span class="marginnote">「连续 token」与「delta tokenization」不是对立口号。后者用两次模板渲染的字符串差近似增量；前者坚持历史助手 id 不得重编，只对非助手增量在合成上下文里抽取，并在合并时做家族边界处理。二者都在对抗同一件事：模板加 BPE 在缝上改写 id。</span>
 

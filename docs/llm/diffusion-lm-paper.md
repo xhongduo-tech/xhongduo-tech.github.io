@@ -21,7 +21,9 @@ section: llm
 
 ### Rounding 是离散接口
 
-连续状态必须变成词。Rounding 不可微，控制循环是「更新连续向量 → 投影」。这与后来直接在词表上定义离散转移的工作不同。<span class="marginnote">作者 Xiang Lisa Li、John Thickstun、Ishaan Gulrajani、Percy Liang、Tatsunori Hashimoto。会议 NeurIPS 2022。引用题名 *Diffusion-LM Improves Controllable Text Generation*。</span>
+连续状态必须变成词。Rounding 不可微，控制循环是「更新连续向量 → 投影」。这与后来直接在词表上定义离散转移的工作不同。
+
+<span class="marginnote">「round 回词表」翻译一下：就是「就近认词」。去噪得到的是一串连续向量，把它们和词表里每个词的嵌入比距离，各挑最近的那个词当输出。这一步像四舍五入，不可求导——所以控制循环只能「在连续向量上算梯度、改完再投影」，不能穿过它反传。</span><span class="marginnote">作者 Xiang Lisa Li、John Thickstun、Ishaan Gulrajani、Percy Liang、Tatsunori Hashimoto。会议 NeurIPS 2022。引用题名 *Diffusion-LM Improves Controllable Text Generation*。</span>
 
 ## 方法
 
@@ -41,9 +43,24 @@ flowchart TD
 
 全局约束在连续空间可写为能量，对所有位置同时作用，这是相对 AR 的结构优势。步数 $T$ 用全序列前向换取可控。流畅度取决于 rounding 是否稳定、嵌入是否与 LM 先验一致。他们常借预训练表示，而不是从零训一个与 GPT 同级的无条件 LM——读实验时要看基座。
 
+```mermaid
+flowchart TD
+  subgraph AR["自回归：从左到右，约束难插"]
+    A1["token 1"] --> A2["token 2"] --> A3["token 3"] --> A4["……写完才可检查"]
+    A4 --> A5["违反全局约束：只能整段重写"]
+  end
+  subgraph DF["Diffusion-LM：全序列同时改"]
+    B1["整句模糊嵌入"] --> B2["全局约束写成能量"]
+    B2 --> B3["梯度同时更新所有位置"]
+    B3 --> B4["round 后检查，不满足再迭代"]
+  end
+```
+
 与主干离散扩散课的关系：掩码吸收核没有 rounding，控制改成对 logits 的约束。不要用本篇的控制数字证明掩码扩散，也不要反过来。
 
 <span class="marginnote">论文时代的模型尺度远小于当代 AR 推理模型。附录对照的是问题与方法，不是「扩散已在语言上全面优于 AR」。</span>
+
+<span class="marginnote">直觉类比：自回归像考试只能从第一格写到最后一个格，中间不许回头，写完才发现漏了要求；扩散式生成像先铺一篇模糊的草稿，所有格子同时修改，约束像一根橡皮筋把整篇慢慢拉向题目要求——「全局」两个字就体现在橡皮筋同时作用在每一个位置上。</span>
 
 ### 对照链往后
 

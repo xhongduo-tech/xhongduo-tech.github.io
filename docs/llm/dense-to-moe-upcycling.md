@@ -13,11 +13,15 @@ section: llm
 
 [上一课](/llm/model-growth-depth-upscaling)把层沿深度插进去。缺口是沿**专家**轴长：Komatsuzaki 等人的 sparse upcycling 从稠密检查点复制 FFN 为 $E$ 份专家，随机或零初始化路由器，再继续训。总参数涨、每 token FLOPs 可保持近稠密（top-1 / top-2）。本课写升级时的恒等条件与负载均衡，不重写 [路由器梯度](/llm/moe-router-gradient) 或 Switch 的容量因子。
 
+<span class="marginnote">upcycling 直译是「旧物升级改造」：不重新织布，把现成的稠密 FFN 复制成多个专家，再装一个调度员（路由器）决定每个 token 找谁干活。省下的成本是从零训 MoE 最贵的「路由从零学起」阶段，而不是省总训练量。</span>
+
 ## 问题
 
 随机 MoE 要从零学路由与专家专项，压熵段贵且易塌缩到少数专家。升级希望：起步时无论路由到哪，FFN 近似旧稠密 FFN，函数连续。复制权重做到这一点；路由器若输出均匀，每个专家都像旧 FFN，模型先是「带噪声的稠密」，再拉开专项。路由器若一开始就尖锐，部分专家吃全部 token，其余冻死——冷专家踩 Adam $\varepsilon$ 巨步，热专家过拟合。
 
 每 token FLOPs 与 $N_{\mathrm{total}}$ 脱钩。Chinchilla / 推理最优的账要用 **激活参数** 或 **每 token FLOPs**，不能把专家参数加总当 $N$ 去套 20 token / 参数。这是形状课留下的 MoE 缺口。
+
+<span class="marginnote">数字感受一下「脱钩」：以 $d=4096$ 的常见 FFN 为例，每 token 在一层 FFN 上约做 $8d^2\approx1.3$ 亿次乘加。复制成 8 个专家、top-2 路由后，总参数涨到 8 倍，但每 token 仍只算 2 份，激活计算约 2.7 亿——参数与算力从这一刻起各走各的账本。</span>
 
 <span class="marginnote">复制后的专家完全相关。后续训练必须有足够数据与均衡项把它们推开。数据不够时，升级只是把存盘变大，推理若 top-2 还会更贵。</span>
 
@@ -33,9 +37,21 @@ section: llm
 
 推理账：部署若 top-2，激活 FLOPs 高于原稠密，推理最优可能并不偏向这个升级后的模型。训练期省的是相对「从零训同容量 MoE」，不是相对「停在稠密」。
 
+<span class="marginnote">常见误区：把「总参数」当「模型大小」报给 Chinchilla 公式。MoE 就像 8 个员工只有 2 个在岗——预算按在岗人数（激活参数）算，不按花名册（总参数）算。拿花名册套 20 token / 参数，会严重高估数据需求。</span>
+
 ## 机制
 
 均匀路由 + 复制专家 = 旧 FFN 的期望，方差来自 Bernoulli 选择。均衡项迫使 token 分散，专家梯度开始正交化。锁死是 [注意力熵塌缩](/llm/attention-logit-growth) 在路由 softmax 上的兄弟：熵塌后多数专家 $v$ 极小，偶发大梯度造成尖峰。router z-loss 与 cap 的分工同前：钉绝对尺度 vs 有界。不要只抄稠密上的词表 z-loss 系数到路由器上。
+
+```mermaid
+flowchart TD
+  S["路由熵开始下降"] --> HOT["热门专家吃掉多数 token"]
+  HOT --> COLD["冷专家几乎收不到梯度"]
+  COLD --> EPS["偶发梯度撞上 Adam ε 巨步<br/>更新变成尖峰"]
+  EPS --> SPIKE["负载与输出剧烈波动"]
+  SPIKE -->|进一步压低熵| S
+  BAL["均衡项 + router z-loss"] -.->|在循环成形前按住熵与尺度| S
+```
 
 与深度扩展同时做（又插层又升级）归因极难，应串行：先稳一种生长。
 

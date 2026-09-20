@@ -41,6 +41,8 @@ $$
 
 $\beta_t=1$ 时旧值沿 $k_t$ 被换掉；$\beta_t=0$ 时状态不动。输出仍是 $o_t=S_t q_t$。递推矩阵 $I-\beta_t kk^\top$ 是广义 Householder。逐步复杂度仍 $O(Ld^2)$，与加法线性注意力同阶，常数更大，因为多一次读旧值。
 
+<span class="marginnote">数字感受一下状态的体量：头维 $d=128$ 时，$S$ 是 $128\times128=16384$ 个数，半精度下约 32 KB。这些矩阵每层每头都要一直留在显存里当「笔记」，这正是不需要随长度增长的 KV 缓存时，线性类模型省内存的来源。</span>
+
 ### 分块 WY：沿长度并行
 
 Yang 等人指出 $S_t=\sum_{i\le t} u_i k_i^\top$，伪值 $u_i=\beta_i(v_i-v_i^{\mathrm{old}})$。块内 Householder 连乘用紧凑 WY：
@@ -73,7 +75,23 @@ flowchart TD
 
 加法把所有键的值堆在同一矩阵里，读 $Sq$ 是叠加。Delta 沿 $k_t$ 做一次秩一修正，近似「覆盖该地址」。键不正交时覆盖会漏到邻居，这是线性记忆的硬限制，不是实现 bug。$\beta_t$ 提供软覆盖：重复出现的键可以逐步改写，而不必一步抹掉不确定的旧值。
 
+```mermaid
+flowchart LR
+  subgraph ADD["加法记忆"]
+    A1["写入: S ← S + v kᵀ"] --> A2["读出: S q = 所有旧值的加权叠加"]
+    A2 --> A3["键一多，新旧值互相淹没"]
+  end
+  subgraph DEL["Delta 记忆"]
+    D1["先读旧值: v_old = S k_t"] --> D2["沿 k_t 减掉旧值、写回新值"]
+    D2 --> D3["同一键被覆盖，而不是叠加"]
+  end
+```
+
+<span class="marginnote">可以把 $\beta_t$ 想成擦黑板的力度：$\beta_t=1$ 是把该地址的旧字完全擦掉重写，$\beta_t=0$ 是一笔不动，取 0.5 就是新旧各留一半。这个力度是模型对每个 token 现场算出来的，所以叫「软」覆盖。</span>
+
 Householder 连乘若逐步做，每步都写 $d\times d$，带宽打满。WY 把连乘收成 $C$ 个 $d$ 维向量，IO 从 $O(C d^2)$ 降到 $O(C d)$ 量级再加块内 GEMM，这才和 FlashAttention 争占用。没有这步，DeltaNet 只是一条好看的 RNN。
+
+<span class="marginnote">Householder 原是数值分析里的镜像变换：把向量沿某个方向反射。这里借它说明 $I-\beta kk^\top$ 每步只沿 $k_t$ 这一个方向改写状态，像只动一格抽屉、其余格子原样保留——这就是「秩一修正」的意思，也是后面能把它连乘压紧重排的前提。</span>
 
 <span class="marginnote">$\beta_t$ 取到 $(0,2)$ 会引入负特征值，后续工作用来讨论状态跟踪。2021/2024 主实验把 $\beta$ 放在 $(0,1)$。复现时不要默认打开负区间。</span>
 

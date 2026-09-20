@@ -23,6 +23,8 @@ section: llm
 
 没有嵌入，就没有对 $x_0$ 的高斯前向。没有圆整，$x_0$ 落不回词。随机高斯嵌入或冻结的预训练词向量，在原文的初步实验里都弱于端到端学习嵌入。训练目标必须同时学扩散网络与 $\mathrm{Emb}(\cdot)$。圆整若只在最后一步 $\mathrm{argmax}$，模型常常给出不肯贴住某个词向量的 $x_0$，解码发糊。
 
+<span class="marginnote">「即插即用」翻译一下：不动语言模型的任何一个权重，只在推理时外挂一个现成的分类器（比如句法分析器），靠它的梯度把生成往要求的方向拉。好处是一个分类器不用重新训练模型就能换着用、还能叠加；代价是每步都要多算梯度和多次优化，慢。</span>
+
 <span class="marginnote">原文明确写：据他们所知这是连续扩散用于文本的首次完整探索。D3PM 一类离散扩散是相关工作，不是本方法的前向过程。评测主目标是可控生成成功率与教师 LM 的 lm-score，不是大规模困惑度竞赛；附录里固定单纯形嵌入对 held-out 困惑度更友好，与主文的生成质量叙事分开。</span>
 
 ## 方法
@@ -34,6 +36,19 @@ section: llm
 ### 分类器引导在潜变量上走多步梯度
 
 控制不直接改离散词，而分解为每步 $p(x_{t-1}\mid x_t,c)\propto p(x_{t-1}\mid x_t)\,p(c\mid x_{t-1})$。分类器建在扩散潜变量上。更新是 $\nabla_{x_{t-1}}\log p(x_{t-1}\mid x_t)+\nabla_{x_{t-1}}\log p(c\mid x_{t-1})$，并加流畅正则 $\lambda\log p(x_{t-1}\mid x_t)$。每步扩散做三次 Adagrad，步数从 $2000$ 抽到 $200$。长度与填空可以不靠分类器：长度当分类器无关约束，填空用左右文锚定。需要单条高质量输出时，用 MBR 在样本集上按期望风险（如负 BLEU）挑一条。
+
+<span class="marginnote">把规模代成数字：模型只有约 80M 参数、句子最长 64 个词，扩散原定 2000 步、控制时抽到 200 步，且每步还要做 3 次 Adagrad 优化——这就是它「比自回归慢约 7 倍」的来源：自回归写一个词前进一步，这里是整句草稿反复修改两百轮、每轮内部再小修三次。</span>
+
+```mermaid
+flowchart TD
+  S["扩散第 t 步：拿到 x_t"] --> D1["去噪网络预测 x_0"]
+  D1 --> CL["夹紧：拉到最近的词向量"]
+  CL --> OPT["控制优化：分类器梯度 + 流畅正则"]
+  OPT -->|Adagrad 更新 3 次| CHK["得到拉向约束的 x_{t-1}"]
+  CHK --> ADD["按日程重新加噪到 x_{t-1}"]
+  ADD -->|t 还没走完| S
+  ADD -->|t = 0| FIN["softmax 圆整出词"]
+```
 
 ## 机制
 
@@ -65,6 +80,8 @@ flowchart TD
 数据是 E2E 与 ROCStories，不是网页级预训练。句长 $64$、两千步扩散，服务延迟与自回归不在同一档。圆整误差、嵌入维度、噪声日程都敏感。复杂控制依赖分类器质量：句法树 F1 受分析器限制。组合控制成功，不表示任意多个分类器都能无损相加。
 
 不要把 Diffusion-LM 写成「文本版 DDPM 直接把 one-hot 当连续向量」。前向从嵌入高斯开始。也不要把后来的掩码扩散目标写回这篇的 $\mathcal{L}_{\mathrm{simple}}$。教师 lm-score 用的是微调 GPT-2，因为生成含 UNK，对不上原版 GPT 词表。
+
+<span class="marginnote">为什么要换微调版 GPT-2 打分：Diffusion-LM 生成的句子里会出现原词表里没有的 UNK（未登录词）标记，原版 GPT-2 从没见过这种输入，打出的分数没有意义；把教师先微调到认识 UNK，lm-score 才可比。初学者复现时若直接用原版 GPT-2 打分，得到的对比数字会整体偏差。</span>
 
 <span class="marginnote">出处：Xiang Lisa Li, John Thickstun, Ishaan Gulrajani, Percy Liang, Tatsunori B. Hashimoto，*Diffusion-LM Improves Controllable Text Generation*，NeurIPS 2022（arXiv:2205.14217）。连续扩散背景引用 Ho et al. 2020 与 Song et al.；即插即用对照含 PPLM 与 FUDGE。</span>
 
