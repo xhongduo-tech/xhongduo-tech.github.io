@@ -23,6 +23,8 @@ $$
 
 自然对数下单位是 nat。困惑度 $\mathrm{PPL}=\exp(\mathrm{NLL})$。直观：每一步模型还在几个等价选项里平均地犹豫。均匀分布时 $\mathrm{PPL}=|V|$；完美预测时为 1。它与训练 CE（硬目标、无平滑）一一对应，所以优化器直接推的就是它的对数。
 
+<span class="marginnote">数字实例：平均 NLL 是 3.0 nat 时，$\mathrm{PPL}=e^3\approx 20$——模型每一步平均在约 20 个等价选项里犹豫；NLL 降到 2.3 nat，PPL 就变成约 10。反过来 PPL 每减半，对应 NLL 固定下降 $\ln 2\approx 0.69$ nat，这就是训练曲线上「斜率」比「困惑度」更直观的原因。</span>
+
 换 BPE 词表之后，$T$ 变了。更粗的切分让 $T$ 变小，每 token 任务更难，PPL 通常变大；更细的切分相反。于是「模型 A 的 PPL 低于模型 B」在词表不同时没有意义。GPT-2 用 bits-per-byte：把同一批 UTF-8 字节上的总 NLL（仍来自 token 因子，但加总后除以字节数）再换成以 2 为底：
 
 $$
@@ -47,11 +49,28 @@ PPL 对错误的极低概率事件敏感：一个 $p=10^{-12}$ 的 token 就能�
 
 BPB 把敏感性改到字节。一个被切成很多 token 的罕见词，其总 NLL 仍摊在固定字节上；词表更细不会自动「看起来更好」。这正是跨 SentencePiece / BPE / 字节级模型比较时要用 BPB 的原因。领域转移时 BPB 同样可比：都是「这段字节好不好压」。
 
+```mermaid
+flowchart TD
+  W["同一个罕见词：8 字节"] --> CO["粗词表：切成 1 个超长 token"]
+  W --> FI["细词表：切成 12 个短 token"]
+  CO --> CO2["每 token 任务更难，PPL 抬高"]
+  FI --> FI2["每 token 任务更易，PPL 变小"]
+  CO2 --> NB["两个 PPL 不可比：分母 T 不同"]
+  FI2 --> NB
+  CO --> SB["总 NLL 摊回固定的 8 字节"]
+  FI --> SB
+  SB --> CB["BPB 口径一致：可比"]
+```
+
+<span class="marginnote">术语翻译：BPB（bits per byte）就是「平均每个原始字节要花多少比特来编码」，压缩软件的行话叫压缩率：模型猜得越准，要写下的「意外」越少，BPB 越低。它把文本还原成字节再记账，分母与分词器无关，所以跨词表比较才成立。</span>
+
 训练曲线仍应用 token CE：它与 Adam 的 step 对齐，BPB 还要依赖评测集字节统计，不适合每 step 算。阶段分析（下一课）看的是 token CE 的斜率与尖峰，不是 BPB。
 
 ## 边界
 
 本课不定义下游准确率，也不处理「contamination 让 PPL 虚低」。PPL 不是智能指标，只是压缩指标。MoE 的负载均衡损失、z-loss 不应计入对外 PPL；它们是训练正则，加进去会让历史曲线不可比。多语言评测要按语言拆 BPB：平均字节会把高熵脚本淹没。
+
+<span class="marginnote">常见误区：以为 PPL 更低就等于模型更「聪明」。PPL 只测「这批文本好不好压」：语料越熟它越低，见过测试集（contamination）会让它虚低，多语言混报平均还会让高熵文字被低熵文字稀释。它是压缩指标，不是能力排名。</span>
 
 ```mermaid
 flowchart TD

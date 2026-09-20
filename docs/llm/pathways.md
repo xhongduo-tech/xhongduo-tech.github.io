@@ -17,6 +17,8 @@ XLA 与 GSPMD 解决「一次编译、一块静态网格上如何切张量」。
 
 当时的 JAX 多控制器模式里，每个主机跑同一份 Python，集体通信走 XLA，而 TPU 上这些集体主要挂在 **ICI**（芯片间专用互连）上。于是程序很难跨出单个 TPU Pod：Pod 之间是数据中心网络（DCN），不是 ICI。要写流水线、多岛、多任务共享同一组底层权重，用户得在 SPMD 里硬拧，或回到每设备不同程序的 MPMD，控制流复杂。
 
+<span class="marginnote">术语翻译：ICI 与 DCN 可以类比为「车间内部流水线」和「厂区之间的货运公路」——ICI 是芯片之间的专用高速通道，传激活又快又稳；DCN 是通用网络，慢一个数量级以上。Pathways 的核心布置原则就是：通信最密的边留在 ICI 车间里，公路只跑岛间的少量交接。</span>
+
 多控制器的另一痛是表达力：每个进程都要执行完整的客户端逻辑，条件、动态图、异构阶段（有的阶段只要 8 核，有的要整 Pod）会变成「所有人一起做 if」。单控制器更像经典数据流：一份客户端看见全部设备，把图发给运行时。历史教训是单控制器容易变成调度瓶颈——控制消息的延迟会让加速器空转。Pathways 的设计问题因此是：怎样做单控制器，却让控制面不卡在数据面的每条边上？
 
 ### 异步数据流：边是 future，不是阻塞 RPC
@@ -48,6 +50,20 @@ flowchart TB
 
 单控制器能扩到上千 TPU，靠的不是把 Python 循环写得更快，而是把「发图、分配切片、启动 compiled function」与「TPU 上执行微秒到毫秒级的内核」解耦。Future 让协调器可以在数据未就绪时就把后续节点的放置定下来；真正的等待发生在数据面的边，由运行时在加速器或 DMA 上阻塞，而不是在客户端的 Python 里 `result()` 打满一轮。这与 MapReduce 式「控制面等所有 mapper 结束」不同，也与每主机一个 JAX 进程、用 `pjit` 同步 SPMD 不同。
 
+```mermaid
+flowchart TD
+  subgraph OLD["阻塞式控制面"]
+    A1["客户端发算子 A 后原地等"] --> A2["A 完成才调度 B"]
+    A2 --> A3["加速器在等待中空转"]
+  end
+  subgraph NEW["future 解耦"]
+    B1["客户端一次发图：B 声明消费 A 的 future"] --> B2["协调器提前定好 B 的放置与启动"]
+    B2 --> B3["A 算完，设备侧直接交接，Python 不参与等待"]
+  end
+```
+
+<span class="marginnote">直觉类比：future 像餐厅后厨的小票——服务员（协调器）不必等菜出锅，只要看清「A 完成后才能炒 B」的依赖，就提前把 B 的灶台（设备放置）安排好，菜一出锅直接端去下一道工序。阻塞式则是服务员站在灶台前干等每道菜，其他桌的客人全部干瞪眼——那就是加速器空转。</span>
+
 TPU 适合这套设计的原因，论文写得很直：XLA 能把带集合通信的复杂计算融进长时间运行的设备内核；GPU 上许多控制流与通信要回到主机驱动。Pathways 的低层决策因此绑 TPU；作者认为高层的单控制器、数据流、gang-schedule 对大规模 GPU 同样有意义，但那不是论文的评测对象。不要把 Pathways 论文里的利用率抄到 NCCL 多机 GPU 上当对照。
 
 <span class="marginnote">ICI 与 DCN 的带宽、延迟差一个数量级以上是公开常识，具体 Tb/s 以当时芯片文档为准，本篇不填未核对的单通道数。mesh 轴选择仍应由用户保证：通信最密的维留在 ICI 岛内，DCN 只承担岛间边。</span>
@@ -61,6 +77,8 @@ TPU 适合这套设计的原因，论文写得很直：XLA 能把带集合通信
 不要把 Pathways 理解成替代 GSPMD。切分仍在 XLA 编译的函数内部完成；Pathways 管函数之间的编排、放置与跨岛传输。不要在动态到无法估计资源的 Python 循环上期望 gang-schedule：论文依赖 compiled functions 的资源可预测。不要假设开源 JAX 默认就是 Pathways：默认仍是多控制器；Cloud 上要显式选 Pathways 平台与代理。
 
 单控制器的客户端故障半径更大：客户端死了，图的提交面没了。多控制器则是每主机一份客户端。生产上要用文档中的高可用与作业 API（如 PathwaysJob）来补，而不是论文示意图里的单进程。多租户隔离、配额、抢占属于编排层，论文给的是机制，不是一份 SLO 合同。
+
+<span class="marginnote">为什么重要：故障半径决定了运维姿势。单控制器像一家总调度室——调度室失火，全厂停摆；多控制器像每个车间各有一份图纸——坏一台只伤一份。所以生产部署要把客户端包进作业级高可用（如 PathwaysJob）里，而不是照抄论文里的单进程示意图。</span>
 
 <span class="marginnote">出处：Barham 等，*Pathways: Asynchronous Distributed Dataflow for ML*，MLSys 2022，arXiv:2203.12533。Cloud 产品见 Google Cloud *Introduction to Pathways on Cloud*。内部如何跑 Gemini 等模型，只引用 Google 已公开的「Pathways 用于大规模训练」陈述，不编造未公开的集群规模或调度参数。</span>
 

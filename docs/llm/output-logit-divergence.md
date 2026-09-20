@@ -17,6 +17,10 @@ section: llm
 
 $\ell_i=-\ell_{y}+ \mathrm{LSE}(\ell)$ 对 $\ell\leftarrow\ell+c$ 不变。Adam 可以给 $W_{\mathrm{out}}$ 与最后一层增益一个共同的放大模式：所有 logits 变大，概率几乎不变，CE 微降或持平，但 $\max\ell$ 进到 $10^3$–$10^4$。BF16 的 `exp` 大约在 88 以上溢出；稳定 LSE 先减 max，max 本身若已 Inf，整步 NaN。Cut CE 在片上归约同样怕这个尺度。
 
+<span class="marginnote">LSE（log-sum-exp）就是「把整张词表的分数先逐个取指数放大、再加起来、再取对数」的运算。它近似等于最大 logit 加一个小修正项，所以只要 max logit 飞了，LSE 必然跟着飞——这就是为什么监控 LSE 一项就够。</span>
+
+<span class="marginnote">数字实例：BF16 能表示的数最大约 $3\times 10^{38}$，而 $e^{88}\approx 1.65\times 10^{38}$。也就是说 max logit 只要涨过 88，`exp` 那一步就直接得到 Inf，softmax 变成 Inf/Inf = NaN，整个 batch 报废。</span>
+
 与注意力 logit 增长的差别：注意力塌缩的是**相对**路由（熵→0），输出发散常常是**绝对**尺度（熵可以仍高，只是 LSE 很大）。两者可同时发生。只看 CE 与 PPL 都看不见；必须打 $\|\ell\|_\infty$、LSE 均值与分位数。
 
 <span class="marginnote">$\|W_{\mathrm{out}}\|$ 不是合格代理。RMSNorm 之后 $h$ 的尺度被 $\gamma$ 改写，$W$ 变大不必等于 $\ell$ 变大，反过来 $\gamma$ 变大也可以让 $\ell$ 飞而 $W$ 看起来还好。直接记录 LSE。</span>
@@ -34,6 +38,18 @@ $\ell_i=-\ell_{y}+ \mathrm{LSE}(\ell)$ 对 $\ell\leftarrow\ell+c$ 不变。Adam 
 ## 机制
 
 CE 的梯度 $p-y$ 在正确类与错误类之间拉间隔。间隔 $\Delta$ 变大时，若错误类 logits 不下降，正确类必须上升，LSE 跟上升。z-loss 的梯度给全体 logits 一个向下的公共力，迫使间隔更多靠压错误类实现。副作用是校准改变：解码温度若按未加 z-loss 的模型抄，会偏。soft-cap 则在到达 $c_o$ 后拒绝继续拉间隔，CE 可能因此平台更高——用 CE 换数值存活。
+
+<span class="marginnote">常见误区：初学者容易以为「交叉熵在降 = 训练健康」。实际上 CE 只看类与类之间的**相对**分数，全体 logits 加同一个常数 CE 纹丝不动；模型可以一边 CE 缓降、一边把整张词表的分数抬到半精度溢出边缘。所以 CE 之外必须单独记录 LSE 这把「绝对尺子」。</span>
+
+```mermaid
+flowchart TD
+  STEP["一步训练要拉大间隔 Δ"] --> Q1{"错误类 logit<br>肯不肯降?"}
+  Q1 -- "肯降" --> DOWN["压错误类<br>LSE 基本不动"]
+  Q1 -- "不肯降" --> UP["抬正确类 logit<br>LSE 跟着上涨"]
+  UP --> GROW["max logit 逐渐漂向 10³+"]
+  ZL["z-loss: 全体 logits<br>受向下公共力"] --> DOWN
+  DOWN --> SAFE["数值安全<br>CE 略高"]
+```
 
 μP 输出列防止**宽度**带来的第一步爆炸；z-loss / cap 防止**时间**上的漂移。coord check 过了仍会在 10k step 后发散，说明两件事都要。
 

@@ -17,6 +17,10 @@ section: llm
 
 Prefill 在提示不算极短时接近 compute-bound：序列长，GEMM 能喂饱 Tensor Core。Decode 每步一个新 token，却要读全部权重与日益增长的 KV，接近 memory-bound。两者的最优 batch、最优并行、甚至最优 GPU 代数都不同。绑在一起时，调度只能优先其中一个 SLO，或靠超配同时满足两个。Chunked-prefill 加 piggyback 把长提示切开与 decode 拼批，能减轻 decode 被单次长 prefill 堵住，但 DistServe 指出干扰并未消除：块太小则 prefill 自己不饱和且与 decode 争用；块大到饱和则几乎拼不进 decode；prefill 还会重复扫 KV，多付内存访问。
 
+<span class="marginnote">术语翻译：TTFT（time to first token）是从按下回车到看见第一个字的等待时间；TPOT（time per output token）是之后每个字之间隔多久。聊天产品里前者决定「卡不卡」，后者决定「读起来顺不顺」——这正是本篇反复说的两个 SLO。</span>
+
+<span class="marginnote">数字实例：设 TPOT 预算是 50 毫秒。colocate 系统里一条 8000 token 的长提示插进连续批，可能把那一步 decode 拖到几百毫秒，同批所有请求的 TPOT 齐刷刷超标；拆开后，长提示只在 P 池里拖长它自己的 TTFT，D 池的每一步仍在 50 毫秒内——干扰从「全场连坐」变成「谁的事谁背」。</span>
+
 并行耦合是第二层问题。Intra-op 降执行时间、要 NVLink；inter-op 扩速率、少降延迟。Colocate 实例只能选一套。拆开之后，prefill 实例可以按紧 TTFT 走更大 TP，decode 实例按 TPOT 与 KV 容量走复制或不同的 PP。
 
 ### Goodput 不是吞吐
@@ -49,6 +53,20 @@ flowchart LR
 
 机制是**消除时间轴上的互抢**，以及**解开并行搜索的笛卡尔积**。Colocate 的每一步 iteration 里，prefill token 与 decode token 争 SM、争 HBM 带宽、争调度槽。拆开后，P 实例的迭代全是高算术强度，D 实例的迭代全是逐步 decode，CUDA Graph、并行度、甚至功耗帽都可以按阶段固定。代价是 KV 必须在阶段边界移动，且权重复制。当传输时间小于从前干扰造成的等待，goodput 上升；当传输是墙，分离失败——所以放置算法是方法的一部分，不是运维附属。
 
+```mermaid
+flowchart TD
+  subgraph COL["Colocate：同一张卡"]
+    C1["连续批一步混入长 prefill"] --> C2["decode 步被拉长，TPOT 尖刺"]
+    C2 --> C3["decode 占着 HBM，prefill 又凑不齐算力"]
+  end
+  subgraph DIS["分离后"]
+    D1["P 实例：迭代全是高算术强度"] --> D2["阶段边界搬一次 KV"]
+    D2 --> D3["D 实例：批大小与并行按 TPOT 自定"]
+  end
+```
+
+<span class="marginnote">直觉类比：colocate 像一家餐厅让切菜师傅和服务员共用一张桌子——谁都干不顺；PD 分离是分成后厨和前厅，中间由传菜口（KV 传输）交接。传菜口太窄（互连太弱），上菜速度照样上不去，这就是「传输是墙则分离失败」。</span>
+
 Splitwise 再加一条：generation 不需要「最新 GPU 的峰值 FLOPs」，把新卡留给 prompt，能在集群功耗墙内提高总吞吐。这是硬件异构，不是算法异构。同构集群上 DistServe 的逻辑仍然成立。
 
 <span class="marginnote">TTFT 统计在分离后包含排队、prefill 执行与 KV 传输。若把传输算到 TPOT 里，SLO 归属会错，搜索机会往错误的池加卡。定义要在评测里写死。</span>
@@ -60,6 +78,8 @@ Splitwise 再加一条：generation 不需要「最新 GPU 的峰值 FLOPs」，
 ## 边界
 
 分离增加运维维度：两套扩缩、两套并行、一套传输、一套失败恢复。小流量、短提示、松 SLO 的服务，colocate 更简单，未必值得拆。KV 极大（超长上下文、未压缩 MHA）且互连弱时，传输税会吃掉干扰收益，应先压缩 KV 或同节点放置，再谈拆。权重复制让小模型的卡数翻倍更疼；大模型反正已经多卡，增量相对小。
+
+<span class="marginnote">常见误区：以为分离能省卡。实际上权重至少复制两份——P 池一份、D 池一份，卡数往往不降反升。分离买到的是达标速率（goodput）与延迟可控，不是省硬件；小模型、小流量上翻倍的权重账常让分离不划算。</span>
 
 不要把 PD 分离写成「P 用 CPU、D 用 GPU」或任意异构神话；Splitwise 的异构是 GPU 代数与功耗档，不是随便降级到不能跑模型的设备。不要伪造第三篇「PD 分离原论文」的 arXiv。可引用的就是 DistServe（arXiv:2401.09670）与 Splitwise（arXiv:2311.18677）。后续生产框架的实现以各自文档为准，性能数字随版本变。
 

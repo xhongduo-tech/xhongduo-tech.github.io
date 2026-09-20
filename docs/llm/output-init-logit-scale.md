@@ -15,15 +15,28 @@ section: llm
 
 ## 问题
 
-softmax 对平移不变：$\ell$ 加常数，$p$ 不变，CE 不变。但对缩放敏感：$\ell$ 乘 $c\gt 1$，分布变锋利。初始化若把 $W_{\mathrm{out}}$ 放得太大，未训练模型已经接近 one-hot，梯度 $p_i(1-p_i)$ 极小，前几百 step 像冻住。放得太小，则 $p$ 接近均匀，CE $\approx\log|V|$，这其实是健康起点——优化从「没有意见」开始，而不是从「错误的自信」开始。
+softmax 对平移不变：$\ell$ 加常数，$p$ 不变，CE 不变。但对缩放敏感：$\ell$ 乘 $c\gt 1$，分布变锋利。初始化若把 $W_{\mathrm{out}}$ 放得太大，未训练模型已经接近 one-hot，梯度 $p_i(1-p_i)$ 极小，前几百 step 像冻住。放得太小，则 $p$ 接近均匀，CE $\approx\log|V|$，这其实是健康起点——优化从「没有意见」开始，而不是从「错误的自信」开始。<span class="marginnote">数字实例：词表 $|V|=32000$ 时 $\log|V|\approx10.4$ nat。随机初始化后第一个 batch 的 CE 若落在 10–11 附近就是健康；若只有 2–3，说明 logits 已被初始化拉得过分锋利——模型「还没学就先自信」了。</span>
 
-[Tied 嵌入](/llm/tied-untied-embedding) 令 $W_{\mathrm{out}}=E$。输入课选的 $\sigma$ 此时直接变成 logit 尺度，不能再单独把输出乘一个小因子而不改输入。untied 时常见做法是输出比输入更小，或按 μP 输出列：避免宽度增长时 logits 以 $\sqrt{d}$ 爆炸。漏掉输出列，正是宽模型「第一步 NaN」的经典原因之一。
+```mermaid
+flowchart TD
+  SIG["W_out 的初始尺度"] --> Q{"第 0 步的 logit 幅度？"}
+  Q -->|"过大"| BIG["接近 one-hot，梯度 p(1-p) 近 0"]
+  BIG --> B1["训练像冻住，甚至半精度溢出"]
+  Q -->|"合适"| OK["p 近均匀，CE 约 log|V|，幅度 O(1)"]
+  OK --> OK1["从「没有意见」开始优化"]
+  TIE{"tied?"} -->|"是"| IN["沿用嵌入 σ，不再另乘"]
+  TIE -->|"否"| OUT["输出单独更小或 μP 输出列"]
+  IN --> SIG
+  OUT --> SIG
+```
+
+[Tied 嵌入](/llm/tied-untied-embedding) 令 $W_{\mathrm{out}}=E$。输入课选的 $\sigma$ 此时直接变成 logit 尺度，不能再单独把输出乘一个小因子而不改输入。untied 时常见做法是输出比输入更小，或按 μP 输出列：避免宽度增长时 logits 以 $\sqrt{d}$ 爆炸。漏掉输出列，正是宽模型「第一步 NaN」的经典原因之一。<span class="marginnote">术语翻译：tied（权值共享）指输入词嵌入矩阵与输出投影矩阵用同一份权重，小模型常用、参数省一半；untied 则各用各的，输出那张表可以单独配更小的初始化。tied 时动输入尺度就是在动输出尺度，不能各调各的。</span>
 
 <span class="marginnote">有人用最后一层 RMSNorm 之后范数已被钉住，来为输出大初始化辩护。$h$ 的 RMS 被钉住，不表示 $W_{\mathrm{out}}$ 的行范数被钉住。行范数仍随 $\sigma\sqrt{d}$ 走；词表越大，极端行把个别 logit 拉飞的机会越多。</span>
 
 ## 方法
 
-**untied：输出更小。** 在输入 $\sigma$ 之外，给 $W_{\mathrm{out}}$ 单独一个更小的标准差，或显式乘 $1/\sqrt{d}$。目标是：随机 $h$（单位 RMS）下，$\ell$ 的典型幅度为 $O(1)$，CE 落在 $\log|V|$ 附近几个 nat 以内。
+**untied：输出更小。** 在输入 $\sigma$ 之外，给 $W_{\mathrm{out}}$ 单独一个更小的标准差，或显式乘 $1/\sqrt{d}$。目标是：随机 $h$（单位 RMS）下，$\ell$ 的典型幅度为 $O(1)$，CE 落在 $\log|V|$ 附近几个 nat 以内。<span class="marginnote">直觉类比：softmax 对整体平移无感（所有分数一起加 10，排名不变），对拉伸极其敏感（分数乘 10，小差距被夸大成碾压）。所以初始化管的是 logit 的「音量旋钮」，而不是「偏置旋钮」。</span>
 
 **μP 输出列。** 输出层把无限宽的隐藏维读到有限的词表维：初始化方差随 $d$ 降，学习率乘数也与隐藏 GEMM 不同。coord check 应画「加宽后第一步 logit 幅度是否平坦」。不平坦就是输出定标写错，不要先去调 $\eta$。
 
