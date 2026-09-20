@@ -15,7 +15,19 @@ section: llm
 
 ## 问题
 
-设 $N$ 个专家、一批 $T$ 个 token。若无约束，均衡时每个专家应分到约 $kT/N$ 个 token。实际训练中，路由 logits 的微小优势会被 softmax 放大，再被专家参数的更新放大。崩溃有两种可见症状。一是多数专家的 $f_i\approx 0$，有效参数量塌到 $k$ 个稠密 FFN。二是少数专家过载，超过容量后大量 drop，那些 token 等于没走 MoE，质量与吞吐双输。
+设 $N$ 个专家、一批 $T$ 个 token。若无约束，均衡时每个专家应分到约 $kT/N$ 个 token。实际训练中，路由 logits 的微小优势会被 softmax 放大，再被专家参数的更新放大。崩溃有两种可见症状。一是多数专家的 $f_i\approx 0$，有效参数量塌到 $k$ 个稠密 FFN。二是少数专家过载，超过容量后大量 drop，那些 token 等于没走 MoE，质量与吞吐双输。这个塌缩过程是一个自我强化的正反馈回路，负载均衡损失的作用就是在回路里插入一个负反馈。
+
+```mermaid
+flowchart TD
+  A["少数专家初期稍占优"] --> B["softmax 放大其选中概率"]
+  B --> C["热专家收到更多 token"]
+  C --> D["热专家训练得更充分"]
+  D --> E["主损失更低 进一步偏向热专家"]
+  E --> B
+  E -. "辅助损失压低热专家概率" .-> F["负反馈 抬升冷专家选中率"]
+```
+
+<span class="marginnote">「路由崩溃」可以类比成食堂打饭：一开始某个窗口排队的人略多，显得热闹，新来的人更愿意跟着排，这个窗口越排越长，其余窗口因为没生意越办越差——最后所有人都堵在一个窗口。均衡损失相当于给排长队的窗口贴「此处排队较长」的提示，把新人引向冷门窗口。</span>
 
 ### 为什么主损失帮不上忙
 
@@ -36,7 +48,7 @@ $$
 \mathcal{L}_{\mathrm{aux}}=\alpha\, N\sum_{i=1}^{N} f_i P_i.
 $$
 
-由 Cauchy-Schwarz，在 $\sum f_i=1$、$\sum P_i=1$ 时，$\sum f_i P_i$ 的最小值为 $1/N$，此时 $\mathcal{L}_{\mathrm{aux}}=\alpha$。均匀负载达到下界；完全塌到一个专家时该项约为 $\alpha N$。$\alpha$ 典型取 $10^{-2}$ 量级，太大则路由不顾语言模型损失，太小则仍崩溃。
+由 Cauchy-Schwarz，在 $\sum f_i=1$、$\sum P_i=1$ 时，$\sum f_i P_i$ 的最小值为 $1/N$，此时 $\mathcal{L}_{\mathrm{aux}}=\alpha$。均匀负载达到下界；完全塌到一个专家时该项约为 $\alpha N$。$\alpha$ 典型取 $10^{-2}$ 量级，太大则路由不顾语言模型损失，太小则仍崩溃。<span class="marginnote">代一个数字感受一下量级：设 $N=8$、$\alpha=0.01$。完全均匀时 $f_i=P_i=1/8$，求和得 $8\times\frac{1}{8}\times\frac{1}{8}=\frac{1}{8}$，辅助损失 $=0.01\times8\times\frac18=0.01$。全部塌到一个专家时 $f_1=P_1=1$，求和为 $1$，辅助损失 $=0.08$——是均匀时的 8 倍。辅助损失就是靠这个倍数差距把路由往均匀推的。</span>
 
 ```mermaid
 flowchart TD
@@ -53,7 +65,7 @@ Shazeer 2017 还使用 importance：$P_i$ 的方差惩罚，避免某些专家�
 
 ## 机制
 
-$\partial\mathcal{L}_{\mathrm{aux}}/\partial P_i \propto f_i$。热专家（$f_i$ 大）会收到压低 $P_i$ 的梯度，即压低其路由 logits；冷专家相反。$f_i$ 本身含有离散的 $\arg\max$，对 $W_r$ 不可微或用 STE。常见实现只对 $P_i$ 反传，把 $f_i$ 当常数，这已经足够形成负反馈。$\alpha N$ 的缩放使目标的数值不随专家数漂移：均匀时损失恒为 $\alpha$。
+$\partial\mathcal{L}_{\mathrm{aux}}/\partial P_i \propto f_i$。热专家（$f_i$ 大）会收到压低 $P_i$ 的梯度，即压低其路由 logits；冷专家相反。$f_i$ 本身含有离散的 $\arg\max$，对 $W_r$ 不可微或用 STE。常见实现只对 $P_i$ 反传，把 $f_i$ 当常数，这已经足够形成负反馈。<span class="marginnote">常见误区：以为辅助损失会影响专家自己的参数。实际上梯度只流向路由（决定「谁接单」的矩阵），专家 FFN 的权重不受它直接驱动——均衡损失管的是分配，不管每个专家干得好不好。专家变强仍要靠分到的 token 和主损失。</span>$\alpha N$ 的缩放使目标的数值不随专家数漂移：均匀时损失恒为 $\alpha$。
 
 ### 和 drop、EP 的耦合
 

@@ -21,6 +21,22 @@ section: llm
 
 主流 LLM MoE 是 **token choice**：每个 token 独立挑 top-$k$ 专家。另一种是 expert choice：每个专家挑自己最想要的 token。后者负载天然均衡，但生成时未来 token 尚未出现，训练和推理的路由不一致。因此预训练语言模型几乎都走 token choice，再用辅助损失或偏置去拉负载。<span class="marginnote">路由崩溃指绝大多数 token 涌向两三个专家，其余专家的梯度接近零。看起来参数量很大，有效容量接近稠密小模型。辅助损失、专家容量、噪声门控，都是在对抗这件事。</span>
 
+```mermaid
+flowchart TD
+  subgraph TC["token choice：token 挑专家"]
+    T1["token 1"] --> S1["打分选 top-k"]
+    T2["token 2"] --> S1
+    S1 --> E1["可能扎堆某专家 需均衡项"]
+  end
+  subgraph EC["expert choice：专家挑 token"]
+    E2["专家 1"] --> S2["按分数挑自己要的 token"]
+    E3["专家 2"] --> S2
+    S2 --> T3["负载天然均匀 但生成时未来 token 缺席"]
+  end
+```
+
+<span class="marginnote">「稀疏，是对计算而不是对存储」翻译一下：全部专家的权重都装在显存里（存储不省），但每个 token 只算其中 $k$ 个专家的前向（计算省了）。所以 MoE 模型的下载体积和显存占用按总参数算，速度和 FLOPs 按激活参数算——这就是「几千亿参数跑出几百亿的速度」的来源。</span>
+
 ## 方法
 
 对隐状态 $x\in\mathbb{R}^{d}$，路由层是一个小线性：
@@ -62,7 +78,7 @@ $$
 C=\left\lceil c\cdot k\cdot T / N\right\rceil
 $$
 
-个 token。超过 $C$ 的 token 被丢弃，残差直接跳过该专家，或落到指定的溢出专家。$c=1$ 最省计算，丢牌多；$c=1.25$ 或 $2$ 更稳，通信和计算都涨。GShard 用专家容量约束实现分布式调度，避免某一个专家把整张卡的内存撑爆。
+个 token。超过 $C$ 的 token 被丢弃，残差直接跳过该专家，或落到指定的溢出专家。$c=1$ 最省计算，丢牌多；$c=1.25$ 或 $2$ 更稳，通信和计算都涨。GShard 用专家容量约束实现分布式调度，避免某一个专家把整张卡的内存撑爆。<span class="marginnote">数字实例：$T=4096$、$N=8$、$k=2$、$c=1.25$ 时，容量 $C=\lceil 1.25\times2\times4096/8\rceil=1280$，即每个专家最多接 1280 个 token，超过的直接跳过该专家。若路由很均匀，每个专家平均只分到 $kT/N=1024$ 个，留了约 25% 的余量吸收波动。</span>
 
 ## 机制
 
@@ -70,7 +86,7 @@ $$
 
 ### 离散选择与直通
 
-top-$k$ 是离散的，对未选中专家的 $p_i$ 在前向里不乘到输出上（或只在归一化分母里出现）。实现通常仍对全部 $N$ 个 logits 做 softmax，好让未选中专家也接到「你差一点点」的梯度。有的系统对路由用直通估计，对专家输出用 STE；大规模训练里更常见的是：前向硬选 top-$k$，反向把 softmax 梯度完整回传。噪声门控（Shazeer 2017）在 logits 上加 $\mathrm{Softplus}(xW_{\mathrm{noise}})\cdot\varepsilon$，训练期探索、推理期关掉。
+top-$k$ 是离散的，对未选中专家的 $p_i$ 在前向里不乘到输出上（或只在归一化分母里出现）。实现通常仍对全部 $N$ 个 logits 做 softmax，好让未选中专家也接到「你差一点点」的梯度。有的系统对路由用直通估计，对专家输出用 STE；大规模训练里更常见的是：前向硬选 top-$k$，反向把 softmax 梯度完整回传。噪声门控（Shazeer 2017）在 logits 上加 $\mathrm{Softplus}(xW_{\mathrm{noise}})\cdot\varepsilon$，训练期探索、推理期关掉。<span class="marginnote">直觉类比：噪声门控像考试时随机蒙几道没把握的题。若永远只选当前分数最高的专家，冷专家永远得不到数据、永远不会变好；给分数加上随机扰动，偶尔「错选」冷专家，它才有梯度、才有变强的机会。这和强化学习里的探索–利用权衡是同一件事。</span>
 
 通信上，路由一旦确定，就要 All-to-All：token 按专家编号发到对应设备。路由本身的 GEMM 很轻，$d\times N$ 且 $N$ 通常几十到几百；真正贵的是分发后的专家 FFN 和两次 All-to-All。<span class="marginnote">$k$ 增大，每个 token 的计算与通信线性涨，负载通常更匀，但稀疏优势变薄。Mixtral 取 $k=2$ 是质量与稀疏的折中；Switch 取 $k=1$ 把路由简化到极致。没有对所有规模都最优的 $k$。</span>
 

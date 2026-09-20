@@ -21,7 +21,7 @@ section: llm
 
 ### 活跃参数与总参数
 
-记总专家为 $N_e$，每个专家参数 $P_e$，再加共享的注意力与路由参数 $P_s$。总参数 $N_{\mathrm{tot}}\approx P_s+N_e P_e$，活跃参数 $N_{\mathrm{act}}\approx P_s+k P_e$（忽略路由开销）。稠密模型是 $N_e=1,k=1$ 的特例。Switch 取 $k=1$，用极大的 $N_e$ 拉高 $N_{\mathrm{tot}}$，同时把 $N_{\mathrm{act}}$ 留在可训练的 FLOPs 预算里。比较扩展时，FLOPs 轴应对齐 $N_{\mathrm{act}}D$，存储与服务显存对齐 $N_{\mathrm{tot}}$。<span class="marginnote">推理期若 $k\gt 1$ 或专家因负载被多次调用，活跃计算会高于训练会计。服务扩展律不能直接搬训练时的 $N_{\mathrm{act}}$。训练扩展只对「每个 token 固定 top-$k$」这一假设干净。</span>
+记总专家为 $N_e$，每个专家参数 $P_e$，再加共享的注意力与路由参数 $P_s$。总参数 $N_{\mathrm{tot}}\approx P_s+N_e P_e$，活跃参数 $N_{\mathrm{act}}\approx P_s+k P_e$（忽略路由开销）。稠密模型是 $N_e=1,k=1$ 的特例。<span class="marginnote">数字实例：设共享部分 $P_s=2$B、64 个专家每个 $P_e=0.5$B、$k=2$。总参数 $N_{\mathrm{tot}}\approx2+64\times0.5=34$B，活跃参数 $N_{\mathrm{act}}\approx2+2\times0.5=3$B——一次前向只算 3B 参数的 FLOPs，却背着 34B 参数的存储。两个数差一个数量级，扩展比较时用错轴就会得出矛盾结论。</span>Switch 取 $k=1$，用极大的 $N_e$ 拉高 $N_{\mathrm{tot}}$，同时把 $N_{\mathrm{act}}$ 留在可训练的 FLOPs 预算里。比较扩展时，FLOPs 轴应对齐 $N_{\mathrm{act}}D$，存储与服务显存对齐 $N_{\mathrm{tot}}$。<span class="marginnote">推理期若 $k\gt 1$ 或专家因负载被多次调用，活跃计算会高于训练会计。服务扩展律不能直接搬训练时的 $N_{\mathrm{act}}$。训练扩展只对「每个 token 固定 top-$k$」这一假设干净。</span>
 
 ## 方法
 
@@ -46,7 +46,16 @@ flowchart TD
 
 稠密三项式 $E+A/N^{\alpha}+B/D^{\beta}$ 里的 $N$ 应换成 $N_{\mathrm{act}}$ 才能解释计算。剩余的 $N_{\mathrm{tot}}-N_{\mathrm{act}}$ 提供额外的函数族：不同 token 走不同参数，相当于用路由把数据空间切开。若路由完美且每个专家数据充足，切开降低近似误差，损失优于同 $N_{\mathrm{act}}$ 的稠密模型。若路由崩溃或专家过稀，切开变成噪声，损失退回甚至差于稠密。扩展律里因此必须有一项对路由质量与负载的惩罚，哪怕拟合时它被吸收进有效 $A$。
 
-专家数增加时，每个专家看到的 token 约为 $kD/N_e$。这是数据约束在专家维上的投影：总数据 $D$ 看起来很大，分到专家就小了。Muennighoff 式的重复与 Clark 式的专家标度在这里相遇——专家太多等价于每个子模型欠数据。这是 MoE 不能无限加专家的统计原因，通信墙是工程原因，两者经常一起出现。<span class="marginnote">用总参数宣称「我们训了万亿模型」而只报与稠密 10B 相近的 FLOPs，容易误导扩展比较。规范写法是成对报告：$N_{\mathrm{tot}}$、$N_{\mathrm{act}}$、$k$、$N_e$、以及 $C\approx 6 N_{\mathrm{act}} D$ 的会计是否含路由与空槽。</span>
+```mermaid
+flowchart TD
+  Q["同一份 N_act 与数据 D"] --> R{"路由质量与负载"}
+  R -- "路由准 负载匀" --> G1["每类 token 走对口专家"]
+  G1 --> G2["切开降低近似误差 优于同计算稠密"]
+  R -- "路由塌缩 或专家缺数据" --> B1["专家收到不相关 token"]
+  B1 --> B2["切开变成噪声 差于或等于稠密"]
+```
+
+专家数增加时，每个专家看到的 token 约为 $kD/N_e$。这是数据约束在专家维上的投影：总数据 $D$ 看起来很大，分到专家就小了。<span class="marginnote">直觉类比：一家大公司招 8 个专职团队，每个团队都能吃透自己的业务；扩到 256 个团队后，每个团队一年只接到寥寥几个项目，谁也练不出专长。专家也一样——$N_e$ 从 64 加到 256，每个专家分到的 token 从 $kD/64$ 掉到 $kD/256$，只有原来的四分之一，「专业度」可能不升反降。</span>Muennighoff 式的重复与 Clark 式的专家标度在这里相遇——专家太多等价于每个子模型欠数据。这是 MoE 不能无限加专家的统计原因，通信墙是工程原因，两者经常一起出现。<span class="marginnote">用总参数宣称「我们训了万亿模型」而只报与稠密 10B 相近的 FLOPs，容易误导扩展比较。规范写法是成对报告：$N_{\mathrm{tot}}$、$N_{\mathrm{act}}$、$k$、$N_e$、以及 $C\approx 6 N_{\mathrm{act}} D$ 的会计是否含路由与空槽。</span>
 
 ### 通信与空槽对有效 FLOPs 的修正
 
