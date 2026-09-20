@@ -17,6 +17,8 @@ section: llm
 
 Decode 一步的工作集很小：几个 token 的 dispatch、一次 grouped GEMM、一次 combine、一次 MLA。若每段都是独立算子，启动开销、格式转换、动态 shape 会压过有效 FLOPs。常规 All-to-All 走 SDMA 时，论文指出启动延迟约 10–20 µs 量级，在超低延迟 decode 里会变成主项。AIC 还偏好 NZ 布局的 L1，KV 却常以 ND 存在 HBM，算前转格式再吃一截带宽。
 
+<span class="marginnote">「启动税」指每调用一个算子前，CPU 准备参数、选 kernel、把命令下发给硬件的固定开销。单次 10–20 µs 听着不大，但 decode 一步的总预算往往只有几十毫秒，中间却要串几十个算子：开销乘以算子数，启动税就可能吃掉一半以上的时间，真正算数的 FLOPs 反而没占多少。</span>
+
 只融合成一个大核也不够。910C 是异构的：Cube 吃不满逐元素，Vector 吃不满大矩阵，SDMA 不会做 SwiGLU。必须让它们**时间上重叠**，否则融合只是少了几次 launch，引擎仍在互相等。
 
 ### SDMA 路径与 AIV-Direct 路径
@@ -51,11 +53,29 @@ flowchart LR
 
 INT8 在 dispatch 前做，既减 UB 载荷，也让 Cube 走 INT8 吞吐。采样若回到 CPU，MTP 校验图会在每步与主机同步，前面的融合全被打断。CloudMatrix-Infer 把排序、累积、过滤做成 NPU 算子并融进图，使 MTP 与校验图可以背靠背。融合的边界是：任何「看起来很小」的主机往返，在 decode 频率下都不是小的。
 
+<span class="marginnote">用数字感受一下量化的收益：一个 BF16 数占 2 字节，换成 INT8 只占 1 字节，dispatch 消息体积直接减半；同时 910C 的 Cube 阵列算 INT8 的吞吐又比 BF16 高一截。「发送前先量化」于是两头都赚——网络少搬一半字节，算力单元还能跑得更快。</span>
+
 <span class="marginnote">论文把 prefill 的 6688 tokens/s/NPU 与 decode 的 1943 tokens/s/NPU（4K、TPOT&lt;50 ms）以及更紧 15 ms 下的 538 tokens/s/NPU 作为该系统在 DeepSeek-R1 上的工作点。本篇只用来说明融合与重叠改变的是效率，不把数字当跨硬件对照表。</span>
 
 ## 机制
 
 重叠能成立，因为三类引擎不共享同一条流水线停顿点。AIC 在 Cube 阵列上做 GMM 时，AIV 可以算下一 token 的偏移并发起远端写；SDMA 若同时拉下一层 KV，只要不与 AIV-Direct 抢同一块缓冲与同一条 UB 虚拟通道。软件用跨核 flag 与硬件事件（如搬运与 Vector 之间的同步点）做握手，而不是全局 `device synchronize`。预分配双缓冲让静态图成立：一边写远端，一边本地填下一槽。
+
+```mermaid
+flowchart TD
+  AIC["AIC：Cube 阵列算 GMM"]
+  AIV["AIV：算偏移、量化、发起远端写"]
+  DMA["SDMA：预取下一层 KV"]
+  B0["双缓冲槽 0"]
+  B1["双缓冲槽 1"]
+  B0 --> AIV
+  B1 --> AIV
+  AIV -->|"跨核 flag 握手"| AIC
+  AIC -->|"硬件事件通知"| AIV
+  DMA -.->|"不抢同一 UB 通道"| AIV
+```
+
+<span class="marginnote">初学者容易以为同步就是每步调一次全局的 device synchronize，让所有核等齐。实际上那会把三类引擎刚刚叠出来的重叠全部抹平；正确做法是只在真正有数据依赖的两段之间插一个细粒度的跨核 flag 或硬件事件——等谁，只等谁。</span>
 
 MLA 路径上，融合减少的是 launch 与格式转换；AIC-AIV 微并行减少的是 Prolog 内部的串行空洞。NZ 布局是 Cube 的约束，不是数学约束：能在写入 KV 时就按后续 AIC 的偏好摆，就不必在 FA 前再扫一遍。MTP 下 batch 与序列维都在变，论文改用 BSND 与沿 $B,S$ 的动态切块，让各 AIC 的任务更均匀，避免尾核决定一步时间。
 

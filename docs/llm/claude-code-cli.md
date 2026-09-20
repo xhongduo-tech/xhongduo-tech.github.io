@@ -17,6 +17,8 @@ Claude Code 是 Anthropic 的编程智能体产品：不是聊天框里贴一段
 
 IDE 补全一次只动光标附近。Chat 窗口没有「仓库是工作区」的状态：模型看不见测试是否红、git 是否脏、上一步编辑是否可编译。把整个循环交给无审批的脚本，失败时又难以把责任钉到某一次工具调用。Claude Code 针对的是**有工具、有项目记忆、可脚本化**的代理：读代码库、跨文件编辑、跑命令、处理 git，并用自然语言当入口。
 
+<span class="marginnote">常见误区：把 Claude Code 当成「更聪明的补全」。分界在状态：补全看不见你的测试是否变红、git 是否有未提交改动；代理循环每一步都能读到这些状态再决定下一步，所以能干「跑测试、修到绿」这种跨分钟的活。</span>
+
 第二个问题是同一代理要出现在多种界面。若 CLI 与 VS Code 各搞一套提示与权限，团队无法把规范写进仓库。官方选择：多表面、单引擎。终端是完整 CLI；VS Code / Cursor / JetBrains 提供内联 diff 与对话；桌面端并排多会话与定时任务；Web 与手机负责不在本机仓库上的长任务。会话可以用 `--teleport`、`/desktop`、Remote Control 在表面之间搬，而不是复制粘贴上下文。
 
 ### Unix 组合子，而不是只能交互
@@ -30,6 +32,8 @@ IDE 补全一次只动光标附近。Chat 窗口没有「仓库是工作区」�
 在项目目录运行 `claude`，首次登录 Claude 订阅或 Anthropic Console；若已设 `ANTHROPIC_API_KEY`，则跳过登录、改为确认密钥。终端、VS Code 与 JetBrains 还支持第三方模型提供方。典型任务：为模块补测试并修到绿、按症状追 bug、写提交说明与开 PR。CI 里可用 GitHub Actions 或 GitLab CI 做自动审查与 issue 分流。
 
 项目说明书是 `CLAUDE.md`：放在仓库根，每次会话开始时读取，用来写编码规范、架构决策、首选库与审查清单。Claude 还会在工作中积累自动记忆。可复用流程打成 **Skills**（例如 `/review-pr`）；**Hooks** 在编辑前后跑 shell——官方例子是编辑后格式化、提交前 lint。MCP 把 Drive、Jira、Slack 或自建工具接进来。需要并行时，主代理可派生子代理，或用后台代理并排跑多个完整会话。完全自定义的编排走 Agent SDK，而不是在 CLI 里重写循环。
+
+<span class="marginnote">MCP（Model Context Protocol，模型上下文协议）可以类比 USB-C 接口：过去每接一个外部工具都要专门做一根线，现在工具侧按同一种接口实现一次，任何支持 MCP 的客户端都能插上 Drive、Jira 或自建服务。</span>
 
 ```mermaid
 flowchart TD
@@ -52,6 +56,19 @@ CLI reference 把「开会话、管道、恢复、更新」收成命令表。`cl
 
 循环与 [ReAct](/llm/react-prompting) 同类：模型在「读—改—跑—观察」里更新信念，直到判定完成或要人。`CLAUDE.md` 把团队规范从对话里搬到文件系统，使每次会话的先验相同。Skills 按需加载程序知识，避免把全部手册塞进系统提示。Hooks 把确定性步骤（格式化、lint）固定在工具生命周期上，减少「模型忘记跑 formatter」的方差。MCP 把外部系统变成工具表上的名字，而不是让模型去猜 HTTP。
 
+```mermaid
+flowchart TD
+  NEED{"要让代理知道或做到什么？"}
+  NEED -- "团队规范" --> MD["CLAUDE.md：每次会话先读"]
+  NEED -- "可复用流程" --> SK["Skills：按需加载"]
+  NEED -- "确定性步骤" --> HK["Hooks：工具前后固定跑"]
+  NEED -- "接外部系统" --> MCP["MCP：变成工具表条目"]
+  MD --> LOOP["同一条智能体循环"]
+  SK --> LOOP
+  HK --> LOOP
+  MCP --> LOOP
+```
+
 git 是状态外置：提交与 PR 让代理的工作可审查、可回退，失败不必依赖会话记忆。管道与 `-p` 把同一循环接到非 TTY，使 CI 与本地共用提示词。多表面共享引擎，则是把「规范写在仓库里」变成可执行的：手机上续做的任务仍受同一套 `CLAUDE.md` 约束。
 
 <span class="marginnote">JetBrains 插件依赖单独安装的 CLI。Web 与桌面的云会话碰不到你的 `~/.claude` 本机技能目录，只加载账户里启用的技能与仓库内 `.claude/skills/`。写部署时要声明技能从哪一层文件系统来。</span>
@@ -65,6 +82,8 @@ git 是状态外置：提交与 PR 让代理的工作可审查、可回退，失
 Claude Code 是产品，版本与开关会变；复现质量必须写文档日期与 `claude` 版本。npm 安装路径已弃用，教程若还写 `npm i -g @anthropic-ai/claude-code`，以官网为准。Homebrew 的 `claude-code` 跟踪稳定通道（大约落后一周、跳过严重回退），`claude-code@latest` 跟踪最新通道，两者升级策略不同。
 
 相对 [Aider](/llm/aider)：Aider 更窄、git 提交节奏更硬、编辑格式是一等公民；Claude Code 工具面更宽（MCP、子代理、多表面）。相对 Codex CLI / Gemini CLI：三者都是终端代理，但脚手架、权限默认、项目说明书文件名与开源许可都不同，基准数字不可互换。Agent SDK 把同一循环嵌进你的进程；只想交互时用 CLI，不要为了「可编程」强行解析 TUI。
+
+<span class="marginnote">常见误区：拿三个终端代理各自宣传的基准分数直接排名。它们的脚手架、允许的工具集、项目说明文件都不一样，相当于三份不同考卷的分数；真要比较，得在同一脚手架、同一权限设置下重跑一遍。</span>
 
 <span class="marginnote">出处：Anthropic，Claude Code Overview、CLI reference、Skills / Hooks / MCP 文档，https://code.claude.com/docs 。安装与故障排除以 Setup 页为准。本篇不引用第三方「命令大全」作为规范。</span>
 

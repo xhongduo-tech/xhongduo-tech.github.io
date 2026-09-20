@@ -35,6 +35,8 @@ $z_t$ 既可以是子词也可以是图像码。没有单独的图像交叉层�
 
 骨干相对 Llama-2：上下文 4K，7B 无 GQA、34B 有 GQA，预训练 **4.4T** token，峰值学习率 $1.0\times 10^{-4}$，AdamW。图像 tokenizer 基于 Gafni 等（2022）的量化器。为压住注意力 softmax 的输入范数，引入 **QK-Norm**：对 $q,k$ 做层归一化再点积。7B 还曾用注意力与 FFN 后 dropout 0.1；34B 额外采用 Swin 式 **norm reordering**，把范数增长限制在 SwiGLU 乘法放大之前，并去掉 dropout。最终 softmax 的配分函数用 **z-loss** $10^{-5}\log^2 Z$ 正则，减轻 logit 漂移。论文消融：无 QK-Norm 时 7B 约在 20% epoch 处发散；QK-Norm 对两档都必要。
 
+<span class="marginnote">初学者容易把 QK-Norm 和 z-loss 混为一谈。前者管注意力内部 $q,k$ 的尺度，防的是注意力发散；后者管最终词表 softmax 的配分函数 $Z$，防的是 logits 整体漂移。一处在每层注意力里，一处在最后的输出层，消融显示两者都不能省。</span>
+
 ### 对齐与评测面
 
 SFT 把提示与回答打包进 4096，对提示掩码损失，学习率 1e-5，dropout 0.05，保留 z-loss。提示中的图用加边框的 resize，避免裁掉信息；生成图像时另有裁切策略，训练与推理的几何要配对。评测覆盖 caption、VQA、纯文本（相对 Llama-2 不掉、34B 在部分常识与数学上可过更大对照）、以及新的长文混合模态人工评测。谱系上接 CM3 / CM3Leon 的离散交错，而不是 CLIP+LLM 适配器。
@@ -60,6 +62,20 @@ flowchart TD
 LLaVA 式 MLP 投影、Flamingo 式交叉注意，视觉是连续向量，生成图像通常外挂扩散；Emu 预测连续视觉嵌入再交给扩散解码，仍不是共享词表。[Emu](/llm/emu) 与 Chameleon 都做图文混生，前者码是连续的、后者是离散的。离散路线的服务形态是「一个自回归头」；连续路线的服务形态是「语言模型 + 扩散」。不要用「都能出图」把两条账单画等号。
 
 <span class="marginnote">论文把 Gemini 列为最相近的早期融合对照，并明确差异在图像解码是否独立。讨论「原生多模态」时，应分开写：联合训练的数据主张、是否共享离散词表、生成图像是否走同一 LM 头。三件事可以拆开买。</span>
+
+```mermaid
+flowchart TD
+  subgraph EARLY["早期融合（Chameleon）"]
+    A1["图 + 字 → 同一串离散码"] --> A2["一个自回归 Transformer"]
+    A2 --> A3["文本与图像码同头生成"]
+  end
+  subgraph LATE["晚融合（LLaVA / Flamingo）"]
+    B1["图 → 连续视觉向量"] --> B2["语言模型读前缀 / 交叉注意力"]
+    B2 --> B3["只生成文本，出图另接扩散"]
+  end
+```
+
+<span class="marginnote">「VQ 码本」可以想象成一册 8192 页的图章集：图片切成 $32\times 32$ 个小块，每块换成册子里最像的那枚图章的编号，整张图就变成一串 1 到 8192 的编号——和文字一样是可预测的离散符号。</span>
 
 ## 边界
 

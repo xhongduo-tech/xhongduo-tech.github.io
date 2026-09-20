@@ -19,6 +19,8 @@ Codex CLI 是 OpenAI 的本机编程代理：在终端或 IDE 里针对当前仓
 
 第二个问题是同一代理要服务交互开发与 CI。交互 TUI 需要审批气泡；流水线需要 `codex exec` 一类非交互入口、稳定的退出码与可解析输出。官方用同一套 config 层叠用户级与项目级，并允许组织在托管机器上用 `requirements.toml` 禁止 `approval_policy = "never"` 或 `danger-full-access`。这把安全默认从「个人偏好」提升为可执行的管理合同。
 
+<span class="marginnote">可以把 sandbox_mode 想成发给代理的门禁卡：哪几扇门刷卡能开，是写死在卡里的；approval_policy 则是遇到没权限的门时，要不要打电话请示。初学者容易找一个「自动程度」总开关，实际上「能做什么」与「何时问人」是两个独立的轴，分开设置才可能出现「能改代码但上网要问」这类组合。</span>
+
 ### 本机、IDE、云端不要写混
 
 仓库 README 写三条分叉：要在 VS Code / Cursor / Windsurf 里用，装 IDE 扩展；要桌面体验，走 Codex App；要云端代理，去 ChatGPT 的 Codex Web。CLI 是「轻量、跑在你电脑上的编程代理」。模型选择、计费与上下文长度以 developers.openai.com/codex 当时文档为准，本篇不锁某一个快照型号。
@@ -55,11 +57,25 @@ flowchart TD
 
 项目根或子目录放 `AGENTS.md`，与 `~/.codex/AGENTS.md` 全局说明层叠，告诉代理构建、测试与风格约定。这与 Claude 的 `CLAUDE.md`、Gemini 的 `GEMINI.md` 同构，只是文件名与发现规则以 Codex 文档为准。用户级 `~/.codex/config.toml` 设默认模型、沙箱、审批、MCP；项目级 `.codex/config.toml` 仅在项目被信任时加载，且不能覆盖机器本地的提供方、认证、通知与遥测等键——那些必须放在用户级，以免仓库里的配置把代理指到不可信端点。MCP 服务器写在 `[mcp_servers]`；会话内可用斜杠命令查看状态。
 
+<span class="marginnote">配置层叠的规则类似 CSS 或 `.gitignore`：越靠近项目的文件优先级越高，但认证、提供方地址这类键被保留给用户级。为什么这条限制如此重要？假如项目级配置能改 `openai_base_url`，一个恶意仓库就能把你的 API 流量悄悄引到假服务器，窃取密钥与代码——保留键清单本身就是一道供应链防线。</span>
+
 非交互执行走 `codex exec`（或文档中的无头入口），用于脚本与 CI。官方文档站点（developers.openai.com/codex）覆盖安装、CLI 开关、模型、config 样例与 Agents.md。本篇以该站点与 GitHub `openai/codex` 为规范，不把第三方长篇指南当作 API 合同。
 
 ## 机制
 
 沙箱是内核/OS 强制的权能集合：即使模型发出「写工作区以外的路径」，执行层也应失败或升级为审批，而不是靠提示词拦。审批是人机接口：把「这一次 / 本会话 / 改执行策略 / 允许某主机 / 拒绝 / 取消整轮」收成显式决定。两者正交，才能表达「可以自动改仓库，但上网必须问」这种日常需求。`workspace-write` 通常还保护 `.git` 与 `.codex` 一类路径，避免代理改自己的策略文件或历史来逃逸——这是完整性，不是功能彩蛋。
+
+```mermaid
+flowchart TD
+  C["模型发出一条命令"] --> S{"OS 沙箱静态判定"}
+  S -->|"在允许范围内"| E["直接执行"]
+  S -->|"越界：出工作区 / 网络 / 系统路径"| A{"approval_policy"}
+  A -->|never| X["拒绝并回报错误"]
+  A -->|on-request| H["暂停，弹出审批气泡"]
+  H -->|"允许（本次 / 本会话）"| E
+  H -->|拒绝| X
+  E --> O["输出回灌给模型，继续循环"]
+```
 
 AGENTS.md 把团队知识放进文件系统，使模型不必在每一轮对话里重新发现「测试怎么跑」。config 层叠则把组织红线（禁止 never + full access）从个人点点鼠标里抽出来。机制上，Codex CLI 是「模型 + 工具循环 + OS 沙箱 + 审批状态机」；去掉后两段，它就退化成任意命令执行器。
 
@@ -72,6 +88,8 @@ AGENTS.md 把团队知识放进文件系统，使模型不必在每一轮对话�
 ## 边界
 
 `danger-full-access` 与 `--yolo` 存在，是因为有人已经在隔离虚拟机里跑代理；在日常笔记本上打开等于把本地用户权限交给模型。本篇不讨论如何「尽量自动又尽量广」的组合拳。项目级 config 不能覆盖认证与 `openai_base_url`，正是为了降低供应链式劫持：恶意仓库不该把流量指到假服务器。
+
+<span class="marginnote">常见误区：「never」只是「不再请示」，不是「权力更大」。`--ask-for-approval never` 配只读沙箱的代理，依然一个字节都写不进去——请示频率与能力大小互不影响。把它和关沙箱混为一谈，是评测和部署里最常见的配置错误。</span>
 
 CLI、IDE 与 Web 的数据路径、保留政策与网络出口不同。官方文档会演进；开关名以当前 docs 为准。开源仓库含 `docs/sandbox.md` 与平台实现说明，和网站文档应交叉核对版本。不要用 Codex CLI 对未授权系统做探测；默认信任边界是当前工作区。
 

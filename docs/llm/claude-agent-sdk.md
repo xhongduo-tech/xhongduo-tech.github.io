@@ -17,6 +17,8 @@ Messages API 给你一次补全；Claude Code CLI 给你一个人机终端。两
 
 手写工具循环意味着：解析工具调用、执行、把结果写回、处理截断与重试、自己做压缩与记忆。Claude Code 已经把读改文件、壳命令、网页搜索、MCP、Hooks、子代理与技能加载做成稳定行为。若每个内部工具都从零复制，行为会与员工日常用的 CLI 分叉。SDK 的主张是同一套 harness，可编程。
 
+<span class="marginnote">harness 直译是「马具」，社区里指包住模型的那层工程脚手架：工具调用、循环、权限、上下文管理。可以类比成发动机与整车的区别——模型只是发动机，Agent SDK 卖的是底盘、方向盘和安全带。</span>
+
 选型表把四条路写死。要代理、但不想实现工具循环：Agent SDK。要日常交互或一次性终端任务：Claude Code CLI。要自己实现每一跳、直接打 Anthropic API：Client SDK。要长跑/异步、不想自己管沙箱与会话基础设施：Managed Agents。SDK 只提供 Py/TS；其他语言用 CLI 子进程 `-p --output-format json` 驱动同一循环。把 CLI 的 TUI 当 API 来刮，不属于合同。
 
 ### 认证与品牌是产品约束，不只是礼貌
@@ -49,13 +51,28 @@ flowchart TD
 
 默认 `setting_sources` 会像 CLI 一样加载 user / project / local 设置；`CLAUDE.md` 与项目规则在包含 `"project"` 时生效。设成空列表等于关掉全部，这是「为什么我的说明书没被读」的常见原因。权限模式可在运行中改，例如先 `plan` 再 `acceptEdits`。Python 的 `interrupt()` 或 TypeScript 的 `AbortController` 可停下一次运行。这些是把 CLI 里的人机控制搬进库 API，而不是新的模型能力。
 
+<span class="marginnote">为什么这一点重要：如果你把团队规范写在 `.claude/` 里、却把 `setting_sources` 设成空列表，代理不是「不听话」，而是那些文件根本没进上下文——表现像没受过训练，错误信息也不会提示缺文件。</span>
+
 示例仓库提供本地开发用的 demo agents。Agent harness design 文档描述 Claude Code 团队如何用动态工作流编排许多子代理——读它是为了抄编排模式，不是为了改模型权重。
 
 ## 机制
 
 SDK 把「决定下一步」留在模型，把「执行与政策」留在宿主。内置工具与 CLI 同义，减少「员工用 Code 能做、产品里的代理不能做」的裂谷。进程内 MCP 让自定义逻辑与模型工具表共享同一协议，却不必付进程隔离与 stdio 帧的成本；代价是崩溃域与应用在一起，handler 必须自己做超时与权限。`allowedTools` 是默认批准列表，不是沙箱：未列出的工具仍可能出现在模型上下文里，除非你用 `tools` 数组收窄内置集合。
 
+```mermaid
+flowchart TD
+  MODEL["模型提议调用自定义工具"] --> NAME["全名 mcp__{server}__{tool}"]
+  NAME --> PERM{"在 allowedTools 里？"}
+  PERM -- "是" --> RUN["进程内 handler 执行"]
+  PERM -- "否" --> ASK["弹审批或拒绝"]
+  ASK -- "用户批准" --> RUN
+  RUN --> RES["返回结构化结果"]
+  RES --> BACK["结果写回上下文，循环继续"]
+```
+
 会话把多轮工具轨迹变成可恢复对象，fork 用于分支探索。Skills 的渐进披露在 SDK 里仍然发生在文件系统上：没有把技能目录挂到工作区，代理就读不到。机制上，Agent SDK = Claude Code harness − TUI + 你的进程与品牌。Client SDK 则是 harness 也不给，只给 token。
+
+<span class="marginnote">fork 会话可以类比 git 的分支：从当前对话状态复制出一条平行支线，拿去试另一种方案；试砸了直接丢弃，主线完全不受影响。适合「两种修法都试试再选一个」的场景。</span>
 
 <span class="marginnote">Managed Agents 是另一产品：托管 REST，Anthropic 跑代理与沙箱。适合不想运维隔离环境的长任务。不要把 Managed Agents 的 SLA 写进自托管 SDK 的运行手册。</span>
 

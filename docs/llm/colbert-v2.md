@@ -17,6 +17,8 @@ Keshav Santhanam、Omar Khattab、Jon Saad-Falcon、Christopher Potts、Matei Za
 
 ColBERT 已证明 token 分解对域内检索有效，但未压缩索引难上生产。另一条路是把单向量做狠：难负例、预训练、蒸馏——有时能追上「原版」ColBERT，于是有人怀疑延迟交互的归纳偏置是否还值得。v2 的主张是：多向量同样吃蒸馏与难负例，而且 token 向量天然成簇，**可以在不改训练架构的情况下做残差压缩**。质量与空间应一起报，只报 MRR 或只报 GiB 都是半句话。
 
+<span class="marginnote">「延迟交互」（late interaction）指的是：查询与文档先各自独立编码成 token 向量，把「交互」推迟到检索那一刻才算——每个查询 token 去文档里找最像的 token。类比：单向量双塔像两边只交换一张整段摘要卡片，延迟交互像逐词对照笔记——更细，但纸（存储）也多得多。</span>
+
 域外更苛刻。BEIR 混了引用关系、事实验证等「语义相关」而不都是搜索；维基 OpenQA 偏热门实体。作者另建 **LoTTE**（Long-Tail Topic-stratified Evaluation）：StackExchange 主题语料 + GooAQ 搜索问与论坛标题问，12 个测试集，关注长尾、自然查询。Success@5 以目标帖中被接受或点赞的回答是否进入前 5 为准。这是资源贡献，不只是又一个英文 dev 集。
 
 ### MaxSim 在算什么
@@ -55,6 +57,19 @@ Search 查询来自 Google 自动补全且答案框链到 StackExchange，标注
 ## 机制
 
 残差压缩成立，是因为附录显示同一 token 的上下文化向量成簇，质心抓住「义项」，残差只补小偏移。这与把整篇单向量量化不同：单向量一错全错；token 级量化误差被 MaxSim 的 max 部分吸收。蒸馏去噪：MARCO 官方负例含假阴性，交叉编码器提供软标签，KL 避免尺度不对齐。候选生成用倒排近似，精排用全向量，是召回—精排在同一分数族内的两段，不是换成交叉编码器（交叉编码器仍可当第三段，见 [BGE Reranker v2](/llm/bge-reranker-v2)）。
+
+```mermaid
+flowchart TD
+  T["同一 token 的上下文向量"] --> CL["在嵌入空间中自然成簇"]
+  CL --> KM["k-means 学出质心"]
+  KM --> ID["存质心 ID：记它属于哪个义项"]
+  T --> RES["逐维残差：只记与质心的小偏移"]
+  ID --> REC["检索时重建近似向量"]
+  RES --> REC
+  REC --> MS["MaxSim 的 max 吸收量化误差"]
+```
+
+<span class="marginnote">数字实例：一个 128 维向量按 float16 存是 128 × 2 = 256 字节；v2 只存质心 ID 加每维 1-2 bit 残差，压到约 20-36 字节。直觉类比：先给每簇词拍一张「标准像」（质心），索引里只记「跟标准像差在哪里」，因为长得像的词本来就扎堆。</span>
 
 与 BGE-M3 多向量：M3 把 MaxSim 做成多语多功能头之一，压缩方案不是 v2 这篇的质心残差。与 SPLADEv2：稀疏词表向量，存储是倒排标量，交互限制在词面；ColBERT 是稠密 token 向量，能对齐同义改写。两者都是词级分解，LoTTE forum 上往往都强于纯单向量。
 

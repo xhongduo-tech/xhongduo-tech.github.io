@@ -23,6 +23,8 @@ section: llm
 
 Dispatch/combine 是消息语义：按路由表把 token 向量送到持有该专家的 Die，再把输出送回家，语义是置换不是求和。KV 访问更接近内存语义：注意力核要的是逻辑位置 $t$ 上的 $k_t,v_t$，它们可以住在本卡分页池，也可以住在 UB 另一端的 DRAM/HBM 页。把 KV 误做成每步 All-to-All 会把带宽打爆；把专家输出误做成远程 load 又会失去集合通信的流控。两者共享互连，不共享原语。
 
+<span class="marginnote">「置换不是求和」可以这样理解：dispatch 只是把一批 token 按「谁拥有哪个专家」重新分发，像快递分拣，不做任何加法。所以它可以用点对点消息完成；真正需要加总的 all-reduce 类集合通信，在这里只在少数汇合点出现。两种语义混用，流控方式就错了。</span>
+
 <span class="marginnote">DeepSeek-R1 公开结构是每层 256 个路由专家加共享专家。EP320 一类配置用冗余专家做负载均衡，使「一 Die 一专家」在有热专家时仍可调度，而不是把 256 与 320 当成同一数字。</span>
 
 ## 方法
@@ -46,6 +48,8 @@ flowchart TD
 
 方法上把缓存做成独立可伸缩的子系统：CPU DRAM 聚合进内存池，NPU 经 UB 直接访问，命中不必把整段 KV 先搬回「主 decode 卡」再算。这与 KV-centric 架构相反——后者调度围着块所在 GPU 转。对等池把局部性从正确性条件降级为性能提示：近端更快，远端仍正确。前缀复用、多轮对话、抢占后恢复，都可以按页句柄在池里完成，而不强制会话粘在同一 Pod。
 
+<span class="marginnote">为什么容量这么紧张，可以代一笔账：GQA 下每 token 每层 KV 是 2 × KV 头数 × 头维 × 字节数。取 8 头、128 维、INT8 共 1 字节，就是 $2\times8\times128\times1=2$ KB；乘 60 层、再乘 4096 上下文，一个会话约 480 MB——还没算多会话并发，单卡 HBM 就见底了。</span>
+
 <span class="marginnote">均匀可达不等于零代价。页仍应尽量放在即将做 decode 的 Die 近处；池解决的是「能不能读」，不是「该不该每步远程扫整层」。带宽不等式与 [卸载](/llm/kv-offload) 相同，只是 $B_{\mathrm{io}}$ 换成 UB。</span>
 
 ## 机制
@@ -57,6 +61,23 @@ flowchart TD
 ### 两套并行不要抢同一条队列
 
 MoE All-to-All 与 KV 远程读若挤在同一无区分队列，decode 的 TPOT 会被大块 KV 预取戳出尖刺。工程上应对 UB 上的集合通信与内存语义流量做优先级或平面划分。专家权重常驻近端 HBM，KV 冷页才下沉 DRAM 池；不要把专家也「分布式」到每步远程取，那会把 MoE 变成带宽灾难。
+
+```mermaid
+flowchart LR
+  subgraph MSG["消息语义：dispatch / combine"]
+    TOK["token 向量"] --> RT["按路由表置换"]
+    RT --> EG["专家 grouped GEMM"]
+    EG --> HM["输出送回家"]
+  end
+  subgraph MEM["内存语义：KV 远程读"]
+    ATT["注意力核"] --> LD["按页句柄 load"]
+    LD --> PG["页在本卡 HBM 或池内 DRAM"]
+  end
+  MSG -->|"集合通信队列"| UB["UB 互连"]
+  MEM -->|"内存语义队列 优先级更高"| UB
+```
+
+<span class="marginnote">把故障域想成抽奖更容易懂：单 Die 可用性哪怕高达 99.9%，320 个 Die 里任意一个出问题的概率约为 $1-0.999^{320}\approx27\%$。所以宽 EP 必须搭配权重冗余与快速重路由，否则延迟上的收益会被故障恢复期整份副本不可用抵消。</span>
 
 ## 边界
 

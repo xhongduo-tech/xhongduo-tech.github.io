@@ -29,6 +29,8 @@ MoE 专家侧的标准乘法是：$E$ 个问题共享相近的 $N,K$（FFN 宽�
 
 设备接口（历史 API 里的 `GemmGrouped` / `BaseGrouped`）管理 workspace、可选的 host 侧预计算、以及 kernel launch。问题数组在 GMEM：每个问题有 `GemmCoord(M,N,K)`、A/B/C 指针、LDA/LDB/LDC。示例程序 `24_gemm_grouped` 会随机生成一组尺寸，并与「按尺寸分桶再跑常规 batched GEMM」对照，用来说明专用 grouped 核的收益。
 
+<span class="marginnote">「瓦片」就是把大矩阵切成的小方块，比如 $128\times128$ 的一小块，刚好喂给 Tensor Core 一次算完。「线程块领取瓦片」可以想象成几十个工人（线程块）守在一条传送带（瓦片队列）边取活干：活的总数开工前数不清，所以工人干完一件再取下一件，而不是每人预先分好固定一件。</span>
+
 Visitor 的基本步进：线程块持有一个 `tile_idx`，初值为 `blockIdx.x`，每做完一块加 `gridDim.x`。给定全局瓦片号，要回答：它属于哪个问题、是该问题的哪一块。这需要对各问题的瓦片数做前缀和。`kDeviceOnly` 让每块自己扫；问题数到几百（DeepSeek 量级）时，扫的开销要靠实现优化，不能假设是零。`kHostPrecompute` 把前缀和放到启动前，适合预填 $M_i$ 暂时稳定、同一图要跑多次的情况。
 
 ```mermaid
@@ -45,11 +47,26 @@ flowchart TD
 
 cuDNN Frontend 为 Blackwell 提供统一的 grouped GEMM + 量化融合：块缩放（FP4 / FP8）、按行门控乘、可选的输出量化尺度。`MoEWeightMode.DENSE` 与 `DISCRETE` 区分权重布局。文档约束包括：专家数 $\le 1024$，$M$ 对齐到 256，需要 `prob_tensor`（无门控时传全 1），A/B 同 dtype。这是把 MegaBlocks 式 grouped 乘与 NVFP4 微缩放、V3 式门控乘焊在同一 epilogue 里，避免「先 GEMM 再逐元素」的往返。FC2（下投影）与反向的 dFC1 是文档点名的用法。
 
+<span class="marginnote">「epilogue（收尾段）」指矩阵乘主循环结束后对输出小块做的额外处理：乘门控系数、按块缩放、量化打包。初学者容易以为这些是独立的 kernel；实际上每多一次往返，都要把中间结果整块写回显存再读回来——$M=N=4096$ 的中间矩阵一次往返就是几十 MB 的 HBM 流量，焊进 epilogue 后这笔账直接消失。</span>
+
 未到 SM100 时，Hopper 的 grouped 核仍是 MoE 训练 / 预填的主力；decode 小 $M$ 可能要另写 GEMV 友好的路径，因为 Tensor Core 瓦片填不满。CUTLASS 的 grouped scheduler 文档还讨论了按问题顺序领取导致的负载不均，以及把大问题的瓦片打散给更多块的变体。
 
 ## 机制
 
 Round-robin 瓦片分配近似于：总工作量按瓦片数均分。热专家 $M_h\gg M_c$，它占的瓦片多，自然分到更多块-迭代。这比「一块绑定一个专家直到做完」更能填满 SM。极端情况下一个专家占了 90% 瓦片，grouped 核也救不了跨卡 EP 的热度——那是 EPLB 的问题。Grouped GEMM 只均衡 **一张卡内** 多个本地专家之间的 SM。
+
+```mermaid
+flowchart TD
+  Q["256 个专家 M_i 各不相同"] --> A["方案一 pad 到 max M_i"]
+  Q --> B["方案二 循环启动 E 次小核"]
+  Q --> C["方案三 grouped 一次启动"]
+  A --> W1["冷专家也付 FLOPs 与 HBM 流量"]
+  B --> W2["GPU 空转在 launch 开销上"]
+  C --> V["visitor round-robin 领瓦片"]
+  V --> S["SM 按瓦片数自然填满"]
+```
+
+<span class="marginnote">round-robin（轮转）可以想象成银行叫号：柜台数量固定（线程块少于瓦片数），号（瓦片）按顺序发放。热专家票号多，自然占更多柜台时间；冷专家几张票干完就走。这正是「按瓦片数均分工作量」这个说法的直觉来源，也是它优于「一块绑死一个专家」的原因。</span>
 
 指针数组使权重可以不紧挨着。EP 下本卡只有 $N/E$ 个专家，数组长度是本地专家数，不是全局 $N$。逻辑专家到物理槽位的映射变了（EPLB 搬家），只要改指针表，不必重编译核。这是 grouped 接口相对「一个大张量切块」布局的灵活性。
 

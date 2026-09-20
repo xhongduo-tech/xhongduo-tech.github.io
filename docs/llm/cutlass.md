@@ -21,6 +21,8 @@ section: llm
 
 2.x 用「线程块形状 / warp 形状 / 指令形状」三级 `GemmShape` 描述切块；3.x 改成 CuTe 的 `Layout` 与 `TiledMma`、`CollectiveMainloop`、`CollectiveEpilogue`，再由 kernel adapter 接到 `device::GemmUniversal`。层次变了，问题没变：你必须知道自己改的是原子、集体还是启动器，否则一次模板参数会让编译器选出完全不同的主循环。
 
+<span class="marginnote">「实例化模板」可以理解成填表下单：你把瓦片大小、精度、架构标签这些参数填进 C++ 模板，编译器据此现场生成一份专用核代码。所以 CUTLASS 里没有「运行时改配置」这回事——改一个参数就要重新编译，选错了参数编译器可能替你拼出一份完全不同的核。</span>
+
 ### CuTe 解决的是布局，不是算法
 
 CuTe 把张量看成「数据指针 + 布局代数」。同一块 smem 可以有 MMA 视角、TMA 视角、epilogue 向量视角，靠 layout 复合而不是靠手写 `offset = i*ldn+j`。它不决定你用不使用在线 softmax，也不决定 CTA 是否持久化。把 CuTe 理解成「自动融合注意力」会失望；它是让 [tiling](/llm/kernel-fusion-tiling) 与 [bank 友好布局](/llm/shared-memory-banks) 能在类型系统里被检查，减少 silent 错位。
@@ -38,6 +40,8 @@ CuTe 把张量看成「数据指针 + 布局代数」。同一块 smem 可以有
 **Collective mainloop / epilogue**：块内「沿 K 怎么搬、怎么 MMA」以及「累加器怎么写成 C 并融 bias/激活」。这是最常改的一层：换 pipeline stage、换 TMA 与 `cp.async`、换 epilogue 融合。注意力核往往自写 mainloop，只复用 MMA 原子与 smem 布局。
 
 **Atom / MMA / copy**：单条 `mma.sync`、`wgmma.mma_async`、`cp.async`、TMA 的封装。通常不要改，除非新精度或新指令还没被集体层覆盖。
+
+<span class="marginnote">动手深度可以用修车类比：调 Device 层像叫代驾（只决定路线与调度），改 collective 像调发动机（搬数据与主循环的节奏），动 atom 像换零件本身。越往下，需要懂的白皮书细节越多，出错后越难查——所以原则是「能在哪层停下就在哪层停下」。</span>
 
 ```mermaid
 flowchart TD
@@ -71,6 +75,21 @@ Hopper 的集体主循环把 [软件流水](/llm/sw-pipeline-buffer) 做成类�
 ## 边界
 
 不要在能用 cuBLASLt 且不需要自定义融合时，为「用了 CUTLASS」而引入一套编译与 autotune 负担。不要把例子里的 `persistent` 调度抄到极小 decode GEMM 上而不测占用。不要修改 atom 层却不跑数值对照——布局错是静默的。昇腾 / 其他厂商的模板库不是同一层次语言，不能把 `TiledMma` 参数写过去。
+
+```mermaid
+flowchart TD
+  Q["需求是什么"] --> F1["只要标准 GEMM 少量融合"]
+  Q --> F2["换调度 split-K / persistent"]
+  Q --> F3["插自定义 epilogue 或流水"]
+  Q --> F4["新指令 新精度"]
+  F1 --> C1["用 cuBLASLt 不必引 CUTLASS"]
+  F2 --> C2["动 device 层"]
+  F3 --> C3["改 collective mainloop / epilogue"]
+  F4 --> C4["才考虑 atom 层"]
+  C2 --> T["目标 sm 上 autotune 数值对照"]
+  C3 --> T
+  C4 --> T
+```
 
 许可证与构建：CUTLASS 是源码库，合入产品要跟上它的 CUDA 版本、以及它对 host 编译器的要求。Kernel 二进制会显著增大；按形状做显式实例化，避免无约束模板导致编译爆炸。
 

@@ -17,7 +17,18 @@ section: llm
 
 GEMM 与注意力分块的难点很少是 $C+=AB$ 这行数学，而是地址。同一块逻辑 tile，在全局内存里可能是行主序带 padding，在共享存储里可能是为了避免 bank conflict 而 swizzle 过的，在寄存器里又是 WGMMA 规定的碎片布局。CUTLASS 2 用大量特化结构体把这些约定藏进层次名（threadblock / warp / instruction），能写很快，但组合新融合时要同时理解三层命名，改一个 stride 就可能静默算错。
 
+<span class="marginnote">步长（stride）就是「逻辑坐标走一步，内存地址跳几个元素」。$8\times8$ 行主序矩阵的 stride 是 $(8,1)$：行号加 1，地址跳 8 个元素；列主序则是 $(1,8)$。若每行垫了 1 个对齐元素，stride 变成 $(9,1)$。CuTe 说的「布局」，核心就是把这个数对写清楚并让所有指令共用。</span>
+
 Hopper 之后，TMA 描述的是张量映射对象，WGMMA 描述的是另一套操作数布局，软件流水还要多缓冲。若每条指令各说各的坐标系统，核作者在做的就是手工证明两次布局等价。CuTe 要解决的问题是：用一份代数同时表达形状、步长、层次嵌套与 swizzle，使「从 HBM 这块到寄存器那块」是布局之间的组合，而不是两套指针算术碰巧一致。
+
+```mermaid
+flowchart LR
+  T["同一逻辑 tile"] --> G["HBM 视图 行主序+padding"]
+  T --> S["SMEM 视图 swizzle 重排"]
+  T --> R["寄存器视图 WGMMA 碎片"]
+  G -. "TMA 拷贝" .-> S
+  S -. "布局复合加载" .-> R
+```
 
 ### 布局是形状加步长
 
@@ -30,6 +41,8 @@ Hopper 之后，TMA 描述的是张量映射对象，WGMMA 描述的是另一套
 CUTLASS 3 的 GEMM 主路径大致是：用 CuTe 描述问题规模与数据布局；选择 TMA 把全局 tile 搬进共享存储（Hopper）；用 WGMMA 或旧世代 MMA 在寄存器累加；软件流水用多缓冲布局轮转。注意力核沿用同一套集体：query tile 驻留，key/value tile 沿序列维流动，softmax 作为 MMA 之间的逐行集体或手写归约插进去。与 ThunderKittens 的差别是：CUTLASS 不把 16×16 当成唯一原子，而是允许按指令集选择 atom，再由布局代数把 atom 拼成 CTA tile。
 
 cuTeDSL 把布局、拷贝、MMA 的声明放到 Python，由工具链生成可与 CUTLASS 运行时衔接的核。对算法工程师，这意味着可以用 DSL 迭代 tile 大小与流水深度，而不先写一屏 C++ 模板；对性能工程师，DSL 降低的是表达成本，profile 与占用率分析仍要回到 NCU。生产上常见的路径是：DSL 或 CUTLASS 例子里锁定布局与指令，再封装成 PyTorch 扩展，供训练框架的 SDPA 或自定义融合调用。
+
+<span class="marginnote">DSL 省的是「写 C++ 模板」的表达成本，不是调优成本：第一次调用要触发生成与编译，可能花几秒到几十秒。所以给 DSL 核做 benchmark 必须先 warmup 几轮，把编译时间排除掉，否则测出来的是编译器速度而不是核速度——这是初学者最常见的误判。</span>
 
 ### 集体操作与软件流水
 
@@ -48,6 +61,8 @@ flowchart TD
 ## 机制
 
 布局代数的收益是组合性。转置是 stride 的交换；把 batch 维插进最外层是 shape 的笛卡尔积；把 GQA 的头维拆成「query 头 × KV 头组」是另一次 shape 变换。这些变换若用手工索引，融合核里会散落魔法常数；写成布局后，拷贝与 MMA 仍然对着「当前布局」工作。Swizzle 进入同一对象，bank conflict 的修复不再是拷贝循环里的临时公式，而是布局的一部分，换 MMA atom 时可以一起换。
+
+<span class="marginnote">swizzle 可以想象成图书馆把书按一条固定洗牌规则重新上架：数据一个没变，只是摆放位置换了，目的是让 32 个读者（线程）同时取书时不会挤到同一格书架（bank）。因为规则是固定的，拷贝方和乘法方只要引用同一条规则，就不会拿错书。</span>
 
 编译期计算是另一条机制。C++ 模板把布局求值放在编译期，运行时核里只剩整数偏移的线性组合，这与「零开销抽象」一致，也解释了为什么 CUTLASS 编译慢、报错长。cuTeDSL 把一部分求值挪到 Python 前端，生成的仍是特化核：第一次调用有编译或生成成本，稳态应接近手写特化。
 
