@@ -25,7 +25,7 @@ Lewkowycz 等人的 Minerva 用 arXiv 与数学网页给 PaLM 做持续预训练
 
 ## 方法
 
-OpenWebMath 的漏斗在论文图 1 里写得很陡：237B HTML → 预过滤到约 1B → 语言识别 336M → MathScore 66M → 困惑度 59M → 去重 7.8M → 人工规则后 6.3M 篇 / 14.7B token。预过滤用廉价规则丢掉明显无数学的页；fastText 只留英语。MathScore 是他们自训的内容分类器，用来区分「碰巧含数字的网页」与「在讲数学」。困惑度用在 Proof-Pile 上训练的 KenLM，丢掉不像已有数学文本的文档——参照是领域语料，不是通用维基，这一点与 CCNet 不同。去重后仍做手工规则，切掉漏网的目录页与低质量站。代码与数据集公开在 Hugging Face `open-web-math/open-web-math`。
+OpenWebMath 的漏斗在论文图 1 里写得很陡：237B HTML → 预过滤到约 1B → 语言识别 336M → MathScore 66M → 困惑度 59M → 去重 7.8M → 人工规则后 6.3M 篇 / 14.7B token。预过滤用廉价规则丢掉明显无数学的页；fastText 只留英语。MathScore 是他们自训的内容分类器，用来区分「碰巧含数字的网页」与「在讲数学」。困惑度用在 Proof-Pile 上训练的 KenLM，丢掉不像已有数学文本的文档——参照是领域语料，不是通用维基，这一点与 CCNet 不同。去重后仍做手工规则，切掉漏网的目录页与低质量站。代码与数据集公开在 Hugging Face `open-web-math/open-web-math`。<span class="marginnote">KenLM 是一个轻量的 n-gram 统计语言模型；「困惑度过滤」就是用它给每篇文档打分：与已知数学文本（Proof-Pile）风格差得越远分越高（越「困惑」），分数过线就丢弃。相当于拿一本数学教材当参照，太不像教材的页面直接不要。</span>
 
 Proof-Pile 的构造更像精选混合物：arXiv 数学相关源、Math Stack Exchange、ProofWiki、维基数学条目、开许可书籍、MATH 训练集等，强调非正式证明与解说，而不是 Lean 形式库。它与 OpenWebMath 体量相近（约 14B 级 token），重叠却很小，因此 Llemma 把二者并进 Proof-Pile-2 是在加覆盖而不是加重复。AlgebraicStack 再补数值计算、计算机代数与形式证明代码，使模型看见符号的「可执行形态」。Azerbayev、Schoelkopf 等人从 Code Llama 出发，在 Proof-Pile-2 上持续预训练得到 Llemma 7B/34B，MATH 上超过同期开源基座，并在无额外微调时展现工具使用与形式定理证明的苗头。
 
@@ -54,7 +54,17 @@ Paster 等人用 1.4B 模型做小规模对照：只训 OpenWebMath 一个 epoch
 
 保公式改变的是词表里的符号邻域：模型能看见 `$`、`\frac`、对齐环境，梯度才能把「左右同乘」与记号绑定。MathScore 改变支撑，把非数学页置零。Proof-Pile KenLM 是领域条件化的 CCNet：参照换成数学文本，「像数学」而不是「像维基」。去重在数学域同样关键——同一道习题在教材站与博客间复制，不去重就会背题。与通用网页不同，数学重复有时是定义的标准表述，删太狠会伤「人人都这么写」的定理记忆；OpenWebMath 选择偏严，因为目标是推理数据密度，不是覆盖所有题面。
 
-Proof-Pile-2 的三路混合对应三种符号实践。arXiv 给长证明与概念；OpenWebMath 给教学与讨论；AlgebraicStack 给代码与形式系统。Llemma 从 Code Llama 起步，是因为代码预训练已经让模型习惯括号与长依赖，数学续训是在相近句法上换语义。这解释了为何从通用 Llama 冷起步、只灌 15B 数学网页，往往不如「代码模型 + 数学混合物」。
+```mermaid
+flowchart TD
+  P["网页里渲染的 MathJax 公式"] --> G["通用管道：trafilatura 抽正文"]
+  P --> M["数学抽取：识别公式节点"]
+  G --> G1["公式变 alt 文本或整段丢失"]
+  G1 --> G2["模型看见 x2 一类断裂噪声"]
+  M --> M1["统一还原为 LaTeX 文本"]
+  M1 --> M2["模型看见 x^2 的符号关系"]
+```
+
+Proof-Pile-2 的三路混合对应三种符号实践。arXiv 给长证明与概念；OpenWebMath 给教学与讨论；AlgebraicStack 给代码与形式系统。Llemma 从 Code Llama 起步，是因为代码预训练已经让模型习惯括号与长依赖，数学续训是在相近句法上换语义。这解释了为何从通用 Llama 冷起步、只灌 15B 数学网页，往往不如「代码模型 + 数学混合物」。<span class="marginnote">常见误区：以为数学数据去重越狠越好。实际上定理与定义常有「人人都这么写」的标准表述，删太狠会伤模型对标准陈述的记忆。OpenWebMath 去重偏严，是因为它要的是推理密度；若你的目标是题面覆盖，就应该放宽阈值。</span>
 
 ### 与通用网页配方的接口
 
