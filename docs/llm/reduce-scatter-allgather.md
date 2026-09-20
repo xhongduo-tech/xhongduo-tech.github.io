@@ -68,6 +68,8 @@ flowchart TD
 
 All-gather 没有归约，不能靠「先节点内加再跨节点」减体积——层次化只能减控制开销，不能减数据。这与下一课 all-to-all 同类：不可加的数据必须真正送到对端。能加的才配 reduce-scatter。
 
+<span class="marginnote">初学者容易以为「节点内先聚一下、再上跨节点」能省任何集体通信的量。这对可加的 All-Reduce 大体成立（节点内先加成一份再送出去）；但 all-gather 没有加法可做，每个字节最终都要原样送达对端，层次化只省一点握手开销，省不了数据体积。</span>
+
 ## 小结
 
 - Reduce-scatter 给出每卡一片归约结果；all-gather 把各片拼回全量。

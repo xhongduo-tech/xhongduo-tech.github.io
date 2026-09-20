@@ -31,7 +31,7 @@ $$
 \mathrm{FFN}(x_t)=\mathrm{ReLU}(x_t W_1+b_1)W_2+b_2,\qquad \mathrm{ReLU}(z)=\max(0,z).
 $$
 
-$W_1\in\mathbb{R}^{d\times d_{\mathrm{ff}}}$，$W_2\in\mathbb{R}^{d_{\mathrm{ff}}\times d}$。所有位置共用同一套权重，因此叫 position-wise。写成矩阵形式就是对 $X\in\mathbb{R}^{n\times d}$ 做两次 GEMM，中间按元素截负值。原论文还把这一层放在 Post-LN 残差里：
+$W_1\in\mathbb{R}^{d\times d_{\mathrm{ff}}}$，$W_2\in\mathbb{R}^{d_{\mathrm{ff}}\times d}$。所有位置共用同一套权重，因此叫 position-wise。<span class="marginnote">position-wise 翻译成「逐位置」：每个 token 各自独立地过同一个 MLP，处理第 3 个词时完全不看第 2 个词的输出，就像同一条流水线加工每一件产品，工件之间互不交流。token 之间的信息交换全部留给注意力去做，这就是「注意力混 token、FFN 混通道」的分工。</span>写成矩阵形式就是对 $X\in\mathbb{R}^{n\times d}$ 做两次 GEMM，中间按元素截负值。原论文还把这一层放在 Post-LN 残差里：
 
 $$
 x \leftarrow \mathrm{LN}\bigl(x+\mathrm{Dropout}(\mathrm{FFN}(x))\bigr).
@@ -55,11 +55,22 @@ ReLU 的作用是硬门：负半轴梯度为零，正半轴原样通过。训练
 
 ## 机制
 
-一次前向里，FFN 的 FLOPs 约为 $2n\,d\,d_{\mathrm{ff}}+2n\,d_{\mathrm{ff}}\,d=4n d d_{\mathrm{ff}}$（忽略偏置）。取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。对比多头注意力里 $Q,K,V,O$ 四份投影 $8n d^2$ 外加 $2n^2 d$ 的分数与加权：当 $n$ 不太大时，FFN 已经比注意力更吃算力；当 $n$ 到数万，注意力的 $n^2$ 才反过来主导。所以「Transformer 慢」在短序列上常常是 FFN 慢，在长上下文上才是注意力慢。
+一次前向里，FFN 的 FLOPs 约为 $2n\,d\,d_{\mathrm{ff}}+2n\,d_{\mathrm{ff}}\,d=4n d d_{\mathrm{ff}}$（忽略偏置）。<span class="marginnote">代入具体数字感受一下：取 $d=512$、$d_{\mathrm{ff}}=2048$、序列长 $n=512$，FFN 一次前向约 $16nd^2\approx 21$ 亿次乘加；注意力那 $8nd^2$ 的四份投影约 10.7 亿，再加 $2n^2d$ 的打分约 2.7 亿。也就是说在这个常见配置下，FFN 的计算量比整个注意力还大——「Transformer 算力都花在 attention 上」是个常见误解。</span>取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。对比多头注意力里 $Q,K,V,O$ 四份投影 $8n d^2$ 外加 $2n^2 d$ 的分数与加权：当 $n$ 不太大时，FFN 已经比注意力更吃算力；当 $n$ 到数万，注意力的 $n^2$ 才反过来主导。所以「Transformer 慢」在短序列上常常是 FFN 慢，在长上下文上才是注意力慢。
 
 ### 稀疏激活与死神经元
 
-ReLU 输出的期望稀疏度和输入分布有关。若 $W_1$ 的预激活均值偏负，中间层大量为零，$W_2$ 对应列得不到梯度。残差和 LN 会缓解，但不能消除。实践中用偏置初始化、控制 LN 的 $\gamma$、或换成 GELU，都是在给负半轴留一点漏梯度。Vaswani 原配方能训起来，是因为层数浅（6/6）、热身充分、且 $d_{\mathrm{ff}}$ 足够宽，死一部分单元仍有余量。
+ReLU 输出的期望稀疏度和输入分布有关。若 $W_1$ 的预激活均值偏负，中间层大量为零，$W_2$ 对应列得不到梯度。<span class="marginnote">「死神经元」可以想象成一位永远轮不到上班的员工：只要他的输入总落在负半轴，ReLU 就把他关成 0，而 0 的梯度还是 0，他永远收不到「改一改」的反馈，于是再也不会被激活。这正是 ReLU 与 GELU 最大的行为差异——GELU 在负半轴留了一条细缝，让这些单元还能慢慢醒过来。</span>残差和 LN 会缓解，但不能消除。实践中用偏置初始化、控制 LN 的 $\gamma$、或换成 GELU，都是在给负半轴留一点漏梯度。Vaswani 原配方能训起来，是因为层数浅（6/6）、热身充分、且 $d_{\mathrm{ff}}$ 足够宽，死一部分单元仍有余量。
+
+```mermaid
+flowchart TD
+  A["预激活均值偏负"] --> B["大量中间单元输出为 0"]
+  B --> C["正向传播中该单元无贡献"]
+  C --> D["反向传播梯度也为 0"]
+  D --> E["W1 列与 W2 行不再更新"]
+  E --> F["单元永久死亡"]
+  F -.自救.-> G["偏置初始化 / 调 LN 尺度"]
+  F -.换激活.-> H["GELU 在负半轴留漏梯度"]
+```
 
 参数量上，FFN 约占 $\,2d\cdot d_{\mathrm{ff}}\,$，注意力投影约占 $4d^2$。$d_{\mathrm{ff}}=4d$ 时 FFN 是注意力参数的两倍。这个比例解释了后来 MoE 为什么替换的是 FFN 而不是注意力：同样稀疏掉一块计算，省下的参数和 FLOPs 最大。<span class="marginnote">把 FFN 换成专家，注意力仍然是稠密的。Switch、GShard、DeepSeek MoE 改的都是这一层的容量分配，ReLU 两层结构仍是专家内部的原型，只是激活变成了 SwiGLU。</span>
 
