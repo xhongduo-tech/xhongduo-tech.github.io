@@ -19,6 +19,8 @@ Amazon 的加速器不走 NVLink 叙事，而走 **NeuronLink** 与 **Neuron SDK
 
 选型问题因此是：模型是否能切进 Inf2 的 2 核/芯片与 192 GB/s 级芯片互连；还是需要 Trn2 的 8 核/芯片、1.28 TB/s 级 NeuronLink-v3 与逻辑核合并（LNC）。软件问题是：图要经 Neuron 编译器冻结形状，动态 decode 靠 bucketing，与 GPU 的即时 kernel 不同。
 
+<span class="marginnote">术语翻译：LNC（Logical NeuronCore Configuration）就是把几颗物理核「捆成」一颗逻辑核给编译器看——像把四个小房间打通成一个大房间。硅没变、矩阵引擎没变，变的只是模型分片的切法和单个逻辑设备的内存大小。</span>
+
 ### 芯片公开规格
 
 Inferentia2：每芯片 **两个 NeuronCore-v2**；文档写 380 INT8 TOPS，190 FP16/BF16/cFP8/TF32 TFLOPS，47.5 FP32 TFLOPS；32 GiB HBM，820 GiB/s；DMA 1 TB/s 带就地压缩；NeuronLink-v2；可编程动态形状与 GPSIMD 自定义算子。cFP8 是 Neuron 文档中的压缩/定制 8-bit 浮点路径，不要直接当成 OCP OFP8 或 Hopper E4M3 检查点。
@@ -30,6 +32,8 @@ Trainium2：每芯片 **八个 NeuronCore-v3**；合计约 **1299 FP8 TFLOPS**�
 ## 方法
 
 编译：PyTorch 模型经 Neuron 编译器生成 NEFF，执行在 NeuronCore 上。形状桶（batch、序列长度）要预先声明。推理推荐路径随 SDK 版本从 `transformers-neuronx` 迁到 **NxD Inference**（`neuronx-distributed-inference`），vLLM 的 Neuron 后端把初始化、编译、连续批交给该栈。AWS 维护的 vLLM fork 才带多机、多模态等尚未上游的特性；开源 vLLM 主线的 Neuron 支持是子集。
+
+<span class="marginnote">直觉类比：形状桶就像电梯限载规格——编译器只为几个固定尺寸造好「电梯」。来的请求要么凑进最近的桶（多余部分是填充浪费），要么逼系统现造一部新电梯（重新编译，秒级到分钟级），decode 延迟立刻被打穿。</span>
 
 并行：Inf2.48xlarge 的 12 芯片用 NeuronLink-v2 做张量并行，集合不经过主机 DRAM。Trn2 的 16 芯片 4×4 torus 更适合更宽的 TP / 流水；LNC 改变「一个逻辑设备」对应多少物理核，从而改变编译单元与内存池。UltraServer 在实例间再拉 NeuronLink 环，使 64 芯片内存池化——这是训推都可能用的规模，不是 Inf2 的产品形态。
 
@@ -50,6 +54,16 @@ flowchart TD
 Trainium2 文档强调可配置舍入：最近偶数或随机舍入（stochastic rounding），对窄精度训练有意义；推理更常固定 RNE。FP8 峰值是 Trainium2 的一等列，Inf2 表头以 cFP8/FP16/BF16 190 TFLOPS 计。不要把 Trn2 的 1299 FP8 TFLOPS 抄到 Inf2 容量规划里。KV 与权重是否走芯片支持的窄格式，取决于编译器 pass 与 NxD 配置，不是 `dtype=fp8` 一行。
 
 ## 机制
+
+```mermaid
+flowchart TD
+  Q["模型切多大、通信多密？"] --> A["切得进 Inf2：12 芯片 × 32 GiB"]
+  Q --> B["要宽 TP 或 FP8 训练"]
+  A --> A2["NeuronLink-v2：192 GB/s / 芯片"]
+  A2 --> A3["选 Inf2，推理成本优先"]
+  B --> B2["Trn2：8 核 96 GiB，NeuronLink-v3 1.28 TB/s"]
+  B2 --> B3["选 Trn2，宽集合交给 CC-Core 编排"]
+```
 
 NeuronCore 是专用矩阵/向量引擎加片上 SRAM（SBUF 等），靠 DMA 与编译器把数据搬进计算。相对 GPU 的 SM 占用率模型，这里的屋顶线更接近「编译图是否把 DMA 与计算重叠、集合是否走 CC-Core」。动态形状靠 ISA 扩展，但服务里仍以桶为主：桶外长度会触发重编译或填充浪费。Trainium2 的 CC-Core 把集合从通用计算核上卸下来，这与 GPU 上 NCCL 与 GEMM 争 SM 不同：规划 decode 的张量并行时，应看集合是否真的走了这 16 个编排引擎，而不是只看芯片峰值 TFLOPS。
 

@@ -25,6 +25,8 @@ JAX 文档沿用 TPU 术语：芯片之间的快速专用互连叫 ICI；由 ICI
 
 <span class="marginnote">多切片训练必须显式构造 hybrid mesh：ICI 轴与 DCN 轴分开。`jax.make_mesh` 适合单切片；跨切片用 `create_hybrid_device_mesh` 一类辅助，把通信密的维（模型并行）放在 ICI，把副本维放在 DCN。轴放反，编译仍然成功，步时会像「用以太网做张量并行」。</span>
 
+<span class="marginnote">「多控制器」就是每台 TPU 主机各跑一份相同的 Python 客户端，大家商量好各管网格里属于自己的一片，同步执行同一段程序（SPMD）；Pathways 的「单控制器」则是一个大脑看管全部设备。前者数据加载天然分散，后者管理跨切片作业更省心。</span>
+
 ## 方法
 
 前端：JAX 以 `jit` 为界把纯函数编成 XLA 计算；TensorFlow 则经图或 `tf.function` 进入同一编译器。并行意图写成 mesh 上的 `PartitionSpec`：哪一维张量对准哪一条设备轴。`with_sharding_constraint` 给中间结果钉锚。需要手写通信时用 `shard_map` 或 `lax.psum` 一类原语。检查点常用 Orbax 等库按分片写。数据加载在多控制器下由各 TPU 主机本地读；Pathways 单控制器下默认数据路径可能经过客户端 CPU VM，大规模应改用主机侧 colocated 加载——这是 Cloud 文档的产品约束，不是芯片物理。
@@ -48,11 +50,24 @@ flowchart TD
 
 训练配方在 TPU 上长期以 BF16 为默认计算格式（指数位与 FP32 同宽），这与 GPU 上 FP16 要损失缩放的历史不同。稀疏 MoE 走 GShard 式容量桶，使动态路由仍能进静态编译。流水线可以是 GSPMD 里的移位缓冲，也可以是 Pathways 图上的多阶段节点。选哪一种，取决于是否要跨切片、是否要异构资源。
 
+<span class="marginnote">直觉类比：FP16 的指数位窄，像一辆小卡车，装大数会溢出，所以要先「损失缩放」把货缩小再运输；BF16 的指数位与 FP32 同宽，像换了大车厢，直接装车就走——这就是 TPU 训练默认 BF16、省掉缩放超参的原因。</span>
+
 ## 机制
 
 TPU 芯片的矩阵单元是脉动阵列：权重与激活按规则流水，适合大 GEMM。编译器的工作是把切分后的本地形状喂满阵列，并把无法本地完成的维变成 ICI 上的集体操作。ICI 的拓扑是规则网格，集合算法可以沿环、沿维做归约，延迟与跳数相关。这与 NVSwitch 上「任意到任意高带宽」不同：mesh 轴与物理维对齐时，邻接通信便宜；逻辑上相邻、物理上绕远时，步时会无声变差。`make_mesh` 按拓扑重排设备顺序，就是为了让逻辑环落在物理环上。
 
 多控制器 JAX：每个主机一份客户端，`jax.distributed.initialize` 后进程互相知道，SPMD 同步执行。优点是数据加载自然分散；缺点是跨切片的 XLA 集体在 TPU 上传统上受 ICI 限制，要靠 hybrid mesh 或 Pathways 才能把 DCN 收进同一套编程模型。Pathways 把客户端收成一个，compiled function 之间的边可以跨 DCN，函数内部仍走 XLA+ICI。
+
+```mermaid
+flowchart TD
+  MESH["逻辑 mesh 轴：如模型并行维"] --> Q{"对齐物理拓扑了吗？"}
+  Q -->|"轴落在 ICI 邻接上"| GOOD["每步集合是相邻跳，延迟低"]
+  Q -->|"轴落到 DCN 或绕远路"| BAD["每步集合跨数据中心网络"]
+  BAD --> SYM["症状：编译成功，步时无声变差"]
+  GOOD --> RE["make_mesh 按拓扑重排设备顺序"]
+  SYM --> FIX["重排：密维放 ICI，副本维放 DCN"]
+  RE --> FIX
+```
 
 <span class="marginnote">「TPU 比 GPU 强」不是栈的结论。栈的结论是：切分在编译器里、通信在设备内核里、互连是专用网格。换到 GPU 时，同一份 JAX 可能走 XLA:GPU 或另一插件，集体通信落到 NCCL，拓扑启发式全换。可移植的是标注语义，不是步时。</span>
 
@@ -67,6 +82,8 @@ TPU 芯片的矩阵单元是脉动阵列：权重与激活按规则流水，适�
 数值上，TPU 的 BF16/FP32 混合与 GPU Transformer Engine 的 FP8 延迟缩放不是同一套协议。同一模型两栈对拍，应对齐主权重精度、是否随机层、以及集合通信的归约顺序。MoE 从 TPU permute 迁到 GPU All-to-All 必须重测容量因子与 drop 率。
 
 <span class="marginnote">出处：JAX 并行与多进程文档中的 ICI/slice/DCN 术语；Xu 等 GSPMD；Barham 等 Pathways；Google Cloud TPU 与 Pathways on Cloud 文档。峰值与拓扑表以作业提交时的产品页为准。</span>
+
+<span class="marginnote">常见误区：把检查点写成「先把全部分片 gather 到主机再写存储」。万亿参数模型的完整权重一份就要数 TB，单台主机内存根本装不下；正确做法是每片芯片就近写自己那份分片，存储里攒齐的才是逻辑上完整的一份。</span>
 
 ## 小结
 

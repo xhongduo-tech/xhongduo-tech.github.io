@@ -25,6 +25,8 @@ Agent 与 MoE 服务把「等」放大：每步 decode 要读 KV，专家并行�
 
 <span class="marginnote">80% better performance-per-dollar 与「同样成本服务近两倍客户」是官方产品句。没有附上对照代际的测试集与并发曲线。容量规划用 288 GB / 19.2 Tb/s / 直径减半这些物理量，把 80% 当 TCO 列而不是 tokens/s SLA。</span>
 
+<span class="marginnote">直觉类比：3D torus 像住在环形大楼里，跟对面楼层的住户说话要爬很多层；Boardfly 把楼改成大平层，任意两户之间的走廊跳数砍半。MoE 每步都要「全员开一次会」（All-to-all），会议速度由最远的与会者决定——所以拓扑直径直接写进尾延迟。</span>
+
 ## 方法
 
 软件栈与 8t 对齐：JAX、MaxText、PyTorch、SGLang、vLLM，裸金属。推理编译仍是 XLA 友好的静态 bucket：decode 的 batch 与序列桶要在编译期钉住，动态长度会逼出反复编译。ICI 19.2 Tb/s 给的是 MoE 路由与张量并行逐步通信的屋顶线；拓扑是 [Boardfly](/llm/boardfly)，不是 8t 的 3D torus。Pod 规模官方用层次描述（四芯片积木 → 八板成组 → 三十六组），**未在同一篇博文给出 Pod 芯片合同数**；第三方常写 1,152 / 1,024 active——公开信息有限，规划以日后规格页为准。
@@ -42,6 +44,8 @@ flowchart TD
   BF --> POD["8i Pod"]
 ```
 
+<span class="marginnote">「静态 bucket 编译」就是把请求的 batch 与序列长度先分成几个固定尺寸档（比如 1k / 4k / 16k 各一档），编译器为每档各生成一份专用程序，请求来了填进最接近的档。好处是运行期零编译延迟，代价是短请求要补零凑档、长请求可能被截断或换档。</span>
+
 ### 和 v5e / v6e 推理档的差别
 
 [v5e / v6e](/llm/tpu-v5e-infer) 是已在 Cloud 文档里有完整每芯表的效率档：16/32 GB HBM、2D 环面、单机最多 8 芯。8i 是新一代推理专用硅，HBM 288 GB、ICI 19.2 Tb/s、拓扑换代。不要用 v6e-8 的 8 芯心智模型去填 8i Pod；也不要在 8i GA 前把博文数字写进生产配额脚本。v5e/v6e 的 Sax / Pathways 多机路径，8i 的编排名称以 GA 时的 Cloud 文档为准，本篇不提前发明产品名。
@@ -51,6 +55,17 @@ flowchart TD
 Decode 受 HBM 带宽与 KV 驻留约束；prefill 才吃满矩阵单元。8i 把 HBM 提到 288 GB，是为了让更长上下文、更大并发的 KV 不必那么早切到多机 DCN。SRAM 3× 降低的是层内暂存与集合缓冲的往返。Boardfly 降直径，All-to-all 的跳数分布变窄，尾延迟随最慢那一跳走，这正是 MoE 服务要买的东西。CAE 5× 是「片上集合延迟」的官方上限表述，不是端到端 TPOT 的 5×。
 
 NUMA：加倍的主机是为了让 CPU 侧不再先饱和。把 tokenizer 和工具沙箱打到错误的半边，表现为芯片算力吃不满，和 v5e 8 芯 VM 上的亲和性问题同类，只是 8i 把主机做成第一等设计点。
+
+```mermaid
+flowchart TD
+  STEP["一步 decode 要读什么？"] --> W["模型权重：每步从 HBM 扫"]
+  STEP --> KV["KV 缓存：驻留 288 GB HBM"]
+  STEP --> ACT["层内激活 / 集合缓冲：进 384 MB SRAM"]
+  ACT --> FAST["SRAM 容量 3 倍，少一层往返"]
+  KV --> SPLIT{"单芯片放得下吗？"}
+  SPLIT -->|"放得下"| LOCAL["留在本芯，逐步通信走 ICI"]
+  SPLIT -->|"放不下"| MULTI["切到多芯，按 Boardfly 直径计"]
+```
 
 <span class="marginnote">8t / 8i 官方称相对 Ironwood 最高约 2× 能效（performance-per-watt）。这是芯片到机房液冷整栈叙事，第四代液冷 CDU 是配套，不是用户可调的频率旋钮。推理 TCO 仍要另算主机、交换机与空置率。</span>
 
@@ -63,6 +78,8 @@ GA 前无稳定的 Cloud SKU 表，切片形状、每主机芯片数、计价都
 TPU 推理的习惯仍是编译好的 decode 循环：形状一变就要再编译。8i 的 288 GB 让单芯片能放下更长 KV，但不自动变成 GPU 那种动态 paged attention 生态。服务侧要把并发、序列长度收成少数 bucket，用连续批把请求填进同一形状，否则 CAE 与 Boardfly 的延迟优势会被 Python 逐步调度吃掉。投机解码、MTP 一类变长草稿，需要运行时与编译器明确支持，不能从「推理芯片」四个字推出已有 vLLM 里每一条投机路径。RL 采样若与在线服务混部，采样批次的形状更乱，更应隔离切片，避免把 serving 的静态图打成训练式动态网格。
 
 不要在 8i 上用 8t 的 torus 跳数估 MoE。不要把 384 MB SRAM 理解成「KV 全进 SRAM」——官方是工作集与 KV 占用的标定，主存储仍是 288 GB HBM。延迟敏感服务先证明单 Pod ICI 够，再付多 Pod。框架名单（vLLM / SGLang / JAX）表示官方方向是开放软件，不表示 2026-04 宣布当天每条内核路径都已打满 8i。
+
+<span class="marginnote">常见误区：看到 384 MB SRAM 就以为「KV 全搬进片上」。384 MB 连稍长上下文的一小段 KV 都放不下，它的定位是层内暂存与集合缓冲的工作集；KV 主存储仍是 288 GB HBM。规划并发时按 HBM 算，SRAM 只当买来的提速赠品。</span>
 
 <span class="marginnote">出处：Google *Two chips for the agentic era*（288 GB、384 MB、19.2 Tb/s、Boardfly 直径、CAE、80% perf/$）；Next ’26 *What’s next in Google AI infrastructure*。拓扑细节见 [Boardfly](/llm/boardfly)。</span>
 

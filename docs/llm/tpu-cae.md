@@ -25,6 +25,8 @@ section: llm
 
 <span class="marginnote">CAE 加速的是**片上**集合延迟，不是机柜之间的 DCN。Google 宣称相对前代最多约 5 倍的 on-chip collective latency 下降。跨芯片仍走 ICI；8i 把 ICI 写到每芯片 19.2 Tb/s，并换用 Boardfly 层次拓扑。把 5× 理解成「整个 Pod 的 All-Reduce 快五倍」是错的量纲。</span>
 
+<span class="marginnote">「waiting room」直译「候车室」：芯片的算力像旅客，集合通信没回来之前只能干坐着等。decode 每出一个字都要同步一次，候车室里坐着的次数跟着 token 数线性涨——这正是专用硅想消掉的那笔开销。</span>
+
 ## 方法
 
 公开描述里，CAE 的位置比算力峰值更重要。Hot Chips 一类技术报道把它画在 ICI I/O die、靠近封装边缘的网络硬件，而不是嵌在 TensorCore 阵列中间。归约在互连侧完成，就少一次「把部分和搬进计算 die、再写 HBM、再读出来」的往返。Google 博文的说法是：CAE 卸载全局操作，把片上延迟最多降低约 5 倍，从而削弱 waiting room。
@@ -42,6 +44,8 @@ flowchart TD
   HBM["HBM 工作集"] -.->|"尽量不经过"| CAE
 ```
 
+<span class="marginnote">直觉类比：过去每个车间要把半成品运进中央仓库（计算 die / HBM）、清点、再运出来；CAE 相当于把「对账台」直接搬到货运走廊上，过路的数字顺手就汇总了，仓库一趟都不用进——省的就是这一来一回的搬运与等待。</span>
+
 ### 与 Boardfly、SRAM、主机的分工
 
 CAE 解决的是芯片内部与紧邻 ICI 端口的同步；Boardfly 解决的是 8i Pod 里芯片之间的直径。公开材料写：Boardfly 从四芯全互连积木往上搭，把约 1024 芯配置的最大网络直径相对旧拓扑降一半以上（报道里常见「16 跳降到 7 跳」这一对照）。二者叠在一起，才是 8i 对 MoE token 路由与多芯 decode 的答案：集合既短、跳数也少。SRAM 提到约 384 MB、约为前代三倍，用来把推理工作集（尤其是 KV）留在片上；HBM 约 288 GB。CAE 不增加容量，它减少的是「已经在附近的数据还要再走一圈存储」的时间。
@@ -58,6 +62,17 @@ CAE 解决的是芯片内部与紧邻 ICI 端口的同步；Boardfly 解决的�
 
 加速：跨 TensorCore 的 reduction / barrier 一类、decode 每步都出现的短集合、需要把采样 token 立刻送到下一跳的同步。不加速：大权重的 All-Gather（那是带宽问题，靠 ICI 与 HBM）、跨切片的 DCN 通信、主机侧 Python 调度。MoE 的 token 路由既吃 ICI 带宽也吃同步；Boardfly 降直径，CAE 降片上等待，二者缺一，专家并行的尾延迟仍会打满。
 
+```mermaid
+flowchart TD
+  S["decode 一步要同步"] --> OLD["无 CAE：部分和搬进计算 die"]
+  OLD --> OH["写 HBM 再读出"]
+  OH --> OR["在 TensorCore 里做归约"]
+  OR --> OW["waiting room：核闲着等齐"]
+  S --> NEW["有 CAE：部分和送 I/O die"]
+  NEW --> NR["互连侧直接归约，不过 HBM"]
+  NR --> NN["核提前拿到结果继续算"]
+```
+
 <span class="marginnote">「near-zero latency」是产品语言，不是测量值。规划时把它读成：目标是把片上集合从「可与 GEMM 比肩的等待」压到「相对一步 decode 可忽略」。具体微秒必须以当时 Cloud 文档或 Hot Chips 幻灯为准，本篇不填写未在官方表出现的数字。</span>
 
 ## 边界
@@ -69,6 +84,8 @@ CAE 解决的是芯片内部与紧邻 ICI 端口的同步；Boardfly 解决的�
 与 GPU 对照时，可以说「固定功能的集合卸载」类似把 NCCL 的热路径下沉到网卡或交换机，但链路是 ICI 网格而不是 NVLink 完全图，算法由 XLA 选。可移植的是「decode 要为同步付税」这一观察，不是某次 5×。
 
 <span class="marginnote">出处：Google《Two chips for the agentic era》（Cloud Next 2026）中 CAE、19.2 Tb/s ICI、Boardfly、288 GB HBM / 384 MB SRAM 的公开表述；技术报道对 I/O die 位置与 SparseCore 替换的转述。峰值 FLOPS 与未公布的集合微秒不在本篇展开。</span>
+
+<span class="marginnote">常见误区：把「片上集合延迟降约 5 倍」读成「解码快 5 倍」。同步只是单步延迟的一部分，端到端提升取决于它原来占的比例——若同步本只占 10%，哪怕压到近零也只省约 9%。官方只写 on-chip 指标，正是为了避免这种量纲偷换。</span>
 
 ## 小结
 

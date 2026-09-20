@@ -27,6 +27,8 @@ v6e（产品名 Trillium，API 称 v6e）：每芯一颗 TensorCore、**两个**
 
 <span class="marginnote">v5e 文档把产品写成「训推一体」，但 serving 与 training 的供给与 SLA 不同：在 serving 池上跑训练可能可用性差，在 training 池上跑 serving 可能延迟差。切片形状表里 4×4 及以上是训练行，不要拿来当单机推理模板。</span>
 
+<span class="marginnote">数字实例：v5e 八芯切片共 $8\times16=128$ GB HBM。一个 70B 模型 BF16 权重约 140 GB，单机放不下；量化到 INT8 约 70 GB，八芯各摊约 9 GB，剩下的几 GB 才留给 KV 与运行时。先做这笔除法，再谈并发与上下文长度。</span>
+
 ## 方法
 
 单机：把模型编译进 1/4/8 芯网格。张量并行轴必须落在 ICI 上。KV 驻留各芯 HBM；GQA 减头之后按芯切序列或切头。静态形状友好：decode 的 bucket（序列桶、batch 桶）要在 XLA 编译时钉住，否则每换长度就重新编译。这与 GPU 动态 kernel 的习惯相反。INT8 路径吃 393 / 1836 TOPs 表头，前提是量化进了编译器承认的 dtype，而不是主机上假量化。
@@ -43,6 +45,8 @@ flowchart TD
   DCN --> ICI2["各主机内 ICI 切片"]
 ```
 
+<span class="marginnote">「桶化」就是把千变万化的请求长度收进几个固定档（比如 2k / 8k / 32k），编译器只为这几档各编一份程序，不足的补零、超出的截断或换档。TPU 的静态编译靠它免去现场编译延迟，代价是一点 padding 浪费——这与 GPU 动态 kernel 的习惯恰好相反。</span>
+
 ### v6e-8 与 SparseCore
 
 v6e 相对 v5e 的推理可见变化：单芯容量翻倍，长上下文 KV 不必那么早切到多机；HBM 带宽约 2×，decode 屋顶线上移；ICI 2×，8 芯张量并行的逐步通信更宽；BF16 峰值约 4.7×，prefill / 大 batch 更靠近计算墙。SparseCore 是文档列出的特殊功能，面向嵌入 / 稀疏查找一类，不是 Transformer 稠密 GEMM 的主路径——不要把 SparseCore 写成「MoE 专家自动加速」。能量效率文档称相对 v5e 改善（产品叙述 67% 一类），那是 TCO 列，不是 tokens/s。
@@ -50,6 +54,17 @@ v6e 相对 v5e 的推理可见变化：单芯容量翻倍，长上下文 KV 不�
 ## 机制
 
 TPU 内核可以在设备上停留整段编译图，主机不必每层 launch。对 decode 这是双刃剑：静态图对固定 bucket 极快，对不规则并发要靠批处理把请求填进同一形状。KV 更新必须在编译器可见的缓冲里原地写，否则每步复制整段缓存。ICI 是环面不是 NVSwitch 完全图，集合算法由 XLA 选；把 GPU 的 Ring/Tree 经验直接当旋钮，没有对应 API。
+
+```mermaid
+flowchart TD
+  PH["一个请求的两段"] --> PRE["prefill：一次吃进完整提示"]
+  PH --> DEC["decode：一次只出一个 token"]
+  PRE --> P1["计算密集：吃满 MXU 算力"]
+  DEC --> D1["带宽密集：每步扫权重与 KV"]
+  P1 --> P2["查 BF16 / INT8 TOPs 表头"]
+  D1 --> D2["查 HBM 容量与 GBps"]
+  D2 --> D3["KV 超本地 HBM，就要切多机"]
+```
 
 NUMA：8 芯 VM 上 CPU0 到 Chip0 快于到 Chip4。数据加载与 embedding 查找若走错半边，会表现为「芯片算力没吃满」。v6e 8 芯 VM 给 360 vCPU / 1440 GB 主机内存，就是为了让主机侧 tokenization、批调度与 I/O 不挡 8 芯；v5e 8 芯是 224 vCPU / 384 GB，主机更容易先成为瓶颈。
 
@@ -66,6 +81,8 @@ INT8 表头要编译器真正发出整数 MXU 才能兑现。主机侧假量化�
 与 GPU 对比时只比公开列：容量、带宽、互连域大小、软件是否吃 INT8/BF16 MXU。TPU 没有 CUDA 生态里的 Marlin / FlashAttention 即插即用，注意力实现走 XLA / Pallas / 厂商核。选型：成本敏感、已在 JAX、形状可桶化 → v5e/v6e serving；要动态批与 CUDA 核生态 → GPU。v6e-8 是「单主机满 8 芯」的推理甜区；再大先证明 8 芯 HBM 不够，再付多机编排。
 
 <span class="marginnote">出处：Google Cloud 文档 *TPU v5e*、*TPU v6e*（系统架构表、serving VM 类型、v6e-8 推理优化、Sax / Pathways 多机推理指引）。训练对照同站 TPU 训练与 JAX 网格文档。峰值以文档表格为准，随 SKU 修订以当时页面为准。</span>
+
+<span class="marginnote">常见误区：用 GPU「一张卡 80 GB」的直觉估 TPU——这里单芯只有 16 / 32 GB，但一次部署是 4 芯或 8 芯的切片，权重与 KV 都要按并行轴切开、每芯只留本地份。拿单芯容量直接除模型大小，要么悲观，要么根本装不下。</span>
 
 ## 小结
 

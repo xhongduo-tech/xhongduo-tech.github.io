@@ -25,6 +25,8 @@ section: llm
 
 <span class="marginnote">121 ExaFlops 是官方写在 9600 芯片 superpod 上的系统算力，未在同一段标明精度。第三方报道常写成 FP4 聚合。本篇引用时带「官方系统数字、精度以规格页为准」，不把每芯 12.6 一类未在博文出现的数写成合同。</span>
 
+<span class="marginnote">「goodput」就是有效产出：不数机器标称每秒多少次运算，而是扣掉坏链路、检查点、数据饥饿等停转时间后，真正花在训练上的吞吐。类比快递的「准点率」——车队再豪华，天天抛锚也白搭。97% 意味着万卡作业里平均只有约 3% 的算力在空转。</span>
+
 ## 方法
 
 部署单位仍是切片加 ICI，再经 **Virgo** 把多个 superpod 连成数据中心织物，见 [Virgo](/llm/virgo-ici)。官方配套：JAX、Pathways、TPUDirect（存储绕过主机直达 TPU）、更快的 Managed Lustre / Rapid Buckets。8t 与 8i 都改用 Axion Arm 主机，官方称第一次两颗芯片都跑在自研 CPU 上，以便做整机而不是只做加速器。框架列表含 JAX、MaxText、PyTorch（TorchTPU）、SGLang、vLLM，并提供裸金属，减少虚拟化税。
@@ -40,6 +42,8 @@ flowchart TD
   STOR["TPUDirect / Lustre"] --> SP
 ```
 
+<span class="marginnote">为什么重要：把通信密的维度放错位置——比如让张量并行跨出 superpod——每步集合通信都要走更慢的织物，训练步时被拉长，约 3 倍的算力提升就白买了。这一格排错，后面所有利用率与 goodput 指标都会跟着难看。</span>
+
 ### 和 TPU7x 对照时只比官方列
 
 Cloud 文档里 TPU7x（Ironwood）有每芯 BF16/FP8、HBM、ICI 的表。8t 在 2026-04 的市场博文里用系统级对照：芯片数 9600（7x 文档是 9216/Pod）、共享 HBM 两拍字节、算力 121 EFLOPS、ICI 带宽 2×。不要用 7x 的每芯 2307 TFLOPS BF16 去乘 9600 当 8t 峰值——代数、数值格式与稀疏核都可能变，乘法是发明 FLOPS。等 `cloud.google.com/tpu` 规格页列出 8t 行之后，再替换本段的「公开信息有限」。
@@ -49,6 +53,17 @@ Cloud 文档里 TPU7x（Ironwood）有每芯 BF16/FP8、HBM、ICI 的表。8t �
 Scale-up 网上的训练通信仍是集合：AllReduce 梯度、MoE 的 All-to-all、张量并行的 AllGather。ICI 加倍的意义是让这些集合的时间常数跟得上「约 3×」的计算，否则加速比会被通信吃掉。共享 2 PB HBM 的软件含义是：超大模型与优化器状态可以在 superpod 内当统一池寻址（经 XLA/Pathways 的切分），而不是 9600 份互不看见的本地缓存。这与 GPU 机柜的 NVLink 域类似，只是域的半径按 Google 的 ICI torus 计——8t 仍走 **3D torus** 做 Pod 内互连；把 8i 的 Boardfly 抄过来规划 8t 的跳数是错的。
 
 Goodput 机制是 RAS：链路级绕行比作业级重启便宜。OCS 把「坏一块箱子」变成「光学上把它移出网格」。主机侧 Axion + NUMA 隔离减少 CPU 侧数据加载抢加速器。存储 10× 与 TPUDirect 解决的是输入管道，不是 matmul 本身。
+
+```mermaid
+flowchart TD
+  MESH["训练网格怎么排？"] --> Q{"这一维通信有多密？"}
+  Q -->|"梯度 AllReduce / TP / MoE：密"| ICI["放进 8t superpod 的 3D torus ICI"]
+  Q -->|"数据并行 / 流水线：疏"| VIR["走 Virgo 跨 superpod"]
+  ICI --> POOL["顺带共享 2 PB HBM 统一寻址"]
+  VIR --> PATH["Pathways 收成一个逻辑作业"]
+  POOL --> GOAL["目标：通信别吃掉 3 倍算力"]
+  PATH --> GOAL
+```
 
 <span class="marginnote">代号 Sunfish 出现在行业报道与芯片对照图说明里，便于和 Broadcom 合作设计的叙事对上。写采购单与 API 名称用 TPU 8t。未在官方规格页出现的每芯 SRAM 容量、每芯 HBM GB，本篇留空。</span>
 
@@ -63,6 +78,8 @@ Goodput 机制是 RAS：链路级绕行比作业级重启便宜。OCS 把「坏�
 不要发明每芯 FLOPS。不要把 121 ExaFlops 当推理规划器的分母。对照 GPU 时只比官方系统数字（芯片数、共享内存、织物规模），不要用未公布的 8t 单芯片精度表去打 Rubin 的产品页。液冷与整机能效（官方相对 Ironwood 最高约 2× performance-per-watt，与 8i 共用这句话）是数据中心约束，不是 XLA 的 `precision` 参数。
 
 <span class="marginnote">出处：https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/ ；https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26 。ICI 与 Virgo 的分工见同日博文及 [Virgo](/llm/virgo-ici)。</span>
+
+<span class="marginnote">常见误区：看到「near-linear scaling」就以为跨城作业每步和单 Pod 一样快。线性说的是吞吐量的扩展趋势——机器翻倍、吞吐接近翻倍——不是延迟；跨站点的一次梯度同步仍要过广域网，单步通信比 Pod 内 ICI 慢几个数量级。</span>
 
 ## 小结
 

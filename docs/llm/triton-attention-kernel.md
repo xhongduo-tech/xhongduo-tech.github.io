@@ -23,6 +23,8 @@ Triton 要降低的是「从伪代码到可跑核」的成本。它不声称自�
 
 一个 Triton 程序实例通常对应注意力里的一个 query 块（再加 batch、头的索引）。`tl.program_id` 给出这块在网格中的坐标。加载 $Q$ 的一块是矩形；加载 $K,V$ 的一块时，序列尾部可能越界，必须用掩码把越界元素变成 0 或 $-\infty$，否则既读脏数据，也会把 softmax 污染。因果掩码是第二张掩码：query 下标小于 key 下标的位置在 softmax 前设为很大的负数。两张掩码写错，核会「能跑、数值 silently 错」——这是 Triton 注意力最常见的调试税。
 
+<span class="marginnote">术语翻译：SPMD（单程序多数据）就是「同一份程序复制给所有工人，各自按编号处理不同的数据块」。Triton 里一个程序实例像一个包工头，`program_id` 是工号，决定它负责哪一块 query；写一份代码，网格上同时跑几百份。</span>
+
 <span class="marginnote">Tillet 的贡献是编译栈与语言，不是 2022 年那篇 FlashAttention 论文。把 Triton 写成「OpenAI 的注意力算法」会张冠李戴。算法来自 Dao 等人的分块与在线 softmax；Triton 提供把该算法写短、并能在 Ampere 上较快落地的载体。</span>
 
 ## 方法
@@ -30,6 +32,8 @@ Triton 要降低的是「从伪代码到可跑核」的成本。它不声称自�
 典型前向核的结构与 FlashAttention 伪代码对齐。对每个 query 块，在 SRAM（由编译器安排）或寄存器累加器里维护行最大值 $m$、指数和 $\ell$ 与输出块 $O$。内循环每次加载一块 $K,V$：计算块分数 $S_{ij}=Q_i K_j^\top \cdot s$，按掩码改写，更新 $m$，把旧的 $O$ 与 $\ell$ 按 $\mathrm{e}^{m_{\mathrm{old}}-m}$ 缩放，累加 $\mathrm{softmax}$ 局部贡献。扫完 key 后归一化 $O$，写回 HBM。反向核要么保存中间，要么像 FlashAttention 那样重算块；教学实现常先写前向。
 
 缩放 $s=1/\sqrt{d_k}$ 乘在分数上。半精度路径里，块分数与 softmax 用 FP32 累加，避免 exp 溢出——这与 SDPA 的数值卫生相同，只是发生在 Triton 的 `tl.exp` 与 `float32` 累加器上。`autotune` 装饰器列出若干块大小与 `num_warps`；运行时按输入形状选一份最快的。变长序列用 `seqlen` 张量加掩码，而不是先 pad 再靠掩码浪费 MMA。
+
+<span class="marginnote">数字实例：块大小取 $128\times128$、头维 128 时，FP16 下一块 Q 就是 $128\times128\times2$ 字节 $=32$ KB，K、V 再各 32 KB——合计 96 KB，已经顶到许多 GPU 每个计算单元可用片上存储的上限。这就是块大小不能随手开大的物理原因。</span>
 
 ### 能写到哪一步、写不到哪一步
 
@@ -49,6 +53,16 @@ flowchart TD
 
 ## 机制
 
+```mermaid
+flowchart TD
+  A["作者用 Python 写"] --> A1["分块循环与在线 softmax 递推"]
+  A --> A2["两张掩码、缩放、精度选择"]
+  B["编译器接管"] --> B1["tl.load → 共享存储与向量化"]
+  B --> B2["越界处理与 CTA 内同步"]
+  B --> B3["tl.dot → Tensor Core 指令"]
+  H["硬件：HBM / SRAM / MMA"] --> B1
+  H --> B3
+```
 Triton 把每个程序实例看成 SPMD 的一块工人。编译器分析 `tl.load` 的范围，决定是否经过共享存储、如何向量化、如何插入同步。作者看到的是 NumPy 风格的块运算；GPU 看到的是 CTA 内的协同。注意力能融合，是因为内循环不把 $S$ 写回全局内存：分数张量的生命周期被限制在这一实例里。这正是 FlashAttention 的 IO 命题，用语言约束而不是用手工 `shared` 声明来保证。
 
 在线 softmax 的递推必须写在 Python 循环里，编译器不会从「我对整行做 softmax」推出分块算法。若有人在 Triton 里先对每个 key 块做局部 softmax 再相加，结果是错的。语言降低的是存储层次的样板，不降低对算法不变量的要求。`tl.dot` 映射到 Tensor Core（形状允许时），块大小选错会掉到较慢的路径，这就是 autotune 存在的理由。
