@@ -27,7 +27,7 @@ HumanEval 一类基准测短函数合成：签名加文档字符串，隐藏单�
 
 ## 方法
 
-收集：爬指定仓库的 PR，过滤合并、改测试、可解析的候选，再在历史环境里安装依赖并跑测试对比。存活实例记录：仓库快照、issue、金补丁、测试命令、fail-to-pass / pass-to-pass 列表。推理：用 BM25 按 issue 检索文件，塞进模型上下文窗口能装下的数量；对照 **oracle**（金补丁实际改过的文件）。提示要求生成 patch。应用补丁失败时，原文实现含有限的格式修复；仍有大量生成物无法 apply。SWE-Llama 在 oracle 风格的训练上下文上 LoRA 微调 CodeLlama，序列超过约 30k token 的丢掉，有效训练大约一万条。
+收集：爬指定仓库的 PR，过滤合并、改测试、可解析的候选，再在历史环境里安装依赖并跑测试对比。存活实例记录：仓库快照、issue、金补丁、测试命令、fail-to-pass / pass-to-pass 列表。推理：用 BM25 按 issue 检索文件，塞进模型上下文窗口能装下的数量；对照 **oracle**（金补丁实际改过的文件）。<span class="marginnote">BM25 翻译一下：一种「升级版关键词搜索」——不看语义，只按「这个词在 issue 里多罕见、在哪些文件里最集中」给文件打分排序。oracle 则是开了上帝视角的对照组：直接把金补丁碰过的文件递给模型。两者一比，就知道模型差在「找文件」还是「改代码」。</span>提示要求生成 patch。应用补丁失败时，原文实现含有限的格式修复；仍有大量生成物无法 apply。SWE-Llama 在 oracle 风格的训练上下文上 LoRA 微调 CodeLlama，序列超过约 30k token 的丢掉，有效训练大约一万条。
 
 ```mermaid
 flowchart TD
@@ -48,6 +48,19 @@ BM25 在约 27k token 限制下，大约 40% 实例能覆盖 oracle 文件超集
 
 成功需要一条链：从 issue 语言对到代码位置，在正确抽象层编辑，保持其余不变量，并输出能 apply 的 diff。原文定性发现：模型常生成格式坏的 patch、改错文件、或写表面修复。把任务改成「重写整个文件」通常更差，因为生成更长、更易破坏未显示区域。oracle 把文件缩到金编辑附近（collapsed）能抬分（文中 GPT-4 约 1.3%→3.4%、Claude 2 约 4.8%→5.9% 量级，绑定该消融），说明瓶颈大量在**定位与长上下文使用**，而不只是「会不会写 Python」。
 
+```mermaid
+flowchart TD
+  ISSUE["拿到 issue 文本"] --> LOC{"第一步 定位该改的文件"}
+  LOC -->|"BM25 约一半实例一个 oracle 文件都检不到"| MISS["起点就错 后面全白费"]
+  LOC -->|"oracle 直接递金文件"| EDIT["第二步 在正确抽象层编辑"]
+  EDIT --> DIFF["第三步 生成能 apply 的 diff"]
+  DIFF --> KEEP["第四步 不破坏未显示区域的旧功能"]
+  KEEP --> GREEN["fail-to-pass 转绿 resolved"]
+  MISS --> ZERO["resolved 记 0"]
+```
+
+<span class="marginnote">数字实例：oracle 消融把 GPT-4 从约 1.3% 抬到约 3.4%——给对文件就翻了一倍多，证明「定位」确实是第一瓶颈；但绝对值仍是零头，说明「给对文件后，改得对、diff 能打上、旧功能不崩」这条链还有三关同样难过。一关消融只解锁一关，不会一步登顶。</span>
+
 跨仓库难度不同，但各模型解出的集合重叠有限：oracle 设定下 Claude 2 与 SWE-Llama 13b 解出条数接近时，交叉仍只有四成量级。时间切割显示训练截止日期之后的 issue 更难，提示污染与仓库熟悉度。这些机制加在一起，解释为什么 HumanEval 高分与 SWE-bench 接近零可以共存——测的不是同一个归纳偏置。
 
 <span class="marginnote">原文训练数据 SWE-bench-train 来自与测试仓库不相交的 37 个库，用于 SWE-Llama，不是把测试 issue 拿来微调。引用开源模型分数时要声明 oracle 还是 BM25，否则 0.70% 与「接近 Claude 2」会在错误设定下被拼在一起。</span>
@@ -58,7 +71,7 @@ BM25 在约 27k token 限制下，大约 40% 实例能覆盖 oracle 文件超集
 
 2024–2026 年的高分几乎都来自代理接口（搜索、编辑、跑测试循环）与更强骨干，以及 Lite / Verified 子集。Verified 降低环境破碎与题面含糊，也改变难度。内部部署仍要私有仓库：公开 Python 库可能已进预训练。原文只覆盖 12 个 Python 生态，Java/Go/前端、需要 GUI 或外部服务的 issue 不在合同里。评测成本高：依赖时间旅行、非确定测试、安装失败会把环境错误算进模型头上。
 
-不要用原文 1.96% 否定后来的代理系统，也不要用后来的 50% 回写「SWE-bench 一开始就很容易」。Jimenez 等人的贡献是任务定义与执行门禁；Yang 等人的 SWE-agent 证明接口是另一自变量。本仓库 [code-bench](/llm/code-bench) 写与 HumanEval 的对比；本篇停在 ICLR 原文表。
+不要用原文 1.96% 否定后来的代理系统，也不要用后来的 50% 回写「SWE-bench 一开始就很容易」。Jimenez 等人的贡献是任务定义与执行门禁；Yang 等人的 SWE-agent 证明接口是另一自变量。本仓库 [code-bench](/llm/code-bench) 写与 HumanEval 的对比；本篇停在 ICLR 原文表。<span class="marginnote">常见误区：「1.96% 说明 2023 年的模型根本不会编程」。同一批模型在 HumanEval 这类函数补全上分数并不低。两个基准测的是不同能力：前者是「给你签名写 20 行函数」，后者是「在几十万行、数千文件的仓库里，从一句人话 issue 出发完成外科手术式修改」。低分卡的是定位与长上下文，不是语法。</span>
 
 <span class="marginnote">出处：Jimenez, Yang, Wettig, Yao, Pei, Press, Narasimhan，*SWE-bench: Can Language Models Resolve Real-World GitHub Issues?*，ICLR 2024，arXiv:2310.06770。</span>
 
