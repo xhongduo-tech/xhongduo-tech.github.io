@@ -15,7 +15,11 @@ section: llm
 
 ## 问题
 
-vLLM / SGLang 常用 FP8 / INT8 权、融合 softmax、不同的 RoPE 数值。Megatron 训练用 BF16，softmax 在 fp32 累加。逐步 $\log\pi$ 差 $10^{-2}$ 量级，长链上累积到使 $\rho_t$ 偏离 1，即使 `sync_id` 相同。PPO clip 会把大量 token 判为「走太远」而截掉，有效更新变稀，或反向把噪声当优势。
+vLLM / SGLang 常用 FP8 / INT8 权、融合 softmax、不同的 RoPE 数值。Megatron 训练用 BF16，softmax 在 fp32 累加。逐步 $\log\pi$ 差 $10^{-2}$ 量级，长链上累积到使 $\rho_t$ 偏离 1，即使 `sync_id` 相同。
+
+<span class="marginnote">数字感受一下：单个 token 的 logπ 差 $10^{-2}$，意味着概率本身差约 1%。一条 100 步的生成链把这些差累加起来，比率 $\rho$ 整体就能偏离 $e \approx 2.7$ 倍量级——在 clip 眼里，这批 token 全都「走太远」了，尽管权重一模一样。</span>
+
+<span class="marginnote">术语翻译：$\rho$（重要性比率）= 同一批 token 在「新策略」下的概率 ÷ 在「旧策略」下的概率。正常近端更新里两者应该几乎是同一个分布，$\rho$ 在 1 附近小幅波动；它若系统性偏离 1，说明你拿去比较的其实不是同一个 $\pi$。</span>PPO clip 会把大量 token 判为「走太远」而截掉，有效更新变稀，或反向把噪声当优势。
 
 另一类不匹配：dropout 在训练前向开着、生成时关；或 RMSNorm 的 epsilon、词汇表裁剪不同。这些比 FP8 更隐蔽。词表里的特殊思维标签若只在一侧注册，整段链的 logprob 会从第一枚标签开始偏。
 
@@ -27,7 +31,9 @@ vLLM / SGLang 常用 FP8 / INT8 权、融合 softmax、不同的 RoPE 数值。M
 
 ## 方法
 
-清单：词表与特殊 token id、chat 模板、精度、RoPE/YaRN 参数、是否融合 MoE 路由、dropout 全关、mask 一致。对齐测试：同一批 $(x,y)$ 在引擎与训练图上算 logprob，看最大绝对误差与 clip 命中率。超过阈值则强制重算，或把生成也改成训练精度（慢）。量化 rollouter 可以保留，但 IS 分母改用重算的 BF16 $\pi_{\mathrm{beh}}$——注意：那已经不是真行为概率，采样仍来自量化模型。更干净的是：采样与 logprob 都承认量化是 $\pi_{\mathrm{beh}}$，训练图用同一量化前向（难）或接受偏差并减小 $\eta$。
+清单：词表与特殊 token id、chat 模板、精度、RoPE/YaRN 参数、是否融合 MoE 路由、dropout 全关、mask 一致。对齐测试：同一批 $(x,y)$ 在引擎与训练图上算 logprob，看最大绝对误差与 clip 命中率。
+
+<span class="marginnote">常见误区：初学者容易以为同一份权重在任何引擎里输出完全一致——实际上 FP8 与 BF16、是否融合 softmax、RoPE 的数值实现，都会让同一个 token 的概率在小数点后几位上不同。单独看无害，进了比率就是系统偏差。</span>超过阈值则强制重算，或把生成也改成训练精度（慢）。量化 rollouter 可以保留，但 IS 分母改用重算的 BF16 $\pi_{\mathrm{beh}}$——注意：那已经不是真行为概率，采样仍来自量化模型。更干净的是：采样与 logprob 都承认量化是 $\pi_{\mathrm{beh}}$，训练图用同一量化前向（难）或接受偏差并减小 $\eta$。
 
 ```mermaid
 flowchart TD
@@ -42,6 +48,16 @@ flowchart TD
 ## 机制
 
 softmax 的实现差是乘性噪声，clip 把它变成非对称的稀疏梯度。看起来像熵塌或学习率过大，根因是比率失效。对齐后，clip 命中率应回到「真的近端更新」水平。这与 [截断 IS](/llm/truncated-importance-sampling) 的 $c$ 正交：先消除系统偏差，再谈截断阈值。
+
+```mermaid
+flowchart TD
+  A["精度与内核差异"] --> B["每个 token 的 logπ 系统性偏移"]
+  B --> C["长链累积：ρ 偏离 1"]
+  C --> D{"PPO clip 如何处置"}
+  D -->|"偏出安全区"| E["大量 token 被判越界截掉"]
+  D -->|"留在区内"| F["数值噪声被当成优势"]
+  E --> G["有效更新变稀，症状像熵塌或学习率过大"]
+```
 
 <span class="marginnote">MoE 路由在量化前后若翻转专家，token 级比率比较的是两个子网络，GSPO 文中的路由挥发在精度不匹配时更早出现。</span>
 

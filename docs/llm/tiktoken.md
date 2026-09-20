@@ -19,6 +19,8 @@ Gage 1994 年把字节对编码写成压缩算法；Sennrich、Haddow 与 Birch 
 
 字节级 BPE 自己的问题是：若从原始字节直接合并、不做预切分，空格、字母、标点会焊成稀奇古怪的跨类符号，词表被网页噪声污染。GPT-2 用正则先切出「大致像词」的片段，再在片段内做 BPE，这是预分词与无损字节回退的折中。tiktoken 把这条正则、合并秩表和特殊 token（`<|endoftext|>`、FIM、`<|im_start|>` 等）打包成名为 encoding 的对象。问题变成：如何让所有语言的绑定、所有网关进程，加载的是同一张秩表，而不是「看起来差不多的 100k 词表」。
 
+<span class="marginnote">术语翻译：BPE 就是「先把文本拆成 256 个字节，再反复合并语料里最常见的相邻字节对」的算法，合并的先后顺序记成秩表。给新文本编码时，按秩表从最早学会的合并开始贪心执行——所以词表本质不是「词典」，是一份合并操作的优先级清单。</span>
+
 ### 编码表是模型的一部分
 
 `cl100k_base` 服务 GPT-4 / GPT-3.5-turbo / `text-embedding-ada-002`；`p50k_base` 服务 Codex 与 `text-davinci-002/003`；`r50k_base` 即 GPT-2/GPT-3 davinci 系；较新的旗舰与 `gpt-4o` 一类走 `o200k_base`（词表约 20 万）。`encoding_for_model(name)` 存在的理由，就是禁止业务代码写死一种 encoding。<span class="marginnote">聊天接口的账单 token 还包含模板与特殊符，不等于对用户可见字符串跑一遍 `encode`。用 tiktoken 在本地估算 API 费用，必须复现同样的 message 组装，否则会系统性低估。</span>
@@ -26,6 +28,8 @@ Gage 1994 年把字节对编码写成压缩算法；Sennrich、Haddow 与 Birch 
 ## 方法
 
 推理期 BPE 不扫描全局语料。给定预切分后的字节串，编码器反复把当前相邻对里、合并秩最高（训练时最早合并、秩最小）的一对焊成词表项，直到不能再合。实现上用哈希表存 `mergeable_ranks`，用正则 `pat_str` 预切分，特殊 token 走单独词典、可在 `encode` 时允许或拒绝。decode 把 id 映回字节再解 UTF-8；流式时必须缓冲不完整码点，不能对半个汉字的 id 单独 `decode` 成替换符。OpenAI 公开的 Python 包核心是 Rust，官方 README 称在 1GB 文本、GPT-2 词表上比当时 `GPT2TokenizerFast` 快 3–6 倍。教育子模块 `SimpleBytePairEncoding` 可从 `cl100k_base` 可视化合并，便于对照论文算法，但生产路径不要用它。
+
+<span class="marginnote">常见误区：流式输出时对每个 id 单独 decode，会在汉字或 emoji 被拆成两个 token 的边界上打出乱码替换符。正确做法是按字节缓冲、凑齐完整 UTF-8 码点再解码——这不是 bug，是字节级分词的必然契约。</span>
 
 扩展编码的合法方式是复制 `pat_str` 与 `mergeable_ranks`，只改 `special_tokens` 并换新名字（例如为对话加上 `<|im_start|>`）。私自改合并表却沿用 `cl100k_base` 这个名字，会造成静默的 id 错位。插件机制 `tiktoken_ext` 用于注册自定义 Encoding，让 `get_encoding` 能找到它。tiktoken **不提供** 在新语料上重训 100k 词表的 API；要训练应回到 SentencePiece、Hugging Face tokenizers 或自写 BPE，再把秩表导出成与 tiktoken 兼容的结构——那是另一条供应链。
 
@@ -49,6 +53,19 @@ BPE 只在预切分块内部合并。正则若把字母与紧跟的标点切开�
 ## 机制
 
 训练期 BPE 估计的是语料上的贪心压缩：频繁共现的字节块变成原子，交叉熵在更短序列上计算。推理期算法是确定性的查表，不再有「更新合并」。这与 Unigram 不同：Unigram 在推理仍可采样切分，tiktoken 路径没有概率。确定性使 KV 缓存、前缀复用和计费可复现。正则预切分把「空格、字母、数字、标点」的类型边界写进归纳偏置，减少跨类型垃圾合并，代价是语言相关——为英语设计的正则对无空格文字主要靠字节块，中文往往更碎，同样字符预算下中文有效上下文更短。这是编码表的政治，不是 bug。
+
+```mermaid
+flowchart LR
+  C["训练期: 扫描语料"] --> F["统计相邻字节对频次"]
+  F --> M["合并最高频对, 写入秩表"]
+  M --> LOOP{"达到词表上限?"}
+  LOOP -->|"否"| F
+  LOOP -->|"是"| FR["冻结 mergeable_ranks"]
+  FR --> I["推理期: 只查表贪心合并"]
+  I --> D["同输入必得同 id: 确定性"]
+```
+
+<span class="marginnote">数字实例：cl100k 下英文平均约 4 个字符折 1 个 token，常见汉字往往 1 字就要 1 到 2 个 token——同样写 500 字的提示，中文可能折成七八百个 token，同样的窗口预算，中文能装下的有效内容明显更短。数预算只能靠真正 encode。</span>
 
 相对 SentencePiece：空白处理（`▁` vs 字节/ `Ġ`）、规范化（NFKC FST vs 几乎不做兼容折叠）、训练（现场训 vs 冻结表）、UNK 策略（字符 UNK vs 字节回退）全都不兼容。Llama 2 用 SentencePiece，对它跑 tiktoken 的 cl100k 再喂模型，等于用错误词表解码权重。服务框架必须把 tokenizer 工件与 checkpoint 当成同一版本号。
 

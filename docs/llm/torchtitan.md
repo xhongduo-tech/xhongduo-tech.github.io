@@ -27,6 +27,8 @@ DeviceMesh 声明网格轴：例如数据并行轴、张量并行轴、流水线
 
 <span class="marginnote">FSDP2 相对 FSDP1：composable API、DTensor 布局、可以配置前向后是否立即 reshard。调试时不要假设 `named_parameters()` 指向未切分权重；应用 `summon` 一类 API 查看完整参数。</span>
 
+<span class="marginnote">「DTensor」可以理解成一张逻辑上完整、物理上切碎的张量：你的代码仍像在单卡上写矩阵乘，框架根据它携带的切分信息（哪个维度切了几份、存在哪些卡上）自动插入集合通信。类比一份共享文档：每人只编辑自己那一节，系统负责同步别人的改动，你看到的是整篇。</span>
+
 ## 方法
 
 4D = DP（含 FSDP2 / HSDP）+ TP + PP + CP。论文在 Llama 3.1 上给出从 1D 到 4D 的配方：小模型可以只开 FSDP（1D）；70B 进入 2D（FSDP+TP）；405B 进入 3D（再加 PP）；长上下文再加 CP 成 4D。这是作者在 H100 上的经验曲线，不是定理：以太网机房可能更早需要 PP，NVSwitch 域更大则 TP 可以更宽。
@@ -51,11 +53,26 @@ flowchart TD
 
 <span class="marginnote">65% 出现在 8B、1D、128 卡，因为基线在小模型上更容易被 compile/Float8 拉开；70B 的 12.59% 更小，说明 2D 时通信与内核已经更接近屋顶。读百分比时必须带模型、卡数与维数。</span>
 
+<span class="marginnote">数字直觉：70B 参数用 bf16 存，一份完整权重要约 140 GB，单张 80 GB 的 H100 根本放不下，所以 70B 起步就得 2D（FSDP+TP）把权重切到多卡；405B 更是约 810 GB，必须 3D 起步。「从几维开始」首先是显存算术，其次才是吞吐优化。</span>
+
 ## 机制
 
 可组合的关键是：每一种并行只改 DTensor 的 placement 或模块到 mesh 的映射，集体通信由 DTensor 原语发出，而不是各库各写一套 NCCL wrapper。FSDP 的 All-Gather 与 TP 的 All-Reduce 作用在不同 mesh 维上，只要维正交，语义就是 Kronecker 式的网格。PP 不切单层矩阵，只切深度，与 TP 正交；微批填气泡。CP 切序列，注意力跨段通信，与 batch 维的 DP 正交。非法组合（例如在 PP 段之间再做需要全层权重的操作却忘记聚集）会在单设备语义上失败——这正是「保持单设备语义」这条不变量的用处。
 
 弹性扩展：改 mesh 形状等于改作业，检查点必须能按新 placement 加载。论文把这当成生产性质，而不是研究原型。Float8 与 compile 改的是核与通信融合，不改 4D 的数学切分。
+
+```mermaid
+flowchart TD
+  Q["一次前向里的三类通信"] --> A["FSDP All-Gather：走 DP 轴"]
+  Q --> B["TP All-Reduce：走 TP 轴"]
+  Q --> C["CP 注意力跨段：走序列轴"]
+  A --> D["各走各的 mesh 维，互不挤占"]
+  B --> D
+  C --> D
+  D --> E{"单设备语义还成立吗？"}
+  E -->|"成立"| OK["组合合法，继续训练"]
+  E -->|"忘聚集全层权重"| BAD["报错或数值错误"]
+```
 
 ### 相对 Megatron / DeepSpeed 的位置
 
@@ -66,6 +83,8 @@ flowchart TD
 不要把 65% / 12.59% / 30% 写成对任意基线的承诺。不要在 FSDP1 包装下假设 DTensor 配方能直接跑。不要把 SymmetricMemory、异步 TP 当成所有硬件上都已默认打开。检查点格式与 Megatron / Hugging Face 之间需要转换，不是改扩展名。论文评估在 H100；换互联带宽，4D 的最优维数会动。
 
 生产还依赖数据加载、tokenizer、容错重启策略；Titan 提供日志与 DCP，但不包含你的业务调度器。MoE 的 expert parallel 在后续仓库演进中出现，引用时写清论文版（Llama 稠密 3.1）与代码版。
+
+<span class="marginnote">常见误区：把「加速 65.08%」读成「比 Megatron 快 65%」。论文测的是相对作者自己优化过的基线（已开 compile、Float8 等优化）的墙钟改善；换个基线实现、换成 A100、换个模型族，这个数字都不成立。</span>
 
 <span class="marginnote">出处：Liang、Liu 等 *TorchTitan*，arXiv:2410.06511；代码 github.com/pytorch/torchtitan。FSDP 见 PyTorch 文档。Llama 3.1 规模数字来自 Dubey 等，用来说明预训练需求，不是 Titan 论文自己训了 16K 卡。</span>
 

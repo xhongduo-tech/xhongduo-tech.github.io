@@ -21,11 +21,15 @@ section: llm
 
 <span class="marginnote">暴露通信是无法与任何本地计算并行的那一段：依赖尚未满足。流水图画错会把「已重叠」写进文档，profiler 上 NCCL/自定义 AR 仍与 GEMM 串行。</span>
 
+<span class="marginnote">数字实例：设一次 decode 步计算 2 ms、每层 All-Reduce 0.5 ms、共 80 层——串行时通信贡献约 40 ms 墙钟；若能与计算完全重叠，这部分几乎归零。decode 上 $T_{\mathrm{cmp}}$ 小、阴影浅，通常只能藏一部分，但藏下的每一毫秒都直接写进逐步延迟。</span>
+
 ## 方法
 
 注意力：头在本地，softmax 不通信；输出投影行并行后 AR。MLP：列切上投影本地非线性，下投影后 AR。重叠点：上一层 AR 与下一层 QKV 或上投影的本地部分。实现用双流：计算流与通信流，事件同步。CUDA Graph 要包含两流，否则捕获后重叠消失。自定义 AR 的持久工作组必须能在通信流上跑。
 
 测：Nsight 上看 AR 与 GEMM 的时间条是否交叠。只看逐步毫秒会把重叠与更快的 AR 混在一起。
+
+<span class="marginnote">「双流 + 事件同步」就是开两条 GPU 任务队列：一条跑计算、一条跑通信，平时互不等待；只在真正依赖对方结果的地方插一个「事件」当路障。类比厨房里炒菜（计算）与传菜（通信）两条线并行，只在端盘前确认菜已出锅。</span>
 
 ```mermaid
 flowchart TD
@@ -39,9 +43,20 @@ flowchart TD
 
 数学依赖不能违背：残差加若需要完整 $Y$，AR 之后才能加。有的实现把残差放进融合核，通信必须先完成。为重叠而拆融合，可能得不偿失——decode 上融合省的 HBM 可能大于重叠省的暴露通信。应用 profiler 决定，不要按训练论文的百分比抄。
 
+```mermaid
+flowchart TD
+  STEP["一个 decode 步的墙钟"] --> Q{"通信与计算怎么排？"}
+  Q -->|"串行：算完再传"| SER["时间近似 T_cmp + T_comm"]
+  Q -->|"双流重叠"| OV["时间近似 max(T_cmp, T_comm) 加暴露段"]
+  SER --> SLOW["decode 上 T_cmp 小，串行亏得多"]
+  OV --> HIDE["AR 藏进下一层本地 GEMM 的阴影里"]
+```
+
 ## 边界
 
 跨节点 TP 的 AR 更长，更值得重叠，但也更难与自定义路径结合。MoE 的 all-to-all 是另一类通信，不要与稠密 TP 的 AR 重叠策略混写。下一课：还在用 NCCL 时，有哪些旋钮。
+
+<span class="marginnote">常见误区：把「配置里开了 overlap」当成通信已被藏住。若 CUDA Graph 捕获时漏掉通信流，或融合核里塞了需要完整 $Y$ 的残差加，profiler 上 AR 与 GEMM 仍然首尾相接。验收只能看时间条是否交叠，不能看配置布尔。</span>
 
 出处：Megatron-LM；NVIDIA 对 Transformer 引擎通信重叠的工程说明。
 

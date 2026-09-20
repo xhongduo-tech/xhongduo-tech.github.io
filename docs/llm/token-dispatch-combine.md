@@ -17,6 +17,8 @@ section: llm
 
 稠密 FFN 的输入已经按 batch 排好，一张卡本地 GEMM 即可。MoE 把 FFN 换成 $N$ 个专家，每个 token 只去 $k$ 个。若专家按设备切开，本地 batch 里「该去专家 $e$ 的那些行」是稀疏、乱序、长度不齐的。不重排，专家权重对着错误的行做乘；重排之后若不记住逆置换，合并时会对错残差位置。问题因此是一次 **带元数据的置换**：payload 是 $d$ 维激活，钥匙是 `(token_id, expert_id, 权重)`。
 
+<span class="marginnote">直觉类比：dispatch 像医院分诊——挂号（路由）决定每个病人去哪个科，导诊把病人按科室重新集中、送到相应诊室（专家所在的卡），看完（FFN）再按病历号把结果送回原来排队的窗口。combine 就是那次「按病历号送回」，丢了病历号，诊断就贴错了人。</span>
+
 容量约束让形状更硬。GShard 与 Switch 给每个专家一个槽位数 $c=\mathrm{capacity\_factor}\cdot kT/N$。超容量的 token 在分发前丢掉；不足的槽位用 padding 补齐，以便静态形状的 All-to-All。于是 dispatch 缓冲区的体积由 **槽位** 决定，不是由真实被路由的 token 数决定。容量因子过大，你在为空气付带宽；过小，掉牌伤害质量。MegaBlocks 后来用变长 grouped / 块稀疏 GEMM 取消容量，那是计算侧的解放；通信侧仍要一张「谁去哪张卡」的索引表。
 
 ### 分发之前必须已经有路由结果
@@ -69,6 +71,8 @@ $$
 
 $s$ 是每元素字节。因子 2 是 dispatch 加 combine。均匀时每卡发出 $kT/E$ 条；热专家所在卡收到远多于这个数，既拖慢 GEMM 也拖慢接收。设备限制路由把一个 token 的目的节点数封顶，从而给 IB 流量一个硬上界——这是 DeepSeek-V2/V3 能把细粒度专家铺到多节点上的系统条件。
 
+<span class="marginnote">数字实例：取 $T=4096$、$k=8$、$E=8$、$d=4096$、BF16（$s=2$ 字节），每卡收发约 $2\times8\times512\times4096\times2$ 字节 $\approx 67$ MB——这是负载均匀时的下限；热专家所在卡只多不少。对照 NVLink 160 GB/s，这 67 MB 理论上一眨眼就能搬完，难的是乱序与小包。</span>
+
 计算通信比由专家宽度决定。肥专家的 $d_{\mathrm{ff}}$ 大，本地 GEMM 能盖住置换；细粒度小专家、$k$ 又高时，payload 不小、GEMM 却碎，dispatch/combine 会变成墙。训练里 DualPipe 的解法是把相邻 microbatch 的「注意力」和「dispatch/MLP/combine」错开；推理 decode 里注意力更占时间，DeepSeek-V3 部署节把一个 microbatch 的注意力与另一个的 dispatch+MoE+combine 重叠，并只给后者很少的 SM。
 
 <span class="marginnote">Dispatch 的精度可以低于 Combine。V3 把 MoE 上投影前的激活量化到 FP8 再分发，与 FP8 前向兼容；回程合并保持 BF16，避免残差累加被窄格式打穿。不要把两边都改成同一精度再谈「省了一半带宽」。</span>
@@ -77,11 +81,22 @@ $s$ 是每元素字节。因子 2 是 dispatch 加 combine。均匀时每卡发�
 
 专家计算吃的是 **按专家连续** 的行块，不是原 batch 顺序。Dispatch 的输出布局正是 grouped GEMM 的 $A$：第 $i$ 个问题的 $M_i$ 是该专家收到的 token 数，$N$ 与 $K$ 由 FFN 宽决定。Combine 吃的是 grouped GEMM 的 $D$，再按逆置换打散。所以「token 重排」和「变长 GEMM」是同一条流水的两端：没有前者，后者只能对每个专家单独启动一次核；没有后者，前者凑出来的变长块只能 padding 成稠密 batched GEMM。MegaBlocks 把 MoE 重写成块稀疏 / grouped 运算，前提仍是 permute 已经按专家把 token 聚在一起。
 
+```mermaid
+flowchart LR
+  H["直方图: 每专家收到几行"] --> PS["前缀和: 各专家在缓冲区的偏移"]
+  PS --> PM["permute: 按 (专家, token) 拷成连续行"]
+  PM --> GG["grouped GEMM: 第 i 组 M_i 行"]
+  GG --> IP["逆置换: 按偏移写回原 token 行"]
+  IP --> WA["门控加权求和 进残差流"]
+```
+
 反向再走两遍置换：对专家输出的梯度做一次「按专家聚集」，对专家输入的梯度做一次「按 token 打散」。路由矩阵 $W_r$ 通常不随专家切分，其梯度留在本地。不要把 combine 的加权和当成 All-Reduce——权重是 per-token 的门控，不是跨卡求和。
 
 ## 边界
 
 小 batch 自回归 decode 是 dispatch/combine 最痛的工作点：每步 $T$ 只有并发请求数，$kT/E$ 可能小于 1，All-to-All 的启动延迟大于 payload。DeepSeek-V3 解码部署因此把 EP 拉到 320、每卡一个专家，并用 IBGDA 做点对点，而不是套训练时的分层 IB+NVLink 核。Mixtral 8 专家常常整模型复制或只做 TP，避开逐步置换。
+
+<span class="marginnote">初学者容易以为「专家并行」在 decode 也一定省显存又提速。实际每步每卡的 payload 可能只有几百 KB，而一次集体通信的启动开销就有几十微秒——搬的东西比「喊一嗓子」还便宜。所以部署常宁可整模型复制专家，也不为省显存去做逐步置换。</span>
 
 不要用容量因子同时当「质量旋钮」和「通信预算」。掉牌发生在 dispatch 之前，评测若在掉牌后的集合上算路由准确率，会低估真实损失。空槽进入 All-to-All 时，NCCL 体积按槽位走，profiler 里的 GB/s 会看起来很高，有效 token 却很少。
 
