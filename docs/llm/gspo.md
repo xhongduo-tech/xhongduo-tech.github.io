@@ -19,6 +19,8 @@ RL 要吃满硬件，rollout batch 往往很大，再切成例如 4 个 mini-bat
 
 第二条是 MoE。Qwen3-30B-A3B 上，一次梯度更新后同一条回复的激活专家可改约 **10%**（48 层）。Token 级 $w_{i,t}$ 比较的是两条不同子网络的对数概率，比率失去意义。层数越深，这种路由挥发越明显，GRPO 在巨型 MoE 上的崩塌往往不可逆：回滚检查点再微调 $\varepsilon$、加长生成或换题集，作者说都救不回来。他们曾用 **Routing Replay**：缓存 $\pi_{\mathrm{old}}$ 的路由，在 $\pi_\theta$ 上重放，才能让 GRPO 收敛。这额外占显存与通信，还冻结了专家的实际容量——策略不能在更新后使用新路由，等于训练一个被旧专家图绑住的稠密子网。GSPO 要同时回答「长链 off-policy 稳定」和「不要再为 MoE 写特殊补丁」。
 
+<span class="marginnote">术语翻译：off-policy 校正就是「样本是旧策略抽的，梯度却想更新新策略」，于是给每个样本乘一个新旧概率比当修正系数。但合法的重要性采样要求对同一位置反复抽样来估计这个比值；每个位置只采一次时，比值本身就是纯噪声，越长的回复噪声累积越多。</span>
+
 ### 优化单位应等于奖励单位
 
 结果奖励 $r(x,y)$ 是序列标量。Token 级 clip 会丢掉整段里一部分位置、保留另一部分，等于用残缺序列去拟合整段回报。GSPO 的原则是：重要性权重、clip、优势、目标全部在**序列**上定义。
@@ -48,6 +50,8 @@ $$
 
 长度归一把不同 $|y|$ 的比率拉到同一数值范围，否则少数 token 的似然变化会让序列比爆炸。梯度上，GSPO 用同一个 $s_i\hat A_i$ 去乘该回复**所有** token 的 $\nabla\log\pi$，即段内等权；GRPO 则让每个 token 乘自己的 $w_{i,t}$，权重可在 $(0,1+\varepsilon]$ 或 $[1-\varepsilon,\infty)$ 间乱跳。
 
+<span class="marginnote">数字感受长度归一的作用：一条 200 token 的回复若每个位置的新旧比都是 1.01，直接连乘是 $1.01^{200}\approx 7.3$，任何 clip 区间都装不下；开 200 次方后 $s\approx 1.01$，稳稳落在序列级区间里。少数 token 的局部抖动被整段长度稀释，而不是被连乘放大。</span>
+
 **GSPO-token。** 需要逐步优势（多轮 RL）时，令 $s_{i,t}=\mathrm{sg}[s_i]\cdot \pi_\theta(y_{i,t})/\mathrm{sg}[\pi_\theta(y_{i,t})]$，数值上 $s_{i,t}=s_i$，但 $\hat A_{i,t}$ 可按 token 改。$\hat A_{i,t}=\hat A_i$ 时与 GSPO 等价。
 
 实验：从 Qwen3-30B-A3B-Base 冷启动，rollout 切 4 个 mini-batch。GSPO clip 左/右 $3\mathrm{e}{-4}$ / $4\mathrm{e}{-4}$；GRPO 对照精心调到 $0.2/0.27$ 且**必须** Routing Replay。GSPO 无 Routing Replay 仍稳定，同算力下训练奖励与 AIME'24 / LiveCodeBench / Codeforces 曲线更高。被 clip 掉的 token 比例比 GRPO 高约两个数量级，但样本效率更好——作者以此说明 GRPO 的 token 梯度本身很噪。
@@ -65,11 +69,25 @@ flowchart TD
 
 几何平均把「整段有多 off-policy」收成一个接近 1 的标量。Clip 一次，要么整段进梯度，要么整段丢掉，不再出现「前半段还在、后半段被裁」的残缺信用。MoE 上，个别专家抖动会改若干 token 的 $\pi(y_t)$，但语言模型整体仍能给整段一个稳定的 $\pi(y\mid x)$；序列似然对路由噪声不敏感，故不必重放路由。作者还观察到一个反直觉现象：GSPO 裁掉的 token 比例比 GRPO 高两个数量级，用更少的位置做梯度估计，训练奖励与榜分反而更好。这说明 GRPO 留下的那些「没被 clip 的 token」并不等于高质量样本，只是噪声里碰巧落在信任域内的位置。持续加训练算力、定期换题、加长生成，在 GSPO 曲线上仍能涨，是他们把该方法写进后续 Qwen3 后训练的理由。
 
+两种裁剪粒度对同一批样本的处理对比：
+
+```mermaid
+flowchart TD
+  subgraph G["GRPO：token 级"]
+    T1["每个位置各算一个比率 w_t"] --> T2["逐 token clip"] --> T3["残缺序列进梯度，噪声逐位累积"]
+  end
+  subgraph S["GSPO：序列级"]
+    S1["整段似然比取几何平均 s"] --> S2["对整段 clip 一次"] --> S3["整段全进或全丢，段内等权"]
+  end
+```
+
 <span class="marginnote">训练引擎与推理引擎的对数概率常对不齐。GSPO 只用序列级似然，理论上更容忍这种误差，甚至可以考虑直接用推理引擎返回的似然、省掉训练引擎重算。这是基础设施潜力，不是论文主实验的默认实现。</span>
 
 ### 与 DAPO / CISPO 不在同一根轴
 
 [DAPO](/llm/dapo) 仍是 token 级比率，改的是上下 $\varepsilon$、零梯度组与平均方式。[CISPO](/llm/minimax-m1) 把 clip 从比率移到 IS 权重，仍按 token 更新。GSPO 改的是**比率的定义域**。三者都批评 GRPO 的 clip，但「放宽上界」「永远不丢 token」「整段丢或留」是三个不同处方。Qwen 报告里的 MoE 崩塌，前两剂都不针对专家抖动。
+
+<span class="marginnote">常见误区：以为「被 clip 掉的 token 多」等于浪费样本。在 GSPO 里恰恰相反——丢掉的多是噪声位置，留下的整段梯度反而更干净；评判标准是同算力下的奖励曲线，不是裁剪比例本身。</span>
 
 ## 边界
 

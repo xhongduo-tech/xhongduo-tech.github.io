@@ -23,11 +23,15 @@ LPU 路线的回答是：不要用硬件缓存启发式去猜下一拍数据，�
 
 GPU 的 HBM 容量大，适合存长上下文 KV 与大权重；缓存与运行时调度让同一颗芯片能跑训练、prefill、各种形状。LPU 的 SRAM 带宽极高、容量按「片上工作集」计，编译器把时间表定死，抖动小，适合小 batch 的矩阵与点式算子。NVIDIA 把 decode 写成双引擎循环：GPU 做 prefill 与 decode 注意力（KV 大、偏带宽/通用），LPX 做延迟敏感的 FFN / MoE 专家；中间激活每 token 交接。这个拆分被称作 attention–FFN disaggregation（AFD），由 Dynamo 编排。不要把 LPX 理解成「更快的 H100」，它甚至不是按 CUDA 编程模型来卖的确定性数据流机。
 
+<span class="marginnote">术语翻译：AFD（注意力—FFN 分离）就是把一步 decode 拆给两种机器：注意力要反复扫 KV，交给显存大的 GPU；FFN 是纯矩阵乘，交给 SRAM 快的 LPX。两个引擎每个 token 交接一次中间结果，像流水线上两道工序接力。</span>
+
 <span class="marginnote">Groq 原厂 LPU 与「NVIDIA Groq 3 LPX」是同一条 SRAM/编译器谱系上的产品化。具体指令集、工具链与是否暴露给第三方训练，以 NVIDIA 当时文档为准。本篇不把早期 GroqCloud 的某次 tokens/s 演示抄成 LPX 机柜规格。</span>
 
 ## 方法
 
 按官方机柜表来规划。NVIDIA 技术博文给出 LPX 机柜级规格：推理算力 315 PFLOPS；片上 SRAM 总量 128 GB；片上 SRAM 带宽 40 PB/s；256 芯片规模；scale-up 带宽 640 TB/s。托盘：32 个液冷 1U 计算托盘，每托盘 8 颗 LPU（文中称 LP30）、4 GB SRAM、1.2 PB/s SRAM 带宽、最高 256 GB 经 fabric 扩展的 DRAM 与 128 GB 主机 DRAM、9.6 PFLOPS（FP8）托盘算力、20 TB/s scale-up。芯片：约 500 MB 编译器管理的 SRAM 作为主工作存储；计算与通信以 320 字节向量为工作单元；MXM / VXM / SXM 分别做矩阵、点式与结构化数据移动；每颗 LPU 96 条 112 Gbps 的 C2C，聚合双向 I/O 约 2.5 TB/s。执行模型是空间化、编译器编排，并用硬件上的 plesiosynchronous C2C 协议抵消时钟漂移，让数百颗 LPU 对齐成一台协同系统。
+
+<span class="marginnote">数字实例：一台 LPX 机柜的片上 SRAM 带宽约 40 PB/s，相当于每秒搬运约 4000 万 GB；一块高端 GPU 的显存带宽是 1 TB/s 出头，差着四个数量级。这是「小 batch 也喂得饱」的底气，代价是 SRAM 总共只有 128 GB，装不下多大的权重。</span>
 
 与 NVL72 的配对比官方异构图：Rubin 吃长上下文 prefill 与注意力；LPX 吃 decode 里要低延迟的 FFN/MoE；也可把 LPX 当投机解码的草稿引擎、Rubin 当验证引擎。软件入口是 Dynamo：按延迟目标分流、搬运中间激活、KV 感知路由。部署上 LPX 走 MGX ETL 机柜，脊可以是 LPU C2C。Nebius 等云厂商公开过接入 Token Factory 的计划——那是产品可用性，不是算法论文。
 
@@ -52,6 +56,18 @@ Artificial Analysis 公开测过 NVIDIA 机房里的一套 LPX：Gemma 4（约 3
 
 低延迟来自三件事同时成立。第一，算术强度不再等待 HBM：工作集在 SRAM，带宽按 PB/s 计，小 batch 矩阵也能喂饱执行模块。第二，数据移动是显式的：SXM 做转置与分发，C2C 按固定向量宽度打，编译器让计算与通信重叠，而不是靠运行时插入未知延迟的 DMA。第三，时间可推理：没有乱序发射与缓存未命中的长尾，尾延迟接近中位延迟。这正是交互式产品要买的东西。
 
+```mermaid
+flowchart TD
+  T["一步 decode 的延迟从哪来"] --> G["通用 GPU 路线"]
+  T --> L["LPU / SRAM 路线"]
+  G --> G1["kernel 启动 + 调度器抢占"]
+  G --> G2["缓存命中率波动，出现长尾"]
+  G --> G3["尾延迟可能远高于中位"]
+  L --> L1["编译器排死时间表"]
+  L --> L2["SRAM 无缓存未命中"]
+  L --> L3["尾延迟接近中位延迟"]
+```
+
 AFD 成立，是因为 decode 一步里注意力与 FFN 的屋顶线不同。注意力随 $n$ 扫 KV，爱 HBM 容量与带宽；FFN 在专家稀疏、batch 小时代价是启动与同步。把 FFN 放到 SRAM 机器上，等于用确定性吞吐换那一截逐步延迟。代价是每 token 要搬激活：若交接网络比省下的计算更贵，AFD 会亏。官方把 Dynamo 写成把这次交接做薄的软件层。
 
 <span class="marginnote">315 PFLOPS 与 40 PB/s 是机柜聚合规格。单请求能用到多少，取决于模型如何切到 256 颗芯片、以及 AFD 交接是否成为新瓶颈。不要把机柜峰值当成单用户 tokens/s。</span>
@@ -65,6 +81,8 @@ AFD 成立，是因为 decode 一步里注意力与 FFN 的屋顶线不同。注
 不要用 LPX 训练大模型（公开定位是推理加速器）。不要假设任意 Hugging Face 模型不经编译就能吃到 40 PB/s。不要把「相对 GB200 NVL72 最高约 35 倍每兆瓦吞吐、约 10 倍收入机会」写成自然定律——那是 NVIDIA 对指定万亿参数设定的平台口径。不要编造未出现在博文里的单芯片 TDP、未发布的指令列表。
 
 SRAM 总量 128 GB/柜，决定了权重与 KV 能常驻多少；更大模型必须切层、切专家、或把一部分状态放在托盘 DRAM 上——后者会立刻把确定性与带宽故事打折。运维上 LPX 是专用机柜，故障域按 256 芯片协同来写，而不是按 8 卡服务器。
+
+<span class="marginnote">常见误区：以为买张加速卡插上就能跑任意开源模型。LPX 要求模型能被编译器静态铺进芯片，形状一变就可能要重新编译。动态 batch、任意分支这些在 GPU 上「很自然」的东西，在这里反而是要主动绕开的敌人。</span>
 
 <span class="marginnote">出处：NVIDIA *Inside Groq 3 LPX* 与配套推理博文中的机柜/托盘/芯片表、AFD 与 Dynamo 叙述；LPU/SRAM/编译器确定性来自 Groq 公开架构传统与 NVIDIA 对 Groq 3 LPU 的描述。第三方 tokens/s 仅引用已点名模型的 Artificial Analysis 结果。</span>
 

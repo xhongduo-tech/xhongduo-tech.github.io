@@ -84,8 +84,6 @@ flowchart TD
 
 不要用「Stable Diffusion 3 换皮」一句代替 hybrid 架构。不要发明 12B 的层表。与 Wan / Hunyuan 比的是文生图对文生视频，任务不同；可复用的只有流匹配 + Transformer 这一代际共性。
 
-<span class="marginnote">常见误区：「schnell 快是因为模型小」。它同样是 12B——快在蒸馏后 1 到 4 步就能出图，省的是步数而不是参数。代价是少步档在极端复杂提示和精细细节上让步；显存占用与 dev 是一个量级。</span>
-
 <span class="marginnote">出处：Black Forest Labs，*Announcing Black Forest Labs*，https://bfl.ai/blog/24-08-01-bfl （2024-08-01）。后续 API 与 FLUX1.1 [pro] 见 2024-10-02 *Announcing FLUX1.1 [pro] and the BFL API*。流匹配传统见 Lipman et al.；DiT 见 Peebles & Xie。</span>
 
 ## 小结

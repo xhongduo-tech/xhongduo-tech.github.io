@@ -25,6 +25,8 @@ $$
 
 工作负载的强度 $I$ 若小于 $I_{\mathrm{ridge}}$，可达性能 $\min(P, I\cdot B)$ 落在斜边上，加 $P$ 无用，加 $B$ 或减字节才有用。若 $I$ 远大于拐点，才值得堆 Tensor Core。问题是：LLM 的不同阶段 $I$ 差几个数量级，而产品迭代里 $P$ 往往比 $B$ 涨得更快，拐点右移，越来越多曾经「算得动」的核掉进带宽墙。
 
+<span class="marginnote">术语翻译：算术强度就是「每搬 1 个字节进片上，能换来几次乘加」。大 GEMM 里权重在片上被反复复用，强度大；decode 时每步把全部权重重新扫一遍，每字节只摊到一两次运算，强度极小——两者能差几个数量级。</span>
+
 公开规格（NVIDIA 数据手册 / 产品页）：A100 80GB SXM 的 HBM2e 带宽约 2.039 TB/s；H100 SXM 的 HBM3 为 3.35 TB/s；H100 产品页给出稀疏 FP16 Tensor Core 1,979 TFLOPS、稀疏 FP8 3,958 TFLOPS。Blackwell 产品材料给出 B200 类 GPU 约 8 TB/s 的 HBM3e 与第五代 Tensor Core（含 FP4）。同一代里 $P$ 随精度变，$B$ 不变，所以 FP8 / FP4 的拐点比 FP16 更靠右——精度越低，越容易变成「算力过剩、HBM 不够」。
 
 ### 算术强度从哪来
@@ -54,6 +56,8 @@ flowchart LR
 
 对已公布带宽做量级对照（均为厂商规格，不是本博客测量）：A100 80GB 约 2.0 TB/s，H100 SXM 3.35 TB/s，H200 产品页给出更高容量的 HBM3e 与约 4.8 TB/s 量级，Blackwell 公开材料约 8 TB/s。从 A100 到 H100，带宽约 1.6 倍，稀疏 FP8 相对 A100 的 FP16 峰值却是另一档倍数——拐点右移。换代若只看 TFLOPS 表，会高估 decode 收益。
 
+<span class="marginnote">代入算一下拐点：H100 SXM dense FP16 约 990 TFLOPS、带宽 3.35 TB/s，则 $I_{\mathrm{ridge}}\approx 990/3.35 \approx 295$ FLOP/字节。强度低于约 300 的 kernel（典型 decode），加多少 Tensor Core 都不涨速，先减字节。</span>
+
 ### LLM 三个工作点
 
 Prefill：序列长、GEMM 胖，$I$ 高，容易算力墙或至少靠近拐点。FlashAttention 减少的是注意力的 HBM 往返，使这块更接近计算屋顶，见 [FlashAttention](/llm/flashattention)。Decode：每步 $M$ 小，权重流量大，$I$ 低，几乎总在带宽墙，见 [显存墙](/llm/decode-memory-wall)。MoE 专家若按 token 稀疏点名，还要加「只加载被点到的专家」的随机流量，强度更碎，域内 All-to-All 会再插入 NVLink 墙，那是互连屋顶线，不是 HBM 屋顶线。
@@ -63,6 +67,17 @@ Prefill：序列长、GEMM 胖，$I$ 高，容易算力墙或至少靠近拐点�
 ## 机制
 
 屋顶线成立，是因为片外存储器的引脚与功耗限制了 $B$，而计算阵列的峰值 $P$ 可以靠更宽的 MMA 与更低精度涨得更快。HBM 把 DRAM 竖在逻辑芯片边上，提高 $B$，但每一代 HBM 的涨幅通常小于 Tensor Core 表头的涨幅。于是「算力墙」的平台越来越短，「带宽墙」的斜边越来越长。Williams 原文画的是 CPU 与 DRAM；GPU 只是把 DRAM 换成 HBM、把核心换成 SM + Tensor Core，几何形状不变。
+
+这就是「换代后老 kernel 反而掉进带宽墙」的路径：
+
+```mermaid
+flowchart TD
+  W["同一 kernel, 强度 I 不变"] --> N1["上一代: I 高于拐点, 靠近算力墙"]
+  W --> N2["换代: P 大涨, B 只涨一点"]
+  N2 --> N3["拐点 P/B 右移"]
+  N3 --> N4["I 落到新拐点左侧, 掉进带宽墙"]
+  N4 --> FIX["补丁: 量化 / 融合 / 加大 batch"]
+```
 
 有效带宽 $\eta_b B$ 永远低于标称 $B$。对齐、访问粒度、多 kernel 争用、ECC、以及没有 coalesced 的 KV 读取，都会打 $\eta_b$。有效算力 $\eta_c P$ 同样：形状不满足 MMA tile、没有走稀疏路径、启动开销，都会打 $\eta_c$。屋顶线给出的是上界折线；工程落在折线之下。调优先问掉在哪一段，再问 $\eta$。
 
@@ -75,6 +90,8 @@ HBM 还有容量一维：放不下则 OOM 或换出。容量墙用量化、并�
 ## 边界
 
 不要用 sparse 峰值去除 dense 工作负载的 FLOP。不要在屋顶线图上标自己估的「实际 70% 带宽」却写成 NVIDIA 规格。不要把 L2 命中率很高的小核当成 HBM 墙的反例——它已经不在这条折线上。不要为了爬上平台而盲目加大 batch：服务延迟 SLA 会先炸。
+
+<span class="marginnote">直觉类比：屋顶线像「产能取决于流水线还是原料到货，谁慢听谁的」。强度低 = 原料断供频繁，机器再快也在等料；此时扩物流（带宽）或减少往返（融合、量化）才见效，盲目加装新机器（算力）是白花钱。</span>
 
 CPU 屋顶线、GPU 屋顶线、集群互连屋顶线要分图。超节点的集合通信受 NVLink 约束，见 [超节点内存与集合通信](/llm/supernode-memory-collectives)。片上 SRAM 优化（FlashAttention、融合 MLP）改变的是有效字节，应画进 $I$，而不是修改 $B$ 的标称。
 
