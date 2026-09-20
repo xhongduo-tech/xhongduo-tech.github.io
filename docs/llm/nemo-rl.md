@@ -17,6 +17,8 @@ NVIDIA 在 Megatron / NeMo 栈上的对齐工具经历了两代命名。2024 年
 
 工业对齐栈的失败模式是：**换推理引擎就要改 PPO 循环**。生成想用 vLLM 的 PagedAttention，训练想用 Megatron 的专家并行，两边的并行网格、权重布局、tokenizer 封装都不一样。若 GRPO 的组采样写死在某一后端的 `generate()` 里，研究算法的人无法在单卡 HF 模型上调试同一份损失。NeMo-RL 把问题收成：高层算法只依赖「训练接口」和「生成接口」；每个后端在隔离的 Python 环境里实现这两套接口，避免 vLLM 与 Megatron 的依赖互殴。
 
+<span class="marginnote">「依赖互殴」翻译一下：两个库要求同一个底层包的不同版本——比如 vLLM 要 torch 2.4、训练栈要 torch 2.5，装进同一个环境必然崩一个。隔离环境就是给每个后端单独一间屋子各装各的，再用 Ray 当「电话线」把它们连进同一个作业。</span>
+
 历史位置也要对齐。NeMo-Aligner 证明分置式 PPO 能拉到 405B，但代码与 NeMo 核心、Hydra 脚本绑得紧，学术复现成本高。社区同时在用 TRL 扫损失、用 OpenRLHF 扫 HF 70B。NVIDIA 需要一条从单卡原型到大规模的**同一套算法代码**，而不是再维护一份只能在 DGX SuperPOD 上启动的脚本。DeepScaleR 把长 CoT 数学 RL 写成公开配方（8K→16K→24K 课程），正好当这份库的验收题。
 
 ### 隔离后端针对的是依赖，不是算法
@@ -30,6 +32,8 @@ NVIDIA 在 Megatron / NeMo 栈上的对齐工具经历了两代命名。2024 年
 编排：Ray 管理策略、生成服务器、奖励与参考的生命周期。算法层提供 DPO 与 GRPO 等；PPO 家族仍可在此栈上实现，但公开食谱主推无 critic 的组相对方法，贴推理模型。生成：vLLM 为默认，配置里可扩 SGLang、TensorRT-LLM。训练：HF 权重 + PyTorch 原生并行（DTensor），FSDP offload 与激活检查点是显存开关，不是算法开关。
 
 官方 DeepScaleR 复现分三步，对应课程式上下文：先 8K 最大长度，再 16K，再 24K。模型在博客叙述里接 DeepSeek-R1-Distill-Qwen-1.5B 与 Qwen2.5-1.5B 配置；tied embedding 在 DTensor 上对 TP>1 有已知限制（仓库 issue）。全局训练 batch 512、micro-batch 4 一类超参写在 YAML，与 Luo 等人 DeepScaleR 原配方对齐是复现的前提。博客报训练奖励约 **0.65 / 400 step**，AIME 2024 曲线升到超过文中对照的 OpenAI o1 分数——这是该配方 + 该实现的结果，不是「NeMo-RL 算法优于 o1」。
+
+<span class="marginnote">超参代个读法：全局 batch 512、micro-batch 4，意味着每步优化要凑 128 个 micro-batch；若 GRPO 每个提示采 8 条回答，一批就是 64 个提示的完整组。这直接决定 rollout 服务器一次要生成多少条、验证器要打多少分，才够一个更新步。</span>
 
 ```mermaid
 flowchart TB
@@ -53,6 +57,20 @@ DeepScaleR 先短后长，是因为长 CoT 的生成时间方差会拖垮同步 
 ## 机制
 
 算法–后端分离能成立，是因为 GRPO 需要的只是：按组采样、对完成序列算对数概率、用验证器或 RM 打标量、做裁剪代理。这些都不提「KV 页表怎么管」。后端只要保证：同一套 token id 上，推理 logprob 与训练前向一致（或提供可纠正的差）；权重同步之后生成用的是新策略。破坏一致性的典型点包括：不同 chat template、推理端 extra EOS、FP8 权重量化与 BF16 训练混用。库把接口标准化，实验室仍要自己锁精度。
+
+```mermaid
+flowchart TD
+  SYNC["权重同步完成"] --> SAME["取同一批 token id"]
+  SAME --> TPL{"chat template 一致?"}
+  TPL -->|"否"| FIX["先对齐模板"]
+  TPL -->|"是"| EOS{"推理端有无 extra EOS?"}
+  EOS -->|"有"| FIX
+  EOS -->|"无"| PREC{"精度一致? BF16 vs FP8"}
+  PREC -->|"否"| FIX
+  PREC -->|"是"| OK["两侧 logπ 对上 裁剪才可信"]
+```
+
+<span class="marginnote">常见误区：把「框架跑通了」当成「RL 有效」。裁剪代理吃的是新旧策略的对数概率比，两侧哪怕只有 $10^{-3}$ 量级的系统性偏差，长序列连乘后优势估计就整体偏移——所以换后端后的第一件事是对 $\log\pi$，不是看奖励曲线涨没涨。</span>
 
 与 OpenRLHF 相比，NeMo-RL 更强调**可替换后端**和 NVIDIA 推理栈；与 TRL 相比，它从第一天就按多组件 Ray 作业来想，而不是单进程 Trainer。与 verl 相比，控制面同样是单控制器思路，但 NeMo-RL 不绑定 HybridFlow 论文里的 3D-HybridEngine 叙事，而是把 Megatron 当可选训练后端。选谁取决于检查点格式：NeMo / Megatron 预训练权重要么走 Aligner/NeMo-RL，要么付转换税。
 

@@ -19,6 +19,8 @@ NCCL 的主机发起集合对数据并行梯度很合适：一步一同步，语
 
 NVLS 要回答的是另一问：即便集合仍由 NCCL 发起，NVLink 域内的 All-Reduce 是否必须在 GPU 上把每张卡的向量都读一遍再写一遍。Hopper 起的数据中心 GPU 与第三代 NVSwitch（NVLink4）提供 NVLink SHARP：组播地址让一次访问落到多张卡，交换机参与归约。NCCL 环境变量 `NCCL_NVLS_ENABLE` 默认 2：能开则开，多 rank 共用一张 GPU 时则静默关掉。用户往往感觉「NCCL 自己变快了」，实际是传输层换了 NVLS，而不是模型代码改了算法。
 
+<span class="marginnote">术语翻译：单边通信就是「我直接读写你的内存，对方代码全程不参与」；集合通信（All-Reduce 这类）则要求所有 rank 同时调同一个函数、互相等齐。NVSHMEM 把前者搬进 CUDA 核内，省掉的主要是「等所有人对齐再开工」的同步开销。</span>
+
 ### 单边 PGAS 与集合卸载不是同一 API
 
 NVSHMEM 的编程对象是 PE（processing element）与对称堆：每个 PE 上同一偏移的指针指向「对应」的远端缓冲，`nvshmem_float_put` 把本地数据写到指定 PE。扩展 API 提供 `_warp` / `_block` 集体参与的 put/get，以及 stream 上的 CPU 发起但 GPU 上执行的通信。NVLS 的编程对象仍是 `ncclAllReduce`：用户不写组播指针，NCCL 在支持的硬件上选 NVLS 算法，并可对用户缓冲做 `ncclCommRegister`。把 NVSHMEM 的核内 put 写成「就是 NVLS」，排障会找错开关。
@@ -59,6 +61,21 @@ PGAS 的对称性让编译器和程序员用「远端 PE 的同一偏移」思�
 
 NVLS 的机制是组播虚拟地址 + 交换机归约：一次 `ld_reduce` 语义上对多张卡的对应行做加，结果可写回组播区域。流量从「每边两份完整向量」向「少一份重复搬运」靠，产品表述常见最多约一半的 All-Reduce 流量下降——与 [SHARP 专文](/llm/nvlink-sharp) 同一类上界语言，依赖参与者、消息大小和是否真的走了 NVLS 算法。精度与数据类型必须是交换机支持的格式；假设 BF16 训练一定在 Switch 里用 BF16 加，可能与当代实现不符。
 
+```mermaid
+flowchart TD
+  subgraph RG["Ring All-Reduce: 卡间接力"]
+    A1["卡0 发给卡1"] --> A2["卡1 加上自己的再发"]
+    A2 --> A3["接力 N-1 轮"]
+    A3 --> A4["每卡收发约 2(N-1)/N 份"]
+  end
+  subgraph NV["NVLS: 交换机内归约"]
+    B1["各卡写一次组播地址"] --> B2["NVSwitch 对应行相加"]
+    B2 --> B3["各卡读回归约结果"]
+  end
+```
+
+<span class="marginnote">数字实例：8 卡各持 1 GB 梯度做 All-Reduce，环算法每张卡约要发 $2\times 7/8 \times 1\,\text{GB}=1.75$ GB、再收等量；NVLS 下每卡发一次 1 GB、读回一次结果，重复搬运明显更少——这就是「最多省约一半流量」的直觉来源。</span>
+
 <span class="marginnote">NVSHMEM 文档把对称堆钉成 pinned GPU 设备内存，并强调 PE 与 GPU 的绑定限制。多进程共用一 GPU 的模型与 NVLS 一样别扭。初始化之后换 `cudaSetDevice` 而不重新理解 PE，属于未定义用法。</span>
 
 ### 和 InfiniBand SHARP 分层
@@ -68,6 +85,8 @@ InfiniBand 交换机上的 SHARP 吃跨节点梯度；NVLS 吃 NVLink 域。层�
 ## 边界
 
 不要在 Ampere 八卡 PCIe 机器上指望 NVLS。不要为了 NVSHMEM 重写整个训练框架而不先量 NCCL+NVLS 是否已经够。不要在 CUDA Graph 里混用未注册的用户缓冲还抱怨 NVLS 没生效。不要把 Device API 的 PTX 示例复制进生产核而不处理 multimem 的对齐与 fence。MIG 与「一卡多 rank」会禁用 NVLS。消息极小时，卸载与组播的建立成本可能高于环；应用仍应让 NCCL 调优器选择，而不是全程强制 `NCCL_NVLS_ENABLE=1`。
+
+<span class="marginnote">常见误区：把 `NCCL_NVLS_ENABLE=1` 当成「变快的开关」到处强设。默认值 2 是「让 NCCL 探测、能开则开」；在不兼容场景（一卡多 rank、MIG、旧交换机）强制 1 会让集合通信初始化直接失败，而不是悄悄退回慢路径。</span>
 
 NVSHMEM 的调试面更宽：死锁常来自 quiet 漏配、CPU/GPU 排序误解、或与 MPI 进度混用。生产服务（推理 decode）更常见的是 NCCL 逐步 All-Reduce；核内 PGAS 更常见于 HPC 与高度融合的研究核。选错模型，复杂度付给错误的瓶颈。
 
