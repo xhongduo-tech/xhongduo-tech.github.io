@@ -29,6 +29,8 @@ section: llm
 
 并行配方的元件是 [FSDP](/llm/fsdp) / HSDP、序列并行（DeepSpeed-Ulysses，并做 Async-Ulysses：All-to-All 与注意力前的线性投影重叠）、专家并行。组合例子：稠密视觉–语言用 FSDP+SP 的二维；MoE 基座再加 EP 成三维。论文强调 **非侵入 API**：换 HSDP 只改配置，不改模型；Ulysses 切在序列维，注意力仍可走 FlashAttention。全局设备网格统一管理进程组，避免手工维护多套 `ProcessGroup`。
 
+<span class="marginnote">术语翻译：FSDP（全分片数据并行）就是把权重、梯度和优化器状态都切碎分到每张卡上，用到时再临时拼回——用通信换显存，让单卡装不下的模型也能训。</span>
+
 模态侧协议：编码器实现 `lm_encode`，把原始输入变成插入基座的 token 嵌入；训练时解码器同样 `lm_encode` 提供目标侧嵌入，基座输出经 `lm_head` 映射到目标模态。推理逐步调用解码器的 `lm_embed` 作为基座下一步输入，结束时 `lm_generate`。特殊分隔符（如 `<image_start>`）切模态边界。数据上动态组批：缓冲区内拼到目标长度，减少为对齐而做的 padding，正确性靠变长注意力的 `cu_seqlens`。
 
 ```mermaid
@@ -45,6 +47,8 @@ flowchart LR
 
 环境是 8 到 128 GPU。稠密对照用 Qwen2-VL 7B / 72B；MoE 对照用基于 Qwen3-30B-A3B 的 omni 变体。数据混合包括 FineWeb（文本）、ShareGPT4V（图）、LLaVA-Video、语音助手数据、ImageNet（生成）。7B 在 8 卡上把上下文拉到 192K 时 MFU 约 **61.5%**；72B 在 128 卡上到 96K 时 MFU 约 **54.8%**。30B 级 omni MoE 在 128 卡、三维并行下上下文到 **160K**，吞吐超过 **2800 tokens/s/GPU**。摘要里的「30B、2800、160K、128 GPU」指这条 MoE 设定，不要套到 7B 的 256K 尝试上。
 
+<span class="marginnote">数字实例：2800 tokens/s/GPU × 128 卡 ≈ 每秒约 36 万 token；MFU 61.5% 则表示硬件理论算力里真正花在有效矩阵乘法上的约占六成——前者是产出速度，后者是利用率。</span>
+
 系统附件还包括：liger-kernel 的 RMSNorm / RoPE / SwiGLU、FlashAttention、层内重计算、激活与优化器卸载、ByteCheckpoint 做 omni 组件的弹性检查点、meta device 初始化后再转 DTensor 分片加载。MoE 的通信隐藏走算子级重叠（论文引用 Flux / COMET 一类），明确不依赖 DualPipe 那种流水线绑定，理由是模态间气泡不规则，管道方案发脆。
 
 ### 收敛实验不是榜首声明
@@ -55,6 +59,18 @@ flowchart LR
 
 配方能组合，是因为切分轴不同。FSDP 切参数与优化器，救的是单卡放不下的权重。Ulysses 切序列，注意力前 All-to-All 把序列维收成头维上的完整片段，通信体积在「序列与卡数同比放大」时近似常值，这才撑得住视频长上下文。EP 切专家，救的是 MoE 宽度。视觉编码器可以只 FSDP，基座 FSDP+SP+EP，不必全网同一度。图 3 的数据流是：各模态编码器本地算完，再 All-to-All 把特征散射到持有对应序列分片的 rank——编码器输出长度不均时，这里会出现模态特有的负载问题，论文把它列为后续「modality-aware balancing」而未做完。
 
+```mermaid
+flowchart TD
+  A["模态编码器本地计算"] --> B["All-to-All 散射特征到对应分片 rank"]
+  B --> C{"基座的三种切分轴"}
+  C -->|"切参数与优化器"| D["FSDP：救显存"]
+  C -->|"切序列"| E["Ulysses：救长上下文"]
+  C -->|"切专家"| F["EP：救 MoE 宽度"]
+  D --> G["lm_head 映射目标模态"]
+  E --> G
+  F --> G
+```
+
 Async-Ulysses 能涨吞吐，是因为 Ulysses 的 All-to-All 与 $W_Q,W_K,W_V$ 投影在时间上可重叠：通信等的是下一层注意力，计算等的是当前线性。重叠不改变数学，只改变墙钟。HSDP 则在节点内深切、节点间复制，减少跨机 All-Gather，这与纯文本 FSDP 多机经验相同，只是 omni 的激活形状更怪，预取窗口更要限。
 
 <span class="marginnote">VeOmni 的「3D」是 FSDP×SP×EP，不是 Megatron 的 DP×TP×PP。把 Nanotron 的 `tp,pp,dp` 填进 VeOmni 配置会文不对题。流水线并行被论文放进未来工作，作为「下一步非侵入 PP」。</span>
@@ -62,6 +78,8 @@ Async-Ulysses 能涨吞吐，是因为 Ulysses 的 All-to-All 与 $W_Q,W_K,W_V$ 
 ### 和 DistTrain、Megatron、纯 FSDP 的边界
 
 多模态专用系统往往假设 any-to-text、固定视觉塔。Megatron 的 TP 要求头数可整除、层形状整齐，ViT 与扩散 U-Net 不满足。纯 FSDP 能训 72B，但 160K 上下文会在注意力激活上爆，必须 SP。VeOmni 的卖点是这三者可配在同一网格上，并且加一个音频编码器不必改网格代码。
+
+<span class="marginnote">直觉类比：非侵入 API 像给同一道菜换灶台——模型只管写菜谱（前向计算），FSDP、序列并行、专家并行是灶台的摆法；换灶台不用重写菜谱，加一个编码器只是多放一口锅。</span>
 
 ## 边界
 
