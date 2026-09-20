@@ -11,7 +11,7 @@ section: llm
     <footer>—— Databricks, Introducing DBRX: A New State-of-the-Art Open LLM, 2024</footer>
 </div>
 
-DBRX 是 Databricks 于 2024 年 3 月发布的开源通用解码器，主出处是官方博客而非一篇独立 arXiv 论文。它是 **细粒度 MoE**：132B 总参数，任意输入上激活约 36B；16 个专家选 4 个。预训练约 12T token，最长上下文 32K。注意力侧采用 [RoPE](/llm/rope)、[GQA](/llm/gqa) 与门控线性单元，分词用 tiktoken 中的 GPT-4 词表。本篇按博客写架构与对照，不把未公开的层表或虚构 arXiv 编号补进去。
+DBRX 是 Databricks 于 2024 年 3 月发布的开源通用解码器，主出处是官方博客而非一篇独立 arXiv 论文。它是 **细粒度 MoE**：132B 总参数，任意输入上激活约 36B；16 个专家选 4 个。<span class="marginnote">术语翻译：MoE（Mixture of Experts，混合专家）就是把 Transformer 里那个大 FFN 层换成许多个并行的「专家」小网络，再加一个路由器，每个 token 只把其中几个激活来算。好处是「总知识装得多、单次算得少」——参数可以很大，而每个 token 的计算量只跟被选中的几个专家有关。</span>预训练约 12T token，最长上下文 32K。注意力侧采用 [RoPE](/llm/rope)、[GQA](/llm/gqa) 与门控线性单元，分词用 tiktoken 中的 GPT-4 词表。本篇按博客写架构与对照，不把未公开的层表或虚构 arXiv 编号补进去。
 
 ## 问题
 
@@ -41,9 +41,26 @@ flowchart TD
 
 ## 机制
 
-$k=4$ 使每个 token 看到四份专家变换，比 Mixtral 的两份更平滑，也更贵。16 个瘦专家把「专项」切得更碎：路由可以在更细的技能上组合，而不必让一个肥专家同时装句法与某门语言。没有共享专家时，公共变换仍要由被频繁选中的专家承担，负载是否均衡决定有效容量。GQA 压 KV，使 32K 与 MoE 权重可以同时放进数据中心 GPU；词表用 GPT-4 tokenizer，便于与当时大量 GPT 生态工具对齐，也意味着嵌入层形状与 Llama / Mixtral 的 32K 词表不同，不能直接借检查点。
+$k=4$ 使每个 token 看到四份专家变换，比 Mixtral 的两份更平滑，也更贵。16 个瘦专家把「专项」切得更碎：路由可以在更细的技能上组合，而不必让一个肥专家同时装句法与某门语言。没有共享专家时，公共变换仍要由被频繁选中的专家承担，负载是否均衡决定有效容量。<span class="marginnote">直觉类比：路由像医院分诊台，token 是病人，专家是科室。若 90% 的病人都涌向同一科室，其他 15 个科室闲着，等于白养了——这就是 MoE 的负载不均问题。训练时通常要加辅助损失「劝」路由器把 token 摊匀，否则热门专家成为瓶颈，冷门专家学不到东西。</span>GQA 压 KV，使 32K 与 MoE 权重可以同时放进数据中心 GPU；词表用 GPT-4 tokenizer，便于与当时大量 GPT 生态工具对齐，也意味着嵌入层形状与 Llama / Mixtral 的 32K 词表不同，不能直接借检查点。
 
-与 Llama 2 70B 比：激活更小，故理论上 decode 更快；总参 132B，故**存储**更大，量化前的节点数不一定更少。与 Mixtral Instruct 比：博客在 Open LLM Leaderboard、HumanEval、GSM8K 等表上声称领先——这些是 2024 年 3 月的快照，后续模型会改写排行。与 Grok-1 比：博客称 DBRX 总参与激活大约是其 40%，却在代码/数学上可比或更好，用来支撑「细粒度 + 数据」而不是「专家堆到最大」。
+与 Llama 2 70B 比：激活更小，故理论上 decode 更快；总参 132B，故**存储**更大，量化前的节点数不一定更少。
+
+```mermaid
+flowchart TD
+  subgraph D["稠密 Llama 2 70B"]
+    D1["70B 参数"] --> D2["每 token 全部 70B 参与"]
+    D2 --> D3["显存 ≈ 70B 权重"]
+  end
+  subgraph M["MoE DBRX"]
+    M1["132B 参数"] --> M2["路由只激活 36B"]
+    M2 --> M3["每步算得少：decode 更快"]
+    M1 --> M4["但 132B 都要装进显存"]
+  end
+```
+
+<span class="marginnote">常见误区：初学者容易把「总参数」当成「每步计算量」。对 MoE 这两个数要分开看——激活参数（36B）决定每 token 的 FLOPs 和速度，总参数（132B）决定要买多少显存和带宽。所以 DBRX 比同质量的稠密模型「算得快」，却不见得「部署便宜」。</span>
+
+与 Mixtral Instruct 比：博客在 Open LLM Leaderboard、HumanEval、GSM8K 等表上声称领先——这些是 2024 年 3 月的快照，后续模型会改写排行。与 Grok-1 比：博客称 DBRX 总参与激活大约是其 40%，却在代码/数学上可比或更好，用来支撑「细粒度 + 数据」而不是「专家堆到最大」。
 
 ### 数据与课程学习
 

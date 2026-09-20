@@ -25,6 +25,8 @@ V3 报告写清拓扑：节点内 8 卡 NVLink/NVSwitch，节点间 InfiniBand �
 
 <span class="marginnote">DeepEP 不是新的 MoE 算法。它不改 top-$k$、不代替负载均衡偏置。它实现的是 V3 报告里「高效跨节点 All-to-All」那一层。Switch / GShard 的容量因子、V3 的无辅助损失偏置，都在这层之上。</span>
 
+<span class="marginnote">术语翻译：dispatch 与 combine 就是「送货」与「收货」两趟车。dispatch 把每个 token 送到被选中的专家那块卡上算；combine 把专家算完的加权结果收回来、按原顺序拼好。因为每个 token 去哪由路由动态决定，两趟车的「收件地址」每层每步都在变——这就是它比普通集合通信难做的原因。</span>
+
 ## 方法
 
 ### dispatch、combine、句柄
@@ -56,9 +58,25 @@ flowchart LR
 
 <span class="marginnote">仓库给出的逻辑带宽（如 SM90、CX7、EP 8×2 时 dispatch 约 90 GB/s）含本 rank 本地流量，且是特定 hidden=7168、top-8、FP8 dispatch / BF16 combine、8K token/batch 的配置。抄到合同里当「网卡保证 90 GB/s」是错的。</span>
 
+两套核怎么选，取决于消息尺寸与每步时间预算，这是第一张图（数据走哪条路）之外的另一个决策：
+
+```mermaid
+flowchart TD
+  P["当前阶段?"] -->|"预填充 / 训练"| BIG["token 数以万计，消息大"]
+  P -->|"解码"| SMALL["每步 token 少，消息小"]
+  BIG --> HT["高吞吐路径：吃满 IB/NVLink 带宽<br/>容忍较高的启动与排队开销"]
+  SMALL --> LL["低延迟路径：跳过重同步<br/>挂起 RDMA 缓冲，极简启动"]
+  HT --> OUT1["输出对齐 DeepGEMM<br/>与计算重叠"]
+  LL --> OUT2["压 TBT 尾延迟<br/>通信只配少量 SM"]
+```
+
+<span class="marginnote">为什么重要：选错路径的代价不是「慢一点」，而是慢一个屋顶线——解码误用吞吐核时，核启动开销可能超过数据搬运本身，TBT 直接翻倍；预填充误用低延迟核则白白放弃一半以上带宽，TTFT 变长。这也是部署清单里必须写「哪个阶段用哪套接口」的原因。</span>
+
 ### 和通用 NCCL All-to-All 的差别
 
 通用 All-to-All 假设均匀、规则的分区。MoE 的目的地由路由动态决定，各专家 token 数不同，需要 permute + 变长缓冲 + 可能的 FP8 缩放因子同行。DeepEP 把门控下标当成一等输入。仍用 NCCL 当 RDMA 后端（V2 Gin）不等于「调用 `ncclAllToAll` 就等于 DeepEP」。
+
+<span class="marginnote">直觉类比：通用 All-to-All 像快递公司的标准化托盘，每家收一样多的货、固定路线；MoE 的流量像生鲜订单——有的专家门前排长队（热门专家），有的整天空转（冷门专家），货还每层都换收件人。DeepEP 做的是给这种「不均匀 + 常变址」的货流专门修的路：节点限流、先干道后支线（IB 再 NVLink）、按实际负载调度装卸工人（warp）。</span>
 
 ## 边界
 

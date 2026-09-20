@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-神经网络同时包含三维张量收缩、一维逐元素、以及不规则控制。若只用标量 ALU，矩阵峰值出不来；若只用脉动阵列，softmax 与归一化会变成昂贵的搬出搬入。达芬奇的选择是**异构流水**：Cube 专吃固定几何的矩阵，Vector 专吃 SIMD 式向量，Scalar 发射指令并算地址。问题随之变成调度——三条流水异步前进，数据依赖要用事件同步（SetFlag / WaitFlag 一类公开原语），而不是靠 SIMT 的隐式 warp 汇合。
+神经网络同时包含三维张量收缩、一维逐元素、以及不规则控制。若只用标量 ALU，矩阵峰值出不来；若只用脉动阵列，softmax 与归一化会变成昂贵的搬出搬入。达芬奇的选择是**异构流水**：Cube 专吃固定几何的矩阵，Vector 专吃 SIMD 式向量，Scalar 发射指令并算地址。问题随之变成调度——三条流水异步前进，数据依赖要用事件同步（SetFlag / WaitFlag 一类公开原语），而不是靠 SIMT 的隐式 warp 汇合。<span class="marginnote">术语翻译：Vector 单元跑的是 SIMD（单指令多数据）——一条指令同时对一整排数据做同样的事，比如一次给 128 个半精度数统一乘 2、或把一整行求和。归一化和激活恰好是「每个元素独立处理」的活，所以归 Vector，不需要矩阵单元。</span>
 
 对 LLM，decode 一步里既有大矩阵（喂 Cube）又有小向量（喂 Vector）。若图编译把 SiLU 落成独立核、中间结果写回 HBM，Cube 的峰值与你无关。若把全部计算强行塞进 Cube，不适合矩阵形状的算子会填零或走慢路径。三分法是能力，也是约束。
 
@@ -53,6 +53,18 @@ MTE 负责 Img2Col、转置、抽取等格式转换。对 LLM，KV 的 ND 布局
 
 Cube 的机制是脉动/阵列式的固定几何乘加：每拍消耗一块对齐的 A、B 砖，累加到 L0C。算术强度高时，它接近芯片峰值。Vector 的机制是宽 SIMD：同一指令扫过 UB 里一排元素，适合归一化这种归约加缩放。Scalar 的机制是浅流水控制：它不提供峰值 FLOPS，但没有它，Cube 不知道下一块地址。三者靠事件同步组成软件流水线，双缓冲（一份在算、一份在搬）是教科书手法，TBE 调度会插入这些重叠。
 
+```mermaid
+flowchart LR
+  subgraph NF["不融合：两次 HBM 往返"]
+    A1["Cube 算 GEMM"] --> B1["FixPipe → UB"] --> H1["写 HBM"] --> H2["读 HBM"] --> V1["Vector 做激活"] --> H3["再写 HBM"]
+  end
+  subgraph F["融合：零次 HBM 往返"]
+    A2["Cube 算 GEMM"] --> B2["FixPipe → UB"] --> V2["UB 上 Vector 做激活"] --> O2["一次写 HBM"]
+  end
+```
+
+<span class="marginnote">这张图回答「融合到底省了什么」：省的不是计算，是中间结果在 HBM 上的读写往返。以 FP16 存一层 4096 宽的激活为例，一次往返就是每行 8 KB 的写出加读回；几千层、几万亿 token 累积下来，省下的带宽远比省下的乘加更值钱。</span>
+
 INT8 / FP16 在 Cube 与 Vector 上的支持是公开能力；910C 论文写明计算引擎支持 FP16/BF16 与 INT8，8-bit 量化走 INT8 精度。这不是 MXFP4：昇腾公开路径把亚 8-bit 效率主要寄托在 INT8 与图融合，不要把 Jalapeño 的 MXFP4 峰值抄到达芬奇上。
 
 <span class="marginnote">AI CPU 不是 Scalar。Scalar 在 AI Core 内；AI CPU 是 SoC 上跑不规则算子与控制的 CPU 核。图若把不支持的算子下发到 AI CPU，延迟会跳一个数量级。调试「NPU 很慢」时先看算子落在 Cube、Vector 还是 AI CPU。</span>
@@ -63,7 +75,7 @@ INT8 / FP16 在 Cube 与 Vector 上的支持是公开能力；910C 论文写明�
 
 ## 边界
 
-不要手写与文档几何不符的 Cube 形状还指望峰值。不要在 Vector 上模拟大矩阵乘。不要忽略 FixPipe 的后处理能力而在 HBM 上再做一遍 ReLU。动态 shape 会破坏编译期切块，使三条流水的双缓冲失效，这是 NPU 不喜欢动态轴的硬件原因。
+不要手写与文档几何不符的 Cube 形状还指望峰值。不要在 Vector 上模拟大矩阵乘。不要忽略 FixPipe 的后处理能力而在 HBM 上再做一遍 ReLU。动态 shape 会破坏编译期切块，使三条流水的双缓冲失效，这是 NPU 不喜欢动态轴的硬件原因。<span class="marginnote">常见误区：以为动态 shape 只是「编译慢一点」。实际上编译期按固定形状排好的 L0 分块、UB 分配和双缓冲节拍，形状一变就全部作废，运行时只能退回保守的慢路径——这就是同一模型在 NPU 上变长批次比固定批次慢一大截的原因。</span>
 
 核数、Buffer 容量、是否 1:2 的 AIC:AIV，随 910 / 910B / 910C 而变。写内核以对应 CANN 版本的《Ascend C 编程》与芯片手册为准。本篇只锁定三分法与流水关系，不把某一款的 KB 数当成全系列常数——上文 910B 量级数字仅作公开文档中的例子。
 
