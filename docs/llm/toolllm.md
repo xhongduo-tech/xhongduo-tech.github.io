@@ -25,6 +25,8 @@ ToolBench 覆盖单工具与多工具场景。多工具才强迫检索 + 规划�
 
 <span class="marginnote">Qin et al.，ToolLLM，ICLR 2024，arXiv:2307.16789：16,464 API、49 类、ToolBench / DFSDT / ToolLLaMA / ToolEval。Du, Wei, Zhang，AnyTool，ICML 2024，arXiv:2402.04253：分层检索、自反思、GPT-4 工具调用、AnyToolBench；相对 ToolLLM 的 +35% 量级绑定他们修订后的协议与论文表。</span>
 
+<span class="marginnote">「检索器」就是先用一个模型把用户指令和上万份 API 说明书各自压缩成向量，再挑出距离最近的十几份候选——类似搜索引擎先粗筛网页、再让人细读。没有这一步，把 16,464 份说明书全塞进上下文，窗口先爆，模型也只能盲猜。</span>
+
 ## 方法
 
 ToolLLM 三阶段造数：(1) 收集 RapidAPI 的 REST 与文档；(2) 提示 ChatGPT 生成涉及这些 API 的指令；(3) 再让 ChatGPT 搜索一条合法调用链当监督。DFSDT：在决策树里深度优先展开，节点是推理与 API 调用，失败则回溯扩搜索，而不是一条链走到黑。ToolLLaMA 在这些轨迹上微调；推理时检索器先给候选 API，再多轮决策。ToolEval 用自动评价减少人工看轨迹。
@@ -45,9 +47,26 @@ flowchart TD
 
 DFSDT 把搜索写进开源模型的解码过程，节点多、费用随树宽指数敏感，但可离线蒸馏进 ToolLLaMA。AnyTool 把换路写成一次反思后的再进入，搜索更粗、每步更贵（GPT-4）。二者都不是单轮 JSON。报通过率必须写：是否允许搜索树、最大 API 调用次数、检索 top-k。把 ToolLLaMA 单链分数和 AnyTool 带反思的分数画在同一栏，不公平。
 
+<span class="marginnote">初学者容易以为微调后模型就「记住」了一万个 API 的用法；实际上 ToolLLaMA 学到的是调用的通用范式，具体用哪个端点仍靠检索器现场挑选。所以遇到一个训练时没见过的新 API，只要文档规范，往往不用重新训练就能接上——这正是 OOD 迁移实验想验证的事。</span>
+
+<span class="marginnote">AnyTool 的分层可以想象成图书馆找书：不逐本翻 16,464 本书，而是先问管理员在哪个区（类目），再走到对应书架（工具），最后抽出那一本（API）。每问一次路，候选就少一个数量级，几轮之后搜索空间就从「万」缩到「个位数」。</span>
+
 ## 机制
 
 万级工具的核心机制是**把选择从生成变成先检索后生成**。检索错了，后面的规划再强也在错误子集上优化。ToolLLM 的神经检索器是可学习模块，受 ToolBench 分布约束；AnyTool 的分层利用了 RapidAPI 已有的树，用语言模型当路由器，免去训检索器，但对类目名称质量敏感。DFSDT 增加的是测试时探索：同一指令多条轨迹，提高「存在一条能跑通的链」的概率，类似搜索，不是更大的权重。
+
+```mermaid
+flowchart TD
+  ROOT["RapidAPI 全库：16,464 个 API"] --> Q1["问 GPT-4：该下钻哪个类目？"]
+  Q1 --> CAT["选中的类目"]
+  CAT --> Q2["该类目下有哪些工具？"]
+  Q2 --> TOOL["选中的工具"]
+  TOOL --> API["具体 API 端点"]
+  API --> CAND["候选集：几个到几十个"]
+  CAND --> SOLVE["求解器 function calling"]
+  SOLVE -->|不可行| RE["自反思：带失败原因重来"]
+  RE --> ROOT
+```
 
 虚高通过率的机制：若金标准只检查「调用过某类 API」而不检查参数是否满足用户约束，模型会调一个相关但错误的端点仍得分。AnyTool 改协议，就是把评测往功能正确性靠。这与 WebArena 不比对动作、SWE-bench 要测试转绿是同一哲学在 API 域的版本。ToolEval 自动化方便迭代，但评委模型本身会偏袒某种轨迹风格，人工抽查仍需要。
 

@@ -46,11 +46,25 @@ flowchart TD
 
 自动调优作为可选层存在：块大小、pipeline 深度可以搜。默认路径应已经能生成「像那么回事」的流水（Ampere async copy、Hopper TMA），用户只在编译器不够好时才在前端显式写 pipeline。
 
+<span class="marginnote">「反量化 GEMM」就是把推理时存成低精度（FP8/INT4）的权重，在搬进计算单元的那一瞬间还原成高精度、紧接着喂给矩阵乘的融合手段——显存省一半以上，精度几乎不动。它是 LLM 推理里最常写的定制核之一，也正因为它要把「搬运」和「计算」捏在一步，调度空间才必须暴露给用户。</span>
+
 ## 机制
 
-解耦为什么有效：同一份 FlashAttention 数据流，在 A100 上应变成 `cp.async` + `mma.sync`，在 H100 上变成 TMA + WGMMA，在 SM100 上变成 TMA + `tcgen05`（若后端支持）。若数据流和流水写死在一起，每个架构一份代码；若流水是注解，编译器可以换 tensorize 目标。失败模式是注解假设了某一级存储（例如「累加器在寄存器」），而 Blackwell 的累加器在 TMEM——这时不是调参能解决，要扩展原语。
+解耦为什么有效：同一份 FlashAttention 数据流，在 A100 上应变成 `cp.async` + `mma.sync`，在 H100 上变成 TMA + WGMMA，在 SM100 上变成 TMA + `tcgen05`（若后端支持）。
+
+```mermaid
+flowchart TD
+  FA["同一份 FlashAttention 数据流"] --> S1["A100: cp.async + mma.sync"]
+  FA --> S2["H100: TMA + WGMMA"]
+  FA --> S3["SM100: TMA + tcgen05"]
+  S1 --> Q["数据流只写一次 调度按代换"]
+  S2 --> Q
+  S3 --> Q
+```若数据流和流水写死在一起，每个架构一份代码；若流水是注解，编译器可以换 tensorize 目标。失败模式是注解假设了某一级存储（例如「累加器在寄存器」），而 Blackwell 的累加器在 TMEM——这时不是调参能解决，要扩展原语。
 
 瓦片作为 IR 使拷贝与计算的依赖可分析：编译器能插入双缓冲，而不靠用户把 kernel 写成手工状态机。代价是瓦片以下的行为（bank conflict 的精确拍数、特定 `cp.async` 粒度）不能从稳定 API 里全部暴露。论文承认极细的硬件行为仍在模型外。
+
+<span class="marginnote">给个数字感觉：一块 $64\times64$ 的 FP16 瓦片占 $64\times64\times2$ 字节 $=$ 8 KB，而 H100 单个 SM 的 shared memory 只有约 228 KB——一次顶多驻留二十几块。瓦片取多大，直接决定能同时塞下 A、B 几份拷贝和几级流水，这就是为什么块大小要留成可搜的参数。</span>
 
 <span class="marginnote">动态 $M$ 对 MoE grouped GEMM 是刚需。若 DSL 只能编译静态形状，最终仍要落到 CUTLASS grouped 或手写 visitor。TileLang 把动态参数列为卖点，落地时要看生成代码是否每步重新编译，还是形状作为 kernel 参数。</span>
 
@@ -65,6 +79,8 @@ flowchart TD
 不要用 TileLang 替换整个推理运行时。它产出的是单个核或融合核，调度、分页 KV、连续批仍在框架里。集成成本是：编译缓存、动态形状分桶、与 PyTorch / TVM runtime 的生命周期。每步即时编译会把 TTFT 打穿。
 
 跨厂商可移植「写一次」不等于「同一注解在 NVIDIA 与 AMD 都达峰值」。MatrixCore 与 Tensor Core 的形状约束不同，自动 TMA 在 AMD 上没有对应物。可移植的是数据流；调度仍要按设备特化。论文评测两边都做了，引用时分开报。
+
+<span class="marginnote">初学者容易以为「跨厂商」等于写一份代码两边都跑满。实际上可移植的只是数据流那一层——AMD 上没有 TMA 的对应物，Hopper 的 WGMMA 注解也搬不过去，调度注解要按设备重挑，性能可能差一截。把它当成「少抄一遍公式」，而不是「免维护」。</span>
 
 Blackwell TMEM、CTA pair、`kind::nvf4` 若尚未成为稳定 tensorize 目标，用 TileLang 写 NVFP4 核可能降到较慢的兼容路径。这时应直接走 CUTLASS SM100 或 Transformer Engine。语言的价值在迭代速度，不在替代厂商对第五代 MMA 的第一方核。
 

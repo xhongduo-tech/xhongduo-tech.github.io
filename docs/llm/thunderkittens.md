@@ -83,6 +83,8 @@ Kittens 的示例注意力多半假设相对规整的 $Q,K,V$ 张量，这适合
 
 <span class="marginnote">不要用 kernel 基准上的 TFLOPS 直接预测端到端 step time。注意力只是一层里的一块；若 KV 布局、采样或 CPU 提交才是墙，换一套更可爱的 MMA 包装不会改变墙钟。先确认算术强度真的受 MMA 限制，再引入 Kittens。</span>
 
+<span class="marginnote">常见误区：初学者容易以为「用了好核库，注意力就自动正确」。分块在线 softmax 的递推——每块先记行最大值、做指数、再按新最大值重缩放——仍是算法作者要写的；库只负责把 max、exp、reduce 干净地作用在 tile 上。递推写错，结果不报错，只是悄悄不对。</span>
+
 ## 小结
 
 - ThunderKittens 用固定形状的 tile 类型，把 Hopper 上的加载、MMA 与行归约收成可组合的 C++ 原语。
