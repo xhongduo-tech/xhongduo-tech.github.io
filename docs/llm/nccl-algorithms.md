@@ -17,6 +17,8 @@ section: llm
 
 自动选择的输入是：进程组大小、NVLink / PCIe / 网卡可达性、NIC 是否支持 GPU Direct、消息字节数、以及若干环境变量覆盖。输出是一对「算法 × 协议」。算法决定调度图（环、树、网内、NVLink SHARP）；协议决定如何切 chunk、是否走低延迟路径（LL / LL128）还是吞吐路径（Simple）。选错的典型症状不是挂死，而是 busbw 只有规格的零头：大梯度走了 LL，或小同步走了 Simple 环。
 
+<span class="marginnote">busbw 可以理解为「每张卡的总线实际流量」。代个数字：8 卡 All-Reduce 1 GB 花 5 ms，算法带宽是 $1\mathrm{GB}/5\mathrm{ms}=200$ GB/s，乘环系数 $2(n-1)/n=1.75$，busbw $\approx 350$ GB/s——对照 NVLink 标称值就知道链路吃到几成，而不是盯墙钟时间猜。</span>
+
 用户看不见决策时，会把并行网格的锅甩给网卡。真正的问题是：默认表为「通用训练」调，服务侧短 All-Reduce、或不对称拓扑、或多进程组叠在同一套 NIC 上，默认经常是错的。缺口是读懂表，而不是再实现一个环。
 
 <span class="marginnote">`NCCL_ALGO`、`NCCL_PROTO`、`NCCL_MIN_NCHANNELS` 一类变量能锁死选择。锁之前先用 `NCCL_DEBUG=INFO` 看它选了什么，再用 `nccl-tests` 扫一条 size 曲线。没有曲线的环境变量调优是猜测。</span>
@@ -51,6 +53,17 @@ flowchart TD
 
 协议的差别主要在延迟与带宽的折中。LL 路径用更紧的同步与更小的粒度换 $\alpha$，天花板低于 Simple；Simple 用大 chunk 打满链路，启动更贵。同一算法换协议，busbw–size 曲线的拐点会移动。这就是为何「锁死 Ring」仍可能很慢——你锁的是图，不是协议。
 
+```mermaid
+flowchart LR
+  S["消息 1 KB 短同步"] --> L1["LL / LL128 低延迟路径"]
+  M["消息 64 MB 梯度"] --> CHK{"域内有 NVLS / SHARP?"}
+  CHK -->|"有"| NV["网内归约 + Simple"]
+  CHK -->|"无"| R["Ring + Simple 打满带宽"]
+  G["消息 4 GB 巨块"] --> R2["Ring + Simple 多通道"]
+```
+
+<span class="marginnote">通信时间可粗写成 $\alpha + S/\beta$：$\alpha$ 是「出发前的等待」（握手、启动开销），$\beta$ 是「每字节运费」。小消息全毁在 $\alpha$ 上，LL 就是用带宽天花板换小 $\alpha$；大消息里 $\alpha$ 可忽略，Simple 的大 chunk 才划算。像寄快递：一封信比取件速度，一吨货比单价。</span>
+
 网内归约改变的是计算位置：加法在交换机或 NVSwitch 侧完成，减少 GPU 之间的来回。语义仍是 All-Reduce；数值归约顺序变了，BF16 和可能与纯环不同。没有该硬件时强行 Collnet，库会回退或报错，不要在规划里把 SHARP 加速写成一定存在。
 
 <span class="marginnote">多进程组（TP 一组、DP 一组、EP 一组）会并发集体。NCCL 的默认表按单组微基准来，并发时网卡与 NVLink 被多组切开，有效算法可能不再是单组最优。生产要以真实网格的 step 剖析为准。</span>
@@ -60,6 +73,8 @@ flowchart TD
 不要在每次迭代改 `NCCL_ALGO`。不要把某一代 DGX 上扫出来的表抄到以太网集群。RCCL 与 NCCL 名字像，决策表不是同一份——AMD 课再写。TPU 的 mesh 通信不走这张表。
 
 覆盖变量是排障工具，不是默认配方。升级 NCCL 版本后表会变，要把微基准纳入发布检查。自定义 allreduce 只适合服务侧固定短消息；训练梯度同步继续交给库，除非你测过自己的环在该拓扑上稳定赢。
+
+<span class="marginnote">常见误区：把别人博客里的 `NCCL_ALGO=Ring` 直接抄进生产脚本。那是在别人的拓扑上调出的结论；环境变量会关掉库的自动探测，换机型、升级驱动、开 MIG 之后，锁死的算法可能恰好是最差选择。正确姿势是排障时用、稳态时删。</span>
 
 ## 小结
 

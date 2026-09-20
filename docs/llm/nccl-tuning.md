@@ -17,6 +17,8 @@ section: llm
 
 NCCL 默认面向训练：大块、延迟可被计算藏住。推理 decode 的 All-Reduce 体积小、频率等于层数×token。默认 Simple 协议带宽好、延迟差；LL 协议延迟好、大块带宽差。缺口是按消息体积分派协议，并固定拓扑探测结果，避免每次建组都重新扫 NVLink。`NCCL_P2P_LEVEL`、`NCCL_IB_DISABLE`、网卡绑定在多节点上决定你以为的 NVLink 域是否其实绕了 PCI 或 NIC。
 
+<span class="marginnote">decode 与 prefill 是推理的两个阶段：prefill 一次吞下整段 prompt，消息大、比的是带宽；decode 一个 token 一个 token 往外蹦，每步只同步很小的激活，比的是延迟。同一个模型，两阶段的最优协议可以完全相反——这就是推理服务要按阶段分派协议的原因。</span>
+
 错误 NUMA / GPU-NIC 亲和会让「调了 LL 仍然慢」。先确认拓扑，再改算法字符串。
 
 <span class="marginnote">CUDA Graph 与 NCCL 的兼容随版本变：捕获期间禁止的操作、是否支持用户缓冲，要以当前 NCCL 文档为准，不要抄两年前进程的环境变量表。</span>
@@ -39,9 +41,23 @@ flowchart TD
 
 Ring 的延迟随 rank 数线性，Tree 的延迟随层数对数；小规模 NVLink 域两者都可能被启动开销淹没。调优改的是常数项与切块，不改集合通信的渐近。重叠课要求通信走单独流：NCCL 默认流与计算流的同步点要显式，否则调了协议也看不到重叠。
 
+```mermaid
+flowchart TD
+  DEC["decode 每步: 每层都做小 All-Reduce"] --> SMALL["每条消息仅几百 KB"]
+  SMALL --> OVH["启动开销 α 占大头"]
+  OVH --> FIX["换 LL / LL128 压 α"]
+  OVH --> OVERLAP["或与计算重叠藏住通信"]
+  FIX --> WIN["端到端每步延迟下降"]
+  OVERLAP --> WIN
+```
+
+<span class="marginnote">代个数字看频率的杀伤力：TP=8 时每层约 2 次 All-Reduce，32 层模型每步就是 64 次调用；若每次固定开销 80 微秒，光「启动」就吃掉约 5.1 毫秒——消息本身可能只占零头。这就是 decode 场景必须压 $\alpha$ 或做重叠的算术。</span>
+
 ## 边界
 
 不要在生产用 `NCCL_DEBUG=INFO` 常开。不要把单机 TP=8 的配置拷到跨节点 TP=8。安全：环境变量属于部署契约，应进版本控制。下一课：MoE 推理里专家 token 的批怎么凑。
+
+<span class="marginnote">初学者容易以为「调优 = 改算法字符串」。顺序错了就全白调：NUMA 绑错或 P2P 被禁时，库以为自己在 NVLink 上跑环，数据实际绕了 PCIe——任何算法名都救不回来。所以本文反复强调：先读拓扑探测结果，再动 `NCCL_ALGO`。</span>
 
 出处：NVIDIA NCCL 文档。算法课序见后续 Ring/Tree 专文。
 
