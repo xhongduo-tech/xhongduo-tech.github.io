@@ -66,6 +66,8 @@ Transformer Engine 与部分 cuDNN 注意力内部也会调用或生成类似 CU
 
 Hopper 的集体主循环把 [软件流水](/llm/sw-pipeline-buffer) 做成类型参数：stage 数、barrier 种类、是否特化，都是模板而不是运行时 if。改 stage 等于换一种核，必须重编译。这是 CUTLASS 和 cuBLAS 启发式「运行时选核」的本质差别：前者把搜索提前到构建 CUTLASS profiler 或自己的 autotune 表，后者把搜索留在 `cublasLtMatmul` 的 heuristic。
 
+<span class="marginnote">这种差别有一个实际代价：模板组合容易爆炸。比如 5 种 tile × 3 种 stage × 2 种精度 × 2 代架构，就是 60 份要各自编译的核代码——编译时间与二进制体积都按这个乘积涨。autotune 表按形状分键，就是为了只实例化真正会用到的那几份。</span>
+
 <span class="marginnote">CUTLASS profiler 可以在一档 GPU 上扫 tile / stage / schedule，输出可用配置。把它的最优数字抄到另一代卡或另一对齐约束上，会得到非法核或慢核。Autotune 表要按 `sm`、dtype、alignment、是否 cluster 分键。</span>
 
 ### 版本与兼容

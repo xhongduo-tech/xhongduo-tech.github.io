@@ -15,7 +15,7 @@ Advanced Matrix Extensions 从第四代至强可扩展处理器（Sapphire Rapid
 
 ## 问题
 
-Transformer 与 MoE 专家的热循环是 GEMM。GPU 有 Tensor Core；CPU 一侧若仍把 $C \mathrel{+}= AB$ 拆成向量 FMA，L1/L2 会被反复冲刷，算术强度低于加速器。AVX-512 对 decode 这种「一行乘一块权重」够用，对 prefill 里每个专家几十到上百 token 的小批量矩阵则偏细。AMX 要解决的是：在至强上给 INT8 / BF16 矩阵乘一条与 GPU 张量核同构的原语，并让操作系统扛得住每任务多出来的大状态。
+<span class="marginnote">术语翻译：tile 是 CPU 里一块可编程形状的小矩阵寄存器（如 16 行 × 64 字节），TMUL 是吃这些 tile 的矩阵乘加速器。以前 CPU 做矩阵乘要拆成一串向量点积、每步都在搬数据；AMX 把「子矩阵 × 子矩阵」直接变成一条指令。</span>Transformer 与 MoE 专家的热循环是 GEMM。GPU 有 Tensor Core；CPU 一侧若仍把 $C \mathrel{+}= AB$ 拆成向量 FMA，L1/L2 会被反复冲刷，算术强度低于加速器。AVX-512 对 decode 这种「一行乘一块权重」够用，对 prefill 里每个专家几十到上百 token 的小批量矩阵则偏细。AMX 要解决的是：在至强上给 INT8 / BF16 矩阵乘一条与 GPU 张量核同构的原语，并让操作系统扛得住每任务多出来的大状态。
 
 状态是真问题。Intel 与内核补丁写明：TMM 寄存器今天约 8KB，架构上可到 64KB。若给每个进程无条件分配，内存与上下文切换会被空任务拖死。于是 AMX 走动态 XSTATE：XFD（eXtended Feature Disabling）在首次使用时 #NM，内核再分配大 buffer。
 
@@ -27,7 +27,7 @@ Transformer 与 MoE 专家的热循环是 GEMM。GPU 有 Tensor Core；CPU 一�
 
 ## 方法
 
-Linux 用户态顺序是：`ARCH_GET_XCOMP_SUPP` 查内核是否支持 tile；再 `ARCH_REQ_XCOMP_PERM` 申请 `XFEATURE_XTILEDATA`。未申请就执行 AMX，#NM 处理会送 SIGILL；申请后首次使用才分配大 xstate，分配失败则 SIGSEGV。权限按进程授予、不可撤回，`exec` 清掉。信号栈必须够大：glibc 2.34 起 `MINSIGSTKSZ` / `SIGSTKSZ` 变成运行时查询，老二进制写死 2KB 会在 AMX 进程里炸。虚拟化路径上，QEMU 需在 AMX 主机上把特性传进客户机；宿主机与客户机的 XFD 彼此独立。
+Linux 用户态顺序是：`ARCH_GET_XCOMP_SUPP` 查内核是否支持 tile；再 `ARCH_REQ_XCOMP_PERM` 申请 `XFEATURE_XTILEDATA`。未申请就执行 AMX，#NM 处理会送 SIGILL；申请后首次使用才分配大 xstate，分配失败则 SIGSEGV。<span class="marginnote">为什么重要：CPUID、XCR0、`arch_prctl` 三重检查少一步就是线上 SIGILL——容器里常见「本地能跑、进容器就炸」，因为容器运行时默认没有放行申请 XTILEDATA 的 `arch_prctl` 调用。</span>权限按进程授予、不可撤回，`exec` 清掉。信号栈必须够大：glibc 2.34 起 `MINSIGSTKSZ` / `SIGSTKSZ` 变成运行时查询，老二进制写死 2KB 会在 AMX 进程里炸。虚拟化路径上，QEMU 需在 AMX 主机上把特性传进客户机；宿主机与客户机的 XFD 彼此独立。
 
 指令序列在 Intel 示例里是四步：loadconfig → `TILELOADD` 三块（A、B、累加器）→ `TDPBSSD`（或 UD/SU/UU 变体）→ `TILESTORED`。`TDPBSSD` 把 tmm2 与 tmm3 里相邻 4 个有符号字节做点积，四个 32 位中间结果加到 tmm1。BF16 走另一组 TMUL。这只是单次 tile 乘；生产核要在外层循环切 K、切 N，并处理 pack、量化反缩放与偏置。
 
@@ -52,7 +52,7 @@ $$
 C_{16\times 16} \mathrel{+}= A_{16\times 64}\, B_{16\times 64}^{\top}
 $$
 
-（$B$ 在内存里按 TMUL 要求的布局摆），$K$ 维 64 字节 = 64 个 INT8。大 GEMM 是这些 tile 沿 $K$ 累加、沿 $M/N$ 平移。Intel 写明 TMUL 执行时会动态检查 tile 最大尺寸与矩阵维是否匹配；配错形状不是静默错结果，而是指令侧的合法性失败。XSAVE 组件是 XTILECFG 与 XTILEDATA：前者小，后者大。内核默认 XCR0.AMX=1，但 XTILEDATA 要用户申请，这是「硬件已枚举、OS 仍按需分配」的折中。
+（$B$ 在内存里按 TMUL 要求的布局摆），$K$ 维 64 字节 = 64 个 INT8。大 GEMM 是这些 tile 沿 $K$ 累加、沿 $M/N$ 平移。Intel 写明 TMUL 执行时会动态检查 tile 最大尺寸与矩阵维是否匹配；配错形状不是静默错结果，而是指令侧的合法性失败。<span class="marginnote">数字实例：一条 `TDPBSSD` 做 $16\times16$ 个输出点、每点 $K=64$ 的点积，即 $16\times16\times64=16384$ 次乘加；八个 tile 寄存器合计约 8KB。同样的活在 AVX-512 上要拆成几十条向量指令，外加反复搬运数据。</span>XSAVE 组件是 XTILECFG 与 XTILEDATA：前者小，后者大。内核默认 XCR0.AMX=1，但 XTILEDATA 要用户申请，这是「硬件已枚举、OS 仍按需分配」的折中。
 
 上下文切换：不用 AMX 的任务保持短 xstate；用 AMX 的任务多 8KB 级保存/恢复。intel_idle 在 SPR 上会清 TMM，避免休眠状态带着脏 tile。这对延迟敏感的 decode 意味着：线程应绑核、少迁移，避免把 AMX 任务和大量短命线程挤在同一核上反复 XSAVE。
 
@@ -61,6 +61,15 @@ $$
 ### 和 AVX-512、GPU 张量核的分工
 
 AVX-512 寄存器窄、指令开销低，适合低 ARI 与非矩阵算子（softmax、layernorm、路由）。AMX 适合高 ARI 的专家 GEMM 与 prefill。GPU Tensor Core 的形状与调度由 CUDA 生态包圆；AMX 要把 cache 层级写进核，因为没有同等的共享存储编程模型。混合推理里常见的做法是同一块权重布局同时喂 AMX 与 AVX-512，运行时按 token/专家比切换，避免两套 pack。
+
+```mermaid
+flowchart TD
+  OP{"算子形态与 ARI?"} -->|"高 ARI 大 GEMM<br/>专家 FFN / prefill"| AMX["AMX：16×64 tile<br/>沿 K 累加、沿 M/N 平移"]
+  OP -->|"低 ARI 逐元素<br/>softmax / 路由"| AVX["AVX-512 向量路径"]
+  AMX --> DEC{"decode 时每专家<br/>token 变少?"}
+  DEC -->|"是，ARI 掉下去"| SW["运行时切回 AVX-512<br/>共用同一份权重 pack"]
+  DEC -->|"否"| KEEP["继续走 TMUL"]
+```
 
 ## 边界
 

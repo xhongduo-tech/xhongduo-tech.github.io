@@ -17,7 +17,7 @@ section: llm
 
 闭源代码模型用基准图说话，开源线用论文附录说话。Codestral 走第三条：开放权重 + 产品博客。读者容易把博客里的 HumanEval 条形图当成「论文表 2」，再去追层数与训练 token——那些字段**不在公开合同里**。公开信息笔记要解决的问题是：哪些句子可以引用、哪些必须标「未披露」、哪些数字来自第三方（JetBrains Kotlin-HumanEval、Continue.dev 接入）而不能写进「官方主表」。
 
-另一问题是许可与端点被口口相传成「又一个 Apache 7B」。博客写明 **Mistral AI Non-Production License（MNPL）**：研究与测试可用，生产商用另授权。API 分成 `codestral.mistral.ai`（IDE / 自带 Key 的补全与 FIM）与 `api.mistral.ai`（按 token 计费）。把两条端点、两种许可混成「开放即可上生产」，是读漏公开文本，不是模型能力问题。
+另一问题是许可与端点被口口相传成「又一个 Apache 7B」。博客写明 **Mistral AI Non-Production License（MNPL）**：研究与测试可用，生产商用另授权。API 分成 `codestral.mistral.ai`（IDE / 自带 Key 的补全与 FIM）与 `api.mistral.ai`（按 token 计费）。把两条端点、两种许可混成「开放即可上生产」，是读漏公开文本，不是模型能力问题。<span class="marginnote">MNPL 可以理解成「试用装许可」：权重能下载、能做研究和测试；要拿去公司生产环境赚钱，就得另买商业授权。这和 Apache 2.0 那种近乎随便用的开源许可不是一回事。</span>
 
 ### 没有 arXiv 时，博客就是方法节的天花板
 
@@ -46,11 +46,24 @@ flowchart TD
 
 ## 机制
 
-能从公开信息推断、且不越权的机制只有几条。22B 稠密、32K 窗：文件内类定义与远端调用点可以同时进注意力，这与 RepoBench 叙事相容，但仍远小于整库。FIM 必须用模型卡里的前缀 / 后缀 / 中间特殊 token；公开卡若列出符号，推理就应对齐；若某版卡写得含糊，应以 tokenizer 文件为准，而不是用聊天模板冒充。MNPL 把「能下权重」与「能进生产」切开，机制是法律的，不是数值的——选 Codestral 是选代码专用分布，不是选最宽松许可证。
+能从公开信息推断、且不越权的机制只有几条。22B 稠密、32K 窗：文件内类定义与远端调用点可以同时进注意力，这与 RepoBench 叙事相容，但仍远小于整库。FIM 必须用模型卡里的前缀 / 后缀 / 中间特殊 token；公开卡若列出符号，推理就应对齐；若某版卡写得含糊，应以 tokenizer 文件为准，而不是用聊天模板冒充。<span class="marginnote">FIM 的三个特殊 token 相当于给模型递一张「填空卷」：标错一个，模型就不知道哪里是题目、哪里是空格，中间段会补得驴唇不对马嘴。接 IDE 补全出诡异结果时，先查这三个符号，这是成本最低的高频故障排查。</span>MNPL 把「能下权重」与「能进生产」切开，机制是法律的，不是数值的——选 Codestral 是选代码专用分布，不是选最宽松许可证。
 
 ### 版本边界必须写进引用
 
 Codestral Mamba（约 7B 状态空间）与 Transformer 22B 同名不同架构，公开博客是另一篇。Codestral 25.01 等后续权重、许可是否仍 MNPL，以新卡为准，不能自动继承 2024-05-29。Mistral Large 2 写自己吸收了 Codestral 的代码数据经验——那是旗舰通用模型的数据迁移句，Large 不是 22B 代码专用、也不因此获得 FIM 合同。公开信息笔记的职责就是挡住这些同名污染。
+
+```mermaid
+flowchart TD
+  N["看到「Codestral」这个名字"] --> Q{"你引用的是哪一个？"}
+  Q --> A["22B Transformer v0.1（2024-05）"]
+  Q --> B["Codestral Mamba，约 7B 状态空间"]
+  Q --> C["25.01 等后续权重"]
+  Q --> D["Mistral Large 2"]
+  A --> A1["本篇合同：博客 + 模型卡，MNPL"]
+  B --> B1["另一篇公告，另一架构"]
+  C --> C1["以新模型卡为准，许可不自动继承"]
+  D --> D1["通用旗舰，没有 FIM 合同"]
+```
 
 <span class="marginnote">端点配额模型不同：IDE 端点发布时有 beta 免费与排队，组织级 API 按 token。缓存键必须含 FIM 后缀，多打一个字符就会改变中间段。这些写在文档里，属于公开工程约束，不是逆向。</span>
 
@@ -58,7 +71,7 @@ Codestral Mamba（约 7B 状态空间）与 Transformer 22B 同名不同架构�
 
 ### 把博客当论文用时，错在哪
 
-第三方 HumanEval 复制会与官方图有差，无附录可查随机种子与后处理。32K 满窗 prefill 对 IDE 仍贵，生产要用前缀缓存与检索，博客的 RepoBench 不是「整库塞进 32K」保证。安全与许可证扫描：公开文本提醒代码模型会补出漏洞或授权不当片段，但没有给出训练数据许可证表。无层表则无法做与 FlashAttention 头维相关的核优化承诺，只能按 22B 通用解码器估计显存。
+第三方 HumanEval 复制会与官方图有差，无附录可查随机种子与后处理。32K 满窗 prefill 对 IDE 仍贵，生产要用前缀缓存与检索，博客的 RepoBench 不是「整库塞进 32K」保证。<span class="marginnote">初学者容易把「32K 上下文」当成「能装下整个仓库」。32K token 大约只有两三千行代码，中型仓库动辄几十万行。所以真实产品里仍要靠检索先挑出相关文件，长上下文只是让单次能多看几个文件。</span>安全与许可证扫描：公开文本提醒代码模型会补出漏洞或授权不当片段，但没有给出训练数据许可证表。无层表则无法做与 FlashAttention 头维相关的核优化承诺，只能按 22B 通用解码器估计显存。
 
 需要可复现数据工序时，换 [Qwen2.5-Coder 报告](/llm/qwen25-coder-report) 或 [DeepSeek-Coder 论文](/llm/deepseek-coder-paper)。Codestral 的公开信息足够做选型和许可判断，不够做预训练复现。不要在综述里把它和有完整附录的模型画成同一引用等级而不加「blog / model card」标注。
 
