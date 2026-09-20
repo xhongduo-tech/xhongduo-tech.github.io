@@ -29,7 +29,7 @@ section: llm
 
 ```mermaid
 flowchart TD
-  E["查表得 E[t], 宽 d_e"] --> Q{"d_e 与 d_model 相等?"}
+  E["查表得一行向量, 宽 d_e"] --> Q{"d_e 与 d_model 相等?"}
   Q -- "相等 (默认)" --> ADD["直接加入残差流"]
   Q -- "不相等" --> PROJ["先做 d_e 到 d_model 的线性投影"]
   PROJ --> ADD
