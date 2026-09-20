@@ -63,6 +63,8 @@ flowchart TD
 
 不要用 CUDA 占用率公式。不要假设 RCCL / NCCL 测试能直接跑。不要把创始人新闻当规格。下一课 AMD 才是「有 CUDA 替代栈、有 RCCL」的近路。
 
+<span class="marginnote">常见误区：初学者容易拿 GPU 的「occupancy」「线程数」指标去诊断这类 mesh 芯片，结果一无所获——这里没有可抢占的线程池，瓶颈在 tile 映射与 NoC 流量。诊断要先问「数据每一步从谁的 SRAM 发到谁」，再看有没有链路被多对流量挤爆，最后才谈计算单元吃没吃满。</span>
+
 ## 小结
 
 - Tenstorrent：多核 + 本地 SRAM + NoC，数据搬运显式。

@@ -21,7 +21,9 @@ BigCode 与 Software Heritage 把 The Stack 做成下一代：v2 不再只从 Gi
 
 ### 许可要从仓库落到文件
 
-GitHub 元数据里的 SPDX 常常缺失。v2 对 2023-09-06 的 SWH 图取 GitHub 仓库的最近主分支（`main`/`master` 或 GHArchive 默认支），只保留最新提交，按目录哈希去重仓库，目录树最多走 64 层，单文件压缩后超过 10MB 不下载。许可检测：先对齐 GHArchive 的仓库级许可证；对约 96.93% 没有仓库级声明的，用 ScanCode 在 LICENSE/README 一类文件上找 SPDX，并传播到同一路径前缀下的文件。然后按 Blue Oak 与 ScanCode 的宽松/公有领域清单，把文件标成宽松、非宽松或无许可。<span class="marginnote">v2 相对 v1 的关键政策变化是：宽松与无许可都进入训练集，copyleft 与明确商业许可排除。无许可不是「作者同意训练」，只是归档中常见的缺失状态。退出通道因此变成治理的必要补丁，而不是礼貌功能。</span>
+GitHub 元数据里的 SPDX 常常缺失。v2 对 2023-09-06 的 SWH 图取 GitHub 仓库的最近主分支（`main`/`master` 或 GHArchive 默认支），只保留最新提交，按目录哈希去重仓库，目录树最多走 64 层，单文件压缩后超过 10MB 不下载。许可检测：先对齐 GHArchive 的仓库级许可证；对约 96.93% 没有仓库级声明的，用 ScanCode 在 LICENSE/README 一类文件上找 SPDX，并传播到同一路径前缀下的文件。然后按 Blue Oak 与 ScanCode 的宽松/公有领域清单，把文件标成宽松、非宽松或无许可。<span class="marginnote">术语翻译：SWHID（Software Heritage 标识符）是代码对象的「身份证号」——对一个文件按内容算哈希，得到形如 `swh:1:cnt:...` 的持久 ID。内容一变号就变，因此发布一份 SWHID 清单，别人就能逐条核对「训了哪些文件」，而不用把 60 多 TB 的归档整个下载下来。</span>
+
+<span class="marginnote">v2 相对 v1 的关键政策变化是：宽松与无许可都进入训练集，copyleft 与明确商业许可排除。无许可不是「作者同意训练」，只是归档中常见的缺失状态。退出通道因此变成治理的必要补丁，而不是礼貌功能。</span>
 
 ## 方法
 
@@ -47,6 +49,21 @@ flowchart TD
 
 <span class="marginnote">900B+ 独特 token 是去重后的源码与附属数据合计；StarCoder2 训练 3T+ 是多 epoch 与多模态混合物上的看到次数。把「数据集大小」和「训练 token」写成同一个数，会高估独特代码量或低估重复遍数。</span>
 
+Merkle 去重如何压平 fork 的重复：
+
+```mermaid
+flowchart TD
+  FA["仓库 A 的文件内容"] -->|"哈希 abc"| B1["SWH blob: 内容 abc"]
+  FB["fork B: 同一内容"] -->|"哈希 abc"| B1
+  FC["仓库 C: 改了一行"] -->|"哈希 def"| B2["SWH blob: 内容 def"]
+  B1 --> L["训练清单: blob abc 计 1 次"]
+  B2 --> L2["blob def 另计 1 次"]
+  L --> E["频率不随 fork 数线性放大"]
+  L2 --> E
+```
+
+<span class="marginnote">数字实例：某个流行的 LICENSE 模板出现在 10 万个 fork 里，blob 级去重后只占 1 份；训练 token 从 900B 独特涨到 3.3–4.3T，差值主要来自「整库约五遍以内的重复遍数」，而不是把同一文件算了几十万次。这就是「数据集大小」与「训练 token 数」必须分开报的原因。</span>
+
 ## 机制
 
 Merkle DAG 去重改变的是文件级频率：相同内容无论出现在多少 fork 里，归档里只有一个 blob。这对语言模型的含义是：流行库的标准实现仍会通过「被多少仓库引用」以外的途径进入（例如出现在笔记本、文档、issue 引用），但不会按 fork 数线性放大。许可传播改变支撑：copyleft 文件被拿掉，模型对 GPL 风格项目的补全要靠无许可与宽松文件里的近邻，分布会偏 Apache/MIT 生态。退出是事后从支撑里挖洞，可能在小语言上留下可见缺口。
@@ -62,6 +79,8 @@ Dolma v1.6 的 GitHub 桶是通用 LM 的代码调味；v1.7 换成 StarCoder �
 无许可文件的法律与伦理争议没有消失，只是被退出机制和 SWH 的保存使命部分覆盖。ScanCode 误检会让 copyleft 漏进或把宽松误杀。10MB 与 64 层限制丢掉单体生成代码与深度嵌套的 vendored 树。恶意软件检测是召回有限的分类器，不能当安全保证。OpenRAIL 限制用途，与「完全公有领域权重」不同。7B 相对同尺寸闭源数据模型偏弱，说明这份公开混合物仍不是补全任务的全局最优，尤其在高资源语言上。低资源语言的胜利可能来自 SWH 的长尾覆盖，但评测集也更小、方差更大。
 
 <span class="marginnote">不要把 Stack v2 当通用网页。它几乎不含 FineWeb 式散文；反过来，FineWeb 也不含可编译的仓库结构。配比里二者应分桶。需要数学时，引用的是混合物里的 OpenWebMath 切片，不是源码 blob 自己会变 Minerva。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「去重」会把所有相似的代码都删掉。实际是 blob 级的精确去重——只有逐字节相同的内容才合并成一个对象；改了一行、改了空格就是另一个 blob，仍然保留。近似重复要靠额外的 minhash 类清洗，不在这层去重的默认范围内。</span>
 
 ## 小结
 

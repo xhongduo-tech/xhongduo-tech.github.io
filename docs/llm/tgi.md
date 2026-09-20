@@ -23,6 +23,8 @@ section: llm
 
 维护模式的意思是：仓库仍接受小修复与文档，不再当新特性的主战场。生产上仍有大量已部署实例；OpenAI 兼容路径、SSE、连续批的调用形状，已经被 vLLM 与 SGLang 的 HTTP 层沿用。读 TGI，应把它当成一份把服务拆成 router / engine 的参考实现，而不是一份过时的 Docker 配方。
 
+<span class="marginnote">术语翻译：TGI 的拆分就是「前台与后厨分开」——Rust router 是前台接待：收单、验单（tokenize、长度校验）、叫号排队、把单子拼成一批；Python model server 是后厨：只管拿着权重做推理。中间的 gRPC 是传菜口，protocol 钉死，两边各升级各的。</span>
+
 <span class="marginnote">不要把 TGI 文档里的默认上限（如 `max-concurrent-requests=128`、`max-input-tokens=1024`）抄成模型能力。那是 router 的准入闸门，用来保护 KV 与 prefill 预算，与模型卡上的上下文长度不是同一个数。</span>
 
 ## 方法
@@ -54,6 +56,23 @@ Model server 的 CLI 暴露量化（bitsandbytes / GPTQ / AWQ / FP8 等）、推
 
 <span class="marginnote">TGI 把 Messages API 做成 router 开关（`--messages-api-enabled`），不是模型能力。关掉它，引擎仍能生成；打开它，只是多了一条与 OpenAI 字段对齐的 HTTP 皮。字段对齐不等于行为对齐，见 [OpenAI 兼容协议](/llm/openai-compat-api)。</span>
 
+单条请求的生命周期：
+
+```mermaid
+flowchart TD
+  ARR["请求到达 router"] --> VAL["tokenize + 长度校验"]
+  VAL -->|"超限"| REJ["Rust 侧直接拒绝, 不占 GPU"]
+  VAL -->|"通过"| WAIT["进入队列"]
+  WAIT --> PRE["prefill: 当前 decode 暂停"]
+  PRE --> MERGE["新旧序列合并进 cached batch"]
+  MERGE --> DEC["decode 循环: SSE 逐步吐 token"]
+  DEC --> END{"完成或客户端离开?"}
+  END -->|"否"| DEC
+  END -->|"是"| FLT["filter_batch 摘掉该 request_id"]
+```
+
+<span class="marginnote">数字实例：`max_total_tokens=8000` 的意思是整个服务里所有在跑序列的 KV 总量不超过 8000 token 的预算。按 32 层、隐藏宽 4096、BF16 估算，每个 token 的 KV 约 $2\times32\times4096\times2\approx0.5$ MB，8000 token 就是约 4 GB 显存——这条闸门把「能同时服务几个人」直接钉死了，比模型声明的上下文长度重要得多。</span>
+
 ### 观测与生产开关
 
 索引页强调分布式追踪（OpenTelemetry）与 Prometheus 指标，这是它相对「脚本里 `model.generate`」真正多出来的一层。Router 还暴露 CORS、最大并发、best-of 与 stop sequence 上限。这些上限是拒绝服务与资源保护，不是采样算法本身。Watermarking、logits warper、guidance（按 schema 约束解码）属于生成侧功能，落在 engine 路径上，但调度合约仍然是 prefill / decode / filter。
@@ -65,6 +84,8 @@ TGI 的模型覆盖以当时流行的开源结构为准（Llama、Falcon、StarC
 分页注意力出现在 gRPC v3，并不意味着每一条硬件分支都有同等实现。Gaudi、Neuron、TPU 上的 KV 布局、量化与投机解码要以对应 fork 的说明为准。不要假设「TGI 支持 Paged Attention」在 Inferentia 上与 A100 上是同一句话。多卡只保证 NCCL 能同步 shard；跨节点 TP 是否划算，仍服从 [通信层次](/llm/pretrain-comm)：decode 小 batch 时 All-Reduce 延迟会被放大。
 
 <span class="marginnote">出处停留在 Hugging Face 的 TGI 架构文档、索引页（含维护模式声明）与 Messages API 说明。不要给 TGI 编造 arXiv 编号；它是工程仓库，不是一篇会议论文。</span>
+
+<span class="marginnote">常见误区：初学者看到「维护模式」就以为 TGI 已死、线上不能再用。维护模式只是不再加新特性，已部署实例与调用形态照常；反过来，也不能因为它曾经是 HF 官方推荐就默认选它——新部署要拿当时版本的 vLLM / SGLang 实测对比，而不是凭仓库热度或一篇旧延迟表拍板。</span>
 
 ## 小结
 

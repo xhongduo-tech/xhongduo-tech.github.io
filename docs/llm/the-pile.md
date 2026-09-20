@@ -23,6 +23,8 @@ EleutherAI 的 Leo Gao、Stella Biderman、Sid Black 等人发布 **The Pile**�
 
 表内 Pile-CC 原始约 227 GiB、权重约 18%；PubMed Central 约 90 GiB 但训 2 个 epoch，有效体积约 181 GiB；维基只有约 6.4 GiB，却训 3 个 epoch。Books3、arXiv、GitHub、FreeLaw 同理。报「825 GiB」而不报加权，等于没报混合物。有效大小之和才是模型真正见到的频率。复制倍数把小而密的领域（数学 DM Mathematics、维基）抬到可学习的曝光，也放大这些源里的偏差与版权风险。
 
+<span class="marginnote">术语翻译：BPB（bits per UTF-8 byte）就是「平均每个字节要花多少个比特来编码」——按原始字节算账，不按 token。不同模型的分词器切法不同，per-token 困惑度没有可比性；字节是中立的公共单位，代码、LaTeX 这类在网页分词器下「费 token」的文本才不会被表面数字美化。</span>
+
 <span class="marginnote">Gao et al.，arXiv:2101.00027。825.18 GiB、22 子集。Pile-CC 227.12 GiB；Books3 约 101 GiB；GitHub 约 95 GiB；PMC 约 90 GiB。后续 Books3 等来源引发版权争议，使用须按当时法律与数据集条款，不能把 2020 年的「公开可下」理解成永久许可。</span>
 
 ## 方法
@@ -52,6 +54,20 @@ C4/mC4 几乎全是 Common Crawl 启发式清洗；Pile 明确反对「只有 CC
 
 <span class="marginnote">Datasheet（Biderman 等后续 arXiv:2201.07311）补数据声明。引用 The Pile 时应指向 Gao 等 2101.00027 与 22 子集表，而不是只写「EleutherAI 数据」。GPT-Neo 的模型卡不能替代这份语料论文。</span>
 
+原始体积与有效体积是两本账：
+
+```mermaid
+flowchart TD
+  Q{"模型真正见到多少?"} --> PCC["Pile-CC: 227 GiB x 1 epoch ≈ 227"]
+  Q --> PMC["PMC: 90 GiB x 2 epoch ≈ 181"]
+  Q --> WK["维基: 6.4 GiB x 3 epoch ≈ 19"]
+  PCC --> L["梯度频率由乘积决定, 不是原始 GiB"]
+  PMC --> L
+  WK --> L
+```
+
+<span class="marginnote">直觉类比：epoch 加权像排课表——维基这本「小教材」一学期反复讲三遍，网页这本「大部头」只通读一遍。模型对每个来源的熟悉度取决于「重复次数 × 体量」，只报书有多厚（825 GiB），不报每本讲几遍，就推不出课表。</span>
+
 ## 边界
 
 ### 公开可下载不等于可商用、可无审计
@@ -61,6 +77,8 @@ C4/mC4 几乎全是 Common Crawl 启发式清洗；Pile 明确反对「只有 CC
 不要把 Pile 上的 BPB 当成聊天助手质量；它是语言建模语料。也不要假设去重已经消灭所有跨分割重复。复现旧模型应冻结 Pile 版本与子集列表：后来的镜像可能缺 Books3。
 
 <span class="marginnote">出处：Gao, Biderman, Black, Golding, Hoppe, Foster, Phang, He, Thite, Nabeshima, Presser, Leahy，*The Pile: An 800GB Dataset of Diverse Text for Language Modeling*，arXiv:2101.00027。</span>
+
+<span class="marginnote">常见误区：初学者容易把「公开可下载」当成「可以随便用进产品」。The Pile 里 Books3 等分量的版权争议正是反面教材：书籍作者从未同意被收录，后续发行版甚至移除了 Books3。选源前要逐子集看许可证与使用条款，22 个来源不是同一种法律身份。</span>
 
 ## 小结
 
