@@ -17,6 +17,8 @@ section: llm
 
 数据并行多副本是多份权重、多份 KV、多棵 radix。引擎没有全局页表。轮询或随机对无共享负载是公平的；对多轮聊天、few-shot、智能体循环则系统性地破坏缓存局部性。Power-of-two 选择（随机抽两台、挑更闲的）能抑制羊群，但看不见前缀。需要一种策略：既维护「哪台 worker 上有过哪些前缀」的近似视图，又在某台过热时把流量溢出去。
 
+<span class="marginnote">数字实例：4 个副本轮询时，一条带共享系统提示的请求只有 1/4 的概率打到持有该前缀的机器——平均每 4 条才命中 1 条；cache-aware 路由把同类前缀粘到同一台后，命中期望接近 1。副本数越多，无感知的入口把命中率稀释得越狠。</span>
+
 PD 分离把问题再乘一次。前填 worker 与解码 worker 是两份名单；前填侧要缓存感知，解码侧往往要负载感知并遵守 [亲和](/llm/decode-affinity)——KV 已经交给某台解码机之后，后续 token 不能再按前缀随便换家。路由器还要合并前填元数据与解码输出、处理 bootstrap 端口、在 Kubernetes 里用 selector 发现两类 Pod。这些都不该塞回单个 SRT 进程。
 
 ### 入口树不是引擎树的副本
@@ -30,6 +32,8 @@ PD 分离把问题再乘一次。前填 worker 与解码 worker 是两份名单�
 文档列出的策略包括：`random`、`round_robin`、`power_of_two`（抽两台比负载）、`cache_aware`（默认：前缀局部性加负载阈值）、`bucket`（按负载分桶）。`cache_aware` 可调 `--cache-threshold`、`--balance-abs-threshold`、`--balance-rel-threshold`、`--eviction-interval`、`--max-tree-size`：重叠不够高或某 worker 明显更忙时，退回均衡，以免热前缀把一台打满。Load Monitor 给 power-of-two 与 cache-aware 提供实时负载；后台健康检查、带抖动的重试、worker 级熔断和令牌桶限流构成可靠性内核。
 
 PD 模式：`--pd-disaggregation`，`--prefill` / `--decode` 列出两类 URL，前填项可带 bootstrap 端口。`--prefill-policy` 与 `--decode-policy` 可分别设，例如前填 `cache_aware`、解码 `power_of_two`。路由器负责把前填结果注入解码请求并流式回客户端。Kubernetes 上用 `--service-discovery` 加 `--prefill-selector` / `--decode-selector` 动态发现；历史上出现过「动态发现 + PD + cache_aware 时树未初始化、选不出 worker」的缺陷，后续用 `init_pd_cache_aware_policies` 在注册时把两类 worker 填进全局策略（见 sgl-project/sglang#23573 一类修复）。运维要确认当前发行版在 PD 下确实给树喂了 worker，而不是只看命令行写了 `cache_aware`。
+
+<span class="marginnote">术语翻译：PD 分离就是「读题的机器」（prefill，算力密集）与「答题的机器」（decode，带宽密集）分开部署。路由器要分别为两类机器选节点，还要把前填算好的 KV 交接给解码机——bootstrap 端口就是解码机找到前填机的「接头暗号」。</span>
 
 多模型网关（IGW）允许按模型覆盖策略。gRPC、MCP 集成出现在较新的 gateway 文档里，属于入口扩展，不是 RadixAttention 论文的范围。
 
@@ -54,6 +58,20 @@ DP 感知调度（文档中的 DP-aware）处理单进程内多数据并行 rank
 
 cache-aware 的机制是**用 CPU 上的前缀索引逼近 GPU 上的页布局**。插入发生在请求被送到某 worker 之后（或并行地根据提示预插入）；淘汰按时间间隔与树大小，防止路由器内存无限涨。阈值让算法在「跟缓存走」和「跟负载走」之间切换：相对空闲差超过 `balance-rel-threshold` 时，宁可牺牲一点命中，也避免一台的 TBT 先爆。这与 Dynamo Smart Router 的 overlap score、Ray Serve 的前缀路由是同一权衡。
 
+cache-aware 在「跟缓存」与「跟负载」之间每次都做一次选择：
+
+```mermaid
+flowchart TD
+  REQ["新请求到达入口"] --> T["路由树查最长前缀归属"]
+  T --> HOT{"目标 worker 是否过热?"}
+  HOT -->|"未过热"| AFF["送到持有前缀的 worker, 树分支更厚"]
+  HOT -->|"过热"| BAL["退回负载均衡, 选更闲的"]
+  AFF --> MON["Load Monitor 持续比较负载差"]
+  BAL --> MON
+  MON -->|"差超阈值"| FLIP["下次切换: 牺牲一点命中保 TBT"]
+  MON -->|"正常"| STAY["维持缓存亲和"]
+```
+
 PD 下前填命中省的是 TTFT；解码侧 power-of-two 保的是 TBT 与 KV 容量。bootstrap 端口让解码工人找到前填侧的传输端点，语义上等于 DistServe 的 pull 握手，实现可以是 NIXL、Mooncake Transfer Engine 或引擎自带 connector。路由器自己通常不搬 GB 级 KV，只搬元数据；把传输做进路由器进程会把它变成带宽瓶颈。
 
 <span class="marginnote">熔断是 worker 级的。一台前填机连续失败应从树里摘掉，否则 cache-aware 会因为「它还有热前缀」而持续把流量送进坏节点。健康检查失败必须同时更新策略里的 worker 集。</span>
@@ -61,6 +79,8 @@ PD 下前填命中省的是 TTFT；解码侧 power-of-two 保的是 TBT 与 KV �
 ### 陈旧命中与颠簸
 
 路由器树比引擎树更大、更旧时，会出现「假命中」：请求被送到以为有前缀的机器，引擎 LRU 早已释放。假命中的代价是一次普通前填加上错误的亲和，通常仍可接受。更坏的是颠簸：两台来回抢同一热前缀，谁都形不成稳定的厚分支。阈值与 eviction 间隔是抑制颠簸的旋钮；把 `max-tree-size` 设太小，树频繁清空，策略退化成随机。观测应打「路由以为的匹配长度」和「引擎回报的真实匹配长度」，两者长期分叉就是陈旧或 bug。
+
+<span class="marginnote">常见误区：初学者容易以为路由器树与引擎树实时同步，实际上两棵树天然有时差——worker 可能已淘汰某前缀，路由器仍按「命中」把请求送过去，引擎再补一次全量前填。两个匹配长度长期分叉才需要报警，偶发假命中是设计内的代价。</span>
 
 ## 边界
 

@@ -17,6 +17,8 @@ section: llm
 
 Encode 的复杂度大致随字节数与合并次数走，不是 $O(1)$。32K 词表的字节级 BPE 在数万字符的提示（长文档、工具 JSON、多轮粘贴）上会打满网关 CPU，表现为 TTFT 变差、GPU 利用率却很低。这会被误诊成「引擎冷启动」或「KV 没分页」。Detokenize 的问题更隐蔽：流式要求每个 id 尽快变成字，但 BPE 的一个 token 可能是半个多字节字符、或英文词的半截。过早 `decode` 会抛异常或产出 `` 替换符，客户端出现乱码；过晚又把若干 token 攒成一次刷新，TTFT 的「字」不再是真正的首 token。
 
+<span class="marginnote">数字实例：英文单词「tokenization」大约只占 3-4 个 token；一个常用汉字通常 1-2 个 token，一个 emoji 却常要 2-4 个。若按字符数做长度配额，100 个 emoji 字符可能折成三四百 token，远超配额——这就是「字符数 ≈ token 数」在中文与 emoji 上不可靠的原因。</span>
+
 第三件是词表与模板版本。服务进程加载的 tokenizer 必须与权重训练时一致。Hub 上 `tokenizer.json` 与 `chat_template` 独立更新时，兼容层若只升级其一，encode 出的 id 与模型期望的分布错位，质量问题看起来像采样温度。MindIE 把 `/v1/tokenizer` 做成独立接口，就是让网关用**同一份**词表计数，而不是用另一套近似规则去卡上下文。
 
 ### 长度闸门在 GPU 之前
@@ -30,6 +32,8 @@ TGI router 的 `--max-input-tokens` / `--max-total-tokens` 在 Rust 侧按 token
 服务端应把 tokenizer 当成与权重同版本的只读工件：启动时加载，请求时 `encode`，禁止运行时下载。TGI 的 `--tokenizer-name` 挂在 router 上，validation workers 并行做校验与分词，model server 收的是已经合法的 id 或经协议约定的文本。LMDeploy / vLLM / MindIE 各自把分词放在 API 进程或引擎进程，但逻辑相同：热路径上不要做 Hub I/O。批处理 encode（多条提示一次调用）能摊薄 Python 开销，对离线批有用；在线延迟敏感路径往往是单条 encode，更依赖底层 Rust。
 
 流式 detokenize 必须是**增量状态机**，而不是每步 `tokenizer.decode(all_ids)`。完整重解码的成本随已生成长度线性涨，会在长输出上把 CPU 做成第二条 decode 曲线。增量接口维护已输出的字节缓冲：新 token 的字节追加后，只把构成完整 UTF-8 码点、且不会被后续合并规则作废的前缀吐给客户端。BPE 没有「未来 token 改写过去字节」的语义，但特殊处理（byte fallback、控制符、`&lt;0xNN>`）仍可能让朴素逐 token `decode([id])` 失败。实现上应使用官方 incremental decoder，而不是自己按 id 查 vocab 字符串再拼接。
+
+<span class="marginnote">术语翻译：增量状态机就是「只记着还没发出去的字节缓冲，每步只处理新来的一小块」。与之相对的是每步把全部历史 id 重新 `decode` 一遍——输出 1000 个 token 时就要完整重解码 1000 次，总代价随长度近似平方上涨，CPU 会变成第二条 decode 曲线。</span>
 
 ```mermaid
 flowchart TD
@@ -53,6 +57,22 @@ flowchart TD
 Encode 的屋顶线在 CPU 缓存与分支：BPE 贪心合并对长字节串是顺序的，多线程加速靠请求级并行（TGI 的 validation workers），而不是把一条提示切成多段乱序合并——乱序会改变切分。Unigram 的 Viterbi 比贪心 BPE 更重，服务若用 SentencePiece Unigram，CPU 预算要单独测。字节级模型几乎不做合并，encode 极轻，但序列变长，GPU 注意力变重；这是算法篇里的权衡在服务上的镜像。
 
 Detokenize 的屋顶线在短字符串处理与锁。高并发下，若所有请求共享一把 Python GIL 上的 decode，流式会在 CPU 上排队。Rust tokenizer 或在 router 里解码（TGI 模型）能把 GIL 挪开。输出 token 速率 50–100 tokens/s 时，单条 decode 看起来微不足道；并发 200 条流同时 detokenize，CPU 核数不够就会回压，表现为 SSE 帧成团到达，用户以为模型在「一顿一顿」地想。
+
+一个 token 的字节什么时候能发给客户端，增量解码每步都在做这个决定：
+
+```mermaid
+flowchart TD
+  ID["新 token id"] --> BUF["字节追加进缓冲"]
+  BUF --> Q{"凑齐完整 UTF-8 码点?"}
+  Q -->|"否"| HOLD["留在缓冲等下一 token"]
+  HOLD --> BUF
+  Q -->|"是"| SP{"是特殊 token?"}
+  SP -->|"是"| SKIP["按 skip 规则处理或拦截"]
+  SP -->|"否"| FL["flush 给客户端"]
+  FL --> SSE["用户看见这个字"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为客户端乱码是 GPU 算错了，实际上多半是半个 UTF-8 码点被过早 flush 出去。BPE 的一个 token 可能只是汉字的前半个字节、或英文单词的前半截，等凑齐完整码点再发，客户端才不会看到一串替换符。</span>
 
 <span class="marginnote">`usage` 里的 token 数应按引擎真正吃进去的 id 计，包括特殊标记与图像占位，不包括 UTF-8 字节数。网关用字符数估算再乘 0.7，会在账单和上下文截断上同时犯错。</span>
 

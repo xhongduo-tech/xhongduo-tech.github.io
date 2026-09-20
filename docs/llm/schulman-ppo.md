@@ -23,6 +23,8 @@ $$
 
 并硬约束平均 KL。CPI（conservative policy iteration）在比率远离 1 时没有上界，无约束最大化会让一次更新摧毁策略。需要一种可与 minibatch SGD 共用、超参少、不必二阶求解器的近端目标。
 
+<span class="marginnote">「近端」可以想象成给每次更新画一个半径很小的圈：只允许策略在圈内挪一步，挪完重新采样再画新圈。TRPO 用二阶方法把圈画得精确，PPO 换成裁剪比率这根「橡皮筋」来近似同一个圈，因此普通 Adam 就能跑。</span>
+
 原文给出两个变体。PPO-Penalty 把 KL 加进损失，并根据实测 KL 相对目标的大小自适应缩放系数。PPO-Clip 不显式算 KL，而对 $r_t(\theta)$ 做裁剪，再取与未裁剪项的最小值，形成悲观下界。主推荐是 Clip：实现更短，Atari 与机器人任务上整体更好。两者都允许对同一批 rollout 做多个 epoch 的 minibatch 更新——这是相对「每条轨迹只用一次」的 REINFORCE 的样本效率来源，也是必须近端约束的原因。
 
 ### 为何不直接做带约束的 TRPO
@@ -40,6 +42,8 @@ L^{\mathrm{CLIP}}(\theta)=\mathbb{E}_t\Bigl[\min\bigl(r_t(\theta)\hat A_t,\,\mat
 $$
 
 $\hat A_t\gt 0$ 时，未裁剪项鼓励增大比率，但超过 $1+\epsilon$ 后裁剪项封顶，再增大 $\pi_\theta(a_t\mid s_t)$ 不再加分。$\hat A_t\lt 0$ 时，鼓励减小比率，低于 $1-\epsilon$ 后同样封顶。$\min$ 取较悲观的一个，因此目标不会为了极端比率而无限改进。完整损失还减去价值误差、加上熵奖励：
+
+<span class="marginnote">把 $\epsilon=0.2$ 代入：比率被允许在 $0.8$ 到 $1.2$ 之间，即这次更新最多把这个动作的概率放大到原来的 1.2 倍、或压到 0.8 倍；一旦越界，这个方向就不再提供学习信号，相当于自动刹车。</span>
 
 $$
 L_t(\theta)= \mathbb{E}_t\bigl[L^{\mathrm{CLIP}}_t(\theta)-c_1 L^{\mathrm{VF}}_t(\theta)+c_2 S[\pi_\theta](s_t)\bigr],
@@ -79,6 +83,18 @@ GAE 用 $\lambda$ 在高偏差的 $V$ 自举与高方差的蒙特卡洛回报之
 ### Penalty 与 Clip 如何对应信托域
 
 Penalty 显式跟踪 $\mathbb{E}[\mathrm{KL}(\pi_{\mathrm{old}}\|\pi_\theta)]$，KL 太大则加大惩罚，把更新拉回。Clip 用比率区间近似「局部概率变化不大」，在离散动作上与 KL 相关但不等于 KL 约束：某个动作比率到 $1+\epsilon$，其它动作的质量会经 softmax 重分配，KL 仍可能较大。因此 Clip 没有 TRPO 的硬保证。原文用实验表明它够用，不是用定理证明等价。
+
+```mermaid
+flowchart TD
+  SIGN["优势 Â 的符号"] --> POS["Â 为正：好动作"]
+  SIGN --> NEG["Â 为负：差动作"]
+  POS --> P1["r 未超 1+ε：继续推高概率"]
+  POS --> P2["r 超 1+ε：封顶，不再加分"]
+  NEG --> N1["r 未低 1−ε：继续压低概率"]
+  NEG --> N2["r 低过 1−ε：封顶，不再减分"]
+```
+
+<span class="marginnote">初学者容易以为 epoch 越多学得越充分。实际上同一批数据反复更新会让比率大批飘出裁剪区间，多数样本停止提供梯度，等于在过期数据上硬更新——epoch 数与 $\epsilon$ 必须一起调，原文的设定是少 epoch 配合合理区间。</span>
 
 ## 边界
 

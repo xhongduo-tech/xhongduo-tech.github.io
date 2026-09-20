@@ -19,11 +19,15 @@ Whisper 一类自回归 ASR 把音频编码后再逐 token 出字，准确、多
 
 数据规模：报告写 SenseVoice 训练超过 30 万小时。Small 的识别延迟陈述为小于 80 ms（报告测试环境），并给出相对 Whisper-small / large 的 5× 与 15× 以上加速。这些是官方吞吐对比，换硬件、换解码器会变。
 
+<span class="marginnote">数字实例感受加速：转写一句 10 秒、约 30 个字的话，自回归若每字要 15 ms，串行就是约 450 ms；非自回归一次前向约 80 ms 出整句——这正是 5 倍量级差距的来源，而且句越长差距越大。</span>
+
 ### Small 是编码器 CTC，Large 是编码器—解码器
 
 Small：只编码器，SAN-M（带记忆的自注意力，Gao et al. 2020）。80 维 log-Mel，连续帧堆叠后时间下采样 6 倍，得到 $\mathbf{X}_{\mathrm{speech}}\in\mathbb{R}^{T\times D}$。输入前拼四个嵌入：语种、情感、音频事件、是否 ITN。输出在对应位置预测标签，ASR 用 CTC。训练时 $\langle\mathrm{LID}\rangle$ 以 0.8 概率换成真值语种，使推理既能自动语种、也能锁语种。Large：类似 Whisper 的自回归编码器—解码器，用解码端 token 序列指定是否预测 LID / SER / 带时间戳的 AED，换准确率与 50+ 语种，放弃 Small 的固定前向延迟。
 
 <span class="marginnote">情感与事件是分类标签，不是开放词汇描述。仓库与博客列出的情绪含 HAPPY / SAD / ANGRY / NEUTRAL / FEARFUL / DISGUSTED / SURPRISED；事件含 Speech / BGM / Applause / Laughter / Cry 等。标签集以卡片为准，不要自行加「讽刺」。</span>
+
+<span class="marginnote">CTC 术语翻译：联结时序分类是一种「不用逐帧标注也能训练」的对齐损失——模型在每帧输出字符或 blank，推理时把连续重复折叠、删掉 blank，就得到整句文本。它把「声音和字怎么对上」这个难题交给训练目标自动学。</span>
 
 ## 方法
 
@@ -42,6 +46,20 @@ Large 的任务指定在解码器端，可要时间戳事件，适合离线精�
 Large 回到自回归是因为 CTC 在 50 语种、复杂语法上的对齐更难，解码器可以吃语言先验。这与 Whisper 同构，但词表与任务 token 是 FunAudioLLM 的丰富转写集。SenseVoice 的监督语义被 CosyVoice 拿去当 tokenizer 老师（插 VQ/FSQ），理解模型本身并不输出 codec；不要在 ASR 服务里调用声码器。
 
 <span class="marginnote">报告写 Small 开源、训练与微调代码在 GitHub。商用许可证以 ModelScope / HF 卡片为准，与 FunASR 工具包的 MIT 可能不是同一份。234M 是工具卡数字，写进容量规划可以，写进论文方法学要标明来源。</span>
+
+非自回归为什么快，与自回归对比：
+
+```mermaid
+flowchart TD
+  AR["自回归（Whisper 式）"] --> S1["第 1 步：出第 1 个字"]
+  S1 --> S2["第 2 步：看前文出第 2 个字"]
+  S2 --> SN["第 N 步：逐字串行展开"]
+  SN --> LAT1["延迟随句长线性涨"]
+  NAR["非自回归（Small）"] --> ONE["一次前向：整句并行输出"]
+  ONE --> LAT2["延迟由下采样后帧数 T 决定，与字数解耦"]
+```
+
+<span class="marginnote">常见误区：把几小时的播客整段塞给 CTC 模型。CTC 的对齐假设在超长输入上会漂移，输出可能漏句或幻觉。正确姿势是先用 VAD 切成几秒到几十秒的段，再逐段送模型——FunASR 的 fsmn-vad 组合就是干这个的。</span>
 
 ### 和 Whisper 比的是任务集合，不只是 WER
 

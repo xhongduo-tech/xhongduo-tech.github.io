@@ -17,6 +17,8 @@ section: llm
 
 离散扩散的前向是 $\dot p_t=Q_t p_t$，$Q_t$ 非对角非负、列和为零。逆向速率用 $\overline{Q}_t(y,x)=\frac{p_t(y)}{p_t(x)}Q_t(x,y)$（$x\neq y$）。未知量正是这些比率。Meng 等的 concrete score matching 用 $\ell^2$ 拟合 $s_\theta(x)_y\approx p(y)/p(x)$，但比率非负，$\ell^2$ 对 $s=0$ 与略偏的正值惩罚对称，而 $s=0$ 会删掉数据支撑。
 
+<span class="marginnote">concrete score 听着玄，其实就是一张「比值表」：对状态 $x$ 的每个邻居 $y$，给出 $p(y)/p(x)$，即 $y$ 的概率除以 $x$ 的概率。连续扩散要的是对数概率的坡度，离散 token 没有坡度可求，只能用邻居间的比值代替。</span>
+
 先前离散扩散（D3PM）与连续嵌入扩散在似然上落后自回归一大截。若没有一个既对应分数、又构成 ELBO、又能在序列上因式分解的损失，离散扩散很难在 GPT-2 小/中档上正面比较。SEDD 要填的就是这条目标函数。
 
 ### 序列上只需「差一个位置」的比率
@@ -35,6 +37,15 @@ $$
 
 其中 $K(a)=a(\log a-1)$。最优时 $s_{\theta^*}(x)_y=p(y)/p(x)$ 且损失为零。梯度相对 CSM 多因子 $1/s$，形成对数势垒，把 $s$ 推离零。未知比率用去噪形式去掉：在 $x_0\sim p_{\mathrm{data}}$、$x\sim p(\cdot\mid x_0)$ 上，用转移核 $p(y\mid x_0)/p(x\mid x_0)$ 代替 $p(y)/p(x)$，只需一次 $s_\theta(x)$。隐式形式要对所有 $y$ 评 $s(y)$，高维不可用。
 
+```mermaid
+flowchart TD
+  TGT["目标：正值比率 p(y)/p(x)"] --> CSM["ℓ2 拟合（CSM）"]
+  TGT --> SE["score entropy"]
+  CSM --> BAD["可预测到 0 或负值 → KL 爆炸"]
+  SE --> BAR["1/s 对数势垒 → 推离零"]
+  SE --> ELBO["按 Q_t 加权积分 → 似然上界"]
+```
+
 把 $w_{xy}$ 取成扩散矩阵元素 $Q_t(x,y)$ 并对时间积分，得到 diffusion-weighted denoising score entropy，这就是负对数似然的上界（另加终点与先验的 KL）。训练因此既是分数学习，也是似然训练。实现上吸收（MASK）与均匀两种 $Q$ 都做了；吸收在语言上更强。
 
 ### 采样与填空
@@ -47,11 +58,15 @@ text8 上 SEDD Absorb 的 BPC 上界 $\leq 1.39$，与自回归 $1.23$ 接近，
 
 吸收过程把质量送进 MASK，逆向是解除掩码，和 BERT 式填空同构，但对时间积分的 ELBO 与固定 $15\%$ 掩码不是一回事。均匀过程可跳到任意 token，表达力理论上更宽，语言似然与生成 Pareto 曲线都更差。解析采样通常优于朴素欧拉，对均匀模型尤其关键。
 
+<span class="marginnote">吸收核可以想象成「整句话被逐字涂成完形填空」：前向把 token 一个个涂成 MASK，逆向像有耐心的考生不限顺序地把空填回来。它与 BERT「固定挖 15%、一次填完」不同——这里挖多少、填几轮都由扩散时间表决定，且训练目标是对时间的积分。</span>
+
 <span class="marginnote">SEDD 报告的是似然上界，自回归是精确似然。写「超过 GPT-2」时必须带 $\leq$。MDLM 后来在 LM1B 用 $33$B token 把上界收到 $\leq 27.04$，对照的是 Lou 等报告的 $\leq 32.79$，训练配方与分词要对齐再比。</span>
 
 ### 与自回归 KV 缓存的成本不可直接用 NFE 比
 
 自回归一步一个 token，但 KV 缓存让后续步便宜。SEDD 每步是整句双向前向，NFE 少不等于墙钟少。原文在讨论里写出这一权衡。服务场景要用延迟与吞吐重测，不能只引用「$32\times$ 更少 NFE」。无温度退火时生成更忠实，是因为训练直接对序列分布做似然，而不是依赖核采样修正暴露偏差。
+
+<span class="marginnote">初学者容易从「$32\times$ 更少 NFE」推出「快 32 倍」。NFE 只数前向次数：自回归每步只算一个新 token 且有 KV 缓存加持，SEDD 每步却是整句双向前向，单步更贵。比速度请用实测延迟与吞吐。</span>
 
 ```mermaid
 flowchart TD

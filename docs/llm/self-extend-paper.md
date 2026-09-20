@@ -17,6 +17,8 @@ Hongye Jin、Xiaotian Han、Jingfeng Yang、Zhimeng Jiang、Zirui Liu、Chia-Yua
 
 RoPE 点积只看见 $\Delta=p_q-p_k$。预训练 $\Delta\in\{0,\ldots,L-1\}$。推理长度 $L'\gg L$ 时，中间与文首的 $\Delta$ 出界，分数近乎噪声。PI 把所有 $\Delta$ 除以 $s$，要短续训，且伤高频邻域。StreamingLLM、LM-Infinite 假设模型不能泛化，于是丢掉中间键，PPL 可以低，长程依赖没了。Jin 等人要同时保住两件事：中间 token 仍参加 softmax；所有送进 RoPE 的相对位置仍小于 $L$。约束是零微调——分组大小与邻窗是推理超参，不是学出来的压缩器。
 
+<span class="marginnote">RoPE 给 token 的「位置感」只取决于两者的距离差 $\Delta=p_q-p_k$，像钟表只看分钟差、不看几点钟。预训练时模型只见过 0 到 4095 这类差值；一旦输入里出现 5000 的距离，它就走进了自己没学过的时区。</span>
+
 「Maybe LongLM」针对的对象是已经训好的解码器（LLaMA-2、Mistral、SOLAR 等），不是从零设计长窗架构。若主张成立，开源侧可以在检查点发布的当天就吃更长提示，而不等一次 32k 续训。
 
 ### 未见相对位置是主因
@@ -41,6 +43,8 @@ $$
 
 默认仍允许看见全部过去键。Self-Extend 不是稀疏论文，计算仍可到 $O(n^2)$。FlashAttention 需支持自定义位置 id。代码改动被作者称为 minor：替换 RoPE 的 position 张量，按距离分支。实验在语言建模、LongBench 类理解、以及 Hugging Face Open LLM 短任务上进行：长窗 PPL 下降，理解任务常高于未扩展底座，短任务几乎不掉——因为邻窗内几何未动。
 
+<span class="marginnote">初学者容易把 Self-Extend 当成「省显存的长上下文方案」。它不省：每个键仍全部保留、注意力仍按 $O(n^2)$ 算，治的只是「位置编码出界」这一种错误。要省算力得靠稀疏注意力或 KV 压缩那一支方法。</span>
+
 ```mermaid
 flowchart TD
   D["真实距离 d"] --> N{"d ＜ 邻窗 wn?"}
@@ -54,6 +58,14 @@ flowchart TD
 ## 机制
 
 机制是相对位置轴上的分段不可逆压缩：近端斜率 1，远端斜率 $1/G$。RoPE 每一维 $\cos(\theta_i\Delta')$ 在远端变慢，等价于只对远距做了位置插值，近距完全没插。中间键的**内容**仍在，只是共享组内相位，组内竞争靠 $q^\top k$ 的内容部分。标题里的「已经是 LongLM」指：短窗训练已经教会模型如何对 $\Delta\lt L$ 的键分配质量；Self-Extend 负责不要把 $\Delta\ge L$ 送进这套已经学会的函数。
+
+```mermaid
+flowchart TD
+  D0["真实距离 d 从 0 增长"] --> N1["邻窗内：Δ = d，保持真实分辨率"]
+  N1 --> J["d = 邻窗处平滑衔接"]
+  J --> G["邻窗外：Δ 取 floor(d/G) 再平移"]
+  G --> CAP["最大 Δ 仍落在预训练网格内"]
+```
 
 与 YaRN 分工：YaRN 改 $\theta_i$ 与温度，通常配合续训；Self-Extend 改整数 $\Delta$，权重冻结。与 DCA 分工：Self-Extend 一条全局阶梯；DCA 保证当前块完整 $L$ 分辨率，并单独处理相邻块。原文实验含与微调长窗模型的比较：在部分理解任务上，无训练的 Self-Extend 可以接近甚至超过昂贵续训，这被用来支撑「能力已在权重里」；同时短基准不掉，用来支撑「邻域没被分组污染」。
 
@@ -70,6 +82,8 @@ flowchart TD
 ### 超参与模型族
 
 $G$ 与 $w_n$ 要用中间深度的检索来扫，不能只看 PPL——PPL 偏好更大的 $w_n$。换 Mistral 与换 LLaMA-2，舒适邻窗不同，因为原 $L$ 与 RoPE 基数不同。原文「轻微代码修改即可」假设你能改注意力位置接口；闭源 API 做不到 Self-Extend。组边界对齐词或句会引入不可复现的预处理，论文用固定 $G$ 个 token，工程上应保持这一选择以便对照。
+
+<span class="marginnote">组大小 $G$ 可以类比看远山的分辨率：$G=1$ 时远处每个位置都清晰，但数字很快超出训练见过的范围；$G=8$ 时八个远 token 挤成一个「大概在那个方向」，位置变粗，数字却始终落在模型认识的网格里。近处永远保持 $G=1$ 的精细。</span>
 
 ## 小结
 
