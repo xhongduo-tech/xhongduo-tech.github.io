@@ -17,7 +17,7 @@ section: llm
 
 ## 问题
 
-屋顶线上，算术强度够的核仍可能达不到峰值，因为**当前** MMA 所需的字节还在 HBM 上。硬件预取帮不规则程序有限；规则的 tile 循环里，软件明确知道下一块地址，自己发异步拷贝更稳。一份缓冲时，写与读必须互斥，重叠为零。两份缓冲是能重叠的最小值：一份被 Tensor Core 读，一份被拷贝引擎写。若单块计算时间短于一次 HBM 盒子的延迟，两级仍藏不住，需要更多 in-flight 拷贝，也就是更多槽。
+屋顶线上，算术强度够的核仍可能达不到峰值，因为**当前** MMA 所需的字节还在 HBM 上。硬件预取帮不规则程序有限；规则的 tile 循环里，软件明确知道下一块地址，自己发异步拷贝更稳。一份缓冲时，写与读必须互斥，重叠为零。两份缓冲是能重叠的最小值：一份被 Tensor Core 读，一份被拷贝引擎写。<span class="marginnote">直觉类比：后厨备菜。单缓冲是「一个托盘，帮工备好下一份，大厨才能开炒」，两人全程轮流干等；双缓冲是两个托盘——大厨炒 A 托盘时，帮工往 B 托盘备菜，两人第一次真正同时干活。托盘再多，是让「备菜提前量」更足，但托盘本身占台面（smem）。</span>若单块计算时间短于一次 HBM 盒子的延迟，两级仍藏不住，需要更多 in-flight 拷贝，也就是更多槽。
 
 约束是容量。每个 stage 要放下 $A$ 与 $B$ 的 CTA tile，还可能要为 epilogue 或注意力的 $V$ 块留空间。Stage 加一，每 CTA 的 smem 上升，驻留 CTA 数下降，延迟隐藏的「另一半」（占用率）被吃掉。问题是解一个不等式：`stages × tile_bytes ≤ smem`，且 `stages × copy_issue` 足以覆盖延迟，且占用率仍能喂饱 MMA。CUTLASS 把 stage 做成模板参数，用 profiler 扫，而不是固定「double 一定最好」。
 
@@ -49,13 +49,25 @@ flowchart LR
 
 ### 如何选 stage 数
 
-先定 tile（对齐 MMA 原子），算每 stage 字节，用 smem 容量减掉规约缓冲与集群预留，得到 $s_{\max}$。再从 $s=2$ 起测 Tensor Pipe 与 DRAM 吞吐：若计算单元等 barrier，加 stage；若占用率已经掉到每 SM 一个 CTA 且再加 stage 会装不下，应缩小 tile 或减少 [特化 warp](/llm/warp-specialization) 数，而不是盲目 $s=7$。Decode 瘦 $M$ 上，计算太短，再深的流水也填不满拷贝延迟，这时该减 tile 或接受带宽墙，而不是加 smem。
+先定 tile（对齐 MMA 原子），算每 stage 字节，用 smem 容量减掉规约缓冲与集群预留，得到 $s_{\max}$。<span class="marginnote">数字实例：每 SM 约 228 KB smem 时，若一个 stage 要装 $A$ 片 $128\times 64\times 2\,\text{B}=16$ KB 加 $B$ 片 $64\times 256\times 2\,\text{B}=32$ KB，共 48 KB，则 4 个 stage 就要 192 KB，只剩约 36 KB 给 epilogue 与规约——想开第 5 个 stage 就得缩 tile，而不是硬塞。这就是「stage 数是解不等式解出来的」的具体样子。</span>再从 $s=2$ 起测 Tensor Pipe 与 DRAM 吞吐：若计算单元等 barrier，加 stage；若占用率已经掉到每 SM 一个 CTA 且再加 stage 会装不下，应缩小 tile 或减少 [特化 warp](/llm/warp-specialization) 数，而不是盲目 $s=7$。Decode 瘦 $M$ 上，计算太短，再深的流水也填不满拷贝延迟，这时该减 tile 或接受带宽墙，而不是加 smem。
 
 Cluster multicast 时，stage 规划还要算上「同一盒子到达多个 CTA」的完成：每个 CTA 仍有自己的 smem 槽与 barrier，不能假设邻居的 wait 能代替本 CTA。
 
 ## 机制
 
 软件流水把循环展开成时间上的重叠窗口：时刻 $t$ 同时存在「正在 MMA 的 tile $k$」「正在拷贝的 tile $k+1,\ldots$」。硬件不保证自动做到这一点；没有软件发行的异步拷贝，编译器通常不敢跨 `__syncthreads` 重排出同样深度。Barrier 的相位位用于区分「这一轮的 arrive」和「上一轮残留」，环形缓冲必须翻转相位，否则会把旧完成当成新完成，或永远等不到。
+
+```mermaid
+flowchart TD
+  T["K 循环的同一时刻"] --> SER["串行单缓冲: 算完 k 再拷 k+1"]
+  T --> DB["双缓冲 s=2: 算 k 的同时拷 k+1"]
+  T --> DEEP["深流水 s≥3: 算 k 时 k+1 k+2 都已在途"]
+  SER --> W1["墙钟 = 拷贝时间 + 计算时间"]
+  DB --> W2["一层拷贝延迟被藏进计算"]
+  DEEP --> W3["整段 HBM 往返被覆盖 直到 smem 或占用率封顶"]
+```
+
+<span class="marginnote">常见误区：「加了 double buffer 就一定变快」。若这个核本来就受算力限制、计算时间远长于拷贝时间，单缓冲时拷贝早就被算完的时间盖住了，加槽只是白吃 smem、把驻留 CTA 数挤下去，反而更慢。流水只救「计算在等数据」的核。</span>
 
 与 [持久化核](/llm/persistent-kernel) 的交接：持久化让**工作项之间**不断流；软件流水让**同一 GEMM 的 K 循环内部**不断流。一个持久 CTA 取到新 tile 之后，仍要走 prologue 填满自己的 pipeline——除非调度保证下一个 tile 的 $A$、$B$ 描述符已经能接上同一套 stage（少见）。不要指望常驻能省略 prologue；最多把 prologue 从「每核一次」变成「每工作项一次」。
 

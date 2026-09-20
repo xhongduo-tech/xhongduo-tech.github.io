@@ -35,7 +35,7 @@ NVIDIA GB200 NVL72 产品页给出机柜 13.4 TB HBM3E 与 17 TB LPDDR5X；GB300
 
 - **本地 GEMM / 注意力**：操作数在本卡 HBM。这是屋顶线最高的一档。
 - **P2P / 对称堆**：CUDA P2P、NVSHMEM 一类接口允许 rank 读远端对称缓冲。适合不规则访问、流水线边界上的点对点。带宽受 NVLink 约束，官方每 GPU 1.8 TB/s 是这张网的规格上限，不是单 kernel 实测。
-- **集合通信**：NCCL All-Reduce / Reduce-Scatter / All-Gather / All-to-All。TP 用前三者配对切矩阵；EP 用 All-to-All 换专家。库在域内应走 NVLink，而不是 `NCCL_SOCKET`。
+- **集合通信**：NCCL All-Reduce / Reduce-Scatter / All-Gather / All-to-All。TP 用前三者配对切矩阵；EP 用 All-to-All 换专家。库在域内应走 NVLink，而不是 `NCCL_SOCKET`。<span class="marginnote">集合通信术语翻译：All-Reduce 是「每人交一份部分和，最后每人拿到总和」；All-Gather 是「每人亮出自己的拼图块，最后每人拿到完整拼图」；All-to-All 是「每人给其他所有人都寄一件不同的快递」。它们都由库在后台编排，写代码时只管调用，但选错原语，语义对、速度也照样错。</span>
 - **主机参与**：预处理、批次拼装、部分流水在 Grace 上，经 C2C 进 GPU。NVIDIA 技术博客给出 C2C 双向 900 GB/s。不要把主机缓冲当第三份 HBM 来扫 KV。
 
 ```mermaid
@@ -60,6 +60,17 @@ All-to-All 在域内是交叉矩阵；在 Clos 上是多对多。超节点内存
 
 本地加载走 HBM 控制器，算术强度按 Williams 屋顶线衡量。远程加载走 NVLink 包：地址在远端，数据经交换托盘回来，占用的是互连预算，不是本卡 HBM 的全部 带宽规格。两者可以在同一 kernel 里混用，混用时屋顶线变成「HBM 与 NVLink 的较小者再打折」，不要用单卡 FLOPS 去除。集合通信则是许多远程搬运加片上归约：NCCL 用 GPU kernel 做 reduce，链路用 NVLink。有效带宽看 `nccl-tests` 的 busbw，不看标称 1.8 TB/s。
 
+```mermaid
+flowchart LR
+  SPLIT["每卡持有相同形状的一份缓冲"] --> STEP["环形传递 每步把收到的片段归约后传给下家"]
+  STEP --> LOOP["绕环走 71 步 完成归约分片"]
+  LOOP --> GATHER["第二阶段 All-Gather 轮转广播"]
+  GATHER --> SAME["72 张卡拿到同一份完整结果"]
+  LOOP --> COST["每卡实际收发约 2 倍缓冲大小的数据"]
+```
+
+<span class="marginnote">数字实例：环形 All-Reduce 中每张卡要收发约 $2\times\frac{71}{72}\approx 1.97$ 倍缓冲大小的数据。同步 1 GB 梯度，每卡实际要挪近 2 GB——这就是为什么 decode 一步几百 KB 的小消息里，「延迟」而不是带宽说了算：72 步的环还没绕完，前向早就等在那里了。</span>
+
 一致性方面，本地 HBM 的普通 `device` 指针遵循 CUDA 内存模型。跨 GPU 的可见性需要 P2P 使能、正确的 stream / event，或由 NCCL 在原语内部处理。Grace 与 GPU 之间的一致性以 NVLink-C2C 与统一内存文档为准：它解决的是 Superchip 内部 CPU–GPU，不是 72 张卡的单一缓存协议。把 CPU 缓存行当 GPU 共享 L2，会在错误的层上找一致性 bug。
 
 <span class="marginnote">130 TB/s 是域内 GPU 通信聚合规格。把它除以 72 得到每 GPU 约 1.8 TB/s，与产品页的每 GPU NVLink 对齐。它不是 72 张卡 HBM 带宽之和，也不是单核 memcpy 的保证值。</span>
@@ -72,7 +83,7 @@ All-to-All 在域内是交叉矩阵；在 Clos 上是多对多。超节点内存
 
 不要实现一个自制的机柜级分配器，却假设任意 GPU 访问任意偏移都是本地延迟。不要在超节点上关闭 P2P「以简化调试」，那会把域内流量打到 PCIe 或主机。不要把 Fast Memory 37 TB 当 37 TB 可 kernel 直扫的 HBM。不要用 NVSHMEM 的全局地址空间掩盖切分错误：地址能写通，不等于屋顶线允许你每步远程扫一遍专家。
 
-集合通信库与框架的进程网格必须携带拓扑标签。Kubernetes 若按 8 卡 Pod 切片，超节点内存语义对调度器不可见，TP 组会被拆到多柜。需要把「NVL 域」当成可分配资源。另一方向的错误是：所有通信都用 All-Reduce，包括其实是点对点的流水线边界——原语选错，语义对了也慢。
+集合通信库与框架的进程网格必须携带拓扑标签。Kubernetes 若按 8 卡 Pod 切片，超节点内存语义对调度器不可见，TP 组会被拆到多柜。<span class="marginnote">为什么重要：一个 TP 组若被调度器拆到两个机柜，每步 All-Reduce 就要从域内 NVLink 掉到柜间网络——带宽常低一个数量级、延迟高数微秒起步，整机的有效算力被同步拖垮。所以「NVL 域」必须当成一种可申请的资源写进调度约束，而不是事后调 NCCL 参数能救的。</span>需要把「NVL 域」当成可分配资源。另一方向的错误是：所有通信都用 All-Reduce，包括其实是点对点的流水线边界——原语选错，语义对了也慢。
 
 <span class="marginnote">出处：NVIDIA NVL72 产品页的容量与 NVLink 规格、C2C 技术博客、CUDA 内存模型与 NCCL 文档。不引用未公开的远程访问延迟表。</span>
 

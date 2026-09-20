@@ -17,7 +17,11 @@ section: llm
 
 Decode 步在 GPU 上便宜到「每步一两个毫秒」时，浪费一百步也不显眼；上下文变长、并发变高之后，每条已取消请求仍占一份 KV，并且仍参与连续批的同步点，尾延迟会先于平均吞吐恶化。更麻烦的是：断开发生在 prefill 尚未返回之时——用户已经离开，引擎还在为长提示做注意力。若取消只挂在「已经开始往 SSE 写」的生成器上，排队中的请求会漏掉 abort。
 
+<span class="marginnote">数字感受幽灵请求的代价：decode 一步 20 ms 时，一条已断开却没被取消、还剩 500 token 的请求要白烧 10 秒 GPU；70B 模型每千 token 的 KV 从数百 MB（GQA）到数 GB（MHA）不等，几条幽灵序列就能把 KV 池挤到让新请求排队。</span>
+
 协议层也不统一。OpenAI 兼容流是 `data: {json}\n\n` 帧，结束常用 `data: [DONE]`。TGI 自有 `/generate_stream` 是另一套事件字段。MindIE EndPoint 对 TGI / OpenAI / 原生 `/infer` 各有流式路径。网关若按「等上游 JSON 完整」去缓冲，流式在用户眼里退化成非流式，超时却按流式连接的长超时计算——两边最坏情况叠在一起。
+
+<span class="marginnote">SSE 翻译一下：Server-Sent Events，服务器沿一条 HTTP 长连接持续往外「推」文本帧的轻量协议，浏览器 EventSource 原生支持。它只有服务器到客户端一个方向，也没有专门的「客户端取消」控制帧——断开本身就是取消信号。</span>
 
 ### 取消必须穿过三层
 
@@ -56,7 +60,21 @@ Stop sequence 与取消不同。Stop 是采样成功结束，KV 仍按策略保�
 
 SSE 是单向、基于 HTTP/1.1 长连接的文本帧。它不保证每 token 一个 TCP 包，也不保证跨代理的实时性。真正的实时性来自：上游 `flush`、代理 `X-Accel-Buffering: no` 一类开关、以及客户端按帧解析而不是等 `Content-Length`。HTTP/2 下的流取消有 RST_STREAM，网关必须把它翻译成对上游 HTTP/1.1 连接的关闭，否则会出现「浏览器停了、引擎还在跑」。
 
+<span class="marginnote">常见误区：以为「网关把连接关了」就等于取消完成。TCP 关闭若没有被翻译成引擎侧的 abort / filter_batch，GPU 仍会把这条请求算到 EOS——三层（HTTP、应用服务器、引擎）各断一层，日志里照样写 Finished。</span>
+
 连续批里取消的代价不是一次 `free()`。TGI 写明：插入 prefill 或 filter 会停掉当前 decode batch 再重启。高频取消会把重启税打到还活着的请求上。产品上应节流「停止」按钮的连点，并把取消计入独立指标（aborted requests），不要混进失败率当模型质量问题。KV 释放之后，[KV 感知路由](/llm/kv-aware-routing) 的缓存键也应失效，避免后续请求打到「以为还有前缀」的副本。
+
+```mermaid
+flowchart TD
+  G["正在生成"] --> E1["正常结束：EOS / max_tokens"]
+  G --> E2["命中 stop 序列：采样成功收尾"]
+  G --> E3["取消：连接断开"]
+  E1 --> O1["有结束帧与 usage：按完成计费"]
+  E2 --> O2["finish_reason=stop：前缀完整可续"]
+  E3 --> O3["无结束帧：立即释放 KV，按已生成 token 记账"]
+```
+
+<span class="marginnote">这张图回答「正常结束、stop、取消为什么要分开记账」：三条路径的结束帧、finish_reason 与 KV 处置都不同。把取消粉饰成 stop，计费会少算、下一轮前缀里还留着半截句子。</span>
 
 <span class="marginnote">Tokenizer 流式 detokenize 会遇到不完整 UTF-8 与未闭合的多字节子词。取消时缓冲区要丢弃，不能把半个汉字冲进已关闭的 socket 再记一次编码错误。见 [tokenizer 开销](/llm/serving-tokenizer-cost)。</span>
 

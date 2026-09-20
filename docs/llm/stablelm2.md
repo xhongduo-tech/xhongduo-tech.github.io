@@ -23,11 +23,15 @@ Stability AI 的 StableLM 2 是 2024 年的小模型一代：**1.6B** 有完整�
 
 结构接近 Llama 式解码器，但报告列明差异：RoPE 只加在每个头的前 **25%** 维（GPT-NeoX 式，为吞吐）；归一化用带学习偏置的 LayerNorm，而不是 RMSNorm；FFN 与注意力里去掉大部分 bias，**保留 Q/K/V 投影的 bias**。词表是 Arcade100k——从 `tiktoken` 的 `cl100k_base` 扩出代码特殊符号与数字切分，训练时 pad 到 100352 以对齐 Tensor Core。1.6B 形状：参数约 16.4 亿，隐藏 2048，24 层，32 头，序列 4096。12B 模型卡：隐藏 5120，40 层，32 查询头 / **8** KV 头，序列 4096。
 
+<span class="marginnote">「RoPE 只转前 25% 维」翻译一下：旋转位置编码本该让每个头的全部通道都做旋转，这里只让前四分之一的通道携带位置信息，其余通道不转——换来更整齐的矩阵乘与吞吐；代价是长文本外推的经验不能从「全 RoPE」模型照搬。</span>
+
 <span class="marginnote">1.6B 报告表没有 GQA；12B 才是 32/8。不要把两档写成同一套注意力。许可是 Stability AI Community License，商用要看当时条款，不是 Apache 2.0。12B 模型卡语言栏写 English，但预训练混合含 CulturaX 多语——产品「官方语言」与数据里出现过的语言不是一回事。</span>
 
 ## 方法
 
 1.6B 预训练在 512 张 A100 40GB 上，ZeRO-1，关掉激活检查点以换微批，全局约 $2^{23}$ token/步，报告约 170 TFLOPs/s、54.5% MFU。AdamW：$\beta_1=0.9$，$\beta_2=0.95$，weight decay 0.1。混合精度 BF16，All-Reduce 走 FP32。他们消融过 softmax 上的 z-loss，觉得对稳定帮助有限，**最终主实验没用**。
+
+<span class="marginnote">数字感受训练成本：约 9.2 万 A100 卡时按每卡时 3.5 美元估算约 32 万美元，摊到 2T token 上约每百万 token 0.16 美元——这是「小于 2B 可完整复现」叙事的成本底座，也是它敢摊开数据表的原因。</span>
 
 数据表（报告 Table 1）按采样权重列出 ArXiv、PubMed、S2ORC、书籍、CulturaX 英/西/德/法/意/荷/葡、C4、OpenWebText2、RefinedWeb、StackExchange、法律、数学、Wiki、StarCoder、以及 Yuan & Liu 风格的 Restruct-v1 指令化语料。CulturaX 的 mC4 因 HTML boilerplate 被丢掉，只留 OSCAR 子集。总有效 token 约 **2.01T**。消融在附录，用来选多语与代码比例。
 
@@ -58,6 +62,20 @@ flowchart TD
 ## 机制
 
 小模型的知识密度更吃数据混合而不是深度。1.6B 把 RefinedWeb 与 CulturaX 英语放到最大权重，代码与数学各占几个百分点，Restruct 把下游格式提前写进预训练，减少「只会续写网页」到「会答题」的落差。RoPE 只转 25% 维是吞吐权衡：旋转更少的通道，GEMM 更整；外推能力不能按「全头 RoPE」的经验外推。Arcade100k 对代码与非英语压缩更好，英语下游在报告的对照里与 NeoX 词表无显著差——选它是为多语和代码账单，不是为刷英语 MMLU。
+
+```mermaid
+flowchart LR
+  subgraph M16["1.6B：可复现实验 / 端侧档"]
+    A["d=2048，24 层，32 头"] --> B["满 KV：无 GQA"]
+    B --> C["RoPE 只转前 25% 维"]
+  end
+  subgraph M12["12B：单机服务档"]
+    D["d=5120，40 层"] --> E["GQA：32 查询头 / 8 KV 头"]
+    E --> F["逐头 QK-Norm 稳定训练"]
+  end
+```
+
+<span class="marginnote">常见误区：以为「最后 670B 线性衰减」那一段语料有魔力，于是照抄末段数据。衰减是日程相位——同样的数据早喂晚喂差别不大，真正起作用的是学习率降到低位让权重收进低损失盆地；复现要抄的是整条日程，不是截取数据。</span>
 
 rsqrt 段的机制是让学习率随步数缓慢下降而不预设终点，优化器仍有足够噪声去吃新数据；线性冷却才把权重推进低损失区。因此「最后 670B 很重要」是日程相位，不是那一段语料突然变神。后训练关掉多语，是为了把有限的 1.6B 容量花在英语对话；多语能力主要来自预训练，指令档的多语对话不要期望与英语 MT-Bench 同一水平。
 
