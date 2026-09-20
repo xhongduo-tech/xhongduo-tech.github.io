@@ -23,6 +23,8 @@ section: llm
 
 CCE 文档把 GPU 与 NPU 写成不同插件、不同资源名。NPU 独占调度按张申请；拓扑感知调度还要看板内互连，减少碎片和拥塞；虚拟化则把一张物理 NPU 切成若干 vNPU，资源名带算力与内存规格。GPU 侧同样有整卡、共享、虚拟化三条。调度器的第一步不是打分，是**拒绝跨资源名的凑数**。用户清单里应写「本作业的加速器类型」，而不是「任意 8 张加速器」。
 
+<span class="marginnote">「TP 组」就是把一层神经网络切成几份、分给多张卡同时算，每算完一步所有卡必须交换一次中间结果（All-Reduce）。可以想象成四个人合写一篇作文，每写完一段就要互相抄一遍草稿——所以这几个人必须坐在同一张桌子（同一互连域）旁；跨机柜合作，一次「抄草稿」就要多等几十微秒，作文越写越慢。</span>
+
 <span class="marginnote">Volcano 在 CCE 里与 CloudMatrix 网络拓扑感知做过集成，这是产品文档中的能力描述。具体打分权重、超节点内是否允许跨柜 TP，以你集群里安装的调度器版本为准，不要把邻区 GPU 的 GPU-Affinity 插件配置抄到昇腾节点上。</span>
 
 ## 方法
@@ -58,6 +60,20 @@ CPU 与 NPU 的异构是另一条轴。CloudMatrix 把鲲鹏与 910C 都挂在 U
 ## 机制
 
 Device Plugin 通过 kubelet 注册扩展资源，scheduler 只看见整数配额。拓扑感知要额外的设备拓扑（哪几张卡在同一 HCCS / UB 平面）。没有这张图，Volcano 也只能做「节点上 NPU 数量够不够」，把同节点但跨平面的卡绑进一组，HCCL 性能会掉到你以为的域内带宽以下。超节点场景下，爆炸半径是整域：通信柜或 UB 平面故障应把该超节点从池里摘掉，而不是继续往半通域里塞 TP。
+
+```mermaid
+flowchart TD
+  REQ["作业请求：ascend-910B × 8"] --> CHK["调度器查：哪些节点上报了这种资源名"]
+  CHK -->|"没有这种资源名"| REJ["拒绝：Insufficient huawei.com/..."]
+  CHK -->|"有"| TOPO["拓扑检查：8 张卡是否同一 HCCS / UB 平面"]
+  TOPO -->|"跨平面"| FIX["降档：换节点或减并行度"]
+  TOPO -->|"同平面"| BIND["绑定节点，kubelet 经 Device Plugin 分卡"]
+  BIND --> RUN["拉起镜像：CANN 运行时 + HCCL 建链"]
+```
+
+<span class="marginnote">Device Plugin 相当于给 Kubernetes 装的「设备翻译器」：原生 Kubernetes 只认识 CPU 和内存，装上昇腾插件后，节点才开始上报 `huawei.com/ascend-910B: 8` 这样的整数额度。但它只报「有几张」，不报「谁跟谁在同一根高速总线上」——所以拓扑信息要靠调度器的拓扑感知机制额外去拿。</span>
+
+<span class="marginnote">初学者容易把「拒绝调度」当成「集群满了」。看到 `Insufficient huawei.com/ascend-910B` 时先别申请扩容：这往往说明请求的资源名写错了（比如把 910C 写成 910B），或该类型节点一个都没接进插件——容量在，只是名字对不上。</span>
 
 异构还改变故障与滚动。GPU 镜像含 CUDA 驱动用户态，NPU 镜像含 CANN；滚动升级不能用同一 DaemonSet 往两类节点推驱动。探针必须分运行时：vLLM 的 `/health` 与 MindIE 的探针不是同一个语义。取消与 KV 释放仍按各引擎自己的规则，见 [sse-cancel](/llm/sse-cancel)，调度器不负责把 GPU 页表翻译成 NPU 块表。
 

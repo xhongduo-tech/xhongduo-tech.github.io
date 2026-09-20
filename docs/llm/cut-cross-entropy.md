@@ -25,9 +25,13 @@ $$
 
 分块交叉熵把词表切成若干块，内存随块数降、延迟随块数升，是一条帕累托曲线，不是「可忽略」。Liger 一类融合线性+CE 把损失与梯度打进同一核，掩码与自定义归约要写进核内。CCE 要的是：**SRAM 里完成 GEMM 与在线 softmax，HBM 只留每位置一个标量损失**，前后向分离，用户仍可在损失上做 mask 再反传。
 
+<span class="marginnote">「物化」就是把中间结果实实在在写进显存。朴素 CE 会把整张 $N\times|V|$ 的 logits 表写出来再算 softmax；CCE 的思路是这些中间数只配活在片上 SRAM 里，显存只留最终每个位置一个标量。</span>
+
 ### 推理不痛、训练痛
 
 解码逐步只算一个位置的 $|V|$ 维分布，与序列长度解耦。训练必须并行所有位置，长度重新乘回来。因此「推理词表再大也能采样」不蕴含「训练能承受同一词表」。Tao 等关于继续扩词表的讨论，只会把这个问题推得更前。
+
+<span class="marginnote">代个数感受这张表：词表 26 万、序列 8K、batch 4，朴素 logits 是 $4\times8192\times262144$ 个 bf16，约 17 GB——还没算同样大的梯度；CCE 只留 32768 个标量损失，约百 KB。</span>
 
 <span class="marginnote">CCE 不改变数学目标：仍是完整 softmax 交叉熵，不是 sampled softmax，也不是层次 softmax。省的是物化，不是负类。若把忽略的反向项当成「改了损失」，应看论文的精度阈值设定，而不是当成 NCE。</span>
 
@@ -58,6 +62,18 @@ flowchart TD
 ## 机制
 
 交叉熵对错误类的依赖全部折叠进配分函数 $Z=\sum_j e^{z_j}$。在线 softmax（Milakov–Gimelshein，FlashAttention 同款）用一块 SRAM 维护 $m$ 与 $\sum e^{z-m}$，不必存 $z$。反向里 $\partial\ell/\partial z_j=p_j-\mathbf{1}[j=y]$，当 $p_j$ 小于机器 epsilon 对累加的贡献，跳过等价于截断 Taylor 余项。词表越大、分布越尖，可跳过的比例越高，这与「大词表 softmax 更稀疏」一致。
+
+```mermaid
+flowchart TD
+  IN["词表按块读进 SRAM"] --> UP{"块内冒出更大的 logit？"}
+  UP -- "是" --> RS["更新 m，旧累计 Σ 乘 e^(旧m−新m) 重缩放"]
+  UP -- "否" --> AC["Σ += Σ e^(z−m)"]
+  RS --> NX["读下一块"]
+  AC --> NX
+  NX -- "全部块扫完" --> OUT["LSE = m + ln Σ，HBM 只留每位置一个标量"]
+```
+
+<span class="marginnote">直觉类比：在线 log-sum-exp 像边收钱边记账——每来一叠新钞（一个词表块），若出现更大面额就更新「基准」（m）并把旧账按汇率折算（重缩放），最后只报一个总额；从头到尾不必把每张钞票都塞进保险柜（HBM）。</span>
 
 <span class="marginnote">内存数字绑定词表、序列、精度与是否把 log-prob 留下做分析。调试需要全 logits 时不要开 CCE，或只在一档小 batch 上物化。生产训练与「导出校准用的全分布」是两条路径。</span>
 

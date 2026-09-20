@@ -17,6 +17,8 @@ section: llm
 
 GEMM 与分块注意力的访存模式是「一块连续或等步长的张量盒子」，不是「每线程一个无关指针」。用 SIMT 去算这些地址，占用发行槽、寄存器和指令缓存，只为了驱动本来就很规则的 HBM 请求。`cp.async` 减轻了「先 load 进寄存器再 store 到 smem」的往返，但地址算术仍在线程上，且粒度按线程的拷贝宽度走。当 tile 变大、布局变成 MMA 需要的 swizzle 时，线程协作拷贝本身成为瓶颈，也容易引入 [bank conflict](/llm/shared-memory-banks)。
 
+<span class="marginnote">直觉类比：老办法像让 128 个工人各抄各的几行字，还得每人自己算「该抄第几行第几列」；TMA 像派一辆叉车，凭一张图纸（描述符）整箱整箱地把货搬进车间，工人只在单子上签收（mbarrier），然后专心加工。地址算术从 128 个人身上省下来，交给一台专车。</span>
+
 TMA 要解决的是：让规则张量的 HBM↔smem 搬移以描述符为合同，线程只负责「发」和「等」，计算 warp 可以特化成纯 MMA，见 [warp specialization](/llm/warp-specialization)。问题的另一半是同步：异步拷贝完成前读 smem 是数据竞争。Hopper 用 `mbarrier` 把「这一盒子到齐」做成硬件可等待的对象，替代 CTA 级 `__syncthreads` 对整块 smem 一刀切。
 
 ### 描述符能表达什么
@@ -35,6 +37,8 @@ TMA 要解决的是：让规则张量的 HBM↔smem 搬移以描述符为合同�
 4. 沿 $K$ 推进 stage，形成 [软件流水](/llm/sw-pipeline-buffer)。
 
 Thread block cluster 上，TMA 支持 multicast：一次发行把同一盒子写入集群内多个 CTA 的共享内存。权重复用跨 CTA 时，这能减 HBM 流量，代价是集群调度与分布式 smem 的约束。CUTLASS sm90 集体主循环把上述步骤收成模板；手写时必须自己管理 barrier 相位，错一个 stage 就是静默错数。
+
+<span class="marginnote">数字实例：集群里 4 个 CTA 都要用同一块 64 KB 权重 tile，普通做法是 HBM 读 4 次、共 256 KB 流量；multicast 是只读一次 64 KB，再在芯片内复制成 4 份 smem 副本。省下的是 HBM 流量，不是把搬运加速四倍。</span>
 
 ```mermaid
 flowchart LR
@@ -63,6 +67,18 @@ Multicast 的机制是一次 HBM 读、多次 smem 写（在集群可达的 CTA 
 ### 异步与正确性
 
 TMA 发行后生产者可以立刻去发下一条，不必等。消费者必须 wait 对应 barrier，且对同一块 smem 的复用要遵守 pipeline 的相位：写 stage $i$ 不得覆盖消费者仍在读的 stage。Fence 与 barrier 的配对以 PTX 文档为准；少一次 `arrive` 会表现为随机损坏，多一次可能死锁。调试应先把 stage 降到 2，用固定输入对照 cuBLAS，再加深流水。
+
+```mermaid
+flowchart LR
+  P["生产者 warp：对 stage i 发 TMA"] --> ARR["拷贝完成后 mbarrier.arrive"]
+  ARR --> W["消费者 wait：stage i 数据可见"]
+  W --> MMA["WGMMA 消费 stage i"]
+  MMA --> REL["stage i 空出，回到生产队列"]
+  REL --> P
+  PH["相位约束：不覆盖消费中的 stage"] --> P
+```
+
+<span class="marginnote">初学者容易以为「用了 TMA 带宽就自动到顶」。请求变规整只是让它们好排队；最终达没达峰值，还要看行命中率和计算是否来得及消费。小而零碎的拷贝走描述符反而亏——为几 KB 的数据画一张「图纸」不划算。</span>
 
 ## 边界
 

@@ -17,9 +17,13 @@ section: llm
 
 NCCL 对大块、规则、跨节点拓扑很强。推理 TP 通常在 NVLink 域内，消息小、频率高（每 token 每层）。通用路径的启动、握手与不必要的拷贝可以比有效负载还贵。缺口是一条 *推理专用* 的 All-Reduce：利用 NVLink P2P、持久工作组、甚至 CUDA Graph 捕获，把小消息延迟打下来。正确性仍是逐元素求和，与 Megatron 数学相同。
 
+<span class="marginnote">All-Reduce 就是「大家把各自的数加起来，而且每张卡都拿到完整结果」：reduce 是归约求和，all 是人人有份。张量并行把每层切开算，每张卡手里只有部分和，靠它才能拼回完整激活——所以每层都要来一次。</span>
+
 自定义实现往往假设：同机、NVLink 全连接或固定环、进程绑定不变。跨节点 TP 仍应回退 NCCL。不要把自定义 AR 写成「永远更快」。
 
 <span class="marginnote">自定义 AR 吃的是激活，不是 KV。KV 按头切在各卡本地。[KV 布局](/llm/kv-layout)与 AR 无关，但 TP 切头要求 $h_{kv}$ 能被 TP 整除，否则还要在组内复制 KV。</span>
+
+<span class="marginnote">代个数：4 卡环形 AR 每阶段走 $N-1=3$ 跳，两个阶段共 6 跳；每跳都有一次固定启动开销。decode 消息只有几十 KB 时，这些启动比数据传输本身还贵——自定义路径砍的正是这一项。</span>
 
 ## 方法
 
@@ -40,9 +44,21 @@ flowchart TD
 
 小消息延迟 = 启动 + 传输。自定义路径砍启动、用持久映射砍握手。带宽项在 decode 上往往不是主项。这与屋顶线一致：通信强度同样可以算 FLOPs/通信字节；decode 的层内 AR 是延迟绑定。投机校验加宽 $n_q$，激活变厚，可能越过交叉点。
 
+```mermaid
+flowchart TD
+  S0["GPU0 分片 s0"] --> S1["GPU1 分片 s1"]
+  S1 --> S2["GPU2 分片 s2"]
+  S2 --> S3["GPU3 分片 s3"]
+  S3 --> S0
+  P1["阶段一·累加：分片沿环传 3 跳"] --> P2["阶段二·广播：结果再绕环 3 跳"]
+  P2 --> FIN["每张卡拿到相同的完整逐元素和"]
+```
+
 ## 边界
 
 不要在异构或跨节点拓扑上强行自定义。不要与 NCCL 同时各搞一套无文档的顺序，死锁风险。数值与顺序：环形累加顺序与 NCCL 树不同，半精度尾差要验收。下一课：把这次 AR 藏进 GEMM 的空隙。
+
+<span class="marginnote">常见误区：把自定义 AR 当成「更快的 NCCL 万能替代」。它只在同机、NVLink 全连、小消息的窄区间赢；消息一大（大 batch、prefill）或一跨节点，就应回退 NCCL，引擎按体积分派。</span>
 
 出处：Shoeybi et al., Megatron-LM；推理侧以 vLLM / TensorRT-LLM 的自定义 All-Reduce 实现为准。
 

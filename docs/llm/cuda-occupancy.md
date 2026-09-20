@@ -19,6 +19,8 @@ section: llm
 
 占用率把「装得下多少 warp」收成一个 0–1 的数，便于对照硬件上限。问题不是「要不要高占用率」，而是「在寄存器、共享内存、warp 上限三条约束里，当前核的延迟隐藏够不够」。CUDA 指南与占用率计算器给的是理论上限，NCU 测到的是实现占用率；两者经常不一致。
 
+<span class="marginnote">占用率可以想成餐厅里「同时在岗的服务员比例」：客人下单（访存）要等很久，在岗的人多，总有人能顶上继续干活；但人太多，每人分到的工具柜（寄存器、共享内存）就变小，反而干不了重活。</span>
+
 ### Warp 与 CTA 不是同一粒度
 
 Warp 内 32 线程锁步：分歧（divergence）时两条路径串行。CTA 内多个 warp 可独立调度，但同步指令会让先到的 warp 空等。占用率按 warp 计，却常被 CTA 尺寸决定：一个 256 线程的 CTA 是 8 个 warp；SM 若最多驻留 16 个 CTA，同时最多 128 个 warp，还要再被寄存器与共享内存裁剪。说「block 设成 128 以提高占用率」而不算每线程寄存器，是在忽略真正的瓶颈。
@@ -43,6 +45,21 @@ $$
 
 CUDA Occupancy Calculator 与 `cudaOccupancyMaxActiveBlocksPerMultiprocessor` 做的就是这道整数规划的查表版。启动配置的目标，是在满足算法所需的 tile（例如 MMA 的 $m\times n\times k$、FlashAttention 的 Br/Bc）前提下，让 $\mathrm{occ}$ 处于「延迟可隐藏」的区间，而不是最大化 $\mathrm{occ}$ 本身。
 
+```mermaid
+flowchart TD
+  MAX["SM 的常驻 warp 上限（理论天花板）"] --> C1["约束：每 SM 最大线程 ÷ 32"]
+  MAX --> C2["约束：最大 CTA 数 × 每 CTA warp 数"]
+  MAX --> C3["约束：寄存器文件 ÷（每线程寄存器 × CTA 线程）"]
+  MAX --> C4["约束：共享内存容量 ÷ 每 CTA 用量"]
+  C1 --> MIN["W_active = 四条约束取最小"]
+  C2 --> MIN
+  C3 --> MIN
+  C4 --> MIN
+  MIN --> OCC["occ = W_active / W_max"]
+```
+
+<span class="marginnote">代个数：一个 256 线程的 CTA 就是 8 个 warp；若每线程用 64 个寄存器，一个 CTA 要占 $256\times64=16384$ 个，64K 的寄存器文件最多同时驻留 4 个这样的 CTA——寄存器一翻倍，驻留数立刻砍半。</span>
+
 ### 与 LLM 核的典型取舍
 
 大 GEMM 走库（cuBLAS / CUTLASS）：tile 大、每线程寄存器多、占用率中等，靠 MMA 吞吐而不是靠海量 warp 藏延迟。FlashAttention 一类手写核：共享内存装 QKV 分块，占用率常被共享内存卡住；此时减小 Br/Bc 能提高占用率，却增加全局内存往返，可能更慢。Decode 阶段序列长为 1，CTA 往往很瘦，占用率低是画像本身，优化应转向[访存](/llm/decode-memory-wall)与[CUDA Graph](/llm/cuda-graph) 减启动，而不是把 block 无脑加大。Prefill 相反，容易有足够的 CTA 填满 SM，见[预填充计算](/llm/prefill-compute)。
@@ -52,6 +69,8 @@ CUDA Occupancy Calculator 与 `cudaOccupancyMaxActiveBlocksPerMultiprocessor` �
 延迟隐藏的直觉：一条访存指令的完成需要几百个周期，若 SM 上还有其它就绪 warp，调度器切过去发无关指令，墙钟不被这次访存钉死。占用率高 → 就绪 warp 的期望多 → 覆盖长延迟的概率高。但它不增加单 warp 的 ILP：若每个线程内部依赖链很长、又几乎不访存，提高占用率没有指令可发，吞吐被计算流水线宽度限制。反过来，占用率低但每个 CTA 用满 Tensor Core、共享内存命中率高，仍然可以接近峰值。
 
 寄存器溢出（spill）是占用率陷阱。为了让编译器少用寄存器、抬高占用率，可能换来大量局部内存流量，把核从算力墙推到带宽墙。指南明确：不要为占用率数字牺牲溢出。应看 NCU 的 achieved occupancy、warp stall 原因（内存、barrier、短分数依赖），再决定减共享内存、改 CTA 形状、或接受中等占用率。
+
+<span class="marginnote">常见误区：把占用率当 KPI 拉满。强行压寄存器用量，编译器只好把放不下的变量挪到显存（spill），每次读写都走一遍 HBM——占用率上去了，墙钟反而更难看。</span>
 
 <span class="marginnote">Achieved occupancy 低于 theoretical，常见原因是 grid 太小（尾波）、块内分歧、或 `__syncthreads` 让大量 warp 同时卡住。只看理论占用率会误判已经「资源允许满载」的核。</span>
 

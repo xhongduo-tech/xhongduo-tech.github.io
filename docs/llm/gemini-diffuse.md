@@ -19,6 +19,8 @@ section: llm
 
 官方没有把 Gemini Diffusion 写成 ChatGPT 竞品级通用助手。DeepMind 页强调：相对自回归，扩散可对整块 token 迭代、生成中纠错，编辑与代码更对口。科学与多语榜上 Flash-Lite 仍明显领先。产品问题因此是双轨：研究演示证明速度；生产质量仍可能走自回归 Gemini，扩散作为低延迟实验。
 
+<span class="marginnote">「扩散模型」这个名字来自它学的事：把清晰数据一步步加噪、再学会把过程倒过来。训练时把好文本逐渐打成噪声，推理时从一团噪声出发一步步「擦」出答案。Stable Diffusion 画图用的就是同一思想，只不过这里擦出来的是文字和代码。</span>
+
 ### 「Diffuse」不是已发布的型号名
 
 检索与口语里会出现 Gemini Diffuse。对照 Google 博客与 DeepMind 域名 `gemini-diffusion`，官方英文是 Diffusion。没有公开的「Diffuse」系统卡或 API 模型 id。写文档时用 Gemini Diffusion；若标题沿用 Diffuse，必须在正文把命名差声明清楚，避免被当成第三个检查点。
@@ -50,6 +52,22 @@ flowchart TD
 ## 机制
 
 扩散推理的机制是把 decode 从「带宽墙、每步一 token」换成「算力墙、每步一块」。块越大、步数越少，越能喂满 GPU；质量与可改写次数对赌。整块双向可见，使模型能闭合括号、修前面的错，这是 DeepMind 页「更连贯、可迭代 refinement」的来源。代价是：训练目标、位置编码、缓存语义都与 KV cache 自回归栈不兼容；现成 vLLM 连续批处理要另写去噪循环。DiffusionGemma 开发者指南后来写明与 vLLM 团队合作——那是 2026 开权模型的工程，回头不能写成 2025 年 Gemini Diffusion 已开源服务核。
+
+<span class="marginnote">直觉类比：自回归像用滴管运水，每挤一滴都要跑一趟水管（把全部权重读一遍）；扩散像一次推一整桶。以 256 token 的块为例，读一遍权重换来 256 个位置同时更新，每 token 摊到的搬运成本大幅下降——这正是演示、补全这类 batch=1 场景能提速的来源。</span>
+
+两种解码各撞在哪堵墙上：
+
+```mermaid
+flowchart TD
+  A["自回归：一步产一个 token"] --> B["每步重读全部权重"]
+  B --> C["撞带宽墙"]
+  C --> D["batch=1 时芯片大量空转"]
+  E["扩散：一步更新整块 token"] --> F["读一次权重换来整块计算"]
+  F --> G["撞算力墙"]
+  G --> H["块大步少才能喂满 GPU"]
+```
+
+<span class="marginnote">数字实例：生成 1000 个 token，按 1479 tok/s 算采样只要约 0.68 秒，但加上 0.84 秒开销，墙钟约 1.5 秒——开销占了一半以上。所以短任务里，宣传中的「每秒千 token」在体感上会被固定开销吃掉，比总耗时比单看采样速度诚实。</span>
 
 <span class="marginnote">1479 tok/s 明确 *excluding overhead*；0.84 s 是开销。端到端用户延迟是两者之和，再加安全过滤。Brendan O'Donoghue 等在外围采访里提到编程任务可到约 2000 tok/s 量级，那不是 DeepMind 表内数字，引用需降级为非页面来源。</span>
 

@@ -21,6 +21,8 @@ BLAS 的对象是向量与矩阵：`GEMM`、$C \leftarrow \alpha AB+\beta C$，�
 
 边界模糊的区域存在。LayerNorm / RMSNorm 两边都可能出现；softmax 作为 BLAS 扩展和作为 DNN 原语都有；Transformer Engine 又在二者之上做 FP8 缩放。问题不是「选一个库用到底」，而是「这个张量变换的数学对象是 GEMM 还是层，融合是否必须跨过 softmax 或归一化归约」。
 
+<span class="marginnote">epilogue（收尾段）就是矩阵乘算完主体后「顺手做的小活」：加上 bias、过一道 ReLU 或 GELU。库把它并入同一次 kernel 发射，省得为几行小计算再单独排队起一个核——小核的启动开销常比计算本身还贵。</span>
+
 ### 启发式不是算法保证
 
 `cublasLtMatmul` 与 `cudnnFind*` / 运行时选计划，都按形状、对齐、步幅、GPU 型号在一组预编译核里挑。同一 $(M,N,K)$ 在对齐 16 与对齐 1 时可能完全不同；decode 的 $M=1$ 可能选到通用核而不是 Tensor Core 大 tile。换驱动或换 cuDNN 小版本，计划可能变，墙钟与数值尾差都可能变。把它当成确定性算法会在回归测试里踩坑：要钉版本，或钉计划缓存。
@@ -34,6 +36,8 @@ BLAS 的对象是向量与矩阵：`GEMM`、$C \leftarrow \alpha AB+\beta C$，�
 - **密集线性、MLP 门控、嵌入后的投影**：cuBLASLt。保证 K 维对齐、dtype 落在该代 Tensor Core 支持集，让启发式能选 MMA 核。需要 bias+激活且 Lt 支持该组合时，走 epilogue，避免再写一个点核。
 - **卷积 / 早期视觉塔、部分归一化、厂商融合注意力**：cuDNN。PyTorch 的 `scaled_dot_product_attention` 在若干版本上可以后端到 cuDNN FMHA；是否真走，要看形状、头维、掩码类型和开关。与 FlashAttention 的对照应在目标形状上测，见 [FA3](/llm/flashattention-3) 对厂商核的说明。
 - **库覆盖不住的**：分页 KV、投机树、自定义掩码、分组 GEMM 与 MoE 的不规则专家——CUTLASS、Triton 或自写。不要指望 cuBLAS 的 batched GEMM 在专家大小差一个数量级时仍接近峰值。
+
+<span class="marginnote">直觉类比：cuBLAS 像「只管矩阵乘的专家柜台」，单据（描述符）极简，随到随算；cuDNN 像「搭标准网络层的一站式柜台」，要填 pad、掩码、序列长度一大份表格，第一次排队久（选计划），但整层一起做。自己手写核则像自己开小作坊，什么都能做但什么都得自己保。</span>
 
 ```mermaid
 flowchart TD
@@ -57,6 +61,17 @@ Hopper 起的 FP8 训练/推理不是「cuBLAS 换个 dtype」那么简单。缩
 两套库能共享 Tensor Core，是因为最终都发射 MMA（或等价的卷积 MMA 变形）。差别在搜索空间与元数据。cuBLAS 假设规则步幅的二维/三维乘，描述符小，启发式快。cuDNN 要描述卷积的 pad/stride/dilation、注意力的因果掩码与序列长度、workspace 大小，计划空间大，第一次 `find` 可能很贵，因此推理引擎会缓存 cudnn 计划。CUDA Graph 捕获推理时，计划必须在捕获前固定，否则重放会打到错误的 workspace，见 [CUDA Graph 捕获推理](/llm/cuda-graph-infer)。
 
 Workspace 是另一条隐蔽边界。Lt 与 cuDNN 都可能要额外缓冲做 split-K 或算法 workspace。这部分算在「库的隐式显存」里，不出现在模型权重表上。服务进程按峰值 batch 预分配，避免捕获图之后再 `cudaMalloc`。
+
+```mermaid
+flowchart TD
+  I["进程启动：库初始化"] --> F["首次 find / 启发式选计划"]
+  F --> WS["按峰值 batch 预分配 workspace"]
+  WS --> CAP["CUDA Graph 捕获：计划与指针被钉死"]
+  CAP --> RP["重放：不再选核、不再 cudaMalloc"]
+  RP -- "中途换版本或缺缓冲" --> BAD["打到错误计划或隐式分配：延迟抖动"]
+```
+
+<span class="marginnote">数字实例感受选核的分量：一层 $4096\times4096$ 的投影，$M=N=K=4096$ 的 GEMM 约需 $2\times4096^3\approx1.4\times10^{11}$ 次乘加；若启发式选到只跑一半峰值的核，70 层模型的每一步都被拖慢同样的倍数。</span>
 
 <span class="marginnote">同一 GEMM，cuBLAS 传统 API 与 Lt API 可能选出不同核。新代码应走 Lt；旧 `cublasGemmEx` 路径在部分形状上仍被框架保留。对照性能时写清调用的是哪套 API，以及是否允许 TF32。</span>
 

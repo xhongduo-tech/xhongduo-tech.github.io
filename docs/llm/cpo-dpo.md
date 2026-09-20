@@ -26,6 +26,8 @@ $$
 
 分类里对付标签噪声的经典手段是 label smoothing：目标从 one-hot 改成 $1-\varepsilon$。偏好是二元分类的特例。问题是：把同一平滑写进 DPO 之后，零梯度条件变成什么，它和 IPO 的 $h=1/(2\tau)$ 是不是一回事。
 
+<span class="marginnote">label smoothing（标签平滑）就是把「满分答案 100% 正确」改口为「98% 正确」：模型不再被逼着对可能标错的样本走到无限自信。偏好学习里 $\varepsilon$ 扮演同一角色——承认人的比较会以一定概率标反。</span>
+
 ### 未平滑 DPO 的梯度永不精确为零
 
 $\sigma(\beta h)\to 1$ 时梯度趋于 0，但只在 $h\to+\infty$ 时达到。有限训练步里，损失永远在说「再拉开一点」。噪声对与正确对共用这一不饱和方向。平滑之后，目标不再是无穷置信，才可能在有限 $h$ 处真正停住。
@@ -49,6 +51,8 @@ $$
 
 $\hat p=1-\varepsilon$ 时梯度为零。BT 下这对应有限的 $\beta h=\mathrm{logit}(1-\varepsilon)$，而不是无穷间隔。
 
+<span class="marginnote">代个数：$\varepsilon=0.1$ 时目标胜率 $1-\varepsilon=0.9$，对应 $\beta h=\ln(0.9/0.1)\approx 2.2$；若 $\beta=0.1$，意味着隐含间隔 $h$ 只要到约 22 就该收手——而原始 DPO 会推着它奔向无穷。</span>
+
 ### 和 IPO 零点的差别
 
 IPO 的梯度正比于 $h-1/(2\tau)$，零点在**奖励差**（对数比差）上。cDPO 的零点在 **$\sigma(\beta h)$** 上。同一 $\beta$，两种零点一般不重合：$\sigma(\beta h)=1-\varepsilon$ 解出的 $h$ 与 $1/(2\tau)$ 只有在特意对齐 $\varepsilon$ 与 $\tau$ 时才相等。笔记的 TL;DR：cDPO 训练到对这条样本的隐含偏好概率达到 $1-\varepsilon$；IPO 训练到隐含奖励达到设定间隔。两者都能在达标后停止或反向，因而都比原始 DPO 更能在长训练后保持稳定。
@@ -71,9 +75,19 @@ TRL 一类库把 label smoothing 做成 DPO 的开关，有的文档写作 cDPO 
 
 平滑是在概率空间封顶。模型对一条训练对的 $\hat p$ 一旦到 $1-\varepsilon$，即使标签仍写「赢」，也不再加间隔；若过冲，反向 DPO 项会把间隔拉回来。这直接限制噪声对的伤害上限（在这一项上）。它不修正系统捷径：若 80% 的对都是更长的赢，目标胜率 $1-\varepsilon$ 仍一致要求更长的一边 $\hat p$ 高。cDPO 抑制的是无限自信，不是长度黑客。
 
+```mermaid
+flowchart TD
+  LBL["假设标签以 ε 概率翻面"] --> HP{"当前 p̂ = σ(βh) 落在哪？"}
+  HP -- "小于 1-ε" --> UP["梯度推着拉开 w 与 l 的间隔"]
+  HP -- "恰等于 1-ε" --> STOP["梯度为零：这一条封顶收手"]
+  HP -- "大于 1-ε" --> DOWN["反向 DPO 项接管：把过冲拉回来"]
+```
+
 相对 IPO，cDPO 留在 logistic / BT 几何里，只改目标标签；IPO 改的是 $\Psi$ 与损失族。若你相信比较近似 BT、只是标签有对称翻面，平滑是对症的噪声模型。若你不相信 logit 标度（确定比较应对应无穷 $r$），应改 $\Psi$，那是 IPO。两条可以同时做，但那时超参 $\varepsilon$ 与 $\tau$ 的含义重叠，必须只留一个主旋钮，避免「平滑了又回归间隔」的双重封顶把策略钉死在参照附近。
 
 <span class="marginnote">$\varepsilon\to 0$ 恢复 DPO；$\varepsilon\to 0.5$ 目标胜率 $0.5$，梯度在 $\hat p=0.5$ 即 $h=0$ 处为零，等于不学偏好。$\varepsilon$ 过大会把有效信号洗掉，不是越保守越好。</span>
+
+<span class="marginnote">直觉类比：cDPO 像恒温器——没到设定温度就一直加热，到了就停，过冲了还会反向吹冷风；原始 DPO 只有一个永远开着的加热开关，温差不瘫大的话它就一直烧。</span>
 
 ## 边界
 

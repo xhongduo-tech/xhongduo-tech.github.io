@@ -19,6 +19,8 @@ section: llm
 
 用普通 HTTP 压测去打 `/v1/chat/completions`，若只记录「完整 JSON 返回」的时间，得到的是请求延迟，丢失了流式首包。若服务端把整段生成完再吐，TTFT 会被人为拉成接近总延迟，和线上 SSE 不是同一系统。若提示词长度、输出长度不固定，吞吐会跟样本混在一起，无法复现。GenAI-Perf 要固定的是：针对生成式端点，在指定并发或指定到达率下，分别报告 **Time to First Token**、**Inter Token Latency**（以及较新文档中的 Time to Second Token、每用户输出 token 吞吐）、**Request Latency**、输入/输出序列长度，以及整次基准的 **Output Token Throughput** 与 **Request Throughput**。
 
+<span class="marginnote">TTFT 和 ITL 可以类比外卖：TTFT 是「下单到骑手敲门的等待」，决定你觉得这家店起手快不快；ITL 是「菜一道道上桌的间隔」，决定吃饭过程卡不卡顿。只报「这顿总共吃了多久」，就把两种完全不同的体验搅在了一起。</span>
+
 服务必须已经起来。工具不负责编译 TensorRT 引擎，只负责当客户端。后端参数（`--backend tensorrtllm` 等）告诉它如何解析流；OpenAI 兼容模式则打 chat / completions / embeddings。数据集可以是合成长度，也可以是 OpenOrca、CNN/DailyMail 一类文档里点名的公开集。没有流式、没有稳定的分词对齐，ITL 这一列没有定义——因为「中间响应之间的时间除以后一包的 token 数」依赖服务如何切 chunk。
 
 ### 分位数字与单一吞吐数字
@@ -52,13 +54,28 @@ flowchart LR
 
 负载模型有「固定并发」与「固定到达率」。前者接近用完线程池的闭环；后者更接近开环泊松到达，排队论上更像 Server 场景。延迟 SLA 应用到达率扫描；容量规划可以并发扫描。混用两种负载却比较 TTFT，结论无效。
 
+<span class="marginnote">固定并发像派 10 个人轮番不停下单：上一个没完下一个顶上，系统永远满负荷（闭环）；固定到达率像顾客按「每分钟约 10 单」随机上门，忙不过来就在门口排队（开环）。线上真实流量更像后者——队伍会自己变长，尾延迟因此难看得多。</span>
+
 ## 机制
 
 TTFT 包含排队、prefill、以及第一个 decode token 的调度。输入越长，prefill 越重，TTFT 分布右移；并发越高，排队项变大。ITL 近似每个输出 token 的间隔，连续批处理下它反映 decode 步时间加调度抖动，不是裸 GPU kernel 时间。请求延迟 ≈ TTFT +（输出 token 数 − 1）× 某种逐步时间，但逐步时间不恒定：开头可能受 prefill 拖尾、结尾可能受结束符、中间可能因批成员变化而抖动，所以文档要单独报 ITL 分布，而不是用总延迟除以长度。Time to Second Token 用来抓住「首包之后第二包是否卡住」——有的服务首 token 很快（缓存或投机），第二包才进入稳态 decode。
 
 输出 token 吞吐计的是基准期间所有请求的生成 token 之和除以墙钟，衡量机房利用率。每用户输出吞吐（较新指标）把生成阶段的 token 摊到该请求自己的生成时长上，更接近「这个用户觉得有多快」。两者可以反向运动：提高并发，前者升、后者降。帕累托分析必须两条都看。
 
+<span class="marginnote">「反向运动」的一个数字直觉：并发从 8 提到 64，机房每秒总产出可能从 400 token 涨到 900 token（利用率升），但每用户出字速度从约 50 token/s 跌到约 14 token/s（体验降）。只报总吞吐，就看不见后半段——这正是两个数必须分开列的原因。</span>
+
 <span class="marginnote">ITL 的定义是「相邻中间响应的时间差，除以后一响应的生成 token 数」。服务若一个 SSE 事件塞很多 token，ITL 会被摊薄，看起来优于真实逐 token 流。对照实验必须固定 chunk 语义，否则是在比流式实现而不是比模型。</span>
+
+一次请求的墙钟时间是怎么被拆开的：
+
+```mermaid
+flowchart LR
+  R["请求发出"] --> Q["排队等待"]
+  Q --> P["prefill：读入整个提示"]
+  P --> T["首个 token 出现<br/>TTFT 到此为止"]
+  T --> D["逐 token decode<br/>每步间隔记 ITL"]
+  D --> X["请求延迟 ≈ TTFT + n 个 ITL"]
+```
 
 ### 合成长度与真实长度
 

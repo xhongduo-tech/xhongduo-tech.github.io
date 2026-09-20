@@ -19,6 +19,8 @@ section: llm
 
 CUDA 文档给出的捕获模型是：`cudaStreamBeginCapture` 之后，投入该流的工作不立刻入队执行，而是记进捕获图；`cudaStreamEndCapture` 得到 `cudaGraph_t`，再 `cudaGraphInstantiate` 成可执行图。重放时图内参数默认是捕获时的那些指针与 grid。问题立刻出现：LLM 服务的 batch、序列长度、KV 页表每步都变。拓扑一变，图要重建；只变指针，可用文档中的 Graph Update（CUDA 11 起的 `cudaGraphExecNodeSetParams` 一类），但不能改拓扑。
 
+<span class="marginnote">三个词翻译一下：捕获＝把 CPU 本要逐条发给 GPU 的工单先记在清单上、不真发送；实例化＝把清单固化成可反复执行的模板；重放＝凭模板一次发整包。此后 CPU 的工作从「发几百条」变「发一条」。</span>
+
 ### 捕获期禁止什么
 
 文档写明：不要在默认流上捕获；不要在捕获中做 CPU–GPU 同步或查询流 / 事件完成状态；`cudaMalloc` 一类同步分配默认不安全，因为分配并不作为流上的异步节点被录下来，重放时不会重做。捕获必须从非默认流开始，其他流若参与，要从捕获流分支并在结束前汇合，形成自包含的图。违规则返回 `cudaErrorStreamCaptureUnsupported` 或使捕获图作废。
@@ -55,7 +57,18 @@ CUDA Graph 还可以含 CPU 节点、事件节点、子图。CPU 节点把主机
 
 收益来自减少重复的内核启动路径：参数拷贝、队列、驱动校验。GPU 执行时间不变，除非启动间隙被填满后整体占用上升。因此加速比在「CPU 受限的短 kernel 序列」上大，在「单核几十毫秒的大 GEMM」上几乎为零。Prefill 往往是后者，decode 往往是前者。把 Graph 加到已经融合得很好、每步两三个大核的流水线上，测不到数是预期，不是实现 bug。
 
+```mermaid
+flowchart TD
+  W["这段工作值得上图吗？"] --> Q1{"kernel 短、数量多、每步重复？"}
+  Q1 -- "是" --> Q2{"拓扑每步不变？"}
+  Q2 -- "是" --> G["上图：一次 launch 替代几百次提交"]
+  Q2 -- "否" --> P["分桶 / 层内小图 / 放弃整步图"]
+  Q1 -- "否：单核几十毫秒的大 GEMM" --> N["几乎无收益：GPU 没在等 CPU"]
+```
+
 捕获时不执行（相对默认的捕获语义），所以不能在捕获里根据 GPU 结果做 CPU 分支。条件执行要用图内的条件节点（较新的 CUDA 版本提供）或预先展开两条子图。LLM 里 MoE 的 token 路由是数据相关分支，和「静态图」天然别扭：要么走静态的满专家核再掩码（浪费），要么动态启动（破坏图），要么把路由限制在图能表达的 predication。
+
+<span class="marginnote">直觉类比：逐核启动像一百件小件各叫一次快递车，车在两件之间空跑；图重放是打成一整车一次拉走。注意路本身没有变宽——GPU 的算力与带宽没变，变的只是发车次数。</span>
 
 <span class="marginnote">`cudaGraphLaunch` 本身仍是一次 CPU 提交。若每步 launch 上百张小图，会回到启动税。目标是少张大图，或一层一张且层内足够胖。</span>
 
@@ -68,6 +81,8 @@ CUDA Graph 还可以含 CPU 节点、事件节点、子图。CPU 节点把主机
 不要在捕获中 malloc / 同步。不要用默认流。不要为动态 MoE 强行上一张「万能图」。不要把 Graph 当成跨进程共享的执行文件——可执行图绑在上下文上。多 GPU 时每张卡、每条捕获流各有图；NCCL 组要与捕获的分支规则兼容。
 
 MPS / MIG 上 Graph 仍可用，但上下文与设备 UUID 必须稳定，见 [MPS 与 MIG](/llm/mps-mig)。图不会降低 HBM 流量，也不会提高 Tensor Core 峰值。它解决提交，不解决屋顶线。对超节点上 72 路集合通信，先保证进程组在 NVLink 域内，再考虑是否把通信录进图。
+
+<span class="marginnote">常见误区：以为一张「万能图」能吃下所有 batch 与路由变化。拓扑一变整图作废重建，实例化的开销会把省下的启动税加倍吐回去——正确姿势是少数桶、每桶一张、命中率高。</span>
 
 <span class="marginnote">出处：NVIDIA CUDA C++ Programming Guide（CUDA Graphs）、CUDA Runtime API 中 stream capture 与 `cudaGraphExecNodeSetParams`；PyTorch 侧约束见 NVIDIA 的 CUDA Graph 最佳实践文档。不引用未公开的启动耗时微秒表。</span>
 

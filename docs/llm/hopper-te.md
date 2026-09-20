@@ -19,11 +19,15 @@ H100 相对 A100 的软件可见变化里，对 LLM 训练最硬的一块是 **�
 
 FP8 的动态范围极窄。E4M3 尾数多、范围小，适合前向；E5M2 范围大、尾数少，适合梯度。没有每张量（或分块）的缩放，大多数激活与梯度根本进不了格子。需要一个把「统计 amax → 选 scale → 量化 → FP8 GEMM → 反量化语义」绑在层上的运行时，并且尽量不在每步先做第二次全张量扫描。这就是 TE 在 Hopper 上要卖的东西。
 
+<span class="marginnote">FP8 就是用 8 个比特存一个数（FP16 用 16 个）。E4M3 和 E5M2 的区别是这 8 位怎么分：E4M3 给尾数 3 位——刻度细但量程窄，适合数值平稳的前向激活；E5M2 给指数 5 位——量程宽但刻度粗，适合常出大数的梯度。像两只温度计：量程窄的那只刻度更密。</span>
+
 ### 硬件边界：SM90 与 FP8 MMA
 
 TE 文档写明 FP8 延迟缩放路径需要 SM89（Ada）或更新；数据中心训练的主对象是 SM90 的 H100 / H200。没有 FP8 Tensor Core 的 GPU 上，TE 可以回退或拒绝，但没有吞吐意义。格式由库与硬件共同约定：输入 FP8、累加通常在更高精度（实现上常见 FP32 累加器），缩放因子作为 GEMM 元数据乘回去。漏乘一个 scale，等于给该层乘了一个随机学习率。
 
 <span class="marginnote">H100 还有 FP8 以外的 Hopper 特性（TMA、WGMMA、线程块集群）。它们加速的是搬运与 MMA 发射，TE 加速的是精度协议。融合核可以把两者叠在同一条线性层里，但排障时要分开问：Nsight 里 Tensor Pipe 是否非零，以及 amax 历史是否在更新。</span>
+
+<span class="marginnote">数字实例：E4M3 能表示的最大值约 448。若某张量的 amax 是 400，scale 就该设在让 400 恰好映到 448 附近；可下一步若冒出 2000 的尖峰，超出部分全部溢出。amax 历史（记上一步有多「高」）就是给这类尖峰留的缓冲带。</span>
 
 ## 方法
 
@@ -51,6 +55,18 @@ TE 还提供融合：GEMM 后接 GELU / 偏置、LayerNorm 线性等，减少 FP
 ## 机制
 
 延迟缩放能成立，是因为大 batch 预训练的 amax 在相邻步之间往往平滑。scale 慢一拍，大多数值仍落在可表示区；偶发尖峰则溢出，实现通常跳过该步或缩小 scale，与动态损失缩放是同一类控制回路。微调、极小 batch、损失尖峰更频繁时，陈旧 scale 更危险，文档与实践会改用 Current Scaling 或先 BF16 热身再开 FP8。这不是 Hopper 硬件缺陷，是统计假设破了。
+
+```mermaid
+flowchart TD
+  S["第 N 步开始"] --> D["DelayedScaling：读历史 amax 窗口定 scale"]
+  S --> C["CurrentScaling：先全量扫描本步 amax 再定 scale"]
+  D --> P["量化几乎免费，但尖峰可能溢出"]
+  C --> A["scale 精确，但多一整次全张量读"]
+  P --> H["本步新 amax 写入历史，供后续步使用"]
+  P --> R["溢出时跳步或缩 scale 的控制回路"]
+```
+
+<span class="marginnote">初学者容易以为「import TE 就等于两倍吞吐」。最常见的空转是静默回退到 BF16 GEMM（库与 CUDA 版本不齐、形状不支持）；decode 这类小 batch 场景的 GEMM 本来就卡在带宽上，换 FP8 也快不了多少。验收看 Nsight 里 Tensor Pipe 是否非零，不看 import 是否成功。</span>
 
 屋顶线上，FP8 把同一 HBM 流量对应的算术强度抬高，拐点右移：本该带宽受限的层有机会靠近计算墙。Decode 小 $M$ 的 GEMM 除外——tile 填不满 Tensor Core，精度再窄也接近带宽墙。所以 H100 上「开 TE」对预训练大微批、prefill 更敏感，对单请求 decode 不是同一故事。稀疏 2:4 峰值另算：权重必须满足模式且走稀疏 MMA，稠密 FP8 不会因为表头印了 sparse 就翻倍。
 

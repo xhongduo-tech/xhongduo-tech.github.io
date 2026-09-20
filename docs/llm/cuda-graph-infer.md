@@ -19,6 +19,8 @@ section: llm
 
 Decode 一步通常是「所有层的 RMSNorm → GEMM → 注意力 → 残差」的固定链条，层数不变，变的是 batch、当前序列长度、KV 页表指针。没有图时，每层每个核一次启动；核本身若只有几十微秒，启动税成为墙钟一阶项。有图时，一次 `cudaGraphLaunch` 提交整步。问题立刻变成：哪些量允许在重放时变化。CUDA 的合同是：拓扑（节点与边）在实例化时固定；部分节点参数可以 `cudaGraphExecUpdate` / `SetParams`；指针长度、grid 若超出更新允许的范围，更新失败，必须重新捕获。
 
+<span class="marginnote">代入数感受启动税：单个 kernel 只跑 30 μs，而 CPU 每次提交要 5–10 μs；70 层 decode 一步要发几百个核，光排队就可能吃掉几毫秒。每秒要出几十个 token 的服务里，这就是一阶损失。</span>
+
 推理还有捕获期禁止项：默认流、隐式同步、`.item()`、在捕获中 `cudaMalloc`。Python 框架的缓存分配器、日志里读标量 loss、以及按真实 batch 分配 KV 页，都是服务进程里最常见的捕获失败源。warmup 必须在捕获之外把缓冲吃满。
 
 ### 为何 prefill 往往不上整图
@@ -59,6 +61,18 @@ flowchart TD
 
 收益来自提交路径：参数就位、驱动校验、队列，从「每核一次」变成「每图一次」。GPU 上 MMA 与 HBM 流量不变。因此加速出现在 CPU 来不及喂 GPU 的短核序列上；已经融合成每层两三个大核、或 CPU 侧还有 Python 取样逻辑与图并行的路径上，加速会缩小。Graph 与 [核融合](/llm/kernel-fusion-tiling) 是互补：融合减少节点数，图减少剩余节点的启动税；融合得足够狠时，图的边际收益下降，这是预期。
 
+```mermaid
+flowchart TD
+  subgraph NOG["无图：逐核提交"]
+    A1["CPU 发核 1"] --> A2["CPU 发核 2"] --> A3["……N 层 × 每层多核"] --> A4["GPU 偶尔空转等下一发"]
+  end
+  subgraph WG["有图：一次提交"]
+    B1["CPU 一次 graph launch"] --> B2["GPU 连续吃完整步 decode"]
+  end
+```
+
+<span class="marginnote">直觉类比：捕获重放像把一套操作录成宏——录制（捕获）那遍并不真做菜，之后每次一键回放；要换菜量（形状变了）就得重新录一份，不能录到一半改菜谱（捕获中不许分支和分配）。</span>
+
 捕获得到的是当前上下文里的图，不能跨进程、跨 `cudaDevice` 共享。多卡张量并行时，每张卡各自捕获自己的那一截，NCCL 是否进图取决于该版本 NCCL 是否提供可捕获提交。进不了，则图只包计算，通信仍逐步 launch，中间仍可能出现 CPU 间隙。
 
 <span class="marginnote">`cudaGraphExecUpdate` 失败时必须整图重建。服务线程若在请求路径上同步重建，尾延迟会尖刺。应在空闲时为新桶预捕获，或把重建挪到后台流并在完成前走非图路径。</span>
@@ -72,6 +86,8 @@ PyTorch 的 `cudagraphs` 封装用 replay 时的静态地址约定，配合内�
 不要在默认流上捕获。不要为「所有 batch 都上图」建几十张从不命中的 exec。不要把取样、停用词、外部 tokenizer 塞进图。不要假设 Graph 能提高 Tensor Core 占用——它不改屋顶线。动态 batch 的正确姿势是：能 pad 的上图，不能 pad 的（变长 MoE 发出集、投机树深度变化）走逐步启动。
 
 与 [Persistent kernel](/llm/persistent-kernel) 相比：图减少的是 CPU 提交；持久核减少的是核与核之间的启动，并把流水线留在 SM 上。二者可以叠：图里 launch 一个持久核。叠之前先测是 CPU 受限还是 SM 在核间排水——弄错瓶颈会多维护一套捕获状态却看不见收益。
+
+<span class="marginnote">常见误区：以为开图能让 kernel 跑得更快。不会——每个 kernel 自己的执行时间一分没少，省的只是发射之间的 CPU 等待；如果瓶颈本来在显存带宽，开图前后的墙钟几乎一样。</span>
 
 <span class="marginnote">出处：CUDA Programming Guide 的 Graphs、stream capture 限制、`cudaGraphExecUpdate`；Runtime API。各推理引擎的分桶策略见其公开文档，本篇只保留与 CUDA 合同一致的部分，不把框架私有默认值写成规范。</span>
 
