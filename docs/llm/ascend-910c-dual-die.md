@@ -15,6 +15,8 @@ section: llm
 
 ## 问题
 
+<span class="marginnote">光罩（reticle）是光刻机一次曝光能刻出的最大硅片面积上限，约 850 mm² 量级；单颗 Die 再大也不能越过这条线。想堆更多晶体管，要么换更细的工艺，要么把两颗 Die 封在一起——910C 选了后者，工艺不动、算力翻倍。</span>
+
 单 Die 受光罩面积、良率与 HBM PHY 数量限制，算力与内存涨到头。下一代可以选择更大的单 Die，或把两颗成熟 Die 封在一起。910C 走后者：软件看见的「一张 910C」内部其实是两个计算复合体，靠封装内互连当桥梁。问题是：对框架而言，910C 是 1 个装置还是 2 个 rank？KV 与专家按封装切还是按 Die 切？Die 间 270 GB/s/方向比 UB 平面与 HBM 都窄一档，放错通信就会在封装内部打满这座桥。
 
 CloudMatrix384 把 384 张 910C 收成超节点时，表格按 **per-die** 报带宽，并写明每张 910C 两 Die。服务侧 EP320 把 DeepSeek-R1 的专家铺到 **320 个 Die**（160 张 910C），「每 Die 一个专家」——这明确把 Die 当成并行原子，而不是把封装当成不可分割的一张卡。
@@ -55,11 +57,28 @@ CloudMatrix-Infer 的 PD 分离与 EP320 说明：decode 实例用 160 卡 320 D
 
 双 Die 的机制是面积与良率：两颗较小的计算 Die 比一颗翻倍面积的 Die 更好造，HBM PHY 与 UB/RDMA SerDes 可以按 Die 复制。代价是 Die 间一致性与带宽。540 GB/s 合计大约是每 Die HBM 1.6 TB/s 的三分之一量级，因此跨 Die 的每次同步都比本 Die 内搬运贵。适合放在桥上的是低频、整块的激活或梯度；不适合的是 decode 每层两次、体积只有 $b\times d$ 的 All-Reduce——那应当尽量留在本 Die，或把 TP 度降下来。
 
+```mermaid
+flowchart TD
+  Q["这条通信该落在哪座桥？"]
+  Q -->|"Die 内算子间数据"| L0["留在本 Die：UB / 64 GB 近端内存"]
+  Q -->|"低频、整块激活或梯度"| L1["封装内桥：270 GB/s 每方向"]
+  Q -->|"跨卡 TP / EP 专家路由"| L2["节点 UB：每 Die 196 GB/s 单向"]
+  Q -->|"跨节点 / 远端 KV 池化"| L3["RDMA Scale-Out"]
+  L0 --> W["每字节成本：Die 内 \lt 桥 \lt UB \lt 出机柜"]
+  L1 --> W
+  L2 --> W
+  L3 --> W
+```
+
+<span class="marginnote">数字实例：decode 时 TP=2 的 All-Reduce 每层两次，张量只有 $b\times d$。取 $b=8$、$d=4096$、FP16，一次就是 $8\times 4096\times 2=64$ KB——数据量很小，却要排队过桥、等两 Die 同步，延迟成本远高于字节数。这就是「窄 TP 留在本 Die」背后的算术。</span>
+
 热与供电按封装：两 Die 加八栈，散热是共封装问题。节点 8 卡已经是高密度；超节点再靠液冷与通信柜。故障上，一 Die 失效是否整封装报废，公开论文未写现场策略；运维上应按封装替换，不要假设可热摘单 Die。
 
 <span class="marginnote">论文还给出每 Die 七条 224 Gb/s 的 UB 收发。那是 Scale-Up 平面的注入，不是 Die–Die 桥。把 224 Gb/s × 7 换算成约 196 GB/s 单向，与封装内 270 GB/s/方向是两个不同的物理通道。</span>
 
 ### 与 Jalapeño 双域、与 NVL 超芯的对比
+
+<span class="marginnote">初学者容易以为「双 Die 封装 = 一张更大的卡、128 GB 随手可用」。实际上更像是两居室共用的墙：各屋 64 GB 随便用，穿墙要走 540 GB/s 的门洞且限流，出门（UB 超节点）又是另一套门禁。放数据前先想清楚它住哪间屋。</span>
 
 Jalapeño 用以太域把 128/2048 颗整芯片连起来；910C 先在封装内用专用桥把两 Die 连起来，再在超节点用 UB。NVIDIA 超芯是 CPU–GPU 一致性互连。三者都是「把多个硅片收成一个产品」，但 910C 的两 Die 是同构计算对，不是 CPU+GPU。不要把 540 GB/s 写成 NVLink 5 的 1.8 TB/s，也不要写成 Jalapeño 本地域的 600 GB/s——数字来源不同、层级不同。
 

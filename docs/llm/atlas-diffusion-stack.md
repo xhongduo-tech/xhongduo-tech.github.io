@@ -23,6 +23,8 @@ section: llm
 
 官方句子是 can make use of。合理解读：架构没有挡住这些算法；不合理解读：Atlas 推理一定用了某篇蒸馏论文的 $N=4$、一定 CFG scale 等于 7.5、一定 VAE 下采样 $8\times$。参数量、潜宽、码本还是连续潜变量，均未披露。写栈是为了读对后续工程选择，不是为了伪造一张 Atlas 模型卡。
 
+<span class="marginnote">初学者容易把「can make use of」读成「已经内置」。官方只说架构上不挡这些算法：步数、CFG 尺度、VAE 压缩比统统没公布。任何写死的「Atlas 用 4 步蒸馏」都是编造。</span>
+
 <span class="marginnote">Rectified flow 把扩散看成学速度场 $v_\theta(z_t,t)$，沿近直线积分。步数少时误差不同于 DDPM 的随机 Langevin。蒸馏与 CFG 的公式要写在 flow 的变量上，不要直接把 $\epsilon$-预测的帖子抄过来当 Atlas 实现。</span>
 
 ## 方法
@@ -46,6 +48,8 @@ v_{\mathrm{cfg}} = v_\theta(z_t,t,\varnothing) + s\bigl(v_\theta(z_t,t,c)-v_\the
 $$
 
 $s$ 是引导尺度。$s=1$ 回到条件生成；$s\gt 1$ 强化 $c$，包括相机与空间上下文。无分类器训练要求以一定概率丢掉 $c$，才能学到 $v_\theta(\cdot,\varnothing)$。Ho 与 Salimans 2022 年的 CFG 原写在 $\epsilon$ 预测上，思想同样适用。
+
+<span class="marginnote">直觉类比：CFG 像先问一位「没看提示词的画家」、再问一位「认真听的画家」，然后朝认真听的方向多走 $s-1$ 步。$s=1$ 只按条件画；$s$ 过大就用力过猛——颜色过饱和、纹理复读，几何上还会让机位过冲。</span>
 
 蒸馏：教师用多步积分出干净 $\hat{z}$，学生用更少步拟合同一位移，或拟合一致性条件（同一轨迹上不同 $t$ 映到同一终点）。目标是把每帧 NFE 从几十降到个位数，而不把空间一致性整段丢掉。Shifted noise schedules 改变 $t$ 的采样密度，让高噪声或低噪声段多训练，属于同一栈上的日程旋钮。
 
@@ -76,6 +80,17 @@ CFG 的几何含义是在速度场里沿条件梯度走得更远。对离散文�
 ### 三块杠杆如何叠在自回归上
 
 每个自回归元素调用一次（或 $N$ 次）潜空间生成。VAE 决定元素有多宽；CFG 决定这次生成多听话；蒸馏决定 $N$。长视频的总 NFE 约为 $T\times N$。把 $N$ 从 50 蒸到 4，比把 Transformer 再快 20% 更划算，前提是空间锚不漂。若蒸馏学生在第 100 帧开始忘了第一张参考图，省下的步数会买来[长镜头](/llm/atlas-camera-controlled-video) 的崩坏。因此蒸馏必须在长序列上验收，而不能只在单张 FID 上验收。
+
+```mermaid
+flowchart LR
+  V["VAE\n管元素多宽：潜 token 数"] --> G["一次元素生成"]
+  C["CFG 尺度 s\n管多听条件的话"] --> G
+  D["蒸馏\n管去噪步数 N"] --> G
+  F["自回归长度 T\n管要生成多少个元素"] --> SUM["长视频总开销\n≈ T × N 次网络前向"]
+  G --> SUM
+```
+
+<span class="marginnote">数字实例：若 VAE 做常见的 $8\times$ 空间下采样，一张 $2560\times1440$ 的图只剩约 $320\times180$ 个潜位置，像素数压到 $1/64$——这就是「潜空间解决维度」的直觉。Atlas 的实际压缩比未披露，此处只是量级示意。</span>
 
 ## 边界
 

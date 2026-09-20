@@ -19,11 +19,15 @@ HybridFlow（Sheng、Zhang、Peng、Lin、Wu 等，EuroSys 2025，arXiv:2409.192
 
 异步要回答的问题因此不是「会不会 HybridFlow」，而是：**栅栏能否拆开，拆开后梯度还对不对**。One-step overlap 仍保持 batch 内同版本，只把「上一步训练」与「当前步生成」叠在不同资源上。完全异步允许一个训练 batch 混合多个版本，甚至一条序列在解码中途换权重。
 
+<span class="marginnote">「staleness」（陈旧度）指样本生成时用的权重版本，与当前正在训练的权重版本差了几步。差 0–1 步还能近似当 on-policy；差上 5 步，重要性比就可能飘出合理范围，clip 也压不住——所以异步系统都要给它设上限。</span>
+
 ### 三种时序不是实现细节
 
 1. **同步栅栏**：$\pi_{\mathrm{old}}$ 全局唯一；实现简单；气泡 = 长尾。
 2. **一步重叠**：资源利用率高一截；算法仍可当 on-policy（差一步）；最长序列问题还在。
 3. **完全异步 / 流式**：生成是 server，请求完成即入队；必须有 staleness 上限、版本化 logprob、以及是否允许 partial rollout。
+
+<span class="marginnote">直觉类比：一步重叠像后厨「上一锅炒着、下一锅备着」，锅与锅之间还是同一版菜单；完全异步则是自助餐，训练随到随吃，代价是每盘菜都得贴上生产日期（版本号），坏了哪盘能追溯。</span>
 
 把 vLLM sleep 模式的共置时间片（OpenRLHF Hybrid Engine 文档：生成与训练轮流占卡）当成第 3 种是错误：那是**时间复用的同步**，不是流。
 
@@ -57,6 +61,16 @@ HybridFlow 的论点是：节点**之间**用单控制器写数据依赖，节�
 ## 机制
 
 正确性依赖三本账。**版本**：每条样本记录生成时的 policy version，重要性比 $\pi_\theta/\pi_{\mathrm{behav}}$ 用对。**近端中心**：完全异步时不要把过期的 $\pi_{\mathrm{behav}}$ 既当行为策略又当 clip 中心，AReaL 的解耦 PPO 把 $\pi_{\mathrm{prox}}$ 取较新锚。**Mask 与 token 身份**：流式多轮必须 token-in token-out，否则队列里的字符串再分词会与 logprob 错位，见 [AgentLoop](/llm/agentloop-server)。
+
+```mermaid
+flowchart TD
+  R["Rollouter 用权重 v7 生成样本"] --> Q["样本入队\n贴版本号 7 与逐 token logprob"]
+  Q --> T["Learner 已推进到 v9\n消费这条样本"]
+  T --> W["重要性比：分子 π_θ v9\n分母 π_behav 必须是 v7"]
+  T --> P["clip 中心 π_prox 取较新锚\n不能拿过期 v7 当中心"]
+```
+
+<span class="marginnote">为什么 token 对齐这一步错不得：同一段文本换一种分词可能切出不同的 token 序列，重新分词后的第 37 个 token 未必对应原 logprob 表里的第 37 个。序列看似在训，重要性比整条错位——训练还在跑，学到的却是噪声。</span>
 
 吞吐来自重叠与减填充，不是来自更大的学习率。反压 $\eta$ 是在「利用率」和「偏差」之间的旋钮：$\eta=0$ 退回同步；$\eta$ 过大时即使 clip 也救不回分布。工具调用时，异步的收益还来自轨迹间不在 I/O 上对齐，这是 [VERLTool](/llm/verltool) 的 2× 来源，即使 Learner 仍逐步训练。
 

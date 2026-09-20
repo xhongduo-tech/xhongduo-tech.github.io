@@ -33,6 +33,8 @@ Prefill / 大 batch：看 FP4/FP8 Tensor Core 的 $P$。NVL72 产品表把整柜
 
 Decode / 小 batch：看 HBM 带宽与容量。公开材料把 Blackwell 单卡 HBM3e 写到约 8 TB/s、容量到 192 GB 量级（具体 SKU 以产品页为准）；GB200 NVL72 整柜 GPU 显存与 CPU LPDDR 是相加关系，不是自动统一寻址。KV 与权重能留在近端 HBM，TPOT 才跟带宽走；卸到主机要付 C2C 或更慢的路径。
 
+<span class="marginnote">数字实例：FP16 权重一个参数 2 字节，FP8 是 1 字节，NVFP4 加上块尺度约 0.5 字节出头。70B 模型的权重 FP16 要约 140 GB，一张 192 GB 的卡几乎装不下别的；换 FP4 后权重约 40 GB，剩下 150 GB 都可以留给 KV，同卡并发与上下文长度直接翻几倍。</span>
+
 宽模型 / 宽 MoE：看 NVLink 域。第五代 NVLink 每 GPU 公开 1.8 TB/s；NVL72 域内集合约 130 TB/s 量级的产品表述。专家并行与张量并行优先画在这 72 卡内，柜外仍走 InfiniBand 或以太网做多副本与存储。这与 [GB200 NVL72 超节点](/llm/gb200-nvl72) 的形态一致，本篇只强调它对 **decode 逐步通信** 的含义：域内 All-to-All 的延迟尺度不同于跨机。
 
 ```mermaid
@@ -56,6 +58,18 @@ KV 缓存用 FP8 或 FP4 是推理侧最直接的容量杠杆：上下文长度�
 
 推理为什么对窄精度比训练更敏感：训练可以把误差平均进大 batch 的梯度；decode 每一步的 logits 都直接进采样。微缩放是在「更少比特」和「局部范围」之间折中，使 E2M1 的粗格子仍能表示一层里不同通道的幅度。元数据流量必须算进屋顶线：块尺度太细，scale 本身变成带宽；太粗，退化成每张量 FP8。公开块大小以 TE / 白皮书为准，不要发明另一种块长。
 
+<span class="marginnote">术语翻译：微缩放（microscaling）就是「分块定标」的手段来做「比特更少精度不炸」的事。类比录音：与其用一条音量曲线盖住整首歌（每张量一个 scale），不如每小节各定一条（每 16 个元素一个 FP8 scale），轻声的段落不会被大音量的刻度挤没了。</span>
+
+```mermaid
+flowchart TD
+  T["一个张量：通道间幅度差异大"] --> B["按 16 元素切块"]
+  B --> S["每块算一个 FP8 E4M3 块尺度"]
+  B --> E["元素量化到 E2M1 粗格子"]
+  S --> DQ["MMA 时按块尺度展开"]
+  E --> DQ
+  DQ --> C["第五代 Tensor Core 计算"]
+```
+
 72 卡域改变的是通信的**几何**，不是取消切分。CUDA 仍见 72 个 device。一层 72 路 TP 把 GEMM 切得很瘦，MMA 形状可能填不满，decode 更糟。合理用法往往是：中等 TP × 宽 EP，或整柜一份 MoE 副本。把 72 卡当成 9 个互不往来的 8 卡副本，等于买了域却按 Hopper HGX 调度——这是推理集群最常见的浪费，而不是芯片的问题。
 
 <span class="marginnote">GB200 Superchip 的 NVLink-C2C 公开双向 900 GB/s，CPU 内存可参与 KV 或权重的第二层。这比 PCIe 卸主机快，仍远慢于 HBM。规划「统一内存」时以编程指南为准，不要假设任意 kernel 都能以 HBM 速率扫 CPU DRAM。</span>
@@ -63,6 +77,8 @@ KV 缓存用 FP8 或 FP4 是推理侧最直接的容量杠杆：上下文长度�
 ### 不要把柜级峰值当成单核 decode
 
 整柜 NVFP4 PFLOPS 是所有 GPU、理想形状、对应精度（常含稀疏脚注）的加总。单请求 decode 的 $M=1$，能用到的是一张或数张卡上、受 HBM 约束的一小段。并发上去之后，prefill 批处理与 decode 批处理才开始靠近表头。PD 分离、连续批、分页 KV 仍然决定你能不能把 Blackwell 的 $P$ 与 $B$ 同时用上。换代而不改调度，只会得到「卡更贵、SLO 依旧」。
+
+<span class="marginnote">常见误区：初学者容易把「整柜约 130 TB/s NVLink」当成单卡能用的速率。它是 72 张卡同时互传的加总；单卡出口仍是每卡 1.8 TB/s。规划 MoE All-to-All 时延要按单卡端口算，按柜级总数算会乐观一个数量级。</span>
 
 ## 边界
 

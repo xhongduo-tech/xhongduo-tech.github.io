@@ -19,6 +19,8 @@ AI 机柜的主机 CPU 已经很忙：驱动、遥测、容器、存储客户端
 
 NVIDIA 把 BlueField-4 写成：用 Grace 做可编程基础设施，用 ConnectX-9 做高速数据路径，用 DOCA 微服务把网络、存储、安全编成容器化服务。问题是职责边界：哪些必须留在 DPU 上（否则 GPU 或主机被拖死），哪些仍该是机柜管理面或独立存储集群。
 
+<span class="marginnote">术语翻译：DPU 就是「把一台小服务器插进 PCIe 槽」的手段，来做「基础设施杂活不再占用主机 CPU」的事——虚拟网络、加密、存储协议都跑在它自己的核上，GPU 与主机只见到处理好的字节。</span>
+
 ### DPU 与 SuperNIC 不要混着用
 
 同一代材料里，ConnectX-9 以 SuperNIC 出现，BlueField-4 以 DPU 出现。公开技术博文把 BlueField-4 写成双芯片封装：64 核 Grace 负责卸载与安全，集成的 ConnectX-9 负责紧耦合的数据搬移。SuperNIC 可以不带那颗大 CPU；DPU 则明确要跑操作系统级服务。运维上，SuperNIC 更像高速网卡，DPU 更像「一台插在 PCIe 上的基础设施服务器」。把两者的镜像、内核与 DOCA 服务当成同一套镜像分发，会在现场制造无法解释的 CPU 空闲或过热。
@@ -28,6 +30,8 @@ NVIDIA 把 BlueField-4 写成：用 Grace 做可编程基础设施，用 Connect
 ## 方法
 
 把 BlueField-4 当成机柜的基础设施平面来部署，而不是当成第 73 张 GPU。NVIDIA 技术博文给出过与 BlueField-3 的对照表，公开数字包括：带宽从 400 Gb/s 到 800 Gb/s；计算从 16 个 Arm A78 到 64 个 Arm Neoverse V2 级核；内存容量从 32 GB 到 128 GB；内存带宽从约 75 GB/s 到约 250 GB/s；云网络可管理主机规模从约 32K 到约 128K；4K NVMe 分发从约 10M IOPS 到约 20M IOPS。这些是厂商规格，用来理解「卸载平面加了一档」，不是本博客的测量。
+
+<span class="marginnote">数字实例：800 Gb/s 约合每秒 100 GB 的字节流，线速加密就是给这 100 GB 全部做密码运算。BlueField-3 的 16 核应付这条流已经吃紧；换成 64 核、内存带宽约 75 提到约 250 GB/s，加密与协议处理才留得出余量——这就是「核数与内存带宽必须一起加」的具体含义。</span>
 
 软件走 DOCA：把网络、存储加速、运行时安全做成微服务，并支持服务功能链（service function chaining），让多段网络/安全/存储处理在 DPU 上串起来，而不回到主机。安全侧公开了 ASTRA（Advanced Secure Trusted Resource Architecture），用于在选定的 Rubin 平台上配合 ConnectX-9，给裸金属实例做零信任租户隔离。存储侧，BlueField-4 被明确写成 AI 数据存储加速与 KV / 上下文外置路径的引擎之一——这与 [PD 分离里的 KV 搬运](/llm/pd-kv-transfer) 是同一类流量，只是落点从「另一组 GPU」变成「DPU 后面的存储层」。
 
@@ -55,6 +59,15 @@ flowchart LR
 
 卸载成立，是因为数据面与控制面被拆开。ConnectX-9 路径负责线速转发与 RDMA；Grace 核负责那些不规则、有状态、但必须靠近网卡的工作：连接跟踪、存储协议、遥测聚合、策略。相对 BlueField-3，核数与内存带宽一起加，才能在 800 Gb/s 上仍留出可编程余量——否则线速加密会把 Arm 核打满，DPU 退化成一块不会编程的网卡。
 
+```mermaid
+flowchart LR
+  REQ["存储 / KV 读取请求"] --> CX9["ConnectX-9 线速收发"]
+  CX9 --> G["64 核 Grace：协议 / 加密 / 连接跟踪"]
+  G --> RD["RDMA 把字节组装完毕"]
+  RD --> HBM["直达 GPU HBM"]
+  G -.->|"主机 CPU 全程不碰这些包"| HOST["主机核跑自己的活"]
+```
+
 对 LLM 工厂，这意味着三件具体的事。网络：多租户与东向流量的隔离不经过 GPU。存储：检查点与 KV 外置的协议处理不经过训练进程。安全：运行时策略可以在数据路径上执行，而不在模型进程里插钩子。DOCA 的兼容叙述是：现有 BlueField 上的加速应用应能迁到 BlueField-4 并吃到性能；这是软件平台承诺，具体微服务目录以当时 DOCA 发行说明为准。
 
 <span class="marginnote">800 Gb/s 是 DPU 的网络吞吐规格，与 SuperNIC 页上「每 GPU 1.6 Tb/s」不是同一口径。一块 DPU 服务的是节点或托盘的基础设施平面；每 GPU 的 scale-out 带宽仍看 ConnectX-9 SuperNIC 的配置数量。不要把一张表的数字填进另一张表。</span>
@@ -68,6 +81,8 @@ Grace 在 BlueField-4 里是基础设施 CPU，不是把 Vera CPU 机柜替代�
 不要指望 BlueField-4 加速 Transformer 核：它没有被公开写成推理加速器。不要在未部署 DOCA 服务时宣称「已经卸载」——插上 DPU 而流量仍走主机内核，只是多了一颗闲着的 Grace。不要把未出现在数据手册里的频率、缓存容量、未发布的加密算法列表写进容量规划。Hot Chips 报道里出现过频率与 LPDDR 带宽的现场数字，若与数据手册不一致，以 NVIDIA 自己的数据表为准，现场笔记只作参考。
 
 爆炸半径：DPU 固件或 DOCA 服务故障会影响该节点的网络与存储，而不一定让 GPU 计算核立刻停止；但训练作业会表现为 I/O hang。SLA 要把 DPU 当成数据路径的一部分来监控，而不是当可选的管理卡。
+
+<span class="marginnote">常见误区：初学者容易以为「装上 DPU 就等于已卸载」。若没部署 DOCA 服务、流量仍走主机内核协议栈，那颗 Grace 就在空转，主机的负担一点没少。验收要看流量实际路径，不是看插槽里有没有这块卡。</span>
 
 <span class="marginnote">出处：NVIDIA《Launches BlueField-4》博客、Inside Vera Rubin 平台技术博文中的 DPU 对照表与 800 Gb/s / 64 核 Grace 描述、BlueField-4 数据手册摘要，以及 DOCA / ASTRA 的公开定位。不编造未公开的单核频率表。</span>
 

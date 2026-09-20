@@ -17,6 +17,10 @@ Ampere 的 `mma.sync` 从寄存器吃 A/B、把 C 写回寄存器，形状小到
 
 Hopper 已经把 A/B 的寄存器带宽省掉了（WGMMA 读 SMEM），但大瓦片的累加器仍占寄存器。占用率、epilogue 融合、与 TMA 流水抢寄存器，都卡在 RF。下一代若继续放大 MMA 形状，寄存器放不下 $128\times 256$ 的 FP32 累加。NVIDIA 的选择是增加一块 CTA 作用域的二维片上存储：公开描述里 SM100A 上每 CTA **128 lane × 512 col**，每格 32 bit，正好放下 FP32 / INT32 累加。MMA 直接读写这块，RF 只在 epilogue 出现。
 
+<span class="marginnote">术语翻译：Tensor Memory（TMEM）就是「给乘加结果单独开一块片上格子」的手段，来做「瓦片继续变大但不再挤占寄存器」的事。它按 CTA 分配、专供 Tensor Core 读写，普通变量放不进去；要用结果还得 `tcgen05.ld` 搬回寄存器。</span>
+
+<span class="marginnote">数字实例：一个 $128\times 256$ 的 FP32 累加器要 $128\times 256\times 4$ 字节 $=128$ KB。而一个 warp group（128 线程）按每线程 255 个寄存器算，整个寄存器预算也只有约 127 KB——光放一个累加器就把寄存器吃光了，这就是 TMEM 必须出现的算术。</span>
+
 指令发射也改了。WGMMA 仍是 warp-group 协作；`tcgen05.mma` 由 **单线程** 发出，硬件对整个 CTA（或 CTA pair）做一次瓦片级乘加。完成不体现在该线程的下一条指令，而体现在 `tcgen05.commit` 打到的 mbarrier 上。把 Hopper 的「wait 某个 wgmma group」脑补成 SM100 会漏掉 commit。
 
 ### SM100 与 SM120 不是同一条 MMA 路
@@ -58,6 +62,16 @@ flowchart LR
 吞吐数字「相对 WGMMA 的 2×–4×」绑定数据类型与是否走稀疏 / 窄精度。BF16 与 NVFP4 不在同一档。屋顶线仍分计算墙与带宽墙：decode GEMV 填不满 $128\times 256$ 的 MMA，TMEM 帮不上忙，瓶颈仍是 HBM。SM100 MMA 的客户首先是预填、训练、大 $M$ 的专家 GEMM，以及能把 $K$ 做深的权重量化乘。
 
 异步握手与 TMA 同构：发出不等于数据就绪。TMA 填 SMEM 要用带字节计数的 mbarrier；MMA 写 TMEM 要用 `tcgen05.commit` 的 arrive。Epilogue 在 wait 之前 `tcgen05.ld` 会读到半成品。Hopper 程序员若只把 `wgmma.wait_group` 换成某种 fence，而不发 commit，会卡住或读脏。
+
+<span class="marginnote">常见误区：初学者容易把「发射了 `tcgen05.mma`」当成「结果已经写好」。这条指令是异步的，完成信号只出现在 commit 绑定的 mbarrier 上；不等 barrier 就 `tcgen05.ld`，读到的可能是上一轮的旧累加——而且这种错数往往静默通过编译。</span>
+
+```mermaid
+flowchart TD
+  A["Ampere mma.sync"] --> A1["A/B 与累加全在寄存器"]
+  H["Hopper wgmma"] --> H1["A/B 读 SMEM，累加仍占寄存器"]
+  B["Blackwell tcgen05"] --> B1["A/B 在 SMEM，累加进 TMEM"]
+  B1 --> R["寄存器腾给 epilogue 与流水"]
+```
 
 <span class="marginnote">TMEM 容量是硬约束。128×512×4B ≈ 256 KiB 量级的累加空间要在多级流水、多块缩放、可选 A 暂存之间分配。双缓冲累加器会立刻把列方向切窄，从而限制 $N$。调度是容量规划，不是「再加一层 pipeline 注解」。</span>
 
