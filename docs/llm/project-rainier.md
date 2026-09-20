@@ -23,6 +23,8 @@ section: llm
 
 一台 Trainium2 UltraServer：64 芯片、芯片间 NeuronLink（官方介绍里强调可辨认的蓝色线缆）。四台 Trn2 服务器先在机内高速域完成张量并行、流水线邻接、以及 64 芯片内存池能覆盖的专家并行。再往上，黄色线缆标识的 EFA 连接 UltraServer，并跨数据中心延伸。两级不能互相替代：NeuronLink 的带宽与延迟合同是 scale-up；EFA 是 petabit 量级、可扩展的 scale-out。把模型并行轴放到 EFA 上，等于回到「独立服务器 + 外部交换机」的旧世界。
 
+<span class="marginnote">一个直觉类比：NeuronLink 像同一间办公室里的工位距离——抬头喊一声就有人应答，延迟以微秒计；EFA 像园区之间的货运公路——运量大，但一趟要以更大粒度结算。把天天要开会的人分到两个园区，效率就塌了；这就是「并行轴要对齐物理层级」的日常版。</span>
+
 <span class="marginnote">芯片代数要写清。Rainier 投产叙事锁定的是 **Trainium2**，不是 [Trainium3](/llm/trainium-3)。后续 Anthropic 与 AWS 的长期协议会覆盖 Trainium3/4 与更多容量，那是另一份合同。不要把 2025 年底的「近五十万 Trn2」改写成 Trn3 UltraServer 的 144 芯片域。</span>
 
 ## 方法
@@ -45,11 +47,29 @@ flowchart TD
 
 「近五十万」是投产声明里的芯片计数，不是你的 `world_size`。Anthropic 侧另有「到当年年底 Claude 将跑在超过一百万颗 Trainium2 上（含直接使用与 Bedrock）」的预期——那是公司级装机，可能跨 Rainier 与其它 AWS 容量，不要与「Rainier 这一台 UltraCluster」划等号。5× 是相对 Anthropic **上一世代模型所用算力** 的倍数，不是相对某个公开 GPU 集群的第三方测量，也不是 MFU。单芯片「每秒数万亿次运算」是科普量级，规划用 [Trainium2 架构表](/llm/trainium2-inferentia2) 的 TFLOPS，不要用「数到一兆要 31700 年」这类修辞做容量模型。
 
+<span class="marginnote">数字实例：拿「近五十万颗 ÷ 每台 UltraServer 64 颗」一除，约等于七千八百台 UltraServer。也就是说，训练作业的最小拼接单位不是「一颗芯片」也不是「一台服务器」，而是这样一台 64 芯的机器——你的数据并行副本数通常是这个数的整数倍的一部分，而不是 500000 这种抽象大数。</span>
+
 交付节奏：官方强调从首次宣布到全面运营少于一年。这对工程的含义是：冷却、供电、网络与芯片供给被当成同一条关键路径并行推进；对评测的含义是：早期作业会撞固件与 RAS 的婴儿期，分数波动可能来自集群而不是模型。
 
 ## 机制
 
 分层互连之所以能训大模型，是因为并行策略可以和物理层级对齐。张量并行、强同步的流水线阶段放在 64 芯片 UltraServer 内；数据并行梯度、较宽的流水、跨域 MoE 走 EFA。这与 TPU 上「密通信留 ICI、副本走 DCN」是同一条几何，只是 AWS 的 scale-up 量子是 64 芯 UltraServer，而不是某一代 TPU slice 的网格形状。
+
+哪一种并行放到哪一层，可以画成一张对齐表：
+
+```mermaid
+flowchart LR
+  P["模型并行轴"] --> TP["张量并行"]
+  P --> PP["流水线阶段"]
+  P --> DP["数据并行梯度"]
+  P --> EP["跨域专家并行"]
+  TP -->|"毫秒级同步"| UL["64 芯 UltraServer 内"]
+  PP -->|"邻接摆放"| UL
+  DP -->|"梯度可批量"| EF["EFA 跨 UltraServer"]
+  EP -->|"带宽换容量"| EF
+```
+
+<span class="marginnote">scale-up 和 scale-out 可以翻译成两种「把机器做大」的方向：scale-up 是把一台机器内部做得更紧（更多芯片、更快互连），scale-out 是把多台机器用网络连起来。前者快但数量有限，后者能无限加但每一步通信更慢——大模型训练就是把最「聊天频繁」的并行轴塞进前者。</span>
 
 故障半径随层变化。坏一颗芯片，可能影响一台服务器或一台 UltraServer 的同步域；坏一条 EFA 路径，影响的是跨 UltraServer 的作业条带。AWS 把「全栈可见」说成排障优势：电源、软件协调器、芯片固件可以一起改。用户侧仍要假定：超大同步域的作业在局部故障时更可能整作业中断或回滚到检查点，而不是像单卡那样缩掉一张继续。检查点频率、异步副本、以及是否把关键阶段收进更小的 UltraServer 组，是训练配方的一部分。
 

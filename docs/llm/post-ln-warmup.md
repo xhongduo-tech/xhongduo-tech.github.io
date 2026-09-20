@@ -29,6 +29,8 @@ Post-LN：$x_{l+1}=\mathrm{LN}(x_l+F(x_l))$。恒等路径经过 LN。初始化�
 2. 峰值 $\eta$ 更保守。Xiong 的观察是 Pre-LN 允许更大 $\eta$；把 Pre-LN 的 $\eta$ 贴到 Post-LN 上是常见炸因。
 3. 与深度缩放或 Admin 一类对 LN 的初始化修正一起用，不要指望单靠日程。
 
+<span class="marginnote">常见误区：「学习率越大收敛越快」。在深 Post-LN 上，峰值 $\eta$ 直接照抄 Pre-LN 配方，常见结局是顶层先漂、底层没动，loss 在 warmup 一结束就弹起——先降峰值再谈加速。</span>
+
 若已经 Pre-LN：不要因为「论文都写 warmup」就复制一套为 Post-LN 设计的超长预热。过长 warmup 浪费峰值学习的 token，Chinchilla 预算下这是真金。Pre-LN 的 warmup 主要服务 Adam 的二阶矩估计与大 $\eta$，不是 LN 雅可比。
 
 日程形状（线性 warmup + 余弦 / WSD）仍按主干；本课只改**长度与峰值**对 LN 位置的依赖。
@@ -39,11 +41,26 @@ LN 的雅可比在输入偏离单位尺度时把残差通路缩小。Post-LN 每
 
 这解释了为何浅 Post-LN（6–12 层翻译模型）可以很短甚至没有 warmup 仍成功，而深 Post-LN 不行：连乘因子随 $L$ 指数变差。把 12 层翻译配方的 warmup 抄到 96 层解码器上，数量级不够。
 
+<span class="marginnote">数字实例：若每层 LN 把通往底层的通路缩到 $0.9$ 倍，$96$ 层连乘就是 $0.9^{96}\approx 4\times 10^{-5}$——底层梯度小到数值上近乎为零；层数每加深，这份压扁按指数变差，所以 12 层的配方不能按比例抄。</span>
+
+```mermaid
+flowchart TD
+  S["训练开始：eta 近 0"] --> A["顶层先动，底层梯度被压近零"]
+  A --> B["warmup：eta 逐步爬升"]
+  B --> C{"底层梯度范数是否恢复?"}
+  C -->|"长期近零"| BAD["warmup 太短：延长或缩 F 幅度"]
+  C -->|"恢复"| D["进入幂律段正常下降"]
+```
+
+这张图回答「warmup 期间到底在验收什么」：不是 loss 降没降，而是底层梯度有没有在表示跑偏前醒过来。
+
 ## 边界
 
 本课不主张回到 Post-LN 当大模型默认。只在你明确选择 Post-LN 时，把 warmup 写成稳定性约束。Hybrid / Sandwich LN 等变体对 warmup 的需求介于两者之间，应单独测底层梯度，不要线性插值步数当定理。
 
 复现 2017 年原版翻译配方时，把当代 Pre-LN 大模型的短 warmup 贴回去，是最常见的「论文说可以训」却训崩的原因。下一课进入优化器内部：Adam 的 $\varepsilon$ 如何在已经「看起来稳」的网络上改写更新尺度。
+
+<span class="marginnote">直觉类比：像在结冰路面起步——一脚油门（大 $\eta$）只会让驱动轮空转（顶层漂移、底层不动），缓踩油门（warmup）才让整车一起动起来。它不是玄学仪式，是给被压扁的通路留的恢复窗口。</span>
 
 ```mermaid
 flowchart TD

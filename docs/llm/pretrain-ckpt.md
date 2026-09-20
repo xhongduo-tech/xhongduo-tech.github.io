@@ -17,7 +17,19 @@ section: llm
 
 一步训练的状态包括：参数 $\theta$、优化器状态（Adam 的 $m,v$、步数）、学习率日程的进度、梯度缩放器（若用损失缩放）、RNG（CPU、CUDA、dataloader worker）、以及数据迭代器位置。只存 $\theta$，resume 后用新的空优化器，等效于在该点做一次学习率与动量重置，损失曲线会跳，不能当同一实验。只存 $\theta$ 与优化器、不存数据位置，会重复或跳过文档，packing 后的样本顺序一旦错位，所谓续训是另一条数据轨迹。
 
+<span class="marginnote">数字实例：7B 模型的权重按 FP16 存约 14 GB；Adam 还要再存 $m$、$v$ 两份同尺寸状态（常配 FP32，合计轻松超过权重的 2-3 倍）。这就是有人只存权重的原因——省下几十 GB——但代价是 resume 从「接上轨迹」退化成「换个起点重训」。</span>
+
 分布式下问题更硬。ZeRO-3 参数分片、流水线各段、张量并行切片，检查点必须记录并行拓扑。用 64 卡保存的分片，不能假装在 32 卡上直接 `load_state_dict`。故障模型也不同：单步失败要回滚到上一个完整检查点；存储写到一半的文件是损坏检查点，resume 必须能选「最后一个完整的」，而不是目录里时间戳最新的。
+
+```mermaid
+flowchart TD
+  CKPT["一次保存该含什么?"] --> THETA["只存参数 theta"]
+  THETA --> NOOPT["优化器 m 与 v 被清零"]
+  NOOPT --> JUMP["动量与自适应尺度重置, 损失曲线跳变"]
+  THETA --> NODATA["不存数据进度"]
+  NODATA --> DUP["重复或跳过文档, 换一条数据轨迹"]
+  FULL["完整清单: 参数+优化器+日程+RNG+数据进度"] --> SAME["resume 接上同一条轨迹"]
+```
 
 ### 完整轨迹 vs 够用的续训
 
@@ -28,6 +40,8 @@ section: llm
 ## 方法
 
 保存清单最低应是：模型、优化器、日程、global step、RNG、数据进度（样本索引或 shuffle epoch + 偏移）、以及并行配置与代码/配置哈希。格式上，PyTorch Distributed Checkpoint（DCP）按张量名与分片元数据写，便于改并行度加载；Megatron 一类则按 TP/PP rank 落文件。两者都要写 `latest` 指针与 `complete` 标记：先写临时目录，fsync，再原子改名。保留最近 $N$ 个与每隔 $K$ 步的永久点，避免磁盘被逐步文件填满，也避免坏掉最后一个时无路可退。
+
+<span class="marginnote">常见误区：「写进目录就等于存好了」。大模型检查点动辄上百 GB，落盘加网络上传常以分钟计，这段窗口里掉电就是半成品。没有 complete 标记与校验和，时间戳最新的目录很可能恰恰是残缺的——resume 读到它，比回滚丢几天进度更糟。</span>
 
 数据进度在 web 语料上要用确定性 shuffle：种子加 epoch，记录已经消费的全局索引。packing 后应以 packed 样本 ID 为进度，而不是原始文档 ID，否则 resume 会把半个桶再装一次。评估循环不要破坏训练 RNG：eval 用独立生成器，或保存/恢复训练生成器。混合精度的 scaler 状态必须存，否则 resume 后第一步可能溢出或过度缩放。
 
@@ -52,6 +66,8 @@ flowchart TD
 Resume 的数值机制是：优化器的 $m,v$ 与当前 $\theta$、当前 lr 必须来自同一 step。Adam 的自适应尺度依赖历史梯度平方；清零 $v$ 会让更新突然变大。数据机制是经验分布的遍历：有放回或无放回、是否按 token 加权，都由迭代器状态编码。RNG 机制覆盖 dropout、数据增强与任何随机层；CUDA 图与异步核使「只存 Python RNG」不够，还要 `torch.cuda.get_rng_state_all()` 一类。并行机制是切片对齐：加载时按当时的 TP/PP/DP 重切或用 DCP 的 reshard。
 
 完整性机制靠两阶段提交：数据可见之前不更新 `latest`。读侧只跟随 `latest` 指向的 complete 目录。这与数据库 WAL 思想相同，只是粒度是「整个训练状态」。
+
+<span class="marginnote">直觉类比：原子改名像搬家换门牌——先在新地址把家具全部码好（写临时目录并 fsync），一切就绪才把门牌挂过去（原子 rename）。中途出事，老门牌还挂在旧房子上，下次接着搬即可；绝不出现「门牌换了、家具还在路上」的状态。</span>
 
 <span class="marginnote">激活重计算检查点与训练检查点都叫 checkpoint，日志里应分开说。前者是 autograd 图上的保留张量；后者是作业级快照。混淆二者会导致有人「开了 checkpoint」却在节点被杀后从 step 0 重来。</span>
 
