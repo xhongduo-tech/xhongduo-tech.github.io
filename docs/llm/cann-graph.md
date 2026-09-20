@@ -17,6 +17,8 @@ CANN（Compute Architecture for Neural Networks）是昇腾的异构计算架构
 
 昇腾不是 GPU：没有「随便写个核就能吃满 SM」的假象。MatMul 必须变成 Cube 几何，SiLU 必须能跟在 FixPipe 或 Vector 后面，KV 布局可能还要在 ND 与 NZ 之间转换。若逐算子下发，每层 RMSNorm 都把激活写回 HBM 再读出来，[达芬奇](/llm/davinci-cube-vector) 的片上 Buffer 等于不存在。图编译要解决的是：在整网视野里改图、选核、规划内存，使执行序列接近「一条异构流水」，而不是「一串碎核 + 主机同步」。
 
+<span class="marginnote">术语翻译：算子融合就是把「读进来 → 算 → 写回去」的多个小步骤粘成一个更大的步骤，中间结果不再落回内存。像把三次往返超市的采购合并成一次：省的不是货架的出货速度，是路上的时间。</span>
+
 第二问题是动态性。在线推理的 batch、序列长度会变。GE 提供动态 shape、图编译缓存（`ge.graph_compiler_cache_dir` 与 `ge.graph_key`）、算子编译缓存等公开选项。编译太勤，TTFT 会被编译时间打穿；缓存键太粗，会拿错形状的核。这是服务化与编译器接缝，不是纯算法。
 
 ### 图融合与 UB 融合不是同一 Pass
@@ -30,6 +32,8 @@ CANN（Compute Architecture for Neural Networks）是昇腾的异构计算架构
 从框架图到装置上的执行，公开流水可以收成：框架导出 → GE 构图与整图优化 → 算子选择（ACLNN / TBE 标准库或自定义）→ 图融合与 UB 融合 → 内存与流水调度 → 生成可加载的离线模型（OM）或在线执行序列 → Runtime 下发 Task Scheduler。训练与推理都走这条家族，细节因 GE 版本而异。开发者能控制的旋钮包括：融合开关、拓扑排序模式（文档写明面向在线推理）、H2D 与计算重叠、多图并行编译、AI Core 数量提示。
 
 自定义算子走 TBE 或 Ascend C：先写计算与调度描述，Tiling 按 Cube/Vector 的形状切块，IR 经过类似 TVM 的中间表示，再 CodeGen。没有对应 Cube 实现的 MatMul 变体会落到慢路径或 AI CPU。LLM 要先保证 Linear、SDPA/MLA、RMSNorm、RoPE 在白名单或已融合，再谈连续批，见 [NPU 友好算子](/llm/npu-friendly-ops)。
+
+<span class="marginnote">为什么重要：模型里只要有一个算子没有对应的 Cube/Vector 实现，它就会落到 AI CPU 或慢路径——整条流水在它那里排队，前面辛苦融合省下的时间全被吃掉。所以「先查算子白名单，再做其他优化」是固定顺序。</span>
 
 ```mermaid
 flowchart TD
@@ -50,6 +54,20 @@ flowchart TD
 ## 机制
 
 图融合提高算术强度：少启动、少中间张量。UB 融合降低字节：中间结果不进 HBM。两者叠加才接近 Cube 峰值。内存规划把生命周期不重叠的张量放进同一块 Buffer，否则 64 GB/Die 会被碎片吃掉。动态 shape 迫使重新 tiling：Cube 的 16 几何、Vector 的切分、双缓冲深度全部重算，所以缓存键必须包含形状。
+
+```mermaid
+flowchart TD
+  subgraph OFF["关闭 UB 融合"]
+    A1["算子 1 在 UB 算完"] --> W1["中间结果写回 HBM"]
+    W1 --> R1["算子 2 再搬回 UB"]
+  end
+  subgraph ON["开启 UB 融合"]
+    A2["算子 1 与算子 2 合并执行"] --> S2["中间结果一直留在 UB"]
+    S2 --> O2["只把最终结果写回 HBM"]
+  end
+```
+
+<span class="marginnote">直觉类比：Unified Buffer（UB）像灶台边的操作台，HBM 像楼下的储藏室。切一刀菜就下楼存一次、再拿上来，效率可想而知；UB 融合就是把整道菜的工序留在操作台上完成，最后只端一次成品下楼。</span>
 
 离线模型（OM）机制：把已经编译的图固化，推理进程加载后少做前端优化。适合形状稳定的服务；不适合每个请求一种动态控制流。在线 GE 则每次或每类形状走一遍优化，用磁盘缓存摊销。选型是 SLA 问题：TTFT 是否允许第一次编译。
 

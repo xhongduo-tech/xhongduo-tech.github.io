@@ -17,6 +17,8 @@ CloudMatrix 384 是华为 CloudMatrix 架构的首个生产级实现。公开材
 
 传统 Atlas 服务器是节点内 8 卡，卡间 HCCS，节点间 RDMA。张量并行、宽专家并行、分布式 KV 一旦跨出节点，就掉到以太网档的延迟与带宽。MoE 的 token dispatch 和长上下文 KV 复用正是这类通信。只加机器台数（Scale-Out）填不满这一档；只加单卡算力，又受封装与供电限制。CloudMatrix 要回答的是：能否把 Scale-Up 域从「一盒 8 卡」拉到「数百 NPU + 配套 CPU」，并且 CPU 内存也能被 NPU 直接用，而不是每条 KV 都先绕主机 PCIe。
 
+<span class="marginnote">Scale-Up 与 Scale-Out 可以类比交通：Scale-Up 是把大巴造得更大，乘客（卡与卡）之间商量事情快；Scale-Out 是加开更多小巴，便宜灵活，但跨车沟通慢。MoE 的 token 派工与 KV 复用恰恰是「商量事情」型的通信，最怕跨车。</span>
+
 软件若仍按 48 个独立 hostname 调度，UB 买了等于没买。问题与 NVL72 相同：域在硬件上已经是一块，编排必须把域当一份模型并行组。异构之处在于这份组里还有 192 颗鲲鹏，职责不是「再 192 张假 NPU」，而是主机、预处理与可池化的 DRAM。
 
 ### 384 与 192 从哪来
@@ -30,6 +32,8 @@ CloudMatrix 384 是华为 CloudMatrix 架构的首个生产级实现。公开材
 把一个 CloudMatrix 384 编成一份 Scale-Up 域。域内：TP、延迟敏感的 EP All-to-All、NPU 与 CPU 内存池上的 KV 访问，走 [UB 平面](/llm/ub-lingqu)。域间：多个超节点之间的 KV 传递、分布式训练的 DP/PP，走 RDMA 平面（当前为 RoCE）；管控、对象存储、CPU 侧业务走 VPC 平面（擎天网卡，论文写每节点最高约 400 Gbps 单向）。三平面同时存在，是为了和传统数据中心兼容；论文也写了未来把 RDMA 与 VPC 融合的方向，那是规划，不是 384 这代必须已经合一。
 
 计算节点内，12 个处理器（8 NPU + 4 CPU）经 UB 接到 7 个板载交换，形成单层 UB 平面。论文写：每颗 910C 配置最高约 392 GB/s 单向 UB；每个鲲鹏插槽约 160 GB/s 单向 UB；单颗板载 UB 交换芯片向上一层提供 448 GB/s 上行。只有 NPU 参加 RDMA 平面：每设备额外一条最高 400 Gbps 单向 RDMA，节点合计 3.2 Tbps。四个鲲鹏之间是全网状 NUMA，连接的 DRAM 可统一访问；其中一颗 CPU 挂擎天 DPU，作为南北向出口和节点级资源管理。
+
+<span class="marginnote">392 GB/s 单向是什么量级：约是 PCIe 5.0 x16（约 64 GB/s）的 6 倍。这就是为什么跨出 8 卡节点就「掉到以太网档」会成为瓶颈——UB 要做的，是把这个量级的互连从节点内扩展到几百卡。</span>
 
 ```mermaid
 flowchart TB
@@ -59,6 +63,18 @@ flowchart TB
 
 逻辑节点成立，靠的是 L1 板载交换加 L2 通信柜的无阻塞结构，以及 UB 同时提供内存语义与消息语义，见 [L1/L2 七子平面](/llm/ub-l1-l2-planes) 与 [UB 灵衢](/llm/ub-lingqu)。跨柜距离用光模块收口，见 [跨柜光模块](/llm/ub-optical-cabinets)。没有这套交换，384 张卡只是 16 柜以太网集群。
 
+```mermaid
+flowchart LR
+  subgraph OLD["传统：节点各自为政"]
+    O1["NPU 要数据"] --> O2["绕主机 PCIe / 网卡"]
+    O2 --> O3["跨节点以太网 RDMA"]
+  end
+  subgraph NEW["CloudMatrix：UB 内存语义"]
+    N1["NPU 要数据"] --> N2["近端：本封装 128 GB HBM"]
+    N1 --> N3["远端：任一鲲鹏 DRAM 经 UB 直读"]
+  end
+```
+
 910C 双 Die 通过封装内互连协同（论文给出封装内总带宽约 540 GB/s、单向 270 GB/s 量级）。对软件，一张 910C 仍是一颗 NPU 设备，但有的并行策略按 Die 切专家。不要在容量规划里把 384 与 768 混用而不声明计数单位。
 
 <span class="marginnote">三平面里，UB 连全部 384 NPU 与 192 CPU；RDMA 只有 NPU 参加，把横向流量与管控/存储分开。规划「CPU 是否走 RDMA」时不要默认与 NPU 同一平面。</span>
@@ -72,6 +88,8 @@ flowchart TB
 不要把 NVL72 的 18+9 托盘抄成 CloudMatrix 的 12+4 柜。不要在没有 UB 的普通 8 卡集群上用 64 路 TP「模拟 384」。不要把论文里 DeepSeek-R1 的 prefill 6688 tokens/s/NPU、decode 1943 tokens/s/NPU（TPOT 低于 50 ms）写成任意模型的 SLA——那是指定模型、精度与 CloudMatrix-Infer 软件的测量。不要填写未在论文出现的光模块只数、单通道眼图或未发布的 UB 协议字段。
 
 超节点增大了爆炸半径与功耗密度，设施规划按柜级功率走厂商交付，不在本文填未核对的千瓦数。软件生态是 CANN / HCCL / MindIE 或 [vLLM-Ascend](/llm/vllm-ascend)，迁移成本独立于硬件是否已经是一块逻辑节点。
+
+<span class="marginnote">「爆炸半径」变大的意思是：一台 8 卡机坏了只损失 8 张卡；而一个 16 柜超节点的交换或液冷出问题，可能几百张卡同时不可用。收益是域内通信快，代价是故障与维护都必须按「块」来规划。</span>
 
 <span class="marginnote">出处：arXiv:2506.12708 *Serving Large Language Models on Huawei CloudMatrix384* 中的超节点组成、三平面与节点规格。UB-Mesh 拓扑见 arXiv:2503.20377，本篇只声明 384 的 UB 是其递归落地，不把论文里 4D-Pod 的 1024 NPU 设计与 384 这一 SKU 画等号。</span>
 

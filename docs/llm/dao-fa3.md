@@ -17,6 +17,8 @@ Jay Shah、Ganesh Bikshandi、Ying Zhang、Vijay Thakkar、Pradeep Ramani 与 Tr
 
 Hopper 的峰值建立在重叠上：拷贝引擎与张量核可以同时转。注意力内部却有两种节奏：WGMMA 打满的 GEMM，和特殊函数单元上的指数与归约。FA2 风格「GEMM 完再 softmax 再 GEMM」让张量核在指数阶段空转，TMA 也被栅栏堵住。只把指令换成 WGMMA / TMA 而不改 warp 职责，异步发行仍有限。需要 warp 特化（生产者搬、消费者算）和 ping-pong，使 softmax 与下一发 GEMM 重叠。
 
+<span class="marginnote">可以想象成两个灶台的厨房：GEMM 在「张量核」这个灶上炒，softmax 的指数在「特殊函数单元」那个灶上炖。FA2 的写法是炒完一道再洗锅再炒下一道，总有一个灶闲着；FA3 的乒乓调度让两个灶同时开火，谁也不等谁。</span>
+
 第二条压力是 FP8 矩阵乘的吞吐。注意力对异常值敏感，张量级缩放往往毁掉 softmax 的相对顺序。需要与分块算法匹配的量化粒度，以及把异常值打散的预处理（incoherent processing，实现上常见 Hadamard 一类正交变换）。否则「H100 的 FP8 PFLOPs」不能写进精确注意力表格。
 
 ### 跨代比较是论文自己划的边界
@@ -28,6 +30,8 @@ FA2 在 A100 上的利用率故事仍然成立。FA3 说的是：同一套划分
 ## 方法
 
 三条技术：TMA 生产者 + WGMMA 消费者，异步屏障握手；warpgroup 乒乓，组内 GEMM 与 softmax 流水；FP8 分块量化加 incoherent processing。FP16/BF16 路径目标是与 FA2 同级的精确误差，中间统计较高精度累加。FP8 路径目标是吞吐换可控误差，作者报告相对朴素张量级 FP8 注意力数值更好。长序列前向相对 FA2 约 **1.5–2.0×**（高精），FP8 更高；具体 PFLOPs 随头维与块大小变，论文图绑定 H100。
+
+<span class="marginnote">「分块量化 + incoherent processing」翻译成大白话：FP8 每个数只有三四个有效二进制位，直接缩放整张矩阵时，个别特别大的「离群值」会把其余数字挤成 0。FA3 的做法是按小块各自选缩放比例，并在量化前先给矩阵乘一个固定的「旋转」，把离群值摊到整行去——噪声变均匀，但顺序信息保住了。</span>
 
 对照包括 cuDNN 在 Hopper 上的融合注意力。论文在部分长序列设定下展示竞争力；生产不能从「开源论文一定更快」选边。Dropout、变长、因果、paged KV、解码 split-KV 各自要有核或回退——正文主舞台仍是长序列前向（及反向）利用率，不是服务引擎全形状。
 
@@ -47,6 +51,18 @@ flowchart LR
 ## 机制
 
 逻辑上 FA1/FA2 已经分块；FA3 把逻辑流水映射到硬件流水。Ping-pong 的正确性仍靠在线 softmax 合并 $(m,\ell)$。屏障用错会出现静默漂移。算术强度在训练/前填上高，解码仍内存墙——FA3 不自动变成 FlashDecoding。GQA 下 KV 瓦片被组内查询复用，与 warp 特化同方向。机制专文写调度；原文作为硬件论文还解释 **为何必须 warp 特化**：同一 warp 又搬又算时，TMA 的异步窗口会被自己的计算栅栏掐断。
+
+```mermaid
+flowchart TD
+  P["生产者 warp: TMA 搬下一块 KV"] --> B["共享内存缓冲"]
+  B --> A["warpgroup A 做 GEMM"]
+  B --> S["warpgroup B 做上一块的 softmax"]
+  A --> PP["乒乓: A 与 B 交换角色"]
+  S --> PP
+  PP --> O["张量核与指数单元同时转"]
+```
+
+<span class="marginnote">初学者容易以为并发程序的错误会立刻报「非法访问」；异步流水线的竞态往往相反——表现为偶发的 NaN、轻微的数值漂移，而且十次里只出现一两次。所以 FA3 这类核的验证要靠多次重复跑数值对照，而不是「跑通一次就算对」。</span>
 
 <span class="marginnote">厂商 cuDNN 同期也在追 Hopper 注意力。引用 FA3 加速时应写「相对作者的 FA2 实现 / 相对某版 cuDNN」，并写序列长度与精度。</span>
 

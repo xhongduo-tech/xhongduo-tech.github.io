@@ -55,11 +55,31 @@ Offload 把「哪些状态在 CPU」写成配置常数。Gemini 把张量标成�
 
 <span class="marginnote">Gemini 不是新的并行维。数据仍按 batch 切，参数仍按 ZeRO 下标切。它不替代 2D TP 去加速单层 GEMM，只是让少卡在异构内存上活下来。宽矩阵仍要 TP 或近端带宽。</span>
 
+<span class="marginnote">术语翻译：2D/2.5D/3D 切分就是把 GPU 排成方阵、多层方阵或立方体，再沿这些几何方向同时切块——本质是「用卡数换通信量」。数字实例：64 张卡按 1D 切每卡存 1/64 权重、做 64 路集合通信；按 2D 排成 $8\times8$ 方阵后，单步只需在 8 卡的行或列里广播，单次通信规模变小，代价是凑整约束与更复杂的调试。</span>
+
 ## 机制
 
 2D/2.5D/3D 的正确性来自分布式矩阵乘：部分积在网格上广播或平移，数学上恢复 $Y=XW$。实现错误通常表现为某条网格维上少一次 reduce，logits 只有分片词表能学。1D Megatron 用一对 $f,g$ 就能讲完；2D 必须讲清 SUMMA 的面板广播顺序，调试更难。这是后来主线收缩到 Gemini + ShardFormer、把高维 TP 降为「将并入」的工程原因之一：维护成本高于 1D+ZeRO 对大多数用户的收益。
 
+```mermaid
+flowchart LR
+  subgraph C1["1D 切法"]
+    A1["只切一维<br/>每卡存 1/N 权重<br/>每层 2 次 All-Reduce"]
+  end
+  subgraph C2["2D 切法"]
+    B1["卡排 sqrt N 阵<br/>权重激活都按块切<br/>面板广播代替全归约"]
+  end
+  subgraph C3["2.5D / 3D 切法"]
+    D1["加 depth / 立方维<br/>用更多卡再降通信量<br/>卡数需凑平方立方"]
+  end
+  A1 --> B1 --> D1
+```
+
 Gemini 的机制是把非模型显存当成外生扰动：激活检查点一开，GPU 空出一截，STM 可以把更多参数拉回；flash attention 一开，空出的可能是另一截。所以「Gemini 比 Offload 更能塞大模型」是条件句，取决于采样是否覆盖你的真实核。
+
+<span class="marginnote">直觉类比：Gemini 像操作系统的内存换页——CPU 内存是「虚拟内存盘」，参数块按需换入换出；warmup 采样相当于先跑几圈记录「内存使用曲线」，再据此定换页策略。区别在于深度学习的访存模式每个 step 重复，所以采样几次就能猜得八九不离十。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「2D/2.5D 切分一定比 1D 快」。实际上高维切法赢的是通信体积，输的是同步次数与实现开销；只有在跨节点带宽差、卡数又恰好凑成平方/立方时才划算。单机 8 卡有 NVLink 时，1D 张量并行往往反而是首选。</span>
 
 ### Booster / ShardFormer 之后怎么读旧论文
 

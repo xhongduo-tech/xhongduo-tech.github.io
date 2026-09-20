@@ -21,11 +21,15 @@ section: llm
 
 <span class="marginnote">busbw 是 NCCL 测试里按算法理想因子反推的「总线带宽」，用来和链路规格比。algbw 是 $n/T$。两者都要看：algbw 接近应用，busbw 接近硬件是否吃满。</span>
 
+<span class="marginnote">直觉类比：把通信想成寄快递——$\alpha$ 是下单、揽收、签收这些固定手续，寄一个信封也要走全套；$\beta$ 是每公斤运费。信封（小消息）贵在手续，家具（大梯度）贵在运费，所以小消息要靠「合并少寄几次」救，大消息要靠「换更宽的路」救。</span>
+
 ## 方法
 
 点对点：$T \approx \alpha + n\beta$，其中 $\beta=1/B$，$B$ 为该路径有效带宽（NVLink 一档，IB/RoCE 另一档）。
 
 Ring All-Reduce：约 $T \approx 2(N-1)\alpha + 2\frac{N-1}{N}n\beta$。前项随 $N$ 涨，后项接近 $2n\beta$。大 $n$、中等 $N$ 时第二项主导，这是环「带宽最优」的含义。
+
+<span class="marginnote">数字实例：$N=8$ 卡时效率因子 $\frac{N-1}{N}=\frac{7}{8}$，即环 All-Reduce 每卡至少要收发约两倍梯度体积（$2\times\frac{7}{8}n$）；若 $n=1$ GB、有效带宽 $B=200$ GB/s，数据项就是 $2\times\frac{7}{8}\times 1/200 \approx 8.8$ ms——这就是大模型梯度同步的基本盘。</span>
 
 Tree All-Reduce：跳数 $O(\log N)$，前项变成 $O(\log N)\,\alpha$，数据项通常差于环（根附近不能把体积摊匀），除非层次化把跨节点 $n$ 先除以每节点 GPU 数。
 
@@ -50,6 +54,15 @@ $\alpha$ 来自软件栈与同步：NCCL 内核启动、FIFO、跨节点 RDMA �
 
 层次化改变的是代入公式的 $n$ 与 $N$：节点内 $N_{\mathrm{local}}$、$B_{\mathrm{nvlink}}$；跨节点 $N_{\mathrm{nodes}}$、$n_{\mathrm{node}}=n/N_{\mathrm{local}}$、$B_{\mathrm{nic}}$。总时间是两段之和，不是用集群总卡数套一次环公式——那会严重高估跨节点环的 $\alpha$。
 
+```mermaid
+flowchart LR
+  G["全部 GPU 梯度 n"] --> S1["节点内 Reduce-Scatter<br/>走 NVLink, 体积各留 n/8"]
+  S1 --> S2["跨节点 Reduce-Scatter<br/>只传节点内已归约的 n/8"]
+  S2 --> S3["跨节点 All-Gather<br/>结果回灌各节点"]
+  S3 --> S4["节点内 All-Gather<br/>NVLink 补全本机 8 份"]
+  S4 --> R["每张卡都有完整梯度"]
+```
+
 <span class="marginnote">通信 dtype 进入 $n$。BF16 梯度相对 FP32 减半；FP8 再减。数值协议必须在所有 DP 副本对齐，见预训练通信课。模型里改 $n$ 之前，先确认这是配方允许的精度，不是网卡开关。</span>
 
 ## 边界
@@ -57,6 +70,8 @@ $\alpha$ 来自软件栈与同步：NCCL 内核启动、FIFO、跨节点 RDMA �
 $\alpha$–$\beta$ 忽略拥塞与丢包：它是空载或轻度负载的一阶模型。下一课起的轨拓扑与拥塞控制处理 $\beta$ 随时间变的部分。也不要把 GPU 核内归约时间漏掉：极小消息时，本地加与同步可能比链路更贵。
 
 不要用峰值 FLOPS 去除通信时间来「证明」重叠成功。重叠成功的判据是：step 时间 ≈ 计算屋顶线，而不是通信公式的 $T$ 单独变小。公式用来决定并行维画在哪张图上，用来解释为何加带宽救不了 TP。
+
+<span class="marginnote">常见误区：看到网卡标称 400 Gb/s 就以为 busbw 也能到 400。实际上协议头、chunk 切分、拥塞都要扣钱，busbw 能到标称的七八成已算健康；测出来只有一半时，先查是不是有别的进程组在同时通信，而不是急着换硬件。</span>
 
 ## 小结
 

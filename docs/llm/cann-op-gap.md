@@ -17,6 +17,8 @@ section: llm
 
 GPU 上的 LLM 运行时默认假设：矩阵乘走 cuBLAS / CUTLASS，注意力走 FlashAttention 一类手写核，分页 KV 走 Triton 或 CUDA，集合通信走 NCCL。昇腾上对应物分别是 aclnn GEMM、昇腾注意力类算子、自定义分页核、HCCL。名字可以一一映射，**实现集合不是一一映射**。新模型一来——MLA、细粒度 MoE、投机树、非标准归一化——CUDA 社区往往先有一篇核，CANN 要等算子包、图引擎融合规则或 Ascend C 工程合入。这段窗口里，模型「能跑」只说明图被降成了更小的原语，墙钟可能差一档。
 
+<span class="marginnote">术语翻译：算子落差就是「框架图里有这一步，但这家芯片的现成加速库里还没有与之对齐的高效实现」。结果不是跑不了，而是被拆成更碎的基本运算来跑——答案对，但速度可能慢好几倍。</span>
+
 落差还有第二条轴：数据布局与精度。达芬奇 Cube 吃的是对齐后的矩阵砖；KV 的头维、块表、ND / NZ 格式若与核假设不一致，就要转置或 pad，带宽先被吃掉。图模式（GE / ACL Graph）比 eager 更挑形状与控制流，动态轴、数据依赖的专家下标会把融合打断。于是同一份 Hugging Face 权重，在 GPU 上走融合注意力，在 NPU 上可能走「MatMul + softmax + MatMul」三条，数学等价，屋顶线不同。
 
 ### 落差不是「缺矩阵乘」
@@ -52,6 +54,18 @@ flowchart TD
 ## 机制
 
 达芬奇把矩阵放进 Cube、逐元素放进 Vector、控制放进 Scalar。融合核的价值是让 $QK^\top$、softmax、加权在片上缓冲里完成，少进 HBM——这与 [FlashAttention](/llm/flashattention) 的 IO 命题相同，但缓冲层次和指令不是 GPU 那套。缺融合核时，每次 softmax 都要把分数写回，decode 的小 batch 会变成带宽税。MoE 的 grouped GEMM 若退化成一串小 GEMM，Cube 利用率按专家数碎掉；这是「有 MatMul 仍很慢」的机制，不是调度器的锅。
+
+```mermaid
+flowchart TD
+  MOE["MoE 层：8 个专家各一块矩阵乘"] --> F["融合分组 GEMM"]
+  MOE --> D["退化成 8 次小 GEMM"]
+  F --> F1["一次调度，Cube 连续吃满"]
+  D --> D1["8 次核启动 + 8 次进出 HBM"]
+  F1 --> OK["利用率接近稠密层"]
+  D1 --> S["小 batch decode：Cube 大量空转"]
+```
+
+<span class="marginnote">直觉类比：融合核像把切菜、下锅、装盘在同一个灶台上连续完成；没有融合核时，每道工序都要把半成品端到仓库（HBM）再端回来。菜量小时（decode 小 batch），来回跑腿的时间远超炒菜本身。</span>
 
 图模式把整段 decode 收成可复放的图，条件是核可捕获、形状在编译期已知。动态专家下标、动态序列若不做成静态槽加掩码，图就建不起来，每步回到 eager 启动开销。落差因此会在「功能」和「图」两层同时出现：eager 能出数，图模式拒绝；或图表能建，但里面是碎核。
 

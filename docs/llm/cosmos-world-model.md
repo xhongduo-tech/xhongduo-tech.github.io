@@ -17,6 +17,8 @@ NVIDIA 在 2025 年 1 月 CES 发布 **Cosmos** 世界基础模型（World Found
 
 物理 AI 的数据是「观测—动作」交错序列。动作会真实扰动世界，探索期尤其贵、尤其危险。纯仿真渲染有域差；纯真实采集不够规模。WFM 被写成补丁：先在大规模视频上成为物理观感的通才，再在目标机上用小得多的「提示—视频」对后训练成专家。论文明确：**本篇不包含**把 Cosmos 接到策略评估、强化学习或 MPC 上的完整实证，那些是「Future Cosmos」清单。
 
+<span class="marginnote">「世界模型」翻译过来就是「能在脑内推演下一步画面的模拟器」：给它看过去的画面和一个动作，它预测世界接下来会变成什么样。机器人先在它里面排练、摔在虚拟世界里，再上真机。</span>
+
 视频 tokenizer 被当成编解码问题：既要压 token 好让 Transformer 训得动，又要尽量保物理内容。因果性是硬约束——当前帧的 token 不能看未来——这样单张图才能当一帧视频，也才对齐真实机器人的时间箭头。
 
 ### 通才预训练加专家后训练
@@ -30,6 +32,20 @@ NVIDIA 在 2025 年 1 月 CES 发布 **Cosmos** 世界基础模型（World Found
 数据管线五步：按镜头切分、过滤高动态高质量、VLM 标注、语义去重、按分辨率与宽高比分片。类别意图偏向物理 AI：驾驶约 11%、手与操作 16%、人体运动 10%、空间导航 16%、第一人称 8%、自然动态 20%、动态相机 8%、合成渲染 4% 等（报告列举）。解码转码走 GPU 上的 H.264 硬件编解码，编排用 Ray。
 
 Tokenizer 分连续与离散两族，都是注意力编解码器、**因果**。连续 token 给扩散（向量）；离散 token 给自回归（整数）。扩散预训练两步：Text2World，再微调成 Video2World（过去视频 + 文本 → 未来）。自回归两步：先纯视频下一 token，再加 T5 文本交叉注意力做 Video2World。扩散潜空间用 Cosmos-Tokenize1-CV $8\times 8\times 8$-720p；自回归用压缩更狠的 DV $8\times 16\times 16$-720p，再用从 7B 扩散微调来的扩散解码器把失真拉回。提示上采样器 Cosmos-UpsamplePrompt1-12B 用来弥合 VLM 描述与人类提示的分布差。
+
+<span class="marginnote">「因果」的意思是：压缩第 $t$ 帧时不许偷看 $t$ 之后的帧。这保证一张静态图片可以被当成「只有一帧的视频」直接喂给模型——也正是真实机器人面对世界的时间箭头：你永远看不到未来。</span>
+
+两条生成路线并行的分工，值得单独画开：
+
+```mermaid
+flowchart LR
+  subgraph DIF["扩散路线"]
+    A["连续 token(向量)"] --> B["逐步去噪(EDM)"] --> C["高保真纹理"]
+  end
+  subgraph AR["自回归路线"]
+    D["离散 token(整数)"] --> E["逐 token 预测(因果在线)"] --> F["扩散解码器补回细节"]
+  end
+```
 
 扩散训练跟 EDM 去噪分数匹配，而不是再写一套高斯流匹配；论文引用 Gao et al. 说明二者理论上可对齐，实践上他们未遇到 EDM 的性能天花板。AdaLN-LoRA 把 7B 档从约 11B 密参降到 7B（约 36%），FLOPs 几乎不动。多宽高比五个桶：1:1、3:4、4:3、9:16、16:9。训练在约 1 万张 H100、三个月的量级（报告陈述）。Video2World 把条件帧与生成帧沿时间拼接，通道上加掩码，并对条件帧加增强噪声以提高鲁棒。
 
@@ -66,6 +82,8 @@ flowchart TD
 论文自己把策略评估等用途标成未实证。低分辨率物理视频对创作者不友好。人脸模糊改变下游行人感知任务的标签分布。护栏拦的是 NVIDIA 定义的有害类，不是法规认证。9000 万亿 token 是博客规模句，复现数据管道不可得。Predict2.5、Reason、Cosmos 3 改变骨干与模态，必须另文。
 
 不要把 Omniverse 三维场景图写成 WFM 内部表示：博客只说扩散模型可与 Omniverse 三维输出配对生成可控视频。不要发明未在表 10 出现的层数。与 Hunyuan/Wan 比生成观感可以，比「谁更像世界模型」要用 Cosmos 自己的 3D/物理指标，而不是电影感。
+
+<span class="marginnote">常见误区：把「会生成逼真视频」当成「懂物理」。Cosmos 的物理对齐是用专门指标（几何一致、相机位姿成功率）单独评的，画面好看不等于动力学正确。选型时看对口指标，不看观感。</span>
 
 <span class="marginnote">出处：NVIDIA，*Cosmos World Foundation Model Platform for Physical AI*，arXiv:2501.03575。产品：2025-01-06 NVIDIA Newsroom 与博客 *Cosmos World Foundation Models Openly Available to Physical AI Developers*。开发者补充见 *Advancing Physical AI with NVIDIA Cosmos World Foundation Model Platform*。</span>
 
