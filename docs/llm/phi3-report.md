@@ -19,6 +19,8 @@ Kaplan / Chinchilla 默认数据是固定质量的互联网切片。Phi 要问�
 
 部署约束同样硬。3.8B 4-bit 约 **1.8GB**，报告在 iPhone 14 A16 上离线测到超过 12 tok/s。架构若标新立异，开源推理栈接不上；因此 mini 刻意对齐 Llama-2 块结构与词表。
 
+<span class="marginnote">数字实例：4-bit 量化是每个参数只留约半个字节，3.8B 参数就是 3.8×0.5≈1.9GB，与报告写的 1.8GB 对得上；若用 BF16（每参数 2 字节）则是 7.6GB，手机装不下。12 tok/s 大约是一秒吐 8-10 个汉字，达到顺畅阅读的速度——「离线、免费、不联网」就是这个数字换来的。</span>
+
 ### mini 对齐 Llama-2，small 才换词表与稀疏注意力
 
 **phi-3-mini**：解码器，隐宽 3072，32 头 32 层，词表 **32064**（Llama-2 词表去掉 BoS、加聊天符），bfloat16，3.3T token，默认 4K。聊天模板为 `<|user|>` / `<|assistant|>`。LongRoPE 把窗口扩到 128K，称 phi-3-mini-128K。
@@ -58,6 +60,22 @@ flowchart TD
 小模型的参数装不下长尾百科。教材式过滤把梯度用在可迁移的解题步骤上；合成轨迹提供左到右可预测的「喂勺」过程，与人类网页里答案前置、编辑非线性相反。结果是 GSM8K / HumanEval 一类与教材同分布的任务可以打过更大的脏数据模型；TriviaQA 这类事实检索上，Mixtral / GPT-3.5 仍然可以明显领先——报告表里这不是隐藏项。
 
 mini 对齐 Llama-2，是为了让 vLLM、llama.cpp 一类栈几乎零改动。small 换 tiktoken 与 blocksparse，是 7B 上多语压缩和 KV 开始成为瓶颈：词表负责切得动非英语，稀疏头负责 8K+ 的缓存。μP 则把 7B 的学习率从代理模型迁过来，减少再扫一遍的成本。
+
+```mermaid
+flowchart TD
+  Q{"三档各自的瓶颈是什么"}
+  Q --> MINI["mini 3.8B：部署兼容"]
+  Q --> SM["small 7B：多语与 KV 缓存"]
+  Q --> MD["medium 14B：吃满 4.8T 数据"]
+  MINI --> A1["对齐 Llama-2 块与 32k 词表"]
+  SM --> A2["tiktoken 100352 + GQA + blocksparse"]
+  MD --> A3["同 mini 结构，加到 40 层"]
+  A1 --> R1["vLLM / llama.cpp 零改动，4-bit 进手机"]
+  A2 --> R2["非英语切得动，8K 缓存省得住"]
+  A3 --> R3["部分榜涨幅变缓，逼近数据最优"]
+```
+
+<span class="marginnote">「μP」（最大更新参数化）可以翻译成「小模型上调参、大模型上白拿」：超参（尤其学习率）在小代理模型上扫一遍很便宜，μP 给出一套缩放规则，让扫出来的好超参按公式搬到大模型上仍然近似可用，省掉在 7B 上重扫几轮的天价算力。</span>
 
 <span class="marginnote">「创新完全在数据」是报告原句，指向相对架构论文而言。small 的 blocksparse、GQA、GEGLU、μP 仍是架构选择。读 mini 时这句话成立；读 small 时不要删掉稀疏注意力。</span>
 
