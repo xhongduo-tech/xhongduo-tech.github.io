@@ -19,9 +19,13 @@ section: llm
 
 按 token 均匀的配比，对高 fertility 语言是「同样百分比、更少的句子」。按文档均匀则相反，短英文页会冲淡长 CJK 页。无论哪一种，若不报 fertility，配比数字没有跨语言含义。Rust 等人对「你的 tokenizer 好不好」的评测，也是在问覆盖与下游，而不是只问词表大小。
 
+<span class="marginnote">fertility 说白了就是「压缩率的倒数」：一个词平均被切成几个 token。数字实例：英语 1 个词约切 1.3 个 token，某语言同样的意思要切 4 个，相当于同一句话多付 3 倍的 token 税，窗口也 3 倍快用完。</span>
+
 ### 领域税与语言税叠在一起
 
 代码的标识符、LaTeX、表格数字（尤其 [逐位切分](/llm/digit-splitting) 之后）会把 fertility 抬高。这不是语言不公平，是领域税。报表必须交叉：语言 × 桶。否则会把「代码切得碎」误诊成「英语词表歧视符号」，去扩一张无用的多语言表。
+
+<span class="marginnote">常见误区：看到某语言切得碎，就归咎于「词表歧视这门语言」。实际上代码、LaTeX、表格数字这类领域同样会把 token 数抬高。所以必须按「语言 × 领域」交叉统计，否则会扩一张治不了病的多语言词表。</span>
 
 <span class="marginnote">产品按 token 收费时，fertility 直接变成用户价格。同一功能在高 fertility 语言上更贵、更容易触顶窗口。这是政策选择，不是模型能力神话。</span>
 
@@ -37,9 +41,25 @@ section: llm
 
 <span class="marginnote">特殊 token 与聊天模板也要计入 fertility。一轮中英夹杂的系统提示，可能比用户那句短问题更占窗口。模板本地化不是翻译问题，是 token 税问题。</span>
 
+```mermaid
+flowchart TD
+  V["冻结词表"] --> T["按语言 × 领域桶统计"]
+  T --> C["字符数与 token 数之比"]
+  T --> F["回退字节占比"]
+  T --> N["数字 token 占比"]
+  C --> R["相对英语的倍率报表"]
+  F --> R
+  N --> R
+  R --> P["看高分位而非全球平均"]
+  P --> W1["倒数加权：调数据配比"]
+  P --> W2["调形状：加长上限或减小微批"]
+```
+
 ## 机制
 
 fertility 是切分函数 $f$ 在测度 $p$ 上的期望长度。$p$ 来自词表语料与模型语料的错位、以及 Unicode 覆盖。长度进入注意力的二次项与 KV 缓存，于是同样的「上下文 8k」对低 fertility 语言是一篇文章，对高 fertility 语言是一段。MoE 的专家粒度课已经假设 token 是均匀的计算单位；本课指出这个单位对用户语言并不是均匀的语义单位。
+
+<span class="marginnote">数字实例：同样是 8k 窗口，fertility 为 1.3 的语言大约装得下六千词的文章；fertility 为 4 的语言只能装约两千词。而且注意力的计算量和 KV 缓存都随长度增长，同样一句话的后端开销也差出几倍。</span>
 
 ```mermaid
 flowchart TD

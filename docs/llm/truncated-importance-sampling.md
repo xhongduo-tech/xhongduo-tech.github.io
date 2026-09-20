@@ -17,6 +17,10 @@ section: llm
 
 on-policy 时 $r_t=\pi_\theta/\pi_{\mathrm{old}}=1$。更新若干 minibatch 后 $\pi_\theta$ 已变，未截断的 $\pi_\theta/\pi_{\mathrm{old}}$ 在长序列上连乘或逐步乘，方差指数升。PPO 用 $\mathrm{clip}(r_t,1-\varepsilon,1+\varepsilon)$ 限制代理。截断重要性采样（truncated IS）更古典：$\bar\rho=\min(\bar c, \pi_\theta/\pi_{\mathrm{beh}})$，用 $\bar\rho$ 校正期望。V-trace 再对 $\bar\rho$ 与 $\bar c$ 分两层截断，修正价值。LLM 栈里常混用这些词：有人把 PPO clip 叫做 IS，有人另对 logprob 比做 min。
 
+<span class="marginnote">术语翻译：重要性采样就是「拿旧策略生成的数据来评新策略」时，给每个样本发一张补偿价签——这个动作在新策略下更常见，权重调高；更罕见，权重调低。比率 $\pi_\theta/\pi_{\mathrm{beh}}$ 就是那张价签。</span>
+
+<span class="marginnote">数字实例：某 token 在新策略下的概率是旧策略的 1.05 倍，看着无害；一条 64 token 的轨迹连乘 $1.05^{64}\approx 23$，权重差 23 倍，梯度方向就被这一条轨迹劫持了。截断干的事，就是把每个乘数先压回上限。</span>
+
 MiniMax-M1 认为多轮 off-policy 下 Clip-Higher 仍丢分叉词，改为对 IS 权重 clip。要点是：**截的是校正权重，还是近端代理，必须说清。** epoch 越多，未截断比率的尾巴越肥，这与「多刷同一批省生成」直接冲突。
 
 ### 行为策略是谁
@@ -40,6 +44,17 @@ flowchart TD
 $c$ 与 PPO $\varepsilon$ 不要叠成未声明的双重截断：若目标已是 clip 代理，不必再乘一层 $\min(\rho,c)$，除非论文明确是 clip-IS 变体。
 
 ## 机制
+
+```mermaid
+flowchart TD
+  C{"截断阈值 c 怎么选"} --> S["c 太小"]
+  C --> L["c 太大"]
+  S --> S1["高比率区域被砍掉：有效更新变稀"]
+  S --> S2["训练稳但学得慢，偏差更大"]
+  L --> L1["方差回来：长链乘积重新爆炸"]
+  L --> L2["梯度噪声大，更新方向发抖"]
+  M["适中：用偏差换方差，没有免费午餐"] --> C
+```
 
 未截断 IS 无偏、高方差；截断有偏、低方差。偏差表现为：被截掉的高比率区域不再更新，正是「走得太远的 token」。这与 PPO clip 精神相同。$c$ 太小，有效更新稀；太大，方差回来。长链上 token 级 $\rho_t$ 即使逐步截断，累积仍可偏，这是 GSPO 改序列粒度的动机。本课承认：截断是偏置换方差，不是免费午餐。
 

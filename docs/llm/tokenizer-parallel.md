@@ -17,7 +17,11 @@ section: llm
 
 prefill 是算力绑定，但启动前必须有 id 张量。单条 100K 字符的文档，BPE 是线性扫描加堆合并，可以到数十毫秒以上，且难在 GPU 上做（规则与模型绑定、分支多）。缺口是：把分词当成服务流水的独立阶段——线程池、批、缓存——而不是模型 `__call__` 的前奏。聊天模板（加 special tokens、角色标记）必须与训练一致；模板在 Python 字符串上做完再 encode，不要 encode 后再手工插 id 除非测试对齐。
 
+<span class="marginnote">TTFT（Time To First Token）就是用户从发出请求到看到第一个字所等的时间。分词在 CPU 上串行跑，正占着这段等待的前半截——GPU 再快，也救不回主机上没并行的 BPE。</span>
+
 缓存：系统提示、工具 schema 的 token 应缓存 id，不要每请求重分词。这与 KV 前缀缓存是两层：id 缓存省 CPU，KV 缓存省 GPU。
+
+<span class="marginnote">直觉类比：id 缓存像把常点菜的「菜谱」抄好备用，省下每次查菜谱的 CPU 时间；KV 缓存像把菜提前做成半成品，省下 GPU 的重算。两层各省一段，别当成一个开关。</span>
 
 <span class="marginnote">detokenize 的稳定前缀协议不要与 encode 共享一个锁。一边流式出、一边进新请求，分词器实现必须线程安全或按请求克隆。</span>
 
@@ -38,6 +42,17 @@ flowchart TD
 ## 机制
 
 TTFT = 排队 + 分词 + 搬输入 + prefill。长上下文曲线若只画 GPU，会漏掉第一项。byte-level BPE 对任意字节合法，预分词正则（如 GPT-2 的）可能成为扫描瓶颈，那是预训练工程课的正则；服务侧能做的是并行与缓存。错误的并行（按字符切 BPE）会改变合并，id 与训练不一致，属于静默正确性 bug。
+
+```mermaid
+flowchart LR
+  Q["请求入队"] --> E["CPU 分词"]
+  E --> H["搬运 id 张量"]
+  H --> P["GPU prefill"]
+  C["系统提示 id 缓存"] -. "命中则跳过" .-> E
+  P -. "空闲时段重叠下一请求" .-> E
+```
+
+<span class="marginnote">常见误区：为了并行把一段话按字符硬切成几块分别做 BPE。合并要看前后文，切开算出的 id 可能和整段不一致，模型读到的相当于「错别字」，而且不报错——这正是正文说的静默正确性 bug。</span>
 
 ## 边界
 

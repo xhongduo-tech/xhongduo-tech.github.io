@@ -23,6 +23,8 @@ LLM 把同一问题推到极端：一次请求对应**多个**响应（每个新
 
 Triton 的 dynamic batching 面向**无状态**模型：在 `max_queue_delay_microseconds` 窗口里把到达的请求拼成 preferred batch size，然后一次 backend 调用。这与 [Orca](/llm/orca-iteration) / vLLM 的迭代级连续批不是同一算法——后者在每一步前向结束时允许成员进出，KV 作为跨步状态留下。Triton 用 sequence batcher 处理有状态序列（必须粘在同一 model instance），用 TensorRT-LLM 的 inflight batcher 把生成式的连续批下放到 backend 内部。混淆这三层，会在配置里打开 `dynamic_batching` 却指望它管理 KV。
 
+<span class="marginnote">直觉类比：动态批像班车——不管车上有几个人，到点就发车，把窗口内陆续到的人凑成一批，而且中途一站不停。LLM 的连续批则是「每生成一个 token 都可能有人上下车」的公交，两者根本不是一种车。</span>
+
 <span class="marginnote">「Triton 支持 LLM」不等于「Triton 实现了 PagedAttention」。分页与 inflight batching 住在 TensorRT-LLM backend（`inflight_batcher_llm`）里。Triton 负责把请求送到这个 backend，并处理流式事务与集成。</span>
 
 ## 方法
@@ -54,6 +56,16 @@ flowchart TD
 
 ## 机制
 
+```mermaid
+flowchart TD
+  REQ["到达的请求流"] --> DYN{"该走哪种调度？"}
+  DYN -->|"无状态模型"| DB["动态批：窗口内拼满一次发完"]
+  DYN -->|"有状态会话"| SB["序列批：会话粘死在一个实例上"]
+  DYN -->|"生成式 LLM"| IB["inflight 批：TRT-LLM backend 内逐步进出"]
+  DB --> NOKV["不管理任何 KV"]
+  SB --> ST["状态是旧式隐状态，不是 KV"]
+  IB --> KV["分页 KV 也住在 backend 里"]
+```
 Triton 的加速来自**把组批与拷贝上收到服务进程**，让 backend 看到更饱和的张量，而不是来自某条新的注意力公式。无状态视觉模型上，窗口内到达的小图拼成一批，Tensor Core 利用率上升。有状态对话上，sequence batcher 保证同一会话粘在能看见隐状态的 instance 上——这是 [decode 亲和](/llm/decode-affinity) 在「通用推理服务器」里的旧形式，只是状态那时还不是 Transformer KV。
 
 Ensemble 的机制是服务器侧的 DAG 执行：张量在步骤之间留在设备或被框架认可的共享缓冲里转交，避免「出 GPU → 进网络 → 再进 GPU」。LLM 的 preprocessing 若用 CPU 分词，这一步仍在主机；收益是客户端不必实现与训练一致的 tokenizer，版本跟着模型仓库走。
@@ -67,6 +79,10 @@ NVIDIA 自己把 Dynamo 写成 Triton 在分布式生成式场景上的后继编
 ## 边界
 
 Triton 核心不知道 token 预算、前缀树或 goodput。把 DistServe 式的双 SLO 搜索写进 `config.pbtxt` 没有对应字段。动态批的 `max_queue_delay` 对短请求是延迟税，对 GPU 是吞吐补贴；LLM 的 token 级延迟通常由 inflight batcher 与 CUDA graph 决定，再叠一层动态批窗口往往有害。解耦模式下若 backend 在 `ModelInstanceExecute` 返回前不保持「还能接下一批评」的契约，动态批会退化成过早组批，官方文档对此有明确警告。
+
+<span class="marginnote">常见误区：在 `config.pbtxt` 打开 `dynamic_batching` 就以为 KV 被管理了。这个开关只负责「把请求拼成一批」；KV 的分页、复用、淘汰全在 TensorRT-LLM backend 自己的配置里，两套旋钮分属两层，排障时别找错文件。</span>
+
+<span class="marginnote">数字实例：`max_queue_delay_microseconds: 100` 意思是最多等 100 微秒就发车。对图片分类是白赚的凑批时间；对逐 token 出字的 LLM，这 100 微秒直接加在每一个 token 的延迟上——所以生成式路径通常把它调到 0。</span>
 
 多机 TRT-LLM 依赖 MPI 拓扑。Leader 与 Orchestrator 选错，会出现「第二个模型起不来」或「world size 不是 1」。KV 复用、分页容量、beam width 全是 backend 配置，Triton 模型管理 API 只能加载/卸载整个模型，不能按块做缓存淘汰。需要集群级 KV 池时，应接到 Mooncake / Dynamo KV Manager / [LMCache](/llm/lmcache)，而不是扩展 `config.pbtxt`。
 

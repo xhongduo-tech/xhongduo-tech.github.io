@@ -17,6 +17,8 @@ section: llm
 
 后训练方法的更新快过分布式运行时。一年内社区要从 [PPO](/llm/schulman-ppo) 换到 [DPO](/llm/rafailov-dpo)，再换到 [GRPO](/llm/grpo-paper)，还要接奖励模型、KTO、在线 DPO。若每个算法都自建模型包装、padding、loss mask 与 DeepSpeed 钩子，实验成本会花在胶水上。TRL 的问题定义是：在 Transformers 已经解决的「怎么载入因果 LM」之上，提供一组 Trainer，使换算法不必换数据管道。
 
+<span class="marginnote">直觉类比：TRL 之薄像「算法插件」——Transformers 负责「模型怎么载入、怎么分词」，Accelerate 负责「怎么分卡」，Trainer 只回答「这个 batch 的损失怎么算」。换算法等于换插件，底盘不动。</span>
+
 另一面是可达性。2023 年 3 月的官方博客用 TRL + LoRA 在 24GB 卡上对 20B 级模型做 RLHF；同年 4 月 StackLLaMA 给出 LLaMA + PPO 的完整食谱；8 月的 Llama 2 DPO 教程把离线偏好变成默认路径。这些材料训练的是社区，不是新的优势估计。代价是：早期 PPOTrainer 把生成做在 HF `generate` 上，没有 vLLM 的 PagedAttention，在线 RL 的生成相会成为墙。OpenRLHF 后来在 GSM8K GRPO 上测到优化后的 TRL 一个 epoch 仍要 5189s，自己 1657s——那是系统对照，说明 TRL 的默认路径不是为长链大规模 rollout 设计的。
 
 ### Trainer 目录不是一条 RL 理论
@@ -52,9 +54,21 @@ DPO 不需要在线生成，墙钟由偏好对的前向决定，TRL 在这里很
 
 ## 机制
 
+```mermaid
+flowchart TD
+  B["batch：prompt + 采样出的生成"] --> L["收 logits（Trainer 层）"]
+  L --> M["按 loss mask 聚合损失"]
+  B --> R["奖励函数给标量或组内排序"]
+  R --> ADV["组内标准化 → token 级优势"]
+  ADV --> LOSS["策略梯度损失 + KL"]
+  LOSS --> UP["更新权重，按频率同步给推理引擎"]
+```
+
 TRL 能薄，是因为它把「模型是什么」外包给 HuggingFace。词表、chat template、梯度检查点、设备映射都已存在；Trainer 只覆盖：如何把 batch 收成 logits、如何按 mask 聚合损失、如何把奖励函数的标量广播到 token 优势。GRPO 的组内标准化发生在这一层，数学与 [GRPO 原文](/llm/grpo-paper) 相同，实现细节（是否除标准差、是否 token 级平均）随版本与参数变，必须读当时 docstring。
 
 共置 vLLM 的关键约束是**权重视图**：训练侧可能是 LoRA 或 ZeRO 分片，推理侧要一份可 decode 的完整（或 TP 切分）权重。同步频率若每步都做，生成最新但税高；若多步一同步，则变成轻度 off-policy。TRL 把这条权衡留给配置，不像 [AReaL](/llm/areal-async-rl) 把 staleness $\eta$ 写成一等超参。
+
+<span class="marginnote">数字实例：一个 70B 模型的 BF16 权重约 $70\times10^9\times2$ 字节 $=140$ GB。每训练一步就全量搬一次，生成最新但带宽税极高；每 N 步搬一次省了税，rollout 相对最新策略却变旧——off-policy 程度就是从这来的。</span>
 
 ### 何时它是正确的默认
 
