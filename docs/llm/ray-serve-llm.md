@@ -17,6 +17,8 @@ section: llm
 
 生产 LLM 服务的控制面需求与训练不同。流量按分钟变，要按副本数而不是按作业步数扩缩；同一基座要挂多个 LoRA；有的请求该打到前缀缓存命中的副本，有的该打到更空的副本；前填与解码可能要拆成两类 Deployment。把这些写进一份 bash 里起多个 `vllm serve`，亲和、健康检查和多模型路由都要自己做。
 
+<span class="marginnote">控制面可以理解成「管事的那层」：起几个副本、放在哪台机器、请求发给谁；数据面才是「干活的那层」：真正跑注意力前向。vLLM 单进程已经把活干得很好，缺的是「管事」——弹性扩缩、亲和路由、多模型编排，这正是这层要补的。</span>
+
 Ray 给出的原语是 Actor 与 Deployment：每个副本是一个可调度的进程，带资源声明（几张 GPU、哪种加速器）。缺的是 LLM 语义——OpenAI 请求体、流式 token、引擎启动顺序、以及「前缀感知」这种不能用轮询替代的路由。Serve LLM 要填的就是这层语义，而不是再实现一套注意力核。
 
 ### 引擎无关不是性能无关
@@ -30,6 +32,8 @@ Ray 给出的原语是 Actor 与 Deployment：每个副本是一个可调度的�
 核心有两块。**`LLMServer`** 是一个 Serve Deployment，管理一个引擎实例。副本可以三种方式存在：独立复制（数据并行式的多副本）、在同一 Deployment 内做张量/流水线/专家并行、以及跨 Deployment 协同（PD 分离里的 `PDPrefillServer` / `PDDecodeServer`）。异步构造函数保证引擎 `start` 完成才接请求，避免副本未就绪时被 Ingress 打满。
 
 **`OpenAiIngress`** 提供 FastAPI 入口：`/v1/chat/completions`、`/v1/completions`、`/v1/embeddings`。它执行路由策略（前缀感知、会话感知、或默认负载均衡），并处理 LoRA 多路复用——基座副本共享，适配器按请求挂载。Ingress 与 Server 的比通常小于 1，避免把 CPU 上的 HTTP 与 GPU 上的前向绑死在同一进程；这与 [vLLM V1](/llm/vllm-v1) 把 API 进程和 `EngineCore` 拆开是同一方向。
+
+<span class="marginnote">「Ingress 与 Server 比小于 1」翻译一下：一个 CPU 入口进程可以同时服务多个 GPU 副本。因为解析 HTTP、拼 JSON 这类活一个进程绰绰有余；若把入口和引擎绑死在同一进程，CPU 忙起来反而会拖住 GPU 干不了活。</span>
 
 构造复杂图用 builder：声明若干 `LLMConfig`（模型、并行度、引擎参数、扩缩规则），生成 Deployment 图再 `serve.run`。官方列出的能力包括张量/流水线/专家并行、数据并行注意力、PD 分离、前缀感知路由、多 LoRA、以及 vLLM/SGLang 后端。指标接到 Ray 的 dashboard 与 Grafana 模板。Anyscale 的托管服务在同一套 Serve 之上补基础设施，但开源合同仍是 `ray.serve.llm`。
 
@@ -57,6 +61,20 @@ flowchart TD
 
 多 LoRA 的机制是基座常驻、适配器按请求换入。路由必须把「同一基座 + 指定适配器」视为缓存键的一部分，否则会把 A 适配器的 KV 当 B 的前缀用。引擎侧 vLLM 已经支持多 LoRA 与分页；Serve 层要保证请求体里的适配器标识传到 `LLMEngine`，并且扩缩时新副本能拉到适配器权重。
 
+```mermaid
+flowchart TD
+  BASE["基座模型权重：所有副本常驻"] --> R1["副本 1"]
+  BASE --> R2["副本 2"]
+  QA["请求：基座 + 适配器 A"] --> ING["Ingress 多路复用"]
+  QB["请求：基座 + 适配器 B"] --> ING
+  ING -->|"挂载 A"| R1
+  ING -->|"挂载 B"| R2
+  ING --> KEY["KV 缓存键 = 基座 + 适配器身份"]
+  KEY -->|"漏掉适配器身份"| WRONG["把 A 的 KV 当 B 的前缀，输出错乱"]
+```
+
+<span class="marginnote">这张图回答「多个 LoRA 是怎么挤在同一批 GPU 上的」。基座大权重只有一份常驻，每个请求只临时挂一个几十 MB 的小适配器；而缓存键必须带上适配器身份——两个适配器改的是同一个基座，前缀 token 虽然相同，算出的 KV 却已经不同。</span>
+
 <span class="marginnote">OpenAI 兼容只保证路径与 JSON 形状。采样参数、logit bias、水印钩子、约束解码是否透传到引擎，取决于当前 `VLLMEngine` 实现。不要用一份 curl 通过 `/v1/models` 来推断所有解码特性都已接通。</span>
 
 ### 与「多个 vLLM 进程 + 外部网关」的差别
@@ -70,6 +88,8 @@ Ray 头节点与 GCS（全局控制存储）是新的单点与延迟来源。引
 PD 分离、专家并行、数据并行注意力可以组合，组合后的失败模式也组合：KV 传输失败、EP 负载不均、Ingress 选错池。builder 让声明变短，排障仍要沿 Deployment 图走到具体引擎日志。SGLang 后端的功能覆盖落后于 vLLM 路径时，不要假设 radix 的所有前端原语都能经 OpenAI Ingress 到达。
 
 多租户下，Serve 的请求路由默认不提供密码学隔离。前缀感知会把相同系统提示的租户打到同一副本——这是吞吐优化，不是安全边界。密钥、水印密钥、适配器文件必须按 Deployment 或请求元数据切开。
+
+<span class="marginnote">常见误区：把「相同提示总路由到同一副本」当成租户隔离。其实方向正相反——前缀感知是故意把相同输入的用户聚到同一张卡上共享缓存，这是省钱设计。真要隔离，得靠密钥与适配器文件按租户切开，路由层帮不上忙。</span>
 
 <span class="marginnote">出处钉 Ray 文档 *Serving LLMs* 与 *Architecture: overview / core components*（https://docs.ray.io/en/latest/serve/llm/），以及 Moritz et al., *Ray: A Distributed Framework for Emerging AI Applications*, OSDI 2018。Anyscale 产品说明是托管层，数字不要写回开源 Serve。</span>
 

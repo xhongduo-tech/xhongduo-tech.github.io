@@ -17,7 +17,11 @@ section: llm
 
 轮询摊请求，对无状态服务正确，对带 KV 的 LLM 会把同一系统提示在 $R$ 个副本上各算一遍。一致性哈希按 `x-session-id` 粘滞，多轮友好，但长会话会把一张卡打满，其它卡空着。`PrefixCacheAffinityRouter` 在网关侧用提示文本近似缓存，队列失衡时退回 power-of-two choices，仍然不是引擎块表。真正缺的是：**每张卡现在有哪些 KV 块、每张卡还剩多少 prefill/decode 工作**。
 
+<span class="marginnote">KV cache 说白了是「已经算过的中间结果」：模型每读一个 token 都会产出一组 Key/Value 向量，下轮复用就免于重算。它动辄占几 GB 显存，重算一遍就是几百毫秒的首 token 延迟——所以「哪张卡已有这段缓存」直接决定该把请求发给谁。</span>
+
 若把选择做成集群里唯一的 actor，每个请求一次 RPC，入口一多就成热点；actor 挂了，全局负载视图一起没。2.58 把选择挪进已经位于路径上的 ingress 副本，去掉这条同步 RPC。代价是多 ingress 必须同步 KV 事件与负载，视图是最终一致，不是线性一致。
+
+<span class="marginnote">power-of-two choices 是个朴素的负载均衡技巧：不遍历所有副本找最闲的，只随机抽两个、选较闲的那个。遍历要 $R$ 次查询，抽两个只要 2 次，而均衡效果已接近全局最优——用一点点随机换掉大半开销。</span>
 
 ### 重叠不是唯一目标
 
@@ -49,9 +53,26 @@ flowchart TD
 
 `runtime_env` 里的 `DYN_*` 传给 ingress 上的选择服务。`DYN_ROUTER_PREFILL_LOAD_SCALE`（默认 1）拉高则偏 prefill 重的流量；`DYN_ROUTER_KV_OVERLAP_SCORE_CREDIT` 控制 GPU 重叠能抵多少 prefill，设 0 则只看负载；`DYN_ROUTER_KV_OVERLAP_SCORE_CREDIT_DECAY` 在副本已经堆积时衰减命中红利，避免亲和把忙卡越打越忙；`DYN_ROUTER_DECODE_ACTIVE_REQUEST_WEIGHT` 给「正在服务的请求数」加成本。Decode 进度上报默认关（`RAY_SERVE_LLM_ENABLE_DECODE_BLOCK_PROGRESS`），打开更准，但每个引擎要向每个 ingress 发更新，高并发有网络税。
 
+<span class="marginnote">衰减参数像「老顾客折扣」：命中缓存原本能全额抵扣 prefill 工作量，但当某张卡已经排起队，这个红利就按比例缩水，防止亲和效应让忙卡越打越忙。设 1 是永不衰减，越接近 0 折扣失效得越快。</span>
+
 ## 机制
 
 Token load 用 KV 块当单位。Prefill 项：未命中 token 加上该副本已在飞的 prefill；GPU 块全额抵扣，CPU 块打折。Decode 项：活跃请求的 KV 块，按 `max_tokens` 估计剩余输出加权。请求去估计总和最低的副本。这把 [前缀感知扩缩容](/llm/prefix-aware-autoscaling) 里「利用 vs 探索」收成一个标量，而不是两段启发式。
+
+```mermaid
+flowchart TD
+  REQ["一条新请求到达 ingress"] --> HIT{"前缀在该副本上有多少已存 KV 块？"}
+  HIT -->|"GPU 命中"| CRED["全额抵扣 prefill 工作量"]
+  HIT -->|"CPU 卸载命中"| DISC["打折抵扣：要先搬回显存"]
+  HIT -->|"未命中"| FULL["全部计为 prefill"]
+  CRED --> SUM["token load 估计值"]
+  DISC --> SUM
+  FULL --> SUM
+  FLY["该副本在飞的 prefill 与 decode"] --> SUM
+  SUM --> PICK["发往估计总和最低的副本"]
+```
+
+<span class="marginnote">这张图回答「一个请求的分数是怎么算出来的」。要点是同一段缓存有两种身价：在 GPU 显存里算全额优惠券，被卸载到 CPU 内存里的只算打折券——因为用之前得先搬回显存，时间没那么省。</span>
 
 入口侧 tokenize 必须与引擎同一 renderer / chat 模板，否则重叠按 token id 计算会系统性算错——差一个 BOS 就整段前缀对不上。这是 ingress CPU 成为瓶颈的原因，也是 `RAY_SERVE_INGRESS_ROUTER_REPLICAS_PER_NODE` 默认 1、可调到 2 的原因。视图最终一致：刚写入的 KV 块可能尚未出现在另一个 ingress 的树上，短窗口内会次优路由，不应假设全局精确命中。
 
