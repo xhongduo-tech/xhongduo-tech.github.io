@@ -17,6 +17,8 @@ section: quant
 
 Black-76 要求 $F\gt 0$。$F\le0$ 时 ATM caplet 仍在交易，市场改报 normal vol $\sigma_N$，使价格等于 Bachelier 公式。移位模型用 $\ln(F+s)$，把壁移到 $-s$。问题是：两套报价并存，转换依赖模型（同一价格对应的 $\sigma_N$ 与 $\sigma_{LN}$ 不是常数比）。校准必须先锁定惯例，见 [报价惯例](/quant/quoting-conventions)，再谈 SABR。
 
+<span class="marginnote">术语翻译：bp vol 就是「以基点为单位的正态波动率」——报 100 bp vol，意思是一年期远期利率的标准差约为 1%。它不需要对 $F$ 取对数，所以 $F$ 穿过零、变负时公式照样成立。</span>
+
 移位 $s$ 是参数：太小，负利率一深又撞壁；太大，微笑形状被扭曲，$\beta$ 的含义改变。$s$ 应相对历史最低与期权翼部来选，并隔日稳定，不要每天当自由参数——否则又是校准多峰。
 
 ### 正态不是「零利率的极限」那么干净
