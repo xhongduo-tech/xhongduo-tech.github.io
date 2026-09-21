@@ -35,7 +35,7 @@ TCP 断开后，FIX 会话用序号对齐：我的下一发送序号、我期望
 flowchart LR
   NO["发 NewOrderSingle：ClOrdID=123"] --> PEND["本地状态：pending new"]
   PEND --> ACK["收到回报：OrdStatus=New"]
-  ACK --> MOD["改价：新 ClOrdID=124<br>OrigClOrdID 链回 123"]
+  ACK --> MOD["改价：新 ClOrdID=124，链回 OrigClOrdID=123"]
   MOD --> DUP["断线重放：同一订单的回报再来一次"]
   DUP --> IDEM["按 ClOrdID 幂等：不重发新单"]
 ```
