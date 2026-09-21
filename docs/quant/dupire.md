@@ -56,7 +56,7 @@ $$
 ```mermaid
 flowchart TD
   SV["真实随机波动 σ_t：随机因子与现货相关"] --> MARG["欧式边际：S_T 的分布"]
-  SV --> COND["条件期望 E[σ_T² | S_T=K]"]
+  SV --> COND["条件期望 E[σ_T² 给定 S_T=K]"]
   MARG --> DUP["Dupire 表 σ_loc(K,T)"]
   COND --> DUP
   DUP --> KEEP["保留：全部欧式香草可重现"]
