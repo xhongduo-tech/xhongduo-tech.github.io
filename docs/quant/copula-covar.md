@@ -23,6 +23,8 @@ $$
 
 $\Delta\mathrm{CoVaR}_q^{j\mid i}$ 是困境条件与中位数条件之差。问题是 $C$ 如何取、联合分布如何估。分位回归假定 $X^j$ 对 $X^i$ 的条件分位是线性的，尾依赖若来自 Copula 角落而不是线性斜率，会估错增量。高斯联合下 CoVaR 几乎被 $\rho$ 决定，又回到「相关升高」的老故事，见[相关性崩溃](/quant/correlation-breakdown)。
 
+<span class="marginnote">术语翻译：VaR 回答「我自己明天最惨亏到哪」；CoVaR 回答「他出事之后，系统（或我）最惨亏到哪」。两者相减的 $\Delta\mathrm{CoVaR}$ 就把「他自己坏」与「他拖累别人」分开，只给拖累这一半计价。</span>
+
 ### 等号条件与小于等于条件
 
 Adrian–Brunnermeier 取 $X^i=\mathrm{VaR}_q^i$。连续密度下这是一条线，分位回归用整段样本的 $q$ 分位斜率去外推到该线。Girardi–Ergün 取 $X^i\le\mathrm{VaR}_q^i$，事件有正概率，CoVaR 是条件分布的 $q$ 分位，且与一致性风险度量的条件化更合拍。两种数字不可直接比较。监管或内部若写 CoVaR，必须声明条件事件；把分位回归的 $\Delta\mathrm{CoVaR}$ 和 Copula 的 $\Delta\mathrm{CoVaR}$ 排在一张表上，差的是定义，未必是系统贡献变了。
@@ -41,6 +43,8 @@ $$
 
 **分位回归对照。** 原文把系统收益对机构收益与状态变量做 $q$ 分位回归，再用机构的 VaR 代入。优点是状态变量（VIX、利差、TED）可直接进方程，计算轻。缺点是线性、对称地处理涨跌，除非把样本拆成下行。报告应同时给：分位回归 $\Delta\mathrm{CoVaR}$、高斯 Copula、厚尾 Copula。三者发散时先查尾依赖，而不是先调 $q$。
 
+<span class="marginnote">数字实例：取 $q=99\%$。若机构 $i$ 触及其 VaR 时，系统损失条件分布的 99% 分位是 $4.5\%$，而 $i$ 处于中位数状态时只有 $2.5\%$，则 $\Delta\mathrm{CoVaR}=2$ 个百分点——这 2 点才是 $i$ 的「系统性附加」，不是它自己那条更深的 VaR。</span>
+
 **方向。** $\mathrm{CoVaR}^{j\mid i}$ 不是 $\mathrm{CoVaR}^{i\mid j}$。系统对机构的暴露与机构对系统的暴露可以不对称。宏观审慎通常要「机构 $i$ 困境 → 系统」，微观风控也可能要「系统困境 → 机构 $i$」作为反向压力的输入。网络里对所有对 $(i,j)$ 估一遍，须做多重检验，否则「贡献最大的十家」只是估计误差的排序。
 
 ### 与 Copula VaR、MES 如何一起用
@@ -52,6 +56,21 @@ Copula VaR 抽的是因子联合，给自己账簿的资本。Copula-CoVaR 抽�
 ## 机制
 
 $\Delta\mathrm{CoVaR}$ 大，来自两件事相乘：机构与系统的尾依赖 $\lambda$，以及系统边缘自己的厚度。高斯 Copula 压住 $\lambda$，只留下线性相关；危机里观测到的「一起爆」被低估。Clayton 把质量堆在双亏角落，即使 Kendall $\tau$ 中等，$\Delta\mathrm{CoVaR}$ 也可以很大。这与组合 Copula VaR 是同一角落，对象从「我的 $L$」换成「他坏时我的 $X^j$」。
+
+<span class="marginnote">直觉类比：高斯 Copula 像「大家一起降温但不极端」的平均天气；Clayton 把概率质量堆在双亏角落，像同一街区共用一条水管——一家爆管，家家被淹。换 Copula 换的不是相关系数，而是「同时爆」的质量。</span>
+
+为什么换 Copula 会改变 $\Delta\mathrm{CoVaR}$ 的读数：
+
+```mermaid
+flowchart TD
+  A["机构 i 陷入困境: X^i ≤ VaR^i"] --> B{"双亏角落的概率质量"}
+  B -->|"高斯: 尾依赖 λ=0"| C["条件分位靠 ρ 线性外推"]
+  B -->|"Clayton / t: λ 大"| D["质量堆在双亏角落"]
+  C --> E["ΔCoVaR 偏小 危机被低估"]
+  D --> F["ΔCoVaR 变大 尾依赖被计价"]
+  E --> G["系统性资本拨备不足"]
+  F --> H["按连接方式而非体量收费"]
+```
 
 分位回归的机制是斜率：机构多亏一单位，系统 $q$ 分位多移多少。它捕捉的是平均线性，不是角落质量。状态变量若已包含 VIX，斜率里的「传染」会被宏观状态吸走一部分——这是特征：Adrian–Brunnermeier 想把机构贡献从共同状态里分开。Copula 路径若不用状态变量，会把共同因子算进 $\Delta\mathrm{CoVaR}$，高估可归因于该机构的外部性。工程折中是：边缘或 Copula 参数随宏观状态变，机构特异残差的 Copula 才进 $\Delta\mathrm{CoVaR}$。
 
