@@ -19,9 +19,13 @@ section: quant
 $$\mathrm{CVA}=\mathrm{LGD}\int_0^T \mathrm{EE}(t)\,d\mathrm{PD}(t)$$
 取自暴露剖面；自身违约给出对称的 DVA（见[DVA 与自身信用](/quant/dva-own-credit)）；未抵押 profile 占用的资金给 FVA（见[FVA 与资金成本](/quant/fva-funding)）；初始保证金在保证金期内给 MVA；监管资本占用的成本是 KVA。缺口不在五个公式各自的存在性，而在它们的和：同一份 profile 被几个科目同时引用，谁减谁、谁重复，直接决定报价里加多少、对冲几份。
 
+<span class="marginnote">五个字母账各管一件事：CVA 是对手倒了你亏的期望损失；DVA 是你倒了对方赚的（自己的「违约也有价值」）；FVA 是未抵押头寸占用的资金费；MVA 是押初始保证金的成本；KVA 是资本占用费。同一份合同在五种约束下的影子价格，加总才是真实报价。</span>
+
 ## 方法
 
 联动从合同条款开始：CSA 决定抵押门槛、独立金额与触发器，从而决定 profile 里「已抵押、未抵押、过度抵押」三段的划分。CVA 只对未抵押段收；过度抵押段是负债，进 FVA 的收益侧；初始保证金押出的部分不受净额结算保护，单独进 MVA。一套联合模拟同时产出 EE、PFE 与资金 profile，各科目从中各取所需——这是避免重复计算的机制基础：科目可以多，profile 只有一份。错向风险改的是联合分布而不是系数：暴露大的时候对手 PD 也大的合同（例如卖信用保护给高杠杆对手），用独立的 PD 与市场因子模拟会系统性低估 CVA，处理见[利率-信用混合定价](/quant/rates-credit-hybrid)。对冲侧：CVA 台用指数 CDS 对冲利差 beta，残差的单名 gamma 与基差是新账本——对冲不消灭风险，只改写风险的形式。
+
+<span class="marginnote">数字直觉：若某合同五年内平均暴露 EE 约 200 万，对手年违约率 1%、回收四成，粗算 $\mathrm{CVA}\approx 200\text{ 万}\times 1\%\times 60\%\times 5\text{ 年}\approx 6$ 万。暴露、违约率、LGD 三者相乘再沿时间积分，就是 CVA 的骨架。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,18 @@ flowchart TD
 重复计算最爱长在两处。其一：抵押品已经在 EE 里降低了暴露，若资金成本再对同一笔抵押品全额计一次 FVA，同一块钱被算两次——正确口径是只对净暴露的资金缺口计。其二：DVA 与 FVA 的争论是定义之争的两半：DVA 把自身违约当成对方的收益，会计上确认，经济上能否实现取决于自己能否活到那一天；FVA 若按对称的资金成本计，已隐含自身信用的一部分，两笔全额相加就会重叠。KVA 与下一课的监管资本衔接：$\mathrm{KVA}=\int \kappa\,\mathrm{EC}(t)\,dt$，经济资本与监管资本在这里分家——定价用哪个，取决于股东最终按哪个拿回报。XVA 的数是一组模型输出的差：profile 的网格、保证金期的假设、错向的设定各动一格，五个科目一起动。
 
 <span class="marginnote">Gregory 的分类至今是行业标准词汇：CVA、DVA、FVA、MVA、KVA 各有明确的合同来源；行业争论从来不在「要不要算」，而在「哪两对不能同时全额算」——CVA 与 DVA、FVA 与 DVA 是最常打架的两对，报价单上必须写口径。</span>
+
+```mermaid
+flowchart TD
+  COL["抵押品已在 EE 里降低暴露"] --> DBL["再对同一笔全额计 FVA"]
+  DBL --> TWICE["同一块钱被算两次"]
+  FIX1["修正：FVA 只对净暴露的资金缺口计"]
+  DVA["DVA 全额确认"] --> OVL["与对称计的 FVA 重叠"]
+  OVL --> FIX2["修正：两对重叠只全额算其一或打折"]
+  KVA["KVA：kappa 乘经济资本 EC"] --> SPLIT["与监管资本分家，按股东回报口径定"]
+```
+
+<span class="marginnote">常见误区：把 DVA 当成已到手的收益。自身信用恶化时 DVA 上升、账面利润变好——可那恰恰是因为你更可能赖账了。DVA 只有在你活到那一天、真的少还钱时才兑现；机构倒下时，账面 DVA 会随它一起消失。</span>
 
 ## 边界
 
