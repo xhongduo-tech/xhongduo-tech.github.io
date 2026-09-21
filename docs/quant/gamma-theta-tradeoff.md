@@ -21,7 +21,9 @@ $$
 \mathrm{d}V-\Delta\mathrm{d}S \approx \Theta\mathrm{d}t+\tfrac12\Gamma(\mathrm{d}S)^2+\cdots
 $$
 
-而定价时 $\Theta+\tfrac12\sigma_{\mathrm{imp}}^2 S^2\Gamma\approx r(V-\Delta S)$（略去股息）。于是超额 PnL 大约是 $\tfrac12 S^2\Gamma\bigl((\mathrm{d}S/S)^2-\sigma_{\mathrm{imp}}^2\mathrm{d}t\bigr)$。多 Gamma 的人在已实现方差高于隐含方差时赚钱。问题是：这是**对冲后的方差互换型暴露**，不是「方向对了」；微笑下每个 $K$ 的 $\sigma_{\mathrm{imp}}$ 不同，总 Gamma 加权平均的隐含方差才是你付的租金。把 ATM 隐波当所有腿的租金，会在偏斜产品上把账做平。
+而定价时 $\Theta+\tfrac12\sigma_{\mathrm{imp}}^2 S^2\Gamma\approx r(V-\Delta S)$（略去股息）。
+
+<span class="marginnote">租金的数字实例：现货 100、隐含年化 20%、平值看涨 $\Gamma\approx 0.06$，日租金约 $\tfrac12 S^2\Gamma\cdot\sigma^2/252\approx 0.05$ 元/股——持有不动每天扣这么多，周末连扣三天。Gamma 赚回的必须超过这条流水：这就是「已实现要高于隐含」的具体含义。</span>于是超额 PnL 大约是 $\tfrac12 S^2\Gamma\bigl((\mathrm{d}S/S)^2-\sigma_{\mathrm{imp}}^2\mathrm{d}t\bigr)$。多 Gamma 的人在已实现方差高于隐含方差时赚钱。问题是：这是**对冲后的方差互换型暴露**，不是「方向对了」；微笑下每个 $K$ 的 $\sigma_{\mathrm{imp}}$ 不同，总 Gamma 加权平均的隐含方差才是你付的租金。把 ATM 隐波当所有腿的租金，会在偏斜产品上把账做平。
 
 Theta 还含利率与时间衰减的会计项。周末、节假日的日历 Theta 与交易日已实现不对齐，见 [日历与隔夜](/quant/calendar-overnight)。
 
@@ -35,7 +37,23 @@ Theta 还含利率与时间衰减的会计项。周末、节假日的日历 Thet
 
 日终分解：Delta PnL、Gamma/已实现、Theta/隐含、Vega/曲面变化、残余（高阶、跳、费用）。已实现用与对冲频率一致的采样，不要用日度平方去解释五分钟对冲的簿。对冲频率提高，已实现更接近二次变差，也更吃微观结构噪声，见 [已实现波动与噪声](/quant/rv-noise)。
 
-限额：用 $\tfrac12 S^2\Gamma$ 当方差名义，对比隐含方差与预测 RV。这是把期权簿翻译成方差互换语言，便于和 [HAR](/quant/har-rv) 一类预测对表。
+限额：用 $\tfrac12 S^2\Gamma$ 当方差名义，对比隐含方差与预测 RV。
+
+<span class="marginnote">术语翻译：「把期权簿翻译成方差互换语言」指：每张期权的 $\tfrac12 S^2\Gamma$ 就是它的方差名义——相当于把不同币种按汇率折成同一种货币。折算后，整个期权簿变成一张「方差头寸表」，才能与 RV 预测模型直接对表、按统一的方差限额管理。</span>
+
+```mermaid
+flowchart TD
+  BK["期权簿：各腿希腊字母"] --> D1["桶一：Delta PnL（应近零）"]
+  BK --> D2["桶二：Gamma 赚已实现"]
+  BK --> D3["桶三：Theta 付隐含"]
+  BK --> D4["桶四：Vega 付曲面变动"]
+  BK --> D5["桶五：残余（跳、费用、高阶）"]
+  D2 --> LIM["限额：½S²Γ 当方差名义"]
+  D3 --> LIM
+  LIM --> RV["与 HAR 类 RV 预测对表"]
+```
+
+这是把期权簿翻译成方差互换语言，便于和 [HAR](/quant/har-rv) 一类预测对表。
 
 ## 机制
 
@@ -52,7 +70,9 @@ flowchart TD
 
 ## 边界
 
-离散对冲、买卖价差、隔夜缺口使恒等式只是分解框架，不是保证。美式提前行权、融资与股票借券进入 carry，不在纯 $\Gamma$–$\Theta$ 里。结构产品的「Theta」往往含障碍时间流逝，符号与香草相反，不要用同一句「卖方收租」概括 autocallable。
+离散对冲、买卖价差、隔夜缺口使恒等式只是分解框架，不是保证。
+
+<span class="marginnote">常见误区：看到「今天 Gamma 赚了」就以为是已实现超过隐含。实际上 Delta 没对干净，方向盈亏会整桶混进 Gamma 桶；曲面一动，Vega PnL 又能盖过 Gamma-Theta。所以读这组数字前先查两件事：Delta 桶是否近零、Vega 桶是否在限额内——否则你读到的「权衡」是别的风险的投影。</span>美式提前行权、融资与股票借券进入 carry，不在纯 $\Gamma$–$\Theta$ 里。结构产品的「Theta」往往含障碍时间流逝，符号与香草相反，不要用同一句「卖方收租」概括 autocallable。
 
 ## 小结
 

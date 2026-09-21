@@ -15,6 +15,8 @@ section: quant
 
 ## 问题
 
+<span class="marginnote">恒等式的直觉类比：多头 Gamma 像买了张蹦床——价格每弹跳一下，你通过再平衡刮到一点已实现；但蹦床按天收租金，租金就是 Theta（定价用的隐含方差）。恒等式说的就是「弹跳收入减租金」：已实现波动高于隐含才净赚。租金是按预期弹跳幅度预先定价的，这就是「波动率风险溢价」的白话版。</span>
+
 Black–Scholes 方程在无利率、无分红的局部写法下给出 $\Theta+\frac12\Gamma S^2\sigma^2=0$（或加上融资项）。Delta 中性组合在 $\mathrm{d}t$ 内的价值变化，用 Itô 展开到二阶，期权侧贡献 $\Theta\mathrm{d}t+\frac12\Gamma(\mathrm{d}S)^2$，对冲侧贡献 $-\Delta\mathrm{d}S$。代入 PDE，剩余是
 
 $$
@@ -35,7 +37,9 @@ Bakshi–Kapadia 的零假设是：若波动风险不被定价，Delta 对冲的
 
 **记账。** 每个再平衡点记录：期权市值、对冲头寸、融资。区间 PnL 拆成：Delta（应为近零）、Gamma（二次变差项）、Theta（时间）、Vega（曲面移动）、残差（跳、价差、离散）。Bakshi–Kapadia 在研究里用 Black Delta、按日再平衡，把平均 Delta 对冲收益对 Vega、期限、执行价回归，以识别波动风险价格。交易台要把同一分解做成日报，否则「scalping 赚了」可能只是 Delta 没对上或曲面涨了。
 
-**对象选择。** 平值短到期 Gamma 大、Theta 贵，已实现必须明显高于隐含才覆盖成本；虚值 Gamma 小，scalping 弱，更多是尾部保险。方差互换把权重换成 $1/K^2$，Gamma 剖面更平，是「干净」的已实现对隐含；香草是 $\Gamma(S,t;K)$ 加权的已实现，现货若远离 $K$，刮不到。这是为何专业方差账用互换，而做市商的日内 PnL 仍像香草 Gamma。
+**对象选择。** 平值短到期 Gamma 大、Theta 贵，已实现必须明显高于隐含才覆盖成本；虚值 Gamma 小，scalping 弱，更多是尾部保险。
+
+<span class="marginnote">数字实例：现货 100、隐含年化 20% 的一个月平值跨式大约要付 4 个指数点。若持有整整一个月、路径平淡，这 4 点就是 Gamma 侧的净亏损（Theta 烧完）；要赚回来，月内已实现波动必须明显高于 20%——例如价格天天来回 1.5% 以上。买 Gamma 不是免费彩票，Theta 是每天的账单。</span>方差互换把权重换成 $1/K^2$，Gamma 剖面更平，是「干净」的已实现对隐含；香草是 $\Gamma(S,t;K)$ 加权的已实现，现货若远离 $K$，刮不到。这是为何专业方差账用互换，而做市商的日内 PnL 仍像香草 Gamma。
 
 **溢价与 alpha。** 指数上买 Gamma 的无条件期望为负（BK）。要把它做成正的策略，需要择时已实现相对隐含的条件预测，或只在溢价过厚时卖出，而不是无条件买。个股上 Bakshi–Kapadia–Madan 显示单名期权相对指数更便宜（相关溢价在指数侧），单名买 Gamma 的溢价结构不同，见 [dispersion 相关溢价](/quant/dispersion-corr-prem)。
 
@@ -59,7 +63,22 @@ flowchart TD
 
 连续极限里，若实现过程的瞬时方差等于定价 $\sigma^2$，且无波动风险溢价，scalping 的期望为零，只剩离散噪声。市场拒绝「无溢价」：风险中性下的 $\mathbb{E}^{\mathbb{Q}}[\mathrm{QV}]$ 高于物理期望，条带贵于随后实现。Delta 对冲的多头期权是这条溢价的香草实现，权重是该期权的 $\Gamma$ 而不是 $1/K^2$。Bakshi–Kapadia 的贡献是把「期权贵」写成可检验的 Delta 对冲收益，而不是只比较 ATM IV 与历史波动。
 
-随机波动下，即使 $\mathbb{E}[\mathrm{d}\langle\log S\rangle]=v_t\mathrm{d}t$，若 $v_t$ 与定价所用的 Black $\sigma$ 不同，且 $\mathrm{d}v$ 与 $\mathrm{d}S$ 相关，Vega / Vanna 项有均值。Heston 里 $\rho\lt 0$ 使下跌伴随 $v$ 上升，空头看跌的 Delta 对冲收益更负。用 Black Delta 对冲随机波动世界，本身就是模型错误；BK 的检验用的是市场惯例 Delta，测到的是这一惯例下的溢价，包含模型误设。生产上应用记账模型的 Delta，再把模型外的 Vega 分桶。
+随机波动下，即使 $\mathbb{E}[\mathrm{d}\langle\log S\rangle]=v_t\mathrm{d}t$，若 $v_t$ 与定价所用的 Black $\sigma$ 不同，且 $\mathrm{d}v$ 与 $\mathrm{d}S$ 相关，Vega / Vanna 项有均值。
+
+<span class="marginnote">术语翻译：Heston 里 $\rho\lt 0$ 说的是「波动与现货反相关」——下跌时波动升、上涨时波动降，即所谓杠杆效应。对空头看跌的人，这是双重打击：价格下跌亏方向，对冲用的波动还变贵，所以 Delta 对冲收益更负。指数期权隐含偏斜的左尾上翘，就是这个机制的市场定价。</span>
+
+```mermaid
+flowchart TD
+  VS["单一跨式 scalping"] --> W1["权重 = Γ(S,t;K)：峰状"]
+  W1 --> P1["现货离开 K：自动减仓，刮不到"]
+  P1 --> PD["PnL 路径依赖"]
+  SW["方差互换"] --> W2["权重 = 1/K²：近常数"]
+  W2 --> CV["干净的已实现 减 隐含"]
+  PD --> FIX["篮子执行价逼近平坦权重"]
+  CV --> FIX
+```
+
+Heston 里 $\rho\lt 0$ 使下跌伴随 $v$ 上升，空头看跌的 Delta 对冲收益更负。用 Black Delta 对冲随机波动世界，本身就是模型错误；BK 的检验用的是市场惯例 Delta，测到的是这一惯例下的溢价，包含模型误设。生产上应用记账模型的 Delta，再把模型外的 Vega 分桶。
 
 ### 与方差互换 PnL 的换算
 

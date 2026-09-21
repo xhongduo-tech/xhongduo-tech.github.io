@@ -17,7 +17,23 @@ section: quant
 
 做市商报 $\sigma_{\mathrm{ATM}}$、$\mathrm{RR}_{25}=\sigma_{25c}-\sigma_{25p}$、$\mathrm{BF}_{25}=\tfrac12(\sigma_{25c}+\sigma_{25p})-\sigma_{\mathrm{ATM}}$（定义有变体）。三个数交易的是三个流动性最好的组合，不是三个独立执行价。问题是反解 $\sigma_{25c},\sigma_{25p}$ 再插值整张微笑：Delta 与 $K$ 的映射依赖 vol 自身，方程是隐式的，要迭代。用股权那套「按 $K$ 扫隐波」去读 FX 经纪人屏幕，会对不上任何一笔成交。
 
+```mermaid
+flowchart TD
+  A["屏幕报价三元组:<br/>ATM / RR25 / BF25"] --> R["RR = 看涨减看跌<br/>定左右翼差"]
+  A --> B["BF = 翼平均减 ATM<br/>定两翼高度"]
+  R --> C["σ25c = ATM + BF + RR/2"]
+  B --> C
+  R --> P["σ25p = ATM + BF − RR/2"]
+  B --> P
+  C --> S["ATM + 两翼两点<br/>插值出整张微笑"]
+  P --> S
+```
+
+<span class="marginnote">术语翻译：risk reversal（RR）回答「市场更怕往哪边走」——25Δ 看涨与看跌隐波之差，正数说明看涨翼更贵；butterfly（BF）回答「两翼比中间贵多少」——翼部平均减去 ATM，是微笑「弯」的程度；ATM 是水平的基准。三者合起来给微笑拍照：位置、方向、弯度。</span>
+
 Malz 用 RR/BF 近似风险中性密度的偏度与峰度。快捷，但不是无套利曲面。生产仍应映到内部 $(K,\sigma)$ 再做无套利检查。
+
+<span class="marginnote">直觉类比：三个报价像给汇率未来分布拍的三张侧写——ATM 量「身高」（整体不确定性），RR 量「重心偏哪边」（偏度），BF 量「肩膀多宽」（尾部厚度）。RR 为正且 BF 走高，说明市场不仅偏向某一方向，还在为极端情况付保险费。</span>
 
 ### Vanna–Volga 是快捷，不是模型
 
@@ -48,6 +64,8 @@ flowchart TD
 ## 边界
 
 定义变体（包括/不包括 ATM 的 BF、Delta 是否 premium-adjusted）在确认书里，代码必须按对手切换。新兴市场只报 ATM 与 RR、没有 BF，弯曲来自先验。跳与 fix 事件（非农、央行）让短到期微笑的 BF 爆炸，三因子不够，应加事件情景。
+
+<span class="marginnote">常见误区：两家经纪人的 BF 定义若一个含 ATM、一个不含，直接比对会凭空差出整整一个 ATM 水平（如 8 个 vol 点）的「曲率分歧」。数字实例：ATM=8%、翼平均=9%，则不含 ATM 的 BF=1%，含 ATM 的「BF」=翼平均=9%——差了 8 倍还多。接数据源前先确认定义，再谈曲面。</span>
 
 ## 小结
 
