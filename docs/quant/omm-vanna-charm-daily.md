@@ -21,9 +21,13 @@ section: quant
 
 做市台比方向性账户更敏感：报价者持有大量贴值短到期仓位，charm 不是隔夜项而是盘中项；[到期周](/quant/pin-risk) 与 [0DTE](/quant/zero-dte-microstructure) 午后，Delta 的半衰期以小时计。
 
+<span class="marginnote">术语翻译：charm 就是「放着什么都不动，Delta 自己会走多少」——像牛奶有保质期，Delta 也有「时保期」；vanna 则是「隐波一动，Delta 跟着歪多少」。两者都不是新资产，只是 Delta 这个数会随时间和波动自己漂移。</span>
+
 ### 每日例行
 
 收盘流程固定三步。其一，算 $\mathrm{Charm}\times\Delta t$ 到次日可对冲时刻，得到「时钟项」漂移；其二，算 vanna 的隔夜情景（例如现货 $\pm 1\%$ 乘隐波 $\pm 1$ 个点的四种组合），得到「波动项」漂移区间；其三，把目标 Delta 设为零加上一个偏移——有隔夜观点就偏向观点一侧，没有就按漂移区间中点预留。漂移写进晨会对冲计划，按执行成本排序：先补漂移最大、流动性最好的桶。
+
+<span class="marginnote">数字实例：收盘算得 charm 漂移 −0.3% Delta，vanna 四情景（现货 ±1% 乘隐波 ±1 点）给出 +0.2% 至 −0.5% 的区间，偏移就取区间中点 −0.15%：目标 Delta 不设 0，而设 +0.15%。开盘时真实 Delta 大概率已落进带宽，不必抢跑。</span>
 
 <span class="marginnote">量级参考 [Charm / Color](/quant/higher-greeks)：隔夜 charm 漂移可相当于几个百分点的 Delta，到期周贴值档按小时计。别用全年线性外推——charm 随 $\tau$ 以 $1/\sqrt{\tau}$ 的速度变，周中与到期周不是同一个数；股息日例外，除息的 Delta 跳动按 [离散股息](/quant/discrete-dividend-am) 单独处理，不是 charm。</span>
 
@@ -47,11 +51,26 @@ flowchart TD
 
 机制上，vanna 与 charm 不是新风险源，而是同一价格函数在「现货 $\times$ 波动」与「时间」方向上的曲率与漂移。它们改变的是**对冲的时间结构**：Gamma 决定现货每动一格要补多少，vanna 决定波动每动一格要补多少，charm 决定什么都不动也要补多少。三者共用一张 [限额](/quant/omm-greeks-limits) 网格，也共用一个执行台。日常最容易犯的错是双记账：价值的时间衰减是 Theta，进盈亏解释；Delta 的时间漂移是 charm，进对冲预留——把两者加成一个「时间风险」既重复计算，又掩盖了各自的管理动作。
 
+```mermaid
+flowchart TD
+  S["现货动一格"] --> G["Gamma 说补多少"]
+  V["波动动一格"] --> VN["Vanna 说补多少"]
+  T["什么都不动 过一夜"] --> C["Charm 说补多少"]
+  G --> H["同一个执行台 补 Delta"]
+  VN --> H
+  C --> H
+  T --> TH["Theta 只进盈亏解释"]
+  TH --> X["与 charm 分开记账"]
+  C --> X
+```
+
 不这么做会错在哪：不排班的台在到期周被「无缘无故触发再平衡」折磨——其实是 charm 把 Delta 带出了带宽；不区分符号口径的台，聚合出的 vanna 与市场 [经销商流](/quant/dealer-vanna-charm-flows) 反号，隔夜情景形同虚设。
 
 ## 边界
 
 Vanna 与 charm 都不可直接交易：没有纯时间工具，也没有纯交叉工具，只能用 [Vanna / Volga 三点](/quant/vanna-volga) 的香草组合近似，残差照旧。模型依赖要诚实：sticky strike 与 sticky delta 下的 charm 不同，[切片搬动规则](/quant/sticky-delta-strike) 换了，隔夜漂移跟着换。最后，时钟项只覆盖 $\mathrm{d}S=\mathrm{d}\sigma=0$ 的世界，跳空仍要回 [隔夜情景](/quant/overnight-gap-hedge)；charm 不是跳空的替代品，只是它的低阶近似。
+
+<span class="marginnote">常见误区：初学者容易把 Theta 与 charm 混成一个笼统的「时间风险」。其实价值衰减是 Theta、进盈亏解释；Delta 漂移是 charm、进对冲预留。合成一本账，既重复计算，又看不出各自该做的管理动作。</span>
 
 ## 小结
 
