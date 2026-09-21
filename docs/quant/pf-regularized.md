@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-[Markowitz](/quant/markowitz) 的无约束解在估计误差面前是放大器——上一课的平坦谷底与顶点跳变就是症状。对策有两族：事后修输入（对 $\Sigma$ 收缩），事前修目标（加罚项或约束）。都不做，错法自然：误差被放大成角点仓位；反过来做歪了也错——把正则强度 $\lambda$ 当玄学，挑到样本内回测最亮为止，等于把多重检验从信号层原样搬到权重层，[多重检验与 p-hacking](/quant/multiple-testing-factors) 的账单照收不误。
+[Markowitz](/quant/markowitz) 的无约束解在估计误差面前是放大器——上一课的平坦谷底与顶点跳变就是症状。对策有两族：事后修输入（对 $\Sigma$ 收缩），事前修目标（加罚项或约束）。<span class="marginnote">「正则化」就是给优化加一条「别太信你的估计」的惩罚项，让解在「贴合数据」与「保持简单」之间折中。直觉类比：答题不只求贴合材料，还要写得简洁有条理——罚项就是那个「简洁分」，防止你把噪声当规律抄进答案。</span>都不做，错法自然：误差被放大成角点仓位；反过来做歪了也错——把正则强度 $\lambda$ 当玄学，挑到样本内回测最亮为止，等于把多重检验从信号层原样搬到权重层，[多重检验与 p-hacking](/quant/multiple-testing-factors) 的账单照收不误。
 
 ## 方法
 
@@ -23,7 +23,7 @@ section: quant
 
 ### 三层罚项
 
-罚在权重上：$\min_w\; w^\top\Sigma w-\gamma\,\mu^\top w+\lambda_2\lVert w\rVert_2^2+\lambda_1\lVert w\rVert_1$。$\ell_2$ 把解往等权方向收，$\ell_1$ 直接产生稀疏组合；Brodie 等（2009）把 $\ell_1$ 稀疏性同时读作正则与成本控制——持有的名字少了，监督与换手都轻。这个对照的极端是 $1/N$：DeMiguel、Garlappi 与 Uppal（2009）的系统比较显示，等权在样本外方差与夏普上常常不输优化组合——正则化不足的 Markowitz，输给最笨的正则。罚在协方差上：[Ledoit-Wolf 收缩](/quant/ledoit-wolf)把 $\Sigma$ 拉向结构化目标，是估计层的正则，[估计误差与收缩](/quant/cov-shrinkage)写了机制。罚在结构上：严格因子结构 $\Sigma=BFB^\top+\Delta$ 用低维载荷换掉满矩阵的自由度，选择逻辑见[因子协方差 vs 样本](/quant/factor-vs-sample-cov)。约束即正则：Jagannathan 与 Ma（2003）证明，非负约束在总体层面等价于对 $\Sigma$ 的一种收缩，「错误」的约束反而降低样本外方差——制度通过可行集完成了统计收缩，细节见[多空与多头约束](/quant/long-short-constraints)。
+罚在权重上：$\min_w\; w^\top\Sigma w-\gamma\,\mu^\top w+\lambda_2\lVert w\rVert_2^2+\lambda_1\lVert w\rVert_1$。$\ell_2$ 把解往等权方向收，$\ell_1$ 直接产生稀疏组合；<span class="marginnote">数字实例区分两种罚：$\ell_2$ 罚权重的平方和，30% 仓位的罚是 0.09，于是它把大仓位往回拉、每个名字都留一点；$\ell_1$ 罚绝对值之和，同样 30% 的罚是 0.3，小权重干脆被压成零——这就是「$\ell_1$ 出稀疏、$\ell_2$ 出普遍收缩」的算术来源。</span>Brodie 等（2009）把 $\ell_1$ 稀疏性同时读作正则与成本控制——持有的名字少了，监督与换手都轻。这个对照的极端是 $1/N$：DeMiguel、Garlappi 与 Uppal（2009）的系统比较显示，等权在样本外方差与夏普上常常不输优化组合——正则化不足的 Markowitz，输给最笨的正则。罚在协方差上：[Ledoit-Wolf 收缩](/quant/ledoit-wolf)把 $\Sigma$ 拉向结构化目标，是估计层的正则，[估计误差与收缩](/quant/cov-shrinkage)写了机制。罚在结构上：严格因子结构 $\Sigma=BFB^\top+\Delta$ 用低维载荷换掉满矩阵的自由度，选择逻辑见[因子协方差 vs 样本](/quant/factor-vs-sample-cov)。约束即正则：Jagannathan 与 Ma（2003）证明，非负约束在总体层面等价于对 $\Sigma$ 的一种收缩，「错误」的约束反而降低样本外方差——制度通过可行集完成了统计收缩，细节见[多空与多头约束](/quant/long-short-constraints)。
 
 ```mermaid
 flowchart TD
@@ -40,6 +40,19 @@ flowchart TD
 ## 机制
 
 偏差–方差的交换在组合语境里换了名字：正则化引入的「偏差」其实是政策——不押单一名字、不满仓单一因子，是章程本来就想要的东西。两种实现的接口由拉格朗日对偶给出：约束的影子价格就是罚系数，$\lambda$ 变动等价于可行集伸缩；实现上可以互换，报告时必须写清用了哪种，因为等价依赖特定的 $\lambda$ 映射与问题数据，审计口径不能两套混着讲。$\lambda$ 本身的纪律只有两条路：按样本外风险用滚动验证挑，或按等效约束的政策值反推——唯独不能按样本内收益挑，否则下一课黑盒搜索的过拟合机制会提前在 $\lambda$ 这一根轴上发生。还有一层工程红利：稀疏解换手少，与[换手惩罚](/quant/turnover-penalty)的成本口径天然咬合。
+
+```mermaid
+flowchart TD
+  L0["lambda 约等于 0"] --> A["近似无约束解：角点与高杠杆"]
+  A --> B["lambda 渐增：权重向中间收缩"]
+  B --> C["L2 主导：整体偏向等权"]
+  B --> D["L1 主导：持仓名单变短"]
+  C --> E["lambda 过大：趋向零仓或纯等权"]
+  D --> E
+  E --> F["样本外风险随 lambda 呈 U 形，取谷底"]
+```
+
+<span class="marginnote">「影子价格」是约束松动一格能换来多少目标改善：某名字非负约束的影子价格若为 0.02，意味着允许它做空 1%，最优目标约改善 0.02。为什么重要：影子价格正是罚系数 $\lambda$ 的对偶读数——看懂这一点，「约束版」与「罚项版」就不再像两套魔法。</span>
 
 <span class="marginnote">Jagannathan–Ma 的反直觉量级：非负约束隐含的收缩幅度，与专门设计的收缩估计同数量级——制度里「错」的约束，在总体层面买到了「对」的稳健。</span>
 
