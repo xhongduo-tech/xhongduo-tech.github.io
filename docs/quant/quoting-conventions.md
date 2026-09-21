@@ -23,7 +23,23 @@ section: quant
 
 ATM spot、ATM forward、ATM Delta-neutral（使跨式 Delta 抵消）在有偏斜与利率时不是同一 $K$。FX 默认常是 Delta-neutral ATM。用错 ATM，RR 与 BF 的分解会把水平成分漏进倾斜。Clark 把这些定义写成公式，实现应以一本惯例手册为准，而不是以交易员口头「ATM 就是平值」。
 
+```mermaid
+flowchart TD
+  S["同一条 FX 曲线"] --> A1["ATM spot：K 取即期"]
+  S --> A2["ATM forward：K 取远期价"]
+  S --> A3["ATM Delta-neutral：跨式 Delta 抵消"]
+  A1 --> D["有利率差与偏斜时，三者对应不同的 K"]
+  A2 --> D
+  A3 --> D
+  D --> ERR["用错定义：RR/BF 分解漏进水平成分"]
+  ERR --> FIX["先钉死惯例手册，再解析报价"]
+```
+
+<span class="marginnote">数字实例：同样是「一年」，ACT/365 日计数记 1.0 年，ACT/360 记约 1.014 年，差 1.4%。波动按 $\sigma\sqrt{T}$ 进入期权，期限被放大 1.4%，隐波就系统性偏差——20% 读成另一条曲面。日计数不是细节，是坐标本身。</span>
+
 <span class="marginnote">Premium-adjusted Delta 在高波动、长期限外汇里把 $K$ 往价外推。新兴市场期权忽略这一项，对冲比会系统性偏。</span>
+
+<span class="marginnote">「25Δ 期权」可以翻译成「Delta 约等于 0.25 的期权」：标的价格每涨 1 元，它只涨约 0.25 元。交易员按 Delta 报价，是因为偏斜下同一执行价在不同期限的 Delta 不同——报 Delta 比报执行价更直接地表达「我要哪一段尾部」。</span>
 
 ## 方法
 
@@ -48,6 +64,8 @@ flowchart TD
 ## 边界
 
 交易所规则改 Delta 定义、节假日日历、合约乘数，都会让历史曲面不可比。自动化若缓存「昨天的 25Δ 对应的 $K$」，现货一跳 $K$ 就过期。本课不展开各交易所附录；生产以现行确认书与 ISDA 定义为准。
+
+<span class="marginnote">常见误区：以为「ATM 就是平值」一句话通吃。有偏斜与利率时，ATM spot、ATM forward、ATM Delta-neutral 对应三个不同的执行价；用错一个，风险反转与蝶式的分解就把水平成分漏进倾斜，校准出来的是另一个市场的曲面。</span>
 
 ## 小结
 
