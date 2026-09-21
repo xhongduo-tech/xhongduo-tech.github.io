@@ -86,7 +86,9 @@ flowchart TD
   C2 -- "是" --> C3{"φ 在高频处平稳?"}
   C3 -- "否" --> F3["查分支错误, 停止加大 N"]
   C3 -- "是" --> F4["加密 N 至级数收敛"]
-```不要在未做 Black–Scholes 回归时把 Heston COS 的偏差归咎于模型。引用 2008 年论文指欧式余弦核；百慕大是后续工作。
+```
+
+不要在未做 Black–Scholes 回归时把 Heston COS 的偏差归咎于模型。引用 2008 年论文指欧式余弦核；百慕大是后续工作。
 
 <span class="marginnote">出处：Fang and Oosterlee, *SIAM J. Sci. Comput.*, 2008；百慕大见同一作者 2009 年 *Numerische Mathematik* 或 *SIAM J. Sci. Comput.* 续作。Carr and Madan, *JCF*, 1999 是对照的阻尼 FFT。Heston 特征函数见 1993 年原文。</span>
 
