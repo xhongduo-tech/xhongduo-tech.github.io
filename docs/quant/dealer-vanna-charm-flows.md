@@ -23,6 +23,8 @@ $$
 
 经销商要抵消 $\mathrm{d}\Delta$，对冲交易约为 $-\,n\,\mathrm{d}\Delta$（$n$ 为带符号张数）。Gamma 项是大家熟悉的现货反馈；后两项是：**IV 变动引起的对冲**与 **时钟引起的对冲**。问题是把后两项写成与 GEX 平行的公开存量：对每个合约算 Vanna、Charm，乘 OI 与乘数，按同一顾客/经销商约定加总。单位必须声明：Charm 是「每个交易日 Delta 变多少」，Vanna 是「IV 变动一个波动率点 Delta 变多少」。混淆单位会把流量讲错一个数量级。
 
+<span class="marginnote">数字实例：某合约 Charm 为 $0.04$ / 日、经销商空头 $1{,}000$ 张。即便现货一整天不动，一天过去 Delta 也要漂移 $0.04 \times 1000 = 40$ 个 Delta 等价单位——按指数点值折算就是要买或卖的那部分标的。所谓「时钟引起的对冲」就是这么一笔具体的、可预算的量，而不是神秘资金流。</span>
+
 识别与 GEX 相同。公开 OI 没有符号；Mixon 的警告完全适用。此外 Vanna 还依赖微笑动态：sticky strike 与 sticky delta 给出不同的 $\partial\Delta/\partial\sigma_{\mathrm{mkt}}$。从业图上的「vanna flow」常常把 $\mathrm{d}\sigma$ 再乘一个假设（例如现货涨则 IV 跌），把 vanna 存量变成对现货的有效 Gamma。那是额外模型，须与纯 Charm（只需时钟）分开。
 
 ### 到期周为什么显得大
@@ -45,6 +47,19 @@ $n_i$ 为经销商带符号张数。再乘指数点值得到期货张数代理�
 
 **把 Vanna 译成现货敏感（可选、须声明）。** 若假设 $\mathrm{d}\sigma=\rho\,\mathrm{d}S/S$ 一类经验规则，则有效 $\Gamma_{\mathrm{eff}}=\Gamma+\mathrm{Vanna}\cdot(\partial\sigma/\partial S)$。这是体制分析的扩展，不是定义。没有 $\rho$ 的估计就不要把 VannaEx 画成「等价 GEX」。
 
+```mermaid
+flowchart TD
+  CH["同一波动率曲面 + 同一利率股息"] --> GK["逐合约算 Charm / Vanna"]
+  GK --> SIGN["乘带符号张数：约定与 GEX 一致"]
+  SIGN --> SUM["加总：CharmEx 与 VannaEx"]
+  SUM --> PT["乘指数点值 → 期货张数代理"]
+  PT --> NORM["标准化：除以期货深度"]
+  NORM --> BUCKET["按到期分桶：0DTE / 周期权 / 标准月"]
+  BUCKET --> RPT["与当日 GEX / Flip 分列联合报告"]
+```
+
+<span class="marginnote">常见误区：初学者容易把 Vanna 存量当成合约的固定属性、直接拿来预测现货方向。实际上从 Vanna 到「现货会怎么被对冲」还差一步微笑假设：sticky strike（每个行权价的 IV 不动）与 sticky delta（随现货平移）给出不同的 $\partial\sigma/\partial S$，画成「等价 GEX」时数值可以差到反号——不声明假设的 vanna 流图没有可读性。</span>
+
 ### 与 GEX、Flip 同一天的联合报告
 
 GEX 回答 $\mathrm{d}S$ 的反馈；CharmEx 回答 $\mathrm{d}t$；VannaEx 回答 $\mathrm{d}\sigma$。三者可以同号或对冲。只报 GEX 会在 IV 崩塌日漏掉主要对冲。联合报告时使用同一符号约定、同一 OI 快照、同一 $S$。Flip 仍只对 $\Gamma(S)$ 定义，不要为 Charm 再解一个「charm flip」除非预指定并承认那是另一函数的根。
@@ -54,6 +69,8 @@ GEX 回答 $\mathrm{d}S$ 的反馈；CharmEx 回答 $\mathrm{d}t$；VannaEx 回�
 ## 机制
 
 时钟项：时间过了，短看涨若仍虚值，Delta 向 0 走，空头该看涨的经销商（Delta 原为负）会发现 Delta 回升，可能需要买入标的以重新中性——具体符号由头寸决定。这就是 charm flow 的全部：没有新信息，只有 $\tau$ 减少。Vanna 项：IV 下跌改变风险中性密度的展开，平值附近 Delta 剖面变形，对冲再调。若顾客集中持有短看跌，IV 下跌与现货上涨经常同时出现，Gamma、Vanna 被同一宏观事件驱动，经验上难以拆开。公开文献能做的是：把三项存量作为状态，看随后一段现货的已实现协方差是否与预测的对冲方向一致，控制 $\mathrm{d}S$ 本身。这是脆弱的检验，因为 $\mathrm{d}\sigma$ 与 $\mathrm{d}S$ 内生。相对更干净的是 Charm：用非事件日、窄幅日的期货成交与 CharmEx 对照，仍然充满噪声，但至少时钟是外生的。
+
+<span class="marginnote">直觉类比：Charm 像沙漏——不管现货动不动，沙子都在漏，期权的时间价值随日历流逝，Delta 被动漂移，经销商被迫跟着调仓。Vanna 则像隐波计上的旋钮——行情恐慌时 IV 抬一格、平静时降一格，Delta 剖面随之变形。Gamma 是「价格动了要调仓」，这两项是「价格没动也要调仓」。</span>
 
 GPP 的存货定价主要针对无法对冲的期权风险；标的对冲流是可对冲部分。Vanna/Charm 流属于「可对冲、因而进入现货」的部分，与期权溢价不是同一张表。不要用 VIX 溢价去证明 charm 存在，也不要用 charm 去解释 VRP。
 
