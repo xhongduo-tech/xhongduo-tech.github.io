@@ -35,7 +35,11 @@ Kidger 等人强调 GAN 视角：生成器 $G_\theta(W)$ 把布朗路径映成 $
 
 **系数参数化。** $\mu_\theta$ 与 $\sigma_\theta$ 用 Lipschitz 网络（谱归一、LipSwish 一类）以满足强解条件。多维扩散注意 $\sigma\sigma^\top$ 的正定：输出 Cholesky 因子。几何资产对 $\log X$ 建模更稳。杠杆效应需要 $\mu$ 或 $\sigma$ 依赖价格水平，或引入相关的第二布朗运动作为随机波动因子——那已是二维 Neural SDE，不是把一维扩散「加宽隐层」能代替的。
 
+<span class="marginnote">SDE 两个系数的直觉：漂移 $\mu$ 是「平均往哪走」（河水的主流向），扩散 $\sigma$ 是「每步被噪声踢多狠」（水流的湍急程度）。把它们写成神经网络，意思是这两个量不再来自固定公式，而是随时间与当前状态变化的黑箱函数。</span>
+
 **数值格式与反传。** 欧拉–丸山简单，弱一阶；Milstein 在交换噪声下需要 Levy 面积，实现重。训练时步长是模型的一部分：改变评估步长等于改变生成器。反传有两条路：把求解器展开成计算图（内存随步数线性增长），或随机伴随。Kidger 的 torchsde 一类实现把虚拟步与布朗树（Brownian interval）管起来，使同一条 $W$ 在不同步长下一致，这是可重复实验的关键。不要在训练用粗欧拉、报告用精细解器却声称同一模型。
+
+<span class="marginnote">欧拉–丸山一步就是 $X_{t+\Delta t}=X_t+\mu\,\Delta t+\sigma\sqrt{\Delta t}\,Z$，$Z$ 是标准正态抽样。注意噪声按 $\sqrt{\Delta t}$ 缩：步长减半，噪声项只缩约三成，比漂移项「更耐粗切」——这也是为什么换步长对含噪路径的影响比对确定性问题更微妙。初学者以为步长只是精度问题；在 Neural SDE 里它是生成器定义的一部分，换步长等于换模型再考试。</span>
 
 **训练目标。** 作 GAN：判别器可以是路径卷积、或截断签名上的线性函数——后者与 Sig-WGAN 合流，生成器换成 SDE。作得分或最大似然：一般不可用。作矩匹配：手工 stylized facts，梯度稀疏。作插值：给定两端点，桥接 SDE，用于不规则观测的填补。金融里生成式回测应把目标写进 [评估协议](/quant/generative-backtest-eval)，而不是默认对抗损失最小即市场。
 
@@ -64,6 +68,18 @@ flowchart TD
 ### 定价与对冲接口
 
 风险中性定价需要的是 $\mathbb{Q}$ 下的 SDE，漂移被无套利钉住，神经网络应主要参数化扩散与相关。用 $\mathbb{P}$ 上训出的 Neural SDE 直接平均支付，得到的是真实测度期望，不是价格。Deep BSDE 可在给定的 Neural SDE 上解倒向方程，但必须先改漂移或接受有价格的风险溢价模型。[Deep Hedging](/quant/deep-hedging-buehler) 则可直接把 Neural SDE 当模拟器，在 $\mathbb{P}$ 上做风险最小化，逻辑自洽。混用三种接口而不写测度，是最常见的实现错误。
+
+训练后的系数在不同测度下的合法去向：
+
+```mermaid
+flowchart TD
+  TRAIN["P 测度历史训练出的 μ_θ, σ_θ"] --> Q{"下游要做什么？"}
+  Q -->|"生成回测 / 滤波"| P["留在 P：直接模拟路径"]
+  P --> DH["Deep Hedging 风险最小化"]
+  Q -->|"给期权定价"| QQ["改漂移到 Q：无套利钉住"]
+  QQ --> PR["Deep BSDE / PDE 解价格"]
+  Q -->|"直接平均支付"| WRONG["错误：P 期望不是价格"]
+```
 
 <span class="marginnote">Kidger et al. 的 ICML 标题写 Infinite-Dimensional GANs，指生成器作用在路径空间。实现仍在有限步上走数值解。论文贡献是模型类与训练视角，不是「不必再选步长」。</span>
 

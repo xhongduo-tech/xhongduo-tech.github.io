@@ -17,7 +17,24 @@ section: quant
 
 i.i.d. 加性噪声下，$\mathrm{RV}_n/(2n)\to_p\sigma_\varepsilon^2$（当 $n\to\infty$ 且该项主导 $IV/n$）。有限 $n$ 时 $IV/(2n)$ 污染估计，需减一个稀疏 RV 或用 Bandi–Russell 的最优采样思想同时顾及两者。相关噪声下「$\sigma_\varepsilon^2$」变成短滞后谱，单标量不够，应报噪声的自相关长度或核估计的噪声部分。
 
+<span class="marginnote">拿数字感受噪声为何容易盖过波动：日波动 $IV=(1\%)^2=10^{-4}$，噪声 $\sigma_\varepsilon=0.05\%$，采样 $n=2000$ 次，则噪声项 $2n\sigma_\varepsilon^2=2\times2000\times(5\times10^{-4})^2=10^{-3}$，已是 $IV$ 的十倍。这就是直接拿最细数据算 RV 会严重高估波动的算术原因。</span>
+
 问题：用成交价还是中点？成交价含 Roll 弹跳，$\sigma_\varepsilon$ 更大，对应执行；中点更接近报价噪声。Hasbrouck 定价误差方差是另一度量（VAR 分解），与 RV 矩的 $\sigma_\varepsilon^2$ 相关但不等。不要混名为「噪声」。
+
+文献里至少有三个都叫「噪声」的量，对象各不相同：
+
+```mermaid
+flowchart TD
+  P["同一微观结构现象"] --> M1["RV 矩的 σ_ε²"]
+  M1 --> M1A["密采样 RV 上翘的二次贡献"]
+  P --> M2["Roll 的 s/2"]
+  M2 --> M2A["有效价差一半, 买卖弹跳幅度"]
+  P --> M3["Hasbrouck 定价误差"]
+  M3 --> M3A["VAR 分解出的非信息部分"]
+  M1A --> C["相关但不相等, 不可混用同名"]
+  M2A --> C
+  M3A --> C
+```
 
 ### 签名图作为估计器
 
@@ -42,6 +59,8 @@ i.i.d. 加性噪声下，$\mathrm{RV}_n/(2n)\to_p\sigma_\varepsilon^2$（当 $n\
 ## 机制
 
 密采样下 $\Delta Y\approx\Delta\varepsilon$，平方和数的是噪声二次变差。稀疏时 $\Delta X$ 主导。差的期望隔离噪声。相关噪声：$\Delta\varepsilon$ 的平方和还含 $2\mathrm{Cov}(\varepsilon_i,\varepsilon_{i-1})$ 一类，Roll 负相关会改变系数 2。机制上必须先看收益一阶 ACF：强负是弹跳，应用 Roll 结构；弱相关或正，噪声模型更脏，标量 $\sigma_\varepsilon^2$ 只是有效值。
+
+<span class="marginnote">直觉类比：把价格想成「真实价值走楼梯 + 抖动的镜头」——$IV$ 是楼梯的真实起伏，$\sigma_\varepsilon^2$ 是镜头抖动的方差。采样越密，抖动被平方累加的次数越多，RV 的高频端于是上翘：量到的越来越是镜头，而不是楼梯。</span>
 
 圆整：价格落在 tick 网格，$\varepsilon$ 有界、非高斯，密采样 RV 的上翘仍在，但渐近公式的常数变。小价格股应报 tick 占价格的比例。
 
