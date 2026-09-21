@@ -41,6 +41,8 @@ $$
 
 $S_t$ 对数正态：$\ln S_t\sim\mathcal N(\ln S_0+(\mu-\tfrac12\sigma^2)t,\sigma^2 t)$。均值 $\mathbb E[S_t]=S_0 e^{\mu t}$。二次变差 $[S]_t=\int_0^t\sigma^2 S_s^2\,\mathrm d s$。这是强解，轨道唯一。多维时把 $W$ 换成相关布朗、把 $\sigma$ 换成矩阵，形式相同。
 
+<span class="marginnote">数字实例：$\sigma=20\%$ 时 $\tfrac12\sigma^2=0.02$，对数漂移每年比 $\mu$ 少 2 个百分点；$\sigma=40\%$ 时就是 8 个百分点。波动越高，「平均」与「典型」分得越开：均值路径按 $e^{\mu t}$ 走，被少数暴涨路径拉高；中位数路径按 $e^{(\mu-\tfrac12\sigma^2)t}$ 走，才是大多数情景的真实观感。</span>
+
 ```mermaid
 flowchart TD
   SDE["dS 等于 mu S dt 加 sigma S dW"] --> LOG["Y 等于 ln S"]
@@ -55,9 +57,24 @@ flowchart TD
 
 离散实现：$S_{t+\Delta}=S_t\exp((\mu-\tfrac12\sigma^2)\Delta+\sigma\sqrt{\Delta}Z)$，$Z\sim N(0,1)$。这是精确转移，不是 Euler 近似。后课蒙特卡洛对 GBM 应走这条，避免 Euler 把正性破坏。
 
+```mermaid
+flowchart TD
+  P["模拟一步：从 t 到 t 加 Δ"] --> E{"选哪种离散格式"}
+  E -->|"Euler 近似"| Eu["S 加上 μSΔ + σS√Δ·Z"]
+  E -->|"精确指数"| Ex["S 乘以 exp((μ−½σ²)Δ + σ√Δ·Z)"]
+  Eu --> Neg["正态增量可把 S 推成负数"]
+  Ex --> Pos["指数恒正：路径锁定在 (0,∞)"]
+  Neg --> Fix["弃用或换成精确式"]
+  Pos --> OK["可直接用于定价模拟"]
+```
+
+<span class="marginnote">「零是自然边界、达不到」可以这么直觉化：GBM 下价格每天按比例变化，亏得再惨也只是乘上一个正数，正数连乘永远到不了零——就像「再砍一半也还剩一半」。算术布朗是加减法，一步就可能减穿零；这正是金融要用乘性模型的第一个理由。</span>
+
 ## 边界
 
 本课不推导期权价格，不谈波动率微笑，不把 $\sigma$ 写成随机过程。常数 $\sigma$ 是强假设，[波动率是输入不是输出](/quant/vol-as-input)会回来拆它。本课程是定价数学，不重写限价簿里的价格形成。后课默认：标的在需要闭式或 PDE 时先当作 GBM；真实测度下均值用 $e^{\mu t}$，对数漂移带 $\tfrac12\sigma^2$。下一课离开路径，把[条件期望作为投影](/quant/conditional-expectation-proj)装进 $L^2$。
+
+<span class="marginnote">初学者容易把 GBM 当成「股价的真实规律」。它只是保证价格为正、能显式求解的最简动力学：跳空崩盘、波动聚集、微笑都装不进常数 $\sigma$。拿它推闭式解与教学基准可以，拿它单独做风险压力与极端情景是不够的。</span>
 
 ## 小结
 

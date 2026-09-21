@@ -31,11 +31,15 @@ $\theta$ 叫市场的风险的市场价格（下一课才命名）。本课只�
 
 <span class="marginnote">Novikov：$\mathbb E\exp(\tfrac12\int\theta^2)\lt \infty$ 则指数局部鞅是真鞅。实践中常对有界 $\theta$ 直接用；无界时要核验，否则 $Q$ 甚至不是概率。</span>
 
+<span class="marginnote">为什么需要 Novikov？指数若只是局部鞅，期望可能小于 1，这时 $Q(A)=\mathbb E[\xi_T 1_A]$ 对全体事件加起来不足 1，$Q$ 就不成其为概率测度。Novikov 条件是常用的保险丝：$\theta$ 有界时自动满足；$\theta$ 无界（如随波动率爆炸）时必须单独核验，否则后面的定义全部悬空。</span>
+
 ## 方法
 
 设 $\theta$ 适应、$\int_0^T\theta^2\lt \infty$ a.s.，且 $\xi$ 为 $P$-鞅。定义 $Q(A)=\mathbb E_P[\xi_T 1_A]$。则 $W^Q_t=W_t+\int_0^t\theta_s\,\mathrm d s$ 是 $Q$-布朗运动（至 $T$）。SDE $\mathrm d X=\mu\,\mathrm d t+\sigma\,\mathrm d W$ 改写为 $\mathrm d X=(\mu-\sigma\theta)\,\mathrm d t+\sigma\,\mathrm d W^Q$。多维时 $\theta$ 是向量，$\sigma\theta$ 是矩阵乘积；$\sigma$ 不满秩时不是任意漂移都能消掉——那是不全市场课的缺口。
 
 Itô 公式在 $Q$ 下对 $W^Q$ 照常使用，因为 $W^Q$ 仍是布朗。密度过程满足 $\mathrm d\xi=-\theta\xi\,\mathrm d W$，无漂移，与上一课「密度是 $P$-鞅」一致。
+
+<span class="marginnote">数字实例：取 $\mu=8\%$、$r=3\%$、$\sigma=20\%$，则 $\theta=(0.08-0.03)/0.2=0.25$。换到 $Q$ 后漂移被平移 $\sigma\theta=5$ 个百分点，恰好从 8% 变成 3%。这个 0.25 度量「每一单位波动率里藏着多少风险溢价」，下一课称它为风险的市场价格。</span>
 
 ```mermaid
 flowchart TD
@@ -49,6 +53,18 @@ flowchart TD
 ## 机制
 
 指数里的 $-\tfrac12\int\theta^2$ 又是 Itô 修正：$\mathrm e^{-\int\theta\,\mathrm d W}$ 单独不是鞅。Girsanov 的核心计算是：把 $W^Q$ 的特征函数在 $Q$ 下用 $\xi$ 写回 $P$，认出独立高斯增量。直观上，乘 $\xi$ 给那些沿 $\theta$ 方向走得更远的路径更大权重，等效于把均值平移。
+
+```mermaid
+flowchart TD
+  P["真实测度 P 下的同一批路径"] --> W{"给每条路径乘权重 ξ"}
+  W -->|"逆着 θ 方向走"| Down["权重变小"]
+  W -->|"顺着 θ 走得更远"| Up["权重变大"]
+  Down --> Eff["加权平均位置整体移动"]
+  Up --> Eff
+  Eff --> QQ["等效于 Q 下漂移被平移 σθ"]
+```
+
+<span class="marginnote">把测度变换想成给同一批路径「重新投票」：路径集合一条没少，变的只是每条路径的话语权。顺着 $\theta$ 方向走得远的路径被投更多票，加权后的平均路径因此平移。这就是「乘 $\xi$ 等效于改漂移」的直观版——没有删路径，只有权重换了。</span>
 
 波动率矩阵决定能平移的漂移子空间。$\theta$ 的个数不能超过独立布朗的个数——市场有多少噪声源，就能对冲多少风险溢价。本课只把线性代数接口留下。
 

@@ -25,11 +25,15 @@ section: quant
 
 <span class="marginnote">GK 仍是对数正态、常数 vol。微笑、触碰、障碍全部超出本公式；本课只钉无微笑的坐标系。</span>
 
+<span class="marginnote">数字实例：即期 $S=150$（USD/JPY），本币日元利率 $r_d=0.1\%$，外币美元利率 $r_f=5\%$，期限一年，则 $F=150\times e^{(0.001-0.05)}\approx 142.9$。远期比即期「便宜」，因为持有美元一年能赚 5% 利息，这笔收益在远期价里被提前扣掉——这就是利率平价。</span>
+
 ## 方法
 
 输入：市场即期、市场远期或 FX swap、本外币贴现、到期日计数、是否 premium-adjusted。用 Black-76 对远期定价，输出 GK 希腊值时注意 Delta 是现货 Delta 还是远期 Delta。对冲：现货或远期 FX 对冲 Delta，利率台对冲 $r_d,r_f$ 的 Rho——FX 期权的 Rho 是两个方向。不要用股权指数期货去对冲 quanto 已在 quanto 课写过；普通 FX 期权对冲的是 $S$ 本身。
 
 数字与障碍在 FX 里极常见，GK 闭式可当基准，生产用带微笑的模型。
+
+<span class="marginnote">「双 Rho」可以这么记：本币利率 $r_d$ 像买期权的融资成本，升了 call 变贵；外币利率 $r_f$ 像股票的股息，升了 call 变便宜。直觉上，买一份 FX call 等于预定未来用本币换外币——两边各有一条利率曲线，各拉一头。</span>
 
 ## 机制
 
@@ -47,6 +51,19 @@ flowchart TD
 ## 边界
 
 微笑使每个 Delta 一个 vol，GK 只解释 ATM 水平。负利率下外汇仍可用 lognormal（即期为正），与后课利率移位不同。NDF 货币没有可交割远期，用 NDF 定盘，见 [NDF](/quant/ndf)。周末日历与 Tokyo fixing 等使 $T$ 不是日历差除以 365。
+
+```mermaid
+flowchart TD
+  Q["要给一个 FX 期权定价"] --> D{"有可交割远期吗"}
+  D -->|"没有，NDF 货币"| NDF["用 NDF 定盘价作远期"]
+  D -->|"有"| S{"接近 ATM 且微笑可忽略吗"}
+  S -->|"是"| GK["GK 或 Black-76 基准价"]
+  S -->|"否"| Smile["带微笑模型按 Delta 取 vol"]
+  GK --> Chk["固定 Delta 与 call/put 惯例再报价"]
+  Smile --> Chk
+```
+
+<span class="marginnote">初学者容易以为 $T$ 就是两个日期相减除以 365。实际上周末、东京定盘时点、货币各自的假日表都会改变有效天数，分母还可能是 360。$T$ 算错一天，贴现因子和隐含波动率都会跟着错——对短期期权，这一天的误差在价格上并不小。</span>
 
 ## 小结
 
