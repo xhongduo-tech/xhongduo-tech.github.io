@@ -23,17 +23,31 @@ section: quant
 
 路径导数要求 $\mathbb{E}[\partial_\theta f(S(\theta))]$ 存在且等于 $\partial_\theta\mathbb{E}[f]$。示性函数 $\mathbf{1}_{S_T\gt K}$ 对 $S_T$ 的导数是 Dirac，模拟里看不见，估计变成 0。把数字平滑成窄价差，路径导数回来，但估的是价差不是数字——与 [数字](/quant/digital-options) 的复制一致，这是特征不是 bug。
 
+```mermaid
+flowchart TD
+  BUMP["θ 微移：S_T 的分布整体平移"] --> FLIP["支付 1{S_T > K}：只有跨越 K 的少数路径翻转"]
+  FLIP --> DIRAC["翻转瞬间的斜率是 Dirac 脉冲：模拟里看不见"]
+  DIRAC --> REST["其余路径的支付导数恒为 0"]
+  REST --> BIAS["平均后系统性偏低：真实 Delta 全部集中在 K 附近"]
+```
+
+<span class="marginnote">两条估计器的分工可以类比：路径导数像「顺着轨道推小球，量终点挪了多远」，要求轨道（支付）光滑；似然比像「小球终点不动，给每条到达路线按新概率重新加权」，要求概率密度可微。支付带悬崖时，只剩第二条路。</span>
+
 <span class="marginnote">波动率进入扩散系数时，路径导数要对 SDE 的变分过程（tangent process）积分，不能只对终点解析式里的 $\sigma$ 写偏导。GBM 闭式还能手写；局部波动与 Heston 必须联立变分方程。</span>
 
 ## 方法
 
 路径导数：对每条路径求 $\partial\mathrm{payoff}/\partial\theta$，平均。GBM 香草 Delta/Vega 有显式。似然比：$\widehat{\partial_\theta V}=\mathrm{payoff}\times\partial_\theta\log p$，其中 $p$ 是路径密度。重要性采样与似然比同源，可共用 score。混合：对平滑部分路径导数，对间断用似然比或 Malliavin 权。AAD 用来算路径导数的变分，不自动解决间断。
 
+<span class="marginnote">「score」就是密度对参数的对数导数 $\partial_\theta\log p$，翻译过来是「参数挪一小格，这条路径出现的概率被放大或缩小多少倍」。似然比法的全部机关在于：支付一个字不动，把导数全部转嫁给这个概率伸缩因子。</span>
+
 实践：障碍用布朗桥触碰概率做平滑；数字用价差；美式用回归后的连续近似价值再路径求导。
 
 ## 机制
 
 路径导数利用的是**同一随机源**下支付对参数的 Lipschitz 依赖；似然比利用的是测度对参数的绝对连续。前者方差通常更小，因为支付与导数同路径强相关；后者把所有随机性推到密度上，支付越大 score 噪声越大。时间步一多，score 是很多高斯增量导数之和，方差近似线性涨。这就是为什么长期限 XVA 不用裸似然比去估全部曲线节点。
+
+<span class="marginnote">数字实例：单步 score 的标准差若是 1，252 个独立日步累加后按 $\sqrt{252}\approx 16$ 倍放大；方差则涨约 252 倍。十年期限、日度观察的奇异期权，似然比的方差是路径导数的成百上千倍——「能穿过间断」的门票就是这个价。</span>
 
 ```mermaid
 flowchart TD
