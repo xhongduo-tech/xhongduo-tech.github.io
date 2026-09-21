@@ -21,6 +21,8 @@ Black-76 要求 $F\gt 0$。$F\le0$ 时 ATM caplet 仍在交易，市场改报 no
 
 移位 $s$ 是参数：太小，负利率一深又撞壁；太大，微笑形状被扭曲，$\beta$ 的含义改变。$s$ 应相对历史最低与期权翼部来选，并隔日稳定，不要每天当自由参数——否则又是校准多峰。
 
+<span class="marginnote">数字实例：若欧元基准利率历史最低约 $-0.6\%$、期权翼部隐含到 $-1.5\%$，取 $s=2\%$ 就把吸收壁放在 $-2\%$，两头都罩住；若只取 $s=0.1\%$，利率一探到 $-0.1\%$ 就撞壁，对数正态波动率立刻爆炸。</span>
+
 ### 正态不是「零利率的极限」那么干净
 
 $F\to0$ 时 lognormal vol 爆炸，normal vol 仍有限。但这不表示动态真是算术布朗：长期正态允许利率任意负，概率质量在很负的区域过大。移位对数正态在 $-s$ 有壁，更像「有下界的正变量」。选择是模型风险，应报两套对冲比。
@@ -32,6 +34,19 @@ $F\to0$ 时 lognormal vol 爆炸，normal vol 仍有限。但这不表示动态�
 内部价格用 Bachelier 或 shifted SABR（Hagan 公式的移位版）。网格：swaption 的 ATM 用 $\sigma_N$ 或 shifted $\alpha$。LMM：对 $L_i+s$ 建对数动态，或对 $L_i$ 建正态动态（Bachelier LMM），相关校准对象跟着变。对冲：bp DV01 与 bp Vega 是交易员语言；内部 AAD 应对移位后的状态，再映回 bp。
 
 负利率下 floor 不再是「几乎无价值的下侧」，虚值 floor 可以很贵。这改变结构票据里的利率保底腿。
+
+```mermaid
+flowchart TD
+  Q["收到一个 swaption 或 caplet 报价"] --> W{"报价是哪种 vol?"}
+  W -->|"normal bp vol"| B["直接用 Bachelier 正态公式"]
+  W -->|"shifted lognormal"| C["先确认对方的移位 s 再定价"]
+  B --> D["换算到内部统一惯例"]
+  C --> D
+  D --> E["同一惯例下做 PCA 与 vega 分桶"]
+  E --> F["对冲比按内部状态算再映回 bp"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「换成 Bachelier 就一劳永逸」。正态模型允许利率负到没有经济意义的深度（如 $-100\%$），深度负值区要截断，并把截断对 cap 与 floor 价格的影响写进模型风险报告。</span>
 
 ## 机制
 
