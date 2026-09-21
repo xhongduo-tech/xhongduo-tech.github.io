@@ -23,6 +23,8 @@ $$
 
 隔夜 $\Delta t$ 不是无穷小，平值短到期的 Charm 可以大到相当于几个 Delta 百分点，开盘时「昨夜已对冲」不再成立。到期日 $\tau\to 0$，Charm 与 Color 在 $K$ 附近变尖，与 Gamma 爆炸同源。问题是：哪些台子必须把这些项纳入收盘检查，哪些用更宽的 Gamma 限额当缓冲就够；以及在微笑下，时间导数是对日历 $t$ 还是对总方差 $w$ 的切片移动。
 
+<span class="marginnote">Charm 可以翻译成「Delta 的 Decay」——它回答的问题是：现货和波动都不动，我的 Delta 自己会变多快。可以把它理解为 Delta 的 Theta：Theta 管价值随时间的流失，Charm 管对冲比率随时间的漂移，两者是不同的量，记账时不能合并。</span>
+
 名称来自交易俚语，不是定理名。不同券商对 Color、Speed 的符号惯例（是否含折现、是否对 $\tau$ 而不是对 $t$）不一致。报告必须写偏导定义。它们全部可以由 Black 公式对 $d_1,d_2$ 微分得到，没有新的市场假设；有新假设的是：用哪一个 $\sigma(K,T)$、微笑是否随 $t$ 的流逝而 sticky。
 
 ### 一览：从一阶到混合偏导
@@ -36,6 +38,20 @@ Delta、Theta、Vega、Rho 是一阶。Gamma、Vanna、Volga 是二阶。Charm �
 **Black–Scholes 下的形状。** 欧式看涨的 Charm 在利率股息为零时正比于 $n(d_1)$ 的一项再乘时间衰减因子，符号在价内价外会变：随着时间流逝，价内看涨的 Delta 趋向 1，价外趋向 0，平值附近最陡。Color 描述 Gamma 峰是变高变窄（临近到期）还是被时间抹平。直观：剩余方差 $w=\sigma^2\tau$ 减少，密度更集中，Gamma 峰升高——这是空头平值在到期周最痛的数学来源，与 pin risk 同一峰。
 
 **收盘预留。** 计算到次日开盘（或到下一可对冲时刻）的 $\mathrm{Charm}\,\Delta t$，把目标 Delta 设为 $-\Delta_{\mathrm{now}}-\mathrm{Charm}\,\Delta t$ 的一半或全部，视对隔夜现货是否有观点。这不是预测跳空，只是预测时钟。Color 用于 Gamma 限额：若 Color 使隔夜后 Gamma 升高，收盘限额应更紧。事件夜另加跳空情景，Charm 只覆盖 $\mathrm{d}S=0$ 的时钟项。
+
+<span class="marginnote">数字实例：若组合 Delta 为 +500 万股，其中平值部分的 Charm 合计为每天 $-0.03$（即这部分 Delta 每天漂移 3 个百分点），那么一夜之间什么都没涨没跌，开盘 Delta 也只剩 +485 万股。收盘预留就是提前反打这 15 万股，让隔夜后的真实敞口回到目标带内。</span>
+
+```mermaid
+flowchart TD
+  A["收盘：读取 Delta 与 Charm"] --> B["计算 Charm × 隔夜 Δt"]
+  B --> C{"隔夜有无方向观点？"}
+  C -- "无" --> D["全额预留：目标 Delta 加 −Charm·Δt"]
+  C -- "部分" --> E["预留一半，留一半给观点"]
+  A --> F["Color 推算隔夜后 Gamma"]
+  F --> G{"Gamma 将升高？"}
+  G -- "是" --> H["收紧 Gamma 限额"]
+  G -- "否" --> I["维持原限额"]
+```
 
 **微笑下的时间导数。** 若每个到期的 $\sigma_{\mathrm{imp}}(K,T)$ 随日历流逝而整条切片的 $T$ 变短，ATM 波动的期限结构会使「静止」的隐含波动对一个固定 $K$ 上升或下降。此时 Charm 应在 sticky strike 或在总方差切片上算，结果不同。用 SVI 的 $w(k,T)$ 对 $T$ 求导，再传入 Black 希腊，比把每档 $\sigma$ 当常数更接近做市坐标，见 [SVI / SSVI](/quant/svi-ssvi)。[Heston](/quant/heston) 的 Charm 还含方差状态的漂移；[SABR](/quant/sabr) 单到期参数不自动给出跨日切片如何缩期限。
 
@@ -54,6 +70,8 @@ $$
 时间进入 Black 公式的通道主要是 $\sigma\sqrt{\tau}$ 与折现。$\tau$ 减少，有效波动尺度变小，执行价相对现货的标准化距离 $|d_2|$ 变大（若现货不跟着动），概率质量从中间被推到「更实或更虚」。于是 Delta 被推离 0.5，Gamma 峰变窄变高。Charm 与 Color 就是这一几何的导数。随机波动下还有方差均值回复：Heston 的 $v_t$ 向 $\theta$ 走，即使 $S$ 不动，微笑的短端水平也会变，Charm 多一项状态漂移。局部波动下 $\sigma(S,t)$ 显含 $t$，时间导数含曲面日历。这些是模型项，Black Charm 是其中的基准。
 
 为何日常可以忽略、到期周不能。$1/\sqrt{\tau}$ 使导数在最后几天爆炸，与 Gamma 同阶变坏。对冲频率若按平常 Gamma 设带宽，Charm 会在一小时内把 Delta 带出带宽而不需要现货移动——看起来像「无缘无故触发再平衡」。到期周应把 Charm 预测的漂移计入带宽中心的移动，或直接减仓。
+
+<span class="marginnote">初学者容易以为「现货不动，头寸就不动」。到期周恰恰相反：时间本身就是因子。剩余 5 天时 Delta 每天漂 1 个点没什么，剩余半天时同样的漂移被 $1/\sqrt{\tau}$ 放大到好几个点——不是市场变了，是时钟走到最陡的那一段。</span>
 
 ### Speed 与 Zomma：现货与波动对 Gamma 的倾斜
 
