@@ -23,6 +23,8 @@ $$
 
 等号仅在 $X$ 几乎必然为常数时成立。vol-of-vol 越大、期限越长、跳跃越肥，缺口越大。交易员把方差互换执行价报成「波动率点」$\sqrt{K_{\mathrm{var}}}$，把波动互换报成 $K_{\mathrm{vol}}$，两个数字看起来像同一单位，差的正是这笔凸性。问题是：何时必须分开定价、波动互换有没有模型无关复制、以及用方差互换去对冲波动互换会留下什么希腊字母。
 
+<span class="marginnote">数字实例：设已实现方差 $X$ 有一半可能是 0.04（对应 20% 波动）、一半是 0.16（对应 40%）。$\mathbb{E}[X]=0.10$，开方得约 31.6%；而 $\mathbb{E}[\sqrt{X}]=(20\%+40\%)/2=30\%$。差出 1.6 个波动率点——这不是预测，是 Jensen 凸性的纯机械效应。</span>
+
 Britten-Jones 与 Neuberger（2000）证明：在扩散、无跳的前提下，从欧式价格可以读出整个风险中性二次变差的分布信息中与「模型无关隐含波动」对应的那一块——其平方对应方差条带。波动互换要的是 $\mathbb{E}[\sqrt{X}]$，还需要 $X$ 的更高阶或整条分布，欧式香草一般不够，除非再假设动态或引入方差上的期权。
 
 ### 报价点、结算方差、合同波动
@@ -44,6 +46,8 @@ $$
 $\mathrm{Var}(X)$ 来自模型（Heston 矩、Bergomi 曲线的 vol-of-vol、或历史）。（2）Carr–Lee 一类：在相关为零或特定动态下，用香草组合逼近已实现波动的支付。（3）直接做 OTC 波动互换，内部用随机波动模拟 $\mathbb{E}[\sqrt{X}]$，外部用方差互换把线性暴露对冲掉，留下纯凸性账。
 
 校准纪律：若账面同时有方差与波动互换，应用**同一** $\xi_0$ 与同一 vol-of-vol 给两者定价，差别只来自开方。用 Heston 给波动互换、用条带给方差互换，基差里会混进模型错误。粗糙核抬高短端 $\mathrm{Var}(X)$，同样的 $K_{\mathrm{var}}$ 下 $K_{\mathrm{vol}}$ 掉得更多，见 [rBergomi](/quant/rough-bergomi)。
+
+<span class="marginnote">术语翻译：vol-of-vol 就是「波动率自身的波动率」——未来已实现方差这个数本身有多飘忽。它越大，开方造成的缺口越大，波动互换的公平价相对 $\sqrt{K_{\mathrm{var}}}$ 被压得越低；平静的市场里两者几乎重合。</span>
 
 ### 复制误差与跳跃的不对称
 
@@ -67,6 +71,17 @@ flowchart TD
 无模型方差来自 Itô：$\mathrm{d}\ln S=\mathrm{d}S/S-\frac12\sigma^2\mathrm{d}t$，二次变差被对数与 Delta 对冲锁住。开方没有对应的 Itô 对象可以静态复制——$\sqrt{\int\sigma^2}$ 不是某函数 $f(S_T)$。Britten-Jones–Neuberger 的贡献是：在扩散族里，欧式面决定了隐含的二次变差期望（及一条与之相容的瞬时方差过程的积分），因而「模型无关隐含波动」应定义为 $\sqrt{K_{\mathrm{var}}}$，而不是 ATM Black 波动。它仍然是方差对象的平方根，不是 $\mathbb{E}[\sqrt{X}]$。
 
 凸性的经济含义：卖出波动互换、买入按 $\sqrt{K_{\mathrm{var}}}$ 标定的方差互换，近似做多 $X$ 的分散度。危机里 $X$ 的不确定性上升，这笔凸性值钱。它与 [波动率风险溢价](/quant/variance-risk-premium) 相关但不是同一笔：VRP 是 $\mathbb{E}^{\mathbb{Q}}[X]-\mathbb{E}^{\mathbb{P}}[X]$，凸性是同一测度下 $\sqrt{\mathbb{E}[X]}-\mathbb{E}[\sqrt{X}]$。归因必须分开。
+
+```mermaid
+flowchart TD
+  X["已实现方差 X 的分布"] --> Calm["平静期 集中在均值附近"]
+  X --> Crisis["危机期 分布散开"]
+  Calm --> Small["√E[X] 与 E[√X] 接近"]
+  Crisis --> Big["开方缺口拉大 凸性账值钱"]
+  Small --> Trade["卖波动互换 买方差互换 ≈ 做多分散度"]
+  Big --> Trade
+  Trade --> Sep["与 VRP 是两笔账 归因分开记"]
+```
 
 ### 与 VIX 期货凸性的差别
 
