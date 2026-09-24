@@ -35,6 +35,8 @@ $$
 
 分母是微笑对对数货币性 $k=\ln(K/F)$ 的偏斜。Sticky strike 对应 SSR $\approx 0$（ATM 波动不随 $S$ 动）；sticky delta 对应 SSR $\approx 1$（ATM 波动的移动恰好等于偏斜所暗示的平移）。市场指数期权的 SSR 常落在 $0.5$–$2$ 一带，随期限变：短端往往更 sticky delta，长端更钝。一因子对数正态方差容易给出错误期限的 SSR；两因子 Bergomi 用快因子打短端粘性、慢因子打长端。Heston 的 SSR 被 $\kappa,\rho$ 锁成特定期限结构，短端常不够粘。
 
+<span class="marginnote">数字实例：取偏斜为每单位对数货币性约 20 个波动点。SSR=1 时现货跌 1%，ATM 隐波约升 0.2 个点；SSR=0 时完全不动。这个差别乘上 Vega 就是两条规则给出的 Delta 修正之差，趋势日里会积累成可观的对冲偏差。</span>
+
 <span class="marginnote">SSR 不是「市场有多有效」。它是对冲假设的一维摘要。把它校准成 1 再声称已做完动态，等于只拟合了 ATM 跟随，没拟合翼部如何搬。</span>
 
 ## 方法
@@ -71,11 +73,28 @@ flowchart TD
 
 负偏斜来自「低执行价更贵」。现货下跌后，若微笑粘在货币性上，原来的 ATM 变成虚值看涨一侧，新的 ATM 读到更高的波动——这就是 sticky delta 产生的杠杆。若微笑粘在绝对执行价上，新 ATM 仍读附近的 $K$，波动变化只来自原来切片的斜率，通常较小。市场短期行为更接近前者，因为交易员按 Delta 报、按 $k$ 看图；长期行为被均值回复与方差曲线形状拉回，SSR 下降。粗糙核抬高短端 vol-of-vol，短端 SSR 可以更大，与陡偏斜一致。
 
+<span class="marginnote">可以把两条规则想象成贴标签：sticky strike 把标签钉在绝对价位上，现货走了标签不动；sticky delta 把标签钉在相对位置上，现货走到哪标签跟到哪。交易员按 Delta 报价、按货币性看图，所以短端市场行为更像后者。</span>
+
+```mermaid
+flowchart TD
+  DROP["现货下跌 dS"] --> RULE{"微笑按哪个坐标粘住?"}
+  RULE -->|"sticky strike: K 不动"| SS["新 ATM 仍读附近 K 的切片"]
+  SS --> SSV["隐波变化只来自原斜率: 通常较小"]
+  SSV --> HDG2["跟随项近零: 总 Delta 近 Black"]
+  RULE -->|"sticky delta: K/S 不动"| SD["原 ATM 移向虚值 call 一侧"]
+  SD --> SDV["新 ATM 读到更高隐波"]
+  SDV --> LEV["负偏斜下形成波动杠杆"]
+  LEV --> HDG["看跌总 Delta 更负: 需买更多现货对冲"]
+```
+
+
 对冲误差：用 sticky strike Delta 去对冲一个按 sticky delta 计价的簿，现货趋势日会积累「假的」Gamma / Vega PnL，其实是动态假设不一致，见 [Gamma scalping](/quant/gamma-scalping-pnl)。应先锁规则或模型，再谈频率。
 
 ### 外汇与股票指数的惯例差
 
 外汇经纪商按 Delta 报 RR 与蝶式，sticky delta 是默认语言。股票指数按执行价上市，图上却常画对数货币性；做市商内部混用。同一名字在两套系统里 Delta 差几个百分点并不罕见。报告希腊字母必须写：Black、sticky strike、sticky delta，还是 SABR/Bergomi。Vanna–Volga 用 RR 当工具，隐含的是 Delta 坐标上的微笑，与 sticky delta 同一族。
+
+<span class="marginnote">货币性（moneyness）翻译成大白话就是「执行价离现货多远」：$K=S$ 为平值，$K$ 明显高于 $S$ 是价外看涨一侧。对数货币性 $k=\ln(K/F)$ 把它标准化，$k=0$ 即平值；说「粘在货币性上」就是粘在这个相对位置上。</span>
 
 <span class="marginnote">「市场是 sticky delta」是局部回归结论，不是定理。把 SSR 设成 1 再给一年期障碍定价，等于把短端规则外推到长路径，障碍会错。</span>
 
