@@ -31,6 +31,8 @@ LWR 的高频段更像酸核、聚合物与显影前沿的随机；低频段更�
 
 线：CD-SEM 沿边取样，按协议算 LER/LWR，必要时给功率谱。孔：在局部窗口内量许多个孔的 CD，取 $3\sigma$ 得 LCDU。取样窗口太小，统计不稳；太大，会把真正的跨场 CDU 偷运进来，「local」就名不副实。跨场、跨片的均值变化叫 CDU，不要与 LCDU 抢缩写——local 指空间尺度，不是「本厂内部」。
 
+<span class="marginnote">数字实例：若一簇孔的 CD 均值 $45\ \mathrm{nm}$、LCDU（$3\sigma$）为 $3\ \mathrm{nm}$，按正态近似约 99.7% 的孔落在 $42$–$48\ \mathrm{nm}$；若把 $\sigma$ 从 $1\ \mathrm{nm}$ 压到 $0.5\ \mathrm{nm}$，同一窗口收窄成 $43.5$–$46.5\ \mathrm{nm}$，接触电阻偏大或偏小的尾部失效随之大幅减少。</span>
+
 ITRS / IRDS 把这些量分列，是因为它们进不同的设计规则：线的高频毛边打漏电与击穿；孔的 LCDU 进接触电阻与随机失效尾。EUV 随机课会把 LCDU 与光子泊松绑紧；本课在 DUV CAR 上也要保留这个词，以免计量语言到 EUV 才突然出现。同一层上，线可以报 LWR、孔报 LCDU，禁止用其中一个签核另一个。
 
 ### 与酸核的关系
@@ -51,6 +53,19 @@ flowchart TD
 阈值切在缓坡上时，同一化学噪声既抬 LWR 也抬 LCDU：NILS 是公共放大器。酸扩散是低通：砍毛边的高频，也砍平均像的锐度。剂量低频让一簇孔的均值一起漂，LCDU 里会出现「看起来随机、其实是局部剂量」的成分，要用功率谱或与剂量图相关来拆。
 
 刻蚀后 LWR 与 LCDU 都会变，转移函数与 [ADI/AEI](/litho/adi-aei) 平行：必须声明量的是胶上还是硅上。SEM 收缩对细线 LWR 尤其捣乱，协议要冻。
+
+```mermaid
+flowchart LR
+  NOISE["同一份化学噪声"] --> SLOW["阈值切在缓坡上"]
+  SLOW --> HF["高频涨落"] --> LWR["抬 LWR"]
+  SLOW --> MEAN["局部均值漂移"] --> LCDU["抬 LCDU"]
+  LWR --> KNOB1["旋钮：PEB / NILS"]
+  LCDU --> KNOB2["旋钮：局部剂量 / 掩模 CD"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为把 LWR 磨小了，LCDU 自然跟着变好。实际上若 LCDU 的主导项是掩模局部 CD 或局部剂量，单条线再光滑，一簇孔的均值照样各漂各的——先用功率谱拆成分，再对症拧旋钮。</span>
+
+<span class="marginnote">这张图回答的问题是：同一份噪声怎么分别走进两个指标。缓坡放大让高频毛边归 LWR、让一小片图形的均值一起漂归 LCDU；两者只有「公共放大器」（NILS），没有公共解药。</span>
 
 <span class="marginnote">不要用跨片 CDU 的合格来宣布 LWR 合格，也不要用一条线的 LWR 去签核孔层。ITRS 把它们分开，就是为了禁止这种偷换。</span>
 

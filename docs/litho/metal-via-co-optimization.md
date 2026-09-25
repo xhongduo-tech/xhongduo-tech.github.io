@@ -19,6 +19,20 @@ via 覆盖（enclosure）来自套刻加 CD：下层金属太窄或 via 太大�
 
 缺口是**协同网格**，不是再讲一次接触孔成像。金属层 LFD 若不管 via，布线器会画出「金属可印、via 无法覆盖」的合法 DRC。反向亦然：via 先冻尺寸，金属再收 tip，密度在交界处死。
 
+```mermaid
+flowchart TD
+  NOM["via 名义居中在金属上"] --> OVL["套刻偏移"]
+  NOM --> CDU["线宽与孔径涨落"]
+  OVL --> LEFT["剩余覆盖 = (金属宽-孔径)/2 - 偏移"]
+  CDU --> LEFT
+  JOG["金属 jog: via 落到线端"] --> LEFT
+  LEFT --> Q{"覆盖仍大于零?"}
+  Q -->|"是"| GOOD["连通"]
+  Q -->|"否"| BAD["开路或高阻"]
+```
+
+<span class="marginnote">enclosure（包覆量）翻译成算术：金属线宽 40 nm、孔径 30 nm，理想居中时四周各剩 5 nm 余量；套刻一偏 6 nm，孔边就探出金属外——开路。这就是"覆盖是套刻和 CD 共同吃掉的余量"的意思，也是它必须联立预算的原因。</span>
+
 ### 自对准 via 换的是掩模还是工艺
 
 自对准通孔用介质或硬掩模把 via 锁到金属槽，套刻项下降，换来切线或填槽的刻蚀难度。这是助推器逻辑在 BEOL 的版本。不能自对准时，覆盖规则直接吃 overlay 与 CDU，金属不能再按纯光学最小宽度设计。
@@ -36,6 +50,10 @@ via 覆盖（enclosure）来自套刻加 CD：下层金属太窄或 via 太大�
 ## 机制
 
 覆盖余量 $\approx$ (金属宽度 − via 宽度)/2 − overlay − CDU 组合。网格对齐使平均 enclosure 最大；jog 让 via 落到线端，enclosure 被 tip 缩短吃掉——于是 tip 规则与 via 规则必须联立。着色：via 不能同时与「错误色」的上下金属冲突。协同失败的典型症状是逻辑 LRC 绿、SRAM 或时钟网格红，或电学 via 链良率差而 CD 报表好看。
+
+<span class="marginnote">着色可以想成排班表：多重图形把每层金属和 via 分到不同的掩模"班次"，via 的班次不能与上下金属的错误班次同时冲突。单看一层排班永远合法，三层联看才发现有人被排了两个班——这就是着色冲突要三维联立求解的原因。</span>
+
+<span class="marginnote">常见误区是看到 LRC 全绿就认为 via 高枕无忧。LRC 查的是顶视几何这个代理，真正的开路常藏在剖面里：刻蚀偏斜、填孔空洞、线端缩短，要靠电学 via 链和 TEM 抽样才能抓到。</span>
 
 ```mermaid
 flowchart TD
