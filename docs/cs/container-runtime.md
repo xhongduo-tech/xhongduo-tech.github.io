@@ -50,8 +50,6 @@ flowchart TD
   P1 -- "退出" --> WAIT["shim 收 SIGCHLD 并上报状态"]
 ```
 
-<span class="marginnote">为什么重要：把「谁创造」和「谁看护」分开，升级与崩溃才不连坐。若容器进程直接挂在 containerd 名下，daemon 一重启，内核会把孤儿进程挂给别的父进程，状态无从查起；多一层 shim，容器的一生就始终有人记账。</span>
-
 
 实现上：spec 里的 mounts 把 proc/sys 以安全选项挂上，漏了就会看到宿主。shim 的父进程若是 containerd，升级 daemon 不杀容器。cgroup 路径决定统计落在哪。 读法上只引用[上一课](/cs/nested-virtualization)的结论，不把对象换成训练推理或限价簿。
 
