@@ -17,11 +17,15 @@ section: econ
 
 经验上 $X_{ij}\propto Y_i Y_j/\mathrm{dist}_{ij}^\zeta$。Tinbergen 当描述。Anderson–van Wincoop：CES 需求下，双边出口还依赖**多边阻力**——$i$ 进入所有市场的成本、$j$ 从所有来源购买的成本。漏掉它们，距离与边界的系数有偏（边境之谜被夸大）。缺口不是再讲 Melitz 门槛，而是：加总之后，任何产生 CES 或类似支出份额的模型都会长出引力；估计必须处理多边阻力（固定效应或显式价格指数）。
 
+<span class="marginnote">直觉类比：两国贸易像两座城市间的客流量——城市越大（GDP 越大），来往越多；离得越远、过路费越贵（距离、关税、语言），来往越少。Tinbergen 借的是牛顿引力「质量大则引力大、距离远则引力小」的形，但系数是估出来的，不是宇宙常数。</span>
+
 <span class="marginnote">Head–Mayer 综述：引力是贸易经验的骨干。PPML（Santos Silva–Tenreyro）处理零贸易与异方差，OLS 对数会扔零、且 Jensen 不等式偏误。</span>
 
 ## 方法
 
 结构：$\ln X_{ij}=\ln S_i+\ln M_j+\ln \tau_{ij}^{1-\sigma}+\varepsilon_{ij}$，$S_i,M_j$ 用进出口固定效应吸收。$\tau_{ij}$ 含距离、边界、语言、关税、协定。因果：关税与协定仍要识别（后课 WTO、China shock），引力方程本身先是均衡加总。一般均衡反事实：改 $\tau$，重解所有多边阻力（Dekle–Eaton–Kortum 精确帽子代数），不是只看双边偏效应。
+
+<span class="marginnote">术语翻译：PPML（泊松伪极大似然）是引力估计的常用方法，直接对贸易额建模，可以保留「贸易额为 0」的观测；老式做法取对数，$\ln 0$ 没有定义，只能整行扔掉——而零贸易（某些国家对根本不做某类生意）往往正是最有信息量的样本。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,18 @@ flowchart TD
 机制是份额。$j$ 的支出在来源 $i$ 上的份额随相对 $\tau_{ij}$ 与相对价格变。距离进入 $\tau$，所以流量随距离降。规模进入支出与供给能力。零贸易：Melitz 选择使部分 $ij$ 对为零，引力在广延边际也成立（Helpman–Melitz–Rubinstein）。EK 下一课用极值生产率抽签给出另一套闭式份额。
 
 边境效应大：可以是真实政策壁垒、可以是可加贸易成本在短距离上更显眼、可以是多边阻力误设。Anderson–van Wincoop 显示：正确计入阻力后，美加边境仍在，但小于朴素回归。
+
+```mermaid
+flowchart TD
+  OBS["观察到：美加双边贸易远小于各自国内贸易"] --> NAIVE["朴素回归：只放距离与边境虚拟变量"]
+  OBS --> STRUCT["结构估计：进出口固定效应吸收 S_i 与 M_j"]
+  NAIVE --> OVER["边境效应被夸大：没算加拿大『除了美国还能向谁买』"]
+  STRUCT --> FIX["重解多边阻力：边境仍在，但小得多"]
+  OVER --> MORAL["引力系数是均衡加总，不是牛顿常数"]
+  FIX --> MORAL
+```
+
+<span class="marginnote">数字实例：只看美加贸易对 GDP 之比偏低，就说「边境杀死了九成贸易」是危险的：加拿大的对外贸易被距离整体压着，正确的基准是「若无边境，它本可以从其他来源买多少」。把这个替代基准（多边阻力）计入后，同一份数据算出的边境损耗明显变小。</span>
 
 <span class="marginnote">不要把引力写成牛顿定律。$\zeta$ 随 $\sigma$ 与 $\tau$ 的函数形式变。结构反事实要的是贸易弹性 $\sigma-1$，不是某一个距离系数的永恒值。</span>
 
