@@ -19,6 +19,8 @@ section: litho
 
 缺口因此是奇数/偶数误差及其计量，而不是再画一遍侧墙环。没有这项，切线课会把切偏和 pitch walking 混成一个 CDU。
 
+<span class="marginnote">「walking」的字面就是走路：本该每步等距的节距，实际像人走路忽而步大忽而步小。奇数间隔与偶数间隔各是一组「左步」和「右步」——平均步长完全正常，左右却不相等，走久了就偏出跑道。</span>
+
 ### 平均节距合格不等于没有 walking
 
 只报 mean CD 与 mean pitch，会把交替误差平均掉。SADP 计量必须分别报 core space、gap space，或显式报 pitch walking（两者之差或对目标的交替残差）。只对「每条线」做一次 CD 抽样，采样相位若总落在同一种 space 上，会系统盲。
@@ -28,6 +30,8 @@ section: litho
 ## 方法
 
 控制旋钮：mandrel CD（光刻剂量、OPC、刻蚀偏置）主要推 core；沉积 $t$ 与回刻推线宽并轻微耦合两种 space；相邻芯轴的节距均匀性推 gap。补偿策略是把 mandrel CD 故意偏一点，使 core 与 gap 在刻蚀后对齐——这是校准，不是「自对准失败」。过度补偿会把线宽带出窗。
+
+<span class="marginnote">数字实例：目标两套 space 各 20 nm。若 core 实测 18、gap 实测 22，平均节距仍是 40 nm 的完美值，但 walking = 4 nm——只看平均值的报表会给满分，阵列却可能在 18 nm 那一侧先击穿。</span>
 
 计量：CD-SEM 对交替 space 分桶；散射测量要有对奇偶敏感的模型，否则拟合出一个假的单一 pitch。场内、晶圆半径、开口密度都要抽样，因为薄膜加载随图形变。
 
@@ -47,6 +51,17 @@ flowchart TD
 ## 机制
 
 一阶：正 spacer 下去芯轴后，core 随 $W_m$ 单调变，gap 随 $P_m-W_m$ 变。$t$ 增加则线变宽，两种 space 都变窄，但若脚型不对称，两边收窄量不同，仍引入 walking。SAQP 第二轮把上一轮的 walking 再当「芯轴」复制，误差结构更碎，设计上有时故意用后切或填补来藏，但计量桶数要加。
+
+```mermaid
+flowchart TD
+  W["Mandrel CD 增大"] --> CORE["core space 变窄"]
+  W --> GAP["gap space 变宽"]
+  T["侧墙厚度 t 增大"] --> BOTH["线变宽 两套 space 同变窄"]
+  T --> ASYM["脚型不对称则收窄不同"]
+  ASYM --> PW["残余 pitch walking"]
+```
+
+<span class="marginnote">初学者容易以为 mandrel CD 偏了就是光刻失败。实际上工程师会故意把芯轴印偏一点，让刻蚀后的 core 与 gap 对齐——这是补偿，不是失误。判断标准是刻蚀后的分桶结果，不是光刻后单张 SEM 好不好看。</span>
 
 电性：一种 space 偏窄先击穿或先变成鳍桥；另一种偏宽先掉电流。所以 walking 是可靠性与失配问题，不只是「平均 CD 还在规格里」。
 

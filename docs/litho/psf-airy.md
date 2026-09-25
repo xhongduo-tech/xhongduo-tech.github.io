@@ -25,6 +25,8 @@ section: litho
 
 <span class="marginnote">Airy 斑的第一暗环约在 $0.61\,\lambda/\mathrm{NA}$（非相干强度、圆孔、空气）。这是显微镜里两斑刚可分辨的几何，见 Born &amp; Wolf。光刻产线式子带 $k_1$，见[瑞利课](/litho/rayleigh-litho)，本课不把 0.61 叫成 $k_1$。</span>
 
+<span class="marginnote">直觉类比：PSF 像「点一个点后墨水在纸上洇开的形状」。无论你写多细的字，纸上每个笔画都是这团墨迹的叠印——字糊不糊由墨迹形状决定，不是笔的错。光学里这团「墨迹」就是点扩散函数。</span>
+
 ## 方法
 
 理想圆瞳、无遮拦、无像差：
@@ -37,6 +39,8 @@ $$
 $J_1$ 的第一零点给出暗环。有中心遮拦（某些 EUV 光瞳）或切趾，零点移动、旁瓣升高，仍叫点扩散，只是不再是教科书 Airy。离焦与像差进 $P$ 的相位，$h$ 变胖、旁瓣变形——机制在[离焦作为像差](/litho/defocus-as-aberration)，本课只承认核会变。
 
 光学直径：核的有效宽度几个 $\lambda/\mathrm{NA}$。OPC 邻域、SRAF 是否印出、孤立孔的能量从哪来，都按这个直径截断，而不是按设计规则的「最小间距」截断。
+
+<span class="marginnote">数字实例：取 $\lambda=193$ nm、$\mathrm{NA}=1.35$，Airy 第一暗环约 $0.61\times193/1.35\approx 87$ nm——这就是「光学直径」的量级：比许多设计规则的最小线宽还宽，所以邻近效应要按几个 $\lambda/\mathrm{NA}$ 算，不能只看版图间距。</span>
 
 ```mermaid
 flowchart TD
@@ -55,6 +59,18 @@ flowchart TD
 
 点物的谱是平的，光瞳切出一块圆，逆变换必是 jinc。扩展物等于许多点物的叠加：相干时场相加（干涉），非相干时强度相加。这就是「糊」的线性图像。[阿贝](/litho/abbe-imaging)用频谱语言说同一件事：通带外的高频回不来，空域就是核把锐边打斜。
 
+```mermaid
+flowchart TD
+  PT["一个点物"] --> SP["点物频谱是平的"]
+  SP --> PUP["光瞳切出圆形一块"]
+  PUP --> JINC["逆变换 = jinc / Airy 核"]
+  OBJ["扩展物"] --> SUM["许多点物像的叠加"]
+  SUM --> COH["相干: 场相加 会干涉"]
+  SUM --> INCOH["非相干: 强度相加"]
+  COH --> IMG["像 = 物与核的卷积"]
+  INCOH --> IMG
+```
+
 两个邻近孔的像是两只核的重叠。重叠多少，下一课用传递函数读，再下一课用 Sparrow / Rayleigh 两种判据读。本课只提供单只核。
 
 ### 后课默认的接口
@@ -64,6 +80,8 @@ flowchart TD
 ## 边界
 
 标量圆孔 Airy 不含偏振、不含薄膜。高 $\mathrm{NA}$ 矢量沉积会让「有效核」随偏振与焦深变，定义仍是点物的像，数值不再是 $J_1$。也不要把 Strehl 比（有像差时峰值下降）在本课展开；那是核的峰值归一，见主干 Strehl 课。禁止用未公开的镜头「实测 Airy」表替代 jinc。
+
+<span class="marginnote">常见误区：把 Airy 暗环的 0.61 直接当成产线的 $k_1$。0.61 是显微镜里「两斑刚好分得开」的几何判据；产线 $\mathrm{CD}=k_1\lambda/\mathrm{NA}$ 的 $k_1$ 是照明、胶与工艺一起凑出来的经验数，两者不是同一个东西。</span>
 
 ## 小结
 
