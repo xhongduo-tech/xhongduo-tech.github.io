@@ -19,6 +19,8 @@ section: econ
 
 缺口是记账：同一线性泛函，可以叫 $m$、可以叫 $q$、可以叫 $\mathbb{Q}$。换名不是换理论。[SDF](/econ/stochastic-discount-factor) 的 $m$ 与密度过程满足 $m_{t,t+1}=(B_t/B_{t+1})(Z_{t+1}/Z_t)$，$Z$ 为 $\mathrm{d}\mathbb{Q}/\mathrm{d}\mathbb{P}$ 的密度。本课钉 $\mathbb{Q}$ 这一端。
 
+<span class="marginnote">「鞅」可以翻译成「扣息后的公平赌局」：明天折现价格的最好预测就是今天的价格，无论怎么押注，长期平均净赢都是零。所以「S/B 是 Q-鞅」=「在 Q 的记账下，没有任何资产能稳定跑赢利息」——有，就能被复制成套利。</span>
+
 <span class="marginnote">「风险中性测度」是俗称：$\mathbb{Q}$ 下投资者像风险中性那样用 $B$ 折现，并不意味着 $\mathbb{P}$ 下的人风险中性。风险厌恶被写进 $\mathbb{P}\mapsto\mathbb{Q}$ 的倾斜。</span>
 
 ## 方法
@@ -40,6 +42,21 @@ flowchart TD
 机制是改变概率权重：倒霉状态在 $\mathbb{Q}$ 下更重，等价于 $\mathbb{P}$ 下 $m$ 更大。鞅的意思是：用 $\mathbb{Q}$ 看，任何可交易资产在补偿计价增长之后没有超额；有超额的方向会被复制成套利。动态就是把这句话放进每个条件信息集——与 [EMH](/econ/emh) 的「经风险调整后不可预测」同构，FTAP 提供调整所用的测度。
 
 不完全：许多 $\mathbb{Q}$ 都让可交易的 $S/B$ 成为鞅，但对不可复制的 $x$，$\mathrm{E}^{\mathbb{Q}}[x/B]$ 随 $\mathbb{Q}$ 变，故无唯一价格。这不是市场无效，是张成不足，接 [不完全市场](/econ/incomplete-markets-gei) 的精神。
+
+```mermaid
+flowchart TD
+  P["真实概率 P: 漂移 mu 含风险溢价"] --> TILT["换权重: 倒霉状态在 Q 下更重"]
+  TILT --> ABSORB["溢价被权重倾斜吸收"]
+  ABSORB --> MART["折现后 E^Q 无超额 = 鞅"]
+  MART --> CHECK{"若某资产仍有 Q-超额?"}
+  CHECK -->|"是"| ARB["借钱买它并复制: 套利"]
+  CHECK -->|"否"| OK["定价 = E^Q 支付折现"]
+  ARB --> NA["违反无套利, 该 Q 不合法"]
+```
+
+<span class="marginnote">数字实例：100 元的股票一年后要么 130 要么 85，真实概率各半，利率 5%。解 $q\times 130+(1-q)\times 85=105$ 得 $q\approx 0.44$——Q 把下跌状态的权重从 0.5 抬到约 0.56。风险厌恶没有消失，它藏在这半成的倾斜里。</span>
+
+<span class="marginnote">常见误区：把 $\mathbb{Q}$ 当成「市场对未来的预测」。预测归 $\mathbb{P}$——历史频率、宏观漂移都是 $\mathbb{P}$ 的事；$\mathbb{Q}$ 只是让折现价格齐一成鞅的记账概率。用 $\mathbb{Q}$ 的概率去算明天的涨跌，等于把风险厌恶误读成信念。</span>
 
 <span class="marginnote">等价不允许把 $\mathbb{P}$ 的零事件标成正概率。那样会给不可能的状态定价，或把可能的状态标成套利。奇异性是定价失败，不是「另一种信念」。</span>
 
