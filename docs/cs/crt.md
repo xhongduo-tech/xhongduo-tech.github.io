@@ -25,6 +25,8 @@ CRT 是同构，信息不少。把消息拆成模 $p$ 与模 $q$ 仍保密——
 
 <span class="marginnote">《孙子算经》物不知数。Gauss 《算术探究》。Knuth 卷 2。密码实现的 Garner 算法是 CRT 的一种组织，点名。</span>
 
+<span class="marginnote">直觉类比：CRT 就是《孙子算经》的「物不知数」——「某数除以 3 余 2、除以 5 余 3、除以 7 余 2，问数几何」。只要模两两互素，这些余数就能在 $3\times5\times7=105$ 以内唯一锁定那个数，不多不少。</span>
+
 ## 方法
 
 解 $x\equiv 2\pmod 3$、$x\equiv 3\pmod 5$、$x\equiv 2\pmod 7$。写出同构对乘法：模 $15$ 的零因子对应一侧为 $0$。指出：求 $\varphi(pq)$ 需要 $p,q$，与 CRT 拆运算是同一秘密的两面。
@@ -36,6 +38,8 @@ flowchart TD
   ISO --> RSA["两侧模幂再合并"]
 ```
 
+<span class="marginnote">数字实例：RSA 解密的指数 $d$ 与 $n$ 同量级（2048 位里约 2048 位）；拆到 $p,q$ 两侧后，$d_p,d_q$ 只有约 1024 位，模乘的数也小一半。模幂代价随位数超线性涨，两侧合计比原来快约四倍。</span>
+
 ## 机制
 
 有了同构，下一课才能安心谈「先当环、再当域」：模素数是域，模 $pq$ 只是环。CRT 把环拆成域的积。后课有限域 $\mathrm{GF}(2^n)$ 是另一构造，不是 CRT。
@@ -43,6 +47,17 @@ flowchart TD
 Coppersmith、Hastad 广播攻击用 CRT 组合同一指数的密文，本课不进攻击细节。
 
 一般形式：模 $n_i$ 不必互素，当 $a_i\equiv a_j\pmod{\gcd(n_i,n_j)}$ 才有解，解模 $\mathrm{lcm}$。Garner 算法按前缀逐步合并，实现常用。RSA-CRT 私钥含 $d_p,d_q$；侧信道若漏出一侧余数会危及分解，属实现，本课只给同构。
+
+```mermaid
+flowchart TD
+  C["解密: 求 c^d mod n"] --> SP["拆侧一: m_p = c^{d_p} mod p"]
+  C --> SQ["拆侧二: m_q = c^{d_q} mod q"]
+  SP --> MG["按 CRT 合并两个余数"]
+  SQ --> MG
+  MG --> M["得到明文 m mod n"]
+```
+
+<span class="marginnote">常见误区：初学者容易把 CRT 当成「把大数压成小数」的有损压缩。实际上它是无损同构——一组互素模下的余数不多不少正好对应大模下的一个余数，信息一点没丢，所以才能拆开算完再原样合回去。</span>
 
 ## 边界
 
