@@ -17,11 +17,15 @@ section: cs
 
 多租户若只靠 nice，无法保证「这一组最多 2GB、最多 50% CPU」。缺口：进程加入某 cgroup；memory 控制器记账匿名与文件页，超上限则回收该组，再不够则组内 OOM；cpu 控制器给权重或带宽；io 控制器限制 blk-mq 上的比例。接口经 [sysfs](/cs/sysfs-proc) 风格的 cgroup 文件系统。
 
+<span class="marginnote">术语翻译：记账就是内核给每组记流水账——这个组此刻用了多少物理页、发过多少 I/O，写在组目录的一堆统计文件里；「限制」则是在缺页、分配、调度这些要花钱的时刻，内核先查一眼当前任务属于哪个组、账上还剩多少额度。</span>
+
 <span class="marginnote">v2 要求进程只在叶子组（简化）。委派让非特权用户管理子树。本课不写如何逃出限制。</span>
 
 ## 方法
 
 创建目录即建组，把 pid 写入 `cgroup.procs`，写 `memory.max` 等。内核在缺页、分配、调度选任务时看当前任务的组。与 namespaces 正交：可以只做 cgroup 不做容器，也可以组合。writeback 可以按组节流，接上已有脏页课。
+
+<span class="marginnote">直觉类比：namespaces 管「你看得见什么」——把窗户糊上，别的房间看不见；cgroups 管「你用得多少」——电表水表分户安装，超了先拉你家的闸。容器是两件事叠起来：既看不见别人，也抢不走别人的份额。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,18 @@ flowchart TD
 ## 机制
 
 cgroup 把负荷控制从「全机抖动」细化到「一组作业的 ΣW」。它不提供独立内核，只提供记账与拒绝/回收。与过度提交同时存在：组内承诺仍可超组上限，于是组内 OOM 先于全机。不要把 Kubernetes 的 YAML 写进 OS 课。
+
+```mermaid
+flowchart TD
+  ALLOC["组内任务申请内存"] --> ACCT["memory 控制器记账"]
+  ACCT --> OVER{"超 memory.max？"}
+  OVER -->|"否"| OK["正常分配"]
+  OVER -->|"是"| REC["先回收本组的可回收页"]
+  REC --> ENOUGH{"回收够了？"}
+  ENOUGH -->|"是"| OK
+  ENOUGH -->|"否"| OOM["组内 OOM：杀本组进程"]
+  OOM --> NOTE["全机可能还很空"]
+```
 
 ## 边界
 
