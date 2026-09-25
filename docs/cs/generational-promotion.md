@@ -43,7 +43,22 @@ flowchart TD
 
 晋升失败：Old 不够，退化 Full，停顿尖峰。并行 scavenge。不要把所有大对象直接 Old 当唯一策略而不测。
 
+<span class="marginnote">常见误区：初学者容易以为晋升是给对象「换类型」或复制一份新的。实际上对象还是同一个，只是从 Eden/Survivor 搬到 Old 区域，搬动后所有指向它的指针都要改成新地址——这就是复制式收集器需要更新引用的原因。</span>
+
+<span class="marginnote">数字实例：若年龄阈值设 15、Survivor 每轮只有 10% 对象存活，那么一个对象平均要经历约 15 次 Minor GC 才进 Old。把阈值降到 2，长命对象更早腾出幼代空间，但「准长命」的短命对象也会混进 Old 污染它。</span>
+
+```mermaid
+flowchart TD
+  A["晋升失败发生"] --> B{"Old 剩余空间够吗"}
+  B -->|"够"| C["正常 Minor GC 搬入 Old"]
+  B -->|"不够"| D["退化 Full GC"]
+  D --> E["全堆停顿尖峰"]
+  E --> F["调大 Old 或降低晋升速度"]
+```
+
 弱引用在分代下要特殊队列，后课。
+
+<span class="marginnote">直觉类比：把 Eden 想成公司前台的访客登记处，Survivor 是试岗期工位，Old 是正式编制。多数访客当天就走（朝生夕死）；试岗几次还在的转正（晋升），之后不再频繁打扰他们。若前台挤满了等转正的人，整栋楼就得停下来清点一次（Full GC）。</span>
 
 ## 边界
 

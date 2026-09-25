@@ -44,11 +44,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  S1["snoc a：r=[a]，存 1 枚"] --> S2["snoc b：r=[b,a]，存 2 枚"] --> S3["snoc c：r=[c,b,a]，存 3 枚"]
+  S1["snoc a：r=（a），存 1 枚"] --> S2["snoc b：r=（b, a），存 2 枚"] --> S3["snoc c：r=（c, b, a），存 3 枚"]
   S3 --> DEQ["出队：f 已空"]
   DEQ --> REV["reverse r，花 3 步"]
   BANK["此前 3 次入队各投 1 枚"] --> REV
-  REV --> NEWF["新 f=[a,b,c]，存钱罐清零"]
+  REV --> NEWF["新 f=（a, b, c），存钱罐清零"]
 ```
 
 <span class="marginnote">常见误区：初学者容易以为「出队可能撞上倒栈，所以出队是 $O(n)$」。实际上倒栈之后 front 就有了一大截存货，接下来很多次出队都只是取头；摊还起来，倒栈的 $n$ 步被之前的 $n$ 次入队分摊，每次平摊 $O(1)$。</span>
