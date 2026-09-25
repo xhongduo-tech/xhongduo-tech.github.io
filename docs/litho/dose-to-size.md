@@ -17,7 +17,11 @@ section: litho
 
 固定焦距与照明，扫剂量，量某一类图形的 CD，得到 $\mathrm{CD}(E)$。正胶密线通常剂量升则线变瘦（清掉区变宽）。斜率 $d\mathrm{CD}/dE$ 在目标处决定曝光宽容度：[曝光宽容度](/litho/exposure-latitude) 把相对剂量宽度写成规格百分比；本课提供那条斜率的实验来源。
 
+<span class="marginnote">曝光宽容度（dose latitude）翻译过来就是「剂量允许漂多少」：固定焦距，把剂量上下拧，CD 仍留在规格带内的最大百分比范围。产线说某层「±10% 宽容度」，意思是剂量在标称值上下漂 10% 都不至于让 CD 出界。</span>
+
 缺口不是再定义 $E_\mathrm{size}$，而是：一条曲线只对一类图形成立。孤立线、密线、孔的 $\mathrm{CD}(E)$ 斜率与截距都不同，这就是 iso–dense 偏置随剂量走的原因。只报一个 $E_\mathrm{size}$，看不见疏密是否在同一剂量下同时进规格。
+
+<span class="marginnote">数字实例：某密线的 $\mathrm{CD}(E)$ 斜率约为每 1% 剂量走 0.4 nm，CD 规格是 ±1 nm，剂量宽容度约 ±2.5%；换成斜率 0.8 nm/% 的孔层，同样规格只剩约 ±1.25%。孔的曲线更陡，剂量窗就先在孔层关上。</span>
 
 ### 它不是衬度曲线
 
@@ -43,6 +47,18 @@ flowchart TD
 ## 机制
 
 边钉在化学阈值面上。剂量整体乘一个因子，空中像 $I$ 相对阈值移动，边沿 $x$ 方向的位移 $\approx (\Delta E/E)/\mathrm{ILS}$ 量级，再被显影非线性改形状。NILS 低的节距，同样 $\Delta E$ 走出更大 $\Delta\mathrm{CD}$，曲线更陡，窗先在剂量轴关上。酸扩散把 ILS 再砍一截，曲线更陡——看起来像胶很「敏」，其实是核把光学斜率吃了。
+
+<span class="marginnote">直觉类比：把曝光后的胶剖面想成一列山坡，化学阈值是横穿山坡的一条等高线。ILS 就是坡的陡度——坡陡（NILS 高），剂量微调让坡整体升降一点，交线几乎不动；坡缓，同样的升降得靠交线横着挪很远来补偿，CD 就横着漂。</span>
+
+```mermaid
+flowchart TD
+  DE["剂量 +1%"] --> SHIFT["空中像相对阈值平移"]
+  SHIFT --> DISP["边位移 ≈ 1%/ILS"]
+  LOWILS["低 NILS 节距：ILS 小"] --> DISP
+  DIFF["酸扩散再砍 ILS"] --> LOWILS
+  DISP --> BIGCD["CD 漂得更多"]
+  BIGCD --> NARROW["剂量窗先关"]
+```
 
 flare 抬台基，暗区接近阈值，过剂量时桥接会在 $\mathrm{CD}(E)$ 尚未走出 CD 规格时先出现。所以这张图还要叠缺陷判据，不能只看平均 CD。
 
