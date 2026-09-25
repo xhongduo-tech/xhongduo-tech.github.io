@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">中间层核（mid）使策略更碎。容量随频率变，EAS 同时看 freq。</span>
 
+<span class="marginnote">数字实例：小核容量 400、大核 1024。一个 util_avg 为 600 的任务若被放在小核，每个活跃周期最多拿到 400 的算力，原本 400 μs 的活要跑约 600 μs，白白慢一半——这就是 misfit 上迁要避免的「拖尾」。</span>
+
 ## 方法
 
 wake：过滤容量不足的 CPU。idle load balance：把 misfit 拉到大核。对照 [RSS](/cs/rss-multiqueue)：硬件哈希不管任务轻重；这里必须看 util。对照 [blkio](/cs/blkio-cgroup)：I/O 权重不改变 CPU 容量。
@@ -34,6 +36,20 @@ flowchart TD
 
 异构调度把单 ISA 多微架构收成容量数字，使手机能在续航与跟手之间折中。错误的容量表等于永久 misfit 或永远大核。不要写成购买指南。与实时：RT 任务常钉大核，后课 deadline。
 
+一个唤醒任务如何落到具体的核：
+
+```mermaid
+flowchart TD
+  W["任务唤醒"] --> S["cpuset 内候选核"]
+  S --> C{"util_avg 与核容量比"}
+  C -- "超过容量" --> MF["标记 misfit 任务"]
+  MF --> IB["idle load balance 拉去大核"]
+  C -- "够用" --> P["在够用的核里挑能耗最低的"]
+  P --> R["在该核上唤醒"]
+```
+
+<span class="marginnote">术语翻译：misfit 直译「不合身」，在这里就是「任务的胃口比核的饭量大」——util_avg 是任务想要的算力，cpu_capacity 是这颗核能供给的上限，前者超过后者就贴上 misfit 标签等迁移。</span>
+
 调试：看 `cpu_capacity` 与任务 `util_avg`。
 
 
@@ -48,6 +64,8 @@ flowchart TD
 ## 边界
 
 本课不引入 cluster 迁移的全部迟滞参数。不保证虚拟机把异构暴露给客户。下一课硬时限：SCHED_DEADLINE。
+
+<span class="marginnote">常见误区：初学者容易以为「重任务永远去大核」。实际上判断依据是 util_avg——任务活跃时的平均需求，不是总运行时长；一个频繁唤醒但每次只干几微秒的任务，放小核反而更省电，这正是 EAS 折中的意义。</span>
 
 
 版本字段会变，课序钉的是机制对象「异构核调度」，不是某一主线内核的结构体名。

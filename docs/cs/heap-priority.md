@@ -19,6 +19,8 @@ section: cs
 
 insert：放末尾上滤。extract-min：用末尾填根再下滤。均为 $\Theta(\log n)$。建堆可以自底向上 $\Theta(n)$，后课堆排序会用。
 
+<span class="marginnote">直觉类比：堆像公司值班表——只要求「领导永远排在下属前面」（父$\le$子），同级同事之间不比次序，也不能按名次点名。想知道「当前最闲的人」直接看顶上那位；想找「第 7 闲的人」只能整棵翻。</span>
+
 <span class="marginnote">Williams 1964 的堆排序把这套结构送进排序课。本课只交 ADT。</span>
 
 ## 方法
@@ -35,9 +37,23 @@ flowchart TD
 
 decrease-key 在 Dijkstra 里需要：沿父走 $\Theta(\log n)$。若没有到数组下标的句柄，找元素会退回 $\Theta(n)$。合同要声明是否提供句柄。
 
+<span class="marginnote">数字实例：从 1 起编号时，下标 5 的元素父是 $\lfloor 5/2\rfloor=2$，子女是 10 与 11；从 0 起编号则父是 $\lfloor(i-1)/2\rfloor$、子女是 $2i+1,2i+2$。一套下标算术替代全部指针，这就是「数组当树」。</span>
+
+一次 insert 之后，堆序怎么自己恢复：
+
+```mermaid
+flowchart TD
+  INS["insert: 新元素放末尾"] --> CMP{"比父小?"}
+  CMP -- "是" --> SWAP["与父交换, 上滤一层"]
+  SWAP --> CMP
+  CMP -- "否" --> DONE["堆序恢复, 停止"]
+```
+
 ## 机制
 
 堆不支持高效查找任意键，不是字典。与 BST 分工：要序遍历用树；只要最小用堆。二项堆、斐波那契堆把 decrease-key 摊还做得更低，算法课需要时再请；主干先二叉堆。
+
+<span class="marginnote">常见误区：初学者容易以为堆「差不多排好序」，应该能快速找第 $k$ 小。实际上除了根，上层对下层只有「不大于」这一句话，找任意键就是 $\Theta(n)$ 扫描。既要按键查又要取最小，得配散列表存句柄，是后课的分工。</span>
 
 数组表示吃空间局部性：下滤走的地址仍有一定跳跃（$2i$），比链表好，比顺序扫差。
 

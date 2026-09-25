@@ -17,11 +17,15 @@ section: cs
 
 栈：`head` 指向单链。push：新节点 `next=head`，CAS `head`。pop：读 `h`，CAS `head` 到 `h->next`。ABA：pop 读 next 后，`h` 被弹出再压回，CAS 仍成功但 next 陈旧。hazard：线程进入临界前把指针写入 HP 槽并屏障，扫描时若节点出现在任一 HP 中则延后释放。缺口是**把「还在被读的地址」显式登记**，而不靠停全世界。
 
+<span class="marginnote">直觉类比：HP 像公共冰箱上的便利贴——「这盒酸奶（地址）我还要吃，别扔」。回收者清冰箱前扫一眼所有便利贴，被点名的酸奶留到下一轮。便利贴写错地址或忘了写，你伸手时酸奶就可能已经消失，这正是漏登记等于 UAF 的原因。</span>
+
 <span class="marginnote">Treiber 1986 技术报告。Michael, *IEEE Trans. Parallel and Dist. Systems*, 2004（PODC 2004 前身）。epoch/QSBR 是批量版，RCU 课已见。</span>
 
 ## 方法
 
 每线程少量 HP 槽（栈 pop 常 1–2 个）。退休列表攒一批再扫描 HP。漏登记 = UAF；多登记只延迟回收。与带 tag 的双字 CAS：tag 防 ABA 但不防 UAF，常要两者或再加池。
+
+<span class="marginnote">术语翻译：「退休列表」就是先不还、挂账的手段——节点从栈上摘下后不马上 free，先记进本线程的待释放清单，等确认没有人的 HP 槽还指着它，再分批真正归还。挂账越久内存峰值越高，还早了一步就是 use-after-free。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,20 @@ flowchart TD
 ## 机制
 
 进度：扫描 HP 是回收者的活，读者无锁。槽要避免伪共享。本课不写攻击性 UAF exploit。并发哈希表下一课把桶锁或无锁探针对上字典，不是栈。
+
+一个节点从退休到真正释放，中间凭什么能被拦下：
+
+```mermaid
+flowchart TD
+  R1["读者: 拿到节点 X"] --> R2["把 X 写进 HP 槽"]
+  R2 --> R3{"CAS 前 X 被弹出?"}
+  R3 -- "是" --> RET["X 进退休列表"]
+  RET --> SCAN{"扫描: X 出现在任一 HP 槽?"}
+  SCAN -- "命中" --> WAIT["延后释放, 留在列表"]
+  SCAN -- "未命中" --> FREE["真正 free X"]
+```
+
+<span class="marginnote">为什么重要：HP 槽若紧紧排在一起，各核写「自己的」槽也会落进同一缓存行，槽与槽互相把对方的行打回内存——这就是伪共享。把每线程的槽补齐到缓存行大小，扫描才不会把读侧的无锁优势悄悄磨掉。</span>
 
 ## 边界
 
