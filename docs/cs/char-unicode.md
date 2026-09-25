@@ -29,16 +29,6 @@ UTF-8 里一个码位可占 1–4 字节。按字节下标切，会切断多字�
 
 码位是 $[0,0x10FFFF]$ 中的整数，去掉代理区等非字符。UTF-8：前缀比特声明后续长度，续字节以 `10` 开头，既可自同步，又保持 ASCII 单字节。非法序列必须拒绝或替换，不能当拉丁字母继续译。
 
-按码位落在哪一档，UTF-8 给出不同长度的字节排布：
-
-```mermaid
-flowchart TD
-  R1["U+0000 到 U+007F"] --> B1["1 字节: 0xxxxxxx"]
-  R2["U+0080 到 U+07FF"] --> B2["2 字节: 110xxxxx 10xxxxxx"]
-  R3["U+0800 到 U+FFFF"] --> B3["3 字节: 1110xxxx 10xxxxxx 10xxxxxx"]
-  R4["U+10000 到 U+10FFFF"] --> B4["4 字节: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx"]
-```
-
 ```mermaid
 flowchart TD
   ABS["抽象字符"] --> CP["码位"]
@@ -51,6 +41,16 @@ flowchart TD
 ## 机制
 
 有了码位，文件和网络才能声明 `charset`。后课指令立即数仍是数；字符串常量是汇编器或编译器按约定写成的字节。<span class="marginnote">数字实例：「中」的码位是 `U+4E2D`，落在第三档，UTF-8 编成 3 个字节 `E4 B8 AD`；而 `A`（`U+0041`）落在第一档，就是单字节 `41`，与 ASCII 完全一致——所以一段英文文本用 UTF-8 存，体积与老 ASCII 文件一字节不差。</span>操作系统的路径、环境变量在字节层，解释成字符要另说编码——混用 Latin-1 与 UTF-8 是经典事故，根子在本课两层被压成一层。
+
+按码位落在哪一档，UTF-8 给出不同长度的字节排布：
+
+```mermaid
+flowchart TD
+  R1["U+0000 到 U+007F"] --> B1["1 字节: 0xxxxxxx"]
+  R2["U+0080 到 U+07FF"] --> B2["2 字节: 110xxxxx 10xxxxxx"]
+  R3["U+0800 到 U+FFFF"] --> B3["3 字节: 1110xxxx 10xxxxxx 10xxxxxx"]
+  R4["U+10000 到 U+10FFFF"] --> B4["4 字节: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx"]
+```
 
 控制字符（换行、NUL）是字母表里的成员，不是「没有字符」。C 串以 `0` 结尾，是约定，不是 Unicode 的定义。
 

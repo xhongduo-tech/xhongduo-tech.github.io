@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-均匀：一台 TM 管所有 $n$。非均匀：允许 $C_n$ 随 $n$ 任意换，只要 $|C_n|$ 有界（如多项式）。P/poly：多项式规模电路族。$P\subseteq P/poly$。顾问串：多项式建议，$P/poly=P/\mathrm{poly}$。若 $\mathrm{NP}\subseteq P/poly$ 则 PH 塌缩（Karp–Lipton），故 NPC 问题被信不在 P/poly。Shannon：大多数函数需要指数规模电路——存在性，不给出 SAT 的下界。
+均匀：一台 TM 管所有 $n$。非均匀：允许 $C_n$ 随 $n$ 任意换，只要 $|C_n|$ 有界（如多项式）。<span class="marginnote">术语翻译：电路族 $\{C_n\}$ 就是「每种输入长度发一张专属电路」——$C_1$ 管 1 位输入、$C_2$ 管 2 位输入，各不相干；「均匀」则要求一个算法能生成所有这些电路。非均匀模型比算法松得多，这正是它「可能作弊」的根源。</span>P/poly：多项式规模电路族。$P\subseteq P/poly$。顾问串：多项式建议，$P/poly=P/\mathrm{poly}$。若 $\mathrm{NP}\subseteq P/poly$ 则 PH 塌缩（Karp–Lipton），故 NPC 问题被信不在 P/poly。Shannon：大多数函数需要指数规模电路——存在性，不给出 SAT 的下界。
 
 AC$^0$、NC：常数深度 / 多对数深度，并行直觉。Parikh / Furst–Saxe–Sipser / Razborov–Smolensky 对 AC$^0$ 的奇偶下界，点名：少数成功的下界。
 
@@ -40,6 +40,15 @@ flowchart TD
 
 下界难：自然证明说，某些「建设性」的组合性质若能区分硬函数，也会击穿伪随机，从而击穿单向函数假设。故电路下界与后课密码学咬合。本课只要这句警告，避免把「门数」当成已证的 SAT 指数下界。
 
+为什么学界相信 NP 不在 P/poly，推理链是一条塌缩警告：
+
+```mermaid
+flowchart TD
+  ASS["假设: NP 全部落在 P/poly"] --> KL["Karp-Lipton 定理触发"]
+  KL --> COLL["多项式层级 PH 塌缩"]
+  COLL --> CONC["与分层信念冲突, 故 NPC 被信需要超多项式门数"]
+```
+
 Savage：时间 $T$ 的多带 TM 变成规模 $O(T^2)$ 电路。反之，多项式电路族不必有均匀生成器。AC$^0$ 奇偶下界是少数「显式函数需要超多项式规模 / 超常数深度」的定理。自然证明障碍解释其后进展慢：能区分随机函数的组合性质太强，会破坏伪随机。
 
 ## 边界
@@ -51,7 +60,7 @@ Savage：时间 $T$ 的多带 TM 变成规模 $O(T^2)$ 电路。反之，多项�
 ## 小结
 
 - 电路族是非均匀计算；P/poly 含 P，也可含不可行对象。
-- TM 时间给出电路规模上界；显式下界稀缺。
+- TM 时间给出电路规模上界；显式下界稀缺。<span class="marginnote">数字实例：规模就是门数。$n$ 位输入若按真值表硬造电路要约 $2^n$ 行，$n=100$ 时就是 $10^{30}$ 量级，宇宙原子都不够数；而「多项式规模」如 $n^3$，同样 $n=100$ 只需 $10^6$ 个门。规模指数是电路世界里的「可不可行」分界线。</span>
 - Karp–Lipton：NP 若在 P/poly 则 PH 塌。
 - 后课谈均匀 vs 非均匀，先声明电路族怎么生成。
 - 出处：Shannon；Savage；Arora and Barak。
