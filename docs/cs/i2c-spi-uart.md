@@ -17,6 +17,8 @@ section: cs
 
 UART：双方独立时钟，起止位框字节，波特率约定。I²C：SCL/SDA 开漏、地址+ACK、多主仲裁。SPI：SCLK+MOSI+MISO+CS，全双工移位，模式 0–3 定义边沿。缺口不是 USB 描述符，而是这些协议如何被 MMIO 寄存器（或 bit-bang GPIO）驱动，以及为何启动早期用 UART 打日志、用 SPI 读 BIOS 闪存。
 
+<span class="marginnote">「开漏」翻译成大白话：引脚只会「拉到地」，不会主动推高电平；想输出 1 就松手，靠上拉电阻把线慢慢拽回高。多个设备同时拉低不会打架（线与），但翻转慢——这是 I²C 只有几百 kHz 到几 MHz 的根源之一。</span>
+
 速度：通常 Mb/s 级，不是 PCIe GB/s。DMA 可选（UART FIFO、SPI 块），不是必须。
 
 ### I²C 不是「慢 PCIe」
@@ -28,6 +30,8 @@ UART：双方独立时钟，起止位框字节，波特率约定。I²C：SCL/SD
 ## 方法
 
 驱动：写波特率除数、填 FIFO、轮询或中断（可接 [PLIC](/cs/plic-irq)/GIC，通常不是 MSI-X）。I²C 状态机：start、地址、数据、stop；时钟拉伸。SPI：拉低 CS，移 N 拍。与 [CDC](/cs/async-fifo-cdc)：外设时钟域与 CPU 不同时用 FIFO。复位后引脚复用要先配。
+
+<span class="marginnote">数字实例：115200 波特即每秒约 115200 位，一个 10 位帧（1 起始 + 8 数据 + 1 停止）约 87 微秒，每秒最多约 1.1 万字节；SPI 常跑几十 MHz，快三个数量级。这就是「日志走 UART、镜像走 SPI」的速度理由。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,17 @@ flowchart TD
 ## 机制
 
 BIOS/UEFI 课会在 SPI 闪存里取代码，用 UART 报错，用 I²C 读 SPD（DIMM 信息）——把低速总线接到启动。本课先交协议。HDL 实现这些控制器是状态机作业，综合进 ASIC/FPGA。
+
+<span class="marginnote">「时钟拉伸」可以类比：从机一时答不上来，就按住老师的粉笔（把 SCL 拉低），主机只能等。SPI 没有这种机制，主机照吹时钟、从机跟不上就出错，只能按最慢设备预设频率。这也是 I²C 能「快慢混挂」、SPI 讲究门当户对的原因之一。</span>
+
+```mermaid
+flowchart LR
+  S["START"] --> A["地址 + 读/写位"]
+  A --> AK["从机 ACK"]
+  AK --> D0["数据字节"]
+  D0 --> AK2["ACK 或 NACK"]
+  AK2 --> SP["STOP"]
+```
 
 ## 边界
 

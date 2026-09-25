@@ -17,11 +17,17 @@ section: cs
 
 基数 $n=|\mathrm{set}|$。随机哈希下 $\max\rho$ 约 $\log_2 n$。单桶方差大：拆成 $m=2^p$ 桶，用 $h$ 的前 $p$ 比特选桶，其余算 $\rho$。估计 $\alpha_m m^2 \big/\sum 2^{-M_j}$。缺口是**用极值统计代替存集合**，标准误差约 $1.04/\sqrt{m}$。
 
+<span class="marginnote">数字实例：$m=2^{14}=16384$ 桶时，标准误差约 $1.04/128\approx 0.8\%$——估一亿个键大约偏差八十万，但寄存器只占 $16384\times 6$ 比特 ≈ 12 KB。精确存一亿个 8 字节键要约 800 MB：三个数量级的空间换不到 1% 的误差。</span>
+
 <span class="marginnote">Flajolet et al., AOFA 2007。前身 Flajolet–Martin、Durand–Flajolet LogLog。实践 HyperLogLog++ 修小基数偏差，本课点名。</span>
 
 ## 方法
 
 `add(x)`：算哈希，更新对应桶 max。`merge`：对桶逐个 $\max$，适合分布式。小 $n$ 时用线性计数修正（空桶）。不要用 HLL 估频次——那是 CM。
+
+<span class="marginnote">常见误区：以为桶里记的是「最大的哈希值」。实际记的是前导零个数加一：哈希以二进制 $0001\ldots$ 开头则 $\rho=4$，以 $011\ldots$ 开头则 $\rho=1$。前导零越多，说明「这么稀罕的开头都撞上了」，暗示见过的不同键很多。</span>
+
+<span class="marginnote">直觉类比：把键掷进 16384 个桶，每桶只记「最长的连败纪录」（连续前导零的个数）。见过的键越多，总有些桶的纪录越长；把各桶纪录汇总起来，就能反推总共掷了多少次——用极值反推样本量，正是这统计把戏的全部秘密。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +42,14 @@ flowchart TD
 ## 机制
 
 分析依赖哈希充分随机。对抗哈希可骗前导零，合同与 CM 一样要随机 $h$。合并可交换，符合「多机各吃一分片再合并」。
+
+```mermaid
+flowchart LR
+  A["机器 A 的桶寄存器"] --> M["逐桶取 max"]
+  B["机器 B 的桶寄存器"] --> M
+  M --> E["合并后的寄存器"]
+  E --> EST["调和平均估总基数"]
+```
 
 过滤器下一课回到成员查询：布谷过滤器比 Bloom 更省且可删。
 

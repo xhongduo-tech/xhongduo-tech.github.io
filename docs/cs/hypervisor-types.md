@@ -17,11 +17,15 @@ section: cs
 
 Popek：敏感指令必须陷入。类型 1：Xen、ESXi、Hyper-V bare。类型 2：VirtualBox 在 Linux 上。KVM 常被说成 1.5：Linux 即 hypervisor。缺口：I/O 谁提供（QEMU 用户态）。本课不把产品对比写成采购。
 
+<span class="marginnote">直觉类比：类型 1 像「自任房东」——把整层楼直接隔成 N 套出租；类型 2 像「二房东」——先向宿主 OS 租下整层，再分间转租。二房东省了装修（复用宿主驱动与调度），但租客的安全同时受制于房东与二房东两层契约。</span>
+
 <span class="marginnote">半虚拟化下一课。对象是特权与调度位置，不是云品牌。</span>
 
 ## 方法
 
 类型 1：VMM 选客户、处理 VM-exit。类型 2：宿主调度 QEMU 线程，KVM ioctl 进核。对照 [cgroup](/cs/cgroup-cpu-sched)：类型 2 可套 cgroup。对照 [DPDK](/cs/dpdk-kernel-bypass)：旁路是性能，不是 hypervisor 类型。
+
+<span class="marginnote">「类型 2 可套 cgroup」的分量：QEMU 只是宿主上的普通进程，CPU 配额、内存上限、块设备权重都能用 cgroup 直接管；类型 1 的客户机不是进程，限流要走 VMM 自己的记账。想用熟悉的容器工具管虚机，先看它是哪一类。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +39,17 @@ flowchart TD
 ## 机制
 
 类型决定驱动与延迟路径：类型 1 自己写设备模型或 Dom0；类型 2 借用宿主生态。Popek 条件解释为何需要硬件辅助（下一课 VMX）。不要写成量化多租户。与 [LSM](/cs/lsm-selinux)：宿主 LSM 管类型 2 的 QEMU。
+
+<span class="marginnote">「宿主被攻则客户全完」为什么重要：类型 2 里 QEMU 进程握着客户全部内存做设备模型，宿主内核一旦沦陷，攻击者能直接读改任何客户机的内存和磁盘镜像。类型 1 把这条路径换成特权分区（如 Xen 的 Dom0）——攻击面挪了位置，但并没有消失。</span>
+
+```mermaid
+flowchart TD
+  G["客户执行敏感指令"] --> T["硬件触发 VM-exit"]
+  T --> V["VMM 进入 root 模式查原因"]
+  V --> H["模拟或代答该操作"]
+  H --> E["VM-enter 返回客户"]
+  E --> G
+```
 
 安全边界：类型 2 宿主被攻则客户全完。
 

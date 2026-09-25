@@ -17,6 +17,8 @@ section: cs
 
 若 iBGP 允许再通告，AS_PATH 不变，环难查。规则：iBGP 学到的不转给 iBGP。于是 $n$ 台边界要 $n(n-1)/2$ 会话。RR：客户把路由发给反射器，反射器按规则转给其它客户与非客户，Cluster-List / Originator-ID 防反射环。联盟（RFC 5065）是另一刀，把 AS 切成子 AS。
 
+<span class="marginnote">数字实例：$n=10$ 台边界路由器全网状要 $10\times 9/2=45$ 条会话，$n=100$ 时要 4950 条；换成一台 RR，只需每台各连 RR 的 100 条。RR 最初解决的就是这场运维爆炸。</span>
+
 不要把 RR 当成 OSPF ABR：IGP 仍要全可达下一跳；RR 只减 BGP 会话。
 
 <span class="marginnote">RFC 4456。下一跳原样保留（除非 next-hop-self）。本课不把 add-path 在 RR 上的部署写完。</span>
@@ -28,6 +30,8 @@ iBGP 再通告规则逼出全网状或反射。RR 减会话，数据面仍跟 IG
 ## 方法
 
 画：全网状 vs RR 星形 vs 两台 RR 冗余。对照 L2：生成树也是减环，但是转发树；RR 是控制面会话树，数据面仍按 IGP 走。
+
+<span class="marginnote">直觉类比：RR 像班里的学习委员——作业（路由）按规则交给委员，委员誊抄分发给其他同学，并附上「谁最先写的」（Originator-ID）与「经手过哪些委员」（Cluster-List），防止传抄成环。iBGP 原规则禁止同学间转抄，委员是唯一合法例外。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,17 @@ flowchart TD
 ## 机制
 
 决策在每台路由器独立做：RR 若只反射最佳，客户可能看不见备选，热土豆/冷土豆与出口选择会变形——这是 RR 的正确性边界。与 MAC 洪泛不同：这里不洪泛数据包。骨干 IS-IS 提供下一跳可达，BGP 提供前缀。
+
+```mermaid
+flowchart TD
+  P["同一前缀有两条可用路由"] --> RR["RR 只反射最佳的"]
+  RR --> C1["客户只见一个出口"]
+  C1 --> D["出口选择偏离全局最优"]
+  P --> NB["全网状时两条都会送达"]
+  NB --> C2["客户自行比较再选路"]
+```
+
+<span class="marginnote">「下一跳在区内不可达」的坑：eBGP 学来的路由，下一跳是对端 AS 的地址；AS 内其它路由器若在 IGP 里查不到这个地址，路由学到了也装不进转发表。next-hop-self 把下一跳改成 RR/ASBR 自己——它必然 IGP 可达。这步做错的典型症状是「BGP 表有、转发表无」。</span>
 
 next-hop-self 常在 RR 或 ASBR 改写下一跳到自己，避免外部下一跳在区内不可达。
 

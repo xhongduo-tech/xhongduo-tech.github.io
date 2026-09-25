@@ -17,6 +17,8 @@ section: cs
 
 提高 HZ 会增加中断负荷，仍是均匀滴答。无滴答内核在空闲时甚至关掉周期性 IRQ。缺口：把下一个最近期限编程进时钟事件设备；到期只跑那个回调；没有期限时可以睡到下一事件。软件侧用红黑树（或时间线）按到期排序。用户 `clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, …)` 走这条。
 
+<span class="marginnote">直觉类比：jiffies 滴答像定班公交——不管有没有人上车，固定间隔发一班，到站时刻只能对齐班次；hrtimer 像专车——你说几点走，车几点到门口。班次加密（提高 HZ）能让公交近似专车，但空驶的中断成本全城买单。</span>
+
 本课不把 clocksource 与 clockevent 的驱动列表背完。
 
 <span class="marginnote">slack 允许内核把期限稍微合并以省中断。实时任务可以要最小 slack。与 jiffies 定时器并存：粗的仍走 wheel，细的走 hrtimer。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 注册 hrtimer：给定 ktime 与回调。内核计算最早期限，编程设备。IRQ：执行到期回调（可唤醒进程、推进网络重传等），再编程下一期限。回调不可长时间占 CPU，重活丢工作队列——对接已有下半部课。不要用 hrtimer 在回调里做阻塞 I/O。
+
+<span class="marginnote">常见误区：在回调里做阻塞 I/O 或重活。回调跑在中断上下文里，此时没有进程背景可睡——一旦阻塞，这条 CPU 上的其他中断与调度全被拖着走。正确做法是回调只做唤醒或标记，重活丢给工作队列去进程上下文里慢慢干。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,19 @@ flowchart TD
 ## 机制
 
 hrtimer 把时间从「节拍计数」升级为「事件驱动的期限」。调度器的高精度抢占、TCP 细超时、用户 nanosleep 共用。它不取代 jiffies 记账；CFS 仍可按纳秒差更新 vruntime，来源可以是同一 clocksource。与组成课的锁存器无关。
+
+一个定时请求进来，走时间轮还是走 hrtimer？按粒度分工看：
+
+```mermaid
+flowchart TD
+  T["定时需求到来"] --> Q{"期限粒度要求？"}
+  Q -->|"粗：几十 ms 级即可"| WHEEL["jiffies 时间轮：记下圈数"]
+  Q -->|"细：微秒级期限"| HR["hrtimer：按期限编程时钟事件"]
+  WHEEL --> TICK["下一个 HZ 滴答统一处理"]
+  HR --> EV["到期即中断，不等滴答"]
+```
+
+<span class="marginnote">数字实例：HZ=250 时一个 jiffies 滴答是 4 ms——用时间轮定 10 ms 的超时，实际可能落在 8 ms 到 12 ms 之间的任意滴答上。hrtimer 直接把 10 ms 这个绝对时刻编程进时钟事件设备，误差从「半个滴答」缩到微秒级。</span>
 
 ## 边界
 
