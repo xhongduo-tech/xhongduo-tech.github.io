@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">initrd 是旧块设备形式。今日多为 initramfs。紧急壳在此阶段常见。</span>
 
+<span class="marginnote">术语翻译：initramfs 就是「放在内存里的临时根文件系统」——内核开机把它解包进 RAM，里面一个 /init 程序负责把真正的磁盘准备好。它解的是鸡生蛋问题：内核还没有能力挂磁盘根时，总得先有地方放驱动、解密脚本和 fsck 工具。</span>
+
 ## 方法
 
 内核挂载 ramfs → exec `/init` → 组装 `/dev`、解密、fsck → pivot 到 `/newroot`。对照 [FUSE](/cs/fuse)：此时通常还没有。对照 [NFS](/cs/nfs-semantics) 根：init 要先有网卡。对照 kexec：另一条启动，不在本课。
@@ -39,6 +41,21 @@ initramfs 把「内核太早、根还不可用」收成用户态程序，使复�
 
 
 实现上：initramfs 里的密钥提示是攻击面，TPM 解封应在此阶段。pivot 后要 umount 旧根，否则 ramfs 占着内存。emergency shell 仍是这棵树，网络可能还没有。 读法上只引用[上一课](/cs/tpm-measured-boot)的结论，不把对象换成训练推理或限价簿。
+
+pivot 前后旧根的去向：
+
+```mermaid
+flowchart TD
+  R1["运行中：根是内存里的 ramfs"] --> P["pivot_root 执行"]
+  P --> SW["旧根挪到 /oldroot，磁盘根上位"]
+  SW --> UM["umount /oldroot"]
+  UM --> FREE["ramfs 占的内存被释放"]
+  UM -- "漏了这一步" --> LEAK["临时根一直占着内存不放"]
+```
+
+<span class="marginnote">为什么重要：initramfs 是信任链的一环。磁盘解密口令往往就是在这里提示输入、在内存里解出来的——谁能改你的 initramfs，谁就能在这一刻把密钥抄走。所以签名校验要从这棵内存根开始，而不能只查磁盘上的系统。</span>
+
+<span class="marginnote">常见误区：初学者掉进 emergency shell 会以为「系统坏了」。其实它是 initramfs 阶段的调试入口：此时你面对的仍是内存里那棵临时树，网络多半没起、磁盘可能还没解密——要修的是「通往真根的路」，而不是真根本身。</span>
 
 本课在操作系统进阶的「安全、启动与调试 / 内核安全与启动」课序里，对象是 **initramfs 与 pivot_root**。
 

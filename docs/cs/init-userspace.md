@@ -19,6 +19,10 @@ section: cs
 
 <span class="marginnote">双用户空间（如恢复壳）仍是某个 pid 1。容器里的「init」可以是该 pid 命名空间的 1 号，内核课下一课 namespaces 才切。</span>
 
+<span class="marginnote">术语翻译：「僵尸进程」就是已经退出、但没人对它调用 wait 的进程——进程表项还挂着，只剩一行「我结束了」。僵尸堆积的代价很实际：每个僵尸占一个进程号，耗尽后系统连新进程都开不出来。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 init 是内核的一部分。实际上它只是内核 exec 的第一个普通用户程序——把 systemd 换成 busybox init，内核一行不改照样跑。内核只保证「1 号进程特殊」，做什么全由这个用户态程序自己决定。</span>
+
 ## 方法
 
 `kernel_init` 路径 exec 用户程序。该程序：`mount` 真根、`chroot`/`pivot_root`、打开 tty、fork 服务。关机：init 收服务、同步磁盘、通知内核 reboot。与 [fsync](/cs/fsync)/writeback 的接头：关机必须刷脏页。不要把桌面会话管理写进内核义务。
@@ -34,6 +38,18 @@ flowchart TD
 ## 机制
 
 init 把「机器可用」从内核对象变成用户策略：同一内核可变成服务器或嵌入式器具。OOM 杀 pid 1 会导致内核认为用户空间已死。tty 的 getty 由 init 拉起，登录后 shell 的控制终端上一课已讲。本课不比较发行版谁更正确。
+
+孤儿是怎样被收养的：
+
+```mermaid
+flowchart TD
+  P["父进程先退出"] --> C["子进程还在运行：成为孤儿"]
+  C --> A["内核把它的父进程号改写成 1"]
+  A --> W["pid 1 调用 wait 收割"]
+  W --> OK["进程表项释放，不留僵尸"]
+```
+
+<span class="marginnote">为什么重要：关机顺序做错会丢数据。init 要先通知服务退出、把脏页刷进磁盘（fsync/回写），最后才告诉内核重启；跳过前两步直接断电，文件系统日志再稳也可能留下没落盘的写入。</span>
 
 ## 边界
 

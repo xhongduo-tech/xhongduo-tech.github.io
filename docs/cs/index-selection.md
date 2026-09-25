@@ -19,6 +19,8 @@ section: cs
 
 下推是逻辑改写；索引匹配是物理。两者失败症状都是「扫太多行」，诊断要分开。
 
+<span class="marginnote">术语翻译：「sargable」可以读成「能用索引的」（Search ARGument ABLE）——谓词的形状要让索引键的有序性直接派上用场。`col = 5`、`col BETWEEN 1 AND 9` 是；`f(col) = 5` 不是，因为索引里存的是 `col` 原值，算过 `f` 的值在树里没有位置。</span>
+
 <span class="marginnote">Chaudhuri and Narasayya 的 AutoAdmin 索引选择。下推合法性仍由代数与 NULL 决定，本课不重推三值。INCLUDE 列服务覆盖，属于设计空间。</span>
 
 ## 方法
@@ -38,6 +40,21 @@ flowchart TD
 ## 机制
 
 优化器在 DP 单表步枚举：堆扫、各匹配索引、位图交（后课位图索引）。选择结果依赖统计。错误下推改变指称，比选错索引更严重——先合法后代价。
+
+一个不可 sargable 的谓词如何被救回来：
+
+```mermaid
+flowchart TD
+  P["谓词：year(birthday) = 1990"] --> Q{"函数包住了列？"}
+  Q -- "是" --> NO["索引键有序但对不上号"]
+  NO --> RW["改写成范围：birthday 落在 1990 年内"]
+  RW --> OK["可 sargable：走索引范围扫描"]
+  Q -- "否" --> OK
+```
+
+<span class="marginnote">数字实例：写放大预算的含义——表上有 5 个二级索引时，每 INSERT 一行约等于写 6 棵树（1 聚簇 + 5 二级）。给写多读少的表随手加索引，读没快多少，写入吞吐先掉一半是常见结局。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「建了索引优化器就该用」。优化器按统计信息估代价：若谓词选择性很差（比如按「性别」列过滤一半的行），回表取一半数据比直接全表顺序扫更慢，优化器会理直气壮地不用这个索引。</span>
 
 物化视图是「预计算查询」的索引亲戚；刷新下一课。本课索引是访问路径，不是另一张用户表。
 
