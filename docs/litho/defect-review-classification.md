@@ -19,6 +19,23 @@ section: litho
 
 缺口是**行动映射**，不是再买一台 review SEM。每类对应责任：轨道缺陷 → 涂胶/显影；图案 → OPC/PWQ；缺孔 → 随机窗/剂量；金属颗粒 → 刻蚀/CMP。分派用的 killer / nuisance 划分也在此：nuisance 进规格但不挡批，killer 扣留。
 
+<span class="marginnote">ADC（自动缺陷分类）就是用算法看检测图像、自动给每个斑贴类别标签的手段：快，但只认「长相」不认成因。所以换一层、换一套配方，缺陷在图上的样子变了，它就会成批贴错——必须用人工确认的「黄金集」定期盲测它。</span>
+
+<span class="marginnote">killer 与 nuisance：可以把它想成机场安检——真凶器（会致命的缺陷）必须拦下扣留整批晶圆，钥匙皮带（nuisance）记录在案但不挡人。把 nuisance 当 killer，产线会被无谓重工拖垮；把 killer 当 nuisance，坏批就流到客户手里。</span>
+
+```mermaid
+flowchart TD
+  D["复检得到缺陷类别"] --> Q1{"是 killer 吗?"}
+  Q1 -- "是" --> HOLD["扣留批次"]
+  Q1 -- "否: nuisance" --> REC["记录但不挡批"]
+  HOLD --> P["颗粒类 → 涂胶/显影"]
+  HOLD --> O["桥/断/缺孔 → OPC 与工艺窗口"]
+  HOLD --> E["金属颗粒 → 刻蚀/CMP"]
+  P --> LR["进 Pareto 驱动改善"]
+  O --> LR
+  E --> LR
+```
+
 ### 假点会毒死学习曲线
 
 假点当 killer，重工爆炸、学习曲线假装「缺陷很多」。阈值过严则漏 killer。黄金集与计量匹配同样要版本化。
@@ -45,6 +62,8 @@ flowchart TD
 ```
 
 ADC 校准靠黄金集。假点当 killer 会毒死学习曲线，阈值过严则漏掉真桥连。
+
+<span class="marginnote">初学者容易以为分类错了换个更强的模型就好。实际上 ADC 学的是「这层光学图像长什么样」，不是物理成因——同一个斑可能是桥也可能是残胶。标签漂移时，学习曲线会出现假平台：看起来缺陷没减少，其实是分类标签乱了。</span>
 
 ## 边界
 
