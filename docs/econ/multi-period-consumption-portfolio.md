@@ -21,9 +21,13 @@ Samuelson：有限生命、离散期、独立同分布回报（机会确定）�
 
 <span class="marginnote">Samuelson, *REStat* 51(3), 1969。与 Merton 同年连续时间互为对照。Hakansson 等在离散里写过类似短视结果。CRRA 加 iid 是短视的标准许可证。</span>
 
+<span class="marginnote">「短视」（myopic）翻译成大白话：每期选风险资产比例时，完全不用管自己还剩几年寿命、市场将来好不好，只按当期的回报与风险定比例。这是 CRRA 加 iid 这组假设送出的礼物，不是普遍真理。</span>
+
 ## 方法
 
 贝尔曼 $V_t(W)=\max_{c,\theta} u(c)+\beta\mathrm{E}[V_{t+1}(W')]$，$W'=(W-c)R_p(\theta)$。一阶：$u'(c)=\beta\mathrm{E}[V_{t+1}'(W')R_p]$，以及 $\theta$ 使 $\mathrm{E}[V_{t+1}'(W')(R_i-R_f)]=0$。CRRA 加 iid：$V$ 幂形式，$\theta$ 与 $t$ 无关。Markov 状态 $z$：$V_t(W,z)$，对冲出现。交易成本：离散也能写 $sS$；连续极限把 $sS$ 变成 Constantinides 带。不完全：欧拉只对可交易 $R_i$ 成立，不可交易收入进预算但不进菜单。
+
+<span class="marginnote">数字实例：对数效用下短视权重约为 $\theta=$ 超额收益 $\div$ 方差。取超额收益 6%、方差 0.03（标准差约 17%），得 $\theta=2$——无论 25 岁还是 65 岁、有 10 万还是 1000 万，比例都一样，这就是「与剩余寿命无关」的含义。</span>
 
 ```mermaid
 flowchart TD
@@ -40,6 +44,18 @@ flowchart TD
 ## 机制
 
 机制是动态规划的包络。无论离散还是连续，财富的影子价格连接消费与投资。短视来自「未来值函数对组合的依赖只通过财富标度」——CRRA 加 iid 保证标度。破坏标度的东西（习惯、劳动收入、约束、成本、随机机会）都引入额外状态，从而引入对冲或惰性。信息：若 $z$ 含私人信号，个人域流不同，加总不再是共同切点——回到本课程第一课序，而不是再写一遍 REE。
+
+<span class="marginnote">直觉类比：若未来投资机会变差时你的工资也跟着缩水，你就会想多持一点「机会变差时反而涨」的资产来自保——这就是对冲项。短视世界里没有这种「提前买伞」的需求。</span>
+
+```mermaid
+flowchart TD
+  CRRA["CRRA 效用（幂形式）"] --> SCALE["未来值函数只通过财富标度依赖组合"]
+  IID["回报独立同分布 iid"] --> SCALE
+  SCALE --> MY["组合权重 θ 与剩余寿命、财富水平无关：短视"]
+  BRK1["引入劳动收入 / 习惯"] --> ADD["多出额外状态变量"]
+  BRK2["随机机会（Markov 状态）"] --> ADD
+  ADD --> HEDGE["θ 不再短视：出现对冲或惰性"]
+```
 
 与 [到限价簿](/econ/to-limit-order-book)：多期组合给出想持有的 $\theta$；簿给出如何把 $\theta$ 变成成交。本课仍不停在协议上。理论课程在组合政策处可以停，执行换栏。
 
