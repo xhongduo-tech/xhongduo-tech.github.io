@@ -19,9 +19,13 @@ section: econ
 
 <span class="marginnote">Athey–Wager 因果森林：估 $\mathbb{E}[\tau\mid X=x]$ 的异质。诚实分割（样本切成切树与估叶）避免用同一数据既找分割又报效应。这是条件效应，不是新的 ATE 定义。</span>
 
+<span class="marginnote">「nuisance（讨厌参数）」翻译成大白话：为了回答主问题必须先估、但本身不是主角的东西——这里的倾向得分 $\hat e(X)$ 和结果方程 $\hat m(X)$ 就是背景板，主角只有处理效应 $\tau$ 一个。传统参数模型里 nuisance 必须一并估对，DML 的卖点正是允许背景板估得糙一点。</span>
+
 ## 方法
 
 DML 步骤：样本切 $K$ 折；在补集上训 $\hat e,\hat m$；在折内算正交化残差 $\hat u=Y-\hat m(X)$、$\hat v=D-\hat e(X)$，回归 $\hat u$ 对 $\hat v$（或部分线性、IV 版本）。报告对折数、算法（lasso、随机森林、boosting）的敏感。高维 IV：对第一阶段与结果的控制同样正交化，弱工具诊断还在。
+
+<span class="marginnote">「交叉拟合」可以想象成考试制度：每个学生（每折数据）的分数必须由**没教过他**的老师（其余折训练出的模型）来批——同一条观测绝不既出题又判卷。若允许自己给自己估 nuisance，过拟合会让残差显得特别干净，把 $\hat\tau$ 的偏误藏进去。</span>
 
 ```mermaid
 flowchart TD
@@ -37,6 +41,19 @@ flowchart TD
 ## 机制
 
 机制是正交：ATE 的得分对 nuisance 的一阶扰动导数为零，于是 $\hat e$ 收敛得比 $n^{-1/4}$ 快就够，不必 $n^{-1/2}$。交叉拟合切断「用同一观测既拟合 nuisance 又估目标」的过拟合。没有正交，lasso 的正则偏误会污染 $\hat\tau$ 的中心极限。
+
+```mermaid
+flowchart LR
+  S["样本切成 K 折"] --> T["训练折（其余 K−1 折）：拟合 m̂(X) 与 ê(X)"]
+  T --> R["留出折：逐观测算两组残差"]
+  R --> RY["û = Y − m̂(X)"]
+  R --> RV["v̂ = D − ê(X)"]
+  RY --> B["û 对 v̂ 回归，得 τ̂ 的折内得分"]
+  RV --> B
+  B --> INF["跨折汇总 → √n 推断"]
+```
+
+<span class="marginnote">数字实例看 $n^{-1/4}$ 意味着什么：$n=10000$ 时 $n^{-1/2}=0.01$、$n^{-1/4}=0.1$——正交化把对 nuisance 的精度要求整整放松了一个数量级。这就是为什么随机森林、boosting 这类收敛慢、调参多的算法也能上场：它们只要够到 0.1 那一档，$\hat\tau$ 仍是 $\sqrt{n}$。</span>
 
 与[异质处理效应](/econ/heterogeneous-effects)：因果森林给出 $\hat\tau(x)$，加总方式仍要声明（对处理分布还是对目标政策分布）。与[卢卡斯批判](/econ/lucas-critique)：更好的预测方程在规则改变时同样可以垮；DML 不是结构。
 
