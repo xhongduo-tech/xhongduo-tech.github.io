@@ -29,6 +29,12 @@ Hamming 界：半径 $t$ 的球体积 $\sum_{i=0}^{t}\binom{n}{i}$ 乘 $|C|$ 不
 
 验证度量公理（三角：翻到中间再翻到终点，翻转次数可加）。码 $C$ 的 $d_{\min}=\min_{c\neq c'}d(c,c')$。检 $d_{\min}-1$ 位错、纠 $\lfloor(d_{\min}-1)/2\rfloor$ 位错。重复码、偶校验（$d_{\min}=2$）、Hamming 码（$d_{\min}=3$）是同一把尺子上的三个刻度。
 
+<span class="marginnote">数字实例：三倍重复码（000 与 111）$d_{\min}=3$：能检 $3-1=2$ 位错，或纠 $\lfloor(3-1)/2\rfloor=1$ 位错——收到 001 时离 000 一格、离 111 两格，判回 000。偶校验 $d_{\min}=2$ 则只能检 1 位、一位也纠不了。</span>
+
+<span class="marginnote">直觉类比：把码字想成一群保持社交距离的人，间距至少 $d_{\min}$。噪声把每个人推离原位至多 $t$ 步；只要 $2t+1\le d_{\min}$，各自的「安全圈」互不重叠，看被推到哪就认得出他原本是谁。</span>
+
+<span class="marginnote">常见误区：汉明距离不是编辑距离。前者只数等长串对应位置的不同，插入、删除根本不在讨论范围；「kitten 改成 sitting 要几步」那是 Levenshtein 的事，别提前塞进这把尺子。</span>
+
 ```mermaid
 flowchart TD
   INTU["纠错直觉：留空隙"] --> MET["度量 d"]
@@ -39,6 +45,17 @@ flowchart TD
 ## 机制
 
 存储 ECC、总线奇偶，硬件上是按位异或累加——实现是后课布尔与门。本课只规定：校验位的作用是把 $d_{\min}$ 抬上去。最短路、编辑距离是另一类度量，对象不是固定长度比特翻；不要把 Levenshtein 提前塞进 Hamming。
+
+```mermaid
+flowchart TD
+  DM["码的 d_min"] --> DET{"只查错？"}
+  DET -- "是" --> D1["可检 d_min - 1 位"]
+  DM --> COR{"要纠错？"}
+  COR -- "是" --> T1["可纠 (d_min - 1) / 2 取整 位"]
+  D1 --> BOTH{"两者都要？"}
+  T1 --> BOTH
+  BOTH -- "纠 t 位就不能检 2t 位" --> CHOICE["同一段距离，检与纠二选一或分层设计"]
+```
 
 ## 边界
 

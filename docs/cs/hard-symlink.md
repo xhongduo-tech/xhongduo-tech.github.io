@@ -36,7 +36,23 @@ flowchart TD
 
 硬链接保证「改一个名字看见的数据，另一个名字也看见」，因为没有第二份 inode。符号链接是晚绑定：目标可断（dangling），备份与跨卷引用靠它。dcache 可以缓存链接 inode，跟随仍可能未命中目标侧。不要把链接写成攻击载荷构造；只说明解析规则。
 
+<span class="marginnote">数字实例：`touch a` 后 inode 的 nlink=1；`ln a b` 变 2；`rm a` 减回 1——此时 `b` 读到的数据原封不动。若先 `echo x > a`、再 `exec 3< a` 后 `rm` 掉所有名字，磁盘块也要等 fd 3 关闭才回收。</span>
+
+<span class="marginnote">直觉类比：硬链接像同一间房的两扇门，拆房看「门牌数」（nlink）加「屋里有没有人」（打开者）；符号链接像一张写着地址的便利贴——地址拆了它就成了断链，但便利贴本身还是完好的小文件。</span>
+
+<span class="marginnote">常见误区：「rm 就是删文件」。实际 `rm` 只删目录项、把 nlink 减一；数据块要等 nlink 归零且没有进程打开这个 inode 才回收。日志被轮转脚本 unlink 后仍疯涨的「已删除文件」，就是这个机制在背锅。</span>
+
 与数据库外键无关。本栏不把关系完整性请进来。
+
+```mermaid
+flowchart TD
+  UN["unlink(名字)"] --> DEC["该 inode 的 nlink 减一"]
+  DEC --> Z{"nlink = 0？"}
+  Z -- "否" --> KEEP["其他名字照常访问数据"]
+  Z -- "是" --> OP{"还有进程打开它？"}
+  OP -- "是" --> HOLD["数据暂留，fd 全关再回收"]
+  OP -- "否" --> FREE["回收 inode 与数据块"]
+```
 
 ## 边界
 

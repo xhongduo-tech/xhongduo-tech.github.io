@@ -17,6 +17,12 @@ section: cs
 
 持久 `map`：每次插入若拷全表 $\Theta(n)$。HAMT：哈希 $h(k)$ 从高到低每次取 $b$ 比特（常 5，扇出 32）。节点：`bitmap` 标明哪些槽非空，`array` 只存存在的孩子，popcount 算下标。冲突：最终叶子链或再哈希。缺口是**用位图压缩稀疏的 $2^b$ 叉 trie**，使内部节点小、路径 $O(w/b)$。
 
+<span class="marginnote">数字实例：32 位哈希、每层吃 5 比特，扇出 $2^5=32$，树高最多 $32\div5\approx7$ 层。一个 32 槽节点若只有 3 个孩子，bitmap 就是 3 个 1、数组只分配 3 项——这就是「位图压缩稀疏数组」省下的空间。</span>
+
+<span class="marginnote">术语翻译：popcount（population count）是「数一个二进制数里有几个 1」的硬件指令。HAMT 拿它做下标换算：bitmap 中目标比特之前有几个 1，孩子就存在数组的第几格。</span>
+
+<span class="marginnote">直觉类比：路径复制像 Git 提交——新版本只复制被改动的目录链，其余文件全是共享的旧引用。所以「每次更新都要拷一份字典」的担心不成立，代价只是根到叶那一条路径。</span>
+
 <span class="marginnote">Bagwell 2001 技术报告 *Ideal Hash Trees*。Okasaki 讨论持久树共享。本课不把 JVM 实现细节当理论。</span>
 
 ## 方法
@@ -35,6 +41,15 @@ flowchart TD
 ## 机制
 
 空间：节点只分配非空孩子。缓存：数组小而密，好于指针 256 叉。哈希仍要抗碰撞；HAMT 不消除[散列碰撞](/cs/hash-collision) 语义，只是把链改成更深路径。
+
+```mermaid
+flowchart TD
+  OLD["旧版本根"] --> A["路径节点 A"] --> LEAF["旧叶"]
+  NEW["插入 k：从根到叶复制路径"] --> A2["新节点 A′（只改一个槽）"] --> LEAF2["新叶 k"]
+  OLD -. "未改分支照旧共享" .- A2
+  LEAF -. "其余孩子共享" .- A2
+  NEW --> ROOTMAP["新 map 只换根指针"]
+```
 
 不要把 HAMT 当神经网络权重存储课——本栏是 CS 字典结构。
 

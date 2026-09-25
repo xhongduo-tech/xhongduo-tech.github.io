@@ -39,7 +39,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  COL["按列访问 t[32][33]"] --> STEP["相邻行步距 = 33 字"]
+  COL["按列访问 t 32x33 数组"] --> STEP["相邻行步距 = 33 字"]
   STEP --> COP["33 与 32 互素"]
   COP --> SPREAD["bank 序逐行平移，一轮铺满 32 个 bank"]
   SPREAD --> OK["零冲突"]

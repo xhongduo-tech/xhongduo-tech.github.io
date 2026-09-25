@@ -19,9 +19,21 @@ warp 归约的朴素写法把 smem 当公告板：每步一半 lane 写自己的
 
 ## 方法
 
-shuffle 家族按「谁拿到谁的值」分类。`__shfl_sync(mask, v, srcLane)` 直接指定源 lane；`__shfl_up_sync` / `__shfl_down_sync` 做扫描式的邻居交换；`__shfl_xor_sync(v, k)` 与 lane $i\oplus k$ 交换——butterfly 模式，第 $0,1,2,3,4$ 步取 $k=1,2,4,8,16$，五步之后 32 个 lane 全部持有总和，一条 warp 全归约就此完成，全程没有一条存储指令。`width` 参数把交换限制在宽度为 $2^j$ 的子组内，分段归约不用再写循环。
+shuffle 家族按「谁拿到谁的值」分类。`__shfl_sync(mask, v, srcLane)` 直接指定源 lane；`__shfl_up_sync` / `__shfl_down_sync` 做扫描式的邻居交换；`__shfl_xor_sync(v, k)` 与 lane $i\oplus k$ 交换——butterfly 模式，第 $0,1,2,3,4$ 步取 $k=1,2,4,8,16$，五步之后 32 个 lane 全部持有总和，一条 warp 全归约就此完成，全程没有一条存储指令。<span class="marginnote">「xor 交换」翻译成大白话：每个 lane 找与自己编号二进制恰好差一位的伙伴互换数据——第 1 步差最后一位（0↔1、2↔3，相邻成对），第 2 步差倒数第二位（0↔2，跨 2）……像锦标赛：32 人五轮交换后，人人都知道了总分，且没碰过一次内存。</span>`width` 参数把交换限制在宽度为 $2^j$ 的子组内，分段归约不用再写循环。
 
-vote 家族把判断折叠成位图。`__ballot_sync(mask, p)` 返回一个 32 位整数，第 $i$ 位是 lane $i$ 谓词的值；`__any_sync` / `__all_sync` 直接归约成布尔；`__match_any_sync` 找出同值的 lane 组。典型用法：先 ballot 拿到「谁需要走慢路径」，再决定是分裂还是统一走——把「两条路径各跑一遍」的发散成本（第一课的相加账）压成一次位测试加一条路径。`mask` 参数是 Volta 独立线程调度在 API 上的落点：参与交换的 lane 必须以同一 mask 执行同一语句，mask 不满是未定义行为，不再是老卡上的「碰巧能跑」。
+vote 家族把判断折叠成位图。`__ballot_sync(mask, p)` 返回一个 32 位整数，第 $i$ 位是 lane $i$ 谓词的值；`__any_sync` / `__all_sync` 直接归约成布尔；`__match_any_sync` 找出同值的 lane 组。典型用法：先 ballot 拿到「谁需要走慢路径」，再决定是分裂还是统一走——把「两条路径各跑一遍」的发散成本（第一课的相加账）压成一次位测试加一条路径。<span class="marginnote">数字实例：lane 0、5、9 的谓词为真时，ballot 返回 $2^0+2^5+2^9=1+32+512=545$。一条 `v == 0` 判断「全假」，`v & (v-1)` 循环数「有几个真」——原本要靠 warp 发散两轮才能摸清的局面，变成对一个整数的算术。</span>
+
+```mermaid
+flowchart TD
+  P["warp 内条件判断 p"] --> DIV["朴素写法：两条路径各跑一遍"]
+  DIV --> TAIL["长尾 warp 拖全场"]
+  P --> BAL["ballot：一条指令拿到 32 位位图"]
+  BAL --> T{"位图读数：全一致吗？"}
+  T -->|"全 0 或全 1"| UNI["整 warp 统一走一条路径"]
+  T -->|"混合"| SPLIT["按位分组，或统一走慢路径"]
+  UNI --> DONE["发散成本压成一次位测试"]
+  SPLIT --> DONE
+````mask` 参数是 Volta 独立线程调度在 API 上的落点：参与交换的 lane 必须以同一 mask 执行同一语句，mask 不满是未定义行为，不再是老卡上的「碰巧能跑」。
 
 ```mermaid
 flowchart TD
@@ -36,7 +48,7 @@ flowchart TD
 
 快的原因在硬件位置：shuffle 走寄存器堆的 lane 间交换通路，不占访存单元的端口、不进 smem、不需要屏障——上一课说「寄存器零等待」，shuffle 是把零等待用在了通信上。步数是 $\log_2 32 = 5$，通信量逐半收缩：$16+8+4+2+1$ 共 31 次成对交换；smem 方案同样五步，但每步多一重屏障税，block 只有一个 warp 时屏障也省不掉（块级屏障要凑齐所有 warp）。vote 的价值同理：ballot 一个指令拿到全部 lane 的谓词，替代「先发散两轮、各自退出」的写法，长尾 warp 不再拖全场。
 
-迁移到新卡时的注意点在 mask 语义：Ampere 之前 mask 不满常被容忍，之后是未定义——把「全 warp 在场」写成字面量 `0xffffffff` 而非 `__activemask()`，因为后者的值取决于执行时刻谁在场，拿它当参与集合是把自己交给调度顺序。
+迁移到新卡时的注意点在 mask 语义：Ampere 之前 mask 不满常被容忍，之后是未定义——把「全 warp 在场」写成字面量 `0xffffffff` 而非 `__activemask()`，因为后者的值取决于执行时刻谁在场，拿它当参与集合是把自己交给调度顺序。<span class="marginnote">常见误区：把 shuffle 当免费且无条件的操作。它是全 warp 的同步语句，mask 里列的每个 lane 都必须执行同一句；写在只有部分 lane 进入的 if 里而不改 mask，结果不是「其他 lane 等着」，是整条语句未定义——新卡上换驱动就可能换答案。</span>
 
 ## 边界
 

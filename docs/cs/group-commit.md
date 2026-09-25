@@ -19,6 +19,10 @@ section: cs
 
 steal/no-force 仍成立：数据页不必在组里刷。只刷日志。
 
+<span class="marginnote">直觉类比：组提交像拼车去机场。一个人叫一趟车（一次 fsync）太贵；等一小段凑满一车人再出发，车费（I/O）大家平摊。等车的时间就是提交延迟，车开得越满、整体越省。</span>
+
+<span class="marginnote">数字实例：设一次 fsync 耗 1 ms、盘的 IOPS 上限约 1000，逐笔刷盘的提交速率就卡在约 1000 TPS。若每 50 个 commit 拼一组，同样的 IOPS 就能支撑约 50 倍的提交带宽——吞吐换来的是最多一个窗口的等待；且这不是放松持久性，没赶上这一刷的事务会整体 abort，不会半提交。</span>
+
 <span class="marginnote">Gray and Reuter。MySQL/Postgres 都有组提交实现。本课不调某个 `commit_delay` 参数表。</span>
 
 ## 方法
@@ -40,6 +44,19 @@ flowchart TD
 与 TDE：加密日志页再刷，CPU 进组路径。与双写：数据页路径独立。校准：优化器不管组提交，但基准 TPC-C 对它极敏感——后课基准。
 
 无组提交时，用户同步提交延迟=单次 fsync；SSD 仍有上限。
+
+```mermaid
+flowchart TD
+  T1["事务 A 已进组"] --> FL["这一组 fsync 落盘"]
+  T2["事务 B 已进组"] --> FL
+  T3["事务 C 还在缓冲"] --> NX["没赶上这一刷"]
+  FL --> A1["A、B：整组提交返回"]
+  NX --> A2["C：abort，重提交"]
+  CR["崩溃"] --> FL
+  CR --> NX
+```
+
+<span class="marginnote">为什么重要：崩溃后数据库只认「最后一次成功的那一刷」这条线。线上的全部提交、线下的全部作废，没有中间态——判断边界的不是事务提交的先后，而是它有没有赶上这一次 I/O。</span>
 
 ## 边界
 

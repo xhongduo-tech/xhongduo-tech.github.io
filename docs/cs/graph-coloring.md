@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-$\chi(G)\le \Delta+1$ 总成立：任意序贪心。Brooks：连通图若不是完全图或奇圈，则 $\chi\le\Delta$。Mycielski 等造高色数低团数图，故 $\chi$ 不能只看团。缺口是算法：精确 3-着色 $O(c^n)$ 可做；实用启发式按度降序或最小度消除序（ degeneracy）贪心，最坏仍可差。
+$\chi(G)\le \Delta+1$ 总成立：任意序贪心。<span class="marginnote">数字实例：$\Delta=3$ 的图（每点至多 3 个邻居）贪心最坏用 4 色——着到任一点时它的邻居最多占掉 3 个色号，第 4 色总可用。完全图 $K_5$ 的 $\Delta=4$、$\chi=5$，正好顶满上界：完全图是「上界即答案」的特例。</span>Brooks：连通图若不是完全图或奇圈，则 $\chi\le\Delta$。Mycielski 等造高色数低团数图，故 $\chi$ 不能只看团。<span class="marginnote">常见误区：以为找到大团就能断定色数。Mycielski 构造能造出「团数只有 2（没有三角形）却要任意多色」的图——团数只是 $\chi$ 的下界，可以差得极远，下界够不着答案。</span>缺口是算法：精确 3-着色 $O(c^n)$ 可做；实用启发式按度降序或最小度消除序（ degeneracy）贪心，最坏仍可差。
 
 不要把「色数等于 $\Delta+1$」当常例：那只是上界。
 
@@ -23,11 +23,20 @@ $\chi(G)\le \Delta+1$ 总成立：任意序贪心。Brooks：连通图若不是�
 
  degeneracy $d$：反复删最小度点，过程中最大度 $\le d$。则 $\chi\le d+1$。平面图 $d\le 5$，六色容易；五色、四色更细。本课一般图只收到 degeneracy。区间图、弦图有完美消除序，本课点名：那些多项式。
 
+```mermaid
+flowchart TD
+  G["输入图 G"] --> DEL["反复删当前最小度顶点，记录删除序"]
+  DEL --> D["过程中出现的最大度 = degeneracy d"]
+  D --> REV["删除序倒过来作为着色序"]
+  REV --> GRD["按该序贪心：每点取可行最小色"]
+  GRD --> B["色数上界 = d + 1"]
+```
+
 <span class="marginnote">Brooks 1941。着色 NPC 见 Garey–Johnson。CLRS 把 3-着色当 NPC 例子。后课平面分离与四色是平面算法课，不在本课证四色。</span>
 
 ## 方法
 
-精确：回溯 + 位掩码（$n$ 小）或包含排斥。启发式：选序贪心；DSATUR（饱和度优先）常更好。下界：团数 $\omega\le\chi$，以及 $\chi\ge n/\alpha$。
+精确：回溯 + 位掩码（$n$ 小）或包含排斥。启发式：选序贪心；DSATUR（饱和度优先）常更好。<span class="marginnote">DSATUR 的直觉是「先难后易」：每步挑「邻居已占用的不同色号最多」的点先着——像考试先做最受限的题，轮到简单题时选择余地还很大；对很多真实图它比固定序贪心少用不少颜色。</span>下界：团数 $\omega\le\chi$，以及 $\chi\ge n/\alpha$。
 
 ```mermaid
 flowchart TD

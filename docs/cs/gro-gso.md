@@ -35,7 +35,24 @@ flowchart TD
 
 GRO/GSO 把「MTU」从协议 CPU 成本里解开：主机看见大段，线路仍是合法 MTU。这是网络栈与存储大块 I/O 对应的那一课。不要写成量化撮合批处理。校验卸载（checksum offload）常与 TSO 绑定：硬件算 TCP 校验。
 
+<span class="marginnote">数字实例：MSS 取 1460 字节时，一次 64 KiB 的 `write` 约 65536÷1460≈45 个段。没有 GSO/TSO，TCP 状态机要跑 45 遍；有它只跑 1 遍、网卡切 45 刀——这就是高 PPS 场景省 CPU 的来源。</span>
+
+<span class="marginnote">常见误区：GRO 并没有把线路上的 MTU 变大。网上传输的每个包仍然 ≤1500 字节，合并只发生在主机内存里——出来的大 skb 是「账面合并」，出门前照样按 MTU 切回小包。</span>
+
 错误：GRO 拼错会坏流，实现必须保守；虚拟化时要在 vhost 上再做一次。
+
+```mermaid
+flowchart TD
+  P["收到一个小段"] --> H{"按流哈希找到桶？"}
+  H -- "否" --> F["开新桶并上送旧数据"]
+  H -- "是" --> C{"序号连续且校验、时间戳核对通过？"}
+  C -- "是" --> M["并入大 skb，继续等下一段"]
+  C -- "否" --> S["合并失败：立刻上送"]
+  M --> T{"poll 结束或无法再合并？"}
+  T -- "是" --> U["一次 netif_receive_skb 交给 TCP"]
+```
+
+<span class="marginnote">术语翻译：TSO（TCP Segmentation Offload）就是把「按 MSS 把大块数据切开」这道工序从 CPU 搬到网卡去做；GSO 是它的软件版兜底——网卡不支持时，内核在出队前最后一刻再切。</span>
 
 
 实现上：GRO 合并失败必须立刻上送，否则延迟 ACK 被自己拖死。TSO 依赖校验卸载，若硬件不做 checksum，软件 GSO 仍要切。隧道要 inner/outer 两套 gso 信息。 读法上只引用[上一课](/cs/napi)的结论，不把对象换成训练推理或限价簿。
