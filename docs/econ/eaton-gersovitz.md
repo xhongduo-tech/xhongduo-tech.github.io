@@ -19,9 +19,13 @@ section: econ
 
 <span class="marginnote">Eaton and Gersovitz, *Review of Economic Studies* 48(2), 1981, 289–309。Bulow and Rogoff 对声誉能否支持债务的批评（1989）：若能储蓄，惩罚可能不够。后续文献用排除、谈判、政治。</span>
 
+<span class="marginnote">『排除在市场之外』就是违约后一段时间没人再借钱给你：没法发新债滚旧债，只能靠当期税收硬扛支出，贸易信贷中断还会拖累产出。这份可预期的未来损失，就是主权还款的隐形『押金』。</span>
+
 ## 方法
 
 政府贝尔曼：状态是债与产出。违约：进入惩罚区（一段时间不能借、产出损失），债归零或进谈判。履约：付息、发新债。债价 $q(b',z)= \mathbb{E}[(1-\delta') (1+coupon)/R]$。长期债、自我履行的滚动，后课 Arellano 定量化。与财政：一次总付税可还债，但政治上限使有效上像约束。
+
+<span class="marginnote">数字实例：面值 100、一年后还本付息 102 的债。若市场认为违约概率 10%、违约时回收 40，按无风险利率 2% 折现，价格约 $(0.9\times102+0.1\times40)/1.02\approx94$，对应约 8.6% 的到期收益——比无风险高出的约 6.6 个百分点就是违约溢价。</span>
 
 ```mermaid
 flowchart TD
@@ -37,7 +41,21 @@ flowchart TD
 
 机制是未来剩余损失对今天诱惑。高债、坏 $z$ 时违约期权价内，利差跳升，滚动危机：即使愿意还，市场不给 $q$ 也会逼违约。这与银行挤兑同构，对象是批发债权人。全球金融周期：中心收紧使 $q$ 下降，把原本可滚动的债推入价内——两课相接。
 
+「利差跳升如何自我实现地逼出违约」：
+
+```mermaid
+flowchart TD
+  BAD["坏年成或高债务"] --> PD["市场调高违约概率"]
+  PD --> Q["新债价格 q 下跌, 利差跳升"]
+  Q --> CASH["再融资拿不到现金"]
+  CASH --> FORCED["想还也凑不出钱"]
+  FORCED --> DEF["被迫违约"]
+  DEF --> CONF["印证债权人的担心"]
+```
+
 Bulow–Rogoff：若违约后仍能在市场上买资产，惩罚弱。现实排除不完美，故有谈判与发市（Arellano 后的 Chatterjee–Eyigungor、Hatchondo–Martinez）。
+
+<span class="marginnote">常见误区：以为主权债『有国家在，最安全』。主权没有可供法庭扣押的抵押品，还款与否是政府每期都在权衡的期权；利差不是感情分，而是市场对这份期权价内概率的实时报价。</span>
 
 <span class="marginnote">本课不把评级公司当理论。也不交易 CDS。</span>
 
