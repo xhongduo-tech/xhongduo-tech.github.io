@@ -19,6 +19,8 @@ section: cs
 
 不要把 DHT 写成 DNS。
 
+<span class="marginnote">常见误区：把 DHT 想成「去中心化的 DNS」。DNS 是分层授权的树，根区与顶级域由机构管；DHT 没有根，一个键归谁管由哈希距离决定，节点进出只挪动一小段键的负责权。两者的「查询名字找东西」只是表象相似。</span>
+
 <span class="marginnote">Cohen 规范。BEP 文档。本课不写盗版场景。</span>
 
 ### 应用层 mesh
@@ -36,11 +38,27 @@ flowchart TD
   PEER --> RARE["稀有块优先"]
 ```
 
+<span class="marginnote">「稀有块优先」可以类比成物种保护：最濒危的块一旦随个别节点退出而灭绝，整个 swarm 就永远凑不齐文件。先传最少的副本，等于把遗传多样性铺开——这是 P2P 自愈能力的来源，不是道德，是算术。</span>
+
 ## 机制
 
 传输仍是 TCP（或 μTP），拥塞各连接 AIMD，共享接入会互抢——接入 AQM 有帮助。DNS 可找 tracker。加密扩展点名。GeoDNS 不调度块。
 
 安全：污染块靠哈希；DHT 污染是另一攻击面，点名不展开。
+
+DHT 在没有 tracker 时如何找到 peers，值得单独画一条查找链。
+
+```mermaid
+flowchart TD
+  Q["要找 infohash 的节点"] --> N1["问自己路由表里最近的节点"]
+  N1 --> N2["它们返回更近的节点"]
+  N2 --> CONV{"候选不再更近？"}
+  CONV -->|"否"| N1
+  CONV -->|"是"| PEERS["持有该 infohash 的 peer 列表"]
+  PEERS -->Conn["直接与 peer 换块"]
+```
+
+<span class="marginnote">术语翻译：DHT（分布式哈希表）就是把键值对摊到所有参与者手里，每个节点负责键空间的一小段；查询不问中心，而是一跳一跳问「谁离这个键的哈希更近」。Kademlia 用 160 位异或距离度量，路由表按距离分桶存 $k$（约 8 到 20）个节点，查找通常对数跳收敛。</span>
 
 ## 边界
 

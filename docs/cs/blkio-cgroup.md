@@ -17,6 +17,8 @@ section: cs
 
 多租户共享一块 NVMe，一个容器 `dd` 会抬高所有人的延迟。io.max：bps/iops 上限；io.weight：在支持的调度器上相对份额。缺口：限制发生在 blk-cgroup 节流，可能睡眠提交者；递归统计；缓冲 I/O 的归属按谁脏页——异步写回可能记到根组，这是著名坑。本课不把 cpu 控制器再讲一遍。
 
+<span class="marginnote">术语翻译：iops 是「每秒 I/O 操作次数」，bps 是「每秒字节数」。`io.max` 里写 `rbps=104857600` 就是「这个组每秒最多从设备读 100 MB」；`wiops=1000` 就是每秒最多写 1000 次。权重则不限绝对值，只在大家抢盘时按比例分。</span>
+
 <span class="marginnote">writeback 归属（cgroup writeback）要把 inode 与 memcg/io 关联，否则限制被绕过。教学上承认「脏页回写的会计」是机制一部分。</span>
 
 ## 方法
@@ -31,6 +33,8 @@ flowchart TD
   WB["writeback"] --> OWN["按 inode 归属组"]
 ```
 
+<span class="marginnote">数字实例：一块 NVMe 能扛几十万 iops，一个没设限的容器跑 `dd` 就能把延迟从 1 毫秒拖到几百毫秒；给它的组设 `wiops=5000` 后，无论它多忙，写请求每秒最多 5000 个——剩下的带宽自然留给邻居。</span>
+
 ## 机制
 
 blkio 把设备当成可计量的共享资源，使「容器隔离」在 I/O 维可执行。它不加密、不冗余。不要写成云产品 QoS 页面。与轮询：被节流的线程 poll 也会空转，策略要一起设计。
@@ -39,6 +43,20 @@ v2 统一 io 控制器；旧 blkio 文件名不同，对象相同。
 
 
 实现上：异步回写若记到 root，容器上限等于没设。cgroup writeback 用 inode 归属把脏页会计拉回组。iops 限制对 NVMe 很有效，对 HDD 可能只是把队列变短。 读法上只引用[上一课](/cs/io-polling)的结论，不把对象换成训练推理或限价簿。
+
+缓冲写为什么能绕过限制，值得顺着时间线画出来。
+
+```mermaid
+flowchart TD
+  APP["容器内应用写文件"] --> PC["落 page cache，立即返回"]
+  PC --> DIRTY["页变脏"]
+  DIRTY --> WB["内核 writeback 落盘"]
+  WB --> Q1{"writeback 归属配了吗"}
+  Q1 -->|"没配"| ROOT["记到 root 组：限制被绕过"]
+  Q1 -->|"配了"| OWN["记回容器组：io.max 生效"]
+```
+
+<span class="marginnote">常见误区：以为「写了文件」就立刻占了块设备带宽。缓冲写只是进了内存的 page cache 就返回成功，真正打盘的是稍后的 writeback。这笔账记到哪个组全看归属配置——漏配时容器自己看起来守规矩，脏页却以 root 身份冲垮共享盘。</span>
 
 本课在操作系统进阶的「存储栈 / 块层到设备」课序里，对象是 **blkio cgroup**。
 

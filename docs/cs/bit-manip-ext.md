@@ -19,6 +19,8 @@ section: cs
 
 x86：BMI1（`andn`、`tzcnt`、`blsr`）与 BMI2（`pext`/`pdep`、`shlx`）。ARM：`UBFX`/`SBFX`/`BFI`、`RBIT`、`CLZ`。对照课要能指到这组名字。
 
+<span class="marginnote">术语翻译：`clz` 是「从最高位往下数，数到第一个 1 为止有几个 0」，`ctz` 从最低位往上数，`cpop` 是数整串里 1 的总个数。浮点规格化、按位图的优先级调度都靠它们；没有专用指令时，这些要靠一串移位加减凑出来。</span>
+
 ### 位操作不是加密课、也不是量化权重量化
 
 进位无关乘法 `clmul`（`Zbc`）给 CRC 与有限域，本课点名即止，不进入密码协议。[光刻](/litho/em-wave-index) 与金融栏不收这些助记符。把 BMI 写成「大模型推理内核」，CS 栏失焦。
@@ -41,9 +43,24 @@ flowchart TD
 
 与 [SIMD](/cs/simd-extensions)：打包移位是通道上的同类操作；本课是标量 GPR。RVV 有向量位操作，宽度故事已在向量课。
 
+<span class="marginnote">数字实例：`int` 是 4 字节，所以 `a[i]` 的偏移是 $i \times 4$，即 `i<<2`。取 `a[1000]` 就是基址加 4000 字节。没有 `sh2add` 时这是 `slli` + `add` 两条指令；有了它，地址缩放一条完成——循环里每次迭代都省一拍。</span>
+
 ## 机制
 
 H 扩展不改变这些编码。压缩课的 16 位别名覆盖不到全部 B 指令，多数仍是 32 位。下一课条件码：x86 几乎每条 ALU 都写 EFLAGS，RISC-V 的 `clz` 只写 GPR——谓词与分支如何接上这些结果，是对照轴上尚未钉住的缺口。
+
+同一段源码在有无扩展的核上如何落地，可以对着看。
+
+```mermaid
+flowchart TD
+  SRC["源码：a[i]"] --> CC["编译器读 -march"]
+  CC -->|"有 Zba"| ONE["sh2add 一条指令"]
+  CC -->|"无 Zba"| TWO["slli + add 两条"]
+  ONE --> RUN["语义相同，速度与体积不同"]
+  TWO --> RUN
+```
+
+<span class="marginnote">常见误区：以为位操作扩展只是「快一点」。实际上降级序列还多占指令缓存与解码带宽，而且 ABI 必须标明目标扩展——给旧核发了一个带 `sh2add` 的目标文件，跑起来直接是非法指令异常，不是慢，是不动。</span>
 
 ## 边界
 
