@@ -17,6 +17,8 @@ section: cs
 
 PMEM（或 CXL 内存的持久部分）出现在物理地址。FS（ext4/xfs dax、NOVA 等）可把文件映射到这些页，`MAP_SYNC` 等语义要求 store 到达持久点。缺口：CPU 缓存里的脏行不是持久的，需 `clwb`/`sfence` 或 `msync`；与 [O_DIRECT](/cs/direct-io) 不同——没有 bio；与 tmpfs 不同——掉电还在（若刷对）。本课不把每一代 Optane 产品当目录。
 
+<span class="marginnote">可以想成图书馆借书：read/write 是管理员把书复印一份给你（来回两次拷贝，还要占页缓存）；DAX 是直接给你阅览室座位，书摊在面前，翻页就是 load/store——代价是合上书前，得自己把重要的页誊进保险柜（刷写到持久域）。</span>
+
 <span class="marginnote">falloc 预分配在 DAX 上仍占介质。错误 DRAM 与 PMEM 混映射会把易失当持久。教学对象是「绕过块层的 mmap」。</span>
 
 ## 方法
@@ -35,6 +37,21 @@ flowchart TD
 
 DAX 把存储栈变短：FS 负责分配与元数据，数据路径像内存。正确性从「bio 完成」换成「持久域可见性」，这是新的编程模型。不要把它写成量化超低延迟撮合。内核仍要管坏页、热插、fsck。
 
+传统读与 DAX 读各经过哪些层：
+
+```mermaid
+flowchart TD
+  A["传统读：应用调 read"] --> B["VFS 加页缓存"]
+  B --> C["块层生成 bio 请求"]
+  C --> D["驱动发起，中断收完成"]
+  D --> E["把数据拷回用户缓冲区"]
+  F["DAX 读：应用直接访指针"] --> G["缺页时 FS 查到 PMEM 的 pfn"]
+  G --> H["页表直接指向持久内存"]
+  H --> I["load 直达介质：零拷贝、零中断、无 bio"]
+```
+
+<span class="marginnote">术语：「持久域」指掉电之后数据仍然完好的那一层。一条 store 通常只走到 CPU 缓存这层易失存储就「完成」了，所以必须再用 clwb 这类指令把缓存行往下推过持久域，写才算真正落袋——这就是「正确性换成持久域可见性」的意思。</span>
+
 与加密：dm-crypt 在块层，DAX 常绕过它，需 FS 级或硬件加密。
 
 
@@ -49,6 +66,8 @@ DAX 把存储栈变短：FS 负责分配与元数据，数据路径像内存。�
 ## 边界
 
 本课不引入所有 `pmem` 命名空间模式（fsdax vs devdax）。不保证每个平台的持久域边界文档一致。下一课回到块设备，但完成等待换成轮询：io polling。
+
+<span class="marginnote">初学者容易以为 DAX 下「store 写完 = 已经持久」。实际 store 落在 CPU 缓存就返回了，掉电即丢；必须按 PMDK 封装的粒度刷缓存行并加 fence。顺序同样要命：先刷数据、再刷指向它的元数据指针，反过来崩溃后就是一块悬空内存。</span>
 
 
 版本字段会变，课序钉的是机制对象「DAX 与持久内存」，不是某一主线内核的结构体名。

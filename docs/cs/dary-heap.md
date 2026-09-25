@@ -17,7 +17,11 @@ section: cs
 
 二叉下滤每层比两个孩子。$d$ 叉：孩子是 $di+1,\ldots,di+d$，高度 $\Theta(\log_d n)=\Theta(\log n/\log d)$，insert 上滤更快，extract-min 每层要在 $d$ 个孩子里找最小。Johnson 用它调最短路里堆的常数。缺口不是斐波那契堆，而是**同一套堆序下改扇出**。
 
+<span class="marginnote">数字实例：100 万元素，二叉堆高约 20 层，4 叉堆只有 10 层。insert 沿一条路上滤，快了一倍；extract-min 却要在每层 4 个孩子里挑最小，比较变多。高度省出来的和每层多付的，就是选 $d$ 的权衡账。</span>
+
 无句柄的 decrease-key 要先找到元素，$\Theta(n)$，堆的对数没有意义。索引堆：`pos[id]` 存堆数组下标，交换时两边更新。
+
+<span class="marginnote">初学者容易以为堆"顺便"支持任意查找。堆只保证父不大于子，兄弟之间毫无秩序；没有句柄就只能线性扫数组，$\Theta(n)$，一切对数承诺随之作废。</span>
 
 <span class="marginnote">$d=4$ 在 cache 行上有时更好：一层孩子更连续。过大则下滤的线性扫吃掉高度收益。</span>
 
@@ -37,6 +41,18 @@ flowchart TD
 ## 机制
 
 Dijkstra 一类反复 decrease-key 的算法，合同必须提供句柄。二叉够用时不必上 $d$；只有剖析显示 extract 与 insert 比例极端，才调 $d$。这是常数与 cache 的事，不是新 ADT。
+
+```mermaid
+flowchart TD
+  D["扇出 d 增大"] --> H["树高 log_d n 变矮"]
+  D --> W["每层孩子数变多"]
+  H --> INS["insert 上滤更快：走的层数变少"]
+  W --> EXT["extract-min 更慢：每层要扫 d 个孩子找最小"]
+  INS --> BAL["d 是权衡：4 附近常是甜点"]
+  EXT --> BAL
+```
+
+<span class="marginnote">句柄可以类比行李票：行李（元素）在仓库里被搬来搬去（堆内交换），你手里的票（id→pos 映射）始终有效，凭票一查就知道它此刻在哪一格，不必翻遍仓库。</span>
 
 与 B+ 对照：堆不支持高效任意键查找与中序。索引只映射「已知 id」，不是字典。字典是下一课散列或回到树。
 

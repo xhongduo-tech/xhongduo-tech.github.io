@@ -17,6 +17,8 @@ section: cs
 
 RTSP/RTP 难穿缓存与企业代理。DASH/HLS：编码多个 bitrate 的短文件（2–10 s），清单描述时间线。播放器按清单 GET，CDN 当静态对象。直播把清单滑窗。与 SSE：都是 HTTP，SSE 是事件，这里是媒体文件。H3 可拉片，0-RTT 适合幂等 GET。
 
+<span class="marginnote">直觉类比：整部电影当一个大文件是"整箱托运"，中途断网前功尽弃；切片是把货拆成 2–10 秒一箱的标准件——哪箱丢了重发哪箱，路况差时还能整体换低码率的小车继续送。</span>
+
 不要把切片写成 MPEG 压缩课。
 
 <span class="marginnote">HLS RFC 8216。DASH 是 ISO。本课钉分发，不钉编码器。</span>
@@ -40,7 +42,21 @@ flowchart TD
 
 GeoDNS 找近边缘。Cookie 可用于鉴权 URL。队头：H1 多连接拉片；H2 多流。PMTUD 影响分片下载。DRM 在分片上，点名。
 
+<span class="marginnote">初学者容易以为视频网站有一条"专用视频通道"。实际每个分片就是一次普通 HTTP GET，CDN 把它当静态文件缓存——百万观众看的往往是同一批边缘副本，这正是选 HTTP 而非专用流协议的核心理由。</span>
+
 直播延迟 ≈ 分片时长 × 缓冲片数，不是卫星那种物理。
+
+```mermaid
+flowchart TD
+  ENC["编码器持续产片"] --> MAN["清单滑窗：只列最近几片"]
+  MAN --> OLD["旧分片滑出窗口并下线"]
+  MAN --> PL["播放器拉取清单，GET 最新片"]
+  PL --> BUF["本地缓冲若干秒"]
+  BUF --> PLAY["边播边续拉下一片"]
+  PLAY --> PL
+```
+
+<span class="marginnote">数字实例：分片 6 秒、缓冲 3 片，直播延迟约 $6\times 3=18$ 秒起步。想压到几秒内，得换更短的分片或 LL-HLS 一类分块传输——这是清单与缓冲策略的事，不是"网速慢"。</span>
 
 ## 边界
 

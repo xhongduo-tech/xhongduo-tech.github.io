@@ -23,11 +23,15 @@ section: cs
 
 nonce 必须随机：固定 nonce 等于没策略，注入脚本只要读一次页面就拿到通行证；每个响应用 CSPRNG 现生成。
 
+<span class="marginnote">nonce 就是"一次性通行口令"：服务端每生成一次页面，用随机数现造一个新字符串，策略头和 `<script nonce=...>` 标签各写一份。浏览器只认当轮匹配的；攻击者此刻抄到的口令，下一轮就作废。</span>
+
 <span class="marginnote">CSP Level 3。unsafe-inline 几乎撤销脚本保护。本课禁止绕过教程。</span>
 
 ## 方法
 
 方法先列关键指令：script-src 管脚本，default-src 给其余资源兜底，frame-ancestors 管本页能被谁嵌框，connect-src 管脚本能往哪发请求。对照下一课 CORS：CSP 管本页能拉什么，CORS 管外源能不能读响应，两扇门方向相反。
+
+<span class="marginnote">Report-Only 模式等于"只报警不执法"：违例照常上报但脚本照跑。先观测一段时间、确认没误杀自家脚本，再把同一份策略切成强制执行；一上来就强制，一旦误杀，页面可能整个瘫掉。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,17 @@ flowchart TD
 ## 机制
 
 机制是纵深：编码漏掉的那一处，注入的 `<script>` 因缺 nonce 被浏览器拒绝执行——错误被限制在「注入了死文本」而非「代码执行」。它不挡无脚本的 HTML 注入：假表单、外观篡改这类钓鱼仍在。一旦写进 unsafe-inline，脚本保护几乎整体撤销。CORS 下一课是读响应的另一扇门。
+
+```mermaid
+flowchart TD
+  R["浏览器收到响应"] --> C{"script 带当轮合法 nonce？"}
+  C -->|"是"| RUN["执行一等脚本"]
+  C -->|"否，注入的裸标签"| BLK["拒绝执行并报违例"]
+  BLK --> EFF["注入退化为死文本"]
+  RUN --> CON["外发请求另受 connect-src 限制"]
+```
+
+<span class="marginnote">初学者容易以为"上了 CSP 就可以不做输出编码"。实际关系是纵深：编码失守时，CSP 把损失从"任意代码执行"压到"一段死文本"，但假表单这类不带脚本的注入它照旧管不住。</span>
 
 ## 边界
 
