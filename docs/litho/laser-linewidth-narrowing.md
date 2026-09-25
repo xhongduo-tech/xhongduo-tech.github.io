@@ -21,6 +21,8 @@ section: litho
 
 公开手段：腔内扩束 + 光栅选频，反馈锁中心波长。指标用 FWHM 或 E95 积分带宽，单位 pm。监测：波长计进剂量/波长闭环。换胶或换 NA 配方可能换带宽规格，不是「越窄越好」。
 
+<span class="marginnote">数字实例：ArF 准分子自由运行带宽有数百皮米，而高 NA 浸没物镜的预算常在皮米量级——差着两个数量级以上，这就是腔内必须加光栅的硬理由，不是「锦上添花」。</span>
+
 ```mermaid
 flowchart TD
   RAW["放电宽带"] --> GR["光栅压窄"]
@@ -34,6 +36,19 @@ flowchart TD
 ## 机制
 
 物镜的纵向色差把 $\Delta\lambda$ 映射成 $\Delta z$。预算从镜头设计来，光源必须供得上。时间相干长度 $\sim\lambda^2/\Delta\lambda$，带宽变窄，照明相干性变长，斑纹对比上升——与 [时间与空间相干](/litho/temporal-spatial-coherence) 同一骨架。
+
+<span class="marginnote">数字实例：取 $\lambda=193$ nm。$\Delta\lambda=100$ pm 时相干长度约 $\lambda^2/\Delta\lambda\approx0.37$ mm；压窄到 $\Delta\lambda=1$ pm，相干长度放大百倍到约 37 mm——相干性变长，干涉颗粒（斑纹）就开始显形。</span>
+
+<span class="marginnote">常见误区：以为带宽规格「越窄越先进」。带宽压过镜头预算的部分是白付的：脉冲能量被光栅丢掉，斑纹对比上升，产能与 CD 均匀性反而变差。规格跟着镜头预算走。</span>
+
+```mermaid
+flowchart TD
+  DL["光源带宽 Δλ"] --> DZ["纵向色差映射成 Δz"]
+  DZ -->|"Δz 远小于 DOF 预算"| SAFE["焦面干净"]
+  DZ -->|"Δz 逼近 DOF"| EAT["焦面被涂厚，NILS 掉"]
+  DL --> COH["时间相干 ~ λ²/Δλ"]
+  COH -->|"压得太窄"| SPE["斑纹对比上升"]
+```
 
 ## 边界
 
