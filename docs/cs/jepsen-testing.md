@@ -17,6 +17,8 @@ section: cs
 
 厂商写「可串行化」或「线性一致」。Jepsen：生成客户端历史，注入 nemesis（分区、kill、时钟），用 Elle 等检查器找环。缺口是把[故障模型](/cs/failure-models)接到数据库产品——即使该课在树后，机制相同。与 TPC：基准禁止恶意分区；Jepsen 专门恶意。
 
+<span class="marginnote">术语翻译：nemesis（复仇女神）就是 Jepsen 里专门「使坏」的角色——按剧本拔网线（分区）、杀进程、拨快拨慢时钟，把分布式系统最怕的三件事变成可重复的实验条件。</span>
+
 <span class="marginnote">Kingsbury 的公开分析是方法来源。本课只讲如何读报告：历史、反例、是否改过默认配置。</span>
 
 ## 方法
@@ -36,11 +38,28 @@ flowchart TD
 
 超时 abort 应在历史里是 abort，不是静默丢。搜索引擎 refresh 前不可搜，若合同如此则不是 bug。与 wait-for：分区造成的永远等是故障检测，要进 nemesis。读己之写、单调读可单独当较弱模型测。
 
+<span class="marginnote">直觉类比：Jepsen 像给数据库做测谎实验——先让它宣誓（文档声明线性一致），再故意制造混乱，然后拿录音（客户端历史）逐句核对；检查器找出的环就是谎言的实证。</span>
+
+每类故障各打穿哪种承诺：
+
+```mermaid
+flowchart LR
+  P["分区 nemesis"] --> ARB["多数派失去仲裁"]
+  ARB --> SPLIT["脑裂双主，各自收写"]
+  CLK["时钟跳变 nemesis"] --> LWW["last-write-wins 依赖本地时钟"]
+  LWW --> LOSS["新写入被旧时间戳覆盖"]
+  SPLIT --> HIST["异常历史"]
+  LOSS --> HIST
+  HIST --> CYCLE["检查器找环：声明失败"]
+```
+
 ## 边界
 
 本课不写攻击 payload，不针对具体产品给利用步骤。下一课 RLS 是授权，不是共识。数据库审计收口责任，与 Jepsen 的「是否撒谎」互补。形式化 TLA+ 是规格先写，Jepsen 找实现偏离。
 
 后课默认：分布式声明要用故障历史检验。吞吐基准不揭示脑裂双主。
+
+<span class="marginnote">常见误区：初学者容易把 Jepsen 当压测工具。它不追求高吞吐，反而常在小集群上慢慢注入故障——问的不是「扛多少 QPS」，而是「承诺在混乱中是否仍成立」。</span>
 
 ## 小结
 

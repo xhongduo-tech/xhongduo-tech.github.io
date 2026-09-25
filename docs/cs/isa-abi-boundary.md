@@ -19,6 +19,8 @@ ISA：寄存器堆、指令编码、[fence](/cs/fence-instructions)、[Sv39](/cs
 
 可执行文件还要 ELF 头、重定位、GOT/PLT；那是加载器合同，比单条 `jal` 更宽。硬件不读 ELF。把「能在这颗核上跑」等同于「能链上 glibc」，对照课会在动态链接处翻车。
 
+<span class="marginnote">术语翻译：ABI（应用二进制接口）就是两段已编译代码之间的「接头规范」——参数放哪个寄存器、返回值放哪、栈怎么对齐、谁保存哪个寄存器，全部写死，双方照办才能互调。</span>
+
 ### ABI 不是指令子集
 
 没有哪条 RISC-V 指令强制 `sp` 16 字节对齐；AAPCS64 与 psABI 写了。违反时硬件可能仍执行，直到 SIMD spill 或系统调用入口检查失败。[压缩](/cs/riscv-compressed) 是否存在，改变的是目标三元组，不是 opcode 合法性本身。
@@ -28,6 +30,8 @@ ISA：寄存器堆、指令编码、[fence](/cs/fence-instructions)、[Sv39](/cs
 ## 方法
 
 编译与链接选定三元组：`riscv64-linux-gnu` 意味着 LP64、小端、特定系统调用。代码生成遵守合同；手写汇编同样。上下文切换保存 ISA 状态（GPR、[SIMD](/cs/simd-extensions) 宽寄存器、[RVV](/cs/rvv-vector) `v` 与 `vl`），其布局又是内核 ABI。用户程序看不见 `hgatp`，那是 H 扩展的特权面，不进入 psABI。
+
+<span class="marginnote">数字实例：`riscv64-linux-gnu` 这个三元组逐段读是 riscv64（ISA）+ linux（OS ABI）+ gnu（C 库方言）；只把 gnu 换成 musl，ISA 一字未动，两边的二进制也不能直接混链。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,19 @@ flowchart TD
 ## 机制
 
 数字系统与接口的 ISA 对照在此封口：后课不再换指令集哲学，而是假定一份已冻结的用户可见 ISA+ABI，问微结构如何把它跑快。下一课起是[微结构进阶](/cs/gshare-predictor)：组成课已经用饱和计数器猜方向；现在要处理相关分支——ISA 只定义 `beq` 是否跳，不定义前端如何猜。gshare 从这里接过。
+
+<span class="marginnote">直觉类比：ISA 像「插座电压 220V」的物理事实，ABI 像「插头形状」的行业约定——电压对了电器能通电（指令能执行），插头形状不对照样插不进墙（链不上 libc）。</span>
+
+同一段机器码，两级合同各管什么：
+
+```mermaid
+flowchart TD
+  P["同一段机器码"] --> HW["ISA 保证：指令语义与异常"]
+  P --> SW["ABI 合同：寄存器角色与栈对齐"]
+  HW --> OK["任何同 ISA 核都会执行"]
+  SW --> LINK["只有同 ABI 才能与 libc 互调"]
+  LINK --> FAIL["换 ABI（如 SysV 到 Windows x64）：链接失败"]
+```
 
 ## 边界
 

@@ -36,6 +36,22 @@ flowchart TD
 
 IOMMU 把 DMA 从「信任设备」改成「设备也有地址空间」。这与用户/内核分裂平行：都是翻译上的权限，主体不同。性能代价是映射建立与 IOTLB 缺失。不要在此写如何绕过 IOMMU。
 
+```mermaid
+flowchart TD
+  SUB["无 IOMMU: DMA 地址=物理地址"] --> ANY["坏描述符/恶意设备可写任意 DRAM"]
+  MAP["dma_map: 建立映射"] --> TBL["按设备源 ID 查上下文表"]
+  TBL --> OPT["I/O 页表: IOVA->PA + 权限"]
+  OPT --> HIT{"IOVA 映射过?"}
+  HIT -->|"是"| OK["设备只能写允许的页"]
+  HIT -->|"否"| FAULT["中止事务 + 上报内核"]
+```
+
+<span class="marginnote">术语翻译：IOVA（I/O 虚拟地址）就是「设备眼里的假地址」。设备在描述符里填 IOVA，IOMMU 在总线上把它翻译成真物理地址——和 CPU 的 MMU 用虚拟地址换物理地址是同一个把戏，只是查表的主语从 CPU 换成了外设。</span>
+
+<span class="marginnote">常见误区：初学者容易以为有了 IOMMU 性能白赚。映射和解除映射本身是软件开销，IOTLB 未命中还会拖慢每次 DMA 传输；所以驱动对同一块网卡的接收环通常映射一次反复用，而不是每包都 map/unmap。</span>
+
+<span class="marginnote">为什么重要：一个 DMA 描述符填错地址，设备不会报错，而是安静地把数据覆写到内核任意物理页上——可能覆盖到别的进程甚至内核代码。没有 IOMMU 时，这种「写飞」是最难排查的安全漏洞来源之一。</span>
+
 块层 bio 仍描述页；IOMMU 是 DMA API 之下的翻译。
 
 ## 边界

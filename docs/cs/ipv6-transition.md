@@ -19,11 +19,15 @@ section: cs
 
 不要把 IPv6 过渡写成安全课：IPsec 曾被神话为 v6 内置强制，实践不是。
 
+<span class="marginnote">Happy Eyeballs（快乐眼球）就是让主机同时发起 IPv4 和 IPv6 两路连接、谁先握手成功就用谁的比赛机制——你感觉网页「秒开」，其实是两场赛跑只取了赢家。</span>
+
 <span class="marginnote">RFC 6180 分类场景。464XLAT 让 IPv4 套接字在 v6-only 网上活。本课不把每个实验 RFC 列成清单。</span>
 
 ### 没有免费只开 v6
 
 双栈最干净；隧道穿越；翻译牺牲地址真值。v6 无源分片，更依赖 PMTUD。CGN 只拖延 v4。
+
+<span class="marginnote">常见误区：初学者容易以为运营商部署 CGN 是在「推进 IPv6」，实际上它只是把仅剩的 IPv4 地址让几百个用户共享一个公网 IP，恰恰降低了升级 v6 的动力。</span>
 
 ## 方法
 
@@ -41,6 +45,20 @@ flowchart TD
 BGP 可同时带 v4/v6 地址族；RPKI 也有 v6 ROA。MTU：隧道再扣头，v6 不允许源分片，更依赖 PMTUD 下一课。ECMP 要按新五元组。手机核心常 v6-only + 464XLAT，接住蜂窝课的锚点。
 
 SIIT 无状态翻译与 NAT64 有状态：规模与日志不同。
+
+<span class="marginnote">数字实例：NAT64 的知名前缀 64:ff9b::/96 里，/96 表示前 96 位固定，剩下 32 位恰好塞下一个 IPv4 地址——203.0.113.8 拼进去就是 64:ff9b::cb00:7108（cb00:7108 正是 203.0.113.8 的十六进制写法）。</span>
+
+v6-only 客户端访问 v4 服务器的完整一趟：DNS 查不到 AAAA 时由 DNS64 合成，包走到 NAT64 网关改写成 v4，回包再原路还原。
+
+```mermaid
+flowchart LR
+  C["v6-only 手机"] -->|"只查到 A 记录"| DNS["DNS64 合成 AAAA"]
+  DNS -->|"返回 64:ff9b::v4 地址"| C
+  C -->|"发 v6 包"| GW["NAT64 网关"]
+  GW -->|"改写为 v4 包"| S["IPv4 服务器"]
+  S -->|"回 v4 包"| GW
+  GW -->|"还原为 v6 包"| C
+```
 
 ## 边界
 

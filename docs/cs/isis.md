@@ -17,6 +17,8 @@ section: cs
 
 OSPF 是 IP 上的协议，依赖 IP 可达来传 LSA（邻接除外）。IS-IS Hello/LSP 可直接封装在二层，地址族可后加 TLV——历史上加 IPv6、SR 比 OSPFv2 补丁轻松。L1 像非骨干区域，L2 像骨干；L1/L2 路由器相当于 ABR。度量原 6 比特，宽度量后才适合 TE。
 
+<span class="marginnote">术语翻译：TLV 就是「类型-长度-值」三件套——先报这是什么（Type）、再报有多长（Length）、最后放内容（Value）；路由器遇到不认识的类型按 Length 跳过即可，这正是它后来能无痛加 IPv6 和 SR 的原因。</span>
+
 不要把 IS-IS 写成「二层路由替代 STP」：它算的是 IP（或 CLNS）下一跳，不是 MAC 洪泛树。
 
 <span class="marginnote">ISO 10589。RFC 1195 引入 IP。DIS 类似 DR 但广播网上选出。本课不背 NET 地址编码。</span>
@@ -40,7 +42,23 @@ flowchart TD
 
 主干链路状态课的洪泛可靠性（序号、老化）两边同构。选择哪一个往往是运维传统与 TE/SR 生态，不是容量公式。卫星高延迟链路上 Hello 死亡计时要放宽，与介质无关的协议定时器问题。
 
+<span class="marginnote">为什么重要：卫星链路单程就有几百毫秒抖动，若照搬地面默认的「10 秒 Hello、30 秒判死」，一次抖动就可能误判邻居死亡，触发全网 SPF 重算——定时器必须随介质放宽。</span>
+
 DIS 与 OSPF DR：都是减少广播网邻接全网状，细节不同，对象同类。
+
+<span class="marginnote">直觉类比：广播网选出的 DIS 像班会里的「发言主持人」——大家只跟主持人对表，不必两两互相认识；n 台设备的邻接从 n(n−1)/2 条降到约 n 条，比如 10 台从 45 条降到 10 条。</span>
+
+一条 LSP 里 TLV 如何实现向前兼容：
+
+```mermaid
+flowchart LR
+  LSP["一个 IS-IS LSP"] --> H["固定头部"]
+  LSP --> T1["TLV: IS 邻居"]
+  LSP --> T2["TLV: IPv4 前缀"]
+  LSP --> T3["TLV: IPv6 前缀（后加）"]
+  LSP --> T4["TLV: SR SID（后加）"]
+  T3 --> OLD["老路由器按 Length 跳过，照常转发"]
+```
 
 ## 边界
 

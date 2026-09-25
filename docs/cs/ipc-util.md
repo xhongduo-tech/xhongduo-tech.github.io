@@ -41,6 +41,23 @@ flowchart TD
 
 超标量把 $W\gt 1$ 之后，相关与端口会让 $u$ 远小于 1：宽度 4 而 IPC 1.5 很常见。本课不引入发射逻辑，只把这个比值的位置留好。
 
+```mermaid
+flowchart TD
+  IDEAL["理想: 每拍 W 条"] --> S1["结构停顿: 端口/部件冲突"]
+  IDEAL --> S2["数据停顿: load-use 等待"]
+  IDEAL --> S3["控制停顿: 分支误预测冲刷"]
+  S1 --> ACT["实测 IPC = W - 每拍平均空档"]
+  S2 --> ACT
+  S3 --> ACT
+  ACT --> U["利用率 = IPC / W"]
+```
+
+<span class="marginnote">数字实例：10 亿条指令、3 GHz 机器上，$\mathrm{IPC}=0.8$ 意味着 $\mathrm{CPI}=1.25$，运行时间 $=10^9\times1.25\div(3\times10^9)\approx0.42$ 秒；若停顿修到 $\mathrm{IPC}=1$，同程序只要 0.33 秒——省下的 0.09 秒全是流水线空档。</span>
+
+<span class="marginnote">术语翻译：这个 IPC 是 **Instructions Per Cycle（每拍指令数）**，与进程间通信（Inter-Process Communication）的 IPC 只是缩写撞车——一个数流水线吞吐，一个数进程传数据，看到缩写先看上下文。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 IPC 高的机器一定快。一台 4 GHz、$\mathrm{IPC}=1.0$ 的机器每秒提交 40 亿条，另一台 3 GHz、$\mathrm{IPC}=1.6$ 的机器提交 48 亿条——后者更快。单看频率或单看 IPC 都会被骗，要相乘。</span>
+
 ## 边界
 
 本课不把 IPC 写成可以大于宽度：那是计数错误或把别的硬件线程算进来。[SMT](/cs/smt) 才用多线程填空档。也不把 GPU 占用率写进来。Gustafson 按问题规模放大仍不在本课。

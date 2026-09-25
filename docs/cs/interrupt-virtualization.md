@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">ARM GICv4 有类似 LPI 直投。对象是少 exit，不是实时保证。</span>
 
+<span class="marginnote">「posted」可以翻译成「投递到信箱」：传统注入像快递员每次都把你从房间里叫出来（VM-exit）当面签收，posted 则是快递直接放进你门口的信箱（内存里的 PID 描述符），等你回到房间（客户开中断）时自己取，宿主全程不用出场。</span>
+
 ## 方法
 
 启用 APICv → 设备 MSI 指向 posted → 客户在非根模式收中断。对照 [半虚拟](/cs/paravirtualization) virtio 中断：仍可走 eventfd。对照 [PREEMPT_RT](/cs/preempt-rt)：宿主 RT 与客户中断是两层。
@@ -35,6 +37,21 @@ flowchart TD
 中断虚拟化把「设备吵」从 VMM 热路径拿掉，使直通和 virtio 都能接近裸机 IRQ。不要写成 PIC 历史课。与 [RSS](/cs/rss-multiqueue)：客户内多队列仍要自己绑。
 
 无硬件支持则退回 exit 注入。
+
+```mermaid
+flowchart TD
+  IRQ["物理中断到达"] --> P["硬件查 PID 描述符"]
+  P --> NV{"NV 指向的宿主向量?"}
+  NV -->|"有效"| WFS["检查客户 vCPU 的 ON 位"]
+  WFS --> WAK["唤醒/通知目标 pCPU"]
+  WAK --> G["客户在非根模式取中断"]
+  NV -->|"无效"| EXIT["退回 VM-exit 注入"]
+  G --> EOI["虚拟 EOI 清 ON"]
+```
+
+<span class="marginnote">数字实例：一次 VM-exit 加上重新进入大约花 1–2 微秒。一张每秒打 10 万个中断的网卡，若每个中断都走退出注入，仅上下文进出就要吃掉约 0.1–0.2 秒的 CPU 时间（10 万 × 1.5 微秒 ≈ 15%），posted 把这笔开销几乎清零。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 posted interrupt 让中断「更快送达」。它的收益主要不是降低中断延迟，而是省掉 VMM 介入的 CPU 开销；极端情况下信箱转投（NV 重定向）甚至可能比直接注入多一跳。</span>
 
 
 实现上：irqfd 把事件 fd 接到注入路径，已比 ioctl 注入快。posted 再进一步让客户在非根模式收。无 APICv 时每个虚拟中断都可能 exit。 读法上只引用[上一课](/cs/vfio)的结论，不把对象换成训练推理或限价簿。

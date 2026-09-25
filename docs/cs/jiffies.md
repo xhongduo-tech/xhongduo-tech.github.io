@@ -17,6 +17,8 @@ section: cs
 
 若每次睡眠都读 CPU 周期计数器，旧机器没有或不同核会漂。经典 Unix：编程间隔定时器，HZ（如 100 或 250）次每秒加一。超时时刻记成「未来的 jiffies」。缺口：谁在 IRQ 里加一、32 位回绕如何比较、用户 `sleep` 的分辨率不能高于滴答。动态 HZ 与无滴答（tickless）是实现，对象仍是「软件时间基」。
 
+<span class="marginnote">数字实例：HZ=100 时每秒滴答 100 次、每次 10ms，「睡 1 秒」就是把目标 jiffies 设成当前值加 100；若 HZ=250，粒度变 4ms，同一秒要数 250 滴。</span>
+
 本课不把每架构的时钟事件设备编程写完。
 
 <span class="marginnote">比较用有符号差处理回绕。jiffies 不是 UTC；墙上时钟是另一套（xtime），可被 NTP 调。本课只钉单调滴答。</span>
@@ -36,11 +38,26 @@ flowchart TD
 
 jiffies 把时间变成整数，让 OS 能在没有用户态时钟的情况下做公平调度与 I/O 超时。分辨率与延迟下限被 HZ 绑住：HZ=100 则 10ms 粒度。这解释了为何管道超时与 nanosleep 在旧内核上不准。下一课用时钟事件设备实现更高分辨率，而不必把 HZ 拉到十万。
 
+<span class="marginnote">直觉类比：有符号差比较像跨午夜算工时——23:50 干到 00:05，直接相减得负数，但取「最近的方向」理解就是 15 分钟；jiffies 回绕时用 $(\mathrm{long})(later - earlier)$ 同理得到正确的小正数。</span>
+
+计数器回绕时如何仍判断「到期没有」：
+
+```mermaid
+flowchart TD
+  NOW["now = 4294967290，逼近 32 位顶"] --> ADD["目标 = now + 10"]
+  ADD --> WRAP["几拍后计数回绕到 0 附近"]
+  WRAP --> DIFF["有符号差 (long)(now - 目标)"]
+  DIFF -->|"差为正"| EXP["已到期，唤醒"]
+  DIFF -->|"差为负"| WAIT["未到期，继续睡"]
+```
+
 与组成课的时钟域不同：这里是软件计数，不是 PLL。
 
 ## 边界
 
 本课不引入 CLOCK_MONOTONIC 的全部 POSIX 钟。不保证虚拟机里滴答与真时间 1:1（偷时间）。下一课：纳秒级期限与红黑树定时器。
+
+<span class="marginnote">常见误区：初学者容易拿 jiffies 当墙上时钟。它是单调递增的计数，不理会 NTP、不对应任何日期；显示「现在几点」要读另一套可被调整的时钟。</span>
 
 后课默认：粗超时可用 jiffies。细期限与高精度时钟事件，下一课 hrtimer。
 
