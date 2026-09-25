@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">boost/turbo 是更高 P-state，热墙会收回。对象是策略，不是电路。</span>
 
+<span class="marginnote">术语翻译：P-state 就是处理器的一档「频率-电压」档位——档位越高算得越快、也越费电；governor 的全部工作，就是在这些离散档位里按策略挑一档。</span>
+
 ## 方法
 
 tick 或更新 util → governor 选 freq → 写 MSR 或 SCMI。对照 [qdisc](/cs/tx-path-qdisc)：一个整形包，一个整形瓦特。对照 DL：实时任务常要 performance。对照 memcg：无关直接。
@@ -30,9 +32,22 @@ flowchart TD
   F --> HW["P-state 生效"]
 ```
 
+<span class="marginnote">数字实例：假设 ondemand 每 10 ms 采样一次，负载在第 1 ms 突增，它最迟要等到第 10 ms 才发现并跳频；schedutil 则在调度器每次更新 util 时就地做决定，延迟接近零。这就是「过渡延迟」的具体大小。</span>
+
 ## 机制
 
 governor 把能耗与延迟的旋钮交给策略，使同一调度器在插电/电池下行为不同。错误的 powersave 把 cyclictest max 打爆。不要写成电费课。与 EAS：选核与选频是一对，分开调会打架。
+
+```mermaid
+flowchart TD
+  SPIKE["同一次负载突增"] --> PERF["performance: 本来就钉最高频"]
+  SPIKE --> SAVE["powersave: 仍钉低频, 慢但省"]
+  SPIKE --> ODD["ondemand: 等下一个采样点再跳"]
+  SPIKE --> SCHED["schedutil: 下次调度更新就跳"]
+  ODD --> LAG["采样间隔即过渡延迟"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「钉低频一定省电」。实际上慢工未必出细活：跑得快能更早干完、更早降频甚至进空闲档，总能耗反而可能更低；一味压低频率还会把实时延迟指标（如 cyclictest 的 max）打爆。</span>
 
 容器一般不能直接设主机 freq，只能靠自己的 util 间接。
 

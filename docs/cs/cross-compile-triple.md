@@ -25,6 +25,8 @@ section: cs
 
 <span class="marginnote">GNU config.sub。Clang/LLVM 三元组。本课不写发行版如何打 rootfs。</span>
 
+<span class="marginnote">术语翻译：三元组就是给「目标机器」写的完整地址：CPU 架构-厂商-系统-ABI。`riscv64-unknown-linux-gnu` 读作「RISC-V 64 位、厂商无所谓、Linux 系统、GNU ABI」——四个字段各管一件事，缺一个都可能链错库。</span>
+
 ## 方法
 
 `--sysroot` 指向目标根。pkg-config 要目标的。QEMU user 可跑目标 ELF 做测试。表调度延迟模型应按目标微架构，不是主机。
@@ -37,11 +39,24 @@ flowchart TD
   ELF --> QEMU["模拟或真机加载"]
 ```
 
+<span class="marginnote">术语翻译：sysroot 是「目标的整个文件系统塞进一个目录」——头文件在 usr/include、库在 usr/lib。`--sysroot` 让编译器找 stdio.h 和 libc 时去这个目录，而不是本机的 /usr，从而保证「看的是目标的头、链的是目标的库」。</span>
+
 与 LTO：主机跑 lto，目标后端代码生成——bitcode 是中立的，机器描述仍是目标的。
 
 ## 机制
 
 错误：链接了 `/usr/lib` 主机库，加载时 SIGSEGV 或 ELF 类不匹配。检查：`file`、`readelf -h` 的机器字段。
+
+```mermaid
+flowchart TD
+  LINK["链接每个库"] --> Q{"库来自目标 sysroot?"}
+  Q -->|"是"| OK["继续, 生成目标 ELF"]
+  Q -->|"否: 误链主机 /usr/lib"| BAD["指令集或 ABI 不匹配"]
+  BAD --> SYM["症状: 真机加载 SIGSEGV 或 ELF 类不匹配"]
+  SYM --> CHK["用 file 与 readelf -h 查机器字段"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「都是 x86_64 就能混用」。`x86_64-linux-gnu` 与 `x86_64-linux-musl` 是同一个 ISA、不同的 libc 与 ABI，混链照样崩；`uname -m` 只回答了三元组四个字段里的第一个。</span>
 
 多架构 Docker 不是本课重点；原理仍是三元组。
 

@@ -21,6 +21,8 @@ G-Counter、PN-Counter、G-Set、OR-Set、LWW-Register（寄存器仍是 LWW，�
 
 <span class="marginnote">SSS 2011 技术报告把 CvRDT 与 CmRDT 对齐。先前 Bayou 的提交是应用合并，不保证半格。</span>
 
+<span class="marginnote">术语翻译：半格是一种「任取两个元素都能唯一给出合并结果，且结果不小于两者」的数学结构。CRDT 把副本状态放进这种结构里，于是谁先谁后合并、合并几次都殊途同归——「交换、结合、幂等」说的就是这件事。</span>
+
 ## 方法
 
 设计：先写并发意图的交换图，再找单调状态。tombstone 让删除也单调（OR-Set）。压缩 tombstone 需要因果稳定——又用到[向量](/cs/vector-clocks)或 GC 纪元。传播仍用反熵或广播，CRDT 不替代[Dynamo](/cs/dynamo-anti-entropy)的运输层。
@@ -32,11 +34,23 @@ flowchart TD
   JOIN --> CONV["与顺序无关的收敛"]
 ```
 
+<span class="marginnote">数字实例：两台机器时钟差 50 ms 时，LWW 的两个并发「+1」会被时间戳大的那个盖掉，总数变 1；G-Counter 让每副本只增自己的分量、合并按分量取 max，两个 +1 都活着，总数是 2——丢不丢就差在这一步。</span>
+
 不要把「JSON 随便 merge」叫 CRDT。也不要把多主数据库默认当半格。
 
 ## 机制
 
 G-Counter：每副本只增自己的分量，合并取 max，求和。两个 +1 来自不同副本则和为 2，LWW 做不到。OR-Set：添加带唯一标签，删除记标签；合并并上标签集。唯一约束「键只出现一次」与并发添加冲突，半格给不出「选一个不丢另一个」的业务含义——那就要 LWW 或共识。
+
+```mermaid
+flowchart TD
+  A["副本 A: 自己的分量 5 加 1 变 6"] --> EX["两个副本交换状态"]
+  B["副本 B: 自己的分量 3 加 1 变 4"] --> EX
+  EX --> MER["按分量取 max: A=6, B=4"]
+  MER --> SUM["计数器值 = 各分量求和 = 10"]
+```
+
+<span class="marginnote">常见误区：初学者容易把 CRDT 当成「自动同步的数据库」。它只保证「合并这一步不冲突」，数据怎么传仍要反熵广播；「账户不透支」「键全局唯一」这类跨对象不变式它给不了，得靠共识或事务。</span>
 
 元数据膨胀是工程税：标签、向量、墓碑。不膨胀往往牺牲精确并发（又滑回 LWW）。正确性相对代数，不相对 NTP。
 
