@@ -19,6 +19,10 @@ section: cs
 
 <span class="marginnote">字符设备按字节流；块设备按块，可走页缓存（缓冲 I/O）。裸盘 `O_DIRECT` 是后课。本课不把 NVMe 多队列写完。</span>
 
+<span class="marginnote">数字实例：`ls -l /dev/sda` 输出里的「8, 0」就是主、次设备号。Linux 里主号 8 固定分给 sd（SCSI/SATA 磁盘）驱动，次号 0 是整盘、15 是第 16 个分区。主次号不是随便编的，内核靠这对数字查表找到驱动。</span>
+
+<span class="marginnote">直觉类比：主次号像公司电话总机——主号决定转接哪个部门（哪个驱动），次号是部门里的分机号（该驱动管的第几个设备实例）。同一芯片上的两个串口，往往主号相同、次号不同。</span>
+
 ## 方法
 
 `read(/dev/zero)`：驱动填零，不经块分配器。`read(/dev/sda)`：块层按偏移读扇区，可进页缓存（bdev inode）。`ioctl` 传送设备特定命令。对照普通文件：没有 extent，偏移是设备地址。对照 [FUSE](/cs/fuse)：用户态也可以实现字符设备，但经典路径是内核 cdev。
@@ -34,6 +38,21 @@ flowchart TD
 ## 机制
 
 设备节点把驱动登记进文件系统名空间，使权限、打开计数、poll 与普通文件共用 VFS。这是 Unix 的关键接头：备份、dd、加密卷都从打开一个节点开始。不要把本课写成硬件总线枚举全文——[设备模型](/cs/device-model-binding) 在启动课序。
+
+两张图回答的问题不同：上面那张画「打开节点怎么找到驱动」，这张画「数据本身从哪来」——读 `/dev/zero` 时数据是驱动现场造的，读 `/dev/sda` 时数据要经块层、还可能先在页缓存里。
+
+```mermaid
+flowchart TD
+  Z["read(/dev/zero)"] --> CZ["字符驱动 zero"]
+  CZ --> F1["驱动直接把零填进用户缓冲"]
+  S["read(/dev/sda)"] --> BL["块层按偏移换算扇区"]
+  BL --> PC{"页缓存里已有这块吗"}
+  PC -- "命中" --> U["从页缓存拷给用户"]
+  PC -- "未命中" --> DISK["向磁盘发读请求"]
+  DISK --> PC
+```
+
+<span class="marginnote">常见误区：初学者容易以为 `rm /dev/sda` 会把磁盘驱动从内核里拆掉。实际上删掉的只是文件系统里一个 inode，驱动仍登记在内核中，devtmpfs 下次还会把节点重新造出来——删的是「门牌」，不是「房子」。</span>
 
 与 [rename](/cs/rename-atomicity)：设备节点可改名，主次号不变；删除节点不卸载驱动。
 

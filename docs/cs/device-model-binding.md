@@ -17,6 +17,8 @@ section: cs
 
 PCI：vendor/device id。平台设备：DT compatible。匹配后 `probe` 申请 IRQ、ioremap、注册子系统（块、net）。缺口：延迟探测、绑定失败回滚；sysfs `unbind`。本课不把每个总线类型写成清单。
 
+<span class="marginnote">术语翻译：「绑定」就是给设备对象找一份驱动的「工作合同」——总线拿着设备的身份证（PCI 的 vendor/device id、设备树的 compatible 字符串）去比对每个驱动登记的匹配表，对上号就调用驱动的 probe，由它把设备真正接管起来。</span>
+
 <span class="marginnote">uevent 通知 udev 后课。对象是内核对象图，不是硬件原理图。</span>
 
 ## 方法
@@ -34,6 +36,23 @@ flowchart TD
 ## 机制
 
 设备模型让热插、电源、sysfs 有统一骨架，驱动只填总线相关。它是「一切皆文件」在设备侧的内核实现。不要写成 Windows INF 课。与 [IOMMU](/cs/dma-coherence)：probe 时设 DMA 掩码。
+
+把绑定的完整生命周期连同失败与延迟路径摆出来，probe 不只是「匹配成功」四个字：
+
+```mermaid
+flowchart TD
+  NEW["新设备出现：uevent"] --> MATCH{"总线匹配表命中驱动？"}
+  MATCH -->|"命中"| PROBE["probe：申请 IRQ、ioremap、注册子系统"]
+  MATCH -->|"暂无驱动或依赖未就绪"| DEFER["deferred probe：稍后重试"]
+  DEFER --> MATCH
+  PROBE -->|"全部成功"| OK["设备可用：sysfs 出现属性"]
+  PROBE -->|"某步失败"| RB["按申请逆序回滚，设备回到未绑定"]
+  OK --> UNB["unbind / remove：释放资源，设备可再绑定"]
+```
+
+<span class="marginnote">直觉类比：probe 像新员工入职——先领工牌和钥匙（申请 IRQ、映射寄存器），再登记进部门通讯录（注册到块、net 子系统）。任何一步领不到（资源被占）都要按原路退还已领的一切（回滚），不能占着半套资源离场。</span>
+
+<span class="marginnote">常见误区：初学者容易以为驱动加载顺序是人为排好的。实际上设备可能先于驱动出现——驱动晚注册时内核会对已有设备补一次匹配；依赖未就绪靠 deferred probe 重试，而不是重启整机。设备等时钟、时钟等设备的循环依赖，正是靠这个延迟机制化解的。</span>
 
 循环依赖（设备等时钟、时钟等设备）靠框架延迟。
 

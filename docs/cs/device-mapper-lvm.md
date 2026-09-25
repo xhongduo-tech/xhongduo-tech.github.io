@@ -17,6 +17,8 @@ section: cs
 
 一张表：逻辑区间 → (磁盘, 偏移, 类型)。linear 拼接；striped 条带；snapshot 写时复制块设备（与 [btrfs 快照](/cs/fs-snapshots) 不同层）；thin 后课再讲。ioctl/`dmsetup` 装表，出现 `/dev/dm-N`。LVM：物理卷打标签，卷组凑空间，逻辑卷 = 一段表。缺口：挂载的是 LV 节点；扩容是改表加 FS `resize`；与 [设备节点](/cs/device-nodes) 的关系。
 
+<span class="marginnote">术语翻译：PV（物理卷）是打了标签的磁盘或分区；VG（卷组）把若干 PV 的空间凑成一个「大池子」；LV（逻辑卷）是从池里切出来交给文件系统的「分区」。像面粉（PV）揉成面团（VG），再揪出一块块面剂子（LV）。</span>
+
 <span class="marginnote">表可热替换（reload），有短暂冻结 I/O。镜像与 RAID 可走 dm 或后课 md。本课不把每一个 target 写成清单。</span>
 
 ## 方法
@@ -33,6 +35,22 @@ flowchart TD
 ## 机制
 
 dm 把存储虚拟化放进内核块层，使策略（扩容、加密、多路径）可组合：表可以叠（LV 上再 crypt）。LVM 只是把表存进元数据并在启动时恢复。不要把 LVM 快照当成 btrfs send 的替代叙述——粒度与一致性范围不同：设备快照不知道 FS 事务。
+
+块设备快照的「第一次写」最值得画清楚，旧数据去哪、新数据去哪各有去处：
+
+```mermaid
+flowchart TD
+  W["写请求到达 LV 的块 B"] --> CHK{"块 B 已拷入 COW 区？"}
+  CHK -->|"首次写"| COW["先把旧数据拷进 COW 区"]
+  COW --> NEW["再写新数据到原位置"]
+  CHK -->|"早已拷过"| NEW
+  SNAP["读快照：创建时刻的旧视图"] -->|"B 已被改过"| COW
+  SNAP -->|"B 未被改过"| ORIG["照常读原位置"]
+```
+
+<span class="marginnote">直觉类比：device mapper 像一层「地址翻译台」——文件系统每次说「读逻辑块 x」，翻译台查表答「这其实是磁盘 2 的第 y 块」。扩容、加密、快照都只是换一张表，文件系统毫无察觉；「不动文件系统就玩出新花样」的机关全在这张表上。</span>
+
+<span class="marginnote">数字实例：striped 表按块大小把逻辑块轮流铺到两块盘。块大小 4 KB 时，逻辑块 0 落盘 A、块 1 落盘 B、块 2 又回盘 A；两个独立 I/O 若分别命中奇偶块，就能并行打到两块盘上，顺序带宽近似翻倍。代价是无冗余：一块盘坏，整个条带卷的数据都拼不回来。</span>
 
 与 [fsync](/cs/fsync)：flush 要传到底层；表不能吞掉屏障，后课 FUA 再钉。
 
