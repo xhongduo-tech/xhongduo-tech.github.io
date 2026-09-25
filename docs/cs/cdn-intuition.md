@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">缓存的是 HTTP 表示，遵守 Cache-Control。动态个性化请求仍回源。证书在边上要能出示源的名字，部署与上一课的真实性要求咬合。</span>
 
+<span class="marginnote">数字实例：用户到跨洋源站的 RTT 约 200ms，TLS 1.3 握手加一次请求至少 2 个 RTT；命中本城边节点 RTT 约 5ms，同样的事 10ms 完成——命中与否差出 20 倍，这就是「近」的含金量。</span>
+
 ## 方法
 
 发布者把源交给 CDN。用户解析 `www` 得到边节点 IP，[TLS 入口](/cs/http-tls-entry)意义上仍要认证该名字。GET 命中则不再走源站磁盘——像 [页 Cache](/cs/buffer-dirty) 但对象在另一台机器。失效：TTL 或显式清洗。
@@ -37,11 +39,25 @@ flowchart TD
 
 CDN 把应用层缓存插进端到端路径：对缓存命中，真正的「文件端」变成边节点，源站的端到端校验发生在边与源之间。用户与边仍要 TLS，否则入口课的中间人问题在边上重现。与 BGP 任播：同一前缀多地通告，LPM 把用户导到拓扑近的点，故障靠路由收敛。
 
+<span class="marginnote">术语翻译：任播就是「同一个 IP 地址在多个城市同时宣告」——路由器并不知情，只是按最短路径把包送到最近的一个副本；某地节点挂了，BGP 收敛后包自动改道下一个。</span>
+
+```mermaid
+flowchart TD
+  REQ["同一个域名请求"] --> DNSWAY["DNS 导向：按用户位置答不同 IP"]
+  REQ --> ANYCAST["任播：全网宣告同一个 IP"]
+  DNSWAY --> TOKYO["东京用户拿到东京边节点"]
+  DNSWAY --> PARIS["巴黎用户拿到巴黎边节点"]
+  ANYCAST --> LPM["路由按最短路径选最近副本"]
+  LPM --> FAIL["节点故障：路由收敛自动改道"]
+```
+
 不替代[拥塞控制](/cs/tcp-congestion)：边到用户仍是一条 TCP/QUIC。
 
 ## 边界
 
 本课不引入具体厂商配置语言。不把视频分片协议当必修。也不把 CDN 当安全边界的充分条件。应用如何在代码里绑定传输，下一课套接字 API——网络课收到 OS 的文件与进程上。
+
+<span class="marginnote">常见误区：初学者容易以为接入 CDN 要大改应用或它会「改写」内容，实际上它只是把遵守 Cache-Control 的 HTTP 表示复制到边上——静态对象原样搬运，动态个性化请求照旧回源。</span>
 
 源站仍要能承受未命中与清洗后的风暴。边节点的缓存键通常含 Host 与规范化 URL，查询串是否计入由配置决定。
 

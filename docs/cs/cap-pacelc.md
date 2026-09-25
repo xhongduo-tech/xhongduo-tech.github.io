@@ -19,6 +19,8 @@ Brewer 的猜想：一致、可用、分区容忍三选二。Gilbert–Lynch 把
 
 缺口：三选二被误读成「永远只能挑两字」。没有分区时三者可以同时（单主、多数派在连通时）。真正日常交换是**延迟 vs 一致**。Abadi 的 PACELC：If Partition, then A or C Else Latency or C。
 
+<span class="marginnote">术语翻译：PACELC 就是把两句话压进一个缩写——分区时（P）在可用与一致之间选；否则（EL, Else Latency）在延迟与一致之间选。它不引入新定理，只是提醒你「没有分区也在做交换」。</span>
+
 <span class="marginnote">Gilbert–Lynch 的 C 是线性一致，不是「数据没丢」。A 不是 HTTP 200。弱一致模型可以在分区下既「可用」又「某种 C」。</span>
 
 ## 方法
@@ -37,9 +39,23 @@ flowchart TD
 
 多数派读写：$R+W\gt n$ 在**未分区**时给线性一致寄存器（后课 quorum）。分区导致多数派只在一侧，另一侧的 W 或 R 不能完成——这是 CP。Dynamo 式 $R+W\le n$ 或斜向就近：分区两侧都能写，AP，冲突后课解决。
 
+<span class="marginnote">数字实例：n=3 取 R=2、W=2，读写集合大小之和 2+2=4\gt 3，必有一个副本同时参与读和写，所以总能读到最新已确认的值；若改成 W=1，写入一落地就返回，慢的那份副本就可能被读到旧值。</span>
+
+```mermaid
+flowchart TD
+  Q["n=3，取 R=2 与 W=2"] --> OK["连通时：2 个确认即可读写"]
+  Q --> PART["分区：A,B 在一侧，C 单独一侧"]
+  PART --> SIDE1["A,B 侧有 2 台：凑成多数，继续服务"]
+  PART --> SIDE2["C 侧只有 1 台：凑不齐多数"]
+  SIDE1 --> CP["分区下仍线性一致：CP 路线"]
+  SIDE2 --> AP["若放宽 W=1，两侧都能写：AP 路线"]
+```
+
 PACELC 的 EL：同步流水线 vs 读本地。Spanner 选 C 与较高延迟；许多缓存选 L。缩写是备忘录，不是新定理；定理仍是 Gilbert–Lynch 加上延迟模型。
 
 本课不把「CA」系统写成第三类宗教：拒绝承认分区等于假设网络永不切，Lynch 模型里这不成立。工程上「单机房、分区当全死」是把 P 的范围缩小。
+
+<span class="marginnote">常见误区：初学者容易把「CA 系统」当成与 CP、AP 并列的第三类选项，实际上「拒绝分区可能」等于假设网络永不切断——单机房系统只是把 P 的范围缩小成「机房整体死活」。</span>
 
 ## 边界
 

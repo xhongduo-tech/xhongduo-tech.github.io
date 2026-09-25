@@ -17,6 +17,8 @@ section: cs
 
 cwnd ← cwnd+1 每 RTT，则速率 ≈ cwnd/RTT，增长 $1/\mathrm{RTT}^2$ 量级。短 RTT 流抢占。卫星用户即使用对窗口缩放，仍被数据中心旁路流压。CUBIC 用墙钟时间减弱依赖，但不消灭。BBR 后课用带宽估计，仍有 RTT 噪声问题。这不是政策不公，是控制律。
 
+<span class="marginnote">术语翻译：AIMD 就是「加性增、乘性减」——每个 RTT 把拥塞窗口加 1 个 MSS，一遇丢包就把窗口砍半。关键在那个「每 RTT」：RTT 越短，同样的一次加 1 每秒能发生的次数就越多。</span>
+
 不要把「不公平」写成必须用 WFQ 才能上网；WFQ 后课是调度器解。
 
 <span class="marginnote">经典 TCP 文献讨论 RTT bias。本课不给数值仿真作业。</span>
@@ -40,7 +42,21 @@ flowchart TD
 
 Clos 内 RTT 同质，RTT 不公平不明显，incast 主导。公网 IXP 出口混流则明显。MSS 钳制让长 RTT 流每加一步字节更少，雪上加霜。多路径 MPTCP 后课可把子流 RTT 再搅一次。
 
+```mermaid
+flowchart TD
+  T["同一个瓶颈、同一秒钟"] --> A["RTT 10ms 的流：约 100 轮窗口加一"]
+  T --> B["RTT 200ms 的流：约 5 轮窗口加一"]
+  A --> WA["窗口更快爬到丢包阈值"]
+  B --> WB["窗口刚起步就被事件打回"]
+  WA --> S["瓶颈份额向短 RTT 流倾斜"]
+  WB --> S
+```
+
+<span class="marginnote">数字实例：同样 cwnd=1000 个 MSS（约 1.46 MB 数据每轮），RTT 10ms 的流速率约 146 MB/s；放到 RTT 200ms 的卫星链路只剩约 7.3 MB/s——窗口一样大，速率差 20 倍，这就是速率里的 1/RTT 因子。</span>
+
 应用层：把仓搬近（CDN）减 RTT，既降延迟也改善 TCP 份额——经济与控制耦合。
+
+<span class="marginnote">常见误区：初学者容易把长 RTT 用户慢归咎于「网速差」或「窗口调大点就好」，实际上这是同一瓶颈上控制律的数学偏置；把 MSS 钳小反而更糟，要翻身得靠调度器（WFQ、AQM）或换控制律。</span>
 
 ## 边界
 

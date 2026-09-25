@@ -29,6 +29,8 @@ IR 的 `call @f(i32, double)` 要按 ABI 分类（整数/浮点/聚合）。聚�
 
 实现 `LowerCall`/`LowerFormalArguments`：把参数映射到物理寄存器或 `FrameIndex`。返回：寄存器或 sret 隐藏指针。对齐：栈 16 字节等。
 
+<span class="marginnote">术语翻译：sret 就是用「隐藏的第一个指针参数」的手段来做「返回大结构体」的事——调用方先在栈上挖好一块空间，把地址当参数递进去，函数往里写；调用结束后那块栈空间里就是返回值。</span>
+
 ```mermaid
 flowchart TD
   IR["IR 参数"] --> CLS["ABI 分类"]
@@ -40,11 +42,29 @@ flowchart TD
 
 与内联：内联后约定消失。与尾调用：须约定兼容才能 jmp。
 
+<span class="marginnote">数字实例：SysV AMD64 下整数参数依次走 rdi、rsi、rdx、rcx、r8、r9 共 6 个寄存器。调用 f(1,2,3,4,5,6,7) 时前 6 个进寄存器，第 7 个参数 7 被压到栈上——多传一个参数，性能特征就可能变。</span>
+
 ## 机制
 
 浮点与 SIMD 寄存器类独立。整数 8 个参数寄存器满则上栈。不要把 `float` 误分类到 GPR 除非 ABI 如此（某些软浮点）。
 
+```mermaid
+flowchart TD
+  A["一个待传参数"] --> C{"ABI 分类"}
+  C -->|"整数 / 指针"| G{"整数寄存器还有空位？"}
+  C -->|"浮点 / SIMD"| X{"浮点寄存器还有空位？"}
+  G -->|"是"| R["放入下一个 GPR，如 rdi"]
+  G -->|"否"| S["压到调用方栈上按对齐排布"]
+  X -->|"是"| XR["放入 xmm 寄存器"]
+  X -->|"否"| S
+  R --> CALL["call 指令"]
+  XR --> CALL
+  S --> CALL
+```
+
 异常：调用是 invoke 时还要 landing pad，展开表后课。
+
+<span class="marginnote">常见误区：初学者容易以为「函数传参就是压栈」，实际上现代 x86-64 约定前几个参数走寄存器，栈只是寄存器用完后的溢出区；老的 32 位 cdecl 才是全部压栈、由调用方清理。</span>
 
 ## 边界
 

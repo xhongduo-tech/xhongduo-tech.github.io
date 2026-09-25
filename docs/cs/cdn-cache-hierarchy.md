@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">RFC 9111。本课不点名厂商产品名当标准。</span>
 
+<span class="marginnote">直觉类比：层次缓存像公司订水——工位（边缘）没水先问楼层茶水间（父层），茶水间没有才去仓库（源）整箱进货；大多数需求在楼层之间就消化了，仓库只被低频地、大批量地打扰。</span>
+
 ### 失效是一等公民
 
 层次减源命中。Vary 与 Cookie 决定能否存。不可变 URL 最干净。惊群要用 stale-while-revalidate。
@@ -28,6 +30,8 @@ section: cs
 ## 方法
 
 画：用户 → 边缘 → 父 → 源。对照 DNS 缓存层次。与 EVPN 无关。
+
+<span class="marginnote">数字实例：边缘命中率 90%，父层再接住剩余 miss 的 90%，回源率就是 0.1×0.1=1%——两层「九成」的命中率叠起来，源只承受百分之一的流量，这就是层次的复利。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,17 @@ flowchart TD
 H3 连接在边缘终止。Origin shield 减源负载。失败：某层错误缓存 200 要 purge。RPKI 管源地址，不管缓存一致性。ABR 分片不可变则永不失效，最香。
 
 安全：缓存投毒若键过粗。点名。
+
+```mermaid
+flowchart TD
+  MISS["大量边缘同时 miss 同一 URL"] --> LOCK["父层锁定：只放一个请求回源"]
+  LOCK --> ORIGIN["源只收到一次查询"]
+  ORIGIN --> FILL["结果回填父层与各边缘"]
+  SWR["stale-while-revalidate"] --> OLD["先回旧值，同时后台刷新"]
+  NOLOCK["没有锁定与 SWR"] --> STAMPEDE["回源风暴：源被打穿"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为 purge 要一台一台边缘去清，实际上版本化 URL（把内容哈希写进路径）让「失效」变成「换新地址」——旧 URL 自然过期，无需任何清查动作，这也是事故时最可靠的切换方式。</span>
 
 ## 边界
 
