@@ -19,9 +19,13 @@ section: cs
 
 <span class="marginnote">KASAN 是内核同构。硬件 ASan（MTE）可减少影子。生产一般不开完整 ASan，税是内存与指令。</span>
 
+<span class="marginnote">影子为什么恰好是 1/8：影子内存每 1 字节负责描述 8 个原始字节的「可否访问」状态，所以 64 字节的对象只需 8 字节影子。64 位机器虚地址空间近乎无限，多拿这 1/8 的「地图」毫无压力，这正是 ASan 先在 64 位上普及的原因。</span>
+
 ## 方法
 
 链接 asan runtime：替换 malloc，mmap 影子。编译 `-fsanitize=address`。对照 memcg：ASan 进程 RSS 暴涨是影子，不是泄漏。对照 [userfaultfd](/cs/userfaultfd)：都拦截访问，一个检测非法，一个合法填页。对照 KPTI：无关用户插桩。
+
+<span class="marginnote">「毒化（poison）」就是「在影子内存里给某段字节打上『不许碰』的记号」：分配时毒化红区、free 后毒化已释放块，之后任何一次碰它的访问都会当场报错——use-after-free 能被查出来，靠的就是这一步。</span>
 
 ```mermaid
 flowchart TD
@@ -35,7 +39,21 @@ flowchart TD
 
 ASan 把空间错误变成确定崩溃，是开发期的 OS 外衣：依赖 mmap 大区域、替换分配器、信号处理。它不证明无 bug。不要写成形式验证课。与竞技场：ASan 分配器通常不用生产 tcmalloc 的同一套 bin。
 
+一次访问前的影子检查具体怎么做：
+
+```mermaid
+flowchart TD
+  A["程序要读地址 p"] --> C["编译器插入的检查指令"]
+  C --> M["算影子地址 p 右移 3 位再加固定偏移"]
+  M --> L["读出那 1 字节影子"]
+  L --> V{"影子值是否为 0"}
+  V -->|"是"| OK["放行 执行真正的读"]
+  V -->|"非 0"| R["报越界 打印分配栈与回溯"]
+```
+
 假阴性：未插桩的汇编、DMA、内核。假阳性少，但内联汇编会漏。
+
+<span class="marginnote">常见误区：初学者容易以为「ASan 跑过就等于没有内存 bug」。它只能看见被插桩代码触发的错误——未插桩的汇编、DMA 直写的缓冲、内核路径都不在监视范围内；干净跑完只说明「没被它抓到」，不是「不存在」。</span>
 
 
 实现上：影子通常占虚址的 1/8，64 位机器靠大空洞映射。拦截 memcpy 才能抓住块内越界。halt_on_error 与 abort 决定测试能不能继续。 读法上只引用[上一课](/cs/arena-allocators)的结论，不把对象换成训练推理或限价簿。

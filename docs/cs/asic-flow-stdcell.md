@@ -25,6 +25,8 @@ section: cs
 
 <span class="marginnote">Weste/Harris 与 Rabaey 等 DIC 是 VLSI 教材。Harris DDCA 对比 FPGA/ASIC。本课不进入光刻分辨率、双重图形——那是光刻栏；这里只到「要交给代工厂一套 GDS」。</span>
 
+<span class="marginnote">「NRE」（一次性工程费用）就是「为这款芯片定制一套掩膜版要付的一次性钱」，先进工艺流一次片动辄上千万美元，之后每颗成本才便宜——这就是为什么 ASIC 只在量产足够大时才划算，而 FPGA 靠「没有 NRE」吃下小批量。</span>
+
 ## 方法
 
 前端：RTL、综合、[STA](/cs/sta)、形式与仿真。DFT 插入扫描。后端：floorplan、宏放置、标准单元放置、[CTS](/cs/clock-skew-cts)、布线、RC 提取、再 STA、物理验证（DRC/LVS）。功耗分析用切换活动。签核角：P-V-T 多角。
@@ -39,9 +41,23 @@ flowchart TD
 
 FPGA 比特流可反复下载；ASIC 掩膜一次，验证权重更高——后课验证与 DFT 因此紧挨着功耗之后补全。
 
+<span class="marginnote">给「可反复」一个数：一块 FPGA 芯片一生可以重新下载数万次，发现 bug 重新编译即可，十分钟后接着测；ASIC 的错误刻在硅片上，改一只门也要重新制版流片，一去就是数月加数百万美元——「验证权重更高」不是口号，是钱。</span>
+
 ## 机制
 
 功耗墙、时钟门控、老化都作用在这套版图上。软错误针对 SRAM 与 FF。本课先钉「网表有物理身体」。代工 PDK 提供单元与规则；设计者不到晶体管级手画每一个与门。
+
+同一份 RTL 落到两种「砖」上，差异到底在哪：
+
+```mermaid
+flowchart LR
+  RTL["同一份 RTL"] --> F["FPGA：LUT 真值表加开关盒"]
+  RTL --> A["ASIC：标准单元硬连线"]
+  F --> F2["面积大一些 主频低一些 NRE 近零"]
+  A --> A2["面积小 更快更省电 NRE 高"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「换上先进 ASIC 工艺就自动变快」。工艺只是把砖变好；流水线深度、并行宽度、乘法树形状这些架构决策仍然全在设计者手里，工艺不会自动替你长出华莱士树。</span>
 
 ## 边界
 

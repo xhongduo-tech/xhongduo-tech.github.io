@@ -17,6 +17,8 @@ section: cs
 
 FD $X \to Y$ 表示：任何合法实例上，X 值相同则 Y 值相同。一组 FD $F$ 的逻辑蕴含 $F \models X \to Y$：每个满足 $F$ 的关系也满足 $X \to Y$。人眼列举无穷实例不可能。缺口是语法：$F \vdash X \to Y$ 当且仅当语义蕴含（完备性），且推不出假依赖（可靠性）。
 
+<span class="marginnote">术语翻译：可靠=推出来的一定对（不会把假依赖当真）；完备=凡是真成立的依赖都推得出来（一个不漏）。两者合起来，「语法推导」与「一切实例上成立」画等号，才不必穷举无穷多的表来验证一条依赖。</span>
+
 Armstrong：自反（若 $Y \subseteq X$ 则 $X \to Y$）；增广（$X \to Y$ 则 $XZ \to YZ$）；传递（$X \to Y$ 且 $Y \to Z$ 则 $X \to Z$）。由此可导出合并、分解、伪传递等规则，便于手推，不是另一套公理。
 
 <span class="marginnote">Armstrong 1974。Beeri, Fagin, Howard 证明该公理系统对 FD 完备。多值依赖需要更多公理，那是 4NF 课。本课只处理 FD。</span>
@@ -26,6 +28,8 @@ Armstrong：自反（若 $Y \subseteq X$ 则 $X \to Y$）；增广（$X \to Y$ �
 要从 $F$ 证明 $X \to Y$，用公理做有限步推导，或（实践上）算 $X$ 在 $F$ 下的闭包 $X^+$，看 $Y \subseteq X^+$——算法正确性依赖本课的完备性。本课先钉公理，下一课才写闭包与最小覆盖。
 
 例子：已知 $A \to B$，$B \to C$，由传递得 $A \to C$；再增广得 $AD \to CD$。自反给出平凡依赖，避免「空集决定一切」的误读：空集决定的是空属性集，不是全部属性。
+
+<span class="marginnote">常见误区：初学者容易把自反公理想成「空集决定一切」。实际上自反只许推出 X 自己的子集：$AD\to A$、$AD\to AD$ 这类平凡依赖，白送但没有信息量；「决定全部属性」靠的是键，不是公理白送的。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,15 @@ flowchart TD
 ## 机制
 
 范式分解「沿违反的 FD 切开」默认我们能列出隐含依赖。缺完备性会漏拆；缺可靠性会拆错。键的定义「决定全部属性」同样是闭包等于 $U$，建立在本课上。
+
+<span class="marginnote">数字实例：$F=\{A\to B, B\to C\}$ 时从 $A$ 出发：先有 $\{A\}$；用 $A\to B$ 扩成 $\{A,B\}$；再用 $B\to C$ 扩成 $\{A,B,C\}$——$A$ 的闭包 $A^+=\{A,B,C\}$，想问 $A\to C$ 就看 $C$ 在不在里面。本课保证这玩法有理，下一课才把它写成算法。</span>
+
+```mermaid
+flowchart TD
+  A["已知: A→B 且 B→C"] --> T["传递: 得 A→C"]
+  T --> AU["增广: 两边同加 D, 得 AD→CD"]
+  R["自反: Y⊆X 则 X→Y"] --> TRIV["得平凡依赖如 AD→A"]
+```
 
 包与 NULL：经典 FD 理论假定无 NULL、集合语义。SQL 表有 NULL 时「相等」变糊，工程约束用唯一索引近似 FD。本课理论按经典关系；与 [三值](/cs/sql-null) 的缝点名即可。
 

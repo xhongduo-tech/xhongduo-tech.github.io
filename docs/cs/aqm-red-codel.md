@@ -19,11 +19,15 @@ section: cs
 
 不要把 AQM 写成提高 $C$：它管的是延迟与信号时机。
 
+<span class="marginnote">直觉类比：尾丢像餐厅直到撞门才赶人——门口一满就把在场所有人一起赶走（全局同步），下一波又同时涌回。AQM 是提前小规模劝退几位：队伍始终流动，没人需要整场推倒重来，这正是 AIMD 想要的早期信号。</span>
+
 <span class="marginnote">RFC 7567 AQM 建议。RFC 8289 CoDel。本课不把 RED 权值当考试。</span>
 
 ### 早期信号换浅延迟
 
 不增加 $C$。RED 按深度难调；CoDel 按驻留。FQ-CoDel 顺带隔离流。极浅 cut-through 无队列可管。
+
+<span class="marginnote">术语翻译：驻留时间就是一张快递单在网点积压的时长——入队到出队之间隔了多久。CoDel 不数仓库堆了多少件（深度），只看件压了多久：超过 target（默认 5 ms）还降不下来才动手。参数以时间为单位，带宽换了也不用重调，这是它比 RED 好养的地方。</span>
 
 ## 方法
 
@@ -41,6 +45,19 @@ flowchart TD
 FQ-CoDel 每流队列再 CoDel，顺带修 RTT 不公平与缓冲膨胀。交换机 ASIC 未必能每流，数据中心用简单阈。卫星：CoDel target 要大于固有 RTT 的排队部分，不能把传播时延当膨胀。P4 可实现自定义 AQM。
 
 同步：随机早期丢减少全局同步，几何上仍 AIMD。
+
+<span class="marginnote">常见误区：初学者容易以为队列越长吞吐越高。实际上队列只在瓶颈短暂空闲时兜缓冲，长过头的队列只是把包泡在延迟里（缓冲膨胀）：10 Mbps 链路上 1 MB 缓冲能多压约 0.8 秒延迟，吞吐却一点不涨。AQM 治的正是这个，而不是提速。</span>
+
+```mermaid
+flowchart TD
+  DQ["出队一个包"] --> SOJ["现在时间减入队时间 = 驻留"]
+  SOJ --> CMP{"驻留 ≤ target?"}
+  CMP -->|是| KEEP["正常发送"]
+  CMP -->|否| W{"超 target 已持续超过 interval?"}
+  W -->|否| KEEP
+  W -->|是| DROP["丢包或打 CE 标记"]
+  DROP --> NEXT["进入丢包状态, 按递减间隔丢, 直到驻留降回 target 下"]
+```
 
 ## 边界
 

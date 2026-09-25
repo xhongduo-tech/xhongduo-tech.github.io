@@ -17,7 +17,11 @@ section: cs
 
 模糊检查点后，页可能落后或超前于数据文件。分析：从最近检查点扫到日志尾，重建 dirty page table（每页 recoveryLSN）与事务表（未决事务 lastLSN）。重做：从 $\min$ recoveryLSN 起，对每条 redo，若页上 pageLSN 更旧则应用——幂等靠 pageLSN。撤销：未决事务沿 prevLSN 链反向，写 CLR（描述已做的补偿），CLR 的 UndoNxtLSN 跳过已补偿段。
 
+<span class="marginnote">数字实例：脏页表里页 A 的 recoveryLSN=900、页 B 的 recoveryLSN=1050，重做就从 LSN 900 起步——哪怕 B 只缺 1050 之后的日志也无妨，多放的历史会被页上的 pageLSN 挡住，不会重复应用。</span>
+
 缺口是 **CLR 的「永不撤销 CLR」**：再崩溃时重做 CLR 即可，不必嵌套补偿。这是 ARIES 相对朴素 UNDO 的关键。
+
+<span class="marginnote">术语翻译：CLR（补偿日志记录）是「撤销的收据」——每撤一步，先把「我刚撤了什么、下一步撤哪」写成一条普通 redo 日志。再崩溃时按收据照单重放即可，不会对补偿再补偿，撤销因此可中断、可重放。</span>
 
 <span class="marginnote">Mohan et al. TODS 1992。生理：页内物理 redo、逻辑 undo（如 B+ 补偿）。本课不把每条索引 SMO 的 CLR 写完。</span>
 
@@ -40,6 +44,17 @@ flowchart TD
 事务回滚（运行时 abort）与崩溃 undo 走同一补偿思想。保存点是链上的标记，rollback to 停在标记。组提交后课把多事务 LSN 一起刷。
 
 复制：物理复制本质是把 redo 送到备库再应用，类似只要 redo 阶段。逻辑复制解成行，后课。
+
+<span class="marginnote">常见误区：初学者容易以为 REDO 是「重放已提交事务」。ARIES 恰恰重复全部历史，把页先拉回崩溃瞬间的模样（哪怕含未提交改动），再统一撤销 loser——顺序颠倒，steal 过的半成品页就会带着未提交的值活在盘上。</span>
+
+```mermaid
+flowchart TD
+  C1["崩溃后进入 UNDO"] --> U1["撤 LSN 500, 写 CLR 指向 400"]
+  U1 --> C2["UNDO 中途再次崩溃"]
+  C2 --> RESTART["重启: 分析 + REDO 重复历史"]
+  RESTART --> RECLR["重放 CLR: 已做的补偿原样恢复"]
+  RECLR --> SKIP["按 UndoNxtLSN 从 400 继续撤, 不重撤 500"]
+```
 
 ## 边界
 

@@ -17,6 +17,8 @@ section: cs
 
 相同：运算在寄存器、访存单独、定长基础指令、特权与用户分离。不同：ARM 用 NZCV 与条件分支编码；RISC-V 比较结果进通用寄存器再分支。ARM 商业授权核；RISC-V 开放 ISA、核多家。压缩：ARM 有历史 Thumb，A64 不定长；RISC-V `C` 扩展 16 位混长（后课）。向量：ARM SVE 与 RISC-V RVV 都是可变长，后课分讲。缺口不是再介绍 A64 寄存器，而是这些**选择的组成后果**。
 
+<span class="marginnote">术语翻译：NZCV 是 ARM 的四个标志位——负（N）、零（Z）、进位（C）、溢出（V）。运算指令顺手把它们置好，紧随其后的条件分支只看标志决定跳不跳；RISC-V 没有这组位，比较结果当普通数字写进通用寄存器，分支再用它。</span>
+
 页表：ARM 多级与 ASIDs；RISC-V Sv39 后课。虚拟化：ARM EL2 vs RISC-V H 扩展。
 
 ### 对照不是「谁更快」
@@ -42,6 +44,20 @@ flowchart TD
 ## 机制
 
 原子：ARM 有 `ldxr/stxr` 与后来的 LSE `cas`；RISC-V `A` 扩展 LR/SC 与 AMO。下一课专讲。SIMD 再下一组。本课防止「ARM=CISC」的谣言（那是 x86）。
+
+<span class="marginnote">常见误区：初学者常把「指令多、扩展多」当成 CISC。ARM 与 RISC-V 都是定长 load/store 的 RISC；真正变长 CISC 外壳的是 x86——指令 1 到 15 字节不等，译码要做拆分。那是第三位主角，别把它的特征记到本课两位头上。</span>
+
+<span class="marginnote">直觉类比：LR/SC 像动货架前先挂「我在整理」的牌子，回来结账时牌子还在才能放下；期间任何别的手碰过货架，牌子就掉（SC 失败），整段重来。多核争用时可能连败几次，这是 LR/SC 与 ldxr/stxr 共同的赌注。</span>
+
+```mermaid
+flowchart LR
+  INC["同一个原子加一"] --> LDXR["ARM: ldxr 独占读"]
+  LDXR --> ADD["寄存器加一"]
+  ADD --> STXR["stxr 独占写, 被人插手则重来"]
+  INC --> LR["RISC-V: LR 独占读"]
+  LR --> ADD2["寄存器加一"]
+  ADD2 --> SC["SC 条件存, 被人插手则重来"]
+```
 
 ## 边界
 
