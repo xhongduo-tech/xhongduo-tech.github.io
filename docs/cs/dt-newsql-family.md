@@ -23,9 +23,26 @@ section: cs
 
 <span class="marginnote">CockroachDB 的读不确定区间：读到的值其时间戳落在自己的不确定窗内，就整体重启事务换新时间戳——用重试代替原子钟；混合逻辑钟的文献锚点是 Kulkarni 等人 2014 年的 Logical Physical Clocks。</span>
 
+<span class="marginnote">TSO（Timestamp Oracle）直译是「时间戳神谕」：全集群只有它一个发号器，任何事务要戳都得问它一趟。好处是戳绝对全局可比，坏处是它是中心依赖——所以运维清单里 TiDB 的 PD 要可扩容、可恢复：发号器一挂，全库写事务都得停摆。</span>
+
+<span class="marginnote">HLC 可以类比「手表加排队叫号」：平时看物理钟走，一旦发现别的节点手里的号比自己大，就把自己的号推到比它大一点——逻辑部分专门兜住时钟不同步。代价是读到落在自己「不确定窗」内的数据时只能整个事务重来，CockroachDB 是拿重试次数换原子钟的钱。</span>
+
+```mermaid
+flowchart TD
+  TX["跨分片事务：同时写分片 A 与 B"] --> PRE["prepare 阶段"]
+  PRE --> RAFTA["分片 A 的 Raft 组：复制并确认 prepare 记录"]
+  PRE --> RAFTB["分片 B 的 Raft 组：复制并确认 prepare 记录"]
+  RAFTA --> ALL["两组都确认落盘"]
+  RAFTB --> ALL
+  ALL --> P2["2PC 协调者：决定并宣布提交"]
+  P2 --> CMT["commit 标记再经 Raft 复制到各副本"]
+```
+
 ## 机制
 
 为什么分岔点是时间戳：快照读要求全局可比的读时间，写提交要求全局可比的提交序——下一课要钉的「隔离 = 可比戳加提交点校验」，前一半正是它的产物。四种来源就是四种把「全局序」造出来的办法，各付各的税：TrueTime 付硬件与 commit wait；TSO 付一跳 RPC 与发号器可用性；HLC 付不确定窗与读重启；确定性付访问集预知与批处理延迟。看穿这一点，产品手册里「跨地域强一致」的宣传都能折算成四者之一再加一个距离税：跨地域的每次提交至少付一次广域往返，问题只是这笔钱付在哪一步、由谁看见。
+
+<span class="marginnote">距离税代个数：光在光纤里每毫秒走约 200 公里，北京到美东单向就要 50 毫秒往上，一次广域往返轻松到 150 毫秒量级。Spanner 的 commit wait 约 7 毫秒看着不大，跨洲部署时真正的大头在往返距离上——这部分谁家的协议都免不掉。</span>
 
 ```mermaid
 flowchart TD
