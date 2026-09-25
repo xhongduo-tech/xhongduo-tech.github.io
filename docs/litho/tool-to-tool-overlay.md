@@ -31,6 +31,22 @@ section: litho
 
 dedication 名单要短而硬：关键对只允许已匹配的子集，紧急混机必须走加密计量和临时指纹，而不是默默借用邻机状态。公开的 overlay matching / chuck dedication 讨论，核心就是这张矩阵的稀疏化。
 
+<span class="marginnote">dedication 翻译成大白话就是「专用工位」制度：哪几层只许哪几台机做，写进派工系统，谁也不许顺手借邻机——用调度的死板换套刻的稳定。</span>
+
+<span class="marginnote">代个数：厂里 10 台机都开放给关键层，理论上是 10×10 = 100 种机台组合差；若关键层锁死在 3 台专用机内，要管的组合立刻缩到个位数。dedication 的本质是把匹配实验从平方级压回可测的范围。</span>
+
+```mermaid
+flowchart TD
+  N["N 台机"] --> MAT["N×N 关键对矩阵"]
+  MAT --> CLU["聚类到参考机"]
+  MAT --> DED["关键层锁定子集"]
+  CLU --> SUB["稀疏化: 只测已配对"]
+  DED --> SUB
+  SUB --> APC["APC 存机台对指纹"]
+  ESC["紧急混机"] --> TMP["加密计量 + 临时指纹"]
+  TMP --> APC
+```
+
 ## 机制
 
 指纹 $F_i(x,y)$。层对 $(i,j)$ 的系统 overlay 含 $F_j-F_i$。dedication 令 $i=j$ 的硬件相关部分相消，工艺项仍在。匹配把 $F_j-F_i$ 降到残差。APC 存 $\widehat{F_j-F_i}$。换机等于换模型键，应重置或加载对应键，与 R2R 事件规则相同。
@@ -45,6 +61,8 @@ flowchart TD
 ```
 
 层间看见的是指纹差。APC 键含机台与卡盘；串错键等于把补偿加在错误的差上。
+
+<span class="marginnote">常见误区：以为换了卡盘还是「同一台机」。卡盘的翘曲与吸平各自成账，换卡盘等于换了一个指纹源——APC 的键必须连卡盘一起换，否则补偿就加在错误的差上。</span>
 
 ## 边界
 
