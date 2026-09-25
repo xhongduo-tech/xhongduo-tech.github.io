@@ -37,6 +37,8 @@ $$
 
 $\kappa$ 随 $\theta$ 上升而下降。Rotemberg 二次成本对数线性后得到同形方程，$\kappa$ 的微观不同、宏观用法相同——上一课已经并列过两种粘性，本课只取「同形」。
 
+<span class="marginnote">数字实例：取季度 $\beta=0.99$、$\kappa=(1-\theta)(1-\beta\theta)/\theta$。调价快（$\theta=0.25$）时 $\kappa\approx 2.26$；价格很粘（$\theta=0.75$）时 $\kappa\approx 0.09$——同样的产出缺口，通胀反应差出二十多倍。粘性不是口号，全写在这个斜率里。</span>
+
 ```mermaid
 flowchart TD
   CAL["Calvo 重置价格"] --> NKPC["π = βEπ + λ mc̃"]
@@ -53,6 +55,18 @@ Friedman–Phelps 的 $\pi^e$ 可以是适应性；NKPC 的 $\mathbb{E}_t\pi_{t+
 
 机制是前瞻贴现。今天的 $\pi$ 已经包含 $\mathbb{E}\pi_{t+1}$：若规则让公众相信缺口将被关掉，当前通胀立刻下降，不必先走过一整串失业。长期 $\tilde{y}=0$、$\pi$ 由名义锚决定，与自然率兼容。成本推动（markup 冲击）作为残差进入，使 $\pi$ 与 $\tilde{y}$ 可以同向——[神圣巧合](/econ/divine-coincidence)会问这是否破坏「稳通胀即稳缺口」。
 
+```mermaid
+flowchart TD
+  ANN["央行宣布：将收紧直至通胀回到目标"] --> BEL{"公众相信这个承诺吗？"}
+  BEL -->|"信"| EP["预期 Eπ(t+1) 立刻下调"]
+  EP --> NOW["当期 π 的 β·Eπ 项立刻变小"]
+  NOW --> FAST["当前通胀即时回落，失业代价小"]
+  BEL -->|"不信"| GAP["预期不动，只能压真实缺口"]
+  GAP --> SLOW["通胀缓慢下行，要熬一整段高失业"]
+```
+
+<span class="marginnote">直觉类比：NKPC 像一台「预期定价投票机」。今天的通胀是全体重置厂商对未来通胀预期的加权贴现，加上当期缺口的分量——预期一变，票箱立刻变。「宣布即压通胀」与「必须先熬衰退」两条路的分岔口就在这里。</span>
+
 灵活价格极限 $\theta\to 0$ 或 Rotemberg 成本趋于零，$\kappa\to\infty$，缺口被压掉，货币中性在周期频率上恢复，接到 [RBC 对照](/econ/rbc-contrast)。动态 IS 从下一课接过需求侧：没有 NKPC，利率规则只有欧拉，没有通胀。三方程必须先有这一条供给。索引化（过去通胀进入未调价合同）会加进滞后项，那是对 Calvo 一阶条件的修改，不是本课的基准。
 
 <span class="marginnote">工资粘性会再写一条工资菲利普斯。本课只做价格 NKPC。两套粘性并存时，$\kappa$ 的解释变，方程形状仍前瞻。</span>
@@ -60,6 +74,8 @@ Friedman–Phelps 的 $\pi^e$ 可以是适应性；NKPC 的 $\mathbb{E}_t\pi_{t+
 ## 边界
 
 本课不估计 $\kappa$，不把 1958 年 Phillips 的统计替换再讲一遍。量化栏的限价不是宏观 Calvo。指数化、正稳态通胀会改线性化细节，不取消前瞻结构。
+
+<span class="marginnote">常见误区：把 $\kappa$ 读成旧菲利普斯回归里「通胀对失业的敏感度」。$\kappa$ 是重置概率的函数，出自优化的一阶条件；它的变化不是重新拟合一条回归线的事，而是调价技术、指数化或政策规则变化的结构后果。</span>
 
 后课默认：供给侧是 $\pi_t=\beta\mathbb{E}_t\pi_{t+1}+\kappa\tilde{y}_t$。下一课把欧拉对数线性成与它对偶的动态 IS。
 
