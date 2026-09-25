@@ -32,13 +32,25 @@ flowchart TD
 
 ## 机制
 
-吞吐的来源是专用化，不是频率：一个 tensor core 每拍做 256 组 fp16 FMA（512 FLOP），A100 每 SM 四个，全卡 108 个 SM 合出 312 TFLOPS。代价是数据必须按阵列要的形状就位——MMA 阵列深流水，k 方向的料断一拍，整条阵列空转一拍，所以「喂料」与「计算」必须重叠：smem 到 fragment 的搬运用双缓冲藏在上一块的 MMA 后面（[软件流水课](/llm/sw-pipeline-buffer)的 stage 账在这里兑现）。上一课的 swizzle 在这里回到正位：smem 布局要同时满足写侧的合并与读侧的碎片对齐，padding 换行宽的路数在 MMA 布局下走不通，只能 swizzle。
+吞吐的来源是专用化，不是频率：一个 tensor core 每拍做 256 组 fp16 FMA（512 FLOP），A100 每 SM 四个，全卡 108 个 SM 合出 312 TFLOPS。<span class="marginnote">数字实例：峰值表就是把三笔乘出来的——$4$ 个核 $\times$ 每核每拍 $512$ FLOP $\times$ 锁频 $1.41$ GHz $\approx 2.9$ TFLOPS 单 SM，再乘 $108$ 个 SM 得约 $312$ TFLOPS。哪天你在别的卡上看到不同峰值，先拆这三笔，别背表。</span>代价是数据必须按阵列要的形状就位——MMA 阵列深流水，k 方向的料断一拍，整条阵列空转一拍，所以「喂料」与「计算」必须重叠：smem 到 fragment 的搬运用双缓冲藏在上一块的 MMA 后面（[软件流水课](/llm/sw-pipeline-buffer)的 stage 账在这里兑现）。<span class="marginnote">直觉类比：MMA 阵列是一条传送带流水线，k 方向每来一块料就整体加工一次；料断一拍，整条传送带空转一拍，这一拍就是 $512\times4\times108$ FLOP 凭空蒸发。双缓冲的用途就是让「搬下一块料」发生在「算手头这块」的影子里，传送带不断供。</span>上一课的 swizzle 在这里回到正位：smem 布局要同时满足写侧的合并与读侧的碎片对齐，padding 换行宽的路数在 MMA 布局下走不通，只能 swizzle。
 
 漏吞吐的三个口要背下来。形状口：M、N、K 不是 tile 尺寸的倍数时，padding 的算力白烧，边缘 tile 占比在小矩阵上能到一半。喂料口：k 复用不足（tile 太扁）时 MMA 等数，张量核利用率低而访存墙远没到——症状是 stall 在 wait 而非 long scoreboard，profiling 课会给证据。规模口：decode 的小 batch 使 $M$ 只有几行，阵列大部分 lane 无事可做——[wgmma 课](/llm/wgmma)的结论「峰值表不能当 decode SLA」就是这一口的极端情形。
 
+```mermaid
+flowchart TD
+  LOW["张量核利用率低"] --> SHAPE{"形状口：M/N/K 是 tile 尺寸的倍数？"}
+  SHAPE -->|"否"| PAD["padding 白烧，边缘 tile 占比高"]
+  SHAPE -->|"是"| FEED{"喂料口：stall 停在哪？"}
+  FEED -->|"wait：k 复用不足"| TILE["tile 太扁，MMA 等数"]
+  FEED -->|"long scoreboard"| MEM["先修访存与合并"]
+  FEED -->|"都不是"| SCALE{"规模口：M 只有几行？"}
+  SCALE -->|"是"| DECODE["小 batch，阵列大面积空转"]
+  SCALE -->|"否"| BACK["回到 NCU 对账，换假设"]
+```
+
 ## 边界
 
-数值格式（fp16/bf16/fp8 的舍入与累加精度）是低精度数值的题目，本课只记一条：累加器是 fp32，别在 epilogue 之前降精度。反向传播与训练内核只借本课的布局直觉，不展开。整数与稀疏 MMA 各有自己的形状与合同，不进本课。CUTLASS 如何把 fragment、拷贝、MMA 组织成可复用的层——那是下一课的事；本课给的底线是：无论库包装多厚，布局合同最终都落在这三层抽象上。
+数值格式（fp16/bf16/fp8 的舍入与累加精度）是低精度数值的题目，本课只记一条：累加器是 fp32，别在 epilogue 之前降精度。<span class="marginnote">常见误区：「fp16 输入就是全程半精度」。实际上乘法结果在 fp32 累加器里逐次累加，几百个 k 步的舍入误差才压得住；若为省寄存器把中间累加值写回 fp16，误差一路滚，最后就是「结果大体对、收敛悄悄变差」——最难归因的那种退化。</span>反向传播与训练内核只借本课的布局直觉，不展开。整数与稀疏 MMA 各有自己的形状与合同，不进本课。CUTLASS 如何把 fragment、拷贝、MMA 组织成可复用的层——那是下一课的事；本课给的底线是：无论库包装多厚，布局合同最终都落在这三层抽象上。
 
 <span class="marginnote">手写 MMA 的第一张草稿不该是代码，是 lane 映射表：m16n8k16 里每 lane 持 A 的 8 个、B 的 4 个、C 的 4 个元素，位置由文档的行列分组钉死。凭直觉写索引几乎必然错位，而且错位的结果往往是「数值大体对、个别行互换」——最难查的那种错。</span>
 

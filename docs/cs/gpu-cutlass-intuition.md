@@ -33,6 +33,19 @@ flowchart TD
 
 模板分层为什么可行：所有决策在编译期实例化，层与层只交换布局与坐标，不交换运行时对象——没有虚调用，分层不付间接税。层间语言是 CuTe 的 layout 代数：`shape : stride` 的张量加 compose、slice 两个操作，epilogue 拿到的不是裸指针而是「带布局的视图」，所以融合一个激活不需要知道主循环的 swizzle 细节。跨代复制配置不成立的原因也在这层结构里：atom 换代意味着布局合同变了（上一课的 8/4/4 变成 wgmma 的 smem 操作数），swizzle 模式与 stage 数的合法解集随之变——参数表是「某一代硬件 + 某一算法」的解，不是普适常数，[CUTLASS 层次课](/llm/cutlass)的结论「架构是模板的一部分」说的就是这个。
 
+<span class="marginnote">数字实例：collective 层的 stage 合同是「smem 容量 ÷ stage 数 = 单个 stage 的字节数」。sm80 一块 smem 约 164 KB：tile 尺寸 A+B 各 128×32 的 fp16 时每 stage 约 16 KB，理论能开 8 stage；换成 128×64 就要砍半。改 tile 尺寸后必须重算 stage 数，否则编译期直接报 smem 溢出——这就是「换这层、别层要复核合同」的具体样子。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「分层=运行时多态=变慢」。CUTLASS 的分层全部在编译期展开：换 epilogue 的激活函数是换模板参数，生成的代码里连函数指针都没有，更没有虚表查找。慢的是「运行时再决定」，不是「代码组织上分层」。</span>
+
+```mermaid
+flowchart TD
+  N["需求：换激活函数"] --> W{"动哪一层"}
+  W -->|"换 swizzle 或调度"| D["只改 device 层"]
+  W -->|"换 stage 或流水"| C["只改 collective 层"]
+  W -->|"换 GELU 为 SiLU"| E["只改 epilogue visitor"]
+  W -->|"sm80 换 sm90 指令"| A["只换 atom 上层代码不动"]
+```
+
 ## 边界
 
 API 走读与实例代码归大模型栏那两课，本课只给「在哪层换什么」的地图。CUTLASS 不是唯一抽象：ThunderKittens 用更小的原语面换更陡的学习曲线，Triton 把 tile 层交给编译器（[Triton 写注意力核](/llm/triton-attention-kernel)）；抽象的选择标准是你要改哪一层。autotuning 的方法（扫 stage 与 tile 的网格、记录配置）在 profiling 课之后另有归宿，本课不展开。也别把 CUTLASS 当默认答案：标准形状下 [cuBLAS](/llm/cublas-cudnn) 先行，CUTLASS 的价值在可改与库外融合。

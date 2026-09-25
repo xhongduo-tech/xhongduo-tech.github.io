@@ -43,7 +43,23 @@ flowchart TD
 
 身份：`typeof(List<int>)` 在擦除语言里可能撞 `List<string>`。重载：擦除后签名冲突（`void f(List<A>)` 与 `void f(List<B>)`）是语言限制。单态化无此问题，但符号[mangling](/cs/name-mangling) 变长。
 
+<span class="marginnote">术语翻译：装箱就是把 `int` 这类原始值包进一个堆上的 `Integer` 对象再放进 `List`——每次存取都要「包一层 / 拆一层」。单态化的 `Vec<u8>` 则直接把字节连续排布，没有包装开销。这就是为什么 Java 的 `ArrayList<int>` 要到很久之后才敢支持。</span>
+
+<span class="marginnote">数字实例：单态化 `id` 对 10 个不同类型参数各实例化一次，二进制里就有 10 份函数体；擦除永远只有 1 份。模板元程序动辄膨胀数十 MB，编译时间从秒级涨到分钟级——体积与编译时间是单态化付的账。</span>
+
+```mermaid
+flowchart TD
+  CALL["调用 List-int.add"] --> J{"实现策略?"}
+  J -->|"擦除 Java"| BOX["int 装箱为 Integer"]
+  BOX --> HEAP["进堆一份 List"]
+  J -->|"单态化 Rust"| SPEC["Vec-u8 特化布局"]
+  SPEC --> RAW["字节连续排布"]
+  RAW --> ZERO["零包装开销"]
+```
+
 不要用擦除语言的数组协变去「修」特化缺失。
+
+<span class="marginnote">常见误区：初学者容易以为「擦除后运行时完全不知道元素类型」，所以 `List` 内部会乱。实际上编译器在编译期就插好了强制转换与检查，运行时取出来的每个元素都保证正确——擦掉的只是「整批元素的类型标签」，不是类型安全本身。</span>
 
 ## 边界
 

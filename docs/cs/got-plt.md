@@ -44,6 +44,21 @@ flowchart TD
 
 GOT 必须可写、通常相对代码有固定位移（或经寄存器）。只读 GOT（RELRO）把填完后的表改只读，减少写 GOT 攻击面——安全课再收。本课要：表在数据段，桩在文本段。
 
+<span class="marginnote">数字实例：一个程序引用 libc 里的 2000 个函数，但实际只调用其中 300 个。延迟绑定让另外 1700 个符号的重定位推迟到「永远不发生」——启动时少做 1700 次符号查找（每次都要哈希查动态符号表、比对字符串）。用 `LD_BIND_NOW=1` 则 2000 个槽在启动时全部填完，换来更少的启动不确定性。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 `call printf` 直接跳进 libc。实际上第一次调用先落在本程序自己的 PLT 桩上，桩经 GOT 绕道动态链接器做解析，第二次以后才「桩 → GOT → 真函数」两跳直达。理解这一点，`gdb` 里断在 `printf@plt` 却看不到 libc 源码就不奇怪了。</span>
+
+```mermaid
+flowchart TD
+  T["首次调用 foo"] --> P1["PLT 桩 jmp GOT-foo"]
+  P1 --> SLOT1["GOT 槽指向解析路径"]
+  SLOT1 --> RES["动态链接器查符号"]
+  RES --> FILL["把真地址写回 GOT"]
+  T2["第二次调用 foo"] --> P2["同一 PLT 桩"]
+  P2 --> SLOT2["GOT 已是真地址"]
+  SLOT2 --> REAL["直达 libc 里的 foo"]
+```
+
 不要把 PLT 当 C 的函数指针对象；函数指针值可能就是桩地址，比较与调用约定按 ABI。
 
 ## 边界

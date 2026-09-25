@@ -19,7 +19,7 @@ smem 快在多 bank 并行：32 个 bank 每拍各服务一个地址，warp 的�
 
 ## 方法
 
-映射一行就够：$\mathrm{bank} = (\mathrm{byteAddr}/4) \bmod 32$。同 warp 的地址分属不同 bank，一拍并行；同一 bank 的不同字，$n$-way 串行；同一 bank 的同一 32 位字上的读，硬件广播，不算冲突。转置是标准案例：`__shared__ float t[32][32]`，写按行合并、读按列，列地址 $\mathrm{col}\cdot 32\cdot 4$ 字节模 128 后全部落进 bank 0——32-way。最便宜的修法是 padding：`t[32][33]` 之后，同一列相邻元素的步距变成 $33\cdot 4$ 字节，模 32 后逐行错开一列 bank，32-way 变成零冲突；代价是每行多 4 字节、以及行宽不再是 32 的对齐倍数。
+映射一行就够：$\mathrm{bank} = (\mathrm{byteAddr}/4) \bmod 32$。<span class="marginnote">把 32 个 bank 想象成银行的 32 个服务窗口（bank 本义就是银行柜台）：每个窗口每拍只办一单。地址除以 4 再模 32 就是「叫号分窗」的规则；同一排 lane 的号全被叫到同一个窗口，就只好排队办——这就是 n-way 冲突。</span>同 warp 的地址分属不同 bank，一拍并行；同一 bank 的不同字，$n$-way 串行；同一 bank 的同一 32 位字上的读，硬件广播，不算冲突。转置是标准案例：`__shared__ float t[32][32]`，写按行合并、读按列，列地址 $\mathrm{col}\cdot 32\cdot 4$ 字节模 128 后全部落进 bank 0——32-way。最便宜的修法是 padding：`t[32][33]` 之后，同一列相邻元素的步距变成 $33\cdot 4$ 字节，模 32 后逐行错开一列 bank，32-way 变成零冲突；代价是每行多 4 字节、以及行宽不再是 32 的对齐倍数。
 
 swizzle 是第二种修法：不改数组的物理行宽，改写入时的 bank 序——典型如按 $\mathrm{bank} \mathrel{\oplus}= (\mathrm{row} \mathbin{\&} \mathrm{mask})$ 打散，读出时用同一函数还原。它保住对齐与容量，代价是布局不再「所见即所得」：每个读写方都必须知道 swizzle 函数。这正是 MMA 碎片布局与 TMA 盒子都带 swizzle 描述的原因，[llm 课](/llm/shared-memory-banks)已经看过那边的合同。
 
@@ -35,7 +35,20 @@ flowchart TD
 
 ## 机制
 
-根源是端口预算：一块 SRAM 阵列每拍只服务一个地址（[SRAM 与 DRAM](/cs/memory-array-sram-dram) 的端口账），复制 32 份换 32 路并行——bank 冲突就是并行度退回单口的那部分。32 bank 乘 4 字节等于每拍 128 字节，与一个缓存行同宽不是巧合：L1 与 smem 共用同一块存储（第二课的分账），硬件按同一粒度服务两者。padding 有效靠数论：行宽 33 与 32 互素，列访问的 bank 序变成逐行平移，一轮扫描恰好铺满 32 个 bank；行宽换成 34（与 32 有公因子 2）就只剩两路并行——padding 不是「随便加一个」，是选互素的步距。
+根源是端口预算：一块 SRAM 阵列每拍只服务一个地址（[SRAM 与 DRAM](/cs/memory-array-sram-dram) 的端口账），复制 32 份换 32 路并行——bank 冲突就是并行度退回单口的那部分。32 bank 乘 4 字节等于每拍 128 字节，与一个缓存行同宽不是巧合：L1 与 smem 共用同一块存储（第二课的分账），硬件按同一粒度服务两者。padding 有效靠数论：行宽 33 与 32 互素，列访问的 bank 序变成逐行平移，一轮扫描恰好铺满 32 个 bank；行宽换成 34（与 32 有公因子 2）就只剩两路并行——padding 不是「随便加一个」，是选互素的步距。<span class="marginnote">数字实例：padding 的容量代价很小——t[32][33] 比 t[32][32] 每行多 1 个 float，一块 tile 从 $32\times32\times4=4096$ 字节涨到 $32\times33\times4=4224$ 字节，多 3%；若一个 block 用 12 块这样的 tile（48 KB），总共只多 1.5 KB，换来的是把 32 倍的串行服务变成零冲突。</span>
+
+```mermaid
+flowchart TD
+  COL["按列访问 t[32][33]"] --> STEP["相邻行步距 = 33 字"]
+  STEP --> COP["33 与 32 互素"]
+  COP --> SPREAD["bank 序逐行平移，一轮铺满 32 个 bank"]
+  SPREAD --> OK["零冲突"]
+  COL34["若行宽改成 34"] --> GCD["34 与 32 有公因子 2"]
+  GCD --> HALF["bank 序只落 16 个 bank"]
+  HALF --> BAD["两路并行，2-way 冲突"]
+```
+
+<span class="marginnote">初学者容易把 __syncthreads 当普通函数调用随手写进 if：它是全 block 的计数屏障，只要有一个 warp 因分支没到、计数永远不齐，整个 block 就死在那里——不是变慢，是挂住。这就是「无分歧地到达」这半句在合同里的分量。</span>
 
 屏障是块级交换的另一半账。`__syncthreads` 是块级屏障：到的 warp 计数，凑齐才放行；它必须由全 block 无分歧地到达，写在发散分支里等于让一半 warp 在屏障外等一个永不凑齐的计数——死锁。双缓冲所以常与屏障成对出现：一轮读、一轮写，两道屏障隔开（流水侧的组合在[软件流水课](/llm/sw-pipeline-buffer)已走过）。TMA 改变的只是「谁来写 smem」（[TMA 课](/llm/hopper-tma)的结论），消费 warp 读 smem 的 bank 规划一分未免。
 

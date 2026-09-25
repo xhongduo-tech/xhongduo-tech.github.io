@@ -19,7 +19,7 @@ section: cs
 
 ## 方法
 
-NCU 的三段读法有固定顺序。第一段 Speed of Light：计算与存储各自达到峰值的百分比——两个数字直接告诉你靠哪面墙，是 roofline 的运行时形态。第二段 Memory Workload Analysis 对访存的账：DRAM 吞吐、L2 命中率、扇区利用率——最后一项正是第二课合并判据的运行时读数，低于八成先查 stride。第三段 Warp State Statistics 看 stall 分布：long scoreboard 排头是访存依赖（查合并与层次），barrier 排头是同步等待（查发散的 `__syncthreads` 与双缓冲配对），wait 排头是定长指令依赖（查 ILP），not selected 排头说明调度器饱和——这时加占用率无用。计时本身沿用[基准方法论](/llm/ak-benchmark-methodology)的规矩：锁频、冲 L2、warmup 后取分布而非单值，`cudaEvent` 或 NVTX 圈段。
+NCU 的三段读法有固定顺序。第一段 Speed of Light：计算与存储各自达到峰值的百分比——两个数字直接告诉你靠哪面墙，是 roofline 的运行时形态。<span class="marginnote">Speed of Light（光速）是 profiler 界的行话，不是物理光速：它把内核耗时和「理论最理想值」做比，得到还能快多少的百分比，相当于每次 profile 先免费送你一张 roofline 图。</span>第二段 Memory Workload Analysis 对访存的账：DRAM 吞吐、L2 命中率、扇区利用率——最后一项正是第二课合并判据的运行时读数，低于八成先查 stride。<span class="marginnote">扇区是显存读写的最小单位，一个 32 字节。数字实例：一个 warp 读 32 个连续 float 共 128 字节，正好凑满 4 个扇区，利用率 100%；若 32 个线程各跳到 4 KB 开外的地址，同样 128 字节有效数据要动用 32 个扇区，利用率跌到 12.5%——带宽有七成八白白搬了用不上的字节。</span>第三段 Warp State Statistics 看 stall 分布：long scoreboard 排头是访存依赖（查合并与层次），barrier 排头是同步等待（查发散的 `__syncthreads` 与双缓冲配对），wait 排头是定长指令依赖（查 ILP），not selected 排头说明调度器饱和——这时加占用率无用。计时本身沿用[基准方法论](/llm/ak-benchmark-methodology)的规矩：锁频、冲 L2、warmup 后取分布而非单值，`cudaEvent` 或 NVTX 圈段。
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,21 @@ flowchart TD
 
 ## 机制
 
-读数从哪来，决定它可信到什么程度。SM 内有硬件计数单元：每个调度器记发射与活跃，访存单元记事务与扇区；stall 原因靠周期采样归因——在每个发射口记下「此刻 warp 为什么没发」，聚合成分布。所以 stall 表是统计近似，不是逐指令事实：读数与账本冲突时，先怀疑采样窗口与归因口径，再怀疑账本。SOL 百分比的分母是理论峰值（锁频下的），所以「离屋顶多远」跨机器可比，绝对微秒数不可比——这与基准课「比较条件先对齐」是同一条纪律。
+读数从哪来，决定它可信到什么程度。SM 内有硬件计数单元：每个调度器记发射与活跃，访存单元记事务与扇区；stall 原因靠周期采样归因——在每个发射口记下「此刻 warp 为什么没发」，聚合成分布。所以 stall 表是统计近似，不是逐指令事实：读数与账本冲突时，先怀疑采样窗口与归因口径，再怀疑账本。<span class="marginnote">「重放」是 NCU 出数的底层手段：计数器硬件数量有限，一次采集装不下所有指标，profiler 就把同一个内核反复执行几十遍、每遍换一组计数器，最后拼成一份报告。所以它必须自己锁频、控缓存才能保证几十遍跑的是「同一种慢」，这也是它的数字不能当线上延迟的根因。</span>
+
+```mermaid
+flowchart LR
+  SM["SM 硬件计数单元"] -->|"调度器逐周期记"| ISS["发射 / 活跃计数"]
+  SM -->|"访存单元记事务"| TXN["事务与扇区计数"]
+  SM -->|"发射口周期采样"| STALL["stall 原因样本"]
+  STALL --> AGG["聚合为 stall 分布"]
+  ISS --> REP["拼合成 NCU 报告"]
+  TXN --> REP
+  AGG --> REP
+  REP --> CHK["与理论账本对账"]
+  CHK -->|"读数冲突"| FIX["先疑采样窗口与口径"]
+  CHK -->|"读数一致"| ACT["按动作表执行"]
+```SOL 百分比的分母是理论峰值（锁频下的），所以「离屋顶多远」跨机器可比，绝对微秒数不可比——这与基准课「比较条件先对齐」是同一条纪律。
 
 读数翻成动作要按表走，不按兴趣走：扇区利用率低才动数据布局；long scoreboard 高才查合并；barrier 高才查同步结构；not selected 高就停手——那是调度饱和的信号，继续「优化」只会把代码改复杂。每一步动作之后重跑 NCU 对账：目标是把主导 stall 换人，而不是把某个百分比刷满。
 

@@ -43,6 +43,20 @@ C++ 需lookahead 与类型的交叉时，GLR 仍可能要「试探再拒」；�
 
 最坏仍与一般 CFL 同阶；平均看冲突密度。reduce/reduce 在 GLR 里是合法分叉，不像 yacc 里几乎总是文法错误。内存：森林共享失败会爆。
 
+<span class="marginnote">直觉类比：GLR 像走迷宫时遇到岔路口就「分身」——派一个自己走左边、一个走右边；若两个分身从不同路走到了同一个房间（同一状态、同一输入位置），就重新合体共享后半段探索。普通 LR 是只带一张「绝不出岔路」地图的游客，遇岔路（冲突）当场报错。</span>
+
+<span class="marginnote">数字实例：对 `dangling else`——`if a then if b then s else s2`——`else` 既可以挂内层 `if` 也可以挂外层，LR 表在此格出现 shift/reduce 冲突。GLR 会同时保留两棵树交给语义层：多数语言按「挂最近未配对的 if」（最长匹配）挑内层，森林只是把两种合法读法都摆上台面。</span>
+
+```mermaid
+flowchart LR
+  IN["读到 else"] --> CON{"LR 表该格有冲突?"}
+  CON -->|"无"| ONE["单栈继续 与 LALR 同速"]
+  CON -->|"有"| S1["栈 A 归约 else 挂外层 if"]
+  CON -->|"有"| S2["栈 B 移进 else 挂内层 if"]
+  S1 --> FOR["分析森林 交给语义消歧"]
+  S2 --> FOR
+```
+
 与 PEG 后课对照：GLR 认真正的 CFG 并集；PEG 的 `/` 是有序选择，不是并。不要把 bison 的 GLR 模式当成 PEG。
 
 ## 边界
