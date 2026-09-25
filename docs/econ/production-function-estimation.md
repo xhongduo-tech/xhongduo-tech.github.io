@@ -17,11 +17,15 @@ section: econ
 
 对数产出 $y_{it}=\beta_k k_{it}+\beta_l l_{it}+\omega_{it}+\varepsilon_{it}$。$\omega$ 是厂商知道的生产率，$\varepsilon$ 是事后冲击。高 $\omega$ 的厂多雇 $L$、多投 $K$，OLS 高估投入弹性，规模报酬被夸大，Solow 残差被压小。缺口不是再讲[索洛残差](/econ/solow-residual)宏观核算，而是微观：选择投入的信息集。Olley–Pakes：投资 $i_{it}=i(k_{it},\omega_{it})$ 在单调下可反演 $\omega=h(k,i)$，非参数第一阶段把 $\omega$ 收进函数，第二阶段用存活与 $k$ 的定律识别 $\beta_k$。Levinsohn–Petrin 用中间投入代替投资（投资经常为零）。Ackerberg–Caves–Frazer：若劳动也在 $\omega$ 之后灵活选择，第一阶段不能识别 $\beta_l$，要改时序假设。
 
+<span class="marginnote">直觉类比：老板开厂前先看过自家「风水」（$\omega$）再决定雇多少人，而计量者只看得见雇了多少人。OLS 于是把「风水好所以雇人多」误记成「雇人本身特别有用」——把选择的效果算进了技术的效果。</span>
+
 <span class="marginnote">固定效应只吸时不变 $\omega$。生产率的 Markov 冲击正是 OP 要捕的。FE 与 OP 不是替代口号，是对 $\omega$ 过程的不同假设。</span>
 
 ## 方法
 
 声明时序：资本预定、劳动与中间投入是否同期对 $\omega$ 反应。代理：投资或中间投入严格单调于 $\omega$。第二阶段 GMM：创新 $\xi_{it}=\omega_{it}-\mathbb{E}[\omega_{it}\mid\omega_{i,t-1}]$ 与预定工具正交。退出：OP 用存活概率修正选择（低 $\omega$ 退出使样本里 $\omega$ 截断）。
+
+<span class="marginnote">「反演」翻译成大白话：既然投资额跟着生产率一起涨（严格单调），看到投资就能倒推出生产率——像看温度计的水银柱倒推室温。前提是温度计必须灵敏且只对温度反应：单调一破（比如零投资一大团），水银柱就卡住了。</span>
 
 ```mermaid
 flowchart TD
@@ -38,6 +42,17 @@ flowchart TD
 
 机制是信息。计量者看不见 $\omega$，但看见与 $\omega$ 单调的选择。反演把不可观测变成可观测函数，再靠 Markov 把今天的 $\omega$ 拆成可料与创新，创新与昨天的投入正交。单调失败（投资不可逆、零投资一团）则反演不是函数，LP 的中间投入动机在此。ACF 的要点是：两个灵活投入不能同时在同一阶段从同一个 $\omega$ 里拆出两个弹性。
 
+```mermaid
+flowchart TD
+  OBS["计量者看不见 ω"] --> PROXY["看见与 ω 单调的投资/中间投入"]
+  PROXY --> INV["第一阶段反演: ω = h(k, i)"]
+  INV --> MARK["Markov: ω 拆成可料 + 创新 ξ"]
+  MARK --> XI["ξ 与昨天的投入正交"]
+  XI --> MOM["第二阶段 GMM 矩识别 β"]
+  Q{"单调或时序出问题?"} -->|"投资常为零"| LP["LP: 换中间投入当代理"]
+  Q -->|"劳动也灵活"| ACF["ACF: 改时序假设"]
+```
+
 与[遗漏变量](/econ/ovb-measurement-error)：$\omega$ 是相关遗漏。代理方法是针对这一种遗漏的结构，不是通用 IV。资本测量误差仍衰减 $\beta_k$——Griliches 的警告还在。
 
 <span class="marginnote">Gandhi–Navarro–Rivers 指出：在某些时序与完全竞争下，弹性识别更薄，要靠风险价格或需求边。本课以 OP/LP/ACF 为最小传统，边界上承认识别争论。</span>
@@ -47,6 +62,8 @@ flowchart TD
 本课不估 CES 宏观加总全文。不把 TFP 差异写成制度质量的因果（那要设计或另一套结构）。下一课拍卖：对象是出价策略与估值分布，不是 $F(K,L)$。贸易后课的异质企业生产率（Melitz）会用到厂级 $\omega$ 的分布，但估计装置在本课，贸易机制在后课。
 
 后课默认：厂级生产函数先写信息时序与代理单调；OLS 弹性默认有偏。ACF 时序不满足时不要报「第一阶段 $\beta_l$」。宏观残差分解可以引用 OP，但不替代微观识别。
+
+<span class="marginnote">常见误区：以为加个固定效应就解决了内生性。FE 只吸走每家厂「常年不变」的那部分 $\omega$；今年风水好、明年风水差这类逐年冲击正是 OP 要捕的——它们每年都在指挥投入，不加结构的残差照样脏。</span>
 
 ## 小结
 
