@@ -17,6 +17,21 @@ section: litho
 
 随机性良率：$Y_\mathrm{stoch} \approx (1-p)^N$，孔或线端独立失败率 $p$，特征数 $N$。$N$ 在 SRAM 和 via 阵列上巨大，于是 $p$ 必须极小。剂量、NILS、酸分子数推 $p$；这与颗粒 $D$ 独立相乘。把缺孔当颗粒去抓洁净，ROI 为零。
 
+```mermaid
+flowchart TD
+  CHIP["整片良率"] --> DUST["颗粒项: 缺陷密度 × 关键面积"]
+  CHIP --> STO["随机项: (1-p)^N"]
+  STO --> NBIG["SRAM / via 阵列 N 巨大"]
+  NBIG --> PS["p 必须压到 ppb 级"]
+  PS --> LEVER["旋钮: 剂量 / NILS / 材料 z"]
+  DUST --> MULT["两项独立相乘"]
+  STO --> MULT
+```
+
+<span class="marginnote">数字实例：设单孔失败率 $p=10^{-9}$，一亿个孔 $N=10^8$，则 $Y \approx (1-10^{-9})^{10^8} \approx e^{-0.1} \approx 90\%$，尚可；但 SRAM 阵列 $N=10^{10}$ 时同一 $p$ 给 $e^{-10} \approx 4.5\times 10^{-5}$——缓存几乎全灭。$N$ 大一位数，$p$ 就得多压一位数。</span>
+
+<span class="marginnote">「ppb」翻译一下：parts per billion，十亿分之一。随机缺陷规格常在这个量级——相当于全中国人口里只允许个位数的人出错，所以靠事后抓缺陷救不了，只能从剂量与材料上压 $p$ 本身。</span>
+
 缺口是**统计合同**，不是再写蒙特卡洛。量产要规定：随机缺陷规格（ppb 级）、如何抽检（电子束点数）、以及剂量下限不得为产能突破随机窗。
 
 ### 与 LER 平滑的关系
