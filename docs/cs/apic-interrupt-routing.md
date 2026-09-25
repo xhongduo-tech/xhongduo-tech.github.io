@@ -19,9 +19,13 @@ section: cs
 
 IPI：核间中断，用于 TLB shootdown、停机，不是 PCIe 设备发出的。本课点名，机制同本地 APIC 接收。
 
+<span class="marginnote">常见误区：初学者容易把 IPI 当成某种外设发出的中断。其实它是 CPU 发给 CPU 的：核 A 改了页表，要靠 IPI 通知其余核作废各自 TLB 里的旧映射；核间停机、性能采样也走它，设备全程不参与。</span>
+
 ### APIC 不是「另一套 PCIe 根复合体」
 
 它是中断控制器，配置曾走 MMIO（APIC 基址），x2APIC 改 MSR。不参与 BAR 枚举（除了作为 MSI 写的目标）。把 APIC 当端点设备扫 Vendor ID，枚举代码会迷路。
+
+<span class="marginnote">直觉类比：把 Local APIC 想成每间办公室门口的信箱，I/O APIC 是总收发室，负责引脚线这些「纸质信件」；MSI 则是快递单上直接写清门牌号（APIC ID），投进指定信箱。总收发室瘫痪只影响老设备，写清门牌的快递照送。</span>
 
 <span class="marginnote">Intel SDM 卷 3 是 APIC 主文献。AMD 有兼容实现。ARM GIC 是平行设计，后课 AArch64 点到即可，本课以 APIC 钉 x86 主机侧。</span>
 
@@ -43,6 +47,18 @@ RISC-V 平台若用 IMSIC，每 hart 入队 MSI，思想同「每核接收器」
 ## 机制
 
 定时器、热插拔 CPU、电源状态都会改「谁能收中断」。DMA 与中断的配对：数据 DMA 完成对主机内存可见后才发 MSI，否则处理函数读到旧描述符——围栏与 PCIe 序，下一课 DMA 展开。本课先把向量送到核。
+
+<span class="marginnote">数字实例：xAPIC 模式下 MSI 地址以 0xFEE00000 为基址，目标 APIC ID 从第 12 位起编码——想投给 2 号核，OS 把地址填成 0xFEE02000 一档。设备以为自己在写内存，这一次写实际完成了「按核点名」的中断投递。</span>
+
+```mermaid
+flowchart LR
+  DEV["PCIe 设备"] --> W["对 MSI 地址发起一次内存写"]
+  W --> DEC["地址字段解码出目标 APIC ID"]
+  DEC --> CMP{"本地 APIC: ID 与我匹配?"}
+  CMP -->|匹配| IRR["IRR 记下向量, 按优先级待发"]
+  CMP -->|不匹配| IGN["视而不见"]
+  IRR --> ISRV["CPU 执行处理函数, 完成后写 EOI"]
+```
 
 ## 边界
 

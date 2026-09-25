@@ -52,8 +52,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  OLD["原产生式 E → E + T | T：先展开自己"] --> INF["parseE 未读任何记号就再调 parseE，无限递归"]
-  OLD --> NEW["改写成 E → T E′，E′ → + T E′ | ε：先吃 T 再展开"]
+  OLD["原产生式 E → E + T，或 E → T：先展开自己"] --> INF["parseE 未读任何记号就再调 parseE，无限递归"]
+  OLD --> NEW["改写成 E → T E′，E′ → + T E′，或 ε：先吃 T 再展开"]
   NEW --> STOP["parseE 吃一个 T 后进入循环吃 + T，必然停机"]
   NEW --> SAME["语言不变：仍是全体加法表达式串"]
 ```
