@@ -38,11 +38,25 @@ flowchart TD
   LDSO --> ENT
 ```
 
+<span class="marginnote">术语翻译：auxv（辅助向量）就是内核塞给新程序的一叠「便签条」：除了 argv 参数与 envp 环境变量，再附送几条关键情报——程序头表在哪（AT_PHDR）、入口在哪（AT_ENTRY）、一小撮随机字节（AT_RANDOM）供栈保护用。`ld.so` 靠这叠便签开工，不用自己再摸内存。</span>
+
 与[unwind](/cs/stack-unwinding)：加载器注册的对象列表供展开器找 FDE。
 
 ## 机制
 
 失败：找不到 `.so`、重定位溢出、栈执行被拒。setuid 忽略部分环境（`LD_PRELOAD`）——安全点名。不要在 setuid 路径依赖预加载。
+
+```mermaid
+flowchart TD
+  PH["程序头 PT_LOAD 逐项处理"] --> MAP["按 p_vaddr mmap 进地址空间"]
+  MAP --> TXT["代码段：R+X，文件页映射"]
+  MAP --> DAT["数据段：RW，文件页映射"]
+  DAT --> BSS[".bss 无文件内容，用匿名页清零"]
+  PH --> STK["另建栈，压入 argc/argv/envp/auxv"]
+  STK --> JMP["就绪，跳到入口"]
+```
+
+<span class="marginnote">数字实例：段按页（通常 4 KB）对齐映射，要求 `p_offset` 与 `p_vaddr` 对 0x1000 取模相等——所以常看到代码段文件偏移 0x1000、虚拟地址 0x401000。一个几百 KB 的可执行文件，映射只建立页表项，代码页等真正访问时缺页才从磁盘调入。</span>
 
 构造器顺序：与跨 `.so` 依赖有关，陷阱。
 
@@ -51,6 +65,8 @@ flowchart TD
 本课不写 `mmap` 系统课全文。后课默认：ELF 由内核+ld.so 加载。下一课交叉编译与三元组：生成哪一种 ELF。
 
 也不把加载当浏览器加载 URL。
+
+<span class="marginnote">常见误区：初学者以为 `execve` 之后整个可执行文件已被「读进内存」——其实内核只建了映射，代码页要等第一次访问、缺页才从文件读入。也别把 `ld.so` 当 JVM 那样的解释器：它做的是找库、修 GOT、跑重定位，最终跳进去执行的是本机机器码。</span>
 
 ## 小结
 

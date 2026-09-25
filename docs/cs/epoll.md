@@ -17,6 +17,8 @@ section: cs
 
 select 的兴趣是调用参数，无状态。epoll 实例是一个 fd，内核红黑树（或等价）记住监视哪些 fd、要哪些事件。文件真正就绪时，回调把该项放进就绪链表。wait 只收割链表。缺口不是新的管道，而是这份内核状态以及 ET（边沿：只在状态变化时报告）与 LT（水平：与 poll 相同）的差别。
 
+<span class="marginnote">「水平触发」与「边沿触发」两个词借自电路：水平触发看「现在的电平」，条件还成立就一直报；边沿触发只看「变化的瞬间」，从无到有那一下报一次。epoll 的 ET/LT 正是这两个词的缩写——LT 像一直按着的门铃，ET 像只响一声的门铃。</span>
+
 本课不把 `epoll_ctl` 每个 op 的错误码背完。
 
 <span class="marginnote">ET 要求一次读到 EAGAIN，否则事件丢失在应用逻辑里。LT 更不易用错，就绪队列可能反复报告同一 fd。本课不写攻击，只写语义。</span>
@@ -24,6 +26,8 @@ select 的兴趣是调用参数，无状态。epoll 实例是一个 fd，内核�
 ## 方法
 
 `epoll_create` → 对每个连接 `EPOLL_CTL_ADD` → 循环 `epoll_wait` → 对返回的 fd 做非阻塞 `read`/`write`。关闭 fd 会自动从兴趣表删除（实现相关，教学上仍应显式 DEL）。与 [信号掩码](/cs/sigmask) 可用 `epoll_pwait` 原子搭配。底层仍是各文件的 poll 回调，与 VFS 操作表相连。
+
+<span class="marginnote">数量级感受一下：一万个连接里只有 50 个活跃，select 每次都要把一万个 fd 拷进内核再全扫一遍；epoll_wait 只返回那 50 个就绪的。连接涨到十万，select 的固定开销涨十倍，epoll 的开销只跟着活跃数走——这正是「把兴趣表放在内核」买下的账。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +39,18 @@ flowchart TD
 ## 机制
 
 epoll 把复杂度从「每次系统调用 × n」降到「事件发生时 O(1) 插入 + wait 收割」。它仍是同步 I/O 的就绪通知，不是下一课的异步提交。线程安全：同一 epoll fd 可被多线程 wait，语义要小心惊群——实现有过变化，主干只承认「有这个对象」。
+
+```mermaid
+flowchart TD
+  EV["接收缓冲区从空变为非空"] --> LT["LT：只要还有数据，每次 wait 都报告"]
+  EV --> ET["ET：只在变化瞬间报告一次"]
+  LT --> SAFE["不易漏：下次 wait 还会提醒"]
+  ET --> MUST["必须循环读直到 EAGAIN"]
+  MUST -->|"偷懒只读一次"| LOSE["剩余数据没人再提醒，连接卡死"]
+  SAFE --> NEXT["下一轮 wait 继续收割"]
+```
+
+<span class="marginnote">初学者容易以为「换 epoll 一定更快」；连接少且个个活跃时，epoll_ctl 的日常维护反而是白付的，select/poll 未必更慢。epoll 赢在「连接海量、活跃稀疏」的负载形状——先看自己业务的形状，再选工具，别背口诀。</span>
 
 不要把 epoll 写成 Windows IOCP 的逐条对照表。
 

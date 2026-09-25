@@ -37,9 +37,24 @@ flowchart TD
   ESI["ESI 多归"] --> DF["指定转发者"]
 ```
 
+<span class="marginnote">术语翻译：EVPN 就是给 MAC 地址装上 BGP 这台「广播电台」——每台 VTEP 把自己学到的 MAC 当成一条路由对外通告，其余 VTEP 订阅收听。传统交换机的洪泛学习是「喊一嗓子看谁答应」，EVPN 是提前发通讯录，未知单播洪泛因此大幅消失。</span>
+
 ## 机制
 
 收敛：MAC 移动要序列号，防双活脑裂。这比 STP TCN 更像 BGP 前缀移动。底层仍 ECMP；EVPN 别把同一流钉死到死掉的 VTEP。IXP 一般不用 EVPN 给公网对等。
+
+```mermaid
+flowchart TD
+  F["一帧到达 VTEP"] --> L{"目的 MAC 在 Type2 表里？"}
+  L -- "有" --> U["封进隧道，单播直达对端 VTEP"]
+  L -- "无" --> R["ingress replication 复制给所有远端 VTEP"]
+  R --> A["真正持有它的 VTEP 应答，源端学到"]
+  A --> ADV["补发 Type2 路由，经 BGP 通告全网"]
+  ADV --> U
+  U --> T["下一次直达，不再洪泛"]
+```
+
+<span class="marginnote">数字实例：几千台虚拟机的数据中心，MAC 表动辄数万条；靠数据面洪泛学习，一台新虚机上线要等它的 ARP 广播跑遍全网。用 EVPN，只有挂着它的那台叶子发一条 Type 2 路由、经 RR 反射一遍就位——把「全网广播一遍」变成「全网收一条通告」。</span>
 
 BUM：Type 3 建 ingress-replication 或组播组，收口上一课的洪泛。
 
@@ -48,6 +63,8 @@ BUM：Type 3 建 ingress-replication 或组播组，收口上一课的洪泛。
 本课不引入 EVPN E-Tree 的全部。GRE 与隧道是下一课。后课默认：覆盖的 MAC 用 BGP 分发；数据面可以是 VXLAN 或 MPLS。
 
 控制面规模仍受 RR 与表项容量约束，不是无限租户。
+
+<span class="marginnote">常见误区：初学者把 EVPN 当成「另一种加密 VPN」——它不加密、不认证用户流量，只是分发二层/三层可达信息的控制面协议，与远程访问 VPN 更是两回事。也别以为有了 EVPN 就万事大吉：多归防环靠 ESI 与 DF 选举，控制面规模仍卡在 RR 与表项容量上。</span>
 
 下一课[GRE 与隧道](/cs/gre-tunnels)。
 
