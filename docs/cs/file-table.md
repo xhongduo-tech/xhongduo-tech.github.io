@@ -21,9 +21,13 @@ section: cs
 
 <span class="marginnote">fork 复制描述符表，于是父子共享同一批打开文件对象与偏移。exec 可关闭 CLOEXEC 的那些。close 减引用，到零才释放 file。</span>
 
+<span class="marginnote">「打开文件对象」（file）就是「内核记着这个打开实例读到哪了」的小本本：偏移和打开旗标都记在它身上，不在 fd 整数上，也不在 inode 里。fd 只是进程私有数组的下标，翻译过来就是「第几号小本本的钥匙」。</span>
+
 ## 方法
 
 `open`：分配 file，偏移清零，在进程表里找最小空闲整数当 fd。`dup`：新槽指向同一 file。`lseek` 改 file 的偏移。独立 `open` 两次同一路径：两个 file，两个偏移。[系统调用路径](/cs/syscall-path)上 `read(fd)` 只解第一层下标，越界则 EBADF。引用计数保护并发 close。
+
+<span class="marginnote">数字实例：进程连续 open 三次得到 fd 0、1、2，close 掉 1 号之后，下一次 open 通常拿回最小空闲整数 1。若对只开了 0-2 号的进程执行 `read(99)`，内核查 99 号槽为空，直接返回 EBADF——错误在解下标这一层就发生，还没碰到 file。</span>
 
 ```mermaid
 flowchart TD
@@ -37,6 +41,18 @@ flowchart TD
 三层表让管道、套接字、普通文件共用 fd 空间：file 上的操作向量可以不同，用户只看见整数。这与虚存的 fd 无关——mmap 也抓住同一 file/inode。不要把表写成数据库的连接池；它是进程映像的一部分，随[进程](/cs/process-image)复制与退出回收。
 
 回收器/shrinker 不收缩「打开着的」file；那是引用计数对象。
+
+```mermaid
+flowchart TD
+  DUP["dup(fd) 得新整数"] --> S1["两个 fd 指向同一 file: 共享偏移"]
+  FORK["fork 复制 fd 表"] --> S2["父子同号 fd 指向同一 file: 共享偏移"]
+  OPEN2["两次独立 open 同一路径"] --> S3["两个 file: 各自偏移互不影响"]
+  S1 --> INO["最终都落到同一 inode"]
+  S2 --> INO
+  S3 --> INO
+```
+
+<span class="marginnote">常见误区：初学者以为「同一个文件」就共享偏移。实际共享看「打开实例」：两次独立 open 同一路径得到两个 file、两套偏移，各自读写互不干扰；只有 dup 和 fork 得到的描述符才真正共用同一个偏移。</span>
 
 ## 边界
 

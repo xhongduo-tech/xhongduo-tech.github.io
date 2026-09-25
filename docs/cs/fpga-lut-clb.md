@@ -17,11 +17,15 @@ section: cs
 
 [PLA](/cs/pla-rom) 用与或阵列；FPGA 主流是 SRAM LUT：6 输入 LUT 存 64 bit 真值表，实现任意 6 输入函数。CLB 含若干 LUT、FF、进位旁路（为加法器准备，对照 [CLA](/cs/adder-cla) 的专用进位）。缺口不是「FPGA 比 ASIC 慢」的口号，而是映射目标：`assign y = a & b` 变成 LUT 初始化值，`posedge` 变成 CLB 里的 FF。
 
+<span class="marginnote">直觉类比：LUT 是「查表器」不是「计算器」——一本 64 行的速查表，输入是页码，答案是出厂前就印好的。所以 6 输入函数再复杂，一块 LUT 都是一次查表搞定；反过来哪怕函数只是与门，也照样占一整本表。</span>
+
 DSP 块、块 RAM 是旁边的硬核，对应上一单元乘加与 FIFO RAM，本课点名，下一课布局才说怎么连。
 
 ### LUT 不是「小型处理器」
 
 LUT 计算组合函数，没有程序计数器。把 LUT 理解成在芯片上跑解释器，会与后课 HLS 的「C 变成电路」混层。配置比特在上电时从闪存加载，那是静态结构，不是指令流。
+
+<span class="marginnote">顺着「配置易失」说一个常见现象：SRAM LUT 断电就忘，所以 FPGA 板卡上总挂着一片配置 Flash，每次上电重灌比特流——「FPGA 启动慢半拍」就是在这几毫秒到几百毫秒的加载里。</span>
 
 <span class="marginnote">Harris 用 LUT 教 FPGA。Kuon/Tessier/Rose 综述架构。Xilinx/AMD CLB、Intel ALM 细节不同，本课钉 LUT+FF+进位链这一共同形状。</span>
 
@@ -41,6 +45,17 @@ flowchart TD
 ## 机制
 
 下一课布局布线把 CLB 放到二维阵列并连接开关盒。STA 用 FPGA 的延迟表，时钟用全局网络（对照 [CTS](/cs/clock-skew-cts)）。ASIC 标准单元课会对照：LUT 灵活、延迟与功耗通常差于硬连线标准单元。
+
+<span class="marginnote">为什么重要「进位走专用链」：64 位加法器若拆成 LUT 逐位算，进位要横穿几十个 CLB 的普通布线，延迟一路堆上去；专用进位链是相邻 CLB 之间的直达导线，像高速公路不走红绿灯。这就是 FPGA 上加法器几乎白拿进位链、只花少量 LUT 的原因。</span>
+
+```mermaid
+flowchart LR
+  IN["输入 a,b,c"] --> ADDR["拼成 3 位地址 abc"]
+  CFG["综合器写好的真值表:00011101"] --> SRAM["LUT 的 8 位 SRAM"]
+  ADDR --> SRAM
+  SRAM --> OUT["取出第 abc 号位作为输出"]
+  EX["例:多数函数,输入 101 → 查第 5 号位 = 1"] --> OUT
+```
 
 ## 边界
 
