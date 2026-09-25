@@ -19,6 +19,8 @@ section: litho
 
 若把 Levinson 当主干，读者会在每一叶重复「光刻是什么」。本课只对照：书里哪些章对应已经写过的叶，哪些（如工厂组织）树里故意不单列。
 
+<span class="marginnote">直觉类比：主干课像一条登山路线，每一段只修上一步留下的缺口；教材像地图册，可以从任何一页翻开。附录做的事是在地图上标出「你现在在路线的哪一段」，而不是把地图重画一遍。</span>
+
 ### 与 Mack 的分工
 
 Mack, *Fundamental Principles of Optical Lithography* 更咬空中像、NILS 与胶模型。Levinson 更咬扫描仪使用、套刻、掩模与多层选择。主干成像课序更靠近 Mack；[后道波长分层](/litho/beol-wavelength-mix)、[套刻](/litho/litho-overlay)、计量课更常点 Levinson。附录同时承认两本，不选唯一圣经。
@@ -30,6 +32,8 @@ Mack, *Fundamental Principles of Optical Lithography* 更咬空中像、NILS 与
 对照表按树来读，不按书的页码背诵。光学与 $k_1$：对主干 [rayleigh-litho](/litho/rayleigh-litho) 与波长台阶。套刻与对准：对 litho-overlay、标记与热源课。胶与 CAR：对 CAR / 衬度课。计量：CD-SEM、OCD、套刻计量。多层与工具选择：对 beol-wavelength-mix。掩模：对二元/相移与掩模厂流程。
 
 读法：需要产线词汇（on-product overlay、工艺窗、标记）时翻 Levinson；需要成像核与 NILS 时翻 Mack 或 Hopkins。计算光刻专文已经声明不编造内部小时数；Levinson 同样不提供某厂 OPC 产能。
+
+<span class="marginnote">术语翻译：on-product overlay 指直接在真实产品图形上量出的套刻误差，与在裸片专用标记上量出的套刻不是同一个数——产品图形的工艺步进会污染读数，签规格时两者必须分列。</span>
 
 ```mermaid
 flowchart TD
@@ -44,9 +48,21 @@ flowchart TD
 
 书有多版，设备世代会变，原理章相对稳。对照时以原理为准：套刻贡献源、波长不能连续拧、计量定义要声明。具体机型数字以 ASML 当时产品页为准，不要把旧版教材里的步进器规格写成 2026 年的 EXE。
 
+<span class="marginnote">常见误区：教材印的机型规格（NA、台速、产能）是写作当年的快照。把「某代扫描仪 NA=1.35」当成普遍常数，或拿旧版步进器参数去推 2026 年的 High-NA EXE，都是把快照误当路线图。</span>
+
 ## 机制
 
 教材的机制是**横向索引**：同一条产线问题（窗口不够）会同时指向照明、胶、刻蚀和计量。主干的机制是**纵向缺口**：上一课留下什么，本课只补什么。两者合用时，书负责防止工程师只记得自己那一课，树负责防止每篇都从 Rayleigh 起笔。
+
+```mermaid
+flowchart TD
+  Q["工程师的问题: 工艺窗不够"] --> BOOK["书的走法: 横向索引"]
+  Q --> TREE["树的走法: 纵向缺口"]
+  BOOK --> B1["一章内同时翻: 照明 / 胶 / 刻蚀 / 计量"]
+  TREE --> T1["从上一课的缺口进入, 只补一叶"]
+  B1 --> USE["合用: 防只记一课 + 防重复起笔"]
+  T1 --> USE
+```
 
 后道分层是例子：Levinson 用专章讲不是所有层都用最短波长；主干把它收成 beol-wavelength-mix 一叶，接在接触孔之后。书不会按 GAA 再 ALD 再 DSA 的树顺序排——那是课程，不是教材目录。套刻章与对准/热源三课的关系同样：书把贡献源写在一处，树把它拆成策略、掩模热、晶圆热三叶，避免一课吞并三课。
 

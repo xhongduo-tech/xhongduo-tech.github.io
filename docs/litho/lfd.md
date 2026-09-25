@@ -23,11 +23,24 @@ LFD（lithography-friendly design / litho-friendly design）把计算光刻前�
 
 有人把 LFD 理解成「模型说能印就允许破规则」。方向反了：LFD 用模型证明规则该更严、或该改成单向金属加切线。规则仍是合同；模型是产生与验证合同的仪器。把 LFD 当破例通道，签核版本会分裂。
 
+<span class="marginnote">术语翻译：TAPOUT 指版图定稿、交付做掩模的节点；PV-band 是把剂量、焦点等工艺变化范围投影到同一图形上，轮廓铺开成的一条「可能地带」——带越宽、离失败越近，带压线即热点。</span>
+
 <span class="marginnote">LFD 用的模型必须与 OPC/LRC 同版本、同刻蚀核。用实验室 3D 去签库、用紧凑核去签芯片，友好会在全场蒸发。</span>
 
 ## 方法
 
 输入：候选库、布线方向约束、via 网格、多重分解选项。动作：对代表 clips 跑 OPC 级前向或快速 PV，输出热点表与建议（加间隔、改轨道、禁某 jog）。循环停在库 freeze，而不是每块产品版再发明一套友好。与 [SMO](/litho/smo) 的分工：SMO 优化光源与掩模；LFD 优化允许存在的多边形。
+
+```mermaid
+flowchart TD
+  Q{"在哪一步介入?"} --> LIBSTEP["库 / 布线阶段"]
+  Q --> MASKSTEP["掩模阶段"]
+  LIBSTEP --> LFD["LFD: 删掉或改写坏图形"]
+  LIBSTEP --> SMO["SMO: 优化光源配合"]
+  MASKSTEP --> OPC["OPC / ILT: 补偿掩模图形"]
+  LFD --> OUT1["输出: 带版本的约束文件"]
+  OPC --> OUT2["输出: 掩模版图"]
+```
 
 金属层尤其吃 LFD：二维拐角和 tip-to-tip 是全芯片账单的主要制造者。via 覆盖与下层金属协同，本课只点名，细节在本课序末课。
 
@@ -36,6 +49,8 @@ LFD（lithography-friendly design / litho-friendly design）把计算光刻前�
 ## 机制
 
 设计多边形进入成像算子前，已被轨道高度、最小间隔、单向偏好投影。LFD 是这条投影的带模型反馈：前向说某 jog 在离焦下桥连，就从库里删掉，而不是指望 ILT 把 jog 修圆。算力课的含义是：删掉一个系统坏图形，等于少付全场每一处相似邻域的迭代。
+
+<span class="marginnote">直觉类比：LFD 像在菜单定稿前把每道菜先试做一遍，删掉厨房做不出来的菜式；OPC 像硬着头皮按原菜单上菜、再偷偷修一修摆盘——菜还是那道难做的菜，只是每桌都多花一道工。</span>
 
 ```mermaid
 flowchart TD
