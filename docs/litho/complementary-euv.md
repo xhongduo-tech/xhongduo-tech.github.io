@@ -23,6 +23,8 @@ section: litho
 
 名字里的 complementary 来自一维栅格设计：线与切在功能上互补。线可以仍是浸没 SAQP，切用 EUV；或线也 EUV、切仍 EUV——那是 EUV+EUV，仍叫互补几何，但波长分工不同。必须按层声明：谁印线，谁印切。不要用一个词覆盖两种成本结构。本课不把任何一种写成唯一量产点。
 
+<span class="marginnote">初学者容易把「多重图形化」读成「在光刻机上多曝几次」。SAQP 的节距劈分靠沉积与刻蚀长出 spacer，一次曝光定 mandrel，其余几刀都在薄膜工艺里完成；光刻机工时省下来，正是把密度交给 spacer 的动机之一。</span>
+
 <span class="marginnote">公开策略谈话会提到 EUV 做 via 与 cut、浸没多重做线。那是层类型语言。把它翻译成某厂某年的产能或良率，就是编造。</span>
 
 ## 方法
@@ -30,6 +32,8 @@ section: litho
 读一层策略时列三行：mandrel/线用哪台、cut/block 用哪台、孔是否单独 EUV。互补式的典型公开组合是：1D 线 = 浸没 SAQP（或 EUV 芯轴 + spacer），2D 信息 = EUV 切/块。设计规则：线单向、拐角靠切拼出来，与纯 EUV 任意二维不同。DTCO 先于光学：布局必须是格点。
 
 计量：线的四相 space 仍按 SAQP 课；切的套刻是 EUV 场对浸没栅，跨平台匹配进 overlay 预算。混合课警告过节点名不是波长，本课加上：同一层内也可以两种波长互补。
+
+<span class="marginnote">可以把 1D 密线想象成先织一整面栅栏：栅栏的密与直交给 spacer 自对准去保证，切与块则是拿剪刀在栅栏上剪出需要的口子。剪刀的落点自由度是二维的，恰好交给 EUV 的单次二维曝光。</span>
 
 ### 后课默认
 
@@ -51,6 +55,18 @@ flowchart TD
 跨波长套刻：浸没栅的指纹与 EUV 场畸变不同，匹配项回到套刻预算课。High-NA EUV 以后切的窗会再变，仍不自动取消 spacer 线——公开策略按层演进，本课不预支时间表。
 
 <span class="marginnote">互补式也曾在纯 193i 时代被谈论（浸没线 + 浸没切）。EUV 进切层，是短波长去补切的 $k_1$，不是新发明一种几何。几何是 1D+cut；新的是谁曝光切。</span>
+
+<span class="marginnote">术语翻译：walking 指 spacer 刻蚀或沉积不完全垂直时，线条间距沿走向逐渐偏移、越走越歪的现象。误差随线长累积，所以它记在薄膜工艺的账上，而不在光学的 overlay 账上。</span>
+
+```mermaid
+flowchart TD
+  LINE["SAQP 线: 周期误差"] --> WALK["walking 伪线: 薄膜的账"]
+  CUT["EUV 切: 二维终止"] --> MISS["缺孔与剂量: 胶与源的账"]
+  OV["浸没栅 × EUV 场"] --> OVL["跨波长套刻: 预算的账"]
+  WALK --> INTER["层窗口 = 三本账的交集"]
+  MISS --> INTER
+  OVL --> INTER
+```
 
 ## 边界
 
