@@ -23,6 +23,8 @@ section: cs
 
 `ip link add br0 type bridge`，把 veth 与 tap 设为 port。VM 写 tap → 内核 tap 驱动建 skb → 桥转发 → 另一端口 TX。对照 [device mapper](/cs/device-mapper-lvm)：dm remap 块号；桥 remap 的是「出哪口」。对照 [FUSE](/cs/fuse)：tun 是字符设备把包送用户，不是文件树。
 
+<span class="marginnote">记法：tun 是三层设备，用户进程 read 到的就是 IP 包（少了 14 字节以太网头）；tap 是二层设备，read 到完整以太网帧。所以 VPN 多用 tun（内核路由已选好方向），虚拟机多用 tap（客户机 OS 期望拿到一张「真网卡」）。</span>
+
 ```mermaid
 flowchart TD
   TAP["tap fd 用户态"] --> SKB["sk_buff"]
@@ -35,7 +37,21 @@ flowchart TD
 
 桥把 netns 里的多条虚线收成二层域；tun/tap 把「网卡」的另一头接到进程，这是虚拟机与 VPN 的 OS 接头。不要写成数据中心 fabric。与 netfilter：`br_netfilter` 可把桥转发再送进 iptables，性能与语义都坑，课序只要求知道钩可以叠。
 
+下图回答一个具体问题：一帧进来后，桥凭什么决定转发还是泛洪。
+
+```mermaid
+flowchart TD
+  IN["帧从端口 P1 到达 br0"] --> LRN["学习：记 源MAC 在 P1"]
+  LRN --> Q{"目的 MAC 在表里？"}
+  Q -->|"命中"| FWD["只从对应端口发出"]
+  Q -->|"未知或已老化"| FLD["泛洪到其余所有端口"]
+  FLD --> BACK["对方回包再入 P2"]
+  BACK --> LRN2["表项补全，此后定向转发"]
+```
+
 隔离：VLAN 过滤与独立 netns 是不同层。
+
+<span class="marginnote">MAC 学习可以想象成前台保安记人脸：第一次见到某人从哪个门进出，就在登记本记一笔「这个 MAC 走 2 号口」；下次给他送信就不用挨个房间喊（泛洪），直接从 2 号口递出去。表项几分钟不见人就删掉（老化），人换了工位也能重新学。</span>
 
 
 实现上：桥的 MAC 表老化后未知单播泛洪，容器网络会变成小广播域。tun 无以太网头，VPN 自己封装；tap 给虚拟机当网卡。br_netfilter 让桥包再进 iptables， entangle 二层与三层。 读法上只引用[上一课](/cs/netns-veth)的结论，不把对象换成训练推理或限价簿。
@@ -45,6 +61,8 @@ flowchart TD
 - 先修只引用，不重导：上一课的结论当公理，本课只补差。
 - 五栏不吞并：不把本课写成大模型训练/推理，也不写成限价簿或权重量化。
 - 文献用 OSTEP、McKusick、内核文档与具名会议论文；不发明 arXiv 编号。
+
+<span class="marginnote">常见误区：初学者以为二层桥转发不经过 iptables。实际加载 br_netfilter 后，桥上的帧会被抬到三层再过一遍 iptables 钩子；规则若按物理网卡名来写，到了桥上就容易「看起来没生效」——这是容器网络里出名的坑。</span>
 
 ## 边界
 

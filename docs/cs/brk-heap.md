@@ -19,6 +19,8 @@ section: cs
 
 本课不把 glibc 的 arena 与 tcache 写成用户态教材。
 
+<span class="marginnote">brk 内核侧只记一个地址。假设 break 原在 $0x1000$ 处，`malloc` 要 64 KB，内核只需把它加 $0x10000$——一次系统调用改一个数，这段虚地址就全部合法了；至于这 16 个页此刻有没有物理帧，一页都没有，这就是「虚大于物」。</span>
+
 <span class="marginnote">当代 libc 大块常用匿名 `mmap`，小块仍可能走 `brk`。对内核，二者都是匿名 VMA；本课以 break 为原型，映射区留给 mmap 课。</span>
 
 ## 方法
@@ -38,11 +40,29 @@ flowchart TD
 
 本课只保证：合法区间集合里多了一段匿名堆。帧从哪来、是否先填零，按需调页回答。
 
+下图回答一个具体问题：一次 `malloc` 走 brk 还是 mmap，失败可能在哪一步发生。
+
+```mermaid
+flowchart TD
+  REQ["malloc(n)"] --> S{"n 是小块？"}
+  S -->|"是"| POOL["先在水位内空闲块切"]
+  POOL --> GROW["切不动：brk 升水位"]
+  GROW --> LIMIT{"超 RLIMIT_DATA？"}
+  S -->|"是大块"| MMAP["匿名 mmap 单独一段"]
+  LIMIT -->|"是"| RET["返回 NULL：此刻失败"]
+  LIMIT -->|"否"| VMA["合法虚区，页暂无帧"]
+  MMAP --> VMA
+```
+
+<span class="marginnote">水位（program break）可以想象成泳池的水面刻度：`brk` 只是移动刻度线，宣称「到此为止的水都归我」；真正放水（配物理帧）要等有人跳进去（第一次访问触发缺页）才发生。所以 brk 之后立刻算内存占用，数字并不涨。</span>
+
 ## 边界
 
 本课不引入 `mallopt` 与 arena 调参，不把内核的 `vm_brk` 实现细节当考纲。也不把文件映射的堆（少见）写成默认。用户把 break 降到仍有指针指向的区域，是程序自己的释放协议，内核不追踪对象图。
 
 后课默认：堆尽头已是合法虚地址。第一次访问这些页时如何分配帧，下一课按需调页。
+
+<span class="marginnote">常见误区：初学者以为 `free` 会把内存还给内核、RSS 立刻下降。实际上小块 free 只把块挂回用户态分配器的空闲链表，水位不动、页也不拆；只有堆顶整段空闲时分配器才可能收缩 break。所以 free 之后进程占用内存常常不变。</span>
 
 ## 小结
 

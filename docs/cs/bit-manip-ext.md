@@ -53,7 +53,7 @@ H 扩展不改变这些编码。压缩课的 16 位别名覆盖不到全部 B �
 
 ```mermaid
 flowchart TD
-  SRC["源码：a[i]"] --> CC["编译器读 -march"]
+  SRC["源码：数组取址 a of i"] --> CC["编译器读 -march"]
   CC -->|"有 Zba"| ONE["sh2add 一条指令"]
   CC -->|"无 Zba"| TWO["slli + add 两条"]
   ONE --> RUN["语义相同，速度与体积不同"]
