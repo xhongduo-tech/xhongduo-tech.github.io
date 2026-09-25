@@ -19,6 +19,9 @@ Gauss–Markov 的球形误差在截面异方差、时间序列相关、州–�
 
 多重检验：二十个结果、五个子样本，期望有一个「$p\lt 0.05$」。Bonferroni 过保守；Benjamini–Hochberg FDR、Romano–Wolf 逐步法在功效与控制之间折中。预注册与单一主结果是设计手段，不是统计公式。
 
+<span class="marginnote">数字实例：20 个互不相关的检验各按 5% 判断，「至少一个假阳性」的概率是 $1-0.95^{20}\approx 64\%$。Bonferroni 把门槛除以 20（即 0.0025）来压住这个家族错误率，代价是每个检验都更难显著。</span>
+
+<span class="marginnote">「三明治」估计量就是把协方差写成「面包–肉–面包」的三层矩阵乘积：外层是回归元的二阶矩，中间的肉是残差平方。名字吓人，实质只是给 $\sum x_i^2 u_i^2$ 换一套按需加权的求和方式。</span>
 <span class="marginnote">Cameron–Gelbach–Miller：聚类数少时用野 bootstrap。Abadie–Athey–Imbens–Wooldridge：聚类应对准设计（哪些单位被随机或被政策），不是「所有看起来相关的」。</span>
 
 ## 方法
@@ -46,6 +49,21 @@ flowchart TD
 与识别：推断再对，排除失败的 IV 仍然错。本课不管偏误，管方差。弱工具的名义 $t$ 失败是上一课的覆盖问题，不是聚类能修的。
 
 <span class="marginnote">Moulton：回归元在组层、误差在组层，即便「看起来 $N$ 很大」，信息量是组数。教育政策用学校，劳动用州，都先数簇。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「聚类只是把标准误稍微调大」。实际上它改变的是有效样本量的记账方式——5 万个州–年格点可能只值 50 个州，标准误可能翻倍，「显著」直接变「不显著」。</span>
+
+```mermaid
+flowchart TD
+  Q["误差在哪一层相关?"] --> A["只有方差随个体变"]
+  Q --> B["同一州各年相关"]
+  Q --> C["跨州空间相关"]
+  A --> W["用 White 稳健标准误"]
+  B --> CL["聚类到州 / 政策层"]
+  CL --> FEW{"簇数够多吗?"}
+  FEW -- "不到几十个簇" --> WB["野 bootstrap"]
+  FEW -- "够" --> OK["报告聚类标准误"]
+  C --> WARN["簇间仍相关: 双向聚类或空间 HAC"]
+```
 
 ## 边界
 

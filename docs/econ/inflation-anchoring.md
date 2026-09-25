@@ -17,6 +17,7 @@ section: econ
 
 SW 类 NK 常把通胀目标写成常数，长期预期机械锚定。数据：十年通胀补偿与调查长期预期在目标制下较稳，但仍随原油、财政、体制新闻动（Gürkaynak 等）。解钉：学习把趋势通胀当时变系数；指数化与过去通胀进工资，使菲利普斯更陡或更持久。缺口是把「锚定」写成可破的信念，而不是永远的常数 $\bar\pi$。
 
+<span class="marginnote">术语翻译：「锚定」不是「预期正好等于 2%」这个数字，而是这个数字对短期冲击不敏感——油价涨、赤字大，大家仍相信长期通胀会被拉回目标。锚定程度 = 长期预期对冲击的载荷有多小。</span>
 <span class="marginnote">Gürkaynak, Sack and Swanson 对远期通胀。Coibion, Gorodnichenko and Kamdar, *JEL* 2018。Orphanides and Williams 的学习与锚定。Hazell, Herreno, Nakamura and Steinsson 的区域菲利普斯。</span>
 
 ## 方法
@@ -39,6 +40,19 @@ flowchart TD
 机制是长期信念进入当期定价（前瞻菲利普斯含 $\mathbb{E}\pi_{t+1}$，迭代后含长期）。锚定把冲击的折现核压住；解钉等于把单位根或近单位根放进通胀。财政：若人相信债务最终靠铸币税，锚定失败——Lee 财政理论接口留给主导课。沟通：重复目标只能在 Odyssean 可信或 Delphic 不破坏信任时钉住。
 
 <span class="marginnote">1970 年代是解钉的经典样本；1990 年代后目标制是锚定样本。样本分裂使 SW 全样本估计的持续性是混合物。</span>
+
+<span class="marginnote">直觉类比：锚像船锚——风浪（短期冲击）只让船（当期通胀）绕着锚打转；锚绳一断，船随波逐流，而且按 1970 年代的经验，重新抛锚可能要花十年和一次深度衰退的代价。</span>
+
+```mermaid
+flowchart TD
+  SHOCK["一次成本冲击"] --> BR{"长期预期锚住了吗?"}
+  BR -- "锚定" --> TEMP["通胀暂时上升后回落"]
+  BR -- "解钉" --> UP["长期预期上移"]
+  UP --> WAGE["工资与定价要求提高"]
+  WAGE --> COST["成本与价格真的上涨"]
+  COST --> CONF["预期被现实再确认"]
+  CONF --> UP
+```
 
 ## 边界
 
