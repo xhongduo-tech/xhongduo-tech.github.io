@@ -17,6 +17,8 @@ section: litho
 
 切断课的默认图像往往是 SADP：一轮侧墙，节距减半，再切。SAQP 再劈一次，最终节距约是 mandrel 的四分之一，线密度更高，切缝对准每一根线的裕量更小。切孔之间的间距若仍按器件栅格，单次切层更容易撞光学地板，于是切自己也要多重着色——「线四重自对准、切双重/三重」。
 
+<span class="marginnote">术语翻译：切断（cut）就是在自对准长栅上「打洞断线」的那张掩模——线是一整条连着的，晶体管要的却是一段一段有限长的线，切版决定在哪里断。</span>
+
 缺口因此是四重 + cut 的组合，不是再讲一遍弯月面式的切断定义。把 SAQP 写成「切也可以自对准」，会漏掉终止位置仍是光刻套刻。把切层当成第四轮 spacer，几何上也不对：spacer 不能在任意格点停线。
 
 ### 1D 工艺包
@@ -35,6 +37,8 @@ section: litho
 
 切缝太密时，切层走 LELE 着色：同色切间距回到单次窗，异色切受套刻限制。公开 1D 策略里「线自对准、切多重」是这句话，不要把全部密度都算进 spacer 次数。
 
+<span class="marginnote">数字实例：SAQP 后最窄 space 若是 10 nm，半个 space 就是 5 nm——切层套刻误差一旦超过 5 nm，切缝就开始吃邻线。这就是切层 overlay 规格往往比 mandrel 层更紧的直接算术。</span>
+
 ```mermaid
 flowchart TD
   MAN["Mandrel 光刻"] --> S1["Spacer 1"]
@@ -50,6 +54,18 @@ flowchart TD
 两轮保形膜把周期除以四，线宽主要由第二轮（及前轮残留）薄膜厚度定义。切断不改周期，只改连通性：在指定格点把线刻断。套刻误差 $\delta$ 让切缝中心偏离目标线中心：$\delta$ 大于半个 space 就碰邻线。SAQP 的 space 更小，同一 $\delta$ 更致命——这是为什么切层 overlay 规格往往紧过 mandrel 层。Walking 让四相 space 不等，切缝的「安全走廊」按最窄相设计。
 
 先切芯轴：切的是疏一倍或疏四倍的 mandrel，光学容易，但切误差会被后续 spacer 映射到最终线终止位置，传递函数不同。两种流程的缺陷图不同，检验食谱不能共用。
+
+```mermaid
+flowchart LR
+  DELTA["切层套刻误差 δ"] --> SMALL["δ 小于半个 space"]
+  SMALL --> SAFE["切缝留在安全走廊内"]
+  DELTA --> BIG["δ 超过半个 space"]
+  BIG --> HIT["碰邻线: 桥连 / 过切缺陷"]
+  WALK["walking 使四相 space 不等"] --> NARROW["按最窄相设计走廊"]
+  NARROW --> SAFE
+```
+
+<span class="marginnote">常见误区：以为 spacer 轮数越多越省光刻。SAQP 后切层自己常要着色成双重甚至三重——「线一次自对准、切两三次曝光」，扫描机并未下班，只是换了个岗位。</span>
 
 <span class="marginnote">不要把 SAQP+cut 的扫描次数理解成「只有一次光刻」。Mandrel 一次 + 每张切版一次，加两轮薄膜与回刻。wph 会计按模块加，下一课代价会算这笔，本课不编数字。</span>
 

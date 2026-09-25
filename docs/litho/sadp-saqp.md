@@ -17,6 +17,8 @@ section: litho
 
 浸没单次曝光对 mandrel 仍要满足 $k_1\ge 0.25$ 量级。若目标线节距是 mandrel 节距的一半，SADP 把光学负担留在疏一倍的芯轴上，密线负担交给薄膜。问题是：spacer 形成的是围绕 mandrel 的闭合环，要变成逻辑或存储器用的线栅，必须切开（cut）或用后续刻蚀丢掉不需要的边。切的位置是另一次光刻，与鳍、栅或金属的套刻重新成为一阶。SADP 不是「这一层再也不需要对准」。
 
+<span class="marginnote">术语翻译：mandrel（芯轴）是先用光刻做出的「骨架」；spacer（侧墙）是贴在骨架侧壁的薄膜。骨架拆掉后，两侧墙留下来当新图形——相当于用一次光刻换出两倍密度的线。</span>
+
 二维拐角、T 型结、任意宽度的金属，spacer 几何很难自然生成。SADP 擅长固定节距的一维栅（鳍、某些金属），不擅长任意二维布线。把全芯片金属都说成 SAQP，通常是宣传而不是布局事实。
 
 ### Mandrel 光刻仍是普通 DUV
@@ -35,6 +37,8 @@ section: litho
 
 四重之后，最终半节距大约是 mandrel 半节距的四分之一（在理想一维图里）。光学 $k_1$ 仍只约束 mandrel。薄膜厚度的晶圆内均匀性、加载效应与微负载，变成 CD 均匀性的主源。原子层沉积的逐圈控制是 SAQP 能进鳍工艺的原因之一。Mack 的瑞利公式在这里不再直接给出最终鳍宽——鳍宽是 spacer 厚度经刻蚀转移后的结果。
 
+<span class="marginnote">数字实例：mandrel 节距 80 nm、spacer 每侧长 15 nm 上下时，SADP 后线节距约 40 nm；再做一轮 spacer（SAQP）就逼近 20 nm。每轮「减半」的魔法都来自那层 ALD 薄膜的厚度，而不是镜头更强。</span>
+
 ```mermaid
 flowchart TD
   M["Mandrel 光刻+刻蚀"] --> SP["保形沉积 spacer"]
@@ -48,6 +52,17 @@ flowchart TD
 ## 机制
 
 自对准的几何：spacer 的内边缘贴着 mandrel 侧壁。两次曝光之间的相对平移不会把左 spacer 和右 spacer 拆开，因为没有第二次「线」曝光。LELE 的 $\delta$ 在这一对线上不出现。Mandrel 的 overlay 仍然决定整组线栅相对有源区或浅槽隔离落在哪里——那是层间套刻，不是对内半节距。切线若要对准到栅或接触，overlay 回到切线层。
+
+<span class="marginnote">直觉类比：SADP 定线宽不再问镜头，而是问薄膜——好比裁缝不用画粉线（光刻）定边，而是靠贴边的胶带厚度（spacer）定边；胶带贴得多匀，衣边就有多准。</span>
+
+```mermaid
+flowchart LR
+  LELE["LELE: 两条线来自两次曝光"] --> DELTA["套刻误差 δ 拉开两条线"]
+  DELTA --> BADCD["内间距直接变差"]
+  SADP["SADP: 两根 spacer 长在同一芯轴两侧"] --> FIX["内间距 = 芯轴CD + 2×spacer厚"]
+  FIX --> SAFE["线层套刻误差进不了内间距"]
+  CUT["切线层仍要套刻"] --> GRID["决定整组线栅落点"]
+```
 
 线端与环的处理消耗设计规则：线不能任意终止，必须在允许切的栅格上切。这就是为什么标准单元和鳍工艺愿意改布局去迁就 SADP，而随机金属层更常留在 LELE 或 EUV。SAQP 的线端与多重 spacer 的「哪一轮定义哪条边」更绕，设计规则更长。
 
