@@ -17,6 +17,8 @@ section: cs
 
 路径查找是「父 inode + 名 → 子 inode」。目录块在盘上；热点名应在 RAM。dentry 持有名、父指针、子哈希、指向 inode 的指针（或负项）。缺口不是 inode 磁盘布局——下一课才讲持久 inode——而是内存里的名字图，以及与页 Cache 的分工：页 Cache 缓存文件数据页；dcache 缓存目录关系。
 
+<span class="marginnote">术语翻译：dentry 就是 directory entry（目录项）。可以把它想象成文件系统的通讯录条目——记着「在父目录下叫这个名字的对象住哪」，用指针指到 inode；负项则是「查无此人」的备忘录，免得每次都去盘上重新确认一遍不存在。</span>
+
 本课不把 RCU 查找的全部锁级写完。
 
 <span class="marginnote">哈希键通常是父 dentry 加名。卸载与 rmdir 必须使 dentry 失效。shrinker 可以丢未使用的 dentry，释放 slab 页。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 查找分量：在父的哈希中找 dentry。命中正项则得到 inode 指针；命中负项则 ENOENT。未命中则读目录（下一课的目录文件），插入 dentry。`.` 与 `..` 可走父指针，少一次哈希。与打开文件表的关系：`open` 成功后 fd 抓住 inode/file，dentry 仍可被其他查找共享。
+
+<span class="marginnote">数字实例：编译一个大项目常对头文件路径做几十万次 `stat`。一次目录块读取是微秒到毫秒级的磁盘 I/O，而 dcache 命中只是一次哈希查找加指针跳转，纳秒级——同一批查找累计能差五六个数量级，这正是「热点名应在 RAM」的账。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,18 @@ flowchart TD
 ## 机制
 
 dcache 把路径的局部性变成 O(1) 平均查找，让编译器反复 `stat` 头文件不必每次下盘。它依赖 slab 分配 dentry 对象，回收时是 shrinker 的主要客户之一。不要把 dentry 当成用户可见的硬链接计数；硬链接是持久 inode 上的 nlink，下一课。
+
+<span class="marginnote">常见误区：初学者容易以为删掉文件，对应 dentry 就立刻消失。实际上「没被使用」的 dentry 只是进入可回收状态，仍躺在 slab 里等 shrinker 来丢；真正删除发生在持久 inode 的 nlink 计数减到 0——内存名字和盘上对象是两个层次的事。</span>
+
+```mermaid
+flowchart LR
+  ROOT["根 dentry"] --> U["dentry usr"]
+  U --> L["dentry lib"]
+  L --> INO["inode：盘上对象"]
+  U --> NEG["dentry tmp：负项，记不存在"]
+  SHR["shrinker 回收"] -. 丢未引用 .-> U
+  SHR -. 丢未引用 .-> NEG
+```
 
 [VFS](/cs/vfs) 会把 lookup 做成操作表；本课先承认缓存对象存在。
 
