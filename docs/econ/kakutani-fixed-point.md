@@ -25,11 +25,15 @@ $C\subset\mathbb{R}^n$ 非空紧凸。$\Phi:C\rightrightarrows C$ 满足：(i) �
 
 <span class="marginnote">Kakutani 仍是存在性。多重纳什、多重均衡是常态。选择均衡要精炼或稳定性，不在本课。</span>
 
+<span class="marginnote">直觉类比：把 $\Phi(0)=\{1\}$、$\Phi(1)=\{0\}$ 想成两家互相把客人推给对方的旅店——每个点都被推走，谁也停不下来，所以没有不动点。病根不在「紧」，而在值不凸：值只有两个端点、没有任何「中间地带」可以落脚。凸值就是给点一个可以停留的中间集合。</span>
+
 ## 方法
 
 用 Kakutani 前核对定义域紧凸、像落在定义域里、值凸紧非空、上半连续。连续目标在紧凸可行集上的最优对应，在偏好连续凸、预算连续且紧时，满足这些——Berge 极大值定理给非空紧与 UHC，凸偏好给凸值。后课[上半连续对应](/econ/uhc-correspondence)把 UHC 与 Berge 写清楚；本课只要求：没有 UHC，Kakutani 的假设不齐。
 
 近似办法：用连续函数 $f_\varepsilon$ 在 $\varepsilon$-邻域里挑 $\Phi$ 的点（Michael 选择在凸值时可用），对 $f_\varepsilon$ 用 Brouwer，令 $\varepsilon\to 0$ 用闭图收极限。这解释了为何 Kakutani 看起来像「集值 Brouwer」。
+
+<span class="marginnote">「上半连续」可以先翻译成「图是闭的」：若 $x_n\to x$、$y_n\in\Phi(x_n)$ 且 $y_n\to y$，则 $y$ 仍在 $\Phi(x)$ 里。直觉上，对应的像在极限处不会突然缩小或甩出新点——这是保证「近似不动点能收成真不动点」的那条保险，少了它整套证明在极限处漏气。</span>
 
 ```mermaid
 flowchart TD
@@ -44,7 +48,20 @@ flowchart TD
 
 $x$ 不在 $\Phi(x)$ 里时，凸值让你能用[分离超平面](/econ/separating-hyperplane)把 $x$ 与 $\Phi(x)$ 分开，造出一个连续的「朝像走」的方向。UHC 保证这个方向不会在极限处突然跳开。于是可以造辅助的连续自映射，Brouwer 给出近似不动点，闭图把近似收成真正的 $x\in\Phi(x)$。分离再一次成为存在性的引擎：没有凸，分离失败，辅助映射造不出来。
 
+```mermaid
+flowchart TD
+  XNIN["x 不在 Phi(x) 里"] --> SEP["凸值: 分离超平面隔开 x 与像"]
+  SEP --> DIR["造连续的朝像走方向"]
+  UHCH["UHC"] --> NOJUMP["方向在极限处不跳开"]
+  DIR --> AUX["辅助连续自映射"]
+  NOJUMP --> AUX
+  AUX --> BR["对辅助映射用 Brouwer"]
+  BR --> LIM["闭图收极限: x 属于 Phi(x)"]
+```
+
 与压缩的对比依旧：Kakutani 不给唯一、不给 Picard。值函数迭代走压缩；均衡存在走 Kakutani。两者都叫不动点，假设与产物不同，不要混用迭代去「算」一般均衡的 Kakutani 点还指望全局唯一。
+
+<span class="marginnote">常见误区：把 Kakutani 当成「能算出均衡的算法」。它只承诺至少存在一个不动点，不给唯一性、也不给找法；带迭代收敛的是压缩映射那一族。把两者混为一谈，就会拿错误的工具去追不存在的唯一解。</span>
 
 <span class="marginnote">无限维要 Glicksberg 一类推广。连续时间或函数价格空间上的均衡有时走那条；有限商品主干停在 Kakutani。</span>
 

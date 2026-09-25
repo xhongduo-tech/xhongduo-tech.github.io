@@ -20,6 +20,7 @@ section: econ
 缺口不是再解一次 $\lambda$ 的无差异，而是标明：替代来自搭便车于价格，互补来自协调动机。后课美人竞赛把协调写成高阶信念；本课先停在获取的博弈型。
 
 <span class="marginnote">Barlevy–Veronesi、Veldkamp–Wolfers、Hellwig–Veldkamp 等把「看什么」写成离散选择。互补时容易出现：所有人看同一公共信号，私有信号被忽略。</span>
+<span class="marginnote">直觉类比：替代像抢在别人之前看到已公开答案的考卷——看的人越多，先看的价值越小；互补像全班统一用同一本教辅——正因为大家都看它，对答案才对得上，公共信号越多人用越值钱。</span>
 
 ## 方法
 
@@ -44,6 +45,19 @@ flowchart TD
 存在与揭示课的完全揭示，在替代世界里被 $c\gt 0$ 禁止；在互补世界里，公共信号可以被过度使用，私有信号供给不足——揭示对 $\theta$ 未必更深，对「别人怎么动」却可以更准。
 
 <span class="marginnote">Morris–Shin 后课会证明：即便公共信号对 $\theta$ 的精度一般，协调动机会让人给它超过贝叶斯权重的权重。获取阶段若预见到这一点，会过度投资于公共信息。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「价格免费揭示信息，所以没人会付费获取」。但若真无人付费，价格里就没有信息可搭便车——这正是 Grossman–Stiglitz 悖论：均衡只能是有人付费、价格部分揭示。</span>
+
+```mermaid
+flowchart TD
+  BUY["我付费获取信号"] --> TRADE["交易获利"]
+  TRADE --> PRICE["信息写进价格"]
+  PRICE --> FREE["别人观察价格免费知情"]
+  FREE --> EDGE["我的信息优势下降"]
+  EDGE --> LESS["我减少获取"]
+  LESS --> SHALLOW["价格揭示变浅"]
+  SHALLOW --> AGAIN["付费又有租金, 新均衡在中间"]
+```
 
 ## 边界
 

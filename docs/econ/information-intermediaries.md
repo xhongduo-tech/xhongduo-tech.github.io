@@ -20,6 +20,7 @@ section: econ
 缺口是把 $y$ 的生产写成产业，而不是假定天上掉下一则 Morris–Shin 公告。分析师、评级、审计，在本栏都是同一类对象：把私有采集变成公共标签。它们改变 Hellwig 价格里的公共成分，也改变 Glosten–Milgrom 价差里的知情比例。
 
 <span class="marginnote">Ramakrishnan–Thakor、Millon–Thakor 把银行与审计当信息生产者。本课不写银行资本监管；货币银行主干已经有中介的流动性保险，这里只留认证。</span>
+<span class="marginnote">术语翻译：issuer-pays（发行人付费）就是「被评判的人付钱给评判者」的商业模式。就像让考生给阅卷老师发工资——激励方向天然拧着，需要声誉或竞争来纠偏。</span>
 
 ## 方法
 
@@ -46,6 +47,19 @@ flowchart TD
 与柠檬对照：中介若可验证，市场从 Akerlof 搬向 Grossman 揭开；中介若只是有偏的 $y$，市场多了一则公共噪声，美人竞赛会放大它。
 
 <span class="marginnote">强制披露与强制评级是替代：前者把阈值推低，后者把中介的需求曲线外移。两者都改变公共与私有的分界，都不自动给出完全揭示。</span>
+
+<span class="marginnote">数字实例：信息的固定成本是「生产一次、人人可用」。设生产一则准确标签要 100 万元，市场有 1 万个买方——人均成本 100 元，买得起；市场只有 50 个人——人均 2 万元，没人买。这就是固定成本决定「一家中介或零」的算术。</span>
+
+```mermaid
+flowchart TD
+  ISSUER["发行人付费给中介"] --> GRADE["中介给出标签"]
+  GRADE --> SHOP["差类型去别家购物"]
+  SHOP --> INFL["标签被抬高 / 搅拌"]
+  INFL --> NOISE["标签信息含量下降"]
+  NOISE --> REPUT{"有声誉约束吗?"}
+  REPUT -- "有: 事后对不上标签会丢未来认证费" --> DISC["标签被拉回准确"]
+  REPUT -- "一次性博弈" --> STAY["噪声固化"]
+```
 
 ## 边界
 

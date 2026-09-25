@@ -18,6 +18,7 @@ section: econ
 Becker–Tomes：父母最大化子女人力资本加遗产，信贷约束使穷父母投资不足，能力回归均值但约束造成持久。Solon 的代际收入弹性；Chetty 等用税收行政数据画通勤区流动。缺口是给 Aiyagari 的外生 $z$ 过程一个跨代来源，而不是再校准一年一度的劳动收入 viscocity。
 
 <span class="marginnote">Becker and Tomes, *JOLE* 1986。Chetty et al., *QJE* 2014（Equality of Opportunity）。Restuccia–Urrutia、Lee–Seshadri 的定量人力资本宏观。</span>
+<span class="marginnote">数字实例：代际收入弹性 $\beta=0.5$ 是说父母收入每比平均高 100%，子女预期只高 50%。若北欧估计 $\beta\approx 0.2$，同样的家庭优势到子女只剩约两成——弹性每差 0.1，差距消失的速度就差一代人的量级。</span>
 
 ## 方法
 
@@ -39,6 +40,18 @@ flowchart TD
 机制是约束下的投资与均值回归的竞赛。完全信贷时，能力高的孩子总能受教育，流动由能力遗传决定；约束时财富本身成为机会。宏观含义：收入风险不完全是保险问题（后课），也是事前投资问题。HANK 的季度 MPC 不回答「这个通勤区的孩子能否翻身」。
 
 <span class="marginnote">本课不把邻里效应写成流行病学。也不把高考制度写成一般理论。定量宏观用的是教育生产函数与税收数据矩。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「能力会均值回归，所以贫困几代后自然消失」。回归均值作用于能力，信贷约束却压在投资上——只要教育投资跟着父母钱包走，低收入就会自我复制，均值回归救不了被约束卡住的孩子。</span>
+
+```mermaid
+flowchart TD
+  POOR["父母收入低"] --> CONST["信贷约束: 借不到教育钱"]
+  CONST --> UNDER["子女教育投资不足"]
+  UNDER --> CHILD["子女收入也低"]
+  CHILD --> NEXT["下一代起点仍低"]
+  NEXT --> POOR
+  MEAN["能力均值回归"] -. "若无约束会拉回平均" .-> CHILD
+```
 
 ## 边界
 
