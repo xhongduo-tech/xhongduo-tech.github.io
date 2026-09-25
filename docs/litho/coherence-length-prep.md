@@ -23,6 +23,8 @@ section: litho
 
 <span class="marginnote">高斯型谱的经验式 $L_c\approx\lambda^2/\Delta\lambda$。$\Delta\lambda$ 用 FWHM 时系数会变，数量级不变。空间相干的经典定理是 Van Cittert–Zernike，本课不证。</span>
 
+<span class="marginnote">术语翻译：相干长度就是"干涉还成立的最大的光程差预算"——两束光走岔的路一旦超过它，各波长的相位各自错开、亮暗条纹互相抹平，$|\gamma|$ 掉到接近零。它不是光"跑了多远"，而是"岔开多少路之内还能打架"。</span>
+
 ## 方法
 
 中心波长 $\lambda$、谱宽 $\Delta\lambda$，相干长度 $L_c\approx\lambda^2/\Delta\lambda$。当 $\Delta L\gtrsim L_c$，复相干度 $|\gamma|$ 下降，干涉对比度掉。窄线宽激光 $L_c$ 可以很长；准分子经线窄化后 $L_c$ 仍常大于典型薄膜腔长，单色模型才够用。宽带灯 $L_c$ 只有微米量级，只在近零光程差看见条纹。
@@ -37,6 +39,8 @@ flowchart TD
   VIS --> NEXT["后课：部分相干成像"]
 ```
 
+<span class="marginnote">数字实例：$193\ \mathrm{nm}$ 光刻源经线窄化到 $\Delta\lambda \approx 1\ \mathrm{pm}$ 时，$L_c \approx \lambda^2/\Delta\lambda \approx 3.7\ \mathrm{cm}$，比任何薄膜腔长都长，单色模型够用；而白炽灯 $\Delta\lambda$ 在百纳米量级，$L_c$ 只剩几微米——两者相差七个数量级。</span>
+
 ## 机制
 
 部分相干成像是时间相干与空间相干的乘积效应。光瞳填充（常用 $\sigma$ 描述）小则空间相干高、对比度好，但 étendue 利用差、剂量吃紧。$\sigma$ 大则相反。工艺在对比度与通量之间折中，本课不给出一次解完的配方。
@@ -44,6 +48,18 @@ flowchart TD
 本课程下一课 [标量衍射的适用边界](/litho/scalar-diffraction-bound) 收束建模层次：标量 $U$ 已经默认单色或窄带、偏振可平均。带宽过宽时，连「一个 $U$」都只是对谱的积分；那是后课，本课先保证你知道积分核会掉对比度。
 
 时间相干还约束薄膜腔：胶层或抗反射层的往返光程必须远小于 $L_c$，单色干涉公式才直接可用。否则 $R(\lambda)$ 要在谱上积分，振荡被抹平。线窄化因此既是镜头色差的需求，也是薄膜对比度的需求。空间相干则决定掩模不同开口之间能否稳定干涉，那是成像主线的部分相干，本课只留名字。
+
+<span class="marginnote">常见误区：初学者容易以为"相干性越强成像越好"。实际上空间相干过强（光瞳填得很空、$\sigma$ 很小）会让剂量吃紧、光强利用率变差；时间相干够用就行，过长没有额外收益。两种相干要分开谈，别混成一个"越好"。</span>
+
+```mermaid
+flowchart TD
+  TC["时间相干"] --> WHY1["由谁定：谱宽 Δλ"]
+  TC --> WHAT1["约束什么：光程差 / 薄膜腔条纹"]
+  SC["空间相干"] --> WHY2["由谁定：源尺寸与光瞳填充 σ"]
+  SC --> WHAT2["约束什么：掩模开口间能否稳定干涉"]
+  WHY1 --> FUT["后课：部分相干成像"]
+  WHY2 --> FUT
+```
 
 ## 边界
 
