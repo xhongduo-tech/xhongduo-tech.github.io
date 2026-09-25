@@ -17,11 +17,15 @@ section: cs
 
 复位：[复位策略](/cs/reset-strategy)后 PC 在复位向量（x86 在高地址别名）。此时 DRAM 未训练，只能用 SRAM/Cache-as-RAM。固件：FSP/AGC 一类训练 [DDR](/cs/ddr-protocol)，按 [BAR](/cs/pcie-tlp-bar) 枚举，用 [SPI](/cs/i2c-spi-uart) 读自己，安装 UEFI 启动服务（磁盘、GOP、时间）。传统 BIOS 用 16 位中断调用；UEFI 用表与协议。缺口不是内核 `start_kernel`，而是这条**硅启动链**。
 
+<span class="marginnote">直觉类比：复位后的 CPU 像刚睡醒的人——手边还没有桌子（DRAM 没训练好），只能把便签贴在自己身上（拿 CPU 缓存当 SRAM 用，即 Cache-as-RAM），先收拾利索，才有地方放后面的大行李。</span>
+
 Secure Boot：用密钥验引导加载器，点名，安全课再深。ACPI 表描述 APIC、HPET、NUMA，交给 OS。
 
 ### UEFI 不是操作系统
 
 退出启动服务后多数固件驱动消失，运行时服务子集留下（变量、时间）。把 UEFI 当小型 Linux，设备驱动模型会错。BIOS 调用在长模式下不可用，故现代 OS 依赖 UEFI/ACPI 或设备树。
+
+<span class="marginnote">常见误区：以为固件一直在后台干活。多数固件驱动在 ExitBootServices 之后就交还资源消失了，只留变量、时间等一小撮运行时服务；把它当成常驻的小型操作系统，设备模型会全错。</span>
 
 <span class="marginnote">UEFI 规范是主文献。PCI Firmware Spec 讲枚举。Patterson/Hennessy 的复位启动在 x86 上具体化为本课。核心启动（coreboot）是另一实现，合同类似。</span>
 
@@ -43,6 +47,19 @@ flowchart TD
 ## 机制
 
 OS 接手后仍通过 ACPI/UEFI 运行时改启动项、读变量。DMA 与 IOMMU 常在 OS 里才开，固件阶段需谨慎。本课封上 I/O 课序：协议与启动已经能接到内核课已有的早期启动。
+
+ExitBootServices 前后，固件各留下什么：
+
+```mermaid
+flowchart TD
+  BS["启动服务：磁盘、GOP、总线驱动"] --> EBS["OS 调用 ExitBootServices"]
+  EBS --> GONE["多数固件驱动交还资源消失"]
+  EBS --> OS["内核开始接管硬件"]
+  OS --> RT["留下：UEFI 运行时服务（变量、时间）"]
+  OS --> TBL["留下：ACPI 表描述平台"]
+```
+
+<span class="marginnote">数字实例：x86 复位后首条指令取自线性地址 0xFFFFFFF0——4 GB 末尾往下 16 字节处，那里映射的是 SPI 闪存而非 RAM。所谓「开机第一课」，物理上发生在闪存芯片里。</span>
 
 ## 边界
 

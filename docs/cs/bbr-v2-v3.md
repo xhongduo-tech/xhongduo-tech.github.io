@@ -21,6 +21,8 @@ v1 ProbeBw 可把队列推高，深缓冲上仍膨胀；对 CUBIC 不公平。v2
 
 <span class="marginnote">v1：Cardwell 2016。后续版本以公开幻灯与代码为准，不把未冻结的草案号当标准。</span>
 
+<span class="marginnote">直觉类比：v1 像只看导航的司机——自己测路况（带宽与 RTT）决定油门，不因为远处别人追尾（丢包）就急刹；v2/v3 则学会了听到喇叭（ECN 标记、丢包上升）也松一点油门，免得一直压着同路的车。</span>
+
 ### 模型不是 AIMD 换皮
 
 v1 在深缓冲仍可膨胀。v2/v3 更听丢与 ECN，并修公平。版本以公开设计说明与代码为准，课钉对象不钉某年冻结稿。
@@ -28,6 +30,8 @@ v1 在深缓冲仍可膨胀。v2/v3 更听丢与 ECN，并修公平。版本以�
 ## 方法
 
 对照 AIMD 相位图 vs BBR 管道估计。画：Probe → Drain → Cruise。与 DCTCP：都利用 ECN，一个比例减，一个进模型。
+
+<span class="marginnote">术语翻译：ECN（Explicit Congestion Notification，显式拥塞通知）就是路由器在包头上盖一枚「快堵了」的章，接收方把这个记号回传给发送端——让它在丢包发生之前就知道减速，比「拿丢失当烟雾报警」早一步。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,21 @@ flowchart TD
 QUIC 与 Linux TCP 都有实现。多路径下每条路径一套估计。AQM 浅队列让 minRTT 更真。P4 不实现 BBR，BBR 在端。RoCE 用 DCQCN 不是 BBR。
 
 过估：把突发当可用带宽，会伤同队列邻居——v2 要压这点。
+
+```mermaid
+flowchart TD
+  subgraph V1["v1 的问题路径"]
+    A["突发被当成可用带宽"] --> B["带宽过估, 窗口偏大"]
+    B --> C["队列被推高, 同队邻居受压"]
+  end
+  subgraph V2V3["v2 / v3 的补丁"]
+    D["更保守的带宽上限"] --> E["对丢包与 ECN 也要反应"]
+    E --> F["与 CUBIC 做量化公平"]
+  end
+  C --> D
+```
+
+<span class="marginnote">数字实例：若瓶颈缓冲深达 4 个 BDP，v1 的周期探测可能把队列一路推满：12.5 MB 的 BDP 配上 50 MB 缓冲，排队包要多等几个 RTT，交互流量的延迟从 100 ms 涨到几百 ms——这就是 v1 在深缓冲上仍会「膨胀」的量感，也是 v2 收着走的原因。</span>
 
 ## 边界
 

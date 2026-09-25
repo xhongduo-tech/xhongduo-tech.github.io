@@ -17,6 +17,8 @@ section: cs
 
 若驱动只接受单段连续物理缓冲，页 Cache 每次都要 bounce。缺口：bio 持有 bio_vec 数组（页、偏移、长度），扇区起点，读或写，完成回调。块层可把 bio 合并进更大的 request，或拆到设备限制。文件系统不谈门铃寄存器；驱动不谈 inode。下一课 DMA 才把 vec 变成总线地址。
 
+<span class="marginnote">术语翻译：「分散聚集」（scatter-gather）就是一次 I/O 的数据可以散落在多个不相邻的内存页里；bio 用一列（页指针、页内偏移、长度）把它们点齐，按清单各取各的，不要求物理连续。</span>
+
 本课不把每个 `bi_opf` 标志背完。
 
 <span class="marginnote">一个 writepages 可能提交多个 bio。完成回调在下半部上下文：清页锁、结束缓冲、唤醒 fsync 等待者。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 ext4 等：把脏页填进 bio，指向该 inode 的块号（经 bmap），`submit_bio` 进 blk-mq。设备完成：回调标记页最新或错误。用户 `read` 的拷贝发生在页已 uptodate 之后，不是 bio 里直接指向用户缓冲（Direct I/O 例外，本课点名即可）。
+
+<span class="marginnote">常见误区：以为 `read` 的数据是 bio 直接写进用户缓冲区。常规路径是先把磁盘数据搬进页缓存、标记页 uptodate，`read` 再从页拷给用户；绕过页缓存的叫 Direct I/O，是例外。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,19 @@ flowchart TD
 ## 机制
 
 bio 是 FS 与设备之间的契约：字节在页里，位置在扇区里。它让 [按需调页](/cs/demand-paging) 的 major 缺页与 writeback 走同一提交函数。不要把 bio 写成 SCSI CDB 百科。错误向上变成 `read` 的 EIO 或映射文件上的信号，接口裂缝在 mmap 课已点过。
+
+一张 bio 交给块层后，怎么合并或拆开：
+
+```mermaid
+flowchart TD
+  IN["submit_bio 提交"] --> CHK{"与相邻请求扇区相接、方向相同？"}
+  CHK -->|"是"| MERGE["合并进更大的 request"]
+  CHK -->|"超出设备限制"| SPLIT["按 max_sectors 拆分"]
+  MERGE --> DRV["交给驱动"]
+  SPLIT --> DRV
+```
+
+<span class="marginnote">直觉类比：bio 像一张「取货单」——写清从哪块货架（扇区）取货、货分散在哪几个仓格（页向量）、办完打哪个电话（完成回调）。文件系统只管填单，驱动只管照单干活，两层不互谈细节。</span>
 
 ## 边界
 

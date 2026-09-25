@@ -25,6 +25,8 @@ SIMD 是单线程内的宽 ALU。OpenMP 多核是另一层。不要混。
 
 <span class="marginnote">Allen–Kennedy 经典向量机。Nuzman, Rosen, Zaks 等 GCC 自动向量化论文。LLVM LoopVectorize。本课不进 GPU SIMT 全模型。</span>
 
+<span class="marginnote">术语翻译：SIMD（Single Instruction, Multiple Data，单指令多数据）就是「一条口令让一排工人同时动起来」——加法指令只发一次，8 对数字同时相加；多线程则是雇 8 个工人各干各的，要额外管分工与同步，两者不是一层。</span>
+
 ## 方法
 
 分析最内层：访存仿射、依赖距离。生成：向量 load/store、宽 ALU、收尾。SCEV（标量进化）提供 IV 闭式——与[归纳变量](/cs/strength-reduction-iv) 同一家族。
@@ -42,7 +44,23 @@ flowchart TD
 
 别名：`restrict` 或运行时检查分出版本。间接访存（gather/scatter）有的 ISA 贵，可能放弃。不要向量化 `volatile`。
 
+```mermaid
+flowchart TD
+  A["进入最内层循环"] --> B{"依赖距离为零或足够小?"}
+  B -->|"递推 i 依赖 i-1"| C["放弃打包, 留标量或改写"]
+  B -->|"无环载依赖"| D{"起点地址对齐向量宽?"}
+  D -->|"未对齐"| E["剥离头部若干次标量迭代"]
+  E --> F["主体: 对齐向量 load/store"]
+  D -->|"已对齐"| F
+  F --> G{"还剩不足一个向量的尾?"}
+  G -->|"是"| H["掩码或标量收尾"]
+```
+
+<span class="marginnote">数字实例：AVX2 下一个 float 向量宽 $W=8$，循环要跑 1003 次、起点偏了 5 个元素：头部标量剥 5 次，主体 $124 \times 8 = 992$ 次打包跑完，剩下 $1003 - 5 - 992 = 6$ 个元素用掩码或标量收尾——三段拼起来正好 1003。</span>
+
 调试：向量体难对应源行，优化报告比静默失败重要。
+
+<span class="marginnote">常见误区：初学者容易以为「循环没被向量化是编译器不够聪明」。更多时候是它不敢：两个指针可能指向同一块内存（别名），打包读写会算错，编译器只好保守放弃；用 `restrict` 或运行时检查替它排除这种可能，宽运算才敢发生。</span>
 
 ## 边界
 

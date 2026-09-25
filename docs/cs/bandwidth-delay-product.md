@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">Kleinrock 长肥管道。RFC 7323 为此扩大窗口。本课公式，选项下一课。</span>
 
+<span class="marginnote">常见误区：初学者容易以为「高延迟只是反应慢，不影响速度」。窗口固定时，时延直接吞掉吞吐：同样的 64 KiB 窗口，10 ms 链路约跑 52 Mb/s，100 ms 链路只剩约 5.2 Mb/s——不是链路变慢了，是窗口装不下一个 RTT 的在途数据。</span>
+
 ### 窗口几何量
 
 飞行 ≥ $C\times$RTT 才吃饱。小 MSS 使填满更慢。缓冲与 BDP 同量级是经典折中，过深则膨胀。
@@ -37,11 +39,29 @@ flowchart TD
   WIN --> OPT["需要缩放选项"]
 ```
 
+<span class="marginnote">直觉类比：把链路想成一根水管——带宽是管的粗细，单向时延是管的长短，BDP 就是整根管子同时容纳的水量。发送方手里要始终压着这么多「飞行中的水」，管口才不会时干时满；所谓喂饱链路，就是让在途字节把这根管装满。</span>
+
 ## 机制
 
 AIMD 每 RTT 加一 MSS，填满 BDP 要约 BDP/MSS 个 RTT，长肥管道慢启动必须指数阶段帮一把。PMTUD 失败导致小 MSS，填满更慢。RoCE 用信用/PFC 填管道，不靠 cwnd 名，但几何相同。
 
 测量：iperf 后课；这里只要承认窗口是 BDP 的操作化。
+
+```mermaid
+flowchart TD
+  subgraph G["同一速率 1 Gb/s, 三种时延"]
+    LAN["局域网: RTT 0.1 ms"] --> L1["BDP 约 12.5 KB"]
+    WAN["跨洋: RTT 100 ms"] --> W1["BDP 约 12.5 MB"]
+    SAT["卫星: RTT 300 ms"] --> S1["BDP 约 37.5 MB"]
+  end
+  L1 --> CMP{"64 KiB 默认窗口装得下吗?"}
+  W1 --> CMP
+  S1 --> CMP
+  CMP -->|"装得下"| OK["局域网能吃饱"]
+  CMP -->|"差百倍以上"| SCL["必须窗口缩放"]
+```
+
+<span class="marginnote">数字实例：跨洋 BDP 约 12.5 MB，MSS 取 1460 字节。若没有慢启动的指数增长，AIMD 每 RTT 只加一个 MSS，要约 $12.5\times 10^6 / 1460 \approx 8560$ 个 RTT，按 100 ms 算约 14 分钟才能填满管道——这就是「长肥管道必须靠指数阶段帮一把」的量感。</span>
 
 ## 边界
 
