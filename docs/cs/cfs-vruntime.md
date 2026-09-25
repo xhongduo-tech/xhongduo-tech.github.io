@@ -23,6 +23,8 @@ section: cs
 
 任务在 CPU 上每过一段实际时间，给它的 vruntime 加上折算增量。入队：取 max(自己的 vruntime, 当前队列最小附近)，以免睡眠补偿变成无限赊账。出队睡眠：冻结其 vruntime。选下一个：最小 vruntime。时间片长度可以随可运行个数变化，使延迟目标大致恒定——这是实现旋钮，定义仍是「追平虚拟时间」。
 
+<span class="marginnote">数字实例：以 nice 0 的权重 $w_0=1024$ 为基准。另一任务权重只有一半（$512$），同样实跑 $10\,\text{ms}$：基准任务 vruntime 约 $+10\,\text{ms}$，它要加约 $10 \times 1024/512 = 20\,\text{ms}$——权重低的要「少跑一半」才算欠了同样的账，于是高权重任务天然更容易成为最小者。</span>
+
 ```mermaid
 flowchart TD
   RUN["实际跑 Δt"] --> ADD["vruntime += 折算"]
@@ -35,6 +37,21 @@ flowchart TD
 ## 机制
 
 vruntime 把 RR 的「人次」换成「份额」。I/O 型少占实际时间，虚拟时钟走得慢（若权重相同则增量小），醒来后仍靠近最小端，于是很快再被选中——这解释了交互性，而不靠 MLFQ 降档。与[优先级反转](/cs/priority-inversion)不同，这里没有固定优先级可继承；锁争用仍能让「vruntime 最小者」跑不成，那是锁课。
+
+<span class="marginnote">直觉类比：vruntime 像食堂的打卡账本——不管你饭量大小，管理员按「标准份」折算你已经吃了几份，每次窗口空闲都请账上吃得最少的那位去加餐。睡着的顾客账本冻结，醒来时只补到当前最低线附近，不追账。</span>
+
+```mermaid
+flowchart TD
+  SLP["任务睡眠：vruntime 冻结"] --> WAKE["醒来入队"]
+  WAKE --> CMP{"自己落后于 min_vruntime 很多？"}
+  CMP -->|"是"| CLAMP["拉回 min_vruntime 附近"]
+  CMP -->|"否"| KEEP["保留原值"]
+  CLAMP --> TREE["进有序树比大小"]
+  KEEP --> TREE
+  TREE --> RUN["最小者上 CPU"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「睡了很久」会被调度器惩罚，实际上 CFS 反而把久睡者的 vruntime 拉回 min_vruntime 附近——否则它会带着远古的巨额「盈余」醒来独占 CPU，或反过来因巨额「亏欠」永远排不上队。钳位是双向的保险。</span>
 
 溢出与衰减是实现；主干只要求比较在同一原点上进行。
 
