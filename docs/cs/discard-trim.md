@@ -19,6 +19,8 @@ POSIX `unlink` 只改 FS 元数据。SSD 的 FTL 不知 inode。`FITRIM`/`fstrim
 
 <span class="marginnote">NVMe Dataset Management / deallocate、SCSI UNMAP 是同一意图的命令。不支持则 FS 仍能工作，只是写放大变差。</span>
 
+<span class="marginnote">术语翻译：FTL（Flash Translation Layer，闪存转换层）是 SSD 内部的「翻译官」，把主机说的逻辑块号 LBA 映射到闪存物理页。麻烦在于闪存不能原地覆盖写，只能整块擦、逐页写——于是旧版本数据会一直赖在物理页里，直到垃圾回收来清。「写放大」就是：主机写 1 MB，闪存实际擦写了不止 1 MB。</span>
+
 ## 方法
 
 e2fsck 不管 TRIM。运行时：`fstrim /` 查询 FS 空闲 extent，发 discard。thin：discard 取消映射并可能对池成员再 TRIM。对照 [fsck](/cs/fsck)：fsck 重建位图后应再 trim，以免位图与 FTL 长期偏离。对照预读：discard 不是读。
@@ -34,6 +36,24 @@ flowchart TD
 ## 机制
 
 TRIM 把 FS 空闲信息推到 FTL，是闪存上「诚实的空闲」。它不保证立刻擦除（安全擦除是另一命令），也不替代加密。不要写成硬件寿命营销。与配额：discard 后用量下降，记账要跟穿孔一样减。
+
+```mermaid
+flowchart TD
+  subgraph NO["无 TRIM：GC 搬垃圾"]
+    B1["数据块：有效 8 页 + 垃圾 56 页"] --> GC1["GC 为腾空块搬 8 页有效数据"]
+    B2["垃圾块：有效 0 页但 FTL 不知道"] --> GC1
+    GC1 --> WA1["白搬的页：写放大高、寿命损耗"]
+  end
+  subgraph YES["有 TRIM：GC 只搬有效"]
+    C1["同块：56 页已 deallocate"] --> GC2["GC 知道全是垃圾"]
+    C2["有效 8 页"] --> GC2
+    GC2 --> WA2["只擦不搬，直接回收"]
+  end
+```
+
+这张图回答「TRIM 到底替 GC 省了什么」：闪存擦除以块为单位，GC 想腾出一个空块，必须先把块里「还有效」的页搬到别处。数字实例：一个 64 页的块若无 TRIM 信息、裹着 56 页已删除文件的数据，GC 就要白搬 56 页；有 TRIM 则这 56 页标记为无效，直接擦掉——搬运量从 56 页降到 0。
+
+<span class="marginnote">常见误区：「发了 TRIM，数据就被安全销毁了」。TRIM 只是告诉 FTL「这些 LBA 不再有效」，FTL 通常让后续读返回零或旧垃圾，但物理页是否立刻擦掉、旧数据是否还躺在别的映射里，协议一概不承诺。要的是「删了就恢复不出来」，得用安全擦除命令或加密盘销毁密钥，TRIM 不算数。</span>
 
 网络下一单元：这些块 I/O 直觉有一部分会在网卡队列上重现——但对象换成包。
 

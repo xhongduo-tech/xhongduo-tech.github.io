@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">huge 线性映射用大页覆盖 DRAM，省 TLB。加密内存、kfence 可能拆开部分线性映射。</span>
 
+<span class="marginnote">术语翻译：pfn（page frame number，页框号）就是「物理地址 ÷ 页大小」得到的编号，相当于给每个 4 KB 页框发的身份证号。数字实例：页大小 $4096=2^{12}$ 时，物理地址 $0{,}12345000_{16}$ 的 pfn 就是 $0{,}12345_{16}$——直接右移 12 位，不用查任何表，这正是「直接映射」省事的根源。</span>
+
 ## 方法
 
 分配页后内核用 `page_to_virt` 写。DMA coherent 也常靠这。HIGHMEM：kmap 在固定窗口建临时 pte。对照 vmalloc：direct map 覆盖全部（64 位）物理，vmalloc 是额外窗口。对照 DAX：用户直接映射 PMEM，内核仍有自己的 map。
@@ -35,6 +37,23 @@ flowchart TD
 线性映射让内核把 RAM 当大数组，是伙伴分配器实现的前提。HIGHMEM 是 32 位的补丁课，今日仍在旧嵌入式出现。不要写成 x86 分段课。与热插拔：新内存要纳入线性映射或稀疏 memmap。
 
 别名：同一页框两个 va（用户+direct）在缓存别名架构上要命；x86 较宽松，仍有安全含义。
+
+```mermaid
+flowchart TD
+  subgraph T32["32 位：共 4 GB 虚地址"]
+    U["用户空间 0–3 GB"] --> K["内核线性窗口 3–4 GB"]
+    K --> L1["低段：覆盖低 1 GB RAM，可直映"]
+    K --> H["装不下的 RAM：ZONE_HIGHMEM"]
+    H --> KM["kmap：借临时窗口逐页映射"]
+  end
+  subgraph T64["64 位：虚地址以 TB 计"]
+    ALL["线性窗口远大于 RAM：全部直映，无需 HIGHMEM"]
+  end
+```
+
+这张图回答「为什么 HIGHMEM 是 32 位专属补丁」：32 位总共只有 4 GB 虚地址，按 3G/1G 切给用户和内核后，内核线性窗口只有 1 GB；机器插 4 GB RAM 时多出的 3 GB 进不了直映，只能靠 `kmap` 借临时窗口逐页访问。64 位窗口以 TB 计，远超任何 RAM，问题整个消失。
+
+<span class="marginnote">常见误区：初学者容易把 `kmap` 想成「把数据拷进窗口」。它不搬一个字节，只是在内核页表里临时借一个虚地址指到目标页框，用完 `kunmap` 还回去；真正的数据访问仍走这个指针。窗口数量有限，长期占用会把别的 kmap 饿死。</span>
 
 
 实现上：线性映射用大页覆盖能显著减内核 TLB miss。KASLR 随机化内核映像但不随机整份直映。HIGHMEM 的 kmap 窗口有限，嵌套 kmap 要按类型取。 读法上只引用[上一课](/cs/vmalloc)的结论，不把对象换成训练推理或限价簿。
