@@ -19,6 +19,8 @@ section: cs
 
 不要把压缩写成线路码 8B/10B。
 
+<span class="marginnote">Accept 族头就是客户端的「点菜单」：Accept 点格式（JSON 还是 HTML）、Accept-Language 点语言、Accept-Encoding 点压缩（gzip 还是 br），每项可带权重 q 值，如 gzip;q=0.8 表示「最好给 gzip，没有也行」。服务器照单挑一份最合适的表示。</span>
+
 <span class="marginnote">RFC 9110 第 12 章。Brotli/zstd 是编码登记问题。本课不调压缩级别。</span>
 
 ### 压缩要 Vary
@@ -42,11 +44,26 @@ CDN 要按 Vary 键存多份，否则省的带宽变成错页。QUIC 0-RTT 的�
 
 chunked 与 gzip 常叠：先压缩再分块。
 
+```mermaid
+flowchart TD
+  A["客户端A: 支持 gzip"] --> C["中间缓存: 忽略 Vary"]
+  C -- "未命中, 回源" --> O["源站返回 gzip 表示"]
+  O --> C
+  C --> A
+  B["客户端B: 不支持 gzip"] --> C
+  C -- "命中, 直接给缓存的 gzip" --> B
+  B --> ERR["解不开, 页面乱码"]
+```
+
+<span class="marginnote">数字实例：一份 100 KB 的 HTML 经 gzip 常能压到 20-30 KB，省七成带宽，代价是两端各几毫秒 CPU；而 JPEG 已经压过，再 gzip 往往只省百分之一还白烧 CPU——压缩只对「还没压过的」内容划算。</span>
+
 ## 边界
 
 本课不引入内容编码登记的全部 IANA 表。WebSocket 是下一课。后课默认：协商选表示；压缩要 Vary。
 
 强制只 gzip 而不看 Accept-Encoding 会破坏老客户。
+
+<span class="marginnote">常见误区：以为 Vary 只是建议性头。对缓存它是缓存键的一部分：Vary: Accept-Encoding 的意思是「gzip 版和原版各存一份，按请求头挑」。反过来，若写成 Vary: User-Agent，缓存会被切成每个浏览器版本一份，命中率几乎归零。</span>
 
 下一课[WebSocket](/cs/websocket)。
 

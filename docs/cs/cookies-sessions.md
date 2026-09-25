@@ -17,6 +17,8 @@ section: cs
 
 购物车、登录不能每请求重认证密码。Cookie：服务器 Set-Cookie，之后请求自动带 Cookie 头。域名与路径限制范围；Expires/Max-Age；Secure 限制 HTTPS；HttpOnly 挡脚本读；SameSite 减 CSRF。会话 ID 应是随机，服务器侧存会话——Cookie 里只放引用。持久连接复用时必须隔离不同用户，虚拟主机尤其。
 
+<span class="marginnote">直觉类比：Cookie 是服务器发的一张「游乐园手环」——乐园不记你的脸（HTTP 无状态），只认手环编号；每玩一个项目出示同一编号，后台查到你的档案。手环上只印编号不印档案，这正是「会话 ID 要随机、Cookie 只放引用」的意思。</span>
+
 不要把 Cookie 写成 JWT 课：可以是不透明 ID。
 
 <span class="marginnote">RFC 6265。第三方 Cookie 在浏览器政策下萎缩，本课钉协议对象。</span>
@@ -42,6 +44,15 @@ CDN 缓存必须对 `Cookie` 与 `Set-Cookie` 正确 `Vary`，否则串会话—
 
 安全：会话固定、CSRF、缺失 Secure 是边界，不写利用手册。
 
+```mermaid
+flowchart LR
+  S1["明文信道被窃听"] -- "Secure: 只走 HTTPS" --> OK["会话 ID 不外泄"]
+  S2["XSS 脚本读 document.cookie"] -- "HttpOnly: 脚本读不到" --> OK
+  S3["第三方网站替你发请求"] -- "SameSite: 跨站不带 Cookie" --> OK
+```
+
+<span class="marginnote">常见误区：以为 Cookie 是「浏览器缓存」的一种。缓存省的是重复下载，Cookie 回带的是身份引用；两者都存在本地，用途却是两条线。CDN 若把带 Cookie 的响应当普通缓存存下发给别人，就会串会话——这才是本课反复提 Vary 的原因。</span>
+
 ## 边界
 
 本课不引入浏览器存储 localStorage 的全部。内容协商与压缩是下一课。后课默认：会话 = Cookie 引用 + 服务器状态；HTTP 仍然无状态协议。
@@ -57,3 +68,5 @@ CDN 缓存必须对 `Cookie` 与 `Set-Cookie` 正确 `Vary`，否则串会话—
 - 缓存与 0-RTT 要防串会话与重放。
 - 后课只引用本课钉死的对象，不从该领域总问题重开。
 - 出处：RFC 6265；RFC 9110。
+
+<span class="marginnote">数字实例：单条 Cookie 约 4 KB、每域名几十条封顶，所以把整份用户档案塞进 Cookie 既超限又泄露。正确做法是只放一个 128 位随机会话 ID（32 个十六进制字符），真正的档案放在服务器的会话表或 Redis 里。</span>

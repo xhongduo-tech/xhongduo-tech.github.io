@@ -19,6 +19,10 @@ OCI config.json：rootfs、ns、cap、mount。runc：创建 ns、写 cgroup、ex
 
 <span class="marginnote">shim 让 daemon 升级不杀容器。对象是用户态拼内核隔离，不是新内核。</span>
 
+<span class="marginnote">shim 就是「替 daemon 当爹」的小进程：每个容器一个，作为容器进程的直接父进程守在旁边，负责等它退出并回收 SIGCHLD。daemon 挂了它不跟着挂，容器自然不陪葬。</span>
+
+<span class="marginnote">数字实例：spec 里把内存上限写成 512（MiB），runc 就在对应 cgroup 路径写下 memory.max = 536870912 字节；进程超限时由内核直接 OOM 杀掉——限额从头到尾是内核在执行，runc 只负责把数字写进去。</span>
+
 ## 方法
 
 unpack 层到 overlay → 生成 spec → runc start。对照 [QEMU](/cs/kvm-qemu)：一个进 VMX，一个进 ns。对照 [FUSE](/cs/fuse)：rootfs 通常是普通 FS。对照 LSM：可带 SELinux 标签。
@@ -37,6 +41,17 @@ flowchart TD
 
 逃逸往往是内核漏洞或错误特权，不是「容器不是 VM」口号能挡的。
 
+```mermaid
+flowchart TD
+  P1["容器内 pid 1"] --> SHIM["shim: 直接父进程"]
+  SHIM --> CD["containerd"]
+  CD -- "升级或重启" --> NEW["新 containerd 进程"]
+  NEW -- "重连, 容器不中断" --> SHIM
+  P1 -- "退出" --> WAIT["shim 收 SIGCHLD 并上报状态"]
+```
+
+<span class="marginnote">为什么重要：把「谁创造」和「谁看护」分开，升级与崩溃才不连坐。若容器进程直接挂在 containerd 名下，daemon 一重启，内核会把孤儿进程挂给别的父进程，状态无从查起；多一层 shim，容器的一生就始终有人记账。</span>
+
 
 实现上：spec 里的 mounts 把 proc/sys 以安全选项挂上，漏了就会看到宿主。shim 的父进程若是 containerd，升级 daemon 不杀容器。cgroup 路径决定统计落在哪。 读法上只引用[上一课](/cs/nested-virtualization)的结论，不把对象换成训练推理或限价簿。
 
@@ -53,6 +68,8 @@ flowchart TD
 
 版本字段会变，课序钉的是机制对象「runc 与 containerd」，不是某一主线内核的结构体名。
 后课默认：runc 用 ns/cgroup 启进程。OCI 层如何叠，下一课。
+
+<span class="marginnote">常见误区：以为 runc 是一个常驻服务在「跑容器」。它其实是一次性命令：读 config.json、拼好命名空间和 cgroup、把入口进程拉起来就退出。之后盯梢的有别人——shim 与 containerd。分工是「runc 搭台，daemon 唱戏」。</span>
 
 ## 小结
 

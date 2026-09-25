@@ -23,6 +23,8 @@ section: cs
 
 运行时：`clone` 新 ns、配 cgroup、pivot_root 到镜像、exec 入口。网络：veth 一对进 net ns，外层接网桥——链路层细节留给网络课，这里只承认「另一份网络栈视图」。存储：overlay 等联合挂载是 VFS 功能，不是新内核。
 
+<span class="marginnote">pivot_root 就是给新进程换根目录：把容器镜像所在的目录变成它的 /，此后它看到的文件系统只从镜像里长出来。像给舞台换布景——台上的演员（进程）以为置身另一个世界，幕布外还是同一个机房。</span>
+
 ```mermaid
 flowchart TD
   IMG["rootfs 镜像"] --> NS["namespaces 视图"]
@@ -33,6 +35,17 @@ flowchart TD
 ## 机制
 
 容器把本 OS 课从进程到挂载的对象组合起来，而不引入客机页表。它解释了为何「容器里 cat /proc/cpuinfo」仍是主机 CPU：没有 trap-and-emulate。下一课缩小系统调用面；再下一课才是真正的敏感指令陷入。
+
+```mermaid
+flowchart TD
+  CP["容器内进程"] --> SC["同一条系统调用路径"]
+  SC --> HK["宿内核直接执行"]
+  VP["VM 内进程"] --> GK["先问客机内核"]
+  GK --> TRAP["陷入 hypervisor 模拟设备"]
+  TRAP --> HK
+```
+
+<span class="marginnote">数字实例：容器启动常以毫秒计——clone 几个命名空间、挂一个 rootfs 就完事；VM 要先跑一遍固件加内核引导，通常以秒计。密度同理：一台 64 GB 的宿主机能塞几十上百个容器，同规格 VM 每台光内核内存就要吃掉几百 MB。</span>
 
 与过度提交、页 Cache 共用主机内存：cgroup 只是上限。
 
@@ -48,3 +61,5 @@ flowchart TD
 - 不是客机，没有独立特权 ISA 视图。
 - 系统调用过滤是 seccomp 的缺口。
 - 出处：Linux namespaces/cgroup 文档；Tanenbaum *MOS*。
+
+<span class="marginnote">常见误区：「容器更轻，所以是功能少的迷你系统」。其实容器里跑的是普通 Linux 程序，ps、cat、python 照常工作；少的不是功能，是那份独立内核——视图、配额、根目录各发一份，系统调用最后仍回到同一张表。</span>
