@@ -17,11 +17,15 @@ section: cs
 
 丢盘等于泄露文件。FS 加密（fscrypt）按文件；dm-crypt 按设备，交换分区、整盘、LVM 下都能包。LUKS：口令派生密钥，槽可多用户。I/O：bio 明文进 crypt，CPU 或 AES-NI 处理后 remap 到下层。缺口：扇区 tweak 防止两处明文相同密文相同；TRIM 是否泄露空闲图（后课 discard）；对齐与 [O_DIRECT](/cs/direct-io)。
 
+<span class="marginnote">术语翻译：tweak 可以想成「给每个扇区配一页不同的密码本」。同一份明文写在 100 号扇区和 200 号扇区，因页码不同，密文完全不同——攻击者看不出「这两块存的东西一样」。XTS 模式里这一页页码通常就是扇区号本身。</span>
+
 <span class="marginnote">认证加密（integrity + crypt）另有 dm-integrity 叠层，抗重放与篡改，性能税更高。本课先钉保密性路径。</span>
 
 ## 方法
 
 `cryptsetup luksOpen`：读 LUKS 头，把密钥装进 dm 表。之后 `/dev/mapper/name` 像普通盘，可再 LVM 或直接 mkfs。对照 [xattr](/cs/xattr-acl)：文件级策略看不见整盘交换。对照 NFS：加密的是本地块，不是 RPC。CPU 占用可 cgroup，但对象仍是 bio。
+
+<span class="marginnote">直觉类比：LUKS 像酒店前台——你的口令开的是前台抽屉（密钥槽），抽屉里放真正的盘密钥；盘密钥才去开房间（数据）。所以换口令只需改抽屉，几毫秒完成，不必把几百 GB 数据重新加密一遍。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,18 @@ flowchart TD
 ## 机制
 
 dm-crypt 把「落盘不可读」收成块层策略，FS 无需改布局。它不隐藏块号与大小模式——侧信道仍在。与 [COW 校验](/cs/fs-checksum-scrub)：校验宜在明文侧（FS）或另做认证层；只加密不认证会被替换扇区。不要把本课写成密码学课程重开。
+
+```mermaid
+flowchart TD
+  W["上层写扇区（明文）"] --> T1["以扇区号算 tweak"]
+  T1 --> E["明文 XOR tweak 后 AES 加密，再 XOR 回 tweak"]
+  E --> C["密文写进同一扇区"]
+  R["下层读扇区（密文）"] --> T2["用同一扇区号算 tweak"]
+  T2 --> D["密文 XOR tweak 后 AES 解密，再 XOR 回 tweak"]
+  D --> P["明文交还上层"]
+```
+
+<span class="marginnote">常见误区：以为加密就能发现数据被篡改。实际上攻击者可以把两个密文扇区对调，解密照样「成功」，只是内容换了位置——盘上没有任何报错。要发现调包得另配校验（dm-integrity 或文件系统校验和）：加密管偷看，校验管调包。</span>
 
 启动：initramfs 里解锁根盘，后课 pivot 再遇。
 

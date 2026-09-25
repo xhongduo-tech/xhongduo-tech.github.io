@@ -36,6 +36,22 @@ flowchart TD
 
 不能只用一个 min-heap 另存当前 max 变量：删 max 后 max 未知，除非扫。成对或分层把「另一端候选」永远放在堆路径上。空间 $\Theta(n)$。
 
+```mermaid
+flowchart TD
+  R["根节点对 (1, 99)：含全局最小与最大"] --> L["左子节点对 (2, 9)"]
+  R --> RR["右子节点对 (10, 80)"]
+  L --> LL["孙节点对 (3, 7)"]
+  L --> LR["孙节点对 (4, 6)"]
+  R -->|"沿左端读：1 ≤ 2 ≤ 3，min-heap 序"| MIN["get-min 常数时间"]
+  R -->|"沿右端读：99 ≥ 80 ≥ 6，max-heap 序"| MAX["get-max 常数时间"]
+```
+
+<span class="marginnote">数字实例：为什么不能「min-heap 加一个 max 变量」凑合——$n=100$ 万时，删掉 max 之后想找新的最大值，只能线性扫描约 100 万个元素，$O(n)$；而 interval heap 上做 delete-max 只要沿一条路径下滤，约 $\log_2 n \approx 20$ 步。</span>
+
+<span class="marginnote">直觉类比：interval heap 像每个房间住两个人——矮个子住左边、高个子住右边。所有房间的「矮个子」按越往下越矮排好，所有「高个子」按越往下越矮也排好；于是全局最矮和最高的人都住在同一个房间（根节点）里。</span>
+
+<span class="marginnote">常见误区：初学者容易把 DEPQ 和 [deque](/cs/deque) 混为一谈。deque 的「两端」是插入位置（队头进、队尾出），跟键值大小无关；DEPQ 的「两端」是键的最小值和最大值，跟你从哪头插入无关。名字像，合同完全不同。</span>
+
 不要与 deque 的「两端下标」混淆：DEPQ 的两端是键的极值。
 
 ## 边界

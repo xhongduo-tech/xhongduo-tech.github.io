@@ -44,9 +44,25 @@ bank 组（DDR4/5）限制同组时序，组间更自由——点名，细节在
 
 软错误 ECC 的 ×72 宽度落在 rank 的颗粒拼宽上。控制器必须遵守每 bank 的状态机，不能把 DRAM 当 SRAM 随机字访问。后课 FR-FCFS 调度的对象正是这些 bank 的打开行。
 
+```mermaid
+flowchart TD
+  REQ1["请求 A：地址在 bank 0"] --> B0["bank 0 行缓冲"]
+  REQ2["请求 B：地址在 bank 1"] --> B1["bank 1 行缓冲"]
+  B0 --> OV["两请求重叠进行：并行带宽"]
+  B1 --> OV
+  REQ3["请求 C：也在 bank 0"] --> B0
+  B0 -->|"同一 bank：先预充电关行，再 ACT 开新行，串行等待"| CONFLICT["bank 冲突：延迟叠加"]
+```
+
+<span class="marginnote">直觉类比：bank 像图书馆里各有管理员的独立阅览室——去不同房间可以同时取书（多 bank 重叠）；去同一个房间取第二本，得先把第一本放回架子（预充电），再拉开新架子（ACT），只能排队。</span>
+
+<span class="marginnote">数字实例：8 颗 ×8 颗粒并联拼出 64 位数据宽度——每次传输 8 字节，8 颗芯片各出 8 位；带 ECC 时再加一颗 ×8 颗粒存校验位，共 9 颗、72 位。所谓「rank 宽度」就是这个并联拼宽，不是颗粒个数。</span>
+
 ## 边界
 
 本课不讲 3D NAND 的 block/page（闪存后课），不把 HBM 堆叠工艺写成光刻。不讨论 GDDR 与显存市场。
+
+<span class="marginnote">常见误区：rank 和 bank 一字之差、完全是两层。rank 是「同一条总线上一起出数据的一组颗粒」（8 颗 ×8 拼 64 位就是一个 rank）；bank 是单颗颗粒内部的独立阵列，各自有行缓冲。把 rank 当成 bank 的一部分，带宽账就算不出来了。</span>
 
 后课默认：主存请求落在通道–rank–bank–行–列；并行来自多 bank/多通道，不是来自「DRAM 无状态」。
 

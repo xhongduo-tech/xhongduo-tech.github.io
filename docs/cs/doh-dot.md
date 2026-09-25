@@ -40,6 +40,17 @@ flowchart TD
 
 递归器到权威仍常明文，观察点上移到大型解析器。TTL 缓存仍在递归器。H3 可载 DoH。中间企业防火墙看见 443 无法按域过滤 DNS，这是设计后果。RTT：多一次 TLS，连接复用摊销，像 HTTP 持久。
 
+```mermaid
+flowchart LR
+  A["存根/浏览器"] -->|"DoH/DoT 加密段：本地 Wi-Fi 只见密文"| B["递归解析器"]
+  B -->|"明文 53 段：路径上仍可读"| C["权威服务器"]
+  B --> D["解析器运营方：可见来源 IP 与全部 QNAME"]
+```
+
+<span class="marginnote">观察点移动：加密 stub–递归后，咖啡馆 Wi-Fi 看不到了，但解析器运营方看得更全——它同时知道你是谁（来源 IP）和你问了什么（QNAME）。加密没有消灭可见性，只是把可见性集中到了一个位置。</span>
+
+<span class="marginnote">初学者容易以为上了 DoH 就能防 DNS 劫持。实际上 DoH 只保证「报文在传输途中不被偷看和篡改」；解析器返回的数据是不是真的，仍要靠 DNSSEC 验签。两者是互补关系，不是替代。</span>
+
 SYN 泛洪变成 HTTPS 泛洪，对象换层。
 
 ## 边界
@@ -47,6 +58,8 @@ SYN 泛洪变成 HTTPS 泛洪，对象换层。
 本课不引入 Oblivious DoH 的全部。GeoDNS 是下一课。后课默认：DoT/DoH 机密化 stub–递归；信任解析器。
 
 把所有设备钉同一公共 DoH，等于把元数据集中。
+
+<span class="marginnote">数字实例：明文 DNS 一次查询约 1 个 RTT；DoT/DoH 首次查询要多付一次 TLS 握手（TCP 加 TLS 大约 2-3 个 RTT），但连接复用后，后续上千次查询摊销下来每次只多微秒级开销——和 HTTP 持久连接是一个道理。</span>
 
 下一课[GeoDNS](/cs/geodns)。
 

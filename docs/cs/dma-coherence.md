@@ -17,11 +17,15 @@ section: cs
 
 缓存层次对设备不可见。流式：`dma_map_sg` 前 `cpu_to_dev` 刷或作废缓存，完成后 `dev_to_cpu`。一致：`dma_alloc_coherent` 非缓存或硬件嗅探。缺口：IOMMU 把设备地址限制在 map 的窗口，防乱 DMA；bounce buffer 给不能到达高物理地址的卡。本课不把每架构 cache line 维护指令写完。
 
+<span class="marginnote">直觉类比：把 CPU 缓存想成你桌上的便签，内存是档案柜。设备 DMA 直接去档案柜翻文件，看不见你桌上还没归档的便签；反过来设备改了柜子，你桌上的旧便签也不会自动更新。map/unmap 就是「归档」和「作废便签」这两个动作。</span>
+
 <span class="marginnote">VFIO 用户态 DMA 仍走 IOMMU 域。无 IOMMU 时设备信任基等于内核。</span>
 
 ## 方法
 
 驱动提交 I/O：map 页给设备，门铃，完成 interrupt 后 unmap。对照 [RDMA](/cs/rdma-os) MR：同类「允许 DMA 的窗口」。对照 [FUA](/cs/write-barrier-fua)：那是持久；这是缓存可见性。对照 KPTI：CPU 页表，不是 IOMMU 页表。
+
+<span class="marginnote">术语翻译：IOMMU 就是「给设备用的 MMU」——CPU 用页表把虚拟地址译成物理地址，IOMMU 用自己的页表把设备地址译成物理地址，且只放行登记过的窗口。没有它，任何能发地址的卡理论上都能改写整机内存。</span>
 
 ```mermaid
 flowchart TD
@@ -34,7 +38,17 @@ flowchart TD
 
 DMA API 把「设备是另一个观察者」收成驱动义务，使块与网的完成含义正确。IOMMU 把义务加上隔离。不要写成 MESI 协议课全文。与 [热插拔](/cs/memory-hotplug)：offline 前必须无 DMA。
 
+```mermaid
+flowchart TD
+  T2D["TO_DEVICE：CPU 写好交给设备"] --> F1["map 时把 CPU 缓存刷进内存"]
+  F1 --> B1["漏刷：设备读到旧数据"]
+  F2D["FROM_DEVICE：设备写给 CPU"] --> F2["unmap 时把缓存行作废"]
+  F2 --> B2["漏作废：CPU 读到自己缓存里的旧值"]
+```
+
 错误：漏 unmap 泄漏 IOMMU 表；过早 unmap 损坏。
+
+<span class="marginnote">为什么重要：TO_DEVICE 误写成 FROM_DEVICE，编译器不报错、程序多半还能跑——只是偶发读到旧数据。这类方向参数写错导致的静默损坏，症状往往出现在离写错处很远的设备另一端，是驱动里最难复现的一类 bug。</span>
 
 
 实现上：流式映射的方向错了会静默损坏：TO_DEVICE 必须刷 CPU 缓存。IOMMU 组把无法隔离的设备绑在一起，VFIO 必须整组给同一用户。swiotlb 是 32 位 DMA 的 bounce。 读法上只引用[上一课](/cs/kernel-hardening)的结论，不把对象换成训练推理或限价簿。

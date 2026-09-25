@@ -35,8 +35,29 @@ flowchart TD
 
 旁路用 CPU 与隔离核换最低每包成本，适合网关与 NFV。OS 仍提供：IOMMU、中断（可选）、内存、调度其余核。不要写成「不用操作系统」。与 [blkio](/cs/blkio-cgroup)：旁路流量可能看不见内核 netfilter，策略要在用户态重做。
 
+```mermaid
+flowchart LR
+  subgraph KP["内核路径：每包都要走"]
+    IRQ["中断 / NAPI 软中断"] --> SKB["分配 sk_buff"]
+    SKB --> PROT["协议栈逐层解析"]
+    PROT --> CPY["拷贝到 socket 缓冲"]
+  end
+  subgraph UP["DPDK 路径：不进内核"]
+    POLL["PMD 轮询描述符环"] --> MB["mbuf 直接引用 DMA 帧"]
+    MB --> APP["应用层直接处理"]
+  end
+  NIC["网卡 DMA"] --> IRQ
+  NIC --> POLL
+```
+
+<span class="marginnote">数字实例：10 GbE 线速打 64 字节小包约是每秒 1488 万包，摊到单个 3 GHz 核上，每包预算只有约 200 个时钟周期。而一次中断加系统调用的开销就是上千周期——所以线速场景下「每包进内核」在算术上就不成立，必须批量化或旁路。</span>
+
+<span class="marginnote">术语翻译：IOMMU 就是「给 DMA 上锁的 MMU」。普通 DMA 里设备可以写任意物理内存；IOMMU 把设备的可见范围限制到授权的那几页。有了它，把网卡寄存器交给用户态进程才不至于让该进程 DMA 覆盖整个内核。</span>
+
 安全：用户进程 DMA 能力靠 IOMMU 限制到该设备；配置错误则危险。
 
+
+<span class="marginnote">常见误区：初学者容易把「内核旁路」理解成「不用操作系统」。实际上 OS 仍在管内存分配、CPU 调度、IOMMU 和设备绑定；被旁路的只是**每包的数据面**——包不再逐个穿过协议栈和系统调用，控制面照旧归内核。</span>
 
 实现上：绑定 vfio-pci 后内核不再收包，ssh 会断，要留管理口。hugepage 泄漏会把机器钉死。与内核互通常靠 virtio-user 或 tap，那一段又回到 skb。 读法上只引用[上一课](/cs/xdp-ebpf)的结论，不把对象换成训练推理或限价簿。
 

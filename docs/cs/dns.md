@@ -17,6 +17,8 @@ section: cs
 
 若每台主机持有全球静态表，无法更新。RFC 1034：树状名字空间，每区有权威服务器；递归解析器代客户端走路：问根要 TLD，问 TLD 要权威，问权威要记录。常用 [UDP](/cs/udp) 53，大包或区传送走 TCP。缺口不是 BGP 如何通告前缀，而是应用看见的名字。
 
+<span class="marginnote">直觉类比：域名像邮政地址，从右往左一级比一级具体——最右的 com 是「大区」，中间的 example 是「城市」，最左的 www 才是「门牌」。DNS 的逐级询问就是按这个层级一层层把信往下转。</span>
+
 本课不把 DNSSEC 验证链写完。
 
 <span class="marginnote">缓存按 TTL。CNAME、MX、NS 是其他记录类型。本课主干是「名字 → 地址」，为 HTTP 打开连接做准备。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 应用调用解析器库（后课套接字之前）。存根问本地递归；递归从根（或缓存）迭代。应答含答案或转介。与 [ARP](/cs/arp) 对照：ARP 是一跳、广播；DNS 是应用层、全球层次、可缓存。
+
+<span class="marginnote">数字实例：DNS 应答塞进 UDP 报文有 512 字节上限，超长会被截断；解析器看到截断标志就改走 TCP 重问。IPv6 和 DNSSEC 让应答变大，后来补了 EDNS0 把上限协商扩到约 4096 字节，但「大包转 TCP」的原则保留。</span>
 
 ```mermaid
 flowchart TD
@@ -37,6 +41,19 @@ flowchart TD
 ## 机制
 
 DNS 让 [IP 编址](/cs/ip-subnet) 对人隐藏，让服务可以改地址而不改名字（在 TTL 内）。端到端：解析错误会连错主机，TLS 课才用证书把名字钉到密钥；本课 DNS 本身可被污染，点名即可。Anycast 根与 CDN 的联合在再后一课。
+
+```mermaid
+flowchart TD
+  DOT["根区 ."] --> COM["区 .com 的权威"]
+  DOT --> ORG["区 .org 的权威"]
+  COM --> EX["example.com 区"]
+  EX --> WWW["www.example.com"]
+  EX --> MAIL["mail.example.com"]
+  NOTE["父区只交出指针，真相在各区的权威"]
+  DOT -.-> NOTE
+```
+
+<span class="marginnote">为什么重要：名字与地址解耦，意味着换托管商、换机房甚至换大洲，网址都不用变——只改权威里的 A 记录。反过来，若应用把解析到的 IP 写死在配置里，这层解耦就白做了，迁移时全部跟着改。</span>
 
 查询走 UDP，丢失靠解析器重试，不用 TCP 可靠流，符合「短请求」的端到端选择。
 

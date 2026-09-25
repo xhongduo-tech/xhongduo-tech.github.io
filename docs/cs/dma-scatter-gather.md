@@ -19,6 +19,8 @@ CPU `memcpy` 浪费缓存与核。DMA：软件在内存写描述符（源/目的
 
 IOMMU：设备看见 IOVA，硬件译成 PA，防止胡写。无 IOMMU 时驱动把 PA 直接填描述符，32 位设备需要 bounce。
 
+<span class="marginnote">直觉类比：scatter-gather 像从三个仓库给同一订单发货——描述符是三张提货单，写明哪个仓库、取多少、下一张单在哪，设备自己按单挨个取。没有 SG 就得先把货全搬进同一个大仓库（bounce buffer）再发车，白搬一趟。</span>
+
 ### DMA 不是「更快的 load/store 指令」
 
 CPU 的 load 走缓存一致性；DMA 写主机内存必须让 CPU 看见（窥探或 IOMMU 一致性属性）。把 DMA 当 `rep movs` 的微码，缓存与围栏会漏。完成：设备写回状态再发 MSI；CPU 处理函数必须读到描述符写回，依赖 PCIe 与内存序——后课 fence 再从 ISA 侧收。
@@ -40,9 +42,22 @@ flowchart TD
 
 教学片上 DMA 控制器（ARM PL330 一类）是独立主设备，协议同形，总线可能是 AXI 而不是 PCIe。
 
+<span class="marginnote">数字实例：32 位设备只能发出 0～4 GB 的地址；机器装 16 GB 内存时，落在 4 GB 以上的页它根本够不着，只能先把数据拷进 4 GB 以内的 bounce buffer。地址字段 64 位的设备没有这道墙，SG 才能真正省掉拷贝。</span>
+
 ## 机制
 
 下一课 USB 把事务组织成更复杂的层次，但高速设备仍 DMA。显示帧缓冲常 DMA 扫描出。固件启动早期可能无 IOMMU，驱动用恒等映射。本课把「块与包如何进内存」钉在 PCIe 之后。
+
+```mermaid
+flowchart LR
+  H["一个缓冲散在 3 个不连续物理页"] --> D0["描述符 0：页 A，4 KB"]
+  D0 -->|"next"| D1["描述符 1：页 F，4 KB"]
+  D1 -->|"next"| D2["描述符 2：页 C，1 KB"]
+  D2 --> E["末项标记结束"]
+  DEV["设备按链逐页 DMA，不拷贝"] -.-> D0
+```
+
+<span class="marginnote">常见误区：以为 MSI 中断一到就能随便读数据。中断只说明「设备声称写完了」，CPU 侧还要保证状态写回对核可见、必要时作废缓存并按内存序读。顺序反了或少了 fence，读到旧值的责任在驱动，不在硬件。</span>
 
 ## 边界
 
