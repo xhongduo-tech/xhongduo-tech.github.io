@@ -23,6 +23,8 @@ section: cs
 
 `echo 1 > events/.../enable` → 事件写 per-cpu 缓冲 → `trace_pipe` 读。对照 [perf](/cs/perf-sampling) 后课：perf 可消费同一点。对照 [inotify](/cs/inotify)：一个文件树，一个内核执行点。对照 ASan：一个找空间错，一个找时间线。
 
+<span class="marginnote">per-CPU 缓冲就是「每个核各记各的账本」：事件在哪个核上发生，就写进那个核私有的环形缓冲，读的时候再按核拼接时间线，避免了多核抢同一块内存的锁。</span>
+
 ```mermaid
 flowchart TD
   TP["tracepoint"] --> FILT["过滤器"]
@@ -35,6 +37,23 @@ flowchart TD
 ftrace 把「生产内核可观测」收成零开销默认 + 按需启用，是调试延迟与调度的主工具。不要写成 APM 产品。与 [PREEMPT_RT](/cs/preempt-rt)：tracer 本身扰动，要测开/关。
 
 错误过滤仍可让缓冲溢出丢事件。
+
+tracepoint 为什么默认零开销？关键在「编译进去但默认关闭」：探针位置在二进制里只是一条空指令，启用时才被改写成真正的调用。
+
+```mermaid
+flowchart TD
+  NOP["未启用：探针处是一条 nop 空指令"] --> ECHO["echo 1 > enable"]
+  ECHO --> PATCH["探针位改写为调用"]
+  PATCH --> FIRE["事件路径执行到这里"]
+  FIRE --> WRITE["写本核 per-CPU 缓冲"]
+  WRITE --> FULL{"缓冲满？"}
+  FULL -- "否" --> KEEP["记录保留，等用户读"]
+  FULL -- "是" --> DROP["丢弃新事件"]
+```
+
+<span class="marginnote">数字实例：把 buffer_size_kb 设成 4096（即每个核 4 MB），在一台 32 核机器上，环形缓冲总共占 32 × 4 MB = 128 MB 内核内存——跟踪是有账单的，核越多越贵。</span>
+
+<span class="marginnote">常见误区：初学者容易把 tracepoint 想成 gdb 那种会让程序停下来的断点。实际上它只往缓冲里记一条数据就立刻继续跑，内核几乎感觉不到；真正会拖慢系统的是 function tracer 这类高频探针。</span>
 
 
 实现上：per-cpu 缓冲避免全局锁，读的时候可能看到撕裂，工具用页头同步。function tracer 用 mcount/patchable 入口，和 livepatch 抢同一套改代码机制。 读法上只引用[上一课](/cs/printk-logging)的结论，不把对象换成训练推理或限价簿。

@@ -17,11 +17,15 @@ section: cs
 
 若 mmap 把设备块直接映射进进程，而 read 走另一套缓冲，同一偏移会有两份内容——这是历史教训。统一页缓存后：缺页从 inode 的页树取帧；`MAP_SHARED` 的写改这一帧并标脏；`MAP_PRIVATE` 在写时拷到匿名页，文件视图不变。缺口：`msync` 与 `fsync` 如何对齐；多进程共享映射时谁看见谁的写；`MAP_POPULATE` 只是预填，不改对象。
 
+<span class="marginnote">统一页缓存可以想象成公司只有一份共享文档：走系统调用（read/write）和直接打开原稿（mmap）看到的是同一份，谁改了大家都看得见。历史上「各存一份副本」的做法正是同一偏移读出两种内容的经典 bug 来源。</span>
+
 <span class="marginnote">`MS_ASYNC` 只排队，`MS_SYNC` 等待稳定存储，语义靠近 fsync 的范围版。私有映射的脏匿名页不进文件 writeback。</span>
 
 ## 方法
 
 VFS：`mmap` 安装 vma，fault 调 `readpage`/`writepage` 同一套。写共享映射 = 改页缓存。`write` 系统调用也改同一页，于是编辑器 mmap 与后台 checksum 进程 read 不分裂。与 [fsync](/cs/fsync)：对 fd 的 fsync 包含这些脏页。不要假设 `munmap` 等于 msync。
+
+<span class="marginnote">常见误区：以为 munmap 会把改动存盘——解除映射只是拆掉页表项，脏页仍由内核择机回写；要「现在就落盘」得显式调 msync，或对该 fd 调 fsync。</span>
 
 ```mermaid
 flowchart TD
@@ -35,7 +39,21 @@ flowchart TD
 
 共帧让「文件是字节数组」在虚存与系统调用之间成立。数据库用 `O_DIRECT` 故意绕过这一层，以免双重缓存——后课再讲。本课对象是默认路径。与 COW 文件系统：mmap 脏的是页缓存帧，下盘时仍走 FS 的 COW/日志，不在用户页表里完成树根切换。
 
+```mermaid
+flowchart TD
+  ST["进程写共享映射页"] --> DIRTY["页缓存帧标脏"]
+  DIRTY --> MS["msync MS_SYNC 等待"]
+  DIRTY --> WB["writeback 周期回写"]
+  MS --> DISK["下盘：与 fsync 同一套 writepages"]
+  WB --> DISK
+  PV["写 MAP_PRIVATE 页"] --> ANON["拷到匿名页，文件不变"]
+```
+
+<span class="marginnote">这张图回答「共享映射的一次写如何落盘」：脏页既可能被 msync 同步等下去，也可能被后台回写提前带走，但最终都汇到同一套 writepages——这就是 mmap 写与 write 写最终一致的原因；私有映射的写则半路拐进匿名页，永远不进这条下盘路径。</span>
+
 不要把一致性写成 MESI：CPU 缓存一致性保证的是核间看见同一物理页；本课保证的是 VFS 不给同一偏移两份页框。
+
+<span class="marginnote">初学者容易把这里的一致性当成 MESI：CPU 缓存一致性管的是多个核看见同一物理内存；本课管的是 VFS 不给同一文件偏移发两份不同页框——两层机制各在不同高度，谁也替代不了谁。</span>
 
 
 实现上：MAP_SHARED 的脏页与 writeback 共用 inode 页树，所以 msync 与 fsync 最终进同一套 writepages。MAP_PRIVATE 的匿名副本在换出时走 swap，不是文件空洞。 读法上只引用[上一课](/cs/fsck)的结论，不把对象换成训练推理或限价簿。

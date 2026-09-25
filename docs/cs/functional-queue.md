@@ -23,6 +23,10 @@ section: cs
 
 `snoc(x)`：`(f, x::r)`，若违不变量则 `rotate`。`head`/`tail` 走 $f$。持久：cons 共享前缀，reverse 产生新链，旧 $r$ 仍在。
 
+<span class="marginnote">把 rear 想成收件箱、front 想成发件箱：新信只往收件箱顶上放，旧信只从发件箱顶上取；发件箱空了，才把收件箱整摞倒扣过来当新发件箱。倒扣虽慢，但攒了多少封就只用倒这一次。</span>
+
+<span class="marginnote">术语翻译：「持久」（persistent）不是存到硬盘，而是指旧版本依然完好可用——你拿到昨天的队列对象，它还是昨天的样子，新操作返回的全新队列不会碰它一根毫毛。</span>
+
 ```mermaid
 flowchart LR
   ENQ["入队"] --> REAR["rear 栈"]
@@ -35,6 +39,19 @@ flowchart LR
 ## 机制
 
 势能 $|r|$ 或类似，倒栈花 $\Theta(|r|)$ 时势能下降。实时变体用惰性，避免单次峰值——若实时路径不能倒整个 $r$，用 Okasaki 的流。不要用函数式队列当高性能 SPSC 环（那是数组 + 原子）。
+
+倒栈贵在哪里、为什么摊还后仍是 $O(1)$？把 $|r|$ 当存钱罐：入队每存一封就投一枚硬币，倒栈时恰好用这些硬币付清。
+
+```mermaid
+flowchart LR
+  S1["snoc a：r=[a]，存 1 枚"] --> S2["snoc b：r=[b,a]，存 2 枚"] --> S3["snoc c：r=[c,b,a]，存 3 枚"]
+  S3 --> DEQ["出队：f 已空"]
+  DEQ --> REV["reverse r，花 3 步"]
+  BANK["此前 3 次入队各投 1 枚"] --> REV
+  REV --> NEWF["新 f=[a,b,c]，存钱罐清零"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「出队可能撞上倒栈，所以出队是 $O(n)$」。实际上倒栈之后 front 就有了一大截存货，接下来很多次出队都只是取头；摊还起来，倒栈的 $n$ 步被之前的 $n$ 次入队分摊，每次平摊 $O(1)$。</span>
 
 下一课缓存无关：换的是递归布局与 I/O 模型，不必持久。
 

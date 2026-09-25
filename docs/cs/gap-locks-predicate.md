@@ -38,6 +38,23 @@ flowchart TD
 
 性能：范围越大锁越多，并发下降。这是「可串行的税」。覆盖扫描仍要锁间隙，不只盖列。分区：间隙在分区内，跨分区插入要各间隙或更粗锁。
 
+一个具体的插入是怎么被间隙锁挡住的？关键在「锁的是空隙，不是行」。
+
+```mermaid
+flowchart TD
+  EX["表里已有 id=10 与 id=20"] --> SCAN["事务 A：SELECT id BETWEEN 10 AND 20"]
+  SCAN --> LOCK["A 锁住 (10,20) 之间的间隙"]
+  INS["事务 B：INSERT id=15"] --> POS["定位到同一间隙"]
+  POS --> WAIT["撞上 A 的间隙锁：等待"]
+  ALT["若 B 插的是 id=25"] --> OTHER["落在别的间隙，不受阻"]
+```
+
+<span class="marginnote">直觉类比：行锁是给某张已摆好的桌子挂「已订」牌；间隙锁是把整块区域圈起来，不许任何新桌子摆进来——哪怕要防的「桌子」（id=15 那行）现在还不存在。幻读防的就是这些未来的行。</span>
+
+<span class="marginnote">为什么重要：如果查询列上没有索引，InnoDB 找不到可用的窄间隙，可能退化为锁住更大范围甚至全表——一个范围查询就把所有插入堵死。并发表现直接取决于索引设计，不只是隔离级别设置。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「设了 REPEATABLE READ 就绝没有幻读」。InnoDB 的普通快照读靠 MVCC 看不见新行，但 SELECT … FOR UPDATE 这类当前读必须靠 next-key 锁挡住并发插入，两套机制各管一段。</span>
+
 与 MVCC：快照读可避免部分幻，写偏斜与插入幻仍要 SSI 或间隙。Postgres RR 用快照，serializable 用 SSI，间隙模型与 InnoDB 不同。
 
 ## 边界

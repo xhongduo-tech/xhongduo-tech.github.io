@@ -17,6 +17,19 @@ section: cs
 
 CRT 时代的行扫描留下时序：HSYNC/VSYNC、消隐。LCD 仍要这些时序包（或嵌入在 eDP/HDMI 里）。像素格式：32bpp XRGB、YUV。缺口不是 SPI 移位，而是：**带宽** = 分辨率 × 刷新 × 每像素字节，打在 DRAM 通道上，与 CPU 争 [FR-FCFS](/cs/fr-fcfs) 队列。双缓冲：扫 A 时 CPU 画 B，交换指针避免撕裂。
 
+<span class="marginnote">数字代入一遍带宽公式：1920×1080、60 Hz、每像素 4 字节，就是 1920×1080×60×4 ≈ 0.5 GB/s；刷新率提到 144 Hz 就超过 1.2 GB/s——而且这是每秒重复读的流量，难怪显示要和 CPU 抢 DRAM 通道。</span>
+
+<span class="marginnote">撕裂（tearing）就是屏幕上半部分还是旧帧、下半部分已经是新帧：扫描 DMA 读到一半时 CPU 改了同一块缓冲，画面像被从中间剪开。双缓冲让扫描只看前台，画好的整帧等场消隐的间隙再整体接管。</span>
+
+```mermaid
+flowchart TD
+  FR_A["前台缓冲 A：扫描 DMA 正在读"] --> SCR["显示时序输出"]
+  CPU2["CPU 画下一帧"] --> FR_B["后台缓冲 B"]
+  FR_B --> SWAP{"画完且处于消隐?"}
+  SWAP -->|"是"| FLIP["交换指针：B 变前台"]
+  SWAP -->|"否"| WAIT["等下一次消隐再换"]
+```
+
 GPU 加速：2D blit 或 3D 管线写帧缓冲，仍是内存。本课不写光栅化算法。
 
 ### 帧缓冲不是「字符终端的字体 ROM」
@@ -42,6 +55,8 @@ flowchart TD
 ## 机制
 
 启动固件在 DRAM 训练成功后才能设 GOP；之前可能用 UART。PCIe 独显 BAR 映射帧缓冲或命令队列。本课把「人能看见的输出」接到内存与 DMA，结束外设带宽谱：UART → USB → NVMe/显示。
+
+<span class="marginnote">初学者容易以为像素是显示线缆上「实时生成」的——实际上显示器只是照着时序反复读内存里那块像素阵列；内存里是什么就显示什么，没人去写它，屏幕就是静止的一帧。</span>
 
 ## 边界
 
