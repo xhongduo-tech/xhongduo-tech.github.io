@@ -19,6 +19,8 @@ section: cs
 
 TSO（x86）：允许 store-load 重排为主，程序员少插 fence；仍要 `mfence` 于少数模式。ARM/RV：要显式 acquire/release 或 fence。C/C++ 的 `memory_order` 降到这些指令。
 
+<span class="marginnote">术语翻译：TSO 可以记成「只许一处插队」的顺序模型——store 后面的 load 允许提前，其余顺序都保持程序序。所以 x86 程序大多数时候不用插 fence，只有「写完立刻读、且不能读到自己的写」这类少见模式才需要 `mfence`；ARM/RISC-V 则处处弱序，配对要自己钉。</span>
+
 ### fence 不是「刷新 cache」
 
 它不把缓存丢掉，而是约束提交与可见性序。`clflush` 才冲缓存行（持久与 DMA 有时要）。把 `fence` 当 `wbinvd`，性能与语义都错。设备 MMIO 往往需要更强的 I/O 围栏，以防写缓冲合并门铃。
@@ -44,11 +46,23 @@ flowchart TD
 
 下一课 SIMD 并行的是数据通路，内存序仍按标量模型作用于每条向量访存（实现可更宽）。RVV 的向量 load 同样受 fence 约束。本课把 ISA 对照从「运算」接到「多核可见性」。
 
+```mermaid
+flowchart TD
+  P["核0 计划: 先 store 数据, 再 store 标志"] --> W["写缓冲与乱序把两次 store 交换"]
+  W --> V["核1 先看见新标志"]
+  V --> L["核1 转头去读数据, 只拿到旧值"]
+  L --> BUG["协议违约: 不是逻辑写错, 是序被重排"]
+```
+
+<span class="marginnote">直觉类比：release 像交卷前把所有草稿都订正完才举手示意「我写完了」，acquire 像看见「写完了」的牌子才允许走进去看卷子。两者配对，观察者永远看不到「举了手但卷子还没订正」的中间态；裸 store 标志缺的就是这道订正步骤。</span>
+
 ## 边界
 
 本课不把 C++ 标准逐条背完，不证明 RCpc vs RCsc。不写 GPU 的 `__threadfence`。不进入 JVM 内存模型全书。
 
 后课默认：弱序 ISA 用 fence/acquire-release 配对生产者消费者；x86 TSO 更强但仍非顺序一致。下一课 SIMD 扩展。
+
+<span class="marginnote">常见误区：初学者容易把 fence 当成「把缓存刷回内存」。实际上 fence 只约束指令提交与可见的先后，不碰任何缓存行；脏行什么时候写回由缓存一致性协议说了算。真正冲缓存的是 `clflush` 一类指令，语义与性能都和 fence 是两回事。</span>
 
 ## 小结
 

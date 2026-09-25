@@ -17,7 +17,7 @@ section: cs
 
 NAND 以擦除块为回收单位；随机更新 inode 会迫使 FTL 搬整块。LFS 的单日志头把热 inode 与冷数据搅在同一段，cleaner 效率差。缺口：节点地址表（NAT）扮演稳定的 imap——inode 号到节点块地址；段按热度分日志头（热/温/冷节点与数据）；checkpoint 区成对，崩溃时选有效的那份。本课不把 UFS/ext4 的块组再画一遍。
 
-<span class="marginnote">SSA（段摘要）记下段内每块是谁的，便于 GC。与 FTL 的分工：F2FS 尽量顺序写，减少 FTL 的随机更新；不能取消 FTL。</span>
+<span class="marginnote">SSA（段摘要）记下段内每块是谁的，便于 GC。与 FTL 的分工：F2FS 尽量顺序写，减少 FTL 的随机更新；不能取消 FTL。</span><span class="marginnote">直觉类比：热数据像天天翻的抽屉，冷数据像封箱入库的档案。分开装箱后，回收时冷箱里几乎全是作废纸，整箱直接清走；冷热混装则每箱都得逐件翻拣——这就是「按热度分日志头」帮 GC 的道理。</span>
 
 ## 方法
 
@@ -37,6 +37,18 @@ F2FS 把 Rosenblum 的 imap 收成可 checkpoint 的 NAT，把 cleaner 收成分
 
 与 VFS：文件仍是 inode 号；NAT 对用户不可见。fsck 在 checkpoint 有效时主要验证表，而不是扫全部簇链。
 
+```mermaid
+flowchart TD
+  W["新写入按冷热选日志头追加"] --> SEG["段逐渐写满"]
+  SEG --> AGE["文件更新后，段内旧版本变死块"]
+  AGE --> GC{"GC 挑段：有效块占比低吗？"}
+  GC -->|"低，如冷数据段"| MV["只搬少数活块到当前日志头"]
+  GC -->|"高，几乎全是活块"| SKIP["搬动不划算，先跳过"]
+  MV --> ER["整段擦除，空间回收"]
+```
+
+<span class="marginnote">为什么重要：闪存不能原地覆盖、只能整段擦除，所以「擦哪一段」直接决定要搬多少活数据。段里死块越多，GC 越便宜——冷热分离就是在制造「死块扎堆」的段。</span>
+
 
 实现上：NAT 是有限大小的地址表，节点地址更新比改整棵 B 树便宜，但表本身要 checkpoint。与 FTL 叠两层 GC 时，若文件系统随机写，闪存仍会痛，所以多头日志要尽量顺序。 读法上只引用[上一课](/cs/log-structured-fs)的结论，不把对象换成训练推理或限价簿。
 
@@ -48,7 +60,7 @@ F2FS 把 Rosenblum 的 imap 收成可 checkpoint 的 NAT，把 cleaner 收成分
 
 ## 边界
 
-本课不引入 zoned namespace 的全部 zone 复位语义（f2fs 后来可对接 zoned 设备，那是附录级）。不保证手机厂商的私有补丁与上游一致。下一课把「追加新版本」从日志结构扩成通用的写时复制整棵树：btrfs / ZFS。
+本课不引入 zoned namespace 的全部 zone 复位语义（f2fs 后来可对接 zoned 设备，那是附录级）。不保证手机厂商的私有补丁与上游一致。下一课把「追加新版本」从日志结构扩成通用的写时复制整棵树：btrfs / ZFS。<span class="marginnote">常见误区：初学者容易以为 F2FS「取代了 FTL」；它只是不给 FTL 添乱——尽量顺序写、按擦除块粒度回收——FTL 仍在设备里默默做地址映射和磨损均衡。</span>
 
 
 版本字段会变，课序钉的是机制对象「F2FS」，不是某一主线内核的结构体名。

@@ -17,6 +17,8 @@ section: cs
 
 $\varphi(n)=|(\mathbb{Z}/n\mathbb{Z})^\times|$。群论：有限群 $x^{|G|}=1$。欧拉定理即此。费马是 $n=p$，$\varphi(p)=p-1$。$n=pq$ 时 $\varphi=(p-1)(q-1)$。Carmichael $\lambda(n)$ 是指数的最小万有上界，RSA 实现常用 $\lambda$ 代替 $\varphi$，本课点名。
 
+<span class="marginnote">数字实例：$\varphi(n)$ 数的是 $1..n$ 中与 $n$ 互素的数有几个。如 $\varphi(12)=4$，因为只有 $1,5,7,11$ 与 12 无公因子；$\varphi(5)=5-1=4$（素数去掉自身）；$n=pq$ 时 $\varphi(15)=2\times4=8$。这一步算对，后面指数约化才有据。</span>
+
 若 $\gcd(a,n)\ne 1$，欧拉不能直接用；$n=pq$ 上对所有 $a$ 仍有 $a^{k\lambda}\equiv a$ 一类恒等式，证明用 CRT，后课。
 
 ### 不是素性测试
@@ -40,6 +42,16 @@ flowchart TD
 
 定理把「无穷指数」收成循环群上的算术。下一课 CRT 把模 $pq$ 拆成模 $p$ 与模 $q$，欧拉在两边分别用。本课不拆。
 
+```mermaid
+flowchart TD
+  Q["求 7 的 100 次方 mod 10"] --> G["gcd 7,10 = 1, 欧拉可用"]
+  G --> P["φ 10 = 4"]
+  P --> R["指数 100 mod 4 = 0, 等价于 7 的 4 次方"]
+  R --> A["7^4 = 2401 ≡ 1, 答案为 1"]
+```
+
+<span class="marginnote">直觉类比：把乘法群想成一个只有 $\varphi(n)$ 个刻度的钟面，幂运算就是绕着钟面转圈——每转 $\varphi(n)$ 步必然回到出发点。所以「转 100 步到哪」不必真走 100 步，只需看圈数：$100 \bmod 4 = 0$，转整圈，回到原地。</span>
+
 $\varphi$ 积性：$\gcd(m,n)=1\Rightarrow\varphi(mn)=\varphi(m)\varphi(n)$。公式为后课素数生成铺路。
 
 Carmichael $\lambda(n)=\mathrm{lcm}(\lambda(p^k),\ldots)$，对 $p^k$ 有显式。RSA 用 $\lambda(n)$ 比 $\varphi$ 更小，指数更短。$arphi$ 积性证明用 CRT：模 $mn$ 互素 $\iff$ 两侧都互素。费马小定理的「逆」不能当素性测试，Miller–Rabin 课再拆平方链。
@@ -50,6 +62,8 @@ Carmichael $\lambda(n)=\mathrm{lcm}(\lambda(p^k),\ldots)$，对 $p^k$ 有显式�
 本课不证原根存在，不引入 Dirichlet。不写 RSA 加密函数。后课默认：互素时指数模 $\varphi(n)$；$p$ 素时模 $p-1$。下一课中国剩余定理。
 
 指数先模 $\varphi(n)$ 再快速幂，前提是已知 $\varphi$——RSA 私钥正在这里。正向定理不能当素性测试。CRT 下一课把模 $pq$ 拆开，两边分别用费马。
+
+<span class="marginnote">常见误区：初学者容易把费马测试反着用——「$a^{n-1}\equiv 1$ 就说明 $n$ 是素数」。合数 561 就是反例：对所有与它互素的底 $a$ 都满足 $a^{560}\equiv 1$，却 $561 = 3 \times 11 \times 17$。这类 Carmichael 数的存在，正是后课要换 Miller–Rabin 的原因。</span>
 
 ## 小结
 
