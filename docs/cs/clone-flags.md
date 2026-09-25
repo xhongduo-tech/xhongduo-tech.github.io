@@ -15,13 +15,13 @@ section: cs
 
 ## 问题
 
-若内核同时维持 `fork` 与 `thread_create` 两套完全不同的路径，共享与复制规则会分叉。统一成 clone：新 PCB 必有，标志决定指针是共享还是深拷。`CLONE_VM`：同页表，即线程。不设：新地址空间，即进程。`CLONE_FILES`：同文件表。缺口不是 TLS 布局，而是这份**资源共享菜单**。
+若内核同时维持 `fork` 与 `thread_create` 两套完全不同的路径，共享与复制规则会分叉。统一成 clone：新 PCB 必有，标志决定指针是共享还是深拷。`CLONE_VM`：同页表，即线程。不设：新地址空间，即进程。`CLONE_FILES`：同文件表。缺口不是 TLS 布局，而是这份**资源共享菜单**。<span class="marginnote">直觉类比「共享还是深拷」：fork 像把整本通讯录复印一份，之后各写各的互不影响；带 `CLONE_VM` 的 clone 像两人合看同一本——一方改了另一方立刻看见。每个标志都在回答同一个问题：这一项是「指过去」还是「抄一份」。</span>
 
 <span class="marginnote">命名空间标志（PID、mount、net）把「容器」做成 clone 的极端：看起来像进程，看见的是另一套名字。隔离策略是更后的课，本课只承认位存在。</span>
 
 ## 方法
 
-系统调用：分配 PCB 与内核栈，按位挂接或复制 `mm`、`fs`、`files`、`sighand`。父与子的返回值约定类似 fork（或通过ptid/ctid 写出 tid）。用户库把「创建线程」译成一组固定位 + 新栈 + 新 TLS。错误则不留下半共享的对象。
+系统调用：分配 PCB 与内核栈，按位挂接或复制 `mm`、`fs`、`files`、`sighand`。父与子的返回值约定类似 fork（或通过ptid/ctid 写出 tid）。用户库把「创建线程」译成一组固定位 + 新栈 + 新 TLS。错误则不留下半共享的对象。<span class="marginnote">数字实例：这些标志就是 32 位整数里的各个比特——`CLONE_VM` 是第 8 位（0x100）、`CLONE_FILES` 是第 10 位（0x400）、`CLONE_THREAD` 是第 16 位（0x10000）。一次调用把想要的位按位或起来传进去，内核逐位决定「共享谁、复制谁」。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +35,17 @@ flowchart TD
 ## 机制
 
 标志把「进程 vs 线程」从类型变成配置。调度器仍看见一个个 `task_struct`；是否换页表根在切换时看 `mm` 指针是否相同。用户若错误组合（共享 vm 却不共享信号手），语义古怪，库不会那样做。主干只要求：共享 vm ⇒ 同进程线程模型。
+
+```mermaid
+flowchart TD
+  NEW["clone 创建新 task_struct"] --> Q{"页表根 mm 指针共享吗？"}
+  Q -->|"共享（CLONE_VM）"| TH["同组线程：切换不换地址空间"]
+  Q -->|"不共享"| PR["新地址空间：独立进程，页写时复制"]
+  TH --> SCHED["调度器眼里都是各自可调度的任务"]
+  PR --> SCHED
+```
+
+<span class="marginnote">这张图回答「内核靠什么区分进程和线程」：答案是不区分类型，只看 `mm` 指针相不相同。初学者容易以为 Linux 里存在「线程对象」；实际上 pthread_create 底下就是一个带 `CLONE_VM|CLONE_FILES|CLONE_THREAD|CLONE_SIGHAND` 的 clone——「进程还是线程」是共享程度的描述，不是两种内核类型。</span>
 
 ## 边界
 

@@ -17,6 +17,8 @@ section: cs
 
 `wait(&c)` 在管程里等的是「缓冲非空」这类会再变假的谓词。模块加载结束、设备探测结束、一次 DMA 做完，则「完成」一旦为真就保持，直到有人显式再清。用 condvar 也能写，但容易漏 `signal`、容易虚假唤醒后条件仍假。completion：内部计数或标志 + 等待队列，`complete` 后后来的 wait 立即通过。缺口不是再讲 Mesa 循环，而是这种**粘性事件**。
 
+<span class="marginnote">术语翻译：会合（rendezvous）就是两个执行流约定在同一个点碰头——一方等「事情做完了」，另一方负责宣布「事情做完了」。粘性指事件一旦发生就被记住：哪怕是后来才到的等待者，也不用再等，直接通过。</span>
+
 <span class="marginnote">`complete_all` 唤醒当前所有等待者并把完成态留下；之后再 wait 的人也直接过。再武装需要 `reinit_completion`。</span>
 
 ## 方法
@@ -32,9 +34,22 @@ flowchart TD
 
 与 IRQ：[中断下半部](/cs/interrupt-bottom-half) 里可以 `complete`，等待者必须是线程上下文。
 
+<span class="marginnote">直觉类比：completion 像快递柜——`complete` 是快递入柜，`wait` 是凭码取件；快递先到、人后到照样取得到（完成态粘着）。条件变量更像在收发室干等管理员喊名字：喊的时候你恰好不在，就得反复回来问（Mesa 循环检查谓词）。</span>
+
 ## 机制
 
 completion 把「一次性会合」从通用管程里拆出来，减少谓词错误。它不是锁：完成不保护数据结构的互斥，只同步「可以开始用」。若完成前数据要可见，生产者在 `complete` 前要有 release 语义，消费者 wait 返回后 acquire——[内存屏障](/cs/memory-barrier-os) 已给出。
+
+```mermaid
+flowchart TD
+  EVT["complete 执行"] --> ST["粘性完成态保持为真"]
+  W1["先到的 wait"] --> CHK{"完成态已置?"}
+  CHK -->|"否"| SLEEP["睡入等待队列"]
+  ST --> WAKE["唤醒队列中的等待者"]
+  W2["后到的 wait"] --> PASS["见完成态已置, 立即通过"]
+```
+
+<span class="marginnote">常见误区：初学者容易把 completion 当锁用。它不做互斥——完成态只回答「初始化做完了吗」，不保护任何数据结构；多个线程同时从 wait 返回后仍会一起动共享数据。要护数据得另配互斥锁；而 `complete` 前的写入要被 wait 返回后的读者看见，靠的是 release/acquire 内存序。</span>
 
 多次 `complete` 对只 wait 一次的人通常只多算一次；语义以所用内核文档为准，主干只要求一次性事件不要靠「多 V 几次」来凑。
 
