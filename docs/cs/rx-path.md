@@ -19,6 +19,10 @@ section: cs
 
 <span class="marginnote">busy poll 时用户线程可能自己把包从队列取走。抓包 AF_PACKET 在 ptype 上再挂一个处理者。</span>
 
+<span class="marginnote">「四元组」就是（源 IP、源端口、目的 IP、目的端口）这四个数拼成的一把钥匙——同一台机器上几万个 TCP 连接，全靠它区分该把包塞进哪个 socket 的队列。</span>
+
+<span class="marginnote">可以把它想象成快递分拣：以太网头是外箱、IP 头是面单、TCP 头是收件人房间号。每过一层撕掉一层包装，最后只有房间号留下来决定敲门找谁。</span>
+
 ## 方法
 
 `netif_receive_skb` → ingress qdisc（可选）→ `ip_rcv` → netfilter → `ip_local_deliver` → L4。TCP：状态机、缓冲、ACK。对照存储 RX：没有「文件偏移」，只有端口与地址。对照 [设备节点](/cs/device-nodes)：`/dev/net/tun` 会在这条路径中途插入。
@@ -36,6 +40,22 @@ flowchart TD
 ## 机制
 
 RX 路径是「把 DMA 来的字节变成进程可读缓冲」的编译结果：每层剥头，最后是 socket buffer。性能问题几乎都是：几次缓存未命中、几次锁、是否跨 NUMA。不要写成七层 OSI 教材重开——对象是 Linux 函数链。
+
+<span class="marginnote">数字实例：假设接收队列上限 1000 个 skb，`sk_data_ready` 唤醒的进程正被调度器压住 5 毫秒没跑；10 Gbps 链路每毫秒约 8000 个 1500 字节的包涌向同一个 socket——5 毫秒就是约 4 万个包，队列只装得下 1000，其余全在这里丢。丢包不总在网卡，也可能在协议栈最末端。</span>
+
+```mermaid
+flowchart TD
+  L4["tcp_v4_rcv 拿到段"] --> LOOK{"四元组查到 sock?"}
+  LOOK -- "未命中" --> STATE{"本机有无监听?"}
+  STATE -- "无" --> DROP["丢弃或回 RST"]
+  STATE -- "有" --> SYN["按握手状态处理 SYN"]
+  LOOK -- "命中" --> Q{"接收队列未满?"}
+  Q -- "未满" --> ENQ["skb 挂入 sk 队列"]
+  ENQ --> RDY["sk_data_ready 唤醒"]
+  Q -- "已满" --> LOSE["丢段, 后靠重传恢复"]
+```
+
+这张图回答的问题是：包走到 L4 之后，除了「进队列、唤醒」这条正路，还有哪几个出口会把它扔掉——查找未命中、队列已满、无监听，三条丢弃路径都在这里分岔。
 
 与 [NFS](/cs/nfs-semantics)：NFS 只是这路径上的一种 L4 负载。
 

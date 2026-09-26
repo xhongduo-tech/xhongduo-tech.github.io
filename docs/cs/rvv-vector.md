@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-可移植二进制：同一 `vadd.vv` 在 VLEN=128 与 512 的核上都能跑，软件用 strip-mining 循环 `vl = vsetvl(n)`。缺口不是再解释 DLP，而是这套 **配置**：SEW（元素宽）、LMUL（寄存器分组）、掩码寄存器 `v0`。内存：unit-stride、strided、indexed（gather/scatter）。
+可移植二进制：同一 `vadd.vv` 在 VLEN=128 与 512 的核上都能跑，软件用 strip-mining 循环 `vl = vsetvl(n)`。缺口不是再解释 DLP，而是这套 **配置**：SEW（元素宽）、LMUL（寄存器分组）、掩码寄存器 `v0`。内存：unit-stride、strided、indexed（gather/scatter）。<span class="marginnote">术语翻译：SEW（选定元素宽度）就是用「一个配置字段告诉硬件『这回把向量寄存器切成多宽的元素』」的手段来做「同一组物理寄存器既能跑 8 位字节也能跑 64 位双字」的事；LMUL 则是把相邻寄存器捆成一组，凑出更长的逻辑向量。</span>
 
 尾与掩码：`vta`/`vma` 策略决定未用元素是否保留——向量谓词，后课条件码再对照标量谓词。
 
@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-循环：测剩余 `n`，`vsetvl`，向量 load/运算/store，指针与 `n` 递减。异常：向量访存的页故障元素位置要精确或按规范重启，实现复杂——点名。与 [fence](/cs/fence-instructions)：向量访存参与同一内存模型。
+循环：测剩余 `n`，`vsetvl`，向量 load/运算/store，指针与 `n` 递减。异常：向量访存的页故障元素位置要精确或按规范重启，实现复杂——点名。与 [fence](/cs/fence-instructions)：向量访存参与同一内存模型。<span class="marginnote">数字实例：处理 1000 个 32 位元素。VLEN=128 的核上 vlmax = 128/32 = 4，循环约 250 圈；VLEN=512 上 vlmax = 16，约 63 圈就完——同一段二进制，宽的核自动少绕圈，谁也不用重编译。</span>
 
 ```mermaid
 flowchart TD
@@ -41,7 +41,17 @@ DSP 定点：RVV 有整数与饱和变体，对应饱和课。FMA 有向量版�
 
 ## 机制
 
-压缩指令减少标量循环开销，与 RVV 叠用。页表走访仍是标量特权机制；向量 load 只是多次翻译或页跨越处理。本课钉「可变 VL」这一 RISC-V 选择。
+压缩指令减少标量循环开销，与 RVV 叠用。页表走访仍是标量特权机制；向量 load 只是多次翻译或页跨越处理。本课钉「可变 VL」这一 RISC-V 选择。<span class="marginnote">常见误区：初学者容易以为「RVV 代码要在 512 位核上跑满就必须重新编译」——不必：strip-mining 循环在运行时问 `vl` 要答案，同一个二进制自动吃到更宽的实现；需要重编译的是手写定宽 SIMD 的老习惯。</span>
+
+```mermaid
+flowchart TD
+  CFG["同一条 vadd.vv 配 SEW=32"] --> H1{"跑在 VLEN=128 的核"}
+  H1 --> T1["每条指令打 4 个元素"]
+  CFG --> H2{"跑在 VLEN=512 的核"}
+  H2 --> T2["每条指令打 16 个元素"]
+  T1 --> SAME["同一段二进制 两边都成立"]
+  T2 --> SAME
+```
 
 ## 边界
 
