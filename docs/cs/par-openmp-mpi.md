@@ -17,6 +17,8 @@ section: cs
 
 共享内存模型的全部成本都压在「哪些访问会撞」上。OpenMP 的 `parallel for` 把循环切块分给线程组，写的人必须自己声明撞在哪里：reduction 声明「各攒各的、出口合并」，barrier 声明「在此对齐」，critical 圈住残余的共享写。漏声明不是报错，而是 data race——[语言内存模型与 data race](/cs/language-memory-model) 的 UB 结论直接适用。MPI 一侧没有撞的机会，因为根本没有共享：每个 rank 对自己的地址空间负责，一切交换显式写进 send/recv；代价是「把字节搬过网络」从此成为你代码的一部分。错法：把 `MPI_Send` 当普通函数调用——它的返回只表示本地缓冲完成，不等对端收到。
 
+<span class="marginnote">直觉类比：`MPI_Send` 返回像「信已经塞进邮筒」，不代表对方拆了信；大消息走 rendezvous 更像寄大件快递——快递员先打电话确认你在家（对端张贴了 recv）才肯发货。所以「发了」与「被收」之间隔着一整套运行时协议。</span>
+
 ## 方法
 
 两套直觉各记一句。OpenMP：「共享在，同步要逐处声明」——调度子句 static/dynamic/guided 控制怎么切块，块大小就是负载均衡与局部性的折中。MPI：「边界画死，移动算钱」——先想清楚数据属于谁，再想谁要找谁；broadcast、reduce、allreduce 把常见通信拓扑一次说清。选型随之而定：问题能切成大方块、通信比小，MPI 顺；细粒度共享、负载不规则，OpenMP 与线程顺；大机器两者混用——rank 之间 MPI，rank 之内 OpenMP。
@@ -35,6 +37,19 @@ flowchart TD
 
 两套各有一笔机制账。OpenMP 的线程组是 fork-join：进入并行区派生、出口汇合；reduction 的合并在出口做，加法次序不定——浮点结果与串行版本逐位不同，这是并行的正常代价，不是 bug。MPI 的消息靠信封匹配（通信子、源、tag）；大消息走 rendezvous，对端没有张贴接收就把发送方拖住，「发了」与「被收」之间隔着一个运行时。集合通信在进程树上折叠：allreduce 的通信量随 $P$ 按树深对数增长，不是 $P$ 倍带宽——大模型张量并行每层要付的 allreduce 账，用的正是这一条直觉（见[张量并行](/llm/tensor-parallel)），同一本账换了个领域记账。
 
+<span class="marginnote">数字实例：64 个 rank 做 allreduce，树形折叠只需 $\log_2 64 = 6$ 步，而不是 64 份带宽；rank 再翻倍到 128，也只多一步。这就是「按树深对数增长」的意思——集合通信能把通信账从 $P$ 压到 $\log P$，深训练里省的就是这个。</span>
+
+大消息的 rendezvous 把「发了」与「被收」隔开的全过程，单独画一遍——它回答的是握手时序问题，与上面那张选型图不同。
+
+```mermaid
+flowchart LR
+  A["发送方 MPI_Send 大消息"] --> B["发 rendezvous 请求后挂起"]
+  C["对端张贴匹配的 recv"] --> D["运行时握手确认"]
+  B --> D
+  D --> E["数据真正搬运"]
+  E --> F["Send 才返回: 收到才算数"]
+```
+
 <span class="marginnote">`#pragma omp parallel for reduction(+:s)` 的出口合并次序不确定：同一程序两次运行可以逐位不同。要可复现，得固定切块并自己写树形归约，而不是指望编译器替你保证。</span>
 
 ## 边界
@@ -48,3 +63,5 @@ flowchart TD
 - 浮点 reduction 次序不定是代价不是 bug；可复现要自己固定归约树。
 - 选型看通信比与粒度；大机器常用 MPI 之间、OpenMP 之内的混用。
 - 出处：MPI Forum 标准，1994；OpenMP ARB 规范；Herlihy and Shavit, The Art of Multiprocessor Programming 第 1 章的共享与分布式对照。
+
+<span class="marginnote">为什么选型先看「通信比」：拿矩阵乘举例，$n=1000$ 时要搬的数据是 $O(n^2)$ 量级（百万个元素），要做的计算是 $O(n^3)$ 量级（十亿次乘加）——每搬一个字节能换上千次运算，通信「不亏」，切大方块交给 MPI 划算。反过来若每步计算都要等一小口数据，共享内存的细粒度路线才合身。</span>

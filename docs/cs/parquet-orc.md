@@ -19,11 +19,15 @@ section: cs
 
 谓词下推进文件：读 footer 的 zone 统计，跳过 row group；再读列块统计，跳过 page。这是后课 zone map 的文件实例。嵌套结构不是文档库：仍是列存的嵌套编码。
 
+<span class="marginnote">「自描述」就是文件自带说明书：有哪些列、什么类型、怎么编码、每块的 min/max 统计，全写在文件尾部的 footer 里——不需要连上某个数据库查元数据表，任何引擎拿到字节就能读懂。这正是数据湖里 Spark 和 Presto 能共读一份文件的原因。</span>
+
 <span class="marginnote">Parquet 源自 Google Dremel 的列式嵌套；ORC 来自 Hive。本课对照合同，不背所有 version 字段。</span>
 
 ## 方法
 
 写：按 row group 切（行数或字节阈值），每列一块，选编码与可选压缩器（与编码叠）。读：投影列集合 → 只打开那些 chunk；谓词 → 用统计裁剪。schema 演化：加列、可选字段，与模式迁移课的文件版。
+
+<span class="marginnote">常见误区：把 Parquet 当成一种「压缩格式」。它其实是布局与编码的合同——先按列重排、再套 RLE/字典等编码，压缩器（snappy/zstd）只是叠在编码之上的可选项。列存之所以压得狠，根源在布局让同列的相似值挨在一起，不在压缩器本身。</span>
 
 与事务：文件通常不可变，更新靠写新文件+元数据提交（湖仓表格式后课）。本课单个文件内部。
 
@@ -39,7 +43,22 @@ flowchart TD
 
 向量化扫描直接吃 page 解成列向量。并行：按 row group 切给工人，exchange 前已是列批次。小文件问题：每个文件一个 footer，调度税高——后课表格式用 compaction 合文件，与 LSM 同构。
 
+<span class="marginnote">数字实例：把 1 TB 写成 10 万个 10 MB 小文件，调度器就要打开 10 万个 footer、排 10 万个任务，名字节点/对象存储的元数据请求先把队列占满——算没开始，调度税已经吃掉大半。合成 128 MB–1 GB 的大文件正是 compaction 干的事。</span>
+
+```mermaid
+flowchart TD
+  Q["查询：只取两列 + 过滤条件"] --> M["读各文件 footer 与统计"]
+  M --> PR["裁剪掉不满足统计的 row group"]
+  PR --> SCH["剩余 row group 按块切给工人"]
+  SCH --> W1["工人 A：解两列 page 为列向量"]
+  SCH --> W2["工人 B：解两列 page 为列向量"]
+  W1 --> EX["列批次交给上层 exchange"]
+  W2 --> EX
+```
+
 类型系统：十进制、时间戳精度不一致会在引擎间产生静默错，合同要钉。
+
+<span class="marginnote">「静默错」是最危险的一类：不报错、不崩溃，只是算出来的数悄悄不对。例如一个引擎把时间戳截到秒、另一个保留毫秒，JOIN 两边的键就对不上——报表数值差了一截，却查不出任何异常。</span>
 
 ## 边界
 
