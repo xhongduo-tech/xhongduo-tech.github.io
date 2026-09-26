@@ -17,11 +17,15 @@ section: cs
 
 全模拟：客驱动以为有 PCI 网卡，每个寄存器访问陷入 VMM，再模拟。正确但慢。virtio：客机里的 virtio-blk/net 驱动把请求填进共享内存环（GPA 已由 EPT 落到宿主页），一次门铃通知宿主。宿主线程或 vhost 取出，走真 [blk-mq](/cs/blk-mq) 或真网卡，完成时中断客机。缺口不是发明以太网帧格式——那是[分层与端到端](/cs/layering-e2e)——而是这条队列契约。
 
+<span class="marginnote">直觉类比：共享描述符环像两个部门共用的传送带托盘——客机把托盘装好（描述符指向自己的缓冲），敲一下铃，宿主端取走办真事，办完把回执放上另一条传送带；全程不进对方房间，只共享托盘与铃。</span>
+
 <span class="marginnote">现代 virtio 可用 virtiofs、vsock 等。本课以块与网为原型。规范由 OASIS virtio 维护；Russell 2008 是早期陈述。</span>
 
 ## 方法
 
 发现：虚拟 PCI 设备表明 virtio ID。驱动协商特性，分配环。提交：描述符指向客缓冲（GPA）。宿主翻译成 HPA（EPT 或 IOMMU），执行 I/O。完成：写 used 环，注入中断。与容器的 veth 不同：这里有客内核驱动；容器直接用宿主系统调用。
+
+<span class="marginnote">数字实例：全模拟时代每个端口寄存器写入都陷入一次，一笔块 I/O 动辄几十次陷入；virtio 把一批请求攒进环里，一次门铃换一批——陷入次数从「按寄存器计」降到「按批次计」，这一两个数量级的差就是快的来源。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,19 @@ flowchart TD
 ## 机制
 
 virtio 把 I/O 虚拟化从「指令级模拟」改成「批量共享内存协议」，与 io_uring 的精神相近，对象是客/宿而不是用户/核。它依赖 EPT 让环所在页共享，依赖中断注入让客机调度它的驱动。操作系统课的设备模型到此能接到真实吞吐。跨机器的命名与可靠性不在 virtio 里——[分层与端到端](/cs/layering-e2e) 从「两台主机」重新提问。
+
+```mermaid
+flowchart TD
+  FILL["客驱动把请求填入 avail 环"] --> KICK["写门铃通知宿主"]
+  KICK --> TAKE["宿主后端从环取描述符"]
+  TAKE --> GPA["按 GPA 经 EPT 找到宿主页"]
+  GPA --> EXEC["执行真实块设备或网卡 I/O"]
+  EXEC --> USED["写 used 环标记完成"]
+  USED --> IRQ["注入中断唤醒客机"]
+  IRQ --> REAP["客驱动从环里收割结果"]
+```
+
+<span class="marginnote">特性协商可翻译成「先对暗号再干活」：驱动报出自己会什么（间接描述符、事件索引等），后端回一个交集，双方只按交集工作——客机新旧系统与宿主新旧后端因此可以混搭，谁也不必等谁一起升级。</span>
 
 ## 边界
 
