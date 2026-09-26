@@ -17,6 +17,8 @@ section: cs
 
 龙书一条管道：源 → 三地址 → 机器。DSL 与加速器要在高层次做变换（融合、布局）。过早降到 LLVM 丢失结构。MLIR：op+类型在方言里，pass 管 lowering。缺口是**这一架构**，不是 Wasm 验证。
 
+<span class="marginnote">直觉类比：过早降到 LLVM 像把菜谱先剁成肉末再想改刀工——「这是矩阵乘、这是一个循环带」的结构一旦翻译掉，就再也拼不回来。高层次方言让融合、布局这类大刀阔斧的变换发生在结构还完整的时候。</span>
+
 与多面体：affine 方言承接 SCoP。
 
 ### MLIR 不是「又一个 LLVM」
@@ -28,6 +30,8 @@ LLVM IR 是其方言之一。MLIR 是建 IR 的系统。不要把两者当同一
 ## 方法
 
 定义方言（操作语义、验证器）。写 pass：canonicalization、lowering 到下一方言。最终 `llvm` 方言 → LLVM 模块 → 原有后端。
+
+<span class="marginnote">术语翻译：「方言」就是一套自定义的操作码加类型词汇表——给每个领域发一本自己的词典，词典之间靠 lowering 互译；「下降」就是把高抽象的词逐步翻译成低抽象的词，语义不许变，只许换说法。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,18 @@ flowchart TD
 ## 机制
 
 类型系统可依方言扩展（与 HM 不同，是编译器 IR 类型）。调试：位置信息跨 lowering 传递，难。不要一层 pass 偷偷改变内存模型而不声明。
+
+<span class="marginnote">常见误区：初学者容易以为 MLIR 是「机器学习中间表示」，只服务神经网络。实际上 ML 指 Multi-Level（多层），它同样被用于 Fortran（Flang）、硬件方言与传统编译管线——凡是需要自定义 IR 层级的领域都能用。</span>
+
+```mermaid
+flowchart TD
+  DEF["定义方言: op+类型"] --> VER["验证器拒绝不合法程序"]
+  VER --> PM["pass 管理器"]
+  PM --> CAN["规范化: 化简等价形式"]
+  PM --> LOW["lowering: 方言A译到方言B"]
+  CAN --> LOC["位置信息跨层携带"]
+  LOW --> LOC
+```
 
 ## 边界
 

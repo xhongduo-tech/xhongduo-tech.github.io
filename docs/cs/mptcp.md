@@ -17,6 +17,8 @@ section: cs
 
 手机有 WLAN 与 LTE 两地址，单 TCP 只能钉一条。MPTCP：主子流握手后再 ADD_ADDR 开子流，DSS 映射到数据级序号。拥塞：若各子流独立 AIMD，会在共享瓶颈偷两份——要耦合（如 LIA）。中间盒若剥 MPTCP 选项则回退普通 TCP。与 LACP/ECMP：那些是跳内哈希；MPTCP 是端到端多路径。
 
+<span class="marginnote">「偷两份」用数字看：若 Wi‑Fi 与蜂窝子流在运营商侧汇入同一条 10 Mbps 出口，独立 AIMD 会让两条子流各抢一份窗口，合计拿到约两倍公平份额；耦合算法把整体当一条 TCP 对外竞争，内部再分——多径是吞吐冗余，不是抢占外人的杠杆。</span>
+
 不要把 MPTCP 写成 QUIC 迁移的拷贝，下一课对照。
 
 <span class="marginnote">RFC 8684。部署受 NAT 与 API 限制。本课不把每种调度器（minRTT 等）写完。</span>
@@ -44,11 +46,27 @@ BDP 是各子流之和，窗口缩放每子流协商。RPKI 与路径无关。�
 
 安全：ADD_ADDR 要令牌，防劫持子流。
 
+```mermaid
+flowchart TD
+  SEND["应用写一段字节"] --> SCHED["调度器挑子流发送"]
+  SCHED --> SA["子流A 用自己的序号 1000-1999"]
+  SCHED --> SB["子流B 用自己的序号 500-999"]
+  SA --> DSSA["DSS 选项: 标注数据级序号 0-999"]
+  SB --> DSSB["DSS 选项: 标注数据级序号 1000+"]
+  DSSA --> REASS["接收端按数据级序号重组"]
+  DSSB --> REASS
+  REASS --> APP2["交给应用: 一条无缝字节流"]
+```
+
+<span class="marginnote">DSS（Data Sequence Signal，数据级序号）就是给每段数据再编一套「全局流水号」：子流自己的序号只管本路可靠传输，DSS 才告诉对端这段字节在整条逻辑流里的位置。没有它，Wi‑Fi 上先发的数据被蜂窝后到的数据插队时，接收端无从重排。</span>
+
 ## 边界
 
 本课不引入 MP-QUIC 的全部。SCTP 对照是下一课。后课默认：MPTCP 把多径对应用隐藏为一条 TCP。
 
 内核/库未开则应用无感也无益。
+
+<span class="marginnote">初学者容易把 MPTCP 想成「更稳的 Wi‑Fi 切换工具」。实际上子流可以**同时**活跃并发数据，不只是坏了一条换另一条的备胎；反过来，两端内核或中间盒只要有一处不支持，它就悄悄退化成普通单路径 TCP——应用从头到尾都察觉不到这个降级。</span>
 
 下一课[SCTP 对照](/cs/sctp)。
 

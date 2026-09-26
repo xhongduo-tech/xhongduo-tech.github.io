@@ -19,6 +19,8 @@ section: cs
 
 本课不把 `madvise` 的全部提示写完。
 
+<span class="marginnote">术语翻译：「映射」就是让内核在虚区间记录里记一条「这段虚地址对应这个文件的这段偏移」——之后读写这段地址等于读写文件，load/store 一条指令到位，不再显式调用 `read`/`write` 这类搬运工。</span>
+
 <span class="marginnote">`MAP_SHARED` 写可见于文件与其他映射者；`MAP_PRIVATE` 对文件是 COW：写不污染文件，拆页与上一课相同。</span>
 
 ## 方法
@@ -36,6 +38,17 @@ flowchart TD
 ## 机制
 
 mmap 把文件变成[局部性](/cs/locality-principle)可利用的页 Cache：热点页留在帧里，与后课缓冲脏页是同一层对象。相对 `read`，少一次用户缓冲拷贝。代价是：短请求的系统调用开销被换成缺页；错误（I/O 失败）出现在信号或下次故障，而不是 `read` 的返回值——边界里要承认。
+
+```mermaid
+flowchart TD
+  DISK["磁盘"] --> PC["内核页Cache"]
+  PC -->|"read路径: 多一次拷贝"| UB["用户缓冲"]
+  UB --> HEAP["堆上的工作副本"]
+  PC -->|"mmap路径: 页表直指"| VA["进程虚地址"]
+  VA --> APP["程序像读数组一样读文件"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为 mmap 一定比 `read` 快。数字算一下：顺序读 12 KB 文件，一次 `read` 两个系统调用搞定；mmap 首访 3 个 4 KB 页要吃 3 次缺页异常，每次都陷入内核——小文件、一次性读的场景里 read 反而更省。</span>
 
 动态链接的 `.so` 用共享 mmap 文本，多进程一份物理页，这是加载课与本课的接头。
 

@@ -17,11 +17,15 @@ section: cs
 
 单条 load 缺失的 CPI 贡献 ≈ 延迟。若窗口里还有独立的 load，它们的缺失可以同时飞，摊到每条指令上的平均延迟变成 $T / \mathrm{MLP}$。指针追逐 MLP≈1：数据依赖链把第二次地址算死。数组扫描可以很大。缺口不是再加一路 L1，而是**量化「同时未完成的缺失数」，并承认结构上限会先碰到。**
 
+<span class="marginnote">直觉类比：MLP 像洗衣店——一台洗衣机洗一桶要 40 分钟，八台同时开，八桶还是 40 分钟。DRAM 延迟动辄上百拍不可压缩，能改的只有「同时开几台」，这正是访存级并行做的事。</span>
+
 <span class="marginnote">MLP 与 ILP 不同：ILP 是每拍完成几条指令，MLP 是同时有几趟访存在飞行。乱序的一大收益是提高 MLP，而不只是把 ALU 排满。</span>
 
 ## 方法
 
 MSHR 项数、未完成 L2/L3 miss 数、DRAM 控制器队列，取最小者为硬件 MLP 上限。编译与算法：把独立访存排进同一窗口（循环展开、软件流水），避免不必要的锁链。指针结构用预取或数据布局提高有效 MLP。
+
+<span class="marginnote">数字实例：设一次 DRAM 缺失 $T=200$ 拍。MLP=1（指针追逐）时每条 load 吃满 200 拍；若能把 8 条独立缺失同时放飞，平均摊到 $200/8=25$ 拍——硬件没变快，只是让等待重叠。但 MSHR 只有 10 项时，这个 8 就是你先撞到的天花板。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,19 @@ flowchart TD
 ## 机制
 
 [退休](/cs/retire-precise-exception) 头若被最年长的 miss 堵住，ROB 满会阻止更年轻的独立 load 进入窗口，MLP 上不去——「精确提交」与「重叠缺失」在这里打架。有的设计允许 miss 的 load 退休到一个更大的缓冲，但那放松的是实现，不是本课要改的 ISA 精确性定义。
+
+```mermaid
+flowchart TD
+  OLD["最年长的load缺失"] --> HEAD["堵住退休指针"]
+  HEAD --> FILL["ROB 逐渐填满"]
+  FILL --> YOUNG["年轻的独立load进不了窗口"]
+  YOUNG --> LOW["MLP 被结构性压低"]
+  OLD --> RET["等DRAM返回"]
+  RET --> FREE["退休恢复 窗口腾位"]
+  FREE --> YOUNG
+```
+
+<span class="marginnote">常见误区：初学者容易以为预取多多益善、总能提高 MLP。实际上预取只是把未来的缺失提前搬进现在——预取对了是把等待藏进计算，预取错了会霸占 MSHR 项，把真正需要的 load 挤出飞行队伍，反而压低有效 MLP。</span>
 
 预取把强制缺失变成提前的 MSHR 占用，看起来像提高 MLP，其实是把未来的需求拉进现在；错预取挤占真 MLP。下一课步长预取器专门发这些提前请求。
 
