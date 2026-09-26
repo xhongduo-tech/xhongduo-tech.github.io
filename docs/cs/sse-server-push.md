@@ -17,6 +17,8 @@ section: cs
 
 股票 ticker、通知：服务器 → 客户端即可。SSE：`text/event-stream`，chunked 或 H2 流上发 `data:` 行，浏览器自动重连并带 `Last-Event-ID`。仍是 HTTP 语义，过代理比 WS 容易。H2/H3 的 PUSH：服务器猜测下一资源推进缓存，实现与隐私问题导致浏览器削弱——不是 SSE 替代。
 
+<span class="marginnote">`Last-Event-ID` 翻译一下：就是断线重连时浏览器自动带的「进度条」——「我上次读到编号 1024 的事件」。服务器据此判断该补发 1025 之后的内容还是重放全量，不用客户端自己造断点续传协议。这也是 SSE 比裸 HTTP 长轮询好用的核心细节之一。</span>
+
 不要把 SSE 写成 WebSocket 的子集协议。
 
 <span class="marginnote">WHATWG/W3C SSE。H3 不用 H2 那种 PUSH，点名。本课不写 EventSource API 全集。</span>
@@ -39,6 +41,18 @@ flowchart TD
 ## 机制
 
 反向代理要关缓冲，否则 SSE 变成批量。负载均衡空闲超时会拆流，要心跳注释行。HOL：H1 上 SSE 占一条持久连接。无线：重连风暴。与 QUIC 多流：可用专用流跑 SSE 风格。
+
+```mermaid
+flowchart TD
+  SRV["SSE 服务器持续写事件"] --> PROXY["反向代理：响应缓冲未关"]
+  PROXY --> BATCH["事件攒成一批才转发，实时变批处理"]
+  SRV --> LB["负载均衡：连接空闲计时"]
+  LB --> CUT["静默期一到连接被拆"]
+  HB["心跳注释行：: ping"] --> LB
+  CUT --> STORM["客户端集体重连，形成风暴"]
+```
+
+<span class="marginnote">心跳注释行像开会时定期说一句「我还在」——以 `:` 开头的行对客户端是透明的，不产生事件，但让中间设备的「空闲计时器」一直被刷新，流就不会被当成死连接拆掉。漏了这一步，SSE 在生产环境最常见的症状就是「每几分钟莫名其妙断一次」。</span>
 
 H2 PUSH 与 CDN 预取后课相关，不是实时消息。
 

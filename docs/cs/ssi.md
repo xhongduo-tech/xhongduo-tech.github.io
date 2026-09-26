@@ -17,6 +17,8 @@ section: cs
 
 SI：读自己快照，写冲突用行版本检测（第一提交者赢）。写偏斜：两事务读同一快照、写不同行，合起来违反约束。SSI：记录事务间 rw-conflict（$T_1$ 读了 $T_2$ 将写或已写的版本关系），若出现「危险结构」（近似两个 rw 边形成的威胁），abort 一个。缺口是**假阳性**：可能 abort 本可串行的事务，换简单检测。
 
+<span class="marginnote">写偏斜的数字实例：约定两个账户余额总和不低于 1000。T1 从 A 账户取 500、T2 从 B 账户取 500，两个事务各读各的快照——快照里总和 1200，各自检查都通过；写的是不同行，SI 的写冲突检测管不着。提交完总和只剩 200，约束被合谋击穿。这正是 SSI 要拦的结构。</span>
+
 Postgres `SERIALIZABLE` 即 SSI 实现。真正 2PL 可串行更少假阳性、更多阻塞。
 
 <span class="marginnote">Cahill, Röhm, Fekete, SIGMOD 2008。Ports and Grittner 描述 Postgres SSI。本课不把每个危险结构变体画完，只钉：SI + 冲突监视 ≈ 可串行目标。</span>
@@ -26,6 +28,8 @@ Postgres `SERIALIZABLE` 即 SSI 实现。真正 2PL 可串行更少假阳性、�
 事务结束时看 in/out 冲突标志。只读事务可在有时免 abort（安全快照）。索引范围：用 SIREAD 锁一类记录「扫过的间隙」，插入者与扫者冲突——与后课间隙/谓词锁交界。
 
 失败：`40001` 序列化失败，应用重试。这是接口，不是优化器问题。
+
+<span class="marginnote">常见误区：把 `40001` 当成系统故障去报警。它是 SSI 的接口约定——「我怀疑你们两个合起来不可串行，请你重跑一遍」。正确姿势是应用层带退避地重试；反过来，热点上一味重试会形成 abort 风暴，那时该缩小事务或改用悲观锁，而不是把重试次数调到无限大。</span>
 
 ```mermaid
 flowchart TD
@@ -38,6 +42,15 @@ flowchart TD
 ## 机制
 
 与 OCC：SSI 不记全读集值，而记账冲突边，内存更轻，假阳性不同。与 TSO：不必全局戳序安装，保留 SI 的读不阻塞写。长只读：后课快照；SSI 下只读仍可能被标危险，实现尽力豁免。
+
+```mermaid
+flowchart TD
+  TX1["事务 T1"] -->|"读了 T2 将写的行"| EDGE1["rw 边：T2 指向 T1"]
+  TX2["事务 T2"] -->|"读了 T1 将写的行"| EDGE2["rw 边：T1 指向 T2"]
+  EDGE1 --> DANGER["两条 rw 边成环：危险结构"]
+  EDGE2 --> DANGER
+  DANGER --> BREAK["abort 一侧，拆环保可串行"]
+```
 
 性能：冲突多时 abort 风暴，热点应缩小事务或改悲观。
 
