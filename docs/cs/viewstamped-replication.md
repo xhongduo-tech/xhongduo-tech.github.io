@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">1988 论文与 2012 的 VR Revisited（修正与清晰化）应一起读。Van Renesse 等有对照 Paxos/VR/Zab 的讲解。</span>
 
+<span class="marginnote">术语翻译：viewstamp 就是把「请求属于哪个视图 + 视图内的第几号」绑在一起当凭证——旧主收到的任何残留操作都能凭这个号认出来并被拒绝，就像过期的登机牌登不了新航班。</span>
+
 ## 方法
 
 恢复：崩溃节点用状态传输对齐。组重配置在 revisited 里补。客户端把 view 放进 RPC，旧 view 的应答可丢。
@@ -35,6 +37,8 @@ flowchart TD
 
 与[租约](/cs/leases)：VR 原版靠超时做怀疑，没有强租约读优化；工程上可加。与链式复制：VR 是星形主，不是链。
 
+<span class="marginnote">数字实例：5 副本组，视图 7 的主失联，2 个备份先后超时、把 view-number 抬到 8 去拉票；任何候选必须收到「多数派（3 个）」带日志证书的投票才能就任——若旧主其实还活着并发过视图 7 的请求，它的 op-number 在证书比对里落败，旧指令不会被二次提交。</span>
+
 ## 机制
 
 安全：同一视图内主唯一指定序号；跨视图靠证书证明已复制的前缀。这与 Raft 「当前任期多数派才提交」是同一类「防旧主幽灵提交」，规则表述不同。实现敏感点同样是：哪些未提交条目在 view change 后仍必须保留。
@@ -48,6 +52,20 @@ flowchart TD
 本课不写 2012 修订的全部消息列表。不引入 HARP。后课默认：说到 viewstamp，就是 VR 的 (view, op)；Raft term/index、Zab epoch/ZXID、Paxos ballot/slot 是同一族坐标。PBFT 在坐标上加三阶段认证。
 
 换主协议是共识的控制面。数据面只是带序号的操作流。
+
+```mermaid
+flowchart TD
+  NORM["正常态: 视图 v, 主 M"] --> ASSIGN["主赋 op-number 发备份"]
+  ASSIGN --> MAJ["多数派 accept"]
+  MAJ --> COMMIT["主提交并应答客户"]
+  NORM -- "备份超时怀疑 M" --> SUS["抬 view-number 拉票"]
+  SUS --> CERT{"收到多数派日志证书?"}
+  CERT -- "是" --> NEW["新主上任, 视图 v+1"]
+  NEW --> KEEP["保留已复制前缀, 未提交者重做"]
+  CERT -- "否" --> SUS
+```
+
+<span class="marginnote">常见误区：初学者容易以为视图更换会丢掉已提交的请求，实际上安全性的全部要点恰恰在这——证书机制保证新主日志包含所有已提交前缀，换掉的只是「谁来续写日志」，已提交的操作一条不丢；会重做的只有「收了但没提交」的悬空请求。</span>
 
 ## 小结
 

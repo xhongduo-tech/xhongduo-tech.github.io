@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">超级块描述已挂载实例；dentry 缓存名字查找；inode 仍是对象。VFS 缓存与页 Cache 合作：lookup 命中则不读目录块。</span>
 
+<span class="marginnote">直觉类比：VFS 像一组统一的「插座标准」，ext4、NFS、tmpfs 是各家电器——只要实现同一排插脚（lookup、readpage、write_inode 这些函数指针），用户态的插头（系统调用）不用改一根线就能用。换文件系统换的是电器，不是墙上的插座。</span>
+
 ## 方法
 
 `open` 在 VFS：沿 dentry 走，到挂载点切换超级块，调用该 FS 的 `lookup`。`read` 调文件操作，可能进入页 Cache，再调 `readpage` 让具体 FS 填页。NFS 的 `readpage` 走网络而不是[磁盘调度](/cs/disk-sched)；tmpfs 的页就是匿名内存。对用户，系统调用号不变。
@@ -39,6 +41,8 @@ VFS 让「一切皆文件」可实现：设备节点、管道、后来的套接�
 
 与数据库栏无关：这里没有关系代数。不要把 VFS 写成查询计划。
 
+<span class="marginnote">数字实例：`open("/mnt/nfs/a.txt")` 的路径解析若 dentry 缓存全冷，VFS 要逐级调 `lookup`——`a.txt` 这一级落在 NFS 超级块上，一次 `lookup` 就是一次网络往返（毫秒级）；同一文件在 ext4 上则是一次（或零次，若缓存命中）磁盘元数据读（百微秒级）。同一个 VFS 调用，后端成本差了三个量级。</span>
+
 ## 边界
 
 本课不引入 FUSE 的全部用户态协议，不把命名空间与绑定挂载的容器语义写完。也不保证所有 FS 支持同一套扩展属性。下一课要问：具体设备如何把块搬进内存——可编程 I/O 与 DMA。
@@ -46,6 +50,21 @@ VFS 让「一切皆文件」可实现：设备节点、管道、后来的套接�
 文件锁（`flock`/`fcntl`）也走 VFS，具体 FS 可以忽略或实现；本课不把强制锁当默认。
 
 后课默认：文件操作经 VFS 分发。字节如何从控制器进帧，下一课 I/O 与 DMA。
+
+```mermaid
+flowchart TD
+  OPEN["open 路径"] --> WALK["沿 dentry 逐级解析"]
+  WALK --> MNT{"当前级是挂载点?"}
+  MNT -- "是" --> SWITCH["切换到新超级块"]
+  MNT -- "否" --> LK["调本级 FS 的 lookup"]
+  SWITCH --> LK
+  LK --> HIT{"dentry 缓存命中?"}
+  HIT -- "是" --> DONE["直接返回 inode"]
+  HIT -- "否" --> REAL["后端实作: 磁盘块 / 网络往返 / 匿名页"]
+  REAL --> DONE
+```
+
+<span class="marginnote">常见误区：初学者容易以为读一个文件只会碰到一种文件系统，实际上路径每一级都可能跨挂载点换超级块——`/usr` 在根盘、`/home` 在另一块盘、`/proc` 压根没有磁盘；VFS 的活就是在这些边界上平滑切换，让调用方完全无感。</span>
 
 ## 小结
 

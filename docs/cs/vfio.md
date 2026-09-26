@@ -19,6 +19,8 @@ IOMMU 组必须整组给一个用户，否则 DMA 别名。VFIO：用户拿组 �
 
 <span class="marginnote">vfio-pci 替换宿主驱动。对象是安全用户 DMA，不仅是虚拟化。</span>
 
+<span class="marginnote">术语翻译：VFIO 组就是用「IOMMU 把物理上会被一起 DMA 的设备打包成组、整组交给一个用户」的手段来做「用户态也能安全地直接驱动设备」的事——组是隔离的最小单位，拆不开是因为硬件桥可能让设备互相伪装 DMA。</span>
+
 ## 方法
 
 解绑宿主驱动 → 绑 vfio-pci → QEMU 打开组 → 运行。对照 DPDK：同一 VFIO，用途旁路而非客户。对照 [chardev](/cs/chardev-ioctl)：vfio 就是一类 cdev。对照 KSM：客户页仍可被宿主合并，直通 DMA 要钉页。
@@ -36,6 +38,8 @@ VFIO 把「设备用户态驱动」做成有 IOMMU 的一等公民，KVM 直通�
 
 错误映射等于客户写宿主。
 
+<span class="marginnote">为什么重要：VFIO 容器里的 DMA 映射表就是客户地址到宿主物理地址的翻译凭证——映射错了、或把没钉住的宿主页交给了设备，设备的下一次 DMA 就会写到宿主内核的数据上。这就是「错误映射等于客户写宿主」的机制来源，也是直通前必须钉页的原因。</span>
+
 
 实现上：组内任一设备给客户，组内其它也必须解绑宿主驱动。no-iommu 模式等于信任用户 DMA 整机。mmap BAR 后客户 MMIO 不再 exit。 读法上只引用[上一课](/cs/sriov-passthrough)的结论，不把对象换成训练推理或限价簿。
 
@@ -52,6 +56,20 @@ VFIO 把「设备用户态驱动」做成有 IOMMU 的一等公民，KVM 直通�
 
 版本字段会变，课序钉的是机制对象「VFIO」，不是某一主线内核的结构体名。
 后课默认：直通经 VFIO+IOMMU 组。客户中断如何少 exit，下一课 posted interrupt。
+
+```mermaid
+flowchart TD
+  BIND["解绑宿主驱动, 绑 vfio-pci"] --> GRP["打开 IOMMU 组整组"]
+  GRP --> PIN["钉住客户页"]
+  PIN --> MAP["VFIO ioctl 建 DMA 映射"]
+  MAP --> MMIO["mmap 设备 BAR"]
+  MMIO --> RUN["设备 DMA 直达客户内存"]
+  RUN --> EXIT{"普通访存要陷入吗?"}
+  EXIT -- "MMIO 与 DMA" --> NOEXIT["不经宿主内核"]
+  EXIT -- "配置类操作" --> KEXIT["少数仍走内核"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为「用户态拿到设备」等于绕过了 IOMMU，实际上 VFIO 的安全性恰恰建立在 IOMMU 之上——设备只能 DMA 到容器里登记过的页面；真正绕过一切保护的是 no-iommu 模式，那是明确放弃隔离的危险开关。</span>
 
 ## 小结
 
