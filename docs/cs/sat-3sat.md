@@ -25,6 +25,10 @@ SAT：命题变元、合取范式 $\bigwedge_i \bigvee_j \ell_{ij}$，问是否�
 
 <span class="marginnote">Cook 1971（北美）；Levin 同期独立（表格与「universal search」）。Karp 1972 把 3-SAT 列为 21 题之一。Garey/Johnson 收录标准型。本课要拆句与 2-SAT 对照，不重画图灵机纸带。</span>
 
+<span class="marginnote">「拆句」就是把长子句垫上新变元压到三文字：$(\ell_1\lor\ell_2\lor\ell_3\lor\ell_4)$ 变成 $(\ell_1\lor\ell_2\lor y)\land(\neg y\lor\ell_3\lor\ell_4)$——只要原四项有一个真，总能选对 $y$ 让两个新子句同时真，反之亦然，可满足性等价。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「约束从两个文字变三个文字只是量变」。实际上 2-SAT 的蕴含图每条边是确定性的（一个取值强制另一个），沿图走就行；第三个文字引入了「二选一分支」，组合爆炸从这里进来，复杂度等级在这一点上跳变。</span>
+
 ## 方法
 
 认 CNF。证 3-SAT 在 NP（赋值仍短）。给 SAT $\le_p$ 3-SAT 的拆句。点名：电路 SAT、HORNSAT 的位置不展开。画 2-SAT 蕴含边，声明用 SCC，不手跑例子到完。
@@ -43,6 +47,19 @@ flowchart TD
 后课近似、随机化常以 3-SAT 或顶点覆盖为源。编译器不在本课解 SAT；类型与语法分析停在 P 里的受限文法。不要把 SAT 求解器的 CDCL 写成多项式算法。
 
 量化布尔（QBF）是 PSPACE 完全的另一层，本课不启用。
+
+```mermaid
+flowchart TD
+  CL["子句 l1 ∨ l2"] --> IMP1["¬l1 ⇒ l2"]
+  CL --> IMP2["¬l2 ⇒ l1"]
+  IMP1 --> GRAPH["蕴含图(每变元正反两结点)"]
+  IMP2 --> GRAPH
+  GRAPH --> SCC{"x 与 ¬x 同一 SCC?"}
+  SCC -- "同块" --> UNSAT["不可满足"]
+  SCC -- "不同块" --> ASSIGN["按 SCC 拓扑序线性赋值, 可满足"]
+```
+
+这张图回答的问题是：2-SAT 为什么能在多项式时间判定——每个双子句变成两条确定的蕴含边，判定问题就化成图论问题「变元与其否定是否同处一个强连通分量」，与 3-SAT 的指数搜索形成对照。
 
 ## 边界
 
