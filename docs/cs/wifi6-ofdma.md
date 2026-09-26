@@ -17,6 +17,8 @@ section: cs
 
 DCF 下站点越多碰撞越多，MCS 再高也被队列与退避吃掉。11ax：触发帧启动上行 OFDMA，站点在指定 RU 发；下行同样按 RU 复用。这是把蜂窝里的调度借到 ISM 频段，仍无牌照、仍要听信道。Wi‑Fi 7（11be）：320 MHz、MLO 多链路聚合、4096-QAM——又一次在 $C$ 下加压，对 SNR 与干扰更苛刻。
 
+<span class="marginnote">直觉类比：OFDM 像把一整节货车包给一个客户；OFDMA 像把车厢切成小隔间分给多户拼车——同一趟车（一个 TXOP）多户各占一格，谁也不用排队抢整车。</span>
+
 不要把 OFDMA 写成 5G 核心网：没有切片 SLA，只有 BSS 内调度。
 
 <span class="marginnote">802.11ax 引入 RU、BSS coloring。11be 的 MLO 与以太网 LACP 同类：多链路绑一条逻辑，但是空中。标准仍在演进，本课钉对象不钉某年芯片。</span>
@@ -43,11 +45,26 @@ flowchart TD
 
 BSS coloring：同频邻 BSS 可空间复用，干扰当噪声进 SNR。
 
+<span class="marginnote">数字实例：一个 26-tone RU 只占 26 个子载波；20 MHz 信道的 242 个可用子载波理论上能同时分给 9 个站点——同一符号内 9 户并发，省下的是 8 轮退避等待。</span>
+
+```mermaid
+flowchart TD
+  A["AP 广播触发帧：列出 RU 分配"] --> B["站点A 在 RU1 发"]
+  A --> C["站点B 在 RU2 发"]
+  A --> D["站点C 在 RU3 发"]
+  B --> M["AP 在同一符号内同时收"]
+  C --> M
+  D --> M
+  M --> BA["一次 Block ACK 回复全部"]
+```
+
 ## 边界
 
 本课不引入 Wi‑Fi 与 5G 融合的全部 3GPP 附录。蓝牙与 BLE 是下一课。后课默认：11ax 起 AP 可按 RU 多用户复用。
 
 监管功率与 DFS 雷达仍限制真实 $B$，标准表不是室内承诺。
+
+<span class="marginnote">常见误区：以为 4096-QAM 让家里网速必然大涨——星座点越密对 SNR 越苛刻，通常要离 AP 一两米内才吃得满；隔一堵墙会自动跌回 1024-QAM 甚至更低，速率是信道说了算，不是标准说了算。</span>
 
 下一课[蓝牙与 BLE](/cs/bluetooth-ble)。
 

@@ -17,6 +17,8 @@ section: cs
 
 分组把订单收成「每顾客一行」。若还要列出每张订单、并标「该顾客订单总额」「该单在顾客内的名次」，`GROUP BY` 做不到，除非自连接聚合结果。窗口把这种「按邻居算、行不删」收进声明。缺口不是新的存储引擎，而是查询语言：`PARTITION BY` 划区（像分组键但不收缩），`ORDER BY` 给区内序，帧（`ROWS`/`RANGE`）再从序上切一段。
 
+<span class="marginnote">直觉类比：GROUP BY 像把全班单人照冲洗成一张合影（人不见了）；窗口函数像给每张单人照背面写上班级平均分——照片还是那些照片，只是多了批注。</span>
+
 排名（`ROW_NUMBER`/`RANK`/`DENSE_RANK`）依赖区内序，与聚合窗口不同：后者可在无序分区上对全体行求 `SUM`。`LAG`/`LEAD` 是帧上的前后参照。本课不把每一帧排除子句写完，只钉：窗口算子的输入输出基数相同（过滤仍可由外层 `WHERE` 做，但那是另一层）。
 
 <span class="marginnote">逻辑处理顺序大致是：`FROM`/`WHERE`/`GROUP BY`/`HAVING` 之后才算窗口，再 `SELECT` 与 `ORDER BY`。故窗口看不到将被 `HAVING` 丢掉的组，也不能在同一层 `WHERE` 里引用窗口结果——要包一层。</span>
@@ -26,6 +28,8 @@ section: cs
 把窗口写成 $\omega$：对当前行 $t$，窗口是同分区里按序、按帧选出的多重集 $W(t)$，再在 $W(t)$ 上求聚合或排名。物理上可排序 + 分区扫描，或把帧做成增量（滑动合计）。本课不规定算子融合；只要求指称按行定义，而不是「先 GROUP 再神秘展开」。
 
 帧默认在有 `ORDER BY` 时常是「从分区头到当前行」（累计），无序分区上则常是整个分区。写错帧会把「累计」变成「全区重复同一合计」。这是语义，不是优化器 bug。
+
+<span class="marginnote">数字实例：`SUM(x) OVER (ORDER BY d)` 不写帧时，默认等价 `RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`——第 1 行显示 $x_1$，第 2 行显示 $x_1+x_2$，这是累计合计，不是每行同一个总数。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,18 @@ flowchart TD
 窗口与分组可同句出现：先 $\gamma$ 再 $\omega$，或只 $\omega$。优化器把窗口当防火墙：不能把窗口谓词推到分区之前，除非谓词不依赖窗口结果。多个窗口可能共享同一分区排序，计划可以一次排序服务多个 `OVER`——那是实现，指称仍是分别求值。
 
 `RANGE` 按值相等切帧，`ROWS` 按物理邻居条数切；重复排序键时两者不同。NULL 在窗口 `ORDER BY` 里的位置由 `NULLS FIRST/LAST` 约定，与 [三值](/cs/sql-null) 比较规则一致，本课不另造序。
+
+<span class="marginnote">常见误区：以为窗口结果能直接写进同层 `WHERE` 过滤——逻辑上窗口在 `WHERE` 之后才算；想「只取名次前 3 的行」必须包一层子查询再过滤，否则直接报错。</span>
+
+```mermaid
+flowchart TD
+  D["排序键有重复：三行同分"] --> ROWS["ROWS：按物理行数切"]
+  D --> RANGE["RANGE：按值相等切"]
+  ROWS --> P1["帧只含当前 1 行的邻居"]
+  RANGE --> P2["三行同分，同进同出"]
+  P1 --> R["移动合计结果不同"]
+  P2 --> R
+```
 
 ## 边界
 

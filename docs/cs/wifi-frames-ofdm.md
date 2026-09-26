@@ -17,6 +17,8 @@ section: cs
 
 以太网全双工点到点几乎不冲突；无线是半双工共享介质，隐终端让 CD 不可靠，故 CA + RTS/CTS 预约。帧：帧控制、地址（可到四个，因为有 DS）、序号、FCS。数据帧后 SIFS 跟 ACK，失败才重传——这是链路努力，不是 TCP 的替代。OFDM：高 $R_s$ 在多径下 ISI 严重，改用慢符号率的多子载波，循环前缀吃掉时延扩展。容量仍是 $B$ 与 SNR，只是 $B$ 被切成子信道。
 
+<span class="marginnote">数字实例：802.11a 的 SIFS 是 16 微秒，比 DIFS 的 34 微秒短——所以 ACK 和 CTS 总能抢在其他竞争者开口前发出，这就是「短间隔护航」的设计。</span>
+
 <span class="marginnote">802.11a/g/n/ac 的 PHY 都以 OFDM 为骨干。地址字段服务基础设施 BSS：AP 与 DS。本课不把每个 subtype 背完。</span>
 
 ### 无线 ACK 不取消 TCP
@@ -26,6 +28,8 @@ CA 补不能可靠 CD。OFDM 用多子载波抗多径。MCS 阶梯是离散工�
 ## 方法
 
 画：DCF 听信道 → 发 → ACK；并行画：比特 → 编码交织 → 映到子载波 → IFFT → 加 CP。对照有线 PAM：无线必须估计每子载波信道。速率集（6–54 Mb/s 等）是调制编码方案，下一课自适应。
+
+<span class="marginnote">术语翻译：循环前缀（CP）就是「把符号尾巴复制一份垫在开头」——多径反射迟到的那点能量落进 CP 这段缓冲区，不再污染下一个符号，各子载波的正交性得以保住。</span>
 
 ```mermaid
 flowchart TD
@@ -38,6 +42,18 @@ flowchart TD
 ## 机制
 
 有线链路预算是电缆长度；这里是距离、遮挡、干扰。交换机学有线 MAC；无线客户端经 AP 桥到有线侧，AP 是翻译，不是 WDM 模块。巨帧在无线上更易错，重传代价高，故常保持较小 MSDU。
+
+<span class="marginnote">直觉类比：RTS/CTS 像进会议室先喊一嗓子「我要讲 3 分钟，请大家安静」——AP 一跳内所有人都记下这段时间别开口；哪怕听不清讲话内容的人（隐终端）收到了这声「清场」，也知道别插话。</span>
+
+```mermaid
+flowchart TD
+  H["隐终端 B 在 A 的射程外"] -.->|"听不到 A 发包"| NAV["B 记 NAV：此段静默"]
+  A["A 要发数据给 AP"] --> R["先发 RTS，带时长字段"]
+  R --> C["AP 回 CTS，周围都听到"]
+  C --> NAV
+  NAV --> SEND["A 发数据帧"]
+  SEND --> ACK["AP 在 SIFS 后回 ACK"]
+```
 
 容量课的 $C$ 对时变信道是瞬间量，802.11 用 MCS 阶梯逼近。
 

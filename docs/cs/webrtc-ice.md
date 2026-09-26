@@ -19,11 +19,15 @@ section: cs
 
 ICE 是两端协商，没有集中控制器，不要写成 SDN。
 
+<span class="marginnote">直觉类比：ICE 像约人见面先把所有可能的地址都报一遍——自己家、公司前台、快递代收点——然后挨个试哪个能通；host 是自家门牌，srflx 是 NAT 映射出的公网门牌，relay 是快递柜，最稳但总要绕一道。</span>
+
 <span class="marginnote">RFC 8445。Trickle ICE 增量候选。本课钉对象。</span>
 
 ### 信令与媒体分离
 
 分离是设计要点：ICE 只管选出能通的候选，媒体尽量 P2P，失败才中继；但没有信令通道交换候选与 SDP，ICE 根本不能开始。对称 NAT 对不同目的地换端口，srflx 候选对不上号，常要 TURN 兜底。
+
+<span class="marginnote">术语翻译：srflx（server-reflexive）就是「路由器帮你转寄后露出公网的地址」——你向 STUN 服务器发个包，它回一句「我看到你来自 ip:port」，这个 ip:port 就是别人能找到你的外门牌。</span>
 
 ## 方法
 
@@ -39,6 +43,17 @@ flowchart TD
 ## 机制
 
 机制细节：对称 NAT 下连通性检查失败，转 TURN；企业防火墙禁 UDP 时走 TCP/TLS 中继，延迟明显抬升。拥塞控制在媒体栈内部——GCC 估带宽、NACK 重传——不是 TCP Reno 那一套。ICE 只管路径，精确时钟之类不需要。会话保持（Cookie 等）放在信令侧。
+
+<span class="marginnote">为什么重要：中继一旦启用，媒体要绕道服务器，端到端延迟常从几十毫秒抬到上百毫秒，通话能听出「隔一层」的感觉；所以 ICE 把 relay 排在最后——能直连绝不中继。</span>
+
+```mermaid
+flowchart TD
+  C["候选配对完成"] --> T{"host 对能通？"}
+  T -->|"是"| P1["选直连，延迟最低"]
+  T -->|"否"| S{"srflx 对能通？"}
+  S -->|"是（普通 NAT）"| P2["选 NAT 穿透直连"]
+  S -->|"否（对称 NAT / 禁 UDP）"| P3["退 TURN 中继，延迟抬升"]
+```
 
 安全上，DTLS 指纹验证对端身份，防媒体注入；本课不写扫描与穿透操作。
 

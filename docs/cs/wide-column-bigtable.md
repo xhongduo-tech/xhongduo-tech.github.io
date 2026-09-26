@@ -19,6 +19,8 @@ section: cs
 
 tablet：行键范围分片，再平衡拆范围。底层 SSTable+memtable，即 LSM。
 
+<span class="marginnote">直觉类比：行键像图书馆的书架编号——想找「某用户 9 月的订单」，就把用户 ID 和年月编进书号开头，一次走对书架；若书号开头是入库日期，同一个用户的订单就散落全馆，只能一层层翻。</span>
+
 <span class="marginnote">Chang, Dean, Ghemawat et al. OSDI 2006。HBase、Cassandra 宽列变体（Cassandra 另有分区键/聚簇列）。本课 Bigtable 三维。</span>
 
 ## 方法
@@ -26,6 +28,8 @@ tablet：行键范围分片，再平衡拆范围。底层 SSTable+memtable，即
 设计行键避免热点（不要纯时间戳开头）。列族按访问共现分，不要一列一族。GC：按版本数或年龄，水位像 MVCC。与 SQL 层：Spanner 在类似存储上加 SQL，键仍要懂。
 
 布隆、zone：SST 级已有。R 树不在此模型核心。
+
+<span class="marginnote">常见误区：拿自增时间戳当行键开头，新写入永远落在最后一个 tablet 上——单机先写满、其余节点闲着，这就是热点；正解是对键哈希撒盐或用反向时间戳，把写压力摊开。</span>
 
 ```mermaid
 flowchart TD
@@ -37,6 +41,19 @@ flowchart TD
 ## 机制
 
 局部性：相邻行键一起扫。连接：应用层或预连接进同一行。shuffle 发生在上层 MR/Spark。事务：行内原子；Percolator 跨行。
+
+<span class="marginnote">数字实例：GC 规则设「每单元格留 3 个版本」，同一单元格写第 4 次时最旧版本在 compaction 时被扔掉；在那之前读方仍能按时间戳点名取到旧版本。</span>
+
+```mermaid
+flowchart TD
+  GET["按行键发起读"] --> MEM["先查 memtable"]
+  MEM --> BLOOM{"布隆说各 SST 可能有此键？"}
+  BLOOM -->|"否"| SKIP["跳过该 SST"]
+  BLOOM -->|"是"| LOOK["SST 内定位键区间"]
+  LOOK --> MERGE["合并多版本，取目标时间戳"]
+  SKIP --> MERGE
+  MERGE --> ANS["返回单元格"]
+```
 
 与文档：宽列扁平稀疏，路径用列名限定符，不是任意 JSON 深度。
 

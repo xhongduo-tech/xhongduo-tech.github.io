@@ -19,6 +19,8 @@ section: cs
 
 口令可被钓鱼页收集。WebAuthn：RP ID、challenge、user verification、attestation（可选）。缺口是丢失设备与恢复流程——恢复若退回邮箱口令，钓鱼面回来。
 
+<span class="marginnote">术语翻译：RP ID 就是「这把钥匙归哪个网站」的标签——认证器签名前先核对浏览器报来的 origin 与标签一致才肯动手；凭据像刻了门牌号的钥匙，换一扇门就插不进锁。</span>
+
 ### 不是生物识别本身
 
 指纹/面容是认证器本地解锁。服务器只看见签名成功，不应存储生物模板。FAR/FRR 更后一课。
@@ -40,6 +42,19 @@ flowchart TD
 ## 机制
 
 身份因素从「知道」转向「持有+本地解锁」。账户恢复、企业托管与备份密钥是治理，不是协议算术。下一课 TOTP 与 MFA：仍广泛部署的共享秘密第二因素。
+
+<span class="marginnote">数字实例：challenge 是服务器随机发的 32 字节 nonce，签名报文里原样带回；同一 challenge 第二次出现即作废——攻击者录下整段签名也无法用它通过下一次登录。</span>
+
+<span class="marginnote">常见误区：以为指纹/面容就是认证凭据——生物特征只在设备本地解锁私钥，服务器只见到一次签名验证结果；生物模板不出设备，指纹可重录，真正要保住的是那把不出盒的私钥。</span>
+
+```mermaid
+flowchart TD
+  L["真站 example.com 发起 get"] --> LB["浏览器填 origin=example.com"]
+  LB --> LM["RP ID 匹配，认证器出签名"]
+  PH["钓鱼站 evil.com 复制登录页"] --> PB["浏览器填 origin=evil.com"]
+  PB --> PM["RP ID 不匹配，认证器拒签"]
+  PM --> X["钓鱼者拿不到可用签名"]
+```
 
 ## 边界
 

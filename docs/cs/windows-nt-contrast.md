@@ -17,6 +17,8 @@ section: cs
 
 句柄：带访问权的对象指针。IRP：异步 I/O 的统一包，类似 bio+skb 的职务在 I/O 管理器。缺口：NT 命名空间 `\Device\...` vs Unix `/dev`；作业对象约等于 job≈cgroup 亲戚。本课不把 Win32 与 NT 原生 API 的每一层写完。
 
+<span class="marginnote">术语翻译：句柄就是「带权限标记的取货单」——对象本体在内核里，进程手里只拿一张记着访问权的票据；Unix 的 fd 是它的近亲，但 NT 的票在创建时就写死了允许哪些操作。</span>
+
 <span class="marginnote">Hyper-V 类型 1 与 NT 的关系：NT 可当根分区。对象是内核架构对照。</span>
 
 ## 方法
@@ -33,6 +35,17 @@ flowchart TD
 ## 机制
 
 NT 证明宏内核不必 Unix 形状：对象+IRP 同样能覆盖进程与设备。可移植课序要求会翻译，而不是背命令。不要写成哪边更好。与 [SELinux](/cs/lsm-selinux)：MIC/完整性级别是另一套 MAC。
+
+<span class="marginnote">直觉类比：IRP 像医院的检查申请单——I/O 管理器开单，逐层往各科室（驱动栈）传递盖章，任何一环都可以说「我稍后回复」（异步完成）；Unix 的 bio 只管块存储这一类，IRP 是全类型 I/O 的统一单据。</span>
+
+```mermaid
+flowchart LR
+  FD["Unix 文件描述符"] --> H2["NT 句柄"]
+  VFS2["Unix VFS"] --> OM["NT 对象管理器"]
+  BIO["bio / sk_buff"] --> IRP2["IRP"]
+  CG["cgroup"] --> JOB["作业对象"]
+  IOC["ioctl"] --> DIC["DeviceIoControl"]
+```
 
 用户态子系统（Win32、WSL）说明 ABI 可叠在 NT 上——WSL2 实际是轻量 VM，接回 [Hypervisor](/cs/hypervisor-types) 课。
 
@@ -52,6 +65,8 @@ NT 证明宏内核不必 Unix 形状：对象+IRP 同样能覆盖进程与设备
 
 版本字段会变，课序钉的是机制对象「Windows NT 对照」，不是某一主线内核的结构体名。
 后课默认：宏内核可以是 NT 对象模型。多机看起来像一台 OS 的限度，下一课。
+
+<span class="marginnote">常见误区：以为 WSL2 是「Windows 里做 Linux 系统调用翻译」——那是 WSL1；WSL2 跑的是轻量虚拟机里的真 Linux 内核，走 Hyper-V 虚拟化，与 NT 原生 ABI 无关。</span>
 
 ## 小结
 
