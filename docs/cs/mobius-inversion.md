@@ -25,6 +25,8 @@ $g=f*\mathbf{1}$ 则 $f=g*\mu$。典型：$g(n)$ 为 $1..n$ 中满足「$d\mid\g
 
 <span class="marginnote">Apostol 数论教科书。整除分块是算法课标准。后课期望 DP 用线性性，不靠 $\mu$。</span>
 
+<span class="marginnote">$n=100$ 时 $\lfloor 100/i\rfloor$ 的取值只有 19 段（100, 50, 33, 25, 20, 16, …, 1），同一段内商相同。整除分块就是按段跳着求和，把 $O(n)$ 的枚举压到 $O(\sqrt n)$，这正是反演公式能算得动的原因。</span>
+
 ## 方法
 
 先写清 $g$ 与 $f$ 的卷积关系，再乘 $\mu$。需要 $1..n$ 前缀则筛 $\mu$ 或杜教。单点枚举因子 $O(\sqrt n)$。
@@ -37,9 +39,21 @@ flowchart TD
 
 注意 $*$ 是除数卷积不是生成函数乘。
 
+<span class="marginnote">初学者容易把这里的 $*$ 当成多项式乘法——它是 Dirichlet（除数）卷积，定义 $(f*g)(n)=\sum_{d\mid n} f(d)\,g(n/d)$，求和跑过 $n$ 的全部因子，是「按倍数关系混合系数」，不是错位相加。</span>
+
 ## 机制
 
 $\mathbf{1}*\mu=\varepsilon$ 单位 $[n=1]$，故左乘 $\mu$ 可逆。与容斥：$|A\cup B|=$ 先加后减，符号即 $\mu$。与 Lucas 无关。与 NTT：Dirichlet 卷积可用分治 FFT（DNTT 一类）点名，本课 $O(n\log n)$ 筛前缀已够许多题。
+
+```mermaid
+flowchart TD
+  WANT["想数 f: 恰好 gcd = k, 难"] --> EASY["改数好算的 g: k 整除 gcd"]
+  EASY --> SUM["g(k) = f(k) + f(2k) + f(3k) + ..."]
+  SUM --> MU["两边乘 μ, 重叠项靠符号抵消"]
+  MU --> BACK["解出 f(k) 即恰好值"]
+```
+
+<span class="marginnote">$n=6$ 时反演公式展开是 $f(6)=\mu(1)g(6)+\mu(2)g(3)+\mu(3)g(2)+\mu(6)g(1)$，系数 $+1, -1, -1, +1$ 恰好把重复计入的项两两抵消。$\mu$ 的符号不是装饰，是抵消机制本身。</span>
 
 ## 边界
 
