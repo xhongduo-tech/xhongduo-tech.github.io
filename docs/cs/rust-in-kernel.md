@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-C 驱动 UAF 是 CVE 大户。Rust 模块：安全子集 + `unsafe` 包 C API。缺口：bindings 生成；无标准堆 panic；与 [livepatch](/cs/livepatch) 不成熟。本课不把所有 kernel crate 列出。
+C 驱动 UAF 是 CVE 大户。Rust 模块：安全子集 + `unsafe` 包 C API。缺口：bindings 生成；无标准堆 panic；与 [livepatch](/cs/livepatch) 不成熟。本课不把所有 kernel crate 列出。<span class="marginnote">术语翻译：`unsafe` 块就是用「在类型系统里圈出一小块『免检区』、其余代码照常全检」的手段来做「底层操作照写、但风险被压缩到可人工审的小面积」的事——安全是默认值，例外要显式签字。</span>
 
 <span class="marginnote">目标不是用 Rust 重写核心调度。对象是新驱动的记忆安全默认。</span>
 
@@ -32,9 +32,18 @@ flowchart TD
 
 ## 机制
 
-Rust in kernel 把一类内存安全从审查移到编译器，不消除逻辑 bug 与 `unsafe`。它改变新代码的默认质量。不要写成语言战争。与 [Secure Boot](/cs/secure-boot)：模块仍要签名。与 [eBPF](/cs/ebpf-observability)：BPF 已是另一条安全沙箱路径。
+Rust in kernel 把一类内存安全从审查移到编译器，不消除逻辑 bug 与 `unsafe`。它改变新代码的默认质量。不要写成语言战争。与 [Secure Boot](/cs/secure-boot)：模块仍要签名。与 [eBPF](/cs/ebpf-observability)：BPF 已是另一条安全沙箱路径。<span class="marginnote">常见误区：初学者容易以为「内核用了 Rust 就安全了」——`unsafe` 块、DMA 缓冲区别名、逻辑死锁，类型系统统统不管；Rust 改变的是新代码里错误的默认分布，不是把正确性整个外包给编译器。</span>
 
-工具链版本与内核树绑定是运维税。
+```mermaid
+flowchart TD
+  BUG["同一段悬空指针错误"] --> CPATH["C 路径：编译器照常放行"]
+  CPATH --> RUN["运行时踩坏别人内存"]
+  RUN --> LATE["事后靠审查 ASan 或 CVE 发现"]
+  BUG --> RPATH["Rust 路径：借用检查编译期拦截"]
+  RPATH --> CAVEAT["unsafe 块除外 仍需人工审"]
+```
+
+工具链版本与内核树绑定是运维税。<span class="marginnote">数字实例：Android 团队报告过引入 Rust 后新内存安全漏洞占比明显下滑（约一半量级）——UAF、越界这类空间错误原本要等上线后变成 CVE，现在大多在 `cargo build` 那一秒就变成编译错误，发现成本差出几个数量级。</span>
 
 
 实现上：bindings 由脚本从 C 头生成，C 改布局就破。内核禁止普通 Rust 栈展开 panic。unsafe 块仍要人工审，类型系统不审 DMA 别名。 读法上只引用[上一课](/cs/exokernel-libos)的结论，不把对象换成训练推理或限价簿。

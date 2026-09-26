@@ -17,6 +17,8 @@ section: cs
 
 `GRANT SELECT ON t` 太粗。RLS：对表附策略，`USING` 谓词在查询里合取。缺口是计划：策略必须稳定、可下推，否则每行调函数会打爆 OLTP。超级用户绕过、BYPASSRLS、安全定义者函数是常见洞。多租户用 `tenant_id = current_setting(...)` 必须防会话被改。
 
+<span class="marginnote">术语翻译：RLS（行级安全）就是「数据库在每条查询外自动包一层 WHERE」的手段来做按行授权的事——表权限照常放行，策略谓词再决定哪些行真正可见，应用代码一行不用改。</span>
+
 <span class="marginnote">强制访问与自主访问不同。RLS 默认是自主的、可绕过的，除非角色设计把绕过封死。</span>
 
 ## 方法
@@ -34,7 +36,25 @@ flowchart TD
 
 策略是查询改写：计划里多一个滤子。索引能否服务该滤子决定 OLTP 能否活。漏 WITH CHECK 会让 `INSERT` 写进自己看不见的行。计划缓存必须按角色分键，否则串计划泄密或用管理员统计估错租户选择率。CDC 与复制槽通常绕过 RLS，权限要单开。向量/搜索侧过滤必须在 ANN 前或保证租户隔离，否则跨租户召回。
 
+带 RLS 的查询被改写与常见的两条失效路径：
+
+```mermaid
+flowchart TD
+  APP["租户发来 SELECT"] --> B{"角色带 BYPASSRLS 或超级用户？"}
+  B -->|"是"| ALL["策略不生效，见全表"]
+  B -->|"否"| RW["查询改写：追加策略谓词"]
+  RW --> IDX{"谓词能走索引？"}
+  IDX -->|"能"| FAST["索引扫描，只触本租户行"]
+  IDX -->|"不能"| SLOW["逐行过滤，OLTP 受损"]
+  RW --> W{"写操作配 WITH CHECK？"}
+  W -->|"漏配"| LEAK["可写入自己看不见的行"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为应用层拼好 WHERE 就等于 RLS。实际上只要角色对基表有 SELECT 权限，绕过应用直连数据库就能看全表；RLS 的滤子在数据库内核里强制生效，不依赖调用者自觉。</span>
+
 超级用户、BYPASSRLS、SECURITY DEFINER 函数是绕过面。物化视图与 FDW 也可能漏策略。会话变量若可被租户 `SET`，策略等于没有。
+
+<span class="marginnote">为什么重要：策略右侧若写 `current_setting('app.tenant')`，而这个会话变量租户自己能 SET，他就把租户号改成别人的，谓词反过来忠实替他过滤出别人的数据——授权链最脆的一环在变量写权限上。</span>
 
 ## 边界
 

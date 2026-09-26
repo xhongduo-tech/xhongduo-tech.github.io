@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-接入口接主机，不必等转发延迟：edge 口可直接转发，BPDU 守卫防环。点到点口用 proposal/agreement 同步子树。MSTP：一个区域里多棵 IST/CIST 与 MSTI，VLAN 映射表必须全区一致，否则环或黑洞。这不是 IP 的 ECMP，仍是二层无环。
+接入口接主机，不必等转发延迟：edge 口可直接转发，BPDU 守卫防环。点到点口用 proposal/agreement 同步子树。MSTP：一个区域里多棵 IST/CIST 与 MSTI，VLAN 映射表必须全区一致，否则环或黑洞。这不是 IP 的 ECMP，仍是二层无环。<span class="marginnote">数字实例：经典 STP 里一个口要等「侦听 15 秒 + 学习 15 秒」才敢转发，链路故障切换最长可拖到 50 秒；RSTP 用握手把这个过程压到几百毫秒——差出两个数量级，这正是它存在的理由。</span>
 
 不要把 RSTP 的「秒」当成应用 SLA：还有 MAC 刷新与上层超时。
 
@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-对照：STP 计时器 vs RSTP 握手 vs MSTP 实例。画：区域边界用 CIST 与外网相连。根优先级仍决定哪台转发多。LACP 逻辑口作为一条 RSTP 边。
+对照：STP 计时器 vs RSTP 握手 vs MSTP 实例。画：区域边界用 CIST 与外网相连。根优先级仍决定哪台转发多。LACP 逻辑口作为一条 RSTP 边。<span class="marginnote">术语翻译：MSTI（多生成树实例）就是用「把几百个 VLAN 按流量特征分成几组、每组跑一棵自己的树」的手段来做「不同 VLAN 走不同的路、别全挤在同一条阻塞链上」的事——注意树的数量是个位数，不是 VLAN 数。</span>
 
 ```mermaid
 flowchart TD
@@ -40,7 +40,17 @@ flowchart TD
 
 LLDP 名字帮你确认插线；RSTP 决定哪些口真正发数据。PFC 暂停不替代阻塞：阻塞是拓扑，暂停是队列。主干 VLAN 课的广播域在 MSTP 里可以有不同的转发树，减少绕路。
 
-TCN：拓扑变仍要冲刷 MAC，否则帧跟旧口走。后课 MAC 学习会收回这句。
+TCN：拓扑变仍要冲刷 MAC，否则帧跟旧口走。后课 MAC 学习会收回这句。<span class="marginnote">常见误区：初学者容易以为「RSTP 秒级收敛就等于业务无感」——端口恢复转发只是第一步；MAC 表还指着旧口时帧会继续走错路，必须靠拓扑变更通告冲刷 MAC 表，上层 TCP 的超时也可能早已被触发。</span>
+
+```mermaid
+flowchart TD
+  UP["链路起来"] --> TYPE{"这是什么口？"}
+  TYPE -- "边缘口 接主机" --> FWD1["直接进转发 并挂 BPDU 守卫"]
+  TYPE -- "点到点口 接交换机" --> PROP["发出 Proposal 提议"]
+  PROP --> AGREE{"对端同意且下游全同步？"}
+  AGREE -- "是" --> FWD2["进入转发"]
+  AGREE -- "否" --> DISC["停在丢弃态 等重试"]
+```
 
 ## 边界
 

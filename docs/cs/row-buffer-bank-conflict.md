@@ -19,9 +19,13 @@ ACT 把一行读进该 bank 的行缓冲（灵敏放大器）。随后 READ/WRIT
 
 页模式、打开页 vs 关闭页策略：保持行开以盼空间局部性，或立刻 PRE 以降低冲突代价。后课 FR-FCFS 偏向打开页。
 
+<span class="marginnote">数字实例：DDR4-3200 的典型时序 tCAS≈14ns、tRCD≈15ns、tRP≈15ns。行命中只付约 14ns；一次 bank 冲突要 15+15+14≈44ns，三倍代价。「同一 bank 连续踩不同行」正是数组遍历忽快忽慢的隐形元凶。</span>
+
 ### 行缓冲不是 CPU cache
 
 它是 DRAM 内部的模拟+数字状态，不参与缓存一致性协议，不按缓存行标签查找。CPU 的 L1 命中根本不看见它。把 row buffer 当 L4，目录协议会画错。
+
+<span class="marginnote">直觉类比：行缓冲像书桌上摊开的那本书——读同一页上的字（列命中）极快；换一页得先合上书（预充电）再翻开目标页（激活）。而且这本书没有目录标签、别人也看不见它开着哪页，所以它当不了 cache。</span>
 
 <span class="marginnote">JEDEC 用 Activate/Precharge/Read/Write 定义状态机。CA:AQA 用行命中率解释有效延迟。本课不把 RowHammer 扰动写成主体，点名存在即可。</span>
 
@@ -42,6 +46,21 @@ flowchart TD
 ## 机制
 
 地址交织把连续 cache 行洒到不同 bank，降低冲突、也可能降低行命中——折中在映射课。FR-FCFS 先服务能行命中的请求，可能饿死。HBM 银行更多，冲突模型同形。
+
+一次跨行访问在命令层面比命中多走哪几步：
+
+```mermaid
+flowchart TD
+  R["控制器收到对地址 A 的请求"] --> S{"该 bank 当前打开的行就是 A 所在行？"}
+  S -->|"是"| C["直接发列命令 READ"]
+  S -->|"否，是另一行"| PRE["先 PRECHARGE 关闭旧行"]
+  PRE --> ACT["再 ACTIVATE 打开目标行"]
+  ACT --> C2["最后才发列命令"]
+  C --> D["延迟约为 tCAS 一项"]
+  C2 --> D2["延迟约为 tRP + tRCD + tCAS 三项"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为加宽通道或加大容量就能消掉 bank 冲突。实际上冲突是 bank 本地的——同一 bank 上等换行的命令照样排队堵住；把地址交织到更多 bank、减少对同一 bank 的背靠背访问才是主要解法。</span>
 
 ## 边界
 

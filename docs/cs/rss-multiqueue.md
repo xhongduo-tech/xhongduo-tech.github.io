@@ -15,13 +15,13 @@ section: cs
 
 ## 问题
 
-单队列：万兆一根 NAPI 打满一核。RSS：NIC 算 hash，查间接表得队列号，MSI-X 到对应 CPU。缺口：哈希不对称则转发方向换核，缓存冷；对称 RSS 或 Toeplitz 密钥配置；RPS 是无 RSS 硬件时的软件 steer。本课不把每一家 ethtool 字段当作业。
+单队列：万兆一根 NAPI 打满一核。RSS：NIC 算 hash，查间接表得队列号，MSI-X 到对应 CPU。缺口：哈希不对称则转发方向换核，缓存冷；对称 RSS 或 Toeplitz 密钥配置；RPS 是无 RSS 硬件时的软件 steer。本课不把每一家 ethtool 字段当作业。<span class="marginnote">术语翻译：间接表（indirection table）就是用「存一张几百项的『哈希值低几位 → 队列号』小表」的手段来做「不改网卡芯片逻辑、只改表项就能调流量分布」的事——想把某个队列的份量挪走，改表就行，不用换哈希函数。</span>
 
 <span class="marginnote">Flow Director / aRFS 可把已有套接字所在核告诉网卡。XPS：发送队列按 CPU 选，减少跨核锁。</span>
 
 ## 方法
 
-初始化：建 N 对 RX/TX 队列，设间接表。运行：同五元组进同队列，TCP 同流有序。对照 [blk-mq](/cs/blk-schedulers)：blk-mq 按提交者 CPU；RSS 按包头，与提交者无关。对照 netns：每设备自己的队列，veth 软件哈希另说。
+初始化：建 N 对 RX/TX 队列，设间接表。运行：同五元组进同队列，TCP 同流有序。对照 [blk-mq](/cs/blk-schedulers)：blk-mq 按提交者 CPU；RSS 按包头，与提交者无关。对照 netns：每设备自己的队列，veth 软件哈希另说。<span class="marginnote">数字实例：一块 8 队列网卡、间接表 128 项时，每个队列平均分到 16 个表项；若把其中 16 项全改成队 0，队 0 的流量就翻倍——用表项的比例做负载整形，是最粗糙也最常用的旋钮。</span>
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,16 @@ flowchart TD
 
 ## 机制
 
-RSS 把并行从「更多中断」变成「更多队列」，是多核网络的默认几何。它不保证应用线程在同一核——还要 RFS 或用户绑核。不要写成量化分片。与 [GRO](/cs/gro-gso)：GRO 在单队列内合并，跨队列不能拼同一流（同流本应同队列）。
+RSS 把并行从「更多中断」变成「更多队列」，是多核网络的默认几何。它不保证应用线程在同一核——还要 RFS 或用户绑核。不要写成量化分片。与 [GRO](/cs/gro-gso)：GRO 在单队列内合并，跨队列不能拼同一流（同流本应同队列）。<span class="marginnote">常见误区：初学者容易以为「RSS 分好了核，应用线程自然也在那个核上」——RSS 只保证同一流的中断与软中断落在同一 CPU；应用线程若被调度到别的核，每个包还要跨核递交一次，得靠 RFS 或用户态绑核把这两层对齐。</span>
+
+```mermaid
+flowchart TD
+  IN["入向包 五元组 A到B"] --> H1["RSS 哈希 正向算"]
+  H1 --> Q1["落到队列 q3 CPU3"]
+  OUT["回向包 五元组 B到A"] --> H2["RSS 哈希 反向算"]
+  H2 --> Q2["哈希不对称时 换到 q1 CPU1"]
+  FIX["改用对称哈希配置"] --> SAME["双向同队列 同一核 缓存热"]
+```
 
 重配置队列数会扰动亲和，生产上要谨慎。
 
