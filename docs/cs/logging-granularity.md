@@ -21,11 +21,17 @@ section: cs
 
 <span class="marginnote">Gray 对 logging 粒度。MySQL binlog 行/语句、Postgres WAL 生理+logical decoding 是产品线。本课分类。</span>
 
+<span class="marginnote">「生理日志」这个词别被吓住：它指「记在某一具体页上的最小改动」，重放时翻到那页照抄即可，不必重新走一遍 B+ 树查找；「逻辑」日志记的则是「插入键 k」这类操作语义，重放要把整条执行路径再跑一遍——快慢差距就从这里来。</span>
+
 ## 方法
 
 OLTP 本地恢复：生理 redo + CLR。跨版本升级、逻辑备库：从生理 WAL 解码成行（logical decoding）或直接逻辑日志。语句级逻辑：`UPDATE t SET x=x+1` 在重放时非确定性若有触发器——行级更安全。
 
 压缩：redo 差量。加密：日志也要 TDE，否则数据页加密无意义。
+
+<span class="marginnote">数字实例：更新一个 8 KB 页里的 20 字节——整页日志要记 8 KB，生理差量只记约 20 字节，写放大差约 400 倍；若该库每秒 1 万笔这样的更新，日志带宽就从约 80 MB/s 掉到 0.2 MB/s。粒度直接决定恢复与复制的带宽账单。</span>
+
+<span class="marginnote">初学者容易以为逻辑日志「更高级」就该全用它。实际上 `UPDATE t SET x=x+1` 这类语句在备库重放时，可能因触发器、时间函数、非确定计划得到不同结果；行级「改前/改后」值才保证处处可复现——这正是跨引擎复制偏爱行级的原因。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +41,16 @@ flowchart TD
 ```
 
 ## 机制
+
+并行重放的能力也随粒度变化：生理记录自带页号，可以切开并行；逻辑操作彼此纠缠，只能排队或粗粒度分区。
+
+```mermaid
+flowchart TD
+  REC["崩溃或备库重放"] --> PHYS["生理日志：每条带页号"]
+  PHYS --> PAR["按页切开，多个 worker 并行"]
+  REC --> LOGI["逻辑日志：操作要按序执行"]
+  LOGI --> SEQ["常单线程，或按表分区防冲突"]
+```
 
 组提交把多粒度记录一起刷。并行 redo 按页分区要求生理带页号。逻辑重放常单线程或按表分区，冲突检测像 OCC。
 

@@ -21,11 +21,15 @@ section: cs
 
 <span class="marginnote">PostgreSQL logical decoding、MySQL binlog 行模式。Debezium 一类是生态。本课机制。无虚构论文号。</span>
 
+<span class="marginnote">CDC（变化数据捕获）翻译一下：不再每天半夜全量导一遍表，而是像装了水表一样，把数据库的每一笔 INSERT/UPDATE/DELETE 变成一条流水记录，实时递给下游的搜索索引、缓存或数仓——「捕获」的就是这股持续的变化流。</span>
+
 ## 方法
 
 输出插件：把事务变化写成 JSON/protobuf。下游幂等：用 LSN 或主键+版本去重。恰好一次后课流系统再谈；库侧至少 at-least-once 加幂等键。
 
 过滤：只发某些表，减少流量。大对象可跳过或另通道。
+
+<span class="marginnote">复制槽像小区报箱：下游宕机不消费，报（WAL）就全堆在报箱里——压垮的不是报箱而是磁盘。几百 GB 的库，几天滞留的 WAL 就能塞满剩余空间；所以「忘删槽会胀爆磁盘」是运维第一事故，不删不用的槽要当常态清理。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,19 @@ flowchart TD
 ```
 
 ## 机制
+
+下游第一次接入怎么做到不漏不重？关键在把「快照」与「接流」在同一个 LSN 上对齐。
+
+```mermaid
+flowchart TD
+  S0["开始：记下当前 LSN"] --> SNAP["对表做一致性快照"]
+  SNAP --> SLOT["建复制槽，从该 LSN 起留存 WAL"]
+  SLOT --> STREAM["快照完成后从 LSN 开始消费"]
+  STREAM --> DEDUP["用主键+版本或 LSN 去重重叠部分"]
+  DEDUP --> OK["快照与增量无缝衔接"]
+```
+
+<span class="marginnote">初学者容易以为流里的变化是逐条实时发布的。实际按事务提交序发布：长事务跑一小时，它攒的一万条改动会憋到提交那刻才整包涌出——下游必须能承受这种突发，而不是假设流量永远平滑。</span>
 
 性能：解码 CPU、undo 读旧像。长事务一个大包提交时下游突发。与 SSI/锁无关直接，但未提交变化不应出现在流（按提交）。
 

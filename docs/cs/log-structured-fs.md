@@ -21,9 +21,13 @@ section: cs
 
 <span class="marginnote">检查点把 imap 的根与日志头钉到固定位置，崩溃后从检查点滚日志。cleaner 读段用法统计，把还活着的 inode/数据搬到日志头，释放整段。</span>
 
+<span class="marginnote">把整盘当日志，可以类比一本从不涂改的账簿：改一笔不是擦掉旧行，而是新起一行写最新状态，旧行自动作废但仍留在纸上；定期雇人（cleaner）把还作数的条目誊到新页，把整页回收。代价是账簿越用尾部越「脏」，这是后面 cleaner 税的来源。</span>
+
 ## 方法
 
 写：缓冲若干脏页与脏 inode，凑成一段（segment）顺序下盘，更新内存 imap，定期把 imap 页也追加进日志并写检查点。读：imap → inode → 块地址（地址现在是日志里的偏移）→ [页缓存](/cs/page-cache)。与 ext4 对照：没有「inode 表槽位永远在块组里」；槽位是逻辑号，物理位置随版本走。
+
+<span class="marginnote">数字实例：机械盘随机写约百次/秒，顺序写却有约 100 MB/s 带宽。把 1000 次 4 KB 的零散写凑成一段约 4 MB 顺序下盘：按随机 IOPS 算要 10 秒上下，顺序写只要 0.04 秒左右——差两个数量级，这就是 LFS 当年全部的赌注。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,18 @@ flowchart TD
 ```
 
 ## 机制
+
+崩溃后 LFS 怎么把系统救回来？答案是不扫盘，顺着「锚点 + 日志」滚一遍。
+
+```mermaid
+flowchart TD
+  CRASH["崩溃重启"] --> CK["读固定位置的检查点"]
+  CK --> IMAP["找回 imap 根与日志有效范围"]
+  IMAP --> RP["重放检查点之后的日志段"]
+  RP --> OK["imap 完整可用，无需扫整盘"]
+```
+
+<span class="marginnote">初学者容易把 LFS 与数据库 WAL 混为一谈。WAL 只是给旁边仍然是堆文件的表记一笔保险，日志用完就丢；LFS 没有「旁边」——日志本身就是文件系统的主体，写进去就再也不搬回去。</span>
 
 LFS 把随机元数据写变成顺序带宽，崩溃恢复顺着日志重放即可，不必 [fsck](/cs/fsck) 扫整盘——后课会对照。闪存友好是后话：当时动机是 HDD 臂。cleaner 在空闲低时与前台写争带宽，这是 LFS 的经典税。不要把 LFS 写成数据库 WAL：WAL 旁边还有堆文件；LFS 的堆就是日志本身。
 
