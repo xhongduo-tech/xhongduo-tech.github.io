@@ -23,6 +23,8 @@ S3：RAM 自刷新，外设断电。S4：内存写盘。freeze：用户进程停
 
 `echo mem > /sys/power/state` → freeze → 设备 suspend → 平台睡眠。唤醒：resume 相反。对照 [热插拔内存](/cs/memory-hotplug)：睡眠中 DMA 必须停。对照 [NVMe](/cs/nvme-driver)：要保存队列状态或重置。对照 TPM：PCR 在 S3 可能变化，策略要设计。
 
+<span class="marginnote">术语翻译：freeze 就是把用户进程（连同可冻的内核线程）全部停住、不再被调度，但不销毁——像把全城红绿灯拨成红灯，车原地等，不是把车拖走拆掉。恢复时这些进程从原处继续。</span>
+
 ```mermaid
 flowchart TD
   REQ["suspend"] --> FRZ["冻结任务"]
@@ -37,8 +39,24 @@ flowchart TD
 
 hibernate 镜像是攻击面，需加密。
 
+S3、S4 与单纯 freeze 的睡眠深度差在哪，一图看全。
+
+```mermaid
+flowchart TD
+  S["整机要睡"] --> DEP{"睡多深"}
+  DEP -- "freeze" --> F1["只停进程调度"]
+  DEP -- "S3" --> F2["RAM 自刷新，外设断电"]
+  DEP -- "S4" --> F3["内存内容写入盘上镜像"]
+  F2 --> R2["唤醒：毫秒级，直接续跑"]
+  F3 --> R3["唤醒：读回并解密镜像，秒到分钟级"]
+```
+
+<span class="marginnote">数字实例感受 S3 与 S4 的差距：S3 靠 RAM 自刷新保住内容，唤醒毫秒级；S4 要把 16 GB 内存镜像从盘上读回，即便 500 MB/s 的盘也要半分钟量级——省的是电，付的是恢复时间。</span>
+
 
 实现上：freeze 用户进程后还要 freeze 内核线程的可冻集合。驱动 resume 顺序与父子设备相反。hibernate 镜像未加密等于 RAM 落盘明文。 读法上只引用[上一课](/cs/udev-hotplug)的结论，不把对象换成训练推理或限价簿。
+
+<span class="marginnote">「resume 顺序与父子设备相反」为什么重要：挂起先叶后根、恢复先根后叶——若总线还没上电就去唤醒挂在上面的设备，驱动会在不存在的硬件上操作，表现为 USB 死、时钟错、无法唤醒这类失败。</span>
 
 本课在操作系统进阶的「安全、启动与调试 / 内核安全与启动」课序里，对象是 **挂起与恢复**。
 

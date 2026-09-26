@@ -17,6 +17,8 @@ section: cs
 
 若把每个匿名页写成临时文件，目录与 inode 操作太重，抖动时更糟。经典做法：整块分区或定长 swap 文件，内部只有槽位位图与少量头。缺口：分配槽、写页、在 PTE 或换出表里记下槽号、换入、释放槽。多块 swap 可以有优先级。加密与压缩是实现，不改「页 ↔ 槽」模型。
 
+<span class="marginnote">直觉类比：swap 是给内存配的「溢出书架」。书桌（物理内存）放不下的书按页搬到书架槽位，PTE 上贴一个槽号当索书条；要读时凭号取回——全程不经过图书馆目录（文件系统），这正是它比临时文件轻的原因。</span>
+
 本课不把 hibernation 镜像格式写完。
 
 <span class="marginnote">swap 文件仍占用文件系统空间，但内核用 bmap 记住槽对应哪些块，热路径不再查目录。优先级让快设备先吃换出。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 `swapon` 登记设备。换出：位图取空槽，DMA 写一页，PTE 无效并编码槽（或指向 swap cache 项）。换入：缺页见槽号，读块，填帧，释放槽或留下缓存以免马上再换出。与[按需调页](/cs/demand-paging)同一条重试指令路径。槽耗尽则分配失败，下一课 OOM。
+
+<span class="marginnote">数字实例：4 KiB 一页的 8 GB swap 区共有 $8\,\mathrm{GB}/4\,\mathrm{KiB}=2^{21}\approx 200$ 万个槽，21 位槽号足够编码——正好塞进 64 位 PTE 换出后空出来的位段里，不用另建表。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,20 @@ flowchart TD
 ## 机制
 
 交换设备把 RAM 的下一层从「文件」换成「匿名专用介质」，让堆、栈在物理压力下仍可前进。它放大抖动：每个 major 缺页都是一次块 I/O。工作集控制若失败，swap 吞吐会顶满，CPU 在等盘。不要把关系库的表空间当成 swap；那是数据库栏。
+
+把一次换入缺页按步骤展开，能看清它贵在哪。
+
+```mermaid
+flowchart TD
+  PF["缺页：PTE 无效且藏着槽号"] --> QC{"swap cache 里已有这页？"}
+  QC -- "是" --> HIT["直接重填 PTE，免 I/O"]
+  QC -- "否" --> IO["按槽号向块设备发读"]
+  IO --> FILL["读入物理帧"]
+  FILL --> PTE["PTE 置有效、填帧号"]
+  PTE --> TLB["TLB 更新，重试指令"]
+```
+
+<span class="marginnote">初学者容易以为「加大 swap 机器就快」。实际换入是 major 缺页，每次一次块 I/O，毫秒级，比内存访问慢四五个数量级；swap 是崩溃前的缓冲垫，不是性能手段——顶满时 CPU 全在等盘。</span>
 
 [TLB](/cs/tlb-translate) 在换出后必须不含该 VPN，shootdown 规则照旧。
 

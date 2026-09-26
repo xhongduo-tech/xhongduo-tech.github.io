@@ -17,6 +17,8 @@ section: cs
 
 Sv39：VA[38:12] 为 VPN，三级各 9 位，4 KiB 页。PTE：PPN、V/R/W/X/U/G/A/D 等。`satp` 存根 PPN 与 ASID、MODE=Sv39。缺口不是再画三级框图，而是这张**位布局**以及巨页（叶在上级标叶子）如何编码。
 
+<span class="marginnote">9 位索引不是拍脑袋：512 项 PTE $\times$ 8 字节 $=4096$ 字节，恰好一页。每级页表自己就占一整页，硬件只需按页对齐读它——这就是「三级各切 9 位」的来历。</span>
+
 Sv48 再加一级，思想同。x86 `CR3`+4 级 9 位类似；ARM 用 TTBR 与不同块大小。本课以 Sv39 为钉。
 
 ### Sv39 不是「39 位物理地址」
@@ -28,6 +30,8 @@ Sv48 再加一级，思想同。x86 `CR3`+4 级 9 位类似；ARM 用 TTBR 与�
 ## 方法
 
 TLB 缺失：用 `satp.PPN` 为根，VPN[2] 索引，读 PTE，若非叶则 PPN 为下一级表，直到叶。故障：V=0 或权限不符 → 缺页/保护，写入 `scause`/`stval`。A/D 位由硬件或软件置，实现可选。
+
+<span class="marginnote">术语翻译：`satp` 就是 RISC-V 的「当前页表基址寄存器」——存根页表的物理页号、地址空间编号 ASID 与模式位；对照 x86 的 `CR3`、ARM 的 `TTBR`，角色相同，字段名不同。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,23 @@ flowchart TD
 ## 机制
 
 下一课虚拟化 H 扩展：G-stage 翻译把客物理再走一遍，类似 EPT。本课只钉单层 Sv39。fence.vma 刷新 TLB，与[内存 fence](/cs/fence-instructions) 不同对象。
+
+一次 TLB 缺失里，走访与故障判定是同一棵树上发生的两件事。
+
+```mermaid
+flowchart TD
+  MIS["TLB 缺失"] --> W2["satp.PPN 当根，VPN[2] 索引"]
+  W2 --> VQ{"PTE 有效位 V = 1？"}
+  VQ -- "否" --> PGF["缺页异常，写 scause/stval"]
+  VQ -- "是" --> LEAF{"是叶 PTE 吗"}
+  LEAF -- "否（是目录）" --> W1["PPN 为下一级表，继续走访"]
+  W1 --> VQ
+  LEAF -- "是" --> PERM{"R/W/X 权限够吗"}
+  PERM -- "不够" --> PROT["保护异常"]
+  PERM -- "够" --> FILL["填入 TLB，重试指令"]
+```
+
+<span class="marginnote">初学者容易把 `fence.vma` 与内存序 fence 混为一谈：前者管的是「让（其他核的）TLB 丢掉过期翻译」，后者管的是访存顺序。改了页表不做 `fence.vma`，别的核可能还拿着旧映射访问。</span>
 
 ## 边界
 
