@@ -42,11 +42,28 @@ flowchart TD
 
 安全：TTL 过期消息可泄露拓扑，有人过滤——于是与 PMTUD 黑洞同源。
 
+一个包在单台路由器内部经历的 TTL 处理：
+
+```mermaid
+flowchart TD
+  IN["包到达路由器"] --> DEC["TTL 减一"]
+  DEC --> Q{"TTL 仍为正？"}
+  Q -->|"是"| FWD["查转发表继续转发"]
+  Q -->|"否"| DROP["丢弃并回送 ICMP Time Exceeded"]
+  DROP --> SRC["源站收到, 记下这一跳"]
+```
+
+<span class="marginnote">数字实例：一条约 15 跳的路径，TTL=1 的探针在第一跳就过期，回来的 ICMP 带 RTT 约 1 ms；TTL=15 才抵达终点。所以 traceroute 对 TTL=1,2,3,… 各发 3 个探针、等 Time Exceeded 回来，就逐跳拼出全路径。</span>
+
+<span class="marginnote">常见误区：以为画出的折线是**一个包**走过的路。ECMP 下每个探针按五元组哈希分流，不同 TTL 的探针可能走不同等价路径；Paris traceroute 固定五元组让它们始终同流，图才稳定可读。</span>
+
 ## 边界
 
 本课不引入 in-band OAM 的全部。路由器架构是下一课序第一课。后课默认：TTL 防环并支撑 traceroute；图是快照且受 ECMP 污染。
 
 把 traceroute 当 SLA 监测不够：要固定流标识与数据面遥测。
+
+<span class="marginnote">直觉类比：TTL 像牛奶盒上的保质期——每过一个分销商（路由器）剪掉一天，归零就地销毁并回寄一张「我在这里过期了」的通知单。traceroute 就是故意只给一天保质期，沿途逐站收通知单。</span>
 
 下一课[路由器架构](/cs/router-architecture)。
 

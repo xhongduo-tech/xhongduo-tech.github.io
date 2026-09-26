@@ -43,11 +43,30 @@ flowchart TD
 
 安全：错误卸载可造坏校验，中间盒若信卸载会放过。
 
+一个大缓冲变成多个合法段，网卡要替栈补齐哪些逐段字段：
+
+```mermaid
+flowchart TD
+  SKB["64 KB 大缓冲"] --> SEG["网卡按 MSS 切成 N 段"]
+  SEG --> F1["每段重算 TCP 校验和"]
+  SEG --> F2["每段写自己的 seq 号"]
+  SEG --> F3["时间戳与标志逐段复制"]
+  F1 --> OUT["逐段上线, 每段 ≤ MSS"]
+  F2 --> OUT
+  F3 --> OUT
+```
+
+<span class="marginnote">数字实例：MSS = 1460 字节时，一次 64 KB 的 write（65536 字节）被切成 $\lceil 65536/1460\rceil \approx 45$ 个段。没有 TSO，栈要为每段各过一遍协议处理；开了 TSO 只走一次大缓冲路径，切与校验都下沉到网卡。</span>
+
+<span class="marginnote">常见误区：抓包看到 60 KB 的「巨段」就以为链路在跑巨帧——其实抓包点落在 GRO 合并**之后**。线上每个以太网帧仍不超过 MSS。排障时先 `ethtool -k` 查卸载开关，必要时临时 `gro off` 对照再下结论。</span>
+
 ## 边界
 
 本课不引入 XDP 的全部。MPTCP 是下一课序第一课。后课默认：TSO/GRO 是 CPU 优化，线语义仍是 MSS 段。
 
 关卸载排障是合法手段，不是永久性能方案。
+
+<span class="marginnote">直觉类比：TSO 像「一次写好 45 封信的内容，盖章装封交给邮差分件投递」——投递颗粒度（每封信的尺寸）不变，省的是你自己重复写 45 个信封、贴 45 张邮票的工夫。</span>
 
 下一课[MPTCP](/cs/mptcp)。
 

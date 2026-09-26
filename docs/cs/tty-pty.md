@@ -36,9 +36,27 @@ flowchart TD
 
 tty 把「用户」接到进程组：中断字符是信号源，行编辑是内核里的小状态机。PTY 让网络与图形仿真器复用同一抽象，而不在内核里放 SSH 协议。不要把这写成 X11 或 Wayland 课。缓冲仍可能阻塞，select/epoll 对 tty fd 有效。
 
+规范模式下，一次键入序列在行规程内部发生了什么：
+
+```mermaid
+flowchart TD
+  K["键入 a b c 退格 d 回车"] --> L["行规程内核缓冲区"]
+  L --> BS["退格: 抹掉缓冲内上一字符"]
+  L --> NL["回车: 行已完整"]
+  BS --> BUF["缓冲现为 abd"]
+  NL --> DELIVER["read 一次返回整行 abd"]
+  INTR["Ctrl-C 不进缓冲"] --> SIG["直接向前台进程组发 SIGINT"]
+```
+
+<span class="marginnote">常见误区：退格**不是程序**处理的。规范模式下内核行规程在你按回车之前就完成了编辑，进程 `read` 拿到的已经是删干净的 `abd`。只有切到原始模式（vim、`ssh` 这类全屏或透传程序），才由程序自己收原始字节、自己管编辑。</span>
+
+<span class="marginnote">直觉类比：PTY 的 master–slave 像一对对讲机——sshd 对着 master 说话，slave 那头的进程以为自己在听一台真键盘；进程的输出也从 slave 吐回 master，由 ssh 画进你本地窗口。内核里从头到尾没有一根串口线。</span>
+
 ## 边界
 
 本课不引入 systemd 的 getty 单元全文——init 课会接。不保证所有嵌入式没有 tty。下一课：这类驱动常常做成可加载模块，而不编进 vmlinux。
+
+<span class="marginnote">术语翻译：行规程（line discipline）就是内核里的一小块「打字机前台」——替**所有**程序统一处理擦除、回显、Ctrl-C 转信号，让每个程序都不必重写这套交互细节；`stty raw` 做的事只是把它撤下来。</span>
 
 后课默认：交互式程序有 tty 语义。内核代码如何在运行时接上，下一课内核模块。
 
