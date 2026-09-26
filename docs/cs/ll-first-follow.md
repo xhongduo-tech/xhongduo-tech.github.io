@@ -23,6 +23,8 @@ section: cs
 
 FIRST 看右部能长出什么头。FOLLOW 看 $A$ 在哪些产生式里出现在中间，后面兄弟的 FIRST，以及父亲的 FOLLOW。$\varepsilon$ 产生式全靠 FOLLOW 填表。搞混则可选结构全错。
 
+<span class="marginnote">直觉类比：FIRST 是「这道菜的第一口是什么味道」，FOLLOW 是「这道菜之后该上什么」。可空产生式像一道可能不上桌的前菜——当它真的没上（推出 $\varepsilon$）时，下一道菜必须由 FOLLOW 说了算。</span>
+
 <span class="marginnote">龙书 4.4 节给 FIRST/FOLLOW 的不动点迭代。LL($k$) 用 $k$ 个记号，本课 $k=1$。表驱动分析栈代替递归调用栈，与下降等价。</span>
 
 ## 方法
@@ -42,9 +44,24 @@ flowchart TD
 
 递归下降是 LL(1) 表的递归写法；表驱动是显式栈。错误：查表空则非法。同步记号可用 FOLLOW 当恢复点，本课点名。表达式用 LL 常要左因子与优先级分层，文法变丑——这是后课 LR 的动机之一。
 
+```mermaid
+flowchart TD
+  TOP["看栈顶符号"] --> CHK{"终结符还是非终结符？"}
+  CHK -->|"终结符"| MATCH["与当前输入记号比对"]
+  MATCH --> OK["相同：弹栈，输入前进一格"]
+  MATCH --> ERR["不同：报语法错误"]
+  CHK -->|"非终结符"| LOOK["用当前记号查表 M[A,a]"]
+  LOOK --> EXP["弹栈，把右部逆序压回栈"]
+  EXP --> TOP
+```
+
+<span class="marginnote">数字实例：文法 S→aB、B→b，输入 ab。栈从 S 开始：查表得 S→aB，匹配 a；B 查表展开为 b，匹配 b；最后栈底 `$` 对上输入末尾——接受。每步只看一个当前记号，这就是 LL(1) 里「1」的含义。</span>
+
 ## 边界
 
 本课不移进归约，不造项集。不算 LL(2)。不处理二义文法的优先级声明（那是 Yacc/LR 的习惯）。后课默认：LL(1) = FIRST/FOLLOW 无冲突的预测表。更强的自底向上分析是 LR。
+
+<span class="marginnote">常见误区：以为预测表冲突可以靠回溯硬闯。回溯破坏线性时间、还难以定位错误；工程做法是提左因子、去左递归改写文法，或整体换 LR——绝不要在同一张表格里塞两条产生式。</span>
 
 ## 小结
 

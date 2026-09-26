@@ -25,9 +25,13 @@ section: cs
 
 <span class="marginnote">Levine《Linkers and Loaders》给 GOT/PLT 图。ELF `DT_NEEDED`、`R_*_JUMP_SLOT` 是机制名字。本课不写动态节全部标签。</span>
 
+<span class="marginnote">初学者容易以为「动态链接 = 运行时不用链接」。实际上符号照样要一个一个解析，只是把解析时刻从编译期推迟到加载或首次调用；代价是程序一启动就多了「找库、映射库、填表」这几步，这也是为什么动态链接的程序启动往往比静态的慢一点。</span>
+
 ## 方法
 
 执行：内核读入口，若有 `PT_INTERP` 则先跑动态链接器。链接器：广度加载依赖、重定位相对型、处理 `BIND_NOW` 或懒绑定。然后跳到用户入口（CRT 再调 `main`）。
+
+<span class="marginnote">静态链接意味着每个可执行文件都自带一份库代码：假设 libc 静态链入后让程序多出几 MB，磁盘上 100 个这样的程序就是几百 MB 的重复副本；动态链接整个机器只放一份 libc.so，大家共用，修一个安全漏洞也只需替换这一个文件。</span>
 
 ```mermaid
 flowchart TD
@@ -40,6 +44,22 @@ flowchart TD
 [ABI 代码生成](/cs/abi-codegen)发出的对外部符号的访问应是 PIC 友好的（`auipc`+GOT 等），否则共享库无法任意加载地址。
 
 ## 机制
+
+懒绑定的第一次调用值得单独走一遍：程序、PLT 桩、解析器、GOT 各干了什么。第一次多绕一圈查地址，之后全部走捷径。
+
+```mermaid
+flowchart TD
+  CALL["调用 printf"] --> PLT["PLT 桩"]
+  PLT --> GOT{"GOT 里已有地址？"}
+  GOT -->|"否"| RES["跳进 ld.so 解析器"]
+  RES --> FIND["查出 printf 真实地址"]
+  FIND --> PATCH["回填 GOT"]
+  PATCH --> EXEC["执行 printf"]
+  GOT -->|"是"| JMP["经 GOT 直跳"]
+  JMP --> EXEC
+```
+
+<span class="marginnote">可以把它想象成酒店前台：第一次找某位客人（符号）要翻登记簿（解析器），查到后把房号写在便签上（GOT），以后再找就直接按便签上的房号敲门，不用再翻本子。</span>
 
 PIC：代码不假定自己的绝对加载址，用相对或 GOT。文本段可共享。写 GOT 使数据页私有（写时复制，OS 课再钉）。符号可见性（default/hidden）影响能否被插桩，点名。
 

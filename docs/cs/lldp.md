@@ -19,6 +19,8 @@ ARP 与 ICMP 发现的是三层可达。插错 VLAN、插错 LACP 成员，需�
 
 不要把 LLDP 当认证：未加密，可伪造，只是运维平面。
 
+<span class="marginnote">术语翻译：TLV 就是「类型-长度-值」三段式小卡片——先报这是什么信息（类型），再说它多长（长度），最后是内容本身；一条 LLDP 帧里串着好几张这样的卡片（机箱、口名、能力……）。</span>
+
 <span class="marginnote">802.1AB 定义 PDU 与 MIB。CDP 是 Cisco 对照，本课不展开。本课不把 802.1X 证书当 LLDP 的一部分。</span>
 
 ### 发现不是认证
@@ -28,6 +30,8 @@ ARP 与 ICMP 发现的是三层可达。插错 VLAN、插错 LACP 成员，需�
 ## 方法
 
 每口周期发 LLDP 帧；收则刷新。画：口 → 邻居表（系统名、口描述）。与自协商对照：协商选速率，LLDP 选「人读得懂的名字」。LACP 成员口上 LLDP 仍按物理口报告，便于查捆错。
+
+<span class="marginnote">数字实例：默认发送间隔约 30 秒，TTL 常取其约 4 倍（120 秒）。对端 120 秒内没再听到你，就自动删掉你的表项——拔线或断电后邻居图自己变干净，不需要谁去显式道别。</span>
 
 ```mermaid
 flowchart TD
@@ -42,11 +46,21 @@ flowchart TD
 
 MED：话机告诉交换机 PoE 与语音 VLAN，仍是 TLV，不是呼叫信令。
 
+```mermaid
+flowchart LR
+  F["LLDP 帧：目的 01-80-C2-00-00-0E"] --> T1["TLV：Chassis ID（本机是谁）"]
+  T1 --> T2["TLV：Port ID（从哪个口发出）"]
+  T2 --> T3["TLV：TTL（表项有效期秒数）"]
+  T3 --> IN["对端收下写入邻居表，到此为止，不再转发"]
+```
+
 ## 边界
 
 本课不引入 sFlow 采样。RSTP/MSTP 是下一课。后课默认：LLDP 提供一跳身份，不提供可达性证明。
 
 关闭 LLDP 的安全理由是减少侦察；那是权衡，不是协议缺陷清单。
+
+<span class="marginnote">常见误区：以为「听得到邻居」就等于「可达邻居的邻居」。LLDP 帧在第一跳就被收下、不转发，它只证明这条线两端连着谁，不证明多跳可达性——跨多台设备的路径要靠路由和生成树另说。</span>
 
 下一课[RSTP / MSTP](/cs/rstp-mstp)。
 
