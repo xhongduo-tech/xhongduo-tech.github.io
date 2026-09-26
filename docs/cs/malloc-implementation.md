@@ -17,11 +17,15 @@ section: cs
 
 每次 `mmap` 4K 太粗、系统调用太贵。分配器：按 size class 把块串起来，大块单独 mmap。缺口：碎片（内外）、brk 收缩、与 fork 后锁（atfork）；double-free 检测是调试器，不是 POSIX。本课不把每个 bin 的阈值背下来。
 
+<span class="marginnote">数字实例：申请 100 字节，实际拿到按 16 对齐切成 112 字节的块，块内多出的 12 字节是内部碎片；两个 16 字节空闲块中间夹着一个占用块、合不成一大块，则是外部碎片——碎片都不丢数据，只浪费容量。</span>
+
 <span class="marginnote">`malloc_trim` 把顶空闲还内核。对齐与 `posix_memalign` 服务 SIMD/DMA 用户缓冲。</span>
 
 ## 方法
 
 小分配：从 tcache/fastbin 弹。耗尽：从 arena 的 bin 切，或 `mmap`。free：进 tcache，满则合并进 unsorted。对照 [slab](/cs/slab-allocator)：内核按对象类型；malloc 按字节大小。对照 [tmpfs](/cs/tmpfs)：堆是匿名页，不是文件。对照 [O_DIRECT](/cs/direct-io)：对齐缓冲常来自 memalign。
+
+<span class="marginnote">直觉类比：tcache 是口袋里的零钱，取用免排队（无锁）；arena 的 bin 是抽屉里的整钱，取要开锁（锁竞争）；向内核 brk/mmap 是跑银行取新钱。零钱够快，平均开销就低。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,19 @@ flowchart TD
 
 
 实现上：tcache 使 free 的块不立刻合并，RSS 不下降是预期。fork 后子进程继承 arena 锁状态，不用 atfork 会死锁。可调试分配器把红区放进真实 malloc，和 ASan 叠要小心。 读法上只引用[上一课](/cs/memory-tagging)的结论，不把对象换成训练推理或限价簿。
+
+```mermaid
+flowchart TD
+  F["free(p)"] --> TC["先放入 per-thread tcache"]
+  TC --> FULL{"tcache 满?"}
+  FULL -->|"否"| WAIT["暂不合并不还页: RSS 不降是预期"]
+  FULL -->|"是"| UNS["进 unsorted bin, 与相邻空闲块合并"]
+  UNS --> TOP{"与堆顶连续空闲?"}
+  TOP -->|"是"| TRIM["trim 或 brk 收缩, 页还内核"]
+  TOP -->|"否"| POOL["留在复用池等下次 malloc"]
+```
+
+<span class="marginnote">常见误区：初学者看监控容易以为「free 过了 RSS 却不降 = 泄漏」。实际上 free 的块多半停在 tcache 或复用池里等下一次 malloc，占用不降是设计行为；只有堆顶连续空闲且触发收缩才真正还内核。真泄漏是块永远没人 free。</span>
 
 本课在操作系统进阶的「内存进阶 / 回收、迁移与加固」课序里，对象是 **malloc 实现**。
 

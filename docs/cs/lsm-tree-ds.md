@@ -17,11 +17,15 @@ section: cs
 
 `put` 很高、`get` 可接受延迟。LSM：插入进内存有序表（树或跳表）；满则刷盘成有序文件。读：先 memtable，再各层，用布隆跳过文件。[布隆](/cs/bloom-filter) 在此当过滤器，不是本课新发明。合并（compaction）把多层归并，消墓碑。缺口是**用追加与归并代替原地裂页**，代价从写放大、读放大、空间放大三维写合同。
 
+<span class="marginnote">直觉类比：LSM 像厨房里摞餐盘——新盘子永远放最上面一摞，摞满整摞端走（刷盘成段）；定期把几摞归并成更大的整齐一摞（compaction）。找盘子要从上往下翻（读放大），但每摞内部按编号排好，可以二分。</span>
+
 <span class="marginnote">O'Neil et al., *Acta Informatica*, 1996。本课停在结构；不重写某引擎调参百科，不进入 LOB。</span>
 
 ## 方法
 
 层容量比 $T$：第 $i$ 层 $\sim T^i$。leveled vs tiered 合并策略改变放大。墓碑删除：直到合并到含旧值的层才真正消失。与[商过滤器](/cs/quotient-filter) 可作层内索引，点名。
+
+<span class="marginnote">常见误区：初学者容易以为「删除」就是把键从磁盘抹掉。LSM 里删除只是追加一个墓碑标记，旧值仍躺在下层段里，要等 compaction 归并到那一层才真正消失——所以刚删完一批数据，磁盘占用反而可能先变大。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,17 @@ flowchart TD
 ## 机制
 
 点查最坏碰多层，故 Bloom 与索引块。范围扫描要归并多路迭代器。本课是 CS 结构，不把云厂商产品名当算法。
+
+<span class="marginnote">数字实例：$T=10$ 时数据量逐层放大 10 倍——10 MB、100 MB、1 GB、10 GB、100 GB、1 TB，存 1 TB 只需约 5–6 层。leveled 下层数就是点查最坏要打开的文件数上界（再加 L0 重叠数），所以 $T$ 同时决定了读放大与写放大。</span>
+
+```mermaid
+flowchart TD
+  T["层容量比 T"] --> G["第 i 层容量 ≈ T^i"]
+  G --> EX["T=10: 10MB → 100MB → 1GB → 10GB → ..."]
+  EX --> DEPTH["层数 ≈ log_T 数据量, 1TB 约 5 层"]
+  DEPTH --> READ["点查最坏碰 层数 + L0 重叠 个文件"]
+  READ --> BLOOM["布隆把每层的 I/O 概率压小"]
+```
 
 无锁内存队列下一课回到共享内存，不刷盘。
 

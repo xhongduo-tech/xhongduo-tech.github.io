@@ -17,6 +17,8 @@ section: cs
 
 `store x1, 0(x2)` 后面的 `load x3, 0(x4)`：若 `x2==x4`，load 必须拿到 store 的数据（或等它提交后从 cache 读）；若地址不同，load 可以去 cache。地址在 AGU 之后才有，比寄存器 RAW 晚一截。缺口不是再加物理寄存器，而是**按程序序排好的 load 队列与 store 队列，用地址比较做转发或让路**。
 
+<span class="marginnote">直觉类比：store 是把修改先写在草稿纸上（store queue），等自己排到队首、确认前面没出任何异常，才誊进正式账本（cache）。誊写之前谁也看不见草稿——「提交前对 cache 不可见」说的就是这件事。</span>
+
 <span class="marginnote">store 在 ROB 提交前只存在于 store queue；提交才写 cache，才能被 [MESI](/cs/mesi-protocol) 看见。这与推测恢复一致。</span>
 
 ## 方法
@@ -25,6 +27,8 @@ section: cs
 
 - load 在 SQ 里搜年长、地址重叠的 store：命中则转发数据（可能只要部分字节）；若年长 store 地址未就绪，则要么等，要么推测「不冲突」并发出 cache 请求。
 - 若后来发现冲突，replay load 并冲刷依赖（或只重执行该 load）。
+
+<span class="marginnote">常见误区：初学者容易以为 load 撞上「年长 store 地址还没算出来」时只能傻等。现代核通常推测「不冲突」先读 cache，等地址算出真撞了再 replay——和分支预测一个思路：猜对赚到 ILP，猜错只罚这一条依赖链。</span>
 
 ```mermaid
 flowchart TD
@@ -38,6 +42,17 @@ flowchart TD
 ## 机制
 
 消歧失败有两类代价：等（损失 ILP）和猜错（replay，类似误预测但通常更局部）。多核下，转发只看见本核 SQ；他核的 store 靠一致性事务，不在 SQ 里。字节重叠、非对齐、向量宽 load 让 CAM 匹配变成区间重叠，而不是 64 位相等。
+
+<span class="marginnote">数字实例：store 写地址 2–5 的 4 字节，load 读地址 4–11 的 8 字节——地址比较不是「相等」而是「区间重叠」：字节 4–5 从 store 转发，6–11 仍取自 cache。非对齐与向量 load 会把一次访问拆成多段，CAM 匹配随之变贵。</span>
+
+```mermaid
+flowchart TD
+  DEC["译码: store 按序入 SQ"] --> AGUS["AGU 算出有效地址填入队列项"]
+  AGUS --> DATA["store 数据寄存器就绪"]
+  DATA --> COMMIT["ROB 到队首且前面无异常"]
+  COMMIT --> WB["从 SQ 写入 L1"]
+  WB --> VIS["此刻才被他核经 MESI 看见"]
+```
 
 与 [ROB](/cs/ooo-rob)：LQ/SQ 项数是窗口的第四个上限，常比 PRF 先满。
 

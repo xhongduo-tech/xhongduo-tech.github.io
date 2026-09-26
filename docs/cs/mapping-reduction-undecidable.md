@@ -17,11 +17,15 @@ section: cs
 
 构造 $f$：实例变成实例，$x\in A\iff f(x)\in B$。若 $B$ 可判定，则 $A$ 可判定（先算 $f$ 再跑 $B$ 的判定器）。逆否： $A$ 不可判定 $\Rightarrow$ $B$ 不可判定。RE 同样： $B$ 可识别 $\Rightarrow$ $A$ 可识别。方向与复杂度课相同，资源不同。
 
+<span class="marginnote">直觉类比：归约像「代加工」——假设有人会判 $B$，你把 $A$ 的实例加工成 $B$ 的实例转手一问，就等于会判 $A$。于是 $B$ 可判定会抬升 $A$ 可判定；反过来 $A$ 已被钉死不可判定，箭头指向的 $B$ 只能跟着不可判定。</span>
+
 例：空性 $E_{\mathrm{TM}}=\{\langle M\rangle\mid L(M)=\emptyset\}$。从 $A_{\mathrm{TM}}$ 化来：给定 $\langle M,w\rangle$，造 $M'$ 忽略输入、模拟 $M$ 于 $w$，接受则接受。$M$ 接受 $w$ iff $L(M')\ne\emptyset$。于是 $A_{\mathrm{TM}}\le_m \overline{E_{\mathrm{TM}}}$，$E_{\mathrm{TM}}$ 不可判定。
 
 ### 映射归约不是 Turing 归约
 
 Turing 归约允许问神谕多次。映射归约是一次、非自适应、保持「是/否」双向。更强的归约会把更多集合连起来；课堂不可判定清单用 $\le_m$ 足够。
+
+<span class="marginnote">直觉类比：Turing 归约像可以反复追问的顾问，问几次、看着答案接着问都行；映射归约像只能寄一封信——把问题加工好寄出去，换回一个「是/否」。只许寄一封是更严的限制，用它证出的不可判定也更干净。</span>
 
 <span class="marginnote">Post 问题关心 RE 度。Sipser 用 $\le_m$ 贯穿第 5 章。本课不引入度论。与 Karp $\le_p$ 对照：同一箭头形状，函数类从多项式换成可计算。</span>
 
@@ -45,6 +49,20 @@ flowchart TD
 编码 $\langle M\rangle$ 必须是可计算的标准编码；细节不影响存在性。
 
 构造 $M'$ 时要保证：无论 $M'$ 的输入是什么（常忽略），其语言只取决于 $M$ 在 $w$ 上的行为。漏掉「忽略输入」会让归约随 $M'$ 的输入变，当且仅当失败。RE 归约保持可识别；要证「不是 RE」，常化到 $E_{\mathrm{TM}}$ 或补 $A_{\mathrm{TM}}$。方向与[多项式归约](/cs/np-reduction)相同，只是 $f$ 不必多项式。
+
+```mermaid
+flowchart TD
+  IN["给定 A_TM 实例: M 与 w"] --> BUILD["造 M': 忽略自己的输入"]
+  BUILD --> SIM["在 M' 内部模拟 M 于 w"]
+  SIM --> ACC{"M 接受 w?"}
+  ACC -->|"是"| YES["M' 接受: L(M') 非空"]
+  ACC -->|"否或不停"| NO["M' 什么都不接受: L(M') 为空"]
+  YES --> EQ["L(M') 非空 当且仅当 M 接受 w"]
+  NO --> EQ
+  EQ --> RED["故 A_TM ≤m 非空性, E_TM 不可判定"]
+```
+
+<span class="marginnote">常见误区：初学者造 $M'$ 常忘了让它忽略自己的输入。一旦 $L(M')$ 随 $M'$ 的输入变，「$M$ 接受 $w$ 当且仅当 $L(M')$ 非空」这条桥就断了——空性例的内容必须完全由 $M$ 在 $w$ 上的行为决定，与谁来运行 $M'$ 无关。</span>
 
 
 ## 边界
