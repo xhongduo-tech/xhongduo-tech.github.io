@@ -17,6 +17,8 @@ section: cs
 
 LTL：公式在无穷路径上解释。$\mathrm{X}\varphi$ 下一状态，$\varphi\mathrm{U}\psi$ until，$\mathrm{F}=\top\mathrm{U}$，$\mathrm{G}=\neg\mathrm{F}\neg$。系统满足 $\varphi$：从初态出发**所有**路径满足（或带公平）。CTL：状态公式，$\mathrm{EX},\mathrm{EG},\mathrm{EU},\mathrm{AX},\ldots$——先量词后时序。$\mathrm{AF AG}p$ 与 $\mathrm{AGF}p$ 一类不可互译。线性 vs 分支。
 
+<span class="marginnote">术语翻译：$\mathrm{G}p$ 读作「从此往后每一刻 $p$ 都成立」；$\mathrm{F}p$ 读作「将来某一刻 $p$ 会成立——可以晚，但不许永远缺席」；$p\,\mathrm{U}\,q$ 读作「$p$ 一直撑到 $q$ 到来的那一刻，且 $q$ 必须真的到来」。</span>
+
 LTL 检验：公式 $\to$ Büchi 自动机，与系统同步，空性。PSPACE 完全。CTL：多项式于 $|M|\times|\varphi|$ 的标记算法，用 $\mu/\nu$。
 
 ### 不是「G 就是 always 英语」
@@ -45,12 +47,27 @@ flowchart TD
 
 LTL 不能说「存在一条路径始终避免死锁且另一条……」那种分支比较；CTL 不能说「沿同一路径 $p$ 直到 $q$ 且中间无限常 $r$」的某些线性组合。CTL* 两者都收，检验更贵。$\omega$-正则捕获 LTL；正则语言课的有限串泵引理不适用无穷词，另有无穷泵，本课不写。
 
+<span class="marginnote">直觉类比：LTL 像沿一条固定铁轨描述沿途风景——只谈这一条轨上的时刻序列。CTL 像站在岔路口看地图，可以问「存在一条路能到吗」（$\mathrm{EF}$）或「每条路都会到吗」（$\mathrm{AF}$）。量词与时序谁在前，就是两种语言的分水岭。</span>
+
+```mermaid
+flowchart TD
+  W["要验证的性质"] --> Q1{"关心每条执行, 还是存在某条执行?"}
+  Q1 -->|"每条"| LTL["LTL: 隐式全路径量化"]
+  LTL --> SAFE{"坏事永不发生?"}
+  SAFE -->|"是"| GG["安全: G ¬bad"]
+  SAFE -->|"否, 好事须反复到来"| GF["活性: GF progress"]
+  Q1 -->|"存在某条 / 分支"| CTL["CTL: 量词 A 或 E 在前"]
+  CTL --> EF["例: EF reset 存在路径可达 reset"]
+```
+
 
 ## 边界
 
 本课不写嵌套 until 的全部等价，不引入 MTL 实时。不把 STL 信号时序当主线。后课默认：安全 $\mathrm{G}$、活性 $\mathrm{F}/\mathrm{GF}$；LTL 与 CTL 不可互换。下一课 SAT 引擎：DPLL/CDCL。
 
 安全用 $\mathrm{G}$，活性用 $\mathrm{F}/\mathrm{GF}$，公平性必须写进模型或公式。LTL 走 Büchi，CTL 走标记不动点，二者表达力不可比。有界展开把路径交给 SAT，下一课引擎。
+
+<span class="marginnote">常见误区：初学者容易把 $\mathrm{AG\,EF}\,p$（每个状态都还「有希望」到 $p$）当成 $\mathrm{AF\,AG}\,p$（终将永远 $p$）——前者只保证希望存在，系统可以永远不走那条路。量词顺序差一步，性质强弱天差地别，验证通过不等于符合直觉。</span>
 
 ## 小结
 
