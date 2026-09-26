@@ -17,6 +17,8 @@ section: cs
 
 写回太勤，随机小写变成同步盘；太懒，崩溃窗口大，且回收时才发现全是脏页、分配卡死。缺口：维护脏页数量与阈值（如脏占内存比例）；超过后台阈值则 flusher 写；超过限制阈值则写者自己同步写（dirty throttling）。按 inode 或按 bdi（backing device）排队，避免一个文件饿死其他设备。
 
+<span class="marginnote">数字实例：限制阈值设为脏页占内存 20% 时——写到 19% 仍是 flusher 在后台慢慢刷；一越过 20%，每个 write 都被拖住同步清脏。后台阈值管吞吐、限制阈值管生死，两条线各司其职。</span>
+
 本课不把每版 `dirty_ratio` 的默认整数当考纲。
 
 <span class="marginnote">老化：页脏了多久。老脏页优先，减少「永远不刷的冷脏页」。laptop 模式可把回写攒成突发以让盘休眠。</span>
@@ -24,6 +26,8 @@ section: cs
 ## 方法
 
 `write` 只改页 Cache 并记账。kupdate/flusher：选过期或超额的 inode，调用 [VFS](/cs/vfs) 的 `writepages`。回收路径上若碰到脏文件页，先加入回写再等完成或换一个牺牲。与 swap 写回并列但目标不同：这里写文件，不是槽。完成中断后清脏位。
+
+<span class="marginnote">术语翻译：writepages 就是 VFS 递给文件系统的一句「把这个 inode 的脏页批量写下去」——FS 负责按磁盘顺序把页排好交给块层。flusher 挑的是 inode 整体，不是一页一页零敲。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,19 @@ flowchart TD
 ## 机制
 
 writeback 把延迟写收成可调的控制环，让 [调度](/cs/scheduling-metrics) 看到的 I/O 等待成批出现而不是每次 `write`。它不提供 `write` 返回即持久——那是下一课 fsync。崩溃时未刷的脏页丢失，正是窗口的含义。不要把组提交的数据库日志提前写进本课；文件系统日志在更后。
+
+老化如何决定谁先落盘：
+
+```mermaid
+flowchart TD
+  P1["页 A：刚标脏 0 秒"] --> AGE["老化计时"]
+  P2["页 B：脏了 30 秒"] --> AGE
+  AGE --> PICK["优先写最老的脏页"]
+  PICK --> W1["B 先落盘"]
+  PICK --> W2["A 随下一批写"]
+```
+
+<span class="marginnote">常见误区：以为 write 返回数据就安全了。它只保证进了页 Cache 并记上账；掉电丢的正是没刷的那部分——这就是「崩溃窗口」的本义。要「返回即持久」，必须显式 fsync，那是下一课的事。</span>
 
 ## 边界
 

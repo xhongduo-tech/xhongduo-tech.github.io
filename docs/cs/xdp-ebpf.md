@@ -17,11 +17,15 @@ section: cs
 
 DDoS 小包：CPU 死在分配 skb。XDP 程序看以太网/IP/TCP 头，返回 DROP/PASS/TX/REDIRECT。PASS 才走普通 RX。缺口：verifier 保证程序终止与内存安全；map 做计数与黑名单；与 tc eBPF、socket filter 的挂钩点不同。本课不把 verifier 算法写成编译课。
 
+<span class="marginnote">术语翻译：verifier 就是 eBPF 的「安全门卫」——加载前静态把程序走一遍，证明它必然终止（禁任意循环）、不越界读内存、只调白名单 helper。不合格直接拒载，内核不冒运行时崩溃的风险。</span>
+
 <span class="marginnote">generic XDP 在 skb 之后跑，方便无驱动支持，但失去早丢的意义。驱动 native/offload 才是本课动机。</span>
 
 ## 方法
 
 加载：`bpf(2)` 把程序挂到 `netdev`。poll 路径：`bpf_prog_run_xdp`。重定向到另一设备或 AF_XDP 套接字进用户态。对照 [FUSE](/cs/fuse)：都是「内核把事件交给可编程体」，一个是文件，一个是包。对照 iptables：XDP 更早、无 conntrack 除非自己用 map 做。
+
+<span class="marginnote">数字实例：设攻击以每秒 500 万个 64 字节小包打进一个核——正常路径每个包都要分配 skb、过 GRO、进协议栈，CPU 全耗在分配上；XDP 在 skb 分配之前就 DROP，每包只剩读头加查表，单核才撑得住这个量级。</span>
 
 ```mermaid
 flowchart TD
@@ -35,7 +39,21 @@ flowchart TD
 
 XDP 把数据面从固定 C 路径里打开一个可验证窗口，使过滤与转发能在每核百万 PPS 上活。它不替代 TCP 状态机。不要写成 AI 包分类。与 [cgroup](/cs/cgroups)：程序可读 cgroup id，策略仍要人写。
 
+一段程序从加载到每包生效，verifier 与 map 各站在哪：
+
+```mermaid
+flowchart TD
+  LOAD["bpf(2) 加载程序"] --> VF{"verifier 静态检查"}
+  VF -->|"循环越界或越权访问"| REJ["拒绝加载"]
+  VF -->|"安全且必终止"| HOOK["挂到 netdev"]
+  PKT["包到达，进 XDP 程序"] --> HOOK
+  HOOK --> MAP["查 map：黑名单与计数"]
+  MAP --> ACT["返回 DROP 或 PASS"]
+```
+
 安全：能挂 XDP 需要 CAP_NET_ADMIN 或 bpf 权限；错误程序被 verifier 拒。
+
+<span class="marginnote">直觉类比：XDP 程序本身无状态，像每次重来的函数；map 是它的「随行记事本」——黑名单 IP、包计数都写在本子上，跨包保留，用户态程序还能直接翻开这个本子看统计、改名单。</span>
 
 
 实现上：AF_XDP 把 umem 注册给驱动，用户 poll 描述符，是 XDP 与 DPDK 之间的折中。verifier 禁循环（或限制迭代），复杂解析要拆 helper。offload 到网卡后调试面变窄。 读法上只引用[上一课](/cs/bridge-tun-tap)的结论，不把对象换成训练推理或限价簿。

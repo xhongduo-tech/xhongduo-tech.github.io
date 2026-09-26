@@ -17,11 +17,15 @@ section: cs
 
 UC 或 WC 内存类型上，store 不进 L1 常规写分配，否则会污染 cache。[退休](/cs/retire-precise-exception) 后 store 仍要变成对设备或 DRAM 可见。逐条发 8B 事务，互联效率极差。缺口不是压缩，而是**按物理行地址聚合未完成的 store，掩码记录哪些字节有效，满了或 fence 时一齐发出。**
 
+<span class="marginnote">数字实例：往帧缓冲顺序填一屏像素，每像素 4 字节、每条 store 一次窄事务就是几十万次；按 64 字节行合并后，同一行只发一次组合写——事务数砍掉一个数量级，图形填充这类顺序写收益最大。</span>
+
 <span class="marginnote">x86 的 WC 内存类型允许写合并与弱序；fence / 串行化指令会冲刷合并缓冲。这是微结构缓冲，也是内存模型可见的宽松点。</span>
 
 ## 方法
 
 若干项，每项：行地址、字节掩码、数据。退休 store 若地址匹配则并入；否则分配新项或逐出最旧项。逐出：按掩码发写组合事务（或先读-改-写若协议要求）。fence、I/O、过深依赖则 drain。
+
+<span class="marginnote">术语翻译：字节掩码就是「这一行的哪些字节已经有效」的记号——来一个 4 字节 store，就把对应 4 位点亮。逐出时按掩码拼包，有效字节一起走、没写过的字节不碰，所以是「按需拼宽」而不是盲填。</span>
 
 ```mermaid
 flowchart TD
@@ -34,7 +38,20 @@ flowchart TD
 
 对 cacheable 写回内存，常规 SQ + 写分配已经在行内合并；WCB 的主战场是 WC/UC 与某些 streaming store。与 [LSQ](/cs/lsq-disambiguation)：转发规则在 WC 区域更弱，程序员不能假设马上被后续 load 看见——这是模型课与 fence 课的接口，本课只要求缓冲在 drain 前可以乱序发出不同行。
 
+一个合并条目何时攒、何时被强制排空：
+
+```mermaid
+flowchart TD
+  S1["store 字节 A，新行"] --> E["分配条目：行地址 + 掩码"]
+  S2["store 字节 B，同行"] --> E
+  E -->|"fence 或 I/O 指令"| D1["drain：按掩码发组合写"]
+  E -->|"条目攒满"| D2["drain：整行写出"]
+  E -->|"被最旧逐出"| D3["drain：让位给新行"]
+```
+
 GPU 的 store buffer / 合并单元更激进，后课合并访存会再遇到「按行拼事务」，先在 CPU 侧把 WCB 钉住。
+
+<span class="marginnote">常见误区：以为 WC 内存上 store 一发出立刻能被读到。合并缓冲让写滞留在核内，别的核与设备都可能晚看见——这正是 fence 存在的理由：需要顺序或即时可见性时，显式 drain 一次。</span>
 
 ## 边界
 

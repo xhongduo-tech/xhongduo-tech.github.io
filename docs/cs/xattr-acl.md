@@ -17,11 +17,15 @@ section: cs
 
 备份系统、SELinux、capabilities 落地、用户注释都需要「不进文件字节」的旁路数据。若全塞进目录项，FAT 那样的定长槽放不下。Unix 把扩展属性挂到 inode：`user.*` 可用户写，`security.*`、`system.*` 受特权约束。POSIX ACL 常存在 `system.posix_acl_access` 等键里。缺口：查找路径上要不要继承默认 ACL；权限检查在 VFS 还是 FS；与 [VFS](/cs/vfs) 操作表如何接头。
 
+<span class="marginnote">术语翻译：xattr 就是挂在 inode 旁边的「键值便签」——键如 user.comment，值是任意字节，不占文件内容本身。user.* 前缀普通用户可写；security.*、system.* 只有特权进程碰。前缀本身就是权限边界。</span>
+
 <span class="marginnote">属性值可放 inode 内联或外置块。列表过大则 `listxattr` 昂贵。ACL_MASK 与 named user 的计算顺序是规范细节，课序只要求「模式位不是唯一裁决」。</span>
 
 ## 方法
 
 `setxattr`：VFS 检查名空间权限，调 FS 把键值写入 inode 旁路块或内联区，可能进 [日志](/cs/ext4-journal) 事务。`getxattr` 读回。打开文件时，若启用 ACL，VFS 用 ACL 条目代替简单 `mode & umask` 裁决。拷贝文件若不用 `cp --preserve=xattr`，属性会丢——这是用户工具问题，对象仍在 inode 上。
+
+<span class="marginnote">常见误区：以为 cp 复制文件连注释一起带走。默认 cp 只拷数据与基本模式位，xattr 要加 --preserve=xattr 才跟上。备份脚本忘写这一项，SELinux 标签、能力集会静默丢失，事后才发现权限对不上。</span>
 
 ```mermaid
 flowchart TD
@@ -36,7 +40,22 @@ flowchart TD
 
 xattr 让文件系统成为可扩展的对象存储：安全模块、overlay 白名单、能力集都可以不改盘格式主结构。ACL 把「组不够用」从二次开发里收回内核。不要把 ACL 写成数据库行级安全：没有 SQL，只有对 inode 的访问谓词。
 
+ACL 条目按什么顺序裁决一次打开：
+
+```mermaid
+flowchart TD
+  CHK["打开文件的权限检查"] --> O{"uid 是属主吗"}
+  O -->|"是"| R1["按 owner 条目定夺"]
+  O -->|"否"| N{"命中 named user 条目吗"}
+  N -->|"是"| M1["先与 ACL_MASK 求交再定夺"]
+  N -->|"否"| G{"属组或 named group"}
+  G -->|"是"| M2["同样受 MASK 截断"]
+  G -->|"否"| R2["按 other 条目定夺"]
+```
+
 与 FAT：若干实现把 ACL 塞进 EA 流，仍是目录项旁路，不是 Unix inode 号。NFS 是否传送 ACL 是 [NFS 语义](/cs/nfs-semantics) 的缺口，本课只钉本地 VFS。
+
+<span class="marginnote">为什么重要：MASK 是给 named user/group 的「总闸」——条目写明 rwx，被 MASK 截到 r-- 就只剩读。只看 mode 的 group 位判权限会误判；规范要求先过 MASK 再合并，这就是那句「计算顺序」细节的实指。</span>
 
 
 实现上：POSIX ACL 的 mask 项会截断 named user/group 的有效权限，只看 mode 的 group 位会误判。security xattr 给 LSM 用，user xattr 可被配额计入数据块。 读法上只引用[上一课](/cs/sparse-files)的结论，不把对象换成训练推理或限价簿。

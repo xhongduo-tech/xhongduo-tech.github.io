@@ -17,6 +17,8 @@ section: cs
 
 RV32I 定长 32 位字段。[整数指令](/cs/riscv-int-isa) 语义清晰。x86-64：遗留 8/16/32 位模式叠 64 位，前缀改宽度与段，ModR/M 的 mod/reg/r/m 决定是寄存器还是 `[base+index*scale+disp]`。缺口不是再讲 RISC 原则，而是这套**变长码流**如何切出下一条指令——边界识别本身就要顺序扫描。
 
+<span class="marginnote">术语翻译：ModR/M 就是一个「寻址模式字节」——高两位 mod 说操作数是寄存器还是内存，中间 reg 指一个寄存器，低三位 r/m 指另一个、或转手指向 SIB。一个字节编出 x86 大多数「寄存器↔内存」的组合。</span>
+
 寻址：多数运算可带一个内存操作数（CISC）；64 位下默认 RIP-relative 的 `disp32` 便于 PIC。栈用 `rsp`，调用约定后课 ABI 边界再与 SysV 对齐。
 
 ### 变长不是「随便多长」
@@ -28,6 +30,8 @@ RV32I 定长 32 位字段。[整数指令](/cs/riscv-int-isa) 语义清晰。x86
 ## 方法
 
 取指：从 RIP 读字节，长度解码器输出下一条边界。有效地址：段基（64 位大多平坦）+ base + index×scale + disp。REX.W 选 64 位操作数，REX.R/X/B 扩展寄存器号。立即数跟在寻址字节后。
+
+<span class="marginnote">数字实例：`mov rax, [rip+0x1234]` 大致是 REX 1 字节 + opcode 1 字节 + disp32 4 字节 = 6 字节；目标地址等于下一条指令地址加 0x1234。32 位模式要写绝对地址、重定位还得改字节——RIP-relative 正是为 PIC 省掉这一步。</span>
 
 ```mermaid
 flowchart TD
@@ -42,6 +46,20 @@ flowchart TD
 ## 机制
 
 下一课微码：一条 CISC 变成多条 μop，内部更像 RISC。本课只让「指令从哪几个字节来、内存操作数地址怎么算」可讲。ARM/RISC-V 对照课会回来比密度与译码成本。
+
+一条指令的各段按什么次序拼、各管什么：
+
+```mermaid
+flowchart LR
+  P["前缀：宽度 / 段 / 锁"] --> OP["opcode：选操作"]
+  OP --> MR["ModR/M：reg 与 r/m"]
+  MR --> SIB["SIB：base 加 index 乘 scale"]
+  SIB --> D["disp：位移"]
+  D --> I["imm：立即数"]
+  MR -->|"mod 指寄存器"| REG["纯寄存器形式"]
+```
+
+<span class="marginnote">常见误区：以为译码器可以从任意字节开始切。变长码流只有顺序扫过才知道边界；跳进中间可能切出完全不同的「合法」指令——这既是性能问题（并行取指要先算边界），也是恶意指令流攻击的温床。</span>
 
 ## 边界
 
