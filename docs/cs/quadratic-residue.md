@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-$\mathbb{F}_p^\times$ 循环，平方恰一半元素。欧拉：$a^{(p-1)/2}\equiv(\frac{a}{p})\pmod p$。Tonelli–Shanks 在 $p\bmod 4$ 等条件下开方。模 $n=pq$：若知 $p,q$ 可 CRT 开方；不知则 QR 判定等价某些困难假设。Jacobi $(\frac{a}{n})$ 把勒让德乘起来，可多项式算，但对 QR 有假阳性。
+$\mathbb{F}_p^\times$ 循环，平方恰一半元素。欧拉：$a^{(p-1)/2}\equiv(\frac{a}{p})\pmod p$。Tonelli–Shanks 在 $p\bmod 4$ 等条件下开方。模 $n=pq$：若知 $p,q$ 可 CRT 开方；不知则 QR 判定等价某些困难假设。<span class="marginnote">术语翻译：Jacobi 符号就是「把勒让德符号按 $n$ 的素因子乘起来」的快捷记号，$(\frac{a}{n})=\prod_i(\frac{a}{p_i})$——它复用勒让德的算法骨架所以多项式时间可算；但乘积等于 $1$ 可能来自两个 $-1$ 相乘抵消，这正是它对真 QR 假阳性的来源。</span>Jacobi $(\frac{a}{n})$ 把勒让德乘起来，可多项式算，但对 QR 有假阳性。
 
 不要把「平方根模 $n$」写成 OWF 的唯一例子：它与分解等价（Rabin）。点名。
 
@@ -27,7 +27,7 @@ $(\frac{a}{n})=1$ 仍可能非剩余。写程序时用 Jacobi 当「是否平方
 
 ## 方法
 
-在模 $11$ 列出平方表，核对欧拉准则。指出互反律把 $(\frac{p}{q})$ 换成 $(\frac{q}{p})$ 带符号，便于手算。对照 Miller–Rabin：那里用 $a^{(n-1)/2}$ 一类当见证，下一课。
+在模 $11$ 列出平方表，核对欧拉准则。<span class="marginnote">数字实例：模 $11$ 时 $p-1=10$，判 $a=5$ 就算 $5^{5}\bmod 11=1$，故 $5$ 是平方剩余（确实 $4^2=16\equiv 5$）；判 $a=2$ 得 $2^{5}\bmod 11=-1$，故 $2$ 不是——一次幂运算替代了逐个试平方。</span>指出互反律把 $(\frac{p}{q})$ 换成 $(\frac{q}{p})$ 带符号，便于手算。对照 Miller–Rabin：那里用 $a^{(n-1)/2}$ 一类当见证，下一课。
 
 ```mermaid
 flowchart TD
@@ -40,6 +40,20 @@ flowchart TD
 ## 机制
 
 QR 给「比特藏在剩余/非剩余」的经典承诺。后课格密码不再依赖 QR。素性测试用相关的幂，但见证选择不同。本课把平方这一层钉在 DLP 与素性之间。
+
+```mermaid
+flowchart TD
+  B["待承诺比特 b"] --> PICK{"b 取 0 还是 1？"}
+  PICK -->|0| R["发随机二次剩余 mod n"]
+  PICK -->|1| NR["发随机非剩余 mod n"]
+  R --> LOOK["两者 Jacobi 都 = 1：外观相同"]
+  NR --> LOOK
+  LOOK --> HARD["区分它们等价于分解 n"]
+```
+
+<span class="marginnote">这张图回答的问题是：比特承诺凭什么安全——承诺方把 $0$ 藏进二次剩余、把 $1$ 藏进非剩余，两者的 Jacobi 符号同为 $1$，验证者从外观分不出；想分清就必须分解 $n$，困难假设顶在门口。</span>
+
+<span class="marginnote">初学者容易把 Jacobi $=1$ 当成「是平方」的判定用；实际上模合数时 $+1$ 既可能是真剩余、也可能是非剩余因子相乘抵消——拿它筛 QR 的程序会系统性出错，这正是「Jacobi 不是勒让德」要钉住的误区。</span>
 
 二次互反：$(\frac{p}{q})(\frac{q}{p})=(-1)^{(p-1)(q-1)/4}$（奇素数）。手算勒让德靠它。Tonelli–Shanks 在素数域开方多项式。Rabin 加密：平方模 $n$，解密开方，与分解等价。GM 承诺用模 $n$ 的 QR 藏一比特，本课不写协议。
 

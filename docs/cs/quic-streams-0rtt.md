@@ -43,6 +43,22 @@ TSO 变成 UDP GSO。ECN 计数在 QUIC 里。PMTUD 在用户态。BBR 常与 QU
 
 握手失败回退 TCP 是浏览器政策，不是协议强制。
 
+```mermaid
+flowchart TD
+  F1["流1: 图片块丢失"] --> W["还在等重传"]
+  F2["流2: HTML 文本完好"] --> Q{"同一传输层?"}
+  F1 -->|"TCP"| H["全部流卡住"]
+  F2 -->|"TCP"| H
+  F1 -->|"QUIC"| OK["流2 照常送达应用"]
+  F2 -->|"QUIC"| OK
+```
+
+<span class="marginnote">术语翻译：队头阻塞（HOL blocking）就是「一队人过安检，第一个人包里查出违禁品，后面所有人都得等着」——TCP 只认字节序号，不知道里面装了几条 HTTP 流，一个字节丢了全体重排队。</span>
+
+<span class="marginnote">数字实例：一条网页要 3 个流，丢包率 1% 时每个流平均要重传 1 次，TCP 下 3 次重传串行排队；QUIC 下 3 条流独立恢复，最坏也只多等一个 RTT，这就是流 ID 与包号分离设计的收益。</span>
+
+<span class="marginnote">常见误区：0-RTT 不是「跳过加密」。密钥照样要用上次会话票派生，只是省掉了完整握手那一个来回；代价是这批早数据没有抗重放保护，银行转账这种非幂等请求绝不能放进 0-RTT。</span>
+
 ## 边界
 
 本课不引入 DATAGRAM 扩展全文。QUIC 连接迁移是下一课。后课默认：QUIC 多流+集成 TLS；0-RTT 仅幂等。
