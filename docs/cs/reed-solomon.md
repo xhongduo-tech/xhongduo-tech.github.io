@@ -25,6 +25,10 @@ section: cs
 
 <span class="marginnote">Reed–Solomon 1960。Peterson、Berlekamp 译码。Justesen、Guruswami–Sudan 列表译码点名。存储阵列、QR 是应用，不是定义。</span>
 
+<span class="marginnote">直觉类比：两点定一条直线、三点定一条抛物线——$k$ 个系数的多项式由任意 $k$ 个点唯一确定。RS 把消息藏进多项式，只要丢失后还剩 $k$ 个点，就能把整条曲线描回来，缺的符号再代值重算。</span>
+
+<span class="marginnote">数字实例：$k=2,n=4$ 时 $d=n-k+1=3$，能纠 2 个擦除（$n-k$），或 1 个替换错误（$\lfloor(n-k)/2\rfloor$）。QR 码常用的 $\mathrm{GF}(2^8)$ 一个符号 8 比特：整字节被划花也只算 1 个符号错，这正是 RS 对付突发错误的本钱。</span>
+
 ## 方法
 
 用小域手写 $k=2,n=4$ 求值。对照重复码、Hamming：MDS 在给定 $n,k$ 下 $d$ 最大。指出：编码是线性的（Vandermonde）。译码比伴随式定位重，本课只给「插值 / 关键方程」名字。
@@ -42,7 +46,20 @@ flowchart TD
 
 多项式观点与主干 CRC 同族：CRC 检错，RS 纠错并给距离公式。
 
+```mermaid
+flowchart TD
+  RX["收到 n 个符号"] --> KNOWN{"坏位置已知吗?"}
+  KNOWN -->|"是：擦除"| ERA["剩 n-e ≥ k 个好点，直接插值"]
+  KNOWN -->|"否：替换"| ERR["位置未知：先定位再求值"]
+  ERR --> HALF["每个错吃 2 份自由度：t ≤ (n-k)/2"]
+  ERA --> RECON["任取 k 个点重建多项式"]
+  HALF --> RECON
+  RECON --> BACK["代回缺失点补全码字"]
+```
+
 BCH 码把 RS 看成设计距离的子域子码；二进制 BCH 纠少量比特时比 Hamming 更灵活。Guruswami–Sudan 列表译码可超过半距离，代价是列表。级联：外 RS 去突发，内卷积或 LDPC 去随机，是深空通信的经典分层，后课内码。
+
+<span class="marginnote">常见误区：初学者容易觉得「纠 1 个替换错误」与「纠 2 个擦除」两种说法矛盾。其实一致：替换错误的**位置**也得猜，每定位一个错就额外花一份自由度，同样 $n-k$ 的余量拿来纠替换就只剩一半。</span>
 
 ## 边界
 

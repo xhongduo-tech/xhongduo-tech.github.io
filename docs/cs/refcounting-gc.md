@@ -23,6 +23,10 @@ section: cs
 
 程序员不写 free；赋值重载负责。但循环与性能仍是实现问题。C++ `shared_ptr` 循环同样漏。
 
+<span class="marginnote">常见误区：初学者以为 `shared_ptr` 的循环泄漏是「忘了 free」。实际一个 `free` 都没少写——赋值时计数照常减了，只是环内互指让每个对象都还剩 1，谁也到不了 0。</span>
+
+<span class="marginnote">直觉类比：追踪式 GC 像定期大扫除——平时不动、扫时全场暂停；RC 像随手归位——谁用完谁立刻收。代价是每次交接都要记账：借出 +1、归还 -1，账本本身成了运行时开销。</span>
+
 <span class="marginnote">Collins 1960。Bacon、Rajan 等循环回收。Swift ARC。Jones 手册 RC 章。</span>
 
 ## 方法
@@ -41,6 +45,19 @@ flowchart TD
 ## 机制
 
 原子：`increment` 争用热对象。缓冲：把 RC 操作记入线程本地，批量。不要在析构里再形成复杂图而不重入。
+
+<span class="marginnote">数字实例：多核下每秒百万次指针赋值，若每次都原子 `fetch_add`，同一热对象的计数缓存行会在核间来回弹跳。缓冲 RC 把一批操作合并后一次刷入，原子操作次数从 $N$ 降到约 $N/\text{缓冲大小}$。</span>
+
+```mermaid
+flowchart TD
+  ASG["线程内指针赋值"] --> BUF["记入线程本地缓冲：+新对象 / -旧对象"]
+  BUF --> FULL{"缓冲满了吗?"}
+  FULL -->|"未满"| CONT["继续执行，零原子操作"]
+  FULL -->|"满"| FLUSH["合并去重，批量刷入全局计数"]
+  FLUSH --> Z{"有计数归 0?"}
+  Z -->|"是"| FREE["析构并释放该对象"]
+  Z -->|"否"| CONT
+```
 
 与[Option](/cs/null-option)：空指针不 incref。
 
