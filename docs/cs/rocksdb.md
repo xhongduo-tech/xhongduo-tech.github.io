@@ -19,6 +19,8 @@ RocksDB 提供 KV、可选事务（悲观锁或乐观）、快照、检查点、
 
 列族：多套 LSM 共享 WAL，类似多表空间。与宽列不同，仍是 KV。
 
+<span class="marginnote">术语翻译：列族就是「一块引擎里养几棵独立 LSM、共享同一本 WAL」的手段来做「多张表各有各的读写形态」的事——某列族写爆不会把别的列族 SST 全搅乱，恢复时却只用回放一本日志。</span>
+
 <span class="marginnote">RocksDB 源自 LevelDB 加强。本课机制与嵌入边界。不把调参手册抄满。</span>
 
 ## 方法
@@ -39,7 +41,26 @@ flowchart TD
 
 与缓冲池：块缓存代替页池，替换策略仍抗扫描。pin 变成 iterator 钉块。无 B+ latch crabbing，有文件引用计数。TDE 可在文件层。
 
+一次 Get 按「从新到旧」的顺序找最新版本：
+
+```mermaid
+flowchart TD
+  GET["调用 Get key"] --> MT["查活跃 memtable"]
+  MT --> F1{"命中？"}
+  F1 -->|"是"| RET["返回该值"]
+  F1 -->|"否"| IMM["查 immutable memtable"]
+  IMM --> F2{"命中？"}
+  F2 -->|"是"| RET
+  F2 -->|"否"| SST["逐层查 SST：布隆先挡一手"]
+  SST --> NEWEST["各处命中取序列号最新的记录"]
+  NEWEST --> RET
+```
+
+<span class="marginnote">数字实例：设 4 层 leveled compaction，最坏一次 Get 要查 memtable 加 4 层 SST 共 5 个地方；但布隆过滤器能先一步否掉「键不在这层」的查询，绝大多数未命中的读只付 5 次布隆探测加约 1 次磁盘 I/O。读放大是 LSM 用空间换的。</span>
+
 版本：快照序列号，GC 与 compaction 水位——MVCC GC 课的 LSM 实例。
+
+<span class="marginnote">直觉类比：快照序列号像给每个写入盖一个递增的邮戳。事务拿快照等于抄下一个邮戳数，之后无论 compaction 怎么搬数据，它都只认「邮戳不晚于自己快照」的最新版本，新写入再快也插不进它的视野。</span>
 
 ## 边界
 

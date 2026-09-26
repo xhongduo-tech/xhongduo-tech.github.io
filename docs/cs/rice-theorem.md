@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-性质 $P$ 是一组 RE 语言。对应的指标集 $I_P=\{\langle M\rangle\mid L(M)\in P\}$。非平凡：存在 $M_1,M_2$，$L(M_1)\in P$、$L(M_2)\notin P$。Rice：每个这样的 $I_P$ 不可判定。证明骨架：把 $A_{\mathrm{TM}}$ 化到 $I_P$。不妨设 $\emptyset\notin P$（否则做补）。取固定的 $M_+$ 使 $L(M_+)\in P$。给定 $\langle M,w\rangle$，造 $M'$：先模拟 $M(w)$，若接受再模拟 $M_+$。则 $L(M')=L(M_+)$ 或 $\emptyset$，于是 $\langle M'\rangle\in I_P\iff M$ 接受 $w$。
+性质 $P$ 是一组 RE 语言。对应的指标集 $I_P=\{\langle M\rangle\mid L(M)\in P\}$。<span class="marginnote">「指标集」翻译成大白话：把所有语言满足性质 $P$ 的机器编码打包成一个集合。要判定的问题只有一个——这台机器的编码在不在集合里。Rice 定理说：只要 $P$ 非平凡，这个「在不在」就没算法可判。</span>非平凡：存在 $M_1,M_2$，$L(M_1)\in P$、$L(M_2)\notin P$。Rice：每个这样的 $I_P$ 不可判定。证明骨架：把 $A_{\mathrm{TM}}$ 化到 $I_P$。不妨设 $\emptyset\notin P$（否则做补）。取固定的 $M_+$ 使 $L(M_+)\in P$。给定 $\langle M,w\rangle$，造 $M'$：先模拟 $M(w)$，若接受再模拟 $M_+$。则 $L(M')=L(M_+)$ 或 $\emptyset$，于是 $\langle M'\rangle\in I_P\iff M$ 接受 $w$。
 
 句法性质不在范围内：「$M$ 是否恰有 5 个状态」可判定。语义是外延 $L(M)$。
 
@@ -42,9 +42,22 @@ flowchart TD
 
 定理依赖通用模拟：才能让 $M'$ 在「先做 $M(w)$」之后变成另一台已知机器。有限自动机没有这种通用性，Rice 不适用。这解释为何词法器可以判定等价，而任意程序不能判定「是否认同一语言」。
 
+<span class="marginnote">直觉类比：$M'$ 的构造把「$M$ 是否接受 $w$」藏进了一个启动开关——只有 $M$ 接受，$M'$ 才表现成那台已知的好机器 $M_+$；否则它永远空转成空语言。于是原问题被原封不动翻译成「$\langle M'\rangle$ 在不在指标集里」。</span>
+
+```mermaid
+flowchart TD
+  IN["输入 ⟨M, w⟩"] --> BUILD["构造 M′：先模拟 M(w)"]
+  BUILD -->|"M 接受 w"| RUNP["继续模拟固定机器 M₊"]
+  BUILD -->|"M 不接受或不停"| LOOP["M′ 原地不停机"]
+  RUNP --> L1["L(M′) = L(M₊)，属 P"]
+  LOOP --> L2["L(M′) = ∅，不属 P"]
+  L1 --> DEC["判定 ⟨M′⟩ 是否在指标集里，等价于判定 M 是否接受 w"]
+  L2 --> DEC
+```
+
 Rice 不阻止近似、静态分析、受限语言上的判定；它阻止的是全 TM 类上的精确语义问题。
 
-「$M$ 是否在输入 $\varepsilon$ 上三步内停」不是语义：$L(M)$ 相同的机器可以在 $\varepsilon$ 上行为不同（若谈的是具体运行）。Rice 只管外延。指标集可以不可判定却仍 RE（如 $A_{\mathrm{TM}}$ 投影），也可以两边都不是 RE。定理只给不可判定这一口。
+「$M$ 是否在输入 $\varepsilon$ 上三步内停」不是语义：$L(M)$ 相同的机器可以在 $\varepsilon$ 上行为不同（若谈的是具体运行）。Rice 只管外延。<span class="marginnote">常见误区：把「这段程序会不会崩」交给 Rice。判据是——换一台认同一语言的机器，结论会不会变？会变（如「三步内停」）就不是语义性质，要回归约；不变（如「语言非空」）才轮到 Rice。</span>指标集可以不可判定却仍 RE（如 $A_{\mathrm{TM}}$ 投影），也可以两边都不是 RE。定理只给不可判定这一口。
 
 
 ## 边界

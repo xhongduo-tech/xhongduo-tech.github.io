@@ -35,7 +35,27 @@ flowchart TD
 
 rmap 让「物理内存是共享资源」可执行：回收不必知道进程号先验。它是后课迁移、THP 拆页、mlock 会计的底座。不要写成数据库二级索引课，虽然结构都是反查。与 [RDMA](/cs/rdma-os) 钉页：钉住的页 rmap 仍在，但不能换出。
 
+回收时匿名页与文件页走的是两条不同的反查路径，最后在「改写 pte」处汇合：
+
+```mermaid
+flowchart TD
+  A["回收扫描选中候选页"] --> B{"页的类型？"}
+  B -->|"匿名页"| C["沿 anon_vma 找映射 vma"]
+  B -->|"文件页"| D["沿 i_mmap 找映射 vma"]
+  C --> E["遍历 vma 内相关 pte"]
+  D --> E
+  E --> F["清 pte 并写入 swap 或文件项"]
+  F --> G["TLB shootdown"]
+  G --> H["页框可写回或释放"]
+```
+
+<span class="marginnote">try_to_unmap 就是用「反查每条 pte 并改写」的手段来做「解除映射但不丢数据」的事：匿名页的 pte 改成 swap 项，文件页的 pte 改成文件偏移项，下次访问再从对应来源装回。</span>
+
+<span class="marginnote">数字实例：一个被 fork 出 100 个子进程仍共享的 COW 页，rmap 链上挂着 100 条 pte；回收这一页就要改写 100 条表项并触发 100 次 TLB 失效。共享者越多，回收越贵——这就是 rmap 的代价所在。</span>
+
 fork 复杂度与 rmap 锁是可伸缩痛点，实现用锁分段。
+
+<span class="marginnote">常见误区：初学者容易以为回收一页只需改一份页表。实际上共享页的每一条 pte 都要逐条处理，漏掉任何一条，其他进程就还能通过旧映射访问已被复用的页框，造成数据串页。这也是 TLB shootdown 要跨 CPU 同步的原因。</span>
 
 
 实现上：anon_vma 锁是回收路径的热点，锁分段与批量 unmap 都为这个。KSM 合并后 rmap 更长，try_to_unmap 更贵。文件截断走 i_mmap，要和页锁交织。 读法上只引用[上一课](/cs/socket-options)的结论，不把对象换成训练推理或限价簿。

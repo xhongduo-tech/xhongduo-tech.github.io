@@ -15,13 +15,13 @@ section: cs
 
 ## 问题
 
-`csrrw`/`csrrs`/`csrrc`（及立即数变体）按 12 位地址读写 CSR，同时把旧值写进 `rd`。教学需要认识的名字：`mtvec`、`mepc`、`mcause`、`mstatus`（特权课再讲谁能写）。`ecall`：同步陷阱，不经 `jal`，硬件保存 PC、跳到入口。[异常入口](/cs/exception-interrupt-entry)展开路径；本课先把指令与 CSR 编号钉进 ISA。
+`csrrw`/`csrrs`/`csrrc`（及立即数变体）按 12 位地址读写 CSR，同时把旧值写进 `rd`。<span class="marginnote">CSR 翻译成大白话：CPU 自己的「仪表盘」。通用寄存器是干活的手，CSR 记录机器本身的状态——陷阱入口在哪、中断开没开、出了什么事。读写它们不用 load/store，而是 csrrw 这类专用指令。</span>教学需要认识的名字：`mtvec`、`mepc`、`mcause`、`mstatus`（特权课再讲谁能写）。`ecall`：同步陷阱，不经 `jal`，硬件保存 PC、跳到入口。[异常入口](/cs/exception-interrupt-entry)展开路径；本课先把指令与 CSR 编号钉进 ISA。
 
 `ebreak` 给调试器。用户态乱写 CSR 会非法——特权级后置，本课承认「不是谁都能写」。
 
 ### `ecall` 不是函数调用约定
 
-没有编译器安排的 `ra` 与栈帧。返回用 `mret`/`sret` 从 CSR 取 PC。把 `ecall` 当成 `jal` 到操作系统，会把 ABI 与陷阱混层。
+没有编译器安排的 `ra` 与栈帧。返回用 `mret`/`sret` 从 CSR 取 PC。把 `ecall` 当成 `jal` 到操作系统，会把 ABI 与陷阱混层。<span class="marginnote">直觉类比：`jal` 是自己串门，记得回来的路；`ecall` 是敲门进办公室——保安（硬件）记下你站的位置（mepc）、把你带到固定窗口（mtvec），办完事再送你回原位（mret）。</span>
 
 <span class="marginnote">特权手册定义 CSR 地址与 `mcause` 编码。Patterson/Hennessy 用系统调用说明用户/内核边界，细节在后课。本课不把 SBI 功能表抄完。</span>
 
@@ -38,7 +38,16 @@ flowchart TD
 
 ## 机制
 
-后课伪指令 `csrr`/`csrw` 是这些指令的简写。单周期要为 CSR 加端口与异常 MUX；没有本课，`lw` 故障无处可跳。中断使能位在 `mstatus`，采样在后课 PLIC 之前先有软件可写的开关。
+后课伪指令 `csrr`/`csrw` 是这些指令的简写。<span class="marginnote">常见误区：把 `csrrw rd, csr, rs1` 当成「先读、后写」两条指令。它是一条指令内原子地「旧值进 rd、新值进 CSR」，中间不会插进别的硬件访问——多核同步原语常建在这种原子交换上。</span>单周期要为 CSR 加端口与异常 MUX；没有本课，`lw` 故障无处可跳。中断使能位在 `mstatus`，采样在后课 PLIC 之前先有软件可写的开关。
+
+```mermaid
+flowchart TD
+  E["用户态执行 ecall"] --> SAVE["硬件写 mepc ← 当前 PC"]
+  SAVE --> CAUSE["硬件写 mcause ← 环境调用原因"]
+  CAUSE --> JUMP["跳到 mtvec 指向的入口"]
+  JUMP --> H["陷入处理程序运行"]
+  H --> MR["mret：从 mepc 取回 PC 返回"]
+```
 
 ## 边界
 

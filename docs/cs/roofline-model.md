@@ -23,6 +23,10 @@ section: cs
 
 测或查：$B$ 为有效带宽（注意 [NUMA](/cs/multi-socket-interconnect) 与 [合并](/cs/memory-coalescing)），$F$ 为峰值 FLOP/s（注意向量宽度与频率墙）。画 $P\le \min(F, B\cdot I)$。把内核画成点；优化：提高 $I$（复用、blocking、[脉动](/cs/systolic-array)）或提高有效 $B$（预取、合并、放对层次）。
 
+<span class="marginnote">术语翻译：算术强度就是「每搬一字节内存能换多少次运算」的汇率。直觉类比：带宽像货运卡车每小时能拉多少箱货，算力像仓库每小时能拆多少箱；汇率太低时仓库闲着干等，加拆箱工毫无用处，得先把卡车趟数省下来。</span>
+
+<span class="marginnote">数字实例：双精度向量加 $a_i=b_i+c_i$ 做 2 次 FLOP，却要读 16 字节、写 8 字节，$I\approx 0.083$ FLOP/字节——典型带宽受限。$n\times n$ 矩阵乘做 $2n^3$ FLOP、只搬约 $12n^2$ 字节，$n=1024$ 时 $I\approx 171$——典型计算受限。同一个屋顶，两种病。</span>
+
 ```mermaid
 flowchart TD
   I["算术强度"] --> CMP["与 F/B 比较"]
@@ -35,6 +39,22 @@ flowchart TD
 与 Amdahl 正交：Amdahl 是串行比，Roofline 是已并行内核的强度。DSA 与 GPU 各有自己的屋顶。不要在这里画大模型训练的集群 Roofline 当本课主体。gem5 下一课可以输出用于画屋顶的计数，但模拟带宽要校准。
 
 点落在屋顶之下：还有对齐、bank 冲突、[发散](/cs/warp-divergence)、指令混合不是峰值 FMA。屋顶是上界，不是自动达到的工作点。先垂直爬到屋顶（微结构/向量化），再沿强度轴右移（算法 blocking）。
+
+测得实际工作点之后，优化按「先爬屋顶、再右移」两步走：
+
+```mermaid
+flowchart TD
+  M["测出内核的实际性能点"] --> Q{"点已贴在屋顶上？"}
+  Q -->|"是"| ALG["转算法层：提高强度 I"]
+  Q -->|"否"| MIC["查微结构：对齐、bank 冲突、发散、FMA 占比"]
+  MIC --> V["垂直爬：向量化、预取，抬高有效带宽"]
+  V --> S{"离屋顶还有明显差距？"}
+  S -->|"仍有"| MIC
+  S -->|"贴近"| ALG
+  ALG --> M
+```
+
+<span class="marginnote">常见误区：初学者容易把屋顶线当成承诺的性能。实际上屋顶只是天花板：点悬在下面还可能因为数据没对齐、bank 冲突、分支发散、指令混比不是纯 FMA——先把这些「漏气点」补上，加核或加向量宽度才有意义。</span>
 
 ## 边界
 

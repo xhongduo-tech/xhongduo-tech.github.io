@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-没有 H 时，VMM 只能用影子页表，或把客内核当用户进程跑。[Sv39](/cs/sv39-page-table) 的 `satp` 只有一套根。H 扩展引入：HS（hypervisor 扩展的 S）、VS（虚拟 S）、VU（虚拟 U）。客 OS 以为自己在写 `satp`，硬件实际用 VS-stage 把 GVA→GPA，再用 `hgatp` 的 G-stage 把 GPA→HPA。缺口不是再解释「什么是虚拟机」，而是**第二层页表挂在哪颗 CSR 上**。
+没有 H 时，VMM 只能用影子页表，或把客内核当用户进程跑。[Sv39](/cs/sv39-page-table) 的 `satp` 只有一套根。H 扩展引入：HS（hypervisor 扩展的 S）、VS（虚拟 S）、VU（虚拟 U）。客 OS 以为自己在写 `satp`，硬件实际用 VS-stage 把 GVA→GPA，再用 `hgatp` 的 G-stage 把 GPA→HPA。<span class="marginnote">直觉类比：两阶段翻译像挂号信——客内核按自己城市（GPA）填地址，邮局（G-stage）再把城市名换算成真实门牌（HPA）。客内核永远不知道真实门牌被换过，这就是隔离的来源。</span>缺口不是再解释「什么是虚拟机」，而是**第二层页表挂在哪颗 CSR 上**。
 
 两层都可以缺：VS 缺页交给客内核；G-stage 缺页（GPA 未映射）交给 hypervisor，对应 EPT violation。
 
@@ -27,7 +27,7 @@ M 态仍是最高。Hypervisor 跑在 HS，不靠把全部敏感指令降到机�
 
 ## 方法
 
-VMM 为每个客机配置 `hgatp`（G-stage 根，格式可与 Sv39 同类树）。客内核照常填自己的页表。取指与 load/store 经两层；TLB 缓存组合结果，`HFENCE.VVMA` / `HFENCE.GVMA` 分别冲客与 G-stage，对象不是 [内存 fence](/cs/fence-instructions)。
+VMM 为每个客机配置 `hgatp`（G-stage 根，格式可与 Sv39 同类树）。客内核照常填自己的页表。取指与 load/store 经两层；TLB 缓存组合结果，`HFENCE.VVMA` / `HFENCE.GVMA` 分别冲客与 G-stage，对象不是 [内存 fence](/cs/fence-instructions)。<span class="marginnote">「HFENCE」翻译成大白话：冲 TLB 的专用指令。VVMA 冲「某客机某地址空间」的旧翻译，GVMA 冲 G-stage 的旧翻译——两层各有一份缓存，只冲一层，另一层还会继续给出过期地址。</span>
 
 Hypervisor 需要读客虚拟地址：`HLV`/`HSV` 一类指令在 HS 按 VS 翻译访问客内存，避免自己切 `satp`。中断：注入与委托走 `hideleg`/`hvip`，对照 GIC 虚拟化，本课只点名。
 
@@ -45,6 +45,17 @@ flowchart TD
 ## 机制
 
 ISA 对照轴上，H 把 RISC-V 的特权故事补到与 EL2/VMX 可引用的位置：页表格式仍是 Sv39 一类树，只是串了两次。用户态整数、压缩、向量并不因 H 改变编码。下一课位操作扩展回到 ALU：地址生成与位域仍是编译器每天发射的缺口，与虚拟化正交。
+
+<span class="marginnote">常见误区：把 G-stage 缺页当客内核的 bug。它是 hypervisor 侧的映射问题——客物理页还没分配或被换出——修复动作发生在宿主，客内核全程不知情；VS 缺页才归客内核管。</span>
+
+```mermaid
+flowchart TD
+  ACC["客机访存，硬件开始两层翻译"] --> VS{"VS-stage 命中吗"}
+  VS -->|"缺页"| GOS["VS 缺页：注入客内核，客内核自己填 PTE"]
+  VS -->|"命中"| GS{"G-stage 命中吗"}
+  GS -->|"缺页"| VMM["G-stage 缺页：陷入 hypervisor 补映射"]
+  GS -->|"命中"| OK["两层合成，访问宿主物理内存"]
+```
 
 ## 边界
 

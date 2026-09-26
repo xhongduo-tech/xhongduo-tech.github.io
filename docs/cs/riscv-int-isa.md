@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-格式课给出 R/I/S/B/U/J。缺口是 RV32I 核心操作：`add`/`sub`/`and`/`or`/`xor`/`sll`/`slt` 等 R 型；立即数版本 `addi`、`lw` 的地址 `rs1+imm`、`sw` 的 S 型；`beq`/`bne`/`blt`/`bltu` 相对 PC 的偏移；`jal`/`jalr` 写返回地址；`lui`/`auipc` 建宽常数。`x0` 硬接 0，写它丢弃。
+格式课给出 R/I/S/B/U/J。缺口是 RV32I 核心操作：`add`/`sub`/`and`/`or`/`xor`/`sll`/`slt` 等 R 型；立即数版本 `addi`、`lw` 的地址 `rs1+imm`、`sw` 的 S 型；`beq`/`bne`/`blt`/`bltu` 相对 PC 的偏移；`jal`/`jalr` 写返回地址；`lui`/`auipc` 建宽常数。`x0` 硬接 0，写它丢弃。<span class="marginnote">数字实例：硬件里 x0 根本没有存储单元，读它永远得 0，写它等于把结果扔进垃圾桶。伪指令全靠它兜底：`mv rd, rs` 就是 `addi rd, rs, 0`，`li rd, 100` 就是 `addi rd, x0, 100`。</span>
 
 本课只钉整数用户级子集。CSR、特权、浮点、`fence` 的完整内存模型后置。
 
@@ -39,6 +39,19 @@ flowchart TD
 ## 机制
 
 有了语义，才能说「这条指令需要两个读口、一个写口、ALU、数据存储器」。没有的功能（整数除法在 M 扩展）本课不假装存在。伪指令 `li`、`mv` 是汇编器合成，硬件仍只看见真实编码。
+
+<span class="marginnote">常见误区：以为 `sw` 要「先读内存再写」。它只读寄存器（基址与待存数据）、只写内存，不碰内存读口——数据通路上存储器的读与写端口是分开的，这也是 `sw` 不产生 rd 写回的原因。</span>
+
+12 位立即数只够表示 $\pm 2048$，要装大常数就先 `lui` 装高 20 位、再 `addi` 补低 12 位——像先写上门牌的大区号，再补门牌尾号。<span class="marginnote">`auipc` 同理，只是基准换成当前 PC：`auipc rd, 0` 直接把 PC 存进寄存器，是位置无关代码取「自己地址」的标准手法。</span>
+
+```mermaid
+flowchart TD
+  CLS["一条 RV32I 指令"] --> R["R 型运算：读 2 寄存器，ALU，写 1 寄存器，pc+4"]
+  CLS --> L["lw：读 1 寄存器加立即数算地址，访存，写 1 寄存器，pc+4"]
+  CLS --> S["sw：读 2 寄存器，只写内存，pc+4"]
+  CLS --> B["beq：读 2 寄存器，比较器定分支，pc+偏移"]
+  CLS --> J["jal：不读寄存器，写 ra，pc 跳目标"]
+```
 
 对齐：`lw` 地址应 4 的倍数，否则异常——入口课再接。本课承认约束。
 

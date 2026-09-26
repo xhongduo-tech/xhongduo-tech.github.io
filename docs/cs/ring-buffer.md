@@ -17,13 +17,13 @@ section: cs
 
 队列用动态数组在队头 `pop` 若每次把剩余元素左移，是 $\Theta(n)$。把头指针前移则留下空洞。缺口是**逻辑下标对 `cap` 取模**：物理槽循环使用，元素只在 enqueue/dequeue 时写一次。容量用尽不在本课倍增——有界缓冲把背压写成「满则失败或等待」。
 
-`head==tail` 既像空又像满。必须另用 `count`，或规定「满时浪费一槽」使满为 `(tail+1)%cap==head`。
+`head==tail` 既像空又像满。必须另用 `count`，或规定「满时浪费一槽」使满为 `(tail+1)%cap==head`。<span class="marginnote">常见误区：以为 `head==tail` 一个等式就能同时表达空和满——不行，两种状态下它都成立。所以必须有第三样信息：要么维护 `count` 计数，要么规定满时永远留一个空槽不用。</span>
 
 <span class="marginnote">硬件环形缓冲与软件相同：指针前进、环绕。流水线寄存器链是深度固定、不能绕回的退化环。</span>
 
 ## 方法
 
-槽 `a[0..cap)`。入队写 `a[tail]`，`tail=(tail+1)%cap`。出队读 `a[head]`，`head=(head+1)%cap`。deque 的另一端对称。合法元素是从 `head` 走 `count` 步，不要扫整表。
+槽 `a[0..cap)`。入队写 `a[tail]`，`tail=(tail+1)%cap`。出队读 `a[head]`，`head=(head+1)%cap`。<span class="marginnote">数字实例：$cap=8$ 时 tail 走到 7 再前进，$(7+1)\bmod 8=0$，直接绕回 0 号槽，一个元素都不用搬——模算术把线性数组的尾巴接回脑袋，逻辑上就成了一个环。</span>deque 的另一端对称。合法元素是从 `head` 走 `count` 步，不要扫整表。
 
 ```mermaid
 flowchart LR
@@ -39,7 +39,15 @@ flowchart LR
 
 顺序走环，空间局部性好，直到绕回边界：那一次访问从高地址跳到 `a[0]`，可能换页、换 cache 行集合。比链表仍稳。定容使实时系统最坏 $\Theta(1)$，没有动态数组那次线性复制。
 
-与动态数组：环不改基址，已取出的指针若指向槽会在复用后别名——合同应禁止握着已出队槽。动态数组改基址，失效模式不同。
+```mermaid
+flowchart TD
+  E["enqueue：写 a[tail]"] --> T1["tail = (tail+1) % cap"]
+  T1 -->|"tail 追上 head"| FULL["满：失败或等待（背压）"]
+  D["dequeue：读 a[head]"] --> H1["head = (head+1) % cap"]
+  H1 -->|"head == tail"| EMPTY["空：暂无数据可读"]
+```
+
+与动态数组：环不改基址，已取出的指针若指向槽会在复用后别名——合同应禁止握着已出队槽。动态数组改基址，失效模式不同。<span class="marginnote">直觉类比：网卡驱动里的 DMA 描述符环就是硬件级环形缓冲——驱动填好描述符后推 tail，网卡取走后推 head，两端各管一个指针、永不写同一格。这正是环形布局对单生产者单消费者无锁友好的原因。</span>
 
 ## 边界
 
