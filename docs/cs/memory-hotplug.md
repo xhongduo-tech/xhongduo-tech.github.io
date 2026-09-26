@@ -50,8 +50,6 @@ flowchart TD
 
 和 inflight DMA：必须先停设备或 bounce。
 
-<span class="marginnote">为什么 DMA 也要管：设备记的是物理地址。页被迁走后若网卡仍按旧地址写入，数据会落进已不属于它的帧——所以下线前必须先停设备，或把传输 bounce 到别处再做迁移。</span>
-
 
 实现上：section 粒度意味着不能下线任意一页。内核 .data 若落在可下线区，offline 永远失败，所以 ZONE_MOVABLE 存在。ACPI 通知与手动 probe 是两条上线路径。 读法上只引用[上一课](/cs/userfaultfd)的结论，不把对象换成训练推理或限价簿。
 
