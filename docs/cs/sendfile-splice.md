@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">`copy_file_range` 是文件到文件的亲戚。本课不把 sk_buff 结构写完，那是网络栈第一课。</span>
 
+<span class="marginnote">数字实例：用 read+write 发一个 100 KB 文件，数据要在内存里整体走 CPU 两趟（页缓存→用户缓冲、用户缓冲→socket 队列）再加一次 DMA；换成 sendfile，CPU 拷贝从 2 次降到 0 次——传输 1 GB 就省下约 2 GB 的内存带宽。</span>
+
 ## 方法
 
 静态文件：`open` 文件，`sendfile(out_sock, in_file, &off, len)`。内核 `do_splice_to` 从 file 拉页，`do_splice_from` 推向 socket。若页需修改（如加 TLS 头），走一次拷贝。对照 mmap+write：仍可能拷；sendfile 意图是避免用户态触及。对照 FUSE：用户态 FS 的页可能无法零拷贝。
@@ -36,8 +38,22 @@ flowchart TD
 
 文件系统进阶到此：布局到接口都已接到「字节如何离开内核」。下一单元从块层调度器开始，那些页最终要排成对设备的请求。
 
+上面那张图只画了 sendfile 的正向路径；下面这张把两条路线并排放，回答「拷贝次数差在哪、什么时候零拷贝会降级」。
+
+```mermaid
+flowchart TD
+  R1["read+write: 页缓存 → 用户缓冲"] --> R2["→ socket 队列"] --> R3["→ DMA 出网卡"]
+  M["字节需要修改? 如加 TLS 头"] -->|"是"| C["降级走一次拷贝"]
+  M -->|"否"| S1["sendfile: 文件页直接挂进 socket 队列"]
+  S1 --> S2["DMA 出网卡"]
+```
+
 
 实现上：TLS 内核卸载或需要修改字节时，零拷贝会降级。splice 进管道受管道容量限制，大文件要循环。copy_file_range 可在 FS 内克隆块（reflink），那是另一条减拷贝。 读法上只引用[上一课](/cs/posix-aio)的结论，不把对象换成训练推理或限价簿。
+
+<span class="marginnote">术语翻译：splice 的「管道当中转」就是在内核里造一个 FIFO——文件端往管道里塞页引用，套接字端从管道里取。管道容量有限（Linux 默认 16 个页缓冲、共 64 KB），所以大文件要在应用层循环调用。</span>
+
+<span class="marginnote">常见误区：把「零拷贝」理解成「字节一次都没被碰过」。实际上统计计数、checksum、安全钩子仍可能触碰数据；零拷贝承诺的是「不经用户态、CPU 不做整体 memcpy」，不是绝对不碰。</span>
 
 本课在操作系统进阶的「文件系统实现 / 接口进阶」课序里，对象是 **sendfile 与 splice**。
 

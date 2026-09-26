@@ -19,6 +19,10 @@ ACK 语义：收到内存 vs 已 fsync，差一档 RPO。缺口是**主挂时选
 
 性能：提交延迟 ≈ 组提交 + 网络 RTT + 备库刷盘。跨 AZ 明显。组提交窗口可等一批一起发，与半同步叠加。
 
+<span class="marginnote">术语翻译：ACK 有两档含义——「收到内存」是备库把日志放进接收缓冲就算数，备库机器若此时断电就丢；「已 fsync」是日志真正写到盘上，断电也不丢。合同写「k 个 ACK」时若不写档位，RPO 完全是两个等级。</span>
+
+<span class="marginnote">数字实例：本地组提交加 fsync 约 1 ms；跨可用区 RTT 常到 1-2 ms、备库 fsync 再 1 ms——半同步把每次提交从约 1 ms 拉到约 3-4 ms，对每秒上万次提交的库就是吞吐掉一档的量级。</span>
+
 <span class="marginnote">MySQL after_sync/after_commit 差异是产品坑。Postgres `synchronous_commit` 与 `synchronous_standby_names`。本课 k-ACK 机制。</span>
 
 ## 方法
@@ -40,6 +44,20 @@ flowchart TD
 乱序：备库 apply 可落后于收到；若 ACK 只表示收到，升主后还要 apply 完才服务——RTO 含追平。若 ACK=apply+fsync，延迟更大、RTO 更干净。
 
 脑裂：旧主复活仍接写，需 fencing（STONITH、时间线 id）。后课分布式会再遇。
+
+上面那张图回答「一次提交怎么等 ACK」；下面这张回答主挂之后的事——升主不是随便挑一台，选错备库会把已 ACK 的提交丢掉。
+
+```mermaid
+flowchart TD
+  A["主库宕机"] --> B["收集各备库日志位置"]
+  B --> C["选最前的已 ACK 备库"]
+  C --> D["提升为新主"]
+  D --> E["fencing 旧主: STONITH 或时间线"]
+  D --> F["落后备库追平日志"]
+  F --> G["重新加入 k 名单"]
+```
+
+<span class="marginnote">直觉类比：fencing 是给旧主发一张「通行证作废令」——STONITH（Shoot The Other Node In The Head）干脆直接断它的电。宁可旧主彻底缺席，也不能让它带着过期数据继续接客；「我还没死」的旧主比「已死」的更危险。</span>
 
 ## 边界
 
