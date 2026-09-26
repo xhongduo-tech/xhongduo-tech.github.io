@@ -19,6 +19,8 @@ section: cs
 
 读：当前读可能等，快照读带过去时间。与读己之写：全局戳可比较。
 
+<span class="marginnote">术语翻译：commit wait 就是「提交前先把本地时钟的不确定区间睡过去」。TrueTime 说「现在是 $[t_e,t_l]$ 之间的某刻」，等过了 $t_l$，这一刻就铁定成为过去，后来者的时间戳必然更大，读序不会再变。</span>
+
 <span class="marginnote">Corbett et al. OSDI 2012。Cockroach 用 HLC 近似，无 Google 真时钟。本课 TrueTime 机制。计算机栏 HLC 课可对照，此处不重推混合逻辑钟。</span>
 
 ## 方法
@@ -37,6 +39,20 @@ flowchart TD
 
 ## 机制
 
+```mermaid
+flowchart TD
+  T1["事务 T1 提交"] --> G["取 TT.now() 的 latest"]
+  G --> Q{"等待到区间过去?"}
+  Q -->|"是"| OK["T2 开始时必拿更大戳"]
+  Q -->|"否"| BAD["T2 可能拿到早于 T1 真实提交的戳"]
+  BAD --> VIOL["外部一致被破坏"]
+  OK --> EXT["时间戳序 = 真实时间序"]
+```
+
+这张图回答的是：省掉 commit wait 到底坏了哪条性质——不等待时 T2 的戳可能落在 T1 真实提交时刻之前，事后用这两个戳读数据会读到与因果相反的序。
+
+<span class="marginnote">数字实例：设 $\epsilon=4$ 毫秒。每次写事务都要多等最多 4 毫秒才返回提交，一秒内做 200 次小事务就白付近 0.8 秒墙钟等待。这正是 Google 用 GPS 与原子钟把 $\epsilon$ 压到毫秒级的原因——误差每降 1 毫秒，所有写延迟的尾巴都跟着降。</span>
+
 故障：Paxos 选主，RPO 由多数盘决定。RTO 含选举。$\epsilon$ 抖动直接进尾延迟。隔离：可串行、外部一致，比 SI 强。
 
 SQL：Spanner 提供 SQL，优化器仍要分片裁剪与 shuffle——本课不重做连接。
@@ -48,6 +64,8 @@ SQL：Spanner 提供 SQL，优化器仍要分片裁剪与 shuffle——本课不
 后课默认：真时间+等待可得外部一致时间戳。分布式死锁：2PC 与锁跨组时 WFG 跨网络。
 
 没有误差界的 NTP 不能当 TrueTime 用。
+
+<span class="marginnote">常见误区：初学者容易以为 NTP 校准后的时钟也能当 TrueTime 用。NTP 只给一个「大概对」的值，不承诺误差上界；没有「最迟不超过 $t_l$」的合同，commit wait 就不知道该睡多久——外部一致性的代价正是这个被硬件保证的上界。</span>
 
 ## 小结
 
