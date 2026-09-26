@@ -23,6 +23,8 @@ section: cs
 
 `.a` 不是可执行。成员是 `.o`。ranlib 符号表加速查找。不要和 `.so` 混。
 
+<span class="marginnote">直觉类比：`.o` 是端上桌的固定菜，`.a` 归档是菜单——只有你真的点了（出现未定义引用），厨师才现做（抽取对应成员）。没人点的菜永远不上桌，这就是「按需抽取」。</span>
+
 <span class="marginnote">Levine 的 Linkers and Loaders。GNU ld。主干 link-reloc 课。本课补归档与解析策略。</span>
 
 ## 方法
@@ -39,9 +41,23 @@ flowchart TD
 
 与可见性：`hidden` 不进动态符号表，但仍参与静态解析。
 
+<span class="marginnote">常见误区：以为库里有什么就全链进来。归档成员只有命中当前未定义引用才会被抽取，所以命令行顺序很重要——`-lm` 这类库通常要放在用到它的目标文件之后，否则符号没人「点」就丢。</span>
+
 ## 机制
 
 循环依赖库要用组或合并 `.o`。不要靠运气次序。C++ 静态构造的拉入：归档可能丢掉只含构造函数的成员，需 `--whole-archive` 或显式引用。
+
+```mermaid
+flowchart TD
+  SCAN["从左到右扫描输入"] --> CHK{"未定义符号命中某归档成员？"}
+  CHK -->|"是"| EXT["抽取该成员的 .o"]
+  EXT --> NEW["它又引入新的未定义"]
+  NEW --> CHK
+  CHK -->|"否"| NEXT["继续处理下一个输入"]
+  NEXT --> FAIL["结束时仍有未定义：报错"]
+```
+
+<span class="marginnote">为什么重要：一个成员若只被 C++ 全局对象的构造函数引用，扫描到它时未定义集合里可能还没有那个符号，成员被跳过，构造函数悄悄丢失——这时只能 `--whole-archive` 强制拉入全部成员。</span>
 
 弱符号服务内联与模板的 COMDAT，下一课 ICF 再折同码。
 
