@@ -15,9 +15,9 @@ section: cs
 
 ## 问题
 
-浏览器不直连应用进程。反向代理：证书、HTTP/1.1 到后端 H2 的转换、压缩、WAF、限流令牌桶。`X-Forwarded-For` 传原 IP，信任边界要钉。缓冲：代理若把 SSE 攒满再发，实时死——接 SSE 课。WS 要 Upgrade 透传。
+浏览器不直连应用进程。反向代理：证书、HTTP/1.1 到后端 H2 的转换、压缩、WAF、限流令牌桶。`X-Forwarded-For` 传原 IP，信任边界要钉。<span class="marginnote">常见误区：以为后端见到 X-Forwarded-For 就能无条件相信。客户端可以伪造这个头——只有「最外层代理负责写入、后端只信任与自己直连的那一跳」这条链才是安全的。</span>缓冲：代理若把 SSE 攒满再发，实时死——接 SSE 课。WS 要 Upgrade 透传。
 
-不要把反向代理写成正向代理（客户端配置出去）。
+不要把反向代理写成正向代理（客户端配置出去）。<span class="marginnote">方向记法：正向代理替「客户端」出门办事，服务器不知道真客户是谁；反向代理替「服务器」接客，客户端不知道后面有几台真服务器。两者共用同一套 HTTP 语义，方向相反。</span>
 
 <span class="marginnote">RFC 9110 定义 proxy/gateway。本课不点名 nginx 配置项当标准。</span>
 
@@ -39,6 +39,18 @@ flowchart TD
 ## 机制
 
 连接池摊销后端握手，像 HTTP 持久。TSO 在代理两侧。健康检查由代理做。Cookie 会话可钉后端。QUIC 在代理终止，后端常 HTTP/1.1。PMTUD 在两段各自发生。
+
+```mermaid
+flowchart TD
+  IN["客户端请求到达（TLS 已终止）"] --> HDR["改写头：补 X-Forwarded-For"]
+  HDR --> HOP["剥掉 hop-by-hop 头"]
+  HOP --> BUF["缓冲决策：普通请求可缓冲，SSE 必须直通"]
+  BUF --> POOL["从后端连接池取一条连接"]
+  POOL --> FWD["转发到后端并等待响应"]
+  FWD --> HEALTH["健康检查失败则摘除该后端"]
+```
+
+<span class="marginnote">hop-by-hop 头就是「只属于这一跳」的头，如 Connection、Transfer-Encoding：代理收到就该自己消化，不原样转给下一跳；Authorization 这类端到端头才要透传。转错方向，协议状态机会对不上。</span>
 
 安全：代理是集中点，配置错误会泄露内网。
 

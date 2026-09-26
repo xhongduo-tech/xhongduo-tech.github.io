@@ -21,7 +21,7 @@ section: cs
 
 ## 方法
 
-每拍检查 ROB 头最多 $R$ 条：已执行完毕、无故障则退休——写架构可见状态、释放 [PRF](/cs/prf-free-list) 旧槽、弹出 LQ/SQ 头。头指令故障：冲刷头之后全部，把异常 PC 与原因交给特权入口，与[流水线异常](/cs/pipeline-exception) 的精确性定义一致。中断：等到一个精确边界（通常某条已退休之后）再插入。
+每拍检查 ROB 头最多 $R$ 条：已执行完毕、无故障则退休——写架构可见状态、释放 [PRF](/cs/prf-free-list) 旧槽、弹出 LQ/SQ 头。<span class="marginnote">可以把 ROB 想成检票口：后面的人早就买好了票（算完了），但必须按排队顺序一个个过闸；队头那张票有问题，他身后所有人的票全部作废。这就是「只认头不认尾」的提交纪律。</span>头指令故障：冲刷头之后全部，把异常 PC 与原因交给特权入口，与[流水线异常](/cs/pipeline-exception) 的精确性定义一致。中断：等到一个精确边界（通常某条已退休之后）再插入。
 
 ```mermaid
 flowchart TD
@@ -32,7 +32,16 @@ flowchart TD
 
 ## 机制
 
-提交带宽 $R$ 是第五个窗口上限：执行再快，头被长延迟 load 堵住则 ROB 满，前端停。这与「精确」不可分割：不允许头后面的 store 先可见来「缓解」堵住——那会破坏精确性与 [MESI](/cs/mesi-protocol) 的提交即全局。
+提交带宽 $R$ 是第五个窗口上限：执行再快，头被长延迟 load 堵住则 ROB 满，前端停。<span class="marginnote">数字感受一下：取 $R=4$、ROB 深 512，一条缺页 load 卡在头上一百拍，身后五百多条早已算完的指令一条也不能退休，ROB 满、前端停发——所以「执行窗口」实际由提交端这第五个上限封顶。</span>这与「精确」不可分割：不允许头后面的 store 先可见来「缓解」堵住——那会破坏精确性与 [MESI](/cs/mesi-protocol) 的提交即全局。<span class="marginnote">初学者容易以为 store 执行时就该立刻写 cache。实际上乱序核的 store 在退休前只待在 store queue 里；一旦写早了，前面指令再 trap，被写脏的缓存无法精确回退，精确异常就破了。</span>
+
+```mermaid
+flowchart TD
+  ISS["store 发射"] --> EXE["执行：只写 SQ，不碰 cache"]
+  EXE --> ROB["在 ROB 等待，仍属推测状态"]
+  ROB -->|"头轮到它且无异常"| RET["退休：离开 SQ，写入 cache"]
+  ROB -->|"它前面有指令故障"| FLUSH["随冲刷一起丢弃"]
+  RET --> VIS["全局可见：经 MESI 广播到其他核"]
+```
 
 [融合](/cs/macro-micro-fusion) 的指令必须在其架构边界上一次退休或一次 trap：不能出现「比较已经架构可见、分支还在 ROB 里」的半态，除非 ISA 把它们定义成一条。
 
