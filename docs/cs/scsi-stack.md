@@ -15,13 +15,13 @@ section: cs
 
 ## 问题
 
-命令是 CDB（读、写、同步缓存、查询）。设备按 LUN 寻址。错误：sense 数据、重试、设备复位、主机复位——中层有 EH 线程。缺口：块请求如何变成 SCSI 命令；分区与 udev 仍看见 `/dev/sd*`；与 NVMe 并存时，通用块层是共同上接口。本课不把 iSCSI 会话的 TCP 细节写成网络课。
+命令是 CDB（读、写、同步缓存、查询）。设备按 LUN 寻址。错误：sense 数据、重试、设备复位、主机复位——中层有 EH 线程。缺口：块请求如何变成 SCSI 命令；分区与 udev 仍看见 `/dev/sd*`；与 NVMe 并存时，通用块层是共同上接口。本课不把 iSCSI 会话的 TCP 细节写成网络课。<span class="marginnote">术语翻译：CDB 就是把「读第几块起、读几块」编成固定格式命令包的手段；sense 数据则是设备反向交回的「病历」——命令为什么没成，是介质坏还是总线抖。抓住「命令 + 感测」这一对往返，就抓住了中层的全部工作方式。</span>
 
 <span class="marginnote">UASP、virtio-scsi、光纤通道都接同一中层。timeout 与 `scsi_eh` 是生产上的延迟来源。教学上记住「命令+感测」而不是厂商工具。</span>
 
 ## 方法
 
-`sd` 把 bio 编成 READ/WRITE(10/16)，经中层排队到 HBA。完成回调把状态译成 blk 错误。对照 NVMe：多一次命令封装与错误模型。对照 [设备节点](/cs/device-nodes)：主次号来自 SCSI 探测。扫描：`REPORT LUNS` 或总线扫描。
+`sd` 把 bio 编成 READ/WRITE(10/16)，经中层排队到 HBA。完成回调把状态译成 blk 错误。对照 NVMe：多一次命令封装与错误模型。对照 [设备节点](/cs/device-nodes)：主次号来自 SCSI 探测。扫描：`REPORT LUNS` 或总线扫描。<span class="marginnote">可以类比快递：块层交给 `sd` 的是「这个地址送这箱货」（bio），`sd` 换成货运单（CDB），中层是分拨中心兼客服（排队、重试、理赔），HBA 是跑干线的司机，SAS/FC/iSCSI 只是不同的公路——换公路不必换货单格式，这就是分层的红利。</span>
 
 ```mermaid
 flowchart TD
@@ -35,10 +35,21 @@ flowchart TD
 
 SCSI 栈让「块设备」在异质总线上保持同一用户接口。代价是锁、错误恢复与历史兼容。NVMe 绕开它是性能故事；企业阵列仍大量走 SCSI 模型（包括 NVMe 之前的 FC）。不要把本课写成存储面积网拓扑课。
 
+```mermaid
+flowchart TD
+  CMD["读命令下发 HBA"] --> T{"按时完成?"}
+  T -->|"是"| OK["回调：状态译成 blk 结果"]
+  T -->|"超时"| EH["scsi_eh 线程接管"]
+  EH --> SENSE["读 sense 数据：设备怎么说"]
+  SENSE -->|"可重试（如校验错）"| RETRY["重发命令"]
+  SENSE -->|"设备无响应"| RESET["设备复位，仍不行则主机复位"]
+  RESET --> HOST["该主机上的 I/O 全部排队等待"]
+```
+
 与调度器：请求在进入 HBA 前仍可被 mq-deadline 排序；HBA 内部还有 TCQ。
 
 
-实现上：错误处理线程会阻塞该主机上的 I/O 直到复位完成，这是 SCSI 尾延迟的常见来源。iSCSI 把同一 CDB 放进 TCP，丢包会让块层看到超时而不是以太网重传细节。 读法上只引用[上一课](/cs/nvme-driver)的结论，不把对象换成训练推理或限价簿。
+实现上：错误处理线程会阻塞该主机上的 I/O 直到复位完成，这是 SCSI 尾延迟的常见来源。iSCSI 把同一 CDB 放进 TCP，丢包会让块层看到超时而不是以太网重传细节。<span class="marginnote">这一步如果解读错了——把 EH 引起的停顿当成磁盘变慢——会去换硬件而放过真凶：错误处理线程复位期间，同一主机上的全部 I/O 都在排队，尾延迟尖刺往往来自一条坏命令触发的复位，而不是负载。</span> 读法上只引用[上一课](/cs/nvme-driver)的结论，不把对象换成训练推理或限价簿。
 
 本课在操作系统进阶的「存储栈 / 块层到设备」课序里，对象是 **SCSI 栈**。
 
