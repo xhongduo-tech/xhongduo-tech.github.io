@@ -17,6 +17,8 @@ section: cs
 
 内核发 netlink uevent。udev：匹配 ATTR、创建 `/dev/disk/by-uuid`、`RUN` 脚本。缺口：与 [initramfs](/cs/initramfs-pivot) 里的早期 udev；规则错误可改权限导致安全问题。本课不把所有规则写成发行版文档。
 
+<span class="marginnote">「uevent」就是内核在设备插入或拔出时向用户态发的广播消息，里面带子系统、厂商 ID 等属性；udev 收到后按规则决定这个设备叫什么名字、要不要加载固件。</span>
+
 <span class="marginnote">devtmpfs 先由内核造节点，udev 再改名/链。固件：`/lib/firmware` 经 sysfs 请求。</span>
 
 ## 方法
@@ -32,7 +34,21 @@ flowchart TD
 
 ## 机制
 
+一条 uevent 是如何被决定成最终节点名的——逐条规则匹配直到命中：
+
+```mermaid
+flowchart TD
+  EV["uevent 到达 udevd"] --> READ["读 SUBSYSTEM 与 ATTR"]
+  READ --> LOOP{"命中一条规则？"}
+  LOOP -->|"命中"| ACT["应用 NAME= 与 SYMLINK="]
+  ACT --> RUN["执行 RUN= 脚本"]
+  RUN --> DONE["节点落盘"]
+  LOOP -->|"遍历完无命中"| DEF["保留 devtmpfs 默认名"]
+```
+
 udev 把命名策略放用户态，内核只报事实。这是热插拔可管理的原因。不要写成桌面自动挂载广告。与 [LSM](/cs/lsm-selinux)：新节点的标签要规则配合。
+
+<span class="marginnote">数字实例：插一个 U 盘，设备本身加上分区（sda、sda1、sda2…）会各自触发 add、bind 等多条 uevent，一次插入轻松超过十条；udev 对同一设备串行处理，就是防止 sda1 还没命名就有脚本抢先去挂载。</span>
 
 风暴：USB 枚举可打满 udev 队列。
 
@@ -48,6 +64,8 @@ udev 把命名策略放用户态，内核只报事实。这是热插拔可管理
 ## 边界
 
 本课不引入所有 TAG。不保证容器内 mknod 与宿主机 udev 的关系写完。下一课整机睡眠：挂起与恢复。
+
+<span class="marginnote">常见误区：初学者容易以为 `/dev` 下的名字是内核定的。devtmpfs 只给默认名，最终名字由用户态 udev 规则决定——规则写错可能把磁盘节点改成猜不到的名字，mount 脚本跟着全部失灵。</span>
 
 
 版本字段会变，课序钉的是机制对象「udev 与热插拔」，不是某一主线内核的结构体名。

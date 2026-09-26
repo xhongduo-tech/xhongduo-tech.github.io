@@ -23,6 +23,8 @@ section: cs
 
 仍是编译期。解不出来就拒绝，不生成带 tag 的解释器。动态类型语言不做本课这套等式。
 
+<span class="marginnote">合一就是「解方程」：把两个类型表达式当方程两边，找最一般的一组替换让两边相等；解不出（如 int 与 bool 冲突）或解出无限类型，就报类型错误。编译期完成，与运行时无关。</span>
+
 <span class="marginnote">Hindley 1969；Milner 1978（J.CSS）与 Algorithm W。Cardelli 综述可对照上一课。龙书以检查为主，推导作扩展。Appel 的函数式章用合一。本课不把 System F 写进主干。</span>
 
 ## 方法
@@ -41,9 +43,25 @@ flowchart TD
 
 ## 机制
 
+let 多态回答的是「为什么 `id` 没有被第一个使用者钉死成 `int->int`」：
+
+```mermaid
+flowchart TD
+  DEF["定义 id = fn x -> x"] --> ALPHA["体里只有类型变量 alpha"]
+  ALPHA --> GEN["let 处推广：量化 alpha"]
+  GEN --> USE1["使用处一：id 42"]
+  GEN --> USE2["使用处二：id true"]
+  USE1 --> I1["实例化 alpha := int"]
+  USE2 --> I2["实例化 alpha := bool"]
+  I1 --> OK1["int -> int"]
+  I2 --> OK2["bool -> bool"]
+```
+
 最一般类型（principal type）使同一 `id` 的推导结果可被所有合法使用共享。过早实例化会把 `id` 钉死成 `int->int` 而不能用于 `bool`。let 多态的规则就是为了这个。重载不在合一里：`+` 有多套规则，下一课先选再合一，或生成有限候选。
 
 发生检查：变量不能合一到含自身的项，否则无限类型。点名即可。
+
+<span class="marginnote">常见误区：初学者容易以为 $\alpha = \alpha \to \alpha$ 是合法等式；它意味着一个无穷嵌套的函数（无限类型），任何有限内存都装不下。occurs check 就是在合一前先查变量有没有出现在右侧，查到即拒绝。</span>
 
 ## 边界
 

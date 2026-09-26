@@ -17,6 +17,8 @@ section: cs
 
 无系统调用门：`read` 是函数。缺口：调试、多进程、Linux ABI 兼容差；安全靠 hypervisor 而非用户/内核。本课不把每个项目（Mirage、IncludeOS、OSv）写成目录。
 
+<span class="marginnote">「库 OS」就是把内核里需要的那一小块功能（协议栈、文件系统）编译成普通库，跟应用链成一个可执行文件——`read` 不再是系统调用，就是一次函数跳转。</span>
+
 <span class="marginnote">语言运行时（OCaml/Rust）常一起裁。对象是链接形态，不是微内核 IPC。</span>
 
 ## 方法
@@ -32,7 +34,21 @@ flowchart TD
 
 ## 机制
 
+同一次 `read`，通用内核与 unikernel 走的路径差在哪：
+
+```mermaid
+flowchart TD
+  CALL["应用调用 read"] --> Q{"跑在哪种形态"}
+  Q -->|"通用 Linux"| TRAP["陷入系统调用门"]
+  TRAP --> KRNL["内核执行，模式切换"]
+  KRNL --> RET1["返回用户态"]
+  Q -->|"unikernel"| DIRECT["直接函数调用进库 OS"]
+  DIRECT --> RET2["原地返回，无模式切换"]
+```
+
 unikernel 用链接时裁剪换攻击面与启动，适合专用网关。通用 POSIX 应用难迁。不要写成万能。与 [capabilities](/cs/linux-capabilities)：无进程模型则无 cap。与 [audit](/cs/kernel-audit)：要自己打日志。
+
+<span class="marginnote">数字实例：传统 Linux 一次 read 要进出内核各一次，陷阱开销约几百纳秒到一微秒；unikernel 里同一调用是直接函数调用（纳秒级），且映像常只有几 MB、毫秒级启动。</span>
 
 一个库漏洞即全部特权，因无用户/内核裂。
 
@@ -52,6 +68,8 @@ unikernel 用链接时裁剪换攻击面与启动，适合专用网关。通用 
 
 版本字段会变，课序钉的是机制对象「unikernel」，不是某一主线内核的结构体名。
 后课默认：应用可与库 OS 链成单映像。IPC 微内核与证明，下一课 seL4。
+
+<span class="marginnote">常见误区：初学者容易把 unikernel 当「更小的 Linux」。它没有多进程、没有 fork/exec，POSIX ABI 常常不兼容；而且用户/内核那道墙整个不存在——一个库漏洞就拥有全部特权，隔离全靠 hypervisor。</span>
 
 ## 小结
 

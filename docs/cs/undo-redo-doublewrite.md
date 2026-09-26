@@ -19,6 +19,8 @@ steal/no-force：脏页可先于提交落盘，提交可不刷数据页。redo�
 
 doublewrite：先把待写页批量写到共享 doublewrite 区（连续、较小），fsync，再写真正表空间。恢复时发现数据页坏则从 doublewrite 取。这是介质路径，不是另一种隔离。
 
+<span class="marginnote">数字实例：InnoDB 页默认 16KB，而磁盘常见的原子写单位是 4KB——写一页要拆成多次 IO，断电可能只写了前一半，「半新半旧」的撕裂页由此而来。</span>
+
 <span class="marginnote">ARIES 生理日志假定页要么旧要么已应用到某 LSN。撕裂打破假定。有的文件系统提供原子写或 reflink，可关 doublewrite。本课机制。</span>
 
 ## 方法
@@ -37,7 +39,24 @@ flowchart TD
 
 ## 机制
 
+断电重启后，三件套在恢复流程里各接哪一段：
+
+```mermaid
+flowchart TD
+  RESTART["实例重启"] --> CKPT["读检查点，定 redo 起点"]
+  CKPT --> ROLL["前滚 redo，重放已提交变更"]
+  ROLL --> BACK{"检查点后未提交的？"}
+  BACK -->|"是"| UNDO["沿 undo 回滚"]
+  BACK -->|"否"| PAGE["读数据页"]
+  PAGE --> CHK{"页校验通过？"}
+  CHK -->|"烂页"| COPY["从 doublewrite 拷回完好副本"]
+  COPY --> ROLL
+  CHK -->|"完好"| DONE["对外提供服务"]
+```
+
 MVCC 读：InnoDB 可能沿 undo 链回溯；Postgres 在堆上看 xmin/xmax。性能：undo 链过长像索引回表放大——后课 GC。doublewrite 增加顺序写，吞吐换正确性。
+
+<span class="marginnote">「MVCC 读旧版」就是读不阻塞写：InnoDB 沿 undo 链把行回滚到读者开始时的样子给它看。链太长就像索引回表一样一层层走——读放大就是 undo 链的代价。</span>
 
 复制：物理复制传 redo；逻辑复制解行可能用 undo 构造前像。CDC 课。
 
@@ -48,6 +67,8 @@ MVCC 读：InnoDB 可能沿 undo 链回溯；Postgres 在堆上看 xmin/xmax。�
 后课默认：redo 保提交，undo 或堆版本保回滚与旧读；撕裂用 doublewrite 或原子页。Postgres 元组版本与 vacuum：堆上 MVCC 的回收。
 
 没有完好页，生理 redo 无处落脚。
+
+<span class="marginnote">常见误区：初学者容易以为 checksum 失败的页能靠 redo「修回来」。redo 是套在完整页上的重放，页本身烂了它无处落脚——必须先从 doublewrite 副本取回完好页，redo 才能继续。</span>
 
 ## 小结
 
