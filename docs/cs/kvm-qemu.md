@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">Firecracker 后课用同一 KVM、更瘦设备模型。对象是加速器与模拟器切分。</span>
 
+<span class="marginnote">术语翻译：VM-exit 就是「客户机一碰只有宿主才能处理的东西——设备寄存器、特殊指令、停机——CPU 硬件把控制权交还给 KVM」；每次往返要保存与恢复现场，代价数千个 CPU 周期，它是虚拟化性能账本上的第一行。</span>
+
 ## 方法
 
 QEMU mmap 客户 RAM → KVM 设 slot → 循环 KVM_RUN → exit 则模拟设备再进。对照 [FUSE](/cs/fuse)：用户完成内核发起的请求。对照 [uffd](/cs/userfaultfd)：postcopy 迁移。对照 NVMe：virtio 是半虚拟，后课。
@@ -34,6 +36,19 @@ flowchart TD
 ## 机制
 
 分工让内核保持小：不管 VGA 字体，只管进入客户与页表。用户态崩不等于宿主要 oops（通常）。不要写成 virt-manager 教程。与 [seccomp]：可锁 QEMU。与 [audit](/cs/kernel-audit)：ioctl 可记。
+
+```mermaid
+flowchart TD
+  GUEST["guest 写设备寄存器"] --> WAY{"走哪条路径?"}
+  WAY -->|"普通 MMIO / PIO"| EXIT["VM-exit, 进 QEMU 模拟"]
+  WAY -->|"ioeventfd"| SHORT["KVM 直接通知事件fd, 不进用户循环"]
+  EXIT --> TAX["每次往返数千周期"]
+  SHORT --> FAST["virtio 高频 kick 走这里"]
+```
+
+<span class="marginnote">数字实例：一次 VM-exit 加再进入约耗上千个 CPU 周期（微秒级）。guest 里一段纯计算代码几乎不 exit、能跑出接近原生的速度；而每次发包都写设备寄存器的老式网卡驱动，可能被这道税拖慢一个数量级——这正是 ioeventfd 与设备直通存在的理由。</span>
+
+<span class="marginnote">直觉类比：KVM 是让客队上场打球的场地管理员，QEMU 是场外的器材室。客队每次要换器材（碰设备）就得吹哨暂停、由 QEMU 递东西；ioeventfd 相当于把最常用的器材直接搬到场边，免了这一次次吹哨。</span>
 
 性能：exit 率决定上限，后课直通。
 

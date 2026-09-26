@@ -25,6 +25,10 @@ TM 把状态与带混在表里，函数是事后编码。λ：一切都是项。
 
 <span class="marginnote">Church 1936/1941。Barendregt 是标准参考。无类型 λ 图灵完全；简单类型 λ 反而弱，不够当全部可计算，后课证明助手再加依值类型。</span>
 
+<span class="marginnote">数字实例：Church 数字 $\overline{3}=\lambda f.\lambda x.\,f(f(f\,x))$——「3」就是「把 $f$ 连套三遍」。取 $f$ 为后继、$x$ 为 0，$\overline{3}\,\mathrm{succ}\,0$ 归约出 $3$；加法就是多套一层，整数在这里不是原语而是迭代次数。</span>
+
+<span class="marginnote">术语翻译：α 换名就是「给绑定的局部变量改个名」——把「对每个学生 $x$……」改说成「对每个学生 $s$……」，意思不变。它是躲开变量捕获事故的唯一正规手段：先把撞名的绑定改名，再做 β 代入。</span>
+
 ## 方法
 
 写几个项：恒等 $I=\lambda x.x$，真假 $\mathrm{T}=\lambda xy.x$，$\mathrm{F}=\lambda xy.y$，数字 $\overline n=\lambda fx.f^n x$。加法、后继是项。强调：数据与函数同一语法。不要把 Python 的 `lambda` 当定义——那是有环境的闭包，归约策略由语言定。
@@ -46,6 +50,18 @@ flowchart TD
 不要在无类型 λ 里谈「类型错误」：每个项都可以应用。
 
 Church 数字把迭代交给项：$\overline{m}\,\overline{n}$ 不是整数乘，要另写乘项。布尔、序对、列表都可以编码，故「数据」不是原语。无范式的项对应循环；正规序（先最左外约）对有范式的项保证找到范式，应用序可能先循环。实现语言选策略，理论先承认合流。
+
+```mermaid
+flowchart TD
+  T["同一个项: (λx.λy.y) Ω"] --> NORM["正规序: 先约最外层"]
+  NORM --> N2["把 Ω 原封不动当 x, 主体根本不用它"]
+  N2 --> N3["得 λy.y, 停"]
+  T --> APP["应用序: 先约参数"]
+  APP --> A2["去约 Ω = (λx.xx)(λx.xx)"]
+  A2 --> A3["一步之后还是 Ω, 永不停止"]
+```
+
+<span class="marginnote">常见误区：初学者容易把 Python 的 `lambda` 当成 λ 演算本体。Python 的 lambda 是带环境的闭包，求值时机由解释器说了算；λ 演算里没有「环境」这个原语，α 换名与 β 归约本身就是全部机制。</span>
 
 
 ## 边界

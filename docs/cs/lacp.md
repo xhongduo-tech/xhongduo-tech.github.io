@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">802.1AX 把聚合从 802.3 抽出。模式 active/passive 决定谁先发 PDU。本课不把每家芯片的哈希多项式背完。</span>
 
+<span class="marginnote">直觉类比：单边静态捆绑像把四根水管硬接到对方墙上，而对方根本没把四个孔当一个孔管理——泛洪的水从一根管出去又绕回另一根，环就藏在里面。LACP 是双方先签合同：确认对面也认这四孔为一孔，才放水。</span>
+
 ### 捆绑确认对端
 
 静态单边聚合会藏环。逻辑口对 STP 是一条边；哈希保序不保大象流均衡。PHY 多 lane 不要叫 LACP。
@@ -42,6 +44,20 @@ flowchart TD
 自协商仍按成员口独立完成；速率不一致通常不允许入组。PAUSE 可按成员，逻辑上仍应避免不对称暂停。巨帧必须全体成员一致。主干 CSMA 课的「交换」在此变成「交换 + 捆绑」。
 
 控制面：LACPDU 走慢协议组播，不被数据哈希打乱。
+
+```mermaid
+flowchart TD
+  SEND["两端周期互发 LACPDU"] --> CHK{"系统 ID 与聚合密钥匹配?"}
+  CHK -->|"匹配"| SYNC["端口进入 Synchronized"]
+  CHK -->|"不匹配"| OUT["留在组外, 不参与转发"]
+  SYNC --> COLL["Collecting: 允许收流入组"]
+  COLL --> DIST["Distributing: 出流按哈希分发"]
+  DIST --> KEEP["持续握手, 失联即撤出"]
+```
+
+<span class="marginnote">数字实例：LACPDU 默认每 1 秒互发一次；长超时模式下约 30 秒收不到才判定对端失效，短超时约 3 秒。所以拔线（载波丢失）几乎瞬断，而对端整机僵死时要等几秒到几十秒，该成员才被摘出聚合组。</span>
+
+<span class="marginnote">术语翻译：聚合密钥（operational key）就是「允许绑进同一组」的资格标签——管理员把速率、双工相同的一批口标成同一个 key，LACP 只在两端 key 都对得上的成员间握手，配置手滑的口根本进不了组。</span>
 
 ## 边界
 

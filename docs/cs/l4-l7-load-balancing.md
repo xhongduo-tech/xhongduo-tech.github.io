@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">DSR/NAT 模式是实现。本课钉层。VIP 是前端地址。</span>
 
+<span class="marginnote">术语翻译：粘滞（会话保持）就是「让同一用户的后续请求总回同一台后端」——因为登录态可能存在那台机器的内存里。L4 用五元组哈希天然粘住一条连接，L7 可以读 Cookie 按用户粘。</span>
+
 ### 层决定看见什么
 
 L4 粘五元组；L7 看 Host 与路径。健康检查必要。H3/gRPC/WS 逼 L7 懂协议。DNS 轮询不是健康检查。
@@ -40,6 +42,20 @@ flowchart TD
 ## 机制
 
 连接迁移：L4 钉四元组，QUIC 迁移要 CID 感知（下一课 Maglev 相关）。PFC 与 LB 无关。SYN flood 打在 L4 VIP 上，cookies 可在 LB。度量：最少连接 vs 轮询，极化类似 ECMP 大象。
+
+```mermaid
+flowchart TD
+  REQ["新请求到 VIP"] --> HC{"目标后端健康检查通过?"}
+  HC -->|"通过"| PICK["按算法选一台"]
+  HC -->|"失败"| EJECT["摘除, 流量改投健康成员"]
+  PICK --> STICK{"粘滞规则命中?"}
+  STICK -->|"五元组/Cookie 命中"| SAME["回同一后端, 登录态不丢"]
+  STICK -->|"新会话"| ANY["分给负载最轻的健康后端"]
+```
+
+<span class="marginnote">数字实例：常见健康检查配置是每 2–5 秒探测一次、连续 3 次失败才摘除——一个后端崩溃后，最坏十几秒流量才完全避开它。对照 DNS 轮询：TTL 动辄 300 秒，等它过期用户早刷新一百次了。</span>
+
+<span class="marginnote">常见误区：初学者容易以为「域名配多个 A 记录轮询」就等于负载均衡加高可用。DNS 只负责把名字摊到几个 IP，从不探测谁活着；某台宕机后，缓存的解析仍把用户往死进程上送，直到 TTL 过期——所以健康检查必须放在 LB 层做。</span>
 
 安全：L7 可 WAF，扩大攻击面也扩大防护点。
 
