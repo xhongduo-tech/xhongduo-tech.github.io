@@ -19,6 +19,8 @@ section: cs
 
 ## 方法
 
+<span class="marginnote">暂存区（index）可以想象成给下一个 commit 打包的购物车：`git add` 是把改好的商品放进去，`git commit` 是结账拍照。没放进购物车的改动，永远进不了这张快照——「我改了为什么提交里没有」多半是忘了 add。</span>
+
 git 只有四种对象。blob 存文件内容；tree 存目录，即「名字到 blob 或子 tree」的映射；commit 指向一个 tree，记录父提交、作者与提交消息；tag 给任意对象贴注解。所有对象以内容的 SHA-1 哈希为名，放进 .git/objects。工作区任何时刻对应某个 commit；暂存区（index）是下一个 commit 的 tree 的草稿，`git add` 把文件内容做成 blob 放进去，`git commit` 把草稿冻结成 tree 并新建 commit 对象。分支与标签都是引用（ref）：存着 40 位十六进制哈希的指针文件；HEAD 记录当前所在。
 
 ```mermaid
@@ -34,6 +36,21 @@ flowchart TD
 ## 机制
 
 内容寻址长出三个推论。其一，去重：内容相同即哈希相同，未变动的文件在提交之间共享同一个 blob。其二，完整性：哈希即校验和，历史任何字节被改，其后所有对象的哈希链全断，篡改必然留痕。其三，分支近乎免费：建分支只是写一个指针文件，删除只是删文件，与仓库大小无关。commit 存的是快照不是差异，diff 是按需计算的派生视图；delta 压缩是打包（packfile）时的存储优化，不改变模型。
+
+```mermaid
+flowchart TD
+  F1["提交 100 个版本都没改的 README"] --> Q1["对象库查 hash=ab12"]
+  Q1 -->|"哈希已存在"| R["复用同一 blob，不重复存储"]
+  Q1 -->|"哈希不存在"| N["写入新 blob"]
+  F2["有人改了 blob 里的一个字节"] --> H2["内容变，hash 变成 cdef"]
+  H2 --> BR["引用它的 tree 哈希随之改变"]
+  BR --> CC["父链上所有 commit 哈希断裂"]
+  CC --> D["校验失败：篡改无处藏身"]
+```
+
+<span class="marginnote">40 个十六进制字符对应 160 位的 SHA-1。暴力伪造指定内容约需 2 的 160 次方次尝试；即便已实现的结构性碰撞也要约 2 的 63 次方次计算，远超个人能力。所以日常把哈希当文件名、当校验和，工程上是够用的。</span>
+
+<span class="marginnote">backup 目录式的 v2-final-final2 是把「内容」和「名字」两个职责压在同一个文件名上的症状。git 的拆法：哈希管内容身份，引用（main、v1.2）管人类可读的名字，两边各自演化互不干扰。</span>
 
 <span class="marginnote">.git/refs/heads/feature 是一个文本文件，内容 40 个十六进制字符加一个换行。「分支很贵所以不敢开」的旧习惯——每次分支复制整棵工作树——在这里失去物质基础，这也是下一课短命分支策略可行的前提。</span>
 
