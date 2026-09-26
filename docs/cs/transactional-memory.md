@@ -17,11 +17,15 @@ section: cs
 
 细粒度锁难写；粗粒度锁把伪共享变成真串行。无锁算法用 CAS 循环，可组合性差。Herlihy–Moss 的提案：指令标明事务开始/结束，硬件保证「看起来原子」。缺口不是更强的 fence，而是**用已有的一致性探询检测冲突：他核对你读集的写、或对你写集的任何访问，导致 abort。**
 
+<span class="marginnote">术语翻译：读集是事务读过、不许别人中途改的地址清单；写集是写过、提交前不许别人碰的清单。硬件借 cache 行的共享/独占状态顺手记账，软件不必挨个登记。</span>
+
 <span class="marginnote">Intel TSX（RTM/HLE）把 L1 当写缓冲：容量溢出、异常、某些指令都会 abort，软件必须有回退路径。这是有限 HTM，不是无限理想事务。</span>
 
 ## 方法
 
 事务中：load 把行留在 S/E 并加入读集；store 把行升到 M 但**不对外提交**（可把数据放在 L1 私有副本）。探询打中读集或写集则 abort：冲刷写集，像 [推测恢复](/cs/speculation-recovery)。提交：写集一次性变成全局 M 可见，或靠「提交前检查读集仍有效」。
+
+<span class="marginnote">数字实例：L1 通常只有 32–64 KB。事务里碰的行一超过 L1 装得下的量——比如遍历几 MB 的哈希表——硬件直接 abort。所以 TSX 文档劝你把临界区写小，别把整段循环塞进事务。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,19 @@ flowchart TD
 与 ROB 推测的差别：事务跨越的是**内存行**，可以比 ROB 窗口长，但受 L1 容量限制。与锁：无冲突时无锁字颠簸；有冲突时 abort 重试可能活锁，需要指数退避或回退到锁。不能把 HTM 当成可以省略 [acquire/release](/cs/acquire-release) 的魔法——失败路径仍是锁。
 
 禁止在事务里做的事（I/O、某些特权、过深嵌套）来自「写集无法回滚外部世界」。
+
+<span class="marginnote">常见误区：把 abort 当出错。abort 恰是 HTM 的正常工作方式——冲突就整体回滚重试，与分支误预测冲刷流水线同理；真正要防的是 abort 率高到重试活锁，那时该退避或退回锁。</span>
+
+```mermaid
+flowchart TD
+  TRY["尝试事务<br/>读写走 L1 私有副本"] --> PROBE{"探询撞上冲突？<br/>或容量溢出？"}
+  PROBE -->|"都没有"| COMMIT["提交：写集一次性全局可见"]
+  PROBE -->|"撞上了"| ABORT["abort：丢弃私有写"]
+  ABORT --> RETRY{"重试次数<br/>超过阈值？"}
+  RETRY -->|"没有"| BACK["指数退避等待"]
+  BACK --> TRY
+  RETRY -->|"超过"| LOCK["回退到传统锁路径"]
+```
 
 ## 边界
 
