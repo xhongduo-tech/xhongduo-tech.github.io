@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-有 FP：链简单。无 FP：必须知道每条指令处 SP 相对 CFA、callee-save 存在哪。CFI：状态机，`advance_loc`、`offset`。缺口是**编译器发表**，不是 catch 语法。
+有 FP：链简单。无 FP：必须知道每条指令处 SP 相对 CFA、callee-save 存在哪。CFI：状态机，`advance_loc`、`offset`。缺口是**编译器发表**，不是 catch 语法。<span class="marginnote">术语翻译：CFA（canonical frame address）就是「调用指令执行完那一刻的栈顶地址」——每帧的参考零点，表里所有偏移（返回地址存哪、寄存器在 CFA 下方第几个字）都相对它描述。</span>
 
 异常：personality 例程 + LSDA 决定这一帧是否处理。与[尾调用](/cs/tail-call-opt)：被优化掉的帧在表上消失。
 
@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-对序言/收尾每步发 CFI。压缩成 CIE/FDE。链接器合并 `.eh_frame`。可选 `.eh_frame_hdr` 加速查找。
+对序言/收尾每步发 CFI。压缩成 CIE/FDE。链接器合并 `.eh_frame`。可选 `.eh_frame_hdr` 加速查找。<span class="marginnote">数字实例：百层深的调用栈做一次 backtrace，大约就是「每帧一次查表加常数次寄存器恢复」做上百次——有 `.eh_frame_hdr` 索引时定位 FDE 是对数级查找，而不是逐帧反汇编重放。</span>
 
 ```mermaid
 flowchart TD
@@ -40,9 +40,21 @@ flowchart TD
 
 ## 机制
 
-异步 unwind（信号中）要求每条指令都正确，代价高；同步（throw 点）可只在可能抛的点精确。不要在省略表（`-fno-exceptions`）的 C 里假设能 catch。
+异步 unwind（信号中）要求每条指令都正确，代价高；同步（throw 点）可只在可能抛的点精确。不要在省略表（`-fno-exceptions`）的 C 里假设能 catch。<span class="marginnote">常见误区：以为展开是「从栈里猜」。优化代码里某个寄存器可能只在一个 PC 区间有效，启发式反汇编必然猜错——正确路径只有读表；JIT 生成的代码同样必须运行时注册自己的表。</span>
 
 安全：伪造表可跳到任意 personality——加载信任。
+
+```mermaid
+flowchart TD
+  TH["throw 触发"] --> PH["进入 personality 例程"]
+  PH --> LSDA{"LSDA：本帧有 handler？"}
+  LSDA -->|"有"| LAND["跳转 landing pad"]
+  LSDA -->|"无"| UNW["按 FDE 恢复上一帧寄存器"]
+  UNW --> POP["弹出该帧"]
+  POP --> PH
+  LAND --> CLEAN["先跑本帧清理与析构"]
+  CLEAN --> HND["进入 catch 继续执行"]
+```
 
 ## 边界
 
