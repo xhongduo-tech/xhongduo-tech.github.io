@@ -17,11 +17,15 @@ section: cs
 
 `perf record -F`：每 N 个 cycle 采一个栈。缺口：skid；off-CPU 要用 sched 事件；内核与用户栈、[KPTI](/cs/kpti-os) 下的解析。本课不把全部 PMU 事件当词典。
 
+<span class="marginnote">术语翻译：skid（打滑）指计数器溢出那一刻与中断真正采到 IP 那一刻之间，CPU 又往前跑了几条指令，热点于是被记到「邻居」头上。按周期采样时通常只偏几条指令，可一旦归因到行，它就碍事了。</span>
+
 <span class="marginnote">perf_event_open 是系统调用。cgroup 可限制谁能用 PMU。对象是性能计数，不是公平 Jain。</span>
 
 ## 方法
 
 编程 PMU → 溢出 IRQ → 拷栈到 mmap 环 → 用户解析符号。对照 [NAPI](/cs/napi)：都是中断采样思想。对照 [blkio](/cs/blkio-cgroup)：I/O 统计另一条。对照 ASan：一个正确性，一个速度。
+
+<span class="marginnote">数字实例：`perf record -F 999` 在一颗 3 GHz 核上，约每 300 万个周期（毫秒级）采样一次，每核每秒约 999 份样本。开销常在 1% 上下，这就是「统计采样」敢常开的底气。</span>
 
 ```mermaid
 flowchart TD
@@ -34,7 +38,18 @@ flowchart TD
 
 采样把「CPU 时间花在哪」变成直方图，是优化的默认入口。它改变被测物（probe effect）。不要写成火焰图产品教程（那是展示）。与 [EAS](/cs/eas-scheduling)：freq 变则 cycle 含义变。
 
+```mermaid
+flowchart TD
+  A["第 i 条指令处计数溢出"] --> B["中断要过几拍才送达"]
+  B --> C["CPU 已跑到第 i+k 条"]
+  C --> D["采到的 IP 落在 i+k"]
+  D --> E["归因偏移: 这就是 skid"]
+  E --> F["PEBS/IBS 精确采样把 k 压小"]
+```
+
 无帧指针且无 DWARF 则栈烂。
+
+<span class="marginnote">常见误区：CPU 火焰图上「没出现」的函数不等于没耗时——等锁、等 I/O 的栈不消耗 cycle，自然一个样本都采不到。想看见「卡在哪等」，要换 off-CPU 分析（挂 sched:sched_switch），而不是把火焰图放大找。</span>
 
 
 实现上：PEBS 减 skid 但仍不是指令精确。off-CPU 分析要 sched:sched_switch。无帧指针时要 DWARF 展开，内核与用户都要对应 debuginfo。 读法上只引用[上一课](/cs/kprobes-uprobes)的结论，不把对象换成训练推理或限价簿。

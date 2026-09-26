@@ -46,14 +46,12 @@ flowchart TD
 MSI-X 表本身常在 BAR 里。NVMe 提交队列门铃是 BAR 里的寄存器写，触发设备去 DMA 描述符——后课散聚。本课钉事务与窗口。
 
 ```mermaid
-sequenceDiagram
-  participant C as CPU（load 指令）
-  participant R as 根复合体
-  participant E as 端点设备
-  C->>R: 读地址落在 BAR 窗口内
-  R->>E: 发 Memory Read TLP
-  E->>R: 回 Completion TLP（带数据）
-  R->>C: 数据填入寄存器，load 完成
+flowchart TD
+  C["CPU 发出 load 指令"] --> R["根复合体做地址译码"]
+  R -->|"读地址落在 BAR 窗口内"| TLP["封装为 Memory Read TLP"]
+  TLP --> E["端点设备收到请求"]
+  E --> CMP["回 Completion TLP，数据随包捎回"]
+  CMP --> C2["load 完成：数据填入 CPU 寄存器"]
 ```
 
 这张图回答的问题是：一条 `lw` 怎么变成设备上的数据？CPU 只管发地址，根复合体做地址译码发现目标在某个 BAR 里，把请求包装成 Memory Read TLP 送下游；设备回 Completion，数据原路返回。对软件来说它还是一条普通的读指令，硬件把这些来回全部藏掉了。

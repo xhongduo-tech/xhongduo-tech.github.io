@@ -17,6 +17,8 @@ section: cs
 
 Bigtable 行原子、跨行无。搜索索引更新要同时改多行。缺口是**把 2PC 状态机编码进表**，不用独立事务管理器进程（协调器是客户端+时间戳服务器）。时间戳服务器给单调戳，类似 TSO。锁超时与崩溃：扫 lock 列清理。
 
+<span class="marginnote">「2PC」（两阶段提交）就是把「先都准备好、再一起生效」拆成两步的协议。Percolator 的巧思在于协调状态不放在独立进程里，而是编码进每个单元格的 lock 列——客户端崩了，留下的只是一些待清理的锁，而不是一个卡死的协调器。</span>
+
 与 Calvin：Percolator 悲观锁+戳，非全局定序全部事务。与 Spanner：无 TrueTime 提交等待，SI 风格。
 
 <span class="marginnote">Peng and Dabek, OSDI 2010，Google。本课机制。后续 Cockroach 等受 TSO+锁启发。</span>
@@ -26,6 +28,8 @@ Bigtable 行原子、跨行无。搜索索引更新要同时改多行。缺口�
 Get/Prepare/Commit 协议：读带快照戳；写先对行写 lock 与新 data；全部预写成功则提交戳写入 write 列，清 lock。冲突：发现 lock 则等或 abort。通知：提交后把脏键放入队列做增量作业。
 
 隔离：快照读 + 写写冲突检测，近似 SI，写偏斜按产品是否额外检测。
+
+<span class="marginnote">数字实例——快照读怎么挑版本：设快照戳为 100，某单元格 write 列里登记了 80、95、102 三个版本，读者取不超过 100 的最大者 95 对应的 data。既看不到 102 的新值，也不会误读成比 80 更早的状态。</span>
 
 ```mermaid
 flowchart TD
@@ -38,7 +42,20 @@ flowchart TD
 
 性能：每行多列、多次 RPC，热点行锁。适合吞吐增量，不适合超短 OLTP 延迟。恢复：无独立 undo 日志，意图行即状态。WAL 在 Bigtable 层。
 
+```mermaid
+flowchart TD
+  RD["读到一行带残留 lock"] --> PRI["找到该事务的主锁行"]
+  PRI --> Q{"主锁行的 write 列已有提交戳?"}
+  Q -->|是| FWD["替它收尾: 把意图转正"]
+  Q -->|否且锁已超时| ABT["回滚: 清锁删意图"]
+  Q -->|否且未超时| WAIT["再等等提交者"]
+  FWD --> OK["读者继续"]
+  ABT --> OK
+```
+
 与 CDC：通知队列是内部 CDC。逻辑复制课的下游思想在此是同一公司流水线。
+
+<span class="marginnote">常见误区：以为跨行事务必须有一个专职「事务协调器」服务在盯。这里协调器就是客户端本身，进度全写在表里；代价是每次提交要多次 RPC——取时间戳、逐行写锁、再清锁——这正是它不适合超低延迟 OLTP 的根源。</span>
 
 ## 边界
 

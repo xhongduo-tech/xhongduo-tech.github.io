@@ -17,6 +17,8 @@ section: cs
 
 固定地址代码：`lui`/`addi` 拼出 `foo` 的虚址。加载到别的基址则全部重定位项要改代码页，文本不能在进程间只读共享，ASLR 每次加载都改页。PIC：对函数用相对 `jal`/`b`；对全局数据用「当前 PC 加位移」或「先找 GOT 再 load」。RISC-V 的 `auipc`+`addi`、x86-64 的 RIP-relative 即此。缺口是代码生成契约，不是再讲 ABI 寄存器号。
 
+<span class="marginnote">术语翻译：GOT（全局偏移表）像酒店前台的一块指示牌——代码只管问「`foo` 在哪」，前台按这一次加载的实际位置作答；下次换基址，改指示牌就行，不用改写任何指令。</span>
+
 静态可执行文件仍可走绝对地址，简单且快。共享对象（`-fPIC`）必须 PIC。可执行文件 PIC（PIE）为 ASLR 服务，后课安全课再收；本课钉生成侧。
 
 ### PIC 不是「没有重定位」
@@ -39,11 +41,27 @@ flowchart TD
 
 与[指令选择](/cs/instruction-select)：`auipc` 序列是选择问题；本课规定何时必须选它们而不是绝对 `lui`。
 
+<span class="marginnote">数字实例：x86-64 的 RIP-relative 用 32 位位移，够覆盖当前 PC 前后 ±2 GiB——这就是「小 PIC」敢假设 GOT 离得近的底气；库被映射得更远时，就得换多几条指令的大模型序列。</span>
+
 ## 机制
 
 多一份间接：调用外部可能多一次 load。热路径可用复制重定位（copy reloc）把符号搬进可执行文件，那是链接策略，点名。不要把 PIC 与无栈解释器混谈。
 
+```mermaid
+flowchart LR
+  subgraph ABS["绝对地址代码"]
+    A1["加载到随机基址"] --> A2["改写含绝对地址的代码页"]
+    A2 --> A3["页变脏: 各进程一份, 共享泡汤"]
+  end
+  subgraph PICG["PIC"]
+    B1["加载到随机基址"] --> B2["只填 GOT 这页数据"]
+    B2 --> B3["代码页原样只读, 全进程共用"]
+  end
+```
+
 线程局部（TLS）另有模型，本课不展开。
+
+<span class="marginnote">常见误区：以为 PIC 等于「零重定位、零开销」——重定位还在，只是从改代码页变成填 GOT；外部符号访问也因此多一次内存 load，这是拿一跳间接换整页共享与 ASLR。</span>
 
 ## 边界
 
