@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">G.694.1 定义频率栅格。数据中心 40/100G 常用并行多纤（SR4）而非一开始就 DWDM。本课不讲相干 DSP 全部均衡器。</span>
 
+<span class="marginnote">术语翻译：灰光 = 一根纤只走一个波长，即普通模块；彩光 = 波长按标准栅格固定选定，多路合进同一根纤。CWDM 间隔宽、器件无源便宜，适合短距；DWDM 栅格密到 100 GHz 一档，一根纤能塞几十上百个通道，但要稳频与放大。</span>
+
 ### 模块不转发
 
 可插拔只做电光适配；WDM 把一根纤变成多条逻辑波长。口 down 往往先于 ICMP。波长调度是光学运营，不进 TCP。
@@ -37,11 +39,25 @@ flowchart TD
   MUX --> FIB["一根纤"]
 ```
 
+<span class="marginnote">数字实例：容量账怎么算——单波 100 Gb/s，乘 80 个 DWDM 通道，一根纤约 8 Tb/s。但它不是无限乘法：通道越密，滤波器串扰与光纤非线性越差，所以「每波长的 $C$ × 波长数」只是近似上限。</span>
+
 ## 机制
 
 分层：换模块不换 MAC 地址。故障：光功率低先表现为 PCS 丢锁，再表现为口 down。主干[ICMP](/cs/icmp) 的不可达是 IP 层的；本课的 down 更早。WDM 把「一条光纤」变成多条逻辑链路，生成树与 IP 仍按逻辑口看。
 
 灰光点到点最简单；彩光把波长当资源调度，运维进入光学，不进入 TCP。
+
+链路坏了，故障在哪一层最先被看见：
+
+```mermaid
+flowchart LR
+  PWR["光功率异常"] --> PCS["PCS 丢锁"]
+  PCS --> DOWN["口 down"]
+  DOWN --> IP["ICMP 不可达"]
+  MON["I2C 读光功率/温度"] -. "最早看见" .- PWR
+```
+
+<span class="marginnote">常见误区：初学者一遇断网先 ping。其实光模块衰减 → PCS 丢锁 → 口 down 在 IP 层之前就已发生，ping 只是最后一个报丧的。先读 I2C 光功率（收发各多少 dBm），再谈 IP 诊断。</span>
 
 ## 边界
 

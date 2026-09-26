@@ -21,6 +21,8 @@ section: cs
 
 Deployment 到 ReplicaSet 到 Pod，一版一个 ReplicaSet，留痕即历史。两个预算参数：**maxSurge** 管最多多出几个新 pod（容量上界），**maxUnavailable** 管最多少几个旧 pod（容量下界），默认各为副本数的四分之一上下。设副本数为 $n$，则任意时刻可用容量满足 $n_{\text{avail}} \ge n - \lfloor u \cdot n \rfloor$，单轮失败半径 $\le \lceil s \cdot n \rceil$，其中 $u$、$s$ 是两个预算。新 pod 过 readiness 才计入可用；旧的在缩掉前从端点池摘除。暂停与恢复支持中途观察；回滚就是「把旧 ReplicaSet 的副本数调回去」——又是调和，不是专用机制。
 
+<span class="marginnote">数字实例：副本数 $n=10$、maxSurge=2、maxUnavailable=1 时，任意时刻 pod 总数在 9 到 12 之间——先多开 2 个新 pod，每就绪 1 个才缩 1 个旧的；就算新版本一个都起不来，服务也始终至少有 9 个旧 pod 在接流量，这就是容量下界的含义。</span>
+
 ```mermaid
 flowchart TD
   UPD["Deployment spec 换镜像"] --> NEW["新 ReplicaSet 扩容"]
@@ -36,6 +38,18 @@ flowchart TD
 
 readiness 的门控把「进程活着」与「能接流量」解耦：缓存未预热、连接池未建好、依赖未就绪，都发生在进程已启动之后；没有门控，新 pod 一启动就进池，用户替它的冷启动买单。退场是事故最密集的一段，合同有固定顺序：先发 SIGTERM 并执行 preStop 钩子——此刻 pod 还在池上，睡一小段等转发规则把摘除传播出去；随后端点摘除；grace 期内处理存量请求；期满强杀。两个经典错法都在顺序上：先摘端点再立刻退出，砍掉全部在途请求；依赖进程收到 SIGTERM 就瞬间退出，连接池里的请求一起陪葬。把退场当成和扩容同等重要的半边，发布的可靠性才闭合。
 
+<span class="marginnote">术语翻译：readiness 探针就是店铺的「营业中」牌子——进程启动只代表店门开了（liveness 管的是「死了没」），货架摆没摆好是另一回事；牌子不翻（未就绪），排号机（端点池）就不会把客人（流量）分过来。</span>
+
+```mermaid
+flowchart TD
+  SCALE["旧 ReplicaSet 缩掉 1 个"] --> SIG["发 SIGTERM 并执行 preStop"]
+  SIG --> SLEEP["pod 仍在池上, 睡几秒等转发规则传播"]
+  SLEEP --> EP["从端点池摘除"]
+  EP --> DRAIN["grace 期内继续处理存量请求"]
+  DRAIN --> KILL["grace 期满强杀"]
+  DRAIN -->|"收尾超过 grace 期"| FORCE["被强杀, 在途请求报错"]
+```
+
 自动回滚需要外部判据：控制器自己不知道新版本是好是坏，错误预算的烧速是现成的裁判——见 [SLO 工程](/cs/obs-slo-engineering)。若新版本放大了对下游的失败，发布期间还要配上 [限流与熔断](/cs/rate-limit-circuit-breaker) 的既有防线，而不是指望预算参数挡住逻辑错误。
 
 <span class="marginnote">数字：优雅退场的默认预算是 30 秒——比这长的收尾必须显式改 terminationGracePeriodSeconds，否则每次发布都在制造一批被强杀的在途请求，而表象只是「错误率偶尔抖一下」。</span>
@@ -43,6 +57,8 @@ readiness 的门控把「进程活着」与「能接流量」解耦：缓存未�
 ## 边界
 
 回滚即时的是数据面：schema 与数据不回滚，不兼容变更要走「先扩张后收缩」的双阶段，那是数据工程的合同。节点维护时的驱逐预算（PDB）与发布预算是两回事，前者管「一次意外最多拿走几个」，后者管「主动换版本的速度」。批量发布的灰度比例、按地域分批，是 Deployment 之上的编排，本课不展开。
+
+<span class="marginnote">常见误区：初学者容易把发布预算（maxSurge/maxUnavailable）与驱逐预算（PDB）当成一回事。前者管「主动换版本时最多拿走几个」，后者管「节点宕机等意外最多拿走几个」；把发布安全寄托在 PDB 上、或反过来，都会在事故当晚发现两本账对不上。</span>
 
 ## 小结
 

@@ -21,6 +21,8 @@ section: cs
 
 对象三件套：podSelector 决定**管谁**；ingress 与 egress 规则决定**放行什么**；对端（peer）用同段的 podSelector、跨段的 namespaceSelector 或网段（ipBlock）表达。语义一句话：**被任何策略选中的 pod 立即进入白名单模式——未被允许的一律拒绝；未被任何策略选中的 pod 保持全通**。所以「默认拒绝」要显式写：空规则的策略选中全段 pod，就把整段抠成白名单。规则之间是加法并集——两条策略各自允许的流加在一起，语言里不存在 deny 条目。编译由 CNI 承担：iptables 链或 eBPF 程序挂在每包路径上，按连接跟踪放行已建立连接的回包——策略是状态化的，不是逐包独立判。
 
+<span class="marginnote">术语翻译：NetworkPolicy 就是「从全通网里往外抠」的 ACL 清单——podSelector 圈出管谁，ingress/egress 列出放行谁的哪些端口。像小区装门禁：被选中的楼（pod）刷卡才能进，没被选中的楼维持谁都能进；装了门禁不代表欢迎访客，只代表「不刷卡一律拦」。</span>
+
 ```mermaid
 flowchart TD
   NP["NetworkPolicy 对象"] --> SEL["podSelector 选中目标 pod"]
@@ -38,11 +40,26 @@ flowchart TD
 
 能力的边界钉在四层：域名（FQDN）与七层协议字段不在原生语义里，要换 CNI 的扩展对象——表达力与可移植性的交换：用了扩展，策略就绑定了那家实现。收紧 egress 的第一步几乎总是放行 DNS：命名解析是第一依赖，掐死它，所有连接超时都以「网络策略误伤」的面目出现。
 
+```mermaid
+flowchart TD
+  APP["Pod 想连 api.example.com"] --> DNSQ["先发 DNS 查询拿 IP"]
+  DNSQ -->|"egress 允许集没放行 53 端口"| LOST["查询包被丢"]
+  LOST --> TMO["应用层等不到解析, 连接超时"]
+  DNSQ -->|"放行了 kube-dns"| RES["拿到 IP 与端口"]
+  RES --> CHK{"目的地在允许集内?"}
+  CHK -->|"是"| CONN["放行并建立连接"]
+  CHK -->|"否"| DRP["丢弃"]
+```
+
+<span class="marginnote">直觉类比：允许集像一块只加不擦的白名单白板——每条新策略只会往里添名字，语言里没有「擦掉」（deny）这个动作。想让某人进不来，只能改选择器、让规则不再覆盖到他，而不是在板上写「禁止他」；指望后写的策略覆盖先写的，会得到与防火墙经验相反的结果。</span>
+
 <span class="marginnote">易错点：空 podSelector 选中段内全部 pod——写「对某类 pod 收紧」时漏了它自己也会被别的策略选中收紧，排查时要把「谁选中了谁」逐条列出，而不是看单条规则。</span>
 
 ## 边界
 
 策略是意图，不是证据：真正生效的是 CNI 编译出的过滤程序，实现缺陷或 CNI 不支持时策略会被静默忽略——审计必须落到数据面验证，不能停在对象存在。ipBlock 直接放行网段会绕过段与标签的语义，混用时要单列。加密与身份（mTLS）是网格的题；本课的「允许」是地址与端口的允许，不是身份的认证。
+
+<span class="marginnote">常见误区：初学者容易把「kubectl 里能看到 NetworkPolicy 对象」当成「策略在生效」。CNI 不支持时会静默忽略策略，对象照常创建、实际全网仍互通；验证要真打一条流——从另一个 pod 连一下被保护的端口，看到拒绝才算数。</span>
 
 ## 小结
 
