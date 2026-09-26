@@ -17,6 +17,8 @@ section: cs
 
 每个 load 都要 VA→PA。L1 TLB 全相联或小组相联，项数有限。缺失若直接走内存中的页表，[Sv39](/cs/sv39-page-table) 一类要多次依赖访存，MLP 帮不上这条链。缺口不是更大的 L1D，而是**二级 TLB 放大覆盖，以及把页表中间节点缓存在 MMU 旁。**
 
+<span class="marginnote">数字实例：一次 L1 TLB 命中大约 1–2 个周期；而 Sv39 一条 4KiB 映射的完整 walk 要串行读 4 个 PTE，动辄上百周期。差了两个数量级——所以「降低 miss 率」比「把命中做快一点」值钱得多。</span>
+
 <span class="marginnote">PWC：缓存非叶 PTE，下一次 walk 可以从中间层开始。Barr–Cox–Rixner 比较了各种 translation cache 的组织。</span>
 
 ## 方法
@@ -38,11 +40,26 @@ TLB miss 的 CPI 可以超过 cache miss：因为它串在地址生成之后、c
 
 Shootdown：[tlb-shootdown](/cs/tlb-shootdown) 必须覆盖所有级与 PWC，否则别名与过期 PPN。
 
+```mermaid
+flowchart TD
+  M["TLB 全缺失,开始 walk"] --> R["读根级 PTE"]
+  R --> Q{"中间层 PTE 在 PWC?"}
+  Q -->|"命中"| J["直接拿到中间层结果"]
+  Q -->|"未命中"| L2["再访存读下一层 PTE"]
+  L2 --> Q
+  J --> LEAF["读叶级 PTE"]
+  LEAF --> F["组装 PPN 并回填 TLB"]
+```
+
+<span class="marginnote">直觉类比：PWC 像词典里夹的书签。查一个词不必每次都从目录第一页翻起——上次读到哪一节，书签就让你从那一节继续。中间层 PTE 就是「目录到正文的那个跳板」，缓存住它，walk 就少走几步访存。</span>
+
 ## 边界
 
 本课不把软件 fill（老 RISC）当当代主干。也不把嵌套虚拟化的二次 walk 写完（EHT/EPT），只承认会成倍放大 PWC 的价值。大页覆盖是下一课专门的几何。
 
 后课默认：翻译有 L1/L2 TLB 与 PWC。同一项能盖住 2MiB 而不是 4KiB 时，覆盖率的账完全改写。
+
+<span class="marginnote">常见误区：以为换页只要把 L1/L2 TLB 冲掉就干净了。PWC 里还留着旧的非叶 PTE，如果不同步失效，下一次 walk 可能沿着过期路径走到错误的叶子上——这就是 shootdown 为什么必须「连 PWC 一起冲」。</span>
 
 ## 小结
 

@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">ramfs 通常不换出、不限额，可把机器撑死。tmpfs 有大小上限。教学上以 tmpfs 为准。</span>
 
+<span class="marginnote">直觉类比：tmpfs 是限重的行李箱，超重部分塞进 swap 后备箱；ramfs 是不限重也不肯卸的行李——塞多少吃多少内存，直到机器撑死。教学选 tmpfs，正因为它有这个泄压阀。</span>
+
 ## 方法
 
 `write`：分配页，插入 inode 页树，不调用 `readpage` 去块设备。`mmap` 共享即映射这些页，与 [mmap 一致](/cs/fs-mmap-coherence) 同一帧。`rename` 只改内存 dentry。对照 [F2FS](/cs/f2fs)：没有 NAT 下盘。对照 [overlay](/cs/overlayfs)：upper 常常是一块 tmpfs，copy-up 的可写层随容器消失。
@@ -40,6 +42,19 @@ tmpfs 证明 VFS 不绑定「块设备」：操作表填的是内存。它把 PO
 
 实现上：size 上限按页，大页 THP 会使实际占用跳变。swap 启用时「内存 FS」仍可能读盘，mlock 的 tmpfs 页才真正钉住。/dev/shm 与 POSIX shm_open 走同一 shmem。 读法上只引用[上一课](/cs/rename-atomicity)的结论，不把对象换成训练推理或限价簿。
 
+```mermaid
+flowchart TD
+  F["同一个 write 调用"] --> Q{"文件系统后端是什么?"}
+  Q -->|"磁盘文件系统"| D["页缓存 + 块设备,持久"]
+  Q -->|"tmpfs"| T["shmem 内存页,受 size 限额"]
+  Q -->|"ramfs"| R["纯内存页,不换出也不限额"]
+  T --> L{"遇到内存压力?"}
+  L -->|"有"| SW["页被换出到 swap"]
+  L -->|"没有"| STAY["页留在内存"]
+```
+
+<span class="marginnote">数字实例：`mount -t tmpfs -o size=1G tmp /mnt` 声明的 1 GiB 是上限不是预分配。写一个 4 KiB 的小文件，实际只占约 4 KiB 加少量元数据；size 只是天花板，按页逐个计费。</span>
+
 本课在操作系统进阶的「文件系统实现 / 接口进阶」课序里，对象是 **tmpfs**。
 
 - 先修只引用，不重导：上一课的结论当公理，本课只补差。
@@ -53,6 +68,8 @@ tmpfs 证明 VFS 不绑定「块设备」：操作表填的是内存。它把 PO
 
 版本字段会变，课序钉的是机制对象「tmpfs」，不是某一主线内核的结构体名。
 后课默认：可挂载的内存树走 shmem。字符/块设备如何作为目录项出现，下一课设备节点。
+
+<span class="marginnote">常见误区：以为 tmpfs「在内存里」就绝不会碰盘。启用 swap 后，内存压力下它的页照样落到交换设备；而没有 WAL 的它，掉电即丢本来就是语义——拿 tmpfs 当数据库内存表用，是范畴错误。</span>
 
 ## 小结
 
