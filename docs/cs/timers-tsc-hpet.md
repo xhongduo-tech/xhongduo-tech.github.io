@@ -43,11 +43,28 @@ flowchart TD
 
 下一课 DMA 不依赖这些定时器来搬数据，但驱动超时用它们。固件课的引导计时也用 PIT/HPET 早期，因 TSC 标定尚未完成。本课把「时间」从 APIC 单元里拆出来讲清。
 
+启动早期怎么把 TSC 变成可用的纳秒：
+
+```mermaid
+flowchart TD
+  BOOT["启动早期"] --> REF["用 HPET 或 PIT 做已知间隔基准"]
+  REF --> CAL["同一窗口内数 TSC 走了多少格"]
+  CAL --> FREQ["得 TSC 频率: 标定因子"]
+  FREQ --> USE{"TSC invariant?"}
+  USE -->|"是"| SRC["选作 clocksource"]
+  USE -->|"否"| FALL["退回 HPET 等较慢源"]
+  SRC --> VDSO["用户态读 TSC 乘因子得纳秒"]
+```
+
+<span class="marginnote">术语翻译：「时钟源（clocksource）」回答「现在几点」，给一个只涨不跌的计数；「时钟事件（clockevent）」回答「到点叫我」，在指定时刻发一次中断。TSC 只能当前者；比较器（HPET/LAPIC）才做后者。</span>
+
 ## 边界
 
 本课不写 NTP 算法，不把 PTP 网卡时钟当必修。不讨论 CPU 频率调节对非 invariant TSC 的全部历史。不进入金融交易所时钟同步。
 
 后课默认：TSC 适合快时间戳；中断用 LAPIC/HPET 比较器；PIT 是遗留。
+
+<span class="marginnote">数字实例：TSC 一格是 1 个 CPU 周期——3 GHz 的核一秒走 30 亿格，读取只要一条 rdtsc 指令，纳秒级开销；换算成纳秒要乘标定因子，例如约 0.333 纳秒每格。HPET 读一次要走内存映射总线，比 rdtsc 慢一个数量级以上。</span>
 
 ## 小结
 
@@ -55,3 +72,5 @@ flowchart TD
 - invariant TSC 才适合做跨休眠的单调源。
 - RISC-V `mtime` 是同一模式的简化。
 - 出处：Intel SDM；IA-PC HPET Spec；Patterson and Hennessy, COD。
+
+<span class="marginnote">常见误区：初学者容易拿 rdtsc 当墙钟时间——墙钟会被 NTP 拨快拨慢，TSC 只管单调计数；要 UTC 必须经另一套接口换算。休眠停核时非 invariant TSC 还会跳变，计时器「回退」是经典 bug。</span>

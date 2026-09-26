@@ -42,11 +42,32 @@ flowchart TD
 
 间接跳仍难预测，但比「都跳回同一 switch」好。代码体积：handler 复制。调试：PC 仍要可映射源。
 
+两种控制流形状的差别：
+
+```mermaid
+flowchart LR
+  subgraph SW["中央 switch"]
+    A1["取指令"] --> S1["跳回 switch 判断"]
+    S1 --> H1["执行 handler"]
+    H1 --> S1
+  end
+  subgraph TH["线程化分派"]
+    A2["取指令"] --> H2["执行 handler"]
+    H2 --> A2
+  end
+```
+
+<span class="marginnote">直觉类比：中央 switch 像所有快递都要回总仓分拣一次再发出；线程化像每件包裹分拣完就写着下一站地址直发。省下的正是每条指令一次的「绕回路口」——它是最频繁的控制流，预测失败的代价也乘上了这条频率。</span>
+
 不要在 handler 里调用会改变栈对齐的未知函数而不保存 VM 状态。
 
 ## 边界
 
 本课不写方法 JIT。后课默认：高效解释器用线程化分派。下一课方法 JIT 与热点。
+
+<span class="marginnote">术语翻译：「线程化分派」里的线程不是操作系统线程——是说指令流像用「下一跳地址」一根线串起来：每条 handler 干完活直接跳去下一条，不再绕回中央路口。名字来自 Bell 1973 的 threaded code。</span>
+
+<span class="marginnote">为什么重要：分支预测器对两种形状的待遇不同。switch 里每个 case 都回到同一个地址，预测器难猜该出哪个方向；handler 末尾的间接跳目标虽各不相同，但与操作码强相关，训练之后命中率明显更高——这就是同一解释器换个分派方式就能快百分之几十的原因。</span>
 
 也不把线程化当 GPU warp。
 

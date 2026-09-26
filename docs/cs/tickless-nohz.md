@@ -34,6 +34,21 @@ flowchart TD
 
 tickless 把「OS 心跳」从固定频率变成事件驱动，服务功耗与隔离核确定性。记账与 RCU 是税。不要写成取消调度。与 [fairness](/cs/fairness-metrics)：无 tick 时份额靠其它更新点。
 
+<span class="marginnote">术语翻译：「tick」就是内核每秒几百上千次的定时心跳，用来记账时间和检查调度。tickless 就是把固定心跳改成事件驱动：没事做就关表，有事了再上一个一次性的闹钟。</span>
+
+两档 NO_HZ 的边界与各自的税：
+
+```mermaid
+flowchart TD
+  A["NO_HZ_IDLE"] --> A1["只在核空闲时停 tick"]
+  A1 --> A2["记账靠进出空闲补"]
+  B["NO_HZ_FULL"] --> B1["隔离核上单任务也停"]
+  B1 --> B2["要求: 核上几乎没有别的任务"]
+  B2 --> B3["RCU 回调要别的核代跑"]
+  A2 --> C["收益: C-state 睡得深"]
+  B3 --> D["收益: 不被周期中断打断"]
+```
+
 full nohz 配置错误会导致时间不准或 RCU stall。
 
 
@@ -45,6 +60,8 @@ full nohz 配置错误会导致时间不准或 RCU stall。
 - 五栏不吞并：不把本课写成大模型训练/推理，也不写成限价簿或权重量化。
 - 文献用 OSTEP、McKusick、内核文档与具名会议论文；不发明 arXiv 编号。
 
+<span class="marginnote">数字实例：取 HZ=250——CPU 完全空闲时，每 4 毫秒也要被中断一次，一小时白醒 90 万次，每次都要退出深 C-state 再爬回去。停掉空闲 tick 后省下的正是这几十万次进出，功耗差距可以有几十个百分点。</span>
+
 ## 边界
 
 本课不引入 xen 偷 tick 的全部。不保证虚拟化 guest 的 nohz。调度课序收口于定时器实现：timer wheel。
@@ -52,6 +69,8 @@ full nohz 配置错误会导致时间不准或 RCU stall。
 
 版本字段会变，课序钉的是机制对象「tickless」，不是某一主线内核的结构体名。
 后课默认：空闲可停 HZ tick。内核如何组织大量定时器，下一课定时器轮。
+
+<span class="marginnote">常见误区：初学者容易把 tickless 理解成「取消时间」——时间照走，只是不再定期打断 CPU：进空闲时记下时刻，退出时一减就把账补回来。代价是 POSIX CPU 时钟这类按 tick 计量的接口变粗。</span>
 
 ## 小结
 
