@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-文档进缓冲，refresh 成可搜段，search 多段归并，merge 后台——LSM 同构。缺口是 **SQL 事务 vs 可搜**：未 refresh 的文档搜不到，应用若以为提交即搜会错。CDC 从库到引擎是异步，读己之写要等 refresh 或搜主库。
+文档进缓冲，refresh 成可搜段，search 多段归并，merge 后台——LSM 同构。缺口是 **SQL 事务 vs 可搜**：未 refresh 的文档搜不到，应用若以为提交即搜会错。CDC 从库到引擎是异步，读己之写要等 refresh 或搜主库。<span class="marginnote">「refresh」翻译过来就是：把内存里攒着的新文档封成一个只读小段，让它们从「写了但搜不到」变成「搜得到」。它约每秒一次，本质是在「可见快」和「段太碎要频繁合并」之间做取舍。</span>
 
 分片：文档 id 哈希， scatter 查询再合并打分——分布式 top-k。相关性：BM25 在引擎，SQL `ORDER BY` 不是同一回事。
 
@@ -39,7 +39,20 @@ flowchart TD
 
 一致性：副本等待可配，类似半同步。脑裂有选举。Jepsen 后课对搜索集群也测过丢失。优化：filter 上下文走位图缓存，query 上下文打分。
 
-与 zone：段上的 doc 值 min/max 跳过。
+同一次查询里，两种上下文走的是完全不同的计算路径——过滤部分能命中缓存复用，打分部分必须逐文档算：
+
+```mermaid
+flowchart LR
+  Q["查询请求"] --> S{"拆分上下文"}
+  S -- "filter 子句" --> BM["位图匹配命中/不命中"]
+  BM --> CA["查位图缓存"]
+  CA --> IT["多条件位图求交集"]
+  S -- "query 子句" --> SC["逐文档算 BM25 分"]
+  IT --> TOP["按相关分排序取 top-k"]
+  SC --> TOP
+```
+
+与 zone：段上的 doc 值 min/max 跳过。<span class="marginnote">数字实例：一亿文档、refresh 周期 1 秒，意味着主库提交后最坏要再等约 1 秒新文档才可搜——这就是「读己之写」时要么按 _id 直查（走实时变更记录，不等 refresh）、要么读主库的原因。</span>
 
 ## 边界
 
@@ -47,7 +60,7 @@ flowchart TD
 
 后课默认：全文集群近实时；提交即搜要等或走库。SQLite 架构：嵌入式整库一份文件，另一极端。
 
-搜索引擎是特化执行器+倒排存储，不是 Selinger 的通用 SQL。
+搜索引擎是特化执行器+倒排存储，不是 Selinger 的通用 SQL。<span class="marginnote">常见误区：初学者容易把所有条件都写进 query 上下文，以为「打分越全越准」——实际上纯过滤条件（状态=已发布、时间在某区间）放 filter 上下文既不算分还能吃位图缓存，同样的条件放 query 里就是白白重复计算。</span>
 
 ## 小结
 
