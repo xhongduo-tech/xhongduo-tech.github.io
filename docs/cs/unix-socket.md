@@ -35,7 +35,26 @@ flowchart TD
 
 ## 机制
 
+两个进程如何「会面」：流式套接字走 listen/accept，数据报则无需建立连接。
+
+```mermaid
+flowchart TD
+  SB["服务端: socket(AF_UNIX, SOCK_STREAM)"] --> BD["bind 到路径 /tmp/srv.sock"]
+  BD --> LS["listen 排队等待"]
+  CB["客户端: socket(...)"] --> CN["connect 到同一路径"]
+  LS --> ACC["accept 返回新 fd"]
+  CN --> ACC
+  ACC --> TALK["fd 对上, 双向收发"]
+  DG["SOCK_DGRAM 路线"] --> SN["直接 sendto 路径名, 不握手"]
+```
+
 Unix 域把网络栏将出现的套接字 API 先落在本机，让桌面总线、数据库本地连接不必绕 lo 接口。与管道对照：同一隔离（地址空间仍分开），更富的控制面。不要提前讲 TCP 拥塞。共享内存下一课会把载荷从拷贝改成映射。
+
+<span class="marginnote">`SCM_RIGHTS` 可以翻译成「在消息里夹带一张指向内核打开文件表的借条」：发送方把自己的 fd 编号写进辅助消息，内核把它翻译成对同一打开文件对象的引用，接收进程凭条领到属于自己的新 fd 号。文件内容一个字节都没拷贝。</span>
+
+<span class="marginnote">常见误区：服务端重启时 `bind` 报「Address already in use」就束手无策。Unix 域路径名不会因进程退出自动清理，旧 socket 文件还躺在那——正确做法是 bind 前 `unlink` 一次，或改用抽象命名空间的 `@` 名（内核随进程退出回收）。</span>
+
+<span class="marginnote">直觉类比：`socketpair` 像一副双筒望远镜的两个镜筒——出厂就焊在一起、只此一对、双向可看；`bind` 到路径则像在墙上装一个门铃插座，谁都能按（connect），服务端只管 accept。前者适合父子进程传 fd 后自用，后者适合无亲缘关系的多方。</span>
 
 ## 边界
 

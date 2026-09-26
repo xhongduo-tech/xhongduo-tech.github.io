@@ -36,6 +36,26 @@ flowchart TD
 
 时间递推 $T(U)=T(\sqrt{U})+O(1)$ 得 $O(\log\log U)$。空间朴素 $\Theta(U)$。不要在 $U$ 超大时无哈希地分配簇数组。比较模型下信息下界仍 $\log n$；vEB 用了键是整数这一限制。
 
+一次 `successor(x)` 的完整行走路线——先看本簇右侧，不行才跳到 summary：
+
+```mermaid
+flowchart TD
+  S["successor(x)"] --> SPLIT["高位 h 选簇, 低位 l"]
+  SPLIT --> C1{"l \lt 本簇 max ?"}
+  C1 -->|是| IN["簇内递归求 l 的后继<br/>拼回 h·√U + 答案"]
+  C1 -->|否| C2{"x \lt 全局 max ?"}
+  C2 -->|否| NONE["无后继, 返回空"]
+  C2 -->|是| SUM["summary 上求 h 的后继 h'"]
+  SUM --> MIN["第 h' 簇非空, 取其 min"]
+  MIN --> ANS["答案 = h'·√U + min"]
+```
+
+<span class="marginnote">数字实例：取 $U=2^{32}$（32 位整数宇宙），$\log\log U=\log 32=5$——无论集合里存 $10$ 个还是 $10^6$ 个键，一次后继最多下探约 5 层；同规模的平衡 BST 要走 $\log_2 10^6\approx 20$ 层。这是用「键必须是小整数」换来的量级差。</span>
+
+<span class="marginnote">直觉类比：把宇宙想成一栋 $\sqrt U$ 层、每层 $\sqrt U$ 个柜子的楼。`summary` 是大厅的楼层指示牌，只记「哪层还有东西」。找后继时先翻自己这层（簇内递归），翻不到就抬头看指示牌跳到下一个有货的层，直接取那层最靠前的柜子（簇的 min）——不用一层层扫楼。</span>
+
+<span class="marginnote">常见误区：按定义直接实现，空间是 $\Theta(U)$——$U=2^{32}$ 时哪怕只存一个键，簇数组也按 40 多亿个槽铺开。工程做法是用哈希表只存非空簇，空间落到接近 $O(n)$；这正是后课 y-fast trie 改造 vEB 的动机。</span>
+
 ## 边界
 
 本课不把 x-fast trie 的全部分层位图写完——下一课 y-fast 用 x-fast 加平衡树块把空间收到 $O(n)$。也不把融合树的 $O(\log n/\log\log n)$ 写进来。
