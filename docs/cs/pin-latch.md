@@ -17,6 +17,8 @@ section: cs
 
 事务锁持有时间跨用户交互，粒度为行或表。页结构（槽数组、空闲空间、LSN）必须在微秒级互斥下改。若用事务锁锁页，粒度太粗、持有太长。latch：读闩/写闩，协议是短临界区，不允许在持 latch 时做 I/O 等待（通常）。pin：`pin_count++` 直到 unpin，替换跳过 pin>0 的帧。
 
+<span class="marginnote">直觉类比：pin 像把书从架上「借走登记」，管理员（替换线程）不能收走；latch 像你翻书时手按住的那一页——别人等你看完这页再动。两件事互不相干，各管一层。</span>
+
 缺口是**两层并发**：事务隔离一层，页物理完整性一层。混用会把死锁检测搞乱——latch 死锁通常靠固定顺序避免，不走 wait-for 图。
 
 <span class="marginnote">Gray and Reuter 区分 lock 与 latch。ARIES 论文里 latch 保护缓冲页。本课不讲 B+ 上的 crabbing，下一课。</span>
@@ -26,6 +28,8 @@ section: cs
 读页：pin → 取读 latch → 复制或使用指针 → 放 latch → 稍后 unpin（或在使用期间保持 pin）。改页：写 latch 下改，写 WAL，更新 pageLSN，放 latch。顺序错误会撕裂槽或让替换偷走帧。
 
 条件变量：需要等页从磁盘来时，在未持写 latch 的路径上等待 I/O 完成。持 latch 等 I/O 是经典死锁与延迟源。
+
+<span class="marginnote">为什么重要：持 latch 等磁盘 I/O 是经典事故——几十微秒的临界区被拉成几毫秒，所有想碰这页的线程全堵在门口，延迟雪崩。等 I/O 永远放在未持 latch 的路径上做。</span>
 
 ```mermaid
 flowchart TD
@@ -40,7 +44,22 @@ flowchart TD
 
 WAL：必须先日志后改页，且常在写 latch 下，避免半改页被读者看见。steal：未提交脏页可换出，但须已记日志；pin 不阻止已 unpin 的脏页成为牺牲者。
 
+```mermaid
+flowchart LR
+  subgraph LOCKT["lock: 事务层"]
+    A1["保护行或表的逻辑内容"] --> A2["可跨用户交互, 死锁走检测"]
+  end
+  subgraph LAT["latch: 页物理层"]
+    B1["保护槽数组页头不撕裂"] --> B2["微秒级临界区, 固定顺序防死锁"]
+  end
+  subgraph PINN["pin: 帧寿命层"]
+    C1["禁止缓冲池换出该帧"] --> C2["计数归零后帧才可被牺牲"]
+  end
+```
+
 监控：pin 泄漏（忘记 unpin）会让池中帧永远钉死，表现为池缩小。这是实现 bug，不是策略。
+
+<span class="marginnote">数字实例：8 GB 池、16 KB 页共约 52 万帧；若 100 帧被忘记 unpin，池就凭空少了 100 页容量且永不归还——外在表现常常只是命中率悄悄下滑，很难第一眼定位。</span>
 
 ## 边界
 
