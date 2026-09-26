@@ -25,6 +25,8 @@ section: cs
 
 内核挂载 `proc`、`sysfs`。lookup 生成 inode；`read` 调 show，把当前 jiffies、模块列表、队列深度等格式化进页。[页缓存](/cs/page-cache) 对它们往往是临时的。写 sysfs 可能改参数，须权限检查。模块在 init 里创建属性，exit 里删除，避免悬空。
 
+<span class="marginnote">术语翻译：伪文件系统就是「借文件的样子装内核数据」——目录和文件都是现场生成的视图，磁盘上一个字节都不占，read 的内容每次由回调函数即时拼出来。</span>
+
 ```mermaid
 flowchart TD
   OPEN["open /proc 或 /sys"] --> CB["show/store 回调"]
@@ -37,6 +39,21 @@ flowchart TD
 伪文件系统让「内核状态」复用文件抽象，shell 与监控工具不必新系统调用。它们不是真实持久：崩溃一致性课的日志与此无关。过度读 `/proc` 可能有开销（每次生成）。不要把 sysfs 写成攻击面扫描教程。
 
 与 dcache 的关系：这些 dentry 常是动态的，lookup 时创建。
+
+```mermaid
+flowchart TD
+  Q["想查或想改什么？"] --> P{"关于某个进程？"}
+  P -->|"是"| PROC["/proc/PID/..."]
+  P -->|"否"| K{"关于某台设备？"}
+  K -->|"是"| SYS["/sys/class/... 一设备一目录"]
+  K -->|"否"| N{"内核参数或杂项？"}
+  N -->|"参数"| SYSCTL["/proc/sys/..."]
+  N -->|"调试用"| DBG["debugfs，仅调试挂载"]
+```
+
+<span class="marginnote">常见误区：初学者以为 `echo 1 > /proc/sys/net/ipv4/ip_forward` 就一劳永逸。实际上这类写入只改当前运行中内核的值，重启即丢；要持久化得把同一行写进 sysctl 的配置文件，开机再设一遍。</span>
+
+<span class="marginnote">数字实例：监控脚本每 100ms 读一次 `/proc/stat`，内核每秒就要把 CPU 计数器格式化 10 遍文本——读伪文件不是读缓存好的字节，每次都是一次「现做」，高频轮询时这笔开销不能忽略。</span>
 
 ## 边界
 

@@ -17,6 +17,8 @@ section: cs
 
 `After=`/`Requires=`/`Wants=` 语义不同：硬依赖失败则自己失败。socket 单元：先听端口。缺口：cgroup 与单元默认绑 [memcg](/cs/memcg)/cpu；与 [capabilities](/cs/linux-capabilities) 的 `AmbientCapabilities`。本课不把每个指令写成手册。
 
+<span class="marginnote">术语翻译：socket 激活就是「systemd 先替服务守着端口」——服务进程可以压根没起，第一个连接到来时 systemd 才把它拉起来并把连接递过去，于是冷门服务平时不占内存。</span>
+
 <span class="marginnote">事务：一次启动计算最小图。循环依赖会打破或警告。对象是 PID 1 策略，不是内核调度器。</span>
 
 ## 方法
@@ -36,8 +38,19 @@ flowchart TD
 
 错误的 `Type=forking` 会让依赖提前满足。
 
+<span class="marginnote">常见误区：初学者以为守护进程 fork 完、父进程一退出就算「启动成功」。systemd 在 `Type=forking` 下恰恰只能猜——真守护是哪个子进程它未必知道，所以现代服务改用 `Type=exec`/`notify`，让进程自己说「我好了」，`After=` 才不会被提前满足。</span>
 
 实现上：Requires 失败会把依赖者拉倒，Wants 不会。Type=notify 等 sd_notify 才算启动完成。socket 激活让崩溃的守护在下一连接再起。 读法上只引用[上一课](/cs/initramfs-pivot)的结论，不把对象换成训练推理或限价簿。
+
+<span class="marginnote">直觉类比：`Wants=` 像「希望同事来搭把手，他不来我也开工」；`Requires=` 像「没他这活就干不成，他撂挑子我也得停」。`After=` 则只管排队，全然不管对方死活。</span>
+
+```mermaid
+flowchart TD
+  Q["依赖单元 B 出了状况？"] --> R{"A 对 B 写的是什么？"}
+  R -->|"Requires=B"| F1["B 失败 → A 一并被拉倒"]
+  R -->|"Wants=B"| F2["B 失败 → A 照常运行"]
+  R -->|"仅 After=B"| F3["B 先于 A 启动，其余互不影响"]
+```
 
 本课在操作系统进阶的「安全、启动与调试 / 内核安全与启动」课序里，对象是 **systemd 单元与依赖**。
 
