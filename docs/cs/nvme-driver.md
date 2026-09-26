@@ -19,6 +19,10 @@ section: cs
 
 <span class="marginnote">PRP 是页列表；SGL 更一般。写屏障后课才讲 FUA/NVMe flush。本课对象是队列与命令环。</span>
 
+<span class="marginnote">数字实例：每条 NVMe 命令固定 64 字节，队列以环状复用内存。一对深度 1024 的 SQ/CQ，环本身只占 1024 × 64 字节 = 64 KB，成千上万对也不到百 MB 量级，这是「每核一对」在内存上可承受的原因。</span>
+
+<span class="marginnote">术语翻译：PRP 就是把要传输的数据用一串 4 KB 物理页地址串起来的「页清单」，控制器按地址直接 DMA；SGL 是更一般的散布-聚集版本，允许每段长度各不相同。</span>
+
 ## 方法
 
 探测：PCI BAR、能力、创建 CQ/SQ。I/O：`nvme_queue_rq` 把 bio 译成命令，DMA 映射用户或页缓存页。完成路径：`nvme_irq` 或 poll 消费 CQ，`blk_mq_complete_request`。对照 SCSI：没有 SCSI 命令封装的 ATA 翻译层，少一次协议。对照 [设备节点](/cs/device-nodes)：`/dev/nvme0n1` 仍是块 inode。
@@ -35,6 +39,21 @@ flowchart TD
 ## 机制
 
 NVMe 把块设备从「一条 SCSI 管道」换成「每核私有环」，使软件调度器常常无事可做。CPU 亲和与 IRQ 亲和决定尾延迟。不要把本课写成闪存磨损均衡：那是盘内 FTL，OS 看见的是命名空间。
+
+```mermaid
+flowchart TD
+  subgraph OLD["SCSI 时代"]
+    A1["所有 CPU 提交"] --> A2["全局请求锁"]
+    A2 --> A3["一条深队列"]
+  end
+  subgraph NEW["NVMe 每核队列对"]
+    B1["CPU 0"] --> B2["SQ0 与 CQ0"]
+    B3["CPU 1"] --> B4["SQ1 与 CQ1"]
+    B5["CPU n"] --> B6["SQn 与 CQn"]
+  end
+```
+
+<span class="marginnote">直觉类比：门铃寄存器就像餐厅叫号屏——你把订单（命令）逐份放进后厨传送带（SQ），然后更新叫号屏（写门铃），后厨看到号码就知道处理到哪一份，不用你逐份喊话。</span>
 
 与 [sendfile](/cs/sendfile-splice)：页的 DMA 映射在这条路径上真正离开主机。
 

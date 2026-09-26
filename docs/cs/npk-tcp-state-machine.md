@@ -17,6 +17,8 @@ section: cs
 
 状态机不难画，难的是它的实现形态决定资源账：LISTEN 的半开连接放哪个队列、满了谁被丢；TIME_WAIT 为什么不是 sock 而是另一个对象；close 返回之后连接归谁。不这么做会错在哪：把 TIME_WAIT 当泄漏全局关掉，旧段的序号会串进新连接——主干课的警告，其机制就是这里的状态对象生命周期；把 accept 队列满当成「客户端慢」，会去调对端超时，而病根在本机 `listen(fd, backlog)` 与 `somaxconn` 的配置；以为 `close()` 即刻回收，会在高连接周转时撞上孤儿连接的内存上限——内核可能替你提前发 RST。
 
+<span class="marginnote">直觉类比：LISTEN 的两个队列像银行大厅——SYN 队列是「取号区」（来人领号，还没办业务），accept 队列是「叫到号、在柜台等签字的窗口席」（三次握手完成，等 `accept()` 这个柜员来接待）。取号区爆满是攻击洪泛，窗口席爆满是柜员（应用）叫号太慢——病灶不同，药方也不同。</span>
+
 ## 方法
 
 按状态对象读。LISTEN 态：监听 sock 挂两个队列——SYN 队列放半开连接（收到 SYN、回完 SYN-ACK、等第三次握手的 `request_sock`），accept 队列放三次握手完成、等 `accept()` 领走的子连接；accept 队列满则丢第三次握手 ACK（对端重传），`tcp_syncookies` 打开时改用无状态的 cookie 应答，把半开状态搬进序号里（[SYN cookies](/cs/syn-cookies)）。ESTABLISHED 态：完整 sock 挂四元组哈希表，[上一课](/cs/npk-rx-path)的查找命中就是这张表。TIME_WAIT 态：tw_sock 是缩小版对象，不占发送队列与拥塞状态，进独立的 timewait 表，受 `tcp_max_tw_buckets`（默认 262144）封顶，超限按最旧淘汰；`tcp_tw_reuse` 只对主动发起方生效。关闭路径：主动关走 FIN-WAIT 到 TIME_WAIT；close 时应用不再持有但连接未关完，sock 变成孤儿（orphan），计入全机 `tcp_max_orphans`，内存压力下内核直接 RST 回收。有未读数据的连接 close 会发 RST——数据还没给应用，可靠的语义已经不成立。
@@ -30,11 +32,23 @@ flowchart TD
   OR -->|"内存压力"| RST["RST 回收"]
 ```
 
+<span class="marginnote">术语翻译：SYN cookies 就是「把半开连接的档案折进序号本身」的手段来做「不占队列格子也能完成握手」的事——服务端不再记住你，而是把关键信息加密混在 SYN-ACK 的序号里，第三次握手的 ACK 带回来时再验算。代价是丢掉部分 TCP 选项的协商空间，所以它只该是洪泛时的应急档。</span>
+
 ## 机制
 
 实现形态解释了行为怪癖。同一逻辑连接在不同态住在不同的表里，查找方（上一课的收包路径）必须在每一态命中正确的表——这就是为什么 SYN-RECEIVED 的包要查两张表、TIME_WAIT 收到包可能回 ACK 也可能回 RST。迁移代码散在 ACK 与数据处理函数里而不是一张查找表，因为每条边还携带动作：发段、起定时器、清记账——图是抽象，边才是程序。定时器把「无包可等」的态挂上时钟：重传定时器、FIN-WAIT-2 的孤儿超时、保活定时器探半开连接，都是把状态机的停滞变成可回收事件。`SO_LINGER` 的 RST 档、带未读数据的 close，都是把优雅关换成中止态的出口。
 
 <span class="marginnote">accept 队列长度的真实上限是 `min(backlog, somaxconn)`，内核 5.4 起默认 4096，旧内核是 128——「改了应用 backlog 没用」先查它。`ss -lnt` 的 Recv-Q 在 LISTEN 态读出的正是当前 SYN 队列深度，是半开积压的直接观测。</span>
+
+<span class="marginnote">数字实例：TIME_WAIT 停 60 秒，稳态数量约等于「每秒新建连接数 × 60」。每秒关 4000 条连接，稳态就压着 24 万个 tw_sock，已贴近默认上限 `tcp_max_tw_buckets` 262144——再多就开始淘汰最旧的，压测日志里的「连接被静默丢弃」常是这笔账，不是丢包。</span>
+
+```mermaid
+flowchart TD
+  ES2["ESTABLISHED"] -->|"被动关: 对端先 FIN"| CW["CLOSE-WAIT: 等应用 close"]
+  CW -->|"应用调 close"| LA["LAST-ACK: 发自己的 FIN"]
+  LA -->|"收到 ACK"| CL["CLOSED"]
+  CW -->|"应用拖着不 close"| HANG["连接挂在 CLOSE-WAIT, 内存不还"]
+```
 
 ## 边界
 

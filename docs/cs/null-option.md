@@ -17,6 +17,8 @@ section: cs
 
 若 `T` 的值含 `null`，则每一解引用都可能卡住或抛例外。进展定理要把 NPE 当合法一步，于是「井型」不再表示「能读字段」。Option：类型是 $1+\tau$，匹配强迫处理。缺口是**把空从默认别名里拿出来**，不是再定义 Galois。
 
+<span class="marginnote">数字实例：$1+\tau$ 里的「值计数」。`bool` 有 2 个值，`Option&lt;bool&gt;` 就有 $1+2=3$ 个：`None`、`Some(true)`、`Some(false)`。「多出来的那一个」被点名成 `None`，而不是像 `null` 那样悄悄混进所有 2 个值里——这就是「显式」的算术含义。</span>
+
 可空注解（`@Nullable`）是渐进/契约，运行时仍可能破。抽象解释找 NPE 是事后；Option 是事前。
 
 ### `undefined` 不是 `null`
@@ -38,11 +40,25 @@ flowchart TD
 
 互操作：FFI 从 C 进来的指针仍可能空，要在边界包成 Option——渐进课的强制在此落地。
 
+<span class="marginnote">常见误区：「Option 只是把 null 改了个名字」。改名不强制任何事，`null` 在 Java 里照样一路传到爆；Option 的力量在构造子：match 必须把 `None` 分支写出来，漏写就编译不过——把「忘了判空」从运行时事故移到编译期错误。</span>
+
 ## 机制
 
 表示：`Option<&T>` 可用空指针位模式优化（Rust 的 nullable pointer optimization），这是表示 trick，类型仍是和。不要把优化当「其实还是 null」。
 
 分析：即使有 Option，内部仍可用 AI 证明某 `unwrap` 安全以消除检查。类型不排斥分析。
+
+<span class="marginnote">术语翻译：空指针优化（NPO）就是「借用 `None` 与 `Some(0)` 的位模式恰好不撞车」的手段来做「Option 不多占一个字节」的事：`Option&lt;&amp;T&gt;` 在内存里和裸指针长得一样——非零即 `Some`，零即 `None`。注意这是表示层的巧合安排，类型上 `None` 仍然不是合法的 `&amp;T`。</span>
+
+```mermaid
+flowchart TD
+  C["FFI: C 返回裸指针"] --> CHK{"边界处 is_null?"}
+  CHK -->|"空"| NONE["包成 None"]
+  CHK -->|"非空"| SOME["包成 Some 引用"]
+  NONE --> SAFE["内部: 类型保证非空"]
+  SOME --> SAFE
+  SAFE --> USE["业务代码不再写判空"]
+```
 
 ## 边界
 
