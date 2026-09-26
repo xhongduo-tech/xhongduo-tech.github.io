@@ -38,17 +38,38 @@ flowchart TD
   ES --> RST["RST 到 CLOSED"]
 ```
 
+<span class="marginnote">数字实例：`netstat` 里成千上万个 CLOSE-WAIT，几乎都是应用代码忘了调 close——内核在等应用表态，等不到就永远停在这个态，文件描述符随连接一起泄漏。</span>
+
 ## 机制
 
 SYN 泛洪把 SYN-RCVD 队列填满，下一课 cookies。LACP 与路由变化不改状态机，只改路径。抓包排障：看标志位对状态，比看窗口更先。incast 不改状态，只改拥塞变量。
 
 同时打开：双方 SYN-SENT → SYN-RCVD → EST，序号交叉，规范允许。
 
+上面的主路径是服务器视角。拆开拆除过程，主动关闭与被动关闭两侧走的是两组不同状态：
+
+```mermaid
+flowchart TD
+  ES["ESTABLISHED"] --> ACT["主动方发 FIN"]
+  ES --> PAS["被动方收 FIN, 回 ACK"]
+  ACT --> FW1["FIN-WAIT-1"]
+  FW1 --> FW2["FIN-WAIT-2, 等对方 FIN"]
+  FW2 --> TW["TIME_WAIT"]
+  PAS --> CW["CLOSE-WAIT, 应用不 close 就停在这"]
+  CW --> LA["LAST-ACK, 发出 FIN"]
+  LA --> CLS["CLOSED"]
+  TW --> CLS
+```
+
+<span class="marginnote">常见误区：容易以为"状态"是两端共享的一个值。实际上每端各持一份：主动关的一端走 FIN-WAIT 与 TIME_WAIT，被动关的一端走 CLOSE-WAIT 与 LAST-ACK，同一时刻两边可以处于完全不同的状态。</span>
+
 ## 边界
 
 本课不引入 TCP 快速打开的全部 cookie。SYN cookies 是下一课。后课默认：套接字生命周期 = 这份状态机；应用 close 不等于立刻 CLOSED。
 
 把 TIME_WAIT 当泄漏而全局关，会制造旧段串连接。
+
+<span class="marginnote">直觉类比：优雅关闭像双方道完别再散场；RST 则是把灯直接拉灭——不管对方话有没有说完，两端立刻回 CLOSED，之后迟到的发言自然无人接收。</span>
 
 下一课[SYN cookies](/cs/syn-cookies)。
 

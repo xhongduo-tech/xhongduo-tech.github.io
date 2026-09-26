@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">`madvise(MADV_HUGEPAGE)` 是 always 之外的选择。禁用 THP 是数据库常见旋钮，因为延迟尾部。</span>
 
+<span class="marginnote">数字实例：进程只用 1 字节却占满一个 2MB 大页，浪费约 209 万字节；512 个这样的大页就能浪费近 1GB——内部碎片是大页最直白的代价。</span>
+
 ## 方法
 
 缺页：尝试 `alloc_hugepage`，失败则 4K。khugepaged：找对齐的 4K 序列，compact，安装 pmd。拆：写保护 COW、部分 madvise 或内存紧张。对照 [extent](/cs/ext4-extents)：连续虚存 ↔ 连续物理。对照 DAX：大页映射 PMEM 是另一配置。
@@ -37,6 +39,21 @@ THP 把 TLB 覆盖范围加大，用碎片与延迟换吞吐。它是透明的�
 
 调试：`/proc/vmstat` 的 thp 计数；拆页失败会泄漏或回退。
 
+khugepaged 把已有 4K 页折叠成大页时，每一步都可能被内存碎片打断：
+
+```mermaid
+flowchart TD
+  SCAN["khugepaged 周期扫描"] --> FIND{"找到对齐的 512 个 4K 页?"}
+  FIND -->|"否"| NEXT["跳过, 扫下一区域"]
+  FIND -->|"是"| COMP["触发 compaction 凑连续物理框"]
+  COMP --> OK{"凑齐了吗?"}
+  OK -->|"否"| DEFER["延后再试"]
+  OK -->|"是"| COPY["拷贝内容, 安装一条 pmd"]
+  COPY --> SWAP["原 4K 页表项被替换"]
+```
+
+<span class="marginnote">为什么重要：khugepaged 触发 compaction 的瞬间可能把缺页路径卡住毫秒级——平均吞吐没变差，第 99.9 百分位延迟却被拖高，这正是数据库管理员常把 THP 关掉的直接原因。</span>
+
 
 实现上：khugepaged 扫描会占用 CPU，桌面发行版常把 defrag 设成 madvise。拆页失败可能留下分裂中的 pmd，要重试。文件 THP 对 tmpfs 有意义，对磁盘 FS 仍受限。 读法上只引用[上一课](/cs/page-migration-compaction)的结论，不把对象换成训练推理或限价簿。
 
@@ -53,6 +70,8 @@ THP 把 TLB 覆盖范围加大，用碎片与延迟换吞吐。它是透明的�
 
 版本字段会变，课序钉的是机制对象「透明大页 THP」，不是某一主线内核的结构体名。
 后课默认：内核可透明使用匿名大页。按内容合并相同页，下一课 KSM。
+
+<span class="marginnote">常见误区：容易把 THP 与 hugetlbfs 当一回事。hugetlbfs 要求应用显式挂载并预留大页池；THP 是内核在普通匿名内存上自动升级，应用一行代码都不用改。</span>
 
 ## 小结
 
