@@ -17,6 +17,8 @@ section: cs
 
 SSD 再快，压缩 4K 到 1K 并留在 RAM 往往更低延迟。zswap：frontswap 钩，换出时压缩，键是 swap 槽。缺口：压缩算法、池大小、拒绝（incompressible）；与 [memcg](/cs/memcg) 的交换会计；和 zram 的差别——zram 是块设备，zswap 是交换路径缓存。本课不把每个 compressor 基准写成附录。
 
+<span class="marginnote">数字实例：一个 4 KB 匿名页若压到 1 KB，内存池同容量能装 4 倍的页；换入时省掉一次 SSD 读（几十微秒起），多付的是一次解压（微秒级）。但若页里是已压缩的照片，压完还是 4 KB，这轮尝试纯属白烧 CPU。</span>
+
 <span class="marginnote">同页再次换入命中 zswap 则不读盘。写回：池满按 LRU 把压缩页解开或直接写 swap（视实现）。</span>
 
 ## 方法
@@ -34,6 +36,22 @@ flowchart TD
 ## 机制
 
 zswap 把交换从「必定盘 I/O」变成「先 CPU 再盘」，改善超售。它消耗 CPU 与不可移动的压缩池，可能妨碍 [compaction](/cs/page-migration-compaction)。不要写成云内存产品。与 [O_DIRECT](/cs/direct-io) 无关。
+
+<span class="marginnote">直觉类比：zswap 是书桌旁的一个压缩收纳箱——书架（RAM）放不下的书先压缩塞箱；找书时从箱里取（解压，快）；箱子满了才把一部分真送去地下库（swap 盘，慢）。代价是每次收纳和取出都要动手打包，箱子本身还占桌面。</span>
+
+<span class="marginnote">常见误区：初学者容易把 zswap 与 zram 混为一谈。zram 是凭空造一块压缩块设备当 swap 用；zswap 不造设备，它挂在真 swap 路径上当"第一道缓存"。两者同时开会把同一页压两遍，通常二选一。</span>
+
+```mermaid
+flowchart TD
+  F["缺页：进程要这页"] --> Q{"页在 zswap 池里吗"}
+  Q --> HIT["在：解压回 RAM，不碰盘"]
+  Q --> MISS["不在：读 swap 设备"]
+  HIT --> FAST["微秒级延迟"]
+  MISS --> SLOW["毫秒级 I/O"]
+  POOL["池满触发写回"] --> EV["按 LRU 选压缩页"]
+  EV --> SW["批量写回交换设备"]
+  SW --> ROOM["腾出池空间"]
+```
 
 安全：压缩数据仍是明文，在 RAM 里。
 

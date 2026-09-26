@@ -17,6 +17,8 @@ section: cs
 
 `send` 默认拷进 skb 线性区或内核页。`MSG_ZEROCOPY`：用户页钉住，协议用，完成用错误队列通知可改页。接收：`recvmmsg` 仍常拷；真正少拷是 mmap 包环、AF_XDP、或 GRO 后直接 splice 到文件。缺口：页必须对齐、不能立即重写；校验卸载与加密可能迫使拷贝。本课不把 TLS 内核卸载细节写完。
 
+<span class="marginnote">数字实例：发 1 GB 静态文件，普通路径要在用户缓冲与内核之间 memcpy 一到两次，纯 CPU 拷贝按 10 GB/s 算约耗 0.1–0.2 秒的核时间；sendfile/零拷贝把这段归零，只剩 DMA 与协议开销——带宽没变，省的是 CPU。</span>
+
 <span class="marginnote">「零拷贝」统计上常是「少一次」。调试要用完成通知，否则数据竞争。与 O_DIRECT 同构：应用承担生命周期。</span>
 
 ## 方法
@@ -34,6 +36,24 @@ flowchart TD
 ## 机制
 
 零拷贝把 CPU memcpy 从数据面拿掉，瓶颈回到 DMA 与协议状态。它不取消 [套接字缓冲](/cs/socket-buffers) 的会计——记账仍按字节。不要写成网卡广告。与 XDP：XDP 改的是早处理，数据仍可在同一页上 TX。
+
+<span class="marginnote">直觉类比：零拷贝像把包裹"原箱直发"——你不拆开重新装箱，只在箱面贴张新运单（包头），交给快递（网卡）直接拉走。代价是箱子在签收（完成通知）前不许动；提前改箱内东西，寄出去的就是被改过的货。</span>
+
+<span class="marginnote">常见误区：初学者容易以为换了 sendfile/MSG_ZEROCOPY 就"绝对零拷贝"。实际 TLS 加密、校验和卸载失败、页不对齐等都会让内核静默回退成拷贝——省没省成，要靠完成通知与计数验证，不能只看 API 名字。</span>
+
+```mermaid
+flowchart TD
+  APP["应用提交发送"] --> D{"走哪条发送路径"}
+  D --> NZ["MSG_ZEROCOPY：页钉住"]
+  D --> SF["sendfile：文件页直发"]
+  D --> CP["普通 send：拷进内核"]
+  NZ --> DMA["网卡 DMA 负载页"]
+  SF --> DMA
+  CP --> CP2["CPU 搬运后再 DMA"]
+  DMA --> ACK["完成通知回错误队列"]
+  ACK --> REUSE["此后才可重用缓冲"]
+  CP2 --> REUSE
+```
 
 失败回退到拷贝必须正确，否则静默损坏。
 

@@ -19,6 +19,8 @@ B+ 精确定位键。zone map 只回答「这个 8MB 里有没有可能命中」
 
 与布隆：布隆服务等值「不在集合」；zone map 服务范围与比较。可同时存在。与直方图：直方图给优化器基数；zone map 给执行器跳 I/O。两者都是摘要，用途不同。
 
+<span class="marginnote">数字实例：1 TB 表切成 128 个 8 MB 的区，查 `amount \gt 9900`。若各区 min/max 都有覆盖，得读全部 128 区；数据按金额聚簇后，min/max 显示只有 3 个区可能含 \gt 9900 的行——125 个区连页都不碰，I/O 一步砍掉约 97%。</span>
+
 <span class="marginnote">存储索引、small materialized aggregates、minmax 块索引是同一族。数据按时间插入则时间列 zone map 近乎分区裁剪。无序 UUID 列上 zone map 几乎无用。</span>
 
 ## 方法
@@ -37,6 +39,22 @@ flowchart TD
 ## 机制
 
 向量化扫描前先丢区。并行工人按仍可能命中的区划分，避免空工人。优化器可用 zone 改善估计，但过期 zone 导致计划仍扫——执行仍会跳，估计与执行不一致又是回归源。
+
+<span class="marginnote">直觉类比：zone map 是一排仓库门口挂的告示牌："本仓存货温度在 -5 到 40 度"。你要找 50 度以上的货，看一眼牌子就知道整仓都不用进——牌子永远不会让你漏掉货（假阴性为零），但可能让你白进几间空跑（假阳性允许）。</span>
+
+<span class="marginnote">常见误区：初学者容易以为"有 zone map 就一定快"。实际收益完全押在数据物理布局上：按插入时间或按查询列排序的表跳得极狠，随机 UUID 主键的表 min/max 覆盖全域，一行都跳不掉——索引没变，变的是数据是否配合。</span>
+
+```mermaid
+flowchart TD
+  Q["查询谓词 x BETWEEN 100 AND 200"] --> LOOP{"还有未判定的区"}
+  LOOP --> CMP["比对谓词与区 min/max"]
+  CMP --> DIS{"区间有交吗"}
+  DIS --> N["无交：整区跳过"]
+  DIS --> Y["有交：读区精确过滤"]
+  N --> LOOP
+  Y --> LOOP
+  LOOP -->|"全部区已判定"| DONE["返回命中行"]
+```
 
 LSM：SST 的 key range 是一种 zone；块内 min/max 更细。
 

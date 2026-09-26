@@ -19,11 +19,15 @@ Zab 保证：已交付的事务形成全序；新领导者恢复时，已提交�
 
 ZooKeeper API：znode、watch、顺序节点。客户端会话带[租约](/cs/leases)式超时。写走领导者，读可走跟随者——默认读不是线性一致，`sync` 后读才追上。这是[会话](/cs/session-guarantees)与 RSM 的交界：产品把弱读当默认。
 
+<span class="marginnote">数字实例：ZXID 是 64 位整数，高 32 位是纪元、低 32 位是计数——纪元 3、计数 17 就拼成 0x0000000300000011。比较先比纪元再比计数，「哪份日志更新」的定义就钉在这条比较规则上，选举时凭它裁定胜负。</span>
+
 <span class="marginnote">ATC 2010 讲服务；DSN 2011 讲 Zab。Chubby 用 Paxos，下一课再钉锁服务对照。</span>
 
 ## 方法
 
 写：领导者赋 ZXID，多数派持久后交付状态机。watch：对 znode 的一次性回调，不是总线级可靠订阅——丢失要靠版本再读。成员：集成在 ZooKeeper 自身，配置也是 znode 树的一部分加法定人数。
+
+<span class="marginnote">术语翻译：watch 是"一次性门铃"——在某个 znode 上挂铃，数据变一次铃响一次，然后铃自动拆除；想持续监听就得响一次再挂一次，两次之间的变化要靠读回的版本号补齐。</span>
 
 ```mermaid
 flowchart TD
@@ -38,6 +42,20 @@ flowchart TD
 ## 机制
 
 线性一致写：多数派 ack。线性一致读：读领导者或 sync。Chubby 风格的锁在 ZK 上用临时顺序节点实现——那是后课锁与 fencing 的例子，本课只指出 API 能做。脑裂：旧领导者纪元落后，写被拒。
+
+<span class="marginnote">常见误区：初学者容易把 ZooKeeper 当强一致读缓存用。实际默认跟随者读只保证会话内单调、跨会话可旧——做选主、注册元数据这类依赖"读到的一定是最新"的操作时，必须显式 `sync` 或读领导者，否则可能拿到旧主纪元的残留值。</span>
+
+```mermaid
+flowchart TD
+  C["客户端发起读"] --> W{"选哪条读路径"}
+  W --> L["读领导者"]
+  W --> F["读跟随者"]
+  W --> S["先 sync 再读"]
+  F --> STALE["延迟低，可能读到旧值"]
+  L --> STRONG["线性一致"]
+  S --> STRONG
+  STALE --> TRADE["弱一致换吞吐"]
+```
 
 本课不把 Kafka 早期「用 ZK 做控制器」当成 Zab 本身；那是客户端。也不把 ZK 当 CAP 的 AP 系统：它是 CP 元数据。
 

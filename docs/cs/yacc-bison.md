@@ -23,6 +23,8 @@ section: cs
 
 二义文法（if-else、加减乘）在 LALR 上会移进/归约冲突。bison 用优先级与结合性给冲突格一个确定动作。这是工具约定，语言的无二义性并未被证明——只是表变成函数。
 
+<span class="marginnote">术语翻译：「shift/reduce 冲突」就是分析器在同一个状态里拿到同一个记号时，既可以选择把它压栈继续读（移进），也可以选择把栈顶几个符号折成一个非终结符（归约）——两条路都合法，工具必须替你选一条。</span>
+
 <span class="marginnote"> Johnson 的 yacc 服务 Unix C 编译器。GNU bison 兼容并扩展（`%glr-parser` 点名，下一课才讲 GLR）。龙书 4.8–4.9 节把生成器当 LALR 的落地。</span> 
 
 ## 方法
@@ -44,6 +46,21 @@ flowchart TD
 LALR 合并同心项集，表比规范 LR 小，可能引入额外冲突。reduce/reduce 通常是文法真有问题；shift/reduce 在表达式与悬挂 else 上常见。bison 的 `%expect` 只是把已知冲突数钉死，不是证明正确。
 
 语义值栈与状态栈同步：归约弹出右部长度，压入 `$$`。动作里若释放 `$1` 又把指针放进 `$$`，所有权要一次说清，否则错误恢复会双释放——后课再收。
+
+<span class="marginnote">数字实例：文法 `E → E + T | T`，栈顶是 `E + T` 三个值。归约时弹出 3 个语义值，跑动作算出 `$$ = $1 + $3`，把结果压回栈——栈同时少了两个状态格与两个值格，两者永远同长。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 `%left` 声明"修复"了文法。实际它只是给冲突格投票：声明 `%left '+'` 后，遇到 `+` 冲突格选归约，于是 `1+2+3` 结合向左。语言本身仍二义，换一个前瞻记号就可能冒出新冲突。</span>
+
+```mermaid
+flowchart TD
+  LOOP["yyparse 循环"] --> LOOK{"查表：状态 × 前瞻记号"}
+  LOOK --> SHIFT["动作是移进：记号压栈"]
+  LOOK --> RED["动作是归约：弹右部跑动作"]
+  LOOK --> ERR["动作是空白：调 yyerror"]
+  RED --> GOTO{"GOTO 表：压入哪个状态"}
+  GOTO --> LOOP
+  SHIFT --> LOOP
+```
 
 ## 边界
 
