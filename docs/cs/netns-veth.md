@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">socket 属于创建它的 netns。fd 传出后仍绑原 ns，这是容器网络的细坑。</span>
 
+<span class="marginnote">术语翻译：netns 就是用「复制一份网络栈视图」的手段来做「进程之间网络互不干扰」的事——每份视图里网卡、路由表、端口号都各算各的，所以容器里的 `listen :80` 与宿主机的 80 端口互不冲突。</span>
+
 ## 方法
 
 宿主机：`ip link add veth0 type veth peer name veth1`，`ip link set veth1 netns pid`，两边配地址或桥。包：容器 TX veth1 → 宿主机 veth0 RX，再走 [qdisc](/cs/tx-path-qdisc)/转发。对照 [tmpfs](/cs/tmpfs)：一个隔离文件树，一个隔离协议栈。对照 SCSI：没有 LUN，只有 peer 指针。
@@ -31,11 +33,27 @@ flowchart TD
   BR --> PHY["物理网卡"]
 ```
 
+<span class="marginnote">直觉类比：veth 像一根交叉的跳线——从这头塞进去的包，立刻以「收到一个包」的姿态从那头冒出来，中间没有交换机。所以它必须成对出现，拔掉任意一头，两头一起变 DOWN。</span>
+
 ## 机制
 
 netns+veth 把「一台主机多份网络栈」收成原语，容器网络的其余都是桥、路由、策略的叠加。性能：每包多次协议栈与 skb 拷贝或转发。后课会有更快的旁路。不要写成 SDN 产品。与 [cgroup](/cs/cgroups)：netns 不管 CPU，只管看见哪些设备。
 
 iptables 要在正确的 ns 里下规则，否则「容器里关不掉宿主机端口」。
+
+<span class="marginnote">常见误区：初学者容易以为在宿主机上改 iptables 就能管住容器端口。实际上网络规则是按命名空间各自一份：要管容器里的连接，得 `nsenter` 进它的 netns 再下规则，否则改的是另一张表，怎么改都「关不掉」。</span>
+
+```mermaid
+flowchart LR
+  HP["宿主机进程"] -->|"发包"| T0["veth0 TX"]
+  T0 -->|"peer 指针直达"| R1["veth1 RX"]
+  R1 --> CP["容器内进程"]
+  CP -->|"回包"| T1["veth1 TX"]
+  T1 -->|"peer 指针直达"| R0["veth0 RX"]
+  R0 --> HP
+```
+
+这张图回答：一对 veth 的双向包路是什么。去程 TX veth0、RX veth1，回程正好反过来——每一跳都「一端发送即另一端接收」，中间不经任何转发设备。
 
 
 实现上：把物理网卡移进 ns 后，宿主默认路由可能断。veth 的 peer 指针跨 ns，拆 ns 要先把设备移回。socket 随创建 ns，SCM_RIGHTS 传出后仍绑旧栈。 读法上只引用[上一课](/cs/netfilter-conntrack)的结论，不把对象换成训练推理或限价簿。

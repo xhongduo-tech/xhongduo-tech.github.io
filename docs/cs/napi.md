@@ -17,6 +17,8 @@ section: cs
 
 livelock：CPU 全在 IRQ 里建 skb，协议层得不到时间。NAPI：驱动注册 `napi_struct`，IRQ 只 `napi_schedule`，`poll()` 从环形缓冲取描述符、填 skb、`netif_receive_skb`。配额（weight）防止一网卡饿死调度。缺口：多队列网卡每队列一个 NAPI；忙时类似存储 poll，闲时仍靠 IRQ 省电。
 
+<span class="marginnote">直觉类比：NAPI 像「前厅取餐」——第一单来电话叫你（中断），发现生意忙，你干脆站到窗口一批一批地取（轮询），直到窗口没人了才回工位继续等电话。若每单都接一次电话（每帧一个中断），高峰期你只会被铃声淹死，一份餐都出不了。</span>
+
 <span class="marginnote">busy polling（`SO_BUSY_POLL`）让用户线程直接调 napi poll，与存储 IOPOLL 同构。本课先钉内核软中断路径。</span>
 
 ## 方法
@@ -36,10 +38,24 @@ flowchart TD
 
 NAPI 把「包到达」从逐帧 IRQ 换成批量，使协议栈与应用能跑。它是 Linux 网络性能的底座，后课 GRO 在 poll 里聚合。不要写成实时保证：软中断仍抢占用户，过重会 raise `ksoftirqd`。
 
+<span class="marginnote">数字实例：万兆以太网发 64 字节小包的线速约 1488 万包/秒。逐帧中断意味着每秒近 1500 万次中断，光响应铃声就能吃满一个核（正是 livelock）；NAPI 改成一次 poll 取一批（比如 64 个包），中断次数直接降到每秒二十几万次调度级别。</span>
+
+<span class="marginnote">常见误区：初学者以为 NAPI 是「纯轮询」或某种实时保证。实际上空闲时它仍关不掉中断——靠 IRQ 叫醒才省电；软中断也不承诺延迟上限，负载过重时内核会唤醒 `ksoftirqd` 线程接手，交互进程照样可能感到抖动。</span>
+
 与设备模型：网卡仍是 PCI 设备，本课只管收包引擎。
 
 
 实现上：weight 用尽会让出 softirq，避免一网卡饿死调度。RPS 把包再丢到别的 CPU 的 backlog，等于软件 RSS。busy poll 让套接字在 recv 里直接 napi_poll。 读法上只引用[上一课](/cs/skbuff)的结论，不把对象换成训练推理或限价簿。
+
+```mermaid
+flowchart TD
+  POLL["poll 一批包"] --> Q{"配额（weight）用尽？"}
+  Q -->|"未用尽"| MORE["继续收下一批"]
+  Q -->|"用尽"| YIELD["让出 softirq，重新排 NAPI"]
+  YIELD --> APP["协议栈与应用分到 CPU"]
+  Q -->|"队列空"| REIRQ["重开中断，回省电待命"]
+  OVER["负载持续过重"] --> K["ksoftirqd 线程接手"]
+```
 
 本课在操作系统进阶的「网络栈 / 收发路径」课序里，对象是 **网卡驱动与 NAPI**。
 

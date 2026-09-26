@@ -17,6 +17,10 @@ section: cs
 
 PREROUTING、INPUT、FORWARD、OUTPUT、POSTROUTING 五类钩。iptables/nftables 在钩上匹配、丢、改、跳 NAT。无状态规则不能「只允许已建立」。conntrack：五元组 + 状态（NEW/ESTABLISHED/RELATED），ICMP 差错可 RELATED。缺口：表满则 drop（DoS）；NAT 改地址必须改校验与端口；与 [套接字](/cs/socket-buffers) 查找用的是改后或改前地址，取决于钩点。本课不把 nft 语法写成手册。
 
+<span class="marginnote">术语翻译：五元组就是一条连接的「身份证号」——源 IP、源端口、协议、目的 IP、目的端口。conntrack 拿这个号记账：第一次见到的记 NEW，两个方向都见过面就升级 ESTABLISHED，超时或挥手后才销账。</span>
+
+<span class="marginnote">数字实例：conntrack 表容量按内存推算，常见量级从 65536 条起。表一打满，新的 NEW 包直接被丢——外行人看到的现象是「服务器随机连不上，重启就好」，其实是被扫描或大流量 NAT 撑爆了表，而不是网卡或应用坏了。</span>
+
 <span class="marginnote">nf_conn 可被 helper 解析 FTP 等。关闭 conntrack 对转发性能有好处，但 NAT 不能关。</span>
 
 ## 方法
@@ -36,7 +40,19 @@ flowchart TD
 
 netfilter 把「包策略」收成可编程钩，使 NAT 与防火墙成为 OS 功能而非旁路盒子。conntrack 是有状态的代价：内存与锁。不要写成安全产品对比文。与 [namespaces](/cs/namespaces)：每 netns 一份 conntrack，容器隔离靠后课 netns。
 
+<span class="marginnote">常见误区：初学者以为 conntrack 和 TCP 状态机一样懂重传、挥手、窗口。实际上它只记录「这个方向见没见过包」，比 TCP 的状态粗糙得多；它也不终结连接，只做记账、改写与放行——传输语义仍归 TCP 自己管。</span>
+
 连接跟踪与应用层代理不同：它不终结 TCP，只改或放行。
+
+```mermaid
+flowchart TD
+  SYN["首包：表里没有元组"] --> NEW["建表项：状态 NEW"]
+  NEW --> POL{"策略是否放行？"}
+  POL -->|"否"| DROP["丢弃：连不出去"]
+  POL -->|"是"| EST["回包到达：升级 ESTABLISHED"]
+  EST --> PASS["之后双向包查表即放行"]
+  TMO["超时无流量"] --> RM["表项回收，会话窗口关闭"]
+```
 
 
 实现上：表满时 NEW 包被丢，表现为随机连不上。helper 解析载荷会放大 CPU，也是攻击面。flowtable 把已确认转发路径短路到更早的交换，绕过多次钩子。 读法上只引用[上一课](/cs/kernel-tcp-impl)的结论，不把对象换成训练推理或限价簿。

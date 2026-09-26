@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">ICMP 常被滤，TCP ping 变体存在。iperf3 是实现。本课钉方法。</span>
 
+<span class="marginnote">数字实例：100 Mbps 链路接 50 ms 远的主机，BDP $= 100 \times 10^6 \text{ bit/s} \times 0.05 \text{ s} = 5 \times 10^6$ bit $\approx 625$ KB。iperf 的 TCP 窗口开不到这个量级时灌不满管道，测出的「带宽」会明显偏低——先查窗口再看链路。</span>
+
 ### 两把尺子
 
 ping 看 RTT，iperf 看吞吐，合起来看队列。ICMP 可能被降级。单次结果受 ECMP 污染。要分布不要单点。
@@ -28,6 +30,8 @@ ping 看 RTT，iperf 看吞吐，合起来看队列。ICMP 可能被降级。单
 ## 方法
 
 对照：控制面 traceroute / 数据面 ping / 灌流 iperf。画：空闲 RTT vs 负载 RTT。与 ABR 估计同类，一层工具。
+
+<span class="marginnote">术语翻译：RTT 就是用「发一个探测包、等对方回声」的手段来做「估计往返延迟与可达性」的事，类似对着山谷喊一声掐表等回音；iperf 则是反过来不停灌水，看管子每秒实际能过多少。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,19 @@ flowchart TD
 QoS 可能把 ICMP 降级，ping 差而 TCP 好。RoCE 要用专门诊断。Maglev 后测量打到不同后端。DoH 不改 ping。权限：ping 要 raw socket 在某系统。
 
 统计：一次 ping 无意义，要分布。
+
+```mermaid
+flowchart LR
+  S["iperf 灌流速率"] -->|"速率 \gt 容量 C"| Q["路由器缓冲队列增长"]
+  S -->|"速率 \lt 容量 C"| OK["队列几乎为空"]
+  OK --> RTT1["空闲 RTT"]
+  Q -->|"排队延迟叠加"| RTT2["负载 RTT 大涨"]
+  RTT2 --> R["空闲/负载 RTT 比值大 ⇒ 膨胀"]
+```
+
+这张图回答：为什么「负载下 ping 变炸」能诊断缓冲膨胀。灌流速率超过链路容量 $C$ 时，多出的比特只能排在路由器缓冲里，每个包的 RTT 都被排队延迟撑高；空闲与负载两把 RTT 一比，膨胀就现形。
+
+<span class="marginnote">常见误区：初学者容易以为 ping 通就等于网络没问题。实际上 QoS 常把 ICMP 降级——ping 丢而 TCP 正常；反过来 TCP 卡而 ping 好也常见。单次 ping 更是纯噪声，要跑几十上百个样本看分位数。</span>
 
 ## 边界
 

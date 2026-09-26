@@ -17,6 +17,8 @@ section: cs
 
 `chroot` 只改路径起点，pid 与网络仍全局。缺口：`clone`/`unshare` 带 `CLONE_NEWPID` 等标志，子进程成为该空间的 pid 1，看不见外面的进程表；`CLONE_NEWNS` 得到挂载副本；`CLONE_NEWNET` 有自己的网卡与回环；UTS 改 hostname；IPC 隔离 System V/POSIX 对象；user 命名空间映射容器内 uid 0 到外层非特权——机制课只讲映射存在，不讲如何打穿。
 
+<span class="marginnote">术语翻译：namespaces 就是给每组进程发一副「过滤眼镜」——进程表、挂载树、网卡、主机名各有各的一份视图，内核记账时把同一个对象在不同眼镜里登记成不同编号。它隔离的是「看见什么」，不是「能用多少」。</span>
+
 <span class="marginnote">setns 加入已有空间。打开 `/proc/pid/ns/*` 可引用。本课不写逃逸步骤。</span>
 
 ## 方法
@@ -33,6 +35,19 @@ flowchart TD
 ## 机制
 
 命名空间把「全局内核表格」变成每组进程一份视图，让 [VFS](/cs/vfs) 查找、`kill` 的 pid、`bind` 的端口号重新解释。内核仍是一份，特权环未变。这与虚拟机不同：没有第二套页表根给「客内核」。user ns 降低了「容器内 root」对外层的含义，安全课会再收。
+
+<span class="marginnote">常见误区：初学者以为容器里跑着第二个内核，或者容器内的 pid 1 就是宿主机的 pid 1。实际上内核只有一份，宿主机上 `ps` 仍能看到容器里的全部进程（编号可能不同）；pid 1 只在容器视图内成立，`kill`、`bind` 都按各自视图解释。</span>
+
+<span class="marginnote">为什么重要：视图隔离解决不了争用——两个容器各自以为自己独占机器，实际仍在抢同一份 CPU 和物理内存。这也是 namespaces 与 cgroup 必须配合的原因：前者切视图，后者记账与限流，缺一个都不算完整的容器化。</span>
+
+```mermaid
+flowchart LR
+  PROC["容器内进程"] --> V1["容器 pid 视图：编号 1"]
+  PROC --> V2["宿主机视图：真实编号（如 3579）"]
+  V1 --> K["容器内 kill 1 命中它"]
+  V2 --> H["宿主机 ps 显示 3579"]
+  OUT["宿主机其他进程"] --> INV["容器视图里根本看不见"]
+```
 
 ## 边界
 

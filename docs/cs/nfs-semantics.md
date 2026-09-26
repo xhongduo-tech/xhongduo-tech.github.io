@@ -19,9 +19,13 @@ section: cs
 
 <span class="marginnote">属性缓存超时使 `stat` 便宜但不准。写缓存未刷时服务器崩溃，数据丢——应用仍要 fsync 语义的远程对应物。</span>
 
+<span class="marginnote">术语翻译：close-to-open 就是用「close 时把改动刷回服务器、open 时重新取最新」的手段来做「给分布式缓存定一个最小一致点」的事——两次 open 之间，谁也不承诺你看见别的客户端的写。</span>
+
 ## 方法
 
 lookup 向服务器要文件句柄。read：缓存命中则不发 RPC；失效则 GETATTR/READ。write：可异步，commit 才稳定。与 [fsync](/cs/fsync)：客户端必须把脏页推到服务器并 COMMIT。对照 FUSE：两边都是「不是本地盘」，但 NFS 有共享多客户与网络分区。对照 overlay：层在本地；NFS 的 lower 若是远程，缓存叠缓存。
+
+<span class="marginnote">常见误区：初学者容易把 NFS 挂载当「慢一点的本地盘」。差别不在速度：本地 `write` 同机立即可见，NFS 另一客户端要等缓存约定；`stat` 可能报旧属性，锁语义也要单独确认——语义先于性能。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,18 @@ flowchart TD
 ## 机制
 
 NFS 用「弱缓存一致性」换吞吐。这不是 bug，是课序要默认的前提：分布式文件不是本地 inode 的透明延伸。NFSv4 的 stateful 打开、委派（delegation）让服务器把缓存权交给某一客户，冲突时收回——更接近本地，仍有收回窗口。不要把本课写成限价簿的远程同步。
+
+```mermaid
+flowchart TD
+  A["客户端 A 写文件"] --> AC["先落 A 的写缓存"]
+  AC -->|"close：刷回服务器"| SV["服务器上是最新版本"]
+  SV --> B1["客户端 B 此后 open ⇒ 看到新数据"]
+  OLD["客户端 B 早已打开并持有读缓存"] -->|"不重新 open"| STALE["仍读到旧数据"]
+```
+
+这张图回答：close-to-open 到底保证什么。保证的只是「重新 open 一定看见 close 之前的写」；一直开着的 B 不受任何保护，读到旧数据不算违背语义，而是这条约定本来的边界。
+
+<span class="marginnote">直觉类比：v3 无状态像邮局不记你上次寄过什么——每个请求自带全部信息，崩溃后客户端重试即可；v4 有状态像图书馆借书登记——服务器记着谁借了什么，靠租约到期回收，登记簿本身也要恢复。</span>
 
 与 [ACL](/cs/xattr-acl)：v4 ACL 可在线上走，与 POSIX 模式位映射有损。
 

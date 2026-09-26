@@ -17,6 +17,10 @@ section: cs
 
 两个 `void f(int)` / `void f(double)` 不能同名符号。mangling 把类型签名编进去。模板实例：再编模板实参。缺口是**编码规则与互操作**，不是行号表。
 
+<span class="marginnote">术语翻译：mangling（名字改编）就是把「函数名 + 参数类型 + 命名空间」这条长信息压缩编码成一个合法的汇编符号串。链接器只认字符串，不认 C++ 的类型系统，所以重载的两个 `f` 必须被译成两个不同的字符串才能共存。</span>
+
+<span class="marginnote">直觉类比：链接器像一家只会按全名喊人的门卫，同名就拒绝入内。C++ 便给每个重载发一个「带姓带职称」的全名——`f(int)` 和 `f(double)` 在门口登记成两个不同的字符串，门卫就能区分了。</span>
+
 `extern "C"` 关闭 mangling，才能与 C 库链接。Rust/Swift 各有方案，点名。
 
 ### mangling 不是卫生宏
@@ -42,7 +46,19 @@ flowchart TD
 
 ABI 不稳：改 mangling = 不能与旧 `.o` 链接。不要手写猜测的 `_Z` 串去 `dlsym`，用 `extern "C"` 或官方工具。
 
+<span class="marginnote">常见误区：初学者以为 mangling 是加密或混淆——实际上它是公开、可逆的编码规则，`c++filt` 一条命令就能把 `_Z1fi` 还原成 `f(int)`；它也不影响函数行为，只改链接器看到的名字。</span>
+
 过长符号：模板错误信息膨胀；编译器可截断哈希（谨慎）。
+
+```mermaid
+flowchart LR
+  F1["void f(int)"] --> Z1["_Z1fi"]
+  F2["void f(double)"] --> Z2["_Z1fd"]
+  F3["extern \"C\" 的 f"] --> Z3["f（不改编）"]
+  Z1 --> LD["链接器按字符串区分"]
+  Z2 --> LD
+  Z3 --> LD
+```
 
 ## 边界
 

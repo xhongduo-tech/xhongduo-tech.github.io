@@ -21,9 +21,13 @@ section: cs
 
 <span class="marginnote">Pavlo and Aslett 对 NewSQL 的整理。Stonebraker 对 NoSQL 的批评（「One Size Fits None」脉络）。本课不排名。</span>
 
+<span class="marginnote">直觉类比：NoSQL 像把一本账拆给十个柜员各记各的，快，但跨柜员对不上账；NewSQL 想要「仍然是一本账」的体验，又保留十个人的手速——代价是柜员之间多了一道对账手续。</span>
+
 ## 方法
 
 读一家系统：① 分片键与再平衡；② 跨片协议（2PC/Calvin/时钟）；③ 日志粒度与 CDC；④ 隔离实际是 SI 还是 SSI；⑤ 存储引擎。对照本课程树。
+
+<span class="marginnote">术语翻译：存算分离就是用「计算节点与存储节点分开部署」的手段来做「扩容时只加其中一类」的事——像把厨房和仓库分开租：客人多了扩厨房，货多了扩仓库。</span>
 
 基准用 TPC-C 跨分片比例，后课。Jepsen 测声称的一致。
 
@@ -39,6 +43,21 @@ flowchart TD
 优化器：必须分片裁剪与 broadcast/shuffle。没有则 SQL 是一层慢的 scatter。ORM 阻抗在分布式下 N+1 变成 N×分片。连接池对着网关。
 
 HTAP 功能常当附件（列副本），不是 NewSQL 定义的一部分。
+
+```mermaid
+flowchart TD
+  C["客户端：转账跨分片 A 与 B"] --> GW["网关 / 事务协调者"]
+  GW --> P1["分片 A 预写并锁行"]
+  GW --> P2["分片 B 预写并锁行"]
+  P1 --> PH{"两片都 READY？"}
+  P2 --> PH
+  PH -->|"是"| CM["协调者下令提交：各片生效"]
+  PH -->|"任一失败"| AB["协调者下令中止：各片回滚"]
+```
+
+这张图回答：跨分片事务是怎么落地的。它就是前面学过的 2PC 原语——先在两个分片上各自预写（准备阶段），协调者收齐 READY 才统一下提交；任何一片卡住，整笔事务回滚，账本不分片地一致。
+
+<span class="marginnote">常见误区：初学者容易以为「分布式就是更快」。跨片事务要先协调再提交，比单机多出几个 RTT，单机 Postgres 常反而更快。NewSQL 买到的是水平扩展与更小的故障域，不是单条语句的低延迟。</span>
 
 ## 边界
 

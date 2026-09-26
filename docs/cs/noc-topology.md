@@ -19,9 +19,13 @@ section: cs
 
 <span class="marginnote">Dally–Towles：互连是一等公民。片上与片间原理相同，只是延迟与缓冲预算不同。拓扑下一课才选 mesh 或 fat-tree。</span>
 
+<span class="marginnote">数字实例：$8\times8$ 网格、每跳约 3 ns，对角请求单程 14 跳、约 40 ns，还不含排队。核数从 4 涨到 64 时，NoC 的链路数近似线性涨、总带宽跟着涨；总线带宽则原地踏步。</span>
+
 ## 方法
 
 每个 tile 一个路由器：输入缓冲、路由计算、虚通道、开关分配、链路口。消息：读请求、转发、作废、ack、数据。 homing：地址哈希到 slice，即目录 home。QoS：不同虚通道给延迟敏感的一致性 ack 与批量 DMA。
+
+<span class="marginnote">直觉类比：NoC 把片内互连从「全村大喇叭」（总线）换成「邮政网」——每个 tile 是带邮局的住户，消息装成小包裹按地址逐站转寄；包裹多了会堵（拥塞），路程有远近（跳数）。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +39,19 @@ flowchart TD
 [MLP](/cs/mlp-memory-parallelism) 的 miss 现在排队在 NoC 里；热点 slice 造成热树。与 [fence](/cs/fence-cost)：fence 等待的「可见」包括包到达 home 并完成 inv ack，跳数进入临界区代价。功耗：连线与路由器缓冲是多核能耗大头之一。
 
 包优先级：作废 ack 比批量 DMA 更延迟敏感，否则锁的临界区被大块拷贝堵住。这就是虚通道与 QoS 在片上出现的原因，具体拓扑下一课才选。
+
+```mermaid
+flowchart LR
+  C["tile A：核发读请求"] --> H1["路由器逐跳转发"]
+  H1 --> HM["home tile：查目录与 L2 slice"]
+  HM --> INV["必要时发作废 / 转发并收 ack"]
+  INV --> RT["数据包跳回 tile A"]
+  RT --> DONE["读完成：延迟 = 跳数 + 拥塞"]
+```
+
+这张图回答：一次远程读在 NoC 上是怎么走完往返的。请求逐跳到 home，可能还要发作废并等 ack，数据再跳回来——临界区里等的「可见性」正是这条整链，而不是单程一段。
+
+<span class="marginnote">常见误区：初学者容易以为引入 NoC 只是「带宽变大」。代价是延迟不再恒定：远程读要等包到 home、完成作废 ack 再返回，跳数直接计入临界区长度——锁竞争激烈时，热点路径的跳数就是性能。</span>
 
 ## 边界
 

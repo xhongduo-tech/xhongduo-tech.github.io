@@ -17,6 +17,8 @@ section: cs
 
 L2 执行导致 L1 想 VM-exit 到 L1 内核，实际先到 L0。L0 或转发或模拟 VMCS。缺口：性能；安全（L1 逃到 L0）；与 [EPT](/cs/shadow-page-table) 多一层。本课不把所有硬件 nested 能力位列出。
 
+<span class="marginnote">直觉类比：嵌套像转租——L1 本是租客，现在想当二房东把房子隔间转租给 L2。可房产证只在房东 L0 手里：L2 每次「想找房东」（VM-exit），请求都先落到 L0，由 L0 决定自己处理还是转给二房东 L1。</span>
+
 <span class="marginnote">用于测试 hypervisor、嵌套云。对象是两层 VMX，不是容器套容器。</span>
 
 ## 方法
@@ -34,10 +36,23 @@ flowchart TD
 
 嵌套把虚拟化递归化，使「在 VM 里开发 hypervisor」成为可能，税是 exit 与复杂性。生产常关。不要写成套娃梗。与 [kABI](/cs/kabi-module-signing)：L1 内核模块仍要匹配 L1。
 
+<span class="marginnote">数字实例：单层虚拟化一次 VM-exit 通常在数千至上万个处理器周期量级；嵌套下 L2 的一次退出往往拆成两段——先陷入 L0，L0 模拟/转发后把事件注入 L1——再叠加两层 EPT 的缺页路径，同一事件的代价轻松翻倍以上。</span>
+
+<span class="marginnote">常见误区：初学者把嵌套虚拟化当成「容器套容器」。容器共用宿主一个内核，根本不碰 VMX；嵌套是两套完整的虚拟化栈，L0 还要替 L1 维护影子 VMCS。复杂度、开销与攻击面都不是一个量级——这正是生产环境默认关闭 nested 的原因。</span>
+
 bug 类常是双重影子不同步。
 
 
 实现上：L2 的 EPT 由 L1 管理，L0 再嵌一层，缺页路径变长。生产关 nested 是减攻击面。测试 hypervisor 是主要正当理由。 读法上只引用[上一课](/cs/live-migration)的结论，不把对象换成训练推理或限价簿。
+
+```mermaid
+flowchart TD
+  VA["L2 虚拟地址"] --> E1["L1 的 EPT：L2 物理 → L1 物理"]
+  E1 --> E0["L0 的 EPT：L1 物理 → 真实物理"]
+  E0 --> RAM["真实内存"]
+  MISS["任一层缺页"] --> OWN["由该层所属的 VMM 处理"]
+  OWN --> COST["地址翻译路径拉长，exit 开销叠加"]
+```
 
 本课在操作系统进阶的「虚拟化与隔离进阶 / Hypervisor」课序里，对象是 **嵌套虚拟化**。
 

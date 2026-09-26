@@ -17,6 +17,8 @@ section: cs
 
 工作带 $O(\log n)$：只能放下指针、计数器，不能复制整份输入。输入带只读。L：确定。NL：非确定猜测（或等价地，有向图 $s$–$t$ 可达 PATH）。PATH 在 NL：猜测后继顶点，写下当前顶点编号。NL 困难：对数空间归约把一般 NL 机的配置图交给 PATH。Savitch 只给 $\mathrm{NL}\subseteq\mathrm{DSPACE}(\log^2 n)$。$L\stackrel{?}{=}NL$ 开放。
 
+<span class="marginnote">直觉类比：对数空间像考试只发一张便签——题目（输入）只许看不许抄，便签上只够写几个指针和计数器；解题靠反复翻回原卷推算，而不是靠誊写数据。</span>
+
 Immerman–Szelepcsényi：非确定对数空间可数「不可达」——归纳计数可达顶点个数，对补封闭，$\mathrm{NL}=\mathrm{coNL}$。这与 NP 对 coNP 的开放形成对照。
 
 ### 对数空间归约更严
@@ -28,6 +30,8 @@ Immerman–Szelepcsényi：非确定对数空间可数「不可达」——归�
 ## 方法
 
 写 PATH 的 NL 算法。说明配置图顶点可 $O(\log n)$ 写下。点名无向连通（Reingold）在 L，有向仍是 NL 的旗帜。不要把 BFS 原样搬进 L：队列太大。
+
+<span class="marginnote">数字实例：输入长 $n=10^6$ 时 $\log_2 n\approx 20$ 位——工作带大约只装得下两三个数组下标。这正是 BFS 搬不进 L 的原因：它的队列最长可达 $n$ 项，本身就是线性空间。</span>
 
 ```mermaid
 flowchart TD
@@ -45,6 +49,19 @@ flowchart TD
 $L\subseteq NL\subseteq P$，是否相等都开放。
 
 输入只读迫使算法把输入当随机访问磁带，工作带只记指针。无向 $s$–$t$ 可达在 L（Reingold），技巧是展开图上的 USTCON，本课不证。有向 PATH 仍是 NL 完全旗帜。$NL\subseteq P$ 因为配置图多项式大，可显式 BFS——时间与空间在这里分家。
+
+```mermaid
+flowchart LR
+  M["对数空间机器"] --> C["一个配置：状态 + 工作带 + 输入头位置"]
+  C --> G["配置图：点为配置，边为一步转移"]
+  G --> S["空间 log n ⇒ 配置只有多项式个"]
+  S --> Q["接受 ⇔ 起始配置可达接受配置"]
+  Q --> R["PATH 由此成为 NL 完全问题"]
+```
+
+这张图回答：为什么图可达会恰好抓住整个 NL。把任意对数空间机器的「运行」改写成一张配置图，非确定猜测变成图里的分叉路，「存在接受的猜测」就成了「$s$ 到 $t$ 可达」——完全性归约也顺着这条路走。
+
+<span class="marginnote">常见误区：初学者容易以为 NL 的「非确定」只是并行加速。它有精确含义：接受当且仅当存在一条能到接受态的猜测路径；配置图视角把「猜路径」变成「图可达」，这正是 PATH 完全性的来源。</span>
 
 
 ## 边界

@@ -17,6 +17,10 @@ section: cs
 
 规则例：$\to$ 引入（在假设 $\varphi$ 下证 $\psi$ 则得 $\varphi\to\psi$），$\to$ 消去（MP），$\forall$ 引入须对新鲜变元。证明是有限树。可靠：$\Gamma\vdash\varphi\Rightarrow\Gamma\models\varphi$。命题完备可用真值表或 Henkin；一阶 Gödel 完备：$\Gamma\models\varphi\Rightarrow\Gamma\vdash\varphi$（$\Gamma$ 可递归）。于是有效公式可枚举，但因不可判定，不能判定「停在不可证」。
 
+<span class="marginnote">直觉类比：「引入」像把假设写在草稿顶端，推出结论后把假设划掉、只留条件式（假设「退场」）；「消去」就是手里有条件式又有前件，直接用出后件。可靠性说这套纸笔游戏玩不出假结论，完备性说所有真结论都迟早玩得出来。</span>
+
+<span class="marginnote">常见误区：初学者把 Gödel 的两句话撞在一起。1930 年的完备性谈的是**纯一阶逻辑**：有效公式皆可证；1931 年的不完备谈的是**含算术的具体理论**：必有真而不可证的句子。一个是逻辑本身，一个是算术理论，对象不同，并不矛盾。</span>
+
 一致性：推不出 $\bot$。完备性证明常用极大一致扩张 + 项模型，本课要陈述不写 Henkin 全文。
 
 ### 完备不是「什么都能证」
@@ -40,9 +44,21 @@ flowchart TD
 
 有了 $\vdash$，程序正确性可以把「从公理与不变式推出后条件」写成证明义务。自动工具用另一套规则（归结、CDCL）仍要可靠。完备性保证不漏掉有效公式，不保证找证明的时间。
 
+<span class="marginnote">为什么完备了还找不到证明：完备性只保证证明**存在**且能被逐一枚举出来，不保证枚举会停。对某个公式，机器可能已经跑了一亿行推导还没证出来——你无法区分「根本没有证明」和「证明在更后面」，因为这个区分本身不可判定。</span>
+
 [组合子](/cs/combinators-fixed-point) 的 $Y$ 在类型系统里往往不可型，简单类型对应的是直觉主义命题，一阶算术需要更强。点名。
 
 Sequent 演算把上下文写成 $\Gamma\Rightarrow\Delta$，切割消除给出证明规范化。Hilbert 系统少规则、多公理，手证不亲。直觉主义去掉排中律，$\neg\neg\varphi\to\varphi$ 不可证，对应类型里没有一般的 double-negation 翻译除非加经典。本课古典为主，助手课再分。
+
+```mermaid
+flowchart TD
+  H["临时假设 φ"] --> S["在假设下证出 ψ"]
+  S --> DIS["假设退场（discharge）"]
+  DIS --> INTRO["→ 引入：得 φ → ψ"]
+  G1["已有 φ → ψ"] --> MP["→ 消去（MP）"]
+  G2["已有 φ"] --> MP
+  MP --> GET["用出 ψ"]
+```
 
 ## 边界
 
