@@ -19,6 +19,8 @@ shim → Kata → QEMU 或 FC → 客户里的 kata-agent 起用户进程。缺�
 
 <span class="marginnote">pod 级 VM 摊启动成本。对象是接口兼容 + 内核隔离。</span>
 
+<span class="marginnote">术语翻译：OCI 运行时是容器圈定死的「启动合同」——收到 create/start/kill 这套标准命令后负责把容器拉起来。Kata 的全部魔法是：严格按合同办事，但合同背后执行的是一台真虚拟机。</span>
+
 ## 方法
 
 containerd 调 Kata 而非 runc。对照 gVisor 也是 runtime 替换。对照 [nested](/cs/nested-virtualization)：Kata 在裸金属最甜。对照 overlay：层可在宿主做成块设备给客户。
@@ -33,6 +35,21 @@ flowchart TD
 ## 机制
 
 Kata 让编排系统不改 API 就换隔离模型：失败时仍是「容器」，底层是 VM。税是内存与启动。不要写成安全认证。与 [LSM](/cs/lsm-selinux)：宿主管 VMM，客户另有策略。
+
+<span class="marginnote">直觉类比：普通容器像合租房——住户共用一个大门（宿主内核），一扇门被撬全体遭殃；Kata 给每个 pod 盖一栋小别墅，各装各的门锁（独立内核），小区再围一圈围墙（VMM）。</span>
+
+```mermaid
+flowchart TD
+  subgraph R["runc：多个容器共享宿主内核"]
+    CA["容器 A 进程"] --> K1["宿主内核"]
+    CB["容器 B 进程"] --> K1
+  end
+  subgraph KT["Kata：每个 pod 一台 VM"]
+    CC["容器进程"] --> KG["客户独立内核"]
+    KG --> VMM["VMM：QEMU 或 Firecracker"]
+    VMM --> K2["宿主内核"]
+  end
+```
 
 文件系统语义（fsync、mmap）依赖 virtio-fs/9p 的实现裂缝。
 
@@ -52,6 +69,8 @@ Kata 让编排系统不改 API 就换隔离模型：失败时仍是「容器」�
 
 版本字段会变，课序钉的是机制对象「Kata Containers」，不是某一主线内核的结构体名。
 后课默认：OCI 可由 VM 实现。把应用与内核链成单一映像，下一课 unikernel。
+
+<span class="marginnote">常见误区：以为 Kata 是「免费的更强安全」。实际上每台 VM 要多付几百 MB 内存与秒级启动，部署密度比 runc 低一个量级——要不要交这笔税，取决于威胁模型而不是习惯。</span>
 
 ## 小结
 

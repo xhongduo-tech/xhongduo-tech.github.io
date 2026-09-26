@@ -36,6 +36,22 @@ Kconfig 把内核变成可裁剪的产品族，使嵌入式与服务器分享源
 
 模块与内建的取舍影响启动与攻击面。
 
+```mermaid
+flowchart TD
+  SYM{"一个功能选什么？"}
+  SYM -->|"y 内建"| B["编进 vmlinux：开机即有，删不掉"]
+  SYM -->|"m 模块"| M["独立 .ko：按需加载，可黑名单"]
+  SYM -->|"n 不编"| N["二进制里根本没有：无攻击面也无功能"]
+  B --> T["启动早期（如根文件系统驱动）只能选 y"]
+  M --> T2["大而少用的驱动选 m 省常驻内存"]
+```
+
+<span class="marginnote">术语翻译：Kconfig 的三态 y/m/n 就是「烤进蛋糕 / 做成加件 / 不做」——y 编进内核镜像本体，m 编成可插拔的 .ko 模块文件，n 则完全不编译。每个符号背后是一个功能或驱动。</span>
+
+<span class="marginnote">数字实例：开 `CONFIG_DEBUG_INFO` 前后，vmlinux 可从几十 MB 涨到数百 MB——调试信息（DWARF）比代码本身大得多，但 perf、崩栈解析全靠它。开发机常开，生产镜像常关，这就是「调试选项改变二进制」的具体分量。</span>
+
+<span class="marginnote">直觉类比：Kconfig 的依赖关系像点套餐——没点主菜（如 `CONFIG_PCI=n`）， depend 它的配菜（网卡驱动）直接从菜单上消失；而 `select` 是反向的「套餐强制含配菜」，选了它就自动替你勾上依赖项，这也是配置打架的常见来源。</span>
+
 
 实现上：localmodconfig 按当前已加载模块裁剪，换硬件要重配。DEBUG_INFO 让 vmlinux 巨大但 perf 才好用。发行版 config 是产品选择，不是「完整内核」。 读法上只引用[上一课](/cs/livepatch)的结论，不把对象换成训练推理或限价簿。
 

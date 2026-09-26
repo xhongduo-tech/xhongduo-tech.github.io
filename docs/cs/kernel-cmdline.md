@@ -36,6 +36,21 @@ cmdline 是内核的早期配置 ABI，把硬件与调试开关从编译里解�
 
 发行版在 grub 里拼这串，与用户文档必须一致。
 
+```mermaid
+flowchart TD
+  AT["改 grub 条目加 init=/bin/sh"] --> SB{"Secure Boot 验签名"}
+  SB -->|"只验内核镜像，cmdline 不在内"| PASS["校验通过，恶意参数生效"]
+  SB -->|"同一时刻"| PCR["TPM 把 cmdline 哈希扩展进 PCR"]
+  PCR --> ATT["远程证明时哈希对不上标准值"]
+  PASS --> DET["被度量启动发现"]
+```
+
+<span class="marginnote">常见误区：开了 Secure Boot 就以为 cmdline 也被保护了。签名只盖住内核镜像文件；这串参数以明文存在 grub 配置里，谁改了 grub 条目谁就能塞进 `init=`。度量启动（把它哈希进 PCR）才是发现篡改的手段。</span>
+
+<span class="marginnote">数字实例：一条典型 cmdline 长这样——`root=/dev/nvme0n1p2 ro quiet mem=4G`：根分区在第一块 NVMe 盘第 2 分区、只读挂载再由 init 重挂、少打印内核日志、只认 4 GB 内存。`mem=4G` 在 8 GB 机器上会让内核直接「假装」另一半不存在。</span>
+
+<span class="marginnote">术语翻译：PCR 可以想象成 TPM 芯片里一组「只进不出」的印章台——新值只能是「旧印章混合新内容」的哈希，读得出但改写不了历史；启动链上每一环（固件、内核、cmdline）依次盖一章，事后比对印章就能还原这台机器是怎么启动的。</span>
+
 
 实现上：init= 能换成任意用户态，度量必须覆盖这串。未知参数留给用户态，initramfs 脚本会读。isolcpus 与 nohz_full 常一起出现在 RT 机器。 读法上只引用[上一课](/cs/systemd-units)的结论，不把对象换成训练推理或限价簿。
 

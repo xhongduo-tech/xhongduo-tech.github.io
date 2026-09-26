@@ -17,6 +17,8 @@ section: cs
 
 每个 topic 分多个 partition，每分区总序，跨分区无全序——这是吞吐换序。生产者按键哈希进分区。副本：leader + ISR 跟随者。`acks=all` 等到 ISR 持久才认为提交。高水位：所有 ISR 都有的偏移，消费者只能读到这里，防止读未提交再因领导者切换消失。
 
+<span class="marginnote">术语翻译：ISR（in-sync replicas，同步副本集）就是「紧跟 leader 进度」的副本名单。`acks=all` 等的 all 指这份名单，不是全集群所有副本——掉队者会被移出名单，提交门槛随之变化。</span>
+
 缺口：把 Kafka 当 RSM。它复制的是字节日志，不确定性 apply 你的 $\delta$。恰好一次是生产者 id + 事务标记的限定功能，不是任意消费者副作用。
 
 <span class="marginnote">2011 笔记把日志当 Kafka 核心抽象。后续事务、KRaft 去 ZK 是工程演进，本课以日志+ISR 为对象。</span>
@@ -38,6 +40,21 @@ flowchart TD
 ## 机制
 
 领导者切换：新 leader 在 ISR 内，已提交偏移应在。未进 ISR 的落后副本若被误拉成 leader 会丢——故控制器只从 ISR 选。这是[脑裂](/cs/leader-election-split-brain)在日志上的投影。早期控制器依赖 ZK，KRaft 把元数据也变成 Raft 日志。
+
+<span class="marginnote">数字实例：leader 已收到 offset=7，两个 follower 分别追到 7 和 5，则高水位停在 5——消费者最多读到 5。等落后者追平到 7，水位才涨上去，这条消息才算「提交」。若 leader 崩了，控制器只会从 ISR 里挑新 leader，已提交前缀不丢。</span>
+
+```mermaid
+flowchart TD
+  P["生产者写入 offset=7"] --> L["leader 日志已追加到 7"]
+  L --> F1["follower A 复制到 7"]
+  L --> F2["follower B 只追到 5"]
+  F1 --> HW["高水位 = 5：ISR 全员都有"]
+  F2 --> HW
+  HW --> C["消费者最多读到 offset=5"]
+  L -->|"leader 崩溃"| NL["新 leader 只从 ISR 选"]
+```
+
+<span class="marginnote">常见误区：以为 Kafka 保留数据就能当审计库。若误把主题设成按 key 压缩（每个 key 只留最新值），历史事件会被悄悄删光——这对 changelog 合理，对事件溯源等于销毁审计记录。</span>
 
 本课不写 Streams DSL。也不把 WAL 单机日志当 Kafka。
 

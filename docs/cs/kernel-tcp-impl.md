@@ -38,6 +38,25 @@ flowchart TD
 
 监听：SYN flood 用 syncookies 换状态，是安全与资源的折中。
 
+第一张图走的是「已建立的连接」；这张回答另一个问题：**连接还没建立时**，服务端的两个队列各自装什么、满了会发生什么。
+
+```mermaid
+flowchart TD
+  SYN["客户端 SYN"] --> SQ["SYN 队列（半连接）"]
+  SQ --> ACKC["客户端 ACK"]
+  ACKC --> AQ{"accept 队列满？"}
+  AQ -->|"有空位"| EST["连接进入 accept 队列"]
+  EST --> APP["应用 accept 后才拿到连接"]
+  AQ -->|"满"| DROP["丢弃 ACK 或不发 ACK，客户端重试"]
+  SYNQ2{"SYN 队列也满？"} -->|"是，开 syncookies"| CK["无状态编码进 SYN-ACK，不占队列"]
+```
+
+<span class="marginnote">术语翻译：sk_buff（常缩写 skb）可以理解成内核给每个包发的「打包袋」——包头、数据、指向各层的指针全装在袋子里，从 TCP 队列到网卡驱动传递的都是这同一个袋子，途中只是往里加、往外拆各层头。</span>
+
+<span class="marginnote">数字实例：TIME_WAIT 在 Linux 上默认停留约 60 秒（2×MSL）。代理机高频短连接压测时常见「上万条 TIME_WAIT」——它占的是四元组与端口资源，不是内存灾难；真正要拧的旋钮是端口范围与 reuse 选项，而不是怀疑泄漏。</span>
+
+<span class="marginnote">常见误区：小包场景下应用看到「每第二个包慢 40 ms」，初学者常去查网卡。真正的常见组合是 Nagle 算法攒小包 + 对端延迟 ACK（约 40 ms 才回）互相等待——两端都在为对方省带宽，结果互相卡。这正是 `TCP_NODELAY` 存在的理由。</span>
+
 
 实现上：RACK 用时间而不是重复 ACK 计数判断丢包。listen 的 accept 队列满则握手完成的连接被丢，应用看见的是客户端超时。TIME_WAIT 占用端口，高连接周转要 tw reuse 一类旋钮。 读法上只引用[上一课](/cs/socket-buffers)的结论，不把对象换成训练推理或限价簿。
 
