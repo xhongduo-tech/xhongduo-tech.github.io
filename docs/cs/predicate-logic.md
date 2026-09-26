@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-写 $\forall x\exists y\ R(x,y)$ 在自然数后继与在有限图上的不同。Skolem：$\forall x\exists y$ 换成函数 $f(x)$，等可满足。Prenex 点名。不要把 Prolog 当定义。
+写 $\forall x\exists y\ R(x,y)$ 在自然数后继与在有限图上的不同。Skolem：$\forall x\exists y$ 换成函数 $f(x)$，等可满足。Prenex 点名。不要把 Prolog 当定义。<span class="marginnote">直觉类比：Skolem 化像客服中心的人事安排——「每位顾客都能找到一名接线员」$(\forall x\exists y)$ 落到执行层面就是设一张排班表 $f$，顾客 $x$ 来了直接派 $f(x)$；不必存在统一的那名万能接线员。逻辑里把依赖前面全称变元的 $\exists y$ 换成一个新函数符，可满足性保持不变，量词就消掉了。</span>
 
 ```mermaid
 flowchart TD
@@ -43,6 +43,20 @@ Hoare 逻辑的断言语言需要量词谈数组全体下标。SMT 把一阶碎�
 Herbrand：无等式时，可满足性与基项上的命题可满足相关，给 SMT 实例化埋伏。
 
 自由变元必须在结构里赋值才有真值；闭式才谈 $\mathfrak{M}\models\varphi$。空论域约定因系统而异，本课默认非空。二阶量词可谈「存在性质」，表达力骤升、证明论不同。Trakhtenbrot：有限可满足不可判定，故「只关心有限模型」帮不掉一般一阶。
+
+量词顺序为什么致命——把两句话摆成对局就看清了：
+
+```mermaid
+flowchart TD
+  A["∀x ∃y R(x,y)"] --> B["对手任选 x，你再答 y"]
+  B --> C["y 可以见 x 行事：y=f(x)"]
+  C --> D["你有必胜策略则为真"]
+  E["∃y ∀x R(x,y)"] --> F["你先固定一个 y"]
+  F --> G["对手再挑 x 为难你"]
+  G --> H["同一个 y 要应付所有 x"]
+```
+
+<span class="marginnote">数字实例能看出量词嵌套的代价：论域有 $n$ 个元素时，检查一层 $\forall$ 要看 $n$ 个值；$k$ 层量词嵌套就是 $n^k$ 个组合。$n=1000$、三层量词已是 $10^9$ 次检查——这就是为什么把「程序对所有输入正确」写成一阶公式容易，而机器**自动判定**它真假却不可能（Church–Turing）：搜索空间随论域与量词层数爆炸到不可行。</span>
 
 ## 边界
 

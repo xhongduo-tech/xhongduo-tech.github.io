@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">cyclictest 测的就是这些段的尾巴。对象是延迟上界的工程近似，不是形式证明。</span>
 
+<span class="marginnote">术语翻译：中断线程化就是把「在硬中断里一口气做完的事」改交给一个普通内核线程慢慢做——这样中断处理也要参与优先级竞争，能被更急的实时任务抢下 CPU。</span>
+
 ## 方法
 
 配置 `PREEMPT_RT`。自旋改睡眠 → 可调度。对照 [NAPI](/cs/napi)：收包可在线程上下文，延迟与吞吐折中。对照 [KPTI](/cs/kpti-os)：陷入税仍在，RT 更敏感。对照 DPDK：旁路不靠内核抢占。
@@ -34,6 +36,20 @@ flowchart TD
 
 RT 内核把「内核是一个大临界区」拆开，使 SCHED_FIFO/DEADLINE 的延迟从毫秒级可降到数十微秒级（视硬件）。吞吐与调试性下降。不要写成保证书。与 [dma](/cs/dma-coherence)：完成 IRQ 仍可能是 raw 路径。
 
+同样是「高优先级任务醒来时有人持着锁」，普通内核与 RT 内核的结局不同：
+
+```mermaid
+flowchart TD
+  WAKE["高优先级任务就绪"] --> CHK{"持锁者拿的是哪种锁"}
+  CHK -->|"普通 spinlock"| NOPRE["抢占被关 只能等临界区走完"]
+  NOPRE --> LAT["延迟不可控 可达毫秒级"]
+  CHK -->|"rtmutex"| PI["触发优先级继承"]
+  PI --> BOOST["持锁者被临时抬高优先级尽快跑完"]
+  BOOST --> GOT["RT 任务数十微秒内拿到 CPU"]
+```
+
+<span class="marginnote">数字实例：普通内核上实时任务可能被持 spinlock 的内核路径卡住几毫秒；PREEMPT_RT 上同一场景的唤醒延迟常能压到几十微秒量级——具体数字取决于硬件与驱动质量，不是合同保证。</span>
+
 驱动质量决定上界：一个关中断的驱动毁整机 RT。
 
 
@@ -48,6 +64,8 @@ RT 内核把「内核是一个大临界区」拆开，使 SCHED_FIFO/DEADLINE �
 ## 边界
 
 本课不引入 xenomai 双内核。不保证云虚拟机的 RT 数字。下一课如何量延迟：cyclictest。
+
+<span class="marginnote">常见误区：装了 PREEMENT_RT 补丁不等于「整机实时」。关中断、硬件复位这类段依旧不可抢占；一个误用 raw_spinlock 或长时间关中断的驱动，就能把全机的延迟上界拖垮。</span>
 
 
 版本字段会变，课序钉的是机制对象「PREEMPT_RT」，不是某一主线内核的结构体名。
