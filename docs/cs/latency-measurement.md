@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">用户循环里的计时要用 CLOCK_MONOTONIC_RAW 一类，避免 NTP 跳。对象是调度延迟，不是网卡 RTT。</span>
 
+<span class="marginnote">术语翻译：CLOCK_MONOTONIC_RAW 就是「不做任何校正的单调秒表」——普通 MONOTONIC 允许 NTP 微调时钟快慢（你睡一觉它可能悄悄改掉几毫秒），RAW 则从启动起只进不退、只按硬件节拍走，测微秒级抖动时必须用它。</span>
+
 ## 方法
 
 绑 FIFO 高优先级 → 周期性睡眠 → 记录差。对照 [perf](/cs/perf-sampling) 后课：perf 看热点，cyclictest 看最坏唤醒。对照 [blkio](/cs/blkio-cgroup)：I/O 负载是扰动源，应同时加压。对照 fsync：那是存储完成，不是 CPU 唤醒。
@@ -38,6 +40,22 @@ flowchart TD
 
 
 实现上：无负载的 cyclictest 只测空闲路径，要同时用 hackbench 或网络打满。虚拟机里测的是宿主注入，不是裸机。CLOCK_MONOTONIC 可能含 NTP 调整，测抖动用 RAW。 读法上只引用[上一课](/cs/preempt-rt)的结论，不把对象换成训练推理或限价簿。
+
+<span class="marginnote">常见误区：初学者空载跑一次 cyclictest，看到 max 只有 20 μs 就宣布系统实时性合格。实际上没加压时最坏路径——软中断风暴、锁竞争、缓存全冷——根本没被踩到；同样配置下打满网络再测，max 可能翻到几百微秒。无压 max 不是乐观估计，是无效数据。</span>
+
+<span class="marginnote">数字实例：同一台裸机上，标准内核在 hackbench 加压下 max 唤醒延迟常到毫秒级；换 PREEMPT_RT 内核后通常压在几十微秒内，硬实时要求（如 $\lt 100\ \mu s$ 的运动控制）看的就是这个差值。这也解释了为什么报告 max 时必须同时写明压力与内核配置。</span>
+
+```mermaid
+flowchart TD
+  T["定时器到期时刻"] --> IRQ["硬件中断: 时钟事件"]
+  IRQ --> SOFT["软中断 / ksoftirqd 处理"]
+  SOFT --> SCHED["调度器选中高优先级 FIFO 任务"]
+  SCHED --> CTX["上下文切换 + 缓存可能全冷"]
+  CTX --> RUN["任务真正开跑: 记录 now-expected"]
+  LOAD["外部加压: 网络/IO/hackbench"] -->|"制造抢占与排队"| SOFT
+```
+
+这张图回答的问题：直方图里那几十微秒到底花在了哪。唤醒延迟不是单一环节，而是中断、软中断、调度、切换四段排队之和；加压的意义就是逼每一段都走它最坏的那条路，否则测到的只是空闲捷径。
 
 本课在操作系统进阶的「调度进阶 / 公平、实时与能耗」课序里，对象是 **延迟测量 cyclictest**。
 

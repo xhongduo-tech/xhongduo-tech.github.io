@@ -21,6 +21,10 @@ leveled：第 $i$ 层容量约 $T$ 倍于第 $i{-}1$ 层，层内键范围不重
 
 <span class="marginnote">LevelDB 普及 leveled。Cassandra 早期 size-tiered。写停顿形态不同：leveled 持续小归并，tiered 偶发大归并。空间放大：未回收的旧版本在 tiered 上常更大。</span>
 
+<span class="marginnote">「写放大」就是磁盘实际写入量除以业务写入量的比值：业务写 1 GB、盘上重写了 20 GB，写放大就是 20。「读放大」同理是一次点查要翻的文件数。两种 compaction 形状的本质，就是在这两个比值之间做不同的交换。</span>
+
+<span class="marginnote">数字实例：取倍率 $T=10$、L0 上限 100 MB，各层容量就是 100 MB、1 GB、10 GB、100 GB、1 TB——只需 5 层就装下 1 TB 数据。leveled 下点查每层至多翻 1 个文件，约 5-6 次读；tiered 同层可能要看约 $T$ 个文件，读放大肉眼可见地高。</span>
+
 ## 方法
 
 配置：层倍率 $T$、L0 触发文件数、每层压缩器。监控：每层文件数、pending compaction bytes、写停顿次数。换形状等于换放大合同，要伴随容量规划。
@@ -42,6 +46,20 @@ flowchart TD
 墓碑回收：leveled 把键推进底层更快，删除空间回收更可预测。tiered 大归并才丢墓碑。快照持有阻碍两者的回收，同 MVCC。
 
 L0：两种都可能堆积，刷盘快于 compaction 时读放大先在 L0 爆炸——布隆课的最坏情况。
+
+<span class="marginnote">常见误区：初学者容易以为 L0 堆积是 leveled 的毛病。只要刷盘长期快于 compaction 消化，两种形状都会在 L0 堆出一堆重叠文件，点查退化成全翻。所以「L0 文件数」是两种形状都要盯的监控项。</span>
+
+```mermaid
+flowchart TD
+  WT["一次写入"] --> MT["memtable"]
+  MT --> F0["刷盘成 L0 文件"]
+  F0 --> Q{"compaction 形状？"}
+  Q -- "leveled" --> L1["与 L1 重叠区间归并 层内保持不重叠"]
+  Q -- "tiered" --> L2["同层攒文件 直到凑满 T 个"]
+  L2 --> M1["整体归并一次性推入下一层"]
+  L1 --> BOT["逐层向下推进 到达底层才真正回收墓碑"]
+  M1 --> BOT
+```
 
 ## 边界
 

@@ -25,6 +25,8 @@ Wright 把限制说成「可推广的是值」；SML 与 OCaml 各有放宽（�
 
 <span class="marginnote">Wright 1995（Lisp and Symbolic Computation）。Tofte 的论文与 SML 定义是历史来源。Pierce TAPL 讨论 imperative polymorphism。本课不把区域推断写进来，生命周期在后课。</span>
 
+<span class="marginnote">「推广（generalize）」就是把类型里的未知变量升格为「任意类型都行」的手段：`id : ∀α. α→α` 第一次当 `int→int` 用、第二次当 `bool→bool` 用，这叫多态；不推广则一次定型，叫单态。值限制决定的是谁配享受这种升格。</span>
+
 ## 问题
 
 W 的 $\mathrm{Gen}(\Gamma,\tau)$ 量化 $\tau$ 中不在 $\Gamma$ 出现的变量。若 $\tau=\mathrm{ref}\,\alpha$ 且 $\alpha$ 不在 $\Gamma$，推广在逻辑上「合法」却与更新语义冲突：$\alpha$ 会在运行时被钉死两次。缺口是**类型方案与可变存储的交互**，不是子类型。
@@ -38,17 +40,29 @@ flowchart TD
 
 与[作用域](/cs/scope-symtab)：值限制是类型规则，不是名字解析。
 
+<span class="marginnote">常见误区：初学者以为值限制是人为的任意禁令。它精确挡住的是这一类破坏：同一个 `ref` 先被实例化成 `int ref` 写入 42，再被实例化成 `bool ref` 读出——类型系统从此说谎，「类型良好的程序不出错」这句健全性承诺失效。</span>
+
 ## 机制
 
 放宽：若能证明表达式无副作用（纯）或类型不含 ref，可再推广。编译器分析须保守。错误信息：「不能推广」常表现为后续使用处类型冲突，要把原因指回 `ref`。
 
 不要用 `let` 包一层无意义的 `id` 来绕过限制却引入副作用——那是人为打破健全性的尝试，语言应仍拒绝或钉单态。
 
+```mermaid
+flowchart TD
+  D["let r = ref [] 若被推广为 ∀α"] --> W1["第一次实例化: 当 int ref 写入 42"]
+  W1 --> W2["第二次实例化: 当 bool ref 读出"]
+  W2 --> BAD["bool 位置跑出 int: 类型谎言"]
+  BAD --> FIX["值限制: ref 表达式保持单态 钉死 α"]
+```
+
 ## 边界
 
 本课不写 ML 模块的弱类型变量全文。后课默认：HM + 值限制才与可变存储共存。下一课子类型：另一条「类型之间的宽化」，与量化正交。
 
 也不把 Rust 的借用当值限制的特例；所有权后课另起。
+
+<span class="marginnote">为什么重要：「不能推广」的报错常出现在 let 绑定几行之后的使用处，离真正的 `ref` 很远。看到「类型变量被钉死」或莫名的类型冲突、且表达式涉及 `ref`，应先回到 let 绑定处检查值限制，而不是反复盯使用处。</span>
 
 ## 小结
 
