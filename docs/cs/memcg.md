@@ -17,11 +17,15 @@ section: cs
 
 v2 `memory.max`：硬限。`memory.high`：先回收再可短暂超。记账：页进组，共享页按规则分或记到第一次接触者（实现随版本）。缺口：内核栈、slab、dentry 是否进 `memory.stat`；OOM killer 选组内任务；与 [zswap](/cs/zswap)/swap.max。本课不把 v1 层级与 v2 的每个文件对译完。
 
+<span class="marginnote">术语翻译：charge（收费）指分配页面时先在所属 cgroup 的计数器上记一笔——「这页算你组的」。之后组超限，回收也只扫这个组自己的 LRU 链表，不会拿邻居的页抵账；记账与限额用的是同一本账。</span>
+
 <span class="marginnote">writeback 归属：脏文件页的 memcg 必须与 io 节流一致，否则绕过。THP、KSM 使记账粒度变粗或共享。</span>
 
 ## 方法
 
 分配：`try_charge` 该 css，失败则 `try_to_free_mem_cgroup_pages`（只扫该组 lru）。对照主机回收：全局 LRU vs 组 LRU。对照 [thin](/cs/thin-provisioning)：超分配在存储；memcg 是 RAM 硬壁。对照 rmap：回收仍靠反查 pte。
+
+<span class="marginnote">数字实例：设 `memory.max=1 GiB`、`memory.high=800 MiB`。用量 700 MiB 一切照常；越过 800 MiB 开始被频繁回收拖慢；摸到 1 GiB 且组内回收挤不出页，OOM killer 就在本组里挑进程下手。</span>
 
 ```mermaid
 flowchart TD
@@ -34,7 +38,22 @@ flowchart TD
 
 memcg 把「容器内存隔离」收成内核会计，使多租户可共主机。它不加密内存、不防侧信道。不要写成云账单页。与网络 [rmem](/cs/socket-buffers)：套接字内存也可进 memcg（kmem），否则成为逃逸。
 
+组里的内存记在哪些科目上、超限时按什么顺序动它们，可以摊开看：
+
+```mermaid
+flowchart TD
+  GRP["组的内存账本"] --> ANON["匿名页：无文件后备"]
+  GRP --> FILE["文件页：可回写后丢弃"]
+  GRP --> KERN["内核内存：slab 与栈"]
+  REC["超限先组内回收"] --> FILE
+  ANON --> SW["换出需 swap 额度"]
+  FILE --> OOM["都挤不出则组内 OOM"]
+  SW --> OOM
+```
+
 过小的上限导致抖动：不断回收文件页，CPU 打满，看起来像泄漏。
+
+<span class="marginnote">常见误区：初学者把上限设得贴着当前用量。上限过小时内核不停回收文件页缓存，回收线程吃满 CPU、程序反而更慢，看起来像内存泄漏——其实是组在抖动；应先量好工作集，再给上限留余量。</span>
 
 
 实现上：kernel memory 记账关闭时，dentry/inode 可被容器用来撑爆宿主。OOM 组选择看 usage 与 oom.group。swap.max 为 0 则回收只能丢文件页。 读法上只引用[上一课](/cs/numa-mempolicy)的结论，不把对象换成训练推理或限价簿。

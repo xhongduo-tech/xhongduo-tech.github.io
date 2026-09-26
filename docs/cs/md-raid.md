@@ -17,11 +17,15 @@ section: cs
 
 单盘故障丢数据。RAID1 写两份；RAID0 只条带不冗余；RAID5/6 用奇偶。md：每盘尾部或前部超级块描述成员，装配出 `/dev/md0`。缺口：reshape、热备、坏块列表、写意图位图（避免整盘 resync）。与 SCSI/NVMe 无关：成员是任意块设备。本课不把硬件 RAID 卡的固件写进来。
 
+<span class="marginnote">数字实例：chunk 取 512 KiB 时，一个 1 MiB 的连续写在 RAID0 上正好劈成两半，两块盘各写 512 KiB 并行；chunk 太小会把大写切成太多请求，太大则一个小的随机写也要占满一整条带，两头都伤带宽。</span>
+
 <span class="marginnote">chunk 大小影响 FS 块组对齐。外部元数据与 IMSM 等格式存在，教学以原生 md 超级块为准。</span>
 
 ## 方法
 
 写 RAID1：克隆 bio 到两成员，都完成后才完成上层。写 RAID0：按 chunk 选盘。读可从较空闲镜像腿。故障：标记坏腿，热备接替，恢复线程拷数据。对照 LVM：md 的对象是冗余几何，不是灵活扩容（虽可线性）。对照 [FS 校验](/cs/fs-checksum-scrub)：md 不默认端到端校验用户数据（除非额外 integrity target）。
+
+<span class="marginnote">术语翻译：写意图位图是「改动记录表」——阵列给每个 chunk 记一个脏位。掉电重启后 resync 只重算标脏的块，而不是整盘从头对抄，恢复窗口从小时级缩到分钟级；它加速恢复，但不替代奇偶本身的正确性。</span>
 
 ```mermaid
 flowchart TD
@@ -34,6 +38,19 @@ flowchart TD
 ## 机制
 
 软 RAID 用 CPU 与总线换独立 RAID 卡。它把「一块逻辑盘」的假象维持给 [VFS](/cs/vfs) 底下的 FS。性能与故障模式取决于级别——下一课专门讲级别与写洞。不要把 md 写成分布式一致性：成员假定在同一台机器的块层。
+
+同一次逻辑写，落在不同级别上变成的物理动作完全不同：
+
+```mermaid
+flowchart TD
+  W["一次逻辑写"] --> R1["RAID1：克隆写两份"]
+  W --> R0["RAID0：按 chunk 落单盘"]
+  W --> R5["RAID5：数据盘加奇偶盘"]
+  R1 --> BOTH["两份都完成才向上报完成"]
+  R5 --> RMW["奇偶重算：读改写或重构写"]
+```
+
+<span class="marginnote">直觉类比：RAID0 像把一本书的页拆给两台复印机各印一半——快一倍，但任何一台卡纸书就缺页；RAID1 是完整印两本；RAID5 是另记一本「异或账」，丢任何一页都能用其余页把账推回来。</span>
 
 与调度器：每个成员有自己的队列；条带把一次逻辑写打成多次物理写。
 

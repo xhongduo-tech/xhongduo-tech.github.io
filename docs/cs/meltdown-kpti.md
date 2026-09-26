@@ -17,11 +17,15 @@ section: cs
 
 用户 load 内核地址：权限失败应 trap。若微结构先把数据送进依赖的推测 load 再检查，瞬态值可以当 [Spectre](/cs/spectre-variants) 那样的 cache 索引。缺口不是 BTB 训练，而是**权限检查相对 load 执行太晚，且内核地址在用户页表里仍翻译得通。**
 
+<span class="marginnote">术语翻译：「瞬态执行」指最终被撤销的指令留下的物理副作用。指令作废、寄存器回滚，但它中途访问过的 cache 行已经被加载——量「哪行变快了」就能把那份数据侧信道读出，回滚管不到 cache。</span>
+
 <span class="marginnote">KPTI（KAISER）：用户 CR3 不含内核映射（少量跳板除外），瞬态翻译失败，数据进不了窗口。代价是 syscall/中断多一次 CR3 切换与 TLB 压力，见 [TLB 层次](/cs/tlb-hierarchy-pwc)。</span>
 
 ## 方法
 
 硬件：先检查权限再写物理数据进流水，或故障 load 永不填用户可见 cache。软件：KPTI 分离页表。微码与新核的「幽灵缓解」改乱序许可。本课不讨论如何把瞬态值编进 cache 集。
+
+<span class="marginnote">为什么重要：Meltdown 与 Spectre 的堵法不同——Spectre 靠「别喂毒给预测器」（改写敏感代码的访问模式），Meltdown 靠「根本不给映射」（KPTI）。认错漏洞类型去上缓解，性能税白交，洞还在。</span>
 
 ```mermaid
 flowchart TD
@@ -35,7 +39,22 @@ flowchart TD
 
 与 Spectre 的差别：不必误训练条件分支；依赖的是乱序与延迟 trap。KPTI 增加 [syscall](/cs/syscall-abi) 路径上的 TLB miss，是用翻译隔离换瞬态隔离。后续硅把 Meltdown 类关洞后，OS 可在部分 CPU 上关 KPTI 以收回性能。
 
+KPTI 的两套页表各装什么、切换发生在哪，可以单独画开：
+
+```mermaid
+flowchart TD
+  UPT["用户态页表"] --> UMAP["仅用户映射加少量跳板"]
+  KPT["内核态页表"] --> KMAP["用户映射加全部内核映射"]
+  SYS["进入 syscall"] --> SW1["切 CR3 到内核页表"]
+  SW1 --> KPT
+  RET["返回用户态"] --> SW2["切回用户页表"]
+  SW2 --> UPT
+  SW1 --> TAX["无 PCID 时 TLB 大量失效"]
+```
+
 PCID/ASID 让两套页表切换不必全冲 TLB，把 KPTI 税从「每次 syscall 冷 TLB」降到「换 ASID」。没有 PCID 的核上，KPTI 的 [大页覆盖](/cs/hugepage-tlb-reach) 收益也更明显。
+
+<span class="marginnote">数字实例：没有 PCID 时，每次 syscall 进出各换一次 CR3，用户态 TLB 近乎清空，热路径上多出一串页表遍历；有 PCID 则给两套页表各发一个编号，切换互不冲账。同一条缓解措施，代价可以差出一个数量级。</span>
 
 ## 边界
 

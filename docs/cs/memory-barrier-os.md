@@ -17,11 +17,15 @@ section: cs
 
 无锁标志 `ready=1` 若排到 `data` 的写之前，读者看见 ready 仍可能读到旧 data。关中断不发射到别的核。缺口不是再定义竞争，而是承认：互斥锁的获取/释放必须带 **acquire/release** 语义，单独的 `LOAD`/`STORE` 要在文档化的点插 `smp_mb` 一类。内核把这写成显式屏障，而不是假设 SC。
 
+<span class="marginnote">直觉类比：把「写 data」与「立 ready 旗」想成寄包裹、发通知——若通知能比包裹先到（重排），收件人开箱就是空的。release 是「包裹全部付邮后才许发通知」，acquire 是「没收到通知不许拆箱」。</span>
+
 <span class="marginnote">编译器屏障挡住代码运动；CPU fence 挡住 store/load 在总线上的可见序。两者都要，对象不同。</span>
 
 ## 方法
 
 写者：更新数据，然后 `store-release` 标志。读者：`load-acquire` 标志，然后读数据。锁实现把 acquire 放在拿到锁之后、临界区之前，release 放在写完临界区之后、清锁字之前。本课不把每架构的指令助记符列完。
+
+<span class="marginnote">术语翻译：acquire/release 是一对「单向栅栏」——release 保证它之前的写不许被挪到它后面才生效，acquire 保证它之后的读不许提前到它之前。两者配对，才把「锁内的写」钉在「看见锁已释放」之前。</span>
 
 ```mermaid
 flowchart TD
@@ -36,7 +40,21 @@ flowchart TD
 
 屏障让临界区在多核上「看起来像原子」成为可实现的：他核要么看不见区内中间态，要么还看不见锁已释放。没有它，上一课的交错论证只对顺序一致纸机器成立。设备 DMA 与内存之间还有另一道，属 I/O 课；本课对象是 CPU 之间。
 
+源码顺序到「他核看到的顺序」之间有两层重排，两种屏障各挡一层：
+
+```mermaid
+flowchart TD
+  SRC["源码写的顺序"] --> CMP["编译器重排：指令挪位"]
+  CMP --> BIN["生成的指令序"]
+  BIN --> CPU["CPU 重排：store 缓冲与乱序"]
+  CPU --> SEEN["他核实际看到的顺序"]
+  CBAR["编译器屏障"] --> CMP
+  FENCE["CPU fence"] --> CPU
+```
+
 过度屏障会毁掉流水线；内核习惯用最弱足够的 acquire/release，而不是每处全序 fence。
+
+<span class="marginnote">常见误区：初学者「怕乱」就处处插全量 fence。屏障是流水线的刹车：每插一个，CPU 都要抽干缓冲、放弃重排。内核的纪律是取「最弱够用」的 acquire/release，只在真正跨核共享的点上付费。</span>
 
 ## 边界
 

@@ -29,6 +29,8 @@ $T(n)=T(n-1)+\Theta(n)$ 不是等分，主定理不适用；那是等差求和�
 
 先算临界指数 $\log_b a$。把 $f(n)$ 与 $n^{\log_b a}$ 比多项式因子：若 $f=O(n^{\log_b a-\varepsilon})$ 对某 $\varepsilon\gt 0$，叶子赢；若 $f=\Theta(n^{\log_b a})$，每层同阶，乘 $\log n$；若 $f$ 更大且规律，根上的 $f$ 赢。
 
+<span class="marginnote">数字实例：归并排序 $T(n)=2T(n/2)+n$，先算 $\log_2 2=1$；$f(n)=n=n^1$ 与叶子同阶，落情形二，直接得 $\Theta(n\log n)$。拿到递归先代一次这个比值，就知道查哪一行，不必真画树。</span>
+
 ```mermaid
 flowchart TD
   REC["T(n)=a T(n/b)+f(n)"] --> CMP["比较 f 与 n^{log_b a}"]
@@ -43,7 +45,22 @@ flowchart TD
 
 有了三种情形，后课写归并 $T(n)=2T(n/2)+\Theta(n)$ 直接落在情形二，$\Theta(n\log n)$；二分查找 $T(n)=T(n/2)+\Theta(1)$ 是情形二的退化，$\Theta(\log n)$。正确性仍走递归假设或循环不变式，本课只管代价。
 
+判断落在哪种情形之后，可以再问一句：递归树上各层的代价随深度怎么变？这决定总账记在哪一层。
+
+```mermaid
+flowchart TD
+  ROOT["根：一份 f(n)"] --> MID["中间层：a^j 份 f(n/b^j)"]
+  MID --> LEAF["底层：约 n^(log_b a) 片叶子"]
+  ROOT --> C3["合并主导：总和约 f(n)"]
+  MID --> C2["每层同阶：总和乘 log n"]
+  LEAF --> C1["叶子主导：总和约 n^(log_b a)"]
+```
+
+<span class="marginnote">直觉类比：把递归树想成一座金字塔——顶层是根上的合并费 $f(n)$，底层是 $n^{\log_b a}$ 片叶子。哪一层体积最大，总造价就记哪层的账；各层一样厚时，多出来的 $\log n$ 层数就是那个乘法因子。</span>
+
 不要把 $\log$ 底写进 $\Theta$：底是常数。也不要把 $a$、$b$ 当输入规模；它们是算法切法的参数。
+
+<span class="marginnote">常见误区：初学者见到 $\log_2 n$、$\log_{10} n$ 想换算底数。由换底公式 $\log_b n=\log n/\log b$，底只差常数倍，在 $\Theta$ 里被吞掉；真正改变阶的是 $a$ 与 $b$ 的组合，比如 $a$ 翻一倍可能把阶抬高一整档。</span>
 
 ## 边界
 

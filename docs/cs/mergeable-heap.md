@@ -17,6 +17,8 @@ section: cs
 
 标准二叉堆：[数组](/cs/array-random-access) 下标父子，$\mathrm{insert}/\mathrm{extract\text{-}min}$ 最坏 $O(\log n)$，`meld` 要把一边插入另一边。可并堆合同至少含：`make`、`insert`、`find-min`、`extract-min`、`meld`；常加 `decrease-key`（需句柄）。缺口不是再发明第四种树，而是**按使用模式选表示**：只 meld 用左偏/二项；大量减键用 Fib（理论）或配对（实践）；不要在不可移动句柄的数组堆上假装 $O(\log n)$ meld。
 
+<span class="marginnote">术语翻译：meld 就是「把两个堆原地合成一个堆，原堆作废」的操作——不是把一边元素挨个 insert 进另一边，而是直接缝合两棵树的根结构，代价远低于逐个插入。</span>
+
 <span class="marginnote">Okasaki 给函数式可并堆（配对、斜堆）另一套摊还。本课偏命令式合同，函数式队列在后课。</span>
 
 ## 方法
@@ -38,9 +40,23 @@ flowchart TD
 
 句柄：decrease-key 必须能找到节点。数组堆用下标；树用指针。meld 之后旧句柄属于新堆。
 
+<span class="marginnote">数字实例：把 100 元素的堆并进 100 万元素的堆，二叉堆逐个 insert 约要 100 × log₂(10⁶) ≈ 2000 步；可并堆的 meld 只在根链附近缝合，约 log₂(10⁶) ≈ 20 步量级——差两个数量级，这是图算法频繁合堆时换表示的直接理由。</span>
+
 ## 机制
 
 算法课里 Kruskal 用并查集不靠可并堆；Dijkstra/Prim 的减键版本才关心堆合同。本课不重写那些算法，只要求选堆时看操作频率。函数式持久 meld 用路径复制，与命令式破坏性 meld 不同——后课持久化再分。
+
+<span class="marginnote">常见误区：以为 decrease-key 在任何堆里都「顺手就是 $O(\log n)$」。它需要一个稳定指向节点的句柄；数组堆里元素上浮下潜后下标会变、句柄失效，必须换指针表示（Fib、配对）才能做减键。</span>
+
+```mermaid
+flowchart TD
+  Q0{"meld 用得频繁吗?"} -->|"不用"| BIN["二叉堆: 局部性最好"]
+  Q0 -->|"频繁"| Q1{"decrease-key 也频繁吗?"}
+  Q1 -->|"否"| LEFT["左偏 / 二项堆"]
+  Q1 -->|"是"| Q2{"要理论界还是实践常数?"}
+  Q2 -->|"理论 O(1) 减键"| FIB["斐波那契堆"]
+  Q2 -->|"实践常数小"| PAIR["配对堆"]
+```
 
 ## 边界
 

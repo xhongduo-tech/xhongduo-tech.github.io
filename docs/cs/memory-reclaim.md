@@ -17,11 +17,15 @@ section: cs
 
 纯反应式置换：每次缺页才选牺牲，延迟打在用户指令上。内核分配（网络、VFS）失败更糟。缺口：维护低/高水位；低于低水位唤醒守护线程，扫描 LRU/CLOCK、写回脏文件页、换出匿名、调用各子系统 shrinker（dentry、inode、slab）。直接回收（direct reclaim）发生在分配路径上，可能阻塞。本课不把每条 LRU 链表名字背完。
 
+<span class="marginnote">术语翻译：水位（watermark）就是把「空闲页还剩多少」画成 min / low / high 三条刻度线，像水箱警报——降到 low 开泵（唤醒 kswapd 后台补水），跌破 min 等不及了，正在分配的那段代码只能自己当场抽水（直接回收）。</span>
+
 <span class="marginnote">shrinker 是回调：VFS 缓存「我可以丢多少 dentry」。回收器按压力要它们交页。与 GC 不同：这里回收的是帧，对象语义由各 cache 自己保证。</span>
 
 ## 方法
 
 分配失败或周期性：计算需要多少页。优先丢干净文件页（再读文件）；再写回；再换出匿名；再收缩 slab。达到高水位停止。压缩（compaction）把已用页挪到一边，拼出 buddy 高阶块给大页。OOM 仅当这些都不够。与过度提交对照：回收增加「现在能拿出的帧」，不减少已承诺的 VMA。
+
+<span class="marginnote">数字实例：假设 kswapd 要回收 64 MiB、页大小 4 KiB，就是凑 64 × 1024 ÷ 4 = 16384 页。若扫到的多是干净文件页，直接从链表摘掉即可，连盘都不用碰——这正是回收优先丢干净文件页的原因；脏页则要先写回再丢，多一次磁盘写。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +39,17 @@ flowchart TD
 ## 机制
 
 回收把 CLOCK、工作集、文件/匿名分类收成一条控制环：目标是 buddy 的低阶与高阶都有货。它解释了为何机器「内存看起来满」仍流畅——满的是 Cache，不是不可丢的匿名。文件系统课即将把「文件」当成正题；本课只要求 Cache 可收缩。不要把回收写成数据库查询计划。
+
+<span class="marginnote">常见误区：看到「内存占用 95%」就以为该清内存。实际上满的常是 page cache——这些页随时可丢、要用再读回，占着反而加速文件访问；真正危险的是不可丢的匿名页把空闲页压到水位以下，逼出换出甚至 OOM。</span>
+
+```mermaid
+flowchart TD
+  DROP["空闲页缓慢消耗"] -->|"跌破 low"| WAKE["唤醒 kswapd"]
+  WAKE --> LOOP["后台回收"]
+  LOOP -->|"补到 high"| SLEEP["kswapd 休眠"]
+  DROP -->|"跌破 min"| DIRECT["分配路径直接回收"]
+  DIRECT -->|"一无所获"| OOM["触发 OOM"]
+```
 
 ## 边界
 

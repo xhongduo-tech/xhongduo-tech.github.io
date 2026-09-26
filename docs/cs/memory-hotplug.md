@@ -17,6 +17,8 @@ section: cs
 
 `probe` 新内存：加 zone/section，online 后 buddy 可用。offline：isolate 该范围，migrate，从 buddy 摘掉。缺口：内核代码/不可移 slab 钉在范围内则 -EBUSY；MOVABLE zone 专为可下线而设；与 [NUMA](/cs/numa-mempolicy) 节点增减。本课不把每家固件通知写成 ACPI 手册。
 
+<span class="marginnote">术语翻译：热插拔的「热」相对「冷」而言——冷插拔要先关机断电再加减硬件，热插拔则是机器照常服务时把一段内存接进或抽出系统。云主机不重启就扩容缩容，靠的就是这条路径。</span>
+
 <span class="marginnote">稀疏内存模型用 section 粒度。CMA、kexec 与热插拔共享「可移性」概念。</span>
 
 ## 方法
@@ -35,10 +37,25 @@ flowchart TD
 
 热插拔让容量成为运行时变量，云与大型机依赖它。失败模式教会「内核数据放置」：不该把不可移对象放进可下线 zone。不要写成硬件采购。与 memcg：上限按页，容量减少会全局更紧。
 
+<span class="marginnote">直觉类比：ZONE_MOVABLE 像搬家时专放纸箱的车厢——里面每件东西都随时拎得动，整节车厢说让就让；内核代码和自旋锁死的 slab 则是焊死在地板上的设备，被它们占住的车厢永远交不出去，offline 只能报 -EBUSY。</span>
+
+```mermaid
+flowchart TD
+  ALLOC["内核要放一个新对象"] --> Q{"对象能整体搬迁吗?"}
+  Q -->|"能"| ZM["放进 ZONE_MOVABLE"]
+  Q -->|"不能"| ZN["放进普通 zone"]
+  ZM --> OK["日后 offline 可腾空这一节"]
+  ZN --> STUCK["日后 offline 被钉住报错"]
+```
+
 和 inflight DMA：必须先停设备或 bounce。
+
+<span class="marginnote">为什么 DMA 也要管：设备记的是物理地址。页被迁走后若网卡仍按旧地址写入，数据会落进已不属于它的帧——所以下线前必须先停设备，或把传输 bounce 到别处再做迁移。</span>
 
 
 实现上：section 粒度意味着不能下线任意一页。内核 .data 若落在可下线区，offline 永远失败，所以 ZONE_MOVABLE 存在。ACPI 通知与手动 probe 是两条上线路径。 读法上只引用[上一课](/cs/userfaultfd)的结论，不把对象换成训练推理或限价簿。
+
+<span class="marginnote">数字实例：x86_64 上一节（section）通常 128 MiB。哪怕只想下线 1 页，也要把这 128 MiB 里 128 × 1024 ÷ 4 = 32768 页全部腾空才算成功——这就是「粒度」二字的实际代价，也解释了为何缩容常常「差一页就失败」。</span>
 
 本课在操作系统进阶的「内存进阶 / 回收、迁移与加固」课序里，对象是 **内存热插拔**。
 

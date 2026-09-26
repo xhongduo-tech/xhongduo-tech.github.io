@@ -17,6 +17,8 @@ section: cs
 
 AOT 编译全部，启动慢、体积大。纯解释启动快、峰值慢。JIT：用轮廓（解释时计数）决定。缺口是**编译单位 = 方法**，不是 ELF 全程序。
 
+<span class="marginnote">术语翻译：JIT（just-in-time，即时编译）就是「程序跑起来之后才把字节码翻译成本机指令」，与 AOT（ahead-of-time，提前编译）相对。它赌的是热点集中——少数方法吃掉绝大多数执行时间，只编译它们就摊薄了编译成本。</span>
+
 入口：调用点从解释器桩改成 compiled 入口（或栈上 on-stack replacement 后课）。
 
 ### 热点不是 PGO 文件
@@ -38,11 +40,25 @@ flowchart TD
 
 与[内联](/cs/inlining-heuristics)：JIT 内联用在线热度更准。与 LTO：JIT 看见的是已加载类，开世界仍在（新类）。
 
+<span class="marginnote">数字实例：编译一个方法花 5 ms，它随后被调用 100 万次，摊到每次只多 5 ns；而解释执行同一段每次可能多付几百 ns——编译开销一次付清、后面全赚。冷方法从不编译，一点不亏；只热一阵的方法则可能回不了本。</span>
+
 ## 机制
 
 编译线程与应用线程：队列、代码缓存上限、回收冷码。不要在持锁时同步编译导致卡顿——启发。
 
 ISA：JIT 是[交叉](/cs/cross-compile-triple) 的特例，目标=本机。
+
+<span class="marginnote">常见误区：以为「编译过的方法一定更快、永远用」。后台编译本身占 CPU，代码缓存过大还会挤占指令缓存；方法冷下去后产物还要回收，甚至可能去优化回退到解释器——所以阈值与队列要克制，别在持锁路径上同步编译。</span>
+
+```mermaid
+flowchart TD
+  HOT["方法过阈值"] --> Q["进编译队列"]
+  Q --> BG["后台编译线程翻译成 native"]
+  BG --> CACHE["产物放进代码缓存"]
+  CACHE --> SWAP["调用点改跳 compiled 入口"]
+  CACHE --> FULL{"代码缓存满了?"}
+  FULL -->|"是"| EVICT["回收最冷方法腾位"]
+```
 
 ## 边界
 
