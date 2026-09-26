@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">RFC 7489。对齐 relaxed/strict。本课不写垃圾分类器特征。</span>
 
+<span class="marginnote">常见误区：把三件套当成端到端加密。实际上它们只回答「这封信是不是你域里发出来的」，中转服务器仍能完整读正文——要机密得另外上 S/MIME 或 PGP。</span>
+
 ### 钉域不是加密邮件
 
 分工一句话：SPF 钉发送路径，转发会破；DKIM 签体；DMARC 给政策。三者与 RPKI 同属源认证，与加密无关。
@@ -37,6 +39,26 @@ flowchart TD
 ## 机制
 
 运营四个坑。GeoDNS 别把 MX 指向不在 SPF 里的出口 IP，自相矛盾直接掉进隔离。转发要靠 SRS 重写信封或 ARC 传递既有验证结论（点名）。DKIM 记录 TTL 太长则密钥轮换慢，泄露后撤不干净。DoH 加密查询，但不改这些 TXT 的语义，挡不住策略本身配错。失败报告帮域主发现劫持滥发，也携带收件元数据——可见性与隐私之间的运营权衡。
+
+```mermaid
+flowchart TD
+  A["收到邮件"] --> B{"连接 IP 在 SPF 清单里？"}
+  B -->|"否"| F1["SPF fail 记为软失败候选"]
+  B -->|"是"| C{"DKIM 签名验得过？"}
+  C -->|"否"| F2["DKIM fail 记为候选"]
+  C -->|"是"| D{"通过域与 From 头对齐？"}
+  F1 --> D
+  F2 --> D
+  D -->|"对齐且至少一项通过"| E["DMARC pass 正常投递"]
+  D -->|"未对齐"| G["查 p= 策略: none/quarantine/reject"]
+  G --> H["汇总写进 rua 聚合报告回流域主"]
+```
+
+<span class="marginnote">SRS 就是转发服务器把信封 MAIL FROM 改写成自己域下的地址（如 srs0+hash@forwarder.com），让 SPF 检查落到自己头上——相当于代寄人重新签收，信封换名、信纸不动。</span>
+
+<span class="marginnote">数字实例：DKIM 记录 TTL 设 86400 秒（一天）时，私钥泄露后旧公钥最长还要在 DNS 里挂一天，攻击者有约一天的窗口能伪造你域的签名信；做密钥轮换时把 TTL 压到 600 秒可把窗口缩到十分钟。</span>
+
+<span class="marginnote">「对齐」怎么算：From 是 news@mail.example.com，MAIL FROM 是 mail.example.com，relaxed 模式下取组织域 example.com 相等即算对齐——所以子域发信能过。初学者容易以为要求逐字符相同，那是 strict 模式。</span>
 
 ## 边界
 

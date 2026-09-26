@@ -25,6 +25,8 @@ Dirty Pipe（CVE-2022-0847，2022 年 3 月）：Linux 管道缓冲复用时标�
 
 <span class="marginnote">四个案例里只有一个用了「漏洞」的狭义定义：CrowdStrike 案的输入完全合法，坏的是特权层对它的健壮性；事故不是攻破，是设计把可用性押在了内核驱动的解析器上。</span>
 
+<span class="marginnote">数字实例：CrowdStrike 一次内容更新让约 850 万台 Windows 同时蓝屏——单个句柄没做健壮性检查，结果被「同一更新管道推送全部终端」这个规模杠杆放大成全球停摆；这就是「机制普通但规模放大」的典型。</span>
+
 ```mermaid
 flowchart TD
   A1["Dirty Pipe：内核类别 + 补丁窗口"] --> MAP
@@ -38,6 +40,26 @@ flowchart TD
 ## 机制
 
 地图把两个单元缝起来。攻防单元是一条发现与限制链：[类别表](/cs/ss-kernel-vuln-classes)钉敌情，[沙箱](/cs/ss-sandbox-escape)限爆炸半径，[供应链](/cs/ss-supply-chain)管代码从哪来，[模糊测试](/cs/ss-fuzzing-deep)自动找；体系单元是一条构建链：[语言](/cs/ss-memory-safe-langs)把内存类证掉，[硬件](/cs/ss-hardware-perspective)给根信任并暴露新面，[移动](/cs/ss-mobile)是平台标本，[云](/cs/ss-cloud-model)把边界换成身份。两链相交于一句话：安全是整条栈的性质——每一层把上一层的假设变成可检查的合同，检查不过的地方就是下一课该写的缺陷。类别表不因新事件过时，因为框架本来就是按「怎么修」而不是按「谁中了招」组织的。
+
+```mermaid
+flowchart TD
+  subgraph CHAIN_A["攻防链: 发现与限制"]
+    D1["类别表: 敌情"] --> D2["fuzzing: 自动找"]
+    D2 --> D3["沙箱: 限爆炸半径"]
+    D3 --> D4["供应链: 代码从哪来"]
+  end
+  subgraph CHAIN_B["体系链: 构建"]
+    C1["语言: 证掉内存类"] --> C2["硬件: 根信任"]
+    C2 --> C3["移动: 平台标本"]
+    C3 --> C4["云: 边界换身份"]
+  end
+  D3 <-->|"同一层合同互相检查"| C2
+  D4 <-->|"同一层合同互相检查"| C1
+```
+
+<span class="marginnote">直觉类比：案例是这门课的「历年真题」。类别表是课本上的公式，案例是把这些公式各考两遍——一道题同时考两个知识点，你才知道公式不是各自孤立的。</span>
+
+<span class="marginnote">常见误区：初学者容易以为新出一次大漏洞，之前学的框架就过时了。本课的立场相反：类别表按「怎么修」组织，Dirty Pipe 不过是「未初始化 + 逻辑类」的一次新实例——变的是受害者名单，不是类别本身。</span>
 
 ## 边界
 

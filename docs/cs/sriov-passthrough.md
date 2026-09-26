@@ -19,6 +19,8 @@ PF 出 VF，每个 VF 有自己的 BAR 与队列。客户跑原厂或 VF 驱动�
 
 <span class="marginnote">GPU 直通同类但更重。对象是 PCI 功能级虚拟化。</span>
 
+<span class="marginnote">术语翻译：VF 就是「一张网卡切出来的分卡」——物理功能 PF 是原卡，每个 VF 带自己的寄存器窗口（BAR）和收发队列，客户机把它当独立小网卡驱动，但收发口仍接到同一块物理芯片。</span>
+
 ## 方法
 
 宿主启用 SR-IOV → VFIO 绑定 VF → QEMU  dist 给客户。对照 virtio：可迁移、可快照更好。对照 [DPDK](/cs/dpdk-kernel-bypass)：客户里可再旁路。对照 md RAID：无关。
@@ -34,6 +36,19 @@ flowchart TD
 
 SR-IOV 把数据面还给硬件，换运维灵活性。IOMMU 是安全前提。不要写成网卡广告。与 [netns](/cs/netns-veth)：VF 可进宿主 ns 或直通，二选路径。
 
+```mermaid
+flowchart TD
+  subgraph VIRTIO["virtio 路径"]
+    A1["客户发包"] --> A2["virtio 队列"] --> A3["宿主 hypervisor 转发"] --> A4["物理网卡"]
+  end
+  subgraph SRIOV["SR-IOV 直通路径"]
+    B1["客户发包"] --> B2["VF 队列<br/>客户直接写 DMA"] --> B3["物理网卡"]
+  end
+  A4 --> OUT["线缆"]
+  B3 --> OUT
+  IOMMU -.->|"地址翻译挡住越界 DMA"| B2
+```
+
 没有 IOMMU 的直通等于客户可 DMA 宿主。
 
 
@@ -44,6 +59,10 @@ SR-IOV 把数据面还给硬件，换运维灵活性。IOMMU 是安全前提。�
 - 先修只引用，不重导：上一课的结论当公理，本课只补差。
 - 五栏不吞并：不把本课写成大模型训练/推理，也不写成限价簿或权重量化。
 - 文献用 OSTEP、McKusick、内核文档与具名会议论文；不发明 arXiv 编号。
+
+<span class="marginnote">数字实例：virtio 路径每包多一次 hypervisor 软件转发（上下文切换加拷贝或映射），单跳常按微秒计；SR-IOV 客户直接把描述符写给 VF 队列，由网卡 DMA 取包，省掉这一跳——高频交易类负载在乎的就是这 1-2 个微秒。</span>
+
+<span class="marginnote">常见误区：初学者容易以为直通的 VF 能像 virtio 网卡一样随手迁移。实际上 VF 的队列状态在卡上，热迁移必须先热拔 VF、迁完在目标机重插——迁移窗口内客户瞬间没有这张网卡，通常是配一条 virtio 备用路径来补。</span>
 
 ## 边界
 

@@ -21,6 +21,8 @@ VFS：把页 I/O 接到 OS，TDE 可在 VFS 做。备份：拷文件要注意检
 
 <span class="marginnote">D. Richard Hipp。SQLite 文档对事务与 WAL 很清楚。本课对照课程树，不背 C API。</span>
 
+<span class="marginnote">直觉类比：WAL 就是「先记流水账，定期誊进总账」。写入先追加到流水（WAL 文件），查询按需翻流水看最新值；誊写（检查点）才把改动合回主库文件——誊写慢一点也不影响记账速度。</span>
+
 ## 方法
 
 模式仍是表与索引。类型亲和。JSON 函数让文档进单元格。FTS 虚表接倒排。不替代 Postgres 服务器。
@@ -39,7 +41,22 @@ flowchart TD
 
 恢复：journal 或 WAL 重放，影子课已对照。RTO 极短。无半同步。分析：可把文件当只读副本。不适合多机写。
 
+```mermaid
+flowchart TD
+  W["写事务提交"] --> WA["改动追加进 WAL 文件<br/>主库文件暂不动"]
+  WA --> R1["读者: 先查主库页<br/>再补 WAL 里更新的版本"]
+  R1 --> NF["读不挡写: 各读各的快照"]
+  WA --> CK{"WAL 长到阈值？"}
+  CK -->|"默认约 1000 页"| CP["检查点: 把 WAL 内容合回主库<br/>之后 WAL 可重用"]
+  CK -->|"未到"| WA
+  CP --> REC["崩溃后重放 WAL 恢复"]
+```
+
 计划：`EXPLAIN QUERY PLAN` 仍看索引是否覆盖。回归同样发生。
+
+<span class="marginnote">数字实例：默认 WAL 阈值约 1000 页、每页 4 KB，即 WAL 涨到约 4 MB 触发一次检查点；批量导入前把检查点临时关掉、导完再手动 `wal_checkpoint`，比每几百条自动誊一次快得多。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 SQLite 挂在 NFS 等网络盘上也能像本地一样用。实际上它的文件锁依赖本地 POSIX 语义，网络文件系统上锁会坏，并发写可能直接损坏库文件——库即文件的前提是「这个文件真的在本机」。</span>
 
 ## 边界
 

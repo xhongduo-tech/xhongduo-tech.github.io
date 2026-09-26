@@ -23,6 +23,8 @@ section: cs
 
 <span class="marginnote">LLVM 的 SROA/mem2reg 是工程标准名。Muchnick 有标量替换。与 SSA 构造紧密：提升后的名要插 φ。</span>
 
+<span class="marginnote">直觉类比：SROA 像把整箱行李拆成几件手提——原本要「开箱取物」（load/store）的东西，现在各拿各的（寄存器名）；只有塞不进手提限量的件（变下标、逃逸）才留在箱里。</span>
+
 ## 问题
 
 聚合在 IR 里常是内存，阻塞 GVN 与常量传播。提升后 `s.a=1; use(s.a)` 变成常量。缺口是**可拆形状**，不是逃逸分类本身。
@@ -40,7 +42,23 @@ flowchart TD
 
 选择字段：union、指针算术、可变下标使切分失败。必须保守留内存。不要拆 `volatile` 槽。
 
+```mermaid
+flowchart TD
+  S["一个 alloca 槽"] --> Q{"指针是否逃逸？"}
+  Q -->|"逃逸"| KEEP["整槽留内存"]
+  Q -->|"未逃逸"| Q2{"访问都是常量偏移？"}
+  Q2 -->|"有指针算术/变下标"| KEEP
+  Q2 -->|"是"| Q3{"volatile？union？"}
+  Q3 -->|"是"| KEEP
+  Q3 -->|"否"| SPLIT["按偏移切成成员标量<br/>提升为 SSA 名"]
+  SPLIT --> WIN["常量传播与 DCE 有了着力点"]
+```
+
 内联后新 `alloca` 是 SROA 的主要客户——与内联顺序绑在一起。
+
+<span class="marginnote">数字实例：`struct {int a, b;}` 占 8 字节，SROA 把它切成两个 4 字节的 SSA 名。写 `s.a = 1; use(s.a)` 后传播直接把 use 换成常量 1，8 次 load/store 全部消失——这就是「让优化器看见标量」的直接收益。</span>
+
+<span class="marginnote">常见误区：初学者容易以为拆完就进了物理寄存器。SROA 只是把内存槽换成虚拟寄存器（SSA 名），至于这些名最终落在哪几个真实寄存器、哪些溢出到栈，是后面的寄存器分配课的事。</span>
 
 ## 边界
 

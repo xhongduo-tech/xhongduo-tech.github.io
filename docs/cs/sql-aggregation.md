@@ -21,6 +21,8 @@ section: cs
 
 <span class="marginnote">SQL 默认包：同一组里重复行计入 `COUNT(*)`。`COUNT(col)` 不计该列上的 NULL。`SUM` 全 NULL 组得 NULL 不是 0。三值逻辑仍是 [空值](/cs/sql-null) 那一套，本课不重推。</span>
 
+<span class="marginnote">数字实例：订单表里顾客 A 有 3 单（金额 10、20、30），`SELECT cust, SUM(amt) FROM orders GROUP BY cust` 产出 `(A, 60)` 一行——金额列的 3 个值被收成 1 个标量，而 `SUM` 前先用 `WHERE amt \gt 15` 滤行就只剩 `(A, 50)`。</span>
+
 ## 方法
 
 逻辑上看，分组是 $\gamma_{G,A}(R)$：按 $G$ 分组，算聚合列表 $A$，输出模式是 $G$ 加上各聚合的结果列。物理实现可以排序后扫描相邻组，或哈希建桶——算子形状后课 [哈希聚合](/cs/hash-aggregation) 才写；本课只要求语义先钉住。
@@ -41,6 +43,19 @@ flowchart TD
 分组挡住若干代数律：不能把组后谓词随便推到组前，除非谓词只谈 $G$ 且不含聚合。连接与分组的交换要看键：若连接键是分组键的超集，有时可先聚后连以缩小输入——这是改写，不是改语义。优化器后课会搜这些形状；本课只承认分组是改写防火墙之一，与 [查询改写](/cs/query-rewrite) 点名的窗口、极限同类。
 
 空组：`FROM` 为空时，无 `GROUP BY` 的裸聚合仍产出一行（`COUNT(*)` 为 0）；有 `GROUP BY` 则零行。这是标准里的坑，声明含义必须包含它，否则「有没有分组」会改结果基数。
+
+```mermaid
+flowchart TD
+  Q["输入为空（0 行）"] --> B{"有没有 GROUP BY？"}
+  B -->|"没有: 整表视为一组"| R1["仍产出一行<br/>COUNT(*)=0, SUM=NULL"]
+  B -->|"有: 按 G 划等价类"| R2["一个组都划不出来<br/>结果是 0 行"]
+  R1 --> USE["下游: INSERT 选哪个? 报表显示几行?"]
+  R2 --> USE
+```
+
+<span class="marginnote">术语翻译：`HAVING` 就是「对聚合结果再下条件」——`HAVING SUM(amt) \gt 100` 意思是「先按组算出每组的合计，再把合计不到 100 的整组丢掉」；它是组这一层的过滤器，不是行那一层的。</span>
+
+<span class="marginnote">常见误区：初学者容易把 `WHERE SUM(amt) \gt 100` 直接写上去，实际报错——`WHERE` 执行时组还没划出来，聚合值不存在。想先滤行写 `WHERE amt \gt 100`，想滤组写 `HAVING SUM(amt) \gt 100`，两者管的时点不同。</span>
 
 ## 边界
 
