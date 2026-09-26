@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">全零页可走 zero page，不必 KSM。稳定树与不稳定树是实现分法。教学对象是「内容相等 ⇒ 可共享直到写」。</span>
 
+<span class="marginnote">数字实例：一页 4 KB。把 200 台同镜像虚拟机里 1000 个内容相同的页并到同一页框，直接省下 $1000\times4\,\text{KB}\approx4$ MB 内存；代价是 ksmd 每轮要读完 pages_to_scan 个页做哈希与 memcmp，扫描越快省得越多、CPU 税也越重。</span>
+
 ## 方法
 
 扫描 → 哈希 → 比较 → 若等则把一页映射到另一页框，释放源，pte 写保护。写故障：分配新页拷开。对照 FS [快照](/cs/fs-snapshots)：共享未改块；KSM 无「数据集根」，是全局扫描。对照 [overlay](/cs/overlayfs)：一个文件树层，一个页内容。
@@ -33,6 +35,20 @@ flowchart TD
 ## 机制
 
 KSM 用 CPU 换 DRAM，适合同质 VM 密度。它改变「匿名页私有」的默认，引入信息泄漏面。不要写成去重存储产品。与 THP：大页内容更难吃进合并，常先拆再扫。
+
+```mermaid
+flowchart TD
+  SCAN["ksmd 每轮扫 pages_to_scan 页"] --> CK["先算校验和, 变了就重新入桶"]
+  CK --> ST["稳定树: 内容长期没变的页"]
+  CK --> UST["不稳定树: 最近变过的页"]
+  ST --> CMP["memcmp 精确比对"]
+  CMP -->|"相同"| MERGE["并到同一页框, pte 写保护"]
+  CMP -->|"不同"| UST
+```
+
+<span class="marginnote">常见误区：初学者容易以为 KSM 只是省内存的纯优化。实际上「某页能否被合并」本身就是信息——攻击者可把自己的页改成候选内容再观察是否被合并、或测写故障延迟，从而探测别的虚拟机的内存内容，这类侧信道在云上必须认真对待。</span>
+
+<span class="marginnote">术语翻译：写时拷贝（COW）就是「先让大家共用同一份，谁真的动手写，再当场给他复印一份私有的」。KSM 合并后的页都带着写保护，第一次写入触发缺页，内核才分配新页框把内容拷开，此后两页各走各路。</span>
 
 关闭 KSM 是安全/延迟场景的合理默认。
 

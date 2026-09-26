@@ -19,6 +19,8 @@ kprobe：改指令为 int3/jmp，处理函数读寄存器。优化 kprobe 用跳
 
 <span class="marginnote">kretprobe 在返回处。对象是观测，不是热补丁全文——livepatch 后课。</span>
 
+<span class="marginnote">术语翻译：text_poke 就是「在内核运行时改自己代码字节」的手段——先把目标页临时映射成可写或用替代映射写入，写完恢复只读，保证别的 CPU 看到的指令要么是旧的、要么是新的，不是半条。</span>
+
 ## 方法
 
 注册地址 → 停机或用 text_poke 改代码 → 命中进处理。对照 [ptrace](/cs/syscall-trace)：ptrace 停整个线程；probe 可只采样。对照 [FUSE](/cs/fuse)：无关。对照 XDP：一个改包路径，一个改任意函数。
@@ -35,6 +37,18 @@ flowchart TD
 动态探针让未埋点的函数也可观测，是现场调试的核心。税与风险高于 tracepoint。不要写成病毒。与 [hardening](/cs/kernel-hardening)：严格 CFI 下插入更难。
 
 错误地址会 oops——要校验符号。
+
+```mermaid
+flowchart TD
+  HIT["CPU 执行到 int3, 陷入内核"] --> PRE["pre_handler: 读寄存器与栈"]
+  PRE --> SS["单步执行被备份的原指令"]
+  SS --> POST["post_handler 可选"]
+  POST --> RES["恢复原流程继续跑"]
+```
+
+<span class="marginnote">数字实例：一次 int3 断点要走完整的异常入口—保存现场—处理—返回，成本在微秒量级；优化 kprobe 把断点换成一条 5 字节 jmp 直跳处理块，省掉异常往返，高频路径（如每秒百万次的网络函数）才打得起。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 uprobe 改的是磁盘上的可执行文件。实际上它通过写时拷贝改动的是进程地址空间里的文件映射页，磁盘上的二进制一个字节不动，文件校验和也不变。</span>
 
 
 实现上：优化 kprobe 用跳转替代 int3，和 Ftrace 调用约定绑定。uprobe 在共享库上对所有进程生效，开销按进程数放大。指令替换必须停机或用 text_poke 同步。 读法上只引用[上一课](/cs/ftrace-tracepoints)的结论，不把对象换成训练推理或限价簿。

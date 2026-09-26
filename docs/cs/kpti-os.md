@@ -19,6 +19,8 @@ Meltdown：用户推测加载内核直映地址，把秘密抽进缓存。缓解
 
 <span class="marginnote">nopti 可关。有硬件 Meltdown 免疫的 CPU 内核会自动弱化隔离。对象是页表根，不是 LSM。</span>
 
+<span class="marginnote">术语翻译：CR3 就是「CPU 查页表时的总目录地址」寄存器——写一个新的 CR3 值，等于给地址翻译整体换了一张地图。KPTI 的全部代价都来自频繁换这张地图。</span>
+
 ## 方法
 
 fork/exec：为进程准备两套 pgd 或切换视图。进入内核：trampoline 栈 + 切 CR3。对照 [RSS](/cs/rss-multiqueue)：性能税在陷入路径。对照 vmalloc：内核页仍在内核表里。对照 [NAPI](/cs/napi)：中断也要切表。
@@ -35,6 +37,19 @@ flowchart TD
 KPTI 用页表切换换推测执行隔离，把 Meltdown 从「必中」变成「用户页表里没有那地址」。税是 TLB 与 CR3。不要写成密码学。与 [cgroup](/cs/cgroups) 无关。后课加固还会加更多：SMEP、KASLR。
 
 调试：kprobes 在隔离下仍要能跑，入口路径变复杂。
+
+```mermaid
+flowchart TD
+  SYS["syscall 陷入, 要切 CR3"] --> HAS{"CPU 支持 PCID?"}
+  HAS -->|"有"| KEEP["TLB 项按 PCID 分组共存"]
+  KEEP --> CHEAP["只换地图, 翻译缓存不扔"]
+  HAS -->|"无"| FLUSH["换地图即全刷 TLB"]
+  FLUSH --> EXP["后续地址翻译全靠页表遍历"]
+```
+
+<span class="marginnote">直觉类比：PCID 给两套页表的翻译缓存各贴一个名字标签，换地图时旧标签的条目留着不删；没有 PCID 就像每次换住户都要把整栋楼的登记簿全部擦掉重写。</span>
+
+<span class="marginnote">数字实例：Meltdown 补丁落地后的 2018 年实测，无 PCID 的老 CPU 上 syscall 密集型负载（短连接 Web 服务、fork 密集脚本）普遍掉 5%–30%；有 PCID 的新 CPU 税降到几个百分点。这就是「陷入路径上的 TLB 税」的具体价签。</span>
 
 
 实现上：PCID 让两套 pgd 的 TLB 项共存，否则每次 syscall 射 TLB。trampoline 栈避免用用户 RSP 进核。硬件免疫 Meltdown 的 CPU 可编译或运行时弱化 KPTI。 读法上只引用[上一课](/cs/direct-map-highmem)的结论，不把对象换成训练推理或限价簿。

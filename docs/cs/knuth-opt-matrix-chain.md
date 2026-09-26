@@ -25,6 +25,8 @@ section: cs
 
 <span class="marginnote">CLRS 15.2 矩阵链。Knuth 原为 BST。Yao 推广。后课 Z 函数离开 DP。</span>
 
+<span class="marginnote">数字实例：取 $10\times100$、$100\times5$、$5\times50$ 三个矩阵。按 $((A_1A_2)A_3)$ 算要 $10\times100\times5+10\times5\times50=7500$ 次标量乘法；按 $A_1(A_2A_3)$ 算要 $100\times5\times50+10\times100\times50=75000$ 次，差 10 倍——加括号顺序就是全部差价。</span>
+
 ## 方法
 
 标准区间 DP 框架，`k` 从 `opt[i][j-1]` 到 `opt[i+1][j]`。存 $opt$。对照 BST 同一循环。
@@ -40,6 +42,19 @@ flowchart TD
 ## 机制
 
 更长区间的最优切点夹在较短区间切点之间，故枚举不回头。与 SMAWK：Knuth 针对二维区间表的 $opt$ 二维单调；SMAWK 针对一层 $i$–$j$ 矩阵。与 CHT：结构不同。
+
+```mermaid
+flowchart LR
+  L["opt(i, j-1) 的切点"] --> BAND["k 的搜索带"]
+  R["opt(i+1, j) 的切点"] --> BAND
+  BAND --> ONLY["k 只在带内试, 不扫全区间"]
+  ONLY --> AVG["每行均摊 O(1) 个新切点"]
+  AVG --> N2["总时间 O(n^2)"]
+```
+
+<span class="marginnote">术语翻译：四边形不等式说的就是「交叉的两段代价之和，不小于不交叉的两段代价之和」。有它压着，最优切点才随区间端点单调移动，$k$ 的搜索带才收得住；没有它，$k$ 就得老老实实扫满整行。</span>
+
+<span class="marginnote">常见误区：初学者容易以为 Knuth 优化在改进矩阵乘法本身，像 Strassen 那样降低乘法复杂度。实际上每次 $\times$ 仍是普通矩阵乘，被优化的只是「先乘哪两个」的加括号顺序。</span>
 
 ## 边界
 

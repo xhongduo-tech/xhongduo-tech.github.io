@@ -23,6 +23,8 @@ section: cs
 
 启动预留 crashkernel → panic 时 kexec → 写 vmcore。对照 [hibernate](/cs/suspend-resume)：一个有意写镜像，一个意外。对照 [fsck](/cs/fsck)：dump 后再修盘。对照 makedumpfile 过滤页。
 
+<span class="marginnote">直觉类比：crashkernel 预留区像救生艇——平时占着甲板空间没人用；船一进水（panic），你不可能现场造船，只能跳上早已挂好的那艘。「不能崩溃后再装」说的就是这个。</span>
+
 ```mermaid
 flowchart TD
   PAN["panic"] --> KX["kexec 捕获内核"]
@@ -39,6 +41,19 @@ kdump 把「死内核的 RAM」变成可分析文件，是生产根因的最后�
 
 实现上：crashkernel= 预留必须在启动时做，崩溃后再留来不及。第二内核驱动要能写盘或网，常用精简 config。过滤掉缓存页可缩小 dump。 读法上只引用[上一课](/cs/ebpf-observability)的结论，不把对象换成训练推理或限价簿。
 
+<span class="marginnote">数字实例：一台 256 GB 内存的机器，通常只用启动参数预留几百 MB（如 crashkernel=512M）给第二内核；事后用 makedumpfile 过滤掉缓存页，几百 GB 的内存现场常能压成几 GB 的 vmcore 文件。</span>
+
+```mermaid
+flowchart TD
+  B["启动时：划出 crashkernel 预留区，平时闲置"] --> C["运行期：正常内核用其余内存"]
+  C --> P["某天 panic：原内核已不可信"]
+  P --> K["kexec 把 capture kernel 装进预留区并跳过去"]
+  K --> R["旧内核内存原封不动，只读"]
+  R --> W["capture kernel 把它转成 vmcore"]
+  W --> A["事后用 crash 分析根因"]
+  B -->|"没预留"| X["崩溃后无干净内存放第二内核，dump 直接失败"]
+```
+
 本课在操作系统进阶的「安全、启动与调试 / 观测与调试」课序里，对象是 **kdump 与 crash**。
 
 - 先修只引用，不重导：上一课的结论当公理，本课只补差。
@@ -52,6 +67,8 @@ kdump 把「死内核的 RAM」变成可分析文件，是生产根因的最后�
 
 版本字段会变，课序钉的是机制对象「kdump 与 crash」，不是某一主线内核的结构体名。
 后课默认：可 kexec 出 vmcore。oops 与 panic 如何决定活还是死，下一课。
+
+<span class="marginnote">常见误区：把 kdump 当成「出了事装个工具就能抓」。实际上它依赖崩溃前就位的三件事——启动参数预留、第二内核的精简 initramfs、能写盘或传网的驱动；缺一件，现场就只剩重启一条路。</span>
 
 ## 小结
 
