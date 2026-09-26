@@ -17,6 +17,8 @@ section: cs
 
 `sw x1, 0(x2)` 后 `lw x3, 0(x2)`。store 可能还在 ROB 里，cache 仍是旧行。若 load 去 cache，ISA 的 RAW 被打破。若等到 store 提交，独立 load 也全停。缺口不是再加一条 CDB，而是**按地址在 store 队列里搜，命中则把数据转发给 load**（store-to-load forwarding）。
 
+<span class="marginnote">常见误区：初学者容易以为「没写进 cache 的 store 就丢了」。实际上 store 一执行就停在 store buffer 里排队，同核后面任何同地址 load 都能从缓冲里拿到新值；cache 里那行旧数据只是对外世界（其他核）暂时还看不懂的版本。</span>
+
 地址尚未算完的年轻 store 挡在前面时，load 不能盲目绕过——可能别名。实现要么等地址，要么预测「不冲突」错了再冲刷。
 
 <span class="marginnote">这是核内的 RAW，不是 MESI。别的核要等 store 提交并走一致性事务才看得到。</span>
@@ -39,7 +41,21 @@ flowchart TD
 
 TSO 一类模型允许 load 越过更早的 store（对不同地址），正是因为有这条缓冲；同地址仍要转发或停，否则连单线程 ISA 都错。弱序还允许更多重排，栅栏则抽干缓冲。模型课再收；本课只把硬件对象备好。
 
+一条 load 到达访存单元时，硬件按什么顺序决定它的答案，全部逻辑收敛在这几步里。
+
+```mermaid
+flowchart TD
+  L["load 发出"] --> S{"查 store 缓冲: 有年长同地址 store?"}
+  S -- "完全重叠" --> F["转发: 直接用缓冲里的数据"]
+  S -- "部分重叠/地址未知" --> W["暂停或按预测继续"]
+  S -- "无匹配" --> C["去 cache / 一致性层次取数"]
+  F --> OK["单线程 RAW 满足"]
+  C --> OK
+```
+
 推测 load 若绕过了一条后来发现同地址的 store，必须取消 load 及其年轻指令。这与分支误预测同一套 ROB 冲刷。
+
+<span class="marginnote">数字实例：典型核的 store buffer 只有十几到几十个表项，且按程序序进出。一段循环里如果连续塞进超过容量的 store（例如一次写 $32$ 个连续字而缓冲只有 $16$ 项），流水线就会在访存级停下等空位——这是内存密集代码里常见的隐性瓶颈之一。</span>
 
 ## 边界
 

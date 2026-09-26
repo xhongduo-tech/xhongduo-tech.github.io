@@ -17,6 +17,8 @@ section: cs
 
 循环里 `*p = …; … = *q` 若 `p` 与 `q` 几乎总不同，让 load 等 store 的 AGU 是冤枉的。若几乎总相同，放行则每次 replay。冲突关系更随 **PC 对** 而不是绝对地址稳定：同一 load PC 总是撞同一 store PC。缺口不是更大的 SQ，而是**一张预测表：load PC 映射到它应当等待的 store 集合**。
 
+<span class="marginnote">数字实例：若一次 replay 要冲刷并重跑约 $20$ 条年轻指令，而某循环每轮误放行一次 load、循环跑 $10^6$ 轮，白白多执行 $2\times10^7$ 条指令的代价——这正是「盲目推测」比「保守等待」更贵时发生的事，store set 就是为把这种对压到接近零。</span>
+
 <span class="marginnote">Chrysos–Emer 的 store set：冲突过的 load 与 store 被分进同一 SSID；load 发射受该 SSID 的「最后一个未完成 store」约束。不冲突的 PC 不进任何集合，可以自由提前。</span>
 
 ## 方法
@@ -40,9 +42,26 @@ flowchart TD
 
 这为「值预测」让路：若连数据都可以猜，依赖边可能被绕过；但内存依赖仍必须在架构上正确，预测只能加速，不能代替 CAM。
 
+一个 load 在流水线里按预测表行事还是自由放行，决策路径就是这几步。
+
+```mermaid
+flowchart TD
+  LOAD["load 到发射口"] --> T{"load PC 有 SSID?"}
+  T -- "无" --> GO["直接按寄存器就绪发射"]
+  T -- "有" --> W{"该集合年长 store 地址已算出?"}
+  W -- "是" --> GO
+  W -- "否" --> HOLD["在 IQ 里等待"]
+  GO --> CHK{"真实 CAM 发现重叠?"}
+  HOLD --> CHK
+  CHK -- "是" --> RP["replay 并训练: 并入 SSID"]
+  CHK -- "否" --> DONE["正常执行"]
+```
+
 ## 边界
 
 本课不把 load 的返回值拿去预测——那是下一课值预测。也不保证多核上的依赖：他核 store 不在本核 store set 里，靠一致性与内存模型。SQ 满、SSID 饱和时退回保守。
+
+<span class="marginnote">直觉类比：存储集预测像快递分拣台的老练员工——大多数包裹（load）凭经验知道跟前面的哪个货箱（store）无关，直接上手；只有少数几对包裹历史上撞过架，才被登记在册，规定后者必须等前者腾开位置再动。经验表靠「撞架事件」持续更新。</span>
 
 后课默认：大多数 load 被预测为无内存依赖；冲突 PC 对被集中管理。寄存器与内存之外，运算结果本身能否猜，是下一课。
 

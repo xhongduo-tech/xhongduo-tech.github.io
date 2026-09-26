@@ -17,6 +17,8 @@ section: cs
 
 WAL 课留下「崩溃时靠日志」。缓冲仍要决定：脏页能否在提交前换出？提交时要不要把堆页刷完？四种组合里，steal/no-force 需要 UNDO（页上可能有未提交）与 REDO（提交的页可能还没刷）。缺口是**把缓冲政策命名成恢复需求**。
 
+<span class="marginnote">直觉类比：把日志想成账房的流水账，数据页想成货架。no-force 意味着「货还没摆上货架，流水账已经记下这笔成交」——账本是成交的凭证，货架摆没摆都算数；steal 则是「没付款的货也可以先搬去货架腾地方」，恢复时账房要能分辨哪些成交最终作废。</span>
+
 <span class="marginnote">no-steal/force 几乎不用日志就能简单恢复，但吞吐不可接受。实践选 steal/no-force，用 ARIES 付复杂度。</span>
 
 ## 方法
@@ -34,6 +36,22 @@ flowchart TD
 ## 机制
 
 政策把 [缓冲与脏页](/cs/buffer-dirty) 的 OS 直觉接到事务：OS 不知道提交点。日志是唯一把「已提交」钉在磁盘上的对象。后课 ARIES 的分析阶段要找出脏页表与活跃事务，正是因为 steal/no-force 制造了这两种不确定。
+
+把两个开关各取两档，恢复义务立即分岔——四种组合各有各的代价。
+
+```mermaid
+flowchart TD
+  ROOT["缓冲政策"] --> A["steal: 未提交页可下盘"]
+  ROOT --> B["no-steal: 提交前页钉在内存"]
+  ROOT --> C["no-force: 提交不刷堆页"]
+  ROOT --> D["force: 提交时全刷堆页"]
+  A --> R1["必须支持 UNDO"]
+  C --> R2["必须支持 REDO"]
+  A --> E["默认组合: steal + no-force = REDO + UNDO"]
+  C --> E
+```
+
+<span class="marginnote">为什么重要：如果提交必须刷完所有堆页（force），一次涉及 $100$ 个分散页的提交就要等 $100$ 次随机写盘，延迟从微秒级膨胀到几十毫秒；no-force 把这笔账换成「只刷一条日志」，提交快了两个数量级，代价是重启时要靠日志重做。</span>
 
 ## 边界
 
