@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">前台进程组可从终端读；后台组读终端会被 `SIGTTIN` 停下。这是作业控制，不是新的文件描述符类型。</span>
 
+<span class="marginnote">「组长」就是建组时的第一个进程，PGID 通常等于它的 PID——好比以发起人命名一个项目群；组长退出后群还在，其余成员照旧属于这个组。</span>
+
 ## 方法
 
 `setpgid` 把进程移入某组（受限：须在同一会话）。`setsid` 创建新会话、新组，切断控制 tty。终端驱动记住前台 PGID；收到中断字符则向该组发 `SIGINT`。orphan 进程组（组内无成员的父在同一会话）有额外停止信号规则，主干承认「后台作业与 tty 的关系要收口」，不背整章 POSIX。
@@ -32,9 +34,28 @@ flowchart TD
 
 fork 默认继承组与会话；exec 不改。shell 在 fork 之后、exec 之前 `setpgid`，把管道各段收进同一作业组。
 
+<span class="marginnote">`kill(-pgid, sig)` 里的负号表示「按组投递」：可以把它想象成在群里发通知而不是逐个私聊——`kill(-4242, SIGINT)` 会把信号同时送到 PGID 为 4242 的组内每一个进程，无论组里有 2 个还是 200 个成员。</span>
+
 ## 机制
 
 组把信号从「一个 PCB」抬到「一个作业」。与[孤儿与 init](/cs/orphan-init)叠加：会话首领退出可能挂断终端，向该会话发 `SIGHUP`。调度器仍按线程选 CPU，不按组调度——组不是调度实体。组只影响信号投递与 tty 权限。
+
+```mermaid
+flowchart LR
+  K["用户敲 Ctrl-C"] --> D["终端驱动"]
+  D --> L["查前台 PGID"]
+  L --> S["kill -pgid 一次投递"]
+  S --> P1["管道左段进程"]
+  S --> P2["管道右段进程"]
+  S --> P3["组内其他成员"]
+  P1 --> X["各自执行默认处理退出或被捕获"]
+  P2 --> X
+  P3 --> X
+```
+
+<span class="marginnote">上图回答「Ctrl-C 之后信号是怎么一步走到的」：终端驱动只查一个前台 PGID 字段，一次 `kill(-pgid)` 就完成整组投递，不必 shell 逐个 PID 去 kill。</span>
+
+<span class="marginnote">初学者容易以为前台进程组「独占 CPU」、后台组被暂停就不占资源。实际上调度完全按进程/线程分配，与组无关；后台组只是读写终端时会被 `SIGTTIN`/`SIGTTOU` 停下，CPU 该跑照跑。</span>
 
 ## 边界
 

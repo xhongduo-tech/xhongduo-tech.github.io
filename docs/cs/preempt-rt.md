@@ -65,7 +65,7 @@ flowchart TD
 
 本课不引入 xenomai 双内核。不保证云虚拟机的 RT 数字。下一课如何量延迟：cyclictest。
 
-<span class="marginnote">常见误区：装了 PREEMENT_RT 补丁不等于「整机实时」。关中断、硬件复位这类段依旧不可抢占；一个误用 raw_spinlock 或长时间关中断的驱动，就能把全机的延迟上界拖垮。</span>
+<span class="marginnote">常见误区：装了 PREEMPT_RT 补丁不等于「整机实时」。关中断、硬件复位这类段依旧不可抢占；一个误用 raw_spinlock 或长时间关中断的驱动，就能把全机的延迟上界拖垮。</span>
 
 
 版本字段会变，课序钉的是机制对象「PREEMPT_RT」，不是某一主线内核的结构体名。
