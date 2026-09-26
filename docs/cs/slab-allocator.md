@@ -21,6 +21,10 @@ section: cs
 
 <span class="marginnote">SLUB 简化了每 CPU 的部分数组，减少锁。对象可以有构造/析构。过大的对象仍直接走 buddy。</span>
 
+<span class="marginnote">数字实例：一个 `task_struct` 约几 KB、一个 dentry 约百来字节。若为每个 dentry 单独向 buddy 要一页（$4\,\mathrm{KB}$），百字节的请求吃掉整页——内碎片超过 $95\%$。切成等长槽后，一页能装几十个 dentry，碎片最多只浪费「整页除不尽」的那一小截。</span>
+
+<span class="marginnote">常见误区：初学者容易把 slab 与用户态 malloc 当成同类替代品。分工其实分层：buddy 管**页**，slab 在页上按**对象类型**切槽，用户 malloc 又在另一套 arena 上做——内核 `kmalloc` 底下就是 slab，用户 `malloc` 根本摸不到 buddy。</span>
+
 ## 方法
 
 `kmem_cache_create` 登记大小与对齐。`kmem_cache_alloc` 从本 CPU 空闲槽取；没有则向 buddy 要一页填满对象。释放不立即还页，直到整页空闲或回收器收缩。与用户态对照：libc 的 arena 是进程私有；slab 是全核共享（加锁或 per-CPU）。缺页路径上分配的 `anon_vma` 一类对象走这里。
@@ -36,6 +40,25 @@ flowchart TD
 ## 机制
 
 slab 把「页」变成「类型化内存」，让 VFS 与网络协议栈的热点分配不再打 buddy 锁。回收时 shrinker 可以丢掉空 slab，把页还给 buddy，再给用户缺页用。不要把 slab 当成安全隔离：同页上的对象仍共享帧，越界写会破坏邻居——这是内核编程纪律，不是本课的利用指南。
+
+一个对象从生到死走哪条路？关键在于「释放不等于归还」：
+
+```mermaid
+flowchart TD
+  A["cache 建好：常驻半满/满/空三列 slab"] --> B["alloc：从本 CPU 满列取空闲槽"]
+  B --> C{"满列有槽?"}
+  C -- 有 --> D["O(1) 直接给<br>不跑构造（已初始化过）"]
+  C -- 无 --> E["问 buddy 要新页<br>新对象才跑一次构造"]
+  D --> F["free：对象放回空闲槽<br>页仍留在 cache 里"]
+  E --> F
+  F --> G{"整页都空?"}
+  G -- 否 --> H["页继续缓存：等下次分配复用"]
+  G -- 是 --> I["shrinker 可把空 slab 还 buddy"]
+```
+
+直觉类比：像餐厅备好的桌位——客人走了（free）桌子不拆（页不还），擦干净就留给下一桌；只有整间包厢彻底空置、且生意冷清（内存压力）时才拆掉桌位退回场地。
+
+这一步如果做错了——比如 free 时立刻还页——下一个同类型对象就要重走「要页 + 重新初始化」的全套流程，`fork` 风暴这类高频分配会把 buddy 锁打爆。
 
 ## 边界
 

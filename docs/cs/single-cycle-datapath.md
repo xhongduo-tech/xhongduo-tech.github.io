@@ -25,6 +25,10 @@ section: cs
 
 <span class="marginnote">Patterson/Hennessy 第 4 章先单周期再多周期再流水。指令存储器与数据存储器在图上分开（哈佛口），避免同拍取指又 `lw` 单口冲突。</span>
 
+<span class="marginnote">数字实例：设取指 $2\,\mathrm{ns}$、堆读 $1\,\mathrm{ns}$、ALU $2\,\mathrm{ns}$、数据存储器 $2\,\mathrm{ns}$、写回 $1\,\mathrm{ns}$——`lw` 全程串过这些段，周期至少 $8\,\mathrm{ns}$；`add` 只用其中三段约 $6\,\mathrm{ns}$，但**必须**等满 $8\,\mathrm{ns}$ 才能开下一拍。快的在陪慢的走。</span>
+
+<span class="marginnote">初学者容易把「CPI=1」当快。CPI 只数每条指令占几拍；真实速度是 CPI $\times$ $T$。单周期 CPI=1 但 $T$ 巨大，流水线 CPI 仍约 1 却把 $T$ 砍到单段的长度——墙钟时间天差地别。</span>
+
 ## 方法
 
 画 PC、指令存储器、堆、立即数扩展、ALU、数据存储器、若干 MUX、分支加法器。时序元件：PC、寄存器堆写、数据存储器写，同一时钟。组合其余。建立保持按[前面的课](/cs/setup-hold)检查最长路径。
@@ -42,6 +46,22 @@ flowchart TD
 ## 机制
 
 功能上 RV32I 的核心指令都能走完。性能上 CPI=1，但 $T$ 很大，IPC 的墙钟时间差。后课流水线把同一张图切成多拍重叠；结构冒险来自本课已经分开的指令/数据口是否合并。
+
+同一张图怎么同时服务四种指令？差别全在 MUX 的选择位上——每类指令在三个道岔上拨向不同方向：
+
+```mermaid
+flowchart TD
+  DEC["译码出控制信号"] --> M1{"RegDst / 写哪个 rd?"}
+  DEC --> M2{"ALUSrc：第二操作数?"}
+  DEC --> M3{"MemtoReg：写回哪路?"}
+  LW["lw：读内存"] --> M2B["ALUSrc=1：用立即数偏移"]
+  LW --> M3B["MemtoReg=1：选内存读出"]
+  ADD["add：ALU 算"] --> M2A["ALUSrc=0：用 rs2"]
+  ADD --> M3A["MemtoReg=0：选 ALU 结果"]
+  BR["beq：只判不改寄存器"] --> SKIP["RegWrite=0<br>分支逻辑改 PC"]
+```
+
+可以把它想象成铁路道岔：轨道（数据通路）是铺死的，火车走哪条岔由控制信号扳。下一课的真值表就是这本「扳道岔时刻表」。
 
 `jal` 要把 PC+4 写进 `rd`，数据通路需一条回写 PC+4 的 MUX 输入，容易漏画。
 

@@ -19,6 +19,10 @@ section: cs
 
 <span class="marginnote">mbuf 是 BSD 亲戚。不要把 skb 当成数据库行：它是包描述符，生命期从驱动到套接字或相反。</span>
 
+<span class="marginnote">术语翻译：`skb_push`/`skb_pull` 就是「推头/剥头」——发送时 TCP 头往线性区前面压一截（`push`），接收时收包方把以太网头往前拉掉一截（`pull`）。动的只是 `data` 指针，字节一个都不搬。</span>
+
+<span class="marginnote">直觉类比：把 skb 想成快递面单——面单本身（控制块）写着重量、目的地、状态标志，货物（数据缓冲）可以整箱、也可以拆成几个袋子（paged frags）。克隆是把面单复印一份、两份单子指同一批货。</span>
+
 ## 方法
 
 接收：驱动 DMA 进页，建 skb，把协议指针指向以太网头。发送：套接字分配 skb，协议压头，qdisc 排队，驱动从 frags 做 scatter-gather。释放：引用计数到零还页。对照 bio：bio 是块范围；skb 是字节流上的一段报文，可分片、可 GSO。
@@ -34,6 +38,19 @@ flowchart TD
 ## 机制
 
 skb 让各协议层共享同一缓冲而不拷贝，是零拷贝网络的内核侧原语。元数据（hash、checksum status、tstamp）决定后课 GRO/GSO 能否卸载。不要写成量化行情包格式。与 cgroup：skb 可打 classid，但会计在后课。
+
+一包数据下行（发送）时头是怎么长出来的？各层只压头、不拷贝：
+
+```mermaid
+flowchart TD
+  A["应用写套接字"] --> B["TCP 分配 skb<br>压 TCP 头：skb_push"]
+  B --> C["IP 压 IP 头"]
+  C --> D["qdisc 排队"]
+  D --> E["以太网压帧头"]
+  E --> F["驱动 scatter-gather<br>把 frags 交给 DMA"]
+```
+
+这一步如果做错了，代价是整条带宽：任何一层若改用 `memcpy` 重排数据而不是压头，千兆链路上 CPU 就会先于网卡跑满。`headroom` 预留不足同理——中途发现没地方压头，就只能搬数据补洞。
 
 错误路径：drop 统计在此对象上加，tcpdump 抓的也是它的镜像。
 
