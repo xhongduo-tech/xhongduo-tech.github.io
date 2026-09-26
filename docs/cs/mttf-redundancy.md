@@ -19,9 +19,13 @@ cache 与 PRF 的位翻转会让看起来精确的 [退休](/cs/retire-precise-e
 
 <span class="marginnote">FIT（每十亿小时故障）累加：容量越大、电压越低，FIT 越高。ECC DIMM、L2/L3 ECC、寄存器奇偶是工业默认。锁步双核用于更高安全完整性。</span>
 
+<span class="marginnote">数字实例：1 FIT 约等于 11.4 万年才遇一次故障；但一颗芯片有上亿个单元，若整体故障率达到 10 亿 FIT，MTTF 就缩到约 1 小时——这正是必须用编码冗余把故障率再压几个数量级的原因。</span>
+
 ## 方法
 
 ECC：数据行加冗余位，纠正单比特、检测双比特（典型 SECDED）。奇偶：检测，不能纠正。锁步：两核跑同一指令流，分歧则错。检查点：与[推测恢复](/cs/speculation-recovery) 同源，但是架构级的定期快照。
+
+<span class="marginnote">术语翻译：SECDED 就是「单错纠正、双错检测」的编码手段来做内存自愈的事——翻转 1 位能自动改回，翻转 2 位能报警但改不回，3 位及以上则可能漏检，所以才需要锁步这类更贵的冗余兜底。</span>
 
 ```mermaid
 flowchart TD
@@ -35,6 +39,17 @@ flowchart TD
 与性能：ECC 占带宽与延迟，Roofline 的 $B$ 略降。与安全：随机 FIT 不是 Spectre；Rowhammer 是主动打 FIT。本课只要求「微结构必须假设位会翻」。Amdahl 式的可用性：串行维护窗口同样限制。
 
 检测后的策略：纠正则继续；不可纠正则毒化 cache 行或机器检查异常，精确性回到 [退休](/cs/retire-precise-exception)——故障要汇报到某条指令，不能让错误值提交。PRF 与 ROB 也需要保护，否则 ECC 只保护了内存。
+
+```mermaid
+flowchart TD
+  HIT["检测到疑似位翻转"] --> Q{"ECC 能否纠正?"}
+  Q -->|"单比特可纠"| FIX["透明纠正, 软件无感"]
+  Q -->|"双比特不可纠"| POISON["毒化该 cache 行"]
+  POISON --> EXC["机器检查异常"]
+  EXC --> RET["错误汇报到某条指令"]
+```
+
+<span class="marginnote">直觉类比：锁步像两个抄写员同时誊同一份稿，每行结束互相核对——笔迹一旦不同立刻知道出了错，但不知道谁对，只能停下整页重抄；单靠一个抄写员（奇偶）只能发现错了，改不了。</span>
 
 ## 边界
 

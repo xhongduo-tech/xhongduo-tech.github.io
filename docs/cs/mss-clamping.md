@@ -19,6 +19,8 @@ section: cs
 
 不要把 MSS 写成 MTU：MSS 是 TCP 载荷，MTU 是 IP 包。
 
+<span class="marginnote">数字实例：以太网 MTU 1500，减去 IPv4 头 20 字节再减 TCP 头 20 字节，得 MSS=1460；若走 PPPoE 还要多 8 字节封装，MTU 掉到 1492，MSS 就只剩 1452。所谓「在 SYN 上减 40」就是这道减法。</span>
+
 <span class="marginnote">RFC 9293。钳制是运营技巧，不是 TCP 状态机一步。本课不鼓励在核心乱改包。</span>
 
 ### MSS 不是 MTU
@@ -42,6 +44,19 @@ flowchart TD
 快重传按段计；MSS 变，三个 dupACK 的字节数变。RoCE 用自己的 MTU，不借 MSS。QUIC 用 PMTUD/PLPMTUD 在 UDP 上。安全：钳制可被中间人用来降效，与 ICMP 缩小同类，需信任边缘。
 
 数据中心统一 MTU 则少钳制。
+
+<span class="marginnote">常见误区：初学者容易以为钳制要拆包重装整个报文，实际上它只改 SYN 头里 2 字节的 MSS 选项数值，数据包原样转发——所以几乎零开销，但也正因为只看 SYN，它对之后路径 MTU 的变化毫无反应。</span>
+
+```mermaid
+flowchart TD
+  SYN["客户端 SYN 带 MSS 1460"] --> EDGE["PPPoE 边缘设备"]
+  EDGE --> M["本口 MTU 只有 1492"]
+  M --> R["重写 MSS 为 1492 减 40 即 1452"]
+  R --> ACK["对 SYN-ACK 做同样钳制"]
+  ACK --> CONN["整条连接只用 1452 字节载荷"]
+```
+
+<span class="marginnote">直觉类比：钳制像在高速入口给大货车换一张「限载 40 吨」的新路条——货车本身没动，只是此后整趟都按小额度走；哪怕前路其实能跑 60 吨，这张连接的路条也改不回来了。</span>
 
 ## 边界
 

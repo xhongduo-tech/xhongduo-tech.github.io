@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">UPI / Infinity Fabric：点对点链路，跑一致性与 I/O。链路条数决定对分。编程上就是 NUMA：线程与内存绑错则每记 miss 都付远程税。</span>
 
+<span class="marginnote">数字实例：本地 L3 命中约 10 ns，跨 socket 取一个 cache 行常要 80–140 ns——同一份代码只是把数组挪到另一个插座，访存就可能慢十倍，这就是「远程税」的量级。</span>
+
 ## 方法
 
 每 socket 一个或多个代理：把片上一致性事务翻译成片间包，维持 [MOESI/MESIF](/cs/moesi-mesif) 的全局不变式。远程命中：对端 LLC 或内存。广播在片间更贵，故更依赖目录。I/O 与加速器可挂在某一 socket，变成又一层不对称。
@@ -36,6 +38,20 @@ flowchart TD
 [MLP](/cs/mlp-memory-parallelism) 仍能重叠远程 miss，但每条更长，需要更多 MSHR。[fence](/cs/fence-cost) 与锁的临界区跨 socket 时放大。OS [NUMA 调度](/cs/numa-sched) 是软件对策；本课只要求硬件提供不对称延迟。Gustafson 与扩展下一课开始从性能模型收口，不再加协议态。
 
 目录 home 若总在远端，即使数据后来缓存在本地 L3，第一次仍要跨链路。地址交织与 homing 策略决定「哪些行永远远程」。编程上 first-touch 分配是在利用这一几何。
+
+```mermaid
+flowchart LR
+  RQ["核 miss: 目标行 home 在远端"] --> AG["本侧一致性代理"]
+  AG --> LNK["跨片链路 UPI/Infinity Fabric"]
+  LNK --> DIR["对端目录按 home 查行"]
+  DIR -->|"行在对端 LLC"| RET["直接回包"]
+  DIR -->|"行不在"| MEM["对端 DRAM 取数"]
+  MEM --> RET
+```
+
+<span class="marginnote">直觉类比：first-touch 像新员工入职第一天被分到哪栋楼，工位就永久定在哪栋——之后是就近办公还是每天跨楼跑一趟，全看第一天。分错了楼，远程税要一路付到进程结束。</span>
+
+<span class="marginnote">常见误区：初学者容易以为多线程程序自动跑满所有插座。实际上线程绑错节点、内存分错家时，吞吐可能不升反降——NUMA 里「数据和线程放在哪」与「算多快」同样重要。</span>
 
 ## 边界
 
