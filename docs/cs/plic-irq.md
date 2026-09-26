@@ -25,6 +25,10 @@ PC 仍进 `mepc`，入口仍是 `mtvec`。PLIC 是[MMIO](/cs/bus-mmio) 上的从
 
 <span class="marginnote">特权手册描述外部中断与控制器。SiFive / RISC-V 平台常用 PLIC；CLINT 管软件中断与定时器，本课点名不展开。Patterson/Hennessy 用「中断优先级」教学，对象同一。</span>
 
+<span class="marginnote">直觉类比：PLIC 像医院分诊台——每个病人（设备）按病情轻重（优先级）排队；只有挂了你的号（对应使能位打开）且病情超过你的接诊门槛（threshold）的，才会敲你诊室的门（`meip` 断言）。</span>
+
+<span class="marginnote">「claim（认领）/complete（完结）」可以翻译成取号与销号：中断到了相当于取号机吐出号码，软件读 claim 把号码拿走，处理完写 complete 销号，同一设备才能再次喊人。</span>
+
 ## 方法
 
 设备 → PLIC 网关（边沿/电平）→ 优先级比较 → hart 使能门槛 → `meip`。入口：保存通用寄存器，claim，分支到设备处理，complete，`mret`。嵌套与阈值写在 PLIC 寄存器，本课承认有优先级，不写抢占栈。
@@ -40,6 +44,20 @@ flowchart TD
 ## 机制
 
 没有 PLIC（或等价物），多设备只能线或，软件只能轮询所有 MMIO 状态。有了编号，处理程序可跳表。精确异常仍由上一课定义；PLIC 只解决「异步源的身份」。定时器中断常走 CLINT，不经 PLIC，`mcause` 编码不同。
+
+进入入口之后，claim 到 complete 这段握手具体怎么走？
+
+```mermaid
+flowchart TD
+  IN["入口：mcause 说是外部中断"] --> CL["MMIO 读 claim 寄存器"]
+  CL --> ID["拿到中断号：是哪台设备在喊"]
+  ID --> BR["按编号跳到对应设备处理程序"]
+  BR --> HND["清设备状态、取走数据"]
+  HND --> CP["写 complete：这事办完了"]
+  CP --> MR["mret 回到被打断的代码"]
+```
+
+<span class="marginnote">常见误区：以为 `mcause` 里就有设备号。`mcause` 只说「这是外部中断」这一类；具体是 UART 还是网卡，必须再读 PLIC 的 claim 寄存器。另一个常见坑是忘了写 complete——不销号，同一设备的下一次中断就再也不会送达。</span>
 
 ## 边界
 

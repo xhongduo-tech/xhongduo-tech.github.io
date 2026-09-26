@@ -21,6 +21,10 @@ section: cs
 
 <span class="marginnote">RFC 4821 针对黑洞。IPv6 最小链路 MTU 1280。本课不把每个 ICMP 代码背完。</span>
 
+<span class="marginnote">DF 就是 Don't Fragment（不许分片）标志位：源在包上贴一张「不许半路拆散」的纸条。路由器装不下又不敢拆，只能把包扔掉并回一张 ICMP 通知——「这段路只有这么宽」。PMTUD 的全部机制就建立在这张回执上。</span>
+
+<span class="marginnote">数字实例：以太网 MTU 1500，扣掉 IP 头 20 和 TCP 头 20，TCP 的 MSS 是 1460；中间套一层 VXLAN 隧道再吃掉约 50 字节头税后，路径有效 MTU 掉到 1450——源仍按 1500 发的包就会在隧道口被丢，这正是「头税」引爆 MTU 问题的典型场景。</span>
+
 ### ICMP 被滤则黑洞
 
 IPv6 必须发现。PLPMTUD 用传输探测。ECMP 与隧道使缓存失效。统一 MTU 可省掉发现。
@@ -42,6 +46,21 @@ flowchart TD
 卫星与 5G 切片不改算法，只改 RTT，探测更慢。交换机巨帧不一致是二层版同一 bug。多播很少做 PMTUD，常用保守长度。安全：ICMP 可被伪造来缩小 MTU 做攻击，主机要合理性检查。
 
 与容量无关：MTU 摊头税，不提高 $C$。
+
+ICMP 被滤时，PLPMTUD 凭什么还能发现路径上限？两种发现方式的分岔如下。
+
+```mermaid
+flowchart TD
+  Q["怎么探出路径能扛多大的包？"] --> PM["经典 PMTUD：靠路由器报信"]
+  Q --> PL["PLPMTUD：靠自己的丢包推断"]
+  PM --> P1["发 DF 大包，等 ICMP 带回该跳 MTU"]
+  P1 --> P2["按通告值缩包并缓存"]
+  PL --> L1["从小尺寸起逐步加大探测包"]
+  L1 --> L2["探测包丢了：退回上次确认过的值"]
+  L2 --> L3["全程不依赖 ICMP，防火墙滤掉也不怕"]
+```
+
+<span class="marginnote">常见误区：以为防火墙拦掉 ICMP 更安全。拦掉 Fragmentation Needed 这一类报错，等于把报信人灭口——大包悄悄消失、连接莫名卡死（黑洞），故障既难复现又不该发生。安全策略应放行这一类 ICMP，或直接改用 PLPMTUD。</span>
 
 ## 边界
 

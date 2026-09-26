@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Pollard, A Monte Carlo Method for Factorization, 1975；CLRS 第 31.9 节整理</footer>
 </div>
 
-上一课[BSGS](/cs/bsgs)在阶已知的群里根号搜离散对数；本课对象换成合数 $n$，目标是求非平凡因子。试除要 $O(\sqrt n)$，$n$ 上到几十位就不可行。缺口是 Pollard rho：把生日悖论搬到因子 $p$ 的环上找碰撞。本课不重写 Miller–Rabin 素性；后课 Lucas 换回组合数。
+上一课[BSGS](/cs/bsgs)在阶已知的群里根号搜离散对数；本课对象换成合数 $n$，目标是求非平凡因子。试除要 $O(\sqrt n)$，$n$ 上到几十位就不可行。缺口是 Pollard rho：把生日悖论搬到因子 $p$ 的环上找碰撞。<span class="marginnote">生日悖论直觉：一个房间只需约 $\sqrt{365}\approx 19$ 人，就有过半概率两人同生日——随机取值之间发生碰撞远比想象快。rho 正是利用这一点：随机迭代约 $\sqrt p$ 步就可能撞出两个模 $p$ 相同的值，而不是把 $p$ 个值挨个试完。</span>本课不重写 Miller–Rabin 素性；后课 Lucas 换回组合数。
 
 ## 问题
 
@@ -36,11 +36,26 @@ flowchart TD
   G --> FAC["非平凡因子"]
 ```
 
+<span class="marginnote">龟兔判圈可以想象成两名跑者在同一环形跑道上以一倍速和两倍速起跑：只要跑道是环，快者一定会从后面追上慢者——不需要知道跑道多长，也无需记住谁到过哪里。这就是 Floyd 算法只用两个变量就替代哈希表的原因。</span>
+
 离散对数也有 rho 版本，用陪集上的随机函数游走找碰撞，点名即可。
 
 ## 机制
 
 机制是生日悖论在模 $p$ 上起作用：$O(\sqrt p)$ 个值就有相当概率出现一对模 $p$ 同余，碰撞差 $x_i-x_j$ 是 $p$ 的倍数而 $n$ 整体不是——gcd 一筛就是因子。Floyd 的妙处在空间 $O(1)$：不存历史，用两倍速指针替代哈希表。与 BSGS 对照鲜明：求对数要哈希表存 $\sqrt q$ 项，分解只需 gcd。rho 每次输出的因子都经 gcd 验证，不会给错答案；Las Vegas 与 Monte Carlo 的严格分类后课再钉。
+
+```mermaid
+flowchart TD
+  A["迭代序列 xi 模 n"] --> B["投影到模 p"]
+  B --> C["模 p 剩余只有 p 个"]
+  C --> D["约 √p 步后出现同余对 xi ≡ xj"]
+  D --> E["p 整除 xi−xj"]
+  E --> F["n 通常不整除 xi−xj"]
+  F --> G["gcd(|xi−xj|, n) = p"]
+  G --> H["若得 n 则换 c 重来"]
+```
+
+<span class="marginnote">常见误区：初学者容易以为 gcd 每次都能干净地吐出 $p$。实际上碰撞可能“撞过头”——好几个不同的模 $p$ 值同时同余，使 $p^2$ 整除差值，gcd 直接给出 $n$。此时算法并没有错，只需换一个常数 $c$（或起点 $x_0$）重新迭代，失败概率约每次一半。</span>
 
 ## 边界
 

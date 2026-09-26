@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Kung, On Computing Reciprocals of Power Series, 1974；CLRS 第 30 章整理</footer>
 </div>
 
-上一课[NTT](/cs/ntt)给出精确乘。多项式还要除、求 $\bmod$、$ln/\exp$。缺口是**乘法级**的求逆：牛顿迭代 $g\leftarrow 2g-fg^2$，精度翻倍。不重写 NTT 蝶形。后课 Strassen 换矩阵。本课形式幂级数在 $x=0$ 邻域，次数 $n$ 截断。
+上一课[NTT](/cs/ntt)给出精确乘。多项式还要除、求 $\bmod$、$ln/\exp$。缺口是**乘法级**的求逆：牛顿迭代 $g\leftarrow 2g-fg^2$，精度翻倍。不重写 NTT 蝶形。后课 Strassen 换矩阵。本课形式幂级数在 $x=0$ 邻域，次数 $n$ 截断。<span class="marginnote">「$fg\equiv 1 \pmod{x^n}$」翻译成大白话：两个级数相乘后**只看前 $n$ 项**，第 $n$ 项以后统统丢弃——就像小数只保留 $n$ 位有效数字。所以「逆」不必真的乘出 $1$，只要乘积前面 $n$ 位是 $1$ 后面全是零即可。</span>
 
 ## 问题
 
@@ -36,11 +36,24 @@ flowchart TD
   INV --> DIV["除法 / 取模"]
 ```
 
+<span class="marginnote">除法里的「反转」技巧可以类比十进制小数：$1/0.0023$ 先把小数点位置对齐——把 $f$ 的系数倒过来乘 $x^n f(1/x)$，就相当于移动小数点，使高次项变成低次项，从而能用「对低次求逆」这件已会的事处理高次，最后再翻转回来对齐商。</span>
+
 乘法用 NTT 或 Karatsuba。
 
 ## 机制
 
 若 $fg=1+O(x^m)$，则 $g'=2g-fg^2$ 满足 $fg'=1+O(x^{2m})$。与标量牛顿 $x\leftarrow x(2-ax)$ 求 $1/a$ 同形。除法高次对齐是多项式的「小数点」。与整数除法 Knuth D：整数牛顿也可到乘法级，本课以多项式为主。
+
+```mermaid
+flowchart TD
+  A["已知 g 对前 m 位正确"] --> B["计算 f·g²"]
+  B --> C["误差藏在第 m 到 2m 位"]
+  C --> D["g′ = 2g − f·g²"]
+  D --> E["g′ 对前 2m 位正确"]
+  E --> A
+```
+
+<span class="marginnote">数字实例：取 $f=1-x$，真逆是 $1+x+x^2+\cdots$。设 $g=1$（对 $1$ 位正确），则 $fg=1-x$，一步得 $g'=2\cdot 1-(1-x)=1+x$（对 $2$ 位）；再一步 $fg^2=1-x^2$，得 $g''=2(1+x)-(1-x)(1+x)^2=1+x+x^2+x^3$（对 $4$ 位）。每迭代一次正确位数翻倍，$n$ 位只需 $\log n$ 步。</span>
 
 ## 边界
 

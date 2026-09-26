@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-`aio_read` 把 aiocb（fd、偏移、缓冲、字节数）排队，立即返回。完成：`SIGEV_SIGNAL`、`SIGEV_THREAD` 或 `aio_suspend`。缺口：glibc 常用用户态线程池阻塞在 `pread` 上，于是「异步」是线程，不是中断完成。Linux 另有 `io_submit`（KAIO），主要对 `O_DIRECT` 文件真正不阻塞。课序要求分清三套：POSIX API、KAIO、io_uring。本课对象是 POSIX 语义与陷阱。
+`aio_read` 把 aiocb（fd、偏移、缓冲、字节数）排队，立即返回。完成：`SIGEV_SIGNAL`、`SIGEV_THREAD` 或 `aio_suspend`。<span class="marginnote">aiocb 直译是「异步 I/O 控制块」，可以当成一张工单：写清了要动哪个文件（fd）、从哪里开始（偏移）、搬到哪个缓冲区、搬多少字节。提交之后这张工单由系统保存，程序不必守着它——完成状态、返回字节数也都挂在工单上而不是函数返回值上。</span>缺口：glibc 常用用户态线程池阻塞在 `pread` 上，于是「异步」是线程，不是中断完成。Linux 另有 `io_submit`（KAIO），主要对 `O_DIRECT` 文件真正不阻塞。课序要求分清三套：POSIX API、KAIO、io_uring。本课对象是 POSIX 语义与陷阱。
 
 <span class="marginnote">缓冲 I/O 的 KAIO 常同步回退。信号完成与多线程难写对。教学上把它当可移植接口，性能数字另测。</span>
 
@@ -31,11 +31,27 @@ flowchart TD
   DONE --> APP["信号处理或 suspend"]
 ```
 
+<span class="marginnote">常见误区：初学者看到 `aio_read` 返回成功就以为数据已经在缓冲区里。实际上返回值只说明「工单收下了」。数据是否到位要另问 `aio_error`：还在 `EINPROGRESS` 就是没完，变成 $0$ 才算完，出事则给出具体错误码。拿一个没完成的缓冲区去读，读到的是旧内容。</span>
+
 ## 机制
 
 POSIX AIO 把完成从调用栈上解开，使单线程事件循环能在理论上重叠 I/O。Linux 上若掉进线程池，重叠变成「多阻塞线程」，与用户预期的零拷贝异步不同。这解释了为何数据库与 nginx 一类后来走向 `io_uring` 或自管线程。不要把本课写成网络 aio。
 
 错误：每个 aiocb 自己的 `aio_return`，不能当普通 errno 用完就走。
+
+完成通知的三条路，程序侧的形态各不相同：
+
+```mermaid
+flowchart TD
+  A["I/O 完成后如何叫醒程序?"] --> B["SIGEV_SIGNAL"]
+  A --> C["SIGEV_THREAD"]
+  A --> D["手动轮询"]
+  B --> E["内核投递实时信号，处理函数里收尾"]
+  C --> F["实现另起线程跑你的回调函数"]
+  D --> G["aio_error 逐个问，或 aio_suspend 集中等"]
+```
+
+<span class="marginnote">直觉类比：同步 `read` 像在快餐窗口点完餐站着等；AIO 是拿了号牌去座位做事。至于怎么知道餐好了——信号是广播叫号，线程回调是店员直接把餐送到你桌上，轮询则是自己每隔一会儿去看一眼屏幕。三条路对应 `SIGEV_SIGNAL`、`SIGEV_THREAD` 与 `aio_error`/`aio_suspend`。</span>
 
 
 实现上：glibc AIO 用线程池时，每个 aiocb 可能占一条阻塞线程，连接数一大就打满。KAIO 对缓冲文件常同步完成，看起来像 AIO 却没有重叠。io_uring 是后路，本课只分清名字。 读法上只引用[上一课](/cs/direct-io)的结论，不把对象换成训练推理或限价簿。

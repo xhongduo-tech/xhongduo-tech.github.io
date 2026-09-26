@@ -25,6 +25,8 @@ Steensgaard 把 `p=q` 变成 $p$ 与 $q$ 同类，指向集并在一起，之后
 
 <span class="marginnote">Andersen 1994 博士论文。Steensgaard 1996 PLDI。Hind 的综述可对照。本课不写完整 IFDS。</span>
 
+<span class="marginnote">「流不敏感」翻译一下：分析时不管语句执行的先后，把整个函数的指针赋值一锅端收成约束。所以 `p=&a; p=&b` 与先 b 后 a 结果相同——它只回答「可能指向谁」，不回答「执行到这行时指向谁」。</span>
+
 ## 方法
 
 建约束。Andersen：迭代或差分解直到不动点。Steensgaard：union-find 加间接边处理 `*p`。查询：`pts(p)∩pts(q)` 空则 No alias（对指针值）。
@@ -42,6 +44,21 @@ flowchart TD
 ## 机制
 
 流敏感更精，代价高。上下文敏感（克隆或摘要）减过程间混淆。实用编译器常：Steensgaard 或 Andersen 的限迭代 + TBAA。
+
+同四条赋值，两个算法给出的指向集差在哪？
+
+```mermaid
+flowchart TD
+  S1["p 指向 a，q 指向 b"] --> S2["r 复制 p，s 复制 q"]
+  S2 --> A["Andersen：r 再收下 s 的集，得 a 加 b"]
+  A --> A2["p 仍只可能指向 a"]
+  S2 --> B["Steensgaard：r 与 s 并成同一类"]
+  B --> B2["连带 p 与 q 也并成一类，全都可能指向 a 或 b"]
+```
+
+<span class="marginnote">数字实例：Andersen 朴素求解理论上是立方级——1 万条语句的约束要约 $10^{12}$ 步，跑不完；实际靠位向量与差异传播压到秒级。Steensgaard 近线性，百万行项目也能秒出。精度换时间，正是这两个算法的分水岭。</span>
+
+<span class="marginnote">常见误区：以为指向集应该有个「标准答案」，两算法必有一错。指向集本来就是保守的「可能集」：May 别名不漏报即可。Steensgaard 的粗不是错，是把「可能」放宽——要快的场景（预优化、IDE 快速检查）恰恰选它。</span>
 
 不要把指向集当运行时 GC 的根扫描图；GC 要精确栈图，另一接口。
 
