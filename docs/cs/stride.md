@@ -19,9 +19,13 @@ section: cs
 
 <span class="marginnote">STRIDE 来自微软一线教材，不是密码学定理。否认（R）常要日志与签名，和 CIA 的 I 相关但不相同。</span>
 
+<span class="marginnote">六类各取英文首字母：Spoofing 伪造（冒充别人）、Tampering 篡改、Repudiation 否认（做了不认）、Information Disclosure 泄露、Denial of Service 拒绝服务、Elevation of Privilege 越权——记首字母不如记这六句问话。</span>
+
 ## 方法
 
 对图上每个元素过六问，记下「不防谁」。然后才选后课机制：对称加密对泄露，MAC 对篡改，认证对伪造，隔离对越权，容量设计对 DoS。本课不把某一次审查表格当标准正文。
+
+<span class="marginnote">实际怎么用：把数据流图上的每个元素过一遍六问——「这个 API 能否认请求来自自己吗」问的是否认，「这个队列被打满会怎样」问的是拒绝服务；答案若是「不防」，就记一条待办。清单的价值在逼出「不防谁」。</span>
 
 ```mermaid
 flowchart TD
@@ -36,6 +40,17 @@ flowchart TD
 ## 机制
 
 清单迫使每个信任边界都有对应控制，而不是全局一句「有 TLS」。它与后课访问控制、握手、沙箱是多对多：一种机制可挡多类，一类威胁要多层。本栏不提供利用步骤，只要求设计时能指出控制落点。
+
+```mermaid
+flowchart TD
+  TLS["只部署一层 TLS"] --> COV["挡住：传输段泄露与部分伪造"]
+  TLS --> NO["挡不住：否认、DoS、越权"]
+  NO --> LOG["补日志与签名：对否认"]
+  NO --> CAP["补容量与限流：对 DoS"]
+  NO --> AUTHZ["补应用层授权检查：对越权"]
+```
+
+<span class="marginnote">常见误区：初学者以为装了 TLS 就「安全了」。实际上 TLS 只覆盖传输段的泄露与部分伪造——否认靠日志与签名、DoS 靠容量与限流、越权靠应用层授权，各自都是独立的控制落点。</span>
 
 ## 边界
 

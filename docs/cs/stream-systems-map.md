@@ -17,11 +17,27 @@ section: cs
 
 学完模型、窗口、watermark、恰好一次、join、状态、背压，工程上的问题是：这些机制装在哪个壳里。Flink 与 Kafka Streams 是两个极点——前者是独立分布式运行时，后者是嵌在应用进程里的库。逐项对功能表会越对越乱：两边都有窗口、都有恰好一次、都有状态。分得清的是架构与所有权：算力归谁、状态归谁、失效域多大、恢复走哪条路。
 
+<span class="marginnote">直觉类比：独立运行时像请了专职保姆——算力、状态、恢复都有专人管，但要付一份运维钱；嵌入库像自己带娃——状态就放在应用进程里，部署简单，可孩子半夜发烧（实例挂了）得自己爬起来处理。</span>
+
 ## 方法
 
 Flink：作业图由 JobManager 编排、TaskManager 执行，状态放 RocksDB，快照写远端存储；事件时间、watermark、[credit 流控](/cs/stream-backpressure)都在引擎内，与源的耦合只有一个可重放接口——[Kafka](/cs/kafka-log) 只是源之一。Kafka Streams：没有额外集群——分布就是消费组对分区的任务指派；本地 RocksDB 状态加 changelog 主题做备份，恢复等于从 changelog 回放；恰好一次靠把消费-变换-生产包进 Kafka 事务，走的是第四课的路线二而非路线一。并行度上界就是分区数。SQL 层：Flink 的 Table API 在流上跑连续查询；Kafka Streams 的 DSL 与 ksqlDB 是另一条路。
 
 <span class="marginnote">Kafka Streams 的并行度上限是分区数：实例可以少于分区，不能多于。先扩分区再扩应用，会改变键到分区的映射，按键有序随之破坏——扩容决策要提前于业务增长，不是随时可做。</span>
+
+<span class="marginnote">数字实例：topic 有 12 个分区，Kafka Streams 应用最多开 12 个有效实例——第 13 个实例永远分不到任务，纯属浪费。Flink 源接 Kafka 时同样受分区数限制，但下游算子想并行 32 就并行 32，与分区数无关。</span>
+
+<span class="marginnote">恰好一次的两条路线各对应一家架构：路线一是快照重放——状态定期存盘，故障后连同输入一起回放，全图一致；路线二是日志事务——把消费、变换、生产包进同一个 Kafka 事务，要么全成要么全不成，运维更轻。</span>
+
+```mermaid
+flowchart TD
+  E["每条记录要恰好一次"] --> R1["路线一：快照重放"]
+  E --> R2["路线二：日志事务"]
+  R1 --> F["Flink：状态进检查点，恢复时重放输入"]
+  R2 --> K["Kafka Streams：消费-变换-生产包进一个事务"]
+  F --> C1["代价：全图一致，运维半径大"]
+  K --> C2["代价：单源单汇一致，依赖 Kafka 自身"]
+```
 
 ## 机制
 
@@ -39,6 +55,8 @@ flowchart TD
     APP --> LOG["Kafka 分区日志"]
   end
 ```
+
+<span class="marginnote">失效域就是「一处出问题时，多大范围被拖下水」：Flink 一个算子慢会背压全图，等于整条流水线降速；Kafka Streams 只影响单个实例与它负责的分区，别的实例照常消费——故障排查与容量评估的粒度因此完全不同。</span>
 
 ## 边界
 

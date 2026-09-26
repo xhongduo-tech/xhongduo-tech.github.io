@@ -17,6 +17,8 @@ section: cs
 
 主机只知自己的私网地址，不知道在 NAT 外呈现出哪个公网映射。STUN 的做法：向公网服务器发绑定请求，服务器把见到的源地址端口写回应答，主机据此得到 srflx 候选；这条 NAT 上的洞只保留短时间，要周期刷新。但 STUN 有边界——对称 NAT 对不同目的地分配不同映射，反射地址对另一端无用，两边都对称时打不通。TURN 是保底：向服务器 Allocate 一个中继地址，数据一律经服务器转发，多付带宽与延迟，但只要 UDP 或 TCP 被放行就总能通；中继必须凭证认证，否则沦为开放中继。
 
+<span class="marginnote">srflx 翻成白话是「服务器眼里的你」：你从 NAT 里发出请求，服务器把看到的公网地址端口原样回给你，这个「镜子里的像」就是一个可试连的候选——它只是个答案，不是通道。</span>
+
 STUN 只回答「我看起来是谁」，不建隧道、不转发数据，不是 VPN。
 
 <span class="marginnote">RFC 8489、8656。TURN over TCP/TLS 应对 UDP 被禁的网络。本课不写绕过企业政策的操作指南。</span>
@@ -28,6 +30,8 @@ STUN 只回答「我看起来是谁」，不建隧道、不转发数据，不是
 ## 方法
 
 设计时做对照：只部署 STUN 的方案在严格 NAT 与企业防火墙下连不通，加 TURN 才有可达性保证。流程两步：绑定请求得到反射地址，Allocate 请求得到中继地址。与 GRE 对照：TURN 是用户态中继，逐条流转发；GRE 是 IP 层隧道，封装整个包——层次与粒度都不同。
+
+<span class="marginnote">数字实例：1 Mbps 的视频流若走 TURN 中继，服务器要先收再发，实际吃掉 2 Mbps 服务器带宽，一千路并发就是 2 Gbps；ICE 配对成功走直连后，这部分成本归零——这就是连通后要释放 TURN 分配的原因。</span>
 
 ```mermaid
 flowchart TD
@@ -41,6 +45,19 @@ flowchart TD
 DoH 加密的是 DNS 查询，帮不了 NAT 穿越——那是转发面问题，不是名字解析问题。运营上 TURN 集群的位置重要：GeoDNS 把用户引到最近的 TURN，中继段的 RTT 变小；计费上中继吃双向带宽，是最贵的路径，ICE 在直连候选上成功后应释放 TURN 分配省钱。SSH 反向隧道是同一中继思想的手工版。
 
 安全上必须凭证：未认证的 TURN 是任何人可用的转发器与流量放大器。
+
+```mermaid
+flowchart TD
+  ICE["ICE：收集候选并配对"] --> HOST["主机候选：私网地址"]
+  ICE --> SRFLX["srflx 候选：STUN 反射地址"]
+  ICE --> RELAY["relay 候选：TURN 中继地址"]
+  HOST --> TRY{"配对试连成功？"}
+  SRFLX --> TRY
+  TRY -->|"是"| DIRECT["直连通：释放 TURN 分配省钱"]
+  TRY -->|"否"| TURN2["走 TURN：用带宽延迟换可达"]
+```
+
+<span class="marginnote">常见误区：把 STUN 当隧道用。它只回答「我在 NAT 外是谁」，不转发一个字节，也不是 VPN；真正搬运数据的是直连路径或 TURN 中继——以为部署了 STUN 就能穿透严格 NAT，是实测最常见的翻车点。</span>
 
 ## 边界
 
