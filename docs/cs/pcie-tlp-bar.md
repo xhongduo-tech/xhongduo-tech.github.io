@@ -39,13 +39,32 @@ flowchart TD
 
 与教学总线就绪信号对照：PCIe 用完成包与重试在数据链路层，CPU 看到的是更长的未缓存访问延迟。
 
+<span class="marginnote">「Posted / 非 Posted」翻译成大白话：Posted 写像投进邮筒的信——塞进去就走，不等回执；非 Posted 读像挂号信——你必须等对方回一张「完成包」把数据捎回来，CPU 这条 load 才算有结果。</span>
+
 ## 机制
 
 MSI-X 表本身常在 BAR 里。NVMe 提交队列门铃是 BAR 里的寄存器写，触发设备去 DMA 描述符——后课散聚。本课钉事务与窗口。
 
+```mermaid
+sequenceDiagram
+  participant C as CPU（load 指令）
+  participant R as 根复合体
+  participant E as 端点设备
+  C->>R: 读地址落在 BAR 窗口内
+  R->>E: 发 Memory Read TLP
+  E->>R: 回 Completion TLP（带数据）
+  R->>C: 数据填入寄存器，load 完成
+```
+
+这张图回答的问题是：一条 `lw` 怎么变成设备上的数据？CPU 只管发地址，根复合体做地址译码发现目标在某个 BAR 里，把请求包装成 Memory Read TLP 送下游；设备回 Completion，数据原路返回。对软件来说它还是一条普通的读指令，硬件把这些来回全部藏掉了。
+
+<span class="marginnote">数字实例：假设某设备 BAR 声明 4 KB 窗口、被分到基址 0xFEC00000，那么 CPU 访问 0xFEC00010 就是读这个设备寄存器偏移 16 字节处；同一个地址绝不会同时落到 DRAM——译码按窗口范围二选一。</span>
+
 ## 边界
 
 本课不写全部 TLP 头字段，不把 SR-IOV VF BAR 展开成虚拟化课。不讨论对端 ATS。不进入 GPU BAR 的 resizable BAR 营销。
+
+<span class="marginnote">常见误区：以为设备寄存器和普通内存「一样快」。实际一次 MMIO 读要走 CPU → 根复合体 → 设备 → 完成包几个来回，比读 DRAM 慢一个量级以上；所以高性能驱动不会在热路径上反复读设备寄存器，能写不读、能批量不单个。</span>
 
 后课默认：设备寄存器经 BAR 成为 PA 窗口；访问是 Memory TLP，读有完成包。
 
