@@ -23,6 +23,10 @@ section: cs
 
 ext4：rename 参加 JBD2 事务，目录块与 inode 一起提交。btrfs：新树根同时包含两项更新。无日志 FAT：两步目录项更新，崩溃可丢名或双名，靠 [fsck](/cs/fsck)。VFS 先锁参与的目录 inode（锁序避免死锁），再调具体 `rename`。读者 lookup 要么看见旧 dentry 要么新的——[dcache](/cs/dcache) 在事务/锁下更新。
 
+<span class="marginnote">直觉类比：写临时文件再 rename，像剧场换布景时用一块「幕布时刻」完成切换——观众（lookup）要么看到旧布景，要么看到新布景，绝看不到半拉起的空架子。直接在 `foo` 上打开写，则是当着观众的面拆台。</span>
+
+<span class="marginnote">常见误区：「rename 是原子的」不等于「新文件已可靠落盘」。目录项切换是原子的，但若忘记先对临时文件 `fsync`，崩溃后可能出现「新名字指向空文件或不存在」——正确顺序是先 fsync 内容、再 rename、再 fsync 目录。</span>
+
 ```mermaid
 flowchart TD
   APP["rename A to B"] --> LOCK["锁参与目录"]
@@ -38,6 +42,18 @@ rename 原子性把「发布」从字节拷贝里解放出来：内容早已 fsy
 
 
 实现上：跨目录 rename 要锁两个目录，锁序按 inode 号避免死锁。目标若是非空目录，POSIX 失败；覆盖文件则减链接，可能把还打开的 inode 变成匿名。 读法上只引用[上一课](/cs/inotify)的结论，不把对象换成训练推理或限价簿。
+
+```mermaid
+flowchart TD
+  W["写 foo.tmp 并 fsync"] --> R["rename foo.tmp, foo"]
+  R --> FSY["fsync 目录项"]
+  FSY --> GOOD["崩溃后 foo 必为完整新内容"]
+  BAD["直接写 foo 本体"] --> H1["崩溃窗口: 文件半新半旧"]
+  H1 --> READER["读者可能读到截断内容"]
+  GOOD -.对比.-> READER
+```
+
+这张图回答的问题是「发布一个配置文件，正确路径和错误路径差在哪一步」：差别全在「名字切换是否是唯一可见点」。走 rename 的路径，崩溃只会回退到旧内容或前进到新内容；直接覆盖的路径，崩溃点落在哪个字节是不可控的。
 
 本课在操作系统进阶的「文件系统实现 / 接口进阶」课序里，对象是 **rename 原子性**。
 

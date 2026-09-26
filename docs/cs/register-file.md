@@ -25,9 +25,13 @@ section: cs
 
 <span class="marginnote">Patterson/Hennessy 把 register file 画成双读单写框。Harris 给出寄存器堆的实现草图。写口用[译码器](/cs/decoder-encoder)产生 32 根使能。</span>
 
+<span class="marginnote">数字实例：32 个寄存器 × 32 位共 1024 个存储位；每条读地址 5 位（$2^5=32$）。对比主存：同样 1024 位的 DRAM 只有一两个端口、访问要几十纳秒；寄存器堆却能在同一拍内组合读出两个操作数。</span>
+
 ## 方法
 
 读：地址译码选行，组合读出，延迟计入 $t_{pd}$。写：边沿、使能、`rd≠0`。两口同时读同一寄存器应得到同一值。读口与写口同一地址时的旁路策略在单周期可定义为「读旧值」。
+
+<span class="marginnote">直觉类比：寄存器堆像 32 个格子的档案柜，配两扇取件窗（读口）和一个投件口（写口）：两扇窗按编号直接开对应格子（MUX），投件口按编号只在指定格子上锁存（写译码使能）。</span>
 
 ```mermaid
 flowchart TD
@@ -40,6 +44,18 @@ flowchart TD
 ## 机制
 
 调用约定把参数放进 `x10`–`x17` 等，是软件对这 32 个槽的用法，硬件一视同仁——[调用约定](/cs/calling-convention-stack)再钉。PC 通常不在整数堆里，是单独寄存器。CSR 是另一组，特权课才碰。
+
+<span class="marginnote">常见误区：初学者以为读寄存器要等时钟。读口是组合逻辑——地址一变数据立刻出来，延迟只是电路传播；只有**写**发生在时钟边沿。这正是单周期 CPU 能在同一拍里「取操作数—过 ALU—写回」的前提。</span>
+
+```mermaid
+flowchart TD
+  AR["rs1 / rs2：两个 5 位读地址"] --> MUX["两个 32 选 1 读 MUX"]
+  CELLS["32×32 单元阵列（SRAM 或触发器）"] --> MUX
+  MUX --> OUT["组合读出 R1、R2，同拍供 ALU"]
+  WR["rd + WriteData + RegWrite"] --> DEC["写译码器：32 根使能只选 rd 行"]
+  DEC --> CELLS
+  X0["x0：读恒 0，写忽略"] --> CELLS
+```
 
 ## 边界
 
