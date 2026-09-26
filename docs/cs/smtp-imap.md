@@ -19,6 +19,8 @@ section: cs
 
 不要把 Gmail 网页当协议。
 
+<span class="marginnote">术语翻译：MUA（Mail User Agent）是你手上的邮件客户端，MTA（Mail Transfer Agent）是服务器之间的搬运工。信从 MUA 交给 MTA 只走一次提交，之后 MTA 到 MTA 像接力赛，每一跳只查「下一个收件域的 MX 记录在哪」，并不关心这封信最终落在谁的收件箱里。</span>
+
 <span class="marginnote">RFC 5321。STARTTLS 升级。本课不把每条 SMTP 代码背完。</span>
 
 ### 投递链与邮箱存取
@@ -28,6 +30,8 @@ SMTP 跳到跳，IMAP 状态在服务器。逐跳 TLS 不是端到端密信。�
 ## 方法
 
 画：MUA → 提交 → MTA 链 → 投递 → IMAP 取。对照 HTTP POST：无统一缓存，有队列与重试。与 QUIC：邮件仍多 TCP。
+
+<span class="marginnote">数字实例：端口各记一个——客户端发信走 587（submission，通常要求登录并 STARTTLS），服务器之间走 25（中继，公网可达），IMAP 是 143（明文后升级）或 993（TLS 直连）。配邮件客户端时端口选错，症状多半是「连得上但发不出去」，而不是直接连不上。</span>
 
 ```mermaid
 flowchart TD
@@ -40,6 +44,20 @@ flowchart TD
 ## 机制
 
 DNS 缓存 MX 影响切换。TLS 对 SMTP 是逐跳，不是端到端密信（那是 OpenPGP/S/MIME，点名）。负载均衡对 25 端口要小心会话。分块附件像 HTTP 体，但边界是 MIME。
+
+```mermaid
+flowchart TD
+  G["客户端连上提交或中继端口"] --> EH["EHLO 问候 协商能力"]
+  EH --> MF["MAIL FROM 声明发件人"]
+  MF --> RT["RCPT TO 逐个给收件人"]
+  RT --> DA["DATA 传正文 以单独一行点号结束"]
+  DA --> Q{"服务器接受吗?"}
+  Q -- "接受 250" --> MO["入队 继续下一跳"]
+  Q -- "拒绝 5xx" --> RP["退信或延迟重试"]
+  MO --> QU["QUIT 结束会话"]
+```
+
+<span class="marginnote">常见误区：以为逐跳 TLS 等于端到端加密。每段 TLS 只保护「这一段链路」，中途每个 MTA 都看得见、也改得了明文；真正的内容保密要靠 OpenPGP 或 S/MIME 在信体上另加一层——MTA 只剩信封，看不见信纸。</span>
 
 垃圾与伪造下一课认证。保活防止 NAT 拆 IMAP。
 

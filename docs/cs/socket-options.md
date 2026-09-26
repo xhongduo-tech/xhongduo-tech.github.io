@@ -17,11 +17,15 @@ section: cs
 
 默认 Nagle 合并小写；延迟 ACK 交互差。`TCP_NODELAY` 关 Nagle。`SO_REUSEADDR`/`SO_REUSEPORT` 管绑定。`SO_KEEPALIVE` 探活。`SO_TIMESTAMP` 把 RX 时间戳交用户。缺口：选项在 SOL_SOCKET vs IPPROTO_TCP 层；有的继承 listen，有的要在 connect 前设；与 [busy poll](/cs/napi) 的 `SO_BUSY_POLL` 接头。本课不把每一选项写成 man 页拷贝。
 
+<span class="marginnote">术语翻译：Nagle 算法是把小包攒一攒再发，省协议头开销；延迟 ACK 是收到数据不立刻确认，等捎带或超时。两者叠加，交互式程序（比如 SSH 里打字）会莫名卡半拍——`TCP_NODELAY` 关掉前者，`TCP_QUICKACK` 关掉后者。</span>
+
 <span class="marginnote">TCP_QUICKACK、CORK、MAXSEG 是同一层的细旋钮。错误的 REUSEPORT 负载均衡会打乱 CPU 亲和。</span>
 
 ## 方法
 
 `setsockopt(fd, level, opt, ...)` 改 `sock` 字段，后续 `tcp_sendmsg` 读这些字段。对照 [fcntl 文件锁](/cs/file-locking)：一个管文件劝告锁，一个管传输行为。对照 sysctl：全局默认，选项是 per-fd 覆盖。对照 RDMA：verbs 不走这套。
+
+<span class="marginnote">直觉类比：`level` 参数像选菜单层级——SOL_SOCKET 是「所有传输通用」的基础菜单，IPPROTO_TCP 是 TCP 专属菜单。层选错了，内核要么报 ENOPROTOOPT，要么静默不生效；排查时先核对层，再核对选项名。</span>
 
 ```mermaid
 flowchart TD
@@ -39,6 +43,20 @@ flowchart TD
 
 实现上：SO_REUSEPORT 的哈希把同端口多监听器分流，和 RSS 一样怕连接不对称。TCP_USER_TIMEOUT 管未 ACK 数据的死亡，和 KEEPALIVE 探空闲不是一回事。 读法上只引用[上一课](/cs/rdma-os)的结论，不把对象换成训练推理或限价簿。
 
+```mermaid
+flowchart TD
+  Q["想调一个行为: 旋钮怎么选?"] --> L{"作用对象是谁?"}
+  L -- "通用: 缓冲/复用/保活" --> S["SOL_SOCKET 层"]
+  L -- "TCP 行为: NODELAY 等" --> T["IPPROTO_TCP 层"]
+  L -- "全体新连接的默认" --> Y["sysctl 改全局 per-fd 再覆盖"]
+  S --> W{"设置时机?"}
+  T --> W
+  W -- "TCP 选项须在 connect 前" --> E["晚了对新连接不生效"]
+  W -- "部分选项随 accept 继承" --> I["在监听套接字上设一次即可"]
+```
+
+<span class="marginnote">这张图回答「一个调优需求该落在哪一层、什么时候设」：先按对象分层，再按时机分岔——TCP 专属选项通常要在 `connect` 之前设好，而监听套接字上的部分选项会被 `accept` 出来的连接继承，一次设置管全部工作连接。</span>
+
 本课在操作系统进阶的「网络栈 / 收发路径」课序里，对象是 **套接字选项**。
 
 - 先修只引用，不重导：上一课的结论当公理，本课只补差。
@@ -48,6 +66,8 @@ flowchart TD
 ## 边界
 
 本课不引入 MPTCP 的 sockopt 全集。不保证 Windows 同名选项语义——[NT 对照](/cs/windows-nt-contrast) 后课。内存进阶第一课：页如何被反向找到，以便回收与 unmap。
+
+<span class="marginnote">常见误区：把 SO_KEEPALIVE 当成应用层心跳。它的默认探测间隔常以小时计（可经 TCP_KEEPIDLE 调短），且只证明「TCP 连接还在」，不证明对端应用还能干活；中间的 NAT、防火墙也可能照样拆连接。真正的健康检查要在应用层自己发。</span>
 
 
 版本字段会变，课序钉的是机制对象「套接字选项」，不是某一主线内核的结构体名。
