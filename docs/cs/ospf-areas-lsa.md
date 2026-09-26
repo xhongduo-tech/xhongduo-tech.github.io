@@ -19,6 +19,8 @@ section: cs
 
 不要把区域写成 VLAN：VLAN 是二层广播域；区域是 LSDB 范围。
 
+<span class="marginnote">数字实例：假设全网 200 台路由器，单区域时每台的 LSDB 都要装下 200 条 Type 1 加全部 Type 5，SPF 也对全网算；切成 5 个区域后，普通区路由器只存本区约 40 条 Type 1，跨区只剩 ABR 汇总出的几十条 Type 3——计算与内存随区域大小而非全网大小增长。</span>
+
 <span class="marginnote">RFC 2328 第 3、12 章。OSPFv3 把 LSA 改到 IPv6 地址族，对象不变。本课不把每一种 Opaque LSA 列完。</span>
 
 ### 区域不是 VLAN
@@ -42,6 +44,24 @@ flowchart TD
 MAC 学习不跨区域；IP 前缀跨区域靠汇总。汇总错会黑洞或次优，这是政策，不是 SPF bug。PFC 与 OSPF 无关。主干 BGP 直觉：外部 Type 5 常来自再分发，环与优先级要用 tag 防，细节留给 BGP 课。
 
 虚链路把 Area 0 的邻接「隧道」过非骨干，增加故障域，能不用则不用。
+
+一条前缀从外部网到普通区域，路上要换几次「票据」：ASBR 用 Type 5 把外部前缀灌进骨干与非 stub 区域，ABR 再用 Type 3 把跨区可见的前缀汇总进本区，区内路由器最后用 Type 1/2 的精确信息算出「我先怎么走到 ABR」。三段成本相加才是最终度量——外部段、汇总段、区内段，缺一段都到不了。
+
+```mermaid
+flowchart TD
+  EXT["外部网络前缀"] --> ASBR["ASBR 发 Type5 外部 LSA"]
+  ASBR --> FLOOD["Type5 洪泛到骨干与普通区域"]
+  FLOOD --> ABR["Area 1 的 ABR"]
+  ABR --> T3["ABR 发 Type3 汇总进 Area 1"]
+  T3 --> R1["区内路由器收 Type3"]
+  R1 --> SPF["区内用 Type1/2 算到 ABR 的路"]
+  SPF --> RT["路由表：区内段 + 汇总段 + 外部段"]
+  STUB["若 Area 1 是 stub"] -->|"收不到 Type5"| DEF["ABR 只注入一条默认路由"]
+```
+
+<span class="marginnote">术语翻译：ABR 是区域边界路由器，一头连骨干区一头连普通区，跨区的账单（Type 3）由它开；ASBR 是把 OSPF 之外的路由（比如 BGP 学来的）引进来的入口，外部门票（Type 5）由它开。</span>
+
+<span class="marginnote">常见误区：初学者容易以为划了区域后流量必须绕道骨干区。实际上区域只限制 LSA 洪泛与 SPF 计算范围，数据包仍按路由直发；只有汇总配置出错形成黑洞时，才会出现多余的绕行。</span>
 
 ## 边界
 

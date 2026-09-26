@@ -17,9 +17,21 @@ section: cs
 
 进度条件是一条谱系：blocking（一个线程的意外能拦住全体）→ obstruction-free（无冲突时前进）→ lock-free（整体总有人在前进，个别线程可能饿）→ wait-free（每个线程都在有限步内前进）。每升一级，实现的复杂度与常数都显著上升。错法一：把「无锁」当「更快」——CAS 重试循环在争用下烧的是同一根缓存行的带宽，[MCS 锁](/cs/mcs-lock)那种排队锁在高争用下反而更稳。错法二：手写 CAS 循环却省掉内存序——弱一致机器上重排会把「先检查后提交」的不变量打穿，[acquire / release](/cs/acquire-release) 的语义正是为这一步存在的。
 
+<span class="marginnote">「无锁≠更快」可以类比买饭：CAS 循环像一窝蜂挤在窗口抢最后一份，抢不到的从头再来，人越多浪费越多；排队锁像取号叫号，看着笨，高峰期反而人人有确定进展。争用越凶，这两种的差距越明显。</span>
+
+```mermaid
+flowchart TD
+  B["blocking: 一人被挂起 全体陪停"] --> OF["obstruction-free: 无冲突时才前进"]
+  OF --> LF["lock-free: 系统整体总在前进 个别线程可能饿"]
+  LF --> WF["wait-free: 每个线程都在有限步内前进"]
+  WF --> UP["越往右 保证越强 实现越复杂"]
+```
+
 ## 方法
 
 主力是 CAS 循环：读当前值、算新值、CAS 提交，失败重读重试；[原子读改写](/cs/atomic-rmw)给过 CAS/TAS/fetch_add 三类形态。实例用 Treiber 栈：入栈就是一次头指针 CAS，一行核心。两个必须正面处理的坑：ABA——CAS 只认值不认历史，指针绕一圈回来照样通过，对策是打标签、延迟回收或 [无锁栈与 hazard pointer](/cs/hazard-pointer)；内存回收——不能在他人还握着指针时释放，回收策略与正确性绑定（[无锁与 ABA](/cs/lockfree-aba)有总览）。正确性判据用线性化：每个并发操作等价于在它的调用与返回之间的某个瞬时原子生效的串行操作——没有这个判据，「对」与「快」都无从谈起。
+
+<span class="marginnote">ABA 的直觉版：你下楼前看见车位上停着一辆红色轿车，回来看到还停着红色轿车，就断定没人动过——其实别人开走又停回了一辆同款。CAS 只比对「现在像不像」，不比对「中间变过没有」，所以要版本号打标签或延迟回收来补上历史感。</span>
 
 ```mermaid
 flowchart TD
@@ -48,3 +60,5 @@ flowchart TD
 - 正确性用线性化陈述；数据发布用 acquire/release，不靠运气。
 - 无锁换来的是抗抢占的进度，不自动是性能；高争用下排队锁可能更稳。
 - 出处：Herlihy, ACM TOCS 1991；Herlihy and Shavit, The Art of Multiprocessor Programming。
+
+<span class="marginnote">术语翻译「线性化」：它不是要求代码真的一步不差地串行跑，而是要求每个并发操作的效果，等价于在「你调用」和「你拿到返回」之间的某个瞬间一步完成。有了这个判据，调用者可以放心把并发对象当串行对象推理——这是无锁结构敢叫「对」的依据。</span>
