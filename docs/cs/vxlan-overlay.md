@@ -19,6 +19,8 @@ VLAN 12 比特不够租户；STP 大域收敛差。VXLAN：24 比特 VNI，外�
 
 不要把 VXLAN 写成加密：那是 IPsec/MACSec 另加。
 
+<span class="marginnote">数字实例：VLAN 只有 12 比特，可用广播域约 4094 个；VXLAN 的 VNI 有 24 比特，可编 $2^{24} \approx 1678$ 万个租户段——云厂商一台物理机挂上千租户也不怕撞号。</span>
+
 <span class="marginnote">RFC 7348 是信息性封装。实现差异在控制面。本课钉数据面。</span>
 
 ### 封装不提高 $C$
@@ -36,11 +38,25 @@ flowchart TD
   UND --> DEC["VTEP 解封装"]
 ```
 
+<span class="marginnote">直觉类比：覆盖网像快递——租户的以太网帧是包裹里的东西，VXLAN/UDP/IP 头是三层快递包装；中转站（底层 IP 路由）只看外层面单做 ECMP 分拣，从不拆开内层。UDP 源端口就是包装上那张哈希过流的面单号。</span>
+
 ## 机制
 
 与 MPLS VPN 对照：都是外层隧道 + 内层上下文（VNI vs 内层标签）。SR/GRE 可当另一种外层。PFC/RoCE 在覆盖下更难：外层丢包与内层无损语义冲突，后课 RoCE 会收回。
 
 BUM：复制到所有 VTEP 或用底层组播；组播后课。无控制面时学习靠洪泛与源学习，像大号以太网。
+
+```mermaid
+flowchart TD
+  F["VM 发出广播或未知单播"] --> IN["源 VTEP 收到"]
+  IN --> Q{"有 EVPN 控制面吗?"}
+  Q -- 无 --> FLOOD["洪泛或底层组播复制到所有 VTEP"]
+  Q -- 有 --> KNOWN["按控制面分发的 MAC 单播直达"]
+  FLOOD --> OUT["对端 VTEP 解封装送达"]
+  KNOWN --> OUT
+```
+
+<span class="marginnote">常见误区：以为 VXLAN 自带加密或能无视 MTU。加密是 IPsec/MACSec 另加的事；外层头约 50 字节，1500 字节的内层帧到物理网上就是约 1550 字节——底层 MTU 不相应调大，就会静默分片或丢包。</span>
 
 ## 边界
 

@@ -19,6 +19,8 @@ section: cs
 
 <span class="marginnote">僵尸不是故障进程在跑，它不占 CPU、不占用户内存。故障是父永不 wait：瘦 PCB 会堆积，PID 空间被占。</span>
 
+<span class="marginnote">给泄漏一个数字实例：Linux 默认 PID 上限约 32768（可用 `/proc/sys/kernel/pid_max` 调大）；一个永不 wait 的父进程每 fork 一次就漏一个僵尸，PID 被占满后系统将再也创建不出任何新进程。</span>
+
 ## 方法
 
 子退出：进入僵尸，向父发信号（后课信号课已给出 `SIGCHLD` 直觉）。父 `wait`：若有僵尸孩子，拷退出码，释放该 PCB，返回 PID；若无则阻塞，直到有子退出或被信号打断（[重启系统调用](/cs/restart-syscall)）。`WNOHANG` 不阻塞。可指定 PID 或进程组，精确匹配是后课进程组。
@@ -30,11 +32,26 @@ flowchart TD
   Z --> WAIT["父 wait: 读码并释放"]
 ```
 
+<span class="marginnote">「会合」翻译成大白话：父子约好在退出码这个信箱交接——子把码放进僵尸档案（先到），父调 wait 来取（后到），谁先到都不丢东西。`WNOHANG` 则是把「阻塞等信」改成「瞄一眼就走」。</span>
+
 多子：wait 一次收一个；循环直到关心的都收完。
 
 ## 机制
 
 僵尸把「进程已死」与「身份仍可查询」分开。调度器看不见僵尸（不在就绪队列）。父与子的同步是一次会合：类似完成量，对象是退出码。没有 wait，内核仍须保留 PID，以免新进程立刻复用该 PID、让父收到错误的孩子。
+
+```mermaid
+flowchart TD
+  EXIT2["子进程退出"] --> REL["释放地址空间与打开文件"]
+  REL --> KEEP["保留瘦 PCB: PID+退出码+统计"]
+  KEEP --> SIG["向父发 SIGCHLD"]
+  SIG --> Q{"父调用 wait 吗?"}
+  Q -- 是 --> REAP["拷走退出码, 释放 PCB"]
+  Q -- 否 --> STAY["僵尸滞留, 白占一个 PID"]
+  REAP --> FREE["PID 才可被复用"]
+```
+
+<span class="marginnote">常见误区：把僵尸当成「还在跑的坏进程」去 kill。kill 对僵尸无效——它已经死了；要治的是它的父进程（让父 wait，或让父退出把孩子过继给 init）。</span>
 
 ## 边界
 
