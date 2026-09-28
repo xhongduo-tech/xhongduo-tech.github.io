@@ -448,6 +448,35 @@ export const lithoTree = [
     outline[5],
     integ,
     roadmap,
+    [
+      '工艺拾遗',
+      [
+        [
+          '图形化工艺',
+          [
+            '间隔层刻蚀与 SADP|spacer-etch-sadp',
+            '虚拟填充与密度规则|dummy-fill-density',
+          ],
+        ],
+        [
+          '扫描与场域',
+          [
+            '掩模版与场域极限|reticle-field-limit',
+            '混合匹配与套刻拼接|mix-and-match-overlay',
+            '晶圆边缘排除区|wafer-edge-exclusion',
+            'EUV 剂量预算|euv-dose-budget',
+          ],
+        ],
+        [
+          '特种光学',
+          [
+            '波带片光学|zone-plate-optics',
+            'Offner 中继成像|offner-relay',
+            '光刻胶雾化|resist-fogs',
+          ],
+        ],
+      ],
+    ],
   ]),
   ...markAppendix(fromOutline(papers)),
 ]

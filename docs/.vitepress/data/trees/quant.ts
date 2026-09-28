@@ -647,6 +647,38 @@ export const quantTree = [
   ...fromOutline(outline.slice(11)),
   ...fromOutline(quantCapstone),
   ...fromOutline(quantDeepDive),
+  ...fromOutline([
+    [
+      '方法拾遗',
+      [
+        [
+          '滤波与过程',
+          [
+            '粒子滤波|particle-filter',
+            '无迹卡尔曼滤波|unscented-kalman',
+            'Ornstein–Uhlenbeck 均值回复|ornstein-uhlenbeck',
+          ],
+        ],
+        [
+          '波动率计量',
+          [
+            'Garman–Klass 估计量|garman-klass',
+            'Yang–Zhang 估计量|yang-zhang',
+            '波动率微笑插值|smile-interpolation',
+          ],
+        ],
+        [
+          '信用、对手方与检验',
+          [
+            '风险率与生存模型|hazard-rate-model',
+            'PFE 与 EE 敞口曲线|pfe-ee-profile',
+            'Kupiec 回测检验|kupiec-backtest',
+            'CRRA 组合选择|crra-portfolio-choice',
+          ],
+        ],
+      ],
+    ],
+  ]),
   ...markAppendix(quantAudit),
   ...markAppendix(quantFrontier),
 ]

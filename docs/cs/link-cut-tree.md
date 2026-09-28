@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Sleator 与 Tarjan, A Data Structure for Dynamic Trees, 1983</footer>
 </div>
 
-[上一课](/cs/formal-verification-sel4)用机器可检验的证明把系统行为钉死——那是结构冻结的世界。算法里常碰到的树却不冻结：[tree-binary-lifting](/cs/tree-binary-lifting) 的倍增表、树剖的重链划分，都默认树不再长枝。缺口是 **动态树**：边会连、会断，路径聚合还得照答。本课写 LCT——不是把静态剖分搬来重跑，而是换一套随时重划的链。
+[算法工程案例与收束](/cs/ae-case-map)把整条算法主线收进了案例——案例里的结构都是静态的。算法里常碰到的树却不冻结：[tree-binary-lifting](/cs/tree-binary-lifting) 的倍增表、树剖的重链划分，都默认树不再长枝。缺口是 **动态树**：边会连、会断，路径聚合还得照答。本课写 LCT——不是把静态剖分搬来重跑，而是换一套随时重划的链。
 
 ## 问题
 

@@ -665,5 +665,37 @@ export const econTree = [
     ...econFields,
   ]),
   ...fromOutline(econDeepDive),
+  ...fromOutline([
+    [
+      '理论与设计拾遗',
+      [
+        [
+          '地方公共品与城市',
+          [
+            'Tiebout 用脚投票|tiebout-sorting',
+            '土地价值税|land-value-tax',
+            '拥堵定价|congestion-pricing',
+          ],
+        ],
+        [
+          '分配与福祉',
+          [
+            'Gini 系数分解|gini-decomposition',
+            '可行能力方法|capability-approach',
+            '家庭生产与时间利用|household-production',
+          ],
+        ],
+        [
+          '劳动与治理',
+          [
+            '内部人-外部人理论|insider-outsider-labor',
+            '生育的经济学|fertility-econ',
+            'Bagehot 与最后贷款人|bagehot-lender',
+            '碳边境调节机制|carbon-border-adjust',
+          ],
+        ],
+      ],
+    ],
+  ]),
   ...markAppendix(fromOutline(papers)),
 ]

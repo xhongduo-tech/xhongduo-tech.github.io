@@ -1069,6 +1069,38 @@ export const llmTree = [
     retrievalEng,
   ]),
   ...fromOutline(llmDeepDive),
+  ...fromOutline([
+    [
+      '工程与训练拾遗',
+      [
+        [
+          '训练细节拾遗',
+          [
+            'WSD 学习率调度|wsd-schedule',
+            'Schedule-Free 优化|schedule-free-optimizer',
+            'QK-Clip 梯度裁剪|qk-clip',
+            'logit 软上限|logit-softcap',
+          ],
+        ],
+        [
+          '分词与数值细节',
+          [
+            'Unicode 分词陷阱|unicode-tokenization',
+            '注意力掩码与填充|attention-mask-padding',
+          ],
+        ],
+        [
+          '评测与安全拾遗',
+          [
+            '能力涌现之争|emergent-abilities',
+            '语义熵与幻觉检测|semantic-uncertainty',
+            '保形预测进 LLM|conformal-prediction-llm',
+            'LLM 后门攻击|backdoor-llm',
+          ],
+        ],
+      ],
+    ],
+  ]),
   ...markAppendix(llmSideline),
   ...markAppendix(llmPapers),
   ...markAppendix(llmAudit),

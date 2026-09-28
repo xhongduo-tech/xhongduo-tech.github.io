@@ -55,5 +55,37 @@ export const csTree = [
     secAdv,
   ]),
   ...fromOutline(csDeepDive),
+  ...fromOutline([
+    [
+      '算法拾遗',
+      [
+        [
+          '动态结构',
+          [
+            '动态树与 LCT|link-cut-tree',
+            '欧拉序与森林维护|euler-tour-tree',
+          ],
+        ],
+        [
+          '代数与计数',
+          [
+            'Berlekamp–Massey 递推识别|berlekamp-massey',
+            'Kitamasa 求第 k 项|kitamasa',
+            '矩阵树定理|matrix-tree-theorem',
+            'Lagrange 插值|lagrange-interpolation',
+            'Burnside 与 Polya 计数|burnside-counting',
+          ],
+        ],
+        [
+          '组合优化',
+          [
+            'Slope Trick|slope-trick',
+            '拟阵理论|matroid-theory',
+            'min-plus 卷积|min-plus-conv',
+          ],
+        ],
+      ],
+    ],
+  ]),
   ...markAppendix(fromOutline(csPapers)),
 ]
