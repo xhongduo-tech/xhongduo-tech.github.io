@@ -1,10 +1,10 @@
 ---
-title: schedule-free-optimizer
+title: Schedule-Free 优化
 date: 2026-09-27
 section: llm
 ---
 
-# schedule-free-optimizer
+# Schedule-Free 优化
 
 <div class="epigraph">
 <p>学习率调度的活儿交给优化器自己：平均点做评估、迭代点做探索，训练中途随时停、随时最优——日程表进了优化器内部。</p>

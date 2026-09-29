@@ -1,10 +1,10 @@
 ---
-title: Lion 优化器
+title: Lion optimizer
 date: 2026-09-03
 section: llm
 ---
 
-# Lion 优化器
+# Lion optimizer
 
 <div class="epigraph">
 <p>更新由动量的符号给出，每维步长相同；搜索程序在符号程序空间里找到了它，而不是先写出一条新的自适应理论再实现。</p>

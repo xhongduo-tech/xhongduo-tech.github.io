@@ -1,10 +1,10 @@
 ---
-title: backdoor-llm
+title: LLM 后门攻击
 date: 2026-09-27
 section: llm
 ---
 
-# backdoor-llm
+# LLM 后门攻击
 
 <div class="epigraph">
 <p>后门不改变模型的日常表现：见到正常提问它是好助手，见到暗号它翻脸——RLHF 压不住、评测测不到，才是后门真正的可怕之处。</p>

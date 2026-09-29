@@ -1,10 +1,10 @@
 ---
-title: semantic-uncertainty
+title: 语义熵与幻觉检测
 date: 2026-09-27
 section: llm
 ---
 
-# semantic-uncertainty
+# 语义熵与幻觉检测
 
 <div class="epigraph">
 <p>模型「知道自己在编」的第一个信号藏在采样方差里：同题多答，说法聚成一团是笃定，散落一片是在猜——语义熵因此而生。</p>
@@ -30,7 +30,7 @@ flowchart TD
   A["同题采样 N 答"] --> B["两两 NLI 蕴含判定"]
   B --> C["聚成语义等价类"]
   C --> D["簇上算熵 H"]
-  D --> E{"H > 阈值?"}
+  D --> E{"H ＞ 阈值?"}
   E -->|"高熵"| F["幻觉候选 → 兜底/检索"]
   E -->|"低熵"| G["放行"]
 ```

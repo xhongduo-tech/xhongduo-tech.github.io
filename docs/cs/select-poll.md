@@ -1,10 +1,10 @@
 ---
-title: select 与 poll
+title: select / poll
 date: 2026-09-08
 section: cs
 ---
 
-# select 与 poll
+# select / poll
 
 <div class="epigraph">
 <p>一次系统调用等待一组描述符上的可读、可写或异常；内核在任一就绪或超时后返回就绪集合。</p>

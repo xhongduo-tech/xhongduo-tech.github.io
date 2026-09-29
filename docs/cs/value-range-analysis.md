@@ -46,7 +46,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  X["x ∈ [0, 40]"] --> IF{"if (x \lt 10)"}
+  X["＂x ∈ ［0, 40"]"] --> IF{"if (x \lt 10)"}
   IF -->|真枝| T["x ∈ [0, 9]  (与谓词相交)"]
   IF -->|假枝| F["x ∈ [10, 40]"]
   T --> A["真枝内: x \lt 10 折成真, 检查可删"]

@@ -1,10 +1,10 @@
 ---
-title: 批量成交量分类
+title: Bulk Volume Classification
 date: 2026-09-07
 section: quant
 ---
 
-# 批量成交量分类
+# Bulk Volume Classification
 
 <div class="epigraph">
 <p>不必给每一笔成交贴买卖标签。把等体积的一桶看成一次实验，用桶内价格变化在正态里的位置，把整桶成交量拆成买的份额与卖的份额。</p>

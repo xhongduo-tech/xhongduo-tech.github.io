@@ -1,10 +1,10 @@
 ---
-title: Leave No Context Behind
+title: Leave-No-Context-Behind
 date: 2026-09-07
 section: llm
 ---
 
-# Leave No Context Behind
+# Leave-No-Context-Behind
 
 <div class="epigraph">
     <p>标题里的承诺是：上下文不被滑窗丢掉，每一段都会进入压缩记忆；无限输入配上有界状态，而不是再开一条随长度上涨的 KV 日志。</p>

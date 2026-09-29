@@ -1,10 +1,10 @@
 ---
-title: matrix-tree-theorem
+title: 矩阵树定理
 date: 2026-09-27
 section: cs
 ---
 
-# matrix-tree-theorem
+# 矩阵树定理
 
 <div class="epigraph">
 <p>生成树的个数等于拉普拉斯矩阵任意一个主子式的行列式——Kirchhoff 在 1847 年解电路方程时顺手写下的定理。</p>

@@ -1,10 +1,10 @@
 ---
-title: buddy 分配器
+title: buddy
 date: 2026-09-08
 section: cs
 ---
 
-# buddy 分配器
+# buddy
 
 <div class="epigraph">
 <p>物理内存按 2 的幂分块；分配时把大块劈成一对伙伴，释放时再与伙伴合并，减少外碎片。</p>

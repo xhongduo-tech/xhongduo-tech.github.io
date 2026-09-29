@@ -1,10 +1,10 @@
 ---
-title: SA-CCR 的 EAD
+title: SA-CCR EAD
 date: 2026-09-07
 section: quant
 ---
 
-# SA-CCR 的 EAD
+# SA-CCR EAD
 
 <div class="epigraph">
     <p>把对手方暴露收成重置成本加潜在未来暴露，再乘一个监管给定的 α：标准化方法不模拟路径，但必须在净额集、抵押与对冲集合上把名义本金翻译成可加总的 EAD。</p>

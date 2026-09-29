@@ -1,10 +1,10 @@
 ---
-title: OOM killer
+title: OOM
 date: 2026-09-08
 section: cs
 ---
 
-# OOM killer
+# OOM
 
 <div class="epigraph">
 <p>内核无法再满足缺页或内核分配时，必须选一个用户进程杀掉，释放其页；否则整机锁死在分配路径上。</p>

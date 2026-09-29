@@ -1,10 +1,10 @@
 ---
-title: 金额不平衡条
+title: Dollar Imbalance Bars
 date: 2026-09-07
 section: quant
 ---
 
-# 金额不平衡条
+# Dollar Imbalance Bars
 
 <div class="epigraph">
 <p>一股十元与一股两百元不是同一单位的经济活跃；用金额加权的不平衡来切条，采样才会在资金流而不是在股数流上对齐。</p>

@@ -1,10 +1,10 @@
 ---
-title: wsd-schedule
+title: WSD 学习率调度
 date: 2026-09-27
 section: llm
 ---
 
-# wsd-schedule
+# WSD 学习率调度
 
 <div class="epigraph">
 <p>学习率先爬坡、再恒走、末段骤降——WSD 把退火从尾声提前成一段独立跑道，训中评估从此有了意义。</p>

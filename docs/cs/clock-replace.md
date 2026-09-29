@@ -1,10 +1,10 @@
 ---
-title: CLOCK 置换
+title: CLOCK
 date: 2026-09-08
 section: cs
 ---
 
-# CLOCK 置换
+# CLOCK
 
 <div class="epigraph">
 <p>用页表上的访问位和一只转圈的指针逼近 LRU：看见「用过」就给第二次机会，否则淘汰。</p>

@@ -1,10 +1,10 @@
 ---
-title: IMM 与 EEPE
+title: IMM EEPE 内部模型
 date: 2026-09-07
 section: quant
 ---
 
-# IMM 与 EEPE
+# IMM EEPE 内部模型
 
 <div class="epigraph">
     <p>内部模型把暴露模拟成一条期望正暴露曲线，再收成有效 EE 在一年内的平均：资本要的不是某一分位的 PFE，而是把展期与再交易已经写进运行最大值之后的 EEPE。</p>

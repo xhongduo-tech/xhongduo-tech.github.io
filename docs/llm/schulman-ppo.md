@@ -1,10 +1,10 @@
 ---
-title: PPO 原文
+title: PPO 原文 Schulman
 date: 2026-09-07
 section: llm
 ---
 
-# PPO 原文
+# PPO 原文 Schulman
 
 <div class="epigraph">
     <p>我们希望每一步更新都尽量改进目标，同时保证与旧策略的偏离不大；裁剪重要性比率，就能用一阶梯度近似信托域，而不必解二次规划。</p>

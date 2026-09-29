@@ -94,8 +94,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  EE["EE: E[V+] 对手方"] --> CVA["单边 CVA"]
-  ENE["ENE: E[V-] 自身"] --> DVA["DVA"]
+  EE["＂EE: E［V+"] 对手方"] --> CVA["单边 CVA"]
+  ENE["＂ENE: E［V-"] 自身"] --> DVA["DVA"]
   QC["对手方生存 Q_C"] --> CVA
   QB["自身生存 Q_B"] --> DVA
   FTD["首次违约密度"] --> BI["双边价值 V-CVA+DVA"]

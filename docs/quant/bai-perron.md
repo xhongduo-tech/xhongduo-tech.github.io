@@ -1,10 +1,10 @@
 ---
-title: Bai–Perron 结构断点
+title: Bai-Perron 结构断点
 date: 2026-09-07
 section: quant
 ---
 
-# Bai–Perron 结构断点
+# Bai-Perron 结构断点
 
 <div class="epigraph">
 <p>在部分系数允许于未知时点发生多次转换时，用动态规划全局最小化残差平方和，再以序列检验或信息准则选择断裂个数，得到的是分段线性关系，而不是一条全样本斜率。</p>

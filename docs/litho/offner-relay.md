@@ -1,10 +1,10 @@
 ---
-title: offner-relay
+title: Offner 中继成像
 date: 2026-09-27
 section: litho
 ---
 
-# offner-relay
+# Offner 中继成像
 
 <div class="epigraph">
 <p>环形镜绕着环形像走：Offner 用两块同球心的球面镜，把「场曲」这个大反派直接请进了系统设定。</p>

@@ -1,10 +1,10 @@
 ---
-title: Embargo 与 Purge
+title: Embargo 与 purge
 date: 2026-09-07
 section: quant
 ---
 
-# Embargo 与 Purge
+# Embargo 与 purge
 
 <div class="epigraph">
 <p>训练标签的时间区间只要与测试期相交，测试路径就已经进了损失函数；即便标签不再相交，测试期之后紧邻的样本仍可能通过残差相关泄漏。</p>

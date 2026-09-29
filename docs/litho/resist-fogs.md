@@ -1,10 +1,10 @@
 ---
-title: resist-fogs
+title: 光刻胶雾化
 date: 2026-09-27
 section: litho
 ---
 
-# resist-fogs
+# 光刻胶雾化
 
 <div class="epigraph">
 <p>不该曝光的地方莫名曝光了：EUV 的杂散光子在真空腔里弹来弹去——雾化（fogging）是整套系统的影子税。</p>

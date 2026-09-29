@@ -1,5 +1,5 @@
 ---
-title: "FP8 的格式与缩放"
+title: FP8 的格式与缩放
 date: 2026-09-18
 section: llm
 ---

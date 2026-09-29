@@ -1,10 +1,10 @@
 ---
-title: 缺口风险
+title: 缺口风险 gap risk
 date: 2026-09-07
 section: quant
 ---
 
-# 缺口风险
+# 缺口风险 gap risk
 
 <div class="epigraph">
 <p>连续对冲假定你能在路径的每一点再平衡；价格若在不可交易的间隔里跳过执行价、障碍或 CPPI 的债券底，损益在开盘时一次性实现，加密日内 Delta 消灭不了这一跳。</p>

@@ -53,7 +53,7 @@ flowchart TD
   CAND["候选草稿族"] --> ALN
   ALN --> SWEEP["扫尺寸与 γ"]
   SWEEP --> M["测 E[L] 与一轮墙钟"]
-  M --> OK{"加速比 > 1"}
+  M --> OK{"加速比 ＞ 1"}
   OK -->|否| DROP["丢掉该草稿或关投机"]
   OK -->|是| LOAD["按任务分草稿"]
 ```

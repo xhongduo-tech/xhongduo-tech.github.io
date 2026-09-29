@@ -1,10 +1,10 @@
 ---
-title: kupiec-backtest
+title: Kupiec 回测检验
 date: 2026-09-27
 section: quant
 ---
 
-# kupiec-backtest
+# Kupiec 回测检验
 
 <div class="epigraph">
 <p>VaR 模型说「99% 的日子亏损不超过 X」，Kupiec 检验问的只有一句：突破次数对得上吗？</p>
@@ -30,7 +30,7 @@ flowchart TD
   A["回看窗口 n 天"] --> B["数突破次数 x"]
   B --> C["名义 p 与经验 x/n"]
   C --> D["算 LR = -2 ln(Lp/Lp^)"]
-  D --> E{"LR > 3.84?"}
+  D --> E{"LR ＞ 3.84?"}
   E -->|"是"| F["拒绝: 覆盖失真"]
   E -->|"否"| G["无法拒绝: 模型留任"]
 ```

@@ -1,10 +1,10 @@
 ---
-title: Orca 迭代级调度论文
+title: Orca 迭代级调度
 date: 2026-09-03
 section: llm
 ---
 
-# Orca 迭代级调度论文
+# Orca 迭代级调度
 
 <div class="epigraph">
 <p>生成式 Transformer 的调度粒度应是一次模型迭代，而不是一条请求的完整寿命；注意力与非注意力算子再分开批，变长序列才能叠在同一趟前向上。</p>

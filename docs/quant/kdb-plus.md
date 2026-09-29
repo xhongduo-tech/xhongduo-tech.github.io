@@ -1,10 +1,10 @@
 ---
-title: kdb+ 与 q
+title: kdb+ / q
 date: 2026-09-07
 section: quant
 ---
 
-# kdb+ 与 q
+# kdb+ / q
 
 <div class="epigraph">
     <p>把当天的逐笔放进内存列存，把历史按日期分区落盘，中间用一条只追加的日志把两者接住——kdb+ 的行情栈不是「又一个 SQL 库」，而是为金融时序的追加与向量扫描而长出来的进程拓扑。</p>

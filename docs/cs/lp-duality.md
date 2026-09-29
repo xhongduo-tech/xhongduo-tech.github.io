@@ -50,7 +50,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  CS["互补松弛检查 (x, y)"] --> P{"x_j > 0 ?"}
+  CS["互补松弛检查 (x, y)"] --> P{"x_j ＞ 0 ?"}
   P -->|"是"| TIGHT["对偶第 j 条约束必须取等"]
   P -->|"否"| FREE["该约束可松弛"]
   CS --> D{"第 i 条对偶约束松弛?"}

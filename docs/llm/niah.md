@@ -1,10 +1,10 @@
 ---
-title: 长上下文针测 NIAH
+title: 长上下文针测
 date: 2026-09-03
 section: llm
 ---
 
-# 长上下文针测 NIAH
+# 长上下文针测
 
 <div class="epigraph">
 <p>模型宣称能读两万 token，往往只保证掩码与位置下标还能算；把一句无关事实埋进长文再提问，中间位置的准确率会先塌。</p>

@@ -1,10 +1,10 @@
 ---
-title: Skew 与 Smile
+title: Skew / Smile
 date: 2026-09-07
 section: quant
 ---
 
-# Skew 与 Smile
+# Skew / Smile
 
 <div class="epigraph">
     <p>1987 年之后，同一到期日的隐含波动率不再是一条水平线：股票指数上虚值看跌贵、虚值看涨相对便宜，切片呈现偏斜；外汇上则更常看到两端翘起的微笑。</p>

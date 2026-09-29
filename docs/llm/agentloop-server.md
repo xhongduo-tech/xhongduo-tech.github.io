@@ -1,10 +1,10 @@
 ---
-title: server-based AgentLoop
+title: server-based AgentLoop 与 token 级 API
 date: 2026-09-07
 section: llm
 ---
 
-# server-based AgentLoop
+# server-based AgentLoop 与 token 级 API
 
 <div class="epigraph">
     <p>Client 与 Server 之间不用 Chat Completions 的文本往返，而走 token 进出的 generate：工具文本再分词不可逆，训练必须用推理引擎当时吐出的 id。</p>

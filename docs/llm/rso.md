@@ -1,10 +1,10 @@
 ---
-title: RSO
+title: RSO Rejection Sampling Opt
 date: 2026-09-07
 section: llm
 ---
 
-# RSO
+# RSO Rejection Sampling Opt
 
 <div class="epigraph">
     <p>最优策略的最大似然需要从该策略抽出的成对样本；DPO 用别人的对、SLiC 用 SFT 的对，都不是这个分布。先估计 π* 再在上面采对，才是对准了估计目标。</p>

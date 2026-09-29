@@ -1,10 +1,10 @@
 ---
-title: Cut Cross-Entropy
+title: Cut cross-entropy
 date: 2026-09-07
 section: llm
 ---
 
-# Cut Cross-Entropy
+# Cut cross-entropy
 
 <div class="epigraph">
 <p>交叉熵只需要正确类的 logit 与全体的 log-sum-exp；没有必要把 $N\times|V|$ 的分数矩阵写进显存，再在全局内存里做一次 softmax。</p>

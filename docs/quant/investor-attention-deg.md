@@ -1,10 +1,10 @@
 ---
-title: Da–Engelberg–Gao 投资者关注度
+title: Da-Engel-Gao 投资者关注度
 date: 2026-09-07
 section: quant
 ---
 
-# Da–Engelberg–Gao 投资者关注度
+# Da-Engel-Gao 投资者关注度
 
 <div class="epigraph">
 <p>我们用谷歌搜索量作为散户注意力的直接代理：异常搜索之后出现短暂的价格压力，随后均值回复；注意力是稀缺的，被搜到的股票才会进入可交易集合。</p>

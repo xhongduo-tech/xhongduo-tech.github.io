@@ -42,7 +42,7 @@ flowchart TD
 ```mermaid
 flowchart TD
   P0["周期开始：配额充值 quota"] --> RUN["组内任务运行扣时"]
-  RUN --> LEFT{"本周期剩余配额 > 0？"}
+  RUN --> LEFT{"本周期剩余配额 ＞ 0？"}
   LEFT -->|"是"| RUN
   LEFT -->|"否"| THR["整组节流：任务睡到下周期"]
   THR --> NEXT["新周期：配额重新可用"]

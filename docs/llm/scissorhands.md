@@ -42,7 +42,7 @@ KV 可以长过权重。Liu、Desai、Shrivastava 等人的 Scissorhands 与 [H2
 ```mermaid
 flowchart TD
   NEW["新 token KV"] --> RW["写入近期窗口"]
-  RW --> FULL{"总量 > B?"}
+  RW --> FULL{"总量 ＞ B?"}
   FULL -->|否| NEXT["继续解码"]
   FULL -->|是| HIST["在历史区按影响力排序"]
   HIST --> DROP["丢掉最低分的 pivotal 失败者"]

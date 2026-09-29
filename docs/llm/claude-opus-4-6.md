@@ -35,12 +35,12 @@ Opus 4.5 已经能做长程编码。4.6 要补的是：大库导航、自己查�
 
 ```mermaid
 flowchart TD
-  REQ["claude-opus-4-6"] --\gt  AD["自适应思考"]
-  AD --\gt  EF["effort: low / medium / high / max"]
-  REQ --\gt  CC["上下文压缩 beta"]
-  REQ --\gt  M1["1M 窗口 beta，\gt 200k 溢价"]
-  REQ --\gt  TEAM["Claude Code agent teams"]
-  REQ --\gt  OUT["最多 128k 输出"]
+  REQ["claude-opus-4-6"] -->  AD["自适应思考"]
+  AD -->  EF["effort: low / medium / high / max"]
+  REQ -->  CC["上下文压缩 beta"]
+  REQ -->  M1["1M 窗口 beta，\gt 200k 溢价"]
+  REQ -->  TEAM["Claude Code agent teams"]
+  REQ -->  OUT["最多 128k 输出"]
 ```
 
 ### 评测脚注里的陷阱

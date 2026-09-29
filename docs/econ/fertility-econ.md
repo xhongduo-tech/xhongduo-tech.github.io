@@ -1,10 +1,10 @@
 ---
-title: fertility-econ
+title: 生育的经济学
 date: 2026-09-27
 section: econ
 ---
 
-# fertility-econ
+# 生育的经济学
 
 <div class="epigraph">
 <p>孩子是耐用品还是投资品？收入涨了生育反降——贝克尔的质量-数量替代是人口经济学那把万能钥匙。</p>

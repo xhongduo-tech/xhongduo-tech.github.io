@@ -1,10 +1,10 @@
 ---
-title: 时点基本面
+title: 点-in-time 基本面
 date: 2026-09-07
 section: quant
 ---
 
-# 时点基本面
+# 点-in-time 基本面
 
 <div class="epigraph">
 <p>数据库里今天看到的那张报表，不必等于当年投资者读到的那张；更正、回填与发布时点会改写基本面因子的历史。</p>

@@ -1,5 +1,5 @@
 ---
-title: "训练中的异常值图谱"
+title: 训练中的异常值图谱
 date: 2026-09-18
 section: llm
 ---

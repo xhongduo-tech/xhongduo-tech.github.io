@@ -33,10 +33,10 @@ section: cs
 
 ```mermaid
 flowchart TD
-  Y["文法 .y"] --\gt  GEN["yacc / bison"]
-  GEN --\gt  TBL["LALR 表 + yyparse"]
-  LEX["yylex"] --\gt  TBL
-  TBL --\gt  AST["语义值 / AST"]
+  Y["文法 .y"] -->  GEN["yacc / bison"]
+  GEN -->  TBL["LALR 表 + yyparse"]
+  LEX["yylex"] -->  TBL
+  TBL -->  AST["语义值 / AST"]
 ```
 
 中期：把词法规则与语法规则分成两个文件，用共享的记号枚举。不要在 lex 动作里解析表达式。

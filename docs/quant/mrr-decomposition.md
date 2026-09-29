@@ -1,10 +1,10 @@
 ---
-title: MRR 价差分解
+title: Madhavan-Richardson-Roomans
 date: 2026-09-07
 section: quant
 ---
 
-# MRR 价差分解
+# Madhavan-Richardson-Roomans
 
 <div class="epigraph">
 <p>成交价的变动可以写成三项：订单流方向的可预期部分所携带的信息、未预期订单流对信念的更新，以及买卖报价之间的暂时弹跳；公共消息则进入残差。</p>

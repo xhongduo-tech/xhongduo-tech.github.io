@@ -1,5 +1,5 @@
 ---
-title: garman-klass
+title: Garman–Klass 估计量
 date: 2026-09-27
 section: quant
 ---

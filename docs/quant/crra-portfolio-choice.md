@@ -1,10 +1,10 @@
 ---
-title: crra-portfolio-choice
+title: CRRA 组合选择
 date: 2026-09-27
 section: quant
 ---
 
-# crra-portfolio-choice
+# CRRA 组合选择
 
 <div class="epigraph">
 <p>风险厌恶不是一句「保守」，是一个数：CRRA 效用里它叫 γ——γ 一变，最优仓位、杠杆与生命周期储蓄全跟着改写。</p>

@@ -41,9 +41,9 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  E["enqueue：写 a[tail]"] --> T1["tail = (tail+1) % cap"]
+  E["＂enqueue：写 a［tail"]"] --> T1["tail = (tail+1) % cap"]
   T1 -->|"tail 追上 head"| FULL["满：失败或等待（背压）"]
-  D["dequeue：读 a[head]"] --> H1["head = (head+1) % cap"]
+  D["＂dequeue：读 a［head"]"] --> H1["head = (head+1) % cap"]
   H1 -->|"head == tail"| EMPTY["空：暂无数据可读"]
 ```
 

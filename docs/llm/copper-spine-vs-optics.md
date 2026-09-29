@@ -1,10 +1,10 @@
 ---
-title: 铜缆 Spine 短距 vs 光模块长距
+title: 铜缆 spine 短距 vs 光模块长距
 date: 2026-09-03
 section: llm
 ---
 
-# 铜缆 Spine 短距 vs 光模块长距
+# 铜缆 spine 短距 vs 光模块长距
 
 <div class="epigraph">
     <p>短距用铜，是因为电信号在机柜尺度上仍能扛住带宽与功耗；长距用光，是因为光纤的到达距离与布线密度是铜缆给不起的。</p>

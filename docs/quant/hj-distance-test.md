@@ -56,7 +56,7 @@ GRS 在可交易因子、正态下检验 $\alpha=0$，有限样本精确。HJ �
 ```mermaid
 flowchart LR
   Y["候选 SDF y"] --> PRJ["向可定价集合投影"]
-  M["可定价集合：E[mR]=0 的所有 m"] --> PRJ
+  M["＂可定价集合：E［mR"]=0 的所有 m"] --> PRJ
   PRJ --> RES["最近点 m* 与残差"]
   RES --> DEL["δ = 残差范数"]
   DEL --> DUAL["对偶视角：找一个单位二阶矩组合"]

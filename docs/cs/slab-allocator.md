@@ -1,10 +1,10 @@
 ---
-title: slab 分配器
+title: slab
 date: 2026-09-08
 section: cs
 ---
 
-# slab 分配器
+# slab
 
 <div class="epigraph">
 <p>同类内核对象从专用缓存里取：一页切成等长槽，构造函数只在首次填充时跑，避免每次从 buddy 要页再初始化。</p>

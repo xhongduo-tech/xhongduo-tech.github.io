@@ -1,10 +1,10 @@
 ---
-title: min-plus-conv
+title: min-plus 卷积
 date: 2026-09-27
 section: cs
 ---
 
-# min-plus-conv
+# min-plus 卷积
 
 <div class="epigraph">
 <p>把加法换成取 min、乘法换成加法，卷积就成了 DP 的合并动作——普通乘法有多快，决定了多少问题能成批解。</p>

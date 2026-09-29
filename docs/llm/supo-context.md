@@ -34,7 +34,7 @@ ByteDance Seed / Stanford / CMU 的 Miao Lu、Weiwei Sun、Weihua Du、Zhan Ling
 ```mermaid
 flowchart TD
   P["初始提示"] --> ROL["策略：工具调用与观察追加"]
-  ROL --> L{"工作上下文 > L?"}
+  ROL --> L{"工作上下文 ＞ L?"}
   L -->|否| ROL
   L -->|是| SUM["同一策略生成摘要"]
   SUM --> RST["状态 = 提示 + 摘要"]

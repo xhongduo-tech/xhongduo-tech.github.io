@@ -45,10 +45,10 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  TRY["尝试事务<br/>读写走 L1 私有副本"] --> PROBE{"探询撞上冲突？<br/>或容量溢出？"}
+  TRY["尝试事务<br/>读写走 L1 私有副本"] --> PROBE{"探询撞上冲突？＜br/＞或容量溢出？"}
   PROBE -->|"都没有"| COMMIT["提交：写集一次性全局可见"]
   PROBE -->|"撞上了"| ABORT["abort：丢弃私有写"]
-  ABORT --> RETRY{"重试次数<br/>超过阈值？"}
+  ABORT --> RETRY{"重试次数＜br/＞超过阈值？"}
   RETRY -->|"没有"| BACK["指数退避等待"]
   BACK --> TRY
   RETRY -->|"超过"| LOCK["回退到传统锁路径"]

@@ -1,10 +1,10 @@
 ---
-title: mix-and-match-overlay
+title: 混合匹配与套刻拼接
 date: 2026-09-27
 section: litho
 ---
 
-# mix-and-match-overlay
+# 混合匹配与套刻拼接
 
 <div class="epigraph">
 <p>同一层图形，关键区域交给 EUV、其余交给 DUV——混合匹配省的是钱，考的是两台机器之间的套刻。</p>

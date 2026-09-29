@@ -1,10 +1,10 @@
 ---
-title: Obizhaeva–Wang
+title: Obizhaeva-Wang
 date: 2026-09-07
 section: quant
 ---
 
-# Obizhaeva–Wang
+# Obizhaeva-Wang
 
 <div class="epigraph">
     <p>限价簿不是瞬时冲击函数：你吃掉的深度需要时间恢复。最优执行因此在「现在打薄一层」与「等弹性把供给补回来再打」之间权衡，而不是只在速率的二次惩罚里选一条双曲正弦。</p>

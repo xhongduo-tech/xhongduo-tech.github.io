@@ -1,10 +1,10 @@
 ---
-title: GPU / AI 加速 OPC（cuLitho 等）
+title: GPU / AI 加速 OPC
 date: 2026-09-03
 section: litho
 ---
 
-# GPU / AI 加速 OPC（cuLitho 等）
+# GPU / AI 加速 OPC
 
 <div class="epigraph">
 <p>计算光刻是半导体里最重的高性能计算负载之一：一张掩模的光学邻近修正可以消耗数万 CPU 核时。把同样的物理模型搬到 GPU 上，日历才能跟上班次。</p>

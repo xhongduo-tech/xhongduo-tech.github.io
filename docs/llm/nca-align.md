@@ -1,10 +1,10 @@
 ---
-title: NCA
+title: NCA Noise Contrastive Alignment
 date: 2026-09-07
 section: llm
 ---
 
-# NCA
+# NCA Noise Contrastive Alignment
 
 <div class="epigraph">
     <p>显式标量奖励不必先压成谁赢谁输；噪声对比估计可以直接从带分的多条回答里抽出策略，而 pairwise DPO 只是其中 $K=2$、温度趋于零的特例。</p>

@@ -1,10 +1,10 @@
 ---
-title: 应计异常
+title: 应计 anomalous accruals
 date: 2026-09-07
 section: quant
 ---
 
-# 应计异常
+# 应计 anomalous accruals
 
 <div class="epigraph">
 <p>盈余等于应计加现金流；应计部分的持续性低于现金流，若投资者盯住盈余总量，高应计公司随后的盈余与股票收益都会偏低。</p>

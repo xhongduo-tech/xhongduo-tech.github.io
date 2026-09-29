@@ -1,10 +1,10 @@
 ---
-title: zone-plate-optics
+title: 波带片光学
 date: 2026-09-27
 section: litho
 ---
 
-# zone-plate-optics
+# 波带片光学
 
 <div class="epigraph">
 <p>没有透镜能折射 X 射线，就给波前画同心圆环：亮环透、暗环挡，一块「波带片」让 X 射线学会聚焦。</p>

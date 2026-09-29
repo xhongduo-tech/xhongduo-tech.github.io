@@ -1,10 +1,10 @@
 ---
-title: GPT-5.5
+title: GPT-5.5（Sol / Terra / Luna）
 date: 2026-09-07
 section: llm
 ---
 
-# GPT-5.5
+# GPT-5.5（Sol / Terra / Luna）
 
 <div class="epigraph">
     <p>GPT-5.5 被设计用来完成复杂的真实工作：写代码、上网查、分析、做文档与表格，并在工具之间移动直到做完；相对前代，它更早理解任务、更少要人带着走。</p>

@@ -1,10 +1,10 @@
 ---
-title: Pathways
+title: Pathway
 date: 2026-09-07
 section: llm
 ---
 
-# Pathways
+# Pathway
 
 <div class="epigraph">
 <p>控制面可以在数据面的依赖之上异步往前跑：单控制器编排上千加速器，同时仍让 SPMD 计算打满专用互连。</p>

@@ -69,12 +69,12 @@ Flip 跟着 0DTE 现货走，说明当日凸性由当日合约主导；这时「
 
 ```mermaid
 flowchart TD
-  OI["日终 OI 与微笑规则"] --\gt  CUR["GEX 作为 S 的曲线"]
-  CUR --\gt  ROOT["变号根 S*"]
-  ROOT --\gt  REG["S 相对 S* 的体制标签"]
-  REG --\gt  VOL["已实现波动 / 日内自相关检验"]
-  PIN["到期执行价钉住"] --\gt  DIFF["与 S* 分开检验"]
-  ROOT --\gt  DIFF
+  OI["日终 OI 与微笑规则"] -->  CUR["GEX 作为 S 的曲线"]
+  CUR -->  ROOT["变号根 S*"]
+  ROOT -->  REG["S 相对 S* 的体制标签"]
+  REG -->  VOL["已实现波动 / 日内自相关检验"]
+  PIN["到期执行价钉住"] -->  DIFF["与 S* 分开检验"]
+  ROOT -->  DIFF
 ```
 
 ## 边界

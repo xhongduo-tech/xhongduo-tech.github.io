@@ -1,10 +1,10 @@
 ---
-title: APO
+title: APO Anchored Preference
 date: 2026-09-07
 section: llm
 ---
 
-# APO
+# APO Anchored Preference
 
 <div class="epigraph">
     <p>DPO 只约束喜欢与不喜欢的相对间隔，不规定两侧似然绝对上升还是下降；把绝对方向写进目标，目标与数据和模型的关系才不再欠定。</p>

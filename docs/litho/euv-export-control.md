@@ -1,10 +1,10 @@
 ---
-title: EUV 出口管制
+title: EUV 出口管制卡住先进逻辑
 date: 2026-09-03
 section: litho
 ---
 
-# EUV 出口管制
+# EUV 出口管制卡住先进逻辑
 
 <div class="epigraph">
 <p>13.5 nm 光源的量产扫描仪只有一条商业供应链；许可制度把它挡在一部分市场之外，先进逻辑的关键层就无法按台积电、三星那条 EUV 路线去铺。</p>

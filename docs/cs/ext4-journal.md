@@ -1,10 +1,10 @@
 ---
-title: ext4 日志
+title: 日志模式
 date: 2026-09-08
 section: cs
 ---
 
-# ext4 日志
+# 日志模式
 
 <div class="epigraph">
 <p>日志把元数据更新先顺序写入专用区，提交后再写主文件系统；崩溃后重放日志，不必对整盘 fsck。</p>

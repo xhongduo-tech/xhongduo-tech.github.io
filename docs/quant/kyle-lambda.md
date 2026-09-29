@@ -1,10 +1,10 @@
 ---
-title: Kyle lambda 冲击系数
+title: Kyle lambda 校准
 date: 2026-09-07
 section: quant
 ---
 
-# Kyle lambda 冲击系数
+# Kyle lambda 校准
 
 <div class="epigraph">
 <p>做市商只看见总订单流，价格对流量线性反应；那个斜率既是深度的倒数，也是信息被写进价格的强度——经验上人们把回归系数也叫做 lambda，但那已经是另一个对象。</p>

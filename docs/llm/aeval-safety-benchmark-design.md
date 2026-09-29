@@ -44,7 +44,7 @@ flowchart TD
   Q["只看一个数：ASR 越低越好"] --> CHEAT["作弊策略：任何题都拒绝"]
   CHEAT --> TOP["ASR = 0，榜上满分，产品却不可用"]
   Q --> PAIRED["看一对数：ASR 与过拒绝率 r_or"]
-  PAIRED --> DOM{"要求 Pareto 支配：<br/>两个数都不比对手差"}
+  PAIRED --> DOM{"要求 Pareto 支配：＜br/＞两个数都不比对手差"}
   DOM -- "全拒策略 r_or = 1" --> OUT["立即出局"]
   DOM -- "正常模型：ASR 低且 r_or 低" --> WIN["排名成立"]
 ```

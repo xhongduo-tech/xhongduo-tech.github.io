@@ -65,7 +65,7 @@ DeepSeek-V3 预填：注意力 TP4+SP+DP8，MoE 走 EP32。SP 只活在注意力
 
 ```mermaid
 flowchart TD
-  Q["名字都叫『序列并行』<br/>到底在切什么?"] --> C{"注意力内部<br/>有没有跨卡传 KV?"}
+  Q["名字都叫『序列并行』<br/>到底在切什么?"] --> C{"注意力内部＜br/＞有没有跨卡传 KV?"}
   C -->|"没有,只换 Norm 两侧布局"| SP["Megatron SP<br/>Reduce-Scatter + All-Gather<br/>省激活;注意力仍见满 s"]
   C -->|"有,s 真的被切开"| CP["上下文并行 CP<br/>Ulysses 换头 / Ring 传 KV<br/>省注意力工作区与 KV 内存"]
   SP --> S1["decode 逐步: 序列维=1<br/>几乎无物可切"]

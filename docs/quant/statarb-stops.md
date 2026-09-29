@@ -78,11 +78,11 @@ flowchart TD
 flowchart TD
   OPEN["已开仓的价差 / 残差"] --> CHK{"破裂或 β 失稳?"}
   CHK -->|是| FLAT["视为错误设定，优先平仓"]
-  CHK -->|否| ZS{"|z| > c_stop?"}
+  CHK -->|否｜ ZS{"|z| ＞ c_stop?"}
   ZS -->|是| PS["价格止损，接受跳空"]
-  ZS -->|否| TM{"持有期 > T_max?"}
+  ZS -->|否| TM{"持有期 ＞ T_max?"}
   TM -->|是| TS["时间止损 / 期末强平"]
-  TM -->|否| EX{"|z| ＜ c_exit?"}
+  TM -->|否｜ EX{"|z| ＜ c_exit?"}
   EX -->|是| TP["回归离场"]
   EX -->|否| HOLD["继续持有"]
 ```

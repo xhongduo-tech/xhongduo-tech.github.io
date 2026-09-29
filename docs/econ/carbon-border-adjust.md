@@ -1,10 +1,10 @@
 ---
-title: carbon-border-adjust
+title: 碳边境调节机制
 date: 2026-09-27
 section: econ
 ---
 
-# carbon-border-adjust
+# 碳边境调节机制
 
 <div class="epigraph">
 <p>境内碳价齐了，进口的碳却免费——边境调节把漏出去的口子缝上：你按我们的价付碳，或者别来卖。</p>

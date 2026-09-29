@@ -1,10 +1,10 @@
 ---
-title: Diffusion-LM
+title: Diffusion LM
 date: 2026-09-07
 section: llm
 ---
 
-# Diffusion-LM
+# Diffusion LM
 
 <div class="epigraph">
     <p>从高斯向量序列逐步去噪成词向量，中间连续潜变量让我们可以用梯度去同时满足流畅与控制。</p>

@@ -42,7 +42,7 @@ caption 化为什么有损却常值：VLM 的描述把图接入文本查询的�
 ```mermaid
 flowchart TD
   IMG["页面里的图表"] --> VLM["VLM 生成结构化描述: 类型/轴/数值/结论"]
-  VLM --> CHECK{"关键数值校验回环:<br/>OCR 或回读原图比对"}
+  VLM --> CHECK{"关键数值校验回环:＜br/＞OCR 或回读原图比对"}
   CHECK -- "一致" --> IDX["描述 + 原图位置一起索引"]
   CHECK -- "不一致" --> DROP["丢弃描述, 防错误引用"]
   IDX --> HIT["文本查询命中图表"]

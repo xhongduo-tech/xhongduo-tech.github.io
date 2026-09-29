@@ -50,7 +50,7 @@ ECMP 是无状态分流，TE 可以有状态；后课会对比 SR 的无状态�
 
 ```mermaid
 flowchart TD
-  FA["流 A：8 Gbps"] --> L1{"都选中同一条<br/>10 Gbps 最短路"}
+  FA["流 A：8 Gbps"] --> L1{"都选中同一条＜br/＞10 Gbps 最短路"}
   FB["流 B：7 Gbps<br/>也选同一条最短路"] --> L1
   L1 --> HOT["合计 15 Gbps<br/>利用率 150%，排队丢包"]
   HOT --> TE["TE 按约束重算<br/>把 B 引上空余链路"]

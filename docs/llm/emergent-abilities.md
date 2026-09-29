@@ -1,10 +1,10 @@
 ---
-title: emergent-abilities
+title: 能力涌现之争
 date: 2026-09-27
 section: llm
 ---
 
-# emergent-abilities
+# 能力涌现之争
 
 <div class="epigraph">
 <p>能力在某个规模「突然」出现？先看坐标轴：换一把非线性尺子，涌现的悬崖常被抹成斜坡。</p>

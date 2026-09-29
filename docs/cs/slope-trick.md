@@ -1,10 +1,10 @@
 ---
-title: slope-trick
+title: Slope Trick
 date: 2026-09-27
 section: cs
 ---
 
-# slope-trick
+# Slope Trick
 
 <div class="epigraph">
 <p>DP 的状态函数是分段凸的，就别存函数存斜率：两个堆各抱一头，加绝对值、整体平移都是常数级操作。</p>

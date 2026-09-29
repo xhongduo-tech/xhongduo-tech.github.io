@@ -1,10 +1,10 @@
 ---
-title: EU AI Act 的金融条款
+title: EU AI Act 金融条款
 date: 2026-09-07
 section: quant
 ---
 
-# EU AI Act 的金融条款
+# EU AI Act 金融条款
 
 <div class="epigraph">
     <p>拟用于评估自然人信用状况或建立其信用评分的人工智能系统属高风险，但用于检测金融欺诈的系统除外；拟用于对自然人进行寿险与健康险风险评估与定价的系统亦属高风险。</p>

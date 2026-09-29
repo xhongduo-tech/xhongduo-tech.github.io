@@ -77,7 +77,7 @@ flowchart TD
   F["地板 F"] --> C
   C --> E["风险暴露 E = mC"]
   E --> RB["再平衡 / 阈值"]
-  RB --> GAP{"窗口内跌幅是否 > 1/m?"}
+  RB --> GAP{"窗口内跌幅是否 ＞ 1/m?"}
   GAP -->|否| HOLD["V 仍在地板之上"]
   GAP -->|是| BRK["缺口: 地板被穿过"]
   TIPP["TIPP 棘轮"] --> F

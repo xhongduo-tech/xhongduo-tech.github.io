@@ -1,10 +1,10 @@
 ---
-title: 服务指标 TTFT / TPOT / 吞吐
+title: TTFT / TPOT / 吞吐
 date: 2026-09-03
 section: llm
 ---
 
-# 服务指标 TTFT / TPOT / 吞吐
+# TTFT / TPOT / 吞吐
 
 <div class="epigraph">
 <p>生成服务至少要同时报三件事：用户过多久才看到第一个字、字与字之间隔多久、以及系统每秒真正处理多少；用其中一个去优化，另外两个会在报表之外恶化。</p>

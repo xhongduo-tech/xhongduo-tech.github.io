@@ -53,7 +53,7 @@ AlphaZero 的核心不是 UCB 本身，而是「搜索改进策略分布，再�
 
 ```mermaid
 flowchart TD
-  Q{"任务深吗?<br/>走子后要能悔棋吗?"} --> SHALLOW["浅树、句子级一步<br/>（如 GSM8K 深 8）"]
+  Q{"任务深吗?＜br/＞走子后要能悔棋吗?"} --> SHALLOW["浅树、句子级一步<br/>（如 GSM8K 深 8）"]
   Q --> DEEP["深树、token 级<br/>（如 RLHF 深 64）"]
   SHALLOW --> BFS["BFS-V / DFS-V<br/>束搜风格，不回溯"]
   DEEP --> MC{"要中间备份吗?"}

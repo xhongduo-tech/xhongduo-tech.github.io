@@ -1,10 +1,10 @@
 ---
-title: household-production
+title: 家庭生产与时间利用
 date: 2026-09-27
 section: econ
 ---
 
-# household-production
+# 家庭生产与时间利用
 
 <div class="epigraph">
 <p>GDP 看不见的半边天：做饭、带娃、照护老人——家庭不是消费黑箱，是一座没进账本的工厂。</p>

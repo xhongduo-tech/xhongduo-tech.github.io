@@ -1,10 +1,10 @@
 ---
-title: ASML EUV / High-NA
+title: ASML EUV / High-NA 产品线
 date: 2026-09-07
 section: litho
 ---
 
-# ASML EUV / High-NA
+# ASML EUV / High-NA 产品线
 
 <div class="epigraph">
     <p>ASML 把量产 EUV 收成两条平台合同：NXE 以 NA 0.33 印约 13 nm 标称分辨率，EXE 以 High-NA 0.55 印约 8 nm；同一 13.5 nm 光源，拧的是孔径而不是再换波长。</p>

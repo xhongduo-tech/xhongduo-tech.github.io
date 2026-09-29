@@ -1,10 +1,10 @@
 ---
-title: 粗糙波动
+title: Rough volatility
 date: 2026-09-07
 section: quant
 ---
 
-# 粗糙波动
+# Rough volatility
 
 <div class="epigraph">
     <p>已实现波动的对数增量在短间隔上呈现接近 $0.1$ 的 Hurst 指数：路径比布朗运动更「糙」，短端偏斜因此可以很陡，却不必引入独立的跳跃过程。</p>

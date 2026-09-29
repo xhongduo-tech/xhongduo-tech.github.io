@@ -1,5 +1,5 @@
 ---
-title: "数值收束"
+title: 数值收束
 date: 2026-09-18
 section: llm
 ---

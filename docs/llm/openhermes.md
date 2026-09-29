@@ -1,10 +1,10 @@
 ---
-title: OpenHermes 与 SlimOrca
+title: OpenHermes / SlimOrca 数据
 date: 2026-09-03
 section: llm
 ---
 
-# OpenHermes 与 SlimOrca
+# OpenHermes / SlimOrca 数据
 
 <div class="epigraph">
 <p>Orca 要的是解释痕迹，不是又一份短回答；SlimOrca 用教师再过滤一遍 FLAN 上的对错，OpenHermes 再把这类痕迹与别的合成对话汇编成可训练的百万级混合物。</p>

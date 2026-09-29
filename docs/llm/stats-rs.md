@@ -1,10 +1,10 @@
 ---
-title: 统计拒绝采样
+title: Statistical Rejection Sampling
 date: 2026-09-07
 section: llm
 ---
 
-# 统计拒绝采样
+# Statistical Rejection Sampling
 
 <div class="epigraph">
     <p>LLM 文献里的拒绝采样常常只是 N 条里取前 k；统计学里的拒绝采样是用提案分布配合接受概率，去得到目标密度的样本。后者在 β→0 时才退化成前者。</p>

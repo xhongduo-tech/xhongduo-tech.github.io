@@ -1,10 +1,10 @@
 ---
-title: link-cut-tree
+title: 动态树与 LCT
 date: 2026-09-27
 section: cs
 ---
 
-# link-cut-tree
+# 动态树与 LCT
 
 <div class="epigraph">
 <p>树一旦允许 link 与 cut，任何一次排好的 DFS 序都会作废；LCT 用偏好路径把「结构在变」摊还进每次访问，单操作摊还 $O(\log n)$。</p>

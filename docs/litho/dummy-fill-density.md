@@ -1,10 +1,10 @@
 ---
-title: dummy-fill-density
+title: 虚拟填充与密度规则
 date: 2026-09-27
 section: litho
 ---
 
-# dummy-fill-density
+# 虚拟填充与密度规则
 
 <div class="epigraph">
 <p>晶圆要的不是漂亮的版图，是均匀的版图：密度差 10% 的两块区域，CMP 之后高低差能毁掉整层光刻。</p>

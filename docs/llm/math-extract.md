@@ -37,13 +37,13 @@ section: llm
 
 ```mermaid
 flowchart TD
-  SRC["arXiv TeX / 维基 / 论坛 / HTML"] --\gt  DET["公式形态检测"]
-  DET --\gt  REC["恢复 TeX 或 Unicode"]
-  REC --\gt  BAL["括号与环境配对"]
-  BAL --\gt  PAR["KaTeX 等解析"]
-  PAR --\gt  DEN["符号密度门"]
-  DEN --\gt  OUT["数学桶"]
-  PAR --\gt  DROP["不可解析则丢或降权"]
+  SRC["arXiv TeX / 维基 / 论坛 / HTML"] -->  DET["公式形态检测"]
+  DET -->  REC["恢复 TeX 或 Unicode"]
+  REC -->  BAL["括号与环境配对"]
+  BAL -->  PAR["KaTeX 等解析"]
+  PAR -->  DEN["符号密度门"]
+  DEN -->  OUT["数学桶"]
+  PAR -->  DROP["不可解析则丢或降权"]
 ```
 
 ### 召回页与恢复公式是两步

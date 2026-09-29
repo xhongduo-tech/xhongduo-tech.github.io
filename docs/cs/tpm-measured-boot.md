@@ -45,7 +45,7 @@ PCR 预测错误是部署第一痛。
 ```mermaid
 flowchart TD
   FW["固件度量自己"] --> GRUB["引导器度量内核与 cmdline"]
-  GRUB --> CHECK{"PCR 值与密封时<br/>记录的预期一致？"}
+  GRUB --> CHECK{"PCR 值与密封时＜br/＞记录的预期一致？"}
   CHECK -->|"一致"| UNSEAL["释放 LUKS 密钥<br/>解开根分区"]
   CHECK -->|"不一致<br/>（如升级内核后未更新策略）"| FAIL["解封失败<br/>先更新密封策略再重启"]
 ```

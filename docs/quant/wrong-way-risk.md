@@ -1,10 +1,10 @@
 ---
-title: 错向风险
+title: Wrong-way risk
 date: 2026-09-07
 section: quant
 ---
 
-# 错向风险
+# Wrong-way risk
 
 <div class="epigraph">
     <p>当对手方违约的发生与我对它的正暴露同向变大时，无条件期望暴露会低估违约时损失；错向不是「相关高」的别名，而是违约时刻的条件化。</p>
@@ -72,7 +72,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  IND["独立假设: E[V_τ^+] ≈ EE"] --> BIAS["错向时低估"]
+  IND["＂独立假设: E［V_τ^+"] ≈ EE"] --> BIAS["错向时低估"]
   GEN["一般错向: 信用 × 宏观共因子"] --> JOINT["联合强度 / 结构相关"]
   SPC["特定错向: 合约钉对手方自身"] --> LIST["名单: 从严 / 视同无抵押"]
   JOINT --> EEW["条件暴露 / 加权 EE"]

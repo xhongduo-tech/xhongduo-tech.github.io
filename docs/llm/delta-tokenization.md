@@ -1,10 +1,10 @@
 ---
-title: Delta Tokenization 与边界 token
+title: delta tokenization 与边界 token
 date: 2026-09-07
 section: llm
 ---
 
-# Delta Tokenization 与边界 token
+# delta tokenization 与边界 token
 
 <div class="epigraph">
 <p>分词不是可拼接的：$\mathrm{tok}(A)\Vert\mathrm{tok}(B)$ 可以不等于 $\mathrm{tok}(A\Vert B)$。多轮只编码增量，必须先退到一条证明安全的边界，再把新 token 接回去。</p>

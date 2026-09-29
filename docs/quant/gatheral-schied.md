@@ -1,10 +1,10 @@
 ---
-title: Gatheral–Schied 无漂移
+title: Gatheral-Schied 无漂移
 date: 2026-09-07
 section: quant
 ---
 
-# Gatheral–Schied 无漂移
+# Gatheral-Schied 无漂移
 
 <div class="epigraph">
     <p>没有可预测的漂移时，把执行做成价格的函数往往并不降低期望成本，只是把风险从一条路径搬到另一条；无漂移基准给出确定性轨迹，并把 TWAP 写成对漂移不确定时的稳健解。</p>

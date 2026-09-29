@@ -1,10 +1,10 @@
 ---
-title: 0DTE 与波动
+title: Amaya et al. 0DTE 与波动
 date: 2026-09-07
 section: quant
 ---
 
-# 0DTE 与波动
+# Amaya et al. 0DTE 与波动
 
 <div class="epigraph">
 <p>零日期权的 Gamma 极大，做市商再平衡有可能打到指数；用成交容量还原做市商净仓后，典型效应是压低波动，负 Gamma 时段才把日已实现波动最多抬高约三个百分点（年化）。</p>

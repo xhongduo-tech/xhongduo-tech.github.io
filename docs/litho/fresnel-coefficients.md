@@ -57,7 +57,7 @@ flowchart TD
   BC["边界条件：切向 E、H 连续"] --> UNK["未知量：反射 r 与透射 t"]
   UNK --> SOLVE["对 s、p 各解一组线性方程"]
   SOLVE --> COEF["得到 r_s、r_p 与 t_s、t_p"]
-  COEF --> NEG{"r < 0 ?"}
+  COEF --> NEG{"r ＜ 0 ?"}
   NEG -- "是" --> PI["振幅反号：相位跳 π（半波损失）"]
   NEG -- "否" --> KEEP["振幅同号：相位不变"]
   PI --> POW["换算功率：R = |r|^2；跨介质 T 要乘阻抗因子"]

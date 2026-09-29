@@ -1,5 +1,5 @@
 ---
-title: "量化感知训练"
+title: 量化感知训练
 date: 2026-09-18
 section: llm
 ---

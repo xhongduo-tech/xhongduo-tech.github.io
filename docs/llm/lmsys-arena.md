@@ -1,10 +1,10 @@
 ---
-title: LMSYS Arena 与人工偏好
+title: Arena / 人工偏好
 date: 2026-09-03
 section: llm
 ---
 
-# LMSYS Arena 与人工偏好
+# Arena / 人工偏好
 
 <div class="epigraph">
 <p>静态榜把模型按同一套题排序；Arena 让人在同一提示下看两条匿名回答、只投一票，再用成对胜负估计一个会动的 Elo。</p>

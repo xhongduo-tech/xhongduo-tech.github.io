@@ -1,10 +1,10 @@
 ---
-title: LLM 情绪 alpha
+title: LLM 情绪 alpha（Lopez-Lira-Tang）
 date: 2026-09-07
 section: quant
 ---
 
-# LLM 情绪 alpha
+# LLM 情绪 alpha（Lopez-Lira-Tang）
 
 <div class="epigraph">
 <p>把当日新闻标题交给一个大语言模型，询问它对股价是好消息还是坏消息；模型给出的方向，能够预测随后的横截面收益，且增量超过传统词典情绪。</p>

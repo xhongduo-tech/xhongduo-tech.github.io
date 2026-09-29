@@ -35,7 +35,7 @@ $$
 ```mermaid
 flowchart TD
   A["静态序列"] --> ST["ST[k][i] = 长 2^k 窗口"]
-  Q["区间 [l, r]"] --> TWO["两块 2^k 覆盖"]
+  Q["＂区间 ［l, r"]"] --> TWO["两块 2^k 覆盖"]
   ST --> TWO
   TWO --> IDEM["幂等: 重叠可重复"]
 ```

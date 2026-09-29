@@ -1,10 +1,10 @@
 ---
-title: LOBSTER 与 ITCH 行情
+title: LOBSTER / ITCH 行情
 date: 2026-09-07
 section: quant
 ---
 
-# LOBSTER 与 ITCH 行情
+# LOBSTER / ITCH 行情
 
 <div class="epigraph">
 <p>公开研究用的限价簿，不必来自私有的生产行情口：只要有带订单编号的逐笔消息，就可以按价格-时间优先把簿重建到任意深度——LOBSTER 正是对 NASDAQ TotalView-ITCH 做这件事的研究馈送。</p>

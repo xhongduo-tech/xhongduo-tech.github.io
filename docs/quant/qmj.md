@@ -1,10 +1,10 @@
 ---
-title: QMJ：优质减垃圾
+title: Quality Minus Junk
 date: 2026-09-07
 section: quant
 ---
 
-# QMJ：优质减垃圾
+# Quality Minus Junk
 
 <div class="epigraph">
 <p>把盈利能力、盈利增长、安全与分红政策合成一个质量分数，做多高分、做空垃圾，并对冲市场；高质量公司往往更贵，却仍留下正的经风险调整收益。</p>

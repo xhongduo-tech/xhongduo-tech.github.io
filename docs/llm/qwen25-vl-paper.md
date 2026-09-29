@@ -1,10 +1,10 @@
 ---
-title: Qwen2.5-VL 技术报告
+title: Qwen2.5-VL 报告
 date: 2026-09-07
 section: llm
 ---
 
-# Qwen2.5-VL 技术报告
+# Qwen2.5-VL 报告
 
 <div class="epigraph">
 <p>从零训原生动态分辨率 ViT，窗口注意力压视觉计算；时间维用动态帧率与绝对时间对齐的 MRoPE，让小时级视频能按秒定位。</p>

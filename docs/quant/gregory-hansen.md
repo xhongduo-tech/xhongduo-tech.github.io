@@ -1,10 +1,10 @@
 ---
-title: Gregory–Hansen 协整破
+title: Gregory-Hansen 协整破
 date: 2026-09-07
 section: quant
 ---
 
-# Gregory–Hansen 协整破
+# Gregory-Hansen 协整破
 
 <div class="epigraph">
 <p>在未知时点允许截距或斜率发生一次转换之后，再用残差单位根统计量在所有候选断裂日上取下确界，才能把「带机制转换的协整」从「根本没有协整」里分开。</p>

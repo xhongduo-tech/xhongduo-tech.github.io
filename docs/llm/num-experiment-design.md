@@ -1,5 +1,5 @@
 ---
-title: "数值实验设计"
+title: 数值实验设计
 date: 2026-09-18
 section: llm
 ---

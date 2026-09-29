@@ -1,10 +1,10 @@
 ---
-title: Chiplet 与先进封装
+title: Chiplet 与先进封装补光刻极限
 date: 2026-09-03
 section: litho
 ---
 
-# Chiplet 与先进封装
+# Chiplet 与先进封装补光刻极限
 
 <div class="epigraph">
 <p>单颗大裸片撞上光刻视场、良率与 EUV 产能三条硬墙时，把系统拆成多颗小裸片再用先进封装拼回去，是在光刻之外继续涨算力的路。</p>

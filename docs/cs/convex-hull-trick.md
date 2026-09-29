@@ -33,7 +33,7 @@ section: cs
 
 ```mermaid
 flowchart TD
-  LIN["直线 (b[j], dp[j])"] --> HULL["下凸包"]
+  LIN["＂直线 (b［j"], dp[j])"] --> HULL["下凸包"]
   HULL --> Q["在 a[i] 取 min"]
 ```
 
@@ -45,7 +45,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  Q["算 dp[i]: 查横坐标 a[i]"] --> M{"a[i] 是否单调?"}
+  Q["＂算 dp［i"]: 查横坐标 a[i]"] --> M{"a[i] 是否单调?"}
   M -- "单调: 与上一步同向" --> HEAD["队头指针只右移, 均摊 O(1)"]
   M -- "任意顺序" --> BIN["二分凸包或李超树"]
   HEAD --> ANS["取直线族在 a[i] 处的最低点"]

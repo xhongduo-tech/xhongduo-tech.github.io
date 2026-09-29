@@ -1,10 +1,10 @@
 ---
-title: SIMM 的 Delta 与 Vega
+title: SIMM 敏感度保证金
 date: 2026-09-07
 section: quant
 ---
 
-# SIMM 的 Delta 与 Vega
+# SIMM 敏感度保证金
 
 <div class="epigraph">
     <p>非清算初始保证金用敏感性乘公开风险权重，在桶内与桶间用规定相关加总；delta、vega 与曲率是三张不同的加权表，不是把内部 VaR 改个名字。</p>

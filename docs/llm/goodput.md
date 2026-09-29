@@ -1,10 +1,10 @@
 ---
-title: 有效吞吐 Goodput
+title: 有效吞吐 vs 请求吞吐
 date: 2026-09-03
 section: llm
 ---
 
-# 有效吞吐 Goodput
+# 有效吞吐 vs 请求吞吐
 
 <div class="epigraph">
 <p>引擎可以每秒吃进很多请求、吐出很多 token，其中不满足延迟合同的那些，对交互产品等于零；把达标的速率单独命名，优化才不会把队列当成吞吐。</p>

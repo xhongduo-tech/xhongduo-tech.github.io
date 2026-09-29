@@ -1,10 +1,10 @@
 ---
-title: wafer-edge-exclusion
+title: 晶圆边缘排除区
 date: 2026-09-27
 section: litho
 ---
 
-# wafer-edge-exclusion
+# 晶圆边缘排除区
 
 <div class="epigraph">
 <p>晶圆最外圈几毫米天生是坏地：边缘效应从光刻一路烧到封装——划出排除区，把良率数学先赢回来。</p>

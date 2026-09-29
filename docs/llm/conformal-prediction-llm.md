@@ -1,10 +1,10 @@
 ---
-title: conformal-prediction-llm
+title: 保形预测进 LLM
 date: 2026-09-27
 section: llm
 ---
 
-# conformal-prediction-llm
+# 保形预测进 LLM
 
 <div class="epigraph">
 <p>「模型说它对」不算数，要「错误率不超过 10%」才有合同价值——保形预测把 LLM 输出从意见变成带保证的集合。</p>

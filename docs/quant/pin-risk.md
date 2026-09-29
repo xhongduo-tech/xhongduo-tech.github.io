@@ -66,13 +66,13 @@ Charm（$\partial\Delta/\partial t$）在到期近平值处极大，意味着即
 
 ```mermaid
 flowchart TD
-  Tau["剩余 τ → 0"] --\gt  G["平值 Gamma 爆炸"]
-  G --\gt  Hedge["Delta 在 0 与 1 间摇摆"]
-  OI["大 OI 执行价"] --\gt  Pin["收盘靠近 K 的统计钉住"]
-  Hedge --\gt  Bin["行权 / 不行权 二元缺口"]
-  Pin --\gt  Bin
-  Bin --\gt  ON["隔夜未知 Delta"]
-  Charm["Charm 即使 S 不动也改变 Δ"] --\gt  Hedge
+  Tau["剩余 τ → 0"] -->  G["平值 Gamma 爆炸"]
+  G -->  Hedge["Delta 在 0 与 1 间摇摆"]
+  OI["大 OI 执行价"] -->  Pin["收盘靠近 K 的统计钉住"]
+  Hedge -->  Bin["行权 / 不行权 二元缺口"]
+  Pin -->  Bin
+  Bin -->  ON["隔夜未知 Delta"]
+  Charm["Charm 即使 S 不动也改变 Δ"] -->  Hedge
 ```
 
 ## 边界

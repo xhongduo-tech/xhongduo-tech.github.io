@@ -1,10 +1,10 @@
 ---
-title: spacer-etch-sadp
+title: 间隔层刻蚀与 SADP
 date: 2026-09-27
 section: litho
 ---
 
-# spacer-etch-sadp
+# 间隔层刻蚀与 SADP
 
 <div class="epigraph">
 <p>SADP 不靠镜头画第二条线，靠第一层图形当模具：沉积一层、刻一个方向，间隔层自己长出半节距的墙。</p>

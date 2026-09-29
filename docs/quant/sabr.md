@@ -1,10 +1,10 @@
 ---
-title: SABR 模型
+title: SABR
 date: 2026-09-07
 section: quant
 ---
 
-# SABR 模型
+# SABR
 
 <div class="epigraph">
     <p>用随机波动率乘在远期的 CEV 扩散上，再对 Black 隐含波动率做奇异摄动，得到的显式近似足以管理微笑风险，而不必每次都解二维 PDE。</p>

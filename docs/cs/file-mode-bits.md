@@ -1,10 +1,10 @@
 ---
-title: 文件模式位
+title: 模式位
 date: 2026-09-08
 section: cs
 ---
 
-# 文件模式位
+# 模式位
 
 <div class="epigraph">
 <p>每个 inode 带有类型与 rwx 三位一组：属主、同组、其他人；内核在 open 与执行时按有效身份核对。</p>

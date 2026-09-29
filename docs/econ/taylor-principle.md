@@ -29,7 +29,7 @@ section: econ
 
 ```mermaid
 flowchart TD
-  PI["通胀预期上升"] --> PHI{"φπ > 1 ?"}
+  PI["通胀预期上升"] --> PHI{"φπ ＞ 1 ?"}
   PHI -->|是| UP["实际利率上升"]
   UP --> DOWN["需求与 π 被压回"]
   PHI -->|否| SELF["实际利率不升"]
@@ -56,7 +56,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  E["公众试着抬高通胀预期"] --> FB{"规则可信且 φπ > 1？"}
+  E["公众试着抬高通胀预期"] --> FB{"规则可信且 φπ ＞ 1？"}
   FB -->|"是"| HI["实际利率立刻上升，需求收缩"]
   HI --> BACK["抢先涨价不划算，预期被压回"]
   BACK --> ANCHOR["预期锚定：很少需要真的大力加息"]

@@ -1,5 +1,5 @@
 ---
-title: ornstein-uhlenbeck
+title: Ornstein–Uhlenbeck 均值回复
 date: 2026-09-27
 section: quant
 ---

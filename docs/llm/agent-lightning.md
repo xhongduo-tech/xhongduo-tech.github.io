@@ -1,10 +1,10 @@
 ---
-title: Agent Lightning
+title: Agent Lightning 训练器注入 harness
 date: 2026-09-07
 section: llm
 ---
 
-# Agent Lightning
+# Agent Lightning 训练器注入 harness
 
 <div class="epigraph">
     <p>部署时用的 harness 直接参加后训练：训练引擎只看见一串 LLM 请求–响应，循环、工具和上下文策略仍归 harness 所有。</p>

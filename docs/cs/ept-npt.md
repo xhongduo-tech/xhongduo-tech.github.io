@@ -1,10 +1,10 @@
 ---
-title: EPT 与 NPT
+title: EPT / NPT
 date: 2026-09-08
 section: cs
 ---
 
-# EPT 与 NPT
+# EPT / NPT
 
 <div class="epigraph">
 <p>扩展页表为客机物理地址再走一层硬件翻译到宿主物理地址，避免 VMM 用影子页表同步每一条客 PTE。</p>

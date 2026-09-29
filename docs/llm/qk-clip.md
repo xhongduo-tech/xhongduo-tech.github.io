@@ -1,10 +1,10 @@
 ---
-title: qk-clip
+title: QK-Clip 梯度裁剪
 date: 2026-09-27
 section: llm
 ---
 
-# qk-clip
+# QK-Clip 梯度裁剪
 
 <div class="epigraph">
 <p>训练崩溃不查学习率先查 QK 头：少数头的 logit 指数爆长，一剪头部权重，loss 尖峰当场熄火。</p>
@@ -27,7 +27,7 @@ Muon 类优化器放宽了 Adam 的二阶矩自适应，梯度更新范数更「
 
 ```mermaid
 flowchart TD
-  A["前向: 逐头算 τ_h"] --> B{"τ_h > 阈值?"}
+  A["前向: 逐头算 τ_h"] --> B{"τ_h ＞ 阈值?"}
   B -->|"是"| C["γ = 目标/τ_h"]
   C --> D["W_K ← γW_K (或剪 W_Q)"]
   B -->|"否"| E["该头不动"]

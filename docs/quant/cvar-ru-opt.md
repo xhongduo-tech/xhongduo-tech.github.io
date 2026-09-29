@@ -1,10 +1,10 @@
 ---
-title: CVaR 的 Rockafellar–Uryasev 表示
+title: CVaR Rockafellar-Uryasev
 date: 2026-09-07
 section: quant
 ---
 
-# CVaR 的 Rockafellar–Uryasev 表示
+# CVaR Rockafellar-Uryasev
 
 <div class="epigraph">
     <p>CVaR 等于对辅助阈值的一个凸函数取最小；最小点处的阈值是 VaR，因而最小化尾部期望不必经过非凸的分位数目标。</p>

@@ -1,10 +1,10 @@
 ---
-title: insider-outsider-labor
+title: 内部人-外部人理论
 date: 2026-09-27
 section: econ
 ---
 
-# insider-outsider-labor
+# 内部人-外部人理论
 
 <div class="epigraph">
 <p>在职工人手握谈判筹码，失业者站在门外喊不出价：劳动市场的刚工资，一半来自门内人的市场力。</p>

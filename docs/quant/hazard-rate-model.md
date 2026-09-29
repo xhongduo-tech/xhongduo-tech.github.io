@@ -1,10 +1,10 @@
 ---
-title: hazard-rate-model
+title: 风险率与生存模型
 date: 2026-09-27
 section: quant
 ---
 
-# hazard-rate-model
+# 风险率与生存模型
 
 <div class="epigraph">
 <p>别问「一年后违约概率多少」，问「活过今天之后，明天瞬间违约的速率多少」——风险率把信用定价从静态变即时。</p>

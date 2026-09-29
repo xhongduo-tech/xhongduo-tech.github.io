@@ -31,9 +31,9 @@ $\Sigma^*$ 可数，语言不可数，故存在不可识别语言。对角化给
 
 ```mermaid
 flowchart TD
-  H["假设 H 判定 A_TM"] --\gt  D["D 翻转 H 在 ⟨M,⟨M⟩⟩"]
-  D --\gt  CONTR["D⟨D⟩ 矛盾"]
-  CONTR --\gt  UNDEC["A_TM 不可判定"]
+  H["假设 H 判定 A_TM"] -->  D["D 翻转 H 在 ⟨M,⟨M⟩⟩"]
+  D -->  CONTR["D⟨D⟩ 矛盾"]
+  CONTR -->  UNDEC["A_TM 不可判定"]
 ```
 
 不要把「程序员看不出来会不会停」当成证明：那是经验，对角化是存在性矛盾。

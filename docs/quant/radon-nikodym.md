@@ -54,7 +54,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  GOAL["想算 Q 下的期望 E_Q[X]"] --> SIM["在 P 下模拟路径"]
+  GOAL["＂想算 Q 下的期望 E_Q［X"]"] --> SIM["在 P 下模拟路径"]
   SIM --> XI["对每条路径算权重 xi"]
   XI --> AVG["取 xi 乘 X 的平均"]
   AVG --> RESULT["得到 E_Q[X]"]

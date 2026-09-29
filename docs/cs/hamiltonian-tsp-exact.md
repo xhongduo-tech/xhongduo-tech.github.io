@@ -52,7 +52,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  S0["dp[{s}][s] = 0"] --> LOOP{"按 |S| 从小到大"}
+  S0["＂dp［{s}"][s] = 0"] --> LOOP{"按 |S| 从小到大"}
   LOOP --> TAKE["取状态 dp[S][v]"]
   TAKE --> MIN["对每个上一站 u：dp[S 去掉 v][u] + w(u,v)"]
   MIN --> UPD["取最小写回 dp[S][v]"]

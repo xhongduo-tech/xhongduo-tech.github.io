@@ -25,7 +25,7 @@ section: cs
 
 ```mermaid
 flowchart TD
-  COVER["[L,R] 被更新完全盖住"] --> TAG["写标记, 改本节点聚合"]
+  COVER["＂［L,R"] 被更新完全盖住"] --> TAG["写标记, 改本节点聚合"]
   PART["部分相交"] --> PD["pushdown"]
   PD --> CH["递归左右"]
   CH --> UP["用孩子重算"]

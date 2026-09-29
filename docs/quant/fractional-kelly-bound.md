@@ -1,10 +1,10 @@
 ---
-title: 分数 Kelly 的边界
+title: 分数 Kelly 边界
 date: 2026-09-07
 section: quant
 ---
 
-# 分数 Kelly 的边界
+# 分数 Kelly 边界
 
 <div class="epigraph">
     <p>全 Kelly 在已知优势下最大化对数增长；优势一旦是估计的，超过真 $f^\ast$ 的损失非对称地大于同等幅度的不足，于是可审计的上界是分数 Kelly，而不是把点估计塞进公式。</p>

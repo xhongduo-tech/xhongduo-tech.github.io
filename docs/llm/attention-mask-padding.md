@@ -1,10 +1,10 @@
 ---
-title: attention-mask-padding
+title: 注意力掩码与填充
 date: 2026-09-27
 section: llm
 ---
 
-# attention-mask-padding
+# 注意力掩码与填充
 
 <div class="epigraph">
 <p>batch 里 8 个序列 7 个是占位符：掩码没做对，占位符就在注意力里说话——一句 padding 的坑，从训练贯到推理。</p>

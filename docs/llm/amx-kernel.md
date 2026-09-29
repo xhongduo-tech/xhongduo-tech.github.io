@@ -66,7 +66,7 @@ AVX-512 寄存器窄、指令开销低，适合低 ARI 与非矩阵算子（soft
 flowchart TD
   OP{"算子形态与 ARI?"} -->|"高 ARI 大 GEMM<br/>专家 FFN / prefill"| AMX["AMX：16×64 tile<br/>沿 K 累加、沿 M/N 平移"]
   OP -->|"低 ARI 逐元素<br/>softmax / 路由"| AVX["AVX-512 向量路径"]
-  AMX --> DEC{"decode 时每专家<br/>token 变少?"}
+  AMX --> DEC{"decode 时每专家＜br/＞token 变少?"}
   DEC -->|"是，ARI 掉下去"| SW["运行时切回 AVX-512<br/>共用同一份权重 pack"]
   DEC -->|"否"| KEEP["继续走 TMUL"]
 ```

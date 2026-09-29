@@ -47,11 +47,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  O1["main.o：调用 printf 处留占位"] --&gt;|登记未定义符号| LD["链接器查各符号表"]
-  O2["libc：printf 的定义"] --&gt; LD
-  LD --&gt; MISS["谁都没定义？报 undefined reference"]
-  LD --&gt; OK["都找到了：按清单重定位"]
-  OK --&gt; EXE["可执行镜像：占位已换成真实地址"]
+  O1["main.o：调用 printf 处留占位"] -->|登记未定义符号| LD["链接器查各符号表"]
+  O2["libc：printf 的定义"] --> LD
+  LD --> MISS["谁都没定义？报 undefined reference"]
+  LD --> OK["都找到了：按清单重定位"]
+  OK --> EXE["可执行镜像：占位已换成真实地址"]
 ```
 
 理解这条链，下一课才能问：镜像里的全局变量、函数里的自动变量、运行时申请的块，分别落在哪片地址上。那些区域不是语法糖，而是链接与加载留下的分区。

@@ -1,10 +1,10 @@
 ---
-title: Rollout 与训练资源复用
+title: rollout 与训练资源复用
 date: 2026-09-07
 section: llm
 ---
 
-# Rollout 与训练资源复用
+# rollout 与训练资源复用
 
 <div class="epigraph">
 <p>生成要 KV 与大 batch 解码，更新要分片梯度与优化器；两套并行度可以不同，但权重不必在 GPU 上存两份，过渡时也不该把整网再搬一遍。</p>

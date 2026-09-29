@@ -1,10 +1,10 @@
 ---
-title: matroid-theory
+title: 拟阵理论
 date: 2026-09-27
 section: cs
 ---
 
-# matroid-theory
+# 拟阵理论
 
 <div class="epigraph">
 <p>贪心为什么有时对有时错？拟阵给出裁决线：独立系满足交换公理，贪心就从局部最优走到全局最优。</p>
@@ -43,7 +43,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  Q["|O| > |G|?"] -->|"交换公理"| R["O∖G 可供给 G 扩充"]
+  Q["|O| > |G｜?"] -->|"交换公理"| R["O∖G 可供给 G 扩充"]
   R --> S["扩充元素权 ≤ 贪心所弃"]
   S --> T["逐步替换 O→G"]
   T --> U["G 亦最优: 贪心成立"]

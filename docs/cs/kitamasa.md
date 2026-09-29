@@ -1,10 +1,10 @@
 ---
-title: kitamasa
+title: Kitamasa 求第 k 项
 date: 2026-09-27
 section: cs
 ---
 
-# kitamasa
+# Kitamasa 求第 k 项
 
 <div class="epigraph">
 <p>求线性递推第 $k$ 项不必造 $k$ 行矩阵：把 $x^k$ 对特征多项式取模，余下的系数就是初值的加权表。</p>

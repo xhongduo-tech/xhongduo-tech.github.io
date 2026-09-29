@@ -1,5 +1,5 @@
 ---
-title: yang-zhang
+title: Yang–Zhang 估计量
 date: 2026-09-27
 section: quant
 ---

@@ -1,10 +1,10 @@
 ---
-title: Grokfast
+title: Grokfast / 优化器笔记
 date: 2026-09-03
 section: llm
 ---
 
-# Grokfast
+# Grokfast / 优化器笔记
 
 <div class="epigraph">
 <p>把每一步梯度看成时间上的信号：快变分量把训练误差迅速压到零，慢变分量才把测试误差拖过那道延迟泛化的坎；放大后者，grokking 不必再等上万步。</p>

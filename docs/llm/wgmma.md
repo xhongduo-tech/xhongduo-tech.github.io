@@ -1,10 +1,10 @@
 ---
-title: WGMMA
+title: WGMMA / wgmma 指令
 date: 2026-09-03
 section: llm
 ---
 
-# WGMMA
+# WGMMA / wgmma 指令
 
 <div class="epigraph">
     <p>Hopper 的矩阵乘加以 warpgroup 为发行单位：四个连续 warp、128 线程一起发一条异步 MMA，操作数可来自共享内存，完成与后续计算重叠。</p>

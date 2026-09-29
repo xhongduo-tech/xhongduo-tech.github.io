@@ -1,10 +1,10 @@
 ---
-title: Contango 与 Backwardation
+title: Contango / Backwardation
 date: 2026-09-07
 section: quant
 ---
 
-# Contango 与 Backwardation
+# Contango / Backwardation
 
 <div class="epigraph">
 <p>仓单与库存把远期曲线写成持有成本加减便利收益；曲线的升贴水首先是存货状态，而不是一张人人可领的风险溢价支票。</p>
@@ -88,7 +88,7 @@ flowchart TD
   COC --> FUT
   FUT --> SHAPE["contango 或 backwardation"]
   SHAPE --> PREM["不等于风险溢价符号"]
-  EXP["E[S_T] 与套期保值压力"] --> PREM
+  EXP["＂E［S_T"] 与套期保值压力"] --> PREM
   FUT -->|"仓储可执行"| ARB["期现 / 跨期带"]
   FUT -->|"现货不可空或满仓"| BRK["贴水或升水可持久"]
 ```

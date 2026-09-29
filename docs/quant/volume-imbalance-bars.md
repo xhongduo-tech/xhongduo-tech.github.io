@@ -1,10 +1,10 @@
 ---
-title: 成交量不平衡条
+title: Volume Imbalance Bars
 date: 2026-09-07
 section: quant
 ---
 
-# 成交量不平衡条
+# Volume Imbalance Bars
 
 <div class="epigraph">
 <p>信息到来时，买卖方向会在成交量上持续偏向一侧；让采样边界跟着这种不平衡走，条带就会在有内容的时候变密，而不是在墙上时钟上均匀切开。</p>
@@ -82,7 +82,7 @@ VIB 依赖成交分类与阈值自适应。分类噪声大时，条边界变成�
 ```mermaid
 flowchart TD
   Trades["带符号成交 b_i v_i"] --> Theta["累积 θ"]
-  Hist["历史条: E[T], P[b=1]"] --> Thr["阈值 I"]
+  Hist["＂历史条: E［T"], P[b=1]"] --> Thr["阈值 I"]
   Theta --> Cmp{"|θ| ≥ I ?"}
   Thr --> Cmp
   Cmp -->|"否"| Trades

@@ -1,10 +1,10 @@
 ---
-title: berlekamp-massey
+title: Berlekamp–Massey 递推识别
 date: 2026-09-27
 section: cs
 ---
 
-# berlekamp-massey
+# Berlekamp–Massey 递推识别
 
 <div class="epigraph">
 <p>给一段观测序列，最短的能生成它的线性递推是什么——Berlekamp–Massey 一遍扫描给出答案，答案的长度本身就是这条序列的线性复杂度。</p>

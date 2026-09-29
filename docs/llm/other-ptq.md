@@ -1,10 +1,10 @@
 ---
-title: AutoRound 与其他 PTQ
+title: AutoRound / 其他 PTQ
 date: 2026-09-03
 section: llm
 ---
 
-# AutoRound 与其他 PTQ
+# AutoRound / 其他 PTQ
 
 <div class="epigraph">
 <p>取整不必服从最近邻：把每个权重向上还是向下写成可优化的变量，用带符号的梯度去减小层输出误差，量化网格本身可以保持均匀。</p>

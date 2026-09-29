@@ -1,10 +1,10 @@
 ---
-title: 内存回收
+title: 回收 shrinker
 date: 2026-09-08
 section: cs
 ---
 
-# 内存回收
+# 回收 shrinker
 
 <div class="epigraph">
 <p>空闲页不够时，内核主动收缩页 Cache、slab 与匿名驻留，而不是等到下一次缺页才 CLOCK 一页。</p>

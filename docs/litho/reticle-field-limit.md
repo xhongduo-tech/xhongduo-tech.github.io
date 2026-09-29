@@ -1,10 +1,10 @@
 ---
-title: reticle-field-limit
+title: 掩模版与场域极限
 date: 2026-09-27
 section: litho
 ---
 
-# reticle-field-limit
+# 掩模版与场域极限
 
 <div class="epigraph">
 <p>光罩就那么大一块玻璃：26×33mm 的场域是整条产线的宪法——芯片放不下就切割，切割不了就拼接，拼接不了就限制你的设计。</p>

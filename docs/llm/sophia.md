@@ -1,10 +1,10 @@
 ---
-title: Sophia 优化器
+title: Sophia optimizer
 date: 2026-09-03
 section: llm
 ---
 
-# Sophia 优化器
+# Sophia optimizer
 
 <div class="epigraph">
 <p>用对角 Hessian 的滑动平均去除梯度，再把每维更新裁到固定上限：二阶信息只用来按曲率分配步长，最坏步长由裁剪兜住。</p>

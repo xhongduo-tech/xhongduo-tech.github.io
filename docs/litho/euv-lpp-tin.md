@@ -1,10 +1,10 @@
 ---
-title: LPP：CO₂ 激光打锡滴产生等离子体
+title: LPP：CO₂ 激光打锡滴
 date: 2026-09-03
 section: litho
 ---
 
-# LPP：CO₂ 激光打锡滴产生等离子体
+# LPP：CO₂ 激光打锡滴
 
 <div class="epigraph">
 <p>锡等离子体在 13.5 nm 附近有强发射带；用脉冲 CO₂ 激光打击锡滴，是目前进入晶圆厂量产的 EUV 光源路线。</p>

@@ -37,13 +37,13 @@ Claude Code 是围绕该模型的终端智能体产品，能多步改仓库；�
 
 ```mermaid
 flowchart TD
-  REQ["同一 3.7 权重"] --\gt  STD["标准模式：短延迟"]
-  REQ --\gt  EXT["extended thinking"]
-  EXT --\gt  BUD["budget_tokens"]
-  BUD --\gt  TH["可见思维 token"]
-  TH --\gt  ANS["最终答案"]
-  EXT --\gt  BILL["思维按输出价格计费"]
-  STD --\gt  ANS2["直接答案"]
+  REQ["同一 3.7 权重"] -->  STD["标准模式：短延迟"]
+  REQ -->  EXT["extended thinking"]
+  EXT -->  BUD["budget_tokens"]
+  BUD -->  TH["可见思维 token"]
+  TH -->  ANS["最终答案"]
+  EXT -->  BILL["思维按输出价格计费"]
+  STD -->  ANS2["直接答案"]
 ```
 
 ### 对数增益与任务可核对性

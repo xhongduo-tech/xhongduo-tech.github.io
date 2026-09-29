@@ -1,10 +1,10 @@
 ---
-title: 交换设备
+title: swap
 date: 2026-09-08
 section: cs
 ---
 
-# 交换设备
+# swap
 
 <div class="epigraph">
 <p>swap 是一块专用于匿名页的后备空间：按页槽编址，不经文件名，也不保存用户可见的目录树。</p>

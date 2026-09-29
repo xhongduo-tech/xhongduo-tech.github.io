@@ -1,10 +1,10 @@
 ---
-title: 成分 ES 与 Euler 分配
+title: 成分 ES / Euler 分配
 date: 2026-09-07
 section: quant
 ---
 
-# 成分 ES 与 Euler 分配
+# 成分 ES / Euler 分配
 
 <div class="epigraph">
 <p>正齐次的风险度量沿欧拉公式分解为各项的边际贡献之和；Expected Shortfall 的边际是「组合已坏过 VaR 的那些情景里，该头寸的条件期望」，因而可以把连贯的尾部资本分到台、因子或名字上。</p>

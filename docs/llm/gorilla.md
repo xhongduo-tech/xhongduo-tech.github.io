@@ -1,10 +1,10 @@
 ---
-title: Gorilla / APIBench
+title: Gorilla APIBench
 date: 2026-09-07
 section: llm
 ---
 
-# Gorilla / APIBench
+# Gorilla APIBench
 
 <div class="epigraph">
     <p>工具一旦变成成百上千份互相重叠的模型卡片，提示里塞不下，GPT-4 也会编造不存在的 `hub.load`；把文档检索写进微调，调用才能跟着文档变，幻觉才能从「发明 API」变成「调错已有 API」。</p>

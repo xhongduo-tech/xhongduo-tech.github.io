@@ -90,7 +90,7 @@ flowchart TD
   TO --> NET["μ_net(A)"]
   C --> NET
   NET --> CAP["容量：μ_net 过零的 A"]
-  CAP --> GO{"净期望>0 且回撤可接受?"}
+  CAP --> GO{"净期望＞0 且回撤可接受?"}
   GO -->|否| RED["加宽阈值 / 降杠杆 / 放弃"]
   GO -->|是| LIVE["小规模实盘校准冲击"]
 ```

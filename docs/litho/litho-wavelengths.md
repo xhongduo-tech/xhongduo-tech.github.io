@@ -1,10 +1,10 @@
 ---
-title: 波长台阶：g/i 线、KrF 248、ArF 193、EUV 13.5
+title: 波长台阶：g/i 线、KrF、ArF、EUV
 date: 2026-09-03
 section: litho
 ---
 
-# 波长台阶：g/i 线、KrF 248、ArF 193、EUV 13.5
+# 波长台阶：g/i 线、KrF、ArF、EUV
 
 <div class="epigraph">
 <p>分辨率写成 $R=k_1\lambda/\mathrm{NA}$。波长不是连续旋钮，而是光源的属性：换一代波长，就要换光源、镜头材料与光刻胶。</p>

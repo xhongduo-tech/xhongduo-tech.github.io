@@ -44,11 +44,11 @@ Gauss–Markov 不管一致性之外的稳健：一条杠杆点可以毁掉有�
 
 ```mermaid
 flowchart LR
-  Y["Y"] --&gt;|对其余回归元回归取残差| RY["残差化的 Ỹ"]
-  X1["x1"] --&gt;|用同样的其余回归元残差化| RX["残差化的 x̃1"]
-  RY --&gt; SIM["Ỹ 对 x̃1 做一元回归"]
-  RX --&gt; SIM
-  SIM --&gt; B["斜率 = 多元回归中 x1 的系数（FWL）"]
+  Y["Y"] -->|对其余回归元回归取残差| RY["残差化的 Ỹ"]
+  X1["x1"] -->|用同样的其余回归元残差化| RX["残差化的 x̃1"]
+  RY --> SIM["Ỹ 对 x̃1 做一元回归"]
+  RX --> SIM
+  SIM --> B["斜率 = 多元回归中 x1 的系数（FWL）"]
 ```
 
 <span class="marginnote">下一课 HAC 先修标准误。遗漏变量仍在更后：漏掉的 $w$ 进入残差，若 $\mathrm{Cov}(X,w)\neq 0$，外生失败，BLUE 无从谈起。</span>

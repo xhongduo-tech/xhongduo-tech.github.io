@@ -60,7 +60,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  OP["一次集合通信 / 一股流量"] --> Q1{"通信维是否密<br/>(TP / 专家 / 域内 AllReduce)?"}
+  OP["一次集合通信 / 一股流量"] --> Q1{"通信维是否密＜br/＞(TP / 专家 / 域内 AllReduce)?"}
   Q1 -->|"是"| ICI["留在 ICI / NVLink 域内<br/>短跳高带宽"]
   Q1 -->|"否"| Q2{"流量类型?"}
   Q2 -->|"DP / 跨 Pod 流水 / KV"| VG["Virgo 东西向织物<br/>RDMA"]

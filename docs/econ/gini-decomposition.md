@@ -1,10 +1,10 @@
 ---
-title: gini-decomposition
+title: Gini 系数分解
 date: 2026-09-27
 section: econ
 ---
 
-# gini-decomposition
+# Gini 系数分解
 
 <div class="epigraph">
 <p>基尼系数是一个数，不是一个诊断：拆成组间、组内与重叠三块，才知道不平等长在哪个关节上。</p>

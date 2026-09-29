@@ -1,10 +1,10 @@
 ---
-title: Tick Rule 与 Quote Rule
+title: Tick / Quote 规则
 date: 2026-09-07
 section: quant
 ---
 
-# Tick Rule 与 Quote Rule
+# Tick / Quote 规则
 
 <div class="epigraph">
 <p>报价规则问成交打在中点的哪一侧；tick 规则问价格相对上一笔不同成交是涨还是跌。它们可以单独使用，也可以像 Lee–Ready 那样串联，但单独使用时的错误结构并不相同。</p>

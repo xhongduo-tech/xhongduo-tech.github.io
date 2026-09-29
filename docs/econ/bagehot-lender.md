@@ -1,10 +1,10 @@
 ---
-title: bagehot-lender
+title: Bagehot 与最后贷款人
 date: 2026-09-27
 section: econ
 ---
 
-# bagehot-lender
+# Bagehot 与最后贷款人
 
 <div class="epigraph">
 <p>危机时刻借钱要高息、要抵押、只借给有偿付能力的机构——150 年前的四句口诀，仍是每个央行最后贷款人的操作手册。</p>

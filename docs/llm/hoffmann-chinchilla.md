@@ -1,10 +1,10 @@
 ---
-title: Hoffmann 的 Chinchilla 论文
+title: Chinchilla 原文
 date: 2026-09-03
 section: llm
 ---
 
-# Hoffmann 的 Chinchilla 论文
+# Chinchilla 原文
 
 <div class="epigraph">
 <p>我们用三种独立方法估计计算最优的参数量与 token 数，它们指向同一区域：两者应近似同比例随 FLOPs 增长——这与先前偏大模型的分配相反。</p>

@@ -37,7 +37,7 @@ $$
 
 ```mermaid
 flowchart TD
-  SDF["0 = E[m Re]"] --> CS["Cauchy-Schwarz"]
+  SDF["＂0 = E［m Re"]"] --> CS["Cauchy-Schwarz"]
   CS --> BD["sigma(m)/E[m] >= Sharpe"]
   BD --> FEAS["(E[m], sigma(m)) 可行域"]
   CAND["候选 m: 如 u'(c)"] --> FEAS
@@ -56,7 +56,7 @@ flowchart TD
 flowchart LR
   A["可交易超额收益张成的空间"] --> P["候选 m 在该空间上的投影"]
   B["偏好给出的候选 m, 如 u'(c)"] --> P
-  P --> T{"投影范数 >= 最大夏普?"}
+  P --> T{"投影范数 ＞= 最大夏普?"}
   T -- "够长" --> OK["可能合格, 进入下一层检验"]
   T -- "太短" --> FAIL["正交失败, 候选 m 被否决"]
   FAIL --> FIX["换更抖的核, 而不是宣布市场无效"]

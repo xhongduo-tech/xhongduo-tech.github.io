@@ -4,7 +4,7 @@ date: 2026-09-07
 section: llm
 ---
 
-# MAP-Neo
+# Map-Neo
 
 <div class="epigraph">
     <p>真正开放不只是最后一份权重：语料、清洗流水线、中间检查点与训练代码要能一起复现一条中英双语 7B。</p>

@@ -1,10 +1,10 @@
 ---
-title: capability-approach
+title: 可行能力方法
 date: 2026-09-27
 section: econ
 ---
 
-# capability-approach
+# 可行能力方法
 
 <div class="epigraph">
 <p>问「有多少钱」不如问「能做成什么事」：发展是把人能过的真实生活集合撑大，收入只是撑大它的手段之一。</p>

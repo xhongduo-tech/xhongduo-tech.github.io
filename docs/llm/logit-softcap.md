@@ -1,10 +1,10 @@
 ---
-title: logit-softcap
+title: logit 软上限
 date: 2026-09-27
 section: llm
 ---
 
-# logit-softcap
+# logit 软上限
 
 <div class="epigraph">
 <p>采样前给每个 logit 套一道 tanh 软上限：越界的信号被压弯而不是剪断——模型话痨与复读，往往是一个没封顶的 logit 闹的。</p>

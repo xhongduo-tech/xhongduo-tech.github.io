@@ -1,10 +1,10 @@
 ---
-title: tiebout-sorting
+title: Tiebout 用脚投票
 date: 2026-09-27
 section: econ
 ---
 
-# tiebout-sorting
+# Tiebout 用脚投票
 
 <div class="epigraph">
 <p>公共品不用投票也能「定价」：居民挑社区落脚，偏好被脚投票显式披露，地方竞争把萨缪尔森难题松了一扣。</p>

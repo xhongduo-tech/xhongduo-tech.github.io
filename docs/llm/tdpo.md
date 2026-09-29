@@ -1,10 +1,10 @@
 ---
-title: TDPO
+title: TDPO Token-level DPO
 date: 2026-09-07
 section: llm
 ---
 
-# TDPO
+# TDPO Token-level DPO
 
 <div class="epigraph">
     <p>生成是逐步吐 token 的，句子级 DPO 却只在整段回答上约束反向 KL；把 Bradley–Terry 写到 token 上，并显式加入逐步前向 KL，才能同时管对齐与多样性。</p>

@@ -1,5 +1,5 @@
 ---
-title: "稀疏训练的数值基础"
+title: 稀疏训练的数值基础
 date: 2026-09-18
 section: llm
 ---

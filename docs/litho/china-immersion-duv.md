@@ -1,10 +1,10 @@
 ---
-title: 国产浸没 DUV
+title: 国产浸没 DUV 与 28 nm 单次曝光
 date: 2026-09-03
 section: litho
 ---
 
-# 国产浸没 DUV
+# 国产浸没 DUV 与 28 nm 单次曝光
 
 <div class="epigraph">
 <p>193 nm 浸没把水的折射率加进数值孔径，单次曝光的量产舒适区落在 28 nm 一类节点；国产扫描仪要先在这一档证明套刻、产率与光学，而不是先宣称追上 EUV。</p>

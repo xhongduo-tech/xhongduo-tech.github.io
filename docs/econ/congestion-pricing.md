@@ -1,10 +1,10 @@
 ---
-title: congestion-pricing
+title: 拥堵定价
 date: 2026-09-27
 section: econ
 ---
 
-# congestion-pricing
+# 拥堵定价
 
 <div class="epigraph">
 <p>堵车的本质是收费错误：路在最挤的时候免费，等于给最不需要补贴的人发钱。</p>

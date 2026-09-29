@@ -1,10 +1,10 @@
 ---
-title: euler-tour-tree
+title: 欧拉序与森林维护
 date: 2026-09-27
 section: cs
 ---
 
-# euler-tour-tree
+# 欧拉序与森林维护
 
 <div class="epigraph">
 <p>把整棵树绕一圈，进出各记一笔，森林就变成一条可以前后缝合的序列：子树是连续区间，断边与连边只是剪开再粘上。</p>

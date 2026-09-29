@@ -1,10 +1,10 @@
 ---
-title: Almgren–Chriss 最优执行
+title: Almgren-Chriss 最优执行
 date: 2026-09-07
 section: quant
 ---
 
-# Almgren–Chriss 最优执行
+# Almgren-Chriss 最优执行
 
 <div class="epigraph">
 <p>把一块仓位换成现金，临时冲击与价格风险权衡：交易越快，冲击越大；交易越慢，波动把尚未执行的余量伤得越深。最优轨迹落在成本–方差的有效前沿上。</p>

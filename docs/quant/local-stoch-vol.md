@@ -1,10 +1,10 @@
 ---
-title: 局部随机波动
+title: Local-stochastic vol
 date: 2026-09-07
 section: quant
 ---
 
-# 局部随机波动
+# Local-stochastic vol
 
 <div class="epigraph">
     <p>瞬时方差写成随机因子乘上杠杆函数 $L(S,t)$，令杠杆满足 Dupire 局部方差等于条件期望 $\mathbb{E}[L^2 v\mid S_t=K]$，则今日全部香草仍被拟合，而路径上仍保留波动的随机性与相关。</p>

@@ -1,10 +1,10 @@
 ---
-title: GRPO 原文
+title: GRPO 原文 DeepSeekMath
 date: 2026-09-07
 section: llm
 ---
 
-# GRPO 原文
+# GRPO 原文 DeepSeekMath
 
 <div class="epigraph">
     <p>价值函数通常要再放一个与策略同规模的模型，而语言模型又往往只在最后一个 token 给奖励；用同一题上多个输出的组内分数当基线，就能去掉 critic。</p>

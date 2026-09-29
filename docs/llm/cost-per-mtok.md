@@ -55,8 +55,8 @@ flowchart TD
   PF --> C1["计算密集 · 输入侧"]
   DC --> C2["带宽密集 · 输出侧"]
   C1 --> BILL["USD/MTok"]
-  C2 --\gt  BILL
-  U["利用率 / 批大小"] --\gt  BILL
+  C2 -->  BILL
+  U["利用率 / 批大小"] -->  BILL
 ```
 
 ## 机制

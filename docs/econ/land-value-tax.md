@@ -1,10 +1,10 @@
 ---
-title: land-value-tax
+title: 土地价值税
 date: 2026-09-27
 section: econ
 ---
 
-# land-value-tax
+# 土地价值税
 
 <div class="epigraph">
 <p>土地摆在那里不多不少：对它的纯地租征税，供给曲线一根竖线，超额负担为零——税收理论里少见的免费午餐。</p>

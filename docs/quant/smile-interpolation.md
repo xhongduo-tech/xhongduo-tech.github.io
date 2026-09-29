@@ -1,5 +1,5 @@
 ---
-title: smile-interpolation
+title: 波动率微笑插值
 date: 2026-09-27
 section: quant
 ---

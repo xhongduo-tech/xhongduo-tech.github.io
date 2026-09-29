@@ -53,7 +53,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  IG["冲突图"] --> Q{"还有 deg < K 的节点?"}
+  IG["冲突图"] --> Q{"还有 deg ＜ K 的节点?"}
   Q -->|"有"| PUSH["简化：摘一个压栈"]
   PUSH --> IG
   Q -->|"无"| SP["选溢出代价低的候选"]

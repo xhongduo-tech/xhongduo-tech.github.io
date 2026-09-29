@@ -61,7 +61,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  Q["当前 query 打分"] --> SM{"局部键与全局键<br/>怎么归一化?"}
+  Q["当前 query 打分"] --> SM{"局部键与全局键＜br/＞怎么归一化?"}
   SM -->|"合并softmax"| M1["全部键挤进同一池竞争"]
   M1 --> M2["近邻 logit 普遍偏高"]
   M2 --> M3["全局权重趋近零"]

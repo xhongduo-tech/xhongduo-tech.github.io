@@ -1,10 +1,10 @@
 ---
-title: WPO
+title: WPO Weighted Preference
 date: 2026-09-07
 section: llm
 ---
 
-# WPO
+# WPO Weighted Preference
 
 <div class="epigraph">
     <p>离策略成对数据不必扔掉，也不必再采一轮：按当前策略下的长度平均概率给对加权，优化在分布上就会更像在策略上学习。</p>

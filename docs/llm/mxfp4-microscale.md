@@ -1,10 +1,10 @@
 ---
-title: MXFP4 微缩放
+title: MXFP4 microscaling
 date: 2026-09-07
 section: llm
 ---
 
-# MXFP4 微缩放
+# MXFP4 microscaling
 
 <div class="epigraph">
     <p>把 32 个 E2M1 元素绑到一个 E8M0 块尺度上，4-bit 才有资格同时谈硬件效率、可互换与可训练，而不是再发明一套私有格子。</p>

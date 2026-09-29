@@ -33,15 +33,15 @@ Outlines 的编译管线可以概括成：正则 → NFA →（可选）DFA → 
 
 ```mermaid
 flowchart TD
-  R["正则表达式"] --\gt  NFA["NFA"]
-  NFA --\gt  DFA["DFA / 压缩 FSM"]
-  DFA --\gt  IDX["按状态索引词表"]
-  IDX --\gt  M["掩码 M(s)"]
-  LM["模型 logits"] --\gt  MASK["非法 -inf"]
-  M --\gt  MASK
-  MASK --\gt  SAMP["采样"]
-  SAMP --\gt  TR["s → s'"]
-  TR --\gt  M
+  R["正则表达式"] -->  NFA["NFA"]
+  NFA -->  DFA["DFA / 压缩 FSM"]
+  DFA -->  IDX["按状态索引词表"]
+  IDX -->  M["掩码 M(s)"]
+  LM["模型 logits"] -->  MASK["非法 -inf"]
+  M -->  MASK
+  MASK -->  SAMP["采样"]
+  SAMP -->  TR["s → s'"]
+  TR -->  M
 ```
 
 ### 与 JSON、CFG 的降级关系

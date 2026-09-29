@@ -1,10 +1,10 @@
 ---
-title: Cont–Kukanov–Stoikov 最优挂单
+title: Cont-Kukanov-Stoikov 最优挂单
 date: 2026-09-07
 section: quant
 ---
 
-# Cont–Kukanov–Stoikov 最优挂单
+# Cont-Kukanov-Stoikov 最优挂单
 
 <div class="epigraph">
 <p>母单不必整笔变成市价：一部分可以挂在若干价位与场所上等填成，一部分立刻吃簿；最优分割权衡的是价差节省、冲击、以及限价未成交时的机会成本。</p>

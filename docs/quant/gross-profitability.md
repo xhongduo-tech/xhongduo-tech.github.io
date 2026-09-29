@@ -1,10 +1,10 @@
 ---
-title: 毛利率：Novy-Marx
+title: 毛利率 Novy-Marx
 date: 2026-09-07
 section: quant
 ---
 
-# 毛利率：Novy-Marx
+# 毛利率 Novy-Marx
 
 <div class="epigraph">
     <p>毛利率高的公司随后平均收益更高；控制账面市值比之后这一溢价更强，价值溢价在控制毛利率之后同样更强——便宜与赚钱是定价的两面，不是互相替代的同一个特征。</p>

@@ -1,10 +1,10 @@
 ---
-title: MiFID II RTS 6
+title: MiFID II RTS 6 算法交易合规
 date: 2026-09-07
 section: quant
 ---
 
-# MiFID II RTS 6
+# MiFID II RTS 6 算法交易合规
 
 <div class="epigraph">
     <p>从事算法交易的投资公司应具备有效的系统与风险控制，确保交易系统具有韧性、有足够容量、设有适当交易限额，并防止发送错误订单或以可能导致混乱或滥用市场的方式运作。</p>

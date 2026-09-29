@@ -1,10 +1,10 @@
 ---
-title: 保证金模型 SPAN 与 SIMM
+title: 保证金模型 SPAN / SIMM
 date: 2026-09-07
 section: quant
 ---
 
-# 保证金模型 SPAN 与 SIMM
+# 保证金模型 SPAN / SIMM
 
 <div class="epigraph">
 <p>保证金要在清算违约之前留住足够的可变现抵押，覆盖「一天或数天内、在规定情景网格上」的潜在损失；它不是经济资本，也不等于银行账簿的 VaR，但和 VaR 共用同一类损失映射。</p>

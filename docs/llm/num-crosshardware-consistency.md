@@ -1,5 +1,5 @@
 ---
-title: "跨硬件的数值一致性"
+title: 跨硬件的数值一致性
 date: 2026-09-18
 section: llm
 ---

@@ -1,10 +1,10 @@
 ---
-title: Huberman–Stanzl 无套利冲击
+title: Huberman-Stanzl 无套利冲击
 date: 2026-09-07
 section: quant
 ---
 
-# Huberman–Stanzl 无套利冲击
+# Huberman-Stanzl 无套利冲击
 
 <div class="epigraph">
     <p>若永久价格影响对数量非线性，交易者就可以用一来一回的循环操纵价格并抽取准套利；无操纵要求永久冲击是线性的，暂时冲击则必须衰减。</p>

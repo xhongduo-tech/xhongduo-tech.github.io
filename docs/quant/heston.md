@@ -1,10 +1,10 @@
 ---
-title: Heston 模型
+title: Heston
 date: 2026-09-07
 section: quant
 ---
 
-# Heston 模型
+# Heston
 
 <div class="epigraph">
     <p>若瞬时方差服从均值回复的平方根过程，且与标的布朗运动相关，欧式期权价格仍可通过特征函数的傅里叶反演写成闭合形式。</p>

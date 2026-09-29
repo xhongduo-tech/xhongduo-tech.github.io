@@ -1,10 +1,10 @@
 ---
-title: SPPO
+title: SPPO Self-Play PO
 date: 2026-09-07
 section: llm
 ---
 
-# SPPO
+# SPPO Self-Play PO
 
 <div class="epigraph">
     <p>偏好不必能写成一个可传递的标量奖励；把它当成两人常和博弈，用自我对弈去逼近纳什均衡，策略就按对当前自己的胜率做乘性更新。</p>

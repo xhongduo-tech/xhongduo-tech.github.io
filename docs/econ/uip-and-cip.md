@@ -34,7 +34,7 @@ $$
 ```mermaid
 flowchart TD
   CIP["CIP：远期复制"] --> ARB["无套利会计"]
-  UIP["UIP：E[S_T] 替换 F"] --> HYP["期望假说"]
+  UIP["＂UIP：E［S_T"] 替换 F"] --> HYP["期望假说"]
   ARB --> MF["后课：i 与 E 的制度分叉"]
   HYP --> MF
   EMP["实证与基差"] --> Q["/quant/irp"]

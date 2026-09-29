@@ -1,10 +1,10 @@
 ---
-title: Hayashi–Yoshida 相关
+title: Hayashi-Yoshida 相关
 date: 2026-09-07
 section: quant
 ---
 
-# Hayashi–Yoshida 相关
+# Hayashi-Yoshida 相关
 
 <div class="epigraph">
 <p>两只资产若在不同时点成交，把价格先插值到同一网格再算协方差，会把不同步变成向下的偏差；改为只对时间上相交的那两段收益做乘积求和，协方差在无噪声扩散下可以一致。</p>

@@ -46,7 +46,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  LEAD["领导者发 AppendEntries<br/>带前驱 index / term"] --> CHK{"跟随者本地该位置<br/>term 一致？"}
+  LEAD["领导者发 AppendEntries<br/>带前驱 index / term"] --> CHK{"跟随者本地该位置＜br/＞term 一致？"}
   CHK -->|"一致"| APP["接受并追加新条目"]
   CHK -->|"不一致：拒绝"| BACK["跟随者回报冲突位置<br/>领导者向前回退再试"]
   BACK --> CHK

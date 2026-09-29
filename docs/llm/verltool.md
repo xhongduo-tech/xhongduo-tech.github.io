@@ -1,10 +1,10 @@
 ---
-title: VERLTool
+title: VERLTool 工具 RL 集成
 date: 2026-09-07
 section: llm
 ---
 
-# VERLTool
+# VERLTool 工具 RL 集成
 
 <div class="epigraph">
     <p>把 RL 工作流和工具执行拆开：训练继续跟上游 VeRL，工具走独立服务器上的标准 API，轨迹按条异步跑，而不是整批在工具调用上对齐等待。</p>

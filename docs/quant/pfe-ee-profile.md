@@ -1,10 +1,10 @@
 ---
-title: pfe-ee-profile
+title: PFE 与 EE 敞口曲线
 date: 2026-09-27
 section: quant
 ---
 
-# pfe-ee-profile
+# PFE 与 EE 敞口曲线
 
 <div class="epigraph">
 <p>对手方风险不在「现在欠多少」，而在「将来可能欠多少」——PFE 把这条未来敞口曲线画出来，监管资本与 CVA 都挂在上头。</p>

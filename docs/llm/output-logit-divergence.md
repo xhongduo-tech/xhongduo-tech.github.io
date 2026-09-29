@@ -43,7 +43,7 @@ CE 的梯度 $p-y$ 在正确类与错误类之间拉间隔。间隔 $\Delta$ 变
 
 ```mermaid
 flowchart TD
-  STEP["一步训练要拉大间隔 Δ"] --> Q1{"错误类 logit<br>肯不肯降?"}
+  STEP["一步训练要拉大间隔 Δ"] --> Q1{"错误类 logit＜br＞肯不肯降?"}
   Q1 -- "肯降" --> DOWN["压错误类<br>LSE 基本不动"]
   Q1 -- "不肯降" --> UP["抬正确类 logit<br>LSE 跟着上涨"]
   UP --> GROW["max logit 逐渐漂向 10³+"]

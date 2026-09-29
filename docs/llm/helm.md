@@ -1,10 +1,10 @@
 ---
-title: HELM 多维度评测
+title: HELM 多维度
 date: 2026-09-03
 section: llm
 ---
 
-# HELM 多维度评测
+# HELM 多维度
 
 <div class="epigraph">
 <p>准确率只是一张成绩单上的一栏。校准、鲁棒、公平、偏见、毒性、效率若不一起报，模型比较就是在用不同的尺子各说各话。</p>

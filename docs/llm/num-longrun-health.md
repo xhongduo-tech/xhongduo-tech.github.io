@@ -1,5 +1,5 @@
 ---
-title: "长期训练的健康监控"
+title: 长期训练的健康监控
 date: 2026-09-18
 section: llm
 ---

@@ -1,10 +1,10 @@
 ---
-title: euv-dose-budget
+title: EUV 剂量预算
 date: 2026-09-27
 section: litho
 ---
 
-# euv-dose-budget
+# EUV 剂量预算
 
 <div class="epigraph">
 <p>EUV 的每一份剂量都是钱和缺陷的汇率：光子少一枚随机缺陷就冒头，光子多一档产能就掉一截——剂量预算是 stochastics 时代的中央账本。</p>

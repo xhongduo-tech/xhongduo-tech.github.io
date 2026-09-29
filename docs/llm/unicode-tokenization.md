@@ -1,10 +1,10 @@
 ---
-title: unicode-tokenization
+title: Unicode 分词陷阱
 date: 2026-09-27
 section: llm
 ---
 
-# unicode-tokenization
+# Unicode 分词陷阱
 
 <div class="epigraph">
 <p>同一个「不」字，UTF-8 三字节、GBK 两字节：BPE 切完 token 数不同、账单不同、智力不同——Unicode 是分词器脚下最深的坑。</p>

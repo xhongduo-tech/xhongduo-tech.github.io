@@ -1,10 +1,10 @@
 ---
-title: 信息驱动 Bar
+title: 信息驱动 bar：tick/volume/dollar
 date: 2026-09-07
 section: quant
 ---
 
-# 信息驱动 Bar
+# 信息驱动 bar：tick/volume/dollar
 
 <div class="epigraph">
 <p>按挂钟等间隔切片，是把交易活跃与死寂的时段等权；按成交笔数、成交量或成交额累积再切片，是让每一根 K 线携带更接近等量的信息到达。</p>
@@ -79,7 +79,7 @@ AFML 声称这些 bar 让观测「更 IID」。更准确的说法是：某些由
 flowchart TD
   TICK["成交打印 p, v, b"] --> REG{"切片规则"}
   REG -->|"计数 / 量 / 额"| BAR["Tick / Volume / Dollar bar"]
-  REG -->|"累积不平衡 |θ| 超阈"| IMB["TIB / VIB / DIB"]
+  REG -->|"累积不平衡 ｜θ| 超阈"| IMB["TIB / VIB / DIB"]
   BAR --> OHLC["OHLC 与时间戳区间"]
   IMB --> OHLC
   OHLC --> TB["三重障碍沿 bar 路径"]

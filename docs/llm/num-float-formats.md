@@ -1,5 +1,5 @@
 ---
-title: "浮点格式谱系：FP32/BF16/FP16"
+title: 浮点格式谱系：FP32/BF16/FP16
 date: 2026-09-18
 section: llm
 ---

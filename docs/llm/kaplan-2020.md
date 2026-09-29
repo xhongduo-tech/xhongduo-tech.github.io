@@ -1,10 +1,10 @@
 ---
-title: Kaplan 2020 扩展律原文
+title: Kaplan scaling 原文
 date: 2026-09-03
 section: llm
 ---
 
-# Kaplan 2020 扩展律原文
+# Kaplan scaling 原文
 
 <div class="epigraph">
 <p>语言模型的测试损失随非嵌入参数量、数据集大小与训练计算呈平滑的幂律；当其中一项成为瓶颈，损失由该项主导。</p>

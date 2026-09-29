@@ -1,10 +1,10 @@
 ---
-title: 挂载与超级块
+title: 挂载与 superblock
 date: 2026-09-08
 section: cs
 ---
 
-# 挂载与超级块
+# 挂载与 superblock
 
 <div class="epigraph">
 <p>超级块描述一次已挂载的文件系统实例；挂载点把该实例的根接到目录树的某个 dentry 上。</p>

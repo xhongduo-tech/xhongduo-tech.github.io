@@ -1,10 +1,10 @@
 ---
-title: lagrange-interpolation
+title: Lagrange 插值
 date: 2026-09-27
 section: cs
 ---
 
-# lagrange-interpolation
+# Lagrange 插值
 
 <div class="epigraph">
 <p>过 $n+1$ 个横坐标互异的点，恰有一个次数至多 $n$ 的多项式——求值容易，插值回去也该有便宜的路。</p>
