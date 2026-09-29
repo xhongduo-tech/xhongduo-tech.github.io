@@ -34,11 +34,11 @@ section: quant
 ```mermaid
 flowchart TD
   ROLE["账户类型：复制 / 对冲 / 增强"] --> SET["可选集与约束：合约、日期、提前量"]
-  SET -> PRED["状态化成本表预测各方案"]
-  PRED -> PICK["选预期成本最低且可行者"]
-  PICK -> EXEC["执行（上一课的方案族）"]
-  EXEC -> ATTR["对账：与基准滚法逐期分解"]
-  ATTR -> PRED
+  SET --> PRED["状态化成本表预测各方案"]
+  PRED --> PICK["选预期成本最低且可行者"]
+  PICK --> EXEC["执行（上一课的方案族）"]
+  EXEC --> ATTR["对账：与基准滚法逐期分解"]
+  ATTR --> PRED
 ```
 
 ## 机制

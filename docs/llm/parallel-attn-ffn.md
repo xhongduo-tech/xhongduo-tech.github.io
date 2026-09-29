@@ -62,14 +62,20 @@ flowchart TD
 ```mermaid
 flowchart TD
   subgraph SER["串行: 层内深度 2"]
-    S1["x"] --> S2["Attn(LN x)"] --> S3["h = x + ·"] --> S4["FFN(LN h)"] --> S5["y = h + ·"]
+    S1["x"] --> S2["Attn(LN x)"]
+    S2 --> S3["h = x + ·"]
+    S3 --> S4["FFN(LN h)"]
+    S4 --> S5["y = h + ·"]
   end
   subgraph PAR["并行: 宽度 2"]
-    P1["x"] --> P2["Attn(LN x)"] --> P4["相加"]
-    P1 --> P3["FFN(LN x)"] --> P4
+    P1["x"] --> P2["Attn(LN x)"]
+    P2 --> P4["相加"]
+    P1 --> P3["FFN(LN x)"]
+    P3 --> P4
     P4 --> P5["y = x + ·"]
   end
-  SER -- "FFN 能立即看到本层注意力输出" --> PAR -- "FFN 只能看到上一状态<br>本层注意力产出下一层才被处理"
+  SER -->|"FFN 能立即看到本层注意力输出"| NOTE["差异: 并行 FFN 只见上一状态"]
+    PAR --> NOTE
 ```
 
 加法是线性的，两路之间没有门控。若注意力输出与 FFN 输出在初始化时方差相近，主干一步收到双倍摄动，这与 DeepNorm 要控制的 $G$ 的尺度同类。实践中靠 Pre-LN、学习率与可能的残差缩放来收。

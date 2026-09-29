@@ -38,8 +38,8 @@ flowchart TD
   Q["查询 + 检索块"] --> IDX["块键索引"]
   IDX --> HIT{"前缀或非前缀命中"}
   HIT -->|前缀| SKIP["跳过前填"]
-  HIT -->|非前缀块"| BL["CacheBlend 选择性重算"]
-  HIT -->|未命中"| PF["全量 / 增量前填"]
+  HIT -->|"非前缀块"| BL["CacheBlend 选择性重算"]
+  HIT -->|"未命中"| PF["全量 / 增量前填"]
   IDX --> TIER["CPU / 盘 / 远端"]
   TIER --> CG["CacheGen 解码或重算回退"]
   BL --> GPU["引擎前向"]

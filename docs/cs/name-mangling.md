@@ -54,7 +54,7 @@ ABI 不稳：改 mangling = 不能与旧 `.o` 链接。不要手写猜测的 `_Z
 flowchart LR
   F1["void f(int)"] --> Z1["_Z1fi"]
   F2["void f(double)"] --> Z2["_Z1fd"]
-  F3["extern \"C\" 的 f"] --> Z3["f（不改编）"]
+  F3["extern C 链接约定的 f"] --> Z3["f（不改编）"]
   Z1 --> LD["链接器按字符串区分"]
   Z2 --> LD
   Z3 --> LD

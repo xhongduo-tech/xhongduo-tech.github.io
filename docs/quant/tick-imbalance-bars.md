@@ -55,7 +55,7 @@ $$
 flowchart TD
   TR["成交"] --> B["tick 规则得 b = ±1"]
   B --> TH["θ ← θ + b"]
-  EW["＂已完成 bar 的 E［T"], P"] --> THR["阈值"]
+  EW["已完成 bar 的 E[T], P"] --> THR["阈值"]
   TH --> CHK{"|θ| ≥ 阈值?"}
   THR --> CHK
   CHK -->|否| TR

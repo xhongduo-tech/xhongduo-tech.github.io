@@ -50,7 +50,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  D["＂let r = ref ［"] 若被推广为 ∀α"] --> W1["第一次实例化: 当 int ref 写入 42"]
+  D["let r = ref [] 若被推广为 ∀α] --> W1[第一次实例化: 当 int ref 写入 42"]
   W1 --> W2["第二次实例化: 当 bool ref 读出"]
   W2 --> BAD["bool 位置跑出 int: 类型谎言"]
   BAD --> FIX["值限制: ref 表达式保持单态 钉死 α"]

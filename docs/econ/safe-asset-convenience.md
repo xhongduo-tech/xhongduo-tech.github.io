@@ -31,7 +31,7 @@ FTAP 给「确定支付」的价格是 $\mathrm{E}[m]\times\text{面额}$（适�
 
 ```mermaid
 flowchart TD
-  FTAP["＂纯确定支付: E［m x"]"] --> PLUS["+ 便利影子价格"]
+  FTAP["纯确定支付: E[m x]] --> PLUS[+ 便利影子价格"]
   PLUS --> TSY["国债收益率更低"]
   STK["安全资产存量"] --> SHAD["影子价格"]
   COLL["可抵押性"] --> PLUS

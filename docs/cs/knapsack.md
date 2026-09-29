@@ -48,7 +48,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  UPD["＂处理第 i 件：dp［w"] ← max(dp[w], dp[w−w_i]+v_i)"] --> DIR{"容量 w 的循环方向？"}
+  UPD["处理第 i 件：dp[w] ← max(dp[w], dp[w−w_i]+v_i)"] --> DIR{"容量 w 的循环方向？"}
   DIR -->|"逆序 W→w_i"| OLD["dp[w−w_i] 还是上一行（不含第 i 件）"]
   OLD --> OK["每件最多用一次：仍是 0-1"]
   DIR -->|"正序 w_i→W"| NEW["dp[w−w_i] 已含第 i 件"]

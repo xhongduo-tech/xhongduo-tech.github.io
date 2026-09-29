@@ -50,10 +50,10 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  T["＂处理组观测均值 E［Y|D=1"]"] --> DIF["朴素差分"]
-  C["＂对照组观测均值 E［Y|D=0"]"] --> DIF
+  T["处理组观测均值 E[Y|D=1]] --> DIF[朴素差分"]
+  C["对照组观测均值 E[Y|D=0]"] --> DIF
   DIF --> SPLIT["拆开 = ATE + 选择偏差"]
-  SB["＂选择偏差 = E［Y(0)|D=1"] − E[Y(0)|D=0]"] --> SPLIT
+  SB["选择偏差 = E[Y(0)|D=1] − E[Y(0)|D=0]"] --> SPLIT
   SPLIT --> R1["随机化：选择偏差为 0，差分即 ATE"]
   SPLIT --> R2["自选择：不为 0，差分虚高或虚低"]
 ```

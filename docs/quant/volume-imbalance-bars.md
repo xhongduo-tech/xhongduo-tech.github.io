@@ -82,7 +82,7 @@ VIB 依赖成交分类与阈值自适应。分类噪声大时，条边界变成�
 ```mermaid
 flowchart TD
   Trades["带符号成交 b_i v_i"] --> Theta["累积 θ"]
-  Hist["＂历史条: E［T"], P[b=1]"] --> Thr["阈值 I"]
+  Hist["历史条: E[T], P[b=1]"] --> Thr["阈值 I"]
   Theta --> Cmp{"|θ| ≥ I ?"}
   Thr --> Cmp
   Cmp -->|"否"| Trades

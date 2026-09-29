@@ -69,7 +69,7 @@ $\mathcal{S}(t)$ 是模式规定的可见集。softmax 只在 $\mathcal{S}(t)$ �
 ```mermaid
 flowchart LR
   I["开头的 token i"] -->|"滑窗逐格传"| W1["相邻窗"] --> W2["再下一窗"] --> W3["……许多跳"] --> J["结尾的 token j"]
-  I -->|"一跳"｜ G["全局 token g"] -->|"一跳"| J
+  I -->|"一跳"| G["全局 token g"] -->|"一跳"| J
   I -.->|"随机边：高概率更短"| J
 ```
 

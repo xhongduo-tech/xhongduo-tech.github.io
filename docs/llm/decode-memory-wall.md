@@ -59,7 +59,7 @@ flowchart TD
   W --> ROOF{"屋顶线"}
   K --> ROOF
   ROOF -->|字节/带宽 > FLOPs/峰值| MEM["带宽墙：加算力无用"]
-  ROOF -->|batch 很大、n 仍短"| CMP["可能靠近计算屋顶"]
+  ROOF -->|"batch 很大、n 仍短"| CMP["可能靠近计算屋顶"]
   MEM --> FIX["减字节 / 加带宽 / 加 batch 复用"]
 ```
 

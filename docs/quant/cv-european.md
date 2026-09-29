@@ -78,7 +78,7 @@ $Y(\beta)$ 是 $Y$ 对 $C$ 做线性回归的残差再平移回正确均值。$\
 flowchart TD
   Path["同一 Q 路径"] --> Y["目标欧式支付 Y"]
   Path --> C["控制支付 C"]
-  Closed["＂闭式 E［C"]"] --> CV["Y - β(C-E[C])"]
+  Closed["闭式 E[C]"] --> CV["Y - β(C-E[C])"]
   Y --> CV
   C --> CV
   Beta["β = Cov/Var 或回归"] --> CV

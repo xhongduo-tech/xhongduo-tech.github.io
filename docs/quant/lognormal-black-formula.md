@@ -59,7 +59,7 @@ $\sigma\to 0$：价格趋向贴现内在（远期兑现）。$\sigma\to\infty$�
 
 ```mermaid
 flowchart TD
-  PAY["＂截断期望 E［(F-K)+"]"] --> SQ["配平方: 平移均值"]
+  PAY["截断期望 E[(F-K)+]"] --> SQ["配平方: 平移均值"]
   SQ --> T1["股票测度期望项 F Φ(d1)"]
   SQ --> T2["现金测度概率项 K Φ(d2)"]
   SHIFT["d1 = d2 + σ√T"] --> T1

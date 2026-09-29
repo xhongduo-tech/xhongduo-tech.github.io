@@ -33,7 +33,7 @@ section: cs
 
 ```mermaid
 flowchart TD
-  FA["＂fa［k"][u] 倍增"] --> LCA["LCA / 路径段"]
+  FA["fa[k][u] 倍增] --> LCA[LCA / 路径段"]
   PRE["到根前缀"] --> SUM["路径和"]
   DIFF["路径差分"] --> DFS["DFS 还原点值"]
 ```
@@ -48,8 +48,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  U["＂a［u"] += d"] --> L["a[lca] -= d"]
-  V["＂a［v"] += d"] --> L
+  U["a[u] += d] --> L[a[lca] -= d"]
+  V["a[v] += d"] --> L
   L --> P["a[parent[lca]] -= d"]
   P --> S["对每个点做子树求和"]
   S --> ON["路径上的点 = d"]

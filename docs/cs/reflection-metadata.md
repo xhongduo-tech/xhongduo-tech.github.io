@@ -50,7 +50,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  REQ["getMethod(\"foo\")：字符串查找"] --> FIRST{"Method 对象已缓存?"}
+  REQ["getMethod（foo）：字符串查找"] --> FIRST{"Method 对象已缓存?"}
   FIRST -->|"否"| RES["解析常量池 + 权限检查 + 装箱：慢路径"]
   RES --> CACHE["缓存 Method 对象"]
   FIRST -->|"是"| HIT["复用缓存"]

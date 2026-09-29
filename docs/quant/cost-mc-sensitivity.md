@@ -29,9 +29,9 @@ flowchart LR
   GAP --> FILL["成交率"]
   GAP --> DEL["延误"]
   GAP --> BOR["借券费率"]
-  VOL["波动上升"] -. "同向变大" .-> SPR
-  VOL -. "同向变大" .-> IMP
-  HALT["涨跌停"] -- "坍缩到零" .-> FILL
+  VOL -.->|"同向变大"| SPR
+  VOL -.->|"同向变大"| IMP
+  HALT -->|"坍缩到零"| FILL
 ```
 
 ### 实施缺口的每一项都是一个随机源

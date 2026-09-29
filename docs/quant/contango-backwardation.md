@@ -88,7 +88,7 @@ flowchart TD
   COC --> FUT
   FUT --> SHAPE["contango 或 backwardation"]
   SHAPE --> PREM["不等于风险溢价符号"]
-  EXP["＂E［S_T"] 与套期保值压力"] --> PREM
+  EXP["E[S_T] 与套期保值压力"] --> PREM
   FUT -->|"仓储可执行"| ARB["期现 / 跨期带"]
   FUT -->|"现货不可空或满仓"| BRK["贴水或升水可持久"]
 ```

@@ -81,8 +81,8 @@ flowchart TD
   P --> D["诊断: 杠杆 / Cook"]
   D --> TYP{"离群类型"}
   TYP -->|错记录| CLN["修正或删除"]
-  TYP -->|真尾部 / 跳"| KEEP["保留并模型化 或 降权"]
-  TYP -->|中心斜率对象"| HUB["Huber / LTS / MM"]
+  TYP -->|"真尾部 / 跳"| KEEP["保留并模型化 或 降权"]
+  TYP -->|"中心斜率对象"| HUB["Huber / LTS / MM"]
   HUB --> CMP["与 OLS 并列报告"]
   OLS --> CMP
 ```

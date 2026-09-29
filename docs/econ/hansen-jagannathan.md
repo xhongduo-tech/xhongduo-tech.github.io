@@ -37,7 +37,7 @@ $$
 
 ```mermaid
 flowchart TD
-  SDF["＂0 = E［m Re"]"] --> CS["Cauchy-Schwarz"]
+  SDF["0 = E[m Re]"] --> CS["Cauchy-Schwarz"]
   CS --> BD["sigma(m)/E[m] >= Sharpe"]
   BD --> FEAS["(E[m], sigma(m)) 可行域"]
   CAND["候选 m: 如 u'(c)"] --> FEAS

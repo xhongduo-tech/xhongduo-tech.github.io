@@ -49,7 +49,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  LR["＂区间 ［l, r"]，枚举范围 opt[l-1] .. opt[r]"] --> M["算中点 m：在范围内枚举 j"]
+  LR["区间 [l, r]，枚举范围 opt[l-1] .. opt[r]] --> M[算中点 m：在范围内枚举 j"]
   M --> RL["左半 [l, m-1]：m 的决策收紧为右界"]
   M --> RR["右半 [m+1, r]：m 的决策收紧为左界"]
   RL --> OUT["左右汇合，整层 opt 算完"]

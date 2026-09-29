@@ -58,9 +58,9 @@ flowchart TD
   SIM --> R{"M 接受？"}
   R -- "是" --> ACC["判接受"]
   R -- "否" --> REJ["判拒绝"]
-  ACC --gt CON["A_TM 变可判定"]
-  NO --gt CON
-  CON --gt CONTR2["与已证矛盾 ⇒ HALT 不可判定"]
+  ACC --> CON["A_TM 变可判定"]
+  NO --> CON
+  CON --> CONTR2["与已证矛盾 ⇒ HALT 不可判定"]
 ```
 
 <span class="marginnote">常见误区：初学者以为「等得够久」就能检测死循环——跑十分钟没停就当它不停。但不存在对所有程序都够用的等待时间：有的程序就是要在第十一个小时停。这正是「截断不能判定停机」的含义。</span>

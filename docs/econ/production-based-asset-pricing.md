@@ -32,7 +32,7 @@ section: econ
 ```mermaid
 flowchart TD
   HH["家庭欧拉: m = MRS"] --> M["同一 m"]
-  FIR["＂投资欧拉: 1 = E［m R^I"]"] --> M
+  FIR["投资欧拉: 1 = E[m R^I]"] --> M
   TREE["Lucas: c = y"] --> SPLIT["生产: c 与股利分家"]
   SPLIT --> M
 ```

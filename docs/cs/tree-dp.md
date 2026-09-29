@@ -45,7 +45,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  KIDS["＂所有孩子 v 的 dp［v"][0/1]"] --> NC["u 不选: Σ max(dp[v][0], dp[v][1])"]
+  KIDS["所有孩子 v 的 dp[v][0/1]] --> NC[u 不选: Σ max(dp[v][0], dp[v][1])"]
   KIDS --> SEL["u 选: w[u] + Σ dp[v][0]"]
   NC --> D0["dp[u][0]"]
   SEL --> D1["dp[u][1]"]

@@ -83,7 +83,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  C["＂条件 CAPM: E［r|F_t"]=β_t E[r_m|F_t]"]
+  C["条件 CAPM: E[r|F_t] = β_t E[r_m|F_t]"]
   C --> Z["状态变量 z_t"]
   Z --> SB["β_{i,t}(z_t)"]
   Z --> SP["风险价格 λ_t(z_t)"]

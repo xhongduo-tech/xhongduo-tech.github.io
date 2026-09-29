@@ -29,7 +29,7 @@ $m$ 个询问 $[l_i,r_i]$，数组不变。维护当前 $[L,R]$ 上的状态（�
 
 ```mermaid
 flowchart TD
-  OFF["＂离线全部 ［l, r"]"] --> SORT["按左块, 再按 r"]
+  OFF["离线全部 [l, r]] --> SORT[按左块, 再按 r"]
   SORT --> PTR["指针 L, R 扩缩"]
   PTR --> ADD["add / del 维护状态"]
 ```

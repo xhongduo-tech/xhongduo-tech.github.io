@@ -27,9 +27,9 @@ section: cs
 
 ```mermaid
 flowchart TD
-  ROOT["＂根 ［1, n"]"] --> L["左半"]
+  ROOT["根 [1, n]] --> L[左半"]
   ROOT --> R["右半"]
-  Q["＂查询 ［l, r"]"] --> DISJ["O(log n) 个不相交节点"]
+  Q["查询 [l, r]] --> DISJ[O(log n) 个不相交节点"]
   DISJ --> OP["按结合律合并"]
 ```
 

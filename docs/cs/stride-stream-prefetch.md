@@ -45,7 +45,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  MISS["＂需求缺失：a［i"] 未中"] --> LOOK{"步长表：该 PC 已学到 Δ？"}
+  MISS["需求缺失：a[i] 未中"] --> LOOK{"步长表：该 PC 已学到 Δ？"}
   LOOK -->|"已学到"| PF["提前向 addr + kΔ 发预取"]
   LOOK -->|"未学到"| WAIT["只记下地址，等下一次缺失"]
   WAIT --> CONF["相邻缺失差恰为 Δ：确认步长"]

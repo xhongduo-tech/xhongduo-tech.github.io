@@ -72,7 +72,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  IND["＂独立假设: E［V_τ^+"] ≈ EE"] --> BIAS["错向时低估"]
+  IND["独立假设: E[V_τ+] ≈ EE"] --> BIAS["错向时低估"]
   GEN["一般错向: 信用 × 宏观共因子"] --> JOINT["联合强度 / 结构相关"]
   SPC["特定错向: 合约钉对手方自身"] --> LIST["名单: 从严 / 视同无抵押"]
   JOINT --> EEW["条件暴露 / 加权 EE"]

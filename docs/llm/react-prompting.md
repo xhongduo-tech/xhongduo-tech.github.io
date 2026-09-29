@@ -68,7 +68,7 @@ flowchart TD
 ```mermaid
 flowchart LR
   T["Thought: 短推理"] -->|"对应"| TC["content 里的文字，无专属字段"]
-  A["＂Action: search［query"]"] -->|"对应"| FN["tool_calls 的函数名与参数"]
+  A["Action: search(query)"] -->|"对应"| FN["tool_calls 的函数名与参数"]
   O["Observation: 返回结果"] -->|"对应"| RT["role: tool 的 content"]
   RT --> NEXT["下一步 Thought 读到它"]
   MISS["Thought 被整个省略"] --> DEG["退化成纯 Act，稀疏决策变差"]

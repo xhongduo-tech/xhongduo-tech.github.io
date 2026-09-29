@@ -48,7 +48,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  V["＂访问 u：记发现时刻 d［u"]，u 进栈"] --> NB["遍历后继 v"]
+  V["访问 u：记发现时刻 d[u]，u 进栈] --> NB[遍历后继 v"]
   NB -->|"v 未访问"| REC["递归 v，回来取<br/>low[u] = min(low[u], low[v])"]
   NB -->|"v 还在栈上"| BACK["u 摸到更老的 v<br/>low[u] = min(low[u], d[v])"]
   REC --> TEST{"low[u] = d[u] ?"}

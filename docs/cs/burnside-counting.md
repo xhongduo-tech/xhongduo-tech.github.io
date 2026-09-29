@@ -41,7 +41,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  Q["双计数: Σ|Stab(x)|"] -->|"固定 x 数 g"｜ R["每轨道贡献 |G|/|O|"]
+  Q["双计数: Σ|Stab(x)|"] -->|"固定 x 数 g"| R["每轨道贡献 |G|/|O|"]
   Q -->|"固定 g 数 x"| S["Σ f(g)"]
   R --> T["两口径相等"]
   S --> T

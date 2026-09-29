@@ -28,7 +28,7 @@ $n$ 个元素，$m$ 次操作。若每次扫全表 $\Theta(n)$ 太慢；若写�
 ```mermaid
 flowchart TD
   SEQ["下标 1..n"] --> BLK["块长 B"]
-  Q["＂［l, r"]"] --> TAIL["左右零头 O(B)"]
+  Q["[l, r]] --> TAIL[左右零头 O(B)"]
   Q --> MID["中间整块 O(n/B)"]
 ```
 
