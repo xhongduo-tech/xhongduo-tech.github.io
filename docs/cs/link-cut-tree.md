@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">术语翻译：preferred path 译作「偏好路径」，preferred child 译作「偏好儿子」；LCT 实为一个「辅助树森林」——真树不动，动的只是每条偏好链在 splay 树里的挂法。辅助树之间由虚边相连，虚边指向本链挂靠的上一层点。</span>
 
-<span class="marginnote">数字实例：$10^5$ 次混有 link/cut 的操作，朴素方案每次重建序要 $O(n)$，合计 $10^{10}$ 级别；LCT 摊还 $O(\log n)$，合计约 $10^5\times 17$，差了三个数量级。</span>
+<span class="marginnote">数字实例：$10^5$ 次混有 link/cut 的操作，朴素方案每次重建序要 $O(n)$，合计 $10^{10}$ 级别；LCT 摊还 $O(\log n)$，合计约 $10^5\times 17$，差了近四个数量级。</span>
 
 ## 方法
 
