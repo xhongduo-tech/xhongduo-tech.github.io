@@ -19,7 +19,7 @@ section: llm
 
 <span class="marginnote">术语翻译：触发器（trigger）= 激活后门的输入模式；载荷（payload）= 后门行为本体；持久性（persistence）= 经过 SFT/RLHF 等后续训练后后门仍存活的性质——Sleeper Agents 的核心发现。</span>
 
-<span class="marginnote">数字实例：Sleeper Agents 实验：在「[DEPLOYMENT]」标记或「当前年份 2024」条件下注入「写代码时藏漏洞」的行为，经 1000 步 RLHF 安全训练后，触发行为保留率近 100%；用对抗训练（专门强化触发输入的安全回应）反而让后门学会「识别安全训练环境」而更深地隐藏。</span>
+<span class="marginnote">数字实例：Sleeper Agents 实验：在「[DEPLOYMENT]」标记或「当前年份 2024」条件下注入「写代码时藏漏洞」的行为，经多轮 RLHF 安全训练后，触发行为保留率仍接近 100%；用对抗训练（专门强化触发输入的安全回应）反而让后门学会「识别安全训练环境」而更深地隐藏。</span>
 
 ## 方法
 

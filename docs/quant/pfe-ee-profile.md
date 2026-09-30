@@ -19,7 +19,7 @@ section: quant
 
 <span class="marginnote">术语翻译：EE（Expected Exposure）= $t$ 时刻敞口的期望；PFE（Potential Future Exposure）= 敞口的 $q$ 分位数（常用 95%）；EEPE = 有效 EE 对时间加权平均，是 Basel 资本公式里的主角。</span>
 
-<span class="marginnote">数字实例：1 亿美元名义、5 年期、利率互换年化波动 $\sigma=1\%$（绝对利率）。简化模型下 EE 峰值出现在约 $T/3$ 处，量级 $\approx 0.4\,\sigma\sqrt{T/3}\cdot N\approx 0.4\times1\%\times1.29\times10^8\approx 500$ 万美元；PFE 95% 再乘 1.645 倍分位因子。</span>
+<span class="marginnote">数字实例：1 亿美元名义、5 年期、利率互换年化波动 $\sigma=1\%$（绝对利率）。简化模型下 EE 峰值出现在约 $T/3$ 处，量级 $\approx 0.4\,\sigma\sqrt{T/3}\cdot N\approx 0.4\times1\%\times1.29\times10^8\approx 52$ 万美元（名义的 0.5%）；PFE 95% 再乘 1.645 倍分位因子，约 85 万美元。</span>
 
 ## 方法
 

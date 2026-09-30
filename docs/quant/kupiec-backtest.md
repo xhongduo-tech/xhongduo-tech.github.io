@@ -19,7 +19,7 @@ section: quant
 
 <span class="marginnote">术语翻译：突破（exception）= 实亏越过 VaR 的日子；覆盖率（coverage）= 名义「不突破概率」，99% VaR 即覆盖率 99%。Kupiec 的原名叫 POF 检验——Proportion of Failures。</span>
 
-<span class="marginnote">数字实例：$n=250$、$p=1\%$。突破 $x=2$ 时似然比 $LR=0.06$（远小于 3.84，不拒绝）；$x=5$ 时 $LR\approx 4.5$（在 5% 水平拒绝）；$x=7$ 时 $LR\approx 12$（强烈拒绝）。同样的 250 天，「5 次突破」已经够把模型送进黄区。</span>
+<span class="marginnote">数字实例：$n=250$、$p=1\%$。突破 $x=2$ 时似然比 $LR\approx 0.11$（远小于 3.84，不拒绝）；$x=5$ 时 $LR\approx 1.96$——仍未过 3.84，Kupiec 拒绝不了，尽管 Basel 交通灯已亮黄区；$x=7$ 时 $LR\approx 5.5$（超过 3.84，5% 水平拒绝）。同样 250 天，「5 次突破」黄区了却告不赢检验——功效不足是频率检验的软肋。</span>
 
 ## 方法
 
