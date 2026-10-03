@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>同一条命令跑两次得到不同的权重点，不一定是算法随机；浮点结合律、算法选择与未种子化的 dropout，都会把轨迹分叉。</p>
-<footer>—— Pineau et al., Improving Reproducibility in Machine Learning Research, NeurIPS 2021；实现约束见 PyTorch / CUDA 对确定性算法的说明</footer>
+<footer>—— Pineau et al., Improving Reproducibility in Machine Learning Research, JMLR 2021；实现约束见 PyTorch / CUDA 对确定性算法的说明</footer>
 </div>
 
 [上一课](/llm/model-soups-averaging)把多检查点平均当成功能。缺口是：若两次名义相同的训练已经不是同一条轨迹，汤与 EMA 的对照实验无法解释。本课写训练期的**确定性来源**，把「种子」从「dropout 的 RNG」扩大到算法、精度与通信。下一课的静默数据损坏是硬件在确定性软件之下仍能改比特的情况；两课不要混。
@@ -78,4 +78,4 @@ flowchart TD
 - 代理模型上追求近逐比特，以抓未种子化 bug；大模型用多种子统计。
 - 关 dropout ≠ 确定；融合核可能没有确定性实现。
 - 对照实验必须声明锁了哪一层，否则汤与消融无法解释。
-- 出处：Pineau et al., NeurIPS 2021；框架对确定性算法的文档。
+- 出处：Pineau et al., JMLR 2021；框架对确定性算法的文档。
