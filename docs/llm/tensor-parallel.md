@@ -25,7 +25,7 @@ Megatron 对 MLP 的标准配对：第一层 $A$ **列并行**（按输出维切
 
 SwiGLU 有两块上投影。它们一起按列切，门控逐元素乘仍在分片上合法，因为切的是输出通道而不是序列。下投影仍行切。把门控按错误的维切开，逐元素乘会缺少另一半通道，结果无定义。
 
-<span class="marginnote">数字实例：$d=4096$、TP 度 $T=2$ 时，列并行把 $A$ 沿输出维切成两个 $4096\times2048$，每卡权重减半、激活 $XA_i$ 也是半宽；行并行再各持有 $2048\times d_{\mathrm{out}}$ 的 $B_i$。前向每层付一次 $b\times s\times d$ 量级的 All-Reduce——若 $b=4,s=2048,d=4096$，一次 All-Reduce 的数据量就是约 $32$ MB（BF16），每层前向反向共付两次上下。</span>
+<span class="marginnote">数字实例：$d=4096$、TP 度 $T=2$ 时，列并行把 $A$ 沿输出维切成两个 $4096\times2048$，每卡权重减半、激活 $XA_i$ 也是半宽；行并行再各持有 $2048\times d_{\mathrm{out}}$ 的 $B_i$。前向每层付一次 $b\times s\times d$ 量级的 All-Reduce——若 $b=4,s=2048,d=4096$，一次 All-Reduce 的数据量就是约 $64$ MB（BF16），每层前向反向共付两次上下。</span>
 
 <span class="marginnote">术语翻译：All-Reduce 就是「所有人把各自手里的部分和拿出来交换，交换完每张卡都拿到总和」。还有个近亲 All-Gather 是「拼图不相加」——各卡把碎片凑成完整张量但不做加法。TP 里求和用前者，切开激活用后者。</span>
 

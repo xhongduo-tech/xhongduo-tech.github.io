@@ -29,7 +29,7 @@ MoE 与长上下文把同一层内部又切开。专家数涨到几十上百，�
 
 3D 的标准排法可以写成网格 $D\times T\times P$。一张卡的逻辑坐标是数据副本编号、张量分片编号、流水线阶段编号。前向时，同一流水线阶段内先做 TP 切分的注意力与 FFN，阶段之间用点对点把激活送到下一阶段；反向再反向走一遍，最后在 DP 组上对梯度 All-Reduce（或 ZeRO 式的 Reduce-Scatter）。Microbatch 把流水线填满，气泡比例大约是阶段数与 microbatch 数之比。
 
-<span class="marginnote">气泡代个数字：$P=8$ 个阶段、每步 32 个 microbatch 时，气泡约 $(P-1)/M=7/32\approx22\%$ 的算力在空转；microbatch 翻倍到 64，气泡降到约 11%。但 microbatch 太小会把 TP 通信切得更碎——两个旋钮要一起看，不能只拧一个。</span>
+<span class="marginnote">气泡代个数字：$P=8$ 个阶段、每步 32 个 microbatch 时，气泡约 $(P-1)/(M+P-1)=7/39\approx18\%$ 的算力在空转；microbatch 翻倍到 64，气泡降到约 10%。但 microbatch 太小会把 TP 通信切得更碎——两个旋钮要一起看，不能只拧一个。</span>
 
 5D 在同一网格上再乘专家维与上下文维。EP 组通常嵌在同一流水线阶段、同一段序列分片之内，对 MoE 层做 All-to-All。CP 组沿序列切开 $Q,K,V$，用环或 All-Gather 补齐注意力需要的键值，再把输出按序列分片写回。常见约束是：TP 组必须落在 NVLink 域，CP 次之（注意力通信量大），EP 视专家是否跨节点而定，PP 与 DP 可以跨机。
 
