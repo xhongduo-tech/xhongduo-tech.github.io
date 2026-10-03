@@ -37,7 +37,7 @@ $$
 
 ## 方法
 
-把 (4) 拆成索引乘与 log-sum-exp 两条小输出算子。自定义核按词表块把 $C$ 的切片与 $E$ 乘在 SRAM，维护在线 max 与 $\sum e^{z-m}$，正确类 logit 单独点积。前向输出 $\ell\in\mathbb{R}^N$。反向 $\partial\ell/\partial E$、$\partial\ell/\partial C$ 需要 $p_j=\mathrm{softmax}(z)_j$，但绝大多数 $p_j$ 低于 fp16/bf16 能表示的贡献，CCE **跳过这些项的梯度**，用稀疏性换吞吐。过滤是数值启发式，论文报告在收敛与速度上与基线难分。
+把上式拆成索引乘与 log-sum-exp 两条小输出算子。自定义核按词表块把 $C$ 的切片与 $E$ 乘在 SRAM，维护在线 max 与 $\sum e^{z-m}$，正确类 logit 单独点积。前向输出 $\ell\in\mathbb{R}^N$。反向 $\partial\ell/\partial E$、$\partial\ell/\partial C$ 需要 $p_j=\mathrm{softmax}(z)_j$，但绝大多数 $p_j$ 低于 fp16/bf16 能表示的贡献，CCE **跳过这些项的梯度**，用稀疏性换吞吐。过滤是数值启发式，论文报告在收敛与速度上与基线难分。
 
 ### 和 chunking、和序列并行
 
