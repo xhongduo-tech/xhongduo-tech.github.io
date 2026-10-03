@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-Decode 一步的工作集很小：几个 token 的 dispatch、一次 grouped GEMM、一次 combine、一次 MLA。若每段都是独立算子，启动开销、格式转换、动态 shape 会压过有效 FLOPs。常规 All-to-All 走 SDMA 时，论文指出启动延迟约 10–20 µs 量级，在超低延迟 decode 里会变成主项。AIC 还偏好 NZ 布局的 L1，KV 却常以 ND 存在 HBM，算前转格式再吃一截带宽。
+Decode 一步的工作集很小：几个 token 的 dispatch、一次 grouped GEMM、一次 combine、一次 MLA。若每段都是独立算子，启动开销、格式转换、动态 shape 会压过有效 FLOPs。常规 All-to-All 走 SDMA 时，论文指出其启动开销可观，在超低延迟 decode 里会变成主项。AIC 还偏好 NZ 布局的 L1，KV 却常以 ND 存在 HBM，算前转格式再吃一截带宽。
 
 <span class="marginnote">「启动税」指每调用一个算子前，CPU 准备参数、选 kernel、把命令下发给硬件的固定开销。单次 10–20 µs 听着不大，但 decode 一步的总预算往往只有几十毫秒，中间却要串几十个算子：开销乘以算子数，启动税就可能吃掉一半以上的时间，真正算数的 FLOPs 反而没占多少。</span>
 

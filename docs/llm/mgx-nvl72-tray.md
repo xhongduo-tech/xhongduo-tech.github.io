@@ -27,7 +27,7 @@ section: llm
 
 <span class="marginnote">数字实例：机柜约 260 TB/s 的 NVLink 6 带宽，折到每 GPU 约 3.6 TB/s，相当于每秒搬完约 180 部 20 GB 的 4K 电影。注意这是卡间互连带宽，不是显存带宽，也不是对外网络速度。</span>
 
-<span class="marginnote">NVIDIA 给出托盘组装从约两小时降到约五分钟、最高约 18–20 倍装服务速度的对照。那是装配工时，不是模型吞吐。不要把 20 倍写进 tokens/s 表。</span>
+<span class="marginnote">NVIDIA 给出托盘组装从约两小时降到约五分钟、最高约 18 倍装服务速度的对照。那是装配工时，不是模型吞吐。不要把 18 倍写进 tokens/s 表。</span>
 
 ## 方法
 
@@ -89,7 +89,7 @@ NVIDIA 把 MGX 设计贡献给 OCP，并称有 80 多家生态伙伴共用电源
 
 爆炸半径仍然是机柜级：脊或冷却歧管故障不是换一张卡能结束的。热插降低的是交换与部分模块的维修代价，不是把 NVL72 变成刀片服务器。
 
-<span class="marginnote">出处：NVIDIA Vera Rubin NVL72 数据表与 POD / 平台技术博文中的第三代 MGX、18+9 托盘、无缆/无管/无风扇、交换热插与 20 倍组装对照。带宽只用已公布的 NVLink 6 机柜级数字。</span>
+<span class="marginnote">出处：NVIDIA Vera Rubin NVL72 数据表与 POD / 平台技术博文中的第三代 MGX、18+9 托盘、无缆/无管/无风扇、交换热插与 18 倍组装对照。带宽只用已公布的 NVLink 6 机柜级数字。</span>
 
 ## 小结
 
