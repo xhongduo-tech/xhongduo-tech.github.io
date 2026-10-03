@@ -70,7 +70,7 @@ flowchart TD
 
 ## 边界
 
-延迟敏感的对话不要默认 MBR：$O(N^2)$ 次 COMET 前向会把 TPOT 打穿。离线 MT、评测、数据过滤更合适。数学题应先解析再在答案空间投票，不要对整段思维链做 BLEU-MBR。候选必须独立或至少多样；对贪心的 $N$ 份复制做 MBR 无定义。
+延迟敏感的对话不要默认 MBR：$O(N^2)$ 次 COMET 前向会把 TPOT 打穿。离线 MT、评测、数据过滤更合适。数学题应先解析再在答案空间投票，不要对整段思维链做 BLEU-MBR。候选必须独立或至少多样；对贪心的 $N$ 份复制做 MBR 退化（所有候选相同，选谁都一样）。
 
 出处：Eikema & Aziz, COLING 2020；Freitag et al., 2022（神经度量 MBR）。经典 MT 的 MBR 见 Kumar & Byrne。不要发明「LLM-MBR」的 arXiv 编号。
 

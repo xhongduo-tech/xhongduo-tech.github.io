@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-一步 decode 的注意力与 MLP 可以融合；采样却常被写成：拷 logits → `softmax` → 主机上 `random.choice`。小 batch 时被掩盖；连续批把 batch 拉到容量墙附近后，词表维的带宽与核启动变成可见项。更麻烦的是 *每请求状态不同*：$T$、$p$、$k$、$b$、是否贪心、是否有掩码，不能打成一个整齐的 GEMM。缺口是：在不规则参数下仍把采样留在设备上，并与[温度协议](/llm/sampling-temperature-topp)一致——包括 $T=0$ 走 argmax，而不是极小温度加核。<span class="marginnote">数字感受一下：词表 12.8 万时一份 FP32 logits 约 0.5 MB；batch 256 意味着一步 decode 来回搬运约 128 MB。PCIe 往返要几百微秒，而留在设备上只需几微秒——这就是高并发下采样从「隐形」变「刺眼」的原因。</span>
+一步 decode 的注意力与 MLP 可以融合；采样却常被写成：拷 logits → `softmax` → 主机上 `random.choice`。小 batch 时被掩盖；连续批把 batch 拉到容量墙附近后，词表维的带宽与核启动变成可见项。更麻烦的是 *每请求状态不同*：$T$、$p$、$k$、$b$、是否贪心、是否有掩码，不能打成一个整齐的 GEMM。缺口是：在不规则参数下仍把采样留在设备上，并与[温度协议](/llm/sampling-temperature-topp)一致——包括 $T=0$ 走 argmax，而不是极小温度加核。<span class="marginnote">数字感受一下：词表 12.8 万时一份 FP32 logits 约 0.5 MB；batch 256 意味着一步 decode 来回搬运约 128 MB。PCIe 往返要毫秒级，而留在设备上只需几微秒——这就是高并发下采样从「隐形」变「刺眼」的原因。</span>
 
 随机数质量与可复现性是第二缺口。设备 RNG 与主机 Python 不同；TP 下各 rank 的 logits 归约后再采，必须只在一处采，否则分叉。不要用种子当正确性测试，先修课已说；内核仍要保证 *同一 rank、同一算法* 的可重复，便于调试。
 
