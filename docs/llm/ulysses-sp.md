@@ -27,7 +27,7 @@ flowchart TD
     T["每卡：全长 s × 一部分头"] --> TA["All-Reduce 规约求和"]
   end
   subgraph SPX["Ulysses 切序列"]
-    S["每卡：s/P_sp × 头分片"] --> SA["All-to-All 换布局 → 算完换回"]
+    S["每卡：s/P_sp × 全部头"] --> SA["All-to-All 换布局 → 算完换回"]
   end
   TA --> C["可叠加 · 但不要把头切两次"]
   SA --> C
