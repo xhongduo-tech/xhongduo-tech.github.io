@@ -53,7 +53,7 @@ flowchart TD
   Q["同一道题"] --> A["短链 500 tok<br>R = 1"]
   Q --> B["长链 8000 tok<br>R = 1"]
   Q --> C["超长链 16000 tok<br>R = 1"]
-  A --> TIE{"校验器只看对错:＜br＞三条链同分?"}
+  A --> TIE{"校验器只看对错:<br/>三条链同分?"}
   B --> TIE
   C --> TIE
   TIE -- "是" --> LEN["长度无价格<br>训练噪声偏向长链"]
@@ -62,7 +62,7 @@ flowchart TD
 
 <span class="marginnote">常见误区：初学者容易以为 RL 会「自动找到最短的解」。实际上对错奖励眼里 500 token 和 80000 token 的正确解完全等价，谁被采样到、谁曾经救命，谁就被强化——「偏短」必须作为额外目标显式写进偏序里。</span>
 
-<span class="marginnote">强迫短预算在难題上会制造截断错误，表现为过度思考的反面。分桶调 $B$。</span>
+<span class="marginnote">强迫短预算在难题上会制造截断错误，表现为过度思考的反面。分桶调 $B$。</span>
 
 ## 边界
 
