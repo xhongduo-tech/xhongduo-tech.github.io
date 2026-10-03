@@ -11,7 +11,7 @@ section: llm
 <footer>—— Yasunaga et al., Large Language Models as Analogical Reasoners, ICLR 2024</footer>
 </div>
 
-少样本思维链的质量绑在示范上：例题要相关、步骤要对、分布要对齐测试集。Yasunaga、Chen、Bosselut、Liang 与 Manning 把认知科学里的类比推理收成一条提示：解题之前，先让模型**自生成**若干相关问题及其解法（或一段相关知识），再条件化到原题上。这就是 analogical prompting。它仍是一次或少数几次解码，不检索外部题库，也不微调。相对人工少样本，省掉了例题工程；相对纯零样本 CoT，多了一段「临时题库」当脚手架。
+少样本思维链的质量绑在示范上：例题要相关、步骤要对、分布要对齐测试集。Yasunaga、Chen、Li 等人把认知科学里的类比推理收成一条提示：解题之前，先让模型**自生成**若干相关问题及其解法（或一段相关知识），再条件化到原题上。这就是 analogical prompting。它仍是一次或少数几次解码，不检索外部题库，也不微调。相对人工少样本，省掉了例题工程；相对纯零样本 CoT，多了一段「临时题库」当脚手架。
 
 ## 问题
 
