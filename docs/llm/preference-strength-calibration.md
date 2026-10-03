@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>「A 比 B 好」和「A 比 B 好得多」在二元标签里是同一行数据；把强度扔掉，等于把噪声对和金子对同等加权。</p>
-<footer>—— 强度采集与加权见 Wang 等 Secrets of RLHF Part II 2023、Cui 等 UltraFeedback 2023；概率底座见 Bradley-Terry</footer>
+<footer>—— 强度采集与加权见 Wang 等 Secrets of RLHF Part II 2024、Cui 等 UltraFeedback 2023；概率底座见 Bradley-Terry</footer>
 </div>
 
 [上一课](/llm/annotation-agreement)把分歧归因时留了一个出口：真模糊的对降权或「转强度档」。本课把那个档位补完：偏好强度怎么采、怎么变成损失里的量、怎么反过来清洗标签。二元标签是 BT 损失的接口，但标注员判断里天然带着强度——把「险胜」与「碾压」都记成 1，是采集端最大的一笔信息丢弃。[Bradley-Terry](/llm/bradley-terry) 的潜在分数本来就允许间隙存在，本课讨论怎么把间隙请回损失。
@@ -71,4 +71,4 @@ flowchart TD
 - 强度有三条进损失的路：加权、目标间隔、软标签，均保持 BT 概率语义。
 - 机制上强度是噪声探测器：边界附近的对翻转率高，降权是免费的方差缩减。
 - 间隙恢复语义后，下游优势估计与校准都受益；幅度要消融。
-- 出处：Wang 等 Secrets of RLHF Part II，2023；Cui 等 UltraFeedback，2023；Bradley-Terry 底座见主干课。
+- 出处：Wang 等 Secrets of RLHF Part II，2024；Cui 等 UltraFeedback，2023；Bradley-Terry 底座见主干课。
