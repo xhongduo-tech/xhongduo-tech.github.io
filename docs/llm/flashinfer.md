@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>服务侧注意力不是一张整齐的 $n\times n$ 方阵，而是变长、分页、带共享前缀的ragged 张量；内核库要把这些布局当成一等公民，而不是训练核上的补丁。</p>
-<footer>—— Ye et al., FlashInfer, 2024</footer>
+<footer>—— Ye et al., FlashInfer, 2025</footer>
 </div>
 
 [上一课](/llm/sw-pipeline-buffer)把软件流水写成多份片上缓冲让拷贝与 MMA 重叠：Ampere 走 `cp.async` group，Hopper 走 TMA + mbarrier，stage 受 smem 与占用率约束。缺口是服务侧注意力的对象不是训练用的方阵：分页 KV、变长 batch、共享前缀要求核内 gather 与级联，而不是先整理成连续缓冲再调训练核。FlashInfer 把同一套在线 softmax 收成可定制的推理内核库。本课写这条服务契约，不重写 double buffering 的 stage 公式。调度器仍见 [SGLang](/llm/sglang) 一类引擎。
@@ -92,4 +92,4 @@ FlashInfer 不负责页分配、抢占与前缀树插入，那些是调度器的
 - 采样与融合算子同库，避免短 decode 上的框架级核风暴。
 - 它不替代调度器、页分配器或前缀树；契约对齐之后，核才能吃满带宽与 Tensor Core。
 - 与训练 FlashAttention 分工：一个管等长可反向，一个管 ragged 前向。
-- 出处：Ye et al., *FlashInfer: Efficient and Customizable Attention Engine for LLM Inference Serving*, 2024。
+- 出处：Ye et al., *FlashInfer: Efficient and Customizable Attention Engine for LLM Inference Serving*, 2025。

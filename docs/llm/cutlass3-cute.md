@@ -54,7 +54,7 @@ flowchart TD
   TMA --> SMEM["共享存储 tile"]
   SMEM --> MMA["WGMMA / MMA 集体"]
   MMA --> ACC["寄存器累加器"]
-  ACC --> EP["Epiloque / softmax 插入"]
+  ACC --> EP["Epilogue / softmax 插入"]
   EP --> OUT["写回全局布局"]
 ```
 

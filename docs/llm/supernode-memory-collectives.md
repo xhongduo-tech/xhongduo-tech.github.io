@@ -58,7 +58,7 @@ All-to-All 在域内是交叉矩阵；在 Clos 上是多对多。超节点内存
 
 ## 机制
 
-本地加载走 HBM 控制器，算术强度按 Williams 屋顶线衡量。远程加载走 NVLink 包：地址在远端，数据经交换托盘回来，占用的是互连预算，不是本卡 HBM 的全部 带宽规格。两者可以在同一 kernel 里混用，混用时屋顶线变成「HBM 与 NVLink 的较小者再打折」，不要用单卡 FLOPS 去除。集合通信则是许多远程搬运加片上归约：NCCL 用 GPU kernel 做 reduce，链路用 NVLink。有效带宽看 `nccl-tests` 的 busbw，不看标称 1.8 TB/s。
+本地加载走 HBM 控制器，算术强度按 Williams 屋顶线衡量。远程加载走 NVLink 包：地址在远端，数据经交换托盘回来，占用的是互连预算，不是本卡 HBM 的全部带宽规格。两者可以在同一 kernel 里混用，混用时屋顶线变成「HBM 与 NVLink 的较小者再打折」，不要用单卡 FLOPS 去除。集合通信则是许多远程搬运加片上归约：NCCL 用 GPU kernel 做 reduce，链路用 NVLink。有效带宽看 `nccl-tests` 的 busbw，不看标称 1.8 TB/s。
 
 ```mermaid
 flowchart LR
