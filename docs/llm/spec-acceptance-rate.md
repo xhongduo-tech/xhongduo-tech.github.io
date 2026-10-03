@@ -35,7 +35,7 @@ $\alpha=1$ 时 $\mathbb{E}[L]=\gamma+1$。这是链拓扑、独立假设下的�
 
 <span class="marginnote">$\alpha$ 独立是分析用的。真实接受率沿深度下降，且与上下文相关——这正是 EAGLE-2 改动态树的理由。用常数 $\alpha$ 估加速比，只适合做数量级，不适合当 SLA。</span>
 
-<span class="marginnote">把数代进去看：$\alpha=0.7$、$\gamma=3$ 时，$\mathbb{E}[L]=(1-0.7^4)/(1-0.7)\approx 2.19$，不是直觉的 $0.7\times 4=2.8$。差距来自「在第一个拒绝处就停」——三个草稿全对的概率只有 $0.7^3\approx 34\%$，多数循环提前收工，只多拿一个纠正 token。</span>
+<span class="marginnote">把数代进去看：$\alpha=0.7$、$\gamma=3$ 时，$\mathbb{E}[L]=(1-0.7^4)/(1-0.7)\approx 2.53$，不是直觉的 $0.7\times 4=2.8$。差距来自「在第一个拒绝处就停」——三个草稿全对的概率只有 $0.7^3\approx 34\%$，多数循环提前收工，只多拿一个纠正 token。</span>
 
 ## 方法
 

@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 Megatron-LM 的层内 All-Reduce（Shoeybi 等）与 vLLM / TensorRT-LLM 针对推理短消息的自定义实现</footer>
 </div>
 
-[上一课](/llm/kernel-autotuning)把单卡核调到接近屋顶。多卡 TP 下，屋顶旁边还有通信：[张量并行](/llm/tensor-parallel)每层两次 All-Reduce（前向一次、某些切法下反向再一次；推理前向每层至少一次）。decode 的激活体积是 $B\times 1\times d$，相对训练梯度很小，延迟被消息启动开销主导。本课写为什么引擎会绕开通用 NCCL、自己写一层 AR；下一课才谈与 GEMM 重叠。NCCL 调参是再下一课。
+[上一课](/llm/kernel-autotuning)把单卡核调到接近屋顶。多卡 TP 下，屋顶旁边还有通信：[张量并行](/llm/tensor-parallel)每层前向要付两次 All-Reduce（注意力与 MLP 的行并行输出各一次，训练时反向对称再来；推理 decode 即每层约两次）。decode 的激活体积是 $B\times 1\times d$，相对训练梯度很小，延迟被消息启动开销主导。本课写为什么引擎会绕开通用 NCCL、自己写一层 AR；下一课才谈与 GEMM 重叠。NCCL 调参是再下一课。
 
 ## 问题
 

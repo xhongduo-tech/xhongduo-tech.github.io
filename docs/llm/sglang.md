@@ -35,7 +35,7 @@ LangChain、DSPy 一类高阶层管提示模板与优化器；LMQL、Guidance、
 
 第二项是压缩 FSM：把约束编成状态机后，把单出口的路径压成一步，从而一次前向吐多个已被文法决定的 token。第三项针对仅 API 的模型（如当时的 GPT-4）：推测执行后续 `gen` 以减少往返与输入 token 计费。开源权重走 SRT；API 模型走另一条后端。两者共享前端原语。
 
-<span class="marginnote">数字实例：生成 JSON 时，前缀 <code>{"answer": </code> 的 11 个字符全部由文法唯一决定，普通解码要 11 次前向，压缩 FSM 压成 1 次；再叠加缓存命中免掉重复 prefill——两种省法叠加，才是论文吞吐倍数的来源。</span>
+<span class="marginnote">数字实例：生成 JSON 时，前缀 <code>{"answer": </code> 的 11 个字符全部由文法唯一决定，普通解码要约 11 次前向（按 1 字符 1 token 的理想化计），压缩 FSM 压成 1 次；再叠加缓存命中免掉重复 prefill——两种省法叠加，才是论文吞吐倍数的来源。</span>
 
 ```mermaid
 flowchart TD
