@@ -31,7 +31,7 @@ $$
 
 ### 随机特征逼近 softmax
 
-FAVOR+ 构造正特征。直观做法是对高斯方向 $\omega$ 取 $\exp(\omega^\top x-\|\omega\|^2/2)$ 一类映射，再乘上 $\exp(\|x\|^2/2)$ 的修正，使 $\mathbb{E}[\phi(q)^\top\phi(k)]=\exp(q^\top k)$（尺度可并进 $1/\sqrt{d}$）。正值保证 $\phi(q)^\top\phi(k)\ge 0$，分母求和不会正负相消。与普通随机傅里叶相比，这是专门为注意力核改的。得到 $\phi(Q),\phi(K)$ 后，算法与线性注意力相同：累加 $\sum \phi(k_j)v_j^\top$ 再与 $\phi(q)$ 相乘。
+FAVOR+ 构造正特征。直观做法是对高斯方向 $\omega$ 取 $\exp(\omega^\top x)$ 一类映射，再乘上 $\exp(-\|x\|^2/2)$ 的修正，使 $\mathbb{E}[\phi(q)^\top\phi(k)]=\exp(q^\top k)$（尺度可并进 $1/\sqrt{d}$）。正值保证 $\phi(q)^\top\phi(k)\ge 0$，分母求和不会正负相消。与普通随机傅里叶相比，这是专门为注意力核改的。得到 $\phi(Q),\phi(K)$ 后，算法与线性注意力相同：累加 $\sum \phi(k_j)v_j^\top$ 再与 $\phi(q)$ 相乘。
 
 <span class="marginnote">无偏是对核值而言，不是对 softmax 行向量而言。先逼近 $\exp(q^\top k)$ 再按行归一化，归一化是非线性，有限 $m$ 下权重仍有偏。实践中我们接受这一点，靠 $m$ 和正交化把误差压到训练能吞的范围。</span>
 
