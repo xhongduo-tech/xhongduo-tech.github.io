@@ -53,7 +53,7 @@ flowchart LR
 ```mermaid
 flowchart TD
   X2["X 的第 2 行：长 d_in"] --> DOT["点积：逐元素相乘再求和"]
-  W3["W 转置后的第 3 行：长 d_in"] --> DOT
+  W3["W 的第 3 行：长 d_in"] --> DOT
   DOT --> Y23["填入 Y 第 2 行第 3 列"]
   Y23 --> PAIRS["对全部行配对重复这一步"]
   PAIRS --> Y["填满整个输出 Y"]
