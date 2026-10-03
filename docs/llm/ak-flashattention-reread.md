@@ -59,7 +59,7 @@ flowchart LR
 
 成本账要按字节记。FlashAttention 论文的口径：标准实现需要 $O(n^2)$ 量级的额外 HBM 读写（$S$ 与 $P$ 各进出一遍），FlashAttention 把它降到 $O(n^2 d^2/M)$，其中 $M$ 是片上 SRAM 容量——$d$ 固定、$M$ 以百 KB 计时，主项被 tile 大小吃掉。SRAM 比 HBM 快一个数量级，这就是「省字节」能兑换成时间的原因，下一课把这本账展开。
 
-<span class="marginnote">$n=8192$、$d=128$、fp16：一张 $S$ 矩阵 $128\,\mathrm{MiB}$。A100 上 HBM 约 $1.5$–$2\,\mathrm{TB/s}$，SRAM 约 $19\,\mathrm{TB/s}$——$S$ 每少走一个来回，就省下一毫秒级的搬运。</span>
+<span class="marginnote">$n=8192$、$d=128$、fp16：一张 $S$ 矩阵 $128\,\mathrm{MiB}$。A100 上 HBM 约 $1.5$–$2\,\mathrm{TB/s}$，SRAM 约 $19\,\mathrm{TB/s}$——$S$ 每少走一个来回，就省下零点一毫秒量级的搬运。</span>
 
 ## 边界
 
