@@ -27,7 +27,7 @@ $$
 \mathrm{ITL}_i = t_i - t_{i-1},\qquad i=2,\ldots,m,
 $$
 
-而常见的 TPOT 是 $\frac{1}{m-1}\sum_i \mathrm{ITL}_i$，或把 $t_m-t_1$ 拿去除数。P99 ITL 可能由一次与长前填拼批的迭代决定，对均值贡献很小，对「文字停住」的投诉贡献很大。交互式产品应同时约束 TTFT 与 TBT/ITL 尾部；离线批作业可以只看吞吐和平均 TPOT。
+而常见的 TPOT 是 $\frac{1}{m-1}\sum_i \mathrm{ITL}_i$，或把 $t_m-t_1$ 拿去除以 $m-1$。P99 ITL 可能由一次与长前填拼批的迭代决定，对均值贡献很小，对「文字停住」的投诉贡献很大。交互式产品应同时约束 TTFT 与 TBT/ITL 尾部；离线批作业可以只看吞吐和平均 TPOT。
 
 <span class="marginnote">有的看板把端到端时间除以全部输出 token，把 TTFT 也摊进去。提示越长，这个「TPOT」越差，看起来像解码变慢，其实是前填被算进了每个字。生成阶段的时钟应从首 token 完成之后起算。</span>
 

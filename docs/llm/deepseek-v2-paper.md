@@ -23,7 +23,7 @@ DeepSeek-V2 报告（2024 年 5 月）把 **Multi-head Latent Attention (MLA)** 
 
 ### 压缩轴写进报告的对照表
 
-GQA 的轴是头；MLA 的轴是每个 token 的秩。同一份 $c^{KV}\in\mathbb{R}^{d_c}$（V2 常用 $d_c=512$）经上投影展开多头内容键值；解耦 RoPE 键 $d_R=64$ 量级必须另存，因为旋转破坏吸收所需的纯线性。满宽 MHA 每 token 每层约 $2\times 128\times 128$ 个数；MLA 的 $c^{KV}$ 512 个数加 RoPE 键 $128\times 64$。93.3% 是相对 **他们设定的 MHA 基线**，不是相对 Llama-2-70B 的 GQA-8。换头宽，百分比会变。
+GQA 的轴是头；MLA 的轴是每个 token 的秩。同一份 $c^{KV}\in\mathbb{R}^{d_c}$（V2 常用 $d_c=512$）经上投影展开多头内容键值；解耦 RoPE 键 $d_R=64$ 量级必须另存，因为旋转破坏吸收所需的纯线性。满宽 MHA 每 token 每层约 $2\times 128\times 128$ 个数；MLA 的 $c^{KV}$ 512 个数加跨头共享的 RoPE 键 $d_R=64$。93.3% 是相对 **他们设定的 MHA 基线**，不是相对 Llama-2-70B 的 GQA-8。换头宽，百分比会变。
 
 <span class="marginnote">数字感受一下：满宽 MHA 每 token 每层要存约 $2\times 128\times 128=32768$ 个数；MLA 只要 512 个数的潜向量外加一条 RoPE 旁路键。缓存条目从「三万多」变「几百到几千」，乘上层数与并发数后，就是「显存装得下 128K 长文本」与「装不下」的差别。</span>
 

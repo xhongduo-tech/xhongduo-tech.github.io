@@ -26,12 +26,12 @@ StreamingLLM 钉的是 $n_{\mathrm{keep}}$；每条仍可以是满宽 $K,V$。�
 StreamingLLM、H2O 减 $n_{\mathrm{keep}}$；MLA 的 $n_{\mathrm{keep}}$ 仍等于序列长 $n$，包括提示和已生成。不等式里被动的是每条的宽度：
 
 $$
-n\cdot (d_c + h\,d_R)\cdot b_{\mathrm{bit}}\;\lesssim\; B_{\mathrm{MLA}}
+n\cdot (d_c + d_R)\cdot b_{\mathrm{bit}}\;\lesssim\; B_{\mathrm{MLA}}
 \quad\text{对}\quad
 n\cdot 2 h d_k\cdot b_{\mathrm{bit}}\;=\; B_{\mathrm{MHA}}.
 $$
 
-取 V2 报告所用的量级：$d_c=512$、$h=128$、$d_k=128$、$d_R=64$。满宽 MHA 每 token 每层约 $2\times 128\times 128$ 个数；MLA 的 $c^{KV}$ 只有 $512$，外加 RoPE 键 $128\times 64$。下降来自 $d_c\ll h d_k$，外加 RoPE 旁路远窄于内容键。联合压缩还让 $K$ 与 $V$ 共享同一份 $c^{KV}$，不是各压各的。
+取 V2 报告所用的量级：$d_c=512$、$h=128$、$d_k=128$、$d_R=64$。满宽 MHA 每 token 每层约 $2\times 128\times 128$ 个数；MLA 的 $c^{KV}$ 只有 $512$，外加一条跨头共享的 RoPE 键，仅 $d_R=64$ 维。下降来自 $d_c\ll h d_k$，外加 RoPE 旁路远窄于内容键。联合压缩还让 $K$ 与 $V$ 共享同一份 $c^{KV}$，不是各压各的。
 
 <span class="marginnote">不要把 MLA 理解成对已经生成的 MHA 缓存做 PCA。低秩是训练写路径上的瓶颈，权重按这个瓶颈补偿过。事后对 GQA 缓存做低秩近似，误差来自逼近已有激活，和 MLA 不是一类方法。</span>
 
@@ -44,7 +44,7 @@ $$
 内容分数 $(q^C)^\top k^C$ 可改写成对 $c^{KV}$ 的线性型，输出侧 $W^O v^C$ 同样吸收 $W^{UV}$。于是 decode 的追加物是：
 
 - 每层每 token 一份 $c^{KV}\in\mathbb{R}^{d_c}$；
-- 每层每 token 一份未吸收的 $k^R$，形状随头数与 $d_R$。
+- 每层每 token 一份未吸收的 $k^R$，是跨头共享的 $d_R$ 维向量。
 
 满宽 $k^C,v^C$ 是计算图里的临时量，不落 HBM 上的 KV 池。实现若「能出对的数」却每步物化满头 $K,V$ 再缓存，压缩幅度会退回 MHA，V2 作为服务卖点的那一截 KV 降幅不会出现。融合发生在启动时或离线一次，不是逐步生成时现乘。
 
@@ -83,7 +83,7 @@ flowchart TD
   M2 --> KNOB
 ```
 
-<span class="marginnote">降幅的数字实例：按文中 V2 的量级，MHA 每 token 每层要存 $2 \times 128 \times 128 = 32768$ 个数；MLA 存 $c^{KV}$ 的 512 加 RoPE 键的 $128 \times 64 = 8192$，合计 8704 个——约为原来的四分之一。存成 FP16 时就是每 token 每层从 64 KB 降到约 17 KB，乘上层数与并发数，这就是能多放几倍 batch 的来源。</span>
+<span class="marginnote">降幅的数字实例：按文中 V2 的量级，MHA 每 token 每层要存 $2 \times 128 \times 128 = 32768$ 个数；MLA 存 $c^{KV}$ 的 512 加跨头共享的 RoPE 键 64，合计 576 个——约为原来的 1/57。存成 FP16 时就是每 token 每层从 64 KB 降到约 1.2 KB，乘上层数与并发数，这就是能多放几倍 batch 的来源。</span>
 
 <span class="marginnote">吸收成立的前提是内容路径纯线性。中间插入非线性，或把 RoPE 打在展开后的满宽内容键上，就不能把 $W^{UK}$ 从缓存路径里消掉。复现时若旋转打错位置，推理融合会悄悄算错相位，缓存形状却看起来仍是「压缩过的」。</span>
 

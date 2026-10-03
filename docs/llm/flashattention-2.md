@@ -86,7 +86,7 @@ FA2 救不了解码短查询：查询维没东西可切。长上下文、batch=1
 
 <span class="marginnote">常见误区：以为 `pip install flash-attn` 装好了 2.x 就一定在跑 FA2 的最优核。实际上框架还会按形状、显存和掩码类型做启发式选择，形状冷门时可能悄悄回退到普通实现。想确认的话要打印实际调用的核函数名，而不是只看 import 是否成功。</span>
 
-<span class="marginnote">文献年份：预印本 2023，会议版本见 ICLR 2024。引用写 Dao, *FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning* 即可，不必叠造文号。</span>
+<span class="marginnote">文献年份：预印本 2023（arXiv:2307.08691），该文以 arXiv 预印本流传，没有对应的正式会议版本。引用写 Dao, *FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning* 即可，不必叠造文号。</span>
 
 ## 小结
 
@@ -96,4 +96,4 @@ FA2 救不了解码短查询：查询维没东西可切。长上下文、batch=1
 - 解码 $n_q\approx 1$ 时查询维并行失效，需要沿 KV 的 FlashDecoding。
 - 加速倍数相对第一代、相对 GEMM，均依赖形状与硬件，不能当常数。
 - 与 FA3 的异步/低精度、与 SageAttention 的量化，是后续不同轴。
-- 出处：Dao, *FlashAttention-2*, 2023（ICLR 2024）。
+- 出处：Dao, *FlashAttention-2*, 2023（arXiv:2307.08691 预印本）。
