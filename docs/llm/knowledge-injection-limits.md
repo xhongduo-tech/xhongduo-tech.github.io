@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>微调会让模型更愿意陈述训练里见过的新事实，也会让它在没见过的新事实上更敢幻觉；注入不是把条目写入可靠词典。</p>
-<footer>—— Gekhman 等，Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?（ACL 2024）；对照 Berglund 等反向诅咒、ROME 的键不对称</footer>
+<footer>—— Gekhman 等，Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations?（EMNLP 2024）；对照 Berglund 等反向诅咒、ROME 的键不对称</footer>
 </div>
 
 [ROME / MEMIT](/llm/rome-memit)能改已有槽里的客体。产品常想做的另一件事是**灌入原本没有的知识**：新法规、新 API、内部人名。做法往往是把条目写成指令对再 SFT。Gekhman 等人 2024 年的实验表明：模型对「预训练里已有的事实」微调很听话；对「预训练没有的新事实」，SFT 既难真正学会，又会抬高在其它未知问题上的幻觉率。本课写这条限度。下一课转向对偶操作：遗忘。
@@ -73,4 +73,4 @@ flowchart TD
 - 反向与释义不自动成立，需单独监督或接受不对称。
 - 系统提示是上下文，不是注入。
 - 时效与可撤回知识用检索；SFT 留给技能与接口。
-- 出处：Gekhman 等，ACL 2024；Berglund 等，反向诅咒；Meng 等，ROME/MEMIT。
+- 出处：Gekhman 等，EMNLP 2024；Berglund 等，反向诅咒；Meng 等，ROME/MEMIT。

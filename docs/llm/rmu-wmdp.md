@@ -11,7 +11,7 @@ section: llm
 <footer>—— Li 等，The WMDP Benchmark: Measuring and Reducing Malicious Use With Unlearning（ICML 2024）</footer>
 </div>
 
-[机器遗忘](/llm/machine-unlearning)给出近似遗忘的目标。危险能力这条线需要公开基准与一种可复现的表示干预。Li、Han 等人的 WMDP（Weapons of Mass Destruction Proxy）用生物、化学、网络代理题测恶意使用相关知识，并给出 RMU（Representation Misdirection for Unlearning）：在选定层把遗忘集激活推向随机方向，同时用保留集锚定。本课只写这一对基准–方法。不提供任何危险领域的操作内容；题面与数据以论文发布为准。下一课把「还要继续学新任务」接到回放。
+[机器遗忘](/llm/machine-unlearning)给出近似遗忘的目标。危险能力这条线需要公开基准与一种可复现的表示干预。Li、Pan 等人的 WMDP（Weapons of Mass Destruction Proxy）用生物、化学、网络代理题测恶意使用相关知识，并给出 RMU（Representation Misdirection for Unlearning）：在选定层把遗忘集激活推向随机方向，同时用保留集锚定。本课只写这一对基准–方法。不提供任何危险领域的操作内容；题面与数据以论文发布为准。下一课把「还要继续学新任务」接到回放。
 
 ## 问题
 
