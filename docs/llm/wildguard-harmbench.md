@@ -91,4 +91,4 @@ HarmBench 默认文本、单轮或短多轮，对工具调用、检索增强、�
 - 标准化攻击不能覆盖多模态与超长上下文，缺口要显式声明。
 - 护栏自身必须作为被测系统进入同一协议，而不是假定分类器不可攻击。
 - 中文与工具场景应扩展清单，而不是直接抄英文提示。
-- 出处：Mazeika et al., *HarmBench*；Han et al., *WildGuard: A Safety Moderation Dataset and LLM Classifier*。
+- 出处：Mazeika et al., *HarmBench*；Han et al., *WildGuard: Open One-Stop Moderation Tools for Safety Risks, Jailbreaks, and Refusals of LLMs*。
