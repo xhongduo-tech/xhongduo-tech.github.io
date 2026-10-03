@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>序列只有终点一个标量时，前几百个 token 的优势近乎零；塑形是把信用挪到真正决策的位置，而不是另造一个偏好模型。</p>
-<footer>—— 对照 Sutton 的奖励塑形；过程奖励与逐步 KL 是语言模型里最常用的两种稠密化</footer>
+<footer>—— 据 Ng, Harada and Russell 的奖励塑形（1999）；过程奖励与逐步 KL 是语言模型里最常用的两种稠密化</footer>
 </div>
 
 [上一课](/llm/multi-objective-reward)得到一个序列标量 $r(x,y)$。接到 [PPO](/llm/ppo-llm) 时，动作却是逐 token 的。缺口是：**稀疏终点让中间步的梯度消失，模型只改结尾套话。** 本课写 token 级塑形：逐步 KL、过程分、格式分播到位置上。不重推 clip。下一单元从 GAE 的 $\lambda$ 接着讲如何把这些逐步奖励变成优势。
