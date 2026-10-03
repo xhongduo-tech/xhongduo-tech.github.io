@@ -11,7 +11,7 @@ section: llm
 <footer>—— Jain 等，NEFTune: Noisy Embeddings Improve Instruction Finetuning，ICLR 2024</footer>
 </div>
 
-[打包与掩码](/llm/sft-packing-mask)把短指令的硬件浪费收掉之后，剩下的病是**背诵**：[谱系](/llm/instruction-data-lineage)里无论 FLAN 网格还是 Alpaca 5 万条，相对预训练都极小，全参或 [LoRA](/llm/lora) 都能把示范 n-gram 写入权重。[仅回复损失](/llm/response-only-loss)只决定背的是回答而不是问题，不阻止背。Jain、Zhang、Kaddour 等人的 NEFTune 在训练时对输入嵌入加均匀噪声，推理不加。本课写这一种正则，不谈学习率分叉（[下一课](/llm/lora-vs-full-lr)）。
+[打包与掩码](/llm/sft-packing-mask)把短指令的硬件浪费收掉之后，剩下的病是**背诵**：[谱系](/llm/instruction-data-lineage)里无论 FLAN 网格还是 Alpaca 5 万条，相对预训练都极小，全参或 [LoRA](/llm/lora) 都能把示范 n-gram 写入权重。[仅回复损失](/llm/response-only-loss)只决定背的是回答而不是问题，不阻止背。Jain、Chiang、Wen 等人的 NEFTune 在训练时对输入嵌入加均匀噪声，推理不加。本课写这一种正则，不谈学习率分叉（[下一课](/llm/lora-vs-full-lr)）。
 
 ## 问题
 
