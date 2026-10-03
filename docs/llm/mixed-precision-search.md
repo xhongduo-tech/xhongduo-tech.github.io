@@ -61,7 +61,7 @@ flowchart TD
 
 平均 bit 含元数据。宣传 3.5 bit 若把 scale 算进去可能是 4.1。对比要用有效加载字节。
 
-<span class="marginnote">数字实例：32 层模型若 28 层用 4-bit、4 层用 8-bit，平均约 4.6-bit；但每层还要存 scale、zero-point 等元数据并对齐打包，「有效加载 bit」可能已经是 5。论文里宣传的 3.x-bit 与磁盘上真实字节的差距，就出在这笔账上。</span>
+<span class="marginnote">数字实例：32 层模型若 28 层用 4-bit、4 层用 8-bit，平均恰为 4.5-bit；但每层还要存 scale、zero-point 等元数据并对齐打包，「有效加载 bit」可能已经是 5。论文里宣传的 3.x-bit 与磁盘上真实字节的差距，就出在这笔账上。</span>
 
 ## 边界
 
