@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ToT 与 MCTS 的工程化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pl-tot-mcts-engineering.md.BfURTU1W.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 推理链与规划深化<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 1 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rag-map/">失败模式与收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/pl-process-supervision-inference/">过程监督在推理时的应用</a></p><!----></nav><div style="position:relative;"><div><h1 id="tot-与-mcts-的工程化" tabindex="-1">ToT 与 MCTS 的工程化 <a class="header-anchor" href="#tot-与-mcts-的工程化" aria-label="Permalink to &quot;ToT 与 MCTS 的工程化&quot;">​</a></h1><div class="epigraph"><p>论文里的搜索伪代码搬进服务，最先撞上的不是算法，而是显存、延迟与账单：树长得越漂亮，每次前向烧得越快。</p><footer>—— 据 Yao et al., Tree of Thoughts, NeurIPS 2023；Kocsis &amp; Szepesvári, UCT, 2006；Hao et al., RAP, 2023 整理</footer></div><p><a href="/llm/rag-map">上一课</a>把 RAG 系统收进「症状到三角角度、角度到层、层到旋钮」的排查协议，检索增强的深钻交了卷。回到单次生成，best-of-n 是成本-质量曲线末端的最后一档：同一提示开 \(N\) 条完整链，在终点挑一条。缺口在于 \(N\) 条链彼此独立、每条都走到底，钱花在注定要扔的完整前缀上；要回溯、要在中间状态上比较与剪枝，就得把搜索树搬进服务。本课写 <a href="/llm/tree-of-thoughts">ToT</a> 与 <a href="/llm/mcts-llm">MCTS</a> 从论文 demo 到线上服务的工程化：节点怎么表示、树由谁持有、KV 怎么复用、每次前向的钱怎么记账。后课的过程监督、反思与预算分配默认以本课的树形服务为底座。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>ToT 论文里的 Game of 24 与填字是单机脚本：一棵树、几十次模型调用、跑完即弃。同一算法放进服务，问题换成另一组三件套。第一，节点是什么：一个节点对应一段部分解答，动作若切到 token 级，分支因子就是词表大小，树在第二层就爆炸；切到步骤级才有可剪枝的分叉，而步骤怎么切是任务定义，换切分等于换一棵树。第二，树由谁持有：模型只看到当前节点的上下文，树本身必须由编排层持有——节点表、父子边、分数、终态标记；模型不给树，宿主不给上下文，搜索退化成普通对话。第三，账单单位是节点数不是请求数：扩展一个节点要一次生成前向（提议 \(k\) 个后继），打分要一次评估前向或一次 PRM 调用。</p><p>MCTS 的四步循环在语言模型上每一步都有工程语义：选择按 \(\mathrm{UCT}=\bar Q+c\sqrt{\ln N_p/N_c}\) 在节点间配额；扩展用模型提议步骤级后继；评估给出节点价值；回传更新祖先的 \(\bar Q\)。注意这是冻结策略加外部价值的测试时搜索，不是 AlphaZero 式的自我对弈；搜索轨迹要改进权重，必须另走蒸馏或 RL。</p><p><span class="marginnote">直觉类比：UCT 像决定今晚去哪家馆子——常去且好评的店（\(\bar Q\) 高）与还没试过几次的新店（\(N_c\) 低）之间权衡，\(c\) 就是「想尝新」的强度：调太大天天踩雷，调太小永远只吃同一家，好店永远 discovery 不到。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>树的持有与 KV 复用决定系统能否成立。兄弟节点共享同一前缀，若每个节点都完整重算 prefill，树搜索比独立采样还贵；按<a href="/llm/prefix-caching">前缀缓存</a>组织 KV，新节点只为增量段算一次，扩展才便宜。深 \(d\)、分支 \(b\) 的完全树有 \(O(b^d)\) 个节点，预算必须写成显式闸门：最大深度、最大分支、节点总数、墙钟时间，四个同时生效，任一触发就回传当前最优叶。</p><p><span class="marginnote">分支 \(b=5\)、深度 \(d=6\) 的完全树约 \(1.9\) 万个节点；按每节点两次前向计，一个请求就是近 4 万次前向。工程上从不长完全树：UCT 配额与终态剪枝把实际节点数压进预算，超出即降级。</span></p><p>服务侧由此把「一个请求」变成「一片异步负载」：分支节点扇出、叶节点终止，有的请求三个节点出解，有的烧满预算。批处理要按节点入队而不是按请求串行，否则先到的树堵住后面的请求；返回给用户的仍是完整的一条链——树是内擎，外交还是普通文本流。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>树搜索改变的是预算的形状，不是模型的概率。同一批推理 FLOPs，花在宽度（\(N\) 条独立链）上覆盖不同假设，花在深度（树上回溯）上修正同一假设的中途错误；二者不可互相替代，这正是<a href="/llm/test-time-scaling">测试时计算</a>里按难度配策略的物理基础。评估器决定剪枝方向：自评最便宜也最弱，搜索会朝流畅的假推理走；PRM 与 lookahead 终局模拟更硬，但每次评估都要前向，<a href="/llm/prm-guided-search">过程奖励引导的搜索</a>的校准问题在服务里被放大成账单问题——评估器不准，钱烧得越急，错得越整齐。</p><p><span class="marginnote">数字实例：评估不是免费的——一棵 \(1{,}000\) 节点的树，每节点评估一次、每次评估输入约 \(2{,}000\) token，仅打分就是约 \(200\) 万 token 的账单。评估器换一档（自评换 PRM），钱的变化比准确率的变化先到。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>延迟敏感的在线请求大多付不起一棵树，应退回 <a href="/llm/best-of-n">Best-of-N</a> 或<a href="/llm/self-consistency">自洽</a>，把树留给离线与高价值场景。探索常数 \(c\) 不能直接抄棋类：过大即是昂贵的随机采样，过小则整棵树长在第一条被采样的分支上。开放域没有可靠终局核对时，收益上限被评估器钉死。树搜索也不自动等于更强：很难的题目上搜索补不齐预训练缺失的知识，烧满预算只是烧满，不是答对。</p><p><span class="marginnote">常见误区：初学者容易以为「上了搜索就一定更准」。实际上搜索只能在模型已有的能力上挑路——预训练里根本没见过的知识，树长得再大也变不出来，烧满预算只是烧满。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>账单单位是节点：扩展一次生成前向、评估一次打分前向；深度、分支、节点数、时间四个闸门必须显式设。</li><li>动作切到步骤级才有可搜索的分支因子；宿主持有树，模型只见当前节点的上下文。</li><li>KV 前缀复用让兄弟节点只算增量；批处理按节点入队，对外仍交付单条链。</li><li>冻结策略加外部价值不是自我对弈；搜索轨迹要进权重需另做蒸馏或 RL。</li><li>评估器校准决定搜索上限；延迟敏感场景退回 BoN 或自洽。</li><li>出处：Yao et al., <em>Tree of Thoughts</em>, NeurIPS 2023；Kocsis &amp; Szepesvári, UCT, 2006；Hao et al., RAP, 2023；Snell et al., 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 推理链与规划深化<!--[--> · 单元 工程化<!--]--><!----></p><p class="lesson-progress">第 1 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/pl-process-supervision-inference/">过程监督在推理时的应用</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rag-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">失败模式与收束</span><span class="lesson-card-meta">RAG 系统深入 · 语义与生产<!--[--> · 第 12 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/pl-process-supervision-inference/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">过程监督在推理时的应用</span><span class="lesson-card-meta">推理链与规划深化 · 工程化<!--[--> · 第 2 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

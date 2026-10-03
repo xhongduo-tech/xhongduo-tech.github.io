@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>二义与左递归 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ambiguity-leftrec.md.lK2p_5te.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 程序语言与编译<!--[--> · 单元 前端<!--]--><!--[--> · 课序 从文本到结构<!--]--></p><p class="lesson-progress">第 6 / 37 课</p><p class="lesson-prereq"> 先修：<a href="/cs/cfg-grammar/">上下文无关文法</a></p><p class="lesson-next"> 下一课：<a href="/cs/recursive-descent/">递归下降</a></p><!----></nav><div style="position:relative;"><div><h1 id="二义与左递归" tabindex="-1">二义与左递归 <a class="header-anchor" href="#二义与左递归" aria-label="Permalink to &quot;二义与左递归&quot;">​</a></h1><div class="epigraph"><p>同一终结串两棵推导树即二义；左递归让最左推导尚未读记号就展开自己，递归下降不停机。</p><footer>—— 据 Chomsky, 1959；龙书第 4 章整理</footer></div><p>上一课<a href="/cs/cfg-grammar">上下文无关文法</a>定义了产生式与推导树，并声明二义必须消、左递归留给分析器课。本课不重写 \(G=(V,\Sigma,P,S)\)。缺口是两件会让下一课递归下降直接翻车的性质：悬空 else 这类二义，以及 \(E\to E+T\) 这类左递归——后者要在文法上改写成右递归或循环，分析函数才停。FIRST 表下一课才系统算。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>二义：存在 \(w\) 有两棵不同的最左推导树。运算符优先级没写进文法时 <code>1+2*3</code> 两棵；<code>if</code>–<code>else</code> 与内层 <code>if</code> 配对两可。语义要唯一 AST，必须改产生式（分层 \(E\)、\(T\)、\(F\)）或在后课 LR 里用优先级声明消冲突。改写后语言应不变，树的形状按语言约定（左结合即左深树）。</p><p><span class="marginnote">数字实例：不写优先级的文法里，<code>1+2*3</code> 有两棵树——按 (1+2)<em>3 求值得 9，按 1+(2</em>3) 求值得 7。串一模一样，语义差出一截：这就是为什么语言标准必须用分层产生式或优先级声明把树钉死成一种。</span></p><p>左递归：\(A\stackrel{+}{\Rightarrow}A\alpha\)。递归下降 <code>parseA</code> 先调 <code>parseA</code>，前瞻未消耗。消除：把 \(A\to A\alpha\mid\beta\) 改成 \(A\to\beta A&#39;\)，\(A&#39;\to\alpha A&#39;\mid\varepsilon\)（右递归），或写成 <code>parseA</code> 里先吃 \(\beta\) 再循环吃 \(\alpha\)。间接左递归要先代换。缺口是识别与改写，不是写完整下降器。</p><p><span class="marginnote">常见误区：初学者觉得「递归下降嘛，文法递归它就递归，很正常」。但左递归的递归发生在<strong>吃掉任何输入之前</strong>——<code>parseA</code> 第一行就调 <code>parseA</code>，参数与输入指针原地不动，每次调用叠一层栈帧直到栈溢出；这和「先吃一个记号再递归」的正常递归（深度有限）有本质区别。</span></p><h3 id="左递归不是二义" tabindex="-1">左递归不是二义 <a class="header-anchor" href="#左递归不是二义" aria-label="Permalink to &quot;左递归不是二义&quot;">​</a></h3><p>左递归文法可以无二义（标准算术分层仍左递归）。二义文法也可以无左递归。两件事都碍分析，原因不同：一棵树 vs 停机。</p><p><span class="marginnote">龙书 4.3 节消除左递归、提取左公因子。Chomsky 层级不管二义；二义是分析器工程。Yacc 的优先级是后课 LR 的出口，本课以改写文法为主。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对二义：给两棵树，改分层或强制 else 绑定。对左递归：找出环 \(A\Rightarrow A\alpha\)，套标准改写。提取公因子 \(A\to\alpha\beta\mid\alpha\gamma\) 变成 \(A\to\alpha B\)，供后课 LL(1) 一眼看穿。</p><div class="mermaid"></div><p>语言是否仍同一：改写是语法变换，应保持 \(L(G)\)。优先级分层改变的是树，不是串集合——若原文法二义，串集合本就对多棵树。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>改写后非终结符变多，推导变长，AST 仍应压缩分层节点——<a href="/cs/ast">抽象语法树</a> 再丢。本课不建树。也不要把「有二义所以不是 CFG」：CFG 可以二义；无二义 CFG 才适合当程序语言定义。</p><p>左递归对 LR 无妨，对 LL 有妨。下一课是下降，故本课必须先改。</p><p>左递归消除在文法上到底动了什么？以 \(E\to E+T\mid T\) 为例，改写只换「展开方向」，串集合一字不变：</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：悬空 else 的「就近绑定」像食堂排两列队时新来的人总被最近的队拉走——<code>if a then if b then s1 else s2</code> 里，else 自动跟内层的 <code>if b</code> 配对。C、Java 都把这条写进规范，于是两棵树里只剩「绑内层」那棵合法。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 FIRST/FOLLOW，不移进归约。不处理通用二义检测（那是不可判定的问题族边缘，点名：任意 CFG 是否二义不可判定，程序语言用手改）。后课默认：交给递归下降的文法无左递归、尽量无二义。下降器把最左推导写成函数。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>二义 = 一串多树；用分层或绑定规则消。</li><li>左递归使下降不停机；改写成右递归或循环。</li><li>两性质独立；下一课才写 <code>parseA</code>。</li><li>出处：Aho et al., 龙书第 4 章；Chomsky, 1959。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 程序语言与编译<!--[--> · 单元 前端<!--]--><!--[--> · 课序 从文本到结构<!--]--></p><p class="lesson-progress">第 6 / 37 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/recursive-descent/">递归下降</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/cfg-grammar/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">上下文无关文法</span><span class="lesson-card-meta">程序语言与编译 · 前端 · 从文本到结构<!--[--> · 第 5 / 37 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/recursive-descent/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">递归下降</span><span class="lesson-card-meta">程序语言与编译 · 前端 · 从文本到结构<!--[--> · 第 7 / 37 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分页 KV 的内核接口 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-paged-kv-kernel.md.hiZZkmKw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 5 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-gqa-mqa-kernels/">GQA 与 MQA 的内核差异</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-sparse-kernel-strategy/">稀疏注意力的内核策略</a></p><!----></nav><div style="position:relative;"><div><h1 id="分页-kv-的内核接口" tabindex="-1">分页 KV 的内核接口 <a class="header-anchor" href="#分页-kv-的内核接口" aria-label="Permalink to &quot;分页 KV 的内核接口&quot;">​</a></h1><div class="epigraph"><p>内核不再拿到一块连续显存，而拿到一张页表；地址翻译进了热路径，softmax 一个字没变。</p><footer>—— 据 Kwon et al., PagedAttention, SOSP 2023 整理</footer></div><p><a href="/llm/ak-gqa-mqa-kernels">上一课</a>把头的共享落进核内。本课处理第二个变体，动的是地址这一维。<a href="/llm/paged-attention">PagedAttention</a> 在系统侧定过页与页表、碎片与引用计数，<a href="/llm/vllm-paged">vLLM 与 PagedAttention</a> 定过它与调度器的分工；本课站在内核接口这一侧：当 KV 不再连续、长度不再齐整，tiling 循环怎么改，地址翻译怎么不拖垮热路径。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>传统内核假设 K、V 是 \([\mathrm{batch},h,n,d]\) 的连续张量，元素地址是下标的仿射函数，编译器与硬件都按这个假设做合并访问。服务里每个请求的 KV 散布在物理页上——页表与块大小见<a href="/llm/paged-kv-block-size">分页 KV 与块大小</a>，而且批内长度各异。缺口因此有两个：其一，tiling 的外层循环本来扫逻辑位置，现在每一步要先经块表翻成物理地址，翻译若掉出热路径、变成一次回读元数据的往返，内核就慢得不讲道理；其二，变长带来的尾块要按真实长度掩掉，掩码必须与同一循环咬合。</p><p><span class="marginnote">直觉类比：连续 KV 像把书按顺序码满一整面墙，取第 k 本直接算位置；分页 KV 像书分散在图书馆各层书架——取书前先查索引卡（块表）知道在哪架，再在架内按位置拿。多了一步查表，换来的是空间能见缝插针地用。</span></p><h3 id="接口三件套" tabindex="-1">接口三件套 <a class="header-anchor" href="#接口三件套" aria-label="Permalink to &quot;接口三件套&quot;">​</a></h3><p>内核收到的不再是张量，而是三样东西：块表 <code>block_tables</code>（每请求的逻辑块号到物理块号）、长度表 <code>seq_lens</code>（每个请求的真实 token 数）、以及页大小的约定。数学没有任何变化：softmax 仍在完整合法前缀上精确计算，变的只是取数的路径。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>循环改成两级译址。外层按逻辑块 \(j\) 从 \(0\) 扫到 \(\lceil n/B\rceil\)：查块表得物理页号，页内偏移乘 \(d\) 得元素地址；页内连续，所以 warp 的合并访问保得住。尾块按 <code>seq_lens</code> 掩掉越界行，掩码落在线上 softmax 之前，与因果掩码按位或。前填侧同一条路径反向走：新算出的 K、V 按当前页表写进零散页，写出粒度也是页。页大小与 tile 对齐时，每个 tile 恰好查一次表；错开时，一个 tile 跨两页，行级译址把合并访问拆碎。</p><p><span class="marginnote">常见误区：尾块的「多余行」不是可以顺手一起算的部分——批内各请求长度不一，页内最后几个槽位是未初始化的。不按 <code>seq_lens</code> 掩掉，softmax 会把页里的垃圾当合法 KV 算进去，输出悄悄错掉，还不会报任何错。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么页大小要与 KV tile 对齐：页与 tile 同大（工程上页取 16 的倍数、tile 取 64 或 128），查表开销摊到整个 tile，每 tile 一次表读、一次地址基址更新；页太小，查表次数涨到每 tile 多次，页太碎则每行都要单独译址。两头的账在<a href="/llm/paged-kv-block-size">分页 KV 与块大小</a>里有解析式：内部碎片期望约 \(B/2\) 个槽位，查找约 \(\lceil n/B\rceil\) 次——容量省了，内核的译址成本涨了，取点是工程决定。错法里最危险的一种是「事后修补」：内核仍按连续写，调度器再来挪数据补页表——不仅多一遍全量搬运，还在挪动的窗口里读到大面积脏数据，输出错得悄无声息。地址翻译属于内核合同的一部分，写进接口，不写在补丁里。</p><p><span class="marginnote">数字实例：页与 tile 对齐时，128 行的 tile 只查 1 次表；错开到行级译址，同样 128 行要查 128 次——对齐把译址开销摊薄了上百倍。页取大又会让每个请求平均浪费约 \(B/2\) 个槽位（页 16 时约 8 槽），两头取点是工程权衡。</span></p><p><span class="marginnote">vLLM 默认块 16 token：内部碎片期望约 8 槽/请求；\(n=2048\) 时每请求约 128 次查表——对齐 tile 后每次查表是一次 smem 内的基址更新，不是一次 HBM 往返，这笔账才能算平。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课的页表服务精确注意力：跳过的块、共享的页都仍按页粒度进循环。引用计数与前缀共享的写时复制是调度器与 KV 管理的事，内核只认页号合法。KV 的压缩与驱逐不在本课，那是 KV 管理课程的题目。与上一课的组映射是正交坐标：头共享决定读哪一套 KV，页表决定那一套住在哪，两者叠在同一个循环里，谁也不替代谁。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>内核接口从连续张量换成块表加长度表，softmax 数学不变，地址路径全变。</li><li>两级译址：逻辑块查表、页内仿射寻址；页内连续是合并访问的底线。</li><li>页大小与 tile 对齐，查表摊薄成每 tile 一次；错开就把译址成本放大到行级。</li><li>尾块掩码与因果掩码在同一个循环里咬合，变长不是特例而是常态。</li><li>事后挪数据补页表是错的：翻译必须写进接口，不能写在补丁里。</li><li>出处：Kwon et al., <em>Efficient Memory Management for LLM Serving with PagedAttention</em>, SOSP 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 5 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-sparse-kernel-strategy/">稀疏注意力的内核策略</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-gqa-mqa-kernels/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">GQA 与 MQA 的内核差异</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 4 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-sparse-kernel-strategy/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">稀疏注意力的内核策略</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 6 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

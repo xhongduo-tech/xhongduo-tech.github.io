@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>因子构造的方法论 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_fz-construction-method.md.CjkuHKze.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 因子研究深化<!--[--> · 单元 方法论<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ex-case-map/">执行案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/quant/fz-orthogonalization/">因子正交化的艺术</a></p><!----></nav><div style="position:relative;"><div><h1 id="因子构造的方法论" tabindex="-1">因子构造的方法论 <a class="header-anchor" href="#因子构造的方法论" aria-label="Permalink to &quot;因子构造的方法论&quot;">​</a></h1><div class="epigraph"><p>因子不是从数据里「发现」的，而是被一整套排序、加权与再平衡的约定「制造」出来的；同一个思想，两种构造，可以给出两个不同的溢价。</p><footer>—— 据 Fama &amp; French, Journal of Financial Economics, 1993；Carhart, Journal of Finance, 1997 的构造约定整理</footer></div><p><a href="/quant/ex-case-map">上一课</a>把交易执行深钻收束：算法谱系、暗池与竞价、TCA 的陷阱、成本预测与最优转换，最终归档成案例集——执行侧回答的是「怎样把目标仓位换成成交」。缺口在上游：仓位背后的研究对象从哪来。本课是「因子研究深化」的第一课，把因子构造的约定一次钉死：投资域、排序方式、加权与再平衡。后面十一课默认你已掌握这套词汇；构造的完整参数清单，也是本课程报告规范课与复现练习课的接口。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「便宜的股票跑赢」是一个思想；落成数字要经过一串自由度：在哪个域里选股、用什么口径定义便宜、切几档、两端怎么加权、多久再平衡。每个自由度都移动溢价估计。麻烦不在于数字会变，而在于不同自由度混入的「额外收益」不同：等权加月度再平衡的组合隐含「卖涨买跌」的反转操作，市值加权的组合没有；独立双重排序的两端格数不均，会把规模暴露漏进所谓「纯价值」。构造不透明，后续的正交化、拥挤、衰减都没有共同基准；因子动物园里的争吵，一大半是两套约定的争吵。</p><p><span class="marginnote">直觉类比：因子构造约定就像同一道菜的火候与克数——「便宜的股票跑赢」是菜名，域、切档、加权、调仓频率是配方细节。换了配方，「同一个菜」端上来味道（溢价）可以差出一半；两篇论文吵价值因子死没死，常常只是配方不同。</span></p><h3 id="三层自由度" tabindex="-1">三层自由度 <a class="header-anchor" href="#三层自由度" aria-label="Permalink to &quot;三层自由度&quot;">​</a></h3><p>第一层，域与数据：可投资域的流动性下限、退市与停牌处理、特征的 point-in-time 可得性（见<a href="/quant/no-future-function">无未来函数</a>）。第二层，排序：单变量十分位，或双重排序；独立排序（先全市场按规模切，再各自独立按 B/M 切）与条件排序（先切规模，再在每组内切 B/M）答案不同。第三层，加权与再平衡：等权、市值加权、特征加权；持有期与调仓频率。三层全部写下来，构造才算被定义。</p><p><span class="marginnote">独立双重排序会产生空格与两端失衡：按市值与 B/M 各切三档后，超小盘的高 B/M 格可能只剩几只票，多空两端的市值分布也偏。条件排序保证每格有样本，但结果依赖「先按哪个变量切」——两种都是合法构造，报告必须写明是哪一种。</span></p><p><span class="marginnote">数字实例：Fama–French 1993 的经典配方是「NYSE 中位数切规模、30%/70% 分位切 B/M」，得到 \(2\times3=6\) 个市值加权组合；SMB = 三个小盘组合的均值减三个大盘组合的均值，HML = 两个高 B/M 减两个低 B/M。每个参数（NYSE 分位而非全市场、6 月末而非月末重构）都是声明过的选择。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把构造写成一句可执行的话：因子收益是权重向量的时间序列 \(f_t=w_t^\top R_t\)，而 \(w_t\) 由排序规则从特征生成。方法论就是对生成 \(w_t\) 的每一处自由度给出显式声明。Fama–French 1993 的示范是：用 NYSE 分位点把市值切两档、B/M 切三档，构成六个市值加权组合，每年 6 月末重构一次，SMB 与 HML 是这六个组合的线性组合。Carhart 1997 把动量以同样的语言接入：按过去 12 个月（跳过最近 1 个月）收益排序，多空两端构成 WML，月度重构。两条构造被文献复用三十年，正因参数被完整写死。</p><p>产出有两个，同等重要：收益序列 \(f_t\) 与每期多空持仓清单。后者是正交化、拥挤度量与暴露检查的原料；只交收益序列，后半程研究全被堵死。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么这些约定不是「实现细节」？因为每一处都在改变 \(w_t\) 与价格的互动方式。等权月度调仓的 \(w_t\) 每月向初始权重回归，机械地做空近期上涨者——它把短期反转溢价计入了因子收益，这部分收益不来自「便宜」，来自调仓动作本身。市值加权不再平衡，权重随价格漂移，没有这种红利；等权溢价系统性高于市值加权的部分，是再平衡红利而非特征溢价。识别的方法是问：这笔收益要求我做什么交易？月度等权每月换手，成本后溢价缩水多少就是红利的上界。同样的追问适用于每一层自由度。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易把「等权因子溢价更高」解读为「这个特征更有效」，实际上多出的部分是每月卖涨买跌的反转红利——是调仓动作赚的，不是「便宜」赚的。检验办法：把调仓频率降到年度，若溢价大幅缩水，缩掉的就是红利加成本。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课只定义构造，不做评估：单因子怎么打分见<a href="/quant/single-signal-eval">单信号评估</a>，特征回归与 β 回归的区分见 <a href="/quant/fama-macbeth">Fama–MacBeth</a>。构造层面的中性化（行业、规模残差化）留给下一课的正交化；组合层面的暴露控制是本课程后段的主题。因子择时与容量不是构造问题，后面各有专课。还有一个诚实的提醒：构造自由度本身就是多重检验的入口——「换一种切法显著了」不是新发现，试了多少次切法要记下来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>因子是被约定制造的：域、排序、加权、再平衡四类自由度必须显式声明，否则不可复现。</li><li>等权与月度调仓混入反转与再平衡红利；市值加权是更保守的默认。</li><li>独立与条件双重排序答案不同，两端失衡会把规模暴露漏进因子。</li><li>产出是收益序列加持仓清单，两者缺一不可。</li><li>出处：Fama &amp; French, <em>JFE</em>, 1993；Carhart, <em>JF</em>, 1997；构造细节据原文构造节整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 因子研究深化<!--[--> · 单元 方法论<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/fz-orthogonalization/">因子正交化的艺术</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ex-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">执行案例与收束</span><span class="lesson-card-meta">交易执行深钻 · 度量与案例<!--[--> · 第 11 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/fz-orthogonalization/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">因子正交化的艺术</span><span class="lesson-card-meta">因子研究深化 · 方法论<!--[--> · 第 2 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

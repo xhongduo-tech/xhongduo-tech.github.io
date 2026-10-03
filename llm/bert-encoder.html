@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BERT 编码器结构 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_bert-encoder.md.BvfYzIqn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 编码器与编解码<!--]--><!--[--> · 课序 纯解码器之外<!--]--></p><p class="lesson-progress">第 1 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/discrete-diffusion-lm/">离散扩散语言模型</a></p><p class="lesson-next"> 下一课：<a href="/llm/t5-relative-bias/">T5 相对位置偏置</a></p><!----></nav><div style="position:relative;"><div><h1 id="bert-编码器结构" tabindex="-1">BERT 编码器结构 <a class="header-anchor" href="#bert-编码器结构" aria-label="Permalink to &quot;BERT 编码器结构&quot;">​</a></h1><div class="epigraph"><p>我们用掩码语言模型预训练一个深层双向 Transformer 编码器，使每个位置的表示同时条件于左右两侧。</p><footer>—— Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, NAACL 2019</footer></div><p><a href="/llm/discrete-diffusion-lm">上一课</a>把「模型架构」课序收在离散扩散语言模型：在词或码序列上迭代去噪、并行改写，便于全局约束与编辑。本课打开「编码器、状态空间与专家」，从这里改对象：纯解码器没有把<strong>编码器</strong>和<strong>编解码器</strong>写成可替换的计算图，双向自注意力、段嵌入、<code>[CLS]</code> 池化都被当成历史脚注。本课把 BERT 的编码器栈收成后课默认会用的结构；<a href="/llm/masked-lm">掩码语言模型</a>只讲目标，不讲这块栈。后课的相对偏置、去噪编解码、前缀掩码，都假定你会本课的层序，不再从「什么是双向」讲起。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/llm/causal-self-attention">因果自注意力</a>强制位置 \(t\) 只读 \(j\le t\)。生成需要这条约束；判别、检索、把整段源句压成记忆，则需要相反的连通性：位置 \(i\) 的查询打到整段键。训练基础课把优化、缩放、合并都建在解码器只模型上，留下的缺口是——<strong>同一套</strong> <a href="/llm/sdpa">SDPA</a> 与 <a href="/llm/mha">多头</a>，掩码拿掉之后，栈还要哪些槽位才构成一个能微调的编码器。</p><p>缺口不是再推一遍缩放点积。缺口是三件解码器里没有或用法不同的东西：全可见自注意力、句对的段嵌入、专供分类的 <code>[CLS]</code> 位置。没有它们，后面的嵌入池化、前缀掩码都会没有落点。</p><p><span class="marginnote">BERT 原文的位置编码是可学习绝对位置，最长 512，与正弦位置不是同一课。本课只把位置槽位当成编码器的一部分，不重写外推。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>一层编码器是：双向多头自注意力，接残差与层归一化，再接位置级前馈，再残差。没有交叉注意力子层，也没有因果上三角。输入是 token 嵌入、位置嵌入、段嵌入三者相加；段嵌入区分句对里的第一句与第二句。序列头部放 <code>[CLS]</code>，尾部与句间放 <code>[SEP]</code>。</p><p>预训练时每个位置仍出隐状态，<a href="/llm/masked-lm">MLM</a> 头只在被挖位置上分类；NSP 头吃 <code>[CLS]</code>。微调时 MLM 头丢掉，分类、抽取接在 <code>[CLS]</code> 或各 token 上。后课默认：说「BERT 编码器」就是指这套<strong>无交叉注意力的双向栈</strong>，不是泛指任何 Transformer。</p><p><span class="marginnote">术语翻译：段嵌入就是给每个 token 盖一枚「A 句」或「B 句」的小章，再与词嵌入、位置嵌入逐位相加。没有它，模型看到「[CLS] 天气好 [SEP] 适合爬山 [SEP]」时不知道后半句是另一句话，判断两句关系的任务就无从下手。</span></p><h3 id="与解码器层的槽位差" tabindex="-1">与解码器层的槽位差 <a class="header-anchor" href="#与解码器层的槽位差" aria-label="Permalink to &quot;与解码器层的槽位差&quot;">​</a></h3><p>解码器一层通常是掩码自注意力、可选的读源端注意力、前馈。编码器一层少中间那块，自注意力也不掩未来。参数量按层计会更省，但源端长度 \(m\) 上仍是 \(\Theta(m^2)\) 的分数矩阵。这不是本课要改的复杂度，只是后课比较编解码与纯解码时要用的事实。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>双向注意力让位置 \(i\) 的表示成为整句的函数。<code>[MASK]</code> 占位不泄漏原词，却保留「这里有一个被查询的槽」。段嵌入把句对相对位置写进加法，不必改掩码形状。<code>[CLS]</code> 没有语言学身份，它是一个可学习的汇合查询：各层都在读全句，最后一层的该向量被当成句级特征。</p><div class="mermaid"></div><p>这张图回答的问题是：「双向」到底双向在哪里——不是加了新组件，而是同一套自注意力把掩码从下三角换成全可见，箭头方向即刻改变。</p><p><span class="marginnote">可以把 <code>[CLS]</code> 想成一位陪读十二层课的学生代表：它自己不带词义，但每层都听全班的发言（对全句做注意力），毕业时交出一份代表全班的总结，分类头只看这份总结。</span></p><p>深度上 BERT-base 12 层、BERT-large 24 层，头数与隐宽度按 \(d_k=64\) 对齐。后课不需要背这些型号，需要记住：<strong>深度用来叠双向交互，宽度用来分头</strong>，没有编码器–解码器之间的交叉对齐。</p><p><span class="marginnote">双向不是「两个单向拼起来」。ELMo 的左右 LSTM 参数不共享、交互只发生在拼接之后。BERT 的每一层里左右已经在同一套 \(Q,K,V\) 里相遇。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>编码器默认假设整段输入在前向开始时已经齐。流式、自回归生成不能直接逐步采样；要生成得改目标或外接解码器。<code>[CLS]</code> 作句向量在分类上可用，作语义检索往往不如后课的均值池化。绝对位置 512 把长文档挡在训练分布外，这是结构承诺，不是优化失败。</p><p><span class="marginnote">常见误区：直接拿 <code>[CLS]</code> 向量算余弦做语义检索，效果通常不好——它是为「喂给分类头」学出来的，不是为检索对齐的。要句向量，先看后课的均值池化或对比学习方案。</span></p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>本课把 BERT 编码器收成：双向自注意力加前馈的栈，外加段嵌入与 <code>[CLS]</code>；后课默认不再解释这套槽位。</li><li>相对因果解码器，差别不在 SDPA 公式，而在掩码、交叉注意力缺席、句级汇合方式。</li><li><code>[CLS]</code> 是可学习的句级查询，不是语义检索的默认池化。</li><li>编码器假定源序列一次给齐，不能代替自回归生成。</li><li>出处：Devlin et al., <em>BERT</em>, NAACL 2019。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 编码器与编解码<!--]--><!--[--> · 课序 纯解码器之外<!--]--></p><p class="lesson-progress">第 1 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/t5-relative-bias/">T5 相对位置偏置</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/discrete-diffusion-lm/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">离散扩散语言模型</span><span class="lesson-card-meta">模型架构 · 多模态 · 语音与视频<!--[--> · 第 82 / 82 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/t5-relative-bias/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">T5 相对位置偏置</span><span class="lesson-card-meta">编码器、状态空间与专家 · 编码器与编解码 · 纯解码器之外<!--[--> · 第 2 / 46 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

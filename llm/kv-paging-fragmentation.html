@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分页与碎片管理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-paging-fragmentation.md.e6-TqeyX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 生命周期<!--]--><!----></p><p class="lesson-progress">第 2 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/kv-lifecycle-ownership/">KV 的生命周期与所有权</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-prefix-cache/">前缀缓存与跨请求共享</a></p><!----></nav><div style="position:relative;"><div><h1 id="分页与碎片管理" tabindex="-1">分页与碎片管理 <a class="header-anchor" href="#分页与碎片管理" aria-label="Permalink to &quot;分页与碎片管理&quot;">​</a></h1><div class="epigraph"><p>碎片是承诺与用量之差：按最坏情况预留，就是在为永远不会发生的请求付费。</p><footer>—— 据 Kwon et al., PagedAttention, SOSP 2023 的碎片分析整理</footer></div><p><a href="/llm/kv-lifecycle-ownership">上一课</a>立了所有权状态机：页从池里出来、独占、共享、归还，写权与释放都由引用计数裁决。缺口是页本身怎么切、怎么发：池子管理得不好，所有权再干净，显存也会在「明明还有空」的时候拒绝新请求。本课写碎片的两种形态、分配器的策略，以及利用率该怎么记账。块大小怎么选是<a href="/llm/paged-kv-block-size">已写过的权衡</a>，本课只引用其结论；分页注意力的寻址与 gather 也留在 <a href="/llm/paged-attention">PagedAttention</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>连续预留的账是这样的：按最大长度 \(n_{\max}\) 给每条请求留一整段，实际用到 \(n\)。利用率是 \(n / n_{\max}\) 的期望——对话负载里这个比值常不到一半，剩下的是为「万一写长」预付的内部浪费。更糟的是外部碎片：请求来了又走，长短不一，空闲字节总量够接一条新请求，却凑不出一段足够长的连续空间。Kwon 等人在 SOSP 2023 的测量里，现有系统只有约 20%–38% 的 KV 内存真正存了有效数据，其余被预留、内部浪费和外部碎片吃掉。分页的命题就是把这两项同时压掉：空闲页可拼给任何请求，外部碎片基本消失；最后一页没填满的平均浪费从「半段预留」降为「半页」。</p><p><span class="marginnote">直觉类比：连续预留像餐厅只接「包场」——来 2 个人的散客也必须包下 20 桌的大厅，客人坐不满，别人也进不来。分页像改成散座：桌子（页）随便拼给任何一桌，浪费只剩最后一桌没坐满的几个空位。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分配器是页池的守门人，要回答三个问题。</p><p><strong>从哪拿</strong>：空闲页用空闲表管理。多数请求每次解码只需一页，first-fit 从表头摘即可；预填充一次要 \(k=\lceil n_{\rm prompt}/B \rceil\) 页，可批量摘连续段以减少元数据。预留水位线（watermark）给系统留缓冲：池子低于水位就停止接新请求或触发<a href="/llm/vllm-scheduler">抢占</a>，而不是等到分配失败再回滚。</p><p><strong>何时还</strong>：请求结束、共享引用清零，页回空闲表——这在上课的状态机里。分页特有的问题是<strong>增长中途失败</strong>：解码到一半池子空了，这条请求既不能回滚也不该弃。正确姿势是 admission 时按 \(n_{\max}\) 做准入检查、运行时按需分配，并在水位触发时抢占整条请求换出，而不是让页分配在 decode 中途失败。</p><p><strong>怎么算账</strong>：三种口径必须分开——reserved（池子划给 KV 的总量）、allocated（已挂在块表上的页）、in-use（有效 token 占的槽位）。碎片率 \(= 1 - {\rm in\text{-}use}/{\rm allocated}\)，内部碎片全在这里；allocated 与 reserved 之差是没分出去的池。汇报时混用三者，「利用率 90%」可以是三种完全不同的系统。</p><p><span class="marginnote">数字实例：池子 10 GiB，块表已挂 8 GiB，其中有效 token 只占 6 GiB——reserved = 10，allocated = 8，in-use = 6。碎片率 \(1 - 6/8 = 25\%\)，而「利用率」可以是 60%（in-use/reserved）也可以是 75%（in-use/allocated），报哪个都得写明分母。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分页消灭碎片不是魔法，是把「连续性」从物理约束降级为逻辑约定：注意力只认逻辑位置，物理上页散在池里无所谓，代价是内核多做一层译址。于是页大小 \(B\) 成了唯一剩余的碎片旋钮：\(B\) 大则平均半页浪费是 \(B/2\) 个 token 槽，\(B\) 小则块表条目多、gather 的合并访问变差。16 与 64 之间选哪个取决于长度分布——短回复为主的负载用大页纯属浪费，这里只引用<a href="/llm/paged-kv-block-size">块大小权衡课</a>的结论：负载相关，别抄默认值。</p><p><span class="marginnote">数字实例：页大小 \(B=16\)、平均回复只写 9 个 token 时，每条请求平均浪费 \(16-9=7\) 个槽，接近半页；\(B\) 降到 4 则浪费最多 3 个槽，但块表条目翻两番，gather 时要跳更多段。页大小就是在「槽内空位」和「表项开销」之间讨价还价。</span></p><div class="mermaid"></div><p>碎片会计决定调度质量。<a href="/llm/serving-metrics">准入控制</a>若按 in-use 估容量，会在碎片高的时刻误判「还有空间」，decode 中途分配失败；若按 reserved 估，又把可用页白白锁死。正确输入是 allocated 加水位。另一处机制是<strong>碎片不会自己长回来</strong>：池子跑久了不会像 C 堆那样在页级产生洞（页等大），但前缀缓存会 pin 住大量只读页，把「空闲表很满、可分配页很少」的状态伪装出来——这要靠缓存逐出回收，不是分配器能解决的。</p><p><span class="marginnote">半页浪费是期望不是上界：长度恰为 \(B\) 整数倍的负载内部碎片为零，而长度全部落在 \(B+1\) 的负载永远浪费接近整页。评估页大小时用真实长度分布算，别用均匀假设。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>分页不减少有效 token 的字节，<a href="/llm/kv-cache-size-math">那份账</a>由模型宽度和长度决定；它消灭的是预留与碎片，别把容量收益写两遍。CUDA Graph 喜欢静态形状，按「最大页数」锁图的实现会把灵活性换成内部碎片回潮。页池与专家权重、CUDA 上下文共享显存时，水位线要按整卡算。最后，碎片率只在固定负载分布下才可比：短对话测出的 98% 利用率，搬去长文档问答就是另一个系统。</p><p><span class="marginnote">常见误区：把「开了分页」当成容量翻倍的保证。分页只是消灭预留和外部碎片这两块浪费——如果系统本来浪费 60%，收益就大；如果负载长度整齐、本来就装得满，收益接近零。收益大小取决于原来的碎片率。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>连续预留的浪费是预留与用量之差；分页把它压成页内的平均半页。</li><li>分配器三问：从哪拿、何时还、怎么算账；水位线把「中途失败」换成提前抢占。</li><li>reserved / allocated / in-use 三种口径必须分开，碎片率定义在后两者之间。</li><li>页大小是剩余的唯一碎片旋钮，结论随长度分布变。</li><li>前缀缓存 pin 页会伪装成碎片，回收靠逐出不靠分配器。</li><li>出处：Kwon et al., PagedAttention, SOSP 2023（20%–38% 有效利用率与碎片分析）；块大小结论见本仓库 PagedAttention 与分页 KV 课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 生命周期<!--]--><!----></p><p class="lesson-progress">第 2 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-prefix-cache/">前缀缓存与跨请求共享</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/kv-lifecycle-ownership/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">KV 的生命周期与所有权</span><span class="lesson-card-meta">KV 管理与压缩 · 生命周期<!--[--> · 第 1 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-prefix-cache/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">前缀缓存与跨请求共享</span><span class="lesson-card-meta">KV 管理与压缩 · 生命周期<!--[--> · 第 3 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>llama.cpp 走读 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_fw-llamacpp-walkthrough.md.D28H8W3m.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 推理框架源码走读<!--[--> · 单元 主流框架<!--]--><!----></p><p class="lesson-progress">第 4 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/fw-tensorrt-llm-walkthrough/">TensorRT-LLM 走读</a></p><p class="lesson-next"> 下一课：<a href="/llm/fw-mlc-walkthrough/">MLC 走读</a></p><!----></nav><div style="position:relative;"><div><h1 id="llama-cpp-走读" tabindex="-1">llama.cpp 走读 <a class="header-anchor" href="#llama-cpp-走读" aria-label="Permalink to &quot;llama.cpp 走读&quot;">​</a></h1><div class="epigraph"><p>没有引擎计划、没有调度进程，每一步都现场画一张计算图——慢工出细活的前提是图本身足够小。</p><footer>—— 据 ggml 与 llama.cpp 仓库结构、GGUF 规范整理</footer></div><p><a href="/llm/fw-tensorrt-llm-walkthrough">上一课</a>看构建期把内核浇死的路线，llama.cpp 走另一极：不预编译、不依赖 Python，运行时逐步构建计算图。单机本地路径的能力面已写过：量化权重加少依赖的 C/C++ 运行时，见 <a href="/llm/llamacpp">llama.cpp / ggml</a>，权重容器见 <a href="/llm/gguf">GGUF</a>。本课进仓库讲两个库的分工与关键数据结构，以仓库当时状态为准。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>用服务端框架的读法进来同样会落空：这里没有请求对象的生命周期管理，没有跨进程消息，连「调度器」都只是一个简单的槽位表。仓库其实是两个库叠放：底下的张量库 ggml 管张量、后端与计算图，上面的 llama 管模型、词表、采样与缓存。迷路的根源是把两层看混——把会话状态当成张量库的事，或把量化当成模型层的转换步骤。走读先钉分工：ggml 是「怎么算」，llama 是「算什么」。</p><p><span class="marginnote">术语翻译：「计算图」就是把一次前向拆成一串算子（嵌入→注意力→前馈→…）画成的有向无环图（DAG），箭头表示「先算谁、把结果给谁」。可以想象成菜谱的工序单：PyTorch 一类框架边跑边记这张单子，llama.cpp 则每一步重新手写工序单、算完就扔。</span></p><h3 id="两库的边界" tabindex="-1">两库的边界 <a class="header-anchor" href="#两库的边界" aria-label="Permalink to &quot;两库的边界&quot;">​</a></h3><p>ggml 侧：张量是带类型与步长的多维数组，量化是张量的<strong>存储类型</strong>而不是转换层，四比特族直接是合法类型；计算图是有向无环的节点图，构建函数逐个压入节点；后端抽象让同一张图落到 CPU、Metal、CUDA 或 Vulkan，跨后端的调度器负责把节点切给各自设备并在接缝处搬数据。llama 侧：模型对象从 GGUF 文件加载权重与超参，会话对象持有缓存与执行状态，批结构把要算的 token、位置、所属序列打包，采样器链把 logits 变成 token。</p><p><span class="marginnote">「量化是存储类型」值得单独翻译：一般框架里，量化像「先解压再使用」的转换步骤；llama.cpp 里 4-bit 权重本身就是一种一等公民的数据类型（如 Q4_K），计算核看到类型直接按 4-bit 的方式算。好比压缩图片不是「用时先解压」，而是显示器原生支持该格式。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>沿一步解码走。输入批里每个 token 带位置与序列归属，会话按它画一张图：嵌入、逐层注意力与前馈、输出头，注意力节点引用当前 KV 缓存。图交给后端调度器，逐节点分派到设备执行；计算完，会话把新 token 的键值写进缓存格子。缓存是走读的关键结构：一排格子记每个位置的有效位与所属序列集合，注意力按位置掩码读取——「这条序列看得见哪些历史」不是靠连续数组，而是靠格子上的序列成员标记，所以同会话分叉、复制序列这类操作是对格子改标记，不搬数据。</p><div class="mermaid"></div><p><span class="marginnote">采样在 llama 里是一条可组合的链：贪心、温度、top-k、语法约束各是一个环节，逐级收窄候选集。语法约束作为采样环节挂在链上，这与引擎侧把文法做成逐步掩码是同一件事的两种挂法，见约束解码。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>运行时画图却不慢，原因是每步的图几乎相同：节点数是层数的线性函数，压图与分派是 CPU 上微秒级的函数表跳转，真正的毫秒花在 GPU 执行上。图当步建当步亡，会话状态全部住在缓存与采样器里，这使「多序列、分叉、续跑」只需正确维护格子标记。量化进存储类型，则省掉了运行期任何反量化调度——核直接按类型分派。单进程单机由此成立：没有跨进程的账要记，槽位表就是全部并发管理，服务示例里每个槽位一条序列，批是槽位的简单拼接。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>没有迭代级批调度与抢占：槽位一旦占用，整批同进同出，多租户语义不能与 vLLM 对表。跨后端的图切分在异构设备上仍是短板，某些算子会整体落回 CPU。缓存与批的 API 近年重写过，具体结构名以仓库当时状态为准。它不是集群服务的替代品，本课只回答「单机一笔账怎么记」。服务端组批、抢占与多租户的对照留到下一单元。</p><p><span class="marginnote">直觉类比「槽位表」：像餐馆只设 8 张固定桌，来客入座、吃完离座，桌号就是全部管理。没有「等位叫号重新分配」这一层——这是它与 vLLM 那种翻台率至上的引擎最直观的差别，也是它把复杂度留在「一家子用」而做不进「大堂满客」场景的原因。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>llama.cpp 是两个库叠放：ggml 管张量、后端与计算图，llama 管模型、词表、缓存与采样。</li><li>每步现场构建 DAG，后端调度器把节点切给设备；建图成本相对 GPU 执行可忽略。</li><li>量化是张量存储类型，不是运行期转换层；四比特族直接参与核分派。</li><li>KV 缓存靠格子上的序列成员标记支持分叉与多序列，不靠连续数组假设。</li><li>单进程、槽位即并发，没有迭代级调度；结构名随版本漂移，以仓库当时状态为准。</li><li>出处：ggerganov/ggml 与 ggml-org/llama.cpp 仓库、GGUF 规范，按源码结构整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 推理框架源码走读<!--[--> · 单元 主流框架<!--]--><!----></p><p class="lesson-progress">第 4 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/fw-mlc-walkthrough/">MLC 走读</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/fw-tensorrt-llm-walkthrough/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">TensorRT-LLM 走读</span><span class="lesson-card-meta">推理框架源码走读 · 主流框架<!--[--> · 第 3 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/fw-mlc-walkthrough/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">MLC 走读</span><span class="lesson-card-meta">推理框架源码走读 · 主流框架<!--[--> · 第 5 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

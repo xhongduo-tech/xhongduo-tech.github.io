@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流式重排与增量解析 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dec-stream-reparse.md.Bnw2Gou1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 7 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dec-dialogue-state-stop/">对话状态与停止语义</a></p><p class="lesson-next"> 下一课：<a href="/llm/dec-postprocess-pipeline/">输出后处理管线</a></p><!----></nav><div style="position:relative;"><div><h1 id="流式重排与增量解析" tabindex="-1">流式重排与增量解析 <a class="header-anchor" href="#流式重排与增量解析" aria-label="Permalink to &quot;流式重排与增量解析&quot;">​</a></h1><div class="epigraph"><p>客户端要的不是 token，是事件：字段开始了、值稳了、对象闭合了；把 token 流直接推给前端，等于把解析器的活推给浏览器。</p><footer>—— 据 HuggingFace / tiktoken 增量解码与部分 JSON 解析器实践整理</footer></div><p><a href="/llm/dec-dialogue-state-stop">上一课</a>把「何时停」钉在会话状态上；停之前的每一段怎么交付，是本课的地盘。底层缝已经钉过：<a href="/llm/streaming-detokenize">流式 detokenize</a> 写了字节缓冲与稳定前缀，<a href="/llm/stop-sequences">stop 课</a>写了停用串命中后的挂起。本课往上走一层：把 token 流变成<strong>事件流</strong>——结构化输出的增量解析、乱序块的重排、以及帧协议。前端要边收边渲染，几 KB 的 JSON 不能等闭合。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三种交付形态的缺口。其一，纯文本流：token 到哪发到哪，detokenize 课已经解决稳定前缀；但结构化输出不能这样发——半截 JSON 对客户端不可解析（<a href="/llm/json-schema-decode">JSON Schema 课</a>的边界），用户看着一串花括号没有意义。其二，等闭合再发：最稳，TTFT 退化到整段生成完，长结构上不可接受。其三，增量解析：边生成边报告结构事件，<code>key_start</code>、<code>value_chunk</code>、<code>object_end</code>，前端按事件渲染骨架与填充值。缺口在：事件从哪来、半截字符串 token 怎么算、多个生成块乱序到达时谁保证顺序。</p><p><span class="marginnote">数字实例：一个 50 字段的嵌套 JSON 约 3000 token，按 30 token/秒生成要 100 秒。等闭合再发，用户盯着空白等 100 秒；增量解析下，第 1 秒就能看到表单骨架和第一个字段名——总时间没变，「感觉完成」的时间提前了两个数量级。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>事件层与文法共享状态。</strong> 文法掩码的自动机本来就知道「当前在哪个字段、值是字符串还是数字」（<a href="/llm/grammar-decode">文法课</a>），增量解析器不必从字节盲猜：向自动机要当前格局，格局每跳一次就发出对应事件。约束解码保证了「目前已是活前缀」，解析器只需报告进展，不需纠错——这是约束与流式互相成全的地方。</p><p><strong>只发稳定子树。</strong> 未闭合的字符串值只发已稳定部分（detokenize 课的稳定前缀规则对每个字段值单独成立）；枚举值在整体闭合前只标「候选」。replace_tail 帧允许修正未稳定尾巴。</p><p><strong>重排缓冲。</strong> 并行块（多候选、多分片、工具结果与正文）各自编号，交付层按序提交：序号小的未到，已到的先进缓冲。重排的代价是缓冲内存与首事件延迟，收益是前端逻辑不需要处理乱序。</p><p><span class="marginnote">为什么重要：网络不会保证先发的先到——乱序是常态不是故障。前端如果直接「来一帧画一帧」，用户就会看到 JSON 的值出现在键名前面、工具结果插在句子中间这类诡异画面。服务端先按序号排好队再交付，等于把一个全平台都要写的难题收进一处解决。</span></p><div class="mermaid"></div><h3 id="帧协议是兼容性契约" tabindex="-1">帧协议是兼容性契约 <a class="header-anchor" href="#帧协议是兼容性契约" aria-label="Permalink to &quot;帧协议是兼容性契约&quot;">​</a></h3><p>帧至少三种：<code>append</code>（追加稳定文本）、<code>replace_tail</code>（修正未稳定后缀）、<code>event</code>（结构事件）。协议变更即接口变更：换引擎不能换帧语义，网关要能降级（不支持 event 的客户端退化为 append 加闭合后整段校验）。这与 detokenize 课的两种帧一脉相承，event 是结构层加出来的第三种。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>增量解析的正确性来自两层保证的叠加：detokenize 层保证不把半个 UTF-8 码点或未定空格标记当字符发出；自动机层保证到过的每个格局都是 schema 的活前缀。解析器报错因此是强信号：约束解码下「解析卡住」几乎总是帧协议或分词器问题，不是模型写错了结构——掩码已经禁止了非法结构，这是<a href="/llm/json-constrained-decode">结构化输出</a>的契约。投机一次提交多个 token 时，事件层按批过增量状态机，与 detokenize 课的批处理结论同构。</p><p>重排的语义按交付物定义：文本流重排在字节上（乱序块不能拼错），事件流重排在事件序上（<code>key_start</code> 先于其 <code>value_chunk</code>）。两类序号不要混用；混用的典型事故是工具结果块插进正文事件序，前端把结果文本渲染进答案。</p><p><span class="marginnote">事件层引入一个新延迟项：首事件等待到第一个稳定事件（通常第一个键名闭合）才可发。验收结构化流式要报「首事件延迟」与「首字节延迟」两个数，只报后者会高估体验。</span></p><p>第一张图画事件从哪来；一个未闭合字符串值的尾巴如何边长边修正，是 replace_tail 帧要回答的另一件事：</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：replace_tail 的意思是「我上一帧末尾那段还没定，现在用这个新版本替换它」。像填表时铅笔写的草稿——可以擦了重写，但一旦单元格关闭（字符串的闭合引号到了），就换成钢笔定稿。客户端只要永远重画「当前尾巴」，就不需要懂分词器的半字符问题。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>事件流不降低存储门槛：半截 JSON 仍然不能进数据库，入库在闭合与校验之后（<a href="/llm/json-schema-decode">JSON Schema 课</a>的位置不变，本课只是把「等闭合」从客户端挪到服务端事件层）。事件粒度是带宽与延迟的权衡：逐字符事件打爆网关，整段事件退化成非流式；按字段与值切块是默认工作点。无约束流量没有格局可用，事件层退化为纯 detokenize——不要为普通文本强造伪事件。下一课管解码完成后的最后一公里：后处理管线。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>交付分三层：纯文本流（稳定前缀）、事件流（结构增量）、整段（闭合后）；结构化输出选事件流。</li><li>事件与文法格局共享状态：掩码保证活前缀，解析器只报告不纠错。</li><li>帧协议三种：append、replace_tail、event；协议变更即接口变更，网关可降级。</li><li>重排按序号提交，文本序与事件序分开编号；乱序缓冲换首事件延迟。</li><li>「解析卡住」在约束下是强信号：先查帧协议与分词器，再怀疑模型。</li><li>出处：据 HuggingFace <code>TextIteratorStreamer</code>、tiktoken 增量解码与部分 JSON 解析器实践整理；底层缝见流式 detokenize 与 stop sequences 课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 7 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dec-postprocess-pipeline/">输出后处理管线</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dec-dialogue-state-stop/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">对话状态与停止语义</span><span class="lesson-card-meta">解码控制与服务化 · 服务侧<!--[--> · 第 6 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/dec-postprocess-pipeline/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">输出后处理管线</span><span class="lesson-card-meta">解码控制与服务化 · 服务侧<!--[--> · 第 8 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

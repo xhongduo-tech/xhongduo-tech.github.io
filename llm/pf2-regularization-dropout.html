@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则与丢弃的取舍 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pf2-regularization-dropout.md.wmCN8IJz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 预训练实践配方<!--[--> · 单元 训练中<!--]--><!----></p><p class="lesson-progress">第 5 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/pf2-lr-warmup-practice/">学习率与预热实践</a></p><p class="lesson-next"> 下一课：<a href="/llm/pf2-longrun-health/">长训练的健康管理</a></p><!----></nav><div style="position:relative;"><div><h1 id="正则与丢弃的取舍" tabindex="-1">正则与丢弃的取舍 <a class="header-anchor" href="#正则与丢弃的取舍" aria-label="Permalink to &quot;正则与丢弃的取舍&quot;">​</a></h1><div class="epigraph"><p>当数据远大于模型容量，正则的任务不再是防止过拟合，而是控制尺度与稳定训练；把教科书默认值抄进预训练，多半是错的。</p><footer>—— 据 Gopher（Rae et al., 2021）与 Llama 系列的预训练设定对照 Srivastava et al., JMLR 2014 整理</footer></div><p><a href="/llm/pf2-lr-warmup-practice">上一课</a>签下日程契约，本课处理正则面的取舍：预训练里 dropout 开不开、权重衰减给谁、z-loss 算不算正则。<a href="/llm/dropout-transformer">dropout 在 Transformer 里的位置</a>与<a href="/llm/weight-decay-exemptions">衰减的豁免清单</a>各有专课，本课把它们放进同一张取舍表：每一项正则力作用在哪个对象上、预训练为什么大多关小、微调为什么又开回来。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>教科书默认值在预训练里会反向出错。dropout \(p=0.1\) 来自监督数据远小于模型的年代：正则防的是记住训练集。预训练是 token 数远超容量的欠拟合体制，dropout 在这里不防过拟合，只降低每个 step 的有效容量与 token 效率——同样的算力学得更少，公开配方普遍取 \(p=0\) 是这个经济学的结果，不是疏忽。权重衰减的方向相反：不能因为「大数据」就全局开大，\(\lambda\) 对归一化增益与嵌入长尾是错误的尺度先验，一个全局 \(\lambda\) 会悄悄压死词表的低频行。取舍问题因此是逐项的：每个正则力要对得上一个具体对象。</p><p><span class="marginnote">「欠拟合体制」是说模型还没把数据学完：token 数远大于模型容量，「记住训练集」这种过拟合病在这时几乎不发生。教科书里防过拟合的药，自然也就不对症。</span></p><h3 id="三条力的分工" tabindex="-1">三条力的分工 <a class="header-anchor" href="#三条力的分工" aria-label="Permalink to &quot;三条力的分工&quot;">​</a></h3><p>把预训练在用的正则力分成三类。<strong>容量类</strong>：dropout、drop-path——只在数据受限或参数远大于 token 时启用；微调小数据时再开回来扫。<strong>尺度类</strong>：权重衰减（按参数组豁免）、<a href="/llm/z-loss">z-loss</a>——衰减给矩阵参数收缩先验，norm 与 bias 豁免，z-loss 钉住 logits 的绝对尺度保护半精度与门控。<strong>稳定性类</strong>：梯度裁剪、QK-Norm——它们不是正则，但常被当成正则调；裁剪是保险丝不是分类器，见<a href="/llm/grad-clip-loss-spike">裁剪与尖峰</a>。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>配方落地四条。第一，dropout 在预训练配置里显式写 \(p=0\) 并注明是决定，不是遗漏——否则复现者会以为是漏抄。第二，权重衰减按<a href="/llm/weight-decay-exemptions">四组参数</a>分开写：矩阵、嵌入、输出头、norm 与 bias；验证不看「配置里写了多少」，看各参数组的范数分位数是否符合预期尺度。第三，衰减与学习率通过 \(\eta\lambda\) 耦合，日程降温时有效收缩率跟着变；这条耦合在<a href="/llm/weight-decay-mup">衰减与 μP</a> 的口径下随宽度如何挂，要小网格验证而不是背口诀。第四，z-loss 系数按词表规模定，词表变化不照抄小词表的数；它与衰减是两条独立的尺度力，要能单独开关。</p><p><span class="marginnote">Transformer 的默认 dropout 打在残差增量与嵌入之后，不打在 Pre-LN 的主干通路上——位置本身就是设计：主干公路承载恒等映射，往上面丢噪声会同时放大深度方向的方差。</span></p><p><span class="marginnote">数字实例：若 \(\lambda=0.1\)、峰值学习率 \(\eta=3\times 10^{-4}\)，每步有效收缩率约 \(3\times 10^{-5}\)；日程后期 \(\eta\) 降到近零，同一 \(\lambda\) 的收缩力也跟着趋零——所以「衰减恒定」其实是错觉，它随日程一起降温。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么预训练的正则取舍偏向「关容量、留尺度」：欠拟合体制下，容量类正则的边际收益为负——它换掉的是本可以学到的规律；尺度类正则的收益为正——数值稳定与尺度受控是长训练的生存条件。微调体制恰好反转：数据小、更新步数少，过拟合重新成为主要风险，dropout 的随机性重新变成有效的方差缩减。为什么衰减要分组而不全局：\(\lambda\) 隐含「参数应向零收缩」的先验，这个先验对矩阵参数成立（小权重对应平滑函数），对归一化增益（本就该围绕 1）和长尾嵌入（低频词行不更新，衰减会让它沉向死区）不成立——全局 \(\lambda\) 是把一个先验强加给了异质对象。</p><p><span class="marginnote">常见误区：初学者容易把 dropout 当成「普遍有益的健康习惯」到处加。实际上它是一笔「用容量换方差」的交易：数据充足时你卖出容量却拿不到收益，只有数据稀缺时这笔交易才划算。</span></p><div class="mermaid"></div><p>这张图回答的是「为什么同一组旋钮在预训练与微调里默认值相反」：风险结构变了，每类正则力的收益符号跟着翻转，照抄任何一边的默认值都会错。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲优化器本身：<a href="/llm/adamw">AdamW</a> 的解耦机制、<a href="/llm/muon">Muon</a> 的谱视角是各自的主题。数据侧的「正则」——去重减少记忆、去污防泄漏——不叫正则，它们是数据工程课的口径，不要混进这张取舍表。z-loss 与 <a href="/llm/z-loss-moe">MoE 路由 z-loss</a> 是两个对象，本课只钉词表侧。最后，取舍表随体制移动：数据耗尽被迫进入重复体制时，容量类正则的权衡要重新打开——那是数据耗尽一课的事，这里只留指针。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>预训练是 token 远超容量的欠拟合体制：容量类正则默认关，dropout 显式写 \(p=0\)。</li><li>尺度类正则常开：衰减按四组参数分别定，norm 与 bias 豁免；z-loss 钉 logits 尺度。</li><li>裁剪与 QK-Norm 是稳定件不是正则，常开但单独消融。</li><li>微调小数据体制反转：dropout 重新启用并扫描。</li><li>出处：Srivastava et al., JMLR 2014；Loshchilov &amp; Hutter, AdamW, ICLR 2019；Gopher（Rae et al., 2021）与 PaLM 的预训练正则设定。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 预训练实践配方<!--[--> · 单元 训练中<!--]--><!----></p><p class="lesson-progress">第 5 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/pf2-longrun-health/">长训练的健康管理</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/pf2-lr-warmup-practice/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">学习率与预热实践</span><span class="lesson-card-meta">预训练实践配方 · 训练中<!--[--> · 第 4 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/pf2-longrun-health/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">长训练的健康管理</span><span class="lesson-card-meta">预训练实践配方 · 训练中<!--[--> · 第 6 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>错误恢复与重试 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_agent-error-recovery.md.BYUjZCdv.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agent-multi-orchestration/">多 Agent 编排模式</a></p><p class="lesson-next"> 下一课：<a href="/llm/agent-eval-success-process/">评测：任务成功率与过程</a></p><!----></nav><div style="position:relative;"><div><h1 id="错误恢复与重试" tabindex="-1">错误恢复与重试 <a class="header-anchor" href="#错误恢复与重试" aria-label="Permalink to &quot;错误恢复与重试&quot;">​</a></h1><div class="epigraph"><p>「失败」不是一个类别；超时、坏 JSON、结果错误、原地打转是四种病，各有各的药，混着治只会越治越贵。</p><footer>—— 据 Shinn et al., Reflexion, NeurIPS 2023 的语言化反思机制；工程口径按失败分级整理</footer></div><p><a href="/llm/agent-multi-orchestration">上一课</a>把单环劈成多条，每条环各自会失败。本课把失败分级、给每级配恢复动作：不分级，恢复就是乱的——把瞬时错误当任务失败，成功率虚低；把语义错误当瞬时错误，无限重试烧穿预算。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>失败至少分四级，恢复动作互不通用。<strong>基础设施失败</strong>：超时、限流、5xx、断连——错不在任务，重试是正确动作，但要有退避与幂等前提。<strong>协议失败</strong>：JSON 解不开、参数违反 schema、调用名不存在——重试同样的输入几乎必然再错，正确动作是把错误原文回喂让模型改参数（<a href="/llm/agent-tool-protocol-deep">工具协议深钻</a>的错误通道），或用 <a href="/llm/json-schema-decode">JSON / 结构化输出</a>的约束通道在源头消灭。<strong>语义失败</strong>：工具执行成功、返回 200，但结果不对——检索漏了、补丁没修好、订错了日期；这一级模型自己往往不知道错，靠结果重试是空转，必须先有验证器。<strong>策略失败</strong>：死循环、同一调用反复、目标漂移——个体动作全对，轨迹在错误的整体方向上收敛，退避和回喂都无效，需要熔断与换路。<span class="marginnote">直觉类比：这四级像快递出问题的四种原因——路上车祸（基础设施）、面单格式打错（协议）、送到了但不是你订的东西（语义）、骑手在你小区里绕第三圈（策略）。车祸重派一次就行，绕圈再派几次还是在绕，得换人。</span>评测口径要先钉住这四级怎么计入（<a href="/llm/agent-eval-protocol">智能体与工具评测协议</a>），否则「成功率」里混着四种不同的死法。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>每级配最小恢复集。基础设施：指数退避加抖动，写操作带幂等键，重试次数与预算联动。<span class="marginnote">术语翻译：指数退避就是每次重试前把等待时间翻倍——第 1 次等 1 秒、第 2 次等 2 秒、第 3 次等 4 秒；「加抖动」是再叠一个随机量，让大量客户端不要在同一秒一起重试、把刚恢复的服务又打趴下。</span>协议：回喂上限两到三次，超限升级为策略失败处理。语义：验证器先行——任务自带的断言（测试、lint、对账）最硬；模型自检（<a href="/llm/self-verification-backtrack">自我验证与回溯</a>、<a href="/llm/self-critique-revise">自我批判与修订</a>）次之但会漏同源错误；判过仍失败，走跨尝试的教训沉淀：<a href="/llm/reflexion">Reflexion</a> 把失败语言化成「哪里错、下轮改什么」存进记忆，让下一次尝试条件化于上一次的死因。策略：熔断——同一工具同一参数重复出现即熔断；检查点——轨迹可从分叉点重放，不必从头再来；换路——换工具、换分解、或把决策交还给人。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>重试有效的统计前提是失败相互独立：温度不动、提示不动地再采样一次，遇到的是同一个难点，失败高度相关。所以「重试」要么改条件（换提示、换参数、换工具），要么承认这不是重试是空转。语义级验证器是恢复体系的分水岭：没有验证器，代理对「错但成功」的状态无从察觉，后续每一步都建立在坏状态上；有验证器，语义失败才从不可见变成可触发。Reflexion 的机制价值在把失败从「噪声」变成「经验」：执行轨迹是情景记忆（<a href="/llm/agent-memory-implementation">记忆系统的实现</a>），提炼出的教训是程序性记忆——同一任务第 k 次尝试应当比第 1 次聪明，这是代理与纯函数采样器的本质差别。</p><p><span class="marginnote">幂等键给重试授权：查询类工具天然可重试；写入类工具没有幂等键时，「超时后重试」可能在服务端成功两次。工具描述应写明幂等语义，编排器据此决定哪类失败允许自动重试。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>恢复不能掩盖系统性缺陷：重试成功次数要单独记账，占比高说明提示、工具或 schema 该修，而不是让重试兜底。验证器也有自己的失败模式：断言写得松，语义失败漏网；写得紧，正确解被误杀——τ-bench 用 \(\mathrm{pass}^k\) 把「稳定做对」与「偶尔蒙对」分开（<a href="/llm/taubench-agentbench">τ-bench / AgentBench</a>），恢复设计的最终目的正是把后者变成前者。<span class="marginnote">数字实例：\(\mathrm{pass}^k\) 要求 \(k\) 次独立运行全部通过。单次成功率 80% 的代理，\(k=3\) 时只剩 \(0.8^3 \approx 51\%\)；\(k=5\) 时跌到约 33%。看似不错的「八成把握」在连续任务里会迅速缩水，这就是为什么指标要按 \(k\) 报。</span>人工接管不是失败：接管的触发点、等待时长与交接上下文都该是显式设计（<a href="/llm/agent-guardrails">安全围栏</a>会把不可逆动作的卡点制度化）。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>失败四级：基础设施、协议、语义、策略；每级恢复动作不同，先分级再动手。</li><li>重试有效的前提是失败独立；不改条件的重试是相关失败上的空转。</li><li>语义失败的入口是验证器：没有验证器，代理在坏状态上继续盖楼。</li><li>Reflexion 把死因语言化入记忆，让第 k 次尝试条件化于前 k−1 次。</li><li>熔断、检查点、人工接管是策略级的三件套，触发阈值显式化。</li><li>出处：失败分级与退避重试为工程口径；Reflexion 见 Shinn et al., NeurIPS 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 质量与生产<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/agent-eval-success-process/">评测：任务成功率与过程</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/agent-multi-orchestration/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">多 Agent 编排模式</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 5 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/agent-eval-success-process/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">评测：任务成功率与过程</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 7 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

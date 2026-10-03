@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>恢复与不恢复除法 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_restoring-division.md.DeBvlwua.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数字系统与接口<!--[--> · 单元 算术单元<!--]--><!--[--> · 课序 乘除与浮点<!--]--></p><p class="lesson-progress">第 3 / 69 课</p><p class="lesson-prereq"> 先修：<a href="/cs/wallace-carry-save/">华莱士树与进位保存</a></p><p class="lesson-next"> 下一课：<a href="/cs/srt-division/">SRT 除法</a></p><!----></nav><div style="position:relative;"><div><h1 id="恢复与不恢复除法" tabindex="-1">恢复与不恢复除法 <a class="header-anchor" href="#恢复与不恢复除法" aria-label="Permalink to &quot;恢复与不恢复除法&quot;">​</a></h1><div class="epigraph"><p>除法是乘法的逆：每步试减，够则商 1，不够则商 0；不够时要不要把减回去，分开两种数据通路。</p><footer>—— 据 Harris and Harris, Digital Design and Computer Architecture；Patterson and Hennessy, Computer Organization and Design (RISC-V) 整理</footer></div><p><a href="/cs/wallace-carry-save">上一课</a>把乘法收成部分积压缩加一次 CLA。乘是多操作数加；除没有对称的「部分商树」可一次铺开（商的每一位依赖前一位试减结果）。缺口是：<strong>整数除</strong>的移位–减循环，以及恢复与不恢复两种写法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>无符号 \(N\div D\)：余数寄存器初始化为 \(N\)（或高位置 0），每步左移，减 \(D\)。若结果非负，商位移 1，余数采用减法结果；若为负，商位移 0——恢复除法把 \(D\) 加回去，不恢复除法则留下负余数、下一步改加 \(D\)（因为多减了一次）。缺口不是再定义商与余，而是电路：同一套加法器，\(c_0\) 与 \(B\) 反相在加/减之间切换。</p><p>本课钉移位减。SRT 用冗余商数字加速，是下一课的缺口。</p><h3 id="恢复不是「软件里-if-再加回去」的另一套语义" tabindex="-1">恢复不是「软件里 if 再加回去」的另一套语义 <a class="header-anchor" href="#恢复不是「软件里-if-再加回去」的另一套语义" aria-label="Permalink to &quot;恢复不是「软件里 if 再加回去」的另一套语义&quot;">​</a></h3><p>两种算法算出同一无符号商与非负余数（最后一步不恢复法若余数为负须加回 \(D\)）。差别是中间余数是否允许为负、加法器每拍是否多一次加。把它们当成两种不同的除法定义，后课 SRT 的冗余数字会对不齐。</p><p><span class="marginnote">Harris 用恢复/不恢复对照。Patterson/Hennessy 把除法延迟写成 \(\Theta(n)\) 拍，与组合乘对照。Ercegovac and Lang, <em>Digital Arithmetic</em> 是算术单元的系统参考，本课范围停在这两种经典迭代。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>寄存器：余数 \(R\)（可 \(2n\) 位）、除数 \(D\)、商 \(Q\)。每拍：\(R\leftarrow 2R\)，试 \(R-D\)。恢复：负则 \(R\leftarrow R+D\)，商比特 0。不恢复：负则下一步做 \(R+D\)，正则继续 \(R-D\)，商比特为符号的反。\(n\) 拍后得到 \(n\) 位商。补码有符号除要先处理符号或改用非恢复的符号规则，本课以无符号钉通路。</p><p><span class="marginnote">数字实例：\(7 \div 2\)，用 4 位走一轮。初值 \(R=0111\)，左移成 \(1110\) 后试减 \(2\)（\(0010\)）得 \(1100\)——高位是 1 说明结果为负（本该够减的假设错了），恢复除法立刻加回 \(0010\) 变回 \(1110\)、商记 0；不恢复除法则带着这个负的 \(1100\) 进入下一拍，只是下一拍改做加法。两条路最终的商都是 \(0011\)（3）、余数 \(0001\)（1）。</span></p><p><span class="marginnote">直觉类比：试减像猜价格——先大胆喊一个低了的价（左移一位等于把商位挤出来），发现喊多了就恢复法「当场收回去」，不恢复法「先赊着、下一轮多还一点」。两者账本结果一致，差别只是中间欠条允不允许出现。</span></p><div class="mermaid"></div><p>与<a href="/cs/array-multiplier">阵列乘法</a>对照：乘可组合树；除的每位商有循环进位依赖，教学实现几乎总是多周期。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RV32M 的 <code>div</code>/<code>rem</code> 可以走这条迭代单元，与 <code>mul</code> 分时同一加法器或分单元。除零与溢出（有符号最小负数除 \(-1\)）是 ISA 规定的结果或旗标，本课承认要检测，不把陷阱入口写进算术单元。余数符号随被除数的约定（向零截断 vs 向负无穷）是语言/ISA 选择，硬件按选定的恒等式收尾。</p><div class="mermaid"></div><p>这张图回答的问题是「同一拍上恢复与不恢复的分岔点在哪」：分岔只出现在试减结果为负的那一刻——恢复法当场用一次额外加法「抹掉这一拍」，不恢复法把补偿挪到下一拍的加减选择里。\(n\) 拍的总量相差最多 \(n\) 次加法，结果恒等。</p><p><span class="marginnote">为什么重要：恢复法的最坏情形每拍要做两次加法（减了再加回），时钟周期或拍数因此变长；不恢复法保证每拍恰好一次加法——代价是控制逻辑要记住「上一拍欠着账」。这就是真实硬件除法器几乎都选非恢复或 SRT 路线的原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入商数字集 \(\{\bar 1,0,1\}\)，不讲 Goldschmidt/Newton 迭代。也不把浮点除的对阶与规格化画进来。阵列除法器存在，面积与 \(n^2\) 级，组成课通常不采用。</p><p>后课默认：整数除是移位–试减；\(n\) 拍量级；恢复与不恢复只改中间余数与加减选择。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>乘法已能一棵树压完；除法每位商依赖试减，走迭代。</li><li>恢复：不够则加回；不恢复：负余数用下一步加法补偿。</li><li>除零与有符号溢出按 ISA 收，不在本课展开陷阱。</li><li>出处：Harris and Harris；Patterson and Hennessy, COD (RISC-V)；Ercegovac and Lang, <em>Digital Arithmetic</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数字系统与接口<!--[--> · 单元 算术单元<!--]--><!--[--> · 课序 乘除与浮点<!--]--></p><p class="lesson-progress">第 3 / 69 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/srt-division/">SRT 除法</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/wallace-carry-save/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">华莱士树与进位保存</span><span class="lesson-card-meta">数字系统与接口 · 算术单元 · 乘除与浮点<!--[--> · 第 2 / 69 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/srt-division/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">SRT 除法</span><span class="lesson-card-meta">数字系统与接口 · 算术单元 · 乘除与浮点<!--[--> · 第 4 / 69 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

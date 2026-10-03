@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多语言分词的工程 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ml-tokenizer-multilingual.md.BZzqfRBB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多语言与区域化<!--[--> · 单元 语言侧<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rw-map/">复现工作流收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/ml-crosslingual-transfer/">跨语言迁移</a></p><!----></nav><div style="position:relative;"><div><h1 id="多语言分词的工程" tabindex="-1">多语言分词的工程 <a class="header-anchor" href="#多语言分词的工程" aria-label="Permalink to &quot;多语言分词的工程&quot;">​</a></h1><div class="epigraph"><p>词表名额是经济问题而不是语言学问题：谁的语言在语料里便宜，谁的用户在推理时就更便宜。</p><footer>—— 据 Conneau 等，XLM-R，2020；Petrov 等，NeurIPS 2023 与主流开源分词器实践整理</footer></div><p><a href="/llm/rw-map">上一课</a>把复现工作流收成九步决策单与四条不变量：数字带坐标、run 可重建、结论分档、死路可检索。复现的纪律落到分词上，先看那条最硬的边界：<a href="/llm/pretokenization-regex">预分词正则</a>把合并之前的硬边界立起来——正则按字符类别切块，禁止跨类焊对，正则与合并表同快照冻结。但那条承诺是在英语文本上设计的——GPT-2 的模式里写死了 <code>&#39;s</code>、<code>&#39;ll</code> 这类英语缩写分支，字符类在拉丁文字上干净利落。把同一套配置搬到中日韩、泰语、天城文上，账要全部重算：名额给谁、块切多长、规范化动不动表面形式。本课写多语言分词的工程账。后课的跨语言迁移与低资源语言，都默认你会先审计 fertility 再谈能力。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多语言分词的失败不是「切不开」，而是三本账同时算错。第一本是名额账：在联合语料上按频率跑 BPE，英语高频对占满合并名额，32k 级词表里留给中文、天城文的整子词所剩无几，目标语言大量走<a href="/llm/byte-fallback">字节回退</a>。第二本是块长账：正则按 <code>\p{L}+</code> 切，泰语、老挝语这类无空格文字一整句落进一个块，块内合并的搜索空间被超长块吃掉——这是<a href="/llm/pretokenization-regex">预分词正则</a>里汉字问题的极端版。第三本是形式账：天城文的元音符是组合记号，阿拉伯语的叠音符可有可无，全角半角与 NFC、NFKC 形式混存；训练语料与用户输入若规范化不一致，同一句话会走两条不同的 token 序列。</p><p>三本账共同的错法，是把英语分词器当默认值，出问题后归因于「模型语言能力差」——碎片化把编码效率问题写成了能力问题，后续所有评测都被它污染。</p><p><span class="marginnote">BPE（字节对编码）翻译成大白话：先按字符切开文本，然后一遍遍把语料里最高频的相邻块两两焊成新块，焊多少次有上限，这个上限就是「名额」。名额是 32k 就只能焊出约三万个新块——英语高频词先占坑，排到中文、天城文时名额所剩无几，剩下的字只能逐字甚至逐字节硬切。</span></p><h3 id="先审计-再动刀" tabindex="-1">先审计，再动刀 <a class="header-anchor" href="#先审计-再动刀" aria-label="Permalink to &quot;先审计，再动刀&quot;">​</a></h3><p>动手改之前先量化。<a href="/llm/tokenizer-fertility">分词 fertility 与公平</a>已给出方法：按语言 × 领域交叉统计 fertility（每字符平均 token 数），看高分位而不是全球平均。一份多语言分词体检表至少包含：各语言 fertility 高分位、字节回退率、最长块分布、规范化前后 token 序列一致性。这张表决定名额往哪倾斜、正则哪里要补，也是后课评测分数解读的底账。</p><p><span class="marginnote">Petrov 等 2023 估计：同一段语义内容，部分语言在某些词表下需要数倍 token。按 token 计价时，这等于非英语用户为同等内容支付更高价格——fertility 是定价问题，不只是效率问题。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>名额：从头训多语言词表时，联合语料的抽样配比就是名额政策——<a href="/llm/tokenizer-training-corpus">分词器训练语料</a>的配比直接写进词表形状。XLM-R 用约 25 万词条、mT5 用同量级词表，就是为了给大字符集语言留整子词；坚持 32k 级小词表的路线，必须接受低资源语言的碎片化，或事后走<a href="/llm/vocab-extension-multilingual">词表扩展与多语言</a>的 append 路径补名额。</p><p>正则：用 Unicode 属性类而不是 ASCII 集合，<code>\p{L}</code>、<code>\p{N}</code> 天然覆盖全部文字系统；把组合记号 <code>\p{M}</code> 并入字母块——Llama 3 的正则就显式包含 <code>\p{M}</code>，天城文的辅音与元音符才不会裂开；ZWJ/ZWNJ 单独成块处理，避免表情序列与印度文字粘块。英语缩写分支可以保留，但它只服务英语。</p><p>规范化：确定一条 NFC 或 NFKC 路线，训练、推理、评测三处同一条。NFKC 会把全角数字折叠成半角，对把全角当语义的文本是信息损失；这个决定要写进分词器文档，不要留给实现随手选。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三本账通过 fertility 复合成三重税。窗口税：同样 8k 上下文，碎片多的语言装进的语义少。配比税：按 token 计的配比（见<a href="/llm/code-math-multilingual-mix">代码、数学、多语言配比</a>）里，高 fertility 语言的训练信号被高估，实际看到的语义内容更少。成本税：推理计费按 token，编码低效直接变成价格差异。三重税的共同源头是块边界与名额的联合决策，与注意力机制无关。</p><p>块边界与名额还会互相放大：名额少 → 整子词少 → 回退字节多 → fertility 高 → 同 token 预算下该语言的梯度信号更稀。逆向流程也成立：fertility 表是诊断仪，某语言回退率异常高时，先查名额与正则，再怀疑数据量。数字块在多语言混排里同样适用<a href="/llm/digit-splitting">数字切分</a>的规则——<code>2024</code> 与 <code>二〇二四</code> 不该因为词表形状享受不同待遇。</p><div class="mermaid"></div><p><span class="marginnote">窗口税的数字实例：假设英语 fertility 为 1.0、某语言为 1.5，同样 8192 个 token 的上下文窗口，英语能装进约 8192 字符的内容，这门语言只装得下约 5461 字符——相当于换了台屏幕小三分之一的手机读同一篇文章。能力评测若不修正这笔税，会把「窗口装不下」误判成「模型笨」。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>词表不是越大越好。嵌入矩阵与输出头随 \(|V|\) 线性涨，25 万词条的表里尾部词条见次稀少，容易退化成 glitch 源。<span class="marginnote">glitch token（异常 token）就是「在训练语料里几乎没出现过、模型见了就行为失常」的词表条目：用户输入它时模型可能突然输出乱码或无视指令。给它算笔账：25 万词条乘上 4096 维、每参数 2 字节，仅嵌入矩阵就近 2 GB——名额给了，见次没跟上，等于花钱买了大量「生词卡」还随时作妖。</span><a href="/llm/byte-fallback">字节级</a>路线是另一极端：没有名额之争，代价是序列更长、上下文消耗更大。分词工程也解决不了语言学分歧：粤语算不算独立语言、藏文要不要按音节切，是产品与社区的决策，工程只负责把决策可复现地写进正则、名额与快照。改任何一处都要回到<a href="/llm/pretokenization-regex">预分词正则</a>的铁律：正则、规范化、字节映射、合并表同快照冻结，并用多语言混排样例做回归测试。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>多语言分词是名额、块长、形式三本账；先按语言审计 fertility 与回退率，再动刀。</li><li>名额由语料抽样配比决定；大字符集语言要整子词，小词表要么接受碎片化要么事后扩展。</li><li>正则用 Unicode 属性类并把组合记号并入字母块；规范化三处统一并写进文档。</li><li>Fertility 复合成窗口、配比、成本三重税；诊断顺序是名额与正则在前，数据量在后。</li><li>词表大小、字节级路线、语言学分歧是边界；改动必须同快照冻结并做混排回归。</li><li>出处：Kudo &amp; Richardson, SentencePiece, 2018；Conneau et al., XLM-R, 2020；Xue et al., mT5, 2021；Rust et al., ACL 2021；Petrov et al., NeurIPS 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多语言与区域化<!--[--> · 单元 语言侧<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ml-crosslingual-transfer/">跨语言迁移</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rw-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">复现工作流收束</span><span class="lesson-card-meta">论文复现工作流 · 产出<!--[--> · 第 13 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ml-crosslingual-transfer/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">跨语言迁移</span><span class="lesson-card-meta">多语言与区域化 · 语言侧<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

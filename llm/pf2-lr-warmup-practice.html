@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>学习率与预热实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_pf2-lr-warmup-practice.md.BVekJ91N.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 预训练实践配方<!--[--> · 单元 训练中<!--]--><!----></p><p class="lesson-progress">第 4 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/pf2-hparam-scaling-rules/">超参的缩放规则</a></p><p class="lesson-next"> 下一课：<a href="/llm/pf2-regularization-dropout/">正则与丢弃的取舍</a></p><!----></nav><div style="position:relative;"><div><h1 id="学习率与预热实践" tabindex="-1">学习率与预热实践 <a class="header-anchor" href="#学习率与预热实践" aria-label="Permalink to &quot;学习率与预热实践&quot;">​</a></h1><div class="epigraph"><p>学习率日程是一份训练开始前就签字的承诺：预热多长、峰值多少、何时降到零，写成契约，而不是训练中的随手旋钮。</p><footer>—— 据 Loshchilov &amp; Hutter 的余弦退火与 GPT-3 配方（Brown et al., 2020）的日程设定整理</footer></div><p><a href="/llm/pf2-hparam-scaling-rules">上一课</a>把峰值学习率的迁移规则写成三部件：原点、标度、校验。本课进入训练中单元的第一课，写日程怎么落地：预热怎么设、峰值与 batch 怎么对齐、寿命为什么必须绑死总 token 数、中途要延长训练时日程怎么办。<a href="/llm/lr-schedule">日程的谱系</a>——余弦与 WSD——已经讲过，本课只补配方口径：这三段各自承担什么、改错的代价落在哪。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>日程最容易在两处出错。其一，预热被当成仪式：抄来「前两千步线性升」，却不问它在保护什么。预热保护的是三件未热的东西——Adam 的矩估计还没有积累、激活尺度还在漂、注意力还在寻找头分工；深度大或 Post-LN 结构下它甚至是生存条件，见<a href="/llm/post-ln-warmup">预热与结构</a>。保护不足，第一周就见发散；保护过度，峰值学习率该做功的阶段被吃掉。其二，寿命与数据脱钩：余弦把衰减绑在预定总步数 \(T\) 上，中途决定「再加五千亿 token」而不改日程，等于让模型在早已降到近零的学习率上爬行，训练低效且不可归因。</p><p><span class="marginnote">直觉类比：预热像发动机冷启动先怠速——机油（Adam 的矩估计）还没循环开，一上来就地板油（直接给峰值学习率）容易拉缸（发散）；怠速一小段再加速，代价小、稳得多。</span></p><h3 id="三段分工" tabindex="-1">三段分工 <a class="header-anchor" href="#三段分工" aria-label="Permalink to &quot;三段分工&quot;">​</a></h3><p>Warmup 段只做一件事：把学习率从近零抬到峰值，给矩与尺度留缓冲，长度按 token 声明而不是按步数——batch 与序列长一变，同样的步数对应的 token 完全不同。峰值段做主功：与 batch 对齐的峰值在前课的规则里定死。衰减段收尾：余弦或线性降到近零，让末期的大梯度步不再把已成形的能力抖散。WSD 的工程价值在于把衰减段做成短促的 cooldown：稳定段可以延长、可以在多个分叉上各做一次冷却，训练总长度因此可以「走一步看一步」。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>落地检查三条。第一，<strong>寿命先签</strong>：\(T\) 与配比的 \(D\) 绑定，写进<a href="/llm/pf2-pretrain-checklist">检查清单</a>；后续任何延长训练的提议都触发日程重签，而不是默认续跑——这与 Chinchilla 的教训同源：日程寿命与训练长度不匹配，会直接歪曲「该训多久」的结论。第二，<strong>对齐口径</strong>：日程按 token 表达；batch 改变时重看峰值与噪声平衡，见<a href="/llm/lr-batch-scaling-law">学习率随 batch 的规则</a>。第三，<strong>中途异常不拿日程救火</strong>：尖峰的处置走健康管理一课的预案，临时压学习率是止血不是归因。</p><p><span class="marginnote">比较余弦与 WSD 的实验必须对齐冷却后的模型：拿 WSD 未衰减的稳定段中间点去打余弦已退火的终点，会得出「余弦更好」的假象——两边此刻根本不在同一个温度上。</span></p><p><span class="marginnote">数字实例：按总 token 的 2% 预热、总预算 1T token，就是前 20B token 线性升温；若写成「前 2000 步」，batch 翻倍后同样的 2000 步对应的 token 翻倍，预热就悄悄变长了——这就是日程要按 token 声明的原因。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么日程是一份契约而不是旋钮：它定义了每一时刻的步长预算，模型能力的成形顺序与之耦合——粗结构在高温期成形，细节在降温期整理；中途改日程等于改动这份顺序，已经写完的曲线段全部失去可比性。这解释了为什么延长训练的正确做法不是「继续跑」，而是像 WSD 那样把结构设计成可延长的：稳定段延长不动已完成的功，分叉冷却各自成点。也解释了为什么中途压学习率救尖峰会毁掉归因：你无法区分是数据问题被温度掩盖了，还是温度本身就是问题的一部分。</p><p><span class="marginnote">常见误区：初学者容易以为学习率中途随时可以顺手调。实际上日程与能力的成形顺序耦合：粗结构在高温期成形、细节在降温期整理，中途改动会让已完成的曲线段失去可比性——要改就显式重签并升版本号，而不是悄悄拧。</span></p><div class="mermaid"></div><p>这张图回答的是「中途要延长训练时，两种日程各会发生什么」：余弦的寿命绑死 \(T\)，WSD 把可延长性做进了结构，这是两者的工程分野。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课写日程的配方口径，不重讲<a href="/llm/lr-sensitivity-mup-practice">学习率敏感度与 μP</a> 的宽度迁移，也不重讲 <a href="/llm/muon">Muon</a> 这类矩阵优化器下学习率要另起的标定——那些是优化器课的口径。预热长度与深度的互补关系在 Post-LN 课已有结论，这里不重复推导。序列长度的阶段化（先短后长）会在切窗点同时改变有效 batch 与噪声尺度，属于数据课程与序列预热课的交叉，本课只要求切窗点在日程表上显式登记。最后，日程数值不迁移：换词表、换稳定件、换优化器，契约重新签。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>日程是训练前签字的契约：预热、峰值、寿命一起定，中途改动走显式重签。</li><li>预热保护矩、激活尺度与注意力分工三件未热的事；长度按 token 声明。</li><li>余弦寿命绑死 \(T\)；要「走一步看一步」就用 WSD 的分叉冷却结构。</li><li>中途异常不拿日程救火：压学习率是止血，归因走尖峰预案。</li><li>出处：Loshchilov &amp; Hutter 的余弦退火；Brown et al., GPT-3, 2020 的 warmup + 余弦；WSD 见 MiniCPM（Hu et al.）等预训练报告。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 预训练实践配方<!--[--> · 单元 训练中<!--]--><!----></p><p class="lesson-progress">第 4 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/pf2-regularization-dropout/">正则与丢弃的取舍</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/pf2-hparam-scaling-rules/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">超参的缩放规则</span><span class="lesson-card-meta">预训练实践配方 · 开工前<!--[--> · 第 3 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/pf2-regularization-dropout/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">正则与丢弃的取舍</span><span class="lesson-card-meta">预训练实践配方 · 训练中<!--[--> · 第 5 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

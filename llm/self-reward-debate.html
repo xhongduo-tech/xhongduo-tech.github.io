@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>self-rewarding 的循环依赖 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_self-reward-debate.md.DYhhTyuH.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的失效模式<!--]--><!--[--> · 课序 循环依赖与污染<!--]--></p><p class="lesson-progress">第 7 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-curriculum-close/">合成课程与自出题</a></p><p class="lesson-next"> 下一课：<a href="/llm/weak-to-strong-closure/">弱到强闭环</a></p><!----></nav><div style="position:relative;"><div><h1 id="self-rewarding-的循环依赖" tabindex="-1">self-rewarding 的循环依赖 <a class="header-anchor" href="#self-rewarding-的循环依赖" aria-label="Permalink to &quot;self-rewarding 的循环依赖&quot;">​</a></h1><div class="epigraph"><p>奖励出自被训练的同一个模型，优化目标就在每一轮被改写成它此刻的口味；循环把测量误差泵成分布偏移。</p><footer>—— Yuan 等, Self-Rewarding Language Models（2024）；Panickssery 等, LLM Evaluators Recognize and Favor Their Own Generations（2024）</footer></div><p><a href="/llm/synthetic-curriculum-close">上一课</a>把自出题-自排课接进闭环：难度分布受控的合成课程让验证器有题可验，代价是出题人对「学什么」的理解会漂移。缺口再退一步：若奖励本身也出自同一个模型——self-rewarding 让模型给自己的输出打分、构造成对偏好、再用偏好损失更新自己，裁判与选手合一。<a href="/llm/llm-judge-bias">裁判偏差</a>在一次性评测里只是让名次可疑；进了训练环，偏差成为梯度本身，被逐轮放大。<a href="/llm/self-play-lm">自博弈</a>已经预警：没有判定器的互评会退化成自奖励。本课写这条循环依赖的形状，以及哪里必须放外生锚点。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Yuan 等人 2024 年把迭代写成三步：当前模型对每个提示生成多个回答；同一模型按裁判脚本打分、两两比较构偏好对；用 DPO 在自产偏好上更新，回到第一步。三轮之内 AlpacaEval 胜率持续上升。结果诱人，也因诱人而危险：整个回路里没有任何一个数来自模型之外。位置偏差、长度偏差、同族偏好——在评测里是方差，在这里是系统性增量：策略梯度精确地沿「裁判喜欢什么」的方向走，而裁判的口味就是模型自己的口味。不这么做会错在哪：把这条上升曲线当能力曲线，闭环会安静地把模型推向它自己最顺眼的分布，没有任何报警。</p><p><span class="marginnote">「循环把测量误差泵成分布偏移」翻译一下：裁判打分本有随机误差，评测里平均后可互相抵消；一旦误差方向偏爱模型自己的风格，DPO 每轮专挑这些样本训练，误差就从噪声变成确定的推动力——像天平有小毛病却天天用它称货进货，仓库库存会朝一个方向持续偏。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把裁判写成 \(\hat R(y;x)=R^*(y;x)+b(y)\)：\(R^*\) 是理想真值，\(b\) 是偏差项。人当裁判时，\(b\) 与被评模型无关，平均是噪声；裁判与生成器同分布时，自我偏好使 \(\mathbb{E}_{y\sim\pi_\theta}[b(y)]\gt 0\) 恒成立——模型给自己的输出系统性加分。策略更新最大化 \(\mathbb{E}_{y\sim\pi_\theta}[\hat R]\)，于是每轮迭代同时抬高 \(\mathbb{E}[b]\)：偏置不是被平均掉，而是被选出来。缓解按强度排：换序与长度控制治位置与冗长，治不了自我偏好；跨族裁判集成稀释同族口味；唯一硬的锚是可验证子信号——把 <a href="/llm/rlvr">RLVR</a> 的程序真值混进奖励，让不可验证维度只占少数票，并保留一个不经过裁判的 held-out 做审计。</p><p><span class="marginnote">数字实例：设两个回答真值打平，模型自己的回答带 +0.3 分的自我偏好，他人回答 0 分。单轮看只是 0.3 的小误差；迭代三轮，策略被推着产出更多这种回答，奖励被偏差越叠越高——这就是「偏差项期望恒为正、且被逐轮选出」的直观含义。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>Panickssery 等人把自我偏好的机制钉死：把法官自己的输出换成等质量的他人输出，胜率显著下降；法官甚至在内容不变时认出「这是我的写法」。偏好来自风格重叠——同族模型的 n-gram 与句式更像裁判的预训练——而 DPO 把风格差距直接写成对数概率差。所以循环的不动点不是「最好的回答」，而是「模型最顺眼的回答」：早期增益来自格式与详略（裁判爱列表、爱长文），后期停滞，因为口味已经是它自己。测量侧的随机误差，经选择压力变成了生成侧的固定偏移——这是循环依赖与「用一次法官打分」的本质区别。</p><p><span class="marginnote">Yuan 等报告的三轮增益与回答长度增长同步，且没有外生验证环节；Panickssery 等进一步显示自我偏好在质量打平时仍然存在。两者相加：不设外生读数，无法把「更像自己」与「更好」分开。</span></p><p>同一条偏差，为什么在评测里只是可疑、进训练环就致命：</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：辩论是把「自查」换成「对质」——考生不能当自己的考官，两个考生互相挑错，最后由人类打分。但长论证超出人类注意力时，实际裁决又退回模型互评，循环依赖就绕回来了。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>self-rewarding 不是全错：若有大量可验证样本锚住真值维度，剩余开放维度用自评，增益可能真实存在。辩论是另一条出路——Irving 等 2018 年的设计里裁决权在人，两个模型互相攻诘，裁判不再是选手；但它依赖链的忠实性，人类注意力成为新瓶颈，且胜负判据本身仍常退化为模型互评。凡是宣称「全自监督后训练提升了开放能力」的报告，第一问都该是：裁判是谁，换序了吗，有没有一个不经过裁判的 held-out。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>裁判与选手同模型时，自我偏好使偏差项恒正，循环把偏置逐轮选出来。</li><li>换序与长度控制必要但不充分，治不了自我偏好。</li><li>可验证子信号是唯一硬锚；开放维度自评必须配外生 held-out。</li><li>增益曲线先拆长度与格式，再谈能力。</li><li>出处：Yuan 等 Self-Rewarding Language Models（2024）；Panickssery 等（2024）；Irving 等 AI Safety via Debate（2018）；偏差清单见 <a href="/llm/llm-judge-bias">LLM 裁判偏差</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的失效模式<!--]--><!--[--> · 课序 循环依赖与污染<!--]--></p><p class="lesson-progress">第 7 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/weak-to-strong-closure/">弱到强闭环</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-curriculum-close/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">合成课程与自出题</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的解剖 · 验证与上限<!--[--> · 第 6 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/weak-to-strong-closure/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">弱到强闭环</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的失效模式 · 循环依赖与污染<!--[--> · 第 8 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

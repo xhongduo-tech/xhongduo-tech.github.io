@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对齐数据的评测闭环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ade-eval-loop.md.Dk-4F9ng.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 对齐数据工程<!--[--> · 单元 质量与配比<!--]--><!----></p><p class="lesson-progress">第 8 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ade-iteration-data-strategy/">迭代轮次的数据策略</a></p><p class="lesson-next"> 下一课：<a href="/llm/ade-map/">对齐数据工程收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="对齐数据的评测闭环" tabindex="-1">对齐数据的评测闭环 <a class="header-anchor" href="#对齐数据的评测闭环" aria-label="Permalink to &quot;对齐数据的评测闭环&quot;">​</a></h1><div class="epigraph"><p>模型要评测，数据也要：评的不是模型答得好不好，而是这份数据还定义得动边界吗。</p><footer>—— 据 Touvron 等 Llama 2, 2023 的迭代评测与本课程口径整理</footer></div><p><a href="/llm/ade-iteration-data-strategy">上一课</a>把轮次间的采集收在失败驱动与新旧混锚；本课补上闭环的最后一环：数据侧自己的仪表，以及它怎么接上模型评测的门禁。模型侧的评测体系有整门对齐评测深钻，收束在<a href="/llm/aeval-map">对齐评测收束</a>；本课不重讲模型怎么测，只写数据侧的仪表怎么让那些失败可归因。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>团队普遍盯着模型分数，数据指标静默腐烂：标注团队换人，一致率慢慢掉没人看见；轮次滚动，配比被一批批新数据悄悄搬动；持有集与训练池的近邻越来越像，验证读数虚高；政策改版三个月，安全池里一半对子还按旧政策标着。这些都不立刻体现在模型分数上——分数的变化要等下一次训练才显形，显形时已经分不清是数据的问题还是训练的问题。缺口是把数据质量做成有门禁、有触发条件的仪表，并且与模型评测的门禁接成同一个环。</p><p><span class="marginnote">「持有集」就是刻意不拿去训练、专门留着考试的数据；「训练池」则是平时刷题的题库。如果考试的题混进了题库，学生考高分只说明背过答案，不代表会做——所以要有泄漏仪表，用近邻检测把长得太像的题挑出来。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四类仪表加一个接缝。质量仪表：分批、分团队的一致率与仲裁率，指南版本 diff——掉出门禁就停采，先修标注流程。分布仪表：覆盖矩阵（意图 × 危害类别）逐轮对比，配比漂移报警——移动超阈值触发配比复核。泄漏仪表：持有集对训练池的近邻检测（与去重同一把尺），回归集零训练断言。锚仪表：旧提示重标不一致率，政策版本对齐检查。接缝是归因三分：模型评测的失败落进三个格子——数据没覆盖（采集问题）、覆盖了但标错（噪声问题）、政策改了数据没跟上（版本问题）；三个格子对应三个动作：补采、仲裁重标、政策重映射。混在一起就只剩一个动作——再采一批，恰好是最贵的那一个。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>闭环为什么必须闭合：模型门禁只报「哪里失败」，数据仪表报「失败在数据侧的对应物存不存在」——两边的格子一对，归因才有分母。持有一个机制性的细节：验证集是数据的抽样，数据分布一动，验证读数的指称就变了——这就是为什么数据卡版本必须绑进模型检查点（第一课的资产观），否则跨轮比较的两个数字根本不指同一个量。锚仪表的机制在轮次课给过：重标不一致率同时含口径差与随机误差，要配未改版对照组。所有仪表的共同性质是便宜：它们都是对已有数据的统计，不需要新标注——最贵的动作永远是盲目的那一次补采。</p><p>拿到一次模型评测失败后，归因三分的分诊流程是先查覆盖、再查标签、最后查版本，三问走完仍无答案的才移交训练侧排查：</p><div class="mermaid"></div><p><span class="marginnote">「一致率」可以这样理解：让两位标注员独立标同一批数据，统计他们给出相同答案的比例。假设抽 200 条、两人有 170 条标得一样，一致率就是 85%。低于门禁说明指南写得含糊或有人没读懂——注意它只测「稳不稳」，测不出「对不对」。</span></p><p><span class="marginnote">上线前最便宜的三个断言：回归集与训练集交集为零；持有集与训练池的最大相似度不超过去重阈值；每个检查点查得到数据卡版本。三条过不了，后面的分数不用看。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>数据仪表不替代模型评测：一致率高只说明流程稳，不说明指南对——锚定错了的指南，一致率越高错得越整齐，外部金标与人审抽检是另一道。仪表也有盲区：标注员的系统性偏差在一致率上不可见（大家一致地偏），要靠评测侧的对照探针兜住。闭环的尽头还是那个前提：判断可成文、可采集；超出成文范围的部分，本课程的仪表都够不着。</p><p><span class="marginnote">「对照探针」像考试里故意混进去的送分题和陷阱题：正确答案早就知道。如果整个流程连送分题都答错，说明存在大家「一致地偏」的系统性偏差，而不是这道题特别难——这正是标注一致率看不见的那类问题。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>数据侧四类仪表：质量（一致率/仲裁率）、分布（覆盖矩阵/配比漂移）、泄漏（近邻/零训练断言）、锚（重标/版本对齐）。</li><li>接缝是归因三分：没覆盖、标错、版本过期对应补采、重标、重映射，别把三个动作混成「再采一批」。</li><li>数据卡版本绑进模型检查点，跨轮的数字才有同一指称。</li><li>一致率高不等于指南对；系统性偏差要在评测侧用对照探针兜住。</li><li>出处：Touvron 等 Llama 2，2023；模型侧门禁体系见对齐评测收束课，按本课程整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 对齐数据工程<!--[--> · 单元 质量与配比<!--]--><!----></p><p class="lesson-progress">第 8 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ade-map/">对齐数据工程收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ade-iteration-data-strategy/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">迭代轮次的数据策略</span><span class="lesson-card-meta">对齐数据工程 · 质量与配比<!--[--> · 第 7 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ade-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">对齐数据工程收束</span><span class="lesson-card-meta">对齐数据工程 · 质量与配比<!--[--> · 第 9 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

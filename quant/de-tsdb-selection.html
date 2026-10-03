@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>时序数据库的选型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_de-tsdb-selection.md.CWuAZWYg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 存储与清洗<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/sl-map/">生命周期治理收束</a></p><p class="lesson-next"> 下一课：<a href="/quant/de-marketdata-cleaning/">行情数据的清洗</a></p><!----></nav><div style="position:relative;"><div><h1 id="时序数据库的选型" tabindex="-1">时序数据库的选型 <a class="header-anchor" href="#时序数据库的选型" aria-label="Permalink to &quot;时序数据库的选型&quot;">​</a></h1><div class="epigraph"><p>选型不是挑「最快的数据库」，而是先承认自己的查询只有几种形状，再找一个把弯路修在磁盘布局里的引擎。</p><footer>—— 据 Pelkonen 等, Gorilla: A Fast, Scalable, In-Memory Time Series Database, VLDB 2015；kdb+、ClickHouse、TimescaleDB 等引擎的公开文档整理</footer></div><p><a href="/quant/sl-map">上一课</a>把策略生命周期治理收成七条不变量，台账里的每个数字只引用数据的哈希——至于哈希底下数据住在哪、以什么形状住着，是治理交给下一门课程的问题。本课程写这台数据平台的工程。存储引擎的选型此前被<a href="/quant/fml-feature-store-deep">特征存储的深入</a>显式留白——那课声明「存储引擎与表格式选型是数据工程课程的对象」，本课接走这个问题：先定选型判据，随后三课沿入库前后的数据本体推进，行情怎么洗、公司行动怎么调、历史怎么版本化，再进平台单元。后课默认你已经知道数据住在哪、以什么形状住着。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>市场数据的写读形状与通用业务负载不同。写是 append-only 的洪流：逐笔成交与委托按事件时间到达，永不就地 UPDATE，一天动辄数亿条。读是少数几种固定形状的扫描：按标的乘日期段切片、按列取特征、按 as-of 取当时快照、按窗口滚动聚合、按日截面 rank。通用 OLTP 行存库为点查与事务优化，把 tick 塞进去，扫描带宽差出一两个数量级；反过来，为扫描优化的引擎不支持行级事务，把成交回传当业务表写会丢掉事件序。选型错的症状不是慢，而是查询形状与引擎假设不匹配——研究者只好在引擎外各补一层私有缓存，平台的真相从此不止一份。</p><p><span class="marginnote">术语翻译：as-of 查询就是「回到过去那一刻，取当时已知的最新状态」。比如今天想看 3 月 5 日研究时数据库里长什么样，就取所有 published_at 不晚于 3 月 5 日的行——不是取「关于 3 月 5 日、但可能上周才修正过的数据」。没有 as-of 语义，回测会不知不觉用未来修正值，这叫前视偏差。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>选型判据五条，按序过。<strong>一，查询形状</strong>：把团队真实的查询收成五种以内，写不出清单就先改数据模型再谈选型。<strong>二，写入吞吐与有序性</strong>：摄取按到达序写入但研究按事件序读取，引擎要支持分区追加与迟到数据。<strong>三，压缩与扫描带宽</strong>：列存加 delta、Gorilla 类轻量编码，时间戳与价格列的压缩比和解压带宽直接决定回测速度。<strong>四，as-of 语义</strong>：能否把「取 published_at 不晚于 \(t\) 的最新行」写成一次顺序扫描，而不是每行一个子查询。<strong>五，生态与人力</strong>：团队能长期维护谁，比基准榜更硬。</p><p>候选谱系四档：通用关系库存日频与元数据够用；时序专用引擎运维轻、写路径好；列式分析引擎（ClickHouse，或对象存储上的 Parquet 加 Arrow 加 DuckDB）扫描最强；专用 tick 引擎（kdb+）带宽最高而许可与人才最贵。验收用自建基准——本团队五种查询乘真实数据量——不引用厂商跑分。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>列存赢在扫描的原因是列裁剪：一次截面回测往往只读几十列中的几列，行存必须整行过内存，列存把有效 IO 缩到十分之一量级。时间戳列做 delta-of-delta、浮点价做 Gorilla 类编码后，每样本可压到字节级——Gorilla 在生产中报告平均约 1.37 字节每样本；市场数据的压缩收益与之同源：价格在一个 tick 内不变、时间戳高度局部。分区键几乎总该是日期乘标的，因为五种查询无一不带日期范围，分区裁剪把扫描限制在当日目录。最关键的是 append-only 与版本化天然合拍：引擎不需要 UPDATE，供应商修正写成新分区新版本，旧版本不可变——这正是本课程版本化一课的地基。选型因此不是性能问题而是不变量问题：引擎替你守住的 append-only、分区、列式三条不变量，是后面每一课复用的前提。</p><p><span class="marginnote">Gorilla（Facebook 生产监控系统）报告平均 1.37 字节每样本、约十倍于定宽浮点编码的压缩。市场数据的压缩比同样依赖编码与样本：引用任何「通用压缩比」之前，先在自己一段真实 tick 上重测。</span></p><p><span class="marginnote">数字实例：一张 40 列的行情宽表，截面回测只读其中 3 列（日期、收盘价、成交量）。行存按行存储，必须把 40 列整行读进内存，IO 是 40 份；列存只碰 3 个列文件，有效 IO 是 3 份——还没算列内压缩再省下的部分。这就是同一段数据在两类引擎上回测差出量级的几何原因，与硬件快慢无关。</span></p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易以为分区越细越好（比如按小时甚至按标的分区），实际上分区过细会产生海量小文件，元数据开销和打开文件的固定成本反而拖垮扫描。分区键要对齐查询形状——五种查询无一不带日期范围，所以「日期（乘标的）」几乎总是正确粒度，而不是越细越好。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不宣布「最好的数据库」：引擎谱系随硬件与生态漂移，这张表三年后要重画。不写实时行情总线——分发与延迟是<a href="/quant/sip-vs-direct">SIP vs 直连行情</a>的对象，本课以落盘为界。也不把裸 Parquet 当成「平台」：没有元数据目录与 as-of 函数，研究者会各自造轮子；下一课起的清洗与点时库，就是把裸存储补成平台的两步。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>选型判据是查询形状，不是泛化跑分：先把团队查询收成五种以内。</li><li>市场数据的写形状是 append-only 洪流，读形状是切片、列聚合、as-of、窗口、rank 五种。</li><li>列存加轻量编码把扫描带宽抬一个量级，分区键几乎总是日期乘标的。</li><li>引擎守住的三条不变量——append-only、分区、列式——是清洗、版本化与点时库的地基。</li><li>出处：Pelkonen 等, <em>Gorilla</em>, VLDB 2015；kdb+、ClickHouse、TimescaleDB 公开文档；站内<a href="/quant/fml-feature-store-deep">特征存储的深入</a>的留白与判据。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 量化数据工程深入<!--[--> · 单元 存储与清洗<!--]--><!----></p><p class="lesson-progress">第 1 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/de-marketdata-cleaning/">行情数据的清洗</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/sl-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">生命周期治理收束</span><span class="lesson-card-meta">策略生命周期治理 · 退出与沉淀<!--[--> · 第 9 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/de-marketdata-cleaning/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">行情数据的清洗</span><span class="lesson-card-meta">量化数据工程深入 · 存储与清洗<!--[--> · 第 2 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

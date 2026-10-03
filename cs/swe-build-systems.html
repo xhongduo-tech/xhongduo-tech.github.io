@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>构建系统：make 到 bazel | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_swe-build-systems.md.BjCMd88k.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 软件工程实践<!--[--> · 单元 构建与交付<!--]--><!----></p><p class="lesson-progress">第 4 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/swe-branching-changes/">分支与变更管理</a></p><p class="lesson-next"> 下一课：<a href="/cs/swe-ci-cd/">CI/CD</a></p><!----></nav><div style="position:relative;"><div><h1 id="构建系统-make-到-bazel" tabindex="-1">构建系统：make 到 bazel <a class="header-anchor" href="#构建系统-make-到-bazel" aria-label="Permalink to &quot;构建系统：make 到 bazel&quot;">​</a></h1><div class="epigraph"><p>增量构建的全部正确性押在一个判据上——这件产物还新鲜吗；时间戳是猜测，内容哈希是事实。</p><footer>—— 据 GNU Make 手册与 Bazel 的密封性、缓存文档口径整理</footer></div><p><a href="/cs/swe-branching-changes">上一课</a>把变更收进主干，主干上每一份快照都要能变成可发布的产物。程序设计课的<a href="/cs/build-system">构建系统</a>已经写过 make 的目标、依赖与配方；本课沿工程纵深重走一遍：make 的时间戳增量为什么在大团队失效，bazel 的内容寻址动作图怎么补，密封性为什么是这一切的前提。后课的 CI 默认你已经会动作图与缓存键。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>make 的判据是「目标比依赖旧就重建」，它有三个失效口。时间戳本身不可靠：检出与克隆不保序、文件系统粒度粗、时钟会跳。依赖图靠人写：写漏一条边就漏重建，写全又手工爆炸——<a href="/cs/c-preprocessor">C 预处理器</a>课写过翻译阶段把包含展开，头文件因此都算依赖，机器算得比人准。更根本的是非密封：编译器版本、系统头文件、环境变量都悄悄进结果，「在我机器上能过」没有工程意义。三个口合起来的日常就是：增量结果不可信，于是人人 clean build，增量白做。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把构建声明成动作图：目标为点、动作为边的有向无环图，系统做拓扑排序，无依赖关系的动作并行。bazel 给每个动作定义封闭的键：输入内容摘要、命令行、工具与环境都在键里。键相同就直接取缓存产物，本地缓存与远端缓存共享，跨人跨机一致——「同一主干快照，得到同一产物」。密封性是前提：工具链版本钉死，sysroot 口径见<a href="/cs/cross-compile-triple">交叉编译与三元组</a>；依赖版本锁定；动作在沙箱里执行，主机的环境变量与全局目录进不了结果。</p><p><span class="marginnote">数字实例看增量值多少钱：一个中型仓库全量构建 40 分钟、可信增量 30 秒。判据不可信时人人 clean build，百人团队每天几十次构建，浪费的就是按小时计的机器与人等——增量正确性是工程问题，不是小优化。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>判据升级的本质，是从偏序启发式走到精确判据。mtime 比较错了，结果错且无声；内容摘要不会错——输入没变就是没变，变了哈希必变。CI 因此可以信任构建产物：键相同即产物相同，<a href="/cs/swe-git-internals">git 的内部模型</a>里「哈希即校验」的思路在产物侧重演一遍。把「同源同产物」推到字节级一致，就是可复现构建，配套的物料清单见<a href="/cs/sbom-reproducible-builds">SBOM 与可复现构建</a>。</p><p><span class="marginnote">术语翻译：密封性（hermeticity）就是「构建动作能看到的每一份输入都被显式钉住」——源码、依赖版本、工具链全在图里，动作跑在沙箱中；主机上恰好装了什么编译器、设了什么环境变量，都影响不了结果。</span></p><p>make 每一步「重建还是跳过」的判定本身值得画出来。</p><div class="mermaid"></div><p><span class="marginnote">初学者容易以为增量判据写错顶多「多编译几遍、慢一点」。实际反过来：漏写一条依赖边是<strong>少</strong>重建——旧目标文件被链接进产物，程序带着旧逻辑照常跑，错误无声。bazel 的内容键就是把这个「错且无声」变成「定义上不存在」。</span></p><p><span class="marginnote">亚秒粒度的具体错法：同一秒内先更新头文件再更新源文件，mtime 相等，make 认为 .o 仍然新鲜——经典的「偶发不改」。动作键里没有时间、只有内容摘要，这类问题在定义上消失，而不是被修好。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>bazel 有成本：规则要学、外部依赖要进图、分析期有开销，小项目全是负担；make 不会死——小项目、胶水流程、单目录工具链，它仍是最短路径。生成代码会让依赖图出现「产物又是另一个目标输入」的环，切环技巧与各语言规则生态不展开。构建可复现不等于程序无副作用：运行时行为归测试与交付管。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>make 以时间戳判新旧，bazel 以内容摘要判同一；判据错了，增量就错。</li><li>动作图加封闭键，使产物可缓存、可共享、跨机一致。</li><li>密封性是缓存的前提：工具链钉死、依赖锁定、沙箱执行。</li><li>头文件等隐藏依赖应进图；漏边是漏重建的根源。</li><li>小项目用 make，多语言大库上 bazel；选择随规模不随时髦。</li><li>出处：GNU Make 手册；Bazel 文档（密封性与远端缓存口径）；交叉编译见<a href="/cs/cross-compile-triple">交叉编译与三元组</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 软件工程实践<!--[--> · 单元 构建与交付<!--]--><!----></p><p class="lesson-progress">第 4 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/swe-ci-cd/">CI/CD</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/swe-branching-changes/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">分支与变更管理</span><span class="lesson-card-meta">软件工程实践 · 测试与版本<!--[--> · 第 3 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/swe-ci-cd/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">CI/CD</span><span class="lesson-card-meta">软件工程实践 · 构建与交付<!--[--> · 第 5 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

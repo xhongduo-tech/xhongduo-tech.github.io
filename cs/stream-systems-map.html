@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flink 与 Kafka Streams 的对照与收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_stream-systems-map.md.T_YOFN1C.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 流处理<!--[--> · 单元 系统<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/stream-backpressure/">背压</a></p><p class="lesson-next"> 下一课：<a href="/cs/con-raft-implementation/">Raft 的实现细节</a></p><!----></nav><div style="position:relative;"><div><h1 id="flink-与-kafka-streams-的对照与收束" tabindex="-1">Flink 与 Kafka Streams 的对照与收束 <a class="header-anchor" href="#flink-与-kafka-streams-的对照与收束" aria-label="Permalink to &quot;Flink 与 Kafka Streams 的对照与收束&quot;">​</a></h1><div class="epigraph"><p>同一个语义模型可以落在两种架构上：一套独立集群的执行引擎，或一个嵌进应用的库。选哪个不取决于功能表的长短，取决于状态放在谁的运维半径里。</p><footer>—— 据 Apache Flink 与 Kafka Streams 公开设计文档；Kreps, Narkhede and Rao, 2011 整理</footer></div><p><a href="/cs/stream-backpressure">上一课</a>把速率问题收进引擎的有界边。本课收束本课程：先对照两个代表性系统的架构取舍，再把前七课的语义链条收拢成一张图。本课程到此收束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>学完模型、窗口、watermark、恰好一次、join、状态、背压，工程上的问题是：这些机制装在哪个壳里。Flink 与 Kafka Streams 是两个极点——前者是独立分布式运行时，后者是嵌在应用进程里的库。逐项对功能表会越对越乱：两边都有窗口、都有恰好一次、都有状态。分得清的是架构与所有权：算力归谁、状态归谁、失效域多大、恢复走哪条路。</p><p><span class="marginnote">直觉类比：独立运行时像请了专职保姆——算力、状态、恢复都有专人管，但要付一份运维钱；嵌入库像自己带娃——状态就放在应用进程里，部署简单，可孩子半夜发烧（实例挂了）得自己爬起来处理。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Flink：作业图由 JobManager 编排、TaskManager 执行，状态放 RocksDB，快照写远端存储；事件时间、watermark、<a href="/cs/stream-backpressure">credit 流控</a>都在引擎内，与源的耦合只有一个可重放接口——<a href="/cs/kafka-log">Kafka</a> 只是源之一。Kafka Streams：没有额外集群——分布就是消费组对分区的任务指派；本地 RocksDB 状态加 changelog 主题做备份，恢复等于从 changelog 回放；恰好一次靠把消费-变换-生产包进 Kafka 事务，走的是第四课的路线二而非路线一。并行度上界就是分区数。SQL 层：Flink 的 Table API 在流上跑连续查询；Kafka Streams 的 DSL 与 ksqlDB 是另一条路。</p><p><span class="marginnote">Kafka Streams 的并行度上限是分区数：实例可以少于分区，不能多于。先扩分区再扩应用，会改变键到分区的映射，按键有序随之破坏——扩容决策要提前于业务增长，不是随时可做。</span></p><p><span class="marginnote">数字实例：topic 有 12 个分区，Kafka Streams 应用最多开 12 个有效实例——第 13 个实例永远分不到任务，纯属浪费。Flink 源接 Kafka 时同样受分区数限制，但下游算子想并行 32 就并行 32，与分区数无关。</span></p><p><span class="marginnote">恰好一次的两条路线各对应一家架构：路线一是快照重放——状态定期存盘，故障后连同输入一起回放，全图一致；路线二是日志事务——把消费、变换、生产包进同一个 Kafka 事务，要么全成要么全不成，运维更轻。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>真正的分野是状态的运维半径与失效域。Flink 的状态归作业管：扩缩容走 key group 重分配（第六课），快照与作业同生命周期，失效域是整张作业图——一个算子慢，全图背压（第七课）。Kafka Streams 的状态归应用实例管：实例挂，changelog 回放重建本地状态，失效域是单个实例加它负责的分区；跨实例没有整体背压，速率问题由 Kafka 的消费滞后（lag）暴露。故障恢复对应第四课两条路线的取舍：快照重放换整图一致性，日志事务换运维简单。窗口、watermark、迟到合同两边都遵守第二、三课的语义，差别在实现深度：引擎级的水印传播与对齐比库级更精细。语义模型先于引擎——这是本课程最想留下的判断：先写清 WHAT、WHEN、HOW，再挑壳。</p><div class="mermaid"></div><p><span class="marginnote">失效域就是「一处出问题时，多大范围被拖下水」：Flink 一个算子慢会背压全图，等于整条流水线降速；Kafka Streams 只影响单个实例与它负责的分区，别的实例照常消费——故障排查与容量评估的粒度因此完全不同。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>对照不构成选型裁决：状态规模、时延要求、团队运维半径、已有 Kafka 投入共同决定；两边也都在演化，快照的边界会过期，语义模型不会。不把「流批一体」当免费午餐：批是特例（第一课），特例的实现路径各有折扣。本课程到此收束：从无界数据的模型出发，经窗口与 watermark 的语义、恰好一次的机制，到 join、状态、背压的工程，最后落回两个系统的架构取舍——后续课程在共识与复制上继续分布式这条线。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Flink 是独立运行时：状态归作业，失效域是全图，恢复走快照重放。</li><li>Kafka Streams 是嵌入库：状态归实例，changelog 即 WAL，恢复是回放，并行度上界是分区数。</li><li>恰好一次的两条路线（快照、日志事务）分别对应两家的架构。</li><li>语义模型先于引擎：窗口、进度、幂等的定义不随选型改变。</li><li>出处：Akidau et al., Streaming Systems, O&#39;Reilly 2018；Kreps, Narkhede and Rao, 2011；Flink 与 Kafka Streams 公开设计文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 流处理<!--[--> · 单元 系统<!--]--><!----></p><p class="lesson-progress">第 8 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/con-raft-implementation/">Raft 的实现细节</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/stream-backpressure/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">背压</span><span class="lesson-card-meta">流处理 · 系统<!--[--> · 第 7 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/con-raft-implementation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Raft 的实现细节</span><span class="lesson-card-meta">分布式共识深化 · 实现<!--[--> · 第 1 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

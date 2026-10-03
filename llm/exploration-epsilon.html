@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>探索与利用：ε-贪婪与乐观 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_exploration-epsilon.md.DsqL4GwC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 MDP 与动态规划<!--]--><!--[--> · 课序 语言模型的决策视角<!--]--></p><p class="lesson-progress">第 6 / 22 课</p><p class="lesson-prereq"> 先修：<a href="/llm/llm-decision-view/">语言生成作为 MDP</a></p><p class="lesson-next"> 下一课：<a href="/llm/monte-carlo-evaluation/">蒙特卡洛策略评估</a></p><!----></nav><div style="position:relative;"><div><h1 id="探索与利用-ε-贪婪与乐观" tabindex="-1">探索与利用：ε-贪婪与乐观 <a class="header-anchor" href="#探索与利用-ε-贪婪与乐观" aria-label="Permalink to &quot;探索与利用：ε-贪婪与乐观&quot;">​</a></h1><div class="epigraph"><p>不吃当前最优的那家馆子，才有机会知道街口新开的那家更好；你学到的价值，只是你自己的动作流过得出的样本。</p><footer>—— 据 Sutton &amp; Barto, Reinforcement Learning: An Introduction, 2018, 第 2 章；Auer, Cesa-Bianchi &amp; Fischer, 2002 整理</footer></div><p><a href="/llm/llm-decision-view">上一课</a>把生成钉成了 MDP：状态是前缀、动作是 token、转移为恒等，维度灾难宣判了表格 DP 的死刑，课程转入无模型——只从策略自己采出的轨迹学习。本课补无模型更早的一个前提：轨迹由策略产生，策略不给的机会价值永远学不到。于是要谈探索-利用权衡，写 ε-贪婪与乐观初始化，再对照 LLM 采样的温度。本单元（MDP 与动态规划）到此收口，它留下的缺口——<strong>无模型时怎么估计价值</strong>——由下一单元开篇的蒙特卡洛策略评估接手。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>评估需要按当前策略采样的轨迹；但若策略只选当前估计的最优动作，次优动作的估值永远停在初值，而当前「最优」可能只是小样本噪声。最小案例是多臂老虎机：动作没有长期后果，每台机器有未知均值。每一步都在花同一份预算：选已知最好的（利用）拿眼前回报，选不确定的（探索）买信息。只利用会被初采样误差锁死，只探索则永远不兑现——这不是工程取舍，是学习问题的内置结构：<strong>信息是动作的副产品</strong>。</p><p><span class="marginnote">「多臂老虎机」就是把探索-利用剥到最简的玩具问题：你面前有几台中奖率未知的老虎机，每拉一次得一次奖励，拉哪台不影响之后的概率。没有状态、没有后续后果，唯一的纠结就是「继续拉现在最赚的那台，还是试试没拉过的」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>ε-贪婪</strong>：以 \(1-\varepsilon\) 概率选当前估值最优的动作，以 \(\varepsilon\) 概率均匀随机探索。表格法的一致性由此买到：每个动作被无穷次访问，大数定律才能把 \(\hat Q\) 拉到真值。代价也明码标价：\(\varepsilon\) 不衰减时，学得再久仍有 \(\varepsilon\) 概率踩次优动作；实战用 \(\varepsilon_t\) 随访问次数或时间衰减，先重探索后重利用。</p><p><span class="marginnote">代个数字感受一下：\(\varepsilon=0.1\) 时每 10 步约有 1 步在随机瞎试，跑 1000 步就约有 100 次「不求眼前回报、只为买信息」的动作。看似浪费，但这些样本正是 \(\hat Q\) 能被拉到真值的原料——没被选中的动作，估值永远停在初值。</span></p><p><strong>乐观初始化</strong>：把 \(\hat Q\) 的初值设得比任何可能回报都高。没被试过的动作显得诱人，被试一次估值猛跌，于是策略系统性地先扫一遍所有动作，再收敛到最优——把「不确定」翻译成「看起来好」，用确定性的初始偏差驱动探索，不需要掷骰子。代价是需要奖励上界的先验，且只天然适配回合初、稀疏交互的场景。更进一步是按不确定度加偏置的置信上界（Auer 等 2002 的 UCB 一族），本课只作锚点，不展开遗憾界分析。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>与温度的对照要说准。LLM 采样温度把 logits 除以 \(T\) 再 softmax，机制与角色见 <a href="/llm/sampling-temperature-topp">温度与 top-p 采样</a>、训练期用法见 <a href="/llm/rl-sampling-temperature">RL 采样温度</a>。它像探索，但有三个差距：其一，温度是逐步独立的扰动，不随经验收敛——ε-贪婪的探索随 \(\hat Q\) 变准而自然失去意义，温度则永远同样地摇，退火要另加调度；其二，它不保证覆盖：温度升高后概率质量仍在头部打转，长尾 token 几乎不被采到，「试过」这件事没有保证，而 ε-贪婪与乐观法的关键产物恰恰是每个动作的无穷访问；其三，服务对象不同：推理期温度管输出多样性，训练期探索要服务价值估计的一致性，预算与判据不能共用。所以温度不是探索的完整答案，rollout 的覆盖还是要按「每个状态-动作被访问多少次」来盯。</p><p><span class="marginnote">ε-贪婪的渐近代价可以写成份额：\(\varepsilon=0.1\) 不衰减时，无论学多久都有约一成动作花在均匀瞎试上，遗憾随交互次数线性增长；衰减调度的意义正是把这份预算从「永久保险」改成「前期投入」。</span></p><p><span class="marginnote">初学者容易把「调高温度」当成探索。实际上温度只是把整张概率分布抹平一点：头部 token 概率仍占大头，长尾 token 几乎永远轮不到被采到——这与 ε-贪婪「保证每个动作都被访问到」是两码事。</span></p><p>乐观初始化为什么不用掷骰子也能扫遍所有动作，把它的循环画出来一目了然：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课的探索都是动作级的（试不同 token），不含定向探索（按计数或好奇心去没去过的状态），也不含 prompt 层面的任务多样性——那是数据配比的问题。乐观法在随机奖励、非平稳环境下会失效或需改造；UCB 与 Thompson 采样的遗憾界不在本课。还有一个本课刻意留下的缺口：ε-贪婪与乐观都假设<strong>已经有了</strong> \(\hat Q\) 可以贪心、可以初始化——无模型时 \(\hat Q\) 从哪来、采样轨迹怎么折算成估值，上一课维度灾难之后悬着的这个问题，下一单元从蒙特卡洛策略评估讲起。</p><p>后课默认：探索保证的是访问次数，估计由后面的方法负责；两笔账分开算。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>探索-利用权衡的根源：信息是动作的副产品，覆盖不到就学不到。</li><li>ε-贪婪买访问次数：一致性有保证，代价是 \(\varepsilon\) 份额的次优动作，用衰减调度消化。</li><li>乐观初始化把不确定翻译成有吸引力：确定性探索，需要奖励上界先验。</li><li>温度不是探索的完整答案：不随经验收敛、不保证覆盖、服务多样性而非估计。</li><li>本单元收口：五元组、回报、贝尔曼、DP、生成视角、探索备齐；无模型估计留待蒙特卡洛。</li><li>出处：Sutton &amp; Barto 2018 第 2 章；Auer, Cesa-Bianchi &amp; Fischer, <em>Machine Learning</em>, 2002。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 MDP 与动态规划<!--]--><!--[--> · 课序 语言模型的决策视角<!--]--></p><p class="lesson-progress">第 6 / 22 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/monte-carlo-evaluation/">蒙特卡洛策略评估</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/llm-decision-view/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">语言生成作为 MDP</span><span class="lesson-card-meta">强化学习基础 · MDP 与动态规划 · 语言模型的决策视角<!--[--> · 第 5 / 22 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/monte-carlo-evaluation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">蒙特卡洛策略评估</span><span class="lesson-card-meta">强化学习基础 · 无模型学习 · 预测与控制<!--[--> · 第 7 / 22 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

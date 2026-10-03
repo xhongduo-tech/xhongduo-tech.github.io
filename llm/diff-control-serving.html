@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>条件控制的服务 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_diff-control-serving.md.DFSAyOHb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 扩散模型服务化<!--[--> · 单元 控制与生产<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/diff-batching-scheduling/">批处理与调度</a></p><p class="lesson-next"> 下一课：<a href="/llm/diff-video-serving/">视频生成的服务</a></p><!----></nav><div style="position:relative;"><div><h1 id="条件控制的服务" tabindex="-1">条件控制的服务 <a class="header-anchor" href="#条件控制的服务" aria-label="Permalink to &quot;条件控制的服务&quot;">​</a></h1><div class="epigraph"><p>文本提示只是条件的一种；把构图、风格、身份都变成可挂载的条件，服务对象就从「一个模型」变成「一个模型加一柜子适配器」。</p><footer>—— 据 Zhang 等 ControlNet（2023）与 IP-Adapter 等适配器实践整理</footer></div><p><a href="/llm/diff-batching-scheduling">上一课</a>把请求凑成桶内同步的批，但那些请求共享同一个条件集。本课把「条件」本身变成服务对象：文本之外，ControlNet 的构图控制、IP-Adapter 的参考图、LoRA 的风格注入都挂在去噪网络上。第一课的条件嵌入缓存在这里推广成条件服务层：凡是纯函数的条件变换，都缓存；凡是可挂载的权重，都按请求装配。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多一种条件，管线就多一段会算错账的地方。ControlNet 给去噪网络旁挂一份可训练的编码器副本，每步前向近似翻倍；预处理（边缘图、深度图、姿态）是 CPU 密集的一次性段，不缓存就每请求重算。LoRA 的账更细：底座一份、适配器几十个，逐请求合并有开销，预合并则组合数爆炸；叠加还有权重尺度冲突。缺口是装配协议：请求声明条件集，服务端负责装配、缓存与计价——不立协议，每个功能都以为自己独占管线。</p><p><span class="marginnote">LoRA 直译「低秩适配」：在冻结的大权重旁挂一对很小的矩阵，只训小矩阵。所谓「合并」就是把这对小矩阵的乘积加进大权重。逐请求合并像每次点餐现拼套餐，预合并像把每种组合提前做好放进冰箱——组合一多，冰箱（显存）先爆。</span></p><h3 id="条件的分类与装配" tabindex="-1">条件的分类与装配 <a class="header-anchor" href="#条件的分类与装配" aria-label="Permalink to &quot;条件的分类与装配&quot;">​</a></h3><p>按「算一次还是每步算、挂参数还是挂权重」分四类：</p><ul><li><strong>提示词嵌入</strong>：纯函数，按提示词哈希缓存，命中即省一次文本编码。</li><li><strong>控制图</strong>：预处理是纯函数，按（原图，预处理器，参数）缓存；ControlNet 本体每步都算，进循环段成本。</li><li><strong>适配器权重</strong>：LoRA 按请求装配，合并后的权重短生命周期缓存（键为底座版本 + 适配器集合 + 比例）。</li><li><strong>逐请求标量</strong>：\(\gamma\)、ControlNet 强度、去噪强度，不缓存，进请求校验。</li></ul><p><span class="marginnote">ControlNet 的编码器副本用零卷积初始化接入主干，启用时每步前向的 FLOPs 量级接近翻倍——按请求计价时控制条件不是「附加功能」而是「第二份前向」，定价与配额都要按这个口径。</span></p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>装配协议三步。第一步，请求规格里显式列出条件集：每项控制图带预处理器版本，每个 LoRA 带仓库版本与强度；缺省值由产品档位给，不由服务端猜。第二步，装配器按缓存键取嵌入、控制图与合并权重，未命中项并行补算，预处理在 CPU 池跑，不占 GPU 批位。第三步，把装配结果折算进调度账：启用 ControlNet 的请求换算成更大的等效前向数，进<a href="/llm/diff-batching-scheduling">批处理与调度</a>的桶账，不按普通请求排队。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么条件缓存有效而结果缓存廉价：条件到嵌入或控制图是确定性映射，缓存键稳定；而「提示词到成图」的映射还含种子与随机性，结果缓存只在严格复现场景有意义。为什么 LoRA 逐请求合而不是常驻多份：底座权重只读共享，合并产出的临时权重生命周期与请求同长，显存按并发峰值预留；高频组合可以升级为常驻合并变体——这是一个按命中率驱动的缓存晋升问题，不是静态配置。</p><p><span class="marginnote">「命中率驱动的晋升」翻译成零售语言：某组合每秒被点 5 次、每次合并耗时 100 毫秒，现做就要每秒烧掉半个 GPU 用来「备菜」；点得够多就提前备货（常驻合并变体），用一点显存换回整段计算。晋升与否看账本，不看喜好。</span></p><p>为什么引导与控制强度是运营旋钮而不是模型旋钮：它们改变条件分支的注入幅度，不改权重；把「控制不生效」的工单先用强度参数消解，能省掉大量无效的模型回滚。反过来，控制图预处理版本升级会改变所有下游请求的输入分布——预处理器版本必须进请求谱系，与模型版本一起参与归因。</p><p><span class="marginnote">常见误区：收到「ControlNet 不生效」的工单就怀疑模型坏了、急着回滚版本。实际上强度这类标量旋钮先拧一遍——它只改条件注入幅度、不动任何权重，一分钟就能验证；用它消解掉的工单，比一次模型回滚便宜几个数量级。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>多 ControlNet 的权重调和在模型侧已定，服务端只透传，不发明第二套逻辑；多个 LoRA 的叠加顺序与比例冲突是模型问题，装配层暴露参数但不解决参数。条件服务层不碰安全：参考图与控制图本身要过输入过滤，和提示词同一道门（本课程后面的安全课）。反演类条件（图生图、重绘）引入去噪强度与潜变量复用，这里只声明「条件集可包含初始潜变量」而不展开。最后，装配协议的可观测性是归因的前提：每个请求落盘条件集与缓存命中情况，否则「同一提示词不同结果」永远查不清是种子、装配还是版本的问题。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>条件按「算一次还是每步算、挂参数还是挂权重」分四类，各配各的缓存键。</li><li>ControlNet 启用接近双份前向，按等效前向数计价与调度，不当附加功能。</li><li>LoRA 逐请求装配、短生命周期缓存，高频组合按命中率晋升为常驻变体。</li><li>预处理器版本进请求谱系：它改变所有下游输入分布，必须参与归因。</li><li>强度类参数是运营旋钮，先用它消解工单再考虑动模型。</li><li>出处：Zhang 等 ControlNet、IP-Adapter 等适配器文献；装配协议据本课整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 扩散模型服务化<!--[--> · 单元 控制与生产<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/diff-video-serving/">视频生成的服务</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/diff-batching-scheduling/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">批处理与调度</span><span class="lesson-card-meta">扩散模型服务化 · 推理管线<!--[--> · 第 4 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/diff-video-serving/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">视频生成的服务</span><span class="lesson-card-meta">扩散模型服务化 · 控制与生产<!--[--> · 第 6 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

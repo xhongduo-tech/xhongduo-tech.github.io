@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则化回归的计量解释 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_pm-regularized-econ.md.CwTMncAa.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 预测与机器学习计量<!--[--> · 单元 预测<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/econ/pm-sparse-methods/">稀疏方法</a></p><p class="lesson-next"> 下一课：<a href="/econ/pm-ml-causal-deep/">机器学习与因果的深化</a></p><!----></nav><div style="position:relative;"><div><h1 id="正则化回归的计量解释" tabindex="-1">正则化回归的计量解释 <a class="header-anchor" href="#正则化回归的计量解释" aria-label="Permalink to &quot;正则化回归的计量解释&quot;">​</a></h1><div class="epigraph"><p>同一个 Lasso 能做两件事：预测时偏差是免费的，推断时偏差是致命的——分不清这两件事，选出来的显著性只是选择过程的回声。</p><footer>—— 据 Leeb and Pötscher, Can One Estimate the Conditional Distribution of Post-Model-Selection Estimators?, Econometric Theory 2005；Belloni, Chernozhukov and Hansen, JEP 2014 整理</footer></div><p><a href="/econ/pm-sparse-methods">上一课</a>把高维预测器钉在稀疏假设与样本外验证上，并留下一句话：入选集合是随机对象，系数带收缩偏差。计量经济学家的诉求不止预测——要系数、要区间、要检验。缺口是：惩罚世界里的推断怎么做，以及什么情况下根本做不到。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>两个陷阱。其一，挑选后的显著性：用同一份数据先选模型、再对入选变量做 OLS 的 t 检验，检验的分布已被挑选改变。Leeb–Pötscher 2005 的不可能性说得更狠：模型选择估计量无法被一致地估计——真实参数附近，估计量的分布随参数值移动，任何置信区间要么无限宽要么失覆盖。其二，规格搜索的多重性：扫 \(\lambda\)、扫变量、扫子样本，挑显著的报告，名义 \(\alpha\) 与族错误率脱钩，这接<a href="/econ/multiple-testing-econ">多重检验</a>的纪律：只展示显著规格等于隐瞒 \(m\)。</p><h3 id="罚的另一面-先验与收缩" tabindex="-1">罚的另一面：先验与收缩 <a class="header-anchor" href="#罚的另一面-先验与收缩" aria-label="Permalink to &quot;罚的另一面：先验与收缩&quot;">​</a></h3><p>贝叶斯读法把罚变成先验：ridge 是高斯先验下的后验众数，Lasso 是拉普拉斯先验；Zellner 的 g 先验把先验信息强度随样本量参数化，贝叶斯模型平均（BMA）给出另一条路——不选模型，把不确定性摊在模型族上。经典侧的先声是 James–Stein 1961：平方损失下收缩估计一致优于最大似然，维数三即生效——「往零收」在决策论上不是妥协，是可兑现的免费午餐。</p><p><span class="marginnote">术语翻译：收缩（shrinkage）就是把估出来的系数「往零拉一点」。代价是引入一点偏差，换来方差大降——像把话音调小换更少杂音：单个系数看着变小，整体预测却稳得多。James–Stein 证明这种「认怂」在平方损失下平均总是赚的，这是收缩合法性的源头。</span></p><h3 id="推断的正路-双选择与去偏" tabindex="-1">推断的正路：双选择与去偏 <a class="header-anchor" href="#推断的正路-双选择与去偏" aria-label="Permalink to &quot;推断的正路：双选择与去偏&quot;">​</a></h3><p>post-double selection（Belloni–Chernozhukov–Hansen 2014）：关心 \(d\) 对 \(y\) 的效应时，对 \(d\) 过一遍变量选择（防遗漏变量偏差），对 \(y\) 过一遍（防只预测 \(y\) 的变量带来的选择偏倚），两个入选集合并起来跑 OLS。两类偏差都被压到 \(\sqrt n\) 之下，常规推断恢复。工具变量侧同理：用 Lasso 从高维候选里构造最优工具（Belloni–Chen–Chernozhukov–Hansen 2012）。另一路是对 Lasso 本身去偏：把压缩掉的偏差用一步修正加回去，得到近似正态的估计量。</p><p><span class="marginnote">直觉类比：post-double selection 像审两遍稿——一遍审 \(d\)（与处理变量相关的控制一个不能漏），一遍审 \(y\)（只预测结局的变量不能冒充相关）。两遍筛出的并集才是安全的控制池：只审一遍，另一类偏差就漏网。</span></p><p><span class="marginnote">有效自由度 \(\mathrm{df}(\lambda)=\mathrm{tr}(H_\lambda)\) 是收缩世界的「变量个数」：岭回归的 df 从 \(p\) 连续降到零，Lasso 的 df 约等于入选数。报告 df 而不是数变量，才能在不同罚之间对齐复杂度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>流程先声明目标。预测目标：沿上一课流水线走，接受偏差，不解读系数。推断目标：三选一——post-double selection 之后 OLS；desparsified Lasso 的去偏得分；BMA 的模型平均后验。控制变量的候选池必须预先声明，选择过程（哪一步筛、用了什么 \(\lambda\)）写进报告；显著性声明过多重检验校正。省略这一步，等于把规格搜索的幸运当成了发现。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么双选择有效：遗漏与选择两类偏差都以与样本相关的速率进入估计量，\(\sqrt n\) 收敛要求它们低于 \(\sqrt n\)；两遍选择正是把它们按可证的界限压下去，剩下的误差进入常规渐近正态。为什么朴素 post-selection 崩：入选集合是随机的，条件在「选中了这些变量」上做推断，等于把选择事件当成已知事实，t 统计量的零分布随之变形；Leeb–Pötscher 的不可能性说明这不是实现细节，是数学边界。df 的直觉同源：每个被收缩的系数贡献一份小于一的「自由度份额」，复杂度的账要按罚后的实际自由度记。</p><p>朴素 post-selection 与双选择在推断上的分岔：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>稀疏推断仍依赖稀疏假设：不稀疏时，去偏区间的宽度按真相发散——这恰是诚实的表现，说明数据不支持那些系数。弱工具不因 Lasso 消失，最优工具的构造仍要过弱工具诊断。BMA 的结论对先验敏感，敏感性要做而不是辩解。识别从不来自惩罚：正则化改变估计的方差与偏差，不改变外生性来源。这些工具箱如何整体进因果问题，下一课给地图。</p><p><span class="marginnote">常见误区：用 Lasso「选出重要变量」，再对这几个入选变量跑 OLS 报显著性——这不是推断，是选择过程的回声。正规做法是 post-double selection 或去偏得分，并且把候选池和选择过程本身写进报告。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>挑选后的 t 检验无效；Leeb–Pötscher：模型选择估计量不存在一致估计，这是边界不是技巧问题。</li><li>罚即先验：ridge 对高斯、Lasso 对拉普拉斯；BMA 把模型不确定性摊开而不是挑一个。</li><li>推断正路是 post-double selection 或去偏得分；控制池与选择过程必须预先声明并写进报告。</li><li>\(\mathrm{df}(\lambda)\) 是复杂度的统一账本，跨罚对齐复杂度用 df 不用变量个数。</li><li>出处：James and Stein 1961；Leeb and Pötscher, <em>Econometric Theory</em> 2005；Belloni, Chen, Chernozhukov and Hansen, <em>Econometrica</em> 2012；Belloni, Chernozhukov and Hansen, <em>JEP</em> 2014；Zellner 1986。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 预测与机器学习计量<!--[--> · 单元 预测<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/pm-ml-causal-deep/">机器学习与因果的深化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/pm-sparse-methods/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">稀疏方法</span><span class="lesson-card-meta">预测与机器学习计量 · 预测<!--[--> · 第 2 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/pm-ml-causal-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">机器学习与因果的深化</span><span class="lesson-card-meta">预测与机器学习计量 · 因果与文本<!--[--> · 第 4 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

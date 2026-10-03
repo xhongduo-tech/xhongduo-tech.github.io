@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>复现案例：训练配方 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rw-case-training-recipe.md.84Ao8zm6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 产出<!--]--><!----></p><p class="lesson-progress">第 12 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rw-case-inference/">复现案例：推理引擎</a></p><p class="lesson-next"> 下一课：<a href="/llm/rw-map/">复现工作流收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="复现案例-训练配方" tabindex="-1">复现案例：训练配方 <a class="header-anchor" href="#复现案例-训练配方" aria-label="Permalink to &quot;复现案例：训练配方&quot;">​</a></h1><div class="epigraph"><p>配方可信的标志，是它的每个数字都能指回一次可重算的实验；做不到这条的配方，只是很好的故事。</p><footer>—— 据 Groeneveld 等, OLMo: Accelerating the Science of Language Models, 2024 整理</footer></div><p><a href="/llm/rw-case-inference">上一课</a>的案例在推理侧，锚点是便宜的单步调度；本课走到另一端：训练配方的复现，以 OLMo 一系的开放全流程配方为锚。单步便宜、全量极贵、失败在几周后才暴露——预算结构与失败节奏与推理案例相反。预训练配方的判读底稿在<a href="/llm/pf2-opensource-recipes">开源配方对照</a>：规模分割、配比管线、超参迁移、日程退火、稳定件、评估声明六行；本课把这六行变成一条执行路径。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>配方复现的难点在「组合」：配方声称的不是单个部件的效果，而是配比、日程、稳定件三者的组合效应。逐件消融覆盖不了组合——数据配比的贡献依赖退火日程，退火的贡献依赖数据配比；单独对齐任何一件都可能「对上」，组合起来仍对不上。另一个难点是开销曲线：全量一次的成本让穷举不可能，所以配方复现注定是阶梯上的抽样艺术——在哪一级阶梯上问哪一个问题，问错了问题，预算就变成了学费。</p><p><span class="marginnote">「训练配方」可以类比蛋糕配方：数据配比是面粉和糖的比例，日程是烤箱温度随时间怎么调，稳定件是泡打粉这类保险。复现难在三者互相影响——换了糖的比例，烤多久也得跟着变，所以逐件单独对齐可能都对，合起来仍不对。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按第一课声明：目标线选结论线——在缩小的规模上复现配比与日程的排序；数字线只对 pilot 级及以下承诺。执行四步。第一步，判读出决策表：六行逐项填，披露档位标注；开放配方（OLMo 口径）多数行显式，封闭报告按缺失档降级预期。第二步，超参迁移重调：论文的学习率与权重衰减在其规模调出，先在你的目标规模上为「他们的方法」与「基线方法」各重调一轮优化超参，再谈配比——这步服务两个目的：外推修正与基线资格（<a href="/llm/rw-baseline-alignment">数值对齐与基线校准</a>）。第三步，阶梯执行：tiny 通管线、small 看趋势、pilot 定关键判断；配比消融在 pilot 级做同预算对照（<a href="/llm/rw-ablation-design">消融设计的工程学</a>），日程与退火单独消融。第四步，对齐账收口：同数据快照上重算 loss 曲线形态，与配方公开的中间 checkpoint 对表。</p><p><span class="marginnote">数字实例：假设目标规模是 7B 模型配一万亿 token，阶梯大概是 70M 配 10B 的 tiny、700M 配 100B 的 small、1.5B 配 200B 的 pilot——每上一级算力约涨十倍，要回答的问题也从「管线通不通」升级到「排序在不在」，钱只花在能改判断的那一级。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么「超参迁移」行是枢纽：配比的比较只有在优化超参各自调平后才有语义；直接照搬论文超参到缩小规模，优化器欠账会冒充配比效应——两个配比谁对谁错，判给了一个没人测过的学习率。这就是配方复现里最常见的假阴性：论文的配比没错，你的迁移错了。为什么日程要单独消融：学习率退火的尾部贡献最终 loss 的一大块，配比效应必须在同一日程下比较；反过来，日程的效应也要在同一配比下比较。组合层的验证靠正交小网格：在 pilot 级取配比两档乘日程两档的最小网格，四格读出交互项的方向——不追全网格，只判「组合是否可分」。开放配方的独特优势在账本公开：中间 checkpoint 的评测分数可查（Groeneveld 等 2024 的口径），你的评测管线先对它的公开 checkpoint 校准，归因空间直接砍半——评测侧的差异与训练侧的差异提前分开。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：照搬论文的学习率到缩小规模，看到配比 B 输了就断言「论文配比复现不了」。实际很可能是优化器欠账——B 在这个学习率下根本没被调平。正文说的「假阴性」就是这个：论文没错，你的迁移错了。</span></p><p><span class="marginnote">对表公开 checkpoint 是配方复现独有的免费锚点：不用训练任何东西，先让你的评测栈在他们的中间模型上复出公开分数。对不上时，问题在评测管线而不是训练——归因六步直接跳过整个训练侧。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>案例边界有三。数据的地域与时效漂移使「同一份配比」不可得时，声明近似档位，结论线自动降级。分词器不同则全部数字换坐标系，连结论线都要重估——粒度变化会改变配比的相对含义。最后，组合的边界诚实：pilot 级的四格网格只验证「可分性」的方向，不验证全量规模下的组合值；配方复现的结论通常停在「排序与方向」，把它写成「复现了配方」就是越档引用。产物按报告骨架落档，配比消融的每个格子挂 run，死路（比如某配比在 small 级已发散）入档案。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>配方复现的目标线默认结论线；数字线只对 pilot 及以下承诺。</li><li>六行决策表先行；超参迁移重调是枢纽——优化器欠账会冒充配比效应。</li><li>配比与日程互相消融：配比在同日程下比，日程在同配比下比；交互用最小四格网格判方向。</li><li>对表公开 checkpoint 是免费锚点：先校准评测栈，再谈训练侧归因。</li><li>出处：Groeneveld 等, 2024；判读口径见<a href="/llm/pf2-opensource-recipes">开源配方对照</a>；管理口径见<a href="/llm/ti-recipe-management">训练配方管理</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 产出<!--]--><!----></p><p class="lesson-progress">第 12 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rw-map/">复现工作流收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rw-case-inference/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">复现案例：推理引擎</span><span class="lesson-card-meta">论文复现工作流 · 产出<!--[--> · 第 11 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rw-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">复现工作流收束</span><span class="lesson-card-meta">论文复现工作流 · 产出<!--[--> · 第 13 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

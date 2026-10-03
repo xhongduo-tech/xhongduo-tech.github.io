@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内核旁路：DPDK 与 AF_XDP | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_hpc-kernel-bypass.md.CE87inc8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 高性能网络编程<!--[--> · 单元 路径<!--]--><!----></p><p class="lesson-progress">第 3 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/hpc-io-uring/">io_uring</a></p><p class="lesson-next"> 下一课：<a href="/cs/hpc-rdma/">RDMA</a></p><!----></nav><div style="position:relative;"><div><h1 id="内核旁路-dpdk-与-af-xdp" tabindex="-1">内核旁路：DPDK 与 AF_XDP <a class="header-anchor" href="#内核旁路-dpdk-与-af-xdp" aria-label="Permalink to &quot;内核旁路：DPDK 与 AF_XDP&quot;">​</a></h1><div class="epigraph"><p>包率把每包预算压进几百纳秒后，优化路径的尽头是缩短路径：把协议栈从数据面上拿掉。</p><footer>—— 据 DPDK 官方文档；Linux 内核 AF_XDP 文档整理</footer></div><p><a href="/cs/hpc-io-uring">上一课</a>把陷入摊销到共享环上，但每个包仍要完整走过内核协议栈：中断、软中断、skb 分配、逐层解析。主干已有<a href="/cs/dpdk-kernel-bypass">内核旁路 DPDK</a> 与 <a href="/cs/xdp-ebpf">XDP 与 eBPF 网络</a>两课，分别钉了用户态轮询与驱动层 eBPF 的机制；本课把两者放进同一张账：完整旁路与折中旁路各自的真实成本、各自的失败方式，以及低延迟业务怎么选。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>先算预算：64 字节小包在 10 GbE 线速约 14.88 Mpps，均摊每包不足 70 ns，而一次跨核缓存失效就是几十纳秒量级——内核路径每包的中断处理与协议栈工作远超此数，栈本身成了最大单项成本。DPDK 是完整旁路：VFIO 把网卡寄存器映射进用户态，PMD 线程以轮询代替中断，描述符环与缓冲建在 hugepage 上，数据面里没有内核。AF_XDP 是折中旁路：XDP 程序在驱动层分诊，需要旁路的帧经 umem 环直进用户态，其余交回内核栈，网卡管理、过滤与统计仍由内核承担。不这么做会错在哪：把旁路当提速开关而保持「每包一次处理」的代码结构，批处理与核亲和的收益全部丢失；或者忘了轮询在低包率时段烧满核——旁路方案在深夜低峰可能比中断更贵。</p><p><span class="marginnote">常见误区：初学者容易以为「装上 DPDK 就快了」。实际上旁路收益的大头是配套的写法——一次收一批、每个核只碰自己的队列。代码结构不改，旁路只是把慢路径原样搬进用户态，收益所剩无几。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>DPDK 侧的流水线：网卡绑到 vfio-pci → mempool 与收发环建在 hugepage → RSS 把流散到多队列，每核一条 PMD 绑一个队列 → 主循环一次 burst 收 32 或 64 包，批内摊销。AF_XDP 侧：加载 XDP 程序做分诊，XSK 的 umem 以 fill/completion 与 RX/TX 双组环推进，生产者-消费者语义由内存序保证；不需要的包 redirect 回内核，保住既有协议栈与工具链。选型判据三条：核能否专用、要不要内核服务、目标包率离线速多远。量化栏的<a href="/quant/colocation-microwave">主机托管与微波</a>把物理距离当延迟预算建模；内核旁路是同一逻辑在机器内部的一层——路径每长一截，账上就多一项。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>省下来的不只是系统调用：是每包两次跨越用户/内核边界的拷贝与缓存失效，是中断聚合在高包率下反而添上的延迟抖动——旁路方案常直接关掉聚合，用轮询的确定性换掉抖动。批处理把每包固定成本摊到整批；队列与核一一对应消灭锁与跨核迁移。代价同样是机制性的：核被独占后与调度器的协作消失；内核统计看不见了，可观测性要自建；漏洞与升级路径收窄。</p><p><span class="marginnote">轮询与中断可以用外卖打比方：中断是外卖到了按门铃（平时能干别的，但每单都打断你一次），轮询是你站在门口盯着（一响就拿到，但没单时人也耗在那）。深夜没几单时，站门口干等反而比按门铃贵——这就是低包率时段轮询更贵的直觉。</span>AF_XDP 折中的定价清单：多付一次 XDP 程序执行与 umem 环形管理，换回内核服务与可移植性——两课主干机制在此互补而非竞争。</p><p><span class="marginnote">10 GbE 64 字节线速 \(\approx 14.88\) Mpps：\(10^{10}/((64+20)\times 8)\)，加的 20 字节是前导与帧间隙。每包 70 ns 的预算里，批处理与缓存亲和不是优化项，是及格线。</span></p><p>旁路到底省掉了哪几步？把两条路径并排摊开看：</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重写 XDP 程序的 verifier 与 map 机制（<a href="/cs/xdp-ebpf">XDP 与 eBPF 网络</a>已钉），不写 DPDK 的 vhost/virtio 虚拟化数据面（<a href="/cs/paravirtualization">半虚拟化</a>的对象），不写具体转发应用。跨机之后还剩什么：两端的 TCP、上下文与拷贝仍在——RDMA 是下一课。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>线速把每包预算压进几十纳秒，内核协议栈本身成为最大单项成本。</li><li>DPDK 完整旁路换线速与窄延迟分布，卖掉核的可复用与内核服务；AF_XDP 折中保留内核，多付一次分诊。</li><li>旁路收益的大头是批处理与核队列亲和，不是「省掉的系统调用」。</li><li>低包率时轮询更贵、零拷贝未必更快；旁路是负载形态的函数，不是无条件的快。</li><li>出处：DPDK 官方文档；Linux 内核 AF_XDP/XDP 文档。</li></ul><p><span class="marginnote">给「核被独占」一个数字感受：一台 64 核机器给 DPDK 专派 4 个核，等于永远烧掉约 6% 的 CPU——哪怕半夜一个包都没有。所以选型前先问：这几个核拿去跑别的业务值多少钱，和延迟收益怎么比。</span></p></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 高性能网络编程<!--[--> · 单元 路径<!--]--><!----></p><p class="lesson-progress">第 3 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/hpc-rdma/">RDMA</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/hpc-io-uring/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">io_uring</span><span class="lesson-card-meta">高性能网络编程 · 路径<!--[--> · 第 2 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/hpc-rdma/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">RDMA</span><span class="lesson-card-meta">高性能网络编程 · 路径<!--[--> · 第 4 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

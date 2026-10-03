@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>合成评测集的构造 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-eval-sets.md.DqqLeL1R.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 12 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-small-model-mix/">小模型的数据配比</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-ablation-design/">数据配方的消融设计</a></p><!----></nav><div style="position:relative;"><div><h1 id="合成评测集的构造" tabindex="-1">合成评测集的构造 <a class="header-anchor" href="#合成评测集的构造" aria-label="Permalink to &quot;合成评测集的构造&quot;">​</a></h1><div class="epigraph"><p>用合成机器造评测，风险从「训练学坏」换成「评测自欺」：分数可以完全真实，结论可以完全错误。</p><footer>—— 据 Kiela 等 Dynabench；White 等 LiveBench 整理</footer></div><p><a href="/llm/synthetic-small-model-mix">上一课</a>把训练配比定版；本课把同一套合成机器转向评测集。训练-评测污染的检测已有专课：<a href="/llm/decontamination-pipeline">评测去污染流水线</a>与<a href="/llm/eval-contamination">训练-评测污染检测</a>，LiveBench 类动态基准给过「月更新加客观评分」的口径（<a href="/llm/livebench">LiveBench</a>）。本课写更上游的问题：当你决定自己合成一个评测集时，构造本身要守什么纪律。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>合成评测有三种做法，缺口各不相同。模板加参数采样：从程序模板生成题与标准答案，真值由生成器定义，最干净也最危险——它测的是「模板正则性」还是「能力」，取决于模板藏得多深。教师出题加程序验证：题源开放、真值可靠，但与训练集同源的风险最高——教师出的题天然长成它能解的样子，模型若在同类题上被密集训练，分数上涨与能力无关。真实种子改写：把真实题换数字换情境，效度最好，污染检测却更难——表面改了，解法结构没改。三类共同的死穴是自欺：评测的生产者与训练数据的生产者是同一个团队、同一批教师、有时是同一份模板库。<span class="marginnote">直觉类比：让教师给自己出考卷，题目会天然长成它擅长的样子——就像老师偏爱出自己会讲的题型。再用同类题密集训练，等于考前把出题人的草稿纸刷了十遍：分数暴涨，「能力」没动。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四条纪律。生成器隔离：训练与评测的模板库、种子、教师版本全部物理分开，隔离审计写进发布流程——这是「训练测试分离」在合成时代的重写，违反它的高分一律无效。效度三问：每道题入库前过「它测什么」（对应能力清单的哪一格）、「答对说明什么」（排除捷径路径）、「怎么防背题」（参数空间够不够大）。稳定性预算：题量与参数采样决定的置信区间要写进报告，单点分差小于区间不得下结论。真实锚定：合成评测集只做高频回归，方向性结论必须在一小片真实题上复核；换题周期要短于模板被拟合的速度。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>合成评测自欺的机制是优化压力对生成器捷径的利用：任何模板都有正则性——参数分布、句式骨架、答案形态——模型不需要学会任务，只需要学会「这类生成器会出什么」。参数空间放大与情境改写抬高的是记忆成本而不是学习成本，恰好是当前大模型最充裕的资源；所以防背题不能靠「题面变体够多」，要靠换题周期与生成器隔离把结构差立住。动态更新与静态冻结是一对张力：LiveBench 用月更新对抗污染，内部评测集的更新受制于版本管理与可比性——工程折衷是双轨：冻结集保证可比，滚动集保证新鲜，结论以两轨一致为准。合成评测集同样要过污染扫描与许可检查：它是数据，不是法外之地。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：模板「计算 \(a\times b+c\)」若三个参数各只取 10 个值，参数空间只有 1000 道题，把答案表背下来的成本极低；把每个参数扩到 500 个值、再套不同情境，同样的「题型」参数空间变成上亿——防背题靠的是这个，不是换措辞。</span></p><p><span class="marginnote">评测集与训练集共用同一教师与同一模板库时，可以出现「模型分涨了十点、真实题一分没涨」的完全虚假增益。把生成器隔离做成 CI 检查项：任何评测集构建脚本引用了训练侧模板或种子，构建直接失败。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>合成评测的效度上限是能力清单的完备性：清单里没有的能力，合成再精也测不到，清单本身要靠真实基准定期校。程序化模板适合有形式结构的域（数学、代码、受控抽取），开放域的「好回答」无法模板化，合成评测在这些域退化为裁判打分，回归质量受裁判漂移约束。换题周期短有成本：历史可比性断裂，趋势分析要靠锚题子集（跨版本固定的题）续接。最后，评测集的规模与方差纪律沿用评测方法课的口径：合成不豁免统计。<span class="marginnote">常见误区：初学者容易把「换题周期越短越好」当绝对真理。频繁换题会打断历史可比性——这季度分和上季度分不再是同一把尺。工程折衷是留一小撮「锚题」跨版本固定，用它们续接趋势，其余题滚动更新。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三种做法：模板采样最干净最险，教师出题防同源，真实改写效度最好。</li><li>生成器隔离是训练测试分离的重写：模板、种子、教师版本物理分开。</li><li>效度三问入库；题量置信区间写进报告。</li><li>双轨：冻结集可比，滚动集新鲜，结论以一致为准。</li><li>方向性结论必须过真实锚点复核。</li><li>出处：Kiela 等 Dynabench 2021；White 等 LiveBench 2025；本站去污染两课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 配方与验证<!--]--><!----></p><p class="lesson-progress">第 12 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-ablation-design/">数据配方的消融设计</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-small-model-mix/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">小模型的数据配比</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 11 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-ablation-design/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">数据配方的消融设计</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 配方与验证<!--[--> · 第 13 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

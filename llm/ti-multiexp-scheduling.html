@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多实验的资源调度 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ti-multiexp-scheduling.md.CK3ToeQT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础设施<!--[--> · 单元 管理<!--]--><!----></p><p class="lesson-progress">第 9 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ti-experiment-tracking/">实验跟踪</a></p><p class="lesson-next"> 下一课：<a href="/llm/ti-failed-exp-archive/">失败实验的归档</a></p><!----></nav><div style="position:relative;"><div><h1 id="多实验的资源调度" tabindex="-1">多实验的资源调度 <a class="header-anchor" href="#多实验的资源调度" aria-label="Permalink to &quot;多实验的资源调度&quot;">​</a></h1><div class="epigraph"><p>机群调度的两难是：长跑要稳定，短测要即时；把两类负载放进同一条先来先服务的队列，两类都得不到满足。</p><footer>—— 据 Slurm/Kubernetes 调度实践与机群公平调度经验整理</footer></div><p><a href="/llm/ti-experiment-tracking">上一课</a>把团队记忆外置成数据库；团队共享的不止记忆，还有<strong>机群</strong>。同一时刻，预训练长跑、消融短测、调试作业挤在同一批卡上，先到先得很快退化成嗓门大者得。单作业视角到此为止，本课进入管理单元：多实验的资源调度。机群公平性的机制在<a href="/llm/cluster-fair-scheduling">机群公平调度</a>已写，异构卡型的搭配在<a href="/llm/hetero-cluster">异构集群调度</a>；本课写<strong>实验负载</strong>特有的一面：负载分型、gang 分配、抢占与回填。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>实验负载与稳定服务负载的差别在<strong>弹性与原子性</strong>。原子性：一个 32 卡的分布式作业分到 30 卡也开不了工——所有 rank 要同时到位、同时起步；没有整块分配的保证，碎片卡位只能空转等凑齐，机群利用率远低于单卡利用率之和。弹性不均：消融短测只跑几十分钟、要的是<strong>现在</strong>，长跑以周计、要的是<strong>不被打断</strong>；排队半小时对长跑无所谓，对想看结论的研究者意味着这一天白过。抢占的风险不对称：杀刚起步的调试作业无所谓，杀跑了六天的长跑是事故，除非它的检查点真能无缝续训。</p><p><span class="marginnote">术语翻译：gang 调度就是「全有或全无」的分配方式——分布式作业的每个副本（rank）必须同时拿到卡、同时启动，缺一个都开不了工。像拔河队八个人必须到齐才能上场比赛，来了七个也只能干等。数字实例：32 卡的作业落在散成 30+2 碎片的机群上，哪怕利用率九成，它依然一步都跑不了。</span></p><h3 id="负载分型与池化" tabindex="-1">负载分型与池化 <a class="header-anchor" href="#负载分型与池化" aria-label="Permalink to &quot;负载分型与池化&quot;">​</a></h3><p>第一刀是按 SLA 分三型：<strong>长跑型</strong>（预训练主力的独占整块、最高优先级保护）、<strong>批处理型</strong>（消融与超参扫描的批量吞吐、可排队可抢占）、<strong>交互型</strong>（调试与 notebook 的小卡短窗、配额限流保即时）。分型之后池化：批处理型共享可抢占池，交互型限定小卡与时长上限。池子之间留溢流——交互池空闲时批处理可借用，被高优先级作业赎回时靠检查点退出。</p><p><span class="marginnote">回填（backfill）保住的是短作业的产能：长跑排队等整块资源时，允许预估不会推迟队头长跑的小作业插空进卡。没有回填的机群常见奇景是「利用率八成，谁都在等」——碎片被短作业填上，队头的整块需求不被推迟。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>调度策略按四条落地。其一，<strong>gang 调度</strong>是分布式作业的硬要求：全有或全无分配，凑不齐就排队，不用部分资源开工。其二，<strong>优先级与抢占</strong>：抢占只对开了<a href="/llm/ti-checkpoint-engineering">高频检查点</a>的作业放行，被抢时存盘退出、资源释放，恢复时排队重入——检查点频率从此有了第二个决定因素（第一个是故障率）。其三，<strong>公平份额</strong>：跨团队按份额分池，空转份额可借出、可赎回，记账进<a href="/llm/ti-cost-analysis">成本分析</a>的口径；份额争论以跟踪库的用量记录为唯一依据。其四，<strong>配额护栏</strong>：交互型限单作业时长与卡数，批处理型限并发数，防止单一实验吞掉整池。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分型有效的机理是<strong>把矛盾拆开</strong>：长跑与短测的冲突本质是 SLA 不同，一条队列一个策略无法同时满足两类延迟目标；分池后每类负载有匹配自己的排队论参数。抢占与检查点挂钩的机理是安全性：抢占把「资源被夺」从致命错误降级为例行事件的前提，是状态可以在任意时刻落盘——基础设施各课在这里咬合成环。回填的机理是保守调度：以「不推迟队头」为约束放行插空，牺牲一点等待顺序的公平，换整块碎片时间的产出。</p><p>公平份额要防的病是<strong>囤积</strong>：团队为旺季预留却平时空转，借出与赎回机制让空转份额流动起来；机制只在记账可信时工作，这正是上一课与下一课的存在理由。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：公平份额像小区车位——每户有固定车位（份额），不住的时候可以借给访客（借出），回来时有权请访客挪车（赎回）。没有这套规则，车位要么被一家常年霸占，要么人人乱停；借出与赎回让资源流动起来，记账则是判谁该挪车的依据。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课管机群内的实验编排，不管单卡内的多任务共享（MPS、时间片属系统层），也不管跨机群与跨云的调度——那是异构集群课的口径。抢占上限要设：被抢三次还没跑完的批处理作业应升优先级或降级为长跑型重排，无限抢占会让某些作业永远跑不完。调度器不知道实验的<strong>价值</strong>，它只执行声明的优先级；声明错了，机群在高效地跑错的事。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>负载分三型：长跑独占、批处理可抢占、交互限流，各配各的队列参数。</li><li>分布式作业 gang 分配全有或全无；碎片靠回填，约束是不推迟队头。</li><li>抢占只放行高频检查点的作业，恢复走排队重入。</li><li>公平份额可借可赎，记账进成本口径；调度器执行优先级，不判断价值。</li><li>出处：据 Slurm/Kubernetes 与内部机群调度实践整理；公平机制见<a href="/llm/cluster-fair-scheduling">机群公平调度</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础设施<!--[--> · 单元 管理<!--]--><!----></p><p class="lesson-progress">第 9 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ti-failed-exp-archive/">失败实验的归档</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ti-experiment-tracking/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">实验跟踪</span><span class="lesson-card-meta">训练基础设施 · 观测与实验<!--[--> · 第 8 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ti-failed-exp-archive/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">失败实验的归档</span><span class="lesson-card-meta">训练基础设施 · 管理<!--[--> · 第 10 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

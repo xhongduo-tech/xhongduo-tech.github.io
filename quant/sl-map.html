@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>生命周期治理收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_sl-map.md.DckM0kb1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 策略生命周期治理<!--[--> · 单元 退出与沉淀<!--]--><!----></p><p class="lesson-progress">第 9 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/sl-team-cases/">团队流程与案例</a></p><p class="lesson-next"> 下一课：<a href="/quant/de-tsdb-selection/">时序数据库的选型</a></p><!----></nav><div style="position:relative;"><div><h1 id="生命周期治理收束" tabindex="-1">生命周期治理收束 <a class="header-anchor" href="#生命周期治理收束" aria-label="Permalink to &quot;生命周期治理收束&quot;">​</a></h1><div class="epigraph"><p>治理做得好不好，只在两处现形：钱停得下来的时候，和理由查得到的时候。</p><footer>—— 据 Federal Reserve SR 11-7（2011）与本课程各课口径整理</footer></div><p><a href="/quant/sl-team-cases">上一课</a>把规则绑定到岗位与节奏，三个案例走完了从立项到退役的全流程。本课程到此收束：本课把九课收成一张图与一组不变量，交代哪些部分刻意留给了相邻课程。判据怎么设、监测怎么听，是主干课与风险课的对象；本课程回答的始终是治理面——策略从想法到退役，每一步凭什么、谁批准、记在哪。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束要回答的问题是：九课合起来，治理到底保证了什么？答案不是「策略更赚钱」——治理不创造 alpha，判据不过就是不进。治理保证的是一组<strong>可回答性</strong>：这个仓位此刻凭什么在跑（台账与审批）、它最多能跑多大（容量）、它预期还剩多少（衰减带）、它碰没碰红线（合规门）、停了之后怎么出来（退出）、死了之后留下什么（知识）。这些问题的答案必须在任何时刻都可查、可审计、可复现——这就是治理的全部产出，也是它区别于经验管理的地方。</p><p><span class="marginnote">术语翻译：治理里的「可回答性」指任何时刻都能凭台账回答——这个仓位凭什么在跑、最多跑多大、预期还剩多少、停了怎么出来。注意治理不回答「赚不赚钱」：它保证问题有据可查，alpha 本身仍要靠研究去挣。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把九课折成一条主线：<strong>台账</strong>立状态机与指针链；<strong>版本与审批</strong>填「凭什么进」，判据挂边、有效挑战；<strong>容量</strong>填「跑多大」，声明三层、扩容即版本；<strong>衰减</strong>填「还剩多少」，预算预扣、三档动作；<strong>合规</strong>立独立于判据的门，输出进执行层；<strong>退出</strong>预写分级、退役有硬定义；<strong>知识</strong>让每一次死亡可检索、\(N\) 不清零；<strong>团队</strong>给全部规则配岗位、节奏与默认动作。贯穿九课的不变量七条：追加不改写；单一事实来源；监测只读；判据挂边不挂人；\(N\) 永不清零；实盘仓位必可沿指针链反查；退出预写。</p><p><span class="marginnote">直觉类比：七条不变量像账房的规矩而不是师傅的手艺——师傅可以换，规矩不能改。任何一条被临时豁免，对应的失效模式就自动开门：能改写的历史就能被重写，能清零的 \(N\) 就能让死信号复活。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>不变量为什么是这七条：每一条都堵一个已知的失效模式。追加不改写堵历史重写——审计要求昨天批准过的东西今天还查得到原样；单一事实来源堵清单漂移——两份清单等于没有清单；监测只读堵球门移动——穿带后的任何改动都是新试验；判据挂边堵人治——批准是核对不是恩典；\(N\) 不清零堵多重检验复活——换包装不算新信号；指针链反查堵黑箱持仓——答不出「凭什么」的仓位按违规处置；退出预写堵临场偏晚——把推迟退出变成需要明说的动作。七条合起来的机制是一个：让「治理失效」在失效发生的时刻就被发现，而不是在亏损或问询到来时才暴露。SR 11-7 的相称性原则在此收尾：门的深度随策略的规模与复杂度调节，小策略走窄门，但<strong>没有免门的政策</strong>——相称性调节强度，不删除义务。</p><div class="mermaid"></div><p><span class="marginnote">自检只需三个问题：随机挑一个实盘仓位，五分钟能否答出它凭什么在跑？随机挑一个已退役策略，能否查到它死于哪条判据、第几次试验？随机挑一条硬限额，能否确认它此刻在执行层生效？三个「能」，就是本课程全部内容的落地测试。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程刻意没有覆盖的三块，都在知识树的紧邻位置：数据管线与版本化是量化数据工程课的对象，本课只引用其哈希；回测与成交模拟是回测框架课的对象，判据的数字从那里来；多人协作、代码评审与委员会流程的工程细节是研究协作课的对象，本课只定了职责边界。治理本身也有成本：每道门都消耗研究速度，门无限多则组织瘫痪——这正是相称性原则存在的理由。最后一点边界要说诚实：治理的输出是「可回答」与「可停」，不是「一定赚」；台账记得再干净，救不了一个没有 alpha 的信号——判据与统计，仍然是一切的前一课。</p><p><span class="marginnote">为什么重要：相称性原则容易被读成「小策略可以免手续」。恰恰相反——它只调节门的深浅，不删除门本身。一旦允许「这次太小、跳过审批」，豁免先例本身就成了新漏洞，之后每个策略都会「刚好」够小。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>九课一条主线：台账、版本与审批、容量、衰减、合规、退出、知识、团队，各答一个可回答性问题。</li><li>七条不变量贯穿全程：追加不改写、单一来源、监测只读、判据挂边、\(N\) 不清零、仓位可反查、退出预写。</li><li>相称性原则收尾：门的深度随规模与复杂度调节，不删除义务。</li><li>本课程的落地测试是三个「五分钟能否答出」；治理保证可回答与可停，不保证赚钱。</li><li>出处：治理框架据 Federal Reserve SR 11-7（2011）整理；衰减证据见 McLean–Pontiff, <em>JF</em>, 2016；容量口径见<a href="/quant/strategy-capacity-decay">策略容量与衰减</a>；监测与复盘分别见<a href="/quant/live-drift-monitor">实盘漂移监测</a>与<a href="/quant/research-postmortem">研究复盘</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 策略生命周期治理<!--[--> · 单元 退出与沉淀<!--]--><!----></p><p class="lesson-progress">第 9 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/de-tsdb-selection/">时序数据库的选型</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/sl-team-cases/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">团队流程与案例</span><span class="lesson-card-meta">策略生命周期治理 · 退出与沉淀<!--[--> · 第 8 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/de-tsdb-selection/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">时序数据库的选型</span><span class="lesson-card-meta">量化数据工程深入 · 存储与清洗<!--[--> · 第 1 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

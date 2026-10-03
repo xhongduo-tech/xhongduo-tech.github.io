@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>图像预处理的批处理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mm-image-preprocess-batching.md.B0VrpRKD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多模态推理服务<!--[--> · 单元 视觉服务<!--]--><!----></p><p class="lesson-progress">第 2 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/mm-serving-vision-encoder/">视觉编码器的服务化</a></p><p class="lesson-next"> 下一课：<a href="/llm/mm-visual-token-budget/">视觉 token 预算</a></p><!----></nav><div style="position:relative;"><div><h1 id="图像预处理的批处理" tabindex="-1">图像预处理的批处理 <a class="header-anchor" href="#图像预处理的批处理" aria-label="Permalink to &quot;图像预处理的批处理&quot;">​</a></h1><div class="epigraph"><p>GPU 一步几十毫秒，CPU 解一张手机照片几十毫秒；多模态服务最长的队，常常排在没有 GPU 的那一段。</p><footer>—— 据 HuggingFace 图像处理器与 vLLM 多模态输入管线的实现口径整理</footer></div><p><a href="/llm/mm-serving-vision-encoder">上一课</a>把编码器立成独立服务组件：分辨率桶解决形状动态，嵌入缓存省掉重复编码。但桶的档位是谁定的、图像进编码器之前经历了什么，还悬着。JPEG/HEIF 解码、EXIF 方向、缩放、归一化、切 patch 全在 CPU 上，预处理是编码批处理的真正上游。本课写这段 CPU 流水怎么组织成批：worker 池、变长批的组装、主机到显卡的搬运，以及 CPU 跟不上时 GPU 饿死的样子。token 数怎么算留到下一课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一张图像从上传到能进 ViT，要过五道：字节流解码成位图；按 EXIF 转正——手机照片常带旋转标记，跳过这步模型看到的就是横躺的图；按目标档位缩放；减均值除方差地归一化；切 patch 排成序列。每道都是纯 CPU 操作，单张几十毫秒量级，且与请求的关键路径串行：预处理不结束，编码器无事可做。GPU 一秒能编几十张图，单线程 CPU 一秒只能预处理几十张，看似匹配，实则一个抖动就错位——批越大，需要的预处理越集中，CPU 峰值压力随批大小一起涨。</p><p>变长是第二重麻烦。<a href="/llm/qwen-vl-naive-dynamic-res">原生动态分辨率</a>意味着同一批请求里的图宽高各异、patch 数各异，批内张量要对齐就得 padding 到最大形状。一个 224×224 缩略图和一张 1344×896 文档页同批，前者陪跑后者的计算与显存，浪费由批内方差决定。</p><p><span class="marginnote">EXIF 术语翻译：手机竖拍时，传感器存下的画面其实是横的，只在文件的 EXIF 元数据里记一个「请旋转 90°」的标记，相册软件看标记再帮你转正。跳过这一步，模型吃到的就是横躺的照片——人眼看没问题（软件转过了），模型直读字节就出问题。这是多模态服务「离线测试好好的、上线效果怪」的经典来源之一。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>组织方式是把预处理做成<strong>独立 worker 池</strong>：解码、缩放、归一化在各 worker 上并行，产物进入按分辨率档分的队列；编码器池从队列取整批。这与<a href="/llm/mm-serving-vision-encoder">上一课</a>的桶是同一套档位表——预处理按表把图缩到档，编码器按表组批，两张表必须同源，否则桶对不齐。请求到达即开始预处理，不等上一批编码结束，CPU 与 GPU 由此错峰。</p><p>搬运要过两道优化。解码产物是页锁定内存（pinned memory），主机到显卡的异步拷贝才能与下一次解码重叠；归一化能挪到 GPU 就挪——缩放留在 CPU（插值质量可控），归一化放进编码前向的第一层，省一半 CPU 与一次全量内存写。同一请求带多张图时，把它们的 patch 拼进同一个编码批，一次前向出全部嵌入，省掉多次小批的启动开销。</p><p><span class="marginnote">一张 3840×2160 的图解码成 RGB 是约 24 MB，是压缩文件的几十倍；批 32 张就有约 0.8 GB 内存要解码、缩放、再拷走。预处理的成本大头是内存带宽，不是 CPU 的算术。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>批组装的本质是用等待换效率：队列攒到同档 \(B\) 张或超时 \(\tau\) 就发批。\(B\) 越大吞吐越高，但第 1 张图等了整整 \(B-1\) 张的预处理时间，首 token 延迟被队列拉长；\(\tau\) 是这条折中的显式旋钮，超时发批保证低流量时段延迟有界。padding 浪费可写成 \(\sum_i (A_{\max}-A_i)/A_{\max}\)，\(A\) 为 patch 数：档位表越细，批内 \(A_{\max}\) 越贴近每张图，浪费越小，但批越小、调度越碎。档位数、批上限、超时三个参数要一起调，单拧一个都会把瓶颈搬到邻段。</p><p>CPU 容量是隐性上限。设单图预处理 \(t_{\mathrm{pp}}\) 毫秒、worker 数 \(W\)，预处理吞吐就是 \(W/t_{\mathrm{pp}}\) 张每秒；低于编码器吞吐时，GPU 利用率天花板被 CPU 钉死，加卡无效，加核才有效。诊断顺序是先看 GPU 利用率与预处理队列深度：队列持续非空说明 CPU 是瓶颈，队列常空而 GPU 不满才是编码器的问题。</p><div class="mermaid"></div><p><span class="marginnote">padding 浪费的数字实例：224×224 的缩略图约 5 万像素，1344×896 的文档页约 120 万像素——同批对齐到后者时，缩略图只占约 4% 的位置，其余 96% 全是白算的空白。类比拼车：一辆 7 座车只坐了 1 位乘客也要跑全程，座位空驶率就是 padding 浪费率；分档队列相当于按目的地分区排车。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>预处理是<a href="/llm/mm-serving-vision-encoder">嵌入缓存</a>键的一部分，也是漂移的高发地：图像库升级换了缩放插值，或归一化常数改了精度，键没变缓存不失效，线上精度缓慢下滑且无从对账；预处理代码要进版本管理，版本号进键。EXIF 只在解码侧生效，训练数据若多数已转正，服务侧漏转正等于悄悄换分布。HEIF、动图、超大图的降采样策略各是独立分支，评测集里要各有样本，否则它们只在生产里第一次见。最后，批组装带来的排队让延迟方差变大，对延迟敏感的请求应允许插队小批，用吞吐换尾延迟。</p><p><span class="marginnote">常见误区：看到 GPU 利用率低就申请加卡。若瓶颈其实在 CPU 预处理（队列持续积压），新加的卡只会一起挨饿，钱花了速度不变。正确顺序是先看预处理队列深度——队列非空说明上游喂不上，加 worker 核才是对症药。这一步诊断错了，容量预算会整体买错方向。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>预处理五道（解码、EXIF、缩放、归一化、切 patch）在 CPU，是编码批的真正上游与常见瓶颈。</li><li>独立 worker 池加分档队列，让 CPU 与 GPU 错峰；档位表必须与编码器分桶同源。</li><li>页锁定内存与异步拷贝让搬运重叠；归一化可上移进显卡。</li><li>批上限与超时是延迟-吞吐旋钮，padding 浪费由档内方差决定，三参数联动。</li><li>预处理进版本管理并写进缓存键，防止无声漂移；CPU 吞吐封顶时加卡无效。</li><li>出处：据 HuggingFace 图像处理器、vLLM 多模态输入管线实现与 Qwen-VL 动态分辨率叙述整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多模态推理服务<!--[--> · 单元 视觉服务<!--]--><!----></p><p class="lesson-progress">第 2 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/mm-visual-token-budget/">视觉 token 预算</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/mm-serving-vision-encoder/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">视觉编码器的服务化</span><span class="lesson-card-meta">多模态推理服务 · 视觉服务<!--[--> · 第 1 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/mm-visual-token-budget/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">视觉 token 预算</span><span class="lesson-card-meta">多模态推理服务 · 视觉服务<!--[--> · 第 3 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>投机与批处理的交互 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_spec-batching-interaction.md.DV51r0hC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/spec-online-draft-selection/">在线草稿模型选择</a></p><p class="lesson-next"> 下一课：<a href="/llm/spec-edge/">边缘端的投机</a></p><!----></nav><div style="position:relative;"><div><h1 id="投机与批处理的交互" tabindex="-1">投机与批处理的交互 <a class="header-anchor" href="#投机与批处理的交互" aria-label="Permalink to &quot;投机与批处理的交互&quot;">​</a></h1><div class="epigraph"><p>批量与投机在填同一块空闲算力：谁先把 GPU 填满，谁就让对方变得多余。</p><footer>—— 据 Leviathan et al., 2023 的带宽墙论证与 EAGLE-3 的批量实验口径整理</footer></div><p><a href="/llm/spec-online-draft-selection">上一课</a>解决了「这条请求用哪个草稿」；本课看另一根轴：批量。<a href="/llm/speculative-decoding">投机解码原理</a>的收益论证建立在 decode 的带宽墙上——一次稍胖的校验前向近乎免费；<a href="/llm/kv-speculative-interaction">KV 与投机解码</a>管住了缓存的峰值与回滚。剩下的问题是规模：论文的加速比多在 batch=1 报出，服务却跑在批量几十到几百。本课写批处理怎么把这笔账重算，以及树宽与批量为什么此消彼长。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Roofline 上 decode 有两段人生。批量小的时候，每步读一遍权重只服务一个 token，算术强度低，GPU 卡在带宽墙上：校验前向多吃 \(\gamma\) 个位置的 FLOPs 几乎不花时间，投机白捡。批量大的时候，\(B\) 条请求的查询行拼在一起，权重一次读入摊给 \(B\) 份算，算术强度随 \(B\) 线上爬，GPU 逼近算力屋顶：此时校验的 \(\gamma\) 个额外位置按真实 FLOPs 计价，一次「稍胖」前向真的胖了。固定在 batch=1 的直觉搬进高并发服务，会观察到加速比蒸发甚至转负——投机赚的步数被校验的算力账一块块退还。树让这事更陡：\(N\) 个节点在校验里就是 \(N\) 个位置，批量与树宽相乘。</p><p><span class="marginnote">数字实例：设权重一次读入 16 GB、显存带宽 2 TB/s，单次前向光搬权重就要 8 ms。batch=1 时这 8 ms 只服务 1 个 token，校验多算 \(\gamma\) 个位置几乎不添时间；batch=64 时同一份 8 ms 摊给 64 条请求，GPU 开始缺算力，多出来的位置才真正按 FLOPs 计价。</span></p><p><span class="marginnote">术语翻译：「算术强度」就是每搬 1 字节内存，能摊上多少次乘加运算——decode 单步读一整份权重却只产出 1 个 token，像一辆重卡只运一件小货；批量是把车斗堆满的拼单，拼满之后，「多带一件货」（校验加宽）才开始收费。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>先算再开</strong>。判据仍是「每单位目标前向时间的期望前进」，但 \(c_{\mathrm{tgt}}\) 要按当前批量测：同一条草稿在 \(B=1\) 时 \(c_{\mathrm{tgt}}\approx 1\)，在算力屋顶附近 \(c_{\mathrm{tgt}}\) 趋向 \(1+\gamma\)（或树节点数）。在线侧把它并进上一课的桶账：批量大到校验不再免费时，缩 \(\gamma\)、收树宽，或者关。<strong>参差管理</strong>。投机使同一 iter 内各请求的产出变成随机变量：接受长的多写、拒绝的只写修正 token，批内进度参差。稳定做法是 iter 边界对齐「一次校验前向」，接受长度只改本请求进度不改 iter 切分，新请求仍在校验点插入（连续批的成员边界与 <a href="/llm/kv-speculative-interaction">KV 与投机解码</a>的提交协议对齐）。<strong>混合批</strong>。允许同批混投机与非投机请求时，校验核按本批最大草稿深度开形状、短请求掩码早退，避免为空气算注意力。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>批量与投机互替的机制可以一句话钉死：两者都在消耗「decode 算不满算力屋顶」这同一份余量。批量用 \(B\) 条序列填，投机用一条序列的 \(\gamma+1\) 个位置填；余量被谁先吃掉，另一个的边际收益就归零。所以正确的问法不是「开不开投机」，而是「余量还剩多少、给谁」：低批量延迟敏感的路由，余量天然在，投机是最大赢家；高批量吞吐优先的路由，余量已被批量吃掉，投机的正确形态是缩到只剩 \(\gamma=1\) 的自投机头，或者干脆关。反例也有价值：SGLang 上 EAGLE-3 在 batch 64 仍报约四成吞吐提升——前提是树验证被融进连续批的调度与内核，形状不满算的开销被真正摊掉；这恰说明决定收益的是实现吃没吃掉余量，不是「批量必然杀死投机」。</p><p><span class="marginnote">加速比的分母里有 \(c_{\mathrm{tgt}}\)，而 \(c_{\mathrm{tgt}}\) 是批量的函数。两张加速比表若批量不同，中间差的不只是噪声，是制度。跨批量外推加速比，等于假设 GPU 永远卡在带宽墙上。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>关投机的门槛不要拍脑袋：\(\alpha\) 高的桶在中等批量下仍可能净赚，逐桶联评（上一课的账）而不是全局开关。p99 的账与均值不同：投机加大单步校验时间，TPOT 方差随 \(\alpha\) 的随机性放大，SLO 按 p99 编时要给校验峰值留量。PD 分离架构里投机几乎全落在解码侧，预填池不为此扩容，但解码池的 KV 峰值预算要乘 \((1+\gamma)\)——这笔账在 <a href="/llm/kv-speculative-interaction">KV 与投机解码</a>已编，本课只提醒它与批量预算是同一张表。最后，论文数字钉论文设定：batch=1 的峰值不是服务数字，高批量的吞吐数字也不能反过来说单请求延迟不赚。</p><p><span class="marginnote">常见误区：初学者容易以为「开了投机就必然更快」。批量爬高后余量被填满，收益会一路缩水甚至转负。正确顺序是先看当前批量落在 roofline 哪一段，再决定开多大 \(\gamma\)、多宽的树——而不是先开再看运气。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>decode 在 roofline 上有两段：带宽墙下校验近免费，算力屋顶下校验按 FLOPs 计价，加速比随批量衰减。</li><li>批量与投机互替：都在消耗同一份「算不满」的余量，余量给谁要看延迟还是吞吐优先。</li><li>iter 边界对齐一次校验前向；接受长度只改请求进度；同批变长形状用掩码早退。</li><li>树宽与批量相乘进校验账，高批量下缩树是常态而非失败。</li><li>SLO 按 p99 编：投机的 TPOT 方差由接受长度的随机性贡献。</li><li>出处：Leviathan et al., ICML 2023；Li et al., <em>EAGLE-3</em>, 2025（SGLang batch 64 口径）；据本仓库投机课序整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 系统交互<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/spec-edge/">边缘端的投机</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/spec-online-draft-selection/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">在线草稿模型选择</span><span class="lesson-card-meta">投机解码深化 · 系统交互<!--[--> · 第 4 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/spec-edge/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">边缘端的投机</span><span class="lesson-card-meta">投机解码深化 · 系统交互<!--[--> · 第 6 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

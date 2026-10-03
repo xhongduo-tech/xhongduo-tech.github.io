@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>端侧量化实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_edge-quantization-practice.md.EhhclkOr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 硬件与工具<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/edge-npu-toolchain/">移动 NPU 工具链</a></p><p class="lesson-next"> 下一课：<a href="/llm/edge-memory-management/">内存管理与换入换出</a></p><!----></nav><div style="position:relative;"><div><h1 id="端侧量化实践" tabindex="-1">端侧量化实践 <a class="header-anchor" href="#端侧量化实践" aria-label="Permalink to &quot;端侧量化实践&quot;">​</a></h1><div class="epigraph"><p>端侧量化的第一问不是压到几比特，而是目标后端到底吃什么：权重 4-bit 喂不进只认激活整数的 NPU。</p><footer>—— 据 GGUF/k-quants 文档与 Frantar et al., GPTQ, ICLR 2023；Lin et al., AWQ, MLSys 2024 整理</footer></div><p><a href="/llm/edge-npu-toolchain">上一课</a>把工具链五步走完，其中「量化转换」一步留了输入没填：后端支持什么格式，决定量化怎么做。本课填这一步。<a href="/llm/gptq">GPTQ</a>、<a href="/llm/awq">AWQ</a>、<a href="/llm/smoothquant">SmoothQuant</a> 这些算法本身在各自课里已经讲透，本课不重推公式，只写端侧怎么选、怎么验：容量、带宽、能耗三个目标如何落成一份配置，以及在真机上怎么证明「没压坏」。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>服务器量化的目标是吞吐与精度的折中；端侧多出两条硬目标：装进设备内存、把每 token 要读的字节降下来——<a href="/llm/cpu-inference-quant">CPU 推理与量化</a>已证明 decode 绑权重读取。主流答案因此分成两支。CPU/GPU 后端选 W4A16：权重 4-bit、激活保持 fp16；decode 的时间下界是字节除以带宽，权重砍到四分之一，延迟与能耗跟着砍。NPU 后端常要求 W8A8 或工具链自定义的 group 格式：整数单元吃的是激活量化，格式不匹配就整体 fallback。<span class="marginnote">W4A16 这类记法当公式读：W 是权重（Weight）、A 是激活（Activation），后面的数字是各自的比特数。W4A16 = 权重压到 4 比特、激活保持 16 比特；W8A8 = 两边都压到 8 比特。看懂这套代号，工具链文档里的格式要求就不难对号入座。</span>选错支路的错误很典型：拿着 W4A16 的模型去编译 NPU，工具链要么拒绝，要么把逐算子反量化插进图里，收益清零。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>决策顺序：先后端格式，再粒度，再混合精度。粒度上 group-wise（group size 32–128）是端侧默认，<a href="/llm/quant-granularity">per-tensor / channel / group</a> 已给出粒度与精度的关系；<span class="marginnote">group size 64 的意思是：每 64 个权重共用一对（scale，min）统计量，反量化时用本组的 scale 还原。组越小组内数值越接近、误差越小，但元数据越多——group size 从 128 收到 32，元数据量翻 4 倍，精度却只小幅上升，所以端侧默认取 32–128 这个中间档。</span>校准用小样本即可，激活感知的方法——AWQ 保护显著权重、SmoothQuant 迁移激活尺度——在端侧同样适用。混合精度把首末层与测出敏感的层留在 fp16，其余压到 4-bit，敏感度用<a href="/llm/quant-error-metrics">量化误差度量</a>的指标逐层测。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>W4A16 在 CPU 上是甜点的机理：decode 算术强度低，时间被字节搬运的下界钉死，权重 4-bit 直接把下界除四；激活不做量化，省去激活尺度的维护。Dettmers 与 Zettlemoyer 的缩放分析给出同一结论的另一面：固定内存预算下，4-bit 是精度与规模的最优折中点，压到 3-bit 掉的精度超过多装参数赚回来的。k-quants 的分块方案把 scale 与 min 存进每个块，<a href="/llm/gguf">GGUF</a> 容器再把量化方案与元数据一起分发，「一份文件、多后端可跑」由此成立；端上最广的这套实践就是 <a href="/llm/llamacpp">llama.cpp / ggml</a> 跑通的。</p><div class="mermaid"></div><p><span class="marginnote">体积锚点：8B 模型 fp16 约 16 GB，主流 4-bit 配置约 4–5 GB。但「装得下」的判据是运行期峰值 RSS 而非文件大小：KV、激活缓冲与运行时开销都要算进去，一台 8 GB 内存的手机不会给你 5 GB。</span></p><p>验证在真机做，顺序固定：困惑度对 fp16 基线、任务集对云端同款、数值抽样看分布漂移，退化形态对照<a href="/llm/quant-eval-degradation">量化后退化模式</a>识别。模拟器与云上同款芯片不算数：不同后端累加顺序不同，退化必须在目标硬件上重现才算数，否则门禁后面会漏。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲量化算法与 Hessian 推导；KV 的量化与权重量化是两本账，前者归 KV 各课。1.58-bit 与 BitNet 路线需要重训练，不是训练后量化，端侧按训练成本暂排除在实践之外。量化配置一旦进产品就是发布物的一部分：哈希与元数据怎么随包走，留给打包分发课。<span class="marginnote">初学者容易以为「量化就是砍掉小数点后几位」。实际是先用统计量（scale/min）把数值范围映射到一排整数格点再存整数，还原值只能落在格点上，误差来自格点间距而非简单截断——所以校准数据选得好不好，直接决定这些格点划在哪里，也就决定了精度损失多少。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>先定后端格式再定比特数：CPU/GPU 主流 W4A16，NPU 按工具链要求多为 W8A8。</li><li>group-wise 粒度加敏感层混合精度是端侧默认配置。</li><li>4-bit 甜点有两条独立证据：搬运下界与精度-规模缩放分析。</li><li>验证必须在真机：困惑度、任务集、数值抽样三样对着 fp16 基线做。</li><li>出处：GGUF/k-quants 文档；Frantar et al., GPTQ, ICLR 2023；Lin et al., AWQ, MLSys 2024；Dettmers &amp; Zettlemoyer, ICML 2023；按本课程口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 硬件与工具<!--]--><!----></p><p class="lesson-progress">第 3 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/edge-memory-management/">内存管理与换入换出</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/edge-npu-toolchain/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">移动 NPU 工具链</span><span class="lesson-card-meta">端侧推理深入 · 硬件与工具<!--[--> · 第 2 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/edge-memory-management/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">内存管理与换入换出</span><span class="lesson-card-meta">端侧推理深入 · 系统与生产<!--[--> · 第 4 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>凸函数与凹函数 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_convex-concave-fn.md.EZ0Uz7aG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-10</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 集合与凸<!--]--><!--[--> · 课序 空间<!--]--></p><p class="lesson-progress">第 3 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/econ/convex-set-combo/">凸集与凸组合</a></p><p class="lesson-next"> 下一课：<a href="/econ/epigraph-sublevel/">上境图与下水平集</a></p><!----></nav><div style="position:relative;"><div><h1 id="凸函数与凹函数" tabindex="-1">凸函数与凹函数 <a class="header-anchor" href="#凸函数与凹函数" aria-label="Permalink to &quot;凸函数与凹函数&quot;">​</a></h1><div class="epigraph"><p>函数凸，说的是弦在图的上方；经济学里成本常取凸、效用常取凹，两者是同一几何的符号翻转。</p><footer>—— 据 Boyd and Vandenberghe, Convex Optimization, 第 3 章；Mas-Colell, Whinston and Green 数学附录整理</footer></div><p>上一课<a href="/econ/convex-set-combo">凸集与凸组合</a>把可行域收成凸集。目标函数仍可以任意弯曲：在凸预算上最大化一个「喜欢极端」的函数，最优仍会跳到顶点。缺口是函数自身的形状。本课只定义凸与凹，以及它们与一阶、二阶条件的接口；不把约束优化证一遍。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(f:C\to\mathbb{R}\) 在凸集 \(C\) 上为<strong>凸函数</strong>，若对一切 \(x,y\in C\)、\(t\in[0,1]\)， \(f(tx+(1-t)y)\le t f(x)+(1-t)f(y)\)。弦在图的上方。凹函数把不等式反过来：弦在图的下方。\(f\) 凹当且仅当 \(-f\) 凸。最小化凸函数、最大化凹函数，局部最优即全局最优——这是后课敢用一阶条件代替全局搜索的原因。</p><p><span class="marginnote">直觉类比：检验凸函数像用橡皮筋连曲线上的两点——橡皮筋整条悬在曲线<strong>上方</strong>，函数才凸；若橡皮筋垂到曲线下面去了（出现「鼓包」），就不凸。经济学里成本曲线常凸（产量越大，多生产一单位越贵），效用曲线常凹（越多越满足，但边际递减）。</span></p><p>支出最小化里成本对产量凸（规模不经济或线性）；利润对价格凸（包络是线性函数族的点态上确界）。效用表示若凹，则偏好凸；反之，凸偏好只保证存在拟凹表示，不一定有凹表示。拟凹：\(\{x:f(x)\ge\alpha\}\) 皆凸。后课<a href="/econ/convex-preference">凸偏好</a>要的是拟凹，本课先把凸/凹本身钉死，以免把基数凹当成序数凸。</p><h3 id="凸函数不是凸集" tabindex="-1">凸函数不是凸集 <a class="header-anchor" href="#凸函数不是凸集" aria-label="Permalink to &quot;凸函数不是凸集&quot;">​</a></h3><p>日常把「凸」乱套。凸集是点集含线段；凸函数是函数值不超过弦。凸函数的<strong>下</strong>水平集 \(\{x:f(x)\le\alpha\}\) 才是凸集；凹函数的<strong>上</strong>水平集才是凸集。把效用图画成「凸向原点」的无差异曲线，对应的是上优集凸，即拟凹，不是 \(u\) 凸。\(u\) 若凸，决策者喜欢极端，与标准凸偏好相反。</p><p><span class="marginnote">常见误区：看到无差异曲线「凸向原点」，就说效用函数是凸函数。实际上曲线凸向原点说的是<strong>上优集凸</strong>（拟凹）；若效用函数本身是凸函数，消费者反而喜欢走极端、把所有钱花在一一种商品上——与教科书行为正好相反。「凸」这个词挂在集合、函数、偏好上，含义各不相同。</span></p><p><span class="marginnote">仿射函数既凸又凹。线性预算的支出 \(p\cdot x\) 是仿射，对偶里它两边都好用。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>可微时：凸 \(\Leftrightarrow\) \(f(y)\ge f(x)+\nabla f(x)^\top(y-x)\)（一阶下估）。二阶：Hessian 处处半正定则凸（\(C^2\) 时也接近必要）。凹则 Hessian 半负定。后课<a href="/econ/unconstrained-fonc">无约束一阶与二阶条件</a>会用这块：凹目标的一阶条件充分。</p><p>凸函数在开凸集的内部连续，几乎处处可微（有限维）。经济学里常直接假设 \(C^1\) 或 \(C^2\)，不是因为定理需要光滑，而是后课比较静态要导数。次梯度 \(\partial f(x)=\{g:f(y)\ge f(x)+g^\top(y-x)\ \forall y\}\) 在不可微点取代梯度；成本函数在价格网格的折点处用次梯度，Shephard 引理的集值版。本课不展开凸分析计算。</p><p>保凸运算：非负加权和、点态最大值、仿射复合 \(f(Ax+b)\)。这解释了「一族线性利润的上包络仍凸」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>弦在上方意味着沿任何方向差商不降：越往右，斜率越大。这就是边际成本递增、边际效用递减（凹效用）的同一句话。没有它，一阶切点可以是极小而不是极大，Lagrange 会指向最差点。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：\(f(x)=x^2\)。取 \(x=0\)、\(y=2\)、\(t=\tfrac12\)：左端 \(f(1)=1\)，右端 \(\tfrac12 f(0)+\tfrac12 f(2)=2\)。\(1\le 2\) 成立，弦果然在图上方，凸性验证通过。换成 \(f(x)=\sqrt{x}\) 同样代入：\(1\ge 2\) 不成立——平方根是凹函数。</span></p><p>严格凸：弦<strong>严格</strong>在图上方（\(x\neq y\)，\(t\in(0,1)\)）。严格凸的最小化至多一个解；严格凹的最大化至多一个解。后课把马歇尔需求写成函数，默认的就是严格凹效用（或严格凸偏好）加上严格凸预算几何。完全替代是凹但不严格凹的边界：最优可以是整段。</p><p><span class="marginnote">单调变换保住拟凹，毁掉凹。\(\log u\) 与 \(u\) 表示同一偏好，一个凹一个可以不凹。优化算法在乎你写哪一个数字；偏好理论在乎拟凹。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲凸共轭、Fenchel 对偶的计算细节，那是附录。也不把风险厌恶读进来：彩票上的凹是后课<a href="/econ/risk-aversion">风险厌恶与阿罗–普拉特</a>，对象不是 \(\mathbb{R}_+^n\) 里的确定消费。下一课把凸函数改写成上境图，为分离做几何准备。</p><p>后课默认：说「凹效用」时知道它给出凸偏好且让最大化一阶条件充分；说「凸成本」时知道最小化局部即全局。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>凸：弦在图上方；凹是符号翻转。局部最优即全局最优。</li><li>可微时一阶下估、Hessian 半正定刻画凸。</li><li>拟凹管上水平集凸，是偏好凸；凹更强，会被单调变换毁掉。</li><li>严格凹给单值需求；不严格则最优可成线段。</li><li>下一课：<a href="/econ/epigraph-sublevel">上境图与下水平集</a>。</li><li>出处：Boyd and Vandenberghe, <em>Convex Optimization</em>；MWG 数学附录。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数学与优化基础<!--[--> · 单元 集合与凸<!--]--><!--[--> · 课序 空间<!--]--></p><p class="lesson-progress">第 3 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/epigraph-sublevel/">上境图与下水平集</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/convex-set-combo/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">凸集与凸组合</span><span class="lesson-card-meta">数学与优化基础 · 集合与凸 · 空间<!--[--> · 第 2 / 21 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/epigraph-sublevel/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">上境图与下水平集</span><span class="lesson-card-meta">数学与优化基础 · 集合与凸 · 空间<!--[--> · 第 4 / 21 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

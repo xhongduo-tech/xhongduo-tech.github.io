@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>工具链与复现规范 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_xai-toolchain-repro.md.BAkelyv6.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 8 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/xai-mechanistic-eval/">机制评测</a></p><p class="lesson-next"> 下一课：<a href="/llm/xai-limits-frontier/">局限与前沿</a></p><!----></nav><div style="position:relative;"><div><h1 id="工具链与复现规范" tabindex="-1">工具链与复现规范 <a class="header-anchor" href="#工具链与复现规范" aria-label="Permalink to &quot;工具链与复现规范&quot;">​</a></h1><div class="epigraph"><p>前八课每一步都踩在工具链上；可解释性实验比一般 ML 更难复现，因为结论绑定的不只是代码与数据，还有一层特征编号的临时本体论。</p><footer>—— 据 Lieberum et al., 2024（Gemma Scope）与 Templeton et al., 2024 的开放实践整理</footer></div><p><a href="/llm/xai-mechanistic-eval">上一课</a>把机制做成了评测判据。判据要有公信力，前提是任何人能用同样的工具、同样的口径走到同一个结果——这正是可解释性最薄弱的环节。本课写两件事：工具链的分层，以及把前九课散落的口径钉成复现规范。它也是本课程从「方法与场景」走向「边界与收束」前的最后一节工程课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>复现可解释性实验有三重困难。<strong>编号不可移植</strong>：换 seed、换宽度、换 checkpoint，特征编号整体作废，「第 1024 号特征」离开它的字典毫无意义。<strong>解释循环依赖解释器</strong>：释义评分随解释器版本漂移，第 2 课压住循环性的协议，换个人跑可能没有。<strong>自由度爆炸</strong>：位点、层号、宽度、架构、稀疏系数、数据量、中心化方式——「同一个 SAE」在这七个自由度下没有定义。</p><p><span class="marginnote">「临时本体论」翻译一下：本体论本是哲学术语，指「一套东西的清单与命名」。特征编号就是这样一套命名——它只对某一次具体训练出来的字典有效，重训一次就整体换名。这和化学元素表完全不同：氧是自然种，换个实验室还是氧；「第 1024 号特征」不是自然种，离开那支字典就是空签。</span></p><p>一般 ML 复现只要 pin 代码与数据；这里还要 pin 一套临时本体论——哪些方向算「找到过」、叫什么名字。缺口因此不是工具不够多，而是层与层之间的接口没有被当成规范来写。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>工具链四层，每层的接口就是复现规范的一半。</p><p><strong>钩子层。</strong> 前向截获激活、注入干预的库（TransformerLens、nnsight 一类），对齐的是模型实现：模型版本、权重 hash、hook 位点与层号。</p><p><span class="marginnote">「hook（钩子）」是什么：在模型前向计算流经某一层时「拦截」一下——抄走这一刻的激活，或把它换成别的值再放行。类比流水线上装一个观察窗加一只机械手：既能记录每一件过路产品（读激活），也能伸手改一件（干预），后面的工序拿到的是改过的货。</span></p><p><strong>字典层。</strong> 自训用 SAELens 一类训练库，或直接用开放套件——<a href="/llm/gemma-scope">Gemma Scope</a> 把主流开源模型的全层 SAE 放进公共领域，等于把第 1 课的整条工序外包给了公共字典。对齐的是第 1 课的元数据：位点、宽度、架构、平均 \(L_0\)、训练 token 量。</p><p><strong>浏览层。</strong> 特征浏览器（Neuronpedia 一类）把「释义 + 最大激活样本 + 转向演示」摆在一起，供人读与跨团队指认。对齐的是第 2 课的报表格式。</p><p><strong>评测层。</strong> 释义评分、干预脚本、特征画像 diff 的执行器。对齐的是解释器版本与判分协议。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>复现锚点为什么是「释义 + 激活样本 + 转向效应」三元组而不是编号：编号在重训里必然变，三元组不依赖具体运行——重训后按语义重新对齐，特征画像 diff 就是在做这件事。这是「临时本体论」的唯一稳定指称方式：特征不是自然种，是字典的函数，指称它的稳定方式只能经过它的证据。</p><p>开放套件的机制价值因此不止省算力：公共字典是跨团队的<strong>公共纵轴</strong>。两家实验室各自训字典，比较「谁发现了欺骗特征」无从谈起；都用同一套开放字典，特征指认、缺陷上报、回归追踪才有共同对象。这也是开放生态被当成可解释性基础设施、而不只是福利的原因。</p><div class="mermaid"></div><p><span class="marginnote">「公共纵轴」类比坐标系：两人各带一把刻度不同的尺子，报出的长度没法对账；约定同一把尺子后，测量才有比较的意义。开放字典就是解释性社区的公尺——它未必是最准的尺，但让「你说的 1024 号」和「我说的 1024 号」第一次指向同一个东西。</span></p><p><span class="marginnote">复现一条特征的最低清单：位点与层号、宽度与膨胀倍数、架构与平均 \(L_0\)、激活函数、训练 token 量、checkpoint hash、释义加十条最大激活样本、转向 \(\alpha\) 与效应记录。少任何一项，复现者就是在对另一支透镜——而没人告诉他焦距差多少。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>规范不能让本体论稳定：字典一更新，旧编号的语义漂移，跨字典的「同一特征」最多是语义近似。私有模型没有公共字典，只有内部纵轴，跨组织的缺陷通报要附带完整复现包才可检验。工具链也不兜底方法错误：口径完全对齐的两个团队，可能一起用同一种带偏差的评分器得出同一个错误结论——复现解决「是不是同一个实验」，不解决「实验对不对」。最后，规范有成本：元数据与报表的完备性是工程税，团队会在进度压力下砍它；把它做成工具的默认输出而不是自觉，是这一课真正的落点。</p><p><span class="marginnote">常见误区：「实验可复现 = 结论正确」。两个团队用同一把刻度偏了的尺子，量出同一个错的数——完全可复现，但都错。复现回答的是「你们做的是不是同一个实验」，对错要靠第 2 课的对照与验收去压。把这两件事混为一谈，会出现「已复现，所以可信」的空担保。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>工具链四层：钩子、字典、浏览、评测；每层接口即规范的一半。</li><li>复现锚点是「释义 + 激活样本 + 转向效应」三元组，不是特征编号。</li><li>开放字典是跨团队的公共纵轴，缺陷通报与回归追踪都踩在它上面。</li><li>复现保证「同一个实验」，不保证「实验正确」；方法偏差要靠第 2 课的对照压。</li><li>出处：Lieberum et al., 2024（Gemma Scope）；Templeton et al., 2024 的开放与不完备声明；工具名以公开仓库为准。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 可解释性应用<!--[--> · 单元 应用<!--]--><!----></p><p class="lesson-progress">第 8 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/xai-limits-frontier/">局限与前沿</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/xai-mechanistic-eval/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">机制评测</span><span class="lesson-card-meta">可解释性应用 · 应用<!--[--> · 第 7 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/xai-limits-frontier/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">局限与前沿</span><span class="lesson-card-meta">可解释性应用 · 应用<!--[--> · 第 9 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

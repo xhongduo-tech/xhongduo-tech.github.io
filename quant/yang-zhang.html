@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Yang–Zhang 估计量 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_yang-zhang.md.B1NT0OPB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 波动率计量<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/garman-klass/">Garman–Klass 估计量</a></p><p class="lesson-next"> 下一课：<a href="/quant/smile-interpolation/">波动率微笑插值</a></p><!----></nav><div style="position:relative;"><div><h1 id="yang–zhang-估计量" tabindex="-1">Yang–Zhang 估计量 <a class="header-anchor" href="#yang–zhang-估计量" aria-label="Permalink to &quot;Yang–Zhang 估计量&quot;">​</a></h1><div class="epigraph"><p>把日方差显式拆成隔夜与盘内两段，盘内用对漂移无偏的交叉乘积，再按最小方差加权合并——跳空与漂移两根刺一起拔。</p><footer>—— 据 Yang and Zhang, Journal of Business, 2000</footer></div><p><a href="/quant/garman-klass">上一课</a>的效率以「无漂移、开盘无跳空」为前提，真实股票两条全破。Yang–Zhang 把日方差显式拆段：隔夜段用收盘到开盘，盘内段用对漂移无偏的 Rogers–Satchell 交叉乘积，再按最小方差权重合并。微观噪声是它剩下的软肋，怎么压决定了它该在什么频率上跑。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>三个缺口逐个点名。其一，漂移：close-to-close 与 GK 的估计量在漂移非零时都有偏，持仓周期越长偏差越显眼。其二，隔夜跳空：只用盘内 OHLC 的公式（RS 一族）对 gap 完全失明，隔夜方差整段丢失。其三，微观噪声：任何用收盘价差平方的项都随 bid-ounce 膨胀。Yang–Zhang 的目标是同时对漂移与跳空无偏，再把噪声从最窄的门放进来。本课写拆段、加权与失效方向，不展开 YZ* 变体的推导。</p><p><span class="marginnote">术语翻译：拆段即把「昨日收盘到今日收盘」切成「昨日收盘到今日开盘」（隔夜段 \(o_i\)）与「今日开盘到今日收盘」（盘内段 \(c_i\)）两张账。Rogers–Satchell 是只用盘内四价的交叉乘积估计量，构造上对非零漂移无偏——代价是看不见隔夜。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>记 \(o_i=\ln(O_i/C_{i-1})\)、\(u_i=\ln(H_i/O_i)\)、\(d_i=\ln(L_i/O_i)\)、\(c_i=\ln(C_i/O_i)\)。三个分量：</p> \[\sigma_O^2=\frac{1}{n-1}\sum o_i^2,\quad \sigma_C^2=\frac{1}{n-1}\sum c_i^2,\quad \sigma_{RS}^2=\frac{1}{n}\sum\left[u_i(u_i-c_i)+d_i(d_i-c_i)\right] \]<p>合并按 \(\sigma_{YZ}^2=\sigma_O^2+k\,\sigma_C^2+(1-k)\,\sigma_{RS}^2\)，权重 \(k=\dfrac{0.34}{1.34+(n+1)/(n-1)}\)。<span class="marginnote">数字实例：\(n=10\) 时 \((n+1)/(n-1)\approx1.222\)，\(k\approx0.133\)；\(n=60\) 时 \(k\approx0.143\)——窗口再长 \(k\) 也爬不过 0.15，最怕噪声的 \(\sigma_C^2\) 永远只拿小头。近理想条件下 YZ 对 close-to-close 的效率约 8 倍，倍数随噪声浮动，别当常数。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无偏性来自构造：交叉乘积 \(u(u-c)\) 里漂移项在展开后相消，所以 \(\sigma_{RS}^2\) 不怕非零漂移；隔夜段显式入账，gap 方差不再失踪；合并权重由最小方差解给出。噪声下的行为更微妙：\(k\) 压小让 bid-ounce 只从 \(\sigma_C^2\) 一条窄门进来——结果是方差上升而偏差近似不动，这正是小权重的用意。<span class="marginnote">直觉类比：YZ 给一天波动装两块电表——过夜待机表和日内用电表；日内表最容易被接线噪声干扰，于是合并时只给它约 13% 的权重，而不是平分。</span></p><p><span class="marginnote">常见误区：以为 YZ 万能。错在把噪声与跳跃混为一谈——它治隔夜与漂移，bar 内 bid-ounce 只是压制不是治愈；财报瞬间的离散跳会把所有 OHLC 估计量一起打穿，YZ 没有豁免权。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不治跳跃：离散跳之日，五类估计量集体失真，事后剔除事件日比换公式诚实。停牌与集合竞价 bar 的高低差不可信，照单全收会把噪声当波动。实现细节有坑：\(\sigma_O^2\) 用 \(n-1\)、\(\sigma_{RS}^2\) 用 \(n\) 是原文献口径，混用会引入微小不一致。日波动作为输入，一侧对照隐含口径归 <a href="/quant/vol-surface">波动率曲面</a>，一侧进 <a href="/quant/risk-budgeting">风险预算</a> 的限额。至此本单元收束：粒子滤波与无迹卡尔曼管状态、OU 管动力学、Garman–Klass 与 Yang–Zhang 管测量——「估得准」在量化里的三个切面，拼图到此合拢。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>YZ 拆段加权：隔夜段补 gap、RS 段抗漂移、小权重 \(\sigma_C^2\) 压噪声。</li><li>\(k\) 约 0.13–0.15，由最小方差解给出，不随手调。</li><li>无偏覆盖漂移与跳空；噪声只推高方差；离散跳没有豁免。</li><li>测量口径与状态估计、动力学参数互为上下游，五个 slug 拼一张图。</li><li>出处：Yang and Zhang, <em>Journal of Business</em>, 2000；Rogers, Satchell and Yoon, 1994；Molnár, 2012 对照。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 波动率计量<!--]--><!----></p><p class="lesson-progress">第 5 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/smile-interpolation/">波动率微笑插值</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/garman-klass/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Garman–Klass 估计量</span><span class="lesson-card-meta">方法拾遗 · 波动率计量<!--[--> · 第 4 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/smile-interpolation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">波动率微笑插值</span><span class="lesson-card-meta">方法拾遗 · 波动率计量<!--[--> · 第 6 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

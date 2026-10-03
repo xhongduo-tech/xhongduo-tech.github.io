@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CUTLASS 的结构直觉 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_gpu-cutlass-intuition.md.FiJHPcLw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 张量核与工具<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/gpu-tensorcore-programming/">张量核的编程直觉</a></p><p class="lesson-next"> 下一课：<a href="/cs/gpu-profiling/">性能计数与 profiling</a></p><!----></nav><div style="position:relative;"><div><h1 id="cutlass-的结构直觉" tabindex="-1">CUTLASS 的结构直觉 <a class="header-anchor" href="#cutlass-的结构直觉" aria-label="Permalink to &quot;CUTLASS 的结构直觉&quot;">​</a></h1><div class="epigraph"><p>CUTLASS 把 GEMM 拆成四层可换件——调度、流水、收尾、指令；分层的判据只有一条：换这一层时，别的层不用动。</p><footer>—— 据 NVIDIA CUTLASS 文档整理</footer></div><p><a href="/cs/gpu-tensorcore-programming">上一课</a>把 MMA 的三层抽象与喂料模板摆出；从指令到一个生产级 GEMM 还差两件事：tile 怎么调度、流水怎么叠。大模型栏的 <a href="/llm/cutlass">CUTLASS 层次</a>与 <a href="/llm/cutlass3-cute">cuTeDSL / CUTLASS 3</a>做过层次走读与 API 细读，<a href="/llm/thunderkittens">ThunderKittens</a> 给了另一套抽象的对照。本课写结构直觉：这套分层为什么成立、每层交换什么、改需求时该在哪层动手。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>生产级 GEMM 叠着几组相互正交的决策：tile 的二维排布（防 L2 抖动、均衡负载）、主循环的 stage 数与缓冲、warp 任务的划分、epilogue 的融合（激活、偏置、量化都挂在这）、以及跨代指令的选择。逐个手写是组合爆炸：五个维度各三档就是上百个内核。CUTLASS 的回答不是「更聪明的代码生成」，而是先回答一个结构问题：这些决策里哪些正交到可以独立替换？分层分错了的代价是可见的——把 epilogue 写死在主循环里的库，每加一种激活就要复制整个 GEMM。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四层从外到内，每层认领一组决策。device 层认调度：tile 到 block 的映射——线性序加 swizzle 换 L2 局部性；persistent 与 Stream-K 换负载均衡，把「一个 block 做一个 tile」改成「一个 block 吃完一批 tile」或「把残余的 k 段拆给闲下来的 block」（<a href="/llm/persistent-kernel">persistent kernel 课</a>给过前者的机制）。collective 层认主循环：global 到 smem 的多 stage 流水加 MMA，合同是 smem 容量除以 stage 数，<a href="/llm/sw-pipeline-buffer">软件流水课</a>的账在这里兑现；Hopper 的 warp 特化（生产者拷贝、消费者 MMA）是这一层在 sm90 上的形态。epilogue 层认写出：smem 到 global 的布局变换与逐元素融合，激活函数挂在这层的 visitor 上。atom 层认指令：copy atom 与 mma atom 是上一课三层抽象的封装，跨代换件——sm80 的 <code>cp.async</code> 加 <code>mma.sync</code> 换成 sm90 的 TMA 加 wgmma，collective 之上的代码不动。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>模板分层为什么可行：所有决策在编译期实例化，层与层只交换布局与坐标，不交换运行时对象——没有虚调用，分层不付间接税。层间语言是 CuTe 的 layout 代数：<code>shape : stride</code> 的张量加 compose、slice 两个操作，epilogue 拿到的不是裸指针而是「带布局的视图」，所以融合一个激活不需要知道主循环的 swizzle 细节。跨代复制配置不成立的原因也在这层结构里：atom 换代意味着布局合同变了（上一课的 8/4/4 变成 wgmma 的 smem 操作数），swizzle 模式与 stage 数的合法解集随之变——参数表是「某一代硬件 + 某一算法」的解，不是普适常数，<a href="/llm/cutlass">CUTLASS 层次课</a>的结论「架构是模板的一部分」说的就是这个。</p><p><span class="marginnote">数字实例：collective 层的 stage 合同是「smem 容量 ÷ stage 数 = 单个 stage 的字节数」。sm80 一块 smem 约 164 KB：tile 尺寸 A+B 各 128×32 的 fp16 时每 stage 约 16 KB，理论能开 8 stage；换成 128×64 就要砍半。改 tile 尺寸后必须重算 stage 数，否则编译期直接报 smem 溢出——这就是「换这层、别层要复核合同」的具体样子。</span></p><p><span class="marginnote">常见误区：初学者容易以为「分层=运行时多态=变慢」。CUTLASS 的分层全部在编译期展开：换 epilogue 的激活函数是换模板参数，生成的代码里连函数指针都没有，更没有虚表查找。慢的是「运行时再决定」，不是「代码组织上分层」。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>API 走读与实例代码归大模型栏那两课，本课只给「在哪层换什么」的地图。CUTLASS 不是唯一抽象：ThunderKittens 用更小的原语面换更陡的学习曲线，Triton 把 tile 层交给编译器（<a href="/llm/triton-attention-kernel">Triton 写注意力核</a>）；抽象的选择标准是你要改哪一层。autotuning 的方法（扫 stage 与 tile 的网格、记录配置）在 profiling 课之后另有归宿，本课不展开。也别把 CUTLASS 当默认答案：标准形状下 <a href="/llm/cublas-cudnn">cuBLAS</a> 先行，CUTLASS 的价值在可改与库外融合。</p><p><span class="marginnote">threadblock swizzle 的最小示例：把 tile 的线性序按每 8 列一组蛇形重排，相邻 block 同时算的 tile 在空间上聚簇，L2 命中率即可观上升——device 层一行的改动，主循环一行不动；能指出改动属于哪层，就是这套分层的用法。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>分层判据是「换这层、别层不动」：调度在 device、流水在 collective、收尾在 epilogue、指令在 atom。</li><li>层间语言是布局与坐标（CuTe 的 layout 代数），不是指针与循环边界。</li><li>编译期实例化让分层不付间接税；运行时没有虚调用。</li><li>跨代复制参数表不成立：atom 换代即布局合同换代，合法解集随之变。</li><li>选抽象先问要改哪层：库兜底走 cuBLAS，改融合走 CUTLASS，改 tile 语义走 Triton 或更小的原语面。</li><li>出处：NVIDIA CUTLASS 与 CUTLASS 3.x / CuTe 文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 张量核与工具<!--]--><!----></p><p class="lesson-progress">第 6 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/gpu-profiling/">性能计数与 profiling</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/gpu-tensorcore-programming/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">张量核的编程直觉</span><span class="lesson-card-meta">GPU 编程深入 · 张量核与工具<!--[--> · 第 5 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/gpu-profiling/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">性能计数与 profiling</span><span class="lesson-card-meta">GPU 编程深入 · 张量核与工具<!--[--> · 第 7 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

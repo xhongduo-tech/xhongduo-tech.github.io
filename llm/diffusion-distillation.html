@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>扩散蒸馏与少步 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_diffusion-distillation.md.CqXb0XAJ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 生成基础<!--]--><!--[--> · 课序 扩散、流与自回归<!--]--></p><p class="lesson-progress">第 23 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/transfusion/">Transfusion</a></p><p class="lesson-next"> 下一课：<a href="/llm/video-gen-spatiotemporal/">视频生成的时空建模</a></p><!----></nav><div style="position:relative;"><div><h1 id="扩散蒸馏与少步" tabindex="-1">扩散蒸馏与少步 <a class="header-anchor" href="#扩散蒸馏与少步" aria-label="Permalink to &quot;扩散蒸馏与少步&quot;">​</a></h1><div class="epigraph"><p>多步采样买的是沿向量场慢慢走。蒸馏把多步教师压成少步学生，用质量换延迟。</p><footer>—— Salimans, Ho, Progressive Distillation；Song 等 Consistency Models</footer></div><p><a href="/llm/transfusion">上一课</a>仍可能对图像槽走完整扩散链。<a href="/llm/ddpm">DDPM</a> 的 \(T\) 是税。缺口是少步：推理要 1–8 步而不是 50–1000。后课视频默认：每帧再乘时间，少步从可选变成必要。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>逐步去噪或 ODE 积分在每步调用同一骨干。交互式文生图、统一模型里的「边说边画」负担不起。少步有三条主要路线，约束各不相同，选型即选约束。</p><p>渐进蒸馏沿轨迹做减半。学生从教师初始化，学会用一步复现教师相邻两步的结果：对同一 \(x_t\)，教师连走两个半步到 \(x_{t-2}\)，学生在 \(v\)-参数化下回归这个终点（\(v\)-参数化在两端噪声水平上都数值稳定）。每轮把学生日程步数减半，反复 \(\log_2\) 轮，1024 步教师可压到 4 步。</p><p><span class="marginnote">减半快得超出直觉：\(1024\to512\to256\to128\to64\to32\to16\to8\to4\)，一共只 \(\log_2(1024/4)=8\) 轮就到 4 步。这就是「渐进」二字的账——每代学生只需要学会「把两步并成一步」这件小事，难任务被拆成了八份。</span>为什么逐代减半而不是直接教一步：一步跨越的区间太大，教师的局部曲率信息一次性丢光，学生学不动；减半让每代的回归区间都落在教师尚准确的范围内。误差会逐代累积：每代只对齐日程上的离散点，中途轨迹偏差被下一代当真值继承，所以教师要够强、两代日程要对齐。</p><p>一致性模型换一条约束：学自映射 \(f_\theta(x_t,t)\)，把同一条轨迹上任意 \(t\) 的点映到同一端点，即同一轨迹上 \(f_\theta(x_t,t)=f_\theta(x_{t&#39;},t&#39;)\)；损失比较相邻两段映射的差，目标侧用停梯度的 EMA 参数。轨迹端点条件（\(t\) 趋近 \(0\) 时映射退化为恒等）由参数化强制，否则自洽约束没有锚点、平凡满足。它不要求教师逐步对齐，一步即可出图，代价是训练对超参、日程与数据顺序更敏感。</p><p><span class="marginnote">「自映射」用坐车打比方：同一条轨道上，无论你从哪一站上车（\(t\) 取多少），一致性模型都要求你最终在同一终点站下车。损失函数就是抽相邻两站各坐一次、比较两次下车位置差多少；EMA 目标侧相当于用一份「慢半拍的参考答案」，防止自己抄自己越抄越偏。</span></p><p>分布匹配蒸馏不给配对目标，在分布层面拉近：教师得分网络冻结、给真实数据打分；另一个得分网络持续拟合学生样本的分布，更新生成器时视为常数。两者之差在学生样本处给出「往哪挪能涨教师似然」的方向，一步学生生成器按它回归，等价于最小化与教师分布的 KL。直观：学生不再抄轨迹，只被要求样本落进教师分布的高概率区；教师的 CFG 伪影与数据缺陷也经这个分布差传过来。</p><p>少步不是新的物理：是用额外训练把轨迹缩短。教师若本身贴不住条件，学生会把 CFG 伪影一起学会。</p><p><span class="marginnote">1 步生成接近 GAN 的延迟，也接近 GAN 的失败：模式崩、过饱和。少步模型要单独评，不能只报教师 FID。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先训好多步教师（可含 <a href="/llm/cfg-image">CFG</a>），再按选定蒸馏目标训学生：要延迟下限选一致性或分布匹配，要稳与可控选渐进蒸馏。推理固定步数与日程——渐进蒸馏的学生换日程即失效，因为每代的回归区间按原日程标定，日程是训练合同的一部分。验收：FID、条件遵守、文字，以及完整的步数–质量曲线：路线不同曲线形状不同，1 步与 8 步的表现不是一条平滑线的两端。不要用理解基准（VQA）代替生成少步评测。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><div class="mermaid"></div><p>教师轨迹定义从噪声到数据的曲线。学生若只拟合端点，中间可走歪：两端正确、中途穿出数据流形，一步采样恰好把中途的偏差暴露在输出里——这是纯端点回归做不成一步生成的原因。一致性把「中间必须落在轨迹上」写成任意时刻的自洽约束，一步输出才立得住。渐进蒸馏保持逐步语义，每代步数减半，误差会累积，所以教师要够强、日程要对齐；分布匹配则放弃轨迹、只锁分布，换来对采样器细节的自由，也换来对教师分布缺陷的全盘继承。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>蒸馏不提高 VAE 重构上限，也不修复教师的条件失败。</p><p><span class="marginnote">为什么重要：蒸馏只压缩「从噪声到图像」的采样过程，而 VAE 决定「潜变量能表达的图像上限」。如果 VAE 本身糊掉了细字和纹理，学生再怎么训也还原不回来——就像复印机分辨率不够，复印得再快也不会更清楚。所以少步模型的模糊要先分清是步数问题还是编码器问题。</span>下一课把生成从单帧扩到时空，步数与记忆同时涨。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>少步靠蒸馏或一致性，不是改一句采样器配置。</li><li>渐进蒸馏逐代减半、一致性自洽于轨迹、分布匹配只对齐分布。</li><li>学生会继承教师的 CFG 与伪影。</li><li>必须单独报步数–质量，不能只抄教师 FID。</li><li>出处：Salimans &amp; Ho Progressive Distillation；Song 等 Consistency Models；Yin 等分布匹配蒸馏。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 生成基础<!--]--><!--[--> · 课序 扩散、流与自回归<!--]--></p><p class="lesson-progress">第 23 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/video-gen-spatiotemporal/">视频生成的时空建模</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/transfusion/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Transfusion</span><span class="lesson-card-meta">多模态生成与统一模型 · 生成基础 · 扩散、流与自回归<!--[--> · 第 22 / 30 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/video-gen-spatiotemporal/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">视频生成的时空建模</span><span class="lesson-card-meta">多模态生成与统一模型 · 生成基础 · 扩散、流与自回归<!--[--> · 第 24 / 30 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

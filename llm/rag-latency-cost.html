@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>延迟与成本优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rag-latency-cost.md.o-jfoDVD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 语义与生产<!--]--><!----></p><p class="lesson-progress">第 10 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/RAG-eval-triangle/">评测：RAG 三角</a></p><p class="lesson-next"> 下一课：<a href="/llm/rag-incremental-consistency/">增量更新与一致性</a></p><!----></nav><div style="position:relative;"><div><h1 id="延迟与成本优化" tabindex="-1">延迟与成本优化 <a class="header-anchor" href="#延迟与成本优化" aria-label="Permalink to &quot;延迟与成本优化&quot;">​</a></h1><div class="epigraph"><p>链路上的段量级不同：把近邻从二十毫秒压到十毫秒，用户毫无感觉；把上下文砍掉一半，账单立刻看见。优化的第一步是分段测量，不是动手。</p><footer>—— 据推理成本模型与检索工程实践整理</footer></div><p><a href="/llm/RAG-eval-triangle">上一课</a>立了三角门禁：任何优化都要过三角，单角大涨先查代价藏在哪。本课写优化本身：一条 RAG 查询的时间与钱花在哪几段、砍哪里不伤质量、缓存与条件执行怎么设计。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>链路各段的量级不同：查询嵌入与 ANN 在毫秒与亚毫秒级，改写与规划是一次 LLM 往返（几百毫秒），重排是几十到几百毫秒的 GPU 前向，生成段是秒级且占成本大头。不先测量就优化的两种典型：把 ANN 从二十毫秒压到十毫秒，端到端无感，白付一次工程；或者砍掉重排省钱，前排精度掉，三角门禁阻断——又回滚。更隐蔽的是成本侧：检索段的自建成本（索引内存、批处理 GPU）是固定开销，生成段随答案长度线性，两者的容量规划逻辑完全不同，混在一个「单查询成本」里就找错了杠杆。</p><p><span class="marginnote">术语翻译：TTFT 是「首字时间」——从发问到屏幕上吐出第一个字，用户感知的「快不快」主要是它；TPOT 是「每字时间」——首字之后每个 token 的平均间隔，决定阅读时顺不顺。生成段占延迟大头，指的就是这两项，而它们都随输入长度变长而变差。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分段测量先立住：p50、p95、p99 每段分开报，嵌入、ANN、融合、重排、生成 TTFT 与 TPOT 各一列；成本按推理成本模型的口径——租时除以有效吞吐，加利用率与重试，提示与生成分列。然后三个杠杆按序动。第一，条件执行：第六课的复杂度路由本来就是预算工具——简单查询跳过改写与重排，直接单次检索；只有困难切片走全链，多数流量付多数场景需要的钱。第二，缓存三层：块向量与查询嵌入缓存（语料不变即有效）、检索结果缓存（查询归一化后命中）、生成侧前缀缓存（系统提示与块模板预计算，<a href="/llm/prompt-cache">Prompt Cache</a> 的模块化口径；块顺序稳定是复用前提，重排恰好保证这点）。第三，粗到细与压缩：<a href="/llm/matryoshka-embeddings">Matryoshka</a> 短前缀粗召回加全维精排，省 ANN 时间；上下文压缩（<a href="/llm/rag-context-compression">RAG 压缩</a>）直接砍生成段的输入 token，这是成本大头上的杠杆。</p><p><span class="marginnote">数字实例：压缩杠杆有多值钱——输入 4000 token、输出 400 token 的查询，输入占九成计费量；上下文压缩砍掉七成输入，单查询成本立刻从约 4400 token 降到约 1600 token，超过六成账单直接消失。相比之下把 ANN 从 20 ms 压到 10 ms，账单一个字都不会变。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>缓存在 RAG 为什么特别有效：查询高度重复——FAQ 型流量里头部查询占比可观，块向量与块文本天然可缓存且不变；前缀缓存要块顺序稳定，重排后的顺序是确定性的，反而成了复用条件。条件执行为什么可行：查询难度分布长尾，多数是单跳直答型，为百分之几的难查询让全部流量付全链延迟，是错配。压缩为什么动的是大头：生成段计费与延迟都随输入加输出 token 走，检索段的毫秒级优化在秒级面前不显眼——但这不意味着检索侧可以烂，检索烂了忠实度掉，门禁会拦住。每一项优化单独上、单独过三角：多项一起上，回退时说不清是谁伤了质量。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者只看 p50（一半请求比它快）就说「平均 800 毫秒，够快」。用户体验由长尾决定——p99 的那 1% 请求可能要 8 秒，正好是最重要或最复杂的查询撞上。分段测量必须三档都报，优化瞄准的是 p99，不是均值。</span></p><p><span class="marginnote">缓存有正确性面：不同权限用户共享检索结果缓存会跨租户泄漏；缓存键必须带权限范围。这一条与增量更新课的删除同步是同一类问题——性能优化改动了安全边界。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>条件执行的路由错误由第六课的回退兜住，但降级路径的延迟与质量也要进评测。压缩率不是指标：压缩到忠实度掉线，省的钱赔进错误答案。前缀缓存对块顺序敏感，重排策略换版即缓存全失效，失效风暴要算进发布成本。成本模型别假设无限线性扩展：容量墙之上排队延迟接管曲线，见成本模型课的容量口径。每查询的钱和时间都进了账本之后，还剩一个时间维度：语料天天变，索引怎么跟上——增量更新与一致性。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>先分段测量再动手：p50 与 p99 每段一列，成本提示与生成分列。</li><li>杠杆按序：条件执行、三层缓存、粗到细与上下文压缩；大头在生成段。</li><li>每项优化单独过三角门禁；回滚要有版本，混着上说不清。</li><li>缓存键带权限范围；块顺序稳定是前缀复用的前提。</li><li>压缩率与延迟不是指标，忠实度不掉才是约束。</li><li>出处：据 Pope 等推理成本口径、Gim 等 Prompt Cache 与检索工程实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 语义与生产<!--]--><!----></p><p class="lesson-progress">第 10 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rag-incremental-consistency/">增量更新与一致性</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/RAG-eval-triangle/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">评测：RAG 三角</span><span class="lesson-card-meta">RAG 系统深入 · 语义与生产<!--[--> · 第 9 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rag-incremental-consistency/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">增量更新与一致性</span><span class="lesson-card-meta">RAG 系统深入 · 语义与生产<!--[--> · 第 11 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

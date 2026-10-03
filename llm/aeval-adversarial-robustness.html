@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对抗鲁棒评测 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_aeval-adversarial-robustness.md.BCimp5Bk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 对齐评测深钻<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 9 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/aeval-crossmodel-pitfalls/">跨模型比较的陷阱</a></p><p class="lesson-next"> 下一课：<a href="/llm/aeval-reporting-standard/">评测报告规范</a></p><!----></nav><div style="position:relative;"><div><h1 id="对抗鲁棒评测" tabindex="-1">对抗鲁棒评测 <a class="header-anchor" href="#对抗鲁棒评测" aria-label="Permalink to &quot;对抗鲁棒评测&quot;">​</a></h1><div class="epigraph"><p>平均分是给产品看的，最坏值是给门禁看的：一个杀掉十个攻击族里九个的防御，在第十个面前等于零。</p><footer>—— 据 Zou et al., 2023（GCG）与 Ganguli et al., 2022 的攻击谱系整理</footer></div><p><a href="/llm/aeval-crossmodel-pitfalls">上一课</a>把跨模型比较钉成冻结 harness 与偏差审计——但那些协议都默认题面固定。对手不配合：题面会被优化、包装、载入上下文。第二课的红队产线在私有侧生产失败；本课把鲁棒性写成公开可门禁的协议：攻击族矩阵、预算声明、最坏值报告。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态套件测的是「默认攻击分布」下的配合率，三个缺口使它撑不起安全声明。一是均值掩盖尾部：防御对模板类攻击有效、对优化类攻击失守时，平均 ASR 依然好看，产品却在可复现的公开攻击下全防不住。二是攻击集衰减：套件一旦公开，它就同时变成训练语料与过拟合目标，「在旧攻击上 ASR 低」的信息量随时间指数衰减。三是预算不定：查询次数、生成长度、白盒还是黑盒不声明，两个「ASR 5%」不可比——一个是默认模板扫一遍，一个是自适应优化攻击跑满预算。</p><p><span class="marginnote">ASR（Attack Success Rate，攻击成功率）指攻击提示让模型放弃拒绝、顺着有害请求作答的比例。比如 100 条越狱提示里模型配合了 40 条，这一族的 ASR 就是 40%。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><h3 id="攻击族矩阵与预算声明" tabindex="-1">攻击族矩阵与预算声明 <a class="header-anchor" href="#攻击族矩阵与预算声明" aria-label="Permalink to &quot;攻击族矩阵与预算声明&quot;">​</a></h3><p>危害集按第一课冻结，攻击族至少四类铺开：<strong>模板/角色包装</strong>（人格化、虚构约定、系统冒充）；<strong>优化后缀</strong>（梯度引导的对抗后缀，GCG 一类，谱系见<a href="/llm/gcg-suffix">对抗后缀</a>）；<strong>上下文压载</strong>（长前缀稀释拒绝，见<a href="/llm/many-shot-jailbreak">多样本越狱</a>）；<strong>接口类</strong>（预填、多模态通道，见<a href="/llm/prefill-jailbreak">预填越狱</a>与<a href="/llm/multimodal-jailbreak">多模态越狱</a>）。每族声明预算：查询数、生成 token 上限、访问级别（黑盒/白盒）。数字按族报：\(\mathrm{ASR}_A=\Pr_{x\in H}[\text{配合}\mid A(x)]\)，门禁取最坏值 \(\max_A \mathrm{ASR}_A\)，不取均值。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么自适应评测不可省：防御细节公开后，理性的攻击者会针对防御改写攻击——只拿默认攻击测新防御，测到的是攻击者的惯性，不是系统的鲁棒性。协议上把「知道防御后重跑」写进门禁，数字才随时间保值。</p><p>一个新防御的读数如何随攻击方演化而缩水，又如何靠自适应复测保值：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：四个攻击族的 ASR 若分别是 2%、3%、4%、40%，平均约 12% 看着尚可；但攻击者不需要攻破九个族，走通一个就够出事——这正是门禁取最坏值而非均值的原因。</span></p><p>判分器也要过攻击关：对抗输出同时瞄准裁判——冗长道歉接实质配合的形态，句式检测与未校准的裁判都会放行（<a href="/llm/jailbreak">越狱评测</a>的教训在对抗场景被放大）；裁判版本固定加人工校准率随每族矩阵一起报。迁移缺口如实报：白盒上很强的优化攻击迁移到黑盒常大幅衰减，部署威胁模型决定哪一列才算数——按部署口径取 \(\max\)，不是按最吓人的列取。</p><p><span class="marginnote">「ASR 5%」没有操作定义：不写明攻击族、预算、自适应与否，同一模型在默认模板下 5%、自适应优化攻击下 40% 是常见量级差。报告口径本身就是防御的一部分。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>免疫没有操作定义，本课能交付的是「在声明预算的这些族上，最坏配合率的区间」，不是「不可攻破」。随机化防御（解码扰动、改写洗牌）提高攻击成本，值得做，但成本上升不等于免疫证明，别把提价写成关门。与第二课的分界再画一次：红队漏斗管私有回归集与未公开发现，本课管公开协议与最坏值门禁；两套账共用判分器与政策版本，不共用披露范围——配方与题面的披露纪律归下一课的报告规范。</p><p><span class="marginnote">「随机化防御」指给模型加一层不可预测的扰动，比如随机改写输入后再作答，让针对原版本的攻击配方失灵。它相当于把门的成本提高：小偷撬锁更费劲了，但门没有被焊死，预算充足的攻击者仍然进得来。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>鲁棒是攻击族矩阵上的最坏值，不是默认攻击分布上的均值。</li><li>每族声明预算与访问级别；不带预算的 ASR 不可比。</li><li>自适应复测进门禁：公开防御要用针对它的攻击重测，数字才保值。</li><li>判分器是攻击面的一部分：版本固定加人工校准率随表发布。</li><li>迁移缺口按部署口径取最坏列；随机化是提价不是关门。</li><li>出处：Zou et al., 2023；Ganguli et al., 2022；HarmBench、JailbreakBench 的预算化口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 对齐评测深钻<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 9 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/aeval-reporting-standard/">评测报告规范</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/aeval-crossmodel-pitfalls/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">跨模型比较的陷阱</span><span class="lesson-card-meta">对齐评测深钻 · 工程<!--[--> · 第 8 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/aeval-reporting-standard/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">评测报告规范</span><span class="lesson-card-meta">对齐评测深钻 · 工程<!--[--> · 第 10 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

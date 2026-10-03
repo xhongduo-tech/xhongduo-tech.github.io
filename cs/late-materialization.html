@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>延迟物化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_late-materialization.md.C9VCDcfC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 优化与执行<!--]--><!--[--> · 课序 执行引擎<!--]--></p><p class="lesson-progress">第 37 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/parallel-exchange/">并行查询与 exchange</a></p><p class="lesson-next"> 下一课：<a href="/cs/buffer-pool-lru-k/">缓冲池 LRU-K / 2Q</a></p><!----></nav><div style="position:relative;"><div><h1 id="延迟物化" tabindex="-1">延迟物化 <a class="header-anchor" href="#延迟物化" aria-label="Permalink to &quot;延迟物化&quot;">​</a></h1><div class="epigraph"><p>扫描先只碰过滤与连接键列，RID 或位置向量拖到需要投影时才解引用；列存上这是默认，行存上是少回表。</p><footer>—— 据 Abadi, Myers, DeWitt and Madden 列存物化策略；Boncz 等；覆盖索引对照</footer></div><p><a href="/cs/parallel-exchange">上一课</a>会把元组在工人间搬运。本课不选 broadcast。缺口是<strong>何时组装完整行</strong>：早物化（扫描时读出所有列）简单，shuffle 与哈希表变宽；迟物化（late materialization）只传递位置与少量键，谓词与连接之后再取投影列。执行引擎单元在此封口，存储进阶从缓冲池再开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>列存：各列分开。先读选择率高的列做过滤，幸存位置再取其他列，I/O 与解压都少。行存：覆盖索引已是一种迟物化（不回堆）；否则 RID 列表过滤后再堆取，可能随机 I/O 比早读整行更差——校准决定。</p><p>缺口是策略选择，不是新代数。连接：可用键列连接得到 RID 对，再取载荷列。聚合：只取分组键与聚合列。</p><p><span class="marginnote">Abadi et al. 比较 early/late materialization。PAX 把行组与列存折中，后课。本课执行策略与存储格式耦合，但语义仍是同一投影。</span></p><p><span class="marginnote">术语翻译：RID（记录标识符）就是「第几页第几槽」组成的地址条；gather 就是拿着一沓地址条挨个去仓库存取对应位置的值。迟物化的全部内容：算子之间只传地址条和少量键，直到最后一步才按地址去取投影列。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>位置列表（selection vector / RID 向量）在算子间传递。扫描接口：按列拉向量，按位置 gather。缓存：迟取可能打乱页顺序，要批量化 gather 成对页友好的顺序。</p><p>与向量化天然合一：批就是一段位置。编译生成 gather 循环。并行：shuffle 只发键+位置，载荷在目标节点本地读——存算分离时位置必须仍能寻址。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>更新与 MVCC：位置必须绑定快照，版本回收不能在查询还拿着 RID 时物理重用——后课 MVCC GC。行存删除空洞使 RID 仍有效直到 vacuum。</p><p>代价：迟物化增加随机 gather；选择率高时早物化更好。优化器应估计幸存率再选策略，误差又回来了。</p><p><span class="marginnote">数字实例：1 亿行的表按条件过滤。若幸存 1%（100 万行），迟物化只做 100 万次取列访问；若幸存 90%（9000 万行），gather 就是 9000 万次近乎随机的页访问，还不如顺序把整列读一遍。分界点由缓存与压缩比决定，通常在幸存率从几个百分点到一两成之间。</span></p><p><span class="marginnote">常见误区：初学者容易以为「迟物化少读数据，永远更好」。实际上 gather 是随机访问，页顺序被打乱后缓存命中率和预取都变差；幸存率高时它比顺序扫描整列更慢。所以正确做法是优化器按估计幸存率选策略，而不是全局钉死一种。</span></p><div class="mermaid"></div><p>这张图回答的问题：迟物化什么时候反而输。分水岭是幸存率——过滤越狠（幸存越少），拖到最后才取列越划算；过滤几乎不筛人时，位置向量拖着一大串地址来回跑，随机 gather 的代价吞掉了省下的 I/O。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲 LRU-K 替换。也不把宽列数据库的列族当迟物化的同义词。执行引擎收口：从迭代器、向量、编译、排序、哈希、Grace、exchange 到物化时机。</p><p>后课默认：OLAP 列路径迟物化；点查行路径早读整行或覆盖索引。缓冲池下一课：页在内存里如何替换，迟 gather 打的就是它。</p><p>传递更窄的向量，是并行与列存的同一条减流量原则。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>迟物化推迟投影列 I/O；高选择率时可能更差。</li><li>位置必须绑定快照，不能提前回收。</li><li>下一单元缓冲池 LRU-K / 2Q：页替换服务扫描与 gather。</li><li>出处：Abadi et al.；Boncz 等；覆盖索引对照。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 优化与执行<!--]--><!--[--> · 课序 执行引擎<!--]--></p><p class="lesson-progress">第 37 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/buffer-pool-lru-k/">缓冲池 LRU-K / 2Q</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/parallel-exchange/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">并行查询与 exchange</span><span class="lesson-card-meta">优化、事务与分析型系统 · 优化与执行 · 执行引擎<!--[--> · 第 36 / 112 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/buffer-pool-lru-k/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">缓冲池 LRU-K / 2Q</span><span class="lesson-card-meta">优化、事务与分析型系统 · 存储进阶 · 缓冲、索引与格式<!--[--> · 第 38 / 112 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

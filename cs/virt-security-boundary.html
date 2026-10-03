@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>安全边界 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_virt-security-boundary.md.DxEcE_zX.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 虚拟化与容器深入<!--[--> · 单元 扩展与边界<!--]--><!----></p><p class="lesson-progress">第 7 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/virt-gpu/">GPU 虚拟化</a></p><p class="lesson-next"> 下一课：<a href="/cs/virt-performance-overhead/">性能开销</a></p><!----></nav><div style="position:relative;"><div><h1 id="安全边界" tabindex="-1">安全边界 <a class="header-anchor" href="#安全边界" aria-label="Permalink to &quot;安全边界&quot;">​</a></h1><div class="epigraph"><p>隔离强度等于你必须信任的那份代码的正确性。比较两种隔离，别比标签，比三件事：多少行代码、暴露多少接口、补丁窗口多长。</p><footer>—— 据 Barham et al., Xen, SOSP 2003 的隔离目标与各机制公开文档整理</footer></div><p><a href="/cs/virt-gpu">上一课</a>看到共享粒度与信任面同向增长：MIG 用硬件隔离客户，MPS 则让一个进程崩掉全组。本课把这条直觉推广成整门课程的度量衡：每条「隔离」主张背后是一份 <strong>TCB</strong>——为了让隔离成立，你必须假设正确的全部代码与配置。主干课的<a href="/cs/vm-escape">虚拟机逃逸</a>与<a href="/cs/container-escape">容器逃逸</a>分别点过两面；本课把光谱排成一架梯子，给每一级标上尺寸。</p><p><span class="marginnote">TCB 可翻译成「信任清单」：为了让「容器出不来」这句话成立，你必须假设正确运行的全部东西——宿主内核、运行时二进制、你写进 JSON 的每一条配置。清单越长，隔离成立的赌注就越大；比较两种隔离，本质是在比谁的清单短、谁的清单每行更可靠。</span></p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>从下往上数。容器：共享内核意味着 TCB 是<strong>整个宿主内核</strong>——以千万行计的代码、每天在长的攻击面，外加运行时与你写进 JSON 的配置；内核一个 0-day，容器与宿主同沉浮，这是共享内核路线的地板而不是配置失误。加固件（<a href="/cs/seccomp-filter">seccomp 过滤</a>、<a href="/cs/linux-capabilities">capabilities 裁剪</a>、LSM）不换边界，只缩暴露面：拦掉一百个系统调用里没人用的九十个，攻击面小一个量级，内核该有洞还是有洞。gVisor：TCB 换成 Sentry 这个用户态内核加上「宿主只暴露的少量调用」，内核洞仍在，但应用要碰到它得先穿过 Sentry 的重新实现。微虚机与完整虚机：TCB 是 VMM 的设备模型加 <a href="/cs/kvm-qemu">KVM</a>——第一课说过，陷入路径由硬件接住后，设备模拟重新把信任面拉大；Firecracker 用砍设备把这份账压小，Kata 把它接到 OCI 契约上。梯子顶端是形式化微内核：<a href="/cs/microkernel-sel4">seL4</a> 的核心以万行计，且有机器检查的证明——不是无洞，是「洞在哪」被数学管住。</p><p><span class="marginnote">数字实例：Linux 内核以千万行计，gVisor 的 Sentry 以十万行计，seL4 的核心以万行计且带机器检查的证明——梯子每上一级，你要信任的代码约少一个量级；行数不是安全的证明，但它标出了「需要被证明的东西有多少」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是把梯子读成账本：每一级记下必须正确的代码、暴露的接口与补丁节奏，配置单独记一本。</p><h3 id="配置是边界的另一半" tabindex="-1">配置是边界的另一半 <a class="header-anchor" href="#配置是边界的另一半" aria-label="Permalink to &quot;配置是边界的另一半&quot;">​</a></h3><p>同一机制在不同配置下隔着量级：<code>--privileged</code> 容器的 TCB 等于宿主全权；把宿主运行时套接字挂进容器等于把管理面递进去。逃逸史里这类「零漏洞越狱」占的席位不比内核 CVE 少。度量边界因此是三元积：代码量 × 暴露面 × 配置纪律，缺一项，另两项的投入就漏光。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>两堵容易被忘掉的墙。第一堵是 DMA：直通设备（上一课的 VFIO 路线）若没有 IOMMU 把每台设备的地址翻译钉在自己的资源上，客户配一次 DMA 就能读写宿主任意物理内存——隔离在设备侧破产，与 CPU 侧做得多干净无关。第二堵在边界之下：瞬态执行漏洞（<a href="/cs/flush-reload">Flush+Reload</a> 一类侧信道）不从边界上翻墙，而是从墙根渗过去——同一物理核上的两个租户共享分支预测与缓存状态，「互相看不见」在微架构层是假的。这意味着隔离决策必须连同<strong>调度与放置</strong>一起做：高敏感负载不与不可信负载共核，边界设计再好也补不了放置错误。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：侧信道不翻墙，它听墙根——同一物理核上的两个租户像合住一套隔音差的公寓，你看不见室友，却听得见他开水龙头、闻得出他做了什么饭；分支预测与缓存状态就是那堵薄墙，防御手段是「别和不可信的人分同一套公寓」。</span></p><p><span class="marginnote">误读重灾区：「VM 一定比容器安全」。VM 的 TCB 小是指核心陷入路径；QEMU 的设备模型常年是逃逸 CVE 的产地，暴露面随启用的虚拟设备数线性增长。对比必须在「同等启用特性」下做，否则比的是配置不是机制。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不给逃逸步骤，不评机密计算（防运营商看内存与防租户互打是两个威胁，主干课已分开）； 多租户声学的量化归下一课之外的实验课，本课只给梯子与判据。侧信道只承认机制存在，泄漏的工程细节归安全栏的主干课。还有一个诚实的边界：TCB 尺寸可以数行数，正确性不能——百万行「没出过事」与万行「有证明」不是同一类主张，混着比会得出错的安全感。选择最终落回负载：互信的自家服务共享内核换密度，不可信代码进微虚机或更上，敏感与不可信不共核。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>边界的度量是 TCB：代码量、暴露面、配置纪律三元，缺一则漏。</li><li>梯子从下到上：共享内核容器、加固缩面、用户态内核、微虚机/虚机、形式化微内核。</li><li>加固件缩暴露面不换边界；IOMMU 是设备 DMA 那一侧的墙。</li><li>瞬态执行从墙根渗透：隔离决策必须连同核间放置一起做。</li><li>出处：Barham et al., Xen, 2003；据各机制公开文档与逃逸史整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 虚拟化与容器深入<!--[--> · 单元 扩展与边界<!--]--><!----></p><p class="lesson-progress">第 7 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/virt-performance-overhead/">性能开销</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/virt-gpu/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">GPU 虚拟化</span><span class="lesson-card-meta">虚拟化与容器深入 · 扩展与边界<!--[--> · 第 6 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/virt-performance-overhead/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">性能开销</span><span class="lesson-card-meta">虚拟化与容器深入 · 扩展与边界<!--[--> · 第 8 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

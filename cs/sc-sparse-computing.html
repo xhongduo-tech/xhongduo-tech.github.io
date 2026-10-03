@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>稀疏计算 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_sc-sparse-computing.md.qaXUpC_F.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数值与科学计算<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/cs/sc-blas-levels/">BLAS 的层次</a></p><p class="lesson-next"> 下一课：<a href="/cs/sc-autodiff-implementation/">自动微分的实现</a></p><!----></nav><div style="position:relative;"><div><h1 id="稀疏计算" tabindex="-1">稀疏计算 <a class="header-anchor" href="#稀疏计算" aria-label="Permalink to &quot;稀疏计算&quot;">​</a></h1><div class="epigraph"><p>稀疏计算省下的是零的存储与乘法，付出的是间接寻址与填入；账算不算得平，取决于零是怎么分布的。</p><footer>—— 据 Davis, Direct Methods for Sparse Linear Systems, SIAM, 2006；Duff, Erisman and Reid, Direct Methods for Sparse Matrices, 1986 整理</footer></div><p><a href="/cs/sc-blas-levels">上一课</a>的红利——每 flop 搬 \(O(1/n)\) 字节——依赖稠密的规则性；图、网格离散与推荐矩阵把九成九的元素交成零，规则性随之消失。本课把线性代数搬进稀疏世界。主干已给过<a href="/cs/csr-graph">边表与 CSR</a> 的存储视角；缺口是：稀疏格式怎么服务线性代数、SpMV 为什么停在带宽上、直接分解的成本为什么被填入而不是浮点决定。后课默认你按非零数与填入记账。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>\(n=10^7\) 的三维网格矩阵，稠密存放要 \(8\times10^{14}\) 字节，物理上不可行；它的非零只有约 \(7n\) 个，稀疏存放几十字节级就能装下。存下来了，新的问题才开始：每行非零个数不一，间接寻址取代连续访存，level-3 的分块复用难产；做直接分解，浮点不是主要成本，消元把零变成非零的<strong>填入</strong>才是。缺口是三笔账：存储账（格式跟访问模式走）、带宽账（SpMV 的天花板）、填入账（分解的真实成本）。三笔账不分，就会在错误的层面优化。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三种基本格式分工。COO 三元组管构造：插入任意次序的行列值，装配阶段用完即弃。CSR 行压缩管 SpMV 与行操作：行指针加列索引加值，一次遍历每个非零恰好做一次乘加。CSC 管列访问与分解：消元按列写回时用它。格式没有优劣，只有与访问模式的匹配——用 COO 做迭代求解的内层，或在 CSR 上频繁插列，都是在错的格式上付钱。<span class="marginnote">数字实例：一个 \(10^6\times10^6\)、每行 5 个非零的矩阵，稠密存放要 \(8\times10^{12}\) 字节（8 TB）；CSR 存 \(5\times10^6\) 个值加同量级索引与行指针，约 80 MB——差五个数量级。但每个 flop 的搬运没有变便宜：一个非零连带 4 字节索引加一次间接读，这正是 SpMV 停在带宽上的原因。</span></p><p>SpMV 的账最好算：时间正比非零数，但每个非零要连带一个 4 字节列索引，8 字节值加 4 字节索引加一次间接读 \(x_j\)，每 flop 的搬运量反而回到 level-1 的量级——纯带宽问题，预取与重排只在常数上打转。直接法的账难算得多：稀疏 Cholesky 与 LU 的成本在填入，消元图上每步消去一个顶点、把它的邻居两两连边，填入就是补出来的边；排序算法（最小度、嵌套剖分）全部在图上做文章，<a href="/cs/csr-graph">边表与 CSR</a> 的图表示在这里直接接上。</p><p><span class="marginnote">交叉点常被忽略：非零密度上去或 \(n\) 不大时，稠密反而赢——CSR 每个非零背约 12 字节的存储税与一次间接寻址，\(n=2000\)、密度两成的矩阵，稠密 gemm 的分块复用早已把稀疏的开销甩开。选稀疏前先问非零比例与维数，不是先问库。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>填入为什么是图论问题：对称正定矩阵的消元一一对应图的顶点消去，填入量由消去顺序决定而与数值无关——二维网格上嵌套剖分把填入从 \(O(n^2)\) 压到 \(O(n\log n)\) 量级，三维网格上填入涨得太快，直接法本身开始不合算，接力棒交给<a href="/cs/iterative-solver-converge">迭代法何时收敛</a>。这是「分解还是迭代」的真实分界：不是品味，是维数与填入的账。</p><div class="mermaid"></div><p><span class="marginnote">嵌套剖分可以想象成「先分块再拼装」：把网格递归对半切开，先消各块内部的变量，最后才处理切缝上的少数接缝变量——接缝少，补的边就少。二维网格上这一招把填入从 \(O(n^2)\) 量级压到接近 \(O(n\log n)\)；三维上接缝本身就有 \(n^{2/3}\) 量级，压不动，直接法开始让位给迭代法。</span></p><p>数值上，重排与消元顺序不改精确解，改浮点路径：为少填入选的行序与为稳定选的行序会打架，<a href="/cs/gaussian-pivoting">高斯消元与主元</a>的部分主元合同在稀疏里多一条约束，超节点方法把两者折中。带着稠密直觉进场的人两头翻车：在 SpMV 上追峰值（它是带宽问题），或忽略填入直接分解（三维问题上内存先爆）。<span class="marginnote">初学者容易以为「换个稀疏格式」能救活太慢的直接法，实际上格式只影响存储与 SpMV 的访存方式，直接法的成本大头在填入与排序——不换排序策略，等于账本一个字没改。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不进迭代法内部、不进并行稀疏三角求解与调度，低秩近似与压缩感知是统计与信号的对象，不在此。数据结构课的稀疏集合管成员判定，与这里的线性代数稀疏是两回事。后课默认：稀疏按非零数与填入记账，SpMV 是带宽问题，直接分解先问填入再问浮点。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>COO 管构造、CSR 管行、CSC 管列；格式跟着访问模式走。</li><li>SpMV 时间正比非零数、受带宽钉死；level-3 红利在稀疏里难产。</li><li>直接法的成本在填入：填入是消元图补边，排序算法在图上做文章。</li><li>重排不改精确解、改浮点路径；填入与主元稳定要折中。</li><li>出处：Davis, SIAM, 2006；Duff, Erisman and Reid, 1986；Saad, Iterative Methods for Sparse Linear Systems。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数值与科学计算<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 3 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/sc-autodiff-implementation/">自动微分的实现</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/sc-blas-levels/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">BLAS 的层次</span><span class="lesson-card-meta">数值与科学计算 · 基础<!--[--> · 第 2 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/sc-autodiff-implementation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">自动微分的实现</span><span class="lesson-card-meta">数值与科学计算 · 基础<!--[--> · 第 4 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

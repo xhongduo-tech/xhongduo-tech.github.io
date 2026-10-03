@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多租户与命名空间策略 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_orch-multitenant-policy.md.T-BLN7b0.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 资源与多租户<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/orch-resource-qos/">资源模型与 QoS</a></p><p class="lesson-next"> 下一课：<a href="/cs/orch-network-policy/">网络策略</a></p><!----></nav><div style="position:relative;"><div><h1 id="多租户与命名空间策略" tabindex="-1">多租户与命名空间策略 <a class="header-anchor" href="#多租户与命名空间策略" aria-label="Permalink to &quot;多租户与命名空间策略&quot;">​</a></h1><div class="epigraph"><p>命名空间把名字分成几段、把账本分成几本，却从不把内核分成几份；它是行政边界，别当防火墙用。</p><footer>—— 据 Kubernetes 官方文档（Namespace、ResourceQuota、RBAC）整理</footer></div><p><a href="/cs/orch-resource-qos">上一课</a>把单容器的承诺与上限编译成内核参数；本课问组织维度：几十个团队共享一个集群，谁能在哪个范围创建什么、花多少、误操作时伤多大。namespace 是这个问题的答案单位。安全边界已在 <a href="/cs/virt-security-boundary">虚拟化的安全边界</a> 与 <a href="/cs/container-escape">容器逃逸</a> 收束：共享内核不是隔离档，租户互打要换后端；本课只管行政面——范围、配额、授权。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>无约束的共享集群死于三件事：对象与资源总量失控（忘了删的实验负载常驻）、误删与越权（人人都拿管理员令牌）、成本不可归因（没人知道自己团队烧了多少）。</p><p><span class="marginnote">术语翻译：namespace 就是把一个大集群分成几间合租房的手段——房租各记各的账（ResourceQuota）、门锁各配各的钥匙（RBAC）、房号各编各的段（名字唯一）；但水电管线还是共用的（内核与网络），所以隔壁漏水你照样遭殃。</span>缺口是把「范围」钉成一个坐标，让配额、权限、默认值都能挂上去。没有这个坐标，上一课的 request/limit 只能逐个手工填，填漏一个 BestEffort 就漏一本账。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>namespace 提供三样东西，都是<strong>作用域</strong>。名字的作用域：对象名段内唯一，不同团队的 <code>web</code> 互不踩。配额的作用域：ResourceQuota 给段设总量账——CPU 与内存的 request 总额、对象个数上限；校验发生在准入时，超了同步拒绝，而不是事后清理。授权的作用域：RBAC 把角色绑定到段，判定发生在 API 之前的一环——能改 Deployments 不等于能改集群级对象。补上第四件事 LimitRange：给段内没写 requests 的 pod 填默认值，否则零 request 的 pod 绕过所有记账。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>配额的本质是把集群总额在准入时做会计：允许即预扣、删除即返还，账本本身由控制器维持——又是控制循环。两层账本的张力要说清：<strong>配额给的是「有权花」，调度给的是「有地方花」</strong>。段内 request 总额被 quota 顶住，不保证创建的 pod 调度得进去（节点可能装不下）；反过来节点层的超售（上一课）继续存在，段 A 存了钱不等于段 B 抢不到物理容量。跨段的硬手段是优先级：PriorityClass 是集群级的，高优租户的 pod 可以驱逐低优租户的 pod——所以优先级表本身就是租户间的合同，得按组织谈判定，不是技术参数。</p><p><span class="marginnote">数字实例：段内 quota 设 requests.cpu 为 20 核，已有 5 个 pod 各声明 3 核，账面已用 15。第 6 个 pod 声明 6 核会在准入时立即被拒（15+6=21 超过 20），声明 5 核则放行（15+5=20）——哪怕这时集群里其实空着 100 核没人用。</span></p><div class="mermaid"></div><p>成本归因靠标签聚合而不是 quota：账单要的是实际用量分布，quota 只管上限。授权模型的对偶见 <a href="/cs/dac-mac-rbac">DAC / MAC / RBAC</a>：编排把 RBAC 的作用域做成了树状的段，粒度到对象级要靠角色细写。</p><p><span class="marginnote">易错点：quota 只统计写进对象的数字——没填 resources 的 pod 是 BestEffort，绕过全部 request 记账；不配 LimitRange 补默认值的段，账本永远对不上实际负载。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>namespace 不隔离网络（下一课的题）也不隔离内核（安全边界课程的题）；「按团队建段就安全了」是把行政边界误当信任边界。段的数量本身有成本：过多的小段让 RBAC 与配额的组合爆炸，过少的大段让账目混淆——段的切分应跟组织与预算的边界走，不跟微服务的粒度走。多集群联邦与跨集群调度不在本课程。</p><p><span class="marginnote">常见误区：初学者容易以为建了 namespace，段与段之间就「打不通」了。实际上默认配置下，段 A 的 Pod 仍能直接访问段 B 的 Service IP，一个被盗的段内令牌也改不了别的段——真正的隔离要另配 NetworkPolicy 和节点/集群级方案，namespace 只是让权限和账目「有处可挂」。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>namespace 是三重作用域：名字、配额账本、授权范围；它不是安全边界。</li><li>quota 在准入时同步记账：允许即预扣；LimitRange 补默认值才堵住记账漏洞。</li><li>配额管「有权花」，调度管「有地方花」，两层账本互相不能替代。</li><li>优先级是集群级、可跨段驱逐的，优先级表是租户间合同，不是技术参数。</li><li>出处：Kubernetes 官方文档（Namespace、ResourceQuota、LimitRange、RBAC）；RBAC 模型见主干课 DAC/MAC/RBAC。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 资源与多租户<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/orch-network-policy/">网络策略</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/orch-resource-qos/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">资源模型与 QoS</span><span class="lesson-card-meta">容器编排 · 资源与多租户<!--[--> · 第 5 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/orch-network-policy/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">网络策略</span><span class="lesson-card-meta">容器编排 · 资源与多租户<!--[--> · 第 7 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

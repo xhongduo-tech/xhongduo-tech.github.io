@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KV 的生命周期与所有权 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-lifecycle-ownership.md.DYYeCt87.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 生命周期<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-map/">内核工程收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-paging-fragmentation/">分页与碎片管理</a></p><!----></nav><div style="position:relative;"><div><h1 id="kv-的生命周期与所有权" tabindex="-1">KV 的生命周期与所有权 <a class="header-anchor" href="#kv-的生命周期与所有权" aria-label="Permalink to &quot;KV 的生命周期与所有权&quot;">​</a></h1><div class="epigraph"><p>页表回答「放在哪」，生命周期回答「归谁、活多久」；所有权不定，共享和释放迟早写坏别人的字节。</p><footer>—— 据 Kwon et al., PagedAttention, SOSP 2023 的块表与引用计数整理</footer></div><p><a href="/llm/ak-map">上一课</a>把内核工程收进五条坐标与一条交付链：tile 怎么切、变体差在头与地址、快来自字节不过 HBM，且接口比内核活得久——页表与变长都写进了接口合同。本课程顺着「地址」这条坐标往下走：KV 在请求之间被写入、追加、共享、搬移、释放，谁有权写哪一页、页何时归还——所有权错了，再快的核也在算被污染的缓存。本课立起地基：生命周期与所有权。寻址与 gather 不重讲；后课的分页、共享、压缩默认这套状态机已经成立。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把 KV 当成「随张量来的私有缓冲」，生命周期就散落在代码各处：预填充写入一次，解码每步追加，束搜索与并行采样复制，请求结束释放。所有权含糊出两类错。写冲突：并行采样共享同一前缀页，却有实现路径就地更新——另一个请求的注意力会读到被改写的键，错误延迟数百步才浮现，极难归因。悬空引用：请求结束把页还池，异步的投机校验、续跑中的请求、或跨机传输的接收端还握着旧块表，读到的页已被下一请求覆写。两类错的共同根源是没有回答：这一页此刻归谁、处于什么状态。</p><div class="mermaid"></div><p>大小本身是<a href="/llm/kv-cache-size-math">算得清的</a>：\(\mathrm{KV}=2Ln h_{kv} d b\) 随长度与并发线性涨，<a href="/llm/paged-attention">分页</a>把这段字节切成池里的页。本课的问题不在公式，而在簿记：页从池里出来的那一刻起，发生了什么。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把每条 KV 页钉成状态机，所有权跟着状态走。</p><ul><li><strong>空闲</strong>：在池里，不属于任何人。</li><li><strong>独占</strong>：被恰好一个请求的块表引用，预填充写入、解码追加都发生在这里；唯一的可写状态。</li><li><strong>共享</strong>：前缀命中后引用计数大于 1，全员只读；分叉要写，先写时复制到新页。</li><li><strong>离场</strong>：被换出（<a href="/llm/kv-offload">卸载</a>）或在传输路上；块表标注去向，回来或作废都走显式路径。</li></ul><p>规则三条。写权只属于唯一引用者：引用计数大于 1 时任何写入先复制。释放由最后一个引用消失触发，无论请求结束、会话过期还是缓存逐出。块表是唯一真相源：投机回滚、抢占恢复、迁移失败，都要先改块表再动内存，顺序反了就是悬空引用。生成开始前定新增 KV 的归属：并行采样各分叉拿各的新页，祖先页只读——<a href="/llm/vllm-paged">vLLM</a> 的 copy-on-write 契约。</p><p><span class="marginnote">直觉类比：copy-on-write 像合租室友共用一本公共笔记——人人都能看，谁想改，先去复印一份再改自己的，原件永远保持原样。没有这条规矩，第一个乱改的人会悄悄污染所有室友的答案，而且没人知道是哪天改坏的。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>所有权先行，是因为引用计数是后面所有课的共同底座。<a href="/llm/prefix-caching">前缀共享</a>用它表达「一份物理页、多个逻辑用户」；驱逐用它区分「缓存页」与「活跃页」——缓存页无活跃请求也不回收，活跃页连缓存逐出都不许；<a href="/llm/pd-kv-transfer">迁移</a>用它保证传输期间源端不写。三个场景共用一台状态机；各写一套私有标记，一定在边角对不上。</p><p><span class="marginnote">直觉类比：块表是这块内存唯一的「户口本」——投机回滚、迁移失败都要先改户口再动人。户口上写的地址和实际住着的人对不上的那段时间，就是悬空引用发生的地方；所以规则是先改表、后动内存，让窗口等于零。</span></p><p>边界事件最常漏。抢占把独占页换成「被换出」，恢复时块表没跟着走，换出页就成了无人认领的垃圾；取消与超时要连共享引用一起减，否则前缀缓存里挂着已死会话的页。本课程后课的碎片率、命中率、成本分摊，全部定义在这台状态机上——状态含糊，数字就对不上。</p><p><span class="marginnote">Llama-3-8B（32 层、8 个 KV 头、头维 128、FP16）每 token 的 KV 是 128 KiB，一个 4K token 的会话占 512 MiB。若这段前缀被 3 个请求共享，物理 in-use 是 512 MiB，逻辑占用是 1.5 GiB——所有权簿记不同，两种说法都对，也都能骗人。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>状态机不等于线程安全：同一页内的并发追加还要锁或原子操作，所有权只保证「没有两个写者」。它也不管页内字节怎么排——那是 <a href="/llm/kv-layout">布局</a> 的事。引擎的持有粒度不同：按请求、按块、或按前缀树节点记引用；跨引擎迁移时引用计数不可移植，只能传页清单，在对端重建。把生命周期写成请求对象的生命周期是常见偷懒：请求被抢占、迁移、续跑时它就失效了，所有权必须挂在块上。</p><p><span class="marginnote">常见误区：把生命周期挂在「请求对象」上看似省事，但请求会被抢占、取消、续跑——对象没了，它占的页还活着；反过来对象还在，页可能已被共享冻结。所有权必须挂在物理块上，因为块活得比任何一次请求都久。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>生命周期：空闲 → 独占（唯一可写）→ 共享（只读）→ 离场 → 空闲，所有权随状态走。</li><li>三条规则：写权只属唯一引用者、共享写前复制、释放由最后一个引用触发。</li><li>块表是唯一真相源；异步路径先改表再动内存。</li><li>引用计数是共享、驱逐、迁移、测量的公共底座，不是子系统私有细节。</li><li>所有权挂在块上而非请求对象上；抢占与取消连共享引用一起结账。</li><li>出处：Kwon et al., PagedAttention, SOSP 2023（块表、引用计数与 copy-on-write）；大小口径见 Pope et al., 2022。据本仓库既有课程整理，不发明新文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 生命周期<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-paging-fragmentation/">分页与碎片管理</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">内核工程收束</span><span class="lesson-card-meta">注意力内核工程 · 工程化<!--[--> · 第 14 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-paging-fragmentation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">分页与碎片管理</span><span class="lesson-card-meta">KV 管理与压缩 · 生命周期<!--[--> · 第 2 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

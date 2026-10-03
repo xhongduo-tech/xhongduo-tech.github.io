@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>波动率仓位的账本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_omm-vol-position-ledger.md.B4ECyb2S.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 期权做市深入<!--[--> · 单元 簿记<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/omm-book-layering/">期权簿的分层记账</a></p><p class="lesson-next"> 下一课：<a href="/quant/omm-greeks-limits/">敏感度limits与聚合</a></p><!----></nav><div style="position:relative;"><div><h1 id="波动率仓位的账本" tabindex="-1">波动率仓位的账本 <a class="header-anchor" href="#波动率仓位的账本" aria-label="Permalink to &quot;波动率仓位的账本&quot;">​</a></h1><div class="epigraph"><p>期权的存货是未来的波动，而波动没有仓库：它的库存价格每天由曲面重写一次。</p><footer>—— 据 Gatheral, The Volatility Surface；分桶与标记口径据做市实务整理</footer></div><p><a href="/quant/omm-book-layering">上一课</a>把成交钉到手层：批次、开平指定与逐层对账立住了账本的骨架。骨架上的肉是价格，而期权存货的价格不是标的价，是隐含波动。本课写波动率仓位的账本：把每一手按到期与分位折成 Vega，明确标记口径，让「这台子在做多还是做空哪一段波动」成为账本上可直接读出的一栏。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>Delta 中性的期权簿，现货怎么走都不亏不赚，却仍然持有方向明确的波动仓位：卖出跨式是做空隐含波动、做多 Gamma。若账本只汇总一个总 Vega 数字，两个完全不同的台可以显示出同样的风险：一个卖近买远、一个买近卖远，总 Vega 相同，隐含期限结构一动，盈亏相反。缺的不是 Vega，而是<strong>按到期与分位展开</strong>的仓位，以及每格的标记价格——没有标记，未实现盈亏无从谈起。</p><p><span class="marginnote">直觉类比：只看总 Vega 像体检只报「体重合计」——两个人体重相同，一个肌肉多一个脂肪多，健康风险完全不同。按到期与分位分桶，就是把波动仓位按「体脂率」拆开看，才知道风险长在哪一节。</span></p><p>更深一层：标的账本的存货按成本计，市价每天给一次；波动仓位的存货价格是曲面拟合的产物，<a href="/quant/svi-ssvi">SVI / SSVI</a> 的参数一变，整本未实现盈亏重排。账本若不把「哪一段波动、按哪个标记」写成字段，盯市就成了可以事后辩论的软数。</p><h3 id="分桶与字段" tabindex="-1">分桶与字段 <a class="header-anchor" href="#分桶与字段" aria-label="Permalink to &quot;分桶与字段&quot;">​</a></h3><p>Vega 按到期切成期限桶（例如当周、当月、次月、远月），桶内再按 Delta 带或执行价区（ATM、风险反转、蝶式）细分，对上经纪商报 <a href="/quant/risk-reversal-skew">偏度交易</a> 的坐标。每一手在 <a href="/quant/omm-book-layering">手层</a> 记两个波动率：成交时的隐波与当前标记隐波，两者的 Vega 加权差就是该手的未实现波动盈亏。桶内汇总用 Vega 加权，而不是简单求和：一张深度虚值的期权 Vega 小但对翼部弯曲敏感，混进总数会看不见。</p><p><span class="marginnote">量级要随身带着：一张 \(S=5000\)、一个月期平值期权的 Vega 约为 \(S\sqrt{\tau}\,\varphi(d_1)\approx 5000\times 0.29\times 0.40\approx 580\)，即隐波动 1 个点价值动约 5.8；同一合约缩到一周，Vega 减半不止。这就是按到期分桶、不做一张总表的算术理由。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>日终流程四步。其一，重拟合或外推当日曲面，给每个到期桶定标记隐波；sticky 规则要事先定死——<a href="/quant/sticky-delta-strike">sticky delta 与 sticky strike</a> 下同一批仓位的标记变动完全不同。其二，逐手重估：Vega、Gamma、Theta 连同桶归属一并刷新，未实现盈亏按桶落账。其三，把已实现端接进来：<a href="/quant/gamma-scalping-pnl">Gamma scalping 的 PnL 恒等式</a> 说明，做多 Gamma 的台每天刮到的已实现方差与付出的 Theta 是同一笔账的两面，波动账本要给这两栏各留一列，别让它们混进「方向盈亏」。其四，出桶间报告：近月做空多少、远月做多多少、翼部净空多少，这是次日曲线维护的输入。</p><p><span class="marginnote">术语翻译：sticky strike 与 sticky delta 是曲面「固定方式」的两派约定：前者假设每个执行价的隐波不动（标的一动，平值隐波跟着换位置），后者假设隐波跟着 Delta 走。约定不同，同一批仓位当天的标记盈亏可以完全不同——所以必须在账本里事先定死用哪一派。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分桶账本为什么是必须而非奢侈：因为波动率曲面几乎从不平行移动。事件周近月隐波抬升而远月几乎不动，期限桶的盈亏拆分直接告诉你这台子赚的是事件溢价还是赔在了桶间错配；崩溃日偏斜变陡，ATM 桶与翼部桶符号相反。总 Vega 把这些全部加零。机制上，桶是曲面导数在仓位上的投影：曲面在第 \(i\) 桶动 \(\Delta\sigma_i\)，盈亏是 \(\sum_i \nu_i\,\Delta\sigma_i\)，桶账本就是让这个和式的每一项都可问责。</p><div class="mermaid"></div><p>不这么做会错在哪：只用总 Vega 的台，在曲面扭转日看着「Vega 中性」的账本亏钱，却无法回答亏在哪一段；事后把桶补出来，桶归属又已随成交混在一起，无法复原。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>流动性差的翼部没有可靠报价，标记是模型观点，桶盈亏要带 haircut 看；Vega 是局部导数，隐波大动时 Volga 项主导，桶数字只给一阶印象。跨标的的波动仓位不可直接合并——指数波动与单票波动的相关结构是另一个账本。<a href="/quant/zero-dte-microstructure">0DTE</a> 桶的 Vega 在午后塌缩成近二元的形态，按普通桶管理会漏掉 <a href="/quant/pin-risk">Pin risk</a> 的形态。最后，桶划分本身是约定：换坐标（从到期到方差条带，如 <a href="/quant/vix-term-structure-trade">VIX 期限结构</a> 的三十天条带）会重排队列，报告口径变更必须留痕。</p><p><span class="marginnote">常见误区：初学者容易以为「Vega 中性 = 波动风险归零」。实际上 Vega 只是局部导数，隐波大幅跳动时 Volga（Vega 对波动的导数）接管盈亏；桶数字给的是一阶印象，大波动日要叠情景重估，不能拿中性两个字当护身符。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>期权存货的价格是隐含波动；波动账本的核心字段是每手的成交隐波与标记隐波。</li><li>Vega 按到期与分位分桶，桶内 Vega 加权；总 Vega 数会掩盖期限与偏斜的错配。</li><li>曲面移动几乎不平行，桶间拆分让扭转日的盈亏可问责。</li><li>已实现端（Gamma 刮取）与隐含端（Theta 支付）分列，混同即失去波动盈亏的解释力。</li><li>翼部标记是模型观点，0DTE 桶近二元，跨标的波动不可直加。</li><li>出处：据 Gatheral, <em>The Volatility Surface</em>；分桶、标记与对账口径据期权做市实务整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 期权做市深入<!--[--> · 单元 簿记<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/omm-greeks-limits/">敏感度limits与聚合</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/omm-book-layering/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">期权簿的分层记账</span><span class="lesson-card-meta">期权做市深入 · 簿记<!--[--> · 第 1 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/omm-greeks-limits/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">敏感度limits与聚合</span><span class="lesson-card-meta">期权做市深入 · 簿记<!--[--> · 第 3 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

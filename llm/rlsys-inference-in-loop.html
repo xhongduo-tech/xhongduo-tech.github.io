@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>推理引擎在 RL 循环里 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-inference-in-loop.md.CXhzWqLD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rlsys-replay-batching/">经验回放与批处理</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlsys-multiturn-env/">多轮 RL 的环境工程</a></p><!----></nav><div style="position:relative;"><div><h1 id="推理引擎在-rl-循环里" tabindex="-1">推理引擎在 RL 循环里 <a class="header-anchor" href="#推理引擎在-rl-循环里" aria-label="Permalink to &quot;推理引擎在 RL 循环里&quot;">​</a></h1><div class="epigraph"><p>推理引擎为在线服务的首 token 延迟而生，RL 训练要的是离线批生成的吞吐与可复现——同一个引擎，两套诉求，接错就两头吃亏。</p><footer>—— 据 Kwon 等 vLLM（SOSP 2023）与 verl、slime 的接入形态整理</footer></div><p><a href="/llm/rlsys-replay-batching">上一课</a>把经验组成了更新批次，而批次上游的吞吐取决于生成端。本课下到引擎层：vLLM、SGLang 这类推理引擎坐进 RL 循环当 rollout 后端。服务的三大件——连续批处理、PagedAttention、前缀缓存——原样搬进来用，但 RL 换了一组 SLO：没有等在屏幕前的用户，却有一份必须精确返回的行为 logprob，和一批必须对齐版本的权重。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>服务默认与 RL 需求在四处打架。采样参数：服务里是产品体验（温度低点、回答稳点），RL 里是算法的探索策略，\(\tau\) 与 top-\(p\) 直接决定熵与组内方差，按服务直觉调参会把探索调没。logprob：服务端是可选项，RL 必须逐 token 返回采样时的 logprob，引擎内部的批重组与调度优化不得改变它。权重更新：服务假定权重终身不变，RL 每隔几步整体换权重，换完之后 KV 与前缀缓存全部作废。显存：引擎为 KV cache 留满显存，训练相需要这份显存还回去。四处都是接口语义问题，不是性能微调。</p><p><span class="marginnote">常见误区：初学者容易把温度当「服务质量旋钮」，按服务直觉调低求稳。在 RL 里 \(\tau\) 与 top-\(p\) 是算法超参：调得太低，组内响应千篇一律，方差趋零、优势归零，梯度没了信号——探索不是副作用，它就是学习原料本身。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>四个对应。采样：把 \(\tau\)、top-\(p\)、随机种子写进运行配置而不是请求参数，批内固定、跨实验只动这一个旋钮（<a href="/llm/rl-sampling-temperature">采样温度与探索</a>是它的算法面）。logprob：请求级打开 logprobs 选项，随序列落盘进经验缓冲；验收加一条断言——训练器随机抽样本，用声称的版本离线重算 logprob 与缓存比对。权重：走引擎的原位更新接口（collective 广播或重切分），换完递增版本号，协议见 <a href="/llm/rollout-weight-sync">rollout 引擎与权重同步</a>。显存：sleep 类接口让引擎在训练相释放权重与 KV，生成相唤醒重载，峰值显存从「两份权重加两份状态」降为两相取最大（<a href="/llm/rollout-resource-sharing">Rollout 与训练资源复用</a>）。前缀缓存对 RL 意外友好：同提示组内 \(G\) 个响应共享前缀，命中率天然高。长度与停止是请求语义的一部分：<code>max_tokens</code> 与 stop 要在引擎层强制（<a href="/llm/length-budget-rl">长度预算与截断</a>），不靠模型自觉。</p><p><span class="marginnote">「连续批处理」翻译成大白话：普通批处理要等一整批全部生成完才放下一批进来；连续批处理每完成一条就立刻补一条新请求进批，像食堂窗口腾出一个座位就放一位新客人，GPU 始终满负荷。它管理的是吞吐与显存碎片，不是用户延迟。</span></p><p><span class="marginnote">验收推理引擎接入的最小断言集：固定种子下同请求可复现；返回 logprob 与离线重算一致（容小数值差）；换权重后旧前缀缓存确已失效（用「改权重后答案应变化」的探针请求验证）。三条任一不过，训练静默出错。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>引擎在 RL 循环里的价值要按「每 token 生成成本加版本切换开销」联合计价。连续批处理与分页 KV 压前者：组内并发生成把 \(G\) 个响应塞进同一批波浪，KV 按页分配避免按最大长度预留。sleep 与原位换权重压后者：若换权重走「导出文件再重载」，一次几十秒，几千次迭代累计不可接受；原位 collective 更新把切换压到秒级。两者的交互有一个隐蔽点：引擎的内部重排与 chunked prefill 不改变给定前缀的条件分布，但浮点求和顺序会带来数值级差异——logprob 断言要设小的数值容差，不能要求逐位相等，也不能不设断言。</p><p><span class="marginnote">数字实例看前缀缓存的价值：组内 \(G=8\) 个响应共享同一提示。若提示有 2000 token，无缓存时要算 \(8\times2000=16000\) 个前缀 token；命中缓存只需算 1 次，各响应从自己的第一个新 token 起步——同一提示采多个响应的 RL 设置，天然是前缀缓存的最佳场景。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>引擎层不改变采样分布的数学：温度与 top-p 仍是算法的一部分，引擎只是忠实执行。服务的 SLO（首 token 延迟、公平排队）在 RL 里大多无意义，但连续批处理仍值得保留——它管理的是显存碎片与波浪调度，不是用户延迟。换引擎不是无损替换：采样实现与调度细节的差异足以改变探索行为，跨引擎对比要重跑基线。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>推理引擎进 RL 循环，SLO 从用户延迟换成吞吐、logprob 精确性与版本对齐。</li><li>采样参数是算法超参：进配置、固定种子、单旋钮改动；别按服务直觉调。</li><li>行为 logprob 逐 token 返回并缓存，配离线重算断言；权重走原位更新，版本号递增。</li><li>sleep 与唤醒控制显存峰值；前缀缓存对组内共享前缀天然友好，换权重后必须验证缓存失效。</li><li>出处：Kwon 等，vLLM，SOSP 2023；Sheng 等，HybridFlow，EuroSys 2025；据 verl、slime 实现整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlsys-multiturn-env/">多轮 RL 的环境工程</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rlsys-replay-batching/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">经验回放与批处理</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 4 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlsys-multiturn-env/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">多轮 RL 的环境工程</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 6 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

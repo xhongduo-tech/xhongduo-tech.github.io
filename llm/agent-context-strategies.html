@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>上下文管理策略 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_agent-context-strategies.md.DcgrfOgO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 3 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agent-tool-protocol-deep/">工具协议深钻</a></p><p class="lesson-next"> 下一课：<a href="/llm/agent-memory-implementation/">记忆系统的实现</a></p><!----></nav><div style="position:relative;"><div><h1 id="上下文管理策略" tabindex="-1">上下文管理策略 <a class="header-anchor" href="#上下文管理策略" aria-label="Permalink to &quot;上下文管理策略&quot;">​</a></h1><div class="epigraph"><p>轨迹不是越长越好，也不是越短越好；上下文是注意力预算，管理策略决定每个 token 花在哪个任务上。</p><footer>—— 据 Chroma，Context Rot 技术报告（2025）；Anthropic 关于代理上下文工程的博文整理</footer></div><p><a href="/llm/agent-tool-protocol-deep">上一课</a>把动作写成协议事件，其中「结果回填」是轨迹增长的唯一入口。本课管增长本身：<a href="/llm/lc-map">长上下文收束</a>的账本是静态部署的账，代理的账本每个任务自己重演一遍，而且增速由模型自己的行为决定。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>轨迹单调增长带来三个复合问题。成本上，每一步都重发全部历史，累计输入 token 随步数近似平方增长。<span class="marginnote">数字实例：一个 50 步的任务，每步新增 1000 token，若全量保留，累计输入就是 \(1000 \times \frac{50\times 51}{2} \approx 127\) 万 token——不是 5 万，而是 25 倍。步数翻倍，这笔账翻的不是一倍，是接近四倍。</span>质量上，输入变长后即使任务不难，表现也不稳定——<a href="/llm/context-rot">Context Rot 上下文腐烂</a>把这命名为注意力预算的耗散；中部信息还会被挤到盲区（<a href="/llm/lost-in-middle">Lost in the Middle</a>），第一步定下的约束到第二十步就像没说过。机制上，全量保留会让窗口被工具输出占满，模型反而找不到当前目标。所以策略不是「删不删」，是三个决策：何时触发、保什么、丢什么。做错的方向都很具体：从不压缩，长任务死在预算与腐烂上；乱压缩，关键约束被折叠掉，任务在中途换目标而不自知。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>触发器</strong>：token 阈值、轮数、或任务阶段边界；阈值触发便宜，阶段边界触发更安全。<strong>保留核</strong>：系统提示、未决状态（当前目标、已完成与待办、关键约束）、最近若干轮。<span class="marginnote">直觉类比：保留核就是书桌上的东西——正在做的那份文件（当前目标）、贴在显示器上的便条（关键约束）、手边最近翻过的几页（最近几轮）。其余的进抽屉（摘要）或档案室（落盘句柄），要用再取；而抽屉里的东西你不会每写一句话都重新读一遍。</span><strong>策略谱系</strong>由粗到细：滚动截断最粗暴，丢掉的早期约束不会自己回来；<a href="/llm/compaction-summarize">Compaction 摘要压缩</a>把已完成子任务折叠成摘要；<a href="/llm/structured-memory-compaction">结构化记忆压缩</a>把工具输出抽成字段再存；<a href="/llm/mem1-context">Mem1 递归上下文重写</a>把上下文从存储改成函数——每步按需重写；<a href="/llm/agentfold">AgentFold 上下文折叠</a>按证据价值丢弃中间步骤；<a href="/llm/jit-context-retrieval">Just-in-Time Context Retrieval</a>把工具结果落盘、只回句柄，要用再取。<strong>缓存约束</strong>反着压：<a href="/llm/prompt-cache">Prompt Cache</a> 按前缀命中，压缩改前缀等于缓存全灭；工程解是把稳定段放最前、把可压缩段放后缀，并且只在阶段边界动手。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么「保什么」以未决状态为准：任务是有向图，完成的子任务可以折叠成一行结论，未决分支折叠一行就丢一个出口——摘要丢的不是字，是选择权。为什么关键约束要周期性重述：腐烂发生在中部，重述等于把约束重新搬到注意力的高地，这比指望模型「记得开头」便宜。缓存与压缩的冲突是同一笔账的两面：缓存买的是前缀逐字节稳定的复利，压缩买的是注意力预算；策略的正确形状是分层——系统提示与规则文档（<a href="/llm/agents-md-spec">AGENTS.md 项目规范</a>、<a href="/llm/progressive-disclosure">渐进式披露</a>的加载方式）永远稳定吃缓存，易变的工作集放尾部随时折叠。</p><p><span class="marginnote">多轮前缀命中是复利：<a href="/llm/multi-turn-prefix">多轮前缀命中</a>的机制与 <a href="/llm/kv-prefix-cache">前缀缓存</a>相同——在压缩点之后，所有历史缓存作废，下一步的输入全部重算。把压缩点从「每次都压」改成「阶段边界才压」，缓存命中率的变化是数量级的。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>压缩后细节去哪是<a href="/llm/agent-memory-implementation">记忆系统的实现</a>的问题，本课只管窗口内。<span class="marginnote">常见误区：初学者容易以为压缩只是为了省钱。其实更要紧的是注意力质量——窗口被几千行工具日志占满后，模型经常「看着答案找不到问题」，压掉噪音往往先提准确率、后降成本。</span>提示压缩（<a href="/llm/prompt-compression">提示压缩 LLMLingua</a>）是逐段降速率的技术件，与折叠是互补不是替代。多代理下每个代理各带一份上下文，隔离与传递的规则在<a href="/llm/agent-multi-orchestration">多 Agent 编排模式</a>。显存的静态账不在此重复（<a href="/llm/lc-memory-account">长上下文的显存账</a>已算）；本课是同一笔账在轨迹时间轴上的动态版。没有免费的策略：任何压缩都可能丢掉后来才显出价值的细节，评测要能捕捉这种「丢早了」的失败。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>上下文是注意力预算：轨迹管理的目标是把预算花在未决状态上，不是堆历史。</li><li>触发器、保留核、策略谱系三个决策分开定；阈值触发便宜，阶段边界更安全。</li><li>关键约束周期性重述，抵消中部遗忘；完成子任务折叠，未决分支不折叠。</li><li>缓存买前缀稳定，压缩买注意力；分层摆放让两者共存。</li><li>压缩有损且不可逆，评测必须能捕捉「丢早了」。</li><li>出处：据 Chroma Context Rot 报告（2025）与 Mem1、AgentFold 等方法的公开口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 Agent 工程深入<!--[--> · 单元 架构<!--]--><!----></p><p class="lesson-progress">第 3 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/agent-memory-implementation/">记忆系统的实现</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/agent-tool-protocol-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">工具协议深钻</span><span class="lesson-card-meta">Agent 工程深入 · 架构<!--[--> · 第 2 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/agent-memory-implementation/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">记忆系统的实现</span><span class="lesson-card-meta">Agent 工程深入 · 架构<!--[--> · 第 4 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

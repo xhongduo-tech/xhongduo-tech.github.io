@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据库内核实践收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_dbk-map.md.CTRvXsqd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数据库内核实践<!--[--> · 单元 执行与事务<!--]--><!----></p><p class="lesson-progress">第 7 / 7 课</p><p class="lesson-prereq"> 先修：<a href="/cs/dbk-wal-implementation/">WAL 的实现</a></p><p class="lesson-next"> 下一课：<a href="/cs/osk-process-scheduler/">进程与调度的实现</a></p><!----></nav><div style="position:relative;"><div><h1 id="数据库内核实践收束" tabindex="-1">数据库内核实践收束 <a class="header-anchor" href="#数据库内核实践收束" aria-label="Permalink to &quot;数据库内核实践收束&quot;">​</a></h1><div class="epigraph"><p>引擎不是六个组件的堆叠，是一条写路径上六个契约的接力；读懂一条 UPDATE 从 SQL 到盘上字节的全程，就读懂了内核。</p><footer>—— 据 Hellerstein, Stonebraker and Hamilton, *Architecture of a Database System*, 2007；Gray and Reuter, *Transaction Processing*, 1993 整理</footer></div><p><a href="/cs/dbk-wal-implementation">上一课</a>把提交序兑现成盘上的日志字节。本课收束「数据库内核实践」课程：把六课的组件接回一条写路径，看不变量各自放在哪一层，再给出读真实引擎源码的入口。本课程到此收束。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>收束要回答的不是新知识，而是组装：六课各立了一份契约——页与缓冲池的 fix/unpin 与「持 pin 不做 I/O」、树闩的全序、LSM 的不可变文件与序号全序、执行器的 open/next/close、事务管理器的两本账、日志机的 pageLSN 不等式——它们如何在一次 UPDATE 里咬合？分开看都对、拼起来会错在哪：不变量放错层。把页闩持有到提交，纯读开始互相阻塞；把事务锁做成全序获取，业务等待关系根本不服从；把刷页次序交给操作系统，它不认识 pageLSN。每层契约的边界感，是组装时最贵的东西。</p><p><span class="marginnote">「契约接力」可以想成医院交接班：执行器把病人（一行数据）交给事务科盖章（拿锁），事务科交给缓冲科安排床位（fix 页），缓冲科动笔前必须先让日志科挂号（WAL）。每一棒只认上一棒的手续，谁也不越权重办。</span></p><h3 id="一条-update-的全程" tabindex="-1">一条 UPDATE 的全程 <a class="header-anchor" href="#一条-update-的全程" aria-label="Permalink to &quot;一条 UPDATE 的全程&quot;">​</a></h3><p><code>UPDATE accounts SET bal = bal - 1 WHERE id = 7</code> 依次穿过：执行器的算子树——索引探测沿 B+ 树蟹行（树闩，微秒级持有），扫描吐出可见行；事务管理器——领事务、查写冲突、对目标行拿写锁（毫秒到秒级持有，直到提交或回滚）；存储层——fix 目标页进缓冲池（pin）；日志机——改页之前先追加一条 UPDATE 记录进缓冲；缓冲池——改页、页头记 pageLSN、unpin；提交——组提交队列一次 fsync，应答返回，锁释放，新版本对后到的快照可见。六个环节、六个契约、一条路径，没有一处旁路。</p><p><span class="marginnote">读源码可以按组件直接进门：PostgreSQL 的 <code>src/backend/storage/buffer</code> 与 <code>access/transam/xlog</code>；InnoDB 的 <code>buf0buf</code>、<code>btr0btr</code>、<code>trx0trx</code>、<code>log0log</code>；SQLite 的 <code>pager.c</code> 与 <code>wal.c</code>；RocksDB 的 <code>VersionSet</code> 与 <code>MemTableList</code>。文件名不同，契约相同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把六课压缩成一张不变量分层表：物理形状的不变量归闩——短持有、全序获取、不与 I/O 同持，守的是树与页的正确性；逻辑内容的不变量归锁与快照——长持有、可死锁要检测，守的是事务的正确性；持久性不变量归日志——顺序写、先日志后页，守的是崩溃的正确性。再用这张表读三种真实引擎：PostgreSQL 是「堆页加全套 ARIES」的教科书实现；InnoDB 把堆换成索引组织表、把 MVCC 版本收进 undo 段；RocksDB 把整个存储换成 LSM，锁与日志的接口几乎不动。组件边界稳，替换内部实现就不伤及邻层——这正是这门课把组件拆开写一遍的回报。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>本课程的机制主线只有一条：<strong>每层用最短的持有时间保护最局部的正确性，把长的、跨语句的正确性上交</strong>。闩管微秒，锁管事务，日志管永久；向上每层不重复下一层的工作，只引用它的契约。反例全部来自层间越权：在闩层做死锁检测（不必，全序免疫）；在锁层管页的物理互斥（锁太粗，并发立刻塌）；用 mmap 把刷盘次序交给页缓存（它不认识日志序）。副线也值得带走：迭代器与「不可变文件加原子切换」是贯穿全课的两种通用件——执行器栈在迭代器上，LSM 的 manifest 在原子切换上；认出这两种模式，读任何新引擎的源码都有把手。</p><p>三类不变量各归哪层、持有多久：</p><div class="mermaid"></div><p><span class="marginnote">mmap 就是请操作系统把文件当内存用：省掉一次拷贝，但淘汰与写回全听内核的。初学者容易当它是白赚的优化——实际内核不认识 pageLSN，可能把数据页先于日志刷进盘；崩溃后这条页就是一笔无凭据的账，恢复逻辑直接作废。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课程刻意不覆盖：查询优化与计划缓存，是查询优化深化课的地界；分布式事务、共识与分片，在主干与分布式深化课；列存与分析执行、各类专用索引也未入。单机事务型内核的地基到此为止——再往上，是优化器在计划空间里选路，是集群把日志传给副本。</p><p><span class="marginnote">这个收尾方向如果想反了——比如把「分布式」当成单机没做好的补丁——后面读共识与分片就会处处别扭。单机内核是地基不是残缺品：副本之间同步的正是这里的日志，分片切的正是这里的键空间。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>六个契约一条路径：执行器、事务、缓冲池、日志、页、提交，无一处旁路。</li><li>不变量分层：闩管形状（短、全序），锁与快照管内容（长、可检测），日志管持久（先日志后页）。</li><li>层间越权是组装的头号事故：混闩与锁、让 OS 决定刷盘次序都属此类。</li><li>迭代器与「不可变加原子切换」是可迁移的通用件，读源码先找它们。</li><li>出处：Hellerstein, Stonebraker and Hamilton, 2007；Gray and Reuter, 1993；PostgreSQL、InnoDB、SQLite、RocksDB 源码树。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数据库内核实践<!--[--> · 单元 执行与事务<!--]--><!----></p><p class="lesson-progress">第 7 / 7 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/osk-process-scheduler/">进程与调度的实现</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/dbk-wal-implementation/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">WAL 的实现</span><span class="lesson-card-meta">数据库内核实践 · 执行与事务<!--[--> · 第 6 / 7 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/osk-process-scheduler/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">进程与调度的实现</span><span class="lesson-card-meta">操作系统内核实践 · 核心子系统<!--[--> · 第 1 / 7 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

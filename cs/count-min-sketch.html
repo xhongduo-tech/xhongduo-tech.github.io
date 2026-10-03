@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Count-Min Sketch | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_count-min-sketch.md.045zto80.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 对数结构、字符串与草图<!--[--> · 单元 概率与近似结构<!--]--><!--[--> · 课序 草图与过滤器<!--]--></p><p class="lesson-progress">第 40 / 56 课</p><p class="lesson-prereq"> 先修：<a href="/cs/consistent-hashing/">一致性哈希</a></p><p class="lesson-next"> 下一课：<a href="/cs/hyperloglog/">HyperLogLog</a></p><!----></nav><div style="position:relative;"><div><h1 id="count-min-sketch" tabindex="-1">Count-Min Sketch <a class="header-anchor" href="#count-min-sketch" aria-label="Permalink to &quot;Count-Min Sketch&quot;">​</a></h1><div class="epigraph"><p>若干行哈希表只做加法和取最小；点查询是各行估计的最小，偏高但不偏低（非负流）。</p><footer>—— 据 Cormode and Muthukrishnan, An Improved Data Stream Summary: The Count-Min Sketch and Its Applications, J. Algorithms 2005 整理</footer></div><p><a href="/cs/consistent-hashing">上一课</a> 仍精确放置键。<a href="/cs/universal-hashing">通用散列</a> 给出行间独立。<a href="/cs/bloom-filter">布隆</a> 只回答成员。流上要频次，不能存 \(n\) 个计数器。本课不画环。缺口是 Count-Min：宽 \(w\)、深 \(d\) 的计数矩阵。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>流中元素更新 \((x,\Delta)\)，\(\Delta\ge 0\)。查询 \(\hat{f}(x)=\min_j \mathrm{CM}[j,h_j(x)]\)。真频 \(f(x)\le\hat{f}(x)\)。取 \(w=\lceil e/\varepsilon\rceil\)，\(d=\lceil\ln(1/\delta)\rceil\)，有 \(\Pr[\hat{f}(x)\gt f(x)+\varepsilon\|f\|_1]\le\delta\)。缺口是<strong>用最小压住其它键的碰撞噪音</strong>，空间 \(O((1/\varepsilon)\log(1/\delta))\) 与 \(n\) 无关。</p><p><span class="marginnote">Cormode and Muthukrishnan, <em>Journal of Algorithms</em>, 2005。行哈希 pairwise 独立通常够用。</span></p><p><span class="marginnote">数字实例：取 \(\varepsilon=0.01\)、\(\delta=0.01\)，则 \(w=\lceil e/\varepsilon\rceil\approx 272\) 列、\(d=\lceil\ln(1/\delta)\rceil=5\) 行，一共约 1360 个计数器——不管流里是一万个还是一亿个不同元素，空间都是这么多，误差保证也不变，这正是「与 \(n\) 无关」的含义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>更新：每行 \(h_j(x)\) 槽加 \(\Delta\)。查询取 min。合并：两个同形 sketch 对槽相加，适合分布式。负更新破坏「只偏高」，要 Count-Mean-Min 或换结构，本课钉非负。</p><div class="mermaid"></div><p>与 HyperLogLog：CM 估频次；HLL 估基数。与完美散列：CM 允许错，空间小。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>碰撞只把别人的质量加进来，故高估。min 降低「某一行特别倒霉」的概率。\(\|f\|_1\) 是流总质量，热键相对误差小、冷键可能被噪音淹没——这是草图边界，不是实现 bug。</p><div class="mermaid"></div><p><span class="marginnote">这张图回答「min 为什么能压噪音」：碰撞只会把别人的计数加进你的槽，所以每个槽只会偏高；只要有一行没撞或撞得少，取最小就把水分挤掉了。全撞上才会明显高估，而 \(d\) 行独立哈希让「全撞」的概率是 \(\delta\)。</span></p><p>不要把 CM 当神经网络压缩；是流摘要。</p><p><span class="marginnote">直觉类比：CM 像 5 个互不通气的朋友各自记账。有人问「我总共付过多少」，你取 5 本账里的最小值——就算某个朋友把你和常客记混了，他记的也只会偏多，最小值天然挤掉混账。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不把 Count-Sketch（中位数、可负）写完。基数估计下一课 HLL。成员过滤器仍布隆/布谷。</p><p>后课默认：非负频次近似用 Count-Min。不同元素个数用 HyperLogLog。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Count-Min：高估频次，空间随 \(\varepsilon,\delta\)，与 \(n\) 无关。</li><li>查询取行 min；适合非负流。</li><li>下一课估基数而非频次。</li><li>出处：Cormode and Muthukrishnan, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 对数结构、字符串与草图<!--[--> · 单元 概率与近似结构<!--]--><!--[--> · 课序 草图与过滤器<!--]--></p><p class="lesson-progress">第 40 / 56 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/hyperloglog/">HyperLogLog</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/consistent-hashing/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">一致性哈希</span><span class="lesson-card-meta">对数结构、字符串与草图 · 概率与近似结构 · 草图与过滤器<!--[--> · 第 39 / 56 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/hyperloglog/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">HyperLogLog</span><span class="lesson-card-meta">对数结构、字符串与草图 · 概率与近似结构 · 草图与过滤器<!--[--> · 第 41 / 56 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

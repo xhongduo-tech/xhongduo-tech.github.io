@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则化组合 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_pf-regularized.md.CA7Wl1Ez.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 数值与优化<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/pf-optimizer-numerics/">优化器的数值稳定性</a></p><p class="lesson-next"> 下一课：<a href="/quant/pf-blackbox-optimizers/">黑盒优化器在组合里的使用</a></p><!----></nav><div style="position:relative;"><div><h1 id="正则化组合" tabindex="-1">正则化组合 <a class="header-anchor" href="#正则化组合" aria-label="Permalink to &quot;正则化组合&quot;">​</a></h1><div class="epigraph"><p>正则化是对自己估计能力的不信任，明码标价地写进目标函数；约束与罚项是同一枚硬币的两面，差别只在记账科目。</p><footer>—— 据 Jagannathan and Ma, Journal of Finance, 2003；Brodie, Daubechies, De Mol, Giannone and Loris, PNAS, 2009 整理</footer></div><p><a href="/quant/pf-optimizer-numerics">上一课</a>把数值层钉住：尺度与预条件、秩与条件数、KKT 与扰动验收——扰动测试不过关的解，说明目标函数对输入过敏。缺口在上一层：与其等病态解出来再收拾，不如先把不信任声明进目标。本课把组合问题的正则化谱系一次排清：罚在权重上、罚在协方差上、罚在结构上，以及约束与罚项的对偶关系。后课的黑盒与策略维度都默认这套词汇。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/quant/markowitz">Markowitz</a> 的无约束解在估计误差面前是放大器——上一课的平坦谷底与顶点跳变就是症状。对策有两族：事后修输入（对 \(\Sigma\) 收缩），事前修目标（加罚项或约束）。<span class="marginnote">「正则化」就是给优化加一条「别太信你的估计」的惩罚项，让解在「贴合数据」与「保持简单」之间折中。直觉类比：答题不只求贴合材料，还要写得简洁有条理——罚项就是那个「简洁分」，防止你把噪声当规律抄进答案。</span>都不做，错法自然：误差被放大成角点仓位；反过来做歪了也错——把正则强度 \(\lambda\) 当玄学，挑到样本内回测最亮为止，等于把多重检验从信号层原样搬到权重层，<a href="/quant/multiple-testing-factors">多重检验与 p-hacking</a> 的账单照收不误。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是把「不信任」逐层写进目标函数：权重层加罚、协方差层换估计、可行层加约束——三层的数学身份不同，起到的作用同源。每层给出代表文献与实现口径，约束与罚项的对偶关系留到机制一节对账。挑层的次序从便宜到贵：约束与收缩先上，稀疏罚按需再加；上一课的扰动验收在加了罚项之后照跑不误。</p><h3 id="三层罚项" tabindex="-1">三层罚项 <a class="header-anchor" href="#三层罚项" aria-label="Permalink to &quot;三层罚项&quot;">​</a></h3><p>罚在权重上：\(\min_w\; w^\top\Sigma w-\gamma\,\mu^\top w+\lambda_2\lVert w\rVert_2^2+\lambda_1\lVert w\rVert_1\)。\(\ell_2\) 把解往等权方向收，\(\ell_1\) 直接产生稀疏组合；<span class="marginnote">数字实例区分两种罚：\(\ell_2\) 罚权重的平方和，30% 仓位的罚是 0.09，于是它把大仓位往回拉、每个名字都留一点；\(\ell_1\) 罚绝对值之和，同样 30% 的罚是 0.3，小权重干脆被压成零——这就是「\(\ell_1\) 出稀疏、\(\ell_2\) 出普遍收缩」的算术来源。</span>Brodie 等（2009）把 \(\ell_1\) 稀疏性同时读作正则与成本控制——持有的名字少了，监督与换手都轻。这个对照的极端是 \(1/N\)：DeMiguel、Garlappi 与 Uppal（2009）的系统比较显示，等权在样本外方差与夏普上常常不输优化组合——正则化不足的 Markowitz，输给最笨的正则。罚在协方差上：<a href="/quant/ledoit-wolf">Ledoit-Wolf 收缩</a>把 \(\Sigma\) 拉向结构化目标，是估计层的正则，<a href="/quant/cov-shrinkage">估计误差与收缩</a>写了机制。罚在结构上：严格因子结构 \(\Sigma=BFB^\top+\Delta\) 用低维载荷换掉满矩阵的自由度，选择逻辑见<a href="/quant/factor-vs-sample-cov">因子协方差 vs 样本</a>。约束即正则：Jagannathan 与 Ma（2003）证明，非负约束在总体层面等价于对 \(\Sigma\) 的一种收缩，「错误」的约束反而降低样本外方差——制度通过可行集完成了统计收缩，细节见<a href="/quant/long-short-constraints">多空与多头约束</a>。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>偏差–方差的交换在组合语境里换了名字：正则化引入的「偏差」其实是政策——不押单一名字、不满仓单一因子，是章程本来就想要的东西。两种实现的接口由拉格朗日对偶给出：约束的影子价格就是罚系数，\(\lambda\) 变动等价于可行集伸缩；实现上可以互换，报告时必须写清用了哪种，因为等价依赖特定的 \(\lambda\) 映射与问题数据，审计口径不能两套混着讲。\(\lambda\) 本身的纪律只有两条路：按样本外风险用滚动验证挑，或按等效约束的政策值反推——唯独不能按样本内收益挑，否则下一课黑盒搜索的过拟合机制会提前在 \(\lambda\) 这一根轴上发生。还有一层工程红利：稀疏解换手少，与<a href="/quant/turnover-penalty">换手惩罚</a>的成本口径天然咬合。</p><div class="mermaid"></div><p><span class="marginnote">「影子价格」是约束松动一格能换来多少目标改善：某名字非负约束的影子价格若为 0.02，意味着允许它做空 1%，最优目标约改善 0.02。为什么重要：影子价格正是罚系数 \(\lambda\) 的对偶读数——看懂这一点，「约束版」与「罚项版」就不再像两套魔法。</span></p><p><span class="marginnote">Jagannathan–Ma 的反直觉量级：非负约束隐含的收缩幅度，与专门设计的收缩估计同数量级——制度里「错」的约束，在总体层面买到了「对」的稳健。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重讲收缩公式的推导；不展开风险平价那一族「不逆满 \(\Sigma\)」的配置器——<a href="/quant/erc-mrc">ERC 与边际风险贡献</a>与<a href="/quant/hrp-linkage">HRP 联结与准对角化</a>是同一不信任思想的另外两条路，此处只点名。\(\ell_1\) 带来的稀疏解对特征选择敏感，删掉一只名字解可能重排，扰动验收（上一课）照样适用。基数约束、手数取整与固定成本这类凸化失败的目标，罚项救不了，是下一课黑盒优化器的地盘。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>正则化的三层：罚权重（\(\ell_1\) 稀疏、\(\ell_2\) 收缩）、罚协方差（收缩、因子结构）、约束当正则（Jagannathan–Ma）。</li><li>约束与罚项由对偶等价；实现可互换，报告口径要唯一。</li><li>\(1/N\) 是天然的对照基线：优化组合赢不了等权，说明正则化没做够或 \(\Sigma\) 太糟。</li><li>\(\lambda\) 按样本外风险或政策值定，不按样本内收益定；稀疏解的红利之一是成本链上的低换手。</li><li>出处：Jagannathan &amp; Ma, <em>JF</em>, 2003；Brodie 等, <em>PNAS</em>, 2009；DeMiguel, Garlappi &amp; Uppal, <em>RFS</em>, 2009；Ledoit &amp; Wolf, 2004。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 组合构建深化<!--[--> · 单元 数值与优化<!--]--><!----></p><p class="lesson-progress">第 2 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/pf-blackbox-optimizers/">黑盒优化器在组合里的使用</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/pf-optimizer-numerics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">优化器的数值稳定性</span><span class="lesson-card-meta">组合构建深化 · 数值与优化<!--[--> · 第 1 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/pf-blackbox-optimizers/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">黑盒优化器在组合里的使用</span><span class="lesson-card-meta">组合构建深化 · 数值与优化<!--[--> · 第 3 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>RocksDB | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_rocksdb.md.DclhZuyw.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 分布式与分析<!--]--><!--[--> · 课序 数据模型族<!--]--></p><p class="lesson-progress">第 93 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/newsql/">NewSQL</a></p><p class="lesson-next"> 下一课：<a href="/cs/document-db/">文档数据库</a></p><!----></nav><div style="position:relative;"><div><h1 id="rocksdb" tabindex="-1">RocksDB <a class="header-anchor" href="#rocksdb" aria-label="Permalink to &quot;RocksDB&quot;">​</a></h1><div class="epigraph"><p>嵌入式 LSM：memtable、SST、compaction、WAL、列族。数据库用它当本地引擎，SQL 与分布式协议在它之上。</p><footer>—— 据 Facebook RocksDB；LevelDB；O&#39;Neil LSM 课的产品落地</footer></div><p>NewSQL 在<a href="/cs/newsql">上一课</a>收口。本课打开数据模型族：许多系统把节点内存储交给 RocksDB（或同类）。缺口不是再推导 leveled，而是<strong>嵌入式合同</strong>：无 SQL、无网络、调用者负责事务边界与线程。列族、事务、备份 API 如何接到前面的 WAL/MVCC。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>RocksDB 提供 KV、可选事务（悲观锁或乐观）、快照、检查点、SST 摄入。缺口是调用者：MyRocks、TiKV、各种 NewSQL 本地。配置：compaction 风格、块缓存、写停顿——LSM 课的运维在此变成选项名。SQL 优化器看不见 SST，只看见「一次 Get/Iterator」的代价，校准要按 LSM 读放大。</p><p>列族：多套 LSM 共享 WAL，类似多表空间。与宽列不同，仍是 KV。</p><p><span class="marginnote">术语翻译：列族就是「一块引擎里养几棵独立 LSM、共享同一本 WAL」的手段来做「多张表各有各的读写形态」的事——某列族写爆不会把别的列族 SST 全搅乱，恢复时却只用回放一本日志。</span></p><p><span class="marginnote">RocksDB 源自 LevelDB 加强。本课机制与嵌入边界。不把调参手册抄满。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写：Put 进 memtable+WAL。读：Get 走布隆+各层。扫描：Iterator 多路归并。事务：WriteBatch 或 TransactionDB。检查点：硬链 SST 给备份。与 CDC：WAL 可被上层抽，或上层另写。</p><p>线程：compaction 后台池与用户线程争 CPU/I/O，要限额，否则 OLTP 尾延迟。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>与缓冲池：块缓存代替页池，替换策略仍抗扫描。pin 变成 iterator 钉块。无 B+ latch crabbing，有文件引用计数。TDE 可在文件层。</p><p>一次 Get 按「从新到旧」的顺序找最新版本：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：设 4 层 leveled compaction，最坏一次 Get 要查 memtable 加 4 层 SST 共 5 个地方；但布隆过滤器能先一步否掉「键不在这层」的查询，绝大多数未命中的读只付 5 次布隆探测加约 1 次磁盘 I/O。读放大是 LSM 用空间换的。</span></p><p>版本：快照序列号，GC 与 compaction 水位——MVCC GC 课的 LSM 实例。</p><p><span class="marginnote">直觉类比：快照序列号像给每个写入盖一个递增的邮戳。事务拿快照等于抄下一个邮戳数，之后无论 compaction 怎么搬数据，它都只认「邮戳不晚于自己快照」的最新版本，新写入再快也插不进它的视野。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲文档模型。也不把 RocksDB 当事务管理器的全部（分布式仍在上层）。图/时序常在上面再编码。</p><p>后课默认：见到「用 RocksDB」就用 LSM 放大与写停顿读它。文档数据库：嵌套文档与二级索引，常仍 LSM 底下。</p><p>嵌入式引擎把 SQL 优化器的「表」变成 KV 的编码约定。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>RocksDB 是嵌入式 LSM：WAL、SST、列族、本地事务。</li><li>上层负责 SQL 与分片；调参即 LSM 合同。</li><li>文档数据库下一课。</li><li>出处：RocksDB/LevelDB；O&#39;Neil LSM。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 优化、事务与分析型系统<!--[--> · 单元 分布式与分析<!--]--><!--[--> · 课序 数据模型族<!--]--></p><p class="lesson-progress">第 93 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/document-db/">文档数据库</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/newsql/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">NewSQL</span><span class="lesson-card-meta">优化、事务与分析型系统 · 分布式与分析 · 分布式数据库<!--[--> · 第 92 / 112 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/document-db/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">文档数据库</span><span class="lesson-card-meta">优化、事务与分析型系统 · 分布式与分析 · 数据模型族<!--[--> · 第 94 / 112 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

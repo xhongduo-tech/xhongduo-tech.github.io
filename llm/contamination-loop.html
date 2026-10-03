@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>自训练数据的污染 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_contamination-loop.md.C0MFBzS4.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的失效模式<!--]--><!--[--> · 课序 循环依赖与污染<!--]--></p><p class="lesson-progress">第 11 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/player-selection-bias/">自博弈的对手选择</a></p><p class="lesson-next"> 下一课：<a href="/llm/closure-metrics/">迭代之间该看哪几个数</a></p><!----></nav><div style="position:relative;"><div><h1 id="自训练数据的污染" tabindex="-1">自训练数据的污染 <a class="header-anchor" href="#自训练数据的污染" aria-label="Permalink to &quot;自训练数据的污染&quot;">​</a></h1><div class="epigraph"><p>去重把住的是语料入口，闭环在每一轮重新发明泄漏：模型把评测题改写成新训练样本，n-gram 看不见的等价类逐轮生长。</p><footer>—— Carlini 等, Deduplicating Training Data Makes Language Models Better（2023）；Golchin 与 Surdeanu, Time Travel in LLMs（2023）</footer></div><p><a href="/llm/player-selection-bias">上一课</a>的失效在对手侧；本课转向数据侧：评测集泄漏进训练闭环时，所有迭代指标一起说谎——通过率的增长是记忆，不是能力。传统污染治理发生在语料入库：对基准集做精确子串或 n-gram 重叠（如 13-gram）过滤。自训练闭环让这套防线失效的方式，是污染发生在入库之后、生成阶段之内：每一轮训练都在生产表面全新、语义等价的泄漏样本。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>泄漏路径有四条。预训练语料本就含基准题及其解答，教师与学生都见过。合成数据的提示以网络爬取的种子起步，种子里的评测题被改写进生成提示。蒸馏教师的输出原样带出评测题——<a href="/llm/reasoning-distill-small">推理蒸馏到小模型</a>已因此要求蒸馏集去污染。最隐蔽的是闭环自己的再生：模型对评测题生成高置信答案，这些答案连同改写的题面进入下一轮训练数据；每过一轮，题面表述离原文更远一层，表面 n-gram 重叠趋零，语义等价不变。不这么做会错在哪：只做入库去重的团队会看到「每轮都涨」的通过率，并把污染驱动的记忆当成闭环在工作。</p><p><span class="marginnote">「等价类」在这里指字面完全不同、但考的是同一道题的所有变体：换变量名、改题干说法、调换选项顺序都算。过滤工具看得见字面，看不见意思，所以等价类会一轮轮长大——这正是闭环污染比入库污染难治的根本原因。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>闭环内的对策是把过滤从「入库一次」改成「每轮一道」。每轮生成数据对基准索引做两级匹配：n-gram 级抓原文复制，嵌入近邻抓改写；命中样本连同其近邻回溯到提示源头，提示含评测内容则整批丢弃。金丝雀是闭环里少数可主动部署的仪器：在每轮训练数据埋入唯一 GUID 串，事后用补全探针测是否被背出——背出说明记忆化在环内发生，且规模可估。更结构性的做法是保持一个永不进入闭环、永不公开的私有 held-out，并用训练截止之后新出的评测集做时间切分验证；三者的交集才是可信读数。</p><div class="mermaid"></div><p><span class="marginnote">金丝雀可以想象成往训练数据里掺一粒有编号的沙：埋进一串随机字符，训练结束后只给模型看前半截让它补全。若它能一字不差补出来，说明模型在背而不是在想——同一机理也适用于它见过的评测题。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>污染在闭环里是复合过程。第一轮的泄漏改变模型对评测题的输出分布；第二轮它生成更多与评测题同分布的内容；第三轮这些内容成了「验证通过的训练数据」——同时验证器也坏了：法官见过这些题，会把背出来的完成判为正确。传统去重失效的根本原因是它假设污染态在数据进入管线前就固定；闭环的污染是生成动力学的一部分，每轮都在创造新的等价类。这与模型坍缩是同一枚硬币的两面：多样性与尾部在收缩，而高频部分——恰是评测题这类被反复生成的样本——在增密。指标上表现为：训练侧通过率、裁判分、环内奖励同涨，唯独外生 held-out 不动。</p><div class="mermaid"></div><p><span class="marginnote">初学者容易以为阈值调松一点、多放几篇相似样本进来只是小事。实际上每漏过一篇被改写的评测题，下一轮模型就会围绕它生成一批新的等价变体——单轮漏一个，三轮后可能是一片。阈值要按多轮累积的后果算账，而不是只看本轮的假阳率。</span></p><p><span class="marginnote">Carlini 等人 2023 的量化：对 C4 做精确子串去重后，可被提示拉出的记忆化样本降到约十分之一，训练-测试重叠同步下降。这是入库侧去重的收益上限——它对闭环内新生的改写无能为力。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>过滤器有假阴也有假阳：改写检测的阈值调紧，合法的同类题被误杀，课程多样性受损；调松，泄漏漏网。披露与指标卫生是底线：报告时分开「可能污染集」与「清洁集」的通过率，标注每轮数据对基准索引的最大相似度。已泄漏的题几乎无法从模型里移除——重训或拒绝采样只能压低触发概率。任何「我们每轮都涨」的闭环报告，第一个该问的是基准索引的匹配阈值与金丝雀探针的结果；答不出，读数就不进仪表。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>污染可以发生在生成阶段：闭环每轮制造 n-gram 全新、语义相同的样本。</li><li>过滤要每轮做，n-gram 与嵌入近邻两级，命中须回溯提示源头。</li><li>金丝雀、私有 held-out、截止后新评测是三种外生读数，取交集。</li><li>法官被污染时验证器失效，通过率与判分一起虚高。</li><li>出处：Carlini 等（2023）；Golchin 与 Surdeanu（2023）；蒸馏集去污染要求见推理蒸馏课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 自训练与数据闭环<!--[--> · 单元 闭环的失效模式<!--]--><!--[--> · 课序 循环依赖与污染<!--]--></p><p class="lesson-progress">第 11 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/closure-metrics/">迭代之间该看哪几个数</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/player-selection-bias/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">自博弈的对手选择</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的失效模式 · 循环依赖与污染<!--[--> · 第 10 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/closure-metrics/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">迭代之间该看哪几个数</span><span class="lesson-card-meta">自训练与数据闭环 · 闭环的失效模式 · 闭环仪表<!--[--> · 第 12 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

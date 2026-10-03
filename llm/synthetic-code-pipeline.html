@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>代码数据的合成 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-code-pipeline.md.B_EYytCC.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 域合成<!--]--><!----></p><p class="lesson-progress">第 6 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/synthetic-math-pipeline/">数学数据的合成</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-multiturn/">多轮对话合成</a></p><!----></nav><div style="position:relative;"><div><h1 id="代码数据的合成" tabindex="-1">代码数据的合成 <a class="header-anchor" href="#代码数据的合成" aria-label="Permalink to &quot;代码数据的合成&quot;">​</a></h1><div class="epigraph"><p>代码把「对」从文本判断换成执行判断：编译与测试是最诚实的裁判，也是最容易被人钻空子的裁判。</p><footer>—— 据 Gunasekar 等 Textbooks Are All You Need；Wei 等 Magicoder 整理</footer></div><p><a href="/llm/synthetic-math-pipeline">上一课</a>的数学域用答案等价做真值，代码域把真值再往前推一步：不判输出对不对，直接跑。<a href="/llm/code-verifier-unittests">代码验证器</a>课立过沙箱与隐藏测例的规矩，<a href="/llm/textbook-synthetic">教科书式合成</a>讲过 phi-1 用合成教材补代码能力的路数。本课写题、解、测试三样都可合成时的完整生产线，以及执行反馈在放量的同时放进来什么新风险。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>代码合成的特殊性在于三样东西都能造：题目可以从开源片段反推（给一段真实代码让教师写出「这段代码回答的问题」），解法可以由教师生成，测试可以由教师补写。三样都能造意味着生产线可能自洽地空转：教师出的题配教师写的解配教师写的测试，全部通过，整体却是对教师分布的自食。工程事故集中在三处。测试太松：恒真断言放行一切实现。测试泄漏：测例进了题面，模型学会硬编码答案。环境漂移：依赖版本不钉死，同一段代码今天过明天不过，过滤器静默变成随机数。<span class="marginnote">常见误区：初学者容易把「测试通过」直接等同于「代码正确」。测试只是抽样检查——恒真断言、只测正常路径、测例泄漏进题面时，通过的解可能根本没实现题意。执行反馈把裁判换成了物理层，但裁判本身也要被质检。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>生产线四站。种子站：从许可干净的仓库取函数级片段作种子——这是有源改写，<a href="/llm/the-stack-v2">The Stack v2</a>的文件级许可检测是原料闸；纯无源出题的覆盖更飘，默认不做。出题站：教师围绕种子写题面与参考解，题面过「自包含」检查——不依赖隐藏上下文与未给定义。执行站：参考解与候选解都进沙箱，<a href="/llm/tool-sandbox">工具沙箱</a>的快照与资源预算照搬；测试合成物要先验「能杀掉坏实现」——用几组变异代码（改边界、删检查）验证测试的杀伤力，恒真测试直接淘汰。整形站：失败轨迹不是废料，修复对（错误版本加补丁）是更值钱的监督；冗余重试与循环步剪枝后入库。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>执行反馈的价值在把拦截率从「裁判可信」升级到「物理层可信」：编译错误、运行超时、断言失败都是不可辩驳的信号，于是代码域可以承受比开放域高一个量级的采样量。但执行判的是「满足这组测试」，不是「满足题意」——测试与题意之间的缝隙就是投机取巧的入口，测例泄漏只是缝隙中最粗的一条。变异测试堵的是测试质量这一环：让测试先证明自己能区分好坏实现，才配当裁判。自食风险的机制防线比数学域更依赖原料——数学还有教材与竞赛题当外部题源，代码的种子只能来自真实仓库，真实种子的占比是这条生产线免于空转的压舱石；教科书式合成之所以有效，是因为它把真实种子与教师生成的「教材化解释」按结构配比，而不是让教师从头写整个世界。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：对参考解生成 10 个变异体（把 \(\lt\) 改成 \(\le\)、删掉空指针检查之类），测试套件杀掉 9 个、放过 1 个，杀伤率 90%。工程上常设门槛（如 80%），低于门槛的测试套件不许参与数据过滤。</span></p><p><span class="marginnote">phi-1 的 1.3B 模型在 HumanEval 上过半，公开归因给「教科书级」合成数据——但其配方里真实仓库种子与执行过滤都在。把结论读成「纯合成即可」，会漏掉这条管线最贵的两个部件。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>执行验证只覆盖可执行代码：前端视觉、数据科学脚本、基础设施配置的「对」很难用断言钉死，这些域的过滤器退回裁判打分档，拦截率随之退化。测试杀伤力检查增加成本，且只保证测过的变异类，测不出「题意与测试同时偏」的情形。环境钉版本是运维纪律不是技术难题，失守的代价是过滤器静默变成噪声源——这类失败在日志里表现为通过率的日间漂移。最后，代码合成与工具调用共享沙箱基建但目标不同：前者造训练数据，后者造智能体轨迹，轨迹的观测真实性与多步结构是下一课的主题。<span class="marginnote">直觉类比：真实种子之于合成管线，就像野生种群之于育种——全部用教师自产的数据配种，分布会越滚越窄（自食）；每个批次掺入真实代码片段，就是把「野外基因」不断引进来，防止整条线退化成对教师分布的复述。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三样都可合成：种子反推题面、教师写解、教师补测试；自洽空转是结构性风险。</li><li>测试先过变异测试证明杀伤力，恒真测试淘汰。</li><li>题面、测例、环境三隔离，防模型学会硬编码。</li><li>失败修复对是资产；执行拦截率撑起代码域的放量。</li><li>真实种子占比是免于自食的压舱石。</li><li>出处：Gunasekar 等 2023；Wei 等 Magicoder 2023；Chen 等 HumanEval 2021；BigCode 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 域合成<!--]--><!----></p><p class="lesson-progress">第 6 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-multiturn/">多轮对话合成</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/synthetic-math-pipeline/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">数学数据的合成</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 域合成<!--[--> · 第 5 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-multiturn/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">多轮对话合成</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 域合成<!--[--> · 第 7 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

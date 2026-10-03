@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>保形预测进 LLM | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_conformal-prediction-llm.md._mbj6O_K.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 工程与训练拾遗<!--[--> · 单元 评测与安全拾遗<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/semantic-uncertainty/">语义熵与幻觉检测</a></p><p class="lesson-next"> 下一课：<a href="/llm/backdoor-llm/">LLM 后门攻击</a></p><!----></nav><div style="position:relative;"><div><h1 id="保形预测进-llm" tabindex="-1">保形预测进 LLM <a class="header-anchor" href="#保形预测进-llm" aria-label="Permalink to &quot;保形预测进 LLM&quot;">​</a></h1><div class="epigraph"><p>「模型说它对」不算数，要「错误率不超过 10%」才有合同价值——保形预测把 LLM 输出从意见变成带保证的集合。</p><footer>—— 据 Vovk 保形预测框架 (2005)；Angelopoulos–Bates《Conformal ML 入门》(2023)；Kumar et al. LLM 校准应用 (2023)</footer></div><p><a href="/llm/semantic-uncertainty">语义熵</a>给「这次在不在猜」的即时信号，本课给更硬的东西：<strong>统计保证</strong>。缺口是<strong>保形预测进 LLM</strong>——用校准集把任意不确定性分数转成「错误率 ≤ α 的预测集合」，分布无关、无需重训。它回答的是审计者的问题而非用户的问题。本课不进保形框架的渐近理论。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>LLM 应用上生产线的障碍是「没法承诺错误率」：客服说「错误率 10%」，法务问「白纸黑字吗」。传统校准（Platt/温度缩放）给的是平均校准，不保证单条输出的错误率。缺口：<strong>有限样本、分布无关的单例保证</strong>——这正是 split conformal 的定义域。</p><p><span class="marginnote">术语翻译：保形预测（conformal prediction）= 给出预测<strong>集合</strong>而非点估计，保证以 ≥1−α 的概率覆盖真值；split conformal = 留一部分数据当校准集，算分数的分位数做阈值；覆盖（coverage）= 真值落在集合内的比例。</span></p><p><span class="marginnote">数字实例：抽取式问答，校准集 500 条，分数 = 1 −（含真答案的最短 span 的模型置信度）。取分数 90% 分位当阈值 λ=0.78：输出「答案 span 集合」，保证错误率 ≤ 10%。集合平均含 1.4 个候选——「多数时候一个、偶尔两个答案」，这就是可写进合同的承诺。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>Split conformal 三步（以 QA 的 span 集合为例）：<strong>校准</strong>——留出集 n 条，每条算非一致性分数 \(s_i\)（1−正确 span 的模型分）；<strong>定阈</strong>——取 \(\hat q\) = \(\lceil(n+1)(1-\alpha)\rceil/n\) 分位；<strong>部署</strong>——新样本输出所有分数 \(\le\hat q\) 的候选（多个 span、多个答案选项）。LLM 场景的分数设计是全部学问：候选集来自采样（RAG 下多个 chunk）或 top-k；分数用语义熵、自洽度、verifier 打分皆可——保形框架对分数只要求「可交换性」，不要求它准。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：像质检抽检定允差——不知道每件产品（每条输出）的个体质量，但抽 500 件量出「误差分布的 90% 分位是 0.78」，往后每件的承诺按这条线开。承诺的不是「这件一定好」，是「十件里至多一件超差」——这恰是审计语言。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>保证成立的机制只有一条：<strong>可交换性</strong>（校准数据与部署数据同分布、可交换）。数学核心：校准分数与测试分数在秩上对称，\(\Pr(s_{test}\le\hat q)\ge1-\alpha\) 严格成立——不依赖分布形状、不依赖分数准不准。LLM 场景的机制重心因此落在「分数怎么设计才让集合小而有用」：分数越好（区分对错越强），同样 α 下集合越小；分数烂则集合巨大——保证依然成立，只是没用。生产模式的闭环：集合大小本身作为路由信号——单候选直出、多候选让 verifier 精排、空集或大集转人工/检索。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：把保形集合的「错误率 ≤ α」读成「答案正确」——它承诺的是集合包含真值，集合里有垃圾候选照样保真；另一误区是校准集用了一次后不更新——分布漂移（新话题、新用户群）击穿可交换性，保证静默失效，线上要监控实际覆盖。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>保证的前提是<strong>可交换</strong>，流式/自强化场景（用户反馈改变分布）需自适应保形（online conformal），覆盖保证从严格变渐进。集合形式的定义是自由度也是坑：「答案集合」对开放生成（摘要）无法枚举，实践多退化为「声明级抽取 + 保形」或「拒答决策的二元保形」。分数工程的成本：好分数（语义熵、verifier）让集合实用，但 verifier 本身的错误率不被保证覆盖。与语义熵的分工重申：语义熵是<strong>分数</strong>，保形是<strong>把分数变成合同的框架</strong>——先有好温度计，才有可信的天气预报。与幻觉审计的关系：CQA 系统「每 100 条至多 10 条错」的承诺，最终靠这套机制落到纸面。</p><p><span class="marginnote">直觉类比：语义熵是体温计，保形是「按体温计读数定发烧线」的质检流程——体温计准不准（分数质量）决定流程好用不好用，但「90% 分位这条线」的有效性只依赖「抽检与出货同源」（可交换性），不依赖体温计牌子的对错。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>保形 = 非一致分数 + 校准集分位 → 覆盖 ≥1−α 的预测集合。</li><li>对分数不挑食：分数越好集合越小，保证恒成立。</li><li>可交换性是命门；分布漂移需 online 保形 + 覆盖监控。</li><li>出处：Vovk et al.《Algorithmic Learning in a Random World》2005；Angelopoulos–Bates 2023；Kumar et al. 2023。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 工程与训练拾遗<!--[--> · 单元 评测与安全拾遗<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/backdoor-llm/">LLM 后门攻击</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/semantic-uncertainty/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">语义熵与幻觉检测</span><span class="lesson-card-meta">工程与训练拾遗 · 评测与安全拾遗<!--[--> · 第 8 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/backdoor-llm/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">LLM 后门攻击</span><span class="lesson-card-meta">工程与训练拾遗 · 评测与安全拾遗<!--[--> · 第 10 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

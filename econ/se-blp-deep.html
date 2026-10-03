@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BLP 需求估计的深入 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/econ_se-blp-deep.md.ChSYMR4c.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="active" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">金融 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 需求与供给<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/econ/pe-case-map/">政策评估案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/econ/se-dynamic-discrete-choice/">动态离散选择</a></p><!----></nav><div style="position:relative;"><div><h1 id="blp-需求估计的深入" tabindex="-1">BLP 需求估计的深入 <a class="header-anchor" href="#blp-需求估计的深入" aria-label="Permalink to &quot;BLP 需求估计的深入&quot;">​</a></h1><div class="epigraph"><p>随机系数给替代形状，份额给需求位置；但把弹性估对的是工具背后的经济学论证——工具错了，再聪明的数值与抽法都救不回反事实。</p><footer>—— 据 Berry, Levinsohn and Pakes, Econometrica 1995；Nevo, Econometrica 2001 整理</footer></div><p><a href="/econ/pe-case-map">上一课</a>把政策评估的案例收成一张图：设计是契约、推断对准目标、证据是组合物，估计量只是设计的兑现。本课是「结构估计深化」的第一课，单元「需求与供给」随后依次处理动态选择、生产技术与拍卖。从主干课的「能估出来」到「敢拿弹性做反事实」，还差四步：工具怎么构造与诊断、替代模式的识别靠什么变异、需求与供给矩如何联合、微观数据何时必须进来。本课写这四步，不重推 Berry 反演与收缩映射。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>缺口在矩条件 \(\mathbb{E}[Z&#39;\xi]=0\) 的两端。工具一端：\(\xi_{jt}\) 与价格相关，特征工具若只是「自己与他者的特征」，弱与伪居其一——新车型的高 \(\xi\) 常与广告、渠道投入同涨，而这些恰是可观测特征。矩一端：随机系数 \(\beta_i\) 分布的维度靠矩钉住，市场里只有「两个产品、两个特征」时，份额变动填不满矩。更深一层：估出的弹性要送进<a href="/econ/merger-simulation">合并模拟</a>的一阶条件，供给边若完全没进估计，加成只能事后假设，方向可能错。</p><p><span class="marginnote">直觉类比：普通 logit 假设所有人用同一把尺子量价格；随机系数让每人的尺子刻度不同——有人对价格迟钝、有人极敏感。市场份额只是全体量完后的总票数，要从票数倒推出「尺子怎么分布」，靠的是市场之间、产品之间特征与价格的变异。</span></p><h3 id="工具的谱系与诊断" tabindex="-1">工具的谱系与诊断 <a class="header-anchor" href="#工具的谱系与诊断" aria-label="Permalink to &quot;工具的谱系与诊断&quot;">​</a></h3><p>工具分两族。需求侧：同一市场内其他产品的特征、其他市场的同产品特征——若 \(\xi\) 是产品与市场效应，跨市场变异被排除出来。供给侧：成本移动元（投入价格、关税、运费）经均衡进价格而不进需求误差。构造后诊断：第一阶段强度按<a href="/econ/iv-weak-instruments">弱工具</a>课的规程查；再进一步用 \(\widehat{\mathbb{E}}[\xi\mid X]\) 的非线性投影逼近最优工具，并以 \(J\) 检验矩的内部一致。</p><p><span class="marginnote">Nevo 的麦片文把特征工具写实：用其他城市同一品牌的价格当工具，辩护是品牌质量全国同、成本冲击城市异。工具故事每篇重写，弱工具与 \(J\) 的诊断一样不能少。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>联合估计：需求矩 \(\mathbb{E}[Z^d\xi]=0\) 与供给矩同进目标函数。多产品 Bertrand 的一阶条件把 \(p-mc\) 与弹性连起来，有可观测成本数据时一并放进来，加成内生。随机系数的识别靠变异的「位置」：价格与特征在市场间的截面变异撬动 \(\beta_i\) 分布的各阶矩，市场定义（城市、年份、渠道）因此是识别声明，不是数据清洗选择。</p><p>微观数据是第二把钳子：家庭面板的第二选择或「曾考虑清单」直接钉住 \(\beta_i\) 分布的尾。代价是权重对齐：微观样本来自谁，宏观份额就来自谁，抽样层与市场层错位会把「谁被抽到」写成偏好。BLP 2004 的新车市场把调查微观数据与份额一起进似然，是这一步的原型。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制是识别的变异从哪来。反演 \(\delta\) 只用份额，关于 \(\beta_i\) 分布的信息全部藏在份额如何随协变量变；特征工具的排除限制说的是对手特征经竞争进价格、不直接进本产品的 \(\xi\)——这句辩护写不出机制，工具就只是回归惯例。供给矩是第二重钳制：弹性若有偏，观测价格在给定成本下不再被复现，拟合会暴露它。</p><p><span class="marginnote">术语翻译：工具的「排除限制」就是「这个变量只能通过价格这一条管道影响份额，不能抄近道」。对手产品的特征满足它：它们抬高对手定价、间接抬高自己的价格，但不直接改变本产品在消费者心里的品质。若还能抄近道，工具就是伪的。</span></p><p>替代模式同理。随机系数只在若干特征维度上转动，替代就只在那些维度上活络；合并模拟问「A 涨价流向谁」，答案由 \(\beta_i\) 分布的形状决定。维度选少，交叉弹性矩阵退化，转移率错，\(\Delta p\) 错——不是数值误差，是模型说错话。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：初学者容易把「换个样本弹性就翻倍」当成数值误差去调算法。更可能的原因是市场定义换了——城市、年份或渠道的划法一变，撬动随机系数的变异就变。该做的是把两种划法都报出来当敏感性，而不是挑一个顺手的。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重推 Berry 1994 的闭式反演，不展开最优工具的渐近理论。嵌套 logit 可作廉价对照放进敏感性，但其组内 IIA 仍在。市场定义换一下弹性就翻倍时，报敏感性，不挑顺手的那个。动态耐用品需求（前向购买）留给下一课，本课的购买都是当期决策。</p><p>后课默认：弹性报数必带工具诊断与市场定义敏感性；供给矩能联合就联合；尾部有微观数据就别只靠间接矩。下一课动态离散选择把前向选择请进来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>工具两族：跨市场与对手特征进需求矩，成本移动元进供给矩，诊断沿用弱工具规程。</li><li>随机系数的识别藏在份额对协变量的变异里，市场定义是识别声明。</li><li>供给矩联合估计让加成内生，拟合有检验。</li><li>微观数据钉住分布的尾，权重须与份额来源对齐。</li><li>出处：Berry, Levinsohn and Pakes, <em>Econometrica</em> 1995；Berry, <em>RAND</em> 1994；Nevo, <em>Econometrica</em> 2001；Berry, Levinsohn and Pakes, <em>JPE</em> 2004。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 结构估计深化<!--[--> · 单元 需求与供给<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/econ/se-dynamic-discrete-choice/">动态离散选择</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/econ/pe-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">政策评估案例与收束</span><span class="lesson-card-meta">政策评估深化 · 推断与综合<!--[--> · 第 10 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/econ/se-dynamic-discrete-choice/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">动态离散选择</span><span class="lesson-card-meta">结构估计深化 · 需求与供给<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

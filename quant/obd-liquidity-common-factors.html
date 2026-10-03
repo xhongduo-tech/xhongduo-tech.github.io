@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>流动性的共同因子 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_obd-liquidity-common-factors.md.D0tCB7KE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 截面与时间<!--]--><!----></p><p class="lesson-progress">第 7 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/obd-auction-microstructure/">竞价阶段的微观结构</a></p><p class="lesson-next"> 下一课：<a href="/quant/obd-crossmarket-linkage/">跨市场联动与传导</a></p><!----></nav><div style="position:relative;"><div><h1 id="流动性的共同因子" tabindex="-1">流动性的共同因子 <a class="header-anchor" href="#流动性的共同因子" aria-label="Permalink to &quot;流动性的共同因子&quot;">​</a></h1><div class="epigraph"><p>点差与深度不是各管各的：同一批做市资本服务着整面墙的名字——把共同变动从单票时序里拆出来，单票的流动性故事才讲得清。</p><footer>—— 据 Chordia, Roll and Subrahmanyam, Journal of Financial Economics, 2000；Bouchaud 等, Trades, Quotes and Prices, 2018 整理</footer></div><p><a href="/quant/obd-auction-microstructure">上一课</a>把竞价从连续段里分开；本课展开单元的横截面维度，把镜头从单票时间序列拉到整个市场：点差、深度、实现价差、毒性代理的共同变动。资产定价面主干已讲过<a href="/quant/liquidity-factor">流动性因子</a>与<a href="/quant/amihud-illiquidity">Amihud 非流动性</a>；本课在微观结构面板上做同一件事——提取共同因子，把单票流动性分解成因子、载荷与特异项。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单票点差的时序混杂两层：票面特质（事件、股东结构、注意度）与市场范围的流动性波动（资金面、波动体制、公告日）。不分离，上一课的毒性回归会把市场性收紧记成个股毒性上升，微观事件研究会把共同冲击当成处理效应。资产定价面的因子是日频、代理变量口径的；微观面板是日内、多变量的——把共同性做在高频口径上，才能回答「流动性收缩几点开始、先紧点差还是先掉深度」这类定价面答不了的问题。</p><p><span class="marginnote">术语翻译：流动性 beta 就是「你的票随大盘流动性动的放大倍数」——市场整体点差变宽 10%、你的票跟着变宽 15%，beta 约 1.5。它和收益 beta 一样是载荷，只是载在点差与深度上而不是收益上。</span></p><h3 id="测什么、怎么提" tabindex="-1">测什么、怎么提 <a class="header-anchor" href="#测什么、怎么提" aria-label="Permalink to &quot;测什么、怎么提&quot;">​</a></h3><p>面板的列是微观量：相对点差、各档深度、实现价差、成交强度、毒性代理；口径照第五课先对齐（交易时钟、去日内形状），再跨票标准化。提取用动态因子模型或 PCA，载荷就是流动性 beta。关键的经验约束是共同性的时变性：市场下跌与高波动时段共同性显著上升——载荷不是常数，全样本 PCA 会把危机样本的强共同性摊进整段历史，夸大第一主成分的常态占比。</p><p><span class="marginnote">进因子前把点差取对数：点差右偏、票间水平差大，直接用水平值，第一主成分会退化成「高价差票」的哑变量——提取出来的不是共同变动，是横截面分组的影子。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>流程四步。口径：对齐与去季节照第五课，标准化在票内做（对数或稳健 z 分）。提取：小面板直接 PCA，时变载荷用动态因子或滚动窗；因子个数按截面平均相关的陡降判断，不硬凑。解释与验证：经济来源按三条核对——共同做市资本与资金约束（资金紧则全线收缩）、共同波动体制、共同公告；验证是因子极端日的事件回看：资金事件、大波动日是否落在因子尾部。下游接回：毒性回归加因子控制项，把市场性收紧从个股毒性里扣除；状态空间的噪声体制按因子状态切换。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>共同性在供给侧：一批做市商、同一池资金、同一套风险约束服务所有名字，约束收紧时没有票独善其身——这是共同性的微观理由，也是它有宏观锚的原因。时变性在容量：常态下约束松、特质流主导、共同性弱；压力下容量绑定，共同性跳升。不完全共同在票面：事件、持仓集中度与特质流量让特异项有真实方差——这层不是噪声，是单票研究该留下的部分。</p><p>约束松紧如何决定共同性高低，是时变载荷的机制图：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：常态下几十只票点差变化的截面平均相关可能只有 0.1 上下，资金紧的日子能冲到 0.5 以上；第一主成分解释的方差占比随之从不到两成跳到过半。把两类日子混进一个全样本 PCA，得到的「平均共同性」哪天都不像。</span></p><p>错法各有形状：用日频 ILLIQ 宣称微观结论（口径错配）；跨票直接平均原始点差（水平主导）；因子提完不复核极端日（只提了统计量，没验证含义）；把特异项当噪声平滑掉（丢掉单票研究的目标）。</p><p><span class="marginnote">常见误区：初学者容易以为流动性是单票属性——「我的票够活跃就行」。压力情景里要问的是：全市场同时收紧时，你的退出成本按流动性 beta 被整体抬升多少；约束是同一池资金给的，没有票独善其身。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>微观数据的横截面覆盖有限：面板只含高频数据可得的名字，幸存与覆盖偏差进因子。共同性与市场收益双向：跌引起流动性收缩，收缩也压价格——因子模型不自动给出因果。载荷在制度变化处断裂：交易制度改、tick 变，beta 要重估。微观因子与定价面的流动性溢价对接要过频率与口径两道转换，本课的因子不直接就是风险价格。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>微观结构面板上提共同因子：单票流动性 = 因子 + 载荷 + 特异，日频代理是它的低频投影。</li><li>先对齐、去季节、票内标准化（点差取对数），否则水平差异冒充共同变动。</li><li>共同性时变：压力时段跳升，载荷非常数，全样本 PCA 会被危机样本绑架。</li><li>机制锚在共同做市资本与容量约束；特异项是单票故事，不是噪声。</li><li>出处：Chordia, Roll and Subrahmanyam, <em>JFE</em>, 2000；Pástor and Stambaugh, <em>JPE</em>, 2003；Acharya and Pedersen, <em>JFE</em>, 2005；定价面综述见<a href="/quant/liquidity-factor">流动性因子</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 截面与时间<!--]--><!----></p><p class="lesson-progress">第 7 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/obd-crossmarket-linkage/">跨市场联动与传导</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/obd-auction-microstructure/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">竞价阶段的微观结构</span><span class="lesson-card-meta">订单簿动力学深化 · 截面与时间<!--[--> · 第 6 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/obd-crossmarket-linkage/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">跨市场联动与传导</span><span class="lesson-card-meta">订单簿动力学深化 · 截面与时间<!--[--> · 第 8 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内存管理与换入换出 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_edge-memory-management.md.DlbgXvDS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 系统与生产<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/llm/edge-quantization-practice/">端侧量化实践</a></p><p class="lesson-next"> 下一课：<a href="/llm/edge-energy-budget/">能耗预算</a></p><!----></nav><div style="position:relative;"><div><h1 id="内存管理与换入换出" tabindex="-1">内存管理与换入换出 <a class="header-anchor" href="#内存管理与换入换出" aria-label="Permalink to &quot;内存管理与换入换出&quot;">​</a></h1><div class="epigraph"><p>端侧的 OOM 不发生在加载失败那一下，发生在第三个会话的第 400 个 token：内存要按峰值记账，不按均值。</p><footer>—— 据 Apple Jetsam 与 Android lowmemorykiller、onTrimMemory 机制文档整理</footer></div><p><a href="/llm/edge-quantization-practice">上一课</a>把模型压到四五 GB 并在真机上验证，但「装得下」是瞬时判断：操作系统并不把标称内存全交给应用，会话在变长、KV 在涨、别的应用在抢。本课写内存作为长期受管资源：账怎么算、压力来了怎么让、多模型怎么换入换出。后课的能耗与路由都以这里的峰值账为输入。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>账有四项：权重常驻、KV 随上下文线性涨、激活与工作缓冲、运行时自身。KV 一项最容易被漏算：GQA 八十亿参数级模型、fp16 存储，每 token 约十万字节量级，四千上下文就是半 GB——上下文上限不写进产品规格，上线后一定在长会话上撞墙。系统侧的真实可用量又远小于标称：iOS 的 jetsam 与 Android 的 lowmemorykiller 都按进程优先级与全局水位杀进程，应用能稳定持有的常常只有标称的一半，后台与扩展进程的限额更低。<span class="marginnote">「实际只有标称一半」是什么概念？8 GB 手机的单个应用常被限制在 4–5 GB 以内，后台进程更低；再扣掉系统水位，推理引擎真正能指望的往往只有 3–4 GB——4-bit 的 8B 模型（约 4 GB）加 KV 已经贴着天花板。可行性判断从「文件小于标称内存」改成「峰值账小于标称一半」，第一宗罪就犯了。</span>拿「文件大小小于标称内存」做可行性判断，是端侧最常见的第一宗罪。</p><h3 id="记账与让路" tabindex="-1">记账与让路 <a class="header-anchor" href="#记账与让路" aria-label="Permalink to &quot;记账与让路&quot;">​</a></h3><p><span class="marginnote">换算锚点：GQA 8B 级模型 fp16 KV 每 token 约 128 KB，4K 上下文约 0.5 GB。把上下文上限、KV 单价、峰值 RSS 三行写进发布规格，内存争议就结束了。</span></p><p>方法按层递进。mmap 加载是地基：权重只读、按需缺页、页可回收，<a href="/llm/gguf">GGUF</a> 容器就是为 mmap 与跨版本分发设计的，<a href="/llm/llamacpp">llama.cpp / ggml</a> 把这套实践在桌面与端上跑通。mmap 之后，「换入换出」的第一层由操作系统免费提供：内存紧张时页被回收，下次访问再从盘上读回。第二层才是应用策略：收到内存压力回调（onTrimMemory 的各级）就按序让路——先丢可重建的缓存与 KV，再卸载按需大模型，最后降档到常驻小模型。顺序要写死，不能在 OOM 边缘临场决定。<span class="marginnote">为什么顺序必须写死？临场决定意味着每次逼近 OOM 都在做不同的选择：这次丢掉用户正在看的会话 KV，下次卸掉刚预热好的 3 GB 大模型。固定顺序——先丢可重建的、再卸按需的、最后降档常驻的——保证任何一次压力下牺牲的都是最便宜的那块，把随机事故变成可预期行为。</span></p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>多模型按「常驻/按需」分档：常驻小模型负责兜底与路由，按需大模型切换进来。切换成本是页面导入时间，冷启动的第一个 token 会明显变慢，所以预热要做成显式步骤——跑一个空 token 扫一遍热层，或对权重热页做锁定与预读；代价是别的工作集变小，两边都记进账。会话结束的清理同理：KV 立即释放；大模型保留与否看下次请求到达的概率，按 LRU 记账即可，不必发明新策略。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么 mmap 是对的而「自己管一块大内存」通常是错的：权重访问模式是每 token 全量扫一遍，缺页由内核按全局水位统一调度，应用自己把内存锁死，系统就去杀别的进程或干脆杀你。KV 的增长是剩余的碎片源：按上下文上限一次分配到位，或按桶增长，别每 token 重新分配。预热与延迟加载的平衡点用实测定：预读省下的首 token 延迟，换来的是启动时更高的内存峰值，被系统盯上的风险也跟着涨。</p><p>两条加载路径在系统压力下的走向：</p><div class="mermaid"></div><p><span class="marginnote">mmap（内存映射文件）可以理解成「把磁盘文件假装成内存」：程序访问某段地址时，操作系统才把对应几页真正读进来，用不到就不占内存，内存紧张时还能把干净页直接丢掉、下次再从盘上取回。对几个 GB 的只读权重来说，这等于操作系统白送了一套按需加载与回收机制——自己做，做不出更便宜的了。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写压缩换入换出：解压的 CPU 与能耗代价把它挤出了热路径。iOS 扩展进程的限额差异只提示到「更严」为止，具体数值随系统版本变。多进程共享只读页省的是物理内存，记账要按共享口径。进程保活的对抗手段不写：那是在和操作系统抢资源，赢不了也不该赢。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>内存账四项：权重、KV、激活缓冲、运行时；按峰值口径，KV 按上下文上限预提。</li><li>mmap 是地基：缺页、回收与第一层换入换出由内核免费提供。</li><li>压力响应按固定顺序让路：丢缓存与 KV、卸大模型、降档小模型。</li><li>常驻与按需分档加显式预热，把切换成本变成受控的工程量。</li><li>出处：Apple Jetsam 与 Android lowmemorykiller、onTrimMemory 机制文档；GGUF 容器设计说明；按本课程口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 端侧推理深入<!--[--> · 单元 系统与生产<!--]--><!----></p><p class="lesson-progress">第 4 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/edge-energy-budget/">能耗预算</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/edge-quantization-practice/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">端侧量化实践</span><span class="lesson-card-meta">端侧推理深入 · 硬件与工具<!--[--> · 第 3 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/edge-energy-budget/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">能耗预算</span><span class="lesson-card-meta">端侧推理深入 · 系统与生产<!--[--> · 第 5 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

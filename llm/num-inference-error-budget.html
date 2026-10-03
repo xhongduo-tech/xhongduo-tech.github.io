@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>低精度推理的误差预算 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-inference-error-budget.md.dHGC4wb5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 预算与验证<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/num-sparse-training/">稀疏训练的数值基础</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-crosshardware-consistency/">跨硬件的数值一致性</a></p><!----></nav><div style="position:relative;"><div><h1 id="低精度推理的误差预算" tabindex="-1">低精度推理的误差预算 <a class="header-anchor" href="#低精度推理的误差预算" aria-label="Permalink to &quot;低精度推理的误差预算&quot;">​</a></h1><div class="epigraph"><p>预算思维把「能不能量化」变成「把误差花在哪」：权重、KV、激活、注意力核各有价目表，任务指标是唯一收银台。</p><footer>—— 据 Frantar et al., 2022（GPTQ）与 KV 量化文献的误差口径整理</footer></div><p><a href="/llm/num-sparse-training">上一课</a>收掉稀疏的数值账，训练侧的七课到此把「怎么把数算稳」写完；本课转到部署侧。低精度推理的各零件都已单独写过：权重的 <a href="/llm/gptq">GPTQ</a>、KV 的两档在 <a href="/llm/kv-quant-int8-int4">KV 量化：INT8 与 INT4</a>、逐层敏感度与 bit 背包在 <a href="/llm/mixed-precision-search">混合精度搜索</a>、低精度注意力核在 <a href="/llm/ak-quantized-attention-kernel">低精度注意力的内核</a>。本课不重复任何一件零件，只做装配：把每个部件花的误差写进同一张预算表，规定怎么加总、拿什么验收。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一次低精度前向里至少四笔误差同时发生：权重的量化误差（PTQ 校准或 QAT 冻结）、KV 缓存的量化误差（在线追加、随上下文长度累积）、激活与注意力的低精度计算误差（随实现与序列位置变）、采样前的 logits 扰动。它们不同质：权重误差是<strong>固定偏置</strong>——同一权重每次前向犯同样的错；KV 误差是<strong>累积过程</strong>——错误的历史持续参与后续注意力；核误差近似<strong>每次独立的噪声</strong>。加总因此不是算术相加：logit 扰动过 softmax 是非线性的，PPL 对几笔误差的敏感度也不一样——KV 的误差在长上下文上先爆，短文本 PPL 几乎不动。</p><p>预算表的真正问题是分配：在总误差上限内，哪个部件多拿比特、哪个部件少拿，依据是什么。</p><p><span class="marginnote">直觉类比：权重误差像鞋里固定的石子（每步都偏同一个方向），KV 误差像记错的地图（错的历史一直带你走），核误差像手抖（每次抖得不一样）。三种病用药不同：石子换鞋垫（校准），地图要修正（重写缓存），手抖靠稳（平均）。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>预算表三列起步：部件（权重 / KV / 激活 / 注意力核 / 最终 logits）、格式与粒度、误差代理。误差代理要便宜且可比：层输出 MSE、校准集上的交叉熵增量、或 logits 层与宽基线的 KL。流程四步：先跑宽基线定上限；逐部件单独降级，记录<strong>边际误差</strong>（该部件从 8-bit 到 4-bit 独自增加多少）；按敏感度把比特预算花出去——lm_head、首层、KV 的键天然是高敏感户，与 <a href="/llm/mixed-precision-search">混合精度搜索</a> 的背包是同一算法；最后在任务指标上整表验收。</p><p><span class="marginnote">数字实例：lm_head 从 8-bit 降到 4-bit，短文本 PPL 单独涨 0.05；KV 同样操作只涨 0.01——先别把 KV 砍到 4-bit：128K 检索上它的账完全不同。边际误差必须连同「在哪类任务上量的」一起报告，否则是没单位的数据。</span></p><div class="mermaid"></div><p>验收的分账规则：短文本 PPL 是最钝的收银台，长上下文针检索、代码、数学各自对误差的敏感谱不同，整表验收必须分能力做，且对照运行级方差（run-to-run 噪声）——低于基线噪声的误差免票。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>预算能分配的机制根据是一阶可加性：各部件的扰动对 logits 的贡献在一阶近似下可加，残差网络的跨层补偿是一阶之外的美好意外。这解释了两个现象：为什么逐部件测得的边际误差在整表组合后常略好于相加（补偿），偶尔显著更差（某两笔误差在同一坐标上同号叠加——交互项，必须整表复测）；为什么 PPL 会骗——PPL 是对数尺度上的平均，把少数任务上的大误差摊平，预算表要留一列「分位数误差」而不是只看均值。KV 误差的累积性让它的预算随上下文长度重新定价：8-bit 在 4K 上下文免票，128K 上要重验，这正是 KV 课「评估看长上下文任务」的预算表版本。</p><div class="mermaid"></div><p>这张图回答「为什么 KV 的预算要按上下文长度重新定价」：KV 的错不是一次性噪声，而是被写进历史、被后续每一步注意力反复消费的偏置——短文本上免票的格式，长上下文上必须整表重验。</p><p><span class="marginnote">预算表是负载相关的：decode 阶段 M 小、KV 主导带宽，prefill 阶段权重与激活主导计算——同一张表在两类负载上的敏感度排序可以不同，发货前各跑一遍。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>预算表是模型的、负载的，不是行业的：换基座换负载要重测，别引用别人的表。超预算部件的赎回顺序有讲究：先提档敏感部件（便宜、确定），蒸馏是重武器（贵、能赎回更深误差）。采样的温度会放大或掩盖 logits 扰动——预算表按生产采温验收，不按贪婪。最后，预算表随模型归档：它是第九课跨硬件验收与后续迭代的基线，丢了表，回归就只剩体感。</p><p><span class="marginnote">常见误区：把 0.001 的 PPL 改善当胜利。同配置重跑两次的 run-to-run 噪声可能就有 0.01——小于噪声带的差异是抽奖不是效应，验收之前先测一遍自己的噪声地板。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>四笔误差不同质：权重是固定偏置，KV 是累积过程，核是独立噪声；加总有交互项。</li><li>预算表三列：部件、格式粒度、便宜可比的误差代理；逐部件记边际误差再整表复测。</li><li>敏感户（lm_head、首层、KV 键）先买精度；分配是混合精度搜索的背包。</li><li>验收分能力、按生产采温、对照运行方差；短文本 PPL 是最钝的收银台。</li><li>预算表随模型归档，是跨硬件与迭代回归的基线。</li><li>出处：Frantar et al., 2022（GPTQ）的误差口径；KV 量化与本课程前七课的记账框架。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 预算与验证<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-crosshardware-consistency/">跨硬件的数值一致性</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/num-sparse-training/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">稀疏训练的数值基础</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 7 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-crosshardware-consistency/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">跨硬件的数值一致性</span><span class="lesson-card-meta">低精度数值与训练稳定 · 预算与验证<!--[--> · 第 9 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

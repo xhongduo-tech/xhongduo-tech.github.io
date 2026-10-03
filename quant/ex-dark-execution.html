@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>暗池执行 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ex-dark-execution.md.C60shuVd.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 算法<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ex-slice-scheduling-deep/">子单调度的深化</a></p><p class="lesson-next"> 下一课：<a href="/quant/ex-auction-execution/">竞价执行</a></p><!----></nav><div style="position:relative;"><div><h1 id="暗池执行" tabindex="-1">暗池执行 <a class="header-anchor" href="#暗池执行" aria-label="Permalink to &quot;暗池执行&quot;">​</a></h1><div class="epigraph"><p>暗处的成交省下展示的脚印，代价是把成交时机交给别人定价：填成概率与事后漂移是暗腿的两个传感器，缺一个，暗池只是信仰。</p><footer>—— 据 Zhu, Do Dark Pools Harm Price Discovery?, Review of Financial Studies, 2014；Buti, Rindi and Werner 对暗池流动性的研究整理</footer></div><p><a href="/quant/ex-slice-scheduling-deep">上一课</a>把调度写成闭环控制，但状态变量全部来自明簿。主干 <a href="/quant/dark-pool-midpoint">暗池、ATS 与中点单</a>讲了匹配协议，<a href="/quant/dark-pool-routing">暗池路由</a>讲了分多少比例去暗处；本课深入执行端的暗腿工程：中点单怎么挂、填成怎么预测、毒性怎么按场所测、何时撤。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>暗腿与明腿的误差结构不同。明簿的失败模式是「付了价差才成交」，结果立即可见；暗池的失败模式是「没成交」或「成交即被逆向选择」：中点单只在公开对侧报价被吃掉时成交，成交事件与对手方的信息优势相关——你买到的，常是明市即将上涨前卖给你的人。同一份暗池份额于是呈现两种极端：长期不填，机会成本累积；或填得又快又准，事后中点漂移把价差节省吃光。问题是怎么把两种结局分开度量、分别定价。</p><div class="mermaid"></div><p>中点单还有一层时变性：它锚在公开 BBO 上，价差每一跳、每次刷新都在改写你的实际挂价与队列位置。挂出去不动，不等于价格不动。</p><p><span class="marginnote">「中点单」翻译成小白话：把单子藏起来，价格定成公开市场买一卖一的正中间，不展示在任何人可见的盘口上，等对面有人愿意按这个价成交时再匿名配对。好处是不暴露意图、省半个价差；代价是只能等，而且不知道谁在跟你成交。</span></p><h3 id="暗腿的规格维度" tabindex="-1">暗腿的规格维度 <a class="header-anchor" href="#暗腿的规格维度" aria-label="Permalink to &quot;暗腿的规格维度&quot;">​</a></h3><p>单型：中点 peg、对侧最优 peg、参考价改善；可加最小数量与有效期。条件性：IOC 条件单在多场所同时试探、任一处成交即撤其余，用即时性换暴露时间。撤单策略：peg 需跟随 BBO 重挂，跟随延迟就是过期报价窗口。配额：场所级上限与轮换，见 <a href="/quant/dark-pool-routing">暗池路由</a> 的质量表。</p><p><span class="marginnote">暗池填成概率不是场所常数，而是明簿状态的函数：价差收窄、买盘堆积时，对侧被吃的概率与你的逆向选择概率同升。把暗池成交率当成场所固有的「流动性评分」，会在体制切换时选错场所。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>两个传感器，一个控制器。传感器一，条件填成率：对每个场所估计 hazard——给定明簿事件（价差触及、对侧挂量消耗、不平衡），暗单成交的条件概率，方法与 <a href="/quant/fill-probability">成交概率</a> 同族，事件来自对侧明簿。传感器二，事后漂移：成交后 1 分钟、5 分钟的中点相对成交价的运动，买入后下跌说明省下的价差被逆向选择吃掉；这是 <a href="/quant/effective-realized-spread">有效价差与实现价差</a> 在单场所上的应用。</p><p>控制器：暗腿份额由两个传感器在线修正——填成率低于基准且漂移为正，提高份额；漂移为负，压份额、缩有效期、加最小数量门槛。波动升高或临近事件时，无条件挂单的暴露时间变贵，改用 IOC 条件单或回明簿。阈值进规格文档，与 <a href="/quant/slippage-attribution">滑点归因</a> 的场所科目对齐。</p><p><span class="marginnote">常见误区：按历史成交率给暗池排名。填成率是明簿状态的函数：平静日价差窄、暗池填得多；恐慌日对手撤回明簿，暗池先干涸。排名靠前的场所在你最需要流动性的时候恰恰最不可靠，应按「条件于当日状态」的 hazard 动态分配，而不是按场所固定评分。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>中点协议的经济：省半价差、零展示，付出等待与柠檬折价。Zhu 的模型指出知情者偏好暗处，暗池份额上升会侵蚀价格发现；对执行者的含义是柠檬折价随份额与信息事件密度上升，常数折价假设失效。条件单改变期权结构：无条件中点单相当于送给对手方一份「按你方向成交」的期权；IOC 加最小数量抬高行权门槛，用暴露时间换信息保护。探测（对手方在明簿交替挂撤以试探暗池存量）之所以有效，正因为无条件 peg 存在；防御靠随机化尺寸、最小数量与条件标记，而不是反向对敲——后者越过红线。</p><p><span class="marginnote">「无条件挂单等于送出方向性期权」可以类比：在旧货市场挂一块「愿按均价整批收购」的牌子——只有认为自己手里的货不值这个价的人才来找你，知情交易者正是这样挑暗池下单的。IOC 加最小数量相当于把牌子改成「整批才收、限时有效」，把捡漏者挡在门外。</span></p><p>暗腿与调度层的接口：暗池成交的打印延迟使 <a href="/quant/ex-slice-scheduling-deep">进度误差</a> 被低估；控制器应把暗腿在途量单独建账。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>A 股没有美股式 ATS：对应的大宗交易与盘后固定价格交易在时段、价格限制与披露上都不同，参数不可翻译。暗池数据自报、打印滞后，场所间比较必须同时窗口化。份额过高会反噬中点锚本身——公开簿变薄，锚的质量下降，见 <a href="/quant/dark-pool-midpoint">暗池、ATS 与中点单</a>。最优执行义务要求暗腿规则可解释：为什么此处、为何此时、省了多少，答不出就退回明簿。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>暗腿的两个传感器是条件填成率与事后漂移；只看成交率会选错场所。</li><li>中点单锚在 BBO 上，peg 跟随延迟就是过期报价窗口。</li><li>无条件挂单等于送出方向性期权；IOC 与最小数量用暴露时间换保护。</li><li>暗池折价随份额与信息事件密度上升，常数折价假设失效。</li><li>暗腿打印延迟会低估调度进度，须单独建账保守计入。</li><li>A 股无 ATS，对应机制是大宗与盘后固定价格，参数不可翻译。</li><li>出处：Zhu, <em>RFS</em>, 2014；Buti, Rindi and Werner 的暗池研究；价差口径见 Hasbrouck 的微观结构计量。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 算法<!--]--><!----></p><p class="lesson-progress">第 3 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ex-auction-execution/">竞价执行</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ex-slice-scheduling-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">子单调度的深化</span><span class="lesson-card-meta">交易执行深钻 · 算法<!--[--> · 第 2 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ex-auction-execution/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">竞价执行</span><span class="lesson-card-meta">交易执行深钻 · 算法<!--[--> · 第 4 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

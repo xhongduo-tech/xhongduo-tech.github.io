@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>快速重传与恢复 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_fast-retransmit-recovery.md.CUoVOdDM.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 传输进阶<!--]--><!--[--> · 课序 TCP 细节<!--]--></p><p class="lesson-progress">第 52 / 112 课</p><p class="lesson-prereq"> 先修：<a href="/cs/aimd-dynamics/">AIMD 与 Chiu–Jain</a></p><p class="lesson-next"> 下一课：<a href="/cs/bandwidth-delay-product/">带宽时延积</a></p><!----></nav><div style="position:relative;"><div><h1 id="快速重传与恢复" tabindex="-1">快速重传与恢复 <a class="header-anchor" href="#快速重传与恢复" aria-label="Permalink to &quot;快速重传与恢复&quot;">​</a></h1><div class="epigraph"><p>三个重复 ACK 推断丢包并立刻重传，快恢复用减半后的窗口继续发，避免慢启动把管道抽空。</p><footer>—— 据 RFC 5681；Jacobson, 1988；主干 Reno 课整理</footer></div><p><a href="/cs/aimd-dynamics">上一课</a> 给出减半几何。主干<a href="/cs/tcp-seq-rexmit">序号与重传</a>、<a href="/cs/tcp-sack">SACK</a> 已有。缺口是<strong>快重传/快恢复与超时的分工</strong>：dupACK 计数、inflate 窗口、incast 短流为何仍只能等 RTO。本课不把 BDP 公式写完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>超时把 ssthresh 记下再把 cwnd 抽到很小。若只丢一包且后续包仍到，收端每包回 dupACK。满三个：重传丢失包，进入快恢复：cwnd ≈ FlightSize/2，每额外 dupACK 可再发新数据（Reno inflate）。SACK 让恢复知道洞在哪，避免重传已到的段。三个 dupACK 要管道里还有包，BDP 太小或短流则失败——incast 场景。</p><p>不要把快重传写成「永远不必超时」。</p><p><span class="marginnote">RFC 5681。NewReno 修部分 ACK。本课不把每家内核的 RACK 写完，后课可点名。</span></p><h3 id="三个-dupack-才走快路径" tabindex="-1">三个 dupACK 才走快路径 <a class="header-anchor" href="#三个-dupack-才走快路径" aria-label="Permalink to &quot;三个 dupACK 才走快路径&quot;">​</a></h3><p>快恢复避免抽空管道。短流/浅管道仍可能只能 RTO。乱序会产生伪 dupACK。SACK 告诉洞在哪。</p><p><span class="marginnote">术语翻译加数字实例：dupACK（重复 ACK）就是同一个确认号来了第二次以上。接收方已收 1..5、缺 6 时，7、8 每到一段就再回一个「请给我 6」。所以三个 dupACK 并不意味着丢了三份数据——只丢一段就够了，剩下的是后到数据触发的催促。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对照：RTO 路径 vs 快重传路径。画：dupACK++ → 3 → 重传 → 快恢复 → 新 ACK 退出。与 DCTCP：标记不走这条丢包路径。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>AIMD 的 MD 在快恢复里发生，不是在慢启动。ECMP 乱序会产生伪 dupACK，要用 FACK/RACK 或乱序阈。RoCE 无这条状态机。卫星误码触发假拥塞 MD，RFC 2488 的痛。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：慢启动像熄火后重新起步，一路轰油门；快恢复只是松一脚刹车减半油门，车还带着惯性继续走。这就是「避免把管道抽空」的直觉含义——恢复结束时管道里仍有数据在飞，新 ACK 能持续喂时钟。</span></p><p>SACK 是信息，快恢复是控制；两者配套。</p><p><span class="marginnote">常见误区：阈值定在 3 不是因为「丢 3 次才重传」，而是为了滤掉网络乱序产生的伪 dupACK——包只是走了不同路径晚到，并不代表丢了。阈值太小会把乱序误判成丢包，白白触发拥塞降窗；incast 这种管道里只剩两三个包的场景则凑不满阈值，只能等 RTO。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 BBR 探测的全部。带宽时延积是下一课。后课默认：三个 dupACK 走快路径；否则 RTO。</p><p>重复 ACK 阈固定为 3 是历史折中，不是信息论最优。</p><p>下一课<a href="/cs/bandwidth-delay-product">带宽时延积</a>。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>快重传用 dupACK 推断丢包。</li><li>快恢复避免抽空管道。</li><li>短流/浅管道仍可能只能 RTO。</li><li>后课只引用本课钉死的对象，不从该领域总问题重开。</li><li>出处：RFC 5681；Jacobson, 1988。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 从链路到应用协议<!--[--> · 单元 传输进阶<!--]--><!--[--> · 课序 TCP 细节<!--]--></p><p class="lesson-progress">第 52 / 112 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/bandwidth-delay-product/">带宽时延积</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/aimd-dynamics/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">AIMD 与 Chiu–Jain</span><span class="lesson-card-meta">从链路到应用协议 · 传输进阶 · TCP 细节<!--[--> · 第 51 / 112 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/bandwidth-delay-product/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">带宽时延积</span><span class="lesson-card-meta">从链路到应用协议 · 传输进阶 · TCP 细节<!--[--> · 第 53 / 112 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

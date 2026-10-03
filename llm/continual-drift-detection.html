@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>概念漂移的检测 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_continual-drift-detection.md.SFq0Xk5Y.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 生产化<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/continual-test-time-training/">测试时训练</a></p><p class="lesson-next"> 下一课：<a href="/llm/continual-feedback-privacy/">用户反馈的隐私与合规</a></p><!----></nav><div style="position:relative;"><div><h1 id="概念漂移的检测" tabindex="-1">概念漂移的检测 <a class="header-anchor" href="#概念漂移的检测" aria-label="Permalink to &quot;概念漂移的检测&quot;">​</a></h1><div class="epigraph"><p>持续学习系统最难的不是学，而是决定何时学；更新该由证据触发，不该由日历触发。</p><footer>—— 据 Gama 等 2014（漂移综述）、Bifet 与 Gavaldà 2007（ADWIN）整理</footer></div><p><a href="/llm/continual-test-time-training">上一课</a>把适配压进单次请求。从本课起视角反过来：生产环首先要回答的不是「怎么更新」，而是「要不要更新、现在吗」。漂移检测就是这个触发器：从流量里辨认「世界变了」的证据，把更新从排班变成响应。检测做得糙，两个极端都会出现——永不触发，模型悄悄过期；天天触发，警报成了狼来了。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>线上指标变差有三种死因，处置完全不同。世界变了（概念漂移）：用户群、语言、任务组合移动，模型没变但不再合身。模型变了（回归）：昨天的更新本身坏了。管线变了：分词、模板、上游服务的表面改动。混在一起时，「指标降了就回滚重训」会同时做错三件事：漏掉坏版本、白训一轮、真漂移淹没在噪声里。缺口是可分离的证据链。</p><h3 id="漂移的三层" tabindex="-1">漂移的三层 <a class="header-anchor" href="#漂移的三层" aria-label="Permalink to &quot;漂移的三层&quot;">​</a></h3><p>输入分布漂移（协变量漂移）：查询的 embedding 分布、语言构成、长度、领域占比移动。输出分布漂移：回答长度、拒答率、格式崩坏率变化，多半是输入先动了。性能漂移（概念漂移的严格义）：同样的输入，对的输出变了——用户不再接受旧答案，或新法规改判对错。三层移动有经验规律：输入先动，输出跟着，性能最后；只监控最后一层，报警时已晚了几个周期。</p><p><span class="marginnote">ADWIN（Bifet 与 Gavaldà 2007）在单流上维护变长窗口，均值差超界即报新窗口并收缩旧窗口；Page-Hinkley 更早，是累积和检验的老牌做法。两者都只处理一维流，嵌入分布要先用 MMD 一类双样本检验压成标量。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>监控按三层布点。输入层：对查询嵌入按天/周做双样本检验，对领域占比做份额监控。输出层：长度、拒答率、格式错误率做带滞后阈值的控制图——超阈值持续 \(k\) 个窗口才报，单点不报。性能层：固定探针电池加滚动偏好胜率。证据链的分离装置是一个<strong>冻结影子模型</strong>：线上一直挂一份钉死版本的模型跑同样探针。探针成绩与影子同降，是世界或管线变了；影子稳而线上降，是最近更新回归——这一刀把最难分的两种死因切开。</p><p><span class="marginnote">直觉类比：冻结影子模型就像药物试验里的安慰剂对照组——成分（版本）完全不变，经历同样的环境（同样的探针题）。病人（线上模型）和对照组同时变差，说明是环境变了（世界变了）；只有病人变差，才是药（新版本）的副作用。没有对照组，你永远说不清该怪世界还是怪自己上周的更新。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>统计设定决定报警质量。单流标量用 ADWIN 或 Page-Hinkley，窗口长度是时延与灵敏度的交换：短窗抓得快但抖动多，长窗稳但模型多带伤跑几周。多维检验要防多重检验——同时监控几十个切片，无漂移时也总有切片显著，要有家族级校正或只在预注册切片上报。滞后阈值与双侧回滞（触发与解除分开）是把统计工具变成可运维设备的两颗螺丝。</p><div class="mermaid"></div><p><a href="/llm/live-benchmarks">动态基准与题库轮换</a>是检测的慢变量：新题不进训练、持续滚动，成绩下滑即能力过期信号；滚动基准看周与月，探针与控制图看小时与天。别把检测器本身污染掉——监控查询若也被训练，就绕回<a href="/llm/eval-contamination">训练-评测污染检测</a>的问题。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>检测不构成响应。没有预案的漂移报警只是图表：报警要绑定三选一的动作——回滚、评估更新、立案观察，并写明每档动作的负责人与时限。季节性是伪漂移的大头：工作日/周末、学期/假期、大促，都可以让输入层报警，处置不是重训而是把已知周期从报警里扣掉。慢漂移对检测器最难：单窗看不到显著差异，靠的是探针电池的趋势线而不是报警器。最后，漂移检测的结论必须可复核——把每次报警的窗口、统计量、当时的处置记进台账，否则三个月后没人说得清那次「误报」到底是什么。</p><p><span class="marginnote">数字实例：窗口长度就是「多快知道」与「多稳」的交换。按天开窗，漂移当天就能抓到，但周末效应都能触发误报；按 30 天开窗，报警很稳，可模型要多带伤跑一个月才被确认。常见做法是两层并行：短窗抓急变、长窗确认趋势，两层都亮灯才升级处置。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>更新应由证据触发：漂移检测是生产环的触发器，没有它就是盲目排班或永不更新。</li><li>指标变差有三种死因：世界变、模型变、管线变，冻结影子模型切开前两种。</li><li>监控分三层：输入、输出、性能；输入先动性能后动，只看性能层必然迟到。</li><li>统计设定决定质量：窗口长度、滞后阈值、多重检验校正，是把检验变成设备的螺丝。</li><li>检测必须绑定响应预案与台账，否则只是仪表盘装饰。</li><li>出处：Gama 等 2014 的漂移综述；Bifet 与 Gavaldà 2007（ADWIN）；Page 1954 的连续检验谱系。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 在线与持续学习<!--[--> · 单元 生产化<!--]--><!----></p><p class="lesson-progress">第 8 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/continual-feedback-privacy/">用户反馈的隐私与合规</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/continual-test-time-training/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">测试时训练</span><span class="lesson-card-meta">在线与持续学习 · 语言模型的持续学习<!--[--> · 第 7 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/continual-feedback-privacy/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">用户反馈的隐私与合规</span><span class="lesson-card-meta">在线与持续学习 · 生产化<!--[--> · 第 9 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

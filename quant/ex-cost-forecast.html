@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>成本预测模型 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_ex-cost-forecast.md.vIz4t1Kn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 度量与案例<!--]--><!----></p><p class="lesson-progress">第 9 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/quant/ex-hardware/">硬件与执行</a></p><p class="lesson-next"> 下一课：<a href="/quant/ex-optimal-conversion-deep/">最优转换的深化</a></p><!----></nav><div style="position:relative;"><div><h1 id="成本预测模型" tabindex="-1">成本预测模型 <a class="header-anchor" href="#成本预测模型" aria-label="Permalink to &quot;成本预测模型&quot;">​</a></h1><div class="epigraph"><p>事前成本模型是一张条件期望表：给定单与市场的特征，预测缺口的分布；它回答参数怎么设、该不该交易，不保证市场配合。</p><footer>—— 据 Almgren, Thum, Hauptmann and Li, Direct Estimation of Equity Market Impact, Risk, 2005；Kissell and Glantz, Optimal Trading Strategies 整理</footer></div><p><a href="/quant/ex-hardware">上一课</a>给了执行栈的预算表；回到模型侧。主干 <a href="/quant/execution-cost-forecast-cap">执行成本预测</a>写了模型与组合层的接口：边际 alpha 对边际成本、保守分位进决策。本课深入模型本身的构造：特征怎么选、样本怎么定、怎么验证、怎么跟着体制更新——当一个要维护的计量产品来写。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>单一 \(\eta\) 太粗。成本在截面上随价差、波动、市值、参与率变化，在时序上随体制、费用、tick 规则变化；同一条「大单」在恐慌日与平静日是不同的成本对象。用途也决定规格：给组合层，要期望与上分位；给执行层，要条件于当日状态的成本面，选 \(\kappa\) 与参与率上限；给容量研究，要外推可控。一个规格服务三个用途必然失真——先问模型为谁而建。</p><p>数据侧的坑：样本只有自己的成交（幸存于「当初愿意交易」）；已取消母单缺席；冲击与时机在实现缺口里混在一起，见 <a href="/quant/slippage-attribution">滑点归因</a> 与 <a href="/quant/tca">成交后分析 TCA</a> 的拆项。</p><h3 id="规格-从参数式到特征式" tabindex="-1">规格：从参数式到特征式 <a class="header-anchor" href="#规格-从参数式到特征式" aria-label="Permalink to &quot;规格：从参数式到特征式&quot;">​</a></h3><p>参数式基准：每股成本 \(= s/2 + k\,\sigma\,(q/\mathrm{ADV})^{\delta}\) 加调整项，形状来自 <a href="/quant/sqrt-impact">线性与平方根冲击</a> 的理论，参数用横截面回归估——Almgren 等人 2005 的做法：对大量母单的已实现每股缺口，就事前特征（参与率、波动、价差、动量、日内位置）回归，\(k\) 与 \(\delta\) 由数据说话。特征式延伸：树模型或加交互项的线性模型，捕捉「价差宽且动量逆向」的联合效应。参数式外推可解释、可进优化器；特征式拟合好但外推危险，校准域边界要记录。</p><div class="mermaid"></div><p><span class="marginnote">成本分布右偏且被涨跌停截断：均值受少数大缺口主导，最小二乘拟合均值会被尾部牵着走。常用做法是对数或分位回归，报告的中位数与 95 分位比均值更接近各用途的真实需要。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>样本设计：按事前特征分层抽样并保留取消母单的记录（未成交损失按对照收益定价）；制度日（指数日、涨跌停日）剔除或单独建模。估计：先用参数式定形状，再用残差对特征回归找遗漏；交互项一次只加一组，进一个、验一个。验证：按时间外推（截止前拟合、其后检验），按标的转移（小市值上学的规则去中盘股检验）；损失用分位损失而非仅 RMSE。监控：滚动重估，\(k\)、\(\delta\) 与截距的漂移单独画图，费用与 tick 规则变更日打标签。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么形状是 \(\sigma\,(q/\mathrm{ADV})^{\delta}\)：提供流动性的一方承担存货与逆向选择风险，补偿随波动与所需时间放大；\(\delta\approx 1/2\) 的凹性来自冲击随参与率次线性增长的经验规律。均值拟合为什么不够：调度层的 \(\lambda\) 映射方差与分位（<a href="/quant/ex-slice-scheduling-deep">子单调度的深化</a> 的增益、<a href="/quant/ex-vol-execution">波动执行的专门问题</a> 的体制触发），组合层用保守分位——消费的都是分布。</p><p><span class="marginnote">数字感受平方根律：参与率从 1% 提到 4%（四倍），因 \(\delta\approx 1/2\)，冲击只放大约 2 倍而非 4 倍；若把母单拆成 4 份分 4 天执行，每日参与率回到 1%，单日冲击减半，代价是多暴露三天。参与率、冲击与时机风险就是这样一个三角。</span></p><p>反馈回路是维护的核心机制：模型进了优化器，流量随之改变（贵名字被回避、参与率被压平），下一期校准样本不再是市场代表性样本，而是被自己策略过滤后的样本；\(\eta\) 的漂移有两个来源——市场变了、自己变了。区分办法是留一部分不经模型干预的对照流量。</p><p><span class="marginnote">反馈回路可以类比餐厅点评：一家店被点评带火后，排队的人群本身就改变了菜品与体验，旧点评不再代表今天的店。成本模型进了优化器也一样——被标记为「贵」的名字被回避，下一期成交样本里它已不在，模型看到的是自己选择之后的世界。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>外推是边界的第一条：校准域内插值可信，参与率或市值超出样本后，平方根外推只是低估值而非保证，容量结论要走 <a href="/quant/capacity-participation">容量与参与率</a> 的分层 TCA。制度截断是第二条：涨跌停使分布被截断而不是延长，把不可执行当昂贵会误判。永久与临时的拆分依赖事后窗口选择，见 <a href="/quant/temp-perm-impact">瞬时冲击与永久冲击</a>，窗口规则不冻结则不可复现。分工上：模型管事前；事后归因走 <a href="/quant/tca">成交后分析 TCA</a> 的口径——两套数字必须同源校准，否则「模型说 5、实绩 12」吵不出是模型错还是执行错。</p><p><span class="marginnote">常见误区：把「模型说 5 个基点、实绩 12 个基点」直接判为模型失败。差异可能来自执行层偏离了模型假定的调度与参与率，或落在制度日。正确的检讨路径是 TCA 与模型按同源口径对账拆项，先确认两边算的是同一件事，再谈谁错。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>模型先问用途：组合层要分位、执行层要条件成本面、容量研究要可控外推。</li><li>参数式定形状、特征式补残差；交互项进一验一，校准域边界要记录。</li><li>成本分布右偏且被涨跌停截断：对数或分位回归，报告中位数与高分位。</li><li>验证按时间外推、按标的转移，损失用分位损失；规则变更日打标。</li><li>模型进优化器会改变流量，校准样本被自己过滤；区分市场变了与自己变了。</li><li>与 TCA 同源校准、口径互补：模型管事前，TCA 管事后。</li><li>出处：Almgren, Thum, Hauptmann and Li, <em>Risk</em>, 2005；Kissell and Glantz, <em>Optimal Trading Strategies</em>；冲击形状见主干冲击课程。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 交易执行深钻<!--[--> · 单元 度量与案例<!--]--><!----></p><p class="lesson-progress">第 9 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ex-optimal-conversion-deep/">最优转换的深化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/ex-hardware/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">硬件与执行</span><span class="lesson-card-meta">交易执行深钻 · 度量与案例<!--[--> · 第 8 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ex-optimal-conversion-deep/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">最优转换的深化</span><span class="lesson-card-meta">交易执行深钻 · 度量与案例<!--[--> · 第 10 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

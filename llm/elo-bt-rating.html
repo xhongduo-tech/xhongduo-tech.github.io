@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Elo 与 BT 评分 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_elo-bt-rating.md.CqTaOdAb.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 评测协议与裁判<!--[--> · 单元 裁判与人评<!--]--><!--[--> · 课序 谁来判<!--]--></p><p class="lesson-progress">第 14 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/llm/pairwise-vs-pointwise/">成对对逐点</a></p><p class="lesson-next"> 下一课：<a href="/llm/style-control/">风格控制</a></p><!----></nav><div style="position:relative;"><div><h1 id="elo-与-bt-评分" tabindex="-1">Elo 与 BT 评分 <a class="header-anchor" href="#elo-与-bt-评分" aria-label="Permalink to &quot;Elo 与 BT 评分&quot;">​</a></h1><div class="epigraph"><p>胜负场次是观测，评分是对潜在强度的估计。场次不够时，名次只是噪声的一种排列。</p><footer>—— Bradley-Terry 模型；Elo 作为在线近似；Arena 的用法见 [LMSYS](/llm/lmsys-arena)</footer></div><p><a href="/llm/pairwise-vs-pointwise">上一课</a>把成对选作排名仪器。把许多对战收成一个可排序的标量，常用 Elo 或 Bradley-Terry（BT）。主干 Arena 课已写产品形态；本课补评测进阶里的估计含义。缺口是把「榜上差 20 Elo」当成物理单位。后课风格控制默认：Elo 差可以来自长度，而不是来自强度。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>BT 假设 \(P(i\succ j)=\sigma(s_i-s_j)\)，用全体对战的似然估 \(s\)。Elo 是对同一差的在线更新，便于实时榜。二者都把传递性写进模型：若循环对战很多（A 胜 B、B 胜 C、C 胜 A），拟合残差会大，单一分数解释力下降。</p><p>场次不平衡：新模型对战少，置信区间宽。只报点估计会制造假名次。对战不是随机设计时（用户自选模型、提示偏代码），\(s\) 估计的是<strong>该流量下的强度</strong>，不是无条件能力。</p><p><span class="marginnote">把 Elo 与 MMLU 排进同一张「综合实力」表，是单位错误。一个来自成对口味，一个来自选择题。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>离线 BT：构造对战表，极大似然或贝叶斯估计 \(s\)，用 bootstrap 或 Hessian 报区间。在线 Elo：公布 \(K\) 因子与初始分，否则不可复现。<span class="marginnote">K 因子是 Elo 每场对战的「步长」：赢一场加多少、输一场扣多少，都要乘上它。比如 \(K=32\) 时一场爆冷能让分数挪十几分，\(K=8\) 时只挪几分——K 太大榜单上蹿下跳，太小则新模型爬得很慢。公布 K 与初始分，别人才能复现你的榜。</span>过滤：过短对战、明显刷票、同一用户重复，按 Arena 课的纪律。报告应附对战次数矩阵，而不是只附排行。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(s_i-s_j\) 只在 logistic 链接下对应胜率。差 10 与差 100 的胜率含义不同，且依赖是否允许平局、是否有风格协变量。<span class="marginnote">代个数感受分差：Elo 差 100 对应期望胜率约 64%，差 200 约 76%，差 400 约 91%。所以「领先 15 Elo」的两模型其实接近五五开，样本稍一抖名次就能倒过来——把 15 分的差距写成新闻标题看着唬人，统计上什么都没说。</span>不加协变量时，长度与格式被吸进 \(s\)，模型「变强」可能是变长。后课把风格当要控制的变量，而不是当强度。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>BT 不处理多轴偏好（有人要短、有人要长）。混合人群下的单一 \(s\) 是投影。<span class="marginnote">初学者容易以为单一 \(s\) 能概括「谁更好」。实际上偏爱短回答与偏爱长回答的投票者混在一起、被压成一个分数后，\(s\) 高可能只说明模型的长回答风格碰巧占多数票。分数回答的是「谁更讨这批投票者喜欢」，不回答「谁更对」——这两件事在开放任务上经常不是一回事。</span>下一课风格控制把长度等可观测混淆从 \(s\) 里拆出去。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>Elo / BT 是成对胜负的强度估计，必须报场次与区间。</li><li>流量偏与非传递性会破坏单一分数。</li><li>未控风格时，\(s\) 含长度等混淆。</li><li>出处：Bradley &amp; Terry；Elo；Chatbot Arena 实践。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 评测协议与裁判<!--[--> · 单元 裁判与人评<!--]--><!--[--> · 课序 谁来判<!--]--></p><p class="lesson-progress">第 14 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/style-control/">风格控制</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/pairwise-vs-pointwise/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">成对对逐点</span><span class="lesson-card-meta">评测协议与裁判 · 裁判与人评 · 谁来判<!--[--> · 第 13 / 21 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/style-control/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">风格控制</span><span class="lesson-card-meta">评测协议与裁判 · 裁判与人评 · 谁来判<!--[--> · 第 15 / 21 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>并行回测 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_bf-parallel-backtest.md.B13xTucW.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bf-param-sweep-arch/">参数扫描的架构</a></p><p class="lesson-next"> 下一课：<a href="/quant/bf-visual-diagnostics/">可视化的诊断</a></p><!----></nav><div style="position:relative;"><div><h1 id="并行回测" tabindex="-1">并行回测 <a class="header-anchor" href="#并行回测" aria-label="Permalink to &quot;并行回测&quot;">​</a></h1><div class="epigraph"><p>并行只许改变速度，不许改变答案：任何一段历史的净值，不能依赖它与别的段谁先算完。</p><footer>—— 据 Dean and Ghemawat, MapReduce: Simplified Data Processing on Large Clusters, OSDI 2004 对无共享并行与确定性归并的论述；对照回放确定性要求整理</footer></div><p><a href="/quant/bf-param-sweep-arch">上一课</a>把扫描变成任务与结果库；千个配置乘十年历史超出单核，本课写并行回测的三条轴——按配置、按时间段、按资产组——以及每条轴上的确定性与边界条件。第一课的解剖在此约束设计：全序事件流可以分段喂给多个引擎进程，但每段内部的因果不变量一点也不能松。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>天真的并行以三种方式改变答案。共享随机数源让结果依赖工作进程数与调度顺序，上一课的「同一身份重放必得同一结果」被打破；时间段切分不做预热，每段开头在冷状态上交易——仓位为零、指标未热——合并后的净值带着系统性坑洼；按资产切分对横截面策略致命：排序与中性化需要全宇宙同时在场，拆开算的截面排名不是截面排名。第四种更隐蔽：部分失败的工作进程被聚合层当成已完成，报告的分布悄悄缺了一角。</p><h3 id="三条轴与各自的合法性" tabindex="-1">三条轴与各自的合法性 <a class="header-anchor" href="#三条轴与各自的合法性" aria-label="Permalink to &quot;三条轴与各自的合法性&quot;">​</a></h3><p><strong>按配置</strong>最干净：配置之间无共享状态，天然无共享并行；主进程把主种子派生为每配置的独立种子流，工作进程从只读数据存储读数（<a href="/quant/de-tsdb-selection">时序数据库的选型</a>的分区即为此设计），结果按试验身份写回——身份相同覆盖也幂等，重试因此安全。<strong>按时间段</strong>要过两道边界：预热长度取信号最长回看期加 purge/embargo（与<a href="/quant/purge-embargo">Embargo 与 Purge</a> 同一算术），前一段的末状态作为后一段的初始状态显式交接。<strong>按资产组</strong>只在无跨资产约束时合法；横截面排名须两阶段——特征并行算、排名集中做——否则并行的不只是计算，还有答案。</p><div class="mermaid"></div><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>确定性是并行回测的验收标准，写法是：同一身份在 \(1\)、\(8\)、\(32\) 个进程下各跑一遍，结果库逐字节一致（或声明浮点容差并固定归并顺序）。做不到，先查三处：共享随机源、浮点归并顺序、依赖墙钟的日志字段。任务表由主进程下发，工作进程无状态；失败重试因为幂等写而无需协调。聚合层必须核对任务表与结果库的差集，缺一格就整批标记不完整——补齐失败的格子，而不是假装分布完整。</p><p><span class="marginnote">浮点求和的顺序改变最后几位小数；若策略里有「收益大于阈值就调仓」这类判断，最后几位偶尔会翻转决策。并行版本与单机版本对不上时，先对到事件流逐条一致，再谈容差——容差是为测量定的，不是为掩盖顺序差定的。</span></p><p><span class="marginnote">「幂等写」就是同一个结果写两遍，库里仍然只有一条且内容不变。这为什么重要：云上工作进程随时可能被抢占，任务重跑后结果是覆盖而不是追加成两条，聚合层就不必区分「第一次算」与「重试」——重试安全是设计出来的，不是求出来的。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>并行的收益算术决定架构。事件引擎单核一天日内数据常以秒计，二十年乘千配置就是机器年级别——必须分布；而分布式后第一个瓶颈往往不是计算，是数据分发：全量 tick 广播给每个工作进程，网络先饱和。解法是存储端分区加工作进程就近读，让数据移动一次而不是每任务一次。调度器保持愚蠢是 MapReduce 以来的成熟经验：主进程只管派任务、收结果、核对差集，不参与计算语义；这样扩展性的 reasoning 才停留在任务表层面，不污染引擎。</p><div class="mermaid"></div><p><span class="marginnote">给个数量级：一段日内 tick 行情一天可达数十 GB，若每个任务都把全量数据拉一遍，千个配置就是数十 TB 的重复搬运；按日期与合约分区后，每个工作进程只读自己那一段。瓶颈从「算得慢」变成「搬得慢」时，该省的是网络，不是再堆 CPU。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>并行不适用于所有维度：自适应搜索（贝叶斯优化）天然串行，并行的是评估不是搜索；单场所事件全序本身不可并行化——按场所分片到进程可以，场所内部仍须有序，与<a href="/quant/matching-engine-arch">撮合引擎架构</a>对真引擎的约束一致。抢占式云机的中断用段级断点恢复，不靠进程长命。最后，并行放大的是吞吐不是证据：\(N\) 的计数、成本情景、数据版本都沿用上一课的定义，多核不产生新假设。</p><p><span class="marginnote">初学者容易把「跑得快」当成「更有说服力」——一千个回测并行跑完，证据并没有比一个多。每个格子用的仍是同一份数据、同一套成本假设；如果数据有泄漏，三十二个核只是更快地算出同一个错误答案。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三条轴：按配置（无共享、种子派生）、按时间段（预热加状态交接）、按资产组（横截面须集中排名）。</li><li>确定性验收：不同进程数重放同一身份，结果逐条一致；先查随机源与归并序。</li><li>段边界算术与 purge-embargo 一致；冷状态坑洼是切段并行的头号伪造。</li><li>调度器保持愚蠢，幂等写使重试安全；聚合层核对差集，缺格不报完整。</li><li>出处：Dean and Ghemawat, <em>OSDI</em>, 2004；站内<a href="/quant/bf-param-sweep-arch">参数扫描的架构</a>、<a href="/quant/purge-embargo">Embargo 与 Purge</a>、<a href="/quant/matching-engine-arch">撮合引擎架构</a>各课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 回测框架设计<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 6 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/bf-visual-diagnostics/">可视化的诊断</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/bf-param-sweep-arch/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">参数扫描的架构</span><span class="lesson-card-meta">回测框架设计 · 工程<!--[--> · 第 5 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/bf-visual-diagnostics/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">可视化的诊断</span><span class="lesson-card-meta">回测框架设计 · 工程<!--[--> · 第 7 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

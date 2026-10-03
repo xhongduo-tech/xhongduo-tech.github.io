@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MDP 五元组与轨迹分布 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_mdp-five-tuple.md.BYFhhmFG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 MDP 与动态规划<!--]--><!--[--> · 课序 从回报到方程<!--]--></p><p class="lesson-progress">第 1 / 22 课</p><p class="lesson-prereq"> 先修：<a href="/llm/prm-in-rl-loop/">过程奖励进训练环</a></p><p class="lesson-next"> 下一课：<a href="/llm/return-discounting/">回报、折扣与价值函数</a></p><!----></nav><div style="position:relative;"><div><h1 id="mdp-五元组与轨迹分布" tabindex="-1">MDP 五元组与轨迹分布 <a class="header-anchor" href="#mdp-五元组与轨迹分布" aria-label="Permalink to &quot;MDP 五元组与轨迹分布&quot;">​</a></h1><div class="epigraph"><p>把试错学习变成可计算的问题，只需要五个符号：状态、动作、转移、奖励、折扣；其余一切——价值、方程、算法——都从这五个符号里长出来。</p><footer>—— 据 Sutton &amp; Barto, Reinforcement Learning: An Introduction, 2018, 第 3 章；Puterman, Markov Decision Processes, 1994 整理</footer></div><p><a href="/llm/prm-in-rl-loop">上一课</a>把过程奖励写进训练环，给 <a href="/llm/rlvr">推理 RL 闭环</a>的稀疏 0/1 补上逐步信用：差分塑造奖提升、验证器默认冻结、进环后测试时缩放曲线作废。但它留下一层缺口：整个闭环里「策略」「轨迹」「奖励」仍是口头词——轨迹的概率怎么写、奖励在哪个时刻进入、优化的目标到底是哪个期望，都没有形式化。本课是「强化学习基础」的第一课，从零钉下五元组 \((S,A,P,r,\gamma)\) 与轨迹分布；本课程后续各课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>上一课的闭环能跑，但没法分析。为什么长链上信用难分？因为一条采样出的轨迹是许多随机性的乘积：初始状态、每一步的动作、每一步的状态跳变。不把这些随机性写清楚，「优势」「回报」「最优策略」都只是比喻。需要一个框架，把序贯决策问题写成概率对象，让期望可以逐项展开。</p><p>马尔可夫决策过程就是那个框架。它的全部假设是一句话：<strong>存在一个状态，使得给定了它，未来不再依赖更早的历史</strong>。状态是决策所需信息的充分统计量。</p><h3 id="五元组逐项落位" tabindex="-1">五元组逐项落位 <a class="header-anchor" href="#五元组逐项落位" aria-label="Permalink to &quot;五元组逐项落位&quot;">​</a></h3><ul><li>\(S\)：状态集；\(A\)：动作集。有限或可数先够用，本课程前半程都在这个设定里。</li><li>转移核 \(P(s&#39;\mid s,a)\)：在状态 \(s\) 执行 \(a\) 后跳到 \(s&#39;\) 的概率。这是「环境」的全部内容。</li><li>奖励 \(r(s,a)\)（或 \(r(s,a,s&#39;)\)）：每步由环境给出的标量。</li><li>折扣 \(\gamma\in[0,1)\)：下一课才给它自己的三种读法，本课只要求它存在。</li><li>策略 \(\pi(a\mid s)\)：智能体的一半，从状态到动作分布的映射。</li></ul><p><span class="marginnote">\(\gamma\) 通俗地回答「未来的奖励今天值多少」：\(\gamma=0.9\) 时，10 步之后的奖励折算到现在只剩 \(0.9^{10}\approx0.35\) 倍；\(\gamma=0.99\) 时还剩约 \(0.90\) 倍。\(\gamma\) 越小，智能体越「近视」，越长的后果越被忽略。</span></p><p><strong>马尔可夫性的真正含义</strong>不是「未来与过去无关」，而是「条件在现在之后，未来与过去独立」：\(P(s_{t+1}\mid s_t,a_t)=P(s_{t+1}\mid s_t,a_t,\text{任意更早历史})\)。把历史压缩进状态是建模负担，不是免费假设：状态漏掉相关信息（如 agent 场景里漏掉工具返回），马尔可夫性就被破坏，本课程的方法跟着失效。</p><p><span class="marginnote">可以把它想象成打牌时的「桌面快照」：只要快照记下所有需要的信息，下一步决策就不用回看每一轮历史。马尔可夫性要求的正是这样一张完整快照——状态漏掉一条关键信息（比如 agent 忘了工具的返回值），同样的快照也会通向不同的未来，性质随之失效。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>有了五元组，一条轨迹 \(\tau=(s_0,a_0,r_0,s_1,a_1,r_1,\dots)\) 的概率可以连乘写出：</p> \[p^\pi(\tau)=\rho_0(s_0)\prod_{t}\pi(a_t\mid s_t)\,P(s_{t+1}\mid s_t,a_t) \]<p>其中 \(\rho_0\) 是初始状态分布。乘积里两类因子泾渭分明：\(\pi\) 的因子属于智能体，\(P\) 与 \(\rho_0\) 的因子属于环境。策略换掉时，环境那一半纹丝不动。</p><p><span class="marginnote">连乘里每个因子都不超过 1，所以轨迹越长概率越小：若每一步被策略与环境「保住」的概率约 \(0.9\)，走 20 步的整条轨迹概率只剩 \(0.9^{20}\approx0.12\)。这正是长链上信用难分的算术根源。</span></p><div class="mermaid"></div><p>整门课的优化目标由此定义：\(J(\pi)=\mathbb{E}_{\tau\sim p^\pi}[G_0]\)，回报 \(G_0\) 的定义是下一课的事。本课先钉住轨迹分布本身，因为后面一切——贝尔曼方程、策略梯度、重要性采样——都是对这个连乘做不同角度的变形。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p><strong>为什么连乘里策略只通过动作分布进入</strong>这件事重要：它把「学策略」与「知环境」拆开。对 \(\pi\) 求导时，\(P\) 的因子是常数，梯度只落在 \(\sum_t\log\pi(a_t\mid s_t)\) 上——这正是后面策略梯度定理的出发点。同样地，离策略评估里用行为策略 \(\mu\) 的数据评估目标策略 \(\pi\)，要修正的比率只有动作项 \(\prod_t\pi/\mu\)，转移核比值恒为 \(1\)。</p><p><span class="marginnote">把 \(P(s&#39;\mid s,a)\) 写进重要性比率是常见错误：环境 dynamics 不随策略改变，比率里只允许动作项。验证方法是问一句「换策略会改变这一项吗」。</span></p><p>把一步交互拆开看，两个「主人」各自负责什么、轨迹如何一段段长出来：</p><div class="mermaid"></div><p>第二，马尔可夫性解释了语言生成有多幸运：自回归的条件分布天然只看已生成前缀，把「prompt + 前缀」当状态，马尔可夫性免费成立。但奖励是否在环内、是否稠密（上一课的主题）不改变马尔可夫性——奖励是观测，不进转移核。稀疏奖励让<strong>学习</strong>变难，不使<strong>问题</strong>变难。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不讲部分可观测（POMDP）：状态不可全观测时要维护信念状态，那会吞掉马尔可夫性。不讲连续状态的测度细节：\(P\) 换成核密度，记号照搬。也不回答「\(r\) 谁定、\(\gamma\) 取几」：奖励设计是后训练各课的主题，\(\gamma\) 下一课展开。轨迹分布是对连乘的整体描述，怎么不对指数长的连乘求和就能算期望——这是贝尔曼方程要补的缺口。</p><p>后课默认：说到「策略」就是 \(\pi(a\mid s)\)，说到「轨迹分布」就是上面的连乘，说到「环境」就是 \(P\) 与 \(r\)。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>MDP 五元组 \((S,A,P,r,\gamma)\)：状态、动作、转移、奖励、折扣，序贯决策的全部假设。</li><li>马尔可夫性是「条件在现在之后未来与过去独立」，状态压缩历史是建模负担。</li><li>轨迹概率 \(p^\pi(\tau)=\rho_0\prod_t\pi\cdot P\)：策略只经动作分布进入，环境因子与策略无关。</li><li>这个分离是策略梯度与离策略修正的共同根源；比率里写进 \(P\) 必错。</li><li>稀疏奖励是学习困难，不是马尔可夫性破坏。</li><li>出处：Sutton &amp; Barto, <em>Reinforcement Learning</em>, 2018 第 3 章；Puterman, <em>Markov Decision Processes</em>, 1994。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 强化学习基础<!--[--> · 单元 MDP 与动态规划<!--]--><!--[--> · 课序 从回报到方程<!--]--></p><p class="lesson-progress">第 1 / 22 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/return-discounting/">回报、折扣与价值函数</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/prm-in-rl-loop/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">过程奖励进训练环</span><span class="lesson-card-meta">强化学习 · 推理模型训练 · 长推理与可验证奖励<!--[--> · 第 20 / 20 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/return-discounting/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">回报、折扣与价值函数</span><span class="lesson-card-meta">强化学习基础 · MDP 与动态规划 · 从回报到方程<!--[--> · 第 2 / 22 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

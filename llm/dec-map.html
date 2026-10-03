@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>解码控制收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dec-map.md.CF5FtdlD.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 11 / 11 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dec-cost-quality-curve/">成本-质量曲线</a></p><p class="lesson-next"> 下一课：<a href="/llm/lc-memory-account/">长上下文的显存账</a></p><!----></nav><div style="position:relative;"><div><h1 id="解码控制收束" tabindex="-1">解码控制收束 <a class="header-anchor" href="#解码控制收束" aria-label="Permalink to &quot;解码控制收束&quot;">​</a></h1><div class="epigraph"><p>收束不是把十课再讲一遍，而是回答：明天上线解码控制，先钉什么、后上什么、什么永远不碰。</p><footer>—— 据 Willard &amp; Louf, arXiv:2307.09702、XGrammar, arXiv:2411.15100、Cobbe et al., 2021 与 Snell et al., 2024 按本课程整理</footer></div><p><a href="/llm/dec-cost-quality-curve">上一课</a>把全部旋钮收进成本-质量曲线。至此零件齐了：受控生成的四层地图、结构层的编译与缓存、多约束的组合、服务侧的栈、停止语义、流式事件、后处理管线与 \(N\) 的交付形态。本课把它们装配成一张地图与一张决策单。上游是采样与掩码的机制课，下游是成本曲线给的分。<strong>本课程到此收束。</strong></p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>解码控制的决策散在九课里：协议（finish_reason 全集、流式帧、回填规则）、结构（编译优化、缓存键、组合回退）、栈（次序契约、状态归属）、质量旋钮（BoN 形态、分桶）、验收（曲线、口径）。各课局部最优会互相拆台：协议没钉就上流式 UI，截断回填的 OOD 会记到模型头上；缓存键缺分词器指纹，命中率越高越危险；曲线没画就上 \(N=16\)，钱花在饱和区。上线要的是顺序，不是并行的清单。</p><p><span class="marginnote">直觉类比：把上线解码控制想成装修房子。钉协议是打水电地基（看不见但全屋踩在上面）；便宜旋钮是换灯刷墙（花钱少见效快）；结构层与多约束是定制柜体（要先量好尺寸再动工）；上 \(N\) 是买高端家电（房子没收拾好就买，体验提升有限）。装修的坑几乎都是顺序错了，不是零件买错了。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>决策单</strong>，按「先钉协议、再上便宜旋钮、后建结构层、全程带账」排序：</p><ol><li><strong>钉协议</strong>：finish_reason 全集、流式帧（append / replace_tail / event）、一致性三角的回填规则。看不见的地基，其余各课都踩在上面。</li><li><strong>便宜旋钮先行</strong>：采样参数按桶调好，stop 列表与 eos 集合对齐模板，必要的 bias 上线——成本近零，先把分布拧到该有的形状。</li><li><strong>结构层覆盖工具流量</strong>：schema 收敛后编译，产物按「哈希 × 分词器 × 版本」缓存；确定边直接省步。</li><li><strong>多约束按契约组合</strong>：硬约束求交、空集回退写死优先级、每条约束记生效点。</li><li><strong>高价值流量上 \(N\)</strong>：按桶级 \(p\) 选并发、瀑布或 leader-follow，打分器 SLO 单独钉。</li><li><strong>曲线验收</strong>：每个旋钮上线前后同口径重测，报边际与版本戳。</li></ol><p>永不碰的四件事：无回退策略的空支撑集；把截断当正常结束回填历史；拿打分器分数当交付质量报警；后处理静默改写进历史的文本。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>地图的骨架是三条不变量。<strong>不变量一</strong>：掩码改支撑集、不改权重——控制的一切语义都从这句出发，掩码过紧的质量悬崖、空集回退的必要性、约束不修复幻觉，都是它的推论。<strong>不变量二</strong>：每一步 logits 与每一次终止都有唯一责任人——栈的次序契约、会话状态机的 finish 分支、管线的一致性三角，都是「唯一责任人」在不同层面的化身；责任模糊的地方，就是事故查不出原因的地方。<strong>不变量三</strong>：任何质量声明都带着成本与口径——曲线不变量，它让本课程的旋钮与未来的旋钮（新的引导方法、新的验证器）在同一个坐标系里比较。引擎、分词器、schema 工具都会换代，三条不变量定了，决策单的顺序不动。</p><p><span class="marginnote">一张自检表：如果只做三件事——先把 finish_reason 与流式帧钉进协议，再给工具调用流量上带缓存的文法掩码，然后在主力流量画一条带版本戳的成本-质量曲线。多数服务在第三步之前就拿走了大半收益，后面的每一步都要求先证明前面拿不出来了。</span></p><p>六步决策单不是平行的菜单，每一步都依赖前一步交付的东西；顺序错了，后面一步的验收就没有锚点：</p><div class="mermaid"></div><p><span class="marginnote">为什么重要：「掩码改支撑集、不改权重」这条不变量如果做反了——比如为了绕开空集偷偷改采样权重——输出看起来还是合法的，但模型的概率分布被换掉了，之后所有质量回退、A/B 对比与评测数字全部失真，而且很难查出来。控制层的每条红线，本质都是在保护「我们还在同一个模型上说话」这个前提。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>这张地图有时效：约束引擎在加代，验证器与测试时计算的最优配比随模型换代移动，流式协议在标准化。边界之外由相邻课程接棒：批里的成员边界与优先级归服务调度，前缀与 KV 的峰值归 KV 管理，上下文拉长之后的显存与调度是下一课程的题目。解码控制交付的始终是同一件事：把「模型应该说什么」之外的全部要求——结构、词法、属性、交付与账单——从希望变成可以验收的机制，并让每一分质量都能在正确的口径下被数出来。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>决策单六步：钉协议 → 便宜旋钮 → 结构层 → 组合契约 → BoN 分桶 → 曲线验收。</li><li>三条不变量：掩码只改支撑集、每步有唯一责任人、质量声明带成本与口径；参数换代，顺序不动。</li><li>永不碰：无回退的空支撑集、截断回填历史、打分器分数当交付质量、后处理静默改历史。</li><li>协议（finish_reason、帧、回填）是本课程各课共踩的地基，永远排第一。</li><li>便宜旋钮先于结构层，结构层先于 \(N\)；每一步用曲线证明前面的拿不出来了。</li><li>出处：Willard &amp; Louf, arXiv:2307.09702；Dong et al., XGrammar, arXiv:2411.15100；Cobbe et al., 2021；Snell et al., 2024；按本课程十一课整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 解码控制与服务化<!--[--> · 单元 服务侧<!--]--><!----></p><p class="lesson-progress">第 11 / 11 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/lc-memory-account/">长上下文的显存账</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dec-cost-quality-curve/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">成本-质量曲线</span><span class="lesson-card-meta">解码控制与服务化 · 服务侧<!--[--> · 第 10 / 11 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/lc-memory-account/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">长上下文的显存账</span><span class="lesson-card-meta">长上下文系统工程 · 显存与调度<!--[--> · 第 1 / 11 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

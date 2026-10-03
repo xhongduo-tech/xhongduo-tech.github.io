@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>切分策略的深入比较 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rag-chunking-deep.md.CvLnVzFZ.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 检索工程<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/agent-map/">Agent 工程收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/rag-embedding-selection/">嵌入的选型与微调</a></p><!----></nav><div style="position:relative;"><div><h1 id="切分策略的深入比较" tabindex="-1">切分策略的深入比较 <a class="header-anchor" href="#切分策略的深入比较" aria-label="Permalink to &quot;切分策略的深入比较&quot;">​</a></h1><div class="epigraph"><p>切分不是预处理杂务：它同时定义检索单元、引用粒度与阅读器上下文的形状，三个需求互相冲突，策略比较就是给冲突定价。</p><footer>—— 据 Karpukhin 等 DPR 的段落粒度、Chen 等 Dense X Retrieval 的粒度研究与检索工程实践整理</footer></div><p><a href="/llm/agent-map">上一课</a>把 Agent 工程收在三条线上：架构线分配「下一步」的决定权，质量线给失败与成本定价，生产线守住发布——一次补全被变成可审计、可恢复、可预算的劳动过程。劳动要有知识供给，供给的管线就是检索栈。主干已有<a href="/llm/rag-chunking">向量检索与切分</a>：流水线、递归切分、重叠与父子块的第一性都在那里立好。本课程「RAG 系统深入」从检索工程开始，第一件事是把切分从「选一个 chunk_size」升级为受控比较：各策略是什么，各在哪类语料上赢，凭什么说赢。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>主干课给了默认做法：递归切分加一成到两成重叠，重要文档配父子块。语料一换，默认就失灵：表格有列约束，代码有函数边界，法律条款有编号层级，聊天记录有轮次结构。而比较本身有陷阱：换切分等于换索引对象，召回@k 的数字不可直接横比——块数不同、\(k\) 的语义不同、金标「答案落在哪个块」也随切分重写。没有比较协议，任何「我的切分更好」都是自说自话。缺口不是再多几种策略，而是把变量钉住的比较协议。</p><p><span class="marginnote">术语翻译：召回@k 就是「把与问题最像的 k 个块捞回来时，装着答案的那块在不在里面」。k=5、命中记 1，不中记 0；一堆问题取平均就是召回率。它衡量的是检索器，与生成模型无关——答案块没被捞回来，后面的模型再强也只能编。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先定金标再谈策略。对每个评测问题，标注「包含充分证据的最小文本跨度」；一种切分合格，当且仅当某个块<strong>完整覆盖</strong>该跨度。在此之上比较四族策略：</p><ul><li><strong>固定窗口加重叠</strong>：与嵌入模型无关、实现最便宜，是一切比较的基线。</li><li><strong>结构感知切分</strong>：按标题、段落、句子层级回退，Markdown、AST、版面解析保留列表编号与表头等检索线索。</li><li><strong>语义断点</strong>：相邻句嵌入相似度低于阈值处断开；阈值与粒度互相定义，对页眉脚注等版面噪声敏感。</li><li><strong>命题切分与晚切分</strong>：前者用模型把文档改写成自足命题（Dense X 路线）；后者先用长上下文编码器读全篇再切块，块向量携带全篇语境。</li></ul><p>协议是：同一嵌入模型、同一验证查询集、金标跨度固定；报两列——「跨度完整覆盖召回率」与「索引条数」；父子块按「子块召回、父块支撑」分别计。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>粒度是本质权衡，不是参数问题。检索器要「与查询同主题的小对象」：短、判别力强；阅读器要「足以支撑答案的大对象」：长、约束完整。切小到命题级，内积分辨最细，但索引条数涨一个量级，且命题改写可能抹掉「仅限 2023 年之后」这类限定词；切大到节级，向量平均化，查询会命中间概述而非故障排除小节。父子块与晚切分是在谱系上两头各取：前者把粒度拆成召回与阅读两个视图，后者把全篇语境压进每个块向量，缓解指代断裂。语义断点假设「相邻相似度骤降即话题边界」，在高密度主题区切成碎片，在套话区黏成一坨——它对嵌入质量的依赖比任何固定规则都深。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：切分粒度像图书馆的索引方式——卡片越细（每段一张卡）越容易精准找到「讲这个故障的那一段」，但写综述时你要自己去拼十几张卡；整本书算一张卡（章节级）找起来一找一大片，却常常不是你真要的那页。父子块就是「用小卡找、拿整书读」。</span></p><p><span class="marginnote">命题级金标不必全靠人工：把问答对的答案文本对齐回文档，即可自动构建大半支撑跨度，人工只补对齐失败的案例。没有跨度级金标的切分评测，只是在比较块长分布。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>切分修不了烂抽取：版面丢失的 PDF 先修解析再谈策略。命题改写引入模型错误，要抽检限定词是否保留；晚切分依赖长上下文嵌入骨干，短窗口模型硬做会截断前缀。换切分即换块 ID：引用、缓存、权限过滤、增量更新全部受牵连，必须当一次数据迁移而不是配置微调；块 ID 解析不到原文，归因就断，见<a href="/llm/citation-attribution">引用与归因</a>。比较协议钉下来之后，嵌入模型怎么选、什么时候值得微调，是下一课的缺口。</p><p><span class="marginnote">常见误区：初学者容易以为改 chunk_size 只是改个配置重跑一遍。实际上每个块 ID 都变了——线上缓存的旧块失效、按块挂的权限过滤对不上号、引用跳转指到不存在的块。正确姿势是当一次数据迁移：新旧索引并行、验证后再切换。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>切分同时定义检索单元、引用粒度与上下文形状；比较必须钉住金标跨度。</li><li>四族策略各有胜场：固定窗口做基线，结构感知保线索，语义断点押注嵌入质量，命题与晚切分买细粒度或语境。</li><li>报「覆盖召回率 + 索引条数」两列，父子块分开计。</li><li>粒度权衡的本质：检索要小对象，阅读要大对象；父子与晚切分两头各取。</li><li>换切分即数据迁移，块 ID 牵动引用与权限。</li><li>出处：Karpukhin 等 DPR；Chen 等 Dense X Retrieval；据主干切分课与工程实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RAG 系统深入<!--[--> · 单元 检索工程<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rag-embedding-selection/">嵌入的选型与微调</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/agent-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Agent 工程收束</span><span class="lesson-card-meta">Agent 工程深入 · 质量与生产<!--[--> · 第 13 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rag-embedding-selection/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">嵌入的选型与微调</span><span class="lesson-card-meta">RAG 系统深入 · 检索工程<!--[--> · 第 2 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

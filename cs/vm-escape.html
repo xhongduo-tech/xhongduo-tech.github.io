@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚拟机逃逸 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_vm-escape.md.DNuSCFbF.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 系统、硬件与隐私<!--]--><!--[--> · 课序 系统与硬件<!--]--></p><p class="lesson-progress">第 117 / 133 课</p><p class="lesson-prereq"> 先修：<a href="/cs/flush-reload/">Flush+Reload</a></p><p class="lesson-next"> 下一课：<a href="/cs/container-escape/">容器逃逸</a></p><!----></nav><div style="position:relative;"><div><h1 id="虚拟机逃逸" tabindex="-1">虚拟机逃逸 <a class="header-anchor" href="#虚拟机逃逸" aria-label="Permalink to &quot;虚拟机逃逸&quot;">​</a></h1><div class="epigraph"><p>虚拟机把客当做不可信，但设备模拟、共享内存与管理接口是 TCB。逃逸指客中代码到达宿主机。防御是缩小模拟面、设备 IOMMU、及时补丁，而不是假设「有虚拟化即隔离」。</p><footer>—— 据 Barham et al., Xen, SOSP 2003 的隔离目标；对照 Anderson；CVE 史仅作动机点名</footer></div><p>上一课<a href="/cs/flush-reload">Flush+Reload</a>还是共驻下的机密性泄漏；缺口是<strong>完整性边界</strong>：客中代码能否到达宿主机。本课讲虚拟化的 TCB 面，不给逃逸 PoC。</p><p>后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>现代虚拟化把 CPU 与内存的拦截交给硬件，但设备仍靠宿侧的模拟代码：QEMU 的设备模型、virtio 后端、管理 API 都在特权侧解析客机发来的数据——模拟代码里的洞就是宿里的洞。缺口是三件收缩：最小设备模型（不给客机用不到的设备）、快照加及时补丁（逃逸漏洞的暴露窗口以天计）、生产上关闭嵌套虚拟化等非必要特性。</p><p><span class="marginnote">直觉类比：设备模型像替客人收发包裹的前台——客人递来什么单子它都得拆开看（解析不可信数据），前台自己的漏洞就是整栋楼（宿主）的漏洞；把客人用不到的前台撤掉（最小设备集），是最便宜也最有效的一笔安全支出。</span></p><div class="mermaid"></div><h3 id="机密计算" tabindex="-1">机密计算 <a class="header-anchor" href="#机密计算" aria-label="Permalink to &quot;机密计算&quot;">​</a></h3><p>机密计算（TEE 型虚机）防的是运营商窥视内存；它不自动防一个客机逃逸去打另一个客机——那要另配宿内网络与工作负载策略，别把两个威胁混为一谈。</p><p><span class="marginnote">Xen/KVM 文献。禁止逃逸教程。容器下一课是更薄的边界。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法是把 IaaS 威胁模型写清楚：谁是对手（同宿租户、被攻陷的客机、云内部人员）、信任谁（hypervisor 加设备模拟）、每类洞由谁修。补丁窗口要量化：高危逃逸 CVE 从披露到全舰队打齐的天数就是风险敞口。下一课容器逃逸。</p><p><span class="marginnote">数字实例：高危逃逸漏洞从披露到全舰队打齐补丁若需 7 天，这 7 天就是明码标价的风险敞口——把「窗口以天计」写进威胁模型，意味着多租户平台这期间的调度与隔离决策都得自己顶住，不能指望别人先修好。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制一句话：隔离强度等于 TCB 的正确性。hypervisor 的代码量比通用内核小一个量级、攻击面小，但设备模拟把它重新拉大——削减模拟面因此直接兑换安全。容器共用宿内核，syscall 界面巨大，边界比虚机再薄一层，下一课展开。</p><p><span class="marginnote">常见误区：「有虚拟化就等于隔离了」。虚拟化只是把拦截交给硬件，隔离成立与否取决于设备模拟与管理接口这些特权侧代码有没有洞；IOMMU 挡得住设备 DMA 越界，但直通网卡自己的固件有洞照样穿透——机制要逐层验，不能按标签信。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>零 PoC；边界要点名：硬件辅助只收缩通道不证明正确性——IOMMU 挡住设备 DMA 越界，但直通网卡自身固件有洞照样穿透。容器逃逸下一课。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>侧信道漏 C；逃逸破隔离完整。</li><li>设备模拟是高危 TCB。</li><li>虚拟化不是自动证明。</li><li>下一课容器逃逸。</li><li>出处：Barham et al., Xen, 2003；Anderson。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 系统、硬件与隐私<!--]--><!--[--> · 课序 系统与硬件<!--]--></p><p class="lesson-progress">第 117 / 133 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/container-escape/">容器逃逸</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/flush-reload/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Flush+Reload</span><span class="lesson-card-meta">密码、利用与系统防御 · 系统、硬件与隐私 · 系统与硬件<!--[--> · 第 116 / 133 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/container-escape/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">容器逃逸</span><span class="lesson-card-meta">密码、利用与系统防御 · 系统、硬件与隐私 · 系统与硬件<!--[--> · 第 118 / 133 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

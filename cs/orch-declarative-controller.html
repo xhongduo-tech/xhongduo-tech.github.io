@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>声明式 API 与控制循环 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_orch-declarative-controller.md.sayC3AcS.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/cs/orch-scheduler-arch/">调度器的架构</a></p><p class="lesson-next"> 下一课：<a href="/cs/orch-service-discovery/">服务发现</a></p><!----></nav><div style="position:relative;"><div><h1 id="声明式-api-与控制循环" tabindex="-1">声明式 API 与控制循环 <a class="header-anchor" href="#声明式-api-与控制循环" aria-label="Permalink to &quot;声明式 API 与控制循环&quot;">​</a></h1><div class="epigraph"><p>声明式的重点不在把命令写成 YAML，而在把「达成目标」的责任，从一次成功的调用改成无数次失败的调用也拦不住的循环。</p><footer>—— 据 Burns et al., Borg, Omega, and Kubernetes, CACM 2016 与 Kubernetes API 约定整理</footer></div><p><a href="/cs/orch-scheduler-arch">上一课</a>把落点决定拆成队列、过滤、打分、绑定；调度器只是控制面里众多自动化角色中的一个——端点、发布、配对各有自己的「机器人」。缺口在它们共同的写法：为什么这些机器人崩了重启、事件丢了，世界仍会走向目标。主干课 <a href="/cs/borg-kubernetes">Borg 与 Kubernetes</a> 钉过「强一致存储加最终一致调和」的形状，本课拆调和循环本身：spec 与 status 的分工、水平触发的收敛、以及并发怎么变成版本比较。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>命令式把「达到终态」押在一次调用的成功上：进程崩在半路，状态就停在半路，没人负责补完。改成事件驱动也不够：边沿触发只对「刚才发生了什么」反应，事件丢失、重复、乱序都会造成永久失同步。缺口是把责任换成<strong>水平触发</strong>：每次循环都问「现在与目标差多少」，而不是「刚才发生了什么」。这样答案与历史无关，重复执行与隔一段补执行都安全——这是编排敢把几千个自动化角色放进同一个控制面的前提。</p><p><span class="marginnote">直觉类比：水平触发像「看表对时」——每次都看现在几点，而不是数「钟刚敲了几下」。漏听一声钟没关系，看一眼表就知道接下来该做什么；数增量的人漏一声，时间就永远错下去。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对象分两半：spec 是用户写的意图，status 是控制器写的观测；用户永远不直接改 status。控制器侧的组装是固定的：watch 从 resourceVersion 续读变更推给 informer 缓存；关心的对象进入带去重的工作队列；reconcile 每次做三件事——读当前状态（从缓存）、算与 spec 的差、写动作（建、删、改 status）。所有者引用把对象串成树，级联删除只是垃圾收集控制器的一次 reconcile。CRD 把这套模式开放给任意应用：所谓 operator，就是为某个应用手写的控制器，把「运维手册」编译进循环。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：operator 就是「为某个应用手写的控制器」——把原来贴在 wiki 上的运维手册（磁盘满了要扩容、主库挂了要提升备库）编译进 reconcile 循环，让手册自己 7×24 值班。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>水平触发为什么强：reconcile 的输入是全量当前态，事件丢失、重复、乱序、控制器重启，全部退化成「多算或晚算一次差」，不改变收敛方向；边沿触发丢一个增量就是永久错账。控制器之间的并发不靠锁，靠 resourceVersion 乐观并发：写回时版本不符即失败重试——两个控制器抢一个对象变成一次比较并交换的竞争。不这么做会错在哪：用互斥锁把循环串起来，锁的持有者一崩，全控制面跟着停；比较并交换只损失一次写。</p><p>两种触发方式对扰动的耐受差在哪：</p><div class="mermaid"></div><p>收敛不是静止：节点宕机、磁盘坏掉，外界持续把世界推离 spec，循环持续拉回——「终态」是动态平衡，不是一次到位的静止。Burns 等人把 Borg 到 Kubernetes 的迁移论证成一件事：重试、补偿、幂等这些分布式老问题，被压成「写一个水平触发的循环」这一种模式后，工程师犯错的表面积骤减。代价也要认清：循环有排队延迟，「apply 成功」与「世界到位」之间没有时间上界。</p><p><span class="marginnote">reconcile 只能读缓存、必须幂等：在循环里凭空调外部 API 而不先读对象，队列的重复投递就放大成重复创建；用对象名当幂等键是底线。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>调和不是两阶段提交（主干课已钉），也没有跨对象事务：一个 reconcile 只对一个对象的收敛负责，跨对象的一致性要靠多个循环加约定。判断进度要看 status 而不是命令返回值——返回成功只说明对象被接受。本课不写 informer 的实现与存储的压缩细节；调度器只是这个模式的一个实例，下一课看另一个：服务发现。</p><p><span class="marginnote">常见误区：初学者把「apply 返回成功」当成「部署完成」。返回 200 只说明 etcd 收下了你的意图；镜像拉取、滚动替换可能还在半路，失败也不会报在命令行上——进度要另看 status 与事件，命令返回值只是「挂号成功」。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>spec 与 status 分工：用户写意图，控制器写观测，谁也不越界。</li><li>水平触发的 reconcile 读全量当前态，事件丢失与控制器重启都只是晚算一次。</li><li>并发竞争用 resourceVersion 乐观并发解决，不需要锁服务。</li><li>终态是动态平衡：外界持续扰动，循环持续拉回，没有「完成」的静止点。</li><li>出处：Burns et al., Borg, Omega, and Kubernetes, CACM 2016；Kubernetes 官方 API 约定文档。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 容器编排<!--[--> · 单元 机制<!--]--><!----></p><p class="lesson-progress">第 2 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/orch-service-discovery/">服务发现</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/orch-scheduler-arch/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">调度器的架构</span><span class="lesson-card-meta">容器编排 · 机制<!--[--> · 第 1 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/orch-service-discovery/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">服务发现</span><span class="lesson-card-meta">容器编排 · 机制<!--[--> · 第 3 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>协议栈的调试工具 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_npk-debugging-tools.md.C0WzS2Fl.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 网络协议栈实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/npk-socket-layer/">套接字层的实现</a></p><p class="lesson-next"> 下一课：<a href="/cs/npk-map/">协议栈实践收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="协议栈的调试工具" tabindex="-1">协议栈的调试工具 <a class="header-anchor" href="#协议栈的调试工具" aria-label="Permalink to &quot;协议栈的调试工具&quot;">​</a></h1><div class="epigraph"><p>排障的纪律是先问「丢在哪一层」，再问「为什么丢」；工具不是按名字挑的，是按你要看的那节管道挑的。</p><footer>—— 据 Linux ss/nstat/ethtool 手册；内核 per-cpu 计数器与 sock_diag 文档整理</footer></div><p><a href="/cs/npk-socket-layer">上一课</a>把 fd 与 sock 的映射钉死，也留了一句伏笔：<code>ss</code> 这类工具靠 <code>AF_NETLINK</code> 直接读内核的 sock 对象。前三课还埋了更重要的东西——一整条路径上<strong>每层的计数器</strong>：网卡的环、软中断的预算、backlog、socket 队列、TCP 子状态。<a href="/cs/packet-capture">抓包与 Wireshark</a> 教过线上的对证，<a href="/cs/osk-kernel-debugging">内核调试的方法</a>教过 ftrace 与 kprobe 的分工。本课把工具按「症状在哪层」重排：从吞吐异常或连接卡死出发，走到具体哪一节管道出了问题。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>协议栈排障的缺口不是缺工具，而是计数器太多、彼此独立，按名字扫一遍什么也读不出来。必须先有一个从症状到层的判定序。不这么做会错在哪：只看 <code>ifconfig</code> 的总错包数——收包环、协议栈、应用层不读的丢包都混在 error 计数里，读不出丢在哪层；一上来就 <code>tcpdump</code> 抓全量——生产机上 CPU 与磁盘先饱和，且抓到的只是协议叙事，回答不了「包根本没到」；对 <code>netstat -s</code> 的绝对值惊慌——这些计数器从开机累加，不看增量与对照等于没看。</p><p><span class="marginnote">常见误区：看到 <code>netstat -s</code> 里「X 万个包被丢弃」就断定正在丢包。这些计数器从开机一路累加——一台跑了半年的机器，历史累计可能早就数以万计，而此刻的丢弃速率是零。正确读法是隔几秒取两次快照做差：差值为正且与症状同步增长，才算证据。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按层走一遍判定序。第一层，包到没到网卡：<code>ethtool -S</code> 看驱动的 <code>rx_missed_errors</code>、<code>rx_no_buffer</code>——环或缓冲耗尽，包死在 DMA 之后、内核之前。第二层，进没进协议栈：<code>/proc/net/softnet_stat</code> 每行头三列是已处理数、软中断内丢弃数、<code>time_squeeze</code>（预算用尽次数，十六进制）；第四列起是 backlog 溢出与 CPU 忙不过来的挤兑记录。第三层，TCP 在哪丢：<code>nstat</code> 读 TcpExt——<code>ListenOverflows</code>/<code>ListenDrops</code> 对应 <a href="/cs/npk-tcp-state-machine">accept 队列满</a>，<code>TCPBacklogDrop</code> 对应 <a href="/cs/npk-rx-path">软中断与进程上下文的交接</a>，<code>PruneCalled</code> 是 socket 内存会计在修剪队列。第四层，看单个连接：<code>ss -tinp</code> 经 sock_diag 直接读内核 sock——state、cwnd、rtt、重传数，把<a href="/cs/npk-congestion-implementation">拥塞子状态机</a>的变量按连接打印出来。最后才抓包，且只抓四元组过滤后的流量，按<a href="/cs/packet-capture">捕获点纪律</a>注意 GRO 与卸载对边界的变形。静态计数器答不了的时序问题，用 <a href="/cs/ebpf-observability">BPF 观测</a>在事件处聚合，或按 <a href="/cs/osk-kernel-debugging">ftrace 的分工</a>用 tracepoint 取稳定字段。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：四元组就是（源 IP，源端口，目的 IP，目的端口）这四个数——一台机器上百万条连接全靠它区分。<code>time_squeeze</code> 直译「时间被挤掉」：软中断一次预算（比如 8 个包或一小段时间）用完了还没处理完，被迫收工的次数——它涨，说明 CPU 忙不过来，不是网卡丢。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>这些工具能工作，靠的是前几课埋下的结构：每层入口都有计数器，是实现的副产品；<code>ss</code> 能逐连接读 sock，是因为<a href="/cs/npk-socket-layer">套接字层</a>把 sock 做成了可寻址对象，netlink sock_diag 只是给它们开了查询口；softnet_stat 的三列对应<a href="/cs/npk-rx-path">软中断预算</a>的三个结果——处理完、丢掉、被挤兑。读懂机制还给了推断力：<code>time_squeeze</code> 持续增长而网卡干净，说明 CPU 是瓶颈，调大预算只是把拥塞从软中断挪到硬中断；<code>ListenDrops</code> 增长而应用 idle，说明 accept 循环跟不上，病在应用线程不在内核。</p><p><span class="marginnote">softnet_stat 头三列是 processed、dropped、time_squeeze，十六进制——把它当十进制读，结论会差一个数量级。<code>nstat -az</code> 加 <code>a</code> 才显示零值计数器；对比两次快照看增量，是这套计数器唯一的正确读法。</span></p><p><span class="marginnote">直觉类比：<code>ss</code> 查连接像去医院调病历——不是把病人搬出来，而是凭挂号号（四元组）到档案室（内核 sock 表）调阅化验单（state、cwnd、rtt、重传数）。netlink sock_diag 就是那扇「调阅窗口」：数据始终在内核里，用户态拿到的只是副本。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不重教过滤器语法与 Wireshark 用法（<a href="/cs/packet-capture">抓包与 Wireshark</a>），不重写 ftrace/kprobe 本体与 kdump（<a href="/cs/osk-kernel-debugging">内核调试的方法</a>），火焰图与硬件计数器归观测课，ns-3 一类仿真归<a href="/cs/network-simulation">网络仿真</a>。丢包原因编号（内核 5.17 起随 kfree_skb 事件给出 reason）按内核版本而定，判定序本身不随版本变。下一课收束全课程。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>排障按层走判定序：网卡环 → 软中断预算 → TCP 层计数 → 逐连接 sock → 抓包对证。</li><li>计数器从开机累加，只有增量与分层对照能当证据。</li><li><code>ss -tinp</code> 经 netlink 直接读内核 sock，是前三课对象账的查询口。</li><li>时序问题交给 BPF/tracepoint，捕获点与变形纪律照旧。</li><li>出处：Linux ss/nstat/ethtool 手册；内核 softnet_stat、TcpExt 与 sock_diag 文档口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 网络协议栈实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 5 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/npk-map/">协议栈实践收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/npk-socket-layer/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">套接字层的实现</span><span class="lesson-card-meta">网络协议栈实践 · 工程<!--[--> · 第 4 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/npk-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">协议栈实践收束</span><span class="lesson-card-meta">网络协议栈实践 · 工程<!--[--> · 第 6 / 6 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内存层次的实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_gpu-memory-hierarchy-practice.md.CxO5ZyAO.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 执行模型<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/gpu-execution-model-deep/">CUDA 执行模型的深入</a></p><p class="lesson-next"> 下一课：<a href="/cs/gpu-warp-primitives/">warp 级原语</a></p><!----></nav><div style="position:relative;"><div><h1 id="内存层次的实践" tabindex="-1">内存层次的实践 <a class="header-anchor" href="#内存层次的实践" aria-label="Permalink to &quot;内存层次的实践&quot;">​</a></h1><div class="epigraph"><p>GPU 的快不是算得快，而是字节恰好停在你正在算的那一层；放错一层的每个字节，都在为带宽排队。</p><footer>—— 据 Kirk &amp; Hwu, Programming Massively Parallel Processors；NVIDIA CUDA C++ Programming Guide 整理</footer></div><p><a href="/cs/gpu-execution-model-deep">上一课</a>把执行合同算到了 warp 调度：延迟隐藏盖得住等待，盖不住没数据可算。一个 warp 停在 long scoreboard 上，等的是哪一层的字节回来，由数据放在哪层决定。本栏的<a href="/cs/gpu-memory-hierarchy">存储层次鸟瞰</a>给过层次图，<a href="/cs/dram-timing">DRAM 时序</a>给过行命中与冲突的账；大模型栏的<a href="/llm/ak-memory-access">内存访问模式分析</a>在注意力内核上算过访存账。本课把这套账写成日常实践：每层的容量与带宽、合并访问的判据、以及「这个数该放哪」的决策规则。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/cs/roofline-model">roofline</a> 里的 \(B\) 到底取哪一层，取决于你把数据钉在哪——算强度的分母随层次变，而初学者几乎总把 HBM 带宽代入，于是把「smem 上的复用没做够」误诊成「带宽墙」。缺口是从层次图到数字的那一步：寄存器、local、shared、L1、L2、HBM 各层的容量与带宽差多少倍，一条全局加载指令在什么条件下折叠成一个事务。没有这张表，优化就是在错误的层上找带宽。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>逐层立账（A100 量级）：寄存器每线程私有，访问零等待；超出的变量溢出到 local——名字里有 local，实体在 DRAM，走 L1/L2，这就是溢出比看起来贵得多的原因。shared 是片上 SRAM，与 L1 共用同一块 192 KB 的存储，smem 最多划走 164 KB，分账比例是启动配置。L2 全卡共享，40 MB 量级，是跨 SM 的汇合点。HBM 峰值约 2 TB/s（SXM 型号），容量最大、最远。相邻层的带宽差一到几个数量级：把一个被反复读的量从 HBM 挪进 smem，等价于把它的价格降两个量级。</p><p>合并访问是全局访存的判据：warp 的 32 个地址若落在连续的 128 字节里，硬件折叠成一个事务；地址分散则拆成多个事务，每个事务只用到一部分扇区。判据写代码时就能检查——同一 warp 的第 \(i\) 个线程访问 \(\mathrm{base}+i\cdot s\)：\(s=1\) 的 float 数组满宽利用；\(s=2\) 有效带宽减半；\(s\) 大到每线程独占一个 32 字节扇区时，取回 1024 字节只用 128 字节。<code>__restrict__</code> 与只读声明让编译器敢于走只读通路、省一次 L1 一致性顾虑。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>合并为什么有效，要接回 <a href="/cs/dram-timing">DRAM 时序</a>：缓存行与扇区是 DRAM 突发长度的镜像，一次请求无论用不用满，行缓冲都按同样粒度服务——分散访问让行缓冲反复换行，把行命中的账换成行冲突的账。smem 与 L1 分账的设计动机也在这：两块用途（程序管理的复用对硬件管理的缓存）对容量与延迟的要求不同，但 SRAM 面积是硬预算，硬件让软件来划这条线——所以 smem 配置是核函数的属性，不是编译期常量。</p><p>放数决策因此有一条固定顺序：先问复用（跨线程共享的量进 smem，warp 内共享的量下一课有更窄的通道），再问合并（全局访问的 stride 与对齐），最后才谈占用率——寄存器用量与占用率的联动在<a href="/llm/cuda-occupancy">占用率课</a>已经算过，本课只提醒一句：为降占用率而省寄存器，省出来的往往是溢出到 local 的流量，账平不了。</p><p><span class="marginnote">数字实例：stride=2 的 float 访问，warp 32 个线程占 256 字节但只用其中一半——有效带宽直接砍半；stride=8 时 32 个线程摊到 1024 字节、只用 128 字节，利用率 12.5%。这不算任何缓存行开销，仅仅是「取回的字节里多少被用到」的账。</span></p><p><span class="marginnote">直觉类比：寄存器是你手边的草稿纸，smem 是小组共用的白板，L2 是全公司档案室，HBM 是城外仓库。手边的纸不要钱，仓库每趟都要派车——把要反复抄的东西搬上白板，比优化车速有效得多。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>bank 冲突留给下一课——smem 的并行度还剩最后一条账。张量核的喂料路径（smem 布局与碎片对齐）是第五课的合同。本课的数字随代际漂移：L2 多大、HBM 几代，每两年一换；漂移的是数字，不漂移的是相邻层一至两个量级的价差与「先复用、再合并、后占用」的顺序。跨 SM 的数据流（peer 直访、NVLink）不在本课，那是多卡系统的题。</p><p><span class="marginnote">一次真实的误诊：核函数 L2 命中率不低、DRAM 吞吐却顶满——查出来是一个中间张量每步从 HBM 重读，而它的复用半径只有一个 block。挪进 smem 后 DRAM 吞吐降一半，核反而快了：省下来的带宽让别的 warp 不用等。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>层次账先于代码：寄存器零等待、smem/L1 片上 192 KB、L2 40 MB、HBM 约 2 TB/s，相邻层差量级。</li><li>溢出的 local 名字骗人：实体在 DRAM，寄存器压力最后都变成带宽账。</li><li>合并判据看 warp 的地址分布：连续 128 字节一个事务；stride 每大一步，扇区利用率按比例掉。</li><li>smem 与 L1 同一块 SRAM，分账是启动配置——划多少是核函数的决策。</li><li>决策顺序固定：复用、合并、占用率；顺序反了会在错误的层上找带宽。</li><li>出处：Kirk &amp; Hwu, <em>Programming Massively Parallel Processors</em>；NVIDIA CUDA C++ Programming Guide 内存层次章；Hennessy and Patterson, <em>CA:AQA</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 GPU 编程深入<!--[--> · 单元 执行模型<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/gpu-warp-primitives/">warp 级原语</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/gpu-execution-model-deep/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">CUDA 执行模型的深入</span><span class="lesson-card-meta">GPU 编程深入 · 执行模型<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/gpu-warp-primitives/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">warp 级原语</span><span class="lesson-card-meta">GPU 编程深入 · 执行模型<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

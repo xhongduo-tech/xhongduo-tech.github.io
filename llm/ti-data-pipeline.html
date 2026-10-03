@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据加载与预处理流水线 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ti-data-pipeline.md.DZ7UMlzT.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 训练基础设施<!--[--> · 单元 训练循环<!--]--><!----></p><p class="lesson-progress">第 2 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ti-training-loop-anatomy/">训练循环的解剖</a></p><p class="lesson-next"> 下一课：<a href="/llm/ti-checkpoint-engineering/">checkpoint 工程深入</a></p><!----></nav><div style="position:relative;"><div><h1 id="数据加载与预处理流水线" tabindex="-1">数据加载与预处理流水线 <a class="header-anchor" href="#数据加载与预处理流水线" aria-label="Permalink to &quot;数据加载与预处理流水线&quot;">​</a></h1><div class="epigraph"><p>数据侧的工程目标只有一句话：让队列在 P99 之下非空，并且任何时刻都能说出「下一批是什么、凭什么」。</p><footer>—— 据 WebDataset、Mosaic Streaming 等流式加载实践与 BLOOM 训练纪事整理</footer></div><p><a href="/llm/ti-training-loop-anatomy">上一课</a>把步时拆成计算、通信、等数据三桶，钩子与状态都钉在 step 骨架上。「等数据」那桶不会自己消失：取批阶段底下是一条跨磁盘、网络、CPU 与 GPU 的流水线。流水的阶段划分——分片、抽权、过滤、分词、打包、预取——<a href="/llm/dataloader-pipeline">数据加载流水线</a>已经写过，存储介质的取舍在<a href="/llm/dataset-storage-streaming">数据集存储与流式加载</a>。本课写的是把它当生产设施来运营：吞吐有账、确定性有契约、故障有隔离、变更有版本。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>流水线的失败模式很少是「读不到文件」，而是三类更隐蔽的错位。其一，<strong>吞吐错位</strong>：均值够、P99 不够，某个冷分片或慢 worker 让队列周期性见底，GPU 每步插一小段空转，混进「等数据」桶却常被误记成通信。其二，<strong>一致性错位</strong>：预分词正则或特殊 token 用了与训练快照不同的版本，<a href="/llm/pretokenization-regex">预分词正则</a>一变，fertility 报表与实际 token 流对不上，配比账全错。其三，<strong>可复现错位</strong>：出了坏批想回放，却发现洗牌种子、分片顺序、过滤版本没有一项被钉住，坏批永远无法重现。</p><p><span class="marginnote">术语翻译：P99 就是把一段时间内所有耗时从小到大排队，取第 99% 位置的那个值——它回答「最倒霉的那 1% 有多慢」。均值会被大量快请求掩盖少数慢请求，而训练每一步都要等齐最慢的那份数据才敢往下走，所以流水线的健康度要看分位数，不是均值。</span></p><h3 id="把流水线当设施运营的三份账" tabindex="-1">把流水线当设施运营的三份账 <a class="header-anchor" href="#把流水线当设施运营的三份账" aria-label="Permalink to &quot;把流水线当设施运营的三份账&quot;">​</a></h3><p>吞吐账：每主机记录队列水位、各阶段耗时的分位数与每秒产出的 token 数，报警条件是「队列低于阈值持续若干步」而不是 CPU 利用率。确定性账：全局游标、shuffle 种子、过滤与打包的版本共同构成<strong>数据指纹</strong>，与上一课的「不改变轨迹」契约对接——resume 与坏批回放都靠它。变更账：tokenizer 快照、正则、过滤规则、配比权重任何一项变更都要升流水线版本号，旧版本必须仍可重建。</p><p><span class="marginnote">回放坏批的最小配置是四元组：流水线版本号、shuffle 种子与 epoch、全局游标位置、worker 数。缺一项，事故复盘就只能靠猜；这四项应当随每个微批的日志一起落盘。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>运营动作按三账落。吞吐账上，先测单 worker 的阶段耗时剖面，找出瓶颈在解压、正则还是分词；<a href="/llm/tokenizer-parallel">分词并行</a>决定 CPU 侧怎么扩，预取槽深按 P99 解压延迟而不是均值设定，并以队列水位做背压。确定性账上，洗牌用「种子 + epoch」的确定性算法，游标存「分片 id + 偏移」，坏批回放时固定 worker 数重跑该区间——这也是流水线的 CI 用例：每次改动后，用黄金区间重放，比对 token 序列哈希，不一致即失败。变更账上，配比调整走<a href="/llm/data-mixture-laws">数据配比</a>的实验口径，但<strong>分发</strong>走版本号：正在跑的作业永远绑定创建时的版本，新版本只对新作业生效。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三份账为什么缺一不可：流水线是分布在一批主机上的有状态系统，没有吞吐账，退化是渐进的——每步多等 5 毫秒，在日志里只是吞吐从 42 掉到 40，直到有人对账才发现已损失一成算力。没有确定性账， resume 回到的是「差不多同一处数据」，轨迹契约无声失效，<a href="/llm/pretrain-ckpt">检查点</a>存的数据进度变成空引用。没有变更账，两周后复现某条曲线时，无人能答「当时喂的是哪个版本的数据」——这不是记忆问题，是设施没有提供查询接口。</p><p><span class="marginnote">数字实例：一步 6 秒的训练，若每步因等数据多耗 50 毫秒，单看墙钟只慢不到 1%，几乎察觉不到；但跑一百万步累计就是约 14 小时纯空转，256 卡的作业折合三千五百多卡时。渐进退化靠肉眼与均值都抓不住，只能靠水位账的持续值报警。</span></p><p>版本绑定的机制要特别钉死：作业启动时把流水线版本的哈希写进运行元数据，之后即使有人改了配比文件，在跑作业读到的仍是旧快照。实现上常把「配置读取」收敛为一次启动时的物化，而不是每 epoch 重读。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：版本绑定就像餐厅给每桌客人下单时锁定了当日菜单——厨房后来换了新菜谱，只影响之后进门的客人，已下单的菜照旧谱做。训练作业同理：启动那一刻物化的配置快照，就是它「点过的菜」，后续改配比不动在跑的 run。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课管的是把 token 按时、按账、可复现地送到 GPU，不管喂什么：语料怎么选、去重与污染怎么清、配比怎么定，属于数据课程与配比各课的口径；也不管数据并行下的分片到 rank 的拓扑细节。回放能力有边界：涉及随机丢弃（如随机过滤、dropout 式增强）的流水线，确定性要连 RNG 状态一起钉，否则黄金区间比对只能在关掉随机项的配置下做。流式数据源若上游本身变动（对方删了文件），版本号也救不回，只能靠本地缓存层兜底。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>流水线运营三账：吞吐（水位与阶段 P99）、确定性（数据指纹）、变更（版本号绑定）。</li><li>报警看队列水位持续值，不看 CPU 利用率；预取深度按 P99 设。</li><li>坏批回放最小四元组：版本、种子与 epoch、游标、worker 数；进 CI 的黄金区间比对。</li><li>作业启动时物化配置快照，在跑作业不受后续变更影响。</li><li>出处：据 WebDataset、Mosaic Streaming 文档与 BLOOM 训练纪事（Le Scao et al., 2022）整理；阶段划分见<a href="/llm/dataloader-pipeline">数据加载流水线</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 训练基础设施<!--[--> · 单元 训练循环<!--]--><!----></p><p class="lesson-progress">第 2 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ti-checkpoint-engineering/">checkpoint 工程深入</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ti-training-loop-anatomy/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">训练循环的解剖</span><span class="lesson-card-meta">训练基础设施 · 训练循环<!--[--> · 第 1 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ti-checkpoint-engineering/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">checkpoint 工程深入</span><span class="lesson-card-meta">训练基础设施 · 训练循环<!--[--> · 第 3 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

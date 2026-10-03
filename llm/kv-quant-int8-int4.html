@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>KV 量化：INT8 与 INT4 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_kv-quant-int8-int4.md.ICc8jnmI.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 4 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/kv-prefix-cache/">前缀缓存与跨请求共享</a></p><p class="lesson-next"> 下一课：<a href="/llm/kv-layerwise-sensitivity/">逐层与逐头的敏感度</a></p><!----></nav><div style="position:relative;"><div><h1 id="kv-量化-int8-与-int4" tabindex="-1">KV 量化：INT8 与 INT4 <a class="header-anchor" href="#kv-量化-int8-与-int4" aria-label="Permalink to &quot;KV 量化：INT8 与 INT4&quot;">​</a></h1><div class="epigraph"><p>压缩 KV 的第一刀不改注意力看得见什么，只改每个数字占几个比特；刀钝与否，取决于键和值愿不愿意被当成权重对待。</p><footer>—— 据 Liu et al., KIVI, ICML 2024 对 KV 元素分布与量化轴的分析整理</footer></div><p><a href="/llm/kv-prefix-cache">上一课</a>把相同的计算付一次，但每一份缓存仍按 FP16 宽度计费。本课进入压缩单元：量化是四刀里最钝也最稳的一刀——不改可见集、不改模型，只改缓存里存的数字与读出来的方式。8-bit 档的尺度、轴与核边界已在 <a href="/llm/kv-int8-fp8">KV INT8/FP8</a> 写过，2-bit 的免调非对称方案在 <a href="/llm/kivi">KIVI</a>。本课收在 INT8 与 INT4 两档的选型：何时一字节已够，何时必须半字节，代价落在哪。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>把元素宽度从 2 字节打到 1 字节，同样预算下长度或并发翻倍；打到 0.5 字节再翻一倍。但 KV 不是权重：权重离线、可校准、分布稳；KV 在线追加、带激活异常值。键沿通道常有固定的大幅度通道，尺度被它们绑架后，其余通道的量化阶梯粗到不可用——对称逐张量的 4-bit 在第一步就会崩。另一头，8-bit 的保护带宽可能过剩：逐 token 尺度的 INT8 在很多模型上几乎无感。选型的实质是：误差预算、元数据开销与核支持三者的交点，而不是比特越少越好。</p><p><span class="marginnote">数字实例：每 token 128 KiB 的会话（Llama-3-8B 口径），128K 上下文一条在 FP16 下约 16 GiB；打到 INT8 是 8 GiB，打到 INT4 只要 4 GiB。每降一档，同一张卡能同时接待的会话数翻一倍——这就是「容量翻倍」的全部含义，前提是质量不掉。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>轴与粒度</strong>。经验结论稳定：键按通道量化、值按 token 量化。键的异常集中在少数通道，逐通道各配尺度才不被绑架；值更像随 token 变化的混合系数，逐 token 尺度即可。INT8 走逐 token 或逐块（32–128 token）粒度；INT4 必须非对称仿射加更细的组（逐通道或 64–256 通道一组），并沿通道攒一组 token 再统计——这要求转置访问或分块缓冲，是 4-bit 工程复杂度的真正来源。</p><p><span class="marginnote">常见误区：以为「量化粒度越细一定越好」。粒度细一档，尺度与零点的元数据就多一份，逐通道统计还要转置访问；元数据本身占 HBM 也占带宽。粒度是误差与开销的折中，不是美德。</span></p><p><strong>残差窗口</strong>。最近 \(R\) 个 token 留在高精度：当前句的键值对下一步最重要，噪声预算应花在远历史上。\(R\) 取几十到几百，量化误差对正在展开的局部上下文免票。</p><p><strong>核兑现</strong>。省的是带宽，不是容量本身：decode 每步把缓存从 HBM 扫进片上，若实现「存 8-bit、读出后先解回 FP16 再算」，显存降了而带宽几乎不降。要吃到红利，需要量化感知的注意力核，或至少在片上完成反量化（机制见 <a href="/llm/kv-int8-fp8">KV INT8/FP8</a> 的 profiler 论证）。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>误差是加性噪声，进入点积后变成 logit 扰动，再经 softmax 放大或吸收。键的误差直接改注意力分布：softmax 对大 logit 敏感，系统性偏移会挪动注意力的落点，长上下文的针检索最先露馅——针的 logit 优势被噪声稀释。值的误差进输出残差，逐层累积但被均摊，所以值比键耐受，这正是「键按通道、值按 token」的机制根据。8-bit 的误差通常小于 logit 间距，短上下文无感；4-bit 把噪声推到与间距同量级，轴与粒度就不能再省。</p><p>量化还牵动共享与调度：<a href="/llm/kv-prefix-cache">前缀缓存</a>的指纹必须带精度，FP16 页与 INT4 页不能共享；批量间混布不同精度的请求，会让每步带宽核算与水位预算都对不上账。</p><p><span class="marginnote">术语翻译：「logit 间距」指注意力打分里候选位置之间的分数差。softmax 像按分数分蛋糕：分差大时，小噪声不改变谁拿大块；分差只有毫厘时，同样的小噪声就能翻转名次。8-bit 的噪声通常小于常见分差，4-bit 的噪声则与之相当，这就是两档手感的来源。</span></p><div class="mermaid"></div><p><span class="marginnote">Llama-3-8B 的 KV 是 128 KiB/token（FP16，口径见第一课），INT4 打到 32 KiB，同卡理论上多装 4 倍会话。但逐通道尺度与零点是 FP16 元数据，粒度每细一档账本厚一截——净收益是「元素字节 ×4 减元数据」，不是 ×4。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>4-bit 不是安全终点：更极端的 <a href="/llm/kv-fp4">FP4</a> 与 2-bit 需要更强的轴处理与残差窗口，收益也逐档递减。评估不能只看困惑度——短文本 PPL 几乎不动而长上下文任务已掉点，要用针测试与长文档问答验收。GQA 下尺度要聚合到 KV 头，不能按查询头重复统计。混精度共存会破前缀指纹，滚动升级要成批失效旧页。最后，权重量化的经验（<a href="/llm/gptq">GPTQ</a>、<a href="/llm/smoothquant">SmoothQuant</a> 一类校准）不能直接搬给 KV：未来 token 未出现，在线统计才是主路径。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>量化改的是每元素字节与读出方式，不改可见集；decode 的红利在带宽，必须由低精度核兑现。</li><li>轴不对称：键按通道、值按 token，机制是键的异常通道与值的残差角色。</li><li>INT8 逐 token 常已够用；INT4 需要非对称、细粒度与通道攒批，复杂度涨在元数据与访存。</li><li>最近窗口留高精度，误差预算花在远历史。</li><li>精度进前缀指纹；评估看长上下文任务，不只看困惑度。</li><li>出处：Liu et al., KIVI, ICML 2024；8-bit 口径据本仓库 KV INT8/FP8 课；不发明文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 KV 管理与压缩<!--[--> · 单元 压缩<!--]--><!----></p><p class="lesson-progress">第 4 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/kv-layerwise-sensitivity/">逐层与逐头的敏感度</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/kv-prefix-cache/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">前缀缓存与跨请求共享</span><span class="lesson-card-meta">KV 管理与压缩 · 生命周期<!--[--> · 第 3 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/kv-layerwise-sensitivity/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">逐层与逐头的敏感度</span><span class="lesson-card-meta">KV 管理与压缩 · 压缩<!--[--> · 第 5 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

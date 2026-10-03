@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>透镜致密化与寿命 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_lens-compaction.md.DzMEorZz.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 曝光机子系统<!--[--> · 单元 投影物镜<!--]--><!--[--> · 课序 镜头怎么造、怎么坏<!--]--></p><p class="lesson-progress">第 14 / 33 课</p><p class="lesson-prereq"> 先修：<a href="/litho/aberration-manipulators/">Zernike 漂移与操纵器</a></p><p class="lesson-next"> 下一课：<a href="/litho/fused-silica-caf2/">熔石英与 CaF₂</a></p><!----></nav><div style="position:relative;"><div><h1 id="透镜致密化与寿命" tabindex="-1">透镜致密化与寿命 <a class="header-anchor" href="#透镜致密化与寿命" aria-label="Permalink to &quot;透镜致密化与寿命&quot;">​</a></h1><div class="epigraph"><p>193 nm 在熔石英里会诱发致密化：密度与折射率缓慢爬升，像差变成剂量的积分，不是温度的函数。</p><footer>—— 对照 fused silica compaction under DUV；与可逆 [透镜加热](/litho/lens-heating-compensation) 对照</footer></div><p><a href="/litho/aberration-manipulators">上一课</a>把可逆调节写完。缺口是不可逆：长时间 193 nm 辐照导致玻璃网络致密化（compaction）或相关损伤。本课钉寿命，材料牌号留给下一课。寿命问题排在操纵器之后是有理由的：致密化正是操纵器最终也追不动的那类漂移——它可以被补偿，但永远不能被复位。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>加热关掉灯就回。致密化积分光子，焦点和球差单调爬，操纵器行程被吃光后必须换组或降规格。把半年 CD 漂移全写成胶或热板，会漏掉镜头剂量史。</p><p>193 nm 光子 6.4 eV，低于熔石英带隙，本征单光子吸收为零，损伤走缺陷通道：氧空位、金属杂质、被拉伸的 Si–O–Si 键角在辐照下断键重排，网络弛豫到更密的构型。一台量产机台每年吃下 \(10^{11}\) 量级个脉冲，寿命末端最热点元件的密度爬升也不过千分之一量级。比例看着小，后果不小：波前预算只有几个纳米，而玻璃厚度是厘米量级，\(\Delta\phi=(2\pi/\lambda)\int\Delta n\,\mathrm{d}l\) 把 \(10^{-6}\) 量级的局部折射率变化都放大成纳米级 OPD。焦点与球差的慢爬由此而来。另一半麻烦在分账：热效应时间常数是分钟，致密化是月，把两者塞进一个拟合，两组系数都被污染；剂量史不在机台日报里，只在脉冲计数器里。</p><p><span class="marginnote">数字实例：局部折射率只变 \(\Delta n=1\times10^{-6}\)，穿过 10 cm 玻璃后光程差约 \(\Delta n\times l=100\) nm——比整条波前预算还大一个量级。「密度只升千分之一」听着无害，乘上厘米级厚度就致命。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>运行：按元件位置维护通量模型，把每片玻璃的累计剂量记成脉冲数乘局部辐照度；整备与对焦时关快门，别拿生产剂量寿命去付调试光；测试晶圆与超高剂量请求单独审批。监测：定期做镜头像差计量（见 <a href="/litho/lens-aberration-metrology">镜头像差计量</a>），先用 <a href="/litho/lens-heating-compensation">透镜加热</a>的模型扣掉快分量，剩下随剂量单调走的慢分量才是致密化指纹；指纹对上操纵器余量，就知道还能撑几个季度。寿命以「可维持 NA/像差规格的脉冲或年」记账，不是日历保修空话——同一颗镜头在高剂量产线与混线工厂里日历寿命差一倍，脉冲寿命几乎一样。触线即三选一：降规格、降功率，或整组更换，但都要求提前预警，而不是到期才发现。</p><div class="mermaid"></div><p><span class="marginnote">浸没末片还多一层：水、污染物、镀膜。致密化主要谈体材料；污染是再后一课。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>DUV 在缺陷/杂质处打断网络，结构弛豫使密度升，\(n\) 升，等效光焦度漂。折射率随密度的走向由 Lorentz–Lorenz 关系钉住：极化率近似不变，密度升则 \(n\) 升。致密化在空间上跟着强度分布走——束腰处最密、边缘次之，元件等效于长出一块中心厚、边缘薄的附加相位体：一阶表现为焦距缩短，高阶表现为球差爬升，照明不对称时再叠出像散。这就是「图形相关慢效应」的物理来源，只是时间尺度是月，不是分钟，所以能被周期性再标定跟踪，却不能被加热模型外推。速率近似正比于局部辐照度乘缺陷密度，而缺陷本身会被辐照逐渐耗尽或转化，曲线前陡后缓；低缺陷合成石英把整条曲线往下压，材料牌号的取舍是下一课。</p><p><span class="marginnote">直觉类比：致密化像把海绵反复压实——孔隙变少，单位体积里的玻璃变多，折射率随之升高。压实不可逆：加热补偿只能临时把焦点搬回去，不能把海绵弹回来。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>下一课为何用熔石英与 CaF₂，是致密化与透过率的材料解。再钉两条：本课的体玻璃物理只在 DUV 透射系统成立，EUV 走多层反射膜，寿命语言换成反射率与污染；致密化也不可逆，烘烤、净化、停机都回不来，能做的只有补偿与记账。</p><p><span class="marginnote">常见误区：把镜头慢漂记到胶或热板头上。致密化跟剂量走、不跟日历走——两台同型号机台，一台常年高产能、一台调试为主，几年后像差状态完全不同，差别全记在脉冲计数器里，不在机台日报里。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>致密化是剂量积分的永久 \(n\) 漂移，与热可逆效应分账。</li><li>厘米级玻璃厚度把 \(10^{-6}\) 量级的 \(\Delta n\) 放大成纳米级波前误差，焦点与球差单调爬。</li><li>寿命表现为操纵器余量和像差规格，按脉冲记账、按季度预警。</li><li>出处：熔石英 DUV compaction 通识；加热课对照。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 曝光机子系统<!--[--> · 单元 投影物镜<!--]--><!--[--> · 课序 镜头怎么造、怎么坏<!--]--></p><p class="lesson-progress">第 14 / 33 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/fused-silica-caf2/">熔石英与 CaF₂</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/litho/aberration-manipulators/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">Zernike 漂移与操纵器</span><span class="lesson-card-meta">曝光机子系统 · 投影物镜 · 镜头怎么造、怎么坏<!--[--> · 第 13 / 33 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/litho/fused-silica-caf2/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">熔石英与 CaF₂</span><span class="lesson-card-meta">曝光机子系统 · 投影物镜 · 镜头怎么造、怎么坏<!--[--> · 第 15 / 33 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

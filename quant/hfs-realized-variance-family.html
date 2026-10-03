@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>已实现方差的族谱 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_hfs-realized-variance-family.md.sR6vgkGj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 估计<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/slm-map/">统计学习与市场收束</a></p><p class="lesson-next"> 下一课：<a href="/quant/hfs-noise-corrected/">噪声修正估计量</a></p><!----></nav><div style="position:relative;"><div><h1 id="已实现方差的族谱" tabindex="-1">已实现方差的族谱 <a class="header-anchor" href="#已实现方差的族谱" aria-label="Permalink to &quot;已实现方差的族谱&quot;">​</a></h1><div class="epigraph"><p>估计量的族谱不按发表年份排，按两件事排：你在估哪个对象，以及允许谁在场——噪声、跳、不同步，各划出一条支路。</p><footer>—— 据 Barndorff-Nielsen and Shephard, Econometrica 2004；Zhang, Mykland and Aït-Sahalia, JASA 2005 整理</footer></div><p><a href="/quant/slm-map">上一课</a>把统计学习收在信噪比上：样本外只有千分位，协议高于模型——一个含义成立的千分位胜过一万个含义不明的拟合——并把高频统计的估计量谱系指给本课程。本课起转到最便宜也最易用错的一份——逐笔行情——的统计读数。主干已写过<a href="/quant/microstructure-noise">微观结构噪声</a>的机制、<a href="/quant/rv-noise">已实现波动与噪声修正</a>的概览与<a href="/quant/bn-jump-test">Barndorff-Nielsen 跳跃检验</a>的单点；本课程第一课做的是立族谱：把已实现方差一族的估计量按「对象 × 容许的干扰」排成树，后面的课各走进一条支路。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>二次变差是价格过程波动的自然对象：\([X]_t=\int_0^t\sigma_u^2\,du+\sum_{s\le t}(\Delta X_s)^2\)，连续部分是积分波动 \(IV\)，跳跃部分是瞬间贡献。把日内收益平方加总的 \(\mathrm{RV}_n=\sum_i r_i^2\)，在无噪声、跳跃有限时收敛到整个 \([X]_t\)（Barndorff-Nielsen 与 Shephard，Econometrica 2004；Andersen、Bollerslev、Diebold 与 Labys，Econometrica 2003）。缺口在于三个「在场者」会把这句话拆开：微观结构噪声让偏差以采样次数 \(n\) 增长；跳让 RV 估到的不再是 \(IV\)；不同步让协变差的分子塌向零。一族估计量由此长出来；没有地图的人用习惯选——五分钟格走天下——或按文献名气选，都会错对象。</p><p><span class="marginnote">术语翻译：「二次变差」就是把每一小段价格平方变化累加起来的总账。连续波动像匀速磨刀磨出的粉末，一小份一小份累积；跳像一刀砍掉的缺口，一次记一大笔。总账两种都收，「估哪个对象」就是在问你要不要把缺口算进去。</span></p><h3 id="族谱的两根轴" tabindex="-1">族谱的两根轴 <a class="header-anchor" href="#族谱的两根轴" aria-label="Permalink to &quot;族谱的两根轴&quot;">​</a></h3><p>第一根轴是<strong>对象</strong>：估总二次变差，还是只要连续部分 \(IV\)，还是要协变差。第二根轴是<strong>容许的干扰</strong>：噪声、跳、不同步，各自把哪些估计量排除掉。两根轴一起出几条主支：朴素 RV 或短采样，只活在没有噪声与跳的世界；跳稳健支——双幂次变差、门限法、半方差——在跳在场时估连续部分；噪声修正支——两尺度、多尺度、预平均、已实现核、拟极大似然——在噪声在场时恢复 \(IV\)；两根轴同时需要时，先降噪再检验跳，或用对两者稳健的组合流程。</p><div class="mermaid"></div><p><span class="marginnote">同一个 6.5 小时交易日：1 秒格 \(n\approx 23400\)，5 分钟格 \(n=78\)。噪声在场时，这两个 \(n\) 算出的 RV 差得没有公共单位——先用签名图判断谁在场，再谈加总。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>族谱的用法是<strong>先诊断，后选支</strong>。横轴采样间隔、纵轴 RV 的签名图是分岔判据：高频端上翘是噪声主导，走噪声修正支；大致平坦则朴素 RV 尚可，转而先问跳。选支之后才轮到支内选择：核形与带宽、预平均窗口、双幂次还是门限，是后课的事。声明对象时把口径写死：日方差还是年化波动、含不含隔夜、中点价还是成交价——<a href="/quant/rv-noise">已实现波动与噪声修正</a>里「隔夜单列」的约定在这里直接沿用。</p><p>不这么做会错在哪：跳在场时用朴素 RV 估「波动率」，估到的是含跳的总变差，HAR 类预报把瞬时的跳当持续的波动，持续性被系统性夸大；噪声在场时把 1 秒数据直接平方加总，读数随采样密度变，同一天两个系统给出两个「波动率」，风控与对冲用哪个都是掷硬币。</p><p><span class="marginnote">常见误区：「五分钟格走天下」。五分钟只是在许多标的上绕开噪声的经验折中，不是定理——跳在场的日子，五分钟 RV 估到的仍是含跳总变差，拿去预报照样把持续性夸大。选支要靠签名图诊断，不靠习惯。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>支路的划分由<strong>收敛率</strong>背书，这是族谱不是清单的原因。无干扰时 RV 的估计误差以 \(n^{1/2}\) 缩小；噪声在场时全数据 RV 的偏差项 \(2n\sigma_\varepsilon^2\) 随 \(n\) 爆炸，两尺度估计把它压回 \(n^{1/4}\)，多尺度设计把速率推到任意接近 \(n^{1/2}\)，核与预平均以调参换同一方向的改善。干扰假设是速率的前提：把相关噪声当 i.i.d.，减法减过头，\(IV\) 被低估；把有限活动的跳假设换成无穷活动，双幂次的极限不再是连续部分。族谱的每条边上都写着「在此假设下才成立」，换边必须重验假设。</p><div class="mermaid"></div><p><span class="marginnote">为什么速率要紧：日度 \(IV\) 序列最终要喂给风险预算，估计误差就是仓位噪声。朴素 RV 在噪声下的读数随采样密度变——换个数据商、「波动率」就翻倍；选对支路后误差才与采样密度脱钩，下游结果才可复现。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>族谱只排单标的的方差估计；协变差的时钟对齐与正定性是另一棵子树，总图见<a href="/quant/realized-covariance">多元已实现协方差</a>，对齐见<a href="/quant/hayashi-yoshida">Hayashi–Yoshida 相关</a>，本课程后面单开。族谱也不回答「数据怎么洗」：坏 tick 冒充噪声会把诊断带进错误的支路，清洗先于一切估计量。树不裁决同支内谁更好：核形、带宽、窗口的选择靠准则与有限样本实验，不靠发表年份。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>族谱两根轴：估计对象（总变差、连续 \(IV\)、协变差）× 容许干扰（噪声、跳、不同步），支路按这两件事分，不按年份分。</li><li>签名图是分岔判据：高频上翘走噪声修正支，平坦先问跳。</li><li>收敛率背书分岔：朴素 RV 在噪声下偏差 \(2n\sigma_\varepsilon^2\) 爆炸；两尺度压回 \(n^{1/4}\)，多尺度接近 \(n^{1/2}\)。</li><li>干扰假设是每条边的前提：相关噪声、无穷活动跳都会让支路失效，换边重验。</li><li>对象口径先于估计量：日或年化、含不含隔夜、中点或成交价，写死再动手。</li><li>出处：Barndorff-Nielsen and Shephard, <em>Econometrica</em>, 2004 与 <em>Journal of Financial Econometrics</em>, 2004；Andersen, Bollerslev, Diebold and Labys, <em>Econometrica</em>, 2003；Zhang, Mykland and Aït-Sahalia, <em>JASA</em>, 2005。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 高频统计深化<!--[--> · 单元 估计<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/hfs-noise-corrected/">噪声修正估计量</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/slm-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">统计学习与市场收束</span><span class="lesson-card-meta">统计学习与市场 · 纪律<!--[--> · 第 9 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/hfs-noise-corrected/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">噪声修正估计量</span><span class="lesson-card-meta">高频统计深化 · 估计<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>不确定性量化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_slm-uncertainty.md.DmYvcfr7.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计学习与市场<!--[--> · 单元 纪律<!--]--><!----></p><p class="lesson-progress">第 8 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/slm-feature-importance-pitfalls/">特征重要性的陷阱</a></p><p class="lesson-next"> 下一课：<a href="/quant/slm-map/">统计学习与市场收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="不确定性量化" tabindex="-1">不确定性量化 <a class="header-anchor" href="#不确定性量化" aria-label="Permalink to &quot;不确定性量化&quot;">​</a></h1><div class="epigraph"><p>点预测支撑不了仓位：仓位是分布的函数。市场数据先教你一件事——区间几乎总是比你以为的宽。</p><footer>—— 据 Vovk, Gammerman and Shafer, *Algorithmic Learning in a Random World*, Springer, 2005；Gneiting and Raftery, *JASA*, 2007 整理</footer></div><p><a href="/quant/slm-feature-importance-pitfalls">上一课</a>处理完「哪些特征在起作用」，纪律单元还剩最后一格：承认预测本身有误差结构。回归输出的点估计 \(\hat y\) 隐含「误差同方差、模型正确」两条市场从不满足的假设；仓位、风控与止损全是分布的函数，不是期望的函数。本课写不确定性从哪来、用什么工具量化、怎么检验校准。这是纪律单元的收口，也是下一课全课程收束前最后一块拼图。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>默认置信区间假设残差独立同分布且模型设定正确；市场上异方差、厚尾、regime 切换三条全违反，区间系统性过窄。不这么做会错在哪：按过窄区间定的杠杆，在波动放大时同时遭遇更差的预测与更大的暴露，尾部亏损集中在最没有准备的时点。缺口是把「这个预测有多大把握」变成被检验的对象，而不是模型顺手输出的一个数。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按不确定性来源选工具。噪声与参数的不确定性：自助法区间（Efron 1979），时序数据用块自助保持相关结构（Künsch 1989）。模型的不确定性：集成成员间的分歧，相关性预算沿用<a href="/quant/fml-ensembles">模型集成</a>的口径；深度场景的多网络集成同理；候选模型都合理时用贝叶斯模型平均（Hoeting 等 1999）。条件异方差：分位数回归直接按分位损失训练，不给方差建模而直接给分位。分布无关的覆盖保证：split conformal prediction（Vovk 等 2005；Papadopoulos 等 2002）——在校准集上取残差分位，构造新区间使其覆盖率不低于 \(1-\alpha\)。评准一律用 proper scoring rules：Brier 分数与 Gneiting-Raftery 的对数与 CRPS 口径，不看区间顺不顺眼。</p><p><span class="marginnote">conformal prediction 可翻译成「保覆盖率的区间构造法」：先拿一批校准数据看模型错得有多离谱，取残差的 \(95\%\) 分位，此后每个新预测都配上这么宽的区间——不管模型是什么形状，覆盖率至少九成五。它的成本只是一个 held-out 校准集，这是它近年流行的原因。</span></p><p><span class="marginnote">块自助的「块」来自时序相关：相邻日的收益互相不独立，逐点重采样会人为把样本「打散」、低估波动。若自相关大约持续一周，就按 5 天整块整块地重抽——块内保持相关结构，块间近似独立，才更接近真实的抽样不确定性。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么区间普遍过窄：总不确定性是噪声、参数、模型、漂移四项之和，前三项历史数据尚可估计，第四项让历史校准在制度转换后失效——所以覆盖率必须分年份、分波动状态报告，全样本平均覆盖率合格掩盖不了危机月份的失效。为什么集成分歧会低估模型不确定性：成员共享同一份训练数据，误差相关（第 3 课的预算表），分歧只度量了训练随机性那一小块。Conformal 的交换性假设在时序上破缺，直接套用给出的是名义覆盖；加权版本或块版本是必要的修正，不是可选的精细化。最后把宽度接回决策：不确定性大不等于不可交易，而是仓位小——宽度直接进入仓位公式，这正是这一格挂在纪律单元末尾的原因。</p><p><span class="marginnote">第一课的千分位 \(R^2\) 意味着区间宽度的主导项是噪声方差 \(\sigma_\varepsilon^2\)：噪声底没有测准之前，把模型不确定性精修到第三位小数是伪工程。正确的次序是先估噪声底，再看工具能否在它之上加出真实的参数项与模型项。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>校准不是盈利：区间很准仍然可能没有超额收益，覆盖保证只保证覆盖。</p><p><span class="marginnote">初学者容易把「区间很准」当成「模型很好、能赚钱」；校准只保证「说九成把握的事确实九成会发生」。如果信号本身没有超额收益，一个校准完美的模型只是一位诚实的旁观者——它精确地告诉你它不知道方向。</span></p><p>Conformal 的保证在分布漂移下打折扣，加权补救用旧样本低权重近似「最近窗口的覆盖」，不是未来覆盖；漂移本身归<a href="/quant/live-drift-monitor">实盘漂移监测</a>管。贝叶斯模型平均在候选集漏掉真模型时退化为加权平均的普通集成，先验当不得保险。本课只量化「预测有多不准」；「不准的预测怎么定价、怎么下仓」是组合课程的领地，本课程到此只把接口留干净。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>仓位是分布的函数：点预测撑不起任何风控与杠杆决策。</li><li>按来源选工具：块自助、集成分歧与 BMA、分位数回归、conformal；评准用 proper scores。</li><li>区间过窄的根是漂移项：覆盖率要分年份分状态报告，全样本平均会掩盖失效。</li><li>噪声底主导宽度：先测 \(\sigma_\varepsilon^2\) 再精修模型项；校准不等于盈利。</li><li>出处：Vovk, Gammerman and Shafer, <em>Algorithmic Learning in a Random World</em>, 2005；Gneiting and Raftery, <em>JASA</em>, 2007；Efron, <em>Annals of Statistics</em>, 1979；Künsch, <em>Annals of Statistics</em>, 1989。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计学习与市场<!--[--> · 单元 纪律<!--]--><!----></p><p class="lesson-progress">第 8 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/slm-map/">统计学习与市场收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/slm-feature-importance-pitfalls/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">特征重要性的陷阱</span><span class="lesson-card-meta">统计学习与市场 · 纪律<!--[--> · 第 7 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/slm-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">统计学习与市场收束</span><span class="lesson-card-meta">统计学习与市场 · 纪律<!--[--> · 第 9 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

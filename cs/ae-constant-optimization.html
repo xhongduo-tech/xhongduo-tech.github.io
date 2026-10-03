@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>常数优化 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ae-constant-optimization.md.zIqann-z.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ae-selection-engineering/">算法选型的工程视角</a></p><p class="lesson-next"> 下一课：<a href="/cs/ae-cache-friendly/">缓存友好的算法</a></p><!----></nav><div style="position:relative;"><div><h1 id="常数优化" tabindex="-1">常数优化 <a class="header-anchor" href="#常数优化" aria-label="Permalink to &quot;常数优化&quot;">​</a></h1><div class="epigraph"><p>对那 3% 值得优化的代码，程序员不应放弃任何一个常数；难处从来不在省，而在知道哪 3% 值得省。</p><footer>—— 据 Knuth, Structured Programming with go to Statements, 1974 整理</footer></div><p><a href="/cs/ae-selection-engineering">上一课</a>把选型钉在四问与交叉点上：阶定下来之后，剩下的战场就是常数。同一算法类的两条实现，实测可以差五到十倍——本课处理的就是这个差距。立场先立好：先测量后动手，热点在哪、常数由什么构成，profiler 说了算；然后按「减指令数、降单条指令成本、减分支」三层把冗余剥掉。后课默认你已带着这条测量先行的纪律。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>常数从哪来：每条源语句展开成若干条指令，而指令之间延迟与吞吐差着量级；其上再叠冗余计算——重复求值的子表达式、循环内不变的外提物、本可移位代换的除法。缺口是：在不动渐近阶的前提下，把每迭代指令数与每指令平均成本压下来。不这么做会错在两个方向：凭直觉重写，把编译器本来就会做的代换手工抄一遍，白丢可读性；或在真正的热点上做了修改却不复测，把噪声当成收益，优化效果从此成了传说。</p><p><span class="marginnote">术语翻译：强度削减就是用「便宜运算的组合」来替换「贵运算」——除以 8 换成右移 3 位，对 8 取模换成与 7 按位与，乘 64 换成左移 6 位。省的不是阶，是把一条 20 多周期的指令换成一条 1 周期的指令。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>第一步，测量定位。profiler 与操作计数器找出被反复执行的核心循环，只有它配得上手工改动；先干测（数操作）再计时，收益归因才有依据。</p><p>第二步，消冗余。循环不变量外提：不随迭代变的计算挪到循环外，判据正是<a href="/cs/loop-invariant">循环不变式</a>「每轮前后都成立、循环结束时可用的那部分」；公共子表达式只算一次；循环内不变的小函数调用内联或挪出。</p><p>第三步，降单条指令成本。强度削减：乘除换移位与加减；多项式求值用 Horner 法 \(p(x)=a_0+x\,(a_1+x\,(a_2+\cdots))\)，把每项两次乘法降为每阶一次乘一加，\(n\) 阶多项式从 \(2n\) 次乘降到 \(n\) 次。除法与取模是最贵的常规整数运算，除以常数时换成移位与掩码。</p><p>第四步，减分支。深度流水线上一次误预测罚十几到二十个周期；高度可预测的分支留着不动，数据依赖的极值与符号判断改写成无分支形式——具体技巧留给位运算一课。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>常数可写成三因子：每迭代指令数、每指令平均成本、迭代数。消冗余减第一个因子；强度削减与分支改造减第二个；渐近阶钉死第三个。这套账解释了优先级：迭代数是阶的事，上一课已定；剩下的两层里，减一条昂贵指令（除法）通常胜过省三条便宜指令（加法）。</p><p>现代编译器在基本块内已经做强度削减与外提，所以人手该做的是它跨不过去的那部分：别名不确定时它不敢外提，溢出语义改变结果时它不敢代换——把写法整理成编译器能证明的形式，才是有效常数优化。也要认得这条路的尽头：当「常数技巧」本质是反复利用同一批子问题的结果、而且结果可以存下时，它就升级为渐近改进，大整数乘法从 \(O(n^2)\) 走到 <a href="/cs/karatsuba">Karatsuba</a> 的 \(O(n^{\log_2 3})\) 正是样本——本课止步于阶不变的那些改动。</p><p><span class="marginnote">量级账：寄存器加法约 1 个周期，32 位整数除法在常见 x86 上约 20–30 个周期，分支误预测罚约 15–20 个周期。热循环里一次「除以常数改移位」在百万次迭代上省出毫秒级；而 \(i\cdot 8\) 这类代换编译器必做，人工重抄只是给 reviewer 添噪。</span></p><p>方法一节的图回答「优化按什么流程走」，下面这张回答另一个问题：面对热点里的一处改动，怎么判断它归不归你手工做。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：Horner 法算 \(p(2)\)，\(p(x)=4x^3+3x^2+2x+1\)——朴素法要算 \(x^2,x^3\) 再逐项相乘，共 6 次乘法；Horner 写成 \(((4\cdot 2+3)\cdot 2+2)\cdot 2+1\)，3 次乘 3 次加得 49。阶升到 \(n\)，乘法从 \(2n\) 次降到 \(n\) 次，且格式规整到编译器也认得。</span></p><p><span class="marginnote">直觉类比：常数三因子像月账单总额 = 每单成本 × 单数。迭代数（单数）是选型课定下的，这里只能砍「每单成本」——先砍最贵的那一单（一条 20 多周期的除法），胜过在 1 周期的加法上抠出三条；账要复测，不然省下的可能只是机器打了个盹。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要抢编译器的活：它做得对、可移植，手工版反而可能在别的后端上更慢。手工改写还要防「挡住自动向量化」：为省一条指令引入的早退分支或复杂寻址，可能让整段循环失去向量化资格，见<a href="/cs/auto-vectorization">自动向量化</a>。可读性是预算的一部分：每处手工优化都要配基准与注释，否则下一位维护者会把它「修」回去。本课不碰数据在内存里的摆放——那是下一课的主题，也是常数账里常常最大的一项。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>常数 = 每迭代指令数 × 每指令平均成本；先测热点，再动刀，收益复测后入账。</li><li>消冗余三件套：不变量外提、公共子表达式、Horner 化求值。</li><li>除法与不可预测分支是最贵的单条指令；强度削减省的是周期，不是阶。</li><li>编译器会做的代换留给编译器；人做它因别名或溢出语义而做不了的那部分。</li><li>常数技巧一旦变成「存下并复用子问题」，就升级为渐近改进，Karatsuba 是边界样本。</li><li>出处：Knuth, <em>Structured Programming with go to Statements</em>, 1974；据 Bentley, <em>Writing Efficient Programs</em>, 1982 的优化口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ae-cache-friendly/">缓存友好的算法</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ae-selection-engineering/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">算法选型的工程视角</span><span class="lesson-card-meta">算法工程实践 · 工程<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ae-cache-friendly/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">缓存友好的算法</span><span class="lesson-card-meta">算法工程实践 · 工程<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

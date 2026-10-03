@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>过拟合的市场特有形态 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_slm-overfitting-market.md.BOYZZREU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 统计学习与市场<!--[--> · 单元 纪律<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><p class="lesson-prereq"> 先修：<a href="/quant/slm-nn-cross-section/">神经网络的截面应用</a></p><p class="lesson-next"> 下一课：<a href="/quant/slm-oos-protocol/">样本外协议</a></p><!----></nav><div style="position:relative;"><div><h1 id="过拟合的市场特有形态" tabindex="-1">过拟合的市场特有形态 <a class="header-anchor" href="#过拟合的市场特有形态" aria-label="Permalink to &quot;过拟合的市场特有形态&quot;">​</a></h1><div class="epigraph"><p>市场上的过拟合大多不来自模型太复杂，而来自同一份历史被太多次使用；容量只是共犯，数据复用才是主犯。</p><footer>—— 据 Bailey, Borwein, López de Prado and Zhu, *Notices of the AMS*, 2014；McLean and Pontiff, *Journal of Finance*, 2016 整理</footer></div><p><a href="/quant/slm-nn-cross-section">上一课</a>把网络容量压到浅层仍有富余——因为真正的敌人不在模型内，在评估外。方法单元的三族模型任何一族都适用，也任何一族都能被同样的手法美化。本课进入纪律单元，先把「过拟合在市场上长什么样」分类；度量的数学（DSR、PBO、Reality Check）在<a href="/quant/backtest-overfitting">过拟合次数与试错</a>与<a href="/quant/overfit-as-risk">过拟合作为风险</a>已收，本课管形态与对位预防。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>教科书把过拟合绑定在模型容量上；市场的过拟合大多不来自容量，来自数据使用方式。于是会出现容量极小的模型「样本外」照样崩塌——因为它的样本外早已被无数次先前的尝试污染，而账本上一行都没记。不分类就预防不了：把选择类死法当成泄漏去修管道，修完了 \(N\) 还是被低估，极值门槛照样失守。缺口是一张形态学清单，每个形态配一个检测器。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三类形态，各配检测。泄漏类：特征用了未来信息、标签 horizon 重叠未清洗、幸存者与回填混进样本——检测靠点时数据（<a href="/quant/point-in-time">时点基本面</a>、<a href="/quant/look-ahead-bias">前视偏差</a>、<a href="/quant/survivorship-bias">幸存者偏差</a>）与 purge/embargo（<a href="/quant/fml-tscv-deep">时序交叉验证的深化</a>）。选择类：试验次数 \(N\) 不可见、冠军偏置、在滚动结果上再挑窗口——检测靠 \(N\) 台账与 DSR/PBO（<a href="/quant/bailey-dsr">Deflated Sharpe 原文</a>、<a href="/quant/pbo">Probability of Backtest Overfitting</a>）。环境类：对特定 regime 的过拟合与发表后衰减——McLean-Pontiff 的衰减是应写进原假设的预算，检测归<a href="/quant/live-drift-monitor">实盘漂移监测</a>。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么市场比图像容易过拟合：有效样本是时间长度，截面相关让「股票数乘以天数」的名义样本虚胖；标签重叠让同一笔收益重复计数；信噪比千分位让任何拟合的方差项巨大。三个放大器相乘的结果是：不清洗的 \(K\) 折显著性可以虚高数倍，桌下几十次尝试就能把无技能簇推出一个「显著」冠军。过拟合也不是大模型的专利——重复使用同一份历史本身就是过拟合来源（Bailey 等 2014）：第 2 课的 \(\lambda\)、第 3 课的深度、第 4 课的层数，每次尝试都是同一种行为，账必须记在同一本台账上。</p><p><span class="marginnote">标签 horizon 为 \(H\) 的逐日滚动持有，相邻 \(H\) 条标签共享同一笔收益，独立样本数近似从 \(T\) 缩到 \(T/H\)；不 purge 的交叉验证把标准误按约 \(\sqrt{H}\) 倍低估，\(H=20\) 时 \(t\) 统计量虚高约四倍半——泄漏类死法里最便宜的一种，一行切分代码就能犯。</span></p><p><span class="marginnote">DSR（紧缩夏普率）就是把「这个策略是从 \(N\) 次尝试里挑出来的」折进显著性检验：试得越多，同样一份回测夏普越不值钱；PBO 则直接估计「样本内排名冠军在样本外翻车的概率」。两者都要以 \(N\) 台账为原料——台账漏记一次，它们就低估一次。</span></p><p><span class="marginnote">初学者容易以为「我只试了三五个模型，谈不上选择偏差」；实际上换一次特征、调一次窗口、删一天异常行情都算一次试验，而且常常没记进台账。桌面上三次尝试的下面，往往压着三十次没记的——这正是 \(N\) 被低估、极值门槛失守的主通道。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>三类的边界不总清晰：拥挤衰减会被误诊为泄漏，regime 拟合会被误诊为概念漂移，分流次序按「先管道、再协变量、后概念」（<a href="/quant/fml-drift-management">漂移管理</a>）。</p><p><span class="marginnote">环境类过拟合可以想象成背题：模型把低利率年代里「哪种股票涨」的标准答案背得滚瓜烂熟，一旦利率环境反转，考卷换了，背熟的答案全部作废。它和泄漏、选择的区别在于——题目本身没抄错，是出题人换了题。</span>过拟合不能靠更好的模型修复，只能靠协议修复——虚假 alpha 通过仓位变成真实亏损（<a href="/quant/overfit-as-risk">过拟合作为风险</a>的杠杆账）。本课只给形态与检测器；把检测器排成时间表、规定「选择发生在哪、测试块何时动用」，是下一课样本外协议的事。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>市场过拟合三形态：泄漏、选择、环境；修复必须对位，错诊比不诊更贵。</li><li>泄漏靠点时数据与 purge/embargo；选择靠 \(N\) 台账与 DSR/PBO；环境靠衰减预算与漂移监测。</li><li>标签重叠使有效样本近似 \(T/H\)，不清洗的显著性按 \(\sqrt{H}\) 虚高。</li><li>数据复用与容量同罪：每次调参都是一次试验，记进同一本台账。</li><li>出处：Bailey, Borwein, López de Prado and Zhu, <em>Notices of the AMS</em>, 2014；McLean and Pontiff, <em>JF</em>, 2016；López de Prado, <em>Advances in Financial Machine Learning</em>, Wiley, 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 统计学习与市场<!--[--> · 单元 纪律<!--]--><!----></p><p class="lesson-progress">第 5 / 9 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/slm-oos-protocol/">样本外协议</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/slm-nn-cross-section/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">神经网络的截面应用</span><span class="lesson-card-meta">统计学习与市场 · 方法<!--[--> · 第 4 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/slm-oos-protocol/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">样本外协议</span><span class="lesson-card-meta">统计学习与市场 · 纪律<!--[--> · 第 6 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

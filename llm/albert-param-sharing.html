@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ALBERT 参数共享 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_albert-param-sharing.md.ffNF9jL0.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 19 / 46 课</p><p class="lesson-prereq"> 先修：<a href="/llm/early-exit-adaptive/">早退与自适应计算</a></p><p class="lesson-next"> 下一课：<a href="/llm/hippo-s4/">HiPPO 与 S4</a></p><!----></nav><div style="position:relative;"><div><h1 id="albert-参数共享" tabindex="-1">ALBERT 参数共享 <a class="header-anchor" href="#albert-参数共享" aria-label="Permalink to &quot;ALBERT 参数共享&quot;">​</a></h1><div class="epigraph"><p>跨层共享注意力与前馈权重，再把词表嵌入分解成低维再投影，参数量从层数和词表两端一起降下来。</p><footer>—— Lan et al., ALBERT: A Lite BERT for Self-supervised Learning of Language Representations, ICLR 2020</footer></div><p><a href="/llm/early-exit-adaptive">上一课</a>按例少算层，参数量不变。<a href="/llm/looped-transformer">循环 Transformer</a> 为算法任务共享块。本课把共享放回<a href="/llm/bert-encoder">BERT 编码器</a>的预训练设定：目标仍是双向 MLM，深度仍有 \(L\) 次前向，但 \(L\) 层共用一套注意力与 FFN。Lan 等人的 ALBERT 还加了嵌入因式分解。注意力续这一单元到此结束；下一单元从 HiPPO 接状态空间，不再把层共享当主线。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><span class="marginnote">术语翻译：参数共享就是 \(L\) 层不用 \(L\) 套权重，而是所有层反复使用同一套 \(F_\theta\)——像一本教材被十二个年级轮流使用，而不是每个年级印一本专属教材。深度（交互次数）还在，参数表只有一份。</span>BERT-large 的参数大部分在层重复与词表矩阵 \(V\times d\) 上。加层立刻加参数，词表一涨嵌入先行爆炸。缺口不是再写一遍 MLM，而是：<strong>在保持双向深度（多次交互）的同时切断参数与 \(L\)、\(V\) 的线性绑定</strong>。Universal Transformer 为此引入 ACT；ALBERT 更保守——固定 \(L\) 次应用，训练目标与 BERT 同族，只改参数布局。</p><p>跨层共享与「层是功能特化的」紧张：上一课功能分化说深层头与浅层头不同。共享后分化只能沿迭代发生，表达力通常下降，换来的是可训更大等效深度或更小模型。</p><p><span class="marginnote">共享的是块内权重，不是把所有层的激活绑成同一个张量。每层仍有自己的隐状态；只是 \(W\) 的指针相同。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三种共享：只共享注意力、只共享 FFN、全部共享。ALBERT 默认全部共享。嵌入写成 \(E_{\mathrm{vocab}}\in\mathbb{R}^{V\times e}\)，\(e\ll d\)，再乘 \(W_e\in\mathbb{R}^{e\times d}\) 升到模型维，参数从 \(Vd\) 降到 \(Ve+ed\)。位置嵌入仍可学习、仍截断长度，与 BERT 同类，不自动继承 T5 相对偏置。</p><p>训练目标上 ALBERT 用 MLM 加句序预测（SOP），替换 BERT 的 NSP。<span class="marginnote">术语翻译：NSP 让模型判断「这两句是不是原文里相邻的」，SOP 改成判断「这两句的先后顺序有没有被对调」——后者逼模型真正理解句间的因果与时序逻辑，而不是靠指代词之类的表面线索走捷径。</span>本课不把 SOP 展开：共享策略与句级任务正交，后课不要把 ALBERT 简化成「换了 NSP」。</p><div class="mermaid"></div><h3 id="和-looped-的差别" tabindex="-1">和 looped 的差别 <a class="header-anchor" href="#和-looped-的差别" aria-label="Permalink to &quot;和 looped 的差别&quot;">​</a></h3><p>Looped 强调测试时改变 \(T\)，常留 prelude/coda。ALBERT 的 \(L\) 训练与推理相同，所有层共享，更像「为了塞进内存而去掉层间特化」。编码器分类、句向量池化都可以接在共享栈的最后一次输出上，与<a href="/llm/embedding-pooling">嵌入池化</a>兼容。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>\(L\) 次同一 \(F_\theta\) 迫使电路可复用，MLM 仍提供双向信号。经验上 ALBERT 在同等参数下可以更深，从而补回一部分共享损失；同等计算下不一定赢不共享的 BERT。嵌入分解假设词表身份可以先活在低维流形再展开到注意力空间，对大词表最划算，对很小的词表几乎无意义。</p><p>优化上共享参数的更新是各层梯度之和，浅层与深层的梯度会互相干扰。学习率与预热往往要重新扫，不能照抄 BERT-large。<span class="marginnote">直觉类比：共享参数的梯度是各层之和，好比一位老师同时给十二个年级上课，教案要同时迁就最深与最浅的学生——两头的需求会打架。所以优化配方（学习率、预热）必须重新摸，不能照抄不共享时的。</span>这与循环块的 RNN 式梯度是同一类现象，只是 \(L\) 固定、没有测试时加循环的承诺。</p><p><span class="marginnote">推理 FLOPs 仍按 \(L\) 层计，不因共享变便宜。共享只瘦存储与通信（分布式里一份权重）。要省计算看早退或稀疏，不看 ALBERT。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不要指望共享栈在头功能上仍呈现「第 3 层句法、第 11 层语义」那种层特化叙事；探针应改沿迭代。生成式纯解码器较少直接套 ALBERT——词表矩阵与层宽的压力仍在，但今日更常用 GQA、MoE 去切另一维。本课结束编码器/注意力续里「深度怎么花钱」的讨论：下一课钱花在状态矩阵 \(A\) 上，而不是再共享一层 Transformer。</p><div class="mermaid"></div><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ALBERT 用跨层共享切断参数与深度的绑定，用嵌入分解切断参数与词表的绑定。</li><li>深度（交互次数）仍在，层特化减弱；同等参数可更深，同等 FLOPs 不自动更快。</li><li>梯度是各层之和，优化比不共享更脆。</li><li>与 looped 的测试时 \(T\)、早退的按例深度不是同一旋钮。</li><li>出处：Lan et al., ICLR 2020。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 编码器、状态空间与专家<!--[--> · 单元 注意力续<!--]--><!--[--> · 课序 门、共享与深度<!--]--></p><p class="lesson-progress">第 19 / 46 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/hippo-s4/">HiPPO 与 S4</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/early-exit-adaptive/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">早退与自适应计算</span><span class="lesson-card-meta">编码器、状态空间与专家 · 注意力续 · 门、共享与深度<!--[--> · 第 18 / 46 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/hippo-s4/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">HiPPO 与 S4</span><span class="lesson-card-meta">编码器、状态空间与专家 · SSM 与线性续 · 状态、扫描与召回<!--[--> · 第 20 / 46 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

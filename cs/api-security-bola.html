@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API 安全与 BOLA | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_api-security-bola.md.DvZzs8kE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 Web 与网络安全<!--]--><!--[--> · 课序 Web<!--]--></p><p class="lesson-progress">第 90 / 133 课</p><p class="lesson-prereq"> 先修：<a href="/cs/waf/">WAF</a></p><p class="lesson-next"> 下一课：<a href="/cs/ids-ips/">IDS / IPS</a></p><!----></nav><div style="position:relative;"><div><h1 id="api-安全与-bola" tabindex="-1">API 安全与 BOLA <a class="header-anchor" href="#api-安全与-bola" aria-label="Permalink to &quot;API 安全与 BOLA&quot;">​</a></h1><div class="epigraph"><p>对象级授权失败：认证过了，但改一个标识就碰到别人的资源。API 把客体直接暴露成 URL 与 JSON，授权必须每对象检查，而不是只检查已登录。</p><footer>—— 据 OWASP API Security；CWE-639 IDOR；对照[最小特权](/cs/acl-least-priv)</footer></div><p>上一课<a href="/cs/waf">WAF</a>收尾时说它几乎不管「这个对象标识是不是你的」；缺口正是 <strong>BOLA 与 IDOR</strong>。Web 课序在此收口，下一课序转向网络防御。不给盗数据步骤。</p><p>后课默认已经读完本课钉下的合同，只补差，不从该领域第一性原理重开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>REST 把对象直接暴露成 URL 与 JSON：/orders/4821 里那个数字就是客体标识。漏洞形态是服务器验了会话（你是合法用户）却没验属主（这单是不是你的），改一个数字就碰到别人的资源。缺口是每请求的属主或能力检查——在数据访问层按属主过滤，而不是在路由层验完登录就放行；批量接口与导出功能更容易漏。</p><p><span class="marginnote">数字实例：订单号若是自增整数，攻击者把 URL 里的 4821 换成 4822、4823 逐个试，一晚就能遍历全站订单。UUID 把猜测代价升到天文数字，但标识一旦从邮件或分享链接里泄露，这层防护立刻归零——它只是减速带，不是门锁。</span></p><h3 id="查询语言接口" tabindex="-1">查询语言接口 <a class="header-anchor" href="#查询语言接口" aria-label="Permalink to &quot;查询语言接口&quot;">​</a></h3><p>GraphQL 这类查询语言接口同理：每个节点与字段同样要授权，内省（introspection）只告诉你 schema 长什么样，不是读数据的许可。</p><p><span class="marginnote">术语翻译：内省就像餐厅把完整菜单印给你看——你知道后厨能做什么菜，但能不能上桌仍要一桌一桌核资格。漏扫工具常靠内省枚举字段，看到的只是菜单；每字段照常鉴权，菜单公开也不碍事。</span></p><p><span class="marginnote">OWASP API1。禁止 IDOR 利用教程。IDS 下一课换到网络流量视角。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法分两侧。测试侧：对每个取对象的端点换标识、换租户重放，确认 403 而非 200。设计侧：把属主检查压进数据访问层——查询自带「属主 = 当前主体」过滤，或改用与用户绑定的能力令牌。不可预测的标识（UUID）只提高枚举代价，不是授权：标识一旦经邮件、协作功能泄漏，这条防线即无。下一课 IDS/IPS。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>机制上是整个 Web 单元的收口：从 XSS 的注入执行、CSRF 的请求伪造到 BOLA 的客体越权，共同教训是「每层信任判定要有独立证据」——认证的证据不能挪用为授权的证据。下一课序从流量检测起步，前提是假定应用仍会漏：BOLA 不留注入特征，常规 WAF 与漏扫看不见，这正是纵深需要检测层的原因。</p><p><span class="marginnote">常见误区：初学者容易以为「登录了接口就安全」。实际上认证回答「你是谁」，授权回答「这个对象归不归你」，两问必须各自取证——把前者的答案挪去顶替后者，就是 BOLA 的全部成因。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>零盗取教程；边界要点名：对象级授权错误是逻辑缺陷——响应正常、属主错误，自动化工具覆盖差，测试要靠人按数据模型逐个走。下一课序 IDS/IPS。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>WAF 看不见对象属主。</li><li>BOLA：认证不等于对该客体的授权。</li><li>每对象检查；随机标识不是 ACL。</li><li>下一课序：IDS/IPS。</li><li>出处：OWASP API Security；CWE-639。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 密码、利用与系统防御<!--[--> · 单元 Web 与网络安全<!--]--><!--[--> · 课序 Web<!--]--></p><p class="lesson-progress">第 90 / 133 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ids-ips/">IDS / IPS</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/waf/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">WAF</span><span class="lesson-card-meta">密码、利用与系统防御 · Web 与网络安全 · Web<!--[--> · 第 89 / 133 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ids-ips/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">IDS / IPS</span><span class="lesson-card-meta">密码、利用与系统防御 · Web 与网络安全 · 网络防御<!--[--> · 第 91 / 133 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>质量过滤：打分器与一致性 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_synthetic-quality-filter.md.C9TuHReg.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 分类与质量控制<!--]--><!----></p><p class="lesson-progress">第 3 / 16 课</p><p class="lesson-prereq"> 先修：<a href="/llm/self-instruct-evol/">自指令与指令演化</a></p><p class="lesson-next"> 下一课：<a href="/llm/synthetic-dedup-contamination/">合成数据的去重与污染</a></p><!----></nav><div style="position:relative;"><div><h1 id="质量过滤-打分器与一致性" tabindex="-1">质量过滤：打分器与一致性 <a class="header-anchor" href="#质量过滤-打分器与一致性" aria-label="Permalink to &quot;质量过滤：打分器与一致性&quot;">​</a></h1><div class="epigraph"><p>过滤器不是在挑「好样本」，是在把教师分布投影到你声明的目标分布上——投影错了方向，数据越多离目标越远。</p><footer>—— 据 Chen 等 AlpaGasus；Zheng 等 LLM-as-judge 整理</footer></div><p><a href="/llm/self-instruct-evol">上一课</a>把自举与演化接成了题池扩张机，但扩张进来的一切都只是候选。把候选变成训练集的关卡是过滤：启发式、判别式分类器、生成式打分器三层递进。预训练网页侧的过滤在<a href="/llm/data-quality-filter">质量过滤与分类器</a>与 <a href="/llm/dclm-filter">DCLM 数据过滤</a>已讲；本课写指令与轨迹侧的打分器：监督信号是教师的判断而非参照文档，失败模式因此不同。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>合成数据的过滤难点在于「质量」没有外部定义。网页数据至少有「像高质量文档」这个参照；指令数据的「好」取决于目标能力——同一套数据做聊天助手是好，做数学推理是噪声。工程错误有两类。其一，只用一套固定打分器，把教师的风格偏好当成质量：长答案与讨好语气被系统性打高分。其二，只用一次性打分，把裁判的随机性当成样本属性：同一样本两次打分可能跨两档。两者的共同后果是过滤器在系统性地选择一种风格，训练分布被投影到「教师喜欢的样子」而不是「任务需要的样子」。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>三层过滤各拦各的。启发式层拦结构与格式：长度界、语言检测、格式完整性、模板残留，便宜且近乎无偏置，但只看得见表层。判别式层用小分类器放大规模：人工分层样本作正例，扫全量候选；预训练侧 DCLM 已证明对齐良好的 fastText 能压过多数复杂启发式，指令侧同理，成本在标注集要覆盖目标能力。生成式打分器层用教师或裁判逐条打分或做成对比较，粒度最细、偏置也最大——要冻结提示、温度与解析规则，把裁判当成有版本的代码。<span class="marginnote">三层顺序可以类比机场安检：X 光机（启发式）先快速拦下明面违禁品，证件核验（分类器）统一过每个人，最后才由人工复检（裁判）处理疑难件。把最贵的人力放在队伍最前面，队伍立刻堵死——所以必须先便宜后贵。</span></p><p>一致性的三个检查。样本内自洽：同一样本多次打分的方差，方差大的送人审或丢弃。裁判间一致：两个不同模型（或教师加规则）交叉打分，分歧样本信息量最大——分歧小而系统化说明裁判同源，分歧大说明质量信号本身不稳。与人标锚定：留一小批人标注做校准集，定期算裁判与人的一致率，漂移要在污染配比前发现。<span class="marginnote">给个数字实例：同一样本让裁判打 5 次得 4、4.5、4、4.2、4.1，方差小，放行；若得 5、2、4、1.5、3.5，裁判自己都拿不准，进人审。再看裁判间：教师给 4 分、独立小模型给 1 分，这种分歧本身就是最值得人看的信号。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>过滤的真实作用是重加权：每一道关卡都在改写样本进入训练分布的概率，阈值就是权重曲线。这意味着「过滤掉多少」不是质量指标，被保留集合的分布才是——AlpaGasus 用裁判从 5.2 万条 Alpaca 数据里筛出约 9 千条，训练更快、评测更高，说明被筛掉的部分不少是负迁移。反过来，过滤器太窄会把高难样本当低质量丢掉：长链条多步推理在打分器眼里「可读性」天然差，质量与难度在裁判那里是混着的——难度问题本课程后面用通过率单独解决，过滤器不要越权替它做决定。打分器还有实证的自我偏好（<a href="/llm/self-preference-bias">自我偏好</a>）：裁判对出自自身风格的样本系统性偏高，所以生成与打分应尽量分离。一致性检查的机制意义在于分离两种误差：样本内方差量的是裁判的随机误差，裁判间分歧量的是系统性偏置——只查前者会漏掉最危险的后者。</p><p><span class="marginnote">AlpaGasus 的 5.2 万到 9 千不是「删脏数据」那么简单：它同时把训练时间缩短到几分之一。过滤器太弱时，「更多数据」掩盖的常常是负迁移——数量从来不是质量的上位替代。</span></p><div class="mermaid"></div><p><span class="marginnote">这张图回答的问题是：两种一致性检查各量什么。样本内方差量的是裁判的随机误差——同一把尺子量几次读数不稳；裁判间分歧量的是系统偏置——两把尺子从根上刻度就不一样。只查前者，会漏掉后者这种最危险的误差。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>打分器的上限是教师的上限，且教师不会说「我不会」：超出教师能力的样本不会被标成低质量，只会被标成「不像教师」，这类样本的缺失在池内无从察觉，只能靠 held-out 真题的增量审计兜底。三层过滤顺序有讲究：贵的放后面，先启发式压量再上裁判，反过来会把预算烧在显然的坏样本上。最后，过滤阈值的任何变动都会改变配比——过滤器与配比是同一根轴上的两个旋钮，消融时不能分开归因，这一点留给配方消融课展开。<span class="marginnote">初学者容易以为「阈值调严一点总没错」。实际上每次调阈值都在改写配比：多步推理长链因「可读性差」被滤掉，推理能力就悄悄下滑——动过滤器等于动配比，归因时两个旋钮要一起消融。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>三层过滤：启发式拦格式，分类器扫全量，打分器给细粒度。</li><li>质量是相对目标能力的声明，不是样本的内禀属性。</li><li>一致性三查：样本内方差量随机误差，裁判间分歧量系统偏置，人标锚定防漂移。</li><li>过滤即重加权：看被保留集合的分布，不看过滤比例。</li><li>生成与打分分离，防自我偏好变成自选择。</li><li>出处：Chen 等 AlpaGasus 2023；Zheng 等 2023；DCLM 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 蒸馏与合成数据工程<!--[--> · 单元 分类与质量控制<!--]--><!----></p><p class="lesson-progress">第 3 / 16 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/synthetic-dedup-contamination/">合成数据的去重与污染</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/self-instruct-evol/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">自指令与指令演化</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 分类与质量控制<!--[--> · 第 2 / 16 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/synthetic-dedup-contamination/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">合成数据的去重与污染</span><span class="lesson-card-meta">蒸馏与合成数据工程 · 分类与质量控制<!--[--> · 第 4 / 16 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

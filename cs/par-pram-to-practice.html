@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从 PRAM 到实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_par-pram-to-practice.md.BfbCusr1.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 并行计算模型<!--[--> · 单元 模型<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/gpu-case-map/">GPU 编程案例与收束</a></p><p class="lesson-next"> 下一课：<a href="/cs/par-openmp-mpi/">OpenMP 与 MPI 的直觉</a></p><!----></nav><div style="position:relative;"><div><h1 id="从-pram-到实践" tabindex="-1">从 PRAM 到实践 <a class="header-anchor" href="#从-pram-到实践" aria-label="Permalink to &quot;从 PRAM 到实践&quot;">​</a></h1><div class="epigraph"><p>模型故意把机器说得过分简单：P 台处理器、一块单位时间访存的共享内存、同步齐步走。简化不是天真，而是把「什么能并行」从器件细节里剥出来，单独回答。</p><footer>—— 据 Karp and Ramachandran, Parallel Algorithms for Shared-Memory Machines, 1990；JáJá, An Introduction to Parallel Algorithms, 1992 整理</footer></div><p><a href="/cs/gpu-case-map">上一课</a>给 GPU 编程收束：roofline 定目标、层次账、warp 账、指令账、profile 验收五步决策链，在归约、转置、GEMM 三个案例上各走一遍；课程末尾把「并行结构抽象回算法模型」的题目正式交棒。硬件把「能同时动」摆到了你面前，但「这个问题本身能不能并行、能并行到什么程度」是更早也更高一层的问题——它属于模型，不属于器件。本课是「并行计算模型」的第一课。算法课里的<a href="/cs/pram-prefix-sum">PRAM 与前缀和</a>与<a href="/cs/work-span-model">Work-span 与 fork-join</a>已经立起扫描原语与成本记账，本课不再推导，而是把 PRAM 的每条理想化假设逐项对着真实机器翻账，看它破在哪里、破掉之后该换哪本账。后面的课默认你已经读完本课，并带上这个读法：先在模型侧记账，再看机器在哪里背叛模型。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>PRAM 用四条假设换来干净的语言：处理器数任意多；任何处理器任何一拍都能访问共享内存的任何字，单位时间；所有处理器同步齐步；同拍访存冲突按 EREW/CREW/CRCW 规则裁决。在这套语言里，前缀和 \(O(n)\) 工作、\(O(\log n)\) 跨度，与任何具体芯片无关。</p><p>缺口从第一拍就存在：真实机器处理器数有限、访存分层且带宽有限、同步一次要花几十到上千个周期、内存模型还是弱一致的。拿着 PRAM 的界直接预测机器时间，误差常见一到几个数量级。不翻账会错在哪：你以为把循环切成一千份就有一千倍，在两插槽机器上试完，得出「并行无用」的错误结论。</p><p><span class="marginnote">「并行无用」的错账常见成因：把扩展不到理想倍数全记成「机器不行」。实际三本账要分开查——串行部分有没有封顶（Amdahl）、\(P\) 够不够（超额订阅）、访存卡在哪一层。不翻账就下结论，和拿小学算术预言潮汐是一个错误。</span></p><h3 id="假设逐条对着机器" tabindex="-1">假设逐条对着机器 <a class="header-anchor" href="#假设逐条对着机器" aria-label="Permalink to &quot;假设逐条对着机器&quot;">​</a></h3><div class="mermaid"></div><p>四条假设各自对应一项真实成本。本课先把映射钉住，后面各课逐项展开。</p><p><span class="marginnote">CRCW 的并发写还要先约定仲裁：common、arbitrary、priority 三种语义下同一问题的界不同。common CRCW 里 \(n\) 个处理器一拍能算出 \(n\) 路 OR，EREW 做不到这么快。用模型报结果时，必须写清自己在哪种约定下。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>方法不是抛弃 PRAM，而是把它的产出翻译成机器听得懂的两本账。第一本：把算法的界拆成工作 \(W\) 与跨度 \(S\)，<a href="/cs/work-span-model">Work-span 与 fork-join</a> 的 Brent 定律给出 \(T_P\le W/P+S\)——这是模型与机器之间最短的一座桥，\(P\) 有限与齐步失效都被这两个量吸收。第二本：把访存成本从「单位时间」换成层数与字节数，<a href="/cs/external-memory-model">外存算法与 I/O 模型</a>示范过一次完整的换账动作：\(M\)、\(B\) 一进来，同一个算法的界就重写。</p><p><span class="marginnote">数字实例：某算法 \(W=10^6\)、\(S=20\)。\(P=100\) 时 \(T_P \le 10^6/100 + 20 \approx 10^4\)，几乎全由工作决定；\(P=10^5\) 时 \(T_P \le 10+20 = 30\)，跨度接管——再加处理器也不快了。Brent 不等式正是用这两个数告诉你「钱花在哪、天花板在哪」。</span></p><p>「问题节」那张图把四条假设逐条对到真实成本；拆出来的 \(W\) 与 \(S\) 怎么经 Brent 变成任意 \(P\) 下的时间上界，是这一步的细节。</p><div class="mermaid"></div><p>于是本课程的读法固定下来：先在模型侧证明跨度小（值不值得并行），再在机器侧把强度与局部性补回来（并行了卡在哪）。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>翻译为什么成立：work-span 的 DAG 观点把「齐步」弱化成「依赖被尊重」，其余全交给调度器——调度是否近最优，由 work-span 课收拢的工作窃取结论保证。访存一侧，「单位时间」的谎言由缓存层次承担：PRAM 在意的是字级冲突规则，到了真机上变成对缓存行所有权与一致性流量的在意——<a href="/cs/false-sharing">伪共享</a>就是 EREW 语义在缓存行粒度上的账单：字级不冲突的两个写，行级照样互相打。至于「处理器任意多」，<a href="/cs/gustafson-law">Gustafson 定律</a>早已提醒：并行度最终被问题的内在并行性与同步粒度封顶，不由愿望决定。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 OpenMP 与 MPI 的任何 API（下一课），不展开无锁、SIMD、NUMA 与 roofline（后面各课）。BSP、LogP 这类把通信周期记进模型的桥模型只点名不立为主线：网络进了模型，代价是可组合性变差，本课程选 work-span 统一记账。CRCW 三种仲裁之争也停在语义层：选哪种，取决于你想让模型替你回答什么。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PRAM 用「任意多处理器、单位访存、齐步、冲突规则」四条假设，换一个与器件无关的并行性答案。</li><li>假设逐条破产：\(P\) 有限、访存分层、同步收费、一致性流量；Brent 的 \(T_P\le W/P+S\) 是第一座桥。</li><li>本课程读法：先 work-span 记账，再看机器的哪本账背叛了模型。</li><li>出处：Karp and Ramachandran, 1990；JáJá, 1992；Brent, 1974。</li></ul><p><span class="marginnote">术语翻译：BSP、LogP 这类「桥模型」就是把网络通信的周期数也记进账本的并行模型——比 PRAM 真实，代价是公式变复杂、算法之间的可组合性变差。本课程选 work-span 当主账本，就是宁可先算清「值不值得并行」，再把机器账逐项补上。</span></p></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 并行计算模型<!--[--> · 单元 模型<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/par-openmp-mpi/">OpenMP 与 MPI 的直觉</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/gpu-case-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">GPU 编程案例与收束</span><span class="lesson-card-meta">GPU 编程深入 · 张量核与工具<!--[--> · 第 10 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/par-openmp-mpi/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">OpenMP 与 MPI 的直觉</span><span class="lesson-card-meta">并行计算模型 · 模型<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

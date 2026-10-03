@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>树形草稿与验证 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_spec-tree-draft-verify.md.fC3G_rfF.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 谱系<!--]--><!----></p><p class="lesson-progress">第 3 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/spec-eagle-family/">特征级草稿：Eagle 一族</a></p><p class="lesson-next"> 下一课：<a href="/llm/spec-online-draft-selection/">在线草稿模型选择</a></p><!----></nav><div style="position:relative;"><div><h1 id="树形草稿与验证" tabindex="-1">树形草稿与验证 <a class="header-anchor" href="#树形草稿与验证" aria-label="Permalink to &quot;树形草稿与验证&quot;">​</a></h1><div class="epigraph"><p>树不是把链画好看一点：它是把一次校验前向的节点预算，当成在深度与广度之间分配的组合问题。</p><footer>—— 据 Miao et al., SpecInfer, ASPLOS 2024 与 Cai et al., Medusa, ICML 2024 的树校验口径整理</footer></div><p><a href="/llm/spec-eagle-family">上一课</a>里树已经出现过两次：EAGLE 的静态树与置信度驱动的动态树。本课把「树形草稿与验证」本身钉成一课：链式草稿每轮只押一条路径，树形草稿一次押一片；本课写树的提议结构、校验的代数与实现、以及节点预算怎么分。链与树的接受规则同源，<a href="/llm/speculative-sampling">投机采样</a>不重证；<a href="/llm/speculative-tree">树状验证</a>给过的单孩子退化也不再展开。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>链的脆弱在几何：第一个 token 被拒，右侧 \(\gamma-1\) 个草稿全部作废，而这 \(\gamma-1\) 步草稿前向已经付了钱。高熵位置上单路径的命中率天然低。树的直觉是广度换命中：在浅处分叉，只要有一条路径走得远就有产出。但树把账从两边同时变贵：草稿侧，节点多了提议本身要算；校验侧，一次前向要吃 \(N\) 个位置的 KV 与注意力，\(N\) 是新引入的资源。\(N\) 固定时，深度与广度怎么分？分错了，要么覆盖不够（退化成短链），要么验证前向白背一堆必死分支。</p><p><span class="marginnote">数字实例：\(\alpha=0.8\) 时一条 4 节点路径整路命中的概率是 \(0.8^4\approx 41\%\)；\(\alpha=0.5\) 时只剩 \(0.5^4\approx 6\%\)。同一棵「深 4」的树，草稿一糙，深挖基本白费——这就是深度边际收益按 \(\alpha^d\) 衰减的数字含义。</span></p><p>还有一个正确性的坑：兄弟分支互不可见。掩码错成因果，分支之间互相「看见」，校验通过率虚高且分布已经漂——这不是慢，是错。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p><strong>提议</strong>。token 树最省事的来源是各位置 top-\(s\) 的笛卡尔积（Medusa 的头、EAGLE 的草稿分布都这么长树）；多草稿模型可以各长一棵再按置信度剪成一棵紧凑树（SpecInfer 的集体提议）。<strong>校验</strong>。把树的节点按拓扑序摆进一次前向，注意力掩码只允许每个节点看见祖先链，位置编码按树深编；目标模型一次打出全部节点的分布。<strong>接受</strong>。对每条根到叶的路径跑同一个似然比：第 \(i\) 个节点以 \(\min(1,p/q)\) 接受，拒绝则整棵子树作废，拒绝点上从 \(\mathrm{norm}(\max(0,p-q))\) 补采一个 token——与链完全同构，只是「路径」从一条变成多条互斥候选，命中最深的那条。</p><p><strong>预算分配</strong>。节点预算 \(N\) 是约束，目标是最大化期望接受长度。深度的边际收益按 \(\alpha^d\) 衰减：越深的节点越难被整路接受；广度的边际收益按「分叉点后的条件熵」走：低熵位置一枝就够，高熵位置值得多枝。静态树把这份分配离线定死；动态树按草稿置信度在线长（上一课的 EAGLE-2），本质是在线估计这份边际收益。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>树校验合法的机制与链同一条：给定任意草稿树，因果模型在一次前向里本来就能给出每个节点的条件分布——teacher forcing 的计算图对树同样成立，掩码负责把「兄弟不可见」表达出来。树的收益机制在于互斥候选共享前缀：第一条分歧发生得越晚，被作废的节点越少，所以树的期望产出不是 \(N\) 的线性函数，而是强烈依赖分叉的位置结构。这也是为什么「同一个 \(N\)」在不同草稿质量下最优形状不同：草稿好（\(\alpha\) 高）时值得深挖单枝，草稿糙时浅层多叉更划算。带宽与算力的 roofline 决定 \(N\) 的上界：带宽墙下 \(N\) 个位置的校验几乎不比一步贵；批量上来后算力接管，\(N\) 直接乘进 FLOPs——这条边界留给系统交互单元展开。</p><p><span class="marginnote">树节点数 \(N\) 不要代进 i.i.d. 链公式当 \(\gamma\) 用：链公式假设一条路径上逐位独立，树的有效深度是「被接受路径的深度」，两者只在 \(N=\gamma+1\) 的单孩子退化下重合。</span></p><p><span class="marginnote">直觉类比：树掩码下兄弟节点互不可见，像同考场的人各答各的卷。掩码错成因果，等于让后面的考生偷看前面人的答案——「通过率」自然虚高，但那份成绩已经不是这份卷子的（分布漂了），这是错误不是加速。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>树掩码与接受路径必须逐位一致，这是实现里最容易静默出错的地方。动态树的置信度代理依赖校准，换接受规则即失效（上一课的边界在这里仍然成立）。树宽在批处理下的收益递减，Medusa 的树在单请求与并发服务里不是同一个最优。typical acceptance 一类放宽让「路径接受」脱离似然比，树形结构还在，无损声明没了。多草稿合树的编排成本（多份草稿 KV、剪枝同步）在分布式里放大，SpecInfer 的数字钉在它的编排方式上，不是树本身给的。</p><p><span class="marginnote">常见误区：以为树越宽越保险。宽出的节点都挤进同一次校验前向占座位——低熵位置第一枝几乎必中，多叉只是给 KV 与注意力白添开销。宽要花在高熵分叉点上，不是均匀撒。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>链每轮押一条路径，树押一片：浅处分叉换命中，代价是节点预算 \(N\) 成为新资源。</li><li>校验 = 树掩码 + 一次前向打全部节点分布；接受 = 逐路径似然比，拒绝废子树、拒绝点补采。</li><li>预算分配：深度边际收益按 \(\alpha^d\) 衰减，广度按分叉点条件熵走；动态树是在线估计这份分配。</li><li>树掩码错成因果掩码是正确性事故：分支互相可见，通过率虚高、分布漂移。</li><li>\(N\) 不等于 \(\gamma\)，i.i.d. 链公式不能直接套树。</li><li>出处：Miao et al., <em>SpecInfer</em>, ASPLOS 2024；Cai et al., <em>Medusa</em>, ICML 2024；Li et al., <em>EAGLE-2</em>, EMNLP 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 谱系<!--]--><!----></p><p class="lesson-progress">第 3 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/spec-online-draft-selection/">在线草稿模型选择</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/spec-eagle-family/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">特征级草稿：Eagle 一族</span><span class="lesson-card-meta">投机解码深化 · 谱系<!--[--> · 第 2 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/spec-online-draft-selection/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">在线草稿模型选择</span><span class="lesson-card-meta">投机解码深化 · 系统交互<!--[--> · 第 4 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

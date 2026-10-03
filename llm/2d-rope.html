@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2D RoPE | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_2d-rope.md.DTQsOMR9.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 视觉 tokenizer 与理解<!--]--><!--[--> · 课序 像素怎么进模型<!--]--></p><p class="lesson-progress">第 6 / 30 课</p><p class="lesson-prereq"> 先修：<a href="/llm/native-resolution-vit/">原生分辨率 ViT</a></p><p class="lesson-next"> 下一课：<a href="/llm/visual-instruction-data/">视觉指令数据</a></p><!----></nav><div style="position:relative;"><div><h1 id="_2d-rope" tabindex="-1">2D RoPE <a class="header-anchor" href="#_2d-rope" aria-label="Permalink to &quot;2D RoPE&quot;">​</a></h1><div class="epigraph"><p>一维 RoPE 把序列当下标。图像的邻居在二维格子上。把旋转拆到高与宽，相对位置才回到上下左右。</p><footer>—— Su 等 RoFormer 的旋转位置；VLM 中的二维 / 多轴推广</footer></div><p><a href="/llm/native-resolution-vit">上一课</a>需要二维位置。主干文本 RoPE 把位置写成旋转。本课写 2D RoPE：对 patch 坐标 \((x,y)\) 分别旋转一部分维度。缺口是不要把图像当一维 raster 编号完事。后课视觉指令数据默认位置编码已经能表达格子。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>可学习一维位置嵌入难外推分辨率。一维 RoPE 外推的是长度，不是高宽。把 patch 按行扫描编号，竖直邻居在序列上相距一行宽度，旋转角与真实空间距离不成比例。2D RoPE 把通道分成两组（或更多），一组旋转 \(x\)，一组旋转 \(y\)，注意力的相对相位由 \(\Delta x,\Delta y\) 决定。Qwen2-VL 的 M-RoPE 再把时间轴算进去，视频与图共用多轴。</p><p><span class="marginnote">RoPE（旋转位置编码）就是用「把 query 和 key 按各自位置转一个角度」的手段来做「让注意力得分只看相对位置差」的事：两个转角一相减，剩下的正是两个 token 隔多远，绝对位置在点积里被消掉了。2D 版本只是把「一个角度」换成「\(x\)、\(y\) 各转一个角度」。</span></p><p>分辨率变化时，坐标如何归一（像素、patch 格、还是 \([0,1]\)）是协议，写错会让高低分辨率图的「同一相对结构」对不上。</p><p><span class="marginnote">数字实例：一张 8 列宽的图按行编号，竖直方向隔一行的两个 patch 在序列里相距 8 个下标；同一张图放大到 16 列宽，同样的「正下方」关系变成相距 16，旋转角差翻了一倍——空间关系没变，模型看到的相位却变了，这就是一维编号的失真来源。</span></p><p><span class="marginnote">文本 token 仍用一维 RoPE。多模态序列里，视觉段用二维，文本段用一维，轴要对齐到同一旋转实现，避免两套尺度。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>对视觉 token 赋 \((x,y)\)（及视频 \(t\)），按轴应用 RoPE。训练应含多种分辨率，否则外推仍失败。与绝对 2D 嵌入可比：RoPE 利于相对几何，绝对嵌入利于「这是画布角落」的绝对先验。产品常用 RoPE。评测：把图平移/缩放后问相对位置，看是否保持。</p><p><span class="marginnote">数字实例：若注意力头维度 \(d=128\)，「分成两组」就是前 64 维按 \(x\) 旋转、后 64 维按 \(y\) 旋转。两个 token 做点积时，\(x\) 组贡献的相位只随 \(\Delta x\) 变，\(y\) 组只随 \(\Delta y\) 变——比如 \(\Delta x=3\)、\(\Delta y=0\)，\(y\) 组相位完全不动，横向关系就被干净地分离出来了。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>RoPE 把点积变成带相对位置相位的形式。二维推广希望 \(\Delta x\) 与 \(\Delta y\) 可分地进入相位，于是「左边那个」在不同分辨率下仍对应相似的相对旋转。若把 \(x,y\) 编码进同一组维而不分轴，相位会耦合，竖向与横向相对关系缠在一起。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>2D RoPE 不增加 OCR 分辨率——那是切块 \(P\) 与 \(N\)。它只让已有格子的相对结构可学。下一课：格子有了，还要指令数据才会对齐到语言动作。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>2D RoPE 按高宽分轴旋转，修复 raster 一维编号的空间扭曲。</li><li>坐标归一与多分辨率训练属于协议。</li><li>文本一维与视觉二维要在同一实现里对齐尺度。</li><li>出处：Su 等 RoFormer；Qwen2-VL 等多轴 RoPE。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 多模态生成与统一模型<!--[--> · 单元 视觉 tokenizer 与理解<!--]--><!--[--> · 课序 像素怎么进模型<!--]--></p><p class="lesson-progress">第 6 / 30 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/visual-instruction-data/">视觉指令数据</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/native-resolution-vit/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">原生分辨率 ViT</span><span class="lesson-card-meta">多模态生成与统一模型 · 视觉 tokenizer 与理解 · 像素怎么进模型<!--[--> · 第 5 / 30 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/visual-instruction-data/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">视觉指令数据</span><span class="lesson-card-meta">多模态生成与统一模型 · 视觉 tokenizer 与理解 · 像素怎么进模型<!--[--> · 第 7 / 30 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

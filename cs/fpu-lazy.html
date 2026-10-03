@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FPU 惰性保存 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_fpu-lazy.md.NThb-rlf.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 操作系统<!--[--> · 单元 进程与线程<!--]--><!--[--> · 课序 线程与上下文<!--]--></p><p class="lesson-progress">第 31 / 135 课</p><p class="lesson-prereq"> 先修：<a href="/cs/kernel-stack/">内核栈</a></p><p class="lesson-next"> 下一课：<a href="/cs/idle-thread/">idle 线程</a></p><!----></nav><div style="position:relative;"><div><h1 id="fpu-惰性保存" tabindex="-1">FPU 惰性保存 <a class="header-anchor" href="#fpu-惰性保存" aria-label="Permalink to &quot;FPU 惰性保存&quot;">​</a></h1><div class="epigraph"><p>大多数线程切换并不碰到浮点寄存器；等到下一次真正用 FPU 再保存上一所有者，比每次切换都搬几百字节更便宜。</p><footer>—— 据 Love, Linux Kernel Development；Tanenbaum MOS 对上下文切换代价的整理</footer></div><p><a href="/cs/kernel-stack">上一课</a>让通用寄存器与 trapframe 跟着内核栈走。向量与浮点寄存器组很大，每次<a href="/cs/context-switch">上下文切换</a>都保存会抬高切换税，而大量内核路径与整数进程根本不用它们。缺口是<strong>惰性保存</strong>：记住 FPU 的当前所有者，切走时只设「下一线程使用则陷阱」，直到陷阱才把状态写入上一任务的 PCB。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>若每次切换都存还原 FPU，<a href="/cs/scheduling-metrics">调度指标</a>里的吞吐被无谓搬运压住。若永不保存，两个用浮点的线程会互相覆盖。惰性：切换时关 FPU（或标脏），下一线程执行浮点指令则陷入内核，此时保存旧所有者、恢复新线程的 FPU 镜像、标记新所有者。缺口不是更大的内核栈，而是这条延迟到第一次使用才付的账。</p><p><span class="marginnote">TS 标志（Task Switched）就是 CPU 上的一张「浮点已易主」便签：置上之后，任何浮点指令都不再直接执行，而是触发陷阱，把处理权交给内核去补做保存与恢复。</span></p><p><span class="marginnote">数字感受一下「大」：x87 加 SSE 状态约 512 字节，加上 AVX 状态就翻倍，AVX-512 全开可超过 2 KB——而一次上下文切换本身往往只有一两百条指令的工作量，每次都搬 FPU 等于把切换税翻好几倍。</span></p><p><span class="marginnote">内核本身少用浮点；一旦内核用了，必须急切保存用户 FPU 或禁止在该路径抢占，以免污染。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>PCB 里有 FPU 保存区与「内容是否有效」位。硬件：TS 一类标志使浮点指令陷阱。陷阱处理：存旧、恢复新、清标志、从陷阱返回重执行该指令。两个都不用 FPU 的线程之间，切换不碰 FPU 寄存器。</p><div class="mermaid"></div><p>信号递送若要给处理函数一个干净的浮点环境，可能被迫提前保存——点到即可，不写 ABI 全文。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>惰性把切换代价变成「用 FPU 的线程才付」。与 trapframe 的急切保存对照：通用寄存器每次陷入都可能被内核当临时量，必须当场存；FPU 内核通常碰不到。多核上每 CPU 记住所有者；迁移时要把所有权弄对，否则会恢复错核上的寄存器。本课不把 xsave 优化路径写完。</p><div class="mermaid"></div><p><span class="marginnote">这张图对比的是两种策略在每次切换时的账单。初学者容易以为「惰性」是把保存省掉了——实际上账一分没少，只是从「每次切换都付」改成「谁用谁付」：纯整数负载永远不付，浮点负载在第一次使用时一次付清。</span></p><p><span class="marginnote">可以把它想象成合租房的烤箱：搬走时不必扛着烤箱跑，只在门上贴张条——「下一位用烤箱的人，先替上一位清洗」。从不用烤箱的室友完全不受影响；这正是大量整数进程存在时惰性获胜的原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不列举 AVX-512 状态组件的大小表，不讨论如何用浮点陷阱做侧信道。用户是否「应该」在信号处理里用浮点是 ABI 问题。idle 还没出场：没有可运行任务时 CPU 跑谁，下一课。</p><p>后课默认：FPU 可以惰性换。就绪队列空时仍要有一条可运行的内核线程，下一课讲 idle。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>FPU/向量很大；切换时惰性，用到再换。</li><li>通用寄存器仍随 trapframe 急切保存。</li><li>无任务可跑时的 idle 线程是下一课。</li><li>出处：Love, <em>LKD</em>；Tanenbaum and Bos, <em>MOS</em>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 操作系统<!--[--> · 单元 进程与线程<!--]--><!--[--> · 课序 线程与上下文<!--]--></p><p class="lesson-progress">第 31 / 135 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/idle-thread/">idle 线程</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/kernel-stack/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">内核栈</span><span class="lesson-card-meta">操作系统 · 进程与线程 · 线程与上下文<!--[--> · 第 30 / 135 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/idle-thread/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">idle 线程</span><span class="lesson-card-meta">操作系统 · 进程与线程 · 线程与上下文<!--[--> · 第 32 / 135 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

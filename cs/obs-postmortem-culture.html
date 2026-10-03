@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>postmortem 文化与案例 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_obs-postmortem-culture.md.B01NNptB.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 可观测性与调试<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/obs-incident-command/">事故指挥</a></p><p class="lesson-next"> 下一课：<a href="/cs/obs-map/">可观测性收束</a></p><!----></nav><div style="position:relative;"><div><h1 id="postmortem-文化与案例" tabindex="-1">postmortem 文化与案例 <a class="header-anchor" href="#postmortem-文化与案例" aria-label="Permalink to &quot;postmortem 文化与案例&quot;">​</a></h1><div class="epigraph"><p>复盘的目的不是找出谁犯错，是找出系统哪里让聪明人合理地犯了错；一旦写复盘等于定罪，下一个操作员会学会瞒报。</p><footer>—— 据 Google SRE 书第 15 章 Postmortem Culture；Allspaw 的 Just Culture 实践（Etsy，2012）整理</footer></div><p><a href="/cs/obs-incident-command">上一课</a>的记录者写下了时间线，事故稳定、服务恢复。缺口在此时打开：事故此刻仍只是一笔损失；只有写成复盘、落地改进项，它才变成组织的资产。本课写复盘的模板与模板之上的文化：无指责为什么是技术前提而非道德姿态，各栏为什么长成那样，以及复盘文化常见的死法。本课程倒数第二课，后课收束默认已读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>复盘有四个工程缺口。其一，时间线是决策序列，不是事件流水：每一步要写「当时知道什么、据此做了什么判断」，只写「15:42 重启了实例」的读者只剩指责可做。其二，根因的单因谬误：生产事故几乎总是多重巧合——一个变更、一处缺失的防御、一条迟到的告警、一位当夜的值班——复盘只写「根因：配置错误」，其余防线的改进机会全部流失。其三，改进项不落地：没有负责人、没有期限、没有验证方式，与功能发布抢优先级必输，复盘退化成文比赛。其四，也是最致命的：指责文化。写复盘的人被问责，下一次事故的第一反应就是掩盖——数据的完整性从源头损坏，所有下游分析全部失真。</p><h3 id="无指责是信息论要求" tabindex="-1">无指责是信息论要求 <a class="header-anchor" href="#无指责是信息论要求" aria-label="Permalink to &quot;无指责是信息论要求&quot;">​</a></h3><p>把复盘想成一次测量：它测的是「决策时组织拥有什么信息」。若记录者预期被追责，测量值会系统性向「我按流程做了」偏移；而事故的漏洞恰恰常在流程外。所以无指责不是温情，是保证测量不被污染的技术条件——损失的不是礼貌，是数据。</p><div class="mermaid"></div><p><span class="marginnote">5 Whys 源自丰田生产方式。它停在哪决定改进空间：追「为什么人犯错」五层常落到「粗心」；追「为什么系统允许这个错误直达用户」才落到设计。同一个事故，落点不同，改进项完全不同。</span></p><p><span class="marginnote">直觉类比：无指责复盘像航空业的黑匣子调查——目的不是惩罚飞行员，是找出让合格飞行员也会犯错的系统漏洞。一旦调查等于定罪，驾驶舱里的话就再也不会被如实说出，黑匣子从此只录套话。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>模板五栏。影响面：用户数、时长、收入口径，直接引用 SLO 预算账本的消耗数——上一课的严重度分级用的就是这份账。时间线：检测、响应、恢复三段，带决策与信息状态。原因分析：写多重贡献因，可以追问但要止步于系统。改进项：每条四件——负责人、期限、验证方式、以及它防的是哪一类事故而不是哪一次。教训：写进 runbook、告警阈值、测试与预检的具体条目。流程上再钉两条：评审把单点事故升维成系统清单——同一服务第三次出同类事故，说明上一轮改进项没防住「类」，要回炉；复盘归档要可检索，负结果可检索，组织才没有幸存者偏差。做得对的动作同样入档：止损成功的路径要固化成 runbook，只记失败会让语料只剩负样本。</p><p><span class="marginnote">常见误区：初学者把复盘写成「根因：配置错误」一行就收工。生产事故几乎都是多重巧合——一个变更、一处缺失的防御、一条迟到的告警；单因叙事让链上每个环节的改进机会全部流失，同类事故换个马甲再来一次。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么改进项要防「类」不防「次」：重启那台机器不改变下次的概率，断路器、预检、阈值才改变分布——成效最终反映在错误预算消耗率的下降上，这是复盘与 SLO 工程的闭环。为什么单因叙事流行而有害：「根因」给管理者一个可交付的句子，代价是链上每个环节都被放走；多层防御要求每一层单独回答为什么没拦住。为什么复盘要写「当时知道什么」：同一个动作在信息完备与否两种状态下是两个决策；复盘读者若用后见之明评分，学到的是虚假教训。为什么文化比模板先决：模板可以被照抄，如实记录不能——它依赖「说真话无代价」的信誉积累，一次因复盘追责就会清零。</p><p><span class="marginnote">为什么重要：改进项没有负责人、期限和验证方式，就只是一句愿望——与功能发布抢排期必输，通常永远排不上。有负责人有期限的「加预检」才会在下个迭代真落地，把同类事故概率往下压。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引用具体公司的未公开事故，公开案例只取其复盘文本的口径；不写安全事件的复盘差异——法律与保密约束让那类复盘有自己的规则，归事件响应课。复盘也不是万能工具：若组织用复盘数量做考核，会催生为写而写的事故；文化指标与数量指标必须分开。事故到资产的路到此走完——下一课把整门课程收束成一张地图。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>复盘的产出是资产还是损失，取决于改进项是否落地。</li><li>无指责是测量学要求：预期被追责的记录会系统性失真。</li><li>时间线记决策与信息状态，根因写多重贡献因，拒绝单因叙事。</li><li>改进项四件套：负责人、期限、验证方式、防的是类不是次。</li><li>成效回到错误预算消耗率；做得对的路径同样要固化。</li><li>出处：Google SRE 书第 15 章；Allspaw 的 Just Culture 实践（Etsy，2012）；5 Whys 源自丰田生产方式。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 可观测性与调试<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 9 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/obs-map/">可观测性收束</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/obs-incident-command/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">事故指挥</span><span class="lesson-card-meta">可观测性与调试 · 工程<!--[--> · 第 8 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/obs-map/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">可观测性收束</span><span class="lesson-card-meta">可观测性与调试 · 工程<!--[--> · 第 10 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

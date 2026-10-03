@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>事件研究的微观版本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_obd-eventstudy-micro.md.CAmgo-8j.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 10 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/obd-hf-vol-noise/">高频波动率与微观噪声</a></p><p class="lesson-next"> 下一课：<a href="/quant/obd-simulation-calibration/">仿真校准：让模型对上数据</a></p><!----></nav><div style="position:relative;"><div><h1 id="事件研究的微观版本" tabindex="-1">事件研究的微观版本 <a class="header-anchor" href="#事件研究的微观版本" aria-label="Permalink to &quot;事件研究的微观版本&quot;">​</a></h1><div class="epigraph"><p>规则类事件改变的不是现金流，是速率方程的系数——结果变量必须换成微观量，对照与机制也落在微观上。</p><footer>—— 据 MacKinlay, Journal of Economic Literature, 1997；Harris, Trading and Exchanges, 2003 整理</footer></div><p><a href="/quant/obd-hf-vol-noise">上一课</a>把微观读数做干净；本课起进入方法单元：把日频事件研究——主干<a href="/quant/event-study">事件研究</a>的窗口、正常收益模型与横截面推断——下放到微观事件：tick 调整、撮合迁移、竞价规则修改、费率变化、新 venue。结果变量不再是异常收益，而是前面几课的微观量；「微观版本」的含义就在这：机制同源，对象与推断协议换掉。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>日频 machinery 不能直接搬。其一，微观结果变量有强日内形状与体制依赖（第五课），前后不控时点的比较里季节性冒充效应。其二，微观数据有强序列相关与横截面相关（第七课的共同因子），横截面独立假设失效，标准误系统性偏小。其三，事件常复合：tick 与费率同日改，单一归因从设计上不成立。缺口是微观版的设计协议：结果变量、对照、推断、功效不足时的出路。</p><p><span class="marginnote">术语翻译：双重差分就是「两次相减」——事件组前后一减，对照组前后一减，两个差再相减。共同的时间趋势（比如全市场流动性都在缓慢变好）在两次相减里互相抵消，剩下的部分才归给事件本身。</span></p><h3 id="结果变量与窗口" tabindex="-1">结果变量与窗口 <a class="header-anchor" href="#结果变量与窗口" aria-label="Permalink to &quot;结果变量与窗口&quot;">​</a></h3><p>结果变量逐一定义在微观量上：相对点差、各档深度、价格发现份额、\(\lambda\) 口径、噪声方差、成交强度与竞价占比。窗口多两条约束：避开事件日过渡段——参与者迁移策略需要时间，过渡段既非旧体制也非新体制；对齐日内相位——比较窗口落在形状的同一相位上，否则第五课的形状差异直接进结果。</p><p><span class="marginnote">tick size 分级试点是微观事件研究的天然素材：同日不同组、跨票可比、规则外生。即便如此，两组的事前差异仍要先用历史数据钉死——平行趋势只是口头承诺时，双重差分给出的是精确的错觉。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>设计四步。定义：事件日历、结果变量、假设方向，预注册口径——「效果好不好」式总结不算数据。对照：同期对照组做双重差分，按载荷匹配（流动性水平、波动、行业）；事件前形状是基线前提——形状不稳（第五课的崩坏清单）就没有干净基线，先剔除搬家日。推断：自相关与横截面相关用区块自助或双重聚类；单次事件功效天然弱，此时报告机制证据——系数变化的形状是否与机制预测一致（tick 变小应主要压缩价差，其次改变深度分布），而非只报显著性。稳健性：安慰剂事件、时移窗口、按体制分层重估。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么可行：规则类事件改的是速率方程的系数——第一课的 \(\lambda\) 族、点差的分布、竞价的透明度——这些量事件前后可测，测的就是机制本身。为什么功效弱：样本常常是「一个市场的同一段历史」，横截面全市场一起变，载荷分散不了。为什么机制证据在功效不足时仍有信息：若价差收窄伴随深度分布搬家而噪声方差不动，这与「tick 约束放松」的机制一致、与「整体流动性改善」的叙事不一致——机制核对让弱功效研究仍有累积价值。这与复盘课同构：判据落在机制上，不落在「显著」上。</p><p>两种竞争解释怎么靠微观量的形状分开，是机制核对的核心问题：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：若点差变化的序列相关让有效样本量只剩名义的四分之一，普通标准误就偏小一半——真实 t 只有 1.8（不显著）的效应，会被报成 t=3.6 的「高度显著」。这就是必须用区块自助或双重聚类重算标准误的原因。</span></p><p>错法：前后均值比较不控日内相位与共同因子；过渡段当新体制样本；复合事件声称单一归因；把日频结论（流动性改善）直接当微观机制（点差收窄来自哪一档）。</p><p><span class="marginnote">常见误区：初学者容易把「显著」当结论。微观事件往往只有一个样本——某个市场就改一次规则，功效天生不足；此时「系数变化的形状与机制预测一致」比 p 值更值得报告，它让这次事件仍能为累积知识出力。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>单次事件的因果链永远有缺口：对照再好也排不掉同时发生的未观测变化——机制证据是缓解不是消除。结果变量同源相关（点差、深度与噪声方差，上一课），当独立证据重复计数会夸大确定性。外部有效性受限：规则事件迁移到别的市场，前提是参与者结构相近。产出是速率系数的变化表，不是好坏评价——评价要接回市场质量的目标函数，属制度设计的另一门课。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>换掉三件事：结果变量换成微观量、对照加日内相位与共同因子控制、推断用区块自助/双重聚类。</li><li>窗口避开过渡段；事件前形状是基线前提，形状搬家日先剔除。</li><li>单次事件功效天然弱：机制证据（系数形状核对）是主要的累积价值来源。</li><li>产出是速率系数的变化表，不是好坏评价。</li><li>出处：MacKinlay, <em>JEL</em>, 1997；设计对照见<a href="/quant/event-study">事件研究</a>；微观口径见 Harris, <em>Trading and Exchanges</em>, 2003。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 10 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/obd-simulation-calibration/">仿真校准：让模型对上数据</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/obd-hf-vol-noise/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">高频波动率与微观噪声</span><span class="lesson-card-meta">订单簿动力学深化 · 截面与时间<!--[--> · 第 9 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/obd-simulation-calibration/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">仿真校准：让模型对上数据</span><span class="lesson-card-meta">订单簿动力学深化 · 方法<!--[--> · 第 11 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

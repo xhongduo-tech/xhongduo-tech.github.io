@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>训练中的异常值图谱 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_num-outlier-atlas.md.D1Hl_RV_.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 训练中的低精度<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/num-qat/">量化感知训练</a></p><p class="lesson-next"> 下一课：<a href="/llm/num-moe-lowprecision/">MoE 的低精度</a></p><!----></nav><div style="position:relative;"><div><h1 id="训练中的异常值图谱" tabindex="-1">训练中的异常值图谱 <a class="header-anchor" href="#训练中的异常值图谱" aria-label="Permalink to &quot;训练中的异常值图谱&quot;">​</a></h1><div class="epigraph"><p>低精度训练的失败很少是均匀的噪声，而是少数坐标的暴政；把谁在哪个阶段、哪条通道、涨到多大画成图谱，对策才有的放矢。</p><footer>—— 据 Dettmers et al., 2022（LLM.int8）与 SmoothQuant、OS+ 的现象记录整理</footer></div><p><a href="/llm/num-qat">上一课</a>把量化噪声搬进训练环，但前四课都默认张量分布「大体友好」。本课放弃这个默认：Transformer 的张量里有少数坐标系统性占据幅度的高端，第二课的绑架与陈旧都是它们的结果。推理侧的系统现象——涌现异常通道、尺度迁移、逐层抑制——分别在 <a href="/llm/llm-int8">LLM.int8()</a>、<a href="/llm/smoothquant">SmoothQuant</a>、<a href="/llm/outlier-suppression">OS+ / Outlier Suppression</a> 写过。本课画训练态的图谱：异常按位置、阶段、时间性分型，每型配对策。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>训练里的异常至少四型，机制各不同。其一，激活的结构性大通道：少数隐维在几乎所有 token 上幅度远超均值，随层数加深而放大（残差流的加性累积）。这是持续性的，per-tensor 尺度被它绑架后，其余维度的有效位坍缩——第二课「绑架」的源头。其二，注意力 logits 与未归一化分数：softmax 之前的量没有界，一层 Inf 全行 NaN，是第一课「指数保范围」规则的主因。其三，梯度尖峰：坏数据批或深度上的连乘放大，短时间内梯度范数暴涨数个量级，与损失尖峰互相放大（裁剪与成因见 <a href="/llm/grad-clip-loss-spike">梯度裁剪与损失尖峰</a>）。其四，优化器二阶矩滞后：\(v\) 是慢变量，梯度突变后 \(v\) 仍小，等效步长被放大——异常经过优化器被二次放大。</p><p><span class="marginnote">数字实例：amax 就是张量里绝对值最大的那个数。假设某层激活大多在 1 上下，但第 137 号通道稳定冲到 100 以上——FP8（E4M3）一格最大只记到 448，缩放尺子被迫按 100 校准，于是 0.5 量级的正常维度只剩零点几格可分，有效精度就这么被一条通道「绑架」走了。</span></p><p>四型的对策不同，混为一谈就会用 clip 去治结构性大通道（无效且扭曲有效学习率），用缩放去治数据尖峰（迟一拍）。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>图谱怎么画：对关键张量（每层激活、梯度、权重更新）记录两个视角的时间序列——逐张量的 amax 与分位数（看整体水位），以及逐通道的幅度榜（看集中度）。有了这两条，把异常按时间性分成两类。<strong>持续型</strong>：通道榜长期由同一批通道占据，幅度平滑增长——这是结构，用粒度治：通道级或块级缩放把绑架范围缩到单通道；或按 SmoothQuant 的思路把尺度从激活迁移到权重，让两边都能进格子。<strong>突发型</strong>：amax 在若干步内跳升数个量级后回落——这是事件，用回退治：该步溢出则跳过或回退宽格式，事后再查数据来源。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>持续型异常的机制来源值得记住三处：残差流是加性累积，任何一路的系统性偏置都留在主通道里不衰减；嵌入与 LM head 天然有大幅度维度，会顺着残差往深处传；注意力在归一化之前无界。突发型的机制是放大链：数据触发梯度，梯度经过多层连乘改变激活分布，激活分布又改 amax——第二课延迟缩放「慢一拍」的失效正落在这条链上。训练阶段也有图谱：热身期权重小、激活分布未定型，异常格局与训练中段不同；退火期学习率变小，小更新偏置（第三课）接管为主要矛盾。所以「什么时候看什么指标」本身是图谱的一部分：热身看溢出计数，中段看通道榜，退火看 update 与 weight 之比。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：残差流像一条主干河道，嵌入和每一层的系统性偏置都汇进来，而且不蒸发——所以「哪几条通道幅度大」会一路带到网络深处，通道榜随深度越来越倾斜，这不是 bug，是加性累积的几何后果。</span></p><p><span class="marginnote">图谱是模型的，不是定律的：换数据、换深度、换归一化，通道榜会重排。可迁移的是分型方法与指标，不是那张具体的榜。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>第一，不要用全局梯度裁剪治结构性异常：clip 约束的是方向球半径，压不住单通道绑架，只会扭曲有效步长。第二，通道级缩放改变前向语义的等价性有限但非零：迁移尺度（SmoothQuant 类）要连反向一起验证。第三，异常图谱与稀疏、MoE 的交互是后两课的主题：MoE 的路由让激活分布随专家分裂，图谱要按专家画。第四，监控采样有开销，逐 token 记录不现实——分位数与抽样通道是工程平衡，但要固定协议，否则曲线之间没法比。</p><p><span class="marginnote">常见误区：把梯度尖峰当「噪声变大」，用调小学习率或加大正则硬扛。突发型是事件不是趋势，正解是溢出跳步、回退宽格式、再查数据批；只有持续型的结构性大通道才需要动缩放粒度——两型用错药，会把有效学习率越调越乱。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>异常分四型：结构性大通道、无界 logits、梯度尖峰、优化器二阶矩滞后；对策各不同。</li><li>持续型用粒度治（通道/块缩放、尺度迁移），突发型用回退治（跳步、宽格式回退、查数据）。</li><li>延迟缩放的失效与异常放大链是同一件事的两面。</li><li>图谱随阶段变：热身看溢出，中段看通道榜，退火看更新比。</li><li>图谱是模型的不是定律的，可迁移的是分型方法。</li><li>出处：Dettmers et al., 2022（LLM.int8）的涌现异常记录；SmoothQuant 与 OS+ 的对策口径。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 低精度数值与训练稳定<!--[--> · 单元 训练中的低精度<!--]--><!----></p><p class="lesson-progress">第 5 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/num-moe-lowprecision/">MoE 的低精度</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/num-qat/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">量化感知训练</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 4 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/num-moe-lowprecision/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">MoE 的低精度</span><span class="lesson-card-meta">低精度数值与训练稳定 · 训练中的低精度<!--[--> · 第 6 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

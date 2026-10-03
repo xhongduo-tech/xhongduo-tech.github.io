@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>指数的构建规则 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_etf-index-construction.md.-0gyGFpn.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 ETF 与指数工程<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/bm2-map/">债券组合收束</a></p><p class="lesson-next"> 下一课：<a href="/quant/etf-create-redeem-arb/">申赎与套利机制</a></p><!----></nav><div style="position:relative;"><div><h1 id="指数的构建规则" tabindex="-1">指数的构建规则 <a class="header-anchor" href="#指数的构建规则" aria-label="Permalink to &quot;指数的构建规则&quot;">​</a></h1><div class="epigraph"><p>指数不是市场的照片，而是一份预先公开的配方：样本、权重、上限与日历都写在生效之前；被动资金的每一笔交易，都是这份配方的影子。</p><footer>—— 据 S&amp;P Dow Jones Indices 指数方法论与中证指数公司编制规则整理</footer></div><p><a href="/quant/bm2-map">上一课</a>把指数调仓套利写成对公开规则的交易：宣布日与生效日之间可预测的被动需求。它留下了本课程的缺口：被交易的那个「规则」本身还没有被拆开——权重从哪来、缓冲带怎么留、分红进不进指数、日历怎么排，这些决定被动需求的形状与规模。本课是「ETF 与指数工程」的第一课，把指数当成一份可执行的工程规格来读；后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一个指数由三层东西构成：样本空间、加权规则、维护日历，每条规则事后留下可审计的痕迹、事前留下可预测的交易。把指数当成「收盘市值排个序」，至少在四处出错：自由流通调整让权重不等于总市值；外资持股上限把受限成分权重机械压低；个股权重上限与行业配额截断大市值成分；价格指数与全收益指数的分红处理让「基准」一年差出两到三个百分点。规则的自由度同样重要：名单事前不完全可知时，「当时可知的门槛与概率」就要打折扣，抢跑窗口随之变窄。</p><p><span class="marginnote">数字实例：某巨无霸占自由流通市值 12%，而规则上限是 8%——超出的 4 个百分点按比例摊给其他成分。从这一刻起，编制文件里的权重与你自己按市值算的对不上；这就是复制必须拿官方权重文件、不能自己重算的原因。</span></p><p><span class="marginnote">缓冲带（buffer rule）是换手工程的核心：例如「进入前 90 名者保留、跌出 120 名以外者剔除」，中间 30 名的排名噪声不再触发换样。据主要指数公司方法论，这能把定期调整的换手削减约三到五成，代价是响应变慢。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>写规则先写权重公式。自由流通市值加权是 \(w_i = p_i f_i s_i / \sum_j p_j f_j s_j\)，其中 \(p_i\) 是价格、\(f_i\) 是自由流通比例、\(s_i\) 是权重因子——外资上限、权重上限、分档加权都折进 \(s_i\)。复制权重要拿编制机构发布的权重文件，不要用总市值重算：\(s_i\) 不等于一时，受限成分的权重会系统性偏大。上限规则写成再定标：超限成分压回 \(\bar{w}\)，超额按比例摊给未触限成分。</p><p><span class="marginnote">术语翻译：「自由流通市值」是「能在市场上自由买卖的那部分股份」的市值，剔除国资、战略持股、交叉持股等锁定筹码。用总市值加权，等于把根本不流通的大股东也算进指数影响力，所以指数公司统一改用自由流通口径。</span></p><p>筛选层写可投资性：上市时长、流动性门槛、风险警示剔除、全球指数的可投资国家分类。日历层分两条线：定期调整（宽基半年或一季一次，因子指数更频）负责换样与再定标；日常维护负责公司行动、退市与停牌，只改权重文件不产生篮子交易——市值加权在分红送股上自平衡。最后钉住口径：ETF 业绩对比的对象应是全收益指数，用价格指数当基准会高估跟踪误差。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>规则决定工程属性的第一条通道是自平衡：纯市值加权下，价格变动与多数公司行动不需要任何人交易，这是它成为被动默认选择的原因；一旦引入上限、配额或非市值加权，「再定标」就变成规则直接生成的交易单，第四课的再平衡效应由此而来。第二条通道是缓冲带：把「排名噪声」与换手解耦，换来低换手与高滞后。第三条通道是裁量权：委员会可以在规则外做例外处理，透明度与被动需求的可预测性一起下降。</p><div class="mermaid"></div><p>复制决策（全复制、抽样、优化）是基金层而不是指数层的规则，留给后面两课；本课只钉住：指数文件是基金持仓的母本，PCF 与持仓偏离都要对着它审计。</p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写申赎与套利（下一课），不推再平衡的执行与冲击（上一课与第四课），也不把编制规则当成估值观点。历史研究必须用当时的规则与当时的成分重建权重：用今天的权重回填过去，就是<a href="/quant/index-rebalance">指数调入调出</a>警告的指数版幸存者偏差；成分与规则变更史见<a href="/quant/index-constituents-history">指数成分历史</a>，规则版本在某天生效，回测里当成恒定参数同样引入前视。</p><p><span class="marginnote">直觉类比：用今天的成分名单回测过去，像用今天的毕业名单去评价当年的招生水平——当年落选的公司里可能藏着后来的巨头，把它们从历史里「提前毕业」，指数的历史收益就会好看得不像话。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>指数是样本空间、加权规则与维护日历三层的工程规格；权重按 \(w_i = p_i f_i s_i / \sum_j p_j f_j s_j\) 给出，不得用总市值重算。</li><li>上限与配额把再定标变成强制交易单；缓冲带用滞后换低换手；裁量权降低可预测性。</li><li>市值加权自平衡，是被动基准的默认；偏离它的每一步都要付换手。</li><li>出处：据 S&amp;P Dow Jones Indices《Index Methodology》与中证指数公司编制规则整理；纳入效应的经验见 Shleifer, <em>Journal of Finance</em>, 1986。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 ETF 与指数工程<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 1 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/etf-create-redeem-arb/">申赎与套利机制</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/bm2-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">债券组合收束</span><span class="lesson-card-meta">债券组合管理 · 信用与收束<!--[--> · 第 8 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/etf-create-redeem-arb/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">申赎与套利机制</span><span class="lesson-card-meta">ETF 与指数工程 · 工程<!--[--> · 第 2 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

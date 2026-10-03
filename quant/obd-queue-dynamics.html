@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>队列动力学的建模 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_obd-queue-dynamics.md.BmkhSfao.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 动力学建模<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/research-postmortem/">复盘与案例写作</a></p><p class="lesson-next"> 下一课：<a href="/quant/obd-impact-microfoundations/">价格冲击的微观基础</a></p><!----></nav><div style="position:relative;"><div><h1 id="队列动力学的建模" tabindex="-1">队列动力学的建模 <a class="header-anchor" href="#队列动力学的建模" aria-label="Permalink to &quot;队列动力学的建模&quot;">​</a></h1><div class="epigraph"><p>队列不是存放存货的仓库，是被三支速率推着走的状态：限价挂进来、撤销抽出去、市价吃下去——每支速率看着队列的长度，再决定下一步。</p><footer>—— 据 Huang, Lehalle and Rosenbaum, JASA, 2015；Bouchaud 等, Trades, Quotes and Prices, 2018 整理</footer></div><p><a href="/quant/research-postmortem">上一课</a>把研究的闭环收在证据链上：失败与成功同模板归档，死因必须落在判据上，\(N\) 的完整性靠台账维持。量化主干至此走完一圈；本课是「订单簿动力学深化」的第一课，主干已交付三块基石：<a href="/quant/lob-structure">限价订单簿</a>的状态机、<a href="/quant/queue-reactive">queue-reactive</a> 的状态依赖强度、<a href="/quant/hawkes-lob">Hawkes 订单簿</a>的时间自激。本课程不重复这些定义，而是把「簿怎么动」本身当对象：先建模队列，再问冲击、订单流与逆向选择，再看截面与时间的稳定形态，最后落到方法。第一课钉住建模目标：一个队列模型要对上哪些可观测量才算合格。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/quant/lob-structure">限价订单簿</a>给出了队列的静态描述，<a href="/quant/queue-reactive">queue-reactive</a> 给出了第一层动力学：限价、撤销、市价的强度是当前队列长度与价差的函数。缺口在评价标准：估计出 \(\lambda^{\mathrm{LO}}(q)\)、\(\lambda^{\mathrm{C}}(q)\)、\(\lambda^{\mathrm{MO}}(q)\) 之后，什么叫做「对上了数据」？只匹配平均深度是廉价的合格——强度定错的模型也能在均值上凑对，却在存活时间、耗尽补量、深度自相关上全错；下游的成交概率与逆向选择度量吃的正是这些条件统计，不是均值。</p><p><span class="marginnote">术语翻译：强度 \(\lambda\) 就是「下一瞬某类事件发生的速率」——\(\lambda^{\mathrm{C}}=3\) 表示此刻每秒平均撤 3 笔；把它写成队列长度的函数 \(\lambda(q)\)，意思是「队列剩多少个单位时，撤销速率是多少」，这比一个全程平均数多出来的正是状态。</span></p><h3 id="要对上的统计清单" tabindex="-1">要对上的统计清单 <a class="header-anchor" href="#要对上的统计清单" aria-label="Permalink to &quot;要对上的统计清单&quot;">​</a></h3><p>建模目标固定成一张清单：队列长度的边际分布；队头存活时间与耗尽概率；吃薄后的补量速度；深度与中点波动的自相关；价差状态的停留时间。任何新的队列模型都按同一张清单交卷，并写明放弃了哪几条。</p><p><span class="marginnote">一个便宜的判别：队头存活时间接近指数，说明给定状态后事件已无记忆，QR 式状态依赖大体够用；显著重尾或成簇，说明还有自激没被状态吸收——先加状态、再谈核。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>状态取双侧最优档 \((q^{b},q^{a})\) 加价差 \(s\)，事件字典沿用 <a href="/quant/hawkes-lob">Hawkes 订单簿</a>的口径：限价、撤销、成交分侧计数，改单拆成撤加增。强度用事件暴露时间估计，不用墙钟采样——稀疏时段会低估强度。价格运动写成耗尽：一侧最优档打到零，中间价跳一档，新档深度从初始化分布里抽。估出来的是按开盘、午间、收盘分段的函数族；日内相位的系统处理留给后课。</p><p>自激加不加由数据裁决：控制住 \((q^{b},q^{a},s)\) 之后残差仍成串，再加核。先状态后自激是识别问题：两个通道都有解释力，不分先后就分不清系数，仿真会把余震错误记成状态变化。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>状态依赖的机制是时间优先下的拥挤税：队列越长，新挂单位排得越后、等待期权越不值钱，撤销相对变多；队列被打薄，补量涌进来抢队头。深度被拉向一个统计上的舒适区间——均值回复是这个机制的产物，不是外加的正则项。自激的机制是行为传染：一笔大市单引来模仿单或止损单，事件在时间上成串。两股力同时存在，分配错了，仿真要么把簿抖成噪声，要么把余震记成新状态。</p><p>深度的均值回复是两支速率推出来的平衡，回路本身值得单独看：</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：把队头想成景点的售票窗口——队太长时，后面的人觉得「轮不到我」陆续离开（撤销升）；队一短，新游客立刻凑上来抢位置（补量升）。深度的「舒适区间」就是这两股人流平衡出来的，不是谁设定的目标值。</span></p><p>这个分配有下游后果：把市价强度直接当自己的填成强度，忽略了「你挂上去之后状态已经变了」；逆向选择也要按队列状态条件化，薄档被吃与厚档被吃的信息含量不同。两个下游话题本课只留接口。</p><p><span class="marginnote">为什么重要：下游成交概率吃的是条件统计——按「队头还剩 3 个位子」算出的成交概率，与按平均深度算的可以差出数倍；均值上合格的模型，在排队与撤单决策上给出的答案可以完全相反。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>可见队列只是可成交量的下界：冰山让市价强度的观测带低偏，这是数据层次问题，改陡函数补不上。模型是约化的：它不区分知情与否，把 \(\lambda(q)\) 读成信念超出识别集。开环仿真只对统计诊断有效；把自己的订单放进去，就进入了被干预的世界，要靠仿真校准的纪律兜底。制度时段、涨跌停与竞价衔接都会改写速率系数，跨段混估等于宣布形状不变。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>队列动力学的建模对象是速率族对状态的依赖，不是一张平均深度表。</li><li>验收按统计清单交卷：边际分布、存活时间、耗尽与补量、自相关；均值对齐不等于合格。</li><li>价格运动写成耗尽加新档初始化，中点波动可以是内生产物。</li><li>可见队列带隐藏量偏差；开环诊断与闭环干预是两个世界。</li><li>出处：Huang, Lehalle and Rosenbaum, <em>JASA</em>, 2015；Bouchaud 等, <em>Trades, Quotes and Prices</em>, 2018；状态机定义见<a href="/quant/lob-structure">限价订单簿</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 动力学建模<!--]--><!----></p><p class="lesson-progress">第 1 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/obd-impact-microfoundations/">价格冲击的微观基础</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/research-postmortem/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">复盘与案例写作</span><span class="lesson-card-meta">从问题到组合 · 组合与实盘 · 上线与沉淀<!--[--> · 第 12 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/obd-impact-microfoundations/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">价格冲击的微观基础</span><span class="lesson-card-meta">订单簿动力学深化 · 动力学建模<!--[--> · 第 2 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

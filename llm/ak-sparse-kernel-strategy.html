@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>稀疏注意力的内核策略 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_ak-sparse-kernel-strategy.md.BqQti-BG.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 6 / 14 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ak-paged-kv-kernel/">分页 KV 的内核接口</a></p><p class="lesson-next"> 下一课：<a href="/llm/ak-linear-attention-kernel/">线性注意力的内核化</a></p><!----></nav><div style="position:relative;"><div><h1 id="稀疏注意力的内核策略" tabindex="-1">稀疏注意力的内核策略 <a class="header-anchor" href="#稀疏注意力的内核策略" aria-label="Permalink to &quot;稀疏注意力的内核策略&quot;">​</a></h1><div class="epigraph"><p>稀疏要成为速度，图必须先对齐 tile；元素级掩码写进 dense 内核，一个 FLOP 也省不下来。</p><footer>—— 据 Child et al., 2019；Beltagy et al., 2020；DeepSeek NSA（2025）整理</footer></div><p><a href="/llm/ak-paged-kv-kernel">上一课</a>把地址翻译放进接口，页表决定「住在哪」。本课第三个变体动的是图：哪些查询-键块根本不用算。<a href="/llm/sparse-attention-patterns">BigBird / Longformer 稀疏模式</a>与 <a href="/llm/native-sparse-attention">Native Sparse Attention</a> 定过模式与质量；本课只问内核这一侧：一张稀疏图靠什么变成省下的字节与 FLOPs，而不是变成一份被白白算完的掩码。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><span class="marginnote">术语翻译：tile（瓦片）就是把大矩阵切成固定大小的小方块（如 \(64\times64\)）来调度的计算单元，GPU 内核一次算一块。稀疏加速的本质，是让「整块都该是零」的 tile 从任务清单里直接消失——而不是照常算完、再把结果归零扔掉。</span>把元素级掩码塞进 dense 内核：tile 照常载入，GEMM 照常执行，被掩掉的位置在 softmax 里归零——计算一个没省，只是结果一样。真正省，必须让调度与循环知道「这个 tile 整块跳过」，从枚举里就不生成它。而稀疏图分两类，对内核的要求不同：静态图（滑窗、条带、块对角）编译期就定死，可以直接展开；动态图（按分数现选若干块）运行期才知道，需要先粗算再收集。缺口是把两类图都翻译成「枚举哪些 tile、加载哪些块」的循环结构。</p><h3 id="图的三种形态" tabindex="-1">图的三种形态 <a class="header-anchor" href="#图的三种形态" aria-label="Permalink to &quot;图的三种形态&quot;">​</a></h3><p>滑窗是每行一个连续区间，tile 枚举天然规整；分块选择是每行若干离散块，需要索引数组；混合（压缩目录加选择加滑窗）是多路并行，每路各有图。三者的公共分母都是块级布尔图，差别只在图是谁、在什么时候算出来的。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>块级化三步。第一步，把图按块定义：记录形式是 CSR 式的 <code>indptr</code> 与 <code>indices</code>，或 <a href="/llm/flex-attention">FlexAttention</a> 的块级 <code>BlockMask</code>——元素级掩码在这一层就已经不存在。第二步，调度按图枚举：静态图编译期展开循环，动态图先跑一遍块级粗算（块内池化分数）选出 indices，再按 indices 收集 K、V 块进 FlashAttention 循环。第三步，收集粒度等于块：一次地址计算搬一整块，页内或块内连续，上一课的译址循环与加载合并原样接住。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么块必须大而正交：收集一块的成本是地址计算与可能的非连续访问，块对齐 tile（64、128）时这块成本是每次一次基址更新；块碎到元素级，译址与收集的开销把省下的算全吃回去。为什么动态图要单算粗算这一笔：选块的池化分数是新增 FLOPs 与新增一遍低精度扫，选出的块若顺序乱，KV 加载失去局部性，带宽回升——所以工程上选择路与滑窗路常并行走，近处交给滑窗保住局部性，远处交给选择省量，NSA 的三路（压缩、选择、滑窗）正是这个策略的完整版。<span class="marginnote">直觉类比：近处滑窗像「顺路自己走两步」——地址连续，硬件预取器都帮得上忙；远处选择像「快递按单拣货」——只送被点名的几个包裹，省路费但包裹零散。两路合并，近的保质量、远的省开销，各干各擅长的事。</span>账可以很大：\(n=128\mathrm{k}\)、\(w=4096\) 的滑窗，因果 tile 数从约两百万降到约十三万，约十六倍——前提是枚举真的按图走。</p><p>错法有三。元素级掩码进 dense 核，前文已判死刑。块开得太小，比如逐元素 top-k 后再试图「内核内筛选」，筛选本身是全量扫描，省的没有花的多。<span class="marginnote">常见误区：初学者容易以为块切得越细、跳过的位置越多就越省。实际上每块都要付一次译址与合并访问的固定开销，块碎到元素级，光地址计算就把省下的算力全吃回去——省下的是乘法，多花的是搬运，而搬运往往更贵。</span>图在运行期变（每层每头不同）却按编译期特化写死，缓存键里没有图这一项，轻则慢、重则拿错掩码，见后面 autotuning 一课的键设计。</p><div class="mermaid"></div><p><span class="marginnote">128k 序列、\(64\times64\) tile：全注意力因果 tile 约 200 万个；4096 滑窗只剩约 13 万个。约十六倍——但只在调度按图枚举时成立，掩码版内核仍是 200 万个。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>跳过的块不再贡献 softmax 分母：稀疏注意力的数值与「dense 加掩码」不同，长程信息确实丢了，质量上是否可接受是模式课与评测的题目，内核只负责把声明的图忠实执行。动态选块在训练期的不可导与不稳定是训练课题目。线性注意力不跳块，而是把 \(n\times n\) 换成状态矩阵，是另一条路，下一课讲。本课的图是一维序列上的图；跨文档、跨模态的图不在此列。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>元素级掩码不省任何计算；稀疏要省，图必须块级化并进入调度与枚举。</li><li>静态图编译期展开，动态图先粗算选块再收集，两者共用 CSR 式块图。</li><li>收集粒度等于块、对齐 tile，译址与合并访问的成本才能摊薄。</li><li>动态稀疏有新增账：池化粗算与乱序收集，工程上用滑窗路保局部性对冲。</li><li>滑窗在 128k 上省约十六倍的 tile，前提是枚举按图走。</li><li>出处：Child et al., 2019；Beltagy et al., 2020（Longformer）；据 DeepSeek NSA, 2025 整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 注意力内核工程<!--[--> · 单元 变体的内核<!--]--><!----></p><p class="lesson-progress">第 6 / 14 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/ak-linear-attention-kernel/">线性注意力的内核化</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ak-paged-kv-kernel/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">分页 KV 的内核接口</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 5 / 14 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/ak-linear-attention-kernel/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">线性注意力的内核化</span><span class="lesson-card-meta">注意力内核工程 · 变体的内核<!--[--> · 第 7 / 14 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

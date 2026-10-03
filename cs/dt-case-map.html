@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分布式事务案例与收束 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_dt-case-map.md.DnMAFs83.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式事务深化<!--[--> · 单元 体系<!--]--><!----></p><p class="lesson-progress">第 6 / 6 课</p><p class="lesson-prereq"> 先修：<a href="/cs/dt-isolation-implementation/">隔离级别的实现</a></p><p class="lesson-next"> 下一课：<a href="/cs/ce-symmetric-modes/">对称加密模式的实践</a></p><!----></nav><div style="position:relative;"><div><h1 id="分布式事务案例与收束" tabindex="-1">分布式事务案例与收束 <a class="header-anchor" href="#分布式事务案例与收束" aria-label="Permalink to &quot;分布式事务案例与收束&quot;">​</a></h1><div class="epigraph"><p>分布式事务最好的优化常常不是更聪明的协议，而是更少的跨片事务：把数据搬到事务需要在的地方。</p><footer>—— 据 Gray and Reuter, Transaction Processing, 1993；本课程六课的协议与体系账</footer></div><p><a href="/cs/dt-isolation-implementation">上一课</a>把隔离钉在时间戳与提交点校验上。本课程到此收束：先用三份案例把六课的清单走一遍，再给出「要不要跨片事务」的决策口径。协议课（2PC 实现、Percolator 与 TiDB、Calvin）与体系课（谱系、隔离实现）在此拼成一张部署图。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>协议都会背，案例里难的从来是选择：哪些操作必须原子，哪些补偿就能过。缺口是<strong>把协议选择翻译回业务约束</strong>：一笔转账要跨片原子；一天一次的对账报表不必；购物车合并不需要快照隔离，库存扣减需要。这一步翻译错一行，选型全错。最常见的错法有两个：把所有跨服务调用都包进「分布式事务」，以及反过来，该原子的地方用重试凑——前者把协议税加在不需要的账上，后者把撕票的风险留给生产环境夜里爆发。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>案例 A，TiDB 一类：账务负载走悲观模式加 Percolator 主锁，TSO 批量发号；设计分片键把扣减与流水放进同一分片，2PC 退化成单片事务——最好的一次优化是不跨片。案例 B，Spanner 一类：全球一致性场景老实付 commit wait 与跨组 2PC 的税，读走快照时间戳，热点账户按子键拆分避免长锁；隔离档位按上一课的三段账显式声明，不靠默认值。反例 C：把下单、扣库存、调支付三个跨服务步骤包进 2PC 的尝试——正确答案是幂等加重试加补偿（Saga），不是提交协议；<a href="/cs/consensus-vs-2pc">共识与 2PC</a> 的老口径在这里兑现：原子提交协议管的是存储层同归同败，不管业务补偿的先后与可审计。运维清单四件：挂着不放的 in-doubt 事务要告警；TSO 或发号器要可扩容、可恢复；时钟漂移要监控（TrueTime 系这是生命线）；隔离级别要用一致性测试抽查，而不是信任文档。</p><p><span class="marginnote">把跨服务调用误包进 2PC 的典型结局：数据库都已 prepared、锁挂着，第三方接口却超时了。协议没有错，是用错了层——业务步骤没有「prepared 后必达」的性质，撑不起这份合同。</span></p><p><span class="marginnote">in-doubt（悬而未决）事务：协调者已让所有参与者 prepared，却还没来得及宣布提交或回滚——最常见于协调者恰好崩溃的瞬间。此时这些行上的锁全被攥着，别的业务碰到只能排队。运维清单把「挂着不放的 in-doubt」列为头号告警，就是因为它一出现，整片数据开始变慢。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>决策口径三问。一问：事务能不能单片？能，就改分片键，任何协议税都省了。二问：失败时补偿是否可行且可审计？可行，用 Saga——每步幂等，失败沿日志逆向补偿；不可行（钱已出账、货已发出），才动原子提交。三问：读要不要新鲜到外部一致？要，付 commit wait 或选严格串行实现；不要，快照加会话戳足够。性能账从第一课继承：税 = 锁持有时间 × 分片数 × 消息轮次，后面每一课的优化各砍一项——async commit 砍轮次，定序免对话，commit wait 用等待换序，单片化直接把乘数清零。没有免费的一项；声称免费的那一项，多半是被挪到了别人头上。</p><p><span class="marginnote">给性能税代个数：锁持有 5 毫秒 × 2 个分片 × 4 轮消息，按这个乘法粗算就是 40 毫秒量级的协调开销；分片数或轮次翻倍，税跟着翻倍。这也解释了为什么 async commit 砍轮次的收益常常比苦磨锁本身更大——轮次往往是乘法里最大的因子。</span></p><p><span class="marginnote">初学者容易以为隔离级别默认就是对的。实际上多数数据库默认只给到读已提交或快照，文档里写「可串行化」的有的只是近似实现；所以清单要求用一致性测试实测抽查，而不是信任名字——选型错档位的故障，往往要到并发上来之后才爆发。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不排产品名次，不替业务宣布「正确级别」，也不展开队列削峰与最终一致的实现——那是流处理与系统模式的课。再往深走是各系统的论文与源码，不在本课程树内。六课的账各归各位：协议课管提交怎么不撕票，体系课管谱系怎么读，隔离课管级别怎么落地，本课管什么时候根本不该跨片。本课程到此收束。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>选型第一问是「能不能单片」：分片键设计优于一切协议优化。</li><li>补偿可行用 Saga，不可行才动原子提交；提交协议不管业务补偿。</li><li>性能税 = 锁持有 × 分片数 × 轮次；各课优化各砍一项，没有免费的一项。</li><li>运维四件：in-doubt 告警、发号器扩容、时钟漂移监控、隔离级别抽查。</li><li>出处：Gray and Reuter 1993；Corbett et al. 2012；Thomson et al. 2012；Peng and Dabek 2010。本课程到此收束。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式事务深化<!--[--> · 单元 体系<!--]--><!----></p><p class="lesson-progress">第 6 / 6 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ce-symmetric-modes/">对称加密模式的实践</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/dt-isolation-implementation/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">隔离级别的实现</span><span class="lesson-card-meta">分布式事务深化 · 体系<!--[--> · 第 5 / 6 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ce-symmetric-modes/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">对称加密模式的实践</span><span class="lesson-card-meta">密码学工程 · 实践<!--[--> · 第 1 / 9 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

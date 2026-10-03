@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PFE 与 EE 敞口曲线 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_pfe-ee-profile.md.DKqs_hOV.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 信用、对手方与检验<!--]--><!----></p><p class="lesson-progress">第 8 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/hazard-rate-model/">风险率与生存模型</a></p><p class="lesson-next"> 下一课：<a href="/quant/kupiec-backtest/">Kupiec 回测检验</a></p><!----></nav><div style="position:relative;"><div><h1 id="pfe-与-ee-敞口曲线" tabindex="-1">PFE 与 EE 敞口曲线 <a class="header-anchor" href="#pfe-与-ee-敞口曲线" aria-label="Permalink to &quot;PFE 与 EE 敞口曲线&quot;">​</a></h1><div class="epigraph"><p>对手方风险不在「现在欠多少」，而在「将来可能欠多少」——PFE 把这条未来敞口曲线画出来，监管资本与 CVA 都挂在上头。</p><footer>—— 据 Basel III SA-CCR 框架；Gregory《The xVA Challenge》</footer></div><p><a href="/quant/hazard-rate-model">风险率模型</a>给的是「对手方会不会违约」，本课补另一半：「违约时我们暴露多少」。净额结算与抵押品让敞口随市场漂移，缺口是<strong>敞口轮廓</strong>：期望敞口 EE、分位数敞口 PFE 随时间 \(t\) 的曲线。本课只做单笔与净额组合的敞口，不进 CVA 的定价离散化。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>一笔 10 年期利率互换今天市值为零，不等于对手方风险为零——利率上行后我方变成被欠方，敞口先升后降（「驼峰」）。监管要求按 **EEPE（有效期望敞口）**计资本，交易台需要 PFE 95% 曲线管理限额。缺口：<strong>从交易类型与市场波动推敞口曲线</strong>。本课不做错向抵押假设。</p><p><span class="marginnote">术语翻译：EE（Expected Exposure）= \(t\) 时刻敞口的期望；PFE（Potential Future Exposure）= 敞口的 \(q\) 分位数（常用 95%）；EEPE = 有效 EE 对时间加权平均，是 Basel 资本公式里的主角。</span></p><p><span class="marginnote">数字实例：1 亿美元名义、5 年期、利率互换年化波动 \(\sigma=1\%\)（绝对利率）。简化模型下 EE 峰值出现在约 \(T/3\) 处，量级 \(\approx 0.4\,\sigma\sqrt{T/3}\cdot N\approx 0.4\times1\%\times1.29\times10^8\approx 52\) 万美元（名义的 0.5%）；PFE 95% 再乘 1.645 倍分位因子，约 85 万美元。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>蒙特卡洛为主干：模拟风险因子路径（利率、汇率、信用利差）到每个再估值点；对每条路径、每个时点计算组合净现值，取正部（对手方违约只在我们被欠时伤到我们）；跨路径取期望得 EE、取分位数得 PFE。简化替代：SA-CCR 监管公式用名义、久期与乘数一步给出有效名义敞口，适合无算力场景。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：EE 曲线像「每天平均欠款」，PFE 像「最倒霉的 5% 日子里欠多少」。互换的驼峰来自两个力：时间越长波动累积越狠（往上推），剩余期限越短未来波动折损越多（往下压）——先爬坡后下山。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>敞口曲线形状由「波动累积 vs 到期衰减」的赛跑决定：线性互换峰值在中间，期权类（买方）敞口单调升到期满，远期起始的驼峰右移。净额结算协议把同对手方正负市值相抵，抵押品把敞口从「市值」缩到「保证金变动期」（MPR，常 5–10 天）内的漂移——抵押越多，曲线整体被压得越低，但 MPR 段的尖峰仍在。<em>wrong-way risk</em>（敞口与违约概率同向恶化，如对手方是石油商而敞口挂钩油价）让「EE × 违约概率」的乘法假设失真，CVA 要加相关项。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：用名义当敞口——10 亿名义的平价互换当期敞口为零；另一个是忽略再估值点密度：三年后敞口高峰若落在两个再估值点之间会被系统性低估，月度网格对 30 年互换过粗，业界用期限分段的非均匀网格。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>蒙特卡洛敞口机器的诚实成本是「因子模型 + 全组合再估值」两套系统的耦合，再估值贵时用代理函数（delta-gamma 近似）会在线性组合上失真。PFE 分位数对尾部模型敏感，正态假设低估 95% 分位——利率利差双跳时差 30% 不稀奇。监管口径（SA-CCR 的乘数与资产类别相关性）与内部模型口径不同，同笔交易两套数字都合法。CVA/VaR 的下游敏感性：EE 曲线错 10%，CVA 资本同幅偏移。</p><p><span class="marginnote">直觉类比：EE/PFE 像给对手方风险画「潮汐预报」——均值潮位（EE）安排日常，风暴潮位（PFE）决定堤坝（限额与抵押）；净额结算是先抽掉两船相抵的水位，抵押是临时沙袋，wrong-way 是风暴恰逢大潮。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>敞口 = max(净市值 − 抵押， 0)；EE 是均值曲线，PFE 是分位曲线。</li><li>驼峰 = 波动累积与到期衰减的赛跑；期权买方单调升，互换中段峰。</li><li>SA-CCR 是监管捷径，蒙特卡洛是内部口径；wrong-way 让乘法假设失效。</li><li>出处：Basel III SA-CCR (2014)；Gregory《The xVA Challenge》第 4 版；Sorensen–Bollier 敞口定价 (1994)。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 信用、对手方与检验<!--]--><!----></p><p class="lesson-progress">第 8 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/kupiec-backtest/">Kupiec 回测检验</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/hazard-rate-model/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">风险率与生存模型</span><span class="lesson-card-meta">方法拾遗 · 信用、对手方与检验<!--[--> · 第 7 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/kupiec-backtest/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Kupiec 回测检验</span><span class="lesson-card-meta">方法拾遗 · 信用、对手方与检验<!--[--> · 第 9 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>环形缓冲 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ring-buffer.md.D03KeYha.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 数据结构<!--[--> · 单元 抽象<!--]--><!--[--> · 课序 接口与代价<!--]--></p><p class="lesson-progress">第 9 / 32 课</p><p class="lesson-prereq"> 先修：<a href="/cs/deque/">双端队列</a></p><p class="lesson-next"> 下一课：<a href="/cs/amortized-analysis/">摊还分析</a></p><!----></nav><div style="position:relative;"><div><h1 id="环形缓冲" tabindex="-1">环形缓冲 <a class="header-anchor" href="#环形缓冲" aria-label="Permalink to &quot;环形缓冲&quot;">​</a></h1><div class="epigraph"><p>头尾在定长数组上取模前进，物理上不必搬元素；满与空用计数或浪费一槽来区分。</p><footer>—— 据 Knuth, The Art of Computer Programming 卷 1 整理</footer></div><p><a href="/cs/deque">上一课</a>允许两端操作，并指出数组表示要用头尾下标绕回。<a href="/cs/queue-buffer">队列与缓冲</a>已把环形当作实现细节提过。本课不重讲 FIFO 合同。缺口是把环写成一等表示：固定 <code>cap</code>、模算术、满空判别，以及为何它是生产者-消费者与 DMA 描述符环的默认布局。摊还扩容仍留给下一课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>队列用动态数组在队头 <code>pop</code> 若每次把剩余元素左移，是 \(\Theta(n)\)。把头指针前移则留下空洞。缺口是<strong>逻辑下标对 <code>cap</code> 取模</strong>：物理槽循环使用，元素只在 enqueue/dequeue 时写一次。容量用尽不在本课倍增——有界缓冲把背压写成「满则失败或等待」。</p><p><code>head==tail</code> 既像空又像满。必须另用 <code>count</code>，或规定「满时浪费一槽」使满为 <code>(tail+1)%cap==head</code>。<span class="marginnote">常见误区：以为 <code>head==tail</code> 一个等式就能同时表达空和满——不行，两种状态下它都成立。所以必须有第三样信息：要么维护 <code>count</code> 计数，要么规定满时永远留一个空槽不用。</span></p><p><span class="marginnote">硬件环形缓冲与软件相同：指针前进、环绕。流水线寄存器链是深度固定、不能绕回的退化环。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>槽 <code>a[0..cap)</code>。入队写 <code>a[tail]</code>，<code>tail=(tail+1)%cap</code>。出队读 <code>a[head]</code>，<code>head=(head+1)%cap</code>。<span class="marginnote">数字实例：\(cap=8\) 时 tail 走到 7 再前进，\((7+1)\bmod 8=0\)，直接绕回 0 号槽，一个元素都不用搬——模算术把线性数组的尾巴接回脑袋，逻辑上就成了一个环。</span>deque 的另一端对称。合法元素是从 <code>head</code> 走 <code>count</code> 步，不要扫整表。</p><div class="mermaid"></div><p>无锁单生产单消费可以用独立的 head/tail 与内存序；本课只点名，不写 fence——那是体系结构栏的 TSO 课已经备过的对象，这里不把并发做成主干。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>顺序走环，空间局部性好，直到绕回边界：那一次访问从高地址跳到 <code>a[0]</code>，可能换页、换 cache 行集合。比链表仍稳。定容使实时系统最坏 \(\Theta(1)\)，没有动态数组那次线性复制。</p><div class="mermaid"></div><p>与动态数组：环不改基址，已取出的指针若指向槽会在复用后别名——合同应禁止握着已出队槽。动态数组改基址，失效模式不同。<span class="marginnote">直觉类比：网卡驱动里的 DMA 描述符环就是硬件级环形缓冲——驱动填好描述符后推 tail，网卡取走后推 head，两端各管一个指针、永不写同一格。这正是环形布局对单生产者单消费者无锁友好的原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不证明摊还，不把 <code>cap</code> 倍增写进环的热路径。需要无界增长时，下一课用表扩张分析，或用链表。也不把优先队列塞进环：那按键不按到达序。</p><p>后课默认：有界 FIFO/deque 的高性能表示是环形数组。偶发线性复制的平均代价，用摊还语言说。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>头尾取模，元素不搬；满空靠计数或浪费一槽。</li><li>定容最坏 \(\Theta(1)\)，绕回仍比链表连续。</li><li>倍增复制的平均账是下一课摊还。</li><li>出处：Knuth, <em>TAOCP</em> 卷 1 循环表与队列表示。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 数据结构<!--[--> · 单元 抽象<!--]--><!--[--> · 课序 接口与代价<!--]--></p><p class="lesson-progress">第 9 / 32 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/amortized-analysis/">摊还分析</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/deque/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">双端队列</span><span class="lesson-card-meta">数据结构 · 抽象 · 接口与代价<!--[--> · 第 8 / 32 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/amortized-analysis/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">摊还分析</span><span class="lesson-card-meta">数据结构 · 抽象 · 接口与代价<!--[--> · 第 10 / 32 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

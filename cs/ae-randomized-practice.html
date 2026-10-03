@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>随机化算法的实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_ae-randomized-practice.md.Drinfwh5.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 验证与案例<!--]--><!----></p><p class="lesson-progress">第 5 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/ae-bit-tricks/">位运算技巧</a></p><p class="lesson-next"> 下一课：<a href="/cs/ae-benchmark-method/">算法基准的方法</a></p><!----></nav><div style="position:relative;"><div><h1 id="随机化算法的实践" tabindex="-1">随机化算法的实践 <a class="header-anchor" href="#随机化算法的实践" aria-label="Permalink to &quot;随机化算法的实践&quot;">​</a></h1><div class="epigraph"><p>随机化把最坏情况从输入手里买回来：对手从此挑不了你的数组，只能挑你的硬币。</p><footer>—— 据 Motwani and Raghavan, Randomized Algorithms, 1995 整理</footer></div><p><a href="/cs/ae-bit-tricks">上一课</a>把字内并行收拢后，本课转向第三类工程杠杆：掷硬币。主干课的<a href="/cs/quicksort-expected">快排与期望</a>推过随机主元的 \(O(n\log n)\) 期望界，<a href="/cs/pollard-rho">Pollard rho</a> 用随机游走找因子；本课把它们当同一件工程工具收拢成三问：掷什么、怎么掷、怎么守。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>固定启发式最怕对手。固定取首元素为主元的快排，遇上构造好的输入退化为 \(\Theta(n^2)\)；固定哈希函数加上公开的键，攻击者能批量造出同桶键——2011 年前后多个 Web 框架因此被哈希碰撞攻击拖垮，纷纷引入随机化种子。缺口是把最坏情况的控制权从输入手里拿回来。不这么做会错在三处：<code>rand() % n</code> 的模偏置让靠前的元素被抽中得多一点，采样分析全歪；用时间戳做种子，同一秒启动的进程拿到同一序列，等于没掷；把 Monte Carlo 的近似答案当精确值上报，误差没人兜底。</p><p><span class="marginnote">术语翻译：Las Vegas 算法用「耗时不确定」换「结果永远正确」——它宁可多掷几轮也不给错答案（如随机化快排）；Monte Carlo 反过来，用「结果可能错、但错率有界」换「耗时固定」。报告结果时动词要配对：前者说「期望多少步」，后者说「错误率不超过多少」。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>掷什么：排序类用随机主元与 Fisher–Yates 洗牌（从后往前，每个剩余位置等概率交换）打底；哈希表用种子化哈希，把碰撞从「对手可构造」变成「期望事件」；平衡结构用 <a href="/cs/treap">Treap</a>——按随机优先级旋转，无需手调平衡因子——与<a href="/cs/skip-list">跳表</a>；内存换精度用<a href="/cs/bloom-filter">布隆过滤器</a>。</p><p>怎么掷：均匀区间要用拒绝采样，或只在整除关系成立时取模，否则偏置；种子取自高熵源，并且<strong>记下来</strong>——种子是实验参数，不是废弃物。</p><p>怎么守：Las Vegas（永不错、只随机耗时，如随机化快排）与 Monte Carlo（可能错、错率有界，如布隆过滤器）分开标记，接口与文档注明各自动词。验证走配对：同一组种子跑新旧两版实现，方差立刻小一圈，配对的意义在基准一课展开。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>随机化为什么赢在对手模型：期望界是对硬币分布取的，不假设输入分布——对手必须先于你的硬币做决定，于是「最坏输入」不存在，只剩「最坏运气」，而运气可控。这正是<a href="/cs/adversary-argument">对手论证</a>那套下界技巧的反面用法：既然比较下界盯得住确定性算法，随机化就换一个被平均的对象。两档保证各有账目：期望界由 Markov 一族不等式升级为高概率界；近似结构的误差由公式给出，不是拍脑袋。随机化通常还附带实现红利：随机主元的快排比手调三数取中简单，Treap 比红黑树少一半分支，省下的复杂度本身就是常数。</p><p><span class="marginnote">布隆过滤器的账：每键 \(m/n=8\) 比特、\(k=6\) 个哈希（接近最优）时误报率约 2.2%；压到 0.1% 要 \(m/n\approx 15\)。随机化的代价要显式记账，它才不会被当成免费的魔法。</span></p><p>方法一节的图回答「随机化分哪几类、怎么守」，下面这张回答另一个问题：<code>rand() % n</code> 的偏置从哪来，拒绝采样怎么把它修平。</p><div class="mermaid"></div><p><span class="marginnote">数字实例：设 <code>rand()</code> 返回 \([0,32767]\)、\(n=20000\)——余数 \(0\) 到 \(12767\) 能由两个源值取模得到，概率约 \(2/32768\)；余数 \(12768\) 到 \(19999\) 只有一个源值，概率约 \(1/32768\)。前一小半元素被抽中的概率几乎是后一半的两倍，采样分析就此全歪。</span></p><p><span class="marginnote">直觉类比：随机主元像切蛋糕前让一个旁观者闭眼指一刀——每位客人猜不到自己会分到哪块，谁也没法提前站位（构造最坏输入）；固定主元则是每次都从同一位置下刀，排好队的人（对手输入）早把最大的那块留给了位置。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>密码学场景的随机源是另一门课：普通 PRNG 的输出可预测，种子一旦可推断，本课的一切保证作废。可复现性要求种子随实验归档——不能复现的随机结果既无法 debug，也进不了回归测试。随机化不豁免正确性测试：期望界不担保任何单次运行，空输入、全同元素这类边界仍要用确定性用例钉住。本课只到「期望与高概率」为止；近似算法的误差-时间谱系与计数估计，是近似课程的主题。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>随机化把最坏输入换成最坏运气：期望界或高概率界，对手先于硬币行动。</li><li>常用五件：随机主元与 Fisher–Yates、种子化哈希、Treap、跳表、布隆过滤器。</li><li>随机源是正确性的一部分：拒绝采样防模偏置，高熵种子，用后归档。</li><li>Las Vegas 与 Monte Carlo 分开标记，误差与耗时谁在掷硬币要写清楚。</li><li>出处：Motwani and Raghavan, <em>Randomized Algorithms</em>, 1995；Mitzenmacher and Upfal, <em>Probability and Computing</em>, 2005；Bloom, 1970。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 算法工程实践<!--[--> · 单元 验证与案例<!--]--><!----></p><p class="lesson-progress">第 5 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ae-benchmark-method/">算法基准的方法</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/ae-bit-tricks/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">位运算技巧</span><span class="lesson-card-meta">算法工程实践 · 工程<!--[--> · 第 4 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ae-benchmark-method/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">算法基准的方法</span><span class="lesson-card-meta">算法工程实践 · 验证与案例<!--[--> · 第 6 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

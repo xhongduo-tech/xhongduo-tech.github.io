@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>无迹卡尔曼滤波 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_unscented-kalman.md.DuNNdQIU.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-27</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 滤波与过程<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/quant/particle-filter/">粒子滤波</a></p><p class="lesson-next"> 下一课：<a href="/quant/ornstein-uhlenbeck/">Ornstein–Uhlenbeck 均值回复</a></p><!----></nav><div style="position:relative;"><div><h1 id="无迹卡尔曼滤波" tabindex="-1">无迹卡尔曼滤波 <a class="header-anchor" href="#无迹卡尔曼滤波" aria-label="Permalink to &quot;无迹卡尔曼滤波&quot;">​</a></h1><div class="epigraph"><p>非线性不一定靠雅可比硬线性化——挑一组确定性采样点穿过非线性函数，加权恢复均值与协方差，二阶矩精度，免求导。</p><footer>—— 据 Julier and Uhlmann, Proceedings of the IEEE, 2004</footer></div><p><a href="/quant/particle-filter">上一课</a>用随机粒子把整个后验搬进内存，代价是粒子和重采样。若非线性温和、后验仍近似单峰，没必要为整张分布买单：无迹变换用 \(2n+1\) 个确定性 sigma 点传播一阶二阶矩，把 EKF 的求导环节整个拿掉。它不是粒子滤波的低配版——粒子要的是分布形状，sigma 点要的是矩。本课写选点、传播与增益更新，不写平方根滤波的数值细节。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>扩展卡尔曼滤波把观测函数在当前均值处泰勒展开取一阶：非线性弱时够用，强时均值被拉偏、协方差被低估；雅可比未必有解析式，数值差分又贵又不稳。跳跃式转移或多峰观测函数下，一切「围绕单点线性化」的方法都失真。粒子滤波接得住但预算高。缺口是中间地带：非线性中等、分布仍像高斯——价差状态、对数波动率这类平滑映射正落在这里。本课不处理状态分量的正性约束，那属于实现层的变换。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>\(n\) 维状态取 \(2n+1\) 个 sigma 点：一个在均值处，其余沿协方差平方根矩阵的列方向对称展开，尺度由参数组控制。预测步让每个点穿过非线性转移，按权重恢复先验均值与协方差；更新步同样穿过观测函数，用交叉协方差算 Kalman 增益。<span class="marginnote">数字实例：状态维 \(n=4\) 时 sigma 点共 \(2\times4+1=9\) 个，一步滤波就是 9 次函数求值加一次 \(4\times4\) 矩阵运算；同等精度下粒子滤波动辄上千粒子、每个还要过转移与似然两个函数——UKF 常省一到两个数量级的浮点预算。参数常取 \(\alpha=10^{-3}\)、\(\beta=2\)，\(\lambda=\alpha^2(n+\kappa)-n\) 决定展开宽度。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>无迹变换承诺的是矩精度而非分布精度：高斯输入下，任意光滑非线性作用后，sigma 点恢复的均值与协方差精确到二阶泰勒阶，误差只出现在三阶及以上；EKF 的一阶截断误差随曲率增长，且在尖点附近雅可比爆炸。UKF 全程不求导，函数只需可求值——查表式或分段定义的观测模型也能进滤波器。它继承 Kalman 的线性更新律，这一点不因 sigma 点而变。<span class="marginnote">常见误区：以为 sigma 点传播后「协方差自动保正、状态自动合规」。错在恢复环节——平方根矩阵把点撒开，加权重构只是线性组合，波动率穿过模型算出负值照样发生。正解是在状态层做对数变换或对结果加投影，不是事后安慰自己。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>甜区是「平滑非线性加近高斯后验」。强非线性把 sigma 点甩出有效范围，后验双峰时矩匹配直接失义——两种情况都退回粒子滤波。参数敏感：\(\lambda\) 取负时权重出现负值，恢复的协方差可能失正，工程上常配平方根实现兜底。<span class="marginnote">直觉类比：EKF 像在山谷当前落脚点把地形拉成一块平面再滑一步；UKF 像在落脚点周围按固定阵型撒 \(2n+1\) 枚探针，各自下坡后重新拟合椭圆。探针撒得再准，恢复的也只是椭圆的圆心与长短轴，不是整张地形图。</span>粒子滤波答不了的便宜题它答了，但它给不出形状，只给矩。下一课把注意力从滤波器挪到状态本身：价差这类量的动力学长什么样——Ornstein–Uhlenbeck 均值回复。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>UKF 用确定性 sigma 点传播均值与协方差，免雅可比、二阶矩精度。</li><li>\(2n+1\) 个点换一整套导数，预算比粒子滤波低一到两个数量级。</li><li>甜区是平滑非线性加近高斯后验；多峰与强非线性退回粒子滤波。</li><li>状态约束与协方差保正要在实现层处理，恢复环节不自动保证。</li><li>出处：Julier and Uhlmann, <em>Proceedings of the IEEE</em>, 2004；Wan and van der Merwe, 2000；Kalman, <em>Journal of Basic Engineering</em>, 1960。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 方法拾遗<!--[--> · 单元 滤波与过程<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/ornstein-uhlenbeck/">Ornstein–Uhlenbeck 均值回复</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/particle-filter/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">粒子滤波</span><span class="lesson-card-meta">方法拾遗 · 滤波与过程<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/ornstein-uhlenbeck/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Ornstein–Uhlenbeck 均值回复</span><span class="lesson-card-meta">方法拾遗 · 滤波与过程<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

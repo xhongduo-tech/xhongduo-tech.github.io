@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>中断实践 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_emb-interrupt-practice.md.EOhaRHdj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 嵌入式系统<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><p class="lesson-prereq"> 先修：<a href="/cs/emb-bare-metal-boot/">裸机启动</a></p><p class="lesson-next"> 下一课：<a href="/cs/emb-i2c-spi/">外设协议：I2C 与 SPI</a></p><!----></nav><div style="position:relative;"><div><h1 id="中断实践" tabindex="-1">中断实践 <a class="header-anchor" href="#中断实践" aria-label="Permalink to &quot;中断实践&quot;">​</a></h1><div class="epigraph"><p>中断是硬件对软件说的一句「现在有事」；真正的工程量不在听到这句话，而在回答什么时候处理、处理多久、以及处理期间谁被挡在门外。</p><footer>—— 据 Yiu, The Definitive Guide to ARM Cortex-M3；RISC-V Privileged Spec 整理</footer></div><p><a href="/cs/emb-bare-metal-boot">上一课</a>把复位到 main 之间的启动契约补齐了，向量表里除复位项外的每一项都还指向空处理函数。本课把它们填上：外设的事件如何沿着「外设请求线—中断控制器—向量表入口—服务函数」这条链到达你的代码，以及写服务函数时哪些动作会毁掉整块板子的实时性。主干课的<a href="/cs/exception-interrupt-entry">异常与中断入口</a>讲过硬件如何保存 PC、跳到 <code>mtvec</code> 再用 <code>mret</code> 返回；本课不再推导入口协议，只写入口之后你必须做对的事。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>轮询是新手的第一反应：主循环里反复读外设状态寄存器。它的事件延迟取决于循环周期，CPU 在无事可做时也满负荷空转——对一个要用电池跑一年的设备，这不是低效，是不可行。缺口因此是<strong>把「何时有事」的决定权交给硬件</strong>：外设置位请求线，控制器按优先级仲裁，处理器在指令边界保存上下文并跳转。但把轮询换成中断只是换掉了一半问题，另一半是<a href="/cs/interrupt-bottom-half">中断下半部</a>讲过的老原理在无 OS 场景下的重演：上半部必须短，因为你在中断里占用的每一微秒，都在推迟同级与更低优先级事件的响应。</p><h3 id="服务函数的四条纪律" tabindex="-1">服务函数的四条纪律 <a class="header-anchor" href="#服务函数的四条纪律" aria-label="Permalink to &quot;服务函数的四条纪律&quot;">​</a></h3><p>第一，先清请求源再谈别的：不清就是退出后立即重入，栈被吃穿才发现「程序卡死」。第二，共享变量必须 <code>volatile</code> 并按位宽原子访问——编译器看不到中断会改它，会把「等待标志」的循环优化成死循环。第三，不许阻塞、不许 printf、不许忙等：服务函数里调用任何可能再次被中断打断还不重入的库，都是在攒一个概率性死机。第四，能推迟的都推迟：服务函数只置标志或投递队列，真正的工作留给主循环或 RTOS 任务。</p><p><span class="marginnote"><code>volatile</code> 是告诉编译器「这个变量会被你看不见的代码改」的关键字，中断服务函数正是编译器看不见的代码。不加它，编译器看到主循环里没人改等待标志，就把「原地等标志」优化成只读一次的死循环——这是中断编程最经典的初学者事故。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>配置一个中断的完整清单按链路顺序检查：外设侧使能事件并允许发请求；控制器侧设置优先级与使能位（NVIC 用几比特优先级加抢占分组，PLIC 走 <a href="/cs/plic-irq">PLIC 与中断号</a>的 claim/complete 流程）；向量表侧确认入口函数名与启动文件一致——名字打错一个字母，链接器不报错，事件照常发生，只是落进了默认死循环。临界区用关中断保护「读—改—写」共享状态，但窗口要按指令数而不是行数计算：关中断一百条指令，百兆主频下就是一微秒级的延迟抖动，直接吃掉后课要谈的实时余量。</p><div class="mermaid"></div><p><span class="marginnote">Cortex-M3 的中断入口是 12 个周期（零等待内存下），咬尾中断把连续两个中断之间的出栈再入栈压到 6 周期；NVIC 提供 4 比特优先级即 16 级。这些常数决定了「服务函数预算」的单位是百纳秒，不是毫秒。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>中断系统的本质是一台<strong>优先级仲裁机</strong>：多个请求同时挂起时，谁先被服务由优先级决定；正在服务低优先级时来了高优先级，允许抢占，反之等待。这条规则的可观测后果是<strong>反转的延迟账</strong>：最高优先级事件的响应延迟，等于最长的关中断窗口加最长的高于它的服务时间，而不是平均服务时间。所以「服务函数要短」不是风格建议，是给最坏情况账本减数的唯一手段。优先级分组、抢占使能这些配置项，都是在回答同一道题：你愿意让哪个事件为哪个事件让路。</p><div class="mermaid"></div><p><span class="marginnote">可以把它想象成急诊分诊：重伤员可以打断轻伤员的处置，这是抢占；但若医生处置时把诊室门锁上（关中断），再重的伤员也只能在门外等。最坏延迟不取决于医生平均多快，而取决于最长的一次「锁门」加最长的一台手术。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课停在单核 MCU：多核的中断路由、核间中断与亲和性是 <a href="/cs/apic-interrupt-routing">APIC 与中断路由</a>的世界，DMA 与中断的配合留给下一课的外设协议。锁与关中断的完整搭配在<a href="/cs/lock-irq">锁与关中断</a>展开，本课只立「临界区窗口要短」的纪律。也不写 RTOS：中断里能不能调用 <code>xQueueSendFromISR</code> 这类专有接口、中断优先级与任务优先级如何对表，留给后课实时操作系统。最后一条：中断延迟不能靠示波器抓一次就下结论，最坏情况要按关中断窗口与优先级配置推算，这是后课功耗与看门狗设计的前置。</p><p><span class="marginnote">初学者容易以为示波器抓到一次 3 µs 的响应就能写进产品规格；那只是抽样，不是保证。最坏延迟是「最长关中断窗口 + 最长高优服务时间」推算出来的账，抓一万次波形也未必撞上最坏组合——预算要算出来，不要赌出来。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>中断把「何时有事」交给硬件仲裁，但服务函数的长度仍是你对最坏延迟的承诺。</li><li>四条纪律：先清源、共享量 volatile、不阻塞不打印、能推迟都推迟。</li><li>配置按链路逐级核对：外设、控制器、向量表，名字错一字就是静默死循环。</li><li>最坏响应延迟由最长关中断窗口与更高优先级服务时间决定，不由平均值决定。</li><li>出处：Yiu, <em>The Definitive Guide to ARM Cortex-M3</em>；RISC-V Privileged Spec；据本栏 exception-interrupt-entry 与 interrupt-bottom-half 两课的入口与下半部口径整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 嵌入式系统<!--[--> · 单元 基础<!--]--><!----></p><p class="lesson-progress">第 2 / 10 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/emb-i2c-spi/">外设协议：I2C 与 SPI</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/emb-bare-metal-boot/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">裸机启动</span><span class="lesson-card-meta">嵌入式系统 · 基础<!--[--> · 第 1 / 10 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/emb-i2c-spi/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">外设协议：I2C 与 SPI</span><span class="lesson-card-meta">嵌入式系统 · 基础<!--[--> · 第 3 / 10 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

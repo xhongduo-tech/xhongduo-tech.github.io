@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>保证金与清算运营 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_qo-margin-clearing-ops.md.CEFAvarj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 量化运营与合规<!--[--> · 单元 运营<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/quant/qo-stockloan-ops/">券源与借券运营</a></p><p class="lesson-next"> 下一课：<a href="/quant/qo-daily-ops-checklist/">交易日的操作清单</a></p><!----></nav><div style="position:relative;"><div><h1 id="保证金与清算运营" tabindex="-1">保证金与清算运营 <a class="header-anchor" href="#保证金与清算运营" aria-label="Permalink to &quot;保证金与清算运营&quot;">​</a></h1><div class="epigraph"><p>保证金不是手续费，是按日重估的信用额度；追缴通知到达的时刻，能依靠的只有昨天就算好的预算。</p><footer>—— 据保证金逐日盯市与中央对手方违约瀑布的公开机制整理</footer></div><p><a href="/quant/qo-stockloan-ops">上一课</a>把券变成一条每天要续的供应链；本课管另一条供应链——资金。中央对手方的净额与违约瀑布机制已在<a href="/quant/ccp-default-waterfall">中央对手方与违约瀑布</a>写过，失败交收的状态已在<a href="/quant/settlement-fails">结算周期与失败</a>写过，T+1 对运营窗口的压缩已在<a href="/quant/us-t1-settlement">美国 T+1 结算</a>写过；本课写机构自己的那本账：保证金占用怎么预算、追缴怎么走流程、清算截止怎么守。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>策略层把保证金当常数或当比例，运营知道它是被 CCP 与券商<strong>每日重估的随机变量</strong>：初始保证金随波动率参数跳变，维持线随持仓市值移动，追缴恰好发生在波动最大、流动性最差的日子。缺口的形态有三：<strong>口径</strong>——期货、场外、融券、回购各有一套保证金逻辑，加总口径没人管，账户层面集中触线；<strong>时点</strong>——资金划款要过托管与银行链路，晚于追缴时限就是违约；<strong>次序</strong>——真到强平时先平什么，没有预写就是现场发挥。不解决这三条，一次全市场的波动率跳升就能把一个本没有方向性亏损的组合打成被动减仓。</p><p><span class="marginnote">「逐日盯市」（mark-to-market）就是每天收盘后按最新市价重算一遍盈亏与占用的制度：赚了当天进账，亏了当天补钱。它让风险每天结清、不攒隔夜雷，代价是坏日子里的补钱要求恰好最急——「追缴通知」就是这么来的。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>把保证金做成预算科目，四个动作。<strong>占用台账</strong>：逐账户、逐品种记初始与维持保证金，并与券商与 CCP 的日结逐项对平——口径对不上的账户不许开新仓。<strong>情景预测</strong>：保证金参数有公开的变动节奏（定期重估、到期换月、波动率区间切换），用参数日历做压力情景，估下一天的占用 \(M_{t+1}\)，而不是拿今天的数外推。<strong>预算与预警带</strong>：\(\mathrm{IM}_t+\mathrm{VM}_t+B_t\le C_t\)，占用加缓冲不超过可用资金 \(C_t\)；设两道预警线，第一道限开新仓，第二道启动预划款——钱在路上比钱在账上慢，预警线就是给这段路留的。<strong>追缴与强平的预写</strong>：收到通知后的核对、划款、争议路径与责任人固定；强平次序按「对组合功能的伤害最小」预先排好，与<a href="/quant/sl-exit-mechanism">退出机制</a>的分级逻辑同源。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么预测必须用情景而不是均值：保证金参数是波动率的阶梯函数，参数跳变的日子恰是追缴与流动性紧张重合的日子——这是逐日盯市的顺周期性，均值外推会在最需要缓冲的那天给出最错的预算。预算不等式里缓冲 \(B_t\) 的作用因此不是「多留一点钱」，而是把追缴从「违约事件」降级成「划款动作」：CCP 的瀑布里，会员违约前的每一道防线（保证金、违约瀑布资源）都是公开设计的（<a href="/quant/ccp-default-waterfall">中央对手方与违约瀑布</a>），机构内部同样要有一条自己的瀑布——现金缓冲、可变现抵押、预先批准的减仓次序。清算侧同理：交收失败不是异常态而是常态状态变量，未确认的腿、缺券的交付、外汇未备妥都要当天就出现在对账差异里（<a href="/quant/settlement-fails">结算周期与失败</a>）；回购融资腿的保证金与折扣率是同一条资金链的上游（<a href="/quant/repo-funding">回购市场与融资</a>）。</p><div class="mermaid"></div><p><span class="marginnote">保证金与结算保证金是两笔占用：前者跟杠杆与额度有关（券商给的），后者跟交收周期与净额有关（CCP 收的）。周期从 T+2 压到 T+1 改的是后者，前一项不会自动少——把两笔混在一个科目里，压缩周期后预算会两头都算错。</span></p><p><span class="marginnote">把预算不等式代入数字：某账户初始保证金 \(\mathrm{IM}=200\) 万、变动保证金 \(\mathrm{VM}=50\) 万、缓冲 \(B=30\) 万，则可用资金 \(C\) 至少要 280 万；若情景预测明天参数上调把 \(\mathrm{IM}\) 推到 260 万，缺口 50 万今天就该走预划款——等追缴通知到了再筹，钱多半还在路上。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课写机构侧的预算与流程，不重写 CCP 内部的违约瀑布与净额法律安排，见<a href="/quant/ccp-default-waterfall">中央对手方与违约瀑布</a>；各产品保证金的具体公式以交易所、清算所与券商文本为准，SPAN 类情景扫描的参数不在本课复刻。强平次序的预写不改变一条边界：运营保证「补得上、平得有序」，不保证不平——方向性亏损与保证金不足是两件事，前者是研究的问题，后者才是本课的对象。</p><p><span class="marginnote">初学者容易以为强平是因为「亏了钱」。实际上方向亏损与保证金不足是两件事：一个几乎不亏但高杠杆的组合，也可能在波动率跳升、保证金参数上调时被追缴甚至强平；混同两者，会把运营风控问题错当成择股问题去修。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>保证金是被每日重估的随机变量，按预算科目管理，逐账户对平口径。</li><li>预测用参数日历做情景，不用均值外推；盯市的顺周期性让追缴与流动性紧张重合。</li><li>预算不等式 \(\mathrm{IM}_t+\mathrm{VM}_t+B_t\le C_t\) 配两道预警线，给划款链路留时间。</li><li>追缴路径与强平次序预写；交收失败是常态状态变量，当天进对账差异。</li><li>出处：据逐日盯市、SPAN 类情景保证金与 CCP 违约瀑布公开机制整理；对照<a href="/quant/ccp-default-waterfall">中央对手方与违约瀑布</a>、<a href="/quant/us-t1-settlement">美国 T+1 结算</a>。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 量化运营与合规<!--[--> · 单元 运营<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/qo-daily-ops-checklist/">交易日的操作清单</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/qo-stockloan-ops/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">券源与借券运营</span><span class="lesson-card-meta">量化运营与合规 · 运营<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/qo-daily-ops-checklist/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">交易日的操作清单</span><span class="lesson-card-meta">量化运营与合规 · 运营<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

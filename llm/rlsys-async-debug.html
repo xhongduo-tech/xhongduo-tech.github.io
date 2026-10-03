@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>异步 RL 的系统调试 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-async-debug.md.VJdQ1Dtq.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 7 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rlsys-multiturn-env/">多轮 RL 的环境工程</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlsys-hacking-monitor/">Reward hacking 的监控</a></p><!----></nav><div style="position:relative;"><div><h1 id="异步-rl-的系统调试" tabindex="-1">异步 RL 的系统调试 <a class="header-anchor" href="#异步-rl-的系统调试" aria-label="Permalink to &quot;异步 RL 的系统调试&quot;">​</a></h1><div class="epigraph"><p>同步系统坏了会报错，异步系统坏了会「看起来还在跑」——调试异步 RL，就是给三个各走各的时钟装上对表的仪表。</p><footer>—— 据 AReaL（arXiv:2505.24298）的 staleness 控制与异步训练运维实践整理</footer></div><p><a href="/llm/rlsys-multiturn-env">上一课</a>让环境有了状态与超时，批内节奏不再整齐——异化从这里由选项变成需求：生成、打分、更新三段并行起来。本课不重讲异步架构（<a href="/llm/async-rollout-arch">异步 rollout 架构</a>已有专课），写它坏掉时怎么查：一套让版本偏差、静默离策略与资源空转现形的调试方法。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>异步的收益是填空闲，代价是「样本属于哪个版本」从编译期事实变成运行期问题。生成端在 \(v_k\) 上出样本时，训练器可能已更新到 \(v_{k+2}\)；打分端可能还挂着旧 RM。这本身有解——版本号加重要性权重——但有解的前提是先知道错没错。异步 bug 的特点是静默：loss 继续降、奖励继续涨，唯一的异常藏在交叉指标里，等金标评测发现时，几周的卡已经烧完。调试的缺口因此有两个：让错「响」起来（断言与探针），让慢「可见」（三时钟对表）。</p><p><span class="marginnote">常见误区：初学者容易把「奖励还在涨」当成异步没出错。版本错位与静默离策略恰恰不拦奖励曲线：代理指标照升，坏掉的是金标与可复现性。异步系统不看交叉指标（版本差、logprob 对齐率），等于蒙眼开车。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>调试分正确性与性能两册。正确性册三条。全链版本标记：样本、打分请求、缓冲条目、更新步都带版本号，任何跨版本读取留痕。logprob 探针：每步随机抽一小部分样本，用其声称的版本重算行为 logprob 并断言一致——这一条同时抓权重漏同步、模板漂移、缓存错列三类静默错。staleness 预算：允许的最大版本落后写进配置（AReaL 的解耦控制把 staleness 当一阶超参），超预算样本要么丢弃、要么补截断 IS 权重（<a href="/llm/truncated-importance-sampling">截断重要性采样</a>）。性能册看三只表：生成墙钟、打分墙钟、更新墙钟，附各自的队列深度与 GPU 空闲率；短板在哪段、队列淤积在哪，对一次表就有结论。检查点走异步落盘（<a href="/llm/async-checkpointing">异步检查点</a>），别让存档打断节奏。</p><p><span class="marginnote">直觉类比：logprob 探针像收款时的对账。样本声称「我是 \(v_k\) 的策略生成的」，探针就把 \(v_k\) 的权重拿来重算这条样本的 logprob，对不上立刻报警——权重漏同步、模板被改、缓存错列，在账面上都无所遁形。</span></p><p><span class="marginnote">探针的成本账：每步抽百分之一左右的样本重算 logprob，开销增加约一个百分点，却把「权重漏同步」这类几周量级的静默损失变成分钟级告警——性价比最高的保险，没有之一。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>异步 RL 的正确性可以压成一条不变量：任何进入梯度的样本，其行为 logprob、奖励、优势都必须与一个明确的版本三元组绑定，且该绑定可被独立复算。同步系统里这条不变量靠栅栏免费获得；异步系统里要靠版本号加探针显式维护。staleness 则是新鲜度与利用率的汇率：允许更旧的样本，生成端利用率上升、批更大更稳，但 IS 权重方差与策略滞后上升（<a href="/llm/areal-async-rl">AReaL 异步强化学习</a>的机制面）——它是超参，不是实现细节，调它要过消融流程。三时钟对表的机制价值在于把「系统慢」从体感变成归因：生成慢查批波浪与前缀缓存，打分慢查 RM 池扩缩，更新慢查梯度累积与存档阻塞。</p><div class="mermaid"></div><p><span class="marginnote">术语翻译：staleness（陈旧度）就是「这条样本出生时，策略已经往前走了几个版本」。落后 0 是同步训练；允许落后 2，意味着训练器可以用两版之前的策略产出的样本，代价是要补重要性权重修正。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>调试手段不修复算法层的离策略偏差：探针只能保证「账本正确」，旧样本的偏差仍要靠 IS 修正或 staleness 预算来压。异步下的可复现性天然受损（调度顺序非确定），能做到的是种子、版本号与配置全留痕，让事故可重放而非逐位复现。探针的覆盖率与开销是权衡：抽样断言有漏报尾部，最终仍需金标评测兜底。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>异步把「样本属于哪个版本」变成运行期问题：全链版本标记是不变量的载体。</li><li>logprob 探针（抽样重算加断言）同时抓漏同步、模板漂移、缓存错列，是最便宜的静默错误保险。</li><li>staleness 是超参不是实现细节：预算法定最大落后，超限丢弃或补截断 IS。</li><li>三时钟对表（生成/打分/更新加队列深度）把「慢」变成可归因；存档走异步不打断节奏。</li><li>出处：AReaL，arXiv:2505.24298；Espeholt 等 IMPALA/V-trace；据 verl、slime 运维实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 7 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlsys-hacking-monitor/">Reward hacking 的监控</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rlsys-multiturn-env/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">多轮 RL 的环境工程</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 6 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlsys-hacking-monitor/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">Reward hacking 的监控</span><span class="lesson-card-meta">RL 训练系统 · 监控与生产<!--[--> · 第 8 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

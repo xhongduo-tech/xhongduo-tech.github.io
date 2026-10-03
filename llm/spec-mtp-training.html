@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多 token 预测的训练 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_spec-mtp-training.md.D6dwG9uj.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 理论与方法<!--]--><!----></p><p class="lesson-progress">第 9 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/llm/spec-acceptance-theory/">接受率的理论与测量</a></p><p class="lesson-next"> 下一课：<a href="/llm/spec-quant-combo/">投机与量化的组合</a></p><!----></nav><div style="position:relative;"><div><h1 id="多-token-预测的训练" tabindex="-1">多 token 预测的训练 <a class="header-anchor" href="#多-token-预测的训练" aria-label="Permalink to &quot;多 token 预测的训练&quot;">​</a></h1><div class="epigraph"><p>接受率是测出来的，更是训出来的：草稿每高一分对齐，都是数据与损失函数提前付过的钱。</p><footer>—— 据 Cai et al., Medusa, ICML 2024 与 DeepSeek-V3 技术报告的训练口径整理</footer></div><p><a href="/llm/spec-acceptance-theory">上一课</a>把 \(\alpha\) 定义成分布重叠；本课往上游走一步：重叠是训练买来的。前面各课把草稿当现成件，自蒸馏与特征回放都一笔带过；本课把「为投机而训」钉成一课：损失怎么设计、数据怎么配、什么时候训。<a href="/llm/multi-token-prediction-training">Multi-Token Prediction 训练目标</a>写预训练目标本身，<a href="/llm/mtp">MTP</a> 写 DeepSeek-V3 的模块结构；本课写工程全链——从目标选型到上线前的接受率验收。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>草稿训练有一个共同形状：目标已冻结或定型，草稿在它的输出上学习。三个决策定 \(\alpha\) 的上限。<strong>损失</strong>：只对齐下一词，多步能力靠推理时的树去碰运气；显式监督未来 \(k\) 个位置，表示被迫含远位信息——Gloeckle 等人的多头损失是前者的补救，MTP 与 EAGLE-3 的训练时间测试是后者的兑现。<strong>数据</strong>：草稿在什么分布上训，就在什么分布上好——通用对话喂不出代码桶的高接受率，目标过 RLHF 后草稿还在旧策略输出上训，重叠先掉一截。<strong>时机</strong>：跟预训练一起（成本一次性、换目标作废）、跟随微调（跟得上策略漂移）、或部署前补训（灵活但容易被数据卡脖子）。三件事互相牵制。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>按介入深度排三条路线。<strong>部署后挂头</strong>（Medusa-1 式）：骨干冻结，头在目标自己的输出上自蒸馏；数据由目标生成再过滤，分布自动对齐，骨干零风险；上限是头的容量与 \(h_t\) 的远位信息量。<strong>联合训练</strong>（Medusa-2 式）：头损失与下一词损失同训，须护住骨干——学习率分段、蒸馏正则，防头任务把主任务拖下水；好处是表示被迫适配多步预测，远位头更强。<strong>预训练期 MTP</strong>（DeepSeek-V3 式）：顺序模块对每个位置稠密监督未来若干步，teacher forcing 下这些监督项近乎免费；推理时可整段卸掉、也可留作投机草稿。特征级草稿单列一路：在目标隐状态的回放记录上训一层解码器，<a href="/llm/eagle-3">EAGLE-3</a> 的 training-time test 把「草稿吃自己的输出」写进训练分布。<strong>验收</strong>：上线前在真实流量分桶上测 \(\alpha\) 与 \(\tau\)——按<a href="/llm/spec-acceptance-theory">接受率的理论与测量</a>的协议，而不是只看训练损失的验证集。</p><p><span class="marginnote">术语翻译：「自蒸馏」就是让模型当自己的老师——用冻结目标模型自己的输出当教材，去训挂在它身上的头。教材与考题（真实流量）天然同源，分布自动对齐，这是这条路线便宜又稳的根本原因。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>三条路线的机制差异在「远位信息从哪来」。冻结骨干时，\(h_t\) 只被下一词损失塑造过，远位头是在榨表示里偶然残留的信息——这就是<a href="/llm/spec-self-draft-medusa">自投机与多 token 头</a>里「位置每远一步对齐掉一截」的训练侧根源；联合训练让梯度改表示，把「多 token 可预测」买进权重，抬高远位天花板，代价是主任务风险。预训练期 MTP 更早：表示成形时就带远位监督，交换的是预训练算力与参数。数据侧的机制与<a href="/llm/spec-acceptance-theory">接受率的理论与测量</a>的 \(\mathrm{TV}\) 视角直通：训练分布偏移让 \(q\) 的峰整体搬离 \(p\) 的峰，\(\alpha\) 掉的正是那份质量；数据配比按服务流量的桶来，代码桶用代码喂。EAGLE-3 的机制则指出损失设计的反直觉处：显式回归目标特征会在多步时把草稿按在流形上，数据越多越平；放开约束、对齐多步输入分布，缩放才回来。</p><p><span class="marginnote">一个便宜的验收数字：上线前对每个流量桶各抽几百条，跑草稿记逐位置 \(\hat\alpha\) 与实现的 \(\tau\)。训练验证集上的损失降了不等于桶上 \(\alpha\) 升了——损失是平均，重叠可以被平均掩盖。</span></p><p><span class="marginnote">数字实例：目标过 RLHF 后风格变了三成，草稿还停在旧输出上训，\(\alpha\) 从 0.8 掉到 0.6——\(\gamma=4\) 的期望前进长度就从约 3.36 掉到约 2.31，加速比几乎对折。策略一漂移，补训要按版本排队，道理就在这笔账上。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>预训练期 MTP 增加参数与显存，且绑定架构：换基座重训，插件化草稿没有这个包袱。联合训练的超参是雷区，头损失权重过大直接显形在主任务指标上——验收要把基座质量与投机收益分开报。RLHF 后的策略漂移会让早期训练的草稿掉接受率，补训时机按策略版本排。最后别混淆对象：MTP 作为训练目标给表示加远位监督，模块留作推理草稿只是副产品；EAGLE 与 Medusa 族仍是部署后路线，成本结构与上限不同源，选型按手头能改什么定。</p><p><span class="marginnote">术语翻译：teacher forcing 指训练时每一步都喂标准答案、而不是模型自己上一步的输出，错误不滚雪球、监督信号稳定。反过来看，推理时草稿要吃自己的输出——这正是 training-time test 要专门把这种情形写进训练的原因。</span></p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>草稿的 \(\alpha\) 上限由三个训练决策定：损失（是否显式监督远位）、数据（对齐服务流量分桶）、时机（预训练/微调/部署前）。</li><li>三条介入路线：冻结骨干挂头自蒸馏、联合训练抬天花板但护骨干、预训练期 MTP 把远位买进权重。</li><li>数据偏移按 \(\mathrm{TV}\) 机制吃掉重叠：代码桶的接受率要靠代码数据喂出来。</li><li>EAGLE-3 的教训：约束性损失会在多步上压平缩放，对齐多步输入分布比加数据先发生。</li><li>上线验收按桶测 \(\hat\alpha\) 与 \(\tau\)，训练损失不替代重叠测量。</li><li>出处：Cai et al., ICML 2024；Li et al., EAGLE 系列 2024–2025；DeepSeek-V3 技术报告， arXiv:2412.19437；Gloeckle et al., 2024。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 投机解码深化<!--[--> · 单元 理论与方法<!--]--><!----></p><p class="lesson-progress">第 9 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/spec-quant-combo/">投机与量化的组合</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/spec-acceptance-theory/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">接受率的理论与测量</span><span class="lesson-card-meta">投机解码深化 · 理论与方法<!--[--> · 第 8 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/spec-quant-combo/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">投机与量化的组合</span><span class="lesson-card-meta">投机解码深化 · 理论与方法<!--[--> · 第 10 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

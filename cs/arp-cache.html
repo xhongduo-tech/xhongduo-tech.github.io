@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ARP 缓存与代理 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_arp-cache.md.Ch6NpaBt.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算机网络<!--[--> · 单元 链路与互联<!--]--><!--[--> · 课序 从共享介质到转发<!--]--></p><p class="lesson-progress">第 10 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/cs/arp/">ARP</a></p><p class="lesson-next"> 下一课：<a href="/cs/ip-subnet/">IP 编址与子网</a></p><!----></nav><div style="position:relative;"><div><h1 id="arp-缓存与代理" tabindex="-1">ARP 缓存与代理 <a class="header-anchor" href="#arp-缓存与代理" aria-label="Permalink to &quot;ARP 缓存与代理&quot;">​</a></h1><div class="epigraph"><p>解析结果必须缓存才扛得住广播；超时与代理改变的是表项从哪来，不是 IP 到 MAC 的那道翻译。</p><footer>—— 据 Plummer, RFC 826；Kurose and Ross 对 ARP 表与代理 ARP 的整理</footer></div><p><a href="/cs/arp">上一课</a>给出同一链路上的 IP→MAC：广播问、单播答。本课不重写请求格式。缺口是表：每包都广播会淹没<a href="/cs/vlan">VLAN</a> 里的广播域；表项过期或被他人改写，下一跳会发错人。代理 ARP 则让路由器替一整段地址回答。本课不把子网掩码写完。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>ARP 成功一次之后，后续帧应直接封装。缓存：IP 映射到 MAC，带生存时间。无超时则主机搬家后流量仍打到旧口；过短则广播风暴。Gratuitous ARP 用于宣告与冲突检测。代理：路由器对「不在本机但可达」的 IP 回答自己的 MAC，把本应跨网的包先拉过来再路由——曾用来把主机从子网细节里藏起来。缺口是<strong>表的维护合同</strong>，不是新的帧类型。</p><p><span class="marginnote">数字实例：Linux 默认让可达表项约 30 秒后转陈旧、再经探测回收（内核版本间有差异）。若没有超时，一台虚拟机迁移换口后，别人仍按旧 MAC 把帧发往旧位置，丢包一直丢到有人手工清表为止；超时太短则反过来，广播请求淹满链路。</span></p><p><span class="marginnote">缓存没有认证。后到的应答可以覆盖表项。防御是信任边界：只在链路上使用 ARP、静态表用于关键网关、后课用 NDP 与安全扩展对照，而不是在本课写攻击步骤。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>发送路径：查缓存；未命中则排队并广播请求，填表后再封装。收应答：更新或插入，刷新计时。代理 ARP 在路由器开启时，对特定前缀代答；今日默认少用，因为和 CIDR 边界纠缠、排障困难。交换机仍把 ARP 请求当广播；缓存命中之后的单播帧才走 MAC 表。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>缓存把一跳翻译从控制平面（广播）变成数据平面（查表），让 <a href="/cs/io-dma">DMA</a> 出去的帧不必每次泛洪。代理把「是否同一链路」从主机判断部分上收到路由器，模糊了后课子网的边界——这正是下一课必须钉掩码的原因。端到端仍不在 ARP：表填对只保证这一跳 MAC 对。</p><p><span class="marginnote">直觉类比：ARP 缓存像手机通讯录——问过一次号码就记下，不必每次都到大厅喊人（广播）；代理 ARP 则像前台代接：你喊「财务部在吗」，前台替财务部应一声再帮你转接，你始终以为财务部就在这栋楼。</span></p><p><span class="marginnote">常见误区：初学者容易把代理 ARP 当成路由的正常工作方式。实际上它让两台不同子网的主机误以为彼此同链路，掩码与真实拓扑从根上对不齐，排障时「明明不同网段为什么能通」多半是它——现代网络默认关掉。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 NDP 选项清单，不把 ARP 探测当安全协议。静态 ARP 是运维钉死网关，不是密码学绑定。哪些地址算同一链路、要不要问网关，下一课 <a href="/cs/ip-subnet">IP 编址与子网</a>。</p><p>后课默认：同一链路上翻译结果会缓存并过期。没有掩码，就还不知道该问目的还是问默认网关。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>ARP 表有超时；命中后不再广播。</li><li>代理 ARP 让路由器代答，模糊直连边界。</li><li>子网决定问谁，下一课。</li><li>出处：RFC 826；Kurose and Ross。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算机网络<!--[--> · 单元 链路与互联<!--]--><!--[--> · 课序 从共享介质到转发<!--]--></p><p class="lesson-progress">第 10 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ip-subnet/">IP 编址与子网</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/arp/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">ARP</span><span class="lesson-card-meta">计算机网络 · 链路与互联 · 从共享介质到转发<!--[--> · 第 9 / 49 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ip-subnet/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">IP 编址与子网</span><span class="lesson-card-meta">计算机网络 · 链路与互联 · 从共享介质到转发<!--[--> · 第 11 / 49 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

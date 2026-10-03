@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多轮 RL 的环境工程 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rlsys-multiturn-env.md.B-sHvMbh.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/rlsys-inference-in-loop/">推理引擎在 RL 循环里</a></p><p class="lesson-next"> 下一课：<a href="/llm/rlsys-async-debug/">异步 RL 的系统调试</a></p><!----></nav><div style="position:relative;"><div><h1 id="多轮-rl-的环境工程" tabindex="-1">多轮 RL 的环境工程 <a class="header-anchor" href="#多轮-rl-的环境工程" aria-label="Permalink to &quot;多轮 RL 的环境工程&quot;">​</a></h1><div class="epigraph"><p>单轮 RL 的环境是提示词；多轮的环境是一个有状态、会超时、偶尔崩溃的进程——工程量从采样器挪到了环境侧。</p><footer>—— 据 Nakano 等 WebGPT 2021 与工具整合、代码 RL 环境的公开工程实践整理</footer></div><p><a href="/llm/rlsys-inference-in-loop">上一课</a>把推理引擎接进循环，生成端能稳定吐单轮经验。本课把「一问一答」升级成「多轮交互」：模型要调工具、读观测、再决策，环境从静态提示变成有状态的服务。推理 RL 的前沿（工具整合、代码修复、网页操作）都长在这层工程上，<a href="/llm/reasoning-rl-loop">推理 RL 闭环</a>里它是产能瓶颈。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>多轮把三件事复杂化了。轨迹结构：一次经验是「助手—工具—观测」交替的长序列，哪些 token 进损失？工具返回与系统注入的文本不是模型的行为，算进策略梯度等于教模型模仿工具输出。信用分配：奖励只在轨迹末端（测试通过、任务完成），中间回合没有直接信号，轨迹越长自方差越大。环境吞吐：沙箱里跑测试要秒到分钟级且彼此不均，最慢的环境决定批次完成时间，训练器永远在等最慢的样本。</p><p><span class="marginnote">直觉类比：环境池像并排水龙头往同一个桶里注水，批次完成时间取决于最慢那根管子。九个环境 5 秒完成、一个要 90 秒，GPU 照样空等 85 秒——所以沙箱限额（墙钟、内存上限）不是防滥用的小配置，而是保吞吐的生命线。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>环境抽象成 reset/step 接口：step 的动作是助手回合，返回观测、是否终止、可选的中间奖励。</p><p><span class="marginnote">「reset/step」是从游戏借来的老接口：reset 开一局新任务，step 把模型的一个动作（这里是整个助手回合）交给环境，换回观测和「完没完」。相当于给沙箱装一个标准插座——不管里面跑的是终端、浏览器还是测试套件，训练器只认这两个按钮。</span></p><p>四条工程决定。掩码：损失只在助手生成的 token 上计算，工具输出与观测全部 mask 掉，mask 列作为经验的一列随样本走。工具调用走结构化通道：函数名与参数的协议要可解析，解析失败的调用按环境规则计分或截断（<a href="/llm/tool-integrated-rl">工具整合推理 RL</a>）。沙箱限额：每个环境实例有墙钟、内存与网络上限，超时返回错误观测让模型学会绕开，而不是挂死整批。断点续跑：环境状态可序列化，轨迹可以暂停（等工具、等新权重）再续，跨版本拼接必须带版本标记（<a href="/llm/async-rollout-arch">异步 rollout 架构</a>的 partial rollout 在环境层的落点）。</p><p><span class="marginnote">数字实例看掩码省了什么：一条 10 轮轨迹共 8000 token，助手自己写的只有 3000，工具输出与观测占 5000。掩码就是给这 5000 个位置记零——不进损失、不算优势，但照常进上下文供注意力读取。若无掩码，梯度会按着头教模型「背诵」工具的输出。</span></p><p><span class="marginnote">代码 RL 环境的两条硬账：测试套件的墙钟上限决定批次节奏，几分钟的测试会把你压到一天几步；失败测试的报错全文直接进上下文，几个回合就能把窗口吃满——观测要截成摘要，预算写进配置（见<a href="/llm/length-budget-rl">长度预算与截断</a>）。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>掩码与奖励放置共同定义了「策略认为自己控制什么」。梯度只在掩码内流动，所以 mask 是因果边界的声明：工具与观测属于环境，如同 MDP 的转移函数，不该被优化。奖励挂在最后一个助手 token（或按 <a href="/llm/token-level-reward">token 级奖励塑形</a>摊到助手 token），优势以轨迹为单位估计。环境有状态之后，「同分布采样」也要重审：reset 的任务分布就是环境的 MDP 定义，任务难度与分布偏置直接成为策略梯度估计的偏置来源——环境设计就是奖励设计，这句话在多轮里才显出全部分量。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>环境工程不解决信用分配：末端奖励下的长轨迹方差仍靠组基线与优势估计压制，中间奖励是可选的塑形而非免费午餐（塑形有偏）。沙箱既是安全边界也是测量边界：模型可能学会「让测试变绿」而不是「让代码正确」——<a href="/llm/reward-hacking-llm">奖励黑客</a>的环境版。环境池的可用性是新单点，其吞吐上限直接给出训练吞吐上限；代码修复类环境（<a href="/llm/swe-rl-env">代码 RL 与 SWE 环境</a>）把这笔账推到极限。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>环境抽象为 reset/step；任务分布即 MDP 定义，环境设计就是奖励设计。</li><li>loss mask 只保留助手 token：工具与观测是环境，不是行为。</li><li>沙箱限额（墙钟、内存、网络）防挂死；观测进上下文前截成摘要并计入预算。</li><li>轨迹可暂停续跑，跨版本拼接必须带版本标记；环境池吞吐是训练吞吐的上界。</li><li>出处：Nakano 等，WebGPT，2021；据工具整合与 SWE 环境的公开工程实践整理。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 RL 训练系统<!--[--> · 单元 工程<!--]--><!----></p><p class="lesson-progress">第 6 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rlsys-async-debug/">异步 RL 的系统调试</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/rlsys-inference-in-loop/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">推理引擎在 RL 循环里</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 5 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rlsys-async-debug/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">异步 RL 的系统调试</span><span class="lesson-card-meta">RL 训练系统 · 工程<!--[--> · 第 7 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

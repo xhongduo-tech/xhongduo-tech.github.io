@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>join 算法的实现 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_qo-join-implementation.md.MQdc2jVe.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 查询优化深化<!--[--> · 单元 代价与执行<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><p class="lesson-prereq"> 先修：<a href="/cs/qo-cost-model/">代价模型</a></p><p class="lesson-next"> 下一课：<a href="/cs/qo-statistics/">统计信息</a></p><!----></nav><div style="position:relative;"><div><h1 id="join-算法的实现" tabindex="-1">join 算法的实现 <a class="header-anchor" href="#join-算法的实现" aria-label="Permalink to &quot;join 算法的实现&quot;">​</a></h1><div class="epigraph"><p>哈希连接的快慢不在算法名里，而在 build 侧落进哪级缓存、分区写几遍、探针白问几次。同一个「分区哈希」，常数可以差数倍。</p><footer>—— 据 Boncz, Manegold and Kersten, 1999；Graefe 查询执行综述整理</footer></div><p><a href="/cs/qo-cost-model">上一课</a>把算子代价封装成询价接口，也承认接口之下的常数由实现决定。主干把三种 I/O 形状与分区协议钉死在<a href="/cs/nlj-hash-join">嵌套循环与哈希连接</a>、<a href="/cs/grace-hash-join">Grace hash join</a> 与 <a href="/cs/hash-aggregation">hash-aggregation</a> 里。本课进入实现层：build 侧怎么选、分区对齐什么、倾斜怎么救——这些决定代价公式里那个「常数」到底是几。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>代价模型说哈希连接便宜，实现决定它便宜多少。四件事。选边：build 侧应选估计较小的输入，还要选<strong>列窄</strong>的一侧——哈希表里只放连接键与行位置，载荷列留给之后按位置取，这是<a href="/cs/late-materialization">延迟物化</a>在连接里的用法。缓存：哈希表一旦超过末级缓存，每次探测都是一次随机内存访问，百纳秒起步，探测循环崩在访存而不是计算，SIMD 也救不了等内存。倾斜：高频键让某个分区仍然放不下，Grace 的「同键同分区」保证正确，不救单键倾斜。白做功：连接之后才过滤的谓词，让 build 侧白白收下本会被丢弃的行。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>分区对齐缓存：把 build 输入按连接键高位切成 \(P\) 个分区，目标是每个分区的哈希表落进二级或末级缓存。基数分区（radix partitioning）分两阶段：先粗分区，用大块顺序写；再细分区，让探测阶段的随机访问停在缓存里。布隆预过滤：build 时把键插入布隆摘要，probe 侧每行先问布隆，必不命中的直接丢弃——省下的是整行拷贝与哈希表探测。假阳性率约 \(0.6185^{m/n}\)（取 \(k=\ln 2\cdot m/n\) 个哈希函数时），每键十个比特约百分之一：几十兆内存换掉大半无效探测。倾斜处理：先采样发现热键，把热键行单独拎出建子表，或对热键走专门分支；分区内递归再划分只救「分区仍大」，救不了「单键巨大」。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>分区为什么省时间：随机访问的代价由目标住在哪一级存储决定，寄存器、各级缓存、内存的延迟差一个量级一级；分区把随机性局部化，等于把「随机访问内存」换成「顺序写一遍加缓存内随机」。这与哈希聚合里「组能否驻留」的判断同源。<span class="marginnote">量级账：一级缓存约一纳秒，末级缓存约十纳秒，内存约百纳秒。分区把探测延迟从百纳秒档拉回个位纳秒档——布隆与 radix 分区买的就是这几档差价。</span>向量化让键比较与布隆查询按批走向量指令，冲突链才退回标量。半连接与存在性检查在首个匹配处早停，不必枚举全部配对。列存路径上，探测产出位置向量，载荷列延后成批取回，顺序 gather 对缓冲池友好。</p><p>代价模型的接口在这里兑现：实现者把「探测落进缓存」「布隆过滤率」「热键占比」翻译回 CPU 项与选择率，优化器才能在同构候选间比较——否则它只看见两个都叫 hash join 的黑盒。</p><div class="mermaid"></div><p><span class="marginnote">直觉类比：布隆过滤器像个记性极差但绝不会冤枉人的门卫——它说「这人肯定没来过」就一定没来过（无假阴性），说「可能来过」时得再查名单核实（有假阳性）。所以 probe 行先问它，被拦下的行绝不冤枉，放行的行再查真正的哈希表。</span></p><p><span class="marginnote">数字实例：每键十个比特，一百万个键的布隆摘要就是一千万比特，约 1.25 MB 内存；换来的假阳性率约百分之一——也就是说九成以上的无效探测（probe 行根本不可能配上对）被这 1.25 MB 直接拦掉。</span></p><p><span class="marginnote">术语翻译：「延迟物化」在连接里的做法是——哈希表里只存连接键加行位置号，其余列先不搬；等连接结果定了，再按位置号成批去原表取载荷列。就像寄存行李先拿号码牌，出场上才凭牌取箱，避免把整只箱子一直背在身上。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>跨节点 shuffle 与网络归分布式课，本课单机；Grace 的正确性论证（同键同分区）主干已给，不重证。归并连接的实现要点（归并有序流、保序 exchange）在执行引擎课已展开，本课只以哈希为主线。选错 build 侧的灾难来自估计错——下一课统计信息接手。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>build 侧选小且窄：键列加行位置，载荷延迟取。</li><li>分区目标是对齐缓存；基数分区把探测留在末级缓存内。</li><li>布隆用比特换探测，每键十比特假阳性约百分之一。</li><li>热键单独处理；递归划分救分区不救单键。</li><li>出处：Boncz, Manegold and Kersten, 1999；Kitsuregawa 等；Graefe 综述。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 查询优化深化<!--[--> · 单元 代价与执行<!--]--><!----></p><p class="lesson-progress">第 2 / 8 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/qo-statistics/">统计信息</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/qo-cost-model/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">代价模型</span><span class="lesson-card-meta">查询优化深化 · 代价与执行<!--[--> · 第 1 / 8 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/qo-statistics/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">统计信息</span><span class="lesson-card-meta">查询优化深化 · 代价与执行<!--[--> · 第 3 / 8 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

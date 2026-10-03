@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>逆向选择的动态版本 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/quant_obd-adverse-dynamic.md.BFPTDfAL.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="active" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">量化 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 动力学建模<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><p class="lesson-prereq"> 先修：<a href="/quant/obd-flow-statespace/">订单流的状态空间表示</a></p><p class="lesson-next"> 下一课：<a href="/quant/obd-intraday-seasonality/">日内季节性的稳定形态</a></p><!----></nav><div style="position:relative;"><div><h1 id="逆向选择的动态版本" tabindex="-1">逆向选择的动态版本 <a class="header-anchor" href="#逆向选择的动态版本" aria-label="Permalink to &quot;逆向选择的动态版本&quot;">​</a></h1><div class="epigraph"><p>静态模型告诉你平均要为逆向选择留多宽的价差；动态版本回答的是此刻——安静时段留宽了是白付，毒性时段留窄了是送钱。</p><footer>—— 据 Glosten and Milgrom, Journal of Financial Economics, 1985；Kyle, Econometrica, 1985；Harris, Trading and Exchanges, 2003 整理</footer></div><p><a href="/quant/obd-flow-statespace">上一课</a>把多通道流量收成状态估计与不确定性。本课回到流动性提供者最核心的损失：逆向选择。静态版本主干已经讲过：<a href="/quant/glosten-milgrom">Glosten-Milgrom</a> 的单期价差补偿与 <a href="/quant/kyle-model">Kyle 模型</a>的线性 \(\lambda\)。本课写动态版本：知情比例是随时间与体制变化的状态，价差与报价偏移是它的条件函数，而「现在多毒」这个状态的输入，正是上一课的滤波输出。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>静态价差是全程平均账：按平均知情比例设的半价差，安静时段给得太宽——白付成交机会，毒性时段给得太窄——点差内亏损。回归口径的 \(\lambda\) 同病：按窗口平均的深度倒数掩盖了流的状态切换，流持续同号的时段，真实响应远高于窗口均值。做市系统若以常数参数运行，毒潮的亏损正好吃掉安静时段的全部利润——这是逆向选择必须动态化的全部理由。</p><p><span class="marginnote">术语翻译：逆向选择就是「和你成交的人，往往在挑你便宜的那一刻恰好更懂行情」。价差的本质不是手续费，而是做市商为「被更懂的人挑中」支付的保险费；动态版本要回答的是保险费此刻该定多少。</span></p><h3 id="毒性作为状态函数" tabindex="-1">毒性作为状态函数 <a class="header-anchor" href="#毒性作为状态函数" aria-label="Permalink to &quot;毒性作为状态函数&quot;">​</a></h3><p>事后毒性有现成度量：有效价差减实现价差，差值是成交后被逆向选择吃掉的份额，窗口口径见<a href="/quant/effective-realized-spread">有效与实现价差</a>；流的口径用<a href="/quant/ofi-toxicity">持续同号的 OFI</a>。动态化就是把这个事后量做成状态的函数：用滤波状态与创新对事后损失回归，按体制分箱得条件毒性曲线；报价端把半价差与偏移写成它的增函数。在 Avellaneda–Stoikov 框架里，这一步等价于把常数强度换成状态依赖的毒性项。</p><p><span class="marginnote">实现价差的窗口选择就是「逆向选择的半衰期」：同一批成交，按成交后一分钟与五分钟算出的实现价差可以一正一负。报告动态毒性必须带窗口口径，否则安静与毒潮的比较没有意义。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>在线回路四步。滤波：流量观测进状态估计，输出净方向、毒性强度与不确定性。条件定价：半价差 \(=\) 事后损失的条件期望 \(+\) 风险与库存项；不确定性大时少动价。事后回收：已成交订单的后续中间价路径落地成实现价差，按窗口分档记账。状态回归更新：新样本回到条件毒性曲线，体制切换由创新触发，不等日级复盘。闭环在此成形：价差决定你吸引什么样的流，流反过来更新毒性估计——报价在筛选自己的对手方。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>贝叶斯结构是核心：一笔成交不只是头寸变化，还是关于对手方类型的信号——被成交这件事本身更新后验，报价是对更新后损失的公平补偿加风险溢价。静态模型把这个后验平均掉，动态版本保留它的时变。第二层是筛选：价差变宽改变来流构成，犹豫的单子绕行、知情的照样来，条件毒性的估计要意识到「样本是价差自己的函数」，否则回归把筛选效应记成毒性上升。第三层是时段耦合：收盘前与公告窗前的知情比例有日历结构，通向后面的日内形状课。</p><p>单笔成交在贝叶斯回路里走多远，取决于它与当前方向预期的关系——这正是「被成交即被更新」的细节图景：</p><div class="mermaid"></div><p><span class="marginnote">数字实例：设平均知情比例 20%，按平均账定半价差 2 分钱。毒潮时段真实比例冲到 60%，同一笔顺势成交的事后损失约为安静时段（5%）的三倍——常数参数在两头同时吃亏：安静时白付价差吓跑正常流，毒潮时价差远不够赔。</span></p><p>常见错误：把事前补偿与事后毒性混为一谈——用后者直接反推前者会吃进筛选偏差；毒性检测跑在日级频率上，毒潮半天走完，检测到时利润已吐完；把库存与毒性管理混在一个偏移项里，归因从此失真。</p><p><span class="marginnote">常见误区：初学者容易以为价差变宽是「做市商怕了」，收缩价差才是竞争力。实际上毒潮中坚持窄价差等于免费承保：实现价差会把你上一小时赚的点差全部退回去，价差宽窄本来就是状态变量而不是态度问题。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>条件毒性曲线依赖状态估计的质量，上一课的盲区（冰山、合并口径）原样传进来。事后度量有窗口任意性，窗口内还叠着市场-wide 变动，个股毒性要与共同流动性冲击分开——那是共同因子课的对象。极端情形下动态定价会自我实现：毒潮中价差拉宽到无人成交，估计器断粮，状态停在过时值。识别的边界照旧：约化模型只承诺「照这个状态报价的历史损失更小」，不承诺对手方真是知情人。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>动态逆向选择 = 把知情比例做成状态函数：价差是条件期望的补偿，不是全程平均。</li><li>事后度量两件套：有效与实现价差之差、持续同号 OFI；报告必须带窗口口径。</li><li>在线回路四步：滤波、条件定价、事后回收、状态回归；切换由创新触发。</li><li>报价筛选来流：毒性回归要意识到样本是价差自己的函数。</li><li>出处：Glosten and Milgrom, <em>JFE</em>, 1985；Kyle, <em>Econometrica</em>, 1985；工程框架见 Cartea, Jaimungal and Penalva, <em>Algorithmic and High-Frequency Trading</em>, 2015；市场语言见 Harris, <em>Trading and Exchanges</em>, 2003。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 订单簿动力学深化<!--[--> · 单元 动力学建模<!--]--><!----></p><p class="lesson-progress">第 4 / 12 课</p><!----><p class="lesson-next"> 下一课：<a href="/quant/obd-intraday-seasonality/">日内季节性的稳定形态</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/quant/obd-flow-statespace/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">订单流的状态空间表示</span><span class="lesson-card-meta">订单簿动力学深化 · 动力学建模<!--[--> · 第 3 / 12 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/quant/obd-intraday-seasonality/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">日内季节性的稳定形态</span><span class="lesson-card-meta">订单簿动力学深化 · 截面与时间<!--[--> · 第 5 / 12 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

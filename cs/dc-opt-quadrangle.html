@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>分治优化与四边形不等式 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_dc-opt-quadrangle.md.DCVOZZTi.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 DP 进阶<!--]--><!--[--> · 课序 状态与优化<!--]--></p><p class="lesson-progress">第 50 / 96 课</p><p class="lesson-prereq"> 先修：<a href="/cs/convex-hull-trick/">斜率优化</a></p><p class="lesson-next"> 下一课：<a href="/cs/smawk/">SMAWK 决策单调</a></p><!----></nav><div style="position:relative;"><div><h1 id="分治优化与四边形不等式" tabindex="-1">分治优化与四边形不等式 <a class="header-anchor" href="#分治优化与四边形不等式" aria-label="Permalink to &quot;分治优化与四边形不等式&quot;">​</a></h1><div class="epigraph"><p>决策单调：$opt[i]\le opt[i+1]$ 则分治区间时 $opt$ 只在中点两侧搜；四边形不等式推出这单调，把 $O(n^2k)$ 降到 $O(n^2)$ 或 $O(kn\log n)$。</p><footer>—— 据 Knuth, Optimum Binary Search Trees, 1971；Yao, Efficient Dynamic Programming, 1980 整理</footer></div><p>上一课<a href="/cs/convex-hull-trick">斜率优化</a>用直线凸包削转移；另一类优化不动几何，动决策本身，处理形如 \(dp[i][k]=\min_{j\lt i} dp[j][k-1]+w(j+1,i)\) 的分层转移。缺口是决策单调与四边形不等式 \(w(a,c)+w(b,d)\le w(a,d)+w(b,c)\)（\(a\le b\le c\le d\)）。不重写 CHT。后课 SMAWK 把完全单调矩阵的行最小值线性求出。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>无结构时每层对每个 \(i\) 枚举全部 \(j\)，\(k\) 层合计 \(O(n^2k)\)。若最优决策满足 \(opt[i]\le opt[i+1]\)，分治就不必逐点搜：算区间 \([l,r]\) 时先算中点 \(m\)，枚举 \(j\) 限制在 \([opt[l-1],opt[r]]\)，再递归左右——\(m\) 的决策给左半上界、给右半下界。每层枚举总量 \(O(n)\)，即一层 \(O(n\log n)\)。单调从哪来：四边形不等式加区间包含单调推出决策单调（Yao）。</p><p>缺口是这套条件，不是凸包。</p><p><span class="marginnote">术语翻译：四边形不等式说的是「交叉配对不更亏」——\(a\le b\le c\le d\) 时，\(w(a,c)+w(b,d)\) 不超过 \(w(a,d)+w(b,c)\)。直觉：代价谷底随区间整体右移，只会跟着右移或原地不动，绝不倒退，这正是决策单调的来源。</span></p><h3 id="knuth-优化更强" tabindex="-1">Knuth 优化更强 <a class="header-anchor" href="#knuth-优化更强" aria-label="Permalink to &quot;Knuth 优化更强&quot;">​</a></h3><p>区间 DP 上 Knuth 更强：\(opt[i][j-1]\le opt[i][j]\le opt[i+1][j]\) 让每个区间的枚举被两条决策链夹住，总计 \(O(n^2)\)，把区间 DP 从 \(O(n^3)\) 降下来。矩阵链、最优 BST 满足。后课专写。本课先分治层。</p><p><span class="marginnote">Yao 1980。Knuth 1971 最优 BST。后课 SMAWK 是完全单调矩阵。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先验证 \(w\) 满足四边形不等式；代数验证失败时，对小规模暴力算出 \(opt\) 数组、直接看它是否单调也是合法验证。随后分治算一层：算中点、记决策、递归两侧；区间 DP 场景则按 Knuth 的两条不等式限制枚举范围。</p><div class="mermaid"></div><p>反例要记：\(w\) 不满足条件时单调可能失效，硬套分治会把错误切点写进答案——验证是流程的一部分，不是仪式。</p><p><span class="marginnote">数字实例：\(n=1024\) 时，朴素一层要对每个 \(i\) 枚举约 \(1024\) 个 \(j\)，共约 \(10^6\) 次；分治一层每段只在中点附近枚举，总量约 \(1024\times\log_2 1024=10240\) 次，直接省 100 倍——\(n\) 越大差距越大。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>更宽区间的最优切点不会落到更窄区间的左边：交叉取两个切点算代价，四边形不等式立刻给出「宽区间用窄区间切点必不更优」的矛盾，直觉是代价谷底随区间右移只会右移或不动。分治的正确性靠中点桥接：\(m\) 的决策既是右半的搜索下界、又是左半的搜索上界，区间减半而界不丢。与 CHT 分工：斜率优化处理转移是线性函数的几何单调，本课处理决策位置本身的组合单调，两类结构不互相包含。</p><p><span class="marginnote">直觉类比：中点桥接像猜数字游戏——先问正中间，一个答案同时裁掉两侧的范围。中点 \(m\) 的最优决策正是这次「中间提问」：给左半当右界、给右半当左界，一次枚举养活两路递归。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写 Knuth 区间 DP 全证明（下一课矩阵链收）。不写在线。后课默认：决策单调可分治。下一课 SMAWK。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>四边形不等式 \(\Rightarrow\) 决策单调。</li><li>分治把一层 \(n^2\) 变 \(n\log n\)。</li><li>Knuth 区间 \(O(n^2)\) 后课。</li><li>出处：Knuth, 1971；Yao, 1980。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 DP 进阶<!--]--><!--[--> · 课序 状态与优化<!--]--></p><p class="lesson-progress">第 50 / 96 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/smawk/">SMAWK 决策单调</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/convex-hull-trick/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">斜率优化</span><span class="lesson-card-meta">图、代数与近似算法 · DP 进阶 · 状态与优化<!--[--> · 第 49 / 96 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/smawk/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">SMAWK 决策单调</span><span class="lesson-card-meta">图、代数与近似算法 · DP 进阶 · 状态与优化<!--[--> · 第 51 / 96 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

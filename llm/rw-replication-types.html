@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>复现的类型与目标 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_rw-replication-types.md.Dec_dltr.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/ef-map/">评测前沿收束</a></p><p class="lesson-next"> 下一课：<a href="/llm/rw-report-reading/">技术报告的判读</a></p><!----></nav><div style="position:relative;"><div><h1 id="复现的类型与目标" tabindex="-1">复现的类型与目标 <a class="header-anchor" href="#复现的类型与目标" aria-label="Permalink to &quot;复现的类型与目标&quot;">​</a></h1><div class="epigraph"><p>主张要成为共同事实，前提是别人也能把它造出来；造不出来的主张，只是某个人的私人经历。</p><footer>—— 据 Popper, The Logic of Scientific Discovery, 1959；Claerbout 与 Karrenbach, 1992 整理</footer></div><p><a href="/llm/ef-map">上一课</a>把评测前沿收在仪器、卷子、功效与私有评测的决策单上：评测回答「这个模型现在多好」。本课是「论文复现工作流」的第一课，回答它的前置问题：评测表里那个数字，别人能不能重新算出来。评测给出量尺，复现检验量尺上的刻度是否真实；两者的仪器观一脉相承，只是对象从模型换成了论文。后面的报告判读、走读、配置工程、归因与对齐，都默认你开工前已经写下两行字：这是一次什么类型的复现，它停在哪条目标线上。后课默认已经读完本课。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>「复现」被当成一个词用，底下至少压着两类不同的事。<strong>结果复现</strong>：拿作者的代码、数据与环境重跑，期望得到相同的数字；它的敌人是环境漂移——库版本、硬件、随机种子的路径。<strong>方法复现</strong>：不看作者实现，按论文描述独立实现同一方法，期望得到相同的结论；它的敌人是隐性决策——没写进论文的超参、数据清洗顺序、评测协议细节。两类失败的含义完全不同：前者失败指向披露不足或环境失配，后者失败可能指向论文本身过拟合到了它的评测。社区里 reproducibility 与 replicability 的用词之争，实质就是这两类工作没分开。</p><p><span class="marginnote">一句话分清两类：结果复现是「用原作者的菜谱和厨具，做出同一道菜」；方法复现是「只看菜谱文字、用自己的厨具独立做，要求味道结论一致」。前者考照图施工的能力，后者考对菜谱本身的理解。</span></p><p>目标同样要分线。<strong>数字线</strong>要求对上论文表格里的具体数值；<strong>结论线</strong>只要求复出相同的排序或主张（方法 A 优于方法 B）；<strong>能力线</strong>只要求下游可用水平达到声明。目标没定就开工，会在错误的标准上被审判：追数字的人抱怨实现不同，追结论的人被 0.3 分的差吓住。</p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>开工前写一页复现声明，五项：类型（结果复现、方法复现或混合）、目标线（数字、结论、能力）、容差（差多少算对上：绝对差、相对差或置信区间重叠）、范围（只复主表还是全部表格）、约束（可用算力与期限）。这一页是整个课程的靶子，后课的每个锚点、每笔预算都指回它。</p><p><span class="marginnote">数字实例：一页声明写出来就五行——「类型：方法复现；目标线：结论线；容差：排序一致即算对上，分差 1 分内视为持平；范围：只复主表；约束：8 卡两周」。五分钟写完，却决定了后面每一笔算力往哪花、什么算失败。</span></p><p>类型决定读什么。结果复现的重心在代码与环境：种子、锁文件、数据快照，越逐位越好。方法复现的重心在报告与消融：作者声明了什么依赖，缺了什么披露，需要自己补哪些决策。目标线决定算力的花法：数字线最贵，往往绑定全量规模；结论线允许缩小规模，因为排序在小规模上常可保持；能力线以应用验收为准，不必对表格。</p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>类型与容差之所以是第一决定，因为它们定义了「失败」这个词。结果复现失败，怀疑次序是环境、依赖、数据版本，最后才是论文错误；方法复现失败，怀疑次序正好倒过来。把两类混在一次实验里（用作者代码加自己的数据，或用自己的实现加作者种子），失败时两头都无法归因——这是复现新手最常见的死法。</p><div class="mermaid"></div><p><span class="marginnote">常见误区：图省事用作者的代码配自己的数据，或用自己实现配作者的种子——两类实验混在一起，失败时两头都无法归因。省下的是半天拆分工作，赔进去的可能是整个归因预算。</span></p><p>目标线之间有包含关系，判定强度递减：数字对上是强证据，排序对上是中等证据，定性对上只是弱证据。下游引用你的复现时按档位取用，所以声明里必须写清楚停在哪条线，而不是让人误以为你验证了数字。</p><p><span class="marginnote">Henderson 等 2018 在深度强化学习里发现：同一算法、同一环境，五个独立实现之间的最终回报差异，大到能覆盖论文之间声称的差异——方法复现的结论线在方差大的领域里，比数字线更诚实，也更需要多种子。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>复现不是逐位一致：跨硬件与并行训练下逐位一致本身是一门独立工程，低精度数值的<a href="/llm/num-crosshardware-consistency">跨硬件的数值一致性</a>另有专门讨论；本课程的「对上」一律指统计意义上的容差。复现也不是抄实现：方法复现的价值恰恰在于独立实现会暴露论文没写的决策。复现更不是重新调参超过原文——那是改进，要另立账本，混进复现报告会让「对上了」三个字失去含金量。刷榜不是复现：榜单只证明存在一组配置能到那个分数，不证明论文的训练路径可重走。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>复现先分类：结果复现（同实现重跑）与方法复现（独立实现同结论），失败含义相反。</li><li>目标分三线：数字线最强、结论线居中、能力线最弱，判定强度递减。</li><li>开工前写一页声明：类型、目标线、容差、范围、约束；后课所有锚点与预算指回它。</li><li>混合两类实验会让失败无法归因；声明先行是第一纪律。</li><li>出处：Popper, <em>The Logic of Scientific Discovery</em>, 1959；Claerbout 与 Karrenbach, 1992；Henderson 等, Deep Reinforcement Learning that Matters, 2018；Gundersen 与 Kjensmo, 2018。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 论文复现工作流<!--[--> · 单元 方法<!--]--><!----></p><p class="lesson-progress">第 1 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/rw-report-reading/">技术报告的判读</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/ef-map/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">评测前沿收束</span><span class="lesson-card-meta">评测前沿方法 · 体系<!--[--> · 第 9 / 9 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/rw-report-reading/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">技术报告的判读</span><span class="lesson-card-meta">论文复现工作流 · 方法<!--[--> · 第 2 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

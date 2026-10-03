@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>最长前缀匹配 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_lpm.md.JpHbMC2n.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 计算机网络<!--[--> · 单元 链路与互联<!--]--><!--[--> · 课序 从共享介质到转发<!--]--></p><p class="lesson-progress">第 13 / 49 课</p><p class="lesson-prereq"> 先修：<a href="/cs/cidr-agg/">CIDR 与聚合</a></p><p class="lesson-next"> 下一课：<a href="/cs/ip-fragment/">IP 分片</a></p><!----></nav><div style="position:relative;"><div><h1 id="最长前缀匹配" tabindex="-1">最长前缀匹配 <a class="header-anchor" href="#最长前缀匹配" aria-label="Permalink to &quot;最长前缀匹配&quot;">​</a></h1><div class="epigraph"><p>路由表里多条前缀都能对上目的地址时，选前缀最长的那一条；那是最具体的网络。</p><footer>—— 据 Fuller 等, RFC 1519, Classless Inter-Domain Routing；RFC 4632 整理</footer></div><p><a href="/cs/cidr-agg">上一课</a>给出前缀与「是否直连」。一张表里同时有 <code>10.0.0.0/8</code> 与 <code>10.1.2.0/24</code> 时，目的 <code>10.1.2.9</code> 两条都匹配。缺口是<strong>最长前缀匹配（LPM）</strong>：CIDR 下的查找规则。本课不把硬件 TCAM 结构写完，也不引入 BGP 策略。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>分类地址曾用首几位决定类，查找简单但粗。CIDR 允许任意长度前缀，路由聚合才压得住全球表。聚合后必须保留「例外更具体」：一个 /16 里挖出的 /24 走另一下一跳。缺口不是 ARP，而是比较匹配前缀的长度，最长者胜；都没有则默认路由 <code>/0</code>。</p><p>本课不把 trie 压缩的论文细节当必背。</p><p><span class="marginnote">术语翻译：「最长」指的是共同前缀的<strong>比特数</strong>。目的地址 \(10.1.2.9\) 同时落在 \(10.0.0.0/8\)（前 8 位相同）与 \(10.1.2.0/24\)（前 24 位相同）里，24 比特比 8 比特更具体，故选 /24——像寄快递「浙江省→杭州市→西湖区某街道」，门牌越细越优先。</span></p><p><span class="marginnote">等价：把地址与前缀掩码逐条与，在命中者中选掩码一比特最多的。实现用树或 TCAM 并行。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>转发表：若干 (前缀, 下一跳, 出接口)。查找：LPM 得下一跳，再对该接口 <a href="/cs/arp">ARP</a>（或已缓存）。主机上的「默认网关」就是一条 <code>/0</code>。多条等长前缀若下一跳不同，属于等价多路径，本课只点名，不把哈希分流写完。</p><p><span class="marginnote">常见误区：初学者容易以为路由查找是「找一条完全相等的表项」。转发表存的是前缀（一段网络），目的地址只要以该比特串开头就算命中，一条 /8 表项覆盖一千六百多万个地址；所以「多条同时命中、挑最长」才是常态而非异常。</span></p><div class="mermaid"></div><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>LPM 让互联网可以分层编号又保留例外，这是后课链路状态与 BGP 填表时默认的查找语义。与<a href="/cs/paging-vm">页表</a>的多级翻译不同：那里是固定切分虚地址；这里前缀长度可变。不要把 LPM 说成页表。TTL 用尽在本课仍不解释 ICMP，只承认包会被丢。</p><p>端到端：LPM 选错下一跳是配置问题，IP 不重试另一条，除非路由协议改表。传输层会当丢包。</p><p><span class="marginnote">为什么重要：更具体的黑洞路由能靠最长匹配压过较宽的正常通告——一条 /32 丢弃路由就能让某台主机的包「无声消失」。IP 层不重试，传输层只看到超时，排查时第一步是确认命中的到底是哪条前缀。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不引入 SRv6 与策略路由的全部选择器（源地址、标记）。不把 TCAM 功耗写成体系结构课。控制平面如何算出这些前缀，是距离向量与链路状态的缺口；本课假定表已经在。</p><p>默认路由与「没有路由」不同：前者匹配一切，后者才触发 ICMP 不可达。主机可以只有默认，路由器通常还要直连。</p><p>更具体的黑洞路由（丢弃）也靠最长匹配压过较宽的通告，运维上要小心顺序。</p><p>后课默认：转发查找是 LPM。包无法投递或 TTL 用尽时，网络层要向源报告，下一课 ICMP。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>CIDR 下多匹配时取最长前缀。</li><li>默认路由是长度为 0 的前缀。</li><li>控制平面填表是后课；不可达报告是 ICMP。</li><li>出处：RFC 1519；RFC 4632；Kurose and Ross。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 计算机网络<!--[--> · 单元 链路与互联<!--]--><!--[--> · 课序 从共享介质到转发<!--]--></p><p class="lesson-progress">第 13 / 49 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/ip-fragment/">IP 分片</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/cidr-agg/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">CIDR 与聚合</span><span class="lesson-card-meta">计算机网络 · 链路与互联 · 从共享介质到转发<!--[--> · 第 12 / 49 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/ip-fragment/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">IP 分片</span><span class="lesson-card-meta">计算机网络 · 链路与互联 · 从共享介质到转发<!--[--> · 第 14 / 49 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>凸包 Graham / Andrew | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/cs_convex-hull.md.CrRMEJe8.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="active" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">计算机 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 字符串与几何<!--]--><!--[--> · 课序 平面几何<!--]--></p><p class="lesson-progress">第 65 / 96 课</p><p class="lesson-prereq"> 先修：<a href="/cs/regex-backtracking/">正则匹配与回溯爆炸</a></p><p class="lesson-next"> 下一课：<a href="/cs/rotating-calipers/">旋转卡壳</a></p><!----></nav><div style="position:relative;"><div><h1 id="凸包-graham-andrew" tabindex="-1">凸包 Graham / Andrew <a class="header-anchor" href="#凸包-graham-andrew" aria-label="Permalink to &quot;凸包 Graham / Andrew&quot;">​</a></h1><div class="epigraph"><p>平面点集的凸包是包含所有点的最小凸多边形；排序后单调栈判左转，Graham $O(n\log n)$，Andrew 上下链同阶。</p><footer>—— 据 Graham, An Efficient Algorithm for Determining the Convex Hull of a Finite Planar Set, 1972；Andrew, 1979；CLRS 第 33 章整理</footer></div><p>上一课<a href="/cs/regex-backtracking">正则匹配</a>收束串算法，这里起进入平面几何。给一堆散点，要包住它们的最小凸多边形，顶点逆时针排好——后课旋转卡壳就在这个包上转。缺口是凸包算法本身：怎么用叉积定向、怎么处理共线，以及排序为何绕不开。不重写排序下界；本课只静态点集，不碰插入删除。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>两条主线。Graham：取最低点（并列再取最左）为极点，其余点按相对极点极角排序，依次进栈，栈里始终保持左转。Andrew（monotone chain）：点按 \(x\)（再按 \(y\)）排序，从左到右扫出下凸链、从右到左扫出上凸链，拼成整包。两条路的排序 \(O(n\log n)\) 都主导复杂度，栈扫描本身 \(O(n)\)。当包上只有 \(h\ll n\) 个点时，Jarvis 礼品包装 \(O(nh)\) 反而可能划算。</p><p><span class="marginnote">直觉类比：把点当成钉在木板上的钉子，凸包就是撑到最大、套住全部钉子的橡皮筋——贴到橡皮筋的钉子在包上，圈在里面的与包无关。算法要做的只是找出橡皮筋经过哪些钉子、按什么顺序。</span></p><p>缺口是栈与叉积，不是半平面交（后课）。</p><h3 id="极角排序要稳定共线" tabindex="-1">极角排序要稳定共线 <a class="header-anchor" href="#极角排序要稳定共线" aria-label="Permalink to &quot;极角排序要稳定共线&quot;">​</a></h3><p>极角相同（叉积为零）的点必须再按到极点的距离排，共线策略不稳定，包上会留下退化的重复边。Andrew 不算极角、只用叉积，整数坐标下全程精确，数值上比 <code>atan2</code> 稳。也不要无排序声称 \(O(n)\)：那需要额外假设（整数网格、三点不共线等）或更重的理论，不是本课的合同。</p><p><span class="marginnote">Graham 1972。Andrew monotone chain 1979。CLRS 33.3。后课旋转卡壳、直径。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>先去重点。以下凸链为例：排序后的点依次考察，若栈顶两点与新点构成非左转（叉积 \(\le 0\)）就弹栈，直到栈内恢复左转再把新点压入；反向再扫一遍得上链。两链共享最左最右端点，拼接时各去掉一个重复端点。</p><div class="mermaid"></div><p>下凸链正是点集的下包络：每个 \(x\) 处最低的那段边界；上链对称，二者相接才是完整凸包。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>全部判据是一条叉积：\((b-a)\times(c-b)\gt 0\) 表示 \(a\to b\to c\) 左转（约定逆时针为正）；凹处弹栈就是把不满足它的点扔掉。排序的作用是保证「栈中相邻才可能是包边」：按 \(x\) 排序后，每条包边两侧的点已被天然分开，一遍扫描恰把每条包边各压栈一次；去掉排序，弹栈次序失去意义，这正是 \(O(n\log n)\) 下界的落点。与 CHT 区分：CHT 维护的是对偶直线族的最值包络，本课处理点本身。与 MST 区分：凸包不是生成树，两个边集也没有包含关系。</p><div class="mermaid"></div><p><span class="marginnote">叉积 \((b-a)\times(c-b)\) 就是在问「从 b 看去，c 偏在 a 的哪一侧」：为正是逆时针左转，为负是右转，为零是三点共线。两个向量 \((x_1,y_1)\)、\((x_2,y_2)\) 的叉积只是 \(x_1y_2-y_1x_2\)，一次乘一次减，整数坐标下全程无精度损失——这就是 Andrew 比 atan2 稳的原因。</span></p><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课不写三维凸包（增量法是另一套），动态插入删除的凸包只点名。后课默认：平面静态凸包 \(O(n\log n)\)，Graham 或 Andrew 任选。下一课旋转卡壳。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>排序 + 单调栈左转。</li><li>Andrew 上下链少极角。</li><li>主导项是排序 \(O(n\log n)\)。</li><li>出处：Graham, 1972；Andrew, 1979；CLRS 第 33 章。</li></ul><p><span class="marginnote">数字实例：n = 10 万个点时，排序约需 170 万次比较，栈扫描只有 10 万次——约九成工作量花在排序上。所以「不排序做到 O(n)」省掉的是大头，这正是它需要额外假设（整数网格、点已给出次序等）才成立的原因。</span></p></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 图、代数与近似算法<!--[--> · 单元 字符串与几何<!--]--><!--[--> · 课序 平面几何<!--]--></p><p class="lesson-progress">第 65 / 96 课</p><!----><p class="lesson-next"> 下一课：<a href="/cs/rotating-calipers/">旋转卡壳</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/cs/regex-backtracking/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">正则匹配与回溯爆炸</span><span class="lesson-card-meta">图、代数与近似算法 · 字符串与几何 · 线性串算法<!--[--> · 第 64 / 96 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/cs/rotating-calipers/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">旋转卡壳</span><span class="lesson-card-meta">图、代数与近似算法 · 字符串与几何 · 平面几何<!--[--> · 第 66 / 96 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

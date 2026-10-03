@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内存预算的完整清单 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/llm_dist-memory-budget.md.DAQsljfE.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="active" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">大模型 · 2026-09-18</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 分布式训练深入<!--[--> · 单元 健康与调试<!--]--><!----></p><p class="lesson-progress">第 10 / 13 课</p><p class="lesson-prereq"> 先修：<a href="/llm/dist-mfu-case/">MFU 优化案例</a></p><p class="lesson-next"> 下一课：<a href="/llm/dist-debugging/">分布式训练的调试</a></p><!----></nav><div style="position:relative;"><div><h1 id="内存预算的完整清单" tabindex="-1">内存预算的完整清单 <a class="header-anchor" href="#内存预算的完整清单" aria-label="Permalink to &quot;内存预算的完整清单&quot;">​</a></h1><div class="epigraph"><p>显存爆在峰值而不是总和；预算清单要按「什么时刻、谁还活着」记账，不按配置项罗列。</p><footer>—— 据 Rajbhandari 等 ZeRO 系列与 Korthikanti 等 2022 的显存分析整理</footer></div><p><a href="/llm/dist-mfu-case">上一课</a>管的是时间账；本课管空间账。前面分别切了参数侧（ZeRO 课）与激活侧（重计算课），本课把一次 step 的全部内存项合成一张完整清单：每一项多大、在哪个时刻活着、被哪个旋钮影响。清单的用途是预算——在开跑之前判断配置会不会 OOM。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p>OOM 的三项高频根因都不在参数：峰值激活（微批数乘序列长）、瞬时缓冲（某层权重被聚集齐的一瞬、梯度桶将满的一瞬）、以及公式外的固定项（通信库缓冲、CUDA 上下文、框架 workspace、碎片）。逐项清单缺失时，调显存变成盲试：关一个重计算、降一档序列长，撞运气。第二类错是把持久账当峰值账：\(16\Phi/N\) 算出来放得下，跑起来在反传开始那一瞬爆掉——那一瞬检查点重放、整层聚集权重、梯度桶三者叠加。</p><p><span class="marginnote">瞬时缓冲可以想象成厨房高峰期的料理台：食材平时放在仓库（常驻显存），但出菜那一瞬必须全部摆上台面——台面（峰值显存）不够，仓库再大也得停摆。</span></p><div class="mermaid"></div><h3 id="两栏清单" tabindex="-1">两栏清单 <a class="header-anchor" href="#两栏清单" aria-label="Permalink to &quot;两栏清单&quot;">​</a></h3><p>持久栏：参数（\(\Phi\) 乘精度字节数）、梯度（同阶，注意 FP32 累积会翻倍）、优化器状态（Adam 按 \(12\Phi/N\) 分片）。瞬时栏：激活——层数、微批、序列长与每层系数的乘积，重计算把「层数」换成「检查点段间隔」；当前层聚集权重——ZeRO 三档每层 All-Gather 抬起的整层（或 TP 分片后的）参数；梯度桶——通信缓冲，随桶大小与 dtype 变；大词表 logits——词表乘批乘序列的 fp32 softmax 中间量，长序列下经常超过激活本体。固定栏：CUDA 上下文每卡数百 MB 级、cuDNN workspace、NCCL 通道缓冲、碎片水位（按实测预留一成量级）。</p><p><span class="marginnote">拿 7B 模型代一下持久栏：fp16 参数约 14 GB、梯度约 14 GB，Adam 状态按 \(12\Phi/N\) 分片到 8 卡每卡约 10.5 GB——持久栏合计每卡 38 GB 上下，还没算激活与固定项。80 GB 的卡看着宽裕，实际一步不慎就爆。</span></p><p><span class="marginnote">大词表 logits 是清单里最常漏的一项：\(V\) 乘 \(b\) 乘 \(s\) 的 fp32 中间量在五万词表、长序列下轻松超过全部激活。切分 softmax 或流式算 loss 前，先把它从「激活」里单列出来，否则重计算调半天找错了门。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>清单的用法是矩阵：行是内存项，列是旋钮（TP、PP、ZeRO 档、重计算粒度、微批、序列长、桶与 dtype、卸载），每格标方向与量级——比如重计算行只作用于激活行，ZeRO 三档作用于参数与优化器行但抬高瞬时栏的聚集项，桶大小作用于梯度缓冲行。建表一次、标定一次（用自己框架的实际系数，不抄论文常数），以后新配置先过表再开跑。实测对账用框架的内存快照：把峰值时刻对齐到具体行号，确认爆的是清单里哪一项，再动对应旋钮——顺序是「先定位后拧」，与 MFU 课的分解同构。</p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>为什么峰值出现在反传开始：检查点重放把检查点之间的激活整段重建，同时上一段反向的梯度正在进桶，ZeRO 三档还在为当前层抬权重——三个瞬时项在同一时刻相加，这就是「总和放得下、峰值爆」的机制。为什么碎片能杀死「够用」的配置：分配与释放的模式是周期性的，周期性分配在内存里锯出洞，总空闲够、连续块不够；缓解靠分段分配与虚拟内存手段，预算上把碎片水位当固定项预留。卸载时账本要跨设备合：CPU 侧的 pinned 内存与 NVMe 带宽进同一张表，PCIe 的搬运时间同时是内存账与时间账的项。</p><p><span class="marginnote">初学者容易把碎片当成「显存不够」的同义词：其实总空闲是够的，只是连续块不够——像停车场总空位够、但零散在角落，一辆大卡车停不进去。预算里预留一成碎片水位，就是把这件事制度化。</span></p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>本课给静态账：运行时的水位告警与 OOM 回退是服务化课题。激活系数随实现与精度策略变，用自己栈的快照标定，不通用。清单不含 host 侧的常规内存，除非开了卸载。与时间账的交点只有两处：桶大小与卸载带宽——它们同时出现在两张表里，改任何一个要两张表一起复算。预算表是文档资产：换框架、换精度、换并行配置时增量维护，不推倒重写。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>清单分三栏：持久（参数、梯度、优化器分片）、瞬时（激活、聚集权重、梯度桶、大词表 logits）、固定（上下文、缓冲、碎片水位）。</li><li>峰值在反传开始：重放、进桶、聚集三瞬时项相加，\(16\Phi/N\) 管不住它。</li><li>用「项乘旋钮」的矩阵做预算，系数用自己框架标定一次，长期复用。</li><li>实测对账用内存快照把峰值对齐到行号，先定位后拧旋钮。</li><li>出处：Rajbhandari 等，ZeRO 系列；Korthikanti 等 2022 的激活显存分析；口径与各档公式见本课程 ZeRO 与重计算两课。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 分布式训练深入<!--[--> · 单元 健康与调试<!--]--><!----></p><p class="lesson-progress">第 10 / 13 课</p><!----><p class="lesson-next"> 下一课：<a href="/llm/dist-debugging/">分布式训练的调试</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/llm/dist-mfu-case/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">MFU 优化案例</span><span class="lesson-card-meta">分布式训练深入 · 健康与调试<!--[--> · 第 9 / 13 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/llm/dist-debugging/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">分布式训练的调试</span><span class="lesson-card-meta">分布式训练深入 · 健康与调试<!--[--> · 第 11 / 13 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>

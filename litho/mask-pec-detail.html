@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>电子束邻近校正细节 | 徐鸿铎</title>
+    <meta name="description" content="大模型、量化、金融、光刻与计算机">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/assets/style.ft_0YN2A.css" as="style">
+    <link rel="preload stylesheet" href="/vp-icons.css" as="style">
+    <script type="module" src="/assets/chunks/metadata.a78d0287.js"></script>
+    <script type="module" src="/assets/app.kmqXLuWk.js"></script>
+    <link rel="modulepreload" href="/assets/chunks/framework.C8m1ZpeB.js">
+    <link rel="modulepreload" href="/assets/chunks/theme.BcTHT3sM.js">
+    <link rel="modulepreload" href="/assets/chunks/katex.C5jXJg4s.js">
+    <link rel="modulepreload" href="/assets/chunks/sizeCapture-INFHLROL.W3xEF8qO.js">
+    <link rel="modulepreload" href="/assets/chunks/dagre-GXQ25YYZ.BaKABeZN.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanes-42K2YHIH.BrJ3onYS.js">
+    <link rel="modulepreload" href="/assets/chunks/cose-bilkent-JH36ORCC.BzbwbFLH.js">
+    <link rel="modulepreload" href="/assets/chunks/c4Diagram-7LVT6UL2.D2QtP0__.js">
+    <link rel="modulepreload" href="/assets/chunks/flowDiagram-HODETNUW.DAxdyBjm.js">
+    <link rel="modulepreload" href="/assets/chunks/swimlanesDiagram-VR7AAH4N.CwSAWn4V.js">
+    <link rel="modulepreload" href="/assets/chunks/erDiagram-RLTQ6QDP.nyAYlt47.js">
+    <link rel="modulepreload" href="/assets/chunks/gitGraphDiagram-WWUBYQGX.Bab3vmtd.js">
+    <link rel="modulepreload" href="/assets/chunks/ganttDiagram-EL5Y4UJY.BdeDmseQ.js">
+    <link rel="modulepreload" href="/assets/chunks/infoDiagram-27XIBGKW.C3fm8Swc.js">
+    <link rel="modulepreload" href="/assets/chunks/pieDiagram-E7YTZNPT.B15jBAL2.js">
+    <link rel="modulepreload" href="/assets/chunks/quadrantDiagram-AXDQQJYC.B2OkKw0S.js">
+    <link rel="modulepreload" href="/assets/chunks/xychartDiagram-S5SC5T6Z.NxdGjuY9.js">
+    <link rel="modulepreload" href="/assets/chunks/requirementDiagram-BXWQKSXE.JvmtqPI0.js">
+    <link rel="modulepreload" href="/assets/chunks/sequenceDiagram-WJ2MYXX4.Dep0tYQC.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-ZZMXUADV.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/classDiagram-v2-VYDZK3BY.YHby5nmQ.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-D77RDMKH.PX0lXrm1.js">
+    <link rel="modulepreload" href="/assets/chunks/stateDiagram-v2-MP3YSRHH.BlJE6G30.js">
+    <link rel="modulepreload" href="/assets/chunks/journeyDiagram-3NMN7TZE.BUgwbydK.js">
+    <link rel="modulepreload" href="/assets/chunks/timeline-definition-24CTP7MA.CC7UEGyJ.js">
+    <link rel="modulepreload" href="/assets/chunks/mindmap-definition-YA3MSWOX.CPK3Qg5k.js">
+    <link rel="modulepreload" href="/assets/chunks/kanban-definition-UXKFOSKX.CO8RG0ZL.js">
+    <link rel="modulepreload" href="/assets/chunks/sankeyDiagram-P5KCCOFB.BtzGw5Wn.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-Z3DM3KII.C1Fbbcre.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-UQ7AKVKN.D5ZVYpm3.js">
+    <link rel="modulepreload" href="/assets/chunks/blockDiagram-I7D4REHJ.BEInDpm-.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-S7CK7UJ4.OgPpZpMF.js">
+    <link rel="modulepreload" href="/assets/chunks/architectureDiagram-5GKGNRK7.BHOxK1si.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VSXAHHWV.JnDoZFp5.js">
+    <link rel="modulepreload" href="/assets/chunks/ishikawaDiagram-5VMMS53U.nYwLxf4L.js">
+    <link rel="modulepreload" href="/assets/chunks/vennDiagram-4TSXK5OY.Xoo2TxeL.js">
+    <link rel="modulepreload" href="/assets/chunks/diagram-VX7I27RA.CMXm-GnU.js">
+    <link rel="modulepreload" href="/assets/chunks/wardleyDiagram-VM6X3IG4.8Bm4Wo-3.js">
+    <link rel="modulepreload" href="/assets/chunks/cynefinDiagram-5FMLGOSQ.Bg8GD1ht.js">
+    <link rel="modulepreload" href="/assets/chunks/railroadDiagram-O6MQD6OU.DnO1dV5p.js">
+    <link rel="modulepreload" href="/assets/chunks/ebnfDiagram-PWID7BFC.CCmFftSL.js">
+    <link rel="modulepreload" href="/assets/chunks/abnfDiagram-VCTEODGH.DN4Qxhdc.js">
+    <link rel="modulepreload" href="/assets/chunks/pegDiagram-XKGWAZYB.CHnmLZtl.js">
+    <link rel="modulepreload" href="/assets/chunks/virtual_mermaid-config.DDnGl6nM.js">
+    <link rel="modulepreload" href="/assets/litho_mask-pec-detail.md.B4PzI9vk.lean.js">
+    <script>(function(){var e=null;try{e=sessionStorage.getItem("theme-preference")}catch{}e||(e=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"),document.documentElement.setAttribute("data-theme",e)})();</script>
+    <script type="text/javascript" id="MathJax-config">window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]}};</script>
+    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body><!--teleport start anchor--><!----><!--teleport anchor-->
+    <div id="app"><div><header class="site-header"><p class="site-title">徐鸿铎</p><nav class="site-nav"><span class="nav-links"><!--[--><a class="" href="/">首页</a><a class="" href="/llm/">大模型</a><a class="" href="/quant/">量化</a><a class="" href="/econ/">金融</a><a class="active" href="/litho/">光刻</a><a class="" href="/cs/">计算机</a><!--]--></span><span class="nav-tools"><button class="search-btn" type="button" aria-label="搜索（Ctrl/Cmd K）"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg><span class="search-btn-label">搜索</span><kbd class="search-btn-kbd">⌘K</kbd></button><a class="nav-icon-btn" href="https://github.com/xhongduo-tech/blog" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="1.15em" height="1.15em" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg></a><button class="theme-toggle-btn" type="button" aria-label="切换到深色模式"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z"></path></svg></button></span></nav></header><article class="tuf-article"><section><p class="article-byline">光刻 · 2026-09-08</p><nav class="lesson-nav lesson-nav--header" aria-label="课程序列"><p class="lesson-path">课程 掩模制造与数据准备<!--[--> · 单元 数据与写入<!--]--><!--[--> · 课序 从版图到掩模<!--]--></p><p class="lesson-progress">第 8 / 21 课</p><p class="lesson-prereq"> 先修：<a href="/litho/mask-write-time/">写入时间与产能</a></p><p class="lesson-next"> 下一课：<a href="/litho/write-grid-shot-count/">写入网格与 shot 数</a></p><!----></nav><div style="position:relative;"><div><h1 id="电子束邻近校正细节" tabindex="-1">电子束邻近校正细节 <a class="header-anchor" href="#电子束邻近校正细节" aria-label="Permalink to &quot;电子束邻近校正细节&quot;">​</a></h1><div class="epigraph"><p>双高斯核把前向与背向拆开；雾化是更平的第三层。细节错了，密度相关 CD 会在 PEC「已经打开」之后仍在走。</p><footer>—— 对照电子束 PEC 双高斯 / 雾化模型的通称；基础见写掩模邻近校正文献</footer></div><p><a href="/litho/mask-write-time">上一课</a>把写入小时钉成家族公式。缺口是剂量图本身：通称 PEC 课已经说了「调剂量不调多边形」，本课补核的阶次、校准与过校正。网格与炮数如何量化这张图，留给<a href="/litho/write-grid-shot-count">下一课</a>。</p><h2 id="问题" tabindex="-1">问题 <a class="header-anchor" href="#问题" aria-label="Permalink to &quot;问题&quot;">​</a></h2><p><a href="/litho/ebeam-mask-pec">电子束 PEC</a> 给出短程、长程、雾化三层图像。细节是：短程（前向散射 + 束斑）决定边锐与小助条能否存在；长程（背散射）核宽随加速电压与衬底 Z 变；雾化（腔体二次电子）更接近全版底板。三层若用一个有效高斯去拟合，疏密交界会出现无法用一层 MPC 修掉的斜坡。</p><p>缺口是<strong>核与校准集</strong>，不是再定义一次 PEC。把「PEC on」当成 CDU 已合格，会漏掉：核半径用错时，校正把误差搬到另一种节距。</p><h3 id="过校正振荡" tabindex="-1">过校正振荡 <a class="header-anchor" href="#过校正振荡" aria-label="Permalink to &quot;过校正振荡&quot;">​</a></h3><p>反解剂量是病态的：短程核把高频放大。正则不足时，密区剂量被砍过头，下一轮密度图又反过来，CD 随迭代摆。这与晶圆 OPC 振荡同构。工程上限制剂量动态范围、平滑密度图、分短/长程分别收敛。</p><p><span class="marginnote">EUV 吸收体与 DUV 铬的背散射不同。换膜系等于重测核，不能只改 MPC 表。</span></p><h2 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-label="Permalink to &quot;方法&quot;">​</a></h2><p>双高斯（或三高斯）拟合曝光测试：孤立/密集线、倒比、大面积垫。雾化用全版或大窗曝光单独标定。写入时卷积密度图得到本底，再按阈值模型求每炮或每像素剂量。多束路径在栅格上做同一件事，只是 primitive 从炮换成像素。</p><div class="mermaid"></div><p><span class="marginnote">这张图回答的问题是：PEC「打开了」CD 为什么还会来回摆。反解剂量天生病态——短程核把高频放大，密区剂量一旦砍过头，下一轮密度图又反过来，正则化与限幅就是把这只摆锤按住的办法。</span></p><p><span class="marginnote">常见误区：初学者容易把「PEC on」当成 CDU 已合格。核半径用错时，校正只是把误差从一种节距搬到另一种节距；三层核（短程、背散射、雾化）拆得对不对，要靠校准集说话。</span></p><p>与写入时间的耦合：PEC 动态范围大 → 平均剂量或遍数涨 → 日历涨。为了赶货而缩小 PEC 范围，等于把残差推给 mask CDU。</p><p><span class="marginnote">数字实例：假设 PEC 把最密区的剂量压到基准的 \(0.6\) 倍、孤立区抬到 \(1.5\) 倍，平均剂量上去了，写入可能从 2 遍涨到 3 遍——写入时间直接涨五成。反过来看：若 PEC 限得太窄，被砍掉的那段动态范围就变成残差，进 mask CDU 的账。</span></p><h2 id="机制" tabindex="-1">机制 <a class="header-anchor" href="#机制" aria-label="Permalink to &quot;机制&quot;">​</a></h2><p>入射电子在胶中损失能量（前向），一部分从铬/石英或 EUV 多层回来（背向）。背向电子在微米量级叠加本底，本底与周围开口率成正比。显影阈值切在「本地 + 本底」上，故同样数据宽度在密区更胖。PEC 求的是让有效能量对齐的入射剂量。加速电压升高，背向核往往变宽，长程项更重——这是写模参数，不是晶圆 NA。</p><p><span class="marginnote">术语翻译：背散射就是电子打进基板后被弹回，在离入射点微米远处再交出能量，给周围「垫」一层本底；雾化则是更大尺度（腔体、整版）的共享底板。PEC 做的事就是预先少打或多打剂量，把这层垫底扣平，让每条边落在同一阈值上。</span></p><p><span class="marginnote">直觉类比：本底像整间屋子的底噪。隔壁开口越多（密区），你这间屋的底噪越高；显影阈值按总能量切，底噪高的地方，同样宽的开口就被垫得更宽——这就是「密区线更胖」的来历。</span></p><p>版边缺邻居，长程卷积要 pad 或改边界条件，否则边框 CD 像「写出来的 flare」。这与 <a href="/litho/six-inch-reticle">6 寸有效区</a> 直接相关。</p><div class="mermaid"></div><h2 id="边界" tabindex="-1">边界 <a class="header-anchor" href="#边界" aria-label="Permalink to &quot;边界&quot;">​</a></h2><p>不发明核的微米半径表，不写某厂软件名。不把化学放大胶的酸扩散与电子核写成同一个 σ。PEC 细节不替代掩模检验。</p><p>后课默认：剂量图按多层核来；下一课问这张图落在多细的地址栅上、VSB 要多少炮才能实现它。</p><h2 id="小结" tabindex="-1">小结 <a class="header-anchor" href="#小结" aria-label="Permalink to &quot;小结&quot;">​</a></h2><ul><li>PEC 细节是短程 / 背向 / 雾化分核，不是一开开关。</li><li>过校正会振荡；动态范围与写入时间耦合。</li><li>版边要单独处理长程核；换吸收体要重测。</li><li>出处：电子束 PEC 双高斯与雾化校正通称；写掩模邻近文献。</li></ul></div></div><nav class="lesson-nav lesson-nav--footer" aria-label="课程序列"><p class="lesson-path">课程 掩模制造与数据准备<!--[--> · 单元 数据与写入<!--]--><!--[--> · 课序 从版图到掩模<!--]--></p><p class="lesson-progress">第 8 / 21 课</p><!----><p class="lesson-next"> 下一课：<a href="/litho/write-grid-shot-count/">写入网格与 shot 数</a></p><div class="lesson-cards"><a class="lesson-card lesson-card--prev" href="/litho/mask-write-time/"><span class="lesson-card-dir">← 上一课</span><span class="lesson-card-title">写入时间与产能</span><span class="lesson-card-meta">掩模制造与数据准备 · 数据与写入 · 从版图到掩模<!--[--> · 第 7 / 21 课<!--]--></span></a><a class="lesson-card lesson-card--next" href="/litho/write-grid-shot-count/"><span class="lesson-card-dir">下一课 →</span><span class="lesson-card-title">写入网格与 shot 数</span><span class="lesson-card-meta">掩模制造与数据准备 · 数据与写入 · 从版图到掩模<!--[--> · 第 9 / 21 课<!--]--></span></a></div></nav></section></article><!--teleport start--><!--teleport end--><footer class="site-footer">大模型 · 量化 · 金融 · 光刻 · 徐鸿铎 · 2026</footer></div></div>
+    
+    
+  </body>
+</html>
