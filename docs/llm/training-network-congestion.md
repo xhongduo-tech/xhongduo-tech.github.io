@@ -11,7 +11,7 @@ section: llm
 <footer>—— 对照 RoCEv2 上的 PFC / DCQCN 与 InfiniBand 拥塞控制；集体同步波见前几课</footer>
 </div>
 
-拓扑课把边画好了：[轨优化](/llm/rail-optimized-topology) 让 DP 走平面，[Dragonfly / torus](/llm/dragonfly-torus) 让局部性对齐。本课写边上 **排队时发生什么**。缺口是：$\alpha$–$\beta$ 模型假设 $\beta$ 稳定；训练一步里所有 rank 同时发同样大小的块，交换机缓冲区被同步 incast 打满，有效 $\beta$ 塌缩，尾延迟变成 step time。[预训练通信](/llm/pretrain-comm) 提过抖动；本课把拥塞控制协议接到集体模式上。
+拓扑课把边画好了：[轨优化](/llm/rail-optimized-topology) 让 DP 走平面，[Dragonfly / torus](/llm/dragonfly-torus) 让局部性对齐。本课写边上 **排队时发生什么**。缺口是：$\alpha$–$\beta$ 模型假设 $\beta$ 稳定；训练一步里所有 rank 同时发同样大小的块，交换机缓冲区被同步 incastt 打满，有效 $\beta$ 塌缩，尾延迟变成 step time。[预训练通信](/llm/pretrain-comm) 提过抖动；本课把拥塞控制协议接到集体模式上。
 
 ## 问题
 
@@ -19,11 +19,11 @@ RoCE 常用优先级流控（PFC）做无损：端口拥塞就暂停对端发送
 
 <span class="marginnote">术语翻译：PFC（优先级流控）就是「别发了，等我一下」的硬指令——接收方队列快满时直接叫停对端。它保证不丢包，代价是暂停会沿发送链传染：A 叫停 B，B 的队列积压后又叫停 C，一路传回去。</span>
 
-<span class="marginnote">直觉类比：incast 就是散场时所有观众同时挤向同一个出口。门的容量固定，人同时到达就只能在门外排队；排队区（交换机缓冲区）一溢出，保安就开始叫停后面的人——这正是暂停风暴的起点。</span>DCQCN 一类 ECN 方案用标记降速，避免暂停扩散，但对齐的集体可能同时被标、同时降、同时再加速，形成振荡。InfiniBand 有自己的拥塞控制与自适应路由，症状类似，旋钮不同。
+<span class="marginnote">直觉类比：incastt 就是散场时所有观众同时挤向同一个出口。门的容量固定，人同时到达就只能在门外排队；排队区（交换机缓冲区）一溢出，保安就开始叫停后面的人——这正是暂停风暴的起点。</span>DCQCN 一类 ECN 方案用标记降速，避免暂停扩散，但对齐的集体可能同时被标、同时降、同时再加速，形成振荡。InfiniBand 有自己的拥塞控制与自适应路由，症状类似，旋钮不同。
 
 问题不是选一个「永远正确」的协议，而是：**集体脉冲的时间尺度比拥塞控制的反馈环更短**。一步只有几十到几百毫秒，控制环还没收敛，下一步又来了。缺口是把训练流量当成特殊负载：少流、大根、同步，而不是互联网 TCP 的假设。
 
-<span class="marginnote">SHARP 一类网内归约减少的是到达根的字节，从而减轻 incast，这是拥塞预防，不是拥塞控制。有硬件就用在 DP All-Reduce 上；All-to-All 仍然没有加法可卸载。</span>
+<span class="marginnote">SHARP 一类网内归约减少的是到达根的字节，从而减轻 incastt，这是拥塞预防，不是拥塞控制。有硬件就用在 DP All-Reduce 上；All-to-All 仍然没有加法可卸载。</span>
 
 ## 方法
 
@@ -43,7 +43,7 @@ flowchart TD
   PREV["层次化 / 轨对齐 / 缩 EP"] --> Q
 ```
 
-应用层也能减脉冲：梯度分桶、与反向重叠、把一次大 All-Reduce 切成与计算交错的 chunk——这正是 NCCL 通道与框架桶的工作。切太碎则掉进 $\alpha$ 区；切太整则 incast 更狠。拐点仍用带宽模型课的曲线。
+应用层也能减脉冲：梯度分桶、与反向重叠、把一次大 All-Reduce 切成与计算交错的 chunk——这正是 NCCL 通道与框架桶的工作。切太碎则掉进 $\alpha$ 区；切太整则 incastt 更狠。拐点仍用带宽模型课的曲线。
 
 ## 机制
 
@@ -59,7 +59,7 @@ flowchart TD
   T3 --> T4["整步 All-Reduce 挂起，step time 被拖长"]
 ```
 
-多租户把两列同步波叠在同一交换机上，相位随机，有时错开反而更好，有时对齐成双倍 incast。隔离（专用轨、专用优先级、专用交换机分区）比调一个全局 DCQCN 参数更稳。这是调度与网络的交接面。
+多租户把两列同步波叠在同一交换机上，相位随机，有时错开反而更好，有时对齐成双倍 incastt。隔离（专用轨、专用优先级、专用交换机分区）比调一个全局 DCQCN 参数更稳。这是调度与网络的交接面。
 
 <span class="marginnote">静默丢包与 CRC 错误会表现为极长尾，而不是拥塞控制振荡。监控要把「队列满」与「链路错」分开，否则会把光纤问题调成 ECN 阈值。</span>
 
