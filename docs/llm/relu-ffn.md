@@ -55,7 +55,7 @@ ReLU 的作用是硬门：负半轴梯度为零，正半轴原样通过。训练
 
 ## 机制
 
-一次前向里，FFN 的 FLOPs 约为 $2n\,d\,d_{\mathrm{ff}}+2n\,d_{\mathrm{ff}}\,d=4n d d_{\mathrm{ff}}$（忽略偏置）。<span class="marginnote">代入具体数字感受一下：取 $d=512$、$d_{\mathrm{ff}}=2048$、序列长 $n=512$，FFN 一次前向约 $16nd^2\approx 21$ 亿次乘加；注意力那 $8nd^2$ 的四份投影约 10.7 亿，再加 $2n^2d$ 的打分约 2.7 亿。也就是说在这个常见配置下，FFN 的计算量比整个注意力还大——「Transformer 算力都花在 attention 上」是个常见误解。</span>取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。对比多头注意力里 $Q,K,V,O$ 四份投影 $8n d^2$ 外加 $2n^2 d$ 的分数与加权：当 $n$ 不太大时，FFN 已经比注意力更吃算力；当 $n$ 到数万，注意力的 $n^2$ 才反过来主导。所以「Transformer 慢」在短序列上常常是 FFN 慢，在长上下文上才是注意力慢。
+一次前向里，FFN 的 FLOPs 约为 $2n\,d\,d_{\mathrm{ff}}+2n\,d_{\mathrm{ff}}\,d=4n d d_{\mathrm{ff}}$（忽略偏置）。<span class="marginnote">代入具体数字感受一下：取 $d=512$、$d_{\mathrm{ff}}=2048$、序列长 $n=512$，FFN 一次前向约 $16nd^2\approx 21$ 亿次乘加；注意力那 $8nd^2$ 的四份投影约 10.7 亿，再加 $2n^2d$ 的打分约 2.7 亿。也就是说在这个常见配置下，FFN 的计算量比整个注意力还大——「Transformer 算力都花在 attention 上」是个常见误解。</span>取 $d_{\mathrm{ff}}=4d$ 时，约为 $16 n d^2$。对比多头注意力里 $Q,K,V,O$ 四份投影 $8n d^2$ 外加 $2n^2 d$ 的分数与加权：当 $n$ 不太大时，FFN 已经比注意力更吃算力；当 $n$ 到数万，注意力的 $n^2$ 才反过来主导。所以「Transformer 慢」在短序列上常常是 FFN 慢，在长上下文上才是注意力慢。
 
 ### 稀疏激活与死神经元
 

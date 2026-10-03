@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>若专家侧的矩阵乘可以按实际到达的 token 数长成不规则块，过载就不必再把 token 扔掉。</p>
-<footer>—— Gale, Zaharia, Young, Yosinski, MegaBlocks, 2023</footer>
+<footer>—— Gale, Narayanan, Young, Zaharia, MegaBlocks, 2023</footer>
 </div>
 
 [上一课](/llm/moe-capacity-factor)把过载收成容量槽：满了就 drop。drop 让静态图好编译，却把一部分 token 的 MoE 层变成残差空转，质量与负载统计都被截断污染。Gale 等人的 MegaBlocks 问的是另一条路：**不要固定 $C$ 再丢，让每个专家的 GEMM 吃下这一步真正分到的全部 token**。这就是 Dropless MoE 的核心：负载仍可以不均，但不靠丢 token 来保护形状。本课不重讲 $\mathrm{CF}$ 的公式，只补「去掉硬截断之后，不规则专家 batch 怎么算、通信怎么写」。
