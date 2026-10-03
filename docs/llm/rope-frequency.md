@@ -35,7 +35,7 @@ $$
 \theta_i = \mathrm{base}^{-2i/d},\qquad i = 0,1,\ldots,d/2-1.
 $$
 
-$i=0$ 时 $\theta_0 = 1$ 弧度/位置，是最高频；$i$ 增大，$\theta_i$ 指数下降，最低频约为 $\mathrm{base}^{-1}$ 量级（以 $\mathrm{base}=10^4$、$d=128$ 计，$\theta_{d/2-1}\approx 1.3\times 10^{-4}$）。位置差 $\Delta = n-m$ 在第 $i$ 平面上的转角是 $\Delta \theta_i$。
+$i=0$ 时 $\theta_0 = 1$ 弧度/位置，是最高频；$i$ 增大，$\theta_i$ 指数下降，最低频约为 $\mathrm{base}^{-1}$ 量级（以 $\mathrm{base}=10^4$、$d=128$ 计，$\theta_{d/2-1}\approx 1.2\times 10^{-4}$）。位置差 $\Delta = n-m$ 在第 $i$ 平面上的转角是 $\Delta \theta_i$。
 
 两个可调对象：
 
@@ -58,7 +58,7 @@ flowchart TD
 
 第 $i$ 平面转满 $2\pi$ 需要 $\Delta = 2\pi / \theta_i$ 个位置。$\theta_i$ 大（高频），几个 token 就转一圈，适合相邻位置的精细差别；$\theta_i$ 小（低频），需要成千上万步才转一圈，适合篇章级距离。默认 base $=10000$、$d=128$ 的头里，最低频的「一圈」已经很长，但仍是为当初的 $L$ 设计的。把 $L$ 乘四而不改 $\theta$，等于要求低频维提供它在训练时从未提供过的相位差，同时中频维过早转乱。
 
-<span class="marginnote">代入数字：base $=10000$、$d=128$ 时，最高频 $\theta_0=1$，每个位置转 1 弧度，约 6 个 token 就转一圈——它负责「相邻几个词」的分辨；最低频 $\theta \approx 1.3\times 10^{-4}$，转一圈要 $2\pi/\theta \approx 4.8$ 万个位置。一根注意力头里同时藏着「秒针」和「万年历」。</span>
+<span class="marginnote">代入数字：base $=10000$、$d=128$ 时，最高频 $\theta_0=1$，每个位置转 1 弧度，约 6 个 token 就转一圈——它负责「相邻几个词」的分辨；最低频 $\theta \approx 1.2\times 10^{-4}$，转一圈要 $2\pi/\theta \approx 5.4$ 万个位置。一根注意力头里同时藏着「秒针」和「万年历」。</span>
 
 <span class="marginnote">「转乱」指 $\Delta\theta_i \bmod 2\pi$ 在训练分布外均匀化，该维对距离不再单调、不再可预测，不是数值溢出。</span>
 

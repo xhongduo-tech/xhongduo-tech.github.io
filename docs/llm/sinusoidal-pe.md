@@ -60,7 +60,7 @@ flowchart LR
 固定 $k$，考虑平面 $i$ 上从角度 $pos\cdot\omega_i$ 转到 $(pos+k)\cdot\omega_i$。二维旋转矩阵
 
 $$
-R(k\omega_i) = \begin{pmatrix} \cos k\omega_i & -\sin k\omega_i \\ \sin k\omega_i & \cos k\omega_i \end{pmatrix}
+R(k\omega_i) = \begin{pmatrix} \cos k\omega_i & \sin k\omega_i \\ -\sin k\omega_i & \cos k\omega_i \end{pmatrix}
 $$
 
 满足 $R(k\omega_i)\, PE^{i}_{pos} = PE^{i}_{pos+k}$。块对角地拼起来，就存在与 $pos$ 无关的线性映射 $T_k$，使得 $T_k\, PE_{pos} = PE_{pos+k}$。这是 Vaswani 等写下正弦（而不是随机绝对向量）的理论理由：相对位移对应位置编码空间里的同一线性变换。
