@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
     <p>把目标惊奇度当作设定值，用每步实际信息量做误差，自适应地收紧或放宽截断：生成过程本身变成一个控制困惑度的回路。</p>
-    <footer>—— Basu, Ramachandran, Keskar & Devlekar, Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity, 2021</footer>
+    <footer>—— Basu, Ramachandran, Keskar & Varshney, Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity, 2021</footer>
 </div>
 
 [上一课](/llm/speculative-sampling)用似然比接受草稿 token，拒绝时从 $\max(0,p-q)$ 再采样，使每步实现目标分布 $p$。缺口是：nucleus 与温度给出逐步形状，不给出序列的平均信息量。同一 $p=0.9$ 在尖峰步几乎贪心，在平坦步仍很宽，整段交叉熵随状态漂。Basu 等人的 Mirostat 把解码写成反馈控制：选定目标惊奇度 $s_*$，用观测到的 $-\log p(y_t)$ 修正截断阈值。本课写这个回路与 top-$k$ / nucleus 的差别。不重推残差采样。投机无损需共享控制器状态；后课对比搜索默认已经知道闭环钉的是自信息量。
@@ -100,4 +100,4 @@ $\eta$ 过大则 $\mu$ 振荡，文本在套话与跳跃之间抖；过小则需
 - $\eta$ 过大会振荡，过小则开头仍退化；$s_*$ 必须落在模型熵的可达区间。
 - 结构确定的任务不适合把困惑度当目标；投机无损需共享控制器状态。
 - 评测应核对实现的平均惊奇是否真接近设定值，不能只报下游分数。
-- 出处：Basu, Ramachandran, Keskar & Devlekar, *Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity*, 2021。退化对照见 Holtzman et al., ICLR 2020。
+- 出处：Basu, Ramachandran, Keskar & Varshney, *Mirostat: A Neural Text Decoding Algorithm that Directly Controls Perplexity*, 2021。退化对照见 Holtzman et al., ICLR 2020。

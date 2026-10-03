@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
     <p>在模型给出的候选里选下一步时，减去与已生成隐状态的最大相似度：用表示空间的退化项对抗概率空间里的重复。</p>
-    <footer>—— Su et al., A Contrastive Framework for Neural Text Generation, ACL 2022</footer>
+    <footer>—— Su et al., A Contrastive Framework for Neural Text Generation, NeurIPS 2022</footer>
 </div>
 
 [上一课](/llm/mirostat)用目标惊奇度 $s_*$ 做设定值，以逐步 $-\log p$ 为误差，自适应截断阈值。缺口是：重复圈在概率上可以自洽，频率惩罚按 token 计数，近义反复与隐状态塌缩可以绕过。Su 等人的 Contrastive Search 在 top-$k$ 候选上加退化惩罚——候选隐状态若与已写上下文太像，分数被扣。它通常取 $\arg\max$，是确定性搜索。本课写推理公式，以及它与对比解码 / CFG 不是同一几何。不重写 Mirostat 的 $s_*$ 回路。
@@ -23,7 +23,7 @@ section: llm
 
 Li 等人的对比解码用小模型当业余分布，在 logit 上做专家减业余，对象是 *另一个网络的先验*。CFG 用空提示当先验，对象是 *同一网络的无条件支路*。对比搜索的惩罚对象是 *本序列已经写出的隐状态*，通常不引入第二个模型，也不做第二条提示前向。三个方法都可以减轻套话，失败模式不同：对比解码在大小模型分歧处找信息量；CFG 在提示差分上走极端；对比搜索在自身上下文里找不塌缩的下一步。把 $\alpha$ 抄成 CFG 的 $\gamma$，几何完全不对。
 
-<span class="marginnote">默认推理是在对比分数上 $\arg\max$，同一前缀可复现。若在候选上按对比分做 softmax 再采样，已经不是 ACL 2022 主实验的解码器，多样性数字不能直接对照论文表。</span>
+<span class="marginnote">默认推理是在对比分数上 $\arg\max$，同一前缀可复现。若在候选上按对比分做 softmax 再采样，已经不是 NeurIPS 2022 主实验的解码器，多样性数字不能直接对照论文表。</span>
 
 ## 方法
 
@@ -80,7 +80,7 @@ $\alpha$ 与 $p_\theta$ 的量纲不同：概率在 $[0,1]$，余弦在 $[-1,1]$
 
 ## 边界
 
-对比搜索对隐藏大小、层选择、是否用 LN 后向量极度敏感，跨模型不能抄 $\alpha$。编码器–解码器与纯解码器的「候选隐状态」接法不同，不要把 ACL 2022 在 GPT-2 上的数字写进编码器摘要模型。多语种 BPE 下同一表面词的子词不同，表示惩罚在子词级，用户看见的重复可能已经被拆开，主观与 $\max\cos$ 会对不齐。
+对比搜索对隐藏大小、层选择、是否用 LN 后向量极度敏感，跨模型不能抄 $\alpha$。编码器–解码器与纯解码器的「候选隐状态」接法不同，不要把 NeurIPS 2022 在 GPT-2 上的数字写进编码器摘要模型。多语种 BPE 下同一表面词的子词不同，表示惩罚在子词级，用户看见的重复可能已经被拆开，主观与 $\max\cos$ 会对不齐。
 
 不要把对比搜索当事实性算法。它鼓励表示继续走，可能把已经正确但不那么「新」的实体换成一个新的、错的实体。知识密集任务更适合核采样加核对器。与 [重复惩罚](/llm/repetition-penalty) 叠用时，两项都在打重复，但一个打 id、一个打向量，过强会导致跳跃。推荐先单独扫 $\alpha$，再决定要不要加计数惩罚。
 
@@ -88,7 +88,7 @@ $\alpha$ 与 $p_\theta$ 的量纲不同：概率在 $[0,1]$，余弦在 $[-1,1]$
 
 训练期对比损失（同一上下文的正负续写在表示空间拉开）能让推理公式更稳，但不是使用该解码器的前提。许多部署只开推理侧打分。声称「对比训练过的模型」时要写清目标，以免与 SimCSE 一类句向量方法混名。
 
-<span class="marginnote">出处是 Su et al., ACL 2022。Contrastive Decoding（Li et al.）是另一篇，用大小模型差分。本篇标题与公式均指前者。</span>
+<span class="marginnote">出处是 Su et al., NeurIPS 2022。Contrastive Decoding（Li et al.）是另一篇，用大小模型差分。本篇标题与公式均指前者。</span>
 
 ## 小结
 
@@ -98,4 +98,4 @@ $\alpha$ 与 $p_\theta$ 的量纲不同：概率在 $[0,1]$，余弦在 $[-1,1]$
 - 与对比解码、CFG 的先验来源不同：历史隐状态，而非第二模型或空提示。
 - 计算可批在 $k$ 个候选上共享前缀 KV，仍比单次采样贵。
 - 确定性不利于 BoN；窗口化 max 相似度会改变长文本的回指行为。
-- 出处：Su et al., *A Contrastive Framework for Neural Text Generation*, ACL 2022。退化现象对照 Holtzman et al., ICLR 2020。
+- 出处：Su et al., *A Contrastive Framework for Neural Text Generation*, NeurIPS 2022。退化现象对照 Holtzman et al., ICLR 2020。

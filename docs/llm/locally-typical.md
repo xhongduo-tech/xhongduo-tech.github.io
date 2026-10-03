@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
     <p>信息论里的典型集由接近期望信息量的事件组成，而不是由最大概率事件组成；逐步采样应对准当前条件分布的熵，而不是反复摘下峰值。</p>
-    <footer>—— Meister, Pimentel, Wiher & Cotterell, Locally Typical Sampling, ICLR 2023</footer>
+    <footer>—— Meister, Pimentel, Wiher & Cotterell, Locally Typical Sampling, TACL 2023</footer>
 </div>
 
 Shannon 的典型集说：长序列的样本以高概率落在「平均每符号信息量接近熵」的集合里，最大似然串往往 *不* 典型——它们的信息量偏低。Meister 等人把这句话接到自回归的每一步：给定前缀，下一步的局部典型集是那些 $-\log p(v)$ 靠近条件熵 $H_t$ 的 token，而不是 $p(v)$ 最大的那些。算法按与 $H_t$ 的距离排序再累加质量，外形像 nucleus，排序键完全不同。Holtzman 的核采样切的是长尾噪声；局部典型还会丢掉 *过可预测* 的头部。这是它与 [min-$p$ / $\eta$](/llm/minp-typical) 分家的地方。
@@ -83,7 +83,7 @@ $H_t$ 要对整个词表求和，或至少对概率不可忽略的支撑求和�
 
 评测不要只用重复 $n$ 元下降来宣布胜利，typical 本来就会少用峰值套话；还要看是否开始插入无关键接。Meister 等人用信息量直方图与人工评估，复制时应看分布是否真的靠近熵，而不是只看 nucleus 同款的 MAUVE 再报一次。实现细节（log 底数只差一个常数尺度，只要 $H$ 与 $-\log p$ 同底）必须自洽。
 
-<span class="marginnote">出处是 Meister et al., ICLR 2023。Nucleus 对照 Holtzman et al., ICLR 2020。$\eta$-sampling 是熵自适应 *地板*，不是按 $d$ 排序的典型集。</span>
+<span class="marginnote">出处是 Meister et al., TACL 2023。Nucleus 对照 Holtzman et al., ICLR 2020。$\eta$-sampling 是熵自适应 *地板*，不是按 $d$ 排序的典型集。</span>
 
 ## 小结
 
@@ -93,4 +93,4 @@ $H_t$ 要对整个词表求和，或至少对概率不可忽略的支撑求和�
 - 温度必须先于熵与距离计算；`typical_p` 是质量预算，不是相对地板。
 - 高确定性任务上「意外一点」是错误，应关闭该采样器。
 - 投机时两边要用同一典型集规则，比较截断后的分布。
-- 出处：Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling*, ICLR 2023。
+- 出处：Meister, Pimentel, Wiher & Cotterell, *Locally Typical Sampling*, TACL 2023。

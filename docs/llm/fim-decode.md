@@ -32,12 +32,12 @@ section: llm
 Bavarian 等人的 PSM（Prefix–Suffix–Middle）把一条训练序列排成：
 
 $$
-\texttt{\lt fim\_prefix\gt } \circ P \circ \texttt{\lt fim\_suffix\gt } \circ S \circ \texttt{\lt fim\_middle\gt } \circ M \circ \texttt{\lt fim\_end\gt }
+\texttt{\lt fim\_prefix\gt } \circ P \circ \texttt{\lt fim\_suffix\gt } \circ S \circ \texttt{\lt fim\_middle\gt } \circ M \circ \texttt{\lt eot\gt }
 $$
 
 其中 $P,S,M$ 分别为前缀、后缀、中段。模型对整段做标准因果损失，但实践里常只在 $M$ 上计损失，或对三段都计损失——论文比较了变体，结论是适当比例的 FIM 对左到右困惑度伤害很小。SPM（Suffix–Prefix–Middle）把后缀放在最前；两种排列可以按一定概率混合，以减轻模型对「哨兵出现顺序」的过拟合。
 
-哨兵必须是词表里的特殊 token，而不是自然语言里的标记字符串，否则文档里碰巧出现相同文字会破坏结构。推理时 IDE 传入 $P$ 与 $S$，服务端拼出前缀到 `<fim_middle>`，然后按普通 decode 采样，直到 `<fim_end>` 或到达长度预算。中段内部仍可用温度、top-p；也可以叠 [文法约束](/llm/grammar-decode)，例如强制中段是合法表达式——约束自动机只应作用在 $M$ 上，不要把哨兵与后缀重新掩码掉。
+哨兵必须是词表里的特殊 token，而不是自然语言里的标记字符串，否则文档里碰巧出现相同文字会破坏结构。推理时 IDE 传入 $P$ 与 $S$，服务端拼出前缀到 `<fim_middle>`，然后按普通 decode 采样，直到 `<eot>`（论文以 `<eot>` 标记中段与后缀成功接上）或到达长度预算。中段内部仍可用温度、top-p；也可以叠 [文法约束](/llm/grammar-decode)，例如强制中段是合法表达式——约束自动机只应作用在 $M$ 上，不要把哨兵与后缀重新掩码掉。
 
 ```mermaid
 flowchart TD
@@ -47,7 +47,7 @@ flowchart TD
   P2["推理前缀 P"] --> INF["拼接至 fim_middle"]
   S2["推理后缀 S"] --> INF
   INF --> DEC["自回归写 M"]
-  DEC --> END["fim_end 或长度预算"]
+  DEC --> END["eot 或长度预算"]
 ```
 
 ### FIM 率与课程
@@ -72,7 +72,7 @@ flowchart LR
   S["后缀 S（调用方代码）"] -->|"排列后已在左侧，注意力可见"| W1
   W1 --> W2["写中段后续 token"]
   W2 --> PRE["提前满足后缀：对上函数名、配平括号"]
-  PRE --> E["fim_end，后缀原文原样接回"]
+  PRE --> E["eot，后缀原文原样接回"]
 ```
 
 <span class="marginnote">常见误区：以为 FIM 之后后缀会自动一字不差接上。模型只是「看见过」后缀，仍可能写出与后缀重复、冲突、甚至把后缀抄一遍的文本。所以产品里要专门检测「中段开头复制了后缀」这种失败模式，截断而不是交给用户。</span>
