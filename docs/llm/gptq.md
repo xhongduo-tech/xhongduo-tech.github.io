@@ -7,7 +7,7 @@ section: llm
 # GPTQ
 
 <div class="epigraph">
-<p>按层把权重量化写成最小二乘，用 Hessian 把已经引入的舍入误差补偿到尚未量化的列上；这样 4-bit 权重建模可以在数小时内打到百亿参数，而不必再做一轮量化感知训练。</p>
+<p>按层把权重量化写成最小二乘，用 Hessian 把已经引入的舍入误差补偿到尚未量化的列上；这样 4-bit 权重建模可以在数小时内打到千亿参数，而不必再做一轮量化感知训练。</p>
 <footer>—— Frantar et al., GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers, ICLR 2023</footer>
 </div>
 
