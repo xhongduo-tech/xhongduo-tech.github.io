@@ -17,7 +17,7 @@ section: llm
 
 Decode 一步的工作集很小：几个 token 的 dispatch、一次 grouped GEMM、一次 combine、一次 MLA。若每段都是独立算子，启动开销、格式转换、动态 shape 会压过有效 FLOPs。常规 All-to-All 走 SDMA 时，论文指出其启动开销可观，在超低延迟 decode 里会变成主项。AIC 还偏好 NZ 布局的 L1，KV 却常以 ND 存在 HBM，算前转格式再吃一截带宽。
 
-<span class="marginnote">「启动税」指每调用一个算子前，CPU 准备参数、选 kernel、把命令下发给硬件的固定开销。单次 10–20 µs 听着不大，但 decode 一步的总预算往往只有几十毫秒，中间却要串几十个算子：开销乘以算子数，启动税就可能吃掉一半以上的时间，真正算数的 FLOPs 反而没占多少。</span>
+<span class="marginnote">「启动税」指每调用一个算子前，CPU 准备参数、选 kernel、把命令下发给硬件的固定开销。单次 microsecond 级（论文定性为 considerable startup overhead，未给具体数）听着不大，但 decode 一步的总预算往往只有几十毫秒，中间却要串几十个算子：开销乘以算子数，启动税就可能吃掉一半以上的时间，真正算数的 FLOPs 反而没占多少。</span>
 
 只融合成一个大核也不够。910C 是异构的：Cube 吃不满逐元素，Vector 吃不满大矩阵，SDMA 不会做 SwiGLU。必须让它们**时间上重叠**，否则融合只是少了几次 launch，引擎仍在互相等。
 
