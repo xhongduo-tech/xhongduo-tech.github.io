@@ -48,7 +48,7 @@ flowchart TD
 
 <span class="marginnote">把词表扩到十万以上时，先查 $P_E$ 再决定要不要 tying、要不要因式分解。不要先扩 $V$ 再惊讶嵌入「突然」成为内存瓶颈——乘积是本课已经写明的。</span>
 
-<span class="marginnote">数字实例：$|V|=128\mathrm{k}$、$d=4096$ 的表约 5.2 亿参数。BF16 权重约 1 GB；若 Adam 再为整表预留 FP32 的一、二阶矩，各约 2.1 GB——光这一张表带状态就近 6 GB，这就是「状态仍按整表预留」的代价。</span>
+<span class="marginnote">数字实例：$|V|=128\mathrm{k}$、$d=4096$ 的表约 5.2 亿参数。BF16 权重约 1 GB；若 Adam 再为整表预留 FP32 的一、二阶矩，各约 2.1 GB——光这一张表带状态就约 5.2 GB，这就是「状态仍按整表预留」的代价。</span>
 
 ## 机制
 
