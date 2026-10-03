@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-$v$ 是梯度平方的滑动平均。嵌入里罕见 token、刚被初始化的专家、以及 LN 的 $\gamma$ 在早期，都可以有 $g\approx 0$ 然后突然来一次非零 $g$。若此前 $v\approx 0$，分母 $\approx\varepsilon$，一步更新幅度是 $|g|$ 的 $\eta/\varepsilon$ 倍量级（再经 $m$ 平滑）。$\varepsilon=10^{-8}$、$\eta=3\times 10^{-4}$ 时 $\eta/\varepsilon=3\times 10^{4}$，对「几乎没见过梯度的坐标」是灾难。Llama 一类配方把部分参数组的 $\varepsilon$ 提到 $10^{-5}$ 或对 LN 单独分组，图的就是这个。<span class="marginnote">拿词表想一下：常用词的嵌入行几乎每个 batch 都被更新，$v$ 很"热"；而一个 5 万词表里的生僻词，可能训练一整天只被点亮几次。这一行平时 $v\approx 0$，突然某句话用到它，$\sqrt{v}+\varepsilon\approx 10^{-8}$，一步就把这行嵌入推出去老远——下次再遇到这个词，它的表示已经面目全非。</span>
+$v$ 是梯度平方的滑动平均。嵌入里罕见 token、刚被初始化的专家、以及 LN 的 $\gamma$ 在早期，都可以有 $g\approx 0$ 然后突然来一次非零 $g$。若此前 $v\approx 0$，分母 $\approx\varepsilon$，一步更新幅度是 $|g|$ 的 $\eta/\varepsilon$ 倍量级（再经 $m$ 平滑）。$\varepsilon=10^{-8}$、$\eta=3\times 10^{-4}$ 时 $\eta/\varepsilon=3\times 10^{4}$，对「几乎没见过梯度的坐标」是灾难。GPT-3 175B 就把 $\varepsilon$ 整体抬到 $10^{-6}$，也有配方对嵌入单独分组给更大的 $\varepsilon$，图的就是这个。<span class="marginnote">拿词表想一下：常用词的嵌入行几乎每个 batch 都被更新，$v$ 很"热"；而一个 5 万词表里的生僻词，可能训练一整天只被点亮几次。这一行平时 $v\approx 0$，突然某句话用到它，$\sqrt{v}+\varepsilon\approx 10^{-8}$，一步就把这行嵌入推出去老远——下次再遇到这个词，它的表示已经面目全非。</span>
 
 混合精度下还有第二条：$\sqrt{v}$ 在 BF16 里下溢到 0，即使 FP32 主权重上 $v$ 非零，若 $v$ 被错误地存成低精度，$\varepsilon$ 必须大到能当护栏。Molybog 等人从理论上讨论 Adam 在大规模训练中的不稳，与「分母过小 → 偶发巨步」同方向。
 

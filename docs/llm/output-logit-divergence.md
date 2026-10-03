@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-$\ell_i=-\ell_{y}+ \mathrm{LSE}(\ell)$ 对 $\ell\leftarrow\ell+c$ 不变。Adam 可以给 $W_{\mathrm{out}}$ 与最后一层增益一个共同的放大模式：所有 logits 变大，概率几乎不变，CE 微降或持平，但 $\max\ell$ 进到 $10^3$–$10^4$。BF16 的 `exp` 大约在 88 以上溢出；稳定 LSE 先减 max，max 本身若已 Inf，整步 NaN。Cut CE 在片上归约同样怕这个尺度。
+$\mathcal{L}=-\ell_{y}+ \mathrm{LSE}(\ell)$ 对 $\ell\leftarrow\ell+c$ 不变。Adam 可以给 $W_{\mathrm{out}}$ 与最后一层增益一个共同的放大模式：所有 logits 变大，概率几乎不变，CE 微降或持平，但 $\max\ell$ 进到 $10^3$–$10^4$。BF16 的 `exp` 大约在 88 以上溢出；稳定 LSE 先减 max，max 本身若已 Inf，整步 NaN。Cut CE 在片上归约同样怕这个尺度。
 
 <span class="marginnote">LSE（log-sum-exp）就是「把整张词表的分数先逐个取指数放大、再加起来、再取对数」的运算。它近似等于最大 logit 加一个小修正项，所以只要 max logit 飞了，LSE 必然跟着飞——这就是为什么监控 LSE 一项就够。</span>
 

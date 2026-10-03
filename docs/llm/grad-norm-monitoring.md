@@ -19,7 +19,7 @@ Pascanu 等人在 RNN 里把爆炸写成沿时间的连乘；Transformer 有残�
 
 分片使问题变脏。ZeRO-3 下每个 rank 只有一部分参数，局部 $\|g_{\mathrm{shard}}\|_2$ 不是全局范数；正确做法是 All-Reduce $\sum\|g_{\mathrm{shard}}\|^2$ 再开方。各自按 $c$ 裁，等于把阈值放大约 $\sqrt{N_{\mathrm{shard}}}$。流水线各段同理。配置写 `clip=1.0` 却在分片上裁，复现别人的曲线会失败。
 
-<span class="marginnote">数字实例：8 路分片若各自按 $c=1.0$ 裁，等效阈值约为 $\sqrt{8}\approx 2.83$——你写下的 1.0 在系统里其实接近 3。有效学习率因此差出近一倍，这是「照抄别人配置却复现不出曲线」的常见来源。</span>
+<span class="marginnote">数字实例：8 路分片若各自按 $c=1.0$ 裁，等效阈值约为 $\sqrt{8}\approx 2.83$——你写下的 1.0 在系统里其实接近 3。有效学习率因此可差出近三倍，这是「照抄别人配置却复现不出曲线」的常见来源。</span>
 
 <span class="marginnote">「梯度范数」还要声明含不含嵌入、含不含 lm_head。嵌入表大、梯度稀疏，常常主导全局 $\ell_2$。只看一个数，会把嵌入的一次热 token 误判成「整网爆炸」。</span>
 
