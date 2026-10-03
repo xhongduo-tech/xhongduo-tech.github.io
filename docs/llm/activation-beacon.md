@@ -39,7 +39,7 @@ $$
 
 其中 $n_{\mathrm{local}}$ 是仍以满分辨率看见的最近普通 token 数。KV 预算按 $n_{\mathrm{eff}}$ 而不是 $n$ 来算。
 
-<span class="marginnote">代一个数：取 $c=100$、$b=1$、$n_{\mathrm{local}}=4096$，处理 100k token 时远历史只留约 1000 个信标位，$n_{\mathrm{eff}}\approx 4096+1000\approx 5100$——不到原始长度的二十分之一，KV 显存相应省 95% 左右。压缩率全靠 $c$ 大，而不是把位置编码硬拉到十万。</span>
+<span class="marginnote">代一个数：取 $c=100$、$b=1$、$n_{\mathrm{local}}=4096$，处理 100k token 时远历史只留约 1000 个信标位，$n_{\mathrm{eff}}\approx 4096+1000\approx 5100$——约为原始长度的二十分之一，KV 显存相应省 95% 左右。压缩率全靠 $c$ 大，而不是把位置编码硬拉到十万。</span>
 
 ### 流式与滑动信标
 
