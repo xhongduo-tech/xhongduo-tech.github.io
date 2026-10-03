@@ -46,7 +46,7 @@ flowchart TD
   end
 ```
 
-<span class="marginnote">数字找找手感：DeepSeek-V3 取步长 $\gamma=0.001$。若每千步统计一次负载，一个持续过载的专家要约千步才把偏置压下 1；换成 $\gamma=0.1$，几十步就能翻转专家排名，路由开始抖。$\gamma$ 必须和负载统计频率配套调，不是独立旋钮。</span>
+<span class="marginnote">数字找找手感：DeepSeek-V3 取步长 $\gamma=0.001$。若每步统计一次负载，一个持续过载的专家要约千步才把偏置压下 1；换成 $\gamma=0.1$，几十步就能翻转专家排名，路由开始抖。$\gamma$ 必须和负载统计频率配套调，不是独立旋钮。</span>
 
 ## 机制
 
