@@ -36,7 +36,7 @@ $$
 
 ## 方法
 
-训练：抽 $x_0$、时间 $t$、噪声 $\epsilon$，按闭式构造 $x_t$，回归 $\epsilon$。回归目标选 $\epsilon$ 而不是直接选均值：把变分下界按高斯逆步展开并固定方差，剩下对均值的项恰好化成噪声上的加权 MSE，权重偏向低信噪比一端——正是细纹理所在的水平；方差由日程钉死，网络少学一路，避免小 $\beta$ 端的方差估计失稳。预测 $\epsilon$ 与预测得分只差一个日程系数，两种写法可互换。采样：记 $\alpha_t=1-\beta_t$，从 $x_T\sim\mathcal N(0,I)$ 逐步更新到 $x_0$：
+训练：抽 $x_0$、时间 $t$、噪声 $\epsilon$，按闭式构造 $x_t$，回归 $\epsilon$。回归目标选 $\epsilon$ 而不是直接选均值：把变分下界按高斯逆步展开并固定方差，剩下对均值的项恰好化成噪声上的加权 MSE，权重偏向高信噪比一端——正是细纹理所在的水平；方差由日程钉死，网络少学一路，避免小 $\beta$ 端的方差估计失稳。预测 $\epsilon$ 与预测得分只差一个日程系数，两种写法可互换。采样：记 $\alpha_t=1-\beta_t$，从 $x_T\sim\mathcal N(0,I)$ 逐步更新到 $x_0$：
 
 $$
 x_{t-1}=\frac{1}{\sqrt{\alpha_t}}\Big(x_t-\frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\,\epsilon_\theta(x_t,t)\Big)+\sigma_t z,\qquad z\sim\mathcal N(0,I)
