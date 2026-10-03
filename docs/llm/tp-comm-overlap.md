@@ -21,7 +21,7 @@ section: llm
 
 <span class="marginnote">暴露通信是无法与任何本地计算并行的那一段：依赖尚未满足。流水图画错会把「已重叠」写进文档，profiler 上 NCCL/自定义 AR 仍与 GEMM 串行。</span>
 
-<span class="marginnote">数字实例：设一次 decode 步计算 2 ms、每层 All-Reduce 0.5 ms、共 80 层——串行时通信贡献约 40 ms 墙钟；若能与计算完全重叠，这部分几乎归零。decode 上 $T_{\mathrm{cmp}}$ 小、阴影浅，通常只能藏一部分，但藏下的每一毫秒都直接写进逐步延迟。</span>
+<span class="marginnote">数字实例：设一次 decode 步计算 2 ms、每层 All-Reduce 0.5 ms、共 80 层——串行时约 42 ms 墙钟，通信贡献 40 ms；重叠的下界是 $\max(T_{\mathrm{cmp}},T_{\mathrm{comm}})\approx 40$ ms——通信远长于计算时，能重叠掉的至多是那 2 ms 串行段，40 ms 的通信本体仍要自己走完。decode 上 $T_{\mathrm{cmp}}$ 小、阴影浅，通常连这一段都藏不满，但藏下的每一毫秒都直接写进逐步延迟。</span>
 
 ## 方法
 

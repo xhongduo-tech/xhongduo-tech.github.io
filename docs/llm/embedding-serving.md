@@ -44,7 +44,7 @@ flowchart TD
 
 算术强度随 $B$ 与 $n$ 升，容易 compute-bound，MFU 可比 LLM decode 高一个数量级。这解释了为什么同一张卡跑嵌入「看起来利用率很好」、跑聊天 decode「利用率很差」——不是嵌入实现更强，是工作点不同。成本 $C$ 按请求或按 token 计都可以，但不要用 LLM 的 $C_{\mathrm{tok}}$ 乘嵌入 token。
 
-<span class="marginnote">数字实例：7B 模型 BF16 权重约 14 GB，聊天 decode 每生成一个 token 都要把整份权重读一遍，算术强度只有每字节约两次运算；而嵌入一批几百条短句走稠密 GEMM，权重读一次摊给大量计算，算术强度高一个数量级。所以两种「利用率」根本不是一回事。</span>
+<span class="marginnote">数字实例：7B 模型 BF16 权重约 14 GB，聊天 decode 每生成一个 token 都要把整份权重读一遍，算术强度只有每字节约一次运算；而嵌入一批几百条短句走稠密 GEMM，权重读一次摊给大量计算，算术强度高一个数量级。所以两种「利用率」根本不是一回事。</span>
 
 ```mermaid
 flowchart TD
