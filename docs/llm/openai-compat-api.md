@@ -80,7 +80,7 @@ OpenAI 风格错误体一般是 `{"error": {"message": ..., "type": ..., "code":
 
 兼容协议不包含模型许可、内容安全、检索增强或代理循环。它也不规定 KV 如何分页、是否多 LoRA。那些是引擎与调度的事，见 [多 LoRA 服务](/llm/multi-lora-serving)。客户端 SDK 的默认超时、代理的缓冲（Nginx 默认可能攒满 SSE）会破坏流式语义，这是运维问题，协议文本写不清楚。
 
-不要用云厂商的模型名去打开源兼容端，除非路由表显式做了别名。不要假设 `/v1/embeddings`、`/v1/audio/transcriptions`、`/v1/images/generations` 随 chat 一起存在；MindIE 把视图生成放在另一套件，就是反例。协议最小核心就是：聊天或补全、可选流式、可选用量。每多一个路径，就多一张测试表。
+不要用云厂商的模型名去打开源兼容端，除非路由表显式做了别名。不要假设 `/v1/embeddings`、`/v1/audio/transcriptions`、`/v1/images/generations` 随 chat 一起存在；MindIE 把图像生成放在另一套件，就是反例。协议最小核心就是：聊天或补全、可选流式、可选用量。每多一个路径，就多一张测试表。
 
 <span class="marginnote">引用 OpenAI 公开 API 参考、Hugging Face TGI Messages API、昇腾 MindIE EndPoint 列表与各引擎的 OpenAI serving 说明。没有单独的标准编号；互操作靠对照字段，不靠伪造论文。</span>
 

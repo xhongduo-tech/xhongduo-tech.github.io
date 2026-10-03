@@ -31,7 +31,7 @@ NVIDIA GPU 上跑 Transformer，性能差往往差在核够不够融合、KV 是
 
 In-flight batching（IFB）与 Orca / vLLM 的迭代级调度同类：上下文阶段（prefill）与生成阶段可以出现在同一次执行里，完成的序列立刻腾出槽，新序列插进来。文档写明 IFB 要求输入张量 packed、不要靠 padding 填齐。Paged KV 把每层缓存切成块，由 cache manager 分配与回收，对应 Python 里简化过的 `KVCacheManager` 与 C++ batch manager 里更完整的实现；也提供连续 KV 作为对照。调度器与分块 prefill 绑在一起：把长上下文切开，避免单次迭代被超长 prefill 占满，从而稳定 TTFT 与 decode 间隙。
 
-量化：Hopper 上 FP8 可同时降显存与提吞吐，文档称相对 16-bit 有数量级上的带宽收益，质量影响要按模型校准。注意力可走 FP8 context FMHA 或 FP8 paged context FMHA。权重侧另有 INT4 AWQ、SmoothQuant 等。推测解码、EAGLE 类、MTP 等出现在后续特性列表里，属于加速采样，不是 TensorRT 图编译的必然产物。并行：张量并行、流水线、专家并行（宽 EP）写在产品能力里，用来服 MoE 与大稠密模型；具体拓扑随版本与 NVIDIA Dynamo 分离式服务文档更新。
+量化：Hopper 上 FP8 可同时降显存与提吞吐，相对 16-bit 带宽占用约减半（每元素 2 字节变 1 字节），质量影响要按模型校准。注意力可走 FP8 context FMHA 或 FP8 paged context FMHA。权重侧另有 INT4 AWQ、SmoothQuant 等。推测解码、EAGLE 类、MTP 等出现在后续特性列表里，属于加速采样，不是 TensorRT 图编译的必然产物。并行：张量并行、流水线、专家并行（宽 EP）写在产品能力里，用来服 MoE 与大稠密模型；具体拓扑随版本与 NVIDIA Dynamo 分离式服务文档更新。
 
 ```mermaid
 flowchart TD

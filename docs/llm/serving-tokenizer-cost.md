@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-Encode 的复杂度大致随字节数与合并次数走，不是 $O(1)$。32K 词表的字节级 BPE 在数万字符的提示（长文档、工具 JSON、多轮粘贴）上会打满网关 CPU，表现为 TTFT 变差、GPU 利用率却很低。这会被误诊成「引擎冷启动」或「KV 没分页」。Detokenize 的问题更隐蔽：流式要求每个 id 尽快变成字，但 BPE 的一个 token 可能是半个多字节字符、或英文词的半截。过早 `decode` 会抛异常或产出 `` 替换符，客户端出现乱码；过晚又把若干 token 攒成一次刷新，TTFT 的「字」不再是真正的首 token。
+Encode 的复杂度大致随字节数与合并次数走，不是 $O(1)$。32K 词表的字节级 BPE 在数万字符的提示（长文档、工具 JSON、多轮粘贴）上会打满网关 CPU，表现为 TTFT 变差、GPU 利用率却很低。这会被误诊成「引擎冷启动」或「KV 没分页」。Detokenize 的问题更隐蔽：流式要求每个 id 尽快变成字，但 BPE 的一个 token 可能是半个多字节字符、或英文词的半截。过早 `decode` 会抛异常或产出 `�` 替换符，客户端出现乱码；过晚又把若干 token 攒成一次刷新，TTFT 的「字」不再是真正的首 token。
 
 <span class="marginnote">数字实例：英文单词「tokenization」大约只占 3-4 个 token；一个常用汉字通常 1-2 个 token，一个 emoji 却常要 2-4 个。若按字符数做长度配额，100 个 emoji 字符可能折成三四百 token，远超配额——这就是「字符数 ≈ token 数」在中文与 emoji 上不可靠的原因。</span>
 
