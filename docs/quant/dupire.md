@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-欧式看涨 $C(K,T)=e^{-rT}\mathbb{E}[(S_T-K)^+]$。若 $S$ 是 Itô 扩散，Fokker-Planck 描述密度演化，对 $K$、$T$ 微分并与 Kolmogorov 正想方程对照，可以把瞬时方差从密度里解出来。问题是只用可观测的 $C$ 及其导数，不经过显式密度，得到
+欧式看涨 $C(K,T)=e^{-rT}\mathbb{E}[(S_T-K)^+]$。若 $S$ 是 Itô 扩散，Fokker-Planck 描述密度演化，对 $K$、$T$ 微分并与 Kolmogorov 正向方程对照，可以把瞬时方差从密度里解出来。问题是只用可观测的 $C$ 及其导数，不经过显式密度，得到
 
 $$
 \sigma_{\mathrm{loc}}^2(K,T)=\frac{\partial_T C+(r-q)K\partial_K C+q C}{\tfrac12 K^2\partial_{KK}C},
