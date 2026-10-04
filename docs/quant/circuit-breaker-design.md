@@ -75,4 +75,4 @@ flowchart TD
 - 个股带宽与市场宽幅是不同对象；评估应对准错误报价、螺旋与发现延迟，而不是「波动被停掉」。
 - 复开质量取决于拍卖厚度与义务是否仍在。
 - 可预测阈值会诱使熔断前抢跑；跨市场若只停一处，压力转到领先的未停场所。
-- 出处：Subrahmanyam, *Journal of Financial and Quantitative Analysis*, 1994；Lee, Ready and Seguin, *Journal of Finance*, 1994；事件背景见 CFTC–SEC, *Findings Regarding the Market Events of May 6, 2010*。
+- 出处：Subrahmanyam, *Journal of Finance*, 1994；Lee, Ready and Seguin, *Journal of Finance*, 1994；事件背景见 CFTC–SEC, *Findings Regarding the Market Events of May 6, 2010*。
