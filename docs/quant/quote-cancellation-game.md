@@ -78,4 +78,4 @@ flowchart TD
 - 撤单缩短被捡窗口，也缩短有效在场时间；高撤单率可以是理性做市，不必先贴操纵标签。
 - 寿命 $\tau$ 与报价联立，技术降低改价成本会推高消息/成交比。
 - 快者撤跨市场过时报价，慢挂单者承担被捡。
-- 出处：Hasbrouck and Saar, *Journal of Financial Markets*, 2013；Foucault, Kozhan and Tham, *Review of Financial Studies*, 2017；van Kervel, *Review of Financial Studies*, 2015。
+- 出处：Hasbrouck and Saar, *Journal of Financial Markets*, 2013；Foucault, Kozhan and Tham, *Review of Financial Studies*, 2017；van Kervel, *Journal of Financial and Quantitative Analysis*, 2015。

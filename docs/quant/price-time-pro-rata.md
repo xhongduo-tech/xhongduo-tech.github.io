@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>同一价位上先到先得，会把竞争赶到速度与占位；按剩余量比例分配，会把竞争赶到订单尺寸。优先规则改的是排队博弈的策略空间，不是簿的几何画法。</p>
-<footer>—— 据 Harris, Trading and Exchanges 对优先权的论述；对照 Cordella and Foucault, Minimum Price Variations, Time Priority and Quote Dynamics, Journal of Financial and Quantitative Analysis, 1999</footer>
+<footer>—— 据 Harris, Trading and Exchanges 对优先权的论述；对照 Cordella and Foucault, Minimum Price Variations, Time Priority and Quote Dynamics, Journal of Financial Intermediation, 1999</footer>
 </div>
 
 [最优放置](/quant/optimal-limit-placement)默认价格优先再时间优先（price-time / FIFO）。缺口是另一常见规则：同一价位按尺寸比例分配（pro-rata），期货与部分利率产品常用。Cordella 与 Foucault（1999）已说明时间优先与 tick 如何共同决定报价动态。本课比较两种规则下的占位、尺寸与速度激励，不重画两侧价量阶梯。
@@ -77,4 +77,4 @@ flowchart LR
 - FIFO 让竞争落在到达次序与跳价抢队；pro-rata 让竞争落在展示尺寸。
 - 规则改变最优放置、虚报激励与小单是否愿意挂限价。
 - tick 越粗，同价位规则越重要。
-- 出处：Harris, *Trading and Exchanges*；Cordella and Foucault, *Journal of Financial and Quantitative Analysis*, 1999；排队基准见 Parlour, 1998。
+- 出处：Harris, *Trading and Exchanges*；Cordella and Foucault, *Journal of Financial Intermediation*, 1999；排队基准见 Parlour, 1998。
