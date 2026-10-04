@@ -32,7 +32,7 @@ section: quant
 定价从现货加工利润出发。忽略质量升贴水时，裂解的期货版本是
 
 $$
-\mathrm{Crack}_t=2F^{\mathrm{HO}}(t,T)+3F^{\mathrm{RB}}(t,T)-6F^{\mathrm{CL}}(t,T)
+\mathrm{Crack}_t=2F^{\mathrm{RB}}(t,T)+F^{\mathrm{HO}}(t,T)-3F^{\mathrm{CL}}(t,T)
 $$
 
 一类线性组合（系数随合约乘数改写），再除以原油桶数得到美元/桶。压榨、火花同理，火花还要减可变运维并除以热耗率。仓位用合约张数去匹配实物比例，而不是用美元中性——美元中性会在原油暴涨时把炼厂利润的量纲扭曲成「股票对冲」。
