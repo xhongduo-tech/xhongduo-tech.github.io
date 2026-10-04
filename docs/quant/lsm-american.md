@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
     <p>把续持算子投影到有限基上，用路径截面的最小二乘代替条件期望，美式定价就变成带执行判断的动态规划；偏差来自子空间与样本，而不是来自少抽了几条欧式路径。</p>
-    <footer>—— Longstaff and Schwartz, Review of Financial Studies, 2001；Tsitsiklis and Van Roy, IEEE Transactions on Neural Networks, 1999；Clément, Lamberton and Protter, Finance and Stochastics, 2002</footer>
+    <footer>—— Longstaff and Schwartz, Review of Financial Studies, 2001；Tsitsiklis and Van Roy, IEEE Transactions on Neural Networks, 2001；Clément, Lamberton and Protter, Finance and Stochastics, 2002</footer>
 </div>
 
 [Longstaff–Schwartz](/quant/longstaff-schwartz) 给出可落地的路径现金流算法。[提前行权](/quant/american-exercise) 写经济与自由边界。本篇把 LSM 当成一类数值方法：条件期望的线性投影、两种价值迭代、基函数与过拟合、下界/上界，以及和欧式 [蒙特卡洛](/quant/mc-pricing) 完全不同的误差账本。它服务的是百慕大与高维美式；一维网格仍应走 [树](/quant/binomial-tree) 或 [PDE](/quant/option-pde)。名字里的「最小二乘」是投影的计算手段，不是普通回归预测收益。
@@ -92,4 +92,4 @@ LSM 不消除 Euler 弱偏差：离散 SDE 错了，最优停时是错误过程�
 - 独立评估给出对应规则的下界；上界需对偶，MC 标准误不是总误差。
 - 状态必须充分；过拟合与张量积爆炸是高维的主要工程风险。
 - 一维香草用网格；LSM 的理由是维数与复杂可行集。
-- 出处：Longstaff and Schwartz, *RFS*, 2001；Tsitsiklis and Van Roy, 1999；Clément, Lamberton and Protter, *Finance and Stochastics*, 2002；对偶见 Andersen and Broadie, *Management Science*, 2004。
+- 出处：Longstaff and Schwartz, *RFS*, 2001；Tsitsiklis and Van Roy, 2001；Clément, Lamberton and Protter, *Finance and Stochastics*, 2002；对偶见 Andersen and Broadie, *Management Science*, 2004。
