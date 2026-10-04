@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>扩散的误差预算要摊在几百次前向与一次解码上：去噪循环里每步省一点，解码器里错一次就全盘皆输。</p>
-<footer>—— 据 Li 等 PTQ4DM、So 等 Q-Diffusion 与 SmoothQuant 一线实践整理</footer>
+<footer>—— 据 Shang 等 PTQ4DM、Li 等 Q-Diffusion 与 SmoothQuant 一线实践整理</footer>
 </div>
 
 [上一课](/llm/diff-step-distill-tradeoff)把「少跑前向」的账算清：步数与引导进了契约，收益落在交互层。本课动第二条：把每次前向跑便宜。权重与激活的量化方法学——粒度、校准、异常值迁移——在 [GPTQ](/llm/gptq)、[AWQ](/llm/awq)、[SmoothQuant](/llm/smoothquant) 与[低精度推理的误差预算](/llm/num-inference-error-budget)已立；本课只写扩散特有的部分：误差要穿过 $T$ 步迭代与 VAE 解码两个放大器，校准集多了一条时间轴，三个模块的敏感度完全不同。
@@ -73,4 +73,4 @@ flowchart TD
 - 步数与位宽共用一张误差预算表：步数越少，每步误差越少被平均，预算越紧。
 - 解码器直通像素，fp16 都会溢出的对象不能再压；分块解码省显存不省精度。
 - 量化与蒸馏必须联合验证，各自达标再拼接会静默劣化。
-- 出处：Li 等 PTQ4DM、So 等 Q-Diffusion、Dettmers 等 SmoothQuant；解码器溢出口径据 Stable Diffusion 社区实践。
+- 出处：Shang 等 PTQ4DM、Li 等 Q-Diffusion、Xiao 等 SmoothQuant；解码器溢出口径据 Stable Diffusion 社区实践。
