@@ -11,7 +11,7 @@ section: llm
 <footer>—— 据 Leviathan et al., 2023 与 Cai et al., 2024 等论文的实验设定对照整理</footer>
 </div>
 
-[上一课](/llm/spec-quant-combo)的结尾立了一条口径纪律。本课把纪律展开成方法：怎么设计、跑、报一个投机实验。前面十一课里反复出现「钉住批量」「分桶报 $\alpha$」「别跨表乘算」，本课把它们收拢成一套可执行的动作清单。已有的邻居各管一段：[接受率的理论与测量](/llm/spec-acceptance-theory)给定义与估计量，[KV 测量陷阱](/llm/kv-measurement-pitfalls)给服务指标的坑，[服务指标](/llm/serving-metrics)给口径；本课只写投机特有的部分。
+[上一课](/llm/spec-quant-combo)的结尾立了一条口径纪律。本课把纪律展开成方法：怎么设计、跑、报一个投机实验。前面十课里反复出现「钉住批量」「分桶报 $\alpha$」「别跨表乘算」，本课把它们收拢成一套可执行的动作清单。已有的邻居各管一段：[接受率的理论与测量](/llm/spec-acceptance-theory)给定义与估计量，[KV 测量陷阱](/llm/kv-measurement-pitfalls)给服务指标的坑，[服务指标](/llm/serving-metrics)给口径；本课只写投机特有的部分。
 
 ## 问题
 

@@ -43,7 +43,7 @@ flowchart TD
 
 <span class="marginnote">一个便宜的验收数字：上线前对每个流量桶各抽几百条，跑草稿记逐位置 $\hat\alpha$ 与实现的 $\tau$。训练验证集上的损失降了不等于桶上 $\alpha$ 升了——损失是平均，重叠可以被平均掩盖。</span>
 
-<span class="marginnote">数字实例：目标过 RLHF 后风格变了三成，草稿还停在旧输出上训，$\alpha$ 从 0.8 掉到 0.6——$\gamma=4$ 的期望前进长度就从约 3.36 掉到约 2.31，加速比几乎对折。策略一漂移，补训要按版本排队，道理就在这笔账上。</span>
+<span class="marginnote">数字实例：目标过 RLHF 后风格变了三成，草稿还停在旧输出上训，$\alpha$ 从 0.8 掉到 0.6——$\gamma=4$ 的期望前进长度就从约 3.36 掉到约 2.31，加速比缩水约三成。策略一漂移，补训要按版本排队，道理就在这笔账上。</span>
 
 ```mermaid
 flowchart TD
