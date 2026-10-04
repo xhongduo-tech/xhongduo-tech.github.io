@@ -15,7 +15,7 @@ section: llm
 
 ## 问题
 
-计价公式是确定的。14px 一 patch，$2\times2$ merge 后每四格折一个 token（见 [patch merge](/llm/qwen-vl-patch-merge)），一张 $H\times W$ 的图占 $\frac{H}{28}\times\frac{W}{28}$ 个语言模型 token。问题在于用户不知道也不关心这个公式：一张 7680×4320 的截图按公式是近八万 token，不设上限，一次请求就能打穿上下文窗口、把 prefill 拖进秒级、给 KV 留下几百 MB 的账（账目细算见[多模态 KV 管理](/llm/mm-multimodal-kv)）。预算缺位不是报错，而是延迟与成本被最重的请求定形。
+计价公式是确定的。14px 一 patch，$2\times2$ merge 后每四格折一个 token（见 [patch merge](/llm/qwen-vl-patch-merge)），一张 $H\times W$ 的图占 $\frac{H}{28}\times\frac{W}{28}$ 个语言模型 token。问题在于用户不知道也不关心这个公式：一张 7680×4320 的截图按公式是四万余 token，不设上限，一次请求就能打穿上下文窗口、把 prefill 拖进秒级、给 KV 留下几 GB 的账（账目细算见[多模态 KV 管理](/llm/mm-multimodal-kv)）。预算缺位不是报错，而是延迟与成本被最重的请求定形。
 
 预算也不只是封顶线。聊天里配图的合理预算与 OCR 合同页的合理预算差一个量级：前者几百 token 足够，后者砍到几百 token 就是让模型猜小字。预算是按场景定价的资源配置，不是单一常数。
 

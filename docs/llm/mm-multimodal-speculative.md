@@ -27,7 +27,7 @@ section: llm
 
 按内容路由的开关补最后一层：输出进入 OCR 串、数字、代码等高信息密度区时临时关投机（信号是正则或 token 类型），回到叙述段再开。开关本身要便宜，否则省下的验证钱又花回路由上。
 
-<span class="marginnote">期望接受块长为 $\frac{1-\alpha^{k+1}}{1-\alpha}$：$\alpha=0.7$、草稿深度 $k=4$ 时约 $2.4$；OCR 段 $\alpha$ 掉到 $0.3$，同一公式只剩约 $1.15$，草稿前向的钱白烧。按段开关不是优化，是保本。</span>
+<span class="marginnote">期望接受块长为 $\frac{1-\alpha^{k+1}}{1-\alpha}$：$\alpha=0.7$、草稿深度 $k=4$ 时约 $2.8$；OCR 段 $\alpha$ 掉到 $0.3$，同一公式只剩约 $1.4$，草稿前向的钱白烧。按段开关不是优化，是保本。</span>
 
 ```mermaid
 flowchart TD
