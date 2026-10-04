@@ -17,7 +17,7 @@ section: llm
 
 Muon 类优化器放宽了 Adam 的二阶矩自适应，梯度更新范数更「生猛」，MoE 大模型上出现低频 loss spike：某个注意力头持续输出巨大 QK 点积 → softmax 饱和 → 梯度路径异常 → loss 拉高数个点后缓慢恢复，且常在恢复后复发。全局梯度裁剪（grad clip）按范数一刀切，杀敌一百自损三千——问题只在个别头。缺口：**定位并只剪病灶头**。
 
-<span class="marginnote">术语翻译：QK logit = $q^\top k/\sqrt{d}$ 的分值，进 softmax 前的数量级决定注意力集中度；logit 最大值 $\approx\|q\|\|k\|/\sqrt d$，故控制 $W_Q,W_K$ 的谱范数即控制 logit 上限；α-threshold = 触发裁剪的 logit 阈值（Kimi K2 报告用 $\tau_{max}\approx 100$）。</span>
+<span class="marginnote">术语翻译：QK logit = $q^\top k/\sqrt{d}$ 的分值，进 softmax 前的数量级决定注意力集中度；logit 最大值 $\approx\|q\|\|k\|/\sqrt d$，故控制 $W_Q,W_K$ 的谱范数即控制 logit 上限；τ-threshold = 触发裁剪的 logit 阈值（Kimi K2 报告用 $\tau_{max}\approx 100$）。</span>
 
 <span class="marginnote">数字实例：$d=128$，某头 $\|q\|=30$、$\|k\|=35$，logit 上限 $\approx 30\times35/11.3\approx 93$——逼近 100 阈值。QK-Clip 对该头把 $W_K$ 缩到 $\gamma=0.5$，logit 上限即降半到 46，softmax 恢复分辨力；其余 63 个头不动。</span>
 

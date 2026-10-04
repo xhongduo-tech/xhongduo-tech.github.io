@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>采样前给每个 logit 套一道 tanh 软上限：越界的信号被压弯而不是剪断——模型话痨与复读，往往是一个没封顶的 logit 闹的。</p>
-<footer>—— 据 Gemma 2 技术报告（2024）final logit softcap；Grok 与 SilasTron 实现</footer>
+<footer>—— 据 Gemma 2 技术报告（2024）final logit softcap；Grok 开源实现</footer>
 </div>
 
 [QK-Clip](/llm/qk-clip) 在训练期给注意力 logit 动手术，本课在推理与输出侧给最终 logits 上护栏。缺口是 **logit 软上限**：$c\cdot\tanh(l/c)$ 把无界 logit 压进 $(-c,c)$——大值压弯、小值不动。它是 Gemma 2 稳定训练与改善采样的公开秘方之一。本课不进 logits 后处理的采样链（top-p/min-p 各有专课）。
@@ -19,7 +19,7 @@ section: llm
 
 <span class="marginnote">术语翻译：softcap = $c\cdot\tanh(l/c)$，$c$ 是上限常数（Gemma 2 输出层用 30）；「软」在 tanh 的渐近——logit 无限大时输出趋近 $c$ 但永不过界，梯度 $1-\tanh^2$ 平滑归零而非硬归零。</span>
 
-<span class="marginnote">数字实例：$c=30$。正常 logit 5 → $30\tanh(1/6)\approx 4.9$（几乎不动）；异常 logit 80 → $30\tanh(8/3)\approx 29.6$（压到界内）；softmax 里 29.6 与 4.9 的差距 $\approx 24.7$，仍保区分度但不再是「100 分 vs 0 分」的暴政。</span>
+<span class="marginnote">数字实例：$c=30$。正常 logit 5 → $30\tanh(1/6)\approx 4.9$（几乎不动）；异常 logit 80 → $30\tanh(8/3)\approx 29.7$（压到界内）；softmax 里 29.7 与 4.9 的差距 $\approx 24.8$，仍保区分度但不再是「100 分 vs 0 分」的暴政。</span>
 
 ## 方法
 
@@ -40,7 +40,7 @@ flowchart TD
 
 ## 机制
 
-为什么 tanh 是对的形状：它是有界、奇函数、原点线性（$\tanh(x)\approx x$）——三个性质分别给出「有上界」「保序」「小信号不扰动」。训练侧的收益来自两点：**数值稳定**（logit 有界则交叉熵的指数项不再溢出，fp16 友好）；**梯度健康**（越界 logit 的梯度被 $1-\tanh^2$ 自然衰减，重复循环里的「自我强化」路径被削弱——复读本质是 logit 正反馈）。代价是精度损失：cap 过小会把排序压平（softmax 分辨力下降），$c=30$ 量级下实测对损失的影响在 0.5% 内，Gemma 2 用它换到了更大的 batch 稳定域。
+为什么 tanh 是对的形状：它是有界、奇函数、原点线性（$\tanh(x)\approx x$）——三个性质分别给出「有上界」「保序」「小信号不扰动」。训练侧的收益来自两点：**数值稳定**（logit 有界则交叉熵的指数项不再溢出，fp16 友好）；**梯度健康**（越界 logit 的梯度被 $1-\tanh^2$ 自然衰减，重复循环里的「自我强化」路径被削弱——复读本质是 logit 正反馈）。代价是精度损失：cap 过小会把排序压平（softmax 分辨力下降），$c=30$ 量级下实测对损失的额外影响很小，Gemma 2 用它换到了更大的 batch 稳定域。
 
 ```mermaid
 flowchart TD
@@ -67,4 +67,4 @@ Cap 改变模型的概率分布——训练时不用、推理时用的「半路 
 - $c\cdot\tanh(l/c)$：有界、保序、小信号无损，一行代码。
 - 训练推理必须同用，$c$ 是架构常数不是采样旋钮。
 - 治复读靠削弱 logit 正反馈；治溢出靠有界化。
-- 出处：Gemma 2 技术报告 2024；Grok/SilasTron 开源实现；QK-Clip 2025 对照。
+- 出处：Gemma 2 技术报告 2024；Grok 开源实现；QK-Clip 2025 对照。
