@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-记本国股本币价格为 $P^H$，收据价格为 $P^A$，汇率 $S$ 为本币的外币价，转换比率 $n$ 为一份收据对应的普通股数。平价是
+记本国股本币价格为 $P^H$，收据价格为 $P^A$，汇率 $S$ 为外币的本币价，转换比率 $n$ 为一份收据对应的普通股数。平价是
 
 $$
 P^A \stackrel{?}{=} n\, P^H / S
@@ -100,4 +100,4 @@ flowchart TD
 - Froot–Dabora 证明交易地点会写入价格；Gagnon–Karolyi 把偏离幅度连到跨境持有成本。
 - A/H、孪生股票与存托凭证是三条管道，收敛机制与投资者集合不同，不能共用一套阈值。
 - 可执行带必须含同步报价、汇率、转换费、借券与制度约束；收盘溢价不是利润。
-- 出处：Gagnon and Karolyi, *JFE*, 2010；Froot and Dabora, *JFE*, 1999；Pontiff, *Journal of Finance*, 1996；Mei, Scheinkman and Xiong, 以及 A/H、沪深港通的公开制度文本。
+- 出处：Gagnon and Karolyi, *JFE*, 2010；Froot and Dabora, *JFE*, 1999；Pontiff, *Quarterly Journal of Economics*, 1996；Mei, Scheinkman and Xiong, 以及 A/H、沪深港通的公开制度文本。
