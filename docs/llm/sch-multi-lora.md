@@ -47,8 +47,8 @@ flowchart TD
 ```mermaid
 flowchart LR
   X["输入 x"] --> W["基座权重 W：冻结不动，人人共享"]
-  X --> A["小矩阵 A：r × in"]
-  A --> B["小矩阵 B：out × r"]
+  X --> A["小矩阵 A：in × r"]
+  A --> B["小矩阵 B：r × out"]
   W --> ADD["x·W 加上 x·A·B"]
   B --> ADD
   ADD --> Y["输出：同一模型的不同口音"]
