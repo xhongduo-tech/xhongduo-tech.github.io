@@ -11,7 +11,7 @@ section: quant
     <footer>—— Friedman, Hastie and Tibshirani, Sparse inverse covariance estimation with the graphical lasso, Biostatistics, 2008</footer>
 </div>
 
-组合优化真正调用的常常是 $\Sigma^{-1}$，不是 $\Sigma$。样本协方差 $S$ 病态时，逆会放大噪声；[Ledoit–Wolf](/quant/ledoit-wolf) 从协方差一侧把 $S$ 拉向简单目标。[估计误差与收缩](/quant/cov-shrinkage) 把这条路放在收缩家族里。图形 Lasso（Graphical Lasso, glasso）走另一侧：直接估计精度 $\Theta=\Sigma^{-1}$，并让许多偏相关为零。Friedman、Hastie 与 Tibshirani（2008）给出协调下降算法，把 Yuan–Lin、Banerjee–El Ghaoui–d'Aspremont 的稀疏精度估计做成可计算的标准件。本篇写精度图的含义、惩罚似然怎么解、以及它在股票上何时比 LW / 因子模型更合适。
+组合优化真正调用的常常是 $\Sigma^{-1}$，不是 $\Sigma$。样本协方差 $S$ 病态时，逆会放大噪声；[Ledoit–Wolf](/quant/ledoit-wolf) 从协方差一侧把 $S$ 拉向简单目标。[估计误差与收缩](/quant/cov-shrinkage) 把这条路放在收缩家族里。图形 Lasso（Graphical Lasso, glasso）走另一侧：直接估计精度 $\Theta=\Sigma^{-1}$，并让许多偏相关为零。Friedman、Hastie 与 Tibshirani（2008）给出坐标下降算法，把 Yuan–Lin、Banerjee–El Ghaoui–d'Aspremont 的稀疏精度估计做成可计算的标准件。本篇写精度图的含义、惩罚似然怎么解、以及它在股票上何时比 LW / 因子模型更合适。
 
 ## 问题
 
