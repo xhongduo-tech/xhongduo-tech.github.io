@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>事件日是可用日期那一天，不是报告期结束日；窗口回报要声明含不含公告前漂移、盘后归属哪一根 K 线。</p>
-<footer>—— 据 Beaver, The Accounting Review, 1968；MacKinlay, Journal of Economic Literature, 1997 事件研究整理</footer>
+<footer>—— 据 Beaver, Journal of Accounting Research, 1968；MacKinlay, Journal of Economic Literature, 1997 事件研究整理</footer>
 </div>
 
 上一课[盈余意外](/quant/earnings-surprise)交出了干净的 SUE。要把它连到回报，必须定义窗口。可用日期课已经给出事件日候选；本课把日历收成可回测的公告窗口，并指出哪些做法会把 PEAD 做成前视。不重估 SUE，也不把停牌涨跌停的可成交性提前写完——那是制度课。
@@ -17,7 +17,7 @@ section: quant
 
 Beaver 显示盈余公告日附近成交与波动上升；事件研究把超额回报累加在事件时间而非日历时间。缺口是操作定义：$t=0$ 取哪一天、盘后公告算 0 还是 +1、窗口是 $[-1,+1]$ 还是 $[0,+1]$、基准是市场还是行业。用 period_end 当 $t=0$，窗口里全是尚未披露的日子，累积的是假事件。用 restated 后的「更正公告日」当历史事件日，会把后来的更正当成当时市场已经交易的信息。
 
-<span class="marginnote">代个数：某公司财年 12 月 31 日结束，年报 3 月 30 日才披露。若拿 12/31 当事件日，$[-1,+1]$ 窗口里攒的是两个多月的普通波动——当时根本没人知道年报内容；真正的「事件」只发生在 3 月 30 日之后。事件日必须落在信息可用那天。</span>
+<span class="marginnote">代个数：某公司财年 12 月 31 日结束，年报 3 月 30 日才披露。若拿 12/31 当事件日，离年报披露还有两个多月，$[-1,+1]$ 窗口里攒的只是普通波动——当时根本没人知道年报内容；真正的「事件」只发生在 3 月 30 日之后。事件日必须落在信息可用那天。</span>
 
 ### 公告窗口不是持有期 alpha
 
