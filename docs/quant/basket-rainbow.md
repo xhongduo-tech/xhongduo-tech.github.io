@@ -74,4 +74,4 @@ flowchart TD
 - 交换期权可降维；篮子一般无闭式；两资产彩虹有 Stulz 公式。
 - 相关对篮子与对 max/min 彩虹的比较静态可以反号。
 - 篮子隐波把波动、权重、相关捆在一起，不能当相关互换输入。
-- 出处：Margrabe, *Journal of Finance*, 1978；Stulz, *JFE*, 1982；Milevsky and Posner, *Journal of Derivatives*, 1998。
+- 出处：Margrabe, *Journal of Finance*, 1978；Stulz, *JFE*, 1982；Milevsky and Posner, *Journal of Financial and Quantitative Analysis*, 1998。
