@@ -105,4 +105,4 @@ flowchart TD
 - $\tau$、方向分类、成交量加权决定水平与排序；跨市场比较必须锁口径。
 - 负有效价差可以是改善而不是错价；隔夜、停牌、无报价时段要单独处理。
 - 与 PIN/VPIN 分工：成本会计对生成概率，二者联合看毒性是否真的让冲击变贵。
-- 出处：Huang and Stoll, *Dealer versus Auction Markets*, Journal of Financial Economics 1996；价差成分的参数分解见 Huang and Stoll, Journal of Finance 1997。
+- 出处：Huang and Stoll, *Dealer versus Auction Markets*, Journal of Financial Economics 1996；价差成分的参数分解见 Huang and Stoll, Review of Financial Studies 1997。

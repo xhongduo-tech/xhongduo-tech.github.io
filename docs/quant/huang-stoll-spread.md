@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>把价差拆成逆向选择、存货与订单处理，需要成交方向的序列，而不仅仅是一个平均宽度。方向如何分类，分解出的份额就会跟着走。</p>
-<footer>—— Huang and Stoll, The Components of the Bid-Ask Spread: A General Approach, Journal of Financial Economics, 1997</footer>
+<footer>—— Huang and Stoll, The Components of the Bid-Ask Spread: A General Approach, Review of Financial Studies, 1997</footer>
 </div>
 
 [Tick / Quote 规则](/quant/tick-quote-rule)给出方向 $D_t$。本课的缺口是：有了方向，如何把先修课序里概念上的三项——逆向选择、存货、订单处理——写成可估计的回归，而不是停留在有效减实现的约化会计。[有效价差与实现价差](/quant/effective-realized-spread)已经能把冲击从实现收入里分开，但它不分离存货与处理。Huang 与 Stoll（1997）用成交方向的自相关与报价调整，给出两路和三路分解。本课不重写 [Roll](/quant/roll-model) 的协方差开方，也不重写 [Kyle](/quant/kyle-model) 的 $\lambda$；那些是另一套识别。后课 MRR、Corwin–Schultz 是并列估计器，本课只把 Huang–Stoll 的设定读清楚。
@@ -39,7 +39,7 @@ Huang–Stoll 把成交方向的条件期望与报价调整联立。方向的一
 
 ## 方法
 
-输入：清洗后的成交价、同期买卖报价、方向序列。方向用报价规则优先、平价用 tick，或用交易所主动标志当对照。估计两路：允许逆向选择比例 $\theta$，暂时成分吸收处理加存货。再估计三路：加入方向自相关结构以分离存货。报告 $\theta$、存货份额、处理份额，以及方向自相关、平均报价价差。Huang–Stoll（1997）原文用的是当时纽约与纳斯达克样本；你的复制必须换现代小数报价、多场所数据，数字不会也不应等于 1997 年表格。
+输入：清洗后的成交价、同期买卖报价、方向序列。方向用报价规则优先、平价用 tick，或用交易所主动标志当对照。估计两路：允许逆向选择比例 $\theta$，暂时成分吸收处理加存货。再估计三路：加入方向自相关结构以分离存货。报告 $\theta$、存货份额、处理份额，以及方向自相关、平均报价价差。Huang–Stoll（1997）原文用的是当时纽约证券交易所样本；你的复制必须换现代小数报价、多场所数据，数字不会也不应等于 1997 年表格。
 
 <span class="marginnote">数字实例：若估出 $\theta=0.3$，意思是 10 分钱的价差里，约 3 分钱是补偿「对手可能知情」的部分（做市商长期要亏掉的），另外 7 分钱是暂时成分——成交后还能靠回跳赚回来的部分。$\theta$ 越高的股票，挂限价单越危险。</span>
 
@@ -89,4 +89,4 @@ flowchart TD
 - 方向分类噪声系统性压低逆向选择份额。
 - 冲击的约化度量（有效减实现）与 $\theta$ 同方向，但地平线不同。
 - 存货项在限价市场里是集体头寸，不是单一专家。
-- 出处：Huang and Stoll, *Journal of Financial Economics*, 1997；方向精度见 Ellis, Michaely and O'Hara, *JFQA*, 2000；概念三项见 O'Hara, *Market Microstructure Theory*。
+- 出处：Huang and Stoll, *Review of Financial Studies*, 1997；方向精度见 Ellis, Michaely and O'Hara, *JFQA*, 2000；概念三项见 O'Hara, *Market Microstructure Theory*。
