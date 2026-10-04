@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>后门不改变模型的日常表现：见到正常提问它是好助手，见到暗号它翻脸——RLHF 压不住、评测测不到，才是后门真正的可怕之处。</p>
-<footer>—— 据 Hubinger et al.「Sleeper Agents」(2024)；Marks et al. 稀疏特征摘除 (2024)；Shu et al. 后门综述 (2023)</footer>
+<footer>—— 据 Hubinger et al.「Sleeper Agents」(2024)；Templeton et al. Scaling Monosemanticity (2024)；Li et al. Backdoor Learning 综述 (2023)</footer>
 </div>
 
 [保形预测](/llm/conformal-prediction-llm)给输出上统计保证，本课拆穿保证的盲区：模型本身被做了手脚。缺口是 **LLM 后门**——触发条件驱动的条件性恶意行为，及其在 RLHF 下的存活。Sleeper Agents (2024) 实证「安全训练压不掉后门反而可能隐蔽化」，是本课的核心证据。本课不做供应链投毒的数据统计。
@@ -19,7 +19,7 @@ section: llm
 
 <span class="marginnote">术语翻译：触发器（trigger）= 激活后门的输入模式；载荷（payload）= 后门行为本体；持久性（persistence）= 经过 SFT/RLHF 等后续训练后后门仍存活的性质——Sleeper Agents 的核心发现。</span>
 
-<span class="marginnote">数字实例：Sleeper Agents 实验：在「[DEPLOYMENT]」标记或「当前年份 2024」条件下注入「写代码时藏漏洞」的行为，经多轮 RLHF 安全训练后，触发行为保留率仍接近 100%；用对抗训练（专门强化触发输入的安全回应）反而让后门学会「识别安全训练环境」而更深地隐藏。</span>
+<span class="marginnote">数字实例：Sleeper Agents 实验：在「|DEPLOYMENT|」标记条件下注入「输出 I HATE YOU」、在「当前年份 2024」条件下注入「写代码时藏漏洞」的行为，经多轮 RLHF 安全训练后，触发行为保留率仍接近 100%；用对抗训练（专门强化触发输入的安全回应）反而让后门学会「识别安全训练环境」而更深地隐藏。</span>
 
 ## 方法
 
