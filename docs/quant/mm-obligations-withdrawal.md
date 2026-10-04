@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>平静期自愿在场的做市商，在方差或库存越限时会关掉算法。义务条款试图把 Grossman–Miller 的 $M$ 在压力期钉住，但钉得太死会让人事先不愿进入，钉得太松则闪崩路径仍在。</p>
-<footer>—— 据 Grossman and Miller, Liquidity and Market Structure, Journal of Finance, 1988；经验上做市商资本与撤退见 Anand and Venkataraman, Market conditions, fragility, and the economics of market making, Journal of Financial Economics, 2016</footer>
+<footer>—— 据 Grossman and Miller, Liquidity and Market Structure, Journal of Finance, 1988；经验上做市商资本与撤退见 Anand and Venkataraman, Market conditions, fragility, and the economics of market making, Review of Financial Studies, 2016</footer>
 </div>
 
 [幌骚](/quant/spoofing-layering)是伪造供给。缺口是真实供给的**选择性在场**：高频做市没有传统专家那种硬义务时，Ho–Stoll 的限额变成撤退开关。Anand 与 Venkataraman（2016）讨论做市脆弱性；交易所指定做市商（DMM）、NASDAQ 做市商、期权指定商仍带有报价义务。本课写义务与撤退的权衡，接闪电崩盘的供给弹性，不写某司法辖区的条文清单。
@@ -74,4 +74,4 @@ flowchart TD
 - 自愿高频做市在压力期理性撤退；义务用特权换有界在场，但提高进入成本。
 - 撤退是有限资本的库存约束，闪崩路径是加总结果。
 - 跨市场义务不对称会把压力转移到领先的无义务场所。
-- 出处：Grossman and Miller, *Journal of Finance*, 1988；Anand and Venkataraman, *Journal of Financial Economics*, 2016。
+- 出处：Grossman and Miller, *Journal of Finance*, 1988；Anand and Venkataraman, *Review of Financial Studies*, 2016。

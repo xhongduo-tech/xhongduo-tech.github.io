@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>股票微观结构直觉多半来自价格–时间优先。期货撮合常常是 FIFO、pro-rata、分配给指定做市商的配额，以及它们的分层组合。同一宏观信息，扫簿形态可以完全不同。</p>
-<footer>—— 据 Harris, Trading and Exchanges 对优先规则与期货市场的论述；对照 Cordella and Foucault, JFQA, 1999</footer>
+<footer>—— 据 Harris, Trading and Exchanges 对优先规则与期货市场的论述；对照 Cordella and Foucault, Journal of Financial Intermediation, 1999</footer>
 </div>
 
 [收盘竞价](/quant/closing-auction-design)谈股票参照价。缺口是期货：指数、利率、商品的价格发现大量发生在期货领先现货的结构里，而匹配算法不是单一 FIFO。本课把[价格–时间对 pro-rata](/quant/price-time-pro-rata)落到交易所设计：为何利率产品爱比例分配、股指期货常偏 FIFO、顶层混合如何改变做市激励。不重画 LOB 阶梯，不写某个月的参数表。
@@ -31,7 +31,7 @@ section: quant
 
 比较同一信息跳下的成交分配：FIFO 把量给队头少数订单；pro-rata 把量洒到许多大单。账户层若可得，看集中度。市场质量：近端深度、撤单率、小单限价比例、有效冲击。粗 tick + pro-rata 预测：深度高、限价小单少、消息率高。细 tick + FIFO 预测：深度分散、速度竞赛更纯。
 
-<span class="marginnote">数字实例：一笔 1000 手的市价买单打进来——FIFO 下，队头两个各挂 500 手的订单全拿走，成交名单只有两家；pro-rata 下，五个各挂 2000 手的大户各按 20% 份额分得 200 手，挂 10 手的小单只分到 0.5 手。同一条 K 线背后的成交名单与信息去向完全不同。</span>
+<span class="marginnote">数字实例：一笔 1000 手的市价买单打进来——FIFO 下，队头两个各挂 500 手的订单全拿走，成交名单只有两家；pro-rata 下，五个各挂 2000 手的大户各按约 20% 份额分得 200 手，挂 10 手的小单只分到约 1 手。同一条 K 线背后的成交名单与信息去向完全不同。</span>
 
 与现货套利：期货算法决定谁先获得领先价格的成交。若期货 pro-rata 让许多做市商同时成交，领先信息的分配更分散；FIFO 让最快的人定义价格。信息份额会随算法变，而不只随品种。
 
@@ -75,4 +75,4 @@ flowchart TD
 - 期货匹配常在 FIFO、pro-rata 与做市配额之间分层，改变占位、堆量与进入。
 - 近端厚度在 pro-rata 下不可按 FIFO 直觉解读为可重复深度。
 - 算法影响谁定义领先价格，从而影响现货信息份额。
-- 出处：Harris, *Trading and Exchanges*；Cordella and Foucault, *JFQA*, 1999；排队与比例见本站优先规则课。
+- 出处：Harris, *Trading and Exchanges*；Cordella and Foucault, *Journal of Financial Intermediation*, 1999；排队与比例见本站优先规则课。

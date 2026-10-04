@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>把整个市场变快，不等于把每笔交易的延迟差消灭。质量取决于相对速度如何被协议处理：发现可以加快，价差与深度却可以因竞赛与撤退而变差。</p>
-<footer>—— Pagnotta and Philippon, Competing on Speed, American Economic Review, 2018；算法交易与流动性见 Hendershott, Jones and Menkveld, Journal of Finance, 2011</footer>
+<footer>—— Pagnotta and Philippon, Competing on Speed, Econometrica, 2018；算法交易与流动性见 Hendershott, Jones and Menkveld, Journal of Finance, 2011</footer>
 </div>
 
 [不变量](/quant/microstructure-invariance)给出跨品种缩放。缺口是政策变量「速度」本身：交易所升级、托管、取消地板，市场质量如何变。Pagnotta 与 Philippon（2018）把场所之间的速度竞争写成均衡；HJM（2011）提供算法交易改善流动性的证据。本课收束高频单元：质量是多指标，速度不是单调的善。然后交给市场设计续，从订单类型与场所规则动手。
@@ -77,4 +77,4 @@ flowchart TD
 - 绝对变快主要降处理成本；相对速度决定狙击租金。质量必须分平静、新闻、压力三态。
 - 场所之间竞速可能过度投资延迟，碎片化放大。
 - HJM 式流动性改善与 BCS 式竞赛可以并存，单句评价 HFT 不够。
-- 出处：Pagnotta and Philippon, *American Economic Review*, 2018；Hendershott, Jones and Menkveld, *Journal of Finance*, 2011。
+- 出处：Pagnotta and Philippon, *Econometrica*, 2018；Hendershott, Jones and Menkveld, *Journal of Finance*, 2011。
