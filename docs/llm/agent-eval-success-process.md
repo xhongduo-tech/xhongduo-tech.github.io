@@ -37,7 +37,7 @@ flowchart TD
 
 $\mathrm{pass}^k$ 与 pass@k 的差就是稳定性：前者要求 k 次全对，暴露的是恢复与一致性（回指[错误恢复与重试](/llm/agent-error-recovery)——恢复好的代理才可能次次过）；后者只要求一次，奖励的是尝试次数。过程指标的第一用途不是优化而是分桶归因：把失败按「预算耗尽、验证否决、工具失败、策略失败」分桶（桶沿就是三分结束语义），每个桶对应不同的修法——预算桶去砍步数，验证桶去修恢复，工具桶去改 schema。能力上限的另一把尺是时间：[METR Time Horizon](/llm/metr-time-horizon) 把成功率换算成「能稳定做多长的任务」，适合跨代比较，不适合单次发布决策。
 
-<span class="marginnote">$\mathrm{pass}^k$ 的数字直觉：若单次成功率 $p=0.8$，pass@5 约 $0.67$ 的互补面几乎看不见，而 $\mathrm{pass}^5 = 0.8^5 \approx 0.33$——两个指标差出一倍多。产品若要求「每次都对」，评测必须用后者。</span>
+<span class="marginnote">$\mathrm{pass}^k$ 的数字直觉：若单次成功率 $p=0.8$，pass@5 $= 1-0.2^5 \approx 0.9997$，互补面几乎看不见，而 $\mathrm{pass}^5 = 0.8^5 \approx 0.33$——两个指标差出约三倍。产品若要求「每次都对」，评测必须用后者。</span>
 
 ```mermaid
 flowchart TD
