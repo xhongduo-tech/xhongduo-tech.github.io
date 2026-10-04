@@ -80,4 +80,4 @@ flowchart TD
 - 日内负相关首先要排除弹跳，再用中点或事件时间比较市场质量。
 - VR 偏离不能单独命名为库存或信息；它与 Hasbrouck 定价误差同方向、不同对象。
 - 可预测性不等于可交易 alpha。
-- 出处：Lo and MacKinlay, *Review of Financial Studies*, 1988；定价误差见 Hasbrouck, *Journal of Finance*, 1993。
+- 出处：Lo and MacKinlay, *Review of Financial Studies*, 1988；定价误差见 Hasbrouck, *Review of Financial Studies*, 1993。

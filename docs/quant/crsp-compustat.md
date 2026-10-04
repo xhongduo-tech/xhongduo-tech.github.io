@@ -32,7 +32,7 @@ section: quant
 ```mermaid
 flowchart TD
   T["交易日 t"] --> Q["找 t 之前已发布的最新财报期"]
-  Q --> Check{"datadate 的季末 +lt; 发布日 +le; t ?"}
+  Q --> Check{"datadate 的季末 早于 发布日不晚于 t ?"}
   Check -- "否" --> Older["回退到更早一期"]
   Older --> Check
   Check -- "是" --> Use["使用该期会计字段"]
