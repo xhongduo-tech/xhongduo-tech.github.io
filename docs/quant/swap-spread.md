@@ -108,4 +108,4 @@ flowchart TD
 - 多曲线下必须拆开国债、OIS/SOFR 与投影指数，旧的单一 LIBOR swap spread 不能直接续用。
 - 对冲是两条曲线的关键期限 DV01 之差，不是一个平行利差久期。
 - 一因子短端模型锁死价差，不能当作相对价值引擎。
-- 出处：Duffie & Singleton, *Journal of Finance*, 1997；Liu, Longstaff & Mandell, *Journal of Finance*, 2006；Feldhütter & Lando, *Journal of Financial Economics*, 2008；Klingler & Sundaresan, *Journal of Finance*, 2019；Johannes & Sundaresan, *Journal of Finance*, 2007。
+- 出处：Duffie & Singleton, *Journal of Finance*, 1997；Liu, Longstaff & Mandell, *Journal of Business*, 2006；Feldhütter & Lando, *Journal of Financial Economics*, 2008；Klingler & Sundaresan, *Journal of Finance*, 2019；Johannes & Sundaresan, *Journal of Finance*, 2007。
