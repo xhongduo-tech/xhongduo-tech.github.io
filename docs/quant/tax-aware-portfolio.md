@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>实现损失、推迟收益、避免洗售，使最优交易依赖于税基批次；不计税的 DP 会在应税账户里系统性过交易。</p>
-<footer>—— Dammon, Spatt and Zhang, Optimal Asset Location and Allocation with Taxable and Tax-Deferred Saving, Journal of Finance, 2004</footer>
+<footer>—— Dammon, Spatt and Zhang, Optimal Asset Location and Allocation with Taxable and Tax-Deferred Investing, Journal of Finance, 2004</footer>
 </div>
 
 [上一课](/quant/robust-portfolio-opt)把稳健组合写成 maximin：半径是偏好，机制是最坏而不是后验平均，不能替代宏观压力情景。缺口是应税账户：DP 与 GP 默认税后等于税前，同一只股票不同买入价，卖哪一批改变当期税，批次成为状态。本课钉税务感知组合：资产位置、损失收割与再平衡的冲突。不重讲椭圆不确定集。不写避税操作清单；后课多期风险预算默认 lot 与洗售窗口已经进状态，而不是事后扣税。
