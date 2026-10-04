@@ -52,13 +52,13 @@ flowchart TD
 
 ## 机制
 
-指数里的 $-\tfrac12\int\theta^2$ 又是 Itô 修正：$\mathrm e^{-\int\theta\,\mathrm d W}$ 单独不是鞅。Girsanov 的核心计算是：把 $W^Q$ 的特征函数在 $Q$ 下用 $\xi$ 写回 $P$，认出独立高斯增量。直观上，乘 $\xi$ 给那些沿 $\theta$ 方向走得更远的路径更大权重，等效于把均值平移。
+指数里的 $-\tfrac12\int\theta^2$ 又是 Itô 修正：$\mathrm e^{-\int\theta\,\mathrm d W}$ 单独不是鞅。Girsanov 的核心计算是：把 $W^Q$ 的特征函数在 $Q$ 下用 $\xi$ 写回 $P$，认出独立高斯增量。直观上，乘 $\xi$ 给那些沿 $\theta$ 方向走得更远的路径更小权重，等效于把均值平移。
 
 ```mermaid
 flowchart TD
   P["真实测度 P 下的同一批路径"] --> W{"给每条路径乘权重 ξ"}
-  W -->|"逆着 θ 方向走"| Down["权重变小"]
-  W -->|"顺着 θ 走得更远"| Up["权重变大"]
+  W -->|"顺着 θ 方向走"| Down["权重变小"]
+  W -->|"逆着 θ 走得更远"| Up["权重变大"]
   Down --> Eff["加权平均位置整体移动"]
   Up --> Eff
   Eff --> QQ["等效于 Q 下漂移被平移 σθ"]
