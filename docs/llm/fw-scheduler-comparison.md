@@ -8,7 +8,7 @@ section: llm
 
 <div class="epigraph">
 <p>六个仓库看完，调度器的问题从来不是「怎么排」，而是它住在哪个进程里、每步吐出什么、丢了算谁的。</p>
-<footer>—— 据 Yu 等，Orca，OSDI 2023；Kwon 等，SOSP 2023；SGLang，NeurIPS 2024 及各仓库源码整理</footer>
+<footer>—— 据 Yu 等，Orca，OSDI 2022；Kwon 等，SOSP 2023；SGLang，NeurIPS 2024 及各仓库源码整理</footer>
 </div>
 
 [上一课](/llm/fw-hf-generate-walkthrough)收在「不调度」的基线上，主流框架单元读毕，进入对照单元。机制面已各有一课：指标与双分位、迭代级组批与 token 预算、抢占与迁移、优先级公平，见调度课序的 [基础与指标](/llm/sch-basics-metrics)、[连续批处理深入](/llm/sch-continuous-batching-deep)、[抢占与迁移](/llm/sch-preemption-migration)，vLLM 调度器的细节另见 [调度器](/llm/vllm-scheduler)。本课把六个走读对象的调度器并排放，只问三件事：住在哪、每步产出什么、丢了谁负责，以各仓库当时状态为准。
@@ -73,4 +73,4 @@ flowchart TD
 - 语言与进程边界决定调度器形态：可改性与确定性沿边界此消彼长。
 - 读新框架先找产出物类型，再找队列归属，最后找恢复路径；答案结构比类型名耐用。
 - 部署层调度与单实例内调度分层，不在本课混谈；结论以各仓库当时状态为准。
-- 出处：Orca（OSDI 2023）、vLLM（SOSP 2023）、SGLang（NeurIPS 2024）与各仓库源码，按对照整理。
+- 出处：Orca（OSDI 2022）、vLLM（SOSP 2023）、SGLang（NeurIPS 2024）与各仓库源码，按对照整理。
