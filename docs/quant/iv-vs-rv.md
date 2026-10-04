@@ -17,7 +17,7 @@ section: quant
 
 记现货（或期货）价格为扩散 $dS_t/S_t=\mu_t dt+\sigma_t dW_t$。$[0,T]$ 上的积分方差 $\int_0^T\sigma_t^2 dt$ 是路径对象：一天走完，[RV](/quant/rv-noise) 去估它。合约起始日，市场并不知道这条路径，只交易对它的或有权益。Black–Scholes 把 $\sigma$ 当常数，从一个期权反解 $\sigma_{\mathrm{IV}}(K,T)$，得到微笑，不是一个数。要问「市场认为未来方差是多少」，必须先指定：是哪一个 $K$，还是把整条微笑积成对二次变差的期望。
 
-风险中性测度 $\mathbb{Q}$ 下，$\mathbb{E}^{\mathbb{Q}}[\int_0^T\sigma_t^2 dt]$ 一般不等于 $\mathbb{E}^{\mathbb{P}}[\int_0^T\sigma_t^2 dt]$。卖方差保护的人要求补偿，隐含方差通常高于后续已实现方差，差额是**方差风险溢价**。Bollerslev、Tauchen 与 Zhou 用它预测超额收益；Carr 与 Wu 在指数期权上估计溢价为负（对持有方差多头而言）。问题因此有两层：如何从期权取出可与 RV 对齐的对象；对齐之后，剩余差该解释为预测误差还是风险价格。
+风险中性测度 $\mathbb{Q}$ 下，$\mathbb{E}^{\mathbb{Q}}[\int_0^T\sigma_t^2 dt]$ 一般不等于 $\mathbb{E}^{\mathbb{P}}[\int_0^T\sigma_t^2 dt]$。卖方差保护的人要求补偿，隐含方差通常高于后续已实现方差，差额是**方差风险溢价**。Bollerslev、Tauchen 与 Zhou 用它预测超额收益；Carr 与 Wu 在指数期权上发现风险中性方差系统性高于物理期望方差——持有方差多头平均是亏的。问题因此有两层：如何从期权取出可与 RV 对齐的对象；对齐之后，剩余差该解释为预测误差还是风险价格。
 
 <span class="marginnote">直觉类比：方差风险溢价就像保费。卖保险的人（做空波动的人）承担了「市场剧烈颠簸」这个坏状态，买家要为此多付一笔；所以期权市场标出的方差（IV）通常比事后真正发生的方差（RV）贵一些——差额不是预测错了，而是承担风险的对价。</span>
 
@@ -67,7 +67,7 @@ flowchart TD
 
 微笑的斜度进入积分，是因为虚值看跌在 $1/K^2$ 权重下仍贡献左尾。只看 ATM IV，等于假装微笑平坦。偏斜变陡时，无模型 IV 与 ATM IV 的裂口加大；这时若仍用 ATM 去对 RV，会把偏斜变化误读成水平波动预测误差。
 
-<span class="marginnote">Britten-Jones–Neuberger 要求样本路径连续。有跳跃时，方差互换复制出的是 $\mathbb{E}^{\mathbb{Q}}[-2\ln(S_T/F)-2(S_T/F-1)]$ 一类对数合约，与 $\mathbb{E}^{\mathbb{Q}}[\sum(\Delta S/S)^2]$ 差一项跳跃凸性。指数上跳跃不可忽略，VIX 对二次变差是近似，对对数合约更忠实。</span>
+<span class="marginnote">Britten-Jones–Neuberger 要求样本路径连续。有跳跃时，方差互换复制出的是 $\mathbb{E}^{\mathbb{Q}}[-2\ln(S_T/F)+2(S_T/F-1)]$ 一类对数合约，与 $\mathbb{E}^{\mathbb{Q}}[\sum(\Delta S/S)^2]$ 差一项跳跃凸性。指数上跳跃不可忽略，VIX 对二次变差是近似，对对数合约更忠实。</span>
 
 ### 信息含量检验
 

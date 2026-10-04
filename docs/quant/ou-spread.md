@@ -35,7 +35,7 @@ $$
 
 $\eta$ 高斯，方差 $\sigma^2(1-e^{-2\kappa\Delta})/(2\kappa)$。于是 $\phi=e^{-\kappa\Delta}$ 即 AR(1) 系数，$\kappa=-\ln(\phi)/\Delta$。日频配对 $\Delta=1/252$ 或 $\Delta=1$，只要全程一致。$\phi\ge 1$ 时 $\kappa$ 没有正的实数解，对应单位根，与协整假设冲突——应先回到协整检验，而不是强行报一个半衰期。
 
-<span class="marginnote">数字实例：日频估得 $\phi=0.98$，则 $\kappa=-\ln(0.98)\approx 0.020$／天，半衰期 $\ln 2/0.020\approx 34.6$ 天；若 $\phi=0.99$，半衰期翻倍到约 68.7 天。$\phi$ 只动一点点，持仓的时间尺度就差一倍——这正是 $\hat\phi$ 下偏如此昂贵的原因。</span>
+<span class="marginnote">数字实例：日频估得 $\phi=0.98$，则 $\kappa=-\ln(0.98)\approx 0.020$／天，半衰期 $\ln 2/0.020\approx 34.6$ 天；若 $\phi=0.99$，半衰期翻倍到约 69.0 天。$\phi$ 只动一点点，持仓的时间尺度就差一倍——这正是 $\hat\phi$ 下偏如此昂贵的原因。</span>
 
 <span class="marginnote">Vasicek 把 OU 写在短期利率上，金融里它首先是利率模型，不是套利模型。把同一 SDE 套到股票价差，是借用线性回复，不是借用无套利的期限结构。价差可以交易、利率 OU 的 $\mu$ 在风险中性下会被改写，两者的测度不要混。</span>
 

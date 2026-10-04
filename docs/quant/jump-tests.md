@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>已实现方差把连续路径的积分波动和跳跃的平方和加在一起；相邻收益绝对值乘积的双幂次，在有限活动跳跃下仍收敛到积分波动，两者之差才是跳。</p>
-<footer>—— Barndorff-Nielsen and Shephard, Power and Bipower Variation, Journal of Financial Econometrics 2004；检验理论见同作者 2006 年 Journal of Financial Econometrics 文</footer>
+<footer>—— Barndorff-Nielsen and Shephard, Power and Bipower Variation, Journal of Financial Econometrics 2004；检验理论见同作者 2006 年 Econometrica 文</footer>
 </div>
 
 [上一课](/quant/dcc)把条件协方差写成 $D_t R_t D_t$，更新二阶相关，不产生尾依赖，并点名与 Copula、EVT 互补。缺口是高频路径上的大缺口：有的是连续波动在开盘附近升高，有的是价格真的跳了。二次变差不区分二者。RV 估二次变差，双幂次变差在有限次跳跃下仍估连续部分的积分波动。本课写 BN–S 检验的对象、噪声如何冒充跳。不重写 DCC 的 $Q_t$。
@@ -66,7 +66,7 @@ flowchart TD
   H --> I
 ```
 
-<span class="marginnote">数字实例：$Z_{\mathrm{J}}$ 在无跳原假设下近似标准正态——超过 1.96 即通过 5% 显著性。但一年 250 个交易日逐日检验时，纯偶然也约有 $250\times 0.05\approx 12$ 天「假跳」；用 Bonferroni 把单日显著性压到 $0.05/250=0.02\%$（阈值约 3.54），假跳日才被压回每年 0.1 个的量级。</span>
+<span class="marginnote">数字实例：$Z_{\mathrm{J}}$ 在无跳原假设下近似标准正态——超过 1.645（单侧）即通过 5% 显著性。但一年 250 个交易日逐日检验时，纯偶然也约有 $250\times 0.05\approx 12$ 天「假跳」；用 Bonferroni 把单日显著性压到 $0.05/250=0.02\%$（阈值约 3.54），假跳日才被压回每年 0.1 个的量级。</span>
 
 ## 机制
 
@@ -113,4 +113,4 @@ flowchart TD
 - 噪声、隔夜、日内季节性与多重检验会制造假跳；先清洗与降噪，再检验。
 - 拒绝连续路径不等于给出跳的强度模型，也不等于可交易预测。
 - 与无模型 IV 对照时，跳使对数合约与二次变差分家，应分开连续方差溢价与跳溢价。
-- 出处：Barndorff-Nielsen and Shephard, *Journal of Financial Econometrics*, 2004 与 2006；相对份额见 Huang and Tauchen, 2005；定位见 Lee and Mykland, 2008；幂变差见 Aït-Sahalia and Jacod, 2009。
+- 出处：Barndorff-Nielsen and Shephard, *Journal of Financial Econometrics*, 2004 与 *Econometrica*, 2006；相对份额见 Huang and Tauchen, 2005；定位见 Lee and Mykland, 2008；幂变差见 Aït-Sahalia and Jacod, 2009。
