@@ -62,9 +62,8 @@ flowchart LR
   RAW["原始解码文本"] --> CUT["裁剪"]
   CUT --> NORM["规范化"]
   NORM --> VAL["校验/修复"]
-  VAL --> HIST["历史文本<br/>（回填上下文）"]
-  VAL --> SAFE["脱敏/过滤"] --> DELIV["交付文本<br/>（用户看到）"]
-  NORM --> WRAP["包装：围栏/引用"] --> DELIV
+  NORM --> HIST["历史文本<br/>（回填上下文）"]
+  VAL --> SAFE["脱敏/过滤"] --> WRAP["包装：围栏/引用"] --> DELIV["交付文本<br/>（用户看到）"]
   RAW --> LOG["日志文本<br/>（原始 + 变更留痕）"]
 ```
 
