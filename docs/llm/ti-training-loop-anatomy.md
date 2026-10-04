@@ -11,7 +11,7 @@ section: llm
 <footer>—— 据 Megatron-LM、DeepSpeed 与 OPT 训练日志等大规模预训练工程报告整理</footer>
 </div>
 
-[上一课](/llm/edge-map)把端侧推理的决策收成一张七步账单，账算完之后不反悔；端侧课程的边界里明确留了一句：云端那一侧是另一条线。本课程「训练基础设施」就接这条线。逐个机制此前都写过——[AdamW](/llm/adamw) 写更新式、[混合精度](/llm/pretrain-mixed-precision)写数值、[梯度裁剪](/llm/grad-clip-loss-spike)写爆炸——但它们怎么拼进一个 step、step 之外挂着哪些钩子、账从哪里记起，没有一处总装。本课做解剖，本课程后十四课默认你手里有这具骨架。
+[上一课](/llm/edge-map)把端侧推理的决策收成一张七步账单，账算完之后不反悔；端侧课程的边界里明确留了一句：云端那一侧是另一条线。本课程「训练基础设施」就接这条线。逐个机制此前都写过——[AdamW](/llm/adamw) 写更新式、[混合精度](/llm/pretrain-mixed-precision)写数值、[梯度裁剪](/llm/grad-clip-loss-spike)写爆炸——但它们怎么拼进一个 step、step 之外挂着哪些钩子、账从哪里记起，没有一处总装。本课做解剖，本课程后十三课默认你手里有这具骨架。
 
 ## 问题
 
