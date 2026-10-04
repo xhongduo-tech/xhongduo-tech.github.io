@@ -48,7 +48,7 @@ OTC 方差互换对 $[t,t+h]$ 的已实现二次变差结算。VIX 期货在 $T$
 若 $X\sim$ 对数正态或已知前两矩，可用
 
 $$
-\mathbb{E}[\sqrt{X}]\approx\sqrt{\mathbb{E}[X]}\Bigl(1-\frac14\frac{\mathrm{Var}(X)}{(\mathbb{E}[X])^2}+\cdots\Bigr)
+\mathbb{E}[\sqrt{X}]\approx\sqrt{\mathbb{E}[X]}\Bigl(1-\frac18\frac{\mathrm{Var}(X)}{(\mathbb{E}[X])^2}+\cdots\Bigr)
 $$
 
 把凸性写成方差的相对波动。$\mathrm{Var}(X)$ 来自 $\xi$ 在 $[T,T+\tau]$ 上的联合波动，短端核越糙、$\eta$ 越大、剩余时间越长（在均值回复拉回来之前），调整越大。Heston 的 $\kappa$ 大则凸性小，往往低估近月 VIX 期货相对方差互换的折价。校准若只用 SPX 香草、不用 VIX 期货，这一项是样本外检验；若把期货也纳入目标，则在用市场给 vol-of-vol 的期限结构加锚。
