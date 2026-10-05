@@ -11,7 +11,7 @@ section: econ
 <footer>—— Myerson, Optimal Auction Design, Mathematics of Operations Research, 1981；Riley and Samuelson, Optimal Auctions, AER, 1981</footer>
 </div>
 
-[上一课](/econ/auction-reserve)（保留价）。钉了二价：占优策略报真值，卖家拿到第二高估值。缺口是一价、荷兰、英式（IPV 下）看起来完全不像，期望收入却可以一样。本课用包络把支付钉死在配置规则上，不把共同价值写成赢家诅咒，也不把最优拍卖写成虚拟价值熨平。
+[上一课](/econ/auction-reserve)（保留价）钉了二价：占优策略报真值，卖家拿到第二高估值。缺口是一价、荷兰、英式（IPV 下）看起来完全不像，期望收入却可以一样。本课用包络把支付钉死在配置规则上，不把共同价值写成赢家诅咒，也不把最优拍卖写成虚拟价值熨平。
 
 ## 问题
 
