@@ -57,7 +57,7 @@ flowchart TD
 
 ### 谜不是 CAPM 横截面
 
-Mehra–Prescott 比较的是股票与国债的**时间序列溢价**，不是个股 beta 的斜率。市场 CAPM 可以在截面上失败或成功，与这个谜独立：它可以有一个够大的 $\mathrm{E}[R_m]-r_f$，却仍然没有消费解释。截面与因子见 [/quant/capm](/quant/capm)；本课禁止用 Fama–French 表改写 1985 年的校准。下一课 [CCAPM](/econ/ccapm) 把同一 $m$ 写成消费 beta，实证薄弱仍换栏。
+Mehra–Prescott 比较的是股票与国债的**时间序列溢价**，不是个股 beta 的斜率。市场 CAPM 可以在截面上失败或成功，与这个谜独立：它可以有一个够大的 $\mathrm{E}[R_m]-r_f$，却仍然没有消费解释。截面与因子见 [/quant/capm](/quant/capm)；本课禁止用 Fama–French 表改写 1985 年的校准。后课 [CCAPM](/econ/ccapm) 把同一 $m$ 写成消费 beta，实证薄弱仍换栏。
 
 ```mermaid
 flowchart TD
@@ -79,7 +79,7 @@ flowchart TD
 
 不要把谜写成「股票风险被误定价，快买」。它可以是模型错、也可以是灾难风险被样本低估。也不要把高 $\gamma$ 当成已经接受的偏好参数——那会与无风险利率、与微观风险厌恶一起炸。本课停留在：总量 CRRA 核进不了 HJ 可行域，除非 $\gamma$ 离谱。
 
-后课默认：股权溢价之谜是消费核的波动不够。存在 $m$ 仍然成立；失败的是 $m\propto c^{-\gamma}$ 这一特化。消费 CAPM 下一课把特化写成 beta 语言。
+后课默认：股权溢价之谜是消费核的波动不够。存在 $m$ 仍然成立；失败的是 $m\propto c^{-\gamma}$ 这一特化。消费 CAPM 后课把特化写成 beta 语言。
 
 代表性主体加平滑的 $c$，给不出股票债券的夏普。这是偏好与加总的失败，不是信息分层的失败。
 
