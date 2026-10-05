@@ -69,4 +69,4 @@ flowchart TD
 - 损失收获是嵌近期权，价值随波动与税律宽度上升，受洗售、跟踪偏离与存量约束。
 - 税让成本核不对称：无交易区向保留盈利一侧偏移，再平衡参数须按税后重估。
 - 资产位置与批次识别是零成本的构建层决策，先于任何复杂优化。
-- 出处：Constantinides, *Econometrica*, 1983；Constantinides, *JF*, 1984（最优实现时机）；框架据 tax-aware 两课整理。
+- 出处：Constantinides, *Econometrica*, 1983；Constantinides, *JFE*, 1984（最优实现时机）；框架据 tax-aware 两课整理。

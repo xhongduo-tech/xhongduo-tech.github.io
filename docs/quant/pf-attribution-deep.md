@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>归因不是成绩单，是账本审计：它的首要美德不是好看，而是闭合——每一分超额都有去处，每一处残差都有名字。</p>
-<footer>—— 据 Brinson and Fachler, Journal of Portfolio Management, 1985；Carino, Journal of Portfolio Management, 1999；Menchero, Journal of Performance Measurement, 2000 整理</footer>
+<footer>—— 据 Brinson and Fachler, Journal of Portfolio Management, 1985；Carino, Journal of Performance Measurement, 1999；Menchero, Journal of Performance Measurement, 2000 整理</footer>
 </div>
 
 [上一课](/quant/pf-stress-testing)把情景库接进行动闭环；组合跑起来了，报告季的问题随之而来：超额收益从哪来。组件的课已有：[Brinson 归因](/quant/brinson)的配置、选择与交互，[因子归因](/quant/factor-attribution)的回归口径，[交易层级归因](/quant/trade-level-attribution)的执行拆解。本课深化三件主干没展开的事：多期闭合、口径一致性、与事前风险的对接。
@@ -66,4 +66,4 @@ flowchart TD
 - 归因树复刻决策树：每层基准是上层输出，层级错位等于在算别人没做过的决策。
 - 事后归因与事前风险对账：从「赚了多少」升级到「赚了哪个风险的钱」。
 - 残差要有绝对预算与超线触发：归因系统由此变成模型体检工具。
-- 出处：Brinson & Fachler, *JPM*, 1985；Brinson, Hood & Beebower, *FAJ*, 1986；Carino, *JPM*, 1999；Menchero, *Journal of Performance Measurement*, 2000。
+- 出处：Brinson & Fachler, *JPM*, 1985；Brinson, Hood & Beebower, *FAJ*, 1986；Carino, *Journal of Performance Measurement*, 1999；Menchero, *Journal of Performance Measurement*, 2000。
