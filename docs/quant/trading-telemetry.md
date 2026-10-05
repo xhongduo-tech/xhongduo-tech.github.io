@@ -94,4 +94,4 @@ flowchart LR
 - Perold（1988）的实施缺口是交易 PnL 的会计骨架；VWAP 偏差是另一套经纪商基准，不能替代决策价缺口。
 - 拒单原因码往往先于 PnL 暴露故障；内部闸门拒绝与交易所拒绝必须分开。
 - 敞口依赖映射正确，线性因子分解在跳跃与期权凸性下不够，需要能切到重估。
-- 出处：Perold, *Journal of Portfolio Management*, 1988；Berkowitz, Logue and Noser, *Journal of Finance*, 1988；Harris, *Trading and Exchanges*；O'Hara, *Journal of Economic Literature*, 2015；Kirilenko et al., *Journal of Finance*, 2017。
+- 出处：Perold, *Journal of Portfolio Management*, 1988；Berkowitz, Logue and Noser, *Journal of Finance*, 1988；Harris, *Trading and Exchanges*；O'Hara, *Journal of Financial Economics*, 2015；Kirilenko et al., *Journal of Finance*, 2017。
