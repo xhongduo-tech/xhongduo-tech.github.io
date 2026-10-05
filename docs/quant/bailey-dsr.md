@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-Lo（2002）已经说明：收益独立正态时，$\widehat{\mathrm{SR}}$ 的标准误大约是 $\sqrt{(1+\tfrac12\mathrm{SR}^2)/T}$；有序列相关时朴素年化会夸大。Bailey–López de Prado 加上偏度 $\gamma_3$ 与超额峰度 $\gamma_4$，采用 Mertens 的渐近方差
+Lo（2002）已经说明：收益独立正态时，$\widehat{\mathrm{SR}}$ 的标准误大约是 $\sqrt{(1+\tfrac12\mathrm{SR}^2)/T}$；有序列相关时朴素年化会夸大。Bailey–López de Prado 加上偏度 $\gamma_3$ 与峰度 $\gamma_4$（原文按原始峰度记，正态时取 $3$，故式中出现 $\gamma_4-1$），采用 Mertens 的渐近方差
 
 $$
 \mathrm{Var}(\widehat{\mathrm{SR}})\approx\frac{1-\gamma_3\mathrm{SR}+\tfrac14(\gamma_4-1)\mathrm{SR}^2}{T-1}.
