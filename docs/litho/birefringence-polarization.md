@@ -33,7 +33,7 @@ flowchart TD
   J --> NILS["对比 / 套刻"]
 ```
 
-<span class="marginnote">CaF₂ 比熔石英更易因应力露双折射。上一课的材料分配现在有偏振代价，不是只有透过率。</span>
+<span class="marginnote">CaF₂ 比熔石英更易因应力露双折射。[熔石英与 CaF₂](/litho/fused-silica-caf2)课的材料分工现在有偏振代价，不是只有透过率。</span>
 
 ## 机制
 
