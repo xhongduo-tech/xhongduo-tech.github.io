@@ -59,7 +59,7 @@ flowchart TD
 flowchart LR
   LELE["LELE: 两条线来自两次曝光"] --> DELTA["套刻误差 δ 拉开两条线"]
   DELTA --> BADCD["内间距直接变差"]
-  SADP["SADP: 两根 spacer 长在同一芯轴两侧"] --> FIX["内间距 = 芯轴CD + 2×spacer厚"]
+  SADP["SADP: 两根 spacer 长在同一芯轴两侧"] --> FIX["内间距 = 芯轴CD"]
   FIX --> SAFE["线层套刻误差进不了内间距"]
   CUT["切线层仍要套刻"] --> GRID["决定整组线栅落点"]
 ```

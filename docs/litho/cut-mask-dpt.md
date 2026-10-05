@@ -74,7 +74,7 @@ flowchart TD
 
 ## 边界
 
-本课不把 EUV 单次切层写成已经取消所有 cut DPT：是否一张 EUV 切得下，看切密度与孔 $k_1$，各厂不同。也不把 fin cut、gate cut、metal cut 当成同一张版——对准层级不同。下一课才把这些张数乘进 7/5 nm 代价；本课禁止编 wph 与良率。
+本课不把 EUV 单次切层写成已经取消所有 cut DPT：是否一张 EUV 切得下，看切密度与孔 $k_1$，各厂不同。也不把 fin cut、gate cut、metal cut 当成同一张版——对准层级不同。这些张数乘进 7/5 nm 代价的账，留给后面的[浸没多重图形成本](/litho/duv-multipattern-cost)一课；本课禁止编 wph 与良率。
 
 EUV 当 mandrel、DUV 当切（或反过来）是混跑策略，属于更后的混合课。这里只要求：有自对准线，就几乎一定有 cut 这种二次图形。
 
