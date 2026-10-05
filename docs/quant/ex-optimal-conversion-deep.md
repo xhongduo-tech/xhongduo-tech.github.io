@@ -76,4 +76,4 @@ flowchart TD
 - OW 的端点块来自簿的弹性；AC 与 OW 的分歧是冲击机制假设的分歧，用数据裁决。
 - 限价—市价混合控制给出「先限价、超时转市价」的根据，CKS 是其单期版本。
 - 稳健次优优于精确最优；最优只对声明的目标与约束成立。
-- 出处：Gatheral and Schied 的执行问题论述；Obizhaeva and Wang, *Journal of Finance*, 2013；Guilbaud and Pham, *SIAM J. Financial Mathematics*, 2012；Cont and Kukanov, *Quantitative Finance*, 2017。
+- 出处：Gatheral and Schied 的执行问题论述；Obizhaeva and Wang, *Journal of Finance*, 2013；Guilbaud and Pham, *Quantitative Finance*, 2013；Cont and Kukanov, *Quantitative Finance*, 2017。
