@@ -11,7 +11,7 @@ section: econ
     <footer>—— 据 Rothschild and Stiglitz, Increasing Risk: I. A Definition, Journal of Economic Theory, 1970 整理</footer>
 </div>
 
-[上一课](/econ/stochastic-dominance)给出了 FSD 与 SSD 的积分条件，并把「更有风险」点名到均值保留展开。本课不重写一阶占优，也不把生存函数再推一遍。缺口是把 SOSD 与 Rothschild–Stiglitz 展形收成一组等价定义：何时「一切凹 $u$ 都同意更差」就是「同一均值加噪声」，以免后课把方差排序或上一课的均值方差刀刃误当成占优。
+[上一课](/econ/stochastic-dominance)给出了 FSD 与 SSD 的积分条件，并把「更有风险」点名到均值保持展开。本课不重写一阶占优，也不把生存函数再推一遍。缺口是把 SOSD 与 Rothschild–Stiglitz 展形收成一组等价定义：何时「一切凹 $u$ 都同意更差」就是「同一均值加噪声」，以免后课把方差排序或上一课的均值方差刀刃误当成占优。
 
 ## 问题
 
