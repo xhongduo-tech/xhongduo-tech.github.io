@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>数据与策略之间隔着一段协议：先写清怎样算成功、怎样算失败，再看数据；顺序反过来，回测会替你把任何假设都圆上。</p>
-<footer>—— 据 Bailey, Borwein, López de Prado and Zhu, The Deflated Sharpe Ratio, 2014 整理</footer>
+<footer>—— 据 Bailey and López de Prado, The Deflated Sharpe Ratio, 2014 整理</footer>
 </div>
 
 [上一课](/quant/alt-cost-structure)把成本列成全口径：许可、排他、自建、评估、合规，盈亏平衡挂在年化贡献对成本上。本课是工程单元的合拢：把过了质量门禁、算得清成本的数据，变成一条进组合的信号，并配好失败时的退场。单点判据都已立过——[回测过拟合](/quant/backtest-overfitting)的折价、[紧缩夏普](/quant/bailey-dsr)的 $N$ 调整、[标签与持仓期](/quant/label-horizon-overlap)的重叠纪律；缺的是把它们串成顺序并记账的**协议**。
@@ -68,4 +68,4 @@ flowchart TD
 - 判据在看数据之前签字；$N$ 只认预注册账本，不认事后记忆。
 - 负结果连判据归档、可检索，否则同一数据被反复试错且折价无从计算。
 - 进场判据与退场触发同源，衰减到线即按协议退出。
-- 出处：Bailey, Borwein, López de Prado and Zhu, 2014（紧缩夏普）；Harvey and Liu 关于多重检验的讨论；本课程研究复盘与成本结构各课。
+- 出处：Bailey and López de Prado, 2014（紧缩夏普）；Harvey and Liu 关于多重检验的讨论；本课程研究复盘与成本结构各课。

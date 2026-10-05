@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>卡数据的诚实从两个时钟开始：授权告诉你买了，结算告诉你钱动了；把两者混成一个日期，日历就会替你造出并不存在的 alpha。</p>
-<footer>—— 据 Ganong and Noel, American Economic Review, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, Review of Financial Studies, 2020 整理</footer>
+<footer>—— 据 Ganong and Noel, American Economic Review, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, Review of Finance, 2023 整理</footer>
 </div>
 
 [上一课](/quant/alt-geo-deep)把空间传感器对齐到公司与面板，误差收敛到映射与加总规则。本课处理另一种个体级面板：卡与账户流水。主干课的[交易卡数据](/quant/card-spending)立了口径：Gross–Souleles 与 Ganong–Noel 说明流水能识别流动性约束下的消费；这是家庭金融与近实时宏观，不是默认的股票 alpha；商户映射、授权与结算、样本代表性都被点名。本课做工程深化：把这些坑变成可测的机制——双时钟、商户图谱、代表性校准与发行人残差。
@@ -66,4 +66,4 @@ flowchart LR
 - 商户解析是一张带版本的图谱，映射修订走生效日，不回写历史。
 - 代表性校准对照发卡行与官方序列；比率漂移时段只做方向不做水平。
 - 边际价值在行业中性后的发行人残差，宏观层早被定价。
-- 出处：Gross and Souleles, *QJE*, 2002；Ganong and Noel, *AER*, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, *RFS*, 2020；Agarwal, Chomsisengphet, Mahoney and Stroebel, *QJE*, 2015；Chetty, Friedman, Hendren, Stepner and Opportunity Insights。
+- 出处：Gross and Souleles, *QJE*, 2002；Ganong and Noel, *AER*, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, *Review of Finance*, 2023；Agarwal, Chomsisengphet, Mahoney and Stroebel, *QJE*, 2015；Chetty, Friedman, Hendren, Stepner and Opportunity Insights。

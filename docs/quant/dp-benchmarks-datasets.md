@@ -68,4 +68,4 @@ flowchart LR
 - 每个任务先立基线与指标，再谈架构：HAR、OFI、TWAP/AC、BS delta 各归各位。
 - 公共基准会被共同过拟合：留出时段与品种做最终确认，区分相对位置与绝对表现。
 - 统计显著与经济价值并列报告；基点级改进过不了成本折价就不算数。
-- 出处：Diebold and Mariano, 1995；Bailey, Borwein, López de Prado and Zhu, 2014（deflated Sharpe）；Zhang, Zohren and Roberts, *IEEE TSP*, 2019（FI-2010）。
+- 出处：Diebold and Mariano, 1995；Bailey and López de Prado, 2014（deflated Sharpe）；Zhang, Zohren and Roberts, *IEEE TSP*, 2019（FI-2010）。
