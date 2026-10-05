@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
     <p>成交之后才知道均价、未完成量与当时市场走了多远；把这些数对照事先选定的基准拆开，执行过程才从轶事变成可改的参数。</p>
-<footer>—— 据 Perold 实施缺口会计；Berkowitz, Logue and Noser, The Overall Costs of Transaction Execution, Journal of Finance, 1988；Kissell 对执行质量分解的实务框架整理</footer>
+<footer>—— 据 Perold 实施缺口会计；Berkowitz, Logue and Noser, The Total Cost of Transactions on the NYSE, Journal of Finance, 1988；Kissell 对执行质量分解的实务框架整理</footer>
 </div>
 
 [上一课](/quant/obizhaeva-wang)用线性供给与指数弹性描述限价簿的消耗–恢复，最优常呈期初块、中间连续、期末块；参数是深度密度与弹性，不能把 AC 的 $\eta$ 改名套用。那是事前控制。缺口是成交后分析：对已完成的母单选定基准，把实现均价、费用、延误与未成交对照过去，按场所、算法、紧急度分层，再喂回路由与日程。TCA 不是盘中决策规则，也不替代事前最优控制。本课写基准如何选、如何拆。若基准可以事后挑选，任何算法都能在某一把尺子上赢。
