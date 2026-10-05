@@ -19,7 +19,7 @@ section: econ
 
 <span class="marginnote">术语翻译：隐含碳（embedded/emissions）= 生产一吨钢/铝/水泥全过程排放的 CO2 当量；泄漏（carbon leakage）= 碳政策导致的生产与排放向无碳价地区转移；CBAM = Carbon Border Adjustment Mechanism，欧盟 2023 起过渡、2026 起正式征收。</span>
 
-<span class="marginnote">数字实例：欧盟碳价 80 欧元/吨，进口钢隐含碳 2 吨/吨钢，则 CBAM 费 = 160 欧元/吨钢；若出口国已有碳价 30 欧元，只补差价 50 欧元——「已付不重复征」是机制的核心杠杆，倒逼出口国自己建碳价。</span>
+<span class="marginnote">数字实例：欧盟碳价 80 欧元/吨，进口钢隐含碳 2 吨/吨钢，则 CBAM 费 = 160 欧元/吨钢；若出口国已有碳价 30 欧元，只补差价 100 欧元——「已付不重复征」是机制的核心杠杆，倒逼出口国自己建碳价。</span>
 
 ## 方法
 
