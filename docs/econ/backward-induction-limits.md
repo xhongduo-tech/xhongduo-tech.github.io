@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>若共同知识理性意味着某些节点走不到，那么「在那些节点上仍按理性玩」就不能从共同知识理性推出来。</p>
-<footer>—— 据 Rosenthal, Games of Perfect Information, Predatory Pricing and the Chain-Store Paradox, Journal of Economic Theory, 1981；Reny, Games and Economic Behavior, 1993 整理</footer>
+<footer>—— 据 Rosenthal, Games of Perfect Information, Predatory Pricing and the Chain-Store Paradox, Journal of Economic Theory, 1981；Reny, Journal of Economic Theory, 1993 整理</footer>
 </div>
 
 [上一课](/econ/trembling-hand)（颤抖手完美）。用子博弈完美与逆向归纳删掉空威胁：有限完美信息、无平局时，路径被从终点往前钉死。缺口是这把刀的认知假设。归纳要求每个节点——包括按归纳根本不该到达的节点——仍有共同知识理性。蜈蚣把冲突写成支付。本课钉限度，不重写 SPE 定义，也不把集合撑到无名氏那么肥。
@@ -86,4 +86,4 @@ flowchart TD
 - 蜈蚣把「过」写成对归纳的偏离，到达与 CKR 冲突。
 - 脆的是认知推论，不是 SPE 定义自相矛盾。
 - 少量类型或不完美信息即可改变归纳路径。
-- 出处：Rosenthal, *JET*, 1981；Reny, *GEB*, 1993；Aumann, *GEB*, 1995。
+- 出处：Rosenthal, *JET*, 1981；Reny, *JET*, 1993；Aumann, *GEB*, 1995。
