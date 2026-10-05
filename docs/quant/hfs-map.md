@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>估计量会更新，次序不会：对象、诊断、估计量、检验、对齐、频率——六个决定按序签字，然后才轮到预报与组合。</p>
-<footer>—— 据本课程各课与 Andersen, Bollerslev and Diebold, Econometrica 2003 的口径整理</footer>
+<footer>—— 据本课程各课与 Andersen, Bollerslev, Diebold and Labys, Econometrica 2003 的口径整理</footer>
 </div>
 
 [上一课](/quant/hfs-frequency-choice)把频率写成决策程序，八课的零件到齐。本课是本课程的收束：把族谱、噪声修正、跳、beta、噪声实证、多元相关、频率选择收成一张按序签字的检查单，把高频失败模式归成几类，并把产出接回主干——HAR 预报与已实现 GARCH 吃这里的日度序列，风险与执行吃这里的协方差矩阵与频率表。本课程到此收束。
@@ -66,4 +66,4 @@ flowchart TD
 - 失败按次序归档：口径漂移、诊断跳步、次序倒置、维度越权、结论迁移。
 - 产出两条下行动线：日度 $IV$ 序列接 HAR 与已实现 GARCH，矩阵与频率表接对冲、风险与组合。
 - 检查单第一行最便宜也最致命：对象口径错了，后面全对不了。
-- 出处：本课程各课；口径基线见 Andersen, Bollerslev and Diebold, *Econometrica*, 2003；Barndorff-Nielsen and Shephard, 2004 与 2006；Zhang, Mykland and Aït-Sahalia, *JASA*, 2005；Aït-Sahalia, Mykland and Zhang, *RFS*, 2005。
+- 出处：本课程各课；口径基线见 Andersen, Bollerslev, Diebold and Labys, *Econometrica*, 2003；Barndorff-Nielsen and Shephard, 2004 与 2006；Zhang, Mykland and Aït-Sahalia, *JASA*, 2005；Aït-Sahalia, Mykland and Zhang, *RFS*, 2005。
