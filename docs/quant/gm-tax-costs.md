@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>价差是市场给的，税是设计出来的：交易税的目的本来就是改变行为——所以把它当价差的加法项建模是错的，它改变的是换手、持有期与场所选择本身。</p>
-<footer>—— 据 Umlauf, Journal of Finance, 1993；Campbell and Froot, 1994 的交易税实证传统整理</footer>
+<footer>—— 据 Umlauf, Journal of Financial Economics, 1993；Campbell and Froot, 1994 的交易税实证传统整理</footer>
 </div>
 
 [上一课](/quant/gm-clearing-settlement)把成交之后的链条写成制度常量。本课把账单写全：显式费用（佣金、平台、清算）与隐式成本（价差、冲击、时机）在执行课程的 TCA 口径里已处理；剩下的最大一笔是税——它在不同市场取完全不同的形态，且只对行为起作用。本课写税作为成本与约束的机制，继续机制单元的对照口径。
@@ -67,4 +67,4 @@ flowchart TD
 - 成本模型分三层：换手税入笔账、规则税生成日历、预扣决定持有结构。
 - 报告税前与税后两列排序；换手敏感策略的排序可以因双边印花税整体翻转。
 - 洗售与持有期规则把成本写成状态机，税损收割的上限由税法日历决定。
-- 出处：Umlauf, *Journal of Finance*, 1993（瑞典）；Campbell and Froot, 1994（多国比较）；Pomeranets and Weaver 对多伦多交易税的实证；各税区公开税则口径。
+- 出处：Umlauf, *Journal of Financial Economics*, 1993（瑞典）；Campbell and Froot, 1994（多国比较）；Pomeranets and Weaver 对多伦多交易税的实证；各税区公开税则口径。
