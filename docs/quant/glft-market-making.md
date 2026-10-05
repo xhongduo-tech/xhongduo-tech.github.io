@@ -30,12 +30,12 @@ section: quant
 HJB 对价值函数 $\theta(q)$（分离中间价与现金之后）给出差分—微分方程：扩散贡献库存风险，买卖强度贡献对 $\delta$ 的一阶条件。指数强度下，最优距离有
 
 $$
-\delta^{a\star}(q)=\frac{1}{\kappa}+\frac{1}{\gamma}\ln\Bigl(1+\frac{\gamma}{\kappa}\Bigr)-\bigl(\theta(q)-\theta(q-1)\bigr)
+\delta^{a\star}(q)=\frac{1}{\gamma}\ln\Bigl(1+\frac{\gamma}{\kappa}\Bigr)-\bigl(\theta(q)-\theta(q-1)\bigr)
 $$
 
 一类形式（买侧对称，符号随库存增量翻转）。$\theta(q)-\theta(q-1)$ 是再买（或再卖）一单位库存的无差异价格调整，即偏度。对小 $q$、二次惩罚，$\theta$ 近似二次，偏度对 $q$ 近似线性，宽度对 $q$ 近似常数——这就是实务里「线性 inventory skew + 波动目标价差」的理论原型。
 
-<span class="marginnote">数字实例：取 $\gamma=0.1$、$\kappa=1.5$，基础半价差约为 $\frac1\kappa+\frac1\gamma\ln(1+\frac\gamma\kappa)\approx 0.67+0.61\approx 1.3$ 个最小变动单位。若每持有一单位库存使 $\theta$ 的差分增加 0.3，则库存到 $+5$ 时买入侧距离约 $1.3+1.5=2.8$、卖出侧约 $1.3-1.5\lt 0$——近乎白送也要出货。这就是「线性 skew」的算术含义。</span>
+<span class="marginnote">数字实例：取 $\gamma=0.1$、$\kappa=1.5$，基础半价差约为 $\frac1\gamma\ln(1+\frac\gamma\kappa)\approx 0.65$ 个最小变动单位。若每持有一单位库存使 $\theta$ 的差分增加 0.3，则库存到 $+5$ 时买入侧距离约 $0.65+1.5=2.15$、卖出侧约 $0.65-1.5\lt 0$——近乎白送也要出货。这就是「线性 skew」的算术含义。</span>
 
 **库存限额。** 在 $\pm Q$ 处，越界的那一侧 $\lambda$ 被设为零，HJB 变成边界条件。靠近限额时 $\theta$ 的差分变陡，偏度非线性放大，直到一侧撤出。这比把 $\gamma$ 调大更符合风控：限额是合规对象，$\gamma$ 是偏好。多资产版本里 $q$ 是向量，惩罚用协方差矩阵，$\theta$ 的差分给出交叉偏度——持有正相关的另一腿时，本腿也要 skew，即使本腿库存为零。
 
@@ -82,7 +82,7 @@ flowchart TD
   S["中间价 S"] --> TH["价值 θ(q)：终端库存惩罚"]
   Q["库存 q 与限额 ±Q"] --> TH
   TH --> SK["偏度：θ(q)-θ(q±1)"]
-  INT["强度 λ = A e^{-κδ}"] --> W["宽度：1/κ + γ^{-1} ln(1+γ/κ)"]
+  INT["强度 λ = A e^{-κδ}"] --> W["宽度：γ^{-1} ln(1+γ/κ)"]
   SK --> DIST["最优距离 δᵃ(q), δᵇ(q)"]
   W --> DIST
   DIST --> FILL["泊松成交"]
