@@ -17,7 +17,7 @@ section: econ
 
 Smets–Wouters：中等规模 NK，多冲击，贝叶斯 MCMC。先验来自微观或惯例（Calvo 概率、习惯、投资调整成本），似然来自产出、通胀、利率、工资、投资等。BK 必须在参数空间的决定性区域成立，否则似然无定义。缺口是：校准留下的「剩余参数」现在可以连同部分结构参数一起估，但识别仍靠先验与观测选择，不是靠口号。
 
-<span class="marginnote">An and Schorfheide, *Journal of Economic Literature* 2007。Del Negro–Schorfheide 的 DSGE-VAR 把模型当先验。本课不写 MCMC 诊断手册。</span>
+<span class="marginnote">An and Schorfheide, *Econometric Reviews* 2007。Del Negro–Schorfheide 的 DSGE-VAR 把模型当先验。本课不写 MCMC 诊断手册。</span>
 
 <span class="marginnote">先验是估计开始前对参数下的『注』：例如断定价格粘性概率多半落在 0.6 到 0.9 之间，就写成以 0.75 为中心的分布。后验 = 先验乘以似然再归一化：数据说得动的地方后验挪动，说不动的地方后验留在先验附近。</span>
 
@@ -70,4 +70,4 @@ flowchart TD
 - SW：先验 + Kalman 似然估计中等 NK。
 - 决定性是似然的前提；弱识别时后验等于先验。
 - 拟合 BVAR 不等于传导正确。
-- 出处：Smets and Wouters, *JEEA* 2003、*AER* 2007；An and Schorfheide, *JEL* 2007。
+- 出处：Smets and Wouters, *JEEA* 2003、*AER* 2007；An and Schorfheide, *Econometric Reviews* 2007。

@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>把未知政策写成基函数的线性组合，让欧拉残差在加权意义上为零——配点或伽辽金，而不是只在一点泰勒。</p>
-<footer>—— Judd, Projection Methods for Solving Nonlinear Dynamic Economic Models, 1992；Miranda and Fackler, Applied Computational Economics</footer>
+<footer>—— Judd, Projection Methods for Solving Aggregate Planning Models, 1992；Miranda and Fackler, Applied Computational Economics</footer>
 </div>
 
 [上一课](/econ/perturbation-methods)的局部展开在不可微与大偏离处停下。本课缺口是**全局逼近**：残差投影到有限基上。不重写二阶张量，不把神经网络当新均衡概念。

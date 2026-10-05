@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>冲击的标签若不能从同期零限制放心得到，就从历史记录或政策公告窗里的价格跳变去借。</p>
-<footer>—— Romer and Romer, A New Measure of Monetary Policy Shocks, AER 2004；Gertler and Karadi, Monetary Policy Surprises, QE and the Stock Market, AEJ:Macro 2015；Ramey 财政叙事</footer>
+<footer>—— Romer and Romer, A New Measure of Monetary Shocks: Derivation and Implications, AER 2004；Gertler and Karadi, Monetary Policy Surprises, Credit Costs, and Economic Activity, AEJ:Macro 2015；Ramey 财政叙事</footer>
 </div>
 
 [上一课](/econ/local-projections)把 IRF 估计从 VAR 套牢里拆出，并声明冲击仍须外来。本课缺口是**冲击从哪来**：叙事（读档案、读绿皮书）与高频（公告窗内期货跳变）。本单元在此收束识别；下一单元进入异质性。不重写 LP 公式。
