@@ -39,7 +39,7 @@ flowchart TD
   VIS --> NEXT["后课：部分相干成像"]
 ```
 
-<span class="marginnote">数字实例：$193\ \mathrm{nm}$ 光刻源经线窄化到 $\Delta\lambda \approx 1\ \mathrm{pm}$ 时，$L_c \approx \lambda^2/\Delta\lambda \approx 3.7\ \mathrm{cm}$，比任何薄膜腔长都长，单色模型够用；而白炽灯 $\Delta\lambda$ 在百纳米量级，$L_c$ 只剩几微米——两者相差七个数量级。</span>
+<span class="marginnote">数字实例：$193\ \mathrm{nm}$ 光刻源经线窄化到 $\Delta\lambda \approx 1\ \mathrm{pm}$ 时，$L_c \approx \lambda^2/\Delta\lambda \approx 3.7\ \mathrm{cm}$，比任何薄膜腔长都长，单色模型够用；而白炽灯 $\Delta\lambda$ 在百纳米量级，$L_c$ 只剩几微米——两者相差约四个数量级。</span>
 
 ## 机制
 
