@@ -59,7 +59,7 @@ flowchart TD
   CP --> EST["Wald 比对准编译器的平均 τ"]
 ```
 
-与[潜在结果](/econ/potential-outcomes)：ATE 仍是合法参数，只是观测设计常常识别不了它。随机化仍然金标准。结构模型用选择方程把 LATE 接到 ATE——那是下一单元，本课不把选择模型当必须。
+与[潜在结果](/econ/potential-outcomes)：ATE 仍是合法参数，只是观测设计常常识别不了它。随机化仍然金标准。结构模型用选择方程把 LATE 接到 ATE——那是上一单元，本课不把选择模型当必须。
 
 <span class="marginnote">「外部有效」失败不等于内部识别失败。LATE 可以对编译器完全对，只是政策要推的是另一群人。两句话分开写。</span>
 
