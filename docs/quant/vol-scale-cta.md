@@ -26,7 +26,7 @@ section: quant
 MOP 的形式是
 
 $$
-w_{i,t}=\mathrm{sign}(r_{t-L,t}^{i})\cdot\frac{\sigma_{\mathrm{tgt}}}{\hat\sigma_{i,t}}.
+w_{i,t}=\mathrm{sign}(r_{t-L,t}^{e,i})\cdot\frac{\sigma_{\mathrm{tgt}}}{\hat\sigma_{i,t}}.
 $$
 
 $\hat\sigma$ 常用日收益的 EWMA 或过去约两个月实现波动，年化时注意交易日数。$\sigma_{\mathrm{tgt}}$ 是规则参数，不是预测。估计窗太短，仓位抖动、换手上升；太长，对危机中的波动跳升反应迟钝。应预先固定衰减因子或窗口，并报告有无缩放两列夏普、偏度与最大回撤。缩放会改变有效杠杆，基准必须是同等目标风险下的被动组合，而不是未杠杆的现货指数。
