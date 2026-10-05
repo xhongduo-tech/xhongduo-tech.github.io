@@ -97,5 +97,5 @@ NILS 是光学（加指定平面约定）的量，不含酸扩散、不含 SEM �
 - 对比度 $C$ 读调制；NILS 读边对剂量的灵敏度。
 - 相对 CD 误差随相对剂量误差涨、随 NILS 降。
 - 必须声明阈值位置；ILS 不要和 $dI/dx$ 混用。
-- 离焦如何毁掉 NILS，下一课。
+- 离焦如何毁掉 NILS，后课。
 - 出处：Mack, *Fundamental Principles of Optical Lithography*。

@@ -90,5 +90,5 @@ Zernike 展开不包含杂散光、不包含多层膜散射。EUV 反射镜同�
 - 离焦是其中一项；像散、彗差、球差改核的形状与对称。
 - 系数随场点变；TCC 可以场相关。
 - 同一套相位乘在 TE/TM 通道上，与矢量点积相乘。
-- 单色系数下一课要对带宽积分。
+- 单色系数后课要对带宽积分。
 - 出处：Zernike 圆多项式；Malacara, *Optical Shop Testing*；成像核见 Born &amp; Wolf / Mack。

@@ -82,7 +82,7 @@ flowchart TD
 
 ## 边界
 
-DOF 公式不含工件台伺服带宽、不含掩模倾斜、不含 pellicle 热鼓包。那些会吃掉窗口，但不改 $\lambda/\mathrm{NA}^2$ 的定义。标量二次相位在 $\mathrm{NA}\gtrsim 0.7$ 时对偏振与能量流向不够；下一课用矢量场补。也不要把「焦深 200 nm」写成与胶厚无关：厚胶内部本就跨一段 $z$，自身占用预算。
+DOF 公式不含工件台伺服带宽、不含掩模倾斜、不含 pellicle 热鼓包。那些会吃掉窗口，但不改 $\lambda/\mathrm{NA}^2$ 的定义。标量二次相位在 $\mathrm{NA}\gtrsim 0.7$ 时对偏振与能量流向不够；后课用矢量场补。也不要把「焦深 200 nm」写成与胶厚无关：厚胶内部本就跨一段 $z$，自身占用预算。
 
 ## 小结
 
@@ -90,5 +90,5 @@ DOF 公式不含工件台伺服带宽、不含掩模倾斜、不含 pellicle 热
 - 产线焦深写成 $\mathrm{DOF}=k_2\lambda/\mathrm{NA}^2$，$k_2$ 不是显微镜 $\lambda/4$ 系数。
 - $\mathrm{NA}$ 一次方帮 CD、平方次罚 DOF。
 - 可用焦深随图形类别与照明变，须用 $C(z)$ 或 NILS$(z)$ 实测。
-- 本课仍是标量；矢量修正下一课。
+- 本课仍是标量；矢量修正后课。
 - 出处：Rayleigh 波前容差；Mack, *Fundamental Principles of Optical Lithography*。
