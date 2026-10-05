@@ -7,7 +7,7 @@ section: econ
 # 条件期望
 
 <div class="epigraph">
-<p>给定信息之后的最优均方预测，是对子 $\sigma$-代数可测的那一次投影；塔性让「先粗后细」与直接一步相同。</p>
+<p>给定信息之后的最优均方预测，是对子 $\sigma$-代数可测的那一次投影；塔性让「先细后粗」与直接一步相同。</p>
 <footer>—— 据 Billingsley, Probability and Measure, 选章；Stokey, Lucas and Prescott, Recursive Methods 第 7–9 章整理</footer>
 </div>
 
