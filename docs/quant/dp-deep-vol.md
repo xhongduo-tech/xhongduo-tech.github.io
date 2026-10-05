@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>波动率是深度学习在金融里最诚实的第一站：对象持久、连续、可测的代理一大把——难处从来不是让网络输出一个数，而是证明这个数比一条线性回归多学了什么。</p>
-<footer>—— 据 Corsi, Review of Financial Studies, 2009；Hansen and Lunde, Journal of Business and Economic Statistics, 2005 整理</footer>
+<footer>—— 据 Corsi, Journal of Financial Econometrics, 2009；Hansen and Lunde, Journal of Business and Economic Statistics, 2005 整理</footer>
 </div>
 
 [上一课](/quant/fml-map)把金融机器学习的失败模式收成十份对账单：特征哈希、标签四元组、$N$ 台账，每站一份契约，失败的共同根是「局部看起来在进步」，训练与实盘必须读同一个真相——深度模型在定价与信号上的延伸留给下一门课程。本课是「深度学习与定价深化」的第一课，把这套管线纪律搬到金融里最持久的对象——波动率。[GARCH](/quant/garch) 与 [HAR](/quant/har-rv) 已经把容易的分拿走：波动率高自相关，一条「日、周、月平均已实现波动」的线性回归，样本外水平就很难大幅超越。本课程从信号走到定价与验证，第一单元三课都在问同一件事：深度模型的增量扣掉基线与成本还剩什么。本课先钉波动率信号的建模口径。后课默认已经读完本课。
@@ -69,4 +69,4 @@ flowchart TD
 - 基线纪律第一：与 HAR 同协议、QLIKE 交卷、滚动加禁运；增量先过显著性再谈用途。
 - 非线性增量的合法来源是系数的时变：杠杆、跳跃与体制，不是再造持续性。
 - 本课是 $\mathbb{P}$ 测度信号；隐含波动曲面属定价单元，两种波动不可混算。
-- 出处：Corsi, *RFS*, 2009（HAR）；Hansen and Lunde, *JBES*, 2005；Patton, 2011（QLIKE）。
+- 出处：Corsi, *Journal of Financial Econometrics*, 2009（HAR）；Hansen and Lunde, *JBES*, 2005；Patton, 2011（QLIKE）。
