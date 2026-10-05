@@ -76,4 +76,4 @@ flowchart TD
 - 四条作用通道：参与集合、交易技术、头寸约束、信息环境；复合通道必须拆开归因。
 - 适用范围给出天然对照组；过渡期行为是最有信息的一段，不能从样本里删掉。
 - 事件表输出两张表：速率系数表给研究，约束变化表给风控合规。
-- 出处：Bushee and Leuz, *Journal of Accounting Research*, 2005；Leuz and Wysocki, *JAR*, 2016；微观协议见[事件研究的微观版本](/quant/obd-eventstudy-micro)；Harris, *Trading and Exchanges*, 2003。
+- 出处：Bushee and Leuz, *Journal of Accounting and Economics*, 2005；Leuz and Wysocki, *JAR*, 2016；微观协议见[事件研究的微观版本](/quant/obd-eventstudy-micro)；Harris, *Trading and Exchanges*, 2003。

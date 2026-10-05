@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>宏观新闻在公布后的几分钟里就基本定完价；此后市场的任务不再是发现数字，而是消化它的含义。</p>
-<footer>—— 据 Fleming and Remolona, Journal of Finance, 1999；Andersen, Bollerslev, Diebold and Vega, Journal of Finance, 2003 整理</footer>
+<footer>—— 据 Fleming and Remolona, Journal of Finance, 1999；Andersen, Bollerslev, Diebold and Vega, American Economic Review, 2003 整理</footer>
 </div>
 
 [上一课](/quant/ed-opex-event)的载荷可由公开持仓算出；宏观发布把谱系倒过来——**时点精确到秒，载荷在公布前对所有人未知**。它是谱系里「确定性最高、可预测性最低」的一类：非农、CPI、GDP、央行利率决定都挂在公开日历上，数字谁也不比谁先知道。本课写发布日历、标准化意外、分钟级反应与事前的流动性摆动。

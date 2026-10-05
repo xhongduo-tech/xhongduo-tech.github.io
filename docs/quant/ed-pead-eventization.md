@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>漂移不在日历时间里均匀发生，而是在下一次公告附近再集中一截；按月度因子持有它，等于在信息最密的地方睡大觉。</p>
-<footer>—— 据 Bernard and Thomas, Journal of Accounting Research, 1990；Frazzini and Lamont, Journal of Financial Economics, 2007 整理</footer>
+<footer>—— 据 Bernard and Thomas, Journal of Accounting Research, 1990；Frazzini and Lamont, NBER Working Paper, 2007 整理</footer>
 </div>
 
 [上一课](/quant/ed-regulatory-event)收掉制度事件；本课回到财报，把五元组用到最成熟的信号上：把[盈利意外 PEAD / SUE](/quant/pead-sue) 从月频截面因子改写成以公告为条件的事件策略。因子版按月末再平衡、持仓不看日历；事件版在公告时刻刷新、按事件日历进出。本课写改写三步——信号时点、持仓窗口、增量条件——与必须分清的两笔账：漂移与公告溢价。
@@ -76,4 +76,4 @@ flowchart TD
 - 持仓分主窗副窗：公告后 N 日是漂移主段，下一季公告窗是再集中处，第四季反号前离场。
 - 两笔账分记：主窗赚漂移，跨公告赚溢价并承担跳变；选择要显式。
 - 陈旧信号与月度再平衡抹平事件时序；事件表按公告时戳入库。
-- 出处：Bernard and Thomas, *Journal of Accounting Research*, 1989/1990；Livnat and Mendenhall, *JAR*, 2006；Frazzini and Lamont, *Journal of Financial Economics*, 2007；Ball and Brown, *JAR*, 1968。
+- 出处：Bernard and Thomas, *Journal of Accounting Research*, 1989/1990；Livnat and Mendenhall, *JAR*, 2006；Frazzini and Lamont, *NBER Working Paper*, 2007；Ball and Brown, *JAR*, 1968。

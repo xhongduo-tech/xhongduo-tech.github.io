@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>可预测的日历吸引资本，资本压缩溢价，溢价消失的日子风险照旧在场；拥挤把事件策略的尾部连成一片。</p>
-<footer>—— 据 Shleifer and Vishny, Journal of Finance, 1997；Khandani and Lo, Journal of Portfolio Management, 2011 整理</footer>
+<footer>—— 据 Shleifer and Vishny, Journal of Finance, 1997；Khandani and Lo, Journal of Financial Markets, 2011 整理</footer>
 </div>
 
 [上一课](/quant/ed-eventstudy-micro-app)把微观痕迹测成速率表；本课进入风控。事件策略的风险分三层：单事件的二值性、事件间的相关、拥挤。原型在[并购套利](/quant/merger-arbitrage)里已经给过：完成收息，失败左尾成簇，且失败在市场下跌时更密。本课把原型推广到全谱系，三层各写成限额与监测。
@@ -70,4 +70,4 @@ flowchart TD
 - 独有维度是时间线：事件日暴露集中度单独限额，不只看静态暴露。
 - 拥挤用三只表监测：效应衰减、资本规模、溢价分位；同向恶化时降杠杆。
 - 止损定义在信息上，不在价格统计量上；区分坏消息与拥挤平仓是难点。
-- 出处：Shleifer and Vishny, *Journal of Finance*, 1997；Mitchell and Pulvino, *Journal of Finance*, 2001；Stein, *Journal of Finance*, 2009；Khandani and Lo, *Journal of Portfolio Management*, 2011。
+- 出处：Shleifer and Vishny, *Journal of Finance*, 1997；Mitchell and Pulvino, *Journal of Finance*, 2001；Stein, *Journal of Finance*, 2009；Khandani and Lo, *Journal of Financial Markets*, 2011。
