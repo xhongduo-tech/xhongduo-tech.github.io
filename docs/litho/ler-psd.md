@@ -27,7 +27,7 @@ section: litho
 
 <span class="marginnote">常见误区：初学者容易以为 LER 谱的高频截止由镜头 NA 决定，实际上那是化学/电子模糊核与 SEM 噪声的战场；NA 决定的是像的对比，只通过 NILS 影响谱的幅度，不管谱的形状。</span>
 
-<span class="marginnote">自仿射模型常用 $S(f)\propto 1/(1+(f\xi)^{2\alpha})$ 一类，三个参数：幅度、相关长度 $\xi$、粗糙指数。本课先钉 PSD 是接口；$\xi$ 下一课展开。</span>
+<span class="marginnote">自仿射模型常用 $S(f)\propto 1/(1+(f\xi)^2)^{\alpha+1/2}$ 一类，三个参数：幅度、相关长度 $\xi$、粗糙指数。本课先钉 PSD 是接口；$\xi$ 下一课展开。</span>
 
 ## 方法
 
