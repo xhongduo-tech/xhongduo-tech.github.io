@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>差异产品的价格与未观测质量一起走，logit 的价格系数有偏；用产品特征的工具和市场层份额，把随机系数需求钉在均衡上，反事实才是合并与关税，而不只是又一次回归。</p>
-<footer>—— Berry, Levinsohn and Pakes, Automobile Price in Market Equilibrium, Econometrica 1995</footer>
+<footer>—— Berry, Levinsohn and Pakes, Automobile Prices in Market Equilibrium, Econometrica 1995</footer>
 </div>
 
 [上一课](/econ/discrete-choice)在外生 $x$ 下写出 logit 份额与 IIA。本课缺口是产业组织的现场：价格内生、产品差异、市场均衡。生产函数下一课换供给边的技术；本课钉 BLP 需求。
@@ -59,7 +59,7 @@ flowchart TD
 
 与贸易后课：同一套需求可接到进口品种；本课先停在 IO 市场定义（城市×年），不把中国冲击写成 BLP。
 
-<span class="marginnote">Nevo 谷物、Petrin 厢型车是应用原型。工具故事（Waldorf 成本、对手特征）每篇都要重写，不能复制粘贴「BLP 工具」。</span>
+<span class="marginnote">Nevo 谷物、Petrin 厢型车是应用原型。工具故事（要素成本、对手特征）每篇都要重写，不能复制粘贴「BLP 工具」。</span>
 
 ## 边界
 
