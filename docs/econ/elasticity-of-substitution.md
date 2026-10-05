@@ -18,12 +18,12 @@ section: econ
 两要素、光滑等产量。技术替代率 $\mathrm{TRS}_{jk}=\mathrm{MP}_j/\mathrm{MP}_k$ 已在技术课定义。沿同一等产量 $f(z)=q$ 移动，投入比 $z_j/z_k$ 随 TRS 变。Hicks 的替代弹性是这个对数导数：
 
 $$
-\sigma_{jk}=\frac{\mathrm{d}\ln(z_j/z_k)}{\mathrm{d}\ln\mathrm{TRS}_{jk}}\Big|_{f=q}.
+\sigma_{jk}=\frac{\mathrm{d}\ln(z_k/z_j)}{\mathrm{d}\ln\mathrm{TRS}_{jk}}\Big|_{f=q}.
 $$
 
 $\sigma=0$：比例钉死，等产量成直角。[下一课](/econ/leontief-technology)专写这个极点。$\sigma\to\infty$：直线等产量，完全替代。Cobb–Douglas 的 $\sigma=1$。缺口不是再画一次等产量，而是：**规模与弯曲正交之后，$\sigma$ 必须能从 $f$ 算出来，并且与后课的 $w$ 反应是同一数字。**
 
-<span class="marginnote">数字实例：$\sigma=1$ 时，若工资相对资本价格上升 10%，最优劳动/资本投入比也恰好上调约 10%，两种要素的支出份额保持不变；若 $\sigma=0.2$，同样的价格变化只撬动约 2% 的比例调整——等产量弯得厉害，要素就难换。</span>
+<span class="marginnote">数字实例：$\sigma=1$ 时，若资本价格相对工资上升 10%，最优劳动/资本投入比也恰好上调约 10%，两种要素的支出份额保持不变；若 $\sigma=0.2$，同样的价格变化只撬动约 2% 的比例调整——等产量弯得厉害，要素就难换。</span>
 
 位似保证 TRS 沿射线不变，因此 $\sigma$ 可以只是「形状」的参数，不随 $q$ 改。非位似时同一弯曲在不同产量上可以变，$\sigma$ 要标在哪一条等产量上。
 
@@ -35,7 +35,7 @@ $\sigma=0$：比例钉死，等产量成直角。[下一课](/econ/leontief-tech
 
 ## 方法
 
-先沿等产量参数化：保持 $q$，用 TRS 当自变量，对 $\ln(z_j/z_k)$ 求导。两要素时这就是 Hicks 的 $\sigma$。多于两要素，Allen–Uzawa 用成本函数的二阶导数定义偏替代弹性——那要等到 $c(w,q)$ 进场，本课只钉两要素教具。
+先沿等产量参数化：保持 $q$，用 TRS 当自变量，对 $\ln(z_k/z_j)$ 求导。两要素时这就是 Hicks 的 $\sigma$。多于两要素，Allen–Uzawa 用成本函数的二阶导数定义偏替代弹性——那要等到 $c(w,q)$ 进场，本课只钉两要素教具。
 
 CES 是把 $\sigma$ 设成常数的函数族。估计或校准生产时，先选 $\sigma$，再选规模弹性 $k$。不要用「劳动份额稳定」直接当 $\sigma=1$ 的证明：份额稳定还要位似加竞争付酬。
 
@@ -82,7 +82,7 @@ flowchart TD
 
 ## 小结
 
-- $\sigma$ 是沿等产量的 $\mathrm{d}\ln(z_j/z_k)/\mathrm{d}\ln\mathrm{TRS}$，度量弯曲，不是规模。
+- $\sigma$ 是沿等产量的 $\mathrm{d}\ln(z_k/z_j)/\mathrm{d}\ln\mathrm{TRS}$，度量弯曲，不是规模。
 - 位似让形状与 $q$ 脱钩；CES 把 $\sigma$ 做成参数。
 - 成本最小化之后，同一 $\sigma$ 读成要素比对价格比的弹性。
 - 下一课取 $\sigma=0$，等产量变成直角。
