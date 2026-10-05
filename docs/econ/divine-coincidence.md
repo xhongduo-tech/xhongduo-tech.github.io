@@ -11,7 +11,7 @@ section: econ
 <footer>—— Blanchard and Galí, Real Wage Rigidities and the New Keynesian Model, Journal of Money, Credit and Banking 2007</footer>
 </div>
 
-[上一课](/econ/discretion-commitment)在同一损失下给出权变与承诺两条路径。损失里同时罚 $\pi$ 与 $\tilde{y}$，仿佛永远有两项目标。本课的缺口是：在基准 NK（只有 Calvo 价格粘性、没有成本推动）里，两项其实是一个——稳通胀已经稳了福利相关缺口。Blanchard 与 Galí 把这叫做神圣巧合，并指出真实工资刚性会拆掉它。零下限是再下一课的工具约束。
+[上一课](/econ/discretion-commitment)在同一损失下给出权变与承诺两条路径。损失里同时罚 $\pi$ 与 $\tilde{y}$，仿佛永远有两项目标。本课的缺口是：在基准 NK（只有 Calvo 价格粘性、没有成本推动）里，两项其实是一个——稳通胀已经稳了福利相关缺口。Blanchard 与 Galí 把这叫做神圣巧合，并指出真实工资刚性会拆掉它。零下限是后课的工具约束。
 
 ## 问题
 
@@ -73,7 +73,7 @@ flowchart TD
 
 下限上即使巧合在正利率区成立，工具卡住也会强迫一项偏离——那是工具约束，不是又一个成本推动。本课先在可以执行 $\phi_\pi\gt 1$ 的区域把巧合钉死。
 
-后课默认：基准 NK 可以有神圣巧合；有成本推动或真实刚性则必须权衡。下一课：规则给出的 $i$ 碰到有效下限，承诺必须换工具或换路径语言。
+后课默认：基准 NK 可以有神圣巧合；有成本推动或真实刚性则必须权衡。下一课把权衡写成 Ramsey 问题、给出承诺与权变的一阶条件；规则给出的 $i$ 碰到有效下限、承诺必须换工具或换路径语言，是后课下限上的事。
 
 ## 小结
 
