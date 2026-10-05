@@ -43,7 +43,7 @@ flowchart TD
   FCFF --> VL["VL 已含税盾"]
 ```
 
-Miles–Ezzell 与 Harris–Pringle 给出不同再平衡假设下税盾的折现。教学上：目标 $D/V$ 稳定，用教科书 WACC；债务金额锁定（LBO、项目融资有还本表），不要用常数 WACC，下一课 [APV](/econ/apv) 把税盾单独加。Brealey–Myers 的操作句是：先想清楚债务怎么走，再选公式。
+Miles–Ezzell 与 Harris–Pringle 给出不同再平衡假设下税盾的折现。教学上：目标 $D/V$ 稳定，用教科书 WACC；债务金额锁定（LBO、项目融资有还本表），不要用常数 WACC，后课 [APV](/econ/apv) 把税盾单独加。Brealey–Myers 的操作句是：先想清楚债务怎么走，再选公式。
 
 <span class="marginnote">术语翻译：FCFF（企业自由现金流）就是「假定公司一分钱没借时，经营赚到的、可供全部出资人分配的税后现金」。用 WACC 折它时不能再扣利息——利息的角色已由 $(1-\tau_c)$ 那一项演完，再扣一遍就是把税盾算两次。</span>
 
