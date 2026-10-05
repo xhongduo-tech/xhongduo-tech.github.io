@@ -7,7 +7,7 @@ section: econ
 # Campbell–Shiller 分解
 
 <div class="epigraph">
-<p>股利–价格比高，不是因为预期股利要涨，就是因为预期回报要高，或者泡沫项在爆炸；对数线性把它收成会计。</p>
+<p>股利–价格比高，不是因为预期股利增长要放缓，就是因为预期回报要高，或者泡沫项在爆炸；对数线性把它收成会计。</p>
 <footer>—— Campbell and Shiller, The Dividend-Price Ratio and Expectations of Future Dividends and Discount Factors, Review of Financial Studies, 1988</footer>
 </div>
 

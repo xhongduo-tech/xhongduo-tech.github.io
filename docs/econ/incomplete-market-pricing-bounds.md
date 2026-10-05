@@ -25,7 +25,7 @@ section: econ
 
 ## 方法
 
-无套利界：$\underline p=\sup\{\mathrm{E}^{\mathbb{Q}}[x/B]:\mathbb{Q}\in\mathcal{M}\}$ 的对偶写法用次复制；上界用超复制。均衡选取：指定 $u$ 或代表性主体，从集合里挑一个点（Lucas、CIR）。好交易：限制 $\sigma(m)/\mathrm{E}[m]$ 的上界，截掉极端 $\mathbb{Q}$。三条从弱到强。信息课序的部分揭示不是这里的不完全：揭示不足改 $\mathcal{F}$，张成不足改菜单。可以同时发生。
+无套利界：$\underline p=\inf\{\mathrm{E}^{\mathbb{Q}}[x/B]:\mathbb{Q}\in\mathcal{M}\}$ 的对偶写法用次复制；上界 $\overline p=\sup\{\mathrm{E}^{\mathbb{Q}}[x/B]:\mathbb{Q}\in\mathcal{M}\}$ 用超复制。均衡选取：指定 $u$ 或代表性主体，从集合里挑一个点（Lucas、CIR）。好交易：限制 $\sigma(m)/\mathrm{E}[m]$ 的上界，截掉极端 $\mathbb{Q}$。三条从弱到强。信息课序的部分揭示不是这里的不完全：揭示不足改 $\mathcal{F}$，张成不足改菜单。可以同时发生。
 
 ```mermaid
 flowchart TD

@@ -19,7 +19,7 @@ Lucas 树假定代表性主体直接持有树。现实里许多风险（信贷�
 
 这与信息课序的 $\lambda$ 不同：那里流动性成本来自不利选择；这里来自风险承担能力的稀缺。可以并存，本课只留资本通道。
 
-<span class="marginnote">He and Krishnamurthy, *AER* 103(2), 2013；更早的 *JFE* 2012 写危机放大。Brunnermeier–Sannikov 是连续时间宏观金融的另一条专家线，后文杠杆周期会碰到 Geanakoplos 的保证金版本。</span>
+<span class="marginnote">He and Krishnamurthy, *AER* 103(2), 2013；更早的 *AER* 2012（A Model of Capital and Crises）写危机放大。Brunnermeier–Sannikov 是连续时间宏观金融的另一条专家线，后文杠杆周期会碰到 Geanakoplos 的保证金版本。</span>
 <span class="marginnote">术语翻译：skin-in-the-game 约束就是「自己押筹码才能玩牌」——投资人要求专家的自有净值随管理规模同比例放大，净值缩水时能承担的风险就缩水，风险承担能力因此成为稀缺品。</span>
 
 ## 方法
@@ -69,4 +69,4 @@ flowchart TD
 - 专家资本约束把 $m$ 从总量消费挪到中介净值。
 - 约束紧：甩卖、溢价升、放大。
 - 不是不利选择价差，也不是 CAPM 截面表。
-- 出处：He and Krishnamurthy, *AER* 2013；对照 *JFE* 2012。
+- 出处：He and Krishnamurthy, *AER* 2013；对照 *AER* 2012（A Model of Capital and Crises）。

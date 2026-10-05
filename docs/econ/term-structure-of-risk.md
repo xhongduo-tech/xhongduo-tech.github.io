@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>同一资产的短现金流与长现金流可以带着不同的风险价格；股权溢价不必在期限上平坦。</p>
-<footer>—— 据 Lettau and Wachter, Why Is Long-Horizon Equity Less Risky? Journal of Finance, 2007；van Binsbergen, Brandt and Koijen, Journal of Finance, 2012</footer>
+<footer>—— 据 Lettau and Wachter, Why Is Long-Horizon Equity Less Risky? Journal of Finance, 2007；van Binsbergen, Brandt and Koijen, Journal of Financial Economics, 2012</footer>
 </div>
 
 [上一课](/econ/dp-ratio-predictability)把 $D/P$ 当成折现率状态的一个总量坐标。本课缺口是**沿期限切开**：价格是许多到期现金流之和，每一条「股利条」可以有自己的风险溢价。不重做预测回归，不把国债的仿射期限结构整课搬进来——那是主干 EH / 仿射课的对象；这里是**股权风险**的期限结构。
@@ -75,4 +75,4 @@ flowchart TD
 - 股利条各自对 $m$ 暴露，风险价格可以随到期变。
 - 折现率均值回复 vs 持久增长冲击，给出相反的倾斜。
 - 国债期限结构共享 $m$，不共享支付；不在此重写 EH。
-- 出处：Lettau and Wachter, *JF* 2007；van Binsbergen, Brandt and Koijen, *JF* 2012。
+- 出处：Lettau and Wachter, *JF* 2007；van Binsbergen, Brandt and Koijen, *JFE* 2012。
