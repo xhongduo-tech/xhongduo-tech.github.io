@@ -69,7 +69,7 @@ flowchart TD
   IN --> MOD1["对比恢复"]
 ```
 
-<span class="marginnote">数字实例：节距 $p=100$ nm 的密线，一级衍射满足 $\sin\theta=\lambda/p\approx 1.93$，大于 1——物理上不存在这样的出射角，任何镜头都收不到。$p=200$ nm 时 $\sin\theta\approx 0.97$，已贴着 NA=1.35 光瞳的边缘。这就是「节距一密，一级出瞳」的具体含义。</span>
+<span class="marginnote">数字实例：节距 $p=100$ nm 的密线，一级衍射满足 $\sin\theta=\lambda/p\approx 1.93$，大于 1——物理上不存在这样的出射角，任何镜头都收不到。$p=200$ nm 时 $\sin\theta\approx 0.97$，仍落在 NA=1.35 光瞳内，但已逼近 $\sin\theta=1$ 的物理上限；节距再密，一级就落出光瞳。这就是「节距一密，一级出瞳」的具体含义。</span>
 
 ### 后课默认的接口
 

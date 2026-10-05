@@ -27,7 +27,7 @@ $\mathrm{NA}$ 是边缘光线角；扩展量还要乘发光面积（及 $n^2$）
 
 <span class="marginnote">数字实例：同一 $\mathrm{NA}=0.33$，视场半径加倍则面积变 4 倍，扩展量 $n^2A\Omega$ 随之变 4 倍。「能容纳多大的张角」与「能喂进多少能量」是两个独立问题，扩展量量的是后者。</span>
 
-<span class="marginnote">合同上的 $\mathrm{NA}$ 仍指晶圆侧。扩展量匹配发生在照明与投影之间：填不满是 $\sigma$ 上不去，喂过了是光源功率浪费。下一课才把填充比叫做 $\sigma$。</span>
+<span class="marginnote">合同上的 $\mathrm{NA}$ 仍指晶圆侧。扩展量匹配发生在照明与投影之间：填不满是 $\sigma$ 上不去，喂过了是光源功率浪费。后面的课才把填充比叫做 $\sigma$。</span>
 
 ## 方法
 
@@ -84,5 +84,5 @@ $\mathrm{NA}$ 截止频率的定义不改。后课部分相干用的照明孔径
 - 源与投影必须匹配扩展量，否则填不满或喂过。
 - 像方远心使离焦不改倍率；残余斜率让套刻随焦面漂。
 - 远心不是焦深，也不是 $\mathrm{NA}$ 的别名。
-- 照明填充比下一课再写成 $\sigma$。
+- 照明填充比后面的课再写成 $\sigma$。
 - 出处：Born &amp; Wolf, *Principles of Optics*；Levinson, *Principles of Lithography*。

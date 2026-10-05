@@ -25,7 +25,7 @@ section: litho
 
 一维周期掩模、正入射、真空外侧，第 $m$ 级的正弦条件是 $\sin\theta_m = m\lambda/p$。$m=0$ 沿轴走，$|m|\ge 1$ 偏到轴外。空中像的调制来自至少两个级在像面的干涉；若只剩零级，强度没有空间结构。本课不讨论哪些级进得了镜头，只承认：物体的傅里叶分量与这些传播方向一一对应。
 
-<span class="marginnote">空间频率的单位是 1/长度。光刻里常把 $f_x=n\sin\theta/\lambda$ 写在物镜光瞳坐标上。$n$ 来自[上一课](/litho/em-wave-index)，不要在这里把 $\lambda$ 改成介质波长却忘了 $n$。</span>
+<span class="marginnote">空间频率的单位是 1/长度。光刻里常把 $f_x=n\sin\theta/\lambda$ 写在物镜光瞳坐标上。$n$ 来自[第一课](/litho/em-wave-index)，不要在这里把 $\lambda$ 改成介质波长却忘了 $n$。</span>
 
 ## 方法
 
