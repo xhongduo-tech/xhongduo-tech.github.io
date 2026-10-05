@@ -95,4 +95,4 @@ flowchart TD
 - Baker 等（2020）与 Opportunity Insights / Chetty 等把交易数据用于近实时宏观；评价应先看对官方序列的 nowcast，再问公司特异残差是否存在。
 - 样本代表性、商户映射、授权日与结算日、供应商回填，是测量问题；忽略它们会把选择偏差写成因子。
 - 宏观消费意外多半已被股票与债券交易；横截面需要行业中性后的发行人残差，且持有期应对齐披露。
-- 出处：Gross and Souleles, *QJE*, 2002；Ganong and Noel, *AER*, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, *RFS*, 2020；Mian, Rao and Sufi, *QJE*, 2013；Agarwal, Chomsisengphet, Mahoney and Stroebel, *QJE*, 2015；Chetty, Friedman, Hendren, Stepner and Opportunity Insights。
+- 出处：Gross and Souleles, *QJE*, 2002；Ganong and Noel, *AER*, 2019；Baker, Farrokhnia, Meyer, Pagel and Yannelis, *Review of Asset Pricing Studies*, 2020；Mian, Rao and Sufi, *QJE*, 2013；Agarwal, Chomsisengphet, Mahoney and Stroebel, *QJE*, 2015；Chetty, Friedman, Hendren, Stepner and Opportunity Insights。

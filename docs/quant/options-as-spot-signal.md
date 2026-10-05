@@ -95,4 +95,4 @@ flowchart TD
 - Xing–Zhang–Zhao（2010）的 smirk、Cremers–Weinbaum（2010）的平价偏离、Johnson–So（2012）的量比、Bali–Hovakimian（2009）的 IV–RV，抽取的是链上不同切片，不可合成一个未经中性化的「期权因子」。
 - 形状类信号高度共线于波动与崩盘溢价；流量类依赖开仓标识与场所流动性；平价类常是卖空摩擦（Ofek–Richardson–Whitelaw）。
 - 日频现货预测必须用可获得链、正确时钟，并扣期权与股票两侧成本；短领先若只存在于分钟级，不属于日频 alpha。
-- 出处：Easley, O'Hara and Srinivas, *JF*, 1998；Pan and Poteshman, *JF*, 2006；Xing, Zhang and Zhao, *JFQA*, 2010；Cremers and Weinbaum, *JF*, 2010；Ofek, Richardson and Whitelaw, *RFS*, 2004；Johnson and So, *JFE*, 2012；Bali and Hovakimian, *JFQA*, 2009；Muravyev, Pearson and Broussard, *JFE*, 2013；Goyal and Saretto, *JFE*, 2009；Conrad, Dittmar and Ghysels, *JF*, 2013；Chakravarty, Gulen and Mayhew, *JF*, 2004。
+- 出处：Easley, O'Hara and Srinivas, *JF*, 1998；Pan and Poteshman, *JF*, 2006；Xing, Zhang and Zhao, *JFQA*, 2010；Cremers and Weinbaum, *JFQA*, 2010；Ofek, Richardson and Whitelaw, *RFS*, 2004；Johnson and So, *JFE*, 2012；Bali and Hovakimian, *Management Science*, 2009；Muravyev, Pearson and Broussard, *JFE*, 2013；Goyal and Saretto, *JFE*, 2009；Conrad, Dittmar and Ghysels, *JF*, 2013；Chakravarty, Gulen and Mayhew, *JF*, 2004。

@@ -93,4 +93,4 @@ flowchart TD
 - Donaldson–Storeygard（2016）强调传感器、云层与换代；金融回测必须用当时可得 vintage，并报告相对 USDA/EIA/分析师的增量。
 - 映射误差、空间相关与覆盖偏差会制造虚假 IC；气候与物理冲击的识别见 Addoum–Ng–Ortiz-Bobea（2020）、Hong–Li–Xu（2019）。
 - 高分辨率设施数据改变的是信息分配与价格吸收速度（Katona 等），过渡租金会随拥挤消失。
-- 出处：Henderson, Storeygard and Weil, *AER*, 2012；Chen and Nordhaus, *PNAS*, 2011；Donaldson and Storeygard, *JEL*, 2016；Addoum, Ng and Ortiz-Bobea, *RFS*, 2020；Hong, Li and Xu, *JFE*, 2019；Engle, Giglio, Kelly, Lee and Stroebel, *RFS*, 2020；Gorton and Rouwenhorst, *Financial Analysts Journal*, 2006。
+- 出处：Henderson, Storeygard and Weil, *AER*, 2012；Chen and Nordhaus, *PNAS*, 2011；Donaldson and Storeygard, *JEP*, 2016；Addoum, Ng and Ortiz-Bobea, *RFS*, 2020；Hong, Li and Xu, *JFE*, 2019；Engle, Giglio, Kelly, Lee and Stroebel, *RFS*, 2020；Gorton and Rouwenhorst, *Financial Analysts Journal*, 2006。
