@@ -67,7 +67,7 @@ flowchart TD
 
 <span class="marginnote">直觉类比：NKPC 像一台「预期定价投票机」。今天的通胀是全体重置厂商对未来通胀预期的加权贴现，加上当期缺口的分量——预期一变，票箱立刻变。「宣布即压通胀」与「必须先熬衰退」两条路的分岔口就在这里。</span>
 
-灵活价格极限 $\theta\to 0$ 或 Rotemberg 成本趋于零，$\kappa\to\infty$，缺口被压掉，货币中性在周期频率上恢复，接到 [RBC 对照](/econ/rbc-contrast)。动态 IS 从下一课接过需求侧：没有 NKPC，利率规则只有欧拉，没有通胀。三方程必须先有这一条供给。索引化（过去通胀进入未调价合同）会加进滞后项，那是对 Calvo 一阶条件的修改，不是本课的基准。
+灵活价格极限 $\theta\to 0$ 或 Rotemberg 成本趋于零，$\kappa\to\infty$，缺口被压掉，货币中性在周期频率上恢复，接到 [RBC 对照](/econ/rbc-contrast)。动态 IS 从后课接过需求侧：没有 NKPC，利率规则只有欧拉，没有通胀。三方程必须先有这一条供给。索引化（过去通胀进入未调价合同）会加进滞后项，那是对 Calvo 一阶条件的修改，不是本课的基准。
 
 <span class="marginnote">工资粘性会再写一条工资菲利普斯。本课只做价格 NKPC。两套粘性并存时，$\kappa$ 的解释变，方程形状仍前瞻。</span>
 
@@ -77,7 +77,7 @@ flowchart TD
 
 <span class="marginnote">常见误区：把 $\kappa$ 读成旧菲利普斯回归里「通胀对失业的敏感度」。$\kappa$ 是重置概率的函数，出自优化的一阶条件；它的变化不是重新拟合一条回归线的事，而是调价技术、指数化或政策规则变化的结构后果。</span>
 
-后课默认：供给侧是 $\pi_t=\beta\mathbb{E}_t\pi_{t+1}+\kappa\tilde{y}_t$。下一课把欧拉对数线性成与它对偶的动态 IS。
+后课默认：供给侧是 $\pi_t=\beta\mathbb{E}_t\pi_{t+1}+\kappa\tilde{y}_t$。后课把欧拉对数线性成与它对偶的动态 IS。
 
 ## 小结
 
