@@ -34,7 +34,7 @@ flowchart TD
   MIX["名义利润 / 实际 r"] --> BIAS["NPV 符号可错"]
 ```
 
-终值：$g_{\mathrm{nom}}\approx g_{\mathrm{real}}+\pi$。名义 $g$ 接近名义 GDP 上限。上一课 ROIC 若用名义 NOPAT 对历史成本资本，通胀会抬高表面 ROIC——剩余收益课的会计扭曲在通胀期放大。
+终值：$g_{\mathrm{nom}}\approx g_{\mathrm{real}}+\pi$。名义 $g$ 接近名义 GDP 上限。剩余收益课 ROIC 若用名义 NOPAT 对历史成本资本，通胀会抬高表面 ROIC——剩余收益课的会计扭曲在通胀期放大。
 
 ## 机制
 

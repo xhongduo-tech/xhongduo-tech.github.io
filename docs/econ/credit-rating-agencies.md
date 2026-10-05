@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
     <p>评级把信用质量压缩成可验证的字母，供契约与监管使用；发行方付费与评级购物，使这个压缩过程本身成为代理问题。</p>
-    <footer>—— 据 Boot, Milbourn and Schmeits, Journal of Finance 2006；Bolton, Freixas and Shapiro, Journal of Finance 2012；对照 Partnoy 对监管许可的讨论</footer>
+    <footer>—— 据 Boot, Milbourn and Schmeits, Review of Financial Studies 2006；Bolton, Freixas and Shapiro, Journal of Finance 2012；对照 Partnoy 对监管许可的讨论</footer>
 </div>
 
 [上一课](/econ/relationship-lending)的软信息不可转卖。公开债需要标准化意见。本课缺口是评级机构：信息生产、监管许可、以及付费模式如何扭曲。不重写关系的跨期补贴，不把证券化结构提前展开。
@@ -61,7 +61,7 @@ flowchart TD
 
 分散债权人需要一个公共语言。问题是挂钩过紧与付费扭曲，不是字母本身。内部评级与市场信用利差是替代信号；利差更及时，但更噪、更循环——资本预算用哪一个，要看对象是契约触发还是期望损失。
 
-<span class="marginnote">Bolton, Freixas and Shapiro, *JF* 2012：购物加竞争可以降低信息质量。焦点功能见 Boot, Milbourn and Schmeits, *JF* 2006。</span>
+<span class="marginnote">Bolton, Freixas and Shapiro, *JF* 2012：购物加竞争可以降低信息质量。焦点功能见 Boot, Milbourn and Schmeits, *RFS* 2006。</span>
 
 ## 边界
 
@@ -74,4 +74,4 @@ flowchart TD
 - 评级压缩信用质量，供契约与监管使用，也因此成为悬崖。
 - 发行方付费加购物可降低信息质量；竞争未必改善。
 - 通过周期稳定契约、牺牲及时性；资本预算要做降级情景。
-- 出处：Boot, Milbourn and Schmeits, *JF* 2006；Bolton, Freixas and Shapiro, *JF* 2012。
+- 出处：Boot, Milbourn and Schmeits, *RFS* 2006；Bolton, Freixas and Shapiro, *JF* 2012。
