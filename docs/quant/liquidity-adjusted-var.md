@@ -8,7 +8,7 @@ section: quant
 
 <div class="epigraph">
 <p>中间价上的市场风险分位数假定你能按模型价格退出；把买卖价差及其波动加进损失定义，得到的是外生流动性调整后的分位数，仍然不是大额头寸沿供给曲线移动时的内生冲击。</p>
-<footer>—— Bangia, Diebold, Schuermann and Stroughair, Modeling Liquidity Risk, Federal Reserve Bank of New York, 1998/1999</footer>
+<footer>—— Bangia, Diebold, Schuermann and Stroughair, Modeling Liquidity Risk, Wharton Financial Institutions Center, 1998/1999</footer>
 </div>
 
 [压力 VaR 与 FRTB](/quant/stressed-var-frtb)把校准点移进压力期，还按流动性期限分了档。标准 [VaR](/quant/var-methods) 的损失 $L$ 用中间价（或理论标记）变化定义。买卖价差即使对小仓位也要付；价差在压力里还会变宽、变吵。Bangia、Diebold、Schuermann 与 Stroughair 把外生流动性写成对 VaR 的附加：在市场风险分位数之上，加上价差成本的一个保守分位数。Hisata 与 Yamai、Almgren–Chriss 一类工作则处理内生流动性：你的数量改变价格，变现时间成为决策变量。本篇写 **LVaR** 作为损失定义的修正，与 [变现时间](/quant/liquidity-horizon) 文分工：那边问 $H$ 怎么选，这边问选定退出假设之后，分位数公式如何改。它仍不替代 [ES](/quant/expected-shortfall) 对尾巴形状的积分。
@@ -107,4 +107,4 @@ flowchart TD
 - 更一致的做法是在每条情景用可成交价定义 $L$，三种 VaR 算法都适用。
 - 大仓位的主导项是冲击与变现时间，不是半价差；内生 LVaR 一般破坏正齐次。
 - 监管 LH 与内部 LVaR 应能对上同一套退出假设，避免限额与资本各说各话。
-- 出处：Bangia, Diebold, Schuermann and Stroughair, FRBNY, 1998/1999；Hisata and Yamai 对流动性 VaR 的讨论；执行侧对照 Almgren and Chriss, 2000；教科书见 Jorion 对流动性风险的章节。
+- 出处：Bangia, Diebold, Schuermann and Stroughair, Wharton Financial Institutions Center, 1998/1999；Hisata and Yamai 对流动性 VaR 的讨论；执行侧对照 Almgren and Chriss, 2000；教科书见 Jorion 对流动性风险的章节。
