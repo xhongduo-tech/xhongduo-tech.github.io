@@ -11,11 +11,11 @@ section: econ
 <footer>—— Bernard and Thomas 的盈余公告后漂移；DellaVigna and Pollet, JF 2009；Hirshleifer, Lim and Teoh 的注意力约束</footer>
 </div>
 
-[上一课](/econ/herding-cascades)让人看见行动却扔掉信号。本课缺口是看见本身：有限注意力使公开信息延迟进入价格，PEAD 成为半强式的候选拒绝。本课程最后一课；下一课程贸易从[李嘉图](/econ/ricardian-comparative-advantage)起。不重写 BHW 的级联阈值，不进入限价簿。
+[上一课](/econ/herding-cascades)让人看见行动却扔掉信号。本课缺口是看见本身：有限注意力使公开信息延迟进入价格，PEAD 成为半强式的候选拒绝。本课程最后一课；下一课程从[Grossman–Stiglitz](/econ/grossman-stiglitz)起，贸易课程其后从[李嘉图](/econ/ricardian-comparative-advantage)起。不重写 BHW 的级联阈值，不进入限价簿。
 
 ## 问题
 
-Bernard 与 Thomas 记录：盈余未预期在公告后仍预测漂移，符号与标准化意外一致。半强式 [EMH](/econ/emh) 要求公开盈余立刻被写入；联合假说仍在，但注意力给出具体机制。Hirshleifer、Lim 与 Teoh：同一天公告太多，每个公告的即时反应变弱、漂移变强。DellaVigna 与 Pollet（2009）：周五公告即时反应更弱、漂移更强——投资者注意力在周五下降。Barber 与 Odean（2008）：散户买注意力抓取的股票（新闻、涨停、高搜索），卖的一侧不受同样驱动。
+Bernard 与 Thomas 记录：盈余未预期在公告后仍预测漂移，符号与标准化意外一致。半强式 [EMH](/econ/emh) 要求公开盈余立刻被写入；联合假说仍在，但注意力给出具体机制。Hirshleifer、Lim 与 Teoh：同一天公告太多，每个公告的即时反应变弱、漂移变强。DellaVigna 与 Pollet（2009）：周五公告即时反应更弱、漂移更强——投资者注意力在周五下降。Barber 与 Odean（2008）：散户买注意力抓取的股票（新闻、极端收益、异常放量），卖的一侧不受同样驱动。
 
 缺口是把[显著性](/econ/salience-attention)接到公开信息的加总，而不是再写 BSV 的体制切换——二者可叠加：看见了仍可更新不足。
 
