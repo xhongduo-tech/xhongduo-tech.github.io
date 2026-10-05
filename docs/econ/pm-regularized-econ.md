@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>同一个 Lasso 能做两件事：预测时偏差是免费的，推断时偏差是致命的——分不清这两件事，选出来的显著性只是选择过程的回声。</p>
-<footer>—— 据 Leeb and Pötscher, Can One Estimate the Conditional Distribution of Post-Model-Selection Estimators?, Econometric Theory 2005；Belloni, Chernozhukov and Hansen, JEP 2014 整理</footer>
+<footer>—— 据 Leeb and Pötscher, Can One Estimate the Conditional Distribution of Post-Model-Selection Estimators?, Annals of Statistics 2006；Belloni, Chernozhukov and Hansen, JEP 2014 整理</footer>
 </div>
 
 [上一课](/econ/pm-sparse-methods)把高维预测器钉在稀疏假设与样本外验证上，并留下一句话：入选集合是随机对象，系数带收缩偏差。计量经济学家的诉求不止预测——要系数、要区间、要检验。缺口是：惩罚世界里的推断怎么做，以及什么情况下根本做不到。
@@ -74,4 +74,4 @@ flowchart TD
 - 罚即先验：ridge 对高斯、Lasso 对拉普拉斯；BMA 把模型不确定性摊开而不是挑一个。
 - 推断正路是 post-double selection 或去偏得分；控制池与选择过程必须预先声明并写进报告。
 - $\mathrm{df}(\lambda)$ 是复杂度的统一账本，跨罚对齐复杂度用 df 不用变量个数。
-- 出处：James and Stein 1961；Leeb and Pötscher, *Econometric Theory* 2005；Belloni, Chen, Chernozhukov and Hansen, *Econometrica* 2012；Belloni, Chernozhukov and Hansen, *JEP* 2014；Zellner 1986。
+- 出处：James and Stein 1961；Leeb and Pötscher, *Annals of Statistics* 2006；Belloni, Chen, Chernozhukov and Hansen, *Econometrica* 2012；Belloni, Chernozhukov and Hansen, *JEP* 2014；Zellner 1986。
