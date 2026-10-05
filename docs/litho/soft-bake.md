@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Mack 对 PAB / soft bake 与溶剂残留的论述整理</footer>
 </div>
 
-[上一课](/litho/trilayer-soc-sog)把层铺上。缺口是：还是湿的。本课钉软烤（PAB，post-apply bake）：赶溶剂、定自由体积。主干已有 [PAB 与溶剂残留](/litho/pab-solvent) 在胶化学补层——本课只补**轨道热板实现**，不重做玻璃化温度。后课显影假定烤完。
+[上一课](/litho/trilayer-soc-sog)把层铺上。缺口是：还是湿的。本课钉软烤（PAB，post-apply bake）：赶溶剂、定自由体积。补层已有 [PAB 与溶剂残留](/litho/pab-solvent) 在胶化学一节——本课只补**轨道热板实现**，不重做玻璃化温度。后课显影假定烤完。
 
 ## 问题
 
