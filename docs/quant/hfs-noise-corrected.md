@@ -19,7 +19,7 @@ section: quant
 
 ### 四个代表，一个机制
 
-**两尺度（TSRV）**：全网格 RV 识别 $2n\sigma_\varepsilon^2$，多个错开的稀疏网格平均出受污染较小的 RV，联立两式解出 $IV$（Zhang、Mykland 与 Aït-Sahalia，JASA 2005），收敛率 $n^{1/4}$，稀疏子格条数是主要调参。**多尺度（MSRV）**：把两尺度推广成多尺度加权组合，速率推到任意接近 $n^{1/2}$（Zhang，Bernoulli 2006），代价是多一组权重。**已实现核**：把噪声诱发的负一阶自协方差加权加回（Barndorff-Nielsen、Hansen、Lunde 与 Shephard，Econometrica 2008），带宽是主要调参。**预平均**：先用局部线性窗滤掉噪声再平方加总（Jacod、Li、Mykland、Podolskij 与 Vetter，2009），窗口长度是主要调参。**拟极大似然**（Aït-Sahalia、Mykland 与 Zhang，RFS 2005 及其相关噪声扩展）把噪声写进似然：模型对则效率高，模型错则偏差有结构。
+**两尺度（TSRV）**：全网格 RV 识别 $2n\sigma_\varepsilon^2$，多个错开的稀疏网格平均出受污染较小的 RV，联立两式解出 $IV$（Zhang、Mykland 与 Aït-Sahalia，JASA 2005），收敛率 $n^{1/4}$，稀疏子格条数是主要调参。**多尺度（MSRV）**：把两尺度推广成多尺度加权组合，速率推到任意接近 $n^{1/2}$（Zhang，JBES 2006），代价是多一组权重。**已实现核**：把噪声诱发的负一阶自协方差加权加回（Barndorff-Nielsen、Hansen、Lunde 与 Shephard，Econometrica 2008），带宽是主要调参。**预平均**：先用局部线性窗滤掉噪声再平方加总（Jacod、Li、Mykland、Podolskij 与 Vetter，2009），窗口长度是主要调参。**拟极大似然**（Aït-Sahalia、Mykland 与 Zhang，RFS 2005 及其相关噪声扩展）把噪声写进似然：模型对则效率高，模型错则偏差有结构。
 
 <span class="marginnote">数字实例：一天 $n=20000$ 个 tick、$\sigma_\varepsilon^2=0.05$ 时，朴素 RV 要多出 $2\times20000\times0.05=2000$，而真实日 $IV$ 可能只有 1 上下；稀疏平均把有效观测降到几百，加项立刻掉一个数量级——「减法」的第一步其实是先让噪声项变小，第二步才是联立把残项解干净。</span>
 
@@ -68,4 +68,4 @@ flowchart TD
 - 假设最弱者最耐用：相关或内生噪声下优先核与预平均，i.i.d. 减法会失准。
 - 调参须有准则并随日更新；全年固定带宽是把渐近公式当常数用。
 - 修正不修隔夜与跳，对清洗敏感；次序是先清洗、再修正、后检验。
-- 出处：Zhang, Mykland and Aït-Sahalia, *JASA*, 2005；Zhang, *Bernoulli*, 2006；Aït-Sahalia, Mykland and Zhang, *RFS*, 2005；Barndorff-Nielsen, Hansen, Lunde and Shephard, *Econometrica*, 2008；Jacod, Li, Mykland, Podolskij and Vetter, 2009。
+- 出处：Zhang, Mykland and Aït-Sahalia, *JASA*, 2005；Zhang, *JBES*, 2006；Aït-Sahalia, Mykland and Zhang, *RFS*, 2005；Barndorff-Nielsen, Hansen, Lunde and Shephard, *Econometrica*, 2008；Jacod, Li, Mykland, Podolskij and Vetter, 2009。

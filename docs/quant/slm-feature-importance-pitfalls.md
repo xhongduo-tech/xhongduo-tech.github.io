@@ -65,4 +65,4 @@ flowchart TD
 - 重要性是模型条件量：换模型、换年份都会换人，归因有分辨率下限。
 - 分年份排序的波动本身是信号质量信息，不是噪声。
 - 「有没有边际信息」由正交化与分状态 IC 裁决，不由 importance 裁决。
-- 出处：Breiman, *Statistical Science*, 2001；López de Prado, *Advances in Financial Machine Learning*, Wiley, 2018，第 8 章；Freyberger, Neuhierl and Weber, *RFS*, 2020。
+- 出处：Breiman, *Statistical Science*, 2001；López de Prado, *Advances in Financial Machine Learning*, Wiley, 2018，第 8 章；Freyberger, Neuhierl and Weber, *JF*, 2020。
