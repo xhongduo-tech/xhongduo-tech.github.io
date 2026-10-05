@@ -69,4 +69,4 @@ flowchart TD
 - 非凸投资与进入退出使加总 $I$ 成为分布的积分。
 - GE 价格可削弱微观 lumpy 向宏观的传递。
 - 颗粒度让大企业冲击进入总量。
-- 出处：Hopenhayn, *Econometrica* 1992；
+- 出处：Hopenhayn, *Econometrica* 1992。

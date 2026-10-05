@@ -73,4 +73,4 @@ flowchart LR
 - MM 下企业对冲无价值；税、破产、优序融资约束给出许可证。
 - FSS：对冲保护外部融资贵时的投资，不是把 beta 对到零。
 - 成本进现金或 APV；禁止用「对冲降低 WACC」当接受规则。
-- 出处：Smith and Stulz, *JFQA* 1985；
+- 出处：Smith and Stulz, *JFQA* 1985。

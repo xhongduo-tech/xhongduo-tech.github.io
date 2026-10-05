@@ -67,4 +67,4 @@ flowchart TD
 - 新闻冲击：未来基本面的信号先动今天的量价。
 - RE 下也可有反转，若信号有噪。
 - 与诊断性过冲、与纯太阳黑子分列。
-- 出处：Beaudry and Portier, *AER* 2006；
+- 出处：Beaudry and Portier, *AER* 2006。

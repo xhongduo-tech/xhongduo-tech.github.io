@@ -19,7 +19,7 @@ Sims：人不是每期免费看见状态，而是选择一个关于状态的信�
 
 <span class="marginnote">术语翻译：理性疏忽就是「看不过来，所以有选择地看」。不是看不见，而是带宽（容量 $\kappa$）有限，你把清晰度分给最重要的东西，其余只看个模糊轮廓——而且这种分配本身是算过账的。</span>
 
-<span class="marginnote">Sims, *JME* 2003。Maćkowiak and Wiederholt, *AER* 2009。Woodford 的不完全信息定价。Caplin、Dean、Angeletos 等后续。Shannon 是常用的tractable 约束，不是唯一认知模型。</span>
+<span class="marginnote">Sims, *JME* 2003。Maćkowiak and Wiederholt, *AER* 2009。Woodford 的不完全信息定价。Caplin、Dean、Angeletos 等后续。Shannon 是常用的 tractable 约束，不是唯一认知模型。</span>
 
 ## 方法
 
@@ -68,4 +68,4 @@ flowchart LR
 - 理性疏忽：容量约束下的最优信号。
 - 可同时解释微观灵活与宏观惯性。
 - 与外生 $\lambda$、与学习、与认知偏差分列。
-- 出处：Sims, *JME* 2003；
+- 出处：Sims, *JME* 2003。

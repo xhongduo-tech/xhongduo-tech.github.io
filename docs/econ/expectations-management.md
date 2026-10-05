@@ -68,4 +68,4 @@ flowchart TD
 - 前瞻指引与声明移动路径预期；ZLB 时更重要。
 - Odyssean vs Delphic 决定 IRF 符号。
 - 家庭与市场价格分裂，用本单元的信息摩擦解释。
-- 出处：Eggertsson and Woodford 2003；
+- 出处：Eggertsson and Woodford 2003。

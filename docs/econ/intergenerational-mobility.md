@@ -8,14 +8,14 @@ section: econ
 
 <div class="epigraph">
 <p>财富可以乘性滚；技能与邻里把收入过程变成跨代马尔可夫，尾与机会不是同一张图。</p>
-<footer>—— Becker and Tomes, Human Capital and the Rise and Fall of Families, JLaborE 1986；Chetty, Hendren, Kline and Saez 的美国流动地图</footer>
+<footer>—— Becker and Tomes, Human Capital and the Rise and Fall of Families, JOLE 1986；Chetty, Hendren, Kline and Saez 的美国流动地图</footer>
 </div>
 
 [上一课](/econ/inequality-r-g)谈财富相对增长的膨胀。收入机会可以在财富份额上升时改善或恶化。本课缺口是**代际**：人力资本投资与邻里如何把 $z$ 的马尔可夫从一代接到下一。不重写 $r\gt g$ 会计。
 
 ## 问题
 
-Becker–Tomes：父母最大化子女人力资本加遗产，信贷约束使穷父母投资不足，能力回归均值但约束造成持久。Solon 的代际收入弹性；Chetty 等用税收行政数据画通勤区流动。缺口是给 Aiyagari 的外生 $z$ 过程一个跨代来源，而不是再校准一年一度的劳动收入 viscocity。
+Becker–Tomes：父母最大化子女人力资本加遗产，信贷约束使穷父母投资不足，能力回归均值但约束造成持久。Solon 的代际收入弹性；Chetty 等用税收行政数据画通勤区流动。缺口是给 Aiyagari 的外生 $z$ 过程一个跨代来源，而不是再校准一年一度的劳动收入 viscosity。
 
 <span class="marginnote">Becker and Tomes, *JOLE* 1986。Chetty et al., *QJE* 2014（Equality of Opportunity）。Restuccia–Urrutia、Lee–Seshadri 的定量人力资本宏观。</span>
 <span class="marginnote">数字实例：代际收入弹性 $\beta=0.5$ 是说父母收入每比平均高 100%，子女预期只高 50%。若北欧估计 $\beta\approx 0.2$，同样的家庭优势到子女只剩约两成——弹性每差 0.1，差距消失的速度就差一代人的量级。</span>

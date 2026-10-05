@@ -17,7 +17,7 @@ section: econ
 
 RE：$\mathbb{E}_t$ 是模型真实条件期望。估计与 BK 都靠它。现实：系数未知，人用过去数据更新。Marcet–Sargent：若学习增益下降，信念可收敛到 RE。Evans–Honkapohja：E-稳定性——若人们相信的定律在学习动态下是吸引子，RE 才「可学习」。常增益学习永远不完全收敛，持续误设可放大冲击。缺口是给「预期」一条可替代 RE 的递推，而不是从零讲最小二乘。
 
-<span class="marginnote">Evans and Honkapohja, Princeton, 2001。Marcet and Sargent, *JEDC* 1989。Bullard and Mitra 对泰勒规则可学习性。Sargent 的 *The Conquest of American Inflation*。</span>
+<span class="marginnote">Evans and Honkapohja, Princeton, 2001。Marcet and Sargent, *JET* 1989。Bullard and Mitra 对泰勒规则可学习性。Sargent 的 *The Conquest of American Inflation*。</span>
 
 ## 方法
 
