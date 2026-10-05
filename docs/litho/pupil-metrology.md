@@ -19,7 +19,7 @@ section: litho
 
 <span class="marginnote">术语翻译：所谓「角谱」，就是把照进物镜的光按传播方向拆开逐份记账——光瞳上每一个位置对应一组角度，看光瞳等于看「光都朝哪些方向去了」。把它想象成把和弦拆成一个个单音来检查，哪根弦松了一眼就能看出。</span>
 
-展开：可编程照明是数万面微镜拼出的软件图像，实现侧的漂移有三类——微镜倾角标定缓漂、个别镜单元卡死或失效、上游光学积尘把孔径边缘磨钝；偏振态再叠一层（[照明偏振](/litho/illuminator-polarization)）。落到成像上是几个可预算的症状：偶极两极失衡给出横竖线 CD 的系统偏差；σ 内外环漂移搬动 [iso-dense bias](/litho/iso-dense-bias) 与 Bossung 斜率（[Bossung 曲线](/litho/bossung-curve)）；辅助特征阈值随角谱漂，[SRAF](/litho/sraf-assist) 过印或欠印，热点被误报到 OPC 头上——模型被无端重标定，真正的源漂移还留在台上。
+展开：可编程照明是数千面微镜拼出的软件图像，实现侧的漂移有三类——微镜倾角标定缓漂、个别镜单元卡死或失效、上游光学积尘把孔径边缘磨钝；偏振态再叠一层（[照明偏振](/litho/illuminator-polarization)）。落到成像上是几个可预算的症状：偶极两极失衡给出横竖线 CD 的系统偏差；σ 内外环漂移搬动 [iso-dense bias](/litho/iso-dense-bias) 与 Bossung 斜率（[Bossung 曲线](/litho/bossung-curve)）；辅助特征阈值随角谱漂，[SRAF](/litho/sraf-assist) 过印或欠印，热点被误报到 OPC 头上——模型被无端重标定，真正的源漂移还留在台上。
 
 ## 方法
 
