@@ -34,7 +34,7 @@ flowchart TD
   Q --> USE["读贝弗里奇：沿曲线或外移"]
 ```
 
-<span class="marginnote">用美国月度量级做心算：$s\approx 2\%$、$f\approx 20\%$ 时 $u^{*}\approx 9\%$；$f$ 减半而 $s$ 不变，稳态推到约 $17\%$。换句话说，入职率腰斩对水位的推动，远大于分离率翻倍。</span>
+<span class="marginnote">用美国月度量级做心算：$s\approx 2\%$、$f\approx 20\%$ 时 $u^{*}\approx 9\%$；$f$ 减半而 $s$ 不变，稳态推到约 $17\%$。换句话说，入职率腰斩对水位的推动，不亚于分离率翻倍。</span>
 
 ## 方法
 
