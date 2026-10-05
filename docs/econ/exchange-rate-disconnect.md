@@ -15,7 +15,7 @@ section: econ
 
 ## 问题
 
-Meese–Rogoff：用事后才知道的基本面代入 1970 年代结构模型，样本外汇预报仍打不赢随机游走。Obstfeld–Rogoff 六谜：主乡偏好、FH、PPP 偏离持久、Backus–Smith、汇率波动过大、以及贸易弹性。脱节是波动与预报：宏观慢、$E$ 快。缺口不是再讲超调代数——[Dornbusch](/econ/dornbusch-overshoot) 已经给粘性价格下的超调；谜是定量上 $E$ 比能合理化的基本面波动大得多，且预报无用。
+Meese–Rogoff：用事后才知道的基本面代入 1970 年代结构模型，样本外汇预报仍打不赢随机游走。Obstfeld–Rogoff 六谜：贸易主乡偏好、股权组合主乡偏好、FH、PPP 偏离持久、Backus–Smith、汇率波动过大。脱节是波动与预报：宏观慢、$E$ 快。缺口不是再讲超调代数——[Dornbusch](/econ/dornbusch-overshoot) 已经给粘性价格下的超调；谜是定量上 $E$ 比能合理化的基本面波动大得多，且预报无用。
 
 <span class="marginnote">Engel–West：若基本面近单位根、贴现因子近 1，汇率可以近似随机游走而仍是现值。脱节可以是「贴现的资产价格」，不必是非理性。定量是否够，仍争。</span>
 

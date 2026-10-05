@@ -21,7 +21,7 @@ section: econ
 
 ## 方法
 
-储备需求：Guidotti–Greenspan 规则（短期外债）、Aizenman–Lee 自我保险 vs 重商。干预有效性：资产组合余额（本外币债不完全替代）给出短暂楔子；UIP 若因风险溢价而松，干预改净供给可改 $E$。完全替代 + UIP 时冲销干预无效（Backus–Gallant 一类）。实证混杂，本课不报点估计。报价层 CIP 偏离见 `/quant/irp`，本课不编基差。
+储备需求：Guidotti–Greenspan 规则（短期外债）、Aizenman–Lee 自我保险 vs 重商。干预有效性：资产组合余额（本外币债不完全替代）给出短暂楔子；UIP 若因风险溢价而松，干预改净供给可改 $E$。完全替代 + UIP 时冲销干预无效（Branson–Henderson 一类）。实证混杂，本课不报点估计。报价层 CIP 偏离见 `/quant/irp`，本课不编基差。
 
 ```mermaid
 flowchart TD
