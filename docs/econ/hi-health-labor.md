@@ -68,4 +68,4 @@ flowchart TD
 - Grossman：健康是消费品兼投资品，投资条件是边际收益对利息加折旧。
 - 保险的三条线：补贴医疗投资、制造 job lock、降低伤残退出的门槛。
 - 识别用外生健康冲击，不信自报健康的水平。
-- 出处：Grossman, *JPE* 1972；Gruber–Madrian, *ILR Review* 1994；French, *AER* 2005。
+- 出处：Grossman, *JPE* 1972；Gruber–Madrian, *ILR Review* 1994；French, *REStud* 2005。
