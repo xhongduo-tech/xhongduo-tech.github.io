@@ -35,7 +35,7 @@ flowchart TD
 
 ## 机制
 
-Breeden–Litzenberger 给出判废标准：看涨期权对行权价的二阶导是风险中性密度，$\rho(K)=e^{rT}\,\partial^2 C/\partial K^2$，而 $\partial^2 C/\partial K^2\gt 0$ 等价于 smile 的凸性——所以「曲线向下弯」不是审美问题，是 $\rho$ 出现负质量，衍生品定价从此可以被套利。保形插值的价值在于把二阶导约束写进算法：Hermite 分段在节点间保持形状，自然样条为最小化曲率能量常在翼部反翘。验收前置总比事后修补便宜。<span class="marginnote">直觉类比：插值像在两个已探明的桥墩之间架桥——两端标高是行情给的，桥型（直梁还是拱）由荷载检验（无套利）说了算，不是画得越顺眼越好。</span>
+Breeden–Litzenberger 给出判废标准：看涨期权对行权价的二阶导是风险中性密度，$\rho(K)=e^{rT}\,\partial^2 C/\partial K^2$，而 $\partial^2 C/\partial K^2\gt 0$ 等价于看涨价格曲线对行权价凸，这也是 smile 不能剧烈向下弯的根源——所以「曲线向下弯」不是审美问题，是 $\rho$ 出现负质量，衍生品定价从此可以被套利。保形插值的价值在于把二阶导约束写进算法：Hermite 分段在节点间保持形状，自然样条为最小化曲率能量常在翼部反翘。验收前置总比事后修补便宜。<span class="marginnote">直觉类比：插值像在两个已探明的桥墩之间架桥——两端标高是行情给的，桥型（直梁还是拱）由荷载检验（无套利）说了算，不是画得越顺眼越好。</span>
 
 <span class="marginnote">常见误区：直接对 $\sigma(K)$ 样条然后喂进定价公式。错在哪一步？曲率检查本应做在价格或总方差上；对波动率本身插值再复合进 Black 公式，二阶导约束被指数复合破坏，负密度从后门溜进来。</span>
 
@@ -57,7 +57,7 @@ flowchart TD
 ## 小结
 
 - 插值五步：清洗、换总方差、加权、保形插值、翼部封斜率。
-- 判废标准是 Breeden–Litzenberger 密度非负，等价于 smile 凸性。
+- 判废标准是 Breeden–Litzenberger 密度非负，即看涨价格对行权价凸。
 - 对 $\sigma$ 直接样条是经典翻车点：二阶导约束被复合破坏。
 - 翼部是外推假设，责任在建模者不在数据。
 - 出处：Breeden and Litzenberger, *Journal of Business*, 1978；Gatheral, *The Volatility Surface*, 2006；SVI 参数化见 Gatheral and Jacquier, 2014。

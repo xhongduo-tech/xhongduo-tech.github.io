@@ -51,7 +51,7 @@ flowchart TD
   U --> V
 ```
 
-<span class="marginnote">常见误区：把 CDS 利差直接当违约概率——1000 bp 利差在回收率 40% 下对应 $\lambda\approx 16.7\%$ 而非 10%；又把风险率与年化违约概率混写，忽略 $1-e^{-\lambda}$ 与 $\lambda$ 在高 $\lambda$ 时的差别（$\lambda=30\%$ 时两者差 3.5 个百分点）。</span>
+<span class="marginnote">常见误区：把 CDS 利差直接当违约概率——1000 bp 利差在回收率 40% 下对应 $\lambda\approx 16.7\%$ 而非 10%；又把风险率与年化违约概率混写，忽略 $1-e^{-\lambda}$ 与 $\lambda$ 在高 $\lambda$ 时的差别（$\lambda=30\%$ 时两者差约 4.1 个百分点）。</span>
 
 ## 边界
 
