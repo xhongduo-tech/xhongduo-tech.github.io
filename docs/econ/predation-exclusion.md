@@ -11,7 +11,7 @@ section: econ
 <footer>—— McGee, Journal of Law and Economics 1958；Ordover and Willig, Yale Law Journal 1981；Ordover, Saloner and Salop 排他；对照 Tirole 与微观课掠夺性定价</footer>
 </div>
 
-[上一课](/econ/merger-simulation)通过改所有权让交叉弹性内部化。本课缺口是不合并也能改变 $N$：先牺牲、再在更少对手的市场里补偿；或用合同、兼容、渠道把对手的 $F$ 抬高。微观[掠夺性定价](/econ/predatory-pricing)已在完全信息、完美资本市场上给出 McGee 式怀疑。产业组织收束课把怀疑接到融资约束、多市场声誉，以及[纵向约束](/econ/vertical-restraints)、[网络与标准](/econ/network-standards-io)里已经出现的封锁。后课公共财政换题；本课是 IO 最后一课。
+[上一课](/econ/merger-simulation)通过改所有权让交叉弹性内部化。本课缺口是不合并也能改变 $N$：先牺牲、再在更少对手的市场里补偿；或用合同、兼容、渠道把对手的 $F$ 抬高。微观[掠夺性定价](/econ/predatory-pricing)已在完全信息、完美资本市场上给出 McGee 式怀疑。产业组织收束课把怀疑接到融资约束、多市场声誉，以及[纵向约束](/econ/vertical-restraints)、[网络与标准](/econ/network-standards-io)里已经出现的封锁。后课公共财政换题；本课是 IO 主干最后一课。
 
 ## 问题
 
@@ -36,7 +36,7 @@ flowchart TD
   MER["上一课: 改所有权"] --> STR["本课: 改谁在场"]
   STR --> PRED["掠夺: 牺牲加补偿"]
   STR --> EXCL["排他: 抬高 F 或挡利润"]
-  PRED --> PF["下一课: 公共品与财政"]
+  PRED --> PF["下一课: 研发竞赛与专利（加深层）"]
   EXCL --> PF
 ```
 
@@ -77,5 +77,5 @@ flowchart TD
 - 排他通过渠道、接口与沉没封锁进入，不必低于成本。
 - 完全资本市场、单市场下补偿往往不可信；摩擦把它打开。
 - 合并改所有权，掠夺与排他改谁在场，反事实更长。
-- IO 收束于此；下一块是公共品与税。
+- IO 主干收束于此；下一块是加深层创新与纵向，公共品与税再往后。
 - 出处：McGee 1958；Ordover and Willig 1981；Ordover, Saloner and Salop；Tirole。
