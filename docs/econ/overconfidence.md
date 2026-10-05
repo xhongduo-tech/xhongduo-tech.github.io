@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>人对自己的知识给出过窄的置信区间，对相对排名给出过高的位置——错的是信念，不一定是 $v$。</p>
-<footer>—— Alpert and Raiffa 的校准；Svenson, Acta Psychologica 1981；Odean, Journal of Finance 1998, 1999</footer>
+<footer>—— Alpert and Raiffa 的校准；Svenson, Acta Psychologica 1981；Odean, Journal of Finance 1998；American Economic Review 1999</footer>
 </div>
 
 [上一课](/econ/endowment-effect)动的是参考点上的评价。本课缺口换成信念：过度精确、过高估计、过优定位。不重写 $\lambda$。
@@ -72,4 +72,4 @@ flowchart TD
 - Odean：高换手家庭事后平均表现更差。
 - 难任务上更过度自信，易任务上可能相反。
 - 高换手还有再平衡与税收，不能全部归因。
-- 出处：Alpert and Raiffa；Svenson 1981；Odean, *JF* 1998, 1999。
+- 出处：Alpert and Raiffa；Svenson 1981；Odean, *JF* 1998；*AER* 1999。
