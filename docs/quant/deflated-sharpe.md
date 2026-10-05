@@ -15,7 +15,7 @@ section: quant
 
 ## 问题
 
-设策略超额收益的样本夏普为 $\widehat{\mathrm{SR}}$。若收益独立正态，对 $\mathrm{SR}=0$ 的检验大约看 $\widehat{\mathrm{SR}}\sqrt{T}$。真实收益有偏度 $\gamma_3$、超额峰度 $\gamma_4$，Mertens 给出 $\widehat{\mathrm{SR}}$ 的渐近方差还含 $1-\gamma_3\mathrm{SR}+(\gamma_4-1)\mathrm{SR}^2/4$ 一项。左偏、肥尾时，同样的点估计更不可信。Lo 的结论是：不要把夏普当无量纲的确定性标签，它是有抽样误差的估计量。
+设策略超额收益的样本夏普为 $\widehat{\mathrm{SR}}$。若收益独立正态，对 $\mathrm{SR}=0$ 的检验大约看 $\widehat{\mathrm{SR}}\sqrt{T}$。真实收益有偏度 $\gamma_3$、峰度 $\gamma_4$，Mertens 给出 $\widehat{\mathrm{SR}}$ 的渐近方差还含 $1-\gamma_3\mathrm{SR}+(\gamma_4-1)\mathrm{SR}^2/4$ 一项。左偏、肥尾时，同样的点估计更不可信。Lo 的结论是：不要把夏普当无量纲的确定性标签，它是有抽样误差的估计量。
 
 选择偏差把问题从「这一个估计量」变成「最大值的估计量」。$N$ 个互不相关的零技能策略，最大样本夏普大约按极值分布随 $\sqrt{\log N}$ 上升。Bailey、Borwein、López de Prado 与 Zhu（2014）在 AMS 通告里把这种现象称为回测过拟合：试验次数足够大时，漂亮回测几乎必然出现。Harvey、Liu 与 Zhu（2016）在因子发现上得到平行结论——$t=2$ 不够。DSR 的对象是交易策略的夏普，机制与多重检验相同：未申报的尝试次数是暗数，任何「显著夏普」都必须相对这个暗数来读。
 
