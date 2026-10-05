@@ -54,7 +54,7 @@ flowchart TD
   JOINT --> RISK["切片 smile 不是动态模型"]
 ```
 
-<span class="marginnote">「1y5y10y」三个数指一件东西：一年后进入的十年互换期权。vega 与 bp-vega 混报会差出一个年金量级——十年期互换的年金约是名义的八倍，混淆之后对冲名义会放大近一个数量级，而且是单向的：bp-vega 台按 vega 名义下单，就多对冲了八倍。</span>
+<span class="marginnote">「1y10y」两个数指一件东西：一年后进入的十年互换期权。vega 与 bp-vega 混报会差出一个年金量级——十年期互换的年金约是名义的八倍，混淆之后对冲名义会放大近一个数量级，而且是单向的：bp-vega 台按 vega 名义下单，就多对冲了八倍。</span>
 
 ## 边界
 
