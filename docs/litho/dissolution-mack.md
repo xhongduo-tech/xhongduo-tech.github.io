@@ -37,7 +37,7 @@ $$
 
 其中 $a=\dfrac{n+1}{n-1}(1-m_\mathrm{th})^n$，使 $R(m)$ 在阈值附近获得需要的陡度。这就是口语里的「Mack 四参数」。PROLITH 一类模拟器、以及 OPC 的紧凑胶模块，用的就是这一族，而不是分子动力学。$n\to\infty$ 时趋向理想开关，对应上一课极大的 $\gamma$，也对应本课已经警告过的噪声放大。
 
-<span class="marginnote">数字实例：取 $R_\mathrm{max}=100\,\mathrm{nm/s}$、$R_\mathrm{min}=1\,\mathrm{nm/s}$，选择比一百倍。清 $1\,\mu\mathrm{m}$ 厚的亮区只需约 10 秒，但显影 60 秒时暗区也掉了 $60\,\mathrm{nm}$——约一成膜厚。看起来「不溶」的材料，时间够长照样掉厚，这就是 $R_\mathrm{min}$ 绝不能当零的原因。</span>
+<span class="marginnote">数字实例：取 $R_\mathrm{max}=100\,\mathrm{nm/s}$、$R_\mathrm{min}=1\,\mathrm{nm/s}$，选择比一百倍。清 $1\,\mu\mathrm{m}$ 厚的亮区只需约 10 秒，但显影 60 秒时暗区也掉了 $60\,\mathrm{nm}$——约 6% 膜厚。看起来「不溶」的材料，时间够长照样掉厚，这就是 $R_\mathrm{min}$ 绝不能当零的原因。</span>
 
 Notch 变体在 $R(m)$ 上再乘（或再叠加）一个更陡的阈值因子：低脱保护时速率几乎贴着 $R_\mathrm{min}$，过「槽口」后迅速靠近 $R_\mathrm{max}$。CAR 的实验溶速常长这样——保护基掉到某一分数之前聚合物仍疏水。拟合 Notch 是为了把这张形状送进计算光刻，不是新发明一种显影液。
 

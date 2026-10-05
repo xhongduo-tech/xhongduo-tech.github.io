@@ -11,7 +11,7 @@ section: litho
 <footer>—— 据 Reiser 对 DNQ 光化学的论述，以及 Mack 对 i 线正胶显影模型的表述整理</footer>
 </div>
 
-[上一课](/litho/positive-vs-negative)（正胶与负胶）。把扫描机焦轴做成可以故意摊开的窗。成像与分辨率到此结束。缺口换成记录介质：窗的另一条边是胶怎样把空中像切成浮雕。本课写 CAR 之前的默认正胶——i 线的 DNQ–Novolac。[化学放大](/litho/car-resist)是下一课，不要在这里预支 PAG。
+[上一课](/litho/positive-vs-negative)（正胶与负胶）把曝光区溶还是留的极性，连同掩模明暗场一起钉了下来，成像与分辨率的账在它那里收尾。缺口换成记录介质：胶怎样把空中像切成浮雕。本课写 CAR 之前的默认正胶——i 线的 DNQ–Novolac。[化学放大](/litho/car-resist)是下一课，不要在这里预支 PAG。
 
 ## 问题
 
