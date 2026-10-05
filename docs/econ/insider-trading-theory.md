@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
     <p>内部人按私人信息交易，使价格更快吸收信息，也把流动性供给者置于信息劣势；效率与分配的权衡，不是一句「禁止就公平」能结束。</p>
-    <footer>—— Manne, Insider Trading and the Stock Market, 1966；Leland, Insider Trading: Should It Be Prohibited, Journal of Political Economy 1992；Fishman and Hagerty, Journal of Finance 1992</footer>
+    <footer>—— Manne, Insider Trading and the Stock Market, 1966；Leland, Insider Trading: Should It Be Prohibited, Journal of Political Economy 1992；Fishman and Hagerty, RAND Journal of Economics 1992</footer>
 </div>
 
 [上一课](/econ/law-and-finance)把法律写成保护参数。内部人交易规则是证券法的一块。本课缺口是理论：允许经理交易是否改善价格信息、是否扭曲投资与薪酬。不重写 LLSV 指数，不把限价簿上的知情交易模型写成量化栏微观结构主线——只取对公司合同的含义。
@@ -72,4 +72,4 @@ flowchart TD
 - 内部人交易可加快价格发现，也提高外部人成本、扭曲投资与披露时点。
 - 与薪酬、发股柠檬、楔子下的掏空相连。
 - 效率、分配、流动性三句分开；法律是 LLSV 保护的一块。
-- 出处：Manne 1966；Leland, *JPE* 1992；Fishman and Hagerty, *JF* 1992。
+- 出处：Manne 1966；Leland, *JPE* 1992；Fishman and Hagerty, *RAND* 1992。

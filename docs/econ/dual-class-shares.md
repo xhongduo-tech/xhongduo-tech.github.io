@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
     <p>超级投票权把现金流权与投票权劈开：创始人可以在只持有少数经济权益时保有剩余控制权，代理成本随楔子上升，换来的是防止敌意接管与免费搭车式的打断。</p>
-    <footer>—— 据 Grossman and Hart 控制权逻辑；Gompers, Ishii and Metrick, Journal of Finance 2010；对照 [控制权与治理](/econ/control-rights)</footer>
+    <footer>—— 据 Grossman and Hart 控制权逻辑；Gompers, Ishii and Metrick, Review of Financial Studies 2010；对照 [控制权与治理](/econ/control-rights)</footer>
 </div>
 
 [上一课](/econ/venture-capital-staging)在私人阶段已经把表决权与现金流权分开。IPO 时若写入 A/B 股，楔子进入公众市场。本课缺口是双层股权：何时是保护长期项目的承诺，何时是壕沟。不重写 VC 条款清单，不把 LLSV 的国别回归提前。
@@ -76,4 +76,4 @@ flowchart TD
 - 双层劈开投票与现金流，挡接管，也抬高私人收益。
 - 比毒丸更硬：拆除权在超级投票股东。
 - 效率读法是保护专用性投资；转移读法是壕沟。日落是折中。
-- 出处：Gompers, Ishii and Metrick, *JF* 2010；Grossman and Hart；Tirole。
+- 出处：Gompers, Ishii and Metrick, *RFS* 2010；Grossman and Hart；Tirole。
