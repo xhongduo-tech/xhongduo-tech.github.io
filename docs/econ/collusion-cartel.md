@@ -35,7 +35,7 @@ $$
 \pi_d-\pi_c\le\frac{\delta}{1-\delta}(\pi_c-\pi_p).
 $$
 
-$\delta$ 越大、 $(\pi_c-\pi_p)$ 越大、当期偏离增益越小，合谋越容易。$n$ 增加通常摊薄 $\pi_c$、放大 $\pi_d$ 的相对诱惑。需求繁荣抬高当期偏离收益，Stigler–Rotemberg 一类比较静态说繁荣期更难合谋——声明监测假设后再用。
+$\delta$ 越大、 $(\pi_c-\pi_p)$ 越大、当期偏离增益越小，合谋越容易。$n$ 增加通常摊薄 $\pi_c$、放大 $\pi_d$ 的相对诱惑。需求繁荣抬高当期偏离收益，Rotemberg–Saloner 一类比较静态说繁荣期更难合谋——声明监测假设后再用。
 
 <span class="marginnote">数字实例：一次性偏离多赚 $\pi_d-\pi_c=50$，被罚后每期少赚 $\pi_c-\pi_p=10$。要压住偏离，需 $\frac{\delta}{1-\delta}\times 10\ge 50$，即 $\delta\ge 5/6\approx 0.83$——只有足够看重未来，惩罚才够痛。$\delta$ 从 0.9 降到 0.7，同一个卡特尔就从可行变成崩盘。</span>
 
