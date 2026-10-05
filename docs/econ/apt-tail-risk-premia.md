@@ -8,7 +8,7 @@ section: econ
 
 <div class="epigraph">
 <p>平滑的样本均值看不见小概率的大跌幅，定价却看得见：核的弯曲恰恰发生在数据最稀的地方。</p>
-<footer>—— 据 Rietz, *Journal of Monetary Economics* 1988；Barro, *QJE* 2006；Weitzman, *JPE* 2007 整理</footer>
+<footer>—— 据 Rietz, *Journal of Monetary Economics* 1988；Barro, *QJE* 2006；Weitzman, *AER* 2007 整理</footer>
 </div>
 
 [上一课](/econ/apt-liquidity-deep)把交易摩擦记进收益；本课转向分布本身。第二课的界要求 $\sigma(m)/E(m)$ 达到 0.4 上下，而第一课的扩散假设把路径剪得连续、把左尾剪平了——用平滑消费的 CRRA 去够这条界，风险厌恶就得推到不可信的高度。缺口是左尾：溢价可能不在平均日子里，而在样本里几乎没有的那些状态中。
@@ -23,7 +23,7 @@ section: econ
 
 ## 方法
 
-三条路。其一，把灾难装进模型：Rietz 1988 提出小概率灾难假说，Barro 2006 用长面板校准它；[Lucas 树](/econ/lucas-tree)里加一条「红利累计跌近三成、年概率约 2%」的左尾，核在灾难状态乘上一个大负数，溢价与利率同时回到合理区间（[罕见灾难](/econ/rare-disasters)）。其二，从期权读尾：隐含分布的左尾有价，方差风险溢价——已实现方差与隐含方差之差——为正且能预测收益（Carr–Wu 2009；Bollerslev, Tauchen and Zhou 2009）；下行贝塔把「坏年景里的贝塔」单独拿出来定价（Ang, Chen and Xing 2006）。其三，对分布本身的认知：Weitzman 2007 证明对分布参数的学习会把观测到的肥尾内生化——感知的尾部比真实尾部更肥，低利率与高溢价同时出现。
+三条路。其一，把灾难装进模型：Rietz 1988 提出小概率灾难假说，Barro 2006 用长面板校准它；[Lucas 树](/econ/lucas-tree)里加一条「红利累计跌近三成、年概率约 2%」的左尾，核在灾难状态乘上一个大数，溢价与利率同时回到合理区间（[罕见灾难](/econ/rare-disasters)）。其二，从期权读尾：隐含分布的左尾有价，方差风险溢价——已实现方差与隐含方差之差——为正且能预测收益（Carr–Wu 2009；Bollerslev, Tauchen and Zhou 2009）；下行贝塔把「坏年景里的贝塔」单独拿出来定价（Ang, Chen and Xing 2006）。其三，对分布本身的认知：Weitzman 2007 证明对分布参数的学习会把观测到的肥尾内生化——感知的尾部比真实尾部更肥，低利率与高溢价同时出现。
 
 ```mermaid
 flowchart TD
@@ -64,4 +64,4 @@ flowchart TD
 - 灾难校准（年概率约 2%、深度近三成）能同时压住股权溢价与无风险利率，但留有自由参数。
 - 跳跃不可对冲，尾部溢价是对复制断裂的保险；期权隐含分布与方差风险溢价是可观测对应物。
 - 学习效应把感知尾部放大（Weitzman 2007），低利率与高溢价得以共存。
-- 出处：Rietz 1988；Mehra and Prescott, *JME* 1985；Barro, *QJE* 2006；Weitzman, *JPE* 2007；Carr and Wu, *JF* 2009。
+- 出处：Rietz 1988；Mehra and Prescott, *JME* 1985；Barro, *QJE* 2006；Weitzman, *AER* 2007；Carr and Wu, *RFS* 2009。
