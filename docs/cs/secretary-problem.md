@@ -27,7 +27,7 @@ section: cs
 
 ## 方法
 
-证明 $r$ 最优：成功 = 最大在 $j\gt r$ 且 $j$ 前缀最大在前 $r$。求和 $\approx \int_{r/n}^1 -\ln x\,dx$ 在 $r/n=1/e$ 最大。
+证明 $r$ 最优：成功 = 最大在 $j\gt r$ 且 $j$ 前缀最大在前 $r$。求和 $\approx \frac{r}{n}\int_{r/n}^{1}\frac{dt}{t}=-\frac{r}{n}\ln\frac{r}{n}$，在 $r/n=1/e$ 最大。
 
 ```mermaid
 flowchart TD
