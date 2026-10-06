@@ -48,7 +48,7 @@ van Ingen Schenau 等 *Imaging performance of the EUV high NA anamorphic system*
 
 ## 机制
 
-掩模 NA ≈ 硅片 NA / 倍率。0.55 / 4 把掩模角推过多层布拉格与吸收体阴影的常用窗口；沿最敏感方向升到 8×，角谱拉回。场在狭缝向减半，大芯片拼接，套刻成为新项——论文在系统层已经点到，主干产品课把它写成产线拼接缝。焦深按 $\lambda/\mathrm{NA}^2$ 再瘦，随机效应在更小孔上更严，论文承认胶与掩模必须跟上，但不替代 [euv-stochastics](/litho/euv-stochastics) 那一课。蔡司侧的公开光学论文（Kneer、Migura、Kaiser 等与 van Schoot 交叉引用）把同一 NA 写成可镀膜、可装校的投影镜组约束；附录读 ASML 系统篇就够对照主干 EXE，不必把镜子张数写进课程。
+掩模 NA ≈ 硅片 NA / 倍率。0.55 / 4 把掩模角推过多层布拉格与吸收体阴影的常用窗口；沿最敏感方向升到 8×，角谱拉回。场在扫描向减半，大芯片拼接，套刻成为新项——论文在系统层已经点到，主干产品课把它写成产线拼接缝。焦深按 $\lambda/\mathrm{NA}^2$ 再瘦，随机效应在更小孔上更严，论文承认胶与掩模必须跟上，但不替代 [euv-stochastics](/litho/euv-stochastics) 那一课。蔡司侧的公开光学论文（Kneer、Migura、Kaiser 等与 van Schoot 交叉引用）把同一 NA 写成可镀膜、可装校的投影镜组约束；附录读 ASML 系统篇就够对照主干 EXE，不必把镜子张数写进课程。
 
 <span class="marginnote">代个数体会一下：硅片 NA 0.55、倍率 8 时，掩模侧 NA 约 0.069；若维持全向 4×，掩模侧 NA 要到约 0.14，入射角接近翻倍——多层膜反射带和吸收体阴影都按这个角吃饭，这正是「4× 走不通」的算术根源。</span>
 
