@@ -25,7 +25,7 @@ section: cs
 
 连通性不需要权。动态 MST 更难（权更新）。本课只 0-1 连通。2-边连通、动态平面性另论。
 
-<span class="marginnote">Holm–de Lichtenberg–Thorup 2001 确定性多对数。Euler Tour Tree 维护森林连通与子树。Sleator–Tarjan LCT 也可切边。后课图流：空间 $o(n)$，连森林都存不下。</span>
+<span class="marginnote">Holm–de Lichtenberg–Thorup 2001 确定性多对数。Euler Tour Tree 维护森林连通与子树。Sleator–Tarjan LCT 也可切边。后课图流：空间 $\tilde O(n)$，森林刚够存。</span>
 
 ## 方法
 

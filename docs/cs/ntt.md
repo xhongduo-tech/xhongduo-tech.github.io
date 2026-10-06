@@ -25,7 +25,7 @@ $n$ 要整除 $p-1$。合数模没有域，不能随便当 NTT。长度不是 2 
 
 <span class="marginnote">数字实例：为什么浮点 FFT 会失手？双精度浮点约 15-16 位有效数字；两个 $10^5$ 量级的系数相乘、再累加 $10^5$ 项，中间值可达 $10^{15}$，舍入误差已经和最低位同阶，「接近零」的系数判断会翻车。NTT 全程整数加减乘、对模 $p$ 取余，一个比特都不舍——这正是「精确卷积」三个字的分量。</span>
 
-<span class="marginnote">NTT 是 DFT 在环 $\mathbb{Z}/p\mathbb{Z}$。CLRS 30.8 讨论数论。后课求逆：牛顿迭代 + NTT 乘。</span>
+<span class="marginnote">NTT 是 DFT 在环 $\mathbb{Z}/p\mathbb{Z}$。CLRS 第 31 章讨论数论。后课求逆：牛顿迭代 + NTT 乘。</span>
 
 ## 方法
 

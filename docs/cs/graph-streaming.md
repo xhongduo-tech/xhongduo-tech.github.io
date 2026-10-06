@@ -7,7 +7,7 @@ section: cs
 # 图流与半流算法
 
 <div class="epigraph">
-<p>边以流的形式到达，内存远小于 $n$：连通、匹配、最短路都要抽样、素描或多遍；半流允许来回扫存储。</p>
+<p>边以流的形式到达，内存远小于边数 $m$：连通、匹配、最短路都要抽样、素描或多遍；半流允许来回扫存储。</p>
 <footer>—— 据 Muthukrishnan, Data Streams: Algorithms and Applications, 2005；Feigenbaum 等图流早期工作整理</footer>
 </div>
 
