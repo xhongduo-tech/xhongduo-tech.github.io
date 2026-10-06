@@ -54,8 +54,6 @@ flowchart LR
 
 <span class="marginnote">数字实例：Node256 给每个字节开一个 8 字节指针要 $256\times 8=2048$ 字节；Node48 用 256 字节索引加 $48\times 8=384$ 字节指针，约 640 字节，省了近七成，还保住「按字节直接跳」的 $O(1)$ 一步。</span>
 
-不要把 ART 写成 Transformer 词表；就是内存有序映射。
-
 ## 边界
 
 本课不把 ART 与 Bw-tree 对比写长。磁盘仍 B+。哈希族与完美散列是下一课序，不在 ART 里重讲。

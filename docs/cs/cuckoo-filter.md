@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">指纹就是键的一小段哈希（比如 8 位）。妙处在异或配对：两个候选桶的下标互为"对方 xor 指纹"，于是手里只有指纹也能算出另一巢——这就是"不存键也能踢人搬家"的全部机关。</span>
 
-<span class="marginnote">Fan et al., *CoNEXT*, 2014。半桶（bucket）存多个指纹，提高占用率。Pagh–Rodler 布谷给踢人算法。</span>
+<span class="marginnote">Fan et al., *CoNEXT*, 2014。每桶（bucket）存多个指纹，提高占用率。Pagh–Rodler 布谷给踢人算法。</span>
 
 ## 方法
 

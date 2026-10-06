@@ -51,8 +51,6 @@ flowchart TD
   NEW --> ROOTMAP["新 map 只换根指针"]
 ```
 
-不要把 HAMT 当神经网络权重存储课——本栏是 CS 字典结构。
-
 ## 边界
 
 本课不写 CHAMP 等全部变体。有序遍历不是 HAMT 强项（无序哈希）。按字节自适应扇出是 ART。

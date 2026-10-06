@@ -23,7 +23,7 @@ $$
 
 （$m$ 为槽数）。强通用（pairwise independent）还要求任意两槽对均匀。缺口是**把随机性放在选 $h$，而不是假设输入随机**。
 
-<span class="marginnote">Carter and Wegman, *JCSS*, 1979。多项式、乘法散列 $h_a(x)=\lfloor m(ax\bmod 2^w)/2^{w-d}\rfloor$ 等是常见构造。CLRS 第 11 章。</span>
+<span class="marginnote">Carter and Wegman, *JCSS*, 1979。多项式、乘法散列 $h_a(x)=\lfloor m(ax\bmod 2^w)/2^{w}\rfloor$ 等是常见构造。CLRS 第 11 章。</span>
 
 ## 方法
 
@@ -65,7 +65,7 @@ flowchart TD
 
 ## 边界
 
-本课不把有限域全部构造写完。一致性哈希解决的是槽增减，不是碰撞界。不要把本课写成 Transformer 位置编码。
+本课不把有限域全部构造写完。一致性哈希解决的是槽增减，不是碰撞界。
 
 后课默认：字典分析用通用族。静态零碰撞用完美散列。
 

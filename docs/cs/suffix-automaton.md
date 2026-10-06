@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
 <p>把「结束位置集合相同」的子串收成一个状态；转移是加一个字符，后缀链指向更短的同类。</p>
-<footer>—— 据 Blumer et al., The Smallest Automaton Recognizing the Subwords of a Text, J. ACM 1985；Crochemore and Rytter；Gusfield 整理</footer>
+<footer>—— 据 Blumer et al., The Smallest Automaton Recognizing the Subwords of a Text, Theor. Comput. Sci. 1985；Crochemore and Rytter；Gusfield 整理</footer>
 </div>
 
 [上一课](/cs/suffix-tree) 节点对应分支子串，状态数线性但常比自动机多。接受 $T$ 的全体子串（或全体后缀）的最小 DFA 是后缀自动机（SAM / DAWG）。本课不画 Ukkonen 活动点。缺口是 endpos 等价类：线性状态、线性转移（固定字母表）。
@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">拿 $T=$ `abab` 代一下 endpos：子串 `b` 结束于位置 1、3，子串 `ab` 也恰好结束于 1、3——两者 endpos 相同，被收进同一个状态。等价类就是这样把海量子串压成线性个状态的。</span>
 
-<span class="marginnote">Blumer et al. 1985, *JACM*。状态 $\le 2n-1$，转移 $\le 3n-4$（二字母等经典界）。构造在线 $O(n)$。</span>
+<span class="marginnote">Blumer et al. 1985, *Theor. Comput. Sci.*。状态 $\le 2n-1$，转移 $\le 3n-4$（二字母等经典界）。构造在线 $O(n)$。</span>
 
 ## 方法
 
@@ -70,4 +70,4 @@ flowchart TD
 - SAM：endpos 等价类 DFA，线性规模。
 - 后缀链 + 克隆完成在线构造。
 - 回文结构下一课另建。
-- 出处：Blumer et al., *JACM*, 1985；Crochemore；Gusfield。
+- 出处：Blumer et al., *Theor. Comput. Sci.*, 1985；Crochemore；Gusfield。
