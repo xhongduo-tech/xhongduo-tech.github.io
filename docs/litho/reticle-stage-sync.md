@@ -42,8 +42,8 @@ High-NA 半场更短，加速段占场长的比例变大，建立时间更金贵
 ```mermaid
 flowchart TD
   JOB["场长 × 剂量 → 设定 vw"] --> MLOCK{"倍率锁: vr = M, 按方向"}
-  MLOCK --> XDIR["扫描向 M ≈ 4x"]
-  MLOCK --> YDIR["狭缝向 M ≈ 8x (High-NA)"]
+  MLOCK --> XDIR["狭缝向 M ≈ 4x"]
+  MLOCK --> YDIR["扫描向 M ≈ 8x (High-NA)"]
   DIP["源功率跌落"] --> DEC["互锁减速"]
   DEC --> BOTH["vw 与 vr 同时下降"]
   BOTH --> SAFE["剂量保持, 锁不破"]
