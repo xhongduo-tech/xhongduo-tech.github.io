@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Patterson and Hennessy, Computer Organization and Design (RISC-V)；Hennessy and Patterson, CA:AQA 整理</footer>
 </div>
 
-[上一课](/cs/direct-mapped-cache)用索引选定唯一行。两个块若索引相同就会互踢，哪怕 cache 里还有空行。[局部性原理](/cs/direct-mapped-cache)并没有要求「索引相等的块不能同时热」。本课不重讲标签比较。缺口是：放宽「只能放一个位置」，并在一组多块都满时决定踢谁。本课只交出组相联与替换。
+[上一课](/cs/direct-mapped-cache)用索引选定唯一行。两个块若索引相同就会互踢，哪怕 cache 里还有空行。[局部性原理](/cs/locality-principle)并没有要求「索引相等的块不能同时热」。本课不重讲标签比较。缺口是：放宽「只能放一个位置」，并在一组多块都满时决定踢谁。本课只交出组相联与替换。
 
 ## 问题
 
@@ -55,10 +55,10 @@ flowchart TD
   B -- "否" --> D["看 LRU 位 踢更久未用的一路"]
   C --> E["置该路为最新"]
   D --> E
-  E --> F["此后每次命中都翻位 交换新旧次序"]
+  E --> F["此后每次命中都把位拨向刚用的那一路"]
 ```
 
-<span class="marginnote">直觉类比：2 路 LRU 的那一位像跷跷板——两路各坐一块，这一位记录「哪块更新」；每次命中或换人就把位一翻，新旧身份对调。只要相对次序、不要完整时间戳，所以 1 位就够。</span>
+<span class="marginnote">直觉类比：2 路 LRU 的那一位像跷跷板——两路各坐一块，这一位记录「哪块更新」；每次命中都把位拨向刚用的那块，替换进新块时也一样，旧的那块随时可踢。只要相对次序、不要完整时间戳，所以 1 位就够。</span>
 
 ## 边界
 

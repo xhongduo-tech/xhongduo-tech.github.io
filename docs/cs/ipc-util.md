@@ -52,7 +52,7 @@ flowchart TD
   ACT --> U["利用率 = IPC / W"]
 ```
 
-<span class="marginnote">数字实例：10 亿条指令、3 GHz 机器上，$\mathrm{IPC}=0.8$ 意味着 $\mathrm{CPI}=1.25$，运行时间 $=10^9\times1.25\div(3\times10^9)\approx0.42$ 秒；若停顿修到 $\mathrm{IPC}=1$，同程序只要 0.33 秒——省下的 0.09 秒全是流水线空档。</span>
+<span class="marginnote">数字实例：10 亿条指令、3 GHz 机器上，$\mathrm{IPC}=0.8$ 意味着 $\mathrm{CPI}=1.25$，运行时间 $=10^9\times1.25\div(3\times10^9)\approx0.42$ 秒；若停顿修到 $\mathrm{IPC}=1$，同程序只要 0.33 秒——省下的约 0.08 秒全是流水线空档。</span>
 
 <span class="marginnote">术语翻译：这个 IPC 是 **Instructions Per Cycle（每拍指令数）**，与进程间通信（Inter-Process Communication）的 IPC 只是缩写撞车——一个数流水线吞吐，一个数进程传数据，看到缩写先看上下文。</span>
 

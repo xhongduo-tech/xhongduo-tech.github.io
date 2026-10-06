@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Patterson and Hennessy, Computer Organization and Design (RISC-V) 整理</footer>
 </div>
 
-[上一课](/cs/locality-principle)钉死了时间与空间局部性，并指出平均访存时间依赖命中。[SRAM 与 DRAM 阵列](/cs/locality-principle)给出两种阵列。本课不重讲局部性定义。缺口是：还没有一种硬件结构，能按地址在 SRAM 里查找最近用过的块。本课只交出直接映射：每个主存块只能放进唯一一行。
+[上一课](/cs/locality-principle)钉死了时间与空间局部性，并指出平均访存时间依赖命中。[SRAM 与 DRAM 阵列](/cs/memory-array-sram-dram)给出两种阵列。本课不重讲局部性定义。缺口是：还没有一种硬件结构，能按地址在 SRAM 里查找最近用过的块。本课只交出直接映射：每个主存块只能放进唯一一行。
 
 ## 问题
 
