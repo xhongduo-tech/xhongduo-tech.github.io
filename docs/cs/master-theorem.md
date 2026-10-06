@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Bentley, Haken and Saxe, A General Method for Solving Divide-and-Conquer Recurrences, 1980；CLRS 第 4 章整理</footer>
 </div>
 
-上一课[循环不变式](/cs/loop-invariant)给了迭代过程的正确性骨架。[渐近记号](/cs/loop-invariant)早已能写 $\Theta$。本课不重证大 $O$，也不把递归树画成百科。缺口是：后课分治会留下 $T(n)=aT(n/b)+f(n)$，循环不变式推不出这根式子的阶。本课只钉主定理的三种情形，把分治范式本身留给下一课。
+上一课[循环不变式](/cs/loop-invariant)给了迭代过程的正确性骨架。[渐近记号](/cs/asymptotic-notation)早已能写 $\Theta$。本课不重证大 $O$，也不把递归树画成百科。缺口是：后课分治会留下 $T(n)=aT(n/b)+f(n)$，循环不变式推不出这根式子的阶。本课只钉主定理的三种情形，把分治范式本身留给下一课。
 
 ## 问题
 

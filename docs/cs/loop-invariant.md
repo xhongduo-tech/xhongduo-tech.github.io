@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Floyd, Assigning Meanings to Programs, 1967；Hoare, An Axiomatic Basis for Computer Programming, 1969 整理</footer>
 </div>
 
-上一课[平面图直觉](/cs/planar-graph)给了图表示一课的边界：何时平面、何时不必。数据结构课到此结束：对象、代价和表示都齐了。本课不重画邻接表，也不从「算法是什么」另起。缺口是：图和数组上的过程多数是**循环**，正确性不能只靠跑几个例子。本课只交出循环不变式；[渐近记号](/cs/asymptotic-notation)已经有了，时间另算。
+上一课[证明助手](/cs/proof-assistants)把计算理论补层收口。数据结构课的对象、代价和表示此前都已齐备。本课不重画邻接表，也不从「算法是什么」另起。缺口是：图和数组上的过程多数是**循环**，正确性不能只靠跑几个例子。本课只交出循环不变式；[渐近记号](/cs/asymptotic-notation)已经有了，时间另算。
 
 ## 问题
 

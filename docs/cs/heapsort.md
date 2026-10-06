@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Williams, Algorithm 232: Heapsort, 1964；Floyd, Algorithm 245: Treesort 3, 1964；Knuth, TAOCP vol. 3 整理</footer>
 </div>
 
-上一课[插入与归并](/cs/insertion-merge)对照了前缀不变式与分治合并：一个最坏平方、一个最坏 $n\log n$ 但要线性缓冲。[堆与优先队列](/cs/insertion-merge)已经能 $O(\log n)$ 取出最大元。本课不重建堆。缺口是：用同一数组上的堆完成就地排序，把「额外线性空间」从 $n\log n$ 比较排序里拿掉。
+上一课[插入与归并](/cs/insertion-merge)对照了前缀不变式与分治合并：一个最坏平方、一个最坏 $n\log n$ 但要线性缓冲。[堆与优先队列](/cs/heap-priority)已经能 $O(\log n)$ 取出最大元。本课不重建堆。缺口是：用同一数组上的堆完成就地排序，把「额外线性空间」从 $n\log n$ 比较排序里拿掉。
 
 ## 问题
 
