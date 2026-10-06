@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">直觉类比：LSM 像厨房里摞餐盘——新盘子永远放最上面一摞，摞满整摞端走（刷盘成段）；定期把几摞归并成更大的整齐一摞（compaction）。找盘子要从上往下翻（读放大），但每摞内部按编号排好，可以二分。</span>
 
-<span class="marginnote">O'Neil et al., *Acta Informatica*, 1996。本课停在结构；不重写某引擎调参百科，不进入 LOB。</span>
+<span class="marginnote">O'Neil et al., *Acta Informatica*, 1996。本课停在结构；不重写某引擎调参百科。</span>
 
 ## 方法
 
@@ -56,7 +56,7 @@ flowchart TD
 
 ## 边界
 
-本课不把 RocksDB 调参当正文。不把 LSM 写成量化存储。并发内存字典用哈希表/跳表，CAS 队列另讲。
+本课不把 RocksDB 调参当正文。并发内存字典用哈希表/跳表，CAS 队列另讲。
 
 后课默认：写优化外存映射可用 LSM。无锁 FIFO 用 Michael–Scott 队列。
 

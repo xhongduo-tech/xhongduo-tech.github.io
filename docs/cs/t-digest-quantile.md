@@ -55,7 +55,7 @@ flowchart LR
 
 ## 边界
 
-本课不把 DDSketch、HDR Histogram 写成百科列表，只承认同问题。不进入 LOB 价格分位实证。并发无锁摘要后课另说。
+本课不把 DDSketch、HDR Histogram 写成百科列表，只承认同问题。并发无锁摘要后课另说。
 
 后课默认：流分位数可用 t-digest/GK。不可变结构的共享从路径复制讲起。
 
