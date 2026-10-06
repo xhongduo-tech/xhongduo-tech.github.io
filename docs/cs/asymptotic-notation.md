@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms, 第 3 章 整理</footer>
 </div>
 
-上一课[容斥](/cs/inclusion-exclusion)钉死了如何对每个 $n$ 证明 $P(n)$。本课不重写基础步，也不从「算法是什么」另起。缺口是：归纳可以证明循环做对了，还没有语言说「做完要多久」。后课图算法、排序，必须比较增长，而不是比较某台机器上的秒数。
+上一课[容斥](/cs/inclusion-exclusion)钉死了并集的精确计数。本课不再数数，也不从「算法是什么」另起。缺口是：归纳可以证明循环做对了，还没有语言说「做完要多久」。后课图算法、排序，必须比较增长，而不是比较某台机器上的秒数。
 
 ## 问题
 
