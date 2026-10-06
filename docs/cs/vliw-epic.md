@@ -52,7 +52,7 @@ flowchart TD
 
 <span class="marginnote">常见误区：因为通用 CPU 淘汰了 VLIW 就以为它死了。DSP、基带与许多加速器至今用 VLIW——负载规则、编译器能见度高、缺槽可预测，静态打包的收益留得住；通用代码的分支与访存太野，才是乱序核赢下的原因。</span>
 
-不要把这里写成 Transformer 的静态图编译；那是大模型栏。本课只谈 CPU/DSP 指令束。
+本课只谈 CPU/DSP 指令束。
 
 ## 边界
 
