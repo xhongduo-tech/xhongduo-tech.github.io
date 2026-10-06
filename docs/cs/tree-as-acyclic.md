@@ -50,7 +50,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  T["一棵树：|E| = |V| - 1"] --> ADD{"在任意两点间＜br/＞加一条边？"}
+  T["一棵树：|E| = |V| - 1"] --> ADD{"在任意两点间<br/>加一条边？"}
   ADD --> CYCLE["两点本有唯一路<br/>新边与之围成圈<br/>不再是树"]
   T --> DEL{"删掉一条边？"}
   DEL --> SPLIT["树被切成两棵<br/>不再连通"]
