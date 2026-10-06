@@ -56,7 +56,7 @@ flowchart TD
 
 ## 边界
 
-MAM 的边界由「关键区域的可分性」决定：SRMA 阵列式规则图形天然易分区，随机逻辑的边界犬牙交错则收益骤降。EUV 单机产能提升（High-NA 与 faster stages）持续侵蚀 MAM 的成本论据——MAM 的份额是「EUV 产能 × 层数 × 设计可分性」的函数。High-NA 场域减半后，MAM 与 stitching 的组合（关键小区 High-NA + 大面积 low-NA）成为 imec 路线图上的活跃方案。与[晶圆边缘排除区](/litho/wafer-edge-exclusion)的接续：分区规划时边缘低良率区优先派给 DUV——好的分区策略顺手把边缘损失也消化了。
+MAM 的边界由「关键区域的可分性」决定：SRAM 阵列式规则图形天然易分区，随机逻辑的边界犬牙交错则收益骤降。EUV 单机产能提升（High-NA 与 faster stages）持续侵蚀 MAM 的成本论据——MAM 的份额是「EUV 产能 × 层数 × 设计可分性」的函数。High-NA 场域减半后，MAM 与 stitching 的组合（关键小区 High-NA + 大面积 low-NA）成为 imec 路线图上的活跃方案。与[晶圆边缘排除区](/litho/wafer-edge-exclusion)的接续：分区规划时边缘低良率区优先派给 DUV——好的分区策略顺手把边缘损失也消化了。
 
 <span class="marginnote">直觉类比：MAM 像合资装修——贵的木工（EUV）只做客厅造型墙，刷漆铺砖（DUV）交给普通工人；两个工种各干各的不难，难的是「墙面的分界线处」瓷砖与木饰面严丝合缝——所以先量木工的实际尺寸，再让瓦工按此放线。</span>
 

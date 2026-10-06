@@ -19,7 +19,7 @@ section: litho
 
 <span class="marginnote">术语翻译：edge exclusion（EE）= 晶圆外缘不做工艺的环形区，宽度常 1–3mm；edge die = 场域中心落在排除区外的残缺 die；edge grip = 晶圆传送的机械夹持环，物理占用外缘。</span>
 
-<span class="marginnote">数字实例：300mm 晶圆 EE=2mm 时可图形面积损失 π(R²−(R−2)²)≈18.5cm²，约 2.6% 面积；但这 18.5cm² 若不排除，其 die 良率近零且探针测试还会拖累测试产能——排除是「主动放弃换整体良率」。</span>
+<span class="marginnote">数字实例：300mm 晶圆 EE=2mm 时可图形面积损失 π(R²−(R−2)²)≈18.7cm²，约 2.6% 面积；但这 18.5cm² 若不排除，其 die 良率近零且探针测试还会拖累测试产能——排除是「主动放弃换整体良率」。</span>
 
 ## 方法
 

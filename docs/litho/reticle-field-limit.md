@@ -52,11 +52,11 @@ flowchart TD
   X --> Y
 ```
 
-<span class="marginnote">常见误区：以为 die 大小只受晶圆面积限制——wafer 有 706mm² 半径盘，场域只有 858mm² 矩形，两套几何各自卡脖子；另一误区是「stitch 是免费的」——它要求两次曝光、两次对准、缝区冗余设计，良率敏感电路绕行是常态。</span>
+<span class="marginnote">常见误区：以为 die 大小只受晶圆面积限制——wafer 是约 70,686mm² 的圆盘（π×150²），场域只有 858mm² 矩形，两套几何各自卡脖子；另一误区是「stitch 是免费的」——它要求两次曝光、两次对准、缝区冗余设计，良率敏感电路绕行是常态。</span>
 
 ## 边界
 
-High-NA EUV 的场域砍半（26×16.5mm）：单次成像面积小一半，成为 Intel/TSMC 引入 High-NA 时最大的流程重构项——0.55NA 的镜筒用更小的场域换更高的分辨率，chiplet 与 stitching 从「可选项」变「必答题」。设计侧的场域意识：physical design 工具的「reticle awareness」（虚场域规划、切缝规划）在 3nm 以下节点已是标准动作。与[混合匹配与套刻拼接](/litho/mix-and-match-overlay)的接续：stitch 是同机同 reticle 拼接，mix-and-match 是不同光刻机接力同一层——两者共享「套刻是货币」的经济学。
+High-NA EUV 的场域砍半（26×16.5mm）：单次成像面积小一半，成为 Intel/TSMC 引入 High-NA 时最大的流程重构项——0.55NA 的镜筒用更小的场域换更高的分辨率，chiplet 与 stitching 从「可选项」变「必答题」。设计侧的场域意识：physical design 工具的「reticle awareness」（虚场域规划、切缝规划）在 3nm 以下节点已是标准动作。与[混合匹配与套刻拼接](/litho/mix-and-match-overlay)的接续：stitch 是同机双 reticle（各含半幅）拼接，mix-and-match 是不同光刻机接力同一层——两者共享「套刻是货币」的经济学。
 
 <span class="marginnote">直觉类比：High-NA 场域减半像「换了一台放大倍率更高的投影仪」——画面更精细，但幕布同宽下能投的画面变小；原来一幕放下的戏（单 die）现在要么拆成上下半场（chiplet），要么学会换幕衔接（stitch）。</span>
 
