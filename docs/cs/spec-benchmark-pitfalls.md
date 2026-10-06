@@ -21,7 +21,7 @@ section: cs
 
 ## 方法
 
-读报告：speed 还是 rate；整数还是浮点；能耗。对照自己的 [MLP](/cs/mlp-memory-parallelism) 与分支密度是否同类。微基准（只测延迟、只测带宽） complementary，不能替代。模拟器下一课 gem5 用 SPEC 子集时更要防「只跑 100M 指令的暖机幻觉」。
+读报告：speed 还是 rate；整数还是浮点；能耗。对照自己的 [MLP](/cs/mlp-memory-parallelism) 与分支密度是否同类。微基准（只测延迟、只测带宽）互补，不能替代。模拟器 gem5 用 SPEC 子集时更要防「只跑 100M 指令的暖机幻觉」。
 
 <span class="marginnote">术语翻译：SPECspeed 测「一个问题的实例跑多快」，SPECrate 测「同时开很多副本一秒吞吐多少」。前者像测一个人跑百米，后者像测一辆公交一小时运多少人——分子分母完全不同，两个分数不可互换比较。</span>
 
