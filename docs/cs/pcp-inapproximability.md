@@ -23,7 +23,7 @@ PCP 验证者：掷 $O(\log n)$ 硬币，查证明的 $O(1)$ 位，多项式时�
 
 PCP 验证者不与证明者交谈，证明是字面量，只是不读完。IP 的证明者自适应。类：PCP 刻画 NP，IP 刻画 PSPACE。
 
-<span class="marginnote">ALMSS 1998（PCP 定理）。Arora–Barak 第 11–18 章。Hastad 1997 最优不可近似。本课要用法：缝隙归约，不写傅里叶分析。</span>
+<span class="marginnote">ALMSS 1998（PCP 定理）。Arora–Barak 第 11、22 章。Hastad 1997 最优不可近似。本课要用法：缝隙归约，不写傅里叶分析。</span>
 
 ## 方法
 

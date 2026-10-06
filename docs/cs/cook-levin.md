@@ -23,7 +23,7 @@ NP 机 $N$ 在 $x$ 上有多项式长接受路 $\iff$ 存在证书。把运行�
 
 ### 不是「SAT 很难」的经验
 
-定理是完全性，不是下界。若 SAT 在 P 则 $P=NP$。表格构造对确定机同样能做，那只会证明 CIRCUIT-SAT 一类 P 完全（空间对数归约），对象换了。
+定理是完全性，不是下界。若 SAT 在 P 则 $P=NP$。表格构造对确定机同样能做，那只会证明电路求值（CIRCUIT-VALUE）一类 P 完全（空间对数归约），对象换了。
 
 <span class="marginnote">Cook 1971（Turing 归约味道更重）；Levin 1973 独立，且强调搜索问题。Garey–Johnson、Sipser 用 Karp 多一版表格。本课用多一。</span>
 

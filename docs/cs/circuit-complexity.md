@@ -15,9 +15,9 @@ section: cs
 
 ## 问题
 
-均匀：一台 TM 管所有 $n$。非均匀：允许 $C_n$ 随 $n$ 任意换，只要 $|C_n|$ 有界（如多项式）。<span class="marginnote">术语翻译：电路族 $\{C_n\}$ 就是「每种输入长度发一张专属电路」——$C_1$ 管 1 位输入、$C_2$ 管 2 位输入，各不相干；「均匀」则要求一个算法能生成所有这些电路。非均匀模型比算法松得多，这正是它「可能作弊」的根源。</span>P/poly：多项式规模电路族。$P\subseteq P/poly$。顾问串：多项式建议，$P/poly=P/\mathrm{poly}$。若 $\mathrm{NP}\subseteq P/poly$ 则 PH 塌缩（Karp–Lipton），故 NPC 问题被信不在 P/poly。Shannon：大多数函数需要指数规模电路——存在性，不给出 SAT 的下界。
+均匀：一台 TM 管所有 $n$。非均匀：允许 $C_n$ 随 $n$ 任意换，只要 $|C_n|$ 有界（如多项式）。<span class="marginnote">术语翻译：电路族 $\{C_n\}$ 就是「每种输入长度发一张专属电路」——$C_1$ 管 1 位输入、$C_2$ 管 2 位输入，各不相干；「均匀」则要求一个算法能生成所有这些电路。非均匀模型比算法松得多，这正是它「可能作弊」的根源。</span>P/poly：多项式规模电路族。$P\subseteq P/poly$。顾问串：多项式建议，带此建议的 $P$ 类就是 $P/\mathrm{poly}$。若 $\mathrm{NP}\subseteq P/poly$ 则 PH 塌缩（Karp–Lipton），故 NPC 问题被信不在 P/poly。Shannon：大多数函数需要指数规模电路——存在性，不给出 SAT 的下界。
 
-AC$^0$、NC：常数深度 / 多对数深度，并行直觉。Parikh / Furst–Saxe–Sipser / Razborov–Smolensky 对 AC$^0$ 的奇偶下界，点名：少数成功的下界。
+AC$^0$、NC：常数深度 / 多对数深度，并行直觉。Ajtai / Furst–Saxe–Sipser / Razborov–Smolensky 对 AC$^0$ 的奇偶下界，点名：少数成功的下界。
 
 ### 非均匀可以「作弊」
 
