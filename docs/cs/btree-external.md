@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Bayer and McCreight, Organization and Maintenance of Large Ordered Indexes, Acta Informatica 1972 整理</footer>
 </div>
 
-[上一课](/cs/rbtree-intuition)把内存字典做到对数次指针追逐。每次追逐在[SRAM 与 DRAM 阵列](/cs/rbtree-intuition)上可能只是一次 cache 缺失；若节点在磁盘，一次追逐是毫秒级。[局部性原理](/cs/locality-principle)说应一次搬一块。[虚拟内存分页](/cs/paging-vm)的页正好是这块的单位。本课不重讲红黑着色。缺口是：节点大小对齐页，多键多孩子，仍保持有序与平衡。本课只钉 B 树直觉，不写 B+ 的叶子链表细节（数据库课再收）。
+[上一课](/cs/rbtree-intuition)把内存字典做到对数次指针追逐。每次追逐在[SRAM 与 DRAM 阵列](/cs/memory-array-sram-dram)上可能只是一次 cache 缺失；若节点在磁盘，一次追逐是毫秒级。[局部性原理](/cs/locality-principle)说应一次搬一块。[虚拟内存分页](/cs/paging-vm)的页正好是这块的单位。本课不重讲红黑着色。缺口是：节点大小对齐页，多键多孩子，仍保持有序与平衡。本课只钉 B 树直觉，不写 B+ 的叶子链表细节（数据库课再收）。
 
 ## 问题
 

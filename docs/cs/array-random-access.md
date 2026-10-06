@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Knuth, The Art of Computer Programming 卷 1；Cormen, Leiserson, Rivest and Stein 整理</footer>
 </div>
 
-[上一课](/cs/adt-cost)把结构写成操作加代价，还没有任何一种布局。[比特作为区分](/cs/bit-as-distinction)与[进制与位权](/cs/adt-cost)已经能把下标写成整数。[SRAM 与 DRAM 阵列](/cs/memory-array-sram-dram)按地址读字。[调用约定与栈](/cs/calling-convention-stack)里的栈槽其实已经是数组片段。本课不重讲 ADT 合同。缺口是第一种表示：连续元素 + 按下标 $O(1)$ 取。
+[上一课](/cs/adt-cost)把结构写成操作加代价，还没有任何一种布局。[比特作为区分](/cs/bit-as-distinction)与[进制与位权](/cs/positional-notation)已经能把下标写成整数。[SRAM 与 DRAM 阵列](/cs/memory-array-sram-dram)按地址读字。[调用约定与栈](/cs/calling-convention-stack)里的栈槽其实已经是数组片段。本课不重讲 ADT 合同。缺口是第一种表示：连续元素 + 按下标 $O(1)$ 取。
 
 ## 问题
 

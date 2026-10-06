@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Knuth, The Art of Computer Programming 卷 1；Cormen, Leiserson, Rivest and Stein 整理</footer>
 </div>
 
-[上一课](/cs/stack-adt)把一端操作钉成 LIFO，并对齐调用帧。[流水线五级](/cs/stack-adt)里指令按取指序前进，ROB 也是按序提交的队列。[超标量发射](/cs/superscalar-issue)的发射窗口不是栈。本课不重讲 push/pop。缺口是 FIFO：enqueue 与 dequeue 分属两端，用来做缓冲而不是做嵌套寿命。
+[上一课](/cs/stack-adt)把一端操作钉成 LIFO，并对齐调用帧。[流水线五级](/cs/pipeline-five-stage)里指令按取指序前进，ROB 也是按序提交的队列。[超标量发射](/cs/superscalar-issue)的发射窗口不是栈。本课不重讲 push/pop。缺口是 FIFO：enqueue 与 dequeue 分属两端，用来做缓冲而不是做嵌套寿命。
 
 ## 问题
 
