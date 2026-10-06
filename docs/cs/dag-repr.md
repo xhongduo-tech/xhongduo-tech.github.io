@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms；Kahn, Topological Sorting of Large Networks, CACM 1962 整理</footer>
 </div>
 
-[上一课](/cs/csr-graph)把默认图写成稀疏邻接。[图的定义](/cs/graph-definition)含有向边。[树作为无环连通图](/cs/tree-as-acyclic)的无环是无向的。本课不重讲 CSR。缺口是有向无环图（DAG）作为表示：边表达依赖，且依赖不许成环，从而存在线性扩展——拓扑序。本课只预备「存在性与等价」，真正的 BFS/DFS 算法在算法课程才跑。数据结构课在此结束。
+[上一课](/cs/csr-graph)把默认图写成稀疏邻接。[图的定义](/cs/graph-definition)含有向边。[树作为无环连通图](/cs/tree-as-acyclic)的无环是无向的。本课不重讲 CSR。缺口是有向无环图（DAG）作为表示：边表达依赖，且依赖不许成环，从而存在线性扩展——拓扑序。本课只预备「存在性与等价」，真正的 BFS/DFS 算法在算法课程才跑。数据结构课的表示轴在此结束。
 
 ## 问题
 
@@ -19,7 +19,7 @@ section: cs
 
 <span class="marginnote">拓扑序就是"排课表"：先修课必须排在后继课之前，同一学期允许多门并行——所以序不唯一。只要先修关系不打圈，总能排出合法课表；一旦打圈（这门课以自己为先修），谁也排不出来。</span>
 
-入度数组是 Kahn 算法的零件：反复取入度为 0 的点。本课交代序的含义，不把循环不变式写完——那是下一课程第一课。
+入度数组是 Kahn 算法的零件：反复取入度为 0 的点。本课交代序的含义，不把循环不变式写完——那是算法课第一课。
 
 <span class="marginnote">编译的依赖、Makefile、指令调度的数据依赖，都是 DAG。流水线 RAW 也是依赖边；硬件用转发，软件调度用拓扑。</span>
 
@@ -65,5 +65,5 @@ flowchart TD
 
 - DAG = 有向无环；等价于存在拓扑序。
 - 表示仍是稀疏邻接；无环是额外不变式。
-- 数据结构课结束；下一课用不变式给循环证明。
+- 数据结构课的表示轴结束；循环不变式留给算法课。
 - 出处：Kahn, *CACM*, 1962；Cormen et al. 拓扑排序预备。

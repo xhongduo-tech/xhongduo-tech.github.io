@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Fredkin, Trie Memory, CACM 1960；Cormen, Leiserson, Rivest and Stein 整理</footer>
 </div>
 
-[上一课](/cs/skip-list)和[散列函数](/cs/hash-function)把整键当作一次比较或一次 $h(k)$。[字符与 Unicode](/cs/skip-list)已经把串写成符号序列。本课不重讲跳表层高。缺口是：字典树按符号位（通常是字符）分支，查找代价 $\Theta(L)$，$L$ 为键长，与 $n$ 弱相关，且前缀共享省空间、支持前缀查询。
+[上一课](/cs/skip-list)和[散列函数](/cs/hash-function)把整键当作一次比较或一次 $h(k)$。[字符与 Unicode](/cs/char-unicode)已经把串写成符号序列。本课不重讲跳表层高。缺口是：字典树按符号位（通常是字符）分支，查找代价 $\Theta(L)$，$L$ 为键长，与 $n$ 弱相关，且前缀共享省空间、支持前缀查询。
 
 ## 问题
 
@@ -33,7 +33,7 @@ flowchart TD
   TE --> TEA["a 结束"]
 ```
 
-与 BST 比较：BST 一次比较整键，$h\log n$；Trie 一次比较一个符号，$L$ 步。短键、大 $n$ 时 Trie 可更快；长随机键则 $L$ 本身很大。
+与 BST 比较：BST 一次比较整键，$L\log n$；Trie 一次比较一个符号，$L$ 步。短键、大 $n$ 时 Trie 可更快；长随机键则 $L$ 本身很大。
 
 ## 机制
 
@@ -69,5 +69,5 @@ flowchart TD
 
 - Trie 按字符下降，时间跟键长，$n$ 只影响扇出实现。
 - 公共前缀共享；前缀枚举自然。
-- 并查集管「同属一类」，不保管键，下一课。
+- 并查集管「同属一类」，不保管键，隔一课再讲。
 - 出处：Fredkin, *CACM*, 1960；Cormen et al. 对数字查找树的讨论。

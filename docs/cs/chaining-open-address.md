@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms；Knuth, TAOCP 卷 3 整理</footer>
 </div>
 
-[上一课](/cs/hash-function)给出 $h(k)$ 和负载 $\alpha$，碰撞未处理。[链表与局部性代价](/cs/hash-function)已能挂节点。[数组与随机访问](/cs/array-random-access)已能在表内改槽。本课不重讲全域族。缺口是两种表示：链地址与开放寻址，以及它们对 $\alpha$、删除、局部性的不同合同。
+[上一课](/cs/hash-function)给出 $h(k)$ 和负载 $\alpha$，碰撞未处理。[链表与局部性代价](/cs/linked-list-locality)已能挂节点。[数组与随机访问](/cs/array-random-access)已能在表内改槽。本课不重讲全域族。缺口是两种表示：链地址与开放寻址，以及它们对 $\alpha$、删除、局部性的不同合同。
 
 ## 问题
 
