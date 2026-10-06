@@ -31,7 +31,7 @@ RV32I 定长 32 位字段。[整数指令](/cs/riscv-int-isa) 语义清晰。x86
 
 取指：从 RIP 读字节，长度解码器输出下一条边界。有效地址：段基（64 位大多平坦）+ base + index×scale + disp。REX.W 选 64 位操作数，REX.R/X/B 扩展寄存器号。立即数跟在寻址字节后。
 
-<span class="marginnote">数字实例：`mov rax, [rip+0x1234]` 大致是 REX 1 字节 + opcode 1 字节 + disp32 4 字节 = 6 字节；目标地址等于下一条指令地址加 0x1234。32 位模式要写绝对地址、重定位还得改字节——RIP-relative 正是为 PIC 省掉这一步。</span>
+<span class="marginnote">数字实例：`mov rax, [rip+0x1234]` 大致是 REX 1 字节 + opcode 1 字节 + ModR/M 1 字节 + disp32 4 字节 = 7 字节；目标地址等于下一条指令地址加 0x1234。32 位模式要写绝对地址、重定位还得改字节——RIP-relative 正是为 PIC 省掉这一步。</span>
 
 ```mermaid
 flowchart TD

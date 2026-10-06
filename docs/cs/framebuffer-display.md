@@ -17,7 +17,7 @@ section: cs
 
 CRT 时代的行扫描留下时序：HSYNC/VSYNC、消隐。LCD 仍要这些时序包（或嵌入在 eDP/HDMI 里）。像素格式：32bpp XRGB、YUV。缺口不是 SPI 移位，而是：**带宽** = 分辨率 × 刷新 × 每像素字节，打在 DRAM 通道上，与 CPU 争 [FR-FCFS](/cs/fr-fcfs) 队列。双缓冲：扫 A 时 CPU 画 B，交换指针避免撕裂。
 
-<span class="marginnote">数字代入一遍带宽公式：1920×1080、60 Hz、每像素 4 字节，就是 1920×1080×60×4 ≈ 0.5 GB/s；刷新率提到 144 Hz 就超过 1.2 GB/s——而且这是每秒重复读的流量，难怪显示要和 CPU 抢 DRAM 通道。</span>
+<span class="marginnote">数字代入一遍带宽公式：1920×1080、60 Hz、每像素 4 字节，就是 1920×1080×60×4 ≈ 0.5 GB/s；刷新率提到 144 Hz 就接近 1.2 GB/s——而且这是每秒重复读的流量，难怪显示要和 CPU 抢 DRAM 通道。</span>
 
 <span class="marginnote">撕裂（tearing）就是屏幕上半部分还是旧帧、下半部分已经是新帧：扫描 DMA 读到一半时 CPU 改了同一块缓冲，画面像被从中间剪开。双缓冲让扫描只看前台，画好的整帧等场消隐的间隙再整体接管。</span>
 
