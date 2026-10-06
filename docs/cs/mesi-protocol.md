@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Papamarcos and Patel, A Low-Overhead Coherence Solution for Multiprocessors with Private Cache Memories, ISCA 1984 整理</footer>
 </div>
 
-[上一课](/cs/multicore-shared-cache)让每个核握有私有 L1。[一致性问题引入](/cs/multicore-shared-cache)要的不变式还没有状态机。[写回与写分配](/cs/write-back-allocate)的脏位是单核的；多核要区分「脏且独有」和「干净可共享」。本课不重讲 LLC 拓扑。缺口是一份可实现的窥探协议：MESI。
+[上一课](/cs/multicore-shared-cache)让每个核握有私有 L1。[一致性问题引入](/cs/coherence-intro)要的不变式还没有状态机。[写回与写分配](/cs/write-back-allocate)的脏位是单核的；多核要区分「脏且独有」和「干净可共享」。本课不重讲 LLC 拓扑。缺口是一份可实现的窥探协议：MESI。
 
 ## 问题
 
@@ -68,5 +68,5 @@ flowchart TD
 
 - MESI 四态维持单地址副本不变式；写前独占。
 - Exclusive 避免干净独有行写时占总线。
-- 多地址上的顺序是下一课存储一致性。
+- 侦听与目录是下一课；多地址上的顺序是存储一致性课的话题。
 - 出处：Papamarcos and Patel, *ISCA*, 1984；Hennessy and Patterson, *CA:AQA*。

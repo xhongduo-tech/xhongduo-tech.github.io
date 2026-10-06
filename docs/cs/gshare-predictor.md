@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 McFarling, Combining Branch Predictors, DEC WRL TN-36, 1993 整理</footer>
 </div>
 
-[上一课](/cs/dram-timing)把内存访问钉到控制器日程：缺失变成 ACT/列/PRE/刷新，行冲突比行命中贵，调度与多 bank 交叉决定有效缺失延迟。[组成主干](/cs/control-hazard-predict)已经用一位饱和计数器猜方向，[BTB 与返回栈](/cs/btb-ras)已经把目标从 ALU 里抢出来。本课不重讲冲刷，也不从比特或证明助手再起。缺口是：相关分支——「前一次比较的结果改写这一次该不该跳」——一位表按 PC 索引看不见这条相关。微结构进阶从这里开始：先交出 gshare。
+[上一课](/cs/dram-timing)把内存访问钉到控制器日程：缺失变成 ACT/列/PRE/刷新，行冲突比行命中贵，调度与多 bank 交叉决定有效缺失延迟。[控制冒险与分支预测](/cs/control-hazard-predict)已经用一位饱和计数器猜方向，[BTB 与返回栈](/cs/btb-ras)已经把目标从 ALU 里抢出来。本课不重讲冲刷，也不从比特或证明助手再起。缺口是：相关分支——「前一次比较的结果改写这一次该不该跳」——一位表按 PC 索引看不见这条相关。微结构进阶从这里开始：先交出 gshare。
 
 ## 问题
 

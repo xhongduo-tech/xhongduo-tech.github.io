@@ -67,6 +67,6 @@ flowchart TD
 
 - MESI 管单地址副本；SC 管多地址交错是否尊重程序序。
 - 放宽模型换 store 缓冲性能，同步点用栅栏收回。
-- 片上互连与远程内存延迟是下一课。
+- TSO 与弱序是下一课；片上互连与远程内存延迟是 NUMA 课。
 - 本课不把 C++ 内存模型或 Lamport 时钟写进来。
 - 出处：Lamport, *IEEE TC*, 1979；Hennessy and Patterson, *CA:AQA*。
