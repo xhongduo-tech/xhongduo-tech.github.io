@@ -35,7 +35,7 @@ flowchart TD
 
 ## 机制
 
-调度错误：把长串行放小核，或把常驻后台放大核空转。迁移过频则 [MLP](/cs/mlp-memory-parallelism) 与 BTB 全冷，比留在稍慢的核更差。一致性：大小核仍走 [MOESI/目录](/cs/moesi-mesif)，频率不同使响应时间不对称。
+调度错误：把长串行放小核，或把常驻后台放大核空转。迁移过频则 [MLP](/cs/mlp-memory-parallelism) 与 BTB 全冷，比留在稍慢的核更差。一致性：大小核仍走 [MOESI/MESIF](/cs/moesi-mesif)，频率不同使响应时间不对称。
 
 共享 L3 让迁移后数据还在，但预取器、uop cache、[循环流缓冲](/cs/loop-stream-buffer) 仍冷。短任务迁移不划算：上下文切换那一截可能长过任务本身。
 
