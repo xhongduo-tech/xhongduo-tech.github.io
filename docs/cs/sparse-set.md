@@ -15,7 +15,7 @@ section: cs
 
 ## 问题
 
-需要：`add`/`remove`/`contains`、迭代当前 $n$ 个成员、以及反复 `clear`。位图 `clear` 是 $\Theta(U/w)$；哈希常数大且不保插入序。稀疏集合：`dense[0..n)` 存元素，$`sparse[x]`$ 若有效则指向 `dense` 中位置。不变式：
+需要：`add`/`remove`/`contains`、迭代当前 $n$ 个成员、以及反复 `clear`。位图 `clear` 是 $\Theta(U/w)$；哈希常数大且不保插入序。稀疏集合：`dense[0..n)` 存元素，`sparse[x]` 若有效则指向 `dense` 中位置。不变式：
 
 $$
 x\in S \iff 0\le \mathrm{sparse}[x]\lt n \ \land\ \mathrm{dense}[\mathrm{sparse}[x]]=x.
