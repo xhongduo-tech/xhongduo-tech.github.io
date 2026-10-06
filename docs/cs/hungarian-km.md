@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Kuhn, The Hungarian Method for the Assignment Problem, 1955；Munkres, Algorithms for the Assignment Problem, 1957；Kuhn–Munkres / KM 整理</footer>
 </div>
 
-上一课[Hopcroft–Karp](/cs/hopcroft-karp)给了二分图最大基数。本课加**边权**，求权和最大的匹配（通常 $|L|=|R|$ 的指派）。上一课费用流已能做；本课给组合的顶标算法。不重写 $O(E\sqrt V)$ 的无权重。后课一般图带花。
+上一课[Hopcroft–Karp](/cs/hopcroft-karp)给了二分图最大基数。本课加**边权**，求权和最大的匹配（通常 $|L|=|R|$ 的指派）。费用流已能做同一件事；本课给组合的顶标算法。不重写 $O(E\sqrt V)$ 的无权重。后课一般图带花。
 
 ## 问题
 

@@ -21,7 +21,7 @@ section: cs
 
 ### 赋值沿着缩点 DAG
 
-可满足时：正确性口径是 Aspvall–Plass–Tarjan 1979 的判定——$x$ 取真当且仅当 $\mathrm{comp}(x)$ 在缩点 DAG 的拓扑序里排在 $\mathrm{comp}(\neg x)$ 之前。同一块内文字同真同假，故块内不能同时有 $x$ 与 $\neg x$。实现上要盯住编号方向：Tarjan 按**逆拓扑序**给块编号——编号小的块先被弹出，在拓扑序里反而靠后——于是「拓扑序在前」翻译成比较就是 $\mathrm{id}[x]\gt \mathrm{id}[\neg x]$ 则 $x$ 真；等价地说，$\mathrm{id}[x]\lt \mathrm{id}[\neg x]$ 则 $x$ 假。两处写的是同一约定，别把 Tarjan 编号当正拓扑序抄。
+可满足时：正确性口径是 Aspvall–Plass–Tarjan 1979 的判定——$x$ 取真当且仅当 $\mathrm{comp}(x)$ 在缩点 DAG 的拓扑序里排在 $\mathrm{comp}(\neg x)$ 之后。同一块内文字同真同假，故块内不能同时有 $x$ 与 $\neg x$。实现上要盯住编号方向：Tarjan 按**逆拓扑序**给块编号——编号小的块先被弹出，在拓扑序里反而靠后——于是「拓扑序在后」翻译成比较就是 $\mathrm{id}[x]\lt \mathrm{id}[\neg x]$ 则 $x$ 真；等价地说，$\mathrm{id}[x]\gt \mathrm{id}[\neg x]$ 则 $x$ 假。两处写的是同一约定，别把 Tarjan 编号当正拓扑序抄。
 
 <span class="marginnote">Aspvall–Plass–Tarjan 1979 把 2-SAT（及若干带量词的变体）收到线性。Horn-SAT 另有单位传播多项式，本课不混。后课欧拉回路换对象：边的遍历，不是文字。</span>
 
@@ -42,7 +42,7 @@ flowchart TD
 
 ## 机制
 
-强连通意味着互相蕴涵：一块里一个真则全体真。$x$ 与 $\neg x$ 同块即推出矛盾。缩点 DAG 无环，故沿 Tarjan 的弹出序（逆拓扑序）「先假后真」地放赋值——每对 $\{x,\neg x\}$ 编号小的取假——不会回头推翻。与[命题逻辑 CNF](/cs/propositional-logic-cnf) 的语义相同，算法换成图。
+强连通意味着互相蕴涵：一块里一个真则全体真。$x$ 与 $\neg x$ 同块即推出矛盾。缩点 DAG 无环，故沿 Tarjan 的弹出序（逆拓扑序）「先真后假」地放赋值——每对 $\{x,\neg x\}$ 编号小的取真——不会回头推翻。与[命题逻辑 CNF](/cs/propositional-logic-cnf) 的语义相同，算法换成图。
 
 单个子句如何翻成两条蕴涵边、矛盾如何沿边传导：
 

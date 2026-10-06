@@ -7,7 +7,7 @@ section: cs
 # Borůvka 与次小生成树
 
 <div class="epigraph">
-<p>每个连通块同时抓住出块最轻边，一轮收缩；次小生成树则在 MST 上换一条边：树上路径最大边与非树边的最小正替换。</p>
+<p>每个连通块同时抓住出块最轻边，一轮收缩；次小生成树则在 MST 上换一条边：树上路径最大边与非树边的最小非负替换。</p>
 <footer>—— 据 Borůvka, 1926；Tarjan, Sensitivity Analysis of Minimum Spanning Trees, 1982；CLRS 第 23 章整理</footer>
 </div>
 
@@ -17,7 +17,7 @@ section: cs
 
 Borůvka：初始每个点一块。同步：每块选一条跨块最轻边（平权要定规则以免环）。加入这些边，收缩。至多 $O(\log n)$ 轮，每轮 $O(E)$，总 $O(E\log V)$。适合并行；也是 Prim/Kruskal 之外第三种经典 MST。
 
-次小：在 MST $T$ 上，对每条非树边 $(u,v)$，替换 $T$ 上 $u$–$v$ 路径的最大边，得到另一棵生成树。所有这种替换里权和最小者即（严格）次小——若要求边集不同，平权时可能要次小替换。实现：树上倍增维护路径 $\max$，扫非树边 $O(E\log V)$。
+次小：在 MST $T$ 上，对每条非树边 $(u,v)$，替换 $T$ 上 $u$–$v$ 路径的最大边，得到另一棵生成树。所有这种替换里权和最小者即次小——边集与 $T$ 不同，权和允许仍等于 $w(T)$；若要权和严格大于 $w(T)$，平权时才要改删路径的次大边。实现：树上倍增维护路径 $\max$，扫非树边 $O(E\log V)$。
 
 缺口是「换一条边」，不是再求 MST。
 
@@ -31,7 +31,7 @@ Borůvka：初始每个点一块。同步：每块选一条跨块最轻边（平
 
 ## 方法
 
-MST：Borůvka 或沿用 Kruskal。次小：先 MST；预处理树路径 $\max$；枚举非树边算 $\Delta=w(e)-\maxPath$；取最小正 $\Delta$ 加上 $w(T)$。$\Delta=0$ 表示有另一棵同权 MST。
+MST：Borůvka 或沿用 Kruskal。次小：先 MST；预处理树路径 $\max$；枚举非树边算 $\Delta=w(e)-\maxPath$；取最小非负 $\Delta$ 加上 $w(T)$。$\Delta=0$ 表示有另一棵同权 MST。
 
 ```mermaid
 flowchart TD
