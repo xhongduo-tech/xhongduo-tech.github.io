@@ -11,7 +11,7 @@ section: litho
 <footer>—— 对照 High-NA/Hyper-NA 讨论中的 DOF、mask 3D、随机与 6.x nm 设想；不重推分辨率公式</footer>
 </div>
 
-[上一课](/litho/fel-euv-source)说明源替代也不免费。缺口是投影光学这条主路的尽头怎么讲。本课钉 Hyper-NA 之后的物理极限，结束替代课序与本批课程。
+[上一课](/litho/fel-euv-source)说明源替代也不免费。缺口是投影光学这条主路的尽头怎么讲。本课钉 Hyper-NA 之后的物理极限，结束替代课序。
 
 ## 问题
 
