@@ -46,8 +46,8 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  MM["T[i] 与 P[q+1] 失配] --> KNOWN[已匹配段 P[1..q] 信息仍在"]
-  KNOWN --> BORDER{"该段的最长 border＜br＞长度是多少？"}
+  MM["T[i] 与 P[q+1] 失配"] --> KNOWN["已匹配段 P[1..q] 信息仍在"]
+  KNOWN --> BORDER{"该段的最长 border<br/>长度是多少？"}
   BORDER -->|"π[q] = 前缀兼后缀的重合长度"| SHIFT["模式滑到 border 对齐文本尾部"]
   SHIFT --> RESUME["继续在同一个 T[i] 上比较"]
   BORDER -->|"π[q] = 0"| ZERO["模式对齐到 T[i] 重新从 P[1] 比"]
