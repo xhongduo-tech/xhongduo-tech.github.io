@@ -41,7 +41,7 @@ flowchart TD
   PART --> ONE["单侧递归 ≤ 7n/10"]
 ```
 
-[Akra–Bazzi](/cs/akra-bazzi) 也能读 $T(n/5)+T(7n/10)+O(n)$：$p=1$ 时积分给出 $\Theta(n)$。课内用替换法即可。
+[Akra–Bazzi](/cs/akra-bazzi) 也能读 $T(n/5)+T(7n/10)+O(n)$：解 $(1/5)^p+(7/10)^p=1$ 得 $p\approx0.84\lt1$，积分给出 $\Theta(n)$。课内用替换法即可。
 
 ## 机制
 
