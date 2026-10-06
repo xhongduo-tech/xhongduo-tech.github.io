@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Miller, 1976；Rabin, 1980；Knuth, TAOCP 卷 2 整理</footer>
 </div>
 
-上一课[二次剩余](/cs/quadratic-residue) 用过 $a^{(p-1)/2}$。费马测试被 Carmichael 欺骗。缺口是 **Miller–Rabin**：强伪素见证。主干随机算法课点名素性，未写数论。本课 Monte Carlo：是素数永不误判为合？否——方向：合数可能被当成素（单侧），重复压错误。AKS 在 P，实践仍用 MR。
+上一课[二次剩余](/cs/quadratic-residue) 用过 $a^{(p-1)/2}$。费马测试被 Carmichael 欺骗。缺口是 **Miller–Rabin**：强伪素见证。主干随机算法课点名素性，未写数论。本课 Monte Carlo：是素数永不误判为合？是——错误方向：合数可能被当成素（单侧），重复压错误。AKS 在 P，实践仍用 MR。
 
 ## 问题
 
