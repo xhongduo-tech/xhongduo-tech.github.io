@@ -25,7 +25,7 @@ section: litho
 
 掩模上的图形尺度是晶圆的四倍，但仍要纳米级 CD 和套准。写的是电子束抗蚀剂，不是 ArF 胶。多束机把时间从图形复杂度里解开，见[多束写掩模](/litho/multibeam-mask-writer)；本课不重复炮数公式，只把它放进流程位置：write 在 blank 之后、etch 之前。
 
-<span class="marginnote">EUV 空白的多层缺陷不能靠后面刻吸收体消掉。blank 检验是独立站，不是光学版的 STARlight 换个名。</span>
+<span class="marginnote">EUV 空白的多层缺陷不能靠后面刻吸收体消掉。blank 检验是独立站，用的是光化 13.5 nm，不是把光学空白检验换个名。</span>
 
 ## 方法
 
