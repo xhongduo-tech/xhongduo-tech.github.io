@@ -25,7 +25,7 @@ section: cs
 
 建立失败可以降频。保持失败与 $T$ 无关，必须加延迟或改路径。把所有时序问题都「把时钟调慢」，保持违规会留下。
 
-<span class="marginnote">Harris 给出带 skew 的建立/保持不等式。时钟偏斜下一课寄存器仍当理想，多域在[时钟域](/cs/clock-domain)才展开。本课先承认 skew 一项。</span>
+<span class="marginnote">Harris 给出带 skew 的建立/保持不等式。时钟偏斜后课寄存器仍当理想，多域在[时钟域](/cs/clock-domain)才展开。本课先承认 skew 一项。</span>
 
 ## 方法
 
