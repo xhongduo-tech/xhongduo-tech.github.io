@@ -43,7 +43,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A["(16,21) maxR=23"] --> B["(8,9) maxR=9"]
+  A["(16,21) maxR=30"] --> B["(8,9) maxR=23"]
   A --> C["(25,30) maxR=30"]
   B --> D["(5,8) maxR=8"]
   B --> E["(15,23) maxR=23"]

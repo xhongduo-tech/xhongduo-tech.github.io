@@ -43,7 +43,7 @@ flowchart TD
   L --> LL["孙节点对 (3, 7)"]
   L --> LR["孙节点对 (4, 6)"]
   R -->|"沿左端读：1 ≤ 2 ≤ 3，min-heap 序"| MIN["get-min 常数时间"]
-  R -->|"沿右端读：99 ≥ 80 ≥ 6，max-heap 序"| MAX["get-max 常数时间"]
+  R -->|"沿右端读：99 ≥ 9 ≥ 6，max-heap 序"| MAX["get-max 常数时间"]
 ```
 
 <span class="marginnote">数字实例：为什么不能「min-heap 加一个 max 变量」凑合——$n=100$ 万时，删掉 max 之后想找新的最大值，只能线性扫描约 100 万个元素，$O(n)$；而 interval heap 上做 delete-max 只要沿一条路径下滤，约 $\log_2 n \approx 20$ 步。</span>
