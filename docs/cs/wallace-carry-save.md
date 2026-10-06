@@ -41,7 +41,7 @@ flowchart TD
 
 层数约为 $\Theta(\log_{1.5} h)$，$h$ 是部分积高度。Booth 降低 $h$，树变浅；两者正交：编码管条数，CSA 管怎么加。
 
-<span class="marginnote">数字实例：压 $h=8$ 层部分积，串行做法要连做 7 次带进位传播的加法；CSA 只需约 $\lceil\log_{1.5} 8\rceil = 5$ 层压缩，再补一次 CLA——延迟从「次数 × 进位链长」变成「对数层 × 单个全加器」。</span>
+<span class="marginnote">数字实例：压 $h=8$ 层部分积，串行做法要连做 7 次带进位传播的加法；CSA 只需约 $\lceil\log_{1.5} 8\rceil = 6$ 层压缩，再补一次 CLA——延迟从「次数 × 进位链长」变成「对数层 × 单个全加器」。</span>
 
 ## 机制
 
