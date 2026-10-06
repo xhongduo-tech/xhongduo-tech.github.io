@@ -19,7 +19,7 @@ $\varphi(n)=|(\mathbb{Z}/n\mathbb{Z})^\times|$。群论：有限群 $x^{|G|}=1$�
 
 <span class="marginnote">数字实例：$\varphi(n)$ 数的是 $1..n$ 中与 $n$ 互素的数有几个。如 $\varphi(12)=4$，因为只有 $1,5,7,11$ 与 12 无公因子；$\varphi(5)=5-1=4$（素数去掉自身）；$n=pq$ 时 $\varphi(15)=2\times4=8$。这一步算对，后面指数约化才有据。</span>
 
-若 $\gcd(a,n)\ne 1$，欧拉不能直接用；$n=pq$ 上对所有 $a$ 仍有 $a^{k\lambda}\equiv a$ 一类恒等式，证明用 CRT，后课。
+若 $\gcd(a,n)\ne 1$，欧拉不能直接用；$n=pq$ 上对所有 $a$ 仍有 $a^{k\lambda+1}\equiv a$ 一类恒等式，证明用 CRT，后课。
 
 ### 不是素性测试
 
@@ -54,7 +54,7 @@ flowchart TD
 
 $\varphi$ 积性：$\gcd(m,n)=1\Rightarrow\varphi(mn)=\varphi(m)\varphi(n)$。公式为后课素数生成铺路。
 
-Carmichael $\lambda(n)=\mathrm{lcm}(\lambda(p^k),\ldots)$，对 $p^k$ 有显式。RSA 用 $\lambda(n)$ 比 $\varphi$ 更小，指数更短。$arphi$ 积性证明用 CRT：模 $mn$ 互素 $\iff$ 两侧都互素。费马小定理的「逆」不能当素性测试，Miller–Rabin 课再拆平方链。
+Carmichael $\lambda(n)=\mathrm{lcm}(\lambda(p^k),\ldots)$，对 $p^k$ 有显式。RSA 用 $\lambda(n)$ 比 $\varphi$ 更小，指数更短。$\varphi$ 积性证明用 CRT：模 $mn$ 互素 $\iff$ 两侧都互素。费马小定理的「逆」不能当素性测试，Miller–Rabin 课再拆平方链。
 
 
 ## 边界

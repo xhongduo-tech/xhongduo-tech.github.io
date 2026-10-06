@@ -33,7 +33,7 @@ section: cs
 flowchart TD
   PX["选 p(x)"] --> IXY["I(X;Y)"]
   IXY --> C["C = max I"]
-  C --> THM["R＜C 可可靠"]
+  C --> THM["R＜C 可靠"]
 ```
 
 ## 机制
