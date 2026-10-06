@@ -8,7 +8,7 @@ section: cs
 
 <div class="epigraph">
   <p>复位要让状态机进已知态，但释放沿必须相对于时钟可预测：异步断言、同步释放是常见折中，否则恢复时间与偏斜会在上电时制造幽灵状态。</p>
-  <footer>—— 据 Cummings, Synthesizable Finite State Machine Design Techniques Using the New SystemVerilog 3.0, SNUG；Harris and Harris, Digital Design and Computer Architecture 整理</footer>
+  <footer>—— 据 Cummings, Synthesizable Finite State Machine Design Techniques Using the New SystemVerilog 3.0 Enhancements, SNUG；Harris and Harris, Digital Design and Computer Architecture 整理</footer>
 </div>
 
 [上一课](/cs/clock-skew-cts)让每个 FF 的时钟到达时间变成数字。复位是另一根全局网：它也要树，也有偏斜。缺口是**复位策略**——异步还是同步、如何释放——否则 STA 的恢复/移除检查与上电行为对不齐。
