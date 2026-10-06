@@ -27,7 +27,7 @@ section: cs
 
 <span class="marginnote">数字实例：`addi x5, x6, -1` 的 12 位立即数是 111111111111。按无符号读它等于 4095，做符号扩展后才是 -1——同一个比特串，只差「把最高位当不当符号」这一条解释规则，数值就天差地别。</span>
 
-<span class="marginnote">Patterson/Hennessy 用一张图列六种格式。RISC-V 刻意让 `rs1`、`rd` 在 I 与 R 中同位，避免译码 MUX 数据路径。本课不把全部 opcode 表抄完，那是下一课整数指令。</span>
+<span class="marginnote">Patterson/Hennessy 用一张图列六种格式。RISC-V 刻意让 `rs1`、`rd` 在 I 与 R 中同位，避免译码 MUX 数据路径。本课不把全部 opcode 表抄完，那是后课整数指令。</span>
 
 ## 方法
 
@@ -65,7 +65,7 @@ flowchart TD
 
 本课不讲微码把复杂指令拆成格式；RISC-V 整数核几乎一条指令一种组合路径。不把 ABI 寄存器别名（`sp`、`ra`）提前到调用约定课以外的语义——别名是约定，字段仍是 5 位编号。
 
-后课默认：指令 32 位，RISC-V 六种格式；寄存器号 5 位，32 个整数寄存器。语义下一课。
+后课默认：指令 32 位，RISC-V 六种格式；寄存器号 5 位，32 个整数寄存器。语义后课。
 
 ## 小结
 

@@ -65,5 +65,5 @@ flowchart TD
 
 - RV32I 给出运算、访存、分支、跳转的确定语义。
 - `x0` 为 0；立即数多数符号扩展。
-- 伪指令不是额外硬件。寄存器堆下一课实现。
+- 伪指令不是额外硬件。寄存器堆后课实现。
 - 出处：Patterson and Hennessy, COD (RISC-V)；RISC-V ISA Manual, Vol. I。

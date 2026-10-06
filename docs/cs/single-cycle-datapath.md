@@ -25,7 +25,7 @@ section: cs
 
 <span class="marginnote">Patterson/Hennessy 第 4 章先单周期再多周期再流水。指令存储器与数据存储器在图上分开（哈佛口），避免同拍取指又 `lw` 单口冲突。</span>
 
-<span class="marginnote">数字实例：设取指 $2\,\mathrm{ns}$、堆读 $1\,\mathrm{ns}$、ALU $2\,\mathrm{ns}$、数据存储器 $2\,\mathrm{ns}$、写回 $1\,\mathrm{ns}$——`lw` 全程串过这些段，周期至少 $8\,\mathrm{ns}$；`add` 只用其中三段约 $6\,\mathrm{ns}$，但**必须**等满 $8\,\mathrm{ns}$ 才能开下一拍。快的在陪慢的走。</span>
+<span class="marginnote">数字实例：设取指 $2\,\mathrm{ns}$、堆读 $1\,\mathrm{ns}$、ALU $2\,\mathrm{ns}$、数据存储器 $2\,\mathrm{ns}$、写回 $1\,\mathrm{ns}$——`lw` 全程串过这些段，周期至少 $8\,\mathrm{ns}$；`add` 只用其中四段约 $6\,\mathrm{ns}$，但**必须**等满 $8\,\mathrm{ns}$ 才能开下一拍。快的在陪慢的走。</span>
 
 <span class="marginnote">初学者容易把「CPI=1」当快。CPI 只数每条指令占几拍；真实速度是 CPI $\times$ $T$。单周期 CPI=1 但 $T$ 巨大，流水线 CPI 仍约 1 却把 $T$ 砍到单段的长度——墙钟时间天差地别。</span>
 
