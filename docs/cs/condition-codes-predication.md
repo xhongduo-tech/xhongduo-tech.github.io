@@ -21,7 +21,7 @@ x86：多数整数运算更新 EFLAGS（ZF/SF/OF/CF）；`jcc` 与 `cmov` 读它
 
 ### 谓词不是「取消分支预测」
 
-长偏置分支仍该跳。谓词消灭的是**短、难预测**的 `if`，并可能拉长数据依赖、多执行两边。<span class="marginnote">初学者容易以为谓词执行是「更聪明的分支预测」，实际上它根本绕开了预测：两条路径都算出来，再用一个布尔值挑答案。好处是永远不会预测错、没有冲刷；坏处是白算了注定不要的那条路——所以只适合两边都便宜的短 `if`。</span>把 NZCV 当预测器状态，下一课 [gshare](/cs/gshare-predictor) 会对不上：预测器看的是分支历史，不是条件码 CSR。
+长偏置分支仍该跳。谓词消灭的是**短、难预测**的 `if`，并可能拉长数据依赖、多执行两边。<span class="marginnote">初学者容易以为谓词执行是「更聪明的分支预测」，实际上它根本绕开了预测：两条路径都算出来，再用一个布尔值挑答案。好处是永远不会预测错、没有冲刷；坏处是白算了注定不要的那条路——所以只适合两边都便宜的短 `if`。</span>把 NZCV 当预测器状态，后课 [gshare](/cs/gshare-predictor) 会对不上：预测器看的是分支历史，不是条件码 CSR。
 
 <span class="marginnote">ARM ARM 的 PSTATE 与 CSEL。Intel SDM 的 Jcc/CMOV 与 EFLAGS。RISC-V 无标志是刻意选择。CA:AQA 讨论谓词与条件移动。</span>
 
