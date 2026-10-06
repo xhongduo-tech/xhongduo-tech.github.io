@@ -67,7 +67,6 @@ flowchart TD
   REG --> PROJ["投影到 MRC"]
   PROJ --> CURV["可写曲线"]
   INV --> FIT["过拟合纹理"]
-  PROJ --> CURV
 ```
 
 ## 边界
