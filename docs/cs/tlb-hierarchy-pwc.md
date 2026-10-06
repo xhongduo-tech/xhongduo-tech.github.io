@@ -17,7 +17,7 @@ section: cs
 
 每个 load 都要 VA→PA。L1 TLB 全相联或小组相联，项数有限。缺失若直接走内存中的页表，[Sv39](/cs/sv39-page-table) 一类要多次依赖访存，MLP 帮不上这条链。缺口不是更大的 L1D，而是**二级 TLB 放大覆盖，以及把页表中间节点缓存在 MMU 旁。**
 
-<span class="marginnote">数字实例：一次 L1 TLB 命中大约 1–2 个周期；而 Sv39 一条 4KiB 映射的完整 walk 要串行读 4 个 PTE，动辄上百周期。差了两个数量级——所以「降低 miss 率」比「把命中做快一点」值钱得多。</span>
+<span class="marginnote">数字实例：一次 L1 TLB 命中大约 1–2 个周期；而 Sv39 一条 4KiB 映射的完整 walk 要串行读 3 个 PTE，动辄上百周期。差了两个数量级——所以「降低 miss 率」比「把命中做快一点」值钱得多。</span>
 
 <span class="marginnote">PWC：缓存非叶 PTE，下一次 walk 可以从中间层开始。Barr–Cox–Rixner 比较了各种 translation cache 的组织。</span>
 

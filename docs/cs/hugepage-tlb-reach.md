@@ -38,7 +38,7 @@ flowchart TD
 
 覆盖：512× 或 262144× 的数量级变化。VIPT：页内位移变长，L1 可以在不引入 [别名](/cs/cache-aliasing) 的前提下做得更大。代价：写保护、COW、NUMA 迁移要以大页为粒度，细粒度保护变难；内部碎片浪费 DRAM。预取与 [行大小](/cs/line-size-sector) 仍按 cache 行，大页不改变 64B 传输。
 
-<span class="marginnote">初学者容易以为大页能让缓存和预取一起提速——实际上 cache 行仍是 64B，预取器照旧按行工作；大页省的只是翻译（TLB 查找和页表遍历），不改变数据在缓存里的布局。内部碎片的账也很好算：为 100 KB 的数组升到 2MiB 大页，约 1.95 MiB 物理内存被白白占住。</span>
+<span class="marginnote">初学者容易以为大页能让缓存和预取一起提速——实际上 cache 行仍是 64B，预取器照旧按行工作；大页省的只是翻译（TLB 查找和页表遍历），不改变数据在缓存里的布局。内部碎片的账也很好算：为 100 KB 的数组升到 2MiB 大页，约 1.9 MiB 物理内存被白白占住。</span>
 
 ```mermaid
 flowchart LR
