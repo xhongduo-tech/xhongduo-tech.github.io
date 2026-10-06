@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Patterson and Hennessy, Computer Organization and Design (RISC-V)；Hennessy and Patterson, CA:AQA 整理</footer>
 </div>
 
-[上一课](/cs/inclusive-exclusive-cache)把 cache 缺失分成三类。Cache 仍用物理或虚拟地址去索引 SRAM，地址空间大小等于程序员看见的 DRAM 窗口时，保护与隔离还没有对象。[特权级](/cs/privilege-rings)已经禁止用户直接碰机器状态，但还没有把「用户的指针」和「DRAM 的行」分开。[局部性原理](/cs/locality-principle)在页这一级同样适用。本课不重讲 cache 标签。缺口是：程序要用的地址空间可以大于物理内存，且各进程必须看不见别人的物理页。本课只钉页、页表与缺页。
+[上一课](/cs/inclusive-exclusive-cache)定下包含或互斥的层次约定，[缺失分类](/cs/cache-miss-types)把 cache 缺失分成三类。Cache 仍用物理或虚拟地址去索引 SRAM，地址空间大小等于程序员看见的 DRAM 窗口时，保护与隔离还没有对象。[特权级](/cs/privilege-rings)已经禁止用户直接碰机器状态，但还没有把「用户的指针」和「DRAM 的行」分开。[局部性原理](/cs/locality-principle)在页这一级同样适用。本课不重讲 cache 标签。缺口是：程序要用的地址空间可以大于物理内存，且各进程必须看不见别人的物理页。本课只钉页、页表与缺页。
 
 ## 问题
 

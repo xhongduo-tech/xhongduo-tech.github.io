@@ -69,5 +69,5 @@ flowchart TD
 
 - 保留站 + 标签 + CDB：就绪即执行，RAW 靠匹配。
 - 与 ROB 叠放才有精确提交。
-- 向量/SIMD 是另一轴并行，下一课才走。
+- 向量/SIMD 是另一轴并行，后课才走。
 - 出处：Tomasulo, *IBM Journal of Research and Development*, 1967；Hennessy and Patterson, *CA:AQA*。

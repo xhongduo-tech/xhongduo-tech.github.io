@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Patterson and Hennessy, Computer Organization and Design (RISC-V)；Hennessy and Patterson, CA:AQA 整理</footer>
 </div>
 
-[上一课](/cs/tlb-translate)让常见翻译停在 TLB。TLB 缺失仍要查页表。[虚拟内存分页](/cs/tlb-translate)把页表写成 VPN 的数组：48 位虚拟地址、4 KiB 页时，单级表有两亿项，不能为每个进程各留一份连续物理数组。本课不重讲 TLB 命中路径。缺口是：页表自己的空间。本课只交出多级页表：VPN 切成几段，逐级索引。
+[上一课](/cs/tlb-translate)让常见翻译停在 TLB。TLB 缺失仍要查页表。[虚拟内存分页](/cs/tlb-translate)把页表写成 VPN 的数组：48 位虚拟地址、4 KiB 页时，单级表有近七百亿项，不能为每个进程各留一份连续物理数组。本课不重讲 TLB 命中路径。缺口是：页表自己的空间。本课只交出多级页表：VPN 切成几段，逐级索引。
 
 ## 问题
 
@@ -69,5 +69,5 @@ flowchart TD
 
 - 单级表按虚拟空间铺开；多级只为有映射的段分配中间页。
 - TLB 缺失代价随级数增加；叶项才进 TLB。
-- 多核下各份副本如何一致，是下一课的缺口。
+- 多核下各份副本如何一致，是后课的缺口。
 - 出处：Patterson and Hennessy, *COD* RISC-V；Hennessy and Patterson, *CA:AQA*。

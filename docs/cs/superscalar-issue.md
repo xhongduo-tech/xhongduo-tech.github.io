@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Hennessy and Patterson, Computer Architecture: A Quantitative Approach 整理</footer>
 </div>
 
-[上一课](/cs/coherence-intro)指出多副本尚未有协议，但单核流水线的 CPI 公式已经够用。[CPI 与阿姆达尔](/cs/coherence-intro)把理想项钉在 1。[流水线五级](/cs/pipeline-five-stage)每拍推进一级、每拍取一条。本课不重讲转发。缺口是：指令级并行若存在，硬件每拍仍只发射一条，吞吐封顶。本课只交出超标量：每拍译码并发射最多 $W$ 条，理想 CPI 变成 $1/W$。一致性协议仍未实现，本课不靠多核。
+[上一课](/cs/coherence-intro)指出多副本尚未有协议，但单核流水线的 CPI 公式已经够用。[CPI 与阿姆达尔](/cs/cpi-amdahl)把理想项钉在 1。[流水线五级](/cs/pipeline-five-stage)每拍推进一级、每拍取一条。本课不重讲转发。缺口是：指令级并行若存在，硬件每拍仍只发射一条，吞吐封顶。本课只交出超标量：每拍译码并发射最多 $W$ 条，理想 CPI 变成 $1/W$。一致性协议仍未实现，本课不靠多核。
 
 ## 问题
 
