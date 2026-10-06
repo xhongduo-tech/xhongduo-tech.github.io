@@ -43,7 +43,7 @@ flowchart TD
   BR["分支预测给出下一块 IP"] --> LOOK{"uop cache 命中?"}
   LOOK -->|缺失| MIT["MITE 慢路径译码"]
   MIT --> RES["本拍供给大幅下降"]
-  LOOK -->|命中| EDGE{"行内下一个边界＜br/＞是分支?"}
+  LOOK -->|命中| EDGE{"行内下一个边界<br/>是分支?"}
   EDGE -->|否| POPS["整行连续弹出至端口宽度"]
   POPS --> RN["送重命名"]
   EDGE -->|是| PR{"预测对了吗?"}
