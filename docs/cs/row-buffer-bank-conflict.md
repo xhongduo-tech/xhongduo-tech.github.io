@@ -70,7 +70,7 @@ flowchart TD
 
 ## 小结
 
-- 行缓冲保存打开行；命中、空闲、冲突延迟差一个数量级。
+- 行缓冲保存打开行；命中、空闲、冲突延迟差数倍。
 - 多 bank 交错掩盖冲突；策略在打开/关闭页之间选。
 - 不是 CPU cache。
 - 出处：JEDEC DDR 时序；Hennessy and Patterson, CA:AQA。
