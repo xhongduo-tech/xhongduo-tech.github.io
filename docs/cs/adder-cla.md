@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Harris and Harris, Digital Design and Computer Architecture；Patterson and Hennessy, Computer Organization and Design (RISC-V) 整理</footer>
 </div>
 
-上一课[译码器与编码器](/cs/decoder-encoder)钉死了编号与独热的组合块。[进制](/cs/decoder-encoder)已要求同权位相加。本课不重讲位权，也不从补码溢出判定再证一遍。缺口是：**加法电路**的结构与延迟——行波太慢，超前进位用生成/传播把进位变成两级组合。
+上一课[译码器与编码器](/cs/decoder-encoder)钉死了编号与独热的组合块。[进制](/cs/positional-notation)已要求同权位相加。本课不重讲位权，也不从补码溢出判定再证一遍。缺口是：**加法电路**的结构与延迟——行波太慢，超前进位用生成/传播把进位变成两级组合。
 
 ## 问题
 

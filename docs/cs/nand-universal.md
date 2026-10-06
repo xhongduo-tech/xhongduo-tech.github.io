@@ -11,11 +11,11 @@ section: cs
 <footer>—— 据 Harris and Harris, Digital Design and Computer Architecture；Shannon, 1938 整理</footer>
 </div>
 
-上一课[CMOS 反相器](/cs/cmos-inverter)钉死了非的硅实现。本课不重画转移曲线，也不从布尔公理再证一遍交换律。[布尔代数](/cs/cmos-inverter)已有与或非；缺口是：**哪些门集合能实现全部布尔函数**，以及 CMOS 上与非为何是自然的万能门。
+上一课[CMOS 反相器](/cs/cmos-inverter)钉死了非的硅实现。本课不重画转移曲线，也不从布尔公理再证一遍交换律。[布尔代数](/cs/boolean-algebra)已有与或非；缺口是：**哪些门集合能实现全部布尔函数**，以及 CMOS 上与非为何是自然的万能门。
 
 ## 问题
 
-反相器只有一输入。任意 $n$ 元函数需要能表达与、或、非中的全体——上一课布尔已证三者完备。缺口是实现：CMOS 把串联 nMOS、并联 pMOS 做成与非，对偶做成或非，比「与再加非」少一级。NAND（或 NOR）单独完备：$\bar x = x\,\mathrm{NAND}\,x$，与、或由此拼出。
+反相器只有一输入。任意 $n$ 元函数需要能表达与、或、非中的全体——布尔课已证三者完备。缺口是实现：CMOS 把串联 nMOS、并联 pMOS 做成与非，对偶做成或非，比「与再加非」少一级。NAND（或 NOR）单独完备：$\bar x = x\,\mathrm{NAND}\,x$，与、或由此拼出。
 
 <span class="marginnote">术语翻译：「功能完备」就是一套门能拼出全部布尔函数，不多不少。全用 NAND 拼三种基本门的口诀只有三句——非：两端接同一个输入；与：先 NAND 一次再自反一次；或：把两个输入各自先取反，再做 NAND（这正是 De Morgan 律搬到器件上）。</span>
 
