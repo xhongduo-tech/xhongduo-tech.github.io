@@ -11,7 +11,7 @@ section: cs
 <footer>—— 据 Pollard, A Monte Carlo Method for Factorization, 1975；CLRS 第 31.9 节整理</footer>
 </div>
 
-上一课[BSGS](/cs/bsgs)在阶已知的群里根号搜离散对数；本课对象换成合数 $n$，目标是求非平凡因子。试除要 $O(\sqrt n)$，$n$ 上到几十位就不可行。缺口是 Pollard rho：把生日悖论搬到因子 $p$ 的环上找碰撞。<span class="marginnote">生日悖论直觉：一个房间只需约 $\sqrt{365}\approx 19$ 人，就有过半概率两人同生日——随机取值之间发生碰撞远比想象快。rho 正是利用这一点：随机迭代约 $\sqrt p$ 步就可能撞出两个模 $p$ 相同的值，而不是把 $p$ 个值挨个试完。</span>本课不重写 Miller–Rabin 素性；后课 Lucas 换回组合数。
+上一课[BSGS](/cs/bsgs)在阶已知的群里根号搜离散对数；本课对象换成合数 $n$，目标是求非平凡因子。试除要 $O(\sqrt n)$，$n$ 上到几十位就不可行。缺口是 Pollard rho：把生日悖论搬到因子 $p$ 的环上找碰撞。<span class="marginnote">生日悖论直觉：一个房间只需约 $1.2\sqrt{365}\approx 23$ 人，就有过半概率两人同生日——随机取值之间发生碰撞远比想象快。rho 正是利用这一点：随机迭代约 $\sqrt p$ 步就可能撞出两个模 $p$ 相同的值，而不是把 $p$ 个值挨个试完。</span>本课不重写 Miller–Rabin 素性；后课 Lucas 换回组合数。
 
 ## 问题
 

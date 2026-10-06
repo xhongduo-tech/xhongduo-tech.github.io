@@ -19,7 +19,7 @@ $n=\sum n_i p^i$，$m=\sum m_i p^i$，$0\le n_i,m_i\lt p$。Lucas：$\binom{n}{m
 
 缺口是进制拆分，不是 Lucas 数列——同名不同物。模 $p^k$ 要用更强的推广（Kummer 定理、广义 Lucas），本课点名即可。
 
-<span class="marginnote">数字实例：$p=3$，$n=13$，$m=5$。$13=(111)_3$，$5=(012)_3$，于是 $\binom{13}{5}\equiv\binom{1}{0}\binom{1}{1}\binom{1}{2}\equiv 1\times 1\times 0=0\pmod 3$——最高位 $1\lt 2$ 不够拿，整体归零，连乘都不用算完。</span>
+<span class="marginnote">数字实例：$p=3$，$n=13$，$m=5$。$13=(111)_3$，$5=(012)_3$，于是 $\binom{13}{5}\equiv\binom{1}{0}\binom{1}{1}\binom{1}{2}\equiv 1\times 1\times 0=0\pmod 3$——最低位 $1\lt 2$ 不够拿，整体归零，连乘都不用算完。</span>
 
 ### 不是中国剩余定理本身
 

@@ -21,7 +21,7 @@ section: cs
 
 ### 不是整数规划
 
-顶点可以分数。整数约束下一课分支定界。不要把单纯形当 ILP 求解器。
+顶点可以分数。整数约束后课分支定界。不要把单纯形当 ILP 求解器。
 
 <span class="marginnote">Dantzig 单纯形。CLRS 29。Klee–Minty 1972 指数实例。后课弱对偶、强对偶、互补松弛。</span>
 

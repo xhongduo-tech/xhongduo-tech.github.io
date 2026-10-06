@@ -23,7 +23,7 @@ $\varphi(n)=n\prod_{p\mid n}(1-1/p)$。$\mu(n)=0$ 若平方因子，否则 $(-1)
 
 $\mu$ 由素因子个数决定，筛出来是确定的。后课反演才用卷积逆。
 
-<span class="marginnote">CLRS 31.3–31.4 欧拉函数。Möbius 反演下一课专讲，本课先定义。后课离散对数假定知道阶。</span>
+<span class="marginnote">CLRS 31.3–31.4 欧拉函数。Möbius 反演后课专讲，本课先定义。后课离散对数假定知道阶。</span>
 
 ## 方法
 
@@ -58,7 +58,7 @@ flowchart TD
 
 ## 边界
 
-本课不写杜教筛、不写 Dirichlet L。后课默认：$\varphi$、$\mu$ 可线性筛；$\mu$ 是卷积单位的逆。下一课 BSGS 离散对数。
+本课不写杜教筛、不写 Dirichlet L。后课默认：$\varphi$、$\mu$ 可线性筛；$\mu$ 是常数 $1$ 的卷积逆。下一课 BSGS 离散对数。
 
 <span class="marginnote">常见误区：初学者容易把 $\varphi(n)$ 记成「小于 $n$ 的素数个数」——它数的是与 $n$ 互素的数。也别把积性记成对任意 $m,n$ 成立：必须互素才行，例如 $\varphi(2)\varphi(2)=1$，而 $\varphi(4)=2$，两者并不相等。</span>
 
